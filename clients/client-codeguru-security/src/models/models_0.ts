@@ -200,7 +200,7 @@ export interface BatchGetFindingsError {
    * @public
    * <p>A code associated with the type of error.</p>
    */
-  errorCode: ErrorCode | string | undefined;
+  errorCode: ErrorCode | undefined;
 
   /**
    * @public
@@ -456,7 +456,7 @@ export interface Finding {
    * @public
    * <p>The status of the finding. A finding status can be open or closed. </p>
    */
-  status?: Status | string;
+  status?: Status;
 
   /**
    * @public
@@ -474,7 +474,7 @@ export interface Finding {
    * @public
    * <p>The severity of the finding.</p>
    */
-  severity?: Severity | string;
+  severity?: Severity;
 
   /**
    * @public
@@ -659,7 +659,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>The reason the request failed validation.</p>
    */
-  reason: ValidationExceptionReason | string | undefined;
+  reason: ValidationExceptionReason | undefined;
 
   /**
    * @public
@@ -812,7 +812,7 @@ export interface CreateScanRequest {
    *       analyze your code in near-real time. <code>Standard</code> scans have standard resource limits
    *       and use the full set of detectors to analyze your code.</p>
    */
-  scanType?: ScanType | string;
+  scanType?: ScanType;
 
   /**
    * @public
@@ -821,7 +821,7 @@ export interface CreateScanRequest {
    *       findings related to security. The <code>All</code> type generates both security findings and
    *       quality findings. Defaults to <code>Security</code> type if missing.</p>
    */
-  analysisType?: AnalysisType | string;
+  analysisType?: AnalysisType;
 
   /**
    * @public
@@ -884,7 +884,7 @@ export interface CreateScanResponse {
    * <p>The current state of the scan. Returns either <code>InProgress</code>,
    *       <code>Successful</code>, or <code>Failed</code>.</p>
    */
-  scanState: ScanState | string | undefined;
+  scanState: ScanState | undefined;
 
   /**
    * @public
@@ -1035,7 +1035,7 @@ export interface GetFindingsRequest {
    * <p>The status of the findings you want to get. Pass either <code>Open</code>,
    *       <code>Closed</code>, or <code>All</code>.</p>
    */
-  status?: Status | string;
+  status?: Status;
 }
 
 /**
@@ -1195,7 +1195,7 @@ export interface GetScanResponse {
    * <p>The current state of the scan. Pass either <code>InProgress</code>,
    *       <code>Successful</code>, or <code>Failed</code>.</p>
    */
-  scanState: ScanState | string | undefined;
+  scanState: ScanState | undefined;
 
   /**
    * @public
@@ -1210,7 +1210,7 @@ export interface GetScanResponse {
    *       findings related to security. The <code>All</code> type generates both security findings and
    *       quality findings.</p>
    */
-  analysisType: AnalysisType | string | undefined;
+  analysisType: AnalysisType | undefined;
 
   /**
    * @public
@@ -1316,7 +1316,7 @@ export interface ScanSummary {
    * <p>The state of the scan. A scan can be <code>In Progress</code>,
    *       <code>Complete</code>, or <code>Failed</code>. </p>
    */
-  scanState: ScanState | string | undefined;
+  scanState: ScanState | undefined;
 
   /**
    * @public

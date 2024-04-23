@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateDeploymentStrategyRequest, DeploymentStrategy } from "../models/models_0";
 import { de_CreateDeploymentStrategyCommand, se_CreateDeploymentStrategyCommand } from "../protocols/Aws_restJson1";
 
@@ -85,6 +77,17 @@ export interface CreateDeploymentStrategyCommandOutput extends DeploymentStrateg
  * @throws {@link InternalServerException} (server fault)
  *  <p>There was an internal failure in the AppConfig service.</p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The number of one more AppConfig resources exceeds the maximum allowed. Verify that your
+ *          environment doesn't exceed the following service quotas:</p>
+ *          <p>Applications: 100 max</p>
+ *          <p>Deployment strategies: 20 max</p>
+ *          <p>Configuration profiles: 100 max per application</p>
+ *          <p>Environments: 20 max per application</p>
+ *          <p>To resolve this issue, you can delete one or more resources and try again. Or, you can
+ *          request a quota increase. For more information about quotas and to request an increase, see
+ *             <a href="https://docs.aws.amazon.com/general/latest/gr/appconfig.html#limits_appconfig">Service quotas for AppConfig</a> in the Amazon Web Services General Reference.</p>
+ *
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
@@ -114,79 +117,26 @@ export interface CreateDeploymentStrategyCommandOutput extends DeploymentStrateg
  * ```
  *
  */
-export class CreateDeploymentStrategyCommand extends $Command<
-  CreateDeploymentStrategyCommandInput,
-  CreateDeploymentStrategyCommandOutput,
-  AppConfigClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateDeploymentStrategyCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AppConfigClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateDeploymentStrategyCommandInput, CreateDeploymentStrategyCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateDeploymentStrategyCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "AppConfigClient";
-    const commandName = "CreateDeploymentStrategyCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateDeploymentStrategyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateDeploymentStrategyCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDeploymentStrategyCommandOutput> {
-    return de_CreateDeploymentStrategyCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateDeploymentStrategyCommand extends $Command
+  .classBuilder<
+    CreateDeploymentStrategyCommandInput,
+    CreateDeploymentStrategyCommandOutput,
+    AppConfigClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonAppConfig", "CreateDeploymentStrategy", {})
+  .n("AppConfigClient", "CreateDeploymentStrategyCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateDeploymentStrategyCommand)
+  .de(de_CreateDeploymentStrategyCommand)
+  .build() {}

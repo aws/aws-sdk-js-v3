@@ -1,20 +1,12 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { UpdateContactFlowNameRequest, UpdateContactFlowNameResponse } from "../models/models_1";
+import { commonParams } from "../endpoint/EndpointParameters";
+import { UpdateContactFlowNameRequest, UpdateContactFlowNameResponse } from "../models/models_2";
 import { de_UpdateContactFlowNameCommand, se_UpdateContactFlowNameCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -85,79 +77,26 @@ export interface UpdateContactFlowNameCommandOutput extends UpdateContactFlowNam
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
-export class UpdateContactFlowNameCommand extends $Command<
-  UpdateContactFlowNameCommandInput,
-  UpdateContactFlowNameCommandOutput,
-  ConnectClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateContactFlowNameCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ConnectClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateContactFlowNameCommandInput, UpdateContactFlowNameCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateContactFlowNameCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ConnectClient";
-    const commandName = "UpdateContactFlowNameCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateContactFlowNameCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateContactFlowNameCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateContactFlowNameCommandOutput> {
-    return de_UpdateContactFlowNameCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateContactFlowNameCommand extends $Command
+  .classBuilder<
+    UpdateContactFlowNameCommandInput,
+    UpdateContactFlowNameCommandOutput,
+    ConnectClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonConnectService", "UpdateContactFlowName", {})
+  .n("ConnectClient", "UpdateContactFlowNameCommand")
+  .f(void 0, void 0)
+  .ser(se_UpdateContactFlowNameCommand)
+  .de(de_UpdateContactFlowNameCommand)
+  .build() {}

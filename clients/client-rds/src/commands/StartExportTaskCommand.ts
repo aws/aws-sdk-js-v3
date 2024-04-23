@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ExportTask } from "../models/models_0";
 import { StartExportTaskMessage } from "../models/models_1";
 import { de_StartExportTaskCommand, se_StartExportTaskCommand } from "../protocols/Aws_query";
@@ -39,7 +31,7 @@ export interface StartExportTaskCommandOutput extends ExportTask, __MetadataBear
  * @public
  * <p>Starts an export of DB snapshot or DB cluster data to Amazon S3.
  *             The provided IAM role must have access to the S3 bucket.</p>
- *          <p>You can't export snapshot data from RDS Custom DB instances.</p>
+ *          <p>You can't export snapshot data from Db2 or RDS Custom DB instances.</p>
  *          <p>You can't export cluster data from Multi-AZ DB clusters.</p>
  *          <p>For more information on exporting DB snapshot data, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ExportSnapshot.html">Exporting DB snapshot
@@ -163,79 +155,26 @@ export interface StartExportTaskCommandOutput extends ExportTask, __MetadataBear
  * ```
  *
  */
-export class StartExportTaskCommand extends $Command<
-  StartExportTaskCommandInput,
-  StartExportTaskCommandOutput,
-  RDSClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StartExportTaskCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RDSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StartExportTaskCommandInput, StartExportTaskCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartExportTaskCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RDSClient";
-    const commandName = "StartExportTaskCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StartExportTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartExportTaskCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartExportTaskCommandOutput> {
-    return de_StartExportTaskCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class StartExportTaskCommand extends $Command
+  .classBuilder<
+    StartExportTaskCommandInput,
+    StartExportTaskCommandOutput,
+    RDSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonRDSv19", "StartExportTask", {})
+  .n("RDSClient", "StartExportTaskCommand")
+  .f(void 0, void 0)
+  .ser(se_StartExportTaskCommand)
+  .de(de_StartExportTaskCommand)
+  .build() {}

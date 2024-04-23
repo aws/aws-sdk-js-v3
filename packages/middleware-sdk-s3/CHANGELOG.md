@@ -3,6 +3,258 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.499.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.498.0...v3.499.0) (2024-01-24)
+
+
+### Features
+
+* **credential-provider-node:** use dynamic import for credential providers ([#5698](https://github.com/aws/aws-sdk-js-v3/issues/5698)) ([1452cd4](https://github.com/aws/aws-sdk-js-v3/commit/1452cd459467d2462610929d3f5f293d85e07306))
+
+
+
+
+
+# [3.496.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.495.0...v3.496.0) (2024-01-19)
+
+
+### Bug Fixes
+
+* get full list of exports for esm compat in dist-cjs ([#5694](https://github.com/aws/aws-sdk-js-v3/issues/5694)) ([5d26da6](https://github.com/aws/aws-sdk-js-v3/commit/5d26da6d07b593ae286ca674fb3cbff7c833cbb0))
+* revert "feat(credential-provider-node): use dynamic import for credential providers ([#5677](https://github.com/aws/aws-sdk-js-v3/issues/5677))" ([4cea583](https://github.com/aws/aws-sdk-js-v3/commit/4cea5837eea17e0b75dd272af60f3069f94d962e))
+
+
+### Features
+
+* **credential-provider-node:** use dynamic import for credential providers ([#5677](https://github.com/aws/aws-sdk-js-v3/issues/5677)) ([7841411](https://github.com/aws/aws-sdk-js-v3/commit/7841411ed9c941f3150b02d232e947c3984cfdd9))
+
+
+
+
+
+# [3.495.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.494.0...v3.495.0) (2024-01-18)
+
+
+### Features
+
+* use bundled dist-cjs build ([#5687](https://github.com/aws/aws-sdk-js-v3/issues/5687)) ([5f79e22](https://github.com/aws/aws-sdk-js-v3/commit/5f79e225e32f0b2ed5b432ae4e4108663eb0acfb))
+
+
+
+
+
+# [3.489.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.488.0...v3.489.0) (2024-01-10)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-s3
+
+
+
+
+
+# [3.485.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.484.0...v3.485.0) (2024-01-03)
+
+
+### Features
+
+* **credential-providers:** add credentialScope field ([#5606](https://github.com/aws/aws-sdk-js-v3/issues/5606)) ([04c1459](https://github.com/aws/aws-sdk-js-v3/commit/04c14592898ac63ed87d47f2a53320ccaa991083))
+
+
+
+
+
+# [3.484.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.483.0...v3.484.0) (2023-12-29)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-s3
+
+
+
+
+
+# [3.481.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.480.0...v3.481.0) (2023-12-26)
+
+
+### Features
+
+* codegen for command class builder ([#5604](https://github.com/aws/aws-sdk-js-v3/issues/5604)) ([4835de4](https://github.com/aws/aws-sdk-js-v3/commit/4835de4ebb8f302ae1e838ac1efaf5f12384910d))
+
+
+
+
+
+# [3.474.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.473.0...v3.474.0) (2023-12-14)
+
+
+### Bug Fixes
+
+* **middleware-sdk-s3:** safely access nested properties for error ([#5580](https://github.com/aws/aws-sdk-js-v3/issues/5580)) ([013665e](https://github.com/aws/aws-sdk-js-v3/commit/013665e184937c224008195fda10ea1cc5c49109))
+
+
+
+
+
+# [3.470.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.469.0...v3.470.0) (2023-12-08)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-s3
+
+
+
+
+
+# [3.468.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.467.0...v3.468.0) (2023-12-06)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-s3
+
+
+
+
+
+# [3.465.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.464.0...v3.465.0) (2023-12-01)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-s3
+
+
+
+
+
+# [3.461.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.460.0...v3.461.0) (2023-11-28)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-s3
+
+
+
+
+
+# [3.460.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.459.0...v3.460.0) (2023-11-28)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-s3
+
+
+
+
+
+# [3.451.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.450.0...v3.451.0) (2023-11-14)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-s3
+
+
+
+
+
+# [3.449.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.448.0...v3.449.0) (2023-11-10)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-s3
+
+
+
+
+
+# [3.440.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.439.0...v3.440.0) (2023-10-31)
+
+
+### Bug Fixes
+
+* **middleware-sdk-s3:** remove error name check to allow for region redirect for HEAD operations ([#5425](https://github.com/aws/aws-sdk-js-v3/issues/5425)) ([eed5dcc](https://github.com/aws/aws-sdk-js-v3/commit/eed5dcc61b070c335f7597cb8dd5d52105e2ef36))
+
+
+
+
+
+# [3.433.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.432.0...v3.433.0) (2023-10-20)
+
+
+### Bug Fixes
+
+* **codegen:** use partial record for enum keyed types ([#5391](https://github.com/aws/aws-sdk-js-v3/issues/5391)) ([70c2107](https://github.com/aws/aws-sdk-js-v3/commit/70c2107b970d035bfedb211278c88fdbfc2e5334))
+
+
+
+
+
+# [3.429.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.428.0...v3.429.0) (2023-10-16)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-s3
+
+
+
+
+
+# [3.428.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.427.0...v3.428.0) (2023-10-12)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-s3
+
+
+
+
+
+# [3.427.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.426.0...v3.427.0) (2023-10-06)
+
+
+### Features
+
+* **middleware-sdk-s3:** add middleware for following region redirects ([#5185](https://github.com/aws/aws-sdk-js-v3/issues/5185)) ([6e139f7](https://github.com/aws/aws-sdk-js-v3/commit/6e139f78cfe50c51f5a693f24a6c45088cdb29cd))
+
+
+
+
+
+# [3.425.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.424.0...v3.425.0) (2023-10-04)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-s3
+
+
+
+
+
+# [3.418.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.417.0...v3.418.0) (2023-09-22)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-s3
+
+
+
+
+
+# [3.414.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.413.0...v3.414.0) (2023-09-15)
+
+
+### Bug Fixes
+
+* **middleware-sdk-s3:** use console warn if logger is no-op ([#5222](https://github.com/aws/aws-sdk-js-v3/issues/5222)) ([db97698](https://github.com/aws/aws-sdk-js-v3/commit/db976982216262e3366e863e2c8b7eb69269edfb))
+
+
+
+
+
+# [3.413.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.412.0...v3.413.0) (2023-09-14)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-s3
+
+
+
+
+
+# [3.410.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.409.0...v3.410.0) (2023-09-11)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-s3
+
+
+
+
+
+# [3.408.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.407.0...v3.408.0) (2023-09-07)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-s3
+
+
+
+
+
+# [3.398.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.397.0...v3.398.0) (2023-08-23)
+
+**Note:** Version bump only for package @aws-sdk/middleware-sdk-s3
+
+
+
+
+
 # [3.391.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.390.0...v3.391.0) (2023-08-14)
 
 **Note:** Version bump only for package @aws-sdk/middleware-sdk-s3

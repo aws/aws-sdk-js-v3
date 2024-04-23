@@ -37,6 +37,21 @@ export interface AdvancedBackupSetting {
 
 /**
  * @public
+ * @enum
+ */
+export const AggregationPeriod = {
+  FOURTEEN_DAYS: "FOURTEEN_DAYS",
+  ONE_DAY: "ONE_DAY",
+  SEVEN_DAYS: "SEVEN_DAYS",
+} as const;
+
+/**
+ * @public
+ */
+export type AggregationPeriod = (typeof AggregationPeriod)[keyof typeof AggregationPeriod];
+
+/**
+ * @public
  * <p>The required resource already exists.</p>
  */
 export class AlreadyExistsException extends __BaseException {
@@ -209,7 +224,7 @@ export interface BackupJob {
    * @public
    * <p>The current state of a backup job.</p>
    */
-  State?: BackupJobState | string;
+  State?: BackupJobState;
 
   /**
    * @public
@@ -320,6 +335,128 @@ export interface BackupJob {
    *          belongs to the specified backup.</p>
    */
   ResourceName?: string;
+
+  /**
+   * @public
+   * <p>This is the date on which the backup
+   *          job was initiated.</p>
+   */
+  InitiationDate?: Date;
+
+  /**
+   * @public
+   * <p>This parameter is the job count for the specified
+   *          message category.</p>
+   *          <p>Example strings may include <code>AccessDenied</code>,
+   *       <code>SUCCESS</code>, <code>AGGREGATE_ALL</code>, and
+   *       <code>INVALIDPARAMETERS</code>. See
+   *          <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">Monitoring</a>
+   *          for a list of MessageCategory strings.</p>
+   *          <p>The the value ANY returns count of all message categories.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          for all message categories and returns the sum.</p>
+   */
+  MessageCategory?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const BackupJobStatus = {
+  ABORTED: "ABORTED",
+  ABORTING: "ABORTING",
+  AGGREGATE_ALL: "AGGREGATE_ALL",
+  ANY: "ANY",
+  COMPLETED: "COMPLETED",
+  CREATED: "CREATED",
+  EXPIRED: "EXPIRED",
+  FAILED: "FAILED",
+  PARTIAL: "PARTIAL",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+} as const;
+
+/**
+ * @public
+ */
+export type BackupJobStatus = (typeof BackupJobStatus)[keyof typeof BackupJobStatus];
+
+/**
+ * @public
+ * <p>This is a summary of jobs created
+ *          or running within the most recent 30 days.</p>
+ *          <p>The returned summary may contain the following:
+ *          Region, Account, State, RestourceType, MessageCategory,
+ *          StartTime, EndTime, and Count of included jobs.</p>
+ */
+export interface BackupJobSummary {
+  /**
+   * @public
+   * <p>The Amazon Web Services Regions within the job summary.</p>
+   */
+  Region?: string;
+
+  /**
+   * @public
+   * <p>The account ID that owns the jobs within the summary.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>This value is job count for jobs
+   *          with the specified state.</p>
+   */
+  State?: BackupJobStatus;
+
+  /**
+   * @public
+   * <p>This value is the job count for the specified resource type.
+   *          The request <code>GetSupportedResourceTypes</code> returns
+   *          strings for supported resource types.</p>
+   */
+  ResourceType?: string;
+
+  /**
+   * @public
+   * <p>This parameter is the job count for the specified
+   *          message category.</p>
+   *          <p>Example strings include <code>AccessDenied</code>,
+   *          <code>Success</code>, and <code>InvalidParameters</code>. See
+   *          <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">Monitoring</a>
+   *          for a list of MessageCategory strings.</p>
+   *          <p>The the value ANY returns count of all message categories.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          for all message categories and returns the sum.</p>
+   */
+  MessageCategory?: string;
+
+  /**
+   * @public
+   * <p>The value as a number of jobs in a job summary.</p>
+   */
+  Count?: number;
+
+  /**
+   * @public
+   * <p>The value of time in number format of a job start time.</p>
+   *          <p>This value is the time in Unix format, Coordinated Universal Time (UTC), and accurate to
+   *          milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018
+   *          12:11:30.087 AM.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * @public
+   * <p>The value of time in number format of a job end time.</p>
+   *          <p>This value is the time in Unix format, Coordinated Universal Time (UTC), and accurate to
+   *          milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018
+   *          12:11:30.087 AM.</p>
+   */
+  EndTime?: Date;
 }
 
 /**
@@ -349,6 +486,14 @@ export interface Lifecycle {
    *          greater than 90 days plus <code>MoveToColdStorageAfterDays</code>.</p>
    */
   DeleteAfterDays?: number;
+
+  /**
+   * @public
+   * <p>Optional Boolean. If this is true, this setting will
+   *          instruct your backup plan to transition supported resources to
+   *          archive (cold) storage tier in accordance with your lifecycle settings.</p>
+   */
+  OptInToArchiveForSupportedResources?: boolean;
 }
 
 /**
@@ -477,6 +622,13 @@ export interface BackupRule {
    *          (or not specified) causes Backup to create snapshot backups.</p>
    */
   EnableContinuousBackup?: boolean;
+
+  /**
+   * @public
+   * <p>This is the timezone in which the schedule expression is set. By default,
+   *          ScheduleExpressions are in UTC. You can modify this to a specified timezone.</p>
+   */
+  ScheduleExpressionTimezone?: string;
 }
 
 /**
@@ -596,6 +748,13 @@ export interface BackupRuleInput {
    *          (or not specified) causes Backup to create snapshot backups.</p>
    */
   EnableContinuousBackup?: boolean;
+
+  /**
+   * @public
+   * <p>This is the timezone in which the schedule expression is set. By default,
+   *          ScheduleExpressions are in UTC. You can modify this to a specified timezone.</p>
+   */
+  ScheduleExpressionTimezone?: string;
 }
 
 /**
@@ -804,7 +963,7 @@ export interface Condition {
    *                <code>BackupSelection</code>
    *             </a>.</p>
    */
-  ConditionType: ConditionType | string | undefined;
+  ConditionType: ConditionType | undefined;
 
   /**
    * @public
@@ -857,8 +1016,8 @@ export interface BackupSelection {
    * @public
    * <p>A list of conditions that you define to assign resources to your backup plans using
    *          tags. For example, <code>"StringEquals":  \{
-   *             "ConditionKey": "aws:ResourceTag/CreatedByCryo",
-   *             "ConditionValue": "true"
+   *             "Key": "aws:ResourceTag/CreatedByCryo",
+   *             "Value": "true"
    *             \},</code>. Condition
    *          operators are case sensitive.</p>
    *          <p>
@@ -893,8 +1052,8 @@ export interface BackupSelection {
    * @public
    * <p>A list of conditions that you define to assign resources to your backup plans using
    *          tags. For example, <code>"StringEquals":  \{
-   *             "ConditionKey": "aws:ResourceTag/CreatedByCryo",
-   *             "ConditionValue": "true"
+   *             "Key": "aws:ResourceTag/CreatedByCryo",
+   *             "Value": "true"
    *             \},</code>. Condition
    *          operators are case sensitive.</p>
    *          <p>
@@ -1535,7 +1694,7 @@ export interface CopyJob {
    * @public
    * <p>The current state of a copy job.</p>
    */
-  State?: CopyJobState | string;
+  State?: CopyJobState;
 
   /**
    * @public
@@ -1605,7 +1764,7 @@ export interface CopyJob {
    * <p>This returns the statistics of the included
    *          child (nested) copy jobs.</p>
    */
-  ChildJobsInState?: Record<string, number>;
+  ChildJobsInState?: Partial<Record<CopyJobState, number>>;
 
   /**
    * @public
@@ -1613,6 +1772,121 @@ export interface CopyJob {
    *          belongs to the specified backup.</p>
    */
   ResourceName?: string;
+
+  /**
+   * @public
+   * <p>This parameter is the job count for the specified
+   *          message category.</p>
+   *          <p>Example strings may include <code>AccessDenied</code>,
+   *          <code>SUCCESS</code>, <code>AGGREGATE_ALL</code>, and
+   *          <code>InvalidParameters</code>. See
+   *          <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">Monitoring</a>
+   *          for a list of MessageCategory strings.</p>
+   *          <p>The the value ANY returns count of all message categories.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          for all message categories and returns the sum</p>
+   */
+  MessageCategory?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CopyJobStatus = {
+  ABORTED: "ABORTED",
+  ABORTING: "ABORTING",
+  AGGREGATE_ALL: "AGGREGATE_ALL",
+  ANY: "ANY",
+  COMPLETED: "COMPLETED",
+  COMPLETING: "COMPLETING",
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  FAILING: "FAILING",
+  PARTIAL: "PARTIAL",
+  RUNNING: "RUNNING",
+} as const;
+
+/**
+ * @public
+ */
+export type CopyJobStatus = (typeof CopyJobStatus)[keyof typeof CopyJobStatus];
+
+/**
+ * @public
+ * <p>This is a summary of copy jobs created
+ *          or running within the most recent 30 days.</p>
+ *          <p>The returned summary may contain the following:
+ *          Region, Account, State, RestourceType, MessageCategory,
+ *          StartTime, EndTime, and Count of included jobs.</p>
+ */
+export interface CopyJobSummary {
+  /**
+   * @public
+   * <p>This is the Amazon Web Services Regions within the job summary.</p>
+   */
+  Region?: string;
+
+  /**
+   * @public
+   * <p>The account ID that owns the jobs within the summary.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>This value is job count for jobs
+   *          with the specified state.</p>
+   */
+  State?: CopyJobStatus;
+
+  /**
+   * @public
+   * <p>This value is the job count for the specified resource type.
+   *          The request <code>GetSupportedResourceTypes</code> returns
+   *          strings for supported resource types</p>
+   */
+  ResourceType?: string;
+
+  /**
+   * @public
+   * <p>This parameter is the job count for the specified
+   *          message category.</p>
+   *          <p>Example strings include <code>AccessDenied</code>,
+   *          <code>Success</code>, and <code>InvalidParameters</code>. See
+   *          <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">Monitoring</a>
+   *          for a list of MessageCategory strings.</p>
+   *          <p>The the value ANY returns count of all message categories.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          for all message categories and returns the sum.</p>
+   */
+  MessageCategory?: string;
+
+  /**
+   * @public
+   * <p>The value as a number of jobs in a job summary.</p>
+   */
+  Count?: number;
+
+  /**
+   * @public
+   * <p>The value of time in number format of a job start time.</p>
+   *          <p>This value is the time in Unix format, Coordinated Universal Time (UTC), and accurate to
+   *          milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018
+   *          12:11:30.087 AM.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * @public
+   * <p>The value of time in number format of a job end time.</p>
+   *          <p>This value is the time in Unix format, Coordinated Universal Time (UTC), and accurate to
+   *          milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018
+   *          12:11:30.087 AM.</p>
+   */
+  EndTime?: Date;
 }
 
 /**
@@ -1862,9 +2136,7 @@ export interface FrameworkControl {
    * @public
    * <p>The scope of a control. The control scope defines what the control will evaluate. Three
    *          examples of control scopes are: a specific backup plan, all backup plans with a specific
-   *          tag, or all backup plans. For more information, see <a href="aws-backup/latest/devguide/API_ControlScope.html">
-   *                <code>ControlScope</code>.</a>
-   *          </p>
+   *          tag, or all backup plans.</p>
    */
   ControlScope?: ControlScope;
 }
@@ -2067,7 +2339,7 @@ export interface CreateLegalHoldOutput {
    *          Statuses can be <code>ACTIVE</code>, <code>PENDING</code>, <code>CANCELED</code>,
    *          <code>CANCELING</code>, or <code>FAILED</code>.</p>
    */
-  Status?: LegalHoldStatus | string;
+  Status?: LegalHoldStatus;
 
   /**
    * @public
@@ -2120,6 +2392,8 @@ export interface CreateLogicallyAirGappedBackupVaultInput {
   /**
    * @public
    * <p>This is the ID of the creation request.</p>
+   *          <p>This parameter is optional. If used, this parameter must contain
+   *          1 to 50 alphanumeric or '-_.' characters.</p>
    */
   CreatorRequestId?: string;
 
@@ -2198,7 +2472,7 @@ export interface CreateLogicallyAirGappedBackupVaultOutput {
    * @public
    * <p>This is the current state of the vault.</p>
    */
-  VaultState?: VaultState | string;
+  VaultState?: VaultState;
 }
 
 /**
@@ -2400,6 +2674,460 @@ export interface CreateReportPlanOutput {
 
 /**
  * @public
+ * @enum
+ */
+export const RestoreTestingRecoveryPointSelectionAlgorithm = {
+  LATEST_WITHIN_WINDOW: "LATEST_WITHIN_WINDOW",
+  RANDOM_WITHIN_WINDOW: "RANDOM_WITHIN_WINDOW",
+} as const;
+
+/**
+ * @public
+ */
+export type RestoreTestingRecoveryPointSelectionAlgorithm =
+  (typeof RestoreTestingRecoveryPointSelectionAlgorithm)[keyof typeof RestoreTestingRecoveryPointSelectionAlgorithm];
+
+/**
+ * @public
+ * @enum
+ */
+export const RestoreTestingRecoveryPointType = {
+  CONTINUOUS: "CONTINUOUS",
+  SNAPSHOT: "SNAPSHOT",
+} as const;
+
+/**
+ * @public
+ */
+export type RestoreTestingRecoveryPointType =
+  (typeof RestoreTestingRecoveryPointType)[keyof typeof RestoreTestingRecoveryPointType];
+
+/**
+ * @public
+ * <p>Required: Algorithm; Required: Recovery point types;
+ *          IncludeVaults(one or more). Optional: SelectionWindowDays
+ *          ('30' if not specified);ExcludeVaults (list of selectors),
+ *          defaults to empty list if not listed.</p>
+ */
+export interface RestoreTestingRecoveryPointSelection {
+  /**
+   * @public
+   * <p>Acceptable values include "LATEST_WITHIN_WINDOW" or
+   *          "RANDOM_WITHIN_WINDOW"</p>
+   */
+  Algorithm?: RestoreTestingRecoveryPointSelectionAlgorithm;
+
+  /**
+   * @public
+   * <p>Accepted values include specific ARNs or list of selectors.
+   *          Defaults to empty list if not listed.</p>
+   */
+  ExcludeVaults?: string[];
+
+  /**
+   * @public
+   * <p>Accepted values include wildcard ["*"] or by specific ARNs or
+   *          ARN wilcard replacement
+   *          ["arn:aws:backup:us-west-2:123456789012:backup-vault:asdf", ...]
+   *          ["arn:aws:backup:*:*:backup-vault:asdf-*", ...]</p>
+   */
+  IncludeVaults?: string[];
+
+  /**
+   * @public
+   * <p>These are the types of recovery points.</p>
+   */
+  RecoveryPointTypes?: RestoreTestingRecoveryPointType[];
+
+  /**
+   * @public
+   * <p>Accepted values are integers from 1 to 365.</p>
+   */
+  SelectionWindowDays?: number;
+}
+
+/**
+ * @public
+ * <p>This contains metadata about a restore testing plan.</p>
+ */
+export interface RestoreTestingPlanForCreate {
+  /**
+   * @public
+   * <p>Required: Algorithm; Required: Recovery point types; IncludeVaults
+   *          (one or more). Optional: SelectionWindowDays ('30' if not specified);
+   *          ExcludeVaults (list of selectors), defaults to empty list if not listed.</p>
+   */
+  RecoveryPointSelection: RestoreTestingRecoveryPointSelection | undefined;
+
+  /**
+   * @public
+   * <p>The RestoreTestingPlanName is a unique string that is the name
+   *          of the restore testing plan. This cannot be changed after creation,
+   *          and it must consist of only alphanumeric characters and underscores.</p>
+   */
+  RestoreTestingPlanName: string | undefined;
+
+  /**
+   * @public
+   * <p>A CRON expression in specified timezone when a restore
+   *          testing plan is executed.</p>
+   */
+  ScheduleExpression: string | undefined;
+
+  /**
+   * @public
+   * <p>Optional. This is the timezone in which the schedule
+   *          expression is set. By default, ScheduleExpressions are in UTC.
+   *          You can modify this to a specified timezone.</p>
+   */
+  ScheduleExpressionTimezone?: string;
+
+  /**
+   * @public
+   * <p>Defaults to 24 hours.</p>
+   *          <p>A value in hours after a
+   *          restore test is scheduled before a job will be canceled if it
+   *          doesn't start successfully. This value is optional. If this value
+   *          is included, this parameter has a maximum value of 168 hours
+   *          (one week).</p>
+   */
+  StartWindowHours?: number;
+}
+
+/**
+ * @public
+ */
+export interface CreateRestoreTestingPlanInput {
+  /**
+   * @public
+   * <p>This is a unique string that identifies the request and
+   *          allows failed requests to be retriedwithout the risk of running
+   *          the operation twice. This parameter is optional. If used, this
+   *          parameter must contain 1 to 50 alphanumeric or '-_.' characters.</p>
+   */
+  CreatorRequestId?: string;
+
+  /**
+   * @public
+   * <p>A restore testing plan must contain a unique <code>RestoreTestingPlanName</code> string
+   *          you create and must contain a <code>ScheduleExpression</code> cron. You may optionally
+   *          include a <code>StartWindowHours</code> integer and a <code>CreatorRequestId</code>
+   *          string.</p>
+   *          <p>The <code>RestoreTestingPlanName</code> is a unique string that is the name of the
+   *          restore testing plan. This cannot be changed after creation, and it must consist of only
+   *          alphanumeric characters and underscores.</p>
+   */
+  RestoreTestingPlan: RestoreTestingPlanForCreate | undefined;
+
+  /**
+   * @public
+   * <p>Optional tags to include. A tag is a key-value pair you can use to
+   *          manage, filter, and search for your resources. Allowed characters include
+   *          UTF-8 letters,numbers, spaces, and the following characters:
+   *          + - = . _ : /.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateRestoreTestingPlanOutput {
+  /**
+   * @public
+   * <p>The date and time a restore testing plan was created, in Unix format
+   *          and Coordinated Universal Time (UTC). The value of <code>CreationTime</code>
+   *          is accurate to milliseconds. For example, the value 1516925490.087 represents
+   *          Friday, January 26, 2018 12:11:30.087AM.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies the created
+   *          restore testing plan.</p>
+   */
+  RestoreTestingPlanArn: string | undefined;
+
+  /**
+   * @public
+   * <p>This unique string is the name of the restore testing plan.</p>
+   *          <p>The name cannot be changed after creation. The name consists of only
+   *          alphanumeric characters and underscores. Maximum length is 50.</p>
+   */
+  RestoreTestingPlanName: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Pair of two related strings. Allowed characters
+ *          are letters, white space, and numbers that can be
+ *          represented in UTF-8 and the following characters:
+ *          <code> + - = . _ : /</code>
+ *          </p>
+ */
+export interface KeyValue {
+  /**
+   * @public
+   * <p>The tag key (String). The key can't start with
+   *          <code>aws:</code>.</p>
+   *          <p>Length Constraints: Minimum length of 1. Maximum
+   *          length of 128.</p>
+   *          <p>Pattern: <code>^(?![aA]\{1\}[wW]\{1\}[sS]\{1\}:)([\p\{L\}\p\{Z\}\p\{N\}_.:/=+\-@]+)$</code>
+   *          </p>
+   */
+  Key: string | undefined;
+
+  /**
+   * @public
+   * <p>The value of the key.</p>
+   *          <p>Length Constraints: Maximum length of 256.</p>
+   *          <p>Pattern: <code>^([\p\{L\}\p\{Z\}\p\{N\}_.:/=+\-@]*)$</code>
+   *          </p>
+   */
+  Value: string | undefined;
+}
+
+/**
+ * @public
+ * <p>A list of conditions that you define for resources in
+ *          your restore testing plan using  tags.</p>
+ *          <p>For example,
+ *          <code>"StringEquals": \{  "Key": "aws:ResourceTag/CreatedByCryo",  "Value": "true"  \},</code>.
+ *          Condition operators are case sensitive.</p>
+ */
+export interface ProtectedResourceConditions {
+  /**
+   * @public
+   * <p>Filters the values of your tagged resources for only
+   *          those resources that you tagged  with the same value.
+   *          Also called "exact matching."</p>
+   */
+  StringEquals?: KeyValue[];
+
+  /**
+   * @public
+   * <p>Filters the values of your tagged resources for only
+   *          those resources that you tagged  that do not have the same value.
+   *          Also called "negated matching."</p>
+   */
+  StringNotEquals?: KeyValue[];
+}
+
+/**
+ * @public
+ * <p>This contains metadata about a specific restore testing selection.</p>
+ *          <p>ProtectedResourceType is required, such as Amazon EBS or
+ *          Amazon EC2.</p>
+ *          <p>This consists of <code>RestoreTestingSelectionName</code>,
+ *          <code>ProtectedResourceType</code>, and one of the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>ProtectedResourceArns</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ProtectedResourceConditions</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>Each protected resource type can have one single value.</p>
+ *          <p>A restore testing selection can include a wildcard value ("*") for
+ *          <code>ProtectedResourceArns</code> along with <code>ProtectedResourceConditions</code>.
+ *          Alternatively, you can include up to 30 specific protected resource ARNs in
+ *          <code>ProtectedResourceArns</code>.</p>
+ *          <p>
+ *             <code>ProtectedResourceConditions</code> examples include as <code>StringEquals</code>
+ *          and <code>StringNotEquals</code>.</p>
+ */
+export interface RestoreTestingSelectionForCreate {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the IAM role that
+   *          Backup uses to create the target resource;
+   *          for example: <code>arn:aws:iam::123456789012:role/S3Access</code>.
+   *       </p>
+   */
+  IamRoleArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Each protected resource can be filtered by its specific ARNs, such as
+   *          <code>ProtectedResourceArns: ["arn:aws:...", "arn:aws:..."]</code>
+   *          or by a wildcard: <code>ProtectedResourceArns: ["*"]</code>,
+   *          but not both.</p>
+   */
+  ProtectedResourceArns?: string[];
+
+  /**
+   * @public
+   * <p>If you have included the wildcard in ProtectedResourceArns,
+   *          you can include resource conditions, such as
+   *          <code>ProtectedResourceConditions: \{    StringEquals: [\{ key: "XXXX",
+   *             value: "YYYY" \}]</code>.</p>
+   */
+  ProtectedResourceConditions?: ProtectedResourceConditions;
+
+  /**
+   * @public
+   * <p>The type of Amazon Web Services resource included in a restore
+   *          testing selection; for
+   *          example, an Amazon EBS volume or
+   *          an Amazon RDS database.</p>
+   *          <p>Supported resource types accepted include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Aurora</code> for Amazon Aurora</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DocumentDB</code> for Amazon DocumentDB (with MongoDB compatibility)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DynamoDB</code> for Amazon DynamoDB</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EBS</code> for Amazon Elastic Block Store</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EC2</code> for Amazon Elastic Compute Cloud</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EFS</code> for Amazon Elastic File System</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FSx</code> for Amazon FSx</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Neptune</code> for Amazon Neptune</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RDS</code> for Amazon Relational Database Service</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>S3</code> for Amazon S3</p>
+   *             </li>
+   *          </ul>
+   */
+  ProtectedResourceType: string | undefined;
+
+  /**
+   * @public
+   * <p>You can override certain restore metadata keys by including the parameter
+   *             <code>RestoreMetadataOverrides</code> in the body of
+   *             <code>RestoreTestingSelection</code>. Key values are not case sensitive.</p>
+   *          <p>See the complete list of <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html">restore testing
+   *             inferred metadata</a>.</p>
+   */
+  RestoreMetadataOverrides?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>This is the unique name of the restore testing selection
+   *          that belongs to the related restore testing plan.</p>
+   */
+  RestoreTestingSelectionName: string | undefined;
+
+  /**
+   * @public
+   * <p>This is amount of hours (1 to 168) available to run a validation script on the data. The
+   *          data will be deleted upon the completion of the validation script or the end of the
+   *          specified retention period, whichever comes first.</p>
+   */
+  ValidationWindowHours?: number;
+}
+
+/**
+ * @public
+ */
+export interface CreateRestoreTestingSelectionInput {
+  /**
+   * @public
+   * <p>This is an optional unique string that identifies the request and allows
+   *          failed requests to be retried without the risk of running the operation
+   *          twice. If used, this parameter must contain
+   *          1 to 50 alphanumeric or '-_.' characters.</p>
+   */
+  CreatorRequestId?: string;
+
+  /**
+   * @public
+   * <p>Input the restore testing plan name that was returned from the
+   *          related CreateRestoreTestingPlan request.</p>
+   */
+  RestoreTestingPlanName: string | undefined;
+
+  /**
+   * @public
+   * <p>This consists of <code>RestoreTestingSelectionName</code>,
+   *             <code>ProtectedResourceType</code>, and one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ProtectedResourceArns</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ProtectedResourceConditions</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>Each protected resource type can have one single value.</p>
+   *          <p>A restore testing selection can include a wildcard value ("*") for
+   *             <code>ProtectedResourceArns</code> along with <code>ProtectedResourceConditions</code>.
+   *          Alternatively, you can include up to 30 specific protected resource ARNs in
+   *             <code>ProtectedResourceArns</code>.</p>
+   */
+  RestoreTestingSelection: RestoreTestingSelectionForCreate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRestoreTestingSelectionOutput {
+  /**
+   * @public
+   * <p>This is the time the resource testing selection was created successfully.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>This is the ARN of the restore testing plan with which the restore
+   *       testing selection is associated.</p>
+   */
+  RestoreTestingPlanArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Unique string that is the name of the restore testing plan.</p>
+   *          <p>The name cannot be changed after creation. The name consists of only
+   *          alphanumeric characters and underscores. Maximum length is 50.</p>
+   */
+  RestoreTestingPlanName: string | undefined;
+
+  /**
+   * @public
+   * <p>This is the unique name of the restore testing selection that belongs to
+   *          the related restore testing plan.</p>
+   */
+  RestoreTestingSelectionName: string | undefined;
+}
+
+/**
+ * @public
  */
 export interface DeleteBackupPlanInput {
   /**
@@ -2558,6 +3286,37 @@ export interface DeleteReportPlanInput {
 
 /**
  * @public
+ */
+export interface DeleteRestoreTestingPlanInput {
+  /**
+   * @public
+   * <p>Required unique name of the restore testing plan you wish
+   *          to delete.</p>
+   */
+  RestoreTestingPlanName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRestoreTestingSelectionInput {
+  /**
+   * @public
+   * <p>Required unique name of the restore testing plan that contains the
+   *          restore testing selection you wish to delete.</p>
+   */
+  RestoreTestingPlanName: string | undefined;
+
+  /**
+   * @public
+   * <p>Required unique name of the restore testing selection you
+   *          wish to delete.</p>
+   */
+  RestoreTestingSelectionName: string | undefined;
+}
+
+/**
+ * @public
  * <p>A dependent Amazon Web Services service or resource returned an error to the Backup service, and the action cannot be completed.</p>
  */
 export class DependencyFailureException extends __BaseException {
@@ -2672,7 +3431,7 @@ export interface DescribeBackupJobOutput {
    * @public
    * <p>The current state of a backup job.</p>
    */
-  State?: BackupJobState | string;
+  State?: BackupJobState;
 
   /**
    * @public
@@ -2778,7 +3537,7 @@ export interface DescribeBackupJobOutput {
    * @public
    * <p>This returns the statistics of the included child (nested) backup jobs.</p>
    */
-  ChildJobsInState?: Record<string, number>;
+  ChildJobsInState?: Partial<Record<BackupJobState, number>>;
 
   /**
    * @public
@@ -2786,6 +3545,22 @@ export interface DescribeBackupJobOutput {
    *          belongs to the specified backup.</p>
    */
   ResourceName?: string;
+
+  /**
+   * @public
+   * <p>This is the date a backup job was initiated.</p>
+   */
+  InitiationDate?: Date;
+
+  /**
+   * @public
+   * <p>This is the job count for the specified
+   *          message category.</p>
+   *          <p>Example strings may include <code>AccessDenied</code>, <code>SUCCESS</code>,
+   *             <code>AGGREGATE_ALL</code>, and <code>INVALIDPARAMETERS</code>. View <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">Monitoring</a>
+   *          for a list of accepted MessageCategory strings.</p>
+   */
+  MessageCategory?: string;
 }
 
 /**
@@ -2845,7 +3620,7 @@ export interface DescribeBackupVaultOutput {
    * @public
    * <p>This is the type of vault described.</p>
    */
-  VaultType?: VaultType | string;
+  VaultType?: VaultType;
 
   /**
    * @public
@@ -2866,7 +3641,8 @@ export interface DescribeBackupVaultOutput {
   /**
    * @public
    * <p>A unique string that identifies the request and allows failed requests to be retried
-   *          without the risk of running the operation twice.</p>
+   *          without the risk of running the operation twice. This parameter is optional. If used, this
+   *          parameter must contain 1 to 50 alphanumeric or '-_.' characters.</p>
    */
   CreatorRequestId?: string;
 
@@ -3117,6 +3893,39 @@ export interface DescribeProtectedResourceOutput {
    *          belongs to the specified backup.</p>
    */
   ResourceName?: string;
+
+  /**
+   * @public
+   * <p>This is the ARN (Amazon Resource Name) of the backup vault
+   *          that contains the most recent backup recovery point.</p>
+   */
+  LastBackupVaultArn?: string;
+
+  /**
+   * @public
+   * <p>This is the ARN (Amazon Resource Name) of the most recent
+   *          recovery point.</p>
+   */
+  LastRecoveryPointArn?: string;
+
+  /**
+   * @public
+   * <p>This is the time in minutes the most recent restore
+   *          job took to complete.</p>
+   */
+  LatestRestoreExecutionTimeMinutes?: number;
+
+  /**
+   * @public
+   * <p>This is the creation date of the most recent restore job.</p>
+   */
+  LatestRestoreJobCreationDate?: Date;
+
+  /**
+   * @public
+   * <p>This is the date the most recent recovery point was created.</p>
+   */
+  LatestRestoreRecoveryPointCreationDate?: Date;
 }
 
 /**
@@ -3269,7 +4078,7 @@ export interface DescribeRecoveryPointOutput {
    *          misconfiguration, or backup failure. To ensure that future continuous backups succeed,
    *          refer to the recovery point status and check SAP HANA for details.</p>
    */
-  Status?: RecoveryPointStatus | string;
+  Status?: RecoveryPointStatus;
 
   /**
    * @public
@@ -3343,7 +4152,7 @@ export interface DescribeRecoveryPointOutput {
    * <p>Specifies the storage class of the recovery point. Valid values are <code>WARM</code> or
    *             <code>COLD</code>.</p>
    */
-  StorageClass?: StorageClass | string;
+  StorageClass?: StorageClass;
 
   /**
    * @public
@@ -3383,6 +4192,12 @@ export interface DescribeRecoveryPointOutput {
    *          belongs to the specified backup.</p>
    */
   ResourceName?: string;
+
+  /**
+   * @public
+   * <p>This is the type of vault in which the described recovery point is stored.</p>
+   */
+  VaultType?: VaultType;
 }
 
 /**
@@ -3656,6 +4471,35 @@ export interface DescribeRestoreJobInput {
 
 /**
  * @public
+ * <p>Contains information about the restore testing plan that
+ *          Backup used to initiate the restore job.</p>
+ */
+export interface RestoreJobCreator {
+  /**
+   * @public
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies
+   *          a restore testing plan.</p>
+   */
+  RestoreTestingPlanArn?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RestoreDeletionStatus = {
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  SUCCESSFUL: "SUCCESSFUL",
+} as const;
+
+/**
+ * @public
+ */
+export type RestoreDeletionStatus = (typeof RestoreDeletionStatus)[keyof typeof RestoreDeletionStatus];
+
+/**
+ * @public
  * @enum
  */
 export const RestoreJobStatus = {
@@ -3670,6 +4514,22 @@ export const RestoreJobStatus = {
  * @public
  */
 export type RestoreJobStatus = (typeof RestoreJobStatus)[keyof typeof RestoreJobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RestoreValidationStatus = {
+  FAILED: "FAILED",
+  SUCCESSFUL: "SUCCESSFUL",
+  TIMED_OUT: "TIMED_OUT",
+  VALIDATING: "VALIDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type RestoreValidationStatus = (typeof RestoreValidationStatus)[keyof typeof RestoreValidationStatus];
 
 /**
  * @public
@@ -3717,7 +4577,7 @@ export interface DescribeRestoreJobOutput {
    * <p>Status code specifying the state of the job that is initiated by Backup to
    *          restore a recovery point.</p>
    */
-  Status?: RestoreJobStatus | string;
+  Status?: RestoreJobStatus;
 
   /**
    * @public
@@ -3765,6 +4625,46 @@ export interface DescribeRestoreJobOutput {
    * <p>Returns metadata associated with a restore job listed by resource type.</p>
    */
   ResourceType?: string;
+
+  /**
+   * @public
+   * <p>This is the creation date of the recovery point made by the specifed restore job.</p>
+   */
+  RecoveryPointCreationDate?: Date;
+
+  /**
+   * @public
+   * <p>Contains identifying information about the creation of a restore job.</p>
+   */
+  CreatedBy?: RestoreJobCreator;
+
+  /**
+   * @public
+   * <p>This is the status of validation run on the indicated
+   *          restore job.</p>
+   */
+  ValidationStatus?: RestoreValidationStatus;
+
+  /**
+   * @public
+   * <p>This describes the status of validation run on the
+   *          indicated restore job.</p>
+   */
+  ValidationStatusMessage?: string;
+
+  /**
+   * @public
+   * <p>This notes the status of the data generated by the restore test.
+   *          The status may be <code>Deleting</code>, <code>Failed</code>,
+   *          or <code>Successful</code>.</p>
+   */
+  DeletionStatus?: RestoreDeletionStatus;
+
+  /**
+   * @public
+   * <p>This describes the restore job deletion status.</p>
+   */
+  DeletionStatusMessage?: string;
 }
 
 /**
@@ -3887,7 +4787,7 @@ export interface GetBackupPlanOutput {
   /**
    * @public
    * <p>A unique string that identifies the request and allows failed requests to be retried
-   *          without the risk of running the operation twice.</p>
+   *          without the risk of running the operation twice. </p>
    */
   CreatorRequestId?: string;
 
@@ -4115,7 +5015,7 @@ export interface GetBackupVaultNotificationsOutput {
    * <p>An array of events that indicate the status of jobs to back up resources to the backup
    *          vault.</p>
    */
-  BackupVaultEvents?: (BackupVaultEvent | string)[];
+  BackupVaultEvents?: BackupVaultEvent[];
 }
 
 /**
@@ -4146,7 +5046,7 @@ export interface GetLegalHoldOutput {
    *          <code>ACTIVE</code>, <code>CREATING</code>, <code>CANCELED</code>, and
    *          <code>CANCELING</code>.</p>
    */
-  Status?: LegalHoldStatus | string;
+  Status?: LegalHoldStatus;
 
   /**
    * @public
@@ -4253,6 +5153,320 @@ export interface GetRecoveryPointRestoreMetadataOutput {
    *          restored.</p>
    */
   RestoreMetadata?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>This is the resource type associated with the recovery point.</p>
+   */
+  ResourceType?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetRestoreJobMetadataInput {
+  /**
+   * @public
+   * <p>This is a unique identifier of a restore job within Backup.</p>
+   */
+  RestoreJobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRestoreJobMetadataOutput {
+  /**
+   * @public
+   * <p>This is a unique identifier of a restore job within Backup.</p>
+   */
+  RestoreJobId?: string;
+
+  /**
+   * @public
+   * <p>This contains the metadata of the specified backup job.</p>
+   */
+  Metadata?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface GetRestoreTestingInferredMetadataInput {
+  /**
+   * @public
+   * <p>This is the account ID of the specified backup vault.</p>
+   */
+  BackupVaultAccountId?: string;
+
+  /**
+   * @public
+   * <p>The name of a logical container where backups are stored. Backup
+   *          vaults are identified by names that are unique to the account used to
+   *          create them and the Amazon Web ServicesRegion where they are created.
+   *          They consist of letters, numbers, and hyphens.</p>
+   */
+  BackupVaultName: string | undefined;
+
+  /**
+   * @public
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a recovery
+   *          point; for example,
+   *          <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.
+   *       </p>
+   */
+  RecoveryPointArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRestoreTestingInferredMetadataOutput {
+  /**
+   * @public
+   * <p>This is a string map of the metadata inferred from the request.</p>
+   */
+  InferredMetadata: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRestoreTestingPlanInput {
+  /**
+   * @public
+   * <p>Required unique name of the restore testing plan.</p>
+   */
+  RestoreTestingPlanName: string | undefined;
+}
+
+/**
+ * @public
+ * <p>This contains metadata about a restore testing plan.</p>
+ */
+export interface RestoreTestingPlanForGet {
+  /**
+   * @public
+   * <p>The date and time that a restore testing plan was created,
+   *          in Unix format and Coordinated Universal Time (UTC). The value of
+   *          <code>CreationTime</code> is accurate to milliseconds. For example,
+   *          the value 1516925490.087 represents Friday, January 26, 2018
+   *          12:11:30.087  AM.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>This identifies the request and allows failed requests to
+   *          be retried without the risk of running the operation twice.
+   *          If the request includes a <code>CreatorRequestId</code> that
+   *          matches an existing backup plan, that plan is returned. This
+   *          parameter is optional.</p>
+   *          <p>If used, this parameter must
+   *             contain 1 to 50 alphanumeric or '-_.' characters.</p>
+   */
+  CreatorRequestId?: string;
+
+  /**
+   * @public
+   * <p>The last time a restore test was run with the specified
+   *          restore testing plan. A date and time, in Unix format and
+   *          Coordinated Universal Time (UTC). The value of
+   *          <code>LastExecutionDate</code> is accurate to milliseconds.
+   *          For example, the value  1516925490.087 represents Friday,
+   *          January 26, 2018 12:11:30.087 AM.</p>
+   */
+  LastExecutionTime?: Date;
+
+  /**
+   * @public
+   * <p>The date and time that the restore testing plan was updated.
+   *          This update is in Unix format and Coordinated Universal Time (UTC).
+   *          The value of <code>LastUpdateTime</code> is accurate to milliseconds.
+   *          For example, the value  1516925490.087 represents Friday,
+   *          January 26, 2018 12:11:30.087 AM.</p>
+   */
+  LastUpdateTime?: Date;
+
+  /**
+   * @public
+   * <p>The specified criteria to assign a set of resources, such as
+   *          recovery point types or backup vaults.</p>
+   */
+  RecoveryPointSelection: RestoreTestingRecoveryPointSelection | undefined;
+
+  /**
+   * @public
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies
+   *          a restore testing plan.</p>
+   */
+  RestoreTestingPlanArn: string | undefined;
+
+  /**
+   * @public
+   * <p>This is the restore testing plan name.</p>
+   */
+  RestoreTestingPlanName: string | undefined;
+
+  /**
+   * @public
+   * <p>A CRON expression in specified timezone when a restore
+   *          testing plan is executed.</p>
+   */
+  ScheduleExpression: string | undefined;
+
+  /**
+   * @public
+   * <p>Optional. This is the timezone in which the schedule
+   *          expression is set. By default, ScheduleExpressions are in UTC.
+   *          You can modify this to a specified timezone.</p>
+   */
+  ScheduleExpressionTimezone?: string;
+
+  /**
+   * @public
+   * <p>Defaults to 24 hours.</p>
+   *          <p>A value in hours after a
+   *          restore test is scheduled before a job will be canceled if it
+   *          doesn't start successfully. This value is optional. If this value
+   *          is included, this parameter has a maximum value of 168 hours
+   *          (one week).</p>
+   */
+  StartWindowHours?: number;
+}
+
+/**
+ * @public
+ */
+export interface GetRestoreTestingPlanOutput {
+  /**
+   * @public
+   * <p>Specifies the body of a restore testing plan. Includes
+   *          <code>RestoreTestingPlanName</code>.</p>
+   */
+  RestoreTestingPlan: RestoreTestingPlanForGet | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRestoreTestingSelectionInput {
+  /**
+   * @public
+   * <p>Required unique name of the restore testing plan.</p>
+   */
+  RestoreTestingPlanName: string | undefined;
+
+  /**
+   * @public
+   * <p>Required unique name of the restore testing selection.</p>
+   */
+  RestoreTestingSelectionName: string | undefined;
+}
+
+/**
+ * @public
+ * <p>This contains metadata about a restore testing selection.</p>
+ */
+export interface RestoreTestingSelectionForGet {
+  /**
+   * @public
+   * <p>The date and time that a restore testing selection was created,
+   *          in Unix format and Coordinated Universal Time (UTC). The value of
+   *          <code>CreationTime</code> is accurate to milliseconds. For example,
+   *          the value 1516925490.087 represents Friday, January 26,
+   *          201812:11:30.087  AM.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>This identifies the request and allows failed requests to
+   *          be retried without the risk of running the operation twice.
+   *          If the request includes a <code>CreatorRequestId</code> that
+   *          matches an existing backup plan, that plan is returned. This
+   *          parameter is optional.</p>
+   *          <p>If used, this parameter must contain 1 to 50 alphanumeric
+   *          or '-_.' characters.</p>
+   */
+  CreatorRequestId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the IAM role that
+   *          Backup uses to create the target resource; for
+   *          example:<code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
+   */
+  IamRoleArn: string | undefined;
+
+  /**
+   * @public
+   * <p>You can include specific ARNs, such as
+   *          <code>ProtectedResourceArns: ["arn:aws:...", "arn:aws:..."]</code>
+   *          or you can include a wildcard: <code>ProtectedResourceArns: ["*"]</code>,
+   *          but not both.</p>
+   */
+  ProtectedResourceArns?: string[];
+
+  /**
+   * @public
+   * <p>In a resource testing selection, this parameter filters by
+   *          specific conditions such as <code>StringEquals</code> or
+   *          <code>StringNotEquals</code>.</p>
+   */
+  ProtectedResourceConditions?: ProtectedResourceConditions;
+
+  /**
+   * @public
+   * <p>The type of Amazon Web Services resource included in a resource
+   *          testing selection;
+   *          for example, an Amazon EBS volume
+   *          or an Amazon RDS database.</p>
+   */
+  ProtectedResourceType: string | undefined;
+
+  /**
+   * @public
+   * <p>You can override certain restore metadata keys by including the parameter
+   *          <code>RestoreMetadataOverrides</code> in the body of
+   *          <code>RestoreTestingSelection</code>. Key values are not case sensitive.</p>
+   *          <p>See the complete list of <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html">restore testing
+   *          inferred metadata</a>.</p>
+   */
+  RestoreMetadataOverrides?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The RestoreTestingPlanName is a unique string that is the name
+   *          of the restore testing plan.</p>
+   */
+  RestoreTestingPlanName: string | undefined;
+
+  /**
+   * @public
+   * <p>This is the unique name of the restore testing selection that
+   *          belongs to the related restore testing plan.</p>
+   */
+  RestoreTestingSelectionName: string | undefined;
+
+  /**
+   * @public
+   * <p>This is amount of hours (1 to 168) available to run a validation script on the data. The
+   *          data will be deleted upon the completion of the validation script or the end of the
+   *          specified retention period, whichever comes first.</p>
+   */
+  ValidationWindowHours?: number;
+}
+
+/**
+ * @public
+ */
+export interface GetRestoreTestingSelectionOutput {
+  /**
+   * @public
+   * <p>Unique name of the restore testing selection.</p>
+   */
+  RestoreTestingSelection: RestoreTestingSelectionForGet | undefined;
 }
 
 /**
@@ -4315,7 +5529,7 @@ export interface ListBackupJobsInput {
   /**
    * @public
    * <p>The next item following a partial list of returned items. For example, if a request is
-   *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
+   *          made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
@@ -4338,7 +5552,7 @@ export interface ListBackupJobsInput {
    * @public
    * <p>Returns only backup jobs that are in the specified state.</p>
    */
-  ByState?: BackupJobState | string;
+  ByState?: BackupJobState;
 
   /**
    * @public
@@ -4371,6 +5585,10 @@ export interface ListBackupJobsInput {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>CloudFormation</code> for CloudFormation</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>DocumentDB</code> for Amazon DocumentDB (with MongoDB compatibility)</p>
    *             </li>
    *             <li>
@@ -4399,7 +5617,15 @@ export interface ListBackupJobsInput {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>Redshift</code> for Amazon Redshift</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>RDS</code> for Amazon Relational Database Service</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SAP HANA on Amazon EC2</code> for SAP HANA databases</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4408,6 +5634,10 @@ export interface ListBackupJobsInput {
    *             <li>
    *                <p>
    *                   <code>S3</code> for Amazon S3</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Timestream</code> for Amazon Timestream</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4445,6 +5675,23 @@ export interface ListBackupJobsInput {
    * <p>This is a filter to list child (nested) jobs based on parent job ID.</p>
    */
   ByParentJobId?: string;
+
+  /**
+   * @public
+   * <p>This is an optional parameter that can be used to
+   *          filter out jobs with a MessageCategory which matches the
+   *          value you input.</p>
+   *          <p>Example strings may include <code>AccessDenied</code>,
+   *          <code>SUCCESS</code>, <code>AGGREGATE_ALL</code>, and
+   *          <code>InvalidParameters</code>.</p>
+   *          <p>View <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">Monitoring</a>
+   *          </p>
+   *          <p>The wildcard () returns count of all message categories.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *             for all message categories and returns the sum.</p>
+   */
+  ByMessageCategory?: string;
 }
 
 /**
@@ -4461,9 +5708,158 @@ export interface ListBackupJobsOutput {
   /**
    * @public
    * <p>The next item following a partial list of returned items. For example, if a request is
-   *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
+   *          made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListBackupJobSummariesInput {
+  /**
+   * @public
+   * <p>Returns the job count for the specified account.</p>
+   *          <p>If the request is sent from a member account or an account
+   *          not part of Amazon Web Services Organizations, jobs within requestor's account
+   *          will be returned.</p>
+   *          <p>Root, admin, and delegated administrator accounts can use
+   *          the value ANY to return job counts from every account in the
+   *          organization.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          from all accounts within the authenticated organization,
+   *          then returns the sum.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>This parameter returns the job count for jobs
+   *          with the specified state.</p>
+   *          <p>The the value ANY returns count of all states.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          for all states and returns the sum.</p>
+   */
+  State?: BackupJobStatus;
+
+  /**
+   * @public
+   * <p>Returns the job count for the specified resource type.
+   *          Use request <code>GetSupportedResourceTypes</code> to obtain
+   *          strings for supported resource types.</p>
+   *          <p>The the value ANY returns count of all resource types.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          for all resource types and returns the sum.</p>
+   *          <p>The type of Amazon Web Services resource to be backed up; for example, an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database.</p>
+   */
+  ResourceType?: string;
+
+  /**
+   * @public
+   * <p>This parameter returns the job count for the specified
+   *          message category.</p>
+   *          <p>Example accepted strings include <code>AccessDenied</code>,
+   *          <code>Success</code>, and <code>InvalidParameters</code>. See
+   *          <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">Monitoring</a>
+   *          for a list of accepted MessageCategory strings.</p>
+   *          <p>The the value ANY returns count of all message categories.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          for all message categories and returns the sum.</p>
+   */
+  MessageCategory?: string;
+
+  /**
+   * @public
+   * <p>This is the period that sets the boundaries for returned
+   *          results.</p>
+   *          <p>Acceptable values include</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ONE_DAY</code> for daily job count
+   *                for the prior 14 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SEVEN_DAYS</code> for the aggregated
+   *                job count for the prior 7 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FOURTEEN_DAYS</code> for aggregated
+   *                job count for prior 14 days.</p>
+   *             </li>
+   *          </ul>
+   */
+  AggregationPeriod?: AggregationPeriod;
+
+  /**
+   * @public
+   * <p>This parameter sets the maximum number of items
+   *          to be returned.</p>
+   *          <p>The value is an integer. Range of accepted values is from
+   *          1 to 500.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The next item following a partial list of returned resources. For example, if a request
+   *          is made to return <code>MaxResults</code> number of resources, <code>NextToken</code>
+   *          allows you to return more items in your list starting at the location pointed to by the
+   *          next token.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListBackupJobSummariesOutput {
+  /**
+   * @public
+   * <p>This request returns a summary that contains
+   *          Region, Account, State, ResourceType, MessageCategory,
+   *          StartTime, EndTime, and Count of included jobs.</p>
+   */
+  BackupJobSummaries?: BackupJobSummary[];
+
+  /**
+   * @public
+   * <p>This is the period that sets the boundaries for returned
+   *          results.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ONE_DAY</code> for daily job count
+   *                for the prior 14 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SEVEN_DAYS</code> for the aggregated
+   *                job count for the prior 7 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FOURTEEN_DAYS</code> for aggregated
+   *                job count for prior 14 days.</p>
+   *             </li>
+   *          </ul>
+   */
+  AggregationPeriod?: string;
+
+  /**
+   * @public
+   * <p>The next item following a partial list of returned resources. For example, if a request
+   *          is made to return <code>MaxResults</code> number of resources, <code>NextToken</code>
+   *          allows you to return more items in your list starting at the location pointed to by the
+   *          next token.</p>
    */
   NextToken?: string;
 }
@@ -4475,7 +5871,7 @@ export interface ListBackupPlansInput {
   /**
    * @public
    * <p>The next item following a partial list of returned items. For example, if a request is
-   *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
+   *          made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
@@ -4502,7 +5898,7 @@ export interface ListBackupPlansOutput {
   /**
    * @public
    * <p>The next item following a partial list of returned items. For example, if a request is
-   *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
+   *          made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
@@ -4523,7 +5919,7 @@ export interface ListBackupPlanTemplatesInput {
   /**
    * @public
    * <p>The next item following a partial list of returned items. For example, if a request is
-   *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
+   *          made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
@@ -4543,7 +5939,7 @@ export interface ListBackupPlanTemplatesOutput {
   /**
    * @public
    * <p>The next item following a partial list of returned items. For example, if a request is
-   *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
+   *          made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
@@ -4569,7 +5965,7 @@ export interface ListBackupPlanVersionsInput {
   /**
    * @public
    * <p>The next item following a partial list of returned items. For example, if a request is
-   *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
+   *          made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
@@ -4589,7 +5985,7 @@ export interface ListBackupPlanVersionsOutput {
   /**
    * @public
    * <p>The next item following a partial list of returned items. For example, if a request is
-   *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
+   *          made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
@@ -4615,7 +6011,7 @@ export interface ListBackupSelectionsInput {
   /**
    * @public
    * <p>The next item following a partial list of returned items. For example, if a request is
-   *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
+   *          made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
@@ -4635,7 +6031,7 @@ export interface ListBackupSelectionsOutput {
   /**
    * @public
    * <p>The next item following a partial list of returned items. For example, if a request is
-   *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
+   *          made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
@@ -4657,7 +6053,7 @@ export interface ListBackupVaultsInput {
    * @public
    * <p>This parameter will sort the list of vaults by vault type.</p>
    */
-  ByVaultType?: VaultType | string;
+  ByVaultType?: VaultType;
 
   /**
    * @public
@@ -4668,7 +6064,7 @@ export interface ListBackupVaultsInput {
   /**
    * @public
    * <p>The next item following a partial list of returned items. For example, if a request is
-   *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
+   *          made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
@@ -4696,7 +6092,7 @@ export interface ListBackupVaultsOutput {
   /**
    * @public
    * <p>The next item following a partial list of returned items. For example, if a request is
-   *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
+   *          made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
@@ -4710,7 +6106,7 @@ export interface ListCopyJobsInput {
   /**
    * @public
    * <p>The next item following a partial list of returned items. For example, if a request is
-   *          made to return maxResults number of items, NextToken allows you to return more items in
+   *          made to return MaxResults number of items, NextToken allows you to return more items in
    *          your list starting at the location pointed to by the next token. </p>
    */
   NextToken?: string;
@@ -4732,7 +6128,7 @@ export interface ListCopyJobsInput {
    * @public
    * <p>Returns only copy jobs that are in the specified state.</p>
    */
-  ByState?: CopyJobState | string;
+  ByState?: CopyJobState;
 
   /**
    * @public
@@ -4753,6 +6149,10 @@ export interface ListCopyJobsInput {
    *             <li>
    *                <p>
    *                   <code>Aurora</code> for Amazon Aurora</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CloudFormation</code> for CloudFormation</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4784,7 +6184,15 @@ export interface ListCopyJobsInput {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>Redshift</code> for Amazon Redshift</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>RDS</code> for Amazon Relational Database Service</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SAP HANA on Amazon EC2</code> for SAP HANA databases</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4793,6 +6201,10 @@ export interface ListCopyJobsInput {
    *             <li>
    *                <p>
    *                   <code>S3</code> for Amazon S3</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Timestream</code> for Amazon Timestream</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4836,6 +6248,24 @@ export interface ListCopyJobsInput {
    * <p>This is a filter to list child (nested) jobs based on parent job ID.</p>
    */
   ByParentJobId?: string;
+
+  /**
+   * @public
+   * <p>This is an optional parameter that can be used to
+   *          filter out jobs with a MessageCategory which matches the
+   *          value you input.</p>
+   *          <p>Example strings may include <code>AccessDenied</code>,
+   *          <code>SUCCESS</code>, <code>AGGREGATE_ALL</code>, and
+   *          <code>INVALIDPARAMETERS</code>.</p>
+   *          <p>View
+   *          <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">Monitoring</a>
+   *          for a list of accepted strings.</p>
+   *          <p>The the value ANY returns count of all message categories.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *             for all message categories and returns the sum.</p>
+   */
+  ByMessageCategory?: string;
 }
 
 /**
@@ -4852,8 +6282,156 @@ export interface ListCopyJobsOutput {
   /**
    * @public
    * <p>The next item following a partial list of returned items. For example, if a request is
-   *          made to return maxResults number of items, NextToken allows you to return more items in
+   *          made to return MaxResults number of items, NextToken allows you to return more items in
    *          your list starting at the location pointed to by the next token. </p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListCopyJobSummariesInput {
+  /**
+   * @public
+   * <p>Returns the job count for the specified account.</p>
+   *          <p>If the request is sent from a member account or an account
+   *          not part of Amazon Web Services Organizations, jobs within requestor's account
+   *          will be returned.</p>
+   *          <p>Root, admin, and delegated administrator accounts can use
+   *          the value ANY to return job counts from every account in the
+   *          organization.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          from all accounts within the authenticated organization,
+   *          then returns the sum.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>This parameter returns the job count for jobs
+   *          with the specified state.</p>
+   *          <p>The the value ANY returns count of all states.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          for all states and returns the sum.</p>
+   */
+  State?: CopyJobStatus;
+
+  /**
+   * @public
+   * <p>Returns the job count for the specified resource type.
+   *          Use request <code>GetSupportedResourceTypes</code> to obtain
+   *          strings for supported resource types.</p>
+   *          <p>The the value ANY returns count of all resource types.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          for all resource types and returns the sum.</p>
+   *          <p>The type of Amazon Web Services resource to be backed up; for example, an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database.</p>
+   */
+  ResourceType?: string;
+
+  /**
+   * @public
+   * <p>This parameter returns the job count for the specified
+   *          message category.</p>
+   *          <p>Example accepted strings include <code>AccessDenied</code>,
+   *          <code>Success</code>, and <code>InvalidParameters</code>. See
+   *          <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/monitoring.html">Monitoring</a>
+   *          for a list of accepted MessageCategory strings.</p>
+   *          <p>The the value ANY returns count of all message categories.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          for all message categories and returns the sum.</p>
+   */
+  MessageCategory?: string;
+
+  /**
+   * @public
+   * <p>This is the period that sets the boundaries for returned
+   *          results.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ONE_DAY</code> for daily job count
+   *                for the prior 14 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SEVEN_DAYS</code> for the aggregated
+   *                job count for the prior 7 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FOURTEEN_DAYS</code> for aggregated
+   *                job count for prior 14 days.</p>
+   *             </li>
+   *          </ul>
+   */
+  AggregationPeriod?: AggregationPeriod;
+
+  /**
+   * @public
+   * <p>This parameter sets the maximum number of items
+   *          to be returned.</p>
+   *          <p>The value is an integer. Range of accepted values is from
+   *          1 to 500.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The next item following a partial list of returned resources. For example, if a request
+   *          is made to return <code>MaxResults</code> number of resources, <code>NextToken</code>
+   *          allows you to return more items in your list starting at the location pointed to by the
+   *          next token.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListCopyJobSummariesOutput {
+  /**
+   * @public
+   * <p>This return shows a summary that contains
+   *          Region, Account, State, ResourceType, MessageCategory,
+   *          StartTime, EndTime, and Count of included jobs.</p>
+   */
+  CopyJobSummaries?: CopyJobSummary[];
+
+  /**
+   * @public
+   * <p>This is the period that sets the boundaries for returned
+   *          results.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ONE_DAY</code> for daily job count
+   *                for the prior 14 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SEVEN_DAYS</code> for the aggregated
+   *                job count for the prior 7 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FOURTEEN_DAYS</code> for aggregated
+   *                job count for prior 14 days.</p>
+   *             </li>
+   *          </ul>
+   */
+  AggregationPeriod?: string;
+
+  /**
+   * @public
+   * <p>The next item following a partial list of returned resources. For example, if a request
+   *          is made to return <code>MaxResults</code> number of resources, <code>NextToken</code>
+   *          allows you to return more items in your list starting at the location pointed to by the
+   *          next token.</p>
    */
   NextToken?: string;
 }
@@ -4957,7 +6535,7 @@ export interface ListLegalHoldsInput {
   /**
    * @public
    * <p>The next item following a partial list of returned resources. For example, if a request
-   *          is made to return <code>maxResults</code> number of resources, <code>NextToken</code>
+   *          is made to return <code>MaxResults</code> number of resources, <code>NextToken</code>
    *          allows you to return more items in your list starting at the location pointed to by the
    *          next token.</p>
    */
@@ -4994,7 +6572,7 @@ export interface LegalHold {
    *          <code>ACTIVE</code>, <code>CREATING</code>, <code>CANCELED</code>, and
    *          <code>CANCELING</code>.</p>
    */
-  Status?: LegalHoldStatus | string;
+  Status?: LegalHoldStatus;
 
   /**
    * @public
@@ -5035,7 +6613,7 @@ export interface ListLegalHoldsOutput {
   /**
    * @public
    * <p>The next item following a partial list of returned resources. For example, if a request
-   *          is made to return <code>maxResults</code> number of resources, <code>NextToken</code>
+   *          is made to return <code>MaxResults</code> number of resources, <code>NextToken</code>
    *          allows you to return more items in your list starting at the location pointed to by the
    *          next token.</p>
    */
@@ -5055,7 +6633,7 @@ export interface ListProtectedResourcesInput {
   /**
    * @public
    * <p>The next item following a partial list of returned items. For example, if a request is
-   *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
+   *          made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
@@ -5103,6 +6681,20 @@ export interface ProtectedResource {
    *          belongs to the specified backup.</p>
    */
   ResourceName?: string;
+
+  /**
+   * @public
+   * <p>This is the ARN (Amazon Resource Name) of the backup vault
+   *          that contains the most recent backup recovery point.</p>
+   */
+  LastBackupVaultArn?: string;
+
+  /**
+   * @public
+   * <p>This is the ARN (Amazon Resource Name) of the most
+   *          recent recovery point.</p>
+   */
+  LastRecoveryPointArn?: string;
 }
 
 /**
@@ -5120,7 +6712,7 @@ export interface ListProtectedResourcesOutput {
   /**
    * @public
    * <p>The next item following a partial list of returned items. For example, if a request is
-   *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
+   *          made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
@@ -5146,7 +6738,7 @@ export interface ListProtectedResourcesByBackupVaultInput {
   /**
    * @public
    * <p>The next item following a partial list of returned items. For example, if a request is
-   *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
+   *          made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
@@ -5172,7 +6764,7 @@ export interface ListProtectedResourcesByBackupVaultOutput {
   /**
    * @public
    * <p>The next item following a partial list of returned items. For example, if a request is
-   *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
+   *          made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
@@ -5205,7 +6797,7 @@ export interface ListRecoveryPointsByBackupVaultInput {
   /**
    * @public
    * <p>The next item following a partial list of returned items. For example, if a request is
-   *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
+   *          made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
@@ -5226,7 +6818,73 @@ export interface ListRecoveryPointsByBackupVaultInput {
 
   /**
    * @public
-   * <p>Returns only recovery points that match the specified resource type.</p>
+   * <p>Returns only recovery points that match the specified resource type(s):</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Aurora</code> for Amazon Aurora</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CloudFormation</code> for CloudFormation</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DocumentDB</code> for Amazon DocumentDB (with MongoDB compatibility)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DynamoDB</code> for Amazon DynamoDB</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EBS</code> for Amazon Elastic Block Store</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EC2</code> for Amazon Elastic Compute Cloud</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EFS</code> for Amazon Elastic File System</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FSx</code> for Amazon FSx</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Neptune</code> for Amazon Neptune</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Redshift</code> for Amazon Redshift</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RDS</code> for Amazon Relational Database Service</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SAP HANA on Amazon EC2</code> for SAP HANA databases</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Storage Gateway</code> for Storage Gateway</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>S3</code> for Amazon S3</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Timestream</code> for Amazon Timestream</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VirtualMachine</code> for virtual machines</p>
+   *             </li>
+   *          </ul>
    */
   ByResourceType?: string;
 
@@ -5325,7 +6983,7 @@ export interface RecoveryPointByBackupVault {
    * @public
    * <p>A status code specifying the state of the recovery point.</p>
    */
-  Status?: RecoveryPointStatus | string;
+  Status?: RecoveryPointStatus;
 
   /**
    * @public
@@ -5433,6 +7091,12 @@ export interface RecoveryPointByBackupVault {
    *          belongs to the specified backup.</p>
    */
   ResourceName?: string;
+
+  /**
+   * @public
+   * <p>This is the type of vault in which the described recovery point is stored.</p>
+   */
+  VaultType?: VaultType;
 }
 
 /**
@@ -5442,7 +7106,7 @@ export interface ListRecoveryPointsByBackupVaultOutput {
   /**
    * @public
    * <p>The next item following a partial list of returned items. For example, if a request is
-   *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
+   *          made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
@@ -5469,7 +7133,7 @@ export interface ListRecoveryPointsByLegalHoldInput {
   /**
    * @public
    * <p>This is the next item following a partial list of returned resources. For example, if a request
-   *          is made to return <code>maxResults</code> number of resources, <code>NextToken</code>
+   *          is made to return <code>MaxResults</code> number of resources, <code>NextToken</code>
    *          allows you to return more items in your list starting at the location pointed to by the
    *          next token.</p>
    */
@@ -5551,7 +7215,7 @@ export interface ListRecoveryPointsByResourceInput {
   /**
    * @public
    * <p>The next item following a partial list of returned items. For example, if a request is
-   *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
+   *          made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
@@ -5592,7 +7256,7 @@ export interface RecoveryPointByResource {
    * @public
    * <p>A status code specifying the state of the recovery point.</p>
    */
-  Status?: RecoveryPointStatus | string;
+  Status?: RecoveryPointStatus;
 
   /**
    * @public
@@ -5651,7 +7315,7 @@ export interface ListRecoveryPointsByResourceOutput {
   /**
    * @public
    * <p>The next item following a partial list of returned items. For example, if a request is
-   *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
+   *          made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
@@ -5784,7 +7448,7 @@ export interface ListRestoreJobsInput {
   /**
    * @public
    * <p>The next item following a partial list of returned items. For example, if a request is
-   *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
+   *          made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
@@ -5805,6 +7469,79 @@ export interface ListRestoreJobsInput {
 
   /**
    * @public
+   * <p>Include this parameter to return only restore jobs for the
+   *             specified resources:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Aurora</code> for Amazon Aurora</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CloudFormation</code> for CloudFormation</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DocumentDB</code> for Amazon DocumentDB (with MongoDB compatibility)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DynamoDB</code> for Amazon DynamoDB</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EBS</code> for Amazon Elastic Block Store</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EC2</code> for Amazon Elastic Compute Cloud</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EFS</code> for Amazon Elastic File System</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FSx</code> for Amazon FSx</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Neptune</code> for Amazon Neptune</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Redshift</code> for Amazon Redshift</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RDS</code> for Amazon Relational Database Service</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SAP HANA on Amazon EC2</code> for SAP HANA databases</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Storage Gateway</code> for Storage Gateway</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>S3</code> for Amazon S3</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Timestream</code> for Amazon Timestream</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VirtualMachine</code> for virtual machines</p>
+   *             </li>
+   *          </ul>
+   */
+  ByResourceType?: string;
+
+  /**
+   * @public
    * <p>Returns only restore jobs that were created before the specified date.</p>
    */
   ByCreatedBefore?: Date;
@@ -5819,7 +7556,7 @@ export interface ListRestoreJobsInput {
    * @public
    * <p>Returns only restore jobs associated with the specified job status.</p>
    */
-  ByStatus?: RestoreJobStatus | string;
+  ByStatus?: RestoreJobStatus;
 
   /**
    * @public
@@ -5834,6 +7571,13 @@ export interface ListRestoreJobsInput {
    *          Universal Time (UTC).</p>
    */
   ByCompleteAfter?: Date;
+
+  /**
+   * @public
+   * <p>This returns only restore testing jobs that match the
+   *          specified resource Amazon Resource Name (ARN).</p>
+   */
+  ByRestoreTestingPlanArn?: string;
 }
 
 /**
@@ -5883,7 +7627,7 @@ export interface RestoreJobsListMember {
    * <p>A status code specifying the state of the job initiated by Backup to restore
    *          a recovery point.</p>
    */
-  Status?: RestoreJobStatus | string;
+  Status?: RestoreJobStatus;
 
   /**
    * @public
@@ -5933,6 +7677,47 @@ export interface RestoreJobsListMember {
    *             Amazon EC2.</p>
    */
   ResourceType?: string;
+
+  /**
+   * @public
+   * <p>The date on which a recovery point was created.</p>
+   */
+  RecoveryPointCreationDate?: Date;
+
+  /**
+   * @public
+   * <p>Contains identifying information about the creation
+   *          of a restore job.</p>
+   */
+  CreatedBy?: RestoreJobCreator;
+
+  /**
+   * @public
+   * <p>This is the status of validation run on the indicated
+   *          restore job.</p>
+   */
+  ValidationStatus?: RestoreValidationStatus;
+
+  /**
+   * @public
+   * <p>This describes the status of validation run on the
+   *          indicated restore job.</p>
+   */
+  ValidationStatusMessage?: string;
+
+  /**
+   * @public
+   * <p>This notes the status of the data generated by the restore
+   *          test. The status may be <code>Deleting</code>, <code>Failed</code>,
+   *          or <code>Successful</code>.</p>
+   */
+  DeletionStatus?: RestoreDeletionStatus;
+
+  /**
+   * @public
+   * <p>This describes the restore job deletion status.</p>
+   */
+  DeletionStatusMessage?: string;
 }
 
 /**
@@ -5949,11 +7734,512 @@ export interface ListRestoreJobsOutput {
   /**
    * @public
    * <p>The next item following a partial list of returned items. For example, if a request is
-   *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
+   *          made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
   NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListRestoreJobsByProtectedResourceInput {
+  /**
+   * @public
+   * <p>Returns only restore jobs that match the specified resource
+   *          Amazon Resource Name (ARN).</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Returns only restore jobs associated with the specified job status.</p>
+   */
+  ByStatus?: RestoreJobStatus;
+
+  /**
+   * @public
+   * <p>Returns only restore jobs of recovery points that were created after the specified date.</p>
+   */
+  ByRecoveryPointCreationDateAfter?: Date;
+
+  /**
+   * @public
+   * <p>Returns only restore jobs of recovery points that were created before the specified date.</p>
+   */
+  ByRecoveryPointCreationDateBefore?: Date;
+
+  /**
+   * @public
+   * <p>The next item following a partial list of returned items. For example,
+   *          if a request ismade to return <code>MaxResults</code> number of items,
+   *          <code>NextToken</code> allows you to return more items in your list
+   *          starting at the location pointed to by the next token.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of items to be returned.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListRestoreJobsByProtectedResourceOutput {
+  /**
+   * @public
+   * <p>An array of objects that contain detailed information about
+   *          jobs to restore saved resources.></p>
+   */
+  RestoreJobs?: RestoreJobsListMember[];
+
+  /**
+   * @public
+   * <p>The next item following a partial list of returned items. For example,
+   *          if a request is made to return <code>MaxResults</code> number of items,
+   *          <code>NextToken</code> allows youto return more items in your list starting
+   *          at the location pointed to by the next token</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RestoreJobState = {
+  ABORTED: "ABORTED",
+  AGGREGATE_ALL: "AGGREGATE_ALL",
+  ANY: "ANY",
+  COMPLETED: "COMPLETED",
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+} as const;
+
+/**
+ * @public
+ */
+export type RestoreJobState = (typeof RestoreJobState)[keyof typeof RestoreJobState];
+
+/**
+ * @public
+ */
+export interface ListRestoreJobSummariesInput {
+  /**
+   * @public
+   * <p>Returns the job count for the specified account.</p>
+   *          <p>If the request is sent from a member account or an account
+   *          not part of Amazon Web Services Organizations, jobs within requestor's account
+   *          will be returned.</p>
+   *          <p>Root, admin, and delegated administrator accounts can use
+   *          the value ANY to return job counts from every account in the
+   *          organization.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          from all accounts within the authenticated organization,
+   *          then returns the sum.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>This parameter returns the job count for jobs
+   *          with the specified state.</p>
+   *          <p>The the value ANY returns count of all states.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          for all states and returns the sum.</p>
+   */
+  State?: RestoreJobState;
+
+  /**
+   * @public
+   * <p>Returns the job count for the specified resource type.
+   *          Use request <code>GetSupportedResourceTypes</code> to obtain
+   *          strings for supported resource types.</p>
+   *          <p>The the value ANY returns count of all resource types.</p>
+   *          <p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts
+   *          for all resource types and returns the sum.</p>
+   *          <p>The type of Amazon Web Services resource to be backed up; for example, an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database.</p>
+   */
+  ResourceType?: string;
+
+  /**
+   * @public
+   * <p>This is the period that sets the boundaries for returned
+   *          results.</p>
+   *          <p>Acceptable values include</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ONE_DAY</code> for daily job count
+   *                for the prior 14 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SEVEN_DAYS</code> for the aggregated
+   *                job count for the prior 7 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FOURTEEN_DAYS</code> for aggregated
+   *                job count for prior 14 days.</p>
+   *             </li>
+   *          </ul>
+   */
+  AggregationPeriod?: AggregationPeriod;
+
+  /**
+   * @public
+   * <p>This parameter sets the maximum number of items
+   *          to be returned.</p>
+   *          <p>The value is an integer. Range of accepted values is from
+   *          1 to 500.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The next item following a partial list of returned resources. For example, if a request
+   *          is made to return <code>MaxResults</code> number of resources, <code>NextToken</code>
+   *          allows you to return more items in your list starting at the location pointed to by the
+   *          next token.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * <p>This is a summary of restore jobs created
+ *          or running within the most recent 30 days.</p>
+ *          <p>The returned summary may contain the following:
+ *          Region, Account, State, ResourceType, MessageCategory,
+ *          StartTime, EndTime, and Count of included jobs.</p>
+ */
+export interface RestoreJobSummary {
+  /**
+   * @public
+   * <p>The Amazon Web Services Regions within the job summary.</p>
+   */
+  Region?: string;
+
+  /**
+   * @public
+   * <p>The account ID that owns the jobs within the summary.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>This value is job count for jobs
+   *          with the specified state.</p>
+   */
+  State?: RestoreJobState;
+
+  /**
+   * @public
+   * <p>This value is the job count for the specified resource type.
+   *          The request <code>GetSupportedResourceTypes</code> returns
+   *          strings for supported resource types.</p>
+   */
+  ResourceType?: string;
+
+  /**
+   * @public
+   * <p>The value as a number of jobs in a job summary.</p>
+   */
+  Count?: number;
+
+  /**
+   * @public
+   * <p>The value of time in number format of a job start time.</p>
+   *          <p>This value is the time in Unix format, Coordinated Universal Time (UTC), and accurate to
+   *          milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018
+   *          12:11:30.087 AM.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * @public
+   * <p>The value of time in number format of a job end time.</p>
+   *          <p>This value is the time in Unix format, Coordinated Universal Time (UTC), and accurate to
+   *          milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018
+   *          12:11:30.087 AM.</p>
+   */
+  EndTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListRestoreJobSummariesOutput {
+  /**
+   * @public
+   * <p>This return contains a summary that contains
+   *          Region, Account, State, ResourceType, MessageCategory,
+   *          StartTime, EndTime, and Count of included jobs.</p>
+   */
+  RestoreJobSummaries?: RestoreJobSummary[];
+
+  /**
+   * @public
+   * <p>This is the period that sets the boundaries for returned
+   *          results.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ONE_DAY</code> for daily job count
+   *                for the prior 14 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SEVEN_DAYS</code> for the aggregated
+   *                job count for the prior 7 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FOURTEEN_DAYS</code> for aggregated
+   *                job count for prior 14 days.</p>
+   *             </li>
+   *          </ul>
+   */
+  AggregationPeriod?: string;
+
+  /**
+   * @public
+   * <p>The next item following a partial list of returned resources. For example, if a request
+   *          is made to return <code>MaxResults</code> number of resources, <code>NextToken</code>
+   *          allows you to return more items in your list starting at the location pointed to by the
+   *          next token.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListRestoreTestingPlansInput {
+  /**
+   * @public
+   * <p>The maximum number of items to be returned.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The next item following a partial list of returned items.
+   *          For example, if a request is made to return <code>MaxResults</code>
+   *          number of items, <code>NextToken</code> allows you to return more items
+   *          in your list starting at the location pointed to by the nexttoken.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * <p>This contains metadata about a restore testing plan.</p>
+ */
+export interface RestoreTestingPlanForList {
+  /**
+   * @public
+   * <p>The date and time that a restore testing plan was created,
+   *          in Unix format and Coordinated Universal Time (UTC). The value
+   *          of <code>CreationTime</code> is accurate to milliseconds. For
+   *          example, the value 1516925490.087 represents Friday, January 26,
+   *          2018 12:11:30.087 AM.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The last time a restore test was run with the specified
+   *          restore testing plan. A date and time, in Unix format and
+   *          Coordinated Universal Time (UTC). The value of
+   *          <code>LastExecutionDate</code> is accurate to milliseconds.
+   *          For example, the value 1516925490.087 represents Friday,
+   *          January 26, 2018 12:11:30.087 AM.</p>
+   */
+  LastExecutionTime?: Date;
+
+  /**
+   * @public
+   * <p>The date and time that the restore testing plan was updated.
+   *          This update is in Unix format and Coordinated Universal Time (UTC).
+   *          The value of <code>LastUpdateTime</code> is accurate to
+   *          milliseconds. For example, the value 1516925490.087 represents
+   *          Friday, January 26, 2018 12:11:30.087 AM.</p>
+   */
+  LastUpdateTime?: Date;
+
+  /**
+   * @public
+   * <p>An Amazon Resource Name (ARN) that uniquely identifiesa
+   *          restore testing plan.</p>
+   */
+  RestoreTestingPlanArn: string | undefined;
+
+  /**
+   * @public
+   * <p>This is the restore testing plan name.</p>
+   */
+  RestoreTestingPlanName: string | undefined;
+
+  /**
+   * @public
+   * <p>A CRON expression in specified timezone when a restore
+   *          testing plan is executed.</p>
+   */
+  ScheduleExpression: string | undefined;
+
+  /**
+   * @public
+   * <p>Optional. This is the timezone in which the schedule
+   *          expression is set. By default, ScheduleExpressions are in UTC.
+   *          You can modify this to a specified timezone.</p>
+   */
+  ScheduleExpressionTimezone?: string;
+
+  /**
+   * @public
+   * <p>Defaults to 24 hours.</p>
+   *          <p>A value in hours after a restore test is scheduled before
+   *             a job will be canceled if it doesn't start successfully. This
+   *             value is optional. If this value is included, this parameter
+   *             has a maximum value of 168 hours (one week).</p>
+   */
+  StartWindowHours?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListRestoreTestingPlansOutput {
+  /**
+   * @public
+   * <p>The next item following a partial list of returned items.
+   *          For example, if a request is made to return <code>MaxResults</code>
+   *          number of items, <code>NextToken</code> allows you to return more items
+   *          in your list starting at the location pointed to by the nexttoken.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>This is a returned list of restore testing plans.</p>
+   */
+  RestoreTestingPlans: RestoreTestingPlanForList[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRestoreTestingSelectionsInput {
+  /**
+   * @public
+   * <p>The maximum number of items to be returned.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The next item following a partial list of returned items.
+   *          For example, if a request is made to return <code>MaxResults</code>
+   *          number of items, <code>NextToken</code> allows you to return more items
+   *          in your list starting at the location pointed to by the nexttoken.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>Returns restore testing selections by the specified restore testing
+   *          plan name.</p>
+   */
+  RestoreTestingPlanName: string | undefined;
+}
+
+/**
+ * @public
+ * <p>This contains metadata about a restore testing selection.</p>
+ */
+export interface RestoreTestingSelectionForList {
+  /**
+   * @public
+   * <p>This is the date and time that a restore testing selection
+   *          was created, in Unix format and Coordinated Universal Time (UTC).
+   *          The value of <code>CreationTime</code> is accurate to milliseconds.
+   *          For example, the value 1516925490.087 represents Friday,
+   *          January 26,2018 12:11:30.087 AM.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the IAM role that
+   *          Backup uses to create the target resource; for example:
+   *          <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
+   */
+  IamRoleArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of Amazon Web Services resource included in a restore
+   *          testing selection; for example, an
+   *          Amazon EBS volume or an
+   *          Amazon RDS database.</p>
+   */
+  ProtectedResourceType: string | undefined;
+
+  /**
+   * @public
+   * <p>Unique string that is the name of the restore testing plan.</p>
+   *          <p>The name cannot be changed after creation. The name must
+   *          consist of only alphanumeric characters and underscores.
+   *          Maximum length is 50.</p>
+   */
+  RestoreTestingPlanName: string | undefined;
+
+  /**
+   * @public
+   * <p>Unique name of a restore testing selection.</p>
+   */
+  RestoreTestingSelectionName: string | undefined;
+
+  /**
+   * @public
+   * <p>This value represents the time, in hours, data is retained after
+   *          a restore test so that optional validation can be completed.</p>
+   *          <p>Accepted value is an integer between
+   *          0 and 168 (the hourly equivalent of seven days).</p>
+   */
+  ValidationWindowHours?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListRestoreTestingSelectionsOutput {
+  /**
+   * @public
+   * <p>The next item following a partial list of returned items. For example,
+   *          if a request is made to return <code>MaxResults</code> number of items,
+   *          <code>NextToken</code> allows you to return more items in your list
+   *          starting at the location pointed to by the nexttoken.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The returned restore testing selections associated with the
+   *          restore testing plan.</p>
+   */
+  RestoreTestingSelections: RestoreTestingSelectionForList[] | undefined;
 }
 
 /**
@@ -5971,7 +8257,7 @@ export interface ListTagsInput {
   /**
    * @public
    * <p>The next item following a partial list of returned items. For example, if a request is
-   *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
+   *          made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
@@ -5991,7 +8277,7 @@ export interface ListTagsOutput {
   /**
    * @public
    * <p>The next item following a partial list of returned items. For example, if a request is
-   *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
+   *          made to return <code>MaxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
@@ -6150,7 +8436,31 @@ export interface PutBackupVaultNotificationsInput {
    *             Refer to the list above for current supported events.</p>
    *          </note>
    */
-  BackupVaultEvents: (BackupVaultEvent | string)[] | undefined;
+  BackupVaultEvents: BackupVaultEvent[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutRestoreValidationResultInput {
+  /**
+   * @public
+   * <p>This is a unique identifier of a restore job within Backup.</p>
+   */
+  RestoreJobId: string | undefined;
+
+  /**
+   * @public
+   * <p>This is the status of your restore validation.</p>
+   */
+  ValidationStatus: RestoreValidationStatus | undefined;
+
+  /**
+   * @public
+   * <p>This is an optional message string you can input to
+   *          describe the validation status for the restore test validation.</p>
+   */
+  ValidationStatusMessage?: string;
 }
 
 /**
@@ -6837,6 +9147,13 @@ export interface UpdateRegionSettingsInput {
   /**
    * @public
    * <p>Updates the list of services along with the opt-in preferences for the Region.</p>
+   *          <p>If resource assignments are only based on tags, then service opt-in settings are applied.
+   *          If a resource type is explicitly assigned to a backup plan, such as Amazon S3,
+   *          Amazon EC2, or Amazon RDS, it will be included in the
+   *          backup even if the opt-in is not enabled for that particular service.
+   *          If both a resource type and tags are specified in a resource assignment,
+   *          the resource type specified in the backup plan takes priority over the
+   *          tag condition. Service opt-in settings are disregarded in this situation.</p>
    */
   ResourceTypeOptInPreference?: Record<string, boolean>;
 
@@ -6926,6 +9243,215 @@ export interface UpdateReportPlanOutput {
 }
 
 /**
+ * @public
+ * <p>This contains metadata about a restore testing plan.</p>
+ */
+export interface RestoreTestingPlanForUpdate {
+  /**
+   * @public
+   * <p>Required: <code>Algorithm</code>; <code>RecoveryPointTypes</code>;
+   *          <code>IncludeVaults</code> (<i>one or more</i>).</p>
+   *          <p>Optional: <i>SelectionWindowDays</i> (<i>'30' if
+   *          not specified</i>); <code>ExcludeVaults</code> (defaults to empty
+   *          list if not listed).</p>
+   */
+  RecoveryPointSelection?: RestoreTestingRecoveryPointSelection;
+
+  /**
+   * @public
+   * <p>A CRON expression in specified timezone when a restore
+   *          testing plan is executed.</p>
+   */
+  ScheduleExpression?: string;
+
+  /**
+   * @public
+   * <p>Optional. This is the timezone in which the schedule
+   *          expression is set. By default, ScheduleExpressions are in UTC.
+   *          You can modify this to a specified timezone.</p>
+   */
+  ScheduleExpressionTimezone?: string;
+
+  /**
+   * @public
+   * <p>Defaults to 24 hours.</p>
+   *          <p>A value in hours after a restore test is scheduled before a
+   *          job will be canceled if it doesn't start successfully. This value
+   *          is optional. If this value is included, this parameter has a
+   *          maximum value of 168 hours (one week).</p>
+   */
+  StartWindowHours?: number;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRestoreTestingPlanInput {
+  /**
+   * @public
+   * <p>Specifies the body of a restore testing plan.</p>
+   */
+  RestoreTestingPlan: RestoreTestingPlanForUpdate | undefined;
+
+  /**
+   * @public
+   * <p>This is the restore testing plan name you wish to update.</p>
+   */
+  RestoreTestingPlanName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRestoreTestingPlanOutput {
+  /**
+   * @public
+   * <p>This is the time the resource testing plan was
+   *          created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>Unique ARN (Amazon Resource Name) of the restore testing plan.</p>
+   */
+  RestoreTestingPlanArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The name cannot be changed after creation. The name consists of
+   *          only alphanumeric characters and underscores. Maximum length is 50.</p>
+   */
+  RestoreTestingPlanName: string | undefined;
+
+  /**
+   * @public
+   * <p>This is the time the update completed for the restore
+   *          testing plan.</p>
+   */
+  UpdateTime: Date | undefined;
+}
+
+/**
+ * @public
+ * <p>This contains metadata about a restore testing selection.</p>
+ */
+export interface RestoreTestingSelectionForUpdate {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the IAM role that
+   *          Backup uses to create the target resource; for example:
+   *          <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
+   */
+  IamRoleArn?: string;
+
+  /**
+   * @public
+   * <p>You can include a list of specific ARNs, such as
+   *          <code>ProtectedResourceArns: ["arn:aws:...", "arn:aws:..."]</code>
+   *          or you can include a wildcard: <code>ProtectedResourceArns: ["*"]</code>,
+   *          but not both.</p>
+   */
+  ProtectedResourceArns?: string[];
+
+  /**
+   * @public
+   * <p>A list of conditions that you define for resources in
+   *          your restore testing plan using  tags.</p>
+   *          <p>For example,
+   *          <code>"StringEquals": \{  "Key": "aws:ResourceTag/CreatedByCryo",  "Value": "true"  \},</code>.
+   *          Condition operators are case sensitive.</p>
+   */
+  ProtectedResourceConditions?: ProtectedResourceConditions;
+
+  /**
+   * @public
+   * <p>You can override certain restore metadata keys by including the parameter
+   *          <code>RestoreMetadataOverrides</code> in the body of
+   *          <code>RestoreTestingSelection</code>. Key values are not case sensitive.</p>
+   *          <p>See the complete list of <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/restore-testing-inferred-metadata.html">restore testing
+   *          inferred metadata</a>.</p>
+   */
+  RestoreMetadataOverrides?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>This value represents the time, in hours, data is retained after
+   *          a restore test so that optional validation can be completed.</p>
+   *          <p>Accepted value is an integer between
+   *          0 and 168 (the hourly equivalent of seven days).</p>
+   */
+  ValidationWindowHours?: number;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRestoreTestingSelectionInput {
+  /**
+   * @public
+   * <p>The restore testing plan name is required to update the
+   *          indicated testing plan.</p>
+   */
+  RestoreTestingPlanName: string | undefined;
+
+  /**
+   * @public
+   * <p>To update your restore testing selection, you can use either
+   *          protected resource ARNs or conditions, but not both. That is, if your
+   *          selection has <code>ProtectedResourceArns</code>, requesting an update
+   *          with the parameter <code>ProtectedResourceConditions</code> will be
+   *          unsuccessful.</p>
+   */
+  RestoreTestingSelection: RestoreTestingSelectionForUpdate | undefined;
+
+  /**
+   * @public
+   * <p>This is the required restore testing selection name of the restore
+   *          testing selection you wish to update.</p>
+   */
+  RestoreTestingSelectionName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRestoreTestingSelectionOutput {
+  /**
+   * @public
+   * <p>This is the time the resource testing selection was
+   *          updated successfully.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>Unique string that is the name of the restore testing plan.</p>
+   */
+  RestoreTestingPlanArn: string | undefined;
+
+  /**
+   * @public
+   * <p>This is the restore testing plan with which the updated restore
+   *          testing selection is associated.</p>
+   */
+  RestoreTestingPlanName: string | undefined;
+
+  /**
+   * @public
+   * <p>This is the returned restore testing selection name.</p>
+   */
+  RestoreTestingSelectionName: string | undefined;
+
+  /**
+   * @public
+   * <p>This is the time the update completed for the restore
+   *          testing selection.</p>
+   */
+  UpdateTime: Date | undefined;
+}
+
+/**
  * @internal
  */
 export const BackupRuleFilterSensitiveLog = (obj: BackupRule): any => ({
@@ -6995,6 +9521,32 @@ export const CreateLogicallyAirGappedBackupVaultInputFilterSensitiveLog = (
 /**
  * @internal
  */
+export const CreateRestoreTestingPlanInputFilterSensitiveLog = (obj: CreateRestoreTestingPlanInput): any => ({
+  ...obj,
+  ...(obj.Tags && { Tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RestoreTestingSelectionForCreateFilterSensitiveLog = (obj: RestoreTestingSelectionForCreate): any => ({
+  ...obj,
+  ...(obj.RestoreMetadataOverrides && { RestoreMetadataOverrides: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateRestoreTestingSelectionInputFilterSensitiveLog = (obj: CreateRestoreTestingSelectionInput): any => ({
+  ...obj,
+  ...(obj.RestoreTestingSelection && {
+    RestoreTestingSelection: RestoreTestingSelectionForCreateFilterSensitiveLog(obj.RestoreTestingSelection),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const GetBackupPlanOutputFilterSensitiveLog = (obj: GetBackupPlanOutput): any => ({
   ...obj,
   ...(obj.BackupPlan && { BackupPlan: BackupPlanFilterSensitiveLog(obj.BackupPlan) }),
@@ -7024,6 +9576,32 @@ export const GetRecoveryPointRestoreMetadataOutputFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.RestoreMetadata && { RestoreMetadata: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetRestoreJobMetadataOutputFilterSensitiveLog = (obj: GetRestoreJobMetadataOutput): any => ({
+  ...obj,
+  ...(obj.Metadata && { Metadata: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RestoreTestingSelectionForGetFilterSensitiveLog = (obj: RestoreTestingSelectionForGet): any => ({
+  ...obj,
+  ...(obj.RestoreMetadataOverrides && { RestoreMetadataOverrides: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetRestoreTestingSelectionOutputFilterSensitiveLog = (obj: GetRestoreTestingSelectionOutput): any => ({
+  ...obj,
+  ...(obj.RestoreTestingSelection && {
+    RestoreTestingSelection: RestoreTestingSelectionForGetFilterSensitiveLog(obj.RestoreTestingSelection),
+  }),
 });
 
 /**
@@ -7072,4 +9650,22 @@ export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): a
 export const UpdateBackupPlanInputFilterSensitiveLog = (obj: UpdateBackupPlanInput): any => ({
   ...obj,
   ...(obj.BackupPlan && { BackupPlan: BackupPlanInputFilterSensitiveLog(obj.BackupPlan) }),
+});
+
+/**
+ * @internal
+ */
+export const RestoreTestingSelectionForUpdateFilterSensitiveLog = (obj: RestoreTestingSelectionForUpdate): any => ({
+  ...obj,
+  ...(obj.RestoreMetadataOverrides && { RestoreMetadataOverrides: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateRestoreTestingSelectionInputFilterSensitiveLog = (obj: UpdateRestoreTestingSelectionInput): any => ({
+  ...obj,
+  ...(obj.RestoreTestingSelection && {
+    RestoreTestingSelection: RestoreTestingSelectionForUpdateFilterSensitiveLog(obj.RestoreTestingSelection),
+  }),
 });

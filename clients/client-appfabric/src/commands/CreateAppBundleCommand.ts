@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppFabricClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppFabricClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateAppBundleRequest, CreateAppBundleResponse } from "../models/models_0";
 import { de_CreateAppBundleCommand, se_CreateAppBundleCommand } from "../protocols/Aws_restJson1";
 
@@ -93,79 +85,26 @@ export interface CreateAppBundleCommandOutput extends CreateAppBundleResponse, _
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
  */
-export class CreateAppBundleCommand extends $Command<
-  CreateAppBundleCommandInput,
-  CreateAppBundleCommandOutput,
-  AppFabricClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateAppBundleCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AppFabricClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateAppBundleCommandInput, CreateAppBundleCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateAppBundleCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "AppFabricClient";
-    const commandName = "CreateAppBundleCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateAppBundleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateAppBundleCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAppBundleCommandOutput> {
-    return de_CreateAppBundleCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateAppBundleCommand extends $Command
+  .classBuilder<
+    CreateAppBundleCommandInput,
+    CreateAppBundleCommandOutput,
+    AppFabricClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: AppFabricClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("FabricFrontEndService", "CreateAppBundle", {})
+  .n("AppFabricClient", "CreateAppBundleCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateAppBundleCommand)
+  .de(de_CreateAppBundleCommand)
+  .build() {}

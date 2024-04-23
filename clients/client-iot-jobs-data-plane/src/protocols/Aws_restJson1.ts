@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -50,27 +51,18 @@ export const se_DescribeJobExecutionCommand = async (
   input: DescribeJobExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/things/{thingName}/jobs/{jobId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "jobId", () => input.jobId!, "{jobId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "thingName", () => input.thingName!, "{thingName}", false);
+  b.bp("/things/{thingName}/jobs/{jobId}");
+  b.p("jobId", () => input.jobId!, "{jobId}", false);
+  b.p("thingName", () => input.thingName!, "{thingName}", false);
   const query: any = map({
-    includeJobDocument: [() => input.includeJobDocument !== void 0, () => input.includeJobDocument!.toString()],
-    executionNumber: [() => input.executionNumber !== void 0, () => input.executionNumber!.toString()],
+    [_iJD]: [() => input.includeJobDocument !== void 0, () => input[_iJD]!.toString()],
+    [_eN]: [() => input.executionNumber !== void 0, () => input[_eN]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -80,20 +72,13 @@ export const se_GetPendingJobExecutionsCommand = async (
   input: GetPendingJobExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/things/{thingName}/jobs";
-  resolvedPath = __resolvedPath(resolvedPath, input, "thingName", () => input.thingName!, "{thingName}", false);
+  b.bp("/things/{thingName}/jobs");
+  b.p("thingName", () => input.thingName!, "{thingName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -103,13 +88,12 @@ export const se_StartNextPendingJobExecutionCommand = async (
   input: StartNextPendingJobExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/things/{thingName}/jobs/$next";
-  resolvedPath = __resolvedPath(resolvedPath, input, "thingName", () => input.thingName!, "{thingName}", false);
+  b.bp("/things/{thingName}/jobs/$next");
+  b.p("thingName", () => input.thingName!, "{thingName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -117,15 +101,8 @@ export const se_StartNextPendingJobExecutionCommand = async (
       stepTimeoutInMinutes: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -135,14 +112,13 @@ export const se_UpdateJobExecutionCommand = async (
   input: UpdateJobExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/things/{thingName}/jobs/{jobId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "jobId", () => input.jobId!, "{jobId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "thingName", () => input.thingName!, "{thingName}", false);
+  b.bp("/things/{thingName}/jobs/{jobId}");
+  b.p("jobId", () => input.jobId!, "{jobId}", false);
+  b.p("thingName", () => input.thingName!, "{thingName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -155,15 +131,8 @@ export const se_UpdateJobExecutionCommand = async (
       stepTimeoutInMinutes: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -579,6 +548,9 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _eN = "executionNumber";
+const _iJD = "includeJobDocument";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

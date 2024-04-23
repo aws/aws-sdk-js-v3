@@ -204,7 +204,7 @@ export interface FlexibleTimeWindow {
    * @public
    * <p>Determines whether the schedule is invoked within a flexible time window.</p>
    */
-  Mode: FlexibleTimeWindowMode | string | undefined;
+  Mode: FlexibleTimeWindowMode | undefined;
 
   /**
    * @public
@@ -302,7 +302,7 @@ export interface AwsVpcConfiguration {
    * @public
    * <p>Specifies whether the task's elastic network interface receives a public IP address. You can specify <code>ENABLED</code> only when <code>LaunchType</code> in <code>EcsParameters</code> is set to <code>FARGATE</code>.</p>
    */
-  AssignPublicIp?: AssignPublicIp | string;
+  AssignPublicIp?: AssignPublicIp;
 }
 
 /**
@@ -340,7 +340,7 @@ export interface PlacementConstraint {
    * @public
    * <p>The type of constraint. Use <code>distinctInstance</code> to ensure that each task in a particular group is running on a different container instance. Use <code>memberOf</code> to restrict the selection to a group of valid candidates.</p>
    */
-  type?: PlacementConstraintType | string;
+  type?: PlacementConstraintType;
 
   /**
    * @public
@@ -376,7 +376,7 @@ export interface PlacementStrategy {
    *          evenly based on the field parameter. The binpack strategy places tasks on available candidates that have the least available amount of the resource that is specified with the field parameter.
    *          For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task).</p>
    */
-  type?: PlacementStrategyType | string;
+  type?: PlacementStrategyType;
 
   /**
    * @public
@@ -425,7 +425,7 @@ export interface EcsParameters {
    *          The <code>FARGATE</code> value is supported only in the Regions where Fargate with Amazon ECS is supported.
    *          For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html">AWS Fargate on Amazon ECS</a> in the <i>Amazon ECS Developer Guide</i>.</p>
    */
-  LaunchType?: LaunchType | string;
+  LaunchType?: LaunchType;
 
   /**
    * @public
@@ -485,7 +485,7 @@ export interface EcsParameters {
    *          API action.
    *       </p>
    */
-  PropagateTags?: PropagateTags | string;
+  PropagateTags?: PropagateTags;
 
   /**
    * @public
@@ -776,7 +776,7 @@ export interface CreateScheduleInput {
    * @public
    * <p>Specifies whether the schedule is enabled or disabled.</p>
    */
-  State?: ScheduleState | string;
+  State?: ScheduleState;
 
   /**
    * @public
@@ -809,7 +809,7 @@ export interface CreateScheduleInput {
    * @public
    * <p>Specifies the action that EventBridge Scheduler applies to the schedule after the schedule completes invoking the target.</p>
    */
-  ActionAfterCompletion?: ActionAfterCompletion | string;
+  ActionAfterCompletion?: ActionAfterCompletion;
 }
 
 /**
@@ -986,7 +986,7 @@ export interface GetScheduleOutput {
    * @public
    * <p>Specifies whether the schedule is enabled or disabled.</p>
    */
-  State?: ScheduleState | string;
+  State?: ScheduleState;
 
   /**
    * @public
@@ -1022,7 +1022,7 @@ export interface GetScheduleOutput {
    * @public
    * <p>Indicates the action that EventBridge Scheduler applies to the schedule after the schedule completes invoking the target.</p>
    */
-  ActionAfterCompletion?: ActionAfterCompletion | string;
+  ActionAfterCompletion?: ActionAfterCompletion;
 }
 
 /**
@@ -1045,7 +1045,7 @@ export interface ListSchedulesInput {
    * @public
    * <p>If specified, only lists the schedules whose current state matches the given filter.</p>
    */
-  State?: ScheduleState | string;
+  State?: ScheduleState;
 
   /**
    * @public
@@ -1099,7 +1099,7 @@ export interface ScheduleSummary {
    * @public
    * <p>Specifies whether the schedule is enabled or disabled.</p>
    */
-  State?: ScheduleState | string;
+  State?: ScheduleState;
 
   /**
    * @public
@@ -1225,7 +1225,7 @@ export interface UpdateScheduleInput {
    * @public
    * <p>Specifies whether the schedule is enabled or disabled.</p>
    */
-  State?: ScheduleState | string;
+  State?: ScheduleState;
 
   /**
    * @public
@@ -1258,7 +1258,7 @@ export interface UpdateScheduleInput {
    * @public
    * <p>Specifies the action that EventBridge Scheduler applies to the schedule after the schedule completes invoking the target.</p>
    */
-  ActionAfterCompletion?: ActionAfterCompletion | string;
+  ActionAfterCompletion?: ActionAfterCompletion;
 }
 
 /**
@@ -1379,7 +1379,7 @@ export interface GetScheduleGroupOutput {
    * @public
    * <p>Specifies the state of the schedule group.</p>
    */
-  State?: ScheduleGroupState | string;
+  State?: ScheduleGroupState;
 
   /**
    * @public
@@ -1438,7 +1438,7 @@ export interface ScheduleGroupSummary {
    * @public
    * <p>Specifies the state of the schedule group.</p>
    */
-  State?: ScheduleGroupState | string;
+  State?: ScheduleGroupState;
 
   /**
    * @public

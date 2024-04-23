@@ -10,8 +10,12 @@
 export * from "./PipesClient";
 export * from "./Pipes";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { PipesExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { PipesServiceException } from "./models/PipesServiceException";

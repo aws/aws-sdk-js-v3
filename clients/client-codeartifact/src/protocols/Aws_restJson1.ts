@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -160,27 +161,18 @@ export const se_AssociateExternalConnectionCommand = async (
   input: AssociateExternalConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repository/external-connection";
+  b.bp("/v1/repository/external-connection");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    "external-connection": [, __expectNonNull(input.externalConnection!, `externalConnection`)],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_r]: [, __expectNonNull(input[_r]!, `repository`)],
+    [_ec]: [, __expectNonNull(input[_eC]!, `externalConnection`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -190,20 +182,19 @@ export const se_CopyPackageVersionsCommand = async (
   input: CopyPackageVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/versions/copy";
+  b.bp("/v1/package/versions/copy");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
-    "source-repository": [, __expectNonNull(input.sourceRepository!, `sourceRepository`)],
-    "destination-repository": [, __expectNonNull(input.destinationRepository!, `destinationRepository`)],
-    format: [, __expectNonNull(input.format!, `format`)],
-    namespace: [, input.namespace!],
-    package: [, __expectNonNull(input.package!, `package`)],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_sr]: [, __expectNonNull(input[_sR]!, `sourceRepository`)],
+    [_dr]: [, __expectNonNull(input[_dR]!, `destinationRepository`)],
+    [_f]: [, __expectNonNull(input[_f]!, `format`)],
+    [_n]: [, input[_n]!],
+    [_p]: [, __expectNonNull(input[_p]!, `package`)],
   });
   let body: any;
   body = JSON.stringify(
@@ -214,16 +205,8 @@ export const se_CopyPackageVersionsCommand = async (
       versions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -233,13 +216,13 @@ export const se_CreateDomainCommand = async (
   input: CreateDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domain";
+  b.bp("/v1/domain");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
   });
   let body: any;
   body = JSON.stringify(
@@ -248,16 +231,8 @@ export const se_CreateDomainCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -267,15 +242,15 @@ export const se_CreateRepositoryCommand = async (
   input: CreateRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repository";
+  b.bp("/v1/repository");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_r]: [, __expectNonNull(input[_r]!, `repository`)],
   });
   let body: any;
   body = JSON.stringify(
@@ -285,16 +260,8 @@ export const se_CreateRepositoryCommand = async (
       upstreams: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -304,24 +271,16 @@ export const se_DeleteDomainCommand = async (
   input: DeleteDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domain";
+  b.bp("/v1/domain");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -331,26 +290,17 @@ export const se_DeleteDomainPermissionsPolicyCommand = async (
   input: DeleteDomainPermissionsPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domain/permissions/policy";
+  b.bp("/v1/domain/permissions/policy");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
-    "policy-revision": [, input.policyRevision!],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_pr]: [, input[_pR]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -360,28 +310,20 @@ export const se_DeletePackageCommand = async (
   input: DeletePackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package";
+  b.bp("/v1/package");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    format: [, __expectNonNull(input.format!, `format`)],
-    namespace: [, input.namespace!],
-    package: [, __expectNonNull(input.package!, `package`)],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_r]: [, __expectNonNull(input[_r]!, `repository`)],
+    [_f]: [, __expectNonNull(input[_f]!, `format`)],
+    [_n]: [, input[_n]!],
+    [_p]: [, __expectNonNull(input[_p]!, `package`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -391,19 +333,18 @@ export const se_DeletePackageVersionsCommand = async (
   input: DeletePackageVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/versions/delete";
+  b.bp("/v1/package/versions/delete");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    format: [, __expectNonNull(input.format!, `format`)],
-    namespace: [, input.namespace!],
-    package: [, __expectNonNull(input.package!, `package`)],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_r]: [, __expectNonNull(input[_r]!, `repository`)],
+    [_f]: [, __expectNonNull(input[_f]!, `format`)],
+    [_n]: [, input[_n]!],
+    [_p]: [, __expectNonNull(input[_p]!, `package`)],
   });
   let body: any;
   body = JSON.stringify(
@@ -412,16 +353,8 @@ export const se_DeletePackageVersionsCommand = async (
       versions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -431,25 +364,17 @@ export const se_DeleteRepositoryCommand = async (
   input: DeleteRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repository";
+  b.bp("/v1/repository");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_r]: [, __expectNonNull(input[_r]!, `repository`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -459,27 +384,18 @@ export const se_DeleteRepositoryPermissionsPolicyCommand = async (
   input: DeleteRepositoryPermissionsPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repository/permissions/policies";
+  b.bp("/v1/repository/permissions/policies");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    "policy-revision": [, input.policyRevision!],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_r]: [, __expectNonNull(input[_r]!, `repository`)],
+    [_pr]: [, input[_pR]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -489,24 +405,16 @@ export const se_DescribeDomainCommand = async (
   input: DescribeDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domain";
+  b.bp("/v1/domain");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -516,28 +424,20 @@ export const se_DescribePackageCommand = async (
   input: DescribePackageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package";
+  b.bp("/v1/package");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    format: [, __expectNonNull(input.format!, `format`)],
-    namespace: [, input.namespace!],
-    package: [, __expectNonNull(input.package!, `package`)],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_r]: [, __expectNonNull(input[_r]!, `repository`)],
+    [_f]: [, __expectNonNull(input[_f]!, `format`)],
+    [_n]: [, input[_n]!],
+    [_p]: [, __expectNonNull(input[_p]!, `package`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -547,29 +447,21 @@ export const se_DescribePackageVersionCommand = async (
   input: DescribePackageVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/version";
+  b.bp("/v1/package/version");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    format: [, __expectNonNull(input.format!, `format`)],
-    namespace: [, input.namespace!],
-    package: [, __expectNonNull(input.package!, `package`)],
-    version: [, __expectNonNull(input.packageVersion!, `packageVersion`)],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_r]: [, __expectNonNull(input[_r]!, `repository`)],
+    [_f]: [, __expectNonNull(input[_f]!, `format`)],
+    [_n]: [, input[_n]!],
+    [_p]: [, __expectNonNull(input[_p]!, `package`)],
+    [_v]: [, __expectNonNull(input[_pV]!, `packageVersion`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -579,25 +471,17 @@ export const se_DescribeRepositoryCommand = async (
   input: DescribeRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repository";
+  b.bp("/v1/repository");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_r]: [, __expectNonNull(input[_r]!, `repository`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -607,27 +491,18 @@ export const se_DisassociateExternalConnectionCommand = async (
   input: DisassociateExternalConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repository/external-connection";
+  b.bp("/v1/repository/external-connection");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    "external-connection": [, __expectNonNull(input.externalConnection!, `externalConnection`)],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_r]: [, __expectNonNull(input[_r]!, `repository`)],
+    [_ec]: [, __expectNonNull(input[_eC]!, `externalConnection`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -637,19 +512,18 @@ export const se_DisposePackageVersionsCommand = async (
   input: DisposePackageVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/versions/dispose";
+  b.bp("/v1/package/versions/dispose");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    format: [, __expectNonNull(input.format!, `format`)],
-    namespace: [, input.namespace!],
-    package: [, __expectNonNull(input.package!, `package`)],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_r]: [, __expectNonNull(input[_r]!, `repository`)],
+    [_f]: [, __expectNonNull(input[_f]!, `format`)],
+    [_n]: [, input[_n]!],
+    [_p]: [, __expectNonNull(input[_p]!, `package`)],
   });
   let body: any;
   body = JSON.stringify(
@@ -659,16 +533,8 @@ export const se_DisposePackageVersionsCommand = async (
       versions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -678,26 +544,17 @@ export const se_GetAuthorizationTokenCommand = async (
   input: GetAuthorizationTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/authorization-token";
+  b.bp("/v1/authorization-token");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
-    duration: [() => input.durationSeconds !== void 0, () => input.durationSeconds!.toString()],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_du]: [() => input.durationSeconds !== void 0, () => input[_dS]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -707,25 +564,16 @@ export const se_GetDomainPermissionsPolicyCommand = async (
   input: GetDomainPermissionsPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domain/permissions/policy";
+  b.bp("/v1/domain/permissions/policy");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -735,32 +583,23 @@ export const se_GetPackageVersionAssetCommand = async (
   input: GetPackageVersionAssetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/version/asset";
+  b.bp("/v1/package/version/asset");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    format: [, __expectNonNull(input.format!, `format`)],
-    namespace: [, input.namespace!],
-    package: [, __expectNonNull(input.package!, `package`)],
-    version: [, __expectNonNull(input.packageVersion!, `packageVersion`)],
-    asset: [, __expectNonNull(input.asset!, `asset`)],
-    revision: [, input.packageVersionRevision!],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_r]: [, __expectNonNull(input[_r]!, `repository`)],
+    [_f]: [, __expectNonNull(input[_f]!, `format`)],
+    [_n]: [, input[_n]!],
+    [_p]: [, __expectNonNull(input[_p]!, `package`)],
+    [_v]: [, __expectNonNull(input[_pV]!, `packageVersion`)],
+    [_a]: [, __expectNonNull(input[_a]!, `asset`)],
+    [_re]: [, input[_pVR]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -770,30 +609,21 @@ export const se_GetPackageVersionReadmeCommand = async (
   input: GetPackageVersionReadmeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/version/readme";
+  b.bp("/v1/package/version/readme");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    format: [, __expectNonNull(input.format!, `format`)],
-    namespace: [, input.namespace!],
-    package: [, __expectNonNull(input.package!, `package`)],
-    version: [, __expectNonNull(input.packageVersion!, `packageVersion`)],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_r]: [, __expectNonNull(input[_r]!, `repository`)],
+    [_f]: [, __expectNonNull(input[_f]!, `format`)],
+    [_n]: [, input[_n]!],
+    [_p]: [, __expectNonNull(input[_p]!, `package`)],
+    [_v]: [, __expectNonNull(input[_pV]!, `packageVersion`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -803,27 +633,18 @@ export const se_GetRepositoryEndpointCommand = async (
   input: GetRepositoryEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repository/endpoint";
+  b.bp("/v1/repository/endpoint");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    format: [, __expectNonNull(input.format!, `format`)],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_r]: [, __expectNonNull(input[_r]!, `repository`)],
+    [_f]: [, __expectNonNull(input[_f]!, `format`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -833,26 +654,17 @@ export const se_GetRepositoryPermissionsPolicyCommand = async (
   input: GetRepositoryPermissionsPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repository/permissions/policy";
+  b.bp("/v1/repository/permissions/policy");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_r]: [, __expectNonNull(input[_r]!, `repository`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -862,11 +674,11 @@ export const se_ListDomainsCommand = async (
   input: ListDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domains";
+  b.bp("/v1/domains");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -874,15 +686,8 @@ export const se_ListDomainsCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -892,32 +697,24 @@ export const se_ListPackagesCommand = async (
   input: ListPackagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/packages";
+  b.bp("/v1/packages");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    format: [, input.format!],
-    namespace: [, input.namespace!],
-    "package-prefix": [, input.packagePrefix!],
-    "max-results": [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    "next-token": [, input.nextToken!],
-    publish: [, input.publish!],
-    upstream: [, input.upstream!],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_r]: [, __expectNonNull(input[_r]!, `repository`)],
+    [_f]: [, input[_f]!],
+    [_n]: [, input[_n]!],
+    [_pp]: [, input[_pP]!],
+    [_mr]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nt]: [, input[_nT]!],
+    [_pu]: [, input[_pu]!],
+    [_u]: [, input[_u]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -927,32 +724,23 @@ export const se_ListPackageVersionAssetsCommand = async (
   input: ListPackageVersionAssetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/version/assets";
+  b.bp("/v1/package/version/assets");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    format: [, __expectNonNull(input.format!, `format`)],
-    namespace: [, input.namespace!],
-    package: [, __expectNonNull(input.package!, `package`)],
-    version: [, __expectNonNull(input.packageVersion!, `packageVersion`)],
-    "max-results": [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    "next-token": [, input.nextToken!],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_r]: [, __expectNonNull(input[_r]!, `repository`)],
+    [_f]: [, __expectNonNull(input[_f]!, `format`)],
+    [_n]: [, input[_n]!],
+    [_p]: [, __expectNonNull(input[_p]!, `package`)],
+    [_v]: [, __expectNonNull(input[_pV]!, `packageVersion`)],
+    [_mr]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nt]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -962,31 +750,22 @@ export const se_ListPackageVersionDependenciesCommand = async (
   input: ListPackageVersionDependenciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/version/dependencies";
+  b.bp("/v1/package/version/dependencies");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    format: [, __expectNonNull(input.format!, `format`)],
-    namespace: [, input.namespace!],
-    package: [, __expectNonNull(input.package!, `package`)],
-    version: [, __expectNonNull(input.packageVersion!, `packageVersion`)],
-    "next-token": [, input.nextToken!],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_r]: [, __expectNonNull(input[_r]!, `repository`)],
+    [_f]: [, __expectNonNull(input[_f]!, `format`)],
+    [_n]: [, input[_n]!],
+    [_p]: [, __expectNonNull(input[_p]!, `package`)],
+    [_v]: [, __expectNonNull(input[_pV]!, `packageVersion`)],
+    [_nt]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -996,33 +775,25 @@ export const se_ListPackageVersionsCommand = async (
   input: ListPackageVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/versions";
+  b.bp("/v1/package/versions");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    format: [, __expectNonNull(input.format!, `format`)],
-    namespace: [, input.namespace!],
-    package: [, __expectNonNull(input.package!, `package`)],
-    status: [, input.status!],
-    sortBy: [, input.sortBy!],
-    "max-results": [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    "next-token": [, input.nextToken!],
-    originType: [, input.originType!],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_r]: [, __expectNonNull(input[_r]!, `repository`)],
+    [_f]: [, __expectNonNull(input[_f]!, `format`)],
+    [_n]: [, input[_n]!],
+    [_p]: [, __expectNonNull(input[_p]!, `package`)],
+    [_s]: [, input[_s]!],
+    [_sB]: [, input[_sB]!],
+    [_mr]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nt]: [, input[_nT]!],
+    [_oT]: [, input[_oT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1032,25 +803,17 @@ export const se_ListRepositoriesCommand = async (
   input: ListRepositoriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repositories";
+  b.bp("/v1/repositories");
   const query: any = map({
-    "repository-prefix": [, input.repositoryPrefix!],
-    "max-results": [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    "next-token": [, input.nextToken!],
+    [_rp]: [, input[_rP]!],
+    [_mr]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nt]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1060,29 +823,20 @@ export const se_ListRepositoriesInDomainCommand = async (
   input: ListRepositoriesInDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domain/repositories";
+  b.bp("/v1/domain/repositories");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
-    "administrator-account": [, input.administratorAccount!],
-    "repository-prefix": [, input.repositoryPrefix!],
-    "max-results": [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    "next-token": [, input.nextToken!],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_aa]: [, input[_aA]!],
+    [_rp]: [, input[_rP]!],
+    [_mr]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nt]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1092,23 +846,15 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/tags";
+  b.bp("/v1/tags");
   const query: any = map({
-    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
+    [_rA]: [, __expectNonNull(input[_rA]!, `resourceArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1118,38 +864,29 @@ export const se_PublishPackageVersionCommand = async (
   input: PublishPackageVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/octet-stream",
-    "x-amz-content-sha256": input.assetSHA256!,
+    [_xacs]: input[_aSHA]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/version/publish";
+  b.bp("/v1/package/version/publish");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    format: [, __expectNonNull(input.format!, `format`)],
-    namespace: [, input.namespace!],
-    package: [, __expectNonNull(input.package!, `package`)],
-    version: [, __expectNonNull(input.packageVersion!, `packageVersion`)],
-    asset: [, __expectNonNull(input.assetName!, `assetName`)],
-    unfinished: [() => input.unfinished !== void 0, () => input.unfinished!.toString()],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_r]: [, __expectNonNull(input[_r]!, `repository`)],
+    [_f]: [, __expectNonNull(input[_f]!, `format`)],
+    [_n]: [, input[_n]!],
+    [_p]: [, __expectNonNull(input[_p]!, `package`)],
+    [_v]: [, __expectNonNull(input[_pV]!, `packageVersion`)],
+    [_a]: [, __expectNonNull(input[_aN]!, `assetName`)],
+    [_un]: [() => input.unfinished !== void 0, () => input[_un]!.toString()],
   });
   let body: any;
   if (input.assetContent !== undefined) {
     body = input.assetContent;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1159,12 +896,11 @@ export const se_PutDomainPermissionsPolicyCommand = async (
   input: PutDomainPermissionsPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domain/permissions/policy";
+  b.bp("/v1/domain/permissions/policy");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1174,15 +910,8 @@ export const se_PutDomainPermissionsPolicyCommand = async (
       policyRevision: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1192,18 +921,18 @@ export const se_PutPackageOriginConfigurationCommand = async (
   input: PutPackageOriginConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package";
+  b.bp("/v1/package");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    format: [, __expectNonNull(input.format!, `format`)],
-    namespace: [, input.namespace!],
-    package: [, __expectNonNull(input.package!, `package`)],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_r]: [, __expectNonNull(input[_r]!, `repository`)],
+    [_f]: [, __expectNonNull(input[_f]!, `format`)],
+    [_n]: [, input[_n]!],
+    [_p]: [, __expectNonNull(input[_p]!, `package`)],
   });
   let body: any;
   body = JSON.stringify(
@@ -1211,16 +940,8 @@ export const se_PutPackageOriginConfigurationCommand = async (
       restrictions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1230,16 +951,15 @@ export const se_PutRepositoryPermissionsPolicyCommand = async (
   input: PutRepositoryPermissionsPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repository/permissions/policy";
+  b.bp("/v1/repository/permissions/policy");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_r]: [, __expectNonNull(input[_r]!, `repository`)],
   });
   let body: any;
   body = JSON.stringify(
@@ -1248,16 +968,8 @@ export const se_PutRepositoryPermissionsPolicyCommand = async (
       policyRevision: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1267,13 +979,13 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/tag";
+  b.bp("/v1/tag");
   const query: any = map({
-    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
+    [_rA]: [, __expectNonNull(input[_rA]!, `resourceArn`)],
   });
   let body: any;
   body = JSON.stringify(
@@ -1281,16 +993,8 @@ export const se_TagResourceCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1300,13 +1004,13 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/untag";
+  b.bp("/v1/untag");
   const query: any = map({
-    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
+    [_rA]: [, __expectNonNull(input[_rA]!, `resourceArn`)],
   });
   let body: any;
   body = JSON.stringify(
@@ -1314,16 +1018,8 @@ export const se_UntagResourceCommand = async (
       tagKeys: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1333,19 +1029,18 @@ export const se_UpdatePackageVersionsStatusCommand = async (
   input: UpdatePackageVersionsStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/versions/update_status";
+  b.bp("/v1/package/versions/update_status");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    format: [, __expectNonNull(input.format!, `format`)],
-    namespace: [, input.namespace!],
-    package: [, __expectNonNull(input.package!, `package`)],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_r]: [, __expectNonNull(input[_r]!, `repository`)],
+    [_f]: [, __expectNonNull(input[_f]!, `format`)],
+    [_n]: [, input[_n]!],
+    [_p]: [, __expectNonNull(input[_p]!, `package`)],
   });
   let body: any;
   body = JSON.stringify(
@@ -1356,16 +1051,8 @@ export const se_UpdatePackageVersionsStatusCommand = async (
       versions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1375,15 +1062,15 @@ export const se_UpdateRepositoryCommand = async (
   input: UpdateRepositoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repository";
+  b.bp("/v1/repository");
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
-    "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
+    [_d]: [, __expectNonNull(input[_d]!, `domain`)],
+    [_do]: [, input[_dO]!],
+    [_r]: [, __expectNonNull(input[_r]!, `repository`)],
   });
   let body: any;
   body = JSON.stringify(
@@ -1392,16 +1079,8 @@ export const se_UpdateRepositoryCommand = async (
       upstreams: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2533,9 +2212,9 @@ export const de_GetPackageVersionAssetCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    assetName: [, output.headers["x-assetname"]],
-    packageVersion: [, output.headers["x-packageversion"]],
-    packageVersionRevision: [, output.headers["x-packageversionrevision"]],
+    [_aN]: [, output.headers[_xa]],
+    [_pV]: [, output.headers[_xp]],
+    [_pVR]: [, output.headers[_xp_]],
   });
   const data: any = output.body;
   context.sdkStreamMixin(data);
@@ -3854,10 +3533,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({
-    retryAfterSeconds: [
-      () => void 0 !== parsedOutput.headers["retry-after"],
-      () => __strictParseInt32(parsedOutput.headers["retry-after"]),
-    ],
+    [_rAS]: [() => void 0 !== parsedOutput.headers[_ra], () => __strictParseInt32(parsedOutput.headers[_ra])],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -4085,6 +3761,54 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _a = "asset";
+const _aA = "administratorAccount";
+const _aN = "assetName";
+const _aSHA = "assetSHA256";
+const _aa = "administrator-account";
+const _d = "domain";
+const _dO = "domainOwner";
+const _dR = "destinationRepository";
+const _dS = "durationSeconds";
+const _do = "domain-owner";
+const _dr = "destination-repository";
+const _du = "duration";
+const _eC = "externalConnection";
+const _ec = "external-connection";
+const _f = "format";
+const _mR = "maxResults";
+const _mr = "max-results";
+const _n = "namespace";
+const _nT = "nextToken";
+const _nt = "next-token";
+const _oT = "originType";
+const _p = "package";
+const _pP = "packagePrefix";
+const _pR = "policyRevision";
+const _pV = "packageVersion";
+const _pVR = "packageVersionRevision";
+const _pp = "package-prefix";
+const _pr = "policy-revision";
+const _pu = "publish";
+const _r = "repository";
+const _rA = "resourceArn";
+const _rAS = "retryAfterSeconds";
+const _rP = "repositoryPrefix";
+const _ra = "retry-after";
+const _re = "revision";
+const _rp = "repository-prefix";
+const _s = "status";
+const _sB = "sortBy";
+const _sR = "sourceRepository";
+const _sr = "source-repository";
+const _u = "upstream";
+const _un = "unfinished";
+const _v = "version";
+const _xa = "x-assetname";
+const _xacs = "x-amz-content-sha256";
+const _xp = "x-packageversion";
+const _xp_ = "x-packageversionrevision";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

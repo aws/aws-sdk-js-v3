@@ -183,7 +183,7 @@ export interface Activity {
    * @public
    * <p>The current status of the activity.</p>
    */
-  StatusCode: ScalingActivityStatusCode | string | undefined;
+  StatusCode: ScalingActivityStatusCode | undefined;
 
   /**
    * @public
@@ -743,6 +743,37 @@ export interface CompleteLifecycleActionType {
 
 /**
  * @public
+ * <p>Describes an instance maintenance policy.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html">Set instance maintenance policy</a> in the
+ *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ */
+export interface InstanceMaintenancePolicy {
+  /**
+   * @public
+   * <p>Specifies the lower threshold as a percentage of the desired capacity of the Auto Scaling
+   *             group. It represents the minimum percentage of the group to keep in service, healthy,
+   *             and ready to use to support your workload when replacing instances. Value range is 0 to
+   *             100. After it's set, a value of <code>-1</code> will clear the previously set
+   *             value.</p>
+   */
+  MinHealthyPercentage?: number;
+
+  /**
+   * @public
+   * <p>Specifies the upper threshold as a percentage of the desired capacity of the Auto Scaling
+   *             group. It represents the maximum percentage of the group that can be in service and
+   *             healthy, or pending, to support your workload when replacing instances. Value range is
+   *             100 to 200. After it's set, a value of <code>-1</code> will clear the previously set
+   *             value. </p>
+   *          <p>Both <code>MinHealthyPercentage</code> and <code>MaxHealthyPercentage</code> must be
+   *             specified, and the difference between them cannot be greater than 100. A large range
+   *             increases the number of instances that can be replaced at the same time.</p>
+   */
+  MaxHealthyPercentage?: number;
+}
+
+/**
+ * @public
  * <p>Describes the launch template and the version of the launch template that Amazon EC2 Auto Scaling
  *             uses to launch Amazon EC2 instances. For more information about launch templates, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchTemplates.html">Launch
  *                 templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -1278,7 +1309,7 @@ export interface InstanceRequirements {
    *          </note>
    *          <p>Default: Any manufacturer</p>
    */
-  CpuManufacturers?: (CpuManufacturer | string)[];
+  CpuManufacturers?: CpuManufacturer[];
 
   /**
    * @public
@@ -1322,7 +1353,7 @@ export interface InstanceRequirements {
    *          </ul>
    *          <p>Default: Any current or previous generation</p>
    */
-  InstanceGenerations?: (InstanceGeneration | string)[];
+  InstanceGenerations?: InstanceGeneration[];
 
   /**
    * @public
@@ -1365,7 +1396,7 @@ export interface InstanceRequirements {
    *          <p>Default: <code>excluded</code>
    *          </p>
    */
-  BareMetal?: BareMetal | string;
+  BareMetal?: BareMetal;
 
   /**
    * @public
@@ -1375,7 +1406,7 @@ export interface InstanceRequirements {
    *          <p>Default: <code>excluded</code>
    *          </p>
    */
-  BurstablePerformance?: BurstablePerformance | string;
+  BurstablePerformance?: BurstablePerformance;
 
   /**
    * @public
@@ -1401,7 +1432,7 @@ export interface InstanceRequirements {
    *          <p>Default: <code>included</code>
    *          </p>
    */
-  LocalStorage?: LocalStorage | string;
+  LocalStorage?: LocalStorage;
 
   /**
    * @public
@@ -1418,7 +1449,7 @@ export interface InstanceRequirements {
    *          </ul>
    *          <p>Default: Any local storage type</p>
    */
-  LocalStorageTypes?: (LocalStorageType | string)[];
+  LocalStorageTypes?: LocalStorageType[];
 
   /**
    * @public
@@ -1453,7 +1484,7 @@ export interface InstanceRequirements {
    *          </ul>
    *          <p>Default: Any accelerator type</p>
    */
-  AcceleratorTypes?: (AcceleratorType | string)[];
+  AcceleratorTypes?: AcceleratorType[];
 
   /**
    * @public
@@ -1486,7 +1517,7 @@ export interface InstanceRequirements {
    *          </ul>
    *          <p>Default: Any manufacturer</p>
    */
-  AcceleratorManufacturers?: (AcceleratorManufacturer | string)[];
+  AcceleratorManufacturers?: AcceleratorManufacturer[];
 
   /**
    * @public
@@ -1517,7 +1548,7 @@ export interface InstanceRequirements {
    *          </ul>
    *          <p>Default: Any accelerator</p>
    */
-  AcceleratorNames?: (AcceleratorName | string)[];
+  AcceleratorNames?: AcceleratorName[];
 
   /**
    * @public
@@ -2024,6 +2055,13 @@ export interface CreateAutoScalingGroupType {
    *             VPC Lattice.</p>
    */
   TrafficSources?: TrafficSourceIdentifier[];
+
+  /**
+   * @public
+   * <p>An instance maintenance policy. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html">Set instance maintenance policy</a> in the
+   *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   */
+  InstanceMaintenancePolicy?: InstanceMaintenancePolicy;
 }
 
 /**
@@ -2070,9 +2108,9 @@ export interface Ebs {
   /**
    * @public
    * <p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the
-   *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *             <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    *          <p>Valid values: <code>standard</code> | <code>io1</code> | <code>gp2</code> |
-   *                 <code>st1</code> | <code>sc1</code> | <code>gp3</code>
+   *             <code>st1</code> | <code>sc1</code> | <code>gp3</code>
    *          </p>
    */
   VolumeType?: string;
@@ -2103,11 +2141,11 @@ export interface Ebs {
    *             </li>
    *          </ul>
    *          <p>For <code>io1</code> volumes, we guarantee 64,000 IOPS only for <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Instances
-   *                 built on the Nitro System</a>. Other instance families guarantee performance up
+   *             built on the Nitro System</a>. Other instance families guarantee performance up
    *             to 32,000 IOPS. </p>
    *          <p>
    *             <code>Iops</code> is supported when the volume type is <code>gp3</code> or
-   *                 <code>io1</code> and required only when the volume type is <code>io1</code>. (Not
+   *             <code>io1</code> and required only when the volume type is <code>io1</code>. (Not
    *             used with <code>standard</code>, <code>gp2</code>, <code>st1</code>, or <code>sc1</code>
    *             volumes.) </p>
    */
@@ -2126,7 +2164,7 @@ export interface Ebs {
    *                 encrypted, either using the Amazon Web Services managed KMS key or a customer-managed KMS key,
    *                 regardless of whether the snapshot was encrypted. </p>
    *             <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-data-protection.html#encryption">Use Amazon Web Services KMS keys to encrypt Amazon EBS volumes</a> in the
-   *                     <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    *          </note>
    */
   Encrypted?: boolean;
@@ -2147,20 +2185,20 @@ export interface BlockDeviceMapping {
    * @public
    * <p>The name of the instance store volume (virtual device) to attach to an instance at
    *             launch. The name must be in the form ephemeral<i>X</i> where
-   *                 <i>X</i> is a number starting from zero (0), for example,
-   *                 <code>ephemeral0</code>.</p>
+   *             <i>X</i> is a number starting from zero (0), for example,
+   *             <code>ephemeral0</code>.</p>
    */
   VirtualName?: string;
 
   /**
    * @public
    * <p>The device name assigned to the volume (for example, <code>/dev/sdh</code> or
-   *                 <code>xvdh</code>). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html">Device naming on Linux
+   *             <code>xvdh</code>). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/device_naming.html">Device naming on Linux
    *                 instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    *          <note>
    *             <p>To define a block device mapping, set the device name and exactly one of the
    *                 following properties: <code>Ebs</code>, <code>NoDevice</code>, or
-   *                     <code>VirtualName</code>.</p>
+   *                 <code>VirtualName</code>.</p>
    *          </note>
    */
   DeviceName: string | undefined;
@@ -2245,7 +2283,7 @@ export interface InstanceMetadataOptions {
    *             always returns the version 2.0 credentials; the version 1.0 credentials are not
    *             available.</p>
    */
-  HttpTokens?: InstanceMetadataHttpTokensState | string;
+  HttpTokens?: InstanceMetadataHttpTokensState;
 
   /**
    * @public
@@ -2264,7 +2302,7 @@ export interface InstanceMetadataOptions {
    *                 your instance metadata. </p>
    *          </note>
    */
-  HttpEndpoint?: InstanceMetadataEndpointState | string;
+  HttpEndpoint?: InstanceMetadataEndpointState;
 }
 
 /**
@@ -2282,7 +2320,7 @@ export interface CreateLaunchConfigurationType {
    * @public
    * <p>The ID of the Amazon Machine Image (AMI) that was assigned during registration. For
    *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Finding a Linux AMI</a> in the
-   *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *             <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    *          <p>If you specify <code>InstanceId</code>, an <code>ImageId</code> is not
    *             required.</p>
    */
@@ -2291,7 +2329,7 @@ export interface CreateLaunchConfigurationType {
   /**
    * @public
    * <p>The name of the key pair. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 key pairs and Linux
-   *                 instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *             instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    */
   KeyName?: string;
 
@@ -2300,7 +2338,7 @@ export interface CreateLaunchConfigurationType {
    * <p>A list that contains the security group IDs to assign to the instances in the Auto Scaling
    *             group. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Control traffic to
    *                 resources using security groups</a> in the <i>Amazon Virtual Private
-   *                 Cloud User Guide</i>.</p>
+   *                     Cloud User Guide</i>.</p>
    */
   SecurityGroups?: string[];
 
@@ -2320,7 +2358,7 @@ export interface CreateLaunchConfigurationType {
    * @public
    * <p>The user data to make available to the launched EC2 instances. For more information,
    *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> (Linux) and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html">Instance metadata and
-   *                 user data</a> (Windows). If you are using a command line tool, base64-encoding
+   *                     user data</a> (Windows). If you are using a command line tool, base64-encoding
    *             is performed for you, and you can load the text from a file. Otherwise, you must provide
    *             base64-encoded text. User data is limited to 16 KB.</p>
    */
@@ -2334,8 +2372,8 @@ export interface CreateLaunchConfigurationType {
    *          <p>To create a launch configuration with a block device mapping or override any other
    *             instance attributes, specify them as part of the same request.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-lc-with-instanceID.html">Creating a launch
-   *                 configuration using an EC2 instance</a> in the
-   *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *             configuration using an EC2 instance</a> in the
+   *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   InstanceId?: string;
 
@@ -2356,7 +2394,7 @@ export interface CreateLaunchConfigurationType {
    *             <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more
    *                 information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html">User provided
    *                     kernels</a> in the <i>Amazon EC2 User Guide for Linux
-   *                     Instances</i>.</p>
+   *                         Instances</i>.</p>
    *          </note>
    */
   KernelId?: string;
@@ -2368,7 +2406,7 @@ export interface CreateLaunchConfigurationType {
    *             <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more
    *                 information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedKernels.html">User provided
    *                     kernels</a> in the <i>Amazon EC2 User Guide for Linux
-   *                     Instances</i>.</p>
+   *                         Instances</i>.</p>
    *          </note>
    */
   RamdiskId?: string;
@@ -2403,7 +2441,7 @@ export interface CreateLaunchConfigurationType {
    *             request. Spot Instances are launched when the price you specify exceeds the current Spot
    *             price. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-template-spot-instances.html">Request Spot
    *                 Instances for fault-tolerant and flexible applications</a> in the
-   *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    *          <p>Valid Range: Minimum value of 0.001</p>
    *          <note>
    *             <p>When you change your maximum price by creating a new launch configuration, running
@@ -2447,7 +2485,7 @@ export interface CreateLaunchConfigurationType {
    *             public IPv4 address. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html">Launching Auto Scaling instances in a
    *                 VPC</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    *          <p>If you specify this property, you must specify at least one subnet for
-   *                 <code>VPCZoneIdentifier</code> when you create your group.</p>
+   *             <code>VPCZoneIdentifier</code> when you create your group.</p>
    */
   AssociatePublicIpAddress?: boolean;
 
@@ -2462,7 +2500,7 @@ export interface CreateLaunchConfigurationType {
    *                 instance tenancy with Amazon EC2 Auto Scaling</a> in the
    *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    *          <p>If you specify <code>PlacementTenancy</code>, you must specify at least one subnet for
-   *                 <code>VPCZoneIdentifier</code> when you create your group.</p>
+   *             <code>VPCZoneIdentifier</code> when you create your group.</p>
    *          <p>Valid values: <code>default</code> | <code>dedicated</code>
    *          </p>
    */
@@ -2471,7 +2509,7 @@ export interface CreateLaunchConfigurationType {
   /**
    * @public
    * <p>The metadata options for the instances. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds">Configuring the Instance Metadata Options</a> in the
-   *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   MetadataOptions?: InstanceMetadataOptions;
 }
@@ -3010,7 +3048,7 @@ export interface Instance {
    *             not used. For information about lifecycle states, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroupLifecycle.html">Instance
    *                 lifecycle</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>
    */
-  LifecycleState: LifecycleState | string | undefined;
+  LifecycleState: LifecycleState | undefined;
 
   /**
    * @public
@@ -3170,13 +3208,13 @@ export interface WarmPoolConfiguration {
    * @public
    * <p>The instance state to transition to after the lifecycle actions are complete.</p>
    */
-  PoolState?: WarmPoolState | string;
+  PoolState?: WarmPoolState;
 
   /**
    * @public
    * <p>The status of a warm pool that is marked for deletion.</p>
    */
-  Status?: WarmPoolStatus | string;
+  Status?: WarmPoolStatus;
 
   /**
    * @public
@@ -3399,6 +3437,12 @@ export interface AutoScalingGroup {
    * <p>The traffic sources associated with this Auto Scaling group.</p>
    */
   TrafficSources?: TrafficSourceIdentifier[];
+
+  /**
+   * @public
+   * <p>An instance maintenance policy.</p>
+   */
+  InstanceMaintenancePolicy?: InstanceMaintenancePolicy;
 }
 
 /**
@@ -3648,13 +3692,12 @@ export type StandbyInstances = (typeof StandbyInstances)[keyof typeof StandbyIns
 export interface RefreshPreferences {
   /**
    * @public
-   * <p>The amount of capacity in the Auto Scaling group that must pass your group's health checks to
-   *             allow the operation to continue. The value is expressed as a percentage of the desired
-   *             capacity of the Auto Scaling group (rounded up to the nearest integer). The default is
-   *                 <code>90</code>.</p>
-   *          <p>Setting the minimum healthy percentage to 100 percent limits the rate of replacement
-   *             to one instance at a time. In contrast, setting it to 0 percent has the effect of
-   *             replacing all instances at the same time. </p>
+   * <p>Specifies the minimum percentage of the group to keep in service, healthy, and ready
+   *             to use to support your workload to allow the operation to continue. The value is
+   *             expressed as a percentage of the desired capacity of the Auto Scaling group. Value range is 0 to
+   *             100.</p>
+   *          <p>If you do not specify this property, the default is 90 percent, or the percentage set
+   *             in the instance maintenance policy for the Auto Scaling group, if defined.</p>
    */
   MinHealthyPercentage?: number;
 
@@ -3754,7 +3797,7 @@ export interface RefreshPreferences {
    *             </dd>
    *          </dl>
    */
-  ScaleInProtectedInstances?: ScaleInProtectedInstances | string;
+  ScaleInProtectedInstances?: ScaleInProtectedInstances;
 
   /**
    * @public
@@ -3778,7 +3821,7 @@ export interface RefreshPreferences {
    *             </dd>
    *          </dl>
    */
-  StandbyInstances?: StandbyInstances | string;
+  StandbyInstances?: StandbyInstances;
 
   /**
    * @public
@@ -3786,6 +3829,20 @@ export interface RefreshPreferences {
    *             issues and fail the operation if an alarm threshold is met.</p>
    */
   AlarmSpecification?: AlarmSpecification;
+
+  /**
+   * @public
+   * <p>Specifies the maximum percentage of the group that can be in service and healthy, or
+   *             pending, to support your workload when replacing instances. The value is expressed as a
+   *             percentage of the desired capacity of the Auto Scaling group. Value range is 100 to 200.</p>
+   *          <p>If you specify <code>MaxHealthyPercentage</code>, you must also specify
+   *                 <code>MinHealthyPercentage</code>, and the difference between them cannot be greater
+   *             than 100. A larger range increases the number of instances that can be replaced at the
+   *             same time.</p>
+   *          <p>If you do not specify this property, the default is 100 percent, or the percentage set
+   *             in the instance maintenance policy for the Auto Scaling group, if defined.</p>
+   */
+  MaxHealthyPercentage?: number;
 }
 
 /**
@@ -3978,7 +4035,7 @@ export interface InstanceRefresh {
    *             </li>
    *          </ul>
    */
-  Status?: InstanceRefreshStatus | string;
+  Status?: InstanceRefreshStatus;
 
   /**
    * @public
@@ -4124,7 +4181,7 @@ export interface LaunchConfigurationNamesType {
   /**
    * @public
    * <p>The maximum number of items to return with this call. The default value is
-   *                 <code>50</code> and the maximum value is <code>100</code>.</p>
+   *             <code>50</code> and the maximum value is <code>100</code>.</p>
    */
   MaxRecords?: number;
 }
@@ -4150,7 +4207,7 @@ export interface LaunchConfiguration {
    * @public
    * <p>The ID of the Amazon Machine Image (AMI) to use to launch your EC2 instances. For more
    *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Find a Linux AMI</a> in the
-   *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *             <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    */
   ImageId: string | undefined;
 
@@ -4158,7 +4215,7 @@ export interface LaunchConfiguration {
    * @public
    * <p>The name of the key pair.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 Key Pairs</a> in the
-   *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *             <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    */
   KeyName?: string;
 
@@ -4167,7 +4224,7 @@ export interface LaunchConfiguration {
    * <p>A list that contains the security groups to assign to the instances in the Auto Scaling group.
    *             For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security Groups for Your
    *                 VPC</a> in the <i>Amazon Virtual Private Cloud User
-   *             Guide</i>.</p>
+   *                     Guide</i>.</p>
    */
   SecurityGroups?: string[];
 
@@ -4187,7 +4244,7 @@ export interface LaunchConfiguration {
    * @public
    * <p>The user data to make available to the launched EC2 instances. For more information,
    *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> (Linux) and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-instance-metadata.html">Instance metadata and
-   *                 user data</a> (Windows). If you are using a command line tool, base64-encoding
+   *                     user data</a> (Windows). If you are using a command line tool, base64-encoding
    *             is performed for you, and you can load the text from a file. Otherwise, you must provide
    *             base64-encoded text. User data is limited to 16 KB.</p>
    */
@@ -4227,7 +4284,7 @@ export interface LaunchConfiguration {
    * <p>Controls whether instances in this group are launched with detailed
    *             (<code>true</code>) or basic (<code>false</code>) monitoring.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/latest/userguide/enable-as-instance-metrics.html">Configure
-   *                 Monitoring for Auto Scaling Instances</a> in the
+   *             Monitoring for Auto Scaling Instances</a> in the
    *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   InstanceMonitoring?: InstanceMonitoring;
@@ -4282,7 +4339,7 @@ export interface LaunchConfiguration {
    *             instance with <code>dedicated</code> tenancy runs on isolated, single-tenant hardware
    *             and can only be launched into a VPC.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-dedicated-instances.html">Configuring
-   *                 instance tenancy with Amazon EC2 Auto Scaling</a> in the
+   *             instance tenancy with Amazon EC2 Auto Scaling</a> in the
    *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   PlacementTenancy?: string;
@@ -4290,7 +4347,7 @@ export interface LaunchConfiguration {
   /**
    * @public
    * <p>The metadata options for the instances. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-launch-config.html#launch-configurations-imds">Configuring the Instance Metadata Options</a> in the
-   *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   MetadataOptions?: InstanceMetadataOptions;
 }
@@ -4309,7 +4366,7 @@ export interface LaunchConfigurationsType {
    * @public
    * <p>A string that indicates that the response contains more items than can be returned in
    *             a single response. To receive additional items, specify this string for the
-   *                 <code>NextToken</code> value when requesting the next set of items. This value is
+   *             <code>NextToken</code> value when requesting the next set of items. This value is
    *             null when there are no more items to return.</p>
    */
   NextToken?: string;
@@ -5122,7 +5179,7 @@ export interface PredictiveScalingPredefinedLoadMetric {
    * @public
    * <p>The metric type.</p>
    */
-  PredefinedMetricType: PredefinedLoadMetricType | string | undefined;
+  PredefinedMetricType: PredefinedLoadMetricType | undefined;
 
   /**
    * @public
@@ -5179,7 +5236,7 @@ export interface PredictiveScalingPredefinedMetricPair {
    *             metric type is <code>ASGCPUUtilization</code>, the Auto Scaling group's total CPU metric is used
    *             as the load metric, and the average CPU metric is used for the scaling metric.</p>
    */
-  PredefinedMetricType: PredefinedMetricPairType | string | undefined;
+  PredefinedMetricType: PredefinedMetricPairType | undefined;
 
   /**
    * @public
@@ -5237,7 +5294,7 @@ export interface PredictiveScalingPredefinedScalingMetric {
    * @public
    * <p>The metric type.</p>
    */
-  PredefinedMetricType: PredefinedScalingMetricType | string | undefined;
+  PredefinedMetricType: PredefinedScalingMetricType | undefined;
 
   /**
    * @public
@@ -5399,7 +5456,7 @@ export interface PredictiveScalingConfiguration {
    * <p>The predictive scaling mode. Defaults to <code>ForecastOnly</code> if not
    *             specified.</p>
    */
-  Mode?: PredictiveScalingMode | string;
+  Mode?: PredictiveScalingMode;
 
   /**
    * @public
@@ -5435,7 +5492,7 @@ export interface PredictiveScalingConfiguration {
    *             </li>
    *          </ul>
    */
-  MaxCapacityBreachBehavior?: PredictiveScalingMaxCapacityBreachBehavior | string;
+  MaxCapacityBreachBehavior?: PredictiveScalingMaxCapacityBreachBehavior;
 
   /**
    * @public
@@ -5526,7 +5583,7 @@ export interface StepAdjustment {
  * <p>This structure defines the CloudWatch metric to return, along with the statistic and
  *             unit.</p>
  *          <p>For more information about the CloudWatch terminology below, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html">Amazon CloudWatch
- *                 concepts</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
+ *             concepts</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
  */
 export interface TargetTrackingMetricStat {
   /**
@@ -5602,11 +5659,11 @@ export interface TargetTrackingMetricDataQuery {
    * <p>Indicates whether to return the timestamps and raw data values of this metric. </p>
    *          <p>If you use any math expressions, specify <code>true</code> for this value for only the
    *             final math expression that the metric specification is based on. You must specify
-   *                 <code>false</code> for <code>ReturnData</code> for all the other metrics and
+   *             <code>false</code> for <code>ReturnData</code> for all the other metrics and
    *             expressions used in the metric specification.</p>
    *          <p>If you are only retrieving metrics and not performing any math expressions, do not
    *             specify anything for <code>ReturnData</code>. This sets it to its default
-   *                 (<code>true</code>).</p>
+   *             (<code>true</code>).</p>
    */
   ReturnData?: boolean;
 }
@@ -5683,7 +5740,7 @@ export interface CustomizedMetricSpecification {
    * @public
    * <p>The statistic of the metric.</p>
    */
-  Statistic?: MetricStatistic | string;
+  Statistic?: MetricStatistic;
 
   /**
    * @public
@@ -5749,7 +5806,7 @@ export interface PredefinedMetricSpecification {
    *             </li>
    *          </ul>
    */
-  PredefinedMetricType: MetricType | string | undefined;
+  PredefinedMetricType: MetricType | undefined;
 
   /**
    * @public
@@ -5868,7 +5925,7 @@ export interface ScalingPolicy {
    *             </li>
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html">Target tracking
-   *                 scaling policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html">Step and simple scaling
+   *             scaling policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html">Step and simple scaling
    *                 policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   PolicyType?: string;
@@ -5893,7 +5950,7 @@ export interface ScalingPolicy {
   /**
    * @public
    * <p>The minimum value to scale by when the adjustment type is
-   *                 <code>PercentChangeInCapacity</code>. </p>
+   *             <code>PercentChangeInCapacity</code>. </p>
    */
   MinAdjustmentMagnitude?: number;
 
@@ -5921,7 +5978,7 @@ export interface ScalingPolicy {
   /**
    * @public
    * <p>The aggregation type for the CloudWatch metrics. The valid values are <code>Minimum</code>,
-   *                 <code>Maximum</code>, and <code>Average</code>.</p>
+   *             <code>Maximum</code>, and <code>Average</code>.</p>
    */
   MetricAggregationType?: string;
 
@@ -7532,7 +7589,7 @@ export interface PutWarmPoolType {
    * <p>Sets the instance state to transition to after the lifecycle actions are complete.
    *             Default is <code>Stopped</code>.</p>
    */
-  PoolState?: WarmPoolState | string;
+  PoolState?: WarmPoolState;
 
   /**
    * @public
@@ -7836,7 +7893,7 @@ export interface StartInstanceRefreshType {
    * <p>The strategy to use for the instance refresh. The only valid value is
    *                 <code>Rolling</code>.</p>
    */
-  Strategy?: RefreshStrategy | string;
+  Strategy?: RefreshStrategy;
 
   /**
    * @public
@@ -7858,10 +7915,10 @@ export interface StartInstanceRefreshType {
   /**
    * @public
    * <p>Sets your preferences for the instance refresh so that it performs as expected when
-   *             you start it. Includes the instance warmup time, the minimum healthy percentage, and the
-   *             behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in <code>Standby</code>
-   *             state or protected from scale in are found. You can also choose to enable additional
-   *             features, such as the following:</p>
+   *             you start it. Includes the instance warmup time, the minimum and maximum healthy
+   *             percentages, and the behaviors that you want Amazon EC2 Auto Scaling to use if instances that are in
+   *                 <code>Standby</code> state or protected from scale in are found. You can also choose
+   *             to enable additional features, such as the following:</p>
    *          <ul>
    *             <li>
    *                <p>Auto rollback</p>
@@ -8115,4 +8172,11 @@ export interface UpdateAutoScalingGroupType {
    *          </important>
    */
   DefaultInstanceWarmup?: number;
+
+  /**
+   * @public
+   * <p>An instance maintenance policy. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-maintenance-policy.html">Set instance maintenance policy</a> in the
+   *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   */
+  InstanceMaintenancePolicy?: InstanceMaintenancePolicy;
 }

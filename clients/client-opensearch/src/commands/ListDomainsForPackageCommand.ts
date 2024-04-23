@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListDomainsForPackageRequest, ListDomainsForPackageResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { de_ListDomainsForPackageCommand, se_ListDomainsForPackageCommand } from "../protocols/Aws_restJson1";
@@ -57,7 +49,7 @@ export interface ListDomainsForPackageCommandOutput extends ListDomainsForPackag
  * //     { // DomainPackageDetails
  * //       PackageID: "STRING_VALUE",
  * //       PackageName: "STRING_VALUE",
- * //       PackageType: "TXT-DICTIONARY",
+ * //       PackageType: "TXT-DICTIONARY" || "ZIP-PLUGIN",
  * //       LastUpdated: new Date("TIMESTAMP"),
  * //       DomainName: "STRING_VALUE",
  * //       DomainPackageStatus: "ASSOCIATING" || "ASSOCIATION_FAILED" || "ACTIVE" || "DISSOCIATING" || "DISSOCIATION_FAILED",
@@ -99,79 +91,26 @@ export interface ListDomainsForPackageCommandOutput extends ListDomainsForPackag
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
-export class ListDomainsForPackageCommand extends $Command<
-  ListDomainsForPackageCommandInput,
-  ListDomainsForPackageCommandOutput,
-  OpenSearchClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListDomainsForPackageCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: OpenSearchClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListDomainsForPackageCommandInput, ListDomainsForPackageCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListDomainsForPackageCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "OpenSearchClient";
-    const commandName = "ListDomainsForPackageCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListDomainsForPackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListDomainsForPackageCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDomainsForPackageCommandOutput> {
-    return de_ListDomainsForPackageCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListDomainsForPackageCommand extends $Command
+  .classBuilder<
+    ListDomainsForPackageCommandInput,
+    ListDomainsForPackageCommandOutput,
+    OpenSearchClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonOpenSearchService", "ListDomainsForPackage", {})
+  .n("OpenSearchClient", "ListDomainsForPackageCommand")
+  .f(void 0, void 0)
+  .ser(se_ListDomainsForPackageCommand)
+  .de(de_ListDomainsForPackageCommand)
+  .build() {}

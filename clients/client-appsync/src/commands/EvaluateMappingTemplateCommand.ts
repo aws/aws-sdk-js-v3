@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { EvaluateMappingTemplateRequest, EvaluateMappingTemplateResponse } from "../models/models_0";
 import { de_EvaluateMappingTemplateCommand, se_EvaluateMappingTemplateCommand } from "../protocols/Aws_restJson1";
 
@@ -36,12 +28,11 @@ export interface EvaluateMappingTemplateCommandOutput extends EvaluateMappingTem
 
 /**
  * @public
- * <p>Evaluates a given template and returns the response. The mapping template can be a
- *          request or response template.</p>
- *          <p>Request templates take the incoming request after a GraphQL operation is parsed and
- *          convert it into a request configuration for the selected data source operation. Response
- *          templates interpret responses from the data source and map it to the shape of the GraphQL
- *          field output type.</p>
+ * <p>Evaluates a given template and returns the response. The mapping template can be a request or response
+ *          template.</p>
+ *          <p>Request templates take the incoming request after a GraphQL operation is parsed and convert it into a
+ *          request configuration for the selected data source operation. Response templates interpret responses from the
+ *          data source and map it to the shape of the GraphQL field output type.</p>
  *          <p>Mapping templates are written in the Apache Velocity Template Language (VTL).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,8 +68,8 @@ export interface EvaluateMappingTemplateCommandOutput extends EvaluateMappingTem
  *  <p>You don't have access to perform this operation on this resource.</p>
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not well formed. For example, a value is invalid or a required field is
- *          missing. Check the field values, and then try again.</p>
+ *  <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the
+ *          field values, and then try again.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal AppSync error occurred. Try your request again.</p>
@@ -87,79 +78,26 @@ export interface EvaluateMappingTemplateCommandOutput extends EvaluateMappingTem
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
  */
-export class EvaluateMappingTemplateCommand extends $Command<
-  EvaluateMappingTemplateCommandInput,
-  EvaluateMappingTemplateCommandOutput,
-  AppSyncClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: EvaluateMappingTemplateCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AppSyncClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<EvaluateMappingTemplateCommandInput, EvaluateMappingTemplateCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, EvaluateMappingTemplateCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "AppSyncClient";
-    const commandName = "EvaluateMappingTemplateCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: EvaluateMappingTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_EvaluateMappingTemplateCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EvaluateMappingTemplateCommandOutput> {
-    return de_EvaluateMappingTemplateCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class EvaluateMappingTemplateCommand extends $Command
+  .classBuilder<
+    EvaluateMappingTemplateCommandInput,
+    EvaluateMappingTemplateCommandOutput,
+    AppSyncClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSDeepdishControlPlaneService", "EvaluateMappingTemplate", {})
+  .n("AppSyncClient", "EvaluateMappingTemplateCommand")
+  .f(void 0, void 0)
+  .ser(se_EvaluateMappingTemplateCommand)
+  .de(de_EvaluateMappingTemplateCommand)
+  .build() {}

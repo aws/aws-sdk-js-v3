@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   TranslateDocumentRequest,
   TranslateDocumentRequestFilterSensitiveLog,
@@ -42,14 +34,12 @@ export interface TranslateDocumentCommandOutput extends TranslateDocumentRespons
 /**
  * @public
  * <p>Translates the input document from the source language to the target language.
- *       This synchronous operation supports plain text or HTML for the input document.
+ *       This synchronous operation supports text, HTML, or Word documents as the input document.
  *
  *       <code>TranslateDocument</code> supports translations from English to any supported language,
  *       and from any supported language to English. Therefore, specify either the source language code
  *       or the target language code as “en” (English).
  *     </p>
- *          <p>
- *             <code>TranslateDocument</code> does not support language auto-detection. </p>
  *          <p> If you set the <code>Formality</code> parameter, the request will fail if the target language does
  *        not support formality. For a list of target languages that support formality, see
  *        <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html">Setting formality</a>.
@@ -73,6 +63,7 @@ export interface TranslateDocumentCommandOutput extends TranslateDocumentRespons
  *   Settings: { // TranslationSettings
  *     Formality: "FORMAL" || "INFORMAL",
  *     Profanity: "MASK",
+ *     Brevity: "ON",
  *   },
  * };
  * const command = new TranslateDocumentCommand(input);
@@ -97,6 +88,7 @@ export interface TranslateDocumentCommandOutput extends TranslateDocumentRespons
  * //   AppliedSettings: { // TranslationSettings
  * //     Formality: "FORMAL" || "INFORMAL",
  * //     Profanity: "MASK",
+ * //     Brevity: "ON",
  * //   },
  * // };
  *
@@ -140,79 +132,26 @@ export interface TranslateDocumentCommandOutput extends TranslateDocumentRespons
  * <p>Base exception class for all service exceptions from Translate service.</p>
  *
  */
-export class TranslateDocumentCommand extends $Command<
-  TranslateDocumentCommandInput,
-  TranslateDocumentCommandOutput,
-  TranslateClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: TranslateDocumentCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: TranslateClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<TranslateDocumentCommandInput, TranslateDocumentCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, TranslateDocumentCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "TranslateClient";
-    const commandName = "TranslateDocumentCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: TranslateDocumentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: TranslateDocumentResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: TranslateDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_TranslateDocumentCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TranslateDocumentCommandOutput> {
-    return de_TranslateDocumentCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class TranslateDocumentCommand extends $Command
+  .classBuilder<
+    TranslateDocumentCommandInput,
+    TranslateDocumentCommandOutput,
+    TranslateClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: TranslateClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSShineFrontendService_20170701", "TranslateDocument", {})
+  .n("TranslateClient", "TranslateDocumentCommand")
+  .f(TranslateDocumentRequestFilterSensitiveLog, TranslateDocumentResponseFilterSensitiveLog)
+  .ser(se_TranslateDocumentCommand)
+  .de(de_TranslateDocumentCommand)
+  .build() {}

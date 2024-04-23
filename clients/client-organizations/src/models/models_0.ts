@@ -64,7 +64,7 @@ export interface HandshakeParty {
    * @public
    * <p>The type of party.</p>
    */
-  Type: HandshakePartyType | string | undefined;
+  Type: HandshakePartyType | undefined;
 }
 
 /**
@@ -110,8 +110,7 @@ export type HandshakeState = (typeof HandshakeState)[keyof typeof HandshakeState
  * <p>You don't have permissions to perform the requested operation. The user or role that
  *             is making the request must have at least one IAM permissions policy attached that
  *             grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access Management</a> in the
- *                 <i>IAM User Guide.</i>
- *          </p>
+ *                 <i>IAM User Guide</i>.</p>
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -156,7 +155,7 @@ export class AccessDeniedForDependencyException extends __BaseException {
   readonly name: "AccessDeniedForDependencyException" = "AccessDeniedForDependencyException";
   readonly $fault: "client" = "client";
   Message?: string;
-  Reason?: AccessDeniedForDependencyExceptionReason | string;
+  Reason?: AccessDeniedForDependencyExceptionReason;
   /**
    * @internal
    */
@@ -280,7 +279,8 @@ export type HandshakeConstraintViolationExceptionReason =
  *                <important>
  *                   <p>If you get this exception immediately after creating the organization,
  *                         wait one hour and try again. If after an hour it continues to fail with this
- *                         error, contact <a href="https://docs.aws.amazon.com/support/home#/">Amazon Web Services Support</a>.</p>
+ *                         error, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services
+ *                             Support</a>.</p>
  *                </important>
  *             </li>
  *             <li>
@@ -328,7 +328,7 @@ export class HandshakeConstraintViolationException extends __BaseException {
   readonly name: "HandshakeConstraintViolationException" = "HandshakeConstraintViolationException";
   readonly $fault: "client" = "client";
   Message?: string;
-  Reason?: HandshakeConstraintViolationExceptionReason | string;
+  Reason?: HandshakeConstraintViolationExceptionReason;
   /**
    * @internal
    */
@@ -540,7 +540,7 @@ export class InvalidInputException extends __BaseException {
   readonly name: "InvalidInputException" = "InvalidInputException";
   readonly $fault: "client" = "client";
   Message?: string;
-  Reason?: InvalidInputExceptionReason | string;
+  Reason?: InvalidInputExceptionReason;
   /**
    * @internal
    */
@@ -583,9 +583,8 @@ export class ServiceException extends __BaseException {
  * @public
  * <p>You have sent too many requests in too short a period of time. The quota helps protect
  *             against denial-of-service attacks. Try again later.</p>
- *          <p>For information about quotas that affect Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html">Quotas for Organizations</a>in the
- *                 <i>Organizations User Guide.</i>
- *          </p>
+ *          <p>For information about quotas that affect Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html">Quotas for Organizations</a> in the
+ *                 <i>Organizations User Guide</i>.</p>
  */
 export class TooManyRequestsException extends __BaseException {
   readonly name: "TooManyRequestsException" = "TooManyRequestsException";
@@ -679,13 +678,13 @@ export interface Account {
    * @public
    * <p>The status of the account in the organization.</p>
    */
-  Status?: AccountStatus | string;
+  Status?: AccountStatus;
 
   /**
    * @public
    * <p>The method by which the account joined the organization.</p>
    */
-  JoinedMethod?: AccountJoinedMethod | string;
+  JoinedMethod?: AccountJoinedMethod;
 
   /**
    * @public
@@ -789,9 +788,8 @@ export class AccountNotRegisteredException extends __BaseException {
  * @public
  * <p>You can't invite an existing account to your organization until you verify that you
  *             own the email address associated with the management account. For more information, see
- *                 <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_create.html#about-email-verification">Email Address
- *                 Verification</a> in the <i>Organizations User Guide.</i>
- *          </p>
+ *                 <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_create.html#about-email-verification">Email address
+ *                 verification</a> in the <i>Organizations User Guide</i>.</p>
  */
 export class AccountOwnerNotVerifiedException extends __BaseException {
   readonly name: "AccountOwnerNotVerifiedException" = "AccountOwnerNotVerifiedException";
@@ -945,19 +943,20 @@ export type ConstraintViolationExceptionReason =
  *                     account from the organization that doesn't yet have enough information to exist
  *                     as a standalone account. This account requires you to first complete phone
  *                     verification. Follow the steps at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#orgs_manage_accounts_remove-from-master">Removing a member account from your organization</a> in the
- *                         <i>Organizations User Guide.</i>
- *                </p>
+ *                         <i>Organizations User Guide</i>.</p>
  *             </li>
  *             <li>
  *                <p>ACCOUNT_CREATION_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of
  *                     accounts that you can create in one day.</p>
  *             </li>
  *             <li>
- *                <p>ACCOUNT_CREATION_NOT_COMPLETE: Your account setup isn't complete or your account isn't fully active. You must complete the account setup before you create an organization.</p>
+ *                <p>ACCOUNT_CREATION_NOT_COMPLETE: Your account setup isn't complete or your
+ *                     account isn't fully active. You must complete the account setup before you
+ *                     create an organization.</p>
  *             </li>
  *             <li>
  *                <p>ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number
- *                     of accounts in an organization. If you need more accounts, contact <a href="https://docs.aws.amazon.com/support/home#/">Amazon Web Services Support</a> to
+ *                     of accounts in an organization. If you need more accounts, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services Support</a> to
  *                     request an increase in your limit. </p>
  *                <p>Or the number of invitations that you tried to send would cause you to exceed
  *                     the limit of accounts in your organization. Send fewer invitations or contact
@@ -968,9 +967,12 @@ export type ConstraintViolationExceptionReason =
  *                <important>
  *                   <p>If you get this exception when running a command immediately after
  *                         creating the organization, wait one hour and try again. After an hour, if
- *                         the command continues to fail with this error, contact <a href="https://docs.aws.amazon.com/support/home#/">Amazon Web Services
- *                         Support</a>.</p>
+ *                         the command continues to fail with this error, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services Support</a>.</p>
  *                </important>
+ *             </li>
+ *             <li>
+ *                <p>CANNOT_REGISTER_SUSPENDED_ACCOUNT_AS_DELEGATED_ADMINISTRATOR: You cannot
+ *                     register a suspended account as a delegated administrator.</p>
  *             </li>
  *             <li>
  *                <p>CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register
@@ -1033,7 +1035,7 @@ export type ConstraintViolationExceptionReason =
  *                     marketplace.</p>
  *             </li>
  *             <li>
- *                <p>MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE: Applies only to the Amazon Web Services /> Regions
+ *                <p>MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE: Applies only to the Amazon Web Services Regions
  *                     in China. To create an organization, the master must have a valid business
  *                     license. For more information, contact customer support.</p>
  *             </li>
@@ -1047,15 +1049,13 @@ export type ConstraintViolationExceptionReason =
  *                     management account must have an associated account in the Amazon Web Services GovCloud
  *                     (US-West) Region. For more information, see <a href="https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">Organizations</a>
  *                     in the
- *                     <i>Amazon Web Services GovCloud User Guide.</i>
- *                </p>
+ *                     <i>Amazon Web Services GovCloud User Guide</i>.</p>
  *             </li>
  *             <li>
  *                <p>MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with
  *                     this management account, you first must associate a valid payment instrument,
- *                     such as a credit card, with the account. Follow the steps at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To leave an organization when all required account information has not yet
- *                         been provided</a> in the <i>Organizations User Guide.</i>
- *                </p>
+ *                     such as a credit card, with the account. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_account-before-remove.html">Considerations before removing an account from an organization</a> in
+ *                     the <i>Organizations User Guide</i>.</p>
  *             </li>
  *             <li>
  *                <p>MAX_DELEGATED_ADMINISTRATORS_FOR_SERVICE_LIMIT_EXCEEDED: You attempted to
@@ -1074,9 +1074,8 @@ export type ConstraintViolationExceptionReason =
  *             <li>
  *                <p>MEMBER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To complete this operation with
  *                     this member account, you first must associate a valid payment instrument, such
- *                     as a credit card, with the account. Follow the steps at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To leave an organization when all required account information has not yet
- *                         been provided</a> in the <i>Organizations User Guide.</i>
- *                </p>
+ *                     as a credit card, with the account. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_account-before-remove.html">Considerations before removing an account from an organization</a> in
+ *                     the <i>Organizations User Guide</i>.</p>
  *             </li>
  *             <li>
  *                <p>MIN_POLICY_TYPE_ATTACHMENT_LIMIT_EXCEEDED: You attempted to detach a policy
@@ -1125,7 +1124,7 @@ export class ConstraintViolationException extends __BaseException {
   readonly name: "ConstraintViolationException" = "ConstraintViolationException";
   readonly $fault: "client" = "client";
   Message?: string;
-  Reason?: ConstraintViolationExceptionReason | string;
+  Reason?: ConstraintViolationExceptionReason;
   /**
    * @internal
    */
@@ -1212,9 +1211,8 @@ export class PolicyNotFoundException extends __BaseException {
  * @public
  * <p>The specified policy type isn't currently enabled in this root. You can't attach
  *             policies of the specified type to entities in a root until you enable that type in the
- *             root. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">Enabling All Features
- *                 in Your Organization</a> in the <i>Organizations User Guide.</i>
- *          </p>
+ *             root. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">Enabling all features
+ *                 in your organization</a> in the <i>Organizations User Guide</i>.</p>
  */
 export class PolicyTypeNotEnabledException extends __BaseException {
   readonly name: "PolicyTypeNotEnabledException" = "PolicyTypeNotEnabledException";
@@ -1439,13 +1437,13 @@ export interface CreateAccountRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html#orgs_manage_accounts_create-cross-account-role">Accessing and Administering the Member Accounts in Your
-   *                         Organization</a> in the <i>Organizations User Guide</i>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html#orgs_manage_accounts_create-cross-account-role">Creating the OrganizationAccountAccessRole in an invited member
+   *                         account</a> in the <i>Organizations User Guide</i>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Steps 2 and 3 in <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html">Tutorial:
-   *                         Delegate Access Across Amazon Web Services accounts Using IAM Roles</a> in the
+   *                <p>Steps 2 and 3 in <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html">IAM Tutorial:
+   *                         Delegate access across Amazon Web Services accounts using IAM roles</a> in the
    *                         <i>IAM User Guide</i>
    *                </p>
    *             </li>
@@ -1461,14 +1459,14 @@ export interface CreateAccountRequest {
    * <p>If set to <code>ALLOW</code>, the new account enables IAM users to access account
    *             billing information <i>if</i> they have the required permissions. If set
    *             to <code>DENY</code>, only the root user of the new account can access account billing
-   *             information. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">Activating
-   *                 Access to the Billing and Cost Management Console</a> in the
+   *             information. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">About IAM
+   *                 access to the Billing and Cost Management console</a> in the
    *             <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
    *          <p>If you don't specify this parameter, the value defaults to <code>ALLOW</code>, and
    *             IAM users and roles with the required permissions can access billing information for
    *             the new account.</p>
    */
-  IamUserAccessToBilling?: IAMUserAccessToBilling | string;
+  IamUserAccessToBilling?: IAMUserAccessToBilling;
 
   /**
    * @public
@@ -1554,7 +1552,7 @@ export interface CreateAccountStatus {
    * @public
    * <p>The status of the asynchronous request to create an Amazon Web Services account.</p>
    */
-  State?: CreateAccountState | string;
+  State?: CreateAccountState;
 
   /**
    * @public
@@ -1652,7 +1650,7 @@ export interface CreateAccountStatus {
    *             </li>
    *          </ul>
    */
-  FailureReason?: CreateAccountFailureReason | string;
+  FailureReason?: CreateAccountFailureReason;
 }
 
 /**
@@ -1666,9 +1664,8 @@ export interface CreateAccountResponse {
    *             account creation is an asynchronous process. You can pass the returned
    *                 <code>CreateAccountStatus</code> ID as a parameter to <a>DescribeCreateAccountStatus</a> to get status about the progress of the
    *             request at later times. You can also check the CloudTrail log for the
-   *                 <code>CreateAccountResult</code> event. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_monitoring.html">Monitoring the
-   *                 Activity in Your Organization</a> in the
-   *             <i>Organizations User Guide</i>.</p>
+   *                 <code>CreateAccountResult</code> event. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_security_incident-response.html">Logging and monitoring in Organizations</a> in the
+   *                 <i>Organizations User Guide</i>.</p>
    */
   CreateAccountStatus?: CreateAccountStatus;
 }
@@ -1762,11 +1759,22 @@ export interface CreateGovCloudAccountRequest {
    *             permissions in the new member account.</p>
    *          <p>If you don't specify this parameter, the role name defaults to
    *                 <code>OrganizationAccountAccessRole</code>.</p>
-   *          <p>For more information about how to use this role to access the member account, see
-   *                 <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html#orgs_manage_accounts_create-cross-account-role">Accessing and Administering the Member Accounts in Your Organization</a> in the
-   *                 <i>Organizations User Guide</i> and steps 2 and 3 in <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html">Tutorial: Delegate Access Across Amazon Web Services accounts Using IAM Roles</a> in the
-   *                 <i>IAM User Guide.</i>
-   *          </p>
+   *          <p>For more information about how to use this role to access the member account, see the
+   *             following links:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_access.html#orgs_manage_accounts_create-cross-account-role">Creating the OrganizationAccountAccessRole in an invited member
+   *                         account</a> in the <i>Organizations User Guide</i>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Steps 2 and 3 in <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html">IAM Tutorial:
+   *                         Delegate access across Amazon Web Services accounts using IAM roles</a> in the
+   *                         <i>IAM User Guide</i>
+   *                </p>
+   *             </li>
+   *          </ul>
    *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> that
    *     is used to validate this parameter. The pattern can include uppercase
    *     letters, lowercase letters, digits with no spaces, and any of the following characters: =,.@-</p>
@@ -1778,15 +1786,14 @@ export interface CreateGovCloudAccountRequest {
    * <p>If set to <code>ALLOW</code>, the new linked account in the commercial Region enables
    *             IAM users to access account billing information <i>if</i> they have the
    *             required permissions. If set to <code>DENY</code>, only the root user of the new account
-   *             can access account billing information. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">Activating
-   *                 Access to the Billing and Cost Management Console</a> in the
-   *             <i>Amazon Web Services Billing and Cost Management User Guide.</i>
-   *          </p>
+   *             can access account billing information. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">About IAM
+   *                 access to the Billing and Cost Management console</a> in the
+   *             <i>Amazon Web Services Billing and Cost Management User Guide</i>.</p>
    *          <p>If you don't specify this parameter, the value defaults to <code>ALLOW</code>, and
    *             IAM users and roles with the required permissions can access billing information for
    *             the new account.</p>
    */
-  IamUserAccessToBilling?: IAMUserAccessToBilling | string;
+  IamUserAccessToBilling?: IAMUserAccessToBilling;
 
   /**
    * @public
@@ -1847,8 +1854,7 @@ export interface CreateOrganizationRequest {
    *                   <code>CONSOLIDATED_BILLING</code>: All member accounts have their bills
    *                     consolidated to and paid by the management account. For more information, see
    *                         <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-cb-only">Consolidated billing</a> in the
-   *                     <i>Organizations User Guide.</i>
-   *                </p>
+   *                     <i>Organizations User Guide</i>.</p>
    *                <p> The consolidated billing feature subset isn't available for organizations in
    *                     the Amazon Web Services GovCloud (US) Region.</p>
    *             </li>
@@ -1858,12 +1864,11 @@ export interface CreateOrganizationRequest {
    *                     consolidated billing feature set, the management account can also apply any
    *                     policy type to any member account in the organization. For more information, see
    *                         <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set-all">All
-   *                         features</a> in the <i>Organizations User Guide.</i>
-   *                </p>
+   *                         features</a> in the <i>Organizations User Guide</i>.</p>
    *             </li>
    *          </ul>
    */
-  FeatureSet?: OrganizationFeatureSet | string;
+  FeatureSet?: OrganizationFeatureSet;
 }
 
 /**
@@ -1906,7 +1911,7 @@ export interface PolicyTypeSummary {
    * @public
    * <p>The name of the policy type.</p>
    */
-  Type?: PolicyType | string;
+  Type?: PolicyType;
 
   /**
    * @public
@@ -1914,7 +1919,7 @@ export interface PolicyTypeSummary {
    *             of the specified type to a root or to an OU or account in that root, it must be
    *             available in the organization and enabled for that root.</p>
    */
-  Status?: PolicyTypeStatus | string;
+  Status?: PolicyTypeStatus;
 }
 
 /**
@@ -1945,10 +1950,10 @@ export interface Organization {
    * <p>Specifies the functionality that currently is available to the organization. If set to
    *             "ALL", then all features are enabled and policies can be applied to accounts in the
    *             organization. If set to "CONSOLIDATED_BILLING", then only consolidated billing
-   *             functionality is available. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">Enabling All Features
-   *                 in Your Organization</a> in the <i>Organizations User Guide</i>.</p>
+   *             functionality is available. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">Enabling all features
+   *                 in your organization</a> in the <i>Organizations User Guide</i>.</p>
    */
-  FeatureSet?: OrganizationFeatureSet | string;
+  FeatureSet?: OrganizationFeatureSet;
 
   /**
    * @public
@@ -2141,7 +2146,10 @@ export interface CreatePolicyRequest {
   /**
    * @public
    * <p>The policy text content to add to the new policy. The text that you supply must adhere
-   *             to the rules of the policy type you specify in the <code>Type</code> parameter.</p>
+   *             to the rules of the policy type you specify in the <code>Type</code> parameter. </p>
+   *          <p>The maximum size of a policy document depends on the policy's type. For more
+   *             information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#min-max-values">Maximum and minimum values</a> in the
+   *             <i>Organizations User Guide</i>.</p>
    */
   Content: string | undefined;
 
@@ -2186,7 +2194,7 @@ export interface CreatePolicyRequest {
    *             </li>
    *          </ul>
    */
-  Type: PolicyType | string | undefined;
+  Type: PolicyType | undefined;
 
   /**
    * @public
@@ -2244,7 +2252,7 @@ export interface PolicySummary {
    * @public
    * <p>The type of policy.</p>
    */
-  Type?: PolicyType | string;
+  Type?: PolicyType;
 
   /**
    * @public
@@ -2312,9 +2320,8 @@ export class DuplicatePolicyException extends __BaseException {
  * @public
  * <p>The provided policy document doesn't meet the requirements of the specified policy
  *             type. For example, the syntax might be incorrect. For details about service control
- *             policy syntax, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html">Service Control Policy
- *                 Syntax</a> in the <i>Organizations User Guide.</i>
- *          </p>
+ *             policy syntax, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_syntax.html">SCP syntax</a> in the
+ *                 <i>Organizations User Guide</i>.</p>
  */
 export class MalformedPolicyDocumentException extends __BaseException {
   readonly name: "MalformedPolicyDocumentException" = "MalformedPolicyDocumentException";
@@ -2339,8 +2346,7 @@ export class MalformedPolicyDocumentException extends __BaseException {
  * <p>You can't use the specified policy type with the feature set currently enabled for
  *             this organization. For example, you can enable SCPs only after you enable all features
  *             in the organization. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies.html#enable_policies_on_root">Managing
- *                 Organizations Policies</a>in the <i>Organizations User Guide.</i>
- *          </p>
+ *                 Organizations policies</a>in the <i>Organizations User Guide</i>.</p>
  */
 export class PolicyTypeNotAvailableForOrganizationException extends __BaseException {
   readonly name: "PolicyTypeNotAvailableForOrganizationException" = "PolicyTypeNotAvailableForOrganizationException";
@@ -2377,7 +2383,7 @@ export interface DeclineHandshakeRequest {
 /**
  * @public
  * <p>The organization isn't empty. To delete an organization, you must first remove all
- *             accounts except the management account, delete all OUs, and delete all policies.</p>
+ *             accounts except the management account.</p>
  */
 export class OrganizationNotEmptyException extends __BaseException {
   readonly name: "OrganizationNotEmptyException" = "OrganizationNotEmptyException";
@@ -2657,7 +2663,7 @@ export interface DescribeEffectivePolicyRequest {
    *             </li>
    *          </ul>
    */
-  PolicyType: EffectivePolicyType | string | undefined;
+  PolicyType: EffectivePolicyType | undefined;
 
   /**
    * @public
@@ -2697,7 +2703,7 @@ export interface EffectivePolicy {
    * @public
    * <p>The policy type.</p>
    */
-  PolicyType?: EffectivePolicyType | string;
+  PolicyType?: EffectivePolicyType;
 }
 
 /**
@@ -2989,7 +2995,7 @@ export interface DisablePolicyTypeRequest {
    *             </li>
    *          </ul>
    */
-  PolicyType: PolicyType | string | undefined;
+  PolicyType: PolicyType | undefined;
 }
 
 /**
@@ -3130,7 +3136,7 @@ export interface EnablePolicyTypeRequest {
    *             </li>
    *          </ul>
    */
-  PolicyType: PolicyType | string | undefined;
+  PolicyType: PolicyType | undefined;
 }
 
 /**
@@ -3495,7 +3501,7 @@ export interface ListChildrenRequest {
    * @public
    * <p>Filters the output to include only the specified child type.</p>
    */
-  ChildType: ChildType | string | undefined;
+  ChildType: ChildType | undefined;
 
   /**
    * @public
@@ -3551,7 +3557,7 @@ export interface Child {
    * @public
    * <p>The type of this child entity.</p>
    */
-  Type?: ChildType | string;
+  Type?: ChildType;
 }
 
 /**
@@ -3583,7 +3589,7 @@ export interface ListCreateAccountStatusRequest {
    * <p>A list of one or more states that you want included in the response. If this parameter
    *             isn't present, all requests are included in the response.</p>
    */
-  States?: (CreateAccountState | string)[];
+  States?: CreateAccountState[];
 
   /**
    * @public
@@ -3702,14 +3708,14 @@ export interface DelegatedAdministrator {
    * @public
    * <p>The status of the delegated administrator's account in the organization.</p>
    */
-  Status?: AccountStatus | string;
+  Status?: AccountStatus;
 
   /**
    * @public
    * <p>The method by which the delegated administrator's account joined the
    *             organization.</p>
    */
-  JoinedMethod?: AccountJoinedMethod | string;
+  JoinedMethod?: AccountJoinedMethod;
 
   /**
    * @public
@@ -3833,7 +3839,7 @@ export interface HandshakeFilter {
    *          <p>If you specify <code>ActionType</code>, you cannot also specify
    *                 <code>ParentHandshakeId</code>.</p>
    */
-  ActionType?: ActionType | string;
+  ActionType?: ActionType;
 
   /**
    * @public
@@ -4114,7 +4120,7 @@ export interface Parent {
    * @public
    * <p>The type of the parent entity.</p>
    */
-  Type?: ParentType | string;
+  Type?: ParentType;
 }
 
 /**
@@ -4168,7 +4174,7 @@ export interface ListPoliciesRequest {
    *             </li>
    *          </ul>
    */
-  Filter: PolicyType | string | undefined;
+  Filter: PolicyType | undefined;
 
   /**
    * @public
@@ -4272,7 +4278,7 @@ export interface ListPoliciesForTargetRequest {
    *             </li>
    *          </ul>
    */
-  Filter: PolicyType | string | undefined;
+  Filter: PolicyType | undefined;
 
   /**
    * @public
@@ -4533,7 +4539,7 @@ export interface PolicyTargetSummary {
    * @public
    * <p>The type of the policy target.</p>
    */
-  Type?: TargetType | string;
+  Type?: TargetType;
 }
 
 /**
@@ -4690,9 +4696,8 @@ export interface PutResourcePolicyRequest {
    * @public
    * <p>If provided, the new content for the resource policy. The text must be correctly
    *             formatted JSON that complies with the syntax for the resource policy's type. For more
-   *             information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html">Service Control Policy Syntax</a> in the
-   *                 <i>Organizations User Guide.</i>
-   *          </p>
+   *             information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_syntax.html">SCP syntax</a> in the
+   *             <i>Organizations User Guide</i>.</p>
    */
   Content: string | undefined;
 
@@ -4912,9 +4917,11 @@ export interface UpdatePolicyRequest {
   /**
    * @public
    * <p>If provided, the new content for the policy. The text must be correctly formatted JSON
-   *             that complies with the syntax for the policy's type. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html">Service
-   *                 Control Policy Syntax</a> in the <i>Organizations User Guide.</i>
-   *          </p>
+   *             that complies with the syntax for the policy's type. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_syntax.html">SCP
+   *                 syntax</a> in the <i>Organizations User Guide</i>.</p>
+   *          <p>The maximum size of a policy document depends on the policy's type. For more
+   *             information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#min-max-values">Maximum and minimum values</a> in the
+   *             <i>Organizations User Guide</i>.</p>
    */
   Content?: string;
 }
@@ -4978,7 +4985,7 @@ export interface HandshakeResource {
    *             </li>
    *          </ul>
    */
-  Type?: HandshakeResourceType | string;
+  Type?: HandshakeResourceType;
 
   /**
    * @public
@@ -5066,7 +5073,7 @@ export interface Handshake {
    *             </li>
    *          </ul>
    */
-  State?: HandshakeState | string;
+  State?: HandshakeState;
 
   /**
    * @public
@@ -5112,7 +5119,7 @@ export interface Handshake {
    *             </li>
    *          </ul>
    */
-  Action?: ActionType | string;
+  Action?: ActionType;
 
   /**
    * @public

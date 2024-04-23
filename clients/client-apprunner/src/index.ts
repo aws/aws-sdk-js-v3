@@ -24,8 +24,12 @@
 export * from "./AppRunnerClient";
 export * from "./AppRunner";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { AppRunnerExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { AppRunnerServiceException } from "./models/AppRunnerServiceException";

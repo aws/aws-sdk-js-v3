@@ -128,6 +128,7 @@ export type LocalHealthEventsConfigStatus =
  *          <p>Defines the percentages, for performance scores or availability scores, that are the local thresholds
  * 			for when Amazon CloudWatch Internet Monitor creates a health event. Also defines whether a local threshold is enabled or disabled, and the minimum percentage
  * 			of overall traffic that must be impacted by an issue before Internet Monitor creates an event when a	threshold is crossed for a local health score.</p>
+ *          <p>If you don't set a local health event threshold, the default value is 60%.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-overview.html#IMUpdateThresholdFromOverview">
  * 			Change health event thresholds</a> in the Internet Monitor section of the <i>CloudWatch User Guide</i>.</p>
  */
@@ -137,7 +138,7 @@ export interface LocalHealthEventsConfig {
    * <p>The status of whether Internet Monitor creates a health event based on a threshold percentage set for a local health score. The status can be <code>ENABLED</code>
    * 		or <code>DISABLED</code>.</p>
    */
-  Status?: LocalHealthEventsConfigStatus | string;
+  Status?: LocalHealthEventsConfigStatus;
 
   /**
    * @public
@@ -149,6 +150,7 @@ export interface LocalHealthEventsConfig {
    * @public
    * <p>The minimum percentage of overall traffic for an application that must be impacted by an issue before Internet Monitor creates an event when a
    * 			threshold is crossed for a local health score.</p>
+   *          <p>If you don't set a minimum traffic impact threshold, the default value is 0.01%.</p>
    */
   MinTrafficImpact?: number;
 }
@@ -231,7 +233,7 @@ export interface S3Config {
    * @public
    * <p>The status of publishing Internet Monitor internet measurements to an Amazon S3 bucket.</p>
    */
-  LogDeliveryStatus?: LogDeliveryStatus | string;
+  LogDeliveryStatus?: LogDeliveryStatus;
 }
 
 /**
@@ -351,7 +353,7 @@ export interface CreateMonitorOutput {
    * @public
    * <p>The status of a monitor.</p>
    */
-  Status: MonitorConfigState | string | undefined;
+  Status: MonitorConfigState | undefined;
 }
 
 /**
@@ -456,6 +458,58 @@ export interface DeleteMonitorOutput {}
 
 /**
  * @public
+ * @enum
+ */
+export const Operator = {
+  EQUALS: "EQUALS",
+  NOT_EQUALS: "NOT_EQUALS",
+} as const;
+
+/**
+ * @public
+ */
+export type Operator = (typeof Operator)[keyof typeof Operator];
+
+/**
+ * @public
+ * <p>A filter that you use with the results of a Amazon CloudWatch Internet Monitor query that you created and ran. The query sets up a
+ * 			repository of data that is a subset of your application's Internet Monitor data. <code>FilterParameter</code> is a string
+ * 			that defines how you want to filter the repository of data to return a set of results, based on your criteria.</p>
+ *          <p>The filter parameters that you can specify depend on the query type that you used to create the repository, since
+ * 			each query type returns a different set of Internet Monitor data.</p>
+ *          <p>For each filter, you specify a field (such as <code>city</code>), an operator (such as <code>not_equals</code>,
+ * 			and a value or array of values (such as <code>["Seattle", "Redmond"]</code>). Separate values in the array with
+ * 			commas.</p>
+ *          <p>For more information about specifying filter parameters, see
+ * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html">Using the Amazon CloudWatch Internet Monitor query interface</a>
+ * 			in the Amazon CloudWatch Internet Monitor User Guide.</p>
+ */
+export interface FilterParameter {
+  /**
+   * @public
+   * <p>A data field that you want to filter, to further scope your application's Internet Monitor data in a repository that you
+   * 			created by running a query. A field might be <code>city</code>, for example. The field must be one of the fields
+   * 			that was returned by the specific query that you used to create the repository.</p>
+   */
+  Field?: string;
+
+  /**
+   * @public
+   * <p>The operator to use with the filter field and a value, such as <code>not_equals</code>.</p>
+   */
+  Operator?: Operator;
+
+  /**
+   * @public
+   * <p>One or more values to be used, together with the specified operator, to filter data for a query.
+   * 			For example, you could specify an array of values such as <code>["Seattle", "Redmond"]</code>. Values in the array are separated by
+   * 			commas.</p>
+   */
+  Values?: string[];
+}
+
+/**
+ * @public
  */
 export interface GetHealthEventInput {
   /**
@@ -466,7 +520,7 @@ export interface GetHealthEventInput {
 
   /**
    * @public
-   * <p>The internally generated identifier of a health event. Because <code>EventID</code> contains the forward slash (“/”) character, you must
+   * <p>The internally-generated identifier of a health event. Because <code>EventID</code> contains the forward slash (“/”) character, you must
    * 			URL-encode the <code>EventID</code> field in the request URL.</p>
    */
   EventId: string | undefined;
@@ -525,7 +579,7 @@ export interface NetworkImpairment {
    * @public
    * <p>Type of network impairment.</p>
    */
-  NetworkEventType: TriangulationEventType | string | undefined;
+  NetworkEventType: TriangulationEventType | undefined;
 }
 
 /**
@@ -732,7 +786,7 @@ export interface ImpactedLocation {
    * @public
    * <p>The status of the health event at an impacted location.</p>
    */
-  Status: HealthEventStatus | string | undefined;
+  Status: HealthEventStatus | undefined;
 
   /**
    * @public
@@ -776,7 +830,7 @@ export interface GetHealthEventOutput {
 
   /**
    * @public
-   * <p>The internally generated identifier of a health event.</p>
+   * <p>The internally-generated identifier of a health event.</p>
    */
   EventId: string | undefined;
 
@@ -814,7 +868,7 @@ export interface GetHealthEventOutput {
    * @public
    * <p>The status of a health event.</p>
    */
-  Status: HealthEventStatus | string | undefined;
+  Status: HealthEventStatus | undefined;
 
   /**
    * @public
@@ -828,7 +882,7 @@ export interface GetHealthEventOutput {
    * @public
    * <p>The type of impairment of a specific health event.</p>
    */
-  ImpactType: HealthEventImpactType | string | undefined;
+  ImpactType: HealthEventImpactType | undefined;
 
   /**
    * @public
@@ -894,7 +948,7 @@ export interface GetMonitorOutput {
    * @public
    * <p>The status of the monitor.</p>
    */
-  Status: MonitorConfigState | string | undefined;
+  Status: MonitorConfigState | undefined;
 
   /**
    * @public
@@ -912,7 +966,7 @@ export interface GetMonitorOutput {
    * @public
    * <p>The health of the data processing for the monitor.</p>
    */
-  ProcessingStatus?: MonitorProcessingStatusCode | string;
+  ProcessingStatus?: MonitorProcessingStatusCode;
 
   /**
    * @public
@@ -963,6 +1017,128 @@ export interface GetMonitorOutput {
 
 /**
  * @public
+ */
+export interface GetQueryResultsInput {
+  /**
+   * @public
+   * <p>The name of the monitor to return data for.</p>
+   */
+  MonitorName: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the query that you want to return data results for. A <code>QueryId</code> is an
+   * 			internally-generated identifier for a specific query.</p>
+   */
+  QueryId: string | undefined;
+
+  /**
+   * @public
+   * <p>The token for the next set of results. You receive this token from a previous call.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The number of query results that you want to return with this call.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Defines a field to query for your application's Amazon CloudWatch Internet Monitor data. You create a data repository by running a query of a specific
+ * 			type. Each <code>QueryType</code> includes a specific set of fields and datatypes to retrieve data for. </p>
+ */
+export interface QueryField {
+  /**
+   * @public
+   * <p>The name of a field to query your application's Amazon CloudWatch Internet Monitor data for, such as <code>availability_score</code>.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The data type for a query field, which must correspond to the field you're defining for <code>QueryField</code>. For example, if the query
+   * 			field name is <code>availability_score</code>, the data type is <code>float</code>.</p>
+   */
+  Type?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetQueryResultsOutput {
+  /**
+   * @public
+   * <p>The fields that the query returns data for. Fields are name-data type pairs, such as
+   * 			<code>availability_score</code>-<code>float</code>.</p>
+   */
+  Fields: QueryField[] | undefined;
+
+  /**
+   * @public
+   * <p>The data results that the query returns. Data is returned in arrays, aligned with the <code>Fields</code>
+   * 		for the query, which creates a repository of Amazon CloudWatch Internet Monitor information for your application. Then, you can filter
+   * 		the information in the repository by using <code>FilterParameters</code> that you define.</p>
+   */
+  Data: string[][] | undefined;
+
+  /**
+   * @public
+   * <p>The token for the next set of results. You receive this token from a previous call.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetQueryStatusInput {
+  /**
+   * @public
+   * <p>The name of the monitor.</p>
+   */
+  MonitorName: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the query that you want to return the status for. A <code>QueryId</code> is an internally-generated
+   * 			dentifier for a specific query.</p>
+   */
+  QueryId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const QueryStatus = {
+  CANCELED: "CANCELED",
+  FAILED: "FAILED",
+  QUEUED: "QUEUED",
+  RUNNING: "RUNNING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type QueryStatus = (typeof QueryStatus)[keyof typeof QueryStatus];
+
+/**
+ * @public
+ */
+export interface GetQueryStatusOutput {
+  /**
+   * @public
+   * <p>The current status for a query.</p>
+   */
+  Status: QueryStatus | undefined;
+}
+
+/**
+ * @public
  * <p>Information about a health event created in a monitor in Amazon CloudWatch Internet Monitor.</p>
  */
 export interface HealthEvent {
@@ -974,7 +1150,7 @@ export interface HealthEvent {
 
   /**
    * @public
-   * <p>The internally generated identifier of a specific network traffic impairment health event.</p>
+   * <p>The internally-generated identifier of a specific network traffic impairment health event.</p>
    */
   EventId: string | undefined;
 
@@ -1012,7 +1188,7 @@ export interface HealthEvent {
    * @public
    * <p>Health event list member.</p>
    */
-  Status: HealthEventStatus | string | undefined;
+  Status: HealthEventStatus | undefined;
 
   /**
    * @public
@@ -1026,7 +1202,7 @@ export interface HealthEvent {
    * @public
    * <p>The type of impairment for a health event.</p>
    */
-  ImpactType: HealthEventImpactType | string | undefined;
+  ImpactType: HealthEventImpactType | undefined;
 
   /**
    * @public
@@ -1073,7 +1249,7 @@ export interface ListHealthEventsInput {
    * @public
    * <p>The status of a health event.</p>
    */
-  EventStatus?: HealthEventStatus | string;
+  EventStatus?: HealthEventStatus;
 }
 
 /**
@@ -1225,13 +1401,13 @@ export interface Monitor {
    * @public
    * <p>The status of a monitor.</p>
    */
-  Status: MonitorConfigState | string | undefined;
+  Status: MonitorConfigState | undefined;
 
   /**
    * @public
    * <p>The health of data processing for the monitor.</p>
    */
-  ProcessingStatus?: MonitorProcessingStatusCode | string;
+  ProcessingStatus?: MonitorProcessingStatusCode;
 }
 
 /**
@@ -1250,6 +1426,111 @@ export interface ListMonitorsOutput {
    */
   NextToken?: string;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const QueryType = {
+  MEASUREMENTS: "MEASUREMENTS",
+  TOP_LOCATIONS: "TOP_LOCATIONS",
+  TOP_LOCATION_DETAILS: "TOP_LOCATION_DETAILS",
+} as const;
+
+/**
+ * @public
+ */
+export type QueryType = (typeof QueryType)[keyof typeof QueryType];
+
+/**
+ * @public
+ */
+export interface StartQueryInput {
+  /**
+   * @public
+   * <p>The name of the monitor to query.</p>
+   */
+  MonitorName: string | undefined;
+
+  /**
+   * @public
+   * <p>The timestamp that is the beginning of the period that you want to retrieve data for with your query.</p>
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The timestamp that is the end of the period that you want to retrieve data for with your query.</p>
+   */
+  EndTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The type of query to run. The following are the three types of queries that you can run using the Internet Monitor query interface:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>MEASUREMENTS</code>: TBD definition</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TOP_LOCATIONS</code>: TBD definition</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TOP_LOCATION_DETAILS</code>: TBD definition</p>
+   *             </li>
+   *          </ul>
+   *          <p>For lists of the fields returned with each query type and more information about how each type of query is
+   * 			performed, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html">
+   * 				Using the Amazon CloudWatch Internet Monitor query interface</a> in the Amazon CloudWatch Internet Monitor User Guide.</p>
+   */
+  QueryType: QueryType | undefined;
+
+  /**
+   * @public
+   * <p>The <code>FilterParameters</code> field that you use with Amazon CloudWatch Internet Monitor queries is a string the defines
+   * 			how you want a query to be filtered. The filter parameters that you can specify depend on the query type, since
+   * 			each query type returns a different set of Internet Monitor data.</p>
+   *          <p>For more information about specifying filter parameters, see
+   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-view-cw-tools-cwim-query.html">Using the Amazon CloudWatch Internet Monitor query interface</a>
+   * 			in the Amazon CloudWatch Internet Monitor User Guide.</p>
+   */
+  FilterParameters?: FilterParameter[];
+}
+
+/**
+ * @public
+ */
+export interface StartQueryOutput {
+  /**
+   * @public
+   * <p>The internally-generated identifier of a specific query.</p>
+   */
+  QueryId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopQueryInput {
+  /**
+   * @public
+   * <p>The name of the monitor.</p>
+   */
+  MonitorName: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the query that you want to stop. A <code>QueryId</code> is an internally-generated identifier for a specific query.</p>
+   */
+  QueryId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopQueryOutput {}
 
 /**
  * @public
@@ -1305,7 +1586,7 @@ export interface UpdateMonitorInput {
    * <p>The status for a monitor. The accepted values for <code>Status</code> with the <code>UpdateMonitor</code> API call are the following: <code>ACTIVE</code> and
    * 			<code>INACTIVE</code>. The following values are <i>not</i> accepted: <code>PENDING</code>, and <code>ERROR</code>.</p>
    */
-  Status?: MonitorConfigState | string;
+  Status?: MonitorConfigState;
 
   /**
    * @public
@@ -1361,7 +1642,7 @@ export interface UpdateMonitorOutput {
    * @public
    * <p>The status of a monitor.</p>
    */
-  Status: MonitorConfigState | string | undefined;
+  Status: MonitorConfigState | undefined;
 }
 
 /**

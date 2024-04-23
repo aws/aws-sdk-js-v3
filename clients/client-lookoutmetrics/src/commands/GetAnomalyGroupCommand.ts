@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
 import { GetAnomalyGroupRequest, GetAnomalyGroupResponse } from "../models/models_0";
 import { de_GetAnomalyGroupCommand, se_GetAnomalyGroupCommand } from "../protocols/Aws_restJson1";
@@ -106,79 +98,26 @@ export interface GetAnomalyGroupCommandOutput extends GetAnomalyGroupResponse, _
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
-export class GetAnomalyGroupCommand extends $Command<
-  GetAnomalyGroupCommandInput,
-  GetAnomalyGroupCommandOutput,
-  LookoutMetricsClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetAnomalyGroupCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: LookoutMetricsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetAnomalyGroupCommandInput, GetAnomalyGroupCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetAnomalyGroupCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "LookoutMetricsClient";
-    const commandName = "GetAnomalyGroupCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetAnomalyGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetAnomalyGroupCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAnomalyGroupCommandOutput> {
-    return de_GetAnomalyGroupCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetAnomalyGroupCommand extends $Command
+  .classBuilder<
+    GetAnomalyGroupCommandInput,
+    GetAnomalyGroupCommandOutput,
+    LookoutMetricsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: LookoutMetricsClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("LookoutMetrics", "GetAnomalyGroup", {})
+  .n("LookoutMetricsClient", "GetAnomalyGroupCommand")
+  .f(void 0, void 0)
+  .ser(se_GetAnomalyGroupCommand)
+  .de(de_GetAnomalyGroupCommand)
+  .build() {}

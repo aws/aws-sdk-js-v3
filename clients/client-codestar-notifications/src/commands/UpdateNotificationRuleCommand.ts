@@ -1,23 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   CodestarNotificationsClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateNotificationRuleRequest,
   UpdateNotificationRuleRequestFilterSensitiveLog,
@@ -96,79 +88,26 @@ export interface UpdateNotificationRuleCommandOutput extends UpdateNotificationR
  * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
  */
-export class UpdateNotificationRuleCommand extends $Command<
-  UpdateNotificationRuleCommandInput,
-  UpdateNotificationRuleCommandOutput,
-  CodestarNotificationsClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateNotificationRuleCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CodestarNotificationsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateNotificationRuleCommandInput, UpdateNotificationRuleCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateNotificationRuleCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CodestarNotificationsClient";
-    const commandName = "UpdateNotificationRuleCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: UpdateNotificationRuleRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateNotificationRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateNotificationRuleCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNotificationRuleCommandOutput> {
-    return de_UpdateNotificationRuleCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateNotificationRuleCommand extends $Command
+  .classBuilder<
+    UpdateNotificationRuleCommandInput,
+    UpdateNotificationRuleCommandOutput,
+    CodestarNotificationsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CodestarNotificationsClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CodeStarNotifications_20191015", "UpdateNotificationRule", {})
+  .n("CodestarNotificationsClient", "UpdateNotificationRuleCommand")
+  .f(UpdateNotificationRuleRequestFilterSensitiveLog, void 0)
+  .ser(se_UpdateNotificationRuleCommand)
+  .de(de_UpdateNotificationRuleCommand)
+  .build() {}

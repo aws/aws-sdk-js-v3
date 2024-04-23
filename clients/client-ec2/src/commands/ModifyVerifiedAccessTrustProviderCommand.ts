@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ModifyVerifiedAccessTrustProviderRequest,
   ModifyVerifiedAccessTrustProviderRequestFilterSensitiveLog,
@@ -64,9 +56,16 @@ export interface ModifyVerifiedAccessTrustProviderCommandOutput
  *     ClientSecret: "STRING_VALUE",
  *     Scope: "STRING_VALUE",
  *   },
+ *   DeviceOptions: { // ModifyVerifiedAccessTrustProviderDeviceOptions
+ *     PublicSigningKeyUrl: "STRING_VALUE",
+ *   },
  *   Description: "STRING_VALUE",
  *   DryRun: true || false,
  *   ClientToken: "STRING_VALUE",
+ *   SseSpecification: { // VerifiedAccessSseSpecificationRequest
+ *     CustomerManagedKeyEnabled: true || false,
+ *     KmsKeyArn: "STRING_VALUE",
+ *   },
  * };
  * const command = new ModifyVerifiedAccessTrustProviderCommand(input);
  * const response = await client.send(command);
@@ -76,7 +75,7 @@ export interface ModifyVerifiedAccessTrustProviderCommandOutput
  * //     Description: "STRING_VALUE",
  * //     TrustProviderType: "user" || "device",
  * //     UserTrustProviderType: "iam-identity-center" || "oidc",
- * //     DeviceTrustProviderType: "jamf" || "crowdstrike",
+ * //     DeviceTrustProviderType: "jamf" || "crowdstrike" || "jumpcloud",
  * //     OidcOptions: { // OidcOptions
  * //       Issuer: "STRING_VALUE",
  * //       AuthorizationEndpoint: "STRING_VALUE",
@@ -88,6 +87,7 @@ export interface ModifyVerifiedAccessTrustProviderCommandOutput
  * //     },
  * //     DeviceOptions: { // DeviceOptions
  * //       TenantId: "STRING_VALUE",
+ * //       PublicSigningKeyUrl: "STRING_VALUE",
  * //     },
  * //     PolicyReferenceName: "STRING_VALUE",
  * //     CreationTime: "STRING_VALUE",
@@ -98,6 +98,10 @@ export interface ModifyVerifiedAccessTrustProviderCommandOutput
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     SseSpecification: { // VerifiedAccessSseSpecificationResponse
+ * //       CustomerManagedKeyEnabled: true || false,
+ * //       KmsKeyArn: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -113,85 +117,29 @@ export interface ModifyVerifiedAccessTrustProviderCommandOutput
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
-export class ModifyVerifiedAccessTrustProviderCommand extends $Command<
-  ModifyVerifiedAccessTrustProviderCommandInput,
-  ModifyVerifiedAccessTrustProviderCommandOutput,
-  EC2ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ModifyVerifiedAccessTrustProviderCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: EC2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ModifyVerifiedAccessTrustProviderCommandInput, ModifyVerifiedAccessTrustProviderCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ModifyVerifiedAccessTrustProviderCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "EC2Client";
-    const commandName = "ModifyVerifiedAccessTrustProviderCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: ModifyVerifiedAccessTrustProviderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ModifyVerifiedAccessTrustProviderResultFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: ModifyVerifiedAccessTrustProviderCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_ModifyVerifiedAccessTrustProviderCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ModifyVerifiedAccessTrustProviderCommandOutput> {
-    return de_ModifyVerifiedAccessTrustProviderCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ModifyVerifiedAccessTrustProviderCommand extends $Command
+  .classBuilder<
+    ModifyVerifiedAccessTrustProviderCommandInput,
+    ModifyVerifiedAccessTrustProviderCommandOutput,
+    EC2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonEC2", "ModifyVerifiedAccessTrustProvider", {})
+  .n("EC2Client", "ModifyVerifiedAccessTrustProviderCommand")
+  .f(
+    ModifyVerifiedAccessTrustProviderRequestFilterSensitiveLog,
+    ModifyVerifiedAccessTrustProviderResultFilterSensitiveLog
+  )
+  .ser(se_ModifyVerifiedAccessTrustProviderCommand)
+  .de(de_ModifyVerifiedAccessTrustProviderCommand)
+  .build() {}

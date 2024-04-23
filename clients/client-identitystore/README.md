@@ -6,18 +6,14 @@
 
 AWS SDK for JavaScript Identitystore Client for Node.js, Browser and React Native.
 
-<p>The Identity Store service used by AWS IAM Identity Center (successor to AWS Single Sign-On) provides a single place to retrieve all of
+<p>The Identity Store service used by IAM Identity Center provides a single place to retrieve all of
 your identities (users and groups). For more information, see the <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">IAM Identity Center User
 Guide</a>.</p>
-
-<note>
-<p>Although AWS Single Sign-On was renamed, the <code>sso</code> and
-<code>identitystore</code> API namespaces will continue to retain their original name for
-backward compatibility purposes. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed">IAM Identity Center rename</a>.</p>
-</note>
-
 <p>This reference guide describes the identity store operations that you can call
-programatically and includes detailed information about data types and errors.</p>
+programmatically and includes detailed information about data types and errors.</p>
+<note>
+<p>IAM Identity Center uses the <code>sso</code> and <code>identitystore</code> API namespaces.</p>
+</note>
 
 ## Installing
 
@@ -34,16 +30,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `IdentitystoreClient` and
-the commands you need, for example `CreateGroupCommand`:
+the commands you need, for example `ListGroupsCommand`:
 
 ```js
 // ES5 example
-const { IdentitystoreClient, CreateGroupCommand } = require("@aws-sdk/client-identitystore");
+const { IdentitystoreClient, ListGroupsCommand } = require("@aws-sdk/client-identitystore");
 ```
 
 ```ts
 // ES6+ example
-import { IdentitystoreClient, CreateGroupCommand } from "@aws-sdk/client-identitystore";
+import { IdentitystoreClient, ListGroupsCommand } from "@aws-sdk/client-identitystore";
 ```
 
 ### Usage
@@ -62,7 +58,7 @@ const client = new IdentitystoreClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateGroupCommand(params);
+const command = new ListGroupsCommand(params);
 ```
 
 #### Async/await
@@ -141,7 +137,7 @@ const client = new AWS.Identitystore({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createGroup(params);
+  const data = await client.listGroups(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -149,7 +145,7 @@ try {
 
 // Promises.
 client
-  .createGroup(params)
+  .listGroups(params)
   .then((data) => {
     // process data.
   })
@@ -158,7 +154,7 @@ client
   });
 
 // callbacks.
-client.createGroup(params, (err, data) => {
+client.listGroups(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -173,7 +169,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -219,7 +215,7 @@ see LICENSE for more information.
 CreateGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/classes/creategroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/creategroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/creategroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/identitystore/command/CreateGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/CreateGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/CreateGroupCommandOutput/)
 
 </details>
 <details>
@@ -227,7 +223,7 @@ CreateGroup
 CreateGroupMembership
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/classes/creategroupmembershipcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/creategroupmembershipcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/creategroupmembershipcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/identitystore/command/CreateGroupMembershipCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/CreateGroupMembershipCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/CreateGroupMembershipCommandOutput/)
 
 </details>
 <details>
@@ -235,7 +231,7 @@ CreateGroupMembership
 CreateUser
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/classes/createusercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/createusercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/createusercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/identitystore/command/CreateUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/CreateUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/CreateUserCommandOutput/)
 
 </details>
 <details>
@@ -243,7 +239,7 @@ CreateUser
 DeleteGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/classes/deletegroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/deletegroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/deletegroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/identitystore/command/DeleteGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/DeleteGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/DeleteGroupCommandOutput/)
 
 </details>
 <details>
@@ -251,7 +247,7 @@ DeleteGroup
 DeleteGroupMembership
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/classes/deletegroupmembershipcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/deletegroupmembershipcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/deletegroupmembershipcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/identitystore/command/DeleteGroupMembershipCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/DeleteGroupMembershipCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/DeleteGroupMembershipCommandOutput/)
 
 </details>
 <details>
@@ -259,7 +255,7 @@ DeleteGroupMembership
 DeleteUser
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/classes/deleteusercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/deleteusercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/deleteusercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/identitystore/command/DeleteUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/DeleteUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/DeleteUserCommandOutput/)
 
 </details>
 <details>
@@ -267,7 +263,7 @@ DeleteUser
 DescribeGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/classes/describegroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/describegroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/describegroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/identitystore/command/DescribeGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/DescribeGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/DescribeGroupCommandOutput/)
 
 </details>
 <details>
@@ -275,7 +271,7 @@ DescribeGroup
 DescribeGroupMembership
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/classes/describegroupmembershipcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/describegroupmembershipcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/describegroupmembershipcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/identitystore/command/DescribeGroupMembershipCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/DescribeGroupMembershipCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/DescribeGroupMembershipCommandOutput/)
 
 </details>
 <details>
@@ -283,7 +279,7 @@ DescribeGroupMembership
 DescribeUser
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/classes/describeusercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/describeusercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/describeusercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/identitystore/command/DescribeUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/DescribeUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/DescribeUserCommandOutput/)
 
 </details>
 <details>
@@ -291,7 +287,7 @@ DescribeUser
 GetGroupId
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/classes/getgroupidcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/getgroupidcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/getgroupidcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/identitystore/command/GetGroupIdCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/GetGroupIdCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/GetGroupIdCommandOutput/)
 
 </details>
 <details>
@@ -299,7 +295,7 @@ GetGroupId
 GetGroupMembershipId
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/classes/getgroupmembershipidcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/getgroupmembershipidcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/getgroupmembershipidcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/identitystore/command/GetGroupMembershipIdCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/GetGroupMembershipIdCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/GetGroupMembershipIdCommandOutput/)
 
 </details>
 <details>
@@ -307,7 +303,7 @@ GetGroupMembershipId
 GetUserId
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/classes/getuseridcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/getuseridcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/getuseridcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/identitystore/command/GetUserIdCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/GetUserIdCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/GetUserIdCommandOutput/)
 
 </details>
 <details>
@@ -315,7 +311,7 @@ GetUserId
 IsMemberInGroups
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/classes/ismemberingroupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/ismemberingroupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/ismemberingroupscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/identitystore/command/IsMemberInGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/IsMemberInGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/IsMemberInGroupsCommandOutput/)
 
 </details>
 <details>
@@ -323,7 +319,7 @@ IsMemberInGroups
 ListGroupMemberships
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/classes/listgroupmembershipscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/listgroupmembershipscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/listgroupmembershipscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/identitystore/command/ListGroupMembershipsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/ListGroupMembershipsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/ListGroupMembershipsCommandOutput/)
 
 </details>
 <details>
@@ -331,7 +327,7 @@ ListGroupMemberships
 ListGroupMembershipsForMember
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/classes/listgroupmembershipsformembercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/listgroupmembershipsformembercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/listgroupmembershipsformembercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/identitystore/command/ListGroupMembershipsForMemberCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/ListGroupMembershipsForMemberCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/ListGroupMembershipsForMemberCommandOutput/)
 
 </details>
 <details>
@@ -339,7 +335,7 @@ ListGroupMembershipsForMember
 ListGroups
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/classes/listgroupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/listgroupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/listgroupscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/identitystore/command/ListGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/ListGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/ListGroupsCommandOutput/)
 
 </details>
 <details>
@@ -347,7 +343,7 @@ ListGroups
 ListUsers
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/classes/listuserscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/listuserscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/listuserscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/identitystore/command/ListUsersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/ListUsersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/ListUsersCommandOutput/)
 
 </details>
 <details>
@@ -355,7 +351,7 @@ ListUsers
 UpdateGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/classes/updategroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/updategroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/updategroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/identitystore/command/UpdateGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/UpdateGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/UpdateGroupCommandOutput/)
 
 </details>
 <details>
@@ -363,6 +359,6 @@ UpdateGroup
 UpdateUser
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/classes/updateusercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/updateusercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-identitystore/interfaces/updateusercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/identitystore/command/UpdateUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/UpdateUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-identitystore/Interface/UpdateUserCommandOutput/)
 
 </details>

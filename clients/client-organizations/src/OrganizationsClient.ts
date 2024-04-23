@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -427,6 +425,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 
@@ -556,9 +556,9 @@ export interface OrganizationsClientResolvedConfig extends OrganizationsClientRe
  *             by CloudTrail, you can determine which requests the Organizations service received, who made the
  *             request and when, and so on. For more about Organizations and its support for CloudTrail, see
  *                 <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_incident-response.html#orgs_cloudtrail-integration">Logging
- *                 Organizations Events with CloudTrail</a> in the <i>Organizations User Guide</i>.
- *             To learn more about CloudTrail, including how to turn it on and find your log files, see the
- *                 <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">CloudTrail User Guide</a>.</p>
+ *                 Organizations API calls with CloudTrail</a> in the
+ *             <i>Organizations User Guide</i>. To learn more about CloudTrail, including how to turn it
+ *             on and find your log files, see the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">CloudTrail User Guide</a>.</p>
  */
 export class OrganizationsClient extends __Client<
   __HttpHandlerOptions,

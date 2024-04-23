@@ -1,20 +1,12 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { CreateFleetInput, CreateFleetOutput } from "../models/models_0";
+import { CreateFleetInput, CreateFleetInputFilterSensitiveLog, CreateFleetOutput } from "../models/models_0";
 import { de_CreateFleetCommand, se_CreateFleetCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -58,7 +50,11 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  *             when you're finished. </p>
  *          <p>If successful, this operation creates a new Fleet resource and places it in
  *                 <code>NEW</code> status, which prompts Amazon GameLift to initiate the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-all.html#fleets-creation-workflow">fleet creation
- *                 workflow</a>.</p>
+ *                 workflow</a>. You can track fleet creation by checking fleet status using <a>DescribeFleetAttributes</a> and <a>DescribeFleetLocationAttributes</a>/, or by monitoring fleet creation events
+ *             using <a>DescribeFleetEvents</a>. </p>
+ *          <p>When the fleet status changes to <code>ACTIVE</code>, you can enable automatic scaling
+ *             with <a>PutScalingPolicy</a> and set capacity for the home Region with <a>UpdateFleetCapacity</a>. When the status of each remote location reaches
+ *                 <code>ACTIVE</code>, you can set capacity by location using <a>UpdateFleetCapacity</a>.</p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
@@ -138,6 +134,7 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  *   AnywhereConfiguration: { // AnywhereConfiguration
  *     Cost: "STRING_VALUE", // required
  *   },
+ *   InstanceRoleCredentialsProvider: "SHARED_CREDENTIAL_FILE",
  * };
  * const command = new CreateFleetCommand(input);
  * const response = await client.send(command);
@@ -181,6 +178,7 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  * //     AnywhereConfiguration: { // AnywhereConfiguration
  * //       Cost: "STRING_VALUE", // required
  * //     },
+ * //     InstanceRoleCredentialsProvider: "SHARED_CREDENTIAL_FILE",
  * //   },
  * //   LocationStates: [ // LocationStateList
  * //     { // LocationState
@@ -234,77 +232,26 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
-export class CreateFleetCommand extends $Command<
-  CreateFleetCommandInput,
-  CreateFleetCommandOutput,
-  GameLiftClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateFleetCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: GameLiftClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateFleetCommandInput, CreateFleetCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, CreateFleetCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "GameLiftClient";
-    const commandName = "CreateFleetCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateFleetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateFleetCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFleetCommandOutput> {
-    return de_CreateFleetCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateFleetCommand extends $Command
+  .classBuilder<
+    CreateFleetCommandInput,
+    CreateFleetCommandOutput,
+    GameLiftClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("GameLift", "CreateFleet", {})
+  .n("GameLiftClient", "CreateFleetCommand")
+  .f(CreateFleetInputFilterSensitiveLog, void 0)
+  .ser(se_CreateFleetCommand)
+  .de(de_CreateFleetCommand)
+  .build() {}

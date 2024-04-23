@@ -1,13 +1,19 @@
 // smithy-typescript generated code
-import { getDefaultClientConfiguration, resolveDefaultRuntimeConfig } from "@smithy/types";
+import {
+  getAwsRegionExtensionConfiguration,
+  resolveAwsRegionExtensionConfiguration,
+} from "@aws-sdk/region-config-resolver";
+import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig } from "@smithy/protocol-http";
+import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
-import { MachineLearningClientConfiguration } from "./clientConfiguration";
+import { getHttpAuthExtensionConfiguration, resolveHttpAuthRuntimeConfig } from "./auth/httpAuthExtensionConfiguration";
+import { MachineLearningExtensionConfiguration } from "./extensionConfiguration";
 
 /**
  * @public
  */
 export interface RuntimeExtension {
-  configureClient(clientConfiguration: MachineLearningClientConfiguration): void;
+  configure(extensionConfiguration: MachineLearningExtensionConfiguration): void;
 }
 
 /**
@@ -17,20 +23,26 @@ export interface RuntimeExtensionsConfig {
   extensions: RuntimeExtension[];
 }
 
-const asPartial = <T extends Partial<MachineLearningClientConfiguration>>(t: T) => t;
+const asPartial = <T extends Partial<MachineLearningExtensionConfiguration>>(t: T) => t;
 
 /**
  * @internal
  */
 export const resolveRuntimeExtensions = (runtimeConfig: any, extensions: RuntimeExtension[]) => {
-  const clientConfiguration: MachineLearningClientConfiguration = {
-    ...asPartial(getDefaultClientConfiguration(runtimeConfig)),
+  const extensionConfiguration: MachineLearningExtensionConfiguration = {
+    ...asPartial(getAwsRegionExtensionConfiguration(runtimeConfig)),
+    ...asPartial(getDefaultExtensionConfiguration(runtimeConfig)),
+    ...asPartial(getHttpHandlerExtensionConfiguration(runtimeConfig)),
+    ...asPartial(getHttpAuthExtensionConfiguration(runtimeConfig)),
   };
 
-  extensions.forEach((extension) => extension.configureClient(clientConfiguration));
+  extensions.forEach((extension) => extension.configure(extensionConfiguration));
 
   return {
     ...runtimeConfig,
-    ...resolveDefaultRuntimeConfig(clientConfiguration),
+    ...resolveAwsRegionExtensionConfiguration(extensionConfiguration),
+    ...resolveDefaultRuntimeConfig(extensionConfiguration),
+    ...resolveHttpHandlerRuntimeConfig(extensionConfiguration),
+    ...resolveHttpAuthRuntimeConfig(extensionConfiguration),
   };
 };

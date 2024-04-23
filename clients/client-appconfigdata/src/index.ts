@@ -66,7 +66,11 @@
 export * from "./AppConfigDataClient";
 export * from "./AppConfigData";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { AppConfigDataExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { AppConfigDataServiceException } from "./models/AppConfigDataServiceException";

@@ -77,7 +77,7 @@ export interface LayerFailure {
    * @public
    * <p>The failure code that's associated with the failure.</p>
    */
-  failureCode?: LayerFailureCode | string;
+  failureCode?: LayerFailureCode;
 
   /**
    * @public
@@ -115,7 +115,7 @@ export interface Layer {
    * @public
    * <p>The availability status of the image layer.</p>
    */
-  layerAvailability?: LayerAvailability | string;
+  layerAvailability?: LayerAvailability;
 
   /**
    * @public
@@ -330,7 +330,7 @@ export interface ImageFailure {
    * @public
    * <p>The code that's associated with the failure.</p>
    */
-  failureCode?: ImageFailureCode | string;
+  failureCode?: ImageFailureCode;
 
   /**
    * @public
@@ -1340,7 +1340,7 @@ export interface RegistryAlias {
    * @public
    * <p>The status of the registry alias.</p>
    */
-  status: RegistryAliasStatus | string | undefined;
+  status: RegistryAliasStatus | undefined;
 
   /**
    * @public

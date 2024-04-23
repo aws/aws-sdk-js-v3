@@ -12,6 +12,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
 
 import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
+import { ALL_MEMBERS, ALL_VALUES } from "../commands/utils";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
 /**
@@ -58,10 +59,23 @@ export class BatchExecuteStatementCommand extends DynamoDBDocumentClientCommand<
   __BatchExecuteStatementCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
-  protected readonly inputKeyNodes = [{ key: "Statements", children: [{ key: "Parameters" }] }];
-  protected readonly outputKeyNodes = [
-    { key: "Responses", children: [{ key: "Error", children: [{ key: "Item" }] }, { key: "Item" }] },
-  ];
+  protected readonly inputKeyNodes = {
+    Statements: {
+      "*": {
+        Parameters: ALL_MEMBERS, // set/list of AttributeValue
+      },
+    },
+  };
+  protected readonly outputKeyNodes = {
+    Responses: {
+      "*": {
+        Error: {
+          Item: ALL_VALUES, // map with AttributeValue
+        },
+        Item: ALL_VALUES, // map with AttributeValue
+      },
+    },
+  };
 
   protected readonly clientCommand: __BatchExecuteStatementCommand;
   public readonly middlewareStack: MiddlewareStack<

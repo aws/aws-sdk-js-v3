@@ -128,6 +128,12 @@ export interface ChallengeConfig {
    * <p> Threshold for height during face IOU (Intersection over Union) match.</p>
    */
   FaceIouHeightThreshold?: number;
+
+  /**
+   * @public
+   * <p>Timeout limit in which the end-users need to fit in the oval, in miliseconds.</p>
+   */
+  OvalFitTimeout?: number;
 }
 
 /**
@@ -418,7 +424,7 @@ export interface FaceMovementAndLightServerChallenge {
    * @public
    * <p>Information on the type of colored light challenge.</p>
    */
-  LightChallengeType: LightChallengeType | string | undefined;
+  LightChallengeType: LightChallengeType | undefined;
 
   /**
    * @public

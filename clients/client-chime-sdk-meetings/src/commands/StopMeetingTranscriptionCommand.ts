@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeSDKMeetingsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKMeetingsClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { StopMeetingTranscriptionRequest } from "../models/models_0";
 import { de_StopMeetingTranscriptionCommand, se_StopMeetingTranscriptionCommand } from "../protocols/Aws_restJson1";
 
@@ -40,8 +32,12 @@ export interface StopMeetingTranscriptionCommandOutput extends __MetadataBearer 
  *             Using Amazon Chime SDK live transcription
  *         </a> in the <i>Amazon Chime SDK Developer Guide</i>.</p>
  *          <important>
- *             <p>Amazon Chime SDK live transcription is powered by Amazon Transcribe. Use of Amazon Transcribe is subject to the
- *             <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a>, including the terms specific to the AWS Machine Learning and Artificial Intelligence Services.</p>
+ *             <p>By default, Amazon Transcribe may use and store audio content processed by the service to develop and improve Amazon Web Services AI/ML services as
+ *                     further described in section 50 of the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a>. Using Amazon Transcribe
+ *                     may be subject to federal and state laws or regulations regarding the recording or interception of electronic communications. It is your and your end users’
+ *                     responsibility to comply with all applicable laws regarding the recording, including properly notifying all participants in a recorded session or communication
+ *                     that the session or communication is being recorded, and obtaining all necessary consents. You can opt out from Amazon Web Services using audio content to develop and
+ *                     improve Amazon Web Services AI/ML services by configuring an AI services opt out policy using Amazon Web Services Organizations.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -92,79 +88,26 @@ export interface StopMeetingTranscriptionCommandOutput extends __MetadataBearer 
  * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
  */
-export class StopMeetingTranscriptionCommand extends $Command<
-  StopMeetingTranscriptionCommandInput,
-  StopMeetingTranscriptionCommandOutput,
-  ChimeSDKMeetingsClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StopMeetingTranscriptionCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ChimeSDKMeetingsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StopMeetingTranscriptionCommandInput, StopMeetingTranscriptionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StopMeetingTranscriptionCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ChimeSDKMeetingsClient";
-    const commandName = "StopMeetingTranscriptionCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StopMeetingTranscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StopMeetingTranscriptionCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopMeetingTranscriptionCommandOutput> {
-    return de_StopMeetingTranscriptionCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class StopMeetingTranscriptionCommand extends $Command
+  .classBuilder<
+    StopMeetingTranscriptionCommandInput,
+    StopMeetingTranscriptionCommandOutput,
+    ChimeSDKMeetingsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ChimeSDKMeetingsClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ChimeMeetingsSDKService", "StopMeetingTranscription", {})
+  .n("ChimeSDKMeetingsClient", "StopMeetingTranscriptionCommand")
+  .f(void 0, void 0)
+  .ser(se_StopMeetingTranscriptionCommand)
+  .de(de_StopMeetingTranscriptionCommand)
+  .build() {}

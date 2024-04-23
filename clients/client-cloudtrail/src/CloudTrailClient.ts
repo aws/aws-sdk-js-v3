@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -74,6 +72,8 @@ import {
 } from "./commands/DeregisterOrganizationDelegatedAdminCommand";
 import { DescribeQueryCommandInput, DescribeQueryCommandOutput } from "./commands/DescribeQueryCommand";
 import { DescribeTrailsCommandInput, DescribeTrailsCommandOutput } from "./commands/DescribeTrailsCommand";
+import { DisableFederationCommandInput, DisableFederationCommandOutput } from "./commands/DisableFederationCommand";
+import { EnableFederationCommandInput, EnableFederationCommandOutput } from "./commands/EnableFederationCommand";
 import { GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
 import { GetEventDataStoreCommandInput, GetEventDataStoreCommandOutput } from "./commands/GetEventDataStoreCommand";
 import { GetEventSelectorsCommandInput, GetEventSelectorsCommandOutput } from "./commands/GetEventSelectorsCommand";
@@ -93,6 +93,10 @@ import {
 } from "./commands/ListEventDataStoresCommand";
 import { ListImportFailuresCommandInput, ListImportFailuresCommandOutput } from "./commands/ListImportFailuresCommand";
 import { ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
+import {
+  ListInsightsMetricDataCommandInput,
+  ListInsightsMetricDataCommandOutput,
+} from "./commands/ListInsightsMetricDataCommand";
 import { ListPublicKeysCommandInput, ListPublicKeysCommandOutput } from "./commands/ListPublicKeysCommand";
 import { ListQueriesCommandInput, ListQueriesCommandOutput } from "./commands/ListQueriesCommand";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
@@ -159,6 +163,8 @@ export type ServiceInputTypes =
   | DeregisterOrganizationDelegatedAdminCommandInput
   | DescribeQueryCommandInput
   | DescribeTrailsCommandInput
+  | DisableFederationCommandInput
+  | EnableFederationCommandInput
   | GetChannelCommandInput
   | GetEventDataStoreCommandInput
   | GetEventSelectorsCommandInput
@@ -172,6 +178,7 @@ export type ServiceInputTypes =
   | ListEventDataStoresCommandInput
   | ListImportFailuresCommandInput
   | ListImportsCommandInput
+  | ListInsightsMetricDataCommandInput
   | ListPublicKeysCommandInput
   | ListQueriesCommandInput
   | ListTagsCommandInput
@@ -210,6 +217,8 @@ export type ServiceOutputTypes =
   | DeregisterOrganizationDelegatedAdminCommandOutput
   | DescribeQueryCommandOutput
   | DescribeTrailsCommandOutput
+  | DisableFederationCommandOutput
+  | EnableFederationCommandOutput
   | GetChannelCommandOutput
   | GetEventDataStoreCommandOutput
   | GetEventSelectorsCommandOutput
@@ -223,6 +232,7 @@ export type ServiceOutputTypes =
   | ListEventDataStoresCommandOutput
   | ListImportFailuresCommandOutput
   | ListImportsCommandOutput
+  | ListInsightsMetricDataCommandOutput
   | ListPublicKeysCommandOutput
   | ListQueriesCommandOutput
   | ListTagsCommandOutput
@@ -355,6 +365,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

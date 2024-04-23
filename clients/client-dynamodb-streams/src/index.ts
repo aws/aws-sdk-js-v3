@@ -12,7 +12,11 @@
 export * from "./DynamoDBStreamsClient";
 export * from "./DynamoDBStreams";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { DynamoDBStreamsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { DynamoDBStreamsServiceException } from "./models/DynamoDBStreamsServiceException";

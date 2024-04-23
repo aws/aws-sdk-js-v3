@@ -19,6 +19,16 @@ import {
 } from "./commands/GetHealthEventCommand";
 import { GetMonitorCommand, GetMonitorCommandInput, GetMonitorCommandOutput } from "./commands/GetMonitorCommand";
 import {
+  GetQueryResultsCommand,
+  GetQueryResultsCommandInput,
+  GetQueryResultsCommandOutput,
+} from "./commands/GetQueryResultsCommand";
+import {
+  GetQueryStatusCommand,
+  GetQueryStatusCommandInput,
+  GetQueryStatusCommandOutput,
+} from "./commands/GetQueryStatusCommand";
+import {
   ListHealthEventsCommand,
   ListHealthEventsCommandInput,
   ListHealthEventsCommandOutput,
@@ -33,6 +43,8 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { StartQueryCommand, StartQueryCommandInput, StartQueryCommandOutput } from "./commands/StartQueryCommand";
+import { StopQueryCommand, StopQueryCommandInput, StopQueryCommandOutput } from "./commands/StopQueryCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -51,9 +63,13 @@ const commands = {
   DeleteMonitorCommand,
   GetHealthEventCommand,
   GetMonitorCommand,
+  GetQueryResultsCommand,
+  GetQueryStatusCommand,
   ListHealthEventsCommand,
   ListMonitorsCommand,
   ListTagsForResourceCommand,
+  StartQueryCommand,
+  StopQueryCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateMonitorCommand,
@@ -108,6 +124,34 @@ export interface InternetMonitor {
   ): void;
 
   /**
+   * @see {@link GetQueryResultsCommand}
+   */
+  getQueryResults(
+    args: GetQueryResultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetQueryResultsCommandOutput>;
+  getQueryResults(args: GetQueryResultsCommandInput, cb: (err: any, data?: GetQueryResultsCommandOutput) => void): void;
+  getQueryResults(
+    args: GetQueryResultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetQueryResultsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetQueryStatusCommand}
+   */
+  getQueryStatus(
+    args: GetQueryStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetQueryStatusCommandOutput>;
+  getQueryStatus(args: GetQueryStatusCommandInput, cb: (err: any, data?: GetQueryStatusCommandOutput) => void): void;
+  getQueryStatus(
+    args: GetQueryStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetQueryStatusCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListHealthEventsCommand}
    */
   listHealthEvents(
@@ -150,6 +194,28 @@ export interface InternetMonitor {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartQueryCommand}
+   */
+  startQuery(args: StartQueryCommandInput, options?: __HttpHandlerOptions): Promise<StartQueryCommandOutput>;
+  startQuery(args: StartQueryCommandInput, cb: (err: any, data?: StartQueryCommandOutput) => void): void;
+  startQuery(
+    args: StartQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartQueryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopQueryCommand}
+   */
+  stopQuery(args: StopQueryCommandInput, options?: __HttpHandlerOptions): Promise<StopQueryCommandOutput>;
+  stopQuery(args: StopQueryCommandInput, cb: (err: any, data?: StopQueryCommandOutput) => void): void;
+  stopQuery(
+    args: StopQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopQueryCommandOutput) => void
   ): void;
 
   /**

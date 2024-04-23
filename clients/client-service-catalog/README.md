@@ -30,16 +30,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ServiceCatalogClient` and
-the commands you need, for example `AcceptPortfolioShareCommand`:
+the commands you need, for example `ListPortfoliosCommand`:
 
 ```js
 // ES5 example
-const { ServiceCatalogClient, AcceptPortfolioShareCommand } = require("@aws-sdk/client-service-catalog");
+const { ServiceCatalogClient, ListPortfoliosCommand } = require("@aws-sdk/client-service-catalog");
 ```
 
 ```ts
 // ES6+ example
-import { ServiceCatalogClient, AcceptPortfolioShareCommand } from "@aws-sdk/client-service-catalog";
+import { ServiceCatalogClient, ListPortfoliosCommand } from "@aws-sdk/client-service-catalog";
 ```
 
 ### Usage
@@ -58,7 +58,7 @@ const client = new ServiceCatalogClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AcceptPortfolioShareCommand(params);
+const command = new ListPortfoliosCommand(params);
 ```
 
 #### Async/await
@@ -137,7 +137,7 @@ const client = new AWS.ServiceCatalog({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.acceptPortfolioShare(params);
+  const data = await client.listPortfolios(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -145,7 +145,7 @@ try {
 
 // Promises.
 client
-  .acceptPortfolioShare(params)
+  .listPortfolios(params)
   .then((data) => {
     // process data.
   })
@@ -154,7 +154,7 @@ client
   });
 
 // callbacks.
-client.acceptPortfolioShare(params, (err, data) => {
+client.listPortfolios(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -169,7 +169,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -215,7 +215,7 @@ see LICENSE for more information.
 AcceptPortfolioShare
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/acceptportfoliosharecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/acceptportfoliosharecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/acceptportfoliosharecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/AcceptPortfolioShareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/AcceptPortfolioShareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/AcceptPortfolioShareCommandOutput/)
 
 </details>
 <details>
@@ -223,7 +223,7 @@ AcceptPortfolioShare
 AssociateBudgetWithResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/associatebudgetwithresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/associatebudgetwithresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/associatebudgetwithresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/AssociateBudgetWithResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/AssociateBudgetWithResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/AssociateBudgetWithResourceCommandOutput/)
 
 </details>
 <details>
@@ -231,7 +231,7 @@ AssociateBudgetWithResource
 AssociatePrincipalWithPortfolio
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/associateprincipalwithportfoliocommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/associateprincipalwithportfoliocommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/associateprincipalwithportfoliocommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/AssociatePrincipalWithPortfolioCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/AssociatePrincipalWithPortfolioCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/AssociatePrincipalWithPortfolioCommandOutput/)
 
 </details>
 <details>
@@ -239,7 +239,7 @@ AssociatePrincipalWithPortfolio
 AssociateProductWithPortfolio
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/associateproductwithportfoliocommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/associateproductwithportfoliocommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/associateproductwithportfoliocommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/AssociateProductWithPortfolioCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/AssociateProductWithPortfolioCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/AssociateProductWithPortfolioCommandOutput/)
 
 </details>
 <details>
@@ -247,7 +247,7 @@ AssociateProductWithPortfolio
 AssociateServiceActionWithProvisioningArtifact
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/associateserviceactionwithprovisioningartifactcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/associateserviceactionwithprovisioningartifactcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/associateserviceactionwithprovisioningartifactcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/AssociateServiceActionWithProvisioningArtifactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/AssociateServiceActionWithProvisioningArtifactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/AssociateServiceActionWithProvisioningArtifactCommandOutput/)
 
 </details>
 <details>
@@ -255,7 +255,7 @@ AssociateServiceActionWithProvisioningArtifact
 AssociateTagOptionWithResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/associatetagoptionwithresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/associatetagoptionwithresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/associatetagoptionwithresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/AssociateTagOptionWithResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/AssociateTagOptionWithResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/AssociateTagOptionWithResourceCommandOutput/)
 
 </details>
 <details>
@@ -263,7 +263,7 @@ AssociateTagOptionWithResource
 BatchAssociateServiceActionWithProvisioningArtifact
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/batchassociateserviceactionwithprovisioningartifactcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/batchassociateserviceactionwithprovisioningartifactcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/batchassociateserviceactionwithprovisioningartifactcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/BatchAssociateServiceActionWithProvisioningArtifactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/BatchAssociateServiceActionWithProvisioningArtifactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/BatchAssociateServiceActionWithProvisioningArtifactCommandOutput/)
 
 </details>
 <details>
@@ -271,7 +271,7 @@ BatchAssociateServiceActionWithProvisioningArtifact
 BatchDisassociateServiceActionFromProvisioningArtifact
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/batchdisassociateserviceactionfromprovisioningartifactcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/batchdisassociateserviceactionfromprovisioningartifactcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/batchdisassociateserviceactionfromprovisioningartifactcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/BatchDisassociateServiceActionFromProvisioningArtifactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/BatchDisassociateServiceActionFromProvisioningArtifactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput/)
 
 </details>
 <details>
@@ -279,7 +279,7 @@ BatchDisassociateServiceActionFromProvisioningArtifact
 CopyProduct
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/copyproductcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/copyproductcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/copyproductcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/CopyProductCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/CopyProductCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/CopyProductCommandOutput/)
 
 </details>
 <details>
@@ -287,7 +287,7 @@ CopyProduct
 CreateConstraint
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/createconstraintcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/createconstraintcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/createconstraintcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/CreateConstraintCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/CreateConstraintCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/CreateConstraintCommandOutput/)
 
 </details>
 <details>
@@ -295,7 +295,7 @@ CreateConstraint
 CreatePortfolio
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/createportfoliocommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/createportfoliocommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/createportfoliocommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/CreatePortfolioCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/CreatePortfolioCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/CreatePortfolioCommandOutput/)
 
 </details>
 <details>
@@ -303,7 +303,7 @@ CreatePortfolio
 CreatePortfolioShare
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/createportfoliosharecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/createportfoliosharecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/createportfoliosharecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/CreatePortfolioShareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/CreatePortfolioShareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/CreatePortfolioShareCommandOutput/)
 
 </details>
 <details>
@@ -311,7 +311,7 @@ CreatePortfolioShare
 CreateProduct
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/createproductcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/createproductcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/createproductcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/CreateProductCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/CreateProductCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/CreateProductCommandOutput/)
 
 </details>
 <details>
@@ -319,7 +319,7 @@ CreateProduct
 CreateProvisionedProductPlan
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/createprovisionedproductplancommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/createprovisionedproductplancommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/createprovisionedproductplancommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/CreateProvisionedProductPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/CreateProvisionedProductPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/CreateProvisionedProductPlanCommandOutput/)
 
 </details>
 <details>
@@ -327,7 +327,7 @@ CreateProvisionedProductPlan
 CreateProvisioningArtifact
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/createprovisioningartifactcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/createprovisioningartifactcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/createprovisioningartifactcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/CreateProvisioningArtifactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/CreateProvisioningArtifactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/CreateProvisioningArtifactCommandOutput/)
 
 </details>
 <details>
@@ -335,7 +335,7 @@ CreateProvisioningArtifact
 CreateServiceAction
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/createserviceactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/createserviceactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/createserviceactioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/CreateServiceActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/CreateServiceActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/CreateServiceActionCommandOutput/)
 
 </details>
 <details>
@@ -343,7 +343,7 @@ CreateServiceAction
 CreateTagOption
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/createtagoptioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/createtagoptioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/createtagoptioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/CreateTagOptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/CreateTagOptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/CreateTagOptionCommandOutput/)
 
 </details>
 <details>
@@ -351,7 +351,7 @@ CreateTagOption
 DeleteConstraint
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/deleteconstraintcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/deleteconstraintcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/deleteconstraintcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/DeleteConstraintCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DeleteConstraintCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DeleteConstraintCommandOutput/)
 
 </details>
 <details>
@@ -359,7 +359,7 @@ DeleteConstraint
 DeletePortfolio
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/deleteportfoliocommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/deleteportfoliocommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/deleteportfoliocommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/DeletePortfolioCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DeletePortfolioCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DeletePortfolioCommandOutput/)
 
 </details>
 <details>
@@ -367,7 +367,7 @@ DeletePortfolio
 DeletePortfolioShare
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/deleteportfoliosharecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/deleteportfoliosharecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/deleteportfoliosharecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/DeletePortfolioShareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DeletePortfolioShareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DeletePortfolioShareCommandOutput/)
 
 </details>
 <details>
@@ -375,7 +375,7 @@ DeletePortfolioShare
 DeleteProduct
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/deleteproductcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/deleteproductcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/deleteproductcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/DeleteProductCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DeleteProductCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DeleteProductCommandOutput/)
 
 </details>
 <details>
@@ -383,7 +383,7 @@ DeleteProduct
 DeleteProvisionedProductPlan
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/deleteprovisionedproductplancommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/deleteprovisionedproductplancommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/deleteprovisionedproductplancommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/DeleteProvisionedProductPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DeleteProvisionedProductPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DeleteProvisionedProductPlanCommandOutput/)
 
 </details>
 <details>
@@ -391,7 +391,7 @@ DeleteProvisionedProductPlan
 DeleteProvisioningArtifact
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/deleteprovisioningartifactcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/deleteprovisioningartifactcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/deleteprovisioningartifactcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/DeleteProvisioningArtifactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DeleteProvisioningArtifactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DeleteProvisioningArtifactCommandOutput/)
 
 </details>
 <details>
@@ -399,7 +399,7 @@ DeleteProvisioningArtifact
 DeleteServiceAction
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/deleteserviceactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/deleteserviceactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/deleteserviceactioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/DeleteServiceActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DeleteServiceActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DeleteServiceActionCommandOutput/)
 
 </details>
 <details>
@@ -407,7 +407,7 @@ DeleteServiceAction
 DeleteTagOption
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/deletetagoptioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/deletetagoptioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/deletetagoptioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/DeleteTagOptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DeleteTagOptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DeleteTagOptionCommandOutput/)
 
 </details>
 <details>
@@ -415,7 +415,7 @@ DeleteTagOption
 DescribeConstraint
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/describeconstraintcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describeconstraintcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describeconstraintcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/DescribeConstraintCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribeConstraintCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribeConstraintCommandOutput/)
 
 </details>
 <details>
@@ -423,7 +423,7 @@ DescribeConstraint
 DescribeCopyProductStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/describecopyproductstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describecopyproductstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describecopyproductstatuscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/DescribeCopyProductStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribeCopyProductStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribeCopyProductStatusCommandOutput/)
 
 </details>
 <details>
@@ -431,7 +431,7 @@ DescribeCopyProductStatus
 DescribePortfolio
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/describeportfoliocommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describeportfoliocommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describeportfoliocommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/DescribePortfolioCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribePortfolioCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribePortfolioCommandOutput/)
 
 </details>
 <details>
@@ -439,7 +439,7 @@ DescribePortfolio
 DescribePortfolioShares
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/describeportfoliosharescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describeportfoliosharescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describeportfoliosharescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/DescribePortfolioSharesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribePortfolioSharesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribePortfolioSharesCommandOutput/)
 
 </details>
 <details>
@@ -447,7 +447,7 @@ DescribePortfolioShares
 DescribePortfolioShareStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/describeportfoliosharestatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describeportfoliosharestatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describeportfoliosharestatuscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/DescribePortfolioShareStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribePortfolioShareStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribePortfolioShareStatusCommandOutput/)
 
 </details>
 <details>
@@ -455,7 +455,7 @@ DescribePortfolioShareStatus
 DescribeProduct
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/describeproductcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describeproductcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describeproductcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/DescribeProductCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribeProductCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribeProductCommandOutput/)
 
 </details>
 <details>
@@ -463,7 +463,7 @@ DescribeProduct
 DescribeProductAsAdmin
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/describeproductasadmincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describeproductasadmincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describeproductasadmincommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/DescribeProductAsAdminCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribeProductAsAdminCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribeProductAsAdminCommandOutput/)
 
 </details>
 <details>
@@ -471,7 +471,7 @@ DescribeProductAsAdmin
 DescribeProductView
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/describeproductviewcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describeproductviewcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describeproductviewcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/DescribeProductViewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribeProductViewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribeProductViewCommandOutput/)
 
 </details>
 <details>
@@ -479,7 +479,7 @@ DescribeProductView
 DescribeProvisionedProduct
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/describeprovisionedproductcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describeprovisionedproductcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describeprovisionedproductcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/DescribeProvisionedProductCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribeProvisionedProductCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribeProvisionedProductCommandOutput/)
 
 </details>
 <details>
@@ -487,7 +487,7 @@ DescribeProvisionedProduct
 DescribeProvisionedProductPlan
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/describeprovisionedproductplancommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describeprovisionedproductplancommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describeprovisionedproductplancommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/DescribeProvisionedProductPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribeProvisionedProductPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribeProvisionedProductPlanCommandOutput/)
 
 </details>
 <details>
@@ -495,7 +495,7 @@ DescribeProvisionedProductPlan
 DescribeProvisioningArtifact
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/describeprovisioningartifactcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describeprovisioningartifactcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describeprovisioningartifactcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/DescribeProvisioningArtifactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribeProvisioningArtifactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribeProvisioningArtifactCommandOutput/)
 
 </details>
 <details>
@@ -503,7 +503,7 @@ DescribeProvisioningArtifact
 DescribeProvisioningParameters
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/describeprovisioningparameterscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describeprovisioningparameterscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describeprovisioningparameterscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/DescribeProvisioningParametersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribeProvisioningParametersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribeProvisioningParametersCommandOutput/)
 
 </details>
 <details>
@@ -511,7 +511,7 @@ DescribeProvisioningParameters
 DescribeRecord
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/describerecordcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describerecordcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describerecordcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/DescribeRecordCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribeRecordCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribeRecordCommandOutput/)
 
 </details>
 <details>
@@ -519,7 +519,7 @@ DescribeRecord
 DescribeServiceAction
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/describeserviceactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describeserviceactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describeserviceactioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/DescribeServiceActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribeServiceActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribeServiceActionCommandOutput/)
 
 </details>
 <details>
@@ -527,7 +527,7 @@ DescribeServiceAction
 DescribeServiceActionExecutionParameters
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/describeserviceactionexecutionparameterscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describeserviceactionexecutionparameterscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describeserviceactionexecutionparameterscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/DescribeServiceActionExecutionParametersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribeServiceActionExecutionParametersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribeServiceActionExecutionParametersCommandOutput/)
 
 </details>
 <details>
@@ -535,7 +535,7 @@ DescribeServiceActionExecutionParameters
 DescribeTagOption
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/describetagoptioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describetagoptioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/describetagoptioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/DescribeTagOptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribeTagOptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DescribeTagOptionCommandOutput/)
 
 </details>
 <details>
@@ -543,7 +543,7 @@ DescribeTagOption
 DisableAWSOrganizationsAccess
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/disableawsorganizationsaccesscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/disableawsorganizationsaccesscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/disableawsorganizationsaccesscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/DisableAWSOrganizationsAccessCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DisableAWSOrganizationsAccessCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DisableAWSOrganizationsAccessCommandOutput/)
 
 </details>
 <details>
@@ -551,7 +551,7 @@ DisableAWSOrganizationsAccess
 DisassociateBudgetFromResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/disassociatebudgetfromresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/disassociatebudgetfromresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/disassociatebudgetfromresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/DisassociateBudgetFromResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DisassociateBudgetFromResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DisassociateBudgetFromResourceCommandOutput/)
 
 </details>
 <details>
@@ -559,7 +559,7 @@ DisassociateBudgetFromResource
 DisassociatePrincipalFromPortfolio
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/disassociateprincipalfromportfoliocommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/disassociateprincipalfromportfoliocommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/disassociateprincipalfromportfoliocommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/DisassociatePrincipalFromPortfolioCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DisassociatePrincipalFromPortfolioCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DisassociatePrincipalFromPortfolioCommandOutput/)
 
 </details>
 <details>
@@ -567,7 +567,7 @@ DisassociatePrincipalFromPortfolio
 DisassociateProductFromPortfolio
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/disassociateproductfromportfoliocommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/disassociateproductfromportfoliocommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/disassociateproductfromportfoliocommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/DisassociateProductFromPortfolioCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DisassociateProductFromPortfolioCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DisassociateProductFromPortfolioCommandOutput/)
 
 </details>
 <details>
@@ -575,7 +575,7 @@ DisassociateProductFromPortfolio
 DisassociateServiceActionFromProvisioningArtifact
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/disassociateserviceactionfromprovisioningartifactcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/disassociateserviceactionfromprovisioningartifactcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/disassociateserviceactionfromprovisioningartifactcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/DisassociateServiceActionFromProvisioningArtifactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DisassociateServiceActionFromProvisioningArtifactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DisassociateServiceActionFromProvisioningArtifactCommandOutput/)
 
 </details>
 <details>
@@ -583,7 +583,7 @@ DisassociateServiceActionFromProvisioningArtifact
 DisassociateTagOptionFromResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/disassociatetagoptionfromresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/disassociatetagoptionfromresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/disassociatetagoptionfromresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/DisassociateTagOptionFromResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DisassociateTagOptionFromResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/DisassociateTagOptionFromResourceCommandOutput/)
 
 </details>
 <details>
@@ -591,7 +591,7 @@ DisassociateTagOptionFromResource
 EnableAWSOrganizationsAccess
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/enableawsorganizationsaccesscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/enableawsorganizationsaccesscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/enableawsorganizationsaccesscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/EnableAWSOrganizationsAccessCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/EnableAWSOrganizationsAccessCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/EnableAWSOrganizationsAccessCommandOutput/)
 
 </details>
 <details>
@@ -599,7 +599,7 @@ EnableAWSOrganizationsAccess
 ExecuteProvisionedProductPlan
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/executeprovisionedproductplancommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/executeprovisionedproductplancommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/executeprovisionedproductplancommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/ExecuteProvisionedProductPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ExecuteProvisionedProductPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ExecuteProvisionedProductPlanCommandOutput/)
 
 </details>
 <details>
@@ -607,7 +607,7 @@ ExecuteProvisionedProductPlan
 ExecuteProvisionedProductServiceAction
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/executeprovisionedproductserviceactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/executeprovisionedproductserviceactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/executeprovisionedproductserviceactioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/ExecuteProvisionedProductServiceActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ExecuteProvisionedProductServiceActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ExecuteProvisionedProductServiceActionCommandOutput/)
 
 </details>
 <details>
@@ -615,7 +615,7 @@ ExecuteProvisionedProductServiceAction
 GetAWSOrganizationsAccessStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/getawsorganizationsaccessstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/getawsorganizationsaccessstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/getawsorganizationsaccessstatuscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/GetAWSOrganizationsAccessStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/GetAWSOrganizationsAccessStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/GetAWSOrganizationsAccessStatusCommandOutput/)
 
 </details>
 <details>
@@ -623,7 +623,7 @@ GetAWSOrganizationsAccessStatus
 GetProvisionedProductOutputs
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/getprovisionedproductoutputscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/getprovisionedproductoutputscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/getprovisionedproductoutputscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/GetProvisionedProductOutputsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/GetProvisionedProductOutputsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/GetProvisionedProductOutputsCommandOutput/)
 
 </details>
 <details>
@@ -631,7 +631,7 @@ GetProvisionedProductOutputs
 ImportAsProvisionedProduct
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/importasprovisionedproductcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/importasprovisionedproductcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/importasprovisionedproductcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/ImportAsProvisionedProductCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ImportAsProvisionedProductCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ImportAsProvisionedProductCommandOutput/)
 
 </details>
 <details>
@@ -639,7 +639,7 @@ ImportAsProvisionedProduct
 ListAcceptedPortfolioShares
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/listacceptedportfoliosharescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listacceptedportfoliosharescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listacceptedportfoliosharescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/ListAcceptedPortfolioSharesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListAcceptedPortfolioSharesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListAcceptedPortfolioSharesCommandOutput/)
 
 </details>
 <details>
@@ -647,7 +647,7 @@ ListAcceptedPortfolioShares
 ListBudgetsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/listbudgetsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listbudgetsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listbudgetsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/ListBudgetsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListBudgetsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListBudgetsForResourceCommandOutput/)
 
 </details>
 <details>
@@ -655,7 +655,7 @@ ListBudgetsForResource
 ListConstraintsForPortfolio
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/listconstraintsforportfoliocommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listconstraintsforportfoliocommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listconstraintsforportfoliocommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/ListConstraintsForPortfolioCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListConstraintsForPortfolioCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListConstraintsForPortfolioCommandOutput/)
 
 </details>
 <details>
@@ -663,7 +663,7 @@ ListConstraintsForPortfolio
 ListLaunchPaths
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/listlaunchpathscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listlaunchpathscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listlaunchpathscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/ListLaunchPathsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListLaunchPathsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListLaunchPathsCommandOutput/)
 
 </details>
 <details>
@@ -671,7 +671,7 @@ ListLaunchPaths
 ListOrganizationPortfolioAccess
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/listorganizationportfolioaccesscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listorganizationportfolioaccesscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listorganizationportfolioaccesscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/ListOrganizationPortfolioAccessCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListOrganizationPortfolioAccessCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListOrganizationPortfolioAccessCommandOutput/)
 
 </details>
 <details>
@@ -679,7 +679,7 @@ ListOrganizationPortfolioAccess
 ListPortfolioAccess
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/listportfolioaccesscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listportfolioaccesscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listportfolioaccesscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/ListPortfolioAccessCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListPortfolioAccessCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListPortfolioAccessCommandOutput/)
 
 </details>
 <details>
@@ -687,7 +687,7 @@ ListPortfolioAccess
 ListPortfolios
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/listportfolioscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listportfolioscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listportfolioscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/ListPortfoliosCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListPortfoliosCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListPortfoliosCommandOutput/)
 
 </details>
 <details>
@@ -695,7 +695,7 @@ ListPortfolios
 ListPortfoliosForProduct
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/listportfoliosforproductcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listportfoliosforproductcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listportfoliosforproductcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/ListPortfoliosForProductCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListPortfoliosForProductCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListPortfoliosForProductCommandOutput/)
 
 </details>
 <details>
@@ -703,7 +703,7 @@ ListPortfoliosForProduct
 ListPrincipalsForPortfolio
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/listprincipalsforportfoliocommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listprincipalsforportfoliocommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listprincipalsforportfoliocommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/ListPrincipalsForPortfolioCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListPrincipalsForPortfolioCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListPrincipalsForPortfolioCommandOutput/)
 
 </details>
 <details>
@@ -711,7 +711,7 @@ ListPrincipalsForPortfolio
 ListProvisionedProductPlans
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/listprovisionedproductplanscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listprovisionedproductplanscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listprovisionedproductplanscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/ListProvisionedProductPlansCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListProvisionedProductPlansCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListProvisionedProductPlansCommandOutput/)
 
 </details>
 <details>
@@ -719,7 +719,7 @@ ListProvisionedProductPlans
 ListProvisioningArtifacts
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/listprovisioningartifactscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listprovisioningartifactscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listprovisioningartifactscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/ListProvisioningArtifactsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListProvisioningArtifactsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListProvisioningArtifactsCommandOutput/)
 
 </details>
 <details>
@@ -727,7 +727,7 @@ ListProvisioningArtifacts
 ListProvisioningArtifactsForServiceAction
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/listprovisioningartifactsforserviceactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listprovisioningartifactsforserviceactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listprovisioningartifactsforserviceactioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/ListProvisioningArtifactsForServiceActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListProvisioningArtifactsForServiceActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListProvisioningArtifactsForServiceActionCommandOutput/)
 
 </details>
 <details>
@@ -735,7 +735,7 @@ ListProvisioningArtifactsForServiceAction
 ListRecordHistory
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/listrecordhistorycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listrecordhistorycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listrecordhistorycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/ListRecordHistoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListRecordHistoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListRecordHistoryCommandOutput/)
 
 </details>
 <details>
@@ -743,7 +743,7 @@ ListRecordHistory
 ListResourcesForTagOption
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/listresourcesfortagoptioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listresourcesfortagoptioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listresourcesfortagoptioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/ListResourcesForTagOptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListResourcesForTagOptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListResourcesForTagOptionCommandOutput/)
 
 </details>
 <details>
@@ -751,7 +751,7 @@ ListResourcesForTagOption
 ListServiceActions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/listserviceactionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listserviceactionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listserviceactionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/ListServiceActionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListServiceActionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListServiceActionsCommandOutput/)
 
 </details>
 <details>
@@ -759,7 +759,7 @@ ListServiceActions
 ListServiceActionsForProvisioningArtifact
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/listserviceactionsforprovisioningartifactcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listserviceactionsforprovisioningartifactcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listserviceactionsforprovisioningartifactcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/ListServiceActionsForProvisioningArtifactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListServiceActionsForProvisioningArtifactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListServiceActionsForProvisioningArtifactCommandOutput/)
 
 </details>
 <details>
@@ -767,7 +767,7 @@ ListServiceActionsForProvisioningArtifact
 ListStackInstancesForProvisionedProduct
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/liststackinstancesforprovisionedproductcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/liststackinstancesforprovisionedproductcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/liststackinstancesforprovisionedproductcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/ListStackInstancesForProvisionedProductCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListStackInstancesForProvisionedProductCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListStackInstancesForProvisionedProductCommandOutput/)
 
 </details>
 <details>
@@ -775,7 +775,7 @@ ListStackInstancesForProvisionedProduct
 ListTagOptions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/listtagoptionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listtagoptionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/listtagoptionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/ListTagOptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListTagOptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ListTagOptionsCommandOutput/)
 
 </details>
 <details>
@@ -783,7 +783,7 @@ ListTagOptions
 NotifyProvisionProductEngineWorkflowResult
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/notifyprovisionproductengineworkflowresultcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/notifyprovisionproductengineworkflowresultcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/notifyprovisionproductengineworkflowresultcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/NotifyProvisionProductEngineWorkflowResultCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/NotifyProvisionProductEngineWorkflowResultCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/NotifyProvisionProductEngineWorkflowResultCommandOutput/)
 
 </details>
 <details>
@@ -791,7 +791,7 @@ NotifyProvisionProductEngineWorkflowResult
 NotifyTerminateProvisionedProductEngineWorkflowResult
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/notifyterminateprovisionedproductengineworkflowresultcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/notifyterminateprovisionedproductengineworkflowresultcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/notifyterminateprovisionedproductengineworkflowresultcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/NotifyTerminateProvisionedProductEngineWorkflowResultCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/NotifyTerminateProvisionedProductEngineWorkflowResultCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/NotifyTerminateProvisionedProductEngineWorkflowResultCommandOutput/)
 
 </details>
 <details>
@@ -799,7 +799,7 @@ NotifyTerminateProvisionedProductEngineWorkflowResult
 NotifyUpdateProvisionedProductEngineWorkflowResult
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/notifyupdateprovisionedproductengineworkflowresultcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/notifyupdateprovisionedproductengineworkflowresultcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/notifyupdateprovisionedproductengineworkflowresultcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/NotifyUpdateProvisionedProductEngineWorkflowResultCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/NotifyUpdateProvisionedProductEngineWorkflowResultCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/NotifyUpdateProvisionedProductEngineWorkflowResultCommandOutput/)
 
 </details>
 <details>
@@ -807,7 +807,7 @@ NotifyUpdateProvisionedProductEngineWorkflowResult
 ProvisionProduct
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/provisionproductcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/provisionproductcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/provisionproductcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/ProvisionProductCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ProvisionProductCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ProvisionProductCommandOutput/)
 
 </details>
 <details>
@@ -815,7 +815,7 @@ ProvisionProduct
 RejectPortfolioShare
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/rejectportfoliosharecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/rejectportfoliosharecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/rejectportfoliosharecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/RejectPortfolioShareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/RejectPortfolioShareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/RejectPortfolioShareCommandOutput/)
 
 </details>
 <details>
@@ -823,7 +823,7 @@ RejectPortfolioShare
 ScanProvisionedProducts
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/scanprovisionedproductscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/scanprovisionedproductscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/scanprovisionedproductscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/ScanProvisionedProductsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ScanProvisionedProductsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/ScanProvisionedProductsCommandOutput/)
 
 </details>
 <details>
@@ -831,7 +831,7 @@ ScanProvisionedProducts
 SearchProducts
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/searchproductscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/searchproductscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/searchproductscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/SearchProductsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/SearchProductsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/SearchProductsCommandOutput/)
 
 </details>
 <details>
@@ -839,7 +839,7 @@ SearchProducts
 SearchProductsAsAdmin
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/searchproductsasadmincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/searchproductsasadmincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/searchproductsasadmincommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/SearchProductsAsAdminCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/SearchProductsAsAdminCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/SearchProductsAsAdminCommandOutput/)
 
 </details>
 <details>
@@ -847,7 +847,7 @@ SearchProductsAsAdmin
 SearchProvisionedProducts
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/searchprovisionedproductscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/searchprovisionedproductscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/searchprovisionedproductscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/SearchProvisionedProductsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/SearchProvisionedProductsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/SearchProvisionedProductsCommandOutput/)
 
 </details>
 <details>
@@ -855,7 +855,7 @@ SearchProvisionedProducts
 TerminateProvisionedProduct
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/terminateprovisionedproductcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/terminateprovisionedproductcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/terminateprovisionedproductcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/TerminateProvisionedProductCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/TerminateProvisionedProductCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/TerminateProvisionedProductCommandOutput/)
 
 </details>
 <details>
@@ -863,7 +863,7 @@ TerminateProvisionedProduct
 UpdateConstraint
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/updateconstraintcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/updateconstraintcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/updateconstraintcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/UpdateConstraintCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/UpdateConstraintCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/UpdateConstraintCommandOutput/)
 
 </details>
 <details>
@@ -871,7 +871,7 @@ UpdateConstraint
 UpdatePortfolio
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/updateportfoliocommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/updateportfoliocommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/updateportfoliocommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/UpdatePortfolioCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/UpdatePortfolioCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/UpdatePortfolioCommandOutput/)
 
 </details>
 <details>
@@ -879,7 +879,7 @@ UpdatePortfolio
 UpdatePortfolioShare
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/updateportfoliosharecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/updateportfoliosharecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/updateportfoliosharecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/UpdatePortfolioShareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/UpdatePortfolioShareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/UpdatePortfolioShareCommandOutput/)
 
 </details>
 <details>
@@ -887,7 +887,7 @@ UpdatePortfolioShare
 UpdateProduct
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/updateproductcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/updateproductcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/updateproductcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/UpdateProductCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/UpdateProductCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/UpdateProductCommandOutput/)
 
 </details>
 <details>
@@ -895,7 +895,7 @@ UpdateProduct
 UpdateProvisionedProduct
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/updateprovisionedproductcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/updateprovisionedproductcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/updateprovisionedproductcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/UpdateProvisionedProductCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/UpdateProvisionedProductCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/UpdateProvisionedProductCommandOutput/)
 
 </details>
 <details>
@@ -903,7 +903,7 @@ UpdateProvisionedProduct
 UpdateProvisionedProductProperties
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/updateprovisionedproductpropertiescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/updateprovisionedproductpropertiescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/updateprovisionedproductpropertiescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/UpdateProvisionedProductPropertiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/UpdateProvisionedProductPropertiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/UpdateProvisionedProductPropertiesCommandOutput/)
 
 </details>
 <details>
@@ -911,7 +911,7 @@ UpdateProvisionedProductProperties
 UpdateProvisioningArtifact
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/updateprovisioningartifactcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/updateprovisioningartifactcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/updateprovisioningartifactcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/UpdateProvisioningArtifactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/UpdateProvisioningArtifactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/UpdateProvisioningArtifactCommandOutput/)
 
 </details>
 <details>
@@ -919,7 +919,7 @@ UpdateProvisioningArtifact
 UpdateServiceAction
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/updateserviceactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/updateserviceactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/updateserviceactioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/UpdateServiceActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/UpdateServiceActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/UpdateServiceActionCommandOutput/)
 
 </details>
 <details>
@@ -927,6 +927,6 @@ UpdateServiceAction
 UpdateTagOption
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/classes/updatetagoptioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/updatetagoptioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog/interfaces/updatetagoptioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog/command/UpdateTagOptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/UpdateTagOptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog/Interface/UpdateTagOptionCommandOutput/)
 
 </details>

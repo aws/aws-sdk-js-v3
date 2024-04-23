@@ -5,28 +5,126 @@ import {
   AccountDetails,
   Action,
   ActionTarget,
+  Adjustment,
   AdminAccount,
+  AssociationFilters,
   AssociationStatus,
+  AssociationType,
   AutoEnableStandards,
   AutomationRulesAction,
   AutomationRulesConfig,
   AutomationRulesFindingFilters,
   AutomationRulesMetadata,
+  AwsAmazonMqBrokerDetails,
+  AwsApiGatewayRestApiDetails,
+  AwsApiGatewayStageDetails,
+  AwsApiGatewayV2ApiDetails,
+  AwsApiGatewayV2StageDetails,
+  AwsAppSyncGraphQlApiDetails,
+  AwsAthenaWorkGroupDetails,
+  AwsAutoScalingAutoScalingGroupDetails,
+  AwsAutoScalingLaunchConfigurationDetails,
+  AwsBackupBackupPlanDetails,
+  AwsBackupBackupVaultDetails,
+  AwsBackupRecoveryPointDetails,
+  AwsCertificateManagerCertificateDetails,
+  AwsCloudFormationStackDetails,
+  AwsCloudFrontDistributionDetails,
+  AwsCloudTrailTrailDetails,
+  AwsCloudWatchAlarmDetails,
+  AwsCodeBuildProjectDetails,
+  AwsDmsEndpointDetails,
+  AwsDmsReplicationInstanceDetails,
+  AwsDmsReplicationTaskDetails,
+  AwsDynamoDbTableDetails,
+  AwsEc2ClientVpnEndpointDetails,
+  AwsEc2EipDetails,
+  AwsEc2InstanceDetails,
+  AwsEc2LaunchTemplateDetails,
+  AwsEc2NetworkAclDetails,
+  AwsEc2NetworkInterfaceDetails,
+  AwsEc2RouteTableDetails,
+  AwsEc2SecurityGroupDetails,
+  AwsEc2SubnetDetails,
+  AwsEc2TransitGatewayDetails,
+  AwsEc2VolumeDetails,
+  AwsEc2VpcDetails,
+  AwsEc2VpcEndpointServiceDetails,
+  AwsEc2VpcPeeringConnectionDetails,
+  AwsEc2VpnConnectionDetails,
+  AwsEcrContainerImageDetails,
+  AwsEcrRepositoryDetails,
+  AwsEcsClusterDetails,
+  AwsEcsContainerDetails,
+  AwsEcsServiceDetails,
+  ConfigurationPolicyAssociationStatus,
   DateFilter,
   MapFilter,
   NoteUpdate,
   NumberFilter,
   RelatedFinding,
   RuleStatus,
+  SeverityLabel,
   SeverityUpdate,
   StringFilter,
   VerificationState,
   WorkflowStatus,
   WorkflowUpdate,
 } from "./models_0";
+
 import {
+  AwsEcsTaskDefinitionDetails,
+  AwsEcsTaskDetails,
+  AwsEfsAccessPointDetails,
+  AwsEksClusterDetails,
+  AwsElasticBeanstalkEnvironmentDetails,
+  AwsElasticsearchDomainDetails,
+  AwsElbLoadBalancerDetails,
+  AwsElbv2LoadBalancerDetails,
+  AwsEventSchemasRegistryDetails,
+  AwsEventsEndpointDetails,
+  AwsEventsEventbusDetails,
+  AwsGuardDutyDetectorDetails,
+  AwsIamAccessKeyDetails,
+  AwsIamGroupDetails,
+  AwsIamPolicyDetails,
+  AwsIamRoleDetails,
+  AwsIamUserDetails,
+  AwsKinesisStreamDetails,
+  AwsKmsKeyDetails,
+  AwsLambdaFunctionDetails,
+  AwsLambdaLayerVersionDetails,
+  AwsMskClusterDetails,
+  AwsNetworkFirewallFirewallDetails,
+  AwsNetworkFirewallFirewallPolicyDetails,
+  AwsNetworkFirewallRuleGroupDetails,
+  AwsOpenSearchServiceDomainDetails,
+  AwsRdsDbClusterDetails,
+  AwsRdsDbClusterSnapshotDetails,
+  AwsRdsDbInstanceDetails,
+  AwsRdsDbSecurityGroupDetails,
+  AwsRdsDbSnapshotDetails,
+  AwsRdsEventSubscriptionDetails,
+  AwsRedshiftClusterDetails,
+  AwsRoute53HostedZoneDetails,
+  AwsS3AccessPointDetails,
+  AwsS3AccountPublicAccessBlockDetails,
+  AwsS3BucketDetails,
+  AwsS3ObjectDetails,
+  AwsSageMakerNotebookInstanceDetails,
+  AwsSecretsManagerSecretDetails,
+  AwsSnsTopicDetails,
+  AwsSqsQueueDetails,
+  AwsSsmPatchComplianceDetails,
+  AwsStepFunctionStateMachineDetails,
+  AwsWafRateBasedRuleDetails,
+  AwsWafRegionalRateBasedRuleDetails,
+  AwsWafRegionalRuleDetails,
+  AwsWafRegionalRuleGroupDetails,
+  AwsWafRegionalWebAclRulesListActionDetails,
+  AwsWafRegionalWebAclRulesListOverrideActionDetails,
   Compliance,
-  Cvss,
+  DataClassificationDetails,
   FindingProviderFields,
   GeneratorDetails,
   Malware,
@@ -37,16 +135,2214 @@ import {
   ProcessDetails,
   RecordState,
   Remediation,
-  Resource,
-  Severity,
-  Threat,
-  ThreatIntelIndicator,
-  VulnerabilityCodeVulnerabilities,
-  VulnerabilityExploitAvailable,
-  VulnerabilityFixAvailable,
-  VulnerabilityVendor,
 } from "./models_1";
+
 import { SecurityHubServiceException as __BaseException } from "./SecurityHubServiceException";
+
+/**
+ * @public
+ * <p>A combination of <code>ByteMatchSet</code>, <code>IPSet</code>, and/or <code>SqlInjectionMatchSet</code>
+ * objects that identify the web requests that you want to allow, block, or count.
+ *       </p>
+ */
+export interface AwsWafRegionalWebAclRulesListDetails {
+  /**
+   * @public
+   * <p>The action that WAF takes when a web request matches all conditions in the rule, such as allow,
+   *          block, or count the request.
+   *       </p>
+   */
+  Action?: AwsWafRegionalWebAclRulesListActionDetails;
+
+  /**
+   * @public
+   * <p>Overrides the rule evaluation result in the rule group.
+   *       </p>
+   */
+  OverrideAction?: AwsWafRegionalWebAclRulesListOverrideActionDetails;
+
+  /**
+   * @public
+   * <p>The order in which WAF evaluates the rules in a web ACL.
+   *       </p>
+   */
+  Priority?: number;
+
+  /**
+   * @public
+   * <p>The ID of an WAF Regional rule to associate with a web ACL. </p>
+   */
+  RuleId?: string;
+
+  /**
+   * @public
+   * <p>For actions that are associated with a rule, the action that WAF takes when a web
+   * request matches all conditions in a rule.
+   *       </p>
+   */
+  Type?: string;
+}
+
+/**
+ * @public
+ * <p>Provides information about the web access control list (web ACL). The web ACL contains the rules that identify the requests that you
+ *          want to allow, block, or count. </p>
+ */
+export interface AwsWafRegionalWebAclDetails {
+  /**
+   * @public
+   * <p>The action to perform if none of the rules contained in the web ACL match.
+   *       </p>
+   */
+  DefaultAction?: string;
+
+  /**
+   * @public
+   * <p>A name for the metrics for this web ACL.
+   *       </p>
+   */
+  MetricName?: string;
+
+  /**
+   * @public
+   * <p>A descriptive name for the web ACL.
+   *       </p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>An array that contains the action for each rule in a web ACL, the priority of the rule, and the ID of
+   * the rule.
+   *       </p>
+   */
+  RulesList?: AwsWafRegionalWebAclRulesListDetails[];
+
+  /**
+   * @public
+   * <p>The ID of the web ACL.
+   *       </p>
+   */
+  WebAclId?: string;
+}
+
+/**
+ * @public
+ * <p>Provides details about the <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
+ *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to add to a rule and,
+ * for each object, indicates whether you want to negate the settings.
+ *       </p>
+ */
+export interface AwsWafRulePredicateListDetails {
+  /**
+   * @public
+   * <p>A unique identifier for a predicate in a rule, such as <code>ByteMatchSetId</code> or <code>IPSetId</code>.
+   *       </p>
+   */
+  DataId?: string;
+
+  /**
+   * @public
+   * <p>Specifies if you want WAF to allow, block, or count requests based on the settings in the
+   *          <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
+   *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, or <code>SizeConstraintSet</code>.
+   *       </p>
+   */
+  Negated?: boolean;
+
+  /**
+   * @public
+   * <p>The type of predicate in a rule, such as <code>ByteMatch</code> or <code>IPSet</code>.
+   *       </p>
+   */
+  Type?: string;
+}
+
+/**
+ * @public
+ * <p>Provides information about a WAF rule. This rule specifies the web requests that you want to allow, block, or count.
+ *       </p>
+ */
+export interface AwsWafRuleDetails {
+  /**
+   * @public
+   * <p>The name of the metrics for this rule.
+   *       </p>
+   */
+  MetricName?: string;
+
+  /**
+   * @public
+   * <p>A descriptive name for the rule.
+   *       </p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>Specifies the <code>ByteMatchSet</code>, <code>IPSet</code>, <code>SqlInjectionMatchSet</code>, <code>XssMatchSet</code>,
+   *          <code>RegexMatchSet</code>, <code>GeoMatchSet</code>, and <code>SizeConstraintSet</code> objects that you want to add to a rule and,
+   *          for each object, indicates whether you want to negate the settings.
+   *       </p>
+   */
+  PredicateList?: AwsWafRulePredicateListDetails[];
+
+  /**
+   * @public
+   * <p>The ID of the WAF rule.
+   *       </p>
+   */
+  RuleId?: string;
+}
+
+/**
+ * @public
+ * <p>Provides information about what action WAF should take on a web request when it matches the criteria defined in the rule.
+ *       </p>
+ */
+export interface AwsWafRuleGroupRulesActionDetails {
+  /**
+   * @public
+   * <p>The action that WAF should take on a web request when it matches the rule's
+   *          statement.</p>
+   */
+  Type?: string;
+}
+
+/**
+ * @public
+ * <p>Provides information about the rules attached to the rule group. These rules identify the web requests that you want to
+ *          allow, block, or count.
+ *       </p>
+ */
+export interface AwsWafRuleGroupRulesDetails {
+  /**
+   * @public
+   * <p>Provides information about what action WAF should take on a web request when it matches the criteria defined in the rule.
+   *       </p>
+   */
+  Action?: AwsWafRuleGroupRulesActionDetails;
+
+  /**
+   * @public
+   * <p>If you define more than one rule in a web ACL, WAF evaluates each request against the rules in order
+   *          based on the value of <code>Priority</code>.</p>
+   */
+  Priority?: number;
+
+  /**
+   * @public
+   * <p>The rule ID for a rule.
+   *       </p>
+   */
+  RuleId?: string;
+
+  /**
+   * @public
+   * <p>The type of rule.
+   *       </p>
+   */
+  Type?: string;
+}
+
+/**
+ * @public
+ * <p>Provides information about an WAF rule group. A rule group is a collection of rules for inspecting and controlling web requests.
+ *       </p>
+ */
+export interface AwsWafRuleGroupDetails {
+  /**
+   * @public
+   * <p>The name of the metrics for this rule group.
+   *       </p>
+   */
+  MetricName?: string;
+
+  /**
+   * @public
+   * <p>The name of the rule group.
+   *       </p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The ID of the rule group.
+   *       </p>
+   */
+  RuleGroupId?: string;
+
+  /**
+   * @public
+   * <p>Provides information about the rules attached to the rule group. These rules identify the web requests that you want to
+   * allow, block, or count.
+   *       </p>
+   */
+  Rules?: AwsWafRuleGroupRulesDetails[];
+}
+
+/**
+ * @public
+ * <p>
+ *          A custom header for custom request and response handling.
+ *       </p>
+ */
+export interface AwsWafv2CustomHttpHeader {
+  /**
+   * @public
+   * <p>
+   *          The name of the custom header.
+   *       </p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>
+   *          The value of the custom header.
+   *       </p>
+   */
+  Value?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *          Custom request handling behavior that inserts custom headers into a web request. WAF uses custom request handling when the rule action doesn't block the request.
+ *       </p>
+ */
+export interface AwsWafv2CustomRequestHandlingDetails {
+  /**
+   * @public
+   * <p>
+   *          The HTTP headers to insert into the request.
+   *       </p>
+   */
+  InsertHeaders?: AwsWafv2CustomHttpHeader[];
+}
+
+/**
+ * @public
+ * <p>
+ *          Specifies that WAF should allow the request and optionally defines additional custom handling for the request.
+ *       </p>
+ */
+export interface AwsWafv2ActionAllowDetails {
+  /**
+   * @public
+   * <p>
+   *          Defines custom handling for the web request. For information about customizing web requests and responses, see
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the <i>WAF Developer Guide.</i>.
+   *       </p>
+   */
+  CustomRequestHandling?: AwsWafv2CustomRequestHandlingDetails;
+}
+
+/**
+ * @public
+ * <p>
+ *          A custom response to send to the client. You can define a custom response for rule actions and default web ACL actions that are set to block.
+ *       </p>
+ */
+export interface AwsWafv2CustomResponseDetails {
+  /**
+   * @public
+   * <p>
+   *          References the response body that you want WAF to return to the web request client. You can define a custom response for a rule action or a default web ACL action that is set to block.
+   *       </p>
+   */
+  CustomResponseBodyKey?: string;
+
+  /**
+   * @public
+   * <p>
+   *          The HTTP status code to return to the client. For a list of status codes that you can use in your custom responses, see
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html">Supported status codes for custom response</a> in the <i>WAF Developer Guide.</i>
+   *          </p>
+   */
+  ResponseCode?: number;
+
+  /**
+   * @public
+   * <p>
+   *          The HTTP headers to use in the response.
+   *       </p>
+   */
+  ResponseHeaders?: AwsWafv2CustomHttpHeader[];
+}
+
+/**
+ * @public
+ * <p>
+ *          Specifies that WAF should block the request and optionally defines additional custom handling for the response to the web request.
+ *       </p>
+ */
+export interface AwsWafv2ActionBlockDetails {
+  /**
+   * @public
+   * <p>
+   *          Defines a custom response for the web request. For information, see
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the <i>WAF Developer Guide.</i>.
+   *       </p>
+   */
+  CustomResponse?: AwsWafv2CustomResponseDetails;
+}
+
+/**
+ * @public
+ * <p>
+ *          Specifies that WAF should run a CAPTCHA check against the request.
+ *       </p>
+ */
+export interface AwsWafv2RulesActionCaptchaDetails {
+  /**
+   * @public
+   * <p>
+   *          Defines custom handling for the web request, used when the CAPTCHA inspection determines that the request's token is valid and unexpired. For more information,
+   *          see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the <i>WAF Developer Guide.</i>.
+   *       </p>
+   */
+  CustomRequestHandling?: AwsWafv2CustomRequestHandlingDetails;
+}
+
+/**
+ * @public
+ * <p>
+ *          Specifies that WAF should count the request.
+ *       </p>
+ */
+export interface AwsWafv2RulesActionCountDetails {
+  /**
+   * @public
+   * <p>
+   *          Defines custom handling for the web request. For more information,
+   *          see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the <i>WAF Developer Guide.</i>.
+   *       </p>
+   */
+  CustomRequestHandling?: AwsWafv2CustomRequestHandlingDetails;
+}
+
+/**
+ * @public
+ * <p>
+ *          The action that WAF should take on a web request when it matches a rule's statement.
+ *          Settings at the web ACL level can override the rule action setting.
+ *       </p>
+ */
+export interface AwsWafv2RulesActionDetails {
+  /**
+   * @public
+   * <p>
+   *          Instructs WAF to allow the web request.
+   *       </p>
+   */
+  Allow?: AwsWafv2ActionAllowDetails;
+
+  /**
+   * @public
+   * <p>
+   *          Instructs WAF to block the web request.
+   *       </p>
+   */
+  Block?: AwsWafv2ActionBlockDetails;
+
+  /**
+   * @public
+   * <p>
+   *          Instructs WAF to run a CAPTCHA check against the web request.
+   *       </p>
+   */
+  Captcha?: AwsWafv2RulesActionCaptchaDetails;
+
+  /**
+   * @public
+   * <p>
+   *          Instructs WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
+   *       </p>
+   */
+  Count?: AwsWafv2RulesActionCountDetails;
+}
+
+/**
+ * @public
+ * <p>
+ *          Defines and enables Amazon CloudWatch metrics and web request sample collection.
+ *       </p>
+ */
+export interface AwsWafv2VisibilityConfigDetails {
+  /**
+   * @public
+   * <p>
+   *          A boolean indicating whether the associated resource sends metrics to Amazon CloudWatch. For the list of available
+   *          metrics, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics">WAF metrics and dimensions</a> in the <i>WAF Developer Guide</i>.
+   *       </p>
+   */
+  CloudWatchMetricsEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *          A name of the Amazon CloudWatch metric.
+   *       </p>
+   */
+  MetricName?: string;
+
+  /**
+   * @public
+   * <p>
+   *          A boolean indicating whether WAF should store a sampling of the web requests that match the rules.
+   *          You can view the sampled requests through the WAF console.
+   *       </p>
+   */
+  SampledRequestsEnabled?: boolean;
+}
+
+/**
+ * @public
+ * <p>
+ *          Provides details about rules in a rule group. A rule identifies web requests that you want to allow, block, or count. Each rule includes one top-level Statement that WAF uses to identify matching web requests, and parameters that govern how WAF handles them.
+ *       </p>
+ */
+export interface AwsWafv2RulesDetails {
+  /**
+   * @public
+   * <p>
+   *          The action that WAF should take on a web request when it matches the rule statement. Settings at the web ACL level can override the rule action setting.
+   *       </p>
+   */
+  Action?: AwsWafv2RulesActionDetails;
+
+  /**
+   * @public
+   * <p>
+   *          The name of the rule.
+   *       </p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>
+   *          The action to use in the place of the action that results from the rule group evaluation.
+   *       </p>
+   */
+  OverrideAction?: string;
+
+  /**
+   * @public
+   * <p>
+   *          If you define more than one Rule in a WebACL, WAF evaluates each request against the Rules in order based on the value of <code>Priority</code>.
+   *          WAF processes rules with lower priority first. The priorities don't need to be consecutive, but they must all be different.
+   *       </p>
+   */
+  Priority?: number;
+
+  /**
+   * @public
+   * <p>
+   *          Defines and enables Amazon CloudWatch metrics and web request sample collection.
+   *       </p>
+   */
+  VisibilityConfig?: AwsWafv2VisibilityConfigDetails;
+}
+
+/**
+ * @public
+ * <p>
+ *          Details about an WAFv2 rule group.
+ *       </p>
+ */
+export interface AwsWafv2RuleGroupDetails {
+  /**
+   * @public
+   * <p>
+   *          The web ACL capacity units (WCUs) required for this rule group.
+   *       </p>
+   */
+  Capacity?: number;
+
+  /**
+   * @public
+   * <p>
+   *          A description of the rule group that helps with identification.
+   *       </p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>
+   *          A unique identifier for the rule group.
+   *       </p>
+   */
+  Id?: string;
+
+  /**
+   * @public
+   * <p>
+   *          The name of the rule group. You cannot change the name of a rule group after you create it.
+   *       </p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>
+   *          The Amazon Resource Name (ARN) of the entity.
+   *       </p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>
+   *          The Rule statements used to identify the web requests that you want to allow, block, or count. Each rule includes one
+   *          top-level statement that WAF uses to identify matching web requests, and parameters that govern how
+   *          WAF handles them.
+   *       </p>
+   */
+  Rules?: AwsWafv2RulesDetails[];
+
+  /**
+   * @public
+   * <p>
+   *          Specifies whether the rule group is for an Amazon CloudFront distribution or for a regional application.
+   *          A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync
+   *          GraphQL API, or an Amazon Cognito user pool.
+   *       </p>
+   */
+  Scope?: string;
+
+  /**
+   * @public
+   * <p>
+   *          Defines and enables Amazon CloudWatch metrics and web request sample collection.
+   *       </p>
+   */
+  VisibilityConfig?: AwsWafv2VisibilityConfigDetails;
+}
+
+/**
+ * @public
+ * <p>
+ *          Used for CAPTCHA and challenge token settings. Determines how long a CAPTCHA or challenge timestamp remains valid after WAF updates it for a successful CAPTCHA or challenge response.
+ *       </p>
+ */
+export interface AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails {
+  /**
+   * @public
+   * <p>
+   *          The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by WAF.
+   *       </p>
+   */
+  ImmunityTime?: number;
+}
+
+/**
+ * @public
+ * <p>
+ *          Specifies how WAF should handle CAPTCHA evaluations for rules that don't have their own <code>CaptchaConfig</code> settings.
+ *       </p>
+ */
+export interface AwsWafv2WebAclCaptchaConfigDetails {
+  /**
+   * @public
+   * <p>
+   *          Determines how long a CAPTCHA timestamp in the token remains valid after the client successfully solves a CAPTCHA puzzle.
+   *       </p>
+   */
+  ImmunityTimeProperty?: AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails;
+}
+
+/**
+ * @public
+ * <p>
+ *          Specifies the action that Amazon CloudFront or WAF takes when a web request matches the conditions in the rule.
+ *       </p>
+ */
+export interface AwsWafv2WebAclActionDetails {
+  /**
+   * @public
+   * <p>
+   *          Specifies that WAF should allow requests by default.
+   *       </p>
+   */
+  Allow?: AwsWafv2ActionAllowDetails;
+
+  /**
+   * @public
+   * <p>
+   *          Specifies that WAF should block requests by default.
+   *       </p>
+   */
+  Block?: AwsWafv2ActionBlockDetails;
+}
+
+/**
+ * @public
+ * <p>
+ *          Details about an WAFv2 web Access Control List (ACL).
+ *       </p>
+ */
+export interface AwsWafv2WebAclDetails {
+  /**
+   * @public
+   * <p>
+   *          The name of the web ACL.
+   *       </p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>
+   *          The Amazon Resource Name (ARN) of the web ACL that you want to associate with the resource.
+   *       </p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>
+   *          Indicates whether this web ACL is managed by Firewall Manager.
+   *       </p>
+   */
+  ManagedbyFirewallManager?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *          A unique identifier for the web ACL.
+   *       </p>
+   */
+  Id?: string;
+
+  /**
+   * @public
+   * <p>
+   *          The web ACL capacity units (WCUs) currently being used by this web ACL.
+   *       </p>
+   */
+  Capacity?: number;
+
+  /**
+   * @public
+   * <p>
+   *          Specifies how WAF should handle CAPTCHA evaluations for rules that don't have their own
+   *          <code>CaptchaConfig</code> settings.
+   *       </p>
+   */
+  CaptchaConfig?: AwsWafv2WebAclCaptchaConfigDetails;
+
+  /**
+   * @public
+   * <p>
+   *          The action to perform if none of the Rules contained in the web ACL match.
+   *       </p>
+   */
+  DefaultAction?: AwsWafv2WebAclActionDetails;
+
+  /**
+   * @public
+   * <p>
+   *          A description of the web ACL that helps with identification.
+   *       </p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>
+   *          The Rule statements used to identify the web requests that you want to allow, block, or count. Each rule includes one
+   *          top-level statement that WAF uses to identify matching web requests, and parameters that govern how
+   *          WAF handles them.
+   *       </p>
+   */
+  Rules?: AwsWafv2RulesDetails[];
+
+  /**
+   * @public
+   * <p>
+   *          Defines and enables Amazon CloudWatch metrics and web request sample collection.
+   *       </p>
+   */
+  VisibilityConfig?: AwsWafv2VisibilityConfigDetails;
+}
+
+/**
+ * @public
+ * <p>Details about the action that CloudFront or WAF takes when a web request matches the
+ *          conditions in the rule. </p>
+ */
+export interface WafAction {
+  /**
+   * @public
+   * <p>Specifies how you want WAF to respond to requests that match the settings in a
+   *          rule.</p>
+   *          <p>Valid settings include the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> - WAF allows requests</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BLOCK</code> - WAF blocks requests</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COUNT</code> - WAF increments a counter of the requests that
+   *                match all of the conditions in the rule. WAF then continues to inspect
+   *                the web request based on the remaining rules in the web ACL. You can't specify
+   *                   <code>COUNT</code> for the default action for a web ACL.</p>
+   *             </li>
+   *          </ul>
+   */
+  Type?: string;
+}
+
+/**
+ * @public
+ * <p>Details about a rule to exclude from a rule group.</p>
+ */
+export interface WafExcludedRule {
+  /**
+   * @public
+   * <p>The unique identifier for the rule to exclude from the rule group.</p>
+   */
+  RuleId?: string;
+}
+
+/**
+ * @public
+ * <p>Details about an override action for a rule.</p>
+ */
+export interface WafOverrideAction {
+  /**
+   * @public
+   * <p>
+   *             <code>COUNT</code> overrides the action specified by the individual rule within a
+   *             <code>RuleGroup</code> .</p>
+   *          <p>If set to <code>NONE</code>, the rule's action takes place.</p>
+   */
+  Type?: string;
+}
+
+/**
+ * @public
+ * <p>Details for a rule in an WAF web ACL.</p>
+ */
+export interface AwsWafWebAclRule {
+  /**
+   * @public
+   * <p>Specifies the action that CloudFront or WAF takes when a web request matches the
+   *          conditions in the rule. </p>
+   */
+  Action?: WafAction;
+
+  /**
+   * @public
+   * <p>Rules to exclude from a rule group.</p>
+   */
+  ExcludedRules?: WafExcludedRule[];
+
+  /**
+   * @public
+   * <p>Use the <code>OverrideAction</code> to test your <code>RuleGroup</code>.</p>
+   *          <p>Any rule in a <code>RuleGroup</code> can potentially block a request. If you set the <code>OverrideAction</code> to
+   *             <code>None</code>, the <code>RuleGroup</code> blocks a request if any individual rule in the <code>RuleGroup</code>
+   *          matches the request and is configured to block that request.</p>
+   *          <p>However, if you first want to test the <code>RuleGroup</code>,
+   *          set the <code>OverrideAction</code> to <code>Count</code>. The <code>RuleGroup</code>
+   *          then overrides any block action specified by individual rules contained within the group.
+   *          Instead of blocking matching requests, those requests are counted.</p>
+   *          <p>
+   *             <code>ActivatedRule</code>|<code>OverrideAction</code> applies only when updating or
+   *          adding a <code>RuleGroup</code>
+   *          to a web ACL. In this case you do not use <code>ActivatedRule</code>
+   *             <code>Action</code>. For all other update requests,
+   *             <code>ActivatedRule</code>
+   *             <code>Action</code> is used instead of <code>ActivatedRule</code>
+   *             <code>OverrideAction</code>.</p>
+   */
+  OverrideAction?: WafOverrideAction;
+
+  /**
+   * @public
+   * <p>Specifies the order in which the rules in a web
+   *          ACL are evaluated. Rules with a lower value for <code>Priority</code> are
+   *          evaluated before rules with a higher value. The value must be a unique integer. If you add
+   *          multiple rules to a web ACL, the values do not need to be consecutive.</p>
+   */
+  Priority?: number;
+
+  /**
+   * @public
+   * <p>The identifier for a rule.</p>
+   */
+  RuleId?: string;
+
+  /**
+   * @public
+   * <p>The rule type.</p>
+   *          <p>Valid values: <code>REGULAR</code> | <code>RATE_BASED</code> | <code>GROUP</code>
+   *          </p>
+   *          <p>The default is <code>REGULAR</code>.</p>
+   */
+  Type?: string;
+}
+
+/**
+ * @public
+ * <p>Provides information about an WAF web access control list (web ACL).</p>
+ */
+export interface AwsWafWebAclDetails {
+  /**
+   * @public
+   * <p>A friendly name or description of the web ACL. You can't change the name of a web ACL  after you create it.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The action to perform if none of the rules contained in the web ACL match.</p>
+   */
+  DefaultAction?: string;
+
+  /**
+   * @public
+   * <p>An array that contains the action for each rule in a web ACL, the priority of the rule, and the ID of the rule.</p>
+   */
+  Rules?: AwsWafWebAclRule[];
+
+  /**
+   * @public
+   * <p>A unique identifier for a web ACL.</p>
+   */
+  WebAclId?: string;
+}
+
+/**
+ * @public
+ * <p>Information about the encryption configuration for X-Ray.</p>
+ */
+export interface AwsXrayEncryptionConfigDetails {
+  /**
+   * @public
+   * <p>The identifier of the KMS key that is used for encryption. Provided if <code>Type</code> is <code>KMS</code>.</p>
+   */
+  KeyId?: string;
+
+  /**
+   * @public
+   * <p>The current status of the encryption configuration. Valid values are <code>ACTIVE</code> or <code>UPDATING</code>.</p>
+   *          <p>When <code>Status</code> is equal to <code>UPDATING</code>, X-Ray might use both the old and new encryption.</p>
+   */
+  Status?: string;
+
+  /**
+   * @public
+   * <p>The type of encryption. <code>KMS</code> indicates that the encryption uses KMS keys. <code>NONE</code> indicates the default encryption.</p>
+   */
+  Type?: string;
+}
+
+/**
+ * @public
+ * <p>Describes the mounting of a volume in a container.
+ *       </p>
+ */
+export interface VolumeMount {
+  /**
+   * @public
+   * <p>The name of the volume.
+   *       </p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The path in the container at which the volume should be mounted.
+   *       </p>
+   */
+  MountPath?: string;
+}
+
+/**
+ * @public
+ * <p>Container details related to a finding.</p>
+ */
+export interface ContainerDetails {
+  /**
+   * @public
+   * <p>The runtime of the container.
+   *       </p>
+   */
+  ContainerRuntime?: string;
+
+  /**
+   * @public
+   * <p>The name of the container related to a finding.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The identifier of the container image related to a finding.</p>
+   */
+  ImageId?: string;
+
+  /**
+   * @public
+   * <p>The name of the container image related to a finding.</p>
+   */
+  ImageName?: string;
+
+  /**
+   * @public
+   * <p>Indicates when the container started.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  LaunchedAt?: string;
+
+  /**
+   * @public
+   * <p>Provides information about the mounting of a volume in a container.
+   *       </p>
+   */
+  VolumeMounts?: VolumeMount[];
+
+  /**
+   * @public
+   * <p>When this parameter is <code>true</code>, the container is given elevated privileges on the host
+   * container instance (similar to the root user).
+   *       </p>
+   */
+  Privileged?: boolean;
+}
+
+/**
+ * @public
+ * <p>Additional details about a resource related to a finding.</p>
+ *          <p>To provide the details, use the object that corresponds to the resource type. For
+ *          example, if the resource type is <code>AwsEc2Instance</code>, then you use the
+ *             <code>AwsEc2Instance</code> object to provide the details.</p>
+ *          <p>If the type-specific object does not contain all of the fields you want to populate,
+ *          then you use the <code>Other</code> object to populate those additional fields.</p>
+ *          <p>You also use the <code>Other</code> object to populate the details when the selected
+ *          type does not have a corresponding object.</p>
+ */
+export interface ResourceDetails {
+  /**
+   * @public
+   * <p>Details for an autoscaling group.</p>
+   */
+  AwsAutoScalingAutoScalingGroup?: AwsAutoScalingAutoScalingGroupDetails;
+
+  /**
+   * @public
+   * <p>Details for an CodeBuild project.</p>
+   */
+  AwsCodeBuildProject?: AwsCodeBuildProjectDetails;
+
+  /**
+   * @public
+   * <p>Details about a CloudFront distribution.</p>
+   */
+  AwsCloudFrontDistribution?: AwsCloudFrontDistributionDetails;
+
+  /**
+   * @public
+   * <p>Details about an EC2 instance related to a finding.</p>
+   */
+  AwsEc2Instance?: AwsEc2InstanceDetails;
+
+  /**
+   * @public
+   * <p>Details for an EC2 network interface.</p>
+   */
+  AwsEc2NetworkInterface?: AwsEc2NetworkInterfaceDetails;
+
+  /**
+   * @public
+   * <p>Details for an EC2 security group.</p>
+   */
+  AwsEc2SecurityGroup?: AwsEc2SecurityGroupDetails;
+
+  /**
+   * @public
+   * <p>Details for an Amazon EC2 volume.</p>
+   */
+  AwsEc2Volume?: AwsEc2VolumeDetails;
+
+  /**
+   * @public
+   * <p>Details for an Amazon EC2 VPC.</p>
+   */
+  AwsEc2Vpc?: AwsEc2VpcDetails;
+
+  /**
+   * @public
+   * <p>Details about an Elastic IP address.</p>
+   */
+  AwsEc2Eip?: AwsEc2EipDetails;
+
+  /**
+   * @public
+   * <p>Details about a subnet in Amazon EC2.</p>
+   */
+  AwsEc2Subnet?: AwsEc2SubnetDetails;
+
+  /**
+   * @public
+   * <p>Details about an EC2 network access control list (ACL).</p>
+   */
+  AwsEc2NetworkAcl?: AwsEc2NetworkAclDetails;
+
+  /**
+   * @public
+   * <p>Details about a load balancer.</p>
+   */
+  AwsElbv2LoadBalancer?: AwsElbv2LoadBalancerDetails;
+
+  /**
+   * @public
+   * <p>Details about an Elastic Beanstalk environment.</p>
+   */
+  AwsElasticBeanstalkEnvironment?: AwsElasticBeanstalkEnvironmentDetails;
+
+  /**
+   * @public
+   * <p>Details for an Elasticsearch domain.</p>
+   */
+  AwsElasticsearchDomain?: AwsElasticsearchDomainDetails;
+
+  /**
+   * @public
+   * <p>Details about an S3 bucket related to a finding.</p>
+   */
+  AwsS3Bucket?: AwsS3BucketDetails;
+
+  /**
+   * @public
+   * <p>Details about the Amazon S3 Public Access Block configuration for an account.</p>
+   */
+  AwsS3AccountPublicAccessBlock?: AwsS3AccountPublicAccessBlockDetails;
+
+  /**
+   * @public
+   * <p>Details about an S3 object related to a finding.</p>
+   */
+  AwsS3Object?: AwsS3ObjectDetails;
+
+  /**
+   * @public
+   * <p>Details about a Secrets Manager secret.</p>
+   */
+  AwsSecretsManagerSecret?: AwsSecretsManagerSecretDetails;
+
+  /**
+   * @public
+   * <p>Details about an IAM access key related to a finding.</p>
+   */
+  AwsIamAccessKey?: AwsIamAccessKeyDetails;
+
+  /**
+   * @public
+   * <p>Details about an IAM user.</p>
+   */
+  AwsIamUser?: AwsIamUserDetails;
+
+  /**
+   * @public
+   * <p>Details about an IAM permissions policy.</p>
+   */
+  AwsIamPolicy?: AwsIamPolicyDetails;
+
+  /**
+   * @public
+   * <p>Provides information about a version 2 stage for Amazon API Gateway.</p>
+   */
+  AwsApiGatewayV2Stage?: AwsApiGatewayV2StageDetails;
+
+  /**
+   * @public
+   * <p>Provides information about a version 2 API in Amazon API Gateway.</p>
+   */
+  AwsApiGatewayV2Api?: AwsApiGatewayV2ApiDetails;
+
+  /**
+   * @public
+   * <p>Details about a DynamoDB table.</p>
+   */
+  AwsDynamoDbTable?: AwsDynamoDbTableDetails;
+
+  /**
+   * @public
+   * <p>Provides information about a version 1 Amazon API Gateway stage.</p>
+   */
+  AwsApiGatewayStage?: AwsApiGatewayStageDetails;
+
+  /**
+   * @public
+   * <p>Provides information about a REST API in version 1 of Amazon API Gateway.</p>
+   */
+  AwsApiGatewayRestApi?: AwsApiGatewayRestApiDetails;
+
+  /**
+   * @public
+   * <p>Provides details about a CloudTrail trail.</p>
+   */
+  AwsCloudTrailTrail?: AwsCloudTrailTrailDetails;
+
+  /**
+   * @public
+   * <p>Provides information about the state of a patch on an instance based on the patch baseline that was used to patch the instance.</p>
+   */
+  AwsSsmPatchCompliance?: AwsSsmPatchComplianceDetails;
+
+  /**
+   * @public
+   * <p>Provides details about an Certificate Manager certificate.</p>
+   */
+  AwsCertificateManagerCertificate?: AwsCertificateManagerCertificateDetails;
+
+  /**
+   * @public
+   * <p>Contains details about an Amazon Redshift cluster.</p>
+   */
+  AwsRedshiftCluster?: AwsRedshiftClusterDetails;
+
+  /**
+   * @public
+   * <p>Contains details about a Classic Load Balancer.</p>
+   */
+  AwsElbLoadBalancer?: AwsElbLoadBalancerDetails;
+
+  /**
+   * @public
+   * <p>Contains details about an IAM group.</p>
+   */
+  AwsIamGroup?: AwsIamGroupDetails;
+
+  /**
+   * @public
+   * <p>Details about an IAM role.</p>
+   */
+  AwsIamRole?: AwsIamRoleDetails;
+
+  /**
+   * @public
+   * <p>Details about an KMS key.</p>
+   */
+  AwsKmsKey?: AwsKmsKeyDetails;
+
+  /**
+   * @public
+   * <p>Details about a Lambda function.</p>
+   */
+  AwsLambdaFunction?: AwsLambdaFunctionDetails;
+
+  /**
+   * @public
+   * <p>Details for a Lambda layer version.</p>
+   */
+  AwsLambdaLayerVersion?: AwsLambdaLayerVersionDetails;
+
+  /**
+   * @public
+   * <p>Details about an Amazon RDS database instance.</p>
+   */
+  AwsRdsDbInstance?: AwsRdsDbInstanceDetails;
+
+  /**
+   * @public
+   * <p>Details about an SNS topic.</p>
+   */
+  AwsSnsTopic?: AwsSnsTopicDetails;
+
+  /**
+   * @public
+   * <p>Details about an SQS queue.</p>
+   */
+  AwsSqsQueue?: AwsSqsQueueDetails;
+
+  /**
+   * @public
+   * <p>Details for an WAF web ACL.</p>
+   */
+  AwsWafWebAcl?: AwsWafWebAclDetails;
+
+  /**
+   * @public
+   * <p>Details about an Amazon RDS database snapshot.</p>
+   */
+  AwsRdsDbSnapshot?: AwsRdsDbSnapshotDetails;
+
+  /**
+   * @public
+   * <p>Details about an Amazon RDS database cluster snapshot.</p>
+   */
+  AwsRdsDbClusterSnapshot?: AwsRdsDbClusterSnapshotDetails;
+
+  /**
+   * @public
+   * <p>Details about an Amazon RDS database cluster.</p>
+   */
+  AwsRdsDbCluster?: AwsRdsDbClusterDetails;
+
+  /**
+   * @public
+   * <p>Details about an Amazon ECS cluster.</p>
+   */
+  AwsEcsCluster?: AwsEcsClusterDetails;
+
+  /**
+   * @public
+   * <p>Provides information about a Docker container that's part of a task.
+   *       </p>
+   */
+  AwsEcsContainer?: AwsEcsContainerDetails;
+
+  /**
+   * @public
+   * <p>Details about a task definition. A task definition describes the container and volume definitions of an Amazon Elastic Container Service task.</p>
+   */
+  AwsEcsTaskDefinition?: AwsEcsTaskDefinitionDetails;
+
+  /**
+   * @public
+   * <p>Details about a container resource related to a finding.</p>
+   */
+  Container?: ContainerDetails;
+
+  /**
+   * @public
+   * <p>Details about a resource that are not available in a type-specific details object. Use
+   *          the <code>Other</code> object in the following cases.</p>
+   *          <ul>
+   *             <li>
+   *                <p>The type-specific object does not contain all of the fields that you want to
+   *                populate. In this case, first use the type-specific object to populate those fields.
+   *                Use the <code>Other</code> object to populate the fields that are missing from the
+   *                type-specific object.</p>
+   *             </li>
+   *             <li>
+   *                <p>The resource type does not have a corresponding object. This includes resources
+   *                for which the type is <code>Other</code>. </p>
+   *             </li>
+   *          </ul>
+   */
+  Other?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Details about an RDS event notification subscription.</p>
+   */
+  AwsRdsEventSubscription?: AwsRdsEventSubscriptionDetails;
+
+  /**
+   * @public
+   * <p>Details about a service within an ECS cluster.</p>
+   */
+  AwsEcsService?: AwsEcsServiceDetails;
+
+  /**
+   * @public
+   * <p>Provides details about a launch configuration.</p>
+   */
+  AwsAutoScalingLaunchConfiguration?: AwsAutoScalingLaunchConfigurationDetails;
+
+  /**
+   * @public
+   * <p>Details about an Amazon EC2 VPN connection.</p>
+   */
+  AwsEc2VpnConnection?: AwsEc2VpnConnectionDetails;
+
+  /**
+   * @public
+   * <p>Information about an Amazon ECR image.</p>
+   */
+  AwsEcrContainerImage?: AwsEcrContainerImageDetails;
+
+  /**
+   * @public
+   * <p>Details about an Amazon OpenSearch Service domain.</p>
+   */
+  AwsOpenSearchServiceDomain?: AwsOpenSearchServiceDomainDetails;
+
+  /**
+   * @public
+   * <p>Details about the service configuration for a VPC endpoint service.</p>
+   */
+  AwsEc2VpcEndpointService?: AwsEc2VpcEndpointServiceDetails;
+
+  /**
+   * @public
+   * <p>Information about the encryption configuration for X-Ray.</p>
+   */
+  AwsXrayEncryptionConfig?: AwsXrayEncryptionConfigDetails;
+
+  /**
+   * @public
+   * <p>Details about a rate-based rule for global resources.</p>
+   */
+  AwsWafRateBasedRule?: AwsWafRateBasedRuleDetails;
+
+  /**
+   * @public
+   * <p>Details about a rate-based rule for Regional resources.</p>
+   */
+  AwsWafRegionalRateBasedRule?: AwsWafRegionalRateBasedRuleDetails;
+
+  /**
+   * @public
+   * <p>Information about an Amazon Elastic Container Registry repository.</p>
+   */
+  AwsEcrRepository?: AwsEcrRepositoryDetails;
+
+  /**
+   * @public
+   * <p>Details about an Amazon EKS cluster.</p>
+   */
+  AwsEksCluster?: AwsEksClusterDetails;
+
+  /**
+   * @public
+   * <p>Details about an Network Firewall firewall policy.</p>
+   */
+  AwsNetworkFirewallFirewallPolicy?: AwsNetworkFirewallFirewallPolicyDetails;
+
+  /**
+   * @public
+   * <p>Details about an Network Firewall firewall.</p>
+   */
+  AwsNetworkFirewallFirewall?: AwsNetworkFirewallFirewallDetails;
+
+  /**
+   * @public
+   * <p>Details about an Network Firewall rule group.</p>
+   */
+  AwsNetworkFirewallRuleGroup?: AwsNetworkFirewallRuleGroupDetails;
+
+  /**
+   * @public
+   * <p>Details about an Amazon RDS DB security group.</p>
+   */
+  AwsRdsDbSecurityGroup?: AwsRdsDbSecurityGroupDetails;
+
+  /**
+   * @public
+   * <p>Details about an Amazon Kinesis data stream.</p>
+   */
+  AwsKinesisStream?: AwsKinesisStreamDetails;
+
+  /**
+   * @public
+   * <p>Details about an Amazon EC2 transit gateway that interconnects your virtual private clouds (VPC) and on-premises networks.</p>
+   */
+  AwsEc2TransitGateway?: AwsEc2TransitGatewayDetails;
+
+  /**
+   * @public
+   * <p>Details about an Amazon EFS access point. An access point is an application-specific view into an EFS file system that
+   * applies an operating system user and group, and a file system path, to any file system request made through the access point.
+   *       </p>
+   */
+  AwsEfsAccessPoint?: AwsEfsAccessPointDetails;
+
+  /**
+   * @public
+   * <p>Details about an CloudFormation stack. A stack is a collection of Amazon Web Services resources that you can manage as a single unit.</p>
+   */
+  AwsCloudFormationStack?: AwsCloudFormationStackDetails;
+
+  /**
+   * @public
+   * <p>Details about an Amazon CloudWatch alarm. An alarm allows you to monitor and receive alerts about your Amazon Web Services resources and applications across multiple Regions.</p>
+   */
+  AwsCloudWatchAlarm?: AwsCloudWatchAlarmDetails;
+
+  /**
+   * @public
+   * <p>Details about an Amazon EC2 VPC peering connection. A VPC peering connection is
+   *          a networking connection between two VPCs that enables you to route traffic between them
+   *          privately.
+   *       </p>
+   */
+  AwsEc2VpcPeeringConnection?: AwsEc2VpcPeeringConnectionDetails;
+
+  /**
+   * @public
+   * <p>Details about an WAF rule group for Regional resources.
+   *       </p>
+   */
+  AwsWafRegionalRuleGroup?: AwsWafRegionalRuleGroupDetails;
+
+  /**
+   * @public
+   * <p>Details about an WAF rule for Regional resources.
+   *       </p>
+   */
+  AwsWafRegionalRule?: AwsWafRegionalRuleDetails;
+
+  /**
+   * @public
+   * <p>Details about an WAF web access control list (web ACL) for Regional resources. </p>
+   */
+  AwsWafRegionalWebAcl?: AwsWafRegionalWebAclDetails;
+
+  /**
+   * @public
+   * <p>Details about an WAF rule for global resources.
+   *       </p>
+   */
+  AwsWafRule?: AwsWafRuleDetails;
+
+  /**
+   * @public
+   * <p>Details about an WAF rule group for global resources.
+   *       </p>
+   */
+  AwsWafRuleGroup?: AwsWafRuleGroupDetails;
+
+  /**
+   * @public
+   * <p>Details about a task in a cluster. </p>
+   */
+  AwsEcsTask?: AwsEcsTaskDetails;
+
+  /**
+   * @public
+   * <p>Provides details about an Backup backup vault.
+   *       </p>
+   */
+  AwsBackupBackupVault?: AwsBackupBackupVaultDetails;
+
+  /**
+   * @public
+   * <p>Provides details about an Backup backup plan.
+   *       </p>
+   */
+  AwsBackupBackupPlan?: AwsBackupBackupPlanDetails;
+
+  /**
+   * @public
+   * <p>Provides details about an Backup backup, or recovery point.
+   *       </p>
+   */
+  AwsBackupRecoveryPoint?: AwsBackupRecoveryPointDetails;
+
+  /**
+   * @public
+   * <p>
+   *          Specifies the properties for creating an Amazon Elastic Compute Cloud (Amazon EC2) launch template.
+   *       </p>
+   */
+  AwsEc2LaunchTemplate?: AwsEc2LaunchTemplateDetails;
+
+  /**
+   * @public
+   * <p>
+   *          Provides details about an Amazon SageMaker notebook instance.
+   *       </p>
+   */
+  AwsSageMakerNotebookInstance?: AwsSageMakerNotebookInstanceDetails;
+
+  /**
+   * @public
+   * <p>
+   *          Details about an WAFv2 web Access Control List (ACL).
+   *       </p>
+   */
+  AwsWafv2WebAcl?: AwsWafv2WebAclDetails;
+
+  /**
+   * @public
+   * <p>
+   *          Details about an WAFv2 rule group.
+   *       </p>
+   */
+  AwsWafv2RuleGroup?: AwsWafv2RuleGroupDetails;
+
+  /**
+   * @public
+   * <p>
+   *          Provides details about a route table. A route table contains a set of rules, called routes, that
+   *          determine where to direct network traffic from your subnet or gateway.
+   *       </p>
+   */
+  AwsEc2RouteTable?: AwsEc2RouteTableDetails;
+
+  /**
+   * @public
+   * <p>
+   *             Provides details about AppSync message broker. A message broker allows software applications and
+   *             components to communicate using various programming languages, operating systems, and formal messaging protocols.
+   *         </p>
+   */
+  AwsAmazonMqBroker?: AwsAmazonMqBrokerDetails;
+
+  /**
+   * @public
+   * <p>
+   *             Provides details about an AppSync Graph QL API, which lets you query multiple databases, microservices,
+   *             and APIs from a single GraphQL endpoint.
+   *         </p>
+   */
+  AwsAppSyncGraphQlApi?: AwsAppSyncGraphQlApiDetails;
+
+  /**
+   * @public
+   * <p>
+   *             A schema defines the structure of events that are sent to Amazon EventBridge. Schema registries are containers for
+   *             schemas. They collect and organize schemas so that your schemas are in logical groups.
+   *         </p>
+   */
+  AwsEventSchemasRegistry?: AwsEventSchemasRegistryDetails;
+
+  /**
+   * @public
+   * <p>
+   *             Provides details about an Amazon GuardDuty detector. A detector is an object that represents the GuardDuty
+   *             service. A detector is required for GuardDuty to become operational.
+   *         </p>
+   */
+  AwsGuardDutyDetector?: AwsGuardDutyDetectorDetails;
+
+  /**
+   * @public
+   * <p>
+   *             Provides details about an Step Functions state machine, which is a workflow consisting of a series of event-driven steps.
+   *         </p>
+   */
+  AwsStepFunctionStateMachine?: AwsStepFunctionStateMachineDetails;
+
+  /**
+   * @public
+   * <p>
+   *             Provides information about an Amazon Athena workgroup. A workgroup helps you separate users, teams,
+   *             applications, or workloads. It also helps you set limits on data processing and track costs.
+   *         </p>
+   */
+  AwsAthenaWorkGroup?: AwsAthenaWorkGroupDetails;
+
+  /**
+   * @public
+   * <p>
+   *             Provides details about Amazon EventBridge event bus for an endpoint. An event bus is a router that receives events
+   * and delivers them to zero or more destinations, or targets.</p>
+   */
+  AwsEventsEventbus?: AwsEventsEventbusDetails;
+
+  /**
+   * @public
+   * <p>
+   *             Provides details about an Database Migration Service (DMS) endpoint. An endpoint provides connection, data
+   * store type, and location information about your data store.</p>
+   */
+  AwsDmsEndpoint?: AwsDmsEndpointDetails;
+
+  /**
+   * @public
+   * <p>
+   *             Provides details about an Amazon EventBridge global endpoint. The endpoint can improve your application’s
+   * availability by making it Regional-fault tolerant.</p>
+   */
+  AwsEventsEndpoint?: AwsEventsEndpointDetails;
+
+  /**
+   * @public
+   * <p>
+   *             Provides details about an DMS replication task. A replication task moves a set of data from the source
+   * endpoint to the target endpoint.</p>
+   */
+  AwsDmsReplicationTask?: AwsDmsReplicationTaskDetails;
+
+  /**
+   * @public
+   * <p>
+   *             Provides details about an DMS replication instance. DMS uses a replication instance to connect to your
+   * source data store, read the source data, and format the data for consumption by the target data store.</p>
+   */
+  AwsDmsReplicationInstance?: AwsDmsReplicationInstanceDetails;
+
+  /**
+   * @public
+   * <p>
+   *             Provides details about an Amazon Route 53 hosted zone, including the four name servers assigned to the hosted
+   * zone. A hosted zone represents a collection of records that can be managed together, belonging to a single parent domain name.</p>
+   */
+  AwsRoute53HostedZone?: AwsRoute53HostedZoneDetails;
+
+  /**
+   * @public
+   * <p>
+   *             Provides details about an Amazon Managed Streaming for Apache Kafka (Amazon MSK) cluster.</p>
+   */
+  AwsMskCluster?: AwsMskClusterDetails;
+
+  /**
+   * @public
+   * <p>
+   *             Provides details about an Amazon Simple Storage Service (Amazon S3) access point. S3 access points are named network
+   *             endpoints that are attached to S3 buckets that you can use to perform S3 object operations.
+   *         </p>
+   */
+  AwsS3AccessPoint?: AwsS3AccessPointDetails;
+
+  /**
+   * @public
+   * <p>
+   *             Provides details about an Client VPN endpoint. A Client VPN endpoint is the resource that you
+   *             create and configure to enable and manage client VPN sessions. It's the termination point for all client VPN sessions.
+   *         </p>
+   */
+  AwsEc2ClientVpnEndpoint?: AwsEc2ClientVpnEndpointDetails;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Partition = {
+  AWS: "aws",
+  AWS_CN: "aws-cn",
+  AWS_US_GOV: "aws-us-gov",
+} as const;
+
+/**
+ * @public
+ */
+export type Partition = (typeof Partition)[keyof typeof Partition];
+
+/**
+ * @public
+ * <p>A resource related to a finding.</p>
+ */
+export interface Resource {
+  /**
+   * @public
+   * <p>The type of the resource that details are provided for. If possible, set
+   *             <code>Type</code> to one of the supported resource types. For example, if the resource
+   *          is an EC2 instance, then set <code>Type</code> to <code>AwsEc2Instance</code>.</p>
+   *          <p>If the resource does not match any of the provided types, then set <code>Type</code> to
+   *             <code>Other</code>. </p>
+   */
+  Type: string | undefined;
+
+  /**
+   * @public
+   * <p>The canonical identifier for the given resource type.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * @public
+   * <p>The canonical Amazon Web Services partition name that the Region is assigned to.</p>
+   */
+  Partition?: Partition;
+
+  /**
+   * @public
+   * <p>The canonical Amazon Web Services external Region name where this resource is located.</p>
+   */
+  Region?: string;
+
+  /**
+   * @public
+   * <p>Identifies the role of the resource in the finding. A resource is either the actor or target of the finding activity,</p>
+   */
+  ResourceRole?: string;
+
+  /**
+   * @public
+   * <p>A list of Amazon Web Services tags associated with a resource at the time the finding was
+   *          processed.</p>
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Contains information about sensitive data that was detected on the resource.</p>
+   */
+  DataClassification?: DataClassificationDetails;
+
+  /**
+   * @public
+   * <p>Additional details about the resource related to a finding.</p>
+   */
+  Details?: ResourceDetails;
+
+  /**
+   * @public
+   * <p>
+   *             The name of the application that is related to a finding.
+   *         </p>
+   */
+  ApplicationName?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of the application that is related to a finding.
+   *         </p>
+   */
+  ApplicationArn?: string;
+}
+
+/**
+ * @public
+ * <p>The severity of the finding.</p>
+ *          <p>The finding provider can provide the initial severity. The finding provider can only
+ *          update the severity if it hasn't been updated using
+ *          <code>BatchUpdateFindings</code>.</p>
+ *          <p>The finding must have either <code>Label</code> or <code>Normalized</code> populated. If
+ *          only one of these attributes is populated, then Security Hub automatically populates the other
+ *          one. If neither attribute is populated, then the finding is invalid. <code>Label</code> is
+ *          the preferred attribute.</p>
+ */
+export interface Severity {
+  /**
+   * @public
+   * <p>Deprecated. This attribute isn't included in findings. Instead of providing
+   *             <code>Product</code>, provide <code>Original</code>.</p>
+   *          <p>The native severity as defined by the Amazon Web Services service or integrated partner product that
+   *          generated the finding.</p>
+   */
+  Product?: number;
+
+  /**
+   * @public
+   * <p>The severity value of the finding. The allowed values are the following.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INFORMATIONAL</code> - No issue was found.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LOW</code> - The issue does not require action on its own.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MEDIUM</code> - The issue must be addressed but not urgently.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HIGH</code> - The issue must be addressed as a priority.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CRITICAL</code> - The issue must be remediated immediately to avoid it
+   *                escalating.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you provide <code>Normalized</code> and do not provide <code>Label</code>, then
+   *             <code>Label</code> is set automatically as follows. </p>
+   *          <ul>
+   *             <li>
+   *                <p>0 - <code>INFORMATIONAL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>1–39 - <code>LOW</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>40–69 - <code>MEDIUM</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>70–89 - <code>HIGH</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>90–100 - <code>CRITICAL</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  Label?: SeverityLabel;
+
+  /**
+   * @public
+   * <p>Deprecated. The normalized severity of a finding.
+   *          Instead of providing <code>Normalized</code>, provide <code>Label</code>.</p>
+   *          <p>If you provide <code>Label</code> and do not provide <code>Normalized</code>, then
+   *             <code>Normalized</code> is set automatically as follows.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INFORMATIONAL</code> - 0</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LOW</code> - 1</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MEDIUM</code> - 40</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>HIGH</code> - 70</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CRITICAL</code> - 90</p>
+   *             </li>
+   *          </ul>
+   */
+  Normalized?: number;
+
+  /**
+   * @public
+   * <p>The native severity from the finding product that generated the finding.</p>
+   */
+  Original?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ThreatIntelIndicatorCategory = {
+  BACKDOOR: "BACKDOOR",
+  CARD_STEALER: "CARD_STEALER",
+  COMMAND_AND_CONTROL: "COMMAND_AND_CONTROL",
+  DROP_SITE: "DROP_SITE",
+  EXPLOIT_SITE: "EXPLOIT_SITE",
+  KEYLOGGER: "KEYLOGGER",
+} as const;
+
+/**
+ * @public
+ */
+export type ThreatIntelIndicatorCategory =
+  (typeof ThreatIntelIndicatorCategory)[keyof typeof ThreatIntelIndicatorCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const ThreatIntelIndicatorType = {
+  DOMAIN: "DOMAIN",
+  EMAIL_ADDRESS: "EMAIL_ADDRESS",
+  HASH_MD5: "HASH_MD5",
+  HASH_SHA1: "HASH_SHA1",
+  HASH_SHA256: "HASH_SHA256",
+  HASH_SHA512: "HASH_SHA512",
+  IPV4_ADDRESS: "IPV4_ADDRESS",
+  IPV6_ADDRESS: "IPV6_ADDRESS",
+  MUTEX: "MUTEX",
+  PROCESS: "PROCESS",
+  URL: "URL",
+} as const;
+
+/**
+ * @public
+ */
+export type ThreatIntelIndicatorType = (typeof ThreatIntelIndicatorType)[keyof typeof ThreatIntelIndicatorType];
+
+/**
+ * @public
+ * <p>Details about the threat intelligence related to a finding.</p>
+ */
+export interface ThreatIntelIndicator {
+  /**
+   * @public
+   * <p>The type of threat intelligence indicator.</p>
+   */
+  Type?: ThreatIntelIndicatorType;
+
+  /**
+   * @public
+   * <p>The value of a threat intelligence indicator.</p>
+   */
+  Value?: string;
+
+  /**
+   * @public
+   * <p>The category of a threat intelligence indicator.</p>
+   */
+  Category?: ThreatIntelIndicatorCategory;
+
+  /**
+   * @public
+   * <p>Indicates when the most recent instance of a threat intelligence indicator was
+   *          observed.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  LastObservedAt?: string;
+
+  /**
+   * @public
+   * <p>The source of the threat intelligence indicator.</p>
+   */
+  Source?: string;
+
+  /**
+   * @public
+   * <p>The URL to the page or site where you can get more information about the threat
+   *          intelligence indicator.</p>
+   */
+  SourceUrl?: string;
+}
+
+/**
+ * @public
+ * <p>Provides information about the file paths that were affected by the threat.
+ * 		</p>
+ */
+export interface FilePaths {
+  /**
+   * @public
+   * <p>Path to the infected or suspicious file on the resource it was detected on.
+   * 		</p>
+   */
+  FilePath?: string;
+
+  /**
+   * @public
+   * <p>The name of the infected or suspicious file corresponding to the hash.
+   * 		</p>
+   */
+  FileName?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the resource on which the threat was detected.
+   * 		</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * @public
+   * <p>The hash value for the infected or suspicious file.
+   * 		</p>
+   */
+  Hash?: string;
+}
+
+/**
+ * @public
+ * <p>Provides information about the threat detected in a security finding and the file paths that were affected by the threat.
+ * 		</p>
+ */
+export interface Threat {
+  /**
+   * @public
+   * <p>The name of the threat.
+   * 		</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The severity of the threat.
+   * 		</p>
+   */
+  Severity?: string;
+
+  /**
+   * @public
+   * <p>This total number of items in which the threat has been detected.
+   * 		</p>
+   */
+  ItemCount?: number;
+
+  /**
+   * @public
+   * <p>Provides information about the file paths that were affected by the threat.
+   * 		</p>
+   */
+  FilePaths?: FilePaths[];
+}
+
+/**
+ * @public
+ * <p>
+ *             Provides details about where a code vulnerability is located in your Lambda function.
+ *         </p>
+ */
+export interface CodeVulnerabilitiesFilePath {
+  /**
+   * @public
+   * <p>
+   *         	The line number of the last line of code in which the vulnerability is located.
+   *         </p>
+   */
+  EndLine?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The name of the file in which the code vulnerability is located.
+   *         </p>
+   */
+  FileName?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The file path to the code in which the vulnerability is located.
+   *         </p>
+   */
+  FilePath?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The line number of the first line of code in which the vulnerability is located.
+   *         </p>
+   */
+  StartLine?: number;
+}
+
+/**
+ * @public
+ * <p>Provides details about the vulnerabilities found in your Lambda function code. This field pertains to findings that
+ *             Security Hub receives from Amazon Inspector.
+ *         </p>
+ */
+export interface VulnerabilityCodeVulnerabilities {
+  /**
+   * @public
+   * <p>
+   *             The Common Weakness Enumeration (CWE) item associated with the detected code vulnerability.
+   *         </p>
+   */
+  Cwes?: string[];
+
+  /**
+   * @public
+   * <p>
+   *             Provides details about where a code vulnerability is located in your Lambda function.
+   *         </p>
+   */
+  FilePath?: CodeVulnerabilitiesFilePath;
+
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of the Lambda layer in which the code vulnerability is located.
+   *         </p>
+   */
+  SourceArn?: string;
+}
+
+/**
+ * @public
+ * <p>CVSS scores from the advisory related to the vulnerability.</p>
+ */
+export interface Cvss {
+  /**
+   * @public
+   * <p>The version of CVSS for the CVSS score.</p>
+   */
+  Version?: string;
+
+  /**
+   * @public
+   * <p>The base CVSS score.</p>
+   */
+  BaseScore?: number;
+
+  /**
+   * @public
+   * <p>The base scoring vector for the CVSS score.</p>
+   */
+  BaseVector?: string;
+
+  /**
+   * @public
+   * <p>The origin of the original CVSS score and vector.</p>
+   */
+  Source?: string;
+
+  /**
+   * @public
+   * <p>Adjustments to the CVSS metrics.</p>
+   */
+  Adjustments?: Adjustment[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const VulnerabilityExploitAvailable = {
+  NO: "NO",
+  YES: "YES",
+} as const;
+
+/**
+ * @public
+ */
+export type VulnerabilityExploitAvailable =
+  (typeof VulnerabilityExploitAvailable)[keyof typeof VulnerabilityExploitAvailable];
+
+/**
+ * @public
+ * @enum
+ */
+export const VulnerabilityFixAvailable = {
+  NO: "NO",
+  PARTIAL: "PARTIAL",
+  YES: "YES",
+} as const;
+
+/**
+ * @public
+ */
+export type VulnerabilityFixAvailable = (typeof VulnerabilityFixAvailable)[keyof typeof VulnerabilityFixAvailable];
+
+/**
+ * @public
+ * <p>A vendor that generates a vulnerability report.</p>
+ */
+export interface VulnerabilityVendor {
+  /**
+   * @public
+   * <p>The name of the vendor.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>The URL of the vulnerability advisory.</p>
+   */
+  Url?: string;
+
+  /**
+   * @public
+   * <p>The severity that the vendor assigned to the vulnerability.</p>
+   */
+  VendorSeverity?: string;
+
+  /**
+   * @public
+   * <p>Indicates when the vulnerability advisory was created.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  VendorCreatedAt?: string;
+
+  /**
+   * @public
+   * <p>Indicates when the vulnerability advisory was last updated.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *          Date/Time Format</a>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  VendorUpdatedAt?: string;
+}
 
 /**
  * @public
@@ -188,7 +2484,7 @@ export interface Vulnerability {
    *             </li>
    *          </ul>
    */
-  FixAvailable?: VulnerabilityFixAvailable | string;
+  FixAvailable?: VulnerabilityFixAvailable;
 
   /**
    * @public
@@ -202,7 +2498,7 @@ export interface Vulnerability {
    * <p>Whether an exploit is available for a finding.
    * 		</p>
    */
-  ExploitAvailable?: VulnerabilityExploitAvailable | string;
+  ExploitAvailable?: VulnerabilityExploitAvailable;
 
   /**
    * @public
@@ -259,7 +2555,7 @@ export interface Workflow {
    *             </li>
    *          </ul>
    */
-  Status?: WorkflowStatus | string;
+  Status?: WorkflowStatus;
 }
 
 /**
@@ -521,7 +2817,7 @@ export interface AwsSecurityFinding {
    * @public
    * <p>Indicates the veracity of a finding. </p>
    */
-  VerificationState?: VerificationState | string;
+  VerificationState?: VerificationState;
 
   /**
    * @public
@@ -529,7 +2825,7 @@ export interface AwsSecurityFinding {
    *
    * <p>The workflow state of a finding. </p>
    */
-  WorkflowState?: WorkflowState | string;
+  WorkflowState?: WorkflowState;
 
   /**
    * @public
@@ -541,7 +2837,7 @@ export interface AwsSecurityFinding {
    * @public
    * <p>The record state of a finding.</p>
    */
-  RecordState?: RecordState | string;
+  RecordState?: RecordState;
 
   /**
    * @public
@@ -595,6 +2891,20 @@ export interface AwsSecurityFinding {
    *         </p>
    */
   GeneratorDetails?: GeneratorDetails;
+
+  /**
+   * @public
+   * <p>An ISO8601-formatted timestamp that indicates when Security Hub received a finding and begins to process it.</p>
+   *          <p>A correctly formatted example is <code>2020-05-21T20:16:34.724Z</code>. The value cannot contain spaces, and date and time should be separated by <code>T</code>. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6, Internet Date/Time Format</a>.</p>
+   */
+  ProcessedAt?: string;
+
+  /**
+   * @public
+   * <p>The name of the Amazon Web Services account from which a finding was generated.
+   *         </p>
+   */
+  AwsAccountName?: string;
 }
 
 /**
@@ -635,9 +2945,8 @@ export interface BooleanFilter {
 
 /**
  * @public
- * <p>A collection of attributes that are applied to all active Security Hub-aggregated findings and
- *          that result in a subset of findings that are included in this insight.</p>
- *          <p>You can filter by up to 10 finding attributes. For each attribute, you can provide up to
+ * <p>A collection of filters that are applied to all active findings aggregated by Security Hub.</p>
+ *          <p>You can filter by up to ten finding attributes. For each attribute, you can provide up to
  *          20 filter values.</p>
  */
 export interface AwsSecurityFindingFilters {
@@ -651,7 +2960,7 @@ export interface AwsSecurityFindingFilters {
 
   /**
    * @public
-   * <p>The Amazon Web Services account ID that a finding is generated in.</p>
+   * <p>The Amazon Web Services account ID in which a finding is generated.</p>
    */
   AwsAccountId?: StringFilter[];
 
@@ -1347,6 +3656,63 @@ export interface AwsSecurityFindingFilters {
    *       </p>
    */
   ComplianceAssociatedStandardsId?: StringFilter[];
+
+  /**
+   * @public
+   * <p>
+   *             Indicates whether a software vulnerability in your environment has a known exploit. You can filter findings by this
+   *             field only if you use Security Hub and Amazon Inspector.
+   *         </p>
+   */
+  VulnerabilitiesExploitAvailable?: StringFilter[];
+
+  /**
+   * @public
+   * <p>
+   *             Indicates whether a vulnerability is fixed in a newer version of the affected software packages. You can filter
+   *             findings by this field only if you use Security Hub and Amazon Inspector.
+   *
+   *         </p>
+   */
+  VulnerabilitiesFixAvailable?: StringFilter[];
+
+  /**
+   * @public
+   * <p>
+   *             The name of a security control parameter.
+   *         </p>
+   */
+  ComplianceSecurityControlParametersName?: StringFilter[];
+
+  /**
+   * @public
+   * <p>
+   *             The current value of a security control parameter.
+   *         </p>
+   */
+  ComplianceSecurityControlParametersValue?: StringFilter[];
+
+  /**
+   * @public
+   * <p>The name of the Amazon Web Services account in which a finding is generated.</p>
+   */
+  AwsAccountName?: StringFilter[];
+
+  /**
+   * @public
+   * <p>
+   *             The name of the application that is related to a finding.
+   *         </p>
+   */
+  ResourceApplicationName?: StringFilter[];
+
+  /**
+   * @public
+   * <p>
+   *             The ARN of the application that is related to a finding.
+   *         </p>
+   */
+  ResourceApplicationArn?: StringFilter[];
 }
 
 /**
@@ -1488,7 +3854,7 @@ export interface StandardsStatusReason {
    * @public
    * <p>The reason code that represents the reason for the current status of a standard subscription.</p>
    */
-  StatusReasonCode: StatusReasonCode | string | undefined;
+  StatusReasonCode: StatusReasonCode | undefined;
 }
 
 /**
@@ -1541,7 +3907,7 @@ export interface StandardsSubscription {
    *             </li>
    *          </ul>
    */
-  StandardsStatus: StandardsStatus | string | undefined;
+  StandardsStatus: StandardsStatus | undefined;
 
   /**
    * @public
@@ -1639,6 +4005,255 @@ export interface BatchGetAutomationRulesResponse {
 
 /**
  * @public
+ * <p>
+ *             The target account, organizational unit, or the root that is associated with an Security Hub configuration. The configuration
+ *             can be a configuration policy or self-managed behavior.
+ *         </p>
+ */
+export type Target =
+  | Target.AccountIdMember
+  | Target.OrganizationalUnitIdMember
+  | Target.RootIdMember
+  | Target.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Target {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Web Services account ID of the target account.
+   *         </p>
+   */
+  export interface AccountIdMember {
+    AccountId: string;
+    OrganizationalUnitId?: never;
+    RootId?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             The organizational unit ID of the target organizational unit.
+   *         </p>
+   */
+  export interface OrganizationalUnitIdMember {
+    AccountId?: never;
+    OrganizationalUnitId: string;
+    RootId?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             The ID of the organization root.
+   *         </p>
+   */
+  export interface RootIdMember {
+    AccountId?: never;
+    OrganizationalUnitId?: never;
+    RootId: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    AccountId?: never;
+    OrganizationalUnitId?: never;
+    RootId?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    AccountId: (value: string) => T;
+    OrganizationalUnitId: (value: string) => T;
+    RootId: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: Target, visitor: Visitor<T>): T => {
+    if (value.AccountId !== undefined) return visitor.AccountId(value.AccountId);
+    if (value.OrganizationalUnitId !== undefined) return visitor.OrganizationalUnitId(value.OrganizationalUnitId);
+    if (value.RootId !== undefined) return visitor.RootId(value.RootId);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * <p>
+ *             Provides details about the association between an Security Hub configuration and a target account, organizational unit, or
+ *             the root. An association can exist between a target and a configuration policy, or between a target and self-managed
+ *             behavior.
+ *         </p>
+ */
+export interface ConfigurationPolicyAssociation {
+  /**
+   * @public
+   * <p>
+   *             The target account, organizational unit, or the root.
+   *         </p>
+   */
+  Target?: Target;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetConfigurationPolicyAssociationsRequest {
+  /**
+   * @public
+   * <p>
+   *             Specifies one or more target account IDs, organizational unit (OU) IDs, or the root ID to retrieve associations for.
+   *         </p>
+   */
+  ConfigurationPolicyAssociationIdentifiers: ConfigurationPolicyAssociation[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetType = {
+  ACCOUNT: "ACCOUNT",
+  ORGANIZATIONAL_UNIT: "ORGANIZATIONAL_UNIT",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetType = (typeof TargetType)[keyof typeof TargetType];
+
+/**
+ * @public
+ * <p>
+ *             An object that contains the details of a configuration policy association that’s returned in a
+ *             <code>ListConfigurationPolicyAssociations</code> request.
+ *         </p>
+ */
+export interface ConfigurationPolicyAssociationSummary {
+  /**
+   * @public
+   * <p>
+   *             The universally unique identifier (UUID) of the configuration policy.
+   *         </p>
+   */
+  ConfigurationPolicyId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The identifier of the target account, organizational unit, or the root.
+   *         </p>
+   */
+  TargetId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             Specifies whether the target is an Amazon Web Services account, organizational unit, or the root.
+   *         </p>
+   */
+  TargetType?: TargetType;
+
+  /**
+   * @public
+   * <p>
+   *             Indicates whether the association between the specified target and the configuration was directly applied by the
+   *             Security Hub delegated administrator or inherited from a parent.
+   *         </p>
+   */
+  AssociationType?: AssociationType;
+
+  /**
+   * @public
+   * <p>
+   *             The date and time, in UTC and ISO 8601 format, that the configuration policy association was last updated.
+   *         </p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * @public
+   * <p>
+   *             The current status of the association between the specified target and the configuration.
+   *         </p>
+   */
+  AssociationStatus?: ConfigurationPolicyAssociationStatus;
+
+  /**
+   * @public
+   * <p>
+   *             The explanation for a <code>FAILED</code> value for <code>AssociationStatus</code>.
+   *         </p>
+   */
+  AssociationStatusMessage?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             An array of configuration policy associations, one for each configuration policy association identifier, that
+ *             was specified in a <code>BatchGetConfigurationPolicyAssociations</code> request but couldn’t be processed due
+ *             to an error.
+ *         </p>
+ */
+export interface UnprocessedConfigurationPolicyAssociation {
+  /**
+   * @public
+   * <p>
+   *             Configuration policy association identifiers that were specified in a <code>BatchGetConfigurationPolicyAssociations</code>
+   *             request but couldn’t be processed due to an error.
+   *         </p>
+   */
+  ConfigurationPolicyAssociationIdentifiers?: ConfigurationPolicyAssociation;
+
+  /**
+   * @public
+   * <p>
+   *             An HTTP status code that identifies why the configuration policy association failed.
+   *         </p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * @public
+   * <p>
+   *             A string that identifies why the configuration policy association failed.
+   *         </p>
+   */
+  ErrorReason?: string;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetConfigurationPolicyAssociationsResponse {
+  /**
+   * @public
+   * <p>
+   *             Describes associations for the target accounts, OUs, or the root.
+   *         </p>
+   */
+  ConfigurationPolicyAssociations?: ConfigurationPolicyAssociationSummary[];
+
+  /**
+   * @public
+   * <p>
+   *             An array of configuration policy associations, one for each configuration policy association identifier, that was
+   *             specified in the request but couldn’t be processed due to an error.
+   *         </p>
+   */
+  UnprocessedConfigurationPolicyAssociations?: UnprocessedConfigurationPolicyAssociation[];
+}
+
+/**
+ * @public
  */
 export interface BatchGetSecurityControlsRequest {
   /**
@@ -1648,6 +4263,254 @@ export interface BatchGetSecurityControlsRequest {
    *          or Amazon Resource Name (ARN) is the same across standards. </p>
    */
   SecurityControlIds: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>
+ *             An object that includes the data type of a security control parameter and its current value.
+ *         </p>
+ */
+export type ParameterValue =
+  | ParameterValue.BooleanMember
+  | ParameterValue.DoubleMember
+  | ParameterValue.EnumMember
+  | ParameterValue.EnumListMember
+  | ParameterValue.IntegerMember
+  | ParameterValue.IntegerListMember
+  | ParameterValue.StringMember
+  | ParameterValue.StringListMember
+  | ParameterValue.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ParameterValue {
+  /**
+   * @public
+   * <p>
+   *             A control parameter that is an integer.
+   *         </p>
+   */
+  export interface IntegerMember {
+    Integer: number;
+    IntegerList?: never;
+    Double?: never;
+    String?: never;
+    StringList?: never;
+    Boolean?: never;
+    Enum?: never;
+    EnumList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             A control parameter that is a list of integers.
+   *         </p>
+   */
+  export interface IntegerListMember {
+    Integer?: never;
+    IntegerList: number[];
+    Double?: never;
+    String?: never;
+    StringList?: never;
+    Boolean?: never;
+    Enum?: never;
+    EnumList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             A control parameter that is a double.
+   *         </p>
+   */
+  export interface DoubleMember {
+    Integer?: never;
+    IntegerList?: never;
+    Double: number;
+    String?: never;
+    StringList?: never;
+    Boolean?: never;
+    Enum?: never;
+    EnumList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             A control parameter that is a string.
+   *         </p>
+   */
+  export interface StringMember {
+    Integer?: never;
+    IntegerList?: never;
+    Double?: never;
+    String: string;
+    StringList?: never;
+    Boolean?: never;
+    Enum?: never;
+    EnumList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             A control parameter that is a list of strings.
+   *         </p>
+   */
+  export interface StringListMember {
+    Integer?: never;
+    IntegerList?: never;
+    Double?: never;
+    String?: never;
+    StringList: string[];
+    Boolean?: never;
+    Enum?: never;
+    EnumList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             A control parameter that is a boolean.
+   *         </p>
+   */
+  export interface BooleanMember {
+    Integer?: never;
+    IntegerList?: never;
+    Double?: never;
+    String?: never;
+    StringList?: never;
+    Boolean: boolean;
+    Enum?: never;
+    EnumList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             A control parameter that is an enum.
+   *         </p>
+   */
+  export interface EnumMember {
+    Integer?: never;
+    IntegerList?: never;
+    Double?: never;
+    String?: never;
+    StringList?: never;
+    Boolean?: never;
+    Enum: string;
+    EnumList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             A control parameter that is a list of enums.
+   *         </p>
+   */
+  export interface EnumListMember {
+    Integer?: never;
+    IntegerList?: never;
+    Double?: never;
+    String?: never;
+    StringList?: never;
+    Boolean?: never;
+    Enum?: never;
+    EnumList: string[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Integer?: never;
+    IntegerList?: never;
+    Double?: never;
+    String?: never;
+    StringList?: never;
+    Boolean?: never;
+    Enum?: never;
+    EnumList?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    Integer: (value: number) => T;
+    IntegerList: (value: number[]) => T;
+    Double: (value: number) => T;
+    String: (value: string) => T;
+    StringList: (value: string[]) => T;
+    Boolean: (value: boolean) => T;
+    Enum: (value: string) => T;
+    EnumList: (value: string[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ParameterValue, visitor: Visitor<T>): T => {
+    if (value.Integer !== undefined) return visitor.Integer(value.Integer);
+    if (value.IntegerList !== undefined) return visitor.IntegerList(value.IntegerList);
+    if (value.Double !== undefined) return visitor.Double(value.Double);
+    if (value.String !== undefined) return visitor.String(value.String);
+    if (value.StringList !== undefined) return visitor.StringList(value.StringList);
+    if (value.Boolean !== undefined) return visitor.Boolean(value.Boolean);
+    if (value.Enum !== undefined) return visitor.Enum(value.Enum);
+    if (value.EnumList !== undefined) return visitor.EnumList(value.EnumList);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ParameterValueType = {
+  CUSTOM: "CUSTOM",
+  DEFAULT: "DEFAULT",
+} as const;
+
+/**
+ * @public
+ */
+export type ParameterValueType = (typeof ParameterValueType)[keyof typeof ParameterValueType];
+
+/**
+ * @public
+ * <p>
+ *             An object that provides the current value of a security control parameter and identifies whether it has been customized.
+ *         </p>
+ */
+export interface ParameterConfiguration {
+  /**
+   * @public
+   * <p>
+   *             Identifies whether a control parameter uses a custom user-defined value or subscribes to the default
+   *             Security Hub behavior.</p>
+   *          <p>When <code>ValueType</code> is set equal to <code>DEFAULT</code>, the default
+   *             behavior can be a specific Security Hub default value, or the default behavior can be to ignore a specific parameter.
+   *             When <code>ValueType</code> is set equal to <code>DEFAULT</code>, Security Hub ignores user-provided input for
+   *             the <code>Value</code> field.</p>
+   *          <p>When <code>ValueType</code> is set equal to <code>CUSTOM</code>, the <code>Value</code> field can't be empty.</p>
+   */
+  ValueType: ParameterValueType | undefined;
+
+  /**
+   * @public
+   * <p>
+   *             The current value of a control parameter.
+   *         </p>
+   */
+  Value?: ParameterValue;
 }
 
 /**
@@ -1679,6 +4542,20 @@ export const SeverityRating = {
  * @public
  */
 export type SeverityRating = (typeof SeverityRating)[keyof typeof SeverityRating];
+
+/**
+ * @public
+ * @enum
+ */
+export const UpdateStatus = {
+  READY: "READY",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type UpdateStatus = (typeof UpdateStatus)[keyof typeof UpdateStatus];
 
 /**
  * @public
@@ -1735,7 +4612,7 @@ export interface SecurityControl {
    *          <i>Security Hub User Guide</i>.
    *       </p>
    */
-  SeverityRating: SeverityRating | string | undefined;
+  SeverityRating: SeverityRating | undefined;
 
   /**
    * @public
@@ -1743,7 +4620,38 @@ export interface SecurityControl {
    *          The enablement status of a security control in a specific standard.
    *       </p>
    */
-  SecurityControlStatus: ControlStatus | string | undefined;
+  SecurityControlStatus: ControlStatus | undefined;
+
+  /**
+   * @public
+   * <p>
+   *             Identifies whether customizable properties of a security control are reflected in Security Hub findings. A status of
+   * <code>READY</code> indicates findings include the current parameter values. A status of <code>UPDATING</code> indicates that
+   * all findings may not include the current parameter values.
+   *         </p>
+   */
+  UpdateStatus?: UpdateStatus;
+
+  /**
+   * @public
+   * <p>
+   *             An object that identifies the name of a control parameter, its current value, and whether it has been customized.
+   *         </p>
+   */
+  Parameters?: Record<string, ParameterConfiguration>;
+
+  /**
+   * @public
+   * <p>
+   *             The most recent reason for updating the customizable properties of a security control. This differs from the
+   *             <code>UpdateReason</code> field of the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchUpdateStandardsControlAssociations.html">
+   *                <code>BatchUpdateStandardsControlAssociations</code>
+   *             </a> API, which tracks the
+   *             reason for updating the enablement status of a control. This field accepts alphanumeric
+   *             characters in addition to white spaces, dashes, and underscores.
+   *         </p>
+   */
+  LastUpdateReason?: string;
 }
 
 /**
@@ -1781,7 +4689,7 @@ export interface UnprocessedSecurityControl {
    *          The error code for the unprocessed security control.
    *       </p>
    */
-  ErrorCode: UnprocessedErrorCode | string | undefined;
+  ErrorCode: UnprocessedErrorCode | undefined;
 
   /**
    * @public
@@ -1891,7 +4799,7 @@ export interface StandardsControlAssociationDetail {
    *          Specifies whether a control is enabled or disabled in a specified standard.
    *       </p>
    */
-  AssociationStatus: AssociationStatus | string | undefined;
+  AssociationStatus: AssociationStatus | undefined;
 
   /**
    * @public
@@ -1964,7 +4872,7 @@ export interface UnprocessedStandardsControlAssociation {
    * <p>The error code for the unprocessed standard and control association.
    *       </p>
    */
-  ErrorCode: UnprocessedErrorCode | string | undefined;
+  ErrorCode: UnprocessedErrorCode | undefined;
 
   /**
    * @public
@@ -2082,7 +4990,7 @@ export interface UpdateAutomationRulesRequestItem {
    *             </a>.
    *       </p>
    */
-  RuleStatus?: RuleStatus | string;
+  RuleStatus?: RuleStatus;
 
   /**
    * @public
@@ -2223,7 +5131,7 @@ export interface BatchUpdateFindingsRequest {
    *             </li>
    *          </ul>
    */
-  VerificationState?: VerificationState | string;
+  VerificationState?: VerificationState;
 
   /**
    * @public
@@ -2420,7 +5328,7 @@ export interface StandardsControlAssociationUpdate {
    * @public
    * <p>The desired enablement status of the control in the standard.</p>
    */
-  AssociationStatus: AssociationStatus | string | undefined;
+  AssociationStatus: AssociationStatus | undefined;
 
   /**
    * @public
@@ -2462,7 +5370,7 @@ export interface UnprocessedStandardsControlAssociationUpdate {
    * <p>The error code for the unprocessed update of the control's enablement status in the
    *          specified standard.</p>
    */
-  ErrorCode: UnprocessedErrorCode | string | undefined;
+  ErrorCode: UnprocessedErrorCode | undefined;
 
   /**
    * @public
@@ -2482,6 +5390,520 @@ export interface BatchUpdateStandardsControlAssociationsResponse {
    *       </p>
    */
   UnprocessedAssociationUpdates?: UnprocessedStandardsControlAssociationUpdate[];
+}
+
+/**
+ * @public
+ * <p>
+ *             The options for customizing a security control parameter with a boolean. For a boolean parameter, the options are
+ *             <code>true</code> and <code>false</code>.
+ *         </p>
+ */
+export interface BooleanConfigurationOptions {
+  /**
+   * @public
+   * <p>
+   *             The Security Hub default value for a boolean parameter.
+   *         </p>
+   */
+  DefaultValue?: boolean;
+}
+
+/**
+ * @public
+ * <p>
+ *             The options for customizing a security control parameter that is a double.
+ *         </p>
+ */
+export interface DoubleConfigurationOptions {
+  /**
+   * @public
+   * <p>
+   *             The Security Hub default value for a control parameter that is a double.
+   *         </p>
+   */
+  DefaultValue?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The minimum valid value for a control parameter that is a double.
+   *         </p>
+   */
+  Min?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The maximum valid value for a control parameter that is a double.
+   *         </p>
+   */
+  Max?: number;
+}
+
+/**
+ * @public
+ * <p>
+ *             The options for customizing a security control parameter that is an enum.
+ *         </p>
+ */
+export interface EnumConfigurationOptions {
+  /**
+   * @public
+   * <p>
+   *             The Security Hub default value for a control parameter that is an enum.
+   *         </p>
+   */
+  DefaultValue?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The valid values for a control parameter that is an enum.
+   *         </p>
+   */
+  AllowedValues?: string[];
+}
+
+/**
+ * @public
+ * <p>
+ *             The options for customizing a security control parameter that is a list of enums.
+ *         </p>
+ */
+export interface EnumListConfigurationOptions {
+  /**
+   * @public
+   * <p>
+   *             The Security Hub default value for a control parameter that is a list of enums.
+   *         </p>
+   */
+  DefaultValue?: string[];
+
+  /**
+   * @public
+   * <p>
+   *             The maximum number of list items that an enum list control parameter can accept.
+   *         </p>
+   */
+  MaxItems?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The valid values for a control parameter that is a list of enums.
+   *         </p>
+   */
+  AllowedValues?: string[];
+}
+
+/**
+ * @public
+ * <p>
+ *             The options for customizing a security control parameter that is an integer.
+ *         </p>
+ */
+export interface IntegerConfigurationOptions {
+  /**
+   * @public
+   * <p>
+   *             The Security Hub default value for a control parameter that is an integer.
+   *         </p>
+   */
+  DefaultValue?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The minimum valid value for a control parameter that is an integer.
+   *         </p>
+   */
+  Min?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The maximum valid value for a control parameter that is an integer.
+   *         </p>
+   */
+  Max?: number;
+}
+
+/**
+ * @public
+ * <p>
+ *             The options for customizing a security control parameter that is a list of integers.
+ *         </p>
+ */
+export interface IntegerListConfigurationOptions {
+  /**
+   * @public
+   * <p>
+   *             The Security Hub default value for a control parameter that is a list of integers.
+   *         </p>
+   */
+  DefaultValue?: number[];
+
+  /**
+   * @public
+   * <p>
+   *             The minimum valid value for a control parameter that is a list of integers.
+   *         </p>
+   */
+  Min?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The maximum valid value for a control parameter that is a list of integers.
+   *         </p>
+   */
+  Max?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The maximum number of list items that an interger list control parameter can accept.
+   *         </p>
+   */
+  MaxItems?: number;
+}
+
+/**
+ * @public
+ * <p>
+ *             The options for customizing a security control parameter that is a string.
+ *         </p>
+ */
+export interface StringConfigurationOptions {
+  /**
+   * @public
+   * <p>
+   *             The Security Hub default value for a control parameter that is a string.
+   *         </p>
+   */
+  DefaultValue?: string;
+
+  /**
+   * @public
+   * <p>
+   *             An RE2 regular expression that Security Hub uses to validate a user-provided control parameter string.
+   *         </p>
+   */
+  Re2Expression?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The description of the RE2 regular expression.
+   *         </p>
+   */
+  ExpressionDescription?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             The options for customizing a security control parameter that is a list of strings.
+ *         </p>
+ */
+export interface StringListConfigurationOptions {
+  /**
+   * @public
+   * <p>
+   *             The Security Hub default value for a control parameter that is a list of strings.
+   *         </p>
+   */
+  DefaultValue?: string[];
+
+  /**
+   * @public
+   * <p>
+   *             An RE2 regular expression that Security Hub uses to validate a user-provided list of strings for a control
+   *             parameter.
+   *         </p>
+   */
+  Re2Expression?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The maximum number of list items that a string list control parameter can accept.
+   *         </p>
+   */
+  MaxItems?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The description of the RE2 regular expression.
+   *         </p>
+   */
+  ExpressionDescription?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             The options for customizing a security control parameter.
+ *         </p>
+ */
+export type ConfigurationOptions =
+  | ConfigurationOptions.BooleanMember
+  | ConfigurationOptions.DoubleMember
+  | ConfigurationOptions.EnumMember
+  | ConfigurationOptions.EnumListMember
+  | ConfigurationOptions.IntegerMember
+  | ConfigurationOptions.IntegerListMember
+  | ConfigurationOptions.StringMember
+  | ConfigurationOptions.StringListMember
+  | ConfigurationOptions.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ConfigurationOptions {
+  /**
+   * @public
+   * <p>
+   *             The options for customizing a security control parameter that is an integer.
+   *         </p>
+   */
+  export interface IntegerMember {
+    Integer: IntegerConfigurationOptions;
+    IntegerList?: never;
+    Double?: never;
+    String?: never;
+    StringList?: never;
+    Boolean?: never;
+    Enum?: never;
+    EnumList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             The options for customizing a security control parameter that is a list of integers.
+   *         </p>
+   */
+  export interface IntegerListMember {
+    Integer?: never;
+    IntegerList: IntegerListConfigurationOptions;
+    Double?: never;
+    String?: never;
+    StringList?: never;
+    Boolean?: never;
+    Enum?: never;
+    EnumList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             The options for customizing a security control parameter that is a double.
+   *         </p>
+   */
+  export interface DoubleMember {
+    Integer?: never;
+    IntegerList?: never;
+    Double: DoubleConfigurationOptions;
+    String?: never;
+    StringList?: never;
+    Boolean?: never;
+    Enum?: never;
+    EnumList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             The options for customizing a security control parameter that is a string data type.
+   *         </p>
+   */
+  export interface StringMember {
+    Integer?: never;
+    IntegerList?: never;
+    Double?: never;
+    String: StringConfigurationOptions;
+    StringList?: never;
+    Boolean?: never;
+    Enum?: never;
+    EnumList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             The options for customizing a security control parameter that is a list of strings.
+   *         </p>
+   */
+  export interface StringListMember {
+    Integer?: never;
+    IntegerList?: never;
+    Double?: never;
+    String?: never;
+    StringList: StringListConfigurationOptions;
+    Boolean?: never;
+    Enum?: never;
+    EnumList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             The options for customizing a security control parameter that is a boolean. For a boolean parameter, the options are
+   *             <code>true</code> and <code>false</code>.
+   *         </p>
+   */
+  export interface BooleanMember {
+    Integer?: never;
+    IntegerList?: never;
+    Double?: never;
+    String?: never;
+    StringList?: never;
+    Boolean: BooleanConfigurationOptions;
+    Enum?: never;
+    EnumList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             The options for customizing a security control parameter that is an enum.
+   *         </p>
+   */
+  export interface EnumMember {
+    Integer?: never;
+    IntegerList?: never;
+    Double?: never;
+    String?: never;
+    StringList?: never;
+    Boolean?: never;
+    Enum: EnumConfigurationOptions;
+    EnumList?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>
+   *             The options for customizing a security control parameter that is a list of enums.
+   *         </p>
+   */
+  export interface EnumListMember {
+    Integer?: never;
+    IntegerList?: never;
+    Double?: never;
+    String?: never;
+    StringList?: never;
+    Boolean?: never;
+    Enum?: never;
+    EnumList: EnumListConfigurationOptions;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Integer?: never;
+    IntegerList?: never;
+    Double?: never;
+    String?: never;
+    StringList?: never;
+    Boolean?: never;
+    Enum?: never;
+    EnumList?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    Integer: (value: IntegerConfigurationOptions) => T;
+    IntegerList: (value: IntegerListConfigurationOptions) => T;
+    Double: (value: DoubleConfigurationOptions) => T;
+    String: (value: StringConfigurationOptions) => T;
+    StringList: (value: StringListConfigurationOptions) => T;
+    Boolean: (value: BooleanConfigurationOptions) => T;
+    Enum: (value: EnumConfigurationOptions) => T;
+    EnumList: (value: EnumListConfigurationOptions) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ConfigurationOptions, visitor: Visitor<T>): T => {
+    if (value.Integer !== undefined) return visitor.Integer(value.Integer);
+    if (value.IntegerList !== undefined) return visitor.IntegerList(value.IntegerList);
+    if (value.Double !== undefined) return visitor.Double(value.Double);
+    if (value.String !== undefined) return visitor.String(value.String);
+    if (value.StringList !== undefined) return visitor.StringList(value.StringList);
+    if (value.Boolean !== undefined) return visitor.Boolean(value.Boolean);
+    if (value.Enum !== undefined) return visitor.Enum(value.Enum);
+    if (value.EnumList !== undefined) return visitor.EnumList(value.EnumList);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * <p>
+ *             An object that contains the details of an Security Hub configuration policy that’s returned in a
+ *             <code>ListConfigurationPolicies</code> request.
+ *         </p>
+ */
+export interface ConfigurationPolicySummary {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of the configuration policy.
+   *         </p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The universally unique identifier (UUID) of the configuration policy.
+   *         </p>
+   */
+  Id?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The name of the configuration policy. Alphanumeric characters and the following ASCII characters are permitted:
+   *             <code>-, ., !, *, /</code>.
+   *         </p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The description of the configuration policy.
+   *         </p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The date and time, in UTC and ISO 8601 format, that the configuration policy was last updated.
+   *         </p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * @public
+   * <p>
+   *             Indicates whether the service that the configuration policy applies to is enabled in the policy.
+   *         </p>
+   */
+  ServiceEnabled?: boolean;
 }
 
 /**
@@ -2563,7 +5985,7 @@ export interface CreateAutomationRuleRequest {
   /**
    * @public
    * <p>
-   *             User-defined tags that help you label the purpose of a rule.
+   *             User-defined tags associated with an automation rule.
    *         </p>
    */
   Tags?: Record<string, string>;
@@ -2579,7 +6001,7 @@ export interface CreateAutomationRuleRequest {
    *             </a>.
    *       </p>
    */
-  RuleStatus?: RuleStatus | string;
+  RuleStatus?: RuleStatus;
 
   /**
    * @public
@@ -2645,6 +6067,259 @@ export interface CreateAutomationRuleResponse {
    *       </p>
    */
   RuleArn?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             A list of security controls and control parameter values that are included in a configuration policy.
+ *         </p>
+ */
+export interface SecurityControlCustomParameter {
+  /**
+   * @public
+   * <p>
+   *             The ID of the security control.
+   *         </p>
+   */
+  SecurityControlId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             An object that specifies parameter values for a control in a configuration policy.
+   *         </p>
+   */
+  Parameters?: Record<string, ParameterConfiguration>;
+}
+
+/**
+ * @public
+ * <p>
+ *             An object that defines which security controls are enabled in an Security Hub configuration policy.
+ *             The enablement status of a control is aligned across all of the enabled standards in an account.
+ *         </p>
+ */
+export interface SecurityControlsConfiguration {
+  /**
+   * @public
+   * <p>
+   *             A list of security controls that are enabled in the configuration policy. Security Hub disables all other
+   *             controls (including newly released controls) other than the listed controls.
+   *         </p>
+   */
+  EnabledSecurityControlIdentifiers?: string[];
+
+  /**
+   * @public
+   * <p>
+   *             A list of security controls that are disabled in the configuration policy. Security Hub enables all other
+   *             controls (including newly released controls) other than the listed controls.
+   *         </p>
+   */
+  DisabledSecurityControlIdentifiers?: string[];
+
+  /**
+   * @public
+   * <p>
+   *             A list of security controls and control parameter values that are included in a configuration policy.
+   *         </p>
+   */
+  SecurityControlCustomParameters?: SecurityControlCustomParameter[];
+}
+
+/**
+ * @public
+ * <p>
+ *             An object that defines how Security Hub is configured. The configuration policy includes whether
+ *             Security Hub is enabled or disabled, a list of enabled security standards, a list of enabled or
+ *             disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration
+ *             policy, Security Hub disables all other controls (including newly released controls). If you provide a
+ *             list of security controls that are disabled in the configuration policy, Security Hub enables all other
+ *             controls (including newly released controls).
+ *         </p>
+ */
+export interface SecurityHubPolicy {
+  /**
+   * @public
+   * <p>
+   *             Indicates whether Security Hub is enabled in the policy.
+   *         </p>
+   */
+  ServiceEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *             A list that defines which security standards are enabled in the configuration policy.
+   *         </p>
+   */
+  EnabledStandardIdentifiers?: string[];
+
+  /**
+   * @public
+   * <p>
+   *             An object that defines which security controls are enabled in the configuration policy. The enablement status
+   *             of a control is aligned across all of the enabled standards in an account.
+   *         </p>
+   */
+  SecurityControlsConfiguration?: SecurityControlsConfiguration;
+}
+
+/**
+ * @public
+ * <p>
+ *             An object that defines how Security Hub is configured. It includes whether Security Hub is
+ *             enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls.
+ *             If you provide a list of security controls that are enabled in the configuration policy, Security Hub
+ *             disables all other controls (including newly released controls). If you provide a list of security controls that
+ *             are disabled in the configuration policy, Security Hub enables all other controls (including newly
+ *             released controls).
+ *         </p>
+ */
+export type Policy = Policy.SecurityHubMember | Policy.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Policy {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Web Service that the configuration policy applies to.
+   *         </p>
+   */
+  export interface SecurityHubMember {
+    SecurityHub: SecurityHubPolicy;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    SecurityHub?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    SecurityHub: (value: SecurityHubPolicy) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: Policy, visitor: Visitor<T>): T => {
+    if (value.SecurityHub !== undefined) return visitor.SecurityHub(value.SecurityHub);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface CreateConfigurationPolicyRequest {
+  /**
+   * @public
+   * <p>
+   *             The name of the configuration policy. Alphanumeric characters and the following ASCII characters are permitted:
+   *             <code>-, ., !, *, /</code>.
+   *         </p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *             The description of the configuration policy.
+   *         </p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>
+   *             An object that defines how Security Hub is configured. It includes whether Security Hub is enabled or
+   *             disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls.
+   *             If you provide a list of security controls that are enabled in the configuration policy, Security Hub disables all other controls (including newly
+   *             released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub
+   *             enables all other controls (including newly released controls).
+   *         </p>
+   */
+  ConfigurationPolicy: Policy | undefined;
+
+  /**
+   * @public
+   * <p>
+   *             User-defined tags associated with a configuration policy. For more information, see
+   *             <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/tagging-resources.html">Tagging Security Hub resources</a>
+   *             in the <i>Security Hub user guide</i>.
+   *         </p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateConfigurationPolicyResponse {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of the configuration policy.
+   *         </p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The universally unique identifier (UUID) of the configuration policy.
+   *         </p>
+   */
+  Id?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The name of the configuration policy.
+   *         </p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The description of the configuration policy.
+   *         </p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The date and time, in UTC and ISO 8601 format, that the configuration policy was last updated.
+   *         </p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * @public
+   * <p>
+   *             The date and time, in UTC and ISO 8601 format, that the configuration policy was created.
+   *         </p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * @public
+   * <p>
+   *             An object that defines how Security Hub is configured. It includes whether Security Hub is enabled or disabled, a
+   *             list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls.
+   *             If the request included a list of security controls that are enabled in the configuration policy, Security Hub disables all other controls (including newly
+   *             released controls). If the request included a list of security controls that are disabled in the configuration policy,
+   *             Security Hub enables all other controls (including newly released controls).
+   *         </p>
+   */
+  ConfigurationPolicy?: Policy;
 }
 
 /**
@@ -2796,6 +6471,19 @@ export interface CreateMembersResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const SecurityControlProperty = {
+  Parameters: "Parameters",
+} as const;
+
+/**
+ * @public
+ */
+export type SecurityControlProperty = (typeof SecurityControlProperty)[keyof typeof SecurityControlProperty];
+
+/**
+ * @public
  */
 export interface DeclineInvitationsRequest {
   /**
@@ -2838,6 +6526,24 @@ export interface DeleteActionTargetResponse {
    */
   ActionTargetArn: string | undefined;
 }
+
+/**
+ * @public
+ */
+export interface DeleteConfigurationPolicyRequest {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration policy.
+   *         </p>
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteConfigurationPolicyResponse {}
 
 /**
  * @public
@@ -3017,7 +6723,7 @@ export interface DescribeHubResponse {
    *          is <code>SECURITY_CONTROL</code> if you enabled Security Hub on or after February 23,
    *          2023.</p>
    */
-  ControlFindingGenerator?: ControlFindingGenerator | string;
+  ControlFindingGenerator?: ControlFindingGenerator;
 }
 
 /**
@@ -3027,13 +6733,95 @@ export interface DescribeOrganizationConfigurationRequest {}
 
 /**
  * @public
+ * @enum
+ */
+export const OrganizationConfigurationConfigurationType = {
+  CENTRAL: "CENTRAL",
+  LOCAL: "LOCAL",
+} as const;
+
+/**
+ * @public
+ */
+export type OrganizationConfigurationConfigurationType =
+  (typeof OrganizationConfigurationConfigurationType)[keyof typeof OrganizationConfigurationConfigurationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const OrganizationConfigurationStatus = {
+  ENABLED: "ENABLED",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type OrganizationConfigurationStatus =
+  (typeof OrganizationConfigurationStatus)[keyof typeof OrganizationConfigurationStatus];
+
+/**
+ * @public
+ * <p>
+ *             Provides information about the way an organization is configured in Security Hub.
+ *         </p>
+ */
+export interface OrganizationConfiguration {
+  /**
+   * @public
+   * <p>
+   *             Indicates whether the organization uses local or central configuration.
+   *         </p>
+   *          <p>If you use local configuration, the
+   *             Security Hub delegated administrator can set <code>AutoEnable</code> to <code>true</code> and
+   *             <code>AutoEnableStandards</code> to <code>DEFAULT</code>. This automatically enables Security Hub and
+   *             default security standards in new organization accounts. These new account settings must be set separately in
+   *             each Amazon Web Services Region, and settings may be different in each Region.
+   *         </p>
+   *          <p>
+   *             If you use central configuration, the delegated administrator can create configuration policies. Configuration
+   *             policies can be used to configure Security Hub, security standards, and security controls in multiple
+   *             accounts and Regions. If you want new organization accounts to use a specific configuration, you can create a
+   *             configuration policy and associate it with the root or specific organizational units (OUs). New accounts will
+   *             inherit the policy from the root or their assigned OU.
+   *         </p>
+   */
+  ConfigurationType?: OrganizationConfigurationConfigurationType;
+
+  /**
+   * @public
+   * <p>
+   *             Describes whether central configuration could be enabled as the <code>ConfigurationType</code> for the
+   *             organization. If your <code>ConfigurationType</code> is local configuration, then the value of <code>Status</code>
+   *             is always <code>ENABLED</code>.
+   *         </p>
+   */
+  Status?: OrganizationConfigurationStatus;
+
+  /**
+   * @public
+   * <p>
+   *             Provides an explanation if the value of <code>Status</code> is equal to <code>FAILED</code> when <code>ConfigurationType</code>
+   *             is equal to <code>CENTRAL</code>.
+   *         </p>
+   */
+  StatusMessage?: string;
+}
+
+/**
+ * @public
  */
 export interface DescribeOrganizationConfigurationResponse {
   /**
    * @public
-   * <p>Whether to automatically enable Security Hub for new accounts in the organization.</p>
-   *          <p>If set to <code>true</code>, then Security Hub is enabled for new accounts. If set to false,
-   *          then new accounts are not added automatically.</p>
+   * <p>Whether to automatically enable Security Hub in new member accounts when they join the organization.</p>
+   *          <p>If set to <code>true</code>, then Security Hub is automatically enabled in new accounts. If set to <code>false</code>,
+   *            then Security Hub isn't enabled in new accounts automatically. The default value is <code>false</code>.</p>
+   *          <p>If the <code>ConfigurationType</code> of your organization is set to <code>CENTRAL</code>, then this field is set
+   *            to <code>false</code> and can't be changed in the home Region and linked Regions. However, in that case, the delegated administrator can create a configuration
+   *             policy in which Security Hub is enabled and associate the policy with new organization accounts.</p>
    */
   AutoEnable?: boolean;
 
@@ -3047,13 +6835,23 @@ export interface DescribeOrganizationConfigurationResponse {
   /**
    * @public
    * <p>Whether to automatically enable Security Hub <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html">default standards</a>
-   *          for new member accounts in the organization.</p>
-   *          <p>The default value of this parameter is equal to <code>DEFAULT</code>.</p>
+   *          in new member accounts when they join the organization.</p>
    *          <p>If equal to <code>DEFAULT</code>, then Security Hub default standards are automatically enabled for new member
    *          accounts. If equal to <code>NONE</code>, then default standards are not automatically enabled for new member
-   *          accounts.</p>
+   *           accounts. The default value of this parameter is equal to <code>DEFAULT</code>.</p>
+   *          <p>If the <code>ConfigurationType</code> of your organization is set to <code>CENTRAL</code>, then this field is set
+   *            to <code>NONE</code> and can't be changed in the home Region and linked Regions. However, in that case, the delegated administrator can create a configuration
+   *             policy in which specific security standards are enabled and associate the policy with new organization accounts.</p>
    */
-  AutoEnableStandards?: AutoEnableStandards | string;
+  AutoEnableStandards?: AutoEnableStandards;
+
+  /**
+   * @public
+   * <p>
+   *             Provides information about the way an organization is configured in Security Hub.
+   *         </p>
+   */
+  OrganizationConfiguration?: OrganizationConfiguration;
 }
 
 /**
@@ -3154,7 +6952,7 @@ export interface Product {
    *             </li>
    *          </ul>
    */
-  IntegrationTypes?: (IntegrationType | string)[];
+  IntegrationTypes?: IntegrationType[];
 
   /**
    * @public
@@ -3338,7 +7136,7 @@ export interface StandardsControl {
    * <p>The current status of the security standard control. Indicates whether the control is
    *          enabled or disabled. Security Hub does not check against disabled controls.</p>
    */
-  ControlStatus?: ControlStatus | string;
+  ControlStatus?: ControlStatus;
 
   /**
    * @public
@@ -3385,7 +7183,7 @@ export interface StandardsControl {
    *          <p>The finding severity is based on an assessment of how easy it would be to compromise Amazon Web Services
    *          resources if the issue is detected.</p>
    */
-  SeverityRating?: SeverityRating | string;
+  SeverityRating?: SeverityRating;
 
   /**
    * @public
@@ -3560,7 +7358,7 @@ export interface EnableSecurityHubRequest {
    *          is <code>SECURITY_CONTROL</code> if you enabled Security Hub on or after February 23,
    *          2023.</p>
    */
-  ControlFindingGenerator?: ControlFindingGenerator | string;
+  ControlFindingGenerator?: ControlFindingGenerator;
 }
 
 /**
@@ -3647,7 +7445,7 @@ export interface FindingHistoryUpdateSource {
    *             </a> (by a Security Hub customer).
    *       </p>
    */
-  Type?: FindingHistoryUpdateSourceType | string;
+  Type?: FindingHistoryUpdateSourceType;
 
   /**
    * @public
@@ -3770,6 +7568,160 @@ export interface GetAdministratorAccountResponse {
    * <p>Details about an invitation.</p>
    */
   Administrator?: Invitation;
+}
+
+/**
+ * @public
+ */
+export interface GetConfigurationPolicyRequest {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration policy.
+   *         </p>
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConfigurationPolicyResponse {
+  /**
+   * @public
+   * <p>
+   *             The ARN of the configuration policy.
+   *         </p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The UUID of the configuration policy.
+   *         </p>
+   */
+  Id?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The name of the configuration policy.
+   *         </p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The description of the configuration policy.
+   *         </p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The date and time, in UTC and ISO 8601 format, that the configuration policy was last updated.
+   *         </p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * @public
+   * <p>
+   *             The date and time, in UTC and ISO 8601 format, that the configuration policy was created.
+   *         </p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * @public
+   * <p>
+   *             An object that defines how Security Hub is configured. It includes whether Security Hub is enabled or
+   *             disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls.
+   *             If the policy includes a list of security controls that are enabled, Security Hub disables all other controls (including newly released controls).
+   *             If the policy includes a list of security controls that are disabled, Security Hub enables all other controls (including
+   *             newly released controls).
+   *         </p>
+   */
+  ConfigurationPolicy?: Policy;
+}
+
+/**
+ * @public
+ */
+export interface GetConfigurationPolicyAssociationRequest {
+  /**
+   * @public
+   * <p>
+   *             The target account ID, organizational unit ID, or the root ID to retrieve the association for.
+   *         </p>
+   */
+  Target: Target | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConfigurationPolicyAssociationResponse {
+  /**
+   * @public
+   * <p>
+   *             The universally unique identifier (UUID) of a configuration policy. For self-managed behavior, the value is
+   *             <code>SELF_MANAGED_SECURITY_HUB</code>.
+   *         </p>
+   */
+  ConfigurationPolicyId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The target account ID, organizational unit ID, or the root ID for which the association is retrieved.
+   *         </p>
+   */
+  TargetId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             Specifies whether the target is an Amazon Web Services account, organizational unit, or the organization root.
+   *         </p>
+   */
+  TargetType?: TargetType;
+
+  /**
+   * @public
+   * <p>
+   *             Indicates whether the association between the specified target and the configuration was directly applied by the
+   *             Security Hub delegated administrator or inherited from a parent.
+   *         </p>
+   */
+  AssociationType?: AssociationType;
+
+  /**
+   * @public
+   * <p>
+   *             The date and time, in UTC and ISO 8601 format, that the configuration policy association was last updated.
+   *         </p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * @public
+   * <p>
+   *             The current status of the association between the specified target and the configuration.
+   *         </p>
+   */
+  AssociationStatus?: ConfigurationPolicyAssociationStatus;
+
+  /**
+   * @public
+   * <p>
+   *             The explanation for a <code>FAILED</code> value for <code>AssociationStatus</code>.
+   *         </p>
+   */
+  AssociationStatusMessage?: string;
 }
 
 /**
@@ -3975,7 +7927,7 @@ export interface SortCriterion {
    * @public
    * <p>The order used to sort findings.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 }
 
 /**
@@ -4339,6 +8291,151 @@ export interface GetMembersResponse {
 /**
  * @public
  */
+export interface GetSecurityControlDefinitionRequest {
+  /**
+   * @public
+   * <p>
+   *             The ID of the security control to retrieve the definition for. This field doesn’t accept an Amazon Resource Name (ARN).
+   *         </p>
+   */
+  SecurityControlId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RegionAvailabilityStatus = {
+  AVAILABLE: "AVAILABLE",
+  UNAVAILABLE: "UNAVAILABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type RegionAvailabilityStatus = (typeof RegionAvailabilityStatus)[keyof typeof RegionAvailabilityStatus];
+
+/**
+ * @public
+ * <p>
+ *             An object that describes a security control parameter and the options for customizing it.
+ *         </p>
+ */
+export interface ParameterDefinition {
+  /**
+   * @public
+   * <p>
+   *             Description of a control parameter.
+   *         </p>
+   */
+  Description: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *             The options for customizing a control parameter. Customization options vary based on the data type of the parameter.
+   *         </p>
+   */
+  ConfigurationOptions: ConfigurationOptions | undefined;
+}
+
+/**
+ * @public
+ * <p>
+ *          Provides metadata for a security control, including its unique standard-agnostic identifier, title, description,
+ *          severity, availability in Amazon Web Services Regions, and a link to remediation steps.
+ *       </p>
+ */
+export interface SecurityControlDefinition {
+  /**
+   * @public
+   * <p>
+   *          The unique identifier of a security control across standards. Values for this field typically consist of an
+   *          Amazon Web Service name and a number (for example, APIGateway.3). This parameter differs from
+   *          <code>SecurityControlArn</code>, which is a unique Amazon Resource Name (ARN) assigned to a control. The
+   *          ARN references the security control ID (for example, arn:aws:securityhub:eu-central-1:123456789012:security-control/APIGateway.3).
+   *       </p>
+   */
+  SecurityControlId: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *          The title of a security control.
+   *       </p>
+   */
+  Title: string | undefined;
+
+  /**
+   * @public
+   * <p> The description of a security control across standards. This typically summarizes how
+   *             Security Hub evaluates the control and the conditions under which it produces a
+   *          failed finding. This parameter doesn't reference a specific standard. </p>
+   */
+  Description: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *          A link to Security Hub documentation that explains how to remediate a failed finding for a security control.
+   *       </p>
+   */
+  RemediationUrl: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *          The severity of a security control. For more information about how Security Hub determines control severity,
+   *          see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/controls-findings-create-update.html#control-findings-severity">Assigning severity to control findings</a> in the
+   *          <i>Security Hub User Guide</i>.
+   *       </p>
+   */
+  SeverityRating: SeverityRating | undefined;
+
+  /**
+   * @public
+   * <p>
+   *          Specifies whether a security control is available in the current Amazon Web Services Region.
+   *       </p>
+   */
+  CurrentRegionAvailability: RegionAvailabilityStatus | undefined;
+
+  /**
+   * @public
+   * <p>
+   *             Security control properties that you can customize. Currently, only parameter customization is supported for select
+   *             controls. An empty array is returned for controls that don’t support custom properties.
+   *         </p>
+   */
+  CustomizableProperties?: SecurityControlProperty[];
+
+  /**
+   * @public
+   * <p>
+   *             An object that provides a security control parameter name, description, and the options for customizing it. This
+   * object is excluded for a control that doesn't support custom parameters.
+   *         </p>
+   */
+  ParameterDefinitions?: Record<string, ParameterDefinition>;
+}
+
+/**
+ * @public
+ */
+export interface GetSecurityControlDefinitionResponse {
+  /**
+   * @public
+   * <p>
+   *          Provides metadata for a security control, including its unique standard-agnostic identifier, title, description,
+   *          severity, availability in Amazon Web Services Regions, and a link to remediation steps.
+   *       </p>
+   */
+  SecurityControlDefinition: SecurityControlDefinition | undefined;
+}
+
+/**
+ * @public
+ */
 export interface InviteMembersRequest {
   /**
    * @public
@@ -4399,6 +8496,119 @@ export interface ListAutomationRulesResponse {
    * <p>
    *          A pagination token for the response.
    *       </p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListConfigurationPoliciesRequest {
+  /**
+   * @public
+   * <p>
+   *             The NextToken value that's returned from a previous paginated <code>ListConfigurationPolicies</code> request where
+   *             <code>MaxResults</code> was used but the results exceeded the value of that parameter. Pagination continues from the
+   *             <code>MaxResults</code> was used but the results exceeded the value of that parameter. Pagination continues from the
+   *             end of the previous response that returned the <code>NextToken</code> value. This value is <code>null</code> when
+   *             there are no more results to return.
+   *         </p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The maximum number of results that's returned by <code>ListConfigurationPolicies</code> in each page of the response.
+   *             When this parameter is used, <code>ListConfigurationPolicies</code> returns the specified number of results in a
+   *             single page and a <code>NextToken</code> response element. You can see the remaining results of the initial request
+   *             by sending another <code>ListConfigurationPolicies</code> request with the returned <code>NextToken</code> value. A
+   *             valid range for <code>MaxResults</code> is between 1 and 100.
+   *         </p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListConfigurationPoliciesResponse {
+  /**
+   * @public
+   * <p>
+   *             Provides metadata for each of your configuration policies.
+   *         </p>
+   */
+  ConfigurationPolicySummaries?: ConfigurationPolicySummary[];
+
+  /**
+   * @public
+   * <p>
+   *             The <code>NextToken</code> value to include in the next <code>ListConfigurationPolicies</code> request. When the
+   *             results of a <code>ListConfigurationPolicies</code> request exceed <code>MaxResults</code>, this value can be used to
+   *             retrieve the next page of results. This value is <code>null</code> when there are no more results to return.
+   *         </p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListConfigurationPolicyAssociationsRequest {
+  /**
+   * @public
+   * <p>
+   *             The <code>NextToken</code> value that's returned from a previous paginated <code>ListConfigurationPolicyAssociations</code>
+   *             request where <code>MaxResults</code> was used but the results exceeded the value of that parameter. Pagination
+   *             continues from the end of the previous response that returned the <code>NextToken</code> value. This value is <code>null</code>
+   *             when there are no more results to return.
+   *         </p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The maximum number of results that's returned by <code>ListConfigurationPolicies</code> in each page of the response.
+   *             When this parameter is used, <code>ListConfigurationPolicyAssociations</code> returns the specified number of results
+   *             in a single page and a <code>NextToken</code> response element. You can see the remaining results of the initial
+   *             request by sending another <code>ListConfigurationPolicyAssociations</code> request with the returned <code>NextToken</code>
+   *             value. A valid range for <code>MaxResults</code> is between 1 and 100.
+   *         </p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>
+   *             Options for filtering the <code>ListConfigurationPolicyAssociations</code> response. You can filter by the Amazon Resource Name (ARN) or
+   *             universally unique identifier (UUID) of a configuration, <code>AssociationType</code>, or <code>AssociationStatus</code>.
+   *         </p>
+   */
+  Filters?: AssociationFilters;
+}
+
+/**
+ * @public
+ */
+export interface ListConfigurationPolicyAssociationsResponse {
+  /**
+   * @public
+   * <p>
+   *             An object that contains the details of each configuration policy association that’s returned in a
+   *             <code>ListConfigurationPolicyAssociations</code> request.
+   *         </p>
+   */
+  ConfigurationPolicyAssociationSummaries?: ConfigurationPolicyAssociationSummary[];
+
+  /**
+   * @public
+   * <p>
+   *             The <code>NextToken</code> value to include in the next <code>ListConfigurationPolicyAssociations</code> request. When
+   *             the results of a <code>ListConfigurationPolicyAssociations</code> request exceed <code>MaxResults</code>, this value
+   *             can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.
+   *         </p>
    */
   NextToken?: string;
 }
@@ -4634,82 +8844,6 @@ export interface ListSecurityControlDefinitionsRequest {
 
 /**
  * @public
- * @enum
- */
-export const RegionAvailabilityStatus = {
-  AVAILABLE: "AVAILABLE",
-  UNAVAILABLE: "UNAVAILABLE",
-} as const;
-
-/**
- * @public
- */
-export type RegionAvailabilityStatus = (typeof RegionAvailabilityStatus)[keyof typeof RegionAvailabilityStatus];
-
-/**
- * @public
- * <p>
- *          Provides metadata for a security control, including its unique standard-agnostic identifier, title, description,
- *          severity, availability in Amazon Web Services Regions, and a link to remediation steps.
- *       </p>
- */
-export interface SecurityControlDefinition {
-  /**
-   * @public
-   * <p>
-   *          The unique identifier of a security control across standards. Values for this field typically consist of an
-   *          Amazon Web Service name and a number (for example, APIGateway.3). This parameter differs from
-   *          <code>SecurityControlArn</code>, which is a unique Amazon Resource Name (ARN) assigned to a control. The
-   *          ARN references the security control ID (for example, arn:aws:securityhub:eu-central-1:123456789012:security-control/APIGateway.3).
-   *       </p>
-   */
-  SecurityControlId: string | undefined;
-
-  /**
-   * @public
-   * <p>
-   *          The title of a security control.
-   *       </p>
-   */
-  Title: string | undefined;
-
-  /**
-   * @public
-   * <p> The description of a security control across standards. This typically summarizes how
-   *             Security Hub evaluates the control and the conditions under which it produces a
-   *          failed finding. This parameter doesn't reference a specific standard. </p>
-   */
-  Description: string | undefined;
-
-  /**
-   * @public
-   * <p>
-   *          A link to Security Hub documentation that explains how to remediate a failed finding for a security control.
-   *       </p>
-   */
-  RemediationUrl: string | undefined;
-
-  /**
-   * @public
-   * <p>
-   *          The severity of a security control. For more information about how Security Hub determines control severity,
-   *          see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/controls-findings-create-update.html#control-findings-severity">Assigning severity to control findings</a> in the
-   *          <i>Security Hub User Guide</i>.
-   *       </p>
-   */
-  SeverityRating: SeverityRating | string | undefined;
-
-  /**
-   * @public
-   * <p>
-   *          Specifies whether a security control is available in the current Amazon Web Services Region.
-   *       </p>
-   */
-  CurrentRegionAvailability: RegionAvailabilityStatus | string | undefined;
-}
-
-/**
- * @public
  */
 export interface ListSecurityControlDefinitionsResponse {
   /**
@@ -4799,7 +8933,7 @@ export interface StandardsControlAssociationSummary {
    *          The enablement status of a control in a specific standard.
    *       </p>
    */
-  AssociationStatus: AssociationStatus | string | undefined;
+  AssociationStatus: AssociationStatus | undefined;
 
   /**
    * @public
@@ -4811,13 +8945,13 @@ export interface StandardsControlAssociationSummary {
 
   /**
    * @public
-   * <p> The last time that a control's enablement status in a specified standard was updated. </p>
+   * <p>The last time that a control's enablement status in a specified standard was updated.</p>
    */
   UpdatedAt?: Date;
 
   /**
    * @public
-   * <p> The reason for updating the control's enablement status in a specified standard. </p>
+   * <p>The reason for updating a control's enablement status in a specified standard.</p>
    */
   UpdatedReason?: string;
 
@@ -4879,6 +9013,142 @@ export interface ListTagsForResourceResponse {
    */
   Tags?: Record<string, string>;
 }
+
+/**
+ * @public
+ * <p>
+ *             The request was rejected because it conflicts with the resource's availability. For example, you tried
+ *             to update a security control that's currently in the <code>UPDATING</code> state.
+ *         </p>
+ */
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  Code?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+  }
+}
+
+/**
+ * @public
+ */
+export interface StartConfigurationPolicyAssociationRequest {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration policy.
+   *         </p>
+   */
+  ConfigurationPolicyIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *             The identifier of the target account, organizational unit, or the root to associate with the specified configuration.
+   *         </p>
+   */
+  Target: Target | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartConfigurationPolicyAssociationResponse {
+  /**
+   * @public
+   * <p>
+   *             The UUID of the configuration policy.
+   *         </p>
+   */
+  ConfigurationPolicyId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The identifier of the target account, organizational unit, or the organization root with which the configuration is associated.
+   *         </p>
+   */
+  TargetId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             Indicates whether the target is an Amazon Web Services account, organizational unit, or the organization root.
+   *         </p>
+   */
+  TargetType?: TargetType;
+
+  /**
+   * @public
+   * <p>
+   *             Indicates whether the association between the specified target and the configuration was directly applied by the
+   *             Security Hub delegated administrator or inherited from a parent.
+   *         </p>
+   */
+  AssociationType?: AssociationType;
+
+  /**
+   * @public
+   * <p>
+   *             The date and time, in UTC and ISO 8601 format, that the configuration policy association was last updated.
+   *         </p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * @public
+   * <p>
+   *             The current status of the association between the specified target and the configuration.
+   *         </p>
+   */
+  AssociationStatus?: ConfigurationPolicyAssociationStatus;
+
+  /**
+   * @public
+   * <p>
+   *             An explanation for a <code>FAILED</code> value for <code>AssociationStatus</code>.
+   *         </p>
+   */
+  AssociationStatusMessage?: string;
+}
+
+/**
+ * @public
+ */
+export interface StartConfigurationPolicyDisassociationRequest {
+  /**
+   * @public
+   * <p>
+   *             The identifier of the target account, organizational unit, or the root to disassociate from the specified configuration.
+   *         </p>
+   */
+  Target?: Target;
+
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration policy.
+   *         </p>
+   */
+  ConfigurationPolicyIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartConfigurationPolicyDisassociationResponse {}
 
 /**
  * @public
@@ -4951,6 +9221,123 @@ export interface UpdateActionTargetRequest {
  * @public
  */
 export interface UpdateActionTargetResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateConfigurationPolicyRequest {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) or universally unique identifier (UUID) of the configuration policy.
+   *         </p>
+   */
+  Identifier: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *             The name of the configuration policy. Alphanumeric characters and the following ASCII characters are permitted:
+   *             <code>-, ., !, *, /</code>.
+   *         </p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The description of the configuration policy.
+   *         </p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The reason for updating the configuration policy.
+   *         </p>
+   */
+  UpdatedReason?: string;
+
+  /**
+   * @public
+   * <p>
+   *             An object that defines how Security Hub is configured. It includes whether Security Hub is enabled or
+   *             disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls.
+   *             If you provide a list of security controls that are enabled in the configuration policy, Security Hub disables all other controls (including newly
+   *             released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub
+   *             enables all other controls (including newly released controls).
+   *         </p>
+   *          <p>When updating a configuration policy, provide a complete list of standards that you want to enable and a complete list
+   *             of controls that you want to enable or disable. The updated configuration replaces the current configuration.</p>
+   */
+  ConfigurationPolicy?: Policy;
+}
+
+/**
+ * @public
+ */
+export interface UpdateConfigurationPolicyResponse {
+  /**
+   * @public
+   * <p>
+   *             The ARN of the configuration policy.
+   *         </p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The UUID of the configuration policy.
+   *         </p>
+   */
+  Id?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The name of the configuration policy.
+   *         </p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The description of the configuration policy.
+   *         </p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The date and time, in UTC and ISO 8601 format, that the configuration policy was last updated.
+   *         </p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * @public
+   * <p>
+   *             The date and time, in UTC and ISO 8601 format, that the configuration policy was created.
+   *         </p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * @public
+   * <p>
+   *             An object that defines how Security Hub is configured. It includes whether Security Hub is enabled or
+   *             disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If the request included a
+   *             list of security controls that are enabled in the configuration policy, Security Hub disables all other controls (including
+   *             newly released controls). If the request included a list of security controls that are disabled in the configuration policy,
+   *             Security Hub enables all other controls (including newly released controls).
+   *         </p>
+   */
+  ConfigurationPolicy?: Policy;
+}
 
 /**
  * @public
@@ -5044,7 +9431,7 @@ export interface UpdateFindingsRequest {
    * @public
    * <p>The updated record state for the finding.</p>
    */
-  RecordState?: RecordState | string;
+  RecordState?: RecordState;
 }
 
 /**
@@ -5092,27 +9479,77 @@ export interface UpdateInsightResponse {}
 export interface UpdateOrganizationConfigurationRequest {
   /**
    * @public
-   * <p>Whether to automatically enable Security Hub for new accounts in the organization.</p>
-   *          <p>By default, this is <code>false</code>, and new accounts are not added
-   *          automatically.</p>
-   *          <p>To automatically enable Security Hub for new accounts, set this to <code>true</code>.</p>
+   * <p>Whether to automatically enable Security Hub in new member accounts when they join the organization.</p>
+   *          <p>If set to <code>true</code>, then Security Hub is automatically enabled in new accounts. If set to <code>false</code>,
+   *            then Security Hub isn't enabled in new accounts automatically. The default value is <code>false</code>.</p>
+   *          <p>If the <code>ConfigurationType</code> of your organization is set to <code>CENTRAL</code>, then this field is set
+   *            to <code>false</code> and can't be changed in the home Region and linked Regions. However, in that case, the delegated administrator can create a configuration
+   *             policy in which Security Hub is enabled and associate the policy with new organization accounts.</p>
    */
   AutoEnable: boolean | undefined;
 
   /**
    * @public
    * <p>Whether to automatically enable Security Hub <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards-enable-disable.html">default standards</a>
-   *          for new member accounts in the organization.</p>
-   *          <p>By default, this parameter is equal to <code>DEFAULT</code>, and new member accounts are automatically enabled with default Security Hub standards.</p>
-   *          <p>To opt out of enabling default standards for new member accounts, set this parameter equal to <code>NONE</code>.</p>
+   *            in new member accounts when they join the organization.</p>
+   *          <p>The default value of this parameter is equal to <code>DEFAULT</code>.</p>
+   *          <p>If equal to <code>DEFAULT</code>, then Security Hub default standards are automatically enabled for new member
+   *            accounts. If equal to <code>NONE</code>, then default standards are not automatically enabled for new member
+   *            accounts.</p>
+   *          <p>If the <code>ConfigurationType</code> of your organization is set to <code>CENTRAL</code>, then this field is set
+   *            to <code>NONE</code> and can't be changed in the home Region and linked Regions. However, in that case, the delegated administrator can create a configuration
+   *             policy in which specific security standards are enabled and associate the policy with new organization accounts.</p>
    */
-  AutoEnableStandards?: AutoEnableStandards | string;
+  AutoEnableStandards?: AutoEnableStandards;
+
+  /**
+   * @public
+   * <p>
+   *             Provides information about the way an organization is configured in Security Hub.
+   *         </p>
+   */
+  OrganizationConfiguration?: OrganizationConfiguration;
 }
 
 /**
  * @public
  */
 export interface UpdateOrganizationConfigurationResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateSecurityControlRequest {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) or ID of the control to update.
+   *         </p>
+   */
+  SecurityControlId: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *             An object that specifies which security control parameters to update.
+   *         </p>
+   */
+  Parameters: Record<string, ParameterConfiguration> | undefined;
+
+  /**
+   * @public
+   * <p>
+   *             The most recent reason for updating the properties of the security control. This field accepts alphanumeric
+   * characters in addition to white spaces, dashes, and underscores.
+   *         </p>
+   */
+  LastUpdateReason?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSecurityControlResponse {}
 
 /**
  * @public
@@ -5138,7 +9575,7 @@ export interface UpdateSecurityHubConfigurationRequest {
    *       for a control check when the check applies to multiple enabled standards.</p>
    *          <p>For accounts that are part of an organization, this value can only be updated in the administrator account.</p>
    */
-  ControlFindingGenerator?: ControlFindingGenerator | string;
+  ControlFindingGenerator?: ControlFindingGenerator;
 }
 
 /**
@@ -5160,7 +9597,7 @@ export interface UpdateStandardsControlRequest {
    * @public
    * <p>The updated status of the security standard control.</p>
    */
-  ControlStatus?: ControlStatus | string;
+  ControlStatus?: ControlStatus;
 
   /**
    * @public

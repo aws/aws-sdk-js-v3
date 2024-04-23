@@ -10,6 +10,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
 
 import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
+import { ALL_MEMBERS, ALL_VALUES } from "../commands/utils";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
 /**
@@ -64,23 +65,26 @@ export class QueryCommand extends DynamoDBDocumentClientCommand<
   __QueryCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
-  protected readonly inputKeyNodes = [
-    {
-      key: "KeyConditions",
-      children: {
-        children: [{ key: "AttributeValueList" }],
+  protected readonly inputKeyNodes = {
+    KeyConditions: {
+      "*": {
+        AttributeValueList: ALL_MEMBERS, // set/list of AttributeValue
       },
     },
-    {
-      key: "QueryFilter",
-      children: {
-        children: [{ key: "AttributeValueList" }],
+    QueryFilter: {
+      "*": {
+        AttributeValueList: ALL_MEMBERS, // set/list of AttributeValue
       },
     },
-    { key: "ExclusiveStartKey" },
-    { key: "ExpressionAttributeValues" },
-  ];
-  protected readonly outputKeyNodes = [{ key: "Items" }, { key: "LastEvaluatedKey" }];
+    ExclusiveStartKey: ALL_VALUES, // map with AttributeValue
+    ExpressionAttributeValues: ALL_VALUES, // map with AttributeValue
+  };
+  protected readonly outputKeyNodes = {
+    Items: {
+      "*": ALL_VALUES, // map with AttributeValue
+    },
+    LastEvaluatedKey: ALL_VALUES, // map with AttributeValue
+  };
 
   protected readonly clientCommand: __QueryCommand;
   public readonly middlewareStack: MiddlewareStack<

@@ -1,23 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   ChimeSDKMessagingClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetChannelMembershipPreferencesRequest,
   GetChannelMembershipPreferencesResponse,
@@ -116,85 +108,26 @@ export interface GetChannelMembershipPreferencesCommandOutput
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
-export class GetChannelMembershipPreferencesCommand extends $Command<
-  GetChannelMembershipPreferencesCommandInput,
-  GetChannelMembershipPreferencesCommandOutput,
-  ChimeSDKMessagingClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetChannelMembershipPreferencesCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ChimeSDKMessagingClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetChannelMembershipPreferencesCommandInput, GetChannelMembershipPreferencesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetChannelMembershipPreferencesCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ChimeSDKMessagingClient";
-    const commandName = "GetChannelMembershipPreferencesCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: GetChannelMembershipPreferencesResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: GetChannelMembershipPreferencesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_GetChannelMembershipPreferencesCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetChannelMembershipPreferencesCommandOutput> {
-    return de_GetChannelMembershipPreferencesCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetChannelMembershipPreferencesCommand extends $Command
+  .classBuilder<
+    GetChannelMembershipPreferencesCommandInput,
+    GetChannelMembershipPreferencesCommandOutput,
+    ChimeSDKMessagingClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ChimeMessagingService", "GetChannelMembershipPreferences", {})
+  .n("ChimeSDKMessagingClient", "GetChannelMembershipPreferencesCommand")
+  .f(void 0, GetChannelMembershipPreferencesResponseFilterSensitiveLog)
+  .ser(se_GetChannelMembershipPreferencesCommand)
+  .de(de_GetChannelMembershipPreferencesCommand)
+  .build() {}

@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { SearchRequest, SearchResponse, SearchResponseFilterSensitiveLog } from "../models/models_4";
 import { de_SearchCommand, se_SearchCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
@@ -53,7 +45,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * // const { SageMakerClient, SearchCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
  * const input = { // SearchRequest
- *   Resource: "TrainingJob" || "Experiment" || "ExperimentTrial" || "ExperimentTrialComponent" || "Endpoint" || "ModelPackage" || "ModelPackageGroup" || "Pipeline" || "PipelineExecution" || "FeatureGroup" || "Project" || "FeatureMetadata" || "HyperParameterTuningJob" || "ModelCard" || "Model", // required
+ *   Resource: "TrainingJob" || "Experiment" || "ExperimentTrial" || "ExperimentTrialComponent" || "Endpoint" || "Model" || "ModelPackage" || "ModelPackageGroup" || "Pipeline" || "PipelineExecution" || "FeatureGroup" || "FeatureMetadata" || "Image" || "ImageVersion" || "Project" || "HyperParameterTuningJob" || "ModelCard", // required
  *   SearchExpression: { // SearchExpression
  *     Filters: [ // FilterList
  *       { // Filter
@@ -102,6 +94,12 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   CrossAccountFilterOption: "SameAccount" || "CrossAccount",
+ *   VisibilityConditions: [ // VisibilityConditionsList
+ *     { // VisibilityConditions
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new SearchCommand(input);
  * const response = await client.send(command);
@@ -118,7 +116,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //           S3ModelArtifacts: "STRING_VALUE", // required
  * //         },
  * //         TrainingJobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
- * //         SecondaryStatus: "Starting" || "LaunchingMLInstances" || "PreparingTrainingStack" || "Downloading" || "DownloadingTrainingImage" || "Training" || "Uploading" || "Stopping" || "Stopped" || "MaxRuntimeExceeded" || "Completed" || "Failed" || "Interrupted" || "MaxWaitTimeExceeded" || "Updating" || "Restarting",
+ * //         SecondaryStatus: "Starting" || "LaunchingMLInstances" || "PreparingTrainingStack" || "Downloading" || "DownloadingTrainingImage" || "Training" || "Uploading" || "Stopping" || "Stopped" || "MaxRuntimeExceeded" || "Completed" || "Failed" || "Interrupted" || "MaxWaitTimeExceeded" || "Updating" || "Restarting" || "Pending",
  * //         FailureReason: "STRING_VALUE",
  * //         HyperParameters: { // HyperParameters
  * //           "<keys>": "STRING_VALUE",
@@ -185,18 +183,18 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //           CompressionType: "GZIP" || "NONE",
  * //         },
  * //         ResourceConfig: { // ResourceConfig
- * //           InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge" || "ml.trn1n.32xlarge" || "ml.p5.48xlarge",
+ * //           InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.p4de.24xlarge" || "ml.p5.48xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge" || "ml.trn1n.32xlarge" || "ml.m6i.large" || "ml.m6i.xlarge" || "ml.m6i.2xlarge" || "ml.m6i.4xlarge" || "ml.m6i.8xlarge" || "ml.m6i.12xlarge" || "ml.m6i.16xlarge" || "ml.m6i.24xlarge" || "ml.m6i.32xlarge" || "ml.c6i.xlarge" || "ml.c6i.2xlarge" || "ml.c6i.8xlarge" || "ml.c6i.4xlarge" || "ml.c6i.12xlarge" || "ml.c6i.16xlarge" || "ml.c6i.24xlarge" || "ml.c6i.32xlarge",
  * //           InstanceCount: Number("int"),
  * //           VolumeSizeInGB: Number("int"), // required
  * //           VolumeKmsKeyId: "STRING_VALUE",
+ * //           KeepAlivePeriodInSeconds: Number("int"),
  * //           InstanceGroups: [ // InstanceGroups
  * //             { // InstanceGroup
- * //               InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge" || "ml.trn1n.32xlarge" || "ml.p5.48xlarge", // required
+ * //               InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.p4de.24xlarge" || "ml.p5.48xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge" || "ml.trn1n.32xlarge" || "ml.m6i.large" || "ml.m6i.xlarge" || "ml.m6i.2xlarge" || "ml.m6i.4xlarge" || "ml.m6i.8xlarge" || "ml.m6i.12xlarge" || "ml.m6i.16xlarge" || "ml.m6i.24xlarge" || "ml.m6i.32xlarge" || "ml.c6i.xlarge" || "ml.c6i.2xlarge" || "ml.c6i.8xlarge" || "ml.c6i.4xlarge" || "ml.c6i.12xlarge" || "ml.c6i.16xlarge" || "ml.c6i.24xlarge" || "ml.c6i.32xlarge", // required
  * //               InstanceCount: Number("int"), // required
  * //               InstanceGroupName: "STRING_VALUE", // required
  * //             },
  * //           ],
- * //           KeepAlivePeriodInSeconds: Number("int"),
  * //         },
  * //         VpcConfig: { // VpcConfig
  * //           SecurityGroupIds: [ // VpcSecurityGroupIds // required
@@ -209,6 +207,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //         StoppingCondition: { // StoppingCondition
  * //           MaxRuntimeInSeconds: Number("int"),
  * //           MaxWaitTimeInSeconds: Number("int"),
+ * //           MaxPendingTimeInSeconds: Number("int"),
  * //         },
  * //         CreationTime: new Date("TIMESTAMP"),
  * //         TrainingStartTime: new Date("TIMESTAMP"),
@@ -216,7 +215,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //         LastModifiedTime: new Date("TIMESTAMP"),
  * //         SecondaryStatusTransitions: [ // SecondaryStatusTransitions
  * //           { // SecondaryStatusTransition
- * //             Status: "Starting" || "LaunchingMLInstances" || "PreparingTrainingStack" || "Downloading" || "DownloadingTrainingImage" || "Training" || "Uploading" || "Stopping" || "Stopped" || "MaxRuntimeExceeded" || "Completed" || "Failed" || "Interrupted" || "MaxWaitTimeExceeded" || "Updating" || "Restarting", // required
+ * //             Status: "Starting" || "LaunchingMLInstances" || "PreparingTrainingStack" || "Downloading" || "DownloadingTrainingImage" || "Training" || "Uploading" || "Stopping" || "Stopped" || "MaxRuntimeExceeded" || "Completed" || "Failed" || "Interrupted" || "MaxWaitTimeExceeded" || "Updating" || "Restarting" || "Pending", // required
  * //             StartTime: new Date("TIMESTAMP"), // required
  * //             EndTime: new Date("TIMESTAMP"),
  * //             StatusMessage: "STRING_VALUE",
@@ -476,7 +475,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //               S3ModelArtifacts: "STRING_VALUE", // required
  * //             },
  * //             TrainingJobStatus: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
- * //             SecondaryStatus: "Starting" || "LaunchingMLInstances" || "PreparingTrainingStack" || "Downloading" || "DownloadingTrainingImage" || "Training" || "Uploading" || "Stopping" || "Stopped" || "MaxRuntimeExceeded" || "Completed" || "Failed" || "Interrupted" || "MaxWaitTimeExceeded" || "Updating" || "Restarting",
+ * //             SecondaryStatus: "Starting" || "LaunchingMLInstances" || "PreparingTrainingStack" || "Downloading" || "DownloadingTrainingImage" || "Training" || "Uploading" || "Stopping" || "Stopped" || "MaxRuntimeExceeded" || "Completed" || "Failed" || "Interrupted" || "MaxWaitTimeExceeded" || "Updating" || "Restarting" || "Pending",
  * //             FailureReason: "STRING_VALUE",
  * //             HyperParameters: {
  * //               "<keys>": "STRING_VALUE",
@@ -543,18 +542,18 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //               CompressionType: "GZIP" || "NONE",
  * //             },
  * //             ResourceConfig: {
- * //               InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge" || "ml.trn1n.32xlarge" || "ml.p5.48xlarge",
+ * //               InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.p4de.24xlarge" || "ml.p5.48xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge" || "ml.trn1n.32xlarge" || "ml.m6i.large" || "ml.m6i.xlarge" || "ml.m6i.2xlarge" || "ml.m6i.4xlarge" || "ml.m6i.8xlarge" || "ml.m6i.12xlarge" || "ml.m6i.16xlarge" || "ml.m6i.24xlarge" || "ml.m6i.32xlarge" || "ml.c6i.xlarge" || "ml.c6i.2xlarge" || "ml.c6i.8xlarge" || "ml.c6i.4xlarge" || "ml.c6i.12xlarge" || "ml.c6i.16xlarge" || "ml.c6i.24xlarge" || "ml.c6i.32xlarge",
  * //               InstanceCount: Number("int"),
  * //               VolumeSizeInGB: Number("int"), // required
  * //               VolumeKmsKeyId: "STRING_VALUE",
+ * //               KeepAlivePeriodInSeconds: Number("int"),
  * //               InstanceGroups: [
  * //                 {
- * //                   InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge" || "ml.trn1n.32xlarge" || "ml.p5.48xlarge", // required
+ * //                   InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.p4de.24xlarge" || "ml.p5.48xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge" || "ml.trn1n.32xlarge" || "ml.m6i.large" || "ml.m6i.xlarge" || "ml.m6i.2xlarge" || "ml.m6i.4xlarge" || "ml.m6i.8xlarge" || "ml.m6i.12xlarge" || "ml.m6i.16xlarge" || "ml.m6i.24xlarge" || "ml.m6i.32xlarge" || "ml.c6i.xlarge" || "ml.c6i.2xlarge" || "ml.c6i.8xlarge" || "ml.c6i.4xlarge" || "ml.c6i.12xlarge" || "ml.c6i.16xlarge" || "ml.c6i.24xlarge" || "ml.c6i.32xlarge", // required
  * //                   InstanceCount: Number("int"), // required
  * //                   InstanceGroupName: "STRING_VALUE", // required
  * //                 },
  * //               ],
- * //               KeepAlivePeriodInSeconds: Number("int"),
  * //             },
  * //             VpcConfig: {
  * //               SecurityGroupIds: [ // required
@@ -567,6 +566,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             StoppingCondition: {
  * //               MaxRuntimeInSeconds: Number("int"),
  * //               MaxWaitTimeInSeconds: Number("int"),
+ * //               MaxPendingTimeInSeconds: Number("int"),
  * //             },
  * //             CreationTime: new Date("TIMESTAMP"),
  * //             TrainingStartTime: new Date("TIMESTAMP"),
@@ -574,7 +574,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             LastModifiedTime: new Date("TIMESTAMP"),
  * //             SecondaryStatusTransitions: [
  * //               {
- * //                 Status: "Starting" || "LaunchingMLInstances" || "PreparingTrainingStack" || "Downloading" || "DownloadingTrainingImage" || "Training" || "Uploading" || "Stopping" || "Stopped" || "MaxRuntimeExceeded" || "Completed" || "Failed" || "Interrupted" || "MaxWaitTimeExceeded" || "Updating" || "Restarting", // required
+ * //                 Status: "Starting" || "LaunchingMLInstances" || "PreparingTrainingStack" || "Downloading" || "DownloadingTrainingImage" || "Training" || "Uploading" || "Stopping" || "Stopped" || "MaxRuntimeExceeded" || "Completed" || "Failed" || "Interrupted" || "MaxWaitTimeExceeded" || "Updating" || "Restarting" || "Pending", // required
  * //                 StartTime: new Date("TIMESTAMP"), // required
  * //                 EndTime: new Date("TIMESTAMP"),
  * //                 StatusMessage: "STRING_VALUE",
@@ -809,6 +809,11 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //               AssembleWith: "None" || "Line",
  * //               KmsKeyId: "STRING_VALUE",
  * //             },
+ * //             DataCaptureConfig: { // BatchDataCaptureConfig
+ * //               DestinationS3Uri: "STRING_VALUE", // required
+ * //               KmsKeyId: "STRING_VALUE",
+ * //               GenerateInferenceId: true || false,
+ * //             },
  * //             TransformResources: { // TransformResources
  * //               InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge", // required
  * //               InstanceCount: Number("int"), // required
@@ -831,11 +836,6 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //               RunName: "STRING_VALUE",
  * //             },
  * //             Tags: "<TagList>",
- * //             DataCaptureConfig: { // BatchDataCaptureConfig
- * //               DestinationS3Uri: "STRING_VALUE", // required
- * //               KmsKeyId: "STRING_VALUE",
- * //               GenerateInferenceId: true || false,
- * //             },
  * //           },
  * //         },
  * //         LineageGroupArn: "STRING_VALUE",
@@ -883,6 +883,14 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //               MaxConcurrency: Number("int"), // required
  * //               ProvisionedConcurrency: Number("int"),
  * //             },
+ * //             ManagedInstanceScaling: { // ProductionVariantManagedInstanceScaling
+ * //               Status: "ENABLED" || "DISABLED",
+ * //               MinInstanceCount: Number("int"),
+ * //               MaxInstanceCount: Number("int"),
+ * //             },
+ * //             RoutingConfig: { // ProductionVariantRoutingConfig
+ * //               RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM", // required
+ * //             },
  * //           },
  * //         ],
  * //         DataCaptureConfig: { // DataCaptureConfigSummary
@@ -908,6 +916,8 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             MonitoringScheduleConfig: { // MonitoringScheduleConfig
  * //               ScheduleConfig: { // ScheduleConfig
  * //                 ScheduleExpression: "STRING_VALUE", // required
+ * //                 DataAnalysisStartTime: "STRING_VALUE",
+ * //                 DataAnalysisEndTime: "STRING_VALUE",
  * //               },
  * //               MonitoringJobDefinition: { // MonitoringJobDefinition
  * //                 BaselineConfig: { // MonitoringBaselineConfig
@@ -932,6 +942,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                       ProbabilityThresholdAttribute: Number("double"),
  * //                       StartTimeOffset: "STRING_VALUE",
  * //                       EndTimeOffset: "STRING_VALUE",
+ * //                       ExcludeFeaturesAttribute: "STRING_VALUE",
  * //                     },
  * //                     BatchTransformInput: { // BatchTransformInput
  * //                       DataCapturedDestinationS3Uri: "STRING_VALUE", // required
@@ -953,6 +964,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                       ProbabilityThresholdAttribute: Number("double"),
  * //                       StartTimeOffset: "STRING_VALUE",
  * //                       EndTimeOffset: "STRING_VALUE",
+ * //                       ExcludeFeaturesAttribute: "STRING_VALUE",
  * //                     },
  * //                   },
  * //                 ],
@@ -1051,6 +1063,14 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //               MaxConcurrency: Number("int"), // required
  * //               ProvisionedConcurrency: Number("int"),
  * //             },
+ * //             ManagedInstanceScaling: {
+ * //               Status: "ENABLED" || "DISABLED",
+ * //               MinInstanceCount: Number("int"),
+ * //               MaxInstanceCount: Number("int"),
+ * //             },
+ * //             RoutingConfig: {
+ * //               RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM", // required
+ * //             },
  * //           },
  * //         ],
  * //       },
@@ -1078,18 +1098,23 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //               Framework: "STRING_VALUE",
  * //               FrameworkVersion: "STRING_VALUE",
  * //               NearestModelName: "STRING_VALUE",
+ * //               AdditionalS3DataSource: { // AdditionalS3DataSource
+ * //                 S3DataType: "S3Object" || "S3Prefix", // required
+ * //                 S3Uri: "STRING_VALUE", // required
+ * //                 CompressionType: "None" || "Gzip",
+ * //               },
  * //             },
  * //           ],
  * //           SupportedTransformInstanceTypes: [ // TransformInstanceTypes
  * //             "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge",
  * //           ],
  * //           SupportedRealtimeInferenceInstanceTypes: [ // RealtimeInferenceInstanceTypes
- * //             "ml.t2.medium" || "ml.t2.large" || "ml.t2.xlarge" || "ml.t2.2xlarge" || "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.m5d.large" || "ml.m5d.xlarge" || "ml.m5d.2xlarge" || "ml.m5d.4xlarge" || "ml.m5d.12xlarge" || "ml.m5d.24xlarge" || "ml.c4.large" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.c5.large" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5d.large" || "ml.c5d.xlarge" || "ml.c5d.2xlarge" || "ml.c5d.4xlarge" || "ml.c5d.9xlarge" || "ml.c5d.18xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.r5.large" || "ml.r5.xlarge" || "ml.r5.2xlarge" || "ml.r5.4xlarge" || "ml.r5.12xlarge" || "ml.r5.24xlarge" || "ml.r5d.large" || "ml.r5d.xlarge" || "ml.r5d.2xlarge" || "ml.r5d.4xlarge" || "ml.r5d.12xlarge" || "ml.r5d.24xlarge" || "ml.inf1.xlarge" || "ml.inf1.2xlarge" || "ml.inf1.6xlarge" || "ml.inf1.24xlarge" || "ml.c6i.large" || "ml.c6i.xlarge" || "ml.c6i.2xlarge" || "ml.c6i.4xlarge" || "ml.c6i.8xlarge" || "ml.c6i.12xlarge" || "ml.c6i.16xlarge" || "ml.c6i.24xlarge" || "ml.c6i.32xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.12xlarge" || "ml.g5.16xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.p4d.24xlarge" || "ml.c7g.large" || "ml.c7g.xlarge" || "ml.c7g.2xlarge" || "ml.c7g.4xlarge" || "ml.c7g.8xlarge" || "ml.c7g.12xlarge" || "ml.c7g.16xlarge" || "ml.m6g.large" || "ml.m6g.xlarge" || "ml.m6g.2xlarge" || "ml.m6g.4xlarge" || "ml.m6g.8xlarge" || "ml.m6g.12xlarge" || "ml.m6g.16xlarge" || "ml.m6gd.large" || "ml.m6gd.xlarge" || "ml.m6gd.2xlarge" || "ml.m6gd.4xlarge" || "ml.m6gd.8xlarge" || "ml.m6gd.12xlarge" || "ml.m6gd.16xlarge" || "ml.c6g.large" || "ml.c6g.xlarge" || "ml.c6g.2xlarge" || "ml.c6g.4xlarge" || "ml.c6g.8xlarge" || "ml.c6g.12xlarge" || "ml.c6g.16xlarge" || "ml.c6gd.large" || "ml.c6gd.xlarge" || "ml.c6gd.2xlarge" || "ml.c6gd.4xlarge" || "ml.c6gd.8xlarge" || "ml.c6gd.12xlarge" || "ml.c6gd.16xlarge" || "ml.c6gn.large" || "ml.c6gn.xlarge" || "ml.c6gn.2xlarge" || "ml.c6gn.4xlarge" || "ml.c6gn.8xlarge" || "ml.c6gn.12xlarge" || "ml.c6gn.16xlarge" || "ml.r6g.large" || "ml.r6g.xlarge" || "ml.r6g.2xlarge" || "ml.r6g.4xlarge" || "ml.r6g.8xlarge" || "ml.r6g.12xlarge" || "ml.r6g.16xlarge" || "ml.r6gd.large" || "ml.r6gd.xlarge" || "ml.r6gd.2xlarge" || "ml.r6gd.4xlarge" || "ml.r6gd.8xlarge" || "ml.r6gd.12xlarge" || "ml.r6gd.16xlarge" || "ml.p4de.24xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge" || "ml.inf2.xlarge" || "ml.inf2.8xlarge" || "ml.inf2.24xlarge" || "ml.inf2.48xlarge",
+ * //             "ml.t2.medium" || "ml.t2.large" || "ml.t2.xlarge" || "ml.t2.2xlarge" || "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.m5d.large" || "ml.m5d.xlarge" || "ml.m5d.2xlarge" || "ml.m5d.4xlarge" || "ml.m5d.12xlarge" || "ml.m5d.24xlarge" || "ml.c4.large" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.c5.large" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5d.large" || "ml.c5d.xlarge" || "ml.c5d.2xlarge" || "ml.c5d.4xlarge" || "ml.c5d.9xlarge" || "ml.c5d.18xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.r5.large" || "ml.r5.xlarge" || "ml.r5.2xlarge" || "ml.r5.4xlarge" || "ml.r5.12xlarge" || "ml.r5.24xlarge" || "ml.r5d.large" || "ml.r5d.xlarge" || "ml.r5d.2xlarge" || "ml.r5d.4xlarge" || "ml.r5d.12xlarge" || "ml.r5d.24xlarge" || "ml.inf1.xlarge" || "ml.inf1.2xlarge" || "ml.inf1.6xlarge" || "ml.inf1.24xlarge" || "ml.dl1.24xlarge" || "ml.c6i.large" || "ml.c6i.xlarge" || "ml.c6i.2xlarge" || "ml.c6i.4xlarge" || "ml.c6i.8xlarge" || "ml.c6i.12xlarge" || "ml.c6i.16xlarge" || "ml.c6i.24xlarge" || "ml.c6i.32xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.12xlarge" || "ml.g5.16xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.p4d.24xlarge" || "ml.c7g.large" || "ml.c7g.xlarge" || "ml.c7g.2xlarge" || "ml.c7g.4xlarge" || "ml.c7g.8xlarge" || "ml.c7g.12xlarge" || "ml.c7g.16xlarge" || "ml.m6g.large" || "ml.m6g.xlarge" || "ml.m6g.2xlarge" || "ml.m6g.4xlarge" || "ml.m6g.8xlarge" || "ml.m6g.12xlarge" || "ml.m6g.16xlarge" || "ml.m6gd.large" || "ml.m6gd.xlarge" || "ml.m6gd.2xlarge" || "ml.m6gd.4xlarge" || "ml.m6gd.8xlarge" || "ml.m6gd.12xlarge" || "ml.m6gd.16xlarge" || "ml.c6g.large" || "ml.c6g.xlarge" || "ml.c6g.2xlarge" || "ml.c6g.4xlarge" || "ml.c6g.8xlarge" || "ml.c6g.12xlarge" || "ml.c6g.16xlarge" || "ml.c6gd.large" || "ml.c6gd.xlarge" || "ml.c6gd.2xlarge" || "ml.c6gd.4xlarge" || "ml.c6gd.8xlarge" || "ml.c6gd.12xlarge" || "ml.c6gd.16xlarge" || "ml.c6gn.large" || "ml.c6gn.xlarge" || "ml.c6gn.2xlarge" || "ml.c6gn.4xlarge" || "ml.c6gn.8xlarge" || "ml.c6gn.12xlarge" || "ml.c6gn.16xlarge" || "ml.r6g.large" || "ml.r6g.xlarge" || "ml.r6g.2xlarge" || "ml.r6g.4xlarge" || "ml.r6g.8xlarge" || "ml.r6g.12xlarge" || "ml.r6g.16xlarge" || "ml.r6gd.large" || "ml.r6gd.xlarge" || "ml.r6gd.2xlarge" || "ml.r6gd.4xlarge" || "ml.r6gd.8xlarge" || "ml.r6gd.12xlarge" || "ml.r6gd.16xlarge" || "ml.p4de.24xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge" || "ml.trn1n.32xlarge" || "ml.inf2.xlarge" || "ml.inf2.8xlarge" || "ml.inf2.24xlarge" || "ml.inf2.48xlarge" || "ml.p5.48xlarge" || "ml.m7i.large" || "ml.m7i.xlarge" || "ml.m7i.2xlarge" || "ml.m7i.4xlarge" || "ml.m7i.8xlarge" || "ml.m7i.12xlarge" || "ml.m7i.16xlarge" || "ml.m7i.24xlarge" || "ml.m7i.48xlarge" || "ml.c7i.large" || "ml.c7i.xlarge" || "ml.c7i.2xlarge" || "ml.c7i.4xlarge" || "ml.c7i.8xlarge" || "ml.c7i.12xlarge" || "ml.c7i.16xlarge" || "ml.c7i.24xlarge" || "ml.c7i.48xlarge" || "ml.r7i.large" || "ml.r7i.xlarge" || "ml.r7i.2xlarge" || "ml.r7i.4xlarge" || "ml.r7i.8xlarge" || "ml.r7i.12xlarge" || "ml.r7i.16xlarge" || "ml.r7i.24xlarge" || "ml.r7i.48xlarge",
  * //           ],
- * //           SupportedContentTypes: [ // ContentTypes // required
+ * //           SupportedContentTypes: [ // ContentTypes
  * //             "STRING_VALUE",
  * //           ],
- * //           SupportedResponseMIMETypes: [ // ResponseMIMETypes // required
+ * //           SupportedResponseMIMETypes: [ // ResponseMIMETypes
  * //             "STRING_VALUE",
  * //           ],
  * //         },
@@ -1229,13 +1254,18 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                 Framework: "STRING_VALUE",
  * //                 FrameworkVersion: "STRING_VALUE",
  * //                 NearestModelName: "STRING_VALUE",
+ * //                 AdditionalS3DataSource: {
+ * //                   S3DataType: "S3Object" || "S3Prefix", // required
+ * //                   S3Uri: "STRING_VALUE", // required
+ * //                   CompressionType: "None" || "Gzip",
+ * //                 },
  * //               },
  * //             ],
  * //             SupportedTransformInstanceTypes: [
  * //               "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge",
  * //             ],
  * //             SupportedRealtimeInferenceInstanceTypes: [
- * //               "ml.t2.medium" || "ml.t2.large" || "ml.t2.xlarge" || "ml.t2.2xlarge" || "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.m5d.large" || "ml.m5d.xlarge" || "ml.m5d.2xlarge" || "ml.m5d.4xlarge" || "ml.m5d.12xlarge" || "ml.m5d.24xlarge" || "ml.c4.large" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.c5.large" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5d.large" || "ml.c5d.xlarge" || "ml.c5d.2xlarge" || "ml.c5d.4xlarge" || "ml.c5d.9xlarge" || "ml.c5d.18xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.r5.large" || "ml.r5.xlarge" || "ml.r5.2xlarge" || "ml.r5.4xlarge" || "ml.r5.12xlarge" || "ml.r5.24xlarge" || "ml.r5d.large" || "ml.r5d.xlarge" || "ml.r5d.2xlarge" || "ml.r5d.4xlarge" || "ml.r5d.12xlarge" || "ml.r5d.24xlarge" || "ml.inf1.xlarge" || "ml.inf1.2xlarge" || "ml.inf1.6xlarge" || "ml.inf1.24xlarge" || "ml.c6i.large" || "ml.c6i.xlarge" || "ml.c6i.2xlarge" || "ml.c6i.4xlarge" || "ml.c6i.8xlarge" || "ml.c6i.12xlarge" || "ml.c6i.16xlarge" || "ml.c6i.24xlarge" || "ml.c6i.32xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.12xlarge" || "ml.g5.16xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.p4d.24xlarge" || "ml.c7g.large" || "ml.c7g.xlarge" || "ml.c7g.2xlarge" || "ml.c7g.4xlarge" || "ml.c7g.8xlarge" || "ml.c7g.12xlarge" || "ml.c7g.16xlarge" || "ml.m6g.large" || "ml.m6g.xlarge" || "ml.m6g.2xlarge" || "ml.m6g.4xlarge" || "ml.m6g.8xlarge" || "ml.m6g.12xlarge" || "ml.m6g.16xlarge" || "ml.m6gd.large" || "ml.m6gd.xlarge" || "ml.m6gd.2xlarge" || "ml.m6gd.4xlarge" || "ml.m6gd.8xlarge" || "ml.m6gd.12xlarge" || "ml.m6gd.16xlarge" || "ml.c6g.large" || "ml.c6g.xlarge" || "ml.c6g.2xlarge" || "ml.c6g.4xlarge" || "ml.c6g.8xlarge" || "ml.c6g.12xlarge" || "ml.c6g.16xlarge" || "ml.c6gd.large" || "ml.c6gd.xlarge" || "ml.c6gd.2xlarge" || "ml.c6gd.4xlarge" || "ml.c6gd.8xlarge" || "ml.c6gd.12xlarge" || "ml.c6gd.16xlarge" || "ml.c6gn.large" || "ml.c6gn.xlarge" || "ml.c6gn.2xlarge" || "ml.c6gn.4xlarge" || "ml.c6gn.8xlarge" || "ml.c6gn.12xlarge" || "ml.c6gn.16xlarge" || "ml.r6g.large" || "ml.r6g.xlarge" || "ml.r6g.2xlarge" || "ml.r6g.4xlarge" || "ml.r6g.8xlarge" || "ml.r6g.12xlarge" || "ml.r6g.16xlarge" || "ml.r6gd.large" || "ml.r6gd.xlarge" || "ml.r6gd.2xlarge" || "ml.r6gd.4xlarge" || "ml.r6gd.8xlarge" || "ml.r6gd.12xlarge" || "ml.r6gd.16xlarge" || "ml.p4de.24xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge" || "ml.inf2.xlarge" || "ml.inf2.8xlarge" || "ml.inf2.24xlarge" || "ml.inf2.48xlarge",
+ * //               "ml.t2.medium" || "ml.t2.large" || "ml.t2.xlarge" || "ml.t2.2xlarge" || "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.m5d.large" || "ml.m5d.xlarge" || "ml.m5d.2xlarge" || "ml.m5d.4xlarge" || "ml.m5d.12xlarge" || "ml.m5d.24xlarge" || "ml.c4.large" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.c5.large" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5d.large" || "ml.c5d.xlarge" || "ml.c5d.2xlarge" || "ml.c5d.4xlarge" || "ml.c5d.9xlarge" || "ml.c5d.18xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.r5.large" || "ml.r5.xlarge" || "ml.r5.2xlarge" || "ml.r5.4xlarge" || "ml.r5.12xlarge" || "ml.r5.24xlarge" || "ml.r5d.large" || "ml.r5d.xlarge" || "ml.r5d.2xlarge" || "ml.r5d.4xlarge" || "ml.r5d.12xlarge" || "ml.r5d.24xlarge" || "ml.inf1.xlarge" || "ml.inf1.2xlarge" || "ml.inf1.6xlarge" || "ml.inf1.24xlarge" || "ml.dl1.24xlarge" || "ml.c6i.large" || "ml.c6i.xlarge" || "ml.c6i.2xlarge" || "ml.c6i.4xlarge" || "ml.c6i.8xlarge" || "ml.c6i.12xlarge" || "ml.c6i.16xlarge" || "ml.c6i.24xlarge" || "ml.c6i.32xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.12xlarge" || "ml.g5.16xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.p4d.24xlarge" || "ml.c7g.large" || "ml.c7g.xlarge" || "ml.c7g.2xlarge" || "ml.c7g.4xlarge" || "ml.c7g.8xlarge" || "ml.c7g.12xlarge" || "ml.c7g.16xlarge" || "ml.m6g.large" || "ml.m6g.xlarge" || "ml.m6g.2xlarge" || "ml.m6g.4xlarge" || "ml.m6g.8xlarge" || "ml.m6g.12xlarge" || "ml.m6g.16xlarge" || "ml.m6gd.large" || "ml.m6gd.xlarge" || "ml.m6gd.2xlarge" || "ml.m6gd.4xlarge" || "ml.m6gd.8xlarge" || "ml.m6gd.12xlarge" || "ml.m6gd.16xlarge" || "ml.c6g.large" || "ml.c6g.xlarge" || "ml.c6g.2xlarge" || "ml.c6g.4xlarge" || "ml.c6g.8xlarge" || "ml.c6g.12xlarge" || "ml.c6g.16xlarge" || "ml.c6gd.large" || "ml.c6gd.xlarge" || "ml.c6gd.2xlarge" || "ml.c6gd.4xlarge" || "ml.c6gd.8xlarge" || "ml.c6gd.12xlarge" || "ml.c6gd.16xlarge" || "ml.c6gn.large" || "ml.c6gn.xlarge" || "ml.c6gn.2xlarge" || "ml.c6gn.4xlarge" || "ml.c6gn.8xlarge" || "ml.c6gn.12xlarge" || "ml.c6gn.16xlarge" || "ml.r6g.large" || "ml.r6g.xlarge" || "ml.r6g.2xlarge" || "ml.r6g.4xlarge" || "ml.r6g.8xlarge" || "ml.r6g.12xlarge" || "ml.r6g.16xlarge" || "ml.r6gd.large" || "ml.r6gd.xlarge" || "ml.r6gd.2xlarge" || "ml.r6gd.4xlarge" || "ml.r6gd.8xlarge" || "ml.r6gd.12xlarge" || "ml.r6gd.16xlarge" || "ml.p4de.24xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge" || "ml.trn1n.32xlarge" || "ml.inf2.xlarge" || "ml.inf2.8xlarge" || "ml.inf2.24xlarge" || "ml.inf2.48xlarge" || "ml.p5.48xlarge" || "ml.m7i.large" || "ml.m7i.xlarge" || "ml.m7i.2xlarge" || "ml.m7i.4xlarge" || "ml.m7i.8xlarge" || "ml.m7i.12xlarge" || "ml.m7i.16xlarge" || "ml.m7i.24xlarge" || "ml.m7i.48xlarge" || "ml.c7i.large" || "ml.c7i.xlarge" || "ml.c7i.2xlarge" || "ml.c7i.4xlarge" || "ml.c7i.8xlarge" || "ml.c7i.12xlarge" || "ml.c7i.16xlarge" || "ml.c7i.24xlarge" || "ml.c7i.48xlarge" || "ml.r7i.large" || "ml.r7i.xlarge" || "ml.r7i.2xlarge" || "ml.r7i.4xlarge" || "ml.r7i.8xlarge" || "ml.r7i.12xlarge" || "ml.r7i.16xlarge" || "ml.r7i.24xlarge" || "ml.r7i.48xlarge",
  * //             ],
  * //             SupportedContentTypes: [
  * //               "STRING_VALUE",
@@ -1276,6 +1306,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             Constraints: "<MetricsSource>",
  * //           },
  * //         },
+ * //         SkipModelValidation: "All" || "None",
  * //       },
  * //       ModelPackageGroup: { // ModelPackageGroup
  * //         ModelPackageGroupName: "STRING_VALUE",
@@ -1292,7 +1323,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //         PipelineDisplayName: "STRING_VALUE",
  * //         PipelineDescription: "STRING_VALUE",
  * //         RoleArn: "STRING_VALUE",
- * //         PipelineStatus: "Active",
+ * //         PipelineStatus: "Active" || "Deleting",
  * //         CreationTime: new Date("TIMESTAMP"),
  * //         LastModifiedTime: new Date("TIMESTAMP"),
  * //         LastRunTime: new Date("TIMESTAMP"),
@@ -1321,20 +1352,20 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //         ParallelismConfiguration: {
  * //           MaxParallelExecutionSteps: Number("int"), // required
  * //         },
- * //         PipelineParameters: [ // ParameterList
- * //           { // Parameter
- * //             Name: "STRING_VALUE", // required
- * //             Value: "STRING_VALUE", // required
- * //           },
- * //         ],
  * //         SelectiveExecutionConfig: { // SelectiveExecutionConfig
- * //           SourcePipelineExecutionArn: "STRING_VALUE", // required
+ * //           SourcePipelineExecutionArn: "STRING_VALUE",
  * //           SelectedSteps: [ // SelectedStepList // required
  * //             { // SelectedStep
  * //               StepName: "STRING_VALUE", // required
  * //             },
  * //           ],
  * //         },
+ * //         PipelineParameters: [ // ParameterList
+ * //           { // Parameter
+ * //             Name: "STRING_VALUE", // required
+ * //             Value: "STRING_VALUE", // required
+ * //           },
+ * //         ],
  * //       },
  * //       FeatureGroup: { // FeatureGroup
  * //         FeatureGroupArn: "STRING_VALUE",
@@ -1343,8 +1374,14 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //         EventTimeFeatureName: "STRING_VALUE",
  * //         FeatureDefinitions: [ // FeatureDefinitions
  * //           { // FeatureDefinition
- * //             FeatureName: "STRING_VALUE",
- * //             FeatureType: "Integral" || "Fractional" || "String",
+ * //             FeatureName: "STRING_VALUE", // required
+ * //             FeatureType: "Integral" || "Fractional" || "String", // required
+ * //             CollectionType: "List" || "Set" || "Vector",
+ * //             CollectionConfig: { // CollectionConfig Union: only one key present
+ * //               VectorConfig: { // VectorConfig
+ * //                 Dimension: Number("int"), // required
+ * //               },
+ * //             },
  * //           },
  * //         ],
  * //         CreationTime: new Date("TIMESTAMP"),
@@ -1358,6 +1395,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             Unit: "Seconds" || "Minutes" || "Hours" || "Days" || "Weeks",
  * //             Value: Number("int"),
  * //           },
+ * //           StorageType: "Standard" || "InMemory",
  * //         },
  * //         OfflineStoreConfig: { // OfflineStoreConfig
  * //           S3StorageConfig: { // S3StorageConfig
@@ -1371,7 +1409,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             Catalog: "STRING_VALUE", // required
  * //             Database: "STRING_VALUE", // required
  * //           },
- * //           TableFormat: "Glue" || "Iceberg",
+ * //           TableFormat: "Default" || "Glue" || "Iceberg",
  * //         },
  * //         RoleArn: "STRING_VALUE",
  * //         FeatureGroupStatus: "Creating" || "Created" || "CreateFailed" || "Deleting" || "DeleteFailed",
@@ -1386,6 +1424,21 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //         FailureReason: "STRING_VALUE",
  * //         Description: "STRING_VALUE",
  * //         Tags: "<TagList>",
+ * //       },
+ * //       FeatureMetadata: { // FeatureMetadata
+ * //         FeatureGroupArn: "STRING_VALUE",
+ * //         FeatureGroupName: "STRING_VALUE",
+ * //         FeatureName: "STRING_VALUE",
+ * //         FeatureType: "Integral" || "Fractional" || "String",
+ * //         CreationTime: new Date("TIMESTAMP"),
+ * //         LastModifiedTime: new Date("TIMESTAMP"),
+ * //         Description: "STRING_VALUE",
+ * //         Parameters: [ // FeatureParameters
+ * //           { // FeatureParameter
+ * //             Key: "STRING_VALUE",
+ * //             Value: "STRING_VALUE",
+ * //           },
+ * //         ],
  * //       },
  * //       Project: { // Project
  * //         ProjectArn: "STRING_VALUE",
@@ -1413,21 +1466,6 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //         Tags: "<TagList>",
  * //         LastModifiedTime: new Date("TIMESTAMP"),
  * //         LastModifiedBy: "<UserContext>",
- * //       },
- * //       FeatureMetadata: { // FeatureMetadata
- * //         FeatureGroupArn: "STRING_VALUE",
- * //         FeatureGroupName: "STRING_VALUE",
- * //         FeatureName: "STRING_VALUE",
- * //         FeatureType: "Integral" || "Fractional" || "String",
- * //         CreationTime: new Date("TIMESTAMP"),
- * //         LastModifiedTime: new Date("TIMESTAMP"),
- * //         Description: "STRING_VALUE",
- * //         Parameters: [ // FeatureParameters
- * //           { // FeatureParameter
- * //             Key: "STRING_VALUE",
- * //             Value: "STRING_VALUE",
- * //           },
- * //         ],
  * //       },
  * //       HyperParameterTuningJob: { // HyperParameterTuningJobSearchEntity
  * //         HyperParameterTuningJobName: "STRING_VALUE",
@@ -1543,26 +1581,26 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //           VpcConfig: "<VpcConfig>",
  * //           OutputDataConfig: "<OutputDataConfig>", // required
  * //           ResourceConfig: "<ResourceConfig>",
- * //           StoppingCondition: "<StoppingCondition>", // required
- * //           EnableNetworkIsolation: true || false,
- * //           EnableInterContainerTrafficEncryption: true || false,
- * //           EnableManagedSpotTraining: true || false,
- * //           CheckpointConfig: "<CheckpointConfig>",
- * //           RetryStrategy: "<RetryStrategy>",
  * //           HyperParameterTuningResourceConfig: { // HyperParameterTuningResourceConfig
- * //             InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge" || "ml.trn1n.32xlarge" || "ml.p5.48xlarge",
+ * //             InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.p4de.24xlarge" || "ml.p5.48xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge" || "ml.trn1n.32xlarge" || "ml.m6i.large" || "ml.m6i.xlarge" || "ml.m6i.2xlarge" || "ml.m6i.4xlarge" || "ml.m6i.8xlarge" || "ml.m6i.12xlarge" || "ml.m6i.16xlarge" || "ml.m6i.24xlarge" || "ml.m6i.32xlarge" || "ml.c6i.xlarge" || "ml.c6i.2xlarge" || "ml.c6i.8xlarge" || "ml.c6i.4xlarge" || "ml.c6i.12xlarge" || "ml.c6i.16xlarge" || "ml.c6i.24xlarge" || "ml.c6i.32xlarge",
  * //             InstanceCount: Number("int"),
  * //             VolumeSizeInGB: Number("int"),
  * //             VolumeKmsKeyId: "STRING_VALUE",
  * //             AllocationStrategy: "Prioritized",
  * //             InstanceConfigs: [ // HyperParameterTuningInstanceConfigs
  * //               { // HyperParameterTuningInstanceConfig
- * //                 InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge" || "ml.trn1n.32xlarge" || "ml.p5.48xlarge", // required
+ * //                 InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.p4de.24xlarge" || "ml.p5.48xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge" || "ml.trn1n.32xlarge" || "ml.m6i.large" || "ml.m6i.xlarge" || "ml.m6i.2xlarge" || "ml.m6i.4xlarge" || "ml.m6i.8xlarge" || "ml.m6i.12xlarge" || "ml.m6i.16xlarge" || "ml.m6i.24xlarge" || "ml.m6i.32xlarge" || "ml.c6i.xlarge" || "ml.c6i.2xlarge" || "ml.c6i.8xlarge" || "ml.c6i.4xlarge" || "ml.c6i.12xlarge" || "ml.c6i.16xlarge" || "ml.c6i.24xlarge" || "ml.c6i.32xlarge", // required
  * //                 InstanceCount: Number("int"), // required
  * //                 VolumeSizeInGB: Number("int"), // required
  * //               },
  * //             ],
  * //           },
+ * //           StoppingCondition: "<StoppingCondition>", // required
+ * //           EnableNetworkIsolation: true || false,
+ * //           EnableInterContainerTrafficEncryption: true || false,
+ * //           EnableManagedSpotTraining: true || false,
+ * //           CheckpointConfig: "<CheckpointConfig>",
+ * //           RetryStrategy: "<RetryStrategy>",
  * //           Environment: { // HyperParameterTrainingJobEnvironmentMap
  * //             "<keys>": "STRING_VALUE",
  * //           },
@@ -1618,32 +1656,32 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             VpcConfig: "<VpcConfig>",
  * //             OutputDataConfig: "<OutputDataConfig>", // required
  * //             ResourceConfig: "<ResourceConfig>",
- * //             StoppingCondition: "<StoppingCondition>", // required
- * //             EnableNetworkIsolation: true || false,
- * //             EnableInterContainerTrafficEncryption: true || false,
- * //             EnableManagedSpotTraining: true || false,
- * //             CheckpointConfig: "<CheckpointConfig>",
- * //             RetryStrategy: "<RetryStrategy>",
  * //             HyperParameterTuningResourceConfig: {
- * //               InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge" || "ml.trn1n.32xlarge" || "ml.p5.48xlarge",
+ * //               InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.p4de.24xlarge" || "ml.p5.48xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge" || "ml.trn1n.32xlarge" || "ml.m6i.large" || "ml.m6i.xlarge" || "ml.m6i.2xlarge" || "ml.m6i.4xlarge" || "ml.m6i.8xlarge" || "ml.m6i.12xlarge" || "ml.m6i.16xlarge" || "ml.m6i.24xlarge" || "ml.m6i.32xlarge" || "ml.c6i.xlarge" || "ml.c6i.2xlarge" || "ml.c6i.8xlarge" || "ml.c6i.4xlarge" || "ml.c6i.12xlarge" || "ml.c6i.16xlarge" || "ml.c6i.24xlarge" || "ml.c6i.32xlarge",
  * //               InstanceCount: Number("int"),
  * //               VolumeSizeInGB: Number("int"),
  * //               VolumeKmsKeyId: "STRING_VALUE",
  * //               AllocationStrategy: "Prioritized",
  * //               InstanceConfigs: [
  * //                 {
- * //                   InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge" || "ml.trn1n.32xlarge" || "ml.p5.48xlarge", // required
+ * //                   InstanceType: "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.p3dn.24xlarge" || "ml.p4d.24xlarge" || "ml.p4de.24xlarge" || "ml.p5.48xlarge" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5n.xlarge" || "ml.c5n.2xlarge" || "ml.c5n.4xlarge" || "ml.c5n.9xlarge" || "ml.c5n.18xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.16xlarge" || "ml.g5.12xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge" || "ml.trn1n.32xlarge" || "ml.m6i.large" || "ml.m6i.xlarge" || "ml.m6i.2xlarge" || "ml.m6i.4xlarge" || "ml.m6i.8xlarge" || "ml.m6i.12xlarge" || "ml.m6i.16xlarge" || "ml.m6i.24xlarge" || "ml.m6i.32xlarge" || "ml.c6i.xlarge" || "ml.c6i.2xlarge" || "ml.c6i.8xlarge" || "ml.c6i.4xlarge" || "ml.c6i.12xlarge" || "ml.c6i.16xlarge" || "ml.c6i.24xlarge" || "ml.c6i.32xlarge", // required
  * //                   InstanceCount: Number("int"), // required
  * //                   VolumeSizeInGB: Number("int"), // required
  * //                 },
  * //               ],
  * //             },
+ * //             StoppingCondition: "<StoppingCondition>", // required
+ * //             EnableNetworkIsolation: true || false,
+ * //             EnableInterContainerTrafficEncryption: true || false,
+ * //             EnableManagedSpotTraining: true || false,
+ * //             CheckpointConfig: "<CheckpointConfig>",
+ * //             RetryStrategy: "<RetryStrategy>",
  * //             Environment: {
  * //               "<keys>": "STRING_VALUE",
  * //             },
  * //           },
  * //         ],
- * //         HyperParameterTuningJobStatus: "Completed" || "InProgress" || "Failed" || "Stopped" || "Stopping",
+ * //         HyperParameterTuningJobStatus: "Completed" || "InProgress" || "Failed" || "Stopped" || "Stopping" || "Deleting" || "DeleteFailed",
  * //         CreationTime: new Date("TIMESTAMP"),
  * //         HyperParameterTuningEndTime: new Date("TIMESTAMP"),
  * //         LastModifiedTime: new Date("TIMESTAMP"),
@@ -1704,7 +1742,6 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //           WarmStartType: "IdenticalDataAndAlgorithm" || "TransferLearning", // required
  * //         },
  * //         FailureReason: "STRING_VALUE",
- * //         Tags: "<TagList>",
  * //         TuningJobCompletionDetails: { // HyperParameterTuningJobCompletionDetails
  * //           NumberOfTrainingJobsObjectiveNotImproving: Number("int"),
  * //           ConvergenceDetectedTime: new Date("TIMESTAMP"),
@@ -1712,6 +1749,25 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //         ConsumedResources: { // HyperParameterTuningJobConsumedResources
  * //           RuntimeInSeconds: Number("int"),
  * //         },
+ * //         Tags: "<TagList>",
+ * //       },
+ * //       ModelCard: { // ModelCard
+ * //         ModelCardArn: "STRING_VALUE",
+ * //         ModelCardName: "STRING_VALUE",
+ * //         ModelCardVersion: Number("int"),
+ * //         Content: "STRING_VALUE",
+ * //         ModelCardStatus: "Draft" || "PendingReview" || "Approved" || "Archived",
+ * //         SecurityConfig: { // ModelCardSecurityConfig
+ * //           KmsKeyId: "STRING_VALUE",
+ * //         },
+ * //         CreationTime: new Date("TIMESTAMP"),
+ * //         CreatedBy: "<UserContext>",
+ * //         LastModifiedTime: new Date("TIMESTAMP"),
+ * //         LastModifiedBy: "<UserContext>",
+ * //         Tags: "<TagList>",
+ * //         ModelId: "STRING_VALUE",
+ * //         RiskRating: "STRING_VALUE",
+ * //         ModelPackageGroupName: "STRING_VALUE",
  * //       },
  * //       Model: { // ModelDashboardModel
  * //         Model: { // Model
@@ -1727,18 +1783,21 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             },
  * //             Mode: "SingleModel" || "MultiModel",
  * //             ModelDataUrl: "STRING_VALUE",
- * //             Environment: "<EnvironmentMap>",
- * //             ModelPackageName: "STRING_VALUE",
- * //             InferenceSpecificationName: "STRING_VALUE",
- * //             MultiModelConfig: { // MultiModelConfig
- * //               ModelCacheSetting: "Enabled" || "Disabled",
- * //             },
  * //             ModelDataSource: { // ModelDataSource
  * //               S3DataSource: { // S3ModelDataSource
  * //                 S3Uri: "STRING_VALUE", // required
  * //                 S3DataType: "S3Prefix" || "S3Object", // required
  * //                 CompressionType: "None" || "Gzip", // required
+ * //                 ModelAccessConfig: { // ModelAccessConfig
+ * //                   AcceptEula: true || false, // required
+ * //                 },
  * //               },
+ * //             },
+ * //             Environment: "<EnvironmentMap>",
+ * //             ModelPackageName: "STRING_VALUE",
+ * //             InferenceSpecificationName: "STRING_VALUE",
+ * //             MultiModelConfig: { // MultiModelConfig
+ * //               ModelCacheSetting: "Enabled" || "Disabled",
  * //             },
  * //           },
  * //           Containers: [ // ContainerDefinitionList
@@ -1753,18 +1812,21 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //               },
  * //               Mode: "SingleModel" || "MultiModel",
  * //               ModelDataUrl: "STRING_VALUE",
- * //               Environment: "<EnvironmentMap>",
- * //               ModelPackageName: "STRING_VALUE",
- * //               InferenceSpecificationName: "STRING_VALUE",
- * //               MultiModelConfig: {
- * //                 ModelCacheSetting: "Enabled" || "Disabled",
- * //               },
  * //               ModelDataSource: {
  * //                 S3DataSource: {
  * //                   S3Uri: "STRING_VALUE", // required
  * //                   S3DataType: "S3Prefix" || "S3Object", // required
  * //                   CompressionType: "None" || "Gzip", // required
+ * //                   ModelAccessConfig: {
+ * //                     AcceptEula: true || false, // required
+ * //                   },
  * //                 },
+ * //               },
+ * //               Environment: "<EnvironmentMap>",
+ * //               ModelPackageName: "STRING_VALUE",
+ * //               InferenceSpecificationName: "STRING_VALUE",
+ * //               MultiModelConfig: {
+ * //                 ModelCacheSetting: "Enabled" || "Disabled",
  * //               },
  * //             },
  * //           ],
@@ -1782,7 +1844,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             RealTimeInferenceRecommendations: [ // RealTimeInferenceRecommendations
  * //               { // RealTimeInferenceRecommendation
  * //                 RecommendationId: "STRING_VALUE", // required
- * //                 InstanceType: "ml.t2.medium" || "ml.t2.large" || "ml.t2.xlarge" || "ml.t2.2xlarge" || "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.m5d.large" || "ml.m5d.xlarge" || "ml.m5d.2xlarge" || "ml.m5d.4xlarge" || "ml.m5d.12xlarge" || "ml.m5d.24xlarge" || "ml.c4.large" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.c5.large" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5d.large" || "ml.c5d.xlarge" || "ml.c5d.2xlarge" || "ml.c5d.4xlarge" || "ml.c5d.9xlarge" || "ml.c5d.18xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.r5.large" || "ml.r5.xlarge" || "ml.r5.2xlarge" || "ml.r5.4xlarge" || "ml.r5.12xlarge" || "ml.r5.24xlarge" || "ml.r5d.large" || "ml.r5d.xlarge" || "ml.r5d.2xlarge" || "ml.r5d.4xlarge" || "ml.r5d.12xlarge" || "ml.r5d.24xlarge" || "ml.inf1.xlarge" || "ml.inf1.2xlarge" || "ml.inf1.6xlarge" || "ml.inf1.24xlarge" || "ml.c6i.large" || "ml.c6i.xlarge" || "ml.c6i.2xlarge" || "ml.c6i.4xlarge" || "ml.c6i.8xlarge" || "ml.c6i.12xlarge" || "ml.c6i.16xlarge" || "ml.c6i.24xlarge" || "ml.c6i.32xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.12xlarge" || "ml.g5.16xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.p4d.24xlarge" || "ml.c7g.large" || "ml.c7g.xlarge" || "ml.c7g.2xlarge" || "ml.c7g.4xlarge" || "ml.c7g.8xlarge" || "ml.c7g.12xlarge" || "ml.c7g.16xlarge" || "ml.m6g.large" || "ml.m6g.xlarge" || "ml.m6g.2xlarge" || "ml.m6g.4xlarge" || "ml.m6g.8xlarge" || "ml.m6g.12xlarge" || "ml.m6g.16xlarge" || "ml.m6gd.large" || "ml.m6gd.xlarge" || "ml.m6gd.2xlarge" || "ml.m6gd.4xlarge" || "ml.m6gd.8xlarge" || "ml.m6gd.12xlarge" || "ml.m6gd.16xlarge" || "ml.c6g.large" || "ml.c6g.xlarge" || "ml.c6g.2xlarge" || "ml.c6g.4xlarge" || "ml.c6g.8xlarge" || "ml.c6g.12xlarge" || "ml.c6g.16xlarge" || "ml.c6gd.large" || "ml.c6gd.xlarge" || "ml.c6gd.2xlarge" || "ml.c6gd.4xlarge" || "ml.c6gd.8xlarge" || "ml.c6gd.12xlarge" || "ml.c6gd.16xlarge" || "ml.c6gn.large" || "ml.c6gn.xlarge" || "ml.c6gn.2xlarge" || "ml.c6gn.4xlarge" || "ml.c6gn.8xlarge" || "ml.c6gn.12xlarge" || "ml.c6gn.16xlarge" || "ml.r6g.large" || "ml.r6g.xlarge" || "ml.r6g.2xlarge" || "ml.r6g.4xlarge" || "ml.r6g.8xlarge" || "ml.r6g.12xlarge" || "ml.r6g.16xlarge" || "ml.r6gd.large" || "ml.r6gd.xlarge" || "ml.r6gd.2xlarge" || "ml.r6gd.4xlarge" || "ml.r6gd.8xlarge" || "ml.r6gd.12xlarge" || "ml.r6gd.16xlarge" || "ml.p4de.24xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge" || "ml.inf2.xlarge" || "ml.inf2.8xlarge" || "ml.inf2.24xlarge" || "ml.inf2.48xlarge", // required
+ * //                 InstanceType: "ml.t2.medium" || "ml.t2.large" || "ml.t2.xlarge" || "ml.t2.2xlarge" || "ml.m4.xlarge" || "ml.m4.2xlarge" || "ml.m4.4xlarge" || "ml.m4.10xlarge" || "ml.m4.16xlarge" || "ml.m5.large" || "ml.m5.xlarge" || "ml.m5.2xlarge" || "ml.m5.4xlarge" || "ml.m5.12xlarge" || "ml.m5.24xlarge" || "ml.m5d.large" || "ml.m5d.xlarge" || "ml.m5d.2xlarge" || "ml.m5d.4xlarge" || "ml.m5d.12xlarge" || "ml.m5d.24xlarge" || "ml.c4.large" || "ml.c4.xlarge" || "ml.c4.2xlarge" || "ml.c4.4xlarge" || "ml.c4.8xlarge" || "ml.p2.xlarge" || "ml.p2.8xlarge" || "ml.p2.16xlarge" || "ml.p3.2xlarge" || "ml.p3.8xlarge" || "ml.p3.16xlarge" || "ml.c5.large" || "ml.c5.xlarge" || "ml.c5.2xlarge" || "ml.c5.4xlarge" || "ml.c5.9xlarge" || "ml.c5.18xlarge" || "ml.c5d.large" || "ml.c5d.xlarge" || "ml.c5d.2xlarge" || "ml.c5d.4xlarge" || "ml.c5d.9xlarge" || "ml.c5d.18xlarge" || "ml.g4dn.xlarge" || "ml.g4dn.2xlarge" || "ml.g4dn.4xlarge" || "ml.g4dn.8xlarge" || "ml.g4dn.12xlarge" || "ml.g4dn.16xlarge" || "ml.r5.large" || "ml.r5.xlarge" || "ml.r5.2xlarge" || "ml.r5.4xlarge" || "ml.r5.12xlarge" || "ml.r5.24xlarge" || "ml.r5d.large" || "ml.r5d.xlarge" || "ml.r5d.2xlarge" || "ml.r5d.4xlarge" || "ml.r5d.12xlarge" || "ml.r5d.24xlarge" || "ml.inf1.xlarge" || "ml.inf1.2xlarge" || "ml.inf1.6xlarge" || "ml.inf1.24xlarge" || "ml.dl1.24xlarge" || "ml.c6i.large" || "ml.c6i.xlarge" || "ml.c6i.2xlarge" || "ml.c6i.4xlarge" || "ml.c6i.8xlarge" || "ml.c6i.12xlarge" || "ml.c6i.16xlarge" || "ml.c6i.24xlarge" || "ml.c6i.32xlarge" || "ml.g5.xlarge" || "ml.g5.2xlarge" || "ml.g5.4xlarge" || "ml.g5.8xlarge" || "ml.g5.12xlarge" || "ml.g5.16xlarge" || "ml.g5.24xlarge" || "ml.g5.48xlarge" || "ml.p4d.24xlarge" || "ml.c7g.large" || "ml.c7g.xlarge" || "ml.c7g.2xlarge" || "ml.c7g.4xlarge" || "ml.c7g.8xlarge" || "ml.c7g.12xlarge" || "ml.c7g.16xlarge" || "ml.m6g.large" || "ml.m6g.xlarge" || "ml.m6g.2xlarge" || "ml.m6g.4xlarge" || "ml.m6g.8xlarge" || "ml.m6g.12xlarge" || "ml.m6g.16xlarge" || "ml.m6gd.large" || "ml.m6gd.xlarge" || "ml.m6gd.2xlarge" || "ml.m6gd.4xlarge" || "ml.m6gd.8xlarge" || "ml.m6gd.12xlarge" || "ml.m6gd.16xlarge" || "ml.c6g.large" || "ml.c6g.xlarge" || "ml.c6g.2xlarge" || "ml.c6g.4xlarge" || "ml.c6g.8xlarge" || "ml.c6g.12xlarge" || "ml.c6g.16xlarge" || "ml.c6gd.large" || "ml.c6gd.xlarge" || "ml.c6gd.2xlarge" || "ml.c6gd.4xlarge" || "ml.c6gd.8xlarge" || "ml.c6gd.12xlarge" || "ml.c6gd.16xlarge" || "ml.c6gn.large" || "ml.c6gn.xlarge" || "ml.c6gn.2xlarge" || "ml.c6gn.4xlarge" || "ml.c6gn.8xlarge" || "ml.c6gn.12xlarge" || "ml.c6gn.16xlarge" || "ml.r6g.large" || "ml.r6g.xlarge" || "ml.r6g.2xlarge" || "ml.r6g.4xlarge" || "ml.r6g.8xlarge" || "ml.r6g.12xlarge" || "ml.r6g.16xlarge" || "ml.r6gd.large" || "ml.r6gd.xlarge" || "ml.r6gd.2xlarge" || "ml.r6gd.4xlarge" || "ml.r6gd.8xlarge" || "ml.r6gd.12xlarge" || "ml.r6gd.16xlarge" || "ml.p4de.24xlarge" || "ml.trn1.2xlarge" || "ml.trn1.32xlarge" || "ml.trn1n.32xlarge" || "ml.inf2.xlarge" || "ml.inf2.8xlarge" || "ml.inf2.24xlarge" || "ml.inf2.48xlarge" || "ml.p5.48xlarge" || "ml.m7i.large" || "ml.m7i.xlarge" || "ml.m7i.2xlarge" || "ml.m7i.4xlarge" || "ml.m7i.8xlarge" || "ml.m7i.12xlarge" || "ml.m7i.16xlarge" || "ml.m7i.24xlarge" || "ml.m7i.48xlarge" || "ml.c7i.large" || "ml.c7i.xlarge" || "ml.c7i.2xlarge" || "ml.c7i.4xlarge" || "ml.c7i.8xlarge" || "ml.c7i.12xlarge" || "ml.c7i.16xlarge" || "ml.c7i.24xlarge" || "ml.c7i.48xlarge" || "ml.r7i.large" || "ml.r7i.xlarge" || "ml.r7i.2xlarge" || "ml.r7i.4xlarge" || "ml.r7i.8xlarge" || "ml.r7i.12xlarge" || "ml.r7i.16xlarge" || "ml.r7i.24xlarge" || "ml.r7i.48xlarge", // required
  * //                 Environment: "<EnvironmentMap>",
  * //               },
  * //             ],
@@ -1813,6 +1875,11 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //           Environment: "<TransformEnvironmentMap>",
  * //           TransformInput: "<TransformInput>",
  * //           TransformOutput: "<TransformOutput>",
+ * //           DataCaptureConfig: {
+ * //             DestinationS3Uri: "STRING_VALUE", // required
+ * //             KmsKeyId: "STRING_VALUE",
+ * //             GenerateInferenceId: true || false,
+ * //           },
  * //           TransformResources: "<TransformResources>",
  * //           CreationTime: new Date("TIMESTAMP"),
  * //           TransformStartTime: new Date("TIMESTAMP"),
@@ -1826,11 +1893,6 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //           },
  * //           ExperimentConfig: "<ExperimentConfig>",
  * //           Tags: "<TagList>",
- * //           DataCaptureConfig: {
- * //             DestinationS3Uri: "STRING_VALUE", // required
- * //             KmsKeyId: "STRING_VALUE",
- * //             GenerateInferenceId: true || false,
- * //           },
  * //         },
  * //         MonitoringSchedules: [ // ModelDashboardMonitoringSchedules
  * //           { // ModelDashboardMonitoringSchedule
@@ -1844,6 +1906,8 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             MonitoringScheduleConfig: {
  * //               ScheduleConfig: {
  * //                 ScheduleExpression: "STRING_VALUE", // required
+ * //                 DataAnalysisStartTime: "STRING_VALUE",
+ * //                 DataAnalysisEndTime: "STRING_VALUE",
  * //               },
  * //               MonitoringJobDefinition: {
  * //                 BaselineConfig: {
@@ -1868,6 +1932,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                       ProbabilityThresholdAttribute: Number("double"),
  * //                       StartTimeOffset: "STRING_VALUE",
  * //                       EndTimeOffset: "STRING_VALUE",
+ * //                       ExcludeFeaturesAttribute: "STRING_VALUE",
  * //                     },
  * //                     BatchTransformInput: {
  * //                       DataCapturedDestinationS3Uri: "STRING_VALUE", // required
@@ -1889,6 +1954,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                       ProbabilityThresholdAttribute: Number("double"),
  * //                       StartTimeOffset: "STRING_VALUE",
  * //                       EndTimeOffset: "STRING_VALUE",
+ * //                       ExcludeFeaturesAttribute: "STRING_VALUE",
  * //                     },
  * //                   },
  * //                 ],
@@ -1967,6 +2033,28 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //               MonitoringJobDefinitionName: "STRING_VALUE",
  * //               MonitoringType: "DataQuality" || "ModelQuality" || "ModelBias" || "ModelExplainability",
  * //             },
+ * //             BatchTransformInput: {
+ * //               DataCapturedDestinationS3Uri: "STRING_VALUE", // required
+ * //               DatasetFormat: {
+ * //                 Csv: {
+ * //                   Header: true || false,
+ * //                 },
+ * //                 Json: {
+ * //                   Line: true || false,
+ * //                 },
+ * //                 Parquet: {},
+ * //               },
+ * //               LocalPath: "STRING_VALUE", // required
+ * //               S3InputMode: "Pipe" || "File",
+ * //               S3DataDistributionType: "FullyReplicated" || "ShardedByS3Key",
+ * //               FeaturesAttribute: "STRING_VALUE",
+ * //               InferenceAttribute: "STRING_VALUE",
+ * //               ProbabilityAttribute: "STRING_VALUE",
+ * //               ProbabilityThresholdAttribute: Number("double"),
+ * //               StartTimeOffset: "STRING_VALUE",
+ * //               EndTimeOffset: "STRING_VALUE",
+ * //               ExcludeFeaturesAttribute: "STRING_VALUE",
+ * //             },
  * //           },
  * //         ],
  * //         ModelCard: { // ModelDashboardModelCard
@@ -1974,7 +2062,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //           ModelCardName: "STRING_VALUE",
  * //           ModelCardVersion: Number("int"),
  * //           ModelCardStatus: "Draft" || "PendingReview" || "Approved" || "Archived",
- * //           SecurityConfig: { // ModelCardSecurityConfig
+ * //           SecurityConfig: {
  * //             KmsKeyId: "STRING_VALUE",
  * //           },
  * //           CreationTime: new Date("TIMESTAMP"),
@@ -1985,24 +2073,6 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //           ModelId: "STRING_VALUE",
  * //           RiskRating: "STRING_VALUE",
  * //         },
- * //       },
- * //       ModelCard: { // ModelCard
- * //         ModelCardArn: "STRING_VALUE",
- * //         ModelCardName: "STRING_VALUE",
- * //         ModelCardVersion: Number("int"),
- * //         Content: "STRING_VALUE",
- * //         ModelCardStatus: "Draft" || "PendingReview" || "Approved" || "Archived",
- * //         SecurityConfig: {
- * //           KmsKeyId: "STRING_VALUE",
- * //         },
- * //         CreationTime: new Date("TIMESTAMP"),
- * //         CreatedBy: "<UserContext>",
- * //         LastModifiedTime: new Date("TIMESTAMP"),
- * //         LastModifiedBy: "<UserContext>",
- * //         Tags: "<TagList>",
- * //         ModelId: "STRING_VALUE",
- * //         RiskRating: "STRING_VALUE",
- * //         ModelPackageGroupName: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],
@@ -2021,73 +2091,26 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
-export class SearchCommand extends $Command<SearchCommandInput, SearchCommandOutput, SageMakerClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: SearchCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SageMakerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<SearchCommandInput, SearchCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, SearchCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SageMakerClient";
-    const commandName = "SearchCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: SearchResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: SearchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_SearchCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchCommandOutput> {
-    return de_SearchCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class SearchCommand extends $Command
+  .classBuilder<
+    SearchCommandInput,
+    SearchCommandOutput,
+    SageMakerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("SageMaker", "Search", {})
+  .n("SageMakerClient", "SearchCommand")
+  .f(void 0, SearchResponseFilterSensitiveLog)
+  .ser(se_SearchCommand)
+  .de(de_SearchCommand)
+  .build() {}

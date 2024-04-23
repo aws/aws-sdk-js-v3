@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EMRContainersClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRContainersClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetManagedEndpointSessionCredentialsRequest,
   GetManagedEndpointSessionCredentialsResponse,
@@ -95,85 +87,26 @@ export interface GetManagedEndpointSessionCredentialsCommandOutput
  * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
  */
-export class GetManagedEndpointSessionCredentialsCommand extends $Command<
-  GetManagedEndpointSessionCredentialsCommandInput,
-  GetManagedEndpointSessionCredentialsCommandOutput,
-  EMRContainersClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetManagedEndpointSessionCredentialsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: EMRContainersClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetManagedEndpointSessionCredentialsCommandInput, GetManagedEndpointSessionCredentialsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetManagedEndpointSessionCredentialsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "EMRContainersClient";
-    const commandName = "GetManagedEndpointSessionCredentialsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: GetManagedEndpointSessionCredentialsResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: GetManagedEndpointSessionCredentialsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_GetManagedEndpointSessionCredentialsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetManagedEndpointSessionCredentialsCommandOutput> {
-    return de_GetManagedEndpointSessionCredentialsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetManagedEndpointSessionCredentialsCommand extends $Command
+  .classBuilder<
+    GetManagedEndpointSessionCredentialsCommandInput,
+    GetManagedEndpointSessionCredentialsCommandOutput,
+    EMRContainersClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: EMRContainersClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AwsChicagoWebService", "GetManagedEndpointSessionCredentials", {})
+  .n("EMRContainersClient", "GetManagedEndpointSessionCredentialsCommand")
+  .f(void 0, GetManagedEndpointSessionCredentialsResponseFilterSensitiveLog)
+  .ser(se_GetManagedEndpointSessionCredentialsCommand)
+  .de(de_GetManagedEndpointSessionCredentialsCommand)
+  .build() {}

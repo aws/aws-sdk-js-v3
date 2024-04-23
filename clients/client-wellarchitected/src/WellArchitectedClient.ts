@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -57,6 +55,14 @@ import { CreateLensVersionCommandInput, CreateLensVersionCommandOutput } from ".
 import { CreateMilestoneCommandInput, CreateMilestoneCommandOutput } from "./commands/CreateMilestoneCommand";
 import { CreateProfileCommandInput, CreateProfileCommandOutput } from "./commands/CreateProfileCommand";
 import { CreateProfileShareCommandInput, CreateProfileShareCommandOutput } from "./commands/CreateProfileShareCommand";
+import {
+  CreateReviewTemplateCommandInput,
+  CreateReviewTemplateCommandOutput,
+} from "./commands/CreateReviewTemplateCommand";
+import {
+  CreateTemplateShareCommandInput,
+  CreateTemplateShareCommandOutput,
+} from "./commands/CreateTemplateShareCommand";
 import { CreateWorkloadCommandInput, CreateWorkloadCommandOutput } from "./commands/CreateWorkloadCommand";
 import {
   CreateWorkloadShareCommandInput,
@@ -66,6 +72,14 @@ import { DeleteLensCommandInput, DeleteLensCommandOutput } from "./commands/Dele
 import { DeleteLensShareCommandInput, DeleteLensShareCommandOutput } from "./commands/DeleteLensShareCommand";
 import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "./commands/DeleteProfileCommand";
 import { DeleteProfileShareCommandInput, DeleteProfileShareCommandOutput } from "./commands/DeleteProfileShareCommand";
+import {
+  DeleteReviewTemplateCommandInput,
+  DeleteReviewTemplateCommandOutput,
+} from "./commands/DeleteReviewTemplateCommand";
+import {
+  DeleteTemplateShareCommandInput,
+  DeleteTemplateShareCommandOutput,
+} from "./commands/DeleteTemplateShareCommand";
 import { DeleteWorkloadCommandInput, DeleteWorkloadCommandOutput } from "./commands/DeleteWorkloadCommand";
 import {
   DeleteWorkloadShareCommandInput,
@@ -95,6 +109,15 @@ import {
 import { GetMilestoneCommandInput, GetMilestoneCommandOutput } from "./commands/GetMilestoneCommand";
 import { GetProfileCommandInput, GetProfileCommandOutput } from "./commands/GetProfileCommand";
 import { GetProfileTemplateCommandInput, GetProfileTemplateCommandOutput } from "./commands/GetProfileTemplateCommand";
+import {
+  GetReviewTemplateAnswerCommandInput,
+  GetReviewTemplateAnswerCommandOutput,
+} from "./commands/GetReviewTemplateAnswerCommand";
+import { GetReviewTemplateCommandInput, GetReviewTemplateCommandOutput } from "./commands/GetReviewTemplateCommand";
+import {
+  GetReviewTemplateLensReviewCommandInput,
+  GetReviewTemplateLensReviewCommandOutput,
+} from "./commands/GetReviewTemplateLensReviewCommand";
 import { GetWorkloadCommandInput, GetWorkloadCommandOutput } from "./commands/GetWorkloadCommand";
 import { ImportLensCommandInput, ImportLensCommandOutput } from "./commands/ImportLensCommand";
 import { ListAnswersCommandInput, ListAnswersCommandOutput } from "./commands/ListAnswersCommand";
@@ -116,6 +139,14 @@ import {
 import { ListProfilesCommandInput, ListProfilesCommandOutput } from "./commands/ListProfilesCommand";
 import { ListProfileSharesCommandInput, ListProfileSharesCommandOutput } from "./commands/ListProfileSharesCommand";
 import {
+  ListReviewTemplateAnswersCommandInput,
+  ListReviewTemplateAnswersCommandOutput,
+} from "./commands/ListReviewTemplateAnswersCommand";
+import {
+  ListReviewTemplatesCommandInput,
+  ListReviewTemplatesCommandOutput,
+} from "./commands/ListReviewTemplatesCommand";
+import {
   ListShareInvitationsCommandInput,
   ListShareInvitationsCommandOutput,
 } from "./commands/ListShareInvitationsCommand";
@@ -123,6 +154,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListTemplateSharesCommandInput, ListTemplateSharesCommandOutput } from "./commands/ListTemplateSharesCommand";
 import { ListWorkloadsCommandInput, ListWorkloadsCommandOutput } from "./commands/ListWorkloadsCommand";
 import { ListWorkloadSharesCommandInput, ListWorkloadSharesCommandOutput } from "./commands/ListWorkloadSharesCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -134,6 +166,18 @@ import {
 } from "./commands/UpdateGlobalSettingsCommand";
 import { UpdateLensReviewCommandInput, UpdateLensReviewCommandOutput } from "./commands/UpdateLensReviewCommand";
 import { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "./commands/UpdateProfileCommand";
+import {
+  UpdateReviewTemplateAnswerCommandInput,
+  UpdateReviewTemplateAnswerCommandOutput,
+} from "./commands/UpdateReviewTemplateAnswerCommand";
+import {
+  UpdateReviewTemplateCommandInput,
+  UpdateReviewTemplateCommandOutput,
+} from "./commands/UpdateReviewTemplateCommand";
+import {
+  UpdateReviewTemplateLensReviewCommandInput,
+  UpdateReviewTemplateLensReviewCommandOutput,
+} from "./commands/UpdateReviewTemplateLensReviewCommand";
 import {
   UpdateShareInvitationCommandInput,
   UpdateShareInvitationCommandOutput,
@@ -148,6 +192,10 @@ import {
   UpgradeProfileVersionCommandInput,
   UpgradeProfileVersionCommandOutput,
 } from "./commands/UpgradeProfileVersionCommand";
+import {
+  UpgradeReviewTemplateLensReviewCommandInput,
+  UpgradeReviewTemplateLensReviewCommandOutput,
+} from "./commands/UpgradeReviewTemplateLensReviewCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -170,12 +218,16 @@ export type ServiceInputTypes =
   | CreateMilestoneCommandInput
   | CreateProfileCommandInput
   | CreateProfileShareCommandInput
+  | CreateReviewTemplateCommandInput
+  | CreateTemplateShareCommandInput
   | CreateWorkloadCommandInput
   | CreateWorkloadShareCommandInput
   | DeleteLensCommandInput
   | DeleteLensShareCommandInput
   | DeleteProfileCommandInput
   | DeleteProfileShareCommandInput
+  | DeleteReviewTemplateCommandInput
+  | DeleteTemplateShareCommandInput
   | DeleteWorkloadCommandInput
   | DeleteWorkloadShareCommandInput
   | DisassociateLensesCommandInput
@@ -190,6 +242,9 @@ export type ServiceInputTypes =
   | GetMilestoneCommandInput
   | GetProfileCommandInput
   | GetProfileTemplateCommandInput
+  | GetReviewTemplateAnswerCommandInput
+  | GetReviewTemplateCommandInput
+  | GetReviewTemplateLensReviewCommandInput
   | GetWorkloadCommandInput
   | ImportLensCommandInput
   | ListAnswersCommandInput
@@ -204,8 +259,11 @@ export type ServiceInputTypes =
   | ListProfileNotificationsCommandInput
   | ListProfileSharesCommandInput
   | ListProfilesCommandInput
+  | ListReviewTemplateAnswersCommandInput
+  | ListReviewTemplatesCommandInput
   | ListShareInvitationsCommandInput
   | ListTagsForResourceCommandInput
+  | ListTemplateSharesCommandInput
   | ListWorkloadSharesCommandInput
   | ListWorkloadsCommandInput
   | TagResourceCommandInput
@@ -214,11 +272,15 @@ export type ServiceInputTypes =
   | UpdateGlobalSettingsCommandInput
   | UpdateLensReviewCommandInput
   | UpdateProfileCommandInput
+  | UpdateReviewTemplateAnswerCommandInput
+  | UpdateReviewTemplateCommandInput
+  | UpdateReviewTemplateLensReviewCommandInput
   | UpdateShareInvitationCommandInput
   | UpdateWorkloadCommandInput
   | UpdateWorkloadShareCommandInput
   | UpgradeLensReviewCommandInput
-  | UpgradeProfileVersionCommandInput;
+  | UpgradeProfileVersionCommandInput
+  | UpgradeReviewTemplateLensReviewCommandInput;
 
 /**
  * @public
@@ -231,12 +293,16 @@ export type ServiceOutputTypes =
   | CreateMilestoneCommandOutput
   | CreateProfileCommandOutput
   | CreateProfileShareCommandOutput
+  | CreateReviewTemplateCommandOutput
+  | CreateTemplateShareCommandOutput
   | CreateWorkloadCommandOutput
   | CreateWorkloadShareCommandOutput
   | DeleteLensCommandOutput
   | DeleteLensShareCommandOutput
   | DeleteProfileCommandOutput
   | DeleteProfileShareCommandOutput
+  | DeleteReviewTemplateCommandOutput
+  | DeleteTemplateShareCommandOutput
   | DeleteWorkloadCommandOutput
   | DeleteWorkloadShareCommandOutput
   | DisassociateLensesCommandOutput
@@ -251,6 +317,9 @@ export type ServiceOutputTypes =
   | GetMilestoneCommandOutput
   | GetProfileCommandOutput
   | GetProfileTemplateCommandOutput
+  | GetReviewTemplateAnswerCommandOutput
+  | GetReviewTemplateCommandOutput
+  | GetReviewTemplateLensReviewCommandOutput
   | GetWorkloadCommandOutput
   | ImportLensCommandOutput
   | ListAnswersCommandOutput
@@ -265,8 +334,11 @@ export type ServiceOutputTypes =
   | ListProfileNotificationsCommandOutput
   | ListProfileSharesCommandOutput
   | ListProfilesCommandOutput
+  | ListReviewTemplateAnswersCommandOutput
+  | ListReviewTemplatesCommandOutput
   | ListShareInvitationsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTemplateSharesCommandOutput
   | ListWorkloadSharesCommandOutput
   | ListWorkloadsCommandOutput
   | TagResourceCommandOutput
@@ -275,11 +347,15 @@ export type ServiceOutputTypes =
   | UpdateGlobalSettingsCommandOutput
   | UpdateLensReviewCommandOutput
   | UpdateProfileCommandOutput
+  | UpdateReviewTemplateAnswerCommandOutput
+  | UpdateReviewTemplateCommandOutput
+  | UpdateReviewTemplateLensReviewCommandOutput
   | UpdateShareInvitationCommandOutput
   | UpdateWorkloadCommandOutput
   | UpdateWorkloadShareCommandOutput
   | UpgradeLensReviewCommandOutput
-  | UpgradeProfileVersionCommandOutput;
+  | UpgradeProfileVersionCommandOutput
+  | UpgradeReviewTemplateLensReviewCommandOutput;
 
 /**
  * @public
@@ -391,6 +467,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

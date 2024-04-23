@@ -10,14 +10,13 @@ AWS SDK for JavaScript OAM Client for Node.js, Browser and React Native.
 monitoring accounts by using <i>CloudWatch cross-account observability</i>. With
 CloudWatch cross-account observability, you can monitor and troubleshoot applications that span
 multiple accounts within a Region. Seamlessly search, visualize, and analyze your metrics,
-logs, and traces in any of the linked accounts without account boundaries.</p>
-
+logs, traces, and Application Insights applications in any of the linked accounts without account boundaries.</p>
 <p>Set up one or more Amazon Web Services accounts as <i>monitoring
 accounts</i> and link them with multiple <i>source accounts</i>. A
 monitoring account is a central Amazon Web Services account that can view and interact with
 observability data generated from source accounts. A source account is an individual Amazon Web Services account that generates observability data for the resources that reside in it.
 Source accounts share their observability data with the monitoring account. The shared
-observability data can include metrics in Amazon CloudWatch, logs in Amazon CloudWatch Logs, and traces in X-Ray.</p>
+observability data can include metrics in Amazon CloudWatch, logs in Amazon CloudWatch Logs, traces in X-Ray, and applications in Amazon CloudWatch Application Insights.</p>
 
 ## Installing
 
@@ -34,16 +33,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `OAMClient` and
-the commands you need, for example `CreateLinkCommand`:
+the commands you need, for example `ListLinksCommand`:
 
 ```js
 // ES5 example
-const { OAMClient, CreateLinkCommand } = require("@aws-sdk/client-oam");
+const { OAMClient, ListLinksCommand } = require("@aws-sdk/client-oam");
 ```
 
 ```ts
 // ES6+ example
-import { OAMClient, CreateLinkCommand } from "@aws-sdk/client-oam";
+import { OAMClient, ListLinksCommand } from "@aws-sdk/client-oam";
 ```
 
 ### Usage
@@ -62,7 +61,7 @@ const client = new OAMClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateLinkCommand(params);
+const command = new ListLinksCommand(params);
 ```
 
 #### Async/await
@@ -141,7 +140,7 @@ const client = new AWS.OAM({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createLink(params);
+  const data = await client.listLinks(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -149,7 +148,7 @@ try {
 
 // Promises.
 client
-  .createLink(params)
+  .listLinks(params)
   .then((data) => {
     // process data.
   })
@@ -158,7 +157,7 @@ client
   });
 
 // callbacks.
-client.createLink(params, (err, data) => {
+client.listLinks(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -173,7 +172,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -219,7 +218,7 @@ see LICENSE for more information.
 CreateLink
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/classes/createlinkcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/interfaces/createlinkcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/interfaces/createlinkcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/oam/command/CreateLinkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-oam/Interface/CreateLinkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-oam/Interface/CreateLinkCommandOutput/)
 
 </details>
 <details>
@@ -227,7 +226,7 @@ CreateLink
 CreateSink
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/classes/createsinkcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/interfaces/createsinkcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/interfaces/createsinkcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/oam/command/CreateSinkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-oam/Interface/CreateSinkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-oam/Interface/CreateSinkCommandOutput/)
 
 </details>
 <details>
@@ -235,7 +234,7 @@ CreateSink
 DeleteLink
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/classes/deletelinkcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/interfaces/deletelinkcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/interfaces/deletelinkcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/oam/command/DeleteLinkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-oam/Interface/DeleteLinkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-oam/Interface/DeleteLinkCommandOutput/)
 
 </details>
 <details>
@@ -243,7 +242,7 @@ DeleteLink
 DeleteSink
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/classes/deletesinkcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/interfaces/deletesinkcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/interfaces/deletesinkcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/oam/command/DeleteSinkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-oam/Interface/DeleteSinkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-oam/Interface/DeleteSinkCommandOutput/)
 
 </details>
 <details>
@@ -251,7 +250,7 @@ DeleteSink
 GetLink
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/classes/getlinkcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/interfaces/getlinkcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/interfaces/getlinkcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/oam/command/GetLinkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-oam/Interface/GetLinkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-oam/Interface/GetLinkCommandOutput/)
 
 </details>
 <details>
@@ -259,7 +258,7 @@ GetLink
 GetSink
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/classes/getsinkcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/interfaces/getsinkcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/interfaces/getsinkcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/oam/command/GetSinkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-oam/Interface/GetSinkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-oam/Interface/GetSinkCommandOutput/)
 
 </details>
 <details>
@@ -267,7 +266,7 @@ GetSink
 GetSinkPolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/classes/getsinkpolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/interfaces/getsinkpolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/interfaces/getsinkpolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/oam/command/GetSinkPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-oam/Interface/GetSinkPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-oam/Interface/GetSinkPolicyCommandOutput/)
 
 </details>
 <details>
@@ -275,7 +274,7 @@ GetSinkPolicy
 ListAttachedLinks
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/classes/listattachedlinkscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/interfaces/listattachedlinkscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/interfaces/listattachedlinkscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/oam/command/ListAttachedLinksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-oam/Interface/ListAttachedLinksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-oam/Interface/ListAttachedLinksCommandOutput/)
 
 </details>
 <details>
@@ -283,7 +282,7 @@ ListAttachedLinks
 ListLinks
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/classes/listlinkscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/interfaces/listlinkscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/interfaces/listlinkscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/oam/command/ListLinksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-oam/Interface/ListLinksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-oam/Interface/ListLinksCommandOutput/)
 
 </details>
 <details>
@@ -291,7 +290,7 @@ ListLinks
 ListSinks
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/classes/listsinkscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/interfaces/listsinkscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/interfaces/listsinkscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/oam/command/ListSinksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-oam/Interface/ListSinksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-oam/Interface/ListSinksCommandOutput/)
 
 </details>
 <details>
@@ -299,7 +298,7 @@ ListSinks
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/oam/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-oam/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-oam/Interface/ListTagsForResourceCommandOutput/)
 
 </details>
 <details>
@@ -307,7 +306,7 @@ ListTagsForResource
 PutSinkPolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/classes/putsinkpolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/interfaces/putsinkpolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/interfaces/putsinkpolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/oam/command/PutSinkPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-oam/Interface/PutSinkPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-oam/Interface/PutSinkPolicyCommandOutput/)
 
 </details>
 <details>
@@ -315,7 +314,7 @@ PutSinkPolicy
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/oam/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-oam/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-oam/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -323,7 +322,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/oam/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-oam/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-oam/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -331,6 +330,6 @@ UntagResource
 UpdateLink
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/classes/updatelinkcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/interfaces/updatelinkcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-oam/interfaces/updatelinkcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/oam/command/UpdateLinkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-oam/Interface/UpdateLinkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-oam/Interface/UpdateLinkCommandOutput/)
 
 </details>

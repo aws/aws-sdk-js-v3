@@ -13,6 +13,7 @@ export * from "./DeletePricingPlanCommand";
 export * from "./DeletePricingRuleCommand";
 export * from "./DisassociateAccountsCommand";
 export * from "./DisassociatePricingRulesCommand";
+export * from "./GetBillingGroupCostReportCommand";
 export * from "./ListAccountAssociationsCommand";
 export * from "./ListBillingGroupCostReportsCommand";
 export * from "./ListBillingGroupsCommand";

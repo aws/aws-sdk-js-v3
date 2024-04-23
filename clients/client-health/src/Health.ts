@@ -23,6 +23,11 @@ import {
   DescribeEntityAggregatesCommandOutput,
 } from "./commands/DescribeEntityAggregatesCommand";
 import {
+  DescribeEntityAggregatesForOrganizationCommand,
+  DescribeEntityAggregatesForOrganizationCommandInput,
+  DescribeEntityAggregatesForOrganizationCommandOutput,
+} from "./commands/DescribeEntityAggregatesForOrganizationCommand";
+import {
   DescribeEventAggregatesCommand,
   DescribeEventAggregatesCommandInput,
   DescribeEventAggregatesCommandOutput,
@@ -74,6 +79,7 @@ const commands = {
   DescribeAffectedEntitiesCommand,
   DescribeAffectedEntitiesForOrganizationCommand,
   DescribeEntityAggregatesCommand,
+  DescribeEntityAggregatesForOrganizationCommand,
   DescribeEventAggregatesCommand,
   DescribeEventDetailsCommand,
   DescribeEventDetailsForOrganizationCommand,
@@ -152,6 +158,23 @@ export interface Health {
     args: DescribeEntityAggregatesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeEntityAggregatesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeEntityAggregatesForOrganizationCommand}
+   */
+  describeEntityAggregatesForOrganization(
+    args: DescribeEntityAggregatesForOrganizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEntityAggregatesForOrganizationCommandOutput>;
+  describeEntityAggregatesForOrganization(
+    args: DescribeEntityAggregatesForOrganizationCommandInput,
+    cb: (err: any, data?: DescribeEntityAggregatesForOrganizationCommandOutput) => void
+  ): void;
+  describeEntityAggregatesForOrganization(
+    args: DescribeEntityAggregatesForOrganizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEntityAggregatesForOrganizationCommandOutput) => void
   ): void;
 
   /**

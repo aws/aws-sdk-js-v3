@@ -40,7 +40,7 @@ export interface ApiKeyFilter {
    * @public
    * <p>Filter on <code>Active</code> or <code>Expired</code> API keys.</p>
    */
-  KeyStatus?: Status | string;
+  KeyStatus?: Status;
 }
 
 /**
@@ -159,7 +159,7 @@ export interface ApiKeyRestrictions {
    *             <li>
    *                <p>Other than wildcards, you must include the full ARN, including the
    *                     <code>arn</code>, <code>partition</code>, <code>service</code>,
-   *                     <code>region</code>, <code>account-id</code> and <code>resource-id</code>,
+   *                     <code>region</code>, <code>account-id</code> and <code>resource-id</code>
    *                     delimited by colons (:).</p>
    *             </li>
    *             <li>
@@ -437,7 +437,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>A message with the reason for the validation exception error.</p>
    */
-  Reason: ValidationExceptionReason | string | undefined;
+  Reason: ValidationExceptionReason | undefined;
 
   /**
    * @public
@@ -469,6 +469,17 @@ export interface DeleteKeyRequest {
    * <p>The name of the API key to delete.</p>
    */
   KeyName: string | undefined;
+
+  /**
+   * @public
+   * <p>ForceDelete bypasses an API key's expiry conditions and deletes the key. Set the parameter <code>true</code> to delete the key or to <code>false</code> to not preemptively delete the API key.</p>
+   *          <p>Valid values: <code>true</code>, or <code>false</code>.</p>
+   *          <p>Required: No</p>
+   *          <note>
+   *             <p>This action is irreversible. Only use ForceDelete if you are certain the key is no longer in use.</p>
+   *          </note>
+   */
+  ForceDelete?: boolean;
 }
 
 /**
@@ -830,7 +841,7 @@ export interface BatchItemError {
    * @public
    * <p>The error code associated with the batch request error.</p>
    */
-  Code?: BatchItemErrorCode | string;
+  Code?: BatchItemErrorCode;
 
   /**
    * @public
@@ -1395,6 +1406,11 @@ export type DistanceUnit = "Kilometers" | "Miles";
 /**
  * @public
  */
+export type OptimizationMode = "FastestRoute" | "ShortestRoute";
+
+/**
+ * @public
+ */
 export type TravelMode = "Bicycle" | "Car" | "Motorcycle" | "Truck" | "Walking";
 
 /**
@@ -1463,7 +1479,7 @@ export interface TruckDimensions {
    *          <p>Default Value: <code>Meters</code>
    *          </p>
    */
-  Unit?: DimensionUnit | string;
+  Unit?: DimensionUnit;
 }
 
 /**
@@ -1495,7 +1511,7 @@ export interface TruckWeight {
    *          <p>Default Value: <code>Kilograms</code>
    *          </p>
    */
-  Unit?: VehicleWeightUnit | string;
+  Unit?: VehicleWeightUnit;
 }
 
 /**
@@ -1649,17 +1665,13 @@ export interface CalculateRouteRequest {
    *          <p>Default Value: <code>Car</code>
    *          </p>
    */
-  TravelMode?: TravelMode | string;
+  TravelMode?: TravelMode;
 
   /**
    * @public
    * <p>Specifies the desired time of departure. Uses the given time to calculate the route.
    *             Otherwise, the best time of day to travel with the best traffic conditions is used to
    *             calculate the route.</p>
-   *          <note>
-   *             <p>Setting a departure time in the past returns a <code>400
-   *                     ValidationException</code> error.</p>
-   *          </note>
    *          <ul>
    *             <li>
    *                <p>In <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO
@@ -1689,7 +1701,7 @@ export interface CalculateRouteRequest {
    *          <p>Default Value: <code>Kilometers</code>
    *          </p>
    */
-  DistanceUnit?: DistanceUnit | string;
+  DistanceUnit?: DistanceUnit;
 
   /**
    * @public
@@ -1718,6 +1730,22 @@ export interface CalculateRouteRequest {
    *          <p>Requirements: <code>TravelMode</code> must be specified as <code>Truck</code>.</p>
    */
   TruckModeOptions?: CalculateRouteTruckModeOptions;
+
+  /**
+   * @public
+   * <p>Specifies the desired time of arrival. Uses the given time to calculate the route.
+   *             Otherwise, the best time of day to travel with the best traffic conditions is used to calculate the route.</p>
+   *          <note>
+   *             <p>ArrivalTime is not supported Esri.</p>
+   *          </note>
+   */
+  ArrivalTime?: Date;
+
+  /**
+   * @public
+   * <p>Specifies the distance to optimize for when calculating a route.</p>
+   */
+  OptimizeFor?: OptimizationMode;
 
   /**
    * @public
@@ -1966,7 +1994,7 @@ export interface CalculateRouteSummary {
    * @public
    * <p>The unit of measurement for route distances.</p>
    */
-  DistanceUnit: DistanceUnit | string | undefined;
+  DistanceUnit: DistanceUnit | undefined;
 }
 
 /**
@@ -2100,7 +2128,7 @@ export interface CalculateRouteMatrixRequest {
    *          <p>Default Value: <code>Car</code>
    *          </p>
    */
-  TravelMode?: TravelMode | string;
+  TravelMode?: TravelMode;
 
   /**
    * @public
@@ -2142,7 +2170,7 @@ export interface CalculateRouteMatrixRequest {
    *          <p>Default Value: <code>Kilometers</code>
    *          </p>
    */
-  DistanceUnit?: DistanceUnit | string;
+  DistanceUnit?: DistanceUnit;
 
   /**
    * @public
@@ -2235,7 +2263,7 @@ export interface RouteMatrixEntryError {
    * @public
    * <p>The type of error which occurred for the route calculation.</p>
    */
-  Code: RouteMatrixErrorCode | string | undefined;
+  Code: RouteMatrixErrorCode | undefined;
 
   /**
    * @public
@@ -2320,7 +2348,7 @@ export interface CalculateRouteMatrixSummary {
    * @public
    * <p>The unit of measurement for route distances.</p>
    */
-  DistanceUnit: DistanceUnit | string | undefined;
+  DistanceUnit: DistanceUnit | undefined;
 }
 
 /**
@@ -2398,7 +2426,7 @@ export interface CreateGeofenceCollectionRequest {
    * <p>No longer used. If included, the only allowed value is
    *             <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -2500,9 +2528,11 @@ export interface MapConfiguration {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>VectorEsriDarkGrayCanvas</code> – The Esri Dark Gray Canvas map style. A
-   *                     vector basemap with a dark gray, neutral background with minimal colors, labels,
-   *                     and features that's designed to draw attention to your thematic content. </p>
+   *                   <code>VectorEsriNavigation</code> – The Esri Navigation map style, which provides a detailed basemap for the world symbolized with a
+   *                 custom navigation map style that's designed for use during the day in mobile devices. It also includes a richer set of places,
+   *                 such as shops, services, restaurants, attractions, and other points of interest.
+   *                 Enable the <code>POI</code> layer by setting it in CustomLayers to leverage the additional places data.</p>
+   *                <p/>
    *             </li>
    *             <li>
    *                <p>
@@ -2531,9 +2561,9 @@ export interface MapConfiguration {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>VectorEsriNavigation</code> – The Esri Navigation map style, which
-   *                     provides a detailed basemap for the world symbolized with a custom navigation
-   *                     map style that's designed for use during the day in mobile devices.</p>
+   *                   <code>VectorEsriDarkGrayCanvas</code> – The Esri Dark Gray Canvas map style. A
+   *                     vector basemap with a dark gray, neutral background with minimal colors, labels,
+   *                     and features that's designed to draw attention to your thematic content. </p>
    *             </li>
    *          </ul>
    *          <p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE
@@ -2541,28 +2571,9 @@ export interface MapConfiguration {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>VectorHereContrast</code> – The HERE Contrast (Berlin) map style is a
-   *                     high contrast
-   *                     detailed base map of the world that blends 3D and 2D rendering.</p>
-   *                <note>
-   *                   <p>The <code>VectorHereContrast</code> style has been renamed from
-   *                     <code>VectorHereBerlin</code>.
-   *                     <code>VectorHereBerlin</code> has been deprecated, but will continue to work in
-   *                     applications that use it.</p>
-   *                </note>
-   *             </li>
-   *             <li>
-   *                <p>
    *                   <code>VectorHereExplore</code> – A default HERE map style containing a
    *                     neutral, global map and its features including roads, buildings, landmarks,
    *                     and water features. It also now includes a fully designed map of Japan.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>VectorHereExploreTruck</code> – A global map containing truck
-   *                     restrictions and attributes (e.g. width / height / HAZMAT) symbolized with
-   *                     highlighted segments and icons on top of HERE Explore to support use cases
-   *                     within transport and logistics.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2581,6 +2592,25 @@ export interface MapConfiguration {
    *                     either vector or raster tiles alone. Your charges will include all tiles
    *                     retrieved.</p>
    *                </note>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VectorHereContrast</code> – The HERE Contrast (Berlin) map style is a
+   *                     high contrast
+   *                     detailed base map of the world that blends 3D and 2D rendering.</p>
+   *                <note>
+   *                   <p>The <code>VectorHereContrast</code> style has been renamed from
+   *                     <code>VectorHereBerlin</code>.
+   *                     <code>VectorHereBerlin</code> has been deprecated, but will continue to work in
+   *                     applications that use it.</p>
+   *                </note>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VectorHereExploreTruck</code> – A global map containing truck
+   *                     restrictions and attributes (e.g. width / height / HAZMAT) symbolized with
+   *                     highlighted segments and icons on top of HERE Explore to support use cases
+   *                     within transport and logistics.</p>
    *             </li>
    *          </ul>
    *          <p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/grab.html">GrabMaps map styles</a>:</p>
@@ -2652,6 +2682,17 @@ export interface MapConfiguration {
    *          </note>
    */
   PoliticalView?: string;
+
+  /**
+   * @public
+   * <p>Specifies the custom layers for the style. Leave unset to not enable any custom layer, or, for styles that support custom layers, you can enable layer(s), such as <code>POI</code> layer for the VectorEsriNavigation style.
+   * Default is <code>unset</code>.</p>
+   *          <note>
+   *             <p>Currenlty only <code>VectorEsriNavigation</code> supports CustomLayers.
+   * For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/map-concepts.html#map-custom-layers">Custom Layers</a>.</p>
+   *          </note>
+   */
+  CustomLayers?: string[];
 }
 
 /**
@@ -2691,7 +2732,7 @@ export interface CreateMapRequest {
    * <p>No longer used. If included, the only allowed value is
    *             <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -2808,7 +2849,7 @@ export interface DataSourceConfiguration {
    *          <p>Default value: <code>SingleUse</code>
    *          </p>
    */
-  IntendedUse?: IntendedUse | string;
+  IntendedUse?: IntendedUse;
 }
 
 /**
@@ -2876,7 +2917,7 @@ export interface CreatePlaceIndexRequest {
    * <p>No longer used. If included, the only allowed value is
    *             <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -3017,7 +3058,7 @@ export interface CreateRouteCalculatorRequest {
    * <p>No longer used. If included, the only allowed value is
    *             <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -3140,7 +3181,7 @@ export interface CreateTrackerRequest {
    * <p>No longer used. If included, the only allowed value is
    *            <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -3229,7 +3270,7 @@ export interface CreateTrackerRequest {
    *          </ul>
    *          <p>This field is optional. If not specified, the default value is <code>TimeBased</code>.</p>
    */
-  PositionFiltering?: PositionFiltering | string;
+  PositionFiltering?: PositionFiltering;
 
   /**
    * @public
@@ -3242,6 +3283,20 @@ export interface CreateTrackerRequest {
    *          </note>
    */
   EventBridgeEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>Enables <code>GeospatialQueries</code> for a tracker that uses a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon Web Services
+   *             KMS customer managed key</a>.</p>
+   *          <p>This parameter is only used if you are using a KMS customer managed key.</p>
+   *          <note>
+   *             <p>If you wish to encrypt your data using your own KMS customer managed key, then the Bounding Polygon Queries feature will be disabled by default.
+   *                 This is because by using this feature, a representation of your device positions will not be encrypted using the your KMS managed key. The exact device position, however; is still encrypted using your managed key.</p>
+   *             <p>You can choose to opt-in to the Bounding Polygon Quseries feature. This is done by setting the <code>KmsKeyEnableGeospatialQueries</code> parameter to
+   *                 true when creating or updating a Tracker.</p>
+   *          </note>
+   */
+  KmsKeyEnableGeospatialQueries?: boolean;
 }
 
 /**
@@ -3403,7 +3458,7 @@ export interface DescribeGeofenceCollectionResponse {
    *
    * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -3442,6 +3497,12 @@ export interface DescribeGeofenceCollectionResponse {
    *          </p>
    */
   UpdateTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The number of geofences in the geofence collection.</p>
+   */
+  GeofenceCount?: number;
 }
 
 /**
@@ -3485,7 +3546,7 @@ export interface DescribeMapResponse {
    *
    * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -3567,7 +3628,7 @@ export interface DescribePlaceIndexResponse {
    *
    * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -3667,7 +3728,7 @@ export interface DescribeRouteCalculatorResponse {
    *
    * <p>Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -3780,7 +3841,7 @@ export interface DescribeTrackerResponse {
    *
    * <p>Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -3821,7 +3882,7 @@ export interface DescribeTrackerResponse {
    * @public
    * <p>The position filtering method of the tracker resource.</p>
    */
-  PositionFiltering?: PositionFiltering | string;
+  PositionFiltering?: PositionFiltering;
 
   /**
    * @public
@@ -3829,6 +3890,20 @@ export interface DescribeTrackerResponse {
    *             enabled. If set to <code>true</code> these events will be sent to EventBridge.</p>
    */
   EventBridgeEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>Enables <code>GeospatialQueries</code> for a tracker that uses a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon Web Services
+   *             KMS customer managed key</a>.</p>
+   *          <p>This parameter is only used if you are using a KMS customer managed key.</p>
+   *          <note>
+   *             <p>If you wish to encrypt your data using your own KMS customer managed key, then the Bounding Polygon Queries feature will be disabled by default.
+   *                 This is because by using this feature, a representation of your device positions will not be encrypted using the your KMS managed key. The exact device position, however; is still encrypted using your managed key.</p>
+   *             <p>You can choose to opt-in to the Bounding Polygon Quseries feature. This is done by setting the <code>KmsKeyEnableGeospatialQueries</code> parameter to
+   *                 true when creating or updating a Tracker.</p>
+   *          </note>
+   */
+  KmsKeyEnableGeospatialQueries?: boolean;
 }
 
 /**
@@ -4117,7 +4192,7 @@ export interface ListGeofenceCollectionsResponseEntry {
    *
    * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -4365,7 +4440,7 @@ export interface UpdateGeofenceCollectionRequest {
    * <p>No longer used. If included, the only allowed value is
    *             <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -4571,7 +4646,7 @@ export interface GetMapGlyphsRequest {
    * @public
    * <p>A comma-separated list of fonts to load glyphs from in order of preference. For
    *             example, <code>Noto Sans Regular, Arial Unicode</code>.</p>
-   *          <p>Valid fonts stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a> styles: </p>
+   *          <p>Valid font stacks for <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a> styles: </p>
    *          <ul>
    *             <li>
    *                <p>VectorEsriDarkGrayCanvas – <code>Ubuntu Medium Italic</code> | <code>Ubuntu
@@ -4597,7 +4672,7 @@ export interface GetMapGlyphsRequest {
    *             </li>
    *             <li>
    *                <p>VectorEsriNavigation – <code>Arial Regular</code> | <code>Arial Italic</code>
-   *                     | <code>Arial Bold</code>
+   *                     | <code>Arial Bold</code> | <code>Arial Unicode MS Bold</code> | <code>Arial Unicode MS Regular</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -4884,6 +4959,37 @@ export interface GetPlaceRequest {
   /**
    * @public
    * <p>The identifier of the place to find.</p>
+   *          <p>While you can use PlaceID in subsequent requests,
+   *       PlaceID is not intended to be a permanent
+   *             identifier and the ID can change between consecutive API calls.
+   *             Please see the following PlaceID behaviour for each data provider:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Esri: Place IDs will change every quarter at a minimum. The typical time period for these changes would be March, June, September, and December. Place IDs might also change between the typical quarterly change but that will be much less frequent.</p>
+   *             </li>
+   *             <li>
+   *                <p>HERE: We recommend
+   *         that you cache data for no longer than a week
+   *         to keep your data data fresh. You can
+   *         assume that less than 1% ID shifts will
+   *          release over release which is approximately 1 - 2 times per week.</p>
+   *             </li>
+   *             <li>
+   *                <p>Grab:  Place IDs can expire or become invalid in the following situations.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Data operations: The POI may be removed from Grab POI database by Grab Map Ops based on the ground-truth,
+   *              such as being closed in the real world, being detected as a duplicate POI, or having incorrect information. Grab will synchronize data to the Waypoint environment on weekly basis.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Interpolated POI: Interpolated POI is a temporary POI generated in real time when serving a request,
+   *             and it will be marked as derived in the <code>place.result_type</code> field in the response.
+   *             The information of interpolated POIs will be retained for at least 30 days, which means that within 30 days, you are able to obtain POI details by
+   *             Place ID from Place Details API. After 30 days, the interpolated POIs(both Place ID and details) may expire and inaccessible from the Places Details API.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
    */
   PlaceId: string | undefined;
 
@@ -5059,7 +5165,7 @@ export interface Place {
    * <p>For addresses with a <code>UnitNumber</code>, the type of unit. For example,
    *                 <code>Apartment</code>.</p>
    *          <note>
-   *             <p>Returned only for a place index that uses Esri as a data provider.</p>
+   *             <p>This property is returned only for a place index that uses Esri as a data provider.</p>
    *          </note>
    */
   UnitType?: string;
@@ -5069,7 +5175,7 @@ export interface Place {
    * <p>For addresses with multiple units, the unit identifier. Can include numbers and
    *             letters, for example <code>3B</code> or <code>Unit 123</code>.</p>
    *          <note>
-   *             <p>Returned only for a place index that uses Esri or Grab as a data provider. Is
+   *             <p>This property is returned only for a place index that uses Esri or Grab as a data provider. It is
    *                 not returned for <code>SearchPlaceIndexForPosition</code>.</p>
    *          </note>
    */
@@ -5090,6 +5196,17 @@ export interface Place {
    *             to any Amazon Location categories.</p>
    */
   SupplementalCategories?: string[];
+
+  /**
+   * @public
+   * <p>An area that's part of a larger municipality. For example, <code>Blissville</code>
+   *             is a submunicipality in the Queen County in New York.</p>
+   *          <note>
+   *             <p>This property is only returned for a place index that uses Esri as a data provider. The property is represented as a <code>district</code>.</p>
+   *          </note>
+   *          <p>For more information about data providers, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html">Amazon Location Service data providers</a>.</p>
+   */
+  SubMunicipality?: string;
 }
 
 /**
@@ -5101,6 +5218,18 @@ export interface GetPlaceResponse {
    * <p>Details about the result, such as its address and position.</p>
    */
   Place: Place | undefined;
+}
+
+/**
+ * @public
+ * <p>The geomerty used to filter device positions.</p>
+ */
+export interface TrackingFilterGeometry {
+  /**
+   * @public
+   * <p>The set of arrays which define the polygon. A polygon can have between 4 and 1000 vertices.</p>
+   */
+  Polygon?: number[][][];
 }
 
 /**
@@ -5129,6 +5258,12 @@ export interface ListDevicePositionsRequest {
    *          </p>
    */
   NextToken?: string;
+
+  /**
+   * @public
+   * <p>The geometry used to filter device positions.</p>
+   */
+  FilterGeometry?: TrackingFilterGeometry;
 }
 
 /**
@@ -5174,8 +5309,7 @@ export interface ListDevicePositionsResponseEntry {
 export interface ListDevicePositionsResponse {
   /**
    * @public
-   * <p>Contains details about each device's last known position. These details includes the device ID,
-   *             the time when the position was sampled on the device, the time that the service received the update, and the most recent coordinates.</p>
+   * <p>Contains details about each device's last known position.</p>
    */
   Entries: ListDevicePositionsResponseEntry[] | undefined;
 
@@ -5238,7 +5372,7 @@ export interface ListMapsResponseEntry {
    *
    * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -5341,7 +5475,7 @@ export interface ListPlaceIndexesResponseEntry {
    *
    * <p>No longer used. Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -5446,7 +5580,7 @@ export interface ListRouteCalculatorsResponseEntry {
    *
    * <p>Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -5584,7 +5718,7 @@ export interface ListTrackersResponseEntry {
    *
    * <p>Always returns <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -5646,6 +5780,17 @@ export interface MapConfigurationUpdate {
    *          </note>
    */
   PoliticalView?: string;
+
+  /**
+   * @public
+   * <p>Specifies the custom layers for the style. Leave unset to not enable any custom layer, or, for styles that support custom layers, you can enable layer(s), such as <code>POI</code> layer for the VectorEsriNavigation style.
+   * Default is <code>unset</code>.</p>
+   *          <note>
+   *             <p>Currenlty only <code>VectorEsriNavigation</code> supports CustomLayers.
+   * For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/map-concepts.html#map-custom-layers">Custom Layers</a>.</p>
+   *          </note>
+   */
+  CustomLayers?: string[];
 }
 
 /**
@@ -5665,7 +5810,7 @@ export interface UpdateMapRequest {
    * <p>No longer used. If included, the only allowed value is
    *             <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -6008,6 +6153,37 @@ export interface SearchForSuggestionsResult {
    *                     <code>PlaceId</code> is returned by place indexes that use Esri, Grab, or HERE
    *                 as data providers.</p>
    *          </note>
+   *          <p>While you can use PlaceID in subsequent requests,
+   *       PlaceID is not intended to be a permanent
+   *             identifier and the ID can change between consecutive API calls.
+   *             Please see the following PlaceID behaviour for each data provider:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Esri: Place IDs will change every quarter at a minimum. The typical time period for these changes would be March, June, September, and December. Place IDs might also change between the typical quarterly change but that will be much less frequent.</p>
+   *             </li>
+   *             <li>
+   *                <p>HERE: We recommend
+   *         that you cache data for no longer than a week
+   *         to keep your data data fresh. You can
+   *         assume that less than 1% ID shifts will
+   *          release over release which is approximately 1 - 2 times per week.</p>
+   *             </li>
+   *             <li>
+   *                <p>Grab:  Place IDs can expire or become invalid in the following situations.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Data operations: The POI may be removed from Grab POI database by Grab Map Ops based on the ground-truth,
+   *              such as being closed in the real world, being detected as a duplicate POI, or having incorrect information. Grab will synchronize data to the Waypoint environment on weekly basis.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Interpolated POI: Interpolated POI is a temporary POI generated in real time when serving a request,
+   *             and it will be marked as derived in the <code>place.result_type</code> field in the response.
+   *             The information of interpolated POIs will be retained for at least 30 days, which means that within 30 days, you are able to obtain POI details by
+   *             Place ID from Place Details API. After 30 days, the interpolated POIs(both Place ID and details) may expire and inaccessible from the Places Details API.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
    */
   PlaceId?: string;
 
@@ -6410,7 +6586,7 @@ export interface UpdatePlaceIndexRequest {
    * <p>No longer used. If included, the only allowed value is
    *             <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -6474,7 +6650,7 @@ export interface UpdateRouteCalculatorRequest {
    * <p>No longer used. If included, the only allowed value is
    *             <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -6532,7 +6708,7 @@ export interface UpdateTrackerRequest {
    * <p>No longer used. If included, the only allowed value is
    *             <code>RequestBasedUsage</code>.</p>
    */
-  PricingPlan?: PricingPlan | string;
+  PricingPlan?: PricingPlan;
 
   /**
    * @public
@@ -6581,7 +6757,7 @@ export interface UpdateTrackerRequest {
    *             </li>
    *          </ul>
    */
-  PositionFiltering?: PositionFiltering | string;
+  PositionFiltering?: PositionFiltering;
 
   /**
    * @public
@@ -6594,6 +6770,14 @@ export interface UpdateTrackerRequest {
    *          </note>
    */
   EventBridgeEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>Enables <code>GeospatialQueries</code> for a tracker that uses a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html">Amazon Web Services
+   *             KMS customer managed key</a>.</p>
+   *          <p>This parameter is only used if you are using a KMS customer managed key.</p>
+   */
+  KmsKeyEnableGeospatialQueries?: boolean;
 }
 
 /**
@@ -6914,6 +7098,22 @@ export const PlaceFilterSensitiveLog = (obj: Place): any => ({
 export const GetPlaceResponseFilterSensitiveLog = (obj: GetPlaceResponse): any => ({
   ...obj,
   ...(obj.Place && { Place: PlaceFilterSensitiveLog(obj.Place) }),
+});
+
+/**
+ * @internal
+ */
+export const TrackingFilterGeometryFilterSensitiveLog = (obj: TrackingFilterGeometry): any => ({
+  ...obj,
+  ...(obj.Polygon && { Polygon: obj.Polygon.map((item) => SENSITIVE_STRING) }),
+});
+
+/**
+ * @internal
+ */
+export const ListDevicePositionsRequestFilterSensitiveLog = (obj: ListDevicePositionsRequest): any => ({
+  ...obj,
+  ...(obj.FilterGeometry && { FilterGeometry: TrackingFilterGeometryFilterSensitiveLog(obj.FilterGeometry) }),
 });
 
 /**

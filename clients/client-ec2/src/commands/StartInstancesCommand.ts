@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { StartInstancesRequest, StartInstancesResult } from "../models/models_7";
 import { de_StartInstancesCommand, se_StartInstancesCommand } from "../protocols/Aws_ec2";
 
@@ -49,7 +41,7 @@ export interface StartInstancesCommandOutput extends StartInstancesResult, __Met
  *          <p>Performing this operation on an instance that uses an instance store as its root
  *             device returns an error.</p>
  *          <p>If you attempt to start a T3 instance with <code>host</code> tenancy and the
- *                 <code>unlimted</code> CPU credit option, the request fails. The
+ *                 <code>unlimited</code> CPU credit option, the request fails. The
  *                 <code>unlimited</code> CPU credit option is not supported on Dedicated Hosts. Before
  *             you start the instance, either change its CPU credit option to <code>standard</code>, or
  *             change its tenancy to <code>default</code> or <code>dedicated</code>.</p>
@@ -128,79 +120,26 @@ export interface StartInstancesCommandOutput extends StartInstancesResult, __Met
  * ```
  *
  */
-export class StartInstancesCommand extends $Command<
-  StartInstancesCommandInput,
-  StartInstancesCommandOutput,
-  EC2ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StartInstancesCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: EC2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StartInstancesCommandInput, StartInstancesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartInstancesCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "EC2Client";
-    const commandName = "StartInstancesCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StartInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartInstancesCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartInstancesCommandOutput> {
-    return de_StartInstancesCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class StartInstancesCommand extends $Command
+  .classBuilder<
+    StartInstancesCommandInput,
+    StartInstancesCommandOutput,
+    EC2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonEC2", "StartInstances", {})
+  .n("EC2Client", "StartInstancesCommand")
+  .f(void 0, void 0)
+  .ser(se_StartInstancesCommand)
+  .de(de_StartInstancesCommand)
+  .build() {}

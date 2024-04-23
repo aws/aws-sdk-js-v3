@@ -1,20 +1,16 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { SearchGameSessionsInput, SearchGameSessionsOutput } from "../models/models_0";
+import {
+  SearchGameSessionsInput,
+  SearchGameSessionsOutput,
+  SearchGameSessionsOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { de_SearchGameSessionsCommand, se_SearchGameSessionsCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -38,12 +34,7 @@ export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutpu
  * @public
  * <p>Retrieves all active game sessions that match a set of search criteria and sorts them
  *             into a specified order. </p>
- *          <p>This operation is not designed to be continually called to track game session status.
- *             This practice can cause you to exceed your API limit, which results in errors. Instead,
- *             you must configure configure an Amazon Simple Notification Service (SNS) topic to receive notifications from
- *             FlexMatch or queues. Continuously polling game session status with
- *                 <code>DescribeGameSessions</code> should only be used for games in development with
- *             low game session usage. </p>
+ *          <p>This operation is not designed to continually track game session status because that practice can cause you to exceed your API limit and generate errors. Instead, configure an Amazon Simple Notification Service (Amazon SNS) topic to receive notifications from a matchmaker or game session placement queue.</p>
  *          <p>When searching for game sessions, you specify exactly where you want to search and
  *             provide a search filter expression, a sort expression, or both. A search request can
  *             search only one fleet, but it can search all of a fleet's locations. </p>
@@ -65,7 +56,7 @@ export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutpu
  *          <p>If successful, a <code>GameSession</code> object is returned for each game session
  *             that matches the request. Search finds game sessions that are in <code>ACTIVE</code>
  *             status only. To retrieve information on game sessions in other statuses, use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeGameSessions.html">DescribeGameSessions</a> .</p>
- *          <p>You can search or sort by the following game session attributes:</p>
+ *          <p>To set search and sort criteria, create a filter expression using the following game session attributes. For game session search examples, see the Examples section of this topic.</p>
  *          <ul>
  *             <li>
  *                <p>
@@ -79,14 +70,14 @@ export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutpu
  *             </li>
  *             <li>
  *                <p>
- *                   <b>gameSessionProperties</b> -- Custom data defined
- *                     in a game session's <code>GameProperty</code> parameter.
- *                         <code>GameProperty</code> values are stored as key:value pairs; the filter
- *                     expression must indicate the key and a string to search the data values for. For
- *                     example, to search for game sessions with custom data containing the key:value
- *                     pair "gameMode:brawl", specify the following:
- *                         <code>gameSessionProperties.gameMode = "brawl"</code>. All custom data
- *                     values are searched as strings.</p>
+ *                   <b>gameSessionProperties</b> -- A set of key-value pairs that can store custom data in a game session.
+ *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>.
+ *                     The filter expression must specify the <a>GameProperty</a> -- a <code>Key</code> and a string <code>Value</code> to search for the game sessions.</p>
+ *                <p>For example, to search for the above key-value pair, specify the following search filter: <code>gameSessionProperties.difficulty = "novice"</code>.
+ *                     All game property values are searched as strings.</p>
+ *                <p>
+ *                     For examples of searching game sessions, see the ones below, and also see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#game-properties-search">Search game sessions by game property</a>.
+ *                     </p>
  *             </li>
  *             <li>
  *                <p>
@@ -207,79 +198,26 @@ export interface SearchGameSessionsCommandOutput extends SearchGameSessionsOutpu
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
-export class SearchGameSessionsCommand extends $Command<
-  SearchGameSessionsCommandInput,
-  SearchGameSessionsCommandOutput,
-  GameLiftClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: SearchGameSessionsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: GameLiftClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<SearchGameSessionsCommandInput, SearchGameSessionsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, SearchGameSessionsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "GameLiftClient";
-    const commandName = "SearchGameSessionsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: SearchGameSessionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_SearchGameSessionsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchGameSessionsCommandOutput> {
-    return de_SearchGameSessionsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class SearchGameSessionsCommand extends $Command
+  .classBuilder<
+    SearchGameSessionsCommandInput,
+    SearchGameSessionsCommandOutput,
+    GameLiftClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("GameLift", "SearchGameSessions", {})
+  .n("GameLiftClient", "SearchGameSessionsCommand")
+  .f(void 0, SearchGameSessionsOutputFilterSensitiveLog)
+  .ser(se_SearchGameSessionsCommand)
+  .de(de_SearchGameSessionsCommand)
+  .build() {}

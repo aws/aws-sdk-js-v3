@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -95,11 +96,11 @@ export const se_CreateConnectorCommand = async (
   input: CreateConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/connectors";
+  b.bp("/v1/connectors");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -117,15 +118,8 @@ export const se_CreateConnectorCommand = async (
       workerConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -135,11 +129,11 @@ export const se_CreateCustomPluginCommand = async (
   input: CreateCustomPluginCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/custom-plugins";
+  b.bp("/v1/custom-plugins");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -149,15 +143,8 @@ export const se_CreateCustomPluginCommand = async (
       name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -167,12 +154,11 @@ export const se_CreateWorkerConfigurationCommand = async (
   input: CreateWorkerConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/worker-configurations";
+  b.bp("/v1/worker-configurations");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -181,15 +167,8 @@ export const se_CreateWorkerConfigurationCommand = async (
       propertiesFileContent: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -199,32 +178,16 @@ export const se_DeleteConnectorCommand = async (
   input: DeleteConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/connectors/{connectorArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "connectorArn",
-    () => input.connectorArn!,
-    "{connectorArn}",
-    false
-  );
+  b.bp("/v1/connectors/{connectorArn}");
+  b.p("connectorArn", () => input.connectorArn!, "{connectorArn}", false);
   const query: any = map({
-    currentVersion: [, input.currentVersion!],
+    [_cV]: [, input[_cV]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -234,28 +197,13 @@ export const se_DeleteCustomPluginCommand = async (
   input: DeleteCustomPluginCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/custom-plugins/{customPluginArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "customPluginArn",
-    () => input.customPluginArn!,
-    "{customPluginArn}",
-    false
-  );
+  b.bp("/v1/custom-plugins/{customPluginArn}");
+  b.p("customPluginArn", () => input.customPluginArn!, "{customPluginArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -265,28 +213,13 @@ export const se_DescribeConnectorCommand = async (
   input: DescribeConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/connectors/{connectorArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "connectorArn",
-    () => input.connectorArn!,
-    "{connectorArn}",
-    false
-  );
+  b.bp("/v1/connectors/{connectorArn}");
+  b.p("connectorArn", () => input.connectorArn!, "{connectorArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -296,28 +229,13 @@ export const se_DescribeCustomPluginCommand = async (
   input: DescribeCustomPluginCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/custom-plugins/{customPluginArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "customPluginArn",
-    () => input.customPluginArn!,
-    "{customPluginArn}",
-    false
-  );
+  b.bp("/v1/custom-plugins/{customPluginArn}");
+  b.p("customPluginArn", () => input.customPluginArn!, "{customPluginArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -327,29 +245,13 @@ export const se_DescribeWorkerConfigurationCommand = async (
   input: DescribeWorkerConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/worker-configurations/{workerConfigurationArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "workerConfigurationArn",
-    () => input.workerConfigurationArn!,
-    "{workerConfigurationArn}",
-    false
-  );
+  b.bp("/v1/worker-configurations/{workerConfigurationArn}");
+  b.p("workerConfigurationArn", () => input.workerConfigurationArn!, "{workerConfigurationArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -359,25 +261,17 @@ export const se_ListConnectorsCommand = async (
   input: ListConnectorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/connectors";
+  b.bp("/v1/connectors");
   const query: any = map({
-    connectorNamePrefix: [, input.connectorNamePrefix!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_cNP]: [, input[_cNP]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -387,24 +281,16 @@ export const se_ListCustomPluginsCommand = async (
   input: ListCustomPluginsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/custom-plugins";
+  b.bp("/v1/custom-plugins");
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -414,25 +300,16 @@ export const se_ListWorkerConfigurationsCommand = async (
   input: ListWorkerConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/worker-configurations";
+  b.bp("/v1/worker-configurations");
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -442,22 +319,14 @@ export const se_UpdateConnectorCommand = async (
   input: UpdateConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/connectors/{connectorArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "connectorArn",
-    () => input.connectorArn!,
-    "{connectorArn}",
-    false
-  );
+  b.bp("/v1/connectors/{connectorArn}");
+  b.p("connectorArn", () => input.connectorArn!, "{connectorArn}", false);
   const query: any = map({
-    currentVersion: [, __expectNonNull(input.currentVersion!, `currentVersion`)],
+    [_cV]: [, __expectNonNull(input[_cV]!, `currentVersion`)],
   });
   let body: any;
   body = JSON.stringify(
@@ -465,16 +334,8 @@ export const se_UpdateConnectorCommand = async (
       capacity: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1708,6 +1569,11 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _cNP = "connectorNamePrefix";
+const _cV = "currentVersion";
+const _mR = "maxResults";
+const _nT = "nextToken";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

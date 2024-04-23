@@ -27,16 +27,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `STSClient` and
-the commands you need, for example `AssumeRoleCommand`:
+the commands you need, for example `GetCallerIdentityCommand`:
 
 ```js
 // ES5 example
-const { STSClient, AssumeRoleCommand } = require("@aws-sdk/client-sts");
+const { STSClient, GetCallerIdentityCommand } = require("@aws-sdk/client-sts");
 ```
 
 ```ts
 // ES6+ example
-import { STSClient, AssumeRoleCommand } from "@aws-sdk/client-sts";
+import { STSClient, GetCallerIdentityCommand } from "@aws-sdk/client-sts";
 ```
 
 ### Usage
@@ -55,7 +55,7 @@ const client = new STSClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssumeRoleCommand(params);
+const command = new GetCallerIdentityCommand(params);
 ```
 
 #### Async/await
@@ -134,7 +134,7 @@ const client = new AWS.STS({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.assumeRole(params);
+  const data = await client.getCallerIdentity(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -142,7 +142,7 @@ try {
 
 // Promises.
 client
-  .assumeRole(params)
+  .getCallerIdentity(params)
   .then((data) => {
     // process data.
   })
@@ -151,7 +151,7 @@ client
   });
 
 // callbacks.
-client.assumeRole(params, (err, data) => {
+client.getCallerIdentity(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -166,7 +166,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -212,7 +212,7 @@ see LICENSE for more information.
 AssumeRole
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/classes/assumerolecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/assumerolecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/assumerolecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sts/command/AssumeRoleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sts/Interface/AssumeRoleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sts/Interface/AssumeRoleCommandOutput/)
 
 </details>
 <details>
@@ -220,7 +220,7 @@ AssumeRole
 AssumeRoleWithSAML
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/classes/assumerolewithsamlcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/assumerolewithsamlcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/assumerolewithsamlcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sts/command/AssumeRoleWithSAMLCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sts/Interface/AssumeRoleWithSAMLCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sts/Interface/AssumeRoleWithSAMLCommandOutput/)
 
 </details>
 <details>
@@ -228,7 +228,7 @@ AssumeRoleWithSAML
 AssumeRoleWithWebIdentity
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/classes/assumerolewithwebidentitycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/assumerolewithwebidentitycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/assumerolewithwebidentitycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sts/command/AssumeRoleWithWebIdentityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sts/Interface/AssumeRoleWithWebIdentityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sts/Interface/AssumeRoleWithWebIdentityCommandOutput/)
 
 </details>
 <details>
@@ -236,7 +236,7 @@ AssumeRoleWithWebIdentity
 DecodeAuthorizationMessage
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/classes/decodeauthorizationmessagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/decodeauthorizationmessagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/decodeauthorizationmessagecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sts/command/DecodeAuthorizationMessageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sts/Interface/DecodeAuthorizationMessageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sts/Interface/DecodeAuthorizationMessageCommandOutput/)
 
 </details>
 <details>
@@ -244,7 +244,7 @@ DecodeAuthorizationMessage
 GetAccessKeyInfo
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/classes/getaccesskeyinfocommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/getaccesskeyinfocommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/getaccesskeyinfocommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sts/command/GetAccessKeyInfoCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sts/Interface/GetAccessKeyInfoCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sts/Interface/GetAccessKeyInfoCommandOutput/)
 
 </details>
 <details>
@@ -252,7 +252,7 @@ GetAccessKeyInfo
 GetCallerIdentity
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/classes/getcalleridentitycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/getcalleridentitycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/getcalleridentitycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sts/command/GetCallerIdentityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sts/Interface/GetCallerIdentityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sts/Interface/GetCallerIdentityCommandOutput/)
 
 </details>
 <details>
@@ -260,7 +260,7 @@ GetCallerIdentity
 GetFederationToken
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/classes/getfederationtokencommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/getfederationtokencommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/getfederationtokencommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sts/command/GetFederationTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sts/Interface/GetFederationTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sts/Interface/GetFederationTokenCommandOutput/)
 
 </details>
 <details>
@@ -268,6 +268,6 @@ GetFederationToken
 GetSessionToken
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/classes/getsessiontokencommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/getsessiontokencommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sts/interfaces/getsessiontokencommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sts/command/GetSessionTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sts/Interface/GetSessionTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sts/Interface/GetSessionTokenCommandOutput/)
 
 </details>

@@ -1,11 +1,13 @@
 // smithy-typescript generated code
+import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectInt32 as __expectInt32,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   limitedParseFloat32 as __limitedParseFloat32,
   map,
   serializeFloat as __serializeFloat,
@@ -62,28 +64,20 @@ export const se_StartFaceLivenessSessionCommand = async (
   input: StartFaceLivenessSessionCommandInput,
   context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-rekognition-streaming-liveness-session-id": input.SessionId!,
-    "x-amz-rekognition-streaming-liveness-video-width": input.VideoWidth!,
-    "x-amz-rekognition-streaming-liveness-video-height": input.VideoHeight!,
-    "x-amz-rekognition-streaming-liveness-challenge-versions": input.ChallengeVersions!,
+    [_xarslsi]: input[_SI]!,
+    [_xarslvw]: input[_VW]!,
+    [_xarslvh]: input[_VH]!,
+    [_xarslcv]: input[_CV]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/start-face-liveness-session";
+  b.bp("/start-face-liveness-session");
   let body: any;
   if (input.LivenessRequestStream !== undefined) {
     body = se_LivenessRequestStream(input.LivenessRequestStream, context);
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -98,7 +92,7 @@ export const de_StartFaceLivenessSessionCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    SessionId: [, output.headers["x-amz-rekognition-streaming-liveness-session-id"]],
+    [_SI]: [, output.headers[_xarslsi]],
   });
   const data: any = output.body;
   contents.LivenessResponseStream = de_LivenessResponseStream(data, context);
@@ -540,6 +534,7 @@ const de_ChallengeConfig = (output: any, context: __SerdeContext): ChallengeConf
     FaceDistanceThresholdMin: __limitedParseFloat32,
     FaceIouHeightThreshold: __limitedParseFloat32,
     FaceIouWidthThreshold: __limitedParseFloat32,
+    OvalFitTimeout: __expectInt32,
     OvalHeightWidthRatio: __limitedParseFloat32,
     OvalIouHeightThreshold: __limitedParseFloat32,
     OvalIouThreshold: __limitedParseFloat32,
@@ -654,6 +649,15 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _CV = "ChallengeVersions";
+const _SI = "SessionId";
+const _VH = "VideoHeight";
+const _VW = "VideoWidth";
+const _xarslcv = "x-amz-rekognition-streaming-liveness-challenge-versions";
+const _xarslsi = "x-amz-rekognition-streaming-liveness-session-id";
+const _xarslvh = "x-amz-rekognition-streaming-liveness-video-height";
+const _xarslvw = "x-amz-rekognition-streaming-liveness-video-width";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

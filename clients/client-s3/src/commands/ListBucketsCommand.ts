@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListBucketsOutput } from "../models/models_0";
 import { de_ListBucketsCommand, se_ListBucketsCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
@@ -36,7 +28,10 @@ export interface ListBucketsCommandOutput extends ListBucketsOutput, __MetadataB
 
 /**
  * @public
- * <p>Returns a list of all buckets owned by the authenticated sender of the request. To use
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Returns a list of all buckets owned by the authenticated sender of the request. To use
  *          this operation, you must have the <code>s3:ListAllMyBuckets</code> permission. </p>
  *          <p>For information about Amazon S3 buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-buckets-s3.html">Creating, configuring, and
  *             working with Amazon S3 buckets</a>.</p>
@@ -76,7 +71,7 @@ export interface ListBucketsCommandOutput extends ListBucketsOutput, __MetadataB
  * @example To list all buckets
  * ```javascript
  * // The following example returns all the buckets owned by the sender of this request.
- * const input = undefined;
+ * const input = {};
  * const command = new ListBucketsCommand(input);
  * const response = await client.send(command);
  * /* response ==
@@ -105,82 +100,26 @@ export interface ListBucketsCommandOutput extends ListBucketsOutput, __MetadataB
  * ```
  *
  */
-export class ListBucketsCommand extends $Command<
-  ListBucketsCommandInput,
-  ListBucketsCommandOutput,
-  S3ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
-      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
-      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
-      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
-      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListBucketsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: S3ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListBucketsCommandInput, ListBucketsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListBucketsCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "S3Client";
-    const commandName = "ListBucketsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListBucketsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListBucketsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListBucketsCommandOutput> {
-    return de_ListBucketsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListBucketsCommand extends $Command
+  .classBuilder<
+    ListBucketsCommandInput,
+    ListBucketsCommandOutput,
+    S3ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonS3", "ListBuckets", {})
+  .n("S3Client", "ListBucketsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListBucketsCommand)
+  .de(de_ListBucketsCommand)
+  .build() {}

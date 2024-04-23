@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { UpdateChannelRequest, UpdateChannelResponse } from "../models/models_2";
 import { de_UpdateChannelCommand, se_UpdateChannelCommand } from "../protocols/Aws_restJson1";
@@ -116,6 +108,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *             DrcProfile: "FILM_STANDARD" || "NONE",
  *             LfeFilter: "DISABLED" || "ENABLED",
  *             MetadataControl: "FOLLOW_INPUT" || "USE_CONFIGURED",
+ *             AttenuationControl: "ATTENUATE_3_DB" || "NONE",
  *           },
  *           Eac3AtmosSettings: { // Eac3AtmosSettings
  *             Bitrate: Number("double"),
@@ -305,6 +298,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *     ],
  *     FeatureActivations: { // FeatureActivations
  *       InputPrepareScheduleActions: "DISABLED" || "ENABLED",
+ *       OutputStaticImageOverlayScheduleActions: "DISABLED" || "ENABLED",
  *     },
  *     GlobalConfiguration: { // GlobalConfiguration
  *       InitialAudioGain: Number("int"),
@@ -319,6 +313,13 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *       OutputLockingMode: "EPOCH_LOCKING" || "PIPELINE_LOCKING",
  *       OutputTimingSource: "INPUT_CLOCK" || "SYSTEM_CLOCK",
  *       SupportLowFramerateInputs: "DISABLED" || "ENABLED",
+ *       OutputLockingSettings: { // OutputLockingSettings
+ *         EpochLockingSettings: { // EpochLockingSettings
+ *           CustomEpoch: "STRING_VALUE",
+ *           JamSyncTime: "STRING_VALUE",
+ *         },
+ *         PipelineLockingSettings: {},
+ *       },
  *     },
  *     MotionGraphicsConfiguration: { // MotionGraphicsConfiguration
  *       MotionGraphicsInsertion: "DISABLED" || "ENABLED",
@@ -487,6 +488,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *             CaptionData: "ALL" || "FIELD1_608" || "FIELD1_AND_FIELD2_608",
  *             InputLossAction: "EMIT_OUTPUT" || "PAUSE_OUTPUT",
  *             RestartDelay: Number("int"),
+ *             IncludeFillerNalUnits: "AUTO" || "DROP" || "INCLUDE",
  *           },
  *           UdpGroupSettings: { // UdpGroupSettings
  *             InputLossAction: "DROP_PROGRAM" || "DROP_TS" || "EMIT_PROGRAM",
@@ -610,6 +612,8 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *                       TimedMetadataPid: "STRING_VALUE",
  *                       TransportStreamId: Number("int"),
  *                       VideoPid: "STRING_VALUE",
+ *                       KlvBehavior: "NO_PASSTHROUGH" || "PASSTHROUGH",
+ *                       KlvDataPids: "STRING_VALUE",
  *                     },
  *                   },
  *                 },
@@ -871,6 +875,15 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *     ThumbnailConfiguration: { // ThumbnailConfiguration
  *       State: "AUTO" || "DISABLED", // required
  *     },
+ *     ColorCorrectionSettings: { // ColorCorrectionSettings
+ *       GlobalColorCorrections: [ // __listOfColorCorrection // required
+ *         { // ColorCorrection
+ *           InputColorSpace: "HDR10" || "HLG_2020" || "REC_601" || "REC_709", // required
+ *           OutputColorSpace: "HDR10" || "HLG_2020" || "REC_601" || "REC_709", // required
+ *           Uri: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
  *   },
  *   InputAttachments: [ // __listOfInputAttachment
  *     { // InputAttachment
@@ -1100,6 +1113,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //               DrcProfile: "FILM_STANDARD" || "NONE",
  * //               LfeFilter: "DISABLED" || "ENABLED",
  * //               MetadataControl: "FOLLOW_INPUT" || "USE_CONFIGURED",
+ * //               AttenuationControl: "ATTENUATE_3_DB" || "NONE",
  * //             },
  * //             Eac3AtmosSettings: { // Eac3AtmosSettings
  * //               Bitrate: Number("double"),
@@ -1289,6 +1303,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //       ],
  * //       FeatureActivations: { // FeatureActivations
  * //         InputPrepareScheduleActions: "DISABLED" || "ENABLED",
+ * //         OutputStaticImageOverlayScheduleActions: "DISABLED" || "ENABLED",
  * //       },
  * //       GlobalConfiguration: { // GlobalConfiguration
  * //         InitialAudioGain: Number("int"),
@@ -1303,6 +1318,13 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //         OutputLockingMode: "EPOCH_LOCKING" || "PIPELINE_LOCKING",
  * //         OutputTimingSource: "INPUT_CLOCK" || "SYSTEM_CLOCK",
  * //         SupportLowFramerateInputs: "DISABLED" || "ENABLED",
+ * //         OutputLockingSettings: { // OutputLockingSettings
+ * //           EpochLockingSettings: { // EpochLockingSettings
+ * //             CustomEpoch: "STRING_VALUE",
+ * //             JamSyncTime: "STRING_VALUE",
+ * //           },
+ * //           PipelineLockingSettings: {},
+ * //         },
  * //       },
  * //       MotionGraphicsConfiguration: { // MotionGraphicsConfiguration
  * //         MotionGraphicsInsertion: "DISABLED" || "ENABLED",
@@ -1471,6 +1493,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //               CaptionData: "ALL" || "FIELD1_608" || "FIELD1_AND_FIELD2_608",
  * //               InputLossAction: "EMIT_OUTPUT" || "PAUSE_OUTPUT",
  * //               RestartDelay: Number("int"),
+ * //               IncludeFillerNalUnits: "AUTO" || "DROP" || "INCLUDE",
  * //             },
  * //             UdpGroupSettings: { // UdpGroupSettings
  * //               InputLossAction: "DROP_PROGRAM" || "DROP_TS" || "EMIT_PROGRAM",
@@ -1594,6 +1617,8 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //                         TimedMetadataPid: "STRING_VALUE",
  * //                         TransportStreamId: Number("int"),
  * //                         VideoPid: "STRING_VALUE",
+ * //                         KlvBehavior: "NO_PASSTHROUGH" || "PASSTHROUGH",
+ * //                         KlvDataPids: "STRING_VALUE",
  * //                       },
  * //                     },
  * //                   },
@@ -1855,6 +1880,15 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //       ThumbnailConfiguration: { // ThumbnailConfiguration
  * //         State: "AUTO" || "DISABLED", // required
  * //       },
+ * //       ColorCorrectionSettings: { // ColorCorrectionSettings
+ * //         GlobalColorCorrections: [ // __listOfColorCorrection // required
+ * //           { // ColorCorrection
+ * //             InputColorSpace: "HDR10" || "HLG_2020" || "REC_601" || "REC_709", // required
+ * //             OutputColorSpace: "HDR10" || "HLG_2020" || "REC_601" || "REC_709", // required
+ * //             Uri: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //     Id: "STRING_VALUE",
  * //     InputAttachments: [ // __listOfInputAttachment
@@ -2065,77 +2099,26 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
-export class UpdateChannelCommand extends $Command<
-  UpdateChannelCommandInput,
-  UpdateChannelCommandOutput,
-  MediaLiveClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateChannelCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: MediaLiveClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateChannelCommandInput, UpdateChannelCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateChannelCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "MediaLiveClient";
-    const commandName = "UpdateChannelCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateChannelCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateChannelCommandOutput> {
-    return de_UpdateChannelCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateChannelCommand extends $Command
+  .classBuilder<
+    UpdateChannelCommandInput,
+    UpdateChannelCommandOutput,
+    MediaLiveClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("MediaLive", "UpdateChannel", {})
+  .n("MediaLiveClient", "UpdateChannelCommand")
+  .f(void 0, void 0)
+  .ser(se_UpdateChannelCommand)
+  .de(de_UpdateChannelCommand)
+  .build() {}

@@ -199,7 +199,7 @@ export interface AnalysisReportSummary {
    * @public
    * <p>The status of the analysis report.</p>
    */
-  Status?: AnalysisStatus | string;
+  Status?: AnalysisStatus;
 
   /**
    * @public
@@ -216,7 +216,7 @@ export interface CreatePerformanceAnalysisReportRequest {
    * @public
    * <p>The Amazon Web Services service for which Performance Insights will return metrics. Valid value is <code>RDS</code>.</p>
    */
-  ServiceType: ServiceType | string | undefined;
+  ServiceType: ServiceType | undefined;
 
   /**
    * @public
@@ -349,7 +349,7 @@ export interface DeletePerformanceAnalysisReportRequest {
    * @public
    * <p>The Amazon Web Services service for which Performance Insights will return metrics. Valid value is <code>RDS</code>.</p>
    */
-  ServiceType: ServiceType | string | undefined;
+  ServiceType: ServiceType | undefined;
 
   /**
    * @public
@@ -669,7 +669,7 @@ export interface DescribeDimensionKeysRequest {
    *             </li>
    *          </ul>
    */
-  ServiceType: ServiceType | string | undefined;
+  ServiceType: ServiceType | undefined;
 
   /**
    * @public
@@ -998,7 +998,7 @@ export interface DimensionKeyDetail {
    *             </li>
    *          </ul>
    */
-  Status?: DetailStatus | string;
+  Status?: DetailStatus;
 }
 
 /**
@@ -1055,7 +1055,7 @@ export interface FeatureMetadata {
    *             </li>
    *          </ul>
    */
-  Status?: FeatureStatus | string;
+  Status?: FeatureStatus;
 }
 
 /**
@@ -1066,7 +1066,7 @@ export interface GetDimensionKeyDetailsRequest {
    * @public
    * <p>The Amazon Web Services service for which Performance Insights returns data. The only valid value is <code>RDS</code>.</p>
    */
-  ServiceType: ServiceType | string | undefined;
+  ServiceType: ServiceType | undefined;
 
   /**
    * @public
@@ -1165,7 +1165,7 @@ export interface GetPerformanceAnalysisReportRequest {
    * <p>The Amazon Web Services service for which Performance Insights will return metrics. Valid value is
    *             <code>RDS</code>.</p>
    */
-  ServiceType: ServiceType | string | undefined;
+  ServiceType: ServiceType | undefined;
 
   /**
    * @public
@@ -1191,14 +1191,14 @@ export interface GetPerformanceAnalysisReportRequest {
    * <p>Indicates the text format in the report. The options are <code>PLAIN_TEXT</code> or <code>MARKDOWN</code>. The default
    *             value is <code>plain text</code>.</p>
    */
-  TextFormat?: TextFormat | string;
+  TextFormat?: TextFormat;
 
   /**
    * @public
    * <p>The text language in the report. The default language is <code>EN_US</code> (English).
    *         </p>
    */
-  AcceptLanguage?: AcceptLanguage | string;
+  AcceptLanguage?: AcceptLanguage;
 }
 
 /**
@@ -1209,7 +1209,7 @@ export interface GetResourceMetadataRequest {
    * @public
    * <p>The Amazon Web Services service for which Performance Insights returns metrics.</p>
    */
-  ServiceType: ServiceType | string | undefined;
+  ServiceType: ServiceType | undefined;
 
   /**
    * @public
@@ -1335,7 +1335,7 @@ export interface GetResourceMetricsRequest {
    *             </li>
    *          </ul>
    */
-  ServiceType: ServiceType | string | undefined;
+  ServiceType: ServiceType | undefined;
 
   /**
    * @public
@@ -1423,7 +1423,7 @@ export interface GetResourceMetricsRequest {
    * @public
    * <p>The returned timestamp which is the start or end time of the time periods. The default value is <code>END_TIME</code>.</p>
    */
-  PeriodAlignment?: PeriodAlignment | string;
+  PeriodAlignment?: PeriodAlignment;
 }
 
 /**
@@ -1534,7 +1534,7 @@ export interface ListAvailableResourceDimensionsRequest {
    * @public
    * <p>The Amazon Web Services service for which Performance Insights returns metrics.</p>
    */
-  ServiceType: ServiceType | string | undefined;
+  ServiceType: ServiceType | undefined;
 
   /**
    * @public
@@ -1611,7 +1611,7 @@ export interface ListAvailableResourceMetricsRequest {
    * @public
    * <p>The Amazon Web Services service for which Performance Insights returns metrics.</p>
    */
-  ServiceType: ServiceType | string | undefined;
+  ServiceType: ServiceType | undefined;
 
   /**
    * @public
@@ -1715,7 +1715,7 @@ export interface ListPerformanceAnalysisReportsRequest {
    * <p>The Amazon Web Services service for which Performance Insights returns metrics. Valid value is
    *             <code>RDS</code>.</p>
    */
-  ServiceType: ServiceType | string | undefined;
+  ServiceType: ServiceType | undefined;
 
   /**
    * @public
@@ -1777,7 +1777,7 @@ export interface ListTagsForResourceRequest {
    * @public
    * <p>List the tags for the Amazon Web Services service for which Performance Insights returns metrics. Valid value is <code>RDS</code>.</p>
    */
-  ServiceType: ServiceType | string | undefined;
+  ServiceType: ServiceType | undefined;
 
   /**
    * @public
@@ -1808,7 +1808,7 @@ export interface TagResourceRequest {
    * @public
    * <p>The Amazon Web Services service for which Performance Insights returns metrics. Valid value is <code>RDS</code>.</p>
    */
-  ServiceType: ServiceType | string | undefined;
+  ServiceType: ServiceType | undefined;
 
   /**
    * @public
@@ -1838,7 +1838,7 @@ export interface UntagResourceRequest {
    * @public
    * <p>List the tags for the Amazon Web Services service for which Performance Insights returns metrics. Valid value is <code>RDS</code>.</p>
    */
-  ServiceType: ServiceType | string | undefined;
+  ServiceType: ServiceType | undefined;
 
   /**
    * @public
@@ -1881,7 +1881,7 @@ export interface Insight {
    * @public
    * <p>Indicates if the insight is causal or correlated insight.</p>
    */
-  Context?: ContextType | string;
+  Context?: ContextType;
 
   /**
    * @public
@@ -1899,7 +1899,7 @@ export interface Insight {
    * @public
    * <p>The severity of the insight. The values are: <code>Low</code>, <code>Medium</code>, or <code>High</code>.</p>
    */
-  Severity?: Severity | string;
+  Severity?: Severity;
 
   /**
    * @public
@@ -1972,7 +1972,7 @@ export interface AnalysisReport {
    *             </li>
    *          </ul>
    */
-  ServiceType?: ServiceType | string;
+  ServiceType?: ServiceType;
 
   /**
    * @public
@@ -1996,7 +1996,7 @@ export interface AnalysisReport {
    * @public
    * <p>The status of the created analysis report.</p>
    */
-  Status?: AnalysisStatus | string;
+  Status?: AnalysisStatus;
 
   /**
    * @public

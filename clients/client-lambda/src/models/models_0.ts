@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+
 import { StreamingBlobTypes } from "@smithy/types";
 
 import { LambdaServiceException as __BaseException } from "./LambdaServiceException";
@@ -313,7 +314,7 @@ export class TooManyRequestsException extends __BaseException {
   retryAfterSeconds?: string;
 
   Type?: string;
-  Reason?: ThrottleReason | string;
+  Reason?: ThrottleReason;
   /**
    * @internal
    */
@@ -442,7 +443,7 @@ export interface AddPermissionRequest {
    *   users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
    *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
-  FunctionUrlAuthType?: FunctionUrlAuthType | string;
+  FunctionUrlAuthType?: FunctionUrlAuthType;
 }
 
 /**
@@ -542,6 +543,24 @@ export interface AmazonManagedKafkaEventSourceConfig {
  * @public
  * @enum
  */
+export const ApplicationLogLevel = {
+  Debug: "DEBUG",
+  Error: "ERROR",
+  Fatal: "FATAL",
+  Info: "INFO",
+  Trace: "TRACE",
+  Warn: "WARN",
+} as const;
+
+/**
+ * @public
+ */
+export type ApplicationLogLevel = (typeof ApplicationLogLevel)[keyof typeof ApplicationLogLevel];
+
+/**
+ * @public
+ * @enum
+ */
 export const Architecture = {
   arm64: "arm64",
   x86_64: "x86_64",
@@ -635,7 +654,7 @@ export interface CodeSigningPolicies {
    *          <p>Default value: <code>Warn</code>
    *          </p>
    */
-  UntrustedArtifactOnDeployment?: CodeSigningPolicy | string;
+  UntrustedArtifactOnDeployment?: CodeSigningPolicy;
 }
 
 /**
@@ -799,7 +818,7 @@ export interface DocumentDBEventSourceConfig {
    *       Determines what DocumentDB sends to your event stream during document update operations. If set to UpdateLookup, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes.
    *     </p>
    */
-  FullDocument?: FullDocument | string;
+  FullDocument?: FullDocument;
 }
 
 /**
@@ -884,7 +903,7 @@ export interface SelfManagedEventSource {
    * <p>The list of bootstrap servers for your Kafka brokers in the following format: <code>"KAFKA_BOOTSTRAP_SERVERS":
    *         ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]</code>.</p>
    */
-  Endpoints?: Record<string, string[]>;
+  Endpoints?: Partial<Record<EndPointType, string[]>>;
 }
 
 /**
@@ -971,7 +990,7 @@ export interface SourceAccessConfiguration {
    *             </li>
    *          </ul>
    */
-  Type?: SourceAccessType | string;
+  Type?: SourceAccessType;
 
   /**
    * @public
@@ -1134,7 +1153,7 @@ export interface CreateEventSourceMappingRequest {
    *       Amazon DynamoDB Stream event sources. <code>AT_TIMESTAMP</code> is supported only for
    *       Amazon Kinesis streams, Amazon DocumentDB, Amazon MSK, and self-managed Apache Kafka.</p>
    */
-  StartingPosition?: EventSourcePosition | string;
+  StartingPosition?: EventSourcePosition;
 
   /**
    * @public
@@ -1201,7 +1220,7 @@ export interface CreateEventSourceMappingRequest {
    * @public
    * <p>(Kinesis, DynamoDB Streams, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
    */
-  FunctionResponseTypes?: (FunctionResponseType | string)[];
+  FunctionResponseTypes?: FunctionResponseType[];
 
   /**
    * @public
@@ -1245,7 +1264,7 @@ export interface EventSourceMappingConfiguration {
    *       Amazon DynamoDB Stream event sources. <code>AT_TIMESTAMP</code> is supported only for
    *       Amazon Kinesis streams, Amazon DocumentDB, Amazon MSK, and self-managed Apache Kafka.</p>
    */
-  StartingPosition?: EventSourcePosition | string;
+  StartingPosition?: EventSourcePosition;
 
   /**
    * @public
@@ -1387,7 +1406,7 @@ export interface EventSourceMappingConfiguration {
    * @public
    * <p>(Kinesis, DynamoDB Streams, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
    */
-  FunctionResponseTypes?: (FunctionResponseType | string)[];
+  FunctionResponseTypes?: FunctionResponseType[];
 
   /**
    * @public
@@ -1618,6 +1637,69 @@ export interface ImageConfig {
  * @public
  * @enum
  */
+export const LogFormat = {
+  Json: "JSON",
+  Text: "Text",
+} as const;
+
+/**
+ * @public
+ */
+export type LogFormat = (typeof LogFormat)[keyof typeof LogFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const SystemLogLevel = {
+  Debug: "DEBUG",
+  Info: "INFO",
+  Warn: "WARN",
+} as const;
+
+/**
+ * @public
+ */
+export type SystemLogLevel = (typeof SystemLogLevel)[keyof typeof SystemLogLevel];
+
+/**
+ * @public
+ * <p>The function's Amazon CloudWatch Logs configuration settings.</p>
+ */
+export interface LoggingConfig {
+  /**
+   * @public
+   * <p>The format in which Lambda sends your function's application and system logs to CloudWatch. Select between
+   *     plain text and structured JSON.</p>
+   */
+  LogFormat?: LogFormat;
+
+  /**
+   * @public
+   * <p>Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the
+   *     selected level and lower.</p>
+   */
+  ApplicationLogLevel?: ApplicationLogLevel;
+
+  /**
+   * @public
+   * <p>Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the
+   *       selected level and lower.</p>
+   */
+  SystemLogLevel?: SystemLogLevel;
+
+  /**
+   * @public
+   * <p>The name of the Amazon CloudWatch log group the function sends logs to. By default, Lambda functions send logs to a default
+   *       log group named <code>/aws/lambda/<function name></code>. To use a different log group, enter an existing log group or enter a new log group name.</p>
+   */
+  LogGroup?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const PackageType = {
   Image: "Image",
   Zip: "Zip",
@@ -1641,6 +1723,7 @@ export const Runtime = {
   go1x: "go1.x",
   java11: "java11",
   java17: "java17",
+  java21: "java21",
   java8: "java8",
   java8al2: "java8.al2",
   nodejs: "nodejs",
@@ -1649,15 +1732,18 @@ export const Runtime = {
   nodejs14x: "nodejs14.x",
   nodejs16x: "nodejs16.x",
   nodejs18x: "nodejs18.x",
+  nodejs20x: "nodejs20.x",
   nodejs43: "nodejs4.3",
   nodejs43edge: "nodejs4.3-edge",
   nodejs610: "nodejs6.10",
   nodejs810: "nodejs8.10",
   provided: "provided",
   providedal2: "provided.al2",
+  providedal2023: "provided.al2023",
   python27: "python2.7",
   python310: "python3.10",
   python311: "python3.11",
+  python312: "python3.12",
   python36: "python3.6",
   python37: "python3.7",
   python38: "python3.8",
@@ -1696,7 +1782,7 @@ export interface SnapStart {
    * @public
    * <p>Set to <code>PublishedVersions</code> to create a snapshot of the initialized execution environment when you publish a function version.</p>
    */
-  ApplyOn?: SnapStartApplyOn | string;
+  ApplyOn?: SnapStartApplyOn;
 }
 
 /**
@@ -1723,7 +1809,7 @@ export interface TracingConfig {
    * @public
    * <p>The tracing mode.</p>
    */
-  Mode?: TracingMode | string;
+  Mode?: TracingMode;
 }
 
 /**
@@ -1744,6 +1830,12 @@ export interface VpcConfig {
    * <p>A list of VPC security group IDs.</p>
    */
   SecurityGroupIds?: string[];
+
+  /**
+   * @public
+   * <p>Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.</p>
+   */
+  Ipv6AllowedForDualStack?: boolean;
 }
 
 /**
@@ -1780,7 +1872,7 @@ export interface CreateFunctionRequest {
    * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>. Runtime is required if the deployment package is a .zip file archive.</p>
    *          <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
    */
-  Runtime?: Runtime | string;
+  Runtime?: Runtime;
 
   /**
    * @public
@@ -1841,7 +1933,7 @@ export interface CreateFunctionRequest {
    * @public
    * <p>The type of deployment package. Set to <code>Image</code> for container image and set to <code>Zip</code> for .zip file archive.</p>
    */
-  PackageType?: PackageType | string;
+  PackageType?: PackageType;
 
   /**
    * @public
@@ -1913,7 +2005,7 @@ export interface CreateFunctionRequest {
    * <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64).
    *      The default value is <code>x86_64</code>.</p>
    */
-  Architectures?: (Architecture | string)[];
+  Architectures?: Architecture[];
 
   /**
    * @public
@@ -1927,6 +2019,12 @@ export interface CreateFunctionRequest {
    * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">SnapStart</a> setting.</p>
    */
   SnapStart?: SnapStart;
+
+  /**
+   * @public
+   * <p>The function's Amazon CloudWatch Logs configuration settings.</p>
+   */
+  LoggingConfig?: LoggingConfig;
 }
 
 /**
@@ -2141,13 +2239,13 @@ export interface SnapStartResponse {
    * @public
    * <p>When set to <code>PublishedVersions</code>, Lambda creates a snapshot of the execution environment when you publish a function version.</p>
    */
-  ApplyOn?: SnapStartApplyOn | string;
+  ApplyOn?: SnapStartApplyOn;
 
   /**
    * @public
    * <p>When you provide a <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-versions.html#versioning-versions-using">qualified Amazon Resource Name (ARN)</a>, this response element indicates whether SnapStart is activated for the specified function version.</p>
    */
-  OptimizationStatus?: SnapStartOptimizationStatus | string;
+  OptimizationStatus?: SnapStartOptimizationStatus;
 }
 
 /**
@@ -2211,7 +2309,7 @@ export interface TracingConfigResponse {
    * @public
    * <p>The tracing mode.</p>
    */
-  Mode?: TracingMode | string;
+  Mode?: TracingMode;
 }
 
 /**
@@ -2236,6 +2334,12 @@ export interface VpcConfigResponse {
    * <p>The ID of the VPC.</p>
    */
   VpcId?: string;
+
+  /**
+   * @public
+   * <p>Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.</p>
+   */
+  Ipv6AllowedForDualStack?: boolean;
 }
 
 /**
@@ -2260,7 +2364,7 @@ export interface FunctionConfiguration {
    * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>. Runtime is required if the deployment package is a .zip file archive.</p>
    *          <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
    */
-  Runtime?: Runtime | string;
+  Runtime?: Runtime;
 
   /**
    * @public
@@ -2370,7 +2474,7 @@ export interface FunctionConfiguration {
    * <p>The current state of the function. When the state is <code>Inactive</code>, you can reactivate the function by
    *       invoking it.</p>
    */
-  State?: State | string;
+  State?: State;
 
   /**
    * @public
@@ -2383,14 +2487,14 @@ export interface FunctionConfiguration {
    * <p>The reason code for the function's current state. When the code is <code>Creating</code>, you can't invoke or
    *       modify the function.</p>
    */
-  StateReasonCode?: StateReasonCode | string;
+  StateReasonCode?: StateReasonCode;
 
   /**
    * @public
    * <p>The status of the last update that was performed on the function. This is first set to <code>Successful</code>
    *       after function creation completes.</p>
    */
-  LastUpdateStatus?: LastUpdateStatus | string;
+  LastUpdateStatus?: LastUpdateStatus;
 
   /**
    * @public
@@ -2402,7 +2506,7 @@ export interface FunctionConfiguration {
    * @public
    * <p>The reason code for the last update that was performed on the function.</p>
    */
-  LastUpdateStatusReasonCode?: LastUpdateStatusReasonCode | string;
+  LastUpdateStatusReasonCode?: LastUpdateStatusReasonCode;
 
   /**
    * @public
@@ -2414,7 +2518,7 @@ export interface FunctionConfiguration {
    * @public
    * <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for .zip file archive.</p>
    */
-  PackageType?: PackageType | string;
+  PackageType?: PackageType;
 
   /**
    * @public
@@ -2439,7 +2543,7 @@ export interface FunctionConfiguration {
    * <p>The instruction set architecture that the function supports. Architecture is a string array with one of the
    *       valid values. The default architecture value is <code>x86_64</code>.</p>
    */
-  Architectures?: (Architecture | string)[];
+  Architectures?: Architecture[];
 
   /**
    * @public
@@ -2460,6 +2564,12 @@ export interface FunctionConfiguration {
    * <p>The ARN of the runtime and any errors that occured.</p>
    */
   RuntimeVersionConfig?: RuntimeVersionConfig;
+
+  /**
+   * @public
+   * <p>The function's Amazon CloudWatch Logs configuration settings.</p>
+   */
+  LoggingConfig?: LoggingConfig;
 }
 
 /**
@@ -2594,7 +2704,7 @@ export interface CreateFunctionUrlConfigRequest {
    *   users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
    *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
-  AuthType: FunctionUrlAuthType | string | undefined;
+  AuthType: FunctionUrlAuthType | undefined;
 
   /**
    * @public
@@ -2619,7 +2729,7 @@ export interface CreateFunctionUrlConfigRequest {
    *             </li>
    *          </ul>
    */
-  InvokeMode?: InvokeMode | string;
+  InvokeMode?: InvokeMode;
 }
 
 /**
@@ -2644,7 +2754,7 @@ export interface CreateFunctionUrlConfigResponse {
    *   users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
    *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
-  AuthType: FunctionUrlAuthType | string | undefined;
+  AuthType: FunctionUrlAuthType | undefined;
 
   /**
    * @public
@@ -2675,7 +2785,7 @@ export interface CreateFunctionUrlConfigResponse {
    *             </li>
    *          </ul>
    */
-  InvokeMode?: InvokeMode | string;
+  InvokeMode?: InvokeMode;
 }
 
 /**
@@ -3479,7 +3589,7 @@ export interface GetFunctionUrlConfigResponse {
    *   users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
    *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
-  AuthType: FunctionUrlAuthType | string | undefined;
+  AuthType: FunctionUrlAuthType | undefined;
 
   /**
    * @public
@@ -3516,7 +3626,7 @@ export interface GetFunctionUrlConfigResponse {
    *             </li>
    *          </ul>
    */
-  InvokeMode?: InvokeMode | string;
+  InvokeMode?: InvokeMode;
 }
 
 /**
@@ -3618,7 +3728,7 @@ export interface GetLayerVersionResponse {
    * <p>The layer's compatible runtimes.</p>
    *          <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
    */
-  CompatibleRuntimes?: (Runtime | string)[];
+  CompatibleRuntimes?: Runtime[];
 
   /**
    * @public
@@ -3631,7 +3741,7 @@ export interface GetLayerVersionResponse {
    * <p>A list of compatible
    * <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
    */
-  CompatibleArchitectures?: (Architecture | string)[];
+  CompatibleArchitectures?: Architecture[];
 }
 
 /**
@@ -3810,7 +3920,7 @@ export interface GetProvisionedConcurrencyConfigResponse {
    * @public
    * <p>The status of the allocation process.</p>
    */
-  Status?: ProvisionedConcurrencyStatusEnum | string;
+  Status?: ProvisionedConcurrencyStatusEnum;
 
   /**
    * @public
@@ -3907,7 +4017,7 @@ export interface GetRuntimeManagementConfigResponse {
    * @public
    * <p>The current runtime update mode of the function.</p>
    */
-  UpdateRuntimeOn?: UpdateRuntimeOn | string;
+  UpdateRuntimeOn?: UpdateRuntimeOn;
 
   /**
    * @public
@@ -4326,13 +4436,13 @@ export interface InvocationRequest {
    *             </li>
    *          </ul>
    */
-  InvocationType?: InvocationType | string;
+  InvocationType?: InvocationType;
 
   /**
    * @public
    * <p>Set to <code>Tail</code> to include the execution log in the response. Applies to synchronously invoked functions only.</p>
    */
-  LogType?: LogType | string;
+  LogType?: LogType;
 
   /**
    * @public
@@ -4809,13 +4919,13 @@ export interface InvokeWithResponseStreamRequest {
    *             </li>
    *          </ul>
    */
-  InvocationType?: ResponseStreamingInvocationType | string;
+  InvocationType?: ResponseStreamingInvocationType;
 
   /**
    * @public
    * <p>Set to <code>Tail</code> to include the execution log in the response. Applies to synchronously invoked functions only.</p>
    */
-  LogType?: LogType | string;
+  LogType?: LogType;
 
   /**
    * @public
@@ -5247,7 +5357,7 @@ export interface ListFunctionsRequest {
    * @public
    * <p>Set to <code>ALL</code> to include entries for all published versions of each function.</p>
    */
-  FunctionVersion?: FunctionVersion | string;
+  FunctionVersion?: FunctionVersion;
 
   /**
    * @public
@@ -5406,7 +5516,7 @@ export interface FunctionUrlConfig {
    *   users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
    *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
-  AuthType: FunctionUrlAuthType | string | undefined;
+  AuthType: FunctionUrlAuthType | undefined;
 
   /**
    * @public
@@ -5426,7 +5536,7 @@ export interface FunctionUrlConfig {
    *             </li>
    *          </ul>
    */
-  InvokeMode?: InvokeMode | string;
+  InvokeMode?: InvokeMode;
 }
 
 /**
@@ -5455,7 +5565,7 @@ export interface ListLayersRequest {
    * <p>A runtime identifier. For example, <code>go1.x</code>.</p>
    *          <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
    */
-  CompatibleRuntime?: Runtime | string;
+  CompatibleRuntime?: Runtime;
 
   /**
    * @public
@@ -5474,7 +5584,7 @@ export interface ListLayersRequest {
    * <p>The compatible
    * <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architecture</a>.</p>
    */
-  CompatibleArchitecture?: Architecture | string;
+  CompatibleArchitecture?: Architecture;
 }
 
 /**
@@ -5512,7 +5622,7 @@ export interface LayerVersionsListItem {
    * <p>The layer's compatible runtimes.</p>
    *          <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
    */
-  CompatibleRuntimes?: (Runtime | string)[];
+  CompatibleRuntimes?: Runtime[];
 
   /**
    * @public
@@ -5525,7 +5635,7 @@ export interface LayerVersionsListItem {
    * <p>A list of compatible
    *       <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
    */
-  CompatibleArchitectures?: (Architecture | string)[];
+  CompatibleArchitectures?: Architecture[];
 }
 
 /**
@@ -5579,7 +5689,7 @@ export interface ListLayerVersionsRequest {
    * <p>A runtime identifier. For example, <code>go1.x</code>.</p>
    *          <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
    */
-  CompatibleRuntime?: Runtime | string;
+  CompatibleRuntime?: Runtime;
 
   /**
    * @public
@@ -5604,7 +5714,7 @@ export interface ListLayerVersionsRequest {
    * <p>The compatible
    * <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architecture</a>.</p>
    */
-  CompatibleArchitecture?: Architecture | string;
+  CompatibleArchitecture?: Architecture;
 }
 
 /**
@@ -5699,7 +5809,7 @@ export interface ProvisionedConcurrencyConfigListItem {
    * @public
    * <p>The status of the allocation process.</p>
    */
-  Status?: ProvisionedConcurrencyStatusEnum | string;
+  Status?: ProvisionedConcurrencyStatusEnum;
 
   /**
    * @public
@@ -5875,7 +5985,7 @@ export interface PublishLayerVersionRequest {
    *         runtimes</a>. Used for filtering with <a>ListLayers</a> and <a>ListLayerVersions</a>.</p>
    *          <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
    */
-  CompatibleRuntimes?: (Runtime | string)[];
+  CompatibleRuntimes?: Runtime[];
 
   /**
    * @public
@@ -5901,7 +6011,7 @@ export interface PublishLayerVersionRequest {
    * <p>A list of compatible
    * <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
    */
-  CompatibleArchitectures?: (Architecture | string)[];
+  CompatibleArchitectures?: Architecture[];
 }
 
 /**
@@ -5949,7 +6059,7 @@ export interface PublishLayerVersionResponse {
    * <p>The layer's compatible runtimes.</p>
    *          <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
    */
-  CompatibleRuntimes?: (Runtime | string)[];
+  CompatibleRuntimes?: Runtime[];
 
   /**
    * @public
@@ -5962,7 +6072,7 @@ export interface PublishLayerVersionResponse {
    * <p>A list of compatible
    * <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
    */
-  CompatibleArchitectures?: (Architecture | string)[];
+  CompatibleArchitectures?: Architecture[];
 }
 
 /**
@@ -6267,7 +6377,7 @@ export interface PutProvisionedConcurrencyConfigResponse {
    * @public
    * <p>The status of the allocation process.</p>
    */
-  Status?: ProvisionedConcurrencyStatusEnum | string;
+  Status?: ProvisionedConcurrencyStatusEnum;
 
   /**
    * @public
@@ -6341,7 +6451,7 @@ export interface PutRuntimeManagementConfigRequest {
    *             </li>
    *          </ul>
    */
-  UpdateRuntimeOn: UpdateRuntimeOn | string | undefined;
+  UpdateRuntimeOn: UpdateRuntimeOn | undefined;
 
   /**
    * @public
@@ -6361,7 +6471,7 @@ export interface PutRuntimeManagementConfigResponse {
    * @public
    * <p>The runtime update mode.</p>
    */
-  UpdateRuntimeOn: UpdateRuntimeOn | string | undefined;
+  UpdateRuntimeOn: UpdateRuntimeOn | undefined;
 
   /**
    * @public
@@ -6739,7 +6849,7 @@ export interface UpdateEventSourceMappingRequest {
    * @public
    * <p>(Kinesis, DynamoDB Streams, and Amazon SQS) A list of current response type enums applied to the event source mapping.</p>
    */
-  FunctionResponseTypes?: (FunctionResponseType | string)[];
+  FunctionResponseTypes?: FunctionResponseType[];
 
   /**
    * @public
@@ -6842,7 +6952,7 @@ export interface UpdateFunctionCodeRequest {
    * <p>The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64).
    *      The default value is <code>x86_64</code>.</p>
    */
-  Architectures?: (Architecture | string)[];
+  Architectures?: Architecture[];
 }
 
 /**
@@ -6928,7 +7038,7 @@ export interface UpdateFunctionConfigurationRequest {
    * <p>The identifier of the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>. Runtime is required if the deployment package is a .zip file archive.</p>
    *          <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
    */
-  Runtime?: Runtime | string;
+  Runtime?: Runtime;
 
   /**
    * @public
@@ -6995,6 +7105,12 @@ export interface UpdateFunctionConfigurationRequest {
    * <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html">SnapStart</a> setting.</p>
    */
   SnapStart?: SnapStart;
+
+  /**
+   * @public
+   * <p>The function's Amazon CloudWatch Logs configuration settings.</p>
+   */
+  LoggingConfig?: LoggingConfig;
 }
 
 /**
@@ -7113,7 +7229,7 @@ export interface UpdateFunctionUrlConfigRequest {
    *   users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
    *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
-  AuthType?: FunctionUrlAuthType | string;
+  AuthType?: FunctionUrlAuthType;
 
   /**
    * @public
@@ -7138,7 +7254,7 @@ export interface UpdateFunctionUrlConfigRequest {
    *             </li>
    *          </ul>
    */
-  InvokeMode?: InvokeMode | string;
+  InvokeMode?: InvokeMode;
 }
 
 /**
@@ -7163,7 +7279,7 @@ export interface UpdateFunctionUrlConfigResponse {
    *   users only. Set to <code>NONE</code> if you want to bypass IAM authentication to create a public endpoint. For more information,
    *   see <a href="https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html">Security and auth model for Lambda function URLs</a>.</p>
    */
-  AuthType: FunctionUrlAuthType | string | undefined;
+  AuthType: FunctionUrlAuthType | undefined;
 
   /**
    * @public
@@ -7200,7 +7316,7 @@ export interface UpdateFunctionUrlConfigResponse {
    *             </li>
    *          </ul>
    */
-  InvokeMode?: InvokeMode | string;
+  InvokeMode?: InvokeMode;
 }
 
 /**

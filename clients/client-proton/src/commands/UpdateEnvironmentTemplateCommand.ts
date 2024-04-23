@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateEnvironmentTemplateInput,
   UpdateEnvironmentTemplateInputFilterSensitiveLog,
@@ -99,82 +91,26 @@ export interface UpdateEnvironmentTemplateCommandOutput extends UpdateEnvironmen
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
  */
-export class UpdateEnvironmentTemplateCommand extends $Command<
-  UpdateEnvironmentTemplateCommandInput,
-  UpdateEnvironmentTemplateCommandOutput,
-  ProtonClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateEnvironmentTemplateCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ProtonClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateEnvironmentTemplateCommandInput, UpdateEnvironmentTemplateCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateEnvironmentTemplateCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ProtonClient";
-    const commandName = "UpdateEnvironmentTemplateCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: UpdateEnvironmentTemplateInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateEnvironmentTemplateOutputFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateEnvironmentTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateEnvironmentTemplateCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateEnvironmentTemplateCommandOutput> {
-    return de_UpdateEnvironmentTemplateCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateEnvironmentTemplateCommand extends $Command
+  .classBuilder<
+    UpdateEnvironmentTemplateCommandInput,
+    UpdateEnvironmentTemplateCommandOutput,
+    ProtonClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AwsProton20200720", "UpdateEnvironmentTemplate", {})
+  .n("ProtonClient", "UpdateEnvironmentTemplateCommand")
+  .f(UpdateEnvironmentTemplateInputFilterSensitiveLog, UpdateEnvironmentTemplateOutputFilterSensitiveLog)
+  .ser(se_UpdateEnvironmentTemplateCommand)
+  .de(de_UpdateEnvironmentTemplateCommand)
+  .build() {}

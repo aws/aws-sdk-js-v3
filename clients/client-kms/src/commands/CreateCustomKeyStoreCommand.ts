@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import {
   CreateCustomKeyStoreRequest,
@@ -129,6 +121,9 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  *                </p>
  *             </li>
  *          </ul>
+ *          <p>
+ *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -242,9 +237,8 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  *       or in the identification of the external key store proxy.</p>
  *
  * @throws {@link XksProxyInvalidConfigurationException} (client fault)
- *  <p>The request was rejected because the Amazon VPC endpoint service configuration does not fulfill
- *       the requirements for an external key store proxy. For details, see the exception
- *       message.</p>
+ *  <p>The request was rejected because the external key store proxy is not configured correctly.
+ *       To identify the cause, see the error message that accompanies the exception.</p>
  *
  * @throws {@link XksProxyInvalidResponseException} (client fault)
  *  <p></p>
@@ -253,16 +247,15 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  *       issue. If you see this error repeatedly, report it to the proxy vendor.</p>
  *
  * @throws {@link XksProxyUriEndpointInUseException} (client fault)
- *  <p>The request was rejected because the concatenation of the <code>XksProxyUriEndpoint</code>
- *       is already associated with an external key store in the Amazon Web Services account and Region. Each
- *       external key store in an account and Region must use a unique external key store proxy
- *       address.</p>
+ *  <p>The request was rejected because the <code>XksProxyUriEndpoint</code> is already
+ *       associated with another external key store in this Amazon Web Services Region. To identify the cause,
+ *       see the error message that accompanies the exception. </p>
  *
  * @throws {@link XksProxyUriInUseException} (client fault)
  *  <p>The request was rejected because the concatenation of the <code>XksProxyUriEndpoint</code>
- *       and <code>XksProxyUriPath</code> is already associated with an external key store in the
- *       Amazon Web Services account and Region. Each external key store in an account and Region must use a unique
- *       external key store proxy API address.</p>
+ *       and <code>XksProxyUriPath</code> is already associated with another external key store in this
+ *       Amazon Web Services Region. Each external key store in a Region must use a unique external key store proxy
+ *       API address.</p>
  *
  * @throws {@link XksProxyUriUnreachableException} (client fault)
  *  <p>KMS was unable to reach the specified <code>XksProxyUriPath</code>. The path must be
@@ -273,13 +266,13 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  *
  * @throws {@link XksProxyVpcEndpointServiceInUseException} (client fault)
  *  <p>The request was rejected because the specified Amazon VPC endpoint service is already
- *       associated with an external key store in the Amazon Web Services account and Region. Each external key store
- *       in an Amazon Web Services account and Region must use a different Amazon VPC endpoint service.</p>
+ *       associated with another external key store in this Amazon Web Services Region. Each external key store in a
+ *       Region must use a different Amazon VPC endpoint service.</p>
  *
  * @throws {@link XksProxyVpcEndpointServiceInvalidConfigurationException} (client fault)
  *  <p>The request was rejected because the Amazon VPC endpoint service configuration does not fulfill
- *       the requirements for an external key store proxy. For details, see the exception message and
- *         <a href="kms/latest/developerguide/vpc-connectivity.html#xks-vpc-requirements">review the
+ *       the requirements for an external key store. To identify the cause, see the error message that
+ *       accompanies the exception and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/vpc-connectivity.html#xks-vpc-requirements">review the
  *         requirements</a> for Amazon VPC endpoint service connectivity for an external key
  *       store.</p>
  *
@@ -362,79 +355,26 @@ export interface CreateCustomKeyStoreCommandOutput extends CreateCustomKeyStoreR
  * ```
  *
  */
-export class CreateCustomKeyStoreCommand extends $Command<
-  CreateCustomKeyStoreCommandInput,
-  CreateCustomKeyStoreCommandOutput,
-  KMSClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateCustomKeyStoreCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: KMSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateCustomKeyStoreCommandInput, CreateCustomKeyStoreCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateCustomKeyStoreCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "KMSClient";
-    const commandName = "CreateCustomKeyStoreCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: CreateCustomKeyStoreRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateCustomKeyStoreCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateCustomKeyStoreCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCustomKeyStoreCommandOutput> {
-    return de_CreateCustomKeyStoreCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateCustomKeyStoreCommand extends $Command
+  .classBuilder<
+    CreateCustomKeyStoreCommandInput,
+    CreateCustomKeyStoreCommandOutput,
+    KMSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("TrentService", "CreateCustomKeyStore", {})
+  .n("KMSClient", "CreateCustomKeyStoreCommand")
+  .f(CreateCustomKeyStoreRequestFilterSensitiveLog, void 0)
+  .ser(se_CreateCustomKeyStoreCommand)
+  .de(de_CreateCustomKeyStoreCommand)
+  .build() {}

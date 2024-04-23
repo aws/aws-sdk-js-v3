@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -145,6 +143,10 @@ import {
 import { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "./commands/GetMasterAccountCommand";
 import { GetMemberDetectorsCommandInput, GetMemberDetectorsCommandOutput } from "./commands/GetMemberDetectorsCommand";
 import { GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
+import {
+  GetOrganizationStatisticsCommandInput,
+  GetOrganizationStatisticsCommandOutput,
+} from "./commands/GetOrganizationStatisticsCommand";
 import {
   GetRemainingFreeTrialDaysCommandInput,
   GetRemainingFreeTrialDaysCommandOutput,
@@ -267,6 +269,7 @@ export type ServiceInputTypes =
   | GetMasterAccountCommandInput
   | GetMemberDetectorsCommandInput
   | GetMembersCommandInput
+  | GetOrganizationStatisticsCommandInput
   | GetRemainingFreeTrialDaysCommandInput
   | GetThreatIntelSetCommandInput
   | GetUsageStatisticsCommandInput
@@ -340,6 +343,7 @@ export type ServiceOutputTypes =
   | GetMasterAccountCommandOutput
   | GetMemberDetectorsCommandOutput
   | GetMembersCommandOutput
+  | GetOrganizationStatisticsCommandOutput
   | GetRemainingFreeTrialDaysCommandOutput
   | GetThreatIntelSetCommandOutput
   | GetUsageStatisticsCommandOutput
@@ -481,6 +485,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 
@@ -542,8 +548,9 @@ export interface GuardDutyClientResolvedConfig extends GuardDutyClientResolvedCo
 /**
  * @public
  * <p>Amazon GuardDuty is a continuous security monitoring service that analyzes and processes
- *       the following data sources: VPC flow logs, Amazon Web Services CloudTrail management event logs, CloudTrail S3 data event
- *       logs, EKS audit logs, DNS logs, and Amazon EBS volume data.
+ *       the following foundational data sources - VPC flow logs, Amazon Web Services CloudTrail management event logs, CloudTrail S3 data event
+ *       logs, EKS audit logs, DNS logs, Amazon EBS volume data, runtime activity belonging to container workloads, such
+ *       as Amazon EKS, Amazon ECS (including Amazon Web Services Fargate), and Amazon EC2 instances.
  *       It uses threat intelligence
  *       feeds, such as lists of malicious IPs and domains, and machine learning to identify
  *       unexpected, potentially unauthorized, and malicious activity within your Amazon Web Services environment.
@@ -557,8 +564,8 @@ export interface GuardDutyClientResolvedConfig extends GuardDutyClientResolvedCo
  *          <p>GuardDuty informs you about the status of your Amazon Web Services environment by producing security
  *       findings that you can view in the GuardDuty console or through Amazon EventBridge. For more
  *       information, see the <i>
- *                <a href="https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html">Amazon GuardDuty User
- *         Guide</a>
+ *                <a href="https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html">Amazon
+ *           GuardDuty User Guide</a>
  *             </i>. </p>
  */
 export class GuardDutyClient extends __Client<

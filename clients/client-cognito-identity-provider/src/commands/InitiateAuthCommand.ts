@@ -1,23 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   CognitoIdentityProviderClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   InitiateAuthRequest,
   InitiateAuthRequestFilterSensitiveLog,
@@ -180,78 +172,64 @@ export interface InitiateAuthCommandOutput extends InitiateAuthResponse, __Metad
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @example Example username and password sign-in for a user who has TOTP MFA
+ * ```javascript
+ * // The following example signs in the user mytestuser with analytics data, client metadata, and user context data for advanced security.
+ * const input = {
+ *   "AnalyticsMetadata": {
+ *     "AnalyticsEndpointId": "d70b2ba36a8c4dc5a04a0451a31a1e12"
+ *   },
+ *   "AuthFlow": "USER_PASSWORD_AUTH",
+ *   "AuthParameters": {
+ *     "PASSWORD": "This-is-my-test-99!",
+ *     "SECRET_HASH": "oT5ZkS8ctnrhYeeGsGTvOzPhoc/Jd1cO5fueBWFVmp8=",
+ *     "USERNAME": "mytestuser"
+ *   },
+ *   "ClientId": "1example23456789",
+ *   "ClientMetadata": {
+ *     "MyTestKey": "MyTestValue"
+ *   },
+ *   "UserContextData": {
+ *     "EncodedData": "AmazonCognitoAdvancedSecurityData_object",
+ *     "IpAddress": "192.0.2.1"
+ *   }
+ * };
+ * const command = new InitiateAuthCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ChallengeName": "SOFTWARE_TOKEN_MFA",
+ *   "ChallengeParameters": {
+ *     "FRIENDLY_DEVICE_NAME": "mytestauthenticator",
+ *     "USER_ID_FOR_SRP": "mytestuser"
+ *   },
+ *   "Session": "AYABeC1-y8qooiuysEv0uM4wAqQAHQABAAdTZXJ2aWNlABBDb2duaXRvVXNlclBvb2xzAAEAB2F3cy1rbXMAS2Fybjphd3M6a21zOnVzLXdlc3QtMjowMTU3MzY3MjcxOTg6a2V5LzI5OTFhNGE5LTM5YTAtNDQ0Mi04MWU4LWRkYjY4NTllMTg2MQC4AQIBAHhjxv5lVLhE2_WNrC1zuomqn08qDUUp3z9v4EGAjazZ-wGP3HuBF5Izvxf-9WkCT5uyAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMeQoT5e6Dpfh52caqAgEQgDvuL8uLMhPt0WmQpZnkNED1gob6xbqt5LaQo_H4L5CuT4Kj499dGCoZ1q1trmlZSRgRm0wwGGG8lFU37QIAAAAADAAAEAAAAAAAAAAAAAAAAADuLe9_UJ4oZAMsQYr0ntiT_____wAAAAEAAAAAAAAAAAAAAAEAAADnLDGmKBQtsCafNokRmPLgl2itBKuKR2dfZBQb5ucCYkzThM5HOfQUSEL-A3dZzfYDC0IODsrcMkrbeeVyMJk-FCzsxS9Og8BEBVnvi9WjZkPJ4mF0YS6FUXnoPSBV5oUqGzRaT-tJ169SUFZAUfFM1fGeJ8T57-QdCxjyISRCWV1VG5_7TiCioyRGfWwzNVWh7exJortF3ccfOyiEyxeqJ2VJvJq3m_w8NP24_PMDpktpRMKftObIMlD5ewRTNCdrUXQ1BW5KIxhJLGjYfRzJDZuKzmEgS-VHsKz0z76w-AlAgdfvdAjflLnsgduU5kUX4YP6jqnetg"
+ * }
+ * *\/
+ * // example id: example-username-and-password-sign-in-for-a-user-who-has-totp-mfa-1689887395219
+ * ```
+ *
  */
-export class InitiateAuthCommand extends $Command<
-  InitiateAuthCommandInput,
-  InitiateAuthCommandOutput,
-  CognitoIdentityProviderClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: InitiateAuthCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CognitoIdentityProviderClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<InitiateAuthCommandInput, InitiateAuthCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, InitiateAuthCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CognitoIdentityProviderClient";
-    const commandName = "InitiateAuthCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: InitiateAuthRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: InitiateAuthResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: InitiateAuthCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_InitiateAuthCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InitiateAuthCommandOutput> {
-    return de_InitiateAuthCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class InitiateAuthCommand extends $Command
+  .classBuilder<
+    InitiateAuthCommandInput,
+    InitiateAuthCommandOutput,
+    CognitoIdentityProviderClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSCognitoIdentityProviderService", "InitiateAuth", {})
+  .n("CognitoIdentityProviderClient", "InitiateAuthCommand")
+  .f(InitiateAuthRequestFilterSensitiveLog, InitiateAuthResponseFilterSensitiveLog)
+  .ser(se_InitiateAuthCommand)
+  .de(de_InitiateAuthCommand)
+  .build() {}

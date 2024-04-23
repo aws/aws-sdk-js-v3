@@ -36,16 +36,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SWFClient` and
-the commands you need, for example `CountClosedWorkflowExecutionsCommand`:
+the commands you need, for example `ListDomainsCommand`:
 
 ```js
 // ES5 example
-const { SWFClient, CountClosedWorkflowExecutionsCommand } = require("@aws-sdk/client-swf");
+const { SWFClient, ListDomainsCommand } = require("@aws-sdk/client-swf");
 ```
 
 ```ts
 // ES6+ example
-import { SWFClient, CountClosedWorkflowExecutionsCommand } from "@aws-sdk/client-swf";
+import { SWFClient, ListDomainsCommand } from "@aws-sdk/client-swf";
 ```
 
 ### Usage
@@ -64,7 +64,7 @@ const client = new SWFClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CountClosedWorkflowExecutionsCommand(params);
+const command = new ListDomainsCommand(params);
 ```
 
 #### Async/await
@@ -143,7 +143,7 @@ const client = new AWS.SWF({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.countClosedWorkflowExecutions(params);
+  const data = await client.listDomains(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -151,7 +151,7 @@ try {
 
 // Promises.
 client
-  .countClosedWorkflowExecutions(params)
+  .listDomains(params)
   .then((data) => {
     // process data.
   })
@@ -160,7 +160,7 @@ client
   });
 
 // callbacks.
-client.countClosedWorkflowExecutions(params, (err, data) => {
+client.listDomains(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -175,7 +175,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -221,7 +221,7 @@ see LICENSE for more information.
 CountClosedWorkflowExecutions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/countclosedworkflowexecutionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/countclosedworkflowexecutionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/countclosedworkflowexecutionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/CountClosedWorkflowExecutionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/CountClosedWorkflowExecutionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/CountClosedWorkflowExecutionsCommandOutput/)
 
 </details>
 <details>
@@ -229,7 +229,7 @@ CountClosedWorkflowExecutions
 CountOpenWorkflowExecutions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/countopenworkflowexecutionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/countopenworkflowexecutionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/countopenworkflowexecutionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/CountOpenWorkflowExecutionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/CountOpenWorkflowExecutionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/CountOpenWorkflowExecutionsCommandOutput/)
 
 </details>
 <details>
@@ -237,7 +237,7 @@ CountOpenWorkflowExecutions
 CountPendingActivityTasks
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/countpendingactivitytaskscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/countpendingactivitytaskscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/countpendingactivitytaskscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/CountPendingActivityTasksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/CountPendingActivityTasksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/CountPendingActivityTasksCommandOutput/)
 
 </details>
 <details>
@@ -245,7 +245,7 @@ CountPendingActivityTasks
 CountPendingDecisionTasks
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/countpendingdecisiontaskscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/countpendingdecisiontaskscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/countpendingdecisiontaskscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/CountPendingDecisionTasksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/CountPendingDecisionTasksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/CountPendingDecisionTasksCommandOutput/)
 
 </details>
 <details>
@@ -253,7 +253,7 @@ CountPendingDecisionTasks
 DeprecateActivityType
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/deprecateactivitytypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/deprecateactivitytypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/deprecateactivitytypecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/DeprecateActivityTypeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/DeprecateActivityTypeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/DeprecateActivityTypeCommandOutput/)
 
 </details>
 <details>
@@ -261,7 +261,7 @@ DeprecateActivityType
 DeprecateDomain
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/deprecatedomaincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/deprecatedomaincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/deprecatedomaincommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/DeprecateDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/DeprecateDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/DeprecateDomainCommandOutput/)
 
 </details>
 <details>
@@ -269,7 +269,7 @@ DeprecateDomain
 DeprecateWorkflowType
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/deprecateworkflowtypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/deprecateworkflowtypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/deprecateworkflowtypecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/DeprecateWorkflowTypeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/DeprecateWorkflowTypeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/DeprecateWorkflowTypeCommandOutput/)
 
 </details>
 <details>
@@ -277,7 +277,7 @@ DeprecateWorkflowType
 DescribeActivityType
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/describeactivitytypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/describeactivitytypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/describeactivitytypecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/DescribeActivityTypeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/DescribeActivityTypeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/DescribeActivityTypeCommandOutput/)
 
 </details>
 <details>
@@ -285,7 +285,7 @@ DescribeActivityType
 DescribeDomain
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/describedomaincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/describedomaincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/describedomaincommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/DescribeDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/DescribeDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/DescribeDomainCommandOutput/)
 
 </details>
 <details>
@@ -293,7 +293,7 @@ DescribeDomain
 DescribeWorkflowExecution
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/describeworkflowexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/describeworkflowexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/describeworkflowexecutioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/DescribeWorkflowExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/DescribeWorkflowExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/DescribeWorkflowExecutionCommandOutput/)
 
 </details>
 <details>
@@ -301,7 +301,7 @@ DescribeWorkflowExecution
 DescribeWorkflowType
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/describeworkflowtypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/describeworkflowtypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/describeworkflowtypecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/DescribeWorkflowTypeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/DescribeWorkflowTypeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/DescribeWorkflowTypeCommandOutput/)
 
 </details>
 <details>
@@ -309,7 +309,7 @@ DescribeWorkflowType
 GetWorkflowExecutionHistory
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/getworkflowexecutionhistorycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/getworkflowexecutionhistorycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/getworkflowexecutionhistorycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/GetWorkflowExecutionHistoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/GetWorkflowExecutionHistoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/GetWorkflowExecutionHistoryCommandOutput/)
 
 </details>
 <details>
@@ -317,7 +317,7 @@ GetWorkflowExecutionHistory
 ListActivityTypes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/listactivitytypescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/listactivitytypescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/listactivitytypescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/ListActivityTypesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/ListActivityTypesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/ListActivityTypesCommandOutput/)
 
 </details>
 <details>
@@ -325,7 +325,7 @@ ListActivityTypes
 ListClosedWorkflowExecutions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/listclosedworkflowexecutionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/listclosedworkflowexecutionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/listclosedworkflowexecutionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/ListClosedWorkflowExecutionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/ListClosedWorkflowExecutionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/ListClosedWorkflowExecutionsCommandOutput/)
 
 </details>
 <details>
@@ -333,7 +333,7 @@ ListClosedWorkflowExecutions
 ListDomains
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/listdomainscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/listdomainscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/listdomainscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/ListDomainsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/ListDomainsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/ListDomainsCommandOutput/)
 
 </details>
 <details>
@@ -341,7 +341,7 @@ ListDomains
 ListOpenWorkflowExecutions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/listopenworkflowexecutionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/listopenworkflowexecutionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/listopenworkflowexecutionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/ListOpenWorkflowExecutionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/ListOpenWorkflowExecutionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/ListOpenWorkflowExecutionsCommandOutput/)
 
 </details>
 <details>
@@ -349,7 +349,7 @@ ListOpenWorkflowExecutions
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/ListTagsForResourceCommandOutput/)
 
 </details>
 <details>
@@ -357,7 +357,7 @@ ListTagsForResource
 ListWorkflowTypes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/listworkflowtypescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/listworkflowtypescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/listworkflowtypescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/ListWorkflowTypesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/ListWorkflowTypesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/ListWorkflowTypesCommandOutput/)
 
 </details>
 <details>
@@ -365,7 +365,7 @@ ListWorkflowTypes
 PollForActivityTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/pollforactivitytaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/pollforactivitytaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/pollforactivitytaskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/PollForActivityTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/PollForActivityTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/PollForActivityTaskCommandOutput/)
 
 </details>
 <details>
@@ -373,7 +373,7 @@ PollForActivityTask
 PollForDecisionTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/pollfordecisiontaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/pollfordecisiontaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/pollfordecisiontaskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/PollForDecisionTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/PollForDecisionTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/PollForDecisionTaskCommandOutput/)
 
 </details>
 <details>
@@ -381,7 +381,7 @@ PollForDecisionTask
 RecordActivityTaskHeartbeat
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/recordactivitytaskheartbeatcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/recordactivitytaskheartbeatcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/recordactivitytaskheartbeatcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/RecordActivityTaskHeartbeatCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/RecordActivityTaskHeartbeatCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/RecordActivityTaskHeartbeatCommandOutput/)
 
 </details>
 <details>
@@ -389,7 +389,7 @@ RecordActivityTaskHeartbeat
 RegisterActivityType
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/registeractivitytypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/registeractivitytypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/registeractivitytypecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/RegisterActivityTypeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/RegisterActivityTypeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/RegisterActivityTypeCommandOutput/)
 
 </details>
 <details>
@@ -397,7 +397,7 @@ RegisterActivityType
 RegisterDomain
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/registerdomaincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/registerdomaincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/registerdomaincommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/RegisterDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/RegisterDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/RegisterDomainCommandOutput/)
 
 </details>
 <details>
@@ -405,7 +405,7 @@ RegisterDomain
 RegisterWorkflowType
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/registerworkflowtypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/registerworkflowtypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/registerworkflowtypecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/RegisterWorkflowTypeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/RegisterWorkflowTypeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/RegisterWorkflowTypeCommandOutput/)
 
 </details>
 <details>
@@ -413,7 +413,7 @@ RegisterWorkflowType
 RequestCancelWorkflowExecution
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/requestcancelworkflowexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/requestcancelworkflowexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/requestcancelworkflowexecutioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/RequestCancelWorkflowExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/RequestCancelWorkflowExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/RequestCancelWorkflowExecutionCommandOutput/)
 
 </details>
 <details>
@@ -421,7 +421,7 @@ RequestCancelWorkflowExecution
 RespondActivityTaskCanceled
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/respondactivitytaskcanceledcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/respondactivitytaskcanceledcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/respondactivitytaskcanceledcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/RespondActivityTaskCanceledCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/RespondActivityTaskCanceledCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/RespondActivityTaskCanceledCommandOutput/)
 
 </details>
 <details>
@@ -429,7 +429,7 @@ RespondActivityTaskCanceled
 RespondActivityTaskCompleted
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/respondactivitytaskcompletedcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/respondactivitytaskcompletedcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/respondactivitytaskcompletedcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/RespondActivityTaskCompletedCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/RespondActivityTaskCompletedCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/RespondActivityTaskCompletedCommandOutput/)
 
 </details>
 <details>
@@ -437,7 +437,7 @@ RespondActivityTaskCompleted
 RespondActivityTaskFailed
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/respondactivitytaskfailedcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/respondactivitytaskfailedcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/respondactivitytaskfailedcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/RespondActivityTaskFailedCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/RespondActivityTaskFailedCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/RespondActivityTaskFailedCommandOutput/)
 
 </details>
 <details>
@@ -445,7 +445,7 @@ RespondActivityTaskFailed
 RespondDecisionTaskCompleted
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/responddecisiontaskcompletedcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/responddecisiontaskcompletedcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/responddecisiontaskcompletedcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/RespondDecisionTaskCompletedCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/RespondDecisionTaskCompletedCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/RespondDecisionTaskCompletedCommandOutput/)
 
 </details>
 <details>
@@ -453,7 +453,7 @@ RespondDecisionTaskCompleted
 SignalWorkflowExecution
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/signalworkflowexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/signalworkflowexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/signalworkflowexecutioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/SignalWorkflowExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/SignalWorkflowExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/SignalWorkflowExecutionCommandOutput/)
 
 </details>
 <details>
@@ -461,7 +461,7 @@ SignalWorkflowExecution
 StartWorkflowExecution
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/startworkflowexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/startworkflowexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/startworkflowexecutioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/StartWorkflowExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/StartWorkflowExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/StartWorkflowExecutionCommandOutput/)
 
 </details>
 <details>
@@ -469,7 +469,7 @@ StartWorkflowExecution
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -477,7 +477,7 @@ TagResource
 TerminateWorkflowExecution
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/terminateworkflowexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/terminateworkflowexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/terminateworkflowexecutioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/TerminateWorkflowExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/TerminateWorkflowExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/TerminateWorkflowExecutionCommandOutput/)
 
 </details>
 <details>
@@ -485,7 +485,7 @@ TerminateWorkflowExecution
 UndeprecateActivityType
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/undeprecateactivitytypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/undeprecateactivitytypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/undeprecateactivitytypecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/UndeprecateActivityTypeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/UndeprecateActivityTypeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/UndeprecateActivityTypeCommandOutput/)
 
 </details>
 <details>
@@ -493,7 +493,7 @@ UndeprecateActivityType
 UndeprecateDomain
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/undeprecatedomaincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/undeprecatedomaincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/undeprecatedomaincommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/UndeprecateDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/UndeprecateDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/UndeprecateDomainCommandOutput/)
 
 </details>
 <details>
@@ -501,7 +501,7 @@ UndeprecateDomain
 UndeprecateWorkflowType
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/undeprecateworkflowtypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/undeprecateworkflowtypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/undeprecateworkflowtypecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/UndeprecateWorkflowTypeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/UndeprecateWorkflowTypeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/UndeprecateWorkflowTypeCommandOutput/)
 
 </details>
 <details>
@@ -509,6 +509,6 @@ UndeprecateWorkflowType
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-swf/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/swf/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-swf/Interface/UntagResourceCommandOutput/)
 
 </details>

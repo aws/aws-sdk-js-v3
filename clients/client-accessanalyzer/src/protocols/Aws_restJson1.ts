@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -29,6 +31,11 @@ import {
   CancelPolicyGenerationCommandOutput,
 } from "../commands/CancelPolicyGenerationCommand";
 import {
+  CheckAccessNotGrantedCommandInput,
+  CheckAccessNotGrantedCommandOutput,
+} from "../commands/CheckAccessNotGrantedCommand";
+import { CheckNoNewAccessCommandInput, CheckNoNewAccessCommandOutput } from "../commands/CheckNoNewAccessCommand";
+import {
   CreateAccessPreviewCommandInput,
   CreateAccessPreviewCommandOutput,
 } from "../commands/CreateAccessPreviewCommand";
@@ -44,6 +51,7 @@ import {
 import { GetAnalyzerCommandInput, GetAnalyzerCommandOutput } from "../commands/GetAnalyzerCommand";
 import { GetArchiveRuleCommandInput, GetArchiveRuleCommandOutput } from "../commands/GetArchiveRuleCommand";
 import { GetFindingCommandInput, GetFindingCommandOutput } from "../commands/GetFindingCommand";
+import { GetFindingV2CommandInput, GetFindingV2CommandOutput } from "../commands/GetFindingV2Command";
 import { GetGeneratedPolicyCommandInput, GetGeneratedPolicyCommandOutput } from "../commands/GetGeneratedPolicyCommand";
 import {
   ListAccessPreviewFindingsCommandInput,
@@ -57,6 +65,7 @@ import {
 import { ListAnalyzersCommandInput, ListAnalyzersCommandOutput } from "../commands/ListAnalyzersCommand";
 import { ListArchiveRulesCommandInput, ListArchiveRulesCommandOutput } from "../commands/ListArchiveRulesCommand";
 import { ListFindingsCommandInput, ListFindingsCommandOutput } from "../commands/ListFindingsCommand";
+import { ListFindingsV2CommandInput, ListFindingsV2CommandOutput } from "../commands/ListFindingsV2Command";
 import {
   ListPolicyGenerationsCommandInput,
   ListPolicyGenerationsCommandOutput,
@@ -77,12 +86,14 @@ import { UpdateFindingsCommandInput, UpdateFindingsCommandOutput } from "../comm
 import { ValidatePolicyCommandInput, ValidatePolicyCommandOutput } from "../commands/ValidatePolicyCommand";
 import { AccessAnalyzerServiceException as __BaseException } from "../models/AccessAnalyzerServiceException";
 import {
+  Access,
   AccessDeniedException,
   AccessPreview,
   AccessPreviewFinding,
   AccessPreviewSummary,
   AclGrantee,
   AnalyzedResource,
+  AnalyzerConfiguration,
   AnalyzerSummary,
   ArchiveRuleSummary,
   CloudTrailDetails,
@@ -94,13 +105,16 @@ import {
   EcrRepositoryConfiguration,
   EfsFileSystemConfiguration,
   Finding,
+  FindingDetails,
   FindingSummary,
+  FindingSummaryV2,
   GeneratedPolicyProperties,
   GeneratedPolicyResult,
   IamRoleConfiguration,
   InlineArchiveRule,
   InternalServerException,
   InternetConfiguration,
+  InvalidParameterException,
   JobDetails,
   KmsGrantConfiguration,
   KmsGrantConstraints,
@@ -117,6 +131,7 @@ import {
   S3AccessPointConfiguration,
   S3BucketAclGrantConfiguration,
   S3BucketConfiguration,
+  S3ExpressDirectoryBucketConfiguration,
   S3PublicAccessBlockConfiguration,
   SecretsManagerSecretConfiguration,
   ServiceQuotaExceededException,
@@ -125,6 +140,13 @@ import {
   SqsQueueConfiguration,
   ThrottlingException,
   Trail,
+  UnprocessableEntityException,
+  UnusedAccessConfiguration,
+  UnusedAction,
+  UnusedIamRoleDetails,
+  UnusedIamUserAccessKeyDetails,
+  UnusedIamUserPasswordDetails,
+  UnusedPermissionDetails,
   ValidationException,
   VpcConfiguration,
 } from "../models/models_0";
@@ -136,11 +158,11 @@ export const se_ApplyArchiveRuleCommand = async (
   input: ApplyArchiveRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/archive-rule";
+  b.bp("/archive-rule");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -149,15 +171,8 @@ export const se_ApplyArchiveRuleCommand = async (
       ruleName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -167,21 +182,61 @@ export const se_CancelPolicyGenerationCommand = async (
   input: CancelPolicyGenerationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/policy/generation/{jobId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "jobId", () => input.jobId!, "{jobId}", false);
+  b.bp("/policy/generation/{jobId}");
+  b.p("jobId", () => input.jobId!, "{jobId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CheckAccessNotGrantedCommand
+ */
+export const se_CheckAccessNotGrantedCommand = async (
+  input: CheckAccessNotGrantedCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/policy/check-access-not-granted");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      access: (_) => _json(_),
+      policyDocument: [],
+      policyType: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CheckNoNewAccessCommand
+ */
+export const se_CheckNoNewAccessCommand = async (
+  input: CheckNoNewAccessCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/policy/check-no-new-access");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      existingPolicyDocument: [],
+      newPolicyDocument: [],
+      policyType: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -191,11 +246,11 @@ export const se_CreateAccessPreviewCommand = async (
   input: CreateAccessPreviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/access-preview";
+  b.bp("/access-preview");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -204,15 +259,8 @@ export const se_CreateAccessPreviewCommand = async (
       configurations: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -222,30 +270,24 @@ export const se_CreateAnalyzerCommand = async (
   input: CreateAnalyzerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/analyzer";
+  b.bp("/analyzer");
   let body: any;
   body = JSON.stringify(
     take(input, {
       analyzerName: [],
       archiveRules: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      configuration: (_) => _json(_),
       tags: (_) => _json(_),
       type: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -255,20 +297,12 @@ export const se_CreateArchiveRuleCommand = async (
   input: CreateArchiveRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/analyzer/{analyzerName}/archive-rule";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "analyzerName",
-    () => input.analyzerName!,
-    "{analyzerName}",
-    false
-  );
+  b.bp("/analyzer/{analyzerName}/archive-rule");
+  b.p("analyzerName", () => input.analyzerName!, "{analyzerName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -277,15 +311,8 @@ export const se_CreateArchiveRuleCommand = async (
       ruleName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -295,31 +322,16 @@ export const se_DeleteAnalyzerCommand = async (
   input: DeleteAnalyzerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/analyzer/{analyzerName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "analyzerName",
-    () => input.analyzerName!,
-    "{analyzerName}",
-    false
-  );
+  b.bp("/analyzer/{analyzerName}");
+  b.p("analyzerName", () => input.analyzerName!, "{analyzerName}", false);
   const query: any = map({
-    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -329,34 +341,17 @@ export const se_DeleteArchiveRuleCommand = async (
   input: DeleteArchiveRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/analyzer/{analyzerName}/archive-rule/{ruleName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "analyzerName",
-    () => input.analyzerName!,
-    "{analyzerName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ruleName", () => input.ruleName!, "{ruleName}", false);
+  b.bp("/analyzer/{analyzerName}/archive-rule/{ruleName}");
+  b.p("analyzerName", () => input.analyzerName!, "{analyzerName}", false);
+  b.p("ruleName", () => input.ruleName!, "{ruleName}", false);
   const query: any = map({
-    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -366,32 +361,16 @@ export const se_GetAccessPreviewCommand = async (
   input: GetAccessPreviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/access-preview/{accessPreviewId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "accessPreviewId",
-    () => input.accessPreviewId!,
-    "{accessPreviewId}",
-    false
-  );
+  b.bp("/access-preview/{accessPreviewId}");
+  b.p("accessPreviewId", () => input.accessPreviewId!, "{accessPreviewId}", false);
   const query: any = map({
-    analyzerArn: [, __expectNonNull(input.analyzerArn!, `analyzerArn`)],
+    [_aA]: [, __expectNonNull(input[_aA]!, `analyzerArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -401,24 +380,16 @@ export const se_GetAnalyzedResourceCommand = async (
   input: GetAnalyzedResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/analyzed-resource";
+  b.bp("/analyzed-resource");
   const query: any = map({
-    analyzerArn: [, __expectNonNull(input.analyzerArn!, `analyzerArn`)],
-    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
+    [_aA]: [, __expectNonNull(input[_aA]!, `analyzerArn`)],
+    [_rA]: [, __expectNonNull(input[_rA]!, `resourceArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -428,27 +399,13 @@ export const se_GetAnalyzerCommand = async (
   input: GetAnalyzerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/analyzer/{analyzerName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "analyzerName",
-    () => input.analyzerName!,
-    "{analyzerName}",
-    false
-  );
+  b.bp("/analyzer/{analyzerName}");
+  b.p("analyzerName", () => input.analyzerName!, "{analyzerName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -458,30 +415,14 @@ export const se_GetArchiveRuleCommand = async (
   input: GetArchiveRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/analyzer/{analyzerName}/archive-rule/{ruleName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "analyzerName",
-    () => input.analyzerName!,
-    "{analyzerName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ruleName", () => input.ruleName!, "{ruleName}", false);
+  b.bp("/analyzer/{analyzerName}/archive-rule/{ruleName}");
+  b.p("analyzerName", () => input.analyzerName!, "{analyzerName}", false);
+  b.p("ruleName", () => input.ruleName!, "{ruleName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -491,24 +432,37 @@ export const se_GetFindingCommand = async (
   input: GetFindingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/finding/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/finding/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   const query: any = map({
-    analyzerArn: [, __expectNonNull(input.analyzerArn!, `analyzerArn`)],
+    [_aA]: [, __expectNonNull(input[_aA]!, `analyzerArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetFindingV2Command
+ */
+export const se_GetFindingV2Command = async (
+  input: GetFindingV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/findingv2/{id}");
+  b.p("id", () => input.id!, "{id}", false);
+  const query: any = map({
+    [_aA]: [, __expectNonNull(input[_aA]!, `analyzerArn`)],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -518,32 +472,17 @@ export const se_GetGeneratedPolicyCommand = async (
   input: GetGeneratedPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/policy/generation/{jobId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "jobId", () => input.jobId!, "{jobId}", false);
+  b.bp("/policy/generation/{jobId}");
+  b.p("jobId", () => input.jobId!, "{jobId}", false);
   const query: any = map({
-    includeResourcePlaceholders: [
-      () => input.includeResourcePlaceholders !== void 0,
-      () => input.includeResourcePlaceholders!.toString(),
-    ],
-    includeServiceLevelTemplate: [
-      () => input.includeServiceLevelTemplate !== void 0,
-      () => input.includeServiceLevelTemplate!.toString(),
-    ],
+    [_iRP]: [() => input.includeResourcePlaceholders !== void 0, () => input[_iRP]!.toString()],
+    [_iSLT]: [() => input.includeServiceLevelTemplate !== void 0, () => input[_iSLT]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -553,20 +492,12 @@ export const se_ListAccessPreviewFindingsCommand = async (
   input: ListAccessPreviewFindingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/access-preview/{accessPreviewId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "accessPreviewId",
-    () => input.accessPreviewId!,
-    "{accessPreviewId}",
-    false
-  );
+  b.bp("/access-preview/{accessPreviewId}");
+  b.p("accessPreviewId", () => input.accessPreviewId!, "{accessPreviewId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -576,15 +507,8 @@ export const se_ListAccessPreviewFindingsCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -594,25 +518,17 @@ export const se_ListAccessPreviewsCommand = async (
   input: ListAccessPreviewsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/access-preview";
+  b.bp("/access-preview");
   const query: any = map({
-    analyzerArn: [, __expectNonNull(input.analyzerArn!, `analyzerArn`)],
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_aA]: [, __expectNonNull(input[_aA]!, `analyzerArn`)],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -622,11 +538,11 @@ export const se_ListAnalyzedResourcesCommand = async (
   input: ListAnalyzedResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/analyzed-resource";
+  b.bp("/analyzed-resource");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -636,15 +552,8 @@ export const se_ListAnalyzedResourcesCommand = async (
       resourceType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -654,25 +563,17 @@ export const se_ListAnalyzersCommand = async (
   input: ListAnalyzersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/analyzer";
+  b.bp("/analyzer");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    type: [, input.type!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_t]: [, input[_t]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -682,33 +583,17 @@ export const se_ListArchiveRulesCommand = async (
   input: ListArchiveRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/analyzer/{analyzerName}/archive-rule";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "analyzerName",
-    () => input.analyzerName!,
-    "{analyzerName}",
-    false
-  );
+  b.bp("/analyzer/{analyzerName}/archive-rule");
+  b.p("analyzerName", () => input.analyzerName!, "{analyzerName}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -718,11 +603,11 @@ export const se_ListFindingsCommand = async (
   input: ListFindingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/finding";
+  b.bp("/finding");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -733,15 +618,34 @@ export const se_ListFindingsCommand = async (
       sort: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListFindingsV2Command
+ */
+export const se_ListFindingsV2Command = async (
+  input: ListFindingsV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/findingv2");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      analyzerArn: [],
+      filter: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+      sort: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -751,25 +655,17 @@ export const se_ListPolicyGenerationsCommand = async (
   input: ListPolicyGenerationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/policy/generation";
+  b.bp("/policy/generation");
   const query: any = map({
-    principalArn: [, input.principalArn!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_pA]: [, input[_pA]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -779,20 +675,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -802,11 +691,11 @@ export const se_StartPolicyGenerationCommand = async (
   input: StartPolicyGenerationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/policy/generation";
+  b.bp("/policy/generation");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -815,15 +704,8 @@ export const se_StartPolicyGenerationCommand = async (
       policyGenerationDetails: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -833,11 +715,11 @@ export const se_StartResourceScanCommand = async (
   input: StartResourceScanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resource/scan";
+  b.bp("/resource/scan");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -846,15 +728,8 @@ export const se_StartResourceScanCommand = async (
       resourceOwnerAccount: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -864,27 +739,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -894,27 +762,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -924,22 +784,13 @@ export const se_UpdateArchiveRuleCommand = async (
   input: UpdateArchiveRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/analyzer/{analyzerName}/archive-rule/{ruleName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "analyzerName",
-    () => input.analyzerName!,
-    "{analyzerName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "ruleName", () => input.ruleName!, "{ruleName}", false);
+  b.bp("/analyzer/{analyzerName}/archive-rule/{ruleName}");
+  b.p("analyzerName", () => input.analyzerName!, "{analyzerName}", false);
+  b.p("ruleName", () => input.ruleName!, "{ruleName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -947,15 +798,8 @@ export const se_UpdateArchiveRuleCommand = async (
       filter: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -965,11 +809,11 @@ export const se_UpdateFindingsCommand = async (
   input: UpdateFindingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/finding";
+  b.bp("/finding");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -980,15 +824,8 @@ export const se_UpdateFindingsCommand = async (
       status: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -998,14 +835,14 @@ export const se_ValidatePolicyCommand = async (
   input: ValidatePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/policy/validation";
+  b.bp("/policy/validation");
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -1016,16 +853,8 @@ export const se_ValidatePolicyCommand = async (
       validatePolicyResourceType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1122,6 +951,134 @@ const de_CancelPolicyGenerationCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.accessanalyzer#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.accessanalyzer#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CheckAccessNotGrantedCommand
+ */
+export const de_CheckAccessNotGrantedCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CheckAccessNotGrantedCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CheckAccessNotGrantedCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    message: __expectString,
+    reasons: _json,
+    result: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CheckAccessNotGrantedCommandError
+ */
+const de_CheckAccessNotGrantedCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CheckAccessNotGrantedCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.accessanalyzer#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.accessanalyzer#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.accessanalyzer#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.accessanalyzer#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UnprocessableEntityException":
+    case "com.amazonaws.accessanalyzer#UnprocessableEntityException":
+      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.accessanalyzer#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CheckNoNewAccessCommand
+ */
+export const de_CheckNoNewAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CheckNoNewAccessCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CheckNoNewAccessCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    message: __expectString,
+    reasons: _json,
+    result: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CheckNoNewAccessCommandError
+ */
+const de_CheckNoNewAccessCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CheckNoNewAccessCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.accessanalyzer#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.accessanalyzer#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.accessanalyzer#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.accessanalyzer#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "UnprocessableEntityException":
+    case "com.amazonaws.accessanalyzer#UnprocessableEntityException":
+      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.accessanalyzer#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -1729,6 +1686,76 @@ const de_GetFindingCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1GetFindingV2Command
+ */
+export const de_GetFindingV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFindingV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetFindingV2CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    analyzedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    createdAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    error: __expectString,
+    findingDetails: (_) => de_FindingDetailsList(_, context),
+    findingType: __expectString,
+    id: __expectString,
+    nextToken: __expectString,
+    resource: __expectString,
+    resourceOwnerAccount: __expectString,
+    resourceType: __expectString,
+    status: __expectString,
+    updatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetFindingV2CommandError
+ */
+const de_GetFindingV2CommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFindingV2CommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.accessanalyzer#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.accessanalyzer#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.accessanalyzer#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.accessanalyzer#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.accessanalyzer#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1GetGeneratedPolicyCommand
  */
 export const de_GetGeneratedPolicyCommand = async (
@@ -2111,6 +2138,66 @@ const de_ListFindingsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFindingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.accessanalyzer#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.accessanalyzer#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.accessanalyzer#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.accessanalyzer#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.accessanalyzer#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListFindingsV2Command
+ */
+export const de_ListFindingsV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFindingsV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListFindingsV2CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    findings: (_) => de_FindingsListV2(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListFindingsV2CommandError
+ */
+const de_ListFindingsV2CommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFindingsV2CommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2700,10 +2787,7 @@ const de_InternalServerExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const contents: any = map({
-    retryAfterSeconds: [
-      () => void 0 !== parsedOutput.headers["retry-after"],
-      () => __strictParseInt32(parsedOutput.headers["retry-after"]),
-    ],
+    [_rAS]: [() => void 0 !== parsedOutput.headers[_ra], () => __strictParseInt32(parsedOutput.headers[_ra])],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -2711,6 +2795,26 @@ const de_InternalServerExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new InternalServerException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1InvalidParameterExceptionRes
+ */
+const de_InvalidParameterExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidParameterException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new InvalidParameterException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -2766,10 +2870,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({
-    retryAfterSeconds: [
-      () => void 0 !== parsedOutput.headers["retry-after"],
-      () => __strictParseInt32(parsedOutput.headers["retry-after"]),
-    ],
+    [_rAS]: [() => void 0 !== parsedOutput.headers[_ra], () => __strictParseInt32(parsedOutput.headers[_ra])],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -2777,6 +2878,26 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
   });
   Object.assign(contents, doc);
   const exception = new ThrottlingException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1UnprocessableEntityExceptionRes
+ */
+const de_UnprocessableEntityExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnprocessableEntityException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new UnprocessableEntityException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -2802,7 +2923,15 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_Access omitted.
+
+// se_AccessList omitted.
+
 // se_AclGrantee omitted.
+
+// se_ActionsList omitted.
+
+// se_AnalyzerConfiguration omitted.
 
 /**
  * serializeAws_restJson1CloudTrailDetails
@@ -2890,6 +3019,8 @@ const se_CloudTrailDetails = (input: CloudTrailDetails, context: __SerdeContext)
 
 // se_S3BucketConfiguration omitted.
 
+// se_S3ExpressDirectoryBucketConfiguration omitted.
+
 // se_S3PublicAccessBlockConfiguration omitted.
 
 // se_SecretsManagerSecretConfiguration omitted.
@@ -2905,6 +3036,8 @@ const se_CloudTrailDetails = (input: CloudTrailDetails, context: __SerdeContext)
 // se_Trail omitted.
 
 // se_TrailList omitted.
+
+// se_UnusedAccessConfiguration omitted.
 
 // se_ValueList omitted.
 
@@ -3013,6 +3146,8 @@ const de_AnalyzedResource = (output: any, context: __SerdeContext): AnalyzedReso
 
 // de_AnalyzedResourceSummary omitted.
 
+// de_AnalyzerConfiguration omitted.
+
 /**
  * deserializeAws_restJson1AnalyzersList
  */
@@ -3031,6 +3166,7 @@ const de_AnalyzersList = (output: any, context: __SerdeContext): AnalyzerSummary
 const de_AnalyzerSummary = (output: any, context: __SerdeContext): AnalyzerSummary => {
   return take(output, {
     arn: __expectString,
+    configuration: (_: any) => _json(__expectUnion(_)),
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     lastResourceAnalyzed: __expectString,
     lastResourceAnalyzedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
@@ -3095,6 +3231,8 @@ const de_CloudTrailProperties = (output: any, context: __SerdeContext): CloudTra
 
 // de_EfsFileSystemConfiguration omitted.
 
+// de_ExternalAccessDetails omitted.
+
 // de_FilterCriteriaMap omitted.
 
 /**
@@ -3120,6 +3258,50 @@ const de_Finding = (output: any, context: __SerdeContext): Finding => {
 };
 
 /**
+ * deserializeAws_restJson1FindingDetails
+ */
+const de_FindingDetails = (output: any, context: __SerdeContext): FindingDetails => {
+  if (output.externalAccessDetails != null) {
+    return {
+      externalAccessDetails: _json(output.externalAccessDetails),
+    };
+  }
+  if (output.unusedIamRoleDetails != null) {
+    return {
+      unusedIamRoleDetails: de_UnusedIamRoleDetails(output.unusedIamRoleDetails, context),
+    };
+  }
+  if (output.unusedIamUserAccessKeyDetails != null) {
+    return {
+      unusedIamUserAccessKeyDetails: de_UnusedIamUserAccessKeyDetails(output.unusedIamUserAccessKeyDetails, context),
+    };
+  }
+  if (output.unusedIamUserPasswordDetails != null) {
+    return {
+      unusedIamUserPasswordDetails: de_UnusedIamUserPasswordDetails(output.unusedIamUserPasswordDetails, context),
+    };
+  }
+  if (output.unusedPermissionDetails != null) {
+    return {
+      unusedPermissionDetails: de_UnusedPermissionDetails(output.unusedPermissionDetails, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1FindingDetailsList
+ */
+const de_FindingDetailsList = (output: any, context: __SerdeContext): FindingDetails[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_FindingDetails(__expectUnion(entry), context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1FindingsList
  */
 const de_FindingsList = (output: any, context: __SerdeContext): FindingSummary[] => {
@@ -3127,6 +3309,18 @@ const de_FindingsList = (output: any, context: __SerdeContext): FindingSummary[]
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_FindingSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1FindingsListV2
+ */
+const de_FindingsListV2 = (output: any, context: __SerdeContext): FindingSummaryV2[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_FindingSummaryV2(entry, context);
     });
   return retVal;
 };
@@ -3154,6 +3348,24 @@ const de_FindingSummary = (output: any, context: __SerdeContext): FindingSummary
     resourceOwnerAccount: __expectString,
     resourceType: __expectString,
     sources: _json,
+    status: __expectString,
+    updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FindingSummaryV2
+ */
+const de_FindingSummaryV2 = (output: any, context: __SerdeContext): FindingSummaryV2 => {
+  return take(output, {
+    analyzedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    error: __expectString,
+    findingType: __expectString,
+    id: __expectString,
+    resource: __expectString,
+    resourceOwnerAccount: __expectString,
+    resourceType: __expectString,
     status: __expectString,
     updatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
@@ -3272,6 +3484,10 @@ const de_PolicyGenerationList = (output: any, context: __SerdeContext): PolicyGe
 
 // de_RdsDbSnapshotConfiguration omitted.
 
+// de_ReasonSummary omitted.
+
+// de_ReasonSummaryList omitted.
+
 // de_RegionList omitted.
 
 // de_S3AccessPointConfiguration omitted.
@@ -3283,6 +3499,8 @@ const de_PolicyGenerationList = (output: any, context: __SerdeContext): PolicyGe
 // de_S3BucketAclGrantConfigurationsList omitted.
 
 // de_S3BucketConfiguration omitted.
+
+// de_S3ExpressDirectoryBucketConfiguration omitted.
 
 // de_S3PublicAccessBlockConfiguration omitted.
 
@@ -3305,6 +3523,69 @@ const de_PolicyGenerationList = (output: any, context: __SerdeContext): PolicyGe
 // de_TrailProperties omitted.
 
 // de_TrailPropertiesList omitted.
+
+// de_UnusedAccessConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1UnusedAction
+ */
+const de_UnusedAction = (output: any, context: __SerdeContext): UnusedAction => {
+  return take(output, {
+    action: __expectString,
+    lastAccessed: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1UnusedActionList
+ */
+const de_UnusedActionList = (output: any, context: __SerdeContext): UnusedAction[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_UnusedAction(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1UnusedIamRoleDetails
+ */
+const de_UnusedIamRoleDetails = (output: any, context: __SerdeContext): UnusedIamRoleDetails => {
+  return take(output, {
+    lastAccessed: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1UnusedIamUserAccessKeyDetails
+ */
+const de_UnusedIamUserAccessKeyDetails = (output: any, context: __SerdeContext): UnusedIamUserAccessKeyDetails => {
+  return take(output, {
+    accessKeyId: __expectString,
+    lastAccessed: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1UnusedIamUserPasswordDetails
+ */
+const de_UnusedIamUserPasswordDetails = (output: any, context: __SerdeContext): UnusedIamUserPasswordDetails => {
+  return take(output, {
+    lastAccessed: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1UnusedPermissionDetails
+ */
+const de_UnusedPermissionDetails = (output: any, context: __SerdeContext): UnusedPermissionDetails => {
+  return take(output, {
+    actions: (_: any) => de_UnusedActionList(_, context),
+    lastAccessed: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    serviceNamespace: __expectString,
+  }) as any;
+};
 
 // de_ValidatePolicyFinding omitted.
 
@@ -3336,6 +3617,19 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _aA = "analyzerArn";
+const _cT = "clientToken";
+const _iRP = "includeResourcePlaceholders";
+const _iSLT = "includeServiceLevelTemplate";
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _pA = "principalArn";
+const _rA = "resourceArn";
+const _rAS = "retryAfterSeconds";
+const _ra = "retry-after";
+const _t = "type";
+const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

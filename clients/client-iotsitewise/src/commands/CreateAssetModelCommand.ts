@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { CreateAssetModelRequest, CreateAssetModelResponse } from "../models/models_0";
 import { de_CreateAssetModelCommand, se_CreateAssetModelCommand } from "../protocols/Aws_restJson1";
@@ -41,6 +33,19 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  *       that have standardized definitions. Each asset created from a model inherits the asset model's
  *       property and hierarchy definitions. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/define-models.html">Defining asset models</a> in the
  *         <i>IoT SiteWise User Guide</i>.</p>
+ *          <p>You can create two types of asset models, <code>ASSET_MODEL</code> or <code>COMPONENT_MODEL</code>.</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>ASSET_MODEL</b> – (default) An asset model that you can use to create assets.
+ *         Can't be included as a component in another asset model.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>COMPONENT_MODEL</b> – A reusable component that you can include in the composite
+ *         models of other asset models. You can't create assets directly from this type of asset model. </p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,8 +78,14 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  *             { // ExpressionVariable
  *               name: "STRING_VALUE", // required
  *               value: { // VariableValue
- *                 propertyId: "STRING_VALUE", // required
+ *                 propertyId: "STRING_VALUE",
  *                 hierarchyId: "STRING_VALUE",
+ *                 propertyPath: [ // AssetModelPropertyPath
+ *                   { // AssetModelPropertyPathSegment
+ *                     id: "STRING_VALUE",
+ *                     name: "STRING_VALUE",
+ *                   },
+ *                 ],
  *               },
  *             },
  *           ],
@@ -91,8 +102,14 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  *             {
  *               name: "STRING_VALUE", // required
  *               value: {
- *                 propertyId: "STRING_VALUE", // required
+ *                 propertyId: "STRING_VALUE",
  *                 hierarchyId: "STRING_VALUE",
+ *                 propertyPath: [
+ *                   {
+ *                     id: "STRING_VALUE",
+ *                     name: "STRING_VALUE",
+ *                   },
+ *                 ],
  *               },
  *             },
  *           ],
@@ -107,12 +124,16 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  *           },
  *         },
  *       },
+ *       id: "STRING_VALUE",
+ *       externalId: "STRING_VALUE",
  *     },
  *   ],
  *   assetModelHierarchies: [ // AssetModelHierarchyDefinitions
  *     { // AssetModelHierarchyDefinition
  *       name: "STRING_VALUE", // required
  *       childAssetModelId: "STRING_VALUE", // required
+ *       id: "STRING_VALUE",
+ *       externalId: "STRING_VALUE",
  *     },
  *   ],
  *   assetModelCompositeModels: [ // AssetModelCompositeModelDefinitions
@@ -143,8 +164,14 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  *                 {
  *                   name: "STRING_VALUE", // required
  *                   value: {
- *                     propertyId: "STRING_VALUE", // required
+ *                     propertyId: "STRING_VALUE",
  *                     hierarchyId: "STRING_VALUE",
+ *                     propertyPath: [
+ *                       {
+ *                         id: "STRING_VALUE",
+ *                         name: "STRING_VALUE",
+ *                       },
+ *                     ],
  *                   },
  *                 },
  *               ],
@@ -161,8 +188,14 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  *                 {
  *                   name: "STRING_VALUE", // required
  *                   value: {
- *                     propertyId: "STRING_VALUE", // required
+ *                     propertyId: "STRING_VALUE",
  *                     hierarchyId: "STRING_VALUE",
+ *                     propertyPath: [
+ *                       {
+ *                         id: "STRING_VALUE",
+ *                         name: "STRING_VALUE",
+ *                       },
+ *                     ],
  *                   },
  *                 },
  *               ],
@@ -177,14 +210,21 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  *               },
  *             },
  *           },
+ *           id: "STRING_VALUE",
+ *           externalId: "STRING_VALUE",
  *         },
  *       ],
+ *       id: "STRING_VALUE",
+ *       externalId: "STRING_VALUE",
  *     },
  *   ],
  *   clientToken: "STRING_VALUE",
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   assetModelId: "STRING_VALUE",
+ *   assetModelExternalId: "STRING_VALUE",
+ *   assetModelType: "ASSET_MODEL" || "COMPONENT_MODEL",
  * };
  * const command = new CreateAssetModelCommand(input);
  * const response = await client.send(command);
@@ -247,79 +287,26 @@ export interface CreateAssetModelCommandOutput extends CreateAssetModelResponse,
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
-export class CreateAssetModelCommand extends $Command<
-  CreateAssetModelCommandInput,
-  CreateAssetModelCommandOutput,
-  IoTSiteWiseClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateAssetModelCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: IoTSiteWiseClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateAssetModelCommandInput, CreateAssetModelCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateAssetModelCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "IoTSiteWiseClient";
-    const commandName = "CreateAssetModelCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateAssetModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateAssetModelCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAssetModelCommandOutput> {
-    return de_CreateAssetModelCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateAssetModelCommand extends $Command
+  .classBuilder<
+    CreateAssetModelCommandInput,
+    CreateAssetModelCommandOutput,
+    IoTSiteWiseClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSIoTSiteWise", "CreateAssetModel", {})
+  .n("IoTSiteWiseClient", "CreateAssetModelCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateAssetModelCommand)
+  .de(de_CreateAssetModelCommand)
+  .build() {}

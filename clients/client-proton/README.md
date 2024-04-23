@@ -151,16 +151,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ProtonClient` and
-the commands you need, for example `AcceptEnvironmentAccountConnectionCommand`:
+the commands you need, for example `ListComponentsCommand`:
 
 ```js
 // ES5 example
-const { ProtonClient, AcceptEnvironmentAccountConnectionCommand } = require("@aws-sdk/client-proton");
+const { ProtonClient, ListComponentsCommand } = require("@aws-sdk/client-proton");
 ```
 
 ```ts
 // ES6+ example
-import { ProtonClient, AcceptEnvironmentAccountConnectionCommand } from "@aws-sdk/client-proton";
+import { ProtonClient, ListComponentsCommand } from "@aws-sdk/client-proton";
 ```
 
 ### Usage
@@ -179,7 +179,7 @@ const client = new ProtonClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AcceptEnvironmentAccountConnectionCommand(params);
+const command = new ListComponentsCommand(params);
 ```
 
 #### Async/await
@@ -258,7 +258,7 @@ const client = new AWS.Proton({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.acceptEnvironmentAccountConnection(params);
+  const data = await client.listComponents(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -266,7 +266,7 @@ try {
 
 // Promises.
 client
-  .acceptEnvironmentAccountConnection(params)
+  .listComponents(params)
   .then((data) => {
     // process data.
   })
@@ -275,7 +275,7 @@ client
   });
 
 // callbacks.
-client.acceptEnvironmentAccountConnection(params, (err, data) => {
+client.listComponents(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -290,7 +290,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -336,7 +336,7 @@ see LICENSE for more information.
 AcceptEnvironmentAccountConnection
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/acceptenvironmentaccountconnectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/acceptenvironmentaccountconnectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/acceptenvironmentaccountconnectioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/AcceptEnvironmentAccountConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/AcceptEnvironmentAccountConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/AcceptEnvironmentAccountConnectionCommandOutput/)
 
 </details>
 <details>
@@ -344,7 +344,7 @@ AcceptEnvironmentAccountConnection
 CancelComponentDeployment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/cancelcomponentdeploymentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/cancelcomponentdeploymentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/cancelcomponentdeploymentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/CancelComponentDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CancelComponentDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CancelComponentDeploymentCommandOutput/)
 
 </details>
 <details>
@@ -352,7 +352,7 @@ CancelComponentDeployment
 CancelEnvironmentDeployment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/cancelenvironmentdeploymentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/cancelenvironmentdeploymentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/cancelenvironmentdeploymentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/CancelEnvironmentDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CancelEnvironmentDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CancelEnvironmentDeploymentCommandOutput/)
 
 </details>
 <details>
@@ -360,7 +360,7 @@ CancelEnvironmentDeployment
 CancelServiceInstanceDeployment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/cancelserviceinstancedeploymentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/cancelserviceinstancedeploymentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/cancelserviceinstancedeploymentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/CancelServiceInstanceDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CancelServiceInstanceDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CancelServiceInstanceDeploymentCommandOutput/)
 
 </details>
 <details>
@@ -368,7 +368,7 @@ CancelServiceInstanceDeployment
 CancelServicePipelineDeployment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/cancelservicepipelinedeploymentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/cancelservicepipelinedeploymentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/cancelservicepipelinedeploymentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/CancelServicePipelineDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CancelServicePipelineDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CancelServicePipelineDeploymentCommandOutput/)
 
 </details>
 <details>
@@ -376,7 +376,7 @@ CancelServicePipelineDeployment
 CreateComponent
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/createcomponentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/createcomponentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/createcomponentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/CreateComponentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CreateComponentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CreateComponentCommandOutput/)
 
 </details>
 <details>
@@ -384,7 +384,7 @@ CreateComponent
 CreateEnvironment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/createenvironmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/createenvironmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/createenvironmentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/CreateEnvironmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CreateEnvironmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CreateEnvironmentCommandOutput/)
 
 </details>
 <details>
@@ -392,7 +392,7 @@ CreateEnvironment
 CreateEnvironmentAccountConnection
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/createenvironmentaccountconnectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/createenvironmentaccountconnectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/createenvironmentaccountconnectioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/CreateEnvironmentAccountConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CreateEnvironmentAccountConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CreateEnvironmentAccountConnectionCommandOutput/)
 
 </details>
 <details>
@@ -400,7 +400,7 @@ CreateEnvironmentAccountConnection
 CreateEnvironmentTemplate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/createenvironmenttemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/createenvironmenttemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/createenvironmenttemplatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/CreateEnvironmentTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CreateEnvironmentTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CreateEnvironmentTemplateCommandOutput/)
 
 </details>
 <details>
@@ -408,7 +408,7 @@ CreateEnvironmentTemplate
 CreateEnvironmentTemplateVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/createenvironmenttemplateversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/createenvironmenttemplateversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/createenvironmenttemplateversioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/CreateEnvironmentTemplateVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CreateEnvironmentTemplateVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CreateEnvironmentTemplateVersionCommandOutput/)
 
 </details>
 <details>
@@ -416,7 +416,7 @@ CreateEnvironmentTemplateVersion
 CreateRepository
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/createrepositorycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/createrepositorycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/createrepositorycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/CreateRepositoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CreateRepositoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CreateRepositoryCommandOutput/)
 
 </details>
 <details>
@@ -424,7 +424,7 @@ CreateRepository
 CreateService
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/createservicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/createservicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/createservicecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/CreateServiceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CreateServiceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CreateServiceCommandOutput/)
 
 </details>
 <details>
@@ -432,7 +432,7 @@ CreateService
 CreateServiceInstance
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/createserviceinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/createserviceinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/createserviceinstancecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/CreateServiceInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CreateServiceInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CreateServiceInstanceCommandOutput/)
 
 </details>
 <details>
@@ -440,7 +440,7 @@ CreateServiceInstance
 CreateServiceSyncConfig
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/createservicesyncconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/createservicesyncconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/createservicesyncconfigcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/CreateServiceSyncConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CreateServiceSyncConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CreateServiceSyncConfigCommandOutput/)
 
 </details>
 <details>
@@ -448,7 +448,7 @@ CreateServiceSyncConfig
 CreateServiceTemplate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/createservicetemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/createservicetemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/createservicetemplatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/CreateServiceTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CreateServiceTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CreateServiceTemplateCommandOutput/)
 
 </details>
 <details>
@@ -456,7 +456,7 @@ CreateServiceTemplate
 CreateServiceTemplateVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/createservicetemplateversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/createservicetemplateversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/createservicetemplateversioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/CreateServiceTemplateVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CreateServiceTemplateVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CreateServiceTemplateVersionCommandOutput/)
 
 </details>
 <details>
@@ -464,7 +464,7 @@ CreateServiceTemplateVersion
 CreateTemplateSyncConfig
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/createtemplatesyncconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/createtemplatesyncconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/createtemplatesyncconfigcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/CreateTemplateSyncConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CreateTemplateSyncConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/CreateTemplateSyncConfigCommandOutput/)
 
 </details>
 <details>
@@ -472,7 +472,7 @@ CreateTemplateSyncConfig
 DeleteComponent
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/deletecomponentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/deletecomponentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/deletecomponentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/DeleteComponentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/DeleteComponentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/DeleteComponentCommandOutput/)
 
 </details>
 <details>
@@ -480,7 +480,7 @@ DeleteComponent
 DeleteDeployment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/deletedeploymentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/deletedeploymentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/deletedeploymentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/DeleteDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/DeleteDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/DeleteDeploymentCommandOutput/)
 
 </details>
 <details>
@@ -488,7 +488,7 @@ DeleteDeployment
 DeleteEnvironment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/deleteenvironmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/deleteenvironmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/deleteenvironmentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/DeleteEnvironmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/DeleteEnvironmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/DeleteEnvironmentCommandOutput/)
 
 </details>
 <details>
@@ -496,7 +496,7 @@ DeleteEnvironment
 DeleteEnvironmentAccountConnection
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/deleteenvironmentaccountconnectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/deleteenvironmentaccountconnectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/deleteenvironmentaccountconnectioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/DeleteEnvironmentAccountConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/DeleteEnvironmentAccountConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/DeleteEnvironmentAccountConnectionCommandOutput/)
 
 </details>
 <details>
@@ -504,7 +504,7 @@ DeleteEnvironmentAccountConnection
 DeleteEnvironmentTemplate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/deleteenvironmenttemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/deleteenvironmenttemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/deleteenvironmenttemplatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/DeleteEnvironmentTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/DeleteEnvironmentTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/DeleteEnvironmentTemplateCommandOutput/)
 
 </details>
 <details>
@@ -512,7 +512,7 @@ DeleteEnvironmentTemplate
 DeleteEnvironmentTemplateVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/deleteenvironmenttemplateversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/deleteenvironmenttemplateversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/deleteenvironmenttemplateversioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/DeleteEnvironmentTemplateVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/DeleteEnvironmentTemplateVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/DeleteEnvironmentTemplateVersionCommandOutput/)
 
 </details>
 <details>
@@ -520,7 +520,7 @@ DeleteEnvironmentTemplateVersion
 DeleteRepository
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/deleterepositorycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/deleterepositorycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/deleterepositorycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/DeleteRepositoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/DeleteRepositoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/DeleteRepositoryCommandOutput/)
 
 </details>
 <details>
@@ -528,7 +528,7 @@ DeleteRepository
 DeleteService
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/deleteservicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/deleteservicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/deleteservicecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/DeleteServiceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/DeleteServiceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/DeleteServiceCommandOutput/)
 
 </details>
 <details>
@@ -536,7 +536,7 @@ DeleteService
 DeleteServiceSyncConfig
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/deleteservicesyncconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/deleteservicesyncconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/deleteservicesyncconfigcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/DeleteServiceSyncConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/DeleteServiceSyncConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/DeleteServiceSyncConfigCommandOutput/)
 
 </details>
 <details>
@@ -544,7 +544,7 @@ DeleteServiceSyncConfig
 DeleteServiceTemplate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/deleteservicetemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/deleteservicetemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/deleteservicetemplatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/DeleteServiceTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/DeleteServiceTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/DeleteServiceTemplateCommandOutput/)
 
 </details>
 <details>
@@ -552,7 +552,7 @@ DeleteServiceTemplate
 DeleteServiceTemplateVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/deleteservicetemplateversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/deleteservicetemplateversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/deleteservicetemplateversioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/DeleteServiceTemplateVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/DeleteServiceTemplateVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/DeleteServiceTemplateVersionCommandOutput/)
 
 </details>
 <details>
@@ -560,7 +560,7 @@ DeleteServiceTemplateVersion
 DeleteTemplateSyncConfig
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/deletetemplatesyncconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/deletetemplatesyncconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/deletetemplatesyncconfigcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/DeleteTemplateSyncConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/DeleteTemplateSyncConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/DeleteTemplateSyncConfigCommandOutput/)
 
 </details>
 <details>
@@ -568,7 +568,7 @@ DeleteTemplateSyncConfig
 GetAccountSettings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/getaccountsettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getaccountsettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getaccountsettingscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/GetAccountSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetAccountSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetAccountSettingsCommandOutput/)
 
 </details>
 <details>
@@ -576,7 +576,7 @@ GetAccountSettings
 GetComponent
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/getcomponentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getcomponentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getcomponentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/GetComponentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetComponentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetComponentCommandOutput/)
 
 </details>
 <details>
@@ -584,7 +584,7 @@ GetComponent
 GetDeployment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/getdeploymentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getdeploymentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getdeploymentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/GetDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetDeploymentCommandOutput/)
 
 </details>
 <details>
@@ -592,7 +592,7 @@ GetDeployment
 GetEnvironment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/getenvironmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getenvironmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getenvironmentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/GetEnvironmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetEnvironmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetEnvironmentCommandOutput/)
 
 </details>
 <details>
@@ -600,7 +600,7 @@ GetEnvironment
 GetEnvironmentAccountConnection
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/getenvironmentaccountconnectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getenvironmentaccountconnectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getenvironmentaccountconnectioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/GetEnvironmentAccountConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetEnvironmentAccountConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetEnvironmentAccountConnectionCommandOutput/)
 
 </details>
 <details>
@@ -608,7 +608,7 @@ GetEnvironmentAccountConnection
 GetEnvironmentTemplate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/getenvironmenttemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getenvironmenttemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getenvironmenttemplatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/GetEnvironmentTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetEnvironmentTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetEnvironmentTemplateCommandOutput/)
 
 </details>
 <details>
@@ -616,7 +616,7 @@ GetEnvironmentTemplate
 GetEnvironmentTemplateVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/getenvironmenttemplateversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getenvironmenttemplateversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getenvironmenttemplateversioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/GetEnvironmentTemplateVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetEnvironmentTemplateVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetEnvironmentTemplateVersionCommandOutput/)
 
 </details>
 <details>
@@ -624,7 +624,7 @@ GetEnvironmentTemplateVersion
 GetRepository
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/getrepositorycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getrepositorycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getrepositorycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/GetRepositoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetRepositoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetRepositoryCommandOutput/)
 
 </details>
 <details>
@@ -632,7 +632,7 @@ GetRepository
 GetRepositorySyncStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/getrepositorysyncstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getrepositorysyncstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getrepositorysyncstatuscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/GetRepositorySyncStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetRepositorySyncStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetRepositorySyncStatusCommandOutput/)
 
 </details>
 <details>
@@ -640,7 +640,7 @@ GetRepositorySyncStatus
 GetResourcesSummary
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/getresourcessummarycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getresourcessummarycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getresourcessummarycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/GetResourcesSummaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetResourcesSummaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetResourcesSummaryCommandOutput/)
 
 </details>
 <details>
@@ -648,7 +648,7 @@ GetResourcesSummary
 GetService
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/getservicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getservicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getservicecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/GetServiceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetServiceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetServiceCommandOutput/)
 
 </details>
 <details>
@@ -656,7 +656,7 @@ GetService
 GetServiceInstance
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/getserviceinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getserviceinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getserviceinstancecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/GetServiceInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetServiceInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetServiceInstanceCommandOutput/)
 
 </details>
 <details>
@@ -664,7 +664,7 @@ GetServiceInstance
 GetServiceInstanceSyncStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/getserviceinstancesyncstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getserviceinstancesyncstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getserviceinstancesyncstatuscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/GetServiceInstanceSyncStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetServiceInstanceSyncStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetServiceInstanceSyncStatusCommandOutput/)
 
 </details>
 <details>
@@ -672,7 +672,7 @@ GetServiceInstanceSyncStatus
 GetServiceSyncBlockerSummary
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/getservicesyncblockersummarycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getservicesyncblockersummarycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getservicesyncblockersummarycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/GetServiceSyncBlockerSummaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetServiceSyncBlockerSummaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetServiceSyncBlockerSummaryCommandOutput/)
 
 </details>
 <details>
@@ -680,7 +680,7 @@ GetServiceSyncBlockerSummary
 GetServiceSyncConfig
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/getservicesyncconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getservicesyncconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getservicesyncconfigcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/GetServiceSyncConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetServiceSyncConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetServiceSyncConfigCommandOutput/)
 
 </details>
 <details>
@@ -688,7 +688,7 @@ GetServiceSyncConfig
 GetServiceTemplate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/getservicetemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getservicetemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getservicetemplatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/GetServiceTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetServiceTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetServiceTemplateCommandOutput/)
 
 </details>
 <details>
@@ -696,7 +696,7 @@ GetServiceTemplate
 GetServiceTemplateVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/getservicetemplateversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getservicetemplateversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/getservicetemplateversioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/GetServiceTemplateVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetServiceTemplateVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetServiceTemplateVersionCommandOutput/)
 
 </details>
 <details>
@@ -704,7 +704,7 @@ GetServiceTemplateVersion
 GetTemplateSyncConfig
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/gettemplatesyncconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/gettemplatesyncconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/gettemplatesyncconfigcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/GetTemplateSyncConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetTemplateSyncConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetTemplateSyncConfigCommandOutput/)
 
 </details>
 <details>
@@ -712,7 +712,7 @@ GetTemplateSyncConfig
 GetTemplateSyncStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/gettemplatesyncstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/gettemplatesyncstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/gettemplatesyncstatuscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/GetTemplateSyncStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetTemplateSyncStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/GetTemplateSyncStatusCommandOutput/)
 
 </details>
 <details>
@@ -720,7 +720,7 @@ GetTemplateSyncStatus
 ListComponentOutputs
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/listcomponentoutputscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listcomponentoutputscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listcomponentoutputscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/ListComponentOutputsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListComponentOutputsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListComponentOutputsCommandOutput/)
 
 </details>
 <details>
@@ -728,7 +728,7 @@ ListComponentOutputs
 ListComponentProvisionedResources
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/listcomponentprovisionedresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listcomponentprovisionedresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listcomponentprovisionedresourcescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/ListComponentProvisionedResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListComponentProvisionedResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListComponentProvisionedResourcesCommandOutput/)
 
 </details>
 <details>
@@ -736,7 +736,7 @@ ListComponentProvisionedResources
 ListComponents
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/listcomponentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listcomponentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listcomponentscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/ListComponentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListComponentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListComponentsCommandOutput/)
 
 </details>
 <details>
@@ -744,7 +744,7 @@ ListComponents
 ListDeployments
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/listdeploymentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listdeploymentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listdeploymentscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/ListDeploymentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListDeploymentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListDeploymentsCommandOutput/)
 
 </details>
 <details>
@@ -752,7 +752,7 @@ ListDeployments
 ListEnvironmentAccountConnections
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/listenvironmentaccountconnectionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listenvironmentaccountconnectionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listenvironmentaccountconnectionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/ListEnvironmentAccountConnectionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListEnvironmentAccountConnectionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListEnvironmentAccountConnectionsCommandOutput/)
 
 </details>
 <details>
@@ -760,7 +760,7 @@ ListEnvironmentAccountConnections
 ListEnvironmentOutputs
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/listenvironmentoutputscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listenvironmentoutputscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listenvironmentoutputscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/ListEnvironmentOutputsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListEnvironmentOutputsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListEnvironmentOutputsCommandOutput/)
 
 </details>
 <details>
@@ -768,7 +768,7 @@ ListEnvironmentOutputs
 ListEnvironmentProvisionedResources
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/listenvironmentprovisionedresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listenvironmentprovisionedresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listenvironmentprovisionedresourcescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/ListEnvironmentProvisionedResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListEnvironmentProvisionedResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListEnvironmentProvisionedResourcesCommandOutput/)
 
 </details>
 <details>
@@ -776,7 +776,7 @@ ListEnvironmentProvisionedResources
 ListEnvironments
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/listenvironmentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listenvironmentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listenvironmentscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/ListEnvironmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListEnvironmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListEnvironmentsCommandOutput/)
 
 </details>
 <details>
@@ -784,7 +784,7 @@ ListEnvironments
 ListEnvironmentTemplates
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/listenvironmenttemplatescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listenvironmenttemplatescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listenvironmenttemplatescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/ListEnvironmentTemplatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListEnvironmentTemplatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListEnvironmentTemplatesCommandOutput/)
 
 </details>
 <details>
@@ -792,7 +792,7 @@ ListEnvironmentTemplates
 ListEnvironmentTemplateVersions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/listenvironmenttemplateversionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listenvironmenttemplateversionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listenvironmenttemplateversionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/ListEnvironmentTemplateVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListEnvironmentTemplateVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListEnvironmentTemplateVersionsCommandOutput/)
 
 </details>
 <details>
@@ -800,7 +800,7 @@ ListEnvironmentTemplateVersions
 ListRepositories
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/listrepositoriescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listrepositoriescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listrepositoriescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/ListRepositoriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListRepositoriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListRepositoriesCommandOutput/)
 
 </details>
 <details>
@@ -808,7 +808,7 @@ ListRepositories
 ListRepositorySyncDefinitions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/listrepositorysyncdefinitionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listrepositorysyncdefinitionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listrepositorysyncdefinitionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/ListRepositorySyncDefinitionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListRepositorySyncDefinitionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListRepositorySyncDefinitionsCommandOutput/)
 
 </details>
 <details>
@@ -816,7 +816,7 @@ ListRepositorySyncDefinitions
 ListServiceInstanceOutputs
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/listserviceinstanceoutputscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listserviceinstanceoutputscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listserviceinstanceoutputscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/ListServiceInstanceOutputsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListServiceInstanceOutputsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListServiceInstanceOutputsCommandOutput/)
 
 </details>
 <details>
@@ -824,7 +824,7 @@ ListServiceInstanceOutputs
 ListServiceInstanceProvisionedResources
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/listserviceinstanceprovisionedresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listserviceinstanceprovisionedresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listserviceinstanceprovisionedresourcescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/ListServiceInstanceProvisionedResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListServiceInstanceProvisionedResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListServiceInstanceProvisionedResourcesCommandOutput/)
 
 </details>
 <details>
@@ -832,7 +832,7 @@ ListServiceInstanceProvisionedResources
 ListServiceInstances
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/listserviceinstancescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listserviceinstancescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listserviceinstancescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/ListServiceInstancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListServiceInstancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListServiceInstancesCommandOutput/)
 
 </details>
 <details>
@@ -840,7 +840,7 @@ ListServiceInstances
 ListServicePipelineOutputs
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/listservicepipelineoutputscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listservicepipelineoutputscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listservicepipelineoutputscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/ListServicePipelineOutputsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListServicePipelineOutputsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListServicePipelineOutputsCommandOutput/)
 
 </details>
 <details>
@@ -848,7 +848,7 @@ ListServicePipelineOutputs
 ListServicePipelineProvisionedResources
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/listservicepipelineprovisionedresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listservicepipelineprovisionedresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listservicepipelineprovisionedresourcescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/ListServicePipelineProvisionedResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListServicePipelineProvisionedResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListServicePipelineProvisionedResourcesCommandOutput/)
 
 </details>
 <details>
@@ -856,7 +856,7 @@ ListServicePipelineProvisionedResources
 ListServices
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/listservicescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listservicescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listservicescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/ListServicesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListServicesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListServicesCommandOutput/)
 
 </details>
 <details>
@@ -864,7 +864,7 @@ ListServices
 ListServiceTemplates
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/listservicetemplatescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listservicetemplatescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listservicetemplatescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/ListServiceTemplatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListServiceTemplatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListServiceTemplatesCommandOutput/)
 
 </details>
 <details>
@@ -872,7 +872,7 @@ ListServiceTemplates
 ListServiceTemplateVersions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/listservicetemplateversionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listservicetemplateversionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listservicetemplateversionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/ListServiceTemplateVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListServiceTemplateVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListServiceTemplateVersionsCommandOutput/)
 
 </details>
 <details>
@@ -880,7 +880,7 @@ ListServiceTemplateVersions
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/ListTagsForResourceCommandOutput/)
 
 </details>
 <details>
@@ -888,7 +888,7 @@ ListTagsForResource
 NotifyResourceDeploymentStatusChange
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/notifyresourcedeploymentstatuschangecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/notifyresourcedeploymentstatuschangecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/notifyresourcedeploymentstatuschangecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/NotifyResourceDeploymentStatusChangeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/NotifyResourceDeploymentStatusChangeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/NotifyResourceDeploymentStatusChangeCommandOutput/)
 
 </details>
 <details>
@@ -896,7 +896,7 @@ NotifyResourceDeploymentStatusChange
 RejectEnvironmentAccountConnection
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/rejectenvironmentaccountconnectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/rejectenvironmentaccountconnectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/rejectenvironmentaccountconnectioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/RejectEnvironmentAccountConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/RejectEnvironmentAccountConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/RejectEnvironmentAccountConnectionCommandOutput/)
 
 </details>
 <details>
@@ -904,7 +904,7 @@ RejectEnvironmentAccountConnection
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -912,7 +912,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -920,7 +920,7 @@ UntagResource
 UpdateAccountSettings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/updateaccountsettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updateaccountsettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updateaccountsettingscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/UpdateAccountSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/UpdateAccountSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/UpdateAccountSettingsCommandOutput/)
 
 </details>
 <details>
@@ -928,7 +928,7 @@ UpdateAccountSettings
 UpdateComponent
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/updatecomponentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updatecomponentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updatecomponentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/UpdateComponentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/UpdateComponentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/UpdateComponentCommandOutput/)
 
 </details>
 <details>
@@ -936,7 +936,7 @@ UpdateComponent
 UpdateEnvironment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/updateenvironmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updateenvironmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updateenvironmentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/UpdateEnvironmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/UpdateEnvironmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/UpdateEnvironmentCommandOutput/)
 
 </details>
 <details>
@@ -944,7 +944,7 @@ UpdateEnvironment
 UpdateEnvironmentAccountConnection
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/updateenvironmentaccountconnectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updateenvironmentaccountconnectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updateenvironmentaccountconnectioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/UpdateEnvironmentAccountConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/UpdateEnvironmentAccountConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/UpdateEnvironmentAccountConnectionCommandOutput/)
 
 </details>
 <details>
@@ -952,7 +952,7 @@ UpdateEnvironmentAccountConnection
 UpdateEnvironmentTemplate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/updateenvironmenttemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updateenvironmenttemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updateenvironmenttemplatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/UpdateEnvironmentTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/UpdateEnvironmentTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/UpdateEnvironmentTemplateCommandOutput/)
 
 </details>
 <details>
@@ -960,7 +960,7 @@ UpdateEnvironmentTemplate
 UpdateEnvironmentTemplateVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/updateenvironmenttemplateversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updateenvironmenttemplateversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updateenvironmenttemplateversioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/UpdateEnvironmentTemplateVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/UpdateEnvironmentTemplateVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/UpdateEnvironmentTemplateVersionCommandOutput/)
 
 </details>
 <details>
@@ -968,7 +968,7 @@ UpdateEnvironmentTemplateVersion
 UpdateService
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/updateservicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updateservicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updateservicecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/UpdateServiceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/UpdateServiceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/UpdateServiceCommandOutput/)
 
 </details>
 <details>
@@ -976,7 +976,7 @@ UpdateService
 UpdateServiceInstance
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/updateserviceinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updateserviceinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updateserviceinstancecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/UpdateServiceInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/UpdateServiceInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/UpdateServiceInstanceCommandOutput/)
 
 </details>
 <details>
@@ -984,7 +984,7 @@ UpdateServiceInstance
 UpdateServicePipeline
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/updateservicepipelinecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updateservicepipelinecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updateservicepipelinecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/UpdateServicePipelineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/UpdateServicePipelineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/UpdateServicePipelineCommandOutput/)
 
 </details>
 <details>
@@ -992,7 +992,7 @@ UpdateServicePipeline
 UpdateServiceSyncBlocker
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/updateservicesyncblockercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updateservicesyncblockercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updateservicesyncblockercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/UpdateServiceSyncBlockerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/UpdateServiceSyncBlockerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/UpdateServiceSyncBlockerCommandOutput/)
 
 </details>
 <details>
@@ -1000,7 +1000,7 @@ UpdateServiceSyncBlocker
 UpdateServiceSyncConfig
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/updateservicesyncconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updateservicesyncconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updateservicesyncconfigcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/UpdateServiceSyncConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/UpdateServiceSyncConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/UpdateServiceSyncConfigCommandOutput/)
 
 </details>
 <details>
@@ -1008,7 +1008,7 @@ UpdateServiceSyncConfig
 UpdateServiceTemplate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/updateservicetemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updateservicetemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updateservicetemplatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/UpdateServiceTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/UpdateServiceTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/UpdateServiceTemplateCommandOutput/)
 
 </details>
 <details>
@@ -1016,7 +1016,7 @@ UpdateServiceTemplate
 UpdateServiceTemplateVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/updateservicetemplateversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updateservicetemplateversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updateservicetemplateversioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/UpdateServiceTemplateVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/UpdateServiceTemplateVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/UpdateServiceTemplateVersionCommandOutput/)
 
 </details>
 <details>
@@ -1024,6 +1024,6 @@ UpdateServiceTemplateVersion
 UpdateTemplateSyncConfig
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/classes/updatetemplatesyncconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updatetemplatesyncconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-proton/interfaces/updatetemplatesyncconfigcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/proton/command/UpdateTemplateSyncConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/UpdateTemplateSyncConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-proton/Interface/UpdateTemplateSyncConfigCommandOutput/)
 
 </details>

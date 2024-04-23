@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DrsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DrsClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreateExtendedSourceServerRequest,
   CreateExtendedSourceServerRequestFilterSensitiveLog,
@@ -158,6 +150,7 @@ export interface CreateExtendedSourceServerCommandOutput extends CreateExtendedS
  * //     replicationDirection: "STRING_VALUE",
  * //     reversedDirectionSourceServerArn: "STRING_VALUE",
  * //     sourceNetworkID: "STRING_VALUE",
+ * //     agentVersion: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -194,82 +187,26 @@ export interface CreateExtendedSourceServerCommandOutput extends CreateExtendedS
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
  */
-export class CreateExtendedSourceServerCommand extends $Command<
-  CreateExtendedSourceServerCommandInput,
-  CreateExtendedSourceServerCommandOutput,
-  DrsClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateExtendedSourceServerCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: DrsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateExtendedSourceServerCommandInput, CreateExtendedSourceServerCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateExtendedSourceServerCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "DrsClient";
-    const commandName = "CreateExtendedSourceServerCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: CreateExtendedSourceServerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateExtendedSourceServerResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateExtendedSourceServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateExtendedSourceServerCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateExtendedSourceServerCommandOutput> {
-    return de_CreateExtendedSourceServerCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateExtendedSourceServerCommand extends $Command
+  .classBuilder<
+    CreateExtendedSourceServerCommandInput,
+    CreateExtendedSourceServerCommandOutput,
+    DrsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ElasticDisasterRecoveryService", "CreateExtendedSourceServer", {})
+  .n("DrsClient", "CreateExtendedSourceServerCommand")
+  .f(CreateExtendedSourceServerRequestFilterSensitiveLog, CreateExtendedSourceServerResponseFilterSensitiveLog)
+  .ser(se_CreateExtendedSourceServerCommand)
+  .de(de_CreateExtendedSourceServerCommand)
+  .build() {}

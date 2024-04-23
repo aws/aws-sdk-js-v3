@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   LicenseManagerUserSubscriptionsClientResolvedConfig,
   ServiceInputTypes,
@@ -115,79 +107,26 @@ export interface StartProductSubscriptionCommandOutput extends StartProductSubsc
  * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
  */
-export class StartProductSubscriptionCommand extends $Command<
-  StartProductSubscriptionCommandInput,
-  StartProductSubscriptionCommandOutput,
-  LicenseManagerUserSubscriptionsClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StartProductSubscriptionCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: LicenseManagerUserSubscriptionsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StartProductSubscriptionCommandInput, StartProductSubscriptionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartProductSubscriptionCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "LicenseManagerUserSubscriptionsClient";
-    const commandName = "StartProductSubscriptionCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StartProductSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartProductSubscriptionCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartProductSubscriptionCommandOutput> {
-    return de_StartProductSubscriptionCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class StartProductSubscriptionCommand extends $Command
+  .classBuilder<
+    StartProductSubscriptionCommandInput,
+    StartProductSubscriptionCommandOutput,
+    LicenseManagerUserSubscriptionsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: LicenseManagerUserSubscriptionsClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("LicenseManagerUserSubscriptions", "StartProductSubscription", {})
+  .n("LicenseManagerUserSubscriptionsClient", "StartProductSubscriptionCommand")
+  .f(void 0, void 0)
+  .ser(se_StartProductSubscriptionCommand)
+  .de(de_StartProductSubscriptionCommand)
+  .build() {}

@@ -90,7 +90,7 @@ export interface Compliance {
    * 			support the <code>NOT_APPLICABLE</code> value for the
    * 				<code>Compliance</code> data type.</p>
    */
-  ComplianceType?: ComplianceType | string;
+  ComplianceType?: ComplianceType;
 
   /**
    * @public
@@ -166,7 +166,7 @@ export interface AggregateConformancePackCompliance {
    * @public
    * <p>The compliance status of the conformance pack.</p>
    */
-  ComplianceType?: ConformancePackComplianceType | string;
+  ComplianceType?: ConformancePackComplianceType;
 
   /**
    * @public
@@ -305,7 +305,7 @@ export interface AggregateConformancePackComplianceFilters {
    * @public
    * <p>The compliance status of the conformance pack.</p>
    */
-  ComplianceType?: ConformancePackComplianceType | string;
+  ComplianceType?: ConformancePackComplianceType;
 
   /**
    * @public
@@ -416,7 +416,7 @@ export interface AggregatedSourceStatus {
    * @public
    * <p>The source account or an organization.</p>
    */
-  SourceType?: AggregatedSourceType | string;
+  SourceType?: AggregatedSourceType;
 
   /**
    * @public
@@ -442,7 +442,7 @@ export interface AggregatedSourceStatus {
    *             </li>
    *          </ul>
    */
-  LastUpdateStatus?: AggregatedSourceStatusType | string;
+  LastUpdateStatus?: AggregatedSourceStatusType;
 
   /**
    * @public
@@ -509,7 +509,7 @@ export interface EvaluationResultQualifier {
    * @public
    * <p>The mode of an evaluation. The valid values are Detective or Proactive.</p>
    */
-  EvaluationMode?: EvaluationMode | string;
+  EvaluationMode?: EvaluationMode;
 }
 
 /**
@@ -562,7 +562,7 @@ export interface AggregateEvaluationResult {
    * 				<code>NOT_APPLICABLE</code> and <code>INSUFFICIENT_DATA</code>
    * 			value.</p>
    */
-  ComplianceType?: ComplianceType | string;
+  ComplianceType?: ComplianceType;
 
   /**
    * @public
@@ -604,6 +604,8 @@ export interface AggregateEvaluationResult {
  */
 export const ResourceType = {
   ACMPCACertificateAuthority: "AWS::ACMPCA::CertificateAuthority",
+  ACMPCACertificateAuthorityActivation: "AWS::ACMPCA::CertificateAuthorityActivation",
+  APSRuleGroupsNamespace: "AWS::APS::RuleGroupsNamespace",
   AccessAnalyzerAnalyzer: "AWS::AccessAnalyzer::Analyzer",
   AccountPublicAccessBlock: "AWS::S3::AccountPublicAccessBlock",
   Alarm: "AWS::CloudWatch::Alarm",
@@ -618,6 +620,8 @@ export const ResourceType = {
   AppConfigHostedConfigurationVersion: "AWS::AppConfig::HostedConfigurationVersion",
   AppFlowFlow: "AWS::AppFlow::Flow",
   AppIntegrationsEventIntegration: "AWS::AppIntegrations::EventIntegration",
+  AppMeshGatewayRoute: "AWS::AppMesh::GatewayRoute",
+  AppMeshMesh: "AWS::AppMesh::Mesh",
   AppMeshRoute: "AWS::AppMesh::Route",
   AppMeshVirtualGateway: "AWS::AppMesh::VirtualGateway",
   AppMeshVirtualNode: "AWS::AppMesh::VirtualNode",
@@ -627,6 +631,8 @@ export const ResourceType = {
   AppRunnerVpcConnector: "AWS::AppRunner::VpcConnector",
   AppStreamApplication: "AWS::AppStream::Application",
   AppStreamDirectoryConfig: "AWS::AppStream::DirectoryConfig",
+  AppStreamFleet: "AWS::AppStream::Fleet",
+  AppStreamStack: "AWS::AppStream::Stack",
   AppSyncGraphQLApi: "AWS::AppSync::GraphQLApi",
   Application: "AWS::ElasticBeanstalk::Application",
   ApplicationVersion: "AWS::ElasticBeanstalk::ApplicationVersion",
@@ -644,6 +650,7 @@ export const ResourceType = {
   BackupVault: "AWS::Backup::BackupVault",
   BatchComputeEnvironment: "AWS::Batch::ComputeEnvironment",
   BatchJobQueue: "AWS::Batch::JobQueue",
+  BatchSchedulingPolicy: "AWS::Batch::SchedulingPolicy",
   Bucket: "AWS::S3::Bucket",
   BudgetsBudgetsAction: "AWS::Budgets::BudgetsAction",
   CassandraKeyspace: "AWS::Cassandra::Keyspace",
@@ -658,12 +665,19 @@ export const ResourceType = {
   ClusterSnapshot: "AWS::Redshift::ClusterSnapshot",
   ClusterSubnetGroup: "AWS::Redshift::ClusterSubnetGroup",
   CodeArtifactRepository: "AWS::CodeArtifact::Repository",
+  CodeBuildReportGroup: "AWS::CodeBuild::ReportGroup",
   CodeDeployApplication: "AWS::CodeDeploy::Application",
   CodeDeployDeploymentConfig: "AWS::CodeDeploy::DeploymentConfig",
   CodeDeployDeploymentGroup: "AWS::CodeDeploy::DeploymentGroup",
+  CodeGuruProfilerProfilingGroup: "AWS::CodeGuruProfiler::ProfilingGroup",
   CodeGuruReviewerRepositoryAssociation: "AWS::CodeGuruReviewer::RepositoryAssociation",
+  CognitoUserPool: "AWS::Cognito::UserPool",
+  CognitoUserPoolClient: "AWS::Cognito::UserPoolClient",
+  CognitoUserPoolGroup: "AWS::Cognito::UserPoolGroup",
   ConformancePackCompliance: "AWS::Config::ConformancePackCompliance",
+  ConnectInstance: "AWS::Connect::Instance",
   ConnectPhoneNumber: "AWS::Connect::PhoneNumber",
+  ConnectQuickConnect: "AWS::Connect::QuickConnect",
   CustomerGateway: "AWS::EC2::CustomerGateway",
   CustomerProfilesDomain: "AWS::CustomerProfiles::Domain",
   CustomerProfilesObjectType: "AWS::CustomerProfiles::ObjectType",
@@ -693,11 +707,15 @@ export const ResourceType = {
   Distribution: "AWS::CloudFront::Distribution",
   Domain: "AWS::Elasticsearch::Domain",
   EC2CapacityReservation: "AWS::EC2::CapacityReservation",
+  EC2CarrierGateway: "AWS::EC2::CarrierGateway",
   EC2ClientVpnEndpoint: "AWS::EC2::ClientVpnEndpoint",
   EC2DHCPOptions: "AWS::EC2::DHCPOptions",
   EC2EC2Fleet: "AWS::EC2::EC2Fleet",
   EC2IPAM: "AWS::EC2::IPAM",
+  EC2IPAMPool: "AWS::EC2::IPAMPool",
   EC2IPAMScope: "AWS::EC2::IPAMScope",
+  EC2NetworkInsightsAccessScope: "AWS::EC2::NetworkInsightsAccessScope",
+  EC2NetworkInsightsAnalysis: "AWS::EC2::NetworkInsightsAnalysis",
   EC2NetworkInsightsPath: "AWS::EC2::NetworkInsightsPath",
   EC2PrefixList: "AWS::EC2::PrefixList",
   EC2SpotFleet: "AWS::EC2::SpotFleet",
@@ -705,10 +723,13 @@ export const ResourceType = {
   EC2TrafficMirrorFilter: "AWS::EC2::TrafficMirrorFilter",
   EC2TrafficMirrorSession: "AWS::EC2::TrafficMirrorSession",
   EC2TrafficMirrorTarget: "AWS::EC2::TrafficMirrorTarget",
+  EC2TransitGatewayConnect: "AWS::EC2::TransitGatewayConnect",
+  EC2TransitGatewayMulticastDomain: "AWS::EC2::TransitGatewayMulticastDomain",
   ECRPublicRepository: "AWS::ECR::PublicRepository",
   ECRPullThroughCacheRule: "AWS::ECR::PullThroughCacheRule",
   ECRRegistryPolicy: "AWS::ECR::RegistryPolicy",
   ECRRepository: "AWS::ECR::Repository",
+  ECSCapacityProvider: "AWS::ECS::CapacityProvider",
   ECSCluster: "AWS::ECS::Cluster",
   ECSService: "AWS::ECS::Service",
   ECSTaskDefinition: "AWS::ECS::TaskDefinition",
@@ -753,8 +774,10 @@ export const ResourceType = {
   GlueClassifier: "AWS::Glue::Classifier",
   GlueJob: "AWS::Glue::Job",
   GlueMLTransform: "AWS::Glue::MLTransform",
+  GrafanaWorkspace: "AWS::Grafana::Workspace",
   GreengrassV2ComponentVersion: "AWS::GreengrassV2::ComponentVersion",
   GroundStationConfig: "AWS::GroundStation::Config",
+  GroundStationDataflowEndpointGroup: "AWS::GroundStation::DataflowEndpointGroup",
   GroundStationMissionProfile: "AWS::GroundStation::MissionProfile",
   Group: "AWS::IAM::Group",
   GuardDutyDetector: "AWS::GuardDuty::Detector",
@@ -763,6 +786,7 @@ export const ResourceType = {
   GuardDutyThreatIntelSet: "AWS::GuardDuty::ThreatIntelSet",
   HealthLakeFHIRDatastore: "AWS::HealthLake::FHIRDatastore",
   Host: "AWS::EC2::Host",
+  IAMInstanceProfile: "AWS::IAM::InstanceProfile",
   IAMSAMLProvider: "AWS::IAM::SAMLProvider",
   IAMServerCertificate: "AWS::IAM::ServerCertificate",
   IPSetV2: "AWS::WAFv2::IPSet",
@@ -772,7 +796,9 @@ export const ResourceType = {
   ImageBuilderContainerRecipe: "AWS::ImageBuilder::ContainerRecipe",
   ImageBuilderDistributionConfiguration: "AWS::ImageBuilder::DistributionConfiguration",
   ImageBuilderImagePipeline: "AWS::ImageBuilder::ImagePipeline",
+  ImageBuilderImageRecipe: "AWS::ImageBuilder::ImageRecipe",
   ImageBuilderInfrastructureConfiguration: "AWS::ImageBuilder::InfrastructureConfiguration",
+  InspectorV2Filter: "AWS::InspectorV2::Filter",
   Instance: "AWS::EC2::Instance",
   InternetGateway: "AWS::EC2::InternetGateway",
   IoTAccountAuditConfiguration: "AWS::IoT::AccountAuditConfiguration",
@@ -781,14 +807,17 @@ export const ResourceType = {
   IoTAnalyticsDatastore: "AWS::IoTAnalytics::Datastore",
   IoTAnalyticsPipeline: "AWS::IoTAnalytics::Pipeline",
   IoTAuthorizer: "AWS::IoT::Authorizer",
+  IoTCACertificate: "AWS::IoT::CACertificate",
   IoTCustomMetric: "AWS::IoT::CustomMetric",
   IoTDimension: "AWS::IoT::Dimension",
   IoTEventsAlarmModel: "AWS::IoTEvents::AlarmModel",
   IoTEventsDetectorModel: "AWS::IoTEvents::DetectorModel",
   IoTEventsInput: "AWS::IoTEvents::Input",
   IoTFleetMetric: "AWS::IoT::FleetMetric",
+  IoTJobTemplate: "AWS::IoT::JobTemplate",
   IoTMitigationAction: "AWS::IoT::MitigationAction",
   IoTPolicy: "AWS::IoT::Policy",
+  IoTProvisioningTemplate: "AWS::IoT::ProvisioningTemplate",
   IoTRoleAlias: "AWS::IoT::RoleAlias",
   IoTScheduledAudit: "AWS::IoT::ScheduledAudit",
   IoTSecurityProfile: "AWS::IoT::SecurityProfile",
@@ -797,10 +826,16 @@ export const ResourceType = {
   IoTSiteWiseGateway: "AWS::IoTSiteWise::Gateway",
   IoTSiteWisePortal: "AWS::IoTSiteWise::Portal",
   IoTSiteWiseProject: "AWS::IoTSiteWise::Project",
+  IoTTwinMakerComponentType: "AWS::IoTTwinMaker::ComponentType",
   IoTTwinMakerEntity: "AWS::IoTTwinMaker::Entity",
   IoTTwinMakerScene: "AWS::IoTTwinMaker::Scene",
+  IoTTwinMakerSyncJob: "AWS::IoTTwinMaker::SyncJob",
   IoTTwinMakerWorkspace: "AWS::IoTTwinMaker::Workspace",
+  IoTWirelessFuotaTask: "AWS::IoTWireless::FuotaTask",
+  IoTWirelessMulticastGroup: "AWS::IoTWireless::MulticastGroup",
   IoTWirelessServiceProfile: "AWS::IoTWireless::ServiceProfile",
+  KMSAlias: "AWS::KMS::Alias",
+  KafkaConnectConnector: "AWS::KafkaConnect::Connector",
   KendraIndex: "AWS::Kendra::Index",
   Key: "AWS::KMS::Key",
   KinesisAnalyticsV2Application: "AWS::KinesisAnalyticsV2::Application",
@@ -809,6 +844,7 @@ export const ResourceType = {
   KinesisStreamConsumer: "AWS::Kinesis::StreamConsumer",
   KinesisVideoSignalingChannel: "AWS::KinesisVideo::SignalingChannel",
   KinesisVideoStream: "AWS::KinesisVideo::Stream",
+  LambdaCodeSigningConfig: "AWS::Lambda::CodeSigningConfig",
   LaunchConfiguration: "AWS::AutoScaling::LaunchConfiguration",
   LaunchTemplate: "AWS::EC2::LaunchTemplate",
   LexBot: "AWS::Lex::Bot",
@@ -823,11 +859,14 @@ export const ResourceType = {
   LogsDestination: "AWS::Logs::Destination",
   LookoutMetricsAlert: "AWS::LookoutMetrics::Alert",
   LookoutVisionProject: "AWS::LookoutVision::Project",
+  M2Environment: "AWS::M2::Environment",
+  MSKBatchScramSecret: "AWS::MSK::BatchScramSecret",
   MSKCluster: "AWS::MSK::Cluster",
   MSKConfiguration: "AWS::MSK::Configuration",
   ManagedInstanceInventory: "AWS::SSM::ManagedInstanceInventory",
   ManagedRuleSetV2: "AWS::WAFv2::ManagedRuleSet",
   MediaConnectFlowEntitlement: "AWS::MediaConnect::FlowEntitlement",
+  MediaConnectFlowSource: "AWS::MediaConnect::FlowSource",
   MediaConnectFlowVpcInterface: "AWS::MediaConnect::FlowVpcInterface",
   MediaPackagePackagingConfiguration: "AWS::MediaPackage::PackagingConfiguration",
   MediaPackagePackagingGroup: "AWS::MediaPackage::PackagingGroup",
@@ -839,6 +878,7 @@ export const ResourceType = {
   NetworkFirewallRuleGroup: "AWS::NetworkFirewall::RuleGroup",
   NetworkInsightsAccessScopeAnalysis: "AWS::EC2::NetworkInsightsAccessScopeAnalysis",
   NetworkInterface: "AWS::EC2::NetworkInterface",
+  NetworkManagerConnectPeer: "AWS::NetworkManager::ConnectPeer",
   NetworkManagerCustomerGatewayAssociation: "AWS::NetworkManager::CustomerGatewayAssociation",
   NetworkManagerDevice: "AWS::NetworkManager::Device",
   NetworkManagerGlobalNetwork: "AWS::NetworkManager::GlobalNetwork",
@@ -850,6 +890,7 @@ export const ResourceType = {
   PanoramaPackage: "AWS::Panorama::Package",
   PatchCompliance: "AWS::SSM::PatchCompliance",
   PersonalizeDataset: "AWS::Personalize::Dataset",
+  PersonalizeDatasetGroup: "AWS::Personalize::DatasetGroup",
   PersonalizeSchema: "AWS::Personalize::Schema",
   PersonalizeSolution: "AWS::Personalize::Solution",
   PinpointApp: "AWS::Pinpoint::App",
@@ -867,9 +908,14 @@ export const ResourceType = {
   Protection: "AWS::Shield::Protection",
   QLDBLedger: "AWS::QLDB::Ledger",
   Queue: "AWS::SQS::Queue",
+  QuickSightDataSource: "AWS::QuickSight::DataSource",
+  QuickSightTemplate: "AWS::QuickSight::Template",
+  QuickSightTheme: "AWS::QuickSight::Theme",
   RDSGlobalCluster: "AWS::RDS::GlobalCluster",
+  RDSOptionGroup: "AWS::RDS::OptionGroup",
   RUMAppMonitor: "AWS::RUM::AppMonitor",
   RateBasedRule: "AWS::WAF::RateBasedRule",
+  RedshiftEndpointAccess: "AWS::Redshift::EndpointAccess",
   RedshiftEventSubscription: "AWS::Redshift::EventSubscription",
   RedshiftScheduledAction: "AWS::Redshift::ScheduledAction",
   RegexPatternSetV2: "AWS::WAFv2::RegexPatternSet",
@@ -882,6 +928,7 @@ export const ResourceType = {
   ResilienceHubApp: "AWS::ResilienceHub::App",
   ResilienceHubResiliencyPolicy: "AWS::ResilienceHub::ResiliencyPolicy",
   ResourceCompliance: "AWS::Config::ResourceCompliance",
+  ResourceExplorer2Index: "AWS::ResourceExplorer2::Index",
   RestApi: "AWS::ApiGateway::RestApi",
   RoboMakerRobotApplication: "AWS::RoboMaker::RobotApplication",
   RoboMakerRobotApplicationVersion: "AWS::RoboMaker::RobotApplicationVersion",
@@ -897,8 +944,11 @@ export const ResourceType = {
   Route53RecoveryReadinessRecoveryGroup: "AWS::Route53RecoveryReadiness::RecoveryGroup",
   Route53RecoveryReadinessResourceSet: "AWS::Route53RecoveryReadiness::ResourceSet",
   Route53ResolverFirewallDomainList: "AWS::Route53Resolver::FirewallDomainList",
+  Route53ResolverFirewallRuleGroup: "AWS::Route53Resolver::FirewallRuleGroup",
   Route53ResolverFirewallRuleGroupAssociation: "AWS::Route53Resolver::FirewallRuleGroupAssociation",
   Route53ResolverResolverEndpoint: "AWS::Route53Resolver::ResolverEndpoint",
+  Route53ResolverResolverQueryLoggingConfig: "AWS::Route53Resolver::ResolverQueryLoggingConfig",
+  Route53ResolverResolverQueryLoggingConfigAssociation: "AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation",
   Route53ResolverResolverRule: "AWS::Route53Resolver::ResolverRule",
   Route53ResolverResolverRuleAssociation: "AWS::Route53Resolver::ResolverRuleAssociation",
   RouteTable: "AWS::EC2::RouteTable",
@@ -913,9 +963,11 @@ export const ResourceType = {
   SESReceiptFilter: "AWS::SES::ReceiptFilter",
   SESReceiptRuleSet: "AWS::SES::ReceiptRuleSet",
   SESTemplate: "AWS::SES::Template",
+  SSMDocument: "AWS::SSM::Document",
   SageMakerAppImageConfig: "AWS::SageMaker::AppImageConfig",
   SageMakerCodeRepository: "AWS::SageMaker::CodeRepository",
   SageMakerDomain: "AWS::SageMaker::Domain",
+  SageMakerFeatureGroup: "AWS::SageMaker::FeatureGroup",
   SageMakerImage: "AWS::SageMaker::Image",
   SageMakerModel: "AWS::SageMaker::Model",
   SageMakerNotebookInstanceLifecycleConfig: "AWS::SageMaker::NotebookInstanceLifecycleConfig",
@@ -925,6 +977,7 @@ export const ResourceType = {
   Secret: "AWS::SecretsManager::Secret",
   SecurityGroup: "AWS::EC2::SecurityGroup",
   ServiceDiscoveryHttpNamespace: "AWS::ServiceDiscovery::HttpNamespace",
+  ServiceDiscoveryInstance: "AWS::ServiceDiscovery::Instance",
   ServiceDiscoveryPublicDnsNamespace: "AWS::ServiceDiscovery::PublicDnsNamespace",
   ServiceDiscoveryService: "AWS::ServiceDiscovery::Service",
   SignerSigningProfile: "AWS::Signer::SigningProfile",
@@ -939,6 +992,7 @@ export const ResourceType = {
   Topic: "AWS::SNS::Topic",
   Trail: "AWS::CloudTrail::Trail",
   TransferAgreement: "AWS::Transfer::Agreement",
+  TransferCertificate: "AWS::Transfer::Certificate",
   TransferConnector: "AWS::Transfer::Connector",
   TransferWorkflow: "AWS::Transfer::Workflow",
   TransitGateway: "AWS::EC2::TransitGateway",
@@ -990,7 +1044,7 @@ export interface AggregateResourceIdentifier {
    * @public
    * <p>The type of the Amazon Web Services resource.</p>
    */
-  ResourceType: ResourceType | string | undefined;
+  ResourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -1052,7 +1106,21 @@ export type ConfigurationItemStatus = (typeof ConfigurationItemStatus)[keyof typ
 
 /**
  * @public
- * <p>The detailed configuration of a specified resource.</p>
+ * @enum
+ */
+export const RecordingFrequency = {
+  CONTINUOUS: "CONTINUOUS",
+  DAILY: "DAILY",
+} as const;
+
+/**
+ * @public
+ */
+export type RecordingFrequency = (typeof RecordingFrequency)[keyof typeof RecordingFrequency];
+
+/**
+ * @public
+ * <p>The detailed configurations of a specified resource.</p>
  */
 export interface BaseConfigurationItem {
   /**
@@ -1069,35 +1137,32 @@ export interface BaseConfigurationItem {
 
   /**
    * @public
-   * <p>The time when the configuration recording was initiated.</p>
+   * <p>The time when the recording of configuration changes was initiated for the resource.</p>
    */
   configurationItemCaptureTime?: Date;
 
   /**
    * @public
-   * <p>The configuration item status. The valid values are:</p>
+   * <p>The configuration item status. Valid values include:</p>
    *          <ul>
    *             <li>
-   *                <p>OK – The resource configuration has been updated</p>
+   *                <p>OK – The resource configuration has been updated.</p>
    *             </li>
    *             <li>
-   *                <p>ResourceDiscovered – The resource was newly discovered</p>
+   *                <p>ResourceDiscovered – The resource was newly discovered.</p>
    *             </li>
    *             <li>
-   *                <p>ResourceNotRecorded – The resource was discovered but its configuration was not recorded since the recorder excludes the recording of resources of this type</p>
+   *                <p>ResourceNotRecorded – The resource was discovered, but its configuration was not recorded since the recorder doesn't record resources of this type.</p>
    *             </li>
    *             <li>
    *                <p>ResourceDeleted – The resource was deleted</p>
    *             </li>
    *             <li>
-   *                <p>ResourceDeletedNotRecorded – The resource was deleted but its configuration was not recorded since the recorder excludes the recording of resources of this type</p>
+   *                <p>ResourceDeletedNotRecorded – The resource was deleted, but its configuration was not recorded since the recorder doesn't record resources of this type.</p>
    *             </li>
    *          </ul>
-   *          <note>
-   *             <p>The CIs do not incur any cost.</p>
-   *          </note>
    */
-  configurationItemStatus?: ConfigurationItemStatus | string;
+  configurationItemStatus?: ConfigurationItemStatus;
 
   /**
    * @public
@@ -1116,7 +1181,7 @@ export interface BaseConfigurationItem {
    * @public
    * <p>The type of Amazon Web Services resource.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -1161,6 +1226,18 @@ export interface BaseConfigurationItem {
    * 			configuration parameter.</p>
    */
   supplementaryConfiguration?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The recording frequency that Config uses to record configuration changes for the resource.</p>
+   */
+  recordingFrequency?: RecordingFrequency;
+
+  /**
+   * @public
+   * <p>The time when configuration changes for the resource were delivered.</p>
+   */
+  configurationItemDeliveryTime?: Date;
 }
 
 /**
@@ -1249,7 +1326,7 @@ export interface ResourceKey {
    * @public
    * <p>The resource type.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -1428,7 +1505,7 @@ export interface ConfigExportDeliveryInfo {
    * @public
    * <p>Status of the last attempted delivery.</p>
    */
-  lastStatus?: DeliveryStatus | string;
+  lastStatus?: DeliveryStatus;
 
   /**
    * @public
@@ -1479,14 +1556,14 @@ export type ConfigRuleState = (typeof ConfigRuleState)[keyof typeof ConfigRuleSt
 
 /**
  * @public
- * <p>The configuration object for Config rule evaluation mode. The Supported valid values are Detective or Proactive.</p>
+ * <p>The configuration object for Config rule evaluation mode. The supported valid values are Detective or Proactive.</p>
  */
 export interface EvaluationModeConfiguration {
   /**
    * @public
    * <p>The mode of an evaluation. The valid values are Detective or Proactive.</p>
    */
-  Mode?: EvaluationMode | string;
+  Mode?: EvaluationMode;
 }
 
 /**
@@ -1638,7 +1715,7 @@ export interface SourceDetail {
    * <p>The source of the event, such as an Amazon Web Services service, that triggers
    * 			Config to evaluate your Amazon Web Services resources.</p>
    */
-  EventSource?: EventSource | string;
+  EventSource?: EventSource;
 
   /**
    * @public
@@ -1679,7 +1756,7 @@ export interface SourceDetail {
    * 				<code>ConfigurationItemChangeNotification</code> and one for
    * 				<code>OversizedConfigurationItemChangeNotification</code>.</p>
    */
-  MessageType?: MessageType | string;
+  MessageType?: MessageType;
 
   /**
    * @public
@@ -1700,7 +1777,7 @@ export interface SourceDetail {
    * 				is the frequency of this rule. </p>
    *          </note>
    */
-  MaximumExecutionFrequency?: MaximumExecutionFrequency | string;
+  MaximumExecutionFrequency?: MaximumExecutionFrequency;
 }
 
 /**
@@ -1716,7 +1793,7 @@ export interface Source {
    *          <p>Config Managed Rules are predefined rules owned by Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html">Config Managed Rules</a> in the <i>Config developer guide</i>.</p>
    *          <p>Config Custom Rules are rules that you can develop either with Guard (<code>CUSTOM_POLICY</code>) or Lambda (<code>CUSTOM_LAMBDA</code>). For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html">Config Custom Rules </a> in the <i>Config developer guide</i>.</p>
    */
-  Owner: Owner | string | undefined;
+  Owner: Owner | undefined;
 
   /**
    * @public
@@ -1849,7 +1926,7 @@ export interface ConfigRule {
    * 				parameter.</p>
    *          </note>
    */
-  MaximumExecutionFrequency?: MaximumExecutionFrequency | string;
+  MaximumExecutionFrequency?: MaximumExecutionFrequency;
 
   /**
    * @public
@@ -1870,7 +1947,7 @@ export interface ConfigRule {
    * 			Config deletes the rule, the rule and all of its evaluations are
    * 			erased and are no longer available.</p>
    */
-  ConfigRuleState?: ConfigRuleState | string;
+  ConfigRuleState?: ConfigRuleState;
 
   /**
    * @public
@@ -1911,7 +1988,7 @@ export interface ConfigRuleComplianceFilters {
    * 				<code>NOT_APPLICABLE</code> and the
    * 				<code>INSUFFICIENT_DATA</code> values.</p>
    */
-  ComplianceType?: ComplianceType | string;
+  ComplianceType?: ComplianceType;
 
   /**
    * @public
@@ -2145,7 +2222,7 @@ export interface ConfigSnapshotDeliveryProperties {
    * <p>The frequency with which Config delivers configuration
    * 			snapshots.</p>
    */
-  deliveryFrequency?: MaximumExecutionFrequency | string;
+  deliveryFrequency?: MaximumExecutionFrequency;
 }
 
 /**
@@ -2162,7 +2239,7 @@ export interface ConfigStreamDeliveryInfo {
    * 				<a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeliveryChannel.html">DeliveryChannel</a> for Config is optional. If the SNS
    * 			delivery is turned off, the last status will be <b>Not_Applicable</b>.</p>
    */
-  lastStatus?: DeliveryStatus | string;
+  lastStatus?: DeliveryStatus;
 
   /**
    * @public
@@ -2273,7 +2350,7 @@ export interface Relationship {
    * @public
    * <p>The resource type of the related resource.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -2317,14 +2394,14 @@ export interface ConfigurationItem {
 
   /**
    * @public
-   * <p>The time when the configuration recording was
-   * 			initiated.</p>
+   * <p>The time when the recording of configuration changes was
+   * 			initiated for the resource.</p>
    */
   configurationItemCaptureTime?: Date;
 
   /**
    * @public
-   * <p>The configuration item status. The valid values are:</p>
+   * <p>The configuration item status. Valid values include:</p>
    *          <ul>
    *             <li>
    *                <p>OK – The resource configuration has been updated</p>
@@ -2333,20 +2410,17 @@ export interface ConfigurationItem {
    *                <p>ResourceDiscovered – The resource was newly discovered</p>
    *             </li>
    *             <li>
-   *                <p>ResourceNotRecorded – The resource was discovered but its configuration was not recorded since the recorder excludes the recording of resources of this type</p>
+   *                <p>ResourceNotRecorded – The resource was discovered but its configuration was not recorded since the recorder doesn't record resources of this type</p>
    *             </li>
    *             <li>
    *                <p>ResourceDeleted – The resource was deleted</p>
    *             </li>
    *             <li>
-   *                <p>ResourceDeletedNotRecorded – The resource was deleted but its configuration was not recorded since the recorder excludes the recording of resources of this type</p>
+   *                <p>ResourceDeletedNotRecorded – The resource was deleted but its configuration was not recorded since the recorder doesn't  record resources of this type</p>
    *             </li>
    *          </ul>
-   *          <note>
-   *             <p>The CIs do not incur any cost.</p>
-   *          </note>
    */
-  configurationItemStatus?: ConfigurationItemStatus | string;
+  configurationItemStatus?: ConfigurationItemStatus;
 
   /**
    * @public
@@ -2375,7 +2449,7 @@ export interface ConfigurationItem {
    * @public
    * <p>The type of Amazon Web Services resource.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -2446,12 +2520,62 @@ export interface ConfigurationItem {
    * 				<code>configuration</code> parameter.</p>
    */
   supplementaryConfiguration?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The recording frequency that Config uses to record configuration changes for the resource.</p>
+   */
+  recordingFrequency?: RecordingFrequency;
+
+  /**
+   * @public
+   * <p>The time when configuration changes for the resource were delivered.</p>
+   */
+  configurationItemDeliveryTime?: Date;
 }
 
 /**
  * @public
- * <p>Specifies whether the configuration recorder excludes resource types from being recorded.
- * 			Use the <code>resourceTypes</code> field to enter a comma-separated list of resource types to exclude as exemptions.</p>
+ * <p>Specifies whether the configuration recorder excludes certain resource types from being recorded.
+ * 			Use the <code>resourceTypes</code> field to enter a comma-separated list of resource types you want to exclude from recording.</p>
+ *          <p>By default, when Config adds support for a new resource type in the Region where you set up the configuration recorder,
+ * 			including global resource types, Config starts recording resources of that type automatically.</p>
+ *          <note>
+ *             <p>
+ *                <b>How to use the exclusion recording strategy </b>
+ *             </p>
+ *             <p>To use this option, you must set the <code>useOnly</code>
+ * 				field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a>
+ * 				to <code>EXCLUSION_BY_RESOURCE_TYPES</code>.</p>
+ *             <p>Config will then record configuration changes for all supported resource types, except the resource types that you specify to exclude from being recorded.</p>
+ *             <p>
+ *                <b>Global resource types and the exclusion recording strategy </b>
+ *             </p>
+ *             <p>Unless specifically listed as exclusions,
+ * 				<code>AWS::RDS::GlobalCluster</code> will be recorded automatically in all supported  Config Regions were the configuration recorder is enabled.</p>
+ *             <p>IAM users, groups, roles, and customer managed policies will be recorded in the Region where you set up the configuration recorder if that is a Region where Config was available before February 2022.
+ * 				You cannot be record the global IAM resouce types in Regions supported by Config after February 2022. This list where you cannot record the global IAM resource types includes the following Regions:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>Asia Pacific (Hyderabad)</p>
+ *                </li>
+ *                <li>
+ *                   <p>Asia Pacific (Melbourne)</p>
+ *                </li>
+ *                <li>
+ *                   <p>Europe (Spain)</p>
+ *                </li>
+ *                <li>
+ *                   <p>Europe (Zurich)</p>
+ *                </li>
+ *                <li>
+ *                   <p>Israel (Tel Aviv)</p>
+ *                </li>
+ *                <li>
+ *                   <p>Middle East (UAE)</p>
+ *                </li>
+ *             </ul>
+ *          </note>
  */
 export interface ExclusionByResourceTypes {
   /**
@@ -2459,7 +2583,7 @@ export interface ExclusionByResourceTypes {
    * <p>A comma-separated list of resource types to exclude from recording by the configuration
    * 			recorder.</p>
    */
-  resourceTypes?: (ResourceType | string)[];
+  resourceTypes?: ResourceType[];
 }
 
 /**
@@ -2487,8 +2611,9 @@ export interface RecordingStrategy {
    * <p>The recording strategy for the configuration recorder.</p>
    *          <ul>
    *             <li>
-   *                <p>If you set this option to <code>ALL_SUPPORTED_RESOURCE_TYPES</code>, Config records configuration changes for all supported regional resource types. You also must set the <code>allSupported</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a> to <code>true</code>.</p>
-   *                <p>When Config adds support for a new type of regional resource, Config automatically starts recording resources of that type. For a list of supported resource types,
+   *                <p>If you set this option to <code>ALL_SUPPORTED_RESOURCE_TYPES</code>, Config records configuration changes for all supported resource types, excluding the global IAM resource types.
+   * 				You also must set the <code>allSupported</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a> to <code>true</code>.
+   * 				When Config adds support for a new resource type, Config automatically starts recording resources of that type. For a list of supported resource types,
    * 				see <a href="https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported Resource Types</a> in the <i>Config developer guide</i>.</p>
    *             </li>
    *             <li>
@@ -2499,11 +2624,14 @@ export interface RecordingStrategy {
    *             <li>
    *                <p>If you set this option to <code>EXCLUSION_BY_RESOURCE_TYPES</code>, Config records
    * 					configuration changes for all supported resource types, except the resource
-   * 					types that you specify as exemptions to exclude from being recorded in the
+   * 					types that you specify to exclude from being recorded in the
    * 						<code>resourceTypes</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html">ExclusionByResourceTypes</a>.</p>
    *             </li>
    *          </ul>
    *          <note>
+   *             <p>
+   *                <b>Required and optional fields</b>
+   *             </p>
    *             <p>The <code>recordingStrategy</code> field is optional when you set the
    * 			<code>allSupported</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a> to <code>true</code>.</p>
    *             <p>The <code>recordingStrategy</code> field is optional when you list resource types in the
@@ -2511,65 +2639,155 @@ export interface RecordingStrategy {
    *             <p>The <code>recordingStrategy</code> field is required if you list resource types to exclude from recording in the <code>resourceTypes</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html">ExclusionByResourceTypes</a>.</p>
    *          </note>
    *          <note>
+   *             <p>
+   *                <b>Overriding fields</b>
+   *             </p>
    *             <p>If you choose <code>EXCLUSION_BY_RESOURCE_TYPES</code> for the recording strategy, the <code>exclusionByResourceTypes</code> field will override other properties in the request.</p>
-   *             <p>For example, even if you set <code>includeGlobalResourceTypes</code> to false, global resource types will still be automatically
-   * 			recorded in this option unless those resource types are specifically listed as exemptions in the <code>resourceTypes</code> field of <code>exclusionByResourceTypes</code>.</p>
+   *             <p>For example, even if you set <code>includeGlobalResourceTypes</code> to false, global IAM resource types will still be automatically
+   * 			recorded in this option unless those resource types are specifically listed as exclusions in the <code>resourceTypes</code> field of <code>exclusionByResourceTypes</code>.</p>
+   *          </note>
+   *          <note>
+   *             <p>
+   *                <b>Global resource types and the exclusion recording strategy</b>
+   *             </p>
    *             <p>By default, if you choose the <code>EXCLUSION_BY_RESOURCE_TYPES</code> recording strategy,
    * 				when Config adds support for a new resource type in the Region where you set up the configuration recorder, including global resource types,
    * 				Config starts recording resources of that type automatically.</p>
+   *             <p>Unless specifically listed as exclusions,
+   * 				<code>AWS::RDS::GlobalCluster</code> will be recorded automatically in all supported Config Regions were the configuration recorder is enabled.</p>
+   *             <p>IAM users, groups, roles, and customer managed policies will be recorded in the Region where you set up the configuration recorder if that is a Region where Config was available before February 2022.
+   * 				You cannot be record the global IAM resouce types in Regions supported by Config after February 2022. This list where you cannot record the global IAM resource types includes the following Regions:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Asia Pacific (Hyderabad)</p>
+   *                </li>
+   *                <li>
+   *                   <p>Asia Pacific (Melbourne)</p>
+   *                </li>
+   *                <li>
+   *                   <p>Europe (Spain)</p>
+   *                </li>
+   *                <li>
+   *                   <p>Europe (Zurich)</p>
+   *                </li>
+   *                <li>
+   *                   <p>Israel (Tel Aviv)</p>
+   *                </li>
+   *                <li>
+   *                   <p>Middle East (UAE)</p>
+   *                </li>
+   *             </ul>
    *          </note>
    */
-  useOnly?: RecordingStrategyType | string;
+  useOnly?: RecordingStrategyType;
 }
 
 /**
  * @public
  * <p>Specifies which resource types Config
- * 			records for configuration changes.
- * 			In the recording group, you specify whether you want to record all supported resource types or to include or exclude specific types of resources.</p>
- *          <p>By default, Config records configuration changes for all supported types of
- * 				<i>Regional resources</i> that Config discovers in the
- * 				Amazon Web Services Region in which it is running. Regional resources are tied to a
- * 			Region and can be used only in that Region. Examples of Regional resources are Amazon EC2 instances and Amazon EBS volumes.</p>
- *          <p>You can also have Config record supported types of <i>global resources</i>.
- * 				Global resources are not tied to a specific Region and can be used in all Regions. The global
- * 				resource types that Config supports include  IAM users, groups, roles, and customer managed
- * 				policies.</p>
+ * 			records for configuration changes. By default, Config records configuration changes for all current and future supported resource types in the Amazon Web Services Region where you have enabled Config,
+ * 			excluding the global IAM resource types: IAM users, groups, roles, and customer managed policies.</p>
+ *          <p>In the recording group, you specify whether you want to record all supported current and future supported resource types or to include or exclude specific resources types.
+ * 			For a list of supported resource types, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported Resource Types</a> in the <i>Config developer guide</i>.</p>
+ *          <p>If you don't want Config to record all current and future supported resource types (excluding the global IAM resource types), use one of the following recording strategies:</p>
+ *          <ol>
+ *             <li>
+ *                <p>
+ *                   <b>Record all current and future resource types with exclusions</b> (<code>EXCLUSION_BY_RESOURCE_TYPES</code>), or</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Record specific resource types</b> (<code>INCLUSION_BY_RESOURCE_TYPES</code>).</p>
+ *             </li>
+ *          </ol>
+ *          <p>If you use the recording strategy to <b>Record all current and future resource types</b> (<code>ALL_SUPPORTED_RESOURCE_TYPES</code>),
+ * 			you can use the flag <code>includeGlobalResourceTypes</code> to include the global IAM resource types in your recording.</p>
  *          <important>
- *             <p>Global resource types onboarded to Config recording after February 2022 will
- * 				be recorded only in the service's home Region for the commercial partition and
- * 				Amazon Web Services GovCloud (US-West) for the Amazon Web Services GovCloud (US) partition. You can view the
- * 				Configuration Items for these new global resource types only in their home Region
- * 				and Amazon Web Services GovCloud (US-West).</p>
+ *             <p>
+ *                <b>Aurora global clusters are recorded in all enabled Regions</b>
+ *             </p>
+ *             <p>The <code>AWS::RDS::GlobalCluster</code> resource type
+ * 				will be recorded in all supported Config Regions where the configuration recorder is enabled.</p>
+ *             <p>If you do not want to record <code>AWS::RDS::GlobalCluster</code> in all enabled Regions, use the <code>EXCLUSION_BY_RESOURCE_TYPES</code> or <code>INCLUSION_BY_RESOURCE_TYPES</code> recording strategy.</p>
  *          </important>
- *          <p>If you don't want Config to record all resources, you can specify which types of resources Config records with the <code>resourceTypes</code> parameter.</p>
- *          <p>For a list of supported resource types, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported Resource Types</a> in the <i>Config developer guide</i>.</p>
- *          <p>For more information and a table of the Home Regions for Global Resource Types Onboarded after February 2022, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html">Selecting Which Resources Config Records</a> in the <i>Config developer guide</i>.</p>
  */
 export interface RecordingGroup {
   /**
    * @public
-   * <p>Specifies whether Config records configuration changes for all supported regional resource types.</p>
+   * <p>Specifies whether Config records configuration changes for all supported resource types, excluding the global IAM resource types.</p>
    *          <p>If you set this field to <code>true</code>, when Config
-   * 			adds support for a new type of regional resource, Config starts recording resources of that type automatically.</p>
+   * 			adds support for a new resource type, Config starts recording resources of that type automatically.</p>
    *          <p>If you set this field to <code>true</code>,
    * 			you cannot enumerate specific resource types to record in the <code>resourceTypes</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a>, or to exclude in the <code>resourceTypes</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html">ExclusionByResourceTypes</a>.</p>
+   *          <note>
+   *             <p>
+   *                <b>Region availability</b>
+   *             </p>
+   *             <p>Check <a href="https://docs.aws.amazon.com/config/latest/developerguide/what-is-resource-config-coverage.html">Resource Coverage by Region Availability</a>
+   * 				to see if a resource type is supported in the Amazon Web Services Region where you set up Config.</p>
+   *          </note>
    */
   allSupported?: boolean;
 
   /**
    * @public
-   * <p>Specifies whether Config records configuration changes for all supported global resources.</p>
-   *          <p>Before you set this field to <code>true</code>,
+   * <p>This option is a bundle which only applies to the global IAM resource types:
+   * 			IAM users, groups, roles, and customer managed policies. These global IAM resource types can only be recorded
+   * 			by Config in Regions where Config was available before February 2022.
+   * 			You cannot be record the global IAM resouce types in Regions supported by Config after February 2022.
+   * 			This list where you cannot record the global IAM resource types includes the following Regions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Asia Pacific (Hyderabad)</p>
+   *             </li>
+   *             <li>
+   *                <p>Asia Pacific (Melbourne)</p>
+   *             </li>
+   *             <li>
+   *                <p>Europe (Spain)</p>
+   *             </li>
+   *             <li>
+   *                <p>Europe (Zurich)</p>
+   *             </li>
+   *             <li>
+   *                <p>Israel (Tel Aviv)</p>
+   *             </li>
+   *             <li>
+   *                <p>Middle East (UAE)</p>
+   *             </li>
+   *          </ul>
+   *          <important>
+   *             <p>
+   *                <b>Aurora global clusters are recorded in all enabled Regions</b>
+   *             </p>
+   *             <p>The <code>AWS::RDS::GlobalCluster</code> resource type will be recorded in all supported Config Regions where the configuration recorder is enabled, even if <code>includeGlobalResourceTypes</code> is not set to <code>true</code>.
+   * 				The <code>includeGlobalResourceTypes</code> option is a bundle which only applies to IAM users, groups, roles, and customer managed policies.
+   * 			</p>
+   *             <p>If you do not want to record <code>AWS::RDS::GlobalCluster</code> in all enabled Regions, use one of the following recording strategies:</p>
+   *             <ol>
+   *                <li>
+   *                   <p>
+   *                      <b>Record all current and future resource types with exclusions</b> (<code>EXCLUSION_BY_RESOURCE_TYPES</code>), or</p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <b>Record specific resource types</b> (<code>INCLUSION_BY_RESOURCE_TYPES</code>).</p>
+   *                </li>
+   *             </ol>
+   *             <p>For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html#select-resources-all">Selecting Which Resources are Recorded</a> in the <i>Config developer guide</i>.</p>
+   *          </important>
+   *          <note>
+   *             <p>Before you set this field to <code>true</code>,
    * 			set the <code>allSupported</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a> to
    * 			<code>true</code>. Optionally, you can set the <code>useOnly</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a> to <code>ALL_SUPPORTED_RESOURCE_TYPES</code>.</p>
-   *          <p>If you set this field to <code>true</code>, when Config
-   * 			adds support for a new type of global resource in the Region where you set up the configuration recorder, Config starts recording
-   * 			resources of that type automatically.</p>
+   *          </note>
    *          <note>
-   *             <p>If you set this field to <code>false</code> but list global resource types in the <code>resourceTypes</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a>,
+   *             <p>
+   *                <b>Overriding fields</b>
+   *             </p>
+   *             <p>If you set this field to <code>false</code> but list global IAM resource types in the <code>resourceTypes</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a>,
    * 			Config will still record configuration changes for those specified resource types <i>regardless</i> of if you set the <code>includeGlobalResourceTypes</code> field to false.</p>
-   *             <p>If you do not want to record configuration changes to global resource types, make sure to not list them in the <code>resourceTypes</code> field
+   *             <p>If you do not want to record configuration changes to the global IAM resource types (IAM users, groups, roles, and customer managed policies), make sure to not list them in the <code>resourceTypes</code> field
    * 			in addition to setting the <code>includeGlobalResourceTypes</code> field to false.</p>
    *          </note>
    */
@@ -2579,18 +2797,23 @@ export interface RecordingGroup {
    * @public
    * <p>A comma-separated list that specifies which resource types Config
    * 			records.</p>
-   *          <p>Optionally, you can set the <code>useOnly</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a> to <code>INCLUSION_BY_RESOURCE_TYPES</code>.</p>
-   *          <p>To record all configuration changes,
-   * 				set the <code>allSupported</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a> to
-   * 				<code>true</code>, and either omit this field or don't specify any resource types in this field. If you set the <code>allSupported</code> field to <code>false</code> and specify values for <code>resourceTypes</code>,
-   * 					when Config adds support for a new type of resource,
-   * 					it will not record resources of that type unless you manually add that type to your recording group.</p>
    *          <p>For a list of valid <code>resourceTypes</code> values, see the
    * 				<b>Resource Type Value</b> column in
    * 				<a href="https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported Amazon Web Services resource Types</a> in the <i>Config developer guide</i>.</p>
    *          <note>
    *             <p>
-   *                <b>Region Availability</b>
+   *                <b>Required and optional fields</b>
+   *             </p>
+   *             <p>Optionally, you can set the <code>useOnly</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a> to <code>INCLUSION_BY_RESOURCE_TYPES</code>.</p>
+   *             <p>To record all configuration changes,
+   * 				set the <code>allSupported</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a> to
+   * 				<code>true</code>, and either omit this field or don't specify any resource types in this field. If you set the <code>allSupported</code> field to <code>false</code> and specify values for <code>resourceTypes</code>,
+   * 				when Config adds support for a new type of resource,
+   * 				it will not record resources of that type unless you manually add that type to your recording group.</p>
+   *          </note>
+   *          <note>
+   *             <p>
+   *                <b>Region availability</b>
    *             </p>
    *             <p>Before specifying a resource type for Config to track,
    * 				check <a href="https://docs.aws.amazon.com/config/latest/developerguide/what-is-resource-config-coverage.html">Resource Coverage by Region Availability</a>
@@ -2600,12 +2823,17 @@ export interface RecordingGroup {
    * 				even if the specified resource type is not supported in the Amazon Web Services Region where you set up Config.</p>
    *          </note>
    */
-  resourceTypes?: (ResourceType | string)[];
+  resourceTypes?: ResourceType[];
 
   /**
    * @public
    * <p>An object that specifies how Config excludes resource types from being recorded by the configuration recorder.</p>
-   *          <p>To use this option, you must set the <code>useOnly</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a> to <code>EXCLUSION_BY_RESOURCE_TYPES</code>.</p>
+   *          <note>
+   *             <p>
+   *                <b>Required fields</b>
+   *             </p>
+   *             <p>To use this option, you must set the <code>useOnly</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a> to <code>EXCLUSION_BY_RESOURCE_TYPES</code>.</p>
+   *          </note>
    */
   exclusionByResourceTypes?: ExclusionByResourceTypes;
 
@@ -2614,17 +2842,20 @@ export interface RecordingGroup {
    * <p>An object that specifies the recording strategy for the configuration recorder.</p>
    *          <ul>
    *             <li>
-   *                <p>If you set the <code>useOnly</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a> to <code>ALL_SUPPORTED_RESOURCE_TYPES</code>, Config records configuration changes for all supported regional resource types. You also must set the <code>allSupported</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a> to <code>true</code>. When Config adds support for a new type of regional resource, Config automatically starts recording resources of that type.</p>
+   *                <p>If you set the <code>useOnly</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a> to <code>ALL_SUPPORTED_RESOURCE_TYPES</code>, Config records configuration changes for all supported resource types, excluding the global IAM resource types. You also must set the <code>allSupported</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a> to <code>true</code>. When Config adds support for a new resource type, Config automatically starts recording resources of that type.</p>
    *             </li>
    *             <li>
    *                <p>If you set the <code>useOnly</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a> to <code>INCLUSION_BY_RESOURCE_TYPES</code>, Config records configuration changes for only the resource types you specify in the <code>resourceTypes</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a>.</p>
    *             </li>
    *             <li>
    *                <p>If you set the <code>useOnly</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingStrategy.html">RecordingStrategy</a> to <code>EXCLUSION_BY_RESOURCE_TYPES</code>, Config records configuration changes for all supported resource types
-   * 				except the resource types that you specify as exemptions to exclude from being recorded in the <code>resourceTypes</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html">ExclusionByResourceTypes</a>.</p>
+   * 				except the resource types that you specify to exclude from being recorded in the <code>resourceTypes</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html">ExclusionByResourceTypes</a>.</p>
    *             </li>
    *          </ul>
    *          <note>
+   *             <p>
+   *                <b>Required and optional fields</b>
+   *             </p>
    *             <p>The <code>recordingStrategy</code> field is optional when you set the
    * 			<code>allSupported</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingGroup.html">RecordingGroup</a> to <code>true</code>.</p>
    *             <p>The <code>recordingStrategy</code> field is optional when you list resource types in the
@@ -2632,12 +2863,44 @@ export interface RecordingGroup {
    *             <p>The <code>recordingStrategy</code> field is required if you list resource types to exclude from recording in the <code>resourceTypes</code> field of <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_ExclusionByResourceTypes.html">ExclusionByResourceTypes</a>.</p>
    *          </note>
    *          <note>
+   *             <p>
+   *                <b>Overriding fields</b>
+   *             </p>
    *             <p>If you choose <code>EXCLUSION_BY_RESOURCE_TYPES</code> for the recording strategy, the <code>exclusionByResourceTypes</code> field will override other properties in the request.</p>
-   *             <p>For example, even if you set <code>includeGlobalResourceTypes</code> to false, global resource types will still be automatically
-   * 			recorded in this option unless those resource types are specifically listed as exemptions in the <code>resourceTypes</code> field of <code>exclusionByResourceTypes</code>.</p>
+   *             <p>For example, even if you set <code>includeGlobalResourceTypes</code> to false, global IAM resource types will still be automatically
+   * 			recorded in this option unless those resource types are specifically listed as exclusions in the <code>resourceTypes</code> field of <code>exclusionByResourceTypes</code>.</p>
+   *          </note>
+   *          <note>
+   *             <p>
+   *                <b>Global resources types and the resource exclusion recording strategy</b>
+   *             </p>
    *             <p>By default, if you choose the <code>EXCLUSION_BY_RESOURCE_TYPES</code> recording strategy,
-   * 				when Config adds support for a new resource type in the Region where you set up the configuration recorder, including global resource types,
-   * 				Config starts recording resources of that type automatically.</p>
+   * 			when Config adds support for a new resource type in the Region where you set up the configuration recorder, including global resource types,
+   * 			Config starts recording resources of that type automatically.</p>
+   *             <p>Unless specifically listed as exclusions,
+   * 				<code>AWS::RDS::GlobalCluster</code> will be recorded automatically in all supported Config Regions were the configuration recorder is enabled.</p>
+   *             <p>IAM users, groups, roles, and customer managed policies will be recorded in the Region where you set up the configuration recorder if that is a Region where Config  was available before February 2022.
+   * 				You cannot be record the global IAM resouce types in Regions supported by Config after February 2022. This list where you cannot record the global IAM  resource types includes the following Regions:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Asia Pacific (Hyderabad)</p>
+   *                </li>
+   *                <li>
+   *                   <p>Asia Pacific (Melbourne)</p>
+   *                </li>
+   *                <li>
+   *                   <p>Europe (Spain)</p>
+   *                </li>
+   *                <li>
+   *                   <p>Europe (Zurich)</p>
+   *                </li>
+   *                <li>
+   *                   <p>Israel (Tel Aviv)</p>
+   *                </li>
+   *                <li>
+   *                   <p>Middle East (UAE)</p>
+   *                </li>
+   *             </ul>
    *          </note>
    */
   recordingStrategy?: RecordingStrategy;
@@ -2645,7 +2908,121 @@ export interface RecordingGroup {
 
 /**
  * @public
- * <p>Records configuration changes to specified resource types.
+ * <p>An object for you to specify your overrides for the recording mode.</p>
+ */
+export interface RecordingModeOverride {
+  /**
+   * @public
+   * <p>A description that you provide for the override.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>A comma-separated list that specifies which resource types Config
+   * 			includes in the override.</p>
+   *          <important>
+   *             <p>Daily recording is not supported for the following resource types:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>
+   *                      <code>AWS::Config::ResourceCompliance</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>AWS::Config::ConformancePackCompliance</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>AWS::Config::ConfigurationRecorder</code>
+   *                   </p>
+   *                </li>
+   *             </ul>
+   *          </important>
+   */
+  resourceTypes: ResourceType[] | undefined;
+
+  /**
+   * @public
+   * <p>The recording frequency that will be applied to all the resource types specified in the override.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Continuous recording allows you to record configuration changes continuously whenever a change occurs.</p>
+   *             </li>
+   *             <li>
+   *                <p>Daily recording allows you to receive a configuration item (CI) representing the most recent state of your resources over the last 24-hour period, only if it’s different from the previous CI recorded.
+   * 			</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>Firewall Manager depends on continuous recording to monitor your resources. If you are using Firewall Manager,
+   * 			it is recommended that you set the recording frequency to Continuous.</p>
+   *          </note>
+   */
+  recordingFrequency: RecordingFrequency | undefined;
+}
+
+/**
+ * @public
+ * <p>Specifies the default recording frequency that Config uses to record configuration changes.
+ *
+ * 			Config supports <i>Continuous recording</i> and <i>Daily recording</i>.</p>
+ *          <ul>
+ *             <li>
+ *                <p>Continuous recording allows you to record configuration changes continuously whenever a change occurs.</p>
+ *             </li>
+ *             <li>
+ *                <p>Daily recording allows you to receive a configuration item (CI) representing the most recent state of your resources over the last 24-hour period, only if it’s different from the previous CI recorded.
+ * 			</p>
+ *             </li>
+ *          </ul>
+ *          <note>
+ *             <p>Firewall Manager depends on continuous recording to monitor your resources. If you are using Firewall Manager,
+ * 			it is recommended that you set the recording frequency to Continuous.</p>
+ *          </note>
+ *          <p>You can also override the recording frequency for specific resource types.</p>
+ */
+export interface RecordingMode {
+  /**
+   * @public
+   * <p>The default recording frequency that Config uses to record configuration changes.</p>
+   *          <important>
+   *             <p>Daily recording is not supported for the following resource types:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>
+   *                      <code>AWS::Config::ResourceCompliance</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>AWS::Config::ConformancePackCompliance</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>AWS::Config::ConfigurationRecorder</code>
+   *                   </p>
+   *                </li>
+   *             </ul>
+   *             <p>For the <b>allSupported</b> (<code>ALL_SUPPORTED_RESOURCE_TYPES</code>) recording strategy, these resource types will be set to Continuous recording.</p>
+   *          </important>
+   */
+  recordingFrequency: RecordingFrequency | undefined;
+
+  /**
+   * @public
+   * <p>An array of <code>recordingModeOverride</code> objects for you to specify your overrides for the recording mode.
+   * 			The <code>recordingModeOverride</code> object in the <code>recordingModeOverrides</code> array consists of three fields: a <code>description</code>, the new <code>recordingFrequency</code>, and an array of <code>resourceTypes</code> to override.</p>
+   */
+  recordingModeOverrides?: RecordingModeOverride[];
+}
+
+/**
+ * @public
+ * <p>Records configuration changes to your specified resource types.
  * 			For more information about the configuration recorder,
  * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html">
  *                <b>Managing the Configuration Recorder</b>
@@ -2655,13 +3032,15 @@ export interface ConfigurationRecorder {
   /**
    * @public
    * <p>The name of the configuration recorder. Config automatically assigns the name of "default" when creating the configuration recorder.</p>
-   *          <p>You cannot change the name of the configuration recorder after it has been created. To change the configuration recorder name, you must delete it and create a new configuration recorder with a new name. </p>
+   *          <note>
+   *             <p>You cannot change the name of the configuration recorder after it has been created. To change the configuration recorder name, you must delete it and create a new configuration recorder with a new name. </p>
+   *          </note>
    */
   name?: string;
 
   /**
    * @public
-   * <p>Amazon Resource Name (ARN) of the IAM role assumed by  Config and used by the configuration recorder.</p>
+   * <p>Amazon Resource Name (ARN) of the IAM role assumed by Config and used by the configuration recorder.</p>
    *          <note>
    *             <p>While the API model does not require this field, the server will reject a request without a defined <code>roleARN</code> for the configuration recorder.</p>
    *          </note>
@@ -2708,6 +3087,28 @@ export interface ConfigurationRecorder {
    *          </note>
    */
   recordingGroup?: RecordingGroup;
+
+  /**
+   * @public
+   * <p>Specifies the default recording frequency that Config uses to record configuration changes.
+   *
+   * 			Config supports <i>Continuous recording</i> and <i>Daily recording</i>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Continuous recording allows you to record configuration changes continuously whenever a change occurs.</p>
+   *             </li>
+   *             <li>
+   *                <p>Daily recording allows you to receive a configuration item (CI) representing the most recent state of your resources over the last 24-hour period, only if it’s different from the previous CI recorded.
+   * 			</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>Firewall Manager depends on continuous recording to monitor your resources. If you are using Firewall Manager,
+   * 			it is recommended that you set the recording frequency to Continuous.</p>
+   *          </note>
+   *          <p>You can also override the recording frequency for specific resource types.</p>
+   */
+  recordingMode?: RecordingMode;
 }
 
 /**
@@ -2762,7 +3163,7 @@ export interface ConfigurationRecorderStatus {
    * @public
    * <p>The status of the latest recording event processed by the recorder.</p>
    */
-  lastStatus?: RecorderStatus | string;
+  lastStatus?: RecorderStatus;
 
   /**
    * @public
@@ -2799,7 +3200,7 @@ export interface ConformancePackComplianceFilters {
    * <p>Filters the results by compliance.</p>
    *          <p>The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. <code>INSUFFICIENT_DATA</code> is not supported.</p>
    */
-  ComplianceType?: ConformancePackComplianceType | string;
+  ComplianceType?: ConformancePackComplianceType;
 }
 
 /**
@@ -2856,7 +3257,7 @@ export interface ConformancePackComplianceSummary {
    * @public
    * <p>The status of the conformance pack.</p>
    */
-  ConformancePackComplianceStatus: ConformancePackComplianceType | string | undefined;
+  ConformancePackComplianceStatus: ConformancePackComplianceType | undefined;
 }
 
 /**
@@ -2984,7 +3385,7 @@ export interface ConformancePackEvaluationFilters {
    * <p>Filters the results by compliance.</p>
    *          <p>The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. <code>INSUFFICIENT_DATA</code> is not supported.</p>
    */
-  ComplianceType?: ConformancePackComplianceType | string;
+  ComplianceType?: ConformancePackComplianceType;
 
   /**
    * @public
@@ -3011,7 +3412,7 @@ export interface ConformancePackEvaluationResult {
    * @public
    * <p>The compliance type. The allowed values are <code>COMPLIANT</code> and <code>NON_COMPLIANT</code>. <code>INSUFFICIENT_DATA</code> is not supported.</p>
    */
-  ComplianceType: ConformancePackComplianceType | string | undefined;
+  ComplianceType: ConformancePackComplianceType | undefined;
 
   /**
    * @public
@@ -3053,7 +3454,7 @@ export interface ConformancePackRuleCompliance {
    * @public
    * <p>Compliance of the Config rule.</p>
    */
-  ComplianceType?: ConformancePackComplianceType | string;
+  ComplianceType?: ConformancePackComplianceType;
 
   /**
    * @public
@@ -3125,7 +3526,7 @@ export interface ConformancePackStatusDetail {
    *             </li>
    *          </ul>
    */
-  ConformancePackState: ConformancePackState | string | undefined;
+  ConformancePackState: ConformancePackState | undefined;
 
   /**
    * @public
@@ -4171,7 +4572,7 @@ export interface DescribeComplianceByConfigRuleRequest {
    * @public
    * <p>Filters the results by compliance.</p>
    */
-  ComplianceTypes?: (ComplianceType | string)[];
+  ComplianceTypes?: ComplianceType[];
 
   /**
    * @public
@@ -4229,7 +4630,7 @@ export interface DescribeComplianceByResourceRequest {
    * @public
    * <p>Filters the results by compliance.</p>
    */
-  ComplianceTypes?: (ComplianceType | string)[];
+  ComplianceTypes?: ComplianceType[];
 
   /**
    * @public
@@ -4334,7 +4735,7 @@ export interface DescribeConfigRulesFilters {
    * @public
    * <p>The mode of an evaluation. The valid values are Detective or Proactive.</p>
    */
-  EvaluationMode?: EvaluationMode | string;
+  EvaluationMode?: EvaluationMode;
 }
 
 /**
@@ -4459,7 +4860,7 @@ export interface DescribeConfigurationAggregatorSourcesStatusRequest {
    *             </li>
    *          </ul>
    */
-  UpdateStatus?: (AggregatedSourceStatusType | string)[];
+  UpdateStatus?: AggregatedSourceStatusType[];
 
   /**
    * @public
@@ -4824,7 +5225,7 @@ export interface OrganizationCustomPolicyRuleMetadataNoPolicy {
    *             </li>
    *          </ul>
    */
-  OrganizationConfigRuleTriggerTypes?: (OrganizationConfigRuleTriggerTypeNoSN | string)[];
+  OrganizationConfigRuleTriggerTypes?: OrganizationConfigRuleTriggerTypeNoSN[];
 
   /**
    * @public
@@ -4838,7 +5239,7 @@ export interface OrganizationCustomPolicyRuleMetadataNoPolicy {
    * 			Config Custom Policy rule is triggered when Config delivers
    * 			the configuration snapshot. For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</p>
    */
-  MaximumExecutionFrequency?: MaximumExecutionFrequency | string;
+  MaximumExecutionFrequency?: MaximumExecutionFrequency;
 
   /**
    * @public
@@ -4896,7 +5297,7 @@ export type OrganizationConfigRuleTriggerType =
 
 /**
  * @public
- * <p> organization custom rule metadata such as resource type, resource ID of Amazon Web Services resource, Lambda function ARN,
+ * <p>An object that specifies organization custom rule metadata such as resource type, resource ID of Amazon Web Services resource, Lambda function ARN,
  * 			and organization trigger types that trigger Config to evaluate your Amazon Web Services resources against a rule.
  * 			It also provides the frequency with which you want Config to run evaluations for the rule if the trigger type is periodic.</p>
  */
@@ -4932,7 +5333,7 @@ export interface OrganizationCustomRuleMetadata {
    *             </li>
    *          </ul>
    */
-  OrganizationConfigRuleTriggerTypes: (OrganizationConfigRuleTriggerType | string)[] | undefined;
+  OrganizationConfigRuleTriggerTypes: OrganizationConfigRuleTriggerType[] | undefined;
 
   /**
    * @public
@@ -4949,7 +5350,7 @@ export interface OrganizationCustomRuleMetadata {
    * 			value for the <code>MaximumExecutionFrequency</code> parameter.</p>
    *          </note>
    */
-  MaximumExecutionFrequency?: MaximumExecutionFrequency | string;
+  MaximumExecutionFrequency?: MaximumExecutionFrequency;
 
   /**
    * @public
@@ -4980,7 +5381,7 @@ export interface OrganizationCustomRuleMetadata {
 
 /**
  * @public
- * <p> organization managed rule metadata such as resource type and ID of Amazon Web Services resource along with the rule identifier.
+ * <p>An object that specifies organization managed rule metadata such as resource type and ID of Amazon Web Services resource along with the rule identifier.
  * 			It also provides the frequency with which you want Config to run evaluations for the rule if the trigger type is periodic.</p>
  */
 export interface OrganizationManagedRuleMetadata {
@@ -5012,7 +5413,7 @@ export interface OrganizationManagedRuleMetadata {
    * 			value for the <code>MaximumExecutionFrequency</code> parameter.</p>
    *          </note>
    */
-  MaximumExecutionFrequency?: MaximumExecutionFrequency | string;
+  MaximumExecutionFrequency?: MaximumExecutionFrequency;
 
   /**
    * @public
@@ -5210,7 +5611,7 @@ export interface OrganizationConfigRuleStatus {
    *             </li>
    *          </ul>
    */
-  OrganizationRuleStatus: OrganizationRuleStatus | string | undefined;
+  OrganizationRuleStatus: OrganizationRuleStatus | undefined;
 
   /**
    * @public
@@ -5454,7 +5855,7 @@ export interface OrganizationConformancePackStatus {
    *             </li>
    *          </ul>
    */
-  Status: OrganizationResourceStatus | string | undefined;
+  Status: OrganizationResourceStatus | undefined;
 
   /**
    * @public
@@ -5616,7 +6017,7 @@ export interface ResourceValue {
    * @public
    * <p>The value is a resource ID.</p>
    */
-  Value: ResourceValueType | string | undefined;
+  Value: ResourceValueType | undefined;
 }
 
 /**
@@ -5677,7 +6078,7 @@ export interface RemediationConfiguration {
    * @public
    * <p>The type of the target. Target executes remediation. For example, SSM document.</p>
    */
-  TargetType: RemediationTargetType | string | undefined;
+  TargetType: RemediationTargetType | undefined;
 
   /**
    * @public
@@ -5730,9 +6131,12 @@ export interface RemediationConfiguration {
 
   /**
    * @public
-   * <p>Maximum time in seconds that Config runs auto-remediation. If you do not select a number, the default is 60 seconds. </p>
-   *          <p>For example, if you specify RetryAttemptSeconds as 50 seconds and MaximumAutomaticAttempts as 5,
-   * 		Config will run auto-remediations 5 times within 50 seconds before throwing an exception.</p>
+   * <p>Time window to determine whether or not to add a remediation exception to prevent infinite remediation attempts.
+   * 			If <code>MaximumAutomaticAttempts</code> remediation attempts have been made under <code>RetryAttemptSeconds</code>, a remediation exception will be added to the resource.
+   * 			If you do not select a number, the default is 60 seconds.
+   * 		</p>
+   *          <p>For example, if you specify <code>RetryAttemptSeconds</code> as 50 seconds and <code>MaximumAutomaticAttempts</code> as 5,
+   * 			Config will run auto-remediations 5 times within 50 seconds before adding a remediation exception to the resource.</p>
    */
   RetryAttemptSeconds?: number;
 
@@ -5918,7 +6322,7 @@ export interface RemediationExecutionStep {
    * @public
    * <p>The valid status of the step.</p>
    */
-  State?: RemediationExecutionStepState | string;
+  State?: RemediationExecutionStepState;
 
   /**
    * @public
@@ -5955,7 +6359,7 @@ export interface RemediationExecutionStatus {
    * @public
    * <p>ENUM of the values.</p>
    */
-  State?: RemediationExecutionState | string;
+  State?: RemediationExecutionState;
 
   /**
    * @public
@@ -6091,7 +6495,7 @@ export interface Evaluation {
    * 			request. For example, an Lambda function for a custom Config
    * 			rule cannot pass an <code>INSUFFICIENT_DATA</code> value to Config.</p>
    */
-  ComplianceType: ComplianceType | string | undefined;
+  ComplianceType: ComplianceType | undefined;
 
   /**
    * @public
@@ -6147,7 +6551,7 @@ export interface EvaluationResult {
    * 			Config does not support the <code>INSUFFICIENT_DATA</code> value
    * 			for the <code>EvaluationResult</code> data type.</p>
    */
-  ComplianceType?: ComplianceType | string;
+  ComplianceType?: ComplianceType;
 
   /**
    * @public
@@ -6202,7 +6606,7 @@ export interface EvaluationStatus {
    * @public
    * <p>The status of an execution. The valid values are In_Progress, Succeeded or Failed. </p>
    */
-  Status: ResourceEvaluationStatus | string | undefined;
+  Status: ResourceEvaluationStatus | undefined;
 
   /**
    * @public
@@ -6232,7 +6636,7 @@ export interface ExternalEvaluation {
    * @public
    * <p>The compliance of the Amazon Web Services resource. The valid values are <code>COMPLIANT, NON_COMPLIANT, </code> and <code>NOT_APPLICABLE</code>.</p>
    */
-  ComplianceType: ComplianceType | string | undefined;
+  ComplianceType: ComplianceType | undefined;
 
   /**
    * @public
@@ -6336,7 +6740,7 @@ export interface GetAggregateComplianceDetailsByConfigRuleRequest {
    * 					<code>INSUFFICIENT_DATA</code> values.</p>
    *          </note>
    */
-  ComplianceType?: ComplianceType | string;
+  ComplianceType?: ComplianceType;
 
   /**
    * @public
@@ -6393,7 +6797,7 @@ export interface GetAggregateConfigRuleComplianceSummaryRequest {
    * @public
    * <p>Groups the result based on ACCOUNT_ID or AWS_REGION.</p>
    */
-  GroupByKey?: ConfigRuleComplianceSummaryGroupKey | string;
+  GroupByKey?: ConfigRuleComplianceSummaryGroupKey;
 
   /**
    * @public
@@ -6455,7 +6859,7 @@ export interface GetAggregateConformancePackComplianceSummaryRequest {
    * @public
    * <p>Groups the result based on Amazon Web Services account ID or Amazon Web Services Region.</p>
    */
-  GroupByKey?: AggregateConformancePackComplianceSummaryGroupKey | string;
+  GroupByKey?: AggregateConformancePackComplianceSummaryGroupKey;
 
   /**
    * @public
@@ -6502,7 +6906,7 @@ export interface ResourceCountFilters {
    * @public
    * <p>The type of the Amazon Web Services resource.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -6552,7 +6956,7 @@ export interface GetAggregateDiscoveredResourceCountsRequest {
    * @public
    * <p>The key to group the resource counts.</p>
    */
-  GroupByKey?: ResourceCountGroupKey | string;
+  GroupByKey?: ResourceCountGroupKey;
 
   /**
    * @public
@@ -6701,7 +7105,7 @@ export interface GetComplianceDetailsByConfigRuleRequest {
    *          <p>
    *             <code>INSUFFICIENT_DATA</code> is a valid <code>ComplianceType</code> that is returned when an Config rule cannot be evaluated. However, <code>INSUFFICIENT_DATA</code> cannot be used as a <code>ComplianceType</code> for filtering results.</p>
    */
-  ComplianceTypes?: (ComplianceType | string)[];
+  ComplianceTypes?: ComplianceType[];
 
   /**
    * @public
@@ -6765,7 +7169,7 @@ export interface GetComplianceDetailsByResourceRequest {
    *          <p>
    *             <code>INSUFFICIENT_DATA</code> is a valid <code>ComplianceType</code> that is returned when an Config rule cannot be evaluated. However, <code>INSUFFICIENT_DATA</code> cannot be used as a <code>ComplianceType</code> for filtering results.</p>
    */
-  ComplianceTypes?: (ComplianceType | string)[];
+  ComplianceTypes?: ComplianceType[];
 
   /**
    * @public
@@ -7016,7 +7420,7 @@ export interface ResourceCount {
    * <p>The resource type (for example,
    * 				<code>"AWS::EC2::Instance"</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -7154,7 +7558,7 @@ export interface StatusDetailFilters {
    *             </li>
    *          </ul>
    */
-  MemberAccountRuleStatus?: MemberAccountRuleStatus | string;
+  MemberAccountRuleStatus?: MemberAccountRuleStatus;
 }
 
 /**
@@ -7250,7 +7654,7 @@ export interface MemberAccountStatus {
    *             </li>
    *          </ul>
    */
-  MemberAccountRuleStatus: MemberAccountRuleStatus | string | undefined;
+  MemberAccountRuleStatus: MemberAccountRuleStatus | undefined;
 
   /**
    * @public
@@ -7368,7 +7772,7 @@ export interface OrganizationResourceDetailedStatusFilters {
    *             </li>
    *          </ul>
    */
-  Status?: OrganizationResourceDetailedStatus | string;
+  Status?: OrganizationResourceDetailedStatus;
 }
 
 /**
@@ -7467,7 +7871,7 @@ export interface OrganizationConformancePackDetailedStatus {
    *             </li>
    *          </ul>
    */
-  Status: OrganizationResourceDetailedStatus | string | undefined;
+  Status: OrganizationResourceDetailedStatus | undefined;
 
   /**
    * @public
@@ -7539,7 +7943,7 @@ export interface GetResourceConfigHistoryRequest {
    * @public
    * <p>The resource type.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -7550,14 +7954,14 @@ export interface GetResourceConfigHistoryRequest {
 
   /**
    * @public
-   * <p>The time stamp that indicates a later time. If not specified,
+   * <p>The chronologically latest time in the time range for which the history requested. If not specified,
    * 			current time is taken.</p>
    */
   laterTime?: Date;
 
   /**
    * @public
-   * <p>The time stamp that indicates an earlier time. If not
+   * <p>The chronologically earliest time in the time range for which the history requested. If not
    * 			specified, the action returns paginated results that contain
    * 			configuration items that start when the first configuration item was
    * 			recorded.</p>
@@ -7570,7 +7974,7 @@ export interface GetResourceConfigHistoryRequest {
    * 			default, the results are listed in reverse chronological
    * 			order.</p>
    */
-  chronologicalOrder?: ChronologicalOrder | string;
+  chronologicalOrder?: ChronologicalOrder;
 
   /**
    * @public
@@ -7690,7 +8094,7 @@ export interface ResourceDetails {
    * 				and <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services resource and property types reference</a> in the CloudFormation User Guide.</p>
    *          </note>
    */
-  ResourceConfigurationSchemaType?: ResourceConfigurationSchemaType | string;
+  ResourceConfigurationSchemaType?: ResourceConfigurationSchemaType;
 }
 
 /**
@@ -7707,7 +8111,7 @@ export interface GetResourceEvaluationSummaryResponse {
    * @public
    * <p>Lists results of the mode that you requested to retrieve the resource evaluation summary. The valid values are Detective or Proactive.</p>
    */
-  EvaluationMode?: EvaluationMode | string;
+  EvaluationMode?: EvaluationMode;
 
   /**
    * @public
@@ -7725,7 +8129,7 @@ export interface GetResourceEvaluationSummaryResponse {
    * @public
    * <p>The compliance status of the resource evaluation summary.</p>
    */
-  Compliance?: ComplianceType | string;
+  Compliance?: ComplianceType;
 
   /**
    * @public
@@ -8119,7 +8523,7 @@ export interface ListAggregateDiscoveredResourcesRequest {
    * @public
    * <p>The type of resources that you want Config to list in the response.</p>
    */
-  ResourceType: ResourceType | string | undefined;
+  ResourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -8200,7 +8604,7 @@ export interface ListConformancePackComplianceScoresRequest {
    *          <p>By default, conformance pack compliance scores are sorted in alphabetical order by name of the conformance pack. Conformance pack compliance scores are sorted in reverse alphabetical order if you enter <code>DESCENDING</code>.</p>
    *          <p>You can sort conformance pack compliance scores by the numerical value of the compliance score by entering <code>SCORE</code> in the <code>SortBy</code> action. When compliance scores are sorted by <code>SCORE</code>, conformance packs with a compliance score of <code>INSUFFICIENT_DATA</code> will be last when sorting by ascending order and first when sorting by descending order.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -8208,7 +8612,7 @@ export interface ListConformancePackComplianceScoresRequest {
    *          <p>By default, conformance pack compliance scores are sorted in alphabetical order by name of the conformance pack.
    * 			Enter <code>SCORE</code>, to sort conformance pack compliance scores by the numerical value of the compliance score.</p>
    */
-  SortBy?: SortBy | string;
+  SortBy?: SortBy;
 
   /**
    * @public
@@ -8250,7 +8654,7 @@ export interface ListDiscoveredResourcesRequest {
    * <p>The type of resources that you want Config to list in the
    * 			response.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -8302,7 +8706,7 @@ export interface ResourceIdentifier {
    * @public
    * <p>The type of resource.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -8371,7 +8775,7 @@ export interface ResourceEvaluationFilters {
    * @public
    * <p>Filters all resource evaluations results based on an evaluation mode. the valid value for this API is <code>Proactive</code>.</p>
    */
-  EvaluationMode?: EvaluationMode | string;
+  EvaluationMode?: EvaluationMode;
 
   /**
    * @public
@@ -8425,7 +8829,7 @@ export interface ResourceEvaluation {
    * @public
    * <p>The mode of an evaluation. The valid values are Detective or Proactive.</p>
    */
-  EvaluationMode?: EvaluationMode | string;
+  EvaluationMode?: EvaluationMode;
 
   /**
    * @public
@@ -8538,63 +8942,4 @@ export interface ListTagsForResourceRequest {
    * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
    */
   NextToken?: string;
-}
-
-/**
- * @public
- * <p>The tags for the resource. The metadata that you apply to a resource to help you categorize and organize them.
- * 			Each tag consists of a key and an optional value, both of which you define.
- * 			Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
- */
-export interface Tag {
-  /**
-   * @public
-   * <p>One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.</p>
-   */
-  Key?: string;
-
-  /**
-   * @public
-   * <p>The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).</p>
-   */
-  Value?: string;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceResponse {
-  /**
-   * @public
-   * <p>The tags for the resource.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * @public
-   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * <p>You have reached the limit of active custom resource types in your account. There is a limit of 100,000.
- * 			Delete unused resources using <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteResourceConfig.html">DeleteResourceConfig</a>
- *             <code></code>.</p>
- */
-export class MaxActiveResourcesExceededException extends __BaseException {
-  readonly name: "MaxActiveResourcesExceededException" = "MaxActiveResourcesExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MaxActiveResourcesExceededException, __BaseException>) {
-    super({
-      name: "MaxActiveResourcesExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MaxActiveResourcesExceededException.prototype);
-  }
 }

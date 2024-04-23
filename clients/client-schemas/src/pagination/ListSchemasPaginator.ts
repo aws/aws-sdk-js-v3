@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import { ListSchemasCommand, ListSchemasCommandInput, ListSchemasCommandOutput } from "../commands/ListSchemasCommand";
@@ -6,41 +7,14 @@ import { SchemasClient } from "../SchemasClient";
 import { SchemasPaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: SchemasClient,
-  input: ListSchemasCommandInput,
-  ...args: any
-): Promise<ListSchemasCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new ListSchemasCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateListSchemas(
+export const paginateListSchemas: (
   config: SchemasPaginationConfiguration,
   input: ListSchemasCommandInput,
-  ...additionalArguments: any
-): Paginator<ListSchemasCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.NextToken
-  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: ListSchemasCommandOutput;
-  while (hasNext) {
-    input.NextToken = token;
-    input["Limit"] = config.pageSize;
-    if (config.client instanceof SchemasClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected Schemas | SchemasClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.NextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<ListSchemasCommandOutput> = createPaginator<
+  SchemasPaginationConfiguration,
+  ListSchemasCommandInput,
+  ListSchemasCommandOutput
+>(SchemasClient, ListSchemasCommand, "NextToken", "NextToken", "Limit");

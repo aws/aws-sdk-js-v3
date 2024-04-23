@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -67,6 +65,10 @@ import { DeleteNamespaceCommandInput, DeleteNamespaceCommandOutput } from "./com
 import { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "./commands/DeleteServiceCommand";
 import { DeregisterInstanceCommandInput, DeregisterInstanceCommandOutput } from "./commands/DeregisterInstanceCommand";
 import { DiscoverInstancesCommandInput, DiscoverInstancesCommandOutput } from "./commands/DiscoverInstancesCommand";
+import {
+  DiscoverInstancesRevisionCommandInput,
+  DiscoverInstancesRevisionCommandOutput,
+} from "./commands/DiscoverInstancesRevisionCommand";
 import { GetInstanceCommandInput, GetInstanceCommandOutput } from "./commands/GetInstanceCommand";
 import {
   GetInstancesHealthStatusCommandInput,
@@ -126,6 +128,7 @@ export type ServiceInputTypes =
   | DeleteServiceCommandInput
   | DeregisterInstanceCommandInput
   | DiscoverInstancesCommandInput
+  | DiscoverInstancesRevisionCommandInput
   | GetInstanceCommandInput
   | GetInstancesHealthStatusCommandInput
   | GetNamespaceCommandInput
@@ -157,6 +160,7 @@ export type ServiceOutputTypes =
   | DeleteServiceCommandOutput
   | DeregisterInstanceCommandOutput
   | DiscoverInstancesCommandOutput
+  | DiscoverInstancesRevisionCommandOutput
   | GetInstanceCommandOutput
   | GetInstancesHealthStatusCommandOutput
   | GetNamespaceCommandOutput
@@ -286,6 +290,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   LexModelBuildingServiceClientResolvedConfig,
   ServiceInputTypes,
@@ -55,7 +47,6 @@ export interface PutBotCommandOutput extends PutBotResponse, __MetadataBearer {}
  *         <code>privacySettings</code> fields, which are set to their default
  *       values. If you don't specify values for required fields, Amazon Lex throws an
  *       exception.</p>
- *
  *          <p>This operation requires permissions for the <code>lex:PutBot</code>
  *       action. For more information, see <a>security-iam</a>.</p>
  * @example
@@ -78,7 +69,7 @@ export interface PutBotCommandOutput extends PutBotResponse, __MetadataBearer {}
  *   clarificationPrompt: { // Prompt
  *     messages: [ // MessageList // required
  *       { // Message
- *         contentType: "STRING_VALUE", // required
+ *         contentType: "PlainText" || "SSML" || "CustomPayload", // required
  *         content: "STRING_VALUE", // required
  *         groupNumber: Number("int"),
  *       },
@@ -89,7 +80,7 @@ export interface PutBotCommandOutput extends PutBotResponse, __MetadataBearer {}
  *   abortStatement: { // Statement
  *     messages: [ // required
  *       {
- *         contentType: "STRING_VALUE", // required
+ *         contentType: "PlainText" || "SSML" || "CustomPayload", // required
  *         content: "STRING_VALUE", // required
  *         groupNumber: Number("int"),
  *       },
@@ -99,8 +90,8 @@ export interface PutBotCommandOutput extends PutBotResponse, __MetadataBearer {}
  *   idleSessionTTLInSeconds: Number("int"),
  *   voiceId: "STRING_VALUE",
  *   checksum: "STRING_VALUE",
- *   processBehavior: "STRING_VALUE",
- *   locale: "STRING_VALUE", // required
+ *   processBehavior: "SAVE" || "BUILD",
+ *   locale: "de-DE" || "en-AU" || "en-GB" || "en-IN" || "en-US" || "es-419" || "es-ES" || "es-US" || "fr-FR" || "fr-CA" || "it-IT" || "ja-JP" || "ko-KR", // required
  *   childDirected: true || false, // required
  *   detectSentiment: true || false,
  *   createVersion: true || false,
@@ -127,7 +118,7 @@ export interface PutBotCommandOutput extends PutBotResponse, __MetadataBearer {}
  * //   clarificationPrompt: { // Prompt
  * //     messages: [ // MessageList // required
  * //       { // Message
- * //         contentType: "STRING_VALUE", // required
+ * //         contentType: "PlainText" || "SSML" || "CustomPayload", // required
  * //         content: "STRING_VALUE", // required
  * //         groupNumber: Number("int"),
  * //       },
@@ -138,14 +129,14 @@ export interface PutBotCommandOutput extends PutBotResponse, __MetadataBearer {}
  * //   abortStatement: { // Statement
  * //     messages: [ // required
  * //       {
- * //         contentType: "STRING_VALUE", // required
+ * //         contentType: "PlainText" || "SSML" || "CustomPayload", // required
  * //         content: "STRING_VALUE", // required
  * //         groupNumber: Number("int"),
  * //       },
  * //     ],
  * //     responseCard: "STRING_VALUE",
  * //   },
- * //   status: "STRING_VALUE",
+ * //   status: "BUILDING" || "READY" || "READY_BASIC_TESTING" || "FAILED" || "NOT_BUILT",
  * //   failureReason: "STRING_VALUE",
  * //   lastUpdatedDate: new Date("TIMESTAMP"),
  * //   createdDate: new Date("TIMESTAMP"),
@@ -153,7 +144,7 @@ export interface PutBotCommandOutput extends PutBotResponse, __MetadataBearer {}
  * //   voiceId: "STRING_VALUE",
  * //   checksum: "STRING_VALUE",
  * //   version: "STRING_VALUE",
- * //   locale: "STRING_VALUE",
+ * //   locale: "de-DE" || "en-AU" || "en-GB" || "en-IN" || "en-US" || "es-419" || "es-ES" || "es-US" || "fr-FR" || "fr-CA" || "it-IT" || "ja-JP" || "ko-KR",
  * //   childDirected: true || false,
  * //   createVersion: true || false,
  * //   detectSentiment: true || false,
@@ -289,77 +280,26 @@ export interface PutBotCommandOutput extends PutBotResponse, __MetadataBearer {}
  * ```
  *
  */
-export class PutBotCommand extends $Command<
-  PutBotCommandInput,
-  PutBotCommandOutput,
-  LexModelBuildingServiceClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PutBotCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: LexModelBuildingServiceClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PutBotCommandInput, PutBotCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, PutBotCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "LexModelBuildingServiceClient";
-    const commandName = "PutBotCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: PutBotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PutBotCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBotCommandOutput> {
-    return de_PutBotCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class PutBotCommand extends $Command
+  .classBuilder<
+    PutBotCommandInput,
+    PutBotCommandOutput,
+    LexModelBuildingServiceClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSDeepSenseModelBuildingService", "PutBot", {})
+  .n("LexModelBuildingServiceClient", "PutBotCommand")
+  .f(void 0, void 0)
+  .ser(se_PutBotCommand)
+  .de(de_PutBotCommand)
+  .build() {}

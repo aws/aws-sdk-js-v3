@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import {
@@ -10,41 +11,14 @@ import { KafkaConnectClient } from "../KafkaConnectClient";
 import { KafkaConnectPaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: KafkaConnectClient,
-  input: ListWorkerConfigurationsCommandInput,
-  ...args: any
-): Promise<ListWorkerConfigurationsCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new ListWorkerConfigurationsCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateListWorkerConfigurations(
+export const paginateListWorkerConfigurations: (
   config: KafkaConnectPaginationConfiguration,
   input: ListWorkerConfigurationsCommandInput,
-  ...additionalArguments: any
-): Paginator<ListWorkerConfigurationsCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.nextToken
-  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: ListWorkerConfigurationsCommandOutput;
-  while (hasNext) {
-    input.nextToken = token;
-    input["maxResults"] = config.pageSize;
-    if (config.client instanceof KafkaConnectClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected KafkaConnect | KafkaConnectClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.nextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<ListWorkerConfigurationsCommandOutput> = createPaginator<
+  KafkaConnectPaginationConfiguration,
+  ListWorkerConfigurationsCommandInput,
+  ListWorkerConfigurationsCommandOutput
+>(KafkaConnectClient, ListWorkerConfigurationsCommand, "nextToken", "nextToken", "maxResults");

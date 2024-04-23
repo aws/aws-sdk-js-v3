@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   LexModelBuildingServiceClientResolvedConfig,
   ServiceInputTypes,
@@ -75,7 +67,7 @@ export interface GetUtterancesViewCommandOutput extends GetUtterancesViewRespons
  *   botVersions: [ // BotVersions // required
  *     "STRING_VALUE",
  *   ],
- *   statusType: "STRING_VALUE", // required
+ *   statusType: "Detected" || "Missed", // required
  * };
  * const command = new GetUtterancesViewCommand(input);
  * const response = await client.send(command);
@@ -120,79 +112,26 @@ export interface GetUtterancesViewCommandOutput extends GetUtterancesViewRespons
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
-export class GetUtterancesViewCommand extends $Command<
-  GetUtterancesViewCommandInput,
-  GetUtterancesViewCommandOutput,
-  LexModelBuildingServiceClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetUtterancesViewCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: LexModelBuildingServiceClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetUtterancesViewCommandInput, GetUtterancesViewCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetUtterancesViewCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "LexModelBuildingServiceClient";
-    const commandName = "GetUtterancesViewCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetUtterancesViewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetUtterancesViewCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUtterancesViewCommandOutput> {
-    return de_GetUtterancesViewCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetUtterancesViewCommand extends $Command
+  .classBuilder<
+    GetUtterancesViewCommandInput,
+    GetUtterancesViewCommandOutput,
+    LexModelBuildingServiceClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSDeepSenseModelBuildingService", "GetUtterancesView", {})
+  .n("LexModelBuildingServiceClient", "GetUtterancesViewCommand")
+  .f(void 0, void 0)
+  .ser(se_GetUtterancesViewCommand)
+  .de(de_GetUtterancesViewCommand)
+  .build() {}

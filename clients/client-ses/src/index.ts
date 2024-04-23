@@ -41,9 +41,13 @@
 export * from "./SESClient";
 export * from "./SES";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { SESExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./waiters";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { SESServiceException } from "./models/SESServiceException";

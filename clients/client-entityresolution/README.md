@@ -6,20 +6,17 @@
 
 AWS SDK for JavaScript EntityResolution Client for Node.js, Browser and React Native.
 
-<p>Welcome to the <i>AWS Entity Resolution API Reference</i>.</p>
-<p>AWS Entity Resolution is an AWS service that provides pre-configured entity resolution capabilities
-that enable developers and analysts at advertising and marketing companies to build an accurate and
-complete view of their consumers.</p>
-<p>
-With AWS Entity Resolution, you have the ability to match source records containing consumer identifiers,
-such as name, email address, and phone number. This holds true even when these records have incomplete or
-conflicting identifiers. For example, AWS Entity Resolution can effectively match a source record from a
-customer relationship management (CRM) system, which includes account information like first name, last name,
-postal address, phone number, and email address, with a source record from a marketing system containing
-campaign information, such as username and email address.</p>
-<p>To learn more about AWS Entity Resolution concepts, procedures, and best practices, see the
-<a href="https://docs.aws.amazon.com/entityresolution/latest/userguide/what-is-service.html">AWS Entity Resolution
-User Guide</a>.</p>
+<p>Welcome to the <i>Entity Resolution API Reference</i>.</p>
+<p>Entity Resolution is an Amazon Web Services service that provides pre-configured entity
+resolution capabilities that enable developers and analysts at advertising and marketing
+companies to build an accurate and complete view of their consumers.</p>
+<p> With Entity Resolution, you can match source records containing consumer identifiers,
+such as name, email address, and phone number. This is true even when these records have
+incomplete or conflicting identifiers. For example, Entity Resolution can effectively match
+a source record from a customer relationship management (CRM) system with a source record
+from a marketing system containing campaign information.</p>
+<p>To learn more about Entity Resolution concepts, procedures, and best practices, see the
+<a href="https://docs.aws.amazon.com/entityresolution/latest/userguide/what-is-service.html">Entity Resolution User Guide</a>.</p>
 
 ## Installing
 
@@ -36,16 +33,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `EntityResolutionClient` and
-the commands you need, for example `CreateMatchingWorkflowCommand`:
+the commands you need, for example `ListIdMappingJobsCommand`:
 
 ```js
 // ES5 example
-const { EntityResolutionClient, CreateMatchingWorkflowCommand } = require("@aws-sdk/client-entityresolution");
+const { EntityResolutionClient, ListIdMappingJobsCommand } = require("@aws-sdk/client-entityresolution");
 ```
 
 ```ts
 // ES6+ example
-import { EntityResolutionClient, CreateMatchingWorkflowCommand } from "@aws-sdk/client-entityresolution";
+import { EntityResolutionClient, ListIdMappingJobsCommand } from "@aws-sdk/client-entityresolution";
 ```
 
 ### Usage
@@ -64,7 +61,7 @@ const client = new EntityResolutionClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateMatchingWorkflowCommand(params);
+const command = new ListIdMappingJobsCommand(params);
 ```
 
 #### Async/await
@@ -143,7 +140,7 @@ const client = new AWS.EntityResolution({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createMatchingWorkflow(params);
+  const data = await client.listIdMappingJobs(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -151,7 +148,7 @@ try {
 
 // Promises.
 client
-  .createMatchingWorkflow(params)
+  .listIdMappingJobs(params)
   .then((data) => {
     // process data.
   })
@@ -160,7 +157,7 @@ client
   });
 
 // callbacks.
-client.createMatchingWorkflow(params, (err, data) => {
+client.listIdMappingJobs(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -175,7 +172,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -218,10 +215,18 @@ see LICENSE for more information.
 
 <details>
 <summary>
+CreateIdMappingWorkflow
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/CreateIdMappingWorkflowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/CreateIdMappingWorkflowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/CreateIdMappingWorkflowCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateMatchingWorkflow
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/classes/creatematchingworkflowcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/creatematchingworkflowcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/creatematchingworkflowcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/CreateMatchingWorkflowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/CreateMatchingWorkflowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/CreateMatchingWorkflowCommandOutput/)
 
 </details>
 <details>
@@ -229,7 +234,15 @@ CreateMatchingWorkflow
 CreateSchemaMapping
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/classes/createschemamappingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/createschemamappingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/createschemamappingcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/CreateSchemaMappingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/CreateSchemaMappingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/CreateSchemaMappingCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteIdMappingWorkflow
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/DeleteIdMappingWorkflowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/DeleteIdMappingWorkflowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/DeleteIdMappingWorkflowCommandOutput/)
 
 </details>
 <details>
@@ -237,7 +250,7 @@ CreateSchemaMapping
 DeleteMatchingWorkflow
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/classes/deletematchingworkflowcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/deletematchingworkflowcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/deletematchingworkflowcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/DeleteMatchingWorkflowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/DeleteMatchingWorkflowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/DeleteMatchingWorkflowCommandOutput/)
 
 </details>
 <details>
@@ -245,7 +258,23 @@ DeleteMatchingWorkflow
 DeleteSchemaMapping
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/classes/deleteschemamappingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/deleteschemamappingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/deleteschemamappingcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/DeleteSchemaMappingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/DeleteSchemaMappingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/DeleteSchemaMappingCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetIdMappingJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/GetIdMappingJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/GetIdMappingJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/GetIdMappingJobCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetIdMappingWorkflow
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/GetIdMappingWorkflowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/GetIdMappingWorkflowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/GetIdMappingWorkflowCommandOutput/)
 
 </details>
 <details>
@@ -253,7 +282,7 @@ DeleteSchemaMapping
 GetMatchId
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/classes/getmatchidcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/getmatchidcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/getmatchidcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/GetMatchIdCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/GetMatchIdCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/GetMatchIdCommandOutput/)
 
 </details>
 <details>
@@ -261,7 +290,7 @@ GetMatchId
 GetMatchingJob
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/classes/getmatchingjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/getmatchingjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/getmatchingjobcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/GetMatchingJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/GetMatchingJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/GetMatchingJobCommandOutput/)
 
 </details>
 <details>
@@ -269,7 +298,15 @@ GetMatchingJob
 GetMatchingWorkflow
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/classes/getmatchingworkflowcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/getmatchingworkflowcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/getmatchingworkflowcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/GetMatchingWorkflowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/GetMatchingWorkflowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/GetMatchingWorkflowCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetProviderService
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/GetProviderServiceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/GetProviderServiceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/GetProviderServiceCommandOutput/)
 
 </details>
 <details>
@@ -277,7 +314,23 @@ GetMatchingWorkflow
 GetSchemaMapping
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/classes/getschemamappingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/getschemamappingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/getschemamappingcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/GetSchemaMappingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/GetSchemaMappingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/GetSchemaMappingCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListIdMappingJobs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/ListIdMappingJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/ListIdMappingJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/ListIdMappingJobsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListIdMappingWorkflows
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/ListIdMappingWorkflowsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/ListIdMappingWorkflowsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/ListIdMappingWorkflowsCommandOutput/)
 
 </details>
 <details>
@@ -285,7 +338,7 @@ GetSchemaMapping
 ListMatchingJobs
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/classes/listmatchingjobscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/listmatchingjobscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/listmatchingjobscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/ListMatchingJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/ListMatchingJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/ListMatchingJobsCommandOutput/)
 
 </details>
 <details>
@@ -293,7 +346,15 @@ ListMatchingJobs
 ListMatchingWorkflows
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/classes/listmatchingworkflowscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/listmatchingworkflowscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/listmatchingworkflowscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/ListMatchingWorkflowsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/ListMatchingWorkflowsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/ListMatchingWorkflowsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListProviderServices
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/ListProviderServicesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/ListProviderServicesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/ListProviderServicesCommandOutput/)
 
 </details>
 <details>
@@ -301,7 +362,7 @@ ListMatchingWorkflows
 ListSchemaMappings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/classes/listschemamappingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/listschemamappingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/listschemamappingscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/ListSchemaMappingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/ListSchemaMappingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/ListSchemaMappingsCommandOutput/)
 
 </details>
 <details>
@@ -309,7 +370,15 @@ ListSchemaMappings
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/ListTagsForResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartIdMappingJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/StartIdMappingJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/StartIdMappingJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/StartIdMappingJobCommandOutput/)
 
 </details>
 <details>
@@ -317,7 +386,7 @@ ListTagsForResource
 StartMatchingJob
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/classes/startmatchingjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/startmatchingjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/startmatchingjobcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/StartMatchingJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/StartMatchingJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/StartMatchingJobCommandOutput/)
 
 </details>
 <details>
@@ -325,7 +394,7 @@ StartMatchingJob
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -333,7 +402,15 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/UntagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateIdMappingWorkflow
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/UpdateIdMappingWorkflowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/UpdateIdMappingWorkflowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/UpdateIdMappingWorkflowCommandOutput/)
 
 </details>
 <details>
@@ -341,6 +418,14 @@ UntagResource
 UpdateMatchingWorkflow
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/classes/updatematchingworkflowcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/updatematchingworkflowcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-entityresolution/interfaces/updatematchingworkflowcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/UpdateMatchingWorkflowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/UpdateMatchingWorkflowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/UpdateMatchingWorkflowCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateSchemaMapping
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/entityresolution/command/UpdateSchemaMappingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/UpdateSchemaMappingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-entityresolution/Interface/UpdateSchemaMappingCommandOutput/)
 
 </details>

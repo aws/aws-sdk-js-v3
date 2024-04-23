@@ -13,8 +13,12 @@
 export * from "./PanoramaClient";
 export * from "./Panorama";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { PanoramaExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { PanoramaServiceException } from "./models/PanoramaServiceException";

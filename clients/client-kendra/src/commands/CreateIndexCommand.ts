@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { CreateIndexRequest, CreateIndexRequestFilterSensitiveLog, CreateIndexResponse } from "../models/models_0";
 import { de_CreateIndexCommand, se_CreateIndexCommand } from "../protocols/Aws_json1_1";
@@ -40,8 +32,8 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  *       if index creation has completed, check the <code>Status</code> field returned from a call to
  *         <code>DescribeIndex</code>. The <code>Status</code> field is set to <code>ACTIVE</code> when
  *       the index is ready to use.</p>
- *          <p>Once the index is active you can index your documents using the
- *         <code>BatchPutDocument</code> API or using one of the supported data sources.</p>
+ *          <p>Once the index is active, you can index your documents using the
+ *         <code>BatchPutDocument</code> API or using one of the supported <a href="https://docs.aws.amazon.com/kendra/latest/dg/data-sources.html">data sources</a>.</p>
  *          <p>For an example of creating an index and data source using the Python SDK, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html">Getting started with Python
  *         SDK</a>. For an example of creating an index and data source using the Java SDK, see
  *         <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html">Getting started with Java
@@ -137,77 +129,26 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
-export class CreateIndexCommand extends $Command<
-  CreateIndexCommandInput,
-  CreateIndexCommandOutput,
-  KendraClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateIndexCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: KendraClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateIndexCommandInput, CreateIndexCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, CreateIndexCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "KendraClient";
-    const commandName = "CreateIndexCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: CreateIndexRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateIndexCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateIndexCommandOutput> {
-    return de_CreateIndexCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateIndexCommand extends $Command
+  .classBuilder<
+    CreateIndexCommandInput,
+    CreateIndexCommandOutput,
+    KendraClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSKendraFrontendService", "CreateIndex", {})
+  .n("KendraClient", "CreateIndexCommand")
+  .f(CreateIndexRequestFilterSensitiveLog, void 0)
+  .ser(se_CreateIndexCommand)
+  .de(de_CreateIndexCommand)
+  .build() {}

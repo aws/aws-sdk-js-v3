@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateCampaignRequest, UpdateCampaignResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { de_UpdateCampaignCommand, se_UpdateCampaignCommand } from "../protocols/Aws_json1_1";
@@ -36,16 +28,19 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
 
 /**
  * @public
- * <p>Updates a campaign by either deploying a new solution or changing the value of the
- *       campaign's <code>minProvisionedTPS</code> parameter.</p>
+ * <p>
+ *       Updates a campaign to deploy a retrained solution version with an existing campaign, change your campaign's <code>minProvisionedTPS</code>,
+ *       or modify your campaign's configuration, such as the exploration configuration.
+ *     </p>
  *          <p>To update a campaign, the campaign status must be ACTIVE or CREATE FAILED.
  *       Check the campaign status using the <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_DescribeCampaign.html">DescribeCampaign</a> operation.</p>
  *          <note>
  *             <p>You can still get recommendations from a campaign while an update is in progress.
- *       The campaign will use the previous solution version and campaign configuration to generate recommendations until the latest campaign update status is <code>Active</code>.
- *     </p>
+ *         The campaign will use the previous solution version and campaign configuration to generate recommendations until the latest campaign update status is <code>Active</code>.
+ *       </p>
  *          </note>
- *          <p>For more information on campaigns, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateCampaign.html">CreateCampaign</a>.</p>
+ *          <p>For more information about updating a campaign, including code samples, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/update-campaigns.html">Updating a campaign</a>.
+ *       For more information about campaigns, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/campaigns.html">Creating a campaign</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,6 +55,7 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  *     itemExplorationConfig: { // HyperParameters
  *       "<keys>": "STRING_VALUE",
  *     },
+ *     enableMetadataWithRecommendations: true || false,
  *   },
  * };
  * const command = new UpdateCampaignCommand(input);
@@ -89,79 +85,26 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
-export class UpdateCampaignCommand extends $Command<
-  UpdateCampaignCommandInput,
-  UpdateCampaignCommandOutput,
-  PersonalizeClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateCampaignCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: PersonalizeClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateCampaignCommandInput, UpdateCampaignCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateCampaignCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "PersonalizeClient";
-    const commandName = "UpdateCampaignCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateCampaignCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCampaignCommandOutput> {
-    return de_UpdateCampaignCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateCampaignCommand extends $Command
+  .classBuilder<
+    UpdateCampaignCommandInput,
+    UpdateCampaignCommandOutput,
+    PersonalizeClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonPersonalize", "UpdateCampaign", {})
+  .n("PersonalizeClient", "UpdateCampaignCommand")
+  .f(void 0, void 0)
+  .ser(se_UpdateCampaignCommand)
+  .de(de_UpdateCampaignCommand)
+  .build() {}

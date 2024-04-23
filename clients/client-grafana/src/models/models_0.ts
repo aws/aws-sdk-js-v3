@@ -335,7 +335,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>The reason that the operation failed.</p>
    */
-  reason: ValidationExceptionReason | string | undefined;
+  reason: ValidationExceptionReason | undefined;
 
   /**
    * @public
@@ -474,7 +474,7 @@ export interface AssociateLicenseRequest {
    * @public
    * <p>The type of license to associate with the workspace.</p>
    */
-  licenseType: LicenseType | string | undefined;
+  licenseType: LicenseType | undefined;
 }
 
 /**
@@ -530,14 +530,14 @@ export interface AuthenticationSummary {
    * <p>Specifies whether the workspace uses SAML, IAM Identity Center, or both methods for
    *             user authentication.</p>
    */
-  providers: (AuthenticationProviderTypes | string)[] | undefined;
+  providers: AuthenticationProviderTypes[] | undefined;
 
   /**
    * @public
    * <p>Specifies whether the workplace's user authentication method is fully
    *             configured.</p>
    */
-  samlConfigurationStatus?: SamlConfigurationStatus | string;
+  samlConfigurationStatus?: SamlConfigurationStatus;
 }
 
 /**
@@ -787,7 +787,7 @@ export interface WorkspaceDescription {
    *                 <code>ORGANIZATION</code>, the <code>workspaceOrganizationalUnits</code> parameter
    *             specifies which organizational units the workspace can access.</p>
    */
-  accountAccessType?: AccountAccessType | string;
+  accountAccessType?: AccountAccessType;
 
   /**
    * @public
@@ -803,7 +803,7 @@ export interface WorkspaceDescription {
    *          <p>This list is only used when the workspace was created through the Amazon Web Services
    *             console, and the <code>permissionType</code> is <code>SERVICE_MANAGED</code>.</p>
    */
-  dataSources: (DataSourceType | string)[] | undefined;
+  dataSources: DataSourceType[] | undefined;
 
   /**
    * @public
@@ -854,7 +854,7 @@ export interface WorkspaceDescription {
    *             create IAM roles and permissions for, to allow Amazon Managed Grafana to use
    *             these channels.</p>
    */
-  notificationDestinations?: (NotificationDestinationType | string)[];
+  notificationDestinations?: NotificationDestinationType[];
 
   /**
    * @public
@@ -883,7 +883,7 @@ export interface WorkspaceDescription {
    *             channels</a>
    *          </p>
    */
-  permissionType?: PermissionType | string;
+  permissionType?: PermissionType;
 
   /**
    * @public
@@ -895,7 +895,7 @@ export interface WorkspaceDescription {
    * @public
    * <p>The current status of the workspace.</p>
    */
-  status: WorkspaceStatus | string | undefined;
+  status: WorkspaceStatus | undefined;
 
   /**
    * @public
@@ -909,7 +909,7 @@ export interface WorkspaceDescription {
    * <p>Specifies whether this workspace has a full Grafana Enterprise license or a free trial
    *             license.</p>
    */
-  licenseType?: LicenseType | string;
+  licenseType?: LicenseType;
 
   /**
    * @public
@@ -1122,7 +1122,7 @@ export interface SamlAuthentication {
    * @public
    * <p>Specifies whether the workspace's SAML configuration is complete.</p>
    */
-  status: SamlConfigurationStatus | string | undefined;
+  status: SamlConfigurationStatus | undefined;
 
   /**
    * @public
@@ -1143,7 +1143,7 @@ export interface AuthenticationDescription {
    *             authenticate users to use the Grafana console in the Amazon Managed Grafana
    *             workspace.</p>
    */
-  providers: (AuthenticationProviderTypes | string)[] | undefined;
+  providers: AuthenticationProviderTypes[] | undefined;
 
   /**
    * @public
@@ -1189,7 +1189,7 @@ export interface UpdateWorkspaceAuthenticationRequest {
    *             information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html">User authentication in
    *                     Amazon Managed Grafana</a>.</p>
    */
-  authenticationProviders: (AuthenticationProviderTypes | string)[] | undefined;
+  authenticationProviders: AuthenticationProviderTypes[] | undefined;
 
   /**
    * @public
@@ -1290,7 +1290,7 @@ export interface DisassociateLicenseRequest {
    * @public
    * <p>The type of license to remove from the workspace.</p>
    */
-  licenseType: LicenseType | string | undefined;
+  licenseType: LicenseType | undefined;
 }
 
 /**
@@ -1413,7 +1413,7 @@ export interface ListPermissionsRequest {
    * <p>(Optional) If you specify <code>SSO_USER</code>, then only the permissions of IAM Identity Center users are returned. If you specify <code>SSO_GROUP</code>, only the
    *             permissions of IAM Identity Center groups are returned.</p>
    */
-  userType?: UserType | string;
+  userType?: UserType;
 
   /**
    * @public
@@ -1476,7 +1476,7 @@ export interface User {
    * @public
    * <p>Specifies whether this is a single user or a group.</p>
    */
-  type: UserType | string | undefined;
+  type: UserType | undefined;
 }
 
 /**
@@ -1496,7 +1496,7 @@ export interface PermissionEntry {
    * <p>Specifies whether the user or group has the <code>Admin</code>, <code>Editor</code>,
    *             or <code>Viewer</code> role.</p>
    */
-  role: Role | string | undefined;
+  role: Role | undefined;
 }
 
 /**
@@ -1546,14 +1546,14 @@ export interface UpdateInstruction {
    * @public
    * <p>Specifies whether this update is to add or revoke role permissions.</p>
    */
-  action: UpdateAction | string | undefined;
+  action: UpdateAction | undefined;
 
   /**
    * @public
    * <p>The role to add or revoke for the user or the group specified in
    *             <code>users</code>.</p>
    */
-  role: Role | string | undefined;
+  role: Role | undefined;
 
   /**
    * @public
@@ -1672,7 +1672,7 @@ export interface CreateWorkspaceRequest {
    *                 <code>ORGANIZATION</code>, you must specify which organizational units the workspace
    *             can access in the <code>workspaceOrganizationalUnits</code> parameter.</p>
    */
-  accountAccessType: AccountAccessType | string | undefined;
+  accountAccessType: AccountAccessType | undefined;
 
   /**
    * @public
@@ -1707,7 +1707,7 @@ export interface CreateWorkspaceRequest {
    *                 permissions and policies for Amazon Web Services data sources and notification
    *                 channels</a>.</p>
    */
-  permissionType: PermissionType | string | undefined;
+  permissionType: PermissionType | undefined;
 
   /**
    * @public
@@ -1720,7 +1720,7 @@ export interface CreateWorkspaceRequest {
    * @public
    * <p>This parameter is for internal use only, and should not be used.</p>
    */
-  workspaceDataSources?: (DataSourceType | string)[];
+  workspaceDataSources?: DataSourceType[];
 
   /**
    * @public
@@ -1744,7 +1744,7 @@ export interface CreateWorkspaceRequest {
    *                 IAM roles and permissions that allow Amazon Managed Grafana to use these
    *             channels.</p>
    */
-  workspaceNotificationDestinations?: (NotificationDestinationType | string)[];
+  workspaceNotificationDestinations?: NotificationDestinationType[];
 
   /**
    * @public
@@ -1768,7 +1768,7 @@ export interface CreateWorkspaceRequest {
    *             information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html">User authentication in
    *                     Amazon Managed Grafana</a>.</p>
    */
-  authenticationProviders: (AuthenticationProviderTypes | string)[] | undefined;
+  authenticationProviders: AuthenticationProviderTypes[] | undefined;
 
   /**
    * @public
@@ -1942,13 +1942,13 @@ export interface WorkspaceSummary {
    *             create IAM roles and permissions for, which allows Amazon Managed Grafana to
    *             use these channels.</p>
    */
-  notificationDestinations?: (NotificationDestinationType | string)[];
+  notificationDestinations?: NotificationDestinationType[];
 
   /**
    * @public
    * <p>The current status of the workspace.</p>
    */
-  status: WorkspaceStatus | string | undefined;
+  status: WorkspaceStatus | undefined;
 
   /**
    * @public
@@ -1994,7 +1994,7 @@ export interface UpdateWorkspaceRequest {
    *                 <code>ORGANIZATION</code>, you must specify which organizational units the workspace
    *             can access in the <code>workspaceOrganizationalUnits</code> parameter.</p>
    */
-  accountAccessType?: AccountAccessType | string;
+  accountAccessType?: AccountAccessType;
 
   /**
    * @public
@@ -2028,7 +2028,7 @@ export interface UpdateWorkspaceRequest {
    *                 information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/AMG-datasource-and-notification.html">Managing permissions for data sources and notification channels</a>.</p>
    *          </note>
    */
-  permissionType?: PermissionType | string;
+  permissionType?: PermissionType;
 
   /**
    * @public
@@ -2041,7 +2041,7 @@ export interface UpdateWorkspaceRequest {
    * @public
    * <p>This parameter is for internal use only, and should not be used.</p>
    */
-  workspaceDataSources?: (DataSourceType | string)[];
+  workspaceDataSources?: DataSourceType[];
 
   /**
    * @public
@@ -2069,7 +2069,7 @@ export interface UpdateWorkspaceRequest {
    *                 IAM roles and permissions that allow Amazon Managed Grafana to use these
    *             channels.</p>
    */
-  workspaceNotificationDestinations?: (NotificationDestinationType | string)[];
+  workspaceNotificationDestinations?: NotificationDestinationType[];
 
   /**
    * @public
@@ -2164,6 +2164,70 @@ export const WorkspaceDescriptionFilterSensitiveLog = (obj: WorkspaceDescription
 export const AssociateLicenseResponseFilterSensitiveLog = (obj: AssociateLicenseResponse): any => ({
   ...obj,
   ...(obj.workspace && { workspace: WorkspaceDescriptionFilterSensitiveLog(obj.workspace) }),
+});
+
+/**
+ * @internal
+ */
+export const RoleValuesFilterSensitiveLog = (obj: RoleValues): any => ({
+  ...obj,
+  ...(obj.editor && { editor: SENSITIVE_STRING }),
+  ...(obj.admin && { admin: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SamlConfigurationFilterSensitiveLog = (obj: SamlConfiguration): any => ({
+  ...obj,
+  ...(obj.idpMetadata && { idpMetadata: obj.idpMetadata }),
+  ...(obj.roleValues && { roleValues: RoleValuesFilterSensitiveLog(obj.roleValues) }),
+});
+
+/**
+ * @internal
+ */
+export const SamlAuthenticationFilterSensitiveLog = (obj: SamlAuthentication): any => ({
+  ...obj,
+  ...(obj.configuration && { configuration: SamlConfigurationFilterSensitiveLog(obj.configuration) }),
+});
+
+/**
+ * @internal
+ */
+export const AuthenticationDescriptionFilterSensitiveLog = (obj: AuthenticationDescription): any => ({
+  ...obj,
+  ...(obj.saml && { saml: SamlAuthenticationFilterSensitiveLog(obj.saml) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeWorkspaceAuthenticationResponseFilterSensitiveLog = (
+  obj: DescribeWorkspaceAuthenticationResponse
+): any => ({
+  ...obj,
+  ...(obj.authentication && { authentication: AuthenticationDescriptionFilterSensitiveLog(obj.authentication) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateWorkspaceAuthenticationRequestFilterSensitiveLog = (
+  obj: UpdateWorkspaceAuthenticationRequest
+): any => ({
+  ...obj,
+  ...(obj.samlConfiguration && { samlConfiguration: SamlConfigurationFilterSensitiveLog(obj.samlConfiguration) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateWorkspaceAuthenticationResponseFilterSensitiveLog = (
+  obj: UpdateWorkspaceAuthenticationResponse
+): any => ({
+  ...obj,
+  ...(obj.authentication && { authentication: AuthenticationDescriptionFilterSensitiveLog(obj.authentication) }),
 });
 
 /**

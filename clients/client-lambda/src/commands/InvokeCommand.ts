@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  BlobPayloadInputTypes,
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import {
   InvocationRequest,
@@ -58,7 +49,10 @@ export interface InvokeCommandOutput extends InvokeCommandOutputType, __Metadata
 /**
  * @public
  * <p>Invokes a Lambda function. You can invoke a function synchronously (and wait for the response), or
- *       asynchronously. To invoke a function asynchronously, set <code>InvocationType</code> to <code>Event</code>.</p>
+ *       asynchronously. By default, Lambda invokes your function synchronously (i.e. the<code>InvocationType</code>
+ *       is <code>RequestResponse</code>). To invoke a function asynchronously, set <code>InvocationType</code> to
+ *       <code>Event</code>. Lambda passes the <code>ClientContext</code> object to your function for
+ *       synchronous invocations only.</p>
  *          <p>For <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-sync.html">synchronous invocation</a>,
  *       details about the function response, including errors, are included in the response body and headers. For either
  *       invocation type, you can find more information in the <a href="https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions.html">execution log</a> and <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-x-ray.html">trace</a>.</p>
@@ -221,73 +215,26 @@ export interface InvokeCommandOutput extends InvokeCommandOutputType, __Metadata
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
-export class InvokeCommand extends $Command<InvokeCommandInput, InvokeCommandOutput, LambdaClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: InvokeCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: LambdaClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<InvokeCommandInput, InvokeCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, InvokeCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "LambdaClient";
-    const commandName = "InvokeCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: InvocationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: InvocationResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: InvokeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_InvokeCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InvokeCommandOutput> {
-    return de_InvokeCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class InvokeCommand extends $Command
+  .classBuilder<
+    InvokeCommandInput,
+    InvokeCommandOutput,
+    LambdaClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSGirApiService", "Invoke", {})
+  .n("LambdaClient", "InvokeCommand")
+  .f(InvocationRequestFilterSensitiveLog, InvocationResponseFilterSensitiveLog)
+  .ser(se_InvokeCommand)
+  .de(de_InvokeCommand)
+  .build() {}

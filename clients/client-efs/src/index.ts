@@ -12,8 +12,12 @@
 export * from "./EFSClient";
 export * from "./EFS";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { EFSExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { EFSServiceException } from "./models/EFSServiceException";

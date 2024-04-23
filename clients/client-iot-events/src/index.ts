@@ -10,7 +10,11 @@
 export * from "./IoTEventsClient";
 export * from "./IoTEvents";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { IoTEventsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { IoTEventsServiceException } from "./models/IoTEventsServiceException";

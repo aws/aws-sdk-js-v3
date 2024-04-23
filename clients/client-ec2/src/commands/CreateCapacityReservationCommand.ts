@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateCapacityReservationRequest, CreateCapacityReservationResult } from "../models/models_0";
 import { de_CreateCapacityReservationCommand, se_CreateCapacityReservationCommand } from "../protocols/Aws_ec2";
 
@@ -60,7 +52,7 @@ export interface CreateCapacityReservationCommandOutput extends CreateCapacityRe
  * const input = { // CreateCapacityReservationRequest
  *   ClientToken: "STRING_VALUE",
  *   InstanceType: "STRING_VALUE", // required
- *   InstancePlatform: "Linux/UNIX" || "Red Hat Enterprise Linux" || "SUSE Linux" || "Windows" || "Windows with SQL Server" || "Windows with SQL Server Enterprise" || "Windows with SQL Server Standard" || "Windows with SQL Server Web" || "Linux with SQL Server Standard" || "Linux with SQL Server Web" || "Linux with SQL Server Enterprise" || "RHEL with SQL Server Standard" || "RHEL with SQL Server Enterprise" || "RHEL with SQL Server Web" || "RHEL with HA" || "RHEL with HA and SQL Server Standard" || "RHEL with HA and SQL Server Enterprise", // required
+ *   InstancePlatform: "Linux/UNIX" || "Red Hat Enterprise Linux" || "SUSE Linux" || "Windows" || "Windows with SQL Server" || "Windows with SQL Server Enterprise" || "Windows with SQL Server Standard" || "Windows with SQL Server Web" || "Linux with SQL Server Standard" || "Linux with SQL Server Web" || "Linux with SQL Server Enterprise" || "RHEL with SQL Server Standard" || "RHEL with SQL Server Enterprise" || "RHEL with SQL Server Web" || "RHEL with HA" || "RHEL with HA and SQL Server Standard" || "RHEL with HA and SQL Server Enterprise" || "Ubuntu Pro", // required
  *   AvailabilityZone: "STRING_VALUE",
  *   AvailabilityZoneId: "STRING_VALUE",
  *   Tenancy: "default" || "dedicated",
@@ -94,14 +86,14 @@ export interface CreateCapacityReservationCommandOutput extends CreateCapacityRe
  * //     CapacityReservationArn: "STRING_VALUE",
  * //     AvailabilityZoneId: "STRING_VALUE",
  * //     InstanceType: "STRING_VALUE",
- * //     InstancePlatform: "Linux/UNIX" || "Red Hat Enterprise Linux" || "SUSE Linux" || "Windows" || "Windows with SQL Server" || "Windows with SQL Server Enterprise" || "Windows with SQL Server Standard" || "Windows with SQL Server Web" || "Linux with SQL Server Standard" || "Linux with SQL Server Web" || "Linux with SQL Server Enterprise" || "RHEL with SQL Server Standard" || "RHEL with SQL Server Enterprise" || "RHEL with SQL Server Web" || "RHEL with HA" || "RHEL with HA and SQL Server Standard" || "RHEL with HA and SQL Server Enterprise",
+ * //     InstancePlatform: "Linux/UNIX" || "Red Hat Enterprise Linux" || "SUSE Linux" || "Windows" || "Windows with SQL Server" || "Windows with SQL Server Enterprise" || "Windows with SQL Server Standard" || "Windows with SQL Server Web" || "Linux with SQL Server Standard" || "Linux with SQL Server Web" || "Linux with SQL Server Enterprise" || "RHEL with SQL Server Standard" || "RHEL with SQL Server Enterprise" || "RHEL with SQL Server Web" || "RHEL with HA" || "RHEL with HA and SQL Server Standard" || "RHEL with HA and SQL Server Enterprise" || "Ubuntu Pro",
  * //     AvailabilityZone: "STRING_VALUE",
  * //     Tenancy: "default" || "dedicated",
  * //     TotalInstanceCount: Number("int"),
  * //     AvailableInstanceCount: Number("int"),
  * //     EbsOptimized: true || false,
  * //     EphemeralStorage: true || false,
- * //     State: "active" || "expired" || "cancelled" || "pending" || "failed",
+ * //     State: "active" || "expired" || "cancelled" || "pending" || "failed" || "scheduled" || "payment-pending" || "payment-failed",
  * //     StartDate: new Date("TIMESTAMP"),
  * //     EndDate: new Date("TIMESTAMP"),
  * //     EndDateType: "unlimited" || "limited",
@@ -122,6 +114,7 @@ export interface CreateCapacityReservationCommandOutput extends CreateCapacityRe
  * //         Count: Number("int"),
  * //       },
  * //     ],
+ * //     ReservationType: "default" || "capacity-block",
  * //   },
  * // };
  *
@@ -137,82 +130,26 @@ export interface CreateCapacityReservationCommandOutput extends CreateCapacityRe
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
-export class CreateCapacityReservationCommand extends $Command<
-  CreateCapacityReservationCommandInput,
-  CreateCapacityReservationCommandOutput,
-  EC2ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateCapacityReservationCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: EC2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateCapacityReservationCommandInput, CreateCapacityReservationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateCapacityReservationCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "EC2Client";
-    const commandName = "CreateCapacityReservationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateCapacityReservationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateCapacityReservationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateCapacityReservationCommandOutput> {
-    return de_CreateCapacityReservationCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateCapacityReservationCommand extends $Command
+  .classBuilder<
+    CreateCapacityReservationCommandInput,
+    CreateCapacityReservationCommandOutput,
+    EC2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonEC2", "CreateCapacityReservation", {})
+  .n("EC2Client", "CreateCapacityReservationCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateCapacityReservationCommand)
+  .de(de_CreateCapacityReservationCommand)
+  .build() {}

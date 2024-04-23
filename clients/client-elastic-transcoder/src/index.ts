@@ -9,9 +9,13 @@
 export * from "./ElasticTranscoderClient";
 export * from "./ElasticTranscoder";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { ElasticTranscoderExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./waiters";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { ElasticTranscoderServiceException } from "./models/ElasticTranscoderServiceException";

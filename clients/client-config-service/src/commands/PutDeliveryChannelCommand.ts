@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { PutDeliveryChannelRequest } from "../models/models_1";
 import { de_PutDeliveryChannelCommand, se_PutDeliveryChannelCommand } from "../protocols/Aws_json1_1";
 
@@ -37,7 +29,9 @@ export interface PutDeliveryChannelCommandOutput extends __MetadataBearer {}
 /**
  * @public
  * <p>Creates a delivery channel object to deliver configuration
- * 			information to an Amazon S3 bucket and Amazon SNS topic.</p>
+ * 			information and other compliance information to an Amazon S3 bucket and Amazon SNS topic.
+ * 			For more information,
+ * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/notifications-for-AWS-Config.html">Notifications that Config Sends to an Amazon SNS topic</a>.</p>
  *          <p>Before you can create a delivery channel, you must create a
  * 			configuration recorder.</p>
  *          <p>You can use this action to change the Amazon S3 bucket or an
@@ -113,79 +107,26 @@ export interface PutDeliveryChannelCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
  */
-export class PutDeliveryChannelCommand extends $Command<
-  PutDeliveryChannelCommandInput,
-  PutDeliveryChannelCommandOutput,
-  ConfigServiceClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PutDeliveryChannelCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ConfigServiceClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PutDeliveryChannelCommandInput, PutDeliveryChannelCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, PutDeliveryChannelCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ConfigServiceClient";
-    const commandName = "PutDeliveryChannelCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: PutDeliveryChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PutDeliveryChannelCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutDeliveryChannelCommandOutput> {
-    return de_PutDeliveryChannelCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class PutDeliveryChannelCommand extends $Command
+  .classBuilder<
+    PutDeliveryChannelCommandInput,
+    PutDeliveryChannelCommandOutput,
+    ConfigServiceClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("StarlingDoveService", "PutDeliveryChannel", {})
+  .n("ConfigServiceClient", "PutDeliveryChannelCommand")
+  .f(void 0, void 0)
+  .ser(se_PutDeliveryChannelCommand)
+  .de(de_PutDeliveryChannelCommand)
+  .build() {}

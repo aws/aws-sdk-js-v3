@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateAutoMLJobV2Request, CreateAutoMLJobV2Response } from "../models/models_0";
 import { de_CreateAutoMLJobV2Command, se_CreateAutoMLJobV2Command } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
@@ -43,10 +35,11 @@ export interface CreateAutoMLJobV2CommandOutput extends CreateAutoMLJobV2Respons
  *             and <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJob.html">DescribeAutoMLJob</a> which offer backward compatibility.</p>
  *             <p>
  *                <code>CreateAutoMLJobV2</code> can manage tabular problem types identical to those of
- *             its previous version <code>CreateAutoMLJob</code>, as well as non-tabular problem types
- *             such as image or text classification.</p>
+ *             its previous version <code>CreateAutoMLJob</code>, as well as time-series forecasting,
+ *             non-tabular problem types such as image or text classification, and text generation
+ *             (LLMs fine-tuning).</p>
  *             <p>Find guidelines about how to migrate a <code>CreateAutoMLJob</code> to
- *                <code>CreateAutoMLJobV2</code> in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment-api.html#autopilot-create-experiment-api-migrate-v1-v2">Migrate a CreateAutoMLJob to CreateAutoMLJobV2</a>.</p>
+ *                <code>CreateAutoMLJobV2</code> in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment.html#autopilot-create-experiment-api-migrate-v1-v2">Migrate a CreateAutoMLJob to CreateAutoMLJobV2</a>.</p>
  *          </note>
  *          <p>For the list of available problem types supported by <code>CreateAutoMLJobV2</code>, see
  *             <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_AutoMLProblemTypeConfig.html">AutoMLProblemTypeConfig</a>.</p>
@@ -93,28 +86,6 @@ export interface CreateAutoMLJobV2CommandOutput extends CreateAutoMLJobV2Respons
  *       ContentColumn: "STRING_VALUE", // required
  *       TargetLabelColumn: "STRING_VALUE", // required
  *     },
- *     TabularJobConfig: { // TabularJobConfig
- *       CandidateGenerationConfig: { // CandidateGenerationConfig
- *         AlgorithmsConfig: [ // AutoMLAlgorithmsConfig
- *           { // AutoMLAlgorithmConfig
- *             AutoMLAlgorithms: [ // AutoMLAlgorithms // required
- *               "xgboost" || "linear-learner" || "mlp" || "lightgbm" || "catboost" || "randomforest" || "extra-trees" || "nn-torch" || "fastai",
- *             ],
- *           },
- *         ],
- *       },
- *       CompletionCriteria: {
- *         MaxCandidates: Number("int"),
- *         MaxRuntimePerTrainingJobInSeconds: Number("int"),
- *         MaxAutoMLJobRuntimeInSeconds: Number("int"),
- *       },
- *       FeatureSpecificationS3Uri: "STRING_VALUE",
- *       Mode: "AUTO" || "ENSEMBLING" || "HYPERPARAMETER_TUNING",
- *       GenerateCandidateDefinitionsOnly: true || false,
- *       ProblemType: "BinaryClassification" || "MulticlassClassification" || "Regression",
- *       TargetAttributeName: "STRING_VALUE", // required
- *       SampleWeightAttributeName: "STRING_VALUE",
- *     },
  *     TimeSeriesForecastingJobConfig: { // TimeSeriesForecastingJobConfig
  *       FeatureSpecificationS3Uri: "STRING_VALUE",
  *       CompletionCriteria: {
@@ -145,6 +116,47 @@ export interface CreateAutoMLJobV2CommandOutput extends CreateAutoMLJobV2Respons
  *           "STRING_VALUE",
  *         ],
  *       },
+ *       HolidayConfig: [ // HolidayConfig
+ *         { // HolidayConfigAttributes
+ *           CountryCode: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *     TabularJobConfig: { // TabularJobConfig
+ *       CandidateGenerationConfig: { // CandidateGenerationConfig
+ *         AlgorithmsConfig: [ // AutoMLAlgorithmsConfig
+ *           { // AutoMLAlgorithmConfig
+ *             AutoMLAlgorithms: [ // AutoMLAlgorithms // required
+ *               "xgboost" || "linear-learner" || "mlp" || "lightgbm" || "catboost" || "randomforest" || "extra-trees" || "nn-torch" || "fastai",
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *       CompletionCriteria: {
+ *         MaxCandidates: Number("int"),
+ *         MaxRuntimePerTrainingJobInSeconds: Number("int"),
+ *         MaxAutoMLJobRuntimeInSeconds: Number("int"),
+ *       },
+ *       FeatureSpecificationS3Uri: "STRING_VALUE",
+ *       Mode: "AUTO" || "ENSEMBLING" || "HYPERPARAMETER_TUNING",
+ *       GenerateCandidateDefinitionsOnly: true || false,
+ *       ProblemType: "BinaryClassification" || "MulticlassClassification" || "Regression",
+ *       TargetAttributeName: "STRING_VALUE", // required
+ *       SampleWeightAttributeName: "STRING_VALUE",
+ *     },
+ *     TextGenerationJobConfig: { // TextGenerationJobConfig
+ *       CompletionCriteria: {
+ *         MaxCandidates: Number("int"),
+ *         MaxRuntimePerTrainingJobInSeconds: Number("int"),
+ *         MaxAutoMLJobRuntimeInSeconds: Number("int"),
+ *       },
+ *       BaseModelName: "STRING_VALUE",
+ *       TextGenerationHyperParameters: { // TextGenerationHyperParameters
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       ModelAccessConfig: { // ModelAccessConfig
+ *         AcceptEula: true || false, // required
+ *       },
  *     },
  *   },
  *   RoleArn: "STRING_VALUE", // required
@@ -167,7 +179,7 @@ export interface CreateAutoMLJobV2CommandOutput extends CreateAutoMLJobV2Respons
  *     },
  *   },
  *   AutoMLJobObjective: { // AutoMLJobObjective
- *     MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro" || "MAPE" || "MASE" || "WAPE" || "AverageWeightedQuantileLoss", // required
+ *     MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "BalancedAccuracy" || "R2" || "Recall" || "RecallMacro" || "Precision" || "PrecisionMacro" || "MAE" || "MAPE" || "MASE" || "WAPE" || "AverageWeightedQuantileLoss", // required
  *   },
  *   ModelDeployConfig: { // ModelDeployConfig
  *     AutoGenerateEndpointName: true || false,
@@ -202,79 +214,26 @@ export interface CreateAutoMLJobV2CommandOutput extends CreateAutoMLJobV2Respons
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
-export class CreateAutoMLJobV2Command extends $Command<
-  CreateAutoMLJobV2CommandInput,
-  CreateAutoMLJobV2CommandOutput,
-  SageMakerClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateAutoMLJobV2CommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SageMakerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateAutoMLJobV2CommandInput, CreateAutoMLJobV2CommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateAutoMLJobV2Command.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SageMakerClient";
-    const commandName = "CreateAutoMLJobV2Command";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateAutoMLJobV2CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateAutoMLJobV2Command(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAutoMLJobV2CommandOutput> {
-    return de_CreateAutoMLJobV2Command(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateAutoMLJobV2Command extends $Command
+  .classBuilder<
+    CreateAutoMLJobV2CommandInput,
+    CreateAutoMLJobV2CommandOutput,
+    SageMakerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("SageMaker", "CreateAutoMLJobV2", {})
+  .n("SageMakerClient", "CreateAutoMLJobV2Command")
+  .f(void 0, void 0)
+  .ser(se_CreateAutoMLJobV2Command)
+  .de(de_CreateAutoMLJobV2Command)
+  .build() {}

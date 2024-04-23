@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ShutdownGatewayInput, ShutdownGatewayOutput } from "../models/models_0";
 import { de_ShutdownGatewayCommand, se_ShutdownGatewayCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
@@ -36,28 +28,27 @@ export interface ShutdownGatewayCommandOutput extends ShutdownGatewayOutput, __M
 
 /**
  * @public
- * <p>Shuts down a gateway. To specify which gateway to shut down, use the Amazon Resource
- *          Name (ARN) of the gateway in the body of your request.</p>
- *
+ * <p>Shuts down a Tape Gateway or Volume Gateway. To specify which gateway to shut down, use
+ *          the Amazon Resource Name (ARN) of the gateway in the body of your request.</p>
+ *          <note>
+ *             <p>This API action cannot be used to shut down S3 File Gateway or FSx File
+ *             Gateway.</p>
+ *          </note>
  *          <p>The operation shuts down the gateway service component running in the gateway's
  *          virtual machine (VM) and not the host VM.</p>
- *
  *          <note>
  *             <p>If you want to shut down the VM, it is recommended that you first shut down the
  *             gateway component in the VM to avoid unpredictable conditions.</p>
  *          </note>
- *
  *          <p>After the gateway is shutdown, you cannot call any other API except <a>StartGateway</a>, <a>DescribeGatewayInformation</a>, and <a>ListGateways</a>. For more information, see <a>ActivateGateway</a>.
  *          Your applications cannot read from or write to the gateway's storage volumes, and
  *          there are no snapshots taken.</p>
- *
  *          <note>
  *             <p>When you make a shutdown request, you will get a <code>200 OK</code> success response
  *             immediately. However, it might take some time for the gateway to shut down. You can call
  *             the <a>DescribeGatewayInformation</a> API to check the status. For more
  *             information, see <a>ActivateGateway</a>.</p>
  *          </note>
- *
  *          <p>If do not intend to use the gateway again, you must delete the gateway (using <a>DeleteGateway</a>) to no longer pay software charges associated with the
  *          gateway.</p>
  * @example
@@ -111,79 +102,26 @@ export interface ShutdownGatewayCommandOutput extends ShutdownGatewayOutput, __M
  * ```
  *
  */
-export class ShutdownGatewayCommand extends $Command<
-  ShutdownGatewayCommandInput,
-  ShutdownGatewayCommandOutput,
-  StorageGatewayClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ShutdownGatewayCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: StorageGatewayClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ShutdownGatewayCommandInput, ShutdownGatewayCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ShutdownGatewayCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "StorageGatewayClient";
-    const commandName = "ShutdownGatewayCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ShutdownGatewayCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ShutdownGatewayCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ShutdownGatewayCommandOutput> {
-    return de_ShutdownGatewayCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ShutdownGatewayCommand extends $Command
+  .classBuilder<
+    ShutdownGatewayCommandInput,
+    ShutdownGatewayCommandOutput,
+    StorageGatewayClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("StorageGateway_20130630", "ShutdownGateway", {})
+  .n("StorageGatewayClient", "ShutdownGatewayCommand")
+  .f(void 0, void 0)
+  .ser(se_ShutdownGatewayCommand)
+  .de(de_ShutdownGatewayCommand)
+  .build() {}

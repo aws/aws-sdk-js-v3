@@ -1,13 +1,18 @@
 // smithy-typescript generated code
-import { getDefaultClientConfiguration, resolveDefaultRuntimeConfig } from "@smithy/types";
+import {
+  getAwsRegionExtensionConfiguration,
+  resolveAwsRegionExtensionConfiguration,
+} from "@aws-sdk/region-config-resolver";
+import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig } from "@smithy/protocol-http";
+import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
-import { MTurkClientConfiguration } from "./clientConfiguration";
+import { MTurkExtensionConfiguration } from "./extensionConfiguration";
 
 /**
  * @public
  */
 export interface RuntimeExtension {
-  configureClient(clientConfiguration: MTurkClientConfiguration): void;
+  configure(extensionConfiguration: MTurkExtensionConfiguration): void;
 }
 
 /**
@@ -17,20 +22,24 @@ export interface RuntimeExtensionsConfig {
   extensions: RuntimeExtension[];
 }
 
-const asPartial = <T extends Partial<MTurkClientConfiguration>>(t: T) => t;
+const asPartial = <T extends Partial<MTurkExtensionConfiguration>>(t: T) => t;
 
 /**
  * @internal
  */
 export const resolveRuntimeExtensions = (runtimeConfig: any, extensions: RuntimeExtension[]) => {
-  const clientConfiguration: MTurkClientConfiguration = {
-    ...asPartial(getDefaultClientConfiguration(runtimeConfig)),
+  const extensionConfiguration: MTurkExtensionConfiguration = {
+    ...asPartial(getAwsRegionExtensionConfiguration(runtimeConfig)),
+    ...asPartial(getDefaultExtensionConfiguration(runtimeConfig)),
+    ...asPartial(getHttpHandlerExtensionConfiguration(runtimeConfig)),
   };
 
-  extensions.forEach((extension) => extension.configureClient(clientConfiguration));
+  extensions.forEach((extension) => extension.configure(extensionConfiguration));
 
   return {
     ...runtimeConfig,
-    ...resolveDefaultRuntimeConfig(clientConfiguration),
+    ...resolveAwsRegionExtensionConfiguration(extensionConfiguration),
+    ...resolveDefaultRuntimeConfig(extensionConfiguration),
+    ...resolveHttpHandlerRuntimeConfig(extensionConfiguration),
   };
 };

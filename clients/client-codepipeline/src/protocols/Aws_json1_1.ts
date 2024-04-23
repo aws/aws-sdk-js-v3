@@ -173,6 +173,9 @@ import {
   GetPipelineStateInput,
   GetPipelineStateOutput,
   GetThirdPartyJobDetailsInput,
+  GitConfiguration,
+  GitPushFilter,
+  GitTagFilterCriteria,
   InputArtifact,
   InvalidActionDeclarationException,
   InvalidApprovalTokenException,
@@ -215,6 +218,9 @@ import {
   PipelineNameInUseException,
   PipelineNotFoundException,
   PipelineSummary,
+  PipelineTriggerDeclaration,
+  PipelineVariable,
+  PipelineVariableDeclaration,
   PipelineVersionNotFoundException,
   PollForJobsInput,
   PollForThirdPartyJobsInput,
@@ -231,6 +237,7 @@ import {
   RequestFailedException,
   ResourceNotFoundException,
   RetryStageExecutionInput,
+  SourceRevisionOverride,
   StageDeclaration,
   StageNotFoundException,
   StageNotRetryableException,
@@ -3503,6 +3510,16 @@ const se_CurrentRevision = (input: CurrentRevision, context: __SerdeContext): an
 
 // se_GetThirdPartyJobDetailsInput omitted.
 
+// se_GitConfiguration omitted.
+
+// se_GitPushFilter omitted.
+
+// se_GitPushFilterList omitted.
+
+// se_GitTagFilterCriteria omitted.
+
+// se_GitTagPatternList omitted.
+
 // se_InputArtifact omitted.
 
 // se_InputArtifactList omitted.
@@ -3532,6 +3549,18 @@ const se_CurrentRevision = (input: CurrentRevision, context: __SerdeContext): an
 // se_PipelineDeclaration omitted.
 
 // se_PipelineStageDeclarationList omitted.
+
+// se_PipelineTriggerDeclaration omitted.
+
+// se_PipelineTriggerDeclarationList omitted.
+
+// se_PipelineVariable omitted.
+
+// se_PipelineVariableDeclaration omitted.
+
+// se_PipelineVariableDeclarationList omitted.
+
+// se_PipelineVariableList omitted.
 
 // se_PollForJobsInput omitted.
 
@@ -3596,6 +3625,10 @@ const se_PutThirdPartyJobSuccessResultInput = (
 
 // se_RetryStageExecutionInput omitted.
 
+// se_SourceRevisionOverride omitted.
+
+// se_SourceRevisionOverrideList omitted.
+
 // se_StageActionDeclarationList omitted.
 
 // se_StageBlockerDeclarationList omitted.
@@ -3609,6 +3642,8 @@ const se_StartPipelineExecutionInput = (input: StartPipelineExecutionInput, cont
   return take(input, {
     clientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
     name: [],
+    sourceRevisions: _json,
+    variables: _json,
   });
 };
 
@@ -3880,6 +3915,16 @@ const de_GetPipelineStateOutput = (output: any, context: __SerdeContext): GetPip
 
 // de_GetThirdPartyJobDetailsOutput omitted.
 
+// de_GitConfiguration omitted.
+
+// de_GitPushFilter omitted.
+
+// de_GitPushFilterList omitted.
+
+// de_GitTagFilterCriteria omitted.
+
+// de_GitTagPatternList omitted.
+
 // de_InputArtifact omitted.
 
 // de_InputArtifactList omitted.
@@ -4012,6 +4057,8 @@ const de_PipelineExecution = (output: any, context: __SerdeContext): PipelineExe
     pipelineVersion: __expectInt32,
     status: __expectString,
     statusSummary: __expectString,
+    trigger: _json,
+    variables: _json,
   }) as any;
 };
 
@@ -4083,10 +4130,19 @@ const de_PipelineSummary = (output: any, context: __SerdeContext): PipelineSumma
   return take(output, {
     created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     name: __expectString,
+    pipelineType: __expectString,
     updated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     version: __expectInt32,
   }) as any;
 };
+
+// de_PipelineTriggerDeclaration omitted.
+
+// de_PipelineTriggerDeclarationList omitted.
+
+// de_PipelineVariableDeclaration omitted.
+
+// de_PipelineVariableDeclarationList omitted.
 
 // de_PipelineVersionNotFoundException omitted.
 
@@ -4123,6 +4179,10 @@ const de_PutWebhookOutput = (output: any, context: __SerdeContext): PutWebhookOu
 // de_RequestFailedException omitted.
 
 // de_ResolvedActionConfigurationMap omitted.
+
+// de_ResolvedPipelineVariable omitted.
+
+// de_ResolvedPipelineVariableList omitted.
 
 // de_ResourceNotFoundException omitted.
 

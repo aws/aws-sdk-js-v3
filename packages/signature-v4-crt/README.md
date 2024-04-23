@@ -5,3 +5,5 @@
 
 This package contains native modules that only executable in Node.js runtime.
 Please refer to [this issue](https://github.com/aws/aws-sdk-js-v3/issues/2822) for more information.
+
+See also https://github.com/aws/aws-sdk-js-v3/tree/main#functionality-requiring-aws-common-runtime-crt.

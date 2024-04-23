@@ -18,6 +18,11 @@ import {
   DecreaseStreamRetentionPeriodCommandOutput,
 } from "./commands/DecreaseStreamRetentionPeriodCommand";
 import {
+  DeleteResourcePolicyCommand,
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import {
   DeleteStreamCommand,
   DeleteStreamCommandInput,
   DeleteStreamCommandOutput,
@@ -59,6 +64,11 @@ import {
 } from "./commands/EnableEnhancedMonitoringCommand";
 import { GetRecordsCommand, GetRecordsCommandInput, GetRecordsCommandOutput } from "./commands/GetRecordsCommand";
 import {
+  GetResourcePolicyCommand,
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
+import {
   GetShardIteratorCommand,
   GetShardIteratorCommandInput,
   GetShardIteratorCommandOutput,
@@ -83,6 +93,11 @@ import {
 import { MergeShardsCommand, MergeShardsCommandInput, MergeShardsCommandOutput } from "./commands/MergeShardsCommand";
 import { PutRecordCommand, PutRecordCommandInput, PutRecordCommandOutput } from "./commands/PutRecordCommand";
 import { PutRecordsCommand, PutRecordsCommandInput, PutRecordsCommandOutput } from "./commands/PutRecordsCommand";
+import {
+  PutResourcePolicyCommand,
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
 import {
   RegisterStreamConsumerCommand,
   RegisterStreamConsumerCommandInput,
@@ -125,6 +140,7 @@ const commands = {
   AddTagsToStreamCommand,
   CreateStreamCommand,
   DecreaseStreamRetentionPeriodCommand,
+  DeleteResourcePolicyCommand,
   DeleteStreamCommand,
   DeregisterStreamConsumerCommand,
   DescribeLimitsCommand,
@@ -134,6 +150,7 @@ const commands = {
   DisableEnhancedMonitoringCommand,
   EnableEnhancedMonitoringCommand,
   GetRecordsCommand,
+  GetResourcePolicyCommand,
   GetShardIteratorCommand,
   IncreaseStreamRetentionPeriodCommand,
   ListShardsCommand,
@@ -143,6 +160,7 @@ const commands = {
   MergeShardsCommand,
   PutRecordCommand,
   PutRecordsCommand,
+  PutResourcePolicyCommand,
   RegisterStreamConsumerCommand,
   RemoveTagsFromStreamCommand,
   SplitShardCommand,
@@ -194,6 +212,23 @@ export interface Kinesis {
     args: DecreaseStreamRetentionPeriodCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DecreaseStreamRetentionPeriodCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteResourcePolicyCommand}
+   */
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyCommandOutput>;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): void;
 
   /**
@@ -332,6 +367,23 @@ export interface Kinesis {
   ): void;
 
   /**
+   * @see {@link GetResourcePolicyCommand}
+   */
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePolicyCommandOutput>;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetShardIteratorCommand}
    */
   getShardIterator(
@@ -452,6 +504,23 @@ export interface Kinesis {
     args: PutRecordsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutRecordsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutResourcePolicyCommand}
+   */
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourcePolicyCommandOutput>;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
   /**

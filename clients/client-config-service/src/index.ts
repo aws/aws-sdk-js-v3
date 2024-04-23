@@ -28,8 +28,12 @@
 export * from "./ConfigServiceClient";
 export * from "./ConfigService";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { ConfigServiceExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { ConfigServiceServiceException } from "./models/ConfigServiceServiceException";

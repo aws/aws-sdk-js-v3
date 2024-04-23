@@ -1,20 +1,16 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { StartTaskContactRequest, StartTaskContactResponse } from "../models/models_1";
+import { commonParams } from "../endpoint/EndpointParameters";
+import {
+  StartTaskContactRequest,
+  StartTaskContactRequestFilterSensitiveLog,
+  StartTaskContactResponse,
+} from "../models/models_2";
 import { de_StartTaskContactCommand, se_StartTaskContactCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -36,7 +32,57 @@ export interface StartTaskContactCommandOutput extends StartTaskContactResponse,
 
 /**
  * @public
- * <p>Initiates a flow to start a new task.</p>
+ * <p>Initiates a flow to start a new task contact. For more information about task contacts, see
+ *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/tasks.html">Concepts: Tasks in
+ *      Amazon Connect</a> in the <i>Amazon Connect Administrator Guide</i>. </p>
+ *          <p>When using <code>PreviousContactId</code> and <code>RelatedContactId</code> input
+ *    parameters, note the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>PreviousContactId</code>
+ *                </p>
+ *                <ul>
+ *                   <li>
+ *                      <p>Any updates to user-defined task contact attributes on any contact linked through the
+ *        same <code>PreviousContactId</code> will affect every contact in the chain.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>There can be a maximum of 12 linked task contacts in a chain. That is, 12 task contacts
+ *        can be created that share the same <code>PreviousContactId</code>.</p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>RelatedContactId</code>
+ *                </p>
+ *                <ul>
+ *                   <li>
+ *                      <p>Copies contact attributes from the related task contact to the new contact.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>Any update on attributes in a new task contact does not update attributes on previous
+ *        contact.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>There’s no limit on the number of task contacts that can be created that use the same
+ *         <code>RelatedContactId</code>.</p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *          </ul>
+ *          <p>In addition, when calling StartTaskContact include only one of these parameters:
+ *     <code>ContactFlowID</code>, <code>QuickConnectID</code>, or <code>TaskTemplateID</code>. Only
+ *    one parameter is required as long as the task template has a flow configured to run it. If more
+ *    than one parameter is specified, or only the <code>TaskTemplateID</code> is specified but it does
+ *    not have a flow configured, the request returns an error because Amazon Connect cannot
+ *    identify the unique flow to run when the task is created.</p>
+ *          <p>A <code>ServiceQuotaExceededException</code> occurs when the number of open tasks exceeds
+ *    the active tasks quota or there are already 12 tasks referencing the same
+ *     <code>PreviousContactId</code>. For more information about service quotas for task contacts, see
+ *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect service quotas</a> in the <i>Amazon Connect Administrator
+ *     Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,79 +146,26 @@ export interface StartTaskContactCommandOutput extends StartTaskContactResponse,
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
-export class StartTaskContactCommand extends $Command<
-  StartTaskContactCommandInput,
-  StartTaskContactCommandOutput,
-  ConnectClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StartTaskContactCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ConnectClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StartTaskContactCommandInput, StartTaskContactCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartTaskContactCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ConnectClient";
-    const commandName = "StartTaskContactCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StartTaskContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartTaskContactCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartTaskContactCommandOutput> {
-    return de_StartTaskContactCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class StartTaskContactCommand extends $Command
+  .classBuilder<
+    StartTaskContactCommandInput,
+    StartTaskContactCommandOutput,
+    ConnectClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonConnectService", "StartTaskContact", {})
+  .n("ConnectClient", "StartTaskContactCommand")
+  .f(StartTaskContactRequestFilterSensitiveLog, void 0)
+  .ser(se_StartTaskContactCommand)
+  .de(de_StartTaskContactCommand)
+  .build() {}

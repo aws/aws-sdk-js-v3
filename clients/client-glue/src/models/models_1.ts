@@ -2,24 +2,25 @@
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { GlueServiceException as __BaseException } from "./GlueServiceException";
+
 import {
   Action,
   Blueprint,
   Column,
+  ConnectionPropertyKey,
   ConnectionsList,
   ConnectionType,
   Crawler,
   CsvHeaderOption,
   CsvSerdeOption,
-  DatabaseIdentifier,
   DataFormat,
+  DataQualityAnalyzerResult,
+  DataQualityObservation,
   DataQualityRuleResult,
-  DataQualityTargetTable,
   DataSource,
   DevEndpoint,
   ErrorDetail,
   EventBatchingCondition,
-  FederatedDatabase,
   GlueTable,
   JobRun,
   Partition,
@@ -27,14 +28,625 @@ import {
   PartitionValueList,
   PhysicalConnectionRequirements,
   Predicate,
-  PrincipalPermissions,
   SchemaId,
   StorageDescriptor,
+  TableOptimizerConfiguration,
+  TableOptimizerType,
   TaskStatusType,
-  Trigger,
   TriggerType,
   WorkerType,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateCustomEntityTypeResponse {
+  /**
+   * @public
+   * <p>The name of the custom pattern you created.</p>
+   */
+  Name?: string;
+}
+
+/**
+ * @public
+ * <p>The same unique identifier was associated with two different records.</p>
+ */
+export class IdempotentParameterMismatchException extends __BaseException {
+  readonly name: "IdempotentParameterMismatchException" = "IdempotentParameterMismatchException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IdempotentParameterMismatchException, __BaseException>) {
+    super({
+      name: "IdempotentParameterMismatchException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IdempotentParameterMismatchException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>Two processes are trying to modify a resource simultaneously.</p>
+ */
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>A message describing the problem.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Permission = {
+  ALL: "ALL",
+  ALTER: "ALTER",
+  CREATE_DATABASE: "CREATE_DATABASE",
+  CREATE_TABLE: "CREATE_TABLE",
+  DATA_LOCATION_ACCESS: "DATA_LOCATION_ACCESS",
+  DELETE: "DELETE",
+  DROP: "DROP",
+  INSERT: "INSERT",
+  SELECT: "SELECT",
+} as const;
+
+/**
+ * @public
+ */
+export type Permission = (typeof Permission)[keyof typeof Permission];
+
+/**
+ * @public
+ * <p>The Lake Formation principal.</p>
+ */
+export interface DataLakePrincipal {
+  /**
+   * @public
+   * <p>An identifier for the Lake Formation principal.</p>
+   */
+  DataLakePrincipalIdentifier?: string;
+}
+
+/**
+ * @public
+ * <p>Permissions granted to a principal.</p>
+ */
+export interface PrincipalPermissions {
+  /**
+   * @public
+   * <p>The principal who is granted permissions.</p>
+   */
+  Principal?: DataLakePrincipal;
+
+  /**
+   * @public
+   * <p>The permissions that are granted to the principal.</p>
+   */
+  Permissions?: Permission[];
+}
+
+/**
+ * @public
+ * <p>A database that points to an entity outside the Glue Data Catalog.</p>
+ */
+export interface FederatedDatabase {
+  /**
+   * @public
+   * <p>A unique identifier for the federated database.</p>
+   */
+  Identifier?: string;
+
+  /**
+   * @public
+   * <p>The name of the connection to the external metastore.</p>
+   */
+  ConnectionName?: string;
+}
+
+/**
+ * @public
+ * <p>A structure that describes a target database for resource linking.</p>
+ */
+export interface DatabaseIdentifier {
+  /**
+   * @public
+   * <p>The ID of the Data Catalog in which the database resides.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * @public
+   * <p>The name of the catalog database.</p>
+   */
+  DatabaseName?: string;
+
+  /**
+   * @public
+   * <p>Region of the target database.</p>
+   */
+  Region?: string;
+}
+
+/**
+ * @public
+ * <p>The structure used to create or update a database.</p>
+ */
+export interface DatabaseInput {
+  /**
+   * @public
+   * <p>The name of the database. For Hive compatibility, this is folded to lowercase when it is
+   *       stored.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>A description of the database.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>The location of the database (for example, an HDFS path). </p>
+   */
+  LocationUri?: string;
+
+  /**
+   * @public
+   * <p>These key-value pairs define parameters and properties
+   *       of the database.</p>
+   *          <p>These key-value pairs define parameters and properties of the database.</p>
+   */
+  Parameters?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Creates a set of default permissions on the table for principals. Used by Lake Formation. Not used in the normal course of Glue operations.</p>
+   */
+  CreateTableDefaultPermissions?: PrincipalPermissions[];
+
+  /**
+   * @public
+   * <p>A <code>DatabaseIdentifier</code> structure that describes a target database for resource linking.</p>
+   */
+  TargetDatabase?: DatabaseIdentifier;
+
+  /**
+   * @public
+   * <p>A <code>FederatedDatabase</code> structure that references an entity outside the Glue Data Catalog.</p>
+   */
+  FederatedDatabase?: FederatedDatabase;
+}
+
+/**
+ * @public
+ */
+export interface CreateDatabaseRequest {
+  /**
+   * @public
+   * <p>The ID of the Data Catalog in which to create the database. If none is provided, the Amazon Web Services
+   *       account ID is used by default.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * @public
+   * <p>The metadata for the database.</p>
+   */
+  DatabaseInput: DatabaseInput | undefined;
+
+  /**
+   * @public
+   * <p>The tags you assign to the database.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateDatabaseResponse {}
+
+/**
+ * @public
+ * <p>A federated resource already exists.</p>
+ */
+export class FederatedResourceAlreadyExistsException extends __BaseException {
+  readonly name: "FederatedResourceAlreadyExistsException" = "FederatedResourceAlreadyExistsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>The message describing the problem.</p>
+   */
+  Message?: string;
+
+  /**
+   * @public
+   * <p>The associated Glue resource already exists.</p>
+   */
+  AssociatedGlueResource?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<FederatedResourceAlreadyExistsException, __BaseException>) {
+    super({
+      name: "FederatedResourceAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, FederatedResourceAlreadyExistsException.prototype);
+    this.Message = opts.Message;
+    this.AssociatedGlueResource = opts.AssociatedGlueResource;
+  }
+}
+
+/**
+ * @public
+ * <p>An object representing an Glue table.</p>
+ */
+export interface DataQualityTargetTable {
+  /**
+   * @public
+   * <p>The name of the Glue table.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the database where the Glue table exists.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * @public
+   * <p>The catalog id where the Glue table exists.</p>
+   */
+  CatalogId?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateDataQualityRulesetRequest {
+  /**
+   * @public
+   * <p>A unique name for the data quality ruleset.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>A description of the data quality ruleset.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>A Data Quality Definition Language (DQDL) ruleset. For more information, see the Glue developer guide.</p>
+   */
+  Ruleset: string | undefined;
+
+  /**
+   * @public
+   * <p>A list of tags applied to the data quality ruleset.</p>
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>A target table associated with the data quality ruleset.</p>
+   */
+  TargetTable?: DataQualityTargetTable;
+
+  /**
+   * @public
+   * <p>Used for idempotency and is recommended to be set to a random ID (such as a UUID) to avoid creating or starting multiple instances of the same resource.</p>
+   */
+  ClientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateDataQualityRulesetResponse {
+  /**
+   * @public
+   * <p>A unique name for the data quality ruleset.</p>
+   */
+  Name?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateDevEndpointRequest {
+  /**
+   * @public
+   * <p>The name to be assigned to the new <code>DevEndpoint</code>.</p>
+   */
+  EndpointName: string | undefined;
+
+  /**
+   * @public
+   * <p>The IAM role for the <code>DevEndpoint</code>.</p>
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Security group IDs for the security groups to be used by the new
+   *       <code>DevEndpoint</code>.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * @public
+   * <p>The subnet ID for the new <code>DevEndpoint</code> to use.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * @public
+   * <p>The public key to be used by this <code>DevEndpoint</code> for authentication. This
+   *       attribute is provided for backward compatibility because the recommended attribute to use is
+   *       public keys.</p>
+   */
+  PublicKey?: string;
+
+  /**
+   * @public
+   * <p>A list of public keys to be used by the development endpoints for authentication. The use
+   *       of this attribute is preferred over a single public key because the public keys allow you to
+   *       have a different private key per client.</p>
+   *          <note>
+   *             <p>If you previously created an endpoint with a public key, you must remove that key to be able
+   *         to set a list of public keys. Call the <code>UpdateDevEndpoint</code> API with the public
+   *         key content in the <code>deletePublicKeys</code> attribute, and the list of new keys in the
+   *           <code>addPublicKeys</code> attribute.</p>
+   *          </note>
+   */
+  PublicKeys?: string[];
+
+  /**
+   * @public
+   * <p>The number of Glue Data Processing Units (DPUs) to allocate to this
+   *         <code>DevEndpoint</code>.</p>
+   */
+  NumberOfNodes?: number;
+
+  /**
+   * @public
+   * <p>The type of predefined worker that is allocated to the development endpoint. Accepts a value of Standard, G.1X, or G.2X.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.1X</code> worker type, each worker maps to 1 DPU (4 vCPU, 16 GB of memory, 64 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
+   *             </li>
+   *             <li>
+   *                <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Known issue: when a development endpoint is created with the <code>G.2X</code>
+   *             <code>WorkerType</code> configuration, the Spark drivers for the development endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk. </p>
+   */
+  WorkerType?: WorkerType;
+
+  /**
+   * @public
+   * <p>Glue version determines the versions of Apache Spark and Python that Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints. </p>
+   *          <p>For more information about the available Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
+   *          <p>Development endpoints that are created without specifying a Glue version default to Glue 0.9.</p>
+   *          <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
+   */
+  GlueVersion?: string;
+
+  /**
+   * @public
+   * <p>The number of workers of a defined <code>workerType</code> that are allocated to the development endpoint.</p>
+   *          <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
+   */
+  NumberOfWorkers?: number;
+
+  /**
+   * @public
+   * <p>The paths to one or more Python libraries in an Amazon S3 bucket that should be loaded in
+   *       your <code>DevEndpoint</code>. Multiple values must be complete paths separated by a
+   *       comma.</p>
+   *          <note>
+   *             <p>You can only use pure Python libraries with a <code>DevEndpoint</code>. Libraries that rely on
+   *         C extensions, such as the <a href="http://pandas.pydata.org/">pandas</a> Python data
+   *         analysis library, are not yet supported.</p>
+   *          </note>
+   */
+  ExtraPythonLibsS3Path?: string;
+
+  /**
+   * @public
+   * <p>The path to one or more Java <code>.jar</code> files in an S3 bucket that should be loaded
+   *       in your <code>DevEndpoint</code>.</p>
+   */
+  ExtraJarsS3Path?: string;
+
+  /**
+   * @public
+   * <p>The name of the <code>SecurityConfiguration</code> structure to be used with this
+   *         <code>DevEndpoint</code>.</p>
+   */
+  SecurityConfiguration?: string;
+
+  /**
+   * @public
+   * <p>The tags to use with this DevEndpoint. You may use tags to limit access to the DevEndpoint. For more information about tags in Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">Amazon Web Services Tags in Glue</a> in the developer guide.</p>
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>A map of arguments used to configure the <code>DevEndpoint</code>.</p>
+   */
+  Arguments?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateDevEndpointResponse {
+  /**
+   * @public
+   * <p>The name assigned to the new <code>DevEndpoint</code>.</p>
+   */
+  EndpointName?: string;
+
+  /**
+   * @public
+   * <p>The current status of the new <code>DevEndpoint</code>.</p>
+   */
+  Status?: string;
+
+  /**
+   * @public
+   * <p>The security groups assigned to the new <code>DevEndpoint</code>.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * @public
+   * <p>The subnet ID assigned to the new <code>DevEndpoint</code>.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the role assigned to the new
+   *       <code>DevEndpoint</code>.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * @public
+   * <p>The address of the YARN endpoint used by this <code>DevEndpoint</code>.</p>
+   */
+  YarnEndpointAddress?: string;
+
+  /**
+   * @public
+   * <p>The Apache Zeppelin port for the remote Apache Spark interpreter.</p>
+   */
+  ZeppelinRemoteSparkInterpreterPort?: number;
+
+  /**
+   * @public
+   * <p>The number of Glue Data Processing Units (DPUs) allocated to this DevEndpoint.</p>
+   */
+  NumberOfNodes?: number;
+
+  /**
+   * @public
+   * <p>The type of predefined worker that is allocated to the development endpoint. May be a value of Standard, G.1X, or G.2X.</p>
+   */
+  WorkerType?: WorkerType;
+
+  /**
+   * @public
+   * <p>Glue version determines the versions of Apache Spark and Python that Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints. </p>
+   *          <p>For more information about the available Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
+   */
+  GlueVersion?: string;
+
+  /**
+   * @public
+   * <p>The number of workers of a defined <code>workerType</code> that are allocated to the development endpoint.</p>
+   */
+  NumberOfWorkers?: number;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Availability Zone where this <code>DevEndpoint</code> is located.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * @public
+   * <p>The ID of the virtual private cloud (VPC) used by this <code>DevEndpoint</code>.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * @public
+   * <p>The paths to one or more Python libraries in an S3 bucket that will be loaded in your
+   *         <code>DevEndpoint</code>.</p>
+   */
+  ExtraPythonLibsS3Path?: string;
+
+  /**
+   * @public
+   * <p>Path to one or more Java <code>.jar</code> files in an S3 bucket that will be loaded in
+   *       your <code>DevEndpoint</code>.</p>
+   */
+  ExtraJarsS3Path?: string;
+
+  /**
+   * @public
+   * <p>The reason for a current failure in this <code>DevEndpoint</code>.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * @public
+   * <p>The name of the <code>SecurityConfiguration</code> structure being used with this
+   *         <code>DevEndpoint</code>.</p>
+   */
+  SecurityConfiguration?: string;
+
+  /**
+   * @public
+   * <p>The point in time at which this <code>DevEndpoint</code> was created.</p>
+   */
+  CreatedTimestamp?: Date;
+
+  /**
+   * @public
+   * <p>The map of arguments used to configure this <code>DevEndpoint</code>.</p>
+   *          <p>Valid arguments are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>"--enable-glue-datacatalog": ""</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
+   */
+  Arguments?: Record<string, string>;
+}
 
 /**
  * @public
@@ -141,7 +753,7 @@ export interface TransformParameters {
    * <p>The type of machine learning transform.</p>
    *          <p>For information about the types of machine learning transforms, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html">Creating Machine Learning Transforms</a>.</p>
    */
-  TransformType: TransformType | string | undefined;
+  TransformType: TransformType | undefined;
 
   /**
    * @public
@@ -182,7 +794,7 @@ export interface MLUserDataEncryption {
    *             </li>
    *          </ul>
    */
-  MlUserDataEncryptionMode: MLUserDataEncryptionModeString | string | undefined;
+  MlUserDataEncryptionMode: MLUserDataEncryptionModeString | undefined;
 
   /**
    * @public
@@ -320,7 +932,7 @@ export interface CreateMLTransformRequest {
    *             </li>
    *          </ul>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: WorkerType;
 
   /**
    * @public
@@ -563,7 +1175,7 @@ export interface CreateSchemaInput {
    * @public
    * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
    */
-  DataFormat: DataFormat | string | undefined;
+  DataFormat: DataFormat | undefined;
 
   /**
    * @public
@@ -603,7 +1215,7 @@ export interface CreateSchemaInput {
    *             </li>
    *          </ul>
    */
-  Compatibility?: Compatibility | string;
+  Compatibility?: Compatibility;
 
   /**
    * @public
@@ -693,13 +1305,13 @@ export interface CreateSchemaResponse {
    * @public
    * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
    */
-  DataFormat?: DataFormat | string;
+  DataFormat?: DataFormat;
 
   /**
    * @public
    * <p>The schema compatibility mode.</p>
    */
-  Compatibility?: Compatibility | string;
+  Compatibility?: Compatibility;
 
   /**
    * @public
@@ -723,7 +1335,7 @@ export interface CreateSchemaResponse {
    * @public
    * <p>The status of the schema. </p>
    */
-  SchemaStatus?: SchemaStatus | string;
+  SchemaStatus?: SchemaStatus;
 
   /**
    * @public
@@ -741,7 +1353,7 @@ export interface CreateSchemaResponse {
    * @public
    * <p>The status of the first schema version created.</p>
    */
-  SchemaVersionStatus?: SchemaVersionStatus | string;
+  SchemaVersionStatus?: SchemaVersionStatus;
 }
 
 /**
@@ -856,7 +1468,7 @@ export interface CreateScriptRequest {
    * @public
    * <p>The programming language of the resulting code from the DAG.</p>
    */
-  Language?: Language | string;
+  Language?: Language;
 }
 
 /**
@@ -899,7 +1511,7 @@ export interface CloudWatchEncryption {
    * @public
    * <p>The encryption mode to use for CloudWatch data.</p>
    */
-  CloudWatchEncryptionMode?: CloudWatchEncryptionMode | string;
+  CloudWatchEncryptionMode?: CloudWatchEncryptionMode;
 
   /**
    * @public
@@ -931,7 +1543,7 @@ export interface JobBookmarksEncryption {
    * @public
    * <p>The encryption mode to use for job bookmarks data.</p>
    */
-  JobBookmarksEncryptionMode?: JobBookmarksEncryptionMode | string;
+  JobBookmarksEncryptionMode?: JobBookmarksEncryptionMode;
 
   /**
    * @public
@@ -964,7 +1576,7 @@ export interface S3Encryption {
    * @public
    * <p>The encryption mode to use for Amazon S3 data.</p>
    */
-  S3EncryptionMode?: S3EncryptionMode | string;
+  S3EncryptionMode?: S3EncryptionMode;
 
   /**
    * @public
@@ -1145,7 +1757,7 @@ export interface CreateSessionRequest {
    *             </li>
    *          </ul>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: WorkerType;
 
   /**
    * @public
@@ -1212,7 +1824,7 @@ export interface Session {
    * @public
    * <p>The session status. </p>
    */
-  Status?: SessionStatus | string;
+  Status?: SessionStatus;
 
   /**
    * @public
@@ -1275,6 +1887,42 @@ export interface Session {
    *       The GlueVersion must be greater than 2.0.</p>
    */
   GlueVersion?: string;
+
+  /**
+   * @public
+   * <p>The number of workers of a defined <code>WorkerType</code> to use for the session.</p>
+   */
+  NumberOfWorkers?: number;
+
+  /**
+   * @public
+   * <p>The type of predefined worker that is allocated when a session runs. Accepts a value of <code>G.1X</code>, <code>G.2X</code>, <code>G.4X</code>, or <code>G.8X</code> for Spark sessions. Accepts the value <code>Z.2X</code> for Ray sessions.</p>
+   */
+  WorkerType?: WorkerType;
+
+  /**
+   * @public
+   * <p>The date and time that this session is completed.</p>
+   */
+  CompletedOn?: Date;
+
+  /**
+   * @public
+   * <p>The total time the session ran for.</p>
+   */
+  ExecutionTime?: number;
+
+  /**
+   * @public
+   * <p>The DPUs consumed by the session (formula: ExecutionTime * MaxCapacity).</p>
+   */
+  DPUSeconds?: number;
+
+  /**
+   * @public
+   * <p>The number of minutes when idle before the session times out.</p>
+   */
+  IdleTimeout?: number;
 }
 
 /**
@@ -1310,7 +1958,7 @@ export interface IcebergInput {
    * @public
    * <p>A required metadata operation. Can only be set to <code>CREATE</code>.</p>
    */
-  MetadataOperation: MetadataOperation | string | undefined;
+  MetadataOperation: MetadataOperation | undefined;
 
   /**
    * @public
@@ -1522,6 +2170,46 @@ export interface CreateTableResponse {}
 /**
  * @public
  */
+export interface CreateTableOptimizerRequest {
+  /**
+   * @public
+   * <p>The Catalog ID of the table.</p>
+   */
+  CatalogId: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the database in the catalog in which the table resides.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the table.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of table optimizer. Currently, the only valid value is <code>compaction</code>.</p>
+   */
+  Type: TableOptimizerType | undefined;
+
+  /**
+   * @public
+   * <p>A <code>TableOptimizerConfiguration</code> object representing the configuration of a table optimizer.</p>
+   */
+  TableOptimizerConfiguration: TableOptimizerConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTableOptimizerResponse {}
+
+/**
+ * @public
+ */
 export interface CreateTriggerRequest {
   /**
    * @public
@@ -1539,7 +2227,7 @@ export interface CreateTriggerRequest {
    * @public
    * <p>The type of the new trigger.</p>
    */
-  Type: TriggerType | string | undefined;
+  Type: TriggerType | undefined;
 
   /**
    * @public
@@ -1642,7 +2330,7 @@ export interface ResourceUri {
    * @public
    * <p>The type of the resource.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -1678,7 +2366,7 @@ export interface UserDefinedFunctionInput {
    * @public
    * <p>The owner type.</p>
    */
-  OwnerType?: PrincipalType | string;
+  OwnerType?: PrincipalType;
 
   /**
    * @public
@@ -2231,7 +2919,7 @@ export interface DeleteRegistryResponse {
    * @public
    * <p>The status of the registry. A successful operation will return the <code>Deleting</code> status.</p>
    */
-  Status?: RegistryStatus | string;
+  Status?: RegistryStatus;
 }
 
 /**
@@ -2313,7 +3001,7 @@ export interface DeleteSchemaResponse {
    * @public
    * <p>The status of the schema.</p>
    */
-  Status?: SchemaStatus | string;
+  Status?: SchemaStatus;
 }
 
 /**
@@ -2468,6 +3156,40 @@ export interface DeleteTableRequest {
  * @public
  */
 export interface DeleteTableResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteTableOptimizerRequest {
+  /**
+   * @public
+   * <p>The Catalog ID of the table.</p>
+   */
+  CatalogId: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the database in the catalog in which the table resides.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the table.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of table optimizer.</p>
+   */
+  Type: TableOptimizerType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTableOptimizerResponse {}
 
 /**
  * @public
@@ -2687,7 +3409,7 @@ export interface BlueprintRun {
    *             </li>
    *          </ul>
    */
-  State?: BlueprintRunState | string;
+  State?: BlueprintRunState;
 
   /**
    * @public
@@ -2881,7 +3603,7 @@ export interface CsvClassifier {
    * @public
    * <p>Indicates whether the CSV file contains a header.</p>
    */
-  ContainsHeader?: CsvHeaderOption | string;
+  ContainsHeader?: CsvHeaderOption;
 
   /**
    * @public
@@ -2918,7 +3640,7 @@ export interface CsvClassifier {
    * @public
    * <p>Sets the SerDe for processing CSV in the classifier, which will be applied in the Data Catalog. Valid values are <code>OpenCSVSerDe</code>, <code>LazySimpleSerDe</code>, and <code>None</code>. You can specify the <code>None</code> value when you want the crawler to do the detection.</p>
    */
-  Serde?: CsvSerdeOption | string;
+  Serde?: CsvSerdeOption;
 }
 
 /**
@@ -3419,7 +4141,7 @@ export interface ColumnStatisticsData {
    * @public
    * <p>The type of column statistics data.</p>
    */
-  Type: ColumnStatisticsType | string | undefined;
+  Type: ColumnStatisticsType | undefined;
 
   /**
    * @public
@@ -3583,6 +4305,205 @@ export interface GetColumnStatisticsForTableResponse {
 /**
  * @public
  */
+export interface GetColumnStatisticsTaskRunRequest {
+  /**
+   * @public
+   * <p>The identifier for the particular column statistics task run.</p>
+   */
+  ColumnStatisticsTaskRunId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ColumnStatisticsState = {
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ColumnStatisticsState = (typeof ColumnStatisticsState)[keyof typeof ColumnStatisticsState];
+
+/**
+ * @public
+ * <p>The object that shows the details of the column stats run.</p>
+ */
+export interface ColumnStatisticsTaskRun {
+  /**
+   * @public
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  CustomerId?: string;
+
+  /**
+   * @public
+   * <p>The identifier for the particular column statistics task run.</p>
+   */
+  ColumnStatisticsTaskRunId?: string;
+
+  /**
+   * @public
+   * <p>The database where the table resides.</p>
+   */
+  DatabaseName?: string;
+
+  /**
+   * @public
+   * <p>The name of the table for which column statistics is generated.</p>
+   */
+  TableName?: string;
+
+  /**
+   * @public
+   * <p>A list of the column names. If none is supplied, all column names for the table will be used by default.</p>
+   */
+  ColumnNameList?: string[];
+
+  /**
+   * @public
+   * <p>The ID of the Data Catalog where the table resides. If none is supplied, the Amazon Web Services account ID is used by default.</p>
+   */
+  CatalogID?: string;
+
+  /**
+   * @public
+   * <p>The IAM role that the service assumes to generate statistics.</p>
+   */
+  Role?: string;
+
+  /**
+   * @public
+   * <p>The percentage of rows used to generate statistics. If none is supplied, the entire table will be used to generate stats.</p>
+   */
+  SampleSize?: number;
+
+  /**
+   * @public
+   * <p>Name of the security configuration that is used to encrypt CloudWatch logs for the column stats task run.</p>
+   */
+  SecurityConfiguration?: string;
+
+  /**
+   * @public
+   * <p>The number of workers used to generate column statistics. The job is preconfigured to autoscale up to 25 instances.</p>
+   */
+  NumberOfWorkers?: number;
+
+  /**
+   * @public
+   * <p>The type of workers being used for generating stats. The default is <code>g.1x</code>.</p>
+   */
+  WorkerType?: string;
+
+  /**
+   * @public
+   * <p>The status of the task run.</p>
+   */
+  Status?: ColumnStatisticsState;
+
+  /**
+   * @public
+   * <p>The time that this task was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>The last point in time when this task was modified.</p>
+   */
+  LastUpdated?: Date;
+
+  /**
+   * @public
+   * <p>The start time of the task.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * @public
+   * <p>The end time of the task.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * @public
+   * <p>The error message for the job.</p>
+   */
+  ErrorMessage?: string;
+
+  /**
+   * @public
+   * <p>The calculated DPU usage in seconds for all autoscaled workers.</p>
+   */
+  DPUSeconds?: number;
+}
+
+/**
+ * @public
+ */
+export interface GetColumnStatisticsTaskRunResponse {
+  /**
+   * @public
+   * <p>A <code>ColumnStatisticsTaskRun</code> object representing the details of the column stats run.</p>
+   */
+  ColumnStatisticsTaskRun?: ColumnStatisticsTaskRun;
+}
+
+/**
+ * @public
+ */
+export interface GetColumnStatisticsTaskRunsRequest {
+  /**
+   * @public
+   * <p>The name of the database where the table resides.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the table.</p>
+   */
+  TableName: string | undefined;
+
+  /**
+   * @public
+   * <p>The maximum size of the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>A continuation token, if this is a continuation call.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetColumnStatisticsTaskRunsResponse {
+  /**
+   * @public
+   * <p>A list of column statistics task runs.</p>
+   */
+  ColumnStatisticsTaskRuns?: ColumnStatisticsTaskRun[];
+
+  /**
+   * @public
+   * <p>A continuation token, if not all task runs have yet been returned.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface GetConnectionRequest {
   /**
    * @public
@@ -3629,7 +4550,7 @@ export interface Connection {
    * @public
    * <p>The type of the connection. Currently, SFTP is not supported.</p>
    */
-  ConnectionType?: ConnectionType | string;
+  ConnectionType?: ConnectionType;
 
   /**
    * @public
@@ -3808,7 +4729,7 @@ export interface Connection {
    *             </li>
    *          </ul>
    */
-  ConnectionProperties?: Record<string, string>;
+  ConnectionProperties?: Partial<Record<ConnectionPropertyKey, string>>;
 
   /**
    * @public
@@ -3864,7 +4785,7 @@ export interface GetConnectionsFilter {
    * @public
    * <p>The type of connections to return. Currently, SFTP is not supported.</p>
    */
-  ConnectionType?: ConnectionType | string;
+  ConnectionType?: ConnectionType;
 }
 
 /**
@@ -4257,7 +5178,7 @@ export interface GetDatabasesRequest {
    *             </li>
    *          </ul>
    */
-  ResourceShareType?: ResourceShareType | string;
+  ResourceShareType?: ResourceShareType;
 }
 
 /**
@@ -4344,7 +5265,7 @@ export interface EncryptionAtRest {
    * @public
    * <p>The encryption-at-rest mode for encrypting Data Catalog data.</p>
    */
-  CatalogEncryptionMode: CatalogEncryptionMode | string | undefined;
+  CatalogEncryptionMode: CatalogEncryptionMode | undefined;
 
   /**
    * @public
@@ -4494,6 +5415,18 @@ export interface GetDataQualityResultResponse {
    * <p>A list of <code>DataQualityRuleResult</code> objects representing the results for each rule. </p>
    */
   RuleResults?: DataQualityRuleResult[];
+
+  /**
+   * @public
+   * <p>A list of <code>DataQualityAnalyzerResult</code> objects representing the results for each analyzer. </p>
+   */
+  AnalyzerResults?: DataQualityAnalyzerResult[];
+
+  /**
+   * @public
+   * <p>A list of <code>DataQualityObservation</code> objects representing the observations generated after evaluating the rules and analyzers. </p>
+   */
+  Observations?: DataQualityObservation[];
 }
 
 /**
@@ -4545,7 +5478,7 @@ export interface GetDataQualityRuleRecommendationRunResponse {
    * @public
    * <p>The status for this run.</p>
    */
-  Status?: TaskStatusType | string;
+  Status?: TaskStatusType;
 
   /**
    * @public
@@ -4721,7 +5654,7 @@ export interface GetDataQualityRulesetEvaluationRunResponse {
    * @public
    * <p>The status for this run.</p>
    */
-  Status?: TaskStatusType | string;
+  Status?: TaskStatusType;
 
   /**
    * @public
@@ -5237,7 +6170,7 @@ export interface TaskRunProperties {
    * @public
    * <p>The type of task run.</p>
    */
-  TaskType?: TaskType | string;
+  TaskType?: TaskType;
 
   /**
    * @public
@@ -5284,7 +6217,7 @@ export interface GetMLTaskRunResponse {
    * @public
    * <p>The status for this task run.</p>
    */
-  Status?: TaskStatusType | string;
+  Status?: TaskStatusType;
 
   /**
    * @public
@@ -5339,13 +6272,13 @@ export interface TaskRunFilterCriteria {
    * @public
    * <p>The type of task run.</p>
    */
-  TaskRunType?: TaskType | string;
+  TaskRunType?: TaskType;
 
   /**
    * @public
    * <p>The current status of the task run.</p>
    */
-  Status?: TaskStatusType | string;
+  Status?: TaskStatusType;
 
   /**
    * @public
@@ -5400,14 +6333,14 @@ export interface TaskRunSortCriteria {
    * <p>The column to be used to sort the list of task runs for the machine learning
    *       transform.</p>
    */
-  Column: TaskRunSortColumnType | string | undefined;
+  Column: TaskRunSortColumnType | undefined;
 
   /**
    * @public
    * <p>The sort direction to be used to sort the list of task runs for the machine learning
    *       transform.</p>
    */
-  SortDirection: SortDirectionType | string | undefined;
+  SortDirection: SortDirectionType | undefined;
 }
 
 /**
@@ -5466,7 +6399,7 @@ export interface TaskRun {
    * @public
    * <p>The current status of the requested task run.</p>
    */
-  Status?: TaskStatusType | string;
+  Status?: TaskStatusType;
 
   /**
    * @public
@@ -5655,7 +6588,7 @@ export interface EvaluationMetrics {
    * @public
    * <p>The type of machine learning transform.</p>
    */
-  TransformType: TransformType | string | undefined;
+  TransformType: TransformType | undefined;
 
   /**
    * @public
@@ -5725,7 +6658,7 @@ export interface GetMLTransformResponse {
    * @public
    * <p>The last known status of the transform (to indicate whether it can be used or not). One of "NOT_READY", "READY", or "DELETING".</p>
    */
-  Status?: TransformStatusType | string;
+  Status?: TransformStatusType;
 
   /**
    * @public
@@ -5808,7 +6741,7 @@ export interface GetMLTransformResponse {
    *             </li>
    *          </ul>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: WorkerType;
 
   /**
    * @public
@@ -5851,13 +6784,13 @@ export interface TransformFilterCriteria {
    * <p>The type of machine learning transform that is used to filter the machine learning
    *       transforms.</p>
    */
-  TransformType?: TransformType | string;
+  TransformType?: TransformType;
 
   /**
    * @public
    * <p>Filters the list of machine learning transforms by the last known status of the transforms (to indicate whether a transform can be used or not). One of "NOT_READY", "READY", or "DELETING".</p>
    */
-  Status?: TransformStatusType | string;
+  Status?: TransformStatusType;
 
   /**
    * @public
@@ -5926,14 +6859,14 @@ export interface TransformSortCriteria {
    * <p>The column to be used in the sorting criteria that are associated with the machine
    *       learning transform.</p>
    */
-  Column: TransformSortColumnType | string | undefined;
+  Column: TransformSortColumnType | undefined;
 
   /**
    * @public
    * <p>The sort direction to be used in the sorting criteria that are associated with the machine
    *       learning transform.</p>
    */
-  SortDirection: SortDirectionType | string | undefined;
+  SortDirection: SortDirectionType | undefined;
 }
 
 /**
@@ -5995,7 +6928,7 @@ export interface MLTransform {
    * @public
    * <p>The current status of the machine learning transform.</p>
    */
-  Status?: TransformStatusType | string;
+  Status?: TransformStatusType;
 
   /**
    * @public
@@ -6121,7 +7054,7 @@ export interface MLTransform {
    *             </li>
    *          </ul>
    */
-  WorkerType?: WorkerType | string;
+  WorkerType?: WorkerType;
 
   /**
    * @public
@@ -6282,7 +7215,7 @@ export interface BackfillError {
    * @public
    * <p>The error code for an error that occurred when registering partition indexes for an existing table.</p>
    */
-  Code?: BackfillErrorCode | string;
+  Code?: BackfillErrorCode;
 
   /**
    * @public
@@ -6361,7 +7294,7 @@ export interface PartitionIndexDescriptor {
    *             </li>
    *          </ul>
    */
-  IndexStatus: PartitionIndexStatus | string | undefined;
+  IndexStatus: PartitionIndexStatus | undefined;
 
   /**
    * @public
@@ -6628,7 +7561,7 @@ export interface GetPlanRequest {
    * @public
    * <p>The programming language of the code to perform the mapping.</p>
    */
-  Language?: Language | string;
+  Language?: Language;
 
   /**
    * @public
@@ -6701,7 +7634,7 @@ export interface GetRegistryResponse {
    * @public
    * <p>The status of the registry.</p>
    */
-  Status?: RegistryStatus | string;
+  Status?: RegistryStatus;
 
   /**
    * @public
@@ -6880,13 +7813,13 @@ export interface GetSchemaResponse {
    * @public
    * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
    */
-  DataFormat?: DataFormat | string;
+  DataFormat?: DataFormat;
 
   /**
    * @public
    * <p>The compatibility mode of the schema.</p>
    */
-  Compatibility?: Compatibility | string;
+  Compatibility?: Compatibility;
 
   /**
    * @public
@@ -6910,7 +7843,7 @@ export interface GetSchemaResponse {
    * @public
    * <p>The status of the schema.</p>
    */
-  SchemaStatus?: SchemaStatus | string;
+  SchemaStatus?: SchemaStatus;
 
   /**
    * @public
@@ -6970,13 +7903,13 @@ export interface GetSchemaByDefinitionResponse {
    * @public
    * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
    */
-  DataFormat?: DataFormat | string;
+  DataFormat?: DataFormat;
 
   /**
    * @public
    * <p>The status of the schema version.</p>
    */
-  Status?: SchemaVersionStatus | string;
+  Status?: SchemaVersionStatus;
 
   /**
    * @public
@@ -7054,7 +7987,7 @@ export interface GetSchemaVersionResponse {
    * @public
    * <p>The data format of the schema definition. Currently <code>AVRO</code>, <code>JSON</code> and <code>PROTOBUF</code> are supported.</p>
    */
-  DataFormat?: DataFormat | string;
+  DataFormat?: DataFormat;
 
   /**
    * @public
@@ -7072,7 +8005,7 @@ export interface GetSchemaVersionResponse {
    * @public
    * <p>The status of the schema version. </p>
    */
-  Status?: SchemaVersionStatus | string;
+  Status?: SchemaVersionStatus;
 
   /**
    * @public
@@ -7128,7 +8061,7 @@ export interface GetSchemaVersionsDiffInput {
    * @public
    * <p>Refers to <code>SYNTAX_DIFF</code>, which is the currently supported diff type.</p>
    */
-  SchemaDiffType: SchemaDiffType | string | undefined;
+  SchemaDiffType: SchemaDiffType | undefined;
 }
 
 /**
@@ -7204,723 +8137,3 @@ export interface GetSecurityConfigurationsRequest {
    */
   NextToken?: string;
 }
-
-/**
- * @public
- */
-export interface GetSecurityConfigurationsResponse {
-  /**
-   * @public
-   * <p>A list of security configurations.</p>
-   */
-  SecurityConfigurations?: SecurityConfiguration[];
-
-  /**
-   * @public
-   * <p>A continuation token, if there are more security
-   *       configurations to return.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface GetSessionRequest {
-  /**
-   * @public
-   * <p>The ID of the session. </p>
-   */
-  Id: string | undefined;
-
-  /**
-   * @public
-   * <p>The origin of the request. </p>
-   */
-  RequestOrigin?: string;
-}
-
-/**
- * @public
- */
-export interface GetSessionResponse {
-  /**
-   * @public
-   * <p>The session object is returned in the response.</p>
-   */
-  Session?: Session;
-}
-
-/**
- * @public
- */
-export interface GetStatementRequest {
-  /**
-   * @public
-   * <p>The Session ID of the statement.</p>
-   */
-  SessionId: string | undefined;
-
-  /**
-   * @public
-   * <p>The Id of the statement.</p>
-   */
-  Id: number | undefined;
-
-  /**
-   * @public
-   * <p>The origin of the request.</p>
-   */
-  RequestOrigin?: string;
-}
-
-/**
- * @public
- * <p>The code execution output in JSON format.</p>
- */
-export interface StatementOutputData {
-  /**
-   * @public
-   * <p>The code execution output in text format.</p>
-   */
-  TextPlain?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const StatementState = {
-  AVAILABLE: "AVAILABLE",
-  CANCELLED: "CANCELLED",
-  CANCELLING: "CANCELLING",
-  ERROR: "ERROR",
-  RUNNING: "RUNNING",
-  WAITING: "WAITING",
-} as const;
-
-/**
- * @public
- */
-export type StatementState = (typeof StatementState)[keyof typeof StatementState];
-
-/**
- * @public
- * <p>The code execution output in JSON format.</p>
- */
-export interface StatementOutput {
-  /**
-   * @public
-   * <p>The code execution output.</p>
-   */
-  Data?: StatementOutputData;
-
-  /**
-   * @public
-   * <p>The execution count of the output.</p>
-   */
-  ExecutionCount?: number;
-
-  /**
-   * @public
-   * <p>The status of the code execution output.</p>
-   */
-  Status?: StatementState | string;
-
-  /**
-   * @public
-   * <p>The name of the error in the output.</p>
-   */
-  ErrorName?: string;
-
-  /**
-   * @public
-   * <p>The error value of the output.</p>
-   */
-  ErrorValue?: string;
-
-  /**
-   * @public
-   * <p>The traceback of the output.</p>
-   */
-  Traceback?: string[];
-}
-
-/**
- * @public
- * <p>The statement or request for a particular action to occur in a session.</p>
- */
-export interface Statement {
-  /**
-   * @public
-   * <p>The ID of the statement.</p>
-   */
-  Id?: number;
-
-  /**
-   * @public
-   * <p>The execution code of the statement.</p>
-   */
-  Code?: string;
-
-  /**
-   * @public
-   * <p>The state while request is actioned.</p>
-   */
-  State?: StatementState | string;
-
-  /**
-   * @public
-   * <p>The output in JSON.</p>
-   */
-  Output?: StatementOutput;
-
-  /**
-   * @public
-   * <p>The code execution progress.</p>
-   */
-  Progress?: number;
-
-  /**
-   * @public
-   * <p>The unix time and date that the job definition was started.</p>
-   */
-  StartedOn?: number;
-
-  /**
-   * @public
-   * <p>The unix time and date that the job definition was completed.</p>
-   */
-  CompletedOn?: number;
-}
-
-/**
- * @public
- */
-export interface GetStatementResponse {
-  /**
-   * @public
-   * <p>Returns the statement.</p>
-   */
-  Statement?: Statement;
-}
-
-/**
- * @public
- */
-export interface GetTableRequest {
-  /**
-   * @public
-   * <p>The ID of the Data Catalog where the table resides. If none is provided, the Amazon Web Services account
-   *       ID is used by default.</p>
-   */
-  CatalogId?: string;
-
-  /**
-   * @public
-   * <p>The name of the database in the catalog in which the table resides.
-   *       For Hive compatibility, this name is entirely lowercase.</p>
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * @public
-   * <p>The name of the table for which to retrieve the definition. For Hive
-   *       compatibility, this name is entirely lowercase.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * @public
-   * <p>The transaction ID at which to read the table contents. </p>
-   */
-  TransactionId?: string;
-
-  /**
-   * @public
-   * <p>The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with <code>TransactionId</code>.</p>
-   */
-  QueryAsOfTime?: Date;
-}
-
-/**
- * @public
- * <p>A table that points to an entity outside the Glue Data Catalog.</p>
- */
-export interface FederatedTable {
-  /**
-   * @public
-   * <p>A unique identifier for the federated table.</p>
-   */
-  Identifier?: string;
-
-  /**
-   * @public
-   * <p>A unique identifier for the federated database.</p>
-   */
-  DatabaseIdentifier?: string;
-
-  /**
-   * @public
-   * <p>The name of the connection to the external metastore.</p>
-   */
-  ConnectionName?: string;
-}
-
-/**
- * @public
- * <p>Represents a collection of related data organized in columns and rows.</p>
- */
-export interface Table {
-  /**
-   * @public
-   * <p>The table name. For Hive compatibility, this must be entirely
-   *       lowercase.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * @public
-   * <p>The name of the database where the table metadata resides.
-   *       For Hive compatibility, this must be all lowercase.</p>
-   */
-  DatabaseName?: string;
-
-  /**
-   * @public
-   * <p>A description of the table.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>The owner of the table.</p>
-   */
-  Owner?: string;
-
-  /**
-   * @public
-   * <p>The time when the table definition was created in the Data Catalog.</p>
-   */
-  CreateTime?: Date;
-
-  /**
-   * @public
-   * <p>The last time that the table was updated.</p>
-   */
-  UpdateTime?: Date;
-
-  /**
-   * @public
-   * <p>The last time that the table was accessed. This is usually taken from HDFS, and might not
-   *       be reliable.</p>
-   */
-  LastAccessTime?: Date;
-
-  /**
-   * @public
-   * <p>The last time that column statistics were computed for this table.</p>
-   */
-  LastAnalyzedTime?: Date;
-
-  /**
-   * @public
-   * <p>The retention time for this table.</p>
-   */
-  Retention?: number;
-
-  /**
-   * @public
-   * <p>A storage descriptor containing information about the physical storage
-   *       of this table.</p>
-   */
-  StorageDescriptor?: StorageDescriptor;
-
-  /**
-   * @public
-   * <p>A list of columns by which the table is partitioned. Only primitive
-   *       types are supported as partition keys.</p>
-   *          <p>When you create a table used by Amazon Athena, and you do not specify any
-   *         <code>partitionKeys</code>, you must at least set the value of <code>partitionKeys</code> to
-   *       an empty list. For example:</p>
-   *          <p>
-   *             <code>"PartitionKeys": []</code>
-   *          </p>
-   */
-  PartitionKeys?: Column[];
-
-  /**
-   * @public
-   * <p>Included for Apache Hive compatibility. Not used in the normal course of Glue operations.
-   *     If the table is a <code>VIRTUAL_VIEW</code>, certain Athena configuration encoded in base64.</p>
-   */
-  ViewOriginalText?: string;
-
-  /**
-   * @public
-   * <p>Included for Apache Hive compatibility. Not used in the normal course of Glue operations.</p>
-   */
-  ViewExpandedText?: string;
-
-  /**
-   * @public
-   * <p>The type of this table.
-   *       Glue will create tables with the <code>EXTERNAL_TABLE</code> type.
-   *       Other services, such as Athena, may create tables with additional table types.
-   *     </p>
-   *          <p>Glue related table types:</p>
-   *          <dl>
-   *             <dt>EXTERNAL_TABLE</dt>
-   *             <dd>
-   *                <p>Hive compatible attribute - indicates a non-Hive managed table.</p>
-   *             </dd>
-   *             <dt>GOVERNED</dt>
-   *             <dd>
-   *                <p>Used by Lake Formation.
-   *             The Glue Data Catalog understands <code>GOVERNED</code>.</p>
-   *             </dd>
-   *          </dl>
-   */
-  TableType?: string;
-
-  /**
-   * @public
-   * <p>These key-value pairs define properties associated with the table.</p>
-   */
-  Parameters?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>The person or entity who created the table.</p>
-   */
-  CreatedBy?: string;
-
-  /**
-   * @public
-   * <p>Indicates whether the table has been registered with Lake Formation.</p>
-   */
-  IsRegisteredWithLakeFormation?: boolean;
-
-  /**
-   * @public
-   * <p>A <code>TableIdentifier</code> structure that describes a target table for resource linking.</p>
-   */
-  TargetTable?: TableIdentifier;
-
-  /**
-   * @public
-   * <p>The ID of the Data Catalog in which the table resides.</p>
-   */
-  CatalogId?: string;
-
-  /**
-   * @public
-   * <p>The ID of the table version.</p>
-   */
-  VersionId?: string;
-
-  /**
-   * @public
-   * <p>A <code>FederatedTable</code> structure that references an entity outside the Glue Data Catalog.</p>
-   */
-  FederatedTable?: FederatedTable;
-}
-
-/**
- * @public
- */
-export interface GetTableResponse {
-  /**
-   * @public
-   * <p>The <code>Table</code> object that defines the specified table.</p>
-   */
-  Table?: Table;
-}
-
-/**
- * @public
- */
-export interface GetTablesRequest {
-  /**
-   * @public
-   * <p>The ID of the Data Catalog where the tables reside. If none is provided, the Amazon Web Services account
-   *       ID is used by default.</p>
-   */
-  CatalogId?: string;
-
-  /**
-   * @public
-   * <p>The database in the catalog whose tables to list. For Hive
-   *       compatibility, this name is entirely lowercase.</p>
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * @public
-   * <p>A regular expression pattern. If present, only those tables
-   *       whose names match the pattern are returned.</p>
-   */
-  Expression?: string;
-
-  /**
-   * @public
-   * <p>A continuation token, included if this is a continuation call.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The maximum number of tables to return in a single response.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>The transaction ID at which to read the table contents.</p>
-   */
-  TransactionId?: string;
-
-  /**
-   * @public
-   * <p>The time as of when to read the table contents. If not set, the most recent transaction commit time will be used. Cannot be specified along with <code>TransactionId</code>.</p>
-   */
-  QueryAsOfTime?: Date;
-}
-
-/**
- * @public
- */
-export interface GetTablesResponse {
-  /**
-   * @public
-   * <p>A list of the requested <code>Table</code> objects.</p>
-   */
-  TableList?: Table[];
-
-  /**
-   * @public
-   * <p>A continuation token, present if the current list segment is
-   *       not the last.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface GetTableVersionRequest {
-  /**
-   * @public
-   * <p>The ID of the Data Catalog where the tables reside. If none is provided, the Amazon Web Services account
-   *       ID is used by default.</p>
-   */
-  CatalogId?: string;
-
-  /**
-   * @public
-   * <p>The database in the catalog in which the table resides. For Hive
-   *       compatibility, this name is entirely lowercase.</p>
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * @public
-   * <p>The name of the table. For Hive compatibility,
-   *       this name is entirely lowercase.</p>
-   */
-  TableName: string | undefined;
-
-  /**
-   * @public
-   * <p>The ID value of the table version to be retrieved. A <code>VersionID</code> is a string representation of an integer. Each version is incremented by 1. </p>
-   */
-  VersionId?: string;
-}
-
-/**
- * @public
- * <p>Specifies a version of a table.</p>
- */
-export interface TableVersion {
-  /**
-   * @public
-   * <p>The table in question.</p>
-   */
-  Table?: Table;
-
-  /**
-   * @public
-   * <p>The ID value that identifies this table version. A <code>VersionId</code> is a string representation of an integer. Each version is incremented by 1.</p>
-   */
-  VersionId?: string;
-}
-
-/**
- * @public
- */
-export interface GetTableVersionResponse {
-  /**
-   * @public
-   * <p>The requested table version.</p>
-   */
-  TableVersion?: TableVersion;
-}
-
-/**
- * @public
- */
-export interface GetTableVersionsRequest {
-  /**
-   * @public
-   * <p>The ID of the Data Catalog where the tables reside. If none is provided, the Amazon Web Services account
-   *       ID is used by default.</p>
-   */
-  CatalogId?: string;
-
-  /**
-   * @public
-   * <p>The database in the catalog in which the table resides. For Hive
-   *       compatibility, this name is entirely lowercase.</p>
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * @public
-   * <p>The name of the table. For Hive
-   *       compatibility, this name is entirely lowercase.</p>
-   */
-  TableName: string | undefined;
-
-  /**
-   * @public
-   * <p>A continuation token, if this is not the first call.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The maximum number of table versions to return in one response.</p>
-   */
-  MaxResults?: number;
-}
-
-/**
- * @public
- */
-export interface GetTableVersionsResponse {
-  /**
-   * @public
-   * <p>A list of strings identifying available versions of the
-   *       specified table.</p>
-   */
-  TableVersions?: TableVersion[];
-
-  /**
-   * @public
-   * <p>A continuation token, if the list of available versions does
-   *       not include the last one.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface GetTagsRequest {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the resource for which to retrieve tags.</p>
-   */
-  ResourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetTagsResponse {
-  /**
-   * @public
-   * <p>The requested tags.</p>
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * @public
- */
-export interface GetTriggerRequest {
-  /**
-   * @public
-   * <p>The name of the trigger to retrieve.</p>
-   */
-  Name: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetTriggerResponse {
-  /**
-   * @public
-   * <p>The requested trigger definition.</p>
-   */
-  Trigger?: Trigger;
-}
-
-/**
- * @public
- */
-export interface GetTriggersRequest {
-  /**
-   * @public
-   * <p>A continuation token, if this is a continuation call.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The name of the job to retrieve triggers for. The trigger that can start this job is
-   *       returned, and if there is no such trigger, all triggers are returned.</p>
-   */
-  DependentJobName?: string;
-
-  /**
-   * @public
-   * <p>The maximum size of the response.</p>
-   */
-  MaxResults?: number;
-}
-
-/**
- * @public
- */
-export interface GetTriggersResponse {
-  /**
-   * @public
-   * <p>A list of triggers for the specified job.</p>
-   */
-  Triggers?: Trigger[];
-
-  /**
-   * @public
-   * <p>A continuation token, if not all the requested triggers
-   *       have yet been returned.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const PermissionType = {
-  CELL_FILTER_PERMISSION: "CELL_FILTER_PERMISSION",
-  COLUMN_PERMISSION: "COLUMN_PERMISSION",
-  NESTED_CELL_PERMISSION: "NESTED_CELL_PERMISSION",
-  NESTED_PERMISSION: "NESTED_PERMISSION",
-} as const;
-
-/**
- * @public
- */
-export type PermissionType = (typeof PermissionType)[keyof typeof PermissionType];

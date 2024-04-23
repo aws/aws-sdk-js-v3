@@ -70,6 +70,11 @@ import {
   DescribeFlowCommandOutput,
 } from "./commands/DescribeFlowCommand";
 import {
+  DescribeFlowSourceMetadataCommand,
+  DescribeFlowSourceMetadataCommandInput,
+  DescribeFlowSourceMetadataCommandOutput,
+} from "./commands/DescribeFlowSourceMetadataCommand";
+import {
   DescribeGatewayCommand,
   DescribeGatewayCommandInput,
   DescribeGatewayCommandOutput,
@@ -238,6 +243,7 @@ const commands = {
   DeregisterGatewayInstanceCommand,
   DescribeBridgeCommand,
   DescribeFlowCommand,
+  DescribeFlowSourceMetadataCommand,
   DescribeGatewayCommand,
   DescribeGatewayInstanceCommand,
   DescribeOfferingCommand,
@@ -478,6 +484,23 @@ export interface MediaConnect {
     args: DescribeFlowCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeFlowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeFlowSourceMetadataCommand}
+   */
+  describeFlowSourceMetadata(
+    args: DescribeFlowSourceMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFlowSourceMetadataCommandOutput>;
+  describeFlowSourceMetadata(
+    args: DescribeFlowSourceMetadataCommandInput,
+    cb: (err: any, data?: DescribeFlowSourceMetadataCommandOutput) => void
+  ): void;
+  describeFlowSourceMetadata(
+    args: DescribeFlowSourceMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFlowSourceMetadataCommandOutput) => void
   ): void;
 
   /**

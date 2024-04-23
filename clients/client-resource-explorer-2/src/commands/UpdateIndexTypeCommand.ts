@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateIndexTypeInput, UpdateIndexTypeOutput } from "../models/models_0";
 import { de_UpdateIndexTypeCommand, se_UpdateIndexTypeCommand } from "../protocols/Aws_restJson1";
 import {
@@ -129,9 +121,13 @@ export interface UpdateIndexTypeCommandOutput extends UpdateIndexTypeOutput, __M
  *             permissions.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request failed because either you specified parameters that didn’t match the
+ *  <p>If you attempted to create a view, then the request failed because either you specified parameters that didn’t match the
  *             original request, or you attempted to create a view with a name that already exists in
  *             this Amazon Web Services Region.</p>
+ *          <p>If you attempted to create an index, then the request failed because either you specified parameters that didn't match
+ *             the original request, or an index already exists in the current Amazon Web Services Region.</p>
+ *          <p>If you attempted to update an index type to <code>AGGREGATOR</code>, then the request failed because you already
+ *             have an <code>AGGREGATOR</code> index in a different Amazon Web Services Region.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request failed because of internal service error. Try your request again
@@ -146,8 +142,8 @@ export interface UpdateIndexTypeCommandOutput extends UpdateIndexTypeOutput, __M
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request failed because you exceeded a rate limit for this operation. For more
- *             information, see <a href="https://docs.aws.amazon.com/arexug/mainline/quotas.html">Quotas
- *                 for Resource Explorer</a>.</p>
+ *             information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html">Quotas for
+ *             Resource Explorer</a>.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
@@ -157,78 +153,26 @@ export interface UpdateIndexTypeCommandOutput extends UpdateIndexTypeOutput, __M
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
  */
-export class UpdateIndexTypeCommand extends $Command<
-  UpdateIndexTypeCommandInput,
-  UpdateIndexTypeCommandOutput,
-  ResourceExplorer2ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateIndexTypeCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ResourceExplorer2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateIndexTypeCommandInput, UpdateIndexTypeCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateIndexTypeCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ResourceExplorer2Client";
-    const commandName = "UpdateIndexTypeCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateIndexTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateIndexTypeCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateIndexTypeCommandOutput> {
-    return de_UpdateIndexTypeCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateIndexTypeCommand extends $Command
+  .classBuilder<
+    UpdateIndexTypeCommandInput,
+    UpdateIndexTypeCommandOutput,
+    ResourceExplorer2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ResourceExplorer2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ResourceExplorer", "UpdateIndexType", {})
+  .n("ResourceExplorer2Client", "UpdateIndexTypeCommand")
+  .f(void 0, void 0)
+  .ser(se_UpdateIndexTypeCommand)
+  .de(de_UpdateIndexTypeCommand)
+  .build() {}

@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+
 import { StreamingBlobTypes } from "@smithy/types";
 
 import { SageMakerGeospatialServiceException as __BaseException } from "./SageMakerGeospatialServiceException";
@@ -360,7 +361,7 @@ export interface Operation {
    * @public
    * <p>The type of the operation.</p>
    */
-  OutputType?: OutputType | string;
+  OutputType?: OutputType;
 }
 
 /**
@@ -411,7 +412,7 @@ export interface CloudRemovalConfigInput {
    * @public
    * <p>The name of the algorithm used for cloud removal.</p>
    */
-  AlgorithmName?: AlgorithmNameCloudRemoval | string;
+  AlgorithmName?: AlgorithmNameCloudRemoval;
 
   /**
    * @public
@@ -553,7 +554,7 @@ export interface RasterDataCollectionMetadata {
    * @public
    * <p>The type of raster data collection.</p>
    */
-  Type: DataCollectionType | string | undefined;
+  Type: DataCollectionType | undefined;
 
   /**
    * @public
@@ -834,7 +835,7 @@ export interface ExportEarthObservationJobOutput {
    * @public
    * <p>The status of the results of the Earth Observation job being exported.</p>
    */
-  ExportStatus: EarthObservationJobExportStatus | string | undefined;
+  ExportStatus: EarthObservationJobExportStatus | undefined;
 
   /**
    * @public
@@ -924,7 +925,7 @@ export interface EarthObservationJobErrorDetails {
    * @public
    * <p>The type of error in an Earth Observation job.</p>
    */
-  Type?: EarthObservationJobErrorType | string;
+  Type?: EarthObservationJobErrorType;
 
   /**
    * @public
@@ -962,7 +963,7 @@ export interface ExportErrorDetailsOutput {
    * @public
    * <p>The type of error in an export EarthObservationJob operation.</p>
    */
-  Type?: ExportErrorType | string;
+  Type?: ExportErrorType;
 
   /**
    * @public
@@ -1061,7 +1062,7 @@ export interface PlatformInput {
    * @public
    * <p>The ComparisonOperator to use with PlatformInput.</p>
    */
-  ComparisonOperator?: ComparisonOperator | string;
+  ComparisonOperator?: ComparisonOperator;
 }
 
 /**
@@ -1291,7 +1292,7 @@ export interface PropertyFilters {
    * @public
    * <p>The Logical Operator used to combine the Property Filters.</p>
    */
-  LogicalOperator?: LogicalOperator | string;
+  LogicalOperator?: LogicalOperator;
 }
 
 /**
@@ -1377,7 +1378,7 @@ export interface GeoMosaicConfigInput {
    * @public
    * <p>The name of the algorithm being used for geomosaic.</p>
    */
-  AlgorithmName?: AlgorithmNameGeoMosaic | string;
+  AlgorithmName?: AlgorithmNameGeoMosaic;
 
   /**
    * @public
@@ -1424,7 +1425,7 @@ export interface UserDefined {
    * @public
    * <p>The units for output resolution of the result.</p>
    */
-  Unit: Unit | string | undefined;
+  Unit: Unit | undefined;
 }
 
 /**
@@ -1457,7 +1458,7 @@ export interface ResamplingConfigInput {
    * @public
    * <p>The name of the algorithm used for resampling.</p>
    */
-  AlgorithmName?: AlgorithmNameResampling | string;
+  AlgorithmName?: AlgorithmNameResampling;
 
   /**
    * @public
@@ -1499,7 +1500,7 @@ export interface OutputResolutionStackInput {
    * @public
    * <p>A string value representing Predefined Output Resolution for a stacking operation. Allowed values are <code>HIGHEST</code>, <code>LOWEST</code>, and <code>AVERAGE</code>.</p>
    */
-  Predefined?: PredefinedResolution | string;
+  Predefined?: PredefinedResolution;
 
   /**
    * @public
@@ -1581,13 +1582,13 @@ export interface TemporalStatisticsConfigInput {
    * @public
    * <p>The input for the temporal statistics grouping by time frequency option.</p>
    */
-  GroupBy?: GroupBy | string;
+  GroupBy?: GroupBy;
 
   /**
    * @public
    * <p>The list of the statistics method options.</p>
    */
-  Statistics: (TemporalStatistics | string)[] | undefined;
+  Statistics: TemporalStatistics[] | undefined;
 
   /**
    * @public
@@ -1647,7 +1648,7 @@ export interface ZonalStatisticsConfigInput {
    * @public
    * <p>List of zonal statistics to compute.</p>
    */
-  Statistics: (ZonalStatistics | string)[] | undefined;
+  Statistics: ZonalStatistics[] | undefined;
 
   /**
    * @public
@@ -1915,7 +1916,7 @@ export interface OutputBand {
    * @public
    * <p>The datatype of the output band.</p>
    */
-  OutputDataType: OutputType | string | undefined;
+  OutputDataType: OutputType | undefined;
 }
 
 /**
@@ -1994,7 +1995,7 @@ export interface GetEarthObservationJobOutput {
    * @public
    * <p>The status of a previously initiated Earth Observation job.</p>
    */
-  Status: EarthObservationJobStatus | string | undefined;
+  Status: EarthObservationJobStatus | undefined;
 
   /**
    * @public
@@ -2036,7 +2037,7 @@ export interface GetEarthObservationJobOutput {
    * @public
    * <p>The status of the Earth Observation job.</p>
    */
-  ExportStatus?: EarthObservationJobExportStatus | string;
+  ExportStatus?: EarthObservationJobExportStatus;
 
   /**
    * @public
@@ -2103,7 +2104,7 @@ export interface GetTileInput {
    * @public
    * <p>Determines what part of the Earth Observation job to tile. 'INPUT' or 'OUTPUT' are the valid options.</p>
    */
-  Target: TargetOptions | string | undefined;
+  Target: TargetOptions | undefined;
 
   /**
    * @public
@@ -2139,7 +2140,7 @@ export interface GetTileInput {
    * @public
    * <p>The output data type of the tile operation.</p>
    */
-  OutputDataType?: OutputType | string;
+  OutputDataType?: OutputType;
 
   /**
    * @public
@@ -2187,13 +2188,13 @@ export interface ListEarthObservationJobInput {
    * @public
    * <p>A filter that retrieves only jobs with a specific status.</p>
    */
-  StatusEquals?: EarthObservationJobStatus | string;
+  StatusEquals?: EarthObservationJobStatus;
 
   /**
    * @public
    * <p>An optional value that specifies whether you want the results sorted in <code>Ascending</code> or <code>Descending</code> order.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -2248,7 +2249,7 @@ export interface ListEarthObservationJobOutputConfig {
    * @public
    * <p>The status of the list of the Earth Observation jobs.</p>
    */
-  Status: EarthObservationJobStatus | string | undefined;
+  Status: EarthObservationJobStatus | undefined;
 
   /**
    * @public
@@ -2427,7 +2428,7 @@ export interface StartEarthObservationJobOutput {
    * @public
    * <p>The status of the Earth Observation job.</p>
    */
-  Status: EarthObservationJobStatus | string | undefined;
+  Status: EarthObservationJobStatus | undefined;
 
   /**
    * @public
@@ -2578,7 +2579,7 @@ export interface ExportVectorEnrichmentJobOutput {
    * @public
    * <p>The status of the results the Vector Enrichment job being exported.</p>
    */
-  ExportStatus: VectorEnrichmentJobExportStatus | string | undefined;
+  ExportStatus: VectorEnrichmentJobExportStatus | undefined;
 
   /**
    * @public
@@ -2638,7 +2639,7 @@ export interface GetRasterDataCollectionOutput {
    * @public
    * <p>The raster data collection type.</p>
    */
-  Type: DataCollectionType | string | undefined;
+  Type: DataCollectionType | undefined;
 
   /**
    * @public
@@ -2712,7 +2713,7 @@ export interface VectorEnrichmentJobErrorDetails {
    * @public
    * <p>The type of error generated during the Vector Enrichment job.</p>
    */
-  ErrorType?: VectorEnrichmentJobErrorType | string;
+  ErrorType?: VectorEnrichmentJobErrorType;
 
   /**
    * @public
@@ -2746,7 +2747,7 @@ export interface VectorEnrichmentJobExportErrorDetails {
    * @public
    * <p>The output error details for an Export operation on a Vector Enrichment job.</p>
    */
-  Type?: VectorEnrichmentJobExportErrorType | string;
+  Type?: VectorEnrichmentJobExportErrorType;
 
   /**
    * @public
@@ -2818,7 +2819,7 @@ export interface VectorEnrichmentJobInputConfig {
    * @public
    * <p>The input structure that defines the data source file type.</p>
    */
-  DocumentType: VectorEnrichmentJobDocumentType | string | undefined;
+  DocumentType: VectorEnrichmentJobDocumentType | undefined;
 
   /**
    * @public
@@ -2978,7 +2979,7 @@ export interface GetVectorEnrichmentJobOutput {
    * @public
    * <p>The type of the Vector Enrichment job being initiated.</p>
    */
-  Type: VectorEnrichmentJobType | string | undefined;
+  Type: VectorEnrichmentJobType | undefined;
 
   /**
    * @public
@@ -3002,7 +3003,7 @@ export interface GetVectorEnrichmentJobOutput {
    * @public
    * <p>The status of the initiated Vector Enrichment job.</p>
    */
-  Status: VectorEnrichmentJobStatus | string | undefined;
+  Status: VectorEnrichmentJobStatus | undefined;
 
   /**
    * @public
@@ -3038,7 +3039,7 @@ export interface GetVectorEnrichmentJobOutput {
    * @public
    * <p>The export status of the Vector Enrichment job being initiated.</p>
    */
-  ExportStatus?: VectorEnrichmentJobExportStatus | string;
+  ExportStatus?: VectorEnrichmentJobExportStatus;
 
   /**
    * @public
@@ -3209,7 +3210,7 @@ export interface ListVectorEnrichmentJobInput {
    * @public
    * <p>An optional value that specifies whether you want the results sorted in <code>Ascending</code> or <code>Descending</code> order.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -3252,7 +3253,7 @@ export interface ListVectorEnrichmentJobOutputConfig {
    * @public
    * <p>The type of the list of Vector Enrichment jobs.</p>
    */
-  Type: VectorEnrichmentJobType | string | undefined;
+  Type: VectorEnrichmentJobType | undefined;
 
   /**
    * @public
@@ -3270,7 +3271,7 @@ export interface ListVectorEnrichmentJobOutputConfig {
    * @public
    * <p>The status of the Vector Enrichment jobs list. </p>
    */
-  Status: VectorEnrichmentJobStatus | string | undefined;
+  Status: VectorEnrichmentJobStatus | undefined;
 
   /**
    * @public
@@ -3487,7 +3488,7 @@ export interface StartVectorEnrichmentJobOutput {
    * @public
    * <p>The type of the Vector Enrichment job.</p>
    */
-  Type: VectorEnrichmentJobType | string | undefined;
+  Type: VectorEnrichmentJobType | undefined;
 
   /**
    * @public
@@ -3505,7 +3506,7 @@ export interface StartVectorEnrichmentJobOutput {
    * @public
    * <p>The status of the Vector Enrichment job being started.</p>
    */
-  Status: VectorEnrichmentJobStatus | string | undefined;
+  Status: VectorEnrichmentJobStatus | undefined;
 
   /**
    * @public

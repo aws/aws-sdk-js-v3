@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreatePipelineRequest, CreatePipelineResponse } from "../models/models_1";
 import { de_CreatePipelineCommand, se_CreatePipelineCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
@@ -79,6 +71,10 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  * @see {@link CreatePipelineCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an
+ *       <code>Experiment</code> or <code>Artifact</code>.</p>
+ *
  * @throws {@link ResourceLimitExceeded} (client fault)
  *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
  *             training jobs created. </p>
@@ -90,79 +86,26 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
-export class CreatePipelineCommand extends $Command<
-  CreatePipelineCommandInput,
-  CreatePipelineCommandOutput,
-  SageMakerClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreatePipelineCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SageMakerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreatePipelineCommandInput, CreatePipelineCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreatePipelineCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SageMakerClient";
-    const commandName = "CreatePipelineCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreatePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreatePipelineCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePipelineCommandOutput> {
-    return de_CreatePipelineCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreatePipelineCommand extends $Command
+  .classBuilder<
+    CreatePipelineCommandInput,
+    CreatePipelineCommandOutput,
+    SageMakerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("SageMaker", "CreatePipeline", {})
+  .n("SageMakerClient", "CreatePipelineCommand")
+  .f(void 0, void 0)
+  .ser(se_CreatePipelineCommand)
+  .de(de_CreatePipelineCommand)
+  .build() {}

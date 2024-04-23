@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import { GetCustomDataIdentifierRequest, GetCustomDataIdentifierResponse } from "../models/models_0";
 import { de_GetCustomDataIdentifierCommand, se_GetCustomDataIdentifierCommand } from "../protocols/Aws_restJson1";
@@ -107,79 +99,26 @@ export interface GetCustomDataIdentifierCommandOutput extends GetCustomDataIdent
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
  */
-export class GetCustomDataIdentifierCommand extends $Command<
-  GetCustomDataIdentifierCommandInput,
-  GetCustomDataIdentifierCommandOutput,
-  Macie2ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetCustomDataIdentifierCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: Macie2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetCustomDataIdentifierCommandInput, GetCustomDataIdentifierCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetCustomDataIdentifierCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "Macie2Client";
-    const commandName = "GetCustomDataIdentifierCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetCustomDataIdentifierCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetCustomDataIdentifierCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCustomDataIdentifierCommandOutput> {
-    return de_GetCustomDataIdentifierCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetCustomDataIdentifierCommand extends $Command
+  .classBuilder<
+    GetCustomDataIdentifierCommandInput,
+    GetCustomDataIdentifierCommandOutput,
+    Macie2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("Macie2", "GetCustomDataIdentifier", {})
+  .n("Macie2Client", "GetCustomDataIdentifierCommand")
+  .f(void 0, void 0)
+  .ser(se_GetCustomDataIdentifierCommand)
+  .de(de_GetCustomDataIdentifierCommand)
+  .build() {}

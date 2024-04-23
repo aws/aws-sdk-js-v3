@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AlexaForBusinessClient` and
-the commands you need, for example `ApproveSkillCommand`:
+the commands you need, for example `ListSkillsCommand`:
 
 ```js
 // ES5 example
-const { AlexaForBusinessClient, ApproveSkillCommand } = require("@aws-sdk/client-alexa-for-business");
+const { AlexaForBusinessClient, ListSkillsCommand } = require("@aws-sdk/client-alexa-for-business");
 ```
 
 ```ts
 // ES6+ example
-import { AlexaForBusinessClient, ApproveSkillCommand } from "@aws-sdk/client-alexa-for-business";
+import { AlexaForBusinessClient, ListSkillsCommand } from "@aws-sdk/client-alexa-for-business";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new AlexaForBusinessClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ApproveSkillCommand(params);
+const command = new ListSkillsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.AlexaForBusiness({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.approveSkill(params);
+  const data = await client.listSkills(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .approveSkill(params)
+  .listSkills(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.approveSkill(params, (err, data) => {
+client.listSkills(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -162,7 +162,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -208,7 +208,7 @@ see LICENSE for more information.
 ApproveSkill
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/approveskillcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/approveskillcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/approveskillcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/ApproveSkillCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/ApproveSkillCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/ApproveSkillCommandOutput/)
 
 </details>
 <details>
@@ -216,7 +216,7 @@ ApproveSkill
 AssociateContactWithAddressBook
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/associatecontactwithaddressbookcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/associatecontactwithaddressbookcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/associatecontactwithaddressbookcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/AssociateContactWithAddressBookCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/AssociateContactWithAddressBookCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/AssociateContactWithAddressBookCommandOutput/)
 
 </details>
 <details>
@@ -224,7 +224,7 @@ AssociateContactWithAddressBook
 AssociateDeviceWithNetworkProfile
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/associatedevicewithnetworkprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/associatedevicewithnetworkprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/associatedevicewithnetworkprofilecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/AssociateDeviceWithNetworkProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/AssociateDeviceWithNetworkProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/AssociateDeviceWithNetworkProfileCommandOutput/)
 
 </details>
 <details>
@@ -232,7 +232,7 @@ AssociateDeviceWithNetworkProfile
 AssociateDeviceWithRoom
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/associatedevicewithroomcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/associatedevicewithroomcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/associatedevicewithroomcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/AssociateDeviceWithRoomCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/AssociateDeviceWithRoomCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/AssociateDeviceWithRoomCommandOutput/)
 
 </details>
 <details>
@@ -240,7 +240,7 @@ AssociateDeviceWithRoom
 AssociateSkillGroupWithRoom
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/associateskillgroupwithroomcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/associateskillgroupwithroomcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/associateskillgroupwithroomcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/AssociateSkillGroupWithRoomCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/AssociateSkillGroupWithRoomCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/AssociateSkillGroupWithRoomCommandOutput/)
 
 </details>
 <details>
@@ -248,7 +248,7 @@ AssociateSkillGroupWithRoom
 AssociateSkillWithSkillGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/associateskillwithskillgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/associateskillwithskillgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/associateskillwithskillgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/AssociateSkillWithSkillGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/AssociateSkillWithSkillGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/AssociateSkillWithSkillGroupCommandOutput/)
 
 </details>
 <details>
@@ -256,7 +256,7 @@ AssociateSkillWithSkillGroup
 AssociateSkillWithUsers
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/associateskillwithuserscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/associateskillwithuserscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/associateskillwithuserscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/AssociateSkillWithUsersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/AssociateSkillWithUsersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/AssociateSkillWithUsersCommandOutput/)
 
 </details>
 <details>
@@ -264,7 +264,7 @@ AssociateSkillWithUsers
 CreateAddressBook
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/createaddressbookcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/createaddressbookcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/createaddressbookcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/CreateAddressBookCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/CreateAddressBookCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/CreateAddressBookCommandOutput/)
 
 </details>
 <details>
@@ -272,7 +272,7 @@ CreateAddressBook
 CreateBusinessReportSchedule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/createbusinessreportschedulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/createbusinessreportschedulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/createbusinessreportschedulecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/CreateBusinessReportScheduleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/CreateBusinessReportScheduleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/CreateBusinessReportScheduleCommandOutput/)
 
 </details>
 <details>
@@ -280,7 +280,7 @@ CreateBusinessReportSchedule
 CreateConferenceProvider
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/createconferenceprovidercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/createconferenceprovidercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/createconferenceprovidercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/CreateConferenceProviderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/CreateConferenceProviderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/CreateConferenceProviderCommandOutput/)
 
 </details>
 <details>
@@ -288,7 +288,7 @@ CreateConferenceProvider
 CreateContact
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/createcontactcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/createcontactcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/createcontactcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/CreateContactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/CreateContactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/CreateContactCommandOutput/)
 
 </details>
 <details>
@@ -296,7 +296,7 @@ CreateContact
 CreateGatewayGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/creategatewaygroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/creategatewaygroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/creategatewaygroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/CreateGatewayGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/CreateGatewayGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/CreateGatewayGroupCommandOutput/)
 
 </details>
 <details>
@@ -304,7 +304,7 @@ CreateGatewayGroup
 CreateNetworkProfile
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/createnetworkprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/createnetworkprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/createnetworkprofilecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/CreateNetworkProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/CreateNetworkProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/CreateNetworkProfileCommandOutput/)
 
 </details>
 <details>
@@ -312,7 +312,7 @@ CreateNetworkProfile
 CreateProfile
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/createprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/createprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/createprofilecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/CreateProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/CreateProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/CreateProfileCommandOutput/)
 
 </details>
 <details>
@@ -320,7 +320,7 @@ CreateProfile
 CreateRoom
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/createroomcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/createroomcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/createroomcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/CreateRoomCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/CreateRoomCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/CreateRoomCommandOutput/)
 
 </details>
 <details>
@@ -328,7 +328,7 @@ CreateRoom
 CreateSkillGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/createskillgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/createskillgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/createskillgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/CreateSkillGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/CreateSkillGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/CreateSkillGroupCommandOutput/)
 
 </details>
 <details>
@@ -336,7 +336,7 @@ CreateSkillGroup
 CreateUser
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/createusercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/createusercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/createusercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/CreateUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/CreateUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/CreateUserCommandOutput/)
 
 </details>
 <details>
@@ -344,7 +344,7 @@ CreateUser
 DeleteAddressBook
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/deleteaddressbookcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/deleteaddressbookcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/deleteaddressbookcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/DeleteAddressBookCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DeleteAddressBookCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DeleteAddressBookCommandOutput/)
 
 </details>
 <details>
@@ -352,7 +352,7 @@ DeleteAddressBook
 DeleteBusinessReportSchedule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/deletebusinessreportschedulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/deletebusinessreportschedulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/deletebusinessreportschedulecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/DeleteBusinessReportScheduleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DeleteBusinessReportScheduleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DeleteBusinessReportScheduleCommandOutput/)
 
 </details>
 <details>
@@ -360,7 +360,7 @@ DeleteBusinessReportSchedule
 DeleteConferenceProvider
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/deleteconferenceprovidercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/deleteconferenceprovidercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/deleteconferenceprovidercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/DeleteConferenceProviderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DeleteConferenceProviderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DeleteConferenceProviderCommandOutput/)
 
 </details>
 <details>
@@ -368,7 +368,7 @@ DeleteConferenceProvider
 DeleteContact
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/deletecontactcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/deletecontactcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/deletecontactcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/DeleteContactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DeleteContactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DeleteContactCommandOutput/)
 
 </details>
 <details>
@@ -376,7 +376,7 @@ DeleteContact
 DeleteDevice
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/deletedevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/deletedevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/deletedevicecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/DeleteDeviceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DeleteDeviceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DeleteDeviceCommandOutput/)
 
 </details>
 <details>
@@ -384,7 +384,7 @@ DeleteDevice
 DeleteDeviceUsageData
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/deletedeviceusagedatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/deletedeviceusagedatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/deletedeviceusagedatacommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/DeleteDeviceUsageDataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DeleteDeviceUsageDataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DeleteDeviceUsageDataCommandOutput/)
 
 </details>
 <details>
@@ -392,7 +392,7 @@ DeleteDeviceUsageData
 DeleteGatewayGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/deletegatewaygroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/deletegatewaygroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/deletegatewaygroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/DeleteGatewayGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DeleteGatewayGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DeleteGatewayGroupCommandOutput/)
 
 </details>
 <details>
@@ -400,7 +400,7 @@ DeleteGatewayGroup
 DeleteNetworkProfile
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/deletenetworkprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/deletenetworkprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/deletenetworkprofilecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/DeleteNetworkProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DeleteNetworkProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DeleteNetworkProfileCommandOutput/)
 
 </details>
 <details>
@@ -408,7 +408,7 @@ DeleteNetworkProfile
 DeleteProfile
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/deleteprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/deleteprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/deleteprofilecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/DeleteProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DeleteProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DeleteProfileCommandOutput/)
 
 </details>
 <details>
@@ -416,7 +416,7 @@ DeleteProfile
 DeleteRoom
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/deleteroomcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/deleteroomcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/deleteroomcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/DeleteRoomCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DeleteRoomCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DeleteRoomCommandOutput/)
 
 </details>
 <details>
@@ -424,7 +424,7 @@ DeleteRoom
 DeleteRoomSkillParameter
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/deleteroomskillparametercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/deleteroomskillparametercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/deleteroomskillparametercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/DeleteRoomSkillParameterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DeleteRoomSkillParameterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DeleteRoomSkillParameterCommandOutput/)
 
 </details>
 <details>
@@ -432,7 +432,7 @@ DeleteRoomSkillParameter
 DeleteSkillAuthorization
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/deleteskillauthorizationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/deleteskillauthorizationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/deleteskillauthorizationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/DeleteSkillAuthorizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DeleteSkillAuthorizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DeleteSkillAuthorizationCommandOutput/)
 
 </details>
 <details>
@@ -440,7 +440,7 @@ DeleteSkillAuthorization
 DeleteSkillGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/deleteskillgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/deleteskillgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/deleteskillgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/DeleteSkillGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DeleteSkillGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DeleteSkillGroupCommandOutput/)
 
 </details>
 <details>
@@ -448,7 +448,7 @@ DeleteSkillGroup
 DeleteUser
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/deleteusercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/deleteusercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/deleteusercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/DeleteUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DeleteUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DeleteUserCommandOutput/)
 
 </details>
 <details>
@@ -456,7 +456,7 @@ DeleteUser
 DisassociateContactFromAddressBook
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/disassociatecontactfromaddressbookcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/disassociatecontactfromaddressbookcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/disassociatecontactfromaddressbookcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/DisassociateContactFromAddressBookCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DisassociateContactFromAddressBookCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DisassociateContactFromAddressBookCommandOutput/)
 
 </details>
 <details>
@@ -464,7 +464,7 @@ DisassociateContactFromAddressBook
 DisassociateDeviceFromRoom
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/disassociatedevicefromroomcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/disassociatedevicefromroomcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/disassociatedevicefromroomcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/DisassociateDeviceFromRoomCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DisassociateDeviceFromRoomCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DisassociateDeviceFromRoomCommandOutput/)
 
 </details>
 <details>
@@ -472,7 +472,7 @@ DisassociateDeviceFromRoom
 DisassociateSkillFromSkillGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/disassociateskillfromskillgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/disassociateskillfromskillgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/disassociateskillfromskillgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/DisassociateSkillFromSkillGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DisassociateSkillFromSkillGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DisassociateSkillFromSkillGroupCommandOutput/)
 
 </details>
 <details>
@@ -480,7 +480,7 @@ DisassociateSkillFromSkillGroup
 DisassociateSkillFromUsers
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/disassociateskillfromuserscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/disassociateskillfromuserscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/disassociateskillfromuserscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/DisassociateSkillFromUsersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DisassociateSkillFromUsersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DisassociateSkillFromUsersCommandOutput/)
 
 </details>
 <details>
@@ -488,7 +488,7 @@ DisassociateSkillFromUsers
 DisassociateSkillGroupFromRoom
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/disassociateskillgroupfromroomcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/disassociateskillgroupfromroomcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/disassociateskillgroupfromroomcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/DisassociateSkillGroupFromRoomCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DisassociateSkillGroupFromRoomCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/DisassociateSkillGroupFromRoomCommandOutput/)
 
 </details>
 <details>
@@ -496,7 +496,7 @@ DisassociateSkillGroupFromRoom
 ForgetSmartHomeAppliances
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/forgetsmarthomeappliancescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/forgetsmarthomeappliancescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/forgetsmarthomeappliancescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/ForgetSmartHomeAppliancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/ForgetSmartHomeAppliancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/ForgetSmartHomeAppliancesCommandOutput/)
 
 </details>
 <details>
@@ -504,7 +504,7 @@ ForgetSmartHomeAppliances
 GetAddressBook
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/getaddressbookcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/getaddressbookcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/getaddressbookcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/GetAddressBookCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/GetAddressBookCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/GetAddressBookCommandOutput/)
 
 </details>
 <details>
@@ -512,7 +512,7 @@ GetAddressBook
 GetConferencePreference
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/getconferencepreferencecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/getconferencepreferencecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/getconferencepreferencecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/GetConferencePreferenceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/GetConferencePreferenceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/GetConferencePreferenceCommandOutput/)
 
 </details>
 <details>
@@ -520,7 +520,7 @@ GetConferencePreference
 GetConferenceProvider
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/getconferenceprovidercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/getconferenceprovidercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/getconferenceprovidercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/GetConferenceProviderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/GetConferenceProviderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/GetConferenceProviderCommandOutput/)
 
 </details>
 <details>
@@ -528,7 +528,7 @@ GetConferenceProvider
 GetContact
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/getcontactcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/getcontactcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/getcontactcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/GetContactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/GetContactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/GetContactCommandOutput/)
 
 </details>
 <details>
@@ -536,7 +536,7 @@ GetContact
 GetDevice
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/getdevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/getdevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/getdevicecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/GetDeviceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/GetDeviceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/GetDeviceCommandOutput/)
 
 </details>
 <details>
@@ -544,7 +544,7 @@ GetDevice
 GetGateway
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/getgatewaycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/getgatewaycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/getgatewaycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/GetGatewayCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/GetGatewayCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/GetGatewayCommandOutput/)
 
 </details>
 <details>
@@ -552,7 +552,7 @@ GetGateway
 GetGatewayGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/getgatewaygroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/getgatewaygroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/getgatewaygroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/GetGatewayGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/GetGatewayGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/GetGatewayGroupCommandOutput/)
 
 </details>
 <details>
@@ -560,7 +560,7 @@ GetGatewayGroup
 GetInvitationConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/getinvitationconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/getinvitationconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/getinvitationconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/GetInvitationConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/GetInvitationConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/GetInvitationConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -568,7 +568,7 @@ GetInvitationConfiguration
 GetNetworkProfile
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/getnetworkprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/getnetworkprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/getnetworkprofilecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/GetNetworkProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/GetNetworkProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/GetNetworkProfileCommandOutput/)
 
 </details>
 <details>
@@ -576,7 +576,7 @@ GetNetworkProfile
 GetProfile
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/getprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/getprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/getprofilecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/GetProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/GetProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/GetProfileCommandOutput/)
 
 </details>
 <details>
@@ -584,7 +584,7 @@ GetProfile
 GetRoom
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/getroomcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/getroomcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/getroomcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/GetRoomCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/GetRoomCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/GetRoomCommandOutput/)
 
 </details>
 <details>
@@ -592,7 +592,7 @@ GetRoom
 GetRoomSkillParameter
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/getroomskillparametercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/getroomskillparametercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/getroomskillparametercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/GetRoomSkillParameterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/GetRoomSkillParameterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/GetRoomSkillParameterCommandOutput/)
 
 </details>
 <details>
@@ -600,7 +600,7 @@ GetRoomSkillParameter
 GetSkillGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/getskillgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/getskillgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/getskillgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/GetSkillGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/GetSkillGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/GetSkillGroupCommandOutput/)
 
 </details>
 <details>
@@ -608,7 +608,7 @@ GetSkillGroup
 ListBusinessReportSchedules
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/listbusinessreportschedulescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/listbusinessreportschedulescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/listbusinessreportschedulescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/ListBusinessReportSchedulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/ListBusinessReportSchedulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/ListBusinessReportSchedulesCommandOutput/)
 
 </details>
 <details>
@@ -616,7 +616,7 @@ ListBusinessReportSchedules
 ListConferenceProviders
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/listconferenceproviderscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/listconferenceproviderscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/listconferenceproviderscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/ListConferenceProvidersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/ListConferenceProvidersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/ListConferenceProvidersCommandOutput/)
 
 </details>
 <details>
@@ -624,7 +624,7 @@ ListConferenceProviders
 ListDeviceEvents
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/listdeviceeventscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/listdeviceeventscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/listdeviceeventscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/ListDeviceEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/ListDeviceEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/ListDeviceEventsCommandOutput/)
 
 </details>
 <details>
@@ -632,7 +632,7 @@ ListDeviceEvents
 ListGatewayGroups
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/listgatewaygroupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/listgatewaygroupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/listgatewaygroupscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/ListGatewayGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/ListGatewayGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/ListGatewayGroupsCommandOutput/)
 
 </details>
 <details>
@@ -640,7 +640,7 @@ ListGatewayGroups
 ListGateways
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/listgatewayscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/listgatewayscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/listgatewayscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/ListGatewaysCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/ListGatewaysCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/ListGatewaysCommandOutput/)
 
 </details>
 <details>
@@ -648,7 +648,7 @@ ListGateways
 ListSkills
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/listskillscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/listskillscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/listskillscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/ListSkillsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/ListSkillsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/ListSkillsCommandOutput/)
 
 </details>
 <details>
@@ -656,7 +656,7 @@ ListSkills
 ListSkillsStoreCategories
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/listskillsstorecategoriescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/listskillsstorecategoriescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/listskillsstorecategoriescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/ListSkillsStoreCategoriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/ListSkillsStoreCategoriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/ListSkillsStoreCategoriesCommandOutput/)
 
 </details>
 <details>
@@ -664,7 +664,7 @@ ListSkillsStoreCategories
 ListSkillsStoreSkillsByCategory
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/listskillsstoreskillsbycategorycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/listskillsstoreskillsbycategorycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/listskillsstoreskillsbycategorycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/ListSkillsStoreSkillsByCategoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/ListSkillsStoreSkillsByCategoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/ListSkillsStoreSkillsByCategoryCommandOutput/)
 
 </details>
 <details>
@@ -672,7 +672,7 @@ ListSkillsStoreSkillsByCategory
 ListSmartHomeAppliances
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/listsmarthomeappliancescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/listsmarthomeappliancescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/listsmarthomeappliancescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/ListSmartHomeAppliancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/ListSmartHomeAppliancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/ListSmartHomeAppliancesCommandOutput/)
 
 </details>
 <details>
@@ -680,7 +680,7 @@ ListSmartHomeAppliances
 ListTags
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/listtagscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/listtagscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/listtagscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/ListTagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/ListTagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/ListTagsCommandOutput/)
 
 </details>
 <details>
@@ -688,7 +688,7 @@ ListTags
 PutConferencePreference
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/putconferencepreferencecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/putconferencepreferencecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/putconferencepreferencecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/PutConferencePreferenceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/PutConferencePreferenceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/PutConferencePreferenceCommandOutput/)
 
 </details>
 <details>
@@ -696,7 +696,7 @@ PutConferencePreference
 PutInvitationConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/putinvitationconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/putinvitationconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/putinvitationconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/PutInvitationConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/PutInvitationConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/PutInvitationConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -704,7 +704,7 @@ PutInvitationConfiguration
 PutRoomSkillParameter
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/putroomskillparametercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/putroomskillparametercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/putroomskillparametercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/PutRoomSkillParameterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/PutRoomSkillParameterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/PutRoomSkillParameterCommandOutput/)
 
 </details>
 <details>
@@ -712,7 +712,7 @@ PutRoomSkillParameter
 PutSkillAuthorization
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/putskillauthorizationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/putskillauthorizationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/putskillauthorizationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/PutSkillAuthorizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/PutSkillAuthorizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/PutSkillAuthorizationCommandOutput/)
 
 </details>
 <details>
@@ -720,7 +720,7 @@ PutSkillAuthorization
 RegisterAVSDevice
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/registeravsdevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/registeravsdevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/registeravsdevicecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/RegisterAVSDeviceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/RegisterAVSDeviceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/RegisterAVSDeviceCommandOutput/)
 
 </details>
 <details>
@@ -728,7 +728,7 @@ RegisterAVSDevice
 RejectSkill
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/rejectskillcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/rejectskillcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/rejectskillcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/RejectSkillCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/RejectSkillCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/RejectSkillCommandOutput/)
 
 </details>
 <details>
@@ -736,7 +736,7 @@ RejectSkill
 ResolveRoom
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/resolveroomcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/resolveroomcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/resolveroomcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/ResolveRoomCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/ResolveRoomCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/ResolveRoomCommandOutput/)
 
 </details>
 <details>
@@ -744,7 +744,7 @@ ResolveRoom
 RevokeInvitation
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/revokeinvitationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/revokeinvitationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/revokeinvitationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/RevokeInvitationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/RevokeInvitationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/RevokeInvitationCommandOutput/)
 
 </details>
 <details>
@@ -752,7 +752,7 @@ RevokeInvitation
 SearchAddressBooks
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/searchaddressbookscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/searchaddressbookscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/searchaddressbookscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/SearchAddressBooksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/SearchAddressBooksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/SearchAddressBooksCommandOutput/)
 
 </details>
 <details>
@@ -760,7 +760,7 @@ SearchAddressBooks
 SearchContacts
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/searchcontactscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/searchcontactscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/searchcontactscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/SearchContactsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/SearchContactsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/SearchContactsCommandOutput/)
 
 </details>
 <details>
@@ -768,7 +768,7 @@ SearchContacts
 SearchDevices
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/searchdevicescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/searchdevicescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/searchdevicescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/SearchDevicesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/SearchDevicesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/SearchDevicesCommandOutput/)
 
 </details>
 <details>
@@ -776,7 +776,7 @@ SearchDevices
 SearchNetworkProfiles
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/searchnetworkprofilescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/searchnetworkprofilescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/searchnetworkprofilescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/SearchNetworkProfilesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/SearchNetworkProfilesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/SearchNetworkProfilesCommandOutput/)
 
 </details>
 <details>
@@ -784,7 +784,7 @@ SearchNetworkProfiles
 SearchProfiles
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/searchprofilescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/searchprofilescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/searchprofilescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/SearchProfilesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/SearchProfilesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/SearchProfilesCommandOutput/)
 
 </details>
 <details>
@@ -792,7 +792,7 @@ SearchProfiles
 SearchRooms
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/searchroomscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/searchroomscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/searchroomscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/SearchRoomsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/SearchRoomsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/SearchRoomsCommandOutput/)
 
 </details>
 <details>
@@ -800,7 +800,7 @@ SearchRooms
 SearchSkillGroups
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/searchskillgroupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/searchskillgroupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/searchskillgroupscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/SearchSkillGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/SearchSkillGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/SearchSkillGroupsCommandOutput/)
 
 </details>
 <details>
@@ -808,7 +808,7 @@ SearchSkillGroups
 SearchUsers
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/searchuserscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/searchuserscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/searchuserscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/SearchUsersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/SearchUsersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/SearchUsersCommandOutput/)
 
 </details>
 <details>
@@ -816,7 +816,7 @@ SearchUsers
 SendAnnouncement
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/sendannouncementcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/sendannouncementcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/sendannouncementcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/SendAnnouncementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/SendAnnouncementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/SendAnnouncementCommandOutput/)
 
 </details>
 <details>
@@ -824,7 +824,7 @@ SendAnnouncement
 SendInvitation
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/sendinvitationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/sendinvitationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/sendinvitationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/SendInvitationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/SendInvitationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/SendInvitationCommandOutput/)
 
 </details>
 <details>
@@ -832,7 +832,7 @@ SendInvitation
 StartDeviceSync
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/startdevicesynccommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/startdevicesynccommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/startdevicesynccommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/StartDeviceSyncCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/StartDeviceSyncCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/StartDeviceSyncCommandOutput/)
 
 </details>
 <details>
@@ -840,7 +840,7 @@ StartDeviceSync
 StartSmartHomeApplianceDiscovery
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/startsmarthomeappliancediscoverycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/startsmarthomeappliancediscoverycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/startsmarthomeappliancediscoverycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/StartSmartHomeApplianceDiscoveryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/StartSmartHomeApplianceDiscoveryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/StartSmartHomeApplianceDiscoveryCommandOutput/)
 
 </details>
 <details>
@@ -848,7 +848,7 @@ StartSmartHomeApplianceDiscovery
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -856,7 +856,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -864,7 +864,7 @@ UntagResource
 UpdateAddressBook
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/updateaddressbookcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/updateaddressbookcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/updateaddressbookcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/UpdateAddressBookCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/UpdateAddressBookCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/UpdateAddressBookCommandOutput/)
 
 </details>
 <details>
@@ -872,7 +872,7 @@ UpdateAddressBook
 UpdateBusinessReportSchedule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/updatebusinessreportschedulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/updatebusinessreportschedulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/updatebusinessreportschedulecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/UpdateBusinessReportScheduleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/UpdateBusinessReportScheduleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/UpdateBusinessReportScheduleCommandOutput/)
 
 </details>
 <details>
@@ -880,7 +880,7 @@ UpdateBusinessReportSchedule
 UpdateConferenceProvider
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/updateconferenceprovidercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/updateconferenceprovidercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/updateconferenceprovidercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/UpdateConferenceProviderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/UpdateConferenceProviderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/UpdateConferenceProviderCommandOutput/)
 
 </details>
 <details>
@@ -888,7 +888,7 @@ UpdateConferenceProvider
 UpdateContact
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/updatecontactcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/updatecontactcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/updatecontactcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/UpdateContactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/UpdateContactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/UpdateContactCommandOutput/)
 
 </details>
 <details>
@@ -896,7 +896,7 @@ UpdateContact
 UpdateDevice
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/updatedevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/updatedevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/updatedevicecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/UpdateDeviceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/UpdateDeviceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/UpdateDeviceCommandOutput/)
 
 </details>
 <details>
@@ -904,7 +904,7 @@ UpdateDevice
 UpdateGateway
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/updategatewaycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/updategatewaycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/updategatewaycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/UpdateGatewayCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/UpdateGatewayCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/UpdateGatewayCommandOutput/)
 
 </details>
 <details>
@@ -912,7 +912,7 @@ UpdateGateway
 UpdateGatewayGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/updategatewaygroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/updategatewaygroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/updategatewaygroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/UpdateGatewayGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/UpdateGatewayGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/UpdateGatewayGroupCommandOutput/)
 
 </details>
 <details>
@@ -920,7 +920,7 @@ UpdateGatewayGroup
 UpdateNetworkProfile
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/updatenetworkprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/updatenetworkprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/updatenetworkprofilecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/UpdateNetworkProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/UpdateNetworkProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/UpdateNetworkProfileCommandOutput/)
 
 </details>
 <details>
@@ -928,7 +928,7 @@ UpdateNetworkProfile
 UpdateProfile
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/updateprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/updateprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/updateprofilecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/UpdateProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/UpdateProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/UpdateProfileCommandOutput/)
 
 </details>
 <details>
@@ -936,7 +936,7 @@ UpdateProfile
 UpdateRoom
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/updateroomcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/updateroomcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/updateroomcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/UpdateRoomCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/UpdateRoomCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/UpdateRoomCommandOutput/)
 
 </details>
 <details>
@@ -944,6 +944,6 @@ UpdateRoom
 UpdateSkillGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/classes/updateskillgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/updateskillgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-alexa-for-business/interfaces/updateskillgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/alexa-for-business/command/UpdateSkillGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/UpdateSkillGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-alexa-for-business/Interface/UpdateSkillGroupCommandOutput/)
 
 </details>

@@ -1,4 +1,6 @@
 /// <reference types="mocha" />
+import "@aws-sdk/signature-v4-crt";
+
 import { FinalizeRequestMiddleware } from "@aws-sdk/types";
 import chai from "chai";
 import chaiAsPromised from "chai-as-promised";

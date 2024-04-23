@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ExportEBSVolumeRecommendationsRequest, ExportEBSVolumeRecommendationsResponse } from "../models/models_0";
 import {
   de_ExportEBSVolumeRecommendationsCommand,
@@ -66,7 +58,7 @@ export interface ExportEBSVolumeRecommendationsCommandOutput
  *     },
  *   ],
  *   fieldsToExport: [ // ExportableVolumeFields
- *     "AccountId" || "VolumeArn" || "Finding" || "UtilizationMetricsVolumeReadOpsPerSecondMaximum" || "UtilizationMetricsVolumeWriteOpsPerSecondMaximum" || "UtilizationMetricsVolumeReadBytesPerSecondMaximum" || "UtilizationMetricsVolumeWriteBytesPerSecondMaximum" || "LookbackPeriodInDays" || "CurrentConfigurationVolumeType" || "CurrentConfigurationVolumeBaselineIOPS" || "CurrentConfigurationVolumeBaselineThroughput" || "CurrentConfigurationVolumeBurstIOPS" || "CurrentConfigurationVolumeBurstThroughput" || "CurrentConfigurationVolumeSize" || "CurrentMonthlyPrice" || "RecommendationOptionsConfigurationVolumeType" || "RecommendationOptionsConfigurationVolumeBaselineIOPS" || "RecommendationOptionsConfigurationVolumeBaselineThroughput" || "RecommendationOptionsConfigurationVolumeBurstIOPS" || "RecommendationOptionsConfigurationVolumeBurstThroughput" || "RecommendationOptionsConfigurationVolumeSize" || "RecommendationOptionsMonthlyPrice" || "RecommendationOptionsPerformanceRisk" || "LastRefreshTimestamp" || "CurrentPerformanceRisk" || "RecommendationOptionsSavingsOpportunityPercentage" || "RecommendationOptionsEstimatedMonthlySavingsCurrency" || "RecommendationOptionsEstimatedMonthlySavingsValue" || "RootVolume" || "Tags",
+ *     "AccountId" || "VolumeArn" || "Finding" || "UtilizationMetricsVolumeReadOpsPerSecondMaximum" || "UtilizationMetricsVolumeWriteOpsPerSecondMaximum" || "UtilizationMetricsVolumeReadBytesPerSecondMaximum" || "UtilizationMetricsVolumeWriteBytesPerSecondMaximum" || "LookbackPeriodInDays" || "CurrentConfigurationVolumeType" || "CurrentConfigurationVolumeBaselineIOPS" || "CurrentConfigurationVolumeBaselineThroughput" || "CurrentConfigurationVolumeBurstIOPS" || "CurrentConfigurationVolumeBurstThroughput" || "CurrentConfigurationVolumeSize" || "CurrentMonthlyPrice" || "RecommendationOptionsConfigurationVolumeType" || "RecommendationOptionsConfigurationVolumeBaselineIOPS" || "RecommendationOptionsConfigurationVolumeBaselineThroughput" || "RecommendationOptionsConfigurationVolumeBurstIOPS" || "RecommendationOptionsConfigurationVolumeBurstThroughput" || "RecommendationOptionsConfigurationVolumeSize" || "RecommendationOptionsMonthlyPrice" || "RecommendationOptionsPerformanceRisk" || "LastRefreshTimestamp" || "CurrentPerformanceRisk" || "RecommendationOptionsSavingsOpportunityPercentage" || "RecommendationOptionsEstimatedMonthlySavingsCurrency" || "RecommendationOptionsEstimatedMonthlySavingsValue" || "RootVolume" || "Tags" || "CurrentConfigurationRootVolume" || "EffectiveRecommendationPreferencesSavingsEstimationMode" || "RecommendationOptionsSavingsOpportunityAfterDiscountsPercentage" || "RecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts" || "RecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts",
  *   ],
  *   s3DestinationConfig: { // S3DestinationConfig
  *     bucket: "STRING_VALUE",
@@ -123,85 +115,26 @@ export interface ExportEBSVolumeRecommendationsCommandOutput
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
  */
-export class ExportEBSVolumeRecommendationsCommand extends $Command<
-  ExportEBSVolumeRecommendationsCommandInput,
-  ExportEBSVolumeRecommendationsCommandOutput,
-  ComputeOptimizerClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ExportEBSVolumeRecommendationsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ComputeOptimizerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ExportEBSVolumeRecommendationsCommandInput, ExportEBSVolumeRecommendationsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ExportEBSVolumeRecommendationsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ComputeOptimizerClient";
-    const commandName = "ExportEBSVolumeRecommendationsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: ExportEBSVolumeRecommendationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_ExportEBSVolumeRecommendationsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ExportEBSVolumeRecommendationsCommandOutput> {
-    return de_ExportEBSVolumeRecommendationsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ExportEBSVolumeRecommendationsCommand extends $Command
+  .classBuilder<
+    ExportEBSVolumeRecommendationsCommandInput,
+    ExportEBSVolumeRecommendationsCommandOutput,
+    ComputeOptimizerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ComputeOptimizerService", "ExportEBSVolumeRecommendations", {})
+  .n("ComputeOptimizerClient", "ExportEBSVolumeRecommendationsCommand")
+  .f(void 0, void 0)
+  .ser(se_ExportEBSVolumeRecommendationsCommand)
+  .de(de_ExportEBSVolumeRecommendationsCommand)
+  .build() {}

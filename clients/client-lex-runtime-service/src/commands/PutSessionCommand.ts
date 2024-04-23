@@ -1,20 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SdkStreamSerdeContext as __SdkStreamSerdeContext,
-  SerdeContext as __SerdeContext,
-  StreamingBlobPayloadOutputTypes,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   LexRuntimeServiceClientResolvedConfig,
   ServiceInputTypes,
@@ -68,24 +58,24 @@ export interface PutSessionCommandOutput extends Omit<PutSessionResponse, "audio
  *     "<keys>": "STRING_VALUE",
  *   },
  *   dialogAction: { // DialogAction
- *     type: "STRING_VALUE", // required
+ *     type: "ElicitIntent" || "ConfirmIntent" || "ElicitSlot" || "Close" || "Delegate", // required
  *     intentName: "STRING_VALUE",
  *     slots: {
  *       "<keys>": "STRING_VALUE",
  *     },
  *     slotToElicit: "STRING_VALUE",
- *     fulfillmentState: "STRING_VALUE",
+ *     fulfillmentState: "Fulfilled" || "Failed" || "ReadyForFulfillment",
  *     message: "STRING_VALUE",
- *     messageFormat: "STRING_VALUE",
+ *     messageFormat: "PlainText" || "CustomPayload" || "SSML" || "Composite",
  *   },
  *   recentIntentSummaryView: [ // IntentSummaryList
  *     { // IntentSummary
  *       intentName: "STRING_VALUE",
  *       checkpointLabel: "STRING_VALUE",
  *       slots: "<StringMap>",
- *       confirmationStatus: "STRING_VALUE",
- *       dialogActionType: "STRING_VALUE", // required
- *       fulfillmentState: "STRING_VALUE",
+ *       confirmationStatus: "None" || "Confirmed" || "Denied",
+ *       dialogActionType: "ElicitIntent" || "ConfirmIntent" || "ElicitSlot" || "Close" || "Delegate", // required
+ *       fulfillmentState: "Fulfilled" || "Failed" || "ReadyForFulfillment",
  *       slotToElicit: "STRING_VALUE",
  *     },
  *   ],
@@ -112,8 +102,8 @@ export interface PutSessionCommandOutput extends Omit<PutSessionResponse, "audio
  * //   sessionAttributes: "STRING_VALUE",
  * //   message: "STRING_VALUE",
  * //   encodedMessage: "STRING_VALUE",
- * //   messageFormat: "STRING_VALUE",
- * //   dialogState: "STRING_VALUE",
+ * //   messageFormat: "PlainText" || "CustomPayload" || "SSML" || "Composite",
+ * //   dialogState: "ElicitIntent" || "ConfirmIntent" || "ElicitSlot" || "Fulfilled" || "ReadyForFulfillment" || "Failed",
  * //   slotToElicit: "STRING_VALUE",
  * //   audioStream: "STREAMING_BLOB_VALUE",
  * //   sessionId: "STRING_VALUE",
@@ -177,80 +167,26 @@ export interface PutSessionCommandOutput extends Omit<PutSessionResponse, "audio
  * <p>Base exception class for all service exceptions from LexRuntimeService service.</p>
  *
  */
-export class PutSessionCommand extends $Command<
-  PutSessionCommandInput,
-  PutSessionCommandOutput,
-  LexRuntimeServiceClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PutSessionCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: LexRuntimeServiceClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PutSessionCommandInput, PutSessionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, PutSessionCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "LexRuntimeServiceClient";
-    const commandName = "PutSessionCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: PutSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutSessionResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: PutSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PutSessionCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext & __SdkStreamSerdeContext
-  ): Promise<PutSessionCommandOutput> {
-    return de_PutSessionCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class PutSessionCommand extends $Command
+  .classBuilder<
+    PutSessionCommandInput,
+    PutSessionCommandOutput,
+    LexRuntimeServiceClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: LexRuntimeServiceClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSDeepSenseRunTimeService", "PutSession", {})
+  .n("LexRuntimeServiceClient", "PutSessionCommand")
+  .f(PutSessionRequestFilterSensitiveLog, PutSessionResponseFilterSensitiveLog)
+  .ser(se_PutSessionCommand)
+  .de(de_PutSessionCommand)
+  .build() {}

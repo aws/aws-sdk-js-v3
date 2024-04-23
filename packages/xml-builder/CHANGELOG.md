@@ -3,6 +3,58 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.496.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.495.0...v3.496.0) (2024-01-19)
+
+
+### Bug Fixes
+
+* get full list of exports for esm compat in dist-cjs ([#5694](https://github.com/aws/aws-sdk-js-v3/issues/5694)) ([5d26da6](https://github.com/aws/aws-sdk-js-v3/commit/5d26da6d07b593ae286ca674fb3cbff7c833cbb0))
+
+
+
+
+
+# [3.495.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.494.0...v3.495.0) (2024-01-18)
+
+
+### Features
+
+* use bundled dist-cjs build ([#5687](https://github.com/aws/aws-sdk-js-v3/issues/5687)) ([5f79e22](https://github.com/aws/aws-sdk-js-v3/commit/5f79e225e32f0b2ed5b432ae4e4108663eb0acfb))
+
+
+
+
+
+# [3.485.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.484.0...v3.485.0) (2024-01-03)
+
+
+### Features
+
+* **credential-providers:** add credentialScope field ([#5606](https://github.com/aws/aws-sdk-js-v3/issues/5606)) ([04c1459](https://github.com/aws/aws-sdk-js-v3/commit/04c14592898ac63ed87d47f2a53320ccaa991083))
+
+
+
+
+
+# [3.472.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.471.0...v3.472.0) (2023-12-12)
+
+
+### Features
+
+* **xml-builder:** additional serde helper methods ([#5567](https://github.com/aws/aws-sdk-js-v3/issues/5567)) ([792d3ae](https://github.com/aws/aws-sdk-js-v3/commit/792d3ae2ed314cd3702b7bf1c770aff36e21ca70))
+
+
+
+
+
+# [3.465.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.464.0...v3.465.0) (2023-12-01)
+
+**Note:** Version bump only for package @aws-sdk/xml-builder
+
+
+
+
+
 # [3.310.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.309.0...v3.310.0) (2023-04-10)
 
 

@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateSMBFileShareInput, CreateSMBFileShareOutput } from "../models/models_0";
 import { de_CreateSMBFileShareCommand, se_CreateSMBFileShareCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
@@ -40,7 +32,6 @@ export interface CreateSMBFileShareCommandOutput extends CreateSMBFileShareOutpu
  *          Storage Gateway, a file share is a file system mount point backed by Amazon S3
  *          cloud storage. Storage Gateway exposes file shares using an SMB interface. This operation
  *          is only supported for S3 File Gateways.</p>
- *
  *          <important>
  *             <p>S3 File Gateways require Security Token Service (Amazon Web Services STS) to be
  *             activated to enable you to create a file share. Make sure that Amazon Web Services STS
@@ -49,7 +40,6 @@ export interface CreateSMBFileShareCommandOutput extends CreateSMBFileShareOutpu
  *             it. For information about how to activate Amazon Web Services STS, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Activating and
  *                deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the
  *                   <i>Identity and Access Management User Guide</i>.</p>
- *
  *             <p>File gateways don't support creating hard or symbolic links on a file
  *             share.</p>
  *          </important>
@@ -67,7 +57,7 @@ export interface CreateSMBFileShareCommandOutput extends CreateSMBFileShareOutpu
  *   Role: "STRING_VALUE", // required
  *   LocationARN: "STRING_VALUE", // required
  *   DefaultStorageClass: "STRING_VALUE",
- *   ObjectACL: "STRING_VALUE",
+ *   ObjectACL: "private" || "public-read" || "public-read-write" || "authenticated-read" || "bucket-owner-read" || "bucket-owner-full-control" || "aws-exec-read",
  *   ReadOnly: true || false,
  *   GuessMIMETypeEnabled: true || false,
  *   RequesterPays: true || false,
@@ -84,7 +74,7 @@ export interface CreateSMBFileShareCommandOutput extends CreateSMBFileShareOutpu
  *   ],
  *   AuditDestinationARN: "STRING_VALUE",
  *   Authentication: "STRING_VALUE",
- *   CaseSensitivity: "STRING_VALUE",
+ *   CaseSensitivity: "ClientSpecified" || "CaseSensitive",
  *   Tags: [ // Tags
  *     { // Tag
  *       Key: "STRING_VALUE", // required
@@ -126,79 +116,26 @@ export interface CreateSMBFileShareCommandOutput extends CreateSMBFileShareOutpu
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
-export class CreateSMBFileShareCommand extends $Command<
-  CreateSMBFileShareCommandInput,
-  CreateSMBFileShareCommandOutput,
-  StorageGatewayClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateSMBFileShareCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: StorageGatewayClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateSMBFileShareCommandInput, CreateSMBFileShareCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateSMBFileShareCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "StorageGatewayClient";
-    const commandName = "CreateSMBFileShareCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateSMBFileShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateSMBFileShareCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSMBFileShareCommandOutput> {
-    return de_CreateSMBFileShareCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateSMBFileShareCommand extends $Command
+  .classBuilder<
+    CreateSMBFileShareCommandInput,
+    CreateSMBFileShareCommandOutput,
+    StorageGatewayClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("StorageGateway_20130630", "CreateSMBFileShare", {})
+  .n("StorageGatewayClient", "CreateSMBFileShareCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateSMBFileShareCommand)
+  .de(de_CreateSMBFileShareCommand)
+  .build() {}

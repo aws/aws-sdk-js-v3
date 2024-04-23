@@ -1,19 +1,11 @@
 // smithy-typescript generated code
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { PutPublicAccessBlockRequest } from "../models/models_1";
 import { de_PutPublicAccessBlockCommand, se_PutPublicAccessBlockCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
@@ -37,7 +29,10 @@ export interface PutPublicAccessBlockCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Creates or modifies the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket.
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Creates or modifies the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket.
  *          To use this operation, you must have the <code>s3:PutBucketPublicAccessBlock</code>
  *          permission. For more information about Amazon S3 permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in a
  *             Policy</a>.</p>
@@ -108,92 +103,33 @@ export interface PutPublicAccessBlockCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  */
-export class PutPublicAccessBlockCommand extends $Command<
-  PutPublicAccessBlockCommandInput,
-  PutPublicAccessBlockCommandOutput,
-  S3ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      Bucket: { type: "contextParams", name: "Bucket" },
-      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
-      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
-      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
-      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
-      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PutPublicAccessBlockCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: S3ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PutPublicAccessBlockCommandInput, PutPublicAccessBlockCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, PutPublicAccessBlockCommand.getEndpointParameterInstructions())
-    );
-    this.middlewareStack.use(
-      getFlexibleChecksumsPlugin(configuration, {
+export class PutPublicAccessBlockCommand extends $Command
+  .classBuilder<
+    PutPublicAccessBlockCommandInput,
+    PutPublicAccessBlockCommandOutput,
+    S3ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+    UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
+    Bucket: { type: "contextParams", name: "Bucket" },
+  })
+  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getFlexibleChecksumsPlugin(config, {
         input: this.input,
         requestAlgorithmMember: "ChecksumAlgorithm",
         requestChecksumRequired: true,
-      })
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "S3Client";
-    const commandName = "PutPublicAccessBlockCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: PutPublicAccessBlockCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PutPublicAccessBlockCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPublicAccessBlockCommandOutput> {
-    return de_PutPublicAccessBlockCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+      }),
+    ];
+  })
+  .s("AmazonS3", "PutPublicAccessBlock", {})
+  .n("S3Client", "PutPublicAccessBlockCommand")
+  .f(void 0, void 0)
+  .ser(se_PutPublicAccessBlockCommand)
+  .de(de_PutPublicAccessBlockCommand)
+  .build() {}

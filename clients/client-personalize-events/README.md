@@ -8,7 +8,7 @@ AWS SDK for JavaScript PersonalizeEvents Client for Node.js, Browser and React N
 
 <p>Amazon Personalize can consume real-time user event data, such as <i>stream</i> or <i>click</i> data, and use
 it for model training either alone or combined with historical data. For more information see
-<a href="https://docs.aws.amazon.com/personalize/latest/dg/recording-events.html">Recording Events</a>.</p>
+<a href="https://docs.aws.amazon.com/personalize/latest/dg/recording-item-interaction-events.html">Recording item interaction events</a>.</p>
 
 ## Installing
 
@@ -25,16 +25,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `PersonalizeEventsClient` and
-the commands you need, for example `PutEventsCommand`:
+the commands you need, for example `PutActionsCommand`:
 
 ```js
 // ES5 example
-const { PersonalizeEventsClient, PutEventsCommand } = require("@aws-sdk/client-personalize-events");
+const { PersonalizeEventsClient, PutActionsCommand } = require("@aws-sdk/client-personalize-events");
 ```
 
 ```ts
 // ES6+ example
-import { PersonalizeEventsClient, PutEventsCommand } from "@aws-sdk/client-personalize-events";
+import { PersonalizeEventsClient, PutActionsCommand } from "@aws-sdk/client-personalize-events";
 ```
 
 ### Usage
@@ -53,7 +53,7 @@ const client = new PersonalizeEventsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new PutEventsCommand(params);
+const command = new PutActionsCommand(params);
 ```
 
 #### Async/await
@@ -132,7 +132,7 @@ const client = new AWS.PersonalizeEvents({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.putEvents(params);
+  const data = await client.putActions(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -140,7 +140,7 @@ try {
 
 // Promises.
 client
-  .putEvents(params)
+  .putActions(params)
   .then((data) => {
     // process data.
   })
@@ -149,7 +149,7 @@ client
   });
 
 // callbacks.
-client.putEvents(params, (err, data) => {
+client.putActions(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -164,7 +164,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -207,10 +207,26 @@ see LICENSE for more information.
 
 <details>
 <summary>
+PutActionInteractions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/personalize-events/command/PutActionInteractionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-events/Interface/PutActionInteractionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-events/Interface/PutActionInteractionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+PutActions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/personalize-events/command/PutActionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-events/Interface/PutActionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-events/Interface/PutActionsCommandOutput/)
+
+</details>
+<details>
+<summary>
 PutEvents
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-personalize-events/classes/puteventscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-personalize-events/interfaces/puteventscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-personalize-events/interfaces/puteventscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/personalize-events/command/PutEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-events/Interface/PutEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-events/Interface/PutEventsCommandOutput/)
 
 </details>
 <details>
@@ -218,7 +234,7 @@ PutEvents
 PutItems
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-personalize-events/classes/putitemscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-personalize-events/interfaces/putitemscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-personalize-events/interfaces/putitemscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/personalize-events/command/PutItemsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-events/Interface/PutItemsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-events/Interface/PutItemsCommandOutput/)
 
 </details>
 <details>
@@ -226,6 +242,6 @@ PutItems
 PutUsers
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-personalize-events/classes/putuserscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-personalize-events/interfaces/putuserscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-personalize-events/interfaces/putuserscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/personalize-events/command/PutUsersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-events/Interface/PutUsersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-events/Interface/PutUsersCommandOutput/)
 
 </details>

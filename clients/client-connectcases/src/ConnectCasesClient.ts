@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -62,6 +60,7 @@ import { CreateLayoutCommandInput, CreateLayoutCommandOutput } from "./commands/
 import { CreateRelatedItemCommandInput, CreateRelatedItemCommandOutput } from "./commands/CreateRelatedItemCommand";
 import { CreateTemplateCommandInput, CreateTemplateCommandOutput } from "./commands/CreateTemplateCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
+import { GetCaseAuditEventsCommandInput, GetCaseAuditEventsCommandOutput } from "./commands/GetCaseAuditEventsCommand";
 import { GetCaseCommandInput, GetCaseCommandOutput } from "./commands/GetCaseCommand";
 import {
   GetCaseEventConfigurationCommandInput,
@@ -119,6 +118,7 @@ export type ServiceInputTypes =
   | CreateRelatedItemCommandInput
   | CreateTemplateCommandInput
   | DeleteDomainCommandInput
+  | GetCaseAuditEventsCommandInput
   | GetCaseCommandInput
   | GetCaseEventConfigurationCommandInput
   | GetDomainCommandInput
@@ -154,6 +154,7 @@ export type ServiceOutputTypes =
   | CreateRelatedItemCommandOutput
   | CreateTemplateCommandOutput
   | DeleteDomainCommandOutput
+  | GetCaseAuditEventsCommandOutput
   | GetCaseCommandOutput
   | GetCaseEventConfigurationCommandOutput
   | GetDomainCommandOutput
@@ -286,6 +287,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeAutoMLJobRequest, DescribeAutoMLJobResponse } from "../models/models_2";
 import { de_DescribeAutoMLJobCommand, se_DescribeAutoMLJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
@@ -76,7 +68,7 @@ export interface DescribeAutoMLJobCommandOutput extends DescribeAutoMLJobRespons
  * //   },
  * //   RoleArn: "STRING_VALUE", // required
  * //   AutoMLJobObjective: { // AutoMLJobObjective
- * //     MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro" || "MAPE" || "MASE" || "WAPE" || "AverageWeightedQuantileLoss", // required
+ * //     MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "BalancedAccuracy" || "R2" || "Recall" || "RecallMacro" || "Precision" || "PrecisionMacro" || "MAE" || "MAPE" || "MASE" || "WAPE" || "AverageWeightedQuantileLoss", // required
  * //   },
  * //   ProblemType: "BinaryClassification" || "MulticlassClassification" || "Regression",
  * //   AutoMLJobConfig: { // AutoMLJobConfig
@@ -97,9 +89,6 @@ export interface DescribeAutoMLJobCommandOutput extends DescribeAutoMLJobRespons
  * //         ],
  * //       },
  * //     },
- * //     DataSplitConfig: { // AutoMLDataSplitConfig
- * //       ValidationFraction: Number("float"),
- * //     },
  * //     CandidateGenerationConfig: { // AutoMLCandidateGenerationConfig
  * //       FeatureSpecificationS3Uri: "STRING_VALUE",
  * //       AlgorithmsConfig: [ // AutoMLAlgorithmsConfig
@@ -109,6 +98,9 @@ export interface DescribeAutoMLJobCommandOutput extends DescribeAutoMLJobRespons
  * //           ],
  * //         },
  * //       ],
+ * //     },
+ * //     DataSplitConfig: { // AutoMLDataSplitConfig
+ * //       ValidationFraction: Number("float"),
  * //     },
  * //     Mode: "AUTO" || "ENSEMBLING" || "HYPERPARAMETER_TUNING",
  * //   },
@@ -125,9 +117,9 @@ export interface DescribeAutoMLJobCommandOutput extends DescribeAutoMLJobRespons
  * //     CandidateName: "STRING_VALUE", // required
  * //     FinalAutoMLJobObjectiveMetric: { // FinalAutoMLJobObjectiveMetric
  * //       Type: "Maximize" || "Minimize",
- * //       MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro" || "MAPE" || "MASE" || "WAPE" || "AverageWeightedQuantileLoss", // required
+ * //       MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "BalancedAccuracy" || "R2" || "Recall" || "RecallMacro" || "Precision" || "PrecisionMacro" || "MAE" || "MAPE" || "MASE" || "WAPE" || "AverageWeightedQuantileLoss", // required
  * //       Value: Number("float"), // required
- * //       StandardMetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro" || "MAPE" || "MASE" || "WAPE" || "AverageWeightedQuantileLoss",
+ * //       StandardMetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "BalancedAccuracy" || "R2" || "Recall" || "RecallMacro" || "Precision" || "PrecisionMacro" || "MAE" || "MAPE" || "MASE" || "WAPE" || "AverageWeightedQuantileLoss",
  * //     },
  * //     ObjectiveStatus: "Succeeded" || "Pending" || "Failed", // required
  * //     CandidateSteps: [ // CandidateSteps // required
@@ -159,10 +151,10 @@ export interface DescribeAutoMLJobCommandOutput extends DescribeAutoMLJobRespons
  * //       },
  * //       CandidateMetrics: [ // MetricDataList
  * //         { // MetricDatum
- * //           MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro" || "MAPE" || "MASE" || "WAPE" || "AverageWeightedQuantileLoss",
+ * //           MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "BalancedAccuracy" || "R2" || "Recall" || "RecallMacro" || "Precision" || "PrecisionMacro" || "MAE" || "MAPE" || "MASE" || "WAPE" || "AverageWeightedQuantileLoss",
+ * //           StandardMetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro" || "LogLoss" || "InferenceLatency" || "MAPE" || "MASE" || "WAPE" || "AverageWeightedQuantileLoss" || "Rouge1" || "Rouge2" || "RougeL" || "RougeLSum" || "Perplexity" || "ValidationLoss" || "TrainingLoss",
  * //           Value: Number("float"),
  * //           Set: "Train" || "Validation" || "Test",
- * //           StandardMetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro" || "LogLoss" || "InferenceLatency" || "MAPE" || "MASE" || "WAPE" || "AverageWeightedQuantileLoss",
  * //         },
  * //       ],
  * //     },
@@ -179,7 +171,7 @@ export interface DescribeAutoMLJobCommandOutput extends DescribeAutoMLJobRespons
  * //     },
  * //   },
  * //   AutoMLJobStatus: "Completed" || "InProgress" || "Failed" || "Stopped" || "Stopping", // required
- * //   AutoMLJobSecondaryStatus: "Starting" || "AnalyzingData" || "FeatureEngineering" || "ModelTuning" || "MaxCandidatesReached" || "Failed" || "Stopped" || "MaxAutoMLJobRuntimeReached" || "Stopping" || "CandidateDefinitionsGenerated" || "GeneratingExplainabilityReport" || "Completed" || "ExplainabilityError" || "DeployingModel" || "ModelDeploymentError" || "GeneratingModelInsightsReport" || "ModelInsightsError" || "TrainingModels" || "PreTraining", // required
+ * //   AutoMLJobSecondaryStatus: "Starting" || "MaxCandidatesReached" || "Failed" || "Stopped" || "MaxAutoMLJobRuntimeReached" || "Stopping" || "CandidateDefinitionsGenerated" || "Completed" || "ExplainabilityError" || "DeployingModel" || "ModelDeploymentError" || "GeneratingModelInsightsReport" || "ModelInsightsError" || "AnalyzingData" || "FeatureEngineering" || "ModelTuning" || "GeneratingExplainabilityReport" || "TrainingModels" || "PreTraining", // required
  * //   GenerateCandidateDefinitionsOnly: true || false,
  * //   AutoMLJobArtifacts: { // AutoMLJobArtifacts
  * //     CandidateDefinitionNotebookLocation: "STRING_VALUE",
@@ -187,7 +179,7 @@ export interface DescribeAutoMLJobCommandOutput extends DescribeAutoMLJobRespons
  * //   },
  * //   ResolvedAttributes: { // ResolvedAttributes
  * //     AutoMLJobObjective: {
- * //       MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro" || "MAPE" || "MASE" || "WAPE" || "AverageWeightedQuantileLoss", // required
+ * //       MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "BalancedAccuracy" || "R2" || "Recall" || "RecallMacro" || "Precision" || "PrecisionMacro" || "MAE" || "MAPE" || "MASE" || "WAPE" || "AverageWeightedQuantileLoss", // required
  * //     },
  * //     ProblemType: "BinaryClassification" || "MulticlassClassification" || "Regression",
  * //     CompletionCriteria: {
@@ -220,79 +212,26 @@ export interface DescribeAutoMLJobCommandOutput extends DescribeAutoMLJobRespons
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
-export class DescribeAutoMLJobCommand extends $Command<
-  DescribeAutoMLJobCommandInput,
-  DescribeAutoMLJobCommandOutput,
-  SageMakerClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeAutoMLJobCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SageMakerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeAutoMLJobCommandInput, DescribeAutoMLJobCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeAutoMLJobCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SageMakerClient";
-    const commandName = "DescribeAutoMLJobCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeAutoMLJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeAutoMLJobCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAutoMLJobCommandOutput> {
-    return de_DescribeAutoMLJobCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeAutoMLJobCommand extends $Command
+  .classBuilder<
+    DescribeAutoMLJobCommandInput,
+    DescribeAutoMLJobCommandOutput,
+    SageMakerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("SageMaker", "DescribeAutoMLJob", {})
+  .n("SageMakerClient", "DescribeAutoMLJobCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeAutoMLJobCommand)
+  .de(de_DescribeAutoMLJobCommand)
+  .build() {}

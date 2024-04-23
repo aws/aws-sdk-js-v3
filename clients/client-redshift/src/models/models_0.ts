@@ -161,7 +161,7 @@ export interface ReservedNode {
    * @public
    * <p></p>
    */
-  ReservedNodeOfferingType?: ReservedNodeOfferingType | string;
+  ReservedNodeOfferingType?: ReservedNodeOfferingType;
 }
 
 /**
@@ -579,13 +579,13 @@ export interface AquaConfiguration {
    * @public
    * <p>This field is retired. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator).</p>
    */
-  AquaStatus?: AquaStatus | string;
+  AquaStatus?: AquaStatus;
 
   /**
    * @public
    * <p>This field is retired. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator).</p>
    */
-  AquaConfigurationStatus?: AquaConfigurationStatus | string;
+  AquaConfigurationStatus?: AquaConfigurationStatus;
 }
 
 /**
@@ -616,6 +616,12 @@ export interface AssociateDataShareConsumerMessage {
    * <p>From a datashare consumer account, associates a datashare with all existing and future namespaces in the specified Amazon Web Services Region.</p>
    */
   ConsumerRegion?: string;
+
+  /**
+   * @public
+   * <p>If set to true, allows write operations for a datashare.</p>
+   */
+  AllowWrites?: boolean;
 }
 
 /**
@@ -653,7 +659,7 @@ export interface DataShareAssociation {
    * @public
    * <p>The status of the datashare that is associated.</p>
    */
-  Status?: DataShareStatus | string;
+  Status?: DataShareStatus;
 
   /**
    * @public
@@ -672,6 +678,18 @@ export interface DataShareAssociation {
    * <p>The status change data of the datashare that is associated.</p>
    */
   StatusChangeDate?: Date;
+
+  /**
+   * @public
+   * <p>Specifies whether write operations were allowed during data share authorization.</p>
+   */
+  ProducerAllowedWrites?: boolean;
+
+  /**
+   * @public
+   * <p>Specifies whether write operations were allowed during data share association.</p>
+   */
+  ConsumerAcceptedWrites?: boolean;
 }
 
 /**
@@ -780,7 +798,7 @@ export interface ClusterAssociatedToSchedule {
    * @public
    * <p></p>
    */
-  ScheduleAssociationState?: ScheduleState | string;
+  ScheduleAssociationState?: ScheduleState;
 }
 
 /**
@@ -1196,6 +1214,31 @@ export interface AuthorizeDataShareMessage {
    * <p>The identifier of the data consumer that is authorized to access the datashare. This identifier is an Amazon Web Services account ID or a keyword, such as ADX.</p>
    */
   ConsumerIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>If set to true, allows write operations for a datashare.</p>
+   */
+  AllowWrites?: boolean;
+}
+
+/**
+ * @public
+ * <p>The authorized token issuer for the Amazon Redshift IAM Identity Center application.</p>
+ */
+export interface AuthorizedTokenIssuer {
+  /**
+   * @public
+   * <p>The ARN for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.</p>
+   */
+  TrustedTokenIssuerArn?: string;
+
+  /**
+   * @public
+   * <p>The list of audiences for the authorized token issuer for integrating Amazon Redshift
+   *             with IDC Identity Center.</p>
+   */
+  AuthorizedAudiencesList?: string[];
 }
 
 /**
@@ -1260,7 +1303,7 @@ export interface EndpointAuthorization {
    * @public
    * <p>The status of the authorization action.</p>
    */
-  Status?: AuthorizationStatus | string;
+  Status?: AuthorizationStatus;
 
   /**
    * @public
@@ -1642,6 +1685,18 @@ export interface Snapshot {
    * <p>A timestamp representing the start of the retention period for the snapshot.</p>
    */
   SnapshotRetentionStartTime?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the cluster's admin user credentials secret.</p>
+   */
+  MasterPasswordSecretArn?: string;
+
+  /**
+   * @public
+   * <p>The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin credentials secret.</p>
+   */
+  MasterPasswordSecretKmsKeyId?: string;
 }
 
 /**
@@ -2422,6 +2477,12 @@ export interface NetworkInterface {
    * <p>The Availability Zone. </p>
    */
   AvailabilityZone?: string;
+
+  /**
+   * @public
+   * <p>The IPv6 address of the network interface within the subnet. </p>
+   */
+  Ipv6Address?: string;
 }
 
 /**
@@ -2536,6 +2597,24 @@ export interface ClusterIamRole {
    *          </ul>
    */
   ApplyStatus?: string;
+}
+
+/**
+ * @public
+ * <p>The AvailabilityZone and ClusterNodes information of the secondary compute unit.</p>
+ */
+export interface SecondaryClusterInfo {
+  /**
+   * @public
+   * <p>The name of the Availability Zone in which the secondary compute unit of the cluster is located.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * @public
+   * <p>The nodes in the secondary compute unit.</p>
+   */
+  ClusterNodes?: ClusterNode[];
 }
 
 /**
@@ -2656,7 +2735,7 @@ export interface ReservedNodeExchangeStatus {
    * @public
    * <p>The status of the reserved-node exchange request. Statuses include in-progress and requested.</p>
    */
-  Status?: ReservedNodeExchangeStatusType | string;
+  Status?: ReservedNodeExchangeStatusType;
 
   /**
    * @public
@@ -3198,7 +3277,7 @@ export interface Cluster {
    * @public
    * <p>The current state of the cluster snapshot schedule.</p>
    */
-  SnapshotScheduleState?: ScheduleState | string;
+  SnapshotScheduleState?: ScheduleState;
 
   /**
    * @public
@@ -3294,6 +3373,36 @@ export interface Cluster {
    * <p>The expiration date for the certificate associated with the custom domain name.</p>
    */
   CustomDomainCertificateExpiryDate?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the cluster's admin user credentials secret.</p>
+   */
+  MasterPasswordSecretArn?: string;
+
+  /**
+   * @public
+   * <p>The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin credentials secret.</p>
+   */
+  MasterPasswordSecretKmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>The IP address type for the cluster. Possible values are <code>ipv4</code> and <code>dualstack</code>.</p>
+   */
+  IpAddressType?: string;
+
+  /**
+   * @public
+   * <p>A boolean value that, if true, indicates that the cluster is deployed in two Availability Zones.</p>
+   */
+  MultiAZ?: string;
+
+  /**
+   * @public
+   * <p>The secondary compute unit of a cluster, if Multi-AZ deployment is turned on.</p>
+   */
+  MultiAZSecondary?: SecondaryClusterInfo;
 }
 
 /**
@@ -3589,7 +3698,7 @@ export interface Parameter {
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html">Amazon Redshift Parameter Groups</a>
    * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
    */
-  ApplyType?: ParameterApplyType | string;
+  ApplyType?: ParameterApplyType;
 
   /**
    * @public
@@ -3937,6 +4046,12 @@ export interface ClusterSubnetGroup {
    * <p>The list of tags for the cluster subnet group.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>The IP address types supported by this cluster subnet group. Possible values are <code>ipv4</code> and <code>dualstack</code>.</p>
+   */
+  SupportedClusterIpAddressTypes?: string[];
 }
 
 /**
@@ -4098,6 +4213,26 @@ export interface ClusterVersionsMessage {
    * <p>A list of <code>Version</code> elements. </p>
    */
   ClusterVersions?: ClusterVersion[];
+}
+
+/**
+ * @public
+ * <p>There is a conflict while updating the resource policy.</p>
+ */
+export class ConflictPolicyUpdateFault extends __BaseException {
+  readonly name: "ConflictPolicyUpdateFault" = "ConflictPolicyUpdateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictPolicyUpdateFault, __BaseException>) {
+    super({
+      name: "ConflictPolicyUpdateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictPolicyUpdateFault.prototype);
+  }
 }
 
 /**
@@ -4379,6 +4514,7 @@ export interface CreateClusterMessage {
    * @public
    * <p>The password associated with the admin user account for the cluster that is being
    *             created.</p>
+   *          <p>You can't use <code>MasterUserPassword</code> if <code>ManageMasterPassword</code> is <code>true</code>.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -4399,7 +4535,7 @@ export interface CreateClusterMessage {
    *             </li>
    *          </ul>
    */
-  MasterUserPassword: string | undefined;
+  MasterUserPassword?: string;
 
   /**
    * @public
@@ -4651,7 +4787,7 @@ export interface CreateClusterMessage {
    * @public
    * <p>This parameter is retired. It does not set the AQUA configuration status. Amazon Redshift automatically determines whether to use AQUA (Advanced Query Accelerator).</p>
    */
-  AquaConfigurationStatus?: AquaConfigurationStatus | string;
+  AquaConfigurationStatus?: AquaConfigurationStatus;
 
   /**
    * @public
@@ -4664,6 +4800,41 @@ export interface CreateClusterMessage {
    * <p>A flag that specifies whether to load sample data once the cluster is created.</p>
    */
   LoadSampleData?: string;
+
+  /**
+   * @public
+   * <p>If <code>true</code>, Amazon Redshift uses Secrets Manager to manage this cluster's admin credentials.
+   *             You can't use <code>MasterUserPassword</code> if <code>ManageMasterPassword</code> is true.
+   *             If <code>ManageMasterPassword</code> is false or not set, Amazon Redshift uses
+   *             <code>MasterUserPassword</code> for the admin user account's password.
+   *         </p>
+   */
+  ManageMasterPassword?: boolean;
+
+  /**
+   * @public
+   * <p>The ID of the Key Management Service (KMS) key used to encrypt and store the cluster's admin credentials secret.
+   *             You can only use this parameter if <code>ManageMasterPassword</code> is true.</p>
+   */
+  MasterPasswordSecretKmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>The IP address types that the cluster supports. Possible values are <code>ipv4</code> and <code>dualstack</code>.</p>
+   */
+  IpAddressType?: string;
+
+  /**
+   * @public
+   * <p>If true, Amazon Redshift will deploy the cluster in two Availability Zones (AZ).</p>
+   */
+  MultiAZ?: boolean;
+
+  /**
+   * @public
+   * <p>The Amazon resource name (ARN) of the Amazon Redshift IAM Identity Center application.</p>
+   */
+  RedshiftIdcApplicationArn?: string;
 }
 
 /**
@@ -4862,6 +5033,27 @@ export class InvalidVPCNetworkStateFault extends __BaseException {
 
 /**
  * @public
+ * <p>There are no subnets in your VPC with associated IPv6 CIDR blocks. To use dual-stack mode,
+ *             associate an IPv6 CIDR block with each subnet in your VPC.</p>
+ */
+export class Ipv6CidrBlockNotFoundFault extends __BaseException {
+  readonly name: "Ipv6CidrBlockNotFoundFault" = "Ipv6CidrBlockNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<Ipv6CidrBlockNotFoundFault, __BaseException>) {
+    super({
+      name: "Ipv6CidrBlockNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, Ipv6CidrBlockNotFoundFault.prototype);
+  }
+}
+
+/**
+ * @public
  * <p>The operation would exceed the number of nodes allowed for a cluster.</p>
  */
 export class NumberOfNodesPerClusterLimitExceededFault extends __BaseException {
@@ -4901,6 +5093,26 @@ export class NumberOfNodesQuotaExceededFault extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, NumberOfNodesQuotaExceededFault.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The application you attempted to find doesn't exist.</p>
+ */
+export class RedshiftIdcApplicationNotExistsFault extends __BaseException {
+  readonly name: "RedshiftIdcApplicationNotExistsFault" = "RedshiftIdcApplicationNotExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RedshiftIdcApplicationNotExistsFault, __BaseException>) {
+    super({
+      name: "RedshiftIdcApplicationNotExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RedshiftIdcApplicationNotExistsFault.prototype);
   }
 }
 
@@ -6069,6 +6281,298 @@ export class HsmConfigurationQuotaExceededFault extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const ServiceAuthorization = {
+  DISABLED: "Disabled",
+  ENABLED: "Enabled",
+} as const;
+
+/**
+ * @public
+ */
+export type ServiceAuthorization = (typeof ServiceAuthorization)[keyof typeof ServiceAuthorization];
+
+/**
+ * @public
+ * <p>The Lake Formation scope.</p>
+ */
+export interface LakeFormationQuery {
+  /**
+   * @public
+   * <p>Determines whether the query scope is enabled or disabled.</p>
+   */
+  Authorization: ServiceAuthorization | undefined;
+}
+
+/**
+ * @public
+ * <p>A list of scopes set up for Lake Formation integration.</p>
+ */
+export type LakeFormationScopeUnion =
+  | LakeFormationScopeUnion.LakeFormationQueryMember
+  | LakeFormationScopeUnion.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace LakeFormationScopeUnion {
+  /**
+   * @public
+   * <p>The Lake Formation scope.</p>
+   */
+  export interface LakeFormationQueryMember {
+    LakeFormationQuery: LakeFormationQuery;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    LakeFormationQuery?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    LakeFormationQuery: (value: LakeFormationQuery) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: LakeFormationScopeUnion, visitor: Visitor<T>): T => {
+    if (value.LakeFormationQuery !== undefined) return visitor.LakeFormationQuery(value.LakeFormationQuery);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * <p>A list of service integrations.</p>
+ */
+export type ServiceIntegrationsUnion =
+  | ServiceIntegrationsUnion.LakeFormationMember
+  | ServiceIntegrationsUnion.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ServiceIntegrationsUnion {
+  /**
+   * @public
+   * <p>A list of scopes set up for Lake Formation integration.</p>
+   */
+  export interface LakeFormationMember {
+    LakeFormation: LakeFormationScopeUnion[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    LakeFormation?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    LakeFormation: (value: LakeFormationScopeUnion[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ServiceIntegrationsUnion, visitor: Visitor<T>): T => {
+    if (value.LakeFormation !== undefined) return visitor.LakeFormation(value.LakeFormation);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface CreateRedshiftIdcApplicationMessage {
+  /**
+   * @public
+   * <p>The Amazon resource name (ARN) of the IAM Identity Center instance where Amazon Redshift creates a new managed application.</p>
+   */
+  IdcInstanceArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the Redshift application in IAM Identity Center.</p>
+   */
+  RedshiftIdcApplicationName: string | undefined;
+
+  /**
+   * @public
+   * <p>The namespace for the Amazon Redshift IAM Identity Center application instance. It determines which managed application
+   *             verifies the connection token.</p>
+   */
+  IdentityNamespace?: string;
+
+  /**
+   * @public
+   * <p>The display name for the Amazon Redshift IAM Identity Center application instance. It appears in the console.</p>
+   */
+  IdcDisplayName: string | undefined;
+
+  /**
+   * @public
+   * <p>The IAM role ARN for the Amazon Redshift IAM Identity Center application instance. It has the required permissions
+   *             to be assumed and invoke the IDC Identity Center API.</p>
+   */
+  IamRoleArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The token issuer list for the Amazon Redshift IAM Identity Center application instance.</p>
+   */
+  AuthorizedTokenIssuerList?: AuthorizedTokenIssuer[];
+
+  /**
+   * @public
+   * <p>A collection of service integrations for the Redshift IAM Identity Center application.</p>
+   */
+  ServiceIntegrations?: ServiceIntegrationsUnion[];
+}
+
+/**
+ * @public
+ * <p>Contains properties for the Redshift IDC application.</p>
+ */
+export interface RedshiftIdcApplication {
+  /**
+   * @public
+   * <p>The ARN for the IAM Identity Center instance that Redshift integrates with.</p>
+   */
+  IdcInstanceArn?: string;
+
+  /**
+   * @public
+   * <p>The name of the Redshift application in IAM Identity Center.</p>
+   */
+  RedshiftIdcApplicationName?: string;
+
+  /**
+   * @public
+   * <p>The ARN for the Redshift application that integrates with IAM Identity Center.</p>
+   */
+  RedshiftIdcApplicationArn?: string;
+
+  /**
+   * @public
+   * <p>The identity namespace for the Amazon Redshift IAM Identity Center application. It determines which managed application verifies the connection token.</p>
+   */
+  IdentityNamespace?: string;
+
+  /**
+   * @public
+   * <p>The display name for the Amazon Redshift IAM Identity Center application. It appears on the console.</p>
+   */
+  IdcDisplayName?: string;
+
+  /**
+   * @public
+   * <p>The ARN for the Amazon Redshift IAM Identity Center application. It has the required permissions to be assumed and invoke the IDC Identity Center API.</p>
+   */
+  IamRoleArn?: string;
+
+  /**
+   * @public
+   * <p>The ARN for the Amazon Redshift IAM Identity Center application.</p>
+   */
+  IdcManagedApplicationArn?: string;
+
+  /**
+   * @public
+   * <p>The onboarding status for the Amazon Redshift IAM Identity Center application.</p>
+   */
+  IdcOnboardStatus?: string;
+
+  /**
+   * @public
+   * <p>The authorized token issuer list for the Amazon Redshift IAM Identity Center application.</p>
+   */
+  AuthorizedTokenIssuerList?: AuthorizedTokenIssuer[];
+
+  /**
+   * @public
+   * <p>A list of service integrations for the Redshift IAM Identity Center application.</p>
+   */
+  ServiceIntegrations?: ServiceIntegrationsUnion[];
+}
+
+/**
+ * @public
+ */
+export interface CreateRedshiftIdcApplicationResult {
+  /**
+   * @public
+   * <p>Contains properties for the Redshift IDC application.</p>
+   */
+  RedshiftIdcApplication?: RedshiftIdcApplication;
+}
+
+/**
+ * @public
+ * <p>A dependent service denied access for the integration.</p>
+ */
+export class DependentServiceAccessDeniedFault extends __BaseException {
+  readonly name: "DependentServiceAccessDeniedFault" = "DependentServiceAccessDeniedFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DependentServiceAccessDeniedFault, __BaseException>) {
+    super({
+      name: "DependentServiceAccessDeniedFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DependentServiceAccessDeniedFault.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The application you attempted to add already exists.</p>
+ */
+export class RedshiftIdcApplicationAlreadyExistsFault extends __BaseException {
+  readonly name: "RedshiftIdcApplicationAlreadyExistsFault" = "RedshiftIdcApplicationAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RedshiftIdcApplicationAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "RedshiftIdcApplicationAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RedshiftIdcApplicationAlreadyExistsFault.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The maximum number of Redshift IAM Identity Center applications was exceeded.</p>
+ */
+export class RedshiftIdcApplicationQuotaExceededFault extends __BaseException {
+  readonly name: "RedshiftIdcApplicationQuotaExceededFault" = "RedshiftIdcApplicationQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RedshiftIdcApplicationQuotaExceededFault, __BaseException>) {
+    super({
+      name: "RedshiftIdcApplicationQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RedshiftIdcApplicationQuotaExceededFault.prototype);
+  }
+}
+
+/**
+ * @public
  * <p>Describes a pause cluster operation. For example, a scheduled action to run the <code>PauseCluster</code> API operation. </p>
  */
 export interface PauseClusterMessage {
@@ -6335,7 +6839,7 @@ export interface ScheduledAction {
    * @public
    * <p>The state of the scheduled action. For example, <code>DISABLED</code>. </p>
    */
-  State?: ScheduledActionState | string;
+  State?: ScheduledActionState;
 
   /**
    * @public
@@ -6821,7 +7325,7 @@ export interface CreateUsageLimitMessage {
    * @public
    * <p>The Amazon Redshift feature that you want to limit.</p>
    */
-  FeatureType: UsageLimitFeatureType | string | undefined;
+  FeatureType: UsageLimitFeatureType | undefined;
 
   /**
    * @public
@@ -6831,7 +7335,7 @@ export interface CreateUsageLimitMessage {
    *             If <code>FeatureType</code> is <code>cross-region-datasharing</code>, then <code>LimitType</code> must be <code>data-scanned</code>.
    *            </p>
    */
-  LimitType: UsageLimitLimitType | string | undefined;
+  LimitType: UsageLimitLimitType | undefined;
 
   /**
    * @public
@@ -6846,14 +7350,14 @@ export interface CreateUsageLimitMessage {
    * <p>The time period that the amount applies to. A <code>weekly</code> period begins on Sunday. The default is <code>monthly</code>.
    *             </p>
    */
-  Period?: UsageLimitPeriod | string;
+  Period?: UsageLimitPeriod;
 
   /**
    * @public
    * <p>The action that Amazon Redshift takes when the limit is reached. The default is log.
    *             For more information about this parameter, see <a>UsageLimit</a>.</p>
    */
-  BreachAction?: UsageLimitBreachAction | string;
+  BreachAction?: UsageLimitBreachAction;
 
   /**
    * @public
@@ -6903,13 +7407,13 @@ export interface UsageLimit {
    * @public
    * <p>The Amazon Redshift feature to which the limit applies.</p>
    */
-  FeatureType?: UsageLimitFeatureType | string;
+  FeatureType?: UsageLimitFeatureType;
 
   /**
    * @public
    * <p>The type of limit. Depending on the feature type, this can be based on a time duration or data size.</p>
    */
-  LimitType?: UsageLimitLimitType | string;
+  LimitType?: UsageLimitLimitType;
 
   /**
    * @public
@@ -6921,7 +7425,7 @@ export interface UsageLimit {
    * @public
    * <p>The time period that the amount applies to. A <code>weekly</code> period begins on Sunday. The default is <code>monthly</code>. </p>
    */
-  Period?: UsageLimitPeriod | string;
+  Period?: UsageLimitPeriod;
 
   /**
    * @public
@@ -6941,7 +7445,7 @@ export interface UsageLimit {
    *             </li>
    *          </ul>
    */
-  BreachAction?: UsageLimitBreachAction | string;
+  BreachAction?: UsageLimitBreachAction;
 
   /**
    * @public
@@ -7314,6 +7818,12 @@ export interface DeleteCustomDomainAssociationMessage {
    * <p>The identifier of the cluster to delete a custom domain association for.</p>
    */
   ClusterIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The custom domain name for the custom domain association.</p>
+   */
+  CustomDomainName: string | undefined;
 }
 
 /**
@@ -7485,6 +7995,28 @@ export class InvalidHsmConfigurationStateFault extends __BaseException {
     });
     Object.setPrototypeOf(this, InvalidHsmConfigurationStateFault.prototype);
   }
+}
+
+/**
+ * @public
+ */
+export interface DeleteRedshiftIdcApplicationMessage {
+  /**
+   * @public
+   * <p>The ARN for a deleted Amazon Redshift IAM Identity Center application.</p>
+   */
+  RedshiftIdcApplicationArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteResourcePolicyMessage {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the resource of which its resource policy is deleted.</p>
+   */
+  ResourceArn: string | undefined;
 }
 
 /**
@@ -7987,13 +8519,13 @@ export interface SnapshotSortingEntity {
    * @public
    * <p>The category for sorting the snapshots.</p>
    */
-  Attribute: SnapshotAttributeToSortBy | string | undefined;
+  Attribute: SnapshotAttributeToSortBy | undefined;
 
   /**
    * @public
    * <p>The order for listing the attributes.</p>
    */
-  SortOrder?: SortByOrder | string;
+  SortOrder?: SortByOrder;
 }
 
 /**
@@ -8337,491 +8869,22 @@ export interface TrackListMessage {
 }
 
 /**
- * @public
- * <p></p>
+ * @internal
  */
-export interface DescribeClusterVersionsMessage {
-  /**
-   * @public
-   * <p>The specific cluster version to return.</p>
-   *          <p>Example: <code>1.0</code>
-   *          </p>
-   */
-  ClusterVersion?: string;
-
-  /**
-   * @public
-   * <p>The name of a specific cluster parameter group family to return details
-   *             for.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must be 1 to 255 alphanumeric characters</p>
-   *             </li>
-   *             <li>
-   *                <p>First character must be a letter</p>
-   *             </li>
-   *             <li>
-   *                <p>Cannot end with a hyphen or contain two consecutive hyphens</p>
-   *             </li>
-   *          </ul>
-   */
-  ClusterParameterGroupFamily?: string;
-
-  /**
-   * @public
-   * <p>The maximum number of response records to return in each call. If the number of
-   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
-   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
-   *             set of records by retrying the command with the returned marker value. </p>
-   *          <p>Default: <code>100</code>
-   *          </p>
-   *          <p>Constraints: minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * @public
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeClusterVersions</a> request exceed
-   *             the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
-   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
-   */
-  Marker?: string;
-}
+export const PendingModifiedValuesFilterSensitiveLog = (obj: PendingModifiedValues): any => ({
+  ...obj,
+  ...(obj.MasterUserPassword && { MasterUserPassword: SENSITIVE_STRING }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface DescribeCustomDomainAssociationsMessage {
-  /**
-   * @public
-   * <p>The custom domain name for the custom domain association.</p>
-   */
-  CustomDomainName?: string;
-
-  /**
-   * @public
-   * <p>The certificate Amazon Resource Name (ARN) for the custom domain association.</p>
-   */
-  CustomDomainCertificateArn?: string;
-
-  /**
-   * @public
-   * <p>The maximum records setting for the associated custom domain.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * @public
-   * <p>The marker for the custom domain association.</p>
-   */
-  Marker?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeDataSharesMessage {
-  /**
-   * @public
-   * <p>The identifier of the datashare to describe details of.</p>
-   */
-  DataShareArn?: string;
-
-  /**
-   * @public
-   * <p>The maximum number of response records to return in each call. If the number of
-   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
-   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
-   *             set of records by retrying the command with the returned marker value. </p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * @public
-   * <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <a>DescribeDataShares</a> request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p>
-   */
-  Marker?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeDataSharesResult {
-  /**
-   * @public
-   * <p>The results returned from describing datashares.</p>
-   */
-  DataShares?: DataShare[];
-
-  /**
-   * @public
-   * <p>An optional parameter that specifies the starting point to return a set of response records. When the results of a <a>DescribeDataShares</a> request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the <code>Marker</code> field of the response. You can retrieve the next set of response records by providing the returned marker value in the <code>Marker</code> parameter and retrying the request. </p>
-   */
-  Marker?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeDataSharesForConsumerMessage {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the consumer that returns in the list of datashares.</p>
-   */
-  ConsumerArn?: string;
-
-  /**
-   * @public
-   * <p>An identifier giving the status of a datashare in the consumer cluster. If this field is specified, Amazon
-   *             Redshift returns the list of datashares that have the specified status.</p>
-   */
-  Status?: DataShareStatusForConsumer | string;
-
-  /**
-   * @public
-   * <p>The maximum number of response records to return in each call. If the number of
-   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
-   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
-   *             set of records by retrying the command with the returned marker value. </p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * @public
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeDataSharesForConsumer</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
-   *             <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
-   */
-  Marker?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeDataSharesForConsumerResult {
-  /**
-   * @public
-   * <p>Shows the results of datashares available for consumers.</p>
-   */
-  DataShares?: DataShare[];
-
-  /**
-   * @public
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeDataSharesForConsumer</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
-   *             <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
-   */
-  Marker?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeDataSharesForProducerMessage {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the producer that returns in the list of datashares.</p>
-   */
-  ProducerArn?: string;
-
-  /**
-   * @public
-   * <p>An identifier giving the status of a datashare in the producer. If this field is specified, Amazon
-   *             Redshift returns the list of datashares that have the specified status.</p>
-   */
-  Status?: DataShareStatusForProducer | string;
-
-  /**
-   * @public
-   * <p>The maximum number of response records to return in each call. If the number of
-   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
-   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
-   *             set of records by retrying the command with the returned marker value. </p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * @public
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeDataSharesForProducer</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
-   *             <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
-   */
-  Marker?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeDataSharesForProducerResult {
-  /**
-   * @public
-   * <p>Shows the results of datashares available for producers.</p>
-   */
-  DataShares?: DataShare[];
-
-  /**
-   * @public
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeDataSharesForProducer</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in the
-   *             <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
-   */
-  Marker?: string;
-}
-
-/**
- * @public
- * <p></p>
- */
-export interface DescribeDefaultClusterParametersMessage {
-  /**
-   * @public
-   * <p>The name of the cluster parameter group family.</p>
-   */
-  ParameterGroupFamily: string | undefined;
-
-  /**
-   * @public
-   * <p>The maximum number of response records to return in each call. If the number of
-   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
-   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
-   *             set of records by retrying the command with the returned marker value. </p>
-   *          <p>Default: <code>100</code>
-   *          </p>
-   *          <p>Constraints: minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * @public
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeDefaultClusterParameters</a>
-   *             request exceed the value specified in <code>MaxRecords</code>, Amazon Web Services returns a value in
-   *             the <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
-   */
-  Marker?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeDefaultClusterParametersResult {
-  /**
-   * @public
-   * <p>Describes the default cluster parameters for a parameter group family.</p>
-   */
-  DefaultClusterParameters?: DefaultClusterParameters;
-}
-
-/**
- * @public
- */
-export interface DescribeEndpointAccessMessage {
-  /**
-   * @public
-   * <p>The cluster identifier associated with the described endpoint.</p>
-   */
-  ClusterIdentifier?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services account ID of the owner of the cluster.</p>
-   */
-  ResourceOwner?: string;
-
-  /**
-   * @public
-   * <p>The name of the endpoint to be described.</p>
-   */
-  EndpointName?: string;
-
-  /**
-   * @public
-   * <p>The virtual private cloud (VPC) identifier with access to the cluster.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * @public
-   * <p>The maximum number of records to include in the response. If more records exist
-   *             than the specified <code>MaxRecords</code> value, a pagination token called a <code>Marker</code> is
-   *             included in the response so that the remaining results can be retrieved.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * @public
-   * <p>An optional pagination token provided by a previous
-   *             <code>DescribeEndpointAccess</code> request. If this parameter is specified, the
-   *             response includes only records beyond the marker, up to the value specified by the
-   *             <code>MaxRecords</code> parameter.</p>
-   */
-  Marker?: string;
-}
-
-/**
- * @public
- */
-export interface EndpointAccessList {
-  /**
-   * @public
-   * <p>The list of endpoints with access to the cluster.</p>
-   */
-  EndpointAccessList?: EndpointAccess[];
-
-  /**
-   * @public
-   * <p>An optional pagination token provided by a previous
-   *             <code>DescribeEndpointAccess</code> request. If this parameter is specified, the
-   *             response includes only records beyond the marker, up to the value specified by the
-   *             <code>MaxRecords</code> parameter.</p>
-   */
-  Marker?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeEndpointAuthorizationMessage {
-  /**
-   * @public
-   * <p>The cluster identifier of the cluster to access.</p>
-   */
-  ClusterIdentifier?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services account ID of either the cluster owner (grantor) or grantee.
-   *        If <code>Grantee</code> parameter is true, then the <code>Account</code> value is of the grantor.</p>
-   */
-  Account?: string;
-
-  /**
-   * @public
-   * <p>Indicates whether to check authorization from a grantor or grantee point of view.
-   *            If true, Amazon Redshift returns endpoint authorizations that you've been granted.
-   *            If false (default), checks authorization from a grantor point of view.</p>
-   */
-  Grantee?: boolean;
-
-  /**
-   * @public
-   * <p>The maximum number of records to include in the response. If more records exist
-   *             than the specified <code>MaxRecords</code> value, a pagination token called a <code>Marker</code> is
-   *             included in the response so that the remaining results can be retrieved.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * @public
-   * <p>An optional pagination token provided by a previous
-   *             <code>DescribeEndpointAuthorization</code> request. If this parameter is specified, the
-   *             response includes only records beyond the marker, up to the value specified by the
-   *             <code>MaxRecords</code> parameter.</p>
-   */
-  Marker?: string;
-}
-
-/**
- * @public
- */
-export interface EndpointAuthorizationList {
-  /**
-   * @public
-   * <p>The authorizations to an endpoint.</p>
-   */
-  EndpointAuthorizationList?: EndpointAuthorization[];
-
-  /**
-   * @public
-   * <p>An optional pagination token provided by a previous
-   *             <code>DescribeEndpointAuthorization</code> request. If this parameter is specified, the
-   *             response includes only records beyond the marker, up to the value specified by the
-   *             <code>MaxRecords</code> parameter.</p>
-   */
-  Marker?: string;
-}
-
-/**
- * @public
- * <p></p>
- */
-export interface DescribeEventCategoriesMessage {
-  /**
-   * @public
-   * <p>The source type, such as cluster or parameter group, to which the described event
-   *             categories apply.</p>
-   *          <p>Valid values: cluster, cluster-snapshot, cluster-parameter-group, cluster-security-group, and scheduled-action.</p>
-   */
-  SourceType?: string;
-}
-
-/**
- * @public
- * <p>Describes event information.</p>
- */
-export interface EventInfoMap {
-  /**
-   * @public
-   * <p>The identifier of an Amazon Redshift event.</p>
-   */
-  EventId?: string;
-
-  /**
-   * @public
-   * <p>The category of an Amazon Redshift event.</p>
-   */
-  EventCategories?: string[];
-
-  /**
-   * @public
-   * <p>The description of an Amazon Redshift event.</p>
-   */
-  EventDescription?: string;
-
-  /**
-   * @public
-   * <p>The severity of the event.</p>
-   *          <p>Values: ERROR, INFO</p>
-   */
-  Severity?: string;
-}
-
-/**
- * @public
- * <p>Describes event categories.</p>
- */
-export interface EventCategoriesMap {
-  /**
-   * @public
-   * <p>The source type, such as cluster or cluster-snapshot, that the returned categories
-   *             belong to.</p>
-   */
-  SourceType?: string;
-
-  /**
-   * @public
-   * <p>The events in the event category.</p>
-   */
-  Events?: EventInfoMap[];
-}
+export const ClusterFilterSensitiveLog = (obj: Cluster): any => ({
+  ...obj,
+  ...(obj.PendingModifiedValues && {
+    PendingModifiedValues: PendingModifiedValuesFilterSensitiveLog(obj.PendingModifiedValues),
+  }),
+});
 
 /**
  * @internal
@@ -8837,4 +8900,36 @@ export const ClusterCredentialsFilterSensitiveLog = (obj: ClusterCredentials): a
 export const ClusterExtendedCredentialsFilterSensitiveLog = (obj: ClusterExtendedCredentials): any => ({
   ...obj,
   ...(obj.DbPassword && { DbPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ClustersMessageFilterSensitiveLog = (obj: ClustersMessage): any => ({
+  ...obj,
+  ...(obj.Clusters && { Clusters: obj.Clusters.map((item) => ClusterFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateClusterMessageFilterSensitiveLog = (obj: CreateClusterMessage): any => ({
+  ...obj,
+  ...(obj.MasterUserPassword && { MasterUserPassword: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateClusterResultFilterSensitiveLog = (obj: CreateClusterResult): any => ({
+  ...obj,
+  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteClusterResultFilterSensitiveLog = (obj: DeleteClusterResult): any => ({
+  ...obj,
+  ...(obj.Cluster && { Cluster: ClusterFilterSensitiveLog(obj.Cluster) }),
 });

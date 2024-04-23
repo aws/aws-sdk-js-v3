@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ControlTowerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ControlTowerClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListEnabledControlsInput, ListEnabledControlsOutput } from "../models/models_0";
 import { de_ListEnabledControlsCommand, se_ListEnabledControlsCommand } from "../protocols/Aws_restJson1";
 
@@ -36,8 +28,10 @@ export interface ListEnabledControlsCommandOutput extends ListEnabledControlsOut
 
 /**
  * @public
- * <p>Lists the controls enabled by AWS Control Tower on the specified organizational unit and
- *       the accounts it contains.</p>
+ * <p>Lists the controls enabled by Amazon Web Services Control Tower on the specified organizational unit and
+ *          the accounts it contains. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html">
+ *                <i>the Amazon Web Services Control Tower User Guide</i>
+ *             </a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +49,15 @@ export interface ListEnabledControlsCommandOutput extends ListEnabledControlsOut
  * //   enabledControls: [ // EnabledControls // required
  * //     { // EnabledControlSummary
  * //       controlIdentifier: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
+ * //       targetIdentifier: "STRING_VALUE",
+ * //       statusSummary: { // EnablementStatusSummary
+ * //         status: "SUCCEEDED" || "FAILED" || "UNDER_CHANGE",
+ * //         lastOperationIdentifier: "STRING_VALUE",
+ * //       },
+ * //       driftStatusSummary: { // DriftStatusSummary
+ * //         driftStatus: "DRIFTED" || "IN_SYNC" || "NOT_CHECKING" || "UNKNOWN",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -69,98 +72,44 @@ export interface ListEnabledControlsCommandOutput extends ListEnabledControlsOut
  * @see {@link ControlTowerClientResolvedConfig | config} for ControlTowerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>User does not have sufficient access to perform this action.
- *       </p>
+ *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>Unexpected error during processing of request.</p>
+ *  <p>An unexpected error occurred during processing of a request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>Request references a resource which does not exist.</p>
+ *  <p>The request references a resource that does not exist.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p> Request was denied due to request throttling.</p>
+ *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input does not satisfy the constraints specified by an  Amazon Web Services service.</p>
  *
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
  */
-export class ListEnabledControlsCommand extends $Command<
-  ListEnabledControlsCommandInput,
-  ListEnabledControlsCommandOutput,
-  ControlTowerClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListEnabledControlsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ControlTowerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListEnabledControlsCommandInput, ListEnabledControlsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListEnabledControlsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ControlTowerClient";
-    const commandName = "ListEnabledControlsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListEnabledControlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListEnabledControlsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEnabledControlsCommandOutput> {
-    return de_ListEnabledControlsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListEnabledControlsCommand extends $Command
+  .classBuilder<
+    ListEnabledControlsCommandInput,
+    ListEnabledControlsCommandOutput,
+    ControlTowerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ControlTowerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSControlTowerApis", "ListEnabledControls", {})
+  .n("ControlTowerClient", "ListEnabledControlsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListEnabledControlsCommand)
+  .de(de_ListEnabledControlsCommand)
+  .build() {}

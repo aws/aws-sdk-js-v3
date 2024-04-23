@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListExecutionsInput, ListExecutionsOutput } from "../models/models_0";
 import { de_ListExecutionsCommand, se_ListExecutionsCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
@@ -36,7 +28,7 @@ export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __Met
 
 /**
  * @public
- * <p>Lists all executions of a state machine or a Map Run. You can list all executions related to a state machine by specifying a state machine Amazon Resource Name (ARN), or those related to a Map Run by specifying a Map Run ARN.</p>
+ * <p>Lists all executions of a state machine or a Map Run. You can list all executions related to a state machine by specifying a state machine Amazon Resource Name (ARN), or those related to a Map Run by specifying a Map Run ARN. Using this API action, you can also list all <a href="https://docs.aws.amazon.com/step-functions/latest/dg/redrive-executions.html">redriven</a> executions.</p>
  *          <p>You can also provide a state machine <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html">alias</a> ARN or <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html">version</a> ARN to list the executions associated with a specific alias or version.</p>
  *          <p>Results are
  *       sorted by time, with the most recent execution first.</p>
@@ -54,10 +46,11 @@ export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __Met
  * const client = new SFNClient(config);
  * const input = { // ListExecutionsInput
  *   stateMachineArn: "STRING_VALUE",
- *   statusFilter: "RUNNING" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "ABORTED",
+ *   statusFilter: "RUNNING" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "ABORTED" || "PENDING_REDRIVE",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  *   mapRunArn: "STRING_VALUE",
+ *   redriveFilter: "REDRIVEN" || "NOT_REDRIVEN",
  * };
  * const command = new ListExecutionsCommand(input);
  * const response = await client.send(command);
@@ -67,13 +60,15 @@ export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __Met
  * //       executionArn: "STRING_VALUE", // required
  * //       stateMachineArn: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
- * //       status: "RUNNING" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "ABORTED", // required
+ * //       status: "RUNNING" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "ABORTED" || "PENDING_REDRIVE", // required
  * //       startDate: new Date("TIMESTAMP"), // required
  * //       stopDate: new Date("TIMESTAMP"),
  * //       mapRunArn: "STRING_VALUE",
  * //       itemCount: Number("int"),
  * //       stateMachineVersionArn: "STRING_VALUE",
  * //       stateMachineAliasArn: "STRING_VALUE",
+ * //       redriveCount: Number("int"),
+ * //       redriveDate: new Date("TIMESTAMP"),
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -109,79 +104,26 @@ export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __Met
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
-export class ListExecutionsCommand extends $Command<
-  ListExecutionsCommandInput,
-  ListExecutionsCommandOutput,
-  SFNClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListExecutionsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SFNClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListExecutionsCommandInput, ListExecutionsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListExecutionsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SFNClient";
-    const commandName = "ListExecutionsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListExecutionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListExecutionsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListExecutionsCommandOutput> {
-    return de_ListExecutionsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListExecutionsCommand extends $Command
+  .classBuilder<
+    ListExecutionsCommandInput,
+    ListExecutionsCommandOutput,
+    SFNClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSStepFunctions", "ListExecutions", {})
+  .n("SFNClient", "ListExecutionsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListExecutionsCommand)
+  .de(de_ListExecutionsCommand)
+  .build() {}

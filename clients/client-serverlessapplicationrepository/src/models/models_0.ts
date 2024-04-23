@@ -533,7 +533,7 @@ export interface Version {
    *  all permissions associated with the application before deploying. If you don't specify
    *  this parameter for an application that requires capabilities, the call will fail.</p>
    */
-  RequiredCapabilities: (Capability | string)[] | undefined;
+  RequiredCapabilities: Capability[] | undefined;
 
   /**
    * @public
@@ -840,7 +840,7 @@ export interface CreateApplicationVersionResponse {
    *  all permissions associated with the application before deploying. If you don't specify
    *  this parameter for an application that requires capabilities, the call will fail.</p>
    */
-  RequiredCapabilities?: (Capability | string)[];
+  RequiredCapabilities?: Capability[];
 
   /**
    * @public
@@ -1113,7 +1113,7 @@ export interface CreateCloudFormationTemplateResponse {
    * <p>Status of the template creation workflow.</p><p>Possible values: PREPARING | ACTIVE | EXPIRED
    *  </p>
    */
-  Status?: Status | string;
+  Status?: Status;
 
   /**
    * @public
@@ -1348,7 +1348,7 @@ export interface GetCloudFormationTemplateResponse {
    * <p>Status of the template creation workflow.</p><p>Possible values: PREPARING | ACTIVE | EXPIRED
    *  </p>
    */
-  Status?: Status | string;
+  Status?: Status;
 
   /**
    * @public

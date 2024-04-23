@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
 import { GetDataSetDetailsRequest, GetDataSetDetailsResponse } from "../models/models_0";
 import { de_GetDataSetDetailsCommand, se_GetDataSetDetailsCommand } from "../protocols/Aws_restJson1";
@@ -90,6 +82,7 @@ export interface GetDataSetDetailsCommandOutput extends GetDataSetDetailsRespons
  * //   creationTime: new Date("TIMESTAMP"),
  * //   lastUpdatedTime: new Date("TIMESTAMP"),
  * //   lastReferencedTime: new Date("TIMESTAMP"),
+ * //   fileSize: Number("long"),
  * // };
  *
  * ```
@@ -103,11 +96,20 @@ export interface GetDataSetDetailsCommandOutput extends GetDataSetDetailsRespons
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The account or role doesn't have the right permissions to make the request.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The parameters provided in the request conflict with existing resources.</p>
+ *
+ * @throws {@link ExecutionTimeoutException} (server fault)
+ *  <p> Failed to connect to server, or didn’t receive response within expected time period.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unexpected error occurred during the processing of the request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Server cannot process the request at the moment.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The number of requests made exceeds the limit.</p>
@@ -119,79 +121,26 @@ export interface GetDataSetDetailsCommandOutput extends GetDataSetDetailsRespons
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
  */
-export class GetDataSetDetailsCommand extends $Command<
-  GetDataSetDetailsCommandInput,
-  GetDataSetDetailsCommandOutput,
-  M2ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetDataSetDetailsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: M2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetDataSetDetailsCommandInput, GetDataSetDetailsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetDataSetDetailsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "M2Client";
-    const commandName = "GetDataSetDetailsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetDataSetDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetDataSetDetailsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataSetDetailsCommandOutput> {
-    return de_GetDataSetDetailsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetDataSetDetailsCommand extends $Command
+  .classBuilder<
+    GetDataSetDetailsCommandInput,
+    GetDataSetDetailsCommandOutput,
+    M2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: M2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AwsSupernovaControlPlaneService", "GetDataSetDetails", {})
+  .n("M2Client", "GetDataSetDetailsCommand")
+  .f(void 0, void 0)
+  .ser(se_GetDataSetDetailsCommand)
+  .de(de_GetDataSetDetailsCommand)
+  .build() {}

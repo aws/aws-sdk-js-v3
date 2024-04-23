@@ -1,13 +1,18 @@
 // smithy-typescript generated code
-import { getDefaultClientConfiguration, resolveDefaultRuntimeConfig } from "@smithy/types";
+import {
+  getAwsRegionExtensionConfiguration,
+  resolveAwsRegionExtensionConfiguration,
+} from "@aws-sdk/region-config-resolver";
+import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig } from "@smithy/protocol-http";
+import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
-import { DirectConnectClientConfiguration } from "./clientConfiguration";
+import { DirectConnectExtensionConfiguration } from "./extensionConfiguration";
 
 /**
  * @public
  */
 export interface RuntimeExtension {
-  configureClient(clientConfiguration: DirectConnectClientConfiguration): void;
+  configure(extensionConfiguration: DirectConnectExtensionConfiguration): void;
 }
 
 /**
@@ -17,20 +22,24 @@ export interface RuntimeExtensionsConfig {
   extensions: RuntimeExtension[];
 }
 
-const asPartial = <T extends Partial<DirectConnectClientConfiguration>>(t: T) => t;
+const asPartial = <T extends Partial<DirectConnectExtensionConfiguration>>(t: T) => t;
 
 /**
  * @internal
  */
 export const resolveRuntimeExtensions = (runtimeConfig: any, extensions: RuntimeExtension[]) => {
-  const clientConfiguration: DirectConnectClientConfiguration = {
-    ...asPartial(getDefaultClientConfiguration(runtimeConfig)),
+  const extensionConfiguration: DirectConnectExtensionConfiguration = {
+    ...asPartial(getAwsRegionExtensionConfiguration(runtimeConfig)),
+    ...asPartial(getDefaultExtensionConfiguration(runtimeConfig)),
+    ...asPartial(getHttpHandlerExtensionConfiguration(runtimeConfig)),
   };
 
-  extensions.forEach((extension) => extension.configureClient(clientConfiguration));
+  extensions.forEach((extension) => extension.configure(extensionConfiguration));
 
   return {
     ...runtimeConfig,
-    ...resolveDefaultRuntimeConfig(clientConfiguration),
+    ...resolveAwsRegionExtensionConfiguration(extensionConfiguration),
+    ...resolveDefaultRuntimeConfig(extensionConfiguration),
+    ...resolveHttpHandlerRuntimeConfig(extensionConfiguration),
   };
 };

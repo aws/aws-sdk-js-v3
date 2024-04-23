@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { StartSigningJobRequest, StartSigningJobResponse } from "../models/models_0";
 import { de_StartSigningJobCommand, se_StartSigningJobCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
@@ -48,16 +40,15 @@ export interface StartSigningJobCommandOutput extends StartSigningJobResponse, _
  * 				           <p>Your S3 source bucket must be version enabled.</p>
  * 			         </li>
  *             <li>
- * 				           <p>You must create an S3 destination bucket. Code signing uses your S3 destination
- * 					bucket to write your signed code.</p>
+ * 				           <p>You must create an S3 destination bucket. AWS Signer uses your S3 destination bucket to
+ * 					write your signed code.</p>
  * 			         </li>
  *             <li>
  * 				           <p>You specify the name of the source and destination buckets when calling the
  * 						<code>StartSigningJob</code> operation.</p>
  * 			         </li>
  *             <li>
- * 				           <p>You must also specify a request token that identifies your request to
- * 					code signing.</p>
+ * 				           <p>You must also specify a request token that identifies your request to Signer.</p>
  * 			         </li>
  *          </ul>
  * 		       <p>You can call the <a>DescribeSigningJob</a> and the <a>ListSigningJobs</a> actions after you call
@@ -126,79 +117,26 @@ export interface StartSigningJobCommandOutput extends StartSigningJobResponse, _
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
  */
-export class StartSigningJobCommand extends $Command<
-  StartSigningJobCommandInput,
-  StartSigningJobCommandOutput,
-  SignerClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StartSigningJobCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SignerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StartSigningJobCommandInput, StartSigningJobCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartSigningJobCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SignerClient";
-    const commandName = "StartSigningJobCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StartSigningJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartSigningJobCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSigningJobCommandOutput> {
-    return de_StartSigningJobCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class StartSigningJobCommand extends $Command
+  .classBuilder<
+    StartSigningJobCommandInput,
+    StartSigningJobCommandOutput,
+    SignerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SignerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("WallabyService", "StartSigningJob", {})
+  .n("SignerClient", "StartSigningJobCommand")
+  .f(void 0, void 0)
+  .ser(se_StartSigningJobCommand)
+  .de(de_StartSigningJobCommand)
+  .build() {}

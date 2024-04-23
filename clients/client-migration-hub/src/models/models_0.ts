@@ -57,7 +57,7 @@ export interface ApplicationState {
    * @public
    * <p>The current status of an application.</p>
    */
-  ApplicationStatus?: ApplicationStatus | string;
+  ApplicationStatus?: ApplicationStatus;
 
   /**
    * @public
@@ -469,7 +469,7 @@ export interface DescribeApplicationStateResult {
    * @public
    * <p>Status of the application - Not Started, In-Progress, Complete.</p>
    */
-  ApplicationStatus?: ApplicationStatus | string;
+  ApplicationStatus?: ApplicationStatus;
 
   /**
    * @public
@@ -564,7 +564,7 @@ export interface ResourceAttribute {
    * @public
    * <p>Type of resource.</p>
    */
-  Type: ResourceAttributeType | string | undefined;
+  Type: ResourceAttributeType | undefined;
 
   /**
    * @public
@@ -598,7 +598,7 @@ export interface Task {
    * @public
    * <p>Status of the task - Not Started, In-Progress, Complete.</p>
    */
-  Status: Status | string | undefined;
+  Status: Status | undefined;
 
   /**
    * @public
@@ -971,7 +971,7 @@ export interface MigrationTaskSummary {
    * @public
    * <p>Status of the task.</p>
    */
-  Status?: Status | string;
+  Status?: Status;
 
   /**
    * @public
@@ -1080,7 +1080,7 @@ export interface NotifyApplicationStateRequest {
    * @public
    * <p>Status of the application - Not Started, In-Progress, Complete.</p>
    */
-  Status: ApplicationStatus | string | undefined;
+  Status: ApplicationStatus | undefined;
 
   /**
    * @public

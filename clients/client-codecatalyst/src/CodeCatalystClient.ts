@@ -7,7 +7,6 @@ import {
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
-import { getTokenPlugin, resolveTokenConfig, TokenInputConfig, TokenResolvedConfig } from "@aws-sdk/middleware-token";
 import {
   getUserAgentPlugin,
   resolveUserAgentConfig,
@@ -15,6 +14,11 @@ import {
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import {
+  DefaultIdentityProviderConfig,
+  getHttpAuthSchemeEndpointRuleSetPlugin,
+  getHttpSigningPlugin,
+} from "@smithy/core";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
 import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
 import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
@@ -28,12 +32,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -44,6 +46,12 @@ import {
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
+import {
+  defaultCodeCatalystHttpAuthSchemeParametersProvider,
+  HttpAuthSchemeInputConfig,
+  HttpAuthSchemeResolvedConfig,
+  resolveHttpAuthSchemeConfig,
+} from "./auth/httpAuthSchemeProvider";
 import { CreateAccessTokenCommandInput, CreateAccessTokenCommandOutput } from "./commands/CreateAccessTokenCommand";
 import {
   CreateDevEnvironmentCommandInput,
@@ -82,6 +90,8 @@ import {
 import { GetSpaceCommandInput, GetSpaceCommandOutput } from "./commands/GetSpaceCommand";
 import { GetSubscriptionCommandInput, GetSubscriptionCommandOutput } from "./commands/GetSubscriptionCommand";
 import { GetUserDetailsCommandInput, GetUserDetailsCommandOutput } from "./commands/GetUserDetailsCommand";
+import { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
+import { GetWorkflowRunCommandInput, GetWorkflowRunCommandOutput } from "./commands/GetWorkflowRunCommand";
 import { ListAccessTokensCommandInput, ListAccessTokensCommandOutput } from "./commands/ListAccessTokensCommand";
 import {
   ListDevEnvironmentsCommandInput,
@@ -102,6 +112,8 @@ import {
   ListSourceRepositoryBranchesCommandOutput,
 } from "./commands/ListSourceRepositoryBranchesCommand";
 import { ListSpacesCommandInput, ListSpacesCommandOutput } from "./commands/ListSpacesCommand";
+import { ListWorkflowRunsCommandInput, ListWorkflowRunsCommandOutput } from "./commands/ListWorkflowRunsCommand";
+import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
 import {
   StartDevEnvironmentCommandInput,
   StartDevEnvironmentCommandOutput,
@@ -110,6 +122,7 @@ import {
   StartDevEnvironmentSessionCommandInput,
   StartDevEnvironmentSessionCommandOutput,
 } from "./commands/StartDevEnvironmentSessionCommand";
+import { StartWorkflowRunCommandInput, StartWorkflowRunCommandOutput } from "./commands/StartWorkflowRunCommand";
 import { StopDevEnvironmentCommandInput, StopDevEnvironmentCommandOutput } from "./commands/StopDevEnvironmentCommand";
 import {
   StopDevEnvironmentSessionCommandInput,
@@ -154,6 +167,8 @@ export type ServiceInputTypes =
   | GetSpaceCommandInput
   | GetSubscriptionCommandInput
   | GetUserDetailsCommandInput
+  | GetWorkflowCommandInput
+  | GetWorkflowRunCommandInput
   | ListAccessTokensCommandInput
   | ListDevEnvironmentSessionsCommandInput
   | ListDevEnvironmentsCommandInput
@@ -162,8 +177,11 @@ export type ServiceInputTypes =
   | ListSourceRepositoriesCommandInput
   | ListSourceRepositoryBranchesCommandInput
   | ListSpacesCommandInput
+  | ListWorkflowRunsCommandInput
+  | ListWorkflowsCommandInput
   | StartDevEnvironmentCommandInput
   | StartDevEnvironmentSessionCommandInput
+  | StartWorkflowRunCommandInput
   | StopDevEnvironmentCommandInput
   | StopDevEnvironmentSessionCommandInput
   | UpdateDevEnvironmentCommandInput
@@ -192,6 +210,8 @@ export type ServiceOutputTypes =
   | GetSpaceCommandOutput
   | GetSubscriptionCommandOutput
   | GetUserDetailsCommandOutput
+  | GetWorkflowCommandOutput
+  | GetWorkflowRunCommandOutput
   | ListAccessTokensCommandOutput
   | ListDevEnvironmentSessionsCommandOutput
   | ListDevEnvironmentsCommandOutput
@@ -200,8 +220,11 @@ export type ServiceOutputTypes =
   | ListSourceRepositoriesCommandOutput
   | ListSourceRepositoryBranchesCommandOutput
   | ListSpacesCommandOutput
+  | ListWorkflowRunsCommandOutput
+  | ListWorkflowsCommandOutput
   | StartDevEnvironmentCommandOutput
   | StartDevEnvironmentSessionCommandOutput
+  | StartWorkflowRunCommandOutput
   | StopDevEnvironmentCommandOutput
   | StopDevEnvironmentSessionCommandOutput
   | UpdateDevEnvironmentCommandOutput
@@ -308,6 +331,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 
@@ -336,8 +361,8 @@ export type CodeCatalystClientConfigType = Partial<__SmithyConfiguration<__HttpH
   EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
-  TokenInputConfig &
   UserAgentInputConfig &
+  HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
  * @public
@@ -356,8 +381,8 @@ export type CodeCatalystClientResolvedConfigType = __SmithyResolvedConfiguration
   EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
-  TokenResolvedConfig &
   UserAgentResolvedConfig &
+  HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
  * @public
@@ -391,7 +416,7 @@ export interface CodeCatalystClientResolvedConfig extends CodeCatalystClientReso
  *             </li>
  *             <li>
  *                <p>
- *                   <a>UpdateSpace</a>, which hanges one or more values for a space.</p>
+ *                   <a>UpdateSpace</a>, which changes one or more values for a space.</p>
  *             </li>
  *          </ul>
  *          <p>Projects, by calling the following:</p>
@@ -492,6 +517,29 @@ export interface CodeCatalystClientResolvedConfig extends CodeCatalystClientReso
  *                   <a>UpdateDevEnvironment</a>, which changes one or more values for a Dev Environment.</p>
  *             </li>
  *          </ul>
+ *          <p>Workflows, by calling the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>GetWorkflow</a>, which returns information about a workflow.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetWorkflowRun</a>, which returns information about a specified run of a workflow.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListWorkflowRuns</a>, which retrieves a list of runs of a specified workflow.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListWorkflows</a>, which retrieves a list of workflows in a specified project.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>StartWorkflowRun</a>, which starts a run of a specified workflow.</p>
+ *             </li>
+ *          </ul>
  *          <p>Security, activity, and resource management in Amazon CodeCatalyst, by calling the following:</p>
  *          <ul>
  *             <li>
@@ -539,8 +587,8 @@ export class CodeCatalystClient extends __Client<
     const _config_3 = resolveEndpointConfig(_config_2);
     const _config_4 = resolveRetryConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveTokenConfig(_config_5);
-    const _config_7 = resolveUserAgentConfig(_config_6);
+    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
     super(_config_8);
     this.config = _config_8;
@@ -549,8 +597,14 @@ export class CodeCatalystClient extends __Client<
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getTokenPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
+    this.middlewareStack.use(
+      getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
+        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
+        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+      })
+    );
+    this.middlewareStack.use(getHttpSigningPlugin(this.config));
   }
 
   /**
@@ -560,5 +614,14 @@ export class CodeCatalystClient extends __Client<
    */
   destroy(): void {
     super.destroy();
+  }
+  private getDefaultHttpAuthSchemeParametersProvider() {
+    return defaultCodeCatalystHttpAuthSchemeParametersProvider;
+  }
+  private getIdentityProviderConfigProvider() {
+    return async (config: CodeCatalystClientResolvedConfig) =>
+      new DefaultIdentityProviderConfig({
+        "smithy.api#httpBearerAuth": config.token,
+      });
   }
 }

@@ -163,7 +163,7 @@ export interface AdBreak {
    * @public
    * <p>The SCTE-35 ad insertion type. Accepted value: <code>SPLICE_INSERT</code>, <code>TIME_SIGNAL</code>.</p>
    */
-  MessageType?: MessageType | string;
+  MessageType?: MessageType;
 
   /**
    * @public
@@ -252,7 +252,7 @@ export interface Alert {
    * @public
    * <p>The category that MediaTailor assigns to the alert.</p>
    */
-  Category?: AlertCategory | string;
+  Category?: AlertCategory;
 }
 
 /**
@@ -286,7 +286,7 @@ export interface AvailMatchingCriteria {
    * @public
    * <p>For the <code>DynamicVariable</code> specified in <code>AvailMatchingCriteria</code>, the Operator that is used for the comparison.</p>
    */
-  Operator: Operator | string | undefined;
+  Operator: Operator | undefined;
 }
 
 /**
@@ -311,7 +311,7 @@ export interface LogConfigurationForChannel {
    * @public
    * <p>The log types.</p>
    */
-  LogTypes?: (LogType | string)[];
+  LogTypes?: LogType[];
 }
 
 /**
@@ -373,7 +373,7 @@ export interface HlsPlaylistSettings {
    * @public
    * <p>Determines the type of SCTE 35 tags to use in ad markup. Specify <code>DATERANGE</code> to use <code>DATERANGE</code> tags (for live or VOD content). Specify <code>SCTE35_ENHANCED</code> to use <code>EXT-X-CUE-OUT</code> and <code>EXT-X-CUE-IN</code> tags (for VOD content only).</p>
    */
-  AdMarkupType?: (AdMarkupType | string)[];
+  AdMarkupType?: AdMarkupType[];
 }
 
 /**
@@ -525,7 +525,7 @@ export interface HttpPackageConfiguration {
    * @public
    * <p>The streaming protocol for this package configuration. Supported values are <code>HLS</code> and <code>DASH</code>.</p>
    */
-  Type: Type | string | undefined;
+  Type: Type | undefined;
 }
 
 /**
@@ -614,7 +614,7 @@ export interface AvailSuppression {
    * @public
    * <p>Sets the ad suppression mode. By default, ad suppression is off and all ad breaks are filled with ads or slate. When Mode is set to <code>BEHIND_LIVE_EDGE</code>, ad suppression is active and MediaTailor won't fill ad breaks on or behind the ad suppression Value time in the manifest lookback window. When Mode is set to <code>AFTER_LIVE_EDGE</code>, ad suppression is active and MediaTailor won't fill ad breaks that are within the live edge plus the avail suppression value.</p>
    */
-  Mode?: Mode | string;
+  Mode?: Mode;
 
   /**
    * @public
@@ -626,7 +626,7 @@ export interface AvailSuppression {
    * @public
    * <p>Defines the policy to apply to the avail suppression mode. <code>BEHIND_LIVE_EDGE</code> will always use the full avail suppression policy. <code>AFTER_LIVE_EDGE</code> mode can be used to invoke partial ad break fills when a session starts mid-break.</p>
    */
-  FillPolicy?: FillPolicy | string;
+  FillPolicy?: FillPolicy;
 }
 
 /**
@@ -700,7 +700,7 @@ export interface DashConfiguration {
    * @public
    * <p>The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to <code>SINGLE_PERIOD</code>. The default setting is <code>MULTI_PERIOD</code>. For multi-period manifests, omit this setting or set it to <code>MULTI_PERIOD</code>.</p>
    */
-  OriginManifestType?: OriginManifestType | string;
+  OriginManifestType?: OriginManifestType;
 }
 
 /**
@@ -1079,7 +1079,7 @@ export interface ScheduleEntry {
    * @public
    * <p>The type of schedule entry.</p>
    */
-  ScheduleEntryType?: ScheduleEntryType | string;
+  ScheduleEntryType?: ScheduleEntryType;
 
   /**
    * @public
@@ -1117,6 +1117,7 @@ export interface SegmentDeliveryConfiguration {
  * @enum
  */
 export const AccessType = {
+  AUTODETECT_SIGV4: "AUTODETECT_SIGV4",
   S3_SIGV4: "S3_SIGV4",
   SECRETS_MANAGER_ACCESS_TOKEN: "SECRETS_MANAGER_ACCESS_TOKEN",
 } as const;
@@ -1157,15 +1158,25 @@ export interface SecretsManagerAccessTokenConfiguration {
 export interface AccessConfiguration {
   /**
    * @public
-   * <p>The type of authentication used to access content from <code>HttpConfiguration::BaseUrl</code> on your source location. Accepted value: <code>S3_SIGV4</code>.</p>
+   * <p>The type of authentication used to access content from <code>HttpConfiguration::BaseUrl</code> on your source location.</p>
    *          <p>
    *             <code>S3_SIGV4</code> - AWS Signature Version 4 authentication for Amazon S3 hosted virtual-style access. If your source location base URL is an Amazon S3 bucket, MediaTailor can use AWS Signature Version 4 (SigV4) authentication to access the bucket where your source content is stored. Your MediaTailor source location baseURL must follow the S3 virtual hosted-style request URL format. For example, https://bucket-name.s3.Region.amazonaws.com/key-name.</p>
    *          <p>Before you can use <code>S3_SIGV4</code>, you must meet these requirements:</p>
    *          <p>• You must allow MediaTailor to access your S3 bucket by granting mediatailor.amazonaws.com principal access in IAM. For information about configuring access in IAM, see Access management in the IAM User Guide.</p>
    *          <p>• The mediatailor.amazonaws.com service principal must have permissions to read all top level manifests referenced by the VodSource packaging configurations.</p>
    *          <p>• The caller of the API must have s3:GetObject IAM permissions to read all top level manifests referenced by your MediaTailor VodSource packaging configurations.</p>
+   *          <p>
+   *             <code>AUTODETECT_SIGV4</code> - AWS Signature Version 4 authentication for a set of supported services: MediaPackage Version 2 and Amazon S3 hosted virtual-style access. If your source location base URL is a MediaPackage Version 2 endpoint or an Amazon S3 bucket, MediaTailor can use AWS Signature Version 4 (SigV4) authentication to access the resource where your source content is stored.</p>
+   *          <p>Before you can use <code>AUTODETECT_SIGV4</code> with a MediaPackage Version 2 endpoint, you must meet these requirements:</p>
+   *          <p>• You must grant MediaTailor access to your MediaPackage endpoint by granting <code>mediatailor.amazonaws.com</code> principal access in an Origin Access policy on the endpoint.</p>
+   *          <p>• Your MediaTailor source location base URL must be a MediaPackage V2 endpoint.</p>
+   *          <p>• The caller of the API must have <code>mediapackagev2:GetObject</code> IAM permissions to read all top level manifests referenced by the MediaTailor source packaging configurations.</p>
+   *          <p>Before you can use <code>AUTODETECT_SIGV4</code> with an Amazon S3 bucket, you must meet these requirements:</p>
+   *          <p>• You must grant MediaTailor access to your S3 bucket by granting <code>mediatailor.amazonaws.com</code> principal access in IAM. For more information about configuring access in IAM, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access management</a> in the <i>IAM User Guide.</i>.</p>
+   *          <p>• The <code>mediatailor.amazonaws.com</code> service principal must have permissions to read all top-level manifests referenced by the <code>VodSource</code> packaging configurations.</p>
+   *          <p>• The caller of the API must have <code>s3:GetObject</code> IAM permissions to read all top level manifests referenced by your MediaTailor <code>VodSource</code> packaging configurations.</p>
    */
-  AccessType?: AccessType | string;
+  AccessType?: AccessType;
 
   /**
    * @public
@@ -1308,6 +1319,18 @@ export interface VodSource {
 
 /**
  * @public
+ * <p>A location at which a zero-duration ad marker was detected in a VOD source manifest.</p>
+ */
+export interface AdBreakOpportunity {
+  /**
+   * @public
+   * <p>The offset in milliseconds from the start of the VOD source at which an ad marker was detected.</p>
+   */
+  OffsetMillis: number | undefined;
+}
+
+/**
+ * @public
  * <p>A request contains unexpected data.</p>
  */
 export class BadRequestException extends __BaseException {
@@ -1402,7 +1425,7 @@ export interface ConfigureLogsForChannelRequest {
    * @public
    * <p>The types of logs to collect.</p>
    */
-  LogTypes: (LogType | string)[] | undefined;
+  LogTypes: LogType[] | undefined;
 }
 
 /**
@@ -1419,7 +1442,7 @@ export interface ConfigureLogsForChannelResponse {
    * @public
    * <p>The types of logs collected.</p>
    */
-  LogTypes?: (LogType | string)[];
+  LogTypes?: LogType[];
 }
 
 /**
@@ -1482,6 +1505,23 @@ export type Tier = (typeof Tier)[keyof typeof Tier];
 
 /**
  * @public
+ * <p>
+ *             The configuration for time-shifted viewing.
+ *         </p>
+ */
+export interface TimeShiftConfiguration {
+  /**
+   * @public
+   * <p>
+   *             The maximum time delay for time-shifted viewing. The minimum allowed maximum time delay is 0 seconds,
+   *             and the maximum allowed maximum time delay is 21600 seconds (6 hours).
+   *         </p>
+   */
+  MaxTimeDelaySeconds: number | undefined;
+}
+
+/**
+ * @public
  */
 export interface CreateChannelRequest {
   /**
@@ -1512,7 +1552,7 @@ export interface CreateChannelRequest {
    *          <p>
    *             <code>LOOP</code> - The programs in the schedule play back-to-back in an endless loop. When the last program in the schedule stops playing, playback loops back to the first program in the schedule.</p>
    */
-  PlaybackMode: PlaybackMode | string | undefined;
+  PlaybackMode: PlaybackMode | undefined;
 
   /**
    * @public
@@ -1524,7 +1564,15 @@ export interface CreateChannelRequest {
    * @public
    * <p>The tier of the channel.</p>
    */
-  Tier?: Tier | string;
+  Tier?: Tier;
+
+  /**
+   * @public
+   * <p>
+   *             The time-shifted viewing configuration you want to associate to the channel.
+   *         </p>
+   */
+  TimeShiftConfiguration?: TimeShiftConfiguration;
 }
 
 /**
@@ -1561,7 +1609,7 @@ export interface CreateChannelResponse {
    * @public
    * <p>Indicates whether the channel is in a running state or not.</p>
    */
-  ChannelState?: ChannelState | string;
+  ChannelState?: ChannelState;
 
   /**
    * @public
@@ -1604,6 +1652,14 @@ export interface CreateChannelResponse {
    * <p>The tier of the channel.</p>
    */
   Tier?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The time-shifted viewing configuration assigned to the channel.
+   *         </p>
+   */
+  TimeShiftConfiguration?: TimeShiftConfiguration;
 }
 
 /**
@@ -1653,7 +1709,7 @@ export interface DescribeChannelResponse {
    * @public
    * <p>Indicates whether the channel is in a running state or not.</p>
    */
-  ChannelState?: ChannelState | string;
+  ChannelState?: ChannelState;
 
   /**
    * @public
@@ -1702,6 +1758,14 @@ export interface DescribeChannelResponse {
    * <p>The log configuration for the channel.</p>
    */
   LogConfiguration: LogConfigurationForChannel | undefined;
+
+  /**
+   * @public
+   * <p>
+   *             The time-shifted viewing configuration for the channel.
+   *         </p>
+   */
+  TimeShiftConfiguration?: TimeShiftConfiguration;
 }
 
 /**
@@ -1828,7 +1892,7 @@ export interface Transition {
    * @public
    * <p>The position where this program will be inserted relative to the <code>RelativePosition</code>.</p>
    */
-  RelativePosition: RelativePosition | string | undefined;
+  RelativePosition: RelativePosition | undefined;
 
   /**
    * @public
@@ -2294,6 +2358,14 @@ export interface UpdateChannelRequest {
    * <p>The channel's output properties.</p>
    */
   Outputs: RequestOutputItem[] | undefined;
+
+  /**
+   * @public
+   * <p>
+   *             The time-shifted viewing configuration you want to associate to the channel.
+   *         </p>
+   */
+  TimeShiftConfiguration?: TimeShiftConfiguration;
 }
 
 /**
@@ -2316,7 +2388,7 @@ export interface UpdateChannelResponse {
    * @public
    * <p>Returns the state whether the channel is running or not.</p>
    */
-  ChannelState?: ChannelState | string;
+  ChannelState?: ChannelState;
 
   /**
    * @public
@@ -2365,6 +2437,14 @@ export interface UpdateChannelResponse {
    * <p>The tier associated with this Channel.</p>
    */
   Tier?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The time-shifted viewing configuration for the channel.
+   *         </p>
+   */
+  TimeShiftConfiguration?: TimeShiftConfiguration;
 }
 
 /**
@@ -2747,7 +2827,7 @@ export interface DashConfigurationForPut {
    * @public
    * <p>The setting that controls whether MediaTailor handles manifests from the origin server as multi-period manifests or single-period manifests. If your origin server produces single-period manifests, set this to <code>SINGLE_PERIOD</code>. The default setting is <code>MULTI_PERIOD</code>. For multi-period manifests, omit this setting or set it to <code>MULTI_PERIOD</code>.</p>
    */
-  OriginManifestType?: OriginManifestType | string;
+  OriginManifestType?: OriginManifestType;
 }
 
 /**
@@ -3003,6 +3083,12 @@ export interface DescribeVodSourceRequest {
  * @public
  */
 export interface DescribeVodSourceResponse {
+  /**
+   * @public
+   * <p>The ad break opportunities within the VOD source.</p>
+   */
+  AdBreakOpportunities?: AdBreakOpportunity[];
+
   /**
    * @public
    * <p>The ARN of the VOD source.</p>

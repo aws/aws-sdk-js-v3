@@ -9,6 +9,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
 
 import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
+import { ALL_VALUES } from "../commands/utils";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
 /**
@@ -46,8 +47,12 @@ export class GetCommand extends DynamoDBDocumentClientCommand<
   __GetItemCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
-  protected readonly inputKeyNodes = [{ key: "Key" }];
-  protected readonly outputKeyNodes = [{ key: "Item" }];
+  protected readonly inputKeyNodes = {
+    Key: ALL_VALUES, // map with AttributeValue
+  };
+  protected readonly outputKeyNodes = {
+    Item: ALL_VALUES, // map with AttributeValue
+  };
 
   protected readonly clientCommand: __GetItemCommand;
   public readonly middlewareStack: MiddlewareStack<

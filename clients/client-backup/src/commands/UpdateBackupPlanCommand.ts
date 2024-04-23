@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateBackupPlanInput,
   UpdateBackupPlanInputFilterSensitiveLog,
@@ -63,6 +55,7 @@ export interface UpdateBackupPlanCommandOutput extends UpdateBackupPlanOutput, _
  *         Lifecycle: { // Lifecycle
  *           MoveToColdStorageAfterDays: Number("long"),
  *           DeleteAfterDays: Number("long"),
+ *           OptInToArchiveForSupportedResources: true || false,
  *         },
  *         RecoveryPointTags: { // Tags
  *           "<keys>": "STRING_VALUE",
@@ -72,11 +65,13 @@ export interface UpdateBackupPlanCommandOutput extends UpdateBackupPlanOutput, _
  *             Lifecycle: {
  *               MoveToColdStorageAfterDays: Number("long"),
  *               DeleteAfterDays: Number("long"),
+ *               OptInToArchiveForSupportedResources: true || false,
  *             },
  *             DestinationBackupVaultArn: "STRING_VALUE", // required
  *           },
  *         ],
  *         EnableContinuousBackup: true || false,
+ *         ScheduleExpressionTimezone: "STRING_VALUE",
  *       },
  *     ],
  *     AdvancedBackupSettings: [ // AdvancedBackupSettings
@@ -131,79 +126,26 @@ export interface UpdateBackupPlanCommandOutput extends UpdateBackupPlanOutput, _
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
-export class UpdateBackupPlanCommand extends $Command<
-  UpdateBackupPlanCommandInput,
-  UpdateBackupPlanCommandOutput,
-  BackupClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateBackupPlanCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: BackupClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateBackupPlanCommandInput, UpdateBackupPlanCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateBackupPlanCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "BackupClient";
-    const commandName = "UpdateBackupPlanCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: UpdateBackupPlanInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateBackupPlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateBackupPlanCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateBackupPlanCommandOutput> {
-    return de_UpdateBackupPlanCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateBackupPlanCommand extends $Command
+  .classBuilder<
+    UpdateBackupPlanCommandInput,
+    UpdateBackupPlanCommandOutput,
+    BackupClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CryoControllerUserManager", "UpdateBackupPlan", {})
+  .n("BackupClient", "UpdateBackupPlanCommand")
+  .f(UpdateBackupPlanInputFilterSensitiveLog, void 0)
+  .ser(se_UpdateBackupPlanCommand)
+  .de(de_UpdateBackupPlanCommand)
+  .build() {}

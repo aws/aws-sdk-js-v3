@@ -29,6 +29,23 @@
     ]
   },
   "shapes": {
+    "com.amazonaws.dynamodb#ApproximateCreationDateTimePrecision": {
+      "type": "enum",
+      "members": {
+        "MILLISECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MILLISECOND"
+          }
+        },
+        "MICROSECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MICROSECOND"
+          }
+        }
+      }
+    },
     "com.amazonaws.dynamodb#ArchivalReason": {
       "type": "string"
     },
@@ -833,7 +850,67 @@
         "aws.api#clientDiscoveredEndpoint": {
           "required": false
         },
-        "smithy.api#documentation": "<p>The <code>BatchGetItem</code> operation returns the attributes of one or more items\n            from one or more tables. You identify requested items by primary key.</p>\n         <p>A single operation can retrieve up to 16 MB of data, which can contain as many as 100\n            items. <code>BatchGetItem</code> returns a partial result if the response size limit is\n            exceeded, the table's provisioned throughput is exceeded, more than 1MB per partition is requested,\n            or an internal processing failure occurs. If a partial result is returned, the operation returns a value for\n                <code>UnprocessedKeys</code>. You can use this value to retry the operation starting\n            with the next item to get.</p>\n         <important>\n            <p>If you request more than 100 items, <code>BatchGetItem</code> returns a\n                    <code>ValidationException</code> with the message \"Too many items requested for\n                the BatchGetItem call.\"</p>\n         </important>\n         <p>For example, if you ask to retrieve 100 items, but each individual item is 300 KB in\n            size, the system returns 52 items (so as not to exceed the 16 MB limit). It also returns\n            an appropriate <code>UnprocessedKeys</code> value so you can get the next page of\n            results. If desired, your application can include its own logic to assemble the pages of\n            results into one dataset.</p>\n         <p>If <i>none</i> of the items can be processed due to insufficient\n            provisioned throughput on all of the tables in the request, then\n                <code>BatchGetItem</code> returns a\n                <code>ProvisionedThroughputExceededException</code>. If <i>at least\n                one</i> of the items is successfully processed, then\n                <code>BatchGetItem</code> completes successfully, while returning the keys of the\n            unread items in <code>UnprocessedKeys</code>.</p>\n         <important>\n            <p>If DynamoDB returns any unprocessed items, you should retry the batch operation on\n                those items. However, <i>we strongly recommend that you use an exponential\n                    backoff algorithm</i>. If you retry the batch operation immediately, the\n                underlying read or write requests can still fail due to throttling on the individual\n                tables. If you delay the batch operation using exponential backoff, the individual\n                requests in the batch are much more likely to succeed.</p>\n            <p>For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#BatchOperations\">Batch Operations and Error Handling</a> in the <i>Amazon DynamoDB\n                    Developer Guide</i>.</p>\n         </important>\n         <p>By default, <code>BatchGetItem</code> performs eventually consistent reads on every\n            table in the request. If you want strongly consistent reads instead, you can set\n                <code>ConsistentRead</code> to <code>true</code> for any or all tables.</p>\n         <p>In order to minimize response latency, <code>BatchGetItem</code> may retrieve items in\n            parallel.</p>\n         <p>When designing your application, keep in mind that DynamoDB does not return items in\n            any particular order. To help parse the response by item, include the primary key values\n            for the items in your request in the <code>ProjectionExpression</code> parameter.</p>\n         <p>If a requested item does not exist, it is not returned in the result. Requests for\n            nonexistent items consume the minimum read capacity units according to the type of read.\n            For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#CapacityUnitCalculations\">Working with Tables</a> in the <i>Amazon DynamoDB Developer\n                Guide</i>.</p>"
+        "smithy.api#documentation": "<p>The <code>BatchGetItem</code> operation returns the attributes of one or more items\n            from one or more tables. You identify requested items by primary key.</p>\n         <p>A single operation can retrieve up to 16 MB of data, which can contain as many as 100\n            items. <code>BatchGetItem</code> returns a partial result if the response size limit is\n            exceeded, the table's provisioned throughput is exceeded, more than 1MB per partition is requested,\n            or an internal processing failure occurs. If a partial result is returned, the operation returns a value for\n                <code>UnprocessedKeys</code>. You can use this value to retry the operation starting\n            with the next item to get.</p>\n         <important>\n            <p>If you request more than 100 items, <code>BatchGetItem</code> returns a\n                    <code>ValidationException</code> with the message \"Too many items requested for\n                the BatchGetItem call.\"</p>\n         </important>\n         <p>For example, if you ask to retrieve 100 items, but each individual item is 300 KB in\n            size, the system returns 52 items (so as not to exceed the 16 MB limit). It also returns\n            an appropriate <code>UnprocessedKeys</code> value so you can get the next page of\n            results. If desired, your application can include its own logic to assemble the pages of\n            results into one dataset.</p>\n         <p>If <i>none</i> of the items can be processed due to insufficient\n            provisioned throughput on all of the tables in the request, then\n                <code>BatchGetItem</code> returns a\n                <code>ProvisionedThroughputExceededException</code>. If <i>at least\n                one</i> of the items is successfully processed, then\n                <code>BatchGetItem</code> completes successfully, while returning the keys of the\n            unread items in <code>UnprocessedKeys</code>.</p>\n         <important>\n            <p>If DynamoDB returns any unprocessed items, you should retry the batch operation on\n                those items. However, <i>we strongly recommend that you use an exponential\n                    backoff algorithm</i>. If you retry the batch operation immediately, the\n                underlying read or write requests can still fail due to throttling on the individual\n                tables. If you delay the batch operation using exponential backoff, the individual\n                requests in the batch are much more likely to succeed.</p>\n            <p>For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#BatchOperations\">Batch Operations and Error Handling</a> in the <i>Amazon DynamoDB\n                    Developer Guide</i>.</p>\n         </important>\n         <p>By default, <code>BatchGetItem</code> performs eventually consistent reads on every\n            table in the request. If you want strongly consistent reads instead, you can set\n                <code>ConsistentRead</code> to <code>true</code> for any or all tables.</p>\n         <p>In order to minimize response latency, <code>BatchGetItem</code> may retrieve items in\n            parallel.</p>\n         <p>When designing your application, keep in mind that DynamoDB does not return items in\n            any particular order. To help parse the response by item, include the primary key values\n            for the items in your request in the <code>ProjectionExpression</code> parameter.</p>\n         <p>If a requested item does not exist, it is not returned in the result. Requests for\n            nonexistent items consume the minimum read capacity units according to the type of read.\n            For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#CapacityUnitCalculations\">Working with Tables</a> in the <i>Amazon DynamoDB Developer\n                Guide</i>.</p>",
+        "smithy.api#examples": [
+          {
+            "title": "To retrieve multiple items from a table",
+            "documentation": "This example reads multiple items from the Music table using a batch of three GetItem requests.  Only the AlbumTitle attribute is returned.",
+            "input": {
+              "RequestItems": {
+                "Music": {
+                  "Keys": [
+                    {
+                      "Artist": {
+                        "S": "No One You Know"
+                      },
+                      "SongTitle": {
+                        "S": "Call Me Today"
+                      }
+                    },
+                    {
+                      "Artist": {
+                        "S": "Acme Band"
+                      },
+                      "SongTitle": {
+                        "S": "Happy Day"
+                      }
+                    },
+                    {
+                      "Artist": {
+                        "S": "No One You Know"
+                      },
+                      "SongTitle": {
+                        "S": "Scared of My Shadow"
+                      }
+                    }
+                  ],
+                  "ProjectionExpression": "AlbumTitle"
+                }
+              }
+            },
+            "output": {
+              "Responses": {
+                "Music": [
+                  {
+                    "AlbumTitle": {
+                      "S": "Somewhat Famous"
+                    }
+                  },
+                  {
+                    "AlbumTitle": {
+                      "S": "Blue Sky Blues"
+                    }
+                  },
+                  {
+                    "AlbumTitle": {
+                      "S": "Louder Than Ever"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ]
       }
     },
     "com.amazonaws.dynamodb#BatchGetItemInput": {
@@ -1094,7 +1171,65 @@
         "aws.api#clientDiscoveredEndpoint": {
           "required": false
         },
-        "smithy.api#documentation": "<p>The <code>BatchWriteItem</code> operation puts or deletes multiple items in one or\n            more tables. A single call to <code>BatchWriteItem</code> can transmit up to 16MB of\n            data over the network, consisting of up to 25 item put or delete operations. While\n            individual items can be up to 400 KB once stored, it's important to note that an item's\n            representation might be greater than 400KB while being sent in DynamoDB's JSON format\n            for the API call. For more details on this distinction, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html\">Naming Rules and Data Types</a>.</p>\n         <note>\n            <p>\n               <code>BatchWriteItem</code> cannot update items. If you perform a <code>BatchWriteItem</code>\n                operation on an existing item, that item's values will be overwritten by the\n                operation and it will appear like it was updated. To update items, we recommend you\n                use the <code>UpdateItem</code> action.</p>\n         </note>\n         <p>The individual <code>PutItem</code> and <code>DeleteItem</code> operations specified\n            in <code>BatchWriteItem</code> are atomic; however <code>BatchWriteItem</code> as a\n            whole is not. If any requested operations fail because the table's provisioned\n            throughput is exceeded or an internal processing failure occurs, the failed operations\n            are returned in the <code>UnprocessedItems</code> response parameter. You can\n            investigate and optionally resend the requests. Typically, you would call\n                <code>BatchWriteItem</code> in a loop. Each iteration would check for unprocessed\n            items and submit a new <code>BatchWriteItem</code> request with those unprocessed items\n            until all items have been processed.</p>\n         <p>If <i>none</i> of the items can be processed due to insufficient\n            provisioned throughput on all of the tables in the request, then\n                <code>BatchWriteItem</code> returns a\n                <code>ProvisionedThroughputExceededException</code>.</p>\n         <important>\n            <p>If DynamoDB returns any unprocessed items, you should retry the batch operation on\n                those items. However, <i>we strongly recommend that you use an exponential\n                    backoff algorithm</i>. If you retry the batch operation immediately, the\n                underlying read or write requests can still fail due to throttling on the individual\n                tables. If you delay the batch operation using exponential backoff, the individual\n                requests in the batch are much more likely to succeed.</p>\n            <p>For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#Programming.Errors.BatchOperations\">Batch Operations and Error Handling</a> in the <i>Amazon DynamoDB\n                    Developer Guide</i>.</p>\n         </important>\n         <p>With <code>BatchWriteItem</code>, you can efficiently write or delete large amounts of\n            data, such as from Amazon EMR, or copy data from another database into DynamoDB. In\n            order to improve performance with these large-scale operations,\n                <code>BatchWriteItem</code> does not behave in the same way as individual\n                <code>PutItem</code> and <code>DeleteItem</code> calls would. For example, you\n            cannot specify conditions on individual put and delete requests, and\n                <code>BatchWriteItem</code> does not return deleted items in the response.</p>\n         <p>If you use a programming language that supports concurrency, you can use threads to\n            write items in parallel. Your application must include the necessary logic to manage the\n            threads. With languages that don't support threading, you must update or delete the\n            specified items one at a time. In both situations, <code>BatchWriteItem</code> performs\n            the specified put and delete operations in parallel, giving you the power of the thread\n            pool approach without having to introduce complexity into your application.</p>\n         <p>Parallel processing reduces latency, but each specified put and delete request\n            consumes the same number of write capacity units whether it is processed in parallel or\n            not. Delete operations on nonexistent items consume one write capacity unit.</p>\n         <p>If one or more of the following is true, DynamoDB rejects the entire batch write\n            operation:</p>\n         <ul>\n            <li>\n               <p>One or more tables specified in the <code>BatchWriteItem</code> request does\n                    not exist.</p>\n            </li>\n            <li>\n               <p>Primary key attributes specified on an item in the request do not match those\n                    in the corresponding table's primary key schema.</p>\n            </li>\n            <li>\n               <p>You try to perform multiple operations on the same item in the same\n                        <code>BatchWriteItem</code> request. For example, you cannot put and delete\n                    the same item in the same <code>BatchWriteItem</code> request. </p>\n            </li>\n            <li>\n               <p> Your request contains at least two items with identical hash and range keys\n                    (which essentially is two put operations). </p>\n            </li>\n            <li>\n               <p>There are more than 25 requests in the batch.</p>\n            </li>\n            <li>\n               <p>Any individual item in a batch exceeds 400 KB.</p>\n            </li>\n            <li>\n               <p>The total request size exceeds 16 MB.</p>\n            </li>\n         </ul>"
+        "smithy.api#documentation": "<p>The <code>BatchWriteItem</code> operation puts or deletes multiple items in one or\n            more tables. A single call to <code>BatchWriteItem</code> can transmit up to 16MB of\n            data over the network, consisting of up to 25 item put or delete operations. While\n            individual items can be up to 400 KB once stored, it's important to note that an item's\n            representation might be greater than 400KB while being sent in DynamoDB's JSON format\n            for the API call. For more details on this distinction, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html\">Naming Rules and Data Types</a>.</p>\n         <note>\n            <p>\n               <code>BatchWriteItem</code> cannot update items. If you perform a <code>BatchWriteItem</code>\n                operation on an existing item, that item's values will be overwritten by the\n                operation and it will appear like it was updated. To update items, we recommend you\n                use the <code>UpdateItem</code> action.</p>\n         </note>\n         <p>The individual <code>PutItem</code> and <code>DeleteItem</code> operations specified\n            in <code>BatchWriteItem</code> are atomic; however <code>BatchWriteItem</code> as a\n            whole is not. If any requested operations fail because the table's provisioned\n            throughput is exceeded or an internal processing failure occurs, the failed operations\n            are returned in the <code>UnprocessedItems</code> response parameter. You can\n            investigate and optionally resend the requests. Typically, you would call\n                <code>BatchWriteItem</code> in a loop. Each iteration would check for unprocessed\n            items and submit a new <code>BatchWriteItem</code> request with those unprocessed items\n            until all items have been processed.</p>\n         <p>If <i>none</i> of the items can be processed due to insufficient\n            provisioned throughput on all of the tables in the request, then\n                <code>BatchWriteItem</code> returns a\n                <code>ProvisionedThroughputExceededException</code>.</p>\n         <important>\n            <p>If DynamoDB returns any unprocessed items, you should retry the batch operation on\n                those items. However, <i>we strongly recommend that you use an exponential\n                    backoff algorithm</i>. If you retry the batch operation immediately, the\n                underlying read or write requests can still fail due to throttling on the individual\n                tables. If you delay the batch operation using exponential backoff, the individual\n                requests in the batch are much more likely to succeed.</p>\n            <p>For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#Programming.Errors.BatchOperations\">Batch Operations and Error Handling</a> in the <i>Amazon DynamoDB\n                    Developer Guide</i>.</p>\n         </important>\n         <p>With <code>BatchWriteItem</code>, you can efficiently write or delete large amounts of\n            data, such as from Amazon EMR, or copy data from another database into DynamoDB. In\n            order to improve performance with these large-scale operations,\n                <code>BatchWriteItem</code> does not behave in the same way as individual\n                <code>PutItem</code> and <code>DeleteItem</code> calls would. For example, you\n            cannot specify conditions on individual put and delete requests, and\n                <code>BatchWriteItem</code> does not return deleted items in the response.</p>\n         <p>If you use a programming language that supports concurrency, you can use threads to\n            write items in parallel. Your application must include the necessary logic to manage the\n            threads. With languages that don't support threading, you must update or delete the\n            specified items one at a time. In both situations, <code>BatchWriteItem</code> performs\n            the specified put and delete operations in parallel, giving you the power of the thread\n            pool approach without having to introduce complexity into your application.</p>\n         <p>Parallel processing reduces latency, but each specified put and delete request\n            consumes the same number of write capacity units whether it is processed in parallel or\n            not. Delete operations on nonexistent items consume one write capacity unit.</p>\n         <p>If one or more of the following is true, DynamoDB rejects the entire batch write\n            operation:</p>\n         <ul>\n            <li>\n               <p>One or more tables specified in the <code>BatchWriteItem</code> request does\n                    not exist.</p>\n            </li>\n            <li>\n               <p>Primary key attributes specified on an item in the request do not match those\n                    in the corresponding table's primary key schema.</p>\n            </li>\n            <li>\n               <p>You try to perform multiple operations on the same item in the same\n                        <code>BatchWriteItem</code> request. For example, you cannot put and delete\n                    the same item in the same <code>BatchWriteItem</code> request. </p>\n            </li>\n            <li>\n               <p> Your request contains at least two items with identical hash and range keys\n                    (which essentially is two put operations). </p>\n            </li>\n            <li>\n               <p>There are more than 25 requests in the batch.</p>\n            </li>\n            <li>\n               <p>Any individual item in a batch exceeds 400 KB.</p>\n            </li>\n            <li>\n               <p>The total request size exceeds 16 MB.</p>\n            </li>\n         </ul>",
+        "smithy.api#examples": [
+          {
+            "title": "To add multiple items to a table",
+            "documentation": "This example adds three new items to the Music table using a batch of three PutItem requests.",
+            "input": {
+              "RequestItems": {
+                "Music": [
+                  {
+                    "PutRequest": {
+                      "Item": {
+                        "AlbumTitle": {
+                          "S": "Somewhat Famous"
+                        },
+                        "SongTitle": {
+                          "S": "Call Me Today"
+                        },
+                        "Artist": {
+                          "S": "No One You Know"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "PutRequest": {
+                      "Item": {
+                        "AlbumTitle": {
+                          "S": "Songs About Life"
+                        },
+                        "SongTitle": {
+                          "S": "Happy Day"
+                        },
+                        "Artist": {
+                          "S": "Acme Band"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "PutRequest": {
+                      "Item": {
+                        "AlbumTitle": {
+                          "S": "Blue Sky Blues"
+                        },
+                        "SongTitle": {
+                          "S": "Scared of My Shadow"
+                        },
+                        "Artist": {
+                          "S": "No One You Know"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "output": {}
+          }
+        ]
       }
     },
     "com.amazonaws.dynamodb#BatchWriteItemInput": {
@@ -2289,7 +2424,30 @@
         "aws.api#clientDiscoveredEndpoint": {
           "required": false
         },
-        "smithy.api#documentation": "<p>Deletes a single item in a table by primary key. You can perform a conditional delete\n            operation that deletes the item if it exists, or if it has an expected attribute\n            value.</p>\n         <p>In addition to deleting an item, you can also return the item's attribute values in\n            the same operation, using the <code>ReturnValues</code> parameter.</p>\n         <p>Unless you specify conditions, the <code>DeleteItem</code> is an idempotent operation;\n            running it multiple times on the same item or attribute does <i>not</i>\n            result in an error response.</p>\n         <p>Conditional deletes are useful for deleting items only if specific conditions are met.\n            If those conditions are met, DynamoDB performs the delete. Otherwise, the item is not\n            deleted.</p>"
+        "smithy.api#documentation": "<p>Deletes a single item in a table by primary key. You can perform a conditional delete\n            operation that deletes the item if it exists, or if it has an expected attribute\n            value.</p>\n         <p>In addition to deleting an item, you can also return the item's attribute values in\n            the same operation, using the <code>ReturnValues</code> parameter.</p>\n         <p>Unless you specify conditions, the <code>DeleteItem</code> is an idempotent operation;\n            running it multiple times on the same item or attribute does <i>not</i>\n            result in an error response.</p>\n         <p>Conditional deletes are useful for deleting items only if specific conditions are met.\n            If those conditions are met, DynamoDB performs the delete. Otherwise, the item is not\n            deleted.</p>",
+        "smithy.api#examples": [
+          {
+            "title": "To delete an item",
+            "documentation": "This example deletes an item from the Music table.",
+            "input": {
+              "TableName": "Music",
+              "Key": {
+                "Artist": {
+                  "S": "No One You Know"
+                },
+                "SongTitle": {
+                  "S": "Scared of My Shadow"
+                }
+              }
+            },
+            "output": {
+              "ConsumedCapacity": {
+                "CapacityUnits": 1,
+                "TableName": "Music"
+              }
+            }
+          }
+        ]
       }
     },
     "com.amazonaws.dynamodb#DeleteItemInput": {
@@ -2467,7 +2625,29 @@
         "aws.api#clientDiscoveredEndpoint": {
           "required": false
         },
-        "smithy.api#documentation": "<p>The <code>DeleteTable</code> operation deletes a table and all of its items. After a\n                <code>DeleteTable</code> request, the specified table is in the\n                <code>DELETING</code> state until DynamoDB completes the deletion. If the table is\n            in the <code>ACTIVE</code> state, you can delete it. If a table is in\n                <code>CREATING</code> or <code>UPDATING</code> states, then DynamoDB returns a\n                <code>ResourceInUseException</code>. If the specified table does not exist, DynamoDB\n            returns a <code>ResourceNotFoundException</code>. If table is already in the\n                <code>DELETING</code> state, no error is returned. </p>\n         <important>\n            <p>This operation only applies to <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html\">Version 2019.11.21 (Current)</a> \n                of global tables.\n            </p>\n         </important>\n         <note>\n            <p>DynamoDB might continue to accept data read and write operations, such as\n                    <code>GetItem</code> and <code>PutItem</code>, on a table in the\n                    <code>DELETING</code> state until the table deletion is complete.</p>\n         </note>\n         <p>When you delete a table, any indexes on that table are also deleted.</p>\n         <p>If you have DynamoDB Streams enabled on the table, then the corresponding stream on\n            that table goes into the <code>DISABLED</code> state, and the stream is automatically\n            deleted after 24 hours.</p>\n         <p>Use the <code>DescribeTable</code> action to check the status of the table. </p>"
+        "smithy.api#documentation": "<p>The <code>DeleteTable</code> operation deletes a table and all of its items. After a\n                <code>DeleteTable</code> request, the specified table is in the\n                <code>DELETING</code> state until DynamoDB completes the deletion. If the table is\n            in the <code>ACTIVE</code> state, you can delete it. If a table is in\n                <code>CREATING</code> or <code>UPDATING</code> states, then DynamoDB returns a\n                <code>ResourceInUseException</code>. If the specified table does not exist, DynamoDB\n            returns a <code>ResourceNotFoundException</code>. If table is already in the\n                <code>DELETING</code> state, no error is returned. </p>\n         <important>\n            <p>This operation only applies to <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html\">Version 2019.11.21 (Current)</a> \n                of global tables.\n            </p>\n         </important>\n         <note>\n            <p>DynamoDB might continue to accept data read and write operations, such as\n                    <code>GetItem</code> and <code>PutItem</code>, on a table in the\n                    <code>DELETING</code> state until the table deletion is complete.</p>\n         </note>\n         <p>When you delete a table, any indexes on that table are also deleted.</p>\n         <p>If you have DynamoDB Streams enabled on the table, then the corresponding stream on\n            that table goes into the <code>DISABLED</code> state, and the stream is automatically\n            deleted after 24 hours.</p>\n         <p>Use the <code>DescribeTable</code> action to check the status of the table. </p>",
+        "smithy.api#examples": [
+          {
+            "title": "To delete a table",
+            "documentation": "This example deletes the Music table.",
+            "input": {
+              "TableName": "Music"
+            },
+            "output": {
+              "TableDescription": {
+                "TableStatus": "DELETING",
+                "TableSizeBytes": 0,
+                "ItemCount": 0,
+                "TableName": "Music",
+                "ProvisionedThroughput": {
+                  "NumberOfDecreasesToday": 1,
+                  "WriteCapacityUnits": 5,
+                  "ReadCapacityUnits": 5
+                }
+              }
+            }
+          }
+        ]
       }
     },
     "com.amazonaws.dynamodb#DeleteTableInput": {
@@ -3029,7 +3209,19 @@
         "aws.api#clientDiscoveredEndpoint": {
           "required": false
         },
-        "smithy.api#documentation": "<p>Returns the current provisioned-capacity quotas for your Amazon Web Services account in\n            a Region, both for the Region as a whole and for any one DynamoDB table that you create\n            there.</p>\n         <p>When you establish an Amazon Web Services account, the account has initial quotas on\n            the maximum read capacity units and write capacity units that you can provision across\n            all of your DynamoDB tables in a given Region. Also, there are per-table\n            quotas that apply when you create a table there. For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html\">Service,\n                Account, and Table Quotas</a> page in the <i>Amazon DynamoDB\n                Developer Guide</i>.</p>\n         <p>Although you can increase these quotas by filing a case at <a href=\"https://console.aws.amazon.com/support/home#/\">Amazon Web Services Support Center</a>, obtaining the\n            increase is not instantaneous. The <code>DescribeLimits</code> action lets you write\n            code to compare the capacity you are currently using to those quotas imposed by your\n            account so that you have enough time to apply for an increase before you hit a\n            quota.</p>\n         <p>For example, you could use one of the Amazon Web Services SDKs to do the\n            following:</p>\n         <ol>\n            <li>\n               <p>Call <code>DescribeLimits</code> for a particular Region to obtain your\n                    current account quotas on provisioned capacity there.</p>\n            </li>\n            <li>\n               <p>Create a variable to hold the aggregate read capacity units provisioned for\n                    all your tables in that Region, and one to hold the aggregate write capacity\n                    units. Zero them both.</p>\n            </li>\n            <li>\n               <p>Call <code>ListTables</code> to obtain a list of all your DynamoDB\n                    tables.</p>\n            </li>\n            <li>\n               <p>For each table name listed by <code>ListTables</code>, do the\n                    following:</p>\n               <ul>\n                  <li>\n                     <p>Call <code>DescribeTable</code> with the table name.</p>\n                  </li>\n                  <li>\n                     <p>Use the data returned by <code>DescribeTable</code> to add the read\n                            capacity units and write capacity units provisioned for the table itself\n                            to your variables.</p>\n                  </li>\n                  <li>\n                     <p>If the table has one or more global secondary indexes (GSIs), loop\n                            over these GSIs and add their provisioned capacity values to your\n                            variables as well.</p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>Report the account quotas for that Region returned by\n                        <code>DescribeLimits</code>, along with the total current provisioned\n                    capacity levels you have calculated.</p>\n            </li>\n         </ol>\n         <p>This will let you see whether you are getting close to your account-level\n            quotas.</p>\n         <p>The per-table quotas apply only when you are creating a new table. They restrict the\n            sum of the provisioned capacity of the new table itself and all its global secondary\n            indexes.</p>\n         <p>For existing tables and their GSIs, DynamoDB doesn't let you increase provisioned\n            capacity extremely rapidly, but the only quota that applies is that the aggregate\n            provisioned capacity over all your tables and GSIs cannot exceed either of the\n            per-account quotas.</p>\n         <note>\n            <p>\n               <code>DescribeLimits</code> should only be called periodically. You can expect\n                throttling errors if you call it more than once in a minute.</p>\n         </note>\n         <p>The <code>DescribeLimits</code> Request element has no content.</p>"
+        "smithy.api#documentation": "<p>Returns the current provisioned-capacity quotas for your Amazon Web Services account in\n            a Region, both for the Region as a whole and for any one DynamoDB table that you create\n            there.</p>\n         <p>When you establish an Amazon Web Services account, the account has initial quotas on\n            the maximum read capacity units and write capacity units that you can provision across\n            all of your DynamoDB tables in a given Region. Also, there are per-table\n            quotas that apply when you create a table there. For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html\">Service,\n                Account, and Table Quotas</a> page in the <i>Amazon DynamoDB\n                Developer Guide</i>.</p>\n         <p>Although you can increase these quotas by filing a case at <a href=\"https://console.aws.amazon.com/support/home#/\">Amazon Web Services Support Center</a>, obtaining the\n            increase is not instantaneous. The <code>DescribeLimits</code> action lets you write\n            code to compare the capacity you are currently using to those quotas imposed by your\n            account so that you have enough time to apply for an increase before you hit a\n            quota.</p>\n         <p>For example, you could use one of the Amazon Web Services SDKs to do the\n            following:</p>\n         <ol>\n            <li>\n               <p>Call <code>DescribeLimits</code> for a particular Region to obtain your\n                    current account quotas on provisioned capacity there.</p>\n            </li>\n            <li>\n               <p>Create a variable to hold the aggregate read capacity units provisioned for\n                    all your tables in that Region, and one to hold the aggregate write capacity\n                    units. Zero them both.</p>\n            </li>\n            <li>\n               <p>Call <code>ListTables</code> to obtain a list of all your DynamoDB\n                    tables.</p>\n            </li>\n            <li>\n               <p>For each table name listed by <code>ListTables</code>, do the\n                    following:</p>\n               <ul>\n                  <li>\n                     <p>Call <code>DescribeTable</code> with the table name.</p>\n                  </li>\n                  <li>\n                     <p>Use the data returned by <code>DescribeTable</code> to add the read\n                            capacity units and write capacity units provisioned for the table itself\n                            to your variables.</p>\n                  </li>\n                  <li>\n                     <p>If the table has one or more global secondary indexes (GSIs), loop\n                            over these GSIs and add their provisioned capacity values to your\n                            variables as well.</p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>Report the account quotas for that Region returned by\n                        <code>DescribeLimits</code>, along with the total current provisioned\n                    capacity levels you have calculated.</p>\n            </li>\n         </ol>\n         <p>This will let you see whether you are getting close to your account-level\n            quotas.</p>\n         <p>The per-table quotas apply only when you are creating a new table. They restrict the\n            sum of the provisioned capacity of the new table itself and all its global secondary\n            indexes.</p>\n         <p>For existing tables and their GSIs, DynamoDB doesn't let you increase provisioned\n            capacity extremely rapidly, but the only quota that applies is that the aggregate\n            provisioned capacity over all your tables and GSIs cannot exceed either of the\n            per-account quotas.</p>\n         <note>\n            <p>\n               <code>DescribeLimits</code> should only be called periodically. You can expect\n                throttling errors if you call it more than once in a minute.</p>\n         </note>\n         <p>The <code>DescribeLimits</code> Request element has no content.</p>",
+        "smithy.api#examples": [
+          {
+            "title": "To determine capacity limits per table and account, in the current AWS region",
+            "documentation": "The following example returns the maximum read and write capacity units per table, and for the AWS account, in the current AWS region.",
+            "output": {
+              "TableMaxWriteCapacityUnits": 10000,
+              "TableMaxReadCapacityUnits": 10000,
+              "AccountMaxReadCapacityUnits": 20000,
+              "AccountMaxWriteCapacityUnits": 20000
+            }
+          }
+        ]
       }
     },
     "com.amazonaws.dynamodb#DescribeLimitsInput": {
@@ -3300,6 +3492,12 @@
           "traits": {
             "smithy.api#enumValue": "ENABLE_FAILED"
           }
+        },
+        "UPDATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPDATING"
+          }
         }
       }
     },
@@ -3505,6 +3703,9 @@
           "target": "com.amazonaws.dynamodb#UpdateItem"
         },
         {
+          "target": "com.amazonaws.dynamodb#UpdateKinesisStreamingDestination"
+        },
+        {
           "target": "com.amazonaws.dynamodb#UpdateTable"
         },
         {
@@ -3577,7 +3778,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -3595,9 +3795,212 @@
                   "type": "error"
                 },
                 {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
                   "conditions": [],
-                  "type": "tree",
+                  "endpoint": {
+                    "url": {
+                      "ref": "Endpoint"
+                    },
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ],
+              "type": "tree"
+            },
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ]
+                }
+              ],
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "aws.partition",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ],
+                      "assign": "PartitionResult"
+                    }
+                  ],
                   "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://dynamodb-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "stringEquals",
+                                  "argv": [
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "name"
+                                      ]
+                                    },
+                                    "aws-us-gov"
+                                  ]
+                                }
+                              ],
+                              "endpoint": {
+                                "url": "https://dynamodb.{Region}.amazonaws.com",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            },
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://dynamodb-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
                     {
                       "conditions": [
                         {
@@ -3610,330 +4013,92 @@
                           ]
                         }
                       ],
-                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                      "type": "error"
-                    },
-                    {
-                      "conditions": [],
-                      "endpoint": {
-                        "url": {
-                          "ref": "Endpoint"
-                        },
-                        "properties": {},
-                        "headers": {}
-                      },
-                      "type": "endpoint"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "conditions": [],
-              "type": "tree",
-              "rules": [
-                {
-                  "conditions": [
-                    {
-                      "fn": "isSet",
-                      "argv": [
-                        {
-                          "ref": "Region"
-                        }
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "aws.partition",
-                          "argv": [
-                            {
-                              "ref": "Region"
-                            }
-                          ],
-                          "assign": "PartitionResult"
-                        }
-                      ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
                             {
                               "fn": "booleanEquals",
                               "argv": [
+                                true,
                                 {
-                                  "ref": "UseFIPS"
-                                },
-                                true
-                              ]
-                            },
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseDualStack"
-                                },
-                                true
-                              ]
-                            }
-                          ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
+                                  "fn": "getAttr",
                                   "argv": [
-                                    true,
                                     {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsFIPS"
-                                      ]
-                                    }
-                                  ]
-                                },
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsDualStack"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://dynamodb-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseFIPS"
-                                },
-                                true
-                              ]
-                            }
-                          ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsFIPS"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [
-                                        {
-                                          "fn": "stringEquals",
-                                          "argv": [
-                                            "aws-us-gov",
-                                            {
-                                              "fn": "getAttr",
-                                              "argv": [
-                                                {
-                                                  "ref": "PartitionResult"
-                                                },
-                                                "name"
-                                              ]
-                                            }
-                                          ]
-                                        }
-                                      ],
-                                      "endpoint": {
-                                        "url": "https://dynamodb.{Region}.amazonaws.com",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
+                                      "ref": "PartitionResult"
                                     },
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://dynamodb-fips.{Region}.{PartitionResult#dnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
+                                    "supportsDualStack"
                                   ]
                                 }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "FIPS is enabled but this partition does not support FIPS",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseDualStack"
-                                },
-                                true
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsDualStack"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://dynamodb.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "DualStack is enabled but this partition does not support DualStack",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "stringEquals",
-                                  "argv": [
-                                    {
-                                      "ref": "Region"
-                                    },
-                                    "local"
-                                  ]
-                                }
-                              ],
-                              "endpoint": {
-                                "url": "http://localhost:8000",
-                                "properties": {
-                                  "authSchemes": [
-                                    {
-                                      "name": "sigv4",
-                                      "signingName": "dynamodb",
-                                      "signingRegion": "us-east-1"
-                                    }
-                                  ]
-                                },
-                                "headers": {}
-                              },
-                              "type": "endpoint"
-                            },
                             {
                               "conditions": [],
                               "endpoint": {
-                                "url": "https://dynamodb.{Region}.{PartitionResult#dnsSuffix}",
+                                "url": "https://dynamodb.{Region}.{PartitionResult#dualStackDnsSuffix}",
                                 "properties": {},
                                 "headers": {}
                               },
                               "type": "endpoint"
                             }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "stringEquals",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            },
+                            "local"
                           ]
                         }
-                      ]
+                      ],
+                      "endpoint": {
+                        "url": "http://localhost:8000",
+                        "properties": {
+                          "authSchemes": [
+                            {
+                              "name": "sigv4",
+                              "signingName": "dynamodb",
+                              "signingRegion": "us-east-1"
+                            }
+                          ]
+                        },
+                        "headers": {}
+                      },
+                      "type": "endpoint"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://dynamodb.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
                     }
-                  ]
-                },
-                {
-                  "conditions": [],
-                  "error": "Invalid Configuration: Missing Region",
-                  "type": "error"
+                  ],
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
+            },
+            {
+              "conditions": [],
+              "error": "Invalid Configuration: Missing Region",
+              "type": "error"
             }
           ]
         },
@@ -4652,6 +4817,20 @@
         }
       }
     },
+    "com.amazonaws.dynamodb#EnableKinesisStreamingConfiguration": {
+      "type": "structure",
+      "members": {
+        "ApproximateCreationDateTimePrecision": {
+          "target": "com.amazonaws.dynamodb#ApproximateCreationDateTimePrecision",
+          "traits": {
+            "smithy.api#documentation": "<p>Toggle for the precision of Kinesis data stream timestamp. The values are either <code>MILLISECOND</code> or <code>MICROSECOND</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Enables setting the configuration for Kinesis Streaming.</p>"
+      }
+    },
     "com.amazonaws.dynamodb#EnableKinesisStreamingDestination": {
       "type": "operation",
       "input": {
@@ -5107,6 +5286,18 @@
           "traits": {
             "smithy.api#documentation": "<p>The number of items exported.</p>"
           }
+        },
+        "ExportType": {
+          "target": "com.amazonaws.dynamodb#ExportType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of export that was performed. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>.</p>"
+          }
+        },
+        "IncrementalExportSpecification": {
+          "target": "com.amazonaws.dynamodb#IncrementalExportSpecification",
+          "traits": {
+            "smithy.api#documentation": "<p>Optional object containing the parameters specific to an incremental export.</p>"
+          }
         }
       },
       "traits": {
@@ -5132,6 +5323,9 @@
           }
         }
       }
+    },
+    "com.amazonaws.dynamodb#ExportFromTime": {
+      "type": "timestamp"
     },
     "com.amazonaws.dynamodb#ExportManifest": {
       "type": "string"
@@ -5196,6 +5390,12 @@
           "target": "com.amazonaws.dynamodb#ExportStatus",
           "traits": {
             "smithy.api#documentation": "<p>Export can be in one of the following states: IN_PROGRESS, COMPLETED, or\n            FAILED.</p>"
+          }
+        },
+        "ExportType": {
+          "target": "com.amazonaws.dynamodb#ExportType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of export that was performed. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>.</p>"
           }
         }
       },
@@ -5294,6 +5494,18 @@
           "traits": {
             "smithy.api#documentation": "<p>The format for the exported data. Valid values for <code>ExportFormat</code> are\n                <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>"
           }
+        },
+        "ExportType": {
+          "target": "com.amazonaws.dynamodb#ExportType",
+          "traits": {
+            "smithy.api#documentation": "<p>Choice of whether to execute as a full export or incremental export. Valid values are FULL_EXPORT or INCREMENTAL_EXPORT. The default value is FULL_EXPORT. If INCREMENTAL_EXPORT is provided, the IncrementalExportSpecification must also be used.</p>"
+          }
+        },
+        "IncrementalExportSpecification": {
+          "target": "com.amazonaws.dynamodb#IncrementalExportSpecification",
+          "traits": {
+            "smithy.api#documentation": "<p>Optional object containing the parameters specific to an incremental export.</p>"
+          }
         }
       },
       "traits": {
@@ -5316,6 +5528,43 @@
     },
     "com.amazonaws.dynamodb#ExportTime": {
       "type": "timestamp"
+    },
+    "com.amazonaws.dynamodb#ExportToTime": {
+      "type": "timestamp"
+    },
+    "com.amazonaws.dynamodb#ExportType": {
+      "type": "enum",
+      "members": {
+        "FULL_EXPORT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FULL_EXPORT"
+          }
+        },
+        "INCREMENTAL_EXPORT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INCREMENTAL_EXPORT"
+          }
+        }
+      }
+    },
+    "com.amazonaws.dynamodb#ExportViewType": {
+      "type": "enum",
+      "members": {
+        "NEW_IMAGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NEW_IMAGE"
+          }
+        },
+        "NEW_AND_OLD_IMAGES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NEW_AND_OLD_IMAGES"
+          }
+        }
+      }
     },
     "com.amazonaws.dynamodb#ExpressionAttributeNameMap": {
       "type": "map",
@@ -5439,7 +5688,37 @@
         "aws.api#clientDiscoveredEndpoint": {
           "required": false
         },
-        "smithy.api#documentation": "<p>The <code>GetItem</code> operation returns a set of attributes for the item with the\n            given primary key. If there is no matching item, <code>GetItem</code> does not return\n            any data and there will be no <code>Item</code> element in the response.</p>\n         <p>\n            <code>GetItem</code> provides an eventually consistent read by default. If your\n            application requires a strongly consistent read, set <code>ConsistentRead</code> to\n                <code>true</code>. Although a strongly consistent read might take more time than an\n            eventually consistent read, it always returns the last updated value.</p>"
+        "smithy.api#documentation": "<p>The <code>GetItem</code> operation returns a set of attributes for the item with the\n            given primary key. If there is no matching item, <code>GetItem</code> does not return\n            any data and there will be no <code>Item</code> element in the response.</p>\n         <p>\n            <code>GetItem</code> provides an eventually consistent read by default. If your\n            application requires a strongly consistent read, set <code>ConsistentRead</code> to\n                <code>true</code>. Although a strongly consistent read might take more time than an\n            eventually consistent read, it always returns the last updated value.</p>",
+        "smithy.api#examples": [
+          {
+            "title": "To read an item from a table",
+            "documentation": "This example retrieves an item from the Music table. The table has a partition key and a sort key (Artist and SongTitle), so you must specify both of these attributes.",
+            "input": {
+              "TableName": "Music",
+              "Key": {
+                "Artist": {
+                  "S": "Acme Band"
+                },
+                "SongTitle": {
+                  "S": "Happy Day"
+                }
+              }
+            },
+            "output": {
+              "Item": {
+                "AlbumTitle": {
+                  "S": "Songs About Life"
+                },
+                "SongTitle": {
+                  "S": "Happy Day"
+                },
+                "Artist": {
+                  "S": "Acme Band"
+                }
+              }
+            }
+          }
+        ]
       }
     },
     "com.amazonaws.dynamodb#GetItemInput": {
@@ -6257,6 +6536,32 @@
         }
       }
     },
+    "com.amazonaws.dynamodb#IncrementalExportSpecification": {
+      "type": "structure",
+      "members": {
+        "ExportFromTime": {
+          "target": "com.amazonaws.dynamodb#ExportFromTime",
+          "traits": {
+            "smithy.api#documentation": "<p>Time in the past which provides the inclusive start range for the export table's data, counted in seconds from the start of the Unix epoch. The incremental export will reflect the table's state including and after this point in time.</p>"
+          }
+        },
+        "ExportToTime": {
+          "target": "com.amazonaws.dynamodb#ExportToTime",
+          "traits": {
+            "smithy.api#documentation": "<p>Time in the past which provides the exclusive end range for the export table's data, counted in seconds from the start of the Unix epoch. The incremental export will reflect the table's state just prior to this point in time. If this is not provided, the latest time with data available will be used.</p>"
+          }
+        },
+        "ExportViewType": {
+          "target": "com.amazonaws.dynamodb#ExportViewType",
+          "traits": {
+            "smithy.api#documentation": "<p>The view type that was chosen for the export. Valid values are <code>NEW_AND_OLD_IMAGES</code> and <code>NEW_IMAGES</code>. The default value is <code>NEW_AND_OLD_IMAGES</code>.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Optional object containing the parameters specific to an incremental export.</p>"
+      }
+    },
     "com.amazonaws.dynamodb#IndexName": {
       "type": "string",
       "traits": {
@@ -6694,6 +6999,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The human-readable string that corresponds to the replica status.</p>"
           }
+        },
+        "ApproximateCreationDateTimePrecision": {
+          "target": "com.amazonaws.dynamodb#ApproximateCreationDateTimePrecision",
+          "traits": {
+            "smithy.api#documentation": "<p>The precision of the Kinesis data stream timestamp. The values are either <code>MILLISECOND</code> or <code>MICROSECOND</code>.</p>"
+          }
         }
       },
       "traits": {
@@ -6722,6 +7033,12 @@
             "smithy.api#documentation": "<p>The ARN for a Kinesis data stream.</p>",
             "smithy.api#required": {}
           }
+        },
+        "EnableKinesisStreamingConfiguration": {
+          "target": "com.amazonaws.dynamodb#EnableKinesisStreamingConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The source for the Kinesis streaming information that is being enabled.</p>"
+          }
         }
       }
     },
@@ -6744,6 +7061,12 @@
           "target": "com.amazonaws.dynamodb#DestinationStatus",
           "traits": {
             "smithy.api#documentation": "<p>The current status of the replication.</p>"
+          }
+        },
+        "EnableKinesisStreamingConfiguration": {
+          "target": "com.amazonaws.dynamodb#EnableKinesisStreamingConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The destination for the Kinesis streaming information that is being enabled.</p>"
           }
         }
       }
@@ -6792,7 +7115,7 @@
         "aws.api#clientDiscoveredEndpoint": {
           "required": false
         },
-        "smithy.api#documentation": "<p>List backups associated with an Amazon Web Services account. To list backups for a\n            given table, specify <code>TableName</code>. <code>ListBackups</code> returns a\n            paginated list of results with at most 1 MB worth of items in a page. You can also\n            specify a maximum number of entries to be returned in a page.</p>\n         <p>In the request, start time is inclusive, but end time is exclusive. Note that these\n            boundaries are for the time at which the original backup was requested.</p>\n         <p>You can call <code>ListBackups</code> a maximum of five times per second.</p>"
+        "smithy.api#documentation": "<p>List DynamoDB backups that are associated with an Amazon Web Services account and weren't made with Amazon Web Services Backup. \n            To list these backups for a given table, specify <code>TableName</code>. <code>ListBackups</code> returns a\n            paginated list of results with at most 1 MB worth of items in a page. You can also\n            specify a maximum number of entries to be returned in a page.</p>\n         <p>In the request, start time is inclusive, but end time is exclusive. Note that these\n            boundaries are for the time at which the original backup was requested.</p>\n         <p>You can call <code>ListBackups</code> a maximum of five times per second.</p>\n         <p>If you want to retrieve the complete list of backups made with Amazon Web Services Backup, use the \n            <a href=\"https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ListBackupJobs.html\">Amazon Web Services Backup list API.</a>\n         </p>"
       }
     },
     "com.amazonaws.dynamodb#ListBackupsInput": {
@@ -7187,6 +7510,15 @@
           "required": false
         },
         "smithy.api#documentation": "<p>Returns an array of table names associated with the current account and endpoint. The\n            output from <code>ListTables</code> is paginated, with each page returning a maximum of\n            100 table names.</p>",
+        "smithy.api#examples": [
+          {
+            "title": "To list tables",
+            "documentation": "This example lists all of the tables associated with the current AWS account and endpoint.",
+            "output": {
+              "TableNames": ["Forum", "ProductCatalog", "Reply", "Thread"]
+            }
+          }
+        ],
         "smithy.api#paginated": {
           "inputToken": "ExclusiveStartTableName",
           "outputToken": "LastEvaluatedTableName",
@@ -7498,7 +7830,7 @@
         "Statement": {
           "target": "com.amazonaws.dynamodb#PartiQLStatement",
           "traits": {
-            "smithy.api#documentation": "<p> A PartiQL statment that uses parameters. </p>",
+            "smithy.api#documentation": "<p> A PartiQL statement that uses parameters. </p>",
             "smithy.api#required": {}
           }
         },
@@ -7516,7 +7848,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p> Represents a PartiQL statment that uses parameters. </p>"
+        "smithy.api#documentation": "<p> Represents a PartiQL statement that uses parameters. </p>"
       }
     },
     "com.amazonaws.dynamodb#ParameterizedStatements": {
@@ -7892,7 +8224,34 @@
         "aws.api#clientDiscoveredEndpoint": {
           "required": false
         },
-        "smithy.api#documentation": "<p>Creates a new item, or replaces an old item with a new item. If an item that has the\n            same primary key as the new item already exists in the specified table, the new item\n            completely replaces the existing item. You can perform a conditional put operation (add\n            a new item if one with the specified primary key doesn't exist), or replace an existing\n            item if it has certain attribute values. You can return the item's attribute values in\n            the same operation, using the <code>ReturnValues</code> parameter.</p>\n         <p>When you add an item, the primary key attributes are the only required attributes.\n            </p>\n         <p>Empty String and Binary attribute values are allowed. Attribute values of type String\n            and Binary must have a length greater than zero if the attribute is used as a key\n            attribute for a table or index. Set type attributes cannot be empty. </p>\n         <p>Invalid Requests with empty values will be rejected with a\n                <code>ValidationException</code> exception.</p>\n         <note>\n            <p>To prevent a new item from replacing an existing item, use a conditional\n                expression that contains the <code>attribute_not_exists</code> function with the\n                name of the attribute being used as the partition key for the table. Since every\n                record must contain that attribute, the <code>attribute_not_exists</code> function\n                will only succeed if no matching item exists.</p>\n         </note>\n         <p>For more information about <code>PutItem</code>, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html\">Working with\n                Items</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Creates a new item, or replaces an old item with a new item. If an item that has the\n            same primary key as the new item already exists in the specified table, the new item\n            completely replaces the existing item. You can perform a conditional put operation (add\n            a new item if one with the specified primary key doesn't exist), or replace an existing\n            item if it has certain attribute values. You can return the item's attribute values in\n            the same operation, using the <code>ReturnValues</code> parameter.</p>\n         <p>When you add an item, the primary key attributes are the only required attributes.\n            </p>\n         <p>Empty String and Binary attribute values are allowed. Attribute values of type String\n            and Binary must have a length greater than zero if the attribute is used as a key\n            attribute for a table or index. Set type attributes cannot be empty. </p>\n         <p>Invalid Requests with empty values will be rejected with a\n                <code>ValidationException</code> exception.</p>\n         <note>\n            <p>To prevent a new item from replacing an existing item, use a conditional\n                expression that contains the <code>attribute_not_exists</code> function with the\n                name of the attribute being used as the partition key for the table. Since every\n                record must contain that attribute, the <code>attribute_not_exists</code> function\n                will only succeed if no matching item exists.</p>\n         </note>\n         <p>For more information about <code>PutItem</code>, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html\">Working with\n                Items</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>",
+        "smithy.api#examples": [
+          {
+            "title": "To add an item to a table",
+            "documentation": "This example adds a new item to the Music table.",
+            "input": {
+              "TableName": "Music",
+              "Item": {
+                "AlbumTitle": {
+                  "S": "Somewhat Famous"
+                },
+                "SongTitle": {
+                  "S": "Call Me Today"
+                },
+                "Artist": {
+                  "S": "No One You Know"
+                }
+              },
+              "ReturnConsumedCapacity": "TOTAL"
+            },
+            "output": {
+              "ConsumedCapacity": {
+                "CapacityUnits": 1,
+                "TableName": "Music"
+              }
+            }
+          }
+        ]
       }
     },
     "com.amazonaws.dynamodb#PutItemInput": {
@@ -8050,6 +8409,34 @@
           "required": false
         },
         "smithy.api#documentation": "<p>You must provide the name of the partition key attribute and a single value for that\n            attribute. <code>Query</code> returns all items with that partition key value.\n            Optionally, you can provide a sort key attribute and use a comparison operator to refine\n            the search results.</p>\n         <p>Use the <code>KeyConditionExpression</code> parameter to provide a specific value for\n            the partition key. The <code>Query</code> operation will return all of the items from\n            the table or index with that partition key value. You can optionally narrow the scope of\n            the <code>Query</code> operation by specifying a sort key value and a comparison\n            operator in <code>KeyConditionExpression</code>. To further refine the\n                <code>Query</code> results, you can optionally provide a\n                <code>FilterExpression</code>. A <code>FilterExpression</code> determines which\n            items within the results should be returned to you. All of the other results are\n            discarded. </p>\n         <p> A <code>Query</code> operation always returns a result set. If no matching items are\n            found, the result set will be empty. Queries that do not return results consume the\n            minimum number of read capacity units for that type of read operation. </p>\n         <note>\n            <p> DynamoDB calculates the number of read capacity units consumed based on item\n                size, not on the amount of data that is returned to an application. The number of\n                capacity units consumed will be the same whether you request all of the attributes\n                (the default behavior) or just some of them (using a projection expression). The\n                number will also be the same whether or not you use a <code>FilterExpression</code>.\n            </p>\n         </note>\n         <p>\n            <code>Query</code> results are always sorted by the sort key value. If the data type of\n            the sort key is Number, the results are returned in numeric order; otherwise, the\n            results are returned in order of UTF-8 bytes. By default, the sort order is ascending.\n            To reverse the order, set the <code>ScanIndexForward</code> parameter to false. </p>\n         <p> A single <code>Query</code> operation will read up to the maximum number of items set\n            (if using the <code>Limit</code> parameter) or a maximum of 1 MB of data and then apply\n            any filtering to the results using <code>FilterExpression</code>. If\n                <code>LastEvaluatedKey</code> is present in the response, you will need to paginate\n            the result set. For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Query.html#Query.Pagination\">Paginating\n                the Results</a> in the <i>Amazon DynamoDB Developer Guide</i>. </p>\n         <p>\n            <code>FilterExpression</code> is applied after a <code>Query</code> finishes, but before\n            the results are returned. A <code>FilterExpression</code> cannot contain partition key\n            or sort key attributes. You need to specify those attributes in the\n                <code>KeyConditionExpression</code>. </p>\n         <note>\n            <p> A <code>Query</code> operation can return an empty result set and a\n                    <code>LastEvaluatedKey</code> if all the items read for the page of results are\n                filtered out. </p>\n         </note>\n         <p>You can query a table, a local secondary index, or a global secondary index. For a\n            query on a table or on a local secondary index, you can set the\n                <code>ConsistentRead</code> parameter to <code>true</code> and obtain a strongly\n            consistent result. Global secondary indexes support eventually consistent reads only, so\n            do not specify <code>ConsistentRead</code> when querying a global secondary\n            index.</p>",
+        "smithy.api#examples": [
+          {
+            "title": "To query an item",
+            "documentation": "This example queries items in the Music table. The table has a partition key and sort key (Artist and SongTitle), but this query only specifies the partition key value. It returns song titles by the artist named \"No One You Know\".",
+            "input": {
+              "TableName": "Music",
+              "ProjectionExpression": "SongTitle",
+              "KeyConditionExpression": "Artist = :v1",
+              "ExpressionAttributeValues": {
+                ":v1": {
+                  "S": "No One You Know"
+                }
+              }
+            },
+            "output": {
+              "Count": 2,
+              "Items": [
+                {
+                  "SongTitle": {
+                    "S": "Call Me Today"
+                  }
+                }
+              ],
+              "ScannedCount": 2,
+              "ConsumedCapacity": {}
+            }
+          }
+        ],
         "smithy.api#paginated": {
           "inputToken": "ExclusiveStartKey",
           "outputToken": "LastEvaluatedKey",
@@ -9485,6 +9872,49 @@
           "required": false
         },
         "smithy.api#documentation": "<p>The <code>Scan</code> operation returns one or more items and item attributes by\n            accessing every item in a table or a secondary index. To have DynamoDB return fewer\n            items, you can provide a <code>FilterExpression</code> operation.</p>\n         <p>If the total size of scanned items exceeds the maximum dataset size limit of 1 MB,\n            the scan completes and results are returned to the user. The <code>LastEvaluatedKey</code> \n            value is also returned and the requestor can use the <code>LastEvaluatedKey</code> to continue \n            the scan in a subsequent operation. Each scan response also includes number of items that were \n            scanned (ScannedCount) as part of the request. If using a <code>FilterExpression</code>, a scan result \n            can result in no items meeting the criteria and the <code>Count</code> will result in zero. If \n            you did not use a <code>FilterExpression</code> in the scan request, then <code>Count</code> is \n            the same as <code>ScannedCount</code>.</p>\n         <note>\n            <p>\n               <code>Count</code> and <code>ScannedCount</code> only return the count of items specific to a \n                single scan request and, unless the table is less than 1MB, do not represent the total number \n                of items in the table.\n            </p>\n         </note>\n         <p>A single <code>Scan</code> operation first reads up to the maximum number of items set (if\n            using the <code>Limit</code> parameter) or a maximum of 1 MB of data and then applies any\n            filtering to the results if a <code>FilterExpression</code> is provided. If\n                <code>LastEvaluatedKey</code> is present in the response, pagination is required to complete the\n            full table scan. For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.Pagination\">Paginating the\n                Results</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>\n         <p>\n            <code>Scan</code> operations proceed sequentially; however, for faster performance on\n            a large table or secondary index, applications can request a parallel <code>Scan</code>\n            operation by providing the <code>Segment</code> and <code>TotalSegments</code>\n            parameters. For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.ParallelScan\">Parallel\n                Scan</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>\n         <p>By default, a <code>Scan</code> uses eventually consistent reads when accessing the items in a table. \n            Therefore, the results from an eventually consistent <code>Scan</code> may not include the latest item \n            changes at the time the scan iterates through each item in the table. If you require a strongly consistent \n            read of each item as the scan iterates through the items in the table, you can set the <code>ConsistentRead</code> \n            parameter to true. Strong consistency only relates to the consistency of the read at the item level.</p>\n         <note>\n            <p>\n                DynamoDB does not provide snapshot isolation for a scan operation when the <code>ConsistentRead</code> \n                parameter is set to true. Thus, a DynamoDB scan operation does not guarantee that all reads in a scan \n                see a consistent snapshot of the table when the scan operation was requested.\n            </p>\n         </note>",
+        "smithy.api#examples": [
+          {
+            "title": "To scan a table",
+            "documentation": "This example scans the entire Music table, and then narrows the results to songs by the artist \"No One You Know\". For each item, only the album title and song title are returned.",
+            "input": {
+              "TableName": "Music",
+              "FilterExpression": "Artist = :a",
+              "ProjectionExpression": "#ST, #AT",
+              "ExpressionAttributeNames": {
+                "#ST": "SongTitle",
+                "#AT": "AlbumTitle"
+              },
+              "ExpressionAttributeValues": {
+                ":a": {
+                  "S": "No One You Know"
+                }
+              }
+            },
+            "output": {
+              "Count": 2,
+              "Items": [
+                {
+                  "SongTitle": {
+                    "S": "Call Me Today"
+                  },
+                  "AlbumTitle": {
+                    "S": "Somewhat Famous"
+                  }
+                },
+                {
+                  "SongTitle": {
+                    "S": "Scared of My Shadow"
+                  },
+                  "AlbumTitle": {
+                    "S": "Blue Sky Blues"
+                  }
+                }
+              ],
+              "ScannedCount": 3,
+              "ConsumedCapacity": {}
+            }
+          }
+        ],
         "smithy.api#paginated": {
           "inputToken": "ExclusiveStartKey",
           "outputToken": "LastEvaluatedKey",
@@ -9570,7 +10000,7 @@
         "FilterExpression": {
           "target": "com.amazonaws.dynamodb#ConditionExpression",
           "traits": {
-            "smithy.api#documentation": "<p>A string that contains conditions that DynamoDB applies after the <code>Scan</code>\n            operation, but before the data is returned to you. Items that do not satisfy the\n                <code>FilterExpression</code> criteria are not returned.</p>\n         <note>\n            <p>A <code>FilterExpression</code> is applied after the items have already been read;\n                the process of filtering does not consume any additional read capacity units.</p>\n         </note>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Query.FilterExpression\">Filter Expressions</a> in the <i>Amazon DynamoDB Developer\n                Guide</i>.</p>"
+            "smithy.api#documentation": "<p>A string that contains conditions that DynamoDB applies after the <code>Scan</code>\n            operation, but before the data is returned to you. Items that do not satisfy the\n                <code>FilterExpression</code> criteria are not returned.</p>\n         <note>\n            <p>A <code>FilterExpression</code> is applied after the items have already been read;\n                the process of filtering does not consume any additional read capacity units.</p>\n         </note>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.FilterExpression\">Filter Expressions</a> in the <i>Amazon DynamoDB Developer\n                Guide</i>.</p>"
           }
         },
         "ExpressionAttributeNames": {
@@ -10688,7 +11118,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The entire transaction request was canceled.</p>\n         <p>DynamoDB cancels a <code>TransactWriteItems</code> request under the following\n            circumstances:</p>\n         <ul>\n            <li>\n               <p>A condition in one of the condition expressions is not met.</p>\n            </li>\n            <li>\n               <p>A table in the <code>TransactWriteItems</code> request is in a different\n                    account or region.</p>\n            </li>\n            <li>\n               <p>More than one action in the <code>TransactWriteItems</code> operation\n                    targets the same item.</p>\n            </li>\n            <li>\n               <p>There is insufficient provisioned capacity for the transaction to be\n                    completed.</p>\n            </li>\n            <li>\n               <p>An item size becomes too large (larger than 400 KB), or a local secondary\n                    index (LSI) becomes too large, or a similar validation error occurs because of\n                    changes made by the transaction.</p>\n            </li>\n            <li>\n               <p>There is a user error, such as an invalid data format.</p>\n            </li>\n         </ul>\n         <p>DynamoDB cancels a <code>TransactGetItems</code> request under the\n            following circumstances:</p>\n         <ul>\n            <li>\n               <p>There is an ongoing <code>TransactGetItems</code> operation that conflicts\n                    with a concurrent <code>PutItem</code>, <code>UpdateItem</code>,\n                        <code>DeleteItem</code> or <code>TransactWriteItems</code> request. In this\n                    case the <code>TransactGetItems</code> operation fails with a\n                        <code>TransactionCanceledException</code>.</p>\n            </li>\n            <li>\n               <p>A table in the <code>TransactGetItems</code> request is in a different\n                    account or region.</p>\n            </li>\n            <li>\n               <p>There is insufficient provisioned capacity for the transaction to be\n                    completed.</p>\n            </li>\n            <li>\n               <p>There is a user error, such as an invalid data format.</p>\n            </li>\n         </ul>\n         <note>\n            <p>If using Java, DynamoDB lists the cancellation reasons on the\n                    <code>CancellationReasons</code> property. This property is not set for other\n                languages. Transaction cancellation reasons are ordered in the order of requested\n                items, if an item has no error it will have <code>None</code> code and\n                    <code>Null</code> message.</p>\n         </note>\n         <p>Cancellation reason codes and possible error messages:</p>\n         <ul>\n            <li>\n               <p>No Errors:</p>\n               <ul>\n                  <li>\n                     <p>Code: <code>None</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>Message: <code>null</code>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>Conditional Check Failed:</p>\n               <ul>\n                  <li>\n                     <p>Code: <code>ConditionalCheckFailed</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>Message: The conditional request failed. </p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>Item Collection Size Limit Exceeded:</p>\n               <ul>\n                  <li>\n                     <p>Code: <code>ItemCollectionSizeLimitExceeded</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>Message: Collection size exceeded.</p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>Transaction Conflict:</p>\n               <ul>\n                  <li>\n                     <p>Code: <code>TransactionConflict</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>Message: Transaction is ongoing for the item.</p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>Provisioned Throughput Exceeded:</p>\n               <ul>\n                  <li>\n                     <p>Code: <code>ProvisionedThroughputExceeded</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>Messages:</p>\n                     <ul>\n                        <li>\n                           <p>The level of configured provisioned throughput for the\n                                    table was exceeded. Consider increasing your provisioning level\n                                    with the UpdateTable API.</p>\n                           <note>\n                              <p>This Message is received when provisioned throughput is\n                                        exceeded is on a provisioned DynamoDB\n                                        table.</p>\n                           </note>\n                        </li>\n                        <li>\n                           <p>The level of configured provisioned throughput for one or\n                                    more global secondary indexes of the table was exceeded.\n                                    Consider increasing your provisioning level for the\n                                    under-provisioned global secondary indexes with the UpdateTable\n                                    API.</p>\n                           <note>\n                              <p>This message is returned when provisioned throughput is\n                                        exceeded is on a provisioned GSI.</p>\n                           </note>\n                        </li>\n                     </ul>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>Throttling Error:</p>\n               <ul>\n                  <li>\n                     <p>Code: <code>ThrottlingError</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>Messages: </p>\n                     <ul>\n                        <li>\n                           <p>Throughput exceeds the current capacity of your table or\n                                    index. DynamoDB is automatically scaling your table or\n                                    index so please try again shortly. If exceptions persist, check\n                                    if you have a hot key:\n                                    https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-partition-key-design.html.</p>\n                           <note>\n                              <p>This message is returned when writes get throttled on an\n                                        On-Demand table as DynamoDB is automatically\n                                        scaling the table.</p>\n                           </note>\n                        </li>\n                        <li>\n                           <p>Throughput exceeds the current capacity for one or more\n                                    global secondary indexes. DynamoDB is automatically\n                                    scaling your index so please try again shortly.</p>\n                           <note>\n                              <p>This message is returned when writes get throttled on\n                                        an On-Demand GSI as DynamoDB is automatically\n                                        scaling the GSI.</p>\n                           </note>\n                        </li>\n                     </ul>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>Validation Error:</p>\n               <ul>\n                  <li>\n                     <p>Code: <code>ValidationError</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>Messages: </p>\n                     <ul>\n                        <li>\n                           <p>One or more parameter values were invalid.</p>\n                        </li>\n                        <li>\n                           <p>The update expression attempted to update the secondary\n                                    index key beyond allowed size limits.</p>\n                        </li>\n                        <li>\n                           <p>The update expression attempted to update the secondary\n                                    index key to unsupported type.</p>\n                        </li>\n                        <li>\n                           <p>An operand in the update expression has an incorrect data\n                                    type.</p>\n                        </li>\n                        <li>\n                           <p>Item size to update has exceeded the maximum allowed\n                                    size.</p>\n                        </li>\n                        <li>\n                           <p>Number overflow. Attempting to store a number with\n                                    magnitude larger than supported range.</p>\n                        </li>\n                        <li>\n                           <p>Type mismatch for attribute to update.</p>\n                        </li>\n                        <li>\n                           <p>Nesting Levels have exceeded supported limits.</p>\n                        </li>\n                        <li>\n                           <p>The document path provided in the update expression is\n                                    invalid for update.</p>\n                        </li>\n                        <li>\n                           <p>The provided expression refers to an attribute that does\n                                    not exist in the item.</p>\n                        </li>\n                     </ul>\n                  </li>\n               </ul>\n            </li>\n         </ul>",
+        "smithy.api#documentation": "<p>The entire transaction request was canceled.</p>\n         <p>DynamoDB cancels a <code>TransactWriteItems</code> request under the following\n            circumstances:</p>\n         <ul>\n            <li>\n               <p>A condition in one of the condition expressions is not met.</p>\n            </li>\n            <li>\n               <p>A table in the <code>TransactWriteItems</code> request is in a different\n                    account or region.</p>\n            </li>\n            <li>\n               <p>More than one action in the <code>TransactWriteItems</code> operation\n                    targets the same item.</p>\n            </li>\n            <li>\n               <p>There is insufficient provisioned capacity for the transaction to be\n                    completed.</p>\n            </li>\n            <li>\n               <p>An item size becomes too large (larger than 400 KB), or a local secondary\n                    index (LSI) becomes too large, or a similar validation error occurs because of\n                    changes made by the transaction.</p>\n            </li>\n            <li>\n               <p>There is a user error, such as an invalid data format.</p>\n            </li>\n            <li>\n               <p>\n                    There is an ongoing <code>TransactWriteItems</code> operation that conflicts with a concurrent \n                    <code>TransactWriteItems</code> request. In this case the <code>TransactWriteItems</code> operation \n                    fails with a <code>TransactionCanceledException</code>.\n                </p>\n            </li>\n         </ul>\n         <p>DynamoDB cancels a <code>TransactGetItems</code> request under the\n            following circumstances:</p>\n         <ul>\n            <li>\n               <p>There is an ongoing <code>TransactGetItems</code> operation that conflicts\n                    with a concurrent <code>PutItem</code>, <code>UpdateItem</code>,\n                        <code>DeleteItem</code> or <code>TransactWriteItems</code> request. In this\n                    case the <code>TransactGetItems</code> operation fails with a\n                        <code>TransactionCanceledException</code>.</p>\n            </li>\n            <li>\n               <p>A table in the <code>TransactGetItems</code> request is in a different\n                    account or region.</p>\n            </li>\n            <li>\n               <p>There is insufficient provisioned capacity for the transaction to be\n                    completed.</p>\n            </li>\n            <li>\n               <p>There is a user error, such as an invalid data format.</p>\n            </li>\n         </ul>\n         <note>\n            <p>If using Java, DynamoDB lists the cancellation reasons on the\n                    <code>CancellationReasons</code> property. This property is not set for other\n                languages. Transaction cancellation reasons are ordered in the order of requested\n                items, if an item has no error it will have <code>None</code> code and\n                    <code>Null</code> message.</p>\n         </note>\n         <p>Cancellation reason codes and possible error messages:</p>\n         <ul>\n            <li>\n               <p>No Errors:</p>\n               <ul>\n                  <li>\n                     <p>Code: <code>None</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>Message: <code>null</code>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>Conditional Check Failed:</p>\n               <ul>\n                  <li>\n                     <p>Code: <code>ConditionalCheckFailed</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>Message: The conditional request failed. </p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>Item Collection Size Limit Exceeded:</p>\n               <ul>\n                  <li>\n                     <p>Code: <code>ItemCollectionSizeLimitExceeded</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>Message: Collection size exceeded.</p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>Transaction Conflict:</p>\n               <ul>\n                  <li>\n                     <p>Code: <code>TransactionConflict</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>Message: Transaction is ongoing for the item.</p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>Provisioned Throughput Exceeded:</p>\n               <ul>\n                  <li>\n                     <p>Code: <code>ProvisionedThroughputExceeded</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>Messages:</p>\n                     <ul>\n                        <li>\n                           <p>The level of configured provisioned throughput for the\n                                    table was exceeded. Consider increasing your provisioning level\n                                    with the UpdateTable API.</p>\n                           <note>\n                              <p>This Message is received when provisioned throughput is\n                                        exceeded is on a provisioned DynamoDB\n                                        table.</p>\n                           </note>\n                        </li>\n                        <li>\n                           <p>The level of configured provisioned throughput for one or\n                                    more global secondary indexes of the table was exceeded.\n                                    Consider increasing your provisioning level for the\n                                    under-provisioned global secondary indexes with the UpdateTable\n                                    API.</p>\n                           <note>\n                              <p>This message is returned when provisioned throughput is\n                                        exceeded is on a provisioned GSI.</p>\n                           </note>\n                        </li>\n                     </ul>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>Throttling Error:</p>\n               <ul>\n                  <li>\n                     <p>Code: <code>ThrottlingError</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>Messages: </p>\n                     <ul>\n                        <li>\n                           <p>Throughput exceeds the current capacity of your table or\n                                    index. DynamoDB is automatically scaling your table or\n                                    index so please try again shortly. If exceptions persist, check\n                                    if you have a hot key:\n                                    https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-partition-key-design.html.</p>\n                           <note>\n                              <p>This message is returned when writes get throttled on an\n                                        On-Demand table as DynamoDB is automatically\n                                        scaling the table.</p>\n                           </note>\n                        </li>\n                        <li>\n                           <p>Throughput exceeds the current capacity for one or more\n                                    global secondary indexes. DynamoDB is automatically\n                                    scaling your index so please try again shortly.</p>\n                           <note>\n                              <p>This message is returned when writes get throttled on\n                                        an On-Demand GSI as DynamoDB is automatically\n                                        scaling the GSI.</p>\n                           </note>\n                        </li>\n                     </ul>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>Validation Error:</p>\n               <ul>\n                  <li>\n                     <p>Code: <code>ValidationError</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>Messages: </p>\n                     <ul>\n                        <li>\n                           <p>One or more parameter values were invalid.</p>\n                        </li>\n                        <li>\n                           <p>The update expression attempted to update the secondary\n                                    index key beyond allowed size limits.</p>\n                        </li>\n                        <li>\n                           <p>The update expression attempted to update the secondary\n                                    index key to unsupported type.</p>\n                        </li>\n                        <li>\n                           <p>An operand in the update expression has an incorrect data\n                                    type.</p>\n                        </li>\n                        <li>\n                           <p>Item size to update has exceeded the maximum allowed\n                                    size.</p>\n                        </li>\n                        <li>\n                           <p>Number overflow. Attempting to store a number with\n                                    magnitude larger than supported range.</p>\n                        </li>\n                        <li>\n                           <p>Type mismatch for attribute to update.</p>\n                        </li>\n                        <li>\n                           <p>Nesting Levels have exceeded supported limits.</p>\n                        </li>\n                        <li>\n                           <p>The document path provided in the update expression is\n                                    invalid for update.</p>\n                        </li>\n                        <li>\n                           <p>The provided expression refers to an attribute that does\n                                    not exist in the item.</p>\n                        </li>\n                     </ul>\n                  </li>\n               </ul>\n            </li>\n         </ul>",
         "smithy.api#error": "client"
       }
     },
@@ -11199,7 +11629,54 @@
         "aws.api#clientDiscoveredEndpoint": {
           "required": false
         },
-        "smithy.api#documentation": "<p>Edits an existing item's attributes, or adds a new item to the table if it does not\n            already exist. You can put, delete, or add attribute values. You can also perform a\n            conditional update on an existing item (insert a new attribute name-value pair if it\n            doesn't exist, or replace an existing name-value pair if it has certain expected\n            attribute values).</p>\n         <p>You can also return the item's attribute values in the same <code>UpdateItem</code>\n            operation using the <code>ReturnValues</code> parameter.</p>"
+        "smithy.api#documentation": "<p>Edits an existing item's attributes, or adds a new item to the table if it does not\n            already exist. You can put, delete, or add attribute values. You can also perform a\n            conditional update on an existing item (insert a new attribute name-value pair if it\n            doesn't exist, or replace an existing name-value pair if it has certain expected\n            attribute values).</p>\n         <p>You can also return the item's attribute values in the same <code>UpdateItem</code>\n            operation using the <code>ReturnValues</code> parameter.</p>",
+        "smithy.api#examples": [
+          {
+            "title": "To update an item in a table",
+            "documentation": "This example updates an item in the Music table. It adds a new attribute (Year) and modifies the AlbumTitle attribute.  All of the attributes in the item, as they appear after the update, are returned in the response.",
+            "input": {
+              "TableName": "Music",
+              "Key": {
+                "Artist": {
+                  "S": "Acme Band"
+                },
+                "SongTitle": {
+                  "S": "Happy Day"
+                }
+              },
+              "UpdateExpression": "SET #Y = :y, #AT = :t",
+              "ExpressionAttributeNames": {
+                "#Y": "Year",
+                "#AT": "AlbumTitle"
+              },
+              "ExpressionAttributeValues": {
+                ":y": {
+                  "N": "2015"
+                },
+                ":t": {
+                  "S": "Louder Than Ever"
+                }
+              },
+              "ReturnValues": "ALL_NEW"
+            },
+            "output": {
+              "Attributes": {
+                "AlbumTitle": {
+                  "S": "Louder Than Ever"
+                },
+                "Artist": {
+                  "S": "Acme Band"
+                },
+                "Year": {
+                  "N": "2015"
+                },
+                "SongTitle": {
+                  "S": "Happy Day"
+                }
+              }
+            }
+          }
+        ]
       }
     },
     "com.amazonaws.dynamodb#UpdateItemInput": {
@@ -11312,6 +11789,112 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Represents the output of an <code>UpdateItem</code> operation.</p>",
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.dynamodb#UpdateKinesisStreamingConfiguration": {
+      "type": "structure",
+      "members": {
+        "ApproximateCreationDateTimePrecision": {
+          "target": "com.amazonaws.dynamodb#ApproximateCreationDateTimePrecision",
+          "traits": {
+            "smithy.api#documentation": "<p>Enables updating the precision of Kinesis data stream timestamp. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Enables updating the configuration for Kinesis Streaming.</p>"
+      }
+    },
+    "com.amazonaws.dynamodb#UpdateKinesisStreamingDestination": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.dynamodb#UpdateKinesisStreamingDestinationInput"
+      },
+      "output": {
+        "target": "com.amazonaws.dynamodb#UpdateKinesisStreamingDestinationOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.dynamodb#InternalServerError"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#InvalidEndpointException"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#ResourceInUseException"
+        },
+        {
+          "target": "com.amazonaws.dynamodb#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "aws.api#clientDiscoveredEndpoint": {
+          "required": false
+        },
+        "smithy.api#documentation": "<p>The command to update the Kinesis stream destination.</p>"
+      }
+    },
+    "com.amazonaws.dynamodb#UpdateKinesisStreamingDestinationInput": {
+      "type": "structure",
+      "members": {
+        "TableName": {
+          "target": "com.amazonaws.dynamodb#TableName",
+          "traits": {
+            "smithy.api#documentation": "<p>The table name for the Kinesis streaming destination input.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "StreamArn": {
+          "target": "com.amazonaws.dynamodb#StreamArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN for the Kinesis stream input.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "UpdateKinesisStreamingConfiguration": {
+          "target": "com.amazonaws.dynamodb#UpdateKinesisStreamingConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The command to update the Kinesis stream configuration.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.dynamodb#UpdateKinesisStreamingDestinationOutput": {
+      "type": "structure",
+      "members": {
+        "TableName": {
+          "target": "com.amazonaws.dynamodb#TableName",
+          "traits": {
+            "smithy.api#documentation": "<p>The table name for the Kinesis streaming destination output.</p>"
+          }
+        },
+        "StreamArn": {
+          "target": "com.amazonaws.dynamodb#StreamArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN for the Kinesis stream input.</p>"
+          }
+        },
+        "DestinationStatus": {
+          "target": "com.amazonaws.dynamodb#DestinationStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the attempt to update the Kinesis streaming destination output.</p>"
+          }
+        },
+        "UpdateKinesisStreamingConfiguration": {
+          "target": "com.amazonaws.dynamodb#UpdateKinesisStreamingConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The command to update the Kinesis streaming destination configuration.</p>"
+          }
+        }
+      },
+      "traits": {
         "smithy.api#output": {}
       }
     },

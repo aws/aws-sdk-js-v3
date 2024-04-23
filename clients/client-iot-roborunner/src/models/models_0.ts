@@ -109,7 +109,7 @@ export interface CreateDestinationRequest {
    * @public
    * The state of the destination. Default used if not specified.
    */
-  state?: DestinationState | string;
+  state?: DestinationState;
 
   /**
    * @public
@@ -150,7 +150,7 @@ export interface CreateDestinationResponse {
    * @public
    * State of the destination.
    */
-  state: DestinationState | string | undefined;
+  state: DestinationState | undefined;
 }
 
 /**
@@ -676,7 +676,7 @@ export interface Destination {
    * @public
    * State of the destination.
    */
-  state: DestinationState | string | undefined;
+  state: DestinationState | undefined;
 
   /**
    * @public
@@ -740,7 +740,7 @@ export interface GetDestinationResponse {
    * @public
    * State of the destination.
    */
-  state: DestinationState | string | undefined;
+  state: DestinationState | undefined;
 
   /**
    * @public
@@ -776,7 +776,7 @@ export interface ListDestinationsRequest {
    * @public
    * State of the destination.
    */
-  state?: DestinationState | string;
+  state?: DestinationState;
 }
 
 /**
@@ -817,7 +817,7 @@ export interface UpdateDestinationRequest {
    * @public
    * State of the destination.
    */
-  state?: DestinationState | string;
+  state?: DestinationState;
 
   /**
    * @public
@@ -858,7 +858,7 @@ export interface UpdateDestinationResponse {
    * @public
    * State of the destination.
    */
-  state: DestinationState | string | undefined;
+  state: DestinationState | undefined;
 
   /**
    * @public

@@ -68,7 +68,7 @@ export interface BrokerEngineType {
    * @public
    * <p>The broker's engine type.</p>
    */
-  EngineType?: EngineType | string;
+  EngineType?: EngineType;
 
   /**
    * @public
@@ -145,7 +145,7 @@ export interface BrokerInstanceOption {
    * @public
    * <p>The broker's engine type.</p>
    */
-  EngineType?: EngineType | string;
+  EngineType?: EngineType;
 
   /**
    * @public
@@ -157,13 +157,13 @@ export interface BrokerInstanceOption {
    * @public
    * <p>The broker's storage type.</p>
    */
-  StorageType?: BrokerStorageType | string;
+  StorageType?: BrokerStorageType;
 
   /**
    * @public
    * <p>The list of supported deployment modes.</p>
    */
-  SupportedDeploymentModes?: (DeploymentMode | string)[];
+  SupportedDeploymentModes?: DeploymentMode[];
 
   /**
    * @public
@@ -218,7 +218,7 @@ export interface BrokerSummary {
    * @public
    * <p>The broker's status.</p>
    */
-  BrokerState?: BrokerState | string;
+  BrokerState?: BrokerState;
 
   /**
    * @public
@@ -230,13 +230,13 @@ export interface BrokerSummary {
    * @public
    * <p>The broker's deployment mode.</p>
    */
-  DeploymentMode: DeploymentMode | string | undefined;
+  DeploymentMode: DeploymentMode | undefined;
 
   /**
    * @public
    * <p>The type of broker engine.</p>
    */
-  EngineType: EngineType | string | undefined;
+  EngineType: EngineType | undefined;
 
   /**
    * @public
@@ -298,7 +298,7 @@ export interface Configuration {
    * @public
    * <p>Optional. The authentication strategy associated with the configuration. The default is SIMPLE.</p>
    */
-  AuthenticationStrategy: AuthenticationStrategy | string | undefined;
+  AuthenticationStrategy: AuthenticationStrategy | undefined;
 
   /**
    * @public
@@ -316,7 +316,7 @@ export interface Configuration {
    * @public
    * <p>Required. The type of broker engine. Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.</p>
    */
-  EngineType: EngineType | string | undefined;
+  EngineType: EngineType | undefined;
 
   /**
    * @public
@@ -403,7 +403,7 @@ export interface SanitizationWarning {
    * @public
    * <p>The reason for which the configuration elements or attributes were sanitized.</p>
    */
-  Reason: SanitizationWarningReason | string | undefined;
+  Reason: SanitizationWarningReason | undefined;
 }
 
 /**
@@ -466,7 +466,7 @@ export interface UserSummary {
    * @public
    * <p>The type of change pending for the broker user.</p>
    */
-  PendingChange?: ChangeType | string;
+  PendingChange?: ChangeType;
 
   /**
    * @public
@@ -720,7 +720,7 @@ export interface WeeklyStartTime {
    * @public
    * <p>Required. The day of the week.</p>
    */
-  DayOfWeek: DayOfWeek | string | undefined;
+  DayOfWeek: DayOfWeek | undefined;
 
   /**
    * @public
@@ -744,7 +744,7 @@ export interface CreateBrokerRequest {
    * @public
    * <p>Optional. The authentication strategy used to secure the broker. The default is SIMPLE.</p>
    */
-  AuthenticationStrategy?: AuthenticationStrategy | string;
+  AuthenticationStrategy?: AuthenticationStrategy;
 
   /**
    * @public
@@ -774,7 +774,7 @@ export interface CreateBrokerRequest {
    * @public
    * <p>Required. The broker's deployment mode.</p>
    */
-  DeploymentMode: DeploymentMode | string | undefined;
+  DeploymentMode: DeploymentMode | undefined;
 
   /**
    * @public
@@ -786,7 +786,7 @@ export interface CreateBrokerRequest {
    * @public
    * <p>Required. The type of broker engine. Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.</p>
    */
-  EngineType: EngineType | string | undefined;
+  EngineType: EngineType | undefined;
 
   /**
    * @public
@@ -834,7 +834,7 @@ export interface CreateBrokerRequest {
    * @public
    * <p>The broker's storage type.</p>
    */
-  StorageType?: BrokerStorageType | string;
+  StorageType?: BrokerStorageType;
 
   /**
    * @public
@@ -858,7 +858,7 @@ export interface CreateBrokerRequest {
    * @public
    * <p>Defines whether this broker is a part of a data replication pair.</p>
    */
-  DataReplicationMode?: DataReplicationMode | string;
+  DataReplicationMode?: DataReplicationMode;
 
   /**
    * @public
@@ -992,13 +992,13 @@ export interface CreateConfigurationRequest {
    * @public
    * <p>Optional. The authentication strategy associated with the configuration. The default is SIMPLE.</p>
    */
-  AuthenticationStrategy?: AuthenticationStrategy | string;
+  AuthenticationStrategy?: AuthenticationStrategy;
 
   /**
    * @public
    * <p>Required. The type of broker engine. Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.</p>
    */
-  EngineType: EngineType | string | undefined;
+  EngineType: EngineType | undefined;
 
   /**
    * @public
@@ -1033,7 +1033,7 @@ export interface CreateConfigurationResponse {
    * @public
    * <p>Optional. The authentication strategy associated with the configuration. The default is SIMPLE.</p>
    */
-  AuthenticationStrategy?: AuthenticationStrategy | string;
+  AuthenticationStrategy?: AuthenticationStrategy;
 
   /**
    * @public
@@ -1404,7 +1404,7 @@ export interface DescribeBrokerResponse {
    * @public
    * <p>The authentication strategy used to secure the broker. The default is SIMPLE.</p>
    */
-  AuthenticationStrategy?: AuthenticationStrategy | string;
+  AuthenticationStrategy?: AuthenticationStrategy;
 
   /**
    * @public
@@ -1440,7 +1440,7 @@ export interface DescribeBrokerResponse {
    * @public
    * <p>The broker's status.</p>
    */
-  BrokerState?: BrokerState | string;
+  BrokerState?: BrokerState;
 
   /**
    * @public
@@ -1458,7 +1458,7 @@ export interface DescribeBrokerResponse {
    * @public
    * <p>The broker's deployment mode.</p>
    */
-  DeploymentMode?: DeploymentMode | string;
+  DeploymentMode?: DeploymentMode;
 
   /**
    * @public
@@ -1470,7 +1470,7 @@ export interface DescribeBrokerResponse {
    * @public
    * <p>The type of broker engine. Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.</p>
    */
-  EngineType?: EngineType | string;
+  EngineType?: EngineType;
 
   /**
    * @public
@@ -1506,7 +1506,7 @@ export interface DescribeBrokerResponse {
    * @public
    * <p>The authentication strategy that will be applied when the broker is rebooted. The default is SIMPLE.</p>
    */
-  PendingAuthenticationStrategy?: AuthenticationStrategy | string;
+  PendingAuthenticationStrategy?: AuthenticationStrategy;
 
   /**
    * @public
@@ -1548,7 +1548,7 @@ export interface DescribeBrokerResponse {
    * @public
    * <p>The broker's storage type.</p>
    */
-  StorageType?: BrokerStorageType | string;
+  StorageType?: BrokerStorageType;
 
   /**
    * @public
@@ -1578,7 +1578,7 @@ export interface DescribeBrokerResponse {
    * @public
    * <p>Describes whether this broker is a part of a data replication pair.</p>
    */
-  DataReplicationMode?: DataReplicationMode | string;
+  DataReplicationMode?: DataReplicationMode;
 
   /**
    * @public
@@ -1590,7 +1590,7 @@ export interface DescribeBrokerResponse {
    * @public
    * <p>Describes whether this broker will be a part of a data replication pair after reboot.</p>
    */
-  PendingDataReplicationMode?: DataReplicationMode | string;
+  PendingDataReplicationMode?: DataReplicationMode;
 }
 
 /**
@@ -1722,7 +1722,7 @@ export interface DescribeConfigurationResponse {
    * @public
    * <p>Optional. The authentication strategy associated with the configuration. The default is SIMPLE.</p>
    */
-  AuthenticationStrategy?: AuthenticationStrategy | string;
+  AuthenticationStrategy?: AuthenticationStrategy;
 
   /**
    * @public
@@ -1740,7 +1740,7 @@ export interface DescribeConfigurationResponse {
    * @public
    * <p>Required. The type of broker engine. Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.</p>
    */
-  EngineType?: EngineType | string;
+  EngineType?: EngineType;
 
   /**
    * @public
@@ -1857,7 +1857,7 @@ export interface UserPendingChanges {
    * @public
    * <p>Required. The type of change pending for the ActiveMQ user.</p>
    */
-  PendingChange: ChangeType | string | undefined;
+  PendingChange: ChangeType | undefined;
 }
 
 /**
@@ -2130,7 +2130,7 @@ export interface PromoteRequest {
    * @public
    * <p>The Promote mode requested. Note: Valid values for the parameter are SWITCHOVER, FAILOVER.</p>
    */
-  Mode: PromoteMode | string | undefined;
+  Mode: PromoteMode | undefined;
 }
 
 /**
@@ -2169,7 +2169,7 @@ export interface UpdateBrokerRequest {
    * @public
    * <p>Optional. The authentication strategy used to secure the broker. The default is SIMPLE.</p>
    */
-  AuthenticationStrategy?: AuthenticationStrategy | string;
+  AuthenticationStrategy?: AuthenticationStrategy;
 
   /**
    * @public
@@ -2229,7 +2229,7 @@ export interface UpdateBrokerRequest {
    * @public
    * <p>Defines whether this broker is a part of a data replication pair.</p>
    */
-  DataReplicationMode?: DataReplicationMode | string;
+  DataReplicationMode?: DataReplicationMode;
 }
 
 /**
@@ -2240,7 +2240,7 @@ export interface UpdateBrokerResponse {
    * @public
    * <p>Optional. The authentication strategy used to secure the broker. The default is SIMPLE.</p>
    */
-  AuthenticationStrategy?: AuthenticationStrategy | string;
+  AuthenticationStrategy?: AuthenticationStrategy;
 
   /**
    * @public
@@ -2306,7 +2306,7 @@ export interface UpdateBrokerResponse {
    * @public
    * <p>Describes whether this broker is a part of a data replication pair.</p>
    */
-  DataReplicationMode?: DataReplicationMode | string;
+  DataReplicationMode?: DataReplicationMode;
 
   /**
    * @public
@@ -2318,7 +2318,7 @@ export interface UpdateBrokerResponse {
    * @public
    * <p>Describes whether this broker will be a part of a data replication pair after reboot.</p>
    */
-  PendingDataReplicationMode?: DataReplicationMode | string;
+  PendingDataReplicationMode?: DataReplicationMode;
 }
 
 /**

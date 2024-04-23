@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `S3ControlClient` and
-the commands you need, for example `CreateAccessPointCommand`:
+the commands you need, for example `ListJobsCommand`:
 
 ```js
 // ES5 example
-const { S3ControlClient, CreateAccessPointCommand } = require("@aws-sdk/client-s3-control");
+const { S3ControlClient, ListJobsCommand } = require("@aws-sdk/client-s3-control");
 ```
 
 ```ts
 // ES6+ example
-import { S3ControlClient, CreateAccessPointCommand } from "@aws-sdk/client-s3-control";
+import { S3ControlClient, ListJobsCommand } from "@aws-sdk/client-s3-control";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new S3ControlClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateAccessPointCommand(params);
+const command = new ListJobsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.S3Control({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createAccessPoint(params);
+  const data = await client.listJobs(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .createAccessPoint(params)
+  .listJobs(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.createAccessPoint(params, (err, data) => {
+client.listJobs(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -162,7 +162,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -205,10 +205,42 @@ see LICENSE for more information.
 
 <details>
 <summary>
+AssociateAccessGrantsIdentityCenter
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/AssociateAccessGrantsIdentityCenterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/AssociateAccessGrantsIdentityCenterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/AssociateAccessGrantsIdentityCenterCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateAccessGrant
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/CreateAccessGrantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/CreateAccessGrantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/CreateAccessGrantCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateAccessGrantsInstance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/CreateAccessGrantsInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/CreateAccessGrantsInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/CreateAccessGrantsInstanceCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateAccessGrantsLocation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/CreateAccessGrantsLocationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/CreateAccessGrantsLocationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/CreateAccessGrantsLocationCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateAccessPoint
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/createaccesspointcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/createaccesspointcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/createaccesspointcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/CreateAccessPointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/CreateAccessPointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/CreateAccessPointCommandOutput/)
 
 </details>
 <details>
@@ -216,7 +248,7 @@ CreateAccessPoint
 CreateAccessPointForObjectLambda
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/createaccesspointforobjectlambdacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/createaccesspointforobjectlambdacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/createaccesspointforobjectlambdacommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/CreateAccessPointForObjectLambdaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/CreateAccessPointForObjectLambdaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/CreateAccessPointForObjectLambdaCommandOutput/)
 
 </details>
 <details>
@@ -224,7 +256,7 @@ CreateAccessPointForObjectLambda
 CreateBucket
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/createbucketcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/createbucketcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/createbucketcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/CreateBucketCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/CreateBucketCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/CreateBucketCommandOutput/)
 
 </details>
 <details>
@@ -232,7 +264,7 @@ CreateBucket
 CreateJob
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/createjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/createjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/createjobcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/CreateJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/CreateJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/CreateJobCommandOutput/)
 
 </details>
 <details>
@@ -240,7 +272,47 @@ CreateJob
 CreateMultiRegionAccessPoint
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/createmultiregionaccesspointcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/createmultiregionaccesspointcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/createmultiregionaccesspointcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/CreateMultiRegionAccessPointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/CreateMultiRegionAccessPointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/CreateMultiRegionAccessPointCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateStorageLensGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/CreateStorageLensGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/CreateStorageLensGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/CreateStorageLensGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteAccessGrant
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/DeleteAccessGrantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteAccessGrantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteAccessGrantCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteAccessGrantsInstance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/DeleteAccessGrantsInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteAccessGrantsInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteAccessGrantsInstanceCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteAccessGrantsInstanceResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/DeleteAccessGrantsInstanceResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteAccessGrantsInstanceResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteAccessGrantsInstanceResourcePolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteAccessGrantsLocation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/DeleteAccessGrantsLocationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteAccessGrantsLocationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteAccessGrantsLocationCommandOutput/)
 
 </details>
 <details>
@@ -248,7 +320,7 @@ CreateMultiRegionAccessPoint
 DeleteAccessPoint
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/deleteaccesspointcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deleteaccesspointcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deleteaccesspointcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/DeleteAccessPointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteAccessPointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteAccessPointCommandOutput/)
 
 </details>
 <details>
@@ -256,7 +328,7 @@ DeleteAccessPoint
 DeleteAccessPointForObjectLambda
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/deleteaccesspointforobjectlambdacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deleteaccesspointforobjectlambdacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deleteaccesspointforobjectlambdacommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/DeleteAccessPointForObjectLambdaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteAccessPointForObjectLambdaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteAccessPointForObjectLambdaCommandOutput/)
 
 </details>
 <details>
@@ -264,7 +336,7 @@ DeleteAccessPointForObjectLambda
 DeleteAccessPointPolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/deleteaccesspointpolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deleteaccesspointpolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deleteaccesspointpolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/DeleteAccessPointPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteAccessPointPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteAccessPointPolicyCommandOutput/)
 
 </details>
 <details>
@@ -272,7 +344,7 @@ DeleteAccessPointPolicy
 DeleteAccessPointPolicyForObjectLambda
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/deleteaccesspointpolicyforobjectlambdacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deleteaccesspointpolicyforobjectlambdacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deleteaccesspointpolicyforobjectlambdacommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/DeleteAccessPointPolicyForObjectLambdaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteAccessPointPolicyForObjectLambdaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteAccessPointPolicyForObjectLambdaCommandOutput/)
 
 </details>
 <details>
@@ -280,7 +352,7 @@ DeleteAccessPointPolicyForObjectLambda
 DeleteBucket
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/deletebucketcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deletebucketcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deletebucketcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/DeleteBucketCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteBucketCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteBucketCommandOutput/)
 
 </details>
 <details>
@@ -288,7 +360,7 @@ DeleteBucket
 DeleteBucketLifecycleConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/deletebucketlifecycleconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deletebucketlifecycleconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deletebucketlifecycleconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/DeleteBucketLifecycleConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteBucketLifecycleConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteBucketLifecycleConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -296,7 +368,7 @@ DeleteBucketLifecycleConfiguration
 DeleteBucketPolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/deletebucketpolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deletebucketpolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deletebucketpolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/DeleteBucketPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteBucketPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteBucketPolicyCommandOutput/)
 
 </details>
 <details>
@@ -304,7 +376,7 @@ DeleteBucketPolicy
 DeleteBucketReplication
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/deletebucketreplicationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deletebucketreplicationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deletebucketreplicationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/DeleteBucketReplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteBucketReplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteBucketReplicationCommandOutput/)
 
 </details>
 <details>
@@ -312,7 +384,7 @@ DeleteBucketReplication
 DeleteBucketTagging
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/deletebuckettaggingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deletebuckettaggingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deletebuckettaggingcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/DeleteBucketTaggingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteBucketTaggingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteBucketTaggingCommandOutput/)
 
 </details>
 <details>
@@ -320,7 +392,7 @@ DeleteBucketTagging
 DeleteJobTagging
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/deletejobtaggingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deletejobtaggingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deletejobtaggingcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/DeleteJobTaggingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteJobTaggingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteJobTaggingCommandOutput/)
 
 </details>
 <details>
@@ -328,7 +400,7 @@ DeleteJobTagging
 DeleteMultiRegionAccessPoint
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/deletemultiregionaccesspointcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deletemultiregionaccesspointcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deletemultiregionaccesspointcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/DeleteMultiRegionAccessPointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteMultiRegionAccessPointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteMultiRegionAccessPointCommandOutput/)
 
 </details>
 <details>
@@ -336,7 +408,7 @@ DeleteMultiRegionAccessPoint
 DeletePublicAccessBlock
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/deletepublicaccessblockcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deletepublicaccessblockcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deletepublicaccessblockcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/DeletePublicAccessBlockCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeletePublicAccessBlockCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeletePublicAccessBlockCommandOutput/)
 
 </details>
 <details>
@@ -344,7 +416,7 @@ DeletePublicAccessBlock
 DeleteStorageLensConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/deletestoragelensconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deletestoragelensconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deletestoragelensconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/DeleteStorageLensConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteStorageLensConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteStorageLensConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -352,7 +424,15 @@ DeleteStorageLensConfiguration
 DeleteStorageLensConfigurationTagging
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/deletestoragelensconfigurationtaggingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deletestoragelensconfigurationtaggingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/deletestoragelensconfigurationtaggingcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/DeleteStorageLensConfigurationTaggingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteStorageLensConfigurationTaggingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteStorageLensConfigurationTaggingCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteStorageLensGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/DeleteStorageLensGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteStorageLensGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DeleteStorageLensGroupCommandOutput/)
 
 </details>
 <details>
@@ -360,7 +440,7 @@ DeleteStorageLensConfigurationTagging
 DescribeJob
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/describejobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/describejobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/describejobcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/DescribeJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DescribeJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DescribeJobCommandOutput/)
 
 </details>
 <details>
@@ -368,7 +448,55 @@ DescribeJob
 DescribeMultiRegionAccessPointOperation
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/describemultiregionaccesspointoperationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/describemultiregionaccesspointoperationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/describemultiregionaccesspointoperationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/DescribeMultiRegionAccessPointOperationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DescribeMultiRegionAccessPointOperationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DescribeMultiRegionAccessPointOperationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DissociateAccessGrantsIdentityCenter
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/DissociateAccessGrantsIdentityCenterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DissociateAccessGrantsIdentityCenterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/DissociateAccessGrantsIdentityCenterCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetAccessGrant
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/GetAccessGrantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetAccessGrantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetAccessGrantCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetAccessGrantsInstance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/GetAccessGrantsInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetAccessGrantsInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetAccessGrantsInstanceCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetAccessGrantsInstanceForPrefix
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/GetAccessGrantsInstanceForPrefixCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetAccessGrantsInstanceForPrefixCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetAccessGrantsInstanceForPrefixCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetAccessGrantsInstanceResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/GetAccessGrantsInstanceResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetAccessGrantsInstanceResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetAccessGrantsInstanceResourcePolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetAccessGrantsLocation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/GetAccessGrantsLocationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetAccessGrantsLocationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetAccessGrantsLocationCommandOutput/)
 
 </details>
 <details>
@@ -376,7 +504,7 @@ DescribeMultiRegionAccessPointOperation
 GetAccessPoint
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/getaccesspointcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getaccesspointcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getaccesspointcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/GetAccessPointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetAccessPointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetAccessPointCommandOutput/)
 
 </details>
 <details>
@@ -384,7 +512,7 @@ GetAccessPoint
 GetAccessPointConfigurationForObjectLambda
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/getaccesspointconfigurationforobjectlambdacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getaccesspointconfigurationforobjectlambdacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getaccesspointconfigurationforobjectlambdacommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/GetAccessPointConfigurationForObjectLambdaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetAccessPointConfigurationForObjectLambdaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetAccessPointConfigurationForObjectLambdaCommandOutput/)
 
 </details>
 <details>
@@ -392,7 +520,7 @@ GetAccessPointConfigurationForObjectLambda
 GetAccessPointForObjectLambda
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/getaccesspointforobjectlambdacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getaccesspointforobjectlambdacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getaccesspointforobjectlambdacommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/GetAccessPointForObjectLambdaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetAccessPointForObjectLambdaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetAccessPointForObjectLambdaCommandOutput/)
 
 </details>
 <details>
@@ -400,7 +528,7 @@ GetAccessPointForObjectLambda
 GetAccessPointPolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/getaccesspointpolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getaccesspointpolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getaccesspointpolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/GetAccessPointPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetAccessPointPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetAccessPointPolicyCommandOutput/)
 
 </details>
 <details>
@@ -408,7 +536,7 @@ GetAccessPointPolicy
 GetAccessPointPolicyForObjectLambda
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/getaccesspointpolicyforobjectlambdacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getaccesspointpolicyforobjectlambdacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getaccesspointpolicyforobjectlambdacommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/GetAccessPointPolicyForObjectLambdaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetAccessPointPolicyForObjectLambdaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetAccessPointPolicyForObjectLambdaCommandOutput/)
 
 </details>
 <details>
@@ -416,7 +544,7 @@ GetAccessPointPolicyForObjectLambda
 GetAccessPointPolicyStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/getaccesspointpolicystatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getaccesspointpolicystatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getaccesspointpolicystatuscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/GetAccessPointPolicyStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetAccessPointPolicyStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetAccessPointPolicyStatusCommandOutput/)
 
 </details>
 <details>
@@ -424,7 +552,7 @@ GetAccessPointPolicyStatus
 GetAccessPointPolicyStatusForObjectLambda
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/getaccesspointpolicystatusforobjectlambdacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getaccesspointpolicystatusforobjectlambdacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getaccesspointpolicystatusforobjectlambdacommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/GetAccessPointPolicyStatusForObjectLambdaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetAccessPointPolicyStatusForObjectLambdaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetAccessPointPolicyStatusForObjectLambdaCommandOutput/)
 
 </details>
 <details>
@@ -432,7 +560,7 @@ GetAccessPointPolicyStatusForObjectLambda
 GetBucket
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/getbucketcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getbucketcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getbucketcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/GetBucketCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetBucketCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetBucketCommandOutput/)
 
 </details>
 <details>
@@ -440,7 +568,7 @@ GetBucket
 GetBucketLifecycleConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/getbucketlifecycleconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getbucketlifecycleconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getbucketlifecycleconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/GetBucketLifecycleConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetBucketLifecycleConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetBucketLifecycleConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -448,7 +576,7 @@ GetBucketLifecycleConfiguration
 GetBucketPolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/getbucketpolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getbucketpolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getbucketpolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/GetBucketPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetBucketPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetBucketPolicyCommandOutput/)
 
 </details>
 <details>
@@ -456,7 +584,7 @@ GetBucketPolicy
 GetBucketReplication
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/getbucketreplicationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getbucketreplicationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getbucketreplicationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/GetBucketReplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetBucketReplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetBucketReplicationCommandOutput/)
 
 </details>
 <details>
@@ -464,7 +592,7 @@ GetBucketReplication
 GetBucketTagging
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/getbuckettaggingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getbuckettaggingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getbuckettaggingcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/GetBucketTaggingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetBucketTaggingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetBucketTaggingCommandOutput/)
 
 </details>
 <details>
@@ -472,7 +600,15 @@ GetBucketTagging
 GetBucketVersioning
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/getbucketversioningcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getbucketversioningcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getbucketversioningcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/GetBucketVersioningCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetBucketVersioningCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetBucketVersioningCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetDataAccess
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/GetDataAccessCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetDataAccessCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetDataAccessCommandOutput/)
 
 </details>
 <details>
@@ -480,7 +616,7 @@ GetBucketVersioning
 GetJobTagging
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/getjobtaggingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getjobtaggingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getjobtaggingcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/GetJobTaggingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetJobTaggingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetJobTaggingCommandOutput/)
 
 </details>
 <details>
@@ -488,7 +624,7 @@ GetJobTagging
 GetMultiRegionAccessPoint
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/getmultiregionaccesspointcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getmultiregionaccesspointcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getmultiregionaccesspointcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/GetMultiRegionAccessPointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetMultiRegionAccessPointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetMultiRegionAccessPointCommandOutput/)
 
 </details>
 <details>
@@ -496,7 +632,7 @@ GetMultiRegionAccessPoint
 GetMultiRegionAccessPointPolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/getmultiregionaccesspointpolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getmultiregionaccesspointpolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getmultiregionaccesspointpolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/GetMultiRegionAccessPointPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetMultiRegionAccessPointPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetMultiRegionAccessPointPolicyCommandOutput/)
 
 </details>
 <details>
@@ -504,7 +640,7 @@ GetMultiRegionAccessPointPolicy
 GetMultiRegionAccessPointPolicyStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/getmultiregionaccesspointpolicystatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getmultiregionaccesspointpolicystatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getmultiregionaccesspointpolicystatuscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/GetMultiRegionAccessPointPolicyStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetMultiRegionAccessPointPolicyStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetMultiRegionAccessPointPolicyStatusCommandOutput/)
 
 </details>
 <details>
@@ -512,7 +648,7 @@ GetMultiRegionAccessPointPolicyStatus
 GetMultiRegionAccessPointRoutes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/getmultiregionaccesspointroutescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getmultiregionaccesspointroutescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getmultiregionaccesspointroutescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/GetMultiRegionAccessPointRoutesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetMultiRegionAccessPointRoutesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetMultiRegionAccessPointRoutesCommandOutput/)
 
 </details>
 <details>
@@ -520,7 +656,7 @@ GetMultiRegionAccessPointRoutes
 GetPublicAccessBlock
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/getpublicaccessblockcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getpublicaccessblockcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getpublicaccessblockcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/GetPublicAccessBlockCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetPublicAccessBlockCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetPublicAccessBlockCommandOutput/)
 
 </details>
 <details>
@@ -528,7 +664,7 @@ GetPublicAccessBlock
 GetStorageLensConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/getstoragelensconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getstoragelensconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getstoragelensconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/GetStorageLensConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetStorageLensConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetStorageLensConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -536,7 +672,39 @@ GetStorageLensConfiguration
 GetStorageLensConfigurationTagging
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/getstoragelensconfigurationtaggingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getstoragelensconfigurationtaggingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/getstoragelensconfigurationtaggingcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/GetStorageLensConfigurationTaggingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetStorageLensConfigurationTaggingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetStorageLensConfigurationTaggingCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetStorageLensGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/GetStorageLensGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetStorageLensGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/GetStorageLensGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListAccessGrants
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/ListAccessGrantsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/ListAccessGrantsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/ListAccessGrantsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListAccessGrantsInstances
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/ListAccessGrantsInstancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/ListAccessGrantsInstancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/ListAccessGrantsInstancesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListAccessGrantsLocations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/ListAccessGrantsLocationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/ListAccessGrantsLocationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/ListAccessGrantsLocationsCommandOutput/)
 
 </details>
 <details>
@@ -544,7 +712,7 @@ GetStorageLensConfigurationTagging
 ListAccessPoints
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/listaccesspointscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/listaccesspointscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/listaccesspointscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/ListAccessPointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/ListAccessPointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/ListAccessPointsCommandOutput/)
 
 </details>
 <details>
@@ -552,7 +720,7 @@ ListAccessPoints
 ListAccessPointsForObjectLambda
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/listaccesspointsforobjectlambdacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/listaccesspointsforobjectlambdacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/listaccesspointsforobjectlambdacommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/ListAccessPointsForObjectLambdaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/ListAccessPointsForObjectLambdaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/ListAccessPointsForObjectLambdaCommandOutput/)
 
 </details>
 <details>
@@ -560,7 +728,7 @@ ListAccessPointsForObjectLambda
 ListJobs
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/listjobscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/listjobscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/listjobscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/ListJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/ListJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/ListJobsCommandOutput/)
 
 </details>
 <details>
@@ -568,7 +736,7 @@ ListJobs
 ListMultiRegionAccessPoints
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/listmultiregionaccesspointscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/listmultiregionaccesspointscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/listmultiregionaccesspointscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/ListMultiRegionAccessPointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/ListMultiRegionAccessPointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/ListMultiRegionAccessPointsCommandOutput/)
 
 </details>
 <details>
@@ -576,7 +744,7 @@ ListMultiRegionAccessPoints
 ListRegionalBuckets
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/listregionalbucketscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/listregionalbucketscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/listregionalbucketscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/ListRegionalBucketsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/ListRegionalBucketsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/ListRegionalBucketsCommandOutput/)
 
 </details>
 <details>
@@ -584,7 +752,31 @@ ListRegionalBuckets
 ListStorageLensConfigurations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/liststoragelensconfigurationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/liststoragelensconfigurationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/liststoragelensconfigurationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/ListStorageLensConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/ListStorageLensConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/ListStorageLensConfigurationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListStorageLensGroups
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/ListStorageLensGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/ListStorageLensGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/ListStorageLensGroupsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/ListTagsForResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+PutAccessGrantsInstanceResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/PutAccessGrantsInstanceResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutAccessGrantsInstanceResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutAccessGrantsInstanceResourcePolicyCommandOutput/)
 
 </details>
 <details>
@@ -592,7 +784,7 @@ ListStorageLensConfigurations
 PutAccessPointConfigurationForObjectLambda
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/putaccesspointconfigurationforobjectlambdacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/putaccesspointconfigurationforobjectlambdacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/putaccesspointconfigurationforobjectlambdacommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/PutAccessPointConfigurationForObjectLambdaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutAccessPointConfigurationForObjectLambdaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutAccessPointConfigurationForObjectLambdaCommandOutput/)
 
 </details>
 <details>
@@ -600,7 +792,7 @@ PutAccessPointConfigurationForObjectLambda
 PutAccessPointPolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/putaccesspointpolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/putaccesspointpolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/putaccesspointpolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/PutAccessPointPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutAccessPointPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutAccessPointPolicyCommandOutput/)
 
 </details>
 <details>
@@ -608,7 +800,7 @@ PutAccessPointPolicy
 PutAccessPointPolicyForObjectLambda
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/putaccesspointpolicyforobjectlambdacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/putaccesspointpolicyforobjectlambdacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/putaccesspointpolicyforobjectlambdacommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/PutAccessPointPolicyForObjectLambdaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutAccessPointPolicyForObjectLambdaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutAccessPointPolicyForObjectLambdaCommandOutput/)
 
 </details>
 <details>
@@ -616,7 +808,7 @@ PutAccessPointPolicyForObjectLambda
 PutBucketLifecycleConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/putbucketlifecycleconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/putbucketlifecycleconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/putbucketlifecycleconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/PutBucketLifecycleConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutBucketLifecycleConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutBucketLifecycleConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -624,7 +816,7 @@ PutBucketLifecycleConfiguration
 PutBucketPolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/putbucketpolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/putbucketpolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/putbucketpolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/PutBucketPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutBucketPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutBucketPolicyCommandOutput/)
 
 </details>
 <details>
@@ -632,7 +824,7 @@ PutBucketPolicy
 PutBucketReplication
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/putbucketreplicationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/putbucketreplicationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/putbucketreplicationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/PutBucketReplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutBucketReplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutBucketReplicationCommandOutput/)
 
 </details>
 <details>
@@ -640,7 +832,7 @@ PutBucketReplication
 PutBucketTagging
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/putbuckettaggingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/putbuckettaggingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/putbuckettaggingcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/PutBucketTaggingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutBucketTaggingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutBucketTaggingCommandOutput/)
 
 </details>
 <details>
@@ -648,7 +840,7 @@ PutBucketTagging
 PutBucketVersioning
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/putbucketversioningcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/putbucketversioningcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/putbucketversioningcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/PutBucketVersioningCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutBucketVersioningCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutBucketVersioningCommandOutput/)
 
 </details>
 <details>
@@ -656,7 +848,7 @@ PutBucketVersioning
 PutJobTagging
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/putjobtaggingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/putjobtaggingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/putjobtaggingcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/PutJobTaggingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutJobTaggingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutJobTaggingCommandOutput/)
 
 </details>
 <details>
@@ -664,7 +856,7 @@ PutJobTagging
 PutMultiRegionAccessPointPolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/putmultiregionaccesspointpolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/putmultiregionaccesspointpolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/putmultiregionaccesspointpolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/PutMultiRegionAccessPointPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutMultiRegionAccessPointPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutMultiRegionAccessPointPolicyCommandOutput/)
 
 </details>
 <details>
@@ -672,7 +864,7 @@ PutMultiRegionAccessPointPolicy
 PutPublicAccessBlock
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/putpublicaccessblockcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/putpublicaccessblockcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/putpublicaccessblockcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/PutPublicAccessBlockCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutPublicAccessBlockCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutPublicAccessBlockCommandOutput/)
 
 </details>
 <details>
@@ -680,7 +872,7 @@ PutPublicAccessBlock
 PutStorageLensConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/putstoragelensconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/putstoragelensconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/putstoragelensconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/PutStorageLensConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutStorageLensConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutStorageLensConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -688,7 +880,7 @@ PutStorageLensConfiguration
 PutStorageLensConfigurationTagging
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/putstoragelensconfigurationtaggingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/putstoragelensconfigurationtaggingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/putstoragelensconfigurationtaggingcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/PutStorageLensConfigurationTaggingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutStorageLensConfigurationTaggingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/PutStorageLensConfigurationTaggingCommandOutput/)
 
 </details>
 <details>
@@ -696,7 +888,31 @@ PutStorageLensConfigurationTagging
 SubmitMultiRegionAccessPointRoutes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/submitmultiregionaccesspointroutescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/submitmultiregionaccesspointroutescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/submitmultiregionaccesspointroutescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/SubmitMultiRegionAccessPointRoutesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/SubmitMultiRegionAccessPointRoutesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/SubmitMultiRegionAccessPointRoutesCommandOutput/)
+
+</details>
+<details>
+<summary>
+TagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/TagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UntagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/UntagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateAccessGrantsLocation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/UpdateAccessGrantsLocationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/UpdateAccessGrantsLocationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/UpdateAccessGrantsLocationCommandOutput/)
 
 </details>
 <details>
@@ -704,7 +920,7 @@ SubmitMultiRegionAccessPointRoutes
 UpdateJobPriority
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/updatejobprioritycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/updatejobprioritycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/updatejobprioritycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/UpdateJobPriorityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/UpdateJobPriorityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/UpdateJobPriorityCommandOutput/)
 
 </details>
 <details>
@@ -712,6 +928,14 @@ UpdateJobPriority
 UpdateJobStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/classes/updatejobstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/updatejobstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-s3-control/interfaces/updatejobstatuscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/UpdateJobStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/UpdateJobStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/UpdateJobStatusCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateStorageLensGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/s3-control/command/UpdateStorageLensGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/UpdateStorageLensGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-s3-control/Interface/UpdateStorageLensGroupCommandOutput/)
 
 </details>

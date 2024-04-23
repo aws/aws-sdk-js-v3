@@ -108,72 +108,15 @@ export interface Channel {
    *         <code>LOW</code>. (Note: In the Amazon IVS console, <code>LOW</code> and <code>NORMAL</code>
    *       correspond to Ultra-low and Standard, respectively.)</p>
    */
-  latencyMode?: ChannelLatencyMode | string;
+  latencyMode?: ChannelLatencyMode;
 
   /**
    * @public
    * <p>Channel type, which determines the allowable resolution and bitrate. <i>If you
-   *         exceed the allowable input resolution or bitrate, the stream probably will disconnect
-   *         immediately.</i> Some types generate multiple qualities (renditions) from the
-   *       original input; this automatically gives viewers the best experience for their devices and
-   *       network conditions. Some types provide transcoded video; transcoding allows higher playback
-   *       quality across a range of download speeds. Default: <code>STANDARD</code>. Valid
-   *       values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BASIC</code>: Video is transmuxed: Amazon IVS delivers the original input
-   *           quality to viewers. The viewer’s video-quality choice is limited to the original input.
-   *           Input resolution can be up to 1080p and bitrate can be up to 1.5 Mbps for 480p and up to
-   *           3.5 Mbps for resolutions between 480p and 1080p. Original audio is passed through.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STANDARD</code>: Video is transcoded: multiple qualities are generated from the
-   *           original input, to automatically give viewers the best experience for their devices and
-   *           network conditions. Transcoding allows higher playback quality across a range of download
-   *           speeds. Resolution can be up to 1080p and bitrate can be up to 8.5 Mbps. Audio is
-   *           transcoded only for renditions 360p and below; above that, audio is passed through. This
-   *           is the default when you create a channel.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ADVANCED_SD</code>: Video is transcoded; multiple qualities are generated from
-   *           the original input, to automatically give viewers the best experience for their devices
-   *           and network conditions. Input resolution can be up to 1080p and bitrate can be up to 8.5
-   *           Mbps; output is capped at SD quality (480p). You can select an optional transcode preset
-   *           (see below). Audio for all renditions is transcoded, and an audio-only rendition is
-   *           available.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ADVANCED_HD</code>: Video is transcoded; multiple qualities are generated from
-   *           the original input, to automatically give viewers the best experience for their devices
-   *           and network conditions. Input resolution can be up to 1080p and bitrate can be up to 8.5
-   *           Mbps; output is capped at HD quality (720p). You can select an optional transcode preset
-   *           (see below). Audio for all renditions is transcoded, and an audio-only rendition is
-   *           available.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Optional <i>transcode presets</i> (available for the <code>ADVANCED</code>
-   *       types) allow you to trade off available download bandwidth and video quality, to optimize the
-   *       viewing experience. There are two presets:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <i>Constrained bandwidth delivery</i> uses a lower bitrate for each
-   *           quality level. Use it if you have low download bandwidth and/or simple video content
-   *           (e.g., talking heads)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <i>Higher bandwidth delivery</i> uses a higher bitrate for each quality
-   *           level. Use it if you have high download bandwidth and/or complex video content (e.g.,
-   *           flashes and quick scene changes).</p>
-   *             </li>
-   *          </ul>
+   *       exceed the allowable input resolution or bitrate, the stream probably will disconnect
+   *       immediately.</i> Default: <code>STANDARD</code>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html">Channel Types</a>.</p>
    */
-  type?: ChannelType | string;
+  type?: ChannelType;
 
   /**
    * @public
@@ -225,7 +168,7 @@ export interface Channel {
    *       channel types (<code>BASIC</code> and <code>STANDARD</code>), <code>preset</code> is the empty
    *       string (<code>""</code>).</p>
    */
-  preset?: TranscodePreset | string;
+  preset?: TranscodePreset;
 }
 
 /**
@@ -505,72 +448,15 @@ export interface CreateChannelRequest {
    *       Amazon IVS console, <code>LOW</code> and <code>NORMAL</code> correspond to Ultra-low and
    *       Standard, respectively.) Default: <code>LOW</code>.</p>
    */
-  latencyMode?: ChannelLatencyMode | string;
+  latencyMode?: ChannelLatencyMode;
 
   /**
    * @public
    * <p>Channel type, which determines the allowable resolution and bitrate. <i>If you
    *         exceed the allowable input resolution or bitrate, the stream probably will disconnect
-   *         immediately.</i> Some types generate multiple qualities (renditions) from the
-   *       original input; this automatically gives viewers the best experience for their devices and
-   *       network conditions. Some types provide transcoded video; transcoding allows higher playback
-   *       quality across a range of download speeds. Default: <code>STANDARD</code>. Valid
-   *       values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BASIC</code>: Video is transmuxed: Amazon IVS delivers the original input
-   *           quality to viewers. The viewer’s video-quality choice is limited to the original input.
-   *           Input resolution can be up to 1080p and bitrate can be up to 1.5 Mbps for 480p and up to
-   *           3.5 Mbps for resolutions between 480p and 1080p. Original audio is passed through.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STANDARD</code>: Video is transcoded: multiple qualities are generated from the
-   *           original input, to automatically give viewers the best experience for their devices and
-   *           network conditions. Transcoding allows higher playback quality across a range of download
-   *           speeds. Resolution can be up to 1080p and bitrate can be up to 8.5 Mbps. Audio is
-   *           transcoded only for renditions 360p and below; above that, audio is passed through. This
-   *           is the default when you create a channel.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ADVANCED_SD</code>: Video is transcoded; multiple qualities are generated from
-   *           the original input, to automatically give viewers the best experience for their devices
-   *           and network conditions. Input resolution can be up to 1080p and bitrate can be up to 8.5
-   *           Mbps; output is capped at SD quality (480p). You can select an optional transcode preset
-   *           (see below). Audio for all renditions is transcoded, and an audio-only rendition is
-   *           available.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ADVANCED_HD</code>: Video is transcoded; multiple qualities are generated from
-   *           the original input, to automatically give viewers the best experience for their devices
-   *           and network conditions. Input resolution can be up to 1080p and bitrate can be up to 8.5
-   *           Mbps; output is capped at HD quality (720p). You can select an optional transcode preset
-   *           (see below). Audio for all renditions is transcoded, and an audio-only rendition is
-   *           available.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Optional <i>transcode presets</i> (available for the <code>ADVANCED</code>
-   *       types) allow you to trade off available download bandwidth and video quality, to optimize the
-   *       viewing experience. There are two presets:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <i>Constrained bandwidth delivery</i> uses a lower bitrate for each
-   *           quality level. Use it if you have low download bandwidth and/or simple video content
-   *           (e.g., talking heads)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <i>Higher bandwidth delivery</i> uses a higher bitrate for each quality
-   *           level. Use it if you have high download bandwidth and/or complex video content (e.g.,
-   *           flashes and quick scene changes).</p>
-   *             </li>
-   *          </ul>
+   *         immediately.</i> Default: <code>STANDARD</code>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html">Channel Types</a>.</p>
    */
-  type?: ChannelType | string;
+  type?: ChannelType;
 
   /**
    * @public
@@ -608,7 +494,7 @@ export interface CreateChannelRequest {
    *       channel types (<code>BASIC</code> and <code>STANDARD</code>), <code>preset</code> is the empty
    *       string (<code>""</code>).</p>
    */
-  preset?: TranscodePreset | string;
+  preset?: TranscodePreset;
 }
 
 /**
@@ -777,7 +663,7 @@ export interface RenditionConfiguration {
    *       set of renditions must be specified in the <code>renditions</code> field. Default:
    *         <code>ALL</code>.</p>
    */
-  renditionSelection?: RenditionConfigurationRenditionSelection | string;
+  renditionSelection?: RenditionConfigurationRenditionSelection;
 
   /**
    * @public
@@ -787,7 +673,7 @@ export interface RenditionConfiguration {
    *       best available rendition is recorded. For details on the resolution dimensions of each
    *       rendition, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/record-to-s3.html">Auto-Record to Amazon S3</a>.</p>
    */
-  renditions?: (RenditionConfigurationRendition | string)[];
+  renditions?: RenditionConfigurationRendition[];
 }
 
 /**
@@ -845,7 +731,7 @@ export interface ThumbnailConfiguration {
    * @public
    * <p>Thumbnail recording mode. Default: <code>INTERVAL</code>.</p>
    */
-  recordingMode?: RecordingMode | string;
+  recordingMode?: RecordingMode;
 
   /**
    * @public
@@ -870,7 +756,7 @@ export interface ThumbnailConfiguration {
    *       corresponding height and width dimensions, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/record-to-s3.html">Auto-Record to Amazon S3</a>. Default:
    *       Null (source resolution is returned).</p>
    */
-  resolution?: ThumbnailConfigurationResolution | string;
+  resolution?: ThumbnailConfigurationResolution;
 
   /**
    * @public
@@ -880,7 +766,7 @@ export interface ThumbnailConfiguration {
    *       overwrites it at the interval specified by <code>targetIntervalSeconds</code>. You can enable
    *       both <code>SEQUENTIAL</code> and <code>LATEST</code>. Default: <code>SEQUENTIAL</code>.</p>
    */
-  storage?: (ThumbnailConfigurationStorage | string)[];
+  storage?: ThumbnailConfigurationStorage[];
 }
 
 /**
@@ -974,7 +860,7 @@ export interface RecordingConfiguration {
    * <p>Indicates the current state of the recording configuration. When the state is
    *         <code>ACTIVE</code>, the configuration is ready for recording a channel stream.</p>
    */
-  state: RecordingConfigurationState | string | undefined;
+  state: RecordingConfigurationState | undefined;
 
   /**
    * @public
@@ -1324,13 +1210,13 @@ export interface _Stream {
    *       return it; instead, a "NotBroadcasting" error will indicate that the stream is not
    *       live.</p>
    */
-  state?: StreamState | string;
+  state?: StreamState;
 
   /**
    * @public
    * <p>The stream’s health.</p>
    */
-  health?: StreamHealth | string;
+  health?: StreamHealth;
 
   /**
    * @public
@@ -1685,7 +1571,7 @@ export interface ChannelSummary {
    *         <code>LOW</code>. (Note: In the Amazon IVS console, <code>LOW</code> and <code>NORMAL</code>
    *       correspond to Ultra-low and Standard, respectively.)</p>
    */
-  latencyMode?: ChannelLatencyMode | string;
+  latencyMode?: ChannelLatencyMode;
 
   /**
    * @public
@@ -1719,67 +1605,10 @@ export interface ChannelSummary {
   /**
    * @public
    * <p>Channel type, which determines the allowable resolution and bitrate. <i>If you
-   *         exceed the allowable input resolution or bitrate, the stream probably will disconnect
-   *         immediately.</i> Some types generate multiple qualities (renditions) from the
-   *       original input; this automatically gives viewers the best experience for their devices and
-   *       network conditions. Some types provide transcoded video; transcoding allows higher playback
-   *       quality across a range of download speeds. Default: <code>STANDARD</code>. Valid
-   *       values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BASIC</code>: Video is transmuxed: Amazon IVS delivers the original input
-   *           quality to viewers. The viewer’s video-quality choice is limited to the original input.
-   *           Input resolution can be up to 1080p and bitrate can be up to 1.5 Mbps for 480p and up to
-   *           3.5 Mbps for resolutions between 480p and 1080p. Original audio is passed through.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STANDARD</code>: Video is transcoded: multiple qualities are generated from the
-   *           original input, to automatically give viewers the best experience for their devices and
-   *           network conditions. Transcoding allows higher playback quality across a range of download
-   *           speeds. Resolution can be up to 1080p and bitrate can be up to 8.5 Mbps. Audio is
-   *           transcoded only for renditions 360p and below; above that, audio is passed through. This
-   *           is the default when you create a channel.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ADVANCED_SD</code>: Video is transcoded; multiple qualities are generated from
-   *           the original input, to automatically give viewers the best experience for their devices
-   *           and network conditions. Input resolution can be up to 1080p and bitrate can be up to 8.5
-   *           Mbps; output is capped at SD quality (480p). You can select an optional transcode preset
-   *           (see below). Audio for all renditions is transcoded, and an audio-only rendition is
-   *           available.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ADVANCED_HD</code>: Video is transcoded; multiple qualities are generated from
-   *           the original input, to automatically give viewers the best experience for their devices
-   *           and network conditions. Input resolution can be up to 1080p and bitrate can be up to 8.5
-   *           Mbps; output is capped at HD quality (720p). You can select an optional transcode preset
-   *           (see below). Audio for all renditions is transcoded, and an audio-only rendition is
-   *           available.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Optional <i>transcode presets</i> (available for the <code>ADVANCED</code>
-   *       types) allow you to trade off available download bandwidth and video quality, to optimize the
-   *       viewing experience. There are two presets:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <i>Constrained bandwidth delivery</i> uses a lower bitrate for each
-   *           quality level. Use it if you have low download bandwidth and/or simple video content
-   *           (e.g., talking heads)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <i>Higher bandwidth delivery</i> uses a higher bitrate for each quality
-   *           level. Use it if you have high download bandwidth and/or complex video content (e.g.,
-   *           flashes and quick scene changes).</p>
-   *             </li>
-   *          </ul>
+   *       exceed the allowable input resolution or bitrate, the stream probably will disconnect
+   *       immediately.</i> Default: <code>STANDARD</code>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html">Channel Types</a>.</p>
    */
-  type?: ChannelType | string;
+  type?: ChannelType;
 
   /**
    * @public
@@ -1789,7 +1618,7 @@ export interface ChannelSummary {
    *       channel types (<code>BASIC</code> and <code>STANDARD</code>), <code>preset</code> is the empty
    *       string (<code>""</code>).</p>
    */
-  preset?: TranscodePreset | string;
+  preset?: TranscodePreset;
 }
 
 /**
@@ -1921,7 +1750,7 @@ export interface RecordingConfigurationSummary {
    * <p>Indicates the current state of the recording configuration. When the state is
    *         <code>ACTIVE</code>, the configuration is ready for recording a channel stream.</p>
    */
-  state: RecordingConfigurationState | string | undefined;
+  state: RecordingConfigurationState | undefined;
 
   /**
    * @public
@@ -2029,7 +1858,7 @@ export interface StreamFilters {
    * @public
    * <p>The stream’s health.</p>
    */
-  health?: StreamHealth | string;
+  health?: StreamHealth;
 }
 
 /**
@@ -2079,13 +1908,13 @@ export interface StreamSummary {
    *       return it; instead, a "NotBroadcasting" error will indicate that the stream is not
    *       live.</p>
    */
-  state?: StreamState | string;
+  state?: StreamState;
 
   /**
    * @public
    * <p>The stream’s health.</p>
    */
-  health?: StreamHealth | string;
+  health?: StreamHealth;
 
   /**
    * @public
@@ -2383,72 +2212,15 @@ export interface UpdateChannelRequest {
    *       Amazon IVS console, <code>LOW</code> and <code>NORMAL</code> correspond to Ultra-low and
    *       Standard, respectively.)</p>
    */
-  latencyMode?: ChannelLatencyMode | string;
+  latencyMode?: ChannelLatencyMode;
 
   /**
    * @public
    * <p>Channel type, which determines the allowable resolution and bitrate. <i>If you
-   *         exceed the allowable input resolution or bitrate, the stream probably will disconnect
-   *         immediately.</i> Some types generate multiple qualities (renditions) from the
-   *       original input; this automatically gives viewers the best experience for their devices and
-   *       network conditions. Some types provide transcoded video; transcoding allows higher playback
-   *       quality across a range of download speeds. Default: <code>STANDARD</code>. Valid
-   *       values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>BASIC</code>: Video is transmuxed: Amazon IVS delivers the original input
-   *           quality to viewers. The viewer’s video-quality choice is limited to the original input.
-   *           Input resolution can be up to 1080p and bitrate can be up to 1.5 Mbps for 480p and up to
-   *           3.5 Mbps for resolutions between 480p and 1080p. Original audio is passed through.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STANDARD</code>: Video is transcoded: multiple qualities are generated from the
-   *           original input, to automatically give viewers the best experience for their devices and
-   *           network conditions. Transcoding allows higher playback quality across a range of download
-   *           speeds. Resolution can be up to 1080p and bitrate can be up to 8.5 Mbps. Audio is
-   *           transcoded only for renditions 360p and below; above that, audio is passed through. This
-   *           is the default when you create a channel.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ADVANCED_SD</code>: Video is transcoded; multiple qualities are generated from
-   *           the original input, to automatically give viewers the best experience for their devices
-   *           and network conditions. Input resolution can be up to 1080p and bitrate can be up to 8.5
-   *           Mbps; output is capped at SD quality (480p). You can select an optional transcode preset
-   *           (see below). Audio for all renditions is transcoded, and an audio-only rendition is
-   *           available.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ADVANCED_HD</code>: Video is transcoded; multiple qualities are generated from
-   *           the original input, to automatically give viewers the best experience for their devices
-   *           and network conditions. Input resolution can be up to 1080p and bitrate can be up to 8.5
-   *           Mbps; output is capped at HD quality (720p). You can select an optional transcode preset
-   *           (see below). Audio for all renditions is transcoded, and an audio-only rendition is
-   *           available.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Optional <i>transcode presets</i> (available for the <code>ADVANCED</code>
-   *       types) allow you to trade off available download bandwidth and video quality, to optimize the
-   *       viewing experience. There are two presets:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <i>Constrained bandwidth delivery</i> uses a lower bitrate for each
-   *           quality level. Use it if you have low download bandwidth and/or simple video content
-   *           (e.g., talking heads)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <i>Higher bandwidth delivery</i> uses a higher bitrate for each quality
-   *           level. Use it if you have high download bandwidth and/or complex video content (e.g.,
-   *           flashes and quick scene changes).</p>
-   *             </li>
-   *          </ul>
+   *       exceed the allowable input resolution or bitrate, the stream probably will disconnect
+   *       immediately.</i> Default: <code>STANDARD</code>. For details, see <a href="https://docs.aws.amazon.com/ivs/latest/LowLatencyAPIReference/channel-types.html">Channel Types</a>.</p>
    */
-  type?: ChannelType | string;
+  type?: ChannelType;
 
   /**
    * @public
@@ -2477,7 +2249,7 @@ export interface UpdateChannelRequest {
    *       channel types (<code>BASIC</code> and <code>STANDARD</code>), <code>preset</code> is the empty
    *       string (<code>""</code>).</p>
    */
-  preset?: TranscodePreset | string;
+  preset?: TranscodePreset;
 }
 
 /**

@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeTasksRequest, DescribeTasksResponse } from "../models/models_0";
 import { de_DescribeTasksCommand, se_DescribeTasksCommand } from "../protocols/Aws_json1_1";
 
@@ -237,7 +229,7 @@ export interface DescribeTasksCommandOutput extends DescribeTasksResponse, __Met
  * @throws {@link ClientException} (client fault)
  *  <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
- * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
+ * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
  *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
@@ -268,7 +260,7 @@ export interface DescribeTasksCommandOutput extends DescribeTasksResponse, __Met
  *   "tasks": [
  *     {
  *       "clusterArn": "arn:aws:ecs:<region>:<aws_account_id>:cluster/default",
- *       "containerInstanceArn": "arn:aws:ecs:<region>:<aws_account_id>:container-instance/18f9eda5-27d7-4c19-b133-45adc516e8fb",
+ *       "containerInstanceArn": "arn:aws:ecs:<region>:<aws_account_id>:container-instance/default/18f9eda5-27d7-4c19-b133-45adc516e8fb",
  *       "containers": [
  *         {
  *           "name": "ecs-demo",
@@ -281,7 +273,7 @@ export interface DescribeTasksCommandOutput extends DescribeTasksResponse, __Met
  *               "hostPort": 80
  *             }
  *           ],
- *           "taskArn": "arn:aws:ecs:<region>:<aws_account_id>:task/c5cba4eb-5dad-405e-96db-71ef8eefe6a8"
+ *           "taskArn": "arn:aws:ecs:<region>:<aws_account_id>:task/default/c5cba4eb-5dad-405e-96db-71ef8eefe6a8"
  *         }
  *       ],
  *       "desiredStatus": "RUNNING",
@@ -294,7 +286,7 @@ export interface DescribeTasksCommandOutput extends DescribeTasksResponse, __Met
  *         ]
  *       },
  *       "startedBy": "ecs-svc/9223370608528463088",
- *       "taskArn": "arn:aws:ecs:<region>:<aws_account_id>:task/c5cba4eb-5dad-405e-96db-71ef8eefe6a8",
+ *       "taskArn": "arn:aws:ecs:<region>:<aws_account_id>:task/default/c5cba4eb-5dad-405e-96db-71ef8eefe6a8",
  *       "taskDefinitionArn": "arn:aws:ecs:<region>:<aws_account_id>:task-definition/amazon-ecs-sample:1"
  *     }
  *   ]
@@ -304,77 +296,26 @@ export interface DescribeTasksCommandOutput extends DescribeTasksResponse, __Met
  * ```
  *
  */
-export class DescribeTasksCommand extends $Command<
-  DescribeTasksCommandInput,
-  DescribeTasksCommandOutput,
-  ECSClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeTasksCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ECSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeTasksCommandInput, DescribeTasksCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, DescribeTasksCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ECSClient";
-    const commandName = "DescribeTasksCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeTasksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeTasksCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeTasksCommandOutput> {
-    return de_DescribeTasksCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeTasksCommand extends $Command
+  .classBuilder<
+    DescribeTasksCommandInput,
+    DescribeTasksCommandOutput,
+    ECSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonEC2ContainerServiceV20141113", "DescribeTasks", {})
+  .n("ECSClient", "DescribeTasksCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeTasksCommand)
+  .de(de_DescribeTasksCommand)
+  .build() {}

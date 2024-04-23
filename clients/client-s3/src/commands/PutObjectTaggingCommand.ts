@@ -1,19 +1,11 @@
 // smithy-typescript generated code
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { PutObjectTaggingOutput, PutObjectTaggingRequest } from "../models/models_1";
 import { de_PutObjectTaggingCommand, se_PutObjectTaggingCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
@@ -37,10 +29,14 @@ export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, _
 
 /**
  * @public
- * <p>Sets the supplied tag-set to an object that already exists in a bucket.</p>
- *          <p>A tag is a key-value pair. You can associate tags with an object by sending a PUT
- *          request against the tagging subresource that is associated with the object. You can
- *          retrieve tags by sending a GET request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html">GetObjectTagging</a>.</p>
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Sets the supplied tag-set to an object that already exists in a bucket. A tag is a
+ *          key-value pair. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html">Object Tagging</a>.</p>
+ *          <p>You can associate tags with an object by sending a PUT request against the tagging
+ *          subresource that is associated with the object. You can retrieve tags by sending a GET
+ *          request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html">GetObjectTagging</a>.</p>
  *          <p>For tagging-related restrictions related to characters and encodings, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">Tag
  *             Restrictions</a>. Note that Amazon S3 limits the maximum number of tags to 10 tags per
  *          object.</p>
@@ -49,69 +45,31 @@ export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, _
  *          permission and can grant this permission to others.</p>
  *          <p>To put tags of any other version, use the <code>versionId</code> query parameter. You
  *          also need permission for the <code>s3:PutObjectVersionTagging</code> action.</p>
- *          <p>For information about the Amazon S3 object tagging feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html">Object Tagging</a>.</p>
  *          <p>
- *             <code>PutObjectTagging</code> has the following special errors:</p>
+ *             <code>PutObjectTagging</code> has the following special errors. For more Amazon S3 errors
+ *          see, <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html">Error
+ *             Responses</a>.</p>
  *          <ul>
  *             <li>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <i>Code: InvalidTagError </i>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <i>Cause: The tag provided was not a valid tag. This error can occur
- *                         if the tag did not pass input validation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html">Object
- *                            Tagging</a>.</i>
- *                      </p>
- *                   </li>
- *                </ul>
+ *                <p>
+ *                   <code>InvalidTag</code> - The tag provided was not a valid tag. This error
+ *                can occur if the tag did not pass input validation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html">Object
+ *                   Tagging</a>.</p>
  *             </li>
  *             <li>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <i>Code: MalformedXMLError </i>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <i>Cause: The XML provided does not match the schema.</i>
- *                      </p>
- *                   </li>
- *                </ul>
+ *                <p>
+ *                   <code>MalformedXML</code> - The XML provided does not match the
+ *                schema.</p>
  *             </li>
  *             <li>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <i>Code: OperationAbortedError </i>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <i>Cause: A conflicting conditional action is currently in progress
- *                         against this resource. Please try again.</i>
- *                      </p>
- *                   </li>
- *                </ul>
+ *                <p>
+ *                   <code>OperationAborted</code> - A conflicting conditional action is
+ *                currently in progress against this resource. Please try again.</p>
  *             </li>
  *             <li>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <i>Code: InternalError</i>
- *                      </p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <i>Cause: The service was unable to apply the provided tag to the
- *                         object.</i>
- *                      </p>
- *                   </li>
- *                </ul>
+ *                <p>
+ *                   <code>InternalError</code> - The service was unable to apply the provided
+ *                tag to the object.</p>
  *             </li>
  *          </ul>
  *          <p>The following operations are related to <code>PutObjectTagging</code>:</p>
@@ -197,92 +155,32 @@ export interface PutObjectTaggingCommandOutput extends PutObjectTaggingOutput, _
  * ```
  *
  */
-export class PutObjectTaggingCommand extends $Command<
-  PutObjectTaggingCommandInput,
-  PutObjectTaggingCommandOutput,
-  S3ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      Bucket: { type: "contextParams", name: "Bucket" },
-      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
-      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
-      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
-      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
-      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PutObjectTaggingCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: S3ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PutObjectTaggingCommandInput, PutObjectTaggingCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, PutObjectTaggingCommand.getEndpointParameterInstructions())
-    );
-    this.middlewareStack.use(
-      getFlexibleChecksumsPlugin(configuration, {
+export class PutObjectTaggingCommand extends $Command
+  .classBuilder<
+    PutObjectTaggingCommandInput,
+    PutObjectTaggingCommandOutput,
+    S3ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+    Bucket: { type: "contextParams", name: "Bucket" },
+  })
+  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getFlexibleChecksumsPlugin(config, {
         input: this.input,
         requestAlgorithmMember: "ChecksumAlgorithm",
         requestChecksumRequired: true,
-      })
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "S3Client";
-    const commandName = "PutObjectTaggingCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: PutObjectTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PutObjectTaggingCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutObjectTaggingCommandOutput> {
-    return de_PutObjectTaggingCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+      }),
+    ];
+  })
+  .s("AmazonS3", "PutObjectTagging", {})
+  .n("S3Client", "PutObjectTaggingCommand")
+  .f(void 0, void 0)
+  .ser(se_PutObjectTaggingCommand)
+  .de(de_PutObjectTaggingCommand)
+  .build() {}

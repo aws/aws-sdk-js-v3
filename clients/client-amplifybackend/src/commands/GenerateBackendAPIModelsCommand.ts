@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AmplifyBackendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyBackendClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GenerateBackendAPIModelsRequest, GenerateBackendAPIModelsResponse } from "../models/models_0";
 import { de_GenerateBackendAPIModelsCommand, se_GenerateBackendAPIModelsCommand } from "../protocols/Aws_restJson1";
 
@@ -83,79 +75,26 @@ export interface GenerateBackendAPIModelsCommandOutput extends GenerateBackendAP
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
  */
-export class GenerateBackendAPIModelsCommand extends $Command<
-  GenerateBackendAPIModelsCommandInput,
-  GenerateBackendAPIModelsCommandOutput,
-  AmplifyBackendClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GenerateBackendAPIModelsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AmplifyBackendClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GenerateBackendAPIModelsCommandInput, GenerateBackendAPIModelsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GenerateBackendAPIModelsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "AmplifyBackendClient";
-    const commandName = "GenerateBackendAPIModelsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GenerateBackendAPIModelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GenerateBackendAPIModelsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateBackendAPIModelsCommandOutput> {
-    return de_GenerateBackendAPIModelsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GenerateBackendAPIModelsCommand extends $Command
+  .classBuilder<
+    GenerateBackendAPIModelsCommandInput,
+    GenerateBackendAPIModelsCommandOutput,
+    AmplifyBackendClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: AmplifyBackendClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmplifyBackend", "GenerateBackendAPIModels", {})
+  .n("AmplifyBackendClient", "GenerateBackendAPIModelsCommand")
+  .f(void 0, void 0)
+  .ser(se_GenerateBackendAPIModelsCommand)
+  .de(de_GenerateBackendAPIModelsCommand)
+  .build() {}

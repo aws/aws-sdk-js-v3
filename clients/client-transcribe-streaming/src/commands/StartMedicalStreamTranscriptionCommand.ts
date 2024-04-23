@@ -1,21 +1,12 @@
 // smithy-typescript generated code
 import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
 import { getWebSocketPlugin } from "@aws-sdk/middleware-websocket";
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  EventStreamSerdeContext as __EventStreamSerdeContext,
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   StartMedicalStreamTranscriptionRequest,
   StartMedicalStreamTranscriptionRequestFilterSensitiveLog,
@@ -56,25 +47,25 @@ export interface StartMedicalStreamTranscriptionCommandOutput
  * <p>Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
  *             Amazon Transcribe Medical and the transcription results are streamed to your
  *             application.</p>
- *         <p>The following parameters are required:</p>
- *         <ul>
+ *          <p>The following parameters are required:</p>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>language-code</code>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>media-encoding</code>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>sample-rate</code>
  *                </p>
  *             </li>
  *          </ul>
- *         <p>For more information on streaming with Amazon Transcribe Medical, see
+ *          <p>For more information on streaming with Amazon Transcribe Medical, see
  *             <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html">Transcribing
  *                 streaming audio</a>.</p>
  * @example
@@ -218,87 +209,39 @@ export interface StartMedicalStreamTranscriptionCommandOutput
  * <p>Base exception class for all service exceptions from TranscribeStreaming service.</p>
  *
  */
-export class StartMedicalStreamTranscriptionCommand extends $Command<
-  StartMedicalStreamTranscriptionCommandInput,
-  StartMedicalStreamTranscriptionCommandOutput,
-  TranscribeStreamingClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StartMedicalStreamTranscriptionCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: TranscribeStreamingClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StartMedicalStreamTranscriptionCommandInput, StartMedicalStreamTranscriptionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartMedicalStreamTranscriptionCommand.getEndpointParameterInstructions())
-    );
-    this.middlewareStack.use(getEventStreamPlugin(configuration));
-    this.middlewareStack.use(getWebSocketPlugin(configuration, { headerPrefix: "x-amzn-transcribe-" }));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "TranscribeStreamingClient";
-    const commandName = "StartMedicalStreamTranscriptionCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: StartMedicalStreamTranscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartMedicalStreamTranscriptionResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: StartMedicalStreamTranscriptionCommandInput,
-    context: __SerdeContext & __EventStreamSerdeContext
-  ): Promise<__HttpRequest> {
-    return se_StartMedicalStreamTranscriptionCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext & __EventStreamSerdeContext
-  ): Promise<StartMedicalStreamTranscriptionCommandOutput> {
-    return de_StartMedicalStreamTranscriptionCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class StartMedicalStreamTranscriptionCommand extends $Command
+  .classBuilder<
+    StartMedicalStreamTranscriptionCommandInput,
+    StartMedicalStreamTranscriptionCommandOutput,
+    TranscribeStreamingClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: TranscribeStreamingClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getEventStreamPlugin(config),
+      getWebSocketPlugin(config, { headerPrefix: "x-amzn-transcribe-" }),
+    ];
+  })
+  .s("Transcribe", "StartMedicalStreamTranscription", {
+    /**
+     * @internal
+     */
+    eventStream: {
+      input: true,
+      output: true,
+    },
+  })
+  .n("TranscribeStreamingClient", "StartMedicalStreamTranscriptionCommand")
+  .f(
+    StartMedicalStreamTranscriptionRequestFilterSensitiveLog,
+    StartMedicalStreamTranscriptionResponseFilterSensitiveLog
+  )
+  .ser(se_StartMedicalStreamTranscriptionCommand)
+  .de(de_StartMedicalStreamTranscriptionCommand)
+  .build() {}

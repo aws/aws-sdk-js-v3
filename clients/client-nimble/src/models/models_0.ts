@@ -463,7 +463,7 @@ export interface StreamConfigurationSessionBackup {
    *             default value is <code>DEACTIVATED</code>, which means that backups are deactivated. To
    *             allow backups, set this value to <code>AUTOMATIC</code>.</p>
    */
-  mode?: SessionBackupMode | string;
+  mode?: SessionBackupMode;
 
   /**
    * @public
@@ -536,7 +536,7 @@ export interface StreamConfigurationSessionStorage {
    * <p>Allows artists to upload files to their workstations. The only valid option is
    *                 <code>UPLOAD</code>.</p>
    */
-  mode: (StreamingSessionStorageMode | string)[] | undefined;
+  mode: StreamingSessionStorageMode[] | undefined;
 }
 
 /**
@@ -579,14 +579,14 @@ export interface StreamConfigurationCreate {
    * <p>Allows or deactivates the use of the system clipboard to copy and paste between the
    *             streaming session and streaming client.</p>
    */
-  clipboardMode: StreamingClipboardMode | string | undefined;
+  clipboardMode: StreamingClipboardMode | undefined;
 
   /**
    * @public
    * <p>The EC2 instance types that users can select from when launching a streaming session
    *             with this launch profile.</p>
    */
-  ec2InstanceTypes: (StreamingInstanceType | string)[] | undefined;
+  ec2InstanceTypes: StreamingInstanceType[] | undefined;
 
   /**
    * @public
@@ -645,7 +645,7 @@ export interface StreamConfigurationCreate {
    *             persistent storage. This means that <code>volumeConfiguration</code> and
    *                 <code>automaticTerminationMode</code> are configured.</p>
    */
-  sessionPersistenceMode?: SessionPersistenceMode | string;
+  sessionPersistenceMode?: SessionPersistenceMode;
 
   /**
    * @public
@@ -676,7 +676,7 @@ export interface StreamConfigurationCreate {
    *                 <code>ACTIVATED</code>. When allowed, the default value for this parameter is
    *                 <code>DEACTIVATED</code>.</p>
    */
-  automaticTerminationMode?: AutomaticTerminationMode | string;
+  automaticTerminationMode?: AutomaticTerminationMode;
 }
 
 /**
@@ -801,14 +801,14 @@ export interface StreamConfiguration {
    * <p>Allows or deactivates the use of the system clipboard to copy and paste between the
    *             streaming session and streaming client.</p>
    */
-  clipboardMode: StreamingClipboardMode | string | undefined;
+  clipboardMode: StreamingClipboardMode | undefined;
 
   /**
    * @public
    * <p>The EC2 instance types that users can select from when launching a streaming session
    *             with this launch profile.</p>
    */
-  ec2InstanceTypes: (StreamingInstanceType | string)[] | undefined;
+  ec2InstanceTypes: StreamingInstanceType[] | undefined;
 
   /**
    * @public
@@ -865,7 +865,7 @@ export interface StreamConfiguration {
    *             persistent storage. This means that <code>volumeConfiguration</code> and
    *                 <code>automaticTerminationMode</code> are configured.</p>
    */
-  sessionPersistenceMode?: SessionPersistenceMode | string;
+  sessionPersistenceMode?: SessionPersistenceMode;
 
   /**
    * @public
@@ -896,7 +896,7 @@ export interface StreamConfiguration {
    *                 <code>ACTIVATED</code>. When allowed, the default value for this parameter is
    *                 <code>DEACTIVATED</code>.</p>
    */
-  automaticTerminationMode?: AutomaticTerminationMode | string;
+  automaticTerminationMode?: AutomaticTerminationMode;
 }
 
 /**
@@ -965,20 +965,20 @@ export interface ValidationResult {
    * @public
    * <p>The type of the validation result.</p>
    */
-  type: LaunchProfileValidationType | string | undefined;
+  type: LaunchProfileValidationType | undefined;
 
   /**
    * @public
    * <p>The current state.</p>
    */
-  state: LaunchProfileValidationState | string | undefined;
+  state: LaunchProfileValidationState | undefined;
 
   /**
    * @public
    * <p>The status code. This will contain the failure reason if the state is
    *                 <code>VALIDATION_FAILED</code>.</p>
    */
-  statusCode: LaunchProfileValidationStatusCode | string | undefined;
+  statusCode: LaunchProfileValidationStatusCode | undefined;
 
   /**
    * @public
@@ -1052,13 +1052,13 @@ export interface LaunchProfile {
    * @public
    * <p>The current state.</p>
    */
-  state?: LaunchProfileState | string;
+  state?: LaunchProfileState;
 
   /**
    * @public
    * <p>The status code.</p>
    */
-  statusCode?: LaunchProfileStatusCode | string;
+  statusCode?: LaunchProfileStatusCode;
 
   /**
    * @public
@@ -1189,7 +1189,7 @@ export interface StreamingImageEncryptionConfiguration {
    * @public
    * <p>The type of KMS key that is used to encrypt studio data.</p>
    */
-  keyType: StreamingImageEncryptionConfigurationKeyType | string | undefined;
+  keyType: StreamingImageEncryptionConfigurationKeyType | undefined;
 }
 
 /**
@@ -1298,13 +1298,13 @@ export interface StreamingImage {
    * @public
    * <p>The current state.</p>
    */
-  state?: StreamingImageState | string;
+  state?: StreamingImageState;
 
   /**
    * @public
    * <p>The status code.</p>
    */
-  statusCode?: StreamingImageStatusCode | string;
+  statusCode?: StreamingImageStatusCode;
 
   /**
    * @public
@@ -1353,7 +1353,7 @@ export interface CreateStreamingSessionRequest {
    * @public
    * <p>The EC2 Instance type used for the streaming session.</p>
    */
-  ec2InstanceType?: StreamingInstanceType | string;
+  ec2InstanceType?: StreamingInstanceType;
 
   /**
    * @public
@@ -1509,13 +1509,13 @@ export interface StreamingSession {
    * @public
    * <p>The current state.</p>
    */
-  state?: StreamingSessionState | string;
+  state?: StreamingSessionState;
 
   /**
    * @public
    * <p>The status code.</p>
    */
-  statusCode?: StreamingSessionStatusCode | string;
+  statusCode?: StreamingSessionStatusCode;
 
   /**
    * @public
@@ -1596,7 +1596,7 @@ export interface StreamingSession {
    * @public
    * <p>Shows the current backup setting of the session.</p>
    */
-  backupMode?: SessionBackupMode | string;
+  backupMode?: SessionBackupMode;
 
   /**
    * @public
@@ -1610,7 +1610,7 @@ export interface StreamingSession {
    * <p>Determine if an EBS volume created from this streaming session will be backed
    *             up.</p>
    */
-  volumeRetentionMode?: VolumeRetentionMode | string;
+  volumeRetentionMode?: VolumeRetentionMode;
 
   /**
    * @public
@@ -1618,7 +1618,7 @@ export interface StreamingSession {
    *             persistent storage. This means that <code>volumeConfiguration</code> and
    *                 <code>automaticTerminationMode</code> are configured.</p>
    */
-  sessionPersistenceMode?: SessionPersistenceMode | string;
+  sessionPersistenceMode?: SessionPersistenceMode;
 
   /**
    * @public
@@ -1649,7 +1649,7 @@ export interface StreamingSession {
    *                 <code>ACTIVATED</code>. When allowed, the default value for this parameter is
    *                 <code>DEACTIVATED</code>.</p>
    */
-  automaticTerminationMode?: AutomaticTerminationMode | string;
+  automaticTerminationMode?: AutomaticTerminationMode;
 }
 
 /**
@@ -1770,13 +1770,13 @@ export interface StreamingSessionStream {
    * @public
    * <p>The current state.</p>
    */
-  state?: StreamingSessionStreamState | string;
+  state?: StreamingSessionStreamState;
 
   /**
    * @public
    * <p>The streaming session stream status code.</p>
    */
-  statusCode?: StreamingSessionStreamStatusCode | string;
+  statusCode?: StreamingSessionStreamStatusCode;
 
   /**
    * @public
@@ -1832,7 +1832,7 @@ export interface StudioEncryptionConfiguration {
    * @public
    * <p>The type of KMS key that is used to encrypt studio data.</p>
    */
-  keyType: StudioEncryptionConfigurationKeyType | string | undefined;
+  keyType: StudioEncryptionConfigurationKeyType | undefined;
 }
 
 /**
@@ -1998,13 +1998,13 @@ export interface Studio {
    * @public
    * <p>The current state of the studio resource.</p>
    */
-  state?: StudioState | string;
+  state?: StudioState;
 
   /**
    * @public
    * <p>Status codes that provide additional detail on the studio state.</p>
    */
-  statusCode?: StudioStatusCode | string;
+  statusCode?: StudioStatusCode;
 
   /**
    * @public
@@ -2197,13 +2197,13 @@ export interface StudioComponentInitializationScript {
    * @public
    * <p>The platform of the initialization script, either Windows or Linux.</p>
    */
-  platform?: LaunchProfilePlatform | string;
+  platform?: LaunchProfilePlatform;
 
   /**
    * @public
    * <p>The method to use when running the initialization script.</p>
    */
-  runContext?: StudioComponentInitializationScriptRunContext | string;
+  runContext?: StudioComponentInitializationScriptRunContext;
 
   /**
    * @public
@@ -2321,7 +2321,7 @@ export interface CreateStudioComponentRequest {
    * @public
    * <p>The specific subtype of a studio component.</p>
    */
-  subtype?: StudioComponentSubtype | string;
+  subtype?: StudioComponentSubtype;
 
   /**
    * @public
@@ -2334,7 +2334,7 @@ export interface CreateStudioComponentRequest {
    * @public
    * <p>The type of the studio component.</p>
    */
-  type: StudioComponentType | string | undefined;
+  type: StudioComponentType | undefined;
 
   /**
    * @public
@@ -2467,13 +2467,13 @@ export interface StudioComponent {
    * @public
    * <p>The current state.</p>
    */
-  state?: StudioComponentState | string;
+  state?: StudioComponentState;
 
   /**
    * @public
    * <p>The status code.</p>
    */
-  statusCode?: StudioComponentStatusCode | string;
+  statusCode?: StudioComponentStatusCode;
 
   /**
    * @public
@@ -2491,7 +2491,7 @@ export interface StudioComponent {
    * @public
    * <p>The specific subtype of a studio component.</p>
    */
-  subtype?: StudioComponentSubtype | string;
+  subtype?: StudioComponentSubtype;
 
   /**
    * @public
@@ -2504,7 +2504,7 @@ export interface StudioComponent {
    * @public
    * <p>The type of the studio component.</p>
    */
-  type?: StudioComponentType | string;
+  type?: StudioComponentType;
 
   /**
    * @public
@@ -3002,13 +3002,13 @@ export interface StudioComponentSummary {
    * @public
    * <p>The specific subtype of a studio component.</p>
    */
-  subtype?: StudioComponentSubtype | string;
+  subtype?: StudioComponentSubtype;
 
   /**
    * @public
    * <p>The type of the studio component.</p>
    */
-  type?: StudioComponentType | string;
+  type?: StudioComponentType;
 
   /**
    * @public
@@ -3221,7 +3221,7 @@ export interface LaunchProfileInitialization {
    * @public
    * <p>The platform of the launch platform, either Windows or Linux.</p>
    */
-  platform?: LaunchProfilePlatform | string;
+  platform?: LaunchProfilePlatform;
 
   /**
    * @public
@@ -3323,7 +3323,7 @@ export interface LaunchProfileMembership {
    * @public
    * <p>The persona.</p>
    */
-  persona?: LaunchProfilePersona | string;
+  persona?: LaunchProfilePersona;
 
   /**
    * @public
@@ -3463,13 +3463,13 @@ export interface StreamingSessionBackup {
    * @public
    * <p>The streaming session state.</p>
    */
-  state?: StreamingSessionState | string;
+  state?: StreamingSessionState;
 
   /**
    * @public
    * <p>The status code.</p>
    */
-  statusCode?: StreamingSessionStatusCode | string;
+  statusCode?: StreamingSessionStatusCode;
 
   /**
    * @public
@@ -3640,7 +3640,7 @@ export interface StudioMembership {
    * @public
    * <p>The persona.</p>
    */
-  persona?: StudioPersona | string;
+  persona?: StudioPersona;
 
   /**
    * @public
@@ -3738,7 +3738,7 @@ export interface ListLaunchProfilesRequest {
    * @public
    * <p>Filter this request to launch profiles in any of the given states.</p>
    */
-  states?: (LaunchProfileState | string)[];
+  states?: LaunchProfileState[];
 
   /**
    * @public
@@ -3773,7 +3773,7 @@ export interface NewLaunchProfileMember {
    * @public
    * <p>The persona.</p>
    */
-  persona: LaunchProfilePersona | string | undefined;
+  persona: LaunchProfilePersona | undefined;
 
   /**
    * @public
@@ -3914,7 +3914,7 @@ export interface UpdateLaunchProfileMemberRequest {
    * @public
    * <p>The persona.</p>
    */
-  persona: LaunchProfilePersona | string | undefined;
+  persona: LaunchProfilePersona | undefined;
 
   /**
    * @public
@@ -4092,7 +4092,7 @@ export interface ListStudioComponentsRequest {
    * @public
    * <p>Filters the request to studio components that are in one of the given states. </p>
    */
-  states?: (StudioComponentState | string)[];
+  states?: StudioComponentState[];
 
   /**
    * @public
@@ -4104,7 +4104,7 @@ export interface ListStudioComponentsRequest {
    * @public
    * <p>Filters the request to studio components that are of one of the given types.</p>
    */
-  types?: (StudioComponentType | string)[];
+  types?: StudioComponentType[];
 }
 
 /**
@@ -4224,7 +4224,7 @@ export interface NewStudioMember {
    * @public
    * <p>The persona.</p>
    */
-  persona: StudioPersona | string | undefined;
+  persona: StudioPersona | undefined;
 
   /**
    * @public
@@ -4360,7 +4360,7 @@ export interface StopStreamingSessionRequest {
    * <p>Adds additional instructions to a streaming session stop action to either retain the
    *             EBS volumes or delete the EBS volumes.</p>
    */
-  volumeRetentionMode?: VolumeRetentionMode | string;
+  volumeRetentionMode?: VolumeRetentionMode;
 }
 
 /**
@@ -4439,13 +4439,13 @@ export interface UpdateStudioComponentRequest {
    * @public
    * <p>The specific subtype of a studio component.</p>
    */
-  subtype?: StudioComponentSubtype | string;
+  subtype?: StudioComponentSubtype;
 
   /**
    * @public
    * <p>The type of the studio component.</p>
    */
-  type?: StudioComponentType | string;
+  type?: StudioComponentType;
 
   /**
    * @public

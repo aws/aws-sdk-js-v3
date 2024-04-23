@@ -24,8 +24,14 @@ export const resolveClientEndpointParameters = <T>(
   };
 };
 
+export const commonParams = {
+  UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+  Endpoint: { type: "builtInParams", name: "endpoint" },
+  Region: { type: "builtInParams", name: "region" },
+} as const;
+
 export interface EndpointParameters extends __EndpointParameters {
-  Region: string;
+  Region?: string;
   UseFIPS?: boolean;
   Endpoint?: string;
 }

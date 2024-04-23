@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
 import {
   acceptMatches as __acceptMatches,
   NotAcceptableException as __NotAcceptableException,
@@ -22,7 +23,6 @@ import {
   expectObject as __expectObject,
   expectShort as __expectShort,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   LazyJsonString as __LazyJsonString,
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
@@ -67,6 +67,7 @@ import {
   SimpleUnion,
   StructureListMember,
   TestConfig,
+  UnionPayload,
   UnionWithJsonName,
   Unit,
 } from "../models/models_0";
@@ -117,6 +118,10 @@ import {
   HttpPayloadWithStructureServerInput,
   HttpPayloadWithStructureServerOutput,
 } from "../server/operations/HttpPayloadWithStructure";
+import {
+  HttpPayloadWithUnionServerInput,
+  HttpPayloadWithUnionServerOutput,
+} from "../server/operations/HttpPayloadWithUnion";
 import { HttpPrefixHeadersServerInput, HttpPrefixHeadersServerOutput } from "../server/operations/HttpPrefixHeaders";
 import {
   HttpPrefixHeadersInResponseServerInput,
@@ -932,7 +937,7 @@ export const deserializeHttpPayloadTraitsRequest = async (
   context: __SerdeContext
 ): Promise<HttpPayloadTraitsServerInput> => {
   const contents: any = map({
-    foo: [, output.headers["x-foo"]],
+    [_f]: [, output.headers[_xf]],
   });
   const data: any = await collectBody(output.body, context);
   contents.blob = data;
@@ -960,7 +965,7 @@ export const deserializeHttpPayloadTraitsWithMediaTypeRequest = async (
     }
   }
   const contents: any = map({
-    foo: [, output.headers["x-foo"]],
+    [_f]: [, output.headers[_xf]],
   });
   const data: any = await collectBody(output.body, context);
   contents.blob = data;
@@ -993,6 +998,32 @@ export const deserializeHttpPayloadWithStructureRequest = async (
   return contents;
 };
 
+export const deserializeHttpPayloadWithUnionRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<HttpPayloadWithUnionServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined && contentType !== "application/json") {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({});
+  const data: Record<string, any> | undefined = __expectUnion(await parseBody(output.body, context));
+  contents.nested = de_UnionPayload(data, context);
+  return contents;
+};
+
 export const deserializeHttpPrefixHeadersRequest = async (
   output: __HttpRequest,
   context: __SerdeContext
@@ -1014,7 +1045,7 @@ export const deserializeHttpPrefixHeadersRequest = async (
     }
   }
   const contents: any = map({
-    foo: [, output.headers["x-foo"]],
+    [_f]: [, output.headers[_xf]],
     fooMap: [
       ,
       Object.keys(output.headers)
@@ -1334,60 +1365,47 @@ export const deserializeInputAndOutputWithHeadersRequest = async (
     }
   }
   const contents: any = map({
-    headerString: [, output.headers["x-string"]],
-    headerByte: [() => void 0 !== output.headers["x-byte"], () => __strictParseByte(output.headers["x-byte"])],
-    headerShort: [() => void 0 !== output.headers["x-short"], () => __strictParseShort(output.headers["x-short"])],
-    headerInteger: [
-      () => void 0 !== output.headers["x-integer"],
-      () => __strictParseInt32(output.headers["x-integer"]),
+    [_hS]: [, output.headers[_xs]],
+    [_hB]: [() => void 0 !== output.headers[_xb], () => __strictParseByte(output.headers[_xb])],
+    [_hSe]: [() => void 0 !== output.headers[_xs_], () => __strictParseShort(output.headers[_xs_])],
+    [_hI]: [() => void 0 !== output.headers[_xi], () => __strictParseInt32(output.headers[_xi])],
+    [_hL]: [() => void 0 !== output.headers[_xl], () => __strictParseLong(output.headers[_xl])],
+    [_hF]: [() => void 0 !== output.headers[_xf_], () => __strictParseFloat(output.headers[_xf_])],
+    [_hD]: [() => void 0 !== output.headers[_xd], () => __strictParseDouble(output.headers[_xd])],
+    [_hTB]: [() => void 0 !== output.headers[_xb_], () => __parseBoolean(output.headers[_xb_])],
+    [_hFB]: [() => void 0 !== output.headers[_xb__], () => __parseBoolean(output.headers[_xb__])],
+    [_hSL]: [
+      () => void 0 !== output.headers[_xs__],
+      () => (output.headers[_xs__] || "").split(",").map((_entry) => _entry.trim() as any),
     ],
-    headerLong: [() => void 0 !== output.headers["x-long"], () => __strictParseLong(output.headers["x-long"])],
-    headerFloat: [() => void 0 !== output.headers["x-float"], () => __strictParseFloat(output.headers["x-float"])],
-    headerDouble: [() => void 0 !== output.headers["x-double"], () => __strictParseDouble(output.headers["x-double"])],
-    headerTrueBool: [() => void 0 !== output.headers["x-boolean1"], () => __parseBoolean(output.headers["x-boolean1"])],
-    headerFalseBool: [
-      () => void 0 !== output.headers["x-boolean2"],
-      () => __parseBoolean(output.headers["x-boolean2"]),
+    [_hSS]: [
+      () => void 0 !== output.headers[_xs___],
+      () => (output.headers[_xs___] || "").split(",").map((_entry) => _entry.trim() as any),
     ],
-    headerStringList: [
-      () => void 0 !== output.headers["x-stringlist"],
-      () => (output.headers["x-stringlist"] || "").split(",").map((_entry) => _entry.trim() as any),
+    [_hIL]: [
+      () => void 0 !== output.headers[_xi_],
+      () => (output.headers[_xi_] || "").split(",").map((_entry) => __strictParseInt32(_entry.trim()) as any),
     ],
-    headerStringSet: [
-      () => void 0 !== output.headers["x-stringset"],
-      () => (output.headers["x-stringset"] || "").split(",").map((_entry) => _entry.trim() as any),
+    [_hBL]: [
+      () => void 0 !== output.headers[_xb___],
+      () => (output.headers[_xb___] || "").split(",").map((_entry) => __parseBoolean(_entry.trim()) as any),
     ],
-    headerIntegerList: [
-      () => void 0 !== output.headers["x-integerlist"],
+    [_hTL]: [
+      () => void 0 !== output.headers[_xt],
       () =>
-        (output.headers["x-integerlist"] || "").split(",").map((_entry) => __strictParseInt32(_entry.trim()) as any),
-    ],
-    headerBooleanList: [
-      () => void 0 !== output.headers["x-booleanlist"],
-      () => (output.headers["x-booleanlist"] || "").split(",").map((_entry) => __parseBoolean(_entry.trim()) as any),
-    ],
-    headerTimestampList: [
-      () => void 0 !== output.headers["x-timestamplist"],
-      () =>
-        __splitEvery(output.headers["x-timestamplist"] || "", ",", 2).map(
+        __splitEvery(output.headers[_xt] || "", ",", 2).map(
           (_entry) => __expectNonNull(__parseRfc7231DateTime(_entry.trim())) as any
         ),
     ],
-    headerEnum: [, output.headers["x-enum"]],
-    headerEnumList: [
-      () => void 0 !== output.headers["x-enumlist"],
-      () => (output.headers["x-enumlist"] || "").split(",").map((_entry) => _entry.trim() as any),
+    [_hE]: [, output.headers[_xe]],
+    [_hEL]: [
+      () => void 0 !== output.headers[_xe_],
+      () => (output.headers[_xe_] || "").split(",").map((_entry) => _entry.trim() as any),
     ],
-    headerIntegerEnum: [
-      () => void 0 !== output.headers["x-integerenum"],
-      () => __strictParseInt32(output.headers["x-integerenum"]),
-    ],
-    headerIntegerEnumList: [
-      () => void 0 !== output.headers["x-integerenumlist"],
-      () =>
-        (output.headers["x-integerenumlist"] || "")
-          .split(",")
-          .map((_entry) => __strictParseInt32(_entry.trim()) as any),
+    [_hIE]: [() => void 0 !== output.headers[_xi__], () => __strictParseInt32(output.headers[_xi__])],
+    [_hIEL]: [
+      () => void 0 !== output.headers[_xi___],
+      () => (output.headers[_xi___] || "").split(",").map((_entry) => __strictParseInt32(_entry.trim()) as any),
     ],
   });
   await collectBody(output.body, context);
@@ -1756,10 +1774,7 @@ export const deserializeMalformedBooleanRequest = async (
     }
   }
   const contents: any = map({
-    booleanInHeader: [
-      () => void 0 !== output.headers["booleaninheader"],
-      () => __parseBoolean(output.headers["booleaninheader"]),
-    ],
+    [_bIH]: [() => void 0 !== output.headers[_b], () => __parseBoolean(output.headers[_b])],
   });
   const query = output.query;
   if (query != null) {
@@ -1811,10 +1826,7 @@ export const deserializeMalformedByteRequest = async (
     }
   }
   const contents: any = map({
-    byteInHeader: [
-      () => void 0 !== output.headers["byteinheader"],
-      () => __strictParseByte(output.headers["byteinheader"]),
-    ],
+    [_bIHy]: [() => void 0 !== output.headers[_by], () => __strictParseByte(output.headers[_by])],
   });
   const query = output.query;
   if (query != null) {
@@ -1972,10 +1984,7 @@ export const deserializeMalformedDoubleRequest = async (
     }
   }
   const contents: any = map({
-    doubleInHeader: [
-      () => void 0 !== output.headers["doubleinheader"],
-      () => __strictParseDouble(output.headers["doubleinheader"]),
-    ],
+    [_dIH]: [() => void 0 !== output.headers[_d], () => __strictParseDouble(output.headers[_d])],
   });
   const query = output.query;
   if (query != null) {
@@ -2027,10 +2036,7 @@ export const deserializeMalformedFloatRequest = async (
     }
   }
   const contents: any = map({
-    floatInHeader: [
-      () => void 0 !== output.headers["floatinheader"],
-      () => __strictParseFloat(output.headers["floatinheader"]),
-    ],
+    [_fIH]: [() => void 0 !== output.headers[_fl], () => __strictParseFloat(output.headers[_fl])],
   });
   const query = output.query;
   if (query != null) {
@@ -2082,10 +2088,7 @@ export const deserializeMalformedIntegerRequest = async (
     }
   }
   const contents: any = map({
-    integerInHeader: [
-      () => void 0 !== output.headers["integerinheader"],
-      () => __strictParseInt32(output.headers["integerinheader"]),
-    ],
+    [_iIH]: [() => void 0 !== output.headers[_i], () => __strictParseInt32(output.headers[_i])],
   });
   const query = output.query;
   if (query != null) {
@@ -2166,10 +2169,7 @@ export const deserializeMalformedLongRequest = async (
     }
   }
   const contents: any = map({
-    longInHeader: [
-      () => void 0 !== output.headers["longinheader"],
-      () => __strictParseLong(output.headers["longinheader"]),
-    ],
+    [_lIH]: [() => void 0 !== output.headers[_l], () => __strictParseLong(output.headers[_l])],
   });
   const query = output.query;
   if (query != null) {
@@ -2280,10 +2280,7 @@ export const deserializeMalformedShortRequest = async (
     }
   }
   const contents: any = map({
-    shortInHeader: [
-      () => void 0 !== output.headers["shortinheader"],
-      () => __strictParseShort(output.headers["shortinheader"]),
-    ],
+    [_sIH]: [() => void 0 !== output.headers[_s], () => __strictParseShort(output.headers[_s])],
   });
   const query = output.query;
   if (query != null) {
@@ -2335,12 +2332,9 @@ export const deserializeMalformedStringRequest = async (
     }
   }
   const contents: any = map({
-    blob: [
-      () => void 0 !== output.headers["amz-media-typed-header"],
-      () =>
-        new __LazyJsonString(
-          Buffer.from(context.base64Decoder(output.headers["amz-media-typed-header"])).toString("utf8")
-        ),
+    [_bl]: [
+      () => void 0 !== output.headers[_amth],
+      () => new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers[_amth])).toString("utf8")),
     ],
   });
   await collectBody(output.body, context);
@@ -2455,10 +2449,7 @@ export const deserializeMalformedTimestampHeaderDateTimeRequest = async (
     }
   }
   const contents: any = map({
-    timestamp: [
-      () => void 0 !== output.headers["timestamp"],
-      () => __expectNonNull(__parseRfc3339DateTime(output.headers["timestamp"])),
-    ],
+    [_t]: [() => void 0 !== output.headers[_t], () => __expectNonNull(__parseRfc3339DateTime(output.headers[_t]))],
   });
   await collectBody(output.body, context);
   return contents;
@@ -2485,10 +2476,7 @@ export const deserializeMalformedTimestampHeaderDefaultRequest = async (
     }
   }
   const contents: any = map({
-    timestamp: [
-      () => void 0 !== output.headers["timestamp"],
-      () => __expectNonNull(__parseRfc7231DateTime(output.headers["timestamp"])),
-    ],
+    [_t]: [() => void 0 !== output.headers[_t], () => __expectNonNull(__parseRfc7231DateTime(output.headers[_t]))],
   });
   await collectBody(output.body, context);
   return contents;
@@ -2515,10 +2503,7 @@ export const deserializeMalformedTimestampHeaderEpochRequest = async (
     }
   }
   const contents: any = map({
-    timestamp: [
-      () => void 0 !== output.headers["timestamp"],
-      () => __expectNonNull(__parseEpochTimestamp(output.headers["timestamp"])),
-    ],
+    [_t]: [() => void 0 !== output.headers[_t], () => __expectNonNull(__parseEpochTimestamp(output.headers[_t]))],
   });
   await collectBody(output.body, context);
   return contents;
@@ -2787,9 +2772,9 @@ export const deserializeMediaTypeHeaderRequest = async (
     }
   }
   const contents: any = map({
-    json: [
-      () => void 0 !== output.headers["x-json"],
-      () => new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers["x-json"])).toString("utf8")),
+    [_j]: [
+      () => void 0 !== output.headers[_xj],
+      () => new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers[_xj])).toString("utf8")),
     ],
   });
   await collectBody(output.body, context);
@@ -2867,11 +2852,11 @@ export const deserializeNullAndEmptyHeadersClientRequest = async (
     }
   }
   const contents: any = map({
-    a: [, output.headers["x-a"]],
-    b: [, output.headers["x-b"]],
-    c: [
-      () => void 0 !== output.headers["x-c"],
-      () => (output.headers["x-c"] || "").split(",").map((_entry) => _entry.trim() as any),
+    [_a]: [, output.headers[_xa]],
+    [_b_]: [, output.headers[_xb____]],
+    [_c]: [
+      () => void 0 !== output.headers[_xc],
+      () => (output.headers[_xc] || "").split(",").map((_entry) => _entry.trim() as any),
     ],
   });
   await collectBody(output.body, context);
@@ -2899,11 +2884,11 @@ export const deserializeNullAndEmptyHeadersServerRequest = async (
     }
   }
   const contents: any = map({
-    a: [, output.headers["x-a"]],
-    b: [, output.headers["x-b"]],
-    c: [
-      () => void 0 !== output.headers["x-c"],
-      () => (output.headers["x-c"] || "").split(",").map((_entry) => _entry.trim() as any),
+    [_a]: [, output.headers[_xa]],
+    [_b_]: [, output.headers[_xb____]],
+    [_c]: [
+      () => void 0 !== output.headers[_xc],
+      () => (output.headers[_xc] || "").split(",").map((_entry) => _entry.trim() as any),
     ],
   });
   await collectBody(output.body, context);
@@ -3113,7 +3098,7 @@ export const deserializePutWithContentEncodingRequest = async (
     }
   }
   const contents: any = map({
-    encoding: [, output.headers["content-encoding"]],
+    [_e]: [, output.headers[_ce]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
@@ -3318,7 +3303,7 @@ export const deserializeSimpleScalarPropertiesRequest = async (
     }
   }
   const contents: any = map({
-    foo: [, output.headers["x-foo"]],
+    [_f]: [, output.headers[_xf]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
@@ -3341,7 +3326,7 @@ export const deserializeStreamingTraitsRequest = async (
   context: __SerdeContext
 ): Promise<StreamingTraitsServerInput> => {
   const contents: any = map({
-    foo: [, output.headers["x-foo"]],
+    [_f]: [, output.headers[_xf]],
   });
   const data: any = output.body;
   contents.blob = data;
@@ -3360,7 +3345,7 @@ export const deserializeStreamingTraitsRequireLengthRequest = async (
     }
   }
   const contents: any = map({
-    foo: [, output.headers["x-foo"]],
+    [_f]: [, output.headers[_xf]],
   });
   const data: any = output.body;
   contents.blob = data;
@@ -3388,7 +3373,7 @@ export const deserializeStreamingTraitsWithMediaTypeRequest = async (
     }
   }
   const contents: any = map({
-    foo: [, output.headers["x-foo"]],
+    [_f]: [, output.headers[_xf]],
   });
   const data: any = output.body;
   contents.blob = data;
@@ -3416,7 +3401,7 @@ export const deserializeTestBodyStructureRequest = async (
     }
   }
   const contents: any = map({
-    testId: [, output.headers["x-amz-test-id"]],
+    [_tI]: [, output.headers[_xati]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
@@ -3447,7 +3432,7 @@ export const deserializeTestNoPayloadRequest = async (
     }
   }
   const contents: any = map({
-    testId: [, output.headers["x-amz-test-id"]],
+    [_tI]: [, output.headers[_xati]],
   });
   await collectBody(output.body, context);
   return contents;
@@ -3458,7 +3443,7 @@ export const deserializeTestPayloadBlobRequest = async (
   context: __SerdeContext
 ): Promise<TestPayloadBlobServerInput> => {
   const contents: any = map({
-    contentType: [, output.headers["content-type"]],
+    [_cT]: [, output.headers[_ct]],
   });
   const data: any = await collectBody(output.body, context);
   contents.data = data;
@@ -3486,7 +3471,7 @@ export const deserializeTestPayloadStructureRequest = async (
     }
   }
   const contents: any = map({
-    testId: [, output.headers["x-amz-test-id"]],
+    [_tI]: [, output.headers[_xati]],
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.payloadConfig = de_PayloadConfig(data, context);
@@ -3514,33 +3499,24 @@ export const deserializeTimestampFormatHeadersRequest = async (
     }
   }
   const contents: any = map({
-    memberEpochSeconds: [
-      () => void 0 !== output.headers["x-memberepochseconds"],
-      () => __expectNonNull(__parseEpochTimestamp(output.headers["x-memberepochseconds"])),
+    [_mES]: [() => void 0 !== output.headers[_xm], () => __expectNonNull(__parseEpochTimestamp(output.headers[_xm]))],
+    [_mHD]: [
+      () => void 0 !== output.headers[_xm_],
+      () => __expectNonNull(__parseRfc7231DateTime(output.headers[_xm_])),
     ],
-    memberHttpDate: [
-      () => void 0 !== output.headers["x-memberhttpdate"],
-      () => __expectNonNull(__parseRfc7231DateTime(output.headers["x-memberhttpdate"])),
+    [_mDT]: [
+      () => void 0 !== output.headers[_xm__],
+      () => __expectNonNull(__parseRfc3339DateTime(output.headers[_xm__])),
     ],
-    memberDateTime: [
-      () => void 0 !== output.headers["x-memberdatetime"],
-      () => __expectNonNull(__parseRfc3339DateTime(output.headers["x-memberdatetime"])),
+    [_dF]: [() => void 0 !== output.headers[_xd_], () => __expectNonNull(__parseRfc7231DateTime(output.headers[_xd_]))],
+    [_tES]: [() => void 0 !== output.headers[_xt_], () => __expectNonNull(__parseEpochTimestamp(output.headers[_xt_]))],
+    [_tHD]: [
+      () => void 0 !== output.headers[_xt__],
+      () => __expectNonNull(__parseRfc7231DateTime(output.headers[_xt__])),
     ],
-    defaultFormat: [
-      () => void 0 !== output.headers["x-defaultformat"],
-      () => __expectNonNull(__parseRfc7231DateTime(output.headers["x-defaultformat"])),
-    ],
-    targetEpochSeconds: [
-      () => void 0 !== output.headers["x-targetepochseconds"],
-      () => __expectNonNull(__parseEpochTimestamp(output.headers["x-targetepochseconds"])),
-    ],
-    targetHttpDate: [
-      () => void 0 !== output.headers["x-targethttpdate"],
-      () => __expectNonNull(__parseRfc7231DateTime(output.headers["x-targethttpdate"])),
-    ],
-    targetDateTime: [
-      () => void 0 !== output.headers["x-targetdatetime"],
-      () => __expectNonNull(__parseRfc3339DateTime(output.headers["x-targetdatetime"])),
+    [_tDT]: [
+      () => void 0 !== output.headers[_xt___],
+      () => __expectNonNull(__parseRfc3339DateTime(output.headers[_xt___])),
     ],
   });
   await collectBody(output.body, context);
@@ -3927,7 +3903,6 @@ export const serializeFractionalSecondsResponse = async (
   body = JSON.stringify(
     take(input, {
       datetime: (_) => _.toISOString().split(".")[0] + "Z",
-      httpdate: (_) => __dateToUtcString(_),
     })
   );
   if (
@@ -3964,7 +3939,7 @@ export const serializeGreetingWithErrorsResponse = async (
   const statusCode = 200;
   let headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-greeting": input.greeting!,
+    [_xg]: input[_g]!,
   });
   let body: any;
   body = "{}";
@@ -4116,7 +4091,7 @@ export const serializeHttpPayloadTraitsResponse = async (
   const statusCode = 200;
   let headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/octet-stream",
-    "x-foo": input.foo!,
+    [_xf]: input[_f]!,
   });
   let body: any;
   if (input.blob !== undefined) {
@@ -4156,7 +4131,7 @@ export const serializeHttpPayloadTraitsWithMediaTypeResponse = async (
   const statusCode = 200;
   let headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "text/plain",
-    "x-foo": input.foo!,
+    [_xf]: input[_f]!,
   });
   let body: any;
   if (input.blob !== undefined) {
@@ -4223,6 +4198,49 @@ export const serializeHttpPayloadWithStructureResponse = async (
   });
 };
 
+export const serializeHttpPayloadWithUnionResponse = async (
+  input: HttpPayloadWithUnionServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 200;
+  let headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+  });
+  let body: any;
+  if (input.nested !== undefined) {
+    body = se_UnionPayload(input.nested, context);
+  }
+  if (body === undefined) {
+    body = {};
+  }
+  body = JSON.stringify(body);
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
 export const serializeHttpPrefixHeadersResponse = async (
   input: HttpPrefixHeadersServerOutput,
   ctx: ServerSerdeContext
@@ -4239,7 +4257,7 @@ export const serializeHttpPrefixHeadersResponse = async (
   const statusCode = 200;
   let headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-foo": input.foo!,
+    [_xf]: input[_f]!,
     ...(input.fooMap !== undefined &&
       Object.keys(input.fooMap).reduce((acc: any, suffix: string) => {
         acc[`x-foo-${suffix.toLowerCase()}`] = input.fooMap![suffix];
@@ -4614,53 +4632,50 @@ export const serializeInputAndOutputWithHeadersResponse = async (
   const statusCode = 200;
   let headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-string": input.headerString!,
-    "x-byte": [() => isSerializableHeaderValue(input.headerByte), () => input.headerByte!.toString()],
-    "x-short": [() => isSerializableHeaderValue(input.headerShort), () => input.headerShort!.toString()],
-    "x-integer": [() => isSerializableHeaderValue(input.headerInteger), () => input.headerInteger!.toString()],
-    "x-long": [() => isSerializableHeaderValue(input.headerLong), () => input.headerLong!.toString()],
-    "x-float": [
-      () => isSerializableHeaderValue(input.headerFloat),
-      () => (input.headerFloat! % 1 == 0 ? input.headerFloat! + ".0" : input.headerFloat!.toString()),
+    [_xs]: input[_hS]!,
+    [_xb]: [() => isSerializableHeaderValue(input[_hB]), () => input[_hB]!.toString()],
+    [_xs_]: [() => isSerializableHeaderValue(input[_hSe]), () => input[_hSe]!.toString()],
+    [_xi]: [() => isSerializableHeaderValue(input[_hI]), () => input[_hI]!.toString()],
+    [_xl]: [() => isSerializableHeaderValue(input[_hL]), () => input[_hL]!.toString()],
+    [_xf_]: [
+      () => isSerializableHeaderValue(input[_hF]),
+      () => (input[_hF]! % 1 == 0 ? input[_hF]! + ".0" : input[_hF]!.toString()),
     ],
-    "x-double": [
-      () => isSerializableHeaderValue(input.headerDouble),
-      () => (input.headerDouble! % 1 == 0 ? input.headerDouble! + ".0" : input.headerDouble!.toString()),
+    [_xd]: [
+      () => isSerializableHeaderValue(input[_hD]),
+      () => (input[_hD]! % 1 == 0 ? input[_hD]! + ".0" : input[_hD]!.toString()),
     ],
-    "x-boolean1": [() => isSerializableHeaderValue(input.headerTrueBool), () => input.headerTrueBool!.toString()],
-    "x-boolean2": [() => isSerializableHeaderValue(input.headerFalseBool), () => input.headerFalseBool!.toString()],
-    "x-stringlist": [
-      () => isSerializableHeaderValue(input.headerStringList),
-      () => (input.headerStringList! || []).map((_entry) => _entry as any).join(", "),
+    [_xb_]: [() => isSerializableHeaderValue(input[_hTB]), () => input[_hTB]!.toString()],
+    [_xb__]: [() => isSerializableHeaderValue(input[_hFB]), () => input[_hFB]!.toString()],
+    [_xs__]: [
+      () => isSerializableHeaderValue(input[_hSL]),
+      () => (input[_hSL]! || []).map((_entry) => _entry as any).join(", "),
     ],
-    "x-stringset": [
-      () => isSerializableHeaderValue(input.headerStringSet),
-      () => (input.headerStringSet! || []).map((_entry) => _entry as any).join(", "),
+    [_xs___]: [
+      () => isSerializableHeaderValue(input[_hSS]),
+      () => (input[_hSS]! || []).map((_entry) => _entry as any).join(", "),
     ],
-    "x-integerlist": [
-      () => isSerializableHeaderValue(input.headerIntegerList),
-      () => (input.headerIntegerList! || []).map((_entry) => _entry.toString() as any).join(", "),
+    [_xi_]: [
+      () => isSerializableHeaderValue(input[_hIL]),
+      () => (input[_hIL]! || []).map((_entry) => _entry.toString() as any).join(", "),
     ],
-    "x-booleanlist": [
-      () => isSerializableHeaderValue(input.headerBooleanList),
-      () => (input.headerBooleanList! || []).map((_entry) => _entry.toString() as any).join(", "),
+    [_xb___]: [
+      () => isSerializableHeaderValue(input[_hBL]),
+      () => (input[_hBL]! || []).map((_entry) => _entry.toString() as any).join(", "),
     ],
-    "x-timestamplist": [
-      () => isSerializableHeaderValue(input.headerTimestampList),
-      () => (input.headerTimestampList! || []).map((_entry) => __dateToUtcString(_entry).toString() as any).join(", "),
+    [_xt]: [
+      () => isSerializableHeaderValue(input[_hTL]),
+      () => (input[_hTL]! || []).map((_entry) => __dateToUtcString(_entry).toString() as any).join(", "),
     ],
-    "x-enum": input.headerEnum!,
-    "x-enumlist": [
-      () => isSerializableHeaderValue(input.headerEnumList),
-      () => (input.headerEnumList! || []).map((_entry) => _entry as any).join(", "),
+    [_xe]: input[_hE]!,
+    [_xe_]: [
+      () => isSerializableHeaderValue(input[_hEL]),
+      () => (input[_hEL]! || []).map((_entry) => _entry as any).join(", "),
     ],
-    "x-integerenum": [
-      () => isSerializableHeaderValue(input.headerIntegerEnum),
-      () => input.headerIntegerEnum!.toString(),
-    ],
-    "x-integerenumlist": [
-      () => isSerializableHeaderValue(input.headerIntegerEnumList),
-      () => (input.headerIntegerEnumList! || []).map((_entry) => _entry.toString() as any).join(", "),
+    [_xi__]: [() => isSerializableHeaderValue(input[_hIE]), () => input[_hIE]!.toString()],
+    [_xi___]: [
+      () => isSerializableHeaderValue(input[_hIEL]),
+      () => (input[_hIEL]! || []).map((_entry) => _entry.toString() as any).join(", "),
     ],
   });
   let body: any;
@@ -6125,9 +6140,9 @@ export const serializeMediaTypeHeaderResponse = async (
   const statusCode = 200;
   let headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-json": [
-      () => isSerializableHeaderValue(input.json),
-      () => context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input.json!))),
+    [_xj]: [
+      () => isSerializableHeaderValue(input[_j]),
+      () => context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input[_j]!))),
     ],
   });
   let body: any;
@@ -6237,9 +6252,12 @@ export const serializeNullAndEmptyHeadersClientResponse = async (
   const statusCode = 200;
   let headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-a": input.a!,
-    "x-b": input.b!,
-    "x-c": [() => isSerializableHeaderValue(input.c), () => (input.c! || []).map((_entry) => _entry as any).join(", ")],
+    [_xa]: input[_a]!,
+    [_xb____]: input[_b_]!,
+    [_xc]: [
+      () => isSerializableHeaderValue(input[_c]),
+      () => (input[_c]! || []).map((_entry) => _entry as any).join(", "),
+    ],
   });
   let body: any;
   body = "{}";
@@ -6277,9 +6295,12 @@ export const serializeNullAndEmptyHeadersServerResponse = async (
   const statusCode = 200;
   let headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-a": input.a!,
-    "x-b": input.b!,
-    "x-c": [() => isSerializableHeaderValue(input.c), () => (input.c! || []).map((_entry) => _entry as any).join(", ")],
+    [_xa]: input[_a]!,
+    [_xb____]: input[_b_]!,
+    [_xc]: [
+      () => isSerializableHeaderValue(input[_c]),
+      () => (input[_c]! || []).map((_entry) => _entry as any).join(", "),
+    ],
   });
   let body: any;
   body = "{}";
@@ -6644,7 +6665,7 @@ export const serializeSimpleScalarPropertiesResponse = async (
   const statusCode = 200;
   let headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-foo": input.foo!,
+    [_xf]: input[_f]!,
   });
   let body: any;
   body = JSON.stringify(
@@ -6694,7 +6715,7 @@ export const serializeStreamingTraitsResponse = async (
   const statusCode = 200;
   let headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/octet-stream",
-    "x-foo": input.foo!,
+    [_xf]: input[_f]!,
   });
   let body: any;
   if (input.blob !== undefined) {
@@ -6768,7 +6789,7 @@ export const serializeStreamingTraitsWithMediaTypeResponse = async (
   const statusCode = 200;
   let headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "text/plain",
-    "x-foo": input.foo!,
+    [_xf]: input[_f]!,
   });
   let body: any;
   if (input.blob !== undefined) {
@@ -6808,7 +6829,7 @@ export const serializeTestBodyStructureResponse = async (
   const statusCode = 200;
   let headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-test-id": input.testId!,
+    [_xati]: input[_tI]!,
   });
   let body: any;
   body = JSON.stringify(
@@ -6850,7 +6871,7 @@ export const serializeTestNoPayloadResponse = async (
   const statusCode = 200;
   let headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-test-id": input.testId!,
+    [_xati]: input[_tI]!,
   });
   let body: any;
   body = "{}";
@@ -6887,7 +6908,7 @@ export const serializeTestPayloadBlobResponse = async (
   };
   const statusCode = 200;
   let headers: any = map({}, isSerializableHeaderValue, {
-    "content-type": input.contentType! || "application/octet-stream",
+    [_ct]: input[_cT]! || "application/octet-stream",
   });
   let body: any;
   if (input.data !== undefined) {
@@ -6927,7 +6948,7 @@ export const serializeTestPayloadStructureResponse = async (
   const statusCode = 200;
   let headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-test-id": input.testId!,
+    [_xati]: input[_tI]!,
   });
   let body: any;
   if (input.payloadConfig !== undefined) {
@@ -6971,33 +6992,18 @@ export const serializeTimestampFormatHeadersResponse = async (
   const statusCode = 200;
   let headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-memberepochseconds": [
-      () => isSerializableHeaderValue(input.memberEpochSeconds),
-      () => Math.round(input.memberEpochSeconds!.getTime() / 1000).toString(),
+    [_xm]: [() => isSerializableHeaderValue(input[_mES]), () => Math.round(input[_mES]!.getTime() / 1000).toString()],
+    [_xm_]: [() => isSerializableHeaderValue(input[_mHD]), () => __dateToUtcString(input[_mHD]!).toString()],
+    [_xm__]: [
+      () => isSerializableHeaderValue(input[_mDT]),
+      () => (input[_mDT]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    "x-memberhttpdate": [
-      () => isSerializableHeaderValue(input.memberHttpDate),
-      () => __dateToUtcString(input.memberHttpDate!).toString(),
-    ],
-    "x-memberdatetime": [
-      () => isSerializableHeaderValue(input.memberDateTime),
-      () => (input.memberDateTime!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    "x-defaultformat": [
-      () => isSerializableHeaderValue(input.defaultFormat),
-      () => __dateToUtcString(input.defaultFormat!).toString(),
-    ],
-    "x-targetepochseconds": [
-      () => isSerializableHeaderValue(input.targetEpochSeconds),
-      () => Math.round(input.targetEpochSeconds!.getTime() / 1000).toString(),
-    ],
-    "x-targethttpdate": [
-      () => isSerializableHeaderValue(input.targetHttpDate),
-      () => __dateToUtcString(input.targetHttpDate!).toString(),
-    ],
-    "x-targetdatetime": [
-      () => isSerializableHeaderValue(input.targetDateTime),
-      () => (input.targetDateTime!.toISOString().split(".")[0] + "Z").toString(),
+    [_xd_]: [() => isSerializableHeaderValue(input[_dF]), () => __dateToUtcString(input[_dF]!).toString()],
+    [_xt_]: [() => isSerializableHeaderValue(input[_tES]), () => Math.round(input[_tES]!.getTime() / 1000).toString()],
+    [_xt__]: [() => isSerializableHeaderValue(input[_tHD]), () => __dateToUtcString(input[_tHD]!).toString()],
+    [_xt___]: [
+      () => isSerializableHeaderValue(input[_tDT]),
+      () => (input[_tDT]!.toISOString().split(".")[0] + "Z").toString(),
     ],
   });
   let body: any;
@@ -7158,7 +7164,7 @@ export const serializeComplexErrorError = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amzn-errortype": "ComplexError",
     "content-type": "application/json",
-    "x-header": input.Header!,
+    [_xh]: input[_H]!,
   });
   let body: any;
   body = JSON.stringify(
@@ -7471,6 +7477,16 @@ const se_TestConfig = (input: TestConfig, context: __SerdeContext): any => {
 };
 
 /**
+ * serializeAws_restJson1UnionPayload
+ */
+const se_UnionPayload = (input: UnionPayload, context: __SerdeContext): any => {
+  return UnionPayload.visit(input, {
+    greeting: (value) => ({ greeting: value }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+/**
  * serializeAws_restJson1UnionWithJsonName
  */
 const se_UnionWithJsonName = (input: UnionWithJsonName, context: __SerdeContext): any => {
@@ -7501,14 +7517,14 @@ const se_BooleanList = (input: boolean[], context: __SerdeContext): any => {
 /**
  * serializeAws_restJson1FooEnumList
  */
-const se_FooEnumList = (input: (FooEnum | string)[], context: __SerdeContext): any => {
+const se_FooEnumList = (input: FooEnum[], context: __SerdeContext): any => {
   return input.filter((e: any) => e != null);
 };
 
 /**
  * serializeAws_restJson1FooEnumMap
  */
-const se_FooEnumMap = (input: Record<string, FooEnum | string>, context: __SerdeContext): any => {
+const se_FooEnumMap = (input: Record<string, FooEnum>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -7521,7 +7537,7 @@ const se_FooEnumMap = (input: Record<string, FooEnum | string>, context: __Serde
 /**
  * serializeAws_restJson1FooEnumSet
  */
-const se_FooEnumSet = (input: (FooEnum | string)[], context: __SerdeContext): any => {
+const se_FooEnumSet = (input: FooEnum[], context: __SerdeContext): any => {
   return input.filter((e: any) => e != null);
 };
 
@@ -7537,14 +7553,14 @@ const se_GreetingStruct = (input: GreetingStruct, context: __SerdeContext): any 
 /**
  * serializeAws_restJson1IntegerEnumList
  */
-const se_IntegerEnumList = (input: (IntegerEnum | number)[], context: __SerdeContext): any => {
+const se_IntegerEnumList = (input: IntegerEnum[], context: __SerdeContext): any => {
   return input.filter((e: any) => e != null);
 };
 
 /**
  * serializeAws_restJson1IntegerEnumMap
  */
-const se_IntegerEnumMap = (input: Record<string, IntegerEnum | number>, context: __SerdeContext): any => {
+const se_IntegerEnumMap = (input: Record<string, IntegerEnum>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
@@ -7557,7 +7573,7 @@ const se_IntegerEnumMap = (input: Record<string, IntegerEnum | number>, context:
 /**
  * serializeAws_restJson1IntegerEnumSet
  */
-const se_IntegerEnumSet = (input: (IntegerEnum | number)[], context: __SerdeContext): any => {
+const se_IntegerEnumSet = (input: IntegerEnum[], context: __SerdeContext): any => {
   return input.filter((e: any) => e != null);
 };
 
@@ -7653,9 +7669,9 @@ const de_DenseBooleanMap = (output: any, context: __SerdeContext): Record<string
     if (value === null) {
       return acc;
     }
-    acc[key] = __expectBoolean(value) as any;
+    acc[key as string] = __expectBoolean(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, boolean>);
 };
 
 /**
@@ -7666,9 +7682,9 @@ const de_DenseNumberMap = (output: any, context: __SerdeContext): Record<string,
     if (value === null) {
       return acc;
     }
-    acc[key] = __expectInt32(value) as any;
+    acc[key as string] = __expectInt32(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, number>);
 };
 
 /**
@@ -7679,9 +7695,9 @@ const de_DenseSetMap = (output: any, context: __SerdeContext): Record<string, st
     if (value === null) {
       return acc;
     }
-    acc[key] = de_StringSet(value, context);
+    acc[key as string] = de_StringSet(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, string[]>);
 };
 
 /**
@@ -7692,9 +7708,9 @@ const de_DenseStringMap = (output: any, context: __SerdeContext): Record<string,
     if (value === null) {
       return acc;
     }
-    acc[key] = __expectString(value) as any;
+    acc[key as string] = __expectString(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, string>);
 };
 
 /**
@@ -7705,9 +7721,9 @@ const de_DenseStructMap = (output: any, context: __SerdeContext): Record<string,
     if (value === null) {
       return acc;
     }
-    acc[key] = de_GreetingStruct(value, context);
+    acc[key as string] = de_GreetingStruct(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, GreetingStruct>);
 };
 
 /**
@@ -7846,9 +7862,9 @@ const de_SimpleMap = (output: any, context: __SerdeContext): Record<string, stri
     if (value === null) {
       return acc;
     }
-    acc[key] = __expectString(value) as any;
+    acc[key as string] = __expectString(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, string>);
 };
 
 /**
@@ -7870,12 +7886,12 @@ const de_SimpleUnion = (output: any, context: __SerdeContext): SimpleUnion => {
 const de_SparseBooleanMap = (output: any, context: __SerdeContext): Record<string, boolean> => {
   return Object.entries(output).reduce((acc: Record<string, boolean>, [key, value]: [string, any]) => {
     if (value === null) {
-      acc[key] = null as any;
+      acc[key as string] = null as any;
       return acc;
     }
-    acc[key] = __expectBoolean(value) as any;
+    acc[key as string] = __expectBoolean(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, boolean>);
 };
 
 /**
@@ -7884,12 +7900,12 @@ const de_SparseBooleanMap = (output: any, context: __SerdeContext): Record<strin
 const de_SparseNumberMap = (output: any, context: __SerdeContext): Record<string, number> => {
   return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
     if (value === null) {
-      acc[key] = null as any;
+      acc[key as string] = null as any;
       return acc;
     }
-    acc[key] = __expectInt32(value) as any;
+    acc[key as string] = __expectInt32(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, number>);
 };
 
 /**
@@ -7898,12 +7914,12 @@ const de_SparseNumberMap = (output: any, context: __SerdeContext): Record<string
 const de_SparseSetMap = (output: any, context: __SerdeContext): Record<string, string[]> => {
   return Object.entries(output).reduce((acc: Record<string, string[]>, [key, value]: [string, any]) => {
     if (value === null) {
-      acc[key] = null as any;
+      acc[key as string] = null as any;
       return acc;
     }
-    acc[key] = de_StringSet(value, context);
+    acc[key as string] = de_StringSet(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, string[]>);
 };
 
 /**
@@ -7912,12 +7928,12 @@ const de_SparseSetMap = (output: any, context: __SerdeContext): Record<string, s
 const de_SparseStructMap = (output: any, context: __SerdeContext): Record<string, GreetingStruct> => {
   return Object.entries(output).reduce((acc: Record<string, GreetingStruct>, [key, value]: [string, any]) => {
     if (value === null) {
-      acc[key] = null as any;
+      acc[key as string] = null as any;
       return acc;
     }
-    acc[key] = de_GreetingStruct(value, context);
+    acc[key as string] = de_GreetingStruct(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, GreetingStruct>);
 };
 
 /**
@@ -7952,6 +7968,16 @@ const de_TestConfig = (output: any, context: __SerdeContext): TestConfig => {
   return take(output, {
     timeout: __expectInt32,
   }) as any;
+};
+
+/**
+ * deserializeAws_restJson1UnionPayload
+ */
+const de_UnionPayload = (output: any, context: __SerdeContext): UnionPayload => {
+  if (__expectString(output.greeting) !== undefined) {
+    return { greeting: __expectString(output.greeting) as any };
+  }
+  return { $unknown: Object.entries(output)[0] };
 };
 
 /**
@@ -7997,7 +8023,7 @@ const de_BooleanList = (output: any, context: __SerdeContext): boolean[] => {
 /**
  * deserializeAws_restJson1FooEnumList
  */
-const de_FooEnumList = (output: any, context: __SerdeContext): (FooEnum | string)[] => {
+const de_FooEnumList = (output: any, context: __SerdeContext): FooEnum[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError(
@@ -8012,20 +8038,20 @@ const de_FooEnumList = (output: any, context: __SerdeContext): (FooEnum | string
 /**
  * deserializeAws_restJson1FooEnumMap
  */
-const de_FooEnumMap = (output: any, context: __SerdeContext): Record<string, FooEnum | string> => {
-  return Object.entries(output).reduce((acc: Record<string, FooEnum | string>, [key, value]: [string, any]) => {
+const de_FooEnumMap = (output: any, context: __SerdeContext): Record<string, FooEnum> => {
+  return Object.entries(output).reduce((acc: Record<string, FooEnum>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = __expectString(value) as any;
+    acc[key as string] = __expectString(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, FooEnum>);
 };
 
 /**
  * deserializeAws_restJson1FooEnumSet
  */
-const de_FooEnumSet = (output: any, context: __SerdeContext): (FooEnum | string)[] => {
+const de_FooEnumSet = (output: any, context: __SerdeContext): FooEnum[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError(
@@ -8049,7 +8075,7 @@ const de_GreetingStruct = (output: any, context: __SerdeContext): GreetingStruct
 /**
  * deserializeAws_restJson1IntegerEnumList
  */
-const de_IntegerEnumList = (output: any, context: __SerdeContext): (IntegerEnum | number)[] => {
+const de_IntegerEnumList = (output: any, context: __SerdeContext): IntegerEnum[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError(
@@ -8064,20 +8090,20 @@ const de_IntegerEnumList = (output: any, context: __SerdeContext): (IntegerEnum 
 /**
  * deserializeAws_restJson1IntegerEnumMap
  */
-const de_IntegerEnumMap = (output: any, context: __SerdeContext): Record<string, IntegerEnum | number> => {
-  return Object.entries(output).reduce((acc: Record<string, IntegerEnum | number>, [key, value]: [string, any]) => {
+const de_IntegerEnumMap = (output: any, context: __SerdeContext): Record<string, IntegerEnum> => {
+  return Object.entries(output).reduce((acc: Record<string, IntegerEnum>, [key, value]: [string, any]) => {
     if (value === null) {
       return acc;
     }
-    acc[key] = __expectInt32(value) as any;
+    acc[key as string] = __expectInt32(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, IntegerEnum>);
 };
 
 /**
  * deserializeAws_restJson1IntegerEnumSet
  */
-const de_IntegerEnumSet = (output: any, context: __SerdeContext): (IntegerEnum | number)[] => {
+const de_IntegerEnumSet = (output: any, context: __SerdeContext): IntegerEnum[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError(
@@ -8138,12 +8164,12 @@ const de_SparseStringList = (output: any, context: __SerdeContext): string[] => 
 const de_SparseStringMap = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
-      acc[key] = null as any;
+      acc[key as string] = null as any;
       return acc;
     }
-    acc[key] = __expectString(value) as any;
+    acc[key as string] = __expectString(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, string>);
 };
 
 /**
@@ -8169,9 +8195,9 @@ const de_StringMap = (output: any, context: __SerdeContext): Record<string, stri
     if (value === null) {
       return acc;
     }
-    acc[key] = __expectString(value) as any;
+    acc[key as string] = __expectString(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, string>);
 };
 
 /**
@@ -8227,6 +8253,94 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _H = "Header";
+const _a = "a";
+const _amth = "amz-media-typed-header";
+const _b = "booleaninheader";
+const _bIH = "booleanInHeader";
+const _bIHy = "byteInHeader";
+const _b_ = "b";
+const _bl = "blob";
+const _by = "byteinheader";
+const _c = "c";
+const _cT = "contentType";
+const _ce = "content-encoding";
+const _ct = "content-type";
+const _d = "doubleinheader";
+const _dF = "defaultFormat";
+const _dIH = "doubleInHeader";
+const _e = "encoding";
+const _f = "foo";
+const _fIH = "floatInHeader";
+const _fl = "floatinheader";
+const _g = "greeting";
+const _hB = "headerByte";
+const _hBL = "headerBooleanList";
+const _hD = "headerDouble";
+const _hE = "headerEnum";
+const _hEL = "headerEnumList";
+const _hF = "headerFloat";
+const _hFB = "headerFalseBool";
+const _hI = "headerInteger";
+const _hIE = "headerIntegerEnum";
+const _hIEL = "headerIntegerEnumList";
+const _hIL = "headerIntegerList";
+const _hL = "headerLong";
+const _hS = "headerString";
+const _hSL = "headerStringList";
+const _hSS = "headerStringSet";
+const _hSe = "headerShort";
+const _hTB = "headerTrueBool";
+const _hTL = "headerTimestampList";
+const _i = "integerinheader";
+const _iIH = "integerInHeader";
+const _j = "json";
+const _l = "longinheader";
+const _lIH = "longInHeader";
+const _mDT = "memberDateTime";
+const _mES = "memberEpochSeconds";
+const _mHD = "memberHttpDate";
+const _s = "shortinheader";
+const _sIH = "shortInHeader";
+const _t = "timestamp";
+const _tDT = "targetDateTime";
+const _tES = "targetEpochSeconds";
+const _tHD = "targetHttpDate";
+const _tI = "testId";
+const _xa = "x-a";
+const _xati = "x-amz-test-id";
+const _xb = "x-byte";
+const _xb_ = "x-boolean1";
+const _xb__ = "x-boolean2";
+const _xb___ = "x-booleanlist";
+const _xb____ = "x-b";
+const _xc = "x-c";
+const _xd = "x-double";
+const _xd_ = "x-defaultformat";
+const _xe = "x-enum";
+const _xe_ = "x-enumlist";
+const _xf = "x-foo";
+const _xf_ = "x-float";
+const _xg = "x-greeting";
+const _xh = "x-header";
+const _xi = "x-integer";
+const _xi_ = "x-integerlist";
+const _xi__ = "x-integerenum";
+const _xi___ = "x-integerenumlist";
+const _xj = "x-json";
+const _xl = "x-long";
+const _xm = "x-memberepochseconds";
+const _xm_ = "x-memberhttpdate";
+const _xm__ = "x-memberdatetime";
+const _xs = "x-string";
+const _xs_ = "x-short";
+const _xs__ = "x-stringlist";
+const _xs___ = "x-stringset";
+const _xt = "x-timestamplist";
+const _xt_ = "x-targetepochseconds";
+const _xt__ = "x-targethttpdate";
+const _xt___ = "x-targetdatetime";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

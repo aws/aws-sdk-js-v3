@@ -1,25 +1,55 @@
-import { HttpRequest, HttpResponse } from "@smithy/protocol-http";
+import { HttpRequest } from "@smithy/protocol-http";
 import {
   BuildHandler,
   BuildHandlerArguments,
+  BuildHandlerOptions,
   BuildHandlerOutput,
   BuildMiddleware,
+  HandlerExecutionContext,
   MetadataBearer,
 } from "@smithy/types";
 
 import { PreviouslyResolved } from "./configuration";
 import { getChecksumAlgorithmForRequest } from "./getChecksumAlgorithmForRequest";
 import { getChecksumLocationName } from "./getChecksumLocationName";
-import { FlexibleChecksumsMiddlewareConfig } from "./getFlexibleChecksumsPlugin";
 import { hasHeader } from "./hasHeader";
 import { isStreaming } from "./isStreaming";
 import { selectChecksumAlgorithmFunction } from "./selectChecksumAlgorithmFunction";
 import { stringHasher } from "./stringHasher";
-import { validateChecksumFromResponse } from "./validateChecksumFromResponse";
 
+export interface FlexibleChecksumsRequestMiddlewareConfig {
+  /**
+   * The input object for the operation.
+   */
+  input: Object;
+
+  /**
+   * Indicates an operation requires a checksum in its HTTP request.
+   */
+  requestChecksumRequired: boolean;
+
+  /**
+   * Defines a top-level operation input member that is used to configure request checksum behavior.
+   */
+  requestAlgorithmMember?: string;
+}
+
+export const flexibleChecksumsMiddlewareOptions: BuildHandlerOptions = {
+  name: "flexibleChecksumsMiddleware",
+  step: "build",
+  tags: ["BODY_CHECKSUM"],
+  override: true,
+};
+
+/**
+ * @internal
+ */
 export const flexibleChecksumsMiddleware =
-  (config: PreviouslyResolved, middlewareConfig: FlexibleChecksumsMiddlewareConfig): BuildMiddleware<any, any> =>
-  <Output extends MetadataBearer>(next: BuildHandler<any, Output>): BuildHandler<any, Output> =>
+  (config: PreviouslyResolved, middlewareConfig: FlexibleChecksumsRequestMiddlewareConfig): BuildMiddleware<any, any> =>
+  <Output extends MetadataBearer>(
+    next: BuildHandler<any, Output>,
+    context: HandlerExecutionContext
+  ): BuildHandler<any, Output> =>
   async (args: BuildHandlerArguments<any>): Promise<BuildHandlerOutput<Output>> => {
     if (!HttpRequest.isInstance(args.request)) {
       return next(args);
@@ -30,10 +60,14 @@ export const flexibleChecksumsMiddleware =
     const { base64Encoder, streamHasher } = config;
     const { input, requestChecksumRequired, requestAlgorithmMember } = middlewareConfig;
 
-    const checksumAlgorithm = getChecksumAlgorithmForRequest(input, {
-      requestChecksumRequired,
-      requestAlgorithmMember,
-    });
+    const checksumAlgorithm = getChecksumAlgorithmForRequest(
+      input,
+      {
+        requestChecksumRequired,
+        requestAlgorithmMember,
+      },
+      !!context.isS3ExpressBucket
+    );
     let updatedBody = requestBody;
     let updatedHeaders = headers;
 
@@ -77,15 +111,6 @@ export const flexibleChecksumsMiddleware =
         body: updatedBody,
       },
     });
-
-    const { requestValidationModeMember, responseAlgorithms } = middlewareConfig;
-    // @ts-ignore Element implicitly has an 'any' type for input[requestValidationModeMember]
-    if (requestValidationModeMember && input[requestValidationModeMember] === "ENABLED") {
-      await validateChecksumFromResponse(result.response as HttpResponse, {
-        config,
-        responseAlgorithms,
-      });
-    }
 
     return result;
   };

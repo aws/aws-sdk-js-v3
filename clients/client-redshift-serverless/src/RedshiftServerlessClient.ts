@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -55,13 +53,29 @@ import {
   ConvertRecoveryPointToSnapshotCommandOutput,
 } from "./commands/ConvertRecoveryPointToSnapshotCommand";
 import {
+  CreateCustomDomainAssociationCommandInput,
+  CreateCustomDomainAssociationCommandOutput,
+} from "./commands/CreateCustomDomainAssociationCommand";
+import {
   CreateEndpointAccessCommandInput,
   CreateEndpointAccessCommandOutput,
 } from "./commands/CreateEndpointAccessCommand";
 import { CreateNamespaceCommandInput, CreateNamespaceCommandOutput } from "./commands/CreateNamespaceCommand";
+import {
+  CreateScheduledActionCommandInput,
+  CreateScheduledActionCommandOutput,
+} from "./commands/CreateScheduledActionCommand";
 import { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand";
+import {
+  CreateSnapshotCopyConfigurationCommandInput,
+  CreateSnapshotCopyConfigurationCommandOutput,
+} from "./commands/CreateSnapshotCopyConfigurationCommand";
 import { CreateUsageLimitCommandInput, CreateUsageLimitCommandOutput } from "./commands/CreateUsageLimitCommand";
 import { CreateWorkgroupCommandInput, CreateWorkgroupCommandOutput } from "./commands/CreateWorkgroupCommand";
+import {
+  DeleteCustomDomainAssociationCommandInput,
+  DeleteCustomDomainAssociationCommandOutput,
+} from "./commands/DeleteCustomDomainAssociationCommand";
 import {
   DeleteEndpointAccessCommandInput,
   DeleteEndpointAccessCommandOutput,
@@ -71,14 +85,27 @@ import {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
+import {
+  DeleteScheduledActionCommandInput,
+  DeleteScheduledActionCommandOutput,
+} from "./commands/DeleteScheduledActionCommand";
 import { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "./commands/DeleteSnapshotCommand";
+import {
+  DeleteSnapshotCopyConfigurationCommandInput,
+  DeleteSnapshotCopyConfigurationCommandOutput,
+} from "./commands/DeleteSnapshotCopyConfigurationCommand";
 import { DeleteUsageLimitCommandInput, DeleteUsageLimitCommandOutput } from "./commands/DeleteUsageLimitCommand";
 import { DeleteWorkgroupCommandInput, DeleteWorkgroupCommandOutput } from "./commands/DeleteWorkgroupCommand";
 import { GetCredentialsCommandInput, GetCredentialsCommandOutput } from "./commands/GetCredentialsCommand";
+import {
+  GetCustomDomainAssociationCommandInput,
+  GetCustomDomainAssociationCommandOutput,
+} from "./commands/GetCustomDomainAssociationCommand";
 import { GetEndpointAccessCommandInput, GetEndpointAccessCommandOutput } from "./commands/GetEndpointAccessCommand";
 import { GetNamespaceCommandInput, GetNamespaceCommandOutput } from "./commands/GetNamespaceCommand";
 import { GetRecoveryPointCommandInput, GetRecoveryPointCommandOutput } from "./commands/GetRecoveryPointCommand";
 import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
+import { GetScheduledActionCommandInput, GetScheduledActionCommandOutput } from "./commands/GetScheduledActionCommand";
 import { GetSnapshotCommandInput, GetSnapshotCommandOutput } from "./commands/GetSnapshotCommand";
 import {
   GetTableRestoreStatusCommandInput,
@@ -86,9 +113,21 @@ import {
 } from "./commands/GetTableRestoreStatusCommand";
 import { GetUsageLimitCommandInput, GetUsageLimitCommandOutput } from "./commands/GetUsageLimitCommand";
 import { GetWorkgroupCommandInput, GetWorkgroupCommandOutput } from "./commands/GetWorkgroupCommand";
+import {
+  ListCustomDomainAssociationsCommandInput,
+  ListCustomDomainAssociationsCommandOutput,
+} from "./commands/ListCustomDomainAssociationsCommand";
 import { ListEndpointAccessCommandInput, ListEndpointAccessCommandOutput } from "./commands/ListEndpointAccessCommand";
 import { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "./commands/ListNamespacesCommand";
 import { ListRecoveryPointsCommandInput, ListRecoveryPointsCommandOutput } from "./commands/ListRecoveryPointsCommand";
+import {
+  ListScheduledActionsCommandInput,
+  ListScheduledActionsCommandOutput,
+} from "./commands/ListScheduledActionsCommand";
+import {
+  ListSnapshotCopyConfigurationsCommandInput,
+  ListSnapshotCopyConfigurationsCommandOutput,
+} from "./commands/ListSnapshotCopyConfigurationsCommand";
 import { ListSnapshotsCommandInput, ListSnapshotsCommandOutput } from "./commands/ListSnapshotsCommand";
 import {
   ListTableRestoreStatusCommandInput,
@@ -110,17 +149,33 @@ import {
   RestoreFromSnapshotCommandOutput,
 } from "./commands/RestoreFromSnapshotCommand";
 import {
+  RestoreTableFromRecoveryPointCommandInput,
+  RestoreTableFromRecoveryPointCommandOutput,
+} from "./commands/RestoreTableFromRecoveryPointCommand";
+import {
   RestoreTableFromSnapshotCommandInput,
   RestoreTableFromSnapshotCommandOutput,
 } from "./commands/RestoreTableFromSnapshotCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
+  UpdateCustomDomainAssociationCommandInput,
+  UpdateCustomDomainAssociationCommandOutput,
+} from "./commands/UpdateCustomDomainAssociationCommand";
+import {
   UpdateEndpointAccessCommandInput,
   UpdateEndpointAccessCommandOutput,
 } from "./commands/UpdateEndpointAccessCommand";
 import { UpdateNamespaceCommandInput, UpdateNamespaceCommandOutput } from "./commands/UpdateNamespaceCommand";
+import {
+  UpdateScheduledActionCommandInput,
+  UpdateScheduledActionCommandOutput,
+} from "./commands/UpdateScheduledActionCommand";
 import { UpdateSnapshotCommandInput, UpdateSnapshotCommandOutput } from "./commands/UpdateSnapshotCommand";
+import {
+  UpdateSnapshotCopyConfigurationCommandInput,
+  UpdateSnapshotCopyConfigurationCommandOutput,
+} from "./commands/UpdateSnapshotCopyConfigurationCommand";
 import { UpdateUsageLimitCommandInput, UpdateUsageLimitCommandOutput } from "./commands/UpdateUsageLimitCommand";
 import { UpdateWorkgroupCommandInput, UpdateWorkgroupCommandOutput } from "./commands/UpdateWorkgroupCommand";
 import {
@@ -139,29 +194,40 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | ConvertRecoveryPointToSnapshotCommandInput
+  | CreateCustomDomainAssociationCommandInput
   | CreateEndpointAccessCommandInput
   | CreateNamespaceCommandInput
+  | CreateScheduledActionCommandInput
   | CreateSnapshotCommandInput
+  | CreateSnapshotCopyConfigurationCommandInput
   | CreateUsageLimitCommandInput
   | CreateWorkgroupCommandInput
+  | DeleteCustomDomainAssociationCommandInput
   | DeleteEndpointAccessCommandInput
   | DeleteNamespaceCommandInput
   | DeleteResourcePolicyCommandInput
+  | DeleteScheduledActionCommandInput
   | DeleteSnapshotCommandInput
+  | DeleteSnapshotCopyConfigurationCommandInput
   | DeleteUsageLimitCommandInput
   | DeleteWorkgroupCommandInput
   | GetCredentialsCommandInput
+  | GetCustomDomainAssociationCommandInput
   | GetEndpointAccessCommandInput
   | GetNamespaceCommandInput
   | GetRecoveryPointCommandInput
   | GetResourcePolicyCommandInput
+  | GetScheduledActionCommandInput
   | GetSnapshotCommandInput
   | GetTableRestoreStatusCommandInput
   | GetUsageLimitCommandInput
   | GetWorkgroupCommandInput
+  | ListCustomDomainAssociationsCommandInput
   | ListEndpointAccessCommandInput
   | ListNamespacesCommandInput
   | ListRecoveryPointsCommandInput
+  | ListScheduledActionsCommandInput
+  | ListSnapshotCopyConfigurationsCommandInput
   | ListSnapshotsCommandInput
   | ListTableRestoreStatusCommandInput
   | ListTagsForResourceCommandInput
@@ -170,12 +236,16 @@ export type ServiceInputTypes =
   | PutResourcePolicyCommandInput
   | RestoreFromRecoveryPointCommandInput
   | RestoreFromSnapshotCommandInput
+  | RestoreTableFromRecoveryPointCommandInput
   | RestoreTableFromSnapshotCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateCustomDomainAssociationCommandInput
   | UpdateEndpointAccessCommandInput
   | UpdateNamespaceCommandInput
+  | UpdateScheduledActionCommandInput
   | UpdateSnapshotCommandInput
+  | UpdateSnapshotCopyConfigurationCommandInput
   | UpdateUsageLimitCommandInput
   | UpdateWorkgroupCommandInput;
 
@@ -184,29 +254,40 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | ConvertRecoveryPointToSnapshotCommandOutput
+  | CreateCustomDomainAssociationCommandOutput
   | CreateEndpointAccessCommandOutput
   | CreateNamespaceCommandOutput
+  | CreateScheduledActionCommandOutput
   | CreateSnapshotCommandOutput
+  | CreateSnapshotCopyConfigurationCommandOutput
   | CreateUsageLimitCommandOutput
   | CreateWorkgroupCommandOutput
+  | DeleteCustomDomainAssociationCommandOutput
   | DeleteEndpointAccessCommandOutput
   | DeleteNamespaceCommandOutput
   | DeleteResourcePolicyCommandOutput
+  | DeleteScheduledActionCommandOutput
   | DeleteSnapshotCommandOutput
+  | DeleteSnapshotCopyConfigurationCommandOutput
   | DeleteUsageLimitCommandOutput
   | DeleteWorkgroupCommandOutput
   | GetCredentialsCommandOutput
+  | GetCustomDomainAssociationCommandOutput
   | GetEndpointAccessCommandOutput
   | GetNamespaceCommandOutput
   | GetRecoveryPointCommandOutput
   | GetResourcePolicyCommandOutput
+  | GetScheduledActionCommandOutput
   | GetSnapshotCommandOutput
   | GetTableRestoreStatusCommandOutput
   | GetUsageLimitCommandOutput
   | GetWorkgroupCommandOutput
+  | ListCustomDomainAssociationsCommandOutput
   | ListEndpointAccessCommandOutput
   | ListNamespacesCommandOutput
   | ListRecoveryPointsCommandOutput
+  | ListScheduledActionsCommandOutput
+  | ListSnapshotCopyConfigurationsCommandOutput
   | ListSnapshotsCommandOutput
   | ListTableRestoreStatusCommandOutput
   | ListTagsForResourceCommandOutput
@@ -215,12 +296,16 @@ export type ServiceOutputTypes =
   | PutResourcePolicyCommandOutput
   | RestoreFromRecoveryPointCommandOutput
   | RestoreFromSnapshotCommandOutput
+  | RestoreTableFromRecoveryPointCommandOutput
   | RestoreTableFromSnapshotCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateCustomDomainAssociationCommandOutput
   | UpdateEndpointAccessCommandOutput
   | UpdateNamespaceCommandOutput
+  | UpdateScheduledActionCommandOutput
   | UpdateSnapshotCommandOutput
+  | UpdateSnapshotCopyConfigurationCommandOutput
   | UpdateUsageLimitCommandOutput
   | UpdateWorkgroupCommandOutput;
 
@@ -334,6 +419,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

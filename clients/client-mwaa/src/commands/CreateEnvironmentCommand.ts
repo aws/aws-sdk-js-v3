@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreateEnvironmentInput,
   CreateEnvironmentInputFilterSensitiveLog,
@@ -102,6 +94,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  *   WebserverAccessMode: "STRING_VALUE",
  *   MinWorkers: Number("int"),
  *   Schedulers: Number("int"),
+ *   EndpointManagement: "STRING_VALUE",
  * };
  * const command = new CreateEnvironmentCommand(input);
  * const response = await client.send(command);
@@ -127,79 +120,26 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
  */
-export class CreateEnvironmentCommand extends $Command<
-  CreateEnvironmentCommandInput,
-  CreateEnvironmentCommandOutput,
-  MWAAClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateEnvironmentCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: MWAAClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateEnvironmentCommandInput, CreateEnvironmentCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateEnvironmentCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "MWAAClient";
-    const commandName = "CreateEnvironmentCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: CreateEnvironmentInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateEnvironmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateEnvironmentCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEnvironmentCommandOutput> {
-    return de_CreateEnvironmentCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateEnvironmentCommand extends $Command
+  .classBuilder<
+    CreateEnvironmentCommandInput,
+    CreateEnvironmentCommandOutput,
+    MWAAClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: MWAAClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonMWAA", "CreateEnvironment", {})
+  .n("MWAAClient", "CreateEnvironmentCommand")
+  .f(CreateEnvironmentInputFilterSensitiveLog, void 0)
+  .ser(se_CreateEnvironmentCommand)
+  .de(de_CreateEnvironmentCommand)
+  .build() {}

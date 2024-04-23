@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   RegisterApplicationInput,
   RegisterApplicationInputFilterSensitiveLog,
@@ -56,7 +48,7 @@ export interface RegisterApplicationCommandOutput extends RegisterApplicationOut
  * const client = new SsmSapClient(config);
  * const input = { // RegisterApplicationInput
  *   ApplicationId: "STRING_VALUE", // required
- *   ApplicationType: "HANA", // required
+ *   ApplicationType: "HANA" || "SAP_ABAP", // required
  *   Instances: [ // InstanceList // required
  *     "STRING_VALUE",
  *   ],
@@ -65,20 +57,21 @@ export interface RegisterApplicationCommandOutput extends RegisterApplicationOut
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   Credentials: [ // ApplicationCredentialList // required
+ *   Credentials: [ // ApplicationCredentialList
  *     { // ApplicationCredential
  *       DatabaseName: "STRING_VALUE", // required
  *       CredentialType: "ADMIN", // required
  *       SecretId: "STRING_VALUE", // required
  *     },
  *   ],
+ *   DatabaseArn: "STRING_VALUE",
  * };
  * const command = new RegisterApplicationCommand(input);
  * const response = await client.send(command);
  * // { // RegisterApplicationOutput
  * //   Application: { // Application
  * //     Id: "STRING_VALUE",
- * //     Type: "HANA",
+ * //     Type: "HANA" || "SAP_ABAP",
  * //     Arn: "STRING_VALUE",
  * //     AppRegistryArn: "STRING_VALUE",
  * //     Status: "ACTIVATED" || "STARTING" || "STOPPED" || "STOPPING" || "FAILED" || "REGISTERING" || "DELETING" || "UNKNOWN",
@@ -106,6 +99,9 @@ export interface RegisterApplicationCommandOutput extends RegisterApplicationOut
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal error has occurred.</p>
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource is not available.</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
  *
@@ -113,79 +109,26 @@ export interface RegisterApplicationCommandOutput extends RegisterApplicationOut
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
  */
-export class RegisterApplicationCommand extends $Command<
-  RegisterApplicationCommandInput,
-  RegisterApplicationCommandOutput,
-  SsmSapClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: RegisterApplicationCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SsmSapClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<RegisterApplicationCommandInput, RegisterApplicationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, RegisterApplicationCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SsmSapClient";
-    const commandName = "RegisterApplicationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: RegisterApplicationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: RegisterApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_RegisterApplicationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterApplicationCommandOutput> {
-    return de_RegisterApplicationCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class RegisterApplicationCommand extends $Command
+  .classBuilder<
+    RegisterApplicationCommandInput,
+    RegisterApplicationCommandOutput,
+    SsmSapClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SsmSapClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("SsmSap", "RegisterApplication", {})
+  .n("SsmSapClient", "RegisterApplicationCommand")
+  .f(RegisterApplicationInputFilterSensitiveLog, void 0)
+  .ser(se_RegisterApplicationCommand)
+  .de(de_RegisterApplicationCommand)
+  .build() {}

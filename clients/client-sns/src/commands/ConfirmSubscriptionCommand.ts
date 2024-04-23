@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ConfirmSubscriptionInput, ConfirmSubscriptionResponse } from "../models/models_0";
 import { de_ConfirmSubscriptionCommand, se_ConfirmSubscriptionCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
@@ -84,6 +76,9 @@ export interface ConfirmSubscriptionCommandOutput extends ConfirmSubscriptionRes
  * @throws {@link NotFoundException} (client fault)
  *  <p>Indicates that the requested resource does not exist.</p>
  *
+ * @throws {@link ReplayLimitExceededException} (client fault)
+ *  <p>Indicates that the request parameter has exceeded the maximum number of concurrent message replays.</p>
+ *
  * @throws {@link SubscriptionLimitExceededException} (client fault)
  *  <p>Indicates that the customer already owns the maximum allowed number of
  *             subscriptions.</p>
@@ -92,79 +87,26 @@ export interface ConfirmSubscriptionCommandOutput extends ConfirmSubscriptionRes
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
  */
-export class ConfirmSubscriptionCommand extends $Command<
-  ConfirmSubscriptionCommandInput,
-  ConfirmSubscriptionCommandOutput,
-  SNSClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ConfirmSubscriptionCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SNSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ConfirmSubscriptionCommandInput, ConfirmSubscriptionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ConfirmSubscriptionCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SNSClient";
-    const commandName = "ConfirmSubscriptionCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ConfirmSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ConfirmSubscriptionCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfirmSubscriptionCommandOutput> {
-    return de_ConfirmSubscriptionCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ConfirmSubscriptionCommand extends $Command
+  .classBuilder<
+    ConfirmSubscriptionCommandInput,
+    ConfirmSubscriptionCommandOutput,
+    SNSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SNSClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonSimpleNotificationService", "ConfirmSubscription", {})
+  .n("SNSClient", "ConfirmSubscriptionCommand")
+  .f(void 0, void 0)
+  .ser(se_ConfirmSubscriptionCommand)
+  .de(de_ConfirmSubscriptionCommand)
+  .build() {}

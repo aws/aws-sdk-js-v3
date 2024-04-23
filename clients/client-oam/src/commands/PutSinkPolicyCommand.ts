@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { PutSinkPolicyInput, PutSinkPolicyOutput } from "../models/models_0";
 import { OAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OAMClient";
 import { de_PutSinkPolicyCommand, se_PutSinkPolicyCommand } from "../protocols/Aws_restJson1";
@@ -39,9 +31,9 @@ export interface PutSinkPolicyCommandOutput extends PutSinkPolicyOutput, __Metad
  * <p>Creates or updates the resource policy that grants permissions to source
  *             accounts to link to the monitoring account sink. When you create a sink policy, you can grant
  *             permissions to all accounts in an organization or to individual accounts.</p>
- *         <p>You can also use a sink policy to limit the types of data that is shared. The three types that
+ *          <p>You can also use a sink policy to limit the types of data that is shared. The three types that
  *             you can allow or deny are:</p>
- *         <ul>
+ *          <ul>
  *             <li>
  *                <p>
  *                   <b>Metrics</b> - Specify with
@@ -58,8 +50,13 @@ export interface PutSinkPolicyCommandOutput extends PutSinkPolicyOutput, __Metad
  *                   <b>Traces</b> - Specify with <code>AWS::XRay::Trace</code>
  *                </p>
  *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Application Insights - Applications</b> - Specify with <code>AWS::ApplicationInsights::Application</code>
+ *                </p>
+ *             </li>
  *          </ul>
- *         <p>See the examples in this section to see how to specify permitted source accounts and data types.</p>
+ *          <p>See the examples in this section to see how to specify permitted source accounts and data types.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,77 +99,26 @@ export interface PutSinkPolicyCommandOutput extends PutSinkPolicyOutput, __Metad
  * <p>Base exception class for all service exceptions from OAM service.</p>
  *
  */
-export class PutSinkPolicyCommand extends $Command<
-  PutSinkPolicyCommandInput,
-  PutSinkPolicyCommandOutput,
-  OAMClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PutSinkPolicyCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: OAMClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PutSinkPolicyCommandInput, PutSinkPolicyCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, PutSinkPolicyCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "OAMClient";
-    const commandName = "PutSinkPolicyCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: PutSinkPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PutSinkPolicyCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSinkPolicyCommandOutput> {
-    return de_PutSinkPolicyCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class PutSinkPolicyCommand extends $Command
+  .classBuilder<
+    PutSinkPolicyCommandInput,
+    PutSinkPolicyCommandOutput,
+    OAMClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: OAMClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("oamservice", "PutSinkPolicy", {})
+  .n("OAMClient", "PutSinkPolicyCommand")
+  .f(void 0, void 0)
+  .ser(se_PutSinkPolicyCommand)
+  .de(de_PutSinkPolicyCommand)
+  .build() {}

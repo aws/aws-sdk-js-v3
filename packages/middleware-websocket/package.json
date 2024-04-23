@@ -1,12 +1,12 @@
 {
   "name": "@aws-sdk/middleware-websocket",
-  "version": "3.391.0",
+  "version": "3.496.0",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
-    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:cjs": "node ../../scripts/compilation/inline middleware-websocket",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",
@@ -24,12 +24,13 @@
     "@aws-sdk/middleware-signing": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/util-format-url": "*",
-    "@smithy/eventstream-serde-browser": "^2.0.3",
-    "@smithy/fetch-http-handler": "^2.0.3",
-    "@smithy/protocol-http": "^2.0.3",
-    "@smithy/signature-v4": "^2.0.0",
-    "@smithy/types": "^2.2.0",
-    "@smithy/util-hex-encoding": "^2.0.0",
+    "@smithy/eventstream-codec": "^2.1.1",
+    "@smithy/eventstream-serde-browser": "^2.1.1",
+    "@smithy/fetch-http-handler": "^2.4.1",
+    "@smithy/protocol-http": "^3.1.1",
+    "@smithy/signature-v4": "^2.1.1",
+    "@smithy/types": "^2.9.1",
+    "@smithy/util-hex-encoding": "^2.1.1",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
@@ -40,7 +41,6 @@
     "jest-websocket-mock": "^2.0.2",
     "mock-socket": "9.1.5",
     "rimraf": "3.0.2",
-    "typedoc": "0.23.23",
     "typescript": "~4.9.5",
     "web-streams-polyfill": "3.2.1"
   },
@@ -62,8 +62,5 @@
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/middleware-websocket"
-  },
-  "typedoc": {
-    "entryPoint": "src/index.ts"
   }
 }

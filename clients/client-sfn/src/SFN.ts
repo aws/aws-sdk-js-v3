@@ -114,6 +114,11 @@ import {
   PublishStateMachineVersionCommandOutput,
 } from "./commands/PublishStateMachineVersionCommand";
 import {
+  RedriveExecutionCommand,
+  RedriveExecutionCommandInput,
+  RedriveExecutionCommandOutput,
+} from "./commands/RedriveExecutionCommand";
+import {
   SendTaskFailureCommand,
   SendTaskFailureCommandInput,
   SendTaskFailureCommandOutput,
@@ -144,6 +149,7 @@ import {
   StopExecutionCommandOutput,
 } from "./commands/StopExecutionCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { TestStateCommand, TestStateCommandInput, TestStateCommandOutput } from "./commands/TestStateCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
@@ -190,6 +196,7 @@ const commands = {
   ListStateMachineVersionsCommand,
   ListTagsForResourceCommand,
   PublishStateMachineVersionCommand,
+  RedriveExecutionCommand,
   SendTaskFailureCommand,
   SendTaskHeartbeatCommand,
   SendTaskSuccessCommand,
@@ -197,6 +204,7 @@ const commands = {
   StartSyncExecutionCommand,
   StopExecutionCommand,
   TagResourceCommand,
+  TestStateCommand,
   UntagResourceCommand,
   UpdateMapRunCommand,
   UpdateStateMachineCommand,
@@ -572,6 +580,23 @@ export interface SFN {
   ): void;
 
   /**
+   * @see {@link RedriveExecutionCommand}
+   */
+  redriveExecution(
+    args: RedriveExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RedriveExecutionCommandOutput>;
+  redriveExecution(
+    args: RedriveExecutionCommandInput,
+    cb: (err: any, data?: RedriveExecutionCommandOutput) => void
+  ): void;
+  redriveExecution(
+    args: RedriveExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RedriveExecutionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SendTaskFailureCommand}
    */
   sendTaskFailure(
@@ -670,6 +695,17 @@ export interface SFN {
   ): void;
 
   /**
+   * @see {@link TestStateCommand}
+   */
+  testState(args: TestStateCommandInput, options?: __HttpHandlerOptions): Promise<TestStateCommandOutput>;
+  testState(args: TestStateCommandInput, cb: (err: any, data?: TestStateCommandOutput) => void): void;
+  testState(
+    args: TestStateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TestStateCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UntagResourceCommand}
    */
   untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
@@ -744,6 +780,9 @@ export interface SFN {
  *       For more information about Step Functions, see the <i>
  *                <a href="https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html">Step Functions Developer Guide</a>
  *             </i>.</p>
+ *          <important>
+ *             <p>If you use the Step Functions API actions using Amazon Web Services SDK integrations, make sure the API actions are in camel case and parameter names are in Pascal case. For example, you could use Step Functions API action <code>startSyncExecution</code> and specify its parameter as <code>StateMachineArn</code>.</p>
+ *          </important>
  */
 export class SFN extends SFNClient implements SFN {}
 createAggregatedClient(commands, SFN);

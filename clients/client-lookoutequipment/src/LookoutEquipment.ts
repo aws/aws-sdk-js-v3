@@ -20,6 +20,11 @@ import {
 } from "./commands/CreateLabelGroupCommand";
 import { CreateModelCommand, CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
 import {
+  CreateRetrainingSchedulerCommand,
+  CreateRetrainingSchedulerCommandInput,
+  CreateRetrainingSchedulerCommandOutput,
+} from "./commands/CreateRetrainingSchedulerCommand";
+import {
   DeleteDatasetCommand,
   DeleteDatasetCommandInput,
   DeleteDatasetCommandOutput,
@@ -41,6 +46,11 @@ import {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
+import {
+  DeleteRetrainingSchedulerCommand,
+  DeleteRetrainingSchedulerCommandInput,
+  DeleteRetrainingSchedulerCommandOutput,
+} from "./commands/DeleteRetrainingSchedulerCommand";
 import {
   DescribeDataIngestionJobCommand,
   DescribeDataIngestionJobCommandInput,
@@ -81,6 +91,11 @@ import {
   DescribeResourcePolicyCommandInput,
   DescribeResourcePolicyCommandOutput,
 } from "./commands/DescribeResourcePolicyCommand";
+import {
+  DescribeRetrainingSchedulerCommand,
+  DescribeRetrainingSchedulerCommandInput,
+  DescribeRetrainingSchedulerCommandOutput,
+} from "./commands/DescribeRetrainingSchedulerCommand";
 import {
   ImportDatasetCommand,
   ImportDatasetCommandInput,
@@ -129,6 +144,11 @@ import {
   ListModelVersionsCommandOutput,
 } from "./commands/ListModelVersionsCommand";
 import {
+  ListRetrainingSchedulersCommand,
+  ListRetrainingSchedulersCommandInput,
+  ListRetrainingSchedulersCommandOutput,
+} from "./commands/ListRetrainingSchedulersCommand";
+import {
   ListSensorStatisticsCommand,
   ListSensorStatisticsCommandInput,
   ListSensorStatisticsCommandOutput,
@@ -154,10 +174,20 @@ import {
   StartInferenceSchedulerCommandOutput,
 } from "./commands/StartInferenceSchedulerCommand";
 import {
+  StartRetrainingSchedulerCommand,
+  StartRetrainingSchedulerCommandInput,
+  StartRetrainingSchedulerCommandOutput,
+} from "./commands/StartRetrainingSchedulerCommand";
+import {
   StopInferenceSchedulerCommand,
   StopInferenceSchedulerCommandInput,
   StopInferenceSchedulerCommandOutput,
 } from "./commands/StopInferenceSchedulerCommand";
+import {
+  StopRetrainingSchedulerCommand,
+  StopRetrainingSchedulerCommandInput,
+  StopRetrainingSchedulerCommandOutput,
+} from "./commands/StopRetrainingSchedulerCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -179,6 +209,12 @@ import {
   UpdateLabelGroupCommandInput,
   UpdateLabelGroupCommandOutput,
 } from "./commands/UpdateLabelGroupCommand";
+import { UpdateModelCommand, UpdateModelCommandInput, UpdateModelCommandOutput } from "./commands/UpdateModelCommand";
+import {
+  UpdateRetrainingSchedulerCommand,
+  UpdateRetrainingSchedulerCommandInput,
+  UpdateRetrainingSchedulerCommandOutput,
+} from "./commands/UpdateRetrainingSchedulerCommand";
 import { LookoutEquipmentClient, LookoutEquipmentClientConfig } from "./LookoutEquipmentClient";
 
 const commands = {
@@ -187,12 +223,14 @@ const commands = {
   CreateLabelCommand,
   CreateLabelGroupCommand,
   CreateModelCommand,
+  CreateRetrainingSchedulerCommand,
   DeleteDatasetCommand,
   DeleteInferenceSchedulerCommand,
   DeleteLabelCommand,
   DeleteLabelGroupCommand,
   DeleteModelCommand,
   DeleteResourcePolicyCommand,
+  DeleteRetrainingSchedulerCommand,
   DescribeDataIngestionJobCommand,
   DescribeDatasetCommand,
   DescribeInferenceSchedulerCommand,
@@ -201,6 +239,7 @@ const commands = {
   DescribeModelCommand,
   DescribeModelVersionCommand,
   DescribeResourcePolicyCommand,
+  DescribeRetrainingSchedulerCommand,
   ImportDatasetCommand,
   ImportModelVersionCommand,
   ListDataIngestionJobsCommand,
@@ -212,17 +251,22 @@ const commands = {
   ListLabelsCommand,
   ListModelsCommand,
   ListModelVersionsCommand,
+  ListRetrainingSchedulersCommand,
   ListSensorStatisticsCommand,
   ListTagsForResourceCommand,
   PutResourcePolicyCommand,
   StartDataIngestionJobCommand,
   StartInferenceSchedulerCommand,
+  StartRetrainingSchedulerCommand,
   StopInferenceSchedulerCommand,
+  StopRetrainingSchedulerCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateActiveModelVersionCommand,
   UpdateInferenceSchedulerCommand,
   UpdateLabelGroupCommand,
+  UpdateModelCommand,
+  UpdateRetrainingSchedulerCommand,
 };
 
 export interface LookoutEquipment {
@@ -291,6 +335,23 @@ export interface LookoutEquipment {
     args: CreateModelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateModelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateRetrainingSchedulerCommand}
+   */
+  createRetrainingScheduler(
+    args: CreateRetrainingSchedulerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRetrainingSchedulerCommandOutput>;
+  createRetrainingScheduler(
+    args: CreateRetrainingSchedulerCommandInput,
+    cb: (err: any, data?: CreateRetrainingSchedulerCommandOutput) => void
+  ): void;
+  createRetrainingScheduler(
+    args: CreateRetrainingSchedulerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRetrainingSchedulerCommandOutput) => void
   ): void;
 
   /**
@@ -375,6 +436,23 @@ export interface LookoutEquipment {
     args: DeleteResourcePolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRetrainingSchedulerCommand}
+   */
+  deleteRetrainingScheduler(
+    args: DeleteRetrainingSchedulerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRetrainingSchedulerCommandOutput>;
+  deleteRetrainingScheduler(
+    args: DeleteRetrainingSchedulerCommandInput,
+    cb: (err: any, data?: DeleteRetrainingSchedulerCommandOutput) => void
+  ): void;
+  deleteRetrainingScheduler(
+    args: DeleteRetrainingSchedulerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRetrainingSchedulerCommandOutput) => void
   ): void;
 
   /**
@@ -496,6 +574,23 @@ export interface LookoutEquipment {
     args: DescribeResourcePolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeRetrainingSchedulerCommand}
+   */
+  describeRetrainingScheduler(
+    args: DescribeRetrainingSchedulerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRetrainingSchedulerCommandOutput>;
+  describeRetrainingScheduler(
+    args: DescribeRetrainingSchedulerCommandInput,
+    cb: (err: any, data?: DescribeRetrainingSchedulerCommandOutput) => void
+  ): void;
+  describeRetrainingScheduler(
+    args: DescribeRetrainingSchedulerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRetrainingSchedulerCommandOutput) => void
   ): void;
 
   /**
@@ -659,6 +754,23 @@ export interface LookoutEquipment {
   ): void;
 
   /**
+   * @see {@link ListRetrainingSchedulersCommand}
+   */
+  listRetrainingSchedulers(
+    args: ListRetrainingSchedulersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRetrainingSchedulersCommandOutput>;
+  listRetrainingSchedulers(
+    args: ListRetrainingSchedulersCommandInput,
+    cb: (err: any, data?: ListRetrainingSchedulersCommandOutput) => void
+  ): void;
+  listRetrainingSchedulers(
+    args: ListRetrainingSchedulersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRetrainingSchedulersCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListSensorStatisticsCommand}
    */
   listSensorStatistics(
@@ -744,6 +856,23 @@ export interface LookoutEquipment {
   ): void;
 
   /**
+   * @see {@link StartRetrainingSchedulerCommand}
+   */
+  startRetrainingScheduler(
+    args: StartRetrainingSchedulerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartRetrainingSchedulerCommandOutput>;
+  startRetrainingScheduler(
+    args: StartRetrainingSchedulerCommandInput,
+    cb: (err: any, data?: StartRetrainingSchedulerCommandOutput) => void
+  ): void;
+  startRetrainingScheduler(
+    args: StartRetrainingSchedulerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartRetrainingSchedulerCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StopInferenceSchedulerCommand}
    */
   stopInferenceScheduler(
@@ -758,6 +887,23 @@ export interface LookoutEquipment {
     args: StopInferenceSchedulerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopInferenceSchedulerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopRetrainingSchedulerCommand}
+   */
+  stopRetrainingScheduler(
+    args: StopRetrainingSchedulerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopRetrainingSchedulerCommandOutput>;
+  stopRetrainingScheduler(
+    args: StopRetrainingSchedulerCommandInput,
+    cb: (err: any, data?: StopRetrainingSchedulerCommandOutput) => void
+  ): void;
+  stopRetrainingScheduler(
+    args: StopRetrainingSchedulerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopRetrainingSchedulerCommandOutput) => void
   ): void;
 
   /**
@@ -831,6 +977,34 @@ export interface LookoutEquipment {
     args: UpdateLabelGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateLabelGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateModelCommand}
+   */
+  updateModel(args: UpdateModelCommandInput, options?: __HttpHandlerOptions): Promise<UpdateModelCommandOutput>;
+  updateModel(args: UpdateModelCommandInput, cb: (err: any, data?: UpdateModelCommandOutput) => void): void;
+  updateModel(
+    args: UpdateModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateModelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateRetrainingSchedulerCommand}
+   */
+  updateRetrainingScheduler(
+    args: UpdateRetrainingSchedulerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRetrainingSchedulerCommandOutput>;
+  updateRetrainingScheduler(
+    args: UpdateRetrainingSchedulerCommandInput,
+    cb: (err: any, data?: UpdateRetrainingSchedulerCommandOutput) => void
+  ): void;
+  updateRetrainingScheduler(
+    args: UpdateRetrainingSchedulerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRetrainingSchedulerCommandOutput) => void
   ): void;
 }
 

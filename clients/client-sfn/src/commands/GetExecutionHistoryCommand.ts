@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetExecutionHistoryInput,
   GetExecutionHistoryOutput,
@@ -65,7 +57,7 @@ export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOut
  * //   events: [ // HistoryEventList // required
  * //     { // HistoryEvent
  * //       timestamp: new Date("TIMESTAMP"), // required
- * //       type: "ActivityFailed" || "ActivityScheduled" || "ActivityScheduleFailed" || "ActivityStarted" || "ActivitySucceeded" || "ActivityTimedOut" || "ChoiceStateEntered" || "ChoiceStateExited" || "ExecutionAborted" || "ExecutionFailed" || "ExecutionStarted" || "ExecutionSucceeded" || "ExecutionTimedOut" || "FailStateEntered" || "LambdaFunctionFailed" || "LambdaFunctionScheduled" || "LambdaFunctionScheduleFailed" || "LambdaFunctionStarted" || "LambdaFunctionStartFailed" || "LambdaFunctionSucceeded" || "LambdaFunctionTimedOut" || "MapIterationAborted" || "MapIterationFailed" || "MapIterationStarted" || "MapIterationSucceeded" || "MapStateAborted" || "MapStateEntered" || "MapStateExited" || "MapStateFailed" || "MapStateStarted" || "MapStateSucceeded" || "ParallelStateAborted" || "ParallelStateEntered" || "ParallelStateExited" || "ParallelStateFailed" || "ParallelStateStarted" || "ParallelStateSucceeded" || "PassStateEntered" || "PassStateExited" || "SucceedStateEntered" || "SucceedStateExited" || "TaskFailed" || "TaskScheduled" || "TaskStarted" || "TaskStartFailed" || "TaskStateAborted" || "TaskStateEntered" || "TaskStateExited" || "TaskSubmitFailed" || "TaskSubmitted" || "TaskSucceeded" || "TaskTimedOut" || "WaitStateAborted" || "WaitStateEntered" || "WaitStateExited" || "MapRunAborted" || "MapRunFailed" || "MapRunStarted" || "MapRunSucceeded", // required
+ * //       type: "ActivityFailed" || "ActivityScheduled" || "ActivityScheduleFailed" || "ActivityStarted" || "ActivitySucceeded" || "ActivityTimedOut" || "ChoiceStateEntered" || "ChoiceStateExited" || "ExecutionAborted" || "ExecutionFailed" || "ExecutionStarted" || "ExecutionSucceeded" || "ExecutionTimedOut" || "FailStateEntered" || "LambdaFunctionFailed" || "LambdaFunctionScheduled" || "LambdaFunctionScheduleFailed" || "LambdaFunctionStarted" || "LambdaFunctionStartFailed" || "LambdaFunctionSucceeded" || "LambdaFunctionTimedOut" || "MapIterationAborted" || "MapIterationFailed" || "MapIterationStarted" || "MapIterationSucceeded" || "MapStateAborted" || "MapStateEntered" || "MapStateExited" || "MapStateFailed" || "MapStateStarted" || "MapStateSucceeded" || "ParallelStateAborted" || "ParallelStateEntered" || "ParallelStateExited" || "ParallelStateFailed" || "ParallelStateStarted" || "ParallelStateSucceeded" || "PassStateEntered" || "PassStateExited" || "SucceedStateEntered" || "SucceedStateExited" || "TaskFailed" || "TaskScheduled" || "TaskStarted" || "TaskStartFailed" || "TaskStateAborted" || "TaskStateEntered" || "TaskStateExited" || "TaskSubmitFailed" || "TaskSubmitted" || "TaskSucceeded" || "TaskTimedOut" || "WaitStateAborted" || "WaitStateEntered" || "WaitStateExited" || "MapRunAborted" || "MapRunFailed" || "MapRunStarted" || "MapRunSucceeded" || "ExecutionRedriven" || "MapRunRedriven", // required
  * //       id: Number("long"), // required
  * //       previousEventId: Number("long"),
  * //       activityFailedEventDetails: { // ActivityFailedEventDetails
@@ -178,6 +170,9 @@ export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOut
  * //         error: "STRING_VALUE",
  * //         cause: "STRING_VALUE",
  * //       },
+ * //       executionRedrivenEventDetails: { // ExecutionRedrivenEventDetails
+ * //         redriveCount: Number("int"),
+ * //       },
  * //       mapStateStartedEventDetails: { // MapStateStartedEventDetails
  * //         length: Number("int"),
  * //       },
@@ -243,6 +238,10 @@ export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOut
  * //         error: "STRING_VALUE",
  * //         cause: "STRING_VALUE",
  * //       },
+ * //       mapRunRedrivenEventDetails: { // MapRunRedrivenEventDetails
+ * //         mapRunArn: "STRING_VALUE",
+ * //         redriveCount: Number("int"),
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -269,79 +268,26 @@ export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOut
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
-export class GetExecutionHistoryCommand extends $Command<
-  GetExecutionHistoryCommandInput,
-  GetExecutionHistoryCommandOutput,
-  SFNClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetExecutionHistoryCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SFNClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetExecutionHistoryCommandInput, GetExecutionHistoryCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetExecutionHistoryCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SFNClient";
-    const commandName = "GetExecutionHistoryCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: GetExecutionHistoryOutputFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetExecutionHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetExecutionHistoryCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetExecutionHistoryCommandOutput> {
-    return de_GetExecutionHistoryCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetExecutionHistoryCommand extends $Command
+  .classBuilder<
+    GetExecutionHistoryCommandInput,
+    GetExecutionHistoryCommandOutput,
+    SFNClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSStepFunctions", "GetExecutionHistory", {})
+  .n("SFNClient", "GetExecutionHistoryCommand")
+  .f(void 0, GetExecutionHistoryOutputFilterSensitiveLog)
+  .ser(se_GetExecutionHistoryCommand)
+  .de(de_GetExecutionHistoryCommand)
+  .build() {}

@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GetEC2InstanceRecommendationsRequest, GetEC2InstanceRecommendationsResponse } from "../models/models_0";
 import {
   de_GetEC2InstanceRecommendationsCommand,
@@ -87,11 +79,11 @@ export interface GetEC2InstanceRecommendationsCommandOutput
  * //       currentInstanceType: "STRING_VALUE",
  * //       finding: "Underprovisioned" || "Overprovisioned" || "Optimized" || "NotOptimized",
  * //       findingReasonCodes: [ // InstanceRecommendationFindingReasonCodes
- * //         "CPUOverprovisioned" || "CPUUnderprovisioned" || "MemoryOverprovisioned" || "MemoryUnderprovisioned" || "EBSThroughputOverprovisioned" || "EBSThroughputUnderprovisioned" || "EBSIOPSOverprovisioned" || "EBSIOPSUnderprovisioned" || "NetworkBandwidthOverprovisioned" || "NetworkBandwidthUnderprovisioned" || "NetworkPPSOverprovisioned" || "NetworkPPSUnderprovisioned" || "DiskIOPSOverprovisioned" || "DiskIOPSUnderprovisioned" || "DiskThroughputOverprovisioned" || "DiskThroughputUnderprovisioned",
+ * //         "CPUOverprovisioned" || "CPUUnderprovisioned" || "MemoryOverprovisioned" || "MemoryUnderprovisioned" || "EBSThroughputOverprovisioned" || "EBSThroughputUnderprovisioned" || "EBSIOPSOverprovisioned" || "EBSIOPSUnderprovisioned" || "NetworkBandwidthOverprovisioned" || "NetworkBandwidthUnderprovisioned" || "NetworkPPSOverprovisioned" || "NetworkPPSUnderprovisioned" || "DiskIOPSOverprovisioned" || "DiskIOPSUnderprovisioned" || "DiskThroughputOverprovisioned" || "DiskThroughputUnderprovisioned" || "GPUUnderprovisioned" || "GPUOverprovisioned" || "GPUMemoryUnderprovisioned" || "GPUMemoryOverprovisioned",
  * //       ],
  * //       utilizationMetrics: [ // UtilizationMetrics
  * //         { // UtilizationMetric
- * //           name: "Cpu" || "Memory" || "EBS_READ_OPS_PER_SECOND" || "EBS_WRITE_OPS_PER_SECOND" || "EBS_READ_BYTES_PER_SECOND" || "EBS_WRITE_BYTES_PER_SECOND" || "DISK_READ_OPS_PER_SECOND" || "DISK_WRITE_OPS_PER_SECOND" || "DISK_READ_BYTES_PER_SECOND" || "DISK_WRITE_BYTES_PER_SECOND" || "NETWORK_IN_BYTES_PER_SECOND" || "NETWORK_OUT_BYTES_PER_SECOND" || "NETWORK_PACKETS_IN_PER_SECOND" || "NETWORK_PACKETS_OUT_PER_SECOND",
+ * //           name: "Cpu" || "Memory" || "EBS_READ_OPS_PER_SECOND" || "EBS_WRITE_OPS_PER_SECOND" || "EBS_READ_BYTES_PER_SECOND" || "EBS_WRITE_BYTES_PER_SECOND" || "DISK_READ_OPS_PER_SECOND" || "DISK_WRITE_OPS_PER_SECOND" || "DISK_READ_BYTES_PER_SECOND" || "DISK_WRITE_BYTES_PER_SECOND" || "NETWORK_IN_BYTES_PER_SECOND" || "NETWORK_OUT_BYTES_PER_SECOND" || "NETWORK_PACKETS_IN_PER_SECOND" || "NETWORK_PACKETS_OUT_PER_SECOND" || "GPU_PERCENTAGE" || "GPU_MEMORY_PERCENTAGE",
  * //           statistic: "Maximum" || "Average",
  * //           value: Number("double"),
  * //         },
@@ -102,7 +94,7 @@ export interface GetEC2InstanceRecommendationsCommandOutput
  * //           instanceType: "STRING_VALUE",
  * //           projectedUtilizationMetrics: [ // ProjectedUtilizationMetrics
  * //             {
- * //               name: "Cpu" || "Memory" || "EBS_READ_OPS_PER_SECOND" || "EBS_WRITE_OPS_PER_SECOND" || "EBS_READ_BYTES_PER_SECOND" || "EBS_WRITE_BYTES_PER_SECOND" || "DISK_READ_OPS_PER_SECOND" || "DISK_WRITE_OPS_PER_SECOND" || "DISK_READ_BYTES_PER_SECOND" || "DISK_WRITE_BYTES_PER_SECOND" || "NETWORK_IN_BYTES_PER_SECOND" || "NETWORK_OUT_BYTES_PER_SECOND" || "NETWORK_PACKETS_IN_PER_SECOND" || "NETWORK_PACKETS_OUT_PER_SECOND",
+ * //               name: "Cpu" || "Memory" || "EBS_READ_OPS_PER_SECOND" || "EBS_WRITE_OPS_PER_SECOND" || "EBS_READ_BYTES_PER_SECOND" || "EBS_WRITE_BYTES_PER_SECOND" || "DISK_READ_OPS_PER_SECOND" || "DISK_WRITE_OPS_PER_SECOND" || "DISK_READ_BYTES_PER_SECOND" || "DISK_WRITE_BYTES_PER_SECOND" || "NETWORK_IN_BYTES_PER_SECOND" || "NETWORK_OUT_BYTES_PER_SECOND" || "NETWORK_PACKETS_IN_PER_SECOND" || "NETWORK_PACKETS_OUT_PER_SECOND" || "GPU_PERCENTAGE" || "GPU_MEMORY_PERCENTAGE",
  * //               statistic: "Maximum" || "Average",
  * //               value: Number("double"),
  * //             },
@@ -120,12 +112,27 @@ export interface GetEC2InstanceRecommendationsCommandOutput
  * //             },
  * //           },
  * //           migrationEffort: "VeryLow" || "Low" || "Medium" || "High",
+ * //           instanceGpuInfo: { // GpuInfo
+ * //             gpus: [ // Gpus
+ * //               { // Gpu
+ * //                 gpuCount: Number("int"),
+ * //                 gpuMemorySizeInMiB: Number("int"),
+ * //               },
+ * //             ],
+ * //           },
+ * //           savingsOpportunityAfterDiscounts: { // InstanceSavingsOpportunityAfterDiscounts
+ * //             savingsOpportunityPercentage: Number("double"),
+ * //             estimatedMonthlySavings: { // InstanceEstimatedMonthlySavings
+ * //               currency: "USD" || "CNY",
+ * //               value: Number("double"),
+ * //             },
+ * //           },
  * //         },
  * //       ],
  * //       recommendationSources: [ // RecommendationSources
  * //         { // RecommendationSource
  * //           recommendationSourceArn: "STRING_VALUE",
- * //           recommendationSourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "EcsService",
+ * //           recommendationSourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "EcsService" || "License",
  * //         },
  * //       ],
  * //       lastRefreshTimestamp: new Date("TIMESTAMP"),
@@ -138,6 +145,33 @@ export interface GetEC2InstanceRecommendationsCommandOutput
  * //         inferredWorkloadTypes: "Active" || "Inactive",
  * //         externalMetricsPreference: { // ExternalMetricsPreference
  * //           source: "Datadog" || "Dynatrace" || "NewRelic" || "Instana",
+ * //         },
+ * //         lookBackPeriod: "DAYS_14" || "DAYS_32" || "DAYS_93",
+ * //         utilizationPreferences: [ // UtilizationPreferences
+ * //           { // UtilizationPreference
+ * //             metricName: "CpuUtilization",
+ * //             metricParameters: { // CustomizableMetricParameters
+ * //               threshold: "P90" || "P95" || "P99_5",
+ * //               headroom: "PERCENT_30" || "PERCENT_20" || "PERCENT_0",
+ * //             },
+ * //           },
+ * //         ],
+ * //         preferredResources: [ // EffectivePreferredResources
+ * //           { // EffectivePreferredResource
+ * //             name: "Ec2InstanceTypes",
+ * //             includeList: [ // PreferredResourceValues
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             effectiveIncludeList: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             excludeList: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //         savingsEstimationMode: { // InstanceSavingsEstimationMode
+ * //           source: "PublicPricing" || "CostExplorerRightsizing" || "CostOptimizationHub",
  * //         },
  * //       },
  * //       inferredWorkloadTypes: [ // InferredWorkloadTypes
@@ -154,6 +188,15 @@ export interface GetEC2InstanceRecommendationsCommandOutput
  * //         statusCode: "NO_EXTERNAL_METRIC_SET" || "INTEGRATION_SUCCESS" || "DATADOG_INTEGRATION_ERROR" || "DYNATRACE_INTEGRATION_ERROR" || "NEWRELIC_INTEGRATION_ERROR" || "INSTANA_INTEGRATION_ERROR" || "INSUFFICIENT_DATADOG_METRICS" || "INSUFFICIENT_DYNATRACE_METRICS" || "INSUFFICIENT_NEWRELIC_METRICS" || "INSUFFICIENT_INSTANA_METRICS",
  * //         statusReason: "STRING_VALUE",
  * //       },
+ * //       currentInstanceGpuInfo: {
+ * //         gpus: [
+ * //           {
+ * //             gpuCount: Number("int"),
+ * //             gpuMemorySizeInMiB: Number("int"),
+ * //           },
+ * //         ],
+ * //       },
+ * //       idle: "True" || "False",
  * //     },
  * //   ],
  * //   errors: [ // GetRecommendationErrors
@@ -202,82 +245,26 @@ export interface GetEC2InstanceRecommendationsCommandOutput
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
  */
-export class GetEC2InstanceRecommendationsCommand extends $Command<
-  GetEC2InstanceRecommendationsCommandInput,
-  GetEC2InstanceRecommendationsCommandOutput,
-  ComputeOptimizerClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetEC2InstanceRecommendationsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ComputeOptimizerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetEC2InstanceRecommendationsCommandInput, GetEC2InstanceRecommendationsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetEC2InstanceRecommendationsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ComputeOptimizerClient";
-    const commandName = "GetEC2InstanceRecommendationsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetEC2InstanceRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetEC2InstanceRecommendationsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetEC2InstanceRecommendationsCommandOutput> {
-    return de_GetEC2InstanceRecommendationsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetEC2InstanceRecommendationsCommand extends $Command
+  .classBuilder<
+    GetEC2InstanceRecommendationsCommandInput,
+    GetEC2InstanceRecommendationsCommandOutput,
+    ComputeOptimizerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ComputeOptimizerService", "GetEC2InstanceRecommendations", {})
+  .n("ComputeOptimizerClient", "GetEC2InstanceRecommendationsCommand")
+  .f(void 0, void 0)
+  .ser(se_GetEC2InstanceRecommendationsCommand)
+  .de(de_GetEC2InstanceRecommendationsCommand)
+  .build() {}

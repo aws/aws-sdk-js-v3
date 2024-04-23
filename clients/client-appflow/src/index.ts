@@ -42,8 +42,12 @@
 export * from "./AppflowClient";
 export * from "./Appflow";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { AppflowExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { AppflowServiceException } from "./models/AppflowServiceException";

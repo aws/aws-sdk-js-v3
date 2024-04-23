@@ -459,7 +459,7 @@ export interface UserIdentity {
    * @public
    * <p>The role assigned to the user in a Amazon CodeCatalyst space or project when the event occurred.</p>
    */
-  userType: UserType | string | undefined;
+  userType: UserType | undefined;
 
   /**
    * @public
@@ -525,7 +525,7 @@ export interface EventLogEntry {
    * @public
    * <p>The type of the event.</p>
    */
-  operationType: OperationType | string | undefined;
+  operationType: OperationType | undefined;
 
   /**
    * @public
@@ -631,6 +631,260 @@ export interface GetSpaceResponse {
    * <p>The description of the space.</p>
    */
   description?: string;
+}
+
+/**
+ * @public
+ * <p>Information about a filter used to limit results of a query.</p>
+ */
+export interface Filter {
+  /**
+   * @public
+   * <p>A key that can be used to sort results.</p>
+   */
+  key: string | undefined;
+
+  /**
+   * @public
+   * <p>The values of the key.</p>
+   */
+  values: string[] | undefined;
+
+  /**
+   * @public
+   * <p>The operator used to compare the fields.</p>
+   */
+  comparisonOperator?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListDevEnvironmentsRequest {
+  /**
+   * @public
+   * <p>The name of the space.</p>
+   */
+  spaceName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the project in the space.</p>
+   */
+  projectName?: string;
+
+  /**
+   * @public
+   * <p>Information about filters to apply to narrow the results returned in the list.</p>
+   */
+  filters?: Filter[];
+
+  /**
+   * @public
+   * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to show in a single call to this API. If the number of results is larger than the number you specified, the response will include a <code>NextToken</code> element, which you can use to obtain additional results.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Information about an integrated development environment (IDE) used in a Dev Environment.</p>
+ */
+export interface Ide {
+  /**
+   * @public
+   * <p>A link to the IDE runtime image.</p>
+   */
+  runtime?: string;
+
+  /**
+   * @public
+   * <p>The name of the IDE.</p>
+   */
+  name?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const _InstanceType = {
+  DEV_STANDARD1_LARGE: "dev.standard1.large",
+  DEV_STANDARD1_MEDIUM: "dev.standard1.medium",
+  DEV_STANDARD1_SMALL: "dev.standard1.small",
+  DEV_STANDARD1_XLARGE: "dev.standard1.xlarge",
+} as const;
+
+/**
+ * @public
+ */
+export type _InstanceType = (typeof _InstanceType)[keyof typeof _InstanceType];
+
+/**
+ * @public
+ * <p>Information about the persistent storage for a Dev Environment.</p>
+ */
+export interface PersistentStorage {
+  /**
+   * @public
+   * <p>The size of the persistent storage in gigabytes (specifically GiB).</p>
+   *          <note>
+   *             <p>Valid values for storage are based on memory sizes in 16GB increments. Valid values are
+   *         16, 32, and 64.</p>
+   *          </note>
+   */
+  sizeInGiB: number | undefined;
+}
+
+/**
+ * @public
+ * <p>Information about the source repsitory for a Dev Environment. </p>
+ */
+export interface DevEnvironmentRepositorySummary {
+  /**
+   * @public
+   * <p>The name of the source repository.</p>
+   */
+  repositoryName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the branch in a source repository cloned into the Dev Environment. </p>
+   */
+  branchName?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DevEnvironmentStatus = {
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
+
+/**
+ * @public
+ */
+export type DevEnvironmentStatus = (typeof DevEnvironmentStatus)[keyof typeof DevEnvironmentStatus];
+
+/**
+ * @public
+ * <p>Information about a Dev Environment. </p>
+ */
+export interface DevEnvironmentSummary {
+  /**
+   * @public
+   * <p>The name of the space.</p>
+   */
+  spaceName?: string;
+
+  /**
+   * @public
+   * <p>The name of the project in the space.</p>
+   */
+  projectName?: string;
+
+  /**
+   * @public
+   * <p>The system-generated unique ID for the Dev Environment. </p>
+   */
+  id: string | undefined;
+
+  /**
+   * @public
+   * <p>The time when the Dev Environment was last updated, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>.</p>
+   */
+  lastUpdatedTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The system-generated unique ID of the user who created the Dev Environment. </p>
+   */
+  creatorId: string | undefined;
+
+  /**
+   * @public
+   * <p>The status of the Dev Environment. </p>
+   */
+  status: DevEnvironmentStatus | undefined;
+
+  /**
+   * @public
+   * <p>The reason for the status.</p>
+   */
+  statusReason?: string;
+
+  /**
+   * @public
+   * <p>Information about the repositories that will be cloned into the Dev Environment. If no rvalue is specified, no repository is cloned.</p>
+   */
+  repositories: DevEnvironmentRepositorySummary[] | undefined;
+
+  /**
+   * @public
+   * <p>The user-specified alias for the Dev Environment.</p>
+   */
+  alias?: string;
+
+  /**
+   * @public
+   * <p>Information about the integrated development environment (IDE) configured for a Dev Environment.</p>
+   */
+  ides?: Ide[];
+
+  /**
+   * @public
+   * <p>The Amazon EC2 instace type used for the Dev Environment. </p>
+   */
+  instanceType: _InstanceType | undefined;
+
+  /**
+   * @public
+   * <p>The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Dev Environments consume compute minutes when running.</p>
+   */
+  inactivityTimeoutMinutes: number | undefined;
+
+  /**
+   * @public
+   * <p>Information about the configuration of persistent storage for the Dev Environment.</p>
+   */
+  persistentStorage: PersistentStorage | undefined;
+
+  /**
+   * @public
+   * <p>The name of the connection used to connect to Amazon VPC used when the Dev Environment was created, if any.</p>
+   */
+  vpcConnectionName?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListDevEnvironmentsResponse {
+  /**
+   * @public
+   * <p>Information about the Dev Environments in a project.</p>
+   */
+  items: DevEnvironmentSummary[] | undefined;
+
+  /**
+   * @public
+   * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
+   */
+  nextToken?: string;
 }
 
 /**
@@ -807,22 +1061,6 @@ export interface IdeConfiguration {
 
 /**
  * @public
- * @enum
- */
-export const _InstanceType = {
-  DEV_STANDARD1_LARGE: "dev.standard1.large",
-  DEV_STANDARD1_MEDIUM: "dev.standard1.medium",
-  DEV_STANDARD1_SMALL: "dev.standard1.small",
-  DEV_STANDARD1_XLARGE: "dev.standard1.xlarge",
-} as const;
-
-/**
- * @public
- */
-export type _InstanceType = (typeof _InstanceType)[keyof typeof _InstanceType];
-
-/**
- * @public
  * <p>Information about the configuration of persistent storage for a Dev Environment. </p>
  */
 export interface PersistentStorageConfiguration {
@@ -905,7 +1143,7 @@ export interface CreateDevEnvironmentRequest {
    * @public
    * <p>The Amazon EC2 instace type to use for the Dev Environment. </p>
    */
-  instanceType: _InstanceType | string | undefined;
+  instanceType: _InstanceType | undefined;
 
   /**
    * @public
@@ -924,6 +1162,12 @@ export interface CreateDevEnvironmentRequest {
    *          </note>
    */
   persistentStorage: PersistentStorageConfiguration | undefined;
+
+  /**
+   * @public
+   * <p>The name of the connection to use connect to a Amazon VPC.</p>
+   */
+  vpcConnectionName?: string;
 }
 
 /**
@@ -947,6 +1191,12 @@ export interface CreateDevEnvironmentResponse {
    * <p>The system-generated unique ID of the Dev Environment. </p>
    */
   id: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the connection used to connect to Amazon VPC used when the Dev Environment was created, if any.</p>
+   */
+  vpcConnectionName?: string;
 }
 
 /**
@@ -1020,78 +1270,6 @@ export interface GetDevEnvironmentRequest {
 
 /**
  * @public
- * <p>Information about an integrated development environment (IDE) used in a Dev Environment.</p>
- */
-export interface Ide {
-  /**
-   * @public
-   * <p>A link to the IDE runtime image.</p>
-   */
-  runtime?: string;
-
-  /**
-   * @public
-   * <p>The name of the IDE.</p>
-   */
-  name?: string;
-}
-
-/**
- * @public
- * <p>Information about the persistent storage for a Dev Environment.</p>
- */
-export interface PersistentStorage {
-  /**
-   * @public
-   * <p>The size of the persistent storage in gigabytes (specifically GiB).</p>
-   *          <note>
-   *             <p>Valid values for storage are based on memory sizes in 16GB increments. Valid values are
-   *         16, 32, and 64.</p>
-   *          </note>
-   */
-  sizeInGiB: number | undefined;
-}
-
-/**
- * @public
- * <p>Information about the source repsitory for a Dev Environment. </p>
- */
-export interface DevEnvironmentRepositorySummary {
-  /**
-   * @public
-   * <p>The name of the source repository.</p>
-   */
-  repositoryName: string | undefined;
-
-  /**
-   * @public
-   * <p>The name of the branch in a source repository cloned into the Dev Environment. </p>
-   */
-  branchName?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const DevEnvironmentStatus = {
-  DELETED: "DELETED",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  PENDING: "PENDING",
-  RUNNING: "RUNNING",
-  STARTING: "STARTING",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-} as const;
-
-/**
- * @public
- */
-export type DevEnvironmentStatus = (typeof DevEnvironmentStatus)[keyof typeof DevEnvironmentStatus];
-
-/**
- * @public
  */
 export interface GetDevEnvironmentResponse {
   /**
@@ -1128,7 +1306,7 @@ export interface GetDevEnvironmentResponse {
    * @public
    * <p>The current status of the Dev Environment.</p>
    */
-  status: DevEnvironmentStatus | string | undefined;
+  status: DevEnvironmentStatus | undefined;
 
   /**
    * @public
@@ -1158,7 +1336,7 @@ export interface GetDevEnvironmentResponse {
    * @public
    * <p>The Amazon EC2 instace type to use for the Dev Environment. </p>
    */
-  instanceType: _InstanceType | string | undefined;
+  instanceType: _InstanceType | undefined;
 
   /**
    * @public
@@ -1171,166 +1349,12 @@ export interface GetDevEnvironmentResponse {
    * <p>Information about the amount of storage allocated to the Dev Environment.  By default, a Dev Environment is configured to have 16GB of persistent storage.</p>
    */
   persistentStorage: PersistentStorage | undefined;
-}
-
-/**
- * @public
- * <p>Information about a filter used to limit results of a query.</p>
- */
-export interface Filter {
-  /**
-   * @public
-   * <p>A key that can be used to sort results.</p>
-   */
-  key: string | undefined;
 
   /**
    * @public
-   * <p>The values of the key.</p>
+   * <p>The name of the connection used to connect to Amazon VPC used when the Dev Environment was created, if any.</p>
    */
-  values: string[] | undefined;
-
-  /**
-   * @public
-   * <p>The operator used to compare the fields.</p>
-   */
-  comparisonOperator?: string;
-}
-
-/**
- * @public
- */
-export interface ListDevEnvironmentsRequest {
-  /**
-   * @public
-   * <p>The name of the space.</p>
-   */
-  spaceName: string | undefined;
-
-  /**
-   * @public
-   * <p>The name of the project in the space.</p>
-   */
-  projectName: string | undefined;
-
-  /**
-   * @public
-   * <p>Information about filters to apply to narrow the results returned in the list.</p>
-   */
-  filters?: Filter[];
-
-  /**
-   * @public
-   * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * @public
-   * <p>The maximum number of results to show in a single call to this API. If the number of results is larger than the number you specified, the response will include a <code>NextToken</code> element, which you can use to obtain additional results.</p>
-   */
-  maxResults?: number;
-}
-
-/**
- * @public
- * <p>Information about a Dev Environment. </p>
- */
-export interface DevEnvironmentSummary {
-  /**
-   * @public
-   * <p>The name of the space.</p>
-   */
-  spaceName?: string;
-
-  /**
-   * @public
-   * <p>The name of the project in the space.</p>
-   */
-  projectName?: string;
-
-  /**
-   * @public
-   * <p>The system-generated unique ID for the Dev Environment. </p>
-   */
-  id: string | undefined;
-
-  /**
-   * @public
-   * <p>The time when the Dev Environment was last updated, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>.</p>
-   */
-  lastUpdatedTime: Date | undefined;
-
-  /**
-   * @public
-   * <p>The system-generated unique ID of the user who created the Dev Environment. </p>
-   */
-  creatorId: string | undefined;
-
-  /**
-   * @public
-   * <p>The status of the Dev Environment. </p>
-   */
-  status: DevEnvironmentStatus | string | undefined;
-
-  /**
-   * @public
-   * <p>The reason for the status.</p>
-   */
-  statusReason?: string;
-
-  /**
-   * @public
-   * <p>Information about the repositories that will be cloned into the Dev Environment. If no rvalue is specified, no repository is cloned.</p>
-   */
-  repositories: DevEnvironmentRepositorySummary[] | undefined;
-
-  /**
-   * @public
-   * <p>The user-specified alias for the Dev Environment.</p>
-   */
-  alias?: string;
-
-  /**
-   * @public
-   * <p>Information about the integrated development environment (IDE) configured for a Dev Environment.</p>
-   */
-  ides?: Ide[];
-
-  /**
-   * @public
-   * <p>The Amazon EC2 instace type used for the Dev Environment. </p>
-   */
-  instanceType: _InstanceType | string | undefined;
-
-  /**
-   * @public
-   * <p>The amount of time the Dev Environment will run without any activity detected before stopping, in minutes. Dev Environments consume compute minutes when running.</p>
-   */
-  inactivityTimeoutMinutes: number | undefined;
-
-  /**
-   * @public
-   * <p>Information about the configuration of persistent storage for the Dev Environment.</p>
-   */
-  persistentStorage: PersistentStorage | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDevEnvironmentsResponse {
-  /**
-   * @public
-   * <p>Information about the Dev Environments in a project.</p>
-   */
-  items: DevEnvironmentSummary[] | undefined;
-
-  /**
-   * @public
-   * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
-   */
-  nextToken?: string;
+  vpcConnectionName?: string;
 }
 
 /**
@@ -1454,7 +1478,7 @@ export interface StartDevEnvironmentRequest {
    * @public
    * <p>The Amazon EC2 instace type to use for the Dev Environment. </p>
    */
-  instanceType?: _InstanceType | string;
+  instanceType?: _InstanceType;
 
   /**
    * @public
@@ -1489,7 +1513,7 @@ export interface StartDevEnvironmentResponse {
    * @public
    * <p>The status of the Dev Environment. </p>
    */
-  status: DevEnvironmentStatus | string | undefined;
+  status: DevEnvironmentStatus | undefined;
 }
 
 /**
@@ -1533,7 +1557,7 @@ export interface DevEnvironmentSessionConfiguration {
    * @public
    * <p>The type of the session.</p>
    */
-  sessionType: DevEnvironmentSessionType | string | undefined;
+  sessionType: DevEnvironmentSessionType | undefined;
 
   /**
    * @public
@@ -1673,7 +1697,7 @@ export interface StopDevEnvironmentResponse {
    * @public
    * <p>The status of the Dev Environment. </p>
    */
-  status: DevEnvironmentStatus | string | undefined;
+  status: DevEnvironmentStatus | undefined;
 }
 
 /**
@@ -1775,7 +1799,7 @@ export interface UpdateDevEnvironmentRequest {
    *             <p>Changing this value will cause a restart of the Dev Environment if it is running.</p>
    *          </note>
    */
-  instanceType?: _InstanceType | string;
+  instanceType?: _InstanceType;
 
   /**
    * @public
@@ -1833,7 +1857,7 @@ export interface UpdateDevEnvironmentResponse {
    * @public
    * <p>The Amazon EC2 instace type to use for the Dev Environment. </p>
    */
-  instanceType?: _InstanceType | string;
+  instanceType?: _InstanceType;
 
   /**
    * @public
@@ -1900,6 +1924,7 @@ export interface GetProjectResponse {
  * @enum
  */
 export const ComparisonOperator = {
+  BEGINS_WITH: "BEGINS_WITH",
   EQUALS: "EQ",
   GREATER_THAN: "GT",
   GREATER_THAN_OR_EQUALS: "GE",
@@ -1918,6 +1943,7 @@ export type ComparisonOperator = (typeof ComparisonOperator)[keyof typeof Compar
  */
 export const FilterKey = {
   HAS_ACCESS_TO: "hasAccessTo",
+  NAME: "name",
 } as const;
 
 /**
@@ -1934,7 +1960,7 @@ export interface ProjectListFilter {
    * @public
    * <p>A key that can be used to sort results.</p>
    */
-  key: FilterKey | string | undefined;
+  key: FilterKey | undefined;
 
   /**
    * @public
@@ -1946,7 +1972,7 @@ export interface ProjectListFilter {
    * @public
    * <p>The operator used to compare the fields.</p>
    */
-  comparisonOperator?: ComparisonOperator | string;
+  comparisonOperator?: ComparisonOperator;
 }
 
 /**
@@ -2499,6 +2525,568 @@ export interface UpdateProjectResponse {
    * <p>The description of the project.</p>
    */
   description?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetWorkflowRequest {
+  /**
+   * @public
+   * <p>The name of the space.</p>
+   */
+  spaceName: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the workflow. To rerieve a list of workflow IDs, use <a>ListWorkflows</a>.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the project in the space.</p>
+   */
+  projectName: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Information about a workflow definition file.</p>
+ */
+export interface WorkflowDefinition {
+  /**
+   * @public
+   * <p>The path to the workflow definition file stored in the source repository for the project, including the file name.</p>
+   */
+  path: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const WorkflowRunMode = {
+  PARALLEL: "PARALLEL",
+  QUEUED: "QUEUED",
+  SUPERSEDED: "SUPERSEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkflowRunMode = (typeof WorkflowRunMode)[keyof typeof WorkflowRunMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const WorkflowStatus = {
+  ACTIVE: "ACTIVE",
+  INVALID: "INVALID",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkflowStatus = (typeof WorkflowStatus)[keyof typeof WorkflowStatus];
+
+/**
+ * @public
+ */
+export interface GetWorkflowResponse {
+  /**
+   * @public
+   * <p>The name of the space.</p>
+   */
+  spaceName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the project in the space.</p>
+   */
+  projectName: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the workflow.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the workflow.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the source repository where the workflow YAML is stored.</p>
+   */
+  sourceRepositoryName?: string;
+
+  /**
+   * @public
+   * <p>The name of the branch that contains the workflow YAML.</p>
+   */
+  sourceBranchName?: string;
+
+  /**
+   * @public
+   * <p>Information about the workflow definition file for the workflow.</p>
+   */
+  definition: WorkflowDefinition | undefined;
+
+  /**
+   * @public
+   * <p>The date and time the workflow was created, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>
+   *          </p>
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The date and time the workflow was last updated, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>
+   *          </p>
+   */
+  lastUpdatedTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The behavior to use when multiple workflows occur at the same time. For more information, see
+   *       <a href="https://docs.aws.amazon.com/codecatalyst/latest/userguide/workflows-configure-runs.html">https://docs.aws.amazon.com/codecatalyst/latest/userguide/workflows-configure-runs.html</a> in the Amazon CodeCatalyst User Guide.</p>
+   */
+  runMode: WorkflowRunMode | undefined;
+
+  /**
+   * @public
+   * <p>The status of the workflow.</p>
+   */
+  status: WorkflowStatus | undefined;
+}
+
+/**
+ * @public
+ * <p>Information used to sort workflows in the returned list.</p>
+ */
+export interface WorkflowSortCriteria {}
+
+/**
+ * @public
+ */
+export interface ListWorkflowsRequest {
+  /**
+   * @public
+   * <p>The name of the space.</p>
+   */
+  spaceName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the project in the space.</p>
+   */
+  projectName: string | undefined;
+
+  /**
+   * @public
+   * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to show in a single call to this API. If the number of results is larger than the number you specified, the response will include a <code>NextToken</code> element, which you can use to obtain additional results.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>Information used to sort the items in the returned list.</p>
+   */
+  sortBy?: WorkflowSortCriteria[];
+}
+
+/**
+ * @public
+ * <p>Information about a workflow definition.</p>
+ */
+export interface WorkflowDefinitionSummary {
+  /**
+   * @public
+   * <p>The path to the workflow definition file stored in the source repository for the project, including the file name.</p>
+   */
+  path: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Information about a workflow.</p>
+ */
+export interface WorkflowSummary {
+  /**
+   * @public
+   * <p>The system-generated unique ID of a workflow.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the workflow.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the source repository where the workflow definition file is stored.</p>
+   */
+  sourceRepositoryName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the branch of the source repository where the workflow definition file is stored.</p>
+   */
+  sourceBranchName: string | undefined;
+
+  /**
+   * @public
+   * <p>Information about the workflow definition file.</p>
+   */
+  definition: WorkflowDefinitionSummary | undefined;
+
+  /**
+   * @public
+   * <p>The date and time the workflow was created, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>
+   *          </p>
+   */
+  createdTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The date and time the workflow was last updated, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>
+   *          </p>
+   */
+  lastUpdatedTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The run mode of the workflow.</p>
+   */
+  runMode: WorkflowRunMode | undefined;
+
+  /**
+   * @public
+   * <p>The status of the workflow.</p>
+   */
+  status: WorkflowStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListWorkflowsResponse {
+  /**
+   * @public
+   * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>Information about the workflows in a project.</p>
+   */
+  items?: WorkflowSummary[];
+}
+
+/**
+ * @public
+ */
+export interface GetWorkflowRunRequest {
+  /**
+   * @public
+   * <p>The name of the space.</p>
+   */
+  spaceName: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the workflow run. To retrieve a list of workflow run IDs, use <a>ListWorkflowRuns</a>.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the project in the space.</p>
+   */
+  projectName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const WorkflowRunStatus = {
+  ABANDONED: "ABANDONED",
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  NOT_RUN: "NOT_RUN",
+  PROVISIONING: "PROVISIONING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  SUCCEEDED: "SUCCEEDED",
+  SUPERSEDED: "SUPERSEDED",
+  VALIDATING: "VALIDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkflowRunStatus = (typeof WorkflowRunStatus)[keyof typeof WorkflowRunStatus];
+
+/**
+ * @public
+ * <p>Information about the status of a workflow run.</p>
+ */
+export interface WorkflowRunStatusReason {}
+
+/**
+ * @public
+ */
+export interface GetWorkflowRunResponse {
+  /**
+   * @public
+   * <p>The name of the space.</p>
+   */
+  spaceName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the project in the space.</p>
+   */
+  projectName: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the workflow run.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the workflow.</p>
+   */
+  workflowId: string | undefined;
+
+  /**
+   * @public
+   * <p>The status of the workflow run.</p>
+   */
+  status: WorkflowRunStatus | undefined;
+
+  /**
+   * @public
+   * <p>Information about the reasons for the status of the workflow run.</p>
+   */
+  statusReasons?: WorkflowRunStatusReason[];
+
+  /**
+   * @public
+   * <p>The date and time the workflow run began, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>
+   *          </p>
+   */
+  startTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The date and time the workflow run ended, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>.</p>
+   */
+  endTime?: Date;
+
+  /**
+   * @public
+   * <p>The date and time the workflow run status was last updated, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>
+   *          </p>
+   */
+  lastUpdatedTime: Date | undefined;
+}
+
+/**
+ * @public
+ * <p>Information used to sort workflow runs in the returned list.</p>
+ */
+export interface WorkflowRunSortCriteria {}
+
+/**
+ * @public
+ */
+export interface ListWorkflowRunsRequest {
+  /**
+   * @public
+   * <p>The name of the space.</p>
+   */
+  spaceName: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the workflow. To retrieve a list of workflow IDs, use <a>ListWorkflows</a>.</p>
+   */
+  workflowId?: string;
+
+  /**
+   * @public
+   * <p>The name of the project in the space.</p>
+   */
+  projectName: string | undefined;
+
+  /**
+   * @public
+   * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to show in a single call to this API. If the number of results is larger than the number you specified, the response will include a <code>NextToken</code> element, which you can use to obtain additional results.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>Information used to sort the items in the returned list.</p>
+   */
+  sortBy?: WorkflowRunSortCriteria[];
+}
+
+/**
+ * @public
+ * <p>Information about a workflow run.</p>
+ */
+export interface WorkflowRunSummary {
+  /**
+   * @public
+   * <p>The system-generated unique ID of the workflow run.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * @public
+   * <p>The system-generated unique ID of the workflow.</p>
+   */
+  workflowId: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the workflow.</p>
+   */
+  workflowName: string | undefined;
+
+  /**
+   * @public
+   * <p>The status of the workflow run.</p>
+   */
+  status: WorkflowRunStatus | undefined;
+
+  /**
+   * @public
+   * <p>The reasons for the workflow run status.</p>
+   */
+  statusReasons?: WorkflowRunStatusReason[];
+
+  /**
+   * @public
+   * <p>The date and time the workflow run began, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>.</p>
+   */
+  startTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The date and time the workflow run ended, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>
+   *          </p>
+   */
+  endTime?: Date;
+
+  /**
+   * @public
+   * <p>The date and time the workflow was last updated, in coordinated universal time (UTC) timestamp format as specified in <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339</a>
+   *          </p>
+   */
+  lastUpdatedTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListWorkflowRunsResponse {
+  /**
+   * @public
+   * <p>A token returned from a call to this API to indicate the next batch of results to return, if any.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>Information about the runs of a workflow.</p>
+   */
+  items?: WorkflowRunSummary[];
+}
+
+/**
+ * @public
+ */
+export interface StartWorkflowRunRequest {
+  /**
+   * @public
+   * <p>The name of the space.</p>
+   */
+  spaceName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the project in the space.</p>
+   */
+  projectName: string | undefined;
+
+  /**
+   * @public
+   * <p>The system-generated unique ID of the workflow. To retrieve a list of workflow IDs, use <a>ListWorkflows</a>.</p>
+   */
+  workflowId: string | undefined;
+
+  /**
+   * @public
+   * <p>A user-specified idempotency token.  Idempotency ensures that an API request completes only once.
+   *        With an idempotent request, if the original request completes successfully, the subsequent retries return the result from the original successful request and have no additional effect.</p>
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface StartWorkflowRunResponse {
+  /**
+   * @public
+   * <p>The name of the space.</p>
+   */
+  spaceName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the project in the space.</p>
+   */
+  projectName: string | undefined;
+
+  /**
+   * @public
+   * <p>The system-generated unique ID of the workflow run.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * @public
+   * <p>The system-generated unique ID of the workflow.</p>
+   */
+  workflowId: string | undefined;
 }
 
 /**

@@ -1,20 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SdkStreamSerdeContext as __SdkStreamSerdeContext,
-  SerdeContext as __SerdeContext,
-  StreamingBlobPayloadOutputTypes,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetRawMessageContentRequest,
   GetRawMessageContentResponse,
@@ -81,82 +71,26 @@ export interface GetRawMessageContentCommandOutput
  * <p>Base exception class for all service exceptions from WorkMailMessageFlow service.</p>
  *
  */
-export class GetRawMessageContentCommand extends $Command<
-  GetRawMessageContentCommandInput,
-  GetRawMessageContentCommandOutput,
-  WorkMailMessageFlowClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetRawMessageContentCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: WorkMailMessageFlowClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetRawMessageContentCommandInput, GetRawMessageContentCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetRawMessageContentCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "WorkMailMessageFlowClient";
-    const commandName = "GetRawMessageContentCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: GetRawMessageContentResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetRawMessageContentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetRawMessageContentCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext & __SdkStreamSerdeContext
-  ): Promise<GetRawMessageContentCommandOutput> {
-    return de_GetRawMessageContentCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetRawMessageContentCommand extends $Command
+  .classBuilder<
+    GetRawMessageContentCommandInput,
+    GetRawMessageContentCommandOutput,
+    WorkMailMessageFlowClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: WorkMailMessageFlowClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("GiraffeMessageInTransitService", "GetRawMessageContent", {})
+  .n("WorkMailMessageFlowClient", "GetRawMessageContentCommand")
+  .f(void 0, GetRawMessageContentResponseFilterSensitiveLog)
+  .ser(se_GetRawMessageContentCommand)
+  .de(de_GetRawMessageContentCommand)
+  .build() {}

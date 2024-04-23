@@ -96,7 +96,7 @@ export interface CreateEndpointRequest {
    *                <code>Private</code> is the default access type value.</p>
    *          </note>
    */
-  AccessType?: EndpointAccessType | string;
+  AccessType?: EndpointAccessType;
 
   /**
    * @public
@@ -321,7 +321,7 @@ export interface Endpoint {
    * @public
    * <p>The status of the endpoint.</p>
    */
-  Status?: EndpointStatus | string;
+  Status?: EndpointStatus;
 
   /**
    * @public
@@ -357,7 +357,7 @@ export interface Endpoint {
    * @public
    * <p>The type of connectivity used to access the Amazon S3 on Outposts endpoint.</p>
    */
-  AccessType?: EndpointAccessType | string;
+  AccessType?: EndpointAccessType;
 
   /**
    * @public
@@ -438,6 +438,12 @@ export interface Outpost {
    * <p>Specifies the unique Amazon Resource Name (ARN) for the outpost.</p>
    */
   OutpostArn?: string;
+
+  /**
+   * @public
+   * <p>Specifies the unique S3 on Outposts ARN for use with Resource Access Manager (RAM).</p>
+   */
+  S3OutpostArn?: string;
 
   /**
    * @public

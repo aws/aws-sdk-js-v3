@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListRestoreJobsInput, ListRestoreJobsOutput } from "../models/models_0";
 import { de_ListRestoreJobsCommand, se_ListRestoreJobsCommand } from "../protocols/Aws_restJson1";
 
@@ -48,11 +40,13 @@ export interface ListRestoreJobsCommandOutput extends ListRestoreJobsOutput, __M
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   ByAccountId: "STRING_VALUE",
+ *   ByResourceType: "STRING_VALUE",
  *   ByCreatedBefore: new Date("TIMESTAMP"),
  *   ByCreatedAfter: new Date("TIMESTAMP"),
  *   ByStatus: "PENDING" || "RUNNING" || "COMPLETED" || "ABORTED" || "FAILED",
  *   ByCompleteBefore: new Date("TIMESTAMP"),
  *   ByCompleteAfter: new Date("TIMESTAMP"),
+ *   ByRestoreTestingPlanArn: "STRING_VALUE",
  * };
  * const command = new ListRestoreJobsCommand(input);
  * const response = await client.send(command);
@@ -72,6 +66,14 @@ export interface ListRestoreJobsCommandOutput extends ListRestoreJobsOutput, __M
  * //       ExpectedCompletionTimeMinutes: Number("long"),
  * //       CreatedResourceArn: "STRING_VALUE",
  * //       ResourceType: "STRING_VALUE",
+ * //       RecoveryPointCreationDate: new Date("TIMESTAMP"),
+ * //       CreatedBy: { // RestoreJobCreator
+ * //         RestoreTestingPlanArn: "STRING_VALUE",
+ * //       },
+ * //       ValidationStatus: "FAILED" || "SUCCESSFUL" || "TIMED_OUT" || "VALIDATING",
+ * //       ValidationStatusMessage: "STRING_VALUE",
+ * //       DeletionStatus: "DELETING" || "FAILED" || "SUCCESSFUL",
+ * //       DeletionStatusMessage: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -102,79 +104,26 @@ export interface ListRestoreJobsCommandOutput extends ListRestoreJobsOutput, __M
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
  */
-export class ListRestoreJobsCommand extends $Command<
-  ListRestoreJobsCommandInput,
-  ListRestoreJobsCommandOutput,
-  BackupClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListRestoreJobsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: BackupClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListRestoreJobsCommandInput, ListRestoreJobsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListRestoreJobsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "BackupClient";
-    const commandName = "ListRestoreJobsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListRestoreJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListRestoreJobsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRestoreJobsCommandOutput> {
-    return de_ListRestoreJobsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListRestoreJobsCommand extends $Command
+  .classBuilder<
+    ListRestoreJobsCommandInput,
+    ListRestoreJobsCommandOutput,
+    BackupClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CryoControllerUserManager", "ListRestoreJobs", {})
+  .n("BackupClient", "ListRestoreJobsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListRestoreJobsCommand)
+  .de(de_ListRestoreJobsCommand)
+  .build() {}

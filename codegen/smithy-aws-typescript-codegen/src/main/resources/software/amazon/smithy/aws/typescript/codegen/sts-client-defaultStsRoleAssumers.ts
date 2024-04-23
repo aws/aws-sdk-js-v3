@@ -1,5 +1,4 @@
-import { Credentials } from "@aws-sdk/types";
-import { Provider } from "@smithy/types";
+import { AwsCredentialIdentity, Provider } from "@smithy/types";
 
 import { AssumeRoleCommand, AssumeRoleCommandInput } from "./commands/AssumeRoleCommand";
 import {
@@ -11,7 +10,10 @@ import type { STSClient, STSClientConfig, STSClientResolvedConfig } from "./STSC
 /**
  * @internal
  */
-export type RoleAssumer = (sourceCreds: Credentials, params: AssumeRoleCommandInput) => Promise<Credentials>;
+export type RoleAssumer = (
+  sourceCreds: AwsCredentialIdentity,
+  params: AssumeRoleCommandInput
+) => Promise<AwsCredentialIdentity>;
 
 const ASSUME_ROLE_DEFAULT_REGION = "us-east-1";
 
@@ -40,7 +42,7 @@ export const getDefaultRoleAssumer = (
   stsClientCtor: new (options: STSClientConfig) => STSClient
 ): RoleAssumer => {
   let stsClient: STSClient;
-  let closureSourceCreds: Credentials;
+  let closureSourceCreds: AwsCredentialIdentity;
   return async (sourceCreds, params) => {
     closureSourceCreds = sourceCreds;
     if (!stsClient) {
@@ -62,6 +64,8 @@ export const getDefaultRoleAssumer = (
       secretAccessKey: Credentials.SecretAccessKey,
       sessionToken: Credentials.SessionToken,
       expiration: Credentials.Expiration,
+      // TODO(credentialScope): access normally when shape is updated.
+      credentialScope: (Credentials as any).CredentialScope,
     };
   };
 };
@@ -69,7 +73,9 @@ export const getDefaultRoleAssumer = (
 /**
  * @internal
  */
-export type RoleAssumerWithWebIdentity = (params: AssumeRoleWithWebIdentityCommandInput) => Promise<Credentials>;
+export type RoleAssumerWithWebIdentity = (
+  params: AssumeRoleWithWebIdentityCommandInput
+) => Promise<AwsCredentialIdentity>;
 
 /**
  * The default role assumer that used by credential providers when sts:AssumeRoleWithWebIdentity API is needed.
@@ -98,6 +104,8 @@ export const getDefaultRoleAssumerWithWebIdentity = (
       secretAccessKey: Credentials.SecretAccessKey,
       sessionToken: Credentials.SessionToken,
       expiration: Credentials.Expiration,
+      // TODO(credentialScope): access normally when shape is updated.
+      credentialScope: (Credentials as any).CredentialScope,
     };
   };
 };
@@ -105,7 +113,7 @@ export const getDefaultRoleAssumerWithWebIdentity = (
 /**
  * @internal
  */
-export type DefaultCredentialProvider = (input: any) => Provider<Credentials>;
+export type DefaultCredentialProvider = (input: any) => Provider<AwsCredentialIdentity>;
 
 /**
  * The default credential providers depend STS client to assume role with desired API: sts:assumeRole,
@@ -119,7 +127,10 @@ export const decorateDefaultCredentialProvider =
   (provider: DefaultCredentialProvider): DefaultCredentialProvider =>
   (input: STSClientResolvedConfig) =>
     provider({
-      roleAssumer: getDefaultRoleAssumer(input, input.stsClientCtor),
-      roleAssumerWithWebIdentity: getDefaultRoleAssumerWithWebIdentity(input, input.stsClientCtor),
+      roleAssumer: getDefaultRoleAssumer(input, input.stsClientCtor as new (options: STSClientConfig) => STSClient),
+      roleAssumerWithWebIdentity: getDefaultRoleAssumerWithWebIdentity(
+        input,
+        input.stsClientCtor as new (options: STSClientConfig) => STSClient
+      ),
       ...input,
     });

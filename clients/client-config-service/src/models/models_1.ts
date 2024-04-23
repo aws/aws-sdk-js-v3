@@ -2,6 +2,7 @@
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { ConfigServiceServiceException as __BaseException } from "./ConfigServiceServiceException";
+
 import {
   AccountAggregationSource,
   AggregationAuthorization,
@@ -28,9 +29,67 @@ import {
   ResourceKey,
   RetentionConfiguration,
   StoredQuery,
-  Tag,
   TemplateSSMDocumentDetails,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>The tags for the resource. The metadata that you apply to a resource to help you categorize and organize them.
+ * 			Each tag consists of a key and an optional value, both of which you define.
+ * 			Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters.</p>
+ */
+export interface Tag {
+  /**
+   * @public
+   * <p>One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.</p>
+   */
+  Key?: string;
+
+  /**
+   * @public
+   * <p>The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).</p>
+   */
+  Value?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * @public
+   * <p>The tags for the resource.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response. </p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * <p>You have reached the limit of active custom resource types in your account. There is a limit of 100,000.
+ * 			Delete unused resources using <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteResourceConfig.html">DeleteResourceConfig</a>
+ *             <code></code>.</p>
+ */
+export class MaxActiveResourcesExceededException extends __BaseException {
+  readonly name: "MaxActiveResourcesExceededException" = "MaxActiveResourcesExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MaxActiveResourcesExceededException, __BaseException>) {
+    super({
+      name: "MaxActiveResourcesExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaxActiveResourcesExceededException.prototype);
+  }
+}
 
 /**
  * @public
@@ -320,7 +379,7 @@ export interface OrganizationCustomPolicyRuleMetadata {
    *             </li>
    *          </ul>
    */
-  OrganizationConfigRuleTriggerTypes?: (OrganizationConfigRuleTriggerTypeNoSN | string)[];
+  OrganizationConfigRuleTriggerTypes?: OrganizationConfigRuleTriggerTypeNoSN[];
 
   /**
    * @public
@@ -334,7 +393,7 @@ export interface OrganizationCustomPolicyRuleMetadata {
    * 			Config Custom Policy rule is triggered when Config delivers
    * 			the configuration snapshot. For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</p>
    */
-  MaximumExecutionFrequency?: MaximumExecutionFrequency | string;
+  MaximumExecutionFrequency?: MaximumExecutionFrequency;
 
   /**
    * @public
@@ -502,7 +561,8 @@ export interface PutConformancePackRequest {
    * @public
    * <p>The location of the file containing the template body (<code>s3://bucketname/prefix</code>). The uri must point to a conformance pack template (max size: 300 KB) that is located in an Amazon S3 bucket in the same Region as the conformance pack. </p>
    *          <note>
-   *             <p>You must have access to read Amazon S3 bucket.</p>
+   *             <p>You must have access to read Amazon S3 bucket.
+   * 			In addition, in order to ensure a successful deployment, the template object must not be in an <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html">archived storage class</a> if this parameter is passed.</p>
    *          </note>
    */
   TemplateS3Uri?: string;
@@ -712,7 +772,8 @@ export interface PutOrganizationConformancePackRequest {
    * <p>Location of file containing the template body. The uri must point to the conformance pack template
    * 			(max size: 300 KB).</p>
    *          <note>
-   *             <p>You must have access to read Amazon S3 bucket.</p>
+   *             <p>You must have access to read Amazon S3 bucket.
+   * 			In addition, in order to ensure a successful deployment, the template object must not be in an <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html">archived storage class</a> if this parameter is passed.</p>
    *          </note>
    */
   TemplateS3Uri?: string;
@@ -1186,7 +1247,7 @@ export interface StartResourceEvaluationRequest {
    * @public
    * <p>The mode of an evaluation. The valid values for this API are <code>DETECTIVE</code> and <code>PROACTIVE</code>.</p>
    */
-  EvaluationMode: EvaluationMode | string | undefined;
+  EvaluationMode: EvaluationMode | undefined;
 
   /**
    * @public

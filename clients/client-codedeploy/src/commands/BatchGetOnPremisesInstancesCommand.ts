@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { BatchGetOnPremisesInstancesInput, BatchGetOnPremisesInstancesOutput } from "../models/models_0";
 import { de_BatchGetOnPremisesInstancesCommand, se_BatchGetOnPremisesInstancesCommand } from "../protocols/Aws_json1_1";
 
@@ -91,82 +83,26 @@ export interface BatchGetOnPremisesInstancesCommandOutput extends BatchGetOnPrem
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
-export class BatchGetOnPremisesInstancesCommand extends $Command<
-  BatchGetOnPremisesInstancesCommandInput,
-  BatchGetOnPremisesInstancesCommandOutput,
-  CodeDeployClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: BatchGetOnPremisesInstancesCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CodeDeployClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<BatchGetOnPremisesInstancesCommandInput, BatchGetOnPremisesInstancesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, BatchGetOnPremisesInstancesCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CodeDeployClient";
-    const commandName = "BatchGetOnPremisesInstancesCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: BatchGetOnPremisesInstancesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_BatchGetOnPremisesInstancesCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<BatchGetOnPremisesInstancesCommandOutput> {
-    return de_BatchGetOnPremisesInstancesCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class BatchGetOnPremisesInstancesCommand extends $Command
+  .classBuilder<
+    BatchGetOnPremisesInstancesCommandInput,
+    BatchGetOnPremisesInstancesCommandOutput,
+    CodeDeployClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CodeDeployClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CodeDeploy_20141006", "BatchGetOnPremisesInstances", {})
+  .n("CodeDeployClient", "BatchGetOnPremisesInstancesCommand")
+  .f(void 0, void 0)
+  .ser(se_BatchGetOnPremisesInstancesCommand)
+  .de(de_BatchGetOnPremisesInstancesCommand)
+  .build() {}

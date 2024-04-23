@@ -39,4 +39,6 @@ export * from "./StartImageScanCommand";
 export * from "./StartLifecyclePolicyPreviewCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
+export * from "./UpdatePullThroughCacheRuleCommand";
 export * from "./UploadLayerPartCommand";
+export * from "./ValidatePullThroughCacheRuleCommand";

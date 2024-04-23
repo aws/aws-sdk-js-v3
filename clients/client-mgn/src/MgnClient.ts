@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -65,6 +63,7 @@ import {
   ChangeServerLifeCycleStateCommandOutput,
 } from "./commands/ChangeServerLifeCycleStateCommand";
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
+import { CreateConnectorCommandInput, CreateConnectorCommandOutput } from "./commands/CreateConnectorCommand";
 import {
   CreateLaunchConfigurationTemplateCommandInput,
   CreateLaunchConfigurationTemplateCommandOutput,
@@ -75,6 +74,7 @@ import {
 } from "./commands/CreateReplicationConfigurationTemplateCommand";
 import { CreateWaveCommandInput, CreateWaveCommandOutput } from "./commands/CreateWaveCommand";
 import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
+import { DeleteConnectorCommandInput, DeleteConnectorCommandOutput } from "./commands/DeleteConnectorCommand";
 import { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
 import {
   DeleteLaunchConfigurationTemplateCommandInput,
@@ -134,6 +134,7 @@ import {
 } from "./commands/GetReplicationConfigurationCommand";
 import { InitializeServiceCommandInput, InitializeServiceCommandOutput } from "./commands/InitializeServiceCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
+import { ListConnectorsCommandInput, ListConnectorsCommandOutput } from "./commands/ListConnectorsCommand";
 import { ListExportErrorsCommandInput, ListExportErrorsCommandOutput } from "./commands/ListExportErrorsCommand";
 import { ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
 import { ListImportErrorsCommandInput, ListImportErrorsCommandOutput } from "./commands/ListImportErrorsCommand";
@@ -193,6 +194,7 @@ import {
 import { UnarchiveWaveCommandInput, UnarchiveWaveCommandOutput } from "./commands/UnarchiveWaveCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
+import { UpdateConnectorCommandInput, UpdateConnectorCommandOutput } from "./commands/UpdateConnectorCommand";
 import {
   UpdateLaunchConfigurationCommandInput,
   UpdateLaunchConfigurationCommandOutput,
@@ -209,6 +211,7 @@ import {
   UpdateReplicationConfigurationTemplateCommandInput,
   UpdateReplicationConfigurationTemplateCommandOutput,
 } from "./commands/UpdateReplicationConfigurationTemplateCommand";
+import { UpdateSourceServerCommandInput, UpdateSourceServerCommandOutput } from "./commands/UpdateSourceServerCommand";
 import {
   UpdateSourceServerReplicationTypeCommandInput,
   UpdateSourceServerReplicationTypeCommandOutput,
@@ -235,10 +238,12 @@ export type ServiceInputTypes =
   | AssociateSourceServersCommandInput
   | ChangeServerLifeCycleStateCommandInput
   | CreateApplicationCommandInput
+  | CreateConnectorCommandInput
   | CreateLaunchConfigurationTemplateCommandInput
   | CreateReplicationConfigurationTemplateCommandInput
   | CreateWaveCommandInput
   | DeleteApplicationCommandInput
+  | DeleteConnectorCommandInput
   | DeleteJobCommandInput
   | DeleteLaunchConfigurationTemplateCommandInput
   | DeleteReplicationConfigurationTemplateCommandInput
@@ -259,6 +264,7 @@ export type ServiceInputTypes =
   | GetReplicationConfigurationCommandInput
   | InitializeServiceCommandInput
   | ListApplicationsCommandInput
+  | ListConnectorsCommandInput
   | ListExportErrorsCommandInput
   | ListExportsCommandInput
   | ListImportErrorsCommandInput
@@ -288,10 +294,12 @@ export type ServiceInputTypes =
   | UnarchiveWaveCommandInput
   | UntagResourceCommandInput
   | UpdateApplicationCommandInput
+  | UpdateConnectorCommandInput
   | UpdateLaunchConfigurationCommandInput
   | UpdateLaunchConfigurationTemplateCommandInput
   | UpdateReplicationConfigurationCommandInput
   | UpdateReplicationConfigurationTemplateCommandInput
+  | UpdateSourceServerCommandInput
   | UpdateSourceServerReplicationTypeCommandInput
   | UpdateWaveCommandInput;
 
@@ -305,10 +313,12 @@ export type ServiceOutputTypes =
   | AssociateSourceServersCommandOutput
   | ChangeServerLifeCycleStateCommandOutput
   | CreateApplicationCommandOutput
+  | CreateConnectorCommandOutput
   | CreateLaunchConfigurationTemplateCommandOutput
   | CreateReplicationConfigurationTemplateCommandOutput
   | CreateWaveCommandOutput
   | DeleteApplicationCommandOutput
+  | DeleteConnectorCommandOutput
   | DeleteJobCommandOutput
   | DeleteLaunchConfigurationTemplateCommandOutput
   | DeleteReplicationConfigurationTemplateCommandOutput
@@ -329,6 +339,7 @@ export type ServiceOutputTypes =
   | GetReplicationConfigurationCommandOutput
   | InitializeServiceCommandOutput
   | ListApplicationsCommandOutput
+  | ListConnectorsCommandOutput
   | ListExportErrorsCommandOutput
   | ListExportsCommandOutput
   | ListImportErrorsCommandOutput
@@ -358,10 +369,12 @@ export type ServiceOutputTypes =
   | UnarchiveWaveCommandOutput
   | UntagResourceCommandOutput
   | UpdateApplicationCommandOutput
+  | UpdateConnectorCommandOutput
   | UpdateLaunchConfigurationCommandOutput
   | UpdateLaunchConfigurationTemplateCommandOutput
   | UpdateReplicationConfigurationCommandOutput
   | UpdateReplicationConfigurationTemplateCommandOutput
+  | UpdateSourceServerCommandOutput
   | UpdateSourceServerReplicationTypeCommandOutput
   | UpdateWaveCommandOutput;
 
@@ -475,6 +488,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

@@ -34,6 +34,45 @@
         "smithy.api#documentation": "<p>Defines the Amazon Braket job to be created. Specifies the container image the job uses\n         and the paths to the Python scripts used for entry and training.</p>"
       }
     },
+    "com.amazonaws.braket#Association": {
+      "type": "structure",
+      "members": {
+        "arn": {
+          "target": "com.amazonaws.braket#BraketResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Braket resource arn.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "type": {
+          "target": "com.amazonaws.braket#AssociationType",
+          "traits": {
+            "smithy.api#documentation": "<p>The association type for the specified Amazon Braket resource arn.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The Amazon Braket resource and the association type.</p>"
+      }
+    },
+    "com.amazonaws.braket#AssociationType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "RESERVATION_TIME_WINDOW_ARN",
+            "name": "RESERVATION_TIME_WINDOW_ARN"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.braket#Associations": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.braket#Association"
+      }
+    },
     "com.amazonaws.braket#Braket": {
       "type": "service",
       "version": "2019-09-01",
@@ -123,39 +162,160 @@
             {
               "conditions": [
                 {
-                  "fn": "aws.partition",
+                  "fn": "isSet",
                   "argv": [
                     {
-                      "ref": "Region"
+                      "ref": "Endpoint"
                     }
-                  ],
-                  "assign": "PartitionResult"
+                  ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
                     {
-                      "fn": "isSet",
+                      "fn": "booleanEquals",
                       "argv": [
                         {
-                          "ref": "Endpoint"
-                        }
+                          "ref": "UseFIPS"
+                        },
+                        true
                       ]
-                    },
-                    {
-                      "fn": "parseURL",
-                      "argv": [
-                        {
-                          "ref": "Endpoint"
-                        }
-                      ],
-                      "assign": "url"
                     }
                   ],
-                  "type": "tree",
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": {
+                      "ref": "Endpoint"
+                    },
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ],
+              "type": "tree"
+            },
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ]
+                }
+              ],
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "aws.partition",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ],
+                      "assign": "PartitionResult"
+                    }
+                  ],
                   "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://braket-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
                     {
                       "conditions": [
                         {
@@ -168,12 +328,6 @@
                           ]
                         }
                       ],
-                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
-                      "type": "error"
-                    },
-                    {
-                      "conditions": [],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -181,143 +335,18 @@
                               "fn": "booleanEquals",
                               "argv": [
                                 {
-                                  "ref": "UseDualStack"
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
                                 },
                                 true
                               ]
                             }
                           ],
-                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                          "type": "error"
-                        },
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": {
-                              "ref": "Endpoint"
-                            },
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    },
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": "https://braket-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -328,227 +357,93 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS is enabled but this partition does not support FIPS",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
+                          ],
+                          "type": "tree"
                         },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
                     {
                       "conditions": [
                         {
                           "fn": "booleanEquals",
                           "argv": [
-                            true,
                             {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
+                              "ref": "UseDualStack"
+                            },
+                            true
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://braket.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
                           "conditions": [],
-                          "endpoint": {
-                            "url": "https://braket.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [],
-                      "error": "DualStack is enabled but this partition does not support DualStack",
-                      "type": "error"
+                      "endpoint": {
+                        "url": "https://braket.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
                     }
-                  ]
-                },
-                {
-                  "conditions": [],
-                  "endpoint": {
-                    "url": "https://braket.{Region}.{PartitionResult#dnsSuffix}",
-                    "properties": {},
-                    "headers": {}
-                  },
-                  "type": "endpoint"
+                  ],
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
+            },
+            {
+              "conditions": [],
+              "error": "Invalid Configuration: Missing Region",
+              "type": "error"
             }
           ]
         },
         "smithy.rules#endpointTests": {
           "testCases": [
-            {
-              "documentation": "For region us-west-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://braket-fips.us-west-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://braket-fips.us-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://braket.us-west-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://braket.us-west-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://braket-fips.us-west-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://braket-fips.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://braket.us-west-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://braket.us-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://braket-fips.eu-west-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://braket-fips.eu-west-2.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region eu-west-2 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://braket.eu-west-2.api.aws"
-                }
-              },
-              "params": {
-                "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
-              }
-            },
             {
               "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
               "expect": {
@@ -558,47 +453,8 @@
               },
               "params": {
                 "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://braket-fips.us-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://braket-fips.us-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://braket.us-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -610,12 +466,277 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://braket.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://braket.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://braket-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://braket-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://braket.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://braket-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://braket-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://braket.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://braket.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://braket-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://braket-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://braket.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://braket.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://braket-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://braket.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://braket-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://braket.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
               "expect": {
                 "endpoint": {
                   "url": "https://example.com"
@@ -623,8 +744,21 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -635,8 +769,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": true,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -647,14 +781,26 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": true,
                 "UseFIPS": false,
+                "UseDualStack": true,
                 "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
               }
             }
           ],
           "version": "1.0"
         }
+      }
+    },
+    "com.amazonaws.braket#BraketResourceArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^arn:aws[a-z\\-]*:braket:[a-z0-9\\-]*:[0-9]{12}:.*$"
       }
     },
     "com.amazonaws.braket#CancelJob": {
@@ -992,6 +1138,16 @@
           "traits": {
             "smithy.api#documentation": "<p>A tag object that consists of a key and an optional value, used to manage metadata for\n         Amazon Braket resources.</p>"
           }
+        },
+        "associations": {
+          "target": "com.amazonaws.braket#Associations",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of Amazon Braket resources associated with the hybrid job.</p>",
+            "smithy.api#length": {
+              "min": 0,
+              "max": 1
+            }
+          }
         }
       }
     },
@@ -1125,6 +1281,16 @@
           "traits": {
             "smithy.api#documentation": "<p>The token for an Amazon Braket job that associates it with the quantum task.</p>"
           }
+        },
+        "associations": {
+          "target": "com.amazonaws.braket#Associations",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of Amazon Braket resources associated with the quantum task.</p>",
+            "smithy.api#length": {
+              "min": 0,
+              "max": 1
+            }
+          }
         }
       }
     },
@@ -1194,6 +1360,40 @@
         "smithy.api#documentation": "<p>The specified device is currently offline.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 424
+      }
+    },
+    "com.amazonaws.braket#DeviceQueueInfo": {
+      "type": "structure",
+      "members": {
+        "queue": {
+          "target": "com.amazonaws.braket#QueueName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the queue. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "queueSize": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of jobs or tasks in the queue for a given device. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "queuePriority": {
+          "target": "com.amazonaws.braket#QueuePriority",
+          "traits": {
+            "smithy.api#documentation": "<p>Optional. Specifies the priority of the queue. Tasks in a priority queue\n         are processed before the tasks in a normal queue.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about tasks and jobs queued on a device.</p>"
+      }
+    },
+    "com.amazonaws.braket#DeviceQueueInfoList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.braket#DeviceQueueInfo"
       }
     },
     "com.amazonaws.braket#DeviceResource": {
@@ -1403,6 +1603,12 @@
             "smithy.api#documentation": "<p>Details about the capabilities of the device.</p>",
             "smithy.api#required": {}
           }
+        },
+        "deviceQueueInfo": {
+          "target": "com.amazonaws.braket#DeviceQueueInfoList",
+          "traits": {
+            "smithy.api#documentation": "<p>List of information about tasks and jobs queued on a device.</p>"
+          }
         }
       }
     },
@@ -1449,6 +1655,13 @@
             "smithy.api#documentation": "<p>The ARN of the job to retrieve.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "additionalAttributeNames": {
+          "target": "com.amazonaws.braket#HybridJobAdditionalAttributeNamesList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of attributes to return information for.</p>",
+            "smithy.api#httpQuery": "additionalAttributeNames"
           }
         }
       }
@@ -1585,6 +1798,18 @@
           "traits": {
             "smithy.api#documentation": "<p>A tag object that consists of a key and an optional value, used to manage metadata for\n         Amazon Braket resources.</p>"
           }
+        },
+        "queueInfo": {
+          "target": "com.amazonaws.braket#HybridJobQueueInfo",
+          "traits": {
+            "smithy.api#documentation": "<p>Queue information for the requested job. Only returned if \n         <code>QueueInfo</code> is specified in the <code>additionalAttributeNames\"</code>\n         field in the <code>GetJob</code> API request.</p>"
+          }
+        },
+        "associations": {
+          "target": "com.amazonaws.braket#Associations",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of Amazon Braket resources associated with the hybrid job.</p>"
+          }
         }
       }
     },
@@ -1628,9 +1853,16 @@
         "quantumTaskArn": {
           "target": "com.amazonaws.braket#QuantumTaskArn",
           "traits": {
-            "smithy.api#documentation": "<p>the ARN of the task to retrieve.</p>",
+            "smithy.api#documentation": "<p>The ARN of the task to retrieve.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "additionalAttributeNames": {
+          "target": "com.amazonaws.braket#QuantumTaskAdditionalAttributeNamesList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of attributes to return information for.</p>",
+            "smithy.api#httpQuery": "additionalAttributeNames"
           }
         }
       }
@@ -1719,7 +1951,64 @@
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the Amazon Braket job associated with the quantum task.</p>"
           }
+        },
+        "queueInfo": {
+          "target": "com.amazonaws.braket#QuantumTaskQueueInfo",
+          "traits": {
+            "smithy.api#documentation": "<p>Queue information for the requested quantum task. Only returned if \n         <code>QueueInfo</code> is specified in the <code>additionalAttributeNames\"</code>\n         field in the <code>GetQuantumTask</code> API request.</p>"
+          }
+        },
+        "associations": {
+          "target": "com.amazonaws.braket#Associations",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of Amazon Braket resources associated with the quantum task.</p>"
+          }
         }
+      }
+    },
+    "com.amazonaws.braket#HybridJobAdditionalAttributeName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "QueueInfo",
+            "name": "QUEUE_INFO"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.braket#HybridJobAdditionalAttributeNamesList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.braket#HybridJobAdditionalAttributeName"
+      }
+    },
+    "com.amazonaws.braket#HybridJobQueueInfo": {
+      "type": "structure",
+      "members": {
+        "queue": {
+          "target": "com.amazonaws.braket#QueueName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the queue.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "position": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Current position of the job in the jobs queue.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "message": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Optional. Provides more information about the queue position. For example,\n         if the job is complete and no longer in the queue, the message field contains\n         that information.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about the queue for a specified job.</p>"
       }
     },
     "com.amazonaws.braket#HyperParameters": {
@@ -1733,7 +2022,8 @@
           "smithy.api#length": {
             "min": 1,
             "max": 2500
-          }
+          },
+          "smithy.api#pattern": "^.*$"
         }
       },
       "traits": {
@@ -2031,7 +2321,7 @@
         "timeOfEvent": {
           "target": "smithy.api#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>TThe type of event that occurred related to the Amazon Braket job.</p>",
+            "smithy.api#documentation": "<p>The type of event that occurred related to the Amazon Braket job.</p>",
             "smithy.api#timestampFormat": "date-time"
           }
         },
@@ -2348,6 +2638,23 @@
         }
       }
     },
+    "com.amazonaws.braket#QuantumTaskAdditionalAttributeName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "QueueInfo",
+            "name": "QUEUE_INFO"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.braket#QuantumTaskAdditionalAttributeNamesList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.braket#QuantumTaskAdditionalAttributeName"
+      }
+    },
     "com.amazonaws.braket#QuantumTaskArn": {
       "type": "string",
       "traits": {
@@ -2356,9 +2663,43 @@
           "resource": "com.amazonaws.braket#QuantumTaskResource"
         },
         "smithy.api#length": {
-          "min": 1,
+          "min": 0,
           "max": 256
         }
+      }
+    },
+    "com.amazonaws.braket#QuantumTaskQueueInfo": {
+      "type": "structure",
+      "members": {
+        "queue": {
+          "target": "com.amazonaws.braket#QueueName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the queue. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "position": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Current position of the task in the quantum tasks queue.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "queuePriority": {
+          "target": "com.amazonaws.braket#QueuePriority",
+          "traits": {
+            "smithy.api#documentation": "<p>Optional. Specifies the priority of the queue. Quantum tasks in a priority queue\n         are processed before the tasks in a normal queue.</p>"
+          }
+        },
+        "message": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Optional. Provides more information about the queue position. For example,\n         if the task is complete and no longer in the queue, the message field contains\n         that information.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about the queue for the specified quantum task.</p>"
       }
     },
     "com.amazonaws.braket#QuantumTaskResource": {
@@ -2497,6 +2838,36 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.braket#QuantumTaskSummary"
+      }
+    },
+    "com.amazonaws.braket#QueueName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "QUANTUM_TASKS_QUEUE",
+            "name": "QUANTUM_TASKS_QUEUE"
+          },
+          {
+            "value": "JOBS_QUEUE",
+            "name": "JOBS_QUEUE"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.braket#QueuePriority": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "Normal",
+            "name": "NORMAL"
+          },
+          {
+            "value": "Priority",
+            "name": "PRIORITY"
+          }
+        ]
       }
     },
     "com.amazonaws.braket#ResourceNotFoundException": {

@@ -1,23 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   DatabaseMigrationServiceClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeMigrationProjectsMessage, DescribeMigrationProjectsResponse } from "../models/models_0";
 import { de_DescribeMigrationProjectsCommand, se_DescribeMigrationProjectsCommand } from "../protocols/Aws_json1_1";
 
@@ -114,83 +106,81 @@ export interface DescribeMigrationProjectsCommandOutput extends DescribeMigratio
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @example Describe Migration Projects
+ * ```javascript
+ * // Returns a paginated list of migration projects for your account in the current region.
+ * const input = {
+ *   "Filters": [
+ *     {
+ *       "Name": "migration-project-identifier",
+ *       "Values": [
+ *         "arn:aws:dms:us-east-1:012345678901:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ12345678901"
+ *       ]
+ *     }
+ *   ],
+ *   "Marker": "EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ123456",
+ *   "MaxRecords": 20
+ * };
+ * const command = new DescribeMigrationProjectsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Marker": "0123456789abcdefghijklmnopqrs",
+ *   "MigrationProjects": [
+ *     {
+ *       "InstanceProfileArn": "arn:aws:dms:us-east-1:012345678901:instance-profile:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *       "InstanceProfileName": "my-instance-profile",
+ *       "MigrationProjectArn": "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *       "MigrationProjectCreationTime": "2023-04-19T11:45:15.805253Z",
+ *       "MigrationProjectName": "my-migration-project",
+ *       "SchemaConversionApplicationAttributes": {
+ *         "S3BucketPath": "my-s3-bucket/my_folder",
+ *         "S3BucketRoleArn": "arn:aws:iam::012345678901:role/my-s3role"
+ *       },
+ *       "SourceDataProviderDescriptors": [
+ *         {
+ *           "DataProviderArn": "arn:aws:dms:us-east-1:012345678901:data-provider:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *           "DataProviderName": "all-source-oracle-12",
+ *           "SecretsManagerAccessRoleArn": "arn:aws:iam::012345678901:role/my-access-role",
+ *           "SecretsManagerSecretId": "arn:aws:secretsmanager:us-east-1:012345678901:secret:mygroup/myalias/ALL.SOURCE.ORACLE_12-012345"
+ *         }
+ *       ],
+ *       "TargetDataProviderDescriptors": [
+ *         {
+ *           "DataProviderArn": "arn:aws:dms:us-east-1:012345678901:data-provider:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *           "DataProviderName": "my-data-provider",
+ *           "SecretsManagerAccessRoleArn": "arn:aws:iam::012345678901:role/dmytbon-admin-access",
+ *           "SecretsManagerSecretId": "arn:aws:secretsmanager:us-east-1:012345678901:secret:mygroup/myalias/TARGET.postgresql-012345"
+ *         }
+ *       ]
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: describe-migration-projects-1689719912075
+ * ```
+ *
  */
-export class DescribeMigrationProjectsCommand extends $Command<
-  DescribeMigrationProjectsCommandInput,
-  DescribeMigrationProjectsCommandOutput,
-  DatabaseMigrationServiceClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeMigrationProjectsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: DatabaseMigrationServiceClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeMigrationProjectsCommandInput, DescribeMigrationProjectsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeMigrationProjectsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "DatabaseMigrationServiceClient";
-    const commandName = "DescribeMigrationProjectsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeMigrationProjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeMigrationProjectsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeMigrationProjectsCommandOutput> {
-    return de_DescribeMigrationProjectsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeMigrationProjectsCommand extends $Command
+  .classBuilder<
+    DescribeMigrationProjectsCommandInput,
+    DescribeMigrationProjectsCommandOutput,
+    DatabaseMigrationServiceClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonDMSv20160101", "DescribeMigrationProjects", {})
+  .n("DatabaseMigrationServiceClient", "DescribeMigrationProjectsCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeMigrationProjectsCommand)
+  .de(de_DescribeMigrationProjectsCommand)
+  .build() {}

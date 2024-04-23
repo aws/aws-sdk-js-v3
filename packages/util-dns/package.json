@@ -1,12 +1,12 @@
 {
   "name": "@aws-sdk/util-dns",
-  "version": "3.391.0",
+  "version": "3.496.0",
   "description": "Implementations of DNS host resolvers.",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
-    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:cjs": "node ../../scripts/compilation/inline util-dns",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",
@@ -23,16 +23,15 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/types": "*",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
-    "@aws-sdk/types": "*",
     "@tsconfig/recommended": "1.0.1",
     "@types/node": "^14.14.31",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typedoc": "0.23.23",
     "typescript": "~4.9.5"
   },
   "types": "./dist-types/index.d.ts",
@@ -58,16 +57,14 @@
   "browser": {
     "./dist-es/index": "./dist-es/index.browser",
     "./dist-es/HostResolver": "./dist-es/HostResolver.browser",
-    "./dist-es/NodeDnsLookupHostResolver": false,
-    "./dist-es/NodeDnsResolveHostResolver": false
+    "./dist-es/NodeDnsLookupHostResolver": false
   },
   "react-native": {
     "./dist-es/index": "./dist-es/index.browser",
     "./dist-es/HostResolver": "./dist-es/HostResolver.browser",
     "./dist-es/NodeDnsLookupHostResolver": false,
-    "./dist-es/NodeDnsResolveHostResolver": false
-  },
-  "typedoc": {
-    "entryPoint": "src/index.ts"
+    "./dist-cjs/index": "./dist-cjs/index.browser",
+    "./dist-cjs/HostResolver": "./dist-cjs/HostResolver.browser",
+    "./dist-cjs/NodeDnsLookupHostResolver": false
   }
 }

@@ -6,23 +6,47 @@
 
 AWS SDK for JavaScript SecurityHub Client for Node.js, Browser and React Native.
 
-<p>Security Hub provides you with a comprehensive view of the security state of
-your Amazon Web Services environment and resources. It also provides you with the readiness
-status of your environment based on controls from supported security standards. Security Hub collects security data from Amazon Web Services accounts, services, and
-integrated third-party products and helps you analyze security trends in your environment
-to identify the highest priority security issues. For more information about Security Hub, see the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html">
-<i>Security Hub User
-Guide</i>
-</a>.</p>
-<p>When you use operations in the Security Hub API, the requests are executed only in
+<p>Security Hub provides you with a comprehensive view of your security state in Amazon Web Services and helps
+you assess your Amazon Web Services environment against security industry standards and best practices.</p>
+<p>Security Hub collects security data across Amazon Web Services accounts, Amazon Web Services, and
+supported third-party products and helps you analyze your security trends and identify the highest priority security
+issues.</p>
+<p>To help you manage the security state of your organization, Security Hub supports multiple security standards.
+These include the Amazon Web Services Foundational Security Best Practices (FSBP) standard developed by Amazon Web Services,
+and external compliance frameworks such as the Center for Internet Security (CIS), the Payment Card Industry Data
+Security Standard (PCI DSS), and the National Institute of Standards and Technology (NIST). Each standard includes
+several security controls, each of which represents a security best practice. Security Hub runs checks against
+security controls and generates control findings to help you assess your compliance against security best practices.</p>
+<p>In addition to generating control findings, Security Hub also receives findings from other Amazon Web Services,
+such as Amazon GuardDuty and Amazon Inspector, and
+supported third-party products. This gives you a single pane of glass into a variety of security-related issues. You
+can also send Security Hub findings to other Amazon Web Services and supported third-party products.</p>
+<p>Security Hub offers automation features that help you triage and remediate security issues. For example,
+you can use automation rules to automatically update critical findings when a security check fails. You can also leverage the integration with
+Amazon EventBridge  to trigger automatic responses to specific findings.</p>
+<p>This guide, the <i>Security Hub API Reference</i>, provides
+information about the Security Hub API. This includes supported resources, HTTP methods, parameters,
+and schemas. If you're new to Security Hub, you might find it helpful to also review the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html">
+<i>Security Hub User Guide</i>
+</a>. The
+user guide explains key concepts and provides procedures
+that demonstrate how to use Security Hub features. It also provides information about topics such as
+integrating Security Hub with other Amazon Web Services.</p>
+<p>In addition to interacting with Security Hub  by making calls to the Security Hub API, you can
+use a current version of an Amazon Web Services command line tool or SDK. Amazon Web Services provides tools
+and SDKs that consist of libraries and sample code for various languages and platforms, such as PowerShell,
+Java, Go, Python, C++, and .NET. These tools and SDKs provide convenient, programmatic access to
+Security Hub  and other Amazon Web Services . They also handle tasks such as signing requests,
+managing errors, and retrying requests automatically. For information about installing and using the Amazon Web Services  tools
+and SDKs, see <a href="http://aws.amazon.com/developer/tools/">Tools to Build on Amazon Web Services</a>.</p>
+<p>With the exception of operations that are related to central configuration, Security Hub API requests are executed only in
 the Amazon Web Services Region that is currently active or in the specific Amazon Web Services Region that you specify in your request. Any configuration or settings change
 that results from the operation is applied only to that Region. To make the same change in
-other Regions, run the same command for each Region in which you want to apply the change.</p>
-<p>For example, if your Region is set to <code>us-west-2</code>, when you use <code>CreateMembers</code> to add a member account to Security Hub, the association of
-the member account with the administrator account is created only in the <code>us-west-2</code>
-Region. Security Hub must be enabled for the member account in the same Region that the invitation
-was sent from.</p>
-<p>The following throttling limits apply to using Security Hub API operations.</p>
+other Regions, call the same API operation in each Region in which you want to apply the change. When you use central configuration,
+API requests for enabling Security Hub, standards, and controls are executed in the home Region and all linked Regions. For a list of
+central configuration operations, see the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html#central-configuration-concepts">Central configuration
+terms and concepts</a> section of the <i>Security Hub User Guide</i>.</p>
+<p>The following throttling limits apply to Security Hub API operations.</p>
 <ul>
 <li>
 <p>
@@ -70,16 +94,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SecurityHubClient` and
-the commands you need, for example `AcceptAdministratorInvitationCommand`:
+the commands you need, for example `ListMembersCommand`:
 
 ```js
 // ES5 example
-const { SecurityHubClient, AcceptAdministratorInvitationCommand } = require("@aws-sdk/client-securityhub");
+const { SecurityHubClient, ListMembersCommand } = require("@aws-sdk/client-securityhub");
 ```
 
 ```ts
 // ES6+ example
-import { SecurityHubClient, AcceptAdministratorInvitationCommand } from "@aws-sdk/client-securityhub";
+import { SecurityHubClient, ListMembersCommand } from "@aws-sdk/client-securityhub";
 ```
 
 ### Usage
@@ -98,7 +122,7 @@ const client = new SecurityHubClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AcceptAdministratorInvitationCommand(params);
+const command = new ListMembersCommand(params);
 ```
 
 #### Async/await
@@ -177,7 +201,7 @@ const client = new AWS.SecurityHub({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.acceptAdministratorInvitation(params);
+  const data = await client.listMembers(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -185,7 +209,7 @@ try {
 
 // Promises.
 client
-  .acceptAdministratorInvitation(params)
+  .listMembers(params)
   .then((data) => {
     // process data.
   })
@@ -194,7 +218,7 @@ client
   });
 
 // callbacks.
-client.acceptAdministratorInvitation(params, (err, data) => {
+client.listMembers(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -209,7 +233,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -255,7 +279,7 @@ see LICENSE for more information.
 AcceptAdministratorInvitation
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/acceptadministratorinvitationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/acceptadministratorinvitationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/acceptadministratorinvitationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/AcceptAdministratorInvitationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/AcceptAdministratorInvitationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/AcceptAdministratorInvitationCommandOutput/)
 
 </details>
 <details>
@@ -263,7 +287,7 @@ AcceptAdministratorInvitation
 AcceptInvitation
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/acceptinvitationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/acceptinvitationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/acceptinvitationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/AcceptInvitationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/AcceptInvitationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/AcceptInvitationCommandOutput/)
 
 </details>
 <details>
@@ -271,7 +295,7 @@ AcceptInvitation
 BatchDeleteAutomationRules
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/batchdeleteautomationrulescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/batchdeleteautomationrulescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/batchdeleteautomationrulescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/BatchDeleteAutomationRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/BatchDeleteAutomationRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/BatchDeleteAutomationRulesCommandOutput/)
 
 </details>
 <details>
@@ -279,7 +303,7 @@ BatchDeleteAutomationRules
 BatchDisableStandards
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/batchdisablestandardscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/batchdisablestandardscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/batchdisablestandardscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/BatchDisableStandardsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/BatchDisableStandardsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/BatchDisableStandardsCommandOutput/)
 
 </details>
 <details>
@@ -287,7 +311,7 @@ BatchDisableStandards
 BatchEnableStandards
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/batchenablestandardscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/batchenablestandardscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/batchenablestandardscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/BatchEnableStandardsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/BatchEnableStandardsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/BatchEnableStandardsCommandOutput/)
 
 </details>
 <details>
@@ -295,7 +319,15 @@ BatchEnableStandards
 BatchGetAutomationRules
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/batchgetautomationrulescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/batchgetautomationrulescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/batchgetautomationrulescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/BatchGetAutomationRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/BatchGetAutomationRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/BatchGetAutomationRulesCommandOutput/)
+
+</details>
+<details>
+<summary>
+BatchGetConfigurationPolicyAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/BatchGetConfigurationPolicyAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/BatchGetConfigurationPolicyAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/BatchGetConfigurationPolicyAssociationsCommandOutput/)
 
 </details>
 <details>
@@ -303,7 +335,7 @@ BatchGetAutomationRules
 BatchGetSecurityControls
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/batchgetsecuritycontrolscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/batchgetsecuritycontrolscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/batchgetsecuritycontrolscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/BatchGetSecurityControlsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/BatchGetSecurityControlsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/BatchGetSecurityControlsCommandOutput/)
 
 </details>
 <details>
@@ -311,7 +343,7 @@ BatchGetSecurityControls
 BatchGetStandardsControlAssociations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/batchgetstandardscontrolassociationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/batchgetstandardscontrolassociationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/batchgetstandardscontrolassociationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/BatchGetStandardsControlAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/BatchGetStandardsControlAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/BatchGetStandardsControlAssociationsCommandOutput/)
 
 </details>
 <details>
@@ -319,7 +351,7 @@ BatchGetStandardsControlAssociations
 BatchImportFindings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/batchimportfindingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/batchimportfindingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/batchimportfindingscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/BatchImportFindingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/BatchImportFindingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/BatchImportFindingsCommandOutput/)
 
 </details>
 <details>
@@ -327,7 +359,7 @@ BatchImportFindings
 BatchUpdateAutomationRules
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/batchupdateautomationrulescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/batchupdateautomationrulescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/batchupdateautomationrulescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/BatchUpdateAutomationRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/BatchUpdateAutomationRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/BatchUpdateAutomationRulesCommandOutput/)
 
 </details>
 <details>
@@ -335,7 +367,7 @@ BatchUpdateAutomationRules
 BatchUpdateFindings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/batchupdatefindingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/batchupdatefindingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/batchupdatefindingscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/BatchUpdateFindingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/BatchUpdateFindingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/BatchUpdateFindingsCommandOutput/)
 
 </details>
 <details>
@@ -343,7 +375,7 @@ BatchUpdateFindings
 BatchUpdateStandardsControlAssociations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/batchupdatestandardscontrolassociationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/batchupdatestandardscontrolassociationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/batchupdatestandardscontrolassociationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/BatchUpdateStandardsControlAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/BatchUpdateStandardsControlAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/BatchUpdateStandardsControlAssociationsCommandOutput/)
 
 </details>
 <details>
@@ -351,7 +383,7 @@ BatchUpdateStandardsControlAssociations
 CreateActionTarget
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/createactiontargetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/createactiontargetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/createactiontargetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/CreateActionTargetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/CreateActionTargetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/CreateActionTargetCommandOutput/)
 
 </details>
 <details>
@@ -359,7 +391,15 @@ CreateActionTarget
 CreateAutomationRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/createautomationrulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/createautomationrulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/createautomationrulecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/CreateAutomationRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/CreateAutomationRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/CreateAutomationRuleCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateConfigurationPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/CreateConfigurationPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/CreateConfigurationPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/CreateConfigurationPolicyCommandOutput/)
 
 </details>
 <details>
@@ -367,7 +407,7 @@ CreateAutomationRule
 CreateFindingAggregator
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/createfindingaggregatorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/createfindingaggregatorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/createfindingaggregatorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/CreateFindingAggregatorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/CreateFindingAggregatorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/CreateFindingAggregatorCommandOutput/)
 
 </details>
 <details>
@@ -375,7 +415,7 @@ CreateFindingAggregator
 CreateInsight
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/createinsightcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/createinsightcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/createinsightcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/CreateInsightCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/CreateInsightCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/CreateInsightCommandOutput/)
 
 </details>
 <details>
@@ -383,7 +423,7 @@ CreateInsight
 CreateMembers
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/creatememberscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/creatememberscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/creatememberscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/CreateMembersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/CreateMembersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/CreateMembersCommandOutput/)
 
 </details>
 <details>
@@ -391,7 +431,7 @@ CreateMembers
 DeclineInvitations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/declineinvitationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/declineinvitationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/declineinvitationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/DeclineInvitationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DeclineInvitationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DeclineInvitationsCommandOutput/)
 
 </details>
 <details>
@@ -399,7 +439,15 @@ DeclineInvitations
 DeleteActionTarget
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/deleteactiontargetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/deleteactiontargetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/deleteactiontargetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/DeleteActionTargetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DeleteActionTargetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DeleteActionTargetCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteConfigurationPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/DeleteConfigurationPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DeleteConfigurationPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DeleteConfigurationPolicyCommandOutput/)
 
 </details>
 <details>
@@ -407,7 +455,7 @@ DeleteActionTarget
 DeleteFindingAggregator
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/deletefindingaggregatorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/deletefindingaggregatorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/deletefindingaggregatorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/DeleteFindingAggregatorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DeleteFindingAggregatorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DeleteFindingAggregatorCommandOutput/)
 
 </details>
 <details>
@@ -415,7 +463,7 @@ DeleteFindingAggregator
 DeleteInsight
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/deleteinsightcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/deleteinsightcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/deleteinsightcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/DeleteInsightCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DeleteInsightCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DeleteInsightCommandOutput/)
 
 </details>
 <details>
@@ -423,7 +471,7 @@ DeleteInsight
 DeleteInvitations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/deleteinvitationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/deleteinvitationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/deleteinvitationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/DeleteInvitationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DeleteInvitationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DeleteInvitationsCommandOutput/)
 
 </details>
 <details>
@@ -431,7 +479,7 @@ DeleteInvitations
 DeleteMembers
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/deletememberscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/deletememberscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/deletememberscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/DeleteMembersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DeleteMembersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DeleteMembersCommandOutput/)
 
 </details>
 <details>
@@ -439,7 +487,7 @@ DeleteMembers
 DescribeActionTargets
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/describeactiontargetscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/describeactiontargetscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/describeactiontargetscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/DescribeActionTargetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DescribeActionTargetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DescribeActionTargetsCommandOutput/)
 
 </details>
 <details>
@@ -447,7 +495,7 @@ DescribeActionTargets
 DescribeHub
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/describehubcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/describehubcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/describehubcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/DescribeHubCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DescribeHubCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DescribeHubCommandOutput/)
 
 </details>
 <details>
@@ -455,7 +503,7 @@ DescribeHub
 DescribeOrganizationConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/describeorganizationconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/describeorganizationconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/describeorganizationconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/DescribeOrganizationConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DescribeOrganizationConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DescribeOrganizationConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -463,7 +511,7 @@ DescribeOrganizationConfiguration
 DescribeProducts
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/describeproductscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/describeproductscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/describeproductscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/DescribeProductsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DescribeProductsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DescribeProductsCommandOutput/)
 
 </details>
 <details>
@@ -471,7 +519,7 @@ DescribeProducts
 DescribeStandards
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/describestandardscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/describestandardscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/describestandardscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/DescribeStandardsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DescribeStandardsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DescribeStandardsCommandOutput/)
 
 </details>
 <details>
@@ -479,7 +527,7 @@ DescribeStandards
 DescribeStandardsControls
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/describestandardscontrolscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/describestandardscontrolscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/describestandardscontrolscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/DescribeStandardsControlsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DescribeStandardsControlsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DescribeStandardsControlsCommandOutput/)
 
 </details>
 <details>
@@ -487,7 +535,7 @@ DescribeStandardsControls
 DisableImportFindingsForProduct
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/disableimportfindingsforproductcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/disableimportfindingsforproductcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/disableimportfindingsforproductcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/DisableImportFindingsForProductCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DisableImportFindingsForProductCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DisableImportFindingsForProductCommandOutput/)
 
 </details>
 <details>
@@ -495,7 +543,7 @@ DisableImportFindingsForProduct
 DisableOrganizationAdminAccount
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/disableorganizationadminaccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/disableorganizationadminaccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/disableorganizationadminaccountcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/DisableOrganizationAdminAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DisableOrganizationAdminAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DisableOrganizationAdminAccountCommandOutput/)
 
 </details>
 <details>
@@ -503,7 +551,7 @@ DisableOrganizationAdminAccount
 DisableSecurityHub
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/disablesecurityhubcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/disablesecurityhubcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/disablesecurityhubcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/DisableSecurityHubCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DisableSecurityHubCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DisableSecurityHubCommandOutput/)
 
 </details>
 <details>
@@ -511,7 +559,7 @@ DisableSecurityHub
 DisassociateFromAdministratorAccount
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/disassociatefromadministratoraccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/disassociatefromadministratoraccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/disassociatefromadministratoraccountcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/DisassociateFromAdministratorAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DisassociateFromAdministratorAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DisassociateFromAdministratorAccountCommandOutput/)
 
 </details>
 <details>
@@ -519,7 +567,7 @@ DisassociateFromAdministratorAccount
 DisassociateFromMasterAccount
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/disassociatefrommasteraccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/disassociatefrommasteraccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/disassociatefrommasteraccountcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/DisassociateFromMasterAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DisassociateFromMasterAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DisassociateFromMasterAccountCommandOutput/)
 
 </details>
 <details>
@@ -527,7 +575,7 @@ DisassociateFromMasterAccount
 DisassociateMembers
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/disassociatememberscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/disassociatememberscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/disassociatememberscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/DisassociateMembersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DisassociateMembersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/DisassociateMembersCommandOutput/)
 
 </details>
 <details>
@@ -535,7 +583,7 @@ DisassociateMembers
 EnableImportFindingsForProduct
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/enableimportfindingsforproductcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/enableimportfindingsforproductcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/enableimportfindingsforproductcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/EnableImportFindingsForProductCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/EnableImportFindingsForProductCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/EnableImportFindingsForProductCommandOutput/)
 
 </details>
 <details>
@@ -543,7 +591,7 @@ EnableImportFindingsForProduct
 EnableOrganizationAdminAccount
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/enableorganizationadminaccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/enableorganizationadminaccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/enableorganizationadminaccountcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/EnableOrganizationAdminAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/EnableOrganizationAdminAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/EnableOrganizationAdminAccountCommandOutput/)
 
 </details>
 <details>
@@ -551,7 +599,7 @@ EnableOrganizationAdminAccount
 EnableSecurityHub
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/enablesecurityhubcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/enablesecurityhubcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/enablesecurityhubcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/EnableSecurityHubCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/EnableSecurityHubCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/EnableSecurityHubCommandOutput/)
 
 </details>
 <details>
@@ -559,7 +607,23 @@ EnableSecurityHub
 GetAdministratorAccount
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/getadministratoraccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/getadministratoraccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/getadministratoraccountcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/GetAdministratorAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetAdministratorAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetAdministratorAccountCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetConfigurationPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/GetConfigurationPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetConfigurationPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetConfigurationPolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetConfigurationPolicyAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/GetConfigurationPolicyAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetConfigurationPolicyAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetConfigurationPolicyAssociationCommandOutput/)
 
 </details>
 <details>
@@ -567,7 +631,7 @@ GetAdministratorAccount
 GetEnabledStandards
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/getenabledstandardscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/getenabledstandardscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/getenabledstandardscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/GetEnabledStandardsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetEnabledStandardsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetEnabledStandardsCommandOutput/)
 
 </details>
 <details>
@@ -575,7 +639,7 @@ GetEnabledStandards
 GetFindingAggregator
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/getfindingaggregatorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/getfindingaggregatorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/getfindingaggregatorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/GetFindingAggregatorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetFindingAggregatorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetFindingAggregatorCommandOutput/)
 
 </details>
 <details>
@@ -583,7 +647,7 @@ GetFindingAggregator
 GetFindingHistory
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/getfindinghistorycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/getfindinghistorycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/getfindinghistorycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/GetFindingHistoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetFindingHistoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetFindingHistoryCommandOutput/)
 
 </details>
 <details>
@@ -591,7 +655,7 @@ GetFindingHistory
 GetFindings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/getfindingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/getfindingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/getfindingscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/GetFindingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetFindingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetFindingsCommandOutput/)
 
 </details>
 <details>
@@ -599,7 +663,7 @@ GetFindings
 GetInsightResults
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/getinsightresultscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/getinsightresultscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/getinsightresultscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/GetInsightResultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetInsightResultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetInsightResultsCommandOutput/)
 
 </details>
 <details>
@@ -607,7 +671,7 @@ GetInsightResults
 GetInsights
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/getinsightscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/getinsightscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/getinsightscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/GetInsightsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetInsightsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetInsightsCommandOutput/)
 
 </details>
 <details>
@@ -615,7 +679,7 @@ GetInsights
 GetInvitationsCount
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/getinvitationscountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/getinvitationscountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/getinvitationscountcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/GetInvitationsCountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetInvitationsCountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetInvitationsCountCommandOutput/)
 
 </details>
 <details>
@@ -623,7 +687,7 @@ GetInvitationsCount
 GetMasterAccount
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/getmasteraccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/getmasteraccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/getmasteraccountcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/GetMasterAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetMasterAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetMasterAccountCommandOutput/)
 
 </details>
 <details>
@@ -631,7 +695,15 @@ GetMasterAccount
 GetMembers
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/getmemberscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/getmemberscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/getmemberscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/GetMembersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetMembersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetMembersCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetSecurityControlDefinition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/GetSecurityControlDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetSecurityControlDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/GetSecurityControlDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -639,7 +711,7 @@ GetMembers
 InviteMembers
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/invitememberscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/invitememberscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/invitememberscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/InviteMembersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/InviteMembersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/InviteMembersCommandOutput/)
 
 </details>
 <details>
@@ -647,7 +719,23 @@ InviteMembers
 ListAutomationRules
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/listautomationrulescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/listautomationrulescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/listautomationrulescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/ListAutomationRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/ListAutomationRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/ListAutomationRulesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListConfigurationPolicies
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/ListConfigurationPoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/ListConfigurationPoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/ListConfigurationPoliciesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListConfigurationPolicyAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/ListConfigurationPolicyAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/ListConfigurationPolicyAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/ListConfigurationPolicyAssociationsCommandOutput/)
 
 </details>
 <details>
@@ -655,7 +743,7 @@ ListAutomationRules
 ListEnabledProductsForImport
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/listenabledproductsforimportcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/listenabledproductsforimportcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/listenabledproductsforimportcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/ListEnabledProductsForImportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/ListEnabledProductsForImportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/ListEnabledProductsForImportCommandOutput/)
 
 </details>
 <details>
@@ -663,7 +751,7 @@ ListEnabledProductsForImport
 ListFindingAggregators
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/listfindingaggregatorscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/listfindingaggregatorscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/listfindingaggregatorscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/ListFindingAggregatorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/ListFindingAggregatorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/ListFindingAggregatorsCommandOutput/)
 
 </details>
 <details>
@@ -671,7 +759,7 @@ ListFindingAggregators
 ListInvitations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/listinvitationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/listinvitationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/listinvitationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/ListInvitationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/ListInvitationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/ListInvitationsCommandOutput/)
 
 </details>
 <details>
@@ -679,7 +767,7 @@ ListInvitations
 ListMembers
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/listmemberscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/listmemberscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/listmemberscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/ListMembersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/ListMembersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/ListMembersCommandOutput/)
 
 </details>
 <details>
@@ -687,7 +775,7 @@ ListMembers
 ListOrganizationAdminAccounts
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/listorganizationadminaccountscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/listorganizationadminaccountscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/listorganizationadminaccountscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/ListOrganizationAdminAccountsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/ListOrganizationAdminAccountsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/ListOrganizationAdminAccountsCommandOutput/)
 
 </details>
 <details>
@@ -695,7 +783,7 @@ ListOrganizationAdminAccounts
 ListSecurityControlDefinitions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/listsecuritycontroldefinitionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/listsecuritycontroldefinitionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/listsecuritycontroldefinitionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/ListSecurityControlDefinitionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/ListSecurityControlDefinitionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/ListSecurityControlDefinitionsCommandOutput/)
 
 </details>
 <details>
@@ -703,7 +791,7 @@ ListSecurityControlDefinitions
 ListStandardsControlAssociations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/liststandardscontrolassociationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/liststandardscontrolassociationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/liststandardscontrolassociationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/ListStandardsControlAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/ListStandardsControlAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/ListStandardsControlAssociationsCommandOutput/)
 
 </details>
 <details>
@@ -711,7 +799,23 @@ ListStandardsControlAssociations
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/ListTagsForResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartConfigurationPolicyAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/StartConfigurationPolicyAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/StartConfigurationPolicyAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/StartConfigurationPolicyAssociationCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartConfigurationPolicyDisassociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/StartConfigurationPolicyDisassociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/StartConfigurationPolicyDisassociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/StartConfigurationPolicyDisassociationCommandOutput/)
 
 </details>
 <details>
@@ -719,7 +823,7 @@ ListTagsForResource
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -727,7 +831,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -735,7 +839,15 @@ UntagResource
 UpdateActionTarget
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/updateactiontargetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/updateactiontargetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/updateactiontargetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/UpdateActionTargetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/UpdateActionTargetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/UpdateActionTargetCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateConfigurationPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/UpdateConfigurationPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/UpdateConfigurationPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/UpdateConfigurationPolicyCommandOutput/)
 
 </details>
 <details>
@@ -743,7 +855,7 @@ UpdateActionTarget
 UpdateFindingAggregator
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/updatefindingaggregatorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/updatefindingaggregatorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/updatefindingaggregatorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/UpdateFindingAggregatorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/UpdateFindingAggregatorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/UpdateFindingAggregatorCommandOutput/)
 
 </details>
 <details>
@@ -751,7 +863,7 @@ UpdateFindingAggregator
 UpdateFindings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/updatefindingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/updatefindingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/updatefindingscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/UpdateFindingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/UpdateFindingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/UpdateFindingsCommandOutput/)
 
 </details>
 <details>
@@ -759,7 +871,7 @@ UpdateFindings
 UpdateInsight
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/updateinsightcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/updateinsightcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/updateinsightcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/UpdateInsightCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/UpdateInsightCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/UpdateInsightCommandOutput/)
 
 </details>
 <details>
@@ -767,7 +879,15 @@ UpdateInsight
 UpdateOrganizationConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/updateorganizationconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/updateorganizationconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/updateorganizationconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/UpdateOrganizationConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/UpdateOrganizationConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/UpdateOrganizationConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateSecurityControl
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/UpdateSecurityControlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/UpdateSecurityControlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/UpdateSecurityControlCommandOutput/)
 
 </details>
 <details>
@@ -775,7 +895,7 @@ UpdateOrganizationConfiguration
 UpdateSecurityHubConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/updatesecurityhubconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/updatesecurityhubconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/updatesecurityhubconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/UpdateSecurityHubConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/UpdateSecurityHubConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/UpdateSecurityHubConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -783,6 +903,6 @@ UpdateSecurityHubConfiguration
 UpdateStandardsControl
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/classes/updatestandardscontrolcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/updatestandardscontrolcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-securityhub/interfaces/updatestandardscontrolcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/UpdateStandardsControlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/UpdateStandardsControlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/UpdateStandardsControlCommandOutput/)
 
 </details>

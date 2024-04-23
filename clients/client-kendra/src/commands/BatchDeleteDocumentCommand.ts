@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient";
 import { BatchDeleteDocumentRequest, BatchDeleteDocumentResponse } from "../models/models_0";
 import { de_BatchDeleteDocumentCommand, se_BatchDeleteDocumentCommand } from "../protocols/Aws_json1_1";
@@ -39,8 +31,13 @@ export interface BatchDeleteDocumentCommandOutput extends BatchDeleteDocumentRes
  * <p>Removes one or more documents from an index. The documents must have been added with
  *             the <code>BatchPutDocument</code> API.</p>
  *          <p>The documents are deleted asynchronously. You can see the progress of the deletion by
- *             using Amazon Web Services CloudWatch. Any error messages related to the processing of the
- *             batch are sent to you CloudWatch log.</p>
+ *             using Amazon Web Services
+ *             CloudWatch. Any error messages related to the processing of the batch are sent to
+ *             your Amazon Web Services
+ *             CloudWatch log. You can also use the <code>BatchGetDocumentStatus</code> API to
+ *             monitor the progress of deleting your documents.</p>
+ *          <p>Deleting documents from an index using <code>BatchDeleteDocument</code> could take up
+ *             to an hour or more, depending on the number of documents you want to delete.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -105,79 +102,26 @@ export interface BatchDeleteDocumentCommandOutput extends BatchDeleteDocumentRes
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
  */
-export class BatchDeleteDocumentCommand extends $Command<
-  BatchDeleteDocumentCommandInput,
-  BatchDeleteDocumentCommandOutput,
-  KendraClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: BatchDeleteDocumentCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: KendraClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<BatchDeleteDocumentCommandInput, BatchDeleteDocumentCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, BatchDeleteDocumentCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "KendraClient";
-    const commandName = "BatchDeleteDocumentCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: BatchDeleteDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_BatchDeleteDocumentCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDeleteDocumentCommandOutput> {
-    return de_BatchDeleteDocumentCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class BatchDeleteDocumentCommand extends $Command
+  .classBuilder<
+    BatchDeleteDocumentCommandInput,
+    BatchDeleteDocumentCommandOutput,
+    KendraClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSKendraFrontendService", "BatchDeleteDocument", {})
+  .n("KendraClient", "BatchDeleteDocumentCommand")
+  .f(void 0, void 0)
+  .ser(se_BatchDeleteDocumentCommand)
+  .de(de_BatchDeleteDocumentCommand)
+  .build() {}

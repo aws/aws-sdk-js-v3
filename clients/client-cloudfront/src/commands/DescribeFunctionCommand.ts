@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeFunctionRequest, DescribeFunctionResult } from "../models/models_1";
 import { de_DescribeFunctionCommand, se_DescribeFunctionCommand } from "../protocols/Aws_restXml";
 
@@ -60,6 +52,14 @@ export interface DescribeFunctionCommandOutput extends DescribeFunctionResult, _
  * //     FunctionConfig: { // FunctionConfig
  * //       Comment: "STRING_VALUE", // required
  * //       Runtime: "cloudfront-js-1.0" || "cloudfront-js-2.0", // required
+ * //       KeyValueStoreAssociations: { // KeyValueStoreAssociations
+ * //         Quantity: Number("int"), // required
+ * //         Items: [ // KeyValueStoreAssociationList
+ * //           { // KeyValueStoreAssociation
+ * //             KeyValueStoreARN: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //     FunctionMetadata: { // FunctionMetadata
  * //       FunctionARN: "STRING_VALUE", // required
@@ -89,79 +89,26 @@ export interface DescribeFunctionCommandOutput extends DescribeFunctionResult, _
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
  */
-export class DescribeFunctionCommand extends $Command<
-  DescribeFunctionCommandInput,
-  DescribeFunctionCommandOutput,
-  CloudFrontClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeFunctionCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CloudFrontClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeFunctionCommandInput, DescribeFunctionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeFunctionCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CloudFrontClient";
-    const commandName = "DescribeFunctionCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeFunctionCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeFunctionCommandOutput> {
-    return de_DescribeFunctionCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeFunctionCommand extends $Command
+  .classBuilder<
+    DescribeFunctionCommandInput,
+    DescribeFunctionCommandOutput,
+    CloudFrontClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("Cloudfront2020_05_31", "DescribeFunction", {})
+  .n("CloudFrontClient", "DescribeFunctionCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeFunctionCommand)
+  .de(de_DescribeFunctionCommand)
+  .build() {}

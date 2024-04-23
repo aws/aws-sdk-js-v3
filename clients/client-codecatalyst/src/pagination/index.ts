@@ -8,3 +8,5 @@ export * from "./ListProjectsPaginator";
 export * from "./ListSourceRepositoriesPaginator";
 export * from "./ListSourceRepositoryBranchesPaginator";
 export * from "./ListSpacesPaginator";
+export * from "./ListWorkflowRunsPaginator";
+export * from "./ListWorkflowsPaginator";

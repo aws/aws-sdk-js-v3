@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeAttackRequest, DescribeAttackResponse } from "../models/models_0";
 import { de_DescribeAttackCommand, se_DescribeAttackCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
@@ -54,7 +46,7 @@ export interface DescribeAttackCommandOutput extends DescribeAttackResponse, __M
  * //     ResourceArn: "STRING_VALUE",
  * //     SubResources: [ // SubResourceSummaryList
  * //       { // SubResourceSummary
- * //         Type: "STRING_VALUE",
+ * //         Type: "IP" || "URL",
  * //         Id: "STRING_VALUE",
  * //         AttackVectors: [ // SummarizedAttackVectorList
  * //           { // SummarizedAttackVector
@@ -88,15 +80,15 @@ export interface DescribeAttackCommandOutput extends DescribeAttackResponse, __M
  * //     AttackCounters: "<SummarizedCounterList>",
  * //     AttackProperties: [ // AttackProperties
  * //       { // AttackProperty
- * //         AttackLayer: "STRING_VALUE",
- * //         AttackPropertyIdentifier: "STRING_VALUE",
+ * //         AttackLayer: "NETWORK" || "APPLICATION",
+ * //         AttackPropertyIdentifier: "DESTINATION_URL" || "REFERRER" || "SOURCE_ASN" || "SOURCE_COUNTRY" || "SOURCE_IP_ADDRESS" || "SOURCE_USER_AGENT" || "WORDPRESS_PINGBACK_REFLECTOR" || "WORDPRESS_PINGBACK_SOURCE",
  * //         TopContributors: [ // TopContributors
  * //           { // Contributor
  * //             Name: "STRING_VALUE",
  * //             Value: Number("long"),
  * //           },
  * //         ],
- * //         Unit: "STRING_VALUE",
+ * //         Unit: "BITS" || "BYTES" || "PACKETS" || "REQUESTS",
  * //         Total: Number("long"),
  * //       },
  * //     ],
@@ -126,79 +118,26 @@ export interface DescribeAttackCommandOutput extends DescribeAttackResponse, __M
  * <p>Base exception class for all service exceptions from Shield service.</p>
  *
  */
-export class DescribeAttackCommand extends $Command<
-  DescribeAttackCommandInput,
-  DescribeAttackCommandOutput,
-  ShieldClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeAttackCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ShieldClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeAttackCommandInput, DescribeAttackCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeAttackCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ShieldClient";
-    const commandName = "DescribeAttackCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeAttackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeAttackCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAttackCommandOutput> {
-    return de_DescribeAttackCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeAttackCommand extends $Command
+  .classBuilder<
+    DescribeAttackCommandInput,
+    DescribeAttackCommandOutput,
+    ShieldClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ShieldClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSShield_20160616", "DescribeAttack", {})
+  .n("ShieldClient", "DescribeAttackCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeAttackCommand)
+  .de(de_DescribeAttackCommand)
+  .build() {}

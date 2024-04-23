@@ -76,7 +76,7 @@ export interface IpSet {
    * @public
    * <p>The types of IP addresses included in this IP set. </p>
    */
-  IpAddressFamily?: IpAddressFamily | string;
+  IpAddressFamily?: IpAddressFamily;
 }
 
 /**
@@ -116,7 +116,7 @@ export interface Accelerator {
    * @public
    * <p>The IP address type that an accelerator supports. For a standard accelerator, the value can be IPV4 or DUAL_STACK.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: IpAddressType;
 
   /**
    * @public
@@ -148,7 +148,7 @@ export interface Accelerator {
    * @public
    * <p>Describes the deployment status of the accelerator.</p>
    */
-  Status?: AcceleratorStatus | string;
+  Status?: AcceleratorStatus;
 
   /**
    * @public
@@ -291,6 +291,13 @@ export interface CustomRoutingEndpointConfiguration {
    * 			subnet ID. </p>
    */
   EndpointId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the cross-account attachment that specifies the endpoints (resources)
+   * 			that can be added to accelerators and principals that have permission to add the endpoints to accelerators.</p>
+   */
+  AttachmentArn?: string;
 }
 
 /**
@@ -501,15 +508,23 @@ export interface EndpointConfiguration {
   /**
    * @public
    * <p>Indicates whether client IP address preservation is enabled for an endpoint.
-   * 			The value is true or false. The default value is true for new accelerators. </p>
+   * 			The value is true or false. The default value is true for Application Load Balancer endpoints. </p>
    *          <p>If the value is set to true, the client's IP address is preserved in the <code>X-Forwarded-For</code> request header as
    * 			traffic travels to applications on the endpoint fronted by the accelerator.</p>
    *          <p>Client IP address preservation is supported, in specific Amazon Web Services Regions, for endpoints that are Application Load
-   * 			Balancers and Amazon EC2 instances.</p>
+   * 			Balancers, Amazon EC2 instances, and Network Load Balancers with security groups. IMPORTANT: You cannot use client IP address preservation
+   * 			with Network Load Balancers with TLS listeners.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html">
    * 			Preserve client IP addresses in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    */
   ClientIPPreservationEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the cross-account attachment that specifies the endpoints (resources)
+   * 			that can be added to accelerators and principals that have permission to add the endpoints to accelerators.</p>
+   */
+  AttachmentArn?: string;
 }
 
 /**
@@ -573,7 +588,7 @@ export interface EndpointDescription {
    * @public
    * <p>The health status of the endpoint.</p>
    */
-  HealthState?: HealthState | string;
+  HealthState?: HealthState;
 
   /**
    * @public
@@ -584,11 +599,12 @@ export interface EndpointDescription {
   /**
    * @public
    * <p>Indicates whether client IP address preservation is enabled for an endpoint.
-   * 			The value is true or false. The default value is true for new accelerators. </p>
+   * 			The value is true or false. The default value is true for Application Load Balancers endpoints. </p>
    *          <p>If the value is set to true, the client's IP address is preserved in the <code>X-Forwarded-For</code> request header as
    * 			traffic travels to applications on the endpoint fronted by the accelerator.</p>
    *          <p>Client IP address preservation is supported, in specific Amazon Web Services Regions, for endpoints that are Application Load
-   * 			Balancers and Amazon EC2 instances.</p>
+   * 			Balancers, Amazon EC2 instances, and Network Load Balancers with security groups. IMPORTANT: You cannot use client IP address preservation
+   * 			with Network Load Balancers with TLS listeners.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html">
    * 			Preserve client IP addresses in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
    */
@@ -775,7 +791,7 @@ export interface ByoipCidr {
    * @public
    * <p>The state of the address pool.</p>
    */
-  State?: ByoipCidrState | string;
+  State?: ByoipCidrState;
 
   /**
    * @public
@@ -935,6 +951,90 @@ export class AssociatedListenerFoundException extends __BaseException {
 
 /**
  * @public
+ * <p>An Amazon Web Services resource that is supported by Global Accelerator and can be added as an endpoint for an accelerator.</p>
+ */
+export interface Resource {
+  /**
+   * @public
+   * <p>The endpoint ID for the endpoint (Amazon Web Services resource).</p>
+   */
+  EndpointId: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Region where a resource is located.</p>
+   */
+  Region?: string;
+}
+
+/**
+ * @public
+ * <p>A cross-account attachment in Global Accelerator. A cross-account attachment
+ * 			specifies the <i>principals</i> who have permission to add to accelerators in their own
+ * 			account the resources in your account that you also list in the attachment.</p>
+ */
+export interface Attachment {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the cross-account attachment.</p>
+   */
+  AttachmentArn?: string;
+
+  /**
+   * @public
+   * <p>The name of the cross-account attachment.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The principals included in the cross-account attachment.</p>
+   */
+  Principals?: string[];
+
+  /**
+   * @public
+   * <p>The resources included in the cross-account attachment.</p>
+   */
+  Resources?: Resource[];
+
+  /**
+   * @public
+   * <p>The date and time that the cross-account attachment was last modified.</p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * @public
+   * <p>The date and time that the cross-account attachment was created.</p>
+   */
+  CreatedTime?: Date;
+}
+
+/**
+ * @public
+ * <p>No cross-account attachment was found.</p>
+ */
+export class AttachmentNotFoundException extends __BaseException {
+  readonly name: "AttachmentNotFoundException" = "AttachmentNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AttachmentNotFoundException, __BaseException>) {
+    super({
+      name: "AttachmentNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AttachmentNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  * <p>Provides authorization for Amazon to bring a specific IP address range to a specific Amazon Web Services
  * 			account using bring your own IP addresses (BYOIP). </p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/using-byoip.html">Bring your own
@@ -1001,7 +1101,7 @@ export interface CreateAcceleratorRequest {
    * @public
    * <p>The IP address type that an accelerator supports. For a standard accelerator, the value can be IPV4 or DUAL_STACK.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: IpAddressType;
 
   /**
    * @public
@@ -1057,6 +1157,57 @@ export interface CreateAcceleratorResponse {
 /**
  * @public
  */
+export interface CreateCrossAccountAttachmentRequest {
+  /**
+   * @public
+   * <p>The name of the cross-account attachment. </p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>The principals to list in the cross-account attachment. A principal can be an Amazon Web Services account
+   * 			number or the Amazon Resource Name (ARN) for an accelerator. </p>
+   */
+  Principals?: string[];
+
+  /**
+   * @public
+   * <p>The Amazon Resource Names (ARNs) for the resources to list in the cross-account attachment. A resource can
+   * 			be any supported Amazon Web Services resource type for Global Accelerator. </p>
+   */
+  Resources?: Resource[];
+
+  /**
+   * @public
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency—that is, the
+   * 			uniqueness—of the request.</p>
+   */
+  IdempotencyToken?: string;
+
+  /**
+   * @public
+   * <p>Create tags for cross-account attachment.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/global-accelerator/latest/dg/tagging-in-global-accelerator.html">Tagging
+   * 			in Global Accelerator</a> in the <i>Global Accelerator Developer Guide</i>.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface CreateCrossAccountAttachmentResponse {
+  /**
+   * @public
+   * <p>Information about the cross-account attachment.</p>
+   */
+  CrossAccountAttachment?: Attachment;
+}
+
+/**
+ * @public
+ */
 export interface CreateCustomRoutingAcceleratorRequest {
   /**
    * @public
@@ -1069,7 +1220,7 @@ export interface CreateCustomRoutingAcceleratorRequest {
    * @public
    * <p>The IP address type that an accelerator supports. For a custom routing accelerator, the value must be IPV4.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: IpAddressType;
 
   /**
    * @public
@@ -1148,7 +1299,7 @@ export interface CustomRoutingAccelerator {
    * @public
    * <p>The IP address type that an accelerator supports. For a custom routing accelerator, the value must be IPV4.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: IpAddressType;
 
   /**
    * @public
@@ -1180,7 +1331,7 @@ export interface CustomRoutingAccelerator {
    * @public
    * <p>Describes the deployment status of the accelerator.</p>
    */
-  Status?: CustomRoutingAcceleratorStatus | string;
+  Status?: CustomRoutingAcceleratorStatus;
 
   /**
    * @public
@@ -1242,7 +1393,7 @@ export interface CustomRoutingDestinationConfiguration {
    * @public
    * <p>The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either TCP or UDP.</p>
    */
-  Protocols: (CustomRoutingProtocol | string)[] | undefined;
+  Protocols: CustomRoutingProtocol[] | undefined;
 }
 
 /**
@@ -1313,7 +1464,7 @@ export interface CustomRoutingDestinationDescription {
    * @public
    * <p>The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either TCP or UDP.</p>
    */
-  Protocols?: (Protocol | string)[];
+  Protocols?: Protocol[];
 }
 
 /**
@@ -1587,7 +1738,7 @@ export interface CreateEndpointGroupRequest {
    * <p>The protocol that Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default
    * 			value is TCP.</p>
    */
-  HealthCheckProtocol?: HealthCheckProtocol | string;
+  HealthCheckProtocol?: HealthCheckProtocol;
 
   /**
    * @public
@@ -1675,7 +1826,7 @@ export interface EndpointGroup {
    * <p>The protocol that Global Accelerator uses to perform health checks on endpoints that are part of this endpoint group. The default
    * 			value is TCP.</p>
    */
-  HealthCheckProtocol?: HealthCheckProtocol | string;
+  HealthCheckProtocol?: HealthCheckProtocol;
 
   /**
    * @public
@@ -1738,7 +1889,7 @@ export interface CreateListenerRequest {
    * @public
    * <p>The protocol for connections from clients to your accelerator.</p>
    */
-  Protocol: Protocol | string | undefined;
+  Protocol: Protocol | undefined;
 
   /**
    * @public
@@ -1755,7 +1906,7 @@ export interface CreateListenerRequest {
    * 			source (client) IP address and destination IP address—to select the hash value.</p>
    *          <p>The default value is <code>NONE</code>.</p>
    */
-  ClientAffinity?: ClientAffinity | string;
+  ClientAffinity?: ClientAffinity;
 
   /**
    * @public
@@ -1786,7 +1937,7 @@ export interface Listener {
    * @public
    * <p>The protocol for the connections from clients to the accelerator.</p>
    */
-  Protocol?: Protocol | string;
+  Protocol?: Protocol;
 
   /**
    * @public
@@ -1803,7 +1954,7 @@ export interface Listener {
    * 			source (client) IP address and destination IP address—to select the hash value.</p>
    *          <p>The default value is <code>NONE</code>.</p>
    */
-  ClientAffinity?: ClientAffinity | string;
+  ClientAffinity?: ClientAffinity;
 }
 
 /**
@@ -1815,6 +1966,27 @@ export interface CreateListenerResponse {
    * <p>The listener that you've created.</p>
    */
   Listener?: Listener;
+}
+
+/**
+ * @public
+ * <p>An endpoint (Amazon Web Services resource) that is listed in a cross-account attachment and
+ * 			can be added to an accelerator by specified principals, that are also listed in the attachment.</p>
+ */
+export interface CrossAccountResource {
+  /**
+   * @public
+   * <p>The endpoint ID for the endpoint that is listed in a cross-account attachment and
+   * 			can be added to an accelerator by specified principals.</p>
+   */
+  EndpointId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the cross-account attachment that specifies the endpoints (resources)
+   * 			that can be added to accelerators and principals that have permission to add the endpoints to accelerators.</p>
+   */
+  AttachmentArn?: string;
 }
 
 /**
@@ -1874,6 +2046,17 @@ export interface DeleteAcceleratorRequest {
    * <p>The Amazon Resource Name (ARN) of an accelerator.</p>
    */
   AcceleratorArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCrossAccountAttachmentRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the cross-account attachment to delete.</p>
+   */
+  AttachmentArn: string | undefined;
 }
 
 /**
@@ -2041,6 +2224,28 @@ export interface DescribeAcceleratorAttributesResponse {
    * <p>The attributes of the accelerator.</p>
    */
   AcceleratorAttributes?: AcceleratorAttributes;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCrossAccountAttachmentRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the cross-account attachment to describe.</p>
+   */
+  AttachmentArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCrossAccountAttachmentResponse {
+  /**
+   * @public
+   * <p>Information about the cross-account attachment.</p>
+   */
+  CrossAccountAttachment?: Attachment;
 }
 
 /**
@@ -2240,14 +2445,14 @@ export interface DestinationPortMapping {
    * @public
    * <p>The IP address type that an accelerator supports. For a custom routing accelerator, the value must be IPV4.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: IpAddressType;
 
   /**
    * @public
    * <p>Indicates whether or not a port mapping destination can receive traffic. The value is either ALLOW, if
    * 			traffic is allowed to the destination, or DENY, if traffic is not allowed to the destination.</p>
    */
-  DestinationTrafficState?: CustomRoutingDestinationTrafficState | string;
+  DestinationTrafficState?: CustomRoutingDestinationTrafficState;
 }
 
 /**
@@ -2382,6 +2587,103 @@ export interface ListByoipCidrsResponse {
   /**
    * @public
    * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListCrossAccountAttachmentsRequest {
+  /**
+   * @public
+   * <p>The number of cross-account attachment objects that you want to return with this call. The default value is 10.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The token for the next set of results. You receive this token from a previous call.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListCrossAccountAttachmentsResponse {
+  /**
+   * @public
+   * <p>Information about the cross-account attachments.</p>
+   */
+  CrossAccountAttachments?: Attachment[];
+
+  /**
+   * @public
+   * <p>The token for the next set of results. You receive this token from a previous call.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListCrossAccountResourceAccountsRequest {}
+
+/**
+ * @public
+ */
+export interface ListCrossAccountResourceAccountsResponse {
+  /**
+   * @public
+   * <p>The account IDs of principals (resource owners) in a cross-account attachment who can add endpoints (resources) listed
+   * 			in the same attachment.</p>
+   */
+  ResourceOwnerAwsAccountIds?: string[];
+}
+
+/**
+ * @public
+ */
+export interface ListCrossAccountResourcesRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of an accelerator in a cross-account attachment.</p>
+   */
+  AcceleratorArn?: string;
+
+  /**
+   * @public
+   * <p>The account ID of a resource owner in a cross-account attachment.</p>
+   */
+  ResourceOwnerAwsAccountId: string | undefined;
+
+  /**
+   * @public
+   * <p>The number of cross-account endpoints objects that you want to return with this call. The default value is 10.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The token for the next set of results. You receive this token from a previous call.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListCrossAccountResourcesResponse {
+  /**
+   * @public
+   * <p>The endpoints attached to an accelerator in a cross-account attachment.</p>
+   */
+  CrossAccountResources?: CrossAccountResource[];
+
+  /**
+   * @public
+   * <p>The token for the next set of results. You receive this token from a previous call.</p>
    */
   NextToken?: string;
 }
@@ -2565,14 +2867,14 @@ export interface PortMapping {
    * @public
    * <p>The protocols supported by the endpoint group.</p>
    */
-  Protocols?: (CustomRoutingProtocol | string)[];
+  Protocols?: CustomRoutingProtocol[];
 
   /**
    * @public
    * <p>Indicates whether or not a port mapping destination can receive traffic. The value is either ALLOW, if
    * 			traffic is allowed to the destination, or DENY, if traffic is not allowed to the destination.</p>
    */
-  DestinationTrafficState?: CustomRoutingDestinationTrafficState | string;
+  DestinationTrafficState?: CustomRoutingDestinationTrafficState;
 }
 
 /**
@@ -2873,7 +3175,7 @@ export interface UpdateAcceleratorRequest {
    * @public
    * <p>The IP address type that an accelerator supports. For a standard accelerator, the value can be IPV4 or DUAL_STACK.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: IpAddressType;
 
   /**
    * @public
@@ -2946,6 +3248,66 @@ export interface UpdateAcceleratorAttributesResponse {
 /**
  * @public
  */
+export interface UpdateCrossAccountAttachmentRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the cross-account attachment to update.</p>
+   */
+  AttachmentArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the cross-account attachment.  </p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The principals to add to the cross-account attachment. A principal is an account or the Amazon Resource Name (ARN)
+   * 			of an accelerator that the attachment gives permission to add the resources from another account, listed in the attachment.</p>
+   *          <p>To add more than one principal, separate the account numbers or accelerator ARNs, or both, with commas.</p>
+   */
+  AddPrincipals?: string[];
+
+  /**
+   * @public
+   * <p>The principals to remove from the cross-account attachment. A principal is an account or the Amazon Resource Name (ARN)
+   * 			of an accelerator that is given permission to add the resources from another account, listed in the cross-account attachment.</p>
+   *          <p>To remove more than one principal, separate the account numbers or accelerator ARNs, or both, with commas.</p>
+   */
+  RemovePrincipals?: string[];
+
+  /**
+   * @public
+   * <p>The resources to add to the cross-account attachment. A resource listed in a cross-account attachment can be added
+   * 			to an accelerator by the principals that are listed in the attachment.</p>
+   *          <p>To add more than one resource, separate the resource ARNs with commas.</p>
+   */
+  AddResources?: Resource[];
+
+  /**
+   * @public
+   * <p>The resources to remove from the cross-account attachment. A resource listed in a cross-account attachment can be added
+   * 			to an accelerator fy principals that are listed in the cross-account attachment.</p>
+   *          <p>To remove more than one resource, separate the resource ARNs with commas.</p>
+   */
+  RemoveResources?: Resource[];
+}
+
+/**
+ * @public
+ */
+export interface UpdateCrossAccountAttachmentResponse {
+  /**
+   * @public
+   * <p>Information about the updated cross-account attachment.</p>
+   */
+  CrossAccountAttachment?: Attachment;
+}
+
+/**
+ * @public
+ */
 export interface UpdateCustomRoutingAcceleratorRequest {
   /**
    * @public
@@ -2964,7 +3326,7 @@ export interface UpdateCustomRoutingAcceleratorRequest {
    * @public
    * <p>The IP address type that an accelerator supports. For a custom routing accelerator, the value must be IPV4.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: IpAddressType;
 
   /**
    * @public
@@ -3104,7 +3466,7 @@ export interface UpdateEndpointGroupRequest {
    * <p>The protocol that Global Accelerator uses to check the health of endpoints that are part of this endpoint group. The default
    * 			value is TCP.</p>
    */
-  HealthCheckProtocol?: HealthCheckProtocol | string;
+  HealthCheckProtocol?: HealthCheckProtocol;
 
   /**
    * @public
@@ -3169,7 +3531,7 @@ export interface UpdateListenerRequest {
    * @public
    * <p>The updated protocol for the connections from clients to the accelerator.</p>
    */
-  Protocol?: Protocol | string;
+  Protocol?: Protocol;
 
   /**
    * @public
@@ -3186,7 +3548,7 @@ export interface UpdateListenerRequest {
    * 			source (client) IP address and destination IP address—to select the hash value.</p>
    *          <p>The default value is <code>NONE</code>.</p>
    */
-  ClientAffinity?: ClientAffinity | string;
+  ClientAffinity?: ClientAffinity;
 }
 
 /**

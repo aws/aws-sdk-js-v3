@@ -61,6 +61,7 @@ import {
   DeleteMaintenanceWindowCommandInput,
   DeleteMaintenanceWindowCommandOutput,
 } from "../commands/DeleteMaintenanceWindowCommand";
+import { DeleteOpsItemCommandInput, DeleteOpsItemCommandOutput } from "../commands/DeleteOpsItemCommand";
 import { DeleteOpsMetadataCommandInput, DeleteOpsMetadataCommandOutput } from "../commands/DeleteOpsMetadataCommand";
 import { DeleteParameterCommandInput, DeleteParameterCommandOutput } from "../commands/DeleteParameterCommand";
 import { DeleteParametersCommandInput, DeleteParametersCommandOutput } from "../commands/DeleteParametersCommand";
@@ -478,6 +479,7 @@ import {
   DeleteDocumentRequest,
   DeleteInventoryRequest,
   DeleteMaintenanceWindowRequest,
+  DeleteOpsItemRequest,
   DeleteOpsMetadataRequest,
   DeleteParameterRequest,
   DeleteParametersRequest,
@@ -588,6 +590,7 @@ import {
   MetadataValue,
   OpsItemAccessDeniedException,
   OpsItemAlreadyExistsException,
+  OpsItemConflictException,
   OpsItemDataValue,
   OpsItemInvalidParameterException,
   OpsItemLimitExceededException,
@@ -642,7 +645,6 @@ import {
   Association,
   AssociationFilter,
   AssociationVersionInfo,
-  AssociationVersionLimitExceeded,
   AutomationDefinitionNotApprovedException,
   AutomationDefinitionNotFoundException,
   AutomationDefinitionVersionNotFoundException,
@@ -840,7 +842,6 @@ import {
   TargetNotConnected,
   TerminateSessionRequest,
   TotalSizeLimitExceededException,
-  UnlabelParameterVersionRequest,
   UnsupportedCalendarException,
   UnsupportedFeatureRequiredException,
   UnsupportedInventoryItemContextException,
@@ -848,6 +849,7 @@ import {
   UnsupportedParameterType,
 } from "../models/models_1";
 import {
+  AssociationVersionLimitExceeded,
   DocumentReviews,
   DocumentVersionLimitExceeded,
   DuplicateDocumentContent,
@@ -860,6 +862,7 @@ import {
   OpsMetadataKeyLimitExceededException,
   ResourceDataSyncConflictException,
   StatusUnchanged,
+  UnlabelParameterVersionRequest,
   UpdateAssociationRequest,
   UpdateAssociationResult,
   UpdateAssociationStatusRequest,
@@ -1111,6 +1114,19 @@ export const se_DeleteMaintenanceWindowCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteMaintenanceWindow");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteOpsItemCommand
+ */
+export const se_DeleteOpsItemCommand = async (
+  input: DeleteOpsItemCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteOpsItem");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2770,6 +2786,9 @@ const de_AssociateOpsItemRelatedItemCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.ssm#InternalServerError":
       throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "OpsItemConflictException":
+    case "com.amazonaws.ssm#OpsItemConflictException":
+      throw await de_OpsItemConflictExceptionRes(parsedOutput, context);
     case "OpsItemInvalidParameterException":
     case "com.amazonaws.ssm#OpsItemInvalidParameterException":
       throw await de_OpsItemInvalidParameterExceptionRes(parsedOutput, context);
@@ -3704,6 +3723,55 @@ const de_DeleteMaintenanceWindowCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.ssm#InternalServerError":
       throw await de_InternalServerErrorRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteOpsItemCommand
+ */
+export const de_DeleteOpsItemCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteOpsItemCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteOpsItemCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteOpsItemCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteOpsItemCommandError
+ */
+const de_DeleteOpsItemCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteOpsItemCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "OpsItemInvalidParameterException":
+    case "com.amazonaws.ssm#OpsItemInvalidParameterException":
+      throw await de_OpsItemInvalidParameterExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -5886,6 +5954,9 @@ const de_DisassociateOpsItemRelatedItemCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.ssm#InternalServerError":
       throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "OpsItemConflictException":
+    case "com.amazonaws.ssm#OpsItemConflictException":
+      throw await de_OpsItemConflictExceptionRes(parsedOutput, context);
     case "OpsItemInvalidParameterException":
     case "com.amazonaws.ssm#OpsItemInvalidParameterException":
       throw await de_OpsItemInvalidParameterExceptionRes(parsedOutput, context);
@@ -9916,6 +9987,9 @@ const de_UpdateOpsItemCommandError = async (
     case "OpsItemAlreadyExistsException":
     case "com.amazonaws.ssm#OpsItemAlreadyExistsException":
       throw await de_OpsItemAlreadyExistsExceptionRes(parsedOutput, context);
+    case "OpsItemConflictException":
+    case "com.amazonaws.ssm#OpsItemConflictException":
+      throw await de_OpsItemConflictExceptionRes(parsedOutput, context);
     case "OpsItemInvalidParameterException":
     case "com.amazonaws.ssm#OpsItemInvalidParameterException":
       throw await de_OpsItemInvalidParameterExceptionRes(parsedOutput, context);
@@ -11413,6 +11487,22 @@ const de_OpsItemAlreadyExistsExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1OpsItemConflictExceptionRes
+ */
+const de_OpsItemConflictExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<OpsItemConflictException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new OpsItemConflictException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1OpsItemInvalidParameterExceptionRes
  */
 const de_OpsItemInvalidParameterExceptionRes = async (
@@ -12311,6 +12401,8 @@ const se_DeleteInventoryRequest = (input: DeleteInventoryRequest, context: __Ser
 };
 
 // se_DeleteMaintenanceWindowRequest omitted.
+
+// se_DeleteOpsItemRequest omitted.
 
 // se_DeleteOpsMetadataRequest omitted.
 
@@ -13353,6 +13445,7 @@ const de_AutomationExecution = (output: any, context: __SerdeContext): Automatio
     TargetParameterName: __expectString,
     Targets: _json,
     TriggeredAlarms: _json,
+    Variables: _json,
   }) as any;
 };
 
@@ -13645,6 +13738,8 @@ const de_CreateDocumentResult = (output: any, context: __SerdeContext): CreateDo
 // de_DeleteInventoryResult omitted.
 
 // de_DeleteMaintenanceWindowResult omitted.
+
+// de_DeleteOpsItemResponse omitted.
 
 // de_DeleteOpsMetadataResult omitted.
 
@@ -15064,6 +15159,8 @@ const de_OpsItem = (output: any, context: __SerdeContext): OpsItem => {
 
 // de_OpsItemAlreadyExistsException omitted.
 
+// de_OpsItemConflictException omitted.
+
 // de_OpsItemDataValue omitted.
 
 /**
@@ -15336,6 +15433,8 @@ const de_ParameterMetadataList = (output: any, context: __SerdeContext): Paramet
 // de_ParameterVersionLabelLimitExceeded omitted.
 
 // de_ParameterVersionNotFound omitted.
+
+// de_ParentStepDetails omitted.
 
 /**
  * deserializeAws_json1_1Patch
@@ -15725,6 +15824,7 @@ const de_StepExecution = (output: any, context: __SerdeContext): StepExecution =
     OnFailure: __expectString,
     Outputs: _json,
     OverriddenParameters: _json,
+    ParentStepDetails: _json,
     Response: __expectString,
     ResponseCode: __expectString,
     StepExecutionId: __expectString,

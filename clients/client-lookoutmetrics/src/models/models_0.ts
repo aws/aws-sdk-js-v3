@@ -94,7 +94,7 @@ export interface SNSConfiguration {
    *             </li>
    *          </ul>
    */
-  SnsFormat?: SnsFormat | string;
+  SnsFormat?: SnsFormat;
 }
 
 /**
@@ -292,7 +292,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>The reason that validation failed.</p>
    */
-  Reason?: ValidationExceptionReason | string;
+  Reason?: ValidationExceptionReason;
 
   /**
    * @public
@@ -438,13 +438,13 @@ export interface Alert {
    * @public
    * <p>The type of the alert.</p>
    */
-  AlertType?: AlertType | string;
+  AlertType?: AlertType;
 
   /**
    * @public
    * <p>The status of the alert.</p>
    */
-  AlertStatus?: AlertStatus | string;
+  AlertStatus?: AlertStatus;
 
   /**
    * @public
@@ -498,13 +498,13 @@ export interface AlertSummary {
    * @public
    * <p>The type of the alert.</p>
    */
-  AlertType?: AlertType | string;
+  AlertType?: AlertType;
 
   /**
    * @public
    * <p>The status of the alert.</p>
    */
-  AlertStatus?: AlertStatus | string;
+  AlertStatus?: AlertStatus;
 
   /**
    * @public
@@ -567,7 +567,7 @@ export interface AnomalyDetectorConfig {
    * @public
    * <p>The frequency at which the detector analyzes its source data.</p>
    */
-  AnomalyDetectorFrequency?: Frequency | string;
+  AnomalyDetectorFrequency?: Frequency;
 }
 
 /**
@@ -579,7 +579,7 @@ export interface AnomalyDetectorConfigSummary {
    * @public
    * <p>The interval at which the detector analyzes its source data.</p>
    */
-  AnomalyDetectorFrequency?: Frequency | string;
+  AnomalyDetectorFrequency?: Frequency;
 }
 
 /**
@@ -613,7 +613,7 @@ export interface DataQualityMetric {
    * @public
    * <p>The name of the data quality metric.</p>
    */
-  MetricType?: DataQualityMetricType | string;
+  MetricType?: DataQualityMetricType;
 
   /**
    * @public
@@ -748,7 +748,7 @@ export interface AnomalyDetectorSummary {
    * @public
    * <p>The status of detector.</p>
    */
-  Status?: AnomalyDetectorStatus | string;
+  Status?: AnomalyDetectorStatus;
 
   /**
    * @public
@@ -1371,7 +1371,7 @@ export interface Filter {
    * @public
    * <p>The condition to apply.</p>
    */
-  FilterOperation?: FilterOperation | string;
+  FilterOperation?: FilterOperation;
 }
 
 /**
@@ -1407,7 +1407,7 @@ export interface Metric {
    * @public
    * <p>The function with which the metric is calculated.</p>
    */
-  AggregationFunction: AggregationFunction | string | undefined;
+  AggregationFunction: AggregationFunction | undefined;
 
   /**
    * @public
@@ -1565,7 +1565,7 @@ export interface CsvFormatDescriptor {
    * @public
    * <p>The level of compression of the source CSV file.</p>
    */
-  FileCompression?: CSVFileCompression | string;
+  FileCompression?: CSVFileCompression;
 
   /**
    * @public
@@ -1621,7 +1621,7 @@ export interface JsonFormatDescriptor {
    * @public
    * <p>The level of compression of the source CSV file.</p>
    */
-  FileCompression?: JsonFileCompression | string;
+  FileCompression?: JsonFileCompression;
 
   /**
    * @public
@@ -1788,7 +1788,7 @@ export interface CreateMetricSetRequest {
    * @public
    * <p>The frequency with which the source data will be analyzed for anomalies.</p>
    */
-  MetricSetFrequency?: Frequency | string;
+  MetricSetFrequency?: Frequency;
 
   /**
    * @public
@@ -1940,7 +1940,7 @@ export interface ExecutionStatus {
    * @public
    * <p>The run's status.</p>
    */
-  Status?: AnomalyDetectionTaskStatus | string;
+  Status?: AnomalyDetectionTaskStatus;
 
   /**
    * @public
@@ -2021,7 +2021,7 @@ export interface DescribeAnomalyDetectorResponse {
    * @public
    * <p>The status of the detector.</p>
    */
-  Status?: AnomalyDetectorStatus | string;
+  Status?: AnomalyDetectorStatus;
 
   /**
    * @public
@@ -2039,7 +2039,7 @@ export interface DescribeAnomalyDetectorResponse {
    * @public
    * <p>The process that caused the detector to fail.</p>
    */
-  FailureType?: AnomalyDetectorFailureType | string;
+  FailureType?: AnomalyDetectorFailureType;
 }
 
 /**
@@ -2121,7 +2121,7 @@ export interface DescribeMetricSetResponse {
    * @public
    * <p>The interval at which the data will be analyzed for anomalies.</p>
    */
-  MetricSetFrequency?: Frequency | string;
+  MetricSetFrequency?: Frequency;
 
   /**
    * @public
@@ -2157,7 +2157,7 @@ export interface DetectedField {
    * @public
    * <p>The field's confidence.</p>
    */
-  Confidence?: Confidence | string;
+  Confidence?: Confidence;
 
   /**
    * @public
@@ -2534,7 +2534,7 @@ export type RelationshipType = (typeof RelationshipType)[keyof typeof Relationsh
  * @public
  * <p>Aggregated details about the measures contributing to the anomaly group, and the measures
  *             potentially impacted by the anomaly group.</p>
- *         <p></p>
+ *          <p></p>
  */
 export interface InterMetricImpactDetails {
   /**
@@ -2555,7 +2555,7 @@ export interface InterMetricImpactDetails {
    *             (<code>CAUSE_OF_INPUT_ANOMALY_GROUP</code>), or whether the measure is impacted by the
    *             anomaly group (<code>EFFECT_OF_INPUT_ANOMALY_GROUP</code>).</p>
    */
-  RelationshipType?: RelationshipType | string;
+  RelationshipType?: RelationshipType;
 
   /**
    * @public
@@ -2664,7 +2664,7 @@ export interface ListAnomalyGroupRelatedMetricsRequest {
    * <p>Filter for potential causes (<code>CAUSE_OF_INPUT_ANOMALY_GROUP</code>) or
    *             downstream effects (<code>EFFECT_OF_INPUT_ANOMALY_GROUP</code>) of the anomaly group.</p>
    */
-  RelationshipTypeFilter?: RelationshipType | string;
+  RelationshipTypeFilter?: RelationshipType;
 
   /**
    * @public
@@ -3156,7 +3156,7 @@ export interface UpdateMetricSetRequest {
    * @public
    * <p>The dataset's interval.</p>
    */
-  MetricSetFrequency?: Frequency | string;
+  MetricSetFrequency?: Frequency;
 
   /**
    * @public

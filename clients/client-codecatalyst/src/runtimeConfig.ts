@@ -2,15 +2,19 @@
 // @ts-ignore: package.json will be imported from dist folders
 import packageInfo from "../package.json"; // eslint-disable-line
 
+import { emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/core";
+import { FromSsoInit, nodeProvider } from "@aws-sdk/token-providers";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
 import {
   NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS,
   NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS,
 } from "@smithy/config-resolver";
+import { HttpBearerAuthSigner } from "@smithy/core";
 import { Hash } from "@smithy/hash-node";
 import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS } from "@smithy/middleware-retry";
 import { loadConfig as loadNodeConfig } from "@smithy/node-config-provider";
 import { NodeHttpHandler as RequestHandler, streamCollector } from "@smithy/node-http-handler";
+import { IdentityProviderConfig } from "@smithy/types";
 import { calculateBodyLength } from "@smithy/util-body-length-node";
 import { DEFAULT_RETRY_MODE } from "@smithy/util-retry";
 import { CodeCatalystClientConfig } from "./CodeCatalystClient";
@@ -27,6 +31,7 @@ export const getRuntimeConfig = (config: CodeCatalystClientConfig) => {
   const defaultsMode = resolveDefaultsModeConfig(config);
   const defaultConfigProvider = () => defaultsMode().then(loadConfigsForDefaultMode);
   const clientSharedValues = getSharedRuntimeConfig(config);
+  awsCheckVersion(process.version);
   return {
     ...clientSharedValues,
     ...config,
@@ -36,6 +41,15 @@ export const getRuntimeConfig = (config: CodeCatalystClientConfig) => {
     defaultUserAgentProvider:
       config?.defaultUserAgentProvider ??
       defaultUserAgent({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
+    httpAuthSchemes: config?.httpAuthSchemes ?? [
+      {
+        schemeId: "smithy.api#httpBearerAuth",
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("smithy.api#httpBearerAuth") ||
+          (async (idProps) => await nodeProvider(idProps as FromSsoInit)(idProps)),
+        signer: new HttpBearerAuthSigner(),
+      },
+    ],
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
     requestHandler: config?.requestHandler ?? new RequestHandler(defaultConfigProvider),
     retryMode:

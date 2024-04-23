@@ -481,7 +481,7 @@ export interface SubStatementData {
    *       example is the that the SQL statement finished.
    *       </p>
    */
-  Status?: StatementStatusString | string;
+  Status?: StatementStatusString;
 
   /**
    * @public
@@ -601,7 +601,7 @@ export interface DescribeStatementResponse {
    *             </li>
    *          </ul>
    */
-  Status?: StatusString | string;
+  Status?: StatusString;
 
   /**
    * @public
@@ -1294,7 +1294,7 @@ export interface ListStatementsRequest {
    *             </li>
    *          </ul>
    */
-  Status?: StatusString | string;
+  Status?: StatusString;
 
   /**
    * @public
@@ -1339,7 +1339,7 @@ export interface StatementData {
    *        example is the that the SQL statement finished.
    *       </p>
    */
-  Status?: StatusString | string;
+  Status?: StatusString;
 
   /**
    * @public

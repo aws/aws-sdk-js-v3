@@ -68,7 +68,7 @@ export interface BatchPutMessageRequest {
    * <p>The list of messages to be sent. Each message has the format: \{ "messageId": "string",
    *          "payload": "string"\}.</p>
    *          <p>The field names of message payloads (data) that you send to IoT Analytics:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>Must contain only alphanumeric characters and undescores (_). No other special characters are
    *                allowed.</p>
@@ -487,7 +487,7 @@ export interface ResourceConfiguration {
    *       Possible values are: <code>ACU_1</code> (vCPU=4, memory=16 GiB) or <code>ACU_2</code> (vCPU=8,
    *       memory=32 GiB).</p>
    */
-  computeType: ComputeType | string | undefined;
+  computeType: ComputeType | undefined;
 
   /**
    * @public
@@ -1890,7 +1890,7 @@ export interface Channel {
    * @public
    * <p>The status of the channel.</p>
    */
-  status?: ChannelStatus | string;
+  status?: ChannelStatus;
 
   /**
    * @public
@@ -2035,7 +2035,7 @@ export interface Dataset {
    * @public
    * <p>The status of the dataset.</p>
    */
-  status?: DatasetStatus | string;
+  status?: DatasetStatus;
 
   /**
    * @public
@@ -2159,7 +2159,7 @@ export interface Datastore {
    *             </dd>
    *          </dl>
    */
-  status?: DatastoreStatus | string;
+  status?: DatastoreStatus;
 
   /**
    * @public
@@ -2266,7 +2266,7 @@ export interface LoggingOptions {
    * @public
    * <p>The logging level. Currently, only ERROR is supported.</p>
    */
-  level: LoggingLevel | string | undefined;
+  level: LoggingLevel | undefined;
 
   /**
    * @public
@@ -2328,7 +2328,7 @@ export interface ReprocessingSummary {
    * @public
    * <p>The status of the pipeline reprocessing.</p>
    */
-  status?: ReprocessingStatus | string;
+  status?: ReprocessingStatus;
 
   /**
    * @public
@@ -2452,7 +2452,7 @@ export interface DatasetContentStatus {
    * <p>The state of the dataset contents. Can be one of READY, CREATING, SUCCEEDED, or
    *       FAILED.</p>
    */
-  state?: DatasetContentState | string;
+  state?: DatasetContentState;
 
   /**
    * @public
@@ -2574,7 +2574,7 @@ export interface ChannelSummary {
    * @public
    * <p>The status of the channel.</p>
    */
-  status?: ChannelStatus | string;
+  status?: ChannelStatus;
 
   /**
    * @public
@@ -2755,7 +2755,7 @@ export interface DatasetActionSummary {
    * @public
    * <p>The type of action by which the dataset's contents are automatically created.</p>
    */
-  actionType?: DatasetActionType | string;
+  actionType?: DatasetActionType;
 }
 
 /**
@@ -2773,7 +2773,7 @@ export interface DatasetSummary {
    * @public
    * <p>The status of the dataset.</p>
    */
-  status?: DatasetStatus | string;
+  status?: DatasetStatus;
 
   /**
    * @public
@@ -2957,7 +2957,7 @@ export interface DatastoreSummary {
    * @public
    * <p>The status of the data store.</p>
    */
-  status?: DatastoreStatus | string;
+  status?: DatastoreStatus;
 
   /**
    * @public
@@ -2983,7 +2983,7 @@ export interface DatastoreSummary {
    * @public
    * <p>The file format of the data in the data store.</p>
    */
-  fileFormatType?: FileFormatType | string;
+  fileFormatType?: FileFormatType;
 
   /**
    * @public

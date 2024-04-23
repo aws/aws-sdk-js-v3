@@ -34,16 +34,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `LexRuntimeServiceClient` and
-the commands you need, for example `DeleteSessionCommand`:
+the commands you need, for example `GetSessionCommand`:
 
 ```js
 // ES5 example
-const { LexRuntimeServiceClient, DeleteSessionCommand } = require("@aws-sdk/client-lex-runtime-service");
+const { LexRuntimeServiceClient, GetSessionCommand } = require("@aws-sdk/client-lex-runtime-service");
 ```
 
 ```ts
 // ES6+ example
-import { LexRuntimeServiceClient, DeleteSessionCommand } from "@aws-sdk/client-lex-runtime-service";
+import { LexRuntimeServiceClient, GetSessionCommand } from "@aws-sdk/client-lex-runtime-service";
 ```
 
 ### Usage
@@ -62,7 +62,7 @@ const client = new LexRuntimeServiceClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DeleteSessionCommand(params);
+const command = new GetSessionCommand(params);
 ```
 
 #### Async/await
@@ -141,7 +141,7 @@ const client = new AWS.LexRuntimeService({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.deleteSession(params);
+  const data = await client.getSession(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -149,7 +149,7 @@ try {
 
 // Promises.
 client
-  .deleteSession(params)
+  .getSession(params)
   .then((data) => {
     // process data.
   })
@@ -158,7 +158,7 @@ client
   });
 
 // callbacks.
-client.deleteSession(params, (err, data) => {
+client.getSession(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -173,7 +173,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -219,7 +219,7 @@ see LICENSE for more information.
 DeleteSession
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-service/classes/deletesessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-service/interfaces/deletesessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-service/interfaces/deletesessioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-runtime-service/command/DeleteSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-service/Interface/DeleteSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-service/Interface/DeleteSessionCommandOutput/)
 
 </details>
 <details>
@@ -227,7 +227,7 @@ DeleteSession
 GetSession
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-service/classes/getsessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-service/interfaces/getsessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-service/interfaces/getsessioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-runtime-service/command/GetSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-service/Interface/GetSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-service/Interface/GetSessionCommandOutput/)
 
 </details>
 <details>
@@ -235,7 +235,7 @@ GetSession
 PostContent
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-service/classes/postcontentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-service/interfaces/postcontentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-service/interfaces/postcontentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-runtime-service/command/PostContentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-service/Interface/PostContentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-service/Interface/PostContentCommandOutput/)
 
 </details>
 <details>
@@ -243,7 +243,7 @@ PostContent
 PostText
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-service/classes/posttextcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-service/interfaces/posttextcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-service/interfaces/posttextcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-runtime-service/command/PostTextCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-service/Interface/PostTextCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-service/Interface/PostTextCommandOutput/)
 
 </details>
 <details>
@@ -251,6 +251,6 @@ PostText
 PutSession
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-service/classes/putsessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-service/interfaces/putsessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lex-runtime-service/interfaces/putsessioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-runtime-service/command/PutSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-service/Interface/PutSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-runtime-service/Interface/PutSessionCommandOutput/)
 
 </details>

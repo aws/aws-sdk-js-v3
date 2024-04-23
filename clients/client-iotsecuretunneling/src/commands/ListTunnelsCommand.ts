@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   IoTSecureTunnelingClientResolvedConfig,
   ServiceInputTypes,
@@ -42,7 +34,7 @@ export interface ListTunnelsCommandOutput extends ListTunnelsResponse, __Metadat
  * @public
  * <p>List all tunnels for an Amazon Web Services account. Tunnels are listed by creation time in
  * 			descending order, newer tunnels will be listed before older tunnels.</p>
- * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTunnels</a> action.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListTunnels</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,7 +53,7 @@ export interface ListTunnelsCommandOutput extends ListTunnelsResponse, __Metadat
  * //     { // TunnelSummary
  * //       tunnelId: "STRING_VALUE",
  * //       tunnelArn: "STRING_VALUE",
- * //       status: "STRING_VALUE",
+ * //       status: "OPEN" || "CLOSED",
  * //       description: "STRING_VALUE",
  * //       createdAt: new Date("TIMESTAMP"),
  * //       lastUpdatedAt: new Date("TIMESTAMP"),
@@ -82,77 +74,26 @@ export interface ListTunnelsCommandOutput extends ListTunnelsResponse, __Metadat
  * <p>Base exception class for all service exceptions from IoTSecureTunneling service.</p>
  *
  */
-export class ListTunnelsCommand extends $Command<
-  ListTunnelsCommandInput,
-  ListTunnelsCommandOutput,
-  IoTSecureTunnelingClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListTunnelsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: IoTSecureTunnelingClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListTunnelsCommandInput, ListTunnelsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListTunnelsCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "IoTSecureTunnelingClient";
-    const commandName = "ListTunnelsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListTunnelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListTunnelsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTunnelsCommandOutput> {
-    return de_ListTunnelsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListTunnelsCommand extends $Command
+  .classBuilder<
+    ListTunnelsCommandInput,
+    ListTunnelsCommandOutput,
+    IoTSecureTunnelingClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: IoTSecureTunnelingClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("IoTSecuredTunneling", "ListTunnels", {})
+  .n("IoTSecureTunnelingClient", "ListTunnelsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListTunnelsCommand)
+  .de(de_ListTunnelsCommand)
+  .build() {}

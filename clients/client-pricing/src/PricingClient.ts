@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -199,6 +197,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 
@@ -285,15 +285,9 @@ export interface PricingClientResolvedConfig extends PricingClientResolvedConfig
  *          use <code>GetProducts</code> to find specific products that you're interested in, such as
  *          an <code>AmazonEC2</code> instance, with a <code>Provisioned IOPS</code>
  *             <code>volumeType</code>.</p>
- *          <p>You can use the following endpoints for the Amazon Web Services Price List API:</p>
- *          <ul>
- *             <li>
- *                <p>https://api.pricing.us-east-1.amazonaws.com</p>
- *             </li>
- *             <li>
- *                <p>https://api.pricing.ap-south-1.amazonaws.com</p>
- *             </li>
- *          </ul>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html">Using the
+ *          Amazon Web Services Price List API</a> in the <i>Billing User
+ *             Guide</i>.</p>
  */
 export class PricingClient extends __Client<
   __HttpHandlerOptions,

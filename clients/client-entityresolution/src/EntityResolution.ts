@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  CreateIdMappingWorkflowCommand,
+  CreateIdMappingWorkflowCommandInput,
+  CreateIdMappingWorkflowCommandOutput,
+} from "./commands/CreateIdMappingWorkflowCommand";
+import {
   CreateMatchingWorkflowCommand,
   CreateMatchingWorkflowCommandInput,
   CreateMatchingWorkflowCommandOutput,
@@ -13,6 +18,11 @@ import {
   CreateSchemaMappingCommandOutput,
 } from "./commands/CreateSchemaMappingCommand";
 import {
+  DeleteIdMappingWorkflowCommand,
+  DeleteIdMappingWorkflowCommandInput,
+  DeleteIdMappingWorkflowCommandOutput,
+} from "./commands/DeleteIdMappingWorkflowCommand";
+import {
   DeleteMatchingWorkflowCommand,
   DeleteMatchingWorkflowCommandInput,
   DeleteMatchingWorkflowCommandOutput,
@@ -22,6 +32,16 @@ import {
   DeleteSchemaMappingCommandInput,
   DeleteSchemaMappingCommandOutput,
 } from "./commands/DeleteSchemaMappingCommand";
+import {
+  GetIdMappingJobCommand,
+  GetIdMappingJobCommandInput,
+  GetIdMappingJobCommandOutput,
+} from "./commands/GetIdMappingJobCommand";
+import {
+  GetIdMappingWorkflowCommand,
+  GetIdMappingWorkflowCommandInput,
+  GetIdMappingWorkflowCommandOutput,
+} from "./commands/GetIdMappingWorkflowCommand";
 import { GetMatchIdCommand, GetMatchIdCommandInput, GetMatchIdCommandOutput } from "./commands/GetMatchIdCommand";
 import {
   GetMatchingJobCommand,
@@ -34,10 +54,25 @@ import {
   GetMatchingWorkflowCommandOutput,
 } from "./commands/GetMatchingWorkflowCommand";
 import {
+  GetProviderServiceCommand,
+  GetProviderServiceCommandInput,
+  GetProviderServiceCommandOutput,
+} from "./commands/GetProviderServiceCommand";
+import {
   GetSchemaMappingCommand,
   GetSchemaMappingCommandInput,
   GetSchemaMappingCommandOutput,
 } from "./commands/GetSchemaMappingCommand";
+import {
+  ListIdMappingJobsCommand,
+  ListIdMappingJobsCommandInput,
+  ListIdMappingJobsCommandOutput,
+} from "./commands/ListIdMappingJobsCommand";
+import {
+  ListIdMappingWorkflowsCommand,
+  ListIdMappingWorkflowsCommandInput,
+  ListIdMappingWorkflowsCommandOutput,
+} from "./commands/ListIdMappingWorkflowsCommand";
 import {
   ListMatchingJobsCommand,
   ListMatchingJobsCommandInput,
@@ -49,6 +84,11 @@ import {
   ListMatchingWorkflowsCommandOutput,
 } from "./commands/ListMatchingWorkflowsCommand";
 import {
+  ListProviderServicesCommand,
+  ListProviderServicesCommandInput,
+  ListProviderServicesCommandOutput,
+} from "./commands/ListProviderServicesCommand";
+import {
   ListSchemaMappingsCommand,
   ListSchemaMappingsCommandInput,
   ListSchemaMappingsCommandOutput,
@@ -58,6 +98,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  StartIdMappingJobCommand,
+  StartIdMappingJobCommandInput,
+  StartIdMappingJobCommandOutput,
+} from "./commands/StartIdMappingJobCommand";
 import {
   StartMatchingJobCommand,
   StartMatchingJobCommandInput,
@@ -70,32 +115,70 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateIdMappingWorkflowCommand,
+  UpdateIdMappingWorkflowCommandInput,
+  UpdateIdMappingWorkflowCommandOutput,
+} from "./commands/UpdateIdMappingWorkflowCommand";
+import {
   UpdateMatchingWorkflowCommand,
   UpdateMatchingWorkflowCommandInput,
   UpdateMatchingWorkflowCommandOutput,
 } from "./commands/UpdateMatchingWorkflowCommand";
+import {
+  UpdateSchemaMappingCommand,
+  UpdateSchemaMappingCommandInput,
+  UpdateSchemaMappingCommandOutput,
+} from "./commands/UpdateSchemaMappingCommand";
 import { EntityResolutionClient, EntityResolutionClientConfig } from "./EntityResolutionClient";
 
 const commands = {
+  CreateIdMappingWorkflowCommand,
   CreateMatchingWorkflowCommand,
   CreateSchemaMappingCommand,
+  DeleteIdMappingWorkflowCommand,
   DeleteMatchingWorkflowCommand,
   DeleteSchemaMappingCommand,
+  GetIdMappingJobCommand,
+  GetIdMappingWorkflowCommand,
   GetMatchIdCommand,
   GetMatchingJobCommand,
   GetMatchingWorkflowCommand,
+  GetProviderServiceCommand,
   GetSchemaMappingCommand,
+  ListIdMappingJobsCommand,
+  ListIdMappingWorkflowsCommand,
   ListMatchingJobsCommand,
   ListMatchingWorkflowsCommand,
+  ListProviderServicesCommand,
   ListSchemaMappingsCommand,
   ListTagsForResourceCommand,
+  StartIdMappingJobCommand,
   StartMatchingJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateIdMappingWorkflowCommand,
   UpdateMatchingWorkflowCommand,
+  UpdateSchemaMappingCommand,
 };
 
 export interface EntityResolution {
+  /**
+   * @see {@link CreateIdMappingWorkflowCommand}
+   */
+  createIdMappingWorkflow(
+    args: CreateIdMappingWorkflowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIdMappingWorkflowCommandOutput>;
+  createIdMappingWorkflow(
+    args: CreateIdMappingWorkflowCommandInput,
+    cb: (err: any, data?: CreateIdMappingWorkflowCommandOutput) => void
+  ): void;
+  createIdMappingWorkflow(
+    args: CreateIdMappingWorkflowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateIdMappingWorkflowCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateMatchingWorkflowCommand}
    */
@@ -131,6 +214,23 @@ export interface EntityResolution {
   ): void;
 
   /**
+   * @see {@link DeleteIdMappingWorkflowCommand}
+   */
+  deleteIdMappingWorkflow(
+    args: DeleteIdMappingWorkflowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIdMappingWorkflowCommandOutput>;
+  deleteIdMappingWorkflow(
+    args: DeleteIdMappingWorkflowCommandInput,
+    cb: (err: any, data?: DeleteIdMappingWorkflowCommandOutput) => void
+  ): void;
+  deleteIdMappingWorkflow(
+    args: DeleteIdMappingWorkflowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIdMappingWorkflowCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteMatchingWorkflowCommand}
    */
   deleteMatchingWorkflow(
@@ -162,6 +262,37 @@ export interface EntityResolution {
     args: DeleteSchemaMappingCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteSchemaMappingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetIdMappingJobCommand}
+   */
+  getIdMappingJob(
+    args: GetIdMappingJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIdMappingJobCommandOutput>;
+  getIdMappingJob(args: GetIdMappingJobCommandInput, cb: (err: any, data?: GetIdMappingJobCommandOutput) => void): void;
+  getIdMappingJob(
+    args: GetIdMappingJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIdMappingJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetIdMappingWorkflowCommand}
+   */
+  getIdMappingWorkflow(
+    args: GetIdMappingWorkflowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIdMappingWorkflowCommandOutput>;
+  getIdMappingWorkflow(
+    args: GetIdMappingWorkflowCommandInput,
+    cb: (err: any, data?: GetIdMappingWorkflowCommandOutput) => void
+  ): void;
+  getIdMappingWorkflow(
+    args: GetIdMappingWorkflowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIdMappingWorkflowCommandOutput) => void
   ): void;
 
   /**
@@ -207,6 +338,23 @@ export interface EntityResolution {
   ): void;
 
   /**
+   * @see {@link GetProviderServiceCommand}
+   */
+  getProviderService(
+    args: GetProviderServiceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetProviderServiceCommandOutput>;
+  getProviderService(
+    args: GetProviderServiceCommandInput,
+    cb: (err: any, data?: GetProviderServiceCommandOutput) => void
+  ): void;
+  getProviderService(
+    args: GetProviderServiceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetProviderServiceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetSchemaMappingCommand}
    */
   getSchemaMapping(
@@ -221,6 +369,40 @@ export interface EntityResolution {
     args: GetSchemaMappingCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSchemaMappingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListIdMappingJobsCommand}
+   */
+  listIdMappingJobs(
+    args: ListIdMappingJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIdMappingJobsCommandOutput>;
+  listIdMappingJobs(
+    args: ListIdMappingJobsCommandInput,
+    cb: (err: any, data?: ListIdMappingJobsCommandOutput) => void
+  ): void;
+  listIdMappingJobs(
+    args: ListIdMappingJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListIdMappingJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListIdMappingWorkflowsCommand}
+   */
+  listIdMappingWorkflows(
+    args: ListIdMappingWorkflowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIdMappingWorkflowsCommandOutput>;
+  listIdMappingWorkflows(
+    args: ListIdMappingWorkflowsCommandInput,
+    cb: (err: any, data?: ListIdMappingWorkflowsCommandOutput) => void
+  ): void;
+  listIdMappingWorkflows(
+    args: ListIdMappingWorkflowsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListIdMappingWorkflowsCommandOutput) => void
   ): void;
 
   /**
@@ -258,6 +440,23 @@ export interface EntityResolution {
   ): void;
 
   /**
+   * @see {@link ListProviderServicesCommand}
+   */
+  listProviderServices(
+    args: ListProviderServicesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProviderServicesCommandOutput>;
+  listProviderServices(
+    args: ListProviderServicesCommandInput,
+    cb: (err: any, data?: ListProviderServicesCommandOutput) => void
+  ): void;
+  listProviderServices(
+    args: ListProviderServicesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProviderServicesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListSchemaMappingsCommand}
    */
   listSchemaMappings(
@@ -289,6 +488,23 @@ export interface EntityResolution {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartIdMappingJobCommand}
+   */
+  startIdMappingJob(
+    args: StartIdMappingJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartIdMappingJobCommandOutput>;
+  startIdMappingJob(
+    args: StartIdMappingJobCommandInput,
+    cb: (err: any, data?: StartIdMappingJobCommandOutput) => void
+  ): void;
+  startIdMappingJob(
+    args: StartIdMappingJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartIdMappingJobCommandOutput) => void
   ): void;
 
   /**
@@ -331,6 +547,23 @@ export interface EntityResolution {
   ): void;
 
   /**
+   * @see {@link UpdateIdMappingWorkflowCommand}
+   */
+  updateIdMappingWorkflow(
+    args: UpdateIdMappingWorkflowCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateIdMappingWorkflowCommandOutput>;
+  updateIdMappingWorkflow(
+    args: UpdateIdMappingWorkflowCommandInput,
+    cb: (err: any, data?: UpdateIdMappingWorkflowCommandOutput) => void
+  ): void;
+  updateIdMappingWorkflow(
+    args: UpdateIdMappingWorkflowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateIdMappingWorkflowCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateMatchingWorkflowCommand}
    */
   updateMatchingWorkflow(
@@ -346,24 +579,38 @@ export interface EntityResolution {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateMatchingWorkflowCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link UpdateSchemaMappingCommand}
+   */
+  updateSchemaMapping(
+    args: UpdateSchemaMappingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSchemaMappingCommandOutput>;
+  updateSchemaMapping(
+    args: UpdateSchemaMappingCommandInput,
+    cb: (err: any, data?: UpdateSchemaMappingCommandOutput) => void
+  ): void;
+  updateSchemaMapping(
+    args: UpdateSchemaMappingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSchemaMappingCommandOutput) => void
+  ): void;
 }
 
 /**
  * @public
- * <p>Welcome to the <i>AWS Entity Resolution API Reference</i>.</p>
- *          <p>AWS Entity Resolution is an AWS service that provides pre-configured entity resolution capabilities
- *          that enable developers and analysts at advertising and marketing companies to build an accurate and
- *         complete view of their consumers.</p>
- *          <p>
- *          With AWS Entity Resolution, you have the ability to match source records containing consumer identifiers,
- *          such as name, email address, and phone number. This holds true even when these records have incomplete or
- *          conflicting identifiers. For example, AWS Entity Resolution can effectively match a source record from a
- *          customer relationship management (CRM) system, which includes account information like first name, last name,
- *          postal address, phone number, and email address, with a source record from a marketing system containing
- *          campaign information, such as username and email address.</p>
- *          <p>To learn more about AWS Entity Resolution concepts, procedures, and best practices, see the
- *          <a href="https://docs.aws.amazon.com/entityresolution/latest/userguide/what-is-service.html">AWS Entity Resolution
- *             User Guide</a>.</p>
+ * <p>Welcome to the <i>Entity Resolution API Reference</i>.</p>
+ *          <p>Entity Resolution is an Amazon Web Services service that provides pre-configured entity
+ *          resolution capabilities that enable developers and analysts at advertising and marketing
+ *          companies to build an accurate and complete view of their consumers.</p>
+ *          <p> With Entity Resolution, you can match source records containing consumer identifiers,
+ *          such as name, email address, and phone number. This is true even when these records have
+ *          incomplete or conflicting identifiers. For example, Entity Resolution can effectively match
+ *          a source record from a customer relationship management (CRM) system with a source record
+ *          from a marketing system containing campaign information.</p>
+ *          <p>To learn more about Entity Resolution concepts, procedures, and best practices, see the
+ *             <a href="https://docs.aws.amazon.com/entityresolution/latest/userguide/what-is-service.html">Entity Resolution User Guide</a>.</p>
  */
 export class EntityResolution extends EntityResolutionClient implements EntityResolution {}
 createAggregatedClient(commands, EntityResolution);

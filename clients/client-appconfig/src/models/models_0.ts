@@ -270,7 +270,7 @@ export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
   readonly $fault: "client" = "client";
   Message?: string;
-  Reason?: BadRequestReason | string;
+  Reason?: BadRequestReason;
   /**
    * @public
    * <p>Detailed information about the input that failed to satisfy the constraints specified by
@@ -341,6 +341,36 @@ export class InternalServerException extends __BaseException {
 
 /**
  * @public
+ * <p>The number of one more AppConfig resources exceeds the maximum allowed. Verify that your
+ *          environment doesn't exceed the following service quotas:</p>
+ *          <p>Applications: 100 max</p>
+ *          <p>Deployment strategies: 20 max</p>
+ *          <p>Configuration profiles: 100 max per application</p>
+ *          <p>Environments: 20 max per application</p>
+ *          <p>To resolve this issue, you can delete one or more resources and try again. Or, you can
+ *          request a quota increase. For more information about quotas and to request an increase, see
+ *             <a href="https://docs.aws.amazon.com/general/latest/gr/appconfig.html#limits_appconfig">Service quotas for AppConfig</a> in the Amazon Web Services General Reference.</p>
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  * @enum
  */
 export const ValidatorType = {
@@ -368,7 +398,7 @@ export interface Validator {
    *             <code>LAMBDA</code>
    *          </p>
    */
-  Type: ValidatorType | string | undefined;
+  Type: ValidatorType | undefined;
 
   /**
    * @public
@@ -440,6 +470,21 @@ export interface ConfigurationProfile {
    *          </p>
    */
   Type?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name of the Key Management Service key to encrypt new configuration data
+   *          versions in the AppConfig hosted configuration store. This
+   *          attribute is only used for <code>hosted</code> configuration types. To encrypt data managed
+   *          in other configuration stores, see the documentation for how to specify an KMS key for that particular service.</p>
+   */
+  KmsKeyArn?: string;
+
+  /**
+   * @public
+   * <p>The Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.</p>
+   */
+  KmsKeyIdentifier?: string;
 }
 
 /**
@@ -477,8 +522,13 @@ export interface CreateConfigurationProfileRequest {
    *                the format <code>ssm-parameter://<parameter name></code> or the ARN.</p>
    *             </li>
    *             <li>
+   *                <p>For an Amazon Web Services
+   *                CodePipeline pipeline, specify the URI in the following format:
+   *                   <code>codepipeline</code>://<pipeline name>.</p>
+   *             </li>
+   *             <li>
    *                <p>For an Secrets Manager secret, specify the URI in the following format:
-   *                   <code>secrets-manager</code>://<secret name>.</p>
+   *                   <code>secretsmanager</code>://<secret name>.</p>
    *             </li>
    *             <li>
    *                <p>For an Amazon S3 object, specify the URI in the following format:
@@ -535,6 +585,16 @@ export interface CreateConfigurationProfileRequest {
    *          </p>
    */
   Type?: string;
+
+  /**
+   * @public
+   * <p>The identifier for an Key Management Service key to encrypt new configuration
+   *          data versions in the AppConfig hosted configuration store. This attribute is only
+   *          used for <code>hosted</code> configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+   *          To encrypt data managed in other configuration stores, see the documentation for how to
+   *          specify an KMS key for that particular service.</p>
+   */
+  KmsKeyIdentifier?: string;
 }
 
 /**
@@ -661,13 +721,13 @@ export interface CreateDeploymentStrategyRequest {
    *          targets, 8% of the targets, and continues until the configuration has been deployed to all
    *          targets.</p>
    */
-  GrowthType?: GrowthType | string;
+  GrowthType?: GrowthType;
 
   /**
    * @public
    * <p>Save the deployment strategy to a Systems Manager (SSM) document.</p>
    */
-  ReplicateTo?: ReplicateTo | string;
+  ReplicateTo?: ReplicateTo;
 
   /**
    * @public
@@ -710,7 +770,7 @@ export interface DeploymentStrategy {
    * @public
    * <p>The algorithm used to define how percentage grew over time.</p>
    */
-  GrowthType?: GrowthType | string;
+  GrowthType?: GrowthType;
 
   /**
    * @public
@@ -730,7 +790,7 @@ export interface DeploymentStrategy {
    * @public
    * <p>Save the deployment strategy to a Systems Manager (SSM) document.</p>
    */
-  ReplicateTo?: ReplicateTo | string;
+  ReplicateTo?: ReplicateTo;
 }
 
 /**
@@ -839,7 +899,7 @@ export interface Environment {
    *             <code>ROLLED_BACK</code>
    *          </p>
    */
-  State?: EnvironmentState | string;
+  State?: EnvironmentState;
 
   /**
    * @public
@@ -914,7 +974,7 @@ export interface CreateExtensionRequest {
    * @public
    * <p>The actions defined in the extension.</p>
    */
-  Actions: Record<string, Action[]> | undefined;
+  Actions: Partial<Record<ActionPoint, Action[]>> | undefined;
 
   /**
    * @public
@@ -980,7 +1040,7 @@ export interface Extension {
    * @public
    * <p>The actions defined in the extension.</p>
    */
-  Actions?: Record<string, Action[]>;
+  Actions?: Partial<Record<ActionPoint, Action[]>>;
 
   /**
    * @public
@@ -990,28 +1050,6 @@ export interface Extension {
    *          actions, these parameters are included in the Lambda request object.</p>
    */
   Parameters?: Record<string, Parameter>;
-}
-
-/**
- * @public
- * <p>The number of hosted configuration versions exceeds the limit for the AppConfig hosted configuration store. Delete one or more versions and try again.</p>
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -1142,7 +1180,9 @@ export interface CreateHostedConfigurationVersionRequest {
 
   /**
    * @public
-   * <p>An optional, user-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character. For example, "v2.2.0".</p>
+   * <p>An optional, user-defined label for the AppConfig hosted configuration
+   *          version. This value must contain at least one non-numeric character. For example,
+   *          "v2.2.0".</p>
    */
   VersionLabel?: string;
 }
@@ -1193,6 +1233,14 @@ export interface HostedConfigurationVersion {
    * <p>A user-defined label for an AppConfig hosted configuration version.</p>
    */
   VersionLabel?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name of the Key Management Service key that was used to encrypt this
+   *          specific version of the configuration data in the AppConfig hosted configuration
+   *          store.</p>
+   */
+  KmsKeyArn?: string;
 }
 
 /**
@@ -1216,7 +1264,7 @@ export class PayloadTooLargeException extends __BaseException {
   readonly name: "PayloadTooLargeException" = "PayloadTooLargeException";
   readonly $fault: "client" = "client";
   Message?: string;
-  Measure?: BytesMeasure | string;
+  Measure?: BytesMeasure;
   Limit?: number;
   Size?: number;
   /**
@@ -1537,21 +1585,31 @@ export interface DeploymentEvent {
    *          completion of a deployment; a percentage update; the start or stop of a bake period; and
    *          the start or completion of a rollback.</p>
    */
-  EventType?: DeploymentEventType | string;
+  EventType?: DeploymentEventType;
 
   /**
    * @public
    * <p>The entity that triggered the deployment event. Events can be triggered by a user,
    *             AppConfig, an Amazon CloudWatch alarm, or an internal error.</p>
    */
-  TriggeredBy?: TriggeredBy | string;
+  TriggeredBy?: TriggeredBy;
 
   /**
    * @public
    * <p>A description of the deployment event. Descriptions include, but are not limited to, the
-   *          user account or the Amazon CloudWatch alarm ARN that initiated a rollback, the percentage of hosts
-   *          that received the deployment, or in the case of an internal error, a recommendation to
-   *          attempt a new deployment.</p>
+   *          following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The Amazon Web Services account or the Amazon CloudWatch alarm ARN that initiated a rollback.</p>
+   *             </li>
+   *             <li>
+   *                <p>The percentage of hosts that received the deployment.</p>
+   *             </li>
+   *             <li>
+   *                <p>A recommendation to attempt a new deployment (in the case of an internal
+   *                error).</p>
+   *             </li>
+   *          </ul>
    */
   Description?: string;
 
@@ -1654,7 +1712,7 @@ export interface Deployment {
    * @public
    * <p>The algorithm used to define how percentage grew over time.</p>
    */
-  GrowthType?: GrowthType | string;
+  GrowthType?: GrowthType;
 
   /**
    * @public
@@ -1674,7 +1732,7 @@ export interface Deployment {
    * @public
    * <p>The state of the deployment.</p>
    */
-  State?: DeploymentState | string;
+  State?: DeploymentState;
 
   /**
    * @public
@@ -1720,9 +1778,15 @@ export interface Deployment {
 
   /**
    * @public
-   * <p>The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this ID to encrypt the configuration data using a customer managed key. </p>
+   * <p>The Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.</p>
    */
   KmsKeyIdentifier?: string;
+
+  /**
+   * @public
+   * <p>A user-defined label for an AppConfig hosted configuration version.</p>
+   */
+  VersionLabel?: string;
 }
 
 /**
@@ -1900,7 +1964,7 @@ export interface ConfigurationProfileSummary {
    * @public
    * <p>The types of validators in the configuration profile.</p>
    */
-  ValidatorTypes?: (ValidatorType | string)[];
+  ValidatorTypes?: ValidatorType[];
 
   /**
    * @public
@@ -2001,7 +2065,7 @@ export interface DeploymentSummary {
    * @public
    * <p>The algorithm used to define how percentage grows over time.</p>
    */
-  GrowthType?: GrowthType | string;
+  GrowthType?: GrowthType;
 
   /**
    * @public
@@ -2021,7 +2085,7 @@ export interface DeploymentSummary {
    * @public
    * <p>The state of the deployment.</p>
    */
-  State?: DeploymentState | string;
+  State?: DeploymentState;
 
   /**
    * @public
@@ -2040,6 +2104,12 @@ export interface DeploymentSummary {
    * <p>Time the deployment completed.</p>
    */
   CompletedAt?: Date;
+
+  /**
+   * @public
+   * <p>A user-defined label for an AppConfig hosted configuration version.</p>
+   */
+  VersionLabel?: string;
 }
 
 /**
@@ -2378,6 +2448,14 @@ export interface HostedConfigurationVersionSummary {
    * <p>A user-defined label for an AppConfig hosted configuration version.</p>
    */
   VersionLabel?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name of the Key Management Service key that was used to encrypt this
+   *          specific version of the configuration data in the AppConfig hosted configuration
+   *          store.</p>
+   */
+  KmsKeyArn?: string;
 }
 
 /**
@@ -2429,7 +2507,9 @@ export interface ListHostedConfigurationVersionsRequest {
 
   /**
    * @public
-   * <p>An optional filter that can be used to specify the version label of an AppConfig hosted configuration version. This parameter supports filtering by prefix using a wildcard, for example "v2*". If you don't specify an asterisk at the end of the value, only an exact match is returned.</p>
+   * <p>An optional filter that can be used to specify the version label of an AppConfig hosted configuration version. This parameter supports filtering by prefix using a
+   *          wildcard, for example "v2*". If you don't specify an asterisk at the end of the value, only
+   *          an exact match is returned.</p>
    */
   VersionLabel?: string;
 }
@@ -2488,7 +2568,9 @@ export interface StartDeploymentRequest {
 
   /**
    * @public
-   * <p>The configuration version to deploy. If deploying an AppConfig hosted configuration version, you can specify either the version number or version label.</p>
+   * <p>The configuration version to deploy. If deploying an AppConfig hosted
+   *          configuration version, you can specify either the version number or version label. For all
+   *          other configurations, you must specify the version number.</p>
    */
   ConfigurationVersion: string | undefined;
 
@@ -2634,6 +2716,16 @@ export interface UpdateConfigurationProfileRequest {
    * <p>A list of methods for validating the configuration.</p>
    */
   Validators?: Validator[];
+
+  /**
+   * @public
+   * <p>The identifier for a Key Management Service key to encrypt new configuration
+   *          data versions in the AppConfig hosted configuration store. This attribute is only
+   *          used for <code>hosted</code> configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+   *          To encrypt data managed in other configuration stores, see the documentation for how to
+   *          specify an KMS key for that particular service.</p>
+   */
+  KmsKeyIdentifier?: string;
 }
 
 /**
@@ -2703,7 +2795,7 @@ export interface UpdateDeploymentStrategyRequest {
    *          targets, 8% of the targets, and continues until the configuration has been deployed to all
    *          targets.</p>
    */
-  GrowthType?: GrowthType | string;
+  GrowthType?: GrowthType;
 }
 
 /**
@@ -2761,7 +2853,7 @@ export interface UpdateExtensionRequest {
    * @public
    * <p>The actions defined in the extension.</p>
    */
-  Actions?: Record<string, Action[]>;
+  Actions?: Partial<Record<ActionPoint, Action[]>>;
 
   /**
    * @public

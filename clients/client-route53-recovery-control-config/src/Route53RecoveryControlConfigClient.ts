@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -74,6 +72,7 @@ import {
   DescribeRoutingControlCommandOutput,
 } from "./commands/DescribeRoutingControlCommand";
 import { DescribeSafetyRuleCommandInput, DescribeSafetyRuleCommandOutput } from "./commands/DescribeSafetyRuleCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
 import {
   ListAssociatedRoute53HealthChecksCommandInput,
   ListAssociatedRoute53HealthChecksCommandOutput,
@@ -124,6 +123,7 @@ export type ServiceInputTypes =
   | DescribeControlPanelCommandInput
   | DescribeRoutingControlCommandInput
   | DescribeSafetyRuleCommandInput
+  | GetResourcePolicyCommandInput
   | ListAssociatedRoute53HealthChecksCommandInput
   | ListClustersCommandInput
   | ListControlPanelsCommandInput
@@ -152,6 +152,7 @@ export type ServiceOutputTypes =
   | DescribeControlPanelCommandOutput
   | DescribeRoutingControlCommandOutput
   | DescribeSafetyRuleCommandOutput
+  | GetResourcePolicyCommandOutput
   | ListAssociatedRoute53HealthChecksCommandOutput
   | ListClustersCommandOutput
   | ListControlPanelsCommandOutput
@@ -274,6 +275,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

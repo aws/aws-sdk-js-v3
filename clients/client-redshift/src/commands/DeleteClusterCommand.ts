@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { DeleteClusterMessage, DeleteClusterResult } from "../models/models_0";
+import { commonParams } from "../endpoint/EndpointParameters";
+import { DeleteClusterMessage, DeleteClusterResult, DeleteClusterResultFilterSensitiveLog } from "../models/models_0";
 import { de_DeleteClusterCommand, se_DeleteClusterCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -88,6 +80,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResult, __Metad
  * //               SubnetId: "STRING_VALUE",
  * //               PrivateIpAddress: "STRING_VALUE",
  * //               AvailabilityZone: "STRING_VALUE",
+ * //               Ipv6Address: "STRING_VALUE",
  * //             },
  * //           ],
  * //         },
@@ -240,6 +233,20 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResult, __Metad
  * //     CustomDomainName: "STRING_VALUE",
  * //     CustomDomainCertificateArn: "STRING_VALUE",
  * //     CustomDomainCertificateExpiryDate: new Date("TIMESTAMP"),
+ * //     MasterPasswordSecretArn: "STRING_VALUE",
+ * //     MasterPasswordSecretKmsKeyId: "STRING_VALUE",
+ * //     IpAddressType: "STRING_VALUE",
+ * //     MultiAZ: "STRING_VALUE",
+ * //     MultiAZSecondary: { // SecondaryClusterInfo
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       ClusterNodes: [
+ * //         {
+ * //           NodeRole: "STRING_VALUE",
+ * //           PrivateIPAddress: "STRING_VALUE",
+ * //           PublicIPAddress: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * // };
  *
@@ -274,77 +281,26 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResult, __Metad
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
-export class DeleteClusterCommand extends $Command<
-  DeleteClusterCommandInput,
-  DeleteClusterCommandOutput,
-  RedshiftClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeleteClusterCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RedshiftClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DeleteClusterCommandInput, DeleteClusterCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteClusterCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RedshiftClient";
-    const commandName = "DeleteClusterCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DeleteClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteClusterCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteClusterCommandOutput> {
-    return de_DeleteClusterCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DeleteClusterCommand extends $Command
+  .classBuilder<
+    DeleteClusterCommandInput,
+    DeleteClusterCommandOutput,
+    RedshiftClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("RedshiftServiceVersion20121201", "DeleteCluster", {})
+  .n("RedshiftClient", "DeleteClusterCommand")
+  .f(void 0, DeleteClusterResultFilterSensitiveLog)
+  .ser(se_DeleteClusterCommand)
+  .de(de_DeleteClusterCommand)
+  .build() {}

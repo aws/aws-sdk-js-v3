@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteDBInstanceMessage, DeleteDBInstanceResult } from "../models/models_0";
 import { de_DeleteDBInstanceCommand, se_DeleteDBInstanceCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
@@ -36,12 +28,11 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
 
 /**
  * @public
- * <p>The DeleteDBInstance action deletes a previously provisioned DB instance.
+ * <p>Deletes a previously provisioned DB instance.
  *           When you delete a DB instance, all automated backups for that instance are deleted and can't be recovered.
- *           Manual DB snapshots of the DB instance to be deleted by <code>DeleteDBInstance</code> are not deleted.</p>
- *          <p>If you request a final DB snapshot
- *         the status of the Amazon RDS DB instance is <code>deleting</code> until the DB snapshot is created. The API action <code>DescribeDBInstance</code>
- *         is used to monitor the status of this operation. The action can't be canceled or reverted once submitted.</p>
+ *           However, manual DB snapshots of the DB instance aren't deleted.</p>
+ *          <p>If you request a final DB snapshot, the status of the Amazon RDS DB instance is <code>deleting</code> until the DB snapshot is created.
+ *         This operation can't be canceled or reverted after it begins. To monitor the status of this operation, use <code>DescribeDBInstance</code>.</p>
  *          <p>When a DB instance is in a failure state and has a status of <code>failed</code>, <code>incompatible-restore</code>,
  *           or <code>incompatible-network</code>, you can only delete it when you skip creation of the final snapshot with the <code>SkipFinalSnapshot</code> parameter.</p>
  *          <p>If the specified DB instance is part of an Amazon Aurora DB cluster, you can't delete the DB instance if both of the following
@@ -54,11 +45,12 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  *                <p>The DB instance is the only instance in the DB cluster.</p>
  *             </li>
  *          </ul>
- *          <p>To delete a DB instance in this case, first call the
- *                 <code>PromoteReadReplicaDBCluster</code> API action to promote the DB cluster so
- *             it's no longer a read replica. After the promotion completes, then call the
- *                 <code>DeleteDBInstance</code> API action to delete the final instance in the DB
- *             cluster.</p>
+ *          <p>To delete a DB instance in this case, first use the <code>PromoteReadReplicaDBCluster</code> operation to promote the DB cluster so that it's no longer a read replica.
+ *         After the promotion completes, use the <code>DeleteDBInstance</code> operation to delete the final instance in the DB cluster.</p>
+ *          <important>
+ *             <p>For RDS Custom DB instances, deleting the DB instance permanently deletes the EC2 instance and the associated EBS volumes. Make sure that you don't terminate or delete
+ *         these resources before you delete the DB instance. Otherwise, deleting the DB instance and creation of the final snapshot might fail.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -166,6 +158,8 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * //       ResumeFullAutomationModeTime: new Date("TIMESTAMP"),
  * //       StorageThroughput: Number("int"),
  * //       Engine: "STRING_VALUE",
+ * //       DedicatedLogVolume: true || false,
+ * //       MultiTenant: true || false,
  * //     },
  * //     LatestRestorableTime: new Date("TIMESTAMP"),
  * //     MultiAZ: true || false,
@@ -291,6 +285,9 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * //     },
  * //     ReadReplicaSourceDBClusterIdentifier: "STRING_VALUE",
  * //     PercentProgress: "STRING_VALUE",
+ * //     DedicatedLogVolume: true || false,
+ * //     IsStorageConfigUpgradeAvailable: true || false,
+ * //     MultiTenant: true || false,
  * //   },
  * // };
  *
@@ -350,79 +347,26 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * ```
  *
  */
-export class DeleteDBInstanceCommand extends $Command<
-  DeleteDBInstanceCommandInput,
-  DeleteDBInstanceCommandOutput,
-  RDSClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeleteDBInstanceCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RDSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DeleteDBInstanceCommandInput, DeleteDBInstanceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteDBInstanceCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RDSClient";
-    const commandName = "DeleteDBInstanceCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DeleteDBInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteDBInstanceCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDBInstanceCommandOutput> {
-    return de_DeleteDBInstanceCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DeleteDBInstanceCommand extends $Command
+  .classBuilder<
+    DeleteDBInstanceCommandInput,
+    DeleteDBInstanceCommandOutput,
+    RDSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonRDSv19", "DeleteDBInstance", {})
+  .n("RDSClient", "DeleteDBInstanceCommand")
+  .f(void 0, void 0)
+  .ser(se_DeleteDBInstanceCommand)
+  .de(de_DeleteDBInstanceCommand)
+  .build() {}

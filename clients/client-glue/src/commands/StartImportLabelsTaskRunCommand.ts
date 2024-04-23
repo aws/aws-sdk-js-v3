@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { StartImportLabelsTaskRunRequest, StartImportLabelsTaskRunResponse } from "../models/models_2";
 import { de_StartImportLabelsTaskRunCommand, se_StartImportLabelsTaskRunCommand } from "../protocols/Aws_json1_1";
@@ -102,79 +94,26 @@ export interface StartImportLabelsTaskRunCommandOutput extends StartImportLabels
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
-export class StartImportLabelsTaskRunCommand extends $Command<
-  StartImportLabelsTaskRunCommandInput,
-  StartImportLabelsTaskRunCommandOutput,
-  GlueClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StartImportLabelsTaskRunCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: GlueClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StartImportLabelsTaskRunCommandInput, StartImportLabelsTaskRunCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartImportLabelsTaskRunCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "GlueClient";
-    const commandName = "StartImportLabelsTaskRunCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StartImportLabelsTaskRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartImportLabelsTaskRunCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartImportLabelsTaskRunCommandOutput> {
-    return de_StartImportLabelsTaskRunCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class StartImportLabelsTaskRunCommand extends $Command
+  .classBuilder<
+    StartImportLabelsTaskRunCommandInput,
+    StartImportLabelsTaskRunCommandOutput,
+    GlueClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSGlue", "StartImportLabelsTaskRun", {})
+  .n("GlueClient", "StartImportLabelsTaskRunCommand")
+  .f(void 0, void 0)
+  .ser(se_StartImportLabelsTaskRunCommand)
+  .de(de_StartImportLabelsTaskRunCommand)
+  .build() {}

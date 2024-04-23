@@ -127,7 +127,7 @@ export interface AlertManagerDefinitionStatus {
    * @public
    * Status code of this definition.
    */
-  statusCode: AlertManagerDefinitionStatusCode | string | undefined;
+  statusCode: AlertManagerDefinitionStatusCode | undefined;
 
   /**
    * @public
@@ -345,7 +345,7 @@ export class ValidationException extends __BaseException {
    * @public
    * Reason the request failed validation.
    */
-  reason: ValidationExceptionReason | string | undefined;
+  reason: ValidationExceptionReason | undefined;
 
   /**
    * @public
@@ -478,6 +478,24 @@ export interface PutAlertManagerDefinitionResponse {
 
 /**
  * @public
+ * Represents the input of a GetDefaultScraperConfiguration operation.
+ */
+export interface GetDefaultScraperConfigurationRequest {}
+
+/**
+ * @public
+ * Represents the output of a GetDefaultScraperConfiguration operation.
+ */
+export interface GetDefaultScraperConfigurationResponse {
+  /**
+   * @public
+   * The default configuration.
+   */
+  configuration: Uint8Array | undefined;
+}
+
+/**
+ * @public
  */
 export interface ListTagsForResourceRequest {
   /**
@@ -496,6 +514,524 @@ export interface ListTagsForResourceResponse {
    * The list of tags assigned to the resource.
    */
   tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ * A representation of an AMP destination.
+ */
+export interface AmpConfiguration {
+  /**
+   * @public
+   * The ARN of an AMP workspace.
+   */
+  workspaceArn: string | undefined;
+}
+
+/**
+ * @public
+ * A representation of a destination that a scraper can produce metrics to.
+ */
+export type Destination = Destination.AmpConfigurationMember | Destination.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Destination {
+  /**
+   * @public
+   * A representation of an AMP destination.
+   */
+  export interface AmpConfigurationMember {
+    ampConfiguration: AmpConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    ampConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    ampConfiguration: (value: AmpConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: Destination, visitor: Visitor<T>): T => {
+    if (value.ampConfiguration !== undefined) return visitor.ampConfiguration(value.ampConfiguration);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * A representation of a Prometheus configuration file.
+ */
+export type ScrapeConfiguration = ScrapeConfiguration.ConfigurationBlobMember | ScrapeConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ScrapeConfiguration {
+  /**
+   * @public
+   * Binary data representing a Prometheus configuration file.
+   */
+  export interface ConfigurationBlobMember {
+    configurationBlob: Uint8Array;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    configurationBlob?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    configurationBlob: (value: Uint8Array) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ScrapeConfiguration, visitor: Visitor<T>): T => {
+    if (value.configurationBlob !== undefined) return visitor.configurationBlob(value.configurationBlob);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * A representation of an EKS source.
+ */
+export interface EksConfiguration {
+  /**
+   * @public
+   * The ARN of an EKS cluster.
+   */
+  clusterArn: string | undefined;
+
+  /**
+   * @public
+   * A list of security group IDs specified for VPC configuration.
+   */
+  securityGroupIds?: string[];
+
+  /**
+   * @public
+   * A list of subnet IDs specified for VPC configuration.
+   */
+  subnetIds: string[] | undefined;
+}
+
+/**
+ * @public
+ * A representation of a source that a scraper can discover and collect metrics from.
+ */
+export type Source = Source.EksConfigurationMember | Source.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Source {
+  /**
+   * @public
+   * A representation of an EKS source.
+   */
+  export interface EksConfigurationMember {
+    eksConfiguration: EksConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    eksConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    eksConfiguration: (value: EksConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: Source, visitor: Visitor<T>): T => {
+    if (value.eksConfiguration !== undefined) return visitor.eksConfiguration(value.eksConfiguration);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * Represents the input of a CreateScraper operation.
+ */
+export interface CreateScraperRequest {
+  /**
+   * @public
+   * An optional user-assigned alias for this scraper. This alias is for user reference and does not need to be unique.
+   */
+  alias?: string;
+
+  /**
+   * @public
+   * The configuration used to create the scraper.
+   */
+  scrapeConfiguration: ScrapeConfiguration | undefined;
+
+  /**
+   * @public
+   * The source that the scraper will be discovering and collecting metrics from.
+   */
+  source: Source | undefined;
+
+  /**
+   * @public
+   * The destination that the scraper will be producing metrics to.
+   */
+  destination: Destination | undefined;
+
+  /**
+   * @public
+   * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
+   */
+  clientToken?: string;
+
+  /**
+   * @public
+   * Optional, user-provided tags for this scraper.
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ScraperStatusCode = {
+  /**
+   * Scraper has been created and is usable.
+   */
+  ACTIVE: "ACTIVE",
+  /**
+   * Scraper is being created. Deletion is disallowed until status is ACTIVE.
+   */
+  CREATING: "CREATING",
+  /**
+   * Scraper creation failed.
+   */
+  CREATION_FAILED: "CREATION_FAILED",
+  /**
+   * Scraper is being deleted. Deletions are allowed only when status is ACTIVE.
+   */
+  DELETING: "DELETING",
+  /**
+   * Scraper deletion failed.
+   */
+  DELETION_FAILED: "DELETION_FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type ScraperStatusCode = (typeof ScraperStatusCode)[keyof typeof ScraperStatusCode];
+
+/**
+ * @public
+ * Represents the status of a scraper.
+ */
+export interface ScraperStatus {
+  /**
+   * @public
+   * Status code of this scraper.
+   */
+  statusCode: ScraperStatusCode | undefined;
+}
+
+/**
+ * @public
+ * Represents the output of a CreateScraper operation.
+ */
+export interface CreateScraperResponse {
+  /**
+   * @public
+   * The generated ID of the scraper that was just created.
+   */
+  scraperId: string | undefined;
+
+  /**
+   * @public
+   * The ARN of the scraper that was just created.
+   */
+  arn: string | undefined;
+
+  /**
+   * @public
+   * The status of the scraper that was just created (usually CREATING).
+   */
+  status: ScraperStatus | undefined;
+
+  /**
+   * @public
+   * The tags of this scraper.
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ * Represents the input of a DeleteScraper operation.
+ */
+export interface DeleteScraperRequest {
+  /**
+   * @public
+   * The ID of the scraper to delete.
+   */
+  scraperId: string | undefined;
+
+  /**
+   * @public
+   * Optional, unique, case-sensitive, user-provided identifier to ensure the idempotency of the request.
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ * Represents the output of a DeleteScraper operation.
+ */
+export interface DeleteScraperResponse {
+  /**
+   * @public
+   * The ID of the scraper that was deleted.
+   */
+  scraperId: string | undefined;
+
+  /**
+   * @public
+   * The status of the scraper that is being deleted.
+   */
+  status: ScraperStatus | undefined;
+}
+
+/**
+ * @public
+ * Represents the input of a DescribeScraper operation.
+ */
+export interface DescribeScraperRequest {
+  /**
+   * @public
+   * The IDs of the scraper to describe.
+   */
+  scraperId: string | undefined;
+}
+
+/**
+ * @public
+ * Represents the properties of a scraper.
+ */
+export interface ScraperDescription {
+  /**
+   * @public
+   * Alias of this scraper.
+   */
+  alias?: string;
+
+  /**
+   * @public
+   * Unique string identifying this scraper.
+   */
+  scraperId: string | undefined;
+
+  /**
+   * @public
+   * The Amazon Resource Name (ARN) of this scraper.
+   */
+  arn: string | undefined;
+
+  /**
+   * @public
+   * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to dsicover, collect, and produce metrics on your behalf.
+   */
+  roleArn: string | undefined;
+
+  /**
+   * @public
+   * The status of this scraper.
+   */
+  status: ScraperStatus | undefined;
+
+  /**
+   * @public
+   * The time when the scraper was created.
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * @public
+   * The time when the scraper was last modified.
+   */
+  lastModifiedAt: Date | undefined;
+
+  /**
+   * @public
+   * The tags of this scraper.
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * @public
+   * The reason for failure if any.
+   */
+  statusReason?: string;
+
+  /**
+   * @public
+   * The configuration used to create the scraper.
+   */
+  scrapeConfiguration: ScrapeConfiguration | undefined;
+
+  /**
+   * @public
+   * The source that the scraper is discovering and collecting metrics from.
+   */
+  source: Source | undefined;
+
+  /**
+   * @public
+   * The destination that the scraper is producing metrics to.
+   */
+  destination: Destination | undefined;
+}
+
+/**
+ * @public
+ * Represents the output of a DescribeScraper operation.
+ */
+export interface DescribeScraperResponse {
+  /**
+   * @public
+   * The properties of the selected scrapers.
+   */
+  scraper: ScraperDescription | undefined;
+}
+
+/**
+ * @public
+ * Represents the input of a ListScrapers operation.
+ */
+export interface ListScrapersRequest {
+  /**
+   * @public
+   * A list of scraper filters.
+   */
+  filters?: Record<string, string[]>;
+
+  /**
+   * @public
+   * Pagination token to request the next page in a paginated list. This token is obtained from the output of the previous ListScrapers request.
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * Maximum results to return in response (default=100, maximum=1000).
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ * Represents a summary of the properties of a scraper.
+ */
+export interface ScraperSummary {
+  /**
+   * @public
+   * Alias of this scraper.
+   */
+  alias?: string;
+
+  /**
+   * @public
+   * Unique string identifying this scraper.
+   */
+  scraperId: string | undefined;
+
+  /**
+   * @public
+   * The Amazon Resource Name (ARN) of this scraper.
+   */
+  arn: string | undefined;
+
+  /**
+   * @public
+   * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the scraper to dsicover, collect, and produce metrics on your behalf.
+   */
+  roleArn: string | undefined;
+
+  /**
+   * @public
+   * The status of this scraper.
+   */
+  status: ScraperStatus | undefined;
+
+  /**
+   * @public
+   * The time when the scraper was created.
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * @public
+   * The time when the scraper was last modified.
+   */
+  lastModifiedAt: Date | undefined;
+
+  /**
+   * @public
+   * The tags of this scraper.
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * @public
+   * The reason for failure if any.
+   */
+  statusReason?: string;
+
+  /**
+   * @public
+   * The source that the scraper is discovering and collecting metrics from.
+   */
+  source: Source | undefined;
+
+  /**
+   * @public
+   * The destination that the scraper is producing metrics to.
+   */
+  destination: Destination | undefined;
+}
+
+/**
+ * @public
+ * Represents the output of a ListScrapers operation.
+ */
+export interface ListScrapersResponse {
+  /**
+   * @public
+   * The list of scrapers, filtered down if a set of filters was provided in the request.
+   */
+  scrapers: ScraperSummary[] | undefined;
+
+  /**
+   * @public
+   * Pagination token to use when requesting the next page in this list.
+   */
+  nextToken?: string;
 }
 
 /**
@@ -564,6 +1100,12 @@ export interface CreateWorkspaceRequest {
    * Optional, user-provided tags for this workspace.
    */
   tags?: Record<string, string>;
+
+  /**
+   * @public
+   * Optional, customer managed KMS key used to encrypt data for this workspace
+   */
+  kmsKeyArn?: string;
 }
 
 /**
@@ -607,7 +1149,7 @@ export interface WorkspaceStatus {
    * @public
    * Status code of this workspace.
    */
-  statusCode: WorkspaceStatusCode | string | undefined;
+  statusCode: WorkspaceStatusCode | undefined;
 }
 
 /**
@@ -638,6 +1180,12 @@ export interface CreateWorkspaceResponse {
    * The tags of this workspace.
    */
   tags?: Record<string, string>;
+
+  /**
+   * @public
+   * Customer managed KMS key ARN for this workspace
+   */
+  kmsKeyArn?: string;
 }
 
 /**
@@ -716,6 +1264,12 @@ export interface WorkspaceDescription {
    * The tags of this workspace.
    */
   tags?: Record<string, string>;
+
+  /**
+   * @public
+   * The customer managed KMS key of this workspace.
+   */
+  kmsKeyArn?: string;
 }
 
 /**
@@ -794,6 +1348,12 @@ export interface WorkspaceSummary {
    * The tags of this workspace.
    */
   tags?: Record<string, string>;
+
+  /**
+   * @public
+   * Customer managed KMS key ARN for this workspace
+   */
+  kmsKeyArn?: string;
 }
 
 /**
@@ -884,7 +1444,7 @@ export interface LoggingConfigurationStatus {
    * @public
    * Status code of the logging configuration.
    */
-  statusCode: LoggingConfigurationStatusCode | string | undefined;
+  statusCode: LoggingConfigurationStatusCode | undefined;
 
   /**
    * @public
@@ -1101,7 +1661,7 @@ export interface RuleGroupsNamespaceStatus {
    * @public
    * Status code of this namespace.
    */
-  statusCode: RuleGroupsNamespaceStatusCode | string | undefined;
+  statusCode: RuleGroupsNamespaceStatusCode | undefined;
 
   /**
    * @public

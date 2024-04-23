@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -54,6 +52,7 @@ import {
   AcceptInboundConnectionCommandInput,
   AcceptInboundConnectionCommandOutput,
 } from "./commands/AcceptInboundConnectionCommand";
+import { AddDataSourceCommandInput, AddDataSourceCommandOutput } from "./commands/AddDataSourceCommand";
 import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import { AssociatePackageCommandInput, AssociatePackageCommandOutput } from "./commands/AssociatePackageCommand";
 import {
@@ -71,6 +70,7 @@ import {
 } from "./commands/CreateOutboundConnectionCommand";
 import { CreatePackageCommandInput, CreatePackageCommandOutput } from "./commands/CreatePackageCommand";
 import { CreateVpcEndpointCommandInput, CreateVpcEndpointCommandOutput } from "./commands/CreateVpcEndpointCommand";
+import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
 import {
   DeleteInboundConnectionCommandInput,
@@ -138,12 +138,22 @@ import {
   GetCompatibleVersionsCommandInput,
   GetCompatibleVersionsCommandOutput,
 } from "./commands/GetCompatibleVersionsCommand";
+import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
+import {
+  GetDomainMaintenanceStatusCommandInput,
+  GetDomainMaintenanceStatusCommandOutput,
+} from "./commands/GetDomainMaintenanceStatusCommand";
 import {
   GetPackageVersionHistoryCommandInput,
   GetPackageVersionHistoryCommandOutput,
 } from "./commands/GetPackageVersionHistoryCommand";
 import { GetUpgradeHistoryCommandInput, GetUpgradeHistoryCommandOutput } from "./commands/GetUpgradeHistoryCommand";
 import { GetUpgradeStatusCommandInput, GetUpgradeStatusCommandOutput } from "./commands/GetUpgradeStatusCommand";
+import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
+import {
+  ListDomainMaintenancesCommandInput,
+  ListDomainMaintenancesCommandOutput,
+} from "./commands/ListDomainMaintenancesCommand";
 import { ListDomainNamesCommandInput, ListDomainNamesCommandOutput } from "./commands/ListDomainNamesCommand";
 import {
   ListDomainsForPackageCommandInput,
@@ -186,9 +196,14 @@ import {
   RevokeVpcEndpointAccessCommandOutput,
 } from "./commands/RevokeVpcEndpointAccessCommand";
 import {
+  StartDomainMaintenanceCommandInput,
+  StartDomainMaintenanceCommandOutput,
+} from "./commands/StartDomainMaintenanceCommand";
+import {
   StartServiceSoftwareUpdateCommandInput,
   StartServiceSoftwareUpdateCommandOutput,
 } from "./commands/StartServiceSoftwareUpdateCommand";
+import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
 import { UpdateDomainConfigCommandInput, UpdateDomainConfigCommandOutput } from "./commands/UpdateDomainConfigCommand";
 import { UpdatePackageCommandInput, UpdatePackageCommandOutput } from "./commands/UpdatePackageCommand";
 import {
@@ -213,6 +228,7 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AcceptInboundConnectionCommandInput
+  | AddDataSourceCommandInput
   | AddTagsCommandInput
   | AssociatePackageCommandInput
   | AuthorizeVpcEndpointAccessCommandInput
@@ -221,6 +237,7 @@ export type ServiceInputTypes =
   | CreateOutboundConnectionCommandInput
   | CreatePackageCommandInput
   | CreateVpcEndpointCommandInput
+  | DeleteDataSourceCommandInput
   | DeleteDomainCommandInput
   | DeleteInboundConnectionCommandInput
   | DeleteOutboundConnectionCommandInput
@@ -243,9 +260,13 @@ export type ServiceInputTypes =
   | DescribeVpcEndpointsCommandInput
   | DissociatePackageCommandInput
   | GetCompatibleVersionsCommandInput
+  | GetDataSourceCommandInput
+  | GetDomainMaintenanceStatusCommandInput
   | GetPackageVersionHistoryCommandInput
   | GetUpgradeHistoryCommandInput
   | GetUpgradeStatusCommandInput
+  | ListDataSourcesCommandInput
+  | ListDomainMaintenancesCommandInput
   | ListDomainNamesCommandInput
   | ListDomainsForPackageCommandInput
   | ListInstanceTypeDetailsCommandInput
@@ -260,7 +281,9 @@ export type ServiceInputTypes =
   | RejectInboundConnectionCommandInput
   | RemoveTagsCommandInput
   | RevokeVpcEndpointAccessCommandInput
+  | StartDomainMaintenanceCommandInput
   | StartServiceSoftwareUpdateCommandInput
+  | UpdateDataSourceCommandInput
   | UpdateDomainConfigCommandInput
   | UpdatePackageCommandInput
   | UpdateScheduledActionCommandInput
@@ -272,6 +295,7 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AcceptInboundConnectionCommandOutput
+  | AddDataSourceCommandOutput
   | AddTagsCommandOutput
   | AssociatePackageCommandOutput
   | AuthorizeVpcEndpointAccessCommandOutput
@@ -280,6 +304,7 @@ export type ServiceOutputTypes =
   | CreateOutboundConnectionCommandOutput
   | CreatePackageCommandOutput
   | CreateVpcEndpointCommandOutput
+  | DeleteDataSourceCommandOutput
   | DeleteDomainCommandOutput
   | DeleteInboundConnectionCommandOutput
   | DeleteOutboundConnectionCommandOutput
@@ -302,9 +327,13 @@ export type ServiceOutputTypes =
   | DescribeVpcEndpointsCommandOutput
   | DissociatePackageCommandOutput
   | GetCompatibleVersionsCommandOutput
+  | GetDataSourceCommandOutput
+  | GetDomainMaintenanceStatusCommandOutput
   | GetPackageVersionHistoryCommandOutput
   | GetUpgradeHistoryCommandOutput
   | GetUpgradeStatusCommandOutput
+  | ListDataSourcesCommandOutput
+  | ListDomainMaintenancesCommandOutput
   | ListDomainNamesCommandOutput
   | ListDomainsForPackageCommandOutput
   | ListInstanceTypeDetailsCommandOutput
@@ -319,7 +348,9 @@ export type ServiceOutputTypes =
   | RejectInboundConnectionCommandOutput
   | RemoveTagsCommandOutput
   | RevokeVpcEndpointAccessCommandOutput
+  | StartDomainMaintenanceCommandOutput
   | StartServiceSoftwareUpdateCommandOutput
+  | UpdateDataSourceCommandOutput
   | UpdateDomainConfigCommandOutput
   | UpdatePackageCommandOutput
   | UpdateScheduledActionCommandOutput
@@ -436,6 +467,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

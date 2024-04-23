@@ -34,16 +34,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `CodeGuruSecurityClient` and
-the commands you need, for example `BatchGetFindingsCommand`:
+the commands you need, for example `ListScansCommand`:
 
 ```js
 // ES5 example
-const { CodeGuruSecurityClient, BatchGetFindingsCommand } = require("@aws-sdk/client-codeguru-security");
+const { CodeGuruSecurityClient, ListScansCommand } = require("@aws-sdk/client-codeguru-security");
 ```
 
 ```ts
 // ES6+ example
-import { CodeGuruSecurityClient, BatchGetFindingsCommand } from "@aws-sdk/client-codeguru-security";
+import { CodeGuruSecurityClient, ListScansCommand } from "@aws-sdk/client-codeguru-security";
 ```
 
 ### Usage
@@ -62,7 +62,7 @@ const client = new CodeGuruSecurityClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchGetFindingsCommand(params);
+const command = new ListScansCommand(params);
 ```
 
 #### Async/await
@@ -141,7 +141,7 @@ const client = new AWS.CodeGuruSecurity({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchGetFindings(params);
+  const data = await client.listScans(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -149,7 +149,7 @@ try {
 
 // Promises.
 client
-  .batchGetFindings(params)
+  .listScans(params)
   .then((data) => {
     // process data.
   })
@@ -158,7 +158,7 @@ client
   });
 
 // callbacks.
-client.batchGetFindings(params, (err, data) => {
+client.listScans(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -173,7 +173,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -219,7 +219,7 @@ see LICENSE for more information.
 BatchGetFindings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/classes/batchgetfindingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/interfaces/batchgetfindingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/interfaces/batchgetfindingscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguru-security/command/BatchGetFindingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-security/Interface/BatchGetFindingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-security/Interface/BatchGetFindingsCommandOutput/)
 
 </details>
 <details>
@@ -227,7 +227,7 @@ BatchGetFindings
 CreateScan
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/classes/createscancommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/interfaces/createscancommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/interfaces/createscancommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguru-security/command/CreateScanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-security/Interface/CreateScanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-security/Interface/CreateScanCommandOutput/)
 
 </details>
 <details>
@@ -235,7 +235,7 @@ CreateScan
 CreateUploadUrl
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/classes/createuploadurlcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/interfaces/createuploadurlcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/interfaces/createuploadurlcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguru-security/command/CreateUploadUrlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-security/Interface/CreateUploadUrlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-security/Interface/CreateUploadUrlCommandOutput/)
 
 </details>
 <details>
@@ -243,7 +243,7 @@ CreateUploadUrl
 GetAccountConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/classes/getaccountconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/interfaces/getaccountconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/interfaces/getaccountconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguru-security/command/GetAccountConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-security/Interface/GetAccountConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-security/Interface/GetAccountConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -251,7 +251,7 @@ GetAccountConfiguration
 GetFindings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/classes/getfindingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/interfaces/getfindingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/interfaces/getfindingscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguru-security/command/GetFindingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-security/Interface/GetFindingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-security/Interface/GetFindingsCommandOutput/)
 
 </details>
 <details>
@@ -259,7 +259,7 @@ GetFindings
 GetMetricsSummary
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/classes/getmetricssummarycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/interfaces/getmetricssummarycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/interfaces/getmetricssummarycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguru-security/command/GetMetricsSummaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-security/Interface/GetMetricsSummaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-security/Interface/GetMetricsSummaryCommandOutput/)
 
 </details>
 <details>
@@ -267,7 +267,7 @@ GetMetricsSummary
 GetScan
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/classes/getscancommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/interfaces/getscancommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/interfaces/getscancommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguru-security/command/GetScanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-security/Interface/GetScanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-security/Interface/GetScanCommandOutput/)
 
 </details>
 <details>
@@ -275,7 +275,7 @@ GetScan
 ListFindingsMetrics
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/classes/listfindingsmetricscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/interfaces/listfindingsmetricscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/interfaces/listfindingsmetricscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguru-security/command/ListFindingsMetricsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-security/Interface/ListFindingsMetricsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-security/Interface/ListFindingsMetricsCommandOutput/)
 
 </details>
 <details>
@@ -283,7 +283,7 @@ ListFindingsMetrics
 ListScans
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/classes/listscanscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/interfaces/listscanscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/interfaces/listscanscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguru-security/command/ListScansCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-security/Interface/ListScansCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-security/Interface/ListScansCommandOutput/)
 
 </details>
 <details>
@@ -291,7 +291,7 @@ ListScans
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguru-security/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-security/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-security/Interface/ListTagsForResourceCommandOutput/)
 
 </details>
 <details>
@@ -299,7 +299,7 @@ ListTagsForResource
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguru-security/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-security/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-security/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -307,7 +307,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguru-security/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-security/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-security/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -315,6 +315,6 @@ UntagResource
 UpdateAccountConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/classes/updateaccountconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/interfaces/updateaccountconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-codeguru-security/interfaces/updateaccountconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codeguru-security/command/UpdateAccountConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-security/Interface/UpdateAccountConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codeguru-security/Interface/UpdateAccountConfigurationCommandOutput/)
 
 </details>

@@ -1,20 +1,12 @@
 // smithy-typescript generated code
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { PutBucketTaggingRequest } from "../models/models_0";
+import { commonParams } from "../endpoint/EndpointParameters";
+import { PutBucketTaggingRequest } from "../models/models_1";
 import { de_PutBucketTaggingCommand, se_PutBucketTaggingCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
@@ -37,15 +29,18 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Sets the tags for a bucket.</p>
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Sets the tags for a bucket.</p>
  *          <p>Use tags to organize your Amazon Web Services bill to reflect your own cost structure. To do this,
  *          sign up to get your Amazon Web Services account bill with tag key values included. Then, to see the cost
  *          of combined resources, organize your billing information according to resources with the
  *          same tag key values. For example, you can tag several resources with a specific application
  *          name, and then organize your billing information to see the total cost of that application
  *          across several services. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Cost Allocation and
- *             Tagging</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/CostAllocTagging.html">Using Cost Allocation in Amazon S3 Bucket
- *             Tags</a>.</p>
+ *             Tagging</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CostAllocTagging.html">Using Cost Allocation in Amazon S3
+ *             Bucket Tags</a>.</p>
  *          <note>
  *             <p> When this operation sets the tags for a bucket, it will overwrite any current tags
  *             the bucket already has. You cannot use this operation to add tags to an existing list of
@@ -56,47 +51,30 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  *          and can grant this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
  *             Access Permissions to Your Amazon S3 Resources</a>.</p>
  *          <p>
- *             <code>PutBucketTagging</code> has the following special errors:</p>
+ *             <code>PutBucketTagging</code> has the following special errors. For more Amazon S3 errors
+ *          see, <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html">Error
+ *             Responses</a>.</p>
  *          <ul>
  *             <li>
- *                <p>Error code: <code>InvalidTagError</code>
- *                </p>
- *                <ul>
- *                   <li>
- *                      <p>Description: The tag provided was not a valid tag. This error can occur if
- *                      the tag did not pass input validation. For information about tag restrictions,
- *                      see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined Tag Restrictions</a> and <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/aws-tag-restrictions.html">Amazon Web Services-Generated Cost Allocation Tag Restrictions</a>.</p>
- *                   </li>
- *                </ul>
+ *                <p>
+ *                   <code>InvalidTag</code> - The tag provided was not a valid tag. This error
+ *                can occur if the tag did not pass input validation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CostAllocTagging.html">Using
+ *                   Cost Allocation in Amazon S3 Bucket Tags</a>.</p>
  *             </li>
  *             <li>
- *                <p>Error code: <code>MalformedXMLError</code>
- *                </p>
- *                <ul>
- *                   <li>
- *                      <p>Description: The XML provided does not match the schema.</p>
- *                   </li>
- *                </ul>
+ *                <p>
+ *                   <code>MalformedXML</code> - The XML provided does not match the
+ *                schema.</p>
  *             </li>
  *             <li>
- *                <p>Error code: <code>OperationAbortedError </code>
- *                </p>
- *                <ul>
- *                   <li>
- *                      <p>Description: A conflicting conditional action is currently in progress
- *                      against this resource. Please try again.</p>
- *                   </li>
- *                </ul>
+ *                <p>
+ *                   <code>OperationAborted</code> - A conflicting conditional action is
+ *                currently in progress against this resource. Please try again.</p>
  *             </li>
  *             <li>
- *                <p>Error code: <code>InternalError</code>
- *                </p>
- *                <ul>
- *                   <li>
- *                      <p>Description: The service was unable to apply the provided tag to the
- *                      bucket.</p>
- *                   </li>
- *                </ul>
+ *                <p>
+ *                   <code>InternalError</code> - The service was unable to apply the provided
+ *                tag to the bucket.</p>
  *             </li>
  *          </ul>
  *          <p>The following operations are related to <code>PutBucketTagging</code>:</p>
@@ -171,92 +149,33 @@ export interface PutBucketTaggingCommandOutput extends __MetadataBearer {}
  * ```
  *
  */
-export class PutBucketTaggingCommand extends $Command<
-  PutBucketTaggingCommandInput,
-  PutBucketTaggingCommandOutput,
-  S3ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      Bucket: { type: "contextParams", name: "Bucket" },
-      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
-      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
-      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
-      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
-      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PutBucketTaggingCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: S3ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PutBucketTaggingCommandInput, PutBucketTaggingCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, PutBucketTaggingCommand.getEndpointParameterInstructions())
-    );
-    this.middlewareStack.use(
-      getFlexibleChecksumsPlugin(configuration, {
+export class PutBucketTaggingCommand extends $Command
+  .classBuilder<
+    PutBucketTaggingCommandInput,
+    PutBucketTaggingCommandOutput,
+    S3ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+    UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
+    Bucket: { type: "contextParams", name: "Bucket" },
+  })
+  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getFlexibleChecksumsPlugin(config, {
         input: this.input,
         requestAlgorithmMember: "ChecksumAlgorithm",
         requestChecksumRequired: true,
-      })
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "S3Client";
-    const commandName = "PutBucketTaggingCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: PutBucketTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PutBucketTaggingCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketTaggingCommandOutput> {
-    return de_PutBucketTaggingCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+      }),
+    ];
+  })
+  .s("AmazonS3", "PutBucketTagging", {})
+  .n("S3Client", "PutBucketTaggingCommand")
+  .f(void 0, void 0)
+  .ser(se_PutBucketTaggingCommand)
+  .de(de_PutBucketTaggingCommand)
+  .build() {}

@@ -1,7 +1,20 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { AccessAnalyzerServiceException as __BaseException } from "./AccessAnalyzerServiceException";
+
+/**
+ * @public
+ * <p>Contains information about actions that define permissions to check against a
+ *          policy.</p>
+ */
+export interface Access {
+  /**
+   * @public
+   * <p>A list of actions for the access permissions.</p>
+   */
+  actions: string[] | undefined;
+}
 
 /**
  * @public
@@ -60,8 +73,8 @@ export class ConflictException extends __BaseException {
 /**
  * @public
  * <p>The criteria to use in the filter that defines the archive rule. For more information on
- *          available filter keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">IAM Access Analyzer
- *             filter keys</a>.</p>
+ *          available filter keys, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">IAM Access Analyzer filter
+ *             keys</a>.</p>
  */
 export interface Criterion {
   /**
@@ -290,7 +303,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>The reason for the exception.</p>
    */
-  reason: ValidationExceptionReason | string | undefined;
+  reason: ValidationExceptionReason | undefined;
 
   /**
    * @public
@@ -491,8 +504,64 @@ export interface InlineArchiveRule {
 
 /**
  * @public
+ * <p>Contains information about an unused access analyzer.</p>
  */
-export type Type = "ACCOUNT" | "ORGANIZATION";
+export interface UnusedAccessConfiguration {
+  /**
+   * @public
+   * <p>The specified access age in days for which to generate findings for unused access. For
+   *          example, if you specify 90 days, the analyzer will generate findings for IAM entities
+   *          within the accounts of the selected organization for any access that hasn't been used in 90
+   *          or more days since the analyzer's last scan. You can choose a value between 1 and 180
+   *          days.</p>
+   */
+  unusedAccessAge?: number;
+}
+
+/**
+ * @public
+ * <p>Contains information about the configuration of an unused access analyzer for an Amazon Web Services
+ *          organization or account.</p>
+ */
+export type AnalyzerConfiguration = AnalyzerConfiguration.UnusedAccessMember | AnalyzerConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AnalyzerConfiguration {
+  /**
+   * @public
+   * <p>Specifies the configuration of an unused access analyzer for an Amazon Web Services organization or
+   *          account. External access analyzers do not support any configuration.</p>
+   */
+  export interface UnusedAccessMember {
+    unusedAccess: UnusedAccessConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    unusedAccess?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    unusedAccess: (value: UnusedAccessConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: AnalyzerConfiguration, visitor: Visitor<T>): T => {
+    if (value.unusedAccess !== undefined) return visitor.unusedAccess(value.unusedAccess);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export type Type = "ACCOUNT" | "ACCOUNT_UNUSED_ACCESS" | "ORGANIZATION" | "ORGANIZATION_UNUSED_ACCESS";
 
 /**
  * @public
@@ -507,11 +576,12 @@ export interface CreateAnalyzerRequest {
 
   /**
    * @public
-   * <p>The type of analyzer to create. Only ACCOUNT and ORGANIZATION analyzers are supported.
-   *          You can create only one analyzer per account per Region. You can create up to 5 analyzers
-   *          per organization per Region.</p>
+   * <p>The type of analyzer to create. Only <code>ACCOUNT</code>, <code>ORGANIZATION</code>,
+   *             <code>ACCOUNT_UNUSED_ACCESS</code>, and <code>ORGANIZTAION_UNUSED_ACCESS</code>
+   *          analyzers are supported. You can create only one analyzer per account per Region. You can
+   *          create up to 5 analyzers per organization per Region.</p>
    */
-  type: Type | string | undefined;
+  type: Type | undefined;
 
   /**
    * @public
@@ -522,7 +592,7 @@ export interface CreateAnalyzerRequest {
 
   /**
    * @public
-   * <p>The tags to apply to the analyzer.</p>
+   * <p>An array of key-value pairs to apply to the analyzer.</p>
    */
   tags?: Record<string, string>;
 
@@ -531,6 +601,14 @@ export interface CreateAnalyzerRequest {
    * <p>A client token.</p>
    */
   clientToken?: string;
+
+  /**
+   * @public
+   * <p>Specifies the configuration of the analyzer. If the analyzer is an unused access
+   *          analyzer, the specified scope of unused access is used for the configuration. If the
+   *          analyzer is an external access analyzer, this field is not used.</p>
+   */
+  configuration?: AnalyzerConfiguration;
 }
 
 /**
@@ -601,7 +679,7 @@ export interface StatusReason {
    * @public
    * <p>The reason code for the current status of the analyzer.</p>
    */
-  code: ReasonCode | string | undefined;
+  code: ReasonCode | undefined;
 }
 
 /**
@@ -626,7 +704,7 @@ export interface AnalyzerSummary {
    * <p>The type of analyzer, which corresponds to the zone of trust chosen for the
    *          analyzer.</p>
    */
-  type: Type | string | undefined;
+  type: Type | undefined;
 
   /**
    * @public
@@ -661,7 +739,7 @@ export interface AnalyzerSummary {
    *          analyzer creation is in progress and <code>Failed</code> when the analyzer creation has
    *          failed. </p>
    */
-  status: AnalyzerStatus | string | undefined;
+  status: AnalyzerStatus | undefined;
 
   /**
    * @public
@@ -672,6 +750,12 @@ export interface AnalyzerSummary {
    *          organization.</p>
    */
   statusReason?: StatusReason;
+
+  /**
+   * @public
+   * <p>Specifies whether the analyzer is an external access or unused access analyzer.</p>
+   */
+  configuration?: AnalyzerConfiguration;
 }
 
 /**
@@ -708,7 +792,7 @@ export interface ListAnalyzersRequest {
    * @public
    * <p>The type of analyzer.</p>
    */
-  type?: Type | string;
+  type?: Type;
 }
 
 /**
@@ -771,6 +855,223 @@ export interface CancelPolicyGenerationRequest {
  * @public
  */
 export interface CancelPolicyGenerationResponse {}
+
+/**
+ * @public
+ * @enum
+ */
+export const AccessCheckPolicyType = {
+  IDENTITY_POLICY: "IDENTITY_POLICY",
+  RESOURCE_POLICY: "RESOURCE_POLICY",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessCheckPolicyType = (typeof AccessCheckPolicyType)[keyof typeof AccessCheckPolicyType];
+
+/**
+ * @public
+ */
+export interface CheckAccessNotGrantedRequest {
+  /**
+   * @public
+   * <p>The JSON policy document to use as the content for the policy.</p>
+   */
+  policyDocument: string | undefined;
+
+  /**
+   * @public
+   * <p>An access object containing the permissions that shouldn't be granted by the specified
+   *          policy.</p>
+   */
+  access: Access[] | undefined;
+
+  /**
+   * @public
+   * <p>The type of policy. Identity policies grant permissions to IAM principals. Identity
+   *          policies include managed and inline policies for IAM roles, users, and groups.</p>
+   *          <p>Resource policies grant permissions on Amazon Web Services resources. Resource policies include trust
+   *          policies for IAM roles and bucket policies for Amazon S3 buckets. You can provide a generic
+   *          input such as identity policy or resource policy or a specific input such as managed policy
+   *          or Amazon S3 bucket policy.</p>
+   */
+  policyType: AccessCheckPolicyType | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains information about the reasoning why a check for access passed or failed.</p>
+ */
+export interface ReasonSummary {
+  /**
+   * @public
+   * <p>A description of the reasoning of a result of checking for access.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>The index number of the reason statement.</p>
+   */
+  statementIndex?: number;
+
+  /**
+   * @public
+   * <p>The identifier for the reason statement.</p>
+   */
+  statementId?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CheckAccessNotGrantedResult = {
+  FAIL: "FAIL",
+  PASS: "PASS",
+} as const;
+
+/**
+ * @public
+ */
+export type CheckAccessNotGrantedResult =
+  (typeof CheckAccessNotGrantedResult)[keyof typeof CheckAccessNotGrantedResult];
+
+/**
+ * @public
+ */
+export interface CheckAccessNotGrantedResponse {
+  /**
+   * @public
+   * <p>The result of the check for whether the access is allowed. If the result is
+   *             <code>PASS</code>, the specified policy doesn't allow any of the specified permissions
+   *          in the access object. If the result is <code>FAIL</code>, the specified policy might allow
+   *          some or all of the permissions in the access object.</p>
+   */
+  result?: CheckAccessNotGrantedResult;
+
+  /**
+   * @public
+   * <p>The message indicating whether the specified access is allowed.</p>
+   */
+  message?: string;
+
+  /**
+   * @public
+   * <p>A description of the reasoning of the result.</p>
+   */
+  reasons?: ReasonSummary[];
+}
+
+/**
+ * @public
+ * <p>The specified parameter is invalid.</p>
+ */
+export class InvalidParameterException extends __BaseException {
+  readonly name: "InvalidParameterException" = "InvalidParameterException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidParameterException, __BaseException>) {
+    super({
+      name: "InvalidParameterException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidParameterException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The specified entity could not be processed.</p>
+ */
+export class UnprocessableEntityException extends __BaseException {
+  readonly name: "UnprocessableEntityException" = "UnprocessableEntityException";
+  readonly $fault: "client" = "client";
+  $retryable = {};
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnprocessableEntityException, __BaseException>) {
+    super({
+      name: "UnprocessableEntityException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnprocessableEntityException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface CheckNoNewAccessRequest {
+  /**
+   * @public
+   * <p>The JSON policy document to use as the content for the updated policy.</p>
+   */
+  newPolicyDocument: string | undefined;
+
+  /**
+   * @public
+   * <p>The JSON policy document to use as the content for the existing policy.</p>
+   */
+  existingPolicyDocument: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of policy to compare. Identity policies grant permissions to IAM principals.
+   *          Identity policies include managed and inline policies for IAM roles, users, and
+   *          groups.</p>
+   *          <p>Resource policies grant permissions on Amazon Web Services resources. Resource policies include trust
+   *          policies for IAM roles and bucket policies for Amazon S3 buckets. You can provide a generic
+   *          input such as identity policy or resource policy or a specific input such as managed policy
+   *          or Amazon S3 bucket policy.</p>
+   */
+  policyType: AccessCheckPolicyType | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CheckNoNewAccessResult = {
+  FAIL: "FAIL",
+  PASS: "PASS",
+} as const;
+
+/**
+ * @public
+ */
+export type CheckNoNewAccessResult = (typeof CheckNoNewAccessResult)[keyof typeof CheckNoNewAccessResult];
+
+/**
+ * @public
+ */
+export interface CheckNoNewAccessResponse {
+  /**
+   * @public
+   * <p>The result of the check for new access. If the result is <code>PASS</code>, no new
+   *          access is allowed by the updated policy. If the result is <code>FAIL</code>, the updated
+   *          policy might allow new access.</p>
+   */
+  result?: CheckNoNewAccessResult;
+
+  /**
+   * @public
+   * <p>The message indicating whether the updated policy allows new access.</p>
+   */
+  message?: string;
+
+  /**
+   * @public
+   * <p>A description of the reasoning of the result.</p>
+   */
+  reasons?: ReasonSummary[];
+}
 
 /**
  * @public
@@ -988,7 +1289,7 @@ export interface KmsGrantConfiguration {
    * @public
    * <p>A list of operations that the grant permits.</p>
    */
-  operations: (KmsGrantOperation | string)[] | undefined;
+  operations: KmsGrantOperation[] | undefined;
 
   /**
    * @public
@@ -1477,7 +1778,7 @@ export interface S3BucketAclGrantConfiguration {
    * @public
    * <p>The permissions being granted.</p>
    */
-  permission: AclPermission | string | undefined;
+  permission: AclPermission | undefined;
 
   /**
    * @public
@@ -1527,6 +1828,25 @@ export interface S3BucketConfiguration {
    *          You can propose up to 10 new access points per bucket.</p>
    */
   accessPoints?: Record<string, S3AccessPointConfiguration>;
+}
+
+/**
+ * @public
+ * <p>Proposed access control configuration for an Amazon S3 directory bucket. You can propose a
+ *          configuration for a new Amazon S3 directory bucket or an existing Amazon S3 directory bucket that you
+ *          own by specifying the Amazon S3 bucket policy. If the configuration is for an existing Amazon S3
+ *          directory bucket and you do not specify the Amazon S3 bucket policy, the access preview uses the
+ *          existing policy attached to the directory bucket. If the access preview is for a new
+ *          resource and you do not specify the Amazon S3 bucket policy, the access preview assumes an
+ *          directory bucket without a policy. To propose deletion of an existing bucket policy, you
+ *          can specify an empty string. For more information about bucket policy limits, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam-example-bucket-policies.html">Example bucket policies</a>.</p>
+ */
+export interface S3ExpressDirectoryBucketConfiguration {
+  /**
+   * @public
+   * <p>The proposed bucket policy for the Amazon S3 directory bucket.</p>
+   */
+  bucketPolicy?: string;
 }
 
 /**
@@ -1613,6 +1933,7 @@ export type Configuration =
   | Configuration.RdsDbClusterSnapshotMember
   | Configuration.RdsDbSnapshotMember
   | Configuration.S3BucketMember
+  | Configuration.S3ExpressDirectoryBucketMember
   | Configuration.SecretsManagerSecretMember
   | Configuration.SnsTopicMember
   | Configuration.SqsQueueMember
@@ -1638,6 +1959,7 @@ export namespace Configuration {
     s3Bucket?: never;
     snsTopic?: never;
     sqsQueue?: never;
+    s3ExpressDirectoryBucket?: never;
     $unknown?: never;
   }
 
@@ -1657,6 +1979,7 @@ export namespace Configuration {
     s3Bucket?: never;
     snsTopic?: never;
     sqsQueue?: never;
+    s3ExpressDirectoryBucket?: never;
     $unknown?: never;
   }
 
@@ -1676,6 +1999,7 @@ export namespace Configuration {
     s3Bucket?: never;
     snsTopic?: never;
     sqsQueue?: never;
+    s3ExpressDirectoryBucket?: never;
     $unknown?: never;
   }
 
@@ -1695,6 +2019,7 @@ export namespace Configuration {
     s3Bucket?: never;
     snsTopic?: never;
     sqsQueue?: never;
+    s3ExpressDirectoryBucket?: never;
     $unknown?: never;
   }
 
@@ -1714,6 +2039,7 @@ export namespace Configuration {
     s3Bucket?: never;
     snsTopic?: never;
     sqsQueue?: never;
+    s3ExpressDirectoryBucket?: never;
     $unknown?: never;
   }
 
@@ -1733,6 +2059,7 @@ export namespace Configuration {
     s3Bucket?: never;
     snsTopic?: never;
     sqsQueue?: never;
+    s3ExpressDirectoryBucket?: never;
     $unknown?: never;
   }
 
@@ -1752,6 +2079,7 @@ export namespace Configuration {
     s3Bucket?: never;
     snsTopic?: never;
     sqsQueue?: never;
+    s3ExpressDirectoryBucket?: never;
     $unknown?: never;
   }
 
@@ -1771,12 +2099,13 @@ export namespace Configuration {
     s3Bucket?: never;
     snsTopic?: never;
     sqsQueue?: never;
+    s3ExpressDirectoryBucket?: never;
     $unknown?: never;
   }
 
   /**
    * @public
-   * <p>The access control configuration is for an Amazon S3 Bucket. </p>
+   * <p>The access control configuration is for an Amazon S3 bucket. </p>
    */
   export interface S3BucketMember {
     ebsSnapshot?: never;
@@ -1790,6 +2119,7 @@ export namespace Configuration {
     s3Bucket: S3BucketConfiguration;
     snsTopic?: never;
     sqsQueue?: never;
+    s3ExpressDirectoryBucket?: never;
     $unknown?: never;
   }
 
@@ -1809,6 +2139,7 @@ export namespace Configuration {
     s3Bucket?: never;
     snsTopic: SnsTopicConfiguration;
     sqsQueue?: never;
+    s3ExpressDirectoryBucket?: never;
     $unknown?: never;
   }
 
@@ -1828,6 +2159,27 @@ export namespace Configuration {
     s3Bucket?: never;
     snsTopic?: never;
     sqsQueue: SqsQueueConfiguration;
+    s3ExpressDirectoryBucket?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>The access control configuration is for an Amazon S3 directory bucket.</p>
+   */
+  export interface S3ExpressDirectoryBucketMember {
+    ebsSnapshot?: never;
+    ecrRepository?: never;
+    iamRole?: never;
+    efsFileSystem?: never;
+    kmsKey?: never;
+    rdsDbClusterSnapshot?: never;
+    rdsDbSnapshot?: never;
+    secretsManagerSecret?: never;
+    s3Bucket?: never;
+    snsTopic?: never;
+    sqsQueue?: never;
+    s3ExpressDirectoryBucket: S3ExpressDirectoryBucketConfiguration;
     $unknown?: never;
   }
 
@@ -1846,6 +2198,7 @@ export namespace Configuration {
     s3Bucket?: never;
     snsTopic?: never;
     sqsQueue?: never;
+    s3ExpressDirectoryBucket?: never;
     $unknown: [string, any];
   }
 
@@ -1861,6 +2214,7 @@ export namespace Configuration {
     s3Bucket: (value: S3BucketConfiguration) => T;
     snsTopic: (value: SnsTopicConfiguration) => T;
     sqsQueue: (value: SqsQueueConfiguration) => T;
+    s3ExpressDirectoryBucket: (value: S3ExpressDirectoryBucketConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -1876,6 +2230,8 @@ export namespace Configuration {
     if (value.s3Bucket !== undefined) return visitor.s3Bucket(value.s3Bucket);
     if (value.snsTopic !== undefined) return visitor.snsTopic(value.snsTopic);
     if (value.sqsQueue !== undefined) return visitor.sqsQueue(value.sqsQueue);
+    if (value.s3ExpressDirectoryBucket !== undefined)
+      return visitor.s3ExpressDirectoryBucket(value.s3ExpressDirectoryBucket);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -1980,7 +2336,7 @@ export interface AccessPreviewStatusReason {
    * @public
    * <p>The reason code for the current status of the access preview.</p>
    */
-  code: AccessPreviewStatusReasonCode | string | undefined;
+  code: AccessPreviewStatusReasonCode | undefined;
 }
 
 /**
@@ -2031,7 +2387,7 @@ export interface AccessPreview {
    *             </li>
    *          </ul>
    */
-  status: AccessPreviewStatus | string | undefined;
+  status: AccessPreviewStatus | undefined;
 
   /**
    * @public
@@ -2087,6 +2443,7 @@ export type ResourceType =
   | "AWS::RDS::DBClusterSnapshot"
   | "AWS::RDS::DBSnapshot"
   | "AWS::S3::Bucket"
+  | "AWS::S3Express::DirectoryBucket"
   | "AWS::SNS::Topic"
   | "AWS::SQS::Queue"
   | "AWS::SecretsManager::Secret";
@@ -2111,7 +2468,7 @@ export interface AnalyzedResource {
    * @public
    * <p>The type of the resource that was analyzed.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -2156,7 +2513,7 @@ export interface AnalyzedResource {
    * @public
    * <p>The current status of the finding generated from the analyzed resource.</p>
    */
-  status?: FindingStatus | string;
+  status?: FindingStatus;
 
   /**
    * @public
@@ -2238,7 +2595,7 @@ export interface FindingSource {
    * @public
    * <p>Indicates the type of access that generated the finding.</p>
    */
-  type: FindingSourceType | string | undefined;
+  type: FindingSourceType | undefined;
 
   /**
    * @public
@@ -2261,7 +2618,7 @@ export interface Finding {
 
   /**
    * @public
-   * <p>The external principal that access to a resource within the zone of trust.</p>
+   * <p>The external principal that has access to a resource within the zone of trust.</p>
    */
   principal?: Record<string, string>;
 
@@ -2289,7 +2646,7 @@ export interface Finding {
    * @public
    * <p>The type of the resource identified in the finding.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -2319,7 +2676,7 @@ export interface Finding {
    * @public
    * <p>The current status of the finding.</p>
    */
-  status: FindingStatus | string | undefined;
+  status: FindingStatus | undefined;
 
   /**
    * @public
@@ -2351,6 +2708,393 @@ export interface GetFindingResponse {
    * <p>A <code>finding</code> object that contains finding details.</p>
    */
   finding?: Finding;
+}
+
+/**
+ * @public
+ */
+export interface GetFindingV2Request {
+  /**
+   * @public
+   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
+   *             the analyzer</a> that generated the finding.</p>
+   */
+  analyzerArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the finding to retrieve.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return in the response.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>A token used for pagination of results returned.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>Contains information about an external access finding.</p>
+ */
+export interface ExternalAccessDetails {
+  /**
+   * @public
+   * <p>The action in the analyzed policy statement that an external principal has permission to
+   *          use.</p>
+   */
+  action?: string[];
+
+  /**
+   * @public
+   * <p>The condition in the analyzed policy statement that resulted in an external access
+   *          finding.</p>
+   */
+  condition: Record<string, string> | undefined;
+
+  /**
+   * @public
+   * <p>Specifies whether the external access finding is public.</p>
+   */
+  isPublic?: boolean;
+
+  /**
+   * @public
+   * <p>The external principal that has access to a resource within the zone of trust.</p>
+   */
+  principal?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The sources of the external access finding. This indicates how the access that generated
+   *          the finding is granted. It is populated for Amazon S3 bucket findings.</p>
+   */
+  sources?: FindingSource[];
+}
+
+/**
+ * @public
+ * <p>Contains information about an unused access finding for an IAM role. IAM Access Analyzer
+ *          charges for unused access analysis based on the number of IAM roles and users analyzed
+ *          per month. For more details on pricing, see <a href="https://aws.amazon.com/iam/access-analyzer/pricing">IAM Access Analyzer
+ *          pricing</a>.</p>
+ */
+export interface UnusedIamRoleDetails {
+  /**
+   * @public
+   * <p>The time at which the role was last accessed.</p>
+   */
+  lastAccessed?: Date;
+}
+
+/**
+ * @public
+ * <p>Contains information about an unused access finding for an IAM user access key.
+ *          IAM Access Analyzer charges for unused access analysis based on the number of IAM roles and
+ *          users analyzed per month. For more details on pricing, see <a href="https://aws.amazon.com/iam/access-analyzer/pricing">IAM Access Analyzer
+ *          pricing</a>.</p>
+ */
+export interface UnusedIamUserAccessKeyDetails {
+  /**
+   * @public
+   * <p>The ID of the access key for which the unused access finding was generated.</p>
+   */
+  accessKeyId: string | undefined;
+
+  /**
+   * @public
+   * <p>The time at which the access key was last accessed.</p>
+   */
+  lastAccessed?: Date;
+}
+
+/**
+ * @public
+ * <p>Contains information about an unused access finding for an IAM user password.
+ *          IAM Access Analyzer charges for unused access analysis based on the number of IAM roles and
+ *          users analyzed per month. For more details on pricing, see <a href="https://aws.amazon.com/iam/access-analyzer/pricing">IAM Access Analyzer
+ *          pricing</a>.</p>
+ */
+export interface UnusedIamUserPasswordDetails {
+  /**
+   * @public
+   * <p>The time at which the password was last accessed.</p>
+   */
+  lastAccessed?: Date;
+}
+
+/**
+ * @public
+ * <p>Contains information about an unused access finding for an action. IAM Access Analyzer charges
+ *          for unused access analysis based on the number of IAM roles and users analyzed per month.
+ *          For more details on pricing, see <a href="https://aws.amazon.com/iam/access-analyzer/pricing">IAM Access Analyzer
+ *          pricing</a>.</p>
+ */
+export interface UnusedAction {
+  /**
+   * @public
+   * <p>The action for which the unused access finding was generated.</p>
+   */
+  action: string | undefined;
+
+  /**
+   * @public
+   * <p>The time at which the action was last accessed.</p>
+   */
+  lastAccessed?: Date;
+}
+
+/**
+ * @public
+ * <p>Contains information about an unused access finding for a permission. IAM Access Analyzer
+ *          charges for unused access analysis based on the number of IAM roles and users analyzed
+ *          per month. For more details on pricing, see <a href="https://aws.amazon.com/iam/access-analyzer/pricing">IAM Access Analyzer
+ *          pricing</a>.</p>
+ */
+export interface UnusedPermissionDetails {
+  /**
+   * @public
+   * <p>A list of unused actions for which the unused access finding was generated.</p>
+   */
+  actions?: UnusedAction[];
+
+  /**
+   * @public
+   * <p>The namespace of the Amazon Web Services service that contains the unused actions.</p>
+   */
+  serviceNamespace: string | undefined;
+
+  /**
+   * @public
+   * <p>The time at which the permission last accessed.</p>
+   */
+  lastAccessed?: Date;
+}
+
+/**
+ * @public
+ * <p>Contains information about an external access or unused access finding. Only one
+ *          parameter can be used in a <code>FindingDetails</code> object.</p>
+ */
+export type FindingDetails =
+  | FindingDetails.ExternalAccessDetailsMember
+  | FindingDetails.UnusedIamRoleDetailsMember
+  | FindingDetails.UnusedIamUserAccessKeyDetailsMember
+  | FindingDetails.UnusedIamUserPasswordDetailsMember
+  | FindingDetails.UnusedPermissionDetailsMember
+  | FindingDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace FindingDetails {
+  /**
+   * @public
+   * <p>The details for an external access analyzer finding.</p>
+   */
+  export interface ExternalAccessDetailsMember {
+    externalAccessDetails: ExternalAccessDetails;
+    unusedPermissionDetails?: never;
+    unusedIamUserAccessKeyDetails?: never;
+    unusedIamRoleDetails?: never;
+    unusedIamUserPasswordDetails?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>The details for an unused access analyzer finding with an unused permission finding
+   *          type.</p>
+   */
+  export interface UnusedPermissionDetailsMember {
+    externalAccessDetails?: never;
+    unusedPermissionDetails: UnusedPermissionDetails;
+    unusedIamUserAccessKeyDetails?: never;
+    unusedIamRoleDetails?: never;
+    unusedIamUserPasswordDetails?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>The details for an unused access analyzer finding with an unused IAM user access key
+   *          finding type.</p>
+   */
+  export interface UnusedIamUserAccessKeyDetailsMember {
+    externalAccessDetails?: never;
+    unusedPermissionDetails?: never;
+    unusedIamUserAccessKeyDetails: UnusedIamUserAccessKeyDetails;
+    unusedIamRoleDetails?: never;
+    unusedIamUserPasswordDetails?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>The details for an unused access analyzer finding with an unused IAM role finding
+   *          type.</p>
+   */
+  export interface UnusedIamRoleDetailsMember {
+    externalAccessDetails?: never;
+    unusedPermissionDetails?: never;
+    unusedIamUserAccessKeyDetails?: never;
+    unusedIamRoleDetails: UnusedIamRoleDetails;
+    unusedIamUserPasswordDetails?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>The details for an unused access analyzer finding with an unused IAM user password
+   *          finding type.</p>
+   */
+  export interface UnusedIamUserPasswordDetailsMember {
+    externalAccessDetails?: never;
+    unusedPermissionDetails?: never;
+    unusedIamUserAccessKeyDetails?: never;
+    unusedIamRoleDetails?: never;
+    unusedIamUserPasswordDetails: UnusedIamUserPasswordDetails;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    externalAccessDetails?: never;
+    unusedPermissionDetails?: never;
+    unusedIamUserAccessKeyDetails?: never;
+    unusedIamRoleDetails?: never;
+    unusedIamUserPasswordDetails?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    externalAccessDetails: (value: ExternalAccessDetails) => T;
+    unusedPermissionDetails: (value: UnusedPermissionDetails) => T;
+    unusedIamUserAccessKeyDetails: (value: UnusedIamUserAccessKeyDetails) => T;
+    unusedIamRoleDetails: (value: UnusedIamRoleDetails) => T;
+    unusedIamUserPasswordDetails: (value: UnusedIamUserPasswordDetails) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: FindingDetails, visitor: Visitor<T>): T => {
+    if (value.externalAccessDetails !== undefined) return visitor.externalAccessDetails(value.externalAccessDetails);
+    if (value.unusedPermissionDetails !== undefined)
+      return visitor.unusedPermissionDetails(value.unusedPermissionDetails);
+    if (value.unusedIamUserAccessKeyDetails !== undefined)
+      return visitor.unusedIamUserAccessKeyDetails(value.unusedIamUserAccessKeyDetails);
+    if (value.unusedIamRoleDetails !== undefined) return visitor.unusedIamRoleDetails(value.unusedIamRoleDetails);
+    if (value.unusedIamUserPasswordDetails !== undefined)
+      return visitor.unusedIamUserPasswordDetails(value.unusedIamUserPasswordDetails);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FindingType = {
+  EXTERNAL_ACCESS: "ExternalAccess",
+  UNUSED_IAM_ROLE: "UnusedIAMRole",
+  UNUSED_IAM_USER_ACCESS_KEY: "UnusedIAMUserAccessKey",
+  UNUSED_IAM_USER_PASSWORD: "UnusedIAMUserPassword",
+  UNUSED_PERMISSION: "UnusedPermission",
+} as const;
+
+/**
+ * @public
+ */
+export type FindingType = (typeof FindingType)[keyof typeof FindingType];
+
+/**
+ * @public
+ */
+export interface GetFindingV2Response {
+  /**
+   * @public
+   * <p>The time at which the resource-based policy or IAM entity that generated the finding
+   *          was analyzed.</p>
+   */
+  analyzedAt: Date | undefined;
+
+  /**
+   * @public
+   * <p>The time at which the finding was created.</p>
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * @public
+   * <p>An error.</p>
+   */
+  error?: string;
+
+  /**
+   * @public
+   * <p>The ID of the finding to retrieve.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * @public
+   * <p>A token used for pagination of results returned.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>The resource that generated the finding.</p>
+   */
+  resource?: string;
+
+  /**
+   * @public
+   * <p>The type of the resource identified in the finding.</p>
+   */
+  resourceType: ResourceType | undefined;
+
+  /**
+   * @public
+   * <p>Tye Amazon Web Services account ID that owns the resource.</p>
+   */
+  resourceOwnerAccount: string | undefined;
+
+  /**
+   * @public
+   * <p>The status of the finding.</p>
+   */
+  status: FindingStatus | undefined;
+
+  /**
+   * @public
+   * <p>The time at which the finding was updated.</p>
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * @public
+   * <p>A localized message that explains the finding and provides guidance on how to address
+   *          it.</p>
+   */
+  findingDetails: FindingDetails[] | undefined;
+
+  /**
+   * @public
+   * <p>The type of the finding. For external access analyzers, the type is
+   *             <code>ExternalAccess</code>. For unused access analyzers, the type can be
+   *             <code>UnusedIAMRole</code>, <code>UnusedIAMUserAccessKey</code>,
+   *             <code>UnusedIAMUserPassword</code>, or <code>UnusedPermission</code>.</p>
+   */
+  findingType?: FindingType;
 }
 
 /**
@@ -2525,7 +3269,7 @@ export interface JobError {
    * @public
    * <p>The job error code.</p>
    */
-  code: JobErrorCode | string | undefined;
+  code: JobErrorCode | undefined;
 
   /**
    * @public
@@ -2569,7 +3313,7 @@ export interface JobDetails {
    * @public
    * <p>The status of the job request.</p>
    */
-  status: JobStatus | string | undefined;
+  status: JobStatus | undefined;
 
   /**
    * @public
@@ -2684,7 +3428,7 @@ export interface AccessPreviewFinding {
    * @public
    * <p>The existing status of the finding, provided only for existing findings.</p>
    */
-  existingFindingStatus?: FindingStatus | string;
+  existingFindingStatus?: FindingStatus;
 
   /**
    * @public
@@ -2723,7 +3467,7 @@ export interface AccessPreviewFinding {
    * @public
    * <p>The type of the resource that can be accessed in the finding.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -2755,7 +3499,7 @@ export interface AccessPreviewFinding {
    *          and existing status <code>Active</code> indicates the existing <code>Active</code> finding
    *          would become <code>Resolved</code> as a result of the proposed permissions change.</p>
    */
-  changeType: FindingChangeType | string | undefined;
+  changeType: FindingChangeType | undefined;
 
   /**
    * @public
@@ -2765,7 +3509,7 @@ export interface AccessPreviewFinding {
    *             <code>Active</code> finding would become <code>Resolved</code> as a result of the
    *          proposed permissions change.</p>
    */
-  status: FindingStatus | string | undefined;
+  status: FindingStatus | undefined;
 
   /**
    * @public
@@ -2871,7 +3615,7 @@ export interface AccessPreviewSummary {
    *             </li>
    *          </ul>
    */
-  status: AccessPreviewStatus | string | undefined;
+  status: AccessPreviewStatus | undefined;
 
   /**
    * @public
@@ -2916,7 +3660,7 @@ export interface ListAnalyzedResourcesRequest {
    * @public
    * <p>The type of resource.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -2952,7 +3696,7 @@ export interface AnalyzedResourceSummary {
    * @public
    * <p>The type of resource that was analyzed.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 }
 
 /**
@@ -2993,7 +3737,7 @@ export interface SortCriteria {
    * @public
    * <p>The sort order, ascending or descending.</p>
    */
-  orderBy?: OrderBy | string;
+  orderBy?: OrderBy;
 }
 
 /**
@@ -3074,7 +3818,7 @@ export interface FindingSummary {
    * @public
    * <p>The type of the resource that the external principal has access to.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -3105,7 +3849,7 @@ export interface FindingSummary {
    * @public
    * <p>The status of the finding.</p>
    */
-  status: FindingStatus | string | undefined;
+  status: FindingStatus | undefined;
 
   /**
    * @public
@@ -3138,6 +3882,127 @@ export interface ListFindingsResponse {
    *          if any.</p>
    */
   findings: FindingSummary[] | undefined;
+
+  /**
+   * @public
+   * <p>A token used for pagination of results returned.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListFindingsV2Request {
+  /**
+   * @public
+   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html#permission-resources">ARN of
+   *             the analyzer</a> to retrieve findings from.</p>
+   */
+  analyzerArn: string | undefined;
+
+  /**
+   * @public
+   * <p>A filter to match for the findings to return.</p>
+   */
+  filter?: Record<string, Criterion>;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return in the response.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>A token used for pagination of results returned.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>The criteria used to sort.</p>
+   */
+  sort?: SortCriteria;
+}
+
+/**
+ * @public
+ * <p>Contains information about a finding.</p>
+ */
+export interface FindingSummaryV2 {
+  /**
+   * @public
+   * <p>The time at which the resource-based policy or IAM entity that generated the finding
+   *          was analyzed.</p>
+   */
+  analyzedAt: Date | undefined;
+
+  /**
+   * @public
+   * <p>The time at which the finding was created.</p>
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * @public
+   * <p>The error that resulted in an Error finding.</p>
+   */
+  error?: string;
+
+  /**
+   * @public
+   * <p>The ID of the finding.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * @public
+   * <p>The resource that the external principal has access to.</p>
+   */
+  resource?: string;
+
+  /**
+   * @public
+   * <p>The type of the resource that the external principal has access to.</p>
+   */
+  resourceType: ResourceType | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services account ID that owns the resource.</p>
+   */
+  resourceOwnerAccount: string | undefined;
+
+  /**
+   * @public
+   * <p>The status of the finding.</p>
+   */
+  status: FindingStatus | undefined;
+
+  /**
+   * @public
+   * <p>The time at which the finding was most recently updated.</p>
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * @public
+   * <p>The type of the external access or unused access finding.</p>
+   */
+  findingType?: FindingType;
+}
+
+/**
+ * @public
+ */
+export interface ListFindingsV2Response {
+  /**
+   * @public
+   * <p>A list of findings retrieved from the analyzer that match the filter criteria specified,
+   *          if any.</p>
+   */
+  findings: FindingSummaryV2[] | undefined;
 
   /**
    * @public
@@ -3195,7 +4060,7 @@ export interface PolicyGeneration {
    * @public
    * <p>The status of the policy generation request.</p>
    */
-  status: JobStatus | string | undefined;
+  status: JobStatus | undefined;
 
   /**
    * @public
@@ -3469,7 +4334,7 @@ export interface UpdateFindingsRequest {
    *             <code>ARCHIVE</code> to change an Active finding to an Archived finding. Use
    *             <code>ACTIVE</code> to change an Archived finding to an Active finding.</p>
    */
-  status: FindingStatusUpdate | string | undefined;
+  status: FindingStatusUpdate | undefined;
 
   /**
    * @public
@@ -3552,7 +4417,7 @@ export interface ValidatePolicyRequest {
    * @public
    * <p>The locale to use for localizing the findings.</p>
    */
-  locale?: Locale | string;
+  locale?: Locale;
 
   /**
    * @public
@@ -3575,15 +4440,16 @@ export interface ValidatePolicyRequest {
   /**
    * @public
    * <p>The type of policy to validate. Identity policies grant permissions to IAM principals.
-   *          Identity policies include managed and inline policies for IAM roles, users, and groups.
-   *          They also include service-control policies (SCPs) that are attached to an Amazon Web Services
-   *          organization, organizational unit (OU), or an account.</p>
+   *          Identity policies include managed and inline policies for IAM roles, users, and
+   *          groups.</p>
    *          <p>Resource policies grant permissions on Amazon Web Services resources. Resource policies include trust
    *          policies for IAM roles and bucket policies for Amazon S3 buckets. You can provide a generic
    *          input such as identity policy or resource policy or a specific input such as managed policy
    *          or Amazon S3 bucket policy. </p>
+   *          <p>Service control policies (SCPs) are a type of organization policy attached to an Amazon Web Services
+   *          organization, organizational unit (OU), or an account.</p>
    */
-  policyType: PolicyType | string | undefined;
+  policyType: PolicyType | undefined;
 
   /**
    * @public
@@ -3596,7 +4462,7 @@ export interface ValidatePolicyRequest {
    *          KMS key, do not specify a value for the policy validation resource type and IAM Access Analyzer
    *          will run policy checks that apply to all resource policies.</p>
    */
-  validatePolicyResourceType?: ValidatePolicyResourceType | string;
+  validatePolicyResourceType?: ValidatePolicyResourceType;
 }
 
 /**
@@ -3810,7 +4676,7 @@ export interface ValidatePolicyFinding {
    *          <p>Suggestions recommend stylistic improvements in the policy that do not impact
    *          access.</p>
    */
-  findingType: ValidatePolicyFindingType | string | undefined;
+  findingType: ValidatePolicyFindingType | undefined;
 
   /**
    * @public
@@ -3849,3 +4715,20 @@ export interface ValidatePolicyResponse {
    */
   nextToken?: string;
 }
+
+/**
+ * @internal
+ */
+export const CheckAccessNotGrantedRequestFilterSensitiveLog = (obj: CheckAccessNotGrantedRequest): any => ({
+  ...obj,
+  ...(obj.policyDocument && { policyDocument: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CheckNoNewAccessRequestFilterSensitiveLog = (obj: CheckNoNewAccessRequest): any => ({
+  ...obj,
+  ...(obj.newPolicyDocument && { newPolicyDocument: SENSITIVE_STRING }),
+  ...(obj.existingPolicyDocument && { existingPolicyDocument: SENSITIVE_STRING }),
+});

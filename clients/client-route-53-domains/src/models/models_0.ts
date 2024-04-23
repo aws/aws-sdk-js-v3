@@ -299,7 +299,7 @@ export interface BillingRecord {
    * @public
    * <p>The operation that you were charged for.</p>
    */
-  Operation?: OperationType | string;
+  Operation?: OperationType;
 
   /**
    * @public
@@ -470,7 +470,7 @@ export interface CheckDomainAvailabilityResponse {
    *             </dd>
    *          </dl>
    */
-  Availability?: DomainAvailability | string;
+  Availability?: DomainAvailability;
 }
 
 /**
@@ -573,7 +573,7 @@ export interface DomainTransferability {
    *             </dd>
    *          </dl>
    */
-  Transferable?: Transferable | string;
+  Transferable?: Transferable;
 }
 
 /**
@@ -1761,7 +1761,7 @@ export interface ExtraParam {
    *          </dl>
    *          <p>In addition, many TLDs require a <code>VAT_NUMBER</code>.</p>
    */
-  Name: ExtraParamName | string | undefined;
+  Name: ExtraParamName | undefined;
 
   /**
    * @public
@@ -1810,7 +1810,7 @@ export interface ContactDetail {
    *             </li>
    *          </ul>
    */
-  ContactType?: ContactType | string;
+  ContactType?: ContactType;
 
   /**
    * @public
@@ -1846,7 +1846,7 @@ export interface ContactDetail {
    * @public
    * <p>Code for the country of the contact's address.</p>
    */
-  CountryCode?: CountryCode | string;
+  CountryCode?: CountryCode;
 
   /**
    * @public
@@ -2304,7 +2304,7 @@ export interface FilterCondition {
    * @public
    * <p>Name of the field which should be used for filtering the list of domains.</p>
    */
-  Name: ListDomainsAttributeName | string | undefined;
+  Name: ListDomainsAttributeName | undefined;
 
   /**
    * @public
@@ -2324,7 +2324,7 @@ export interface FilterCondition {
    *             </li>
    *          </ul>
    */
-  Operator: Operator | string | undefined;
+  Operator: Operator | undefined;
 
   /**
    * @public
@@ -2389,7 +2389,7 @@ export interface GetContactReachabilityStatusResponse {
    *             </dd>
    *          </dl>
    */
-  status?: ReachabilityStatus | string;
+  status?: ReachabilityStatus;
 }
 
 /**
@@ -2725,7 +2725,7 @@ export interface GetOperationDetailResponse {
    * @public
    * <p>The current status of the requested operation in the system.</p>
    */
-  Status?: OperationStatus | string;
+  Status?: OperationStatus;
 
   /**
    * @public
@@ -2743,7 +2743,7 @@ export interface GetOperationDetailResponse {
    * @public
    * <p>The type of operation that was requested.</p>
    */
-  Type?: OperationType | string;
+  Type?: OperationType;
 
   /**
    * @public
@@ -2789,7 +2789,7 @@ export interface GetOperationDetailResponse {
    *             </li>
    *          </ul>
    */
-  StatusFlag?: StatusFlag | string;
+  StatusFlag?: StatusFlag;
 }
 
 /**
@@ -2819,14 +2819,14 @@ export interface SortCondition {
    * 			call, the field used for sorting has to be the same as the field used for
    * 			filtering.</p>
    */
-  Name: ListDomainsAttributeName | string | undefined;
+  Name: ListDomainsAttributeName | undefined;
 
   /**
    * @public
    * <p>The sort order for a list of domains. Either ascending (ASC) or descending
    * 			(DES).</p>
    */
-  SortOrder: SortOrder | string | undefined;
+  SortOrder: SortOrder | undefined;
 }
 
 /**
@@ -2938,25 +2938,25 @@ export interface ListOperationsRequest {
    * @public
    * <p> The status of the operations. </p>
    */
-  Status?: (OperationStatus | string)[];
+  Status?: OperationStatus[];
 
   /**
    * @public
    * <p> An arrays of the domains operation types. </p>
    */
-  Type?: (OperationType | string)[];
+  Type?: OperationType[];
 
   /**
    * @public
    * <p> The sort type for returned values. </p>
    */
-  SortBy?: ListOperationsSortAttributeName | string;
+  SortBy?: ListOperationsSortAttributeName;
 
   /**
    * @public
    * <p> The sort order for returned values, either ascending or descending. </p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 }
 
 /**
@@ -2974,13 +2974,13 @@ export interface OperationSummary {
    * @public
    * <p>The current status of the requested operation in the system.</p>
    */
-  Status?: OperationStatus | string;
+  Status?: OperationStatus;
 
   /**
    * @public
    * <p>Type of the action requested.</p>
    */
-  Type?: OperationType | string;
+  Type?: OperationType;
 
   /**
    * @public
@@ -3033,7 +3033,7 @@ export interface OperationSummary {
    *             </li>
    *          </ul>
    */
-  StatusFlag?: StatusFlag | string;
+  StatusFlag?: StatusFlag;
 
   /**
    * @public

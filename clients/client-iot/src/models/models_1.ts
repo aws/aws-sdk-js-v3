@@ -2,12 +2,14 @@
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { IoTServiceException as __BaseException } from "./IoTServiceException";
+
 import {
   AbortConfig,
   Action,
   ActiveViolation,
   AggregationType,
   AlertTarget,
+  AlertTargetType,
   AuditCheckConfiguration,
   AuditCheckDetails,
   AuditFinding,
@@ -18,6 +20,7 @@ import {
   AuditMitigationActionsTaskStatus,
   AuditMitigationActionsTaskTarget,
   AuditNotificationTarget,
+  AuditNotificationType,
   AuditSuppression,
   AuditTaskMetadata,
   AuditTaskStatus,
@@ -31,6 +34,7 @@ import {
   AwsJobPresignedUrlConfig,
   Behavior,
   BillingGroupProperties,
+  CertificateProviderOperation,
   CustomMetricType,
   DayOfWeek,
   DimensionType,
@@ -40,6 +44,7 @@ import {
   JobExecutionsRolloutConfig,
   LogLevel,
   MaintenanceWindow,
+  MetricsExportConfig,
   MetricToRetain,
   MetricValue,
   MitigationActionParams,
@@ -64,6 +69,65 @@ import {
   TopicRuleDestination,
   VerificationState,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface DeleteCustomMetricResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteDimensionRequest {
+  /**
+   * @public
+   * <p>The unique identifier for the dimension that you want to delete.</p>
+   */
+  name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDimensionResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteDomainConfigurationRequest {
+  /**
+   * @public
+   * <p>The name of the domain configuration to be deleted.</p>
+   */
+  domainConfigurationName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDomainConfigurationResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteDynamicThingGroupRequest {
+  /**
+   * @public
+   * <p>The name of the dynamic thing group to delete.</p>
+   */
+  thingGroupName: string | undefined;
+
+  /**
+   * @public
+   * <p>The expected version of the dynamic thing group to delete.</p>
+   */
+  expectedVersion?: number;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDynamicThingGroupResponse {}
 
 /**
  * @public
@@ -240,7 +304,7 @@ export interface DeleteOTAUpdateResponse {}
 export interface DeletePackageRequest {
   /**
    * @public
-   * <p>The name of the target package.</p>
+   * <p>The name of the target software package.</p>
    */
   packageName: string | undefined;
 
@@ -263,7 +327,7 @@ export interface DeletePackageResponse {}
 export interface DeletePackageVersionRequest {
   /**
    * @public
-   * <p>The name of the associated package.</p>
+   * <p>The name of the associated software package.</p>
    */
   packageName: string | undefined;
 
@@ -559,7 +623,7 @@ export interface DeleteV2LoggingLevelRequest {
    * <p>The type of resource for which you are configuring logging. Must be
    *             <code>THING_Group</code>.</p>
    */
-  targetType: LogTargetType | string | undefined;
+  targetType: LogTargetType | undefined;
 
   /**
    * @public
@@ -617,7 +681,7 @@ export interface DescribeAccountAuditConfigurationResponse {
    * <p>Information about the targets to which audit notifications are sent for
    *             this account.</p>
    */
-  auditNotificationTargetConfigurations?: Record<string, AuditNotificationTarget>;
+  auditNotificationTargetConfigurations?: Partial<Record<AuditNotificationType, AuditNotificationTarget>>;
 
   /**
    * @public
@@ -697,7 +761,7 @@ export interface DescribeAuditMitigationActionsTaskResponse {
    * @public
    * <p>The current status of the task.</p>
    */
-  taskStatus?: AuditMitigationActionsTaskStatus | string;
+  taskStatus?: AuditMitigationActionsTaskStatus;
 
   /**
    * @public
@@ -868,13 +932,13 @@ export interface DescribeAuditTaskResponse {
    * <p>The status of the audit: one of "IN_PROGRESS", "COMPLETED",
    *             "FAILED", or "CANCELED".</p>
    */
-  taskStatus?: AuditTaskStatus | string;
+  taskStatus?: AuditTaskStatus;
 
   /**
    * @public
    * <p>The type of audit: "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".</p>
    */
-  taskType?: AuditTaskType | string;
+  taskType?: AuditTaskType;
 
   /**
    * @public
@@ -1066,7 +1130,7 @@ export interface CACertificateDescription {
    * @public
    * <p>The status of a CA certificate.</p>
    */
-  status?: CACertificateStatus | string;
+  status?: CACertificateStatus;
 
   /**
    * @public
@@ -1091,7 +1155,7 @@ export interface CACertificateDescription {
    * <p>Whether the CA certificate configured for auto registration of device certificates.
    *          Valid values are "ENABLE" and "DISABLE"</p>
    */
-  autoRegistrationStatus?: AutoRegistrationStatus | string;
+  autoRegistrationStatus?: AutoRegistrationStatus;
 
   /**
    * @public
@@ -1123,7 +1187,7 @@ export interface CACertificateDescription {
    *          <p>All the device certificates that are registered using this CA will be registered
    *          in the same mode as the CA. For more information about certificate mode for device certificates, see <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_CertificateDescription.html#iot-Type-CertificateDescription-certificateMode">certificate mode</a>.</p>
    */
-  certificateMode?: CertificateMode | string;
+  certificateMode?: CertificateMode;
 }
 
 /**
@@ -1262,7 +1326,7 @@ export interface CertificateDescription {
    * @public
    * <p>The status of the certificate.</p>
    */
-  status?: CertificateStatus | string;
+  status?: CertificateStatus;
 
   /**
    * @public
@@ -1333,7 +1397,7 @@ export interface CertificateDescription {
    *          in <code>SNI_ONLY</code> mode must send the SNI extension when connecting to Amazon Web Services IoT Core. </p>
    *          <p>For more information about the value for SNI extension, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/transport-security.html">Transport security in IoT</a>.</p>
    */
-  certificateMode?: CertificateMode | string;
+  certificateMode?: CertificateMode;
 }
 
 /**
@@ -1346,6 +1410,59 @@ export interface DescribeCertificateResponse {
    * <p>The description of the certificate.</p>
    */
   certificateDescription?: CertificateDescription;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCertificateProviderRequest {
+  /**
+   * @public
+   * <p>The name of the certificate provider.</p>
+   */
+  certificateProviderName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCertificateProviderResponse {
+  /**
+   * @public
+   * <p>The name of the certificate provider.</p>
+   */
+  certificateProviderName?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the certificate provider.</p>
+   */
+  certificateProviderArn?: string;
+
+  /**
+   * @public
+   * <p>The Lambda function ARN that's associated with the certificate provider.</p>
+   */
+  lambdaFunctionArn?: string;
+
+  /**
+   * @public
+   * <p>A list of the operations that the certificate provider will use to generate certificates.
+   *          Valid value: <code>CreateCertificateFromCsr</code>.</p>
+   */
+  accountDefaultForOperations?: CertificateProviderOperation[];
+
+  /**
+   * @public
+   * <p>The date-time string that indicates when the certificate provider was created.</p>
+   */
+  creationDate?: Date;
+
+  /**
+   * @public
+   * <p>The date-time string that indicates when the certificate provider was last updated.</p>
+   */
+  lastModifiedDate?: Date;
 }
 
 /**
@@ -1388,7 +1505,7 @@ export interface DescribeCustomMetricResponse {
    *             <p>The type <code>number</code> only takes a single metric value as an input, but while submitting the metrics value in the DeviceMetrics report, it must be passed as an array with a single value.</p>
    *          </important>
    */
-  metricType?: CustomMetricType | string;
+  metricType?: CustomMetricType;
 
   /**
    * @public
@@ -1570,7 +1687,7 @@ export interface DetectMitigationActionsTaskSummary {
    *             The status of the task.
    *         </p>
    */
-  taskStatus?: DetectMitigationActionsTaskStatus | string;
+  taskStatus?: DetectMitigationActionsTaskStatus;
 
   /**
    * @public
@@ -1684,7 +1801,7 @@ export interface DescribeDimensionResponse {
    * @public
    * <p>The type of the dimension.</p>
    */
-  type?: DimensionType | string;
+  type?: DimensionType;
 
   /**
    * @public
@@ -1774,7 +1891,7 @@ export interface ServerCertificateSummary {
    * @public
    * <p>The status of the server certificate.</p>
    */
-  serverCertificateStatus?: ServerCertificateStatus | string;
+  serverCertificateStatus?: ServerCertificateStatus;
 
   /**
    * @public
@@ -1821,19 +1938,19 @@ export interface DescribeDomainConfigurationResponse {
    * @public
    * <p>A Boolean value that specifies the current state of the domain configuration.</p>
    */
-  domainConfigurationStatus?: DomainConfigurationStatus | string;
+  domainConfigurationStatus?: DomainConfigurationStatus;
 
   /**
    * @public
    * <p>The type of service delivered by the endpoint.</p>
    */
-  serviceType?: ServiceType | string;
+  serviceType?: ServiceType;
 
   /**
    * @public
    * <p>The type of the domain.</p>
    */
-  domainType?: DomainType | string;
+  domainType?: DomainType;
 
   /**
    * @public
@@ -1883,7 +2000,8 @@ export interface DescribeEndpointRequest {
    *             </li>
    *          </ul>
    *          <p>We strongly recommend that customers use the newer <code>iot:Data-ATS</code> endpoint type to avoid
-   *          issues related to the widespread distrust of Symantec certificate authorities.</p>
+   *          issues related to the widespread distrust of Symantec certificate authorities. ATS Signed Certificates
+   *          are more secure and are trusted by most popular browsers.</p>
    */
   endpointType?: string;
 }
@@ -1949,7 +2067,7 @@ export interface DescribeEventConfigurationsResponse {
    * @public
    * <p>The event configurations.</p>
    */
-  eventConfigurations?: Record<string, Configuration>;
+  eventConfigurations?: Partial<Record<EventType, Configuration>>;
 
   /**
    * @public
@@ -2044,7 +2162,7 @@ export interface DescribeFleetMetricResponse {
    * <p>Used to support unit transformation such as milliseconds to seconds. The unit must be
    *       supported by <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">CW metric</a>.</p>
    */
-  unit?: FleetMetricUnit | string;
+  unit?: FleetMetricUnit;
 
   /**
    * @public
@@ -2099,7 +2217,7 @@ export interface DescribeIndexResponse {
    * @public
    * <p>The index status.</p>
    */
-  indexStatus?: IndexStatus | string;
+  indexStatus?: IndexStatus;
 
   /**
    * @public
@@ -2260,14 +2378,14 @@ export interface Job {
    *                 been created.</p>
    *          </note>
    */
-  targetSelection?: TargetSelection | string;
+  targetSelection?: TargetSelection;
 
   /**
    * @public
    * <p>The status of the job, one of <code>IN_PROGRESS</code>, <code>CANCELED</code>,
    *             <code>DELETION_IN_PROGRESS</code> or <code>COMPLETED</code>. </p>
    */
-  status?: JobStatus | string;
+  status?: JobStatus;
 
   /**
    * @public
@@ -2414,10 +2532,11 @@ export interface Job {
 
   /**
    * @public
-   * <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p>
+   * <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the
+   *             job successfully completes. The package version must be in either the Published or Deprecated state when the job deploys. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.The package version must be in either the Published or Deprecated state when the job deploys. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p>
    *          <p>
-   *             <b>Note:</b>The following Length Constraints relates to a single string.
-   *         Up to five strings are allowed.</p>
+   *             <b>Note:</b>The following Length Constraints relates to a single ARN.
+   *             Up to 25  package version ARNs are allowed.</p>
    */
   destinationPackageVersions?: string[];
 }
@@ -2511,7 +2630,7 @@ export interface JobExecution {
    * <p>The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCEEDED, TIMED_OUT,
    *             CANCELED, or REJECTED).</p>
    */
-  status?: JobExecutionStatus | string;
+  status?: JobExecutionStatus;
 
   /**
    * @public
@@ -2679,10 +2798,11 @@ export interface DescribeJobTemplateResponse {
 
   /**
    * @public
-   * <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p>
+   * <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the
+   *             job successfully completes. The package version must be in either the Published or Deprecated state when the job deploys. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p>
    *          <p>
-   *             <b>Note:</b>The following Length Constraints relates to a single string.
-   *         Up to five strings are allowed.</p>
+   *             <b>Note:</b>The following Length Constraints relates to a single ARN.
+   *             Up to 25  package version ARNs are allowed.</p>
    */
   destinationPackageVersions?: string[];
 }
@@ -2851,7 +2971,7 @@ export interface DescribeMitigationActionResponse {
    * @public
    * <p>The type of mitigation action.</p>
    */
-  actionType?: MitigationActionType | string;
+  actionType?: MitigationActionType;
 
   /**
    * @public
@@ -2973,7 +3093,7 @@ export interface DescribeProvisioningTemplateResponse {
    *          For more information about provisioning template, see: <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning template</a>.
    *       </p>
    */
-  type?: TemplateType | string;
+  type?: TemplateType;
 }
 
 /**
@@ -3115,7 +3235,7 @@ export interface DescribeScheduledAuditResponse {
    *             <code>WEEKLY</code>, <code>BIWEEKLY</code>, or <code>MONTHLY</code>. The start time of each audit is determined by the
    *       system.</p>
    */
-  frequency?: AuditFrequency | string;
+  frequency?: AuditFrequency;
 
   /**
    * @public
@@ -3136,7 +3256,7 @@ export interface DescribeScheduledAuditResponse {
    *       either one of
    *             <code>SUN</code>, <code>MON</code>, <code>TUE</code>, <code>WED</code>, <code>THU</code>, <code>FRI</code>, or <code>SAT</code>.</p>
    */
-  dayOfWeek?: DayOfWeek | string;
+  dayOfWeek?: DayOfWeek;
 
   /**
    * @public
@@ -3205,7 +3325,7 @@ export interface DescribeSecurityProfileResponse {
    * @public
    * <p>Where the alerts are sent. (Alerts are always sent to the console.)</p>
    */
-  alertTargets?: Record<string, AlertTarget>;
+  alertTargets?: Partial<Record<AlertTargetType, AlertTarget>>;
 
   /**
    * @public
@@ -3251,6 +3371,12 @@ export interface DescribeSecurityProfileResponse {
    * <p>The time the security profile was last modified.</p>
    */
   lastModifiedDate?: Date;
+
+  /**
+   * @public
+   * <p>Specifies the MQTT topic and role ARN required for metric export.</p>
+   */
+  metricsExportConfig?: MetricsExportConfig;
 }
 
 /**
@@ -3533,7 +3659,7 @@ export interface DescribeThingGroupResponse {
    * @public
    * <p>The dynamic thing group status.</p>
    */
-  status?: DynamicGroupStatus | string;
+  status?: DynamicGroupStatus;
 }
 
 /**
@@ -3614,7 +3740,7 @@ export interface DescribeThingRegistrationTaskResponse {
    * @public
    * <p>The status of the bulk thing provisioning task.</p>
    */
-  status?: Status | string;
+  status?: Status;
 
   /**
    * @public
@@ -3908,7 +4034,7 @@ export interface BehaviorModelTrainingSummary {
    *             The status of the behavior model.
    *         </p>
    */
-  modelStatus?: ModelStatus | string;
+  modelStatus?: ModelStatus;
 
   /**
    * @public
@@ -4179,7 +4305,7 @@ export interface Field {
    * @public
    * <p>The data type of the field.</p>
    */
-  type?: FieldType | string;
+  type?: FieldType;
 }
 
 /**
@@ -4205,12 +4331,15 @@ export interface ThingGroupIndexingConfiguration {
    * @public
    * <p>Thing group indexing mode.</p>
    */
-  thingGroupIndexingMode: ThingGroupIndexingMode | string | undefined;
+  thingGroupIndexingMode: ThingGroupIndexingMode | undefined;
 
   /**
    * @public
    * <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing
    *       service. This is an optional field. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/managing-fleet-index.html#managed-field">Managed fields</a> in the <i>Amazon Web Services IoT Core Developer Guide</i>.</p>
+   *          <note>
+   *             <p>You can't modify managed fields by updating fleet indexing configuration.</p>
+   *          </note>
    */
   managedFields?: Field[];
 
@@ -4239,9 +4368,60 @@ export type DeviceDefenderIndexingMode = (typeof DeviceDefenderIndexingMode)[key
 
 /**
  * @public
- * <p>Provides additional filters for specific data sources. Named shadow is the only data source that currently supports and requires a filter.
- *       To add named shadows to your fleet indexing configuration, set <code>namedShadowIndexingMode</code> to be <code>ON</code> and
- *       specify your shadow names in <code>filter</code>.</p>
+ * @enum
+ */
+export const TargetFieldOrder = {
+  LatLon: "LatLon",
+  LonLat: "LonLat",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetFieldOrder = (typeof TargetFieldOrder)[keyof typeof TargetFieldOrder];
+
+/**
+ * @public
+ * <p>A geolocation target that you select to index. Each geolocation target contains a
+ *         <code>name</code> and <code>order</code> key-value pair that specifies the geolocation
+ *       target fields.</p>
+ */
+export interface GeoLocationTarget {
+  /**
+   * @public
+   * <p>The <code>name</code> of the geolocation target field. If the target field is part of a
+   *       named shadow, you must select the named shadow using the <code>namedShadow</code> filter.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>The <code>order</code> of the geolocation target field. This field is optional. The
+   *       default value is <code>LatLon</code>.</p>
+   */
+  order?: TargetFieldOrder;
+}
+
+/**
+ * @public
+ * <p>Provides additional selections for named shadows and geolocation data. </p>
+ *          <p>To add named shadows to your fleet indexing configuration, set <code>namedShadowIndexingMode</code> to
+ *       be ON and specify your shadow names in <code>namedShadowNames</code> filter.</p>
+ *          <p>To add geolocation data to your fleet indexing configuration: </p>
+ *          <ul>
+ *             <li>
+ *                <p>If you store geolocation data in a class/unnamed shadow, set
+ *             <code>thingIndexingMode</code> to be <code>REGISTRY_AND_SHADOW</code> and specify your
+ *           geolocation data in <code>geoLocations</code> filter. </p>
+ *             </li>
+ *             <li>
+ *                <p>If you store geolocation data in a named shadow, set
+ *             <code>namedShadowIndexingMode</code> to be <code>ON</code>, add the shadow name in
+ *             <code>namedShadowNames</code> filter, and specify your geolocation data in
+ *             <code>geoLocations</code> filter. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/managing-fleet-index.html">Managing fleet
+ *             indexing</a>.</p>
+ *             </li>
+ *          </ul>
  */
 export interface IndexingFilter {
   /**
@@ -4252,6 +4432,14 @@ export interface IndexingFilter {
    *     </p>
    */
   namedShadowNames?: string[];
+
+  /**
+   * @public
+   * <p>The list of geolocation targets that you select to index. The default maximum number of
+   *       geolocation targets for indexing is <code>1</code>. To increase the limit, see <a href="https://docs.aws.amazon.com/general/latest/gr/iot_device_management.html#fleet-indexing-limits">Amazon Web Services IoT Device
+   *         Management Quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   */
+  geoLocations?: GeoLocationTarget[];
 }
 
 /**
@@ -4319,7 +4507,7 @@ export interface ThingIndexingConfiguration {
    *             </li>
    *          </ul>
    */
-  thingIndexingMode: ThingIndexingMode | string | undefined;
+  thingIndexingMode: ThingIndexingMode | undefined;
 
   /**
    * @public
@@ -4335,7 +4523,7 @@ export interface ThingIndexingConfiguration {
    *             </li>
    *          </ul>
    */
-  thingConnectivityIndexingMode?: ThingConnectivityIndexingMode | string;
+  thingConnectivityIndexingMode?: ThingConnectivityIndexingMode;
 
   /**
    * @public
@@ -4353,7 +4541,7 @@ export interface ThingIndexingConfiguration {
    *          <p>For more information about Device Defender violations, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-detect.html">Device Defender Detect.</a>
    *          </p>
    */
-  deviceDefenderIndexingMode?: DeviceDefenderIndexingMode | string;
+  deviceDefenderIndexingMode?: DeviceDefenderIndexingMode;
 
   /**
    * @public
@@ -4371,12 +4559,15 @@ export interface ThingIndexingConfiguration {
    *          <p>For more information about Shadows, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html">IoT Device Shadow service.</a>
    *          </p>
    */
-  namedShadowIndexingMode?: NamedShadowIndexingMode | string;
+  namedShadowIndexingMode?: NamedShadowIndexingMode;
 
   /**
    * @public
    * <p>Contains fields that are indexed and whose types are already known by the Fleet Indexing
-   *       service.</p>
+   *       service. This is an optional field. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/managing-fleet-index.html#managed-field">Managed fields</a> in the <i>Amazon Web Services IoT Core Developer Guide</i>.</p>
+   *          <note>
+   *             <p>You can't modify managed fields by updating fleet indexing configuration.</p>
+   *          </note>
    */
   managedFields?: Field[];
 
@@ -4388,9 +4579,23 @@ export interface ThingIndexingConfiguration {
 
   /**
    * @public
-   * <p>Provides additional filters for specific data sources. Named shadow is the only data source that currently supports and requires a filter.
-   *       To add named shadows to your fleet indexing configuration, set <code>namedShadowIndexingMode</code> to be <code>ON</code> and
-   *       specify your shadow names in <code>filter</code>.</p>
+   * <p>Provides additional selections for named shadows and geolocation data. </p>
+   *          <p>To add named shadows to your fleet indexing configuration, set <code>namedShadowIndexingMode</code> to
+   *       be ON and specify your shadow names in <code>namedShadowNames</code> filter.</p>
+   *          <p>To add geolocation data to your fleet indexing configuration: </p>
+   *          <ul>
+   *             <li>
+   *                <p>If you store geolocation data in a class/unnamed shadow, set
+   *           <code>thingIndexingMode</code> to be <code>REGISTRY_AND_SHADOW</code> and specify your
+   *           geolocation data in <code>geoLocations</code> filter. </p>
+   *             </li>
+   *             <li>
+   *                <p>If you store geolocation data in a named shadow, set <code>namedShadowIndexingMode</code>
+   *           to be <code>ON</code>, add the shadow name in <code>namedShadowNames</code> filter, and
+   *           specify your geolocation data in <code>geoLocations</code> filter. For more information, see
+   *           <a href="https://docs.aws.amazon.com/iot/latest/developerguide/managing-fleet-index.html">Managing fleet indexing</a>.</p>
+   *             </li>
+   *          </ul>
    */
   filter?: IndexingFilter;
 }
@@ -4455,7 +4660,7 @@ export interface GetLoggingOptionsResponse {
    * @public
    * <p>The logging level.</p>
    */
-  logLevel?: LogLevel | string;
+  logLevel?: LogLevel;
 }
 
 /**
@@ -4533,7 +4738,7 @@ export interface OTAUpdateInfo {
    * <p>The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both
    *              HTTP and MQTT are specified, the target device can choose the protocol.</p>
    */
-  protocols?: (Protocol | string)[];
+  protocols?: Protocol[];
 
   /**
    * @public
@@ -4556,7 +4761,7 @@ export interface OTAUpdateInfo {
    *             the thing is added to a target group, even after the OTA update was completed by all things originally in
    *             the group. </p>
    */
-  targetSelection?: TargetSelection | string;
+  targetSelection?: TargetSelection;
 
   /**
    * @public
@@ -4568,7 +4773,7 @@ export interface OTAUpdateInfo {
    * @public
    * <p>The status of the OTA update.</p>
    */
-  otaUpdateStatus?: OTAUpdateStatus | string;
+  otaUpdateStatus?: OTAUpdateStatus;
 
   /**
    * @public
@@ -4612,7 +4817,7 @@ export interface GetOTAUpdateResponse {
 export interface GetPackageRequest {
   /**
    * @public
-   * <p>The name of the target package.</p>
+   * <p>The name of the target software package.</p>
    */
   packageName: string | undefined;
 }
@@ -4623,7 +4828,7 @@ export interface GetPackageRequest {
 export interface GetPackageResponse {
   /**
    * @public
-   * <p>The name of the package.</p>
+   * <p>The name of the software package.</p>
    */
   packageName?: string;
 
@@ -4725,7 +4930,7 @@ export interface GetPackageVersionResponse {
 
   /**
    * @public
-   * <p>The name of the package.</p>
+   * <p>The name of the software package.</p>
    */
   packageName?: string;
 
@@ -4751,7 +4956,7 @@ export interface GetPackageVersionResponse {
    * @public
    * <p>The status associated to the package version. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p>
    */
-  status?: PackageVersionStatus | string;
+  status?: PackageVersionStatus;
 
   /**
    * @public
@@ -5210,7 +5415,7 @@ export interface GetV2LoggingOptionsResponse {
    * @public
    * <p>The default log level.</p>
    */
-  defaultLogLevel?: LogLevel | string;
+  defaultLogLevel?: LogLevel;
 
   /**
    * @public
@@ -5276,7 +5481,7 @@ export interface ListActiveViolationsRequest {
    *       The criteria for a behavior.
    *     </p>
    */
-  behaviorCriteriaType?: BehaviorCriteriaType | string;
+  behaviorCriteriaType?: BehaviorCriteriaType;
 
   /**
    * @public
@@ -5290,7 +5495,7 @@ export interface ListActiveViolationsRequest {
    * @public
    * <p>The verification state of the violation (detect alarm).</p>
    */
-  verificationState?: VerificationState | string;
+  verificationState?: VerificationState;
 
   /**
    * @public
@@ -5460,7 +5665,7 @@ export interface ListAuditMitigationActionsExecutionsRequest {
    * @public
    * <p>Specify this filter to limit results to those with a specific status.</p>
    */
-  actionStatus?: AuditMitigationActionsExecutionStatus | string;
+  actionStatus?: AuditMitigationActionsExecutionStatus;
 
   /**
    * @public
@@ -5518,7 +5723,7 @@ export interface ListAuditMitigationActionsTasksRequest {
    * @public
    * <p>Specify this filter to limit results to tasks that are in a specific state.</p>
    */
-  taskStatus?: AuditMitigationActionsTaskStatus | string;
+  taskStatus?: AuditMitigationActionsTaskStatus;
 
   /**
    * @public
@@ -5650,14 +5855,14 @@ export interface ListAuditTasksRequest {
    * <p>A filter to limit the output to the specified type of audit: can be one of
    *             "ON_DEMAND_AUDIT_TASK" or "SCHEDULED__AUDIT_TASK".</p>
    */
-  taskType?: AuditTaskType | string;
+  taskType?: AuditTaskType;
 
   /**
    * @public
    * <p>A filter to limit the output to audits with the specified completion
    *             status: can be one of "IN_PROGRESS", "COMPLETED", "FAILED", or "CANCELED".</p>
    */
-  taskStatus?: AuditTaskStatus | string;
+  taskStatus?: AuditTaskStatus;
 
   /**
    * @public
@@ -5716,7 +5921,7 @@ export interface ListAuthorizersRequest {
    * @public
    * <p>The status of the list authorizers request.</p>
    */
-  status?: AuthorizerStatus | string;
+  status?: AuthorizerStatus;
 }
 
 /**
@@ -5830,7 +6035,7 @@ export interface CACertificate {
    * <p>The status of the CA certificate.</p>
    *          <p>The status value REGISTER_INACTIVE is deprecated and should not be used.</p>
    */
-  status?: CACertificateStatus | string;
+  status?: CACertificateStatus;
 
   /**
    * @public
@@ -5855,6 +6060,58 @@ export interface ListCACertificatesResponse {
    * <p>The current position within the list of CA certificates.</p>
    */
   nextMarker?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListCertificateProvidersRequest {
+  /**
+   * @public
+   * <p>The token for the next set of results, or <code>null</code> if there are no more results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>Returns the list of certificate providers in ascending alphabetical order.</p>
+   */
+  ascendingOrder?: boolean;
+}
+
+/**
+ * @public
+ * <p>The certificate provider summary.</p>
+ */
+export interface CertificateProviderSummary {
+  /**
+   * @public
+   * <p>The name of the certificate provider.</p>
+   */
+  certificateProviderName?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the certificate provider.</p>
+   */
+  certificateProviderArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListCertificateProvidersResponse {
+  /**
+   * @public
+   * <p>The list of certificate providers in your Amazon Web Services account.</p>
+   */
+  certificateProviders?: CertificateProviderSummary[];
+
+  /**
+   * @public
+   * <p>The token for the next set of results, or <code>null</code> if there are no more results.</p>
+   */
+  nextToken?: string;
 }
 
 /**
@@ -5905,7 +6162,7 @@ export interface Certificate {
    * <p>The status of the certificate.</p>
    *          <p>The status value REGISTER_INACTIVE is deprecated and should not be used.</p>
    */
-  status?: CertificateStatus | string;
+  status?: CertificateStatus;
 
   /**
    * @public
@@ -5921,7 +6178,7 @@ export interface Certificate {
    *             <code>SNI_ONLY</code>: A certificate in <code>SNI_ONLY</code> mode is registered without an issuer CA. Devices with certificates
    *          in <code>SNI_ONLY</code> mode must send the SNI extension when connecting to Amazon Web Services IoT Core. </p>
    */
-  certificateMode?: CertificateMode | string;
+  certificateMode?: CertificateMode;
 
   /**
    * @public
@@ -6183,7 +6440,7 @@ export interface DetectMitigationActionExecution {
    *             The status of a mitigation action.
    *         </p>
    */
-  status?: DetectMitigationActionExecutionStatus | string;
+  status?: DetectMitigationActionExecutionStatus;
 
   /**
    * @public
@@ -6334,7 +6591,7 @@ export interface ListDomainConfigurationsRequest {
    * @public
    * <p>The type of service delivered by the endpoint.</p>
    */
-  serviceType?: ServiceType | string;
+  serviceType?: ServiceType;
 }
 
 /**
@@ -6371,7 +6628,7 @@ export interface DomainConfigurationSummary {
    * @public
    * <p>The type of service delivered by the endpoint.</p>
    */
-  serviceType?: ServiceType | string;
+  serviceType?: ServiceType;
 }
 
 /**
@@ -6495,7 +6752,7 @@ export interface ListJobExecutionsForJobRequest {
    * @public
    * <p>The status of the job.</p>
    */
-  status?: JobExecutionStatus | string;
+  status?: JobExecutionStatus;
 
   /**
    * @public
@@ -6519,7 +6776,7 @@ export interface JobExecutionSummary {
    * @public
    * <p>The status of the job execution.</p>
    */
-  status?: JobExecutionStatus | string;
+  status?: JobExecutionStatus;
 
   /**
    * @public
@@ -6605,7 +6862,7 @@ export interface ListJobExecutionsForThingRequest {
    * @public
    * <p>An optional filter that lets you search for jobs that have the specified status.</p>
    */
-  status?: JobExecutionStatus | string;
+  status?: JobExecutionStatus;
 
   /**
    * @public
@@ -6684,7 +6941,7 @@ export interface ListJobsRequest {
    * @public
    * <p>An optional filter that lets you search for jobs that have the specified status.</p>
    */
-  status?: JobStatus | string;
+  status?: JobStatus;
 
   /**
    * @public
@@ -6698,7 +6955,7 @@ export interface ListJobsRequest {
    *                 been created.</p>
    *          </note>
    */
-  targetSelection?: TargetSelection | string;
+  targetSelection?: TargetSelection;
 
   /**
    * @public
@@ -6774,13 +7031,13 @@ export interface JobSummary {
    *                 been created.</p>
    *          </note>
    */
-  targetSelection?: TargetSelection | string;
+  targetSelection?: TargetSelection;
 
   /**
    * @public
    * <p>The job summary status.</p>
    */
-  status?: JobStatus | string;
+  status?: JobStatus;
 
   /**
    * @public
@@ -6995,7 +7252,7 @@ export interface ListMetricValuesRequest {
    * @public
    * <p>The dimension value operator.</p>
    */
-  dimensionValueOperator?: DimensionValueOperator | string;
+  dimensionValueOperator?: DimensionValueOperator;
 
   /**
    * @public
@@ -7066,7 +7323,7 @@ export interface ListMitigationActionsRequest {
    * @public
    * <p>Specify a value to limit the result to mitigation actions with a specific action type.</p>
    */
-  actionType?: MitigationActionType | string;
+  actionType?: MitigationActionType;
 
   /**
    * @public
@@ -7142,7 +7399,7 @@ export interface ListOTAUpdatesRequest {
    * @public
    * <p>The OTA update job status.</p>
    */
-  otaUpdateStatus?: OTAUpdateStatus | string;
+  otaUpdateStatus?: OTAUpdateStatus;
 }
 
 /**
@@ -7209,342 +7466,6 @@ export interface ListOutgoingCertificatesRequest {
    *          order, based on the creation date.</p>
    */
   ascendingOrder?: boolean;
-}
-
-/**
- * @public
- * <p>A certificate that has been transferred but not yet accepted.</p>
- */
-export interface OutgoingCertificate {
-  /**
-   * @public
-   * <p>The certificate ARN.</p>
-   */
-  certificateArn?: string;
-
-  /**
-   * @public
-   * <p>The certificate ID.</p>
-   */
-  certificateId?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services account to which the transfer was made.</p>
-   */
-  transferredTo?: string;
-
-  /**
-   * @public
-   * <p>The date the transfer was initiated.</p>
-   */
-  transferDate?: Date;
-
-  /**
-   * @public
-   * <p>The transfer message.</p>
-   */
-  transferMessage?: string;
-
-  /**
-   * @public
-   * <p>The certificate creation date.</p>
-   */
-  creationDate?: Date;
-}
-
-/**
- * @public
- * <p>The output from the ListOutgoingCertificates operation.</p>
- */
-export interface ListOutgoingCertificatesResponse {
-  /**
-   * @public
-   * <p>The certificates that are being transferred but not yet accepted.</p>
-   */
-  outgoingCertificates?: OutgoingCertificate[];
-
-  /**
-   * @public
-   * <p>The marker for the next set of results.</p>
-   */
-  nextMarker?: string;
-}
-
-/**
- * @public
- */
-export interface ListPackagesRequest {
-  /**
-   * @public
-   * <p>The maximum number of results returned at one time.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * @public
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- * <p>A summary of information about a software package.</p>
- */
-export interface PackageSummary {
-  /**
-   * @public
-   * <p>The name for the target package.</p>
-   */
-  packageName?: string;
-
-  /**
-   * @public
-   * <p>The name of the default package version.</p>
-   */
-  defaultVersionName?: string;
-
-  /**
-   * @public
-   * <p>The date that the package was created.</p>
-   */
-  creationDate?: Date;
-
-  /**
-   * @public
-   * <p>The date that the package was last updated.</p>
-   */
-  lastModifiedDate?: Date;
-}
-
-/**
- * @public
- */
-export interface ListPackagesResponse {
-  /**
-   * @public
-   * <p>The software package summary.</p>
-   */
-  packageSummaries?: PackageSummary[];
-
-  /**
-   * @public
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListPackageVersionsRequest {
-  /**
-   * @public
-   * <p>The name of the target package.</p>
-   */
-  packageName: string | undefined;
-
-  /**
-   * @public
-   * <p>The status of the package version. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p>
-   */
-  status?: PackageVersionStatus | string;
-
-  /**
-   * @public
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  maxResults?: number;
-
-  /**
-   * @public
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- * <p>A summary of information about a package version.</p>
- */
-export interface PackageVersionSummary {
-  /**
-   * @public
-   * <p>The name of the associated software package.</p>
-   */
-  packageName?: string;
-
-  /**
-   * @public
-   * <p>The name of the target package version.</p>
-   */
-  versionName?: string;
-
-  /**
-   * @public
-   * <p>The status of the package version. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p>
-   */
-  status?: PackageVersionStatus | string;
-
-  /**
-   * @public
-   * <p>The date that the package version was created.</p>
-   */
-  creationDate?: Date;
-
-  /**
-   * @public
-   * <p>The date that the package version was last updated.</p>
-   */
-  lastModifiedDate?: Date;
-}
-
-/**
- * @public
- */
-export interface ListPackageVersionsResponse {
-  /**
-   * @public
-   * <p>Lists the package versions associated to the package.</p>
-   */
-  packageVersionSummaries?: PackageVersionSummary[];
-
-  /**
-   * @public
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- * <p>The input for the ListPolicies operation.</p>
- */
-export interface ListPoliciesRequest {
-  /**
-   * @public
-   * <p>The marker for the next set of results.</p>
-   */
-  marker?: string;
-
-  /**
-   * @public
-   * <p>The result page size.</p>
-   */
-  pageSize?: number;
-
-  /**
-   * @public
-   * <p>Specifies the order for results. If true, the results are returned in ascending
-   *          creation order.</p>
-   */
-  ascendingOrder?: boolean;
-}
-
-/**
- * @public
- * <p>The output from the ListPolicies operation.</p>
- */
-export interface ListPoliciesResponse {
-  /**
-   * @public
-   * <p>The descriptions of the policies.</p>
-   */
-  policies?: Policy[];
-
-  /**
-   * @public
-   * <p>The marker for the next set of results, or null if there are no additional
-   *          results.</p>
-   */
-  nextMarker?: string;
-}
-
-/**
- * @public
- * <p>The input for the ListPolicyPrincipals operation.</p>
- */
-export interface ListPolicyPrincipalsRequest {
-  /**
-   * @public
-   * <p>The policy name.</p>
-   */
-  policyName: string | undefined;
-
-  /**
-   * @public
-   * <p>The marker for the next set of results.</p>
-   */
-  marker?: string;
-
-  /**
-   * @public
-   * <p>The result page size.</p>
-   */
-  pageSize?: number;
-
-  /**
-   * @public
-   * <p>Specifies the order for results. If true, the results are returned in ascending
-   *          creation order.</p>
-   */
-  ascendingOrder?: boolean;
-}
-
-/**
- * @public
- * <p>The output from the ListPolicyPrincipals operation.</p>
- */
-export interface ListPolicyPrincipalsResponse {
-  /**
-   * @public
-   * <p>The descriptions of the principals.</p>
-   */
-  principals?: string[];
-
-  /**
-   * @public
-   * <p>The marker for the next set of results, or null if there are no additional
-   *          results.</p>
-   */
-  nextMarker?: string;
-}
-
-/**
- * @public
- * <p>The input for the ListPolicyVersions operation.</p>
- */
-export interface ListPolicyVersionsRequest {
-  /**
-   * @public
-   * <p>The policy name.</p>
-   */
-  policyName: string | undefined;
-}
-
-/**
- * @public
- * <p>Describes a policy version.</p>
- */
-export interface PolicyVersion {
-  /**
-   * @public
-   * <p>The policy version ID.</p>
-   */
-  versionId?: string;
-
-  /**
-   * @public
-   * <p>Specifies whether the policy version is the default.</p>
-   */
-  isDefaultVersion?: boolean;
-
-  /**
-   * @public
-   * <p>The date and time the policy was created.</p>
-   */
-  createDate?: Date;
 }
 
 /**

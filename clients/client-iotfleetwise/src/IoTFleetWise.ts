@@ -80,6 +80,11 @@ import {
   GetDecoderManifestCommandInput,
   GetDecoderManifestCommandOutput,
 } from "./commands/GetDecoderManifestCommand";
+import {
+  GetEncryptionConfigurationCommand,
+  GetEncryptionConfigurationCommandInput,
+  GetEncryptionConfigurationCommandOutput,
+} from "./commands/GetEncryptionConfigurationCommand";
 import { GetFleetCommand, GetFleetCommandInput, GetFleetCommandOutput } from "./commands/GetFleetCommand";
 import {
   GetLoggingOptionsCommand,
@@ -179,6 +184,11 @@ import {
   ListVehiclesInFleetCommandOutput,
 } from "./commands/ListVehiclesInFleetCommand";
 import {
+  PutEncryptionConfigurationCommand,
+  PutEncryptionConfigurationCommandInput,
+  PutEncryptionConfigurationCommandOutput,
+} from "./commands/PutEncryptionConfigurationCommand";
+import {
   PutLoggingOptionsCommand,
   PutLoggingOptionsCommandInput,
   PutLoggingOptionsCommandOutput,
@@ -241,6 +251,7 @@ const commands = {
   DisassociateVehicleFleetCommand,
   GetCampaignCommand,
   GetDecoderManifestCommand,
+  GetEncryptionConfigurationCommand,
   GetFleetCommand,
   GetLoggingOptionsCommand,
   GetModelManifestCommand,
@@ -263,6 +274,7 @@ const commands = {
   ListTagsForResourceCommand,
   ListVehiclesCommand,
   ListVehiclesInFleetCommand,
+  PutEncryptionConfigurationCommand,
   PutLoggingOptionsCommand,
   RegisterAccountCommand,
   TagResourceCommand,
@@ -544,6 +556,23 @@ export interface IoTFleetWise {
     args: GetDecoderManifestCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDecoderManifestCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetEncryptionConfigurationCommand}
+   */
+  getEncryptionConfiguration(
+    args: GetEncryptionConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEncryptionConfigurationCommandOutput>;
+  getEncryptionConfiguration(
+    args: GetEncryptionConfigurationCommandInput,
+    cb: (err: any, data?: GetEncryptionConfigurationCommandOutput) => void
+  ): void;
+  getEncryptionConfiguration(
+    args: GetEncryptionConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEncryptionConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -891,6 +920,23 @@ export interface IoTFleetWise {
   ): void;
 
   /**
+   * @see {@link PutEncryptionConfigurationCommand}
+   */
+  putEncryptionConfiguration(
+    args: PutEncryptionConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutEncryptionConfigurationCommandOutput>;
+  putEncryptionConfiguration(
+    args: PutEncryptionConfigurationCommandInput,
+    cb: (err: any, data?: PutEncryptionConfigurationCommandOutput) => void
+  ): void;
+  putEncryptionConfiguration(
+    args: PutEncryptionConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutEncryptionConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutLoggingOptionsCommand}
    */
   putLoggingOptions(
@@ -1038,7 +1084,7 @@ export interface IoTFleetWise {
  *             your vehicle data models, independent of the in-vehicle communication architecture, and
  *             define data collection rules to transfer only high-value data to the cloud.
  *             </p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/">What is Amazon Web Services IoT FleetWise?</a> in the
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/">What is Amazon Web Services IoT FleetWise?</a> in the
  *                 <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
  */
 export class IoTFleetWise extends IoTFleetWiseClient implements IoTFleetWise {}

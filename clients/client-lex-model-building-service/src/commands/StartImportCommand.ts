@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   LexModelBuildingServiceClientResolvedConfig,
   ServiceInputTypes,
@@ -49,8 +41,8 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * const client = new LexModelBuildingServiceClient(config);
  * const input = { // StartImportRequest
  *   payload: "BLOB_VALUE", // required
- *   resourceType: "STRING_VALUE", // required
- *   mergeStrategy: "STRING_VALUE", // required
+ *   resourceType: "BOT" || "INTENT" || "SLOT_TYPE", // required
+ *   mergeStrategy: "OVERWRITE_LATEST" || "FAIL_ON_CONFLICT", // required
  *   tags: [ // TagList
  *     { // Tag
  *       key: "STRING_VALUE", // required
@@ -62,10 +54,10 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * const response = await client.send(command);
  * // { // StartImportResponse
  * //   name: "STRING_VALUE",
- * //   resourceType: "STRING_VALUE",
- * //   mergeStrategy: "STRING_VALUE",
+ * //   resourceType: "BOT" || "INTENT" || "SLOT_TYPE",
+ * //   mergeStrategy: "OVERWRITE_LATEST" || "FAIL_ON_CONFLICT",
  * //   importId: "STRING_VALUE",
- * //   importStatus: "STRING_VALUE",
+ * //   importStatus: "IN_PROGRESS" || "COMPLETE" || "FAILED",
  * //   tags: [ // TagList
  * //     { // Tag
  * //       key: "STRING_VALUE", // required
@@ -98,77 +90,26 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
-export class StartImportCommand extends $Command<
-  StartImportCommandInput,
-  StartImportCommandOutput,
-  LexModelBuildingServiceClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StartImportCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: LexModelBuildingServiceClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StartImportCommandInput, StartImportCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, StartImportCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "LexModelBuildingServiceClient";
-    const commandName = "StartImportCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StartImportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartImportCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartImportCommandOutput> {
-    return de_StartImportCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class StartImportCommand extends $Command
+  .classBuilder<
+    StartImportCommandInput,
+    StartImportCommandOutput,
+    LexModelBuildingServiceClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSDeepSenseModelBuildingService", "StartImport", {})
+  .n("LexModelBuildingServiceClient", "StartImportCommand")
+  .f(void 0, void 0)
+  .ser(se_StartImportCommand)
+  .de(de_StartImportCommand)
+  .build() {}

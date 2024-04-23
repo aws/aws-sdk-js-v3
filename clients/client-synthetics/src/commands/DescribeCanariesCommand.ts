@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeCanariesRequest, DescribeCanariesResponse } from "../models/models_0";
 import { de_DescribeCanariesCommand, se_DescribeCanariesCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient";
@@ -83,9 +75,9 @@ export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse,
  * //       SuccessRetentionPeriodInDays: Number("int"),
  * //       FailureRetentionPeriodInDays: Number("int"),
  * //       Status: { // CanaryStatus
- * //         State: "STRING_VALUE",
+ * //         State: "CREATING" || "READY" || "STARTING" || "RUNNING" || "UPDATING" || "STOPPING" || "STOPPED" || "ERROR" || "DELETING",
  * //         StateReason: "STRING_VALUE",
- * //         StateReasonCode: "STRING_VALUE",
+ * //         StateReasonCode: "INVALID_PERMISSIONS" || "CREATE_PENDING" || "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "UPDATE_PENDING" || "UPDATE_IN_PROGRESS" || "UPDATE_COMPLETE" || "ROLLBACK_COMPLETE" || "ROLLBACK_FAILED" || "DELETE_IN_PROGRESS" || "DELETE_FAILED" || "SYNC_DELETE_IN_PROGRESS",
  * //       },
  * //       Timeline: { // CanaryTimeline
  * //         Created: new Date("TIMESTAMP"),
@@ -121,7 +113,7 @@ export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse,
  * //       },
  * //       ArtifactConfig: { // ArtifactConfigOutput
  * //         S3Encryption: { // S3EncryptionConfig
- * //           EncryptionMode: "STRING_VALUE",
+ * //           EncryptionMode: "SSE_S3" || "SSE_KMS",
  * //           KmsKeyArn: "STRING_VALUE",
  * //         },
  * //       },
@@ -148,79 +140,26 @@ export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse,
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
  */
-export class DescribeCanariesCommand extends $Command<
-  DescribeCanariesCommandInput,
-  DescribeCanariesCommandOutput,
-  SyntheticsClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeCanariesCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SyntheticsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeCanariesCommandInput, DescribeCanariesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeCanariesCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SyntheticsClient";
-    const commandName = "DescribeCanariesCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeCanariesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeCanariesCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeCanariesCommandOutput> {
-    return de_DescribeCanariesCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeCanariesCommand extends $Command
+  .classBuilder<
+    DescribeCanariesCommandInput,
+    DescribeCanariesCommandOutput,
+    SyntheticsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SyntheticsClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("Synthetics", "DescribeCanaries", {})
+  .n("SyntheticsClient", "DescribeCanariesCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeCanariesCommand)
+  .de(de_DescribeCanariesCommand)
+  .build() {}

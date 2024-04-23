@@ -20,10 +20,12 @@ import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isSig
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 import java.util.logging.Logger;
 import software.amazon.smithy.aws.traits.ServiceTrait;
+import software.amazon.smithy.aws.typescript.codegen.extensions.AwsRegionExtensionConfiguration;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.ServiceShape;
@@ -31,6 +33,7 @@ import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+import software.amazon.smithy.typescript.codegen.extensions.ExtensionConfigurationInterface;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.MapUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
@@ -91,15 +94,13 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
             writer.writeDocs("Enables FIPS compatible endpoints.")
                     .write("useFipsEndpoint?: boolean | __Provider<boolean>;\n");
         }
-        if (settings.getExperimentalIdentityAndAuth()) {
-            return;
-        }
-        // feat(experimentalIdentityAndAuth): control branch for AWS config interface fields
-        if (isSigV4Service(settings, model)) {
-            writer.writeDocs(isAwsService(settings, model)
-                                ? "The AWS region to which this client will send requests"
-                                : "The AWS region to use as signing region for AWS Auth")
-                    .write("region?: string | __Provider<string>;\n");
+        if (!settings.getExperimentalIdentityAndAuth()) {
+            if (isSigV4Service(settings, model)) {
+                writer.writeDocs(isAwsService(settings, model)
+                                    ? "The AWS region to which this client will send requests"
+                                    : "The AWS region to use as signing region for AWS Auth")
+                        .write("region?: string | __Provider<string>;\n");
+            }
         }
     }
 
@@ -112,22 +113,41 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
     ) {
         ServiceShape service = settings.getService(model);
         Map<String, Consumer<TypeScriptWriter>> runtimeConfigs = new HashMap();
-        if (target.equals(LanguageTarget.SHARED)) {
-            String serviceId = service.getTrait(ServiceTrait.class)
-                    .map(ServiceTrait::getSdkId)
-                    .orElse(null);
-            if (serviceId != null) {
-                runtimeConfigs.put("serviceId", writer -> {
-                    writer.write("$S", serviceId);
-                });
-            } else {
-                LOGGER.info("Cannot generate a service ID for the client because no aws.api#Service "
-                        + "trait was found on " + service.getId());
-            }
+        if (isAwsService(service) && target.equals(LanguageTarget.SHARED)) {
+            String serviceId = service.expectTrait(ServiceTrait.class).getSdkId();
+            runtimeConfigs.put("serviceId", writer -> writer.write("$S", serviceId));
+        } else {
+            LOGGER.info("Cannot generate a service ID for the client because no aws.api#Service "
+                + "trait was found on " + service.getId());
         }
         runtimeConfigs.putAll(getDefaultConfig(target, settings, model));
         runtimeConfigs.putAll(getEndpointConfigWriters(target, settings, model));
         return runtimeConfigs;
+    }
+
+    @Override
+    public List<ExtensionConfigurationInterface> getExtensionConfigurationInterfaces(
+        Model model,
+        TypeScriptSettings settings
+    ) {
+        if (isAwsService(settings, model)) {
+            return List.of(new AwsRegionExtensionConfiguration());
+        }
+        return Collections.emptyList();
+    }
+
+    @Override
+    public void prepareCustomizations(
+        TypeScriptWriter writer,
+        LanguageTarget target,
+        TypeScriptSettings settings,
+        Model model
+    ) {
+        if (isAwsService(settings, model) && target.equals(LanguageTarget.NODE)) {
+            writer.addDependency(AwsDependency.AWS_SDK_CORE);
+            writer.addImport("emitWarningIfUnsupportedVersion", "awsCheckVersion", AwsDependency.AWS_SDK_CORE);
+            writer.write("awsCheckVersion(process.version);");
+        }
     }
 
     private Map<String, Consumer<TypeScriptWriter>> getDefaultConfig(
@@ -135,13 +155,9 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
             TypeScriptSettings settings,
             Model model
     ) {
-        if (!isSigV4Service(settings, model)) {
+        if (!isSigV4Service(settings, model) || !isAwsService(settings, model)) {
             return Collections.emptyMap();
         }
-        if (settings.getExperimentalIdentityAndAuth()) {
-            return Collections.emptyMap();
-        }
-        // feat(experimentalIdentityAndAuth): control branch for AWS runtime config
         switch (target) {
             case BROWSER:
                 return MapUtils.of("region", writer -> {

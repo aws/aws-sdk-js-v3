@@ -35,6 +35,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
 import software.amazon.smithy.typescript.codegen.integration.DocumentShapeSerVisitor;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
+import software.amazon.smithy.typescript.codegen.util.StringStore;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
@@ -49,6 +50,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 @SmithyInternalApi
 class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
     private static final Format TIMESTAMP_FORMAT = Format.DATE_TIME;
+    private StringStore stringStore = getContext().getStringStore();
 
     QueryShapeSerVisitor(GenerationContext context) {
         super(context);
@@ -106,10 +108,12 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
         TypeScriptWriter writer = context.getWriter();
         Model model = context.getModel();
 
+        String keyTypeName = "keyof typeof input";
+
         // Filter out null entries if we don't have the sparse trait.
         String potentialFilter = "";
         if (!shape.hasTrait(SparseTrait.ID)) {
-            potentialFilter = ".filter((key) => input[key] != null)";
+            potentialFilter = ".filter((key) => input[key as " + keyTypeName + "] != null)";
         }
 
         // Set up a location to store all of the entry pairs.
@@ -131,10 +135,15 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
             Shape valueTarget = model.expectShape(valueMember.getTarget());
             String valueName = getMemberSerializedLocationName(valueMember, "value");
 
-            QueryMemberSerVisitor inputVisitor = getMemberVisitor("input[key]");
+            QueryMemberSerVisitor inputVisitor = getMemberVisitor("input[key as " + keyTypeName + "]!");
             String valueLocation = "entry.${counter}." + valueName;
             if (inputVisitor.visitSuppliesEntryList(valueTarget)) {
-                serializeUnnamedMemberEntryList(context, valueTarget, "input[key]", valueLocation);
+                serializeUnnamedMemberEntryList(
+                    context,
+                    valueTarget,
+                    "input[key as " + keyTypeName + "]!",
+                    valueLocation
+                );
             } else {
                 writer.write("entries[`$L`] = $L;", valueLocation, valueTarget.accept(inputVisitor));
             }
@@ -168,7 +177,7 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
 
         // Serialize every member of the structure if present.
         shape.getAllMembers().forEach((memberName, memberShape) -> {
-            String inputLocation = "input." + memberName;
+            String inputLocation = "input[" + stringStore.var(memberName) + "]";
 
             // Handle if the member is an idempotency token that should be auto-filled.
             AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
@@ -201,7 +210,10 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
         if (inputVisitor.visitSuppliesEntryList(target)) {
             serializeNamedMemberEntryList(context, locationName, memberShape, target, inputVisitor, inputLocation);
         } else {
-            serializeNamedMemberValue(context, locationName, "input." + memberName, memberShape, target);
+            serializeNamedMemberValue(
+                context, locationName,
+                "input[" + stringStore.var(memberName) + "]", memberShape, target
+            );
         }
     }
 
@@ -220,7 +232,7 @@ class QueryShapeSerVisitor extends DocumentShapeSerVisitor {
                         TIMESTAMP_FORMAT, dataSource)
                 : target.accept(getMemberVisitor(dataSource));
 
-        writer.write("entries[$S] = $L;", locationName, valueProvider);
+        writer.write("entries[$L] = $L;", stringStore.var(locationName), valueProvider);
     }
 
     /**

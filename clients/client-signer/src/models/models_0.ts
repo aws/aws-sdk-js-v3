@@ -49,8 +49,8 @@ export interface AddProfilePermissionRequest {
 
   /**
    * @public
-   * <p>The AWS principal receiving cross-account permissions. This may be an IAM role or
-   * 			another AWS account ID.</p>
+   * <p>The AWS principal receiving cross-account permissions. This may be an IAM role or another
+   * 			AWS account ID.</p>
    */
   principal: string | undefined;
 
@@ -305,17 +305,17 @@ export type HashAlgorithm = (typeof HashAlgorithm)[keyof typeof HashAlgorithm];
 export interface SigningConfigurationOverrides {
   /**
    * @public
-   * <p>A specified override of the default encryption algorithm that is used in a code signing
+   * <p>A specified override of the default encryption algorithm that is used in a code-signing
    * 			job.</p>
    */
-  encryptionAlgorithm?: EncryptionAlgorithm | string;
+  encryptionAlgorithm?: EncryptionAlgorithm;
 
   /**
    * @public
-   * <p>A specified override of the default hash algorithm that is used in a code signing
+   * <p>A specified override of the default hash algorithm that is used in a code-signing
    * 			job.</p>
    */
-  hashAlgorithm?: HashAlgorithm | string;
+  hashAlgorithm?: HashAlgorithm;
 }
 
 /**
@@ -335,8 +335,7 @@ export type ImageFormat = (typeof ImageFormat)[keyof typeof ImageFormat];
 
 /**
  * @public
- * <p>Any overrides that are applied to the signing configuration of a code signing
- * 			platform.</p>
+ * <p>Any overrides that are applied to the signing configuration of a signing platform.</p>
  */
 export interface SigningPlatformOverrides {
   /**
@@ -355,7 +354,7 @@ export interface SigningPlatformOverrides {
    * 			signing image has the payload embedded in it. With <code>JSONDetached</code>, the
    * 			payload is not be embedded in the signing image.</p>
    */
-  signingImageFormat?: ImageFormat | string;
+  signingImageFormat?: ImageFormat;
 }
 
 /**
@@ -384,7 +383,7 @@ export interface SigningJobRevocationRecord {
 
 /**
  * @public
- * <p>The S3 bucket name and key where code signing saved your signed code image.</p>
+ * <p>The Amazon S3 bucket name and key where Signer saved your signed code image.</p>
  */
 export interface S3SignedObject {
   /**
@@ -428,7 +427,7 @@ export interface SigningMaterial {
 
 /**
  * @public
- * <p>Information about the S3 bucket where you saved your unsigned code.</p>
+ * <p>Information about the Amazon S3 bucket where you saved your unsigned code.</p>
  */
 export interface S3Source {
   /**
@@ -566,7 +565,7 @@ export interface DescribeSigningJobResponse {
    * @public
    * <p>Status of the signing job.</p>
    */
-  status?: SigningStatus | string;
+  status?: SigningStatus;
 
   /**
    * @public
@@ -583,7 +582,7 @@ export interface DescribeSigningJobResponse {
 
   /**
    * @public
-   * <p>Name of the S3 bucket where the signed code image is saved by code signing.</p>
+   * <p>Name of the S3 bucket where the signed code image is saved by AWS Signer.</p>
    */
   signedObject?: SignedObject;
 
@@ -602,7 +601,7 @@ export interface DescribeSigningJobResponse {
 
 /**
  * @public
- * <p>The name and prefix of the S3 bucket where code signing saves your signed objects.</p>
+ * <p>The name and prefix of the Amazon S3 bucket where AWS Signer saves your signed objects.</p>
  */
 export interface S3Destination {
   /**
@@ -613,8 +612,8 @@ export interface S3Destination {
 
   /**
    * @public
-   * <p>An Amazon S3 prefix that you can use to limit responses to those that begin with the
-   * 			specified prefix.</p>
+   * <p>An S3 prefix that you can use to limit responses to those that begin with the specified
+   * 			prefix.</p>
    */
   prefix?: string;
 }
@@ -634,20 +633,20 @@ export interface Destination {
 
 /**
  * @public
- * <p>The encryption algorithm options that are available to a code signing job.</p>
+ * <p>The encryption algorithm options that are available to a code-signing job.</p>
  */
 export interface EncryptionAlgorithmOptions {
   /**
    * @public
-   * <p>The set of accepted encryption algorithms that are allowed in a code signing job.</p>
+   * <p>The set of accepted encryption algorithms that are allowed in a code-signing job.</p>
    */
-  allowedValues: (EncryptionAlgorithm | string)[] | undefined;
+  allowedValues: EncryptionAlgorithm[] | undefined;
 
   /**
    * @public
-   * <p>The default encryption algorithm that is used by a code signing job.</p>
+   * <p>The default encryption algorithm that is used by a code-signing job.</p>
    */
-  defaultValue: EncryptionAlgorithm | string | undefined;
+  defaultValue: EncryptionAlgorithm | undefined;
 }
 
 /**
@@ -684,6 +683,26 @@ export interface GetRevocationStatusRequest {
    * 		       <p>A certificate identifier consists of a subject certificate TBS hash (signed by the
    * 			parent CA) combined with a parent CA TBS hash (signed by the parent CA’s CA). Root
    * 			certificates are defined as their own CA.</p>
+   * 		       <p>The following example shows how to calculate a hash for this parameter using OpenSSL
+   * 			commands: </p>
+   *
+   * 			      <p>
+   *             <code>openssl asn1parse -in childCert.pem -strparse 4 -out childCert.tbs</code>
+   *          </p>
+   * 			      <p>
+   *             <code>openssl sha384 < childCert.tbs -binary > childCertTbsHash</code>
+   *          </p>
+   * 			      <p>
+   *             <code>openssl asn1parse -in parentCert.pem -strparse 4 -out parentCert.tbs</code>
+   *          </p>
+   * 			      <p>
+   *             <code>openssl sha384 < parentCert.tbs -binary > parentCertTbsHash xxd -p
+   * 				childCertTbsHash > certificateHash.hex xxd -p parentCertTbsHash >>
+   * 				certificateHash.hex</code>
+   *          </p>
+   * 			      <p>
+   *             <code>cat certificateHash.hex | tr -d '\n'</code>
+   *          </p>
    */
   certificateHashes: string[] | undefined;
 }
@@ -694,8 +713,8 @@ export interface GetRevocationStatusRequest {
 export interface GetRevocationStatusResponse {
   /**
    * @public
-   * <p>A list of revoked entities (including one or more of the signing profile ARN, signing
-   * 			job ID, and certificate hash) supplied as input to the API.</p>
+   * <p>A list of revoked entities (including zero or more of the signing profile ARN, signing job
+   * 			ARN, and certificate hashes) supplied as input to the API.</p>
    */
   revokedEntities?: string[];
 }
@@ -713,56 +732,56 @@ export interface GetSigningPlatformRequest {
 
 /**
  * @public
- * <p>The hash algorithms that are available to a code signing job.</p>
+ * <p>The hash algorithms that are available to a code-signing job.</p>
  */
 export interface HashAlgorithmOptions {
   /**
    * @public
-   * <p>The set of accepted hash algorithms allowed in a code signing job.</p>
+   * <p>The set of accepted hash algorithms allowed in a code-signing job.</p>
    */
-  allowedValues: (HashAlgorithm | string)[] | undefined;
+  allowedValues: HashAlgorithm[] | undefined;
 
   /**
    * @public
-   * <p>The default hash algorithm that is used in a code signing job.</p>
+   * <p>The default hash algorithm that is used in a code-signing job.</p>
    */
-  defaultValue: HashAlgorithm | string | undefined;
+  defaultValue: HashAlgorithm | undefined;
 }
 
 /**
  * @public
- * <p>The configuration of a code signing operation.</p>
+ * <p>The configuration of a signing operation.</p>
  */
 export interface SigningConfiguration {
   /**
    * @public
-   * <p>The encryption algorithm options that are available for a code signing job.</p>
+   * <p>The encryption algorithm options that are available for a code-signing job.</p>
    */
   encryptionAlgorithmOptions: EncryptionAlgorithmOptions | undefined;
 
   /**
    * @public
-   * <p>The hash algorithm options that are available for a code signing job.</p>
+   * <p>The hash algorithm options that are available for a code-signing job.</p>
    */
   hashAlgorithmOptions: HashAlgorithmOptions | undefined;
 }
 
 /**
  * @public
- * <p>The image format of a code signing platform or profile.</p>
+ * <p>The image format of a AWS Signer platform or profile.</p>
  */
 export interface SigningImageFormat {
   /**
    * @public
-   * <p>The supported formats of a code signing image.</p>
+   * <p>The supported formats of a signing image.</p>
    */
-  supportedFormats: (ImageFormat | string)[] | undefined;
+  supportedFormats: ImageFormat[] | undefined;
 
   /**
    * @public
-   * <p>The default format of a code signing image.</p>
+   * <p>The default format of a signing image.</p>
    */
-  defaultFormat: ImageFormat | string | undefined;
+  defaultFormat: ImageFormat | undefined;
 }
 
 /**
@@ -797,7 +816,7 @@ export interface GetSigningPlatformResponse {
    * @public
    * <p>The category type of the target signing platform.</p>
    */
-  category?: Category | string;
+  category?: Category;
 
   /**
    * @public
@@ -897,7 +916,7 @@ export interface SignatureValidityPeriod {
    * @public
    * <p>The time unit for signature validity.</p>
    */
-  type?: ValidityType | string;
+  type?: ValidityType;
 }
 
 /**
@@ -986,7 +1005,7 @@ export interface GetSigningProfileResponse {
    * @public
    * <p>The status of the target signing profile.</p>
    */
-  status?: SigningProfileStatus | string;
+  status?: SigningProfileStatus;
 
   /**
    * @public
@@ -1091,7 +1110,7 @@ export interface ListSigningJobsRequest {
    * @public
    * <p>A status value with which to filter your results.</p>
    */
-  status?: SigningStatus | string;
+  status?: SigningStatus;
 
   /**
    * @public
@@ -1194,7 +1213,7 @@ export interface SigningJob {
    * @public
    * <p>The status of the signing job.</p>
    */
-  status?: SigningStatus | string;
+  status?: SigningStatus;
 
   /**
    * @public
@@ -1302,55 +1321,55 @@ export interface ListSigningPlatformsRequest {
 /**
  * @public
  * <p>Contains information about the signing configurations and parameters that are used to
- * 			perform a code signing job.</p>
+ * 			perform a code-signing job.</p>
  */
 export interface SigningPlatform {
   /**
    * @public
-   * <p>The ID of a code signing platform.</p>
+   * <p>The ID of a signing platform.</p>
    */
   platformId?: string;
 
   /**
    * @public
-   * <p>The display name of a code signing platform.</p>
+   * <p>The display name of a signing platform.</p>
    */
   displayName?: string;
 
   /**
    * @public
-   * <p>Any partner entities linked to a code signing platform.</p>
+   * <p>Any partner entities linked to a signing platform.</p>
    */
   partner?: string;
 
   /**
    * @public
-   * <p>The types of targets that can be signed by a code signing platform.</p>
+   * <p>The types of targets that can be signed by a signing platform.</p>
    */
   target?: string;
 
   /**
    * @public
-   * <p>The category of a code signing platform.</p>
+   * <p>The category of a signing platform.</p>
    */
-  category?: Category | string;
+  category?: Category;
 
   /**
    * @public
-   * <p>The configuration of a code signing platform. This includes the designated hash algorithm
-   * 			and encryption algorithm of a signing platform.</p>
+   * <p>The configuration of a signing platform. This includes the designated hash algorithm and
+   * 			encryption algorithm of a signing platform.</p>
    */
   signingConfiguration?: SigningConfiguration;
 
   /**
    * @public
-   * <p>The image format of a code signing platform or profile.</p>
+   * <p>The image format of a AWS Signer platform or profile.</p>
    */
   signingImageFormat?: SigningImageFormat;
 
   /**
    * @public
-   * <p>The maximum size (in MB) of code that can be signed by a code signing platform.</p>
+   * <p>The maximum size (in MB) of code that can be signed by a signing platform.</p>
    */
   maxSizeInMB?: number;
 
@@ -1415,13 +1434,13 @@ export interface ListSigningProfilesRequest {
    * <p>Filters results to return only signing jobs with statuses in the specified
    * 			list.</p>
    */
-  statuses?: (SigningProfileStatus | string)[];
+  statuses?: SigningProfileStatus[];
 }
 
 /**
  * @public
- * <p>Contains information about the ACM certificates and code signing configuration parameters
- * 			that can be used by a given code signing user.</p>
+ * <p>Contains information about the ACM certificates and signing configuration parameters that
+ * 			can be used by a given code signing user.</p>
  */
 export interface SigningProfile {
   /**
@@ -1468,15 +1487,15 @@ export interface SigningProfile {
 
   /**
    * @public
-   * <p>The parameters that are available for use by a code signing user.</p>
+   * <p>The parameters that are available for use by a Signer user.</p>
    */
   signingParameters?: Record<string, string>;
 
   /**
    * @public
-   * <p>The status of a code signing profile.</p>
+   * <p>The status of a signing profile.</p>
    */
-  status?: SigningProfileStatus | string;
+  status?: SigningProfileStatus;
 
   /**
    * @public
@@ -1741,7 +1760,8 @@ export interface SignPayloadRequest {
 
   /**
    * @public
-   * <p>Payload content type</p>
+   * <p>Payload content type. The single valid type is
+   * 				<code>application/vnd.cncf.notary.payload.v1+json</code>.</p>
    */
   payloadFormat: string | undefined;
 }
@@ -1764,9 +1784,7 @@ export interface SignPayloadResponse {
 
   /**
    * @public
-   * <p>Information including the signing profile ARN and the signing job ID. Clients use
-   * 			metadata to signature records, for example, as annotations added to the signature
-   * 			manifest inside an OCI registry.</p>
+   * <p>Information including the signing profile ARN and the signing job ID.</p>
    */
   metadata?: Record<string, string>;
 

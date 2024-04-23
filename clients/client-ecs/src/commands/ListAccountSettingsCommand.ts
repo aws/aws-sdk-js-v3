@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListAccountSettingsRequest, ListAccountSettingsResponse } from "../models/models_0";
 import { de_ListAccountSettingsCommand, se_ListAccountSettingsCommand } from "../protocols/Aws_json1_1";
 
@@ -44,7 +36,7 @@ export interface ListAccountSettingsCommandOutput extends ListAccountSettingsRes
  * // const { ECSClient, ListAccountSettingsCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
  * const input = { // ListAccountSettingsRequest
- *   name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization",
+ *   name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization" || "fargateTaskRetirementWaitPeriod" || "guardDutyActivate",
  *   value: "STRING_VALUE",
  *   principalArn: "STRING_VALUE",
  *   effectiveSettings: true || false,
@@ -56,9 +48,10 @@ export interface ListAccountSettingsCommandOutput extends ListAccountSettingsRes
  * // { // ListAccountSettingsResponse
  * //   settings: [ // Settings
  * //     { // Setting
- * //       name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization",
+ * //       name: "serviceLongArnFormat" || "taskLongArnFormat" || "containerInstanceLongArnFormat" || "awsvpcTrunking" || "containerInsights" || "fargateFIPSMode" || "tagResourceAuthorization" || "fargateTaskRetirementWaitPeriod" || "guardDutyActivate",
  * //       value: "STRING_VALUE",
  * //       principalArn: "STRING_VALUE",
+ * //       type: "user" || "aws_managed",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -75,7 +68,7 @@ export interface ListAccountSettingsCommandOutput extends ListAccountSettingsRes
  * @throws {@link ClientException} (client fault)
  *  <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
- * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
+ * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
@@ -153,79 +146,26 @@ export interface ListAccountSettingsCommandOutput extends ListAccountSettingsRes
  * ```
  *
  */
-export class ListAccountSettingsCommand extends $Command<
-  ListAccountSettingsCommandInput,
-  ListAccountSettingsCommandOutput,
-  ECSClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListAccountSettingsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ECSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListAccountSettingsCommandInput, ListAccountSettingsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListAccountSettingsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ECSClient";
-    const commandName = "ListAccountSettingsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListAccountSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListAccountSettingsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountSettingsCommandOutput> {
-    return de_ListAccountSettingsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListAccountSettingsCommand extends $Command
+  .classBuilder<
+    ListAccountSettingsCommandInput,
+    ListAccountSettingsCommandOutput,
+    ECSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonEC2ContainerServiceV20141113", "ListAccountSettings", {})
+  .n("ECSClient", "ListAccountSettingsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListAccountSettingsCommand)
+  .de(de_ListAccountSettingsCommand)
+  .build() {}

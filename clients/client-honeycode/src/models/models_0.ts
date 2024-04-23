@@ -71,12 +71,12 @@ export class AutomationExecutionTimeoutException extends __BaseException {
  * <p>
  *             CellInput object contains the data needed to create or update cells in a table.
  *         </p>
- *         <note>
+ *          <note>
  *             <p>
  *                 CellInput object has only a facts field or a fact field, but not both. A 400 bad request will be
  *                 thrown if both fact and facts field are present.
  *             </p>
- *         </note>
+ *          </note>
  */
 export interface CellInput {
   /**
@@ -133,7 +133,7 @@ export interface BatchCreateTableRowsRequest {
   /**
    * @public
    * <p>The ID of the workbook where the new rows are being added.</p>
-   *         <p>
+   *          <p>
    *             If a workbook with the specified ID could not be found, this API throws ResourceNotFoundException.
    *         </p>
    */
@@ -142,7 +142,7 @@ export interface BatchCreateTableRowsRequest {
   /**
    * @public
    * <p>The ID of the table where the new rows are being added.</p>
-   *         <p>
+   *          <p>
    *             If a table with the specified ID could not be found, this API throws ResourceNotFoundException.
    *         </p>
    */
@@ -155,7 +155,7 @@ export interface BatchCreateTableRowsRequest {
    *             to uniquely identify the element in the request and the cells to create for that row.
    *             You need to specify at least one item in this list.
    *         </p>
-   *         <p>
+   *          <p>
    *             Note that if one of the column ids in any of the rows in the request does not exist in the table, then the
    *             request fails and no updates are made to the table.
    *         </p>
@@ -171,7 +171,7 @@ export interface BatchCreateTableRowsRequest {
    *             that if the first call using that request token is successfully performed, the second call will not perform
    *             the operation again.
    *         </p>
-   *         <p>
+   *          <p>
    *             Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests
    *             spanning hours or days.
    *         </p>
@@ -384,7 +384,7 @@ export interface BatchDeleteTableRowsRequest {
   /**
    * @public
    * <p>The ID of the workbook where the rows are being deleted.</p>
-   *         <p>
+   *          <p>
    *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
    */
@@ -393,7 +393,7 @@ export interface BatchDeleteTableRowsRequest {
   /**
    * @public
    * <p>The ID of the table where the rows are being deleted.</p>
-   *         <p>
+   *          <p>
    *             If a table with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
    */
@@ -404,7 +404,7 @@ export interface BatchDeleteTableRowsRequest {
    * <p>
    *             The list of row ids to delete from the table. You need to specify at least one row id in this list.
    *         </p>
-   *         <p>
+   *          <p>
    *             Note that if one of the row ids provided in the request does not exist in the table, then the request fails
    *             and no rows are deleted from the table.
    *         </p>
@@ -420,7 +420,7 @@ export interface BatchDeleteTableRowsRequest {
    *             that if the first call using that request token is successfully performed, the second call will not perform
    *             the action again.
    *         </p>
-   *         <p>
+   *          <p>
    *             Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests
    *             spanning hours or days.
    *         </p>
@@ -481,7 +481,7 @@ export interface BatchUpdateTableRowsRequest {
   /**
    * @public
    * <p>The ID of the workbook where the rows are being updated.</p>
-   *         <p>
+   *          <p>
    *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
    */
@@ -490,7 +490,7 @@ export interface BatchUpdateTableRowsRequest {
   /**
    * @public
    * <p>The ID of the table where the rows are being updated.</p>
-   *         <p>
+   *          <p>
    *             If a table with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
    */
@@ -504,7 +504,7 @@ export interface BatchUpdateTableRowsRequest {
    *             You need to specify at least one row in this list, and for each row, you need to specify at least one
    *             column to update.
    *         </p>
-   *         <p>
+   *          <p>
    *             Note that if one of the row or column ids in the request does not exist in the table, then the request fails
    *             and no updates are made to the table.
    *         </p>
@@ -520,7 +520,7 @@ export interface BatchUpdateTableRowsRequest {
    *             that if the first call using that request token is successfully performed, the second call will not perform
    *             the action again.
    *         </p>
-   *         <p>
+   *          <p>
    *             Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests
    *             spanning hours or days.
    *         </p>
@@ -605,7 +605,7 @@ export interface UpsertRowData {
    *             rows. If the formula returns 0 rows, then a new row will be appended in the target table. If the formula
    *             returns one or more rows, then the returned rows will be updated.
    *         </p>
-   *         <p>
+   *          <p>
    *             Note that the filter formula needs to return rows from the target table for the upsert operation to succeed.
    *             If the filter formula has a syntax error or it doesn't evaluate to zero or more rows in the target table
    *             for any one item in the input list, then the entire BatchUpsertTableRows request fails and no updates are
@@ -631,7 +631,7 @@ export interface BatchUpsertTableRowsRequest {
   /**
    * @public
    * <p>The ID of the workbook where the rows are being upserted.</p>
-   *         <p>
+   *          <p>
    *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
    */
@@ -640,7 +640,7 @@ export interface BatchUpsertTableRowsRequest {
   /**
    * @public
    * <p>The ID of the table where the rows are being upserted.</p>
-   *         <p>
+   *          <p>
    *             If a table with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
    */
@@ -654,7 +654,7 @@ export interface BatchUpsertTableRowsRequest {
    *             and the cell values to set for each column in the upserted rows. You need to specify
    *             at least one item in this list.
    *         </p>
-   *         <p>
+   *          <p>
    *             Note that if one of the filter formulas in the request fails to evaluate because of an error or one of the
    *             column ids in any of the rows does not exist in the table, then the request fails
    *             and no updates are made to the table.
@@ -671,7 +671,7 @@ export interface BatchUpsertTableRowsRequest {
    *             that if the first call using that request token is successfully performed, the second call will not perform
    *             the action again.
    *         </p>
-   *         <p>
+   *          <p>
    *             Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests
    *             spanning hours or days.
    *         </p>
@@ -716,7 +716,7 @@ export interface UpsertRowsResult {
    *             The result of the upsert action.
    *         </p>
    */
-  upsertAction: UpsertAction | string | undefined;
+  upsertAction: UpsertAction | undefined;
 }
 
 /**
@@ -792,7 +792,7 @@ export interface Cell {
    * <p>The format of the cell. If this field is empty, then the format is either not specified in the
    *         workbook or the format is set to AUTO.</p>
    */
-  format?: Format | string;
+  format?: Format;
 
   /**
    * @public
@@ -800,7 +800,7 @@ export interface Cell {
    *             The raw value of the data contained in the cell. The raw value depends on the format of the data in the
    *             cell. However the attribute in the API return value is always a string containing the raw value.
    *         </p>
-   *         <p>
+   *          <p>
    *             Cells with format DATE, DATE_TIME or TIME have the raw value as a floating point
    *             number where the whole number represents the number of days since 1/1/1900 and the fractional part
    *             represents the fraction of the day since midnight. For example, a cell with date 11/3/2020 has the raw value
@@ -808,7 +808,7 @@ export interface Cell {
    *             11/3/2020 9:00 AM has the raw value "44138.375". Notice that even though the raw value is a number in all
    *             three cases, it is still represented as a string.
    *         </p>
-   *         <p>
+   *          <p>
    *             Cells with format NUMBER, CURRENCY, PERCENTAGE and ACCOUNTING have the raw value of the data as the number
    *             representing the data being displayed. For example, the number 1.325 with two decimal places in the format
    *             will have it's raw value as "1.325" and formatted value as "1.33". A currency value for
@@ -816,34 +816,34 @@ export interface Cell {
    *             decimal places in the format will have its raw value as "0.2" and the formatted value as "20.00%". An
    *             accounting value of -$25 will have "-25" as the raw value and "$  (25.00)" as the formatted value.
    *         </p>
-   *         <p>
+   *          <p>
    *             Cells with format TEXT will have the raw text as the raw value. For example, a cell with text "John Smith"
    *             will have "John Smith" as both the raw value and the formatted value.
    *         </p>
-   *         <p>
+   *          <p>
    *             Cells with format CONTACT will have the name of the contact as a formatted value and the email address of
    *             the contact as the raw value. For example, a contact for John Smith will have "John Smith" as the
    *             formatted value and "john.smith@example.com" as the raw value.
    *         </p>
-   *         <p>
+   *          <p>
    *             Cells with format ROWLINK (aka picklist) will have the first column of the linked row as the formatted value
    *             and the row id of the linked row as the raw value. For example, a cell containing a picklist to a table
    *             that displays task status might have "Completed" as the formatted value and
    *             "row:dfcefaee-5b37-4355-8f28-40c3e4ff5dd4/ca432b2f-b8eb-431d-9fb5-cbe0342f9f03" as the raw value.
    *         </p>
-   *         <p>
+   *          <p>
    *             Cells with format ROWSET (aka multi-select or multi-record picklist) will by default have the first column
    *             of each of the linked rows as the formatted value in the list, and the rowset id of the linked rows as the
    *             raw value. For example, a cell containing a multi-select picklist to a table that contains items might have
    *             "Item A", "Item B" in the formatted value list and "rows:b742c1f4-6cb0-4650-a845-35eb86fcc2bb/
    *             [fdea123b-8f68-474a-aa8a-5ff87aa333af,6daf41f0-a138-4eee-89da-123086d36ecf]" as the raw value.
    *         </p>
-   *         <p>
+   *          <p>
    *             Cells with format ATTACHMENT will have the name of the attachment as the formatted value and the attachment
    *             id as the raw value. For example, a cell containing an attachment named "image.jpeg" will have
    *             "image.jpeg" as the formatted value and "attachment:ca432b2f-b8eb-431d-9fb5-cbe0342f9f03" as the raw value.
    *         </p>
-   *         <p>
+   *          <p>
    *             Cells with format AUTO or cells without any format that are auto-detected as one of the formats above will
    *             contain the raw and formatted values as mentioned above, based on the auto-detected formats. If there is no
    *             auto-detected format, the raw and formatted values will be the same as the data in the cell.
@@ -856,7 +856,7 @@ export interface Cell {
    * <p>
    *             The formatted value of the cell. This is the value that you see displayed in the cell in the UI.
    *         </p>
-   *         <p>
+   *          <p>
    *             Note that the formatted value of a cell is always represented as a string irrespective of the data that is
    *             stored in the cell. For example, if a cell contains a date, the formatted value of the cell is the string
    *             representation of the formatted date being shown in the cell in the UI. See details in the rawValue field
@@ -891,7 +891,7 @@ export interface ColumnMetadata {
    * @public
    * <p>The format of the column.</p>
    */
-  format: Format | string | undefined;
+  format: Format | undefined;
 }
 
 /**
@@ -906,7 +906,7 @@ export interface DataItem {
    *             the data than the default format defined on the screen or the table.
    *         </p>
    */
-  overrideFormat?: Format | string;
+  overrideFormat?: Format;
 
   /**
    * @public
@@ -969,7 +969,7 @@ export interface DelimitedTextImportOptions {
    * @public
    * <p>The encoding of the data in the input file.</p>
    */
-  dataCharacterEncoding?: ImportDataCharacterEncoding | string;
+  dataCharacterEncoding?: ImportDataCharacterEncoding;
 }
 
 /**
@@ -979,7 +979,7 @@ export interface DescribeTableDataImportJobRequest {
   /**
    * @public
    * <p>The ID of the workbook into which data was imported.</p>
-   *         <p>
+   *          <p>
    *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
    */
@@ -988,7 +988,7 @@ export interface DescribeTableDataImportJobRequest {
   /**
    * @public
    * <p>The ID of the table into which data was imported.</p>
-   *         <p>
+   *          <p>
    *             If a table with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
    */
@@ -997,7 +997,7 @@ export interface DescribeTableDataImportJobRequest {
   /**
    * @public
    * <p>The ID of the job that was returned by the StartTableDataImportJob request.</p>
-   *         <p>
+   *          <p>
    *             If a job with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
    */
@@ -1174,7 +1174,7 @@ export interface DescribeTableDataImportJobResult {
    *             The current status of the import job.
    *         </p>
    */
-  jobStatus: TableDataImportJobStatus | string | undefined;
+  jobStatus: TableDataImportJobStatus | undefined;
 
   /**
    * @public
@@ -1198,7 +1198,7 @@ export interface DescribeTableDataImportJobResult {
    *             If job status is failed, error code to understand reason for the failure.
    *         </p>
    */
-  errorCode?: ErrorCode | string;
+  errorCode?: ErrorCode;
 }
 
 /**
@@ -1252,7 +1252,7 @@ export interface GetScreenDataRequest {
    *             The number of results to be returned on a single page.
    *             Specify a number between 1 and 100. The maximum value is 100.
    *         </p>
-   *         <p>
+   *          <p>
    *             This parameter is optional. If you don't specify this parameter, the default page size is 100.
    *         </p>
    */
@@ -1263,7 +1263,7 @@ export interface GetScreenDataRequest {
    * <p>
    *             This parameter is optional. If a nextToken is not specified, the API returns the first page of data.
    *         </p>
-   *         <p>
+   *          <p>
    *             Pagination tokens expire after 1 hour. If you use a token that was returned more than an hour back, the API
    *             will throw ValidationException.
    *         </p>
@@ -1304,7 +1304,7 @@ export interface ResultSet {
    *             formats are not repeated in the rows. If a particular row does not have a value for a data cell, a blank
    *             value is used.
    *         </p>
-   *         <p>
+   *          <p>
    *             For example, a task list that displays the task name, due date and assigned person might have headers
    *             [ \{ "name": "Task Name"\}, \{"name": "Due Date", "format": "DATE"\}, \{"name": "Assigned", "format": "CONTACT"\} ].
    *             Every row in the result will have the task name as the first item, due date as the second item and assigned
@@ -1421,7 +1421,7 @@ export interface InvokeScreenAutomationRequest {
    *             that if the first call using that request token is successfully performed, the second call will return the
    *             response of the previous call rather than performing the action again.
    *         </p>
-   *         <p>
+   *          <p>
    *             Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests
    *             spanning hours or days.
    *         </p>
@@ -1447,7 +1447,7 @@ export interface ListTableColumnsRequest {
   /**
    * @public
    * <p>The ID of the workbook that contains the table whose columns are being retrieved.</p>
-   *         <p>
+   *          <p>
    *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
    */
@@ -1456,7 +1456,7 @@ export interface ListTableColumnsRequest {
   /**
    * @public
    * <p>The ID of the table whose columns are being retrieved.</p>
-   *         <p>
+   *          <p>
    *             If a table with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
    */
@@ -1467,7 +1467,7 @@ export interface ListTableColumnsRequest {
    * <p>
    *             This parameter is optional. If a nextToken is not specified, the API returns the first page of data.
    *         </p>
-   *         <p>
+   *          <p>
    *             Pagination tokens expire after 1 hour. If you use a token that was returned more than an hour back, the API
    *             will throw ValidationException.
    *         </p>
@@ -1499,7 +1499,7 @@ export interface TableColumn {
    *             column format is the default value 'AUTO'.
    *         </p>
    */
-  format?: Format | string;
+  format?: Format;
 }
 
 /**
@@ -1541,7 +1541,7 @@ export interface ListTableRowsRequest {
   /**
    * @public
    * <p>The ID of the workbook that contains the table whose rows are being retrieved.</p>
-   *         <p>
+   *          <p>
    *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
    */
@@ -1550,7 +1550,7 @@ export interface ListTableRowsRequest {
   /**
    * @public
    * <p>The ID of the table whose rows are being retrieved.</p>
-   *         <p>
+   *          <p>
    *             If a table with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
    */
@@ -1577,7 +1577,7 @@ export interface ListTableRowsRequest {
    * <p>
    *             This parameter is optional. If a nextToken is not specified, the API returns the first page of data.
    *         </p>
-   *         <p>
+   *          <p>
    *             Pagination tokens expire after 1 hour. If you use a token that was returned more than an hour back, the API
    *             will throw ValidationException.
    *         </p>
@@ -1660,7 +1660,7 @@ export interface ListTablesRequest {
   /**
    * @public
    * <p>The ID of the workbook whose tables are being retrieved.</p>
-   *         <p>
+   *          <p>
    *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
    */
@@ -1677,7 +1677,7 @@ export interface ListTablesRequest {
    * <p>
    *             This parameter is optional. If a nextToken is not specified, the API returns the first page of data.
    *         </p>
-   *         <p>
+   *          <p>
    *             Pagination tokens expire after 1 hour. If you use a token that was returned more than an hour back, the API
    *             will throw ValidationException.
    *         </p>
@@ -1764,7 +1764,7 @@ export interface QueryTableRowsRequest {
   /**
    * @public
    * <p>The ID of the workbook whose table rows are being queried.</p>
-   *         <p>
+   *          <p>
    *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
    */
@@ -1773,7 +1773,7 @@ export interface QueryTableRowsRequest {
   /**
    * @public
    * <p>The ID of the table whose rows are being queried.</p>
-   *         <p>
+   *          <p>
    *             If a table with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
    */
@@ -1797,7 +1797,7 @@ export interface QueryTableRowsRequest {
    * <p>
    *             This parameter is optional. If a nextToken is not specified, the API returns the first page of data.
    *         </p>
-   *         <p>
+   *          <p>
    *             Pagination tokens expire after 1 hour. If you use a token that was returned more than an hour back, the API
    *             will throw ValidationException.
    *         </p>
@@ -1852,7 +1852,7 @@ export interface StartTableDataImportJobRequest {
   /**
    * @public
    * <p>The ID of the workbook where the rows are being imported.</p>
-   *         <p>
+   *          <p>
    *             If a workbook with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
    */
@@ -1873,12 +1873,12 @@ export interface StartTableDataImportJobRequest {
    *             The format of the data that is being imported. Currently the only option supported is "DELIMITED_TEXT".
    *         </p>
    */
-  dataFormat: ImportSourceDataFormat | string | undefined;
+  dataFormat: ImportSourceDataFormat | undefined;
 
   /**
    * @public
    * <p>The ID of the table where the rows are being imported.</p>
-   *         <p>
+   *          <p>
    *             If a table with the specified id could not be found, this API throws ResourceNotFoundException.
    *         </p>
    */
@@ -1901,7 +1901,7 @@ export interface StartTableDataImportJobRequest {
    *             that if the first call using that request token is successfully performed, the second call will not perform
    *             the action again.
    *         </p>
-   *         <p>
+   *          <p>
    *             Note that request tokens are valid only for a few minutes. You cannot use request tokens to dedupe requests
    *             spanning hours or days.
    *         </p>
@@ -1928,7 +1928,7 @@ export interface StartTableDataImportJobResult {
    *             The status of the import job immediately after submitting the request.
    *         </p>
    */
-  jobStatus: TableDataImportJobStatus | string | undefined;
+  jobStatus: TableDataImportJobStatus | undefined;
 }
 
 /**

@@ -29,16 +29,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `WellArchitectedClient` and
-the commands you need, for example `AssociateLensesCommand`:
+the commands you need, for example `ListLensesCommand`:
 
 ```js
 // ES5 example
-const { WellArchitectedClient, AssociateLensesCommand } = require("@aws-sdk/client-wellarchitected");
+const { WellArchitectedClient, ListLensesCommand } = require("@aws-sdk/client-wellarchitected");
 ```
 
 ```ts
 // ES6+ example
-import { WellArchitectedClient, AssociateLensesCommand } from "@aws-sdk/client-wellarchitected";
+import { WellArchitectedClient, ListLensesCommand } from "@aws-sdk/client-wellarchitected";
 ```
 
 ### Usage
@@ -57,7 +57,7 @@ const client = new WellArchitectedClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateLensesCommand(params);
+const command = new ListLensesCommand(params);
 ```
 
 #### Async/await
@@ -136,7 +136,7 @@ const client = new AWS.WellArchitected({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateLenses(params);
+  const data = await client.listLenses(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -144,7 +144,7 @@ try {
 
 // Promises.
 client
-  .associateLenses(params)
+  .listLenses(params)
   .then((data) => {
     // process data.
   })
@@ -153,7 +153,7 @@ client
   });
 
 // callbacks.
-client.associateLenses(params, (err, data) => {
+client.listLenses(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -168,7 +168,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -214,7 +214,7 @@ see LICENSE for more information.
 AssociateLenses
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/associatelensescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/associatelensescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/associatelensescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/AssociateLensesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/AssociateLensesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/AssociateLensesCommandOutput/)
 
 </details>
 <details>
@@ -222,7 +222,7 @@ AssociateLenses
 AssociateProfiles
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/associateprofilescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/associateprofilescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/associateprofilescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/AssociateProfilesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/AssociateProfilesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/AssociateProfilesCommandOutput/)
 
 </details>
 <details>
@@ -230,7 +230,7 @@ AssociateProfiles
 CreateLensShare
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/createlenssharecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/createlenssharecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/createlenssharecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/CreateLensShareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/CreateLensShareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/CreateLensShareCommandOutput/)
 
 </details>
 <details>
@@ -238,7 +238,7 @@ CreateLensShare
 CreateLensVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/createlensversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/createlensversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/createlensversioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/CreateLensVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/CreateLensVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/CreateLensVersionCommandOutput/)
 
 </details>
 <details>
@@ -246,7 +246,7 @@ CreateLensVersion
 CreateMilestone
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/createmilestonecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/createmilestonecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/createmilestonecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/CreateMilestoneCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/CreateMilestoneCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/CreateMilestoneCommandOutput/)
 
 </details>
 <details>
@@ -254,7 +254,7 @@ CreateMilestone
 CreateProfile
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/createprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/createprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/createprofilecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/CreateProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/CreateProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/CreateProfileCommandOutput/)
 
 </details>
 <details>
@@ -262,7 +262,23 @@ CreateProfile
 CreateProfileShare
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/createprofilesharecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/createprofilesharecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/createprofilesharecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/CreateProfileShareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/CreateProfileShareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/CreateProfileShareCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateReviewTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/CreateReviewTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/CreateReviewTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/CreateReviewTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateTemplateShare
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/CreateTemplateShareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/CreateTemplateShareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/CreateTemplateShareCommandOutput/)
 
 </details>
 <details>
@@ -270,7 +286,7 @@ CreateProfileShare
 CreateWorkload
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/createworkloadcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/createworkloadcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/createworkloadcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/CreateWorkloadCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/CreateWorkloadCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/CreateWorkloadCommandOutput/)
 
 </details>
 <details>
@@ -278,7 +294,7 @@ CreateWorkload
 CreateWorkloadShare
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/createworkloadsharecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/createworkloadsharecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/createworkloadsharecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/CreateWorkloadShareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/CreateWorkloadShareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/CreateWorkloadShareCommandOutput/)
 
 </details>
 <details>
@@ -286,7 +302,7 @@ CreateWorkloadShare
 DeleteLens
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/deletelenscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/deletelenscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/deletelenscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/DeleteLensCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/DeleteLensCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/DeleteLensCommandOutput/)
 
 </details>
 <details>
@@ -294,7 +310,7 @@ DeleteLens
 DeleteLensShare
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/deletelenssharecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/deletelenssharecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/deletelenssharecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/DeleteLensShareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/DeleteLensShareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/DeleteLensShareCommandOutput/)
 
 </details>
 <details>
@@ -302,7 +318,7 @@ DeleteLensShare
 DeleteProfile
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/deleteprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/deleteprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/deleteprofilecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/DeleteProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/DeleteProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/DeleteProfileCommandOutput/)
 
 </details>
 <details>
@@ -310,7 +326,23 @@ DeleteProfile
 DeleteProfileShare
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/deleteprofilesharecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/deleteprofilesharecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/deleteprofilesharecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/DeleteProfileShareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/DeleteProfileShareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/DeleteProfileShareCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteReviewTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/DeleteReviewTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/DeleteReviewTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/DeleteReviewTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteTemplateShare
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/DeleteTemplateShareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/DeleteTemplateShareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/DeleteTemplateShareCommandOutput/)
 
 </details>
 <details>
@@ -318,7 +350,7 @@ DeleteProfileShare
 DeleteWorkload
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/deleteworkloadcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/deleteworkloadcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/deleteworkloadcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/DeleteWorkloadCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/DeleteWorkloadCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/DeleteWorkloadCommandOutput/)
 
 </details>
 <details>
@@ -326,7 +358,7 @@ DeleteWorkload
 DeleteWorkloadShare
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/deleteworkloadsharecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/deleteworkloadsharecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/deleteworkloadsharecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/DeleteWorkloadShareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/DeleteWorkloadShareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/DeleteWorkloadShareCommandOutput/)
 
 </details>
 <details>
@@ -334,7 +366,7 @@ DeleteWorkloadShare
 DisassociateLenses
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/disassociatelensescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/disassociatelensescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/disassociatelensescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/DisassociateLensesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/DisassociateLensesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/DisassociateLensesCommandOutput/)
 
 </details>
 <details>
@@ -342,7 +374,7 @@ DisassociateLenses
 DisassociateProfiles
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/disassociateprofilescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/disassociateprofilescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/disassociateprofilescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/DisassociateProfilesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/DisassociateProfilesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/DisassociateProfilesCommandOutput/)
 
 </details>
 <details>
@@ -350,7 +382,7 @@ DisassociateProfiles
 ExportLens
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/exportlenscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/exportlenscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/exportlenscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/ExportLensCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ExportLensCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ExportLensCommandOutput/)
 
 </details>
 <details>
@@ -358,7 +390,7 @@ ExportLens
 GetAnswer
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/getanswercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/getanswercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/getanswercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/GetAnswerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetAnswerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetAnswerCommandOutput/)
 
 </details>
 <details>
@@ -366,7 +398,7 @@ GetAnswer
 GetConsolidatedReport
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/getconsolidatedreportcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/getconsolidatedreportcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/getconsolidatedreportcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/GetConsolidatedReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetConsolidatedReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetConsolidatedReportCommandOutput/)
 
 </details>
 <details>
@@ -374,7 +406,7 @@ GetConsolidatedReport
 GetLens
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/getlenscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/getlenscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/getlenscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/GetLensCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetLensCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetLensCommandOutput/)
 
 </details>
 <details>
@@ -382,7 +414,7 @@ GetLens
 GetLensReview
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/getlensreviewcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/getlensreviewcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/getlensreviewcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/GetLensReviewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetLensReviewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetLensReviewCommandOutput/)
 
 </details>
 <details>
@@ -390,7 +422,7 @@ GetLensReview
 GetLensReviewReport
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/getlensreviewreportcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/getlensreviewreportcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/getlensreviewreportcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/GetLensReviewReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetLensReviewReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetLensReviewReportCommandOutput/)
 
 </details>
 <details>
@@ -398,7 +430,7 @@ GetLensReviewReport
 GetLensVersionDifference
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/getlensversiondifferencecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/getlensversiondifferencecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/getlensversiondifferencecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/GetLensVersionDifferenceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetLensVersionDifferenceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetLensVersionDifferenceCommandOutput/)
 
 </details>
 <details>
@@ -406,7 +438,7 @@ GetLensVersionDifference
 GetMilestone
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/getmilestonecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/getmilestonecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/getmilestonecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/GetMilestoneCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetMilestoneCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetMilestoneCommandOutput/)
 
 </details>
 <details>
@@ -414,7 +446,7 @@ GetMilestone
 GetProfile
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/getprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/getprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/getprofilecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/GetProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetProfileCommandOutput/)
 
 </details>
 <details>
@@ -422,7 +454,31 @@ GetProfile
 GetProfileTemplate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/getprofiletemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/getprofiletemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/getprofiletemplatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/GetProfileTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetProfileTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetProfileTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetReviewTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/GetReviewTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetReviewTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetReviewTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetReviewTemplateAnswer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/GetReviewTemplateAnswerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetReviewTemplateAnswerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetReviewTemplateAnswerCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetReviewTemplateLensReview
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/GetReviewTemplateLensReviewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetReviewTemplateLensReviewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetReviewTemplateLensReviewCommandOutput/)
 
 </details>
 <details>
@@ -430,7 +486,7 @@ GetProfileTemplate
 GetWorkload
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/getworkloadcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/getworkloadcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/getworkloadcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/GetWorkloadCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetWorkloadCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetWorkloadCommandOutput/)
 
 </details>
 <details>
@@ -438,7 +494,7 @@ GetWorkload
 ImportLens
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/importlenscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/importlenscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/importlenscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/ImportLensCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ImportLensCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ImportLensCommandOutput/)
 
 </details>
 <details>
@@ -446,7 +502,7 @@ ImportLens
 ListAnswers
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/listanswerscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listanswerscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listanswerscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/ListAnswersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListAnswersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListAnswersCommandOutput/)
 
 </details>
 <details>
@@ -454,7 +510,7 @@ ListAnswers
 ListCheckDetails
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/listcheckdetailscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listcheckdetailscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listcheckdetailscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/ListCheckDetailsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListCheckDetailsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListCheckDetailsCommandOutput/)
 
 </details>
 <details>
@@ -462,7 +518,7 @@ ListCheckDetails
 ListCheckSummaries
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/listchecksummariescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listchecksummariescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listchecksummariescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/ListCheckSummariesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListCheckSummariesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListCheckSummariesCommandOutput/)
 
 </details>
 <details>
@@ -470,7 +526,7 @@ ListCheckSummaries
 ListLenses
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/listlensescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listlensescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listlensescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/ListLensesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListLensesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListLensesCommandOutput/)
 
 </details>
 <details>
@@ -478,7 +534,7 @@ ListLenses
 ListLensReviewImprovements
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/listlensreviewimprovementscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listlensreviewimprovementscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listlensreviewimprovementscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/ListLensReviewImprovementsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListLensReviewImprovementsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListLensReviewImprovementsCommandOutput/)
 
 </details>
 <details>
@@ -486,7 +542,7 @@ ListLensReviewImprovements
 ListLensReviews
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/listlensreviewscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listlensreviewscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listlensreviewscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/ListLensReviewsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListLensReviewsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListLensReviewsCommandOutput/)
 
 </details>
 <details>
@@ -494,7 +550,7 @@ ListLensReviews
 ListLensShares
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/listlenssharescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listlenssharescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listlenssharescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/ListLensSharesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListLensSharesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListLensSharesCommandOutput/)
 
 </details>
 <details>
@@ -502,7 +558,7 @@ ListLensShares
 ListMilestones
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/listmilestonescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listmilestonescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listmilestonescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/ListMilestonesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListMilestonesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListMilestonesCommandOutput/)
 
 </details>
 <details>
@@ -510,7 +566,7 @@ ListMilestones
 ListNotifications
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/listnotificationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listnotificationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listnotificationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/ListNotificationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListNotificationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListNotificationsCommandOutput/)
 
 </details>
 <details>
@@ -518,7 +574,7 @@ ListNotifications
 ListProfileNotifications
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/listprofilenotificationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listprofilenotificationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listprofilenotificationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/ListProfileNotificationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListProfileNotificationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListProfileNotificationsCommandOutput/)
 
 </details>
 <details>
@@ -526,7 +582,7 @@ ListProfileNotifications
 ListProfiles
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/listprofilescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listprofilescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listprofilescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/ListProfilesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListProfilesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListProfilesCommandOutput/)
 
 </details>
 <details>
@@ -534,7 +590,23 @@ ListProfiles
 ListProfileShares
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/listprofilesharescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listprofilesharescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listprofilesharescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/ListProfileSharesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListProfileSharesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListProfileSharesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListReviewTemplateAnswers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/ListReviewTemplateAnswersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListReviewTemplateAnswersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListReviewTemplateAnswersCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListReviewTemplates
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/ListReviewTemplatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListReviewTemplatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListReviewTemplatesCommandOutput/)
 
 </details>
 <details>
@@ -542,7 +614,7 @@ ListProfileShares
 ListShareInvitations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/listshareinvitationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listshareinvitationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listshareinvitationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/ListShareInvitationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListShareInvitationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListShareInvitationsCommandOutput/)
 
 </details>
 <details>
@@ -550,7 +622,15 @@ ListShareInvitations
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListTagsForResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListTemplateShares
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/ListTemplateSharesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListTemplateSharesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListTemplateSharesCommandOutput/)
 
 </details>
 <details>
@@ -558,7 +638,7 @@ ListTagsForResource
 ListWorkloads
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/listworkloadscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listworkloadscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listworkloadscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/ListWorkloadsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListWorkloadsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListWorkloadsCommandOutput/)
 
 </details>
 <details>
@@ -566,7 +646,7 @@ ListWorkloads
 ListWorkloadShares
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/listworkloadsharescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listworkloadsharescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/listworkloadsharescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/ListWorkloadSharesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListWorkloadSharesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListWorkloadSharesCommandOutput/)
 
 </details>
 <details>
@@ -574,7 +654,7 @@ ListWorkloadShares
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -582,7 +662,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -590,7 +670,7 @@ UntagResource
 UpdateAnswer
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/updateanswercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/updateanswercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/updateanswercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/UpdateAnswerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateAnswerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateAnswerCommandOutput/)
 
 </details>
 <details>
@@ -598,7 +678,7 @@ UpdateAnswer
 UpdateGlobalSettings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/updateglobalsettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/updateglobalsettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/updateglobalsettingscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/UpdateGlobalSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateGlobalSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateGlobalSettingsCommandOutput/)
 
 </details>
 <details>
@@ -606,7 +686,7 @@ UpdateGlobalSettings
 UpdateLensReview
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/updatelensreviewcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/updatelensreviewcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/updatelensreviewcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/UpdateLensReviewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateLensReviewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateLensReviewCommandOutput/)
 
 </details>
 <details>
@@ -614,7 +694,31 @@ UpdateLensReview
 UpdateProfile
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/updateprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/updateprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/updateprofilecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/UpdateProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateProfileCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateReviewTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/UpdateReviewTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateReviewTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateReviewTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateReviewTemplateAnswer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/UpdateReviewTemplateAnswerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateReviewTemplateAnswerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateReviewTemplateAnswerCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateReviewTemplateLensReview
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/UpdateReviewTemplateLensReviewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateReviewTemplateLensReviewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateReviewTemplateLensReviewCommandOutput/)
 
 </details>
 <details>
@@ -622,7 +726,7 @@ UpdateProfile
 UpdateShareInvitation
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/updateshareinvitationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/updateshareinvitationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/updateshareinvitationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/UpdateShareInvitationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateShareInvitationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateShareInvitationCommandOutput/)
 
 </details>
 <details>
@@ -630,7 +734,7 @@ UpdateShareInvitation
 UpdateWorkload
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/updateworkloadcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/updateworkloadcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/updateworkloadcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/UpdateWorkloadCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateWorkloadCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateWorkloadCommandOutput/)
 
 </details>
 <details>
@@ -638,7 +742,7 @@ UpdateWorkload
 UpdateWorkloadShare
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/updateworkloadsharecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/updateworkloadsharecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/updateworkloadsharecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/UpdateWorkloadShareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateWorkloadShareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateWorkloadShareCommandOutput/)
 
 </details>
 <details>
@@ -646,7 +750,7 @@ UpdateWorkloadShare
 UpgradeLensReview
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/upgradelensreviewcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/upgradelensreviewcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/upgradelensreviewcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/UpgradeLensReviewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpgradeLensReviewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpgradeLensReviewCommandOutput/)
 
 </details>
 <details>
@@ -654,6 +758,14 @@ UpgradeLensReview
 UpgradeProfileVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/classes/upgradeprofileversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/upgradeprofileversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-wellarchitected/interfaces/upgradeprofileversioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/UpgradeProfileVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpgradeProfileVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpgradeProfileVersionCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpgradeReviewTemplateLensReview
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/UpgradeReviewTemplateLensReviewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpgradeReviewTemplateLensReviewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpgradeReviewTemplateLensReviewCommandOutput/)
 
 </details>

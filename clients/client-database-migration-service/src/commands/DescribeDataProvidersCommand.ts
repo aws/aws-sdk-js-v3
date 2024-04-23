@@ -1,23 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   DatabaseMigrationServiceClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeDataProvidersMessage, DescribeDataProvidersResponse } from "../models/models_0";
 import { de_DescribeDataProvidersCommand, se_DescribeDataProvidersCommand } from "../protocols/Aws_json1_1";
 
@@ -71,6 +63,11 @@ export interface DescribeDataProvidersCommandOutput extends DescribeDataProvider
  * //       Description: "STRING_VALUE",
  * //       Engine: "STRING_VALUE",
  * //       Settings: { // DataProviderSettings Union: only one key present
+ * //         RedshiftSettings: { // RedshiftDataProviderSettings
+ * //           ServerName: "STRING_VALUE",
+ * //           Port: Number("int"),
+ * //           DatabaseName: "STRING_VALUE",
+ * //         },
  * //         PostgreSqlSettings: { // PostgreSqlDataProviderSettings
  * //           ServerName: "STRING_VALUE",
  * //           Port: Number("int"),
@@ -103,6 +100,29 @@ export interface DescribeDataProvidersCommandOutput extends DescribeDataProvider
  * //           SslMode: "none" || "require" || "verify-ca" || "verify-full",
  * //           CertificateArn: "STRING_VALUE",
  * //         },
+ * //         DocDbSettings: { // DocDbDataProviderSettings
+ * //           ServerName: "STRING_VALUE",
+ * //           Port: Number("int"),
+ * //           DatabaseName: "STRING_VALUE",
+ * //           SslMode: "none" || "require" || "verify-ca" || "verify-full",
+ * //           CertificateArn: "STRING_VALUE",
+ * //         },
+ * //         MariaDbSettings: { // MariaDbDataProviderSettings
+ * //           ServerName: "STRING_VALUE",
+ * //           Port: Number("int"),
+ * //           SslMode: "none" || "require" || "verify-ca" || "verify-full",
+ * //           CertificateArn: "STRING_VALUE",
+ * //         },
+ * //         MongoDbSettings: { // MongoDbDataProviderSettings
+ * //           ServerName: "STRING_VALUE",
+ * //           Port: Number("int"),
+ * //           DatabaseName: "STRING_VALUE",
+ * //           SslMode: "none" || "require" || "verify-ca" || "verify-full",
+ * //           CertificateArn: "STRING_VALUE",
+ * //           AuthType: "no" || "password",
+ * //           AuthSource: "STRING_VALUE",
+ * //           AuthMechanism: "default" || "mongodb_cr" || "scram_sha_1",
+ * //         },
  * //       },
  * //     },
  * //   ],
@@ -126,80 +146,68 @@ export interface DescribeDataProvidersCommandOutput extends DescribeDataProvider
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @example Describe Data Providers
+ * ```javascript
+ * //
+ * const input = {
+ *   "Filters": [
+ *     {
+ *       "Name": "data-provider-identifier",
+ *       "Values": [
+ *         "arn:aws:dms:us-east-1:012345678901:data-provider:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345"
+ *       ]
+ *     }
+ *   ],
+ *   "Marker": "EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345",
+ *   "MaxRecords": 20
+ * };
+ * const command = new DescribeDataProvidersCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "DataProviders": [
+ *     {
+ *       "DataProviderArn": "arn:aws:dms:us-east-1:012345678901:data-provider:my-target-data-provider",
+ *       "DataProviderCreationTime": "2023-05-12T10:50:41.988561Z",
+ *       "DataProviderName": "my-target-data-provider",
+ *       "Engine": "postgres",
+ *       "Settings": {
+ *         "PostgreSqlSettings": {
+ *           "DatabaseName": "target",
+ *           "Port": 5432,
+ *           "ServerName": "postrgesql.0a1b2c3d4e5f.us-east-1.rds.amazonaws.com",
+ *           "SslMode": "none"
+ *         }
+ *       }
+ *     }
+ *   ],
+ *   "Marker": "EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345"
+ * }
+ * *\/
+ * // example id: describe-data-providers-1689725897156
+ * ```
+ *
  */
-export class DescribeDataProvidersCommand extends $Command<
-  DescribeDataProvidersCommandInput,
-  DescribeDataProvidersCommandOutput,
-  DatabaseMigrationServiceClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeDataProvidersCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: DatabaseMigrationServiceClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeDataProvidersCommandInput, DescribeDataProvidersCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeDataProvidersCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "DatabaseMigrationServiceClient";
-    const commandName = "DescribeDataProvidersCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeDataProvidersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeDataProvidersCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDataProvidersCommandOutput> {
-    return de_DescribeDataProvidersCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeDataProvidersCommand extends $Command
+  .classBuilder<
+    DescribeDataProvidersCommandInput,
+    DescribeDataProvidersCommandOutput,
+    DatabaseMigrationServiceClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonDMSv20160101", "DescribeDataProviders", {})
+  .n("DatabaseMigrationServiceClient", "DescribeDataProvidersCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeDataProvidersCommand)
+  .de(de_DescribeDataProvidersCommand)
+  .build() {}

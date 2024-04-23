@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -102,28 +103,22 @@ export const se_CreateAccessorCommand = async (
   input: CreateAccessorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accessors";
+  b.bp("/accessors");
   let body: any;
   body = JSON.stringify(
     take(input, {
       AccessorType: [],
       ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      NetworkType: [],
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -133,13 +128,12 @@ export const se_CreateMemberCommand = async (
   input: CreateMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/networks/{NetworkId}/members";
-  resolvedPath = __resolvedPath(resolvedPath, input, "NetworkId", () => input.NetworkId!, "{NetworkId}", false);
+  b.bp("/networks/{NetworkId}/members");
+  b.p("NetworkId", () => input.NetworkId!, "{NetworkId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -148,15 +142,8 @@ export const se_CreateMemberCommand = async (
       MemberConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -166,11 +153,11 @@ export const se_CreateNetworkCommand = async (
   input: CreateNetworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/networks";
+  b.bp("/networks");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -185,15 +172,8 @@ export const se_CreateNetworkCommand = async (
       VotingPolicy: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -203,13 +183,12 @@ export const se_CreateNodeCommand = async (
   input: CreateNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/networks/{NetworkId}/nodes";
-  resolvedPath = __resolvedPath(resolvedPath, input, "NetworkId", () => input.NetworkId!, "{NetworkId}", false);
+  b.bp("/networks/{NetworkId}/nodes");
+  b.p("NetworkId", () => input.NetworkId!, "{NetworkId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -219,15 +198,8 @@ export const se_CreateNodeCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -237,13 +209,12 @@ export const se_CreateProposalCommand = async (
   input: CreateProposalCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/networks/{NetworkId}/proposals";
-  resolvedPath = __resolvedPath(resolvedPath, input, "NetworkId", () => input.NetworkId!, "{NetworkId}", false);
+  b.bp("/networks/{NetworkId}/proposals");
+  b.p("NetworkId", () => input.NetworkId!, "{NetworkId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -254,15 +225,8 @@ export const se_CreateProposalCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -272,20 +236,13 @@ export const se_DeleteAccessorCommand = async (
   input: DeleteAccessorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accessors/{AccessorId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AccessorId", () => input.AccessorId!, "{AccessorId}", false);
+  b.bp("/accessors/{AccessorId}");
+  b.p("AccessorId", () => input.AccessorId!, "{AccessorId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -295,22 +252,14 @@ export const se_DeleteMemberCommand = async (
   input: DeleteMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/networks/{NetworkId}/members/{MemberId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "NetworkId", () => input.NetworkId!, "{NetworkId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "MemberId", () => input.MemberId!, "{MemberId}", false);
+  b.bp("/networks/{NetworkId}/members/{MemberId}");
+  b.p("NetworkId", () => input.NetworkId!, "{NetworkId}", false);
+  b.p("MemberId", () => input.MemberId!, "{MemberId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -320,26 +269,17 @@ export const se_DeleteNodeCommand = async (
   input: DeleteNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/networks/{NetworkId}/nodes/{NodeId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "NetworkId", () => input.NetworkId!, "{NetworkId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "NodeId", () => input.NodeId!, "{NodeId}", false);
+  b.bp("/networks/{NetworkId}/nodes/{NodeId}");
+  b.p("NetworkId", () => input.NetworkId!, "{NetworkId}", false);
+  b.p("NodeId", () => input.NodeId!, "{NodeId}", false);
   const query: any = map({
-    memberId: [, input.MemberId!],
+    [_mI]: [, input[_MI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -349,20 +289,13 @@ export const se_GetAccessorCommand = async (
   input: GetAccessorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accessors/{AccessorId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "AccessorId", () => input.AccessorId!, "{AccessorId}", false);
+  b.bp("/accessors/{AccessorId}");
+  b.p("AccessorId", () => input.AccessorId!, "{AccessorId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -372,22 +305,14 @@ export const se_GetMemberCommand = async (
   input: GetMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/networks/{NetworkId}/members/{MemberId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "NetworkId", () => input.NetworkId!, "{NetworkId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "MemberId", () => input.MemberId!, "{MemberId}", false);
+  b.bp("/networks/{NetworkId}/members/{MemberId}");
+  b.p("NetworkId", () => input.NetworkId!, "{NetworkId}", false);
+  b.p("MemberId", () => input.MemberId!, "{MemberId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -397,20 +322,13 @@ export const se_GetNetworkCommand = async (
   input: GetNetworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/networks/{NetworkId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "NetworkId", () => input.NetworkId!, "{NetworkId}", false);
+  b.bp("/networks/{NetworkId}");
+  b.p("NetworkId", () => input.NetworkId!, "{NetworkId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -420,26 +338,17 @@ export const se_GetNodeCommand = async (
   input: GetNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/networks/{NetworkId}/nodes/{NodeId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "NetworkId", () => input.NetworkId!, "{NetworkId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "NodeId", () => input.NodeId!, "{NodeId}", false);
+  b.bp("/networks/{NetworkId}/nodes/{NodeId}");
+  b.p("NetworkId", () => input.NetworkId!, "{NetworkId}", false);
+  b.p("NodeId", () => input.NodeId!, "{NodeId}", false);
   const query: any = map({
-    memberId: [, input.MemberId!],
+    [_mI]: [, input[_MI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -449,23 +358,14 @@ export const se_GetProposalCommand = async (
   input: GetProposalCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/networks/{NetworkId}/proposals/{ProposalId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "NetworkId", () => input.NetworkId!, "{NetworkId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "ProposalId", () => input.ProposalId!, "{ProposalId}", false);
+  b.bp("/networks/{NetworkId}/proposals/{ProposalId}");
+  b.p("NetworkId", () => input.NetworkId!, "{NetworkId}", false);
+  b.p("ProposalId", () => input.ProposalId!, "{ProposalId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -475,24 +375,17 @@ export const se_ListAccessorsCommand = async (
   input: ListAccessorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accessors";
+  b.bp("/accessors");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_nTe]: [, input[_NTe]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -502,24 +395,16 @@ export const se_ListInvitationsCommand = async (
   input: ListInvitationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/invitations";
+  b.bp("/invitations");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -529,29 +414,20 @@ export const se_ListMembersCommand = async (
   input: ListMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/networks/{NetworkId}/members";
-  resolvedPath = __resolvedPath(resolvedPath, input, "NetworkId", () => input.NetworkId!, "{NetworkId}", false);
+  b.bp("/networks/{NetworkId}/members");
+  b.p("NetworkId", () => input.NetworkId!, "{NetworkId}", false);
   const query: any = map({
-    name: [, input.Name!],
-    status: [, input.Status!],
-    isOwned: [() => input.IsOwned !== void 0, () => input.IsOwned!.toString()],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_n]: [, input[_N]!],
+    [_s]: [, input[_S]!],
+    [_iO]: [() => input.IsOwned !== void 0, () => input[_IO]!.toString()],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -561,27 +437,19 @@ export const se_ListNetworksCommand = async (
   input: ListNetworksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/networks";
+  b.bp("/networks");
   const query: any = map({
-    name: [, input.Name!],
-    framework: [, input.Framework!],
-    status: [, input.Status!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_n]: [, input[_N]!],
+    [_f]: [, input[_F]!],
+    [_s]: [, input[_S]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -591,28 +459,19 @@ export const se_ListNodesCommand = async (
   input: ListNodesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/networks/{NetworkId}/nodes";
-  resolvedPath = __resolvedPath(resolvedPath, input, "NetworkId", () => input.NetworkId!, "{NetworkId}", false);
+  b.bp("/networks/{NetworkId}/nodes");
+  b.p("NetworkId", () => input.NetworkId!, "{NetworkId}", false);
   const query: any = map({
-    memberId: [, input.MemberId!],
-    status: [, input.Status!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mI]: [, input[_MI]!],
+    [_s]: [, input[_S]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -622,26 +481,17 @@ export const se_ListProposalsCommand = async (
   input: ListProposalsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/networks/{NetworkId}/proposals";
-  resolvedPath = __resolvedPath(resolvedPath, input, "NetworkId", () => input.NetworkId!, "{NetworkId}", false);
+  b.bp("/networks/{NetworkId}/proposals");
+  b.p("NetworkId", () => input.NetworkId!, "{NetworkId}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -651,28 +501,18 @@ export const se_ListProposalVotesCommand = async (
   input: ListProposalVotesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/networks/{NetworkId}/proposals/{ProposalId}/votes";
-  resolvedPath = __resolvedPath(resolvedPath, input, "NetworkId", () => input.NetworkId!, "{NetworkId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "ProposalId", () => input.ProposalId!, "{ProposalId}", false);
+  b.bp("/networks/{NetworkId}/proposals/{ProposalId}/votes");
+  b.p("NetworkId", () => input.NetworkId!, "{NetworkId}", false);
+  b.p("ProposalId", () => input.ProposalId!, "{ProposalId}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -682,20 +522,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -705,28 +538,13 @@ export const se_RejectInvitationCommand = async (
   input: RejectInvitationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/invitations/{InvitationId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "InvitationId",
-    () => input.InvitationId!,
-    "{InvitationId}",
-    false
-  );
+  b.bp("/invitations/{InvitationId}");
+  b.p("InvitationId", () => input.InvitationId!, "{InvitationId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -736,27 +554,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -766,27 +577,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -796,29 +599,21 @@ export const se_UpdateMemberCommand = async (
   input: UpdateMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/networks/{NetworkId}/members/{MemberId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "NetworkId", () => input.NetworkId!, "{NetworkId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "MemberId", () => input.MemberId!, "{MemberId}", false);
+  b.bp("/networks/{NetworkId}/members/{MemberId}");
+  b.p("NetworkId", () => input.NetworkId!, "{NetworkId}", false);
+  b.p("MemberId", () => input.MemberId!, "{MemberId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       LogPublishingConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -828,14 +623,13 @@ export const se_UpdateNodeCommand = async (
   input: UpdateNodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/networks/{NetworkId}/nodes/{NodeId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "NetworkId", () => input.NetworkId!, "{NetworkId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "NodeId", () => input.NodeId!, "{NodeId}", false);
+  b.bp("/networks/{NetworkId}/nodes/{NodeId}");
+  b.p("NetworkId", () => input.NetworkId!, "{NetworkId}", false);
+  b.p("NodeId", () => input.NodeId!, "{NodeId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -843,15 +637,8 @@ export const se_UpdateNodeCommand = async (
       MemberId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -861,15 +648,13 @@ export const se_VoteOnProposalCommand = async (
   input: VoteOnProposalCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/networks/{NetworkId}/proposals/{ProposalId}/votes";
-  resolvedPath = __resolvedPath(resolvedPath, input, "NetworkId", () => input.NetworkId!, "{NetworkId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "ProposalId", () => input.ProposalId!, "{ProposalId}", false);
+  b.bp("/networks/{NetworkId}/proposals/{ProposalId}/votes");
+  b.p("NetworkId", () => input.NetworkId!, "{NetworkId}", false);
+  b.p("ProposalId", () => input.ProposalId!, "{ProposalId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -877,15 +662,8 @@ export const se_VoteOnProposalCommand = async (
       VoterMemberId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -905,6 +683,7 @@ export const de_CreateAccessorCommand = async (
   const doc = take(data, {
     AccessorId: __expectString,
     BillingToken: __expectString,
+    NetworkType: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2735,6 +2514,7 @@ const de_Accessor = (output: any, context: __SerdeContext): Accessor => {
     BillingToken: __expectString,
     CreationDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     Id: __expectString,
+    NetworkType: __expectString,
     Status: __expectString,
     Tags: _json,
     Type: __expectString,
@@ -2749,6 +2529,7 @@ const de_AccessorSummary = (output: any, context: __SerdeContext): AccessorSumma
     Arn: __expectString,
     CreationDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     Id: __expectString,
+    NetworkType: __expectString,
     Status: __expectString,
     Type: __expectString,
   }) as any;
@@ -3049,6 +2830,25 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _F = "Framework";
+const _IO = "IsOwned";
+const _MI = "MemberId";
+const _MR = "MaxResults";
+const _N = "Name";
+const _NT = "NextToken";
+const _NTe = "NetworkType";
+const _S = "Status";
+const _TK = "TagKeys";
+const _f = "framework";
+const _iO = "isOwned";
+const _mI = "memberId";
+const _mR = "maxResults";
+const _n = "name";
+const _nT = "nextToken";
+const _nTe = "networkType";
+const _s = "status";
+const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

@@ -20,5 +20,26 @@ describe("middleware-host-header", () => {
 
       expect.hasAssertions();
     });
+
+    it("should set the authority header when using http2", async () => {
+      const client = new SageMaker({ region: "us-west-2" });
+
+      requireRequestsFrom(client).toMatch({
+        hostname: "api.sagemaker.us-west-2.amazonaws.com",
+        headers: {
+          ":authority": "api.sagemaker.us-west-2.amazonaws.com",
+        },
+      });
+
+      client.config.requestHandler.metadata = {
+        handlerProtocol: "h2",
+      };
+
+      await client.describeCompilationJob({
+        CompilationJobName: "compile-something",
+      });
+
+      expect.hasAssertions();
+    });
   });
 });

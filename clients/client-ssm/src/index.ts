@@ -10,7 +10,7 @@
  *          </p>
  *          <ul>
  *             <li>
- *                <p>For information about each of the capabilities that comprise Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/systems-manager-capabilities.html">Systems Manager capabilities</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+ *                <p>For information about each of the capabilities that comprise Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/what-is-systems-manager.html#systems-manager-capabilities">Systems Manager capabilities</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
  *             </li>
  *             <li>
  *                <p>For details about predefined runbooks for Automation, a capability of Amazon Web Services Systems Manager, see the
@@ -43,9 +43,13 @@
 export * from "./SSMClient";
 export * from "./SSM";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { SSMExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./waiters";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { SSMServiceException } from "./models/SSMServiceException";

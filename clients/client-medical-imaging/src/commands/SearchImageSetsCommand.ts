@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { MedicalImagingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MedicalImagingClient";
 import {
   SearchImageSetsRequest,
@@ -42,6 +34,15 @@ export interface SearchImageSetsCommandOutput extends SearchImageSetsResponse, _
 /**
  * @public
  * <p>Search image sets based on defined input attributes.</p>
+ *          <note>
+ *             <p>
+ *                <code>SearchImageSets</code> accepts a single search
+ *                query parameter and returns a paginated response of all image sets that have the
+ *                matching criteria. All range queries must be input as <code>(lowerBound, upperBound)</code>.</p>
+ *             <p>
+ *                <code>SearchImageSets</code> uses the <code>updatedAt</code> field for sorting
+ *                in decreasing order from latest to oldest.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -125,85 +126,32 @@ export interface SearchImageSetsCommandOutput extends SearchImageSetsResponse, _
  *  <p>The request was denied due to throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input fails to satisfy the constraints set by the service.</p>
  *
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
  */
-export class SearchImageSetsCommand extends $Command<
-  SearchImageSetsCommandInput,
-  SearchImageSetsCommandOutput,
-  MedicalImagingClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: SearchImageSetsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: MedicalImagingClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<SearchImageSetsCommandInput, SearchImageSetsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, SearchImageSetsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "MedicalImagingClient";
-    const commandName = "SearchImageSetsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: SearchImageSetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: SearchImageSetsResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: SearchImageSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_SearchImageSetsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchImageSetsCommandOutput> {
-    return de_SearchImageSetsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class SearchImageSetsCommand extends $Command
+  .classBuilder<
+    SearchImageSetsCommandInput,
+    SearchImageSetsCommandOutput,
+    MedicalImagingClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: MedicalImagingClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AHIGatewayService", "SearchImageSets", {})
+  .n("MedicalImagingClient", "SearchImageSetsCommand")
+  .f(SearchImageSetsRequestFilterSensitiveLog, SearchImageSetsResponseFilterSensitiveLog)
+  .ser(se_SearchImageSetsCommand)
+  .de(de_SearchImageSetsCommand)
+  .build() {}

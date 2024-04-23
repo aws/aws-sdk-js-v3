@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
 import { NotifyApplicationStateRequest, NotifyApplicationStateResult } from "../models/models_0";
 import { de_NotifyApplicationStateCommand, se_NotifyApplicationStateCommand } from "../protocols/Aws_json1_1";
@@ -48,7 +40,7 @@ export interface NotifyApplicationStateCommandOutput extends NotifyApplicationSt
  * const client = new MigrationHubClient(config);
  * const input = { // NotifyApplicationStateRequest
  *   ApplicationId: "STRING_VALUE", // required
- *   Status: "STRING_VALUE", // required
+ *   Status: "NOT_STARTED" || "IN_PROGRESS" || "COMPLETED", // required
  *   UpdateDateTime: new Date("TIMESTAMP"),
  *   DryRun: true || false,
  * };
@@ -107,79 +99,26 @@ export interface NotifyApplicationStateCommandOutput extends NotifyApplicationSt
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
-export class NotifyApplicationStateCommand extends $Command<
-  NotifyApplicationStateCommandInput,
-  NotifyApplicationStateCommandOutput,
-  MigrationHubClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: NotifyApplicationStateCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: MigrationHubClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<NotifyApplicationStateCommandInput, NotifyApplicationStateCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, NotifyApplicationStateCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "MigrationHubClient";
-    const commandName = "NotifyApplicationStateCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: NotifyApplicationStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_NotifyApplicationStateCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NotifyApplicationStateCommandOutput> {
-    return de_NotifyApplicationStateCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class NotifyApplicationStateCommand extends $Command
+  .classBuilder<
+    NotifyApplicationStateCommandInput,
+    NotifyApplicationStateCommandOutput,
+    MigrationHubClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: MigrationHubClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSMigrationHub", "NotifyApplicationState", {})
+  .n("MigrationHubClient", "NotifyApplicationStateCommand")
+  .f(void 0, void 0)
+  .ser(se_NotifyApplicationStateCommand)
+  .de(de_NotifyApplicationStateCommand)
+  .build() {}

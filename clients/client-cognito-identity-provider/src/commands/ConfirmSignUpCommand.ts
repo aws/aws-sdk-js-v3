@@ -1,23 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   CognitoIdentityProviderClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ConfirmSignUpRequest,
   ConfirmSignUpRequestFilterSensitiveLog,
@@ -44,7 +36,18 @@ export interface ConfirmSignUpCommandOutput extends ConfirmSignUpResponse, __Met
 
 /**
  * @public
- * <p>Confirms registration of a new user.</p>
+ * <p>This public API operation provides a code that Amazon Cognito sent to your user when they
+ *             signed up in your user pool via the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html">SignUp</a>
+ *             API operation. After your user enters their code, they confirm ownership of the email
+ *             address or phone number that they provided, and their user account becomes active.
+ *             Depending on your user pool configuration, your users will receive their confirmation
+ *             code in an email or SMS message.</p>
+ *          <p>Local users who signed up in your user pool are the only type of user who can confirm
+ *             sign-up with a code. Users who federate through an external identity provider (IdP) have
+ *             already been confirmed by their IdP. Administrator-created users, users created with the
+ *                 <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminCreateUser.html">AdminCreateUser</a> API operation, confirm their accounts when they respond to
+ *             their invitation email message and choose a password. They do not receive a confirmation
+ *             code. Instead, they receive a temporary password.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  *             this operation, you can't use IAM credentials to authorize requests, and you can't
@@ -148,77 +151,26 @@ export interface ConfirmSignUpCommandOutput extends ConfirmSignUpResponse, __Met
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
-export class ConfirmSignUpCommand extends $Command<
-  ConfirmSignUpCommandInput,
-  ConfirmSignUpCommandOutput,
-  CognitoIdentityProviderClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ConfirmSignUpCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CognitoIdentityProviderClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ConfirmSignUpCommandInput, ConfirmSignUpCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ConfirmSignUpCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CognitoIdentityProviderClient";
-    const commandName = "ConfirmSignUpCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: ConfirmSignUpRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ConfirmSignUpCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ConfirmSignUpCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ConfirmSignUpCommandOutput> {
-    return de_ConfirmSignUpCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ConfirmSignUpCommand extends $Command
+  .classBuilder<
+    ConfirmSignUpCommandInput,
+    ConfirmSignUpCommandOutput,
+    CognitoIdentityProviderClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSCognitoIdentityProviderService", "ConfirmSignUp", {})
+  .n("CognitoIdentityProviderClient", "ConfirmSignUpCommand")
+  .f(ConfirmSignUpRequestFilterSensitiveLog, void 0)
+  .ser(se_ConfirmSignUpCommand)
+  .de(de_ConfirmSignUpCommand)
+  .build() {}

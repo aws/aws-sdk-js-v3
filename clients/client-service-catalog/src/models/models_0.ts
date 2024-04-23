@@ -65,7 +65,7 @@ export interface AcceptPortfolioShareInput {
    *          <p>For example, <code>aws servicecatalog accept-portfolio-share --portfolio-id "port-2qwzkwxt3y5fk" --portfolio-share-type AWS_ORGANIZATIONS</code>
    *          </p>
    */
-  PortfolioShareType?: PortfolioShareType | string;
+  PortfolioShareType?: PortfolioShareType;
 }
 
 /**
@@ -178,7 +178,7 @@ export interface AccessLevelFilter {
    *             </li>
    *          </ul>
    */
-  Key?: AccessLevelFilterKey | string;
+  Key?: AccessLevelFilterKey;
 
   /**
    * @public
@@ -370,7 +370,7 @@ export interface AssociatePrincipalWithPortfolioInput {
    *          (ARN), or <code>IAM_PATTERN</code> if you use an ARN with no <code>accountID</code>,
    *          with or without wildcard characters. </p>
    */
-  PrincipalType: PrincipalType | string | undefined;
+  PrincipalType: PrincipalType | undefined;
 }
 
 /**
@@ -459,6 +459,12 @@ export interface AssociateServiceActionWithProvisioningArtifactInput {
    *          </ul>
    */
   AcceptLanguage?: string;
+
+  /**
+   * @public
+   * <p>A unique identifier that you provide to ensure idempotency. If multiple requests from the same Amazon Web Services account use the same idempotency token, the same response is returned for each repeated request. </p>
+   */
+  IdempotencyToken?: string;
 }
 
 /**
@@ -632,7 +638,7 @@ export interface FailedServiceActionAssociation {
    * @public
    * <p>The error code. Valid values are listed below.</p>
    */
-  ErrorCode?: ServiceActionAssociationErrorCode | string;
+  ErrorCode?: ServiceActionAssociationErrorCode;
 
   /**
    * @public
@@ -760,14 +766,14 @@ export interface CopyProductInput {
    * <p>The identifiers of the provisioning artifacts (also known as versions) of the product to copy.
    *          By default, all provisioning artifacts are copied.</p>
    */
-  SourceProvisioningArtifactIdentifiers?: Record<string, string>[];
+  SourceProvisioningArtifactIdentifiers?: Partial<Record<ProvisioningArtifactPropertyName, string>>[];
 
   /**
    * @public
    * <p>The copy options. If the value is <code>CopyTags</code>, the tags from the source
    *          product are copied to the target product.</p>
    */
-  CopyOptions?: (CopyOption | string)[];
+  CopyOptions?: CopyOption[];
 
   /**
    * @public
@@ -1021,7 +1027,7 @@ export interface CreateConstraintOutput {
    * @public
    * <p>The status of the current request.</p>
    */
-  Status?: Status | string;
+  Status?: Status;
 }
 
 /**
@@ -1159,7 +1165,7 @@ export interface OrganizationNode {
    * @public
    * <p>The organization node type.</p>
    */
-  Type?: OrganizationNodeType | string;
+  Type?: OrganizationNodeType;
 
   /**
    * @public
@@ -1216,8 +1222,10 @@ export interface CreatePortfolioShareInput {
 
   /**
    * @public
-   * <p>Enables or disables <code>Principal</code> sharing when creating the portfolio share. If this flag is not provided,
-   *          principal sharing is disabled. </p>
+   * <p>This parameter is only supported for portfolios with an <b>OrganizationalNode</b>
+   *       Type of <code>ORGANIZATION</code> or <code>ORGANIZATIONAL_UNIT</code>. </p>
+   *          <p>Enables or disables <code>Principal</code> sharing when creating the portfolio share. If you do
+   *          <b>not</b> provide this flag, principal sharing is disabled. </p>
    *          <p>When you enable Principal Name Sharing for a portfolio share, the share recipient
    *          account end users with a principal that matches any of the associated IAM
    *          patterns can provision products from the portfolio. Once
@@ -1267,6 +1275,7 @@ export class OperationNotSupportedException extends __BaseException {
  */
 export const ProductType = {
   CLOUD_FORMATION_TEMPLATE: "CLOUD_FORMATION_TEMPLATE",
+  EXTERNAL: "EXTERNAL",
   MARKETPLACE: "MARKETPLACE",
   TERRAFORM_CLOUD: "TERRAFORM_CLOUD",
   TERRAFORM_OPEN_SOURCE: "TERRAFORM_OPEN_SOURCE",
@@ -1283,6 +1292,7 @@ export type ProductType = (typeof ProductType)[keyof typeof ProductType];
  */
 export const ProvisioningArtifactType = {
   CLOUD_FORMATION_TEMPLATE: "CLOUD_FORMATION_TEMPLATE",
+  EXTERNAL: "EXTERNAL",
   MARKETPLACE_AMI: "MARKETPLACE_AMI",
   MARKETPLACE_CAR: "MARKETPLACE_CAR",
   TERRAFORM_CLOUD: "TERRAFORM_CLOUD",
@@ -1338,11 +1348,19 @@ export interface ProvisioningArtifactProperties {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>TERRAFORM_OPEN_SOURCE</code> - Terraform open source configuration file</p>
+   *                   <code>TERRAFORM_OPEN_SOURCE</code> - Terraform Open Source configuration file</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TERRAFORM_CLOUD</code> - Terraform Cloud configuration file</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EXTERNAL</code> - External configuration file</p>
    *             </li>
    *          </ul>
    */
-  Type?: ProvisioningArtifactType | string;
+  Type?: ProvisioningArtifactType;
 
   /**
    * @public
@@ -1422,7 +1440,7 @@ export interface SourceConnection {
    * @public
    * <p>The only supported <code>SourceConnection</code> type is Codestar. </p>
    */
-  Type?: SourceType | string;
+  Type?: SourceType;
 
   /**
    * @public
@@ -1499,7 +1517,7 @@ export interface CreateProductInput {
    * @public
    * <p>The type of product.</p>
    */
-  ProductType: ProductType | string | undefined;
+  ProductType: ProductType | undefined;
 
   /**
    * @public
@@ -1582,7 +1600,7 @@ export interface ProductViewSummary {
    * <p>The product type. Contact the product administrator for the significance of this
    *          value. If this value is <code>MARKETPLACE</code>, the product was created by Amazon Web Services Marketplace.</p>
    */
-  Type?: ProductType | string;
+  Type?: ProductType;
 
   /**
    * @public
@@ -1676,7 +1694,7 @@ export interface LastSync {
    * @public
    * <p>The current status of the sync. Responses include <code>SUCCEEDED</code> or <code>FAILED</code>. </p>
    */
-  LastSyncStatus?: LastSyncStatus | string;
+  LastSyncStatus?: LastSyncStatus;
 
   /**
    * @public
@@ -1706,7 +1724,7 @@ export interface SourceConnectionDetail {
    * @public
    * <p>The only supported <code>SourceConnection</code> type is Codestar.</p>
    */
-  Type?: SourceType | string;
+  Type?: SourceType;
 
   /**
    * @public
@@ -1777,7 +1795,7 @@ export interface ProductViewDetail {
    *             </li>
    *          </ul>
    */
-  Status?: Status | string;
+  Status?: Status;
 
   /**
    * @public
@@ -1843,10 +1861,26 @@ export interface ProvisioningArtifactDetail {
   /**
    * @public
    * <p>The type of provisioning artifact.</p>
-   *          <p>
-   *             <code>CLOUD_FORMATION_TEMPLATE</code> - CloudFormation template</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CLOUD_FORMATION_TEMPLATE</code> - CloudFormation template</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TERRAFORM_OPEN_SOURCE</code> - Terraform Open Source configuration file</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TERRAFORM_CLOUD</code> - Terraform Cloud configuration file</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EXTERNAL</code> - External configuration file</p>
+   *             </li>
+   *          </ul>
    */
-  Type?: ProvisioningArtifactType | string;
+  Type?: ProvisioningArtifactType;
 
   /**
    * @public
@@ -1864,7 +1898,7 @@ export interface ProvisioningArtifactDetail {
    * @public
    * <p>Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.</p>
    */
-  Guidance?: ProvisioningArtifactGuidance | string;
+  Guidance?: ProvisioningArtifactGuidance;
 
   /**
    * @public
@@ -1969,7 +2003,7 @@ export interface CreateProvisionedProductPlanInput {
    * @public
    * <p>The plan type.</p>
    */
-  PlanType: ProvisionedProductPlanType | string | undefined;
+  PlanType: ProvisionedProductPlanType | undefined;
 
   /**
    * @public
@@ -2132,7 +2166,7 @@ export interface CreateProvisioningArtifactOutput {
    * @public
    * <p>The status of the current request.</p>
    */
-  Status?: Status | string;
+  Status?: Status;
 }
 
 /**
@@ -2179,7 +2213,7 @@ export interface CreateServiceActionInput {
    * @public
    * <p>The service action definition type. For example, <code>SSM_AUTOMATION</code>.</p>
    */
-  DefinitionType: ServiceActionDefinitionType | string | undefined;
+  DefinitionType: ServiceActionDefinitionType | undefined;
 
   /**
    * @public
@@ -2207,7 +2241,7 @@ export interface CreateServiceActionInput {
    *             </dd>
    *          </dl>
    */
-  Definition: Record<string, string> | undefined;
+  Definition: Partial<Record<ServiceActionDefinitionKey, string>> | undefined;
 
   /**
    * @public
@@ -2266,7 +2300,7 @@ export interface ServiceActionSummary {
    * @public
    * <p>The self-service action definition type. For example, <code>SSM_AUTOMATION</code>.</p>
    */
-  DefinitionType?: ServiceActionDefinitionType | string;
+  DefinitionType?: ServiceActionDefinitionType;
 }
 
 /**
@@ -2284,7 +2318,7 @@ export interface ServiceActionDetail {
    * @public
    * <p>A map that defines the self-service action.</p>
    */
-  Definition?: Record<string, string>;
+  Definition?: Partial<Record<ServiceActionDefinitionKey, string>>;
 }
 
 /**
@@ -2632,6 +2666,12 @@ export interface DeleteServiceActionInput {
    *          </ul>
    */
   AcceptLanguage?: string;
+
+  /**
+   * @public
+   * <p>A unique identifier that you provide to ensure idempotency. If multiple requests from the same Amazon Web Services account use the same idempotency token, the same response is returned for each repeated request. </p>
+   */
+  IdempotencyToken?: string;
 }
 
 /**
@@ -2702,7 +2742,7 @@ export interface DescribeConstraintOutput {
    * @public
    * <p>The status of the current request.</p>
    */
-  Status?: Status | string;
+  Status?: Status;
 }
 
 /**
@@ -2755,7 +2795,7 @@ export interface DescribeCopyProductStatusOutput {
    * @public
    * <p>The status of the copy product operation.</p>
    */
-  CopyProductStatus?: CopyProductStatus | string;
+  CopyProductStatus?: CopyProductStatus;
 
   /**
    * @public
@@ -2872,7 +2912,7 @@ export interface DescribePortfolioSharesInput {
    *          <p>3. <code>ORGANIZATIONAL_UNIT</code> - Represents a share to an organizational unit.</p>
    *          <p>4. <code>ORGANIZATION_MEMBER_ACCOUNT</code> - Represents a share to an account in the organization.</p>
    */
-  Type: DescribePortfolioShareType | string | undefined;
+  Type: DescribePortfolioShareType | undefined;
 
   /**
    * @public
@@ -2907,7 +2947,7 @@ export interface PortfolioShareDetail {
    * @public
    * <p>The type of the portfolio share.</p>
    */
-  Type?: DescribePortfolioShareType | string;
+  Type?: DescribePortfolioShareType;
 
   /**
    * @public
@@ -3041,7 +3081,7 @@ export interface DescribePortfolioShareStatusOutput {
    * @public
    * <p>Status of the portfolio share operation.</p>
    */
-  Status?: ShareStatus | string;
+  Status?: ShareStatus;
 
   /**
    * @public
@@ -3134,7 +3174,7 @@ export interface ProvisioningArtifact {
    * @public
    * <p>Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.</p>
    */
-  Guidance?: ProvisioningArtifactGuidance | string;
+  Guidance?: ProvisioningArtifactGuidance;
 }
 
 /**
@@ -3418,7 +3458,9 @@ export interface ProvisionedProductDetail {
 
   /**
    * @public
-   * <p>The type of provisioned product. The supported values are <code>CFN_STACK</code> and <code>CFN_STACKSET</code>.</p>
+   * <p>The type of provisioned product.
+   *          The supported values are <code>CFN_STACK</code>, <code>CFN_STACKSET</code>, <code>TERRAFORM_OPEN_SOURCE</code>,
+   *          <code>TERRAFORM_CLOUD</code>, and <code>EXTERNAL</code>.</p>
    */
   Type?: string;
 
@@ -3460,7 +3502,7 @@ export interface ProvisionedProductDetail {
    *             </li>
    *          </ul>
    */
-  Status?: ProvisionedProductStatus | string;
+  Status?: ProvisionedProductStatus;
 
   /**
    * @public
@@ -3690,7 +3732,7 @@ export interface ProvisionedProductPlanDetails {
    * @public
    * <p>The plan type.</p>
    */
-  PlanType?: ProvisionedProductPlanType | string;
+  PlanType?: ProvisionedProductPlanType;
 
   /**
    * @public
@@ -3702,7 +3744,7 @@ export interface ProvisionedProductPlanDetails {
    * @public
    * <p>The status.</p>
    */
-  Status?: ProvisionedProductPlanStatus | string;
+  Status?: ProvisionedProductPlanStatus;
 
   /**
    * @public
@@ -3808,7 +3850,7 @@ export interface ResourceTargetDefinition {
    * @public
    * <p>The attribute to be changed.</p>
    */
-  Attribute?: ResourceAttribute | string;
+  Attribute?: ResourceAttribute;
 
   /**
    * @public
@@ -3822,7 +3864,7 @@ export interface ResourceTargetDefinition {
    * <p>If the attribute is <code>Properties</code>, indicates whether a change to this property
    *          causes the resource to be re-created.</p>
    */
-  RequiresRecreation?: RequiresRecreation | string;
+  RequiresRecreation?: RequiresRecreation;
 }
 
 /**
@@ -3841,7 +3883,7 @@ export interface ResourceChangeDetail {
    * <p>For static evaluations, the value of the resource attribute will change and the new value is known.
    *          For dynamic evaluations, the value might change, and any new value will be determined when the plan is updated.</p>
    */
-  Evaluation?: EvaluationType | string;
+  Evaluation?: EvaluationType;
 
   /**
    * @public
@@ -3874,7 +3916,7 @@ export interface ResourceChange {
    * @public
    * <p>The change action.</p>
    */
-  Action?: ChangeAction | string;
+  Action?: ChangeAction;
 
   /**
    * @public
@@ -3899,13 +3941,13 @@ export interface ResourceChange {
    * <p>If the change type is <code>Modify</code>, indicates whether the existing resource
    *          is deleted and replaced with a new one.</p>
    */
-  Replacement?: Replacement | string;
+  Replacement?: Replacement;
 
   /**
    * @public
    * <p>The change scope.</p>
    */
-  Scope?: (ResourceAttribute | string)[];
+  Scope?: ResourceAttribute[];
 
   /**
    * @public
@@ -4112,7 +4154,7 @@ export interface DescribeProvisioningArtifactOutput {
    * @public
    * <p>The status of the current request.</p>
    */
-  Status?: Status | string;
+  Status?: Status;
 
   /**
    * @public
@@ -4481,7 +4523,7 @@ export interface RecordDetail {
    *             </li>
    *          </ul>
    */
-  Status?: RecordStatus | string;
+  Status?: RecordStatus;
 
   /**
    * @public
@@ -4498,7 +4540,7 @@ export interface RecordDetail {
   /**
    * @public
    * <p>The type of provisioned product. The supported values are <code>CFN_STACK</code>, <code>CFN_STACKSET</code>,
-   *          <code>TERRAFORM_OPEN_SOURCE</code>, and <code>TERRAFORM_CLOUD</code>.</p>
+   *          <code>TERRAFORM_OPEN_SOURCE</code>, <code>TERRAFORM_CLOUD</code>, and <code>EXTERNAL</code>.</p>
    */
   ProvisionedProductType?: string;
 
@@ -4815,7 +4857,7 @@ export interface DisassociatePrincipalFromPortfolioInput {
    * <p>The supported value is <code>IAM</code> if you use a fully defined ARN, or <code>IAM_PATTERN</code>
    *          if you specify an <code>IAM</code> ARN with no AccountId, with or without wildcard characters. </p>
    */
-  PrincipalType?: PrincipalType | string;
+  PrincipalType?: PrincipalType;
 }
 
 /**
@@ -4898,6 +4940,12 @@ export interface DisassociateServiceActionFromProvisioningArtifactInput {
    *          </ul>
    */
   AcceptLanguage?: string;
+
+  /**
+   * @public
+   * <p>A unique identifier that you provide to ensure idempotency. If multiple requests from the same Amazon Web Services account use the same idempotency token, the same response is returned for each repeated request. </p>
+   */
+  IdempotencyToken?: string;
 }
 
 /**
@@ -5053,7 +5101,7 @@ export interface GetAWSOrganizationsAccessStatusOutput {
    * @public
    * <p>The status of the portfolio share feature.</p>
    */
-  AccessStatus?: AccessStatus | string;
+  AccessStatus?: AccessStatus;
 }
 
 /**
@@ -5241,7 +5289,7 @@ export interface ListAcceptedPortfolioSharesInput {
    *             </li>
    *          </ul>
    */
-  PortfolioShareType?: PortfolioShareType | string;
+  PortfolioShareType?: PortfolioShareType;
 }
 
 /**
@@ -5509,7 +5557,7 @@ export interface ListOrganizationPortfolioAccessInput {
    *             </li>
    *          </ul>
    */
-  OrganizationNodeType: OrganizationNodeType | string | undefined;
+  OrganizationNodeType: OrganizationNodeType | undefined;
 
   /**
    * @public
@@ -5767,7 +5815,7 @@ export interface Principal {
    * <p>The principal type. The supported value is <code>IAM</code> if you use a fully defined ARN, or
    *          <code>IAM_PATTERN</code> if you use an ARN with no <code>accountID</code>, with or without wildcard characters. </p>
    */
-  PrincipalType?: PrincipalType | string;
+  PrincipalType?: PrincipalType;
 }
 
 /**
@@ -5865,7 +5913,7 @@ export interface ProvisionedProductPlanSummary {
    * @public
    * <p>The plan type.</p>
    */
-  PlanType?: ProvisionedProductPlanType | string;
+  PlanType?: ProvisionedProductPlanType;
 
   /**
    * @public
@@ -6396,7 +6444,7 @@ export interface StackInstance {
    *             </li>
    *          </ul>
    */
-  StackInstanceStatus?: StackInstanceStatus | string;
+  StackInstanceStatus?: StackInstanceStatus;
 }
 
 /**
@@ -6576,7 +6624,7 @@ export interface NotifyProvisionProductEngineWorkflowResultInput {
    *          of the provisioning engine execution.
    *       </p>
    */
-  Status: EngineWorkflowStatus | string | undefined;
+  Status: EngineWorkflowStatus | undefined;
 
   /**
    * @public
@@ -6653,7 +6701,7 @@ export interface NotifyTerminateProvisionedProductEngineWorkflowResultInput {
    *          of the terminate engine execution.
    *       </p>
    */
-  Status: EngineWorkflowStatus | string | undefined;
+  Status: EngineWorkflowStatus | undefined;
 
   /**
    * @public
@@ -6710,7 +6758,7 @@ export interface NotifyUpdateProvisionedProductEngineWorkflowResultInput {
    *          of the update engine execution.
    *       </p>
    */
-  Status: EngineWorkflowStatus | string | undefined;
+  Status: EngineWorkflowStatus | undefined;
 
   /**
    * @public
@@ -6989,7 +7037,7 @@ export interface RejectPortfolioShareInput {
    *          <p>For example, <code>aws servicecatalog reject-portfolio-share --portfolio-id "port-2qwzkwxt3y5fk" --portfolio-share-type AWS_ORGANIZATIONS</code>
    *          </p>
    */
-  PortfolioShareType?: PortfolioShareType | string;
+  PortfolioShareType?: PortfolioShareType;
 }
 
 /**
@@ -7123,7 +7171,7 @@ export interface SearchProductsInput {
    * <p>The search filters. If no search filters are specified, the output includes
    *          all products to which the caller has access.</p>
    */
-  Filters?: Record<string, string[]>;
+  Filters?: Partial<Record<ProductViewFilterBy, string[]>>;
 
   /**
    * @public
@@ -7135,13 +7183,13 @@ export interface SearchProductsInput {
    * @public
    * <p>The sort field. If no value is specified, the results are not sorted.</p>
    */
-  SortBy?: ProductViewSortBy | string;
+  SortBy?: ProductViewSortBy;
 
   /**
    * @public
    * <p>The sort order. If no value is specified, the results are not sorted.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -7236,19 +7284,19 @@ export interface SearchProductsAsAdminInput {
    * <p>The search filters. If no search filters are specified, the output includes all products
    *          to which the administrator has access.</p>
    */
-  Filters?: Record<string, string[]>;
+  Filters?: Partial<Record<ProductViewFilterBy, string[]>>;
 
   /**
    * @public
    * <p>The sort field. If no value is specified, the results are not sorted.</p>
    */
-  SortBy?: ProductViewSortBy | string;
+  SortBy?: ProductViewSortBy;
 
   /**
    * @public
    * <p>The sort order. If no value is specified, the results are not sorted.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -7266,7 +7314,7 @@ export interface SearchProductsAsAdminInput {
    * @public
    * <p>Access level of the source of the product.</p>
    */
-  ProductSource?: ProductSource | string;
+  ProductSource?: ProductSource;
 }
 
 /**
@@ -7338,7 +7386,7 @@ export interface SearchProvisionedProductsInput {
    *          <p>Example: <code>"SearchQuery":["status:AVAILABLE"]</code>
    *          </p>
    */
-  Filters?: Record<string, string[]>;
+  Filters?: Partial<Record<ProvisionedProductViewFilterBy, string[]>>;
 
   /**
    * @public
@@ -7351,7 +7399,7 @@ export interface SearchProvisionedProductsInput {
    * @public
    * <p>The sort order. If no value is specified, the results are not sorted.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -7385,7 +7433,9 @@ export interface ProvisionedProductAttribute {
 
   /**
    * @public
-   * <p>The type of provisioned product. The supported values are <code>CFN_STACK</code> and <code>CFN_STACKSET</code>.</p>
+   * <p>The type of provisioned product.
+   *          The supported values are <code>CFN_STACK</code>, <code>CFN_STACKSET</code>, <code>TERRAFORM_OPEN_SOURCE</code>,
+   *          <code>TERRAFORM_CLOUD</code>, and <code>EXTERNAL</code>.</p>
    */
   Type?: string;
 
@@ -7427,7 +7477,7 @@ export interface ProvisionedProductAttribute {
    *             </li>
    *          </ul>
    */
-  Status?: ProvisionedProductStatus | string;
+  Status?: ProvisionedProductStatus;
 
   /**
    * @public
@@ -7763,7 +7813,7 @@ export interface UpdateConstraintOutput {
    * @public
    * <p>The status of the current request.</p>
    */
-  Status?: Status | string;
+  Status?: Status;
 }
 
 /**
@@ -7909,7 +7959,7 @@ export interface UpdatePortfolioShareOutput {
    *          You can also obtain the operation status using <code>DescribePortfolioShareStatus</code> API.
    *       </p>
    */
-  Status?: ShareStatus | string;
+  Status?: ShareStatus;
 }
 
 /**
@@ -8124,7 +8174,7 @@ export interface UpdateProvisioningPreferences {
    *             </dd>
    *          </dl>
    */
-  StackSetOperationType?: StackSetOperationType | string;
+  StackSetOperationType?: StackSetOperationType;
 }
 
 /**
@@ -8296,7 +8346,7 @@ export interface UpdateProvisionedProductPropertiesInput {
    *          If an end user provisions a product and the owner is updated to someone else, they will no longer be able to see or perform any actions through
    *          API or the Service Catalog console on that provisioned product.</p>
    */
-  ProvisionedProductProperties: Record<string, string> | undefined;
+  ProvisionedProductProperties: Partial<Record<PropertyKey, string>> | undefined;
 
   /**
    * @public
@@ -8319,7 +8369,7 @@ export interface UpdateProvisionedProductPropertiesOutput {
    * @public
    * <p>A map that contains the properties updated.</p>
    */
-  ProvisionedProductProperties?: Record<string, string>;
+  ProvisionedProductProperties?: Partial<Record<PropertyKey, string>>;
 
   /**
    * @public
@@ -8331,7 +8381,7 @@ export interface UpdateProvisionedProductPropertiesOutput {
    * @public
    * <p>The status of the request.</p>
    */
-  Status?: RecordStatus | string;
+  Status?: RecordStatus;
 }
 
 /**
@@ -8393,7 +8443,7 @@ export interface UpdateProvisioningArtifactInput {
    *           users that the product version is deprecated. Users are able to make updates to a provisioned product
    *           of a deprecated version but cannot launch new provisioned products using a deprecated version.</p>
    */
-  Guidance?: ProvisioningArtifactGuidance | string;
+  Guidance?: ProvisioningArtifactGuidance;
 }
 
 /**
@@ -8416,7 +8466,7 @@ export interface UpdateProvisioningArtifactOutput {
    * @public
    * <p>The status of the current request.</p>
    */
-  Status?: Status | string;
+  Status?: Status;
 }
 
 /**
@@ -8439,7 +8489,7 @@ export interface UpdateServiceActionInput {
    * @public
    * <p>A map that defines the self-service action.</p>
    */
-  Definition?: Record<string, string>;
+  Definition?: Partial<Record<ServiceActionDefinitionKey, string>>;
 
   /**
    * @public

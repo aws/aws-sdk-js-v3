@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { RestoreDBClusterFromSnapshotMessage, RestoreDBClusterFromSnapshotResult } from "../models/models_1";
 import { de_RestoreDBClusterFromSnapshotCommand, se_RestoreDBClusterFromSnapshotCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
@@ -43,11 +35,11 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  *             configuration. If you don't specify a security group, the new DB cluster is
  *             associated with the default security group.</p>
  *          <note>
- *             <p>This action only restores the DB cluster, not the DB instances for that DB
- *                 cluster. You must invoke the <code>CreateDBInstance</code> action to create DB
+ *             <p>This operation only restores the DB cluster, not the DB instances for that DB
+ *                 cluster. You must invoke the <code>CreateDBInstance</code> operation to create DB
  *                 instances for the restored DB cluster, specifying the identifier of the restored DB
  *                 cluster in <code>DBClusterIdentifier</code>. You can create DB instances only after
- *                 the <code>RestoreDBClusterFromSnapshot</code> action has completed and the DB
+ *                 the <code>RestoreDBClusterFromSnapshot</code> operation has completed and the DB
  *                 cluster is available.</p>
  *          </note>
  *          <p>For more information on Amazon Aurora DB clusters, see
@@ -113,6 +105,11 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  *     MaxCapacity: Number("double"),
  *   },
  *   NetworkType: "STRING_VALUE",
+ *   RdsCustomClusterConfiguration: { // RdsCustomClusterConfiguration
+ *     InterconnectSubnetId: "STRING_VALUE",
+ *     TransitGatewayMulticastDomainId: "STRING_VALUE",
+ *     ReplicaMode: "open-read-only" || "mounted",
+ *   },
  * };
  * const command = new RestoreDBClusterFromSnapshotCommand(input);
  * const response = await client.send(command);
@@ -154,6 +151,14 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * //     ReplicationSourceIdentifier: "STRING_VALUE",
  * //     ReadReplicaIdentifiers: [ // ReadReplicaIdentifierList
  * //       "STRING_VALUE",
+ * //     ],
+ * //     StatusInfos: [ // DBClusterStatusInfoList
+ * //       { // DBClusterStatusInfo
+ * //         StatusType: "STRING_VALUE",
+ * //         Normal: true || false,
+ * //         Status: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
  * //     ],
  * //     DBClusterMembers: [ // DBClusterMemberList
  * //       { // DBClusterMember
@@ -200,6 +205,11 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * //       TimeoutAction: "STRING_VALUE",
  * //       SecondsBeforeTimeout: Number("int"),
  * //     },
+ * //     RdsCustomClusterConfiguration: { // RdsCustomClusterConfiguration
+ * //       InterconnectSubnetId: "STRING_VALUE",
+ * //       TransitGatewayMulticastDomainId: "STRING_VALUE",
+ * //       ReplicaMode: "open-read-only" || "mounted",
+ * //     },
  * //     DeletionProtection: true || false,
  * //     HttpEndpointEnabled: true || false,
  * //     ActivityStreamMode: "sync" || "async",
@@ -244,6 +254,11 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * //       EngineVersion: "STRING_VALUE",
  * //       BackupRetentionPeriod: Number("int"),
  * //       AllocatedStorage: Number("int"),
+ * //       RdsCustomClusterConfiguration: {
+ * //         InterconnectSubnetId: "STRING_VALUE",
+ * //         TransitGatewayMulticastDomainId: "STRING_VALUE",
+ * //         ReplicaMode: "open-read-only" || "mounted",
+ * //       },
  * //       Iops: Number("int"),
  * //       StorageType: "STRING_VALUE",
  * //     },
@@ -270,6 +285,11 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * //     },
  * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
  * //     LocalWriteForwardingStatus: "enabled" || "disabled" || "enabling" || "disabling" || "requested",
+ * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
+ * //     LimitlessDatabase: { // LimitlessDatabase
+ * //       Status: "active" || "not-in-use" || "enabled" || "disabled" || "enabling" || "disabling" || "modifying-max-capacity" || "error",
+ * //       MinRequiredACU: Number("double"),
+ * //     },
  * //   },
  * // };
  *
@@ -300,6 +320,9 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * @throws {@link DBSnapshotNotFoundFault} (client fault)
  *  <p>
  *             <code>DBSnapshotIdentifier</code> doesn't refer to an existing DB snapshot.</p>
+ *
+ * @throws {@link DBSubnetGroupDoesNotCoverEnoughAZs} (client fault)
+ *  <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
  *
  * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
  *  <p>
@@ -413,82 +436,26 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * ```
  *
  */
-export class RestoreDBClusterFromSnapshotCommand extends $Command<
-  RestoreDBClusterFromSnapshotCommandInput,
-  RestoreDBClusterFromSnapshotCommandOutput,
-  RDSClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: RestoreDBClusterFromSnapshotCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RDSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<RestoreDBClusterFromSnapshotCommandInput, RestoreDBClusterFromSnapshotCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, RestoreDBClusterFromSnapshotCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RDSClient";
-    const commandName = "RestoreDBClusterFromSnapshotCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: RestoreDBClusterFromSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_RestoreDBClusterFromSnapshotCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RestoreDBClusterFromSnapshotCommandOutput> {
-    return de_RestoreDBClusterFromSnapshotCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class RestoreDBClusterFromSnapshotCommand extends $Command
+  .classBuilder<
+    RestoreDBClusterFromSnapshotCommandInput,
+    RestoreDBClusterFromSnapshotCommandOutput,
+    RDSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonRDSv19", "RestoreDBClusterFromSnapshot", {})
+  .n("RDSClient", "RestoreDBClusterFromSnapshotCommand")
+  .f(void 0, void 0)
+  .ser(se_RestoreDBClusterFromSnapshotCommand)
+  .de(de_RestoreDBClusterFromSnapshotCommand)
+  .build() {}

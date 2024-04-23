@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateCaseRequest, CreateCaseResponse } from "../models/models_0";
 import { de_CreateCaseCommand, se_CreateCaseCommand } from "../protocols/Aws_restJson1";
 
@@ -36,27 +28,28 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
 
 /**
  * @public
- * <p>Creates a case in the specified Cases domain. Case system and custom fields are taken
- *       as an array id/value pairs with a declared data types.</p>
- *          <note>
- *             <p>The following fields are required when creating a case:</p>
- *
- *             <ul>
- *                <li>
- *                   <p>
- *                      <code>customer_id</code> - You must provide the full customer profile ARN in this
- *             format: <code>arn:aws:profile:your AWS Region:your AWS account ID:domains/profiles
- *               domain name/profiles/profile ID</code>
- *                   </p>
- *                </li>
- *                <li>
- *                   <p>
- *                      <code>title</code>
- *                   </p>
- *                </li>
- *             </ul>
- *
+ * <note>
+ *             <p>If you provide a value for <code>PerformedBy.UserArn</code> you must also have <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">connect:DescribeUser</a> permission on the User ARN resource that you provide</p>
  *          </note>
+ *
+ *          <p>Creates a case in the specified Cases domain. Case system and custom fields are taken
+ *       as an array id/value pairs with a declared data types.</p>
+ *          <p>The following fields are required when creating a case:</p>
+ *
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>customer_id</code> - You must provide the full customer profile ARN in this format:
+ *             <code>arn:aws:profile:your_AWS_Region:your_AWS_account
+ *             ID:domains/your_profiles_domain_name/profiles/profile_ID</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>title</code>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,10 +67,14 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  *         doubleValue: Number("double"),
  *         booleanValue: true || false,
  *         emptyValue: {},
+ *         userArnValue: "STRING_VALUE",
  *       },
  *     },
  *   ],
  *   clientToken: "STRING_VALUE",
+ *   performedBy: { // UserUnion Union: only one key present
+ *     userArn: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateCaseCommand(input);
  * const response = await client.send(command);
@@ -120,77 +117,26 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
  */
-export class CreateCaseCommand extends $Command<
-  CreateCaseCommandInput,
-  CreateCaseCommandOutput,
-  ConnectCasesClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateCaseCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ConnectCasesClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateCaseCommandInput, CreateCaseCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, CreateCaseCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ConnectCasesClient";
-    const commandName = "CreateCaseCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateCaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateCaseCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCaseCommandOutput> {
-    return de_CreateCaseCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateCaseCommand extends $Command
+  .classBuilder<
+    CreateCaseCommandInput,
+    CreateCaseCommandOutput,
+    ConnectCasesClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonConnectCases", "CreateCase", {})
+  .n("ConnectCasesClient", "CreateCaseCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateCaseCommand)
+  .de(de_CreateCaseCommand)
+  .build() {}

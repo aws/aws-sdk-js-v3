@@ -44,6 +44,16 @@ import {
   CreateReportPlanCommandOutput,
 } from "./commands/CreateReportPlanCommand";
 import {
+  CreateRestoreTestingPlanCommand,
+  CreateRestoreTestingPlanCommandInput,
+  CreateRestoreTestingPlanCommandOutput,
+} from "./commands/CreateRestoreTestingPlanCommand";
+import {
+  CreateRestoreTestingSelectionCommand,
+  CreateRestoreTestingSelectionCommandInput,
+  CreateRestoreTestingSelectionCommandOutput,
+} from "./commands/CreateRestoreTestingSelectionCommand";
+import {
   DeleteBackupPlanCommand,
   DeleteBackupPlanCommandInput,
   DeleteBackupPlanCommandOutput,
@@ -88,6 +98,16 @@ import {
   DeleteReportPlanCommandInput,
   DeleteReportPlanCommandOutput,
 } from "./commands/DeleteReportPlanCommand";
+import {
+  DeleteRestoreTestingPlanCommand,
+  DeleteRestoreTestingPlanCommandInput,
+  DeleteRestoreTestingPlanCommandOutput,
+} from "./commands/DeleteRestoreTestingPlanCommand";
+import {
+  DeleteRestoreTestingSelectionCommand,
+  DeleteRestoreTestingSelectionCommandInput,
+  DeleteRestoreTestingSelectionCommandOutput,
+} from "./commands/DeleteRestoreTestingSelectionCommand";
 import {
   DescribeBackupJobCommand,
   DescribeBackupJobCommandInput,
@@ -199,6 +219,26 @@ import {
   GetRecoveryPointRestoreMetadataCommandOutput,
 } from "./commands/GetRecoveryPointRestoreMetadataCommand";
 import {
+  GetRestoreJobMetadataCommand,
+  GetRestoreJobMetadataCommandInput,
+  GetRestoreJobMetadataCommandOutput,
+} from "./commands/GetRestoreJobMetadataCommand";
+import {
+  GetRestoreTestingInferredMetadataCommand,
+  GetRestoreTestingInferredMetadataCommandInput,
+  GetRestoreTestingInferredMetadataCommandOutput,
+} from "./commands/GetRestoreTestingInferredMetadataCommand";
+import {
+  GetRestoreTestingPlanCommand,
+  GetRestoreTestingPlanCommandInput,
+  GetRestoreTestingPlanCommandOutput,
+} from "./commands/GetRestoreTestingPlanCommand";
+import {
+  GetRestoreTestingSelectionCommand,
+  GetRestoreTestingSelectionCommandInput,
+  GetRestoreTestingSelectionCommandOutput,
+} from "./commands/GetRestoreTestingSelectionCommand";
+import {
   GetSupportedResourceTypesCommand,
   GetSupportedResourceTypesCommandInput,
   GetSupportedResourceTypesCommandOutput,
@@ -208,6 +248,11 @@ import {
   ListBackupJobsCommandInput,
   ListBackupJobsCommandOutput,
 } from "./commands/ListBackupJobsCommand";
+import {
+  ListBackupJobSummariesCommand,
+  ListBackupJobSummariesCommandInput,
+  ListBackupJobSummariesCommandOutput,
+} from "./commands/ListBackupJobSummariesCommand";
 import {
   ListBackupPlansCommand,
   ListBackupPlansCommandInput,
@@ -238,6 +283,11 @@ import {
   ListCopyJobsCommandInput,
   ListCopyJobsCommandOutput,
 } from "./commands/ListCopyJobsCommand";
+import {
+  ListCopyJobSummariesCommand,
+  ListCopyJobSummariesCommandInput,
+  ListCopyJobSummariesCommandOutput,
+} from "./commands/ListCopyJobSummariesCommand";
 import {
   ListFrameworksCommand,
   ListFrameworksCommandInput,
@@ -284,10 +334,30 @@ import {
   ListReportPlansCommandOutput,
 } from "./commands/ListReportPlansCommand";
 import {
+  ListRestoreJobsByProtectedResourceCommand,
+  ListRestoreJobsByProtectedResourceCommandInput,
+  ListRestoreJobsByProtectedResourceCommandOutput,
+} from "./commands/ListRestoreJobsByProtectedResourceCommand";
+import {
   ListRestoreJobsCommand,
   ListRestoreJobsCommandInput,
   ListRestoreJobsCommandOutput,
 } from "./commands/ListRestoreJobsCommand";
+import {
+  ListRestoreJobSummariesCommand,
+  ListRestoreJobSummariesCommandInput,
+  ListRestoreJobSummariesCommandOutput,
+} from "./commands/ListRestoreJobSummariesCommand";
+import {
+  ListRestoreTestingPlansCommand,
+  ListRestoreTestingPlansCommandInput,
+  ListRestoreTestingPlansCommandOutput,
+} from "./commands/ListRestoreTestingPlansCommand";
+import {
+  ListRestoreTestingSelectionsCommand,
+  ListRestoreTestingSelectionsCommandInput,
+  ListRestoreTestingSelectionsCommandOutput,
+} from "./commands/ListRestoreTestingSelectionsCommand";
 import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
   PutBackupVaultAccessPolicyCommand,
@@ -304,6 +374,11 @@ import {
   PutBackupVaultNotificationsCommandInput,
   PutBackupVaultNotificationsCommandOutput,
 } from "./commands/PutBackupVaultNotificationsCommand";
+import {
+  PutRestoreValidationResultCommand,
+  PutRestoreValidationResultCommandInput,
+  PutRestoreValidationResultCommandOutput,
+} from "./commands/PutRestoreValidationResultCommand";
 import {
   StartBackupJobCommand,
   StartBackupJobCommandInput,
@@ -365,6 +440,16 @@ import {
   UpdateReportPlanCommandInput,
   UpdateReportPlanCommandOutput,
 } from "./commands/UpdateReportPlanCommand";
+import {
+  UpdateRestoreTestingPlanCommand,
+  UpdateRestoreTestingPlanCommandInput,
+  UpdateRestoreTestingPlanCommandOutput,
+} from "./commands/UpdateRestoreTestingPlanCommand";
+import {
+  UpdateRestoreTestingSelectionCommand,
+  UpdateRestoreTestingSelectionCommandInput,
+  UpdateRestoreTestingSelectionCommandOutput,
+} from "./commands/UpdateRestoreTestingSelectionCommand";
 
 const commands = {
   CancelLegalHoldCommand,
@@ -375,6 +460,8 @@ const commands = {
   CreateLegalHoldCommand,
   CreateLogicallyAirGappedBackupVaultCommand,
   CreateReportPlanCommand,
+  CreateRestoreTestingPlanCommand,
+  CreateRestoreTestingSelectionCommand,
   DeleteBackupPlanCommand,
   DeleteBackupSelectionCommand,
   DeleteBackupVaultCommand,
@@ -384,6 +471,8 @@ const commands = {
   DeleteFrameworkCommand,
   DeleteRecoveryPointCommand,
   DeleteReportPlanCommand,
+  DeleteRestoreTestingPlanCommand,
+  DeleteRestoreTestingSelectionCommand,
   DescribeBackupJobCommand,
   DescribeBackupVaultCommand,
   DescribeCopyJobCommand,
@@ -406,14 +495,20 @@ const commands = {
   GetBackupVaultNotificationsCommand,
   GetLegalHoldCommand,
   GetRecoveryPointRestoreMetadataCommand,
+  GetRestoreJobMetadataCommand,
+  GetRestoreTestingInferredMetadataCommand,
+  GetRestoreTestingPlanCommand,
+  GetRestoreTestingSelectionCommand,
   GetSupportedResourceTypesCommand,
   ListBackupJobsCommand,
+  ListBackupJobSummariesCommand,
   ListBackupPlansCommand,
   ListBackupPlanTemplatesCommand,
   ListBackupPlanVersionsCommand,
   ListBackupSelectionsCommand,
   ListBackupVaultsCommand,
   ListCopyJobsCommand,
+  ListCopyJobSummariesCommand,
   ListFrameworksCommand,
   ListLegalHoldsCommand,
   ListProtectedResourcesCommand,
@@ -424,10 +519,15 @@ const commands = {
   ListReportJobsCommand,
   ListReportPlansCommand,
   ListRestoreJobsCommand,
+  ListRestoreJobsByProtectedResourceCommand,
+  ListRestoreJobSummariesCommand,
+  ListRestoreTestingPlansCommand,
+  ListRestoreTestingSelectionsCommand,
   ListTagsCommand,
   PutBackupVaultAccessPolicyCommand,
   PutBackupVaultLockConfigurationCommand,
   PutBackupVaultNotificationsCommand,
+  PutRestoreValidationResultCommand,
   StartBackupJobCommand,
   StartCopyJobCommand,
   StartReportJobCommand,
@@ -441,6 +541,8 @@ const commands = {
   UpdateRecoveryPointLifecycleCommand,
   UpdateRegionSettingsCommand,
   UpdateReportPlanCommand,
+  UpdateRestoreTestingPlanCommand,
+  UpdateRestoreTestingSelectionCommand,
 };
 
 export interface Backup {
@@ -569,6 +671,40 @@ export interface Backup {
     args: CreateReportPlanCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateReportPlanCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateRestoreTestingPlanCommand}
+   */
+  createRestoreTestingPlan(
+    args: CreateRestoreTestingPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRestoreTestingPlanCommandOutput>;
+  createRestoreTestingPlan(
+    args: CreateRestoreTestingPlanCommandInput,
+    cb: (err: any, data?: CreateRestoreTestingPlanCommandOutput) => void
+  ): void;
+  createRestoreTestingPlan(
+    args: CreateRestoreTestingPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRestoreTestingPlanCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateRestoreTestingSelectionCommand}
+   */
+  createRestoreTestingSelection(
+    args: CreateRestoreTestingSelectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRestoreTestingSelectionCommandOutput>;
+  createRestoreTestingSelection(
+    args: CreateRestoreTestingSelectionCommandInput,
+    cb: (err: any, data?: CreateRestoreTestingSelectionCommandOutput) => void
+  ): void;
+  createRestoreTestingSelection(
+    args: CreateRestoreTestingSelectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRestoreTestingSelectionCommandOutput) => void
   ): void;
 
   /**
@@ -719,6 +855,40 @@ export interface Backup {
     args: DeleteReportPlanCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteReportPlanCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRestoreTestingPlanCommand}
+   */
+  deleteRestoreTestingPlan(
+    args: DeleteRestoreTestingPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRestoreTestingPlanCommandOutput>;
+  deleteRestoreTestingPlan(
+    args: DeleteRestoreTestingPlanCommandInput,
+    cb: (err: any, data?: DeleteRestoreTestingPlanCommandOutput) => void
+  ): void;
+  deleteRestoreTestingPlan(
+    args: DeleteRestoreTestingPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRestoreTestingPlanCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRestoreTestingSelectionCommand}
+   */
+  deleteRestoreTestingSelection(
+    args: DeleteRestoreTestingSelectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRestoreTestingSelectionCommandOutput>;
+  deleteRestoreTestingSelection(
+    args: DeleteRestoreTestingSelectionCommandInput,
+    cb: (err: any, data?: DeleteRestoreTestingSelectionCommandOutput) => void
+  ): void;
+  deleteRestoreTestingSelection(
+    args: DeleteRestoreTestingSelectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRestoreTestingSelectionCommandOutput) => void
   ): void;
 
   /**
@@ -1081,6 +1251,74 @@ export interface Backup {
   ): void;
 
   /**
+   * @see {@link GetRestoreJobMetadataCommand}
+   */
+  getRestoreJobMetadata(
+    args: GetRestoreJobMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRestoreJobMetadataCommandOutput>;
+  getRestoreJobMetadata(
+    args: GetRestoreJobMetadataCommandInput,
+    cb: (err: any, data?: GetRestoreJobMetadataCommandOutput) => void
+  ): void;
+  getRestoreJobMetadata(
+    args: GetRestoreJobMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRestoreJobMetadataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRestoreTestingInferredMetadataCommand}
+   */
+  getRestoreTestingInferredMetadata(
+    args: GetRestoreTestingInferredMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRestoreTestingInferredMetadataCommandOutput>;
+  getRestoreTestingInferredMetadata(
+    args: GetRestoreTestingInferredMetadataCommandInput,
+    cb: (err: any, data?: GetRestoreTestingInferredMetadataCommandOutput) => void
+  ): void;
+  getRestoreTestingInferredMetadata(
+    args: GetRestoreTestingInferredMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRestoreTestingInferredMetadataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRestoreTestingPlanCommand}
+   */
+  getRestoreTestingPlan(
+    args: GetRestoreTestingPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRestoreTestingPlanCommandOutput>;
+  getRestoreTestingPlan(
+    args: GetRestoreTestingPlanCommandInput,
+    cb: (err: any, data?: GetRestoreTestingPlanCommandOutput) => void
+  ): void;
+  getRestoreTestingPlan(
+    args: GetRestoreTestingPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRestoreTestingPlanCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRestoreTestingSelectionCommand}
+   */
+  getRestoreTestingSelection(
+    args: GetRestoreTestingSelectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRestoreTestingSelectionCommandOutput>;
+  getRestoreTestingSelection(
+    args: GetRestoreTestingSelectionCommandInput,
+    cb: (err: any, data?: GetRestoreTestingSelectionCommandOutput) => void
+  ): void;
+  getRestoreTestingSelection(
+    args: GetRestoreTestingSelectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRestoreTestingSelectionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetSupportedResourceTypesCommand}
    */
   getSupportedResourceTypes(
@@ -1109,6 +1347,23 @@ export interface Backup {
     args: ListBackupJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListBackupJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListBackupJobSummariesCommand}
+   */
+  listBackupJobSummaries(
+    args: ListBackupJobSummariesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBackupJobSummariesCommandOutput>;
+  listBackupJobSummaries(
+    args: ListBackupJobSummariesCommandInput,
+    cb: (err: any, data?: ListBackupJobSummariesCommandOutput) => void
+  ): void;
+  listBackupJobSummaries(
+    args: ListBackupJobSummariesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListBackupJobSummariesCommandOutput) => void
   ): void;
 
   /**
@@ -1202,6 +1457,23 @@ export interface Backup {
     args: ListCopyJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListCopyJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCopyJobSummariesCommand}
+   */
+  listCopyJobSummaries(
+    args: ListCopyJobSummariesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCopyJobSummariesCommandOutput>;
+  listCopyJobSummaries(
+    args: ListCopyJobSummariesCommandInput,
+    cb: (err: any, data?: ListCopyJobSummariesCommandOutput) => void
+  ): void;
+  listCopyJobSummaries(
+    args: ListCopyJobSummariesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCopyJobSummariesCommandOutput) => void
   ): void;
 
   /**
@@ -1360,6 +1632,74 @@ export interface Backup {
   ): void;
 
   /**
+   * @see {@link ListRestoreJobsByProtectedResourceCommand}
+   */
+  listRestoreJobsByProtectedResource(
+    args: ListRestoreJobsByProtectedResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRestoreJobsByProtectedResourceCommandOutput>;
+  listRestoreJobsByProtectedResource(
+    args: ListRestoreJobsByProtectedResourceCommandInput,
+    cb: (err: any, data?: ListRestoreJobsByProtectedResourceCommandOutput) => void
+  ): void;
+  listRestoreJobsByProtectedResource(
+    args: ListRestoreJobsByProtectedResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRestoreJobsByProtectedResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRestoreJobSummariesCommand}
+   */
+  listRestoreJobSummaries(
+    args: ListRestoreJobSummariesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRestoreJobSummariesCommandOutput>;
+  listRestoreJobSummaries(
+    args: ListRestoreJobSummariesCommandInput,
+    cb: (err: any, data?: ListRestoreJobSummariesCommandOutput) => void
+  ): void;
+  listRestoreJobSummaries(
+    args: ListRestoreJobSummariesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRestoreJobSummariesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRestoreTestingPlansCommand}
+   */
+  listRestoreTestingPlans(
+    args: ListRestoreTestingPlansCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRestoreTestingPlansCommandOutput>;
+  listRestoreTestingPlans(
+    args: ListRestoreTestingPlansCommandInput,
+    cb: (err: any, data?: ListRestoreTestingPlansCommandOutput) => void
+  ): void;
+  listRestoreTestingPlans(
+    args: ListRestoreTestingPlansCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRestoreTestingPlansCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRestoreTestingSelectionsCommand}
+   */
+  listRestoreTestingSelections(
+    args: ListRestoreTestingSelectionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRestoreTestingSelectionsCommandOutput>;
+  listRestoreTestingSelections(
+    args: ListRestoreTestingSelectionsCommandInput,
+    cb: (err: any, data?: ListRestoreTestingSelectionsCommandOutput) => void
+  ): void;
+  listRestoreTestingSelections(
+    args: ListRestoreTestingSelectionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRestoreTestingSelectionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsCommand}
    */
   listTags(args: ListTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListTagsCommandOutput>;
@@ -1419,6 +1759,23 @@ export interface Backup {
     args: PutBackupVaultNotificationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutBackupVaultNotificationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutRestoreValidationResultCommand}
+   */
+  putRestoreValidationResult(
+    args: PutRestoreValidationResultCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutRestoreValidationResultCommandOutput>;
+  putRestoreValidationResult(
+    args: PutRestoreValidationResultCommandInput,
+    cb: (err: any, data?: PutRestoreValidationResultCommandOutput) => void
+  ): void;
+  putRestoreValidationResult(
+    args: PutRestoreValidationResultCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutRestoreValidationResultCommandOutput) => void
   ): void;
 
   /**
@@ -1604,6 +1961,40 @@ export interface Backup {
     args: UpdateReportPlanCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateReportPlanCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateRestoreTestingPlanCommand}
+   */
+  updateRestoreTestingPlan(
+    args: UpdateRestoreTestingPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRestoreTestingPlanCommandOutput>;
+  updateRestoreTestingPlan(
+    args: UpdateRestoreTestingPlanCommandInput,
+    cb: (err: any, data?: UpdateRestoreTestingPlanCommandOutput) => void
+  ): void;
+  updateRestoreTestingPlan(
+    args: UpdateRestoreTestingPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRestoreTestingPlanCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateRestoreTestingSelectionCommand}
+   */
+  updateRestoreTestingSelection(
+    args: UpdateRestoreTestingSelectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRestoreTestingSelectionCommandOutput>;
+  updateRestoreTestingSelection(
+    args: UpdateRestoreTestingSelectionCommandInput,
+    cb: (err: any, data?: UpdateRestoreTestingSelectionCommandOutput) => void
+  ): void;
+  updateRestoreTestingSelection(
+    args: UpdateRestoreTestingSelectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRestoreTestingSelectionCommandOutput) => void
   ): void;
 }
 

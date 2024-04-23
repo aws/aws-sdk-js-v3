@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreateLocationFsxOntapRequest,
   CreateLocationFsxOntapRequestFilterSensitiveLog,
@@ -40,7 +32,9 @@ export interface CreateLocationFsxOntapCommandOutput extends CreateLocationFsxOn
 
 /**
  * @public
- * <p>Creates an endpoint for an Amazon FSx for NetApp ONTAP file system that DataSync can access for a transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html">Creating a location for FSx for ONTAP</a>.</p>
+ * <p>Creates an endpoint for an Amazon FSx for NetApp ONTAP file system that DataSync can use for a data transfer.</p>
+ *          <p>Before you begin, make sure that you understand how DataSync
+ *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-access">accesses an FSx for ONTAP file system</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,79 +94,26 @@ export interface CreateLocationFsxOntapCommandOutput extends CreateLocationFsxOn
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
  */
-export class CreateLocationFsxOntapCommand extends $Command<
-  CreateLocationFsxOntapCommandInput,
-  CreateLocationFsxOntapCommandOutput,
-  DataSyncClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateLocationFsxOntapCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: DataSyncClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateLocationFsxOntapCommandInput, CreateLocationFsxOntapCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateLocationFsxOntapCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "DataSyncClient";
-    const commandName = "CreateLocationFsxOntapCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: CreateLocationFsxOntapRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateLocationFsxOntapCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateLocationFsxOntapCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLocationFsxOntapCommandOutput> {
-    return de_CreateLocationFsxOntapCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateLocationFsxOntapCommand extends $Command
+  .classBuilder<
+    CreateLocationFsxOntapCommandInput,
+    CreateLocationFsxOntapCommandOutput,
+    DataSyncClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("FmrsService", "CreateLocationFsxOntap", {})
+  .n("DataSyncClient", "CreateLocationFsxOntapCommand")
+  .f(CreateLocationFsxOntapRequestFilterSensitiveLog, void 0)
+  .ser(se_CreateLocationFsxOntapCommand)
+  .de(de_CreateLocationFsxOntapCommand)
+  .build() {}

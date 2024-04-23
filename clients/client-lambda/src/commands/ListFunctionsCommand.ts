@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient";
 import {
   ListFunctionsRequest,
@@ -69,7 +61,7 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  * //     { // FunctionConfiguration
  * //       FunctionName: "STRING_VALUE",
  * //       FunctionArn: "STRING_VALUE",
- * //       Runtime: "nodejs" || "nodejs4.3" || "nodejs6.10" || "nodejs8.10" || "nodejs10.x" || "nodejs12.x" || "nodejs14.x" || "nodejs16.x" || "java8" || "java8.al2" || "java11" || "python2.7" || "python3.6" || "python3.7" || "python3.8" || "python3.9" || "dotnetcore1.0" || "dotnetcore2.0" || "dotnetcore2.1" || "dotnetcore3.1" || "dotnet6" || "nodejs4.3-edge" || "go1.x" || "ruby2.5" || "ruby2.7" || "provided" || "provided.al2" || "nodejs18.x" || "python3.10" || "java17" || "ruby3.2" || "python3.11",
+ * //       Runtime: "nodejs" || "nodejs4.3" || "nodejs6.10" || "nodejs8.10" || "nodejs10.x" || "nodejs12.x" || "nodejs14.x" || "nodejs16.x" || "java8" || "java8.al2" || "java11" || "python2.7" || "python3.6" || "python3.7" || "python3.8" || "python3.9" || "dotnetcore1.0" || "dotnetcore2.0" || "dotnetcore2.1" || "dotnetcore3.1" || "dotnet6" || "nodejs4.3-edge" || "go1.x" || "ruby2.5" || "ruby2.7" || "provided" || "provided.al2" || "nodejs18.x" || "python3.10" || "java17" || "ruby3.2" || "python3.11" || "nodejs20.x" || "provided.al2023" || "python3.12" || "java21",
  * //       Role: "STRING_VALUE",
  * //       Handler: "STRING_VALUE",
  * //       CodeSize: Number("long"),
@@ -87,6 +79,7 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  * //           "STRING_VALUE",
  * //         ],
  * //         VpcId: "STRING_VALUE",
+ * //         Ipv6AllowedForDualStack: true || false,
  * //       },
  * //       DeadLetterConfig: { // DeadLetterConfig
  * //         TargetArn: "STRING_VALUE",
@@ -161,6 +154,12 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  * //           Message: "STRING_VALUE",
  * //         },
  * //       },
+ * //       LoggingConfig: { // LoggingConfig
+ * //         LogFormat: "JSON" || "Text",
+ * //         ApplicationLogLevel: "TRACE" || "DEBUG" || "INFO" || "WARN" || "ERROR" || "FATAL",
+ * //         SystemLogLevel: "DEBUG" || "INFO" || "WARN",
+ * //         LogGroup: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * // };
@@ -186,77 +185,26 @@ export interface ListFunctionsCommandOutput extends ListFunctionsResponse, __Met
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  */
-export class ListFunctionsCommand extends $Command<
-  ListFunctionsCommandInput,
-  ListFunctionsCommandOutput,
-  LambdaClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListFunctionsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: LambdaClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListFunctionsCommandInput, ListFunctionsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListFunctionsCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "LambdaClient";
-    const commandName = "ListFunctionsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: ListFunctionsResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListFunctionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListFunctionsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListFunctionsCommandOutput> {
-    return de_ListFunctionsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListFunctionsCommand extends $Command
+  .classBuilder<
+    ListFunctionsCommandInput,
+    ListFunctionsCommandOutput,
+    LambdaClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSGirApiService", "ListFunctions", {})
+  .n("LambdaClient", "ListFunctionsCommand")
+  .f(void 0, ListFunctionsResponseFilterSensitiveLog)
+  .ser(se_ListFunctionsCommand)
+  .de(de_ListFunctionsCommand)
+  .build() {}

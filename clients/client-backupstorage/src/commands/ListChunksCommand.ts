@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BackupStorageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupStorageClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListChunksInput, ListChunksOutput } from "../models/models_0";
 import { de_ListChunksCommand, se_ListChunksCommand } from "../protocols/Aws_restJson1";
 
@@ -57,7 +49,7 @@ export interface ListChunksCommandOutput extends ListChunksOutput, __MetadataBea
  * //       Index: Number("long"), // required
  * //       Length: Number("long"), // required
  * //       Checksum: "STRING_VALUE", // required
- * //       ChecksumAlgorithm: "STRING_VALUE", // required
+ * //       ChecksumAlgorithm: "SHA256", // required
  * //       ChunkToken: "STRING_VALUE", // required
  * //     },
  * //   ],
@@ -94,77 +86,26 @@ export interface ListChunksCommandOutput extends ListChunksOutput, __MetadataBea
  * <p>Base exception class for all service exceptions from BackupStorage service.</p>
  *
  */
-export class ListChunksCommand extends $Command<
-  ListChunksCommandInput,
-  ListChunksCommandOutput,
-  BackupStorageClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListChunksCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: BackupStorageClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListChunksCommandInput, ListChunksCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListChunksCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "BackupStorageClient";
-    const commandName = "ListChunksCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListChunksCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListChunksCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChunksCommandOutput> {
-    return de_ListChunksCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListChunksCommand extends $Command
+  .classBuilder<
+    ListChunksCommandInput,
+    ListChunksCommandOutput,
+    BackupStorageClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: BackupStorageClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CryoStorageFrontendService", "ListChunks", {})
+  .n("BackupStorageClient", "ListChunksCommand")
+  .f(void 0, void 0)
+  .ser(se_ListChunksCommand)
+  .de(de_ListChunksCommand)
+  .build() {}

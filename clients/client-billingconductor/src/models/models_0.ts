@@ -152,7 +152,7 @@ export class ConflictException extends __BaseException {
    * <p>Reason for the inconsistent state.
    *     </p>
    */
-  Reason?: ConflictExceptionReason | string;
+  Reason?: ConflictExceptionReason;
   /**
    * @internal
    */
@@ -354,6 +354,7 @@ export const ValidationExceptionReason = {
   DUPLICATE_PRICINGRULE_ARNS: "DUPLICATE_PRICINGRULE_ARNS",
   FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
   ILLEGAL_ACCOUNTS: "ILLEGAL_ACCOUNTS",
+  ILLEGAL_ACCOUNT_ID: "ILLEGAL_ACCOUNT_ID",
   ILLEGAL_BILLING_ENTITY: "ILLEGAL_BILLING_ENTITY",
   ILLEGAL_BILLING_PERIOD: "ILLEGAL_BILLING_PERIOD",
   ILLEGAL_BILLING_PERIOD_RANGE: "ILLEGAL_BILLING_PERIOD_RANGE",
@@ -424,7 +425,7 @@ export class ValidationException extends __BaseException {
    * <p>The reason the request's validation failed.
    *     </p>
    */
-  Reason?: ValidationExceptionReason | string;
+  Reason?: ValidationExceptionReason;
 
   /**
    * @public
@@ -515,7 +516,7 @@ export interface AssociateResourceError {
    * @public
    * <p>A static error code that's used to classify the type of failure.</p>
    */
-  Reason?: AssociateResourceErrorReason | string;
+  Reason?: AssociateResourceErrorReason;
 }
 
 /**
@@ -534,6 +535,27 @@ export interface AssociateResourceResponseElement {
    * <p>An <code>AssociateResourceError</code> that will populate if the resource association fails.</p>
    */
   Error?: AssociateResourceError;
+}
+
+/**
+ * @public
+ * <p>The key-value pair that represents the attribute by which the
+ *                 <code>BillingGroupCostReportResults</code> are grouped. For example, if you want a
+ *             service-level breakdown for Amazon Simple Storage Service (Amazon S3) of the billing group, the attribute will be a key-value pair
+ *             of <code>"PRODUCT_NAME"</code> and <code>"S3"</code>.</p>
+ */
+export interface Attribute {
+  /**
+   * @public
+   * <p>The key in a key-value pair that describes the margin summary.</p>
+   */
+  Key?: string;
+
+  /**
+   * @public
+   * <p>The value in a key-value pair that describes the margin summary.</p>
+   */
+  Value?: string;
 }
 
 /**
@@ -705,7 +727,7 @@ export interface ListBillingGroupsFilter {
    *       A list of billing groups to retrieve their current status for a specific time range
    *     </p>
    */
-  Statuses?: (BillingGroupStatus | string)[];
+  Statuses?: BillingGroupStatus[];
 
   /**
    * @public
@@ -819,7 +841,7 @@ export interface BillingGroupListElement {
    * @public
    * <p>The billing group status. Only one of the valid values can be used.</p>
    */
-  Status?: BillingGroupStatus | string;
+  Status?: BillingGroupStatus;
 
   /**
    * @public
@@ -890,7 +912,7 @@ export interface UpdateBillingGroupInput {
    * <p>The status of the billing group. Only one of the valid values can be used.
    *     </p>
    */
-  Status?: BillingGroupStatus | string;
+  Status?: BillingGroupStatus;
 
   /**
    * @public
@@ -978,7 +1000,7 @@ export interface UpdateBillingGroupOutput {
    *       The status of the billing group. Only one of the valid values can be used.
    *     </p>
    */
-  Status?: BillingGroupStatus | string;
+  Status?: BillingGroupStatus;
 
   /**
    * @public
@@ -1143,6 +1165,73 @@ export interface CustomLineItemFlatChargeDetails {
 
 /**
  * @public
+ * @enum
+ */
+export const LineItemFilterAttributeName = {
+  LINE_ITEM_TYPE: "LINE_ITEM_TYPE",
+} as const;
+
+/**
+ * @public
+ */
+export type LineItemFilterAttributeName =
+  (typeof LineItemFilterAttributeName)[keyof typeof LineItemFilterAttributeName];
+
+/**
+ * @public
+ * @enum
+ */
+export const MatchOption = {
+  NOT_EQUAL: "NOT_EQUAL",
+} as const;
+
+/**
+ * @public
+ */
+export type MatchOption = (typeof MatchOption)[keyof typeof MatchOption];
+
+/**
+ * @public
+ * @enum
+ */
+export const LineItemFilterValue = {
+  SAVINGS_PLAN_NEGATION: "SAVINGS_PLAN_NEGATION",
+} as const;
+
+/**
+ * @public
+ */
+export type LineItemFilterValue = (typeof LineItemFilterValue)[keyof typeof LineItemFilterValue];
+
+/**
+ * @public
+ * <p>A representation of the line item filter for your custom line item. You can use line item filters to include or exclude specific resource values from the billing group's total cost.
+ *       For example, if you create a custom line item and you want to filter out a value, such as
+ *       Savings Plan discounts, you can update <code>LineItemFilter</code> to exclude it.</p>
+ */
+export interface LineItemFilter {
+  /**
+   * @public
+   * <p>The attribute of the line item filter. This specifies what attribute that you can filter
+   *       on.</p>
+   */
+  Attribute: LineItemFilterAttributeName | undefined;
+
+  /**
+   * @public
+   * <p>The match criteria of the line item filter. This parameter specifies whether not to include the resource value from the billing group total cost.</p>
+   */
+  MatchOption: MatchOption | undefined;
+
+  /**
+   * @public
+   * <p>The values of the line item filter. This specifies the values to filter on. Currently, you can only exclude Savings Plan discounts.</p>
+   */
+  Values: LineItemFilterValue[] | undefined;
+}
+
+/**
+ * @public
  * <p>A representation of the charge details that are associated with a percentage custom line item.</p>
  */
 export interface CustomLineItemPercentageChargeDetails {
@@ -1196,7 +1285,13 @@ export interface CustomLineItemChargeDetails {
    * @public
    * <p>The type of the custom line item that indicates whether the charge is a fee or credit.</p>
    */
-  Type: CustomLineItemType | string | undefined;
+  Type: CustomLineItemType | undefined;
+
+  /**
+   * @public
+   * <p>A representation of the line item filter.</p>
+   */
+  LineItemFilters?: LineItemFilter[];
 }
 
 /**
@@ -1253,6 +1348,12 @@ export interface CreateCustomLineItemInput {
    *     </p>
    */
   ChargeDetails: CustomLineItemChargeDetails | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services account in which this custom line item will be applied to.</p>
+   */
+  AccountId?: string;
 }
 
 /**
@@ -1291,9 +1392,7 @@ export interface DeleteCustomLineItemInput {
 export interface DeleteCustomLineItemOutput {
   /**
    * @public
-   * <p>
-   *       Then ARN of the deleted custom line item.
-   *     </p>
+   * <p>The ARN of the deleted custom line item. </p>
    */
   Arn?: string;
 }
@@ -1320,6 +1419,12 @@ export interface ListCustomLineItemsFilter {
    * <p>A list of custom line item ARNs to retrieve information.</p>
    */
   Arns?: string[];
+
+  /**
+   * @public
+   * <p>The Amazon Web Services accounts in which this custom line item will be applied to.</p>
+   */
+  AccountIds?: string[];
 }
 
 /**
@@ -1419,7 +1524,13 @@ export interface ListCustomLineItemChargeDetails {
    *       The type of the custom line item that indicates whether the charge is a <code>fee</code> or <code>credit</code>.
    *     </p>
    */
-  Type: CustomLineItemType | string | undefined;
+  Type: CustomLineItemType | undefined;
+
+  /**
+   * @public
+   * <p>A representation of the line item filter.</p>
+   */
+  LineItemFilters?: LineItemFilter[];
 }
 
 /**
@@ -1463,7 +1574,7 @@ export interface CustomLineItemListElement {
    * @public
    * <p>The custom line item's charge value currency. Only one of the valid values can be used.</p>
    */
-  CurrencyCode?: CurrencyCode | string;
+  CurrencyCode?: CurrencyCode;
 
   /**
    * @public
@@ -1500,6 +1611,12 @@ export interface CustomLineItemListElement {
    * <p>The number of resources that are associated to the custom line item.</p>
    */
   AssociationSize?: number;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services account in which this custom line item will be applied to.</p>
+   */
+  AccountId?: string;
 }
 
 /**
@@ -1605,7 +1722,7 @@ export interface CustomLineItemVersionListElement {
    * @public
    * <p>The charge value currency of the custom line item.</p>
    */
-  CurrencyCode?: CurrencyCode | string;
+  CurrencyCode?: CurrencyCode;
 
   /**
    * @public
@@ -1670,6 +1787,12 @@ export interface CustomLineItemVersionListElement {
    *     </p>
    */
   StartTime?: number;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services account in which this custom line item will be applied to.</p>
+   */
+  AccountId?: string;
 }
 
 /**
@@ -1716,7 +1839,7 @@ export interface ListResourcesAssociatedToCustomLineItemFilter {
    *       The type of relationship between the custom line item and the associated resource.
    *     </p>
    */
-  Relationship?: CustomLineItemRelationship | string;
+  Relationship?: CustomLineItemRelationship;
 }
 
 /**
@@ -1783,7 +1906,7 @@ export interface ListResourcesAssociatedToCustomLineItemResponseElement {
    *       The type of relationship between the custom line item and the associated resource.
    *     </p>
    */
-  Relationship?: CustomLineItemRelationship | string;
+  Relationship?: CustomLineItemRelationship;
 
   /**
    * @public
@@ -1875,6 +1998,12 @@ export interface UpdateCustomLineItemChargeDetails {
    *     </p>
    */
   Percentage?: UpdateCustomLineItemPercentageChargeDetails;
+
+  /**
+   * @public
+   * <p>A representation of the line item filter.</p>
+   */
+  LineItemFilters?: LineItemFilter[];
 }
 
 /**
@@ -1977,6 +2106,146 @@ export interface UpdateCustomLineItemOutput {
    *     </p>
    */
   AssociationSize?: number;
+}
+
+/**
+ * @public
+ * <p>A time range for which the margin summary is effective. The time range can be up to 12 months.</p>
+ */
+export interface BillingPeriodRange {
+  /**
+   * @public
+   * <p>The inclusive start billing period that defines a billing period range for the margin summary.</p>
+   */
+  InclusiveStartBillingPeriod: string | undefined;
+
+  /**
+   * @public
+   * <p>The exclusive end billing period that defines a billing period range for the margin summary. For example, if you choose a billing period that starts in October 2023 and ends in December 2023, the margin summary will only include data from October 2023 and November 2023.</p>
+   */
+  ExclusiveEndBillingPeriod: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GroupByAttributeName = {
+  BILLING_PERIOD: "BILLING_PERIOD",
+  PRODUCT_NAME: "PRODUCT_NAME",
+} as const;
+
+/**
+ * @public
+ */
+export type GroupByAttributeName = (typeof GroupByAttributeName)[keyof typeof GroupByAttributeName];
+
+/**
+ * @public
+ */
+export interface GetBillingGroupCostReportInput {
+  /**
+   * @public
+   * <p>The Amazon Resource Number (ARN) that uniquely identifies the billing group.</p>
+   */
+  Arn: string | undefined;
+
+  /**
+   * @public
+   * <p>A time range for which the margin summary is effective. You can specify up to 12 months.</p>
+   */
+  BillingPeriodRange?: BillingPeriodRange;
+
+  /**
+   * @public
+   * <p>A list of strings that specify the attributes that are used to break down costs in the
+   *       margin summary reports for the billing group. For example, you can view your costs by the
+   *       Amazon Web Service name or the billing period.</p>
+   */
+  GroupBy?: GroupByAttributeName[];
+
+  /**
+   * @public
+   * <p>The maximum number of margin summary reports to retrieve.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The pagination token used on subsequent calls to get reports.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * <p>A paginated call to retrieve a list of summary reports of actual Amazon Web Services charges and the
+ *             calculated Amazon Web Services charges, broken down by attributes.</p>
+ */
+export interface BillingGroupCostReportResultElement {
+  /**
+   * @public
+   * <p>The Amazon Resource Number (ARN) that uniquely identifies the billing group.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>The actual Amazon Web Services charges for the billing group.</p>
+   */
+  AWSCost?: string;
+
+  /**
+   * @public
+   * <p>The hypothetical Amazon Web Services charges based on the associated pricing plan of a billing group.</p>
+   */
+  ProformaCost?: string;
+
+  /**
+   * @public
+   * <p>The billing group margin.</p>
+   */
+  Margin?: string;
+
+  /**
+   * @public
+   * <p>The percentage of the billing group margin.</p>
+   */
+  MarginPercentage?: string;
+
+  /**
+   * @public
+   * <p>The displayed currency.</p>
+   */
+  Currency?: string;
+
+  /**
+   * @public
+   * <p>The list of key-value pairs that represent the attributes by which the
+   *                 <code>BillingGroupCostReportResults</code> are grouped. For example, if you want the
+   *                 Amazon S3 service-level breakdown of a billing group for November 2023, the
+   *             attributes list will contain a key-value pair of <code>"PRODUCT_NAME"</code> and
+   *                 <code>"S3"</code> and a key-value pair of <code>"BILLING_PERIOD"</code> and
+   *                 <code>"Nov 2023"</code>.</p>
+   */
+  Attributes?: Attribute[];
+}
+
+/**
+ * @public
+ */
+export interface GetBillingGroupCostReportOutput {
+  /**
+   * @public
+   * <p>The list of margin summary reports.</p>
+   */
+  BillingGroupCostReportResults?: BillingGroupCostReportResultElement[];
+
+  /**
+   * @public
+   * <p>The pagination token used on subsequent calls to get reports.</p>
+   */
+  NextToken?: string;
 }
 
 /**
@@ -2647,7 +2916,7 @@ export interface CreatePricingRuleInput {
    * <p> The scope of pricing rule that indicates if it's globally applicable, or it's
    *       service-specific. </p>
    */
-  Scope: PricingRuleScope | string | undefined;
+  Scope: PricingRuleScope | undefined;
 
   /**
    * @public
@@ -2655,7 +2924,7 @@ export interface CreatePricingRuleInput {
    *       The type of pricing rule.
    *     </p>
    */
-  Type: PricingRuleType | string | undefined;
+  Type: PricingRuleType | undefined;
 
   /**
    * @public
@@ -2855,13 +3124,13 @@ export interface PricingRuleListElement {
    * @public
    * <p>The scope of pricing rule that indicates if it is globally applicable, or if it is service-specific.</p>
    */
-  Scope?: PricingRuleScope | string;
+  Scope?: PricingRuleScope;
 
   /**
    * @public
    * <p>The type of pricing rule.</p>
    */
-  Type?: PricingRuleType | string;
+  Type?: PricingRuleType;
 
   /**
    * @public
@@ -3092,7 +3361,7 @@ export interface UpdatePricingRuleInput {
    *       The new pricing rule type.
    *     </p>
    */
-  Type?: PricingRuleType | string;
+  Type?: PricingRuleType;
 
   /**
    * @public
@@ -3142,7 +3411,7 @@ export interface UpdatePricingRuleOutput {
    * <p> The scope of pricing rule that indicates if it's globally applicable, or it's
    *       service-specific. </p>
    */
-  Scope?: PricingRuleScope | string;
+  Scope?: PricingRuleScope;
 
   /**
    * @public
@@ -3150,7 +3419,7 @@ export interface UpdatePricingRuleOutput {
    *       The new pricing rule type.
    *     </p>
    */
-  Type?: PricingRuleType | string;
+  Type?: PricingRuleType;
 
   /**
    * @public

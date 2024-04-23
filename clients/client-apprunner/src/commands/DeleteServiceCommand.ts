@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DeleteServiceRequest,
   DeleteServiceResponse,
@@ -78,7 +70,7 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * //         CodeConfiguration: { // CodeConfiguration
  * //           ConfigurationSource: "REPOSITORY" || "API", // required
  * //           CodeConfigurationValues: { // CodeConfigurationValues
- * //             Runtime: "PYTHON_3" || "NODEJS_12" || "NODEJS_14" || "CORRETTO_8" || "CORRETTO_11" || "NODEJS_16" || "GO_1" || "DOTNET_6" || "PHP_81" || "RUBY_31", // required
+ * //             Runtime: "PYTHON_3" || "NODEJS_12" || "NODEJS_14" || "CORRETTO_8" || "CORRETTO_11" || "NODEJS_16" || "GO_1" || "DOTNET_6" || "PHP_81" || "RUBY_31" || "PYTHON_311" || "NODEJS_18", // required
  * //             BuildCommand: "STRING_VALUE",
  * //             StartCommand: "STRING_VALUE",
  * //             Port: "STRING_VALUE",
@@ -90,6 +82,7 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * //             },
  * //           },
  * //         },
+ * //         SourceDirectory: "STRING_VALUE",
  * //       },
  * //       ImageRepository: { // ImageRepository
  * //         ImageIdentifier: "STRING_VALUE", // required
@@ -131,6 +124,10 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * //       AutoScalingConfigurationArn: "STRING_VALUE",
  * //       AutoScalingConfigurationName: "STRING_VALUE",
  * //       AutoScalingConfigurationRevision: Number("int"),
+ * //       Status: "ACTIVE" || "INACTIVE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       HasAssociatedService: true || false,
+ * //       IsDefault: true || false,
  * //     },
  * //     NetworkConfiguration: { // NetworkConfiguration
  * //       EgressConfiguration: { // EgressConfiguration
@@ -140,6 +137,7 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * //       IngressConfiguration: { // IngressConfiguration
  * //         IsPubliclyAccessible: true || false,
  * //       },
+ * //       IpAddressType: "IPV4" || "DUAL_STACK",
  * //     },
  * //     ObservabilityConfiguration: { // ServiceObservabilityConfiguration
  * //       ObservabilityEnabled: true || false, // required
@@ -173,77 +171,26 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
-export class DeleteServiceCommand extends $Command<
-  DeleteServiceCommandInput,
-  DeleteServiceCommandOutput,
-  AppRunnerClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeleteServiceCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AppRunnerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DeleteServiceCommandInput, DeleteServiceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteServiceCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "AppRunnerClient";
-    const commandName = "DeleteServiceCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: DeleteServiceResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DeleteServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteServiceCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteServiceCommandOutput> {
-    return de_DeleteServiceCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DeleteServiceCommand extends $Command
+  .classBuilder<
+    DeleteServiceCommandInput,
+    DeleteServiceCommandOutput,
+    AppRunnerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: AppRunnerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AppRunner", "DeleteService", {})
+  .n("AppRunnerClient", "DeleteServiceCommand")
+  .f(void 0, DeleteServiceResponseFilterSensitiveLog)
+  .ser(se_DeleteServiceCommand)
+  .de(de_DeleteServiceCommand)
+  .build() {}

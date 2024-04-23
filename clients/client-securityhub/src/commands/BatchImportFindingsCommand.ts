@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { BatchImportFindingsRequest, BatchImportFindingsResponse } from "../models/models_2";
 import { de_BatchImportFindingsCommand, se_BatchImportFindingsCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
@@ -1070,6 +1062,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                   },
  *                 },
  *               },
+ *               Name: "STRING_VALUE",
  *             },
  *             AwsS3AccountPublicAccessBlock: {
  *               BlockPublicAcls: true || false,
@@ -1321,6 +1314,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               TableName: "STRING_VALUE",
  *               TableSizeBytes: Number("long"),
  *               TableStatus: "STRING_VALUE",
+ *               DeletionProtectionEnabled: true || false,
  *             },
  *             AwsApiGatewayStage: { // AwsApiGatewayStageDetails
  *               DeploymentId: "STRING_VALUE",
@@ -2138,6 +2132,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 },
  *               ],
  *               IamDatabaseAuthenticationEnabled: true || false,
+ *               AutoMinorVersionUpgrade: true || false,
  *             },
  *             AwsEcsCluster: { // AwsEcsClusterDetails
  *               ClusterArn: "STRING_VALUE",
@@ -2386,6 +2381,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                   Name: "STRING_VALUE",
  *                 },
  *               ],
+ *               Status: "STRING_VALUE",
  *             },
  *             Container: { // ContainerDetails
  *               ContainerRuntime: "STRING_VALUE",
@@ -3841,7 +3837,214 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *                 },
  *               },
  *             },
+ *             AwsEventsEventbus: { // AwsEventsEventbusDetails
+ *               Arn: "STRING_VALUE",
+ *               Name: "STRING_VALUE",
+ *               Policy: "STRING_VALUE",
+ *             },
+ *             AwsDmsEndpoint: { // AwsDmsEndpointDetails
+ *               CertificateArn: "STRING_VALUE",
+ *               DatabaseName: "STRING_VALUE",
+ *               EndpointArn: "STRING_VALUE",
+ *               EndpointIdentifier: "STRING_VALUE",
+ *               EndpointType: "STRING_VALUE",
+ *               EngineName: "STRING_VALUE",
+ *               ExternalId: "STRING_VALUE",
+ *               ExtraConnectionAttributes: "STRING_VALUE",
+ *               KmsKeyId: "STRING_VALUE",
+ *               Port: Number("int"),
+ *               ServerName: "STRING_VALUE",
+ *               SslMode: "STRING_VALUE",
+ *               Username: "STRING_VALUE",
+ *             },
+ *             AwsEventsEndpoint: { // AwsEventsEndpointDetails
+ *               Arn: "STRING_VALUE",
+ *               Description: "STRING_VALUE",
+ *               EndpointId: "STRING_VALUE",
+ *               EndpointUrl: "STRING_VALUE",
+ *               EventBuses: [ // AwsEventsEndpointEventBusesList
+ *                 { // AwsEventsEndpointEventBusesDetails
+ *                   EventBusArn: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               Name: "STRING_VALUE",
+ *               ReplicationConfig: { // AwsEventsEndpointReplicationConfigDetails
+ *                 State: "STRING_VALUE",
+ *               },
+ *               RoleArn: "STRING_VALUE",
+ *               RoutingConfig: { // AwsEventsEndpointRoutingConfigDetails
+ *                 FailoverConfig: { // AwsEventsEndpointRoutingConfigFailoverConfigDetails
+ *                   Primary: { // AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetails
+ *                     HealthCheck: "STRING_VALUE",
+ *                   },
+ *                   Secondary: { // AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetails
+ *                     Route: "STRING_VALUE",
+ *                   },
+ *                 },
+ *               },
+ *               State: "STRING_VALUE",
+ *               StateReason: "STRING_VALUE",
+ *             },
+ *             AwsDmsReplicationTask: { // AwsDmsReplicationTaskDetails
+ *               CdcStartPosition: "STRING_VALUE",
+ *               CdcStartTime: "STRING_VALUE",
+ *               CdcStopPosition: "STRING_VALUE",
+ *               MigrationType: "STRING_VALUE",
+ *               Id: "STRING_VALUE",
+ *               ResourceIdentifier: "STRING_VALUE",
+ *               ReplicationInstanceArn: "STRING_VALUE",
+ *               ReplicationTaskIdentifier: "STRING_VALUE",
+ *               ReplicationTaskSettings: "STRING_VALUE",
+ *               SourceEndpointArn: "STRING_VALUE",
+ *               TableMappings: "STRING_VALUE",
+ *               TargetEndpointArn: "STRING_VALUE",
+ *               TaskData: "STRING_VALUE",
+ *             },
+ *             AwsDmsReplicationInstance: { // AwsDmsReplicationInstanceDetails
+ *               AllocatedStorage: Number("int"),
+ *               AutoMinorVersionUpgrade: true || false,
+ *               AvailabilityZone: "STRING_VALUE",
+ *               EngineVersion: "STRING_VALUE",
+ *               KmsKeyId: "STRING_VALUE",
+ *               MultiAZ: true || false,
+ *               PreferredMaintenanceWindow: "STRING_VALUE",
+ *               PubliclyAccessible: true || false,
+ *               ReplicationInstanceClass: "STRING_VALUE",
+ *               ReplicationInstanceIdentifier: "STRING_VALUE",
+ *               ReplicationSubnetGroup: { // AwsDmsReplicationInstanceReplicationSubnetGroupDetails
+ *                 ReplicationSubnetGroupIdentifier: "STRING_VALUE",
+ *               },
+ *               VpcSecurityGroups: [ // AwsDmsReplicationInstanceVpcSecurityGroupsList
+ *                 { // AwsDmsReplicationInstanceVpcSecurityGroupsDetails
+ *                   VpcSecurityGroupId: "STRING_VALUE",
+ *                 },
+ *               ],
+ *             },
+ *             AwsRoute53HostedZone: { // AwsRoute53HostedZoneDetails
+ *               HostedZone: { // AwsRoute53HostedZoneObjectDetails
+ *                 Id: "STRING_VALUE",
+ *                 Name: "STRING_VALUE",
+ *                 Config: { // AwsRoute53HostedZoneConfigDetails
+ *                   Comment: "STRING_VALUE",
+ *                 },
+ *               },
+ *               Vpcs: [ // AwsRoute53HostedZoneVpcsList
+ *                 { // AwsRoute53HostedZoneVpcDetails
+ *                   Id: "STRING_VALUE",
+ *                   Region: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               NameServers: [ // AwsRoute53HostedZoneNameServersList
+ *                 "STRING_VALUE",
+ *               ],
+ *               QueryLoggingConfig: { // AwsRoute53QueryLoggingConfigDetails
+ *                 CloudWatchLogsLogGroupArn: { // CloudWatchLogsLogGroupArnConfigDetails
+ *                   CloudWatchLogsLogGroupArn: "STRING_VALUE",
+ *                   HostedZoneId: "STRING_VALUE",
+ *                   Id: "STRING_VALUE",
+ *                 },
+ *               },
+ *             },
+ *             AwsMskCluster: { // AwsMskClusterDetails
+ *               ClusterInfo: { // AwsMskClusterClusterInfoDetails
+ *                 EncryptionInfo: { // AwsMskClusterClusterInfoEncryptionInfoDetails
+ *                   EncryptionInTransit: { // AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetails
+ *                     InCluster: true || false,
+ *                     ClientBroker: "STRING_VALUE",
+ *                   },
+ *                   EncryptionAtRest: { // AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetails
+ *                     DataVolumeKMSKeyId: "STRING_VALUE",
+ *                   },
+ *                 },
+ *                 CurrentVersion: "STRING_VALUE",
+ *                 NumberOfBrokerNodes: Number("int"),
+ *                 ClusterName: "STRING_VALUE",
+ *                 ClientAuthentication: { // AwsMskClusterClusterInfoClientAuthenticationDetails
+ *                   Sasl: { // AwsMskClusterClusterInfoClientAuthenticationSaslDetails
+ *                     Iam: { // AwsMskClusterClusterInfoClientAuthenticationSaslIamDetails
+ *                       Enabled: true || false,
+ *                     },
+ *                     Scram: { // AwsMskClusterClusterInfoClientAuthenticationSaslScramDetails
+ *                       Enabled: true || false,
+ *                     },
+ *                   },
+ *                   Unauthenticated: { // AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetails
+ *                     Enabled: true || false,
+ *                   },
+ *                   Tls: { // AwsMskClusterClusterInfoClientAuthenticationTlsDetails
+ *                     CertificateAuthorityArnList: "<StringList>",
+ *                     Enabled: true || false,
+ *                   },
+ *                 },
+ *                 EnhancedMonitoring: "STRING_VALUE",
+ *               },
+ *             },
+ *             AwsS3AccessPoint: { // AwsS3AccessPointDetails
+ *               AccessPointArn: "STRING_VALUE",
+ *               Alias: "STRING_VALUE",
+ *               Bucket: "STRING_VALUE",
+ *               BucketAccountId: "STRING_VALUE",
+ *               Name: "STRING_VALUE",
+ *               NetworkOrigin: "STRING_VALUE",
+ *               PublicAccessBlockConfiguration: {
+ *                 BlockPublicAcls: true || false,
+ *                 BlockPublicPolicy: true || false,
+ *                 IgnorePublicAcls: true || false,
+ *                 RestrictPublicBuckets: true || false,
+ *               },
+ *               VpcConfiguration: { // AwsS3AccessPointVpcConfigurationDetails
+ *                 VpcId: "STRING_VALUE",
+ *               },
+ *             },
+ *             AwsEc2ClientVpnEndpoint: { // AwsEc2ClientVpnEndpointDetails
+ *               ClientVpnEndpointId: "STRING_VALUE",
+ *               Description: "STRING_VALUE",
+ *               ClientCidrBlock: "STRING_VALUE",
+ *               DnsServer: "<StringList>",
+ *               SplitTunnel: true || false,
+ *               TransportProtocol: "STRING_VALUE",
+ *               VpnPort: Number("int"),
+ *               ServerCertificateArn: "STRING_VALUE",
+ *               AuthenticationOptions: [ // AwsEc2ClientVpnEndpointAuthenticationOptionsList
+ *                 { // AwsEc2ClientVpnEndpointAuthenticationOptionsDetails
+ *                   Type: "STRING_VALUE",
+ *                   ActiveDirectory: { // AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetails
+ *                     DirectoryId: "STRING_VALUE",
+ *                   },
+ *                   MutualAuthentication: { // AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetails
+ *                     ClientRootCertificateChain: "STRING_VALUE",
+ *                   },
+ *                   FederatedAuthentication: { // AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetails
+ *                     SamlProviderArn: "STRING_VALUE",
+ *                     SelfServiceSamlProviderArn: "STRING_VALUE",
+ *                   },
+ *                 },
+ *               ],
+ *               ConnectionLogOptions: { // AwsEc2ClientVpnEndpointConnectionLogOptionsDetails
+ *                 Enabled: true || false,
+ *                 CloudwatchLogGroup: "STRING_VALUE",
+ *                 CloudwatchLogStream: "STRING_VALUE",
+ *               },
+ *               SecurityGroupIdSet: "<StringList>",
+ *               VpcId: "STRING_VALUE",
+ *               SelfServicePortalUrl: "STRING_VALUE",
+ *               ClientConnectOptions: { // AwsEc2ClientVpnEndpointClientConnectOptionsDetails
+ *                 Enabled: true || false,
+ *                 LambdaFunctionArn: "STRING_VALUE",
+ *                 Status: { // AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetails
+ *                   Code: "STRING_VALUE",
+ *                   Message: "STRING_VALUE",
+ *                 },
+ *               },
+ *               SessionTimeoutHours: Number("int"),
+ *               ClientLoginBannerOptions: { // AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetails
+ *                 Enabled: true || false,
+ *                 BannerText: "STRING_VALUE",
+ *               },
+ *             },
  *           },
+ *           ApplicationName: "STRING_VALUE",
+ *           ApplicationArn: "STRING_VALUE",
  *         },
  *       ],
  *       Compliance: { // Compliance
@@ -3859,6 +4062,14 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *         AssociatedStandards: [ // AssociatedStandardsList
  *           { // AssociatedStandard
  *             StandardsId: "STRING_VALUE",
+ *           },
+ *         ],
+ *         SecurityControlParameters: [ // SecurityControlParametersList
+ *           { // SecurityControlParameter
+ *             Name: "STRING_VALUE",
+ *             Value: [
+ *               "STRING_VALUE",
+ *             ],
  *           },
  *         ],
  *       },
@@ -3925,9 +4136,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *           ExploitAvailable: "YES" || "NO",
  *           CodeVulnerabilities: [ // VulnerabilityCodeVulnerabilitiesList
  *             { // VulnerabilityCodeVulnerabilities
- *               Cwes: [
- *                 "STRING_VALUE",
- *               ],
+ *               Cwes: "<TypeList>",
  *               FilePath: { // CodeVulnerabilitiesFilePath
  *                 EndLine: Number("int"),
  *                 FileName: "STRING_VALUE",
@@ -4079,6 +4288,8 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *         Description: "STRING_VALUE",
  *         Labels: "<TypeList>",
  *       },
+ *       ProcessedAt: "STRING_VALUE",
+ *       AwsAccountName: "STRING_VALUE",
  *     },
  *   ],
  * };
@@ -4169,79 +4380,26 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  * ```
  *
  */
-export class BatchImportFindingsCommand extends $Command<
-  BatchImportFindingsCommandInput,
-  BatchImportFindingsCommandOutput,
-  SecurityHubClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: BatchImportFindingsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SecurityHubClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<BatchImportFindingsCommandInput, BatchImportFindingsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, BatchImportFindingsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SecurityHubClient";
-    const commandName = "BatchImportFindingsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: BatchImportFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_BatchImportFindingsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchImportFindingsCommandOutput> {
-    return de_BatchImportFindingsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class BatchImportFindingsCommand extends $Command
+  .classBuilder<
+    BatchImportFindingsCommandInput,
+    BatchImportFindingsCommandOutput,
+    SecurityHubClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("SecurityHubAPIService", "BatchImportFindings", {})
+  .n("SecurityHubClient", "BatchImportFindingsCommand")
+  .f(void 0, void 0)
+  .ser(se_BatchImportFindingsCommand)
+  .de(de_BatchImportFindingsCommand)
+  .build() {}

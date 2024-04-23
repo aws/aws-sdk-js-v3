@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { InitiateLayerUploadRequest, InitiateLayerUploadResponse } from "../models/models_0";
 import { de_InitiateLayerUploadCommand, se_InitiateLayerUploadCommand } from "../protocols/Aws_json1_1";
 
@@ -37,10 +29,10 @@ export interface InitiateLayerUploadCommandOutput extends InitiateLayerUploadRes
 /**
  * @public
  * <p>Notifies Amazon ECR that you intend to upload an image layer.</p>
- *         <p>When an image is pushed, the InitiateLayerUpload API is called once per image layer
+ *          <p>When an image is pushed, the InitiateLayerUpload API is called once per image layer
  *             that has not already been uploaded. Whether or not an image layer has been uploaded is
  *             determined by the BatchCheckLayerAvailability API action.</p>
- *         <note>
+ *          <note>
  *             <p>This operation is used by the Amazon ECR proxy and is not generally used by
  *         customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
  *          </note>
@@ -87,79 +79,26 @@ export interface InitiateLayerUploadCommandOutput extends InitiateLayerUploadRes
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
-export class InitiateLayerUploadCommand extends $Command<
-  InitiateLayerUploadCommandInput,
-  InitiateLayerUploadCommandOutput,
-  ECRClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: InitiateLayerUploadCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ECRClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<InitiateLayerUploadCommandInput, InitiateLayerUploadCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, InitiateLayerUploadCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ECRClient";
-    const commandName = "InitiateLayerUploadCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: InitiateLayerUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_InitiateLayerUploadCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<InitiateLayerUploadCommandOutput> {
-    return de_InitiateLayerUploadCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class InitiateLayerUploadCommand extends $Command
+  .classBuilder<
+    InitiateLayerUploadCommandInput,
+    InitiateLayerUploadCommandOutput,
+    ECRClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonEC2ContainerRegistry_V20150921", "InitiateLayerUpload", {})
+  .n("ECRClient", "InitiateLayerUploadCommand")
+  .f(void 0, void 0)
+  .ser(se_InitiateLayerUploadCommand)
+  .de(de_InitiateLayerUploadCommand)
+  .build() {}

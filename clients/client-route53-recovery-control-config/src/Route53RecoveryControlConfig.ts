@@ -63,6 +63,11 @@ import {
   DescribeSafetyRuleCommandOutput,
 } from "./commands/DescribeSafetyRuleCommand";
 import {
+  GetResourcePolicyCommand,
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
+import {
   ListAssociatedRoute53HealthChecksCommand,
   ListAssociatedRoute53HealthChecksCommandInput,
   ListAssociatedRoute53HealthChecksCommandOutput,
@@ -131,6 +136,7 @@ const commands = {
   DescribeControlPanelCommand,
   DescribeRoutingControlCommand,
   DescribeSafetyRuleCommand,
+  GetResourcePolicyCommand,
   ListAssociatedRoute53HealthChecksCommand,
   ListClustersCommand,
   ListControlPanelsCommand,
@@ -332,6 +338,23 @@ export interface Route53RecoveryControlConfig {
     args: DescribeSafetyRuleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeSafetyRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResourcePolicyCommand}
+   */
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePolicyCommandOutput>;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): void;
 
   /**

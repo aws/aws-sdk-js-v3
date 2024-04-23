@@ -1,9 +1,13 @@
 // smithy-typescript generated code
+import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
@@ -16,11 +20,16 @@ import {
   withBaseException,
 } from "@smithy/smithy-client";
 import {
+  DocumentType as __DocumentType,
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
+import {
+  CreateIdMappingWorkflowCommandInput,
+  CreateIdMappingWorkflowCommandOutput,
+} from "../commands/CreateIdMappingWorkflowCommand";
 import {
   CreateMatchingWorkflowCommandInput,
   CreateMatchingWorkflowCommandOutput,
@@ -30,6 +39,10 @@ import {
   CreateSchemaMappingCommandOutput,
 } from "../commands/CreateSchemaMappingCommand";
 import {
+  DeleteIdMappingWorkflowCommandInput,
+  DeleteIdMappingWorkflowCommandOutput,
+} from "../commands/DeleteIdMappingWorkflowCommand";
+import {
   DeleteMatchingWorkflowCommandInput,
   DeleteMatchingWorkflowCommandOutput,
 } from "../commands/DeleteMatchingWorkflowCommand";
@@ -37,42 +50,72 @@ import {
   DeleteSchemaMappingCommandInput,
   DeleteSchemaMappingCommandOutput,
 } from "../commands/DeleteSchemaMappingCommand";
+import { GetIdMappingJobCommandInput, GetIdMappingJobCommandOutput } from "../commands/GetIdMappingJobCommand";
+import {
+  GetIdMappingWorkflowCommandInput,
+  GetIdMappingWorkflowCommandOutput,
+} from "../commands/GetIdMappingWorkflowCommand";
 import { GetMatchIdCommandInput, GetMatchIdCommandOutput } from "../commands/GetMatchIdCommand";
 import { GetMatchingJobCommandInput, GetMatchingJobCommandOutput } from "../commands/GetMatchingJobCommand";
 import {
   GetMatchingWorkflowCommandInput,
   GetMatchingWorkflowCommandOutput,
 } from "../commands/GetMatchingWorkflowCommand";
+import { GetProviderServiceCommandInput, GetProviderServiceCommandOutput } from "../commands/GetProviderServiceCommand";
 import { GetSchemaMappingCommandInput, GetSchemaMappingCommandOutput } from "../commands/GetSchemaMappingCommand";
+import { ListIdMappingJobsCommandInput, ListIdMappingJobsCommandOutput } from "../commands/ListIdMappingJobsCommand";
+import {
+  ListIdMappingWorkflowsCommandInput,
+  ListIdMappingWorkflowsCommandOutput,
+} from "../commands/ListIdMappingWorkflowsCommand";
 import { ListMatchingJobsCommandInput, ListMatchingJobsCommandOutput } from "../commands/ListMatchingJobsCommand";
 import {
   ListMatchingWorkflowsCommandInput,
   ListMatchingWorkflowsCommandOutput,
 } from "../commands/ListMatchingWorkflowsCommand";
+import {
+  ListProviderServicesCommandInput,
+  ListProviderServicesCommandOutput,
+} from "../commands/ListProviderServicesCommand";
 import { ListSchemaMappingsCommandInput, ListSchemaMappingsCommandOutput } from "../commands/ListSchemaMappingsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { StartIdMappingJobCommandInput, StartIdMappingJobCommandOutput } from "../commands/StartIdMappingJobCommand";
 import { StartMatchingJobCommandInput, StartMatchingJobCommandOutput } from "../commands/StartMatchingJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
+  UpdateIdMappingWorkflowCommandInput,
+  UpdateIdMappingWorkflowCommandOutput,
+} from "../commands/UpdateIdMappingWorkflowCommand";
+import {
   UpdateMatchingWorkflowCommandInput,
   UpdateMatchingWorkflowCommandOutput,
 } from "../commands/UpdateMatchingWorkflowCommand";
+import {
+  UpdateSchemaMappingCommandInput,
+  UpdateSchemaMappingCommandOutput,
+} from "../commands/UpdateSchemaMappingCommand";
 import { EntityResolutionServiceException as __BaseException } from "../models/EntityResolutionServiceException";
 import {
   AccessDeniedException,
   ConflictException,
   ExceedsLimitException,
+  IdMappingTechniques,
+  IdMappingWorkflowInputSource,
+  IdMappingWorkflowOutputSource,
+  IdMappingWorkflowSummary,
   IncrementalRunConfig,
   InputSource,
+  IntermediateSourceConfiguration,
   InternalServerException,
   JobSummary,
   MatchingWorkflowSummary,
   OutputAttribute,
   OutputSource,
+  ProviderProperties,
   ResolutionTechniques,
   ResourceNotFoundException,
   Rule,
@@ -84,17 +127,45 @@ import {
 } from "../models/models_0";
 
 /**
+ * serializeAws_restJson1CreateIdMappingWorkflowCommand
+ */
+export const se_CreateIdMappingWorkflowCommand = async (
+  input: CreateIdMappingWorkflowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/idmappingworkflows");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      idMappingTechniques: (_) => se_IdMappingTechniques(_, context),
+      inputSourceConfig: (_) => _json(_),
+      outputSourceConfig: (_) => _json(_),
+      roleArn: [],
+      tags: (_) => _json(_),
+      workflowName: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateMatchingWorkflowCommand
  */
 export const se_CreateMatchingWorkflowCommand = async (
   input: CreateMatchingWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/matchingworkflows";
+  b.bp("/matchingworkflows");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -102,21 +173,14 @@ export const se_CreateMatchingWorkflowCommand = async (
       incrementalRunConfig: (_) => _json(_),
       inputSourceConfig: (_) => _json(_),
       outputSourceConfig: (_) => _json(_),
-      resolutionTechniques: (_) => _json(_),
+      resolutionTechniques: (_) => se_ResolutionTechniques(_, context),
       roleArn: [],
       tags: (_) => _json(_),
       workflowName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -126,11 +190,11 @@ export const se_CreateSchemaMappingCommand = async (
   input: CreateSchemaMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/schemas";
+  b.bp("/schemas");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -140,15 +204,24 @@ export const se_CreateSchemaMappingCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteIdMappingWorkflowCommand
+ */
+export const se_DeleteIdMappingWorkflowCommand = async (
+  input: DeleteIdMappingWorkflowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/idmappingworkflows/{workflowName}");
+  b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -158,28 +231,13 @@ export const se_DeleteMatchingWorkflowCommand = async (
   input: DeleteMatchingWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/matchingworkflows/{workflowName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "workflowName",
-    () => input.workflowName!,
-    "{workflowName}",
-    false
-  );
+  b.bp("/matchingworkflows/{workflowName}");
+  b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -189,20 +247,46 @@ export const se_DeleteSchemaMappingCommand = async (
   input: DeleteSchemaMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/schemas/{schemaName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "schemaName", () => input.schemaName!, "{schemaName}", false);
+  b.bp("/schemas/{schemaName}");
+  b.p("schemaName", () => input.schemaName!, "{schemaName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetIdMappingJobCommand
+ */
+export const se_GetIdMappingJobCommand = async (
+  input: GetIdMappingJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/idmappingworkflows/{workflowName}/jobs/{jobId}");
+  b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
+  b.p("jobId", () => input.jobId!, "{jobId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetIdMappingWorkflowCommand
+ */
+export const se_GetIdMappingWorkflowCommand = async (
+  input: GetIdMappingWorkflowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/idmappingworkflows/{workflowName}");
+  b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -212,35 +296,20 @@ export const se_GetMatchIdCommand = async (
   input: GetMatchIdCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/matchingworkflows/{workflowName}/matches";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "workflowName",
-    () => input.workflowName!,
-    "{workflowName}",
-    false
-  );
+  b.bp("/matchingworkflows/{workflowName}/matches");
+  b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       record: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -250,30 +319,14 @@ export const se_GetMatchingJobCommand = async (
   input: GetMatchingJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/matchingworkflows/{workflowName}/jobs/{jobId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "workflowName",
-    () => input.workflowName!,
-    "{workflowName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "jobId", () => input.jobId!, "{jobId}", false);
+  b.bp("/matchingworkflows/{workflowName}/jobs/{jobId}");
+  b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
+  b.p("jobId", () => input.jobId!, "{jobId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -283,28 +336,30 @@ export const se_GetMatchingWorkflowCommand = async (
   input: GetMatchingWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/matchingworkflows/{workflowName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "workflowName",
-    () => input.workflowName!,
-    "{workflowName}",
-    false
-  );
+  b.bp("/matchingworkflows/{workflowName}");
+  b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetProviderServiceCommand
+ */
+export const se_GetProviderServiceCommand = async (
+  input: GetProviderServiceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/providerservices/{providerName}/{providerServiceName}");
+  b.p("providerName", () => input.providerName!, "{providerName}", false);
+  b.p("providerServiceName", () => input.providerServiceName!, "{providerServiceName}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -314,20 +369,52 @@ export const se_GetSchemaMappingCommand = async (
   input: GetSchemaMappingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/schemas/{schemaName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "schemaName", () => input.schemaName!, "{schemaName}", false);
+  b.bp("/schemas/{schemaName}");
+  b.p("schemaName", () => input.schemaName!, "{schemaName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListIdMappingJobsCommand
+ */
+export const se_ListIdMappingJobsCommand = async (
+  input: ListIdMappingJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/idmappingworkflows/{workflowName}/jobs");
+  b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListIdMappingWorkflowsCommand
+ */
+export const se_ListIdMappingWorkflowsCommand = async (
+  input: ListIdMappingWorkflowsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/idmappingworkflows");
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -337,33 +424,17 @@ export const se_ListMatchingJobsCommand = async (
   input: ListMatchingJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/matchingworkflows/{workflowName}/jobs";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "workflowName",
-    () => input.workflowName!,
-    "{workflowName}",
-    false
-  );
+  b.bp("/matchingworkflows/{workflowName}/jobs");
+  b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -373,24 +444,36 @@ export const se_ListMatchingWorkflowsCommand = async (
   input: ListMatchingWorkflowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/matchingworkflows";
+  b.bp("/matchingworkflows");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListProviderServicesCommand
+ */
+export const se_ListProviderServicesCommand = async (
+  input: ListProviderServicesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/providerservices");
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_pN]: [, input[_pN]!],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -400,24 +483,16 @@ export const se_ListSchemaMappingsCommand = async (
   input: ListSchemaMappingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/schemas";
+  b.bp("/schemas");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -427,20 +502,29 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartIdMappingJobCommand
+ */
+export const se_StartIdMappingJobCommand = async (
+  input: StartIdMappingJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/idmappingworkflows/{workflowName}/jobs");
+  b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
+  let body: any;
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -450,28 +534,13 @@ export const se_StartMatchingJobCommand = async (
   input: StartMatchingJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/matchingworkflows/{workflowName}/jobs";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "workflowName",
-    () => input.workflowName!,
-    "{workflowName}",
-    false
-  );
+  b.bp("/matchingworkflows/{workflowName}/jobs");
+  b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -481,27 +550,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -511,27 +573,46 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateIdMappingWorkflowCommand
+ */
+export const se_UpdateIdMappingWorkflowCommand = async (
+  input: UpdateIdMappingWorkflowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/idmappingworkflows/{workflowName}");
+  b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      idMappingTechniques: (_) => se_IdMappingTechniques(_, context),
+      inputSourceConfig: (_) => _json(_),
+      outputSourceConfig: (_) => _json(_),
+      roleArn: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -541,20 +622,12 @@ export const se_UpdateMatchingWorkflowCommand = async (
   input: UpdateMatchingWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/matchingworkflows/{workflowName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "workflowName",
-    () => input.workflowName!,
-    "{workflowName}",
-    false
-  );
+  b.bp("/matchingworkflows/{workflowName}");
+  b.p("workflowName", () => input.workflowName!, "{workflowName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -562,19 +635,104 @@ export const se_UpdateMatchingWorkflowCommand = async (
       incrementalRunConfig: (_) => _json(_),
       inputSourceConfig: (_) => _json(_),
       outputSourceConfig: (_) => _json(_),
-      resolutionTechniques: (_) => _json(_),
+      resolutionTechniques: (_) => se_ResolutionTechniques(_, context),
       roleArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateSchemaMappingCommand
+ */
+export const se_UpdateSchemaMappingCommand = async (
+  input: UpdateSchemaMappingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/schemas/{schemaName}");
+  b.p("schemaName", () => input.schemaName!, "{schemaName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      mappedInputFields: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * deserializeAws_restJson1CreateIdMappingWorkflowCommand
+ */
+export const de_CreateIdMappingWorkflowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateIdMappingWorkflowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateIdMappingWorkflowCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
   });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    description: __expectString,
+    idMappingTechniques: (_) => de_IdMappingTechniques(_, context),
+    inputSourceConfig: _json,
+    outputSourceConfig: _json,
+    roleArn: __expectString,
+    workflowArn: __expectString,
+    workflowName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateIdMappingWorkflowCommandError
+ */
+const de_CreateIdMappingWorkflowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateIdMappingWorkflowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.entityresolution#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.entityresolution#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ExceedsLimitException":
+    case "com.amazonaws.entityresolution#ExceedsLimitException":
+      throw await de_ExceedsLimitExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.entityresolution#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.entityresolution#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.entityresolution#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
 };
 
 /**
@@ -596,7 +754,7 @@ export const de_CreateMatchingWorkflowCommand = async (
     incrementalRunConfig: _json,
     inputSourceConfig: _json,
     outputSourceConfig: _json,
-    resolutionTechniques: _json,
+    resolutionTechniques: (_) => de_ResolutionTechniques(_, context),
     roleArn: __expectString,
     workflowArn: __expectString,
     workflowName: __expectString,
@@ -692,6 +850,62 @@ const de_CreateSchemaMappingCommandError = async (
     case "ExceedsLimitException":
     case "com.amazonaws.entityresolution#ExceedsLimitException":
       throw await de_ExceedsLimitExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.entityresolution#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.entityresolution#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.entityresolution#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteIdMappingWorkflowCommand
+ */
+export const de_DeleteIdMappingWorkflowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteIdMappingWorkflowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteIdMappingWorkflowCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteIdMappingWorkflowCommandError
+ */
+const de_DeleteIdMappingWorkflowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteIdMappingWorkflowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.entityresolution#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.entityresolution#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -810,6 +1024,138 @@ const de_DeleteSchemaMappingCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.entityresolution#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.entityresolution#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.entityresolution#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetIdMappingJobCommand
+ */
+export const de_GetIdMappingJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIdMappingJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetIdMappingJobCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    endTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    errorDetails: _json,
+    jobId: __expectString,
+    metrics: _json,
+    startTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetIdMappingJobCommandError
+ */
+const de_GetIdMappingJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIdMappingJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.entityresolution#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.entityresolution#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.entityresolution#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.entityresolution#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.entityresolution#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetIdMappingWorkflowCommand
+ */
+export const de_GetIdMappingWorkflowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIdMappingWorkflowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetIdMappingWorkflowCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    idMappingTechniques: (_) => de_IdMappingTechniques(_, context),
+    inputSourceConfig: _json,
+    outputSourceConfig: _json,
+    roleArn: __expectString,
+    tags: _json,
+    updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    workflowArn: __expectString,
+    workflowName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetIdMappingWorkflowCommandError
+ */
+const de_GetIdMappingWorkflowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIdMappingWorkflowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.entityresolution#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.entityresolution#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.entityresolution#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.entityresolution#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -969,7 +1315,7 @@ export const de_GetMatchingWorkflowCommand = async (
     incrementalRunConfig: _json,
     inputSourceConfig: _json,
     outputSourceConfig: _json,
-    resolutionTechniques: _json,
+    resolutionTechniques: (_) => de_ResolutionTechniques(_, context),
     roleArn: __expectString,
     tags: _json,
     updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -1019,6 +1365,74 @@ const de_GetMatchingWorkflowCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1GetProviderServiceCommand
+ */
+export const de_GetProviderServiceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetProviderServiceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetProviderServiceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    anonymizedOutput: __expectBoolean,
+    providerConfigurationDefinition: (_) => de_Document(_, context),
+    providerEndpointConfiguration: (_) => _json(__expectUnion(_)),
+    providerEntityOutputDefinition: (_) => de_Document(_, context),
+    providerIntermediateDataAccessConfiguration: _json,
+    providerName: __expectString,
+    providerServiceArn: __expectString,
+    providerServiceDisplayName: __expectString,
+    providerServiceName: __expectString,
+    providerServiceType: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetProviderServiceCommandError
+ */
+const de_GetProviderServiceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetProviderServiceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.entityresolution#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.entityresolution#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.entityresolution#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.entityresolution#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.entityresolution#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1GetSchemaMappingCommand
  */
 export const de_GetSchemaMappingCommand = async (
@@ -1035,6 +1449,7 @@ export const de_GetSchemaMappingCommand = async (
   const doc = take(data, {
     createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
+    hasWorkflows: __expectBoolean,
     mappedInputFields: _json,
     schemaArn: __expectString,
     schemaName: __expectString,
@@ -1067,6 +1482,123 @@ const de_GetSchemaMappingCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.entityresolution#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.entityresolution#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.entityresolution#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListIdMappingJobsCommand
+ */
+export const de_ListIdMappingJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListIdMappingJobsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListIdMappingJobsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    jobs: (_) => de_JobList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListIdMappingJobsCommandError
+ */
+const de_ListIdMappingJobsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListIdMappingJobsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.entityresolution#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.entityresolution#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.entityresolution#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.entityresolution#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.entityresolution#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListIdMappingWorkflowsCommand
+ */
+export const de_ListIdMappingWorkflowsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListIdMappingWorkflowsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListIdMappingWorkflowsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    workflowSummaries: (_) => de_IdMappingWorkflowList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListIdMappingWorkflowsCommandError
+ */
+const de_ListIdMappingWorkflowsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListIdMappingWorkflowsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.entityresolution#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.entityresolution#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.entityresolution#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -1201,6 +1733,63 @@ const de_ListMatchingWorkflowsCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListProviderServicesCommand
+ */
+export const de_ListProviderServicesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListProviderServicesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListProviderServicesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    providerServiceSummaries: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListProviderServicesCommandError
+ */
+const de_ListProviderServicesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListProviderServicesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.entityresolution#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.entityresolution#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.entityresolution#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.entityresolution#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListSchemaMappingsCommand
  */
 export const de_ListSchemaMappingsCommand = async (
@@ -1297,6 +1886,71 @@ const de_ListTagsForResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.entityresolution#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.entityresolution#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1StartIdMappingJobCommand
+ */
+export const de_StartIdMappingJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartIdMappingJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StartIdMappingJobCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    jobId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartIdMappingJobCommandError
+ */
+const de_StartIdMappingJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartIdMappingJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.entityresolution#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.entityresolution#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ExceedsLimitException":
+    case "com.amazonaws.entityresolution#ExceedsLimitException":
+      throw await de_ExceedsLimitExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.entityresolution#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.entityresolution#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.entityresolution#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.entityresolution#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -1471,6 +2125,71 @@ const de_UntagResourceCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateIdMappingWorkflowCommand
+ */
+export const de_UpdateIdMappingWorkflowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateIdMappingWorkflowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateIdMappingWorkflowCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    description: __expectString,
+    idMappingTechniques: (_) => de_IdMappingTechniques(_, context),
+    inputSourceConfig: _json,
+    outputSourceConfig: _json,
+    roleArn: __expectString,
+    workflowArn: __expectString,
+    workflowName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateIdMappingWorkflowCommandError
+ */
+const de_UpdateIdMappingWorkflowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateIdMappingWorkflowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.entityresolution#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.entityresolution#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.entityresolution#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.entityresolution#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.entityresolution#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateMatchingWorkflowCommand
  */
 export const de_UpdateMatchingWorkflowCommand = async (
@@ -1489,7 +2208,7 @@ export const de_UpdateMatchingWorkflowCommand = async (
     incrementalRunConfig: _json,
     inputSourceConfig: _json,
     outputSourceConfig: _json,
-    resolutionTechniques: _json,
+    resolutionTechniques: (_) => de_ResolutionTechniques(_, context),
     roleArn: __expectString,
     workflowName: __expectString,
   });
@@ -1513,6 +2232,71 @@ const de_UpdateMatchingWorkflowCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.entityresolution#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.entityresolution#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.entityresolution#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.entityresolution#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.entityresolution#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateSchemaMappingCommand
+ */
+export const de_UpdateSchemaMappingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSchemaMappingCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateSchemaMappingCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    description: __expectString,
+    mappedInputFields: _json,
+    schemaArn: __expectString,
+    schemaName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateSchemaMappingCommandError
+ */
+const de_UpdateSchemaMappingCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSchemaMappingCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.entityresolution#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.entityresolution#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.entityresolution#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -1584,6 +2368,8 @@ const de_ExceedsLimitExceptionRes = async (
   const data: any = parsedOutput.body;
   const doc = take(data, {
     message: __expectString,
+    quotaName: __expectString,
+    quotaValue: __expectInt32,
   });
   Object.assign(contents, doc);
   const exception = new ExceedsLimitException({
@@ -1667,11 +2453,31 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+/**
+ * serializeAws_restJson1IdMappingTechniques
+ */
+const se_IdMappingTechniques = (input: IdMappingTechniques, context: __SerdeContext): any => {
+  return take(input, {
+    idMappingType: [],
+    providerProperties: (_) => se_ProviderProperties(_, context),
+  });
+};
+
+// se_IdMappingWorkflowInputSource omitted.
+
+// se_IdMappingWorkflowInputSourceConfig omitted.
+
+// se_IdMappingWorkflowOutputSource omitted.
+
+// se_IdMappingWorkflowOutputSourceConfig omitted.
+
 // se_IncrementalRunConfig omitted.
 
 // se_InputSource omitted.
 
 // se_InputSourceConfig omitted.
+
+// se_IntermediateSourceConfiguration omitted.
 
 // se_MatchingKeys omitted.
 
@@ -1683,9 +2489,29 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_OutputSourceConfig omitted.
 
+/**
+ * serializeAws_restJson1ProviderProperties
+ */
+const se_ProviderProperties = (input: ProviderProperties, context: __SerdeContext): any => {
+  return take(input, {
+    intermediateSourceConfiguration: _json,
+    providerConfiguration: (_) => se_Document(_, context),
+    providerServiceArn: [],
+  });
+};
+
 // se_RecordAttributeMap omitted.
 
-// se_ResolutionTechniques omitted.
+/**
+ * serializeAws_restJson1ResolutionTechniques
+ */
+const se_ResolutionTechniques = (input: ResolutionTechniques, context: __SerdeContext): any => {
+  return take(input, {
+    providerProperties: (_) => se_ProviderProperties(_, context),
+    resolutionType: [],
+    ruleBasedProperties: _json,
+  });
+};
 
 // se_Rule omitted.
 
@@ -1699,13 +2525,68 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_TagMap omitted.
 
+/**
+ * serializeAws_restJson1Document
+ */
+const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
+  return input;
+};
+
+// de_AwsAccountIdList omitted.
+
 // de_ErrorDetails omitted.
+
+// de_IdMappingJobMetrics omitted.
+
+/**
+ * deserializeAws_restJson1IdMappingTechniques
+ */
+const de_IdMappingTechniques = (output: any, context: __SerdeContext): IdMappingTechniques => {
+  return take(output, {
+    idMappingType: __expectString,
+    providerProperties: (_: any) => de_ProviderProperties(_, context),
+  }) as any;
+};
+
+// de_IdMappingWorkflowInputSource omitted.
+
+// de_IdMappingWorkflowInputSourceConfig omitted.
+
+/**
+ * deserializeAws_restJson1IdMappingWorkflowList
+ */
+const de_IdMappingWorkflowList = (output: any, context: __SerdeContext): IdMappingWorkflowSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_IdMappingWorkflowSummary(entry, context);
+    });
+  return retVal;
+};
+
+// de_IdMappingWorkflowOutputSource omitted.
+
+// de_IdMappingWorkflowOutputSourceConfig omitted.
+
+/**
+ * deserializeAws_restJson1IdMappingWorkflowSummary
+ */
+const de_IdMappingWorkflowSummary = (output: any, context: __SerdeContext): IdMappingWorkflowSummary => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    workflowArn: __expectString,
+    workflowName: __expectString,
+  }) as any;
+};
 
 // de_IncrementalRunConfig omitted.
 
 // de_InputSource omitted.
 
 // de_InputSourceConfig omitted.
+
+// de_IntermediateSourceConfiguration omitted.
 
 /**
  * deserializeAws_restJson1JobList
@@ -1753,6 +2634,7 @@ const de_MatchingWorkflowList = (output: any, context: __SerdeContext): Matching
 const de_MatchingWorkflowSummary = (output: any, context: __SerdeContext): MatchingWorkflowSummary => {
   return take(output, {
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    resolutionType: __expectString,
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     workflowArn: __expectString,
     workflowName: __expectString,
@@ -1767,7 +2649,39 @@ const de_MatchingWorkflowSummary = (output: any, context: __SerdeContext): Match
 
 // de_OutputSourceConfig omitted.
 
-// de_ResolutionTechniques omitted.
+// de_ProviderEndpointConfiguration omitted.
+
+// de_ProviderIntermediateDataAccessConfiguration omitted.
+
+// de_ProviderMarketplaceConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1ProviderProperties
+ */
+const de_ProviderProperties = (output: any, context: __SerdeContext): ProviderProperties => {
+  return take(output, {
+    intermediateSourceConfiguration: _json,
+    providerConfiguration: (_: any) => de_Document(_, context),
+    providerServiceArn: __expectString,
+  }) as any;
+};
+
+// de_ProviderServiceList omitted.
+
+// de_ProviderServiceSummary omitted.
+
+// de_RequiredBucketActionsList omitted.
+
+/**
+ * deserializeAws_restJson1ResolutionTechniques
+ */
+const de_ResolutionTechniques = (output: any, context: __SerdeContext): ResolutionTechniques => {
+  return take(output, {
+    providerProperties: (_: any) => de_ProviderProperties(_, context),
+    resolutionType: __expectString,
+    ruleBasedProperties: _json,
+  }) as any;
+};
 
 // de_Rule omitted.
 
@@ -1797,6 +2711,7 @@ const de_SchemaMappingList = (output: any, context: __SerdeContext): SchemaMappi
 const de_SchemaMappingSummary = (output: any, context: __SerdeContext): SchemaMappingSummary => {
   return take(output, {
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    hasWorkflows: __expectBoolean,
     schemaArn: __expectString,
     schemaName: __expectString,
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -1804,6 +2719,13 @@ const de_SchemaMappingSummary = (output: any, context: __SerdeContext): SchemaMa
 };
 
 // de_TagMap omitted.
+
+/**
+ * deserializeAws_restJson1Document
+ */
+const de_Document = (output: any, context: __SerdeContext): __DocumentType => {
+  return output;
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -1823,6 +2745,11 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _pN = "providerName";
+const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

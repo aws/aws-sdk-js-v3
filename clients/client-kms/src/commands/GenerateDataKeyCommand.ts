@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient";
 import {
   GenerateDataKeyRequest,
@@ -143,6 +135,9 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  *                </p>
  *             </li>
  *          </ul>
+ *          <p>
+ *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -190,9 +185,7 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  *  <p>The request was rejected because the specified KMS key is not enabled.</p>
  *
  * @throws {@link DryRunOperationException} (client fault)
- *  <p>
- *       The request was rejected because the DryRun parameter was specified.
- *     </p>
+ *  <p> The request was rejected because the DryRun parameter was specified. </p>
  *
  * @throws {@link InvalidGrantTokenException} (client fault)
  *  <p>The request was rejected because the specified grant token is not valid.</p>
@@ -297,79 +290,26 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  * ```
  *
  */
-export class GenerateDataKeyCommand extends $Command<
-  GenerateDataKeyCommandInput,
-  GenerateDataKeyCommandOutput,
-  KMSClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GenerateDataKeyCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: KMSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GenerateDataKeyCommandInput, GenerateDataKeyCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GenerateDataKeyCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "KMSClient";
-    const commandName = "GenerateDataKeyCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: GenerateDataKeyResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GenerateDataKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GenerateDataKeyCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GenerateDataKeyCommandOutput> {
-    return de_GenerateDataKeyCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GenerateDataKeyCommand extends $Command
+  .classBuilder<
+    GenerateDataKeyCommandInput,
+    GenerateDataKeyCommandOutput,
+    KMSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("TrentService", "GenerateDataKey", {})
+  .n("KMSClient", "GenerateDataKeyCommand")
+  .f(void 0, GenerateDataKeyResponseFilterSensitiveLog)
+  .ser(se_GenerateDataKeyCommand)
+  .de(de_GenerateDataKeyCommand)
+  .build() {}

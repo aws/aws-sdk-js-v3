@@ -21,6 +21,7 @@ export * from "./ListRevisionAssetsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./RevokeRevisionCommand";
 export * from "./SendApiAssetCommand";
+export * from "./SendDataSetNotificationCommand";
 export * from "./StartJobCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";

@@ -103,7 +103,7 @@ export interface AccountInfo {
    * @public
    * <p>The edition of your Amazon QuickSight account.</p>
    */
-  Edition?: Edition | string;
+  Edition?: Edition;
 
   /**
    * @public
@@ -148,7 +148,7 @@ export interface AccountSettings {
    * <p>The edition of Amazon QuickSight that you're currently subscribed to:
    *         Enterprise edition or Standard edition.</p>
    */
-  Edition?: Edition | string;
+  Edition?: Edition;
 
   /**
    * @public
@@ -216,7 +216,7 @@ export interface AdHocFilteringOption {
    * @public
    * <p>Availability status.</p>
    */
-  AvailabilityStatus?: DashboardBehavior | string;
+  AvailabilityStatus?: DashboardBehavior;
 }
 
 /**
@@ -248,7 +248,7 @@ export interface AttributeAggregationFunction {
    *             </li>
    *          </ul>
    */
-  SimpleAttributeAggregation?: SimpleAttributeAggregationFunction | string;
+  SimpleAttributeAggregation?: SimpleAttributeAggregationFunction;
 
   /**
    * @public
@@ -379,7 +379,7 @@ export interface NumericalAggregationFunction {
    *             </li>
    *          </ul>
    */
-  SimpleNumericalAggregation?: SimpleNumericalAggregationFunction | string;
+  SimpleNumericalAggregation?: SimpleNumericalAggregationFunction;
 
   /**
    * @public
@@ -414,7 +414,7 @@ export interface AggregationFunction {
    *             </li>
    *          </ul>
    */
-  CategoricalAggregationFunction?: CategoricalAggregationFunction | string;
+  CategoricalAggregationFunction?: CategoricalAggregationFunction;
 
   /**
    * @public
@@ -438,7 +438,7 @@ export interface AggregationFunction {
    *             </li>
    *          </ul>
    */
-  DateAggregationFunction?: DateAggregationFunction | string;
+  DateAggregationFunction?: DateAggregationFunction;
 
   /**
    * @public
@@ -504,7 +504,7 @@ export interface AggregationSortConfiguration {
    *             </li>
    *          </ul>
    */
-  SortDirection: SortDirection | string | undefined;
+  SortDirection: SortDirection | undefined;
 
   /**
    * @public
@@ -512,6 +512,13 @@ export interface AggregationSortConfiguration {
    */
   AggregationFunction?: AggregationFunction;
 }
+
+/**
+ * @public
+ * <p>The configuration for applying a filter to all sheets. You can apply this filter to all visuals on every sheet.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ */
+export interface AllSheetsFilterScopeConfiguration {}
 
 /**
  * @public
@@ -580,7 +587,7 @@ export interface AnalysisError {
    * @public
    * <p>The type of the analysis error.</p>
    */
-  Type?: AnalysisErrorType | string;
+  Type?: AnalysisErrorType;
 
   /**
    * @public
@@ -664,7 +671,7 @@ export interface Analysis {
    * @public
    * <p>Status associated with the analysis.</p>
    */
-  Status?: ResourceStatus | string;
+  Status?: ResourceStatus;
 
   /**
    * @public
@@ -774,7 +781,7 @@ export interface GridLayoutScreenCanvasSizeOptions {
    *             </li>
    *          </ul>
    */
-  ResizeOption: ResizeOption | string | undefined;
+  ResizeOption: ResizeOption | undefined;
 
   /**
    * @public
@@ -901,7 +908,7 @@ export interface SectionBasedLayoutPaperCanvasSizeOptions {
    * @public
    * <p>The paper size that is used to define canvas dimensions.</p>
    */
-  PaperSize?: PaperSize | string;
+  PaperSize?: PaperSize;
 
   /**
    * @public
@@ -917,7 +924,7 @@ export interface SectionBasedLayoutPaperCanvasSizeOptions {
    *             </li>
    *          </ul>
    */
-  PaperOrientation?: PaperOrientation | string;
+  PaperOrientation?: PaperOrientation;
 
   /**
    * @public
@@ -997,7 +1004,7 @@ export interface DefaultNewSheetConfiguration {
    * @public
    * <p>The option that determines the sheet content type.</p>
    */
-  SheetContentType?: SheetContentType | string;
+  SheetContentType?: SheetContentType;
 }
 
 /**
@@ -1072,7 +1079,7 @@ export interface CustomColor {
    * @public
    * <p>The value of a special data value.</p>
    */
-  SpecialValue?: SpecialValue | string;
+  SpecialValue?: SpecialValue;
 }
 
 /**
@@ -1134,7 +1141,7 @@ export interface NegativeValueConfiguration {
    * @public
    * <p>Determines the display mode of the negative value configuration.</p>
    */
-  DisplayMode: NegativeValueDisplayMode | string | undefined;
+  DisplayMode: NegativeValueDisplayMode | undefined;
 }
 
 /**
@@ -1193,13 +1200,13 @@ export interface ThousandSeparatorOptions {
    * @public
    * <p>Determines the thousands separator symbol.</p>
    */
-  Symbol?: NumericSeparatorSymbol | string;
+  Symbol?: NumericSeparatorSymbol;
 
   /**
    * @public
    * <p>Determines the visibility of the thousands separator.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 }
 
 /**
@@ -1211,7 +1218,7 @@ export interface NumericSeparatorConfiguration {
    * @public
    * <p>Determines the decimal separator.</p>
    */
-  DecimalSeparator?: NumericSeparatorSymbol | string;
+  DecimalSeparator?: NumericSeparatorSymbol;
 
   /**
    * @public
@@ -1259,7 +1266,7 @@ export interface CurrencyDisplayFormatConfiguration {
    * @public
    * <p>Determines the number scale value for the currency format.</p>
    */
-  NumberScale?: NumberScale | string;
+  NumberScale?: NumberScale;
 
   /**
    * @public
@@ -1307,7 +1314,7 @@ export interface NumberDisplayFormatConfiguration {
    * @public
    * <p>Determines the number scale value of the number format.</p>
    */
-  NumberScale?: NumberScale | string;
+  NumberScale?: NumberScale;
 
   /**
    * @public
@@ -1502,7 +1509,7 @@ export interface ColumnConfiguration {
    * @public
    * <p>The role of the column.</p>
    */
-  Role?: ColumnRole | string;
+  Role?: ColumnRole;
 
   /**
    * @public
@@ -1600,7 +1607,7 @@ export interface CustomFilterConfiguration {
    * @public
    * <p>The match operator that is used to determine if a filter should be applied.</p>
    */
-  MatchOperator: CategoryFilterMatchOperator | string | undefined;
+  MatchOperator: CategoryFilterMatchOperator | undefined;
 
   /**
    * @public
@@ -1620,7 +1627,7 @@ export interface CustomFilterConfiguration {
    *             </li>
    *          </ul>
    */
-  SelectAllOptions?: CategoryFilterSelectAllOptions | string;
+  SelectAllOptions?: CategoryFilterSelectAllOptions;
 
   /**
    * @public
@@ -1647,7 +1654,7 @@ export interface CustomFilterConfiguration {
    *             </li>
    *          </ul>
    */
-  NullOption: FilterNullOption | string | undefined;
+  NullOption: FilterNullOption | undefined;
 }
 
 /**
@@ -1659,7 +1666,7 @@ export interface CustomFilterListConfiguration {
    * @public
    * <p>The match operator that is used to determine if a filter should be applied.</p>
    */
-  MatchOperator: CategoryFilterMatchOperator | string | undefined;
+  MatchOperator: CategoryFilterMatchOperator | undefined;
 
   /**
    * @public
@@ -1678,7 +1685,7 @@ export interface CustomFilterListConfiguration {
    *             </li>
    *          </ul>
    */
-  SelectAllOptions?: CategoryFilterSelectAllOptions | string;
+  SelectAllOptions?: CategoryFilterSelectAllOptions;
 
   /**
    * @public
@@ -1698,7 +1705,7 @@ export interface CustomFilterListConfiguration {
    *             </li>
    *          </ul>
    */
-  NullOption: FilterNullOption | string | undefined;
+  NullOption: FilterNullOption | undefined;
 }
 
 /**
@@ -1710,7 +1717,7 @@ export interface FilterListConfiguration {
    * @public
    * <p>The match operator that is used to determine if a filter should be applied.</p>
    */
-  MatchOperator: CategoryFilterMatchOperator | string | undefined;
+  MatchOperator: CategoryFilterMatchOperator | undefined;
 
   /**
    * @public
@@ -1729,7 +1736,27 @@ export interface FilterListConfiguration {
    *             </li>
    *          </ul>
    */
-  SelectAllOptions?: CategoryFilterSelectAllOptions | string;
+  SelectAllOptions?: CategoryFilterSelectAllOptions;
+
+  /**
+   * @public
+   * <p>This option determines how null values should be treated when filtering data.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALL_VALUES</code>: Include null values in filtered results.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NULLS_ONLY</code>: Only include null values in filtered results.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NON_NULLS_ONLY</code>: Exclude null values from filtered results.</p>
+   *             </li>
+   *          </ul>
+   */
+  NullOption?: FilterNullOption;
 }
 
 /**
@@ -1845,13 +1872,13 @@ export interface NumericEqualityFilter {
    *             </li>
    *          </ul>
    */
-  SelectAllOptions?: NumericFilterSelectAllOptions | string;
+  SelectAllOptions?: NumericFilterSelectAllOptions;
 
   /**
    * @public
    * <p>The match operator that is used to determine if a filter should be applied.</p>
    */
-  MatchOperator: NumericEqualityMatchOperator | string | undefined;
+  MatchOperator: NumericEqualityMatchOperator | undefined;
 
   /**
    * @public
@@ -1883,7 +1910,7 @@ export interface NumericEqualityFilter {
    *             </li>
    *          </ul>
    */
-  NullOption: FilterNullOption | string | undefined;
+  NullOption: FilterNullOption | undefined;
 }
 
 /**
@@ -1956,7 +1983,7 @@ export interface NumericRangeFilter {
    *             </li>
    *          </ul>
    */
-  SelectAllOptions?: NumericFilterSelectAllOptions | string;
+  SelectAllOptions?: NumericFilterSelectAllOptions;
 
   /**
    * @public
@@ -1982,7 +2009,7 @@ export interface NumericRangeFilter {
    *             </li>
    *          </ul>
    */
-  NullOption: FilterNullOption | string | undefined;
+  NullOption: FilterNullOption | undefined;
 }
 
 /**
@@ -2014,7 +2041,7 @@ export interface AnchorDateConfiguration {
    *             </li>
    *          </ul>
    */
-  AnchorOption?: AnchorOption | string;
+  AnchorOption?: AnchorOption;
 
   /**
    * @public
@@ -2073,7 +2100,7 @@ export interface ExcludePeriodConfiguration {
    * @public
    * <p>The granularity or unit (day, month, year) of the exclude period.</p>
    */
-  Granularity: TimeGranularity | string | undefined;
+  Granularity: TimeGranularity | undefined;
 
   /**
    * @public
@@ -2091,7 +2118,7 @@ export interface ExcludePeriodConfiguration {
    *             </li>
    *          </ul>
    */
-  Status?: WidgetStatus | string;
+  Status?: WidgetStatus;
 }
 
 /**
@@ -2138,13 +2165,13 @@ export interface RelativeDatesFilter {
    * @public
    * <p>The minimum granularity (period granularity) of the relative dates filter.</p>
    */
-  MinimumGranularity?: TimeGranularity | string;
+  MinimumGranularity?: TimeGranularity;
 
   /**
    * @public
    * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
    */
-  TimeGranularity: TimeGranularity | string | undefined;
+  TimeGranularity: TimeGranularity | undefined;
 
   /**
    * @public
@@ -2177,7 +2204,7 @@ export interface RelativeDatesFilter {
    *             </li>
    *          </ul>
    */
-  RelativeDateType: RelativeDateType | string | undefined;
+  RelativeDateType: RelativeDateType | undefined;
 
   /**
    * @public
@@ -2209,13 +2236,31 @@ export interface RelativeDatesFilter {
    *             </li>
    *          </ul>
    */
-  NullOption: FilterNullOption | string | undefined;
+  NullOption: FilterNullOption | undefined;
 
   /**
    * @public
    * <p>The configuration for the exclude period of the filter.</p>
    */
   ExcludePeriodConfiguration?: ExcludePeriodConfiguration;
+}
+
+/**
+ * @public
+ * <p>The rolling date configuration of a date time filter.</p>
+ */
+export interface RollingDateConfiguration {
+  /**
+   * @public
+   * <p>The data set that is used in the rolling date configuration.</p>
+   */
+  DataSetIdentifier?: string;
+
+  /**
+   * @public
+   * <p>The expression of the rolling date configuration.</p>
+   */
+  Expression: string | undefined;
 }
 
 /**
@@ -2238,14 +2283,14 @@ export interface TimeEqualityFilter {
   /**
    * @public
    * <p>The value of a <code>TimeEquality</code> filter.</p>
-   *          <p>This field is mutually exclusive to <code>ParameterName</code>.</p>
+   *          <p>This field is mutually exclusive to <code>RollingDate</code> and <code>ParameterName</code>.</p>
    */
   Value?: Date;
 
   /**
    * @public
    * <p>The parameter whose value should be used for the filter value.</p>
-   *          <p>This field is mutually exclusive to <code>Value</code>.</p>
+   *          <p>This field is mutually exclusive to <code>Value</code> and <code>RollingDate</code>.</p>
    */
   ParameterName?: string;
 
@@ -2253,25 +2298,14 @@ export interface TimeEqualityFilter {
    * @public
    * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
    */
-  TimeGranularity?: TimeGranularity | string;
-}
-
-/**
- * @public
- * <p>The rolling date configuration of a date time filter.</p>
- */
-export interface RollingDateConfiguration {
-  /**
-   * @public
-   * <p>The data set that is used in the rolling date configuration.</p>
-   */
-  DataSetIdentifier?: string;
+  TimeGranularity?: TimeGranularity;
 
   /**
    * @public
-   * <p>The expression of the rolling date configuration.</p>
+   * <p>The rolling date input for the <code>TimeEquality</code> filter.</p>
+   *          <p>This field is mutually exclusive to <code>Value</code> and <code>ParameterName</code>.</p>
    */
-  Expression: string | undefined;
+  RollingDate?: RollingDateConfiguration;
 }
 
 /**
@@ -2358,7 +2392,7 @@ export interface TimeRangeFilter {
    *             </li>
    *          </ul>
    */
-  NullOption: FilterNullOption | string | undefined;
+  NullOption: FilterNullOption | undefined;
 
   /**
    * @public
@@ -2370,7 +2404,7 @@ export interface TimeRangeFilter {
    * @public
    * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
    */
-  TimeGranularity?: TimeGranularity | string;
+  TimeGranularity?: TimeGranularity;
 }
 
 /**
@@ -2406,7 +2440,7 @@ export interface TopBottomFilter {
    * @public
    * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
    */
-  TimeGranularity?: TimeGranularity | string;
+  TimeGranularity?: TimeGranularity;
 
   /**
    * @public
@@ -2507,7 +2541,7 @@ export interface SheetVisualScopingConfiguration {
    *             </li>
    *          </ul>
    */
-  Scope: FilterVisualScope | string | undefined;
+  Scope: FilterVisualScope | undefined;
 
   /**
    * @public
@@ -2540,6 +2574,12 @@ export interface FilterScopeConfiguration {
    * <p>The configuration for applying a filter to specific sheets.</p>
    */
   SelectedSheets?: SelectedSheetsFilterScopeConfiguration;
+
+  /**
+   * @public
+   * <p>The configuration for applying a filter to all sheets.</p>
+   */
+  AllSheets?: AllSheetsFilterScopeConfiguration;
 }
 
 /**
@@ -2571,7 +2611,7 @@ export interface FilterGroup {
    * @public
    * <p>The status of the <code>FilterGroup</code>.</p>
    */
-  Status?: WidgetStatus | string;
+  Status?: WidgetStatus;
 
   /**
    * @public
@@ -2589,7 +2629,44 @@ export interface FilterGroup {
    *             </li>
    *          </ul>
    */
-  CrossDataset: CrossDatasetTypes | string | undefined;
+  CrossDataset: CrossDatasetTypes | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DayOfTheWeek = {
+  FRIDAY: "FRIDAY",
+  MONDAY: "MONDAY",
+  SATURDAY: "SATURDAY",
+  SUNDAY: "SUNDAY",
+  THURSDAY: "THURSDAY",
+  TUESDAY: "TUESDAY",
+  WEDNESDAY: "WEDNESDAY",
+} as const;
+
+/**
+ * @public
+ */
+export type DayOfTheWeek = (typeof DayOfTheWeek)[keyof typeof DayOfTheWeek];
+
+/**
+ * @public
+ * <p>An array of analysis level configurations.</p>
+ */
+export interface AssetOptions {
+  /**
+   * @public
+   * <p>Determines the timezone for the analysis.</p>
+   */
+  Timezone?: string;
+
+  /**
+   * @public
+   * <p>Determines the week start day for an analysis.</p>
+   */
+  WeekStart?: DayOfTheWeek;
 }
 
 /**
@@ -2691,7 +2768,7 @@ export interface DateTimeValueWhenUnsetConfiguration {
    *             </li>
    *          </ul>
    */
-  ValueWhenUnsetOption?: ValueWhenUnsetOption | string;
+  ValueWhenUnsetOption?: ValueWhenUnsetOption;
 
   /**
    * @public
@@ -2721,7 +2798,7 @@ export interface DateTimeParameterDeclaration {
    * @public
    * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
    */
-  TimeGranularity?: TimeGranularity | string;
+  TimeGranularity?: TimeGranularity;
 
   /**
    * @public
@@ -2787,7 +2864,7 @@ export interface DecimalValueWhenUnsetConfiguration {
    *             </li>
    *          </ul>
    */
-  ValueWhenUnsetOption?: ValueWhenUnsetOption | string;
+  ValueWhenUnsetOption?: ValueWhenUnsetOption;
 
   /**
    * @public
@@ -2805,7 +2882,7 @@ export interface DecimalParameterDeclaration {
    * @public
    * <p>The value type determines whether the parameter is a single-value or multi-value parameter.</p>
    */
-  ParameterValueType: ParameterValueType | string | undefined;
+  ParameterValueType: ParameterValueType | undefined;
 
   /**
    * @public
@@ -2870,7 +2947,7 @@ export interface IntegerValueWhenUnsetConfiguration {
    *             </li>
    *          </ul>
    */
-  ValueWhenUnsetOption?: ValueWhenUnsetOption | string;
+  ValueWhenUnsetOption?: ValueWhenUnsetOption;
 
   /**
    * @public
@@ -2888,7 +2965,7 @@ export interface IntegerParameterDeclaration {
    * @public
    * <p>The value type determines whether the parameter is a single-value or multi-value parameter.</p>
    */
-  ParameterValueType: ParameterValueType | string | undefined;
+  ParameterValueType: ParameterValueType | undefined;
 
   /**
    * @public
@@ -2952,7 +3029,7 @@ export interface StringValueWhenUnsetConfiguration {
    *             </li>
    *          </ul>
    */
-  ValueWhenUnsetOption?: ValueWhenUnsetOption | string;
+  ValueWhenUnsetOption?: ValueWhenUnsetOption;
 
   /**
    * @public
@@ -2970,7 +3047,7 @@ export interface StringParameterDeclaration {
    * @public
    * <p>The value type determines whether the parameter is a single-value or multi-value parameter.</p>
    */
-  ParameterValueType: ParameterValueType | string | undefined;
+  ParameterValueType: ParameterValueType | undefined;
 
   /**
    * @public
@@ -3038,7 +3115,7 @@ export interface SheetControlInfoIconLabelOptions {
    * @public
    * <p>The visibility configuration of info icon label options.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 
   /**
    * @public
@@ -3087,7 +3164,7 @@ export interface FontSize {
    * @public
    * <p>The lexical name for the text size, proportional to its surrounding context.</p>
    */
-  Relative?: RelativeFontSize | string;
+  Relative?: RelativeFontSize;
 }
 
 /**
@@ -3127,7 +3204,7 @@ export interface FontWeight {
    * @public
    * <p>The lexical name for the level of boldness of the text display.</p>
    */
-  Name?: FontWeightName | string;
+  Name?: FontWeightName;
 }
 
 /**
@@ -3145,7 +3222,7 @@ export interface FontConfiguration {
    * @public
    * <p>Determines the appearance of decorative lines on the text.</p>
    */
-  FontDecoration?: FontDecoration | string;
+  FontDecoration?: FontDecoration;
 
   /**
    * @public
@@ -3163,7 +3240,7 @@ export interface FontConfiguration {
    * @public
    * <p>Determines the text display face that is inherited by the given font family.</p>
    */
-  FontStyle?: FontStyle | string;
+  FontStyle?: FontStyle;
 }
 
 /**
@@ -3175,7 +3252,7 @@ export interface LabelOptions {
    * @public
    * <p>Determines whether or not the label is visible.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 
   /**
    * @public
@@ -3272,7 +3349,7 @@ export interface FilterDateTimePickerControl {
    *             </li>
    *          </ul>
    */
-  Type?: SheetControlDateTimePickerType | string;
+  Type?: SheetControlDateTimePickerType;
 }
 
 /**
@@ -3314,7 +3391,7 @@ export interface ListControlSelectAllOptions {
    * @public
    * <p>The visibility configuration of the <code>Select all</code> options in a list control.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 }
 
 /**
@@ -3411,7 +3488,7 @@ export interface FilterDropDownControl {
    *             </li>
    *          </ul>
    */
-  Type?: SheetControlListType | string;
+  Type?: SheetControlListType;
 
   /**
    * @public
@@ -3435,7 +3512,7 @@ export interface ListControlSearchOptions {
    * @public
    * <p>The visibility configuration of the search options in a list control.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 }
 
 /**
@@ -3511,7 +3588,7 @@ export interface FilterListControl {
    *             </li>
    *          </ul>
    */
-  Type?: SheetControlListType | string;
+  Type?: SheetControlListType;
 
   /**
    * @public
@@ -3655,7 +3732,7 @@ export interface FilterSliderControl {
    *             </li>
    *          </ul>
    */
-  Type?: SheetControlSliderType | string;
+  Type?: SheetControlSliderType;
 
   /**
    * @public
@@ -3685,7 +3762,7 @@ export interface TextControlPlaceholderOptions {
    * @public
    * <p>The visibility configuration of the placeholder options in a text control.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 }
 
 /**
@@ -3860,7 +3937,7 @@ export interface FreeFormLayoutElementBackgroundStyle {
    * @public
    * <p>The background visibility of a free-form layout element.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 
   /**
    * @public
@@ -3878,7 +3955,7 @@ export interface FreeFormLayoutElementBorderStyle {
    * @public
    * <p>The border visibility of a free-form layout element.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 
   /**
    * @public
@@ -3912,7 +3989,7 @@ export interface LoadingAnimation {
    * @public
    * <p>The visibility configuration of <code>LoadingAnimation</code>.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 }
 
 /**
@@ -3936,7 +4013,7 @@ export interface SheetElementConfigurationOverrides {
    *             </li>
    *          </ul>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 }
 
 /**
@@ -3972,7 +4049,7 @@ export interface FreeFormLayoutElement {
    * @public
    * <p>The type of element.</p>
    */
-  ElementType: LayoutElementType | string | undefined;
+  ElementType: LayoutElementType | undefined;
 
   /**
    * @public
@@ -4002,7 +4079,7 @@ export interface FreeFormLayoutElement {
    * @public
    * <p>The visibility of an element within a free-form layout.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 
   /**
    * @public
@@ -4068,7 +4145,7 @@ export interface GridLayoutElement {
    * @public
    * <p>The type of element.</p>
    */
-  ElementType: LayoutElementType | string | undefined;
+  ElementType: LayoutElementType | undefined;
 
   /**
    * @public
@@ -4173,7 +4250,7 @@ export interface SectionAfterPageBreak {
    * @public
    * <p>The option that enables or disables a page break at the end of a section.</p>
    */
-  Status?: SectionPageBreakStatus | string;
+  Status?: SectionPageBreakStatus;
 }
 
 /**
@@ -4413,7 +4490,7 @@ export interface ParameterDropDownControl {
    * @public
    * <p>The type parameter name of the <code>ParameterDropDownControl</code>.</p>
    */
-  Type?: SheetControlListType | string;
+  Type?: SheetControlListType;
 
   /**
    * @public
@@ -4461,7 +4538,7 @@ export interface ParameterListControl {
    * @public
    * <p>The type of <code>ParameterListControl</code>.</p>
    */
-  Type?: SheetControlListType | string;
+  Type?: SheetControlListType;
 
   /**
    * @public
@@ -4711,7 +4788,7 @@ export interface FilterOperationSelectedFieldsConfiguration {
    *             </li>
    *          </ul>
    */
-  SelectedFieldOptions?: SelectedFieldOptions | string;
+  SelectedFieldOptions?: SelectedFieldOptions;
 
   /**
    * @public
@@ -4756,7 +4833,7 @@ export interface SameSheetTargetVisualConfiguration {
    *             </li>
    *          </ul>
    */
-  TargetVisualOptions?: TargetVisualOptions | string;
+  TargetVisualOptions?: TargetVisualOptions;
 }
 
 /**
@@ -4894,7 +4971,7 @@ export interface DestinationParameterValueConfiguration {
    * @public
    * <p>The configuration that selects all options.</p>
    */
-  SelectAllValueOptions?: SelectAllValueOptions | string;
+  SelectAllValueOptions?: SelectAllValueOptions;
 
   /**
    * @public
@@ -4991,7 +5068,7 @@ export interface CustomActionURLOperation {
    *             </li>
    *          </ul>
    */
-  URLTarget: URLTargetConfiguration | string | undefined;
+  URLTarget: URLTargetConfiguration | undefined;
 }
 
 /**
@@ -5060,7 +5137,7 @@ export interface VisualCustomAction {
    * @public
    * <p>The status of the <code>VisualCustomAction</code>.</p>
    */
-  Status?: WidgetStatus | string;
+  Status?: WidgetStatus;
 
   /**
    * @public
@@ -5077,7 +5154,7 @@ export interface VisualCustomAction {
    *             </li>
    *          </ul>
    */
-  Trigger: VisualCustomActionTrigger | string | undefined;
+  Trigger: VisualCustomActionTrigger | undefined;
 
   /**
    * @public
@@ -5111,7 +5188,7 @@ export interface DateAxisOptions {
    * @public
    * <p>Determines whether or not missing dates are displayed.</p>
    */
-  MissingDateVisibility?: Visibility | string;
+  MissingDateVisibility?: Visibility;
 }
 
 /**
@@ -5284,7 +5361,7 @@ export interface ScrollBarOptions {
    * @public
    * <p>The visibility of the data zoom scroll bar.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 
   /**
    * @public
@@ -5326,13 +5403,13 @@ export interface AxisDisplayOptions {
    * @public
    * <p>Determines whether or not the axis line is visible.</p>
    */
-  AxisLineVisibility?: Visibility | string;
+  AxisLineVisibility?: Visibility;
 
   /**
    * @public
    * <p>Determines whether or not the grid line is visible.</p>
    */
-  GridLineVisibility?: Visibility | string;
+  GridLineVisibility?: Visibility;
 
   /**
    * @public
@@ -5414,13 +5491,13 @@ export interface ChartAxisLabelOptions {
    *             </li>
    *          </ul>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 
   /**
    * @public
    * <p>The visibility configuration of the sort icon on a chart's axis label.</p>
    */
-  SortIconVisibility?: Visibility | string;
+  SortIconVisibility?: Visibility;
 
   /**
    * @public
@@ -5469,7 +5546,7 @@ export interface DataPathLabelType {
    * @public
    * <p>The visibility of the data label.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 }
 
 /**
@@ -5488,7 +5565,7 @@ export interface FieldLabelType {
    * @public
    * <p>The visibility of the field label.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 }
 
 /**
@@ -5500,7 +5577,7 @@ export interface MaximumLabelType {
    * @public
    * <p>The visibility of the maximum label.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 }
 
 /**
@@ -5512,7 +5589,7 @@ export interface MinimumLabelType {
    * @public
    * <p>The visibility of the minimum label.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 }
 
 /**
@@ -5524,7 +5601,7 @@ export interface RangeEndsLabelType {
    * @public
    * <p>The visibility of the range ends label.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 }
 
 /**
@@ -5620,19 +5697,19 @@ export interface DataLabelOptions {
    * @public
    * <p>Determines the visibility of the data labels.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 
   /**
    * @public
    * <p>Determines the visibility of the category field labels.</p>
    */
-  CategoryLabelVisibility?: Visibility | string;
+  CategoryLabelVisibility?: Visibility;
 
   /**
    * @public
    * <p>Determines the visibility of the measure field labels.</p>
    */
-  MeasureLabelVisibility?: Visibility | string;
+  MeasureLabelVisibility?: Visibility;
 
   /**
    * @public
@@ -5644,13 +5721,13 @@ export interface DataLabelOptions {
    * @public
    * <p>Determines the position of the data labels.</p>
    */
-  Position?: DataLabelPosition | string;
+  Position?: DataLabelPosition;
 
   /**
    * @public
    * <p>Determines the content of the data labels.</p>
    */
-  LabelContent?: DataLabelContent | string;
+  LabelContent?: DataLabelContent;
 
   /**
    * @public
@@ -5668,13 +5745,13 @@ export interface DataLabelOptions {
    * @public
    * <p>Determines whether overlap is enabled or disabled for the data labels.</p>
    */
-  Overlap?: DataLabelOverlap | string;
+  Overlap?: DataLabelOverlap;
 
   /**
    * @public
    * <p>Determines the visibility of the total.</p>
    */
-  TotalsVisibility?: Visibility | string;
+  TotalsVisibility?: Visibility;
 }
 
 /**
@@ -5775,7 +5852,7 @@ export interface DateDimensionField {
    *             </li>
    *          </ul>
    */
-  DateGranularity?: TimeGranularity | string;
+  DateGranularity?: TimeGranularity;
 
   /**
    * @public
@@ -5883,7 +5960,7 @@ export interface CategoricalMeasureField {
    * @public
    * <p>The aggregation function of the measure field.</p>
    */
-  AggregationFunction?: CategoricalAggregationFunction | string;
+  AggregationFunction?: CategoricalAggregationFunction;
 
   /**
    * @public
@@ -5913,7 +5990,7 @@ export interface DateMeasureField {
    * @public
    * <p>The aggregation function of the measure field.</p>
    */
-  AggregationFunction?: DateAggregationFunction | string;
+  AggregationFunction?: DateAggregationFunction;
 
   /**
    * @public
@@ -6051,7 +6128,7 @@ export interface LegendOptions {
    * @public
    * <p>Determines whether or not the legend is visible.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 
   /**
    * @public
@@ -6086,7 +6163,7 @@ export interface LegendOptions {
    *             </li>
    *          </ul>
    */
-  Position?: LegendPosition | string;
+  Position?: LegendPosition;
 
   /**
    * @public
@@ -6156,6 +6233,20 @@ export interface ReferenceLineDynamicDataConfiguration {
 
 /**
  * @public
+ * @enum
+ */
+export const ReferenceLineSeriesType = {
+  BAR: "BAR",
+  LINE: "LINE",
+} as const;
+
+/**
+ * @public
+ */
+export type ReferenceLineSeriesType = (typeof ReferenceLineSeriesType)[keyof typeof ReferenceLineSeriesType];
+
+/**
+ * @public
  * <p>The static data configuration of the reference line data configuration.</p>
  */
 export interface ReferenceLineStaticDataConfiguration {
@@ -6173,8 +6264,7 @@ export interface ReferenceLineStaticDataConfiguration {
 export interface ReferenceLineDataConfiguration {
   /**
    * @public
-   * <p>The static data configuration of the reference line data
-   *             configuration.</p>
+   * <p>The static data configuration of the reference line data configuration.</p>
    */
   StaticConfiguration?: ReferenceLineStaticDataConfiguration;
 
@@ -6189,14 +6279,36 @@ export interface ReferenceLineDataConfiguration {
    * <p>The axis binding type of the reference line. Choose one of the following options:</p>
    *          <ul>
    *             <li>
-   *                <p>PrimaryY</p>
+   *                <p>
+   *                   <code>PrimaryY</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>SecondaryY</p>
+   *                <p>
+   *                   <code>SecondaryY</code>
+   *                </p>
    *             </li>
    *          </ul>
    */
-  AxisBinding?: AxisBinding | string;
+  AxisBinding?: AxisBinding;
+
+  /**
+   * @public
+   * <p>The series type of the reference line data configuration. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BAR</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LINE</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  SeriesType?: ReferenceLineSeriesType;
 }
 
 /**
@@ -6263,7 +6375,7 @@ export interface ReferenceLineValueLabelConfiguration {
    *             </li>
    *          </ul>
    */
-  RelativePosition?: ReferenceLineValueLabelRelativePosition | string;
+  RelativePosition?: ReferenceLineValueLabelRelativePosition;
 
   /**
    * @public
@@ -6338,7 +6450,7 @@ export interface ReferenceLineLabelConfiguration {
    *             </li>
    *          </ul>
    */
-  HorizontalPosition?: ReferenceLineLabelHorizontalPosition | string;
+  HorizontalPosition?: ReferenceLineLabelHorizontalPosition;
 
   /**
    * @public
@@ -6356,7 +6468,7 @@ export interface ReferenceLineLabelConfiguration {
    *             </li>
    *          </ul>
    */
-  VerticalPosition?: ReferenceLineLabelVerticalPosition | string;
+  VerticalPosition?: ReferenceLineLabelVerticalPosition;
 }
 
 /**
@@ -6401,7 +6513,7 @@ export interface ReferenceLineStyleConfiguration {
    *             </li>
    *          </ul>
    */
-  Pattern?: ReferenceLinePatternType | string;
+  Pattern?: ReferenceLinePatternType;
 
   /**
    * @public
@@ -6431,7 +6543,7 @@ export interface ReferenceLine {
    *             </li>
    *          </ul>
    */
-  Status?: WidgetStatus | string;
+  Status?: WidgetStatus;
 
   /**
    * @public
@@ -6493,7 +6605,7 @@ export interface PanelTitleOptions {
    * @public
    * <p>Determines whether or not panel titles are displayed.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 
   /**
    * @public
@@ -6505,7 +6617,7 @@ export interface PanelTitleOptions {
    * @public
    * <p>Sets the horizontal text alignment of the title within each panel.</p>
    */
-  HorizontalTextAlignment?: HorizontalTextAlignment | string;
+  HorizontalTextAlignment?: HorizontalTextAlignment;
 }
 
 /**
@@ -6523,7 +6635,7 @@ export interface PanelConfiguration {
    * @public
    * <p>Determines whether or not each panel displays a border.</p>
    */
-  BorderVisibility?: Visibility | string;
+  BorderVisibility?: Visibility;
 
   /**
    * @public
@@ -6535,7 +6647,7 @@ export interface PanelConfiguration {
    * @public
    * <p>Sets the line style of panel borders.</p>
    */
-  BorderStyle?: PanelBorderStyle | string;
+  BorderStyle?: PanelBorderStyle;
 
   /**
    * @public
@@ -6547,7 +6659,7 @@ export interface PanelConfiguration {
    * @public
    * <p>Determines whether or not negative space between sibling panels is rendered.</p>
    */
-  GutterVisibility?: Visibility | string;
+  GutterVisibility?: Visibility;
 
   /**
    * @public
@@ -6559,7 +6671,7 @@ export interface PanelConfiguration {
    * @public
    * <p>Determines whether or not a background for each small multiples panel is rendered.</p>
    */
-  BackgroundVisibility?: Visibility | string;
+  BackgroundVisibility?: Visibility;
 
   /**
    * @public
@@ -6606,13 +6718,13 @@ export interface SmallMultiplesAxisProperties {
    * @public
    * <p>Determines whether scale of the axes are shared or independent. The default value is <code>SHARED</code>.</p>
    */
-  Scale?: SmallMultiplesAxisScale | string;
+  Scale?: SmallMultiplesAxisScale;
 
   /**
    * @public
    * <p>Defines the placement of the axis. By default, axes are rendered <code>OUTSIDE</code> of the panels. Axes with <code>INDEPENDENT</code> scale are rendered <code>INSIDE</code> the panels.</p>
    */
-  Placement?: SmallMultiplesAxisPlacement | string;
+  Placement?: SmallMultiplesAxisPlacement;
 }
 
 /**
@@ -6698,7 +6810,7 @@ export interface ItemsLimitConfiguration {
    *             </li>
    *          </ul>
    */
-  OtherCategories?: OtherCategories | string;
+  OtherCategories?: OtherCategories;
 }
 
 /**
@@ -6716,7 +6828,7 @@ export interface ColumnSort {
    * @public
    * <p>The sort direction.</p>
    */
-  Direction: SortDirection | string | undefined;
+  Direction: SortDirection | undefined;
 
   /**
    * @public
@@ -6752,7 +6864,7 @@ export interface FieldSort {
    *             </li>
    *          </ul>
    */
-  Direction: SortDirection | string | undefined;
+  Direction: SortDirection | undefined;
 }
 
 /**
@@ -6836,7 +6948,7 @@ export interface ColumnTooltipItem {
    * @public
    * <p>The visibility of the tooltip item.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 
   /**
    * @public
@@ -6866,7 +6978,7 @@ export interface FieldTooltipItem {
    * @public
    * <p>The visibility of the tooltip item.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 }
 
 /**
@@ -6911,7 +7023,7 @@ export interface FieldBasedTooltip {
    * @public
    * <p>The visibility of <code>Show aggregations</code>.</p>
    */
-  AggregationVisibility?: Visibility | string;
+  AggregationVisibility?: Visibility;
 
   /**
    * @public
@@ -6927,7 +7039,7 @@ export interface FieldBasedTooltip {
    *             </li>
    *          </ul>
    */
-  TooltipTitleType?: TooltipTitleType | string;
+  TooltipTitleType?: TooltipTitleType;
 
   /**
    * @public
@@ -6960,7 +7072,7 @@ export interface TooltipOptions {
    * @public
    * <p>Determines whether or not the tooltip is visible.</p>
    */
-  TooltipVisibility?: Visibility | string;
+  TooltipVisibility?: Visibility;
 
   /**
    * @public
@@ -6976,13 +7088,59 @@ export interface TooltipOptions {
    *             </li>
    *          </ul>
    */
-  SelectedTooltipType?: SelectedTooltipType | string;
+  SelectedTooltipType?: SelectedTooltipType;
 
   /**
    * @public
    * <p>The setup for the detailed tooltip. The tooltip setup is always saved. The display type is decided based on the tooltip type.</p>
    */
   FieldBasedTooltip?: FieldBasedTooltip;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PivotTableDataPathType = {
+  COUNT_METRIC_COLUMN: "COUNT_METRIC_COLUMN",
+  EMPTY_COLUMN_HEADER: "EMPTY_COLUMN_HEADER",
+  HIERARCHY_ROWS_LAYOUT_COLUMN: "HIERARCHY_ROWS_LAYOUT_COLUMN",
+  MULTIPLE_ROW_METRICS_COLUMN: "MULTIPLE_ROW_METRICS_COLUMN",
+} as const;
+
+/**
+ * @public
+ */
+export type PivotTableDataPathType = (typeof PivotTableDataPathType)[keyof typeof PivotTableDataPathType];
+
+/**
+ * @public
+ * <p>The type of the data path value.</p>
+ */
+export interface DataPathType {
+  /**
+   * @public
+   * <p>The type of data path value utilized in a pivot table. Choose one of the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>HIERARCHY_ROWS_LAYOUT_COLUMN</code> - The type of data path for the rows layout column, when <code>RowsLayout</code> is set to <code>HIERARCHY</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MULTIPLE_ROW_METRICS_COLUMN</code> - The type of data path for the metric column when the row is set to Metric Placement.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EMPTY_COLUMN_HEADER</code> - The type of data path for the column with empty column header, when there is no field in <code>ColumnsFieldWell</code> and the row is set to Metric Placement.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COUNT_METRIC_COLUMN</code> - The type of data path for the column with <code>COUNT</code> as the metric, when there is no field in the <code>ValuesFieldWell</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  PivotTableDataPathType?: PivotTableDataPathType;
 }
 
 /**
@@ -6994,13 +7152,19 @@ export interface DataPathValue {
    * @public
    * <p>The field ID of the field that needs to be sorted.</p>
    */
-  FieldId: string | undefined;
+  FieldId?: string;
 
   /**
    * @public
    * <p>The actual value of the field that needs to be sorted.</p>
    */
-  FieldValue: string | undefined;
+  FieldValue?: string;
+
+  /**
+   * @public
+   * <p>The type configuration of the field.</p>
+   */
+  DataPathType?: DataPathType;
 }
 
 /**
@@ -7024,7 +7188,7 @@ export interface DataPathColor {
    * @public
    * <p>The time granularity of the field that the color needs to be applied to.</p>
    */
-  TimeGranularity?: TimeGranularity | string;
+  TimeGranularity?: TimeGranularity;
 }
 
 /**
@@ -7076,13 +7240,13 @@ export interface BarChartConfiguration {
    *             </li>
    *          </ul>
    */
-  Orientation?: BarChartOrientation | string;
+  Orientation?: BarChartOrientation;
 
   /**
    * @public
    * <p>Determines the arrangement of the bars. The orientation and arrangement of bars determine the type of bar that is used in the visual.</p>
    */
-  BarsArrangement?: BarsArrangement | string;
+  BarsArrangement?: BarsArrangement;
 
   /**
    * @public
@@ -7220,7 +7384,7 @@ export interface TimeRangeDrillDownFilter {
    * @public
    * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
    */
-  TimeGranularity: TimeGranularity | string | undefined;
+  TimeGranularity: TimeGranularity | undefined;
 }
 
 /**
@@ -7367,164 +7531,13 @@ export interface VisualSubtitleLabelOptions {
    * @public
    * <p>The visibility of the subtitle label.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 
   /**
    * @public
    * <p>The long text format of the subtitle label, such as plain text or rich text.</p>
    */
   FormatText?: LongFormatText;
-}
-
-/**
- * @public
- * <p>The text format for the title.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
- */
-export interface ShortFormatText {
-  /**
-   * @public
-   * <p>Plain text format.</p>
-   */
-  PlainText?: string;
-
-  /**
-   * @public
-   * <p>Rich text. Examples of rich text include bold, underline, and italics.</p>
-   */
-  RichText?: string;
-}
-
-/**
- * @public
- * <p>The title label options for a visual.</p>
- */
-export interface VisualTitleLabelOptions {
-  /**
-   * @public
-   * <p>The visibility of the title label.</p>
-   */
-  Visibility?: Visibility | string;
-
-  /**
-   * @public
-   * <p>The short text format of the title label, such as plain text or rich text.</p>
-   */
-  FormatText?: ShortFormatText;
-}
-
-/**
- * @public
- * <p>A bar chart.</p>
- *          <p>The <code>BarChartVisual</code> structure describes a visual that is a member of the bar chart family. The following charts can be described using this structure:</p>
- *          <ul>
- *             <li>
- *                <p>Horizontal bar chart</p>
- *             </li>
- *             <li>
- *                <p>Vertical bar chart</p>
- *             </li>
- *             <li>
- *                <p>Horizontal stacked bar chart</p>
- *             </li>
- *             <li>
- *                <p>Vertical stacked bar chart</p>
- *             </li>
- *             <li>
- *                <p>Horizontal stacked 100% bar chart</p>
- *             </li>
- *             <li>
- *                <p>Vertical stacked 100% bar chart</p>
- *             </li>
- *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/bar-charts.html">Using bar charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
- */
-export interface BarChartVisual {
-  /**
-   * @public
-   * <p>The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.</p>
-   */
-  VisualId: string | undefined;
-
-  /**
-   * @public
-   * <p>The title that is displayed on the visual.</p>
-   */
-  Title?: VisualTitleLabelOptions;
-
-  /**
-   * @public
-   * <p>The subtitle that is displayed on the visual.</p>
-   */
-  Subtitle?: VisualSubtitleLabelOptions;
-
-  /**
-   * @public
-   * <p>The configuration settings of the visual.</p>
-   */
-  ChartConfiguration?: BarChartConfiguration;
-
-  /**
-   * @public
-   * <p>The list of custom actions that are configured for a visual.</p>
-   */
-  Actions?: VisualCustomAction[];
-
-  /**
-   * @public
-   * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
-   */
-  ColumnHierarchies?: ColumnHierarchy[];
-}
-
-/**
- * @public
- * @enum
- */
-export const BoxPlotFillStyle = {
-  SOLID: "SOLID",
-  TRANSPARENT: "TRANSPARENT",
-} as const;
-
-/**
- * @public
- */
-export type BoxPlotFillStyle = (typeof BoxPlotFillStyle)[keyof typeof BoxPlotFillStyle];
-
-/**
- * @public
- * <p>The style options of the box plot.</p>
- */
-export interface BoxPlotStyleOptions {
-  /**
-   * @public
-   * <p>The fill styles (solid, transparent) of the box plot.</p>
-   */
-  FillStyle?: BoxPlotFillStyle | string;
-}
-
-/**
- * @public
- * <p>The options of a box plot visual.</p>
- */
-export interface BoxPlotOptions {
-  /**
-   * @public
-   * <p>The style options of the box plot.</p>
-   */
-  StyleOptions?: BoxPlotStyleOptions;
-
-  /**
-   * @public
-   * <p>Determines the visibility of the outlier in a box plot.</p>
-   */
-  OutlierVisibility?: Visibility | string;
-
-  /**
-   * @public
-   * <p>Determines the visibility of all data points of the box plot.</p>
-   */
-  AllDataPointsVisibility?: Visibility | string;
 }
 
 /**
@@ -7695,6 +7708,14 @@ export const RollingDateConfigurationFilterSensitiveLog = (obj: RollingDateConfi
 /**
  * @internal
  */
+export const TimeEqualityFilterFilterSensitiveLog = (obj: TimeEqualityFilter): any => ({
+  ...obj,
+  ...(obj.RollingDate && { RollingDate: RollingDateConfigurationFilterSensitiveLog(obj.RollingDate) }),
+});
+
+/**
+ * @internal
+ */
 export const TimeRangeFilterValueFilterSensitiveLog = (obj: TimeRangeFilterValue): any => ({
   ...obj,
   ...(obj.RollingDate && { RollingDate: RollingDateConfigurationFilterSensitiveLog(obj.RollingDate) }),
@@ -7714,6 +7735,7 @@ export const TimeRangeFilterFilterSensitiveLog = (obj: TimeRangeFilter): any => 
  */
 export const FilterFilterSensitiveLog = (obj: Filter): any => ({
   ...obj,
+  ...(obj.TimeEqualityFilter && { TimeEqualityFilter: TimeEqualityFilterFilterSensitiveLog(obj.TimeEqualityFilter) }),
   ...(obj.TimeRangeFilter && { TimeRangeFilter: TimeRangeFilterFilterSensitiveLog(obj.TimeRangeFilter) }),
 });
 
@@ -8221,11 +8243,4 @@ export const BarChartConfigurationFilterSensitiveLog = (obj: BarChartConfigurati
   ...(obj.ReferenceLines && {
     ReferenceLines: obj.ReferenceLines.map((item) => ReferenceLineFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const BarChartVisualFilterSensitiveLog = (obj: BarChartVisual): any => ({
-  ...obj,
 });

@@ -8,6 +8,11 @@ import {
   BatchGetMetricDataCommandOutput,
 } from "./commands/BatchGetMetricDataCommand";
 import {
+  CancelExportJobCommand,
+  CancelExportJobCommandInput,
+  CancelExportJobCommandOutput,
+} from "./commands/CancelExportJobCommand";
+import {
   CreateConfigurationSetCommand,
   CreateConfigurationSetCommandInput,
   CreateConfigurationSetCommandOutput,
@@ -57,6 +62,11 @@ import {
   CreateEmailTemplateCommandInput,
   CreateEmailTemplateCommandOutput,
 } from "./commands/CreateEmailTemplateCommand";
+import {
+  CreateExportJobCommand,
+  CreateExportJobCommandInput,
+  CreateExportJobCommandOutput,
+} from "./commands/CreateExportJobCommand";
 import {
   CreateImportJobCommand,
   CreateImportJobCommandInput,
@@ -190,10 +200,20 @@ import {
   GetEmailTemplateCommandOutput,
 } from "./commands/GetEmailTemplateCommand";
 import {
+  GetExportJobCommand,
+  GetExportJobCommandInput,
+  GetExportJobCommandOutput,
+} from "./commands/GetExportJobCommand";
+import {
   GetImportJobCommand,
   GetImportJobCommandInput,
   GetImportJobCommandOutput,
 } from "./commands/GetImportJobCommand";
+import {
+  GetMessageInsightsCommand,
+  GetMessageInsightsCommandInput,
+  GetMessageInsightsCommandOutput,
+} from "./commands/GetMessageInsightsCommand";
 import {
   GetSuppressedDestinationCommand,
   GetSuppressedDestinationCommandInput,
@@ -244,6 +264,11 @@ import {
   ListEmailTemplatesCommandInput,
   ListEmailTemplatesCommandOutput,
 } from "./commands/ListEmailTemplatesCommand";
+import {
+  ListExportJobsCommand,
+  ListExportJobsCommandInput,
+  ListExportJobsCommandOutput,
+} from "./commands/ListExportJobsCommand";
 import {
   ListImportJobsCommand,
   ListImportJobsCommandInput,
@@ -425,6 +450,7 @@ import { SESv2Client, SESv2ClientConfig } from "./SESv2Client";
 
 const commands = {
   BatchGetMetricDataCommand,
+  CancelExportJobCommand,
   CreateConfigurationSetCommand,
   CreateConfigurationSetEventDestinationCommand,
   CreateContactCommand,
@@ -435,6 +461,7 @@ const commands = {
   CreateEmailIdentityCommand,
   CreateEmailIdentityPolicyCommand,
   CreateEmailTemplateCommand,
+  CreateExportJobCommand,
   CreateImportJobCommand,
   DeleteConfigurationSetCommand,
   DeleteConfigurationSetEventDestinationCommand,
@@ -463,7 +490,9 @@ const commands = {
   GetEmailIdentityCommand,
   GetEmailIdentityPoliciesCommand,
   GetEmailTemplateCommand,
+  GetExportJobCommand,
   GetImportJobCommand,
+  GetMessageInsightsCommand,
   GetSuppressedDestinationCommand,
   ListConfigurationSetsCommand,
   ListContactListsCommand,
@@ -474,6 +503,7 @@ const commands = {
   ListDomainDeliverabilityCampaignsCommand,
   ListEmailIdentitiesCommand,
   ListEmailTemplatesCommand,
+  ListExportJobsCommand,
   ListImportJobsCommand,
   ListRecommendationsCommand,
   ListSuppressedDestinationsCommand,
@@ -529,6 +559,20 @@ export interface SESv2 {
     args: BatchGetMetricDataCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetMetricDataCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelExportJobCommand}
+   */
+  cancelExportJob(
+    args: CancelExportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelExportJobCommandOutput>;
+  cancelExportJob(args: CancelExportJobCommandInput, cb: (err: any, data?: CancelExportJobCommandOutput) => void): void;
+  cancelExportJob(
+    args: CancelExportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelExportJobCommandOutput) => void
   ): void;
 
   /**
@@ -693,6 +737,20 @@ export interface SESv2 {
     args: CreateEmailTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateEmailTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateExportJobCommand}
+   */
+  createExportJob(
+    args: CreateExportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateExportJobCommandOutput>;
+  createExportJob(args: CreateExportJobCommandInput, cb: (err: any, data?: CreateExportJobCommandOutput) => void): void;
+  createExportJob(
+    args: CreateExportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateExportJobCommandOutput) => void
   ): void;
 
   /**
@@ -1142,6 +1200,17 @@ export interface SESv2 {
   ): void;
 
   /**
+   * @see {@link GetExportJobCommand}
+   */
+  getExportJob(args: GetExportJobCommandInput, options?: __HttpHandlerOptions): Promise<GetExportJobCommandOutput>;
+  getExportJob(args: GetExportJobCommandInput, cb: (err: any, data?: GetExportJobCommandOutput) => void): void;
+  getExportJob(
+    args: GetExportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetExportJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetImportJobCommand}
    */
   getImportJob(args: GetImportJobCommandInput, options?: __HttpHandlerOptions): Promise<GetImportJobCommandOutput>;
@@ -1150,6 +1219,23 @@ export interface SESv2 {
     args: GetImportJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetImportJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetMessageInsightsCommand}
+   */
+  getMessageInsights(
+    args: GetMessageInsightsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMessageInsightsCommandOutput>;
+  getMessageInsights(
+    args: GetMessageInsightsCommandInput,
+    cb: (err: any, data?: GetMessageInsightsCommandOutput) => void
+  ): void;
+  getMessageInsights(
+    args: GetMessageInsightsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMessageInsightsCommandOutput) => void
   ): void;
 
   /**
@@ -1314,6 +1400,20 @@ export interface SESv2 {
     args: ListEmailTemplatesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListEmailTemplatesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListExportJobsCommand}
+   */
+  listExportJobs(
+    args: ListExportJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListExportJobsCommandOutput>;
+  listExportJobs(args: ListExportJobsCommandInput, cb: (err: any, data?: ListExportJobsCommandOutput) => void): void;
+  listExportJobs(
+    args: ListExportJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListExportJobsCommandOutput) => void
   ): void;
 
   /**

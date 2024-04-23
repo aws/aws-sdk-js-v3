@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+
 import { StreamingBlobTypes } from "@smithy/types";
 
 import { LookoutVisionServiceException as __BaseException } from "./LookoutVisionServiceException";
@@ -103,7 +104,7 @@ export class ConflictException extends __BaseException {
    * @public
    * <p>The type of the resource.</p>
    */
-  ResourceType: ResourceType | string | undefined;
+  ResourceType: ResourceType | undefined;
   /**
    * @internal
    */
@@ -261,7 +262,7 @@ export interface DatasetMetadata {
    * @public
    * <p>The status for the dataset.</p>
    */
-  Status?: DatasetStatus | string;
+  Status?: DatasetStatus;
 
   /**
    * @public
@@ -327,7 +328,7 @@ export class ResourceNotFoundException extends __BaseException {
    * @public
    * <p>The type of the resource.</p>
    */
-  ResourceType: ResourceType | string | undefined;
+  ResourceType: ResourceType | undefined;
   /**
    * @internal
    */
@@ -363,7 +364,7 @@ export class ServiceQuotaExceededException extends __BaseException {
    * @public
    * <p>The type of the resource.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -535,7 +536,7 @@ export interface CreateModelRequest {
    *          <p>If you don't supply a value for <code>ClientToken</code>, the AWS SDK you are using inserts a value for you.
    *             This prevents retries after a network error from starting multiple training jobs. You'll need to
    *             provide your own value for other use cases. </p>
-   *         <p>An error occurs if the other input parameters are not the same as in the first request. Using a different
+   *          <p>An error occurs if the other input parameters are not the same as in the first request. Using a different
    *        value for <code>ClientToken</code> is considered a new call to <code>CreateModel</code>. An idempotency
    *        token is active for 8 hours.</p>
    */
@@ -641,7 +642,7 @@ export interface ModelMetadata {
    * @public
    * <p>The status of the model.</p>
    */
-  Status?: ModelStatus | string;
+  Status?: ModelStatus;
 
   /**
    * @public
@@ -794,7 +795,7 @@ export interface DatasetDescription {
    * @public
    * <p>The status of the dataset.</p>
    */
-  Status?: DatasetStatus | string;
+  Status?: DatasetStatus;
 
   /**
    * @public
@@ -874,7 +875,6 @@ export interface DeleteModelRequest {
    *          <p>If you don't supply a value for ClientToken, the AWS SDK you are using inserts a value for you.
    *          This prevents retries after a network error from making multiple model deletion requests. You'll need to
    *          provide your own value for other use cases. </p>
-   *
    *          <p>An error occurs if the other input parameters are not the same as in the first request. Using a different
    *        value for <code>ClientToken</code> is considered a new call to <code>DeleteModel</code>. An idempotency
    *        token is active for 8 hours.</p>
@@ -1030,7 +1030,7 @@ export interface ModelDescription {
    * @public
    * <p>The status of the model.</p>
    */
-  Status?: ModelStatus | string;
+  Status?: ModelStatus;
 
   /**
    * @public
@@ -1187,7 +1187,7 @@ export interface TargetPlatform {
    *          that is currently supported.
    *       </p>
    */
-  Os: TargetPlatformOs | string | undefined;
+  Os: TargetPlatformOs | undefined;
 
   /**
    * @public
@@ -1195,7 +1195,7 @@ export interface TargetPlatform {
    *          X86_64 (64-bit version of the x86 instruction set) and ARM_64 (ARMv8 64-bit CPU).
    *       </p>
    */
-  Arch: TargetPlatformArch | string | undefined;
+  Arch: TargetPlatformArch | undefined;
 
   /**
    * @public
@@ -1216,7 +1216,7 @@ export interface TargetPlatform {
    *             </li>
    *          </ul>
    */
-  Accelerator?: TargetPlatformAccelerator | string;
+  Accelerator?: TargetPlatformAccelerator;
 }
 
 /**
@@ -1235,8 +1235,6 @@ export interface GreengrassConfiguration {
    * <p>Additional compiler options for the Greengrass component. Currently,
    *    only NVIDIA Graphics Processing Units (GPU) and CPU accelerators are supported.
    *    If you specify <code>TargetDevice</code>, don't specify <code>CompilerOptions</code>.</p>
-   *
-   *
    *          <p>For more information, see
    *       <i>Compiler options</i> in the  Amazon Lookout for Vision Developer Guide. </p>
    */
@@ -1250,7 +1248,7 @@ export interface GreengrassConfiguration {
    *
    * </p>
    */
-  TargetDevice?: TargetDevice | string;
+  TargetDevice?: TargetDevice;
 
   /**
    * @public
@@ -1453,7 +1451,7 @@ export interface ModelPackagingDescription {
    * The status of the model packaging job.
    * </p>
    */
-  Status?: ModelPackagingJobStatus | string;
+  Status?: ModelPackagingJobStatus;
 
   /**
    * @public
@@ -1818,7 +1816,7 @@ export interface ModelPackagingJobMetadata {
    * <p>The status of the model packaging job.
    * </p>
    */
-  Status?: ModelPackagingJobStatus | string;
+  Status?: ModelPackagingJobStatus;
 
   /**
    * @public
@@ -2004,7 +2002,6 @@ export interface StartModelRequest {
    *          <p>If you don't supply a value for <code>ClientToken</code>, the AWS SDK you are using inserts a value for you.
    *          This prevents retries after a network error from making multiple start requests. You'll need to
    *          provide your own value for other use cases. </p>
-   *
    *          <p>An error occurs if the other input parameters are not the same as in the first request. Using a different
    *          value for <code>ClientToken</code> is considered a new call to <code>StartModel</code>. An idempotency
    *          token is active for 8 hours.
@@ -2045,7 +2042,7 @@ export interface StartModelResponse {
    * @public
    * <p>The current running status of the model.</p>
    */
-  Status?: ModelHostingStatus | string;
+  Status?: ModelHostingStatus;
 }
 
 /**
@@ -2166,7 +2163,7 @@ export interface StopModelResponse {
    * @public
    * <p>The status of the model.</p>
    */
-  Status?: ModelHostingStatus | string;
+  Status?: ModelHostingStatus;
 }
 
 /**
@@ -2264,7 +2261,7 @@ export interface UpdateDatasetEntriesResponse {
    * @public
    * <p>The status of the dataset update.</p>
    */
-  Status?: DatasetStatus | string;
+  Status?: DatasetStatus;
 }
 
 /**

@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -9,7 +11,6 @@ import {
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseFloat32 as __limitedParseFloat32,
   map,
@@ -133,24 +134,15 @@ export const se_CreateComponentCommand = async (
   input: CreateComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app/{appId}/environment/{environmentName}/components";
-  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentName",
-    () => input.environmentName!,
-    "{environmentName}",
-    false
-  );
+  b.bp("/app/{appId}/environment/{environmentName}/components");
+  b.p("appId", () => input.appId!, "{appId}", false);
+  b.p("environmentName", () => input.environmentName!, "{environmentName}", false);
   const query: any = map({
-    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
   });
   let body: any;
   if (input.componentToCreate !== undefined) {
@@ -160,16 +152,8 @@ export const se_CreateComponentCommand = async (
     body = {};
   }
   body = JSON.stringify(body);
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -179,24 +163,15 @@ export const se_CreateFormCommand = async (
   input: CreateFormCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app/{appId}/environment/{environmentName}/forms";
-  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentName",
-    () => input.environmentName!,
-    "{environmentName}",
-    false
-  );
+  b.bp("/app/{appId}/environment/{environmentName}/forms");
+  b.p("appId", () => input.appId!, "{appId}", false);
+  b.p("environmentName", () => input.environmentName!, "{environmentName}", false);
   const query: any = map({
-    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
   });
   let body: any;
   if (input.formToCreate !== undefined) {
@@ -206,16 +181,8 @@ export const se_CreateFormCommand = async (
     body = {};
   }
   body = JSON.stringify(body);
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -225,24 +192,15 @@ export const se_CreateThemeCommand = async (
   input: CreateThemeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app/{appId}/environment/{environmentName}/themes";
-  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentName",
-    () => input.environmentName!,
-    "{environmentName}",
-    false
-  );
+  b.bp("/app/{appId}/environment/{environmentName}/themes");
+  b.p("appId", () => input.appId!, "{appId}", false);
+  b.p("environmentName", () => input.environmentName!, "{environmentName}", false);
   const query: any = map({
-    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
   });
   let body: any;
   if (input.themeToCreate !== undefined) {
@@ -252,16 +210,8 @@ export const se_CreateThemeCommand = async (
     body = {};
   }
   body = JSON.stringify(body);
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -271,31 +221,15 @@ export const se_DeleteComponentCommand = async (
   input: DeleteComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app/{appId}/environment/{environmentName}/components/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentName",
-    () => input.environmentName!,
-    "{environmentName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/app/{appId}/environment/{environmentName}/components/{id}");
+  b.p("appId", () => input.appId!, "{appId}", false);
+  b.p("environmentName", () => input.environmentName!, "{environmentName}", false);
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -305,31 +239,15 @@ export const se_DeleteFormCommand = async (
   input: DeleteFormCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app/{appId}/environment/{environmentName}/forms/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentName",
-    () => input.environmentName!,
-    "{environmentName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/app/{appId}/environment/{environmentName}/forms/{id}");
+  b.p("appId", () => input.appId!, "{appId}", false);
+  b.p("environmentName", () => input.environmentName!, "{environmentName}", false);
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -339,31 +257,15 @@ export const se_DeleteThemeCommand = async (
   input: DeleteThemeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app/{appId}/environment/{environmentName}/themes/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentName",
-    () => input.environmentName!,
-    "{environmentName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/app/{appId}/environment/{environmentName}/themes/{id}");
+  b.p("appId", () => input.appId!, "{appId}", false);
+  b.p("environmentName", () => input.environmentName!, "{environmentName}", false);
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -373,12 +275,12 @@ export const se_ExchangeCodeForTokenCommand = async (
   input: ExchangeCodeForTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tokens/{provider}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "provider", () => input.provider!, "{provider}", false);
+  b.bp("/tokens/{provider}");
+  b.p("provider", () => input.provider!, "{provider}", false);
   let body: any;
   if (input.request !== undefined) {
     body = _json(input.request);
@@ -387,15 +289,8 @@ export const se_ExchangeCodeForTokenCommand = async (
     body = {};
   }
   body = JSON.stringify(body);
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -405,34 +300,17 @@ export const se_ExportComponentsCommand = async (
   input: ExportComponentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/export/app/{appId}/environment/{environmentName}/components";
-  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentName",
-    () => input.environmentName!,
-    "{environmentName}",
-    false
-  );
+  b.bp("/export/app/{appId}/environment/{environmentName}/components");
+  b.p("appId", () => input.appId!, "{appId}", false);
+  b.p("environmentName", () => input.environmentName!, "{environmentName}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -442,34 +320,17 @@ export const se_ExportFormsCommand = async (
   input: ExportFormsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/export/app/{appId}/environment/{environmentName}/forms";
-  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentName",
-    () => input.environmentName!,
-    "{environmentName}",
-    false
-  );
+  b.bp("/export/app/{appId}/environment/{environmentName}/forms");
+  b.p("appId", () => input.appId!, "{appId}", false);
+  b.p("environmentName", () => input.environmentName!, "{environmentName}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -479,34 +340,17 @@ export const se_ExportThemesCommand = async (
   input: ExportThemesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/export/app/{appId}/environment/{environmentName}/themes";
-  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentName",
-    () => input.environmentName!,
-    "{environmentName}",
-    false
-  );
+  b.bp("/export/app/{appId}/environment/{environmentName}/themes");
+  b.p("appId", () => input.appId!, "{appId}", false);
+  b.p("environmentName", () => input.environmentName!, "{environmentName}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -516,31 +360,15 @@ export const se_GetCodegenJobCommand = async (
   input: GetCodegenJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app/{appId}/environment/{environmentName}/codegen-jobs/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentName",
-    () => input.environmentName!,
-    "{environmentName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/app/{appId}/environment/{environmentName}/codegen-jobs/{id}");
+  b.p("appId", () => input.appId!, "{appId}", false);
+  b.p("environmentName", () => input.environmentName!, "{environmentName}", false);
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -550,31 +378,15 @@ export const se_GetComponentCommand = async (
   input: GetComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app/{appId}/environment/{environmentName}/components/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentName",
-    () => input.environmentName!,
-    "{environmentName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/app/{appId}/environment/{environmentName}/components/{id}");
+  b.p("appId", () => input.appId!, "{appId}", false);
+  b.p("environmentName", () => input.environmentName!, "{environmentName}", false);
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -584,31 +396,15 @@ export const se_GetFormCommand = async (
   input: GetFormCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app/{appId}/environment/{environmentName}/forms/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentName",
-    () => input.environmentName!,
-    "{environmentName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/app/{appId}/environment/{environmentName}/forms/{id}");
+  b.p("appId", () => input.appId!, "{appId}", false);
+  b.p("environmentName", () => input.environmentName!, "{environmentName}", false);
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -618,30 +414,14 @@ export const se_GetMetadataCommand = async (
   input: GetMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app/{appId}/environment/{environmentName}/metadata";
-  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentName",
-    () => input.environmentName!,
-    "{environmentName}",
-    false
-  );
+  b.bp("/app/{appId}/environment/{environmentName}/metadata");
+  b.p("appId", () => input.appId!, "{appId}", false);
+  b.p("environmentName", () => input.environmentName!, "{environmentName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -651,31 +431,15 @@ export const se_GetThemeCommand = async (
   input: GetThemeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app/{appId}/environment/{environmentName}/themes/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentName",
-    () => input.environmentName!,
-    "{environmentName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/app/{appId}/environment/{environmentName}/themes/{id}");
+  b.p("appId", () => input.appId!, "{appId}", false);
+  b.p("environmentName", () => input.environmentName!, "{environmentName}", false);
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -685,35 +449,18 @@ export const se_ListCodegenJobsCommand = async (
   input: ListCodegenJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app/{appId}/environment/{environmentName}/codegen-jobs";
-  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentName",
-    () => input.environmentName!,
-    "{environmentName}",
-    false
-  );
+  b.bp("/app/{appId}/environment/{environmentName}/codegen-jobs");
+  b.p("appId", () => input.appId!, "{appId}", false);
+  b.p("environmentName", () => input.environmentName!, "{environmentName}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -723,35 +470,18 @@ export const se_ListComponentsCommand = async (
   input: ListComponentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app/{appId}/environment/{environmentName}/components";
-  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentName",
-    () => input.environmentName!,
-    "{environmentName}",
-    false
-  );
+  b.bp("/app/{appId}/environment/{environmentName}/components");
+  b.p("appId", () => input.appId!, "{appId}", false);
+  b.p("environmentName", () => input.environmentName!, "{environmentName}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -761,35 +491,18 @@ export const se_ListFormsCommand = async (
   input: ListFormsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app/{appId}/environment/{environmentName}/forms";
-  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentName",
-    () => input.environmentName!,
-    "{environmentName}",
-    false
-  );
+  b.bp("/app/{appId}/environment/{environmentName}/forms");
+  b.p("appId", () => input.appId!, "{appId}", false);
+  b.p("environmentName", () => input.environmentName!, "{environmentName}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -799,35 +512,18 @@ export const se_ListThemesCommand = async (
   input: ListThemesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app/{appId}/environment/{environmentName}/themes";
-  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentName",
-    () => input.environmentName!,
-    "{environmentName}",
-    false
-  );
+  b.bp("/app/{appId}/environment/{environmentName}/themes");
+  b.p("appId", () => input.appId!, "{appId}", false);
+  b.p("environmentName", () => input.environmentName!, "{environmentName}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -837,23 +533,14 @@ export const se_PutMetadataFlagCommand = async (
   input: PutMetadataFlagCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app/{appId}/environment/{environmentName}/metadata/features/{featureName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentName",
-    () => input.environmentName!,
-    "{environmentName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "featureName", () => input.featureName!, "{featureName}", false);
+  b.bp("/app/{appId}/environment/{environmentName}/metadata/features/{featureName}");
+  b.p("appId", () => input.appId!, "{appId}", false);
+  b.p("environmentName", () => input.environmentName!, "{environmentName}", false);
+  b.p("featureName", () => input.featureName!, "{featureName}", false);
   let body: any;
   if (input.body !== undefined) {
     body = _json(input.body);
@@ -862,15 +549,8 @@ export const se_PutMetadataFlagCommand = async (
     body = {};
   }
   body = JSON.stringify(body);
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -880,13 +560,12 @@ export const se_RefreshTokenCommand = async (
   input: RefreshTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tokens/{provider}/refresh";
-  resolvedPath = __resolvedPath(resolvedPath, input, "provider", () => input.provider!, "{provider}", false);
+  b.bp("/tokens/{provider}/refresh");
+  b.p("provider", () => input.provider!, "{provider}", false);
   let body: any;
   if (input.refreshTokenBody !== undefined) {
     body = _json(input.refreshTokenBody);
@@ -895,15 +574,8 @@ export const se_RefreshTokenCommand = async (
     body = {};
   }
   body = JSON.stringify(body);
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -913,24 +585,15 @@ export const se_StartCodegenJobCommand = async (
   input: StartCodegenJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app/{appId}/environment/{environmentName}/codegen-jobs";
-  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentName",
-    () => input.environmentName!,
-    "{environmentName}",
-    false
-  );
+  b.bp("/app/{appId}/environment/{environmentName}/codegen-jobs");
+  b.p("appId", () => input.appId!, "{appId}", false);
+  b.p("environmentName", () => input.environmentName!, "{environmentName}", false);
   const query: any = map({
-    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
   });
   let body: any;
   if (input.codegenJobToCreate !== undefined) {
@@ -940,16 +603,8 @@ export const se_StartCodegenJobCommand = async (
     body = {};
   }
   body = JSON.stringify(body);
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -959,25 +614,16 @@ export const se_UpdateComponentCommand = async (
   input: UpdateComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app/{appId}/environment/{environmentName}/components/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentName",
-    () => input.environmentName!,
-    "{environmentName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/app/{appId}/environment/{environmentName}/components/{id}");
+  b.p("appId", () => input.appId!, "{appId}", false);
+  b.p("environmentName", () => input.environmentName!, "{environmentName}", false);
+  b.p("id", () => input.id!, "{id}", false);
   const query: any = map({
-    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
   });
   let body: any;
   if (input.updatedComponent !== undefined) {
@@ -987,16 +633,8 @@ export const se_UpdateComponentCommand = async (
     body = {};
   }
   body = JSON.stringify(body);
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PATCH").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1006,25 +644,16 @@ export const se_UpdateFormCommand = async (
   input: UpdateFormCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app/{appId}/environment/{environmentName}/forms/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentName",
-    () => input.environmentName!,
-    "{environmentName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/app/{appId}/environment/{environmentName}/forms/{id}");
+  b.p("appId", () => input.appId!, "{appId}", false);
+  b.p("environmentName", () => input.environmentName!, "{environmentName}", false);
+  b.p("id", () => input.id!, "{id}", false);
   const query: any = map({
-    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
   });
   let body: any;
   if (input.updatedForm !== undefined) {
@@ -1034,16 +663,8 @@ export const se_UpdateFormCommand = async (
     body = {};
   }
   body = JSON.stringify(body);
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PATCH").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1053,25 +674,16 @@ export const se_UpdateThemeCommand = async (
   input: UpdateThemeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app/{appId}/environment/{environmentName}/themes/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentName",
-    () => input.environmentName!,
-    "{environmentName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/app/{appId}/environment/{environmentName}/themes/{id}");
+  b.p("appId", () => input.appId!, "{appId}", false);
+  b.p("environmentName", () => input.environmentName!, "{environmentName}", false);
+  b.p("id", () => input.id!, "{id}", false);
   const query: any = map({
-    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
   });
   let body: any;
   if (input.updatedTheme !== undefined) {
@@ -1081,16 +693,8 @@ export const se_UpdateThemeCommand = async (
     body = {};
   }
   body = JSON.stringify(body);
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PATCH").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2941,6 +2545,8 @@ const se_PredicateList = (input: Predicate[], context: __SerdeContext): any => {
 
 // se_PutMetadataFlagBody omitted.
 
+// se_ReactCodegenDependencies omitted.
+
 // se_ReactStartCodegenJobData omitted.
 
 // se_RefreshTokenRequestBody omitted.
@@ -3095,6 +2701,10 @@ const de_ActionParameters = (output: any, context: __SerdeContext): ActionParame
 
 // de_AssociatedFieldsList omitted.
 
+// de_CodegenDependencies omitted.
+
+// de_CodegenDependency omitted.
+
 // de_CodegenFeatureFlags omitted.
 
 // de_CodegenGenericDataEnum omitted.
@@ -3128,6 +2738,7 @@ const de_CodegenJob = (output: any, context: __SerdeContext): CodegenJob => {
     asset: _json,
     autoGenerateForms: __expectBoolean,
     createdAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    dependencies: _json,
     environmentName: __expectString,
     features: _json,
     genericDataSchema: _json,
@@ -3210,10 +2821,10 @@ const de_ComponentBindingProperties = (
       if (value === null) {
         return acc;
       }
-      acc[key] = de_ComponentBindingPropertiesValue(value, context);
+      acc[key as string] = de_ComponentBindingPropertiesValue(value, context);
       return acc;
     },
-    {}
+    {} as Record<string, ComponentBindingPropertiesValue>
   );
 };
 
@@ -3285,10 +2896,10 @@ const de_ComponentCollectionProperties = (
       if (value === null) {
         return acc;
       }
-      acc[key] = de_ComponentDataConfiguration(value, context);
+      acc[key as string] = de_ComponentDataConfiguration(value, context);
       return acc;
     },
-    {}
+    {} as Record<string, ComponentDataConfiguration>
   );
 };
 
@@ -3338,9 +2949,9 @@ const de_ComponentEvents = (output: any, context: __SerdeContext): Record<string
     if (value === null) {
       return acc;
     }
-    acc[key] = de_ComponentEvent(value, context);
+    acc[key as string] = de_ComponentEvent(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, ComponentEvent>);
 };
 
 /**
@@ -3367,9 +2978,9 @@ const de_ComponentProperties = (output: any, context: __SerdeContext): Record<st
     if (value === null) {
       return acc;
     }
-    acc[key] = de_ComponentProperty(value, context);
+    acc[key as string] = de_ComponentProperty(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, ComponentProperty>);
 };
 
 /**
@@ -3470,9 +3081,9 @@ const de_FieldsMap = (output: any, context: __SerdeContext): Record<string, Fiel
     if (value === null) {
       return acc;
     }
-    acc[key] = de_FieldConfig(value, context);
+    acc[key as string] = de_FieldConfig(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, FieldConfig>);
 };
 
 // de_FieldValidationConfiguration omitted.
@@ -3605,6 +3216,8 @@ const de_PredicateList = (output: any, context: __SerdeContext): Predicate[] => 
     });
   return retVal;
 };
+
+// de_ReactCodegenDependencies omitted.
 
 // de_ReactStartCodegenJobData omitted.
 
@@ -3739,6 +3352,10 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _cT = "clientToken";
+const _mR = "maxResults";
+const _nT = "nextToken";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

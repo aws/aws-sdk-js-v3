@@ -51,6 +51,10 @@ import {
   DeleteLanguageModelCommandOutput,
 } from "../commands/DeleteLanguageModelCommand";
 import {
+  DeleteMedicalScribeJobCommandInput,
+  DeleteMedicalScribeJobCommandOutput,
+} from "../commands/DeleteMedicalScribeJobCommand";
+import {
   DeleteMedicalTranscriptionJobCommandInput,
   DeleteMedicalTranscriptionJobCommandOutput,
 } from "../commands/DeleteMedicalTranscriptionJobCommand";
@@ -80,6 +84,10 @@ import {
   GetCallAnalyticsJobCommandOutput,
 } from "../commands/GetCallAnalyticsJobCommand";
 import {
+  GetMedicalScribeJobCommandInput,
+  GetMedicalScribeJobCommandOutput,
+} from "../commands/GetMedicalScribeJobCommand";
+import {
   GetMedicalTranscriptionJobCommandInput,
   GetMedicalTranscriptionJobCommandOutput,
 } from "../commands/GetMedicalTranscriptionJobCommand";
@@ -106,6 +114,10 @@ import {
 } from "../commands/ListCallAnalyticsJobsCommand";
 import { ListLanguageModelsCommandInput, ListLanguageModelsCommandOutput } from "../commands/ListLanguageModelsCommand";
 import {
+  ListMedicalScribeJobsCommandInput,
+  ListMedicalScribeJobsCommandOutput,
+} from "../commands/ListMedicalScribeJobsCommand";
+import {
   ListMedicalTranscriptionJobsCommandInput,
   ListMedicalTranscriptionJobsCommandOutput,
 } from "../commands/ListMedicalTranscriptionJobsCommand";
@@ -130,6 +142,10 @@ import {
   StartCallAnalyticsJobCommandInput,
   StartCallAnalyticsJobCommandOutput,
 } from "../commands/StartCallAnalyticsJobCommand";
+import {
+  StartMedicalScribeJobCommandInput,
+  StartMedicalScribeJobCommandOutput,
+} from "../commands/StartMedicalScribeJobCommand";
 import {
   StartMedicalTranscriptionJobCommandInput,
   StartMedicalTranscriptionJobCommandOutput,
@@ -175,6 +191,7 @@ import {
   DeleteCallAnalyticsCategoryRequest,
   DeleteCallAnalyticsJobRequest,
   DeleteLanguageModelRequest,
+  DeleteMedicalScribeJobRequest,
   DeleteMedicalTranscriptionJobRequest,
   DeleteMedicalVocabularyRequest,
   DeleteTranscriptionJobRequest,
@@ -186,6 +203,8 @@ import {
   GetCallAnalyticsCategoryResponse,
   GetCallAnalyticsJobRequest,
   GetCallAnalyticsJobResponse,
+  GetMedicalScribeJobRequest,
+  GetMedicalScribeJobResponse,
   GetMedicalTranscriptionJobRequest,
   GetMedicalTranscriptionJobResponse,
   GetMedicalVocabularyRequest,
@@ -211,6 +230,8 @@ import {
   ListCallAnalyticsJobsResponse,
   ListLanguageModelsRequest,
   ListLanguageModelsResponse,
+  ListMedicalScribeJobsRequest,
+  ListMedicalScribeJobsResponse,
   ListMedicalTranscriptionJobsRequest,
   ListMedicalTranscriptionJobsResponse,
   ListMedicalVocabulariesRequest,
@@ -223,6 +244,10 @@ import {
   ListVocabularyFiltersRequest,
   ListVocabularyFiltersResponse,
   Media,
+  MedicalScribeChannelDefinition,
+  MedicalScribeJob,
+  MedicalScribeJobSummary,
+  MedicalScribeSettings,
   MedicalTranscriptionJob,
   MedicalTranscriptionJobSummary,
   MedicalTranscriptionSetting,
@@ -237,12 +262,15 @@ import {
   Settings,
   StartCallAnalyticsJobRequest,
   StartCallAnalyticsJobResponse,
+  StartMedicalScribeJobRequest,
+  StartMedicalScribeJobResponse,
   StartMedicalTranscriptionJobRequest,
   StartMedicalTranscriptionJobResponse,
   StartTranscriptionJobRequest,
   StartTranscriptionJobResponse,
   SubtitleFormat,
   Subtitles,
+  Summarization,
   Tag,
   TagResourceRequest,
   ToxicityCategory,
@@ -369,6 +397,19 @@ export const se_DeleteLanguageModelCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DeleteMedicalScribeJobCommand
+ */
+export const se_DeleteMedicalScribeJobCommand = async (
+  input: DeleteMedicalScribeJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteMedicalScribeJob");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DeleteMedicalTranscriptionJobCommand
  */
 export const se_DeleteMedicalTranscriptionJobCommand = async (
@@ -467,6 +508,19 @@ export const se_GetCallAnalyticsJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetCallAnalyticsJob");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetMedicalScribeJobCommand
+ */
+export const se_GetMedicalScribeJobCommand = async (
+  input: GetMedicalScribeJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetMedicalScribeJob");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -577,6 +631,19 @@ export const se_ListLanguageModelsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ListMedicalScribeJobsCommand
+ */
+export const se_ListMedicalScribeJobsCommand = async (
+  input: ListMedicalScribeJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListMedicalScribeJobs");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ListMedicalTranscriptionJobsCommand
  */
 export const se_ListMedicalTranscriptionJobsCommand = async (
@@ -662,6 +729,19 @@ export const se_StartCallAnalyticsJobCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartCallAnalyticsJob");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StartMedicalScribeJobCommand
+ */
+export const se_StartMedicalScribeJobCommand = async (
+  input: StartMedicalScribeJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartMedicalScribeJob");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1203,6 +1283,55 @@ const de_DeleteLanguageModelCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1DeleteMedicalScribeJobCommand
+ */
+export const de_DeleteMedicalScribeJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMedicalScribeJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteMedicalScribeJobCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteMedicalScribeJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteMedicalScribeJobCommandError
+ */
+const de_DeleteMedicalScribeJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteMedicalScribeJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.transcribe#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.transcribe#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.transcribe#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1DeleteMedicalTranscriptionJobCommand
  */
 export const de_DeleteMedicalTranscriptionJobCommand = async (
@@ -1593,6 +1722,61 @@ const de_GetCallAnalyticsJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCallAnalyticsJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.transcribe#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.transcribe#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.transcribe#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.transcribe#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1GetMedicalScribeJobCommand
+ */
+export const de_GetMedicalScribeJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMedicalScribeJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetMedicalScribeJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetMedicalScribeJobResponse(data, context);
+  const response: GetMedicalScribeJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetMedicalScribeJobCommandError
+ */
+const de_GetMedicalScribeJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMedicalScribeJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2053,6 +2237,58 @@ const de_ListLanguageModelsCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1ListMedicalScribeJobsCommand
+ */
+export const de_ListMedicalScribeJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMedicalScribeJobsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListMedicalScribeJobsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListMedicalScribeJobsResponse(data, context);
+  const response: ListMedicalScribeJobsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListMedicalScribeJobsCommandError
+ */
+const de_ListMedicalScribeJobsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMedicalScribeJobsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.transcribe#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.transcribe#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.transcribe#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1ListMedicalTranscriptionJobsCommand
  */
 export const de_ListMedicalTranscriptionJobsCommand = async (
@@ -2394,6 +2630,61 @@ const de_StartCallAnalyticsJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartCallAnalyticsJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.transcribe#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.transcribe#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.transcribe#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.transcribe#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1StartMedicalScribeJobCommand
+ */
+export const de_StartMedicalScribeJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMedicalScribeJobCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_StartMedicalScribeJobCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_StartMedicalScribeJobResponse(data, context);
+  const response: StartMedicalScribeJobCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartMedicalScribeJobCommandError
+ */
+const de_StartMedicalScribeJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartMedicalScribeJobCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2974,6 +3265,8 @@ const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContex
 
 // se_DeleteLanguageModelRequest omitted.
 
+// se_DeleteMedicalScribeJobRequest omitted.
+
 // se_DeleteMedicalTranscriptionJobRequest omitted.
 
 // se_DeleteMedicalVocabularyRequest omitted.
@@ -2989,6 +3282,8 @@ const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContex
 // se_GetCallAnalyticsCategoryRequest omitted.
 
 // se_GetCallAnalyticsJobRequest omitted.
+
+// se_GetMedicalScribeJobRequest omitted.
 
 // se_GetMedicalTranscriptionJobRequest omitted.
 
@@ -3020,6 +3315,8 @@ const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContex
 
 // se_ListLanguageModelsRequest omitted.
 
+// se_ListMedicalScribeJobsRequest omitted.
+
 // se_ListMedicalTranscriptionJobsRequest omitted.
 
 // se_ListMedicalVocabulariesRequest omitted.
@@ -3033,6 +3330,12 @@ const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContex
 // se_ListVocabularyFiltersRequest omitted.
 
 // se_Media omitted.
+
+// se_MedicalScribeChannelDefinition omitted.
+
+// se_MedicalScribeChannelDefinitions omitted.
+
+// se_MedicalScribeSettings omitted.
 
 // se_MedicalTranscriptionSetting omitted.
 
@@ -3058,6 +3361,8 @@ const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContex
 
 // se_StartCallAnalyticsJobRequest omitted.
 
+// se_StartMedicalScribeJobRequest omitted.
+
 // se_StartMedicalTranscriptionJobRequest omitted.
 
 // se_StartTranscriptionJobRequest omitted.
@@ -3067,6 +3372,8 @@ const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContex
 // se_SubtitleFormats omitted.
 
 // se_Subtitles omitted.
+
+// se_Summarization omitted.
 
 // se_Tag omitted.
 
@@ -3271,6 +3578,15 @@ const de_GetCallAnalyticsJobResponse = (output: any, context: __SerdeContext): G
 };
 
 /**
+ * deserializeAws_json1_1GetMedicalScribeJobResponse
+ */
+const de_GetMedicalScribeJobResponse = (output: any, context: __SerdeContext): GetMedicalScribeJobResponse => {
+  return take(output, {
+    MedicalScribeJob: (_: any) => de_MedicalScribeJob(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1GetMedicalTranscriptionJobResponse
  */
 const de_GetMedicalTranscriptionJobResponse = (
@@ -3421,6 +3737,17 @@ const de_ListLanguageModelsResponse = (output: any, context: __SerdeContext): Li
 };
 
 /**
+ * deserializeAws_json1_1ListMedicalScribeJobsResponse
+ */
+const de_ListMedicalScribeJobsResponse = (output: any, context: __SerdeContext): ListMedicalScribeJobsResponse => {
+  return take(output, {
+    MedicalScribeJobSummaries: (_: any) => de_MedicalScribeJobSummaries(_, context),
+    NextToken: __expectString,
+    Status: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1ListMedicalTranscriptionJobsResponse
  */
 const de_ListMedicalTranscriptionJobsResponse = (
@@ -3480,6 +3807,62 @@ const de_ListVocabularyFiltersResponse = (output: any, context: __SerdeContext):
 };
 
 // de_Media omitted.
+
+// de_MedicalScribeChannelDefinition omitted.
+
+// de_MedicalScribeChannelDefinitions omitted.
+
+/**
+ * deserializeAws_json1_1MedicalScribeJob
+ */
+const de_MedicalScribeJob = (output: any, context: __SerdeContext): MedicalScribeJob => {
+  return take(output, {
+    ChannelDefinitions: _json,
+    CompletionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DataAccessRoleArn: __expectString,
+    FailureReason: __expectString,
+    LanguageCode: __expectString,
+    Media: _json,
+    MedicalScribeJobName: __expectString,
+    MedicalScribeJobStatus: __expectString,
+    MedicalScribeOutput: _json,
+    Settings: _json,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Tags: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1MedicalScribeJobSummaries
+ */
+const de_MedicalScribeJobSummaries = (output: any, context: __SerdeContext): MedicalScribeJobSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MedicalScribeJobSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1MedicalScribeJobSummary
+ */
+const de_MedicalScribeJobSummary = (output: any, context: __SerdeContext): MedicalScribeJobSummary => {
+  return take(output, {
+    CompletionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    FailureReason: __expectString,
+    LanguageCode: __expectString,
+    MedicalScribeJobName: __expectString,
+    MedicalScribeJobStatus: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+// de_MedicalScribeOutput omitted.
+
+// de_MedicalScribeSettings omitted.
 
 // de_MedicalTranscript omitted.
 
@@ -3585,6 +3968,15 @@ const de_StartCallAnalyticsJobResponse = (output: any, context: __SerdeContext):
 };
 
 /**
+ * deserializeAws_json1_1StartMedicalScribeJobResponse
+ */
+const de_StartMedicalScribeJobResponse = (output: any, context: __SerdeContext): StartMedicalScribeJobResponse => {
+  return take(output, {
+    MedicalScribeJob: (_: any) => de_MedicalScribeJob(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1StartMedicalTranscriptionJobResponse
  */
 const de_StartMedicalTranscriptionJobResponse = (
@@ -3612,6 +4004,8 @@ const de_StartTranscriptionJobResponse = (output: any, context: __SerdeContext):
 // de_SubtitleFormats omitted.
 
 // de_SubtitlesOutput omitted.
+
+// de_Summarization omitted.
 
 // de_Tag omitted.
 

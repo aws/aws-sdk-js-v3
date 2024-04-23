@@ -69,7 +69,7 @@ export interface Payload {
    * <p>The value of the payload type can be either <code>STRING</code> or
    *       <code>JSON</code>.</p>
    */
-  type: PayloadType | string | undefined;
+  type: PayloadType | undefined;
 }
 
 /**
@@ -1187,7 +1187,7 @@ export interface AlarmModelVersionSummary {
    *             </li>
    *          </ul>
    */
-  status?: AlarmModelVersionStatus | string;
+  status?: AlarmModelVersionStatus;
 
   /**
    * @public
@@ -1408,7 +1408,7 @@ export interface SimpleRule {
    * @public
    * <p>The comparison operator.</p>
    */
-  comparisonOperator: ComparisonOperator | string | undefined;
+  comparisonOperator: ComparisonOperator | undefined;
 
   /**
    * @public
@@ -1535,7 +1535,7 @@ export interface AnalysisResult {
    *             </li>
    *          </ul>
    */
-  level?: AnalysisResultLevel | string;
+  level?: AnalysisResultLevel;
 
   /**
    * @public
@@ -1729,7 +1729,7 @@ export interface CreateAlarmModelResponse {
    *             </li>
    *          </ul>
    */
-  status?: AlarmModelVersionStatus | string;
+  status?: AlarmModelVersionStatus;
 }
 
 /**
@@ -2106,7 +2106,7 @@ export interface CreateDetectorModelRequest {
    * <p>Information about the order in which events are evaluated and how actions are executed.
    *     </p>
    */
-  evaluationMethod?: EvaluationMethod | string;
+  evaluationMethod?: EvaluationMethod;
 }
 
 /**
@@ -2179,7 +2179,7 @@ export interface DetectorModelConfiguration {
    * @public
    * <p>The status of the detector model.</p>
    */
-  status?: DetectorModelVersionStatus | string;
+  status?: DetectorModelVersionStatus;
 
   /**
    * @public
@@ -2198,7 +2198,7 @@ export interface DetectorModelConfiguration {
    * <p>Information about the order in which events are evaluated and how actions are executed.
    *     </p>
    */
-  evaluationMethod?: EvaluationMethod | string;
+  evaluationMethod?: EvaluationMethod;
 }
 
 /**
@@ -2312,7 +2312,7 @@ export interface InputConfiguration {
    * @public
    * <p>The status of the input.</p>
    */
-  status: InputStatus | string | undefined;
+  status: InputStatus | undefined;
 }
 
 /**
@@ -2464,7 +2464,7 @@ export interface DescribeAlarmModelResponse {
    *             </li>
    *          </ul>
    */
-  status?: AlarmModelVersionStatus | string;
+  status?: AlarmModelVersionStatus;
 
   /**
    * @public
@@ -2612,7 +2612,7 @@ export interface DescribeDetectorModelAnalysisResponse {
    *             </li>
    *          </ul>
    */
-  status?: AnalysisStatus | string;
+  status?: AnalysisStatus;
 }
 
 /**
@@ -2710,7 +2710,7 @@ export interface LoggingOptions {
    * @public
    * <p>The logging level.</p>
    */
-  level: LoggingLevel | string | undefined;
+  level: LoggingLevel | undefined;
 
   /**
    * @public
@@ -2826,14 +2826,14 @@ export interface DetectorModelVersionSummary {
    * @public
    * <p>The status of the detector model version.</p>
    */
-  status?: DetectorModelVersionStatus | string;
+  status?: DetectorModelVersionStatus;
 
   /**
    * @public
    * <p>Information about the order in which events are evaluated and how actions are executed.
    *     </p>
    */
-  evaluationMethod?: EvaluationMethod | string;
+  evaluationMethod?: EvaluationMethod;
 }
 
 /**
@@ -2996,7 +2996,7 @@ export interface InputSummary {
    * @public
    * <p>The status of the input.</p>
    */
-  status?: InputStatus | string;
+  status?: InputStatus;
 }
 
 /**
@@ -3466,7 +3466,7 @@ export interface UpdateAlarmModelResponse {
    *             </li>
    *          </ul>
    */
-  status?: AlarmModelVersionStatus | string;
+  status?: AlarmModelVersionStatus;
 }
 
 /**
@@ -3502,7 +3502,7 @@ export interface UpdateDetectorModelRequest {
    * <p>Information about the order in which events are evaluated and how actions are executed.
    *     </p>
    */
-  evaluationMethod?: EvaluationMethod | string;
+  evaluationMethod?: EvaluationMethod;
 }
 
 /**

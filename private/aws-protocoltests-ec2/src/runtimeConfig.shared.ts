@@ -10,16 +10,18 @@ import { defaultRegionInfoProvider } from "./endpoints";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: EC2ProtocolClientConfig) => ({
-  apiVersion: "2020-01-08",
-  base64Decoder: config?.base64Decoder ?? fromBase64,
-  base64Encoder: config?.base64Encoder ?? toBase64,
-  disableHostPrefix: config?.disableHostPrefix ?? false,
-  extensions: config?.extensions ?? [],
-  logger: config?.logger ?? new NoOpLogger(),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config?.serviceId ?? "EC2 Protocol",
-  urlParser: config?.urlParser ?? parseUrl,
-  utf8Decoder: config?.utf8Decoder ?? fromUtf8,
-  utf8Encoder: config?.utf8Encoder ?? toUtf8,
-});
+export const getRuntimeConfig = (config: EC2ProtocolClientConfig) => {
+  return {
+    apiVersion: "2020-01-08",
+    base64Decoder: config?.base64Decoder ?? fromBase64,
+    base64Encoder: config?.base64Encoder ?? toBase64,
+    disableHostPrefix: config?.disableHostPrefix ?? false,
+    extensions: config?.extensions ?? [],
+    logger: config?.logger ?? new NoOpLogger(),
+    regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+    serviceId: config?.serviceId ?? "EC2 Protocol",
+    urlParser: config?.urlParser ?? parseUrl,
+    utf8Decoder: config?.utf8Decoder ?? fromUtf8,
+    utf8Encoder: config?.utf8Encoder ?? toUtf8,
+  };
+};

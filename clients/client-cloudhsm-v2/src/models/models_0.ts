@@ -57,7 +57,7 @@ export interface Backup {
    * @public
    * <p>The state of the backup.</p>
    */
-  BackupState?: BackupState | string;
+  BackupState?: BackupState;
 
   /**
    * @public
@@ -154,7 +154,7 @@ export interface BackupRetentionPolicy {
    * <p>The type of backup retention policy. For the <code>DAYS</code> type, the value is
    *             the number of days to retain backups.</p>
    */
-  Type?: BackupRetentionType | string;
+  Type?: BackupRetentionType;
 
   /**
    * @public
@@ -515,7 +515,7 @@ export interface Hsm {
    * @public
    * <p>The HSM's state.</p>
    */
-  State?: HsmState | string;
+  State?: HsmState;
 
   /**
    * @public
@@ -554,7 +554,7 @@ export interface Cluster {
    * @public
    * <p>The cluster's backup policy.</p>
    */
-  BackupPolicy?: BackupPolicy | string;
+  BackupPolicy?: BackupPolicy;
 
   /**
    * @public
@@ -609,7 +609,7 @@ export interface Cluster {
    * @public
    * <p>The cluster's state.</p>
    */
-  State?: ClusterState | string;
+  State?: ClusterState;
 
   /**
    * @public
@@ -928,7 +928,7 @@ export interface InitializeClusterResponse {
    * @public
    * <p>The cluster's state.</p>
    */
-  State?: ClusterState | string;
+  State?: ClusterState;
 
   /**
    * @public

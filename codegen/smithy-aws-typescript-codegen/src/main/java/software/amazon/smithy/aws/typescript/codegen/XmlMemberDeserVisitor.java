@@ -48,7 +48,6 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  */
 @SmithyInternalApi
 final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
-
     private final MemberShape memberShape;
 
     XmlMemberDeserVisitor(GenerationContext context, String dataSource, Format defaultTimestampFormat) {
@@ -61,11 +60,6 @@ final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
                           Format defaultTimestampFormat) {
         super(context, dataSource, defaultTimestampFormat);
         this.memberShape = memberShape;
-    }
-
-    @Override
-    protected MemberShape getMemberShape() {
-        return memberShape;
     }
 
     @Override
@@ -112,12 +106,6 @@ final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
         return deserializeFloat();
     }
 
-    private String deserializeFloat() {
-        getContext().getWriter().addImport("strictParseFloat", "__strictParseFloat",
-            TypeScriptDependency.AWS_SMITHY_CLIENT);
-        return "__strictParseFloat(" + getDataSource() + ") as number";
-    }
-
     @Override
     public String bigDecimalShape(BigDecimalShape shape) {
         // Fail instead of losing precision through Number.
@@ -130,8 +118,19 @@ final class XmlMemberDeserVisitor extends DocumentMemberDeserVisitor {
         return unsupportedShape(shape);
     }
 
+    @Override
+    protected MemberShape getMemberShape() {
+        return memberShape;
+    }
+
     private String unsupportedShape(Shape shape) {
         throw new CodegenException(String.format("Cannot deserialize shape type %s on protocol, shape: %s.",
                 shape.getType(), shape.getId()));
+    }
+
+    private String deserializeFloat() {
+        getContext().getWriter().addImport("strictParseFloat", "__strictParseFloat",
+                TypeScriptDependency.AWS_SMITHY_CLIENT);
+        return "__strictParseFloat(" + getDataSource() + ") as number";
     }
 }

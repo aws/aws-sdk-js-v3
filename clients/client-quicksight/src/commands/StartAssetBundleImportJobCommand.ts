@@ -1,23 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   StartAssetBundleImportJobRequest,
   StartAssetBundleImportJobRequestFilterSensitiveLog,
   StartAssetBundleImportJobResponse,
-} from "../models/models_3";
+} from "../models/models_4";
 import { de_StartAssetBundleImportJobCommand, se_StartAssetBundleImportJobCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -145,6 +137,17 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  *             Port: Number("int"),
  *             Database: "STRING_VALUE", // required
  *             ClusterId: "STRING_VALUE",
+ *             IAMParameters: { // RedshiftIAMParameters
+ *               RoleArn: "STRING_VALUE", // required
+ *               DatabaseUser: "STRING_VALUE", // required
+ *               DatabaseGroups: [ // DatabaseGroupList
+ *                 "STRING_VALUE",
+ *               ],
+ *               AutoCreateDatabaseUser: true || false,
+ *             },
+ *             IdentityCenterConfiguration: { // IdentityCenterConfiguration
+ *               EnableIdentityPropagation: true || false,
+ *             },
  *           },
  *           S3Parameters: { // S3Parameters
  *             ManifestFileLocation: { // ManifestFileLocation
@@ -191,6 +194,21 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  *             Port: Number("int"), // required
  *             SqlEndpointPath: "STRING_VALUE", // required
  *           },
+ *           StarburstParameters: { // StarburstParameters
+ *             Host: "STRING_VALUE", // required
+ *             Port: Number("int"), // required
+ *             Catalog: "STRING_VALUE", // required
+ *             ProductType: "GALAXY" || "ENTERPRISE",
+ *           },
+ *           TrinoParameters: { // TrinoParameters
+ *             Host: "STRING_VALUE", // required
+ *             Port: Number("int"), // required
+ *             Catalog: "STRING_VALUE", // required
+ *           },
+ *           BigQueryParameters: { // BigQueryParameters
+ *             ProjectId: "STRING_VALUE", // required
+ *             DataSetRegion: "STRING_VALUE",
+ *           },
  *         },
  *         VpcConnectionProperties: { // VpcConnectionProperties
  *           VpcConnectionArn: "STRING_VALUE", // required
@@ -233,6 +251,152 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  *     ],
  *   },
  *   FailureAction: "DO_NOTHING" || "ROLLBACK",
+ *   OverridePermissions: { // AssetBundleImportJobOverridePermissions
+ *     DataSources: [ // AssetBundleImportJobDataSourceOverridePermissionsList
+ *       { // AssetBundleImportJobDataSourceOverridePermissions
+ *         DataSourceIds: [ // AssetBundleRestrictiveResourceIdList // required
+ *           "STRING_VALUE",
+ *         ],
+ *         Permissions: { // AssetBundleResourcePermissions
+ *           Principals: [ // AssetBundlePrincipalList // required
+ *             "STRING_VALUE",
+ *           ],
+ *           Actions: [ // ActionList // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *     DataSets: [ // AssetBundleImportJobDataSetOverridePermissionsList
+ *       { // AssetBundleImportJobDataSetOverridePermissions
+ *         DataSetIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         Permissions: {
+ *           Principals: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *           Actions: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *     Themes: [ // AssetBundleImportJobThemeOverridePermissionsList
+ *       { // AssetBundleImportJobThemeOverridePermissions
+ *         ThemeIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         Permissions: {
+ *           Principals: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *           Actions: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *     Analyses: [ // AssetBundleImportJobAnalysisOverridePermissionsList
+ *       { // AssetBundleImportJobAnalysisOverridePermissions
+ *         AnalysisIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         Permissions: {
+ *           Principals: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *           Actions: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *     ],
+ *     Dashboards: [ // AssetBundleImportJobDashboardOverridePermissionsList
+ *       { // AssetBundleImportJobDashboardOverridePermissions
+ *         DashboardIds: [ // required
+ *           "STRING_VALUE",
+ *         ],
+ *         Permissions: {
+ *           Principals: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *           Actions: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         LinkSharingConfiguration: { // AssetBundleResourceLinkSharingConfiguration
+ *           Permissions: "<AssetBundleResourcePermissions>",
+ *         },
+ *       },
+ *     ],
+ *   },
+ *   OverrideTags: { // AssetBundleImportJobOverrideTags
+ *     VPCConnections: [ // AssetBundleImportJobVPCConnectionOverrideTagsList
+ *       { // AssetBundleImportJobVPCConnectionOverrideTags
+ *         VPCConnectionIds: "<AssetBundleRestrictiveResourceIdList>", // required
+ *         Tags: [ // TagList // required
+ *           { // Tag
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     DataSources: [ // AssetBundleImportJobDataSourceOverrideTagsList
+ *       { // AssetBundleImportJobDataSourceOverrideTags
+ *         DataSourceIds: "<AssetBundleRestrictiveResourceIdList>", // required
+ *         Tags: [ // required
+ *           {
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     DataSets: [ // AssetBundleImportJobDataSetOverrideTagsList
+ *       { // AssetBundleImportJobDataSetOverrideTags
+ *         DataSetIds: "<AssetBundleRestrictiveResourceIdList>", // required
+ *         Tags: [ // required
+ *           {
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     Themes: [ // AssetBundleImportJobThemeOverrideTagsList
+ *       { // AssetBundleImportJobThemeOverrideTags
+ *         ThemeIds: "<AssetBundleRestrictiveResourceIdList>", // required
+ *         Tags: [ // required
+ *           {
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     Analyses: [ // AssetBundleImportJobAnalysisOverrideTagsList
+ *       { // AssetBundleImportJobAnalysisOverrideTags
+ *         AnalysisIds: "<AssetBundleRestrictiveResourceIdList>", // required
+ *         Tags: [ // required
+ *           {
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     Dashboards: [ // AssetBundleImportJobDashboardOverrideTagsList
+ *       { // AssetBundleImportJobDashboardOverrideTags
+ *         DashboardIds: "<AssetBundleRestrictiveResourceIdList>", // required
+ *         Tags: "<TagList>", // required
+ *       },
+ *     ],
+ *   },
+ *   OverrideValidationStrategy: { // AssetBundleImportJobOverrideValidationStrategy
+ *     StrictModeForAllResources: true || false,
+ *   },
  * };
  * const command = new StartAssetBundleImportJobCommand(input);
  * const response = await client.send(command);
@@ -282,82 +446,26 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
-export class StartAssetBundleImportJobCommand extends $Command<
-  StartAssetBundleImportJobCommandInput,
-  StartAssetBundleImportJobCommandOutput,
-  QuickSightClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StartAssetBundleImportJobCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: QuickSightClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StartAssetBundleImportJobCommandInput, StartAssetBundleImportJobCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartAssetBundleImportJobCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "QuickSightClient";
-    const commandName = "StartAssetBundleImportJobCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: StartAssetBundleImportJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StartAssetBundleImportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartAssetBundleImportJobCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartAssetBundleImportJobCommandOutput> {
-    return de_StartAssetBundleImportJobCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class StartAssetBundleImportJobCommand extends $Command
+  .classBuilder<
+    StartAssetBundleImportJobCommandInput,
+    StartAssetBundleImportJobCommandOutput,
+    QuickSightClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("QuickSight_20180401", "StartAssetBundleImportJob", {})
+  .n("QuickSightClient", "StartAssetBundleImportJobCommand")
+  .f(StartAssetBundleImportJobRequestFilterSensitiveLog, void 0)
+  .ser(se_StartAssetBundleImportJobCommand)
+  .de(de_StartAssetBundleImportJobCommand)
+  .build() {}

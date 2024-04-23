@@ -8,8 +8,12 @@
 export * from "./ServiceCatalogAppRegistryClient";
 export * from "./ServiceCatalogAppRegistry";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { ServiceCatalogAppRegistryExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { ServiceCatalogAppRegistryServiceException } from "./models/ServiceCatalogAppRegistryServiceException";

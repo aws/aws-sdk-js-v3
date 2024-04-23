@@ -6,24 +6,27 @@ import { RuleSetObject } from "@smithy/types";
    or see "smithy.rules#endpointRuleSet"
    in codegen/sdk-codegen/aws-models/internetmonitor.json */
 
-const r="argv",
-s="ref";
-const a=false,
-b=true,
-c="isSet",
-d="tree",
-e="booleanEquals",
-f="error",
-g="endpoint",
-h="PartitionResult",
-i="getAttr",
-j={"required":false,"type":"String"},
-k={[s]:"Endpoint"},
-l={},
-m={[s]:h},
-n={[f]:"FIPS is enabled but this partition does not support FIPS","type":f},
-o=[{"fn":e,[r]:[{[s]:"UseFIPS"},true]}],
-p=[{[s]:"Region"}],
-q=[{"fn":e,[r]:[true,{"fn":i,[r]:[m,"supportsFIPS"]}]}];
-const _data={version:"1.0",parameters:{Region:j,UseFIPS:{required:b,default:a,type:"Boolean"},Endpoint:j},rules:[{conditions:[{fn:c,[r]:[k]}],type:d,rules:[{conditions:o,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:f},{endpoint:{url:k,properties:l,headers:l},type:g}]},{conditions:[{fn:c,[r]:p}],type:d,rules:[{conditions:[{fn:"aws.partition",[r]:p,assign:h}],type:d,rules:[{conditions:[{fn:e,[r]:[b,{fn:i,[r]:[m,"supportsDualStack"]}]}],type:d,rules:[{conditions:o,type:d,rules:[{conditions:q,type:d,rules:[{endpoint:{url:"https://internetmonitor-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:l,headers:l},type:g}]},n]},{endpoint:{url:"https://internetmonitor.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:l,headers:l},type:g}]},{conditions:o,type:d,rules:[{conditions:q,type:d,rules:[{endpoint:{url:"https://internetmonitor-fips.{Region}.{PartitionResult#dnsSuffix}",properties:l,headers:l},type:g}]},n]},{endpoint:{url:"https://internetmonitor.{Region}.{PartitionResult#dnsSuffix}",properties:l,headers:l},type:g}]}]},{error:"Invalid Configuration: Missing Region",type:f}]};
+const s="required",
+t="fn",
+u="argv",
+v="ref";
+const a=true,
+b="isSet",
+c="booleanEquals",
+d="error",
+e="endpoint",
+f="tree",
+g="PartitionResult",
+h={[s]:false,"type":"String"},
+i={[s]:true,"default":false,"type":"Boolean"},
+j={[v]:"Endpoint"},
+k={[t]:c,[u]:[{[v]:"UseFIPS"},true]},
+l={[t]:c,[u]:[{[v]:"UseDualStack"},true]},
+m={},
+n={[t]:"getAttr",[u]:[{[v]:g},"supportsFIPS"]},
+o={[t]:c,[u]:[true,{[t]:"getAttr",[u]:[{[v]:g},"supportsDualStack"]}]},
+p=[k],
+q=[l],
+r=[{[v]:"Region"}];
+const _data={version:"1.0",parameters:{Region:h,UseDualStack:i,UseFIPS:i,Endpoint:h},rules:[{conditions:[{[t]:b,[u]:[j]}],rules:[{conditions:p,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:d},{conditions:q,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:d},{endpoint:{url:j,properties:m,headers:m},type:e}],type:f},{conditions:[{[t]:b,[u]:r}],rules:[{conditions:[{[t]:"aws.partition",[u]:r,assign:g}],rules:[{conditions:[k,l],rules:[{conditions:[{[t]:c,[u]:[a,n]},o],rules:[{endpoint:{url:"https://internetmonitor-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:m,headers:m},type:e}],type:f},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:d}],type:f},{conditions:p,rules:[{conditions:[{[t]:c,[u]:[n,a]}],rules:[{endpoint:{url:"https://internetmonitor-fips.{Region}.{PartitionResult#dnsSuffix}",properties:m,headers:m},type:e}],type:f},{error:"FIPS is enabled but this partition does not support FIPS",type:d}],type:f},{conditions:q,rules:[{conditions:[o],rules:[{endpoint:{url:"https://internetmonitor.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:m,headers:m},type:e}],type:f},{error:"DualStack is enabled but this partition does not support DualStack",type:d}],type:f},{endpoint:{url:"https://internetmonitor.{Region}.{PartitionResult#dnsSuffix}",properties:m,headers:m},type:e}],type:f}],type:f},{error:"Invalid Configuration: Missing Region",type:d}]};
 export const ruleSet: RuleSetObject = _data;

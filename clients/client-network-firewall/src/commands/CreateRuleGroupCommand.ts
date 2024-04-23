@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateRuleGroupRequest, CreateRuleGroupResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
 import { de_CreateRuleGroupCommand, se_CreateRuleGroupCommand } from "../protocols/Aws_json1_0";
@@ -191,6 +183,7 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *     SourceArn: "STRING_VALUE",
  *     SourceUpdateToken: "STRING_VALUE",
  *   },
+ *   AnalyzeRuleGroup: true || false,
  * };
  * const command = new CreateRuleGroupCommand(input);
  * const response = await client.send(command);
@@ -203,7 +196,7 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  * //     Description: "STRING_VALUE",
  * //     Type: "STATELESS" || "STATEFUL",
  * //     Capacity: Number("int"),
- * //     RuleGroupStatus: "ACTIVE" || "DELETING",
+ * //     RuleGroupStatus: "ACTIVE" || "DELETING" || "ERROR",
  * //     Tags: [ // TagList
  * //       { // Tag
  * //         Key: "STRING_VALUE", // required
@@ -222,6 +215,15 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  * //     },
  * //     SnsTopic: "STRING_VALUE",
  * //     LastModifiedTime: new Date("TIMESTAMP"),
+ * //     AnalysisResults: [ // AnalysisResultList
+ * //       { // AnalysisResult
+ * //         IdentifiedRuleIds: [ // RuleIdList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         IdentifiedType: "STATELESS_RULE_FORWARDING_ASYMMETRICALLY" || "STATELESS_RULE_CONTAINS_TCP_FLAGS",
+ * //         AnalysisDetail: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *
@@ -238,7 +240,7 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *          request later. </p>
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Your request is valid, but Network Firewall couldn’t perform the operation because of a
+ *  <p>Your request is valid, but Network Firewall couldn't perform the operation because of a
  *          system problem. Retry your request. </p>
  *
  * @throws {@link InvalidRequestException} (client fault)
@@ -267,79 +269,26 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
-export class CreateRuleGroupCommand extends $Command<
-  CreateRuleGroupCommandInput,
-  CreateRuleGroupCommandOutput,
-  NetworkFirewallClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateRuleGroupCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: NetworkFirewallClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateRuleGroupCommandInput, CreateRuleGroupCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateRuleGroupCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "NetworkFirewallClient";
-    const commandName = "CreateRuleGroupCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateRuleGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateRuleGroupCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRuleGroupCommandOutput> {
-    return de_CreateRuleGroupCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateRuleGroupCommand extends $Command
+  .classBuilder<
+    CreateRuleGroupCommandInput,
+    CreateRuleGroupCommandOutput,
+    NetworkFirewallClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("NetworkFirewall_20201112", "CreateRuleGroup", {})
+  .n("NetworkFirewallClient", "CreateRuleGroupCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateRuleGroupCommand)
+  .de(de_CreateRuleGroupCommand)
+  .build() {}

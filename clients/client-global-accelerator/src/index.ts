@@ -28,7 +28,7 @@
  * 			are anycast from the Amazon Web Services edge network. For IPv4, Global Accelerator provides two static IPv4 addresses. For dual-stack,
  * 			Global Accelerator provides a total of four addresses: two static IPv4 addresses and two static IPv6 addresses.
  * 			With a standard accelerator for IPv4, instead of using the addresses that Global Accelerator provides, you can configure
- * 			these entry points to be IPv4 addresses from your own IP address ranges that you bring toGlobal Accelerator (BYOIP). </p>
+ * 			these entry points to be IPv4 addresses from your own IP address ranges that you bring to Global Accelerator (BYOIP). </p>
  *          <p>For a standard accelerator,
  * 	        they distribute incoming application traffic across multiple endpoint resources in multiple Amazon Web Services Regions , which increases
  * 			the availability of your applications. Endpoints for standard accelerators can be Network Load Balancers, Application Load Balancers,
@@ -55,8 +55,12 @@
 export * from "./GlobalAcceleratorClient";
 export * from "./GlobalAccelerator";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { GlobalAcceleratorExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { GlobalAcceleratorServiceException } from "./models/GlobalAcceleratorServiceException";

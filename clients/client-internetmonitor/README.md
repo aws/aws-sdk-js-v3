@@ -38,16 +38,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `InternetMonitorClient` and
-the commands you need, for example `CreateMonitorCommand`:
+the commands you need, for example `ListMonitorsCommand`:
 
 ```js
 // ES5 example
-const { InternetMonitorClient, CreateMonitorCommand } = require("@aws-sdk/client-internetmonitor");
+const { InternetMonitorClient, ListMonitorsCommand } = require("@aws-sdk/client-internetmonitor");
 ```
 
 ```ts
 // ES6+ example
-import { InternetMonitorClient, CreateMonitorCommand } from "@aws-sdk/client-internetmonitor";
+import { InternetMonitorClient, ListMonitorsCommand } from "@aws-sdk/client-internetmonitor";
 ```
 
 ### Usage
@@ -66,7 +66,7 @@ const client = new InternetMonitorClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateMonitorCommand(params);
+const command = new ListMonitorsCommand(params);
 ```
 
 #### Async/await
@@ -145,7 +145,7 @@ const client = new AWS.InternetMonitor({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createMonitor(params);
+  const data = await client.listMonitors(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -153,7 +153,7 @@ try {
 
 // Promises.
 client
-  .createMonitor(params)
+  .listMonitors(params)
   .then((data) => {
     // process data.
   })
@@ -162,7 +162,7 @@ client
   });
 
 // callbacks.
-client.createMonitor(params, (err, data) => {
+client.listMonitors(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -177,7 +177,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -223,7 +223,7 @@ see LICENSE for more information.
 CreateMonitor
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-internetmonitor/classes/createmonitorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-internetmonitor/interfaces/createmonitorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-internetmonitor/interfaces/createmonitorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/internetmonitor/command/CreateMonitorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/CreateMonitorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/CreateMonitorCommandOutput/)
 
 </details>
 <details>
@@ -231,7 +231,7 @@ CreateMonitor
 DeleteMonitor
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-internetmonitor/classes/deletemonitorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-internetmonitor/interfaces/deletemonitorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-internetmonitor/interfaces/deletemonitorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/internetmonitor/command/DeleteMonitorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/DeleteMonitorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/DeleteMonitorCommandOutput/)
 
 </details>
 <details>
@@ -239,7 +239,7 @@ DeleteMonitor
 GetHealthEvent
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-internetmonitor/classes/gethealtheventcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-internetmonitor/interfaces/gethealtheventcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-internetmonitor/interfaces/gethealtheventcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/internetmonitor/command/GetHealthEventCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/GetHealthEventCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/GetHealthEventCommandOutput/)
 
 </details>
 <details>
@@ -247,7 +247,23 @@ GetHealthEvent
 GetMonitor
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-internetmonitor/classes/getmonitorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-internetmonitor/interfaces/getmonitorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-internetmonitor/interfaces/getmonitorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/internetmonitor/command/GetMonitorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/GetMonitorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/GetMonitorCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetQueryResults
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/internetmonitor/command/GetQueryResultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/GetQueryResultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/GetQueryResultsCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetQueryStatus
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/internetmonitor/command/GetQueryStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/GetQueryStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/GetQueryStatusCommandOutput/)
 
 </details>
 <details>
@@ -255,7 +271,7 @@ GetMonitor
 ListHealthEvents
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-internetmonitor/classes/listhealtheventscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-internetmonitor/interfaces/listhealtheventscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-internetmonitor/interfaces/listhealtheventscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/internetmonitor/command/ListHealthEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/ListHealthEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/ListHealthEventsCommandOutput/)
 
 </details>
 <details>
@@ -263,7 +279,7 @@ ListHealthEvents
 ListMonitors
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-internetmonitor/classes/listmonitorscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-internetmonitor/interfaces/listmonitorscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-internetmonitor/interfaces/listmonitorscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/internetmonitor/command/ListMonitorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/ListMonitorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/ListMonitorsCommandOutput/)
 
 </details>
 <details>
@@ -271,7 +287,23 @@ ListMonitors
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-internetmonitor/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-internetmonitor/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-internetmonitor/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/internetmonitor/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/ListTagsForResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartQuery
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/internetmonitor/command/StartQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/StartQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/StartQueryCommandOutput/)
+
+</details>
+<details>
+<summary>
+StopQuery
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/internetmonitor/command/StopQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/StopQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/StopQueryCommandOutput/)
 
 </details>
 <details>
@@ -279,7 +311,7 @@ ListTagsForResource
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-internetmonitor/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-internetmonitor/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-internetmonitor/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/internetmonitor/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -287,7 +319,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-internetmonitor/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-internetmonitor/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-internetmonitor/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/internetmonitor/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -295,6 +327,6 @@ UntagResource
 UpdateMonitor
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-internetmonitor/classes/updatemonitorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-internetmonitor/interfaces/updatemonitorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-internetmonitor/interfaces/updatemonitorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/internetmonitor/command/UpdateMonitorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/UpdateMonitorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-internetmonitor/Interface/UpdateMonitorCommandOutput/)
 
 </details>

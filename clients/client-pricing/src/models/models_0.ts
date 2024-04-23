@@ -283,18 +283,14 @@ export interface GetPriceListFileUrlRequest {
   /**
    * @public
    * <p>The unique identifier that maps to where your Price List files are located.
-   *             <code>PriceListArn</code> can be obtained from the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html">
-   *                <code>ListPriceLists</code>
-   *             </a> response. </p>
+   *             <code>PriceListArn</code> can be obtained from the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html">ListPriceLists</a> response. </p>
    */
   PriceListArn: string | undefined;
 
   /**
    * @public
    * <p>The format that you want to retrieve your Price List files in. The
-   *             <code>FileFormat</code> can be obtained from the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html">
-   *                <code>ListPriceLists</code>
-   *             </a> response. </p>
+   *             <code>FileFormat</code> can be obtained from the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_ListPriceLists.html">ListPriceLists</a> response. </p>
    */
   FileFormat: string | undefined;
 }
@@ -334,7 +330,7 @@ export interface Filter {
    *          <p>Valid values are: <code>TERM_MATCH</code>. <code>TERM_MATCH</code> returns only
    *          products that match both the given filter field and the given value.</p>
    */
-  Type: FilterType | string | undefined;
+  Type: FilterType | undefined;
 
   /**
    * @public
@@ -427,13 +423,13 @@ export interface ListPriceListsRequest {
   /**
    * @public
    * <p>The service code or the Savings Plan service code for the attributes that
-   *          you want to retrieve. For example, to get the list of applicable Amazon EC2 price lists, use
-   *             <code>AmazonEC2</code>. For a full list of service codes containing On-Demand and
-   *          Reserved Instance (RI) pricing, use the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_DescribeServices.html#awscostmanagement-pricing_DescribeServices-request-FormatVersion">
-   *                <code>DescribeServices</code>
-   *             </a> API.</p>
-   *          <p>To retrieve the Compute Savings Plan price lists, use <code>ComputeSavingsPlans</code>. To retrieve Machine Learning Savings Plans price lists, use <code>MachineLearningSavingsPlans</code>.
-   *       </p>
+   *          you want to retrieve. For example, to get the list of applicable Amazon EC2 price
+   *          lists, use <code>AmazonEC2</code>. For a full list of service codes containing On-Demand
+   *          and Reserved Instance (RI) pricing, use the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_DescribeServices.html#awscostmanagement-pricing_DescribeServices-request-FormatVersion">DescribeServices</a> API.</p>
+   *          <p>To retrieve the Reserved Instance and Compute Savings Plan price lists,
+   *          use <code>ComputeSavingsPlans</code>. </p>
+   *          <p>To retrieve Machine Learning Savings Plans price lists, use
+   *             <code>MachineLearningSavingsPlans</code>. </p>
    */
   ServiceCode: string | undefined;
 
@@ -448,9 +444,7 @@ export interface ListPriceListsRequest {
    * <p>This is used to filter the Price List by Amazon Web Services Region. For example, to get
    *          the price list only for the <code>US East (N. Virginia)</code> Region, use
    *             <code>us-east-1</code>. If nothing is specified, you retrieve price lists for all
-   *          applicable Regions. The available <code>RegionCode</code> list can be retrieved from <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_GetAttributeValues.html">
-   *                <code>GetAttributeValues</code>
-   *             </a> API.</p>
+   *          applicable Regions. The available <code>RegionCode</code> list can be retrieved from <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_GetAttributeValues.html">GetAttributeValues</a> API.</p>
    */
   RegionCode?: string;
 

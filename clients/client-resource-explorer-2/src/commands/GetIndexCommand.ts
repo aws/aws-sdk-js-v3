@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { GetIndexOutput } from "../models/models_0";
+import { commonParams } from "../endpoint/EndpointParameters";
+import { GetIndexOutput, GetIndexOutputFilterSensitiveLog } from "../models/models_0";
 import { de_GetIndexCommand, se_GetIndexCommand } from "../protocols/Aws_restJson1";
 import {
   ResourceExplorer2ClientResolvedConfig,
@@ -90,8 +82,8 @@ export interface GetIndexCommandOutput extends GetIndexOutput, __MetadataBearer 
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request failed because you exceeded a rate limit for this operation. For more
- *             information, see <a href="https://docs.aws.amazon.com/arexug/mainline/quotas.html">Quotas
- *                 for Resource Explorer</a>.</p>
+ *             information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html">Quotas for
+ *             Resource Explorer</a>.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
@@ -101,76 +93,26 @@ export interface GetIndexCommandOutput extends GetIndexOutput, __MetadataBearer 
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
  */
-export class GetIndexCommand extends $Command<
-  GetIndexCommandInput,
-  GetIndexCommandOutput,
-  ResourceExplorer2ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetIndexCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ResourceExplorer2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetIndexCommandInput, GetIndexCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GetIndexCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ResourceExplorer2Client";
-    const commandName = "GetIndexCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetIndexCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetIndexCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIndexCommandOutput> {
-    return de_GetIndexCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetIndexCommand extends $Command
+  .classBuilder<
+    GetIndexCommandInput,
+    GetIndexCommandOutput,
+    ResourceExplorer2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ResourceExplorer2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ResourceExplorer", "GetIndex", {})
+  .n("ResourceExplorer2Client", "GetIndexCommand")
+  .f(void 0, GetIndexOutputFilterSensitiveLog)
+  .ser(se_GetIndexCommand)
+  .de(de_GetIndexCommand)
+  .build() {}

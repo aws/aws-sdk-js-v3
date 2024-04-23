@@ -1,20 +1,36 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>With the Amazon Cognito user pools API, you can set up user pools and app clients, and
- *             authenticate users. To authenticate users from third-party identity providers (IdPs) in
- *             this API, you can <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation-consolidate-users.html">link IdP users to native user profiles</a>. Learn more
- *             about the authentication and authorization of federated users in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-userpools-server-contract-reference.html">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p>
+ * <p>With the Amazon Cognito user pools API, you can configure user pools and authenticate users. To
+ *             authenticate users from third-party identity providers (IdPs) in this API, you can
+ *                 <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation-consolidate-users.html">link IdP users to native user profiles</a>. Learn more
+ *             about the authentication and authorization of federated users at <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html">Adding user pool sign-in through a third party</a> and in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-userpools-server-contract-reference.html">User pool federation endpoints and hosted UI reference</a>.</p>
  *          <p>This API reference provides detailed information about API operations and object types
- *             in Amazon Cognito. At the bottom of the page for each API operation and object, under
- *                 <i>See Also</i>, you can learn how to use it in an Amazon Web Services SDK in the
- *             language of your choice.</p>
+ *             in Amazon Cognito.</p>
  *          <p>Along with resource management operations, the Amazon Cognito user pools API includes classes
- *             of operations and authorization models for client-side and server-side user operations.
- *             For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito native and OIDC APIs</a> in the
- *                 <i>Amazon Cognito Developer Guide</i>.</p>
- *          <p>You can also start reading about the <code>CognitoIdentityProvider</code> client in
- *             the following SDK guides.</p>
+ *             of operations and authorization models for client-side and server-side authentication of
+ *             users. You can interact with operations in the Amazon Cognito user pools API as any of the
+ *             following subjects.</p>
+ *          <ol>
+ *             <li>
+ *                <p>An administrator who wants to configure user pools, app clients, users,
+ *                     groups, or other user pool functions.</p>
+ *             </li>
+ *             <li>
+ *                <p>A server-side app, like a web application, that wants to use its Amazon Web Services
+ *                     privileges to manage, authenticate, or authorize a user.</p>
+ *             </li>
+ *             <li>
+ *                <p>A client-side app, like a mobile app, that wants to make unauthenticated
+ *                     requests to manage, authenticate, or authorize a user.</p>
+ *             </li>
+ *          </ol>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>
+ *             in the <i>Amazon Cognito Developer Guide</i>.</p>
+ *          <p>With your Amazon Web Services SDK, you can build the logic to support operational flows in every use
+ *             case for this API. You can also make direct REST API requests to <a href="https://docs.aws.amazon.com/general/latest/gr/cognito_identity.html#cognito_identity_your_user_pools_region">Amazon Cognito user pools service endpoints</a>. The following links can get you started
+ *             with the <code>CognitoIdentityProvider</code> client in other supported Amazon Web Services
+ *             SDKs.</p>
  *          <ul>
  *             <li>
  *                <p>
@@ -74,8 +90,12 @@
 export * from "./CognitoIdentityProviderClient";
 export * from "./CognitoIdentityProvider";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { CognitoIdentityProviderExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { CognitoIdentityProviderServiceException } from "./models/CognitoIdentityProviderServiceException";

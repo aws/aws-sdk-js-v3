@@ -1,20 +1,12 @@
 // smithy-typescript generated code
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { PutJobTaggingRequest, PutJobTaggingResult } from "../models/models_0";
+import { commonParams } from "../endpoint/EndpointParameters";
+import { PutJobTaggingRequest, PutJobTaggingResult } from "../models/models_1";
 import { de_PutJobTaggingCommand, se_PutJobTaggingCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
@@ -41,10 +33,9 @@ export interface PutJobTaggingCommandOutput extends PutJobTaggingResult, __Metad
  *          <p>A tag is a key-value pair. You can associate S3 Batch Operations tags with any job by sending
  *          a PUT request against the tagging subresource that is associated with the job. To modify
  *          the existing tag set, you can either replace the existing tag set entirely, or make changes
- *          within the existing tag set by retrieving the existing tag set using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetJobTagging.html">GetJobTagging</a>, modify that tag set, and use this action to replace the tag set
+ *          within the existing tag set by retrieving the existing tag set using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_GetJobTagging.html">GetJobTagging</a>, modify that tag set, and use this operation to replace the tag set
  *          with the one you modified. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-managing-jobs.html#batch-ops-job-tags">Controlling
  *             access and labeling jobs using tags</a> in the <i>Amazon S3 User Guide</i>. </p>
- *          <p></p>
  *          <note>
  *             <ul>
  *                <li>
@@ -81,11 +72,14 @@ export interface PutJobTaggingCommandOutput extends PutJobTaggingResult, __Metad
  *                </li>
  *             </ul>
  *          </note>
- *          <p></p>
- *          <p>To use the
- *             <code>PutJobTagging</code>
- *          operation,
- *          you must have permission to perform the <code>s3:PutJobTagging</code> action.</p>
+ *          <dl>
+ *             <dt>Permissions</dt>
+ *             <dd>
+ *                <p>To use the
+ *                   <code>PutJobTagging</code> operation, you must have permission to
+ *                   perform the <code>s3:PutJobTagging</code> action.</p>
+ *             </dd>
+ *          </dl>
  *          <p>Related actions include:</p>
  *          <ul>
  *             <li>
@@ -148,81 +142,29 @@ export interface PutJobTaggingCommandOutput extends PutJobTaggingResult, __Metad
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
-export class PutJobTaggingCommand extends $Command<
-  PutJobTaggingCommandInput,
-  PutJobTaggingCommandOutput,
-  S3ControlClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      RequiresAccountId: { type: "staticContextParams", value: true },
-      AccountId: { type: "contextParams", name: "AccountId" },
-      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PutJobTaggingCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: S3ControlClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PutJobTaggingCommandInput, PutJobTaggingCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, PutJobTaggingCommand.getEndpointParameterInstructions()));
-    this.middlewareStack.use(getProcessArnablesPlugin(configuration));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "S3ControlClient";
-    const commandName = "PutJobTaggingCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: PutJobTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PutJobTaggingCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutJobTaggingCommandOutput> {
-    return de_PutJobTaggingCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class PutJobTaggingCommand extends $Command
+  .classBuilder<
+    PutJobTaggingCommandInput,
+    PutJobTaggingCommandOutput,
+    S3ControlClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+    RequiresAccountId: { type: "staticContextParams", value: true },
+    AccountId: { type: "contextParams", name: "AccountId" },
+  })
+  .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getProcessArnablesPlugin(config),
+    ];
+  })
+  .s("AWSS3ControlServiceV20180820", "PutJobTagging", {})
+  .n("S3ControlClient", "PutJobTaggingCommand")
+  .f(void 0, void 0)
+  .ser(se_PutJobTaggingCommand)
+  .de(de_PutJobTaggingCommand)
+  .build() {}

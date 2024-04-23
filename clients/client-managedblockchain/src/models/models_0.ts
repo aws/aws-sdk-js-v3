@@ -29,6 +29,23 @@ export class AccessDeniedException extends __BaseException {
  * @public
  * @enum
  */
+export const AccessorNetworkType = {
+  ETHEREUM_GOERLI: "ETHEREUM_GOERLI",
+  ETHEREUM_MAINNET: "ETHEREUM_MAINNET",
+  ETHEREUM_MAINNET_AND_GOERLI: "ETHEREUM_MAINNET_AND_GOERLI",
+  POLYGON_MAINNET: "POLYGON_MAINNET",
+  POLYGON_MUMBAI: "POLYGON_MUMBAI",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessorNetworkType = (typeof AccessorNetworkType)[keyof typeof AccessorNetworkType];
+
+/**
+ * @public
+ * @enum
+ */
 export const AccessorStatus = {
   AVAILABLE: "AVAILABLE",
   DELETED: "DELETED",
@@ -71,13 +88,13 @@ export interface Accessor {
    *             <p>Currently, accessor type is restricted to <code>BILLING_TOKEN</code>.</p>
    *          </note>
    */
-  Type?: AccessorType | string;
+  Type?: AccessorType;
 
   /**
    * @public
-   * <p>The billing token is a property of the accessor. Use this token to make Ethereum API calls to your
-   *          Ethereum node. The billing token is used to track your accessor object for billing Ethereum API
-   *          requests made to your Ethereum nodes.</p>
+   * <p>The billing token is a property of the Accessor. Use this token to
+   *          when making calls to the blockchain network. The billing token is used
+   *          to track your accessor token for billing requests.</p>
    */
   BillingToken?: string;
 
@@ -85,7 +102,7 @@ export interface Accessor {
    * @public
    * <p>The current status of the accessor.</p>
    */
-  Status?: AccessorStatus | string;
+  Status?: AccessorStatus;
 
   /**
    * @public
@@ -107,6 +124,12 @@ export interface Accessor {
    *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
    */
   Tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The blockchain network that the Accessor token is created for.</p>
+   */
+  NetworkType?: AccessorNetworkType;
 }
 
 /**
@@ -127,13 +150,13 @@ export interface AccessorSummary {
    *             <p>Currently accessor type is restricted to <code>BILLING_TOKEN</code>.</p>
    *          </note>
    */
-  Type?: AccessorType | string;
+  Type?: AccessorType;
 
   /**
    * @public
    * <p>The current status of the accessor.</p>
    */
-  Status?: AccessorStatus | string;
+  Status?: AccessorStatus;
 
   /**
    * @public
@@ -148,6 +171,12 @@ export interface AccessorSummary {
    *             Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
    */
   Arn?: string;
+
+  /**
+   * @public
+   * <p>The blockchain network that the Accessor token is created for.</p>
+   */
+  NetworkType?: AccessorNetworkType;
 }
 
 /**
@@ -184,9 +213,11 @@ export interface ApprovalThresholdPolicy {
 
   /**
    * @public
-   * <p>Determines whether the vote percentage must be greater than the <code>ThresholdPercentage</code> or must be greater than or equal to the <code>ThreholdPercentage</code> to be approved.</p>
+   * <p>Determines whether the vote percentage must be greater than the
+   *             <code>ThresholdPercentage</code> or must be greater than or equal to the
+   *             <code>ThresholdPercentage</code> to be approved.</p>
    */
-  ThresholdComparator?: ThresholdComparator | string;
+  ThresholdComparator?: ThresholdComparator;
 }
 
 /**
@@ -210,7 +241,7 @@ export interface CreateAccessorInput {
    *             <p>Currently, accessor type is restricted to <code>BILLING_TOKEN</code>.</p>
    *          </note>
    */
-  AccessorType: AccessorType | string | undefined;
+  AccessorType: AccessorType | undefined;
 
   /**
    * @public
@@ -221,6 +252,28 @@ export interface CreateAccessorInput {
    *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/managed-blockchain/latest/ethereum-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Ethereum Developer Guide</i>, or <a href="https://docs.aws.amazon.com/managed-blockchain/latest/hyperledger-fabric-dev/tagging-resources.html">Tagging Resources</a> in the <i>Amazon Managed Blockchain Hyperledger Fabric Developer Guide</i>.</p>
    */
   Tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The blockchain network that the <code>Accessor</code> token is created for.</p>
+   *          <note>
+   *             <p>We recommend using the appropriate <code>networkType</code>
+   *             value for the blockchain network that you are creating the <code>Accessor</code>
+   *             token for. You cannnot use the value <code>ETHEREUM_MAINNET_AND_GOERLI</code> to
+   *             specify a <code>networkType</code> for your Accessor token.</p>
+   *             <p>The default value of <code>ETHEREUM_MAINNET_AND_GOERLI</code> is only applied:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>when the <code>CreateAccessor</code> action does not set a <code>networkType</code>.</p>
+   *                </li>
+   *                <li>
+   *                   <p>to all existing <code>Accessor</code> tokens that were created before the <code>networkType</code> property was introduced.
+   *                </p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   */
+  NetworkType?: AccessorNetworkType;
 }
 
 /**
@@ -235,11 +288,17 @@ export interface CreateAccessorOutput {
 
   /**
    * @public
-   * <p>The billing token is a property of the Accessor. Use this token to make Ethereum API calls to
-   *          your Ethereum node. The billing token is used to track your accessor object for billing Ethereum
-   *          API requests made to your Ethereum nodes.</p>
+   * <p>The billing token is a property of the Accessor. Use this token to
+   *          when making calls to the blockchain network. The billing token is used
+   *          to track your accessor token for billing requests.</p>
    */
   BillingToken?: string;
+
+  /**
+   * @public
+   * <p>The blockchain network that the accessor token is created for.</p>
+   */
+  NetworkType?: AccessorNetworkType;
 }
 
 /**
@@ -644,7 +703,7 @@ export interface NetworkFabricConfiguration {
    * @public
    * <p>The edition of Amazon Managed Blockchain that the network uses. For more information, see <a href="http://aws.amazon.com/managed-blockchain/pricing/">Amazon Managed Blockchain Pricing</a>.</p>
    */
-  Edition: Edition | string | undefined;
+  Edition: Edition | undefined;
 }
 
 /**
@@ -708,7 +767,7 @@ export interface CreateNetworkInput {
    * @public
    * <p>The blockchain framework that the network uses.</p>
    */
-  Framework: Framework | string | undefined;
+  Framework: Framework | undefined;
 
   /**
    * @public
@@ -839,7 +898,7 @@ export interface NodeConfiguration {
    * <p>The state database that the node uses. Values are <code>LevelDB</code> or <code>CouchDB</code>. When using an Amazon Managed Blockchain network with Hyperledger Fabric version 1.4 or later, the default is <code>CouchDB</code>.</p>
    *          <p>Applies only to Hyperledger Fabric.</p>
    */
-  StateDB?: StateDBType | string;
+  StateDB?: StateDBType;
 }
 
 /**
@@ -865,11 +924,6 @@ export interface CreateNodeInput {
    *             <li>
    *                <p>
    *                   <code>n-ethereum-goerli</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>n-ethereum-rinkeby</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -1078,11 +1132,6 @@ export interface DeleteNodeInput {
    *                   <code>n-ethereum-goerli</code>
    *                </p>
    *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>n-ethereum-rinkeby</code>
-   *                </p>
-   *             </li>
    *          </ul>
    */
   NetworkId: string | undefined;
@@ -1273,7 +1322,7 @@ export interface Member {
    *             </li>
    *          </ul>
    */
-  Status?: MemberStatus | string;
+  Status?: MemberStatus;
 
   /**
    * @public
@@ -1341,10 +1390,6 @@ export interface NetworkEthereumAttributes {
    *                <p>goerli = <code>5</code>
    *                </p>
    *             </li>
-   *             <li>
-   *                <p>rinkeby = <code>4</code>
-   *                </p>
-   *             </li>
    *          </ul>
    */
   ChainId?: string;
@@ -1365,7 +1410,7 @@ export interface NetworkFabricAttributes {
    * @public
    * <p>The edition of Amazon Managed Blockchain that Hyperledger Fabric uses. For more information, see <a href="http://aws.amazon.com/managed-blockchain/pricing/">Amazon Managed Blockchain Pricing</a>.</p>
    */
-  Edition?: Edition | string;
+  Edition?: Edition;
 }
 
 /**
@@ -1430,7 +1475,7 @@ export interface Network {
    * @public
    * <p>The blockchain framework that the network uses.</p>
    */
-  Framework?: Framework | string;
+  Framework?: Framework;
 
   /**
    * @public
@@ -1460,7 +1505,7 @@ export interface Network {
    * @public
    * <p>The current status of the network.</p>
    */
-  Status?: NetworkStatus | string;
+  Status?: NetworkStatus;
 
   /**
    * @public
@@ -1645,7 +1690,7 @@ export interface Node {
    * <p>The state database that the node uses. Values are <code>LevelDB</code> or <code>CouchDB</code>.</p>
    *          <p>Applies only to Hyperledger Fabric.</p>
    */
-  StateDB?: StateDBType | string;
+  StateDB?: StateDBType;
 
   /**
    * @public
@@ -1690,7 +1735,7 @@ export interface Node {
    *             </li>
    *          </ul>
    */
-  Status?: NodeStatus | string;
+  Status?: NodeStatus;
 
   /**
    * @public
@@ -1833,7 +1878,7 @@ export interface Proposal {
    *             </li>
    *          </ul>
    */
-  Status?: ProposalStatus | string;
+  Status?: ProposalStatus;
 
   /**
    * @public
@@ -1949,7 +1994,7 @@ export interface NetworkSummary {
    * @public
    * <p>The blockchain framework that the network uses.</p>
    */
-  Framework?: Framework | string;
+  Framework?: Framework;
 
   /**
    * @public
@@ -1961,7 +2006,7 @@ export interface NetworkSummary {
    * @public
    * <p>The current status of the network.</p>
    */
-  Status?: NetworkStatus | string;
+  Status?: NetworkStatus;
 
   /**
    * @public
@@ -2043,7 +2088,7 @@ export interface Invitation {
    *             </li>
    *          </ul>
    */
-  Status?: InvitationStatus | string;
+  Status?: InvitationStatus;
 
   /**
    * @public
@@ -2073,6 +2118,17 @@ export interface ListAccessorsInput {
    * <p> The pagination token that indicates the next set of results to retrieve. </p>
    */
   NextToken?: string;
+
+  /**
+   * @public
+   * <p>The blockchain network that the <code>Accessor</code> token is created for.</p>
+   *          <note>
+   *             <p>Use the value <code>ETHEREUM_MAINNET_AND_GOERLI</code> for all
+   *          existing <code>Accessors</code> tokens that were created before the <code>networkType</code>
+   *          property was introduced.</p>
+   *          </note>
+   */
+  NetworkType?: AccessorNetworkType;
 }
 
 /**
@@ -2147,7 +2203,7 @@ export interface ListMembersInput {
    * @public
    * <p>An optional status specifier. If provided, only members currently in this status are listed.</p>
    */
-  Status?: MemberStatus | string;
+  Status?: MemberStatus;
 
   /**
    * @public
@@ -2231,7 +2287,7 @@ export interface MemberSummary {
    *             </li>
    *          </ul>
    */
-  Status?: MemberStatus | string;
+  Status?: MemberStatus;
 
   /**
    * @public
@@ -2283,14 +2339,14 @@ export interface ListNetworksInput {
    * @public
    * <p>An optional framework specifier. If provided, only networks of this framework type are listed.</p>
    */
-  Framework?: Framework | string;
+  Framework?: Framework;
 
   /**
    * @public
    * <p>An optional status specifier. If provided, only networks currently in this status are listed.</p>
    *          <p>Applies only to Hyperledger Fabric.</p>
    */
-  Status?: NetworkStatus | string;
+  Status?: NetworkStatus;
 
   /**
    * @public
@@ -2343,7 +2399,7 @@ export interface ListNodesInput {
    * @public
    * <p>An optional status specifier. If provided, only nodes currently in this status are listed.</p>
    */
-  Status?: NodeStatus | string;
+  Status?: NodeStatus;
 
   /**
    * @public
@@ -2373,7 +2429,7 @@ export interface NodeSummary {
    * @public
    * <p>The status of the node.</p>
    */
-  Status?: NodeStatus | string;
+  Status?: NodeStatus;
 
   /**
    * @public
@@ -2510,7 +2566,7 @@ export interface ProposalSummary {
    *             </li>
    *          </ul>
    */
-  Status?: ProposalStatus | string;
+  Status?: ProposalStatus;
 
   /**
    * @public
@@ -2617,7 +2673,7 @@ export interface VoteSummary {
    *          The vote value, either <code>YES</code> or <code>NO</code>.
    *       </p>
    */
-  Vote?: VoteValue | string;
+  Vote?: VoteValue;
 
   /**
    * @public
@@ -2835,7 +2891,7 @@ export interface VoteOnProposalInput {
    *          The value of the vote.
    *       </p>
    */
-  Vote: VoteValue | string | undefined;
+  Vote: VoteValue | undefined;
 }
 
 /**

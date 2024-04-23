@@ -39,7 +39,7 @@ export interface AcceptMatchInput {
    * @public
    * <p>Player response to the proposed match.</p>
    */
-  AcceptanceType: AcceptanceType | string | undefined;
+  AcceptanceType: AcceptanceType | undefined;
 }
 
 /**
@@ -180,7 +180,7 @@ export interface RoutingStrategy {
    *             </li>
    *          </ul>
    */
-  Type?: RoutingStrategyType | string;
+  Type?: RoutingStrategyType;
 
   /**
    * @public
@@ -459,7 +459,7 @@ export interface Build {
    *             </li>
    *          </ul>
    */
-  Status?: BuildStatus | string;
+  Status?: BuildStatus;
 
   /**
    * @public
@@ -474,7 +474,7 @@ export interface Build {
    * <p>Operating system that the game server binaries are built to run on. This value
    *             determines the type of fleet resources that you can use for this build.</p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: OperatingSystem;
 
   /**
    * @public
@@ -528,7 +528,7 @@ export interface CertificateConfiguration {
    *             </li>
    *          </ul>
    */
-  CertificateType: CertificateType | string | undefined;
+  CertificateType: CertificateType | undefined;
 }
 
 /**
@@ -560,7 +560,7 @@ export interface ClaimFilterOption {
    * <p>List of instance statuses that game servers may be claimed on. If provided, the list must contain the
    *             <code>ACTIVE</code> status.</p>
    */
-  InstanceStatuses?: (FilterInstanceStatus | string)[];
+  InstanceStatuses?: FilterInstanceStatus[];
 }
 
 /**
@@ -685,7 +685,7 @@ export interface GameServer {
    *             update its utilization status. After one minute, the game server claim status reverts to
    *             null.</p>
    */
-  ClaimStatus?: GameServerClaimStatus | string;
+  ClaimStatus?: GameServerClaimStatus;
 
   /**
    * @public
@@ -705,7 +705,7 @@ export interface GameServer {
    *             </li>
    *          </ul>
    */
-  UtilizationStatus?: GameServerUtilizationStatus | string;
+  UtilizationStatus?: GameServerUtilizationStatus;
 
   /**
    * @public
@@ -1085,7 +1085,7 @@ export interface Compute {
    * <p>Current status of the compute. A compute must have an <code>ACTIVE</code> status to
    *             host game sessions.</p>
    */
-  ComputeStatus?: ComputeStatus | string;
+  ComputeStatus?: ComputeStatus;
 
   /**
    * @public
@@ -1104,13 +1104,13 @@ export interface Compute {
    * @public
    * <p>The type of operating system on the compute resource.</p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: OperatingSystem;
 
   /**
    * @public
    * <p>The Amazon EC2 instance type that the fleet uses. For registered computes in an Amazon GameLift Anywhere fleet, this property is empty. </p>
    */
-  Type?: EC2InstanceType | string;
+  Type?: EC2InstanceType;
 
   /**
    * @public
@@ -1342,7 +1342,7 @@ export interface CreateBuildInput {
    *                 builds.</p>
    *          </note>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: OperatingSystem;
 
   /**
    * @public
@@ -1444,7 +1444,7 @@ export interface IpPermission {
    * @public
    * <p>The network communication protocol used by the fleet.</p>
    */
-  Protocol: IpProtocol | string | undefined;
+  Protocol: IpProtocol | undefined;
 }
 
 /**
@@ -1460,6 +1460,20 @@ export const FleetType = {
  * @public
  */
 export type FleetType = (typeof FleetType)[keyof typeof FleetType];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceRoleCredentialsProvider = {
+  SHARED_CREDENTIAL_FILE: "SHARED_CREDENTIAL_FILE",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceRoleCredentialsProvider =
+  (typeof InstanceRoleCredentialsProvider)[keyof typeof InstanceRoleCredentialsProvider];
 
 /**
  * @public
@@ -1624,7 +1638,7 @@ export interface CreateFleetInput {
    * @public
    * <p>The unique identifier for a custom game server build to be deployed on fleet
    *             instances. You can use either the build ID or ARN. The build must be uploaded to Amazon GameLift
-   *             and in <code>READY</code> status. This fleet property cannot be changed later.</p>
+   *             and in <code>READY</code> status. This fleet property can't be changed after the fleet is created.</p>
    */
   BuildId?: string;
 
@@ -1632,7 +1646,7 @@ export interface CreateFleetInput {
    * @public
    * <p>The unique identifier for a Realtime configuration script to be deployed on fleet
    *             instances. You can use either the script ID or ARN. Scripts must be uploaded to Amazon GameLift
-   *             prior to creating the fleet. This fleet property cannot be changed later.</p>
+   *             prior to creating the fleet. This fleet property can't be changed after the fleet is created.</p>
    */
   ScriptId?: string;
 
@@ -1672,7 +1686,7 @@ export interface CreateFleetInput {
    *             including CPU, memory, storage, and networking capacity. See <a href="http://aws.amazon.com/ec2/instance-types/">Amazon Elastic Compute Cloud Instance Types</a> for detailed descriptions
    *             of Amazon EC2 instance types.</p>
    */
-  EC2InstanceType?: EC2InstanceType | string;
+  EC2InstanceType?: EC2InstanceType;
 
   /**
    * @public
@@ -1702,7 +1716,7 @@ export interface CreateFleetInput {
    *             </li>
    *          </ul>
    */
-  NewGameSessionProtectionPolicy?: ProtectionPolicy | string;
+  NewGameSessionProtectionPolicy?: ProtectionPolicy;
 
   /**
    * @public
@@ -1755,20 +1769,18 @@ export interface CreateFleetInput {
   /**
    * @public
    * <p>Indicates whether to use On-Demand or Spot instances for this fleet. By default, this
-   *             property is set to <code>ON_DEMAND</code>. Learn more about when to use <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot"> On-Demand versus Spot Instances</a>. This property cannot be changed after the
-   *             fleet is created.</p>
+   *             property is set to <code>ON_DEMAND</code>. Learn more about when to use <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot"> On-Demand versus Spot Instances</a>. This fleet property can't be changed after the fleet is created.</p>
    */
-  FleetType?: FleetType | string;
+  FleetType?: FleetType;
 
   /**
    * @public
-   * <p>A unique identifier for an IAM role that manages access to your Amazon Web Services services.
-   *         With an instance role ARN set, any application that runs on an instance in this fleet can assume the role,
-   *         including install scripts, server processes, and daemons (background processes). Create a role or look up a role's
-   *         ARN by using the <a href="https://console.aws.amazon.com/iam/">IAM dashboard</a> in the Amazon Web Services Management Console.
-   *         Learn more about using on-box credentials for your game servers at
+   * <p>A unique identifier for an IAM role with access permissions to other Amazon Web Services services.
+   *         Any application that runs on an instance in the fleet--including install scripts, server processes, and other
+   *         processes--can use these permissions to interact with Amazon Web Services resources that you own or have access to.
+   *         For more information about using the role with your game server builds, see
    *         <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html">
-   *         Access external resources from a game server</a>. This property cannot be changed after the fleet is created.</p>
+   *         Communicate with other Amazon Web Services resources from your fleets</a>. This fleet property can't be changed after the fleet is created.</p>
    */
   InstanceRoleArn?: string;
 
@@ -1819,13 +1831,25 @@ export interface CreateFleetInput {
    *             compute resources with Amazon GameLift Anywhere or use Amazon EC2 instances with managed
    *             Amazon GameLift. By default, this property is set to <code>EC2</code>.</p>
    */
-  ComputeType?: ComputeType | string;
+  ComputeType?: ComputeType;
 
   /**
    * @public
    * <p>Amazon GameLift Anywhere configuration options.</p>
    */
   AnywhereConfiguration?: AnywhereConfiguration;
+
+  /**
+   * @public
+   * <p>Prompts Amazon GameLift to generate a shared credentials file for the IAM role
+   *             defined in <code>InstanceRoleArn</code>. The shared credentials file is stored on each
+   *             fleet instance and refreshed as needed. Use shared credentials for applications that are
+   *             deployed along with the game server executable, if the game server is integrated with
+   *             server SDK version 5.x. For more information about using shared
+   *             credentials, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html"> Communicate
+   *                 with other Amazon Web Services resources from your fleets</a>.</p>
+   */
+  InstanceRoleCredentialsProvider?: InstanceRoleCredentialsProvider;
 }
 
 /**
@@ -1887,10 +1911,9 @@ export interface FleetAttributes {
   /**
    * @public
    * <p>Indicates whether to use On-Demand or Spot instances for this fleet. By default, this
-   *             property is set to <code>ON_DEMAND</code>. Learn more about when to use <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot"> On-Demand versus Spot Instances</a>. This property cannot be changed after the
-   *             fleet is created.</p>
+   *             property is set to <code>ON_DEMAND</code>. Learn more about when to use <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-ec2-instances.html#gamelift-ec2-instances-spot"> On-Demand versus Spot Instances</a>. This fleet property can't be changed after the fleet is created.</p>
    */
-  FleetType?: FleetType | string;
+  FleetType?: FleetType;
 
   /**
    * @public
@@ -1899,7 +1922,7 @@ export interface FleetAttributes {
    *                 <a href="http://aws.amazon.com/ec2/instance-types/">Amazon Elastic Compute Cloud Instance Types</a>
    *             for detailed descriptions.</p>
    */
-  InstanceType?: EC2InstanceType | string;
+  InstanceType?: EC2InstanceType;
 
   /**
    * @public
@@ -1962,7 +1985,7 @@ export interface FleetAttributes {
    *             </li>
    *          </ul>
    */
-  Status?: FleetStatus | string;
+  Status?: FleetStatus;
 
   /**
    * @public
@@ -2038,14 +2061,14 @@ export interface FleetAttributes {
    *             </li>
    *          </ul>
    */
-  NewGameSessionProtectionPolicy?: ProtectionPolicy | string;
+  NewGameSessionProtectionPolicy?: ProtectionPolicy;
 
   /**
    * @public
    * <p>The operating system of the fleet's computing resources. A fleet's operating system is
    *             determined by the OS of the build or script that is deployed on this fleet.</p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: OperatingSystem;
 
   /**
    * @public
@@ -2071,17 +2094,16 @@ export interface FleetAttributes {
    * @public
    * <p>A list of fleet activity that has been suspended using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StopFleetActions.html">StopFleetActions</a> . This includes fleet auto-scaling.</p>
    */
-  StoppedActions?: (FleetAction | string)[];
+  StoppedActions?: FleetAction[];
 
   /**
    * @public
-   * <p>A unique identifier for an IAM role that manages access to your Amazon Web Services services.
-   *         With an instance role ARN set, any application that runs on an instance in this fleet can assume the role,
-   *         including install scripts, server processes, and daemons (background processes). Create a role or look up a role's
-   *         ARN by using the <a href="https://console.aws.amazon.com/iam/">IAM dashboard</a> in the Amazon Web Services Management Console.
-   *         Learn more about using on-box credentials for your game servers at
+   * <p>A unique identifier for an IAM role with access permissions to other Amazon Web Services services.
+   *         Any application that runs on an instance in the fleet--including install scripts, server processes, and other
+   *         processes--can use these permissions to interact with Amazon Web Services resources that you own or have access to.
+   *         For more information about using the role with your game server builds, see
    *         <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html">
-   *         Access external resources from a game server</a>.</p>
+   *         Communicate with other Amazon Web Services resources from your fleets</a>.</p>
    */
   InstanceRoleArn?: string;
 
@@ -2100,13 +2122,24 @@ export interface FleetAttributes {
    *             compute resources with Amazon GameLift Anywhere or use Amazon EC2 instances with managed
    *             Amazon GameLift.</p>
    */
-  ComputeType?: ComputeType | string;
+  ComputeType?: ComputeType;
 
   /**
    * @public
    * <p>Amazon GameLift Anywhere configuration options for your Anywhere fleets.</p>
    */
   AnywhereConfiguration?: AnywhereConfiguration;
+
+  /**
+   * @public
+   * <p>Indicates that fleet instances maintain a shared credentials file for the IAM role
+   *                 defined in <code>InstanceRoleArn</code>. Shared credentials allow applications that are
+   *                 deployed with the game server executable to communicate with other Amazon Web Services resources. This property is used
+   *                 only when the game server is integrated with the
+   *                 server SDK version 5.x. For more information about using shared credentials, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-resources.html"> Communicate
+   *                     with other Amazon Web Services resources from your fleets</a>.</p>
+   */
+  InstanceRoleCredentialsProvider?: InstanceRoleCredentialsProvider;
 }
 
 /**
@@ -2166,7 +2199,7 @@ export interface LocationState {
    * @public
    * <p>The life-cycle status of a fleet location. </p>
    */
-  Status?: FleetStatus | string;
+  Status?: FleetStatus;
 }
 
 /**
@@ -2444,7 +2477,7 @@ export interface InstanceDefinition {
    * @public
    * <p>An Amazon EC2 instance type designation.</p>
    */
-  InstanceType: GameServerGroupInstanceType | string | undefined;
+  InstanceType: GameServerGroupInstanceType | undefined;
 
   /**
    * @public
@@ -2599,7 +2632,7 @@ export interface CreateGameServerGroupInput {
    *             </li>
    *          </ul>
    */
-  BalancingStrategy?: BalancingStrategy | string;
+  BalancingStrategy?: BalancingStrategy;
 
   /**
    * @public
@@ -2610,7 +2643,7 @@ export interface CreateGameServerGroupInput {
    *             in the event of a forced game server group deletion (see ). An exception to this is with Spot
    *             Instances, which can be terminated by Amazon Web Services regardless of protection status. This property is set to <code>NO_PROTECTION</code> by default.</p>
    */
-  GameServerProtectionPolicy?: GameServerProtectionPolicy | string;
+  GameServerProtectionPolicy?: GameServerProtectionPolicy;
 
   /**
    * @public
@@ -2736,7 +2769,7 @@ export interface GameServerGroup {
    *             </li>
    *          </ul>
    */
-  BalancingStrategy?: BalancingStrategy | string;
+  BalancingStrategy?: BalancingStrategy;
 
   /**
    * @public
@@ -2747,7 +2780,7 @@ export interface GameServerGroup {
    *             in the event of a forced game server group deletion (see ). An exception to this is with Spot
    *             Instances, which can be terminated by Amazon Web Services regardless of protection status. </p>
    */
-  GameServerProtectionPolicy?: GameServerProtectionPolicy | string;
+  GameServerProtectionPolicy?: GameServerProtectionPolicy;
 
   /**
    * @public
@@ -2799,7 +2832,7 @@ export interface GameServerGroup {
    *             </li>
    *          </ul>
    */
-  Status?: GameServerGroupStatus | string;
+  Status?: GameServerGroupStatus;
 
   /**
    * @public
@@ -2813,7 +2846,7 @@ export interface GameServerGroup {
    * <p>A list of activities that are currently suspended for this game server group. If this
    *             property is empty, all activities are occurring.</p>
    */
-  SuspendedActions?: (GameServerGroupAction | string)[];
+  SuspendedActions?: GameServerGroupAction[];
 
   /**
    * @public
@@ -2844,11 +2877,15 @@ export interface CreateGameServerGroupOutput {
 
 /**
  * @public
- * <p>Set of key-value pairs that contain information about a game session. When included in
- *             a game session request, these properties communicate details to be used when setting up
- *             the new game session. For example, a game property might specify a game mode, level, or
- *             map. Game properties are passed to the game server process when initiating a new game
- *             session. For more information, see the <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#gamelift-sdk-client-api-create"> Amazon GameLift Developer Guide</a>.</p>
+ * <p>This key-value pair can store custom data about a game session.
+ *         For example, you might use a <code>GameProperty</code> to track a game session's map, level of difficulty, or remaining time.
+ *         The difficulty level could be specified like this: <code>\{"Key": "difficulty", "Value":"Novice"\}</code>.
+ *       </p>
+ *          <p>
+ *           You can set game properties when creating a game session. You can also modify game properties of an active game session. When searching for game sessions, you can filter on game property keys and values. You can't delete game properties from a game session.
+ *       </p>
+ *          <p>For examples of working with game properties, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#game-properties">Create a game session with properties</a>.
+ *       </p>
  */
 export interface GameProperty {
   /**
@@ -2897,7 +2934,10 @@ export interface CreateGameSessionInput {
 
   /**
    * @public
-   * <p>A set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>).</p>
+   * <p>A set of key-value pairs that can store custom data in a game session.
+   *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>.
+   *           For an example, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#game-properties-create">Create a game session with custom properties</a>.
+   *         </p>
    */
   GameProperties?: GameProperty[];
 
@@ -3071,7 +3111,7 @@ export interface GameSession {
    * <p>Current status of the game session. A game session must have an <code>ACTIVE</code>
    *             status to have player sessions.</p>
    */
-  Status?: GameSessionStatus | string;
+  Status?: GameSessionStatus;
 
   /**
    * @public
@@ -3079,11 +3119,12 @@ export interface GameSession {
    *             indicates that the game session was hosted on a spot instance that was reclaimed,
    *             causing the active game session to be terminated.</p>
    */
-  StatusReason?: GameSessionStatusReason | string;
+  StatusReason?: GameSessionStatusReason;
 
   /**
    * @public
-   * <p>A set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>).</p>
+   * <p>A set of key-value pairs that can store custom data in a game session.
+   *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>.</p>
    */
   GameProperties?: GameProperty[];
 
@@ -3120,7 +3161,7 @@ export interface GameSession {
    * @public
    * <p>Indicates whether or not the game session is accepting new players.</p>
    */
-  PlayerSessionCreationPolicy?: PlayerSessionCreationPolicy | string;
+  PlayerSessionCreationPolicy?: PlayerSessionCreationPolicy;
 
   /**
    * @public
@@ -3364,7 +3405,7 @@ export interface PriorityConfiguration {
    *             </li>
    *          </ul>
    */
-  PriorityOrder?: (PriorityType | string)[];
+  PriorityOrder?: PriorityType[];
 
   /**
    * @public
@@ -3682,7 +3723,8 @@ export interface CreateMatchmakingConfigurationInput {
 
   /**
    * @public
-   * <p>A set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>). This information is added to the new <code>GameSession</code> object that is
+   * <p>A set of key-value pairs that can store custom data in a game session.
+   *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>. This information is added to the new <code>GameSession</code> object that is
    *             created for a successful match. This parameter is not used if <code>FlexMatchMode</code>
    *             is set to <code>STANDALONE</code>.</p>
    */
@@ -3706,7 +3748,7 @@ export interface CreateMatchmakingConfigurationInput {
    *                 with FlexMatch</a>. Automatic backfill is not available when
    *                 <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</p>
    */
-  BackfillMode?: BackfillMode | string;
+  BackfillMode?: BackfillMode;
 
   /**
    * @public
@@ -3725,7 +3767,7 @@ export interface CreateMatchmakingConfigurationInput {
    *             </li>
    *          </ul>
    */
-  FlexMatchMode?: FlexMatchMode | string;
+  FlexMatchMode?: FlexMatchMode;
 
   /**
    * @public
@@ -3839,7 +3881,8 @@ export interface MatchmakingConfiguration {
 
   /**
    * @public
-   * <p>A set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>). This information is added to the new <code>GameSession</code> object that is
+   * <p>A set of key-value pairs that can store custom data in a game session.
+   *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>. This information is added to the new <code>GameSession</code> object that is
    *             created for a successful match. This parameter is not used when
    *                 <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</p>
    */
@@ -3862,7 +3905,7 @@ export interface MatchmakingConfiguration {
    *             in <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-backfill.html">Backfill existing games with FlexMatch</a>. Automatic backfill is not available
    *             when <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</p>
    */
-  BackfillMode?: BackfillMode | string;
+  BackfillMode?: BackfillMode;
 
   /**
    * @public
@@ -3881,7 +3924,7 @@ export interface MatchmakingConfiguration {
    *             </li>
    *          </ul>
    */
-  FlexMatchMode?: FlexMatchMode | string;
+  FlexMatchMode?: FlexMatchMode;
 }
 
 /**
@@ -4132,7 +4175,7 @@ export interface PlayerSession {
    *             </li>
    *          </ul>
    */
-  Status?: PlayerSessionStatus | string;
+  Status?: PlayerSessionStatus;
 
   /**
    * @public
@@ -4640,7 +4683,7 @@ export interface DeleteGameServerGroupInput {
    *             </li>
    *          </ul>
    */
-  DeleteOption?: GameServerGroupDeleteOption | string;
+  DeleteOption?: GameServerGroupDeleteOption;
 }
 
 /**
@@ -4924,7 +4967,7 @@ export interface DescribeEC2InstanceLimitsInput {
    *             storage, and networking capacity. Do not specify a value for this parameter to retrieve
    *             limits for all instance types.</p>
    */
-  EC2InstanceType?: EC2InstanceType | string;
+  EC2InstanceType?: EC2InstanceType;
 
   /**
    * @public
@@ -4948,7 +4991,7 @@ export interface EC2InstanceLimit {
    * <p>The name of an Amazon EC2 instance type. See <a href="http://aws.amazon.com/ec2/instance-types/">Amazon Elastic Compute Cloud Instance Types</a> for detailed
    *             descriptions. </p>
    */
-  EC2InstanceType?: EC2InstanceType | string;
+  EC2InstanceType?: EC2InstanceType;
 
   /**
    * @public
@@ -5138,7 +5181,7 @@ export interface FleetCapacity {
    *             networking capacity. See <a href="http://aws.amazon.com/ec2/instance-types/">Amazon Elastic Compute Cloud
    *                 Instance Types</a> for detailed descriptions.</p>
    */
-  InstanceType?: EC2InstanceType | string;
+  InstanceType?: EC2InstanceType;
 
   /**
    * @public
@@ -5433,18 +5476,19 @@ export interface Event {
    *             </li>
    *             <li>
    *                <p>SERVER_PROCESS_SDK_INITIALIZATION_TIMEOUT -- The server process did not call
-   *                     InitSDK() within the time expected. Check your game session log to see why
-   *                     InitSDK() was not called in time.</p>
+   *                         <code>InitSDK()</code> within the time expected (5 minutes). Check your game
+   *                     session log to see why <code>InitSDK()</code> was not called in time.</p>
    *             </li>
    *             <li>
    *                <p>SERVER_PROCESS_PROCESS_READY_TIMEOUT -- The server process did not call
-   *                     ProcessReady() within the time expected after calling InitSDK(). Check your game
-   *                     session log to see why ProcessReady() was not called in time.</p>
+   *                         <code>ProcessReady()</code> within the time expected  (5 minutes) after
+   *                     calling <code>InitSDK()</code>. Check your game session log to see why
+   *                         <code>ProcessReady()</code> was not called in time.</p>
    *             </li>
    *             <li>
    *                <p>SERVER_PROCESS_CRASHED -- The server process exited without calling
-   *                     ProcessEnding(). Check your game session log to see why ProcessEnding() was not
-   *                     called.</p>
+   *                         <code>ProcessEnding()</code>. Check your game session log to see why
+   *                         <code>ProcessEnding()</code> was not called.</p>
    *             </li>
    *             <li>
    *                <p>SERVER_PROCESS_TERMINATED_UNHEALTHY -- The server process did not report a
@@ -5454,13 +5498,14 @@ export interface Event {
    *             </li>
    *             <li>
    *                <p>SERVER_PROCESS_FORCE_TERMINATED -- The server process did not exit cleanly
-   *                     after OnProcessTerminate() was sent within the time expected. Check your game
-   *                     session log to see why termination took longer than expected.</p>
+   *                     within the time expected after <code>OnProcessTerminate()</code> was sent. Check
+   *                     your game session log to see why termination took longer than expected.</p>
    *             </li>
    *             <li>
    *                <p>SERVER_PROCESS_PROCESS_EXIT_TIMEOUT -- The server process did not exit cleanly
-   *                     within the time expected after calling ProcessEnding(). Check your game session
-   *                     log to see why termination took longer than expected.</p>
+   *                     within the time expected (30 seconds) after calling
+   *                     <code>ProcessEnding()</code>. Check your game session log to see why termination
+   *                     took longer than expected.</p>
    *             </li>
    *          </ul>
    *          <p>
@@ -5469,8 +5514,9 @@ export interface Event {
    *          <ul>
    *             <li>
    *                <p>GAME_SESSION_ACTIVATION_TIMEOUT -- GameSession failed to activate within the
-   *                     expected time. Check your game session log to see why ActivateGameSession() took
-   *                     longer to complete than expected.</p>
+   *                     expected time. Check your game session log to see why
+   *                         <code>ActivateGameSession()</code> took longer to complete than
+   *                     expected.</p>
    *             </li>
    *          </ul>
    *          <p>
@@ -5495,7 +5541,7 @@ export interface Event {
    *             </li>
    *          </ul>
    */
-  EventCode?: EventCode | string;
+  EventCode?: EventCode;
 
   /**
    * @public
@@ -5594,7 +5640,7 @@ export interface LocationAttributes {
    * @public
    * <p>A list of fleet actions that have been suspended in the fleet location.</p>
    */
-  StoppedActions?: (FleetAction | string)[];
+  StoppedActions?: FleetAction[];
 
   /**
    * @public
@@ -5603,7 +5649,7 @@ export interface LocationAttributes {
    *                 <code>StartFleetActions</code> has been requested but the update has not yet been
    *             completed for the location.</p>
    */
-  UpdateStatus?: LocationUpdateStatus | string;
+  UpdateStatus?: LocationUpdateStatus;
 }
 
 /**
@@ -5802,7 +5848,7 @@ export interface DescribeFleetPortSettingsOutput {
    *             location. A status of <code>PENDING_UPDATE</code> indicates that an update was requested
    *             for the fleet but has not yet been completed for the location.</p>
    */
-  UpdateStatus?: LocationUpdateStatus | string;
+  UpdateStatus?: LocationUpdateStatus;
 
   /**
    * @public
@@ -5993,7 +6039,7 @@ export interface GameServerInstance {
    * @public
    * <p>Current status of the game server instance</p>
    */
-  InstanceStatus?: GameServerInstanceStatus | string;
+  InstanceStatus?: GameServerInstanceStatus;
 }
 
 /**
@@ -6094,7 +6140,7 @@ export interface GameSessionDetail {
    *             </li>
    *          </ul>
    */
-  ProtectionPolicy?: ProtectionPolicy | string;
+  ProtectionPolicy?: ProtectionPolicy;
 }
 
 /**
@@ -6252,11 +6298,12 @@ export interface GameSessionPlacement {
    *             </li>
    *          </ul>
    */
-  Status?: GameSessionPlacementState | string;
+  Status?: GameSessionPlacementState;
 
   /**
    * @public
-   * <p>A set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>).</p>
+   * <p>A set of key-value pairs that can store custom data in a game session.
+   *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>.</p>
    */
   GameProperties?: GameProperty[];
 
@@ -6597,13 +6644,13 @@ export interface Instance {
    * @public
    * <p>Operating system that is running on this EC2 instance. </p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: OperatingSystem;
 
   /**
    * @public
    * <p>EC2 instance type that defines the computing resources of this instance. </p>
    */
-  Type?: EC2InstanceType | string;
+  Type?: EC2InstanceType;
 
   /**
    * @public
@@ -6630,7 +6677,7 @@ export interface Instance {
    *             </li>
    *          </ul>
    */
-  Status?: InstanceStatus | string;
+  Status?: InstanceStatus;
 
   /**
    * @public
@@ -6894,7 +6941,7 @@ export interface MatchmakingTicket {
    *                 CANCELLED, TIMED_OUT) can be resubmitted as new requests with new ticket IDs.</p>
    *          </note>
    */
-  Status?: MatchmakingConfigurationStatus | string;
+  Status?: MatchmakingConfigurationStatus;
 
   /**
    * @public
@@ -7231,7 +7278,7 @@ export interface DescribeScalingPoliciesInput {
    *             </li>
    *          </ul>
    */
-  StatusFilter?: ScalingStatusType | string;
+  StatusFilter?: ScalingStatusType;
 
   /**
    * @public
@@ -7393,7 +7440,7 @@ export interface ScalingPolicy {
    *             </li>
    *          </ul>
    */
-  Status?: ScalingStatusType | string;
+  Status?: ScalingStatusType;
 
   /**
    * @public
@@ -7424,13 +7471,13 @@ export interface ScalingPolicy {
    *             </li>
    *          </ul>
    */
-  ScalingAdjustmentType?: ScalingAdjustmentType | string;
+  ScalingAdjustmentType?: ScalingAdjustmentType;
 
   /**
    * @public
    * <p>Comparison operator to use when measuring a metric against the threshold value.</p>
    */
-  ComparisonOperator?: ComparisonOperatorType | string;
+  ComparisonOperator?: ComparisonOperatorType;
 
   /**
    * @public
@@ -7515,7 +7562,7 @@ export interface ScalingPolicy {
    *             </li>
    *          </ul>
    */
-  MetricName?: MetricName | string;
+  MetricName?: MetricName;
 
   /**
    * @public
@@ -7527,7 +7574,7 @@ export interface ScalingPolicy {
    *                 <i>ScalingAdjustmentType</i>, and
    *                 <i>ScalingAdjustment</i>.</p>
    */
-  PolicyType?: PolicyType | string;
+  PolicyType?: PolicyType;
 
   /**
    * @public
@@ -7541,7 +7588,7 @@ export interface ScalingPolicy {
    *             status <code>PENDING_UPDATE</code> indicates that an update was requested for the fleet
    *             but has not yet been completed for the location.</p>
    */
-  UpdateStatus?: LocationUpdateStatus | string;
+  UpdateStatus?: LocationUpdateStatus;
 
   /**
    * @public
@@ -7947,7 +7994,7 @@ export interface InstanceAccess {
    * @public
    * <p>Operating system that is running on the instance.</p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: OperatingSystem;
 
   /**
    * @public
@@ -7991,7 +8038,7 @@ export interface ListAliasesInput {
    *             </li>
    *          </ul>
    */
-  RoutingStrategyType?: RoutingStrategyType | string;
+  RoutingStrategyType?: RoutingStrategyType;
 
   /**
    * @public
@@ -8058,7 +8105,7 @@ export interface ListBuildsInput {
    *             </li>
    *          </ul>
    */
-  Status?: BuildStatus | string;
+  Status?: BuildStatus;
 
   /**
    * @public
@@ -8252,7 +8299,7 @@ export interface ListGameServersInput {
    *                 <code>DESCENDING</code> to retrieve newest game servers first. If this parameter is
    *             left empty, game servers are returned in no particular order.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -8306,7 +8353,7 @@ export interface ListLocationsInput {
    * @public
    * <p>Filters the list for <code>AWS</code> or <code>CUSTOM</code> locations.</p>
    */
-  Filters?: (LocationFilter | string)[];
+  Filters?: LocationFilter[];
 
   /**
    * @public
@@ -8444,7 +8491,7 @@ export interface PutScalingPolicyInput {
    *             </li>
    *          </ul>
    */
-  ScalingAdjustmentType?: ScalingAdjustmentType | string;
+  ScalingAdjustmentType?: ScalingAdjustmentType;
 
   /**
    * @public
@@ -8457,7 +8504,7 @@ export interface PutScalingPolicyInput {
    * <p>Comparison operator to use when measuring the metric against the threshold
    *             value.</p>
    */
-  ComparisonOperator?: ComparisonOperatorType | string;
+  ComparisonOperator?: ComparisonOperatorType;
 
   /**
    * @public
@@ -8536,7 +8583,7 @@ export interface PutScalingPolicyInput {
    *             </li>
    *          </ul>
    */
-  MetricName: MetricName | string | undefined;
+  MetricName: MetricName | undefined;
 
   /**
    * @public
@@ -8548,7 +8595,7 @@ export interface PutScalingPolicyInput {
    *                 <i>ScalingAdjustmentType</i>, and
    *                 <i>ScalingAdjustment</i>.</p>
    */
-  PolicyType?: PolicyType | string;
+  PolicyType?: PolicyType;
 
   /**
    * @public
@@ -8749,7 +8796,7 @@ export interface ResumeGameServerGroupInput {
    * @public
    * <p>The activity to resume for this game server group.</p>
    */
-  ResumeActions: (GameServerGroupAction | string)[] | undefined;
+  ResumeActions: GameServerGroupAction[] | undefined;
 }
 
 /**
@@ -8929,7 +8976,7 @@ export interface StartFleetActionsInput {
    * @public
    * <p>List of actions to restart on the fleet.</p>
    */
-  Actions: (FleetAction | string)[] | undefined;
+  Actions: FleetAction[] | undefined;
 
   /**
    * @public
@@ -8977,7 +9024,8 @@ export interface StartGameSessionPlacementInput {
 
   /**
    * @public
-   * <p>A set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>).</p>
+   * <p>A set of key-value pairs that can store custom data in a game session.
+   *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>.</p>
    */
   GameProperties?: GameProperty[];
 
@@ -9154,7 +9202,7 @@ export interface StopFleetActionsInput {
    * @public
    * <p>List of actions to suspend on the fleet. </p>
    */
-  Actions: (FleetAction | string)[] | undefined;
+  Actions: FleetAction[] | undefined;
 
   /**
    * @public
@@ -9234,7 +9282,7 @@ export interface SuspendGameServerGroupInput {
    * @public
    * <p>The activity to suspend for this game server group.</p>
    */
-  SuspendActions: (GameServerGroupAction | string)[] | undefined;
+  SuspendActions: GameServerGroupAction[] | undefined;
 }
 
 /**
@@ -9421,7 +9469,7 @@ export interface UpdateFleetAttributesInput {
    *             </li>
    *          </ul>
    */
-  NewGameSessionProtectionPolicy?: ProtectionPolicy | string;
+  NewGameSessionProtectionPolicy?: ProtectionPolicy;
 
   /**
    * @public
@@ -9464,46 +9512,12 @@ export interface UpdateFleetAttributesOutput {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface UpdateFleetCapacityInput {
-  /**
-   * @public
-   * <p>A unique identifier for the fleet to update capacity settings for. You can use either the fleet ID or ARN
-   *             value.</p>
-   */
-  FleetId: string | undefined;
-
-  /**
-   * @public
-   * <p>The number of Amazon EC2 instances you want to maintain in the specified fleet location.
-   *             This value must fall between the minimum and maximum size limits. Changes in desired
-   *             instance value can take up to 1 minute to be reflected when viewing the fleet's capacity
-   *             settings.</p>
-   */
-  DesiredInstances?: number;
-
-  /**
-   * @public
-   * <p>The minimum number of instances that are allowed in the specified fleet location. If
-   *             this parameter is not set, the default is 0.</p>
-   */
-  MinSize?: number;
-
-  /**
-   * @public
-   * <p>The maximum number of instances that are allowed in the specified fleet location. If
-   *             this parameter is not set, the default is 1.</p>
-   */
-  MaxSize?: number;
-
-  /**
-   * @public
-   * <p>The name of a remote location to update fleet capacity settings for, in the form of an
-   *             Amazon Web Services Region code such as <code>us-west-2</code>.</p>
-   */
-  Location?: string;
-}
+export const AcceptMatchInputFilterSensitiveLog = (obj: AcceptMatchInput): any => ({
+  ...obj,
+  ...(obj.PlayerIds && { PlayerIds: SENSITIVE_STRING }),
+});
 
 /**
  * @internal
@@ -9515,9 +9529,271 @@ export const AwsCredentialsFilterSensitiveLog = (obj: AwsCredentials): any => ({
 /**
  * @internal
  */
+export const ComputeFilterSensitiveLog = (obj: Compute): any => ({
+  ...obj,
+  ...(obj.IpAddress && { IpAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const CreateBuildOutputFilterSensitiveLog = (obj: CreateBuildOutput): any => ({
   ...obj,
   ...(obj.UploadCredentials && { UploadCredentials: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const IpPermissionFilterSensitiveLog = (obj: IpPermission): any => ({
+  ...obj,
+  ...(obj.FromPort && { FromPort: SENSITIVE_STRING }),
+  ...(obj.ToPort && { ToPort: SENSITIVE_STRING }),
+  ...(obj.IpRange && { IpRange: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateFleetInputFilterSensitiveLog = (obj: CreateFleetInput): any => ({
+  ...obj,
+  ...(obj.EC2InboundPermissions && {
+    EC2InboundPermissions: obj.EC2InboundPermissions.map((item) => IpPermissionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GameSessionFilterSensitiveLog = (obj: GameSession): any => ({
+  ...obj,
+  ...(obj.IpAddress && { IpAddress: SENSITIVE_STRING }),
+  ...(obj.Port && { Port: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateGameSessionOutputFilterSensitiveLog = (obj: CreateGameSessionOutput): any => ({
+  ...obj,
+  ...(obj.GameSession && { GameSession: GameSessionFilterSensitiveLog(obj.GameSession) }),
+});
+
+/**
+ * @internal
+ */
+export const CreatePlayerSessionInputFilterSensitiveLog = (obj: CreatePlayerSessionInput): any => ({
+  ...obj,
+  ...(obj.PlayerId && { PlayerId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PlayerSessionFilterSensitiveLog = (obj: PlayerSession): any => ({
+  ...obj,
+  ...(obj.PlayerId && { PlayerId: SENSITIVE_STRING }),
+  ...(obj.IpAddress && { IpAddress: SENSITIVE_STRING }),
+  ...(obj.Port && { Port: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreatePlayerSessionOutputFilterSensitiveLog = (obj: CreatePlayerSessionOutput): any => ({
+  ...obj,
+  ...(obj.PlayerSession && { PlayerSession: PlayerSessionFilterSensitiveLog(obj.PlayerSession) }),
+});
+
+/**
+ * @internal
+ */
+export const CreatePlayerSessionsInputFilterSensitiveLog = (obj: CreatePlayerSessionsInput): any => ({
+  ...obj,
+  ...(obj.PlayerIds && { PlayerIds: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreatePlayerSessionsOutputFilterSensitiveLog = (obj: CreatePlayerSessionsOutput): any => ({
+  ...obj,
+  ...(obj.PlayerSessions && {
+    PlayerSessions: obj.PlayerSessions.map((item) => PlayerSessionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeComputeOutputFilterSensitiveLog = (obj: DescribeComputeOutput): any => ({
+  ...obj,
+  ...(obj.Compute && { Compute: ComputeFilterSensitiveLog(obj.Compute) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeFleetPortSettingsOutputFilterSensitiveLog = (obj: DescribeFleetPortSettingsOutput): any => ({
+  ...obj,
+  ...(obj.InboundPermissions && {
+    InboundPermissions: obj.InboundPermissions.map((item) => IpPermissionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GameSessionDetailFilterSensitiveLog = (obj: GameSessionDetail): any => ({
+  ...obj,
+  ...(obj.GameSession && { GameSession: GameSessionFilterSensitiveLog(obj.GameSession) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeGameSessionDetailsOutputFilterSensitiveLog = (obj: DescribeGameSessionDetailsOutput): any => ({
+  ...obj,
+  ...(obj.GameSessionDetails && {
+    GameSessionDetails: obj.GameSessionDetails.map((item) => GameSessionDetailFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const PlacedPlayerSessionFilterSensitiveLog = (obj: PlacedPlayerSession): any => ({
+  ...obj,
+  ...(obj.PlayerId && { PlayerId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PlayerLatencyFilterSensitiveLog = (obj: PlayerLatency): any => ({
+  ...obj,
+  ...(obj.PlayerId && { PlayerId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GameSessionPlacementFilterSensitiveLog = (obj: GameSessionPlacement): any => ({
+  ...obj,
+  ...(obj.PlayerLatencies && {
+    PlayerLatencies: obj.PlayerLatencies.map((item) => PlayerLatencyFilterSensitiveLog(item)),
+  }),
+  ...(obj.IpAddress && { IpAddress: SENSITIVE_STRING }),
+  ...(obj.Port && { Port: SENSITIVE_STRING }),
+  ...(obj.PlacedPlayerSessions && {
+    PlacedPlayerSessions: obj.PlacedPlayerSessions.map((item) => PlacedPlayerSessionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeGameSessionPlacementOutputFilterSensitiveLog = (obj: DescribeGameSessionPlacementOutput): any => ({
+  ...obj,
+  ...(obj.GameSessionPlacement && {
+    GameSessionPlacement: GameSessionPlacementFilterSensitiveLog(obj.GameSessionPlacement),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeGameSessionsOutputFilterSensitiveLog = (obj: DescribeGameSessionsOutput): any => ({
+  ...obj,
+  ...(obj.GameSessions && { GameSessions: obj.GameSessions.map((item) => GameSessionFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const InstanceFilterSensitiveLog = (obj: Instance): any => ({
+  ...obj,
+  ...(obj.IpAddress && { IpAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeInstancesOutputFilterSensitiveLog = (obj: DescribeInstancesOutput): any => ({
+  ...obj,
+  ...(obj.Instances && { Instances: obj.Instances.map((item) => InstanceFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const MatchedPlayerSessionFilterSensitiveLog = (obj: MatchedPlayerSession): any => ({
+  ...obj,
+  ...(obj.PlayerId && { PlayerId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GameSessionConnectionInfoFilterSensitiveLog = (obj: GameSessionConnectionInfo): any => ({
+  ...obj,
+  ...(obj.IpAddress && { IpAddress: SENSITIVE_STRING }),
+  ...(obj.MatchedPlayerSessions && {
+    MatchedPlayerSessions: obj.MatchedPlayerSessions.map((item) => MatchedPlayerSessionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const PlayerFilterSensitiveLog = (obj: Player): any => ({
+  ...obj,
+  ...(obj.PlayerId && { PlayerId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const MatchmakingTicketFilterSensitiveLog = (obj: MatchmakingTicket): any => ({
+  ...obj,
+  ...(obj.Players && { Players: obj.Players.map((item) => PlayerFilterSensitiveLog(item)) }),
+  ...(obj.GameSessionConnectionInfo && {
+    GameSessionConnectionInfo: GameSessionConnectionInfoFilterSensitiveLog(obj.GameSessionConnectionInfo),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeMatchmakingOutputFilterSensitiveLog = (obj: DescribeMatchmakingOutput): any => ({
+  ...obj,
+  ...(obj.TicketList && { TicketList: obj.TicketList.map((item) => MatchmakingTicketFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribePlayerSessionsInputFilterSensitiveLog = (obj: DescribePlayerSessionsInput): any => ({
+  ...obj,
+  ...(obj.PlayerId && { PlayerId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribePlayerSessionsOutputFilterSensitiveLog = (obj: DescribePlayerSessionsOutput): any => ({
+  ...obj,
+  ...(obj.PlayerSessions && {
+    PlayerSessions: obj.PlayerSessions.map((item) => PlayerSessionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DesiredPlayerSessionFilterSensitiveLog = (obj: DesiredPlayerSession): any => ({
+  ...obj,
+  ...(obj.PlayerId && { PlayerId: SENSITIVE_STRING }),
 });
 
 /**
@@ -9540,6 +9816,7 @@ export const InstanceCredentialsFilterSensitiveLog = (obj: InstanceCredentials):
  */
 export const InstanceAccessFilterSensitiveLog = (obj: InstanceAccess): any => ({
   ...obj,
+  ...(obj.IpAddress && { IpAddress: SENSITIVE_STRING }),
   ...(obj.Credentials && { Credentials: SENSITIVE_STRING }),
 });
 
@@ -9554,7 +9831,104 @@ export const GetInstanceAccessOutputFilterSensitiveLog = (obj: GetInstanceAccess
 /**
  * @internal
  */
+export const ListComputeOutputFilterSensitiveLog = (obj: ListComputeOutput): any => ({
+  ...obj,
+  ...(obj.ComputeList && { ComputeList: obj.ComputeList.map((item) => ComputeFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const RegisterComputeInputFilterSensitiveLog = (obj: RegisterComputeInput): any => ({
+  ...obj,
+  ...(obj.IpAddress && { IpAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RegisterComputeOutputFilterSensitiveLog = (obj: RegisterComputeOutput): any => ({
+  ...obj,
+  ...(obj.Compute && { Compute: ComputeFilterSensitiveLog(obj.Compute) }),
+});
+
+/**
+ * @internal
+ */
 export const RequestUploadCredentialsOutputFilterSensitiveLog = (obj: RequestUploadCredentialsOutput): any => ({
   ...obj,
   ...(obj.UploadCredentials && { UploadCredentials: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SearchGameSessionsOutputFilterSensitiveLog = (obj: SearchGameSessionsOutput): any => ({
+  ...obj,
+  ...(obj.GameSessions && { GameSessions: obj.GameSessions.map((item) => GameSessionFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const StartGameSessionPlacementInputFilterSensitiveLog = (obj: StartGameSessionPlacementInput): any => ({
+  ...obj,
+  ...(obj.PlayerLatencies && {
+    PlayerLatencies: obj.PlayerLatencies.map((item) => PlayerLatencyFilterSensitiveLog(item)),
+  }),
+  ...(obj.DesiredPlayerSessions && {
+    DesiredPlayerSessions: obj.DesiredPlayerSessions.map((item) => DesiredPlayerSessionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const StartGameSessionPlacementOutputFilterSensitiveLog = (obj: StartGameSessionPlacementOutput): any => ({
+  ...obj,
+  ...(obj.GameSessionPlacement && {
+    GameSessionPlacement: GameSessionPlacementFilterSensitiveLog(obj.GameSessionPlacement),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const StartMatchBackfillInputFilterSensitiveLog = (obj: StartMatchBackfillInput): any => ({
+  ...obj,
+  ...(obj.Players && { Players: obj.Players.map((item) => PlayerFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const StartMatchBackfillOutputFilterSensitiveLog = (obj: StartMatchBackfillOutput): any => ({
+  ...obj,
+  ...(obj.MatchmakingTicket && { MatchmakingTicket: MatchmakingTicketFilterSensitiveLog(obj.MatchmakingTicket) }),
+});
+
+/**
+ * @internal
+ */
+export const StartMatchmakingInputFilterSensitiveLog = (obj: StartMatchmakingInput): any => ({
+  ...obj,
+  ...(obj.Players && { Players: obj.Players.map((item) => PlayerFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const StartMatchmakingOutputFilterSensitiveLog = (obj: StartMatchmakingOutput): any => ({
+  ...obj,
+  ...(obj.MatchmakingTicket && { MatchmakingTicket: MatchmakingTicketFilterSensitiveLog(obj.MatchmakingTicket) }),
+});
+
+/**
+ * @internal
+ */
+export const StopGameSessionPlacementOutputFilterSensitiveLog = (obj: StopGameSessionPlacementOutput): any => ({
+  ...obj,
+  ...(obj.GameSessionPlacement && {
+    GameSessionPlacement: GameSessionPlacementFilterSensitiveLog(obj.GameSessionPlacement),
+  }),
 });

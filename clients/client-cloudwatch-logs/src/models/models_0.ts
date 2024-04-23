@@ -5,10 +5,31 @@ import { CloudWatchLogsServiceException as __BaseException } from "./CloudWatchL
 
 /**
  * @public
+ * <p>You don't have sufficient permissions to perform this action.</p>
+ */
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+  }
+}
+
+/**
+ * @public
  * @enum
  */
 export const PolicyType = {
   DATA_PROTECTION_POLICY: "DATA_PROTECTION_POLICY",
+  SUBSCRIPTION_FILTER_POLICY: "SUBSCRIPTION_FILTER_POLICY",
 } as const;
 
 /**
@@ -57,19 +78,322 @@ export interface AccountPolicy {
    * @public
    * <p>The type of policy for this account policy.</p>
    */
-  policyType?: PolicyType | string;
+  policyType?: PolicyType;
 
   /**
    * @public
    * <p>The scope of the account policy.</p>
    */
-  scope?: Scope | string;
+  scope?: Scope;
+
+  /**
+   * @public
+   * <p>The log group selection criteria for this subscription filter policy.</p>
+   */
+  selectionCriteria?: string;
 
   /**
    * @public
    * <p>The Amazon Web Services account ID that the policy applies to.</p>
    */
   accountId?: string;
+}
+
+/**
+ * @public
+ * <p>A tructures that contains information about one pattern token related to
+ *        an anomaly.</p>
+ *          <p>For more information about patterns and tokens, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateLogAnomalyDetector.html">CreateLogAnomalyDetector</a>.
+ *      </p>
+ */
+export interface PatternToken {
+  /**
+   * @public
+   * <p>For a dynamic token, this indicates where in the pattern that this token appears, related
+   *       to other dynamic tokens. The dynamic token that appears first has a value of <code>1</code>, the
+   *       one that appears second is <code>2</code>, and so on.</p>
+   */
+  dynamicTokenPosition?: number;
+
+  /**
+   * @public
+   * <p>Specifies whether this is a dynamic token.</p>
+   */
+  isDynamic?: boolean;
+
+  /**
+   * @public
+   * <p>The string represented by this token. If this is a dynamic token, the
+   *       value will be <code><*></code>
+   *          </p>
+   */
+  tokenString?: string;
+
+  /**
+   * @public
+   * <p>Contains the values found for a dynamic token, and the number of times each value was found.</p>
+   */
+  enumerations?: Record<string, number>;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const State = {
+  Active: "Active",
+  Baseline: "Baseline",
+  Suppressed: "Suppressed",
+} as const;
+
+/**
+ * @public
+ */
+export type State = (typeof State)[keyof typeof State];
+
+/**
+ * @public
+ * <p>This structure represents one anomaly that has been found by a logs anomaly detector.</p>
+ *          <p>For more information about patterns and anomalies, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateLogAnomalyDetector.html">CreateLogAnomalyDetector</a>.
+ *      </p>
+ */
+export interface Anomaly {
+  /**
+   * @public
+   * <p>The unique ID that CloudWatch Logs assigned to this anomaly.</p>
+   */
+  anomalyId: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the pattern used to help identify this anomaly.</p>
+   */
+  patternId: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the anomaly detector that identified this anomaly.</p>
+   */
+  anomalyDetectorArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The pattern used to help identify this anomaly, in string format.</p>
+   */
+  patternString: string | undefined;
+
+  /**
+   * @public
+   * <p>The pattern used to help identify this anomaly, in regular expression format.</p>
+   */
+  patternRegex?: string;
+
+  /**
+   * @public
+   * <p>The priority level of this anomaly, as determined by CloudWatch Logs. Priority is computed based on log
+   *         severity labels such as <code>FATAL</code> and <code>ERROR</code> and the amount of deviation from the baseline.
+   *         Possible values are
+   *         <code>HIGH</code>, <code>MEDIUM</code>, and <code>LOW</code>.</p>
+   */
+  priority?: string;
+
+  /**
+   * @public
+   * <p>The date and time when the anomaly detector first saw this anomaly.
+   *         It is specified as epoch time, which is the number of seconds
+   *           since <code>January 1, 1970, 00:00:00 UTC</code>.</p>
+   */
+  firstSeen: number | undefined;
+
+  /**
+   * @public
+   * <p>The date and time when the anomaly detector most recently saw this anomaly.
+   *        It is specified as epoch time, which is the number of seconds
+   *        since <code>January 1, 1970, 00:00:00 UTC</code>.</p>
+   */
+  lastSeen: number | undefined;
+
+  /**
+   * @public
+   * <p>A human-readable description of the anomaly. This description is generated by
+   *         CloudWatch Logs.</p>
+   */
+  description: string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies whether this anomaly is still ongoing.</p>
+   */
+  active: boolean | undefined;
+
+  /**
+   * @public
+   * <p>Indicates the current state of this anomaly. If it is still being treated as an anomaly, the value
+   *         is <code>Active</code>. If you have suppressed this anomaly by using the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateAnomaly.html">UpdateAnomaly</a> operation,
+   *        the value is <code>Suppressed</code>. If this behavior is now considered to be normal, the value
+   *       is <code>Baseline</code>.</p>
+   */
+  state: State | undefined;
+
+  /**
+   * @public
+   * <p>A map showing times when the anomaly detector ran, and the number of occurrences of this anomaly that
+   *         were detected at each of those runs. The times are specified in epoch time, which is the number of seconds
+   *         since <code>January 1, 1970, 00:00:00 UTC</code>.</p>
+   */
+  histogram: Record<string, number> | undefined;
+
+  /**
+   * @public
+   * <p>An array of sample log event messages that are considered to be part of this anomaly.</p>
+   */
+  logSamples: string[] | undefined;
+
+  /**
+   * @public
+   * <p>An array of structures where each structure contains information about one token that makes up the pattern.</p>
+   */
+  patternTokens: PatternToken[] | undefined;
+
+  /**
+   * @public
+   * <p>An array of ARNS of the log groups that contained log events considered to be part of this anomaly.</p>
+   */
+  logGroupArnList: string[] | undefined;
+
+  /**
+   * @public
+   * <p>Indicates whether this anomaly is currently suppressed. To suppress an anomaly,
+   *         use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateAnomaly.html">UpdateAnomaly</a>.</p>
+   */
+  suppressed?: boolean;
+
+  /**
+   * @public
+   * <p>If the anomaly is suppressed, this indicates when it was suppressed.</p>
+   */
+  suppressedDate?: number;
+
+  /**
+   * @public
+   * <p>If the anomaly is suppressed, this indicates when the suppression will end. If this value is <code>0</code>,
+   *      the anomaly was suppressed with no expiration, with the <code>INFINITE</code> value.</p>
+   */
+  suppressedUntil?: number;
+
+  /**
+   * @public
+   * <p>If this anomaly is suppressed, this field is <code>true</code> if the suppression is because the
+   *       pattern is suppressed. If <code>false</code>, then only this particular anomaly is suppressed.</p>
+   */
+  isPatternLevelSuppression?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AnomalyDetectorStatus = {
+  ANALYZING: "ANALYZING",
+  DELETED: "DELETED",
+  FAILED: "FAILED",
+  INITIALIZING: "INITIALIZING",
+  PAUSED: "PAUSED",
+  TRAINING: "TRAINING",
+} as const;
+
+/**
+ * @public
+ */
+export type AnomalyDetectorStatus = (typeof AnomalyDetectorStatus)[keyof typeof AnomalyDetectorStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const EvaluationFrequency = {
+  FIFTEEN_MIN: "FIFTEEN_MIN",
+  FIVE_MIN: "FIVE_MIN",
+  ONE_HOUR: "ONE_HOUR",
+  ONE_MIN: "ONE_MIN",
+  TEN_MIN: "TEN_MIN",
+  THIRTY_MIN: "THIRTY_MIN",
+} as const;
+
+/**
+ * @public
+ */
+export type EvaluationFrequency = (typeof EvaluationFrequency)[keyof typeof EvaluationFrequency];
+
+/**
+ * @public
+ * <p>Contains information about one anomaly detector in the account.</p>
+ */
+export interface AnomalyDetector {
+  /**
+   * @public
+   * <p>The ARN of the anomaly detector.</p>
+   */
+  anomalyDetectorArn?: string;
+
+  /**
+   * @public
+   * <p>The name of the anomaly detector.</p>
+   */
+  detectorName?: string;
+
+  /**
+   * @public
+   * <p>A list of the ARNs of the log groups that this anomaly detector watches.</p>
+   */
+  logGroupArnList?: string[];
+
+  /**
+   * @public
+   * <p>Specifies how often the anomaly detector runs and look for anomalies.</p>
+   */
+  evaluationFrequency?: EvaluationFrequency;
+
+  /**
+   * @public
+   * <p>A symbolic description of how CloudWatch Logs should interpret the data in each log
+   *       event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You
+   *       use the filter pattern to specify what to look for in the log event message.</p>
+   */
+  filterPattern?: string;
+
+  /**
+   * @public
+   * <p>Specifies the current status of the anomaly detector. To pause an anomaly detector, use
+   *        the <code>enabled</code> parameter in the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateLogAnomalyDetector.html">UpdateLogAnomalyDetector</a>
+   *        operation.</p>
+   */
+  anomalyDetectorStatus?: AnomalyDetectorStatus;
+
+  /**
+   * @public
+   * <p>The ID of the KMS key assigned to this anomaly detector, if any.</p>
+   */
+  kmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>The date and time when this anomaly detector was created.</p>
+   */
+  creationTimeStamp?: number;
+
+  /**
+   * @public
+   * <p>The date and time when this anomaly detector was most recently modified.</p>
+   */
+  lastModifiedTimeStamp?: number;
+
+  /**
+   * @public
+   * <p>The number of days used as the life cycle of anomalies. After this time, anomalies are automatically baselined
+   *        and the anomaly detector model will treat new occurrences of similar event as normal. </p>
+   */
+  anomalyVisibilityTime?: number;
 }
 
 /**
@@ -237,6 +561,184 @@ export class InvalidOperationException extends __BaseException {
 
 /**
  * @public
+ * <p>This operation attempted to create a resource that already exists.</p>
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateDeliveryRequest {
+  /**
+   * @public
+   * <p>The name of the delivery source to use for this delivery.</p>
+   */
+  deliverySourceName: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the delivery destination to use for this delivery.</p>
+   */
+  deliveryDestinationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>An optional list of key-value pairs to associate with the resource.</p>
+   *          <p>For more information about tagging, see
+   *        <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>
+   *          </p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DeliveryDestinationType = {
+  CWL: "CWL",
+  FH: "FH",
+  S3: "S3",
+} as const;
+
+/**
+ * @public
+ */
+export type DeliveryDestinationType = (typeof DeliveryDestinationType)[keyof typeof DeliveryDestinationType];
+
+/**
+ * @public
+ * <p>This structure contains information about one <i>delivery</i> in your account. </p>
+ *          <p>A delivery is a connection between a logical <i>delivery source</i> and a logical
+ *      <i>delivery destination</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a>.</p>
+ *          <p>You can't update an existing delivery. You can only create and delete deliveries.</p>
+ */
+export interface Delivery {
+  /**
+   * @public
+   * <p>The unique ID that identifies this delivery in your account.</p>
+   */
+  id?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies this delivery.</p>
+   */
+  arn?: string;
+
+  /**
+   * @public
+   * <p>The name of the delivery source that is associated with this delivery.</p>
+   */
+  deliverySourceName?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the delivery destination that is associated with this delivery.</p>
+   */
+  deliveryDestinationArn?: string;
+
+  /**
+   * @public
+   * <p>Displays whether the delivery destination associated with this delivery is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.</p>
+   */
+  deliveryDestinationType?: DeliveryDestinationType;
+
+  /**
+   * @public
+   * <p>The tags that have been assigned to this delivery.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateDeliveryResponse {
+  /**
+   * @public
+   * <p>A structure that contains information about the delivery that you just created.</p>
+   */
+  delivery?: Delivery;
+}
+
+/**
+ * @public
+ * <p>This request exceeds a service quota.</p>
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The request was throttled because of quota limits.</p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>One of the parameters for the request is not valid.</p>
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
+}
+
+/**
+ * @public
  */
 export interface CreateExportTaskRequest {
   /**
@@ -343,10 +845,100 @@ export class ResourceAlreadyExistsException extends __BaseException {
 /**
  * @public
  */
+export interface CreateLogAnomalyDetectorRequest {
+  /**
+   * @public
+   * <p>An array containing the ARN of the log group that this anomaly detector will watch. You can specify only one
+   *         log group ARN.</p>
+   */
+  logGroupArnList: string[] | undefined;
+
+  /**
+   * @public
+   * <p>A name for this anomaly detector.</p>
+   */
+  detectorName?: string;
+
+  /**
+   * @public
+   * <p>Specifies how often the anomaly detector is to run and look for anomalies. Set this value
+   *       according to the frequency that the log group receives new logs. For example, if the log group
+   *       receives new log events every 10 minutes, then 15 minutes might be a good setting for
+   *         <code>evaluationFrequency</code> .</p>
+   */
+  evaluationFrequency?: EvaluationFrequency;
+
+  /**
+   * @public
+   * <p>You can use this parameter to limit the anomaly detection model to examine only log events
+   *       that match the pattern you specify here. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and Pattern Syntax</a>.</p>
+   */
+  filterPattern?: string;
+
+  /**
+   * @public
+   * <p>Optionally assigns a KMS key to secure this anomaly detector and its findings. If a key is
+   *        assigned, the anomalies found and the model used by this detector are encrypted at rest with the key. If
+   *        a key is assigned to an anomaly detector, a user must have permissions for both this key and for the
+   *        anomaly detector to retrieve information about the anomalies that it finds.</p>
+   *          <p>For more information about using a KMS key and to see the required IAM
+   *        policy, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/LogsAnomalyDetection-KMS.html">Use a KMS key with an anomaly detector</a>.</p>
+   */
+  kmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>The number of days to have visibility on an anomaly. After this time period has elapsed for an anomaly,
+   *        it will be automatically baselined and the anomaly detector will treat new occurrences of a similar anomaly as
+   *        normal. Therefore,
+   *        if you do not correct the cause of an
+   *        anomaly during the time period specified in <code>anomalyVisibilityTime</code>, it will be considered normal
+   *        going forward and will not be detected as an anomaly.</p>
+   */
+  anomalyVisibilityTime?: number;
+
+  /**
+   * @public
+   * <p>An optional list of key-value pairs to associate with the resource.</p>
+   *          <p>For more information about tagging, see
+   *        <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>
+   *          </p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateLogAnomalyDetectorResponse {
+  /**
+   * @public
+   * <p>The ARN of the log anomaly detector that you just created.</p>
+   */
+  anomalyDetectorArn?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LogGroupClass = {
+  INFREQUENT_ACCESS: "INFREQUENT_ACCESS",
+  STANDARD: "STANDARD",
+} as const;
+
+/**
+ * @public
+ */
+export type LogGroupClass = (typeof LogGroupClass)[keyof typeof LogGroupClass];
+
+/**
+ * @public
+ */
 export interface CreateLogGroupRequest {
   /**
    * @public
-   * <p>The name of the log group.</p>
+   * <p>A name for the log group.</p>
    */
   logGroupName: string | undefined;
 
@@ -370,6 +962,28 @@ export interface CreateLogGroupRequest {
    *       <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling access to Amazon Web Services resources using tags</a>.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Use this parameter to specify the log group class for this log group. There are two classes:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The <code>Standard</code> log class supports all CloudWatch Logs features.</p>
+   *             </li>
+   *             <li>
+   *                <p>The <code>Infrequent Access</code> log class supports a subset of CloudWatch Logs features
+   *         and incurs lower costs.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you omit this parameter, the default of <code>STANDARD</code> is used.</p>
+   *          <important>
+   *             <p>The value of <code>logGroupClass</code> can't be changed after a log group is created.</p>
+   *          </important>
+   *          <p>For details about the features supported by each class, see
+   *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html">Log classes</a>
+   *          </p>
+   */
+  logGroupClass?: LogGroupClass;
 }
 
 /**
@@ -446,9 +1060,9 @@ export interface DeleteAccountPolicyRequest {
 
   /**
    * @public
-   * <p>The type of policy to delete. Currently, the only valid value is <code>DATA_PROTECTION_POLICY</code>.</p>
+   * <p>The type of policy to delete.</p>
    */
-  policyType: PolicyType | string | undefined;
+  policyType: PolicyType | undefined;
 }
 
 /**
@@ -465,12 +1079,72 @@ export interface DeleteDataProtectionPolicyRequest {
 /**
  * @public
  */
+export interface DeleteDeliveryRequest {
+  /**
+   * @public
+   * <p>The unique ID of the delivery to delete. You can find the ID of a delivery with the
+   *         <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveries.html">DescribeDeliveries</a> operation.</p>
+   */
+  id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDeliveryDestinationRequest {
+  /**
+   * @public
+   * <p>The name of the delivery destination that you want to delete. You can find a list of delivery destionation names
+   *         by using the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeDeliveryDestinations.html">DescribeDeliveryDestinations</a>
+   *       operation.</p>
+   */
+  name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDeliveryDestinationPolicyRequest {
+  /**
+   * @public
+   * <p>The name of the delivery destination that you want to delete the policy for.</p>
+   */
+  deliveryDestinationName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDeliverySourceRequest {
+  /**
+   * @public
+   * <p>The name of the delivery source that you want to delete.</p>
+   */
+  name: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteDestinationRequest {
   /**
    * @public
    * <p>The name of the destination.</p>
    */
   destinationName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLogAnomalyDetectorRequest {
+  /**
+   * @public
+   * <p>The ARN of the anomaly detector to delete. You can find the ARNs of log anomaly detectors
+   *         in your account by using the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListLogAnomalyDetectors.html">ListLogAnomalyDetectors</a>
+   *       operation.</p>
+   */
+  anomalyDetectorArn: string | undefined;
 }
 
 /**
@@ -583,14 +1257,190 @@ export interface DeleteSubscriptionFilterRequest {
 
 /**
  * @public
+ * <p>A structure that contains information about one logs delivery destination.</p>
+ */
+export interface DeliveryDestinationConfiguration {
+  /**
+   * @public
+   * <p>The ARN of the Amazon Web Services destination that this delivery destination represents. That Amazon Web Services destination
+   *        can be a log group in CloudWatch Logs, an Amazon S3 bucket, or a delivery stream in Kinesis Data Firehose.</p>
+   */
+  destinationResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OutputFormat = {
+  JSON: "json",
+  PARQUET: "parquet",
+  PLAIN: "plain",
+  RAW: "raw",
+  W3C: "w3c",
+} as const;
+
+/**
+ * @public
+ */
+export type OutputFormat = (typeof OutputFormat)[keyof typeof OutputFormat];
+
+/**
+ * @public
+ * <p>This structure contains information about one <i>delivery destination</i> in your account.
+ *      A delivery destination is an Amazon Web Services resource that represents an
+ *      Amazon Web Services service that logs can be sent to. CloudWatch Logs, Amazon S3, are supported as Kinesis Data Firehose delivery destinations.</p>
+ *          <p>To configure logs delivery between a supported Amazon Web Services service and a destination, you must do the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Create a delivery source, which is a logical object that represents the resource that is actually
+ *          sending the logs. For more
+ *          information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">PutDeliverySource</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Create a <i>delivery destination</i>, which is a logical object that represents the actual
+ *          delivery destination. </p>
+ *             </li>
+ *             <li>
+ *                <p>If you are delivering logs cross-account, you must use
+ *          <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.html">PutDeliveryDestinationPolicy</a>
+ *          in the destination account to assign an IAM policy to the
+ *          destination. This policy allows delivery to that destination.
+ *        </p>
+ *             </li>
+ *             <li>
+ *                <p>Create a <i>delivery</i> by pairing exactly one delivery source and one delivery destination.
+ *          For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a>.</p>
+ *             </li>
+ *          </ul>
+ *          <p>You can configure a single delivery source to send logs to multiple destinations by creating multiple deliveries. You
+ *      can also create multiple deliveries to configure multiple delivery sources to send logs to the same delivery destination.</p>
+ */
+export interface DeliveryDestination {
+  /**
+   * @public
+   * <p>The name of this delivery destination.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies this delivery destination.</p>
+   */
+  arn?: string;
+
+  /**
+   * @public
+   * <p>Displays whether this delivery destination is CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.</p>
+   */
+  deliveryDestinationType?: DeliveryDestinationType;
+
+  /**
+   * @public
+   * <p>The format of the logs that are sent to this delivery destination. </p>
+   */
+  outputFormat?: OutputFormat;
+
+  /**
+   * @public
+   * <p>A structure that contains the ARN of the Amazon Web Services resource that will receive the logs.</p>
+   */
+  deliveryDestinationConfiguration?: DeliveryDestinationConfiguration;
+
+  /**
+   * @public
+   * <p>The tags that have been assigned to this delivery destination.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ * <p>This structure contains information about one <i>delivery source</i> in your account.
+ *        A delivery source is an Amazon Web Services resource that sends logs to an
+ *        Amazon Web Services destination. The destination can be CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.</p>
+ *          <p>Only some Amazon Web Services services support being configured as a delivery source. These services are listed
+ *        as <b>Supported [V2 Permissions]</b> in the table at
+ *        <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html">Enabling
+ *          logging from Amazon Web Services services.</a>
+ *          </p>
+ *          <p>To configure logs delivery between a supported Amazon Web Services service and a destination, you must do the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Create a delivery source, which is a logical object that represents the resource that is actually
+ *          sending the logs. For more
+ *          information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">PutDeliverySource</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Create a <i>delivery destination</i>, which is a logical object that represents the actual
+ *          delivery destination.  For more
+ *          information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.html">PutDeliveryDestination</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>If you are delivering logs cross-account, you must use
+ *          <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestinationPolicy.html">PutDeliveryDestinationPolicy</a>
+ *          in the destination account to assign an IAM policy to the
+ *          destination. This policy allows delivery to that destination.
+ *        </p>
+ *             </li>
+ *             <li>
+ *                <p>Create a <i>delivery</i> by pairing exactly one delivery source and one delivery destination.
+ *          For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html">CreateDelivery</a>.</p>
+ *             </li>
+ *          </ul>
+ *          <p>You can configure a single delivery source to send logs to multiple destinations by creating multiple deliveries. You
+ *        can also create multiple deliveries to configure multiple delivery sources to send logs to the same delivery destination.</p>
+ */
+export interface DeliverySource {
+  /**
+   * @public
+   * <p>The unique name of the delivery source.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies this delivery source.</p>
+   */
+  arn?: string;
+
+  /**
+   * @public
+   * <p>This array contains the ARN of the Amazon Web Services resource that sends logs and is represented by
+   *       this delivery source. Currently, only one ARN can be in the array.</p>
+   */
+  resourceArns?: string[];
+
+  /**
+   * @public
+   * <p>The Amazon Web Services service that is sending logs.</p>
+   */
+  service?: string;
+
+  /**
+   * @public
+   * <p>The type of log that the source is sending. For valid values for this parameter, see the documentation for
+   *        the source service.</p>
+   */
+  logType?: string;
+
+  /**
+   * @public
+   * <p>The tags that have been assigned to this delivery source.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
  */
 export interface DescribeAccountPoliciesRequest {
   /**
    * @public
    * <p>Use this parameter to limit the returned policies to only the policies that match the policy type that you
-   *       specify. Currently, the only valid value is <code>DATA_PROTECTION_POLICY</code>.</p>
+   *       specify.</p>
    */
-  policyType: PolicyType | string | undefined;
+  policyType: PolicyType | undefined;
 
   /**
    * @public
@@ -620,6 +1470,108 @@ export interface DescribeAccountPoliciesResponse {
    *     the specified filters.</p>
    */
   accountPolicies?: AccountPolicy[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeDeliveriesRequest {
+  /**
+   * @public
+   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>Optionally specify the maximum number of deliveries to return in the response.</p>
+   */
+  limit?: number;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDeliveriesResponse {
+  /**
+   * @public
+   * <p>An array of structures. Each structure contains information about one delivery in the account.</p>
+   */
+  deliveries?: Delivery[];
+
+  /**
+   * @public
+   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDeliveryDestinationsRequest {
+  /**
+   * @public
+   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>Optionally specify the maximum number of delivery destinations to return in the response.</p>
+   */
+  limit?: number;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDeliveryDestinationsResponse {
+  /**
+   * @public
+   * <p>An array of structures. Each structure contains information about one delivery destination in the account.</p>
+   */
+  deliveryDestinations?: DeliveryDestination[];
+
+  /**
+   * @public
+   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDeliverySourcesRequest {
+  /**
+   * @public
+   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>Optionally specify the maximum number of delivery sources to return in the response.</p>
+   */
+  limit?: number;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDeliverySourcesResponse {
+  /**
+   * @public
+   * <p>An array of structures. Each structure contains information about one delivery source in the account.</p>
+   */
+  deliverySources?: DeliverySource[];
+
+  /**
+   * @public
+   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+   */
+  nextToken?: string;
 }
 
 /**
@@ -741,7 +1693,7 @@ export interface DescribeExportTasksRequest {
    * @public
    * <p>The status code of the export task. Specifying a status code filters the results to zero or more export tasks.</p>
    */
-  statusCode?: ExportTaskStatusCode | string;
+  statusCode?: ExportTaskStatusCode;
 
   /**
    * @public
@@ -785,7 +1737,7 @@ export interface ExportTaskStatus {
    * @public
    * <p>The status code of the export task.</p>
    */
-  code?: ExportTaskStatusCode | string;
+  code?: ExportTaskStatusCode;
 
   /**
    * @public
@@ -939,6 +1891,24 @@ export interface DescribeLogGroupsRequest {
    *       and all log groups in all source accounts that are linked to the monitoring account. </p>
    */
   includeLinkedAccounts?: boolean;
+
+  /**
+   * @public
+   * <p>Specifies the log group class for this log group. There are two classes:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The <code>Standard</code> log class supports all CloudWatch Logs features.</p>
+   *             </li>
+   *             <li>
+   *                <p>The <code>Infrequent Access</code> log class supports a subset of CloudWatch Logs features
+   *         and incurs lower costs.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For details about the features supported by each class, see
+   *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html">Log classes</a>
+   *          </p>
+   */
+  logGroupClass?: LogGroupClass;
 }
 
 /**
@@ -1010,14 +1980,32 @@ export interface LogGroup {
    * <p>Displays whether this log group has a protection policy, or whether it had one in the past. For more information, see
    *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDataProtectionPolicy.html">PutDataProtectionPolicy</a>.</p>
    */
-  dataProtectionStatus?: DataProtectionStatus | string;
+  dataProtectionStatus?: DataProtectionStatus;
 
   /**
    * @public
    * <p>Displays all the properties that this log group has inherited from account-level
    *     settings.</p>
    */
-  inheritedProperties?: (InheritedProperty | string)[];
+  inheritedProperties?: InheritedProperty[];
+
+  /**
+   * @public
+   * <p>This specifies the log group class for this log group. There are two classes:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The <code>Standard</code> log class supports all CloudWatch Logs features.</p>
+   *             </li>
+   *             <li>
+   *                <p>The <code>Infrequent Access</code> log class supports a subset of CloudWatch Logs features
+   *         and incurs lower costs.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For details about the features supported by each class, see
+   *       <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html">Log classes</a>
+   *          </p>
+   */
+  logGroupClass?: LogGroupClass;
 }
 
 /**
@@ -1103,7 +2091,7 @@ export interface DescribeLogStreamsRequest {
    *       eventual consistency basis. It typically updates in less than an hour from ingestion, but in
    *       rare situations might take longer.</p>
    */
-  orderBy?: OrderBy | string;
+  orderBy?: OrderBy;
 
   /**
    * @public
@@ -1360,7 +2348,7 @@ export interface MetricTransformation {
    * @public
    * <p>The unit to assign to the metric. If you omit this, the unit is set as <code>None</code>.</p>
    */
-  unit?: StandardUnit | string;
+  unit?: StandardUnit;
 }
 
 /**
@@ -1454,7 +2442,7 @@ export interface DescribeQueriesRequest {
    * <p>Limits the returned queries to only those that have the specified status. Valid values are <code>Cancelled</code>,
    *       <code>Complete</code>, <code>Failed</code>, <code>Running</code>, and <code>Scheduled</code>.</p>
    */
-  status?: QueryStatus | string;
+  status?: QueryStatus;
 
   /**
    * @public
@@ -1491,7 +2479,7 @@ export interface QueryInfo {
    * <p>The status of this query. Possible values are <code>Cancelled</code>,
    *       <code>Complete</code>, <code>Failed</code>, <code>Running</code>, <code>Scheduled</code>, and <code>Unknown</code>.</p>
    */
-  status?: QueryStatus | string;
+  status?: QueryStatus;
 
   /**
    * @public
@@ -1744,7 +2732,7 @@ export interface SubscriptionFilter {
    * <p>The method used to distribute log data to the destination, which can be either
    *       random or grouped by log stream.</p>
    */
-  distribution?: Distribution | string;
+  distribution?: Distribution;
 
   /**
    * @public
@@ -2035,6 +3023,187 @@ export interface GetDataProtectionPolicyResponse {
    * <p>The date and time that this policy was most recently updated.</p>
    */
   lastUpdatedTime?: number;
+}
+
+/**
+ * @public
+ */
+export interface GetDeliveryRequest {
+  /**
+   * @public
+   * <p>The ID of the delivery that you want to retrieve.</p>
+   */
+  id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDeliveryResponse {
+  /**
+   * @public
+   * <p>A structure that contains information about the delivery.</p>
+   */
+  delivery?: Delivery;
+}
+
+/**
+ * @public
+ */
+export interface GetDeliveryDestinationRequest {
+  /**
+   * @public
+   * <p>The name of the delivery destination that you want to retrieve.</p>
+   */
+  name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDeliveryDestinationResponse {
+  /**
+   * @public
+   * <p>A structure containing information about the delivery destination.</p>
+   */
+  deliveryDestination?: DeliveryDestination;
+}
+
+/**
+ * @public
+ */
+export interface GetDeliveryDestinationPolicyRequest {
+  /**
+   * @public
+   * <p>The name of the delivery destination that you want to retrieve the policy of.</p>
+   */
+  deliveryDestinationName: string | undefined;
+}
+
+/**
+ * @public
+ * <p>A structure that contains information about one delivery destination policy.</p>
+ */
+export interface Policy {
+  /**
+   * @public
+   * <p>The contents of the delivery destination policy.</p>
+   */
+  deliveryDestinationPolicy?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetDeliveryDestinationPolicyResponse {
+  /**
+   * @public
+   * <p>The IAM policy for this delivery destination.</p>
+   */
+  policy?: Policy;
+}
+
+/**
+ * @public
+ */
+export interface GetDeliverySourceRequest {
+  /**
+   * @public
+   * <p>The name of the delivery source that you want to retrieve.</p>
+   */
+  name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDeliverySourceResponse {
+  /**
+   * @public
+   * <p>A structure containing information about the delivery source.</p>
+   */
+  deliverySource?: DeliverySource;
+}
+
+/**
+ * @public
+ */
+export interface GetLogAnomalyDetectorRequest {
+  /**
+   * @public
+   * <p>The ARN of the anomaly detector to retrieve information about. You can find the ARNs of log anomaly detectors
+   *        in your account by using the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListLogAnomalyDetectors.html">ListLogAnomalyDetectors</a>
+   *        operation.</p>
+   */
+  anomalyDetectorArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetLogAnomalyDetectorResponse {
+  /**
+   * @public
+   * <p>The name of the log anomaly detector</p>
+   */
+  detectorName?: string;
+
+  /**
+   * @public
+   * <p>An array of structures, where each structure contains the ARN of a log group
+   *       associated with this anomaly detector.</p>
+   */
+  logGroupArnList?: string[];
+
+  /**
+   * @public
+   * <p>Specifies how often the anomaly detector runs and look for anomalies. Set this value
+   *        according to the frequency that the log group receives new logs. For example, if the log group
+   *        receives new log events every 10 minutes, then setting <code>evaluationFrequency</code> to
+   *        <code>FIFTEEN_MIN</code> might be appropriate.</p>
+   */
+  evaluationFrequency?: EvaluationFrequency;
+
+  /**
+   * @public
+   * <p>A symbolic description of how CloudWatch Logs should interpret the data in each log
+   *       event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You
+   *       use the filter pattern to specify what to look for in the log event message.</p>
+   */
+  filterPattern?: string;
+
+  /**
+   * @public
+   * <p>Specifies whether the anomaly detector is currently active. To change its status, use
+   *         the <code>enabled</code> parameter in the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UpdateLogAnomalyDetector.html">UpdateLogAnomalyDetector</a>
+   *       operation.</p>
+   */
+  anomalyDetectorStatus?: AnomalyDetectorStatus;
+
+  /**
+   * @public
+   * <p>The ID of the KMS key assigned to this anomaly detector, if any.</p>
+   */
+  kmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>The date and time when this anomaly detector was created.</p>
+   */
+  creationTimeStamp?: number;
+
+  /**
+   * @public
+   * <p>The date and time when this anomaly detector was most recently modified.</p>
+   */
+  lastModifiedTimeStamp?: number;
+
+  /**
+   * @public
+   * <p>The number of days used as the life cycle of anomalies. After this time, anomalies are automatically baselined
+   *        and the anomaly detector model will treat new occurrences of similar event as normal. </p>
+   */
+  anomalyVisibilityTime?: number;
 }
 
 /**
@@ -2366,7 +3535,7 @@ export interface GetQueryResultsResponse {
    *          <p>Queries time out after 60 minutes of runtime. To avoid having your queries time out,
    *       reduce the time range being searched or partition your query into a number of queries.</p>
    */
-  status?: QueryStatus | string;
+  status?: QueryStatus;
 
   /**
    * @public
@@ -2430,6 +3599,112 @@ export class InvalidSequenceTokenException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const SuppressionState = {
+  SUPPRESSED: "SUPPRESSED",
+  UNSUPPRESSED: "UNSUPPRESSED",
+} as const;
+
+/**
+ * @public
+ */
+export type SuppressionState = (typeof SuppressionState)[keyof typeof SuppressionState];
+
+/**
+ * @public
+ */
+export interface ListAnomaliesRequest {
+  /**
+   * @public
+   * <p>Use this to optionally limit the results to only the anomalies found by a certain
+   *       anomaly detector.</p>
+   */
+  anomalyDetectorArn?: string;
+
+  /**
+   * @public
+   * <p>You can specify this parameter if you want to the operation to return only anomalies that
+   *       are currently either suppressed or unsuppressed.</p>
+   */
+  suppressionState?: SuppressionState;
+
+  /**
+   * @public
+   * <p>The maximum number of items to return. If you don't specify a value, the default maximum value of
+   *        50 items is used.</p>
+   */
+  limit?: number;
+
+  /**
+   * @public
+   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListAnomaliesResponse {
+  /**
+   * @public
+   * <p>An array of structures, where each structure contains information about one anomaly that a log
+   *       anomaly detector has found.</p>
+   */
+  anomalies?: Anomaly[];
+
+  /**
+   * @public
+   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListLogAnomalyDetectorsRequest {
+  /**
+   * @public
+   * <p>Use this to optionally filter the results to only include anomaly detectors that are associated with the
+   *       specified log group.</p>
+   */
+  filterLogGroupArn?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of items to return. If you don't specify a value, the default maximum value of
+   *        50 items is used.</p>
+   */
+  limit?: number;
+
+  /**
+   * @public
+   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListLogAnomalyDetectorsResponse {
+  /**
+   * @public
+   * <p>An array of structures, where each structure in the array contains information about one anomaly detector.</p>
+   */
+  anomalyDetectors?: AnomalyDetector[];
+
+  /**
+   * @public
+   * <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
  */
 export interface ListTagsForResourceRequest {
   /**
@@ -2484,6 +3759,129 @@ export interface ListTagsLogGroupResponse {
 
 /**
  * @public
+ * <p>This object contains the information for one log event returned in a Live Tail stream.</p>
+ */
+export interface LiveTailSessionLogEvent {
+  /**
+   * @public
+   * <p>The name of the log stream that ingested this log event.</p>
+   */
+  logStreamName?: string;
+
+  /**
+   * @public
+   * <p>The name or ARN of the log group that ingested this log event.</p>
+   */
+  logGroupIdentifier?: string;
+
+  /**
+   * @public
+   * <p>The log event message text.</p>
+   */
+  message?: string;
+
+  /**
+   * @public
+   * <p>The timestamp specifying when this log event was created.</p>
+   */
+  timestamp?: number;
+
+  /**
+   * @public
+   * <p>The timestamp specifying when this log event was ingested into the log group.</p>
+   */
+  ingestionTime?: number;
+}
+
+/**
+ * @public
+ * <p>This object contains the metadata for one <code>LiveTailSessionUpdate</code> structure. It indicates whether
+ *     that update includes only a sample of 500 log events out of a larger number of ingested log events, or if it contains
+ *     all of the matching log events ingested during that second of time.</p>
+ */
+export interface LiveTailSessionMetadata {
+  /**
+   * @public
+   * <p>If this is <code>true</code>, then more than 500 log events matched the request for this update, and the
+   *     <code>sessionResults</code> includes a sample of 500 of those events.</p>
+   *          <p>If this is <code>false</code>, then 500 or fewer log events matched the request for this update, so no sampling
+   *       was necessary. In this case, the
+   *       <code>sessionResults</code> array includes all log events that matched your request during this time.</p>
+   */
+  sampled?: boolean;
+}
+
+/**
+ * @public
+ * <p>This object contains information about this Live Tail session, including the log groups included and the
+ *       log stream filters, if any.</p>
+ */
+export interface LiveTailSessionStart {
+  /**
+   * @public
+   * <p>The unique ID generated by CloudWatch Logs to identify this Live Tail session request.</p>
+   */
+  requestId?: string;
+
+  /**
+   * @public
+   * <p>The unique ID generated by CloudWatch Logs to identify this Live Tail session.</p>
+   */
+  sessionId?: string;
+
+  /**
+   * @public
+   * <p>An array of the names and ARNs of the log groups included in this Live Tail session.</p>
+   */
+  logGroupIdentifiers?: string[];
+
+  /**
+   * @public
+   * <p>If your StartLiveTail operation request included a <code>logStreamNames</code> parameter that filtered the session
+   *     to only include certain log streams, these streams are listed here.</p>
+   */
+  logStreamNames?: string[];
+
+  /**
+   * @public
+   * <p>If your StartLiveTail operation request included a <code>logStreamNamePrefixes</code> parameter that filtered the session
+   *       to only include log streams that have names that start with certain prefixes, these prefixes are listed here.</p>
+   */
+  logStreamNamePrefixes?: string[];
+
+  /**
+   * @public
+   * <p>An optional pattern to filter the results to include only log events that match the pattern.
+   *     For example, a filter pattern of <code>error 404</code> displays only log events that include both <code>error</code>
+   *     and <code>404</code>.</p>
+   *          <p>For more information about filter pattern syntax, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and Pattern Syntax</a>.</p>
+   */
+  logEventFilterPattern?: string;
+}
+
+/**
+ * @public
+ * <p>This object contains the log events and metadata for a Live Tail session.</p>
+ */
+export interface LiveTailSessionUpdate {
+  /**
+   * @public
+   * <p>This object contains the session metadata for a Live Tail session.</p>
+   */
+  sessionMetadata?: LiveTailSessionMetadata;
+
+  /**
+   * @public
+   * <p>An array, where each member of the array includes the information for one log event in the Live Tail session.</p>
+   *          <p>A <code>sessionResults</code> array can include as many as 500 log events. If the number of
+   *       log events matching the request exceeds 500 per second, the
+   *       log events are sampled down to 500 log events to be included in each <code>sessionUpdate</code> structure.</p>
+   */
+  sessionResults?: LiveTailSessionLogEvent[];
+}
+
+/**
+ * @public
  */
 export interface PutAccountPolicyRequest {
   /**
@@ -2494,8 +3892,11 @@ export interface PutAccountPolicyRequest {
 
   /**
    * @public
-   * <p>Specify the data protection policy, in JSON.</p>
-   *          <p>This policy must include two JSON blocks:</p>
+   * <p>Specify the policy, in JSON.</p>
+   *          <p>
+   *             <b>Data protection policy</b>
+   *          </p>
+   *          <p>A data protection policy must include two JSON blocks:</p>
    *          <ul>
    *             <li>
    *                <p>The first block must include both a <code>DataIdentifer</code> array and an
@@ -2528,15 +3929,59 @@ export interface PutAccountPolicyRequest {
    *     <code>Description</code>, and <code>Version</code> fields. The <code>Name</code> is different than the
    *       operation's <code>policyName</code> parameter, and is used as a dimension when
    *     CloudWatch Logs reports audit findings metrics to CloudWatch.</p>
-   *          <p>The JSON specified in <code>policyDocument</code> can be up to 30,720 characters.</p>
+   *          <p>The JSON specified in <code>policyDocument</code> can be up to 30,720 characters long.</p>
+   *          <p>
+   *             <b>Subscription filter policy</b>
+   *          </p>
+   *          <p>A subscription filter policy can include the following attributes in a JSON block:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>DestinationArn</b> The ARN of the destination
+   *       to deliver log events to. Supported destinations are:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>An Kinesis Data Streams data stream in the same account as the subscription policy, for same-account delivery.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>An Kinesis Data Firehose data stream in the same account as the subscription policy, for same-account delivery.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>A Lambda function in the same account as the subscription policy, for same-account delivery.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>A logical destination in a different account created with <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestination.html">PutDestination</a>, for cross-account
+   *             delivery. Kinesis Data Streams and Kinesis Data Firehose are supported as logical destinations.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>RoleArn</b> The ARN of an IAM role that grants CloudWatch Logs permissions to deliver ingested log
+   *         events to the destination stream. You don't need to provide the ARN when you are working with
+   *         a logical destination for cross-account delivery.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>FilterPattern</b> A filter pattern for subscribing to a
+   *         filtered stream of log events.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Distribution</b>The method used to distribute log data to the destination.
+   *         By default, log data is
+   *         grouped by log stream, but the grouping can be set to <code>Random</code> for a more even distribution.
+   *         This property is only applicable when the destination is an Kinesis Data Streams data stream.</p>
+   *             </li>
+   *          </ul>
    */
   policyDocument: string | undefined;
 
   /**
    * @public
-   * <p>Currently the only valid value for this parameter is <code>DATA_PROTECTION_POLICY</code>.</p>
+   * <p>The type of policy that you're creating or updating.</p>
    */
-  policyType: PolicyType | string | undefined;
+  policyType: PolicyType | undefined;
 
   /**
    * @public
@@ -2544,7 +3989,19 @@ export interface PutAccountPolicyRequest {
    *       protection policy applies to all log groups in the account. If you omit this parameter, the default
    *     of <code>ALL</code> is used.</p>
    */
-  scope?: Scope | string;
+  scope?: Scope;
+
+  /**
+   * @public
+   * <p>Use this parameter to apply the subscription filter policy to a subset of log groups in the account.
+   *       Currently, the only supported filter is <code>LogGroupName NOT IN []</code>. The <code>selectionCriteria</code>
+   *     string can be up to 25KB in length. The length is determined by using its UTF-8 bytes.</p>
+   *          <p>Using the <code>selectionCriteria</code> parameter is useful to help prevent infinite loops.
+   *       For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Subscriptions-recursion-prevention.html">Log recursion prevention</a>.</p>
+   *          <p>Specifing <code>selectionCriteria</code> is valid only when you specify <code> SUBSCRIPTION_FILTER_POLICY</code>
+   *     for <code>policyType</code>.</p>
+   */
+  selectionCriteria?: string;
 }
 
 /**
@@ -2629,6 +4086,123 @@ export interface PutDataProtectionPolicyResponse {
    * <p>The date and time that this policy was most recently updated.</p>
    */
   lastUpdatedTime?: number;
+}
+
+/**
+ * @public
+ */
+export interface PutDeliveryDestinationRequest {
+  /**
+   * @public
+   * <p>A name for this delivery destination. This name must be unique for all delivery destinations in your account.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>The format for the logs that this delivery destination will receive.</p>
+   */
+  outputFormat?: OutputFormat;
+
+  /**
+   * @public
+   * <p>A structure that contains the ARN of the Amazon Web Services resource that will receive the logs.</p>
+   */
+  deliveryDestinationConfiguration: DeliveryDestinationConfiguration | undefined;
+
+  /**
+   * @public
+   * <p>An optional list of key-value pairs to associate with the resource.</p>
+   *          <p>For more information about tagging, see
+   *        <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>
+   *          </p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface PutDeliveryDestinationResponse {
+  /**
+   * @public
+   * <p>A structure containing information about the delivery destination that you just created or updated.</p>
+   */
+  deliveryDestination?: DeliveryDestination;
+}
+
+/**
+ * @public
+ */
+export interface PutDeliveryDestinationPolicyRequest {
+  /**
+   * @public
+   * <p>The name of the delivery destination to assign this policy to.</p>
+   */
+  deliveryDestinationName: string | undefined;
+
+  /**
+   * @public
+   * <p>The contents of the policy.</p>
+   */
+  deliveryDestinationPolicy: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutDeliveryDestinationPolicyResponse {
+  /**
+   * @public
+   * <p>The contents of the policy that you just created.</p>
+   */
+  policy?: Policy;
+}
+
+/**
+ * @public
+ */
+export interface PutDeliverySourceRequest {
+  /**
+   * @public
+   * <p>A name for this delivery source. This name must be unique for all delivery sources in your account.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the Amazon Web Services resource that is generating and sending logs.
+   *        For example, <code>arn:aws:workmail:us-east-1:123456789012:organization/m-1234EXAMPLEabcd1234abcd1234abcd1234</code>
+   *          </p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Defines the type of log that the source is sending. For valid values for this parameter, see the documentation for
+   *       the source service.</p>
+   */
+  logType: string | undefined;
+
+  /**
+   * @public
+   * <p>An optional list of key-value pairs to associate with the resource.</p>
+   *          <p>For more information about tagging, see
+   *        <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>
+   *          </p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface PutDeliverySourceResponse {
+  /**
+   * @public
+   * <p>A structure containing information about the delivery source that was just created or updated.</p>
+   */
+  deliverySource?: DeliverySource;
 }
 
 /**
@@ -2882,6 +4456,15 @@ export interface PutQueryDefinitionRequest {
    *       For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p>
    */
   queryString: string | undefined;
+
+  /**
+   * @public
+   * <p>Used as an idempotency token, to avoid returning an exception if the service receives the same
+   *       request twice because of a network
+   *
+   *     error.</p>
+   */
+  clientToken?: string;
 }
 
 /**
@@ -3046,7 +4629,205 @@ export interface PutSubscriptionFilterRequest {
    *       grouped by log stream, but the grouping can be set to random for a more even distribution.
    *       This property is only applicable when the destination is an Amazon Kinesis data stream. </p>
    */
-  distribution?: Distribution | string;
+  distribution?: Distribution;
+}
+
+/**
+ * @public
+ */
+export interface StartLiveTailRequest {
+  /**
+   * @public
+   * <p>An array where each item in the array is a log group to include in the Live Tail session.</p>
+   *          <p>Specify each log group by its ARN. </p>
+   *          <p>If you specify an ARN, the ARN can't end with an asterisk (*).</p>
+   *          <note>
+   *             <p> You can include up to 10 log groups.</p>
+   *          </note>
+   */
+  logGroupIdentifiers: string[] | undefined;
+
+  /**
+   * @public
+   * <p>If you specify this parameter, then only log events in the log streams that you specify here are
+   *     included in the Live Tail session.</p>
+   *          <p>If you specify this field, you can't also specify the <code>logStreamNamePrefixes</code> field.</p>
+   *          <note>
+   *             <p>You can specify this parameter only if you specify only one log group in <code>logGroupIdentifiers</code>.</p>
+   *          </note>
+   */
+  logStreamNames?: string[];
+
+  /**
+   * @public
+   * <p>If you specify this parameter, then only log events in the log streams that have names that start with the
+   *       prefixes that you specify here are
+   *       included in the Live Tail session.</p>
+   *          <p>If you specify this field, you can't also specify the <code>logStreamNames</code> field.</p>
+   *          <note>
+   *             <p>You can specify this parameter only if you specify only one log group in <code>logGroupIdentifiers</code>.</p>
+   *          </note>
+   */
+  logStreamNamePrefixes?: string[];
+
+  /**
+   * @public
+   * <p>An optional pattern to use to filter the results to include only log events that match the pattern.
+   *       For example, a filter pattern of <code>error 404</code> causes only log events that include both <code>error</code>
+   *       and <code>404</code> to be included in the Live Tail stream.</p>
+   *          <p>Regular expression filter patterns are supported.</p>
+   *          <p>For more information about filter pattern syntax, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and Pattern Syntax</a>.</p>
+   */
+  logEventFilterPattern?: string;
+}
+
+/**
+ * @public
+ * <p>his exception is returned if an unknown error occurs during a Live Tail session.</p>
+ */
+export class SessionStreamingException extends __BaseException {
+  readonly name: "SessionStreamingException" = "SessionStreamingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SessionStreamingException, __BaseException>) {
+    super({
+      name: "SessionStreamingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SessionStreamingException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>This exception is returned in a Live Tail stream when the Live Tail session times out. Live Tail sessions time
+ *       out after three hours.</p>
+ */
+export class SessionTimeoutException extends __BaseException {
+  readonly name: "SessionTimeoutException" = "SessionTimeoutException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SessionTimeoutException, __BaseException>) {
+    super({
+      name: "SessionTimeoutException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SessionTimeoutException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>This object includes the stream returned by your
+ *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartLiveTail.html">StartLiveTail</a>
+ *       request.</p>
+ */
+export type StartLiveTailResponseStream =
+  | StartLiveTailResponseStream.SessionStreamingExceptionMember
+  | StartLiveTailResponseStream.SessionTimeoutExceptionMember
+  | StartLiveTailResponseStream.SessionStartMember
+  | StartLiveTailResponseStream.SessionUpdateMember
+  | StartLiveTailResponseStream.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace StartLiveTailResponseStream {
+  /**
+   * @public
+   * <p>This object contains information about this Live Tail session, including the log groups included and the
+   *     log stream filters, if any.</p>
+   */
+  export interface SessionStartMember {
+    sessionStart: LiveTailSessionStart;
+    sessionUpdate?: never;
+    SessionTimeoutException?: never;
+    SessionStreamingException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>This object contains the log events and session metadata.</p>
+   */
+  export interface SessionUpdateMember {
+    sessionStart?: never;
+    sessionUpdate: LiveTailSessionUpdate;
+    SessionTimeoutException?: never;
+    SessionStreamingException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>This exception is returned in the stream when the Live Tail session times out. Live Tail sessions time
+   *     out after three hours.</p>
+   */
+  export interface SessionTimeoutExceptionMember {
+    sessionStart?: never;
+    sessionUpdate?: never;
+    SessionTimeoutException: SessionTimeoutException;
+    SessionStreamingException?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>This exception is returned if an unknown error occurs.</p>
+   */
+  export interface SessionStreamingExceptionMember {
+    sessionStart?: never;
+    sessionUpdate?: never;
+    SessionTimeoutException?: never;
+    SessionStreamingException: SessionStreamingException;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    sessionStart?: never;
+    sessionUpdate?: never;
+    SessionTimeoutException?: never;
+    SessionStreamingException?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    sessionStart: (value: LiveTailSessionStart) => T;
+    sessionUpdate: (value: LiveTailSessionUpdate) => T;
+    SessionTimeoutException: (value: SessionTimeoutException) => T;
+    SessionStreamingException: (value: SessionStreamingException) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: StartLiveTailResponseStream, visitor: Visitor<T>): T => {
+    if (value.sessionStart !== undefined) return visitor.sessionStart(value.sessionStart);
+    if (value.sessionUpdate !== undefined) return visitor.sessionUpdate(value.sessionUpdate);
+    if (value.SessionTimeoutException !== undefined)
+      return visitor.SessionTimeoutException(value.SessionTimeoutException);
+    if (value.SessionStreamingException !== undefined)
+      return visitor.SessionStreamingException(value.SessionStreamingException);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface StartLiveTailResponse {
+  /**
+   * @public
+   * <p>An object that includes the stream returned by your request. It can include both log events and exceptions.</p>
+   */
+  responseStream?: AsyncIterable<StartLiveTailResponseStream>;
 }
 
 /**
@@ -3387,3 +5168,152 @@ export interface UntagResourceRequest {
    */
   tagKeys: string[] | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const SuppressionUnit = {
+  HOURS: "HOURS",
+  MINUTES: "MINUTES",
+  SECONDS: "SECONDS",
+} as const;
+
+/**
+ * @public
+ */
+export type SuppressionUnit = (typeof SuppressionUnit)[keyof typeof SuppressionUnit];
+
+/**
+ * @public
+ * <p>If you are suppressing an anomaly temporariliy, this structure defines how long the suppression period
+ *       is to be.</p>
+ */
+export interface SuppressionPeriod {
+  /**
+   * @public
+   * <p>Specifies the number of seconds, minutes or hours to suppress this anomaly. There is no maximum.</p>
+   */
+  value?: number;
+
+  /**
+   * @public
+   * <p>Specifies whether the value of <code>value</code> is in seconds, minutes, or hours.</p>
+   */
+  suppressionUnit?: SuppressionUnit;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SuppressionType = {
+  INFINITE: "INFINITE",
+  LIMITED: "LIMITED",
+} as const;
+
+/**
+ * @public
+ */
+export type SuppressionType = (typeof SuppressionType)[keyof typeof SuppressionType];
+
+/**
+ * @public
+ */
+export interface UpdateAnomalyRequest {
+  /**
+   * @public
+   * <p>If you are suppressing or unsuppressing an anomaly, specify its unique ID here. You can find anomaly IDs by
+   *         using the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListAnomalies.html">ListAnomalies</a> operation.</p>
+   */
+  anomalyId?: string;
+
+  /**
+   * @public
+   * <p>If you are suppressing or unsuppressing an pattern, specify its unique ID here. You can find pattern IDs by
+   *        using the <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListAnomalies.html">ListAnomalies</a> operation.</p>
+   */
+  patternId?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the anomaly detector that this operation is to act on.</p>
+   */
+  anomalyDetectorArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Use this to specify whether the suppression to be temporary or infinite. If you specify <code>LIMITED</code>,
+   *         you must also specify a <code>suppressionPeriod</code>. If you specify <code>INFINITE</code>,
+   *         any value for <code>suppressionPeriod</code> is ignored. </p>
+   */
+  suppressionType?: SuppressionType;
+
+  /**
+   * @public
+   * <p>If you are temporarily suppressing an anomaly or pattern, use this structure to specify
+   *       how long the suppression is to last.</p>
+   */
+  suppressionPeriod?: SuppressionPeriod;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLogAnomalyDetectorRequest {
+  /**
+   * @public
+   * <p>The ARN of the anomaly detector that you want to update.</p>
+   */
+  anomalyDetectorArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies how often the anomaly detector runs and look for anomalies. Set this value
+   *        according to the frequency that the log group receives new logs. For example, if the log group
+   *        receives new log events every 10 minutes, then setting <code>evaluationFrequency</code> to
+   *        <code>FIFTEEN_MIN</code> might be appropriate.</p>
+   */
+  evaluationFrequency?: EvaluationFrequency;
+
+  /**
+   * @public
+   * <p>A symbolic description of how CloudWatch Logs should interpret the data in each log
+   *       event. For example, a log event can contain timestamps, IP addresses, strings, and so on. You
+   *       use the filter pattern to specify what to look for in the log event message.</p>
+   */
+  filterPattern?: string;
+
+  /**
+   * @public
+   * <p>The number of days to use as the life cycle of anomalies. After this time, anomalies are automatically baselined
+   *        and the anomaly detector model will treat new occurrences of similar event as normal. Therefore, if you do not correct the cause of an
+   *        anomaly during this time, it will be considered normal going forward and will not be detected.</p>
+   */
+  anomalyVisibilityTime?: number;
+
+  /**
+   * @public
+   * <p>Use this parameter to pause or restart the anomaly detector. </p>
+   */
+  enabled: boolean | undefined;
+}
+
+/**
+ * @internal
+ */
+export const StartLiveTailResponseStreamFilterSensitiveLog = (obj: StartLiveTailResponseStream): any => {
+  if (obj.sessionStart !== undefined) return { sessionStart: obj.sessionStart };
+  if (obj.sessionUpdate !== undefined) return { sessionUpdate: obj.sessionUpdate };
+  if (obj.SessionTimeoutException !== undefined) return { SessionTimeoutException: obj.SessionTimeoutException };
+  if (obj.SessionStreamingException !== undefined) return { SessionStreamingException: obj.SessionStreamingException };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const StartLiveTailResponseFilterSensitiveLog = (obj: StartLiveTailResponse): any => ({
+  ...obj,
+  ...(obj.responseStream && { responseStream: "STREAMING_CONTENT" }),
+});

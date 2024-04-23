@@ -279,7 +279,7 @@ export interface AccessMethod {
    * @public
    * <p>Specifies the <code>AccessMethod</code>.</p>
    */
-  AccessMethodType?: AccessMethodType | string;
+  AccessMethodType?: AccessMethodType;
 }
 
 /**
@@ -433,7 +433,7 @@ export interface CertificateAuthorityConfiguration {
    * 			creates when it issues a certificate. When you create a subordinate CA, you must use a
    * 			key algorithm supported by the parent CA.</p>
    */
-  KeyAlgorithm: KeyAlgorithm | string | undefined;
+  KeyAlgorithm: KeyAlgorithm | undefined;
 
   /**
    * @public
@@ -441,7 +441,7 @@ export interface CertificateAuthorityConfiguration {
    *          <p>This parameter should not be confused with the <code>SigningAlgorithm</code> parameter
    * 			used to sign certificates when they are issued.</p>
    */
-  SigningAlgorithm: SigningAlgorithm | string | undefined;
+  SigningAlgorithm: SigningAlgorithm | undefined;
 
   /**
    * @public
@@ -488,6 +488,25 @@ export type KeyStorageSecurityStandard = (typeof KeyStorageSecurityStandard)[key
 
 /**
  * @public
+ * <p>Contains configuration information for the default behavior of the CRL Distribution Point (CDP) extension in certificates issued by your CA. This extension
+ * 			contains a link to download the CRL, so you can check whether a certificate has been revoked. To choose whether you want this extension
+ * 			omitted or not in certificates issued by your CA, you can set the <b>OmitExtension</b> parameter.</p>
+ */
+export interface CrlDistributionPointExtensionConfiguration {
+  /**
+   * @public
+   * <p>Configures whether the CRL Distribution Point extension should be populated with the default URL to the CRL. If set to <code>true</code>, then the CDP extension will
+   * 			not be present in any certificates issued by that CA unless otherwise specified through CSR or API passthrough.</p>
+   *          <note>
+   *             <p>Only set this if you have another way to distribute the CRL Distribution Points ffor certificates issued by your CA, such as the Matter Distributed Compliance Ledger</p>
+   *             <p>This configuration cannot be enabled with a custom CNAME set.</p>
+   *          </note>
+   */
+  OmitExtension: boolean | undefined;
+}
+
+/**
+ * @public
  * @enum
  */
 export const S3ObjectAcl = {
@@ -507,8 +526,10 @@ export type S3ObjectAcl = (typeof S3ObjectAcl)[keyof typeof S3ObjectAcl];
  * 			can enable CRLs for your new or an existing private CA by setting the <b>Enabled</b> parameter to <code>true</code>. Your private CA
  * 			writes CRLs to an S3 bucket that you specify in the <b>S3BucketName</b> parameter. You can hide the name of your bucket by
  * 			specifying a value for the <b>CustomCname</b> parameter. Your
- * 			private CA copies the CNAME or the S3 bucket name to the <b>CRL
- * 				Distribution Points</b> extension of each certificate it issues. Your S3
+ * 			private CA by default copies the CNAME or the S3 bucket name to the <b>CRL
+ * 				Distribution Points</b> extension of each certificate it issues. If you want to configure
+ * 				this default behavior to be something different, you can set the <b>CrlDistributionPointExtensionConfiguration</b>
+ * 				parameter. Your S3
  * 			bucket policy must give write permission to Amazon Web Services Private CA. </p>
  *          <p>Amazon Web Services Private CA assets that are stored in Amazon S3 can be protected with encryption.
  *   For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#crl-encryption">Encrypting Your
@@ -677,7 +698,13 @@ export interface CrlConfiguration {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#s3-bpa">Blocking public access to the S3
    * 				bucket</a>.</p>
    */
-  S3ObjectAcl?: S3ObjectAcl | string;
+  S3ObjectAcl?: S3ObjectAcl;
+
+  /**
+   * @public
+   * <p>Configures the behavior of the CRL Distribution Point extension for certificates issued by your certificate authority. If this field is not provided, then the CRl Distribution Point Extension will be present and contain the default CRL URL.</p>
+   */
+  CrlDistributionPointExtensionConfiguration?: CrlDistributionPointExtensionConfiguration;
 }
 
 /**
@@ -825,7 +852,7 @@ export interface CreateCertificateAuthorityRequest {
    * @public
    * <p>The type of the certificate authority.</p>
    */
-  CertificateAuthorityType: CertificateAuthorityType | string | undefined;
+  CertificateAuthorityType: CertificateAuthorityType | undefined;
 
   /**
    * @public
@@ -854,7 +881,7 @@ export interface CreateCertificateAuthorityRequest {
    * 					and security compliance of Amazon Web Services Private CA private keys</a>.</p>
    *          </note>
    */
-  KeyStorageSecurityStandard?: KeyStorageSecurityStandard | string;
+  KeyStorageSecurityStandard?: KeyStorageSecurityStandard;
 
   /**
    * @public
@@ -872,7 +899,7 @@ export interface CreateCertificateAuthorityRequest {
    * 			days.</p>
    *          <p>The default value is GENERAL_PURPOSE.</p>
    */
-  UsageMode?: CertificateAuthorityUsageMode | string;
+  UsageMode?: CertificateAuthorityUsageMode;
 }
 
 /**
@@ -1011,7 +1038,7 @@ export interface CreateCertificateAuthorityAuditReportRequest {
    * @public
    * <p>The format in which to create the report. This can be either <b>JSON</b> or <b>CSV</b>.</p>
    */
-  AuditReportResponseFormat: AuditReportResponseFormat | string | undefined;
+  AuditReportResponseFormat: AuditReportResponseFormat | undefined;
 }
 
 /**
@@ -1183,7 +1210,7 @@ export interface CreatePermissionRequest {
    * 				<code>IssueCertificate</code>, <code>GetCertificate</code>, and
    * 				<code>ListPermissions</code>.</p>
    */
-  Actions: (ActionType | string)[] | undefined;
+  Actions: ActionType[] | undefined;
 }
 
 /**
@@ -1407,7 +1434,7 @@ export interface CertificateAuthority {
    * @public
    * <p>Type of your private CA.</p>
    */
-  Type?: CertificateAuthorityType | string;
+  Type?: CertificateAuthorityType;
 
   /**
    * @public
@@ -1419,7 +1446,7 @@ export interface CertificateAuthority {
    * @public
    * <p>Status of your private CA.</p>
    */
-  Status?: CertificateAuthorityStatus | string;
+  Status?: CertificateAuthorityStatus;
 
   /**
    * @public
@@ -1437,7 +1464,7 @@ export interface CertificateAuthority {
    * @public
    * <p>Reason the request to create your private CA failed.</p>
    */
-  FailureReason?: FailureReason | string;
+  FailureReason?: FailureReason;
 
   /**
    * @public
@@ -1469,7 +1496,7 @@ export interface CertificateAuthority {
    * 				<code>InvalidArgsException</code> with the message "A certificate authority cannot
    * 			be created in this region with the specified security standard."</p>
    */
-  KeyStorageSecurityStandard?: KeyStorageSecurityStandard | string;
+  KeyStorageSecurityStandard?: KeyStorageSecurityStandard;
 
   /**
    * @public
@@ -1479,7 +1506,7 @@ export interface CertificateAuthority {
    * 			days.</p>
    *          <p>The default value is GENERAL_PURPOSE.</p>
    */
-  UsageMode?: CertificateAuthorityUsageMode | string;
+  UsageMode?: CertificateAuthorityUsageMode;
 }
 
 /**
@@ -1538,7 +1565,7 @@ export interface DescribeCertificateAuthorityAuditReportResponse {
    * @public
    * <p>Specifies whether report creation is in progress, has succeeded, or has failed.</p>
    */
-  AuditReportStatus?: AuditReportStatus | string;
+  AuditReportStatus?: AuditReportStatus;
 
   /**
    * @public
@@ -1824,7 +1851,7 @@ export interface PolicyQualifierInfo {
    * @public
    * <p>Identifies the qualifier modifying a <code>CertPolicyId</code>.</p>
    */
-  PolicyQualifierId: PolicyQualifierId | string | undefined;
+  PolicyQualifierId: PolicyQualifierId | undefined;
 
   /**
    * @public
@@ -1921,7 +1948,7 @@ export interface ExtendedKeyUsage {
    * <p>Specifies a standard <code>ExtendedKeyUsage</code> as defined as in <a href="https://datatracker.ietf.org/doc/html/rfc5280#section-4.2.1.12">RFC
    * 				5280</a>.</p>
    */
-  ExtendedKeyUsageType?: ExtendedKeyUsageType | string;
+  ExtendedKeyUsageType?: ExtendedKeyUsageType;
 
   /**
    * @public
@@ -2094,7 +2121,7 @@ export interface Validity {
    * 			(<code>DAYS</code>) is one day. The minimum validity for a certificate using absolute
    * 			time (<code>ABSOLUTE</code> or <code>END_DATE</code>) is one second.</p>
    */
-  Type: ValidityPeriodType | string | undefined;
+  Type: ValidityPeriodType | undefined;
 }
 
 /**
@@ -2156,7 +2183,7 @@ export interface IssueCertificateRequest {
    * 				family of the CA's secret key.</p>
    *          </note>
    */
-  SigningAlgorithm: SigningAlgorithm | string | undefined;
+  SigningAlgorithm: SigningAlgorithm | undefined;
 
   /**
    * @public
@@ -2311,6 +2338,7 @@ export interface ListCertificateAuthoritiesRequest {
    * 			specify, the <code>NextToken</code> element is sent in the response. Use this
    * 				<code>NextToken</code> value in a subsequent request to retrieve additional
    * 			items.</p>
+   *          <p>Although the maximum value is 1000, the action only returns a maximum of 100 items.</p>
    */
   MaxResults?: number;
 
@@ -2319,7 +2347,7 @@ export interface ListCertificateAuthoritiesRequest {
    * <p>Use this parameter to filter the returned set of certificate authorities based on
    * 			their owner. The default is SELF.</p>
    */
-  ResourceOwner?: ResourceOwner | string;
+  ResourceOwner?: ResourceOwner;
 }
 
 /**
@@ -2412,7 +2440,7 @@ export interface Permission {
    * @public
    * <p>The private CA actions that can be performed by the designated Amazon Web Services service.</p>
    */
-  Actions?: (ActionType | string)[];
+  Actions?: ActionType[];
 
   /**
    * @public
@@ -2603,7 +2631,7 @@ export interface RevokeCertificateRequest {
    * @public
    * <p>Specifies why you revoked the certificate.</p>
    */
-  RevocationReason: RevocationReason | string | undefined;
+  RevocationReason: RevocationReason | undefined;
 }
 
 /**
@@ -2721,5 +2749,5 @@ export interface UpdateCertificateAuthorityRequest {
    * @public
    * <p>Status of your private CA.</p>
    */
-  Status?: CertificateAuthorityStatus | string;
+  Status?: CertificateAuthorityStatus;
 }

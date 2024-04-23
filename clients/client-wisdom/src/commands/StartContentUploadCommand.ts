@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   StartContentUploadRequest,
   StartContentUploadResponse,
@@ -53,6 +45,7 @@ export interface StartContentUploadCommandOutput extends StartContentUploadRespo
  * const input = { // StartContentUploadRequest
  *   knowledgeBaseId: "STRING_VALUE", // required
  *   contentType: "STRING_VALUE", // required
+ *   presignedUrlTimeToLive: Number("int"),
  * };
  * const command = new StartContentUploadCommand(input);
  * const response = await client.send(command);
@@ -86,79 +79,26 @@ export interface StartContentUploadCommandOutput extends StartContentUploadRespo
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
-export class StartContentUploadCommand extends $Command<
-  StartContentUploadCommandInput,
-  StartContentUploadCommandOutput,
-  WisdomClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StartContentUploadCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: WisdomClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StartContentUploadCommandInput, StartContentUploadCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartContentUploadCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "WisdomClient";
-    const commandName = "StartContentUploadCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: StartContentUploadResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StartContentUploadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartContentUploadCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartContentUploadCommandOutput> {
-    return de_StartContentUploadCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class StartContentUploadCommand extends $Command
+  .classBuilder<
+    StartContentUploadCommandInput,
+    StartContentUploadCommandOutput,
+    WisdomClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: WisdomClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("WisdomService", "StartContentUpload", {})
+  .n("WisdomClient", "StartContentUploadCommand")
+  .f(void 0, StartContentUploadResponseFilterSensitiveLog)
+  .ser(se_StartContentUploadCommand)
+  .de(de_StartContentUploadCommand)
+  .build() {}

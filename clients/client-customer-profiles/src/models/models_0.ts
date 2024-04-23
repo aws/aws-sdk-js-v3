@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { CustomerProfilesServiceException as __BaseException } from "./CustomerProfilesServiceException";
 
@@ -436,7 +436,7 @@ export interface SourceFlowConfig {
    * @public
    * <p>The type of connector, such as Salesforce, Marketo, and so on.</p>
    */
-  ConnectorType: SourceConnectorType | string | undefined;
+  ConnectorType: SourceConnectorType | undefined;
 
   /**
    * @public
@@ -617,31 +617,31 @@ export interface ConnectorOperator {
    * @public
    * <p>The operation to be performed on the provided Marketo source fields.</p>
    */
-  Marketo?: MarketoConnectorOperator | string;
+  Marketo?: MarketoConnectorOperator;
 
   /**
    * @public
    * <p>The operation to be performed on the provided Amazon S3 source fields.</p>
    */
-  S3?: S3ConnectorOperator | string;
+  S3?: S3ConnectorOperator;
 
   /**
    * @public
    * <p>The operation to be performed on the provided Salesforce source fields.</p>
    */
-  Salesforce?: SalesforceConnectorOperator | string;
+  Salesforce?: SalesforceConnectorOperator;
 
   /**
    * @public
    * <p>The operation to be performed on the provided ServiceNow source fields.</p>
    */
-  ServiceNow?: ServiceNowConnectorOperator | string;
+  ServiceNow?: ServiceNowConnectorOperator;
 
   /**
    * @public
    * <p>The operation to be performed on the provided Zendesk source fields.</p>
    */
-  Zendesk?: ZendeskConnectorOperator | string;
+  Zendesk?: ZendeskConnectorOperator;
 }
 
 /**
@@ -719,13 +719,13 @@ export interface Task {
    * <p>A map used to store task-related information. The service looks for particular
    *          information based on the TaskType.</p>
    */
-  TaskProperties?: Record<string, string>;
+  TaskProperties?: Partial<Record<OperatorPropertiesKeys, string>>;
 
   /**
    * @public
    * <p>Specifies the particular task implementation that Amazon AppFlow performs.</p>
    */
-  TaskType: TaskType | string | undefined;
+  TaskType: TaskType | undefined;
 }
 
 /**
@@ -760,7 +760,7 @@ export interface ScheduledTriggerProperties {
    * <p>Specifies whether a scheduled flow has an incremental data transfer or a complete data
    *          transfer for each flow run.</p>
    */
-  DataPullMode?: DataPullMode | string;
+  DataPullMode?: DataPullMode;
 
   /**
    * @public
@@ -834,7 +834,7 @@ export interface TriggerConfig {
    * @public
    * <p>Specifies the type of flow trigger. It can be OnDemand, Scheduled, or Event.</p>
    */
-  TriggerType: TriggerType | string | undefined;
+  TriggerType: TriggerType | undefined;
 
   /**
    * @public
@@ -920,7 +920,7 @@ export interface AppflowIntegrationWorkflowAttributes {
    * @public
    * <p>Specifies the source connector type, such as Salesforce, ServiceNow, and Marketo. Indicates source of ingestion.</p>
    */
-  SourceConnectorType: SourceConnectorType | string | undefined;
+  SourceConnectorType: SourceConnectorType | undefined;
 
   /**
    * @public
@@ -993,7 +993,7 @@ export interface AppflowIntegrationWorkflowStep {
    * @public
    * <p>Workflow step status for <code>APPFLOW_INTEGRATION</code> workflow.</p>
    */
-  Status: Status | string | undefined;
+  Status: Status | undefined;
 
   /**
    * @public
@@ -1130,7 +1130,7 @@ export interface AttributeTypesSelector {
    * <p>Configures the <code>AttributeMatchingModel</code>, you can either choose <code>ONE_TO_ONE</code> or
    *          <code>MANY_TO_MANY</code>.</p>
    */
-  AttributeMatchingModel: AttributeMatchingModel | string | undefined;
+  AttributeMatchingModel: AttributeMatchingModel | undefined;
 
   /**
    * @public
@@ -1207,7 +1207,7 @@ export interface ConflictResolution {
    *             </li>
    *          </ul>
    */
-  ConflictResolvingModel: ConflictResolvingModel | string | undefined;
+  ConflictResolvingModel: ConflictResolvingModel | undefined;
 
   /**
    * @public
@@ -1365,7 +1365,7 @@ export interface Range {
    * @public
    * <p>The unit of time.</p>
    */
-  Unit: Unit | string | undefined;
+  Unit: Unit | undefined;
 }
 
 /**
@@ -1399,7 +1399,7 @@ export interface Threshold {
    * @public
    * <p>The operator of the threshold.</p>
    */
-  Operator: Operator | string | undefined;
+  Operator: Operator | undefined;
 }
 
 /**
@@ -1490,7 +1490,7 @@ export interface CreateCalculatedAttributeDefinitionRequest {
    * @public
    * <p>The aggregation operation to perform for the calculated attribute.</p>
    */
-  Statistic: Statistic | string | undefined;
+  Statistic: Statistic | undefined;
 
   /**
    * @public
@@ -1537,7 +1537,7 @@ export interface CreateCalculatedAttributeDefinitionResponse {
    * @public
    * <p>The aggregation operation to perform for the calculated attribute.</p>
    */
-  Statistic?: Statistic | string;
+  Statistic?: Statistic;
 
   /**
    * @public
@@ -1621,7 +1621,7 @@ export interface JobSchedule {
    * @public
    * <p>The day when the Identity Resolution Job should run every week.</p>
    */
-  DayOfTheWeek: JobScheduleDayOfTheWeek | string | undefined;
+  DayOfTheWeek: JobScheduleDayOfTheWeek | undefined;
 
   /**
    * @public
@@ -1939,7 +1939,7 @@ export interface RuleBasedMatchingResponse {
    *             </li>
    *          </ul>
    */
-  Status?: RuleBasedMatchingStatus | string;
+  Status?: RuleBasedMatchingStatus;
 
   /**
    * @public
@@ -2138,7 +2138,7 @@ export interface CreateIntegrationWorkflowRequest {
    * @public
    * <p>The type of workflow. The only supported value is APPFLOW_INTEGRATION.</p>
    */
-  WorkflowType: WorkflowType | string | undefined;
+  WorkflowType: WorkflowType | undefined;
 
   /**
    * @public
@@ -2240,7 +2240,7 @@ export interface CreateProfileRequest {
    *
    * <p>The type of profile used to describe the customer.</p>
    */
-  PartyType?: PartyType | string;
+  PartyType?: PartyType;
 
   /**
    * @public
@@ -2278,7 +2278,7 @@ export interface CreateProfileRequest {
    *
    * <p>The gender with which the customer identifies. </p>
    */
-  Gender?: Gender | string;
+  Gender?: Gender;
 
   /**
    * @public
@@ -2634,6 +2634,147 @@ export interface DeleteWorkflowResponse {}
 /**
  * @public
  */
+export interface DetectProfileObjectTypeRequest {
+  /**
+   * @public
+   * <p>A string that is serialized from a JSON object.</p>
+   */
+  Objects: string[] | undefined;
+
+  /**
+   * @public
+   * <p>The unique name of the domain.</p>
+   */
+  DomainName: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FieldContentType = {
+  EMAIL_ADDRESS: "EMAIL_ADDRESS",
+  NAME: "NAME",
+  NUMBER: "NUMBER",
+  PHONE_NUMBER: "PHONE_NUMBER",
+  STRING: "STRING",
+} as const;
+
+/**
+ * @public
+ */
+export type FieldContentType = (typeof FieldContentType)[keyof typeof FieldContentType];
+
+/**
+ * @public
+ * <p>Represents a field in a ProfileObjectType.</p>
+ */
+export interface ObjectTypeField {
+  /**
+   * @public
+   * <p>A field of a ProfileObject. For example: _source.FirstName, where “_source” is a
+   *          ProfileObjectType of a Zendesk user and “FirstName” is a field in that ObjectType.</p>
+   */
+  Source?: string;
+
+  /**
+   * @public
+   * <p>The location of the data in the standard ProfileObject model. For example:
+   *          _profile.Address.PostalCode.</p>
+   */
+  Target?: string;
+
+  /**
+   * @public
+   * <p>The content type of the field. Used for determining equality when searching.</p>
+   */
+  ContentType?: FieldContentType;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const StandardIdentifier = {
+  ASSET: "ASSET",
+  CASE: "CASE",
+  LOOKUP_ONLY: "LOOKUP_ONLY",
+  NEW_ONLY: "NEW_ONLY",
+  ORDER: "ORDER",
+  PROFILE: "PROFILE",
+  SECONDARY: "SECONDARY",
+  UNIQUE: "UNIQUE",
+} as const;
+
+/**
+ * @public
+ */
+export type StandardIdentifier = (typeof StandardIdentifier)[keyof typeof StandardIdentifier];
+
+/**
+ * @public
+ * <p>An object that defines the Key element of a ProfileObject. A Key is a special element
+ *          that can be used to search for a customer profile.</p>
+ */
+export interface ObjectTypeKey {
+  /**
+   * @public
+   * <p>The types of keys that a ProfileObject can have. Each ProfileObject can have only 1
+   *          UNIQUE key but multiple PROFILE keys. PROFILE, ASSET, CASE, or ORDER  means that this key can be
+   *          used to tie an object to a PROFILE, ASSET, CASE, or ORDER respectively. UNIQUE means that it can be
+   *          used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to
+   *          search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is
+   *          only used to match a profile but is not persisted to be used for searching of the profile.
+   *          A NEW_ONLY key is only used if the profile does not already exist before the object is
+   *          ingested, otherwise it is only used for matching objects to profiles.</p>
+   */
+  StandardIdentifiers?: StandardIdentifier[];
+
+  /**
+   * @public
+   * <p>The reference for the key name of the fields map.</p>
+   */
+  FieldNames?: string[];
+}
+
+/**
+ * @public
+ * <p>Contains <code>ProfileObjectType</code> mapping information from the model.</p>
+ */
+export interface DetectedProfileObjectType {
+  /**
+   * @public
+   * <p>The format of <code>sourceLastUpdatedTimestamp</code> that was detected in fields.</p>
+   */
+  SourceLastUpdatedTimestampFormat?: string;
+
+  /**
+   * @public
+   * <p>A map of the name and the <code>ObjectType</code> field.</p>
+   */
+  Fields?: Record<string, ObjectTypeField>;
+
+  /**
+   * @public
+   * <p>A list of unique keys that can be used to map data to a profile.</p>
+   */
+  Keys?: Record<string, ObjectTypeKey[]>;
+}
+
+/**
+ * @public
+ */
+export interface DetectProfileObjectTypeResponse {
+  /**
+   * @public
+   * <p>Detected <code>ProfileObjectType</code> mappings from given objects. A maximum of one mapping is supported.</p>
+   */
+  DetectedProfileObjectTypes?: DetectedProfileObjectType[];
+}
+
+/**
+ * @public
+ */
 export interface GetAutoMergingPreviewRequest {
   /**
    * @public
@@ -2745,7 +2886,7 @@ export interface GetCalculatedAttributeDefinitionResponse {
    * @public
    * <p>The aggregation operation to perform for the calculated attribute.</p>
    */
-  Statistic?: Statistic | string;
+  Statistic?: Statistic;
 
   /**
    * @public
@@ -2987,7 +3128,7 @@ export interface EventStreamDestinationDetails {
    * @public
    * <p>The status of enabling the Kinesis stream as a destination for export.</p>
    */
-  Status: EventStreamDestinationStatus | string | undefined;
+  Status: EventStreamDestinationStatus | undefined;
 
   /**
    * @public
@@ -3042,7 +3183,7 @@ export interface GetEventStreamResponse {
    * @public
    * <p>The operational state of destination stream for export.</p>
    */
-  State: EventStreamState | string | undefined;
+  State: EventStreamState | undefined;
 
   /**
    * @public
@@ -3209,7 +3350,7 @@ export interface GetIdentityResolutionJobResponse {
    *             </li>
    *          </ul>
    */
-  Status?: IdentityResolutionJobStatus | string;
+  Status?: IdentityResolutionJobStatus;
 
   /**
    * @public
@@ -3441,95 +3582,6 @@ export interface GetProfileObjectTypeRequest {
 
 /**
  * @public
- * @enum
- */
-export const FieldContentType = {
-  EMAIL_ADDRESS: "EMAIL_ADDRESS",
-  NAME: "NAME",
-  NUMBER: "NUMBER",
-  PHONE_NUMBER: "PHONE_NUMBER",
-  STRING: "STRING",
-} as const;
-
-/**
- * @public
- */
-export type FieldContentType = (typeof FieldContentType)[keyof typeof FieldContentType];
-
-/**
- * @public
- * <p>Represents a field in a ProfileObjectType.</p>
- */
-export interface ObjectTypeField {
-  /**
-   * @public
-   * <p>A field of a ProfileObject. For example: _source.FirstName, where “_source” is a
-   *          ProfileObjectType of a Zendesk user and “FirstName” is a field in that ObjectType.</p>
-   */
-  Source?: string;
-
-  /**
-   * @public
-   * <p>The location of the data in the standard ProfileObject model. For example:
-   *          _profile.Address.PostalCode.</p>
-   */
-  Target?: string;
-
-  /**
-   * @public
-   * <p>The content type of the field. Used for determining equality when searching.</p>
-   */
-  ContentType?: FieldContentType | string;
-}
-
-/**
- * @public
- * @enum
- */
-export const StandardIdentifier = {
-  ASSET: "ASSET",
-  CASE: "CASE",
-  LOOKUP_ONLY: "LOOKUP_ONLY",
-  NEW_ONLY: "NEW_ONLY",
-  ORDER: "ORDER",
-  PROFILE: "PROFILE",
-  SECONDARY: "SECONDARY",
-  UNIQUE: "UNIQUE",
-} as const;
-
-/**
- * @public
- */
-export type StandardIdentifier = (typeof StandardIdentifier)[keyof typeof StandardIdentifier];
-
-/**
- * @public
- * <p>An object that defines the Key element of a ProfileObject. A Key is a special element
- *          that can be used to search for a customer profile.</p>
- */
-export interface ObjectTypeKey {
-  /**
-   * @public
-   * <p>The types of keys that a ProfileObject can have. Each ProfileObject can have only 1
-   *          UNIQUE key but multiple PROFILE keys. PROFILE, ASSET, CASE, or ORDER  means that this key can be
-   *          used to tie an object to a PROFILE, ASSET, CASE, or ORDER respectively. UNIQUE means that it can be
-   *          used to uniquely identify an object. If a key a is marked as SECONDARY, it will be used to
-   *          search for profiles after all other PROFILE keys have been searched. A LOOKUP_ONLY key is
-   *          only used to match a profile but is not persisted to be used for searching of the profile.
-   *          A NEW_ONLY key is only used if the profile does not already exist before the object is
-   *          ingested, otherwise it is only used for matching objects to profiles.</p>
-   */
-  StandardIdentifiers?: (StandardIdentifier | string)[];
-
-  /**
-   * @public
-   * <p>The reference for the key name of the fields map.</p>
-   */
-  FieldNames?: string[];
-}
-
-/**
- * @public
  */
 export interface GetProfileObjectTypeResponse {
   /**
@@ -3714,7 +3766,7 @@ export interface GetSimilarProfilesRequest {
    * @public
    * <p>Specify the type of matching to get similar profiles for.</p>
    */
-  MatchType: MatchType | string | undefined;
+  MatchType: MatchType | undefined;
 
   /**
    * @public
@@ -3749,7 +3801,7 @@ export interface GetSimilarProfilesResponse {
    * @public
    * <p>Specify the type of matching to get similar profiles for.</p>
    */
-  MatchType?: MatchType | string;
+  MatchType?: MatchType;
 
   /**
    * @public
@@ -3832,13 +3884,13 @@ export interface GetWorkflowResponse {
    * @public
    * <p>The type of workflow. The only supported value is APPFLOW_INTEGRATION.</p>
    */
-  WorkflowType?: WorkflowType | string;
+  WorkflowType?: WorkflowType;
 
   /**
    * @public
    * <p>Status of workflow execution.</p>
    */
-  Status?: Status | string;
+  Status?: Status;
 
   /**
    * @public
@@ -3927,7 +3979,7 @@ export interface GetWorkflowStepsResponse {
    * @public
    * <p>The type of workflow. The only supported value is APPFLOW_INTEGRATION.</p>
    */
-  WorkflowType?: WorkflowType | string;
+  WorkflowType?: WorkflowType;
 
   /**
    * @public
@@ -4240,7 +4292,7 @@ export interface DestinationSummary {
    * @public
    * <p>The status of enabling the Kinesis stream as a destination for export.</p>
    */
-  Status: EventStreamDestinationStatus | string | undefined;
+  Status: EventStreamDestinationStatus | undefined;
 
   /**
    * @public
@@ -4276,7 +4328,7 @@ export interface EventStreamSummary {
    * @public
    * <p>The operational state of destination stream for export.</p>
    */
-  State: EventStreamState | string | undefined;
+  State: EventStreamState | undefined;
 
   /**
    * @public
@@ -4394,7 +4446,7 @@ export interface IdentityResolutionJob {
    *             </li>
    *          </ul>
    */
-  Status?: IdentityResolutionJobStatus | string;
+  Status?: IdentityResolutionJobStatus;
 
   /**
    * @public
@@ -4809,13 +4861,13 @@ export interface ListWorkflowsRequest {
    * @public
    * <p>The type of workflow. The only supported value is APPFLOW_INTEGRATION.</p>
    */
-  WorkflowType?: WorkflowType | string;
+  WorkflowType?: WorkflowType;
 
   /**
    * @public
    * <p>Status of workflow execution.</p>
    */
-  Status?: Status | string;
+  Status?: Status;
 
   /**
    * @public
@@ -4852,7 +4904,7 @@ export interface ListWorkflowsItem {
    * @public
    * <p>The type of workflow. The only supported value is APPFLOW_INTEGRATION.</p>
    */
-  WorkflowType: WorkflowType | string | undefined;
+  WorkflowType: WorkflowType | undefined;
 
   /**
    * @public
@@ -4864,7 +4916,7 @@ export interface ListWorkflowsItem {
    * @public
    * <p>Status of workflow execution.</p>
    */
-  Status: Status | string | undefined;
+  Status: Status | undefined;
 
   /**
    * @public
@@ -5465,7 +5517,7 @@ export interface SearchProfilesRequest {
    *          </ul>
    *          <p>The <code>OR</code> relationship is the default behavior if this parameter is not included in the request.</p>
    */
-  LogicalOperator?: LogicalOperator | string;
+  LogicalOperator?: LogicalOperator;
 }
 
 /**
@@ -5516,7 +5568,7 @@ export interface Profile {
    *
    * <p>The type of profile used to describe the customer.</p>
    */
-  PartyType?: PartyType | string;
+  PartyType?: PartyType;
 
   /**
    * @public
@@ -5554,7 +5606,7 @@ export interface Profile {
    *
    * <p>The gender with which the customer identifies. </p>
    */
-  Gender?: Gender | string;
+  Gender?: Gender;
 
   /**
    * @public
@@ -5804,7 +5856,7 @@ export interface UpdateCalculatedAttributeDefinitionResponse {
    * @public
    * <p>The aggregation operation to perform for the calculated attribute.</p>
    */
-  Statistic?: Statistic | string;
+  Statistic?: Statistic;
 
   /**
    * @public
@@ -6065,7 +6117,7 @@ export interface UpdateProfileRequest {
    *
    * <p>The type of profile used to describe the customer.</p>
    */
-  PartyType?: PartyType | string;
+  PartyType?: PartyType;
 
   /**
    * @public
@@ -6103,7 +6155,7 @@ export interface UpdateProfileRequest {
    *
    * <p>The gender with which the customer identifies. </p>
    */
-  Gender?: Gender | string;
+  Gender?: Gender;
 
   /**
    * @public
@@ -6203,3 +6255,353 @@ export interface UpdateProfileResponse {
    */
   ProfileId: string | undefined;
 }
+
+/**
+ * @internal
+ */
+export const AddressFilterSensitiveLog = (obj: Address): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FlowDefinitionFilterSensitiveLog = (obj: FlowDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AppflowIntegrationFilterSensitiveLog = (obj: AppflowIntegration): any => ({
+  ...obj,
+  ...(obj.FlowDefinition && { FlowDefinition: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AttributeDetailsFilterSensitiveLog = (obj: AttributeDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCalculatedAttributeDefinitionItemFilterSensitiveLog = (
+  obj: ListCalculatedAttributeDefinitionItem
+): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ConditionsFilterSensitiveLog = (obj: Conditions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCalculatedAttributeDefinitionRequestFilterSensitiveLog = (
+  obj: CreateCalculatedAttributeDefinitionRequest
+): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+  ...(obj.AttributeDetails && { AttributeDetails: SENSITIVE_STRING }),
+  ...(obj.Conditions && { Conditions: SENSITIVE_STRING }),
+  ...(obj.Statistic && { Statistic: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateCalculatedAttributeDefinitionResponseFilterSensitiveLog = (
+  obj: CreateCalculatedAttributeDefinitionResponse
+): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+  ...(obj.AttributeDetails && { AttributeDetails: SENSITIVE_STRING }),
+  ...(obj.Conditions && { Conditions: SENSITIVE_STRING }),
+  ...(obj.Statistic && { Statistic: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const IntegrationConfigFilterSensitiveLog = (obj: IntegrationConfig): any => ({
+  ...obj,
+  ...(obj.AppflowIntegration && { AppflowIntegration: AppflowIntegrationFilterSensitiveLog(obj.AppflowIntegration) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateIntegrationWorkflowRequestFilterSensitiveLog = (obj: CreateIntegrationWorkflowRequest): any => ({
+  ...obj,
+  ...(obj.IntegrationConfig && { IntegrationConfig: IntegrationConfigFilterSensitiveLog(obj.IntegrationConfig) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateProfileRequestFilterSensitiveLog = (obj: CreateProfileRequest): any => ({
+  ...obj,
+  ...(obj.AccountNumber && { AccountNumber: SENSITIVE_STRING }),
+  ...(obj.AdditionalInformation && { AdditionalInformation: SENSITIVE_STRING }),
+  ...(obj.PartyType && { PartyType: SENSITIVE_STRING }),
+  ...(obj.BusinessName && { BusinessName: SENSITIVE_STRING }),
+  ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
+  ...(obj.MiddleName && { MiddleName: SENSITIVE_STRING }),
+  ...(obj.LastName && { LastName: SENSITIVE_STRING }),
+  ...(obj.BirthDate && { BirthDate: SENSITIVE_STRING }),
+  ...(obj.Gender && { Gender: SENSITIVE_STRING }),
+  ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
+  ...(obj.MobilePhoneNumber && { MobilePhoneNumber: SENSITIVE_STRING }),
+  ...(obj.HomePhoneNumber && { HomePhoneNumber: SENSITIVE_STRING }),
+  ...(obj.BusinessPhoneNumber && { BusinessPhoneNumber: SENSITIVE_STRING }),
+  ...(obj.EmailAddress && { EmailAddress: SENSITIVE_STRING }),
+  ...(obj.PersonalEmailAddress && { PersonalEmailAddress: SENSITIVE_STRING }),
+  ...(obj.BusinessEmailAddress && { BusinessEmailAddress: SENSITIVE_STRING }),
+  ...(obj.Address && { Address: SENSITIVE_STRING }),
+  ...(obj.ShippingAddress && { ShippingAddress: SENSITIVE_STRING }),
+  ...(obj.MailingAddress && { MailingAddress: SENSITIVE_STRING }),
+  ...(obj.BillingAddress && { BillingAddress: SENSITIVE_STRING }),
+  ...(obj.Attributes && { Attributes: SENSITIVE_STRING }),
+  ...(obj.PartyTypeString && { PartyTypeString: SENSITIVE_STRING }),
+  ...(obj.GenderString && { GenderString: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DetectProfileObjectTypeRequestFilterSensitiveLog = (obj: DetectProfileObjectTypeRequest): any => ({
+  ...obj,
+  ...(obj.Objects && { Objects: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DetectedProfileObjectTypeFilterSensitiveLog = (obj: DetectedProfileObjectType): any => ({
+  ...obj,
+  ...(obj.Fields && { Fields: SENSITIVE_STRING }),
+  ...(obj.Keys && { Keys: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DetectProfileObjectTypeResponseFilterSensitiveLog = (obj: DetectProfileObjectTypeResponse): any => ({
+  ...obj,
+  ...(obj.DetectedProfileObjectTypes && {
+    DetectedProfileObjectTypes: obj.DetectedProfileObjectTypes.map((item) =>
+      DetectedProfileObjectTypeFilterSensitiveLog(item)
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const GetCalculatedAttributeDefinitionResponseFilterSensitiveLog = (
+  obj: GetCalculatedAttributeDefinitionResponse
+): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+  ...(obj.Statistic && { Statistic: SENSITIVE_STRING }),
+  ...(obj.Conditions && { Conditions: SENSITIVE_STRING }),
+  ...(obj.AttributeDetails && { AttributeDetails: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetProfileObjectTypeResponseFilterSensitiveLog = (obj: GetProfileObjectTypeResponse): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+  ...(obj.Fields && { Fields: SENSITIVE_STRING }),
+  ...(obj.Keys && { Keys: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetProfileObjectTypeTemplateResponseFilterSensitiveLog = (
+  obj: GetProfileObjectTypeTemplateResponse
+): any => ({
+  ...obj,
+  ...(obj.Fields && { Fields: SENSITIVE_STRING }),
+  ...(obj.Keys && { Keys: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListCalculatedAttributeDefinitionsResponseFilterSensitiveLog = (
+  obj: ListCalculatedAttributeDefinitionsResponse
+): any => ({
+  ...obj,
+  ...(obj.Items && { Items: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListProfileObjectsItemFilterSensitiveLog = (obj: ListProfileObjectsItem): any => ({
+  ...obj,
+  ...(obj.Object && { Object: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListProfileObjectsResponseFilterSensitiveLog = (obj: ListProfileObjectsResponse): any => ({
+  ...obj,
+  ...(obj.Items && { Items: obj.Items.map((item) => ListProfileObjectsItemFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListProfileObjectTypesResponseFilterSensitiveLog = (obj: ListProfileObjectTypesResponse): any => ({
+  ...obj,
+  ...(obj.Items && { Items: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PutIntegrationRequestFilterSensitiveLog = (obj: PutIntegrationRequest): any => ({
+  ...obj,
+  ...(obj.FlowDefinition && { FlowDefinition: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PutProfileObjectRequestFilterSensitiveLog = (obj: PutProfileObjectRequest): any => ({
+  ...obj,
+  ...(obj.Object && { Object: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PutProfileObjectTypeRequestFilterSensitiveLog = (obj: PutProfileObjectTypeRequest): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+  ...(obj.Fields && { Fields: SENSITIVE_STRING }),
+  ...(obj.Keys && { Keys: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PutProfileObjectTypeResponseFilterSensitiveLog = (obj: PutProfileObjectTypeResponse): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+  ...(obj.Fields && { Fields: SENSITIVE_STRING }),
+  ...(obj.Keys && { Keys: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ProfileFilterSensitiveLog = (obj: Profile): any => ({
+  ...obj,
+  ...(obj.AccountNumber && { AccountNumber: SENSITIVE_STRING }),
+  ...(obj.AdditionalInformation && { AdditionalInformation: SENSITIVE_STRING }),
+  ...(obj.PartyType && { PartyType: SENSITIVE_STRING }),
+  ...(obj.BusinessName && { BusinessName: SENSITIVE_STRING }),
+  ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
+  ...(obj.MiddleName && { MiddleName: SENSITIVE_STRING }),
+  ...(obj.LastName && { LastName: SENSITIVE_STRING }),
+  ...(obj.BirthDate && { BirthDate: SENSITIVE_STRING }),
+  ...(obj.Gender && { Gender: SENSITIVE_STRING }),
+  ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
+  ...(obj.MobilePhoneNumber && { MobilePhoneNumber: SENSITIVE_STRING }),
+  ...(obj.HomePhoneNumber && { HomePhoneNumber: SENSITIVE_STRING }),
+  ...(obj.BusinessPhoneNumber && { BusinessPhoneNumber: SENSITIVE_STRING }),
+  ...(obj.EmailAddress && { EmailAddress: SENSITIVE_STRING }),
+  ...(obj.PersonalEmailAddress && { PersonalEmailAddress: SENSITIVE_STRING }),
+  ...(obj.BusinessEmailAddress && { BusinessEmailAddress: SENSITIVE_STRING }),
+  ...(obj.Address && { Address: SENSITIVE_STRING }),
+  ...(obj.ShippingAddress && { ShippingAddress: SENSITIVE_STRING }),
+  ...(obj.MailingAddress && { MailingAddress: SENSITIVE_STRING }),
+  ...(obj.BillingAddress && { BillingAddress: SENSITIVE_STRING }),
+  ...(obj.Attributes && { Attributes: SENSITIVE_STRING }),
+  ...(obj.PartyTypeString && { PartyTypeString: SENSITIVE_STRING }),
+  ...(obj.GenderString && { GenderString: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SearchProfilesResponseFilterSensitiveLog = (obj: SearchProfilesResponse): any => ({
+  ...obj,
+  ...(obj.Items && { Items: obj.Items.map((item) => ProfileFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateCalculatedAttributeDefinitionRequestFilterSensitiveLog = (
+  obj: UpdateCalculatedAttributeDefinitionRequest
+): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+  ...(obj.Conditions && { Conditions: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateCalculatedAttributeDefinitionResponseFilterSensitiveLog = (
+  obj: UpdateCalculatedAttributeDefinitionResponse
+): any => ({
+  ...obj,
+  ...(obj.Description && { Description: SENSITIVE_STRING }),
+  ...(obj.Statistic && { Statistic: SENSITIVE_STRING }),
+  ...(obj.Conditions && { Conditions: SENSITIVE_STRING }),
+  ...(obj.AttributeDetails && { AttributeDetails: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAddressFilterSensitiveLog = (obj: UpdateAddress): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateProfileRequestFilterSensitiveLog = (obj: UpdateProfileRequest): any => ({
+  ...obj,
+  ...(obj.AdditionalInformation && { AdditionalInformation: SENSITIVE_STRING }),
+  ...(obj.AccountNumber && { AccountNumber: SENSITIVE_STRING }),
+  ...(obj.PartyType && { PartyType: SENSITIVE_STRING }),
+  ...(obj.BusinessName && { BusinessName: SENSITIVE_STRING }),
+  ...(obj.FirstName && { FirstName: SENSITIVE_STRING }),
+  ...(obj.MiddleName && { MiddleName: SENSITIVE_STRING }),
+  ...(obj.LastName && { LastName: SENSITIVE_STRING }),
+  ...(obj.BirthDate && { BirthDate: SENSITIVE_STRING }),
+  ...(obj.Gender && { Gender: SENSITIVE_STRING }),
+  ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
+  ...(obj.MobilePhoneNumber && { MobilePhoneNumber: SENSITIVE_STRING }),
+  ...(obj.HomePhoneNumber && { HomePhoneNumber: SENSITIVE_STRING }),
+  ...(obj.BusinessPhoneNumber && { BusinessPhoneNumber: SENSITIVE_STRING }),
+  ...(obj.EmailAddress && { EmailAddress: SENSITIVE_STRING }),
+  ...(obj.PersonalEmailAddress && { PersonalEmailAddress: SENSITIVE_STRING }),
+  ...(obj.BusinessEmailAddress && { BusinessEmailAddress: SENSITIVE_STRING }),
+  ...(obj.Address && { Address: SENSITIVE_STRING }),
+  ...(obj.ShippingAddress && { ShippingAddress: SENSITIVE_STRING }),
+  ...(obj.MailingAddress && { MailingAddress: SENSITIVE_STRING }),
+  ...(obj.BillingAddress && { BillingAddress: SENSITIVE_STRING }),
+  ...(obj.Attributes && { Attributes: SENSITIVE_STRING }),
+  ...(obj.PartyTypeString && { PartyTypeString: SENSITIVE_STRING }),
+  ...(obj.GenderString && { GenderString: SENSITIVE_STRING }),
+});

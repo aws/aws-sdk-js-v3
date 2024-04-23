@@ -157,7 +157,7 @@ export class ConflictException extends __BaseException {
    *             </li>
    *          </ul>
    */
-  ConflictType?: ConflictType | string;
+  ConflictType?: ConflictType;
   /**
    * @internal
    */
@@ -229,7 +229,7 @@ export class ResourceNotFoundException extends __BaseException {
    *                 <code>BATCH_JOB</code>, <code>COMPLIANCE_CONSENT</code>, <code>DOMAIN</code>,
    *                 <code>FRAUDSTER</code>, <code>SESSION</code> and <code>SPEAKER</code>.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
   /**
    * @internal
    */
@@ -395,7 +395,7 @@ export interface AuthenticationResult {
    * <p>The authentication decision produced by Voice ID, processed against the current
    *             session state and streamed audio of the speaker.</p>
    */
-  Decision?: AuthenticationDecision | string;
+  Decision?: AuthenticationDecision;
 
   /**
    * @public
@@ -541,7 +541,7 @@ export interface ServerSideEncryptionUpdateDetails {
    *             made accessible, and then an UpdateDomain call with the existing server-side encryption
    *             configuration will re-attempt this update process.</p>
    */
-  UpdateStatus?: ServerSideEncryptionUpdateStatus | string;
+  UpdateStatus?: ServerSideEncryptionUpdateStatus;
 
   /**
    * @public
@@ -596,7 +596,7 @@ export interface Domain {
    * @public
    * <p>The current status of the domain.</p>
    */
-  DomainStatus?: DomainStatus | string;
+  DomainStatus?: DomainStatus;
 
   /**
    * @public
@@ -976,7 +976,7 @@ export interface RegistrationConfig {
    *             to <code>REGISTER_AS_NEW</code> always registers a new fraudster into the specified
    *             domain.</p>
    */
-  DuplicateRegistrationAction?: DuplicateRegistrationAction | string;
+  DuplicateRegistrationAction?: DuplicateRegistrationAction;
 
   /**
    * @public
@@ -1014,7 +1014,7 @@ export interface FraudsterRegistrationJob {
    * @public
    * <p>The current status of the fraudster registration job.</p>
    */
-  JobStatus?: FraudsterRegistrationJobStatus | string;
+  JobStatus?: FraudsterRegistrationJobStatus;
 
   /**
    * @public
@@ -1153,7 +1153,7 @@ export interface Speaker {
    * @public
    * <p>The current status of the speaker.</p>
    */
-  Status?: SpeakerStatus | string;
+  Status?: SpeakerStatus;
 
   /**
    * @public
@@ -1243,7 +1243,7 @@ export interface EnrollmentJobFraudDetectionConfig {
    *             this value to <code>IGNORE</code> results in the speaker being enrolled even if they are
    *             flagged by the fraud detection system.</p>
    */
-  FraudDetectionAction?: FraudDetectionAction | string;
+  FraudDetectionAction?: FraudDetectionAction;
 
   /**
    * @public
@@ -1274,7 +1274,7 @@ export interface EnrollmentConfig {
    *             voice prints and enrollment audio stored for that speaker with new data generated from
    *             the latest audio.</p>
    */
-  ExistingEnrollmentAction?: ExistingEnrollmentAction | string;
+  ExistingEnrollmentAction?: ExistingEnrollmentAction;
 
   /**
    * @public
@@ -1321,7 +1321,7 @@ export interface SpeakerEnrollmentJob {
    * @public
    * <p>The current status of the speaker enrollment job.</p>
    */
-  JobStatus?: SpeakerEnrollmentJobStatus | string;
+  JobStatus?: SpeakerEnrollmentJobStatus;
 
   /**
    * @public
@@ -1515,7 +1515,7 @@ export interface DomainSummary {
    * @public
    * <p>The current status of the domain.</p>
    */
-  DomainStatus?: DomainStatus | string;
+  DomainStatus?: DomainStatus;
 
   /**
    * @public
@@ -1780,7 +1780,7 @@ export interface FraudDetectionResult {
    * <p>The fraud detection decision produced by Voice ID, processed against the current
    *             session state and streamed audio of the speaker.</p>
    */
-  Decision?: FraudDetectionDecision | string;
+  Decision?: FraudDetectionDecision;
 
   /**
    * @public
@@ -1788,7 +1788,7 @@ export interface FraudDetectionResult {
    *             populated if fraud detection Decision is <code>HIGH_RISK</code>, and the following
    *             possible values: <code>KNOWN_FRAUDSTER</code> and <code>VOICE_SPOOFING</code>.</p>
    */
-  Reasons?: (FraudDetectionReason | string)[];
+  Reasons?: FraudDetectionReason[];
 
   /**
    * @public
@@ -1847,7 +1847,7 @@ export interface EvaluateSessionResponse {
    *             streamed session did not have enough speech to perform evaluation, and a new streaming
    *             session is needed to try again.</p>
    */
-  StreamingStatus?: StreamingStatus | string;
+  StreamingStatus?: StreamingStatus;
 
   /**
    * @public
@@ -1885,7 +1885,7 @@ export interface FraudsterRegistrationJobSummary {
    * @public
    * <p>The current status of the fraudster registration job.</p>
    */
-  JobStatus?: FraudsterRegistrationJobStatus | string;
+  JobStatus?: FraudsterRegistrationJobStatus;
 
   /**
    * @public
@@ -1968,7 +1968,7 @@ export interface ListFraudsterRegistrationJobsRequest {
    * @public
    * <p>Provides the status of your fraudster registration job.</p>
    */
-  JobStatus?: FraudsterRegistrationJobStatus | string;
+  JobStatus?: FraudsterRegistrationJobStatus;
 
   /**
    * @public
@@ -2077,7 +2077,7 @@ export interface ListSpeakerEnrollmentJobsRequest {
    * @public
    * <p>Provides the status of your speaker enrollment Job.</p>
    */
-  JobStatus?: SpeakerEnrollmentJobStatus | string;
+  JobStatus?: SpeakerEnrollmentJobStatus;
 
   /**
    * @public
@@ -2117,7 +2117,7 @@ export interface SpeakerEnrollmentJobSummary {
    * @public
    * <p>The current status of the speaker enrollment job.</p>
    */
-  JobStatus?: SpeakerEnrollmentJobStatus | string;
+  JobStatus?: SpeakerEnrollmentJobStatus;
 
   /**
    * @public
@@ -2229,7 +2229,7 @@ export interface SpeakerSummary {
    * @public
    * <p>The current status of the speaker.</p>
    */
-  Status?: SpeakerStatus | string;
+  Status?: SpeakerStatus;
 
   /**
    * @public

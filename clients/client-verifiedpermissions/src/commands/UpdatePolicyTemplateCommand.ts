@@ -1,19 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { UpdatePolicyTemplateInput, UpdatePolicyTemplateOutput } from "../models/models_0";
+import { commonParams } from "../endpoint/EndpointParameters";
+import {
+  UpdatePolicyTemplateInput,
+  UpdatePolicyTemplateInputFilterSensitiveLog,
+  UpdatePolicyTemplateOutput,
+} from "../models/models_0";
 import { de_UpdatePolicyTemplateCommand, se_UpdatePolicyTemplateCommand } from "../protocols/Aws_json1_0";
 import {
   ServiceInputTypes,
@@ -43,9 +39,16 @@ export interface UpdatePolicyTemplateCommandOutput extends UpdatePolicyTemplateO
  * <p>Updates the specified policy template. You can update only the description and the some elements
  *             of the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_UpdatePolicyTemplate.html#amazonverifiedpermissions-UpdatePolicyTemplate-request-policyBody">policyBody</a>. </p>
  *          <important>
- *             <p>Changes you make to the policy template content are immediately reflected in authorization
- *                 decisions that involve all template-linked policies instantiated from this template.</p>
+ *             <p>Changes you make to the policy template content are immediately (within the constraints of
+ *                 eventual consistency) reflected in authorization decisions that involve all template-linked policies
+ *                 instantiated from this template.</p>
  *          </important>
+ *          <note>
+ *             <p>Verified Permissions is <i>
+ *                   <a href="https://wikipedia.org/wiki/Eventual_consistency">eventually consistent</a>
+ *                </i>. It can take a few seconds for a new or changed element to be propagate through
+ *     the service and be visible in the results of other Verified Permissions operations.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -137,7 +140,7 @@ export interface UpdatePolicyTemplateCommandOutput extends UpdatePolicyTemplateO
  *                </p>
  *                <p>The policy attempts to access a record or entity attribute that isn't
  *                     specified in the schema. Test for the existence of the attribute first before
- *                     attempting to access its value. For more information, see the <a href="https://docs.cedarpolicy.com/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
+ *                     attempting to access its value. For more information, see the <a href="https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
  *                         <i>Cedar Policy Language Guide</i>.</p>
  *             </li>
  *             <li>
@@ -147,7 +150,7 @@ export interface UpdatePolicyTemplateCommandOutput extends UpdatePolicyTemplateO
  *                <p>The policy attempts to access a record or entity attribute that is optional
  *                     and isn't guaranteed to be present. Test for the existence of the attribute
  *                     first before attempting to access its value. For more information, see the
- *                         <a href="https://docs.cedarpolicy.com/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
+ *                         <a href="https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
  *                         <i>Cedar Policy Language Guide</i>.</p>
  *             </li>
  *             <li>
@@ -179,79 +182,26 @@ export interface UpdatePolicyTemplateCommandOutput extends UpdatePolicyTemplateO
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
  */
-export class UpdatePolicyTemplateCommand extends $Command<
-  UpdatePolicyTemplateCommandInput,
-  UpdatePolicyTemplateCommandOutput,
-  VerifiedPermissionsClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdatePolicyTemplateCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: VerifiedPermissionsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdatePolicyTemplateCommandInput, UpdatePolicyTemplateCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdatePolicyTemplateCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "VerifiedPermissionsClient";
-    const commandName = "UpdatePolicyTemplateCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdatePolicyTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdatePolicyTemplateCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePolicyTemplateCommandOutput> {
-    return de_UpdatePolicyTemplateCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdatePolicyTemplateCommand extends $Command
+  .classBuilder<
+    UpdatePolicyTemplateCommandInput,
+    UpdatePolicyTemplateCommandOutput,
+    VerifiedPermissionsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("VerifiedPermissions", "UpdatePolicyTemplate", {})
+  .n("VerifiedPermissionsClient", "UpdatePolicyTemplateCommand")
+  .f(UpdatePolicyTemplateInputFilterSensitiveLog, void 0)
+  .ser(se_UpdatePolicyTemplateCommand)
+  .de(de_UpdatePolicyTemplateCommand)
+  .build() {}

@@ -1,7 +1,9 @@
 // smithy-typescript generated code
 import {
+  AdminAccount,
   AutoEnableMembers,
   DataSourceConfigurations,
+  Destination,
   DestinationProperties,
   DetectorFeatureConfiguration,
   EbsSnapshotPreservation,
@@ -10,12 +12,677 @@ import {
   FilterAction,
   FindingCriteria,
   FindingPublishingFrequency,
+  Member,
   OrgFeature,
   OrgFeatureAdditionalConfiguration,
   OrgFeatureStatus,
   ScanResourceCriteria,
+  SortCriteria,
   UnprocessedAccount,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListDetectorsRequest {
+  /**
+   * @public
+   * <p>You can use this parameter to indicate the maximum number of items that you want in the
+   *       response. The default value is 50. The maximum value is 50.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>You can use this parameter when paginating results. Set the value of this parameter to
+   *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
+   *       in the request with the value of NextToken from the previous response to continue listing
+   *       data.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListDetectorsResponse {
+  /**
+   * @public
+   * <p>A list of detector IDs.</p>
+   */
+  DetectorIds: string[] | undefined;
+
+  /**
+   * @public
+   * <p>The pagination parameter to be used on the next list operation to retrieve more
+   *       items.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListFiltersRequest {
+  /**
+   * @public
+   * <p>The unique ID of the detector that the filter is associated with.</p>
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * @public
+   * <p>You can use this parameter to indicate the maximum number of items that you want in the
+   *       response. The default value is 50. The maximum value is 50.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>You can use this parameter when paginating results. Set the value of this parameter to
+   *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
+   *       in the request with the value of NextToken from the previous response to continue listing
+   *       data.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListFiltersResponse {
+  /**
+   * @public
+   * <p>A list of filter names.</p>
+   */
+  FilterNames: string[] | undefined;
+
+  /**
+   * @public
+   * <p>The pagination parameter to be used on the next list operation to retrieve more
+   *       items.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListFindingsRequest {
+  /**
+   * @public
+   * <p>The ID of the detector that specifies the GuardDuty service whose findings you want to
+   *       list.</p>
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * @public
+   * <p>Represents the criteria used for querying findings. Valid values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>JSON field name</p>
+   *             </li>
+   *             <li>
+   *                <p>accountId</p>
+   *             </li>
+   *             <li>
+   *                <p>region</p>
+   *             </li>
+   *             <li>
+   *                <p>confidence</p>
+   *             </li>
+   *             <li>
+   *                <p>id</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.accessKeyDetails.accessKeyId</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.accessKeyDetails.principalId</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.accessKeyDetails.userName</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.accessKeyDetails.userType</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.instanceDetails.iamInstanceProfile.id</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.instanceDetails.imageId</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.instanceDetails.instanceId</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.instanceDetails.networkInterfaces.ipv6Addresses</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.instanceDetails.networkInterfaces.publicDnsName</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.instanceDetails.networkInterfaces.publicIp</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.instanceDetails.networkInterfaces.securityGroups.groupId</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.instanceDetails.networkInterfaces.securityGroups.groupName</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.instanceDetails.networkInterfaces.subnetId</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.instanceDetails.networkInterfaces.vpcId</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.instanceDetails.tags.key</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.instanceDetails.tags.value</p>
+   *             </li>
+   *             <li>
+   *                <p>resource.resourceType</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.actionType</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.awsApiCallAction.api</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.awsApiCallAction.callerType</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.awsApiCallAction.remoteIpDetails.city.cityName</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.awsApiCallAction.remoteIpDetails.country.countryName</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.awsApiCallAction.remoteIpDetails.ipAddressV4</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.awsApiCallAction.remoteIpDetails.organization.asn</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.awsApiCallAction.serviceName</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.dnsRequestAction.domain</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.dnsRequestAction.domainWithSuffix</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.networkConnectionAction.blocked</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.networkConnectionAction.connectionDirection</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.networkConnectionAction.localPortDetails.port</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.networkConnectionAction.protocol</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.networkConnectionAction.remoteIpDetails.country.countryName</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.networkConnectionAction.remoteIpDetails.ipAddressV4</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.networkConnectionAction.remoteIpDetails.organization.asn</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.networkConnectionAction.remotePortDetails.port</p>
+   *             </li>
+   *             <li>
+   *                <p>service.additionalInfo.threatListName</p>
+   *             </li>
+   *             <li>
+   *                <p>service.archived</p>
+   *                <p>When this attribute is set to 'true', only archived findings are listed. When it's set
+   *           to 'false', only unarchived findings are listed. When this attribute is not set, all
+   *           existing findings are listed.</p>
+   *             </li>
+   *             <li>
+   *                <p>service.resourceRole</p>
+   *             </li>
+   *             <li>
+   *                <p>severity</p>
+   *             </li>
+   *             <li>
+   *                <p>type</p>
+   *             </li>
+   *             <li>
+   *                <p>updatedAt</p>
+   *                <p>Type: Timestamp in Unix Epoch millisecond format: 1486685375000</p>
+   *             </li>
+   *          </ul>
+   */
+  FindingCriteria?: FindingCriteria;
+
+  /**
+   * @public
+   * <p>Represents the criteria used for sorting findings.</p>
+   */
+  SortCriteria?: SortCriteria;
+
+  /**
+   * @public
+   * <p>You can use this parameter to indicate the maximum number of items you want in the
+   *       response. The default value is 50. The maximum value is 50.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>You can use this parameter when paginating results. Set the value of this parameter to
+   *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
+   *       in the request with the value of NextToken from the previous response to continue listing
+   *       data.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListFindingsResponse {
+  /**
+   * @public
+   * <p>The IDs of the findings that you're listing.</p>
+   */
+  FindingIds: string[] | undefined;
+
+  /**
+   * @public
+   * <p>The pagination parameter to be used on the next list operation to retrieve more
+   *       items.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListInvitationsRequest {
+  /**
+   * @public
+   * <p>You can use this parameter to indicate the maximum number of items that you want in the
+   *       response. The default value is 50. The maximum value is 50.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>You can use this parameter when paginating results. Set the value of this parameter to
+   *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
+   *       in the request with the value of NextToken from the previous response to continue listing
+   *       data.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * <p>Contains information about the invitation to become a member account.</p>
+ */
+export interface Invitation {
+  /**
+   * @public
+   * <p>The ID of the account that the invitation was sent from.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>The ID of the invitation. This value is used to validate the inviter account to the member
+   *       account.</p>
+   */
+  InvitationId?: string;
+
+  /**
+   * @public
+   * <p>The status of the relationship between the inviter and invitee accounts.</p>
+   */
+  RelationshipStatus?: string;
+
+  /**
+   * @public
+   * <p>The timestamp when the invitation was sent.</p>
+   */
+  InvitedAt?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListInvitationsResponse {
+  /**
+   * @public
+   * <p>A list of invitation descriptions.</p>
+   */
+  Invitations?: Invitation[];
+
+  /**
+   * @public
+   * <p>The pagination parameter to be used on the next list operation to retrieve more
+   *       items.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListIPSetsRequest {
+  /**
+   * @public
+   * <p>The unique ID of the detector that the IPSet is associated with.</p>
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * @public
+   * <p>You can use this parameter to indicate the maximum number of items you want in the
+   *       response. The default value is 50. The maximum value is 50.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>You can use this parameter when paginating results. Set the value of this parameter to
+   *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
+   *       in the request with the value of NextToken from the previous response to continue listing
+   *       data.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListIPSetsResponse {
+  /**
+   * @public
+   * <p>The IDs of the IPSet resources.</p>
+   */
+  IpSetIds: string[] | undefined;
+
+  /**
+   * @public
+   * <p>The pagination parameter to be used on the next list operation to retrieve more
+   *       items.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListMembersRequest {
+  /**
+   * @public
+   * <p>The unique ID of the detector the member is associated with.</p>
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * @public
+   * <p>You can use this parameter to indicate the maximum number of items you want in the
+   *       response. The default value is 50. The maximum value is 50.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>You can use this parameter when paginating results. Set the value of this parameter to
+   *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
+   *       in the request with the value of NextToken from the previous response to continue listing
+   *       data.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>Specifies whether to only return associated members or to return all members (including
+   *       members who haven't been invited yet or have been disassociated). Member accounts must have
+   *       been previously associated with the GuardDuty administrator account using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html">
+   *                <code>Create
+   *           Members</code>
+   *             </a>. </p>
+   */
+  OnlyAssociated?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListMembersResponse {
+  /**
+   * @public
+   * <p>A list of members.</p>
+   *          <note>
+   *             <p>The values for <code>email</code> and <code>invitedAt</code> are available
+   *     only if the member accounts are added by invitation.</p>
+   *          </note>
+   */
+  Members?: Member[];
+
+  /**
+   * @public
+   * <p>The pagination parameter to be used on the next list operation to retrieve more
+   *       items.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListOrganizationAdminAccountsRequest {
+  /**
+   * @public
+   * <p>The maximum number of results to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>A token to use for paginating results that are returned in the response. Set the value of
+   *       this parameter to null for the first request to a list action. For subsequent calls, use the
+   *         <code>NextToken</code> value returned from the previous request to continue listing results
+   *       after the first page.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListOrganizationAdminAccountsResponse {
+  /**
+   * @public
+   * <p>A list of accounts configured as GuardDuty delegated administrators.</p>
+   */
+  AdminAccounts?: AdminAccount[];
+
+  /**
+   * @public
+   * <p>The pagination parameter to be used on the next list operation to retrieve more
+   *       items.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListPublishingDestinationsRequest {
+  /**
+   * @public
+   * <p>The ID of the detector to retrieve publishing destinations for.</p>
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>A token to use for paginating results that are returned in the response. Set the value of
+   *       this parameter to null for the first request to a list action. For subsequent calls, use the
+   *         <code>NextToken</code> value returned from the previous request to continue listing results
+   *       after the first page.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListPublishingDestinationsResponse {
+  /**
+   * @public
+   * <p>A <code>Destinations</code> object that includes information about each publishing
+   *       destination returned.</p>
+   */
+  Destinations: Destination[] | undefined;
+
+  /**
+   * @public
+   * <p>A token to use for paginating results that are returned in the response. Set the value of
+   *       this parameter to null for the first request to a list action. For subsequent calls, use the
+   *         <code>NextToken</code> value returned from the previous request to continue listing results
+   *       after the first page.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the given GuardDuty resource. </p>
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * @public
+   * <p>The tags associated with the resource.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface ListThreatIntelSetsRequest {
+  /**
+   * @public
+   * <p>The unique ID of the detector that the threatIntelSet is associated with.</p>
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * @public
+   * <p>You can use this parameter to indicate the maximum number of items that you want in the
+   *       response. The default value is 50. The maximum value is 50.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>You can use this parameter to paginate results in the response. Set the value of this
+   *       parameter to null on your first call to the list action. For subsequent calls to the action,
+   *       fill nextToken in the request with the value of NextToken from the previous response to
+   *       continue listing data.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListThreatIntelSetsResponse {
+  /**
+   * @public
+   * <p>The IDs of the ThreatIntelSet resources.</p>
+   */
+  ThreatIntelSetIds: string[] | undefined;
+
+  /**
+   * @public
+   * <p>The pagination parameter to be used on the next list operation to retrieve more
+   *       items.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface StartMalwareScanRequest {
+  /**
+   * @public
+   * <p>Amazon Resource Name (ARN) of the resource for which you invoked the API.</p>
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartMalwareScanResponse {
+  /**
+   * @public
+   * <p>A unique identifier that gets generated when you invoke the API without any error. Each malware scan has
+   *       a corresponding scan ID. Using this scan ID, you can monitor the status of your malware scan.</p>
+   */
+  ScanId?: string;
+}
+
+/**
+ * @public
+ */
+export interface StartMonitoringMembersRequest {
+  /**
+   * @public
+   * <p>The unique ID of the detector of the GuardDuty administrator account associated with the
+   *       member accounts to monitor.</p>
+   */
+  DetectorId: string | undefined;
+
+  /**
+   * @public
+   * <p>A list of account IDs of the GuardDuty member accounts to start monitoring.</p>
+   */
+  AccountIds: string[] | undefined;
+}
 
 /**
  * @public
@@ -146,7 +813,7 @@ export interface UpdateDetectorRequest {
    * <p>An enum value that specifies how frequently findings are exported, such as to CloudWatch
    *       Events.</p>
    */
-  FindingPublishingFrequency?: FindingPublishingFrequency | string;
+  FindingPublishingFrequency?: FindingPublishingFrequency;
 
   /**
    * @public
@@ -201,7 +868,7 @@ export interface UpdateFilterRequest {
    * @public
    * <p>Specifies the action that is to be applied to the findings that match the filter.</p>
    */
-  Action?: FilterAction | string;
+  Action?: FilterAction;
 
   /**
    * @public
@@ -248,7 +915,7 @@ export interface UpdateFindingsFeedbackRequest {
    * @public
    * <p>The feedback for the finding.</p>
    */
-  Feedback: Feedback | string | undefined;
+  Feedback: Feedback | undefined;
 
   /**
    * @public
@@ -323,7 +990,7 @@ export interface UpdateMalwareScanSettingsRequest {
    * @public
    * <p>An enum value representing possible snapshot preservation settings.</p>
    */
-  EbsSnapshotPreservation?: EbsSnapshotPreservation | string;
+  EbsSnapshotPreservation?: EbsSnapshotPreservation;
 }
 
 /**
@@ -340,13 +1007,13 @@ export interface MemberAdditionalConfiguration {
    * @public
    * <p>Name of the additional configuration.</p>
    */
-  Name?: OrgFeatureAdditionalConfiguration | string;
+  Name?: OrgFeatureAdditionalConfiguration;
 
   /**
    * @public
    * <p>Status of the additional configuration.</p>
    */
-  Status?: FeatureStatus | string;
+  Status?: FeatureStatus;
 }
 
 /**
@@ -358,13 +1025,13 @@ export interface MemberFeaturesConfiguration {
    * @public
    * <p>The name of the feature.</p>
    */
-  Name?: OrgFeature | string;
+  Name?: OrgFeature;
 
   /**
    * @public
    * <p>The status of the feature.</p>
    */
-  Status?: FeatureStatus | string;
+  Status?: FeatureStatus;
 
   /**
    * @public
@@ -525,7 +1192,7 @@ export interface OrganizationDataSourceConfigurations {
 
 /**
  * @public
- * <p>A list of additional configurations which will be configured for the organization.</p>
+ * <p>A list of additional configurations which will be configured for the organization. </p>
  */
 export interface OrganizationAdditionalConfiguration {
   /**
@@ -533,14 +1200,38 @@ export interface OrganizationAdditionalConfiguration {
    * <p>The name of the additional configuration that will be configured for the
    *       organization.</p>
    */
-  Name?: OrgFeatureAdditionalConfiguration | string;
+  Name?: OrgFeatureAdditionalConfiguration;
 
   /**
    * @public
    * <p>The status of the additional configuration that will be configured for the
-   *       organization.</p>
+   *       organization. Use one of the following
+   *       values to configure the feature status for the entire organization:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NEW</code>: Indicates that when a new account joins the organization, they will
+   *           have the additional configuration enabled automatically. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALL</code>: Indicates that all accounts in the organization have
+   *           the additional configuration
+   *           enabled automatically. This includes <code>NEW</code> accounts that join the organization
+   *           and accounts that may have been suspended or removed from the organization in
+   *           GuardDuty.</p>
+   *                <p>It may take up to 24 hours to update the configuration for all the member accounts.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code>: Indicates that the additional configuration will not be
+   *           automatically enabled for any
+   *           account in the organization. The administrator must manage the additional configuration
+   *           for each account individually.</p>
+   *             </li>
+   *          </ul>
    */
-  AutoEnable?: OrgFeatureStatus | string;
+  AutoEnable?: OrgFeatureStatus;
 }
 
 /**
@@ -552,13 +1243,37 @@ export interface OrganizationFeatureConfiguration {
    * @public
    * <p>The name of the feature that will be configured for the organization.</p>
    */
-  Name?: OrgFeature | string;
+  Name?: OrgFeature;
 
   /**
    * @public
-   * <p>The status of the feature that will be configured for the organization.</p>
+   * <p>Describes the status of the feature that is configured for the
+   *       member accounts within the organization. One of the following
+   *       values is the status for the entire organization:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NEW</code>: Indicates that when a new account joins the organization, they will
+   *           have the feature enabled automatically. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALL</code>: Indicates that all accounts in the organization have the feature
+   *           enabled automatically. This includes <code>NEW</code> accounts that join the organization
+   *           and accounts that may have been suspended or removed from the organization in
+   *           GuardDuty.</p>
+   *                <p>It may take up to 24 hours to update the configuration for all the member accounts.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code>: Indicates that the feature will not be
+   *           automatically enabled for any
+   *           account in the organization. The administrator must manage the feature
+   *           for each account individually.</p>
+   *             </li>
+   *          </ul>
    */
-  AutoEnable?: OrgFeatureStatus | string;
+  AutoEnable?: OrgFeatureStatus;
 
   /**
    * @public
@@ -581,9 +1296,10 @@ export interface UpdateOrganizationConfigurationRequest {
    * @public
    * @deprecated
    *
-   * <p>Indicates whether to automatically enable member accounts in the organization.</p>
+   * <p>Represents whether or not to automatically enable member accounts in the organization.</p>
    *          <p>Even though this is still supported, we recommend using
-   *         <code>AutoEnableOrganizationMembers</code> to achieve the similar results.</p>
+   *    <code>AutoEnableOrganizationMembers</code> to achieve the similar results. You must provide a
+   *     value for either <code>autoEnableOrganizationMembers</code> or <code>autoEnable</code>.</p>
    */
   AutoEnable?: boolean;
 
@@ -604,7 +1320,9 @@ export interface UpdateOrganizationConfigurationRequest {
   /**
    * @public
    * <p>Indicates the auto-enablement configuration of GuardDuty for the member accounts in the
-   *       organization. </p>
+   *       organization. You must provide a value for either <code>autoEnableOrganizationMembers</code> or <code>autoEnable</code>. </p>
+   *          <p>Use one of the
+   *     following configuration values for <code>autoEnableOrganizationMembers</code>:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -613,20 +1331,20 @@ export interface UpdateOrganizationConfigurationRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ALL</code>: Indicates that all accounts in the Amazon Web Services Organization have GuardDuty
+   *                   <code>ALL</code>: Indicates that all accounts in the organization have GuardDuty
    *           enabled automatically. This includes <code>NEW</code> accounts that join the organization
    *           and accounts that may have been suspended or removed from the organization in
    *           GuardDuty.</p>
+   *                <p>It may take up to 24 hours to update the configuration for all the member accounts.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>NONE</code>: Indicates that GuardDuty will not be automatically enabled for any
-   *           accounts in the organization. GuardDuty must be managed for each account individually by the
-   *           administrator.</p>
+   *           account in the organization. The administrator must manage GuardDuty for each account in the organization individually.</p>
    *             </li>
    *          </ul>
    */
-  AutoEnableOrganizationMembers?: AutoEnableMembers | string;
+  AutoEnableOrganizationMembers?: AutoEnableMembers;
 }
 
 /**

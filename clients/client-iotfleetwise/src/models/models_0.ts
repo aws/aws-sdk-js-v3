@@ -44,6 +44,8 @@ export const NodeDataType = {
   INT8_ARRAY: "INT8_ARRAY",
   STRING: "STRING",
   STRING_ARRAY: "STRING_ARRAY",
+  STRUCT: "STRUCT",
+  STRUCT_ARRAY: "STRUCT_ARRAY",
   UINT16: "UINT16",
   UINT16_ARRAY: "UINT16_ARRAY",
   UINT32: "UINT32",
@@ -66,10 +68,10 @@ export type NodeDataType = (typeof NodeDataType)[keyof typeof NodeDataType];
  * @public
  * <p>A signal that represents a vehicle device such as the engine, heater, and door locks.
  *             Data from an actuator reports the state of a certain vehicle device.</p>
- *         <note>
+ *          <note>
  *             <p> Updating actuator data can change the state of a device. For example, you can
  *                 turn on or off the heater by updating its actuator data.</p>
- *         </note>
+ *          </note>
  */
 export interface Actuator {
   /**
@@ -83,7 +85,7 @@ export interface Actuator {
    * @public
    * <p>The specified data type of the actuator. </p>
    */
-  dataType: NodeDataType | string | undefined;
+  dataType: NodeDataType | undefined;
 
   /**
    * @public
@@ -134,6 +136,12 @@ export interface Actuator {
    * <p>A comment in addition to the description.</p>
    */
   comment?: string;
+
+  /**
+   * @public
+   * <p>The fully qualified name of the struct node for the actuator if the data type of the actuator is <code>Struct</code> or <code>StructArray</code>. For example, the struct fully qualified name of an actuator might be <code>Vehicle.Door.LockStruct</code>.</p>
+   */
+  structFullyQualifiedName?: string;
 }
 
 /**
@@ -182,6 +190,40 @@ export class InternalServerException extends __BaseException {
     });
     Object.setPrototypeOf(this, InternalServerException.prototype);
     this.retryAfterSeconds = opts.retryAfterSeconds;
+  }
+}
+
+/**
+ * @public
+ * <p>A service quota was exceeded. </p>
+ */
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>The identifier of the resource that was exceeded.</p>
+   */
+  resourceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of resource that was exceeded.</p>
+   */
+  resourceType: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
   }
 }
 
@@ -306,7 +348,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>The reason the input failed to satisfy the constraints specified by an Amazon Web Services service.</p>
    */
-  reason?: ValidationExceptionReason | string;
+  reason?: ValidationExceptionReason;
 
   /**
    * @public
@@ -346,7 +388,7 @@ export interface Attribute {
    * @public
    * <p>The specified data type of the attribute. </p>
    */
-  dataType: NodeDataType | string | undefined;
+  dataType: NodeDataType | undefined;
 
   /**
    * @public
@@ -474,7 +516,7 @@ export interface CreateVehicleRequestItem {
    * <p>An option to create a new Amazon Web Services IoT thing when creating a vehicle, or to validate an
    *             existing thing as a vehicle.</p>
    */
-  associationBehavior?: VehicleAssociationBehavior | string;
+  associationBehavior?: VehicleAssociationBehavior;
 
   /**
    * @public
@@ -564,40 +606,6 @@ export interface BatchCreateVehicleResponse {
 
 /**
  * @public
- * <p>A service quota was exceeded. </p>
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @public
-   * <p>The identifier of the resource that was exceeded.</p>
-   */
-  resourceId: string | undefined;
-
-  /**
-   * @public
-   * <p>The type of resource that was exceeded.</p>
-   */
-  resourceType: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * @public
  * @enum
  */
 export const UpdateMode = {
@@ -636,7 +644,7 @@ export interface UpdateVehicleRequestItem {
   /**
    * @public
    * <p>Static information about a vehicle in a key-value pair. For example:</p>
-   *         <p>
+   *          <p>
    *             <code>"engineType"</code> : <code>"1.3 L R2"</code>
    *          </p>
    */
@@ -647,9 +655,9 @@ export interface UpdateVehicleRequestItem {
    * <p>The method the specified attributes will update the existing attributes on the
    *             vehicle. Use<code>Overwite</code> to replace the vehicle attributes with the specified
    *             attributes. Or use <code>Merge</code> to combine all attributes.</p>
-   *         <p>This is required if attributes are present in the input.</p>
+   *          <p>This is required if attributes are present in the input.</p>
    */
-  attributeUpdateMode?: UpdateMode | string;
+  attributeUpdateMode?: UpdateMode;
 }
 
 /**
@@ -713,9 +721,9 @@ export interface BatchUpdateVehicleResponse {
   /**
    * @public
    * <p> A list of information about the batch of updated vehicles. </p>
-   *         <note>
+   *          <note>
    *             <p>This list contains only unique IDs for the vehicles that were updated.</p>
-   *         </note>
+   *          </note>
    */
   vehicles?: UpdateVehicleResponseItem[];
 
@@ -816,7 +824,7 @@ export interface ConditionBasedCollectionScheme {
   /**
    * @public
    * <p>The logical expression used to recognize what data to collect. For example,
-   *                 <code>$variable.Vehicle.OutsideAirTemperature &gt;= 105.0</code>.</p>
+   *             <code>$variable.`Vehicle.OutsideAirTemperature` &gt;= 105.0</code>.</p>
    */
   expression: string | undefined;
 
@@ -824,9 +832,9 @@ export interface ConditionBasedCollectionScheme {
    * @public
    * <p>The minimum duration of time between two triggering events to collect data, in
    *             milliseconds.</p>
-   *         <note>
+   *          <note>
    *             <p>If a signal changes often, you might want to collect data at a slower rate.</p>
-   *         </note>
+   *          </note>
    */
   minimumTriggerIntervalMs?: number;
 
@@ -838,7 +846,7 @@ export interface ConditionBasedCollectionScheme {
    *             triggering when the airbag is already exploded; they only care about the change from not
    *             deployed =&gt; deployed.</p>
    */
-  triggerMode?: TriggerMode | string;
+  triggerMode?: TriggerMode;
 
   /**
    * @public
@@ -977,30 +985,30 @@ export interface S3Config {
   /**
    * @public
    * <p>Specify the format that files are saved in the Amazon S3 bucket. You can save files in an Apache Parquet or JSON format.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Parquet - Store data in a columnar storage file format. Parquet is optimal for
+   *                <p>Parquet - Store data in a columnar storage file format. Parquet is optimal for
    *                     fast data retrieval and can reduce costs. This option is selected by
    *                     default.</p>
    *             </li>
    *             <li>
-   *                 <p>JSON - Store data in a standard text-based JSON file format.</p>
+   *                <p>JSON - Store data in a standard text-based JSON file format.</p>
    *             </li>
    *          </ul>
    */
-  dataFormat?: DataFormat | string;
+  dataFormat?: DataFormat;
 
   /**
    * @public
    * <p>By default, stored data is compressed as a .gzip file. Compressed files have a reduced
    *             file size, which can optimize the cost of data storage.</p>
    */
-  storageCompressionFormat?: StorageCompressionFormat | string;
+  storageCompressionFormat?: StorageCompressionFormat;
 
   /**
    * @public
    * <p>(Optional) Enter an S3 bucket prefix. The prefix is the string of characters after the bucket name and before the object name. You can use the prefix to organize data stored in Amazon S3 buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html">Organizing objects using prefixes</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
-   *         <p>By default, Amazon Web Services IoT FleetWise sets the prefix <code>processed-data/year=YY/month=MM/date=DD/hour=HH/</code> (in UTC) to data it delivers to Amazon S3. You can enter a prefix to append it to this default prefix. For example, if you enter the prefix <code>vehicles</code>, the prefix will be <code>vehicles/processed-data/year=YY/month=MM/date=DD/hour=HH/</code>.</p>
+   *          <p>By default, Amazon Web Services IoT FleetWise sets the prefix <code>processed-data/year=YY/month=MM/date=DD/hour=HH/</code> (in UTC) to data it delivers to Amazon S3. You can enter a prefix to append it to this default prefix. For example, if you enter the prefix <code>vehicles</code>, the prefix will be <code>vehicles/processed-data/year=YY/month=MM/date=DD/hour=HH/</code>.</p>
    */
   prefix?: string;
 }
@@ -1113,9 +1121,9 @@ export interface SignalInformation {
    * @public
    * <p>The minimum duration of time (in milliseconds) between two triggering events to
    *             collect data.</p>
-   *         <note>
+   *          <note>
    *             <p>If a signal changes often, you might want to collect data at a slower rate.</p>
-   *         </note>
+   *          </note>
    */
   minimumSamplingIntervalMs?: number;
 }
@@ -1167,7 +1175,7 @@ export interface CreateCampaignRequest {
    * @public
    * <p>(Optional) The time, in milliseconds, to deliver a campaign after it was approved. If
    *             it's not specified, <code>0</code> is used.</p>
-   *         <p>Default: <code>0</code>
+   *          <p>Default: <code>0</code>
    *          </p>
    */
   startTime?: Date;
@@ -1176,7 +1184,7 @@ export interface CreateCampaignRequest {
    * @public
    * <p> (Optional) The time the campaign expires, in seconds since epoch (January 1, 1970 at
    *             midnight UTC time). Vehicle data isn't collected after the campaign expires. </p>
-   *         <p>Default: 253402214400 (December 31, 9999, 00:00:00 UTC)</p>
+   *          <p>Default: 253402214400 (December 31, 9999, 00:00:00 UTC)</p>
    */
   expiryTime?: Date;
 
@@ -1184,7 +1192,7 @@ export interface CreateCampaignRequest {
    * @public
    * <p> (Optional) How long (in milliseconds) to collect raw data after a triggering event
    *             initiates the collection. If it's not specified, <code>0</code> is used.</p>
-   *         <p>Default: <code>0</code>
+   *          <p>Default: <code>0</code>
    *          </p>
    */
   postTriggerCollectionDuration?: number;
@@ -1194,10 +1202,10 @@ export interface CreateCampaignRequest {
    * <p> (Optional) Option for a vehicle to send diagnostic trouble codes to Amazon Web Services IoT FleetWise. If you
    *             want to send diagnostic trouble codes, use <code>SEND_ACTIVE_DTCS</code>. If it's not
    *             specified, <code>OFF</code> is used.</p>
-   *         <p>Default: <code>OFF</code>
+   *          <p>Default: <code>OFF</code>
    *          </p>
    */
-  diagnosticsMode?: DiagnosticsMode | string;
+  diagnosticsMode?: DiagnosticsMode;
 
   /**
    * @public
@@ -1205,27 +1213,27 @@ export interface CreateCampaignRequest {
    *             cloud. After a connection is re-established, the data is automatically forwarded to
    *             Amazon Web Services IoT FleetWise. If you want to store collected data when a vehicle loses connection with the
    *             cloud, use <code>TO_DISK</code>. If it's not specified, <code>OFF</code> is used.</p>
-   *         <p>Default: <code>OFF</code>
+   *          <p>Default: <code>OFF</code>
    *          </p>
    */
-  spoolingMode?: SpoolingMode | string;
+  spoolingMode?: SpoolingMode;
 
   /**
    * @public
    * <p> (Optional) Whether to compress signals before transmitting data to Amazon Web Services IoT FleetWise. If you
    *             don't want to compress the signals, use <code>OFF</code>. If it's not specified,
    *                 <code>SNAPPY</code> is used. </p>
-   *         <p>Default: <code>SNAPPY</code>
+   *          <p>Default: <code>SNAPPY</code>
    *          </p>
    */
-  compression?: Compression | string;
+  compression?: Compression;
 
   /**
    * @public
    * <p>(Optional) A number indicating the priority of one campaign over another campaign for
    *             a certain vehicle or fleet. A campaign with the lowest value is deployed to vehicles
    *             before any other campaigns. If it's not specified, <code>0</code> is used. </p>
-   *         <p>Default: <code>0</code>
+   *          <p>Default: <code>0</code>
    *          </p>
    */
   priority?: number;
@@ -1246,8 +1254,8 @@ export interface CreateCampaignRequest {
   /**
    * @public
    * <p> (Optional) A list of vehicle attributes to associate with a campaign. </p>
-   *         <p>Enrich the data with specified vehicle attributes. For example, add <code>make</code> and <code>model</code> to the campaign, and Amazon Web Services IoT FleetWise will associate the data with those attributes as dimensions in Amazon Timestream. You can then query the data against <code>make</code> and <code>model</code>.</p>
-   *         <p>Default: An empty array</p>
+   *          <p>Enrich the data with specified vehicle attributes. For example, add <code>make</code> and <code>model</code> to the campaign, and Amazon Web Services IoT FleetWise will associate the data with those attributes as dimensions in Amazon Timestream. You can then query the data against <code>make</code> and <code>model</code>.</p>
+   *          <p>Default: An empty array</p>
    */
   dataExtraDimensions?: string[];
 
@@ -1260,8 +1268,8 @@ export interface CreateCampaignRequest {
   /**
    * @public
    * <p>The destination where the campaign sends data. You can choose to send data to be stored in Amazon S3 or Amazon Timestream.</p>
-   *         <p>Amazon S3 optimizes the cost of data storage and provides additional mechanisms to use vehicle data, such as data lakes, centralized data storage, data processing pipelines, and analytics. </p>
-   *         <p>You can use Amazon Timestream to access and analyze time series data, and Timestream to query
+   *          <p>Amazon S3 optimizes the cost of data storage and provides additional mechanisms to use vehicle data, such as data lakes, centralized data storage, data processing pipelines, and analytics. Amazon Web Services IoT FleetWise supports at-least-once file delivery to S3. Your vehicle data is stored on multiple Amazon Web Services IoT FleetWise servers for redundancy and high availability.</p>
+   *          <p>You can use Amazon Timestream to access and analyze time series data, and Timestream to query
    *             vehicle data so that you can identify trends and patterns.</p>
    */
   dataDestinationConfigs?: DataDestinationConfig[];
@@ -1308,9 +1316,9 @@ export interface DeleteCampaignResponse {
   /**
    * @public
    * <p> The Amazon Resource Name (ARN) of the deleted campaign.</p>
-   *         <note>
+   *          <note>
    *             <p>The ARN isn’t returned if a campaign doesn’t exist.</p>
-   *         </note>
+   *          </note>
    */
   arn?: string;
 }
@@ -1382,7 +1390,7 @@ export interface GetCampaignResponse {
    *                 <code>WAITING_FOR_APPROVAL</code>, <code>RUNNING</code>, and <code>SUSPENDED</code>.
    *         </p>
    */
-  status?: CampaignStatus | string;
+  status?: CampaignStatus;
 
   /**
    * @public
@@ -1408,7 +1416,7 @@ export interface GetCampaignResponse {
    * @public
    * <p> Option for a vehicle to send diagnostic trouble codes to Amazon Web Services IoT FleetWise. </p>
    */
-  diagnosticsMode?: DiagnosticsMode | string;
+  diagnosticsMode?: DiagnosticsMode;
 
   /**
    * @public
@@ -1416,7 +1424,7 @@ export interface GetCampaignResponse {
    *             After a connection is re-established, the data is automatically forwarded to Amazon Web Services IoT FleetWise.
    *         </p>
    */
-  spoolingMode?: SpoolingMode | string;
+  spoolingMode?: SpoolingMode;
 
   /**
    * @public
@@ -1424,7 +1432,7 @@ export interface GetCampaignResponse {
    *                 <code>OFF</code> is specified, the signals aren't compressed. If it's not specified,
    *                 <code>SNAPPY</code> is used. </p>
    */
-  compression?: Compression | string;
+  compression?: Compression;
 
   /**
    * @public
@@ -1468,8 +1476,8 @@ export interface GetCampaignResponse {
   /**
    * @public
    * <p>The destination where the campaign sends data. You can choose to send data to be stored in Amazon S3 or Amazon Timestream.</p>
-   *         <p>Amazon S3 optimizes the cost of data storage and provides additional mechanisms to use vehicle data, such as data lakes, centralized data storage, data processing pipelines, and analytics. </p>
-   *         <p>You can use Amazon Timestream to access and analyze time series data, and Timestream to query
+   *          <p>Amazon S3 optimizes the cost of data storage and provides additional mechanisms to use vehicle data, such as data lakes, centralized data storage, data processing pipelines, and analytics. </p>
+   *          <p>You can use Amazon Timestream to access and analyze time series data, and Timestream to query
    *             vehicle data so that you can identify trends and patterns.</p>
    */
   dataDestinationConfigs?: DataDestinationConfig[];
@@ -1505,7 +1513,7 @@ export interface ListCampaignsRequest {
 /**
  * @public
  * <p>Information about a campaign. </p>
- *         <p>You can use the  API operation to return this
+ *          <p>You can use the  API operation to return this
  *             information about multiple created campaigns.</p>
  */
 export interface CampaignSummary {
@@ -1542,31 +1550,31 @@ export interface CampaignSummary {
   /**
    * @public
    * <p>The state of a campaign. The status can be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>CREATING</code> - Amazon Web Services IoT FleetWise is processing your request to create the
+   *                <p>
+   *                   <code>CREATING</code> - Amazon Web Services IoT FleetWise is processing your request to create the
    *                     campaign.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>WAITING_FOR_APPROVAL</code> - After a campaign is created, it enters the
+   *                <p>
+   *                   <code>WAITING_FOR_APPROVAL</code> - After a campaign is created, it enters the
    *                         <code>WAITING_FOR_APPROVAL</code> state. To allow Amazon Web Services IoT FleetWise to deploy the
    *                     campaign to the target vehicle or fleet, use the  API operation to approve the campaign.
    *                 </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>RUNNING</code> - The campaign is active. </p>
+   *                <p>
+   *                   <code>RUNNING</code> - The campaign is active. </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>SUSPENDED</code> - The campaign is suspended. To resume the campaign, use
+   *                <p>
+   *                   <code>SUSPENDED</code> - The campaign is suspended. To resume the campaign, use
    *                     the  API operation. </p>
    *             </li>
    *          </ul>
    */
-  status?: CampaignStatus | string;
+  status?: CampaignStatus;
 
   /**
    * @public
@@ -1633,34 +1641,34 @@ export interface UpdateCampaignRequest {
   /**
    * @public
    * <p> A list of vehicle attributes to associate with a signal. </p>
-   *         <p>Default: An empty array</p>
+   *          <p>Default: An empty array</p>
    */
   dataExtraDimensions?: string[];
 
   /**
    * @public
    * <p> Specifies how to update a campaign. The action can be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>APPROVE</code> - To approve delivering a data collection scheme to
+   *                <p>
+   *                   <code>APPROVE</code> - To approve delivering a data collection scheme to
    *                     vehicles. </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>SUSPEND</code> - To suspend collecting signal data. The campaign is deleted from vehicles and all vehicles in the suspended campaign will stop sending data.</p>
+   *                <p>
+   *                   <code>SUSPEND</code> - To suspend collecting signal data. The campaign is deleted from vehicles and all vehicles in the suspended campaign will stop sending data.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>RESUME</code> - To reactivate the <code>SUSPEND</code> campaign. The campaign is redeployed to all vehicles and the vehicles will resume sending data.</p>
+   *                <p>
+   *                   <code>RESUME</code> - To reactivate the <code>SUSPEND</code> campaign. The campaign is redeployed to all vehicles and the vehicles will resume sending data.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>UPDATE</code> - To update a campaign. </p>
+   *                <p>
+   *                   <code>UPDATE</code> - To update a campaign. </p>
    *             </li>
    *          </ul>
    */
-  action: UpdateCampaignAction | string | undefined;
+  action: UpdateCampaignAction | undefined;
 }
 
 /**
@@ -1682,31 +1690,31 @@ export interface UpdateCampaignResponse {
   /**
    * @public
    * <p>The state of a campaign. The status can be one of:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>CREATING</code> - Amazon Web Services IoT FleetWise is processing your request to create the
+   *                <p>
+   *                   <code>CREATING</code> - Amazon Web Services IoT FleetWise is processing your request to create the
    *                     campaign. </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>WAITING_FOR_APPROVAL</code> - After a campaign is created, it enters the
+   *                <p>
+   *                   <code>WAITING_FOR_APPROVAL</code> - After a campaign is created, it enters the
    *                         <code>WAITING_FOR_APPROVAL</code> state. To allow Amazon Web Services IoT FleetWise to deploy the
    *                     campaign to the target vehicle or fleet, use the  API operation to approve the campaign.
    *                 </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>RUNNING</code> - The campaign is active. </p>
+   *                <p>
+   *                   <code>RUNNING</code> - The campaign is active. </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>SUSPENDED</code> - The campaign is suspended. To resume the campaign, use
+   *                <p>
+   *                   <code>SUSPENDED</code> - The campaign is suspended. To resume the campaign, use
    *                     the  API operation. </p>
    *             </li>
    *          </ul>
    */
-  status?: CampaignStatus | string;
+  status?: CampaignStatus;
 }
 
 /**
@@ -1723,7 +1731,7 @@ export interface CanDbcDefinition {
   /**
    * @public
    * <p>A list of DBC files. You can upload only one DBC file for each network interface and
-   *             specify up to five (inclusive) files in the list.</p>
+   *             specify up to five (inclusive) files in the list. The DBC file can be a maximum size of 200 MB.</p>
    */
   canDbcFiles: Uint8Array[] | undefined;
 
@@ -1785,7 +1793,7 @@ export interface CanSignal {
   /**
    * @public
    * <p>Indicates the beginning of the CAN signal. This should always be the least significant bit (LSB).</p>
-   *         <p>This value might be different from the value in a DBC file. For little endian signals,
+   *          <p>This value might be different from the value in a DBC file. For little endian signals,
    *                 <code>startBit</code> is the same value as in the DBC file. For big endian signals
    *             in a DBC file, the start bit is the most significant bit (MSB). You will have to
    *             calculate the LSB instead and pass it as the <code>startBit</code>.</p>
@@ -1840,7 +1848,7 @@ export interface CloudWatchLogDeliveryOptions {
    * @public
    * <p>The type of log to send data to Amazon CloudWatch Logs.</p>
    */
-  logType: LogType | string | undefined;
+  logType: LogType | undefined;
 
   /**
    * @public
@@ -1904,6 +1912,7 @@ export interface ObdInterface {
 export const NetworkInterfaceType = {
   CAN_INTERFACE: "CAN_INTERFACE",
   OBD_INTERFACE: "OBD_INTERFACE",
+  VEHICLE_MIDDLEWARE: "VEHICLE_MIDDLEWARE",
 } as const;
 
 /**
@@ -1913,9 +1922,40 @@ export type NetworkInterfaceType = (typeof NetworkInterfaceType)[keyof typeof Ne
 
 /**
  * @public
+ * @enum
+ */
+export const VehicleMiddlewareProtocol = {
+  ROS_2: "ROS_2",
+} as const;
+
+/**
+ * @public
+ */
+export type VehicleMiddlewareProtocol = (typeof VehicleMiddlewareProtocol)[keyof typeof VehicleMiddlewareProtocol];
+
+/**
+ * @public
+ * <p>The vehicle middleware defined as a type of network interface. Examples of vehicle middleware include <code>ROS2</code> and <code>SOME/IP</code>.</p>
+ */
+export interface VehicleMiddleware {
+  /**
+   * @public
+   * <p>The name of the vehicle middleware. </p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>The protocol name of the vehicle middleware. </p>
+   */
+  protocolName: VehicleMiddlewareProtocol | undefined;
+}
+
+/**
+ * @public
  * <p>Represents a node and its specifications in an in-vehicle communication network. All
  *             signal decoders must be associated with a network node. </p>
- *         <p> To return this information about all the network interfaces specified in a decoder
+ *          <p> To return this information about all the network interfaces specified in a decoder
  *             manifest, use the  API
  *             operation.</p>
  */
@@ -1933,7 +1973,7 @@ export interface NetworkInterface {
    *             (ECUs). <code>OBD_SIGNAL</code> specifies a protocol that defines how self-diagnostic
    *             data is communicated between ECUs.</p>
    */
-  type: NetworkInterfaceType | string | undefined;
+  type: NetworkInterfaceType | undefined;
 
   /**
    * @public
@@ -1948,7 +1988,126 @@ export interface NetworkInterface {
    *             protocol.</p>
    */
   obdInterface?: ObdInterface;
+
+  /**
+   * @public
+   * <p>The vehicle middleware defined as a type of network interface. Examples of vehicle middleware include <code>ROS2</code> and <code>SOME/IP</code>.</p>
+   */
+  vehicleMiddleware?: VehicleMiddleware;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const ROS2PrimitiveType = {
+  BOOL: "BOOL",
+  BYTE: "BYTE",
+  CHAR: "CHAR",
+  FLOAT32: "FLOAT32",
+  FLOAT64: "FLOAT64",
+  INT16: "INT16",
+  INT32: "INT32",
+  INT64: "INT64",
+  INT8: "INT8",
+  STRING: "STRING",
+  UINT16: "UINT16",
+  UINT32: "UINT32",
+  UINT64: "UINT64",
+  UINT8: "UINT8",
+  WSTRING: "WSTRING",
+} as const;
+
+/**
+ * @public
+ */
+export type ROS2PrimitiveType = (typeof ROS2PrimitiveType)[keyof typeof ROS2PrimitiveType];
+
+/**
+ * @public
+ * <p>Represents a ROS 2 compliant primitive type message of the complex data structure.</p>
+ */
+export interface ROS2PrimitiveMessageDefinition {
+  /**
+   * @public
+   * <p>The primitive type (integer, floating point, boolean, etc.) for the ROS 2 primitive message definition.</p>
+   */
+  primitiveType: ROS2PrimitiveType | undefined;
+
+  /**
+   * @public
+   * <p>The offset used to calculate the signal value. Combined with scaling, the calculation is <code>value = raw_value * scaling + offset</code>.</p>
+   */
+  offset?: number;
+
+  /**
+   * @public
+   * <p>A multiplier used to decode the message.</p>
+   */
+  scaling?: number;
+
+  /**
+   * @public
+   * <p>An optional attribute specifying the upper bound for <code>STRING</code> and <code>WSTRING</code>.</p>
+   */
+  upperBound?: number;
+}
+
+/**
+ * @public
+ * <p>Represents a primitive type node of the complex data structure.</p>
+ */
+export type PrimitiveMessageDefinition =
+  | PrimitiveMessageDefinition.Ros2PrimitiveMessageDefinitionMember
+  | PrimitiveMessageDefinition.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PrimitiveMessageDefinition {
+  /**
+   * @public
+   * <p>Information about a <code>PrimitiveMessage</code> using a ROS 2 compliant primitive type message of the complex data structure.</p>
+   */
+  export interface Ros2PrimitiveMessageDefinitionMember {
+    ros2PrimitiveMessageDefinition: ROS2PrimitiveMessageDefinition;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    ros2PrimitiveMessageDefinition?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    ros2PrimitiveMessageDefinition: (value: ROS2PrimitiveMessageDefinition) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: PrimitiveMessageDefinition, visitor: Visitor<T>): T => {
+    if (value.ros2PrimitiveMessageDefinition !== undefined)
+      return visitor.ros2PrimitiveMessageDefinition(value.ros2PrimitiveMessageDefinition);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const StructuredMessageListType = {
+  DYNAMIC_BOUNDED_CAPACITY: "DYNAMIC_BOUNDED_CAPACITY",
+  DYNAMIC_UNBOUNDED_CAPACITY: "DYNAMIC_UNBOUNDED_CAPACITY",
+  FIXED_CAPACITY: "FIXED_CAPACITY",
+} as const;
+
+/**
+ * @public
+ */
+export type StructuredMessageListType = (typeof StructuredMessageListType)[keyof typeof StructuredMessageListType];
 
 /**
  * @public
@@ -2017,6 +2176,7 @@ export interface ObdSignal {
  */
 export const SignalDecoderType = {
   CAN_SIGNAL: "CAN_SIGNAL",
+  MESSAGE_SIGNAL: "MESSAGE_SIGNAL",
   OBD_SIGNAL: "OBD_SIGNAL",
 } as const;
 
@@ -2024,86 +2184,6 @@ export const SignalDecoderType = {
  * @public
  */
 export type SignalDecoderType = (typeof SignalDecoderType)[keyof typeof SignalDecoderType];
-
-/**
- * @public
- * <p>Information about a signal decoder.</p>
- */
-export interface SignalDecoder {
-  /**
-   * @public
-   * <p>The fully qualified name of a signal decoder as defined in a vehicle model.</p>
-   */
-  fullyQualifiedName: string | undefined;
-
-  /**
-   * @public
-   * <p>The network protocol for the vehicle. For example, <code>CAN_SIGNAL</code> specifies
-   *             a protocol that defines how data is communicated between electronic control units
-   *             (ECUs). <code>OBD_SIGNAL</code> specifies a protocol that defines how self-diagnostic
-   *             data is communicated between ECUs.</p>
-   */
-  type: SignalDecoderType | string | undefined;
-
-  /**
-   * @public
-   * <p>The ID of a network interface that specifies what network protocol a vehicle follows.</p>
-   */
-  interfaceId: string | undefined;
-
-  /**
-   * @public
-   * <p>Information about signal decoder using the Controller Area Network (CAN) protocol.</p>
-   */
-  canSignal?: CanSignal;
-
-  /**
-   * @public
-   * <p>Information about signal decoder using the On-board diagnostic (OBD) II protocol.</p>
-   */
-  obdSignal?: ObdSignal;
-}
-
-/**
- * @public
- */
-export interface CreateDecoderManifestRequest {
-  /**
-   * @public
-   * <p> The unique name of the decoder manifest to create.</p>
-   */
-  name: string | undefined;
-
-  /**
-   * @public
-   * <p> A brief description of the decoder manifest. </p>
-   */
-  description?: string;
-
-  /**
-   * @public
-   * <p> The Amazon Resource Name (ARN) of the vehicle model (model manifest). </p>
-   */
-  modelManifestArn: string | undefined;
-
-  /**
-   * @public
-   * <p> A list of information about signal decoders. </p>
-   */
-  signalDecoders?: SignalDecoder[];
-
-  /**
-   * @public
-   * <p> A list of information about available network interfaces. </p>
-   */
-  networkInterfaces?: NetworkInterface[];
-
-  /**
-   * @public
-   * <p>Metadata that can be used to manage the decoder manifest.</p>
-   */
-  tags?: Tag[];
-}
 
 /**
  * @public
@@ -2133,6 +2213,7 @@ export const NetworkInterfaceFailureReason = {
   NETWORK_INTERFACE_TO_ADD_ALREADY_EXISTS: "NETWORK_INTERFACE_TO_ADD_ALREADY_EXISTS",
   NETWORK_INTERFACE_TO_REMOVE_ASSOCIATED_WITH_SIGNALS: "NETWORK_INTERFACE_TO_REMOVE_ASSOCIATED_WITH_SIGNALS",
   OBD_NETWORK_INTERFACE_INFO_IS_NULL: "OBD_NETWORK_INTERFACE_INFO_IS_NULL",
+  VEHICLE_MIDDLEWARE_NETWORK_INTERFACE_INFO_IS_NULL: "VEHICLE_MIDDLEWARE_NETWORK_INTERFACE_INFO_IS_NULL",
 } as const;
 
 /**
@@ -2156,7 +2237,7 @@ export interface InvalidNetworkInterface {
    * @public
    * <p>A message about why the interface isn't valid. </p>
    */
-  reason?: NetworkInterfaceFailureReason | string;
+  reason?: NetworkInterfaceFailureReason;
 }
 
 /**
@@ -2167,13 +2248,20 @@ export const SignalDecoderFailureReason = {
   CAN_SIGNAL_INFO_IS_NULL: "CAN_SIGNAL_INFO_IS_NULL",
   CONFLICTING_SIGNAL: "CONFLICTING_SIGNAL",
   DUPLICATE_SIGNAL: "DUPLICATE_SIGNAL",
+  EMPTY_MESSAGE_SIGNAL: "EMPTY_MESSAGE_SIGNAL",
+  MESSAGE_SIGNAL_INFO_IS_NULL: "MESSAGE_SIGNAL_INFO_IS_NULL",
   NETWORK_INTERFACE_TYPE_INCOMPATIBLE_WITH_SIGNAL_DECODER_TYPE:
     "NETWORK_INTERFACE_TYPE_INCOMPATIBLE_WITH_SIGNAL_DECODER_TYPE",
   NO_DECODER_INFO_FOR_SIGNAL_IN_MODEL: "NO_DECODER_INFO_FOR_SIGNAL_IN_MODEL",
+  NO_SIGNAL_IN_CATALOG_FOR_DECODER_SIGNAL: "NO_SIGNAL_IN_CATALOG_FOR_DECODER_SIGNAL",
   OBD_SIGNAL_INFO_IS_NULL: "OBD_SIGNAL_INFO_IS_NULL",
+  SIGNAL_DECODER_INCOMPATIBLE_WITH_SIGNAL_CATALOG: "SIGNAL_DECODER_INCOMPATIBLE_WITH_SIGNAL_CATALOG",
+  SIGNAL_DECODER_TYPE_INCOMPATIBLE_WITH_MESSAGE_SIGNAL_TYPE:
+    "SIGNAL_DECODER_TYPE_INCOMPATIBLE_WITH_MESSAGE_SIGNAL_TYPE",
   SIGNAL_NOT_ASSOCIATED_WITH_NETWORK_INTERFACE: "SIGNAL_NOT_ASSOCIATED_WITH_NETWORK_INTERFACE",
   SIGNAL_NOT_IN_MODEL: "SIGNAL_NOT_IN_MODEL",
   SIGNAL_TO_ADD_ALREADY_EXISTS: "SIGNAL_TO_ADD_ALREADY_EXISTS",
+  STRUCT_SIZE_MISMATCH: "STRUCT_SIZE_MISMATCH",
 } as const;
 
 /**
@@ -2196,7 +2284,13 @@ export interface InvalidSignalDecoder {
    * @public
    * <p>A message about why the signal decoder isn't valid.</p>
    */
-  reason?: SignalDecoderFailureReason | string;
+  reason?: SignalDecoderFailureReason;
+
+  /**
+   * @public
+   * <p>The possible cause for the invalid signal decoder.</p>
+   */
+  hint?: string;
 }
 
 /**
@@ -2378,11 +2472,73 @@ export class InvalidSignalsException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const NodeDataEncoding = {
+  BINARY: "BINARY",
+  TYPED: "TYPED",
+} as const;
+
+/**
+ * @public
+ */
+export type NodeDataEncoding = (typeof NodeDataEncoding)[keyof typeof NodeDataEncoding];
+
+/**
+ * @public
+ * <p>Represents a member of the complex data structure. The data type of the property can be either primitive or another <code>struct</code>.</p>
+ */
+export interface CustomProperty {
+  /**
+   * @public
+   * <p>The fully qualified name of the custom property. For example, the fully qualified name of a custom property might be <code>ComplexDataTypes.VehicleDataTypes.SVMCamera.FPS</code>.</p>
+   */
+  fullyQualifiedName: string | undefined;
+
+  /**
+   * @public
+   * <p>The data type for the custom property. </p>
+   */
+  dataType: NodeDataType | undefined;
+
+  /**
+   * @public
+   * <p>Indicates whether the property is binary data.</p>
+   */
+  dataEncoding?: NodeDataEncoding;
+
+  /**
+   * @public
+   * <p>A brief description of the custom property.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>The deprecation message for the node or the branch that was moved or deleted.</p>
+   */
+  deprecationMessage?: string;
+
+  /**
+   * @public
+   * <p>A comment in addition to the description.</p>
+   */
+  comment?: string;
+
+  /**
+   * @public
+   * <p>The fully qualified name of the struct node for the custom property if the data type of the custom property is <code>Struct</code> or <code>StructArray</code>. </p>
+   */
+  structFullyQualifiedName?: string;
+}
+
+/**
+ * @public
  * <p>An input component that reports the environmental condition of a vehicle.</p>
- *         <note>
+ *          <note>
  *             <p>You can collect data about fluid levels, temperatures, vibrations, or battery
  *                 voltage from sensors.</p>
- *         </note>
+ *          </note>
  */
 export interface Sensor {
   /**
@@ -2396,7 +2552,7 @@ export interface Sensor {
    * @public
    * <p>The specified data type of the sensor. </p>
    */
-  dataType: NodeDataType | string | undefined;
+  dataType: NodeDataType | undefined;
 
   /**
    * @public
@@ -2439,6 +2595,42 @@ export interface Sensor {
    * <p>A comment in addition to the description.</p>
    */
   comment?: string;
+
+  /**
+   * @public
+   * <p>The fully qualified name of the struct node for a sensor if the data type of the actuator is <code>Struct</code> or <code>StructArray</code>. For example, the struct fully qualified name of a sensor might be <code>Vehicle.ADAS.CameraStruct</code>.</p>
+   */
+  structFullyQualifiedName?: string;
+}
+
+/**
+ * @public
+ * <p>The custom structure represents a complex or higher-order data structure.</p>
+ */
+export interface CustomStruct {
+  /**
+   * @public
+   * <p>The fully qualified name of the custom structure. For example, the fully qualified name of a custom structure might be <code>ComplexDataTypes.VehicleDataTypes.SVMCamera</code>.</p>
+   */
+  fullyQualifiedName: string | undefined;
+
+  /**
+   * @public
+   * <p>A brief description of the custom structure.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>The deprecation message for the node or the branch that was moved or deleted.</p>
+   */
+  deprecationMessage?: string;
+
+  /**
+   * @public
+   * <p>A comment in addition to the description.</p>
+   */
+  comment?: string;
 }
 
 /**
@@ -2450,7 +2642,9 @@ export type Node =
   | Node.ActuatorMember
   | Node.AttributeMember
   | Node.BranchMember
+  | Node.PropertyMember
   | Node.SensorMember
+  | Node.StructMember
   | Node.$UnknownMember;
 
 /**
@@ -2460,61 +2654,97 @@ export namespace Node {
   /**
    * @public
    * <p>Information about a node specified as a branch.</p>
-   *         <note>
+   *          <note>
    *             <p>A group of signals that are defined in a hierarchical structure.</p>
-   *         </note>
+   *          </note>
    */
   export interface BranchMember {
     branch: Branch;
     sensor?: never;
     actuator?: never;
     attribute?: never;
+    struct?: never;
+    property?: never;
     $unknown?: never;
   }
 
   /**
    * @public
    * <p>An input component that reports the environmental condition of a vehicle.</p>
-   *         <note>
+   *          <note>
    *             <p>You can collect data about fluid levels, temperatures, vibrations, or battery
    *                 voltage from sensors.</p>
-   *         </note>
+   *          </note>
    */
   export interface SensorMember {
     branch?: never;
     sensor: Sensor;
     actuator?: never;
     attribute?: never;
+    struct?: never;
+    property?: never;
     $unknown?: never;
   }
 
   /**
    * @public
    * <p>Information about a node specified as an actuator.</p>
-   *         <note>
+   *          <note>
    *             <p>An actuator is a digital representation of a vehicle device.</p>
-   *         </note>
+   *          </note>
    */
   export interface ActuatorMember {
     branch?: never;
     sensor?: never;
     actuator: Actuator;
     attribute?: never;
+    struct?: never;
+    property?: never;
     $unknown?: never;
   }
 
   /**
    * @public
    * <p>Information about a node specified as an attribute.</p>
-   *         <note>
+   *          <note>
    *             <p>An attribute represents static information about a vehicle.</p>
-   *         </note>
+   *          </note>
    */
   export interface AttributeMember {
     branch?: never;
     sensor?: never;
     actuator?: never;
     attribute: Attribute;
+    struct?: never;
+    property?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>Represents a complex or higher-order data structure.</p>
+   */
+  export interface StructMember {
+    branch?: never;
+    sensor?: never;
+    actuator?: never;
+    attribute?: never;
+    struct: CustomStruct;
+    property?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>Represents a member of the complex data structure. The <code>datatype</code> of the property can be either primitive or another <code>struct</code>.</p>
+   */
+  export interface PropertyMember {
+    branch?: never;
+    sensor?: never;
+    actuator?: never;
+    attribute?: never;
+    struct?: never;
+    property: CustomProperty;
     $unknown?: never;
   }
 
@@ -2526,6 +2756,8 @@ export namespace Node {
     sensor?: never;
     actuator?: never;
     attribute?: never;
+    struct?: never;
+    property?: never;
     $unknown: [string, any];
   }
 
@@ -2534,6 +2766,8 @@ export namespace Node {
     sensor: (value: Sensor) => T;
     actuator: (value: Actuator) => T;
     attribute: (value: Attribute) => T;
+    struct: (value: CustomStruct) => T;
+    property: (value: CustomProperty) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -2542,6 +2776,8 @@ export namespace Node {
     if (value.sensor !== undefined) return visitor.sensor(value.sensor);
     if (value.actuator !== undefined) return visitor.actuator(value.actuator);
     if (value.attribute !== undefined) return visitor.attribute(value.attribute);
+    if (value.struct !== undefined) return visitor.struct(value.struct);
+    if (value.property !== undefined) return visitor.property(value.property);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -2655,7 +2891,7 @@ export interface CreateVehicleRequest {
    * <p>Static information about a vehicle in a key-value pair. For example:
    *                 <code>"engineType"</code> : <code>"1.3 L R2"</code>
    *          </p>
-   *         <p>A campaign must include the keys (attribute names) in <code>dataExtraDimensions</code> for them to display in Amazon Timestream.</p>
+   *          <p>A campaign must include the keys (attribute names) in <code>dataExtraDimensions</code> for them to display in Amazon Timestream.</p>
    */
   attributes?: Record<string, string>;
 
@@ -2663,10 +2899,10 @@ export interface CreateVehicleRequest {
    * @public
    * <p> An option to create a new Amazon Web Services IoT thing when creating a vehicle, or to validate an
    *             existing Amazon Web Services IoT thing as a vehicle. </p>
-   *         <p>Default: <code/>
+   *          <p>Default: <code/>
    *          </p>
    */
-  associationBehavior?: VehicleAssociationBehavior | string;
+  associationBehavior?: VehicleAssociationBehavior;
 
   /**
    * @public
@@ -2744,6 +2980,8 @@ export interface GetDecoderManifestRequest {
 export const ManifestStatus = {
   ACTIVE: "ACTIVE",
   DRAFT: "DRAFT",
+  INVALID: "INVALID",
+  VALIDATING: "VALIDATING",
 } as const;
 
 /**
@@ -2786,7 +3024,7 @@ export interface GetDecoderManifestResponse {
    *             manifest can't be edited. If the status is marked <code>DRAFT</code>, you can edit the
    *             decoder manifest.</p>
    */
-  status?: ManifestStatus | string;
+  status?: ManifestStatus;
 
   /**
    * @public
@@ -2799,6 +3037,12 @@ export interface GetDecoderManifestResponse {
    * <p> The time the decoder manifest was last updated in seconds since epoch (January 1, 1970 at midnight UTC time).  </p>
    */
   lastModificationTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The detailed message for the decoder manifest. When a decoder manifest is in an <code>INVALID</code> status, the message contains detailed reason and help information.</p>
+   */
+  message?: string;
 }
 
 /**
@@ -2978,7 +3222,7 @@ export interface DecoderManifestSummary {
    *             manifest can't be edited. If the status is marked <code>DRAFT</code>, you can edit the
    *             decoder manifest.</p>
    */
-  status?: ManifestStatus | string;
+  status?: ManifestStatus;
 
   /**
    * @public
@@ -2993,6 +3237,12 @@ export interface DecoderManifestSummary {
    *             1970 at midnight UTC time).</p>
    */
   lastModificationTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The detailed message for the decoder manifest. When a decoder manifest is in an <code>INVALID</code> status, the message contains detailed reason and help information.</p>
+   */
+  message?: string;
 }
 
 /**
@@ -3034,88 +3284,6 @@ export interface ListDecoderManifestSignalsRequest {
    * <p> The maximum number of items to return, between 1 and 100, inclusive. </p>
    */
   maxResults?: number;
-}
-
-/**
- * @public
- */
-export interface ListDecoderManifestSignalsResponse {
-  /**
-   * @public
-   * <p> Information about a list of signals to decode. </p>
-   */
-  signalDecoders?: SignalDecoder[];
-
-  /**
-   * @public
-   * <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
-   */
-  nextToken?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateDecoderManifestRequest {
-  /**
-   * @public
-   * <p> The name of the decoder manifest to update.</p>
-   */
-  name: string | undefined;
-
-  /**
-   * @public
-   * <p> A brief description of the decoder manifest to update. </p>
-   */
-  description?: string;
-
-  /**
-   * @public
-   * <p> A list of information about decoding additional signals to add to the decoder
-   *             manifest. </p>
-   */
-  signalDecodersToAdd?: SignalDecoder[];
-
-  /**
-   * @public
-   * <p> A list of updated information about decoding signals to update in the decoder
-   *             manifest. </p>
-   */
-  signalDecodersToUpdate?: SignalDecoder[];
-
-  /**
-   * @public
-   * <p> A list of signal decoders to remove from the decoder manifest. </p>
-   */
-  signalDecodersToRemove?: string[];
-
-  /**
-   * @public
-   * <p> A list of information about the network interfaces to add to the decoder manifest.
-   *         </p>
-   */
-  networkInterfacesToAdd?: NetworkInterface[];
-
-  /**
-   * @public
-   * <p> A list of information about the network interfaces to update in the decoder manifest.
-   *         </p>
-   */
-  networkInterfacesToUpdate?: NetworkInterface[];
-
-  /**
-   * @public
-   * <p> A list of network interfaces to remove from the decoder manifest.</p>
-   */
-  networkInterfacesToRemove?: string[];
-
-  /**
-   * @public
-   * <p> The state of the decoder manifest. If the status is <code>ACTIVE</code>, the decoder
-   *             manifest can't be edited. If the status is <code>DRAFT</code>, you can edit the decoder
-   *             manifest. </p>
-   */
-  status?: ManifestStatus | string;
 }
 
 /**
@@ -3271,6 +3439,35 @@ export interface DisassociateVehicleFleetResponse {}
 
 /**
  * @public
+ * @enum
+ */
+export const EncryptionStatus = {
+  FAILURE: "FAILURE",
+  PENDING: "PENDING",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptionStatus = (typeof EncryptionStatus)[keyof typeof EncryptionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const EncryptionType = {
+  FLEETWISE_DEFAULT_ENCRYPTION: "FLEETWISE_DEFAULT_ENCRYPTION",
+  KMS_BASED_ENCRYPTION: "KMS_BASED_ENCRYPTION",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
+
+/**
+ * @public
  */
 export interface ListFleetsForVehicleRequest {
   /**
@@ -3385,7 +3582,7 @@ export interface ListFleetsRequest {
 /**
  * @public
  * <p>Information about a fleet.</p>
- *         <p>You can use the  API operation to return this
+ *          <p>You can use the  API operation to return this
  *             information about multiple fleets.</p>
  */
 export interface FleetSummary {
@@ -3564,6 +3761,52 @@ export namespace FormattedVss {
 /**
  * @public
  */
+export interface GetEncryptionConfigurationRequest {}
+
+/**
+ * @public
+ */
+export interface GetEncryptionConfigurationResponse {
+  /**
+   * @public
+   * <p>The ID of the KMS key that is used for encryption.</p>
+   */
+  kmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>The encryption status.</p>
+   */
+  encryptionStatus: EncryptionStatus | undefined;
+
+  /**
+   * @public
+   * <p>The type of encryption. Set to <code>KMS_BASED_ENCRYPTION</code> to use a KMS key that you own and manage. Set to <code>FLEETWISE_DEFAULT_ENCRYPTION</code> to use an Amazon Web Services managed key that is owned by the Amazon Web Services IoT FleetWise service account.</p>
+   */
+  encryptionType: EncryptionType | undefined;
+
+  /**
+   * @public
+   * <p>The error message that describes why encryption settings couldn't be configured, if applicable.</p>
+   */
+  errorMessage?: string;
+
+  /**
+   * @public
+   * <p>The time when encryption was configured in seconds since epoch (January 1, 1970 at midnight UTC time).</p>
+   */
+  creationTime?: Date;
+
+  /**
+   * @public
+   * <p>The time when encryption was last updated in seconds since epoch (January 1, 1970 at midnight UTC time).</p>
+   */
+  lastModificationTime?: Date;
+}
+
+/**
+ * @public
+ */
 export interface GetLoggingOptionsRequest {}
 
 /**
@@ -3622,7 +3865,7 @@ export interface GetModelManifestResponse {
    *             model can't be edited. You can edit the vehicle model if the status is marked
    *                 <code>DRAFT</code>.</p>
    */
-  status?: ManifestStatus | string;
+  status?: ManifestStatus;
 
   /**
    * @public
@@ -3676,7 +3919,7 @@ export interface IamRegistrationResponse {
    *                 <code>REGISTRATION_SUCCESS</code>, <code>REGISTRATION_PENDING</code>,
    *                 <code>REGISTRATION_FAILURE</code>.</p>
    */
-  registrationStatus: RegistrationStatus | string | undefined;
+  registrationStatus: RegistrationStatus | undefined;
 
   /**
    * @public
@@ -3720,7 +3963,7 @@ export interface TimestreamRegistrationResponse {
    *                 <code>REGISTRATION_SUCCESS</code>, <code>REGISTRATION_PENDING</code>,
    *                 <code>REGISTRATION_FAILURE</code>.</p>
    */
-  registrationStatus: RegistrationStatus | string | undefined;
+  registrationStatus: RegistrationStatus | undefined;
 
   /**
    * @public
@@ -3743,25 +3986,25 @@ export interface GetRegisterAccountStatusResponse {
    * @public
    * <p> The status of registering your account and resources. The status can be one
    *             of:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>REGISTRATION_SUCCESS</code> - The Amazon Web Services resource is successfully
    *                     registered.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>REGISTRATION_PENDING</code> - Amazon Web Services IoT FleetWise is processing the registration
    *                     request. This process takes approximately five minutes to complete.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>REGISTRATION_FAILURE</code> - Amazon Web Services IoT FleetWise can't register the AWS resource.
    *                     Try again later.</p>
    *             </li>
    *          </ul>
    */
-  accountStatus: RegistrationStatus | string | undefined;
+  accountStatus: RegistrationStatus | undefined;
 
   /**
    * @public
@@ -3835,6 +4078,18 @@ export interface NodeCounts {
    * <p>The total number of nodes in a vehicle network that represent actuators.</p>
    */
   totalActuators?: number;
+
+  /**
+   * @public
+   * <p>The total structure for the node.</p>
+   */
+  totalStructs?: number;
+
+  /**
+   * @public
+   * <p>The total properties for the node.</p>
+   */
+  totalProperties?: number;
 }
 
 /**
@@ -3920,7 +4175,7 @@ export interface GetVehicleResponse {
   /**
    * @public
    * <p>Static information about a vehicle in a key-value pair. For example:</p>
-   *         <p>
+   *          <p>
    *             <code>"engineType"</code> : <code>"1.3 L R2"</code>
    *          </p>
    */
@@ -4001,34 +4256,34 @@ export interface VehicleStatus {
   /**
    * @public
    * <p>The state of a vehicle, which can be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>CREATED</code> - Amazon Web Services IoT FleetWise sucessfully created the vehicle. </p>
+   *                <p>
+   *                   <code>CREATED</code> - Amazon Web Services IoT FleetWise sucessfully created the vehicle. </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>READY</code> - The vehicle is ready to receive a campaign deployment.
+   *                <p>
+   *                   <code>READY</code> - The vehicle is ready to receive a campaign deployment.
    *                 </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>HEALTHY</code> - A campaign deployment was delivered to the vehicle.
+   *                <p>
+   *                   <code>HEALTHY</code> - A campaign deployment was delivered to the vehicle.
    *                 </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>SUSPENDED</code> - A campaign associated with the vehicle was suspended
+   *                <p>
+   *                   <code>SUSPENDED</code> - A campaign associated with the vehicle was suspended
    *                     and data collection was paused. </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELETING</code> - Amazon Web Services IoT FleetWise is removing a campaign from the vehicle.
    *                 </p>
    *             </li>
    *          </ul>
    */
-  status?: VehicleState | string;
+  status?: VehicleState;
 }
 
 /**
@@ -4052,7 +4307,7 @@ export interface GetVehicleStatusResponse {
  * @public
  * <p>The IAM resource that enables Amazon Web Services IoT FleetWise edge agent software to send data to
  *             Amazon Timestream. </p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM roles</a> in the
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM roles</a> in the
  *                 <i>Identity and Access Management User Guide</i>.</p>
  */
 export interface IamResources {
@@ -4236,7 +4491,7 @@ export interface ModelManifestSummary {
    *             model can't be edited. If the status is <code>DRAFT</code>, you can edit the vehicle
    *             model.</p>
    */
-  status?: ManifestStatus | string;
+  status?: ManifestStatus;
 
   /**
    * @public
@@ -4306,7 +4561,7 @@ export interface UpdateModelManifestRequest {
    *             model can't be edited. If the status is <code>DRAFT</code>, you can edit the vehicle
    *             model. </p>
    */
-  status?: ManifestStatus | string;
+  status?: ManifestStatus;
 }
 
 /**
@@ -4324,6 +4579,46 @@ export interface UpdateModelManifestResponse {
    * <p> The Amazon Resource Name (ARN) of the updated vehicle model. </p>
    */
   arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutEncryptionConfigurationRequest {
+  /**
+   * @public
+   * <p>The ID of the KMS key that is used for encryption.</p>
+   */
+  kmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>The type of encryption. Choose <code>KMS_BASED_ENCRYPTION</code> to use a KMS key or <code>FLEETWISE_DEFAULT_ENCRYPTION</code> to use an Amazon Web Services managed key.</p>
+   */
+  encryptionType: EncryptionType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutEncryptionConfigurationResponse {
+  /**
+   * @public
+   * <p>The ID of the KMS key that is used for encryption.</p>
+   */
+  kmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>The encryption status.</p>
+   */
+  encryptionStatus: EncryptionStatus | undefined;
+
+  /**
+   * @public
+   * <p>The type of encryption. Set to <code>KMS_BASED_ENCRYPTION</code> to use an KMS key that you own and manage. Set to <code>FLEETWISE_DEFAULT_ENCRYPTION</code> to use an Amazon Web Services managed key that is owned by the Amazon Web Services IoT FleetWise service account.</p>
+   */
+  encryptionType: EncryptionType | undefined;
 }
 
 /**
@@ -4392,7 +4687,7 @@ export interface RegisterAccountResponse {
    * <p> The status of registering your Amazon Web Services account, IAM role, and Timestream resources.
    *         </p>
    */
-  registerAccountStatus: RegistrationStatus | string | undefined;
+  registerAccountStatus: RegistrationStatus | undefined;
 
   /**
    * @public
@@ -4424,6 +4719,24 @@ export interface RegisterAccountResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const SignalNodeType = {
+  ACTUATOR: "ACTUATOR",
+  ATTRIBUTE: "ATTRIBUTE",
+  BRANCH: "BRANCH",
+  CUSTOM_PROPERTY: "CUSTOM_PROPERTY",
+  CUSTOM_STRUCT: "CUSTOM_STRUCT",
+  SENSOR: "SENSOR",
+} as const;
+
+/**
+ * @public
+ */
+export type SignalNodeType = (typeof SignalNodeType)[keyof typeof SignalNodeType];
+
+/**
+ * @public
  */
 export interface ListSignalCatalogNodesRequest {
   /**
@@ -4444,6 +4757,12 @@ export interface ListSignalCatalogNodesRequest {
    * <p> The maximum number of items to return, between 1 and 100, inclusive. </p>
    */
   maxResults?: number;
+
+  /**
+   * @public
+   * <p>The type of node in the signal catalog.</p>
+   */
+  signalNodeType?: SignalNodeType;
 }
 
 /**
@@ -4654,7 +4973,7 @@ export interface ListVehiclesRequest {
 /**
  * @public
  * <p>Information about a vehicle.</p>
- *         <p>To return this information about vehicles in your account, you can use the  API operation.</p>
+ *          <p>To return this information about vehicles in your account, you can use the  API operation.</p>
  */
 export interface VehicleSummary {
   /**
@@ -4692,6 +5011,15 @@ export interface VehicleSummary {
    * <p>The time the vehicle was last updated in seconds since epoch (January 1, 1970 at midnight UTC time). </p>
    */
   lastModificationTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>Static information about a vehicle in a key-value pair. For example:</p>
+   *          <p>
+   *             <code>"engineType"</code> : <code>"1.3 L R2"</code>
+   *          </p>
+   */
+  attributes?: Record<string, string>;
 }
 
 /**
@@ -4736,7 +5064,7 @@ export interface UpdateVehicleRequest {
   /**
    * @public
    * <p>Static information about a vehicle in a key-value pair. For example:</p>
-   *         <p>
+   *          <p>
    *             <code>"engineType"</code> : <code>"1.3 L R2"</code>
    *          </p>
    */
@@ -4747,9 +5075,9 @@ export interface UpdateVehicleRequest {
    * <p>The method the specified attributes will update the existing attributes on the
    *             vehicle. Use<code>Overwite</code> to replace the vehicle attributes with the specified
    *             attributes. Or use <code>Merge</code> to combine all attributes.</p>
-   *         <p>This is required if attributes are present in the input.</p>
+   *          <p>This is required if attributes are present in the input.</p>
    */
-  attributeUpdateMode?: UpdateMode | string;
+  attributeUpdateMode?: UpdateMode;
 }
 
 /**
@@ -4767,4 +5095,313 @@ export interface UpdateVehicleResponse {
    * <p>The ARN of the updated vehicle.</p>
    */
   arn?: string;
+}
+
+/**
+ * @public
+ * <p>The structured message for the message signal. It can be defined with either a <code>primitiveMessageDefinition</code>, <code>structuredMessageListDefinition</code>, or <code>structuredMessageDefinition</code> recursively.</p>
+ */
+export type StructuredMessage =
+  | StructuredMessage.PrimitiveMessageDefinitionMember
+  | StructuredMessage.StructuredMessageDefinitionMember
+  | StructuredMessage.StructuredMessageListDefinitionMember
+  | StructuredMessage.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace StructuredMessage {
+  /**
+   * @public
+   * <p>Represents a primitive type node of the complex data structure.</p>
+   */
+  export interface PrimitiveMessageDefinitionMember {
+    primitiveMessageDefinition: PrimitiveMessageDefinition;
+    structuredMessageListDefinition?: never;
+    structuredMessageDefinition?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>Represents a list type node of the complex data structure.</p>
+   */
+  export interface StructuredMessageListDefinitionMember {
+    primitiveMessageDefinition?: never;
+    structuredMessageListDefinition: StructuredMessageListDefinition;
+    structuredMessageDefinition?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>Represents a struct type node of the complex data structure.</p>
+   */
+  export interface StructuredMessageDefinitionMember {
+    primitiveMessageDefinition?: never;
+    structuredMessageListDefinition?: never;
+    structuredMessageDefinition: StructuredMessageFieldNameAndDataTypePair[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    primitiveMessageDefinition?: never;
+    structuredMessageListDefinition?: never;
+    structuredMessageDefinition?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    primitiveMessageDefinition: (value: PrimitiveMessageDefinition) => T;
+    structuredMessageListDefinition: (value: StructuredMessageListDefinition) => T;
+    structuredMessageDefinition: (value: StructuredMessageFieldNameAndDataTypePair[]) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: StructuredMessage, visitor: Visitor<T>): T => {
+    if (value.primitiveMessageDefinition !== undefined)
+      return visitor.primitiveMessageDefinition(value.primitiveMessageDefinition);
+    if (value.structuredMessageListDefinition !== undefined)
+      return visitor.structuredMessageListDefinition(value.structuredMessageListDefinition);
+    if (value.structuredMessageDefinition !== undefined)
+      return visitor.structuredMessageDefinition(value.structuredMessageDefinition);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * <p>Represents a <code>StructureMessageName</code> to <code>DataType</code> map element.</p>
+ */
+export interface StructuredMessageFieldNameAndDataTypePair {
+  /**
+   * @public
+   * <p>The field name of the structured message. It determines how a data value is referenced in the target language. </p>
+   */
+  fieldName: string | undefined;
+
+  /**
+   * @public
+   * <p>The data type. </p>
+   */
+  dataType: StructuredMessage | undefined;
+}
+
+/**
+ * @public
+ * <p>Represents a list type node of the complex data structure.</p>
+ */
+export interface StructuredMessageListDefinition {
+  /**
+   * @public
+   * <p>The name of the structured message list definition. </p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>The member type of the structured message list definition.</p>
+   */
+  memberType: StructuredMessage | undefined;
+
+  /**
+   * @public
+   * <p>The type of list of the structured message list definition.</p>
+   */
+  listType: StructuredMessageListType | undefined;
+
+  /**
+   * @public
+   * <p>The capacity of the structured message list definition when the list type is <code>FIXED_CAPACITY</code> or <code>DYNAMIC_BOUNDED_CAPACITY</code>.</p>
+   */
+  capacity?: number;
+}
+
+/**
+ * @public
+ * <p>The decoding information for a specific message which support higher order data types. </p>
+ */
+export interface MessageSignal {
+  /**
+   * @public
+   * <p>The topic name for the message signal. It corresponds to topics in ROS 2. </p>
+   */
+  topicName: string | undefined;
+
+  /**
+   * @public
+   * <p>The structured message for the message signal. It can be defined with either a <code>primitiveMessageDefinition</code>, <code>structuredMessageListDefinition</code>, or <code>structuredMessageDefinition</code> recursively.</p>
+   */
+  structuredMessage: StructuredMessage | undefined;
+}
+
+/**
+ * @public
+ * <p>Information about a signal decoder.</p>
+ */
+export interface SignalDecoder {
+  /**
+   * @public
+   * <p>The fully qualified name of a signal decoder as defined in a vehicle model.</p>
+   */
+  fullyQualifiedName: string | undefined;
+
+  /**
+   * @public
+   * <p>The network protocol for the vehicle. For example, <code>CAN_SIGNAL</code> specifies
+   *             a protocol that defines how data is communicated between electronic control units
+   *             (ECUs). <code>OBD_SIGNAL</code> specifies a protocol that defines how self-diagnostic
+   *             data is communicated between ECUs.</p>
+   */
+  type: SignalDecoderType | undefined;
+
+  /**
+   * @public
+   * <p>The ID of a network interface that specifies what network protocol a vehicle follows.</p>
+   */
+  interfaceId: string | undefined;
+
+  /**
+   * @public
+   * <p>Information about signal decoder using the Controller Area Network (CAN) protocol.</p>
+   */
+  canSignal?: CanSignal;
+
+  /**
+   * @public
+   * <p>Information about signal decoder using the On-board diagnostic (OBD) II protocol.</p>
+   */
+  obdSignal?: ObdSignal;
+
+  /**
+   * @public
+   * <p>The decoding information for a specific message which supports higher order data types. </p>
+   */
+  messageSignal?: MessageSignal;
+}
+
+/**
+ * @public
+ */
+export interface CreateDecoderManifestRequest {
+  /**
+   * @public
+   * <p> The unique name of the decoder manifest to create.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p> A brief description of the decoder manifest. </p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p> The Amazon Resource Name (ARN) of the vehicle model (model manifest). </p>
+   */
+  modelManifestArn: string | undefined;
+
+  /**
+   * @public
+   * <p> A list of information about signal decoders. </p>
+   */
+  signalDecoders?: SignalDecoder[];
+
+  /**
+   * @public
+   * <p> A list of information about available network interfaces. </p>
+   */
+  networkInterfaces?: NetworkInterface[];
+
+  /**
+   * @public
+   * <p>Metadata that can be used to manage the decoder manifest.</p>
+   */
+  tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface ListDecoderManifestSignalsResponse {
+  /**
+   * @public
+   * <p> Information about a list of signals to decode. </p>
+   */
+  signalDecoders?: SignalDecoder[];
+
+  /**
+   * @public
+   * <p> The token to retrieve the next set of results, or <code>null</code> if there are no more results. </p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDecoderManifestRequest {
+  /**
+   * @public
+   * <p> The name of the decoder manifest to update.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p> A brief description of the decoder manifest to update. </p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p> A list of information about decoding additional signals to add to the decoder
+   *             manifest. </p>
+   */
+  signalDecodersToAdd?: SignalDecoder[];
+
+  /**
+   * @public
+   * <p> A list of updated information about decoding signals to update in the decoder
+   *             manifest. </p>
+   */
+  signalDecodersToUpdate?: SignalDecoder[];
+
+  /**
+   * @public
+   * <p> A list of signal decoders to remove from the decoder manifest. </p>
+   */
+  signalDecodersToRemove?: string[];
+
+  /**
+   * @public
+   * <p> A list of information about the network interfaces to add to the decoder manifest.
+   *         </p>
+   */
+  networkInterfacesToAdd?: NetworkInterface[];
+
+  /**
+   * @public
+   * <p> A list of information about the network interfaces to update in the decoder manifest.
+   *         </p>
+   */
+  networkInterfacesToUpdate?: NetworkInterface[];
+
+  /**
+   * @public
+   * <p> A list of network interfaces to remove from the decoder manifest.</p>
+   */
+  networkInterfacesToRemove?: string[];
+
+  /**
+   * @public
+   * <p> The state of the decoder manifest. If the status is <code>ACTIVE</code>, the decoder
+   *             manifest can't be edited. If the status is <code>DRAFT</code>, you can edit the decoder
+   *             manifest. </p>
+   */
+  status?: ManifestStatus;
 }

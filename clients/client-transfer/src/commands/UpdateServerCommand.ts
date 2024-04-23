@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateServerRequest, UpdateServerRequestFilterSensitiveLog, UpdateServerResponse } from "../models/models_0";
 import { de_UpdateServerCommand, se_UpdateServerCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient";
@@ -103,6 +95,9 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  *   StructuredLogDestinations: [ // StructuredLogDestinations
  *     "STRING_VALUE",
  *   ],
+ *   S3StorageOptions: { // S3StorageOptions
+ *     DirectoryListingOptimization: "ENABLED" || "DISABLED",
+ *   },
  * };
  * const command = new UpdateServerCommand(input);
  * const response = await client.send(command);
@@ -127,13 +122,13 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  *         <code>VpcEndpointID</code> is not in the available state.</p>
  *
  * @throws {@link InternalServiceError} (server fault)
- *  <p>This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family service.</p>
+ *  <p>This exception is thrown when an error occurs in the Transfer Family service.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
  * @throws {@link ResourceExistsException} (client fault)
- *  <p>The requested resource does not exist.</p>
+ *  <p>The requested resource does not exist, or exists in a region other than the one specified for the command.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
@@ -149,77 +144,26 @@ export interface UpdateServerCommandOutput extends UpdateServerResponse, __Metad
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
  */
-export class UpdateServerCommand extends $Command<
-  UpdateServerCommandInput,
-  UpdateServerCommandOutput,
-  TransferClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateServerCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: TransferClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateServerCommandInput, UpdateServerCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateServerCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "TransferClient";
-    const commandName = "UpdateServerCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: UpdateServerRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateServerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateServerCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServerCommandOutput> {
-    return de_UpdateServerCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateServerCommand extends $Command
+  .classBuilder<
+    UpdateServerCommandInput,
+    UpdateServerCommandOutput,
+    TransferClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("TransferService", "UpdateServer", {})
+  .n("TransferClient", "UpdateServerCommand")
+  .f(UpdateServerRequestFilterSensitiveLog, void 0)
+  .ser(se_UpdateServerCommand)
+  .de(de_UpdateServerCommand)
+  .build() {}

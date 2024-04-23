@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -10,7 +11,6 @@ import {
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
@@ -123,6 +123,10 @@ import {
   UpdateGlobalTableSettingsCommandOutput,
 } from "../commands/UpdateGlobalTableSettingsCommand";
 import { UpdateItemCommandInput, UpdateItemCommandOutput } from "../commands/UpdateItemCommand";
+import {
+  UpdateKinesisStreamingDestinationCommandInput,
+  UpdateKinesisStreamingDestinationCommandOutput,
+} from "../commands/UpdateKinesisStreamingDestinationCommand";
 import { UpdateTableCommandInput, UpdateTableCommandOutput } from "../commands/UpdateTableCommand";
 import {
   UpdateTableReplicaAutoScalingCommandInput,
@@ -208,6 +212,7 @@ import {
   DescribeTableReplicaAutoScalingOutput,
   DescribeTimeToLiveInput,
   DuplicateItemException,
+  EnableKinesisStreamingConfiguration,
   ExecuteStatementInput,
   ExecuteStatementOutput,
   ExecuteTransactionInput,
@@ -236,6 +241,7 @@ import {
   ImportTableDescription,
   ImportTableInput,
   ImportTableOutput,
+  IncrementalExportSpecification,
   IndexNotFoundException,
   InputFormatOptions,
   InternalServerError,
@@ -336,6 +342,8 @@ import {
   UpdateGlobalTableSettingsOutput,
   UpdateItemInput,
   UpdateItemOutput,
+  UpdateKinesisStreamingConfiguration,
+  UpdateKinesisStreamingDestinationInput,
   UpdateReplicationGroupMemberAction,
   UpdateTableInput,
   UpdateTableOutput,
@@ -986,6 +994,19 @@ export const se_UpdateItemCommand = async (
   const headers: __HeaderBag = sharedHeaders("UpdateItem");
   let body: any;
   body = JSON.stringify(se_UpdateItemInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0UpdateKinesisStreamingDestinationCommand
+ */
+export const se_UpdateKinesisStreamingDestinationCommand = async (
+  input: UpdateKinesisStreamingDestinationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateKinesisStreamingDestination");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3803,6 +3824,64 @@ const de_UpdateItemCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_0UpdateKinesisStreamingDestinationCommand
+ */
+export const de_UpdateKinesisStreamingDestinationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateKinesisStreamingDestinationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateKinesisStreamingDestinationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateKinesisStreamingDestinationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UpdateKinesisStreamingDestinationCommandError
+ */
+const de_UpdateKinesisStreamingDestinationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateKinesisStreamingDestinationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.dynamodb#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "InvalidEndpointException":
+    case "com.amazonaws.dynamodb#InvalidEndpointException":
+      throw await de_InvalidEndpointExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.dynamodb#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.dynamodb#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.dynamodb#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_0UpdateTableCommand
  */
 export const de_UpdateTableCommand = async (
@@ -4775,6 +4854,8 @@ const se_DeleteRequest = (input: DeleteRequest, context: __SerdeContext): any =>
 
 // se_DescribeTimeToLiveInput omitted.
 
+// se_EnableKinesisStreamingConfiguration omitted.
+
 /**
  * serializeAws_json1_0ExecuteStatementInput
  */
@@ -4834,6 +4915,8 @@ const se_ExportTableToPointInTimeInput = (input: ExportTableToPointInTimeInput, 
     ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     ExportFormat: [],
     ExportTime: (_) => Math.round(_.getTime() / 1000),
+    ExportType: [],
+    IncrementalExportSpecification: (_) => se_IncrementalExportSpecification(_, context),
     S3Bucket: [],
     S3BucketOwner: [],
     S3Prefix: [],
@@ -4972,6 +5055,17 @@ const se_ImportTableInput = (input: ImportTableInput, context: __SerdeContext): 
     InputFormatOptions: _json,
     S3BucketSource: _json,
     TableCreationParameters: _json,
+  });
+};
+
+/**
+ * serializeAws_json1_0IncrementalExportSpecification
+ */
+const se_IncrementalExportSpecification = (input: IncrementalExportSpecification, context: __SerdeContext): any => {
+  return take(input, {
+    ExportFromTime: (_) => Math.round(_.getTime() / 1000),
+    ExportToTime: (_) => Math.round(_.getTime() / 1000),
+    ExportViewType: [],
   });
 };
 
@@ -5530,6 +5624,10 @@ const se_UpdateItemInput = (input: UpdateItemInput, context: __SerdeContext): an
   });
 };
 
+// se_UpdateKinesisStreamingConfiguration omitted.
+
+// se_UpdateKinesisStreamingDestinationInput omitted.
+
 // se_UpdateReplicationGroupMemberAction omitted.
 
 // se_UpdateTableInput omitted.
@@ -5595,9 +5693,9 @@ const de_AttributeMap = (output: any, context: __SerdeContext): Record<string, A
     if (value === null) {
       return acc;
     }
-    acc[key] = de_AttributeValue(__expectUnion(value), context);
+    acc[key as string] = de_AttributeValue(__expectUnion(value), context);
     return acc;
-  }, {});
+  }, {} as Record<string, AttributeValue>);
 };
 
 // de_AttributeNameList omitted.
@@ -5791,9 +5889,9 @@ const de_BatchGetRequestMap = (output: any, context: __SerdeContext): Record<str
     if (value === null) {
       return acc;
     }
-    acc[key] = de_KeysAndAttributes(value, context);
+    acc[key as string] = de_KeysAndAttributes(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, KeysAndAttributes>);
 };
 
 /**
@@ -5808,10 +5906,10 @@ const de_BatchGetResponseMap = (
       if (value === null) {
         return acc;
       }
-      acc[key] = de_ItemList(value, context);
+      acc[key as string] = de_ItemList(value, context);
       return acc;
     },
-    {}
+    {} as Record<string, Record<string, AttributeValue>[]>
   );
 };
 
@@ -5856,9 +5954,9 @@ const de_BatchWriteItemRequestMap = (output: any, context: __SerdeContext): Reco
     if (value === null) {
       return acc;
     }
-    acc[key] = de_WriteRequests(value, context);
+    acc[key as string] = de_WriteRequests(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, WriteRequest[]>);
 };
 
 /**
@@ -6147,6 +6245,8 @@ const de_DescribeTableReplicaAutoScalingOutput = (
 
 // de_DuplicateItemException omitted.
 
+// de_EnableKinesisStreamingConfiguration omitted.
+
 // de_Endpoint omitted.
 
 // de_Endpoints omitted.
@@ -6188,8 +6288,10 @@ const de_ExportDescription = (output: any, context: __SerdeContext): ExportDescr
     ExportManifest: __expectString,
     ExportStatus: __expectString,
     ExportTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ExportType: __expectString,
     FailureCode: __expectString,
     FailureMessage: __expectString,
+    IncrementalExportSpecification: (_: any) => de_IncrementalExportSpecification(_, context),
     ItemCount: __expectLong,
     S3Bucket: __expectString,
     S3BucketOwner: __expectString,
@@ -6362,6 +6464,17 @@ const de_ImportTableOutput = (output: any, context: __SerdeContext): ImportTable
   }) as any;
 };
 
+/**
+ * deserializeAws_json1_0IncrementalExportSpecification
+ */
+const de_IncrementalExportSpecification = (output: any, context: __SerdeContext): IncrementalExportSpecification => {
+  return take(output, {
+    ExportFromTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ExportToTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ExportViewType: __expectString,
+  }) as any;
+};
+
 // de_IndexNotFoundException omitted.
 
 // de_InputFormatOptions omitted.
@@ -6382,9 +6495,9 @@ const de_ItemCollectionKeyAttributeMap = (output: any, context: __SerdeContext):
     if (value === null) {
       return acc;
     }
-    acc[key] = de_AttributeValue(__expectUnion(value), context);
+    acc[key as string] = de_AttributeValue(__expectUnion(value), context);
     return acc;
-  }, {});
+  }, {} as Record<string, AttributeValue>);
 };
 
 /**
@@ -6420,9 +6533,9 @@ const de_ItemCollectionMetricsPerTable = (
     if (value === null) {
       return acc;
     }
-    acc[key] = de_ItemCollectionMetricsMultiple(value, context);
+    acc[key as string] = de_ItemCollectionMetricsMultiple(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, ItemCollectionMetrics[]>);
 };
 
 /**
@@ -6480,9 +6593,9 @@ const de_Key = (output: any, context: __SerdeContext): Record<string, AttributeV
     if (value === null) {
       return acc;
     }
-    acc[key] = de_AttributeValue(__expectUnion(value), context);
+    acc[key as string] = de_AttributeValue(__expectUnion(value), context);
     return acc;
-  }, {});
+  }, {} as Record<string, AttributeValue>);
 };
 
 /**
@@ -6580,9 +6693,9 @@ const de_MapAttributeValue = (output: any, context: __SerdeContext): Record<stri
     if (value === null) {
       return acc;
     }
-    acc[key] = de_AttributeValue(__expectUnion(value), context);
+    acc[key as string] = de_AttributeValue(__expectUnion(value), context);
     return acc;
-  }, {});
+  }, {} as Record<string, AttributeValue>);
 };
 
 // de_NonKeyAttributeNameList omitted.
@@ -6646,9 +6759,9 @@ const de_PutItemInputAttributeMap = (output: any, context: __SerdeContext): Reco
     if (value === null) {
       return acc;
     }
-    acc[key] = de_AttributeValue(__expectUnion(value), context);
+    acc[key as string] = de_AttributeValue(__expectUnion(value), context);
     return acc;
-  }, {});
+  }, {} as Record<string, AttributeValue>);
 };
 
 /**
@@ -6903,9 +7016,9 @@ const de_SecondaryIndexesCapacityMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    acc[key] = de_Capacity(value, context);
+    acc[key as string] = de_Capacity(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, Capacity>);
 };
 
 /**
@@ -7100,6 +7213,10 @@ const de_UpdateItemOutput = (output: any, context: __SerdeContext): UpdateItemOu
     ItemCollectionMetrics: (_: any) => de_ItemCollectionMetrics(_, context),
   }) as any;
 };
+
+// de_UpdateKinesisStreamingConfiguration omitted.
+
+// de_UpdateKinesisStreamingDestinationOutput omitted.
 
 /**
  * deserializeAws_json1_0UpdateTableOutput

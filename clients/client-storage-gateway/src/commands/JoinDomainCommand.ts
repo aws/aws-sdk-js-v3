@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { JoinDomainInput, JoinDomainInputFilterSensitiveLog, JoinDomainOutput } from "../models/models_0";
 import { de_JoinDomainCommand, se_JoinDomainCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
@@ -38,6 +30,15 @@ export interface JoinDomainCommandOutput extends JoinDomainOutput, __MetadataBea
  * @public
  * <p>Adds a file gateway to an Active Directory domain. This operation is only supported for
  *          file gateways that support the SMB file protocol.</p>
+ *          <note>
+ *             <p>Joining a domain creates an Active Directory computer account in the default
+ *             organizational unit, using the gateway's <b>Gateway ID</b> as
+ *             the account name (for example, SGW-1234ADE). If your Active Directory environment
+ *             requires that you pre-stage accounts to facilitate the join domain process, you will
+ *             need to create this account ahead of time.</p>
+ *             <p>To create the gateway's computer account in an organizational unit other than the
+ *             default, you must specify the organizational unit when joining the domain.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,7 +60,7 @@ export interface JoinDomainCommandOutput extends JoinDomainOutput, __MetadataBea
  * const response = await client.send(command);
  * // { // JoinDomainOutput
  * //   GatewayARN: "STRING_VALUE",
- * //   ActiveDirectoryStatus: "STRING_VALUE",
+ * //   ActiveDirectoryStatus: "ACCESS_DENIED" || "DETACHED" || "JOINED" || "JOINING" || "NETWORK_ERROR" || "TIMEOUT" || "UNKNOWN_ERROR",
  * // };
  *
  * ```
@@ -82,77 +83,26 @@ export interface JoinDomainCommandOutput extends JoinDomainOutput, __MetadataBea
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
-export class JoinDomainCommand extends $Command<
-  JoinDomainCommandInput,
-  JoinDomainCommandOutput,
-  StorageGatewayClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: JoinDomainCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: StorageGatewayClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<JoinDomainCommandInput, JoinDomainCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, JoinDomainCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "StorageGatewayClient";
-    const commandName = "JoinDomainCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: JoinDomainInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: JoinDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_JoinDomainCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<JoinDomainCommandOutput> {
-    return de_JoinDomainCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class JoinDomainCommand extends $Command
+  .classBuilder<
+    JoinDomainCommandInput,
+    JoinDomainCommandOutput,
+    StorageGatewayClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("StorageGateway_20130630", "JoinDomain", {})
+  .n("StorageGatewayClient", "JoinDomainCommand")
+  .f(JoinDomainInputFilterSensitiveLog, void 0)
+  .ser(se_JoinDomainCommand)
+  .de(de_JoinDomainCommand)
+  .build() {}

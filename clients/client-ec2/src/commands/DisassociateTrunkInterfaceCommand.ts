@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DisassociateTrunkInterfaceRequest, DisassociateTrunkInterfaceResult } from "../models/models_5";
 import { de_DisassociateTrunkInterfaceCommand, se_DisassociateTrunkInterfaceCommand } from "../protocols/Aws_ec2";
 
@@ -36,11 +28,7 @@ export interface DisassociateTrunkInterfaceCommandOutput extends DisassociateTru
 
 /**
  * @public
- * <note>
- *             <p>This API action is currently in <b>limited preview only</b>.
- *                 If you are interested in using this feature, contact your account manager.</p>
- *          </note>
- *          <p>Removes an association between a branch network interface with a trunk network interface.</p>
+ * <p>Removes an association between a branch network interface with a trunk network interface.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,82 +59,26 @@ export interface DisassociateTrunkInterfaceCommandOutput extends DisassociateTru
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
-export class DisassociateTrunkInterfaceCommand extends $Command<
-  DisassociateTrunkInterfaceCommandInput,
-  DisassociateTrunkInterfaceCommandOutput,
-  EC2ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DisassociateTrunkInterfaceCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: EC2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DisassociateTrunkInterfaceCommandInput, DisassociateTrunkInterfaceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DisassociateTrunkInterfaceCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "EC2Client";
-    const commandName = "DisassociateTrunkInterfaceCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DisassociateTrunkInterfaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DisassociateTrunkInterfaceCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DisassociateTrunkInterfaceCommandOutput> {
-    return de_DisassociateTrunkInterfaceCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DisassociateTrunkInterfaceCommand extends $Command
+  .classBuilder<
+    DisassociateTrunkInterfaceCommandInput,
+    DisassociateTrunkInterfaceCommandOutput,
+    EC2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonEC2", "DisassociateTrunkInterface", {})
+  .n("EC2Client", "DisassociateTrunkInterfaceCommand")
+  .f(void 0, void 0)
+  .ser(se_DisassociateTrunkInterfaceCommand)
+  .de(de_DisassociateTrunkInterfaceCommand)
+  .build() {}

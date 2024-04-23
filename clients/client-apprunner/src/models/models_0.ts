@@ -75,7 +75,7 @@ export interface CertificateValidationRecord {
    * <p>The current state of the certificate CNAME record validation. It should change to <code>SUCCESS</code> after App Runner completes validation with your
    *       DNS.</p>
    */
-  Status?: CertificateValidationRecordStatus | string;
+  Status?: CertificateValidationRecordStatus;
 }
 
 /**
@@ -128,7 +128,7 @@ export interface CustomDomain {
    * @public
    * <p>The current state of the domain name association.</p>
    */
-  Status: CustomDomainAssociationStatus | string | undefined;
+  Status: CustomDomainAssociationStatus | undefined;
 }
 
 /**
@@ -275,13 +275,29 @@ export interface Tag {
 export interface CreateAutoScalingConfigurationRequest {
   /**
    * @public
-   * <p>A name for the auto scaling configuration. When you use it for the first time in an Amazon Web Services Region, App Runner creates revision number <code>1</code> of this
-   *       name. When you use the same name in subsequent calls, App Runner creates incremental revisions of the configuration.</p>
+   * <p>A name for the auto scaling configuration. When you use it for the first time in an Amazon Web Services Region, App Runner creates revision number
+   *         <code>1</code> of this name. When you use the same name in subsequent calls, App Runner creates incremental revisions of the configuration.</p>
    *          <note>
-   *             <p>The name <code>DefaultConfiguration</code> is reserved (it's the configuration that App Runner uses if you don't provide a custome one). You can't use it
-   *         to create a new auto scaling configuration, and you can't create a revision of it.</p>
-   *             <p>When you want to use your own auto scaling configuration for your App Runner service, <i>create a configuration with a different name</i>,
-   *         and then provide it when you create or update your service.</p>
+   *             <p>Prior to the release of <a href="https://docs.aws.amazon.com/apprunner/latest/relnotes/release-2023-09-22-auto-scale-config.html">Auto scale
+   *         configuration enhancements</a>, the name <code>DefaultConfiguration</code> was reserved. </p>
+   *             <p>This restriction is no longer in place. You can now manage <code>DefaultConfiguration</code> the same way you manage your custom auto scaling
+   *         configurations. This means you can do the following with the <code>DefaultConfiguration</code> that App Runner provides:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Create new revisions of the <code>DefaultConfiguration</code>.</p>
+   *                </li>
+   *                <li>
+   *                   <p>Delete the revisions of the <code>DefaultConfiguration</code>.</p>
+   *                </li>
+   *                <li>
+   *                   <p>Delete the auto scaling configuration for which the App Runner <code>DefaultConfiguration</code> was created.</p>
+   *                </li>
+   *                <li>
+   *                   <p>If you delete the auto scaling configuration you can create another custom auto scaling configuration with the same
+   *               <code>DefaultConfiguration</code> name. The original <code>DefaultConfiguration</code> resource provided by App Runner remains in your account unless
+   *             you make changes to it.</p>
+   *                </li>
+   *             </ul>
    *          </note>
    */
   AutoScalingConfigurationName: string | undefined;
@@ -377,7 +393,7 @@ export interface AutoScalingConfiguration {
    * <p>The current state of the auto scaling configuration. If the status of a configuration revision is <code>INACTIVE</code>, it was deleted and can't be
    *       used. Inactive configuration revisions are permanently removed some time after they are deleted.</p>
    */
-  Status?: AutoScalingConfigurationStatus | string;
+  Status?: AutoScalingConfigurationStatus;
 
   /**
    * @public
@@ -412,6 +428,22 @@ export interface AutoScalingConfiguration {
    * <p>The time when the auto scaling configuration was deleted. It's in Unix time stamp format.</p>
    */
   DeletedAt?: Date;
+
+  /**
+   * @public
+   * <p>Indicates if this auto scaling configuration has an App Runner service associated with it. A value of <code>true</code> indicates one or more services are
+   *       associated. A value of <code>false</code> indicates no services are associated.</p>
+   */
+  HasAssociatedService?: boolean;
+
+  /**
+   * @public
+   * <p>Indicates if this auto scaling configuration should be used as the default for a new App Runner service that does not have an
+   *       auto scaling configuration ARN specified during creation. Each account can have only one
+   *       default <code>AutoScalingConfiguration</code> per region. The default <code>AutoScalingConfiguration</code> can be any revision under
+   *       the same <code>AutoScalingConfigurationName</code>.</p>
+   */
+  IsDefault?: boolean;
 }
 
 /**
@@ -454,6 +486,7 @@ export class ServiceQuotaExceededException extends __BaseException {
  * @enum
  */
 export const ProviderType = {
+  BITBUCKET: "BITBUCKET",
   GITHUB: "GITHUB",
 } as const;
 
@@ -476,7 +509,7 @@ export interface CreateConnectionRequest {
    * @public
    * <p>The source repository provider.</p>
    */
-  ProviderType: ProviderType | string | undefined;
+  ProviderType: ProviderType | undefined;
 
   /**
    * @public
@@ -522,13 +555,13 @@ export interface Connection {
    * @public
    * <p>The source repository provider.</p>
    */
-  ProviderType?: ProviderType | string;
+  ProviderType?: ProviderType;
 
   /**
    * @public
    * <p>The current state of the App Runner connection. When the state is <code>AVAILABLE</code>, you can use the connection to create an App Runner service.</p>
    */
-  Status?: ConnectionStatus | string;
+  Status?: ConnectionStatus;
 
   /**
    * @public
@@ -570,7 +603,7 @@ export interface TraceConfiguration {
    * @public
    * <p>The implementation provider chosen for tracing App Runner services.</p>
    */
-  Vendor: TracingVendor | string | undefined;
+  Vendor: TracingVendor | undefined;
 }
 
 /**
@@ -664,7 +697,7 @@ export interface ObservabilityConfiguration {
    * <p>The current state of the observability configuration. If the status of a configuration revision is <code>INACTIVE</code>, it was deleted and can't be
    *       used. Inactive configuration revisions are permanently removed some time after they are deleted.</p>
    */
-  Status?: ObservabilityConfigurationStatus | string;
+  Status?: ObservabilityConfigurationStatus;
 
   /**
    * @public
@@ -728,7 +761,7 @@ export interface HealthCheckConfiguration {
    *          <p>Default: <code>TCP</code>
    *          </p>
    */
-  Protocol?: HealthCheckProtocol | string;
+  Protocol?: HealthCheckProtocol;
 
   /**
    * @public
@@ -827,7 +860,7 @@ export interface EgressConfiguration {
    *          <p>Set to <code>DEFAULT</code> for access to resources hosted on public networks.</p>
    *          <p>Set to <code>VPC</code> to associate your service to a custom VPC specified by <code>VpcConnectorArn</code>.</p>
    */
-  EgressType?: EgressType | string;
+  EgressType?: EgressType;
 
   /**
    * @public
@@ -852,6 +885,20 @@ export interface IngressConfiguration {
 
 /**
  * @public
+ * @enum
+ */
+export const IpAddressType = {
+  DUAL_STACK: "DUAL_STACK",
+  IPV4: "IPV4",
+} as const;
+
+/**
+ * @public
+ */
+export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
+
+/**
+ * @public
  * <p>Describes configuration settings related to network traffic of an App Runner service. Consists of embedded objects for each configurable network
  *       feature.</p>
  */
@@ -867,6 +914,20 @@ export interface NetworkConfiguration {
    * <p>Network configuration settings for inbound message traffic.</p>
    */
   IngressConfiguration?: IngressConfiguration;
+
+  /**
+   * @public
+   * <p>App Runner provides you with the option to choose between <i>Internet Protocol version 4 (IPv4)</i> and <i>dual stack</i> (IPv4 and IPv6)
+   *       for your incoming public network configuration. This is an optional parameter.
+   *       If you do not specify an <code>IpAddressType</code>, it defaults to select IPv4.</p>
+   *          <note>
+   *             <p>
+   *         Currently, App Runner supports dual stack for only Public endpoint. Only IPv4 is supported for Private endpoint.
+   *         If you update a service that's using dual-stack Public endpoint to a Private endpoint, your App Runner service will default to support only IPv4 for Private endpoint and fail to receive traffic originating from IPv6 endpoint.
+   *       </p>
+   *          </note>
+   */
+  IpAddressType?: IpAddressType;
 }
 
 /**
@@ -887,7 +948,7 @@ export interface ServiceObservabilityConfiguration {
    * <p>The Amazon Resource Name (ARN) of the observability configuration that is associated with the service. Specified only when
    *         <code>ObservabilityEnabled</code> is <code>true</code>.</p>
    *          <p>Specify an ARN with a name and a revision number to associate that revision. For example:
-   *           <code>arn:aws:apprunner:us-east-1:123456789012:observabilityconfiguration/xray-tracing/3</code>
+   *         <code>arn:aws:apprunner:us-east-1:123456789012:observabilityconfiguration/xray-tracing/3</code>
    *          </p>
    *          <p>Specify just the name to associate the latest revision. For example:
    *         <code>arn:aws:apprunner:us-east-1:123456789012:observabilityconfiguration/xray-tracing</code>
@@ -928,8 +989,10 @@ export const Runtime = {
   NODEJS_12: "NODEJS_12",
   NODEJS_14: "NODEJS_14",
   NODEJS_16: "NODEJS_16",
+  NODEJS_18: "NODEJS_18",
   PHP_81: "PHP_81",
   PYTHON_3: "PYTHON_3",
+  PYTHON_311: "PYTHON_311",
   RUBY_31: "RUBY_31",
 } as const;
 
@@ -950,17 +1013,19 @@ export interface CodeConfigurationValues {
    *        It represents a
    *       programming language runtime.</p>
    */
-  Runtime: Runtime | string | undefined;
+  Runtime: Runtime | undefined;
 
   /**
    * @public
-   * <p>The command App Runner runs to build your application.</p>
+   * <p>The command App Runner runs to build your
+   *       application.</p>
    */
   BuildCommand?: string;
 
   /**
    * @public
-   * <p>The command App Runner runs to start your application.</p>
+   * <p>The command App Runner runs to start your
+   *       application.</p>
    */
   StartCommand?: string;
 
@@ -980,20 +1045,17 @@ export interface CodeConfigurationValues {
 
   /**
    * @public
-   * <p>An array of key-value pairs representing the secrets and parameters that get referenced to your service as an environment variable.
-   *       The supported values are either the full Amazon Resource Name (ARN) of the Secrets Manager secret or the full ARN of the parameter in the Amazon Web Services Systems Manager Parameter Store.</p>
+   * <p>An array of key-value pairs representing the secrets and parameters that get referenced to your service as an environment variable. The supported
+   *       values are either the full Amazon Resource Name (ARN) of the Secrets Manager secret or the full ARN of the parameter in the Amazon Web Services Systems Manager
+   *       Parameter Store.</p>
    *          <note>
    *             <ul>
    *                <li>
-   *                   <p>
-   *             If the Amazon Web Services Systems Manager Parameter Store parameter exists in the same Amazon Web Services Region as the service that you're launching,
-   *             you can use either the full ARN or name of the secret. If the parameter exists in a different Region, then the full ARN must be specified.
-   *           </p>
+   *                   <p> If the Amazon Web Services Systems Manager Parameter Store parameter exists in the same Amazon Web Services Region as the service that you're launching, you can use
+   *             either the full ARN or name of the secret. If the parameter exists in a different Region, then the full ARN must be specified. </p>
    *                </li>
    *                <li>
-   *                   <p>
-   *             Currently, cross account referencing of Amazon Web Services Systems Manager Parameter Store parameter is not supported.
-   *           </p>
+   *                   <p> Currently, cross account referencing of Amazon Web Services Systems Manager Parameter Store parameter is not supported. </p>
    *                </li>
    *             </ul>
    *          </note>
@@ -1036,7 +1098,7 @@ export interface CodeConfiguration {
    *             </li>
    *          </ul>
    */
-  ConfigurationSource: ConfigurationSource | string | undefined;
+  ConfigurationSource: ConfigurationSource | undefined;
 
   /**
    * @public
@@ -1069,7 +1131,7 @@ export interface SourceCodeVersion {
    * <p>The type of version identifier.</p>
    *          <p>For a git-based repository, branches represent versions.</p>
    */
-  Type: SourceCodeVersionType | string | undefined;
+  Type: SourceCodeVersionType | undefined;
 
   /**
    * @public
@@ -1105,6 +1167,13 @@ export interface CodeRepository {
    *          </note>
    */
   CodeConfiguration?: CodeConfiguration;
+
+  /**
+   * @public
+   * <p>The path of the directory that stores source code and configuration files. The build and start commands also execute from here. The path is absolute
+   *       from root and, if not specified, defaults to the repository root.</p>
+   */
+  SourceDirectory?: string;
 }
 
 /**
@@ -1135,20 +1204,17 @@ export interface ImageConfiguration {
 
   /**
    * @public
-   * <p>An array of key-value pairs representing the secrets and parameters that get referenced to your service as an environment variable.
-   *       The supported values are either the full Amazon Resource Name (ARN) of the Secrets Manager secret or the full ARN of the parameter in the Amazon Web Services Systems Manager Parameter Store.</p>
+   * <p>An array of key-value pairs representing the secrets and parameters that get referenced to your service as an environment variable. The supported
+   *       values are either the full Amazon Resource Name (ARN) of the Secrets Manager secret or the full ARN of the parameter in the Amazon Web Services Systems Manager
+   *       Parameter Store.</p>
    *          <note>
    *             <ul>
    *                <li>
-   *                   <p>
-   *             If the Amazon Web Services Systems Manager Parameter Store parameter exists in the same Amazon Web Services Region as the service that you're launching,
-   *             you can use either the full ARN or name of the secret. If the parameter exists in a different Region, then the full ARN must be specified.
-   *           </p>
+   *                   <p> If the Amazon Web Services Systems Manager Parameter Store parameter exists in the same Amazon Web Services Region as the service that you're launching, you can use
+   *             either the full ARN or name of the secret. If the parameter exists in a different Region, then the full ARN must be specified. </p>
    *                </li>
    *                <li>
-   *                   <p>
-   *             Currently, cross account referencing of Amazon Web Services Systems Manager Parameter Store parameter is not supported.
-   *           </p>
+   *                   <p> Currently, cross account referencing of Amazon Web Services Systems Manager Parameter Store parameter is not supported. </p>
    *                </li>
    *             </ul>
    *          </note>
@@ -1192,7 +1258,7 @@ export interface ImageRepository {
    * @public
    * <p>The type of the image repository. This reflects the repository provider and whether the repository is private or public.</p>
    */
-  ImageRepositoryType: ImageRepositoryType | string | undefined;
+  ImageRepositoryType: ImageRepositoryType | undefined;
 }
 
 /**
@@ -1202,7 +1268,8 @@ export interface ImageRepository {
 export interface SourceConfiguration {
   /**
    * @public
-   * <p>The description of a source code repository.</p>
+   * <p>The description of a source code
+   *       repository.</p>
    *          <p>You must provide either this member or <code>ImageRepository</code> (but not both).</p>
    */
   CodeRepository?: CodeRepository;
@@ -1324,6 +1391,35 @@ export interface AutoScalingConfigurationSummary {
    *         <code>AutoScalingConfigurationName</code>.</p>
    */
   AutoScalingConfigurationRevision?: number;
+
+  /**
+   * @public
+   * <p>The current state of the auto scaling configuration. If the status of a configuration revision is <code>INACTIVE</code>, it was deleted and can't be
+   *       used. Inactive configuration revisions are permanently removed some time after they are deleted.</p>
+   */
+  Status?: AutoScalingConfigurationStatus;
+
+  /**
+   * @public
+   * <p>The time when the auto scaling configuration was created. It's in Unix time stamp format.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * @public
+   * <p>Indicates if this auto scaling configuration has an App Runner service associated with it. A value of <code>true</code> indicates one or more services are
+   *       associated. A value of <code>false</code> indicates no services are associated.</p>
+   */
+  HasAssociatedService?: boolean;
+
+  /**
+   * @public
+   * <p>Indicates if this auto scaling configuration should be used as the default for a new App Runner service that does not have an
+   *       auto scaling configuration ARN specified during creation. Each account can have only one
+   *       default <code>AutoScalingConfiguration</code> per region. The default <code>AutoScalingConfiguration</code> can be any revision under
+   *       the same <code>AutoScalingConfigurationName</code>.</p>
+   */
+  IsDefault?: boolean;
 }
 
 /**
@@ -1399,9 +1495,9 @@ export interface Service {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CREATE_FAILED</code> – The service failed to create. To troubleshoot this failure, read the failure events and logs, change any
-   *           parameters that need to be fixed, and retry the call to create the service.</p>
-   *                <p>The failed service isn't usable, and still counts towards your service quota. When you're done analyzing the failure, delete the service.</p>
+   *                   <code>CREATE_FAILED</code> – The service failed to create. The failed service isn't usable, and still counts towards your service quota. To
+   *           troubleshoot this failure, read the failure events and logs, change any parameters that need to be fixed, and rebuild your service using
+   *             <code>UpdateService</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1410,7 +1506,7 @@ export interface Service {
    *             </li>
    *          </ul>
    */
-  Status: ServiceStatus | string | undefined;
+  Status: ServiceStatus | undefined;
 
   /**
    * @public
@@ -1573,7 +1669,7 @@ export interface VpcConnector {
    * <p>The current state of the VPC connector. If the status of a connector revision is <code>INACTIVE</code>, it was deleted and can't be
    *       used. Inactive connector revisions are permanently removed some time after they are deleted.</p>
    */
-  Status?: VpcConnectorStatus | string;
+  Status?: VpcConnectorStatus;
 
   /**
    * @public
@@ -1702,7 +1798,7 @@ export interface VpcIngressConnection {
    *       The VPC Ingress Connection displays one of the following statuses: <code>AVAILABLE</code>, <code>PENDING_CREATION</code>, <code>PENDING_UPDATE</code>, <code>PENDING_DELETION</code>,<code>FAILED_CREATION</code>, <code>FAILED_UPDATE</code>, <code>FAILED_DELETION</code>, and <code>DELETED</code>..
    *     </p>
    */
-  Status?: VpcIngressConnectionStatus | string;
+  Status?: VpcIngressConnectionStatus;
 
   /**
    * @public
@@ -1783,6 +1879,14 @@ export interface DeleteAutoScalingConfigurationRequest {
    *             </code>. If a revision isn't specified, the latest active revision is deleted.</p>
    */
   AutoScalingConfigurationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Set to <code>true</code> to delete all of the revisions associated with the <code>AutoScalingConfigurationArn</code> parameter value.</p>
+   *          <p>When <code>DeleteAllRevisions</code> is set to <code>true</code>, the only valid value for the Amazon Resource Name (ARN) is a partial ARN ending
+   *       with: <code>.../name</code>.</p>
+   */
+  DeleteAllRevisions?: boolean;
 }
 
 /**
@@ -2272,13 +2376,13 @@ export interface ConnectionSummary {
    * @public
    * <p>The source repository provider.</p>
    */
-  ProviderType?: ProviderType | string;
+  ProviderType?: ProviderType;
 
   /**
    * @public
    * <p>The current state of the App Runner connection. When the state is <code>AVAILABLE</code>, you can use the connection to create an App Runner service.</p>
    */
-  Status?: ConnectionStatus | string;
+  Status?: ConnectionStatus;
 
   /**
    * @public
@@ -2465,13 +2569,13 @@ export interface OperationSummary {
    * @public
    * <p>The type of operation. It indicates a specific action that occured.</p>
    */
-  Type?: OperationType | string;
+  Type?: OperationType;
 
   /**
    * @public
    * <p>The current state of the operation.</p>
    */
-  Status?: OperationStatus | string;
+  Status?: OperationStatus;
 
   /**
    * @public
@@ -2584,9 +2688,9 @@ export interface ServiceSummary {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>CREATE_FAILED</code> – The service failed to create. Read the failure events and logs, change any parameters that need to be fixed,
-   *           and retry the call to create the service.</p>
-   *                <p>The failed service isn't usable, and still counts towards your service quota. When you're done analyzing the failure, delete the service.</p>
+   *                   <code>CREATE_FAILED</code> – The service failed to create. The failed service isn't usable, and still counts towards your service quota. To
+   *           troubleshoot this failure, read the failure events and logs, change any parameters that need to be fixed, and rebuild your service using
+   *             <code>UpdateService</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2595,7 +2699,7 @@ export interface ServiceSummary {
    *             </li>
    *          </ul>
    */
-  Status?: ServiceStatus | string;
+  Status?: ServiceStatus;
 }
 
 /**
@@ -2607,6 +2711,53 @@ export interface ListServicesResponse {
    * <p>A list of service summary information records. In a paginated request, the request returns up to <code>MaxResults</code> records for each call.</p>
    */
   ServiceSummaryList: ServiceSummary[] | undefined;
+
+  /**
+   * @public
+   * <p>The token that you can pass in a subsequent request to get the next result page. It's returned in a paginated request.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListServicesForAutoScalingConfigurationRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the App Runner auto scaling configuration that you want to list the services for.</p>
+   *          <p>The ARN can be a full auto scaling configuration ARN, or a partial ARN ending with either <code>.../<i>name</i>
+   *             </code> or
+   *       <code>.../<i>name</i>/<i>revision</i>
+   *             </code>. If a revision isn't specified, the latest active revision is used.</p>
+   */
+  AutoScalingConfigurationArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The maximum number of results to include in each response (result page). It's used for a paginated request.</p>
+   *          <p>If you don't specify <code>MaxResults</code>, the request retrieves all available results in a single response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>A token from a previous result page. It's used for a paginated request. The request retrieves the next result page. All other parameter values must be
+   *       identical to the ones specified in the initial request.</p>
+   *          <p>If you don't specify <code>NextToken</code>, the request retrieves the first result page.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListServicesForAutoScalingConfigurationResponse {
+  /**
+   * @public
+   * <p>A list of service ARN records. In a paginated request, the request returns up to <code>MaxResults</code> records for each call.</p>
+   */
+  ServiceArnList: string[] | undefined;
 
   /**
    * @public
@@ -2886,6 +3037,33 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateDefaultAutoScalingConfigurationRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the App Runner auto scaling configuration that you want to set as the default.</p>
+   *          <p>The ARN can be a full auto scaling configuration ARN, or a partial ARN ending with either <code>.../<i>name</i>
+   *             </code> or
+   *           <code>.../<i>name</i>/<i>revision</i>
+   *             </code>. If a revision isn't specified, the latest active revision is set as the
+   *       default.</p>
+   */
+  AutoScalingConfigurationArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDefaultAutoScalingConfigurationResponse {
+  /**
+   * @public
+   * <p>A description of the App Runner auto scaling configuration that was set as default.</p>
+   */
+  AutoScalingConfiguration: AutoScalingConfiguration | undefined;
+}
 
 /**
  * @public

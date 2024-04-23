@@ -29,6 +29,16 @@ import {
   CreateMediaLiveConnectorPipelineCommandOutput,
 } from "./commands/CreateMediaLiveConnectorPipelineCommand";
 import {
+  CreateMediaPipelineKinesisVideoStreamPoolCommand,
+  CreateMediaPipelineKinesisVideoStreamPoolCommandInput,
+  CreateMediaPipelineKinesisVideoStreamPoolCommandOutput,
+} from "./commands/CreateMediaPipelineKinesisVideoStreamPoolCommand";
+import {
+  CreateMediaStreamPipelineCommand,
+  CreateMediaStreamPipelineCommandInput,
+  CreateMediaStreamPipelineCommandOutput,
+} from "./commands/CreateMediaStreamPipelineCommand";
+import {
   DeleteMediaCapturePipelineCommand,
   DeleteMediaCapturePipelineCommandInput,
   DeleteMediaCapturePipelineCommandOutput,
@@ -43,6 +53,11 @@ import {
   DeleteMediaPipelineCommandInput,
   DeleteMediaPipelineCommandOutput,
 } from "./commands/DeleteMediaPipelineCommand";
+import {
+  DeleteMediaPipelineKinesisVideoStreamPoolCommand,
+  DeleteMediaPipelineKinesisVideoStreamPoolCommandInput,
+  DeleteMediaPipelineKinesisVideoStreamPoolCommandOutput,
+} from "./commands/DeleteMediaPipelineKinesisVideoStreamPoolCommand";
 import {
   GetMediaCapturePipelineCommand,
   GetMediaCapturePipelineCommandInput,
@@ -59,6 +74,21 @@ import {
   GetMediaPipelineCommandOutput,
 } from "./commands/GetMediaPipelineCommand";
 import {
+  GetMediaPipelineKinesisVideoStreamPoolCommand,
+  GetMediaPipelineKinesisVideoStreamPoolCommandInput,
+  GetMediaPipelineKinesisVideoStreamPoolCommandOutput,
+} from "./commands/GetMediaPipelineKinesisVideoStreamPoolCommand";
+import {
+  GetSpeakerSearchTaskCommand,
+  GetSpeakerSearchTaskCommandInput,
+  GetSpeakerSearchTaskCommandOutput,
+} from "./commands/GetSpeakerSearchTaskCommand";
+import {
+  GetVoiceToneAnalysisTaskCommand,
+  GetVoiceToneAnalysisTaskCommandInput,
+  GetVoiceToneAnalysisTaskCommandOutput,
+} from "./commands/GetVoiceToneAnalysisTaskCommand";
+import {
   ListMediaCapturePipelinesCommand,
   ListMediaCapturePipelinesCommandInput,
   ListMediaCapturePipelinesCommandOutput,
@@ -69,6 +99,11 @@ import {
   ListMediaInsightsPipelineConfigurationsCommandOutput,
 } from "./commands/ListMediaInsightsPipelineConfigurationsCommand";
 import {
+  ListMediaPipelineKinesisVideoStreamPoolsCommand,
+  ListMediaPipelineKinesisVideoStreamPoolsCommandInput,
+  ListMediaPipelineKinesisVideoStreamPoolsCommandOutput,
+} from "./commands/ListMediaPipelineKinesisVideoStreamPoolsCommand";
+import {
   ListMediaPipelinesCommand,
   ListMediaPipelinesCommandInput,
   ListMediaPipelinesCommandOutput,
@@ -78,6 +113,26 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  StartSpeakerSearchTaskCommand,
+  StartSpeakerSearchTaskCommandInput,
+  StartSpeakerSearchTaskCommandOutput,
+} from "./commands/StartSpeakerSearchTaskCommand";
+import {
+  StartVoiceToneAnalysisTaskCommand,
+  StartVoiceToneAnalysisTaskCommandInput,
+  StartVoiceToneAnalysisTaskCommandOutput,
+} from "./commands/StartVoiceToneAnalysisTaskCommand";
+import {
+  StopSpeakerSearchTaskCommand,
+  StopSpeakerSearchTaskCommandInput,
+  StopSpeakerSearchTaskCommandOutput,
+} from "./commands/StopSpeakerSearchTaskCommand";
+import {
+  StopVoiceToneAnalysisTaskCommand,
+  StopVoiceToneAnalysisTaskCommandInput,
+  StopVoiceToneAnalysisTaskCommandOutput,
+} from "./commands/StopVoiceToneAnalysisTaskCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -94,6 +149,11 @@ import {
   UpdateMediaInsightsPipelineStatusCommandInput,
   UpdateMediaInsightsPipelineStatusCommandOutput,
 } from "./commands/UpdateMediaInsightsPipelineStatusCommand";
+import {
+  UpdateMediaPipelineKinesisVideoStreamPoolCommand,
+  UpdateMediaPipelineKinesisVideoStreamPoolCommandInput,
+  UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput,
+} from "./commands/UpdateMediaPipelineKinesisVideoStreamPoolCommand";
 
 const commands = {
   CreateMediaCapturePipelineCommand,
@@ -101,20 +161,32 @@ const commands = {
   CreateMediaInsightsPipelineCommand,
   CreateMediaInsightsPipelineConfigurationCommand,
   CreateMediaLiveConnectorPipelineCommand,
+  CreateMediaPipelineKinesisVideoStreamPoolCommand,
+  CreateMediaStreamPipelineCommand,
   DeleteMediaCapturePipelineCommand,
   DeleteMediaInsightsPipelineConfigurationCommand,
   DeleteMediaPipelineCommand,
+  DeleteMediaPipelineKinesisVideoStreamPoolCommand,
   GetMediaCapturePipelineCommand,
   GetMediaInsightsPipelineConfigurationCommand,
   GetMediaPipelineCommand,
+  GetMediaPipelineKinesisVideoStreamPoolCommand,
+  GetSpeakerSearchTaskCommand,
+  GetVoiceToneAnalysisTaskCommand,
   ListMediaCapturePipelinesCommand,
   ListMediaInsightsPipelineConfigurationsCommand,
+  ListMediaPipelineKinesisVideoStreamPoolsCommand,
   ListMediaPipelinesCommand,
   ListTagsForResourceCommand,
+  StartSpeakerSearchTaskCommand,
+  StartVoiceToneAnalysisTaskCommand,
+  StopSpeakerSearchTaskCommand,
+  StopVoiceToneAnalysisTaskCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateMediaInsightsPipelineConfigurationCommand,
   UpdateMediaInsightsPipelineStatusCommand,
+  UpdateMediaPipelineKinesisVideoStreamPoolCommand,
 };
 
 export interface ChimeSDKMediaPipelines {
@@ -204,6 +276,40 @@ export interface ChimeSDKMediaPipelines {
   ): void;
 
   /**
+   * @see {@link CreateMediaPipelineKinesisVideoStreamPoolCommand}
+   */
+  createMediaPipelineKinesisVideoStreamPool(
+    args: CreateMediaPipelineKinesisVideoStreamPoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMediaPipelineKinesisVideoStreamPoolCommandOutput>;
+  createMediaPipelineKinesisVideoStreamPool(
+    args: CreateMediaPipelineKinesisVideoStreamPoolCommandInput,
+    cb: (err: any, data?: CreateMediaPipelineKinesisVideoStreamPoolCommandOutput) => void
+  ): void;
+  createMediaPipelineKinesisVideoStreamPool(
+    args: CreateMediaPipelineKinesisVideoStreamPoolCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMediaPipelineKinesisVideoStreamPoolCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateMediaStreamPipelineCommand}
+   */
+  createMediaStreamPipeline(
+    args: CreateMediaStreamPipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMediaStreamPipelineCommandOutput>;
+  createMediaStreamPipeline(
+    args: CreateMediaStreamPipelineCommandInput,
+    cb: (err: any, data?: CreateMediaStreamPipelineCommandOutput) => void
+  ): void;
+  createMediaStreamPipeline(
+    args: CreateMediaStreamPipelineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMediaStreamPipelineCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteMediaCapturePipelineCommand}
    */
   deleteMediaCapturePipeline(
@@ -252,6 +358,23 @@ export interface ChimeSDKMediaPipelines {
     args: DeleteMediaPipelineCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteMediaPipelineCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteMediaPipelineKinesisVideoStreamPoolCommand}
+   */
+  deleteMediaPipelineKinesisVideoStreamPool(
+    args: DeleteMediaPipelineKinesisVideoStreamPoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMediaPipelineKinesisVideoStreamPoolCommandOutput>;
+  deleteMediaPipelineKinesisVideoStreamPool(
+    args: DeleteMediaPipelineKinesisVideoStreamPoolCommandInput,
+    cb: (err: any, data?: DeleteMediaPipelineKinesisVideoStreamPoolCommandOutput) => void
+  ): void;
+  deleteMediaPipelineKinesisVideoStreamPool(
+    args: DeleteMediaPipelineKinesisVideoStreamPoolCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteMediaPipelineKinesisVideoStreamPoolCommandOutput) => void
   ): void;
 
   /**
@@ -306,6 +429,57 @@ export interface ChimeSDKMediaPipelines {
   ): void;
 
   /**
+   * @see {@link GetMediaPipelineKinesisVideoStreamPoolCommand}
+   */
+  getMediaPipelineKinesisVideoStreamPool(
+    args: GetMediaPipelineKinesisVideoStreamPoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMediaPipelineKinesisVideoStreamPoolCommandOutput>;
+  getMediaPipelineKinesisVideoStreamPool(
+    args: GetMediaPipelineKinesisVideoStreamPoolCommandInput,
+    cb: (err: any, data?: GetMediaPipelineKinesisVideoStreamPoolCommandOutput) => void
+  ): void;
+  getMediaPipelineKinesisVideoStreamPool(
+    args: GetMediaPipelineKinesisVideoStreamPoolCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMediaPipelineKinesisVideoStreamPoolCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSpeakerSearchTaskCommand}
+   */
+  getSpeakerSearchTask(
+    args: GetSpeakerSearchTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSpeakerSearchTaskCommandOutput>;
+  getSpeakerSearchTask(
+    args: GetSpeakerSearchTaskCommandInput,
+    cb: (err: any, data?: GetSpeakerSearchTaskCommandOutput) => void
+  ): void;
+  getSpeakerSearchTask(
+    args: GetSpeakerSearchTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSpeakerSearchTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetVoiceToneAnalysisTaskCommand}
+   */
+  getVoiceToneAnalysisTask(
+    args: GetVoiceToneAnalysisTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVoiceToneAnalysisTaskCommandOutput>;
+  getVoiceToneAnalysisTask(
+    args: GetVoiceToneAnalysisTaskCommandInput,
+    cb: (err: any, data?: GetVoiceToneAnalysisTaskCommandOutput) => void
+  ): void;
+  getVoiceToneAnalysisTask(
+    args: GetVoiceToneAnalysisTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVoiceToneAnalysisTaskCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListMediaCapturePipelinesCommand}
    */
   listMediaCapturePipelines(
@@ -340,6 +514,23 @@ export interface ChimeSDKMediaPipelines {
   ): void;
 
   /**
+   * @see {@link ListMediaPipelineKinesisVideoStreamPoolsCommand}
+   */
+  listMediaPipelineKinesisVideoStreamPools(
+    args: ListMediaPipelineKinesisVideoStreamPoolsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMediaPipelineKinesisVideoStreamPoolsCommandOutput>;
+  listMediaPipelineKinesisVideoStreamPools(
+    args: ListMediaPipelineKinesisVideoStreamPoolsCommandInput,
+    cb: (err: any, data?: ListMediaPipelineKinesisVideoStreamPoolsCommandOutput) => void
+  ): void;
+  listMediaPipelineKinesisVideoStreamPools(
+    args: ListMediaPipelineKinesisVideoStreamPoolsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMediaPipelineKinesisVideoStreamPoolsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListMediaPipelinesCommand}
    */
   listMediaPipelines(
@@ -371,6 +562,74 @@ export interface ChimeSDKMediaPipelines {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartSpeakerSearchTaskCommand}
+   */
+  startSpeakerSearchTask(
+    args: StartSpeakerSearchTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartSpeakerSearchTaskCommandOutput>;
+  startSpeakerSearchTask(
+    args: StartSpeakerSearchTaskCommandInput,
+    cb: (err: any, data?: StartSpeakerSearchTaskCommandOutput) => void
+  ): void;
+  startSpeakerSearchTask(
+    args: StartSpeakerSearchTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartSpeakerSearchTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartVoiceToneAnalysisTaskCommand}
+   */
+  startVoiceToneAnalysisTask(
+    args: StartVoiceToneAnalysisTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartVoiceToneAnalysisTaskCommandOutput>;
+  startVoiceToneAnalysisTask(
+    args: StartVoiceToneAnalysisTaskCommandInput,
+    cb: (err: any, data?: StartVoiceToneAnalysisTaskCommandOutput) => void
+  ): void;
+  startVoiceToneAnalysisTask(
+    args: StartVoiceToneAnalysisTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartVoiceToneAnalysisTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopSpeakerSearchTaskCommand}
+   */
+  stopSpeakerSearchTask(
+    args: StopSpeakerSearchTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopSpeakerSearchTaskCommandOutput>;
+  stopSpeakerSearchTask(
+    args: StopSpeakerSearchTaskCommandInput,
+    cb: (err: any, data?: StopSpeakerSearchTaskCommandOutput) => void
+  ): void;
+  stopSpeakerSearchTask(
+    args: StopSpeakerSearchTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopSpeakerSearchTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopVoiceToneAnalysisTaskCommand}
+   */
+  stopVoiceToneAnalysisTask(
+    args: StopVoiceToneAnalysisTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopVoiceToneAnalysisTaskCommandOutput>;
+  stopVoiceToneAnalysisTask(
+    args: StopVoiceToneAnalysisTaskCommandInput,
+    cb: (err: any, data?: StopVoiceToneAnalysisTaskCommandOutput) => void
+  ): void;
+  stopVoiceToneAnalysisTask(
+    args: StopVoiceToneAnalysisTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopVoiceToneAnalysisTaskCommandOutput) => void
   ): void;
 
   /**
@@ -427,6 +686,23 @@ export interface ChimeSDKMediaPipelines {
     args: UpdateMediaInsightsPipelineStatusCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateMediaInsightsPipelineStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateMediaPipelineKinesisVideoStreamPoolCommand}
+   */
+  updateMediaPipelineKinesisVideoStreamPool(
+    args: UpdateMediaPipelineKinesisVideoStreamPoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput>;
+  updateMediaPipelineKinesisVideoStreamPool(
+    args: UpdateMediaPipelineKinesisVideoStreamPoolCommandInput,
+    cb: (err: any, data?: UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput) => void
+  ): void;
+  updateMediaPipelineKinesisVideoStreamPool(
+    args: UpdateMediaPipelineKinesisVideoStreamPoolCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput) => void
   ): void;
 }
 

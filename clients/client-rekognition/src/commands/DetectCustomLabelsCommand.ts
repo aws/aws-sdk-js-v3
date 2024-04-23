@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DetectCustomLabelsRequest, DetectCustomLabelsResponse } from "../models/models_0";
 import { de_DetectCustomLabelsCommand, se_DetectCustomLabelsCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
@@ -36,17 +28,22 @@ export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsRespo
 
 /**
  * @public
- * <p>Detects custom labels in a supplied image by using an Amazon Rekognition Custom Labels model. </p>
+ * <note>
+ *             <p>This operation applies only to Amazon Rekognition Custom Labels.</p>
+ *          </note>
+ *          <p>Detects custom labels in a supplied image by using an Amazon Rekognition Custom Labels model. </p>
  *          <p>You specify which version of a model version to use by using the <code>ProjectVersionArn</code> input
  *       parameter. </p>
  *          <p>You pass the input image as base64-encoded image bytes or as a reference to an image in
  *          an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing
  *          image bytes is not supported. The image must be either a PNG or JPEG formatted file. </p>
  *          <p> For each object that the model version detects on an image, the API returns a
- *          (<code>CustomLabel</code>) object in an array (<code>CustomLabels</code>).
- *          Each <code>CustomLabel</code> object provides the label name (<code>Name</code>), the level
- *          of confidence that the image contains the object (<code>Confidence</code>), and
- *          object location information, if it exists,  for the label on the image (<code>Geometry</code>). </p>
+ *             (<code>CustomLabel</code>) object in an array (<code>CustomLabels</code>). Each
+ *             <code>CustomLabel</code> object provides the label name (<code>Name</code>), the level
+ *          of confidence that the image contains the object (<code>Confidence</code>), and object
+ *          location information, if it exists, for the label on the image (<code>Geometry</code>).
+ *          Note that for the <code>DetectCustomLabelsLabels</code> operation, <code>Polygons</code>
+ *          are not returned in the <code>Geometry</code> section of the response.</p>
  *          <p>To filter labels that are returned, specify a value for <code>MinConfidence</code>.
  *          <code>DetectCustomLabelsLabels</code> only returns labels with a confidence that's higher than
  *          the specified value.
@@ -143,9 +140,11 @@ export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsRespo
  *  <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many Amazon Rekognition Video jobs concurrently, calls to start operations
- *             (<code>StartLabelDetection</code>, for example) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until
- *             the number of concurrently running jobs is below the Amazon Rekognition service limit.  </p>
+ *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs
+ *             concurrently, subsequent calls to start operations (ex:
+ *             <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code>
+ *             exception (HTTP status code: 400) until the number of concurrently running jobs is below
+ *             the Amazon Rekognition service limit. </p>
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
  *  <p>The number of requests exceeded your throughput limit. If you want to increase this
@@ -199,79 +198,26 @@ export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsRespo
  * ```
  *
  */
-export class DetectCustomLabelsCommand extends $Command<
-  DetectCustomLabelsCommandInput,
-  DetectCustomLabelsCommandOutput,
-  RekognitionClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DetectCustomLabelsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RekognitionClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DetectCustomLabelsCommandInput, DetectCustomLabelsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DetectCustomLabelsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RekognitionClient";
-    const commandName = "DetectCustomLabelsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DetectCustomLabelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DetectCustomLabelsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectCustomLabelsCommandOutput> {
-    return de_DetectCustomLabelsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DetectCustomLabelsCommand extends $Command
+  .classBuilder<
+    DetectCustomLabelsCommandInput,
+    DetectCustomLabelsCommandOutput,
+    RekognitionClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("RekognitionService", "DetectCustomLabels", {})
+  .n("RekognitionClient", "DetectCustomLabelsCommand")
+  .f(void 0, void 0)
+  .ser(se_DetectCustomLabelsCommand)
+  .de(de_DetectCustomLabelsCommand)
+  .build() {}

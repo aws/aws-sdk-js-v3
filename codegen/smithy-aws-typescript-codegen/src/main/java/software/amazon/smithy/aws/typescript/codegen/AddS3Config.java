@@ -27,14 +27,15 @@ import java.util.Set;
 import java.util.function.Consumer;
 import java.util.logging.Logger;
 import software.amazon.smithy.aws.traits.ServiceTrait;
+import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.OperationIndex;
+import software.amazon.smithy.model.knowledge.TopDownIndex;
 import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
-import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.traits.DocumentationTrait;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
@@ -81,10 +82,12 @@ public final class AddS3Config implements TypeScriptIntegration {
         if (!isS3(serviceShape)) {
             return model;
         }
+
         Model.Builder modelBuilder = model.toBuilder();
+
+        TopDownIndex topDownIndex = TopDownIndex.of(model);
         Set<StructureShape> inputShapes = new HashSet<>();
-        for (ShapeId operationId : serviceShape.getAllOperations()) {
-            OperationShape operationShape = model.expectShape(operationId, OperationShape.class);
+        for (OperationShape operationShape : topDownIndex.getContainedOperations(serviceShape)) {
             if (NON_BUCKET_ENDPOINT_OPERATIONS.contains(operationShape.getId().getName(serviceShape))) {
                 continue;
             }
@@ -117,10 +120,6 @@ public final class AddS3Config implements TypeScriptIntegration {
         if (!isS3(service)) {
             return;
         }
-        if (settings.getExperimentalIdentityAndAuth()) {
-            return;
-        }
-        // feat(experimentalIdentityAndAuth): control branch for S3 Config interface fields
         writer.writeDocs("Whether to escape request path when signing the request.")
             .write("signingEscapePath?: boolean;\n");
         writer.writeDocs(
@@ -138,10 +137,6 @@ public final class AddS3Config implements TypeScriptIntegration {
         if (!isS3(settings.getService(model))) {
             return Collections.emptyMap();
         }
-        if (settings.getExperimentalIdentityAndAuth()) {
-            return Collections.emptyMap();
-        }
-        // feat(experimentalIdentityAndAuth): control branch for S3 Config runtime config
         switch (target) {
             case SHARED:
                 return MapUtils.of("signingEscapePath", writer -> {
@@ -151,19 +146,33 @@ public final class AddS3Config implements TypeScriptIntegration {
                 }, "signerConstructor", writer -> {
                     writer.addDependency(AwsDependency.SIGNATURE_V4_MULTIREGION)
                         .addImport("SignatureV4MultiRegion", "SignatureV4MultiRegion",
-                            AwsDependency.SIGNATURE_V4_MULTIREGION.packageName)
+                            AwsDependency.SIGNATURE_V4_MULTIREGION)
                         .write("SignatureV4MultiRegion");
                 });
             case NODE:
-                return MapUtils.of("useArnRegion", writer -> {
-                    writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER)
+                return MapUtils.of(
+                    "useArnRegion", writer -> {
+                        writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER)
                         .addImport("loadConfig", "loadNodeConfig",
-                                TypeScriptDependency.NODE_CONFIG_PROVIDER.packageName)
+                                TypeScriptDependency.NODE_CONFIG_PROVIDER)
                         .addDependency(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE)
                         .addImport("NODE_USE_ARN_REGION_CONFIG_OPTIONS", "NODE_USE_ARN_REGION_CONFIG_OPTIONS",
-                            AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE.packageName)
+                            AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE)
                         .write("loadNodeConfig(NODE_USE_ARN_REGION_CONFIG_OPTIONS)");
-                });
+                    },
+                    "disableS3ExpressSessionAuth", writer -> {
+                        writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER)
+                        .addImport("loadConfig", "loadNodeConfig",
+                                TypeScriptDependency.NODE_CONFIG_PROVIDER)
+                        .addDependency(AwsDependency.S3_MIDDLEWARE)
+                        .addImport(
+                            "NODE_DISABLE_S3_EXPRESS_SESSION_AUTH_OPTIONS",
+                            "NODE_DISABLE_S3_EXPRESS_SESSION_AUTH_OPTIONS",
+                            AwsDependency.S3_MIDDLEWARE
+                        )
+                        .write("loadNodeConfig(NODE_DISABLE_S3_EXPRESS_SESSION_AUTH_OPTIONS)");
+                    }
+                );
             default:
                 return Collections.emptyMap();
         }
@@ -206,8 +215,36 @@ public final class AddS3Config implements TypeScriptIntegration {
                     && isS3(s))
                 .build(),
             RuntimeClientPlugin.builder()
-                .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "S3",
-                    HAS_CONFIG)
+                .inputConfig(
+                    Symbol.builder()
+                        .namespace(AwsDependency.S3_MIDDLEWARE.dependency.getPackageName(), "/")
+                        .name("S3InputConfig")
+                        .build()
+                )
+                .resolvedConfig(
+                    Symbol.builder()
+                        .namespace(AwsDependency.S3_MIDDLEWARE.dependency.getPackageName(), "/")
+                        .name("S3ResolvedConfig")
+                        .build()
+                )
+                .resolveFunction(
+                    Symbol.builder()
+                        .namespace(AwsDependency.S3_MIDDLEWARE.dependency.getPackageName(), "/")
+                        .name("resolveS3Config")
+                        .addDependency(
+                            AwsDependency.S3_MIDDLEWARE.dependency
+                        )
+                        .build(),
+                    (m, s, o) -> MapUtils.of(
+                        "session", Symbol.builder()
+                            .name("[() => this, CreateSessionCommand]")
+                            .addReference(Symbol.builder()
+                                .name("CreateSessionCommand")
+                                .namespace("./src/commands/CreateSessionCommand", "/")
+                                .build())
+                            .build()
+                    )
+                )
                 .servicePredicate((m, s) -> isS3(s) && isEndpointsV2Service(s))
                 .build(),
             /*
@@ -226,6 +263,21 @@ public final class AddS3Config implements TypeScriptIntegration {
                     && isS3(s)
                     && !isEndpointsV2Service(s)
                     && containsInputMembers(m, o, BUCKET_ENDPOINT_INPUT_KEYS))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "RegionRedirectMiddleware",
+                    HAS_MIDDLEWARE)
+                .servicePredicate((m, s) -> isS3(s))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "S3ExpiresMiddleware",
+                    HAS_MIDDLEWARE)
+                .operationPredicate((m, s, o) -> containsExpiresOutput(m, o))
+                .build(),
+            RuntimeClientPlugin.builder()
+                .withConventions(AwsDependency.S3_MIDDLEWARE.dependency, "S3Express",
+                    HAS_MIDDLEWARE)
+                .servicePredicate((m, s) -> isS3(s) && isEndpointsV2Service(s))
                 .build()
         );
     }
@@ -238,6 +290,16 @@ public final class AddS3Config implements TypeScriptIntegration {
         OperationIndex operationIndex = OperationIndex.of(model);
         return operationIndex.getInput(operationShape)
             .filter(input -> input.getMemberNames().stream().anyMatch(expectedMemberNames::contains))
+            .isPresent();
+    }
+
+    private static boolean containsExpiresOutput(
+        Model model,
+        OperationShape operationShape
+    ) {
+        OperationIndex operationIndex = OperationIndex.of(model);
+        return operationIndex.getOutput(operationShape)
+            .filter(input -> input.getMemberNames().stream().anyMatch("Expires"::equals))
             .isPresent();
     }
 

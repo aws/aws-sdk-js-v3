@@ -30,6 +30,7 @@ import {
   Target,
   TargetLocation,
 } from "./models_0";
+
 import {
   DocumentReviewCommentSource,
   InventoryFilter,
@@ -41,7 +42,83 @@ import {
   OpsResultAttribute,
   ResultAttribute,
 } from "./models_1";
+
 import { SSMServiceException as __BaseException } from "./SSMServiceException";
+
+/**
+ * @public
+ */
+export interface TerminateSessionResponse {
+  /**
+   * @public
+   * <p>The ID of the session that has been terminated.</p>
+   */
+  SessionId?: string;
+}
+
+/**
+ * @public
+ */
+export interface UnlabelParameterVersionRequest {
+  /**
+   * @public
+   * <p>The name of the parameter from which you want to delete one or more labels.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>The specific version of the parameter which you want to delete one or more labels from. If
+   *    it isn't present, the call will fail.</p>
+   */
+  ParameterVersion: number | undefined;
+
+  /**
+   * @public
+   * <p>One or more labels to delete from the specified parameter version.</p>
+   */
+  Labels: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UnlabelParameterVersionResult {
+  /**
+   * @public
+   * <p>A list of all labels deleted from the parameter.</p>
+   */
+  RemovedLabels?: string[];
+
+  /**
+   * @public
+   * <p>The labels that aren't attached to the given parameter version.</p>
+   */
+  InvalidLabels?: string[];
+}
+
+/**
+ * @public
+ * <p>You have reached the maximum number versions allowed for an association. Each association
+ *    has a limit of 1,000 versions. </p>
+ */
+export class AssociationVersionLimitExceeded extends __BaseException {
+  readonly name: "AssociationVersionLimitExceeded" = "AssociationVersionLimitExceeded";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AssociationVersionLimitExceeded, __BaseException>) {
+    super({
+      name: "AssociationVersionLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AssociationVersionLimitExceeded.prototype);
+    this.Message = opts.Message;
+  }
+}
 
 /**
  * @public
@@ -190,7 +267,7 @@ export interface UpdateAssociationRequest {
    * @public
    * <p>The severity level to assign to the association.</p>
    */
-  ComplianceSeverity?: AssociationComplianceSeverity | string;
+  ComplianceSeverity?: AssociationComplianceSeverity;
 
   /**
    * @public
@@ -205,7 +282,7 @@ export interface UpdateAssociationRequest {
    *     <a>PutComplianceItems</a> API operation.</p>
    *          <p>By default, all associations use <code>AUTO</code> mode.</p>
    */
-  SyncCompliance?: AssociationSyncCompliance | string;
+  SyncCompliance?: AssociationSyncCompliance;
 
   /**
    * @public
@@ -463,7 +540,7 @@ export interface UpdateDocumentRequest {
    * <p>Specify the document format for the new document version. Systems Manager supports JSON and YAML
    *    documents. JSON is the default format.</p>
    */
-  DocumentFormat?: DocumentFormat | string;
+  DocumentFormat?: DocumentFormat;
 
   /**
    * @public
@@ -560,7 +637,7 @@ export interface DocumentReviews {
    * @public
    * <p>The action to take on a document approval review request.</p>
    */
-  Action: DocumentReviewAction | string | undefined;
+  Action: DocumentReviewAction | undefined;
 
   /**
    * @public
@@ -1066,7 +1143,7 @@ export interface UpdateMaintenanceWindowTaskRequest {
    *             </li>
    *          </ul>
    */
-  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
+  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior;
 
   /**
    * @public
@@ -1177,7 +1254,7 @@ export interface UpdateMaintenanceWindowTaskResult {
    * <p>The specification for whether tasks should continue to run after the cutoff time specified
    *    in the maintenance windows is reached. </p>
    */
-  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
+  CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior;
 
   /**
    * @public
@@ -1223,8 +1300,7 @@ export interface UpdateManagedInstanceRoleResult {}
 export interface UpdateOpsItemRequest {
   /**
    * @public
-   * <p>Update the information about the OpsItem. Provide enough information so that users reading
-   *    this OpsItem for the first time understand the issue. </p>
+   * <p>User-defined text that contains information about the OpsItem, in Markdown format. </p>
    */
   Description?: string;
 
@@ -1286,7 +1362,7 @@ export interface UpdateOpsItemRequest {
    * <p>The OpsItem status. Status can be <code>Open</code>, <code>In Progress</code>, or
    *     <code>Resolved</code>. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-working-with-OpsItems-editing-details.html">Editing OpsItem details</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
-  Status?: OpsItemStatus | string;
+  Status?: OpsItemStatus;
 
   /**
    * @public
@@ -1448,7 +1524,7 @@ export interface UpdatePatchBaselineRequest {
    * @public
    * <p>Assigns a new compliance severity level to an existing patch baseline.</p>
    */
-  ApprovedPatchesComplianceLevel?: PatchComplianceLevel | string;
+  ApprovedPatchesComplianceLevel?: PatchComplianceLevel;
 
   /**
    * @public
@@ -1493,7 +1569,7 @@ export interface UpdatePatchBaselineRequest {
    *             </li>
    *          </ul>
    */
-  RejectedPatchesAction?: PatchAction | string;
+  RejectedPatchesAction?: PatchAction;
 
   /**
    * @public
@@ -1537,7 +1613,7 @@ export interface UpdatePatchBaselineResult {
    * @public
    * <p>The operating system rule used by the updated patch baseline.</p>
    */
-  OperatingSystem?: OperatingSystem | string;
+  OperatingSystem?: OperatingSystem;
 
   /**
    * @public
@@ -1562,7 +1638,7 @@ export interface UpdatePatchBaselineResult {
    * <p>The compliance severity level assigned to the patch baseline after the update
    *    completed.</p>
    */
-  ApprovedPatchesComplianceLevel?: PatchComplianceLevel | string;
+  ApprovedPatchesComplianceLevel?: PatchComplianceLevel;
 
   /**
    * @public
@@ -1584,7 +1660,7 @@ export interface UpdatePatchBaselineResult {
    *    patch can be allowed only if it is a dependency of another package, or blocked entirely along
    *    with packages that include it as a dependency.</p>
    */
-  RejectedPatchesAction?: PatchAction | string;
+  RejectedPatchesAction?: PatchAction;
 
   /**
    * @public
@@ -1731,47 +1807,36 @@ export interface UpdateServiceSettingRequest {
    *    values for each setting.</p>
    *          <ul>
    *             <li>
-   *                <p>
-   *                   <code>/ssm/managed-instance/default-ec2-instance-management-role: The name of an IAM role</code>
+   *                <p>For <code>/ssm/managed-instance/default-ec2-instance-management-role</code>, enter the
+   *      name of an IAM role. </p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>/ssm/automation/customer-script-log-destination</code>, enter <code>CloudWatch</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>/ssm/automation/customer-script-log-group-name</code>, enter the name of an
+   *       Amazon CloudWatch Logs log group.</p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>/ssm/documents/console/public-sharing-permission</code>, enter
+   *       <code>Enable</code> or <code>Disable</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>/ssm/managed-instance/activation-tier</code>, enter <code>standard</code> or
+   *       <code>advanced</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p> For <code>/ssm/opsinsights/opscenter</code>, enter <code>Enabled</code> or
+   *       <code>Disabled</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>/ssm/parameter-store/default-parameter-tier</code>, enter <code>Standard</code>,
+   *       <code>Advanced</code>, or <code>Intelligent-Tiering</code>
    *                </p>
    *             </li>
    *             <li>
-   *                <p>
-   *                   <code>/ssm/automation/customer-script-log-destination</code>: <code>CloudWatch</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/automation/customer-script-log-group-name</code>: The name of an Amazon CloudWatch Logs log group</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/documents/console/public-sharing-permission</code>: <code>Enable</code> or
-   *       <code>Disable</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/managed-instance/activation-tier</code>: <code>standard</code> or
-   *       <code>advanced</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/opsinsights/opscenter</code>: <code>Enabled</code> or <code>Disabled</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/parameter-store/default-parameter-tier</code>: <code>Standard</code>,
-   *       <code>Advanced</code>, <code>Intelligent-Tiering</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/parameter-store/high-throughput-enabled</code>: <code>true</code> or
-   *       <code>false</code>
-   *                </p>
+   *                <p>For <code>/ssm/parameter-store/high-throughput-enabled</code>, enter <code>true</code> or
+   *       <code>false</code>.</p>
    *             </li>
    *          </ul>
    */

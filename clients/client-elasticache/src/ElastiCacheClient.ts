@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -64,6 +62,10 @@ import {
   BatchStopUpdateActionCommandOutput,
 } from "./commands/BatchStopUpdateActionCommand";
 import { CompleteMigrationCommandInput, CompleteMigrationCommandOutput } from "./commands/CompleteMigrationCommand";
+import {
+  CopyServerlessCacheSnapshotCommandInput,
+  CopyServerlessCacheSnapshotCommandOutput,
+} from "./commands/CopyServerlessCacheSnapshotCommand";
 import { CopySnapshotCommandInput, CopySnapshotCommandOutput } from "./commands/CopySnapshotCommand";
 import { CreateCacheClusterCommandInput, CreateCacheClusterCommandOutput } from "./commands/CreateCacheClusterCommand";
 import {
@@ -86,6 +88,14 @@ import {
   CreateReplicationGroupCommandInput,
   CreateReplicationGroupCommandOutput,
 } from "./commands/CreateReplicationGroupCommand";
+import {
+  CreateServerlessCacheCommandInput,
+  CreateServerlessCacheCommandOutput,
+} from "./commands/CreateServerlessCacheCommand";
+import {
+  CreateServerlessCacheSnapshotCommandInput,
+  CreateServerlessCacheSnapshotCommandOutput,
+} from "./commands/CreateServerlessCacheSnapshotCommand";
 import { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "./commands/CreateSnapshotCommand";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import { CreateUserGroupCommandInput, CreateUserGroupCommandOutput } from "./commands/CreateUserGroupCommand";
@@ -118,6 +128,14 @@ import {
   DeleteReplicationGroupCommandInput,
   DeleteReplicationGroupCommandOutput,
 } from "./commands/DeleteReplicationGroupCommand";
+import {
+  DeleteServerlessCacheCommandInput,
+  DeleteServerlessCacheCommandOutput,
+} from "./commands/DeleteServerlessCacheCommand";
+import {
+  DeleteServerlessCacheSnapshotCommandInput,
+  DeleteServerlessCacheSnapshotCommandOutput,
+} from "./commands/DeleteServerlessCacheSnapshotCommand";
 import { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "./commands/DeleteSnapshotCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import { DeleteUserGroupCommandInput, DeleteUserGroupCommandOutput } from "./commands/DeleteUserGroupCommand";
@@ -167,6 +185,14 @@ import {
   DescribeReservedCacheNodesOfferingsCommandOutput,
 } from "./commands/DescribeReservedCacheNodesOfferingsCommand";
 import {
+  DescribeServerlessCachesCommandInput,
+  DescribeServerlessCachesCommandOutput,
+} from "./commands/DescribeServerlessCachesCommand";
+import {
+  DescribeServerlessCacheSnapshotsCommandInput,
+  DescribeServerlessCacheSnapshotsCommandOutput,
+} from "./commands/DescribeServerlessCacheSnapshotsCommand";
+import {
   DescribeServiceUpdatesCommandInput,
   DescribeServiceUpdatesCommandOutput,
 } from "./commands/DescribeServiceUpdatesCommand";
@@ -181,6 +207,10 @@ import {
   DisassociateGlobalReplicationGroupCommandInput,
   DisassociateGlobalReplicationGroupCommandOutput,
 } from "./commands/DisassociateGlobalReplicationGroupCommand";
+import {
+  ExportServerlessCacheSnapshotCommandInput,
+  ExportServerlessCacheSnapshotCommandOutput,
+} from "./commands/ExportServerlessCacheSnapshotCommand";
 import {
   FailoverGlobalReplicationGroupCommandInput,
   FailoverGlobalReplicationGroupCommandOutput,
@@ -222,6 +252,10 @@ import {
   ModifyReplicationGroupShardConfigurationCommandInput,
   ModifyReplicationGroupShardConfigurationCommandOutput,
 } from "./commands/ModifyReplicationGroupShardConfigurationCommand";
+import {
+  ModifyServerlessCacheCommandInput,
+  ModifyServerlessCacheCommandOutput,
+} from "./commands/ModifyServerlessCacheCommand";
 import { ModifyUserCommandInput, ModifyUserCommandOutput } from "./commands/ModifyUserCommand";
 import { ModifyUserGroupCommandInput, ModifyUserGroupCommandOutput } from "./commands/ModifyUserGroupCommand";
 import {
@@ -268,6 +302,7 @@ export type ServiceInputTypes =
   | BatchApplyUpdateActionCommandInput
   | BatchStopUpdateActionCommandInput
   | CompleteMigrationCommandInput
+  | CopyServerlessCacheSnapshotCommandInput
   | CopySnapshotCommandInput
   | CreateCacheClusterCommandInput
   | CreateCacheParameterGroupCommandInput
@@ -275,6 +310,8 @@ export type ServiceInputTypes =
   | CreateCacheSubnetGroupCommandInput
   | CreateGlobalReplicationGroupCommandInput
   | CreateReplicationGroupCommandInput
+  | CreateServerlessCacheCommandInput
+  | CreateServerlessCacheSnapshotCommandInput
   | CreateSnapshotCommandInput
   | CreateUserCommandInput
   | CreateUserGroupCommandInput
@@ -286,6 +323,8 @@ export type ServiceInputTypes =
   | DeleteCacheSubnetGroupCommandInput
   | DeleteGlobalReplicationGroupCommandInput
   | DeleteReplicationGroupCommandInput
+  | DeleteServerlessCacheCommandInput
+  | DeleteServerlessCacheSnapshotCommandInput
   | DeleteSnapshotCommandInput
   | DeleteUserCommandInput
   | DeleteUserGroupCommandInput
@@ -301,12 +340,15 @@ export type ServiceInputTypes =
   | DescribeReplicationGroupsCommandInput
   | DescribeReservedCacheNodesCommandInput
   | DescribeReservedCacheNodesOfferingsCommandInput
+  | DescribeServerlessCacheSnapshotsCommandInput
+  | DescribeServerlessCachesCommandInput
   | DescribeServiceUpdatesCommandInput
   | DescribeSnapshotsCommandInput
   | DescribeUpdateActionsCommandInput
   | DescribeUserGroupsCommandInput
   | DescribeUsersCommandInput
   | DisassociateGlobalReplicationGroupCommandInput
+  | ExportServerlessCacheSnapshotCommandInput
   | FailoverGlobalReplicationGroupCommandInput
   | IncreaseNodeGroupsInGlobalReplicationGroupCommandInput
   | IncreaseReplicaCountCommandInput
@@ -318,6 +360,7 @@ export type ServiceInputTypes =
   | ModifyGlobalReplicationGroupCommandInput
   | ModifyReplicationGroupCommandInput
   | ModifyReplicationGroupShardConfigurationCommandInput
+  | ModifyServerlessCacheCommandInput
   | ModifyUserCommandInput
   | ModifyUserGroupCommandInput
   | PurchaseReservedCacheNodesOfferingCommandInput
@@ -339,6 +382,7 @@ export type ServiceOutputTypes =
   | BatchApplyUpdateActionCommandOutput
   | BatchStopUpdateActionCommandOutput
   | CompleteMigrationCommandOutput
+  | CopyServerlessCacheSnapshotCommandOutput
   | CopySnapshotCommandOutput
   | CreateCacheClusterCommandOutput
   | CreateCacheParameterGroupCommandOutput
@@ -346,6 +390,8 @@ export type ServiceOutputTypes =
   | CreateCacheSubnetGroupCommandOutput
   | CreateGlobalReplicationGroupCommandOutput
   | CreateReplicationGroupCommandOutput
+  | CreateServerlessCacheCommandOutput
+  | CreateServerlessCacheSnapshotCommandOutput
   | CreateSnapshotCommandOutput
   | CreateUserCommandOutput
   | CreateUserGroupCommandOutput
@@ -357,6 +403,8 @@ export type ServiceOutputTypes =
   | DeleteCacheSubnetGroupCommandOutput
   | DeleteGlobalReplicationGroupCommandOutput
   | DeleteReplicationGroupCommandOutput
+  | DeleteServerlessCacheCommandOutput
+  | DeleteServerlessCacheSnapshotCommandOutput
   | DeleteSnapshotCommandOutput
   | DeleteUserCommandOutput
   | DeleteUserGroupCommandOutput
@@ -372,12 +420,15 @@ export type ServiceOutputTypes =
   | DescribeReplicationGroupsCommandOutput
   | DescribeReservedCacheNodesCommandOutput
   | DescribeReservedCacheNodesOfferingsCommandOutput
+  | DescribeServerlessCacheSnapshotsCommandOutput
+  | DescribeServerlessCachesCommandOutput
   | DescribeServiceUpdatesCommandOutput
   | DescribeSnapshotsCommandOutput
   | DescribeUpdateActionsCommandOutput
   | DescribeUserGroupsCommandOutput
   | DescribeUsersCommandOutput
   | DisassociateGlobalReplicationGroupCommandOutput
+  | ExportServerlessCacheSnapshotCommandOutput
   | FailoverGlobalReplicationGroupCommandOutput
   | IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput
   | IncreaseReplicaCountCommandOutput
@@ -389,6 +440,7 @@ export type ServiceOutputTypes =
   | ModifyGlobalReplicationGroupCommandOutput
   | ModifyReplicationGroupCommandOutput
   | ModifyReplicationGroupShardConfigurationCommandOutput
+  | ModifyServerlessCacheCommandOutput
   | ModifyUserCommandOutput
   | ModifyUserGroupCommandOutput
   | PurchaseReservedCacheNodesOfferingCommandOutput
@@ -511,6 +563,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

@@ -33,6 +33,111 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * <p>An adapter selected for use when analyzing documents. Contains an adapter ID and a version number.
+ *          Contains information on pages selected for analysis when analyzing documents asychronously.</p>
+ */
+export interface Adapter {
+  /**
+   * @public
+   * <p>A unique identifier for the adapter resource.</p>
+   */
+  AdapterId: string | undefined;
+
+  /**
+   * @public
+   * <p>Pages is a parameter that the user inputs to specify which pages to apply an adapter to. The following is a
+   *          list of rules for using this parameter.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If a page is not specified, it is set to <code>["1"]</code> by default.</p>
+   *             </li>
+   *             <li>
+   *                <p>The following characters are allowed in the parameter's string:
+   *                <code>0 1 2 3 4 5 6 7 8 9 - *</code>. No whitespace is allowed.</p>
+   *             </li>
+   *             <li>
+   *                <p>When using * to indicate all pages, it must be the only element in the list.</p>
+   *             </li>
+   *             <li>
+   *                <p>You can use page intervals, such as <code>["1-3", "1-1", "4-*"]</code>. Where <code>*</code> indicates last page of
+   *                document.</p>
+   *             </li>
+   *             <li>
+   *                <p>Specified pages must be greater than 0 and less than or equal to the number of pages in the document.</p>
+   *             </li>
+   *          </ul>
+   */
+  Pages?: string[];
+
+  /**
+   * @public
+   * <p>A string that identifies the version of the adapter.</p>
+   */
+  Version: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FeatureType = {
+  FORMS: "FORMS",
+  LAYOUT: "LAYOUT",
+  QUERIES: "QUERIES",
+  SIGNATURES: "SIGNATURES",
+  TABLES: "TABLES",
+} as const;
+
+/**
+ * @public
+ */
+export type FeatureType = (typeof FeatureType)[keyof typeof FeatureType];
+
+/**
+ * @public
+ * <p>Contains information on the adapter, including the adapter ID, Name, Creation time, and feature types.</p>
+ */
+export interface AdapterOverview {
+  /**
+   * @public
+   * <p>A unique identifier for the adapter resource.</p>
+   */
+  AdapterId?: string;
+
+  /**
+   * @public
+   * <p>A string naming the adapter resource.</p>
+   */
+  AdapterName?: string;
+
+  /**
+   * @public
+   * <p>The date and time that the adapter was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>The feature types that the adapter is operating on.</p>
+   */
+  FeatureTypes?: FeatureType[];
+}
+
+/**
+ * @public
+ * <p>Contains information about adapters used when analyzing a document,
+ *          with each adapter specified using an AdapterId and version</p>
+ */
+export interface AdaptersConfig {
+  /**
+   * @public
+   * <p>A list of adapters to be used when analyzing the specified document.</p>
+   */
+  Adapters: Adapter[] | undefined;
+}
+
+/**
+ * @public
  * <p>The S3 bucket name and file name that identifies the document.</p>
  *          <p>The AWS Region for the S3 bucket that contains the document must match the Region that
  *          you use for Amazon Textract operations.</p>
@@ -61,6 +166,133 @@ export interface S3Object {
    * <p>If the bucket has versioning enabled, you can specify the object version. </p>
    */
   Version?: string;
+}
+
+/**
+ * @public
+ * <p>The dataset configuration options for a given version of an adapter.
+ *          Can include an Amazon S3 bucket if specified.</p>
+ */
+export interface AdapterVersionDatasetConfig {
+  /**
+   * @public
+   * <p>The S3 bucket name and file name that identifies the document.</p>
+   *          <p>The AWS Region for the S3 bucket that contains the document must match the Region that
+   *          you use for Amazon Textract operations.</p>
+   *          <p>For Amazon Textract to process a file in an S3 bucket, the user must have
+   *          permission to access the S3 bucket and file.
+   *
+   *       </p>
+   */
+  ManifestS3Object?: S3Object;
+}
+
+/**
+ * @public
+ * <p>The evaluation metrics (F1 score, Precision, and Recall) for an adapter version.</p>
+ */
+export interface EvaluationMetric {
+  /**
+   * @public
+   * <p>The F1 score for an adapter version.</p>
+   */
+  F1Score?: number;
+
+  /**
+   * @public
+   * <p>The Precision score for an adapter version.</p>
+   */
+  Precision?: number;
+
+  /**
+   * @public
+   * <p>The Recall score for an adapter version.</p>
+   */
+  Recall?: number;
+}
+
+/**
+ * @public
+ * <p>Contains information on the metrics used to evalute the peformance of a given adapter version. Includes data for
+ *          baseline model performance and individual adapter version perfromance.</p>
+ */
+export interface AdapterVersionEvaluationMetric {
+  /**
+   * @public
+   * <p>The F1 score, precision, and recall metrics for the baseline model.</p>
+   */
+  Baseline?: EvaluationMetric;
+
+  /**
+   * @public
+   * <p>The F1 score, precision, and recall metrics for the baseline model.</p>
+   */
+  AdapterVersion?: EvaluationMetric;
+
+  /**
+   * @public
+   * <p>Indicates the feature type being analyzed by a given adapter version.</p>
+   */
+  FeatureType?: FeatureType;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AdapterVersionStatus = {
+  ACTIVE: "ACTIVE",
+  AT_RISK: "AT_RISK",
+  CREATION_ERROR: "CREATION_ERROR",
+  CREATION_IN_PROGRESS: "CREATION_IN_PROGRESS",
+  DEPRECATED: "DEPRECATED",
+} as const;
+
+/**
+ * @public
+ */
+export type AdapterVersionStatus = (typeof AdapterVersionStatus)[keyof typeof AdapterVersionStatus];
+
+/**
+ * @public
+ * <p>Summary info for an adapter version. Contains information on the AdapterId, AdapterVersion, CreationTime, FeatureTypes, and Status.</p>
+ */
+export interface AdapterVersionOverview {
+  /**
+   * @public
+   * <p>A unique identifier for the adapter associated with a given adapter version.</p>
+   */
+  AdapterId?: string;
+
+  /**
+   * @public
+   * <p>An identified for a given adapter version.</p>
+   */
+  AdapterVersion?: string;
+
+  /**
+   * @public
+   * <p>The date and time that a given adapter version was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>The feature types that the adapter version is operating on.</p>
+   */
+  FeatureTypes?: FeatureType[];
+
+  /**
+   * @public
+   * <p>Contains information on the status of a given adapter version.</p>
+   */
+  Status?: AdapterVersionStatus;
+
+  /**
+   * @public
+   * <p>A message explaining the status of a given adapter vesion.</p>
+   */
+  StatusMessage?: string;
 }
 
 /**
@@ -104,22 +336,6 @@ export interface Document {
  * @public
  * @enum
  */
-export const FeatureType = {
-  FORMS: "FORMS",
-  QUERIES: "QUERIES",
-  SIGNATURES: "SIGNATURES",
-  TABLES: "TABLES",
-} as const;
-
-/**
- * @public
- */
-export type FeatureType = (typeof FeatureType)[keyof typeof FeatureType];
-
-/**
- * @public
- * @enum
- */
 export const ContentClassifier = {
   FREE_OF_ADULT_CONTENT: "FreeOfAdultContent",
   FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION: "FreeOfPersonallyIdentifiableInformation",
@@ -141,7 +357,7 @@ export interface HumanLoopDataAttributes {
    * <p>Sets whether the input image is free of personally identifiable information or adult
    *          content.</p>
    */
-  ContentClassifiers?: (ContentClassifier | string)[];
+  ContentClassifiers?: ContentClassifier[];
 }
 
 /**
@@ -244,13 +460,11 @@ export interface AnalyzeDocumentRequest {
    * @public
    * <p>A list of the types of analysis to perform. Add TABLES to the list to return information
    *          about the tables that are detected in the input document. Add FORMS to return detected form
-   *          data. Add SIGNATURES to return the locations of detected signatures. To perform both forms
-   *          and table analysis, add TABLES and FORMS to <code>FeatureTypes</code>. To detect signatures within
-   *          form data and table data, add SIGNATURES to either TABLES or FORMS.
-   *          All lines and words detected in the document are included in the response (including text
-   *          that isn't related to the value of <code>FeatureTypes</code>). </p>
+   *          data. Add SIGNATURES to return the locations of detected signatures. Add LAYOUT to the list
+   *          to return information about the layout of the document.  All lines and words detected in the document are included in the response (including
+   *          text that isn't related to the value of <code>FeatureTypes</code>). </p>
    */
-  FeatureTypes: (FeatureType | string)[] | undefined;
+  FeatureTypes: FeatureType[] | undefined;
 
   /**
    * @public
@@ -264,6 +478,12 @@ export interface AnalyzeDocumentRequest {
    * <p>Contains Queries and the alias for those Queries, as determined by the input. </p>
    */
   QueriesConfig?: QueriesConfig;
+
+  /**
+   * @public
+   * <p>Specifies the adapter to be used when analyzing a document.</p>
+   */
+  AdaptersConfig?: AdaptersConfig;
 }
 
 /**
@@ -273,6 +493,16 @@ export interface AnalyzeDocumentRequest {
 export const BlockType = {
   CELL: "CELL",
   KEY_VALUE_SET: "KEY_VALUE_SET",
+  LAYOUT_FIGURE: "LAYOUT_FIGURE",
+  LAYOUT_FOOTER: "LAYOUT_FOOTER",
+  LAYOUT_HEADER: "LAYOUT_HEADER",
+  LAYOUT_KEY_VALUE: "LAYOUT_KEY_VALUE",
+  LAYOUT_LIST: "LAYOUT_LIST",
+  LAYOUT_PAGE_NUMBER: "LAYOUT_PAGE_NUMBER",
+  LAYOUT_SECTION_HEADER: "LAYOUT_SECTION_HEADER",
+  LAYOUT_TABLE: "LAYOUT_TABLE",
+  LAYOUT_TEXT: "LAYOUT_TEXT",
+  LAYOUT_TITLE: "LAYOUT_TITLE",
   LINE: "LINE",
   MERGED_CELL: "MERGED_CELL",
   PAGE: "PAGE",
@@ -476,7 +706,7 @@ export interface Relationship {
    *             </li>
    *          </ul>
    */
-  Type?: RelationshipType | string;
+  Type?: RelationshipType;
 
   /**
    * @public
@@ -613,7 +843,7 @@ export interface Block {
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>SIGNATURE</i> - The location and confidene score of a signature detected on a
+   *                   <i>SIGNATURE</i> - The location and confidence score of a signature detected on a
    *                document page. Can be returned as part of a Key-Value pair or a detected cell.</p>
    *             </li>
    *             <li>
@@ -628,8 +858,51 @@ export interface Block {
    *                response. Also contains location and confidence score.</p>
    *             </li>
    *          </ul>
+   *          <p>The following BlockTypes are only returned for Amazon Textract Layout.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LAYOUT_TITLE</code> - The main title of the document.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LAYOUT_HEADER</code> - Text located in the top margin of the document.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LAYOUT_FOOTER</code> - Text located in the bottom margin of the document.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LAYOUT_SECTION_HEADER</code> - The titles of sections within a document.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LAYOUT_PAGE_NUMBER</code> - The page number of the documents.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LAYOUT_LIST</code> - Any information grouped together in list form. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LAYOUT_FIGURE</code> - Indicates the location of an image in a document.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LAYOUT_TABLE</code> - Indicates the location of a table in the document.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LAYOUT_KEY_VALUE</code> - Indicates the location of form key-values in a document.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LAYOUT_TEXT</code> - Text that is present typically as a part of paragraphs in documents.</p>
+   *             </li>
+   *          </ul>
    */
-  BlockType?: BlockType | string;
+  BlockType?: BlockType;
 
   /**
    * @public
@@ -649,7 +922,7 @@ export interface Block {
    * <p>The kind of text that Amazon Textract has detected. Can check for handwritten text and
    *          printed text.</p>
    */
-  TextType?: TextType | string;
+  TextType?: TextType;
 
   /**
    * @public
@@ -760,14 +1033,14 @@ export interface Block {
    *             <code>EntityTypes</code> isn't returned by <code>DetectDocumentText</code> and
    *             <code>GetDocumentTextDetection</code>.</p>
    */
-  EntityTypes?: (EntityType | string)[];
+  EntityTypes?: EntityType[];
 
   /**
    * @public
    * <p>The selection status of a selection element, such as an option button or check box.
    *       </p>
    */
-  SelectionStatus?: SelectionStatus | string;
+  SelectionStatus?: SelectionStatus;
 
   /**
    * @public
@@ -776,8 +1049,7 @@ export interface Block {
    *          documents that are in PDF or TIFF format. A scanned image (JPEG/PNG) provided to an
    *          asynchronous operation, even if it contains multiple document pages, is considered a
    *          single-page document. This means that for scanned images the value of <code>Page</code> is
-   *          always 1. Synchronous operations will also return a <code>Page</code> value of 1
-   *          because every input document is considered to be a single-page document.</p>
+   *          always 1. </p>
    */
   Page?: number;
 
@@ -1413,7 +1685,7 @@ export interface NormalizedValue {
    * @public
    * <p>The normalized type of the value detected. In this case, DATE.</p>
    */
-  ValueType?: ValueType | string;
+  ValueType?: ValueType;
 }
 
 /**
@@ -1509,6 +1781,401 @@ export interface AnalyzeIDResponse {
    */
   AnalyzeIDModelVersion?: string;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const AutoUpdate = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type AutoUpdate = (typeof AutoUpdate)[keyof typeof AutoUpdate];
+
+/**
+ * @public
+ * <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  Code?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateAdapterRequest {
+  /**
+   * @public
+   * <p>The name to be assigned to the adapter being created.</p>
+   */
+  AdapterName: string | undefined;
+
+  /**
+   * @public
+   * <p>Idempotent token is used to recognize the request. If the same token is used with multiple
+   *          CreateAdapter requests, the same session is returned.
+   *          This token is employed to avoid unintentionally creating the same session multiple times.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * @public
+   * <p>The description to be assigned to the adapter being created.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>The type of feature that the adapter is being trained on. Currrenly, supported feature
+   *          types are: <code>QUERIES</code>
+   *          </p>
+   */
+  FeatureTypes: FeatureType[] | undefined;
+
+  /**
+   * @public
+   * <p>Controls whether or not the adapter should automatically update.</p>
+   */
+  AutoUpdate?: AutoUpdate;
+
+  /**
+   * @public
+   * <p>A list of tags to be added to the adapter.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateAdapterResponse {
+  /**
+   * @public
+   * <p>A string containing the unique ID for the adapter that has been created.</p>
+   */
+  AdapterId?: string;
+}
+
+/**
+ * @public
+ * <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at
+ *          least one of the other input parameters is different from the previous call to the
+ *          operation. </p>
+ */
+export class IdempotentParameterMismatchException extends __BaseException {
+  readonly name: "IdempotentParameterMismatchException" = "IdempotentParameterMismatchException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  Code?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IdempotentParameterMismatchException, __BaseException>) {
+    super({
+      name: "IdempotentParameterMismatchException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IdempotentParameterMismatchException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+  }
+}
+
+/**
+ * @public
+ * <p>An Amazon Textract service limit was exceeded. For example, if you start too many
+ *          asynchronous jobs concurrently, calls to start operations
+ *             (<code>StartDocumentTextDetection</code>, for example) raise a LimitExceededException
+ *          exception (HTTP status code: 400) until the number of concurrently running jobs is below
+ *          the Amazon Textract service limit. </p>
+ */
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  Code?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+  }
+}
+
+/**
+ * @public
+ * <p>Returned when a request cannot be completed as it would exceed a maximum service quota.</p>
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  Code?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+  }
+}
+
+/**
+ * @public
+ * <p>  Indicates that a request was not valid. Check request for proper formatting. </p>
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  Code?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+  }
+}
+
+/**
+ * @public
+ * <p>Sets whether or not your output will go to a user created bucket. Used to set the name
+ *          of the bucket, and the prefix on the output file.</p>
+ *          <p>
+ *             <code>OutputConfig</code> is an optional parameter which lets you adjust where your
+ *          output will be placed. By default, Amazon Textract will store the results internally and can
+ *          only be accessed by the Get API operations. With <code>OutputConfig</code> enabled, you can
+ *          set the name of the bucket the output will be sent to the file prefix of the results where
+ *          you can download your results. Additionally, you can set the <code>KMSKeyID</code>
+ *          parameter to a customer master key (CMK) to encrypt your output. Without this parameter set
+ *          Amazon Textract will encrypt server-side using the AWS managed CMK for Amazon S3.</p>
+ *          <p>Decryption of Customer Content is necessary for processing of the documents by Amazon Textract. If your account
+ *          is opted out under an AI services opt out policy then all unencrypted Customer Content is immediately and permanently deleted after
+ *          the Customer Content has been processed by the service. No copy of of the output is retained by Amazon Textract. For information about how to opt out, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html"> Managing AI services opt-out policy. </a>
+ *          </p>
+ *          <p>For more information on data privacy,
+ *          see the <a href="https://aws.amazon.com/compliance/data-privacy-faq/">Data Privacy
+ *             FAQ</a>.</p>
+ */
+export interface OutputConfig {
+  /**
+   * @public
+   * <p>The name of the bucket your output will go to.</p>
+   */
+  S3Bucket: string | undefined;
+
+  /**
+   * @public
+   * <p>The prefix of the object key that the output will be saved to. When not enabled, the
+   *          prefix will be “textract_output".</p>
+   */
+  S3Prefix?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateAdapterVersionRequest {
+  /**
+   * @public
+   * <p>A string containing a unique ID for the adapter that will receive a new version.</p>
+   */
+  AdapterId: string | undefined;
+
+  /**
+   * @public
+   * <p>Idempotent token is used to recognize the request. If the same token is used with multiple
+   *          CreateAdapterVersion requests, the same session is returned.
+   *          This token is employed to avoid unintentionally creating the same session multiple times.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * @public
+   * <p>Specifies a dataset used to train a new adapter version. Takes a ManifestS3Object as the
+   *          value.</p>
+   */
+  DatasetConfig: AdapterVersionDatasetConfig | undefined;
+
+  /**
+   * @public
+   * <p>The identifier for your AWS Key Management Service key (AWS KMS key). Used to encrypt your documents.</p>
+   */
+  KMSKeyId?: string;
+
+  /**
+   * @public
+   * <p>Sets whether or not your output will go to a user created bucket. Used to set the name
+   *          of the bucket, and the prefix on the output file.</p>
+   *          <p>
+   *             <code>OutputConfig</code> is an optional parameter which lets you adjust where your
+   *          output will be placed. By default, Amazon Textract will store the results internally and can
+   *          only be accessed by the Get API operations. With <code>OutputConfig</code> enabled, you can
+   *          set the name of the bucket the output will be sent to the file prefix of the results where
+   *          you can download your results. Additionally, you can set the <code>KMSKeyID</code>
+   *          parameter to a customer master key (CMK) to encrypt your output. Without this parameter set
+   *          Amazon Textract will encrypt server-side using the AWS managed CMK for Amazon S3.</p>
+   *          <p>Decryption of Customer Content is necessary for processing of the documents by Amazon Textract. If your account
+   *          is opted out under an AI services opt out policy then all unencrypted Customer Content is immediately and permanently deleted after
+   *          the Customer Content has been processed by the service. No copy of of the output is retained by Amazon Textract. For information about how to opt out, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html"> Managing AI services opt-out policy. </a>
+   *          </p>
+   *          <p>For more information on data privacy,
+   *          see the <a href="https://aws.amazon.com/compliance/data-privacy-faq/">Data Privacy
+   *             FAQ</a>.</p>
+   */
+  OutputConfig: OutputConfig | undefined;
+
+  /**
+   * @public
+   * <p>A set of tags (key-value pairs) that you want to attach to the adapter version. </p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateAdapterVersionResponse {
+  /**
+   * @public
+   * <p>A string containing the unique ID for the adapter that has received a new version.</p>
+   */
+  AdapterId?: string;
+
+  /**
+   * @public
+   * <p>A string describing the new version of the adapter.</p>
+   */
+  AdapterVersion?: string;
+}
+
+/**
+ * @public
+ * <p> Indicates you do not have decrypt permissions with the KMS key entered, or the KMS key
+ *         was entered incorrectly. </p>
+ */
+export class InvalidKMSKeyException extends __BaseException {
+  readonly name: "InvalidKMSKeyException" = "InvalidKMSKeyException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  Code?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidKMSKeyException, __BaseException>) {
+    super({
+      name: "InvalidKMSKeyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidKMSKeyException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+  }
+}
+
+/**
+ * @public
+ * <p> Returned when an operation tried to access a nonexistent resource. </p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  Code?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.Code = opts.Code;
+  }
+}
+
+/**
+ * @public
+ */
+export interface DeleteAdapterRequest {
+  /**
+   * @public
+   * <p>A string containing a unique ID for the adapter to be deleted.</p>
+   */
+  AdapterId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAdapterResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteAdapterVersionRequest {
+  /**
+   * @public
+   * <p>A string containing a unique ID for the adapter version that will be deleted.</p>
+   */
+  AdapterId: string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the adapter version to be deleted.</p>
+   */
+  AdapterVersion: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAdapterVersionResponse {}
 
 /**
  * @public
@@ -1652,7 +2319,7 @@ export interface LendingDetection {
    * @public
    * <p>The selection status of a selection element, such as an option button or check box.</p>
    */
-  SelectionStatus?: SelectionStatus | string;
+  SelectionStatus?: SelectionStatus;
 
   /**
    * @public
@@ -1756,6 +2423,170 @@ export interface Extraction {
 /**
  * @public
  */
+export interface GetAdapterRequest {
+  /**
+   * @public
+   * <p>A string containing a unique ID for the adapter.</p>
+   */
+  AdapterId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAdapterResponse {
+  /**
+   * @public
+   * <p>A string identifying the adapter that information has been retrieved for.</p>
+   */
+  AdapterId?: string;
+
+  /**
+   * @public
+   * <p>The name of the requested adapter.</p>
+   */
+  AdapterName?: string;
+
+  /**
+   * @public
+   * <p>The date and time the requested adapter was created at.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>The description for the requested adapter.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>List of the targeted feature types for the requested adapter.</p>
+   */
+  FeatureTypes?: FeatureType[];
+
+  /**
+   * @public
+   * <p>Binary value indicating if the adapter is being automatically updated or not.</p>
+   */
+  AutoUpdate?: AutoUpdate;
+
+  /**
+   * @public
+   * <p>A set of tags (key-value pairs) associated with the adapter that has been retrieved.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface GetAdapterVersionRequest {
+  /**
+   * @public
+   * <p>A string specifying a unique ID for the adapter version you want to retrieve information for.</p>
+   */
+  AdapterId: string | undefined;
+
+  /**
+   * @public
+   * <p>A string specifying the adapter version you want to retrieve information for.</p>
+   */
+  AdapterVersion: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAdapterVersionResponse {
+  /**
+   * @public
+   * <p>A string containing a unique ID for the adapter version being retrieved.</p>
+   */
+  AdapterId?: string;
+
+  /**
+   * @public
+   * <p>A string containing the adapter version that has been retrieved.</p>
+   */
+  AdapterVersion?: string;
+
+  /**
+   * @public
+   * <p>The time that the adapter version was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>List of the targeted feature types for the requested adapter version.</p>
+   */
+  FeatureTypes?: FeatureType[];
+
+  /**
+   * @public
+   * <p>The status of the adapter version that has been requested.</p>
+   */
+  Status?: AdapterVersionStatus;
+
+  /**
+   * @public
+   * <p>A message that describes the status of the requested adapter version.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * @public
+   * <p>Specifies a dataset used to train a new adapter version. Takes a ManifestS3Objec as the
+   *          value.</p>
+   */
+  DatasetConfig?: AdapterVersionDatasetConfig;
+
+  /**
+   * @public
+   * <p>The identifier for your AWS Key Management Service key (AWS KMS key). Used to encrypt your documents.</p>
+   */
+  KMSKeyId?: string;
+
+  /**
+   * @public
+   * <p>Sets whether or not your output will go to a user created bucket. Used to set the name
+   *          of the bucket, and the prefix on the output file.</p>
+   *          <p>
+   *             <code>OutputConfig</code> is an optional parameter which lets you adjust where your
+   *          output will be placed. By default, Amazon Textract will store the results internally and can
+   *          only be accessed by the Get API operations. With <code>OutputConfig</code> enabled, you can
+   *          set the name of the bucket the output will be sent to the file prefix of the results where
+   *          you can download your results. Additionally, you can set the <code>KMSKeyID</code>
+   *          parameter to a customer master key (CMK) to encrypt your output. Without this parameter set
+   *          Amazon Textract will encrypt server-side using the AWS managed CMK for Amazon S3.</p>
+   *          <p>Decryption of Customer Content is necessary for processing of the documents by Amazon Textract. If your account
+   *          is opted out under an AI services opt out policy then all unencrypted Customer Content is immediately and permanently deleted after
+   *          the Customer Content has been processed by the service. No copy of of the output is retained by Amazon Textract. For information about how to opt out, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html"> Managing AI services opt-out policy. </a>
+   *          </p>
+   *          <p>For more information on data privacy,
+   *          see the <a href="https://aws.amazon.com/compliance/data-privacy-faq/">Data Privacy
+   *             FAQ</a>.</p>
+   */
+  OutputConfig?: OutputConfig;
+
+  /**
+   * @public
+   * <p>The evaluation metrics (F1 score, Precision, and Recall) for the requested version,
+   *          grouped by baseline metrics and adapter version.</p>
+   */
+  EvaluationMetrics?: AdapterVersionEvaluationMetric[];
+
+  /**
+   * @public
+   * <p>A set of tags (key-value pairs) that are associated with the adapter version.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
 export interface GetDocumentAnalysisRequest {
   /**
    * @public
@@ -1832,7 +2663,7 @@ export interface GetDocumentAnalysisResponse {
    * @public
    * <p>The current status of the text detection job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -1893,31 +2724,6 @@ export class InvalidJobIdException extends __BaseException {
 
 /**
  * @public
- * <p> Indicates you do not have decrypt permissions with the KMS key entered, or the KMS key
- *         was entered incorrectly. </p>
- */
-export class InvalidKMSKeyException extends __BaseException {
-  readonly name: "InvalidKMSKeyException" = "InvalidKMSKeyException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidKMSKeyException, __BaseException>) {
-    super({
-      name: "InvalidKMSKeyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidKMSKeyException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
-}
-
-/**
- * @public
  */
 export interface GetDocumentTextDetectionRequest {
   /**
@@ -1958,7 +2764,7 @@ export interface GetDocumentTextDetectionResponse {
    * @public
    * <p>The current status of the text detection job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -2035,7 +2841,7 @@ export interface GetExpenseAnalysisResponse {
    * @public
    * <p>The current status of the text detection job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -2177,7 +2983,7 @@ export interface GetLendingAnalysisResponse {
    * @public
    * <p> The current status of the lending analysis job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -2257,7 +3063,7 @@ export interface GetLendingAnalysisSummaryResponse {
    * @public
    * <p> The current status of the lending analysis job. </p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -2287,56 +3093,126 @@ export interface GetLendingAnalysisSummaryResponse {
 
 /**
  * @public
- * <p>A <code>ClientRequestToken</code> input parameter was reused with an operation, but at
- *          least one of the other input parameters is different from the previous call to the
- *          operation. </p>
  */
-export class IdempotentParameterMismatchException extends __BaseException {
-  readonly name: "IdempotentParameterMismatchException" = "IdempotentParameterMismatchException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+export interface ListAdaptersRequest {
   /**
-   * @internal
+   * @public
+   * <p>Specifies the lower bound for the ListAdapters operation.
+   *          Ensures ListAdapters returns only adapters created after the specified creation time.</p>
    */
-  constructor(opts: __ExceptionOptionType<IdempotentParameterMismatchException, __BaseException>) {
-    super({
-      name: "IdempotentParameterMismatchException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IdempotentParameterMismatchException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
+  AfterCreationTime?: Date;
+
+  /**
+   * @public
+   * <p>Specifies the upper bound for the ListAdapters operation.
+   *          Ensures ListAdapters returns only adapters created before the specified creation time.</p>
+   */
+  BeforeCreationTime?: Date;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return when listing adapters.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>Identifies the next page of results to return when listing adapters.</p>
+   */
+  NextToken?: string;
 }
 
 /**
  * @public
- * <p>An Amazon Textract service limit was exceeded. For example, if you start too many
- *          asynchronous jobs concurrently, calls to start operations
- *             (<code>StartDocumentTextDetection</code>, for example) raise a LimitExceededException
- *          exception (HTTP status code: 400) until the number of concurrently running jobs is below
- *          the Amazon Textract service limit. </p>
  */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  Code?: string;
+export interface ListAdaptersResponse {
   /**
-   * @internal
+   * @public
+   * <p>A list of adapters that matches the filtering criteria specified when calling ListAdapters.</p>
    */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-    this.Message = opts.Message;
-    this.Code = opts.Code;
-  }
+  Adapters?: AdapterOverview[];
+
+  /**
+   * @public
+   * <p>Identifies the next page of results to return when listing adapters.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListAdapterVersionsRequest {
+  /**
+   * @public
+   * <p>A string containing a unique ID for the adapter to match for when listing adapter versions.</p>
+   */
+  AdapterId?: string;
+
+  /**
+   * @public
+   * <p>Specifies the lower bound for the ListAdapterVersions operation.
+   *          Ensures ListAdapterVersions returns only adapter versions created after the specified creation time.</p>
+   */
+  AfterCreationTime?: Date;
+
+  /**
+   * @public
+   * <p>Specifies the upper bound for the ListAdapterVersions operation.
+   *          Ensures ListAdapterVersions returns only adapter versions created after the specified creation time.</p>
+   */
+  BeforeCreationTime?: Date;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return when listing adapter versions.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>Identifies the next page of results to return when listing adapter versions.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListAdapterVersionsResponse {
+  /**
+   * @public
+   * <p>Adapter versions that match the filtering criteria specified when calling ListAdapters.</p>
+   */
+  AdapterVersions?: AdapterVersionOverview[];
+
+  /**
+   * @public
+   * <p>Identifies the next page of results to return when listing adapter versions.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) that specifies the resource to list tags for.</p>
+   */
+  ResourceARN: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * @public
+   * <p>A set of tags (key-value pairs) that are part of the requested resource.</p>
+   */
+  Tags?: Record<string, string>;
 }
 
 /**
@@ -2360,41 +3236,6 @@ export interface NotificationChannel {
 
 /**
  * @public
- * <p>Sets whether or not your output will go to a user created bucket. Used to set the name
- *          of the bucket, and the prefix on the output file.</p>
- *          <p>
- *             <code>OutputConfig</code> is an optional parameter which lets you adjust where your
- *          output will be placed. By default, Amazon Textract will store the results internally and can
- *          only be accessed by the Get API operations. With <code>OutputConfig</code> enabled, you can
- *          set the name of the bucket the output will be sent to the file prefix of the results where
- *          you can download your results. Additionally, you can set the <code>KMSKeyID</code>
- *          parameter to a customer master key (CMK) to encrypt your output. Without this parameter set
- *          Amazon Textract will encrypt server-side using the AWS managed CMK for Amazon S3.</p>
- *          <p>Decryption of Customer Content is necessary for processing of the documents by Amazon Textract. If your account
- *          is opted out under an AI services opt out policy then all unencrypted Customer Content is immediately and permanently deleted after
- *          the Customer Content has been processed by the service. No copy of of the output is retained by Amazon Textract. For information about how to opt out, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html"> Managing AI services opt-out policy. </a>
- *          </p>
- *          <p>For more information on data privacy,
- *          see the <a href="https://aws.amazon.com/compliance/data-privacy-faq/">Data Privacy
- *             FAQ</a>.</p>
- */
-export interface OutputConfig {
-  /**
-   * @public
-   * <p>The name of the bucket your output will go to.</p>
-   */
-  S3Bucket: string | undefined;
-
-  /**
-   * @public
-   * <p>The prefix of the object key that the output will be saved to. When not enabled, the
-   *          prefix will be “textract_output".</p>
-   */
-  S3Prefix?: string;
-}
-
-/**
- * @public
  */
 export interface StartDocumentAnalysisRequest {
   /**
@@ -2412,7 +3253,7 @@ export interface StartDocumentAnalysisRequest {
    *          included in the response (including text that isn't related to the value of
    *             <code>FeatureTypes</code>). </p>
    */
-  FeatureTypes: (FeatureType | string)[] | undefined;
+  FeatureTypes: FeatureType[] | undefined;
 
   /**
    * @public
@@ -2462,6 +3303,12 @@ export interface StartDocumentAnalysisRequest {
    * <p></p>
    */
   QueriesConfig?: QueriesConfig;
+
+  /**
+   * @public
+   * <p>Specifies the adapter to be used when analyzing a document.</p>
+   */
+  AdaptersConfig?: AdaptersConfig;
 }
 
 /**
@@ -2691,4 +3538,118 @@ export interface StartLendingAnalysisResponse {
    *    days.</p>
    */
   JobId?: string;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) that specifies the resource to be tagged.</p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * @public
+   * <p>A set of tags (key-value pairs) that you want to assign to the resource.</p>
+   */
+  Tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) that specifies the resource to be untagged.</p>
+   */
+  ResourceARN: string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the tags to be removed from the resource specified by the ResourceARN.</p>
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateAdapterRequest {
+  /**
+   * @public
+   * <p>A string containing a unique ID for the adapter that will be updated.</p>
+   */
+  AdapterId: string | undefined;
+
+  /**
+   * @public
+   * <p>The new description to be applied to the adapter.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>The new name to be applied to the adapter.</p>
+   */
+  AdapterName?: string;
+
+  /**
+   * @public
+   * <p>The new auto-update status to be applied to the adapter.</p>
+   */
+  AutoUpdate?: AutoUpdate;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAdapterResponse {
+  /**
+   * @public
+   * <p>A string containing a unique ID for the adapter that has been updated.</p>
+   */
+  AdapterId?: string;
+
+  /**
+   * @public
+   * <p>A string containing the name of the adapter that has been updated.</p>
+   */
+  AdapterName?: string;
+
+  /**
+   * @public
+   * <p>An object specifying the creation time of the the adapter that has been updated.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>A string containing the description of the adapter that has been updated.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>List of the targeted feature types for the updated adapter.</p>
+   */
+  FeatureTypes?: FeatureType[];
+
+  /**
+   * @public
+   * <p>The auto-update status of the adapter that has been updated.</p>
+   */
+  AutoUpdate?: AutoUpdate;
 }

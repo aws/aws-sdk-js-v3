@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
 import { GetEntityRequest, GetEntityResponse } from "../models/models_0";
 import { de_GetEntityCommand, se_GetEntityCommand } from "../protocols/Aws_restJson1";
@@ -145,6 +137,7 @@ export interface GetEntityCommandOutput extends GetEntityResponse, __MetadataBea
  * //             displayName: "STRING_VALUE",
  * //           },
  * //           value: "<DataValue>",
+ * //           areAllPropertyValuesReturned: true || false,
  * //         },
  * //       },
  * //       propertyGroups: { // ComponentPropertyGroupResponses
@@ -157,6 +150,28 @@ export interface GetEntityCommandOutput extends GetEntityResponse, __MetadataBea
  * //         },
  * //       },
  * //       syncSource: "STRING_VALUE",
+ * //       areAllPropertiesReturned: true || false,
+ * //       compositeComponents: { // CompositeComponentResponse
+ * //         "<keys>": { // ComponentSummary
+ * //           componentName: "STRING_VALUE", // required
+ * //           componentTypeId: "STRING_VALUE", // required
+ * //           definedIn: "STRING_VALUE",
+ * //           description: "STRING_VALUE",
+ * //           propertyGroups: {
+ * //             "<keys>": {
+ * //               groupType: "STRING_VALUE", // required
+ * //               propertyNames: [ // required
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               isInherited: true || false, // required
+ * //             },
+ * //           },
+ * //           status: "<Status>", // required
+ * //           syncSource: "STRING_VALUE",
+ * //           componentPath: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       areAllCompositeComponentsReturned: true || false,
  * //     },
  * //   },
  * //   parentEntityId: "STRING_VALUE", // required
@@ -164,6 +179,7 @@ export interface GetEntityCommandOutput extends GetEntityResponse, __MetadataBea
  * //   creationDateTime: new Date("TIMESTAMP"), // required
  * //   updateDateTime: new Date("TIMESTAMP"), // required
  * //   syncSource: "STRING_VALUE",
+ * //   areAllComponentsReturned: true || false,
  * // };
  *
  * ```
@@ -193,77 +209,26 @@ export interface GetEntityCommandOutput extends GetEntityResponse, __MetadataBea
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
-export class GetEntityCommand extends $Command<
-  GetEntityCommandInput,
-  GetEntityCommandOutput,
-  IoTTwinMakerClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetEntityCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: IoTTwinMakerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetEntityCommandInput, GetEntityCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GetEntityCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "IoTTwinMakerClient";
-    const commandName = "GetEntityCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetEntityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetEntityCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetEntityCommandOutput> {
-    return de_GetEntityCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetEntityCommand extends $Command
+  .classBuilder<
+    GetEntityCommandInput,
+    GetEntityCommandOutput,
+    IoTTwinMakerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: IoTTwinMakerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSIoTTwinMaker", "GetEntity", {})
+  .n("IoTTwinMakerClient", "GetEntityCommand")
+  .f(void 0, void 0)
+  .ser(se_GetEntityCommand)
+  .de(de_GetEntityCommand)
+  .build() {}

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -12,11 +13,13 @@ import {
   withBaseException,
 } from "@smithy/smithy-client";
 import {
+  DocumentType as __DocumentType,
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
   AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput,
@@ -31,17 +34,44 @@ import {
   CreateAccountAssignmentCommandOutput,
 } from "../commands/CreateAccountAssignmentCommand";
 import {
+  CreateApplicationAssignmentCommandInput,
+  CreateApplicationAssignmentCommandOutput,
+} from "../commands/CreateApplicationAssignmentCommand";
+import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "../commands/CreateApplicationCommand";
+import {
   CreateInstanceAccessControlAttributeConfigurationCommandInput,
   CreateInstanceAccessControlAttributeConfigurationCommandOutput,
 } from "../commands/CreateInstanceAccessControlAttributeConfigurationCommand";
+import { CreateInstanceCommandInput, CreateInstanceCommandOutput } from "../commands/CreateInstanceCommand";
 import {
   CreatePermissionSetCommandInput,
   CreatePermissionSetCommandOutput,
 } from "../commands/CreatePermissionSetCommand";
 import {
+  CreateTrustedTokenIssuerCommandInput,
+  CreateTrustedTokenIssuerCommandOutput,
+} from "../commands/CreateTrustedTokenIssuerCommand";
+import {
   DeleteAccountAssignmentCommandInput,
   DeleteAccountAssignmentCommandOutput,
 } from "../commands/DeleteAccountAssignmentCommand";
+import {
+  DeleteApplicationAccessScopeCommandInput,
+  DeleteApplicationAccessScopeCommandOutput,
+} from "../commands/DeleteApplicationAccessScopeCommand";
+import {
+  DeleteApplicationAssignmentCommandInput,
+  DeleteApplicationAssignmentCommandOutput,
+} from "../commands/DeleteApplicationAssignmentCommand";
+import {
+  DeleteApplicationAuthenticationMethodCommandInput,
+  DeleteApplicationAuthenticationMethodCommandOutput,
+} from "../commands/DeleteApplicationAuthenticationMethodCommand";
+import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "../commands/DeleteApplicationCommand";
+import {
+  DeleteApplicationGrantCommandInput,
+  DeleteApplicationGrantCommandOutput,
+} from "../commands/DeleteApplicationGrantCommand";
 import {
   DeleteInlinePolicyFromPermissionSetCommandInput,
   DeleteInlinePolicyFromPermissionSetCommandOutput,
@@ -50,6 +80,7 @@ import {
   DeleteInstanceAccessControlAttributeConfigurationCommandInput,
   DeleteInstanceAccessControlAttributeConfigurationCommandOutput,
 } from "../commands/DeleteInstanceAccessControlAttributeConfigurationCommand";
+import { DeleteInstanceCommandInput, DeleteInstanceCommandOutput } from "../commands/DeleteInstanceCommand";
 import {
   DeletePermissionsBoundaryFromPermissionSetCommandInput,
   DeletePermissionsBoundaryFromPermissionSetCommandOutput,
@@ -59,6 +90,10 @@ import {
   DeletePermissionSetCommandOutput,
 } from "../commands/DeletePermissionSetCommand";
 import {
+  DeleteTrustedTokenIssuerCommandInput,
+  DeleteTrustedTokenIssuerCommandOutput,
+} from "../commands/DeleteTrustedTokenIssuerCommand";
+import {
   DescribeAccountAssignmentCreationStatusCommandInput,
   DescribeAccountAssignmentCreationStatusCommandOutput,
 } from "../commands/DescribeAccountAssignmentCreationStatusCommand";
@@ -67,9 +102,22 @@ import {
   DescribeAccountAssignmentDeletionStatusCommandOutput,
 } from "../commands/DescribeAccountAssignmentDeletionStatusCommand";
 import {
+  DescribeApplicationAssignmentCommandInput,
+  DescribeApplicationAssignmentCommandOutput,
+} from "../commands/DescribeApplicationAssignmentCommand";
+import {
+  DescribeApplicationCommandInput,
+  DescribeApplicationCommandOutput,
+} from "../commands/DescribeApplicationCommand";
+import {
+  DescribeApplicationProviderCommandInput,
+  DescribeApplicationProviderCommandOutput,
+} from "../commands/DescribeApplicationProviderCommand";
+import {
   DescribeInstanceAccessControlAttributeConfigurationCommandInput,
   DescribeInstanceAccessControlAttributeConfigurationCommandOutput,
 } from "../commands/DescribeInstanceAccessControlAttributeConfigurationCommand";
+import { DescribeInstanceCommandInput, DescribeInstanceCommandOutput } from "../commands/DescribeInstanceCommand";
 import {
   DescribePermissionSetCommandInput,
   DescribePermissionSetCommandOutput,
@@ -79,6 +127,10 @@ import {
   DescribePermissionSetProvisioningStatusCommandOutput,
 } from "../commands/DescribePermissionSetProvisioningStatusCommand";
 import {
+  DescribeTrustedTokenIssuerCommandInput,
+  DescribeTrustedTokenIssuerCommandOutput,
+} from "../commands/DescribeTrustedTokenIssuerCommand";
+import {
   DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput,
   DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput,
 } from "../commands/DetachCustomerManagedPolicyReferenceFromPermissionSetCommand";
@@ -86,6 +138,22 @@ import {
   DetachManagedPolicyFromPermissionSetCommandInput,
   DetachManagedPolicyFromPermissionSetCommandOutput,
 } from "../commands/DetachManagedPolicyFromPermissionSetCommand";
+import {
+  GetApplicationAccessScopeCommandInput,
+  GetApplicationAccessScopeCommandOutput,
+} from "../commands/GetApplicationAccessScopeCommand";
+import {
+  GetApplicationAssignmentConfigurationCommandInput,
+  GetApplicationAssignmentConfigurationCommandOutput,
+} from "../commands/GetApplicationAssignmentConfigurationCommand";
+import {
+  GetApplicationAuthenticationMethodCommandInput,
+  GetApplicationAuthenticationMethodCommandOutput,
+} from "../commands/GetApplicationAuthenticationMethodCommand";
+import {
+  GetApplicationGrantCommandInput,
+  GetApplicationGrantCommandOutput,
+} from "../commands/GetApplicationGrantCommand";
 import {
   GetInlinePolicyForPermissionSetCommandInput,
   GetInlinePolicyForPermissionSetCommandOutput,
@@ -107,9 +175,38 @@ import {
   ListAccountAssignmentsCommandOutput,
 } from "../commands/ListAccountAssignmentsCommand";
 import {
+  ListAccountAssignmentsForPrincipalCommandInput,
+  ListAccountAssignmentsForPrincipalCommandOutput,
+} from "../commands/ListAccountAssignmentsForPrincipalCommand";
+import {
   ListAccountsForProvisionedPermissionSetCommandInput,
   ListAccountsForProvisionedPermissionSetCommandOutput,
 } from "../commands/ListAccountsForProvisionedPermissionSetCommand";
+import {
+  ListApplicationAccessScopesCommandInput,
+  ListApplicationAccessScopesCommandOutput,
+} from "../commands/ListApplicationAccessScopesCommand";
+import {
+  ListApplicationAssignmentsCommandInput,
+  ListApplicationAssignmentsCommandOutput,
+} from "../commands/ListApplicationAssignmentsCommand";
+import {
+  ListApplicationAssignmentsForPrincipalCommandInput,
+  ListApplicationAssignmentsForPrincipalCommandOutput,
+} from "../commands/ListApplicationAssignmentsForPrincipalCommand";
+import {
+  ListApplicationAuthenticationMethodsCommandInput,
+  ListApplicationAuthenticationMethodsCommandOutput,
+} from "../commands/ListApplicationAuthenticationMethodsCommand";
+import {
+  ListApplicationGrantsCommandInput,
+  ListApplicationGrantsCommandOutput,
+} from "../commands/ListApplicationGrantsCommand";
+import {
+  ListApplicationProvidersCommandInput,
+  ListApplicationProvidersCommandOutput,
+} from "../commands/ListApplicationProvidersCommand";
+import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "../commands/ListApplicationsCommand";
 import {
   ListCustomerManagedPolicyReferencesInPermissionSetCommandInput,
   ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput,
@@ -133,9 +230,29 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import {
+  ListTrustedTokenIssuersCommandInput,
+  ListTrustedTokenIssuersCommandOutput,
+} from "../commands/ListTrustedTokenIssuersCommand";
+import {
   ProvisionPermissionSetCommandInput,
   ProvisionPermissionSetCommandOutput,
 } from "../commands/ProvisionPermissionSetCommand";
+import {
+  PutApplicationAccessScopeCommandInput,
+  PutApplicationAccessScopeCommandOutput,
+} from "../commands/PutApplicationAccessScopeCommand";
+import {
+  PutApplicationAssignmentConfigurationCommandInput,
+  PutApplicationAssignmentConfigurationCommandOutput,
+} from "../commands/PutApplicationAssignmentConfigurationCommand";
+import {
+  PutApplicationAuthenticationMethodCommandInput,
+  PutApplicationAuthenticationMethodCommandOutput,
+} from "../commands/PutApplicationAuthenticationMethodCommand";
+import {
+  PutApplicationGrantCommandInput,
+  PutApplicationGrantCommandOutput,
+} from "../commands/PutApplicationGrantCommand";
 import {
   PutInlinePolicyToPermissionSetCommandInput,
   PutInlinePolicyToPermissionSetCommandOutput,
@@ -146,81 +263,150 @@ import {
 } from "../commands/PutPermissionsBoundaryToPermissionSetCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "../commands/UpdateApplicationCommand";
 import {
   UpdateInstanceAccessControlAttributeConfigurationCommandInput,
   UpdateInstanceAccessControlAttributeConfigurationCommandOutput,
 } from "../commands/UpdateInstanceAccessControlAttributeConfigurationCommand";
+import { UpdateInstanceCommandInput, UpdateInstanceCommandOutput } from "../commands/UpdateInstanceCommand";
 import {
   UpdatePermissionSetCommandInput,
   UpdatePermissionSetCommandOutput,
 } from "../commands/UpdatePermissionSetCommand";
+import {
+  UpdateTrustedTokenIssuerCommandInput,
+  UpdateTrustedTokenIssuerCommandOutput,
+} from "../commands/UpdateTrustedTokenIssuerCommand";
 import {
   AccessControlAttribute,
   AccessControlAttributeValue,
   AccessDeniedException,
   AccountAssignmentOperationStatus,
   AccountAssignmentOperationStatusMetadata,
+  Application,
   AttachCustomerManagedPolicyReferenceToPermissionSetRequest,
   AttachManagedPolicyToPermissionSetRequest,
+  AuthenticationMethod,
+  AuthenticationMethodItem,
+  AuthorizationCodeGrant,
+  AuthorizedTokenIssuer,
   ConflictException,
   CreateAccountAssignmentRequest,
   CreateAccountAssignmentResponse,
+  CreateApplicationAssignmentRequest,
+  CreateApplicationRequest,
   CreateInstanceAccessControlAttributeConfigurationRequest,
+  CreateInstanceRequest,
   CreatePermissionSetRequest,
   CreatePermissionSetResponse,
+  CreateTrustedTokenIssuerRequest,
   CustomerManagedPolicyReference,
   DeleteAccountAssignmentRequest,
   DeleteAccountAssignmentResponse,
+  DeleteApplicationAccessScopeRequest,
+  DeleteApplicationAssignmentRequest,
+  DeleteApplicationAuthenticationMethodRequest,
+  DeleteApplicationGrantRequest,
+  DeleteApplicationRequest,
   DeleteInlinePolicyFromPermissionSetRequest,
   DeleteInstanceAccessControlAttributeConfigurationRequest,
+  DeleteInstanceRequest,
   DeletePermissionsBoundaryFromPermissionSetRequest,
   DeletePermissionSetRequest,
+  DeleteTrustedTokenIssuerRequest,
   DescribeAccountAssignmentCreationStatusRequest,
   DescribeAccountAssignmentCreationStatusResponse,
   DescribeAccountAssignmentDeletionStatusRequest,
   DescribeAccountAssignmentDeletionStatusResponse,
+  DescribeApplicationAssignmentRequest,
+  DescribeApplicationProviderRequest,
+  DescribeApplicationRequest,
+  DescribeApplicationResponse,
   DescribeInstanceAccessControlAttributeConfigurationRequest,
+  DescribeInstanceRequest,
+  DescribeInstanceResponse,
   DescribePermissionSetProvisioningStatusRequest,
   DescribePermissionSetProvisioningStatusResponse,
   DescribePermissionSetRequest,
   DescribePermissionSetResponse,
+  DescribeTrustedTokenIssuerRequest,
   DetachCustomerManagedPolicyReferenceFromPermissionSetRequest,
   DetachManagedPolicyFromPermissionSetRequest,
+  GetApplicationAccessScopeRequest,
+  GetApplicationAssignmentConfigurationRequest,
+  GetApplicationAuthenticationMethodRequest,
+  GetApplicationAuthenticationMethodResponse,
+  GetApplicationGrantRequest,
   GetInlinePolicyForPermissionSetRequest,
   GetPermissionsBoundaryForPermissionSetRequest,
+  Grant,
+  IamAuthenticationMethod,
   InstanceAccessControlAttributeConfiguration,
+  InstanceMetadata,
   InternalServerException,
+  JwtBearerGrant,
   ListAccountAssignmentCreationStatusRequest,
   ListAccountAssignmentCreationStatusResponse,
   ListAccountAssignmentDeletionStatusRequest,
   ListAccountAssignmentDeletionStatusResponse,
+  ListAccountAssignmentsFilter,
+  ListAccountAssignmentsForPrincipalRequest,
   ListAccountAssignmentsRequest,
   ListAccountsForProvisionedPermissionSetRequest,
+  ListApplicationAccessScopesRequest,
+  ListApplicationAssignmentsFilter,
+  ListApplicationAssignmentsForPrincipalRequest,
+  ListApplicationAssignmentsRequest,
+  ListApplicationAuthenticationMethodsRequest,
+  ListApplicationAuthenticationMethodsResponse,
+  ListApplicationGrantsRequest,
+  ListApplicationProvidersRequest,
+  ListApplicationsFilter,
+  ListApplicationsRequest,
+  ListApplicationsResponse,
   ListCustomerManagedPolicyReferencesInPermissionSetRequest,
   ListInstancesRequest,
+  ListInstancesResponse,
   ListManagedPoliciesInPermissionSetRequest,
   ListPermissionSetProvisioningStatusRequest,
   ListPermissionSetProvisioningStatusResponse,
   ListPermissionSetsProvisionedToAccountRequest,
   ListPermissionSetsRequest,
   ListTagsForResourceRequest,
+  ListTrustedTokenIssuersRequest,
+  OidcJwtConfiguration,
+  OidcJwtUpdateConfiguration,
   OperationStatusFilter,
   PermissionsBoundary,
   PermissionSet,
   PermissionSetProvisioningStatus,
   PermissionSetProvisioningStatusMetadata,
+  PortalOptions,
   ProvisionPermissionSetRequest,
   ProvisionPermissionSetResponse,
+  PutApplicationAccessScopeRequest,
+  PutApplicationAssignmentConfigurationRequest,
+  PutApplicationAuthenticationMethodRequest,
+  PutApplicationGrantRequest,
   PutInlinePolicyToPermissionSetRequest,
   PutPermissionsBoundaryToPermissionSetRequest,
+  RefreshTokenGrant,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
+  SignInOptions,
   Tag,
   TagResourceRequest,
   ThrottlingException,
+  TokenExchangeGrant,
+  TrustedTokenIssuerConfiguration,
+  TrustedTokenIssuerUpdateConfiguration,
   UntagResourceRequest,
+  UpdateApplicationPortalOptions,
+  UpdateApplicationRequest,
   UpdateInstanceAccessControlAttributeConfigurationRequest,
+  UpdateInstanceRequest,
   UpdatePermissionSetRequest,
+  UpdateTrustedTokenIssuerRequest,
   ValidationException,
 } from "../models/models_0";
 import { SSOAdminServiceException as __BaseException } from "../models/SSOAdminServiceException";
@@ -265,6 +451,45 @@ export const se_CreateAccountAssignmentCommand = async (
 };
 
 /**
+ * serializeAws_json1_1CreateApplicationCommand
+ */
+export const se_CreateApplicationCommand = async (
+  input: CreateApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateApplication");
+  let body: any;
+  body = JSON.stringify(se_CreateApplicationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateApplicationAssignmentCommand
+ */
+export const se_CreateApplicationAssignmentCommand = async (
+  input: CreateApplicationAssignmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateApplicationAssignment");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateInstanceCommand
+ */
+export const se_CreateInstanceCommand = async (
+  input: CreateInstanceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateInstance");
+  let body: any;
+  body = JSON.stringify(se_CreateInstanceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1CreateInstanceAccessControlAttributeConfigurationCommand
  */
 export const se_CreateInstanceAccessControlAttributeConfigurationCommand = async (
@@ -291,6 +516,19 @@ export const se_CreatePermissionSetCommand = async (
 };
 
 /**
+ * serializeAws_json1_1CreateTrustedTokenIssuerCommand
+ */
+export const se_CreateTrustedTokenIssuerCommand = async (
+  input: CreateTrustedTokenIssuerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateTrustedTokenIssuer");
+  let body: any;
+  body = JSON.stringify(se_CreateTrustedTokenIssuerRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DeleteAccountAssignmentCommand
  */
 export const se_DeleteAccountAssignmentCommand = async (
@@ -304,6 +542,71 @@ export const se_DeleteAccountAssignmentCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DeleteApplicationCommand
+ */
+export const se_DeleteApplicationCommand = async (
+  input: DeleteApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteApplication");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteApplicationAccessScopeCommand
+ */
+export const se_DeleteApplicationAccessScopeCommand = async (
+  input: DeleteApplicationAccessScopeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteApplicationAccessScope");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteApplicationAssignmentCommand
+ */
+export const se_DeleteApplicationAssignmentCommand = async (
+  input: DeleteApplicationAssignmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteApplicationAssignment");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteApplicationAuthenticationMethodCommand
+ */
+export const se_DeleteApplicationAuthenticationMethodCommand = async (
+  input: DeleteApplicationAuthenticationMethodCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteApplicationAuthenticationMethod");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteApplicationGrantCommand
+ */
+export const se_DeleteApplicationGrantCommand = async (
+  input: DeleteApplicationGrantCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteApplicationGrant");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DeleteInlinePolicyFromPermissionSetCommand
  */
 export const se_DeleteInlinePolicyFromPermissionSetCommand = async (
@@ -311,6 +614,19 @@ export const se_DeleteInlinePolicyFromPermissionSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteInlinePolicyFromPermissionSet");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteInstanceCommand
+ */
+export const se_DeleteInstanceCommand = async (
+  input: DeleteInstanceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteInstance");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -356,6 +672,19 @@ export const se_DeletePermissionSetCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DeleteTrustedTokenIssuerCommand
+ */
+export const se_DeleteTrustedTokenIssuerCommand = async (
+  input: DeleteTrustedTokenIssuerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteTrustedTokenIssuer");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DescribeAccountAssignmentCreationStatusCommand
  */
 export const se_DescribeAccountAssignmentCreationStatusCommand = async (
@@ -376,6 +705,58 @@ export const se_DescribeAccountAssignmentDeletionStatusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeAccountAssignmentDeletionStatus");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeApplicationCommand
+ */
+export const se_DescribeApplicationCommand = async (
+  input: DescribeApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeApplication");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeApplicationAssignmentCommand
+ */
+export const se_DescribeApplicationAssignmentCommand = async (
+  input: DescribeApplicationAssignmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeApplicationAssignment");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeApplicationProviderCommand
+ */
+export const se_DescribeApplicationProviderCommand = async (
+  input: DescribeApplicationProviderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeApplicationProvider");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeInstanceCommand
+ */
+export const se_DescribeInstanceCommand = async (
+  input: DescribeInstanceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeInstance");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -421,6 +802,19 @@ export const se_DescribePermissionSetProvisioningStatusCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DescribeTrustedTokenIssuerCommand
+ */
+export const se_DescribeTrustedTokenIssuerCommand = async (
+  input: DescribeTrustedTokenIssuerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeTrustedTokenIssuer");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DetachCustomerManagedPolicyReferenceFromPermissionSetCommand
  */
 export const se_DetachCustomerManagedPolicyReferenceFromPermissionSetCommand = async (
@@ -441,6 +835,58 @@ export const se_DetachManagedPolicyFromPermissionSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DetachManagedPolicyFromPermissionSet");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetApplicationAccessScopeCommand
+ */
+export const se_GetApplicationAccessScopeCommand = async (
+  input: GetApplicationAccessScopeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetApplicationAccessScope");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetApplicationAssignmentConfigurationCommand
+ */
+export const se_GetApplicationAssignmentConfigurationCommand = async (
+  input: GetApplicationAssignmentConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetApplicationAssignmentConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetApplicationAuthenticationMethodCommand
+ */
+export const se_GetApplicationAuthenticationMethodCommand = async (
+  input: GetApplicationAuthenticationMethodCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetApplicationAuthenticationMethod");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetApplicationGrantCommand
+ */
+export const se_GetApplicationGrantCommand = async (
+  input: GetApplicationGrantCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetApplicationGrant");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -512,6 +958,19 @@ export const se_ListAccountAssignmentsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ListAccountAssignmentsForPrincipalCommand
+ */
+export const se_ListAccountAssignmentsForPrincipalCommand = async (
+  input: ListAccountAssignmentsForPrincipalCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListAccountAssignmentsForPrincipal");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ListAccountsForProvisionedPermissionSetCommand
  */
 export const se_ListAccountsForProvisionedPermissionSetCommand = async (
@@ -519,6 +978,97 @@ export const se_ListAccountsForProvisionedPermissionSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListAccountsForProvisionedPermissionSet");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListApplicationAccessScopesCommand
+ */
+export const se_ListApplicationAccessScopesCommand = async (
+  input: ListApplicationAccessScopesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListApplicationAccessScopes");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListApplicationAssignmentsCommand
+ */
+export const se_ListApplicationAssignmentsCommand = async (
+  input: ListApplicationAssignmentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListApplicationAssignments");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListApplicationAssignmentsForPrincipalCommand
+ */
+export const se_ListApplicationAssignmentsForPrincipalCommand = async (
+  input: ListApplicationAssignmentsForPrincipalCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListApplicationAssignmentsForPrincipal");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListApplicationAuthenticationMethodsCommand
+ */
+export const se_ListApplicationAuthenticationMethodsCommand = async (
+  input: ListApplicationAuthenticationMethodsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListApplicationAuthenticationMethods");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListApplicationGrantsCommand
+ */
+export const se_ListApplicationGrantsCommand = async (
+  input: ListApplicationGrantsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListApplicationGrants");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListApplicationProvidersCommand
+ */
+export const se_ListApplicationProvidersCommand = async (
+  input: ListApplicationProvidersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListApplicationProviders");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListApplicationsCommand
+ */
+export const se_ListApplicationsCommand = async (
+  input: ListApplicationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListApplications");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -616,6 +1166,19 @@ export const se_ListTagsForResourceCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ListTrustedTokenIssuersCommand
+ */
+export const se_ListTrustedTokenIssuersCommand = async (
+  input: ListTrustedTokenIssuersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListTrustedTokenIssuers");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ProvisionPermissionSetCommand
  */
 export const se_ProvisionPermissionSetCommand = async (
@@ -623,6 +1186,58 @@ export const se_ProvisionPermissionSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ProvisionPermissionSet");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1PutApplicationAccessScopeCommand
+ */
+export const se_PutApplicationAccessScopeCommand = async (
+  input: PutApplicationAccessScopeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("PutApplicationAccessScope");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1PutApplicationAssignmentConfigurationCommand
+ */
+export const se_PutApplicationAssignmentConfigurationCommand = async (
+  input: PutApplicationAssignmentConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("PutApplicationAssignmentConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1PutApplicationAuthenticationMethodCommand
+ */
+export const se_PutApplicationAuthenticationMethodCommand = async (
+  input: PutApplicationAuthenticationMethodCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("PutApplicationAuthenticationMethod");
+  let body: any;
+  body = JSON.stringify(se_PutApplicationAuthenticationMethodRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1PutApplicationGrantCommand
+ */
+export const se_PutApplicationGrantCommand = async (
+  input: PutApplicationGrantCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("PutApplicationGrant");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -681,6 +1296,32 @@ export const se_UntagResourceCommand = async (
 };
 
 /**
+ * serializeAws_json1_1UpdateApplicationCommand
+ */
+export const se_UpdateApplicationCommand = async (
+  input: UpdateApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateApplication");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateInstanceCommand
+ */
+export const se_UpdateInstanceCommand = async (
+  input: UpdateInstanceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateInstance");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1UpdateInstanceAccessControlAttributeConfigurationCommand
  */
 export const se_UpdateInstanceAccessControlAttributeConfigurationCommand = async (
@@ -701,6 +1342,19 @@ export const se_UpdatePermissionSetCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdatePermissionSet");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateTrustedTokenIssuerCommand
+ */
+export const se_UpdateTrustedTokenIssuerCommand = async (
+  input: UpdateTrustedTokenIssuerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateTrustedTokenIssuer");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -899,6 +1553,195 @@ const de_CreateAccountAssignmentCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1CreateApplicationCommand
+ */
+export const de_CreateApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateApplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateApplicationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateApplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateApplicationCommandError
+ */
+const de_CreateApplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateApplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssoadmin#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.ssoadmin#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1CreateApplicationAssignmentCommand
+ */
+export const de_CreateApplicationAssignmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateApplicationAssignmentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateApplicationAssignmentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateApplicationAssignmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateApplicationAssignmentCommandError
+ */
+const de_CreateApplicationAssignmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateApplicationAssignmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssoadmin#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.ssoadmin#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1CreateInstanceCommand
+ */
+export const de_CreateInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateInstanceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateInstanceCommandError
+ */
+const de_CreateInstanceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateInstanceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssoadmin#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.ssoadmin#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1CreateInstanceAccessControlAttributeConfigurationCommand
  */
 export const de_CreateInstanceAccessControlAttributeConfigurationCommand = async (
@@ -1024,6 +1867,67 @@ const de_CreatePermissionSetCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1CreateTrustedTokenIssuerCommand
+ */
+export const de_CreateTrustedTokenIssuerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTrustedTokenIssuerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateTrustedTokenIssuerCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateTrustedTokenIssuerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateTrustedTokenIssuerCommandError
+ */
+const de_CreateTrustedTokenIssuerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTrustedTokenIssuerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssoadmin#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.ssoadmin#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1DeleteAccountAssignmentCommand
  */
 export const de_DeleteAccountAssignmentCommand = async (
@@ -1050,6 +1954,302 @@ const de_DeleteAccountAssignmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccountAssignmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssoadmin#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteApplicationCommand
+ */
+export const de_DeleteApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteApplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteApplicationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteApplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteApplicationCommandError
+ */
+const de_DeleteApplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteApplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssoadmin#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteApplicationAccessScopeCommand
+ */
+export const de_DeleteApplicationAccessScopeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteApplicationAccessScopeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteApplicationAccessScopeCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteApplicationAccessScopeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteApplicationAccessScopeCommandError
+ */
+const de_DeleteApplicationAccessScopeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteApplicationAccessScopeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssoadmin#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteApplicationAssignmentCommand
+ */
+export const de_DeleteApplicationAssignmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteApplicationAssignmentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteApplicationAssignmentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteApplicationAssignmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteApplicationAssignmentCommandError
+ */
+const de_DeleteApplicationAssignmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteApplicationAssignmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssoadmin#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteApplicationAuthenticationMethodCommand
+ */
+export const de_DeleteApplicationAuthenticationMethodCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteApplicationAuthenticationMethodCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteApplicationAuthenticationMethodCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteApplicationAuthenticationMethodCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteApplicationAuthenticationMethodCommandError
+ */
+const de_DeleteApplicationAuthenticationMethodCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteApplicationAuthenticationMethodCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssoadmin#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteApplicationGrantCommand
+ */
+export const de_DeleteApplicationGrantCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteApplicationGrantCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteApplicationGrantCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteApplicationGrantCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteApplicationGrantCommandError
+ */
+const de_DeleteApplicationGrantCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteApplicationGrantCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1129,6 +2329,64 @@ const de_DeleteInlinePolicyFromPermissionSetCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ssoadmin#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteInstanceCommand
+ */
+export const de_DeleteInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteInstanceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteInstanceCommandError
+ */
+const de_DeleteInstanceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteInstanceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssoadmin#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ssoadmin#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -1242,6 +2500,9 @@ const de_DeletePermissionsBoundaryFromPermissionSetCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.ssoadmin#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssoadmin#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssoadmin#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -1291,6 +2552,67 @@ const de_DeletePermissionSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePermissionSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssoadmin#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteTrustedTokenIssuerCommand
+ */
+export const de_DeleteTrustedTokenIssuerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTrustedTokenIssuerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteTrustedTokenIssuerCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteTrustedTokenIssuerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteTrustedTokenIssuerCommandError
+ */
+const de_DeleteTrustedTokenIssuerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTrustedTokenIssuerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1425,6 +2747,235 @@ const de_DescribeAccountAssignmentDeletionStatusCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ssoadmin#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeApplicationCommand
+ */
+export const de_DescribeApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeApplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeApplicationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeApplicationResponse(data, context);
+  const response: DescribeApplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeApplicationCommandError
+ */
+const de_DescribeApplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeApplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeApplicationAssignmentCommand
+ */
+export const de_DescribeApplicationAssignmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeApplicationAssignmentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeApplicationAssignmentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeApplicationAssignmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeApplicationAssignmentCommandError
+ */
+const de_DescribeApplicationAssignmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeApplicationAssignmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeApplicationProviderCommand
+ */
+export const de_DescribeApplicationProviderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeApplicationProviderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeApplicationProviderCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeApplicationProviderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeApplicationProviderCommandError
+ */
+const de_DescribeApplicationProviderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeApplicationProviderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeInstanceCommand
+ */
+export const de_DescribeInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeInstanceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeInstanceResponse(data, context);
+  const response: DescribeInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeInstanceCommandError
+ */
+const de_DescribeInstanceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeInstanceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ssoadmin#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -1616,6 +3167,64 @@ const de_DescribePermissionSetProvisioningStatusCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1DescribeTrustedTokenIssuerCommand
+ */
+export const de_DescribeTrustedTokenIssuerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTrustedTokenIssuerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeTrustedTokenIssuerCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeTrustedTokenIssuerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeTrustedTokenIssuerCommandError
+ */
+const de_DescribeTrustedTokenIssuerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTrustedTokenIssuerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1DetachCustomerManagedPolicyReferenceFromPermissionSetCommand
  */
 export const de_DetachCustomerManagedPolicyReferenceFromPermissionSetCommand = async (
@@ -1715,6 +3324,238 @@ const de_DetachManagedPolicyFromPermissionSetCommandError = async (
     case "ConflictException":
     case "com.amazonaws.ssoadmin#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1GetApplicationAccessScopeCommand
+ */
+export const de_GetApplicationAccessScopeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetApplicationAccessScopeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetApplicationAccessScopeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetApplicationAccessScopeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetApplicationAccessScopeCommandError
+ */
+const de_GetApplicationAccessScopeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetApplicationAccessScopeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1GetApplicationAssignmentConfigurationCommand
+ */
+export const de_GetApplicationAssignmentConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetApplicationAssignmentConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetApplicationAssignmentConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetApplicationAssignmentConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetApplicationAssignmentConfigurationCommandError
+ */
+const de_GetApplicationAssignmentConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetApplicationAssignmentConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1GetApplicationAuthenticationMethodCommand
+ */
+export const de_GetApplicationAuthenticationMethodCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetApplicationAuthenticationMethodCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetApplicationAuthenticationMethodCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetApplicationAuthenticationMethodResponse(data, context);
+  const response: GetApplicationAuthenticationMethodCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetApplicationAuthenticationMethodCommandError
+ */
+const de_GetApplicationAuthenticationMethodCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetApplicationAuthenticationMethodCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1GetApplicationGrantCommand
+ */
+export const de_GetApplicationGrantCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetApplicationGrantCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetApplicationGrantCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetApplicationGrantCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetApplicationGrantCommandError
+ */
+const de_GetApplicationGrantCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetApplicationGrantCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.ssoadmin#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -2028,6 +3869,64 @@ const de_ListAccountAssignmentsCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1ListAccountAssignmentsForPrincipalCommand
+ */
+export const de_ListAccountAssignmentsForPrincipalCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAccountAssignmentsForPrincipalCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListAccountAssignmentsForPrincipalCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListAccountAssignmentsForPrincipalCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListAccountAssignmentsForPrincipalCommandError
+ */
+const de_ListAccountAssignmentsForPrincipalCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAccountAssignmentsForPrincipalCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1ListAccountsForProvisionedPermissionSetCommand
  */
 export const de_ListAccountsForProvisionedPermissionSetCommand = async (
@@ -2069,6 +3968,406 @@ const de_ListAccountsForProvisionedPermissionSetCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.ssoadmin#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListApplicationAccessScopesCommand
+ */
+export const de_ListApplicationAccessScopesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApplicationAccessScopesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListApplicationAccessScopesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListApplicationAccessScopesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListApplicationAccessScopesCommandError
+ */
+const de_ListApplicationAccessScopesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApplicationAccessScopesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListApplicationAssignmentsCommand
+ */
+export const de_ListApplicationAssignmentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApplicationAssignmentsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListApplicationAssignmentsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListApplicationAssignmentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListApplicationAssignmentsCommandError
+ */
+const de_ListApplicationAssignmentsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApplicationAssignmentsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListApplicationAssignmentsForPrincipalCommand
+ */
+export const de_ListApplicationAssignmentsForPrincipalCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApplicationAssignmentsForPrincipalCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListApplicationAssignmentsForPrincipalCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListApplicationAssignmentsForPrincipalCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListApplicationAssignmentsForPrincipalCommandError
+ */
+const de_ListApplicationAssignmentsForPrincipalCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApplicationAssignmentsForPrincipalCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListApplicationAuthenticationMethodsCommand
+ */
+export const de_ListApplicationAuthenticationMethodsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApplicationAuthenticationMethodsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListApplicationAuthenticationMethodsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListApplicationAuthenticationMethodsResponse(data, context);
+  const response: ListApplicationAuthenticationMethodsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListApplicationAuthenticationMethodsCommandError
+ */
+const de_ListApplicationAuthenticationMethodsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApplicationAuthenticationMethodsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListApplicationGrantsCommand
+ */
+export const de_ListApplicationGrantsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApplicationGrantsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListApplicationGrantsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListApplicationGrantsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListApplicationGrantsCommandError
+ */
+const de_ListApplicationGrantsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApplicationGrantsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListApplicationProvidersCommand
+ */
+export const de_ListApplicationProvidersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApplicationProvidersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListApplicationProvidersCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListApplicationProvidersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListApplicationProvidersCommandError
+ */
+const de_ListApplicationProvidersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApplicationProvidersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListApplicationsCommand
+ */
+export const de_ListApplicationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApplicationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListApplicationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListApplicationsResponse(data, context);
+  const response: ListApplicationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListApplicationsCommandError
+ */
+const de_ListApplicationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApplicationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.ssoadmin#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -2155,7 +4454,7 @@ export const de_ListInstancesCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = _json(data);
+  contents = de_ListInstancesResponse(data, context);
   const response: ListInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -2489,6 +4788,61 @@ const de_ListTagsForResourceCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1ListTrustedTokenIssuersCommand
+ */
+export const de_ListTrustedTokenIssuersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTrustedTokenIssuersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListTrustedTokenIssuersCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTrustedTokenIssuersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListTrustedTokenIssuersCommandError
+ */
+const de_ListTrustedTokenIssuersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTrustedTokenIssuersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1ProvisionPermissionSetCommand
  */
 export const de_ProvisionPermissionSetCommand = async (
@@ -2515,6 +4869,241 @@ const de_ProvisionPermissionSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ProvisionPermissionSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssoadmin#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1PutApplicationAccessScopeCommand
+ */
+export const de_PutApplicationAccessScopeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutApplicationAccessScopeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_PutApplicationAccessScopeCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: PutApplicationAccessScopeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutApplicationAccessScopeCommandError
+ */
+const de_PutApplicationAccessScopeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutApplicationAccessScopeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssoadmin#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1PutApplicationAssignmentConfigurationCommand
+ */
+export const de_PutApplicationAssignmentConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutApplicationAssignmentConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_PutApplicationAssignmentConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutApplicationAssignmentConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutApplicationAssignmentConfigurationCommandError
+ */
+const de_PutApplicationAssignmentConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutApplicationAssignmentConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssoadmin#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1PutApplicationAuthenticationMethodCommand
+ */
+export const de_PutApplicationAuthenticationMethodCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutApplicationAuthenticationMethodCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_PutApplicationAuthenticationMethodCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: PutApplicationAuthenticationMethodCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutApplicationAuthenticationMethodCommandError
+ */
+const de_PutApplicationAuthenticationMethodCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutApplicationAuthenticationMethodCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssoadmin#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1PutApplicationGrantCommand
+ */
+export const de_PutApplicationGrantCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutApplicationGrantCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_PutApplicationGrantCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: PutApplicationGrantCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutApplicationGrantCommandError
+ */
+const de_PutApplicationGrantCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutApplicationGrantCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2800,6 +5389,125 @@ const de_UntagResourceCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateApplicationCommand
+ */
+export const de_UpdateApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateApplicationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateApplicationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateApplicationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateApplicationCommandError
+ */
+const de_UpdateApplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateApplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssoadmin#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1UpdateInstanceCommand
+ */
+export const de_UpdateInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateInstanceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateInstanceCommandError
+ */
+const de_UpdateInstanceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateInstanceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssoadmin#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1UpdateInstanceAccessControlAttributeConfigurationCommand
  */
 export const de_UpdateInstanceAccessControlAttributeConfigurationCommand = async (
@@ -2887,6 +5595,67 @@ const de_UpdatePermissionSetCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePermissionSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ssoadmin#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ssoadmin#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.ssoadmin#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssoadmin#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssoadmin#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssoadmin#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1UpdateTrustedTokenIssuerCommand
+ */
+export const de_UpdateTrustedTokenIssuerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTrustedTokenIssuerCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateTrustedTokenIssuerCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateTrustedTokenIssuerCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateTrustedTokenIssuerCommandError
+ */
+const de_UpdateTrustedTokenIssuerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTrustedTokenIssuerCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3032,55 +5801,188 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AccessControlAttributeValueSourceList omitted.
 
+/**
+ * serializeAws_json1_1ActorPolicyDocument
+ */
+const se_ActorPolicyDocument = (input: __DocumentType, context: __SerdeContext): any => {
+  return input;
+};
+
 // se_AttachCustomerManagedPolicyReferenceToPermissionSetRequest omitted.
 
 // se_AttachManagedPolicyToPermissionSetRequest omitted.
 
+/**
+ * serializeAws_json1_1AuthenticationMethod
+ */
+const se_AuthenticationMethod = (input: AuthenticationMethod, context: __SerdeContext): any => {
+  return AuthenticationMethod.visit(input, {
+    Iam: (value) => ({ Iam: se_IamAuthenticationMethod(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+// se_AuthorizationCodeGrant omitted.
+
+// se_AuthorizedTokenIssuer omitted.
+
+// se_AuthorizedTokenIssuers omitted.
+
 // se_CreateAccountAssignmentRequest omitted.
+
+// se_CreateApplicationAssignmentRequest omitted.
+
+/**
+ * serializeAws_json1_1CreateApplicationRequest
+ */
+const se_CreateApplicationRequest = (input: CreateApplicationRequest, context: __SerdeContext): any => {
+  return take(input, {
+    ApplicationProviderArn: [],
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    Description: [],
+    InstanceArn: [],
+    Name: [],
+    PortalOptions: _json,
+    Status: [],
+    Tags: _json,
+  });
+};
 
 // se_CreateInstanceAccessControlAttributeConfigurationRequest omitted.
 
+/**
+ * serializeAws_json1_1CreateInstanceRequest
+ */
+const se_CreateInstanceRequest = (input: CreateInstanceRequest, context: __SerdeContext): any => {
+  return take(input, {
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    Name: [],
+    Tags: _json,
+  });
+};
+
 // se_CreatePermissionSetRequest omitted.
+
+/**
+ * serializeAws_json1_1CreateTrustedTokenIssuerRequest
+ */
+const se_CreateTrustedTokenIssuerRequest = (input: CreateTrustedTokenIssuerRequest, context: __SerdeContext): any => {
+  return take(input, {
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    InstanceArn: [],
+    Name: [],
+    Tags: _json,
+    TrustedTokenIssuerConfiguration: _json,
+    TrustedTokenIssuerType: [],
+  });
+};
 
 // se_CustomerManagedPolicyReference omitted.
 
 // se_DeleteAccountAssignmentRequest omitted.
 
+// se_DeleteApplicationAccessScopeRequest omitted.
+
+// se_DeleteApplicationAssignmentRequest omitted.
+
+// se_DeleteApplicationAuthenticationMethodRequest omitted.
+
+// se_DeleteApplicationGrantRequest omitted.
+
+// se_DeleteApplicationRequest omitted.
+
 // se_DeleteInlinePolicyFromPermissionSetRequest omitted.
 
 // se_DeleteInstanceAccessControlAttributeConfigurationRequest omitted.
+
+// se_DeleteInstanceRequest omitted.
 
 // se_DeletePermissionsBoundaryFromPermissionSetRequest omitted.
 
 // se_DeletePermissionSetRequest omitted.
 
+// se_DeleteTrustedTokenIssuerRequest omitted.
+
 // se_DescribeAccountAssignmentCreationStatusRequest omitted.
 
 // se_DescribeAccountAssignmentDeletionStatusRequest omitted.
 
+// se_DescribeApplicationAssignmentRequest omitted.
+
+// se_DescribeApplicationProviderRequest omitted.
+
+// se_DescribeApplicationRequest omitted.
+
 // se_DescribeInstanceAccessControlAttributeConfigurationRequest omitted.
+
+// se_DescribeInstanceRequest omitted.
 
 // se_DescribePermissionSetProvisioningStatusRequest omitted.
 
 // se_DescribePermissionSetRequest omitted.
 
+// se_DescribeTrustedTokenIssuerRequest omitted.
+
 // se_DetachCustomerManagedPolicyReferenceFromPermissionSetRequest omitted.
 
 // se_DetachManagedPolicyFromPermissionSetRequest omitted.
+
+// se_GetApplicationAccessScopeRequest omitted.
+
+// se_GetApplicationAssignmentConfigurationRequest omitted.
+
+// se_GetApplicationAuthenticationMethodRequest omitted.
+
+// se_GetApplicationGrantRequest omitted.
 
 // se_GetInlinePolicyForPermissionSetRequest omitted.
 
 // se_GetPermissionsBoundaryForPermissionSetRequest omitted.
 
+// se_Grant omitted.
+
+/**
+ * serializeAws_json1_1IamAuthenticationMethod
+ */
+const se_IamAuthenticationMethod = (input: IamAuthenticationMethod, context: __SerdeContext): any => {
+  return take(input, {
+    ActorPolicy: (_) => se_ActorPolicyDocument(_, context),
+  });
+};
+
 // se_InstanceAccessControlAttributeConfiguration omitted.
+
+// se_JwtBearerGrant omitted.
 
 // se_ListAccountAssignmentCreationStatusRequest omitted.
 
 // se_ListAccountAssignmentDeletionStatusRequest omitted.
 
+// se_ListAccountAssignmentsFilter omitted.
+
+// se_ListAccountAssignmentsForPrincipalRequest omitted.
+
 // se_ListAccountAssignmentsRequest omitted.
 
 // se_ListAccountsForProvisionedPermissionSetRequest omitted.
+
+// se_ListApplicationAccessScopesRequest omitted.
+
+// se_ListApplicationAssignmentsFilter omitted.
+
+// se_ListApplicationAssignmentsForPrincipalRequest omitted.
+
+// se_ListApplicationAssignmentsRequest omitted.
+
+// se_ListApplicationAuthenticationMethodsRequest omitted.
+
+// se_ListApplicationGrantsRequest omitted.
+
+// se_ListApplicationProvidersRequest omitted.
+
+// se_ListApplicationsFilter omitted.
+
+// se_ListApplicationsRequest omitted.
 
 // se_ListCustomerManagedPolicyReferencesInPermissionSetRequest omitted.
 
@@ -3096,15 +5998,51 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ListTagsForResourceRequest omitted.
 
+// se_ListTrustedTokenIssuersRequest omitted.
+
+// se_OidcJwtConfiguration omitted.
+
+// se_OidcJwtUpdateConfiguration omitted.
+
 // se_OperationStatusFilter omitted.
 
 // se_PermissionsBoundary omitted.
 
+// se_PortalOptions omitted.
+
 // se_ProvisionPermissionSetRequest omitted.
+
+// se_PutApplicationAccessScopeRequest omitted.
+
+// se_PutApplicationAssignmentConfigurationRequest omitted.
+
+/**
+ * serializeAws_json1_1PutApplicationAuthenticationMethodRequest
+ */
+const se_PutApplicationAuthenticationMethodRequest = (
+  input: PutApplicationAuthenticationMethodRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    ApplicationArn: [],
+    AuthenticationMethod: (_) => se_AuthenticationMethod(_, context),
+    AuthenticationMethodType: [],
+  });
+};
+
+// se_PutApplicationGrantRequest omitted.
 
 // se_PutInlinePolicyToPermissionSetRequest omitted.
 
 // se_PutPermissionsBoundaryToPermissionSetRequest omitted.
+
+// se_RedirectUris omitted.
+
+// se_RefreshTokenGrant omitted.
+
+// se_ScopeTargets omitted.
+
+// se_SignInOptions omitted.
 
 // se_Tag omitted.
 
@@ -3114,11 +6052,27 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_TagResourceRequest omitted.
 
+// se_TokenExchangeGrant omitted.
+
+// se_TokenIssuerAudiences omitted.
+
+// se_TrustedTokenIssuerConfiguration omitted.
+
+// se_TrustedTokenIssuerUpdateConfiguration omitted.
+
 // se_UntagResourceRequest omitted.
+
+// se_UpdateApplicationPortalOptions omitted.
+
+// se_UpdateApplicationRequest omitted.
 
 // se_UpdateInstanceAccessControlAttributeConfigurationRequest omitted.
 
+// se_UpdateInstanceRequest omitted.
+
 // se_UpdatePermissionSetRequest omitted.
+
+// se_UpdateTrustedTokenIssuerRequest omitted.
 
 // de_AccessControlAttribute omitted.
 
@@ -3132,7 +6086,11 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // de_AccountAssignment omitted.
 
+// de_AccountAssignmentForPrincipal omitted.
+
 // de_AccountAssignmentList omitted.
+
+// de_AccountAssignmentListForPrincipal omitted.
 
 /**
  * deserializeAws_json1_1AccountAssignmentOperationStatus
@@ -3185,6 +6143,54 @@ const de_AccountAssignmentOperationStatusMetadata = (
 
 // de_AccountList omitted.
 
+/**
+ * deserializeAws_json1_1ActorPolicyDocument
+ */
+const de_ActorPolicyDocument = (output: any, context: __SerdeContext): __DocumentType => {
+  return output;
+};
+
+/**
+ * deserializeAws_json1_1Application
+ */
+const de_Application = (output: any, context: __SerdeContext): Application => {
+  return take(output, {
+    ApplicationAccount: __expectString,
+    ApplicationArn: __expectString,
+    ApplicationProviderArn: __expectString,
+    CreatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    InstanceArn: __expectString,
+    Name: __expectString,
+    PortalOptions: _json,
+    Status: __expectString,
+  }) as any;
+};
+
+// de_ApplicationAssignment omitted.
+
+// de_ApplicationAssignmentForPrincipal omitted.
+
+// de_ApplicationAssignmentListForPrincipal omitted.
+
+// de_ApplicationAssignmentsList omitted.
+
+/**
+ * deserializeAws_json1_1ApplicationList
+ */
+const de_ApplicationList = (output: any, context: __SerdeContext): Application[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Application(entry, context);
+    });
+  return retVal;
+};
+
+// de_ApplicationProvider omitted.
+
+// de_ApplicationProviderList omitted.
+
 // de_AttachCustomerManagedPolicyReferenceToPermissionSetResponse omitted.
 
 // de_AttachedManagedPolicy omitted.
@@ -3192,6 +6198,46 @@ const de_AccountAssignmentOperationStatusMetadata = (
 // de_AttachedManagedPolicyList omitted.
 
 // de_AttachManagedPolicyToPermissionSetResponse omitted.
+
+/**
+ * deserializeAws_json1_1AuthenticationMethod
+ */
+const de_AuthenticationMethod = (output: any, context: __SerdeContext): AuthenticationMethod => {
+  if (output.Iam != null) {
+    return {
+      Iam: de_IamAuthenticationMethod(output.Iam, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_json1_1AuthenticationMethodItem
+ */
+const de_AuthenticationMethodItem = (output: any, context: __SerdeContext): AuthenticationMethodItem => {
+  return take(output, {
+    AuthenticationMethod: (_: any) => de_AuthenticationMethod(__expectUnion(_), context),
+    AuthenticationMethodType: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1AuthenticationMethods
+ */
+const de_AuthenticationMethods = (output: any, context: __SerdeContext): AuthenticationMethodItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AuthenticationMethodItem(entry, context);
+    });
+  return retVal;
+};
+
+// de_AuthorizationCodeGrant omitted.
+
+// de_AuthorizedTokenIssuer omitted.
+
+// de_AuthorizedTokenIssuers omitted.
 
 // de_ConflictException omitted.
 
@@ -3204,7 +6250,13 @@ const de_CreateAccountAssignmentResponse = (output: any, context: __SerdeContext
   }) as any;
 };
 
+// de_CreateApplicationAssignmentResponse omitted.
+
+// de_CreateApplicationResponse omitted.
+
 // de_CreateInstanceAccessControlAttributeConfigurationResponse omitted.
+
+// de_CreateInstanceResponse omitted.
 
 /**
  * deserializeAws_json1_1CreatePermissionSetResponse
@@ -3214,6 +6266,8 @@ const de_CreatePermissionSetResponse = (output: any, context: __SerdeContext): C
     PermissionSet: (_: any) => de_PermissionSet(_, context),
   }) as any;
 };
+
+// de_CreateTrustedTokenIssuerResponse omitted.
 
 // de_CustomerManagedPolicyReference omitted.
 
@@ -3228,13 +6282,21 @@ const de_DeleteAccountAssignmentResponse = (output: any, context: __SerdeContext
   }) as any;
 };
 
+// de_DeleteApplicationAssignmentResponse omitted.
+
+// de_DeleteApplicationResponse omitted.
+
 // de_DeleteInlinePolicyFromPermissionSetResponse omitted.
 
 // de_DeleteInstanceAccessControlAttributeConfigurationResponse omitted.
 
+// de_DeleteInstanceResponse omitted.
+
 // de_DeletePermissionsBoundaryFromPermissionSetResponse omitted.
 
 // de_DeletePermissionSetResponse omitted.
+
+// de_DeleteTrustedTokenIssuerResponse omitted.
 
 /**
  * deserializeAws_json1_1DescribeAccountAssignmentCreationStatusResponse
@@ -3260,7 +6322,42 @@ const de_DescribeAccountAssignmentDeletionStatusResponse = (
   }) as any;
 };
 
+// de_DescribeApplicationAssignmentResponse omitted.
+
+// de_DescribeApplicationProviderResponse omitted.
+
+/**
+ * deserializeAws_json1_1DescribeApplicationResponse
+ */
+const de_DescribeApplicationResponse = (output: any, context: __SerdeContext): DescribeApplicationResponse => {
+  return take(output, {
+    ApplicationAccount: __expectString,
+    ApplicationArn: __expectString,
+    ApplicationProviderArn: __expectString,
+    CreatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    InstanceArn: __expectString,
+    Name: __expectString,
+    PortalOptions: _json,
+    Status: __expectString,
+  }) as any;
+};
+
 // de_DescribeInstanceAccessControlAttributeConfigurationResponse omitted.
+
+/**
+ * deserializeAws_json1_1DescribeInstanceResponse
+ */
+const de_DescribeInstanceResponse = (output: any, context: __SerdeContext): DescribeInstanceResponse => {
+  return take(output, {
+    CreatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    IdentityStoreId: __expectString,
+    InstanceArn: __expectString,
+    Name: __expectString,
+    OwnerAccountId: __expectString,
+    Status: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1DescribePermissionSetProvisioningStatusResponse
@@ -3283,21 +6380,82 @@ const de_DescribePermissionSetResponse = (output: any, context: __SerdeContext):
   }) as any;
 };
 
+// de_DescribeTrustedTokenIssuerResponse omitted.
+
 // de_DetachCustomerManagedPolicyReferenceFromPermissionSetResponse omitted.
 
 // de_DetachManagedPolicyFromPermissionSetResponse omitted.
+
+// de_DisplayData omitted.
+
+// de_GetApplicationAccessScopeResponse omitted.
+
+// de_GetApplicationAssignmentConfigurationResponse omitted.
+
+/**
+ * deserializeAws_json1_1GetApplicationAuthenticationMethodResponse
+ */
+const de_GetApplicationAuthenticationMethodResponse = (
+  output: any,
+  context: __SerdeContext
+): GetApplicationAuthenticationMethodResponse => {
+  return take(output, {
+    AuthenticationMethod: (_: any) => de_AuthenticationMethod(__expectUnion(_), context),
+  }) as any;
+};
+
+// de_GetApplicationGrantResponse omitted.
 
 // de_GetInlinePolicyForPermissionSetResponse omitted.
 
 // de_GetPermissionsBoundaryForPermissionSetResponse omitted.
 
+// de_Grant omitted.
+
+// de_GrantItem omitted.
+
+// de_Grants omitted.
+
+/**
+ * deserializeAws_json1_1IamAuthenticationMethod
+ */
+const de_IamAuthenticationMethod = (output: any, context: __SerdeContext): IamAuthenticationMethod => {
+  return take(output, {
+    ActorPolicy: (_: any) => de_ActorPolicyDocument(_, context),
+  }) as any;
+};
+
 // de_InstanceAccessControlAttributeConfiguration omitted.
 
-// de_InstanceList omitted.
+/**
+ * deserializeAws_json1_1InstanceList
+ */
+const de_InstanceList = (output: any, context: __SerdeContext): InstanceMetadata[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_InstanceMetadata(entry, context);
+    });
+  return retVal;
+};
 
-// de_InstanceMetadata omitted.
+/**
+ * deserializeAws_json1_1InstanceMetadata
+ */
+const de_InstanceMetadata = (output: any, context: __SerdeContext): InstanceMetadata => {
+  return take(output, {
+    CreatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    IdentityStoreId: __expectString,
+    InstanceArn: __expectString,
+    Name: __expectString,
+    OwnerAccountId: __expectString,
+    Status: __expectString,
+  }) as any;
+};
 
 // de_InternalServerException omitted.
+
+// de_JwtBearerGrant omitted.
 
 /**
  * deserializeAws_json1_1ListAccountAssignmentCreationStatusResponse
@@ -3325,13 +6483,56 @@ const de_ListAccountAssignmentDeletionStatusResponse = (
   }) as any;
 };
 
+// de_ListAccountAssignmentsForPrincipalResponse omitted.
+
 // de_ListAccountAssignmentsResponse omitted.
 
 // de_ListAccountsForProvisionedPermissionSetResponse omitted.
 
+// de_ListApplicationAccessScopesResponse omitted.
+
+// de_ListApplicationAssignmentsForPrincipalResponse omitted.
+
+// de_ListApplicationAssignmentsResponse omitted.
+
+/**
+ * deserializeAws_json1_1ListApplicationAuthenticationMethodsResponse
+ */
+const de_ListApplicationAuthenticationMethodsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListApplicationAuthenticationMethodsResponse => {
+  return take(output, {
+    AuthenticationMethods: (_: any) => de_AuthenticationMethods(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+// de_ListApplicationGrantsResponse omitted.
+
+// de_ListApplicationProvidersResponse omitted.
+
+/**
+ * deserializeAws_json1_1ListApplicationsResponse
+ */
+const de_ListApplicationsResponse = (output: any, context: __SerdeContext): ListApplicationsResponse => {
+  return take(output, {
+    Applications: (_: any) => de_ApplicationList(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
 // de_ListCustomerManagedPolicyReferencesInPermissionSetResponse omitted.
 
-// de_ListInstancesResponse omitted.
+/**
+ * deserializeAws_json1_1ListInstancesResponse
+ */
+const de_ListInstancesResponse = (output: any, context: __SerdeContext): ListInstancesResponse => {
+  return take(output, {
+    Instances: (_: any) => de_InstanceList(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
 
 // de_ListManagedPoliciesInPermissionSetResponse omitted.
 
@@ -3353,6 +6554,10 @@ const de_ListPermissionSetProvisioningStatusResponse = (
 // de_ListPermissionSetsResponse omitted.
 
 // de_ListTagsForResourceResponse omitted.
+
+// de_ListTrustedTokenIssuersResponse omitted.
+
+// de_OidcJwtConfiguration omitted.
 
 // de_PermissionsBoundary omitted.
 
@@ -3415,6 +6620,8 @@ const de_PermissionSetProvisioningStatusMetadata = (
   }) as any;
 };
 
+// de_PortalOptions omitted.
+
 /**
  * deserializeAws_json1_1ProvisionPermissionSetResponse
  */
@@ -3424,13 +6631,33 @@ const de_ProvisionPermissionSetResponse = (output: any, context: __SerdeContext)
   }) as any;
 };
 
+// de_PutApplicationAssignmentConfigurationResponse omitted.
+
 // de_PutInlinePolicyToPermissionSetResponse omitted.
 
 // de_PutPermissionsBoundaryToPermissionSetResponse omitted.
 
+// de_RedirectUris omitted.
+
+// de_RefreshTokenGrant omitted.
+
 // de_ResourceNotFoundException omitted.
 
+// de_ResourceServerConfig omitted.
+
+// de_ResourceServerScopeDetails omitted.
+
+// de_ResourceServerScopes omitted.
+
+// de_ScopeDetails omitted.
+
+// de_Scopes omitted.
+
+// de_ScopeTargets omitted.
+
 // de_ServiceQuotaExceededException omitted.
+
+// de_SignInOptions omitted.
 
 // de_Tag omitted.
 
@@ -3440,11 +6667,27 @@ const de_ProvisionPermissionSetResponse = (output: any, context: __SerdeContext)
 
 // de_ThrottlingException omitted.
 
+// de_TokenExchangeGrant omitted.
+
+// de_TokenIssuerAudiences omitted.
+
+// de_TrustedTokenIssuerConfiguration omitted.
+
+// de_TrustedTokenIssuerList omitted.
+
+// de_TrustedTokenIssuerMetadata omitted.
+
 // de_UntagResourceResponse omitted.
+
+// de_UpdateApplicationResponse omitted.
 
 // de_UpdateInstanceAccessControlAttributeConfigurationResponse omitted.
 
+// de_UpdateInstanceResponse omitted.
+
 // de_UpdatePermissionSetResponse omitted.
+
+// de_UpdateTrustedTokenIssuerResponse omitted.
 
 // de_ValidationException omitted.
 

@@ -1,16 +1,8 @@
 // smithy-typescript generated code
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
 import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SdkStreamSerdeContext as __SdkStreamSerdeContext,
-  SerdeContext as __SerdeContext,
   StreamingBlobPayloadInputTypes,
   StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
@@ -76,70 +68,20 @@ export interface StreamingTraitsCommandOutput extends Omit<StreamingTraitsInputO
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
  */
-export class StreamingTraitsCommand extends $Command<
-  StreamingTraitsCommandInput,
-  StreamingTraitsCommandOutput,
-  RestJsonProtocolClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StreamingTraitsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RestJsonProtocolClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StreamingTraitsCommandInput, StreamingTraitsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RestJsonProtocolClient";
-    const commandName = "StreamingTraitsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: StreamingTraitsInputOutputFilterSensitiveLog,
-      outputFilterSensitiveLog: StreamingTraitsInputOutputFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StreamingTraitsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StreamingTraitsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext & __SdkStreamSerdeContext
-  ): Promise<StreamingTraitsCommandOutput> {
-    return de_StreamingTraitsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class StreamingTraitsCommand extends $Command
+  .classBuilder<
+    StreamingTraitsCommandInput,
+    StreamingTraitsCommandOutput,
+    RestJsonProtocolClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
+    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+  })
+  .s("RestJson", "StreamingTraits", {})
+  .n("RestJsonProtocolClient", "StreamingTraitsCommand")
+  .f(StreamingTraitsInputOutputFilterSensitiveLog, StreamingTraitsInputOutputFilterSensitiveLog)
+  .ser(se_StreamingTraitsCommand)
+  .de(de_StreamingTraitsCommand)
+  .build() {}

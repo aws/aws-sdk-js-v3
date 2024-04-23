@@ -15,6 +15,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
 
 import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
+import { ALL_VALUES } from "../commands/utils";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
 /**
@@ -76,25 +77,37 @@ export class TransactWriteCommand extends DynamoDBDocumentClientCommand<
   __TransactWriteItemsCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
-  protected readonly inputKeyNodes = [
-    {
-      key: "TransactItems",
-      children: [
-        { key: "ConditionCheck", children: [{ key: "Key" }, { key: "ExpressionAttributeValues" }] },
-        { key: "Put", children: [{ key: "Item" }, { key: "ExpressionAttributeValues" }] },
-        { key: "Delete", children: [{ key: "Key" }, { key: "ExpressionAttributeValues" }] },
-        { key: "Update", children: [{ key: "Key" }, { key: "ExpressionAttributeValues" }] },
-      ],
-    },
-  ];
-  protected readonly outputKeyNodes = [
-    {
-      key: "ItemCollectionMetrics",
-      children: {
-        children: [{ key: "ItemCollectionKey" }],
+  protected readonly inputKeyNodes = {
+    TransactItems: {
+      "*": {
+        ConditionCheck: {
+          Key: ALL_VALUES, // map with AttributeValue
+          ExpressionAttributeValues: ALL_VALUES, // map with AttributeValue
+        },
+        Put: {
+          Item: ALL_VALUES, // map with AttributeValue
+          ExpressionAttributeValues: ALL_VALUES, // map with AttributeValue
+        },
+        Delete: {
+          Key: ALL_VALUES, // map with AttributeValue
+          ExpressionAttributeValues: ALL_VALUES, // map with AttributeValue
+        },
+        Update: {
+          Key: ALL_VALUES, // map with AttributeValue
+          ExpressionAttributeValues: ALL_VALUES, // map with AttributeValue
+        },
       },
     },
-  ];
+  };
+  protected readonly outputKeyNodes = {
+    ItemCollectionMetrics: {
+      "*": {
+        "*": {
+          ItemCollectionKey: ALL_VALUES, // map with AttributeValue
+        },
+      },
+    },
+  };
 
   protected readonly clientCommand: __TransactWriteItemsCommand;
   public readonly middlewareStack: MiddlewareStack<

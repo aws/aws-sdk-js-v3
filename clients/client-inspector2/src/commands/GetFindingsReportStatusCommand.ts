@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Inspector2Client";
 import { GetFindingsReportStatusRequest, GetFindingsReportStatusResponse } from "../models/models_0";
 import { de_GetFindingsReportStatusCommand, se_GetFindingsReportStatusCommand } from "../protocols/Aws_restJson1";
@@ -216,79 +208,26 @@ export interface GetFindingsReportStatusCommandOutput extends GetFindingsReportS
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
  */
-export class GetFindingsReportStatusCommand extends $Command<
-  GetFindingsReportStatusCommandInput,
-  GetFindingsReportStatusCommandOutput,
-  Inspector2ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetFindingsReportStatusCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: Inspector2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetFindingsReportStatusCommandInput, GetFindingsReportStatusCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetFindingsReportStatusCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "Inspector2Client";
-    const commandName = "GetFindingsReportStatusCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetFindingsReportStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetFindingsReportStatusCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFindingsReportStatusCommandOutput> {
-    return de_GetFindingsReportStatusCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetFindingsReportStatusCommand extends $Command
+  .classBuilder<
+    GetFindingsReportStatusCommandInput,
+    GetFindingsReportStatusCommandOutput,
+    Inspector2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("Inspector2", "GetFindingsReportStatus", {})
+  .n("Inspector2Client", "GetFindingsReportStatusCommand")
+  .f(void 0, void 0)
+  .ser(se_GetFindingsReportStatusCommand)
+  .de(de_GetFindingsReportStatusCommand)
+  .build() {}

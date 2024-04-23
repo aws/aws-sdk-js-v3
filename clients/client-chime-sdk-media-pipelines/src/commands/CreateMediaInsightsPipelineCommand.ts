@@ -1,23 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   ChimeSDKMediaPipelinesClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMediaPipelinesClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreateMediaInsightsPipelineRequest,
   CreateMediaInsightsPipelineRequestFilterSensitiveLog,
@@ -114,7 +106,7 @@ export interface CreateMediaInsightsPipelineCommandOutput
  * //     MediaPipelineId: "STRING_VALUE",
  * //     MediaPipelineArn: "STRING_VALUE",
  * //     MediaInsightsPipelineConfigurationArn: "STRING_VALUE",
- * //     Status: "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped" || "Paused",
+ * //     Status: "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped" || "Paused" || "NotStarted",
  * //     KinesisVideoStreamSourceRuntimeConfiguration: { // KinesisVideoStreamSourceRuntimeConfiguration
  * //       Streams: [ // Streams // required
  * //         { // StreamConfiguration
@@ -156,6 +148,12 @@ export interface CreateMediaInsightsPipelineCommandOutput
  * //       RecordingFileFormat: "Wav" || "Opus", // required
  * //     },
  * //     CreatedTimestamp: new Date("TIMESTAMP"),
+ * //     ElementStatuses: [ // MediaInsightsPipelineElementStatuses
+ * //       { // MediaInsightsPipelineElementStatus
+ * //         Type: "AmazonTranscribeCallAnalyticsProcessor" || "VoiceAnalyticsProcessor" || "AmazonTranscribeProcessor" || "KinesisDataStreamSink" || "LambdaFunctionSink" || "SqsQueueSink" || "SnsTopicSink" || "S3RecordingSink" || "VoiceEnhancementSink",
+ * //         Status: "NotStarted" || "NotSupported" || "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped" || "Paused",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *
@@ -195,82 +193,26 @@ export interface CreateMediaInsightsPipelineCommandOutput
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
  */
-export class CreateMediaInsightsPipelineCommand extends $Command<
-  CreateMediaInsightsPipelineCommandInput,
-  CreateMediaInsightsPipelineCommandOutput,
-  ChimeSDKMediaPipelinesClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateMediaInsightsPipelineCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ChimeSDKMediaPipelinesClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateMediaInsightsPipelineCommandInput, CreateMediaInsightsPipelineCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateMediaInsightsPipelineCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ChimeSDKMediaPipelinesClient";
-    const commandName = "CreateMediaInsightsPipelineCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: CreateMediaInsightsPipelineRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateMediaInsightsPipelineResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateMediaInsightsPipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateMediaInsightsPipelineCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateMediaInsightsPipelineCommandOutput> {
-    return de_CreateMediaInsightsPipelineCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateMediaInsightsPipelineCommand extends $Command
+  .classBuilder<
+    CreateMediaInsightsPipelineCommandInput,
+    CreateMediaInsightsPipelineCommandOutput,
+    ChimeSDKMediaPipelinesClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ChimeSDKMediaPipelinesService", "CreateMediaInsightsPipeline", {})
+  .n("ChimeSDKMediaPipelinesClient", "CreateMediaInsightsPipelineCommand")
+  .f(CreateMediaInsightsPipelineRequestFilterSensitiveLog, CreateMediaInsightsPipelineResponseFilterSensitiveLog)
+  .ser(se_CreateMediaInsightsPipelineCommand)
+  .de(de_CreateMediaInsightsPipelineCommand)
+  .build() {}

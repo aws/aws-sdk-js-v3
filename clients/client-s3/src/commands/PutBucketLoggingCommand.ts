@@ -1,19 +1,11 @@
 // smithy-typescript generated code
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { PutBucketLoggingRequest } from "../models/models_0";
 import { de_PutBucketLoggingCommand, se_PutBucketLoggingCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
@@ -37,7 +29,10 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Set the logging parameters for a bucket and to specify permissions for who can view and
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Set the logging parameters for a bucket and to specify permissions for who can view and
  *          modify the logging parameters. All logs are saved to buckets in the same Amazon Web Services Region as
  *          the source bucket. To set the logging status of a bucket, you must be the bucket
  *          owner.</p>
@@ -55,15 +50,15 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  *          <dl>
  *             <dt>Grantee Values</dt>
  *             <dd>
- *                <p>You can specify the person (grantee) to whom you're assigning access rights (by using
- *                   request elements) in the following ways:</p>
+ *                <p>You can specify the person (grantee) to whom you're assigning access rights (by
+ *                   using request elements) in the following ways:</p>
  *                <ul>
  *                   <li>
  *                      <p>By the person's ID:</p>
  *                      <p>
  *                         <code><Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- *                         xsi:type="CanonicalUser"><ID><>ID<></ID><DisplayName><>GranteesEmail<></DisplayName>
- *                         </Grantee></code>
+ *                            xsi:type="CanonicalUser"><ID><>ID<></ID><DisplayName><>GranteesEmail<></DisplayName>
+ *                            </Grantee></code>
  *                      </p>
  *                      <p>
  *                         <code>DisplayName</code> is optional and ignored in the request.</p>
@@ -72,23 +67,25 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  *                      <p>By Email address:</p>
  *                      <p>
  *                         <code> <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- *                         xsi:type="AmazonCustomerByEmail"><EmailAddress><>Grantees@email.com<></EmailAddress></Grantee></code>
+ *                            xsi:type="AmazonCustomerByEmail"><EmailAddress><>Grantees@email.com<></EmailAddress></Grantee></code>
  *                      </p>
- *                      <p>The grantee is resolved to the <code>CanonicalUser</code> and, in a response to a <code>GETObjectAcl</code>
- *                          request, appears as the CanonicalUser.</p>
+ *                      <p>The grantee is resolved to the <code>CanonicalUser</code> and, in a
+ *                         response to a <code>GETObjectAcl</code> request, appears as the
+ *                         CanonicalUser.</p>
  *                   </li>
  *                   <li>
  *                      <p>By URI:</p>
  *                      <p>
  *                         <code><Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- *                         xsi:type="Group"><URI><>http://acs.amazonaws.com/groups/global/AuthenticatedUsers<></URI></Grantee></code>
+ *                            xsi:type="Group"><URI><>http://acs.amazonaws.com/groups/global/AuthenticatedUsers<></URI></Grantee></code>
  *                      </p>
  *                   </li>
  *                </ul>
  *             </dd>
  *          </dl>
- *          <p>To enable logging, you use <code>LoggingEnabled</code> and its children request elements. To disable
- *          logging, you use an empty <code>BucketLoggingStatus</code> request element:</p>
+ *          <p>To enable logging, you use <code>LoggingEnabled</code> and its children request
+ *          elements. To disable logging, you use an empty <code>BucketLoggingStatus</code> request
+ *          element:</p>
  *          <p>
  *             <code><BucketLoggingStatus xmlns="http://doc.s3.amazonaws.com/2006-03-01"
  *             /></code>
@@ -144,6 +141,12 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  *         },
  *       ],
  *       TargetPrefix: "STRING_VALUE", // required
+ *       TargetObjectKeyFormat: { // TargetObjectKeyFormat
+ *         SimplePrefix: {},
+ *         PartitionedPrefix: { // PartitionedPrefix
+ *           PartitionDateSource: "EventTime" || "DeliveryTime",
+ *         },
+ *       },
  *     },
  *   },
  *   ContentMD5: "STRING_VALUE",
@@ -192,92 +195,33 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  * ```
  *
  */
-export class PutBucketLoggingCommand extends $Command<
-  PutBucketLoggingCommandInput,
-  PutBucketLoggingCommandOutput,
-  S3ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      Bucket: { type: "contextParams", name: "Bucket" },
-      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
-      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
-      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
-      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
-      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PutBucketLoggingCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: S3ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PutBucketLoggingCommandInput, PutBucketLoggingCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, PutBucketLoggingCommand.getEndpointParameterInstructions())
-    );
-    this.middlewareStack.use(
-      getFlexibleChecksumsPlugin(configuration, {
+export class PutBucketLoggingCommand extends $Command
+  .classBuilder<
+    PutBucketLoggingCommandInput,
+    PutBucketLoggingCommandOutput,
+    S3ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+    UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
+    Bucket: { type: "contextParams", name: "Bucket" },
+  })
+  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getFlexibleChecksumsPlugin(config, {
         input: this.input,
         requestAlgorithmMember: "ChecksumAlgorithm",
         requestChecksumRequired: true,
-      })
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "S3Client";
-    const commandName = "PutBucketLoggingCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: PutBucketLoggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PutBucketLoggingCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketLoggingCommandOutput> {
-    return de_PutBucketLoggingCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+      }),
+    ];
+  })
+  .s("AmazonS3", "PutBucketLogging", {})
+  .n("S3Client", "PutBucketLoggingCommand")
+  .f(void 0, void 0)
+  .ser(se_PutBucketLoggingCommand)
+  .de(de_PutBucketLoggingCommand)
+  .build() {}

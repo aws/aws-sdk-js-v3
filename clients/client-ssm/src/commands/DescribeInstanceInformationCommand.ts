@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeInstanceInformationRequest, DescribeInstanceInformationResult } from "../models/models_0";
 import { de_DescribeInstanceInformationCommand, se_DescribeInstanceInformationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
@@ -88,7 +80,7 @@ export interface DescribeInstanceInformationCommandOutput extends DescribeInstan
  * //       ActivationId: "STRING_VALUE",
  * //       IamRole: "STRING_VALUE",
  * //       RegistrationDate: new Date("TIMESTAMP"),
- * //       ResourceType: "ManagedInstance" || "Document" || "EC2Instance",
+ * //       ResourceType: "ManagedInstance" || "EC2Instance",
  * //       Name: "STRING_VALUE",
  * //       IPAddress: "STRING_VALUE",
  * //       ComputerName: "STRING_VALUE",
@@ -152,82 +144,26 @@ export interface DescribeInstanceInformationCommandOutput extends DescribeInstan
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
-export class DescribeInstanceInformationCommand extends $Command<
-  DescribeInstanceInformationCommandInput,
-  DescribeInstanceInformationCommandOutput,
-  SSMClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeInstanceInformationCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SSMClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeInstanceInformationCommandInput, DescribeInstanceInformationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeInstanceInformationCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SSMClient";
-    const commandName = "DescribeInstanceInformationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeInstanceInformationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeInstanceInformationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeInstanceInformationCommandOutput> {
-    return de_DescribeInstanceInformationCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeInstanceInformationCommand extends $Command
+  .classBuilder<
+    DescribeInstanceInformationCommandInput,
+    DescribeInstanceInformationCommandOutput,
+    SSMClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonSSM", "DescribeInstanceInformation", {})
+  .n("SSMClient", "DescribeInstanceInformationCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeInstanceInformationCommand)
+  .de(de_DescribeInstanceInformationCommand)
+  .build() {}

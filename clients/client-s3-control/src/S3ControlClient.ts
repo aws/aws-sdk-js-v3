@@ -14,19 +14,17 @@ import {
   S3ControlResolvedConfig,
 } from "@aws-sdk/middleware-sdk-s3-control";
 import {
-  AwsAuthInputConfig,
-  AwsAuthResolvedConfig,
-  getAwsAuthPlugin,
-  resolveAwsAuthConfig,
-} from "@aws-sdk/middleware-signing";
-import {
   getUserAgentPlugin,
   resolveUserAgentConfig,
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { Credentials as __Credentials } from "@aws-sdk/types";
 import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import {
+  DefaultIdentityProviderConfig,
+  getHttpAuthSchemeEndpointRuleSetPlugin,
+  getHttpSigningPlugin,
+} from "@smithy/core";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
 import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
 import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
@@ -38,6 +36,7 @@ import {
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@smithy/smithy-client";
 import {
+  AwsCredentialIdentityProvider,
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
   Checksum as __Checksum,
@@ -45,7 +44,6 @@ import {
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -58,6 +56,25 @@ import {
 } from "@smithy/types";
 import { Readable } from "stream";
 
+import {
+  defaultS3ControlHttpAuthSchemeParametersProvider,
+  HttpAuthSchemeInputConfig,
+  HttpAuthSchemeResolvedConfig,
+  resolveHttpAuthSchemeConfig,
+} from "./auth/httpAuthSchemeProvider";
+import {
+  AssociateAccessGrantsIdentityCenterCommandInput,
+  AssociateAccessGrantsIdentityCenterCommandOutput,
+} from "./commands/AssociateAccessGrantsIdentityCenterCommand";
+import { CreateAccessGrantCommandInput, CreateAccessGrantCommandOutput } from "./commands/CreateAccessGrantCommand";
+import {
+  CreateAccessGrantsInstanceCommandInput,
+  CreateAccessGrantsInstanceCommandOutput,
+} from "./commands/CreateAccessGrantsInstanceCommand";
+import {
+  CreateAccessGrantsLocationCommandInput,
+  CreateAccessGrantsLocationCommandOutput,
+} from "./commands/CreateAccessGrantsLocationCommand";
 import { CreateAccessPointCommandInput, CreateAccessPointCommandOutput } from "./commands/CreateAccessPointCommand";
 import {
   CreateAccessPointForObjectLambdaCommandInput,
@@ -69,6 +86,23 @@ import {
   CreateMultiRegionAccessPointCommandInput,
   CreateMultiRegionAccessPointCommandOutput,
 } from "./commands/CreateMultiRegionAccessPointCommand";
+import {
+  CreateStorageLensGroupCommandInput,
+  CreateStorageLensGroupCommandOutput,
+} from "./commands/CreateStorageLensGroupCommand";
+import { DeleteAccessGrantCommandInput, DeleteAccessGrantCommandOutput } from "./commands/DeleteAccessGrantCommand";
+import {
+  DeleteAccessGrantsInstanceCommandInput,
+  DeleteAccessGrantsInstanceCommandOutput,
+} from "./commands/DeleteAccessGrantsInstanceCommand";
+import {
+  DeleteAccessGrantsInstanceResourcePolicyCommandInput,
+  DeleteAccessGrantsInstanceResourcePolicyCommandOutput,
+} from "./commands/DeleteAccessGrantsInstanceResourcePolicyCommand";
+import {
+  DeleteAccessGrantsLocationCommandInput,
+  DeleteAccessGrantsLocationCommandOutput,
+} from "./commands/DeleteAccessGrantsLocationCommand";
 import { DeleteAccessPointCommandInput, DeleteAccessPointCommandOutput } from "./commands/DeleteAccessPointCommand";
 import {
   DeleteAccessPointForObjectLambdaCommandInput,
@@ -113,11 +147,36 @@ import {
   DeleteStorageLensConfigurationTaggingCommandInput,
   DeleteStorageLensConfigurationTaggingCommandOutput,
 } from "./commands/DeleteStorageLensConfigurationTaggingCommand";
+import {
+  DeleteStorageLensGroupCommandInput,
+  DeleteStorageLensGroupCommandOutput,
+} from "./commands/DeleteStorageLensGroupCommand";
 import { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand";
 import {
   DescribeMultiRegionAccessPointOperationCommandInput,
   DescribeMultiRegionAccessPointOperationCommandOutput,
 } from "./commands/DescribeMultiRegionAccessPointOperationCommand";
+import {
+  DissociateAccessGrantsIdentityCenterCommandInput,
+  DissociateAccessGrantsIdentityCenterCommandOutput,
+} from "./commands/DissociateAccessGrantsIdentityCenterCommand";
+import { GetAccessGrantCommandInput, GetAccessGrantCommandOutput } from "./commands/GetAccessGrantCommand";
+import {
+  GetAccessGrantsInstanceCommandInput,
+  GetAccessGrantsInstanceCommandOutput,
+} from "./commands/GetAccessGrantsInstanceCommand";
+import {
+  GetAccessGrantsInstanceForPrefixCommandInput,
+  GetAccessGrantsInstanceForPrefixCommandOutput,
+} from "./commands/GetAccessGrantsInstanceForPrefixCommand";
+import {
+  GetAccessGrantsInstanceResourcePolicyCommandInput,
+  GetAccessGrantsInstanceResourcePolicyCommandOutput,
+} from "./commands/GetAccessGrantsInstanceResourcePolicyCommand";
+import {
+  GetAccessGrantsLocationCommandInput,
+  GetAccessGrantsLocationCommandOutput,
+} from "./commands/GetAccessGrantsLocationCommand";
 import { GetAccessPointCommandInput, GetAccessPointCommandOutput } from "./commands/GetAccessPointCommand";
 import {
   GetAccessPointConfigurationForObjectLambdaCommandInput,
@@ -158,6 +217,7 @@ import {
   GetBucketVersioningCommandInput,
   GetBucketVersioningCommandOutput,
 } from "./commands/GetBucketVersioningCommand";
+import { GetDataAccessCommandInput, GetDataAccessCommandOutput } from "./commands/GetDataAccessCommand";
 import { GetJobTaggingCommandInput, GetJobTaggingCommandOutput } from "./commands/GetJobTaggingCommand";
 import {
   GetMultiRegionAccessPointCommandInput,
@@ -187,6 +247,19 @@ import {
   GetStorageLensConfigurationTaggingCommandInput,
   GetStorageLensConfigurationTaggingCommandOutput,
 } from "./commands/GetStorageLensConfigurationTaggingCommand";
+import {
+  GetStorageLensGroupCommandInput,
+  GetStorageLensGroupCommandOutput,
+} from "./commands/GetStorageLensGroupCommand";
+import { ListAccessGrantsCommandInput, ListAccessGrantsCommandOutput } from "./commands/ListAccessGrantsCommand";
+import {
+  ListAccessGrantsInstancesCommandInput,
+  ListAccessGrantsInstancesCommandOutput,
+} from "./commands/ListAccessGrantsInstancesCommand";
+import {
+  ListAccessGrantsLocationsCommandInput,
+  ListAccessGrantsLocationsCommandOutput,
+} from "./commands/ListAccessGrantsLocationsCommand";
 import { ListAccessPointsCommandInput, ListAccessPointsCommandOutput } from "./commands/ListAccessPointsCommand";
 import {
   ListAccessPointsForObjectLambdaCommandInput,
@@ -205,6 +278,18 @@ import {
   ListStorageLensConfigurationsCommandInput,
   ListStorageLensConfigurationsCommandOutput,
 } from "./commands/ListStorageLensConfigurationsCommand";
+import {
+  ListStorageLensGroupsCommandInput,
+  ListStorageLensGroupsCommandOutput,
+} from "./commands/ListStorageLensGroupsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
+  PutAccessGrantsInstanceResourcePolicyCommandInput,
+  PutAccessGrantsInstanceResourcePolicyCommandOutput,
+} from "./commands/PutAccessGrantsInstanceResourcePolicyCommand";
 import {
   PutAccessPointConfigurationForObjectLambdaCommandInput,
   PutAccessPointConfigurationForObjectLambdaCommandOutput,
@@ -252,8 +337,18 @@ import {
   SubmitMultiRegionAccessPointRoutesCommandInput,
   SubmitMultiRegionAccessPointRoutesCommandOutput,
 } from "./commands/SubmitMultiRegionAccessPointRoutesCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateAccessGrantsLocationCommandInput,
+  UpdateAccessGrantsLocationCommandOutput,
+} from "./commands/UpdateAccessGrantsLocationCommand";
 import { UpdateJobPriorityCommandInput, UpdateJobPriorityCommandOutput } from "./commands/UpdateJobPriorityCommand";
 import { UpdateJobStatusCommandInput, UpdateJobStatusCommandOutput } from "./commands/UpdateJobStatusCommand";
+import {
+  UpdateStorageLensGroupCommandInput,
+  UpdateStorageLensGroupCommandOutput,
+} from "./commands/UpdateStorageLensGroupCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -269,11 +364,20 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AssociateAccessGrantsIdentityCenterCommandInput
+  | CreateAccessGrantCommandInput
+  | CreateAccessGrantsInstanceCommandInput
+  | CreateAccessGrantsLocationCommandInput
   | CreateAccessPointCommandInput
   | CreateAccessPointForObjectLambdaCommandInput
   | CreateBucketCommandInput
   | CreateJobCommandInput
   | CreateMultiRegionAccessPointCommandInput
+  | CreateStorageLensGroupCommandInput
+  | DeleteAccessGrantCommandInput
+  | DeleteAccessGrantsInstanceCommandInput
+  | DeleteAccessGrantsInstanceResourcePolicyCommandInput
+  | DeleteAccessGrantsLocationCommandInput
   | DeleteAccessPointCommandInput
   | DeleteAccessPointForObjectLambdaCommandInput
   | DeleteAccessPointPolicyCommandInput
@@ -288,8 +392,15 @@ export type ServiceInputTypes =
   | DeletePublicAccessBlockCommandInput
   | DeleteStorageLensConfigurationCommandInput
   | DeleteStorageLensConfigurationTaggingCommandInput
+  | DeleteStorageLensGroupCommandInput
   | DescribeJobCommandInput
   | DescribeMultiRegionAccessPointOperationCommandInput
+  | DissociateAccessGrantsIdentityCenterCommandInput
+  | GetAccessGrantCommandInput
+  | GetAccessGrantsInstanceCommandInput
+  | GetAccessGrantsInstanceForPrefixCommandInput
+  | GetAccessGrantsInstanceResourcePolicyCommandInput
+  | GetAccessGrantsLocationCommandInput
   | GetAccessPointCommandInput
   | GetAccessPointConfigurationForObjectLambdaCommandInput
   | GetAccessPointForObjectLambdaCommandInput
@@ -303,6 +414,7 @@ export type ServiceInputTypes =
   | GetBucketReplicationCommandInput
   | GetBucketTaggingCommandInput
   | GetBucketVersioningCommandInput
+  | GetDataAccessCommandInput
   | GetJobTaggingCommandInput
   | GetMultiRegionAccessPointCommandInput
   | GetMultiRegionAccessPointPolicyCommandInput
@@ -311,12 +423,19 @@ export type ServiceInputTypes =
   | GetPublicAccessBlockCommandInput
   | GetStorageLensConfigurationCommandInput
   | GetStorageLensConfigurationTaggingCommandInput
+  | GetStorageLensGroupCommandInput
+  | ListAccessGrantsCommandInput
+  | ListAccessGrantsInstancesCommandInput
+  | ListAccessGrantsLocationsCommandInput
   | ListAccessPointsCommandInput
   | ListAccessPointsForObjectLambdaCommandInput
   | ListJobsCommandInput
   | ListMultiRegionAccessPointsCommandInput
   | ListRegionalBucketsCommandInput
   | ListStorageLensConfigurationsCommandInput
+  | ListStorageLensGroupsCommandInput
+  | ListTagsForResourceCommandInput
+  | PutAccessGrantsInstanceResourcePolicyCommandInput
   | PutAccessPointConfigurationForObjectLambdaCommandInput
   | PutAccessPointPolicyCommandInput
   | PutAccessPointPolicyForObjectLambdaCommandInput
@@ -331,18 +450,31 @@ export type ServiceInputTypes =
   | PutStorageLensConfigurationCommandInput
   | PutStorageLensConfigurationTaggingCommandInput
   | SubmitMultiRegionAccessPointRoutesCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
+  | UpdateAccessGrantsLocationCommandInput
   | UpdateJobPriorityCommandInput
-  | UpdateJobStatusCommandInput;
+  | UpdateJobStatusCommandInput
+  | UpdateStorageLensGroupCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
+  | AssociateAccessGrantsIdentityCenterCommandOutput
+  | CreateAccessGrantCommandOutput
+  | CreateAccessGrantsInstanceCommandOutput
+  | CreateAccessGrantsLocationCommandOutput
   | CreateAccessPointCommandOutput
   | CreateAccessPointForObjectLambdaCommandOutput
   | CreateBucketCommandOutput
   | CreateJobCommandOutput
   | CreateMultiRegionAccessPointCommandOutput
+  | CreateStorageLensGroupCommandOutput
+  | DeleteAccessGrantCommandOutput
+  | DeleteAccessGrantsInstanceCommandOutput
+  | DeleteAccessGrantsInstanceResourcePolicyCommandOutput
+  | DeleteAccessGrantsLocationCommandOutput
   | DeleteAccessPointCommandOutput
   | DeleteAccessPointForObjectLambdaCommandOutput
   | DeleteAccessPointPolicyCommandOutput
@@ -357,8 +489,15 @@ export type ServiceOutputTypes =
   | DeletePublicAccessBlockCommandOutput
   | DeleteStorageLensConfigurationCommandOutput
   | DeleteStorageLensConfigurationTaggingCommandOutput
+  | DeleteStorageLensGroupCommandOutput
   | DescribeJobCommandOutput
   | DescribeMultiRegionAccessPointOperationCommandOutput
+  | DissociateAccessGrantsIdentityCenterCommandOutput
+  | GetAccessGrantCommandOutput
+  | GetAccessGrantsInstanceCommandOutput
+  | GetAccessGrantsInstanceForPrefixCommandOutput
+  | GetAccessGrantsInstanceResourcePolicyCommandOutput
+  | GetAccessGrantsLocationCommandOutput
   | GetAccessPointCommandOutput
   | GetAccessPointConfigurationForObjectLambdaCommandOutput
   | GetAccessPointForObjectLambdaCommandOutput
@@ -372,6 +511,7 @@ export type ServiceOutputTypes =
   | GetBucketReplicationCommandOutput
   | GetBucketTaggingCommandOutput
   | GetBucketVersioningCommandOutput
+  | GetDataAccessCommandOutput
   | GetJobTaggingCommandOutput
   | GetMultiRegionAccessPointCommandOutput
   | GetMultiRegionAccessPointPolicyCommandOutput
@@ -380,12 +520,19 @@ export type ServiceOutputTypes =
   | GetPublicAccessBlockCommandOutput
   | GetStorageLensConfigurationCommandOutput
   | GetStorageLensConfigurationTaggingCommandOutput
+  | GetStorageLensGroupCommandOutput
+  | ListAccessGrantsCommandOutput
+  | ListAccessGrantsInstancesCommandOutput
+  | ListAccessGrantsLocationsCommandOutput
   | ListAccessPointsCommandOutput
   | ListAccessPointsForObjectLambdaCommandOutput
   | ListJobsCommandOutput
   | ListMultiRegionAccessPointsCommandOutput
   | ListRegionalBucketsCommandOutput
   | ListStorageLensConfigurationsCommandOutput
+  | ListStorageLensGroupsCommandOutput
+  | ListTagsForResourceCommandOutput
+  | PutAccessGrantsInstanceResourcePolicyCommandOutput
   | PutAccessPointConfigurationForObjectLambdaCommandOutput
   | PutAccessPointPolicyCommandOutput
   | PutAccessPointPolicyForObjectLambdaCommandOutput
@@ -400,8 +547,12 @@ export type ServiceOutputTypes =
   | PutStorageLensConfigurationCommandOutput
   | PutStorageLensConfigurationTaggingCommandOutput
   | SubmitMultiRegionAccessPointRoutesCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
+  | UpdateAccessGrantsLocationCommandOutput
   | UpdateJobPriorityCommandOutput
-  | UpdateJobStatusCommandOutput;
+  | UpdateJobStatusCommandOutput
+  | UpdateStorageLensGroupCommandOutput;
 
 /**
  * @public
@@ -490,21 +641,22 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   useFipsEndpoint?: boolean | __Provider<boolean>;
 
   /**
+   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
+   * @internal
+   */
+  defaultUserAgentProvider?: Provider<__UserAgent>;
+
+  /**
    * The AWS region to which this client will send requests
    */
   region?: string | __Provider<string>;
 
   /**
    * Default credentials provider; Not available in browser runtime.
+   * @deprecated
    * @internal
    */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
-   * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
-   * @internal
-   */
-  defaultUserAgentProvider?: Provider<__UserAgent>;
+  credentialDefaultProvider?: (input: any) => AwsCredentialIdentityProvider;
 
   /**
    * Value for how many times a request will be made at most in case of retry.
@@ -513,6 +665,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 
@@ -534,7 +688,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   streamHasher?: __StreamHasher<Readable> | __StreamHasher<Blob>;
 
   /**
-   * A constructor for a class implementing the {@link __checksum} interface
+   * A constructor for a class implementing the {@link __Checksum} interface
    * that computes MD5 hashes.
    * @internal
    */
@@ -555,9 +709,9 @@ export type S3ControlClientConfigType = Partial<__SmithyConfiguration<__HttpHand
   EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
-  AwsAuthInputConfig &
   S3ControlInputConfig &
   UserAgentInputConfig &
+  HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
  * @public
@@ -576,9 +730,9 @@ export type S3ControlClientResolvedConfigType = __SmithyResolvedConfiguration<__
   EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
-  AwsAuthResolvedConfig &
   S3ControlResolvedConfig &
   UserAgentResolvedConfig &
+  HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
  * @public
@@ -609,9 +763,9 @@ export class S3ControlClient extends __Client<
     const _config_3 = resolveEndpointConfig(_config_2);
     const _config_4 = resolveRetryConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveAwsAuthConfig(_config_5);
-    const _config_7 = resolveS3ControlConfig(_config_6);
-    const _config_8 = resolveUserAgentConfig(_config_7);
+    const _config_6 = resolveS3ControlConfig(_config_5);
+    const _config_7 = resolveUserAgentConfig(_config_6);
+    const _config_8 = resolveHttpAuthSchemeConfig(_config_7);
     const _config_9 = resolveRuntimeExtensions(_config_8, configuration?.extensions || []);
     super(_config_9);
     this.config = _config_9;
@@ -620,9 +774,15 @@ export class S3ControlClient extends __Client<
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getHostPrefixDeduplicationPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
+    this.middlewareStack.use(
+      getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
+        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
+        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+      })
+    );
+    this.middlewareStack.use(getHttpSigningPlugin(this.config));
   }
 
   /**
@@ -632,5 +792,14 @@ export class S3ControlClient extends __Client<
    */
   destroy(): void {
     super.destroy();
+  }
+  private getDefaultHttpAuthSchemeParametersProvider() {
+    return defaultS3ControlHttpAuthSchemeParametersProvider;
+  }
+  private getIdentityProviderConfigProvider() {
+    return async (config: S3ControlClientResolvedConfig) =>
+      new DefaultIdentityProviderConfig({
+        "aws.auth#sigv4": config.credentials,
+      });
   }
 }

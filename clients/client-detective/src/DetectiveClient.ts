@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -79,12 +77,15 @@ import {
   EnableOrganizationAdminAccountCommandInput,
   EnableOrganizationAdminAccountCommandOutput,
 } from "./commands/EnableOrganizationAdminAccountCommand";
+import { GetInvestigationCommandInput, GetInvestigationCommandOutput } from "./commands/GetInvestigationCommand";
 import { GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
 import {
   ListDatasourcePackagesCommandInput,
   ListDatasourcePackagesCommandOutput,
 } from "./commands/ListDatasourcePackagesCommand";
 import { ListGraphsCommandInput, ListGraphsCommandOutput } from "./commands/ListGraphsCommand";
+import { ListIndicatorsCommandInput, ListIndicatorsCommandOutput } from "./commands/ListIndicatorsCommand";
+import { ListInvestigationsCommandInput, ListInvestigationsCommandOutput } from "./commands/ListInvestigationsCommand";
 import { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "./commands/ListInvitationsCommand";
 import { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
 import {
@@ -96,6 +97,7 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { RejectInvitationCommandInput, RejectInvitationCommandOutput } from "./commands/RejectInvitationCommand";
+import { StartInvestigationCommandInput, StartInvestigationCommandOutput } from "./commands/StartInvestigationCommand";
 import {
   StartMonitoringMemberCommandInput,
   StartMonitoringMemberCommandOutput,
@@ -106,6 +108,10 @@ import {
   UpdateDatasourcePackagesCommandInput,
   UpdateDatasourcePackagesCommandOutput,
 } from "./commands/UpdateDatasourcePackagesCommand";
+import {
+  UpdateInvestigationStateCommandInput,
+  UpdateInvestigationStateCommandOutput,
+} from "./commands/UpdateInvestigationStateCommand";
 import {
   UpdateOrganizationConfigurationCommandInput,
   UpdateOrganizationConfigurationCommandOutput,
@@ -136,18 +142,23 @@ export type ServiceInputTypes =
   | DisableOrganizationAdminAccountCommandInput
   | DisassociateMembershipCommandInput
   | EnableOrganizationAdminAccountCommandInput
+  | GetInvestigationCommandInput
   | GetMembersCommandInput
   | ListDatasourcePackagesCommandInput
   | ListGraphsCommandInput
+  | ListIndicatorsCommandInput
+  | ListInvestigationsCommandInput
   | ListInvitationsCommandInput
   | ListMembersCommandInput
   | ListOrganizationAdminAccountsCommandInput
   | ListTagsForResourceCommandInput
   | RejectInvitationCommandInput
+  | StartInvestigationCommandInput
   | StartMonitoringMemberCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateDatasourcePackagesCommandInput
+  | UpdateInvestigationStateCommandInput
   | UpdateOrganizationConfigurationCommandInput;
 
 /**
@@ -165,18 +176,23 @@ export type ServiceOutputTypes =
   | DisableOrganizationAdminAccountCommandOutput
   | DisassociateMembershipCommandOutput
   | EnableOrganizationAdminAccountCommandOutput
+  | GetInvestigationCommandOutput
   | GetMembersCommandOutput
   | ListDatasourcePackagesCommandOutput
   | ListGraphsCommandOutput
+  | ListIndicatorsCommandOutput
+  | ListInvestigationsCommandOutput
   | ListInvitationsCommandOutput
   | ListMembersCommandOutput
   | ListOrganizationAdminAccountsCommandOutput
   | ListTagsForResourceCommandOutput
   | RejectInvitationCommandOutput
+  | StartInvestigationCommandOutput
   | StartMonitoringMemberCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateDatasourcePackagesCommandOutput
+  | UpdateInvestigationStateCommandOutput
   | UpdateOrganizationConfigurationCommandOutput;
 
 /**
@@ -289,6 +305,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

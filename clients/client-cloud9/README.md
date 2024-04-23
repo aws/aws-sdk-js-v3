@@ -90,16 +90,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `Cloud9Client` and
-the commands you need, for example `CreateEnvironmentEC2Command`:
+the commands you need, for example `ListEnvironmentsCommand`:
 
 ```js
 // ES5 example
-const { Cloud9Client, CreateEnvironmentEC2Command } = require("@aws-sdk/client-cloud9");
+const { Cloud9Client, ListEnvironmentsCommand } = require("@aws-sdk/client-cloud9");
 ```
 
 ```ts
 // ES6+ example
-import { Cloud9Client, CreateEnvironmentEC2Command } from "@aws-sdk/client-cloud9";
+import { Cloud9Client, ListEnvironmentsCommand } from "@aws-sdk/client-cloud9";
 ```
 
 ### Usage
@@ -118,7 +118,7 @@ const client = new Cloud9Client({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateEnvironmentEC2Command(params);
+const command = new ListEnvironmentsCommand(params);
 ```
 
 #### Async/await
@@ -197,7 +197,7 @@ const client = new AWS.Cloud9({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createEnvironmentEC2(params);
+  const data = await client.listEnvironments(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -205,7 +205,7 @@ try {
 
 // Promises.
 client
-  .createEnvironmentEC2(params)
+  .listEnvironments(params)
   .then((data) => {
     // process data.
   })
@@ -214,7 +214,7 @@ client
   });
 
 // callbacks.
-client.createEnvironmentEC2(params, (err, data) => {
+client.listEnvironments(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -229,7 +229,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -275,7 +275,7 @@ see LICENSE for more information.
 CreateEnvironmentEC2
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/classes/createenvironmentec2command.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/interfaces/createenvironmentec2commandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/interfaces/createenvironmentec2commandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloud9/command/CreateEnvironmentEC2Command/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloud9/Interface/CreateEnvironmentEC2CommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloud9/Interface/CreateEnvironmentEC2CommandOutput/)
 
 </details>
 <details>
@@ -283,7 +283,7 @@ CreateEnvironmentEC2
 CreateEnvironmentMembership
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/classes/createenvironmentmembershipcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/interfaces/createenvironmentmembershipcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/interfaces/createenvironmentmembershipcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloud9/command/CreateEnvironmentMembershipCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloud9/Interface/CreateEnvironmentMembershipCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloud9/Interface/CreateEnvironmentMembershipCommandOutput/)
 
 </details>
 <details>
@@ -291,7 +291,7 @@ CreateEnvironmentMembership
 DeleteEnvironment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/classes/deleteenvironmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/interfaces/deleteenvironmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/interfaces/deleteenvironmentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloud9/command/DeleteEnvironmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloud9/Interface/DeleteEnvironmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloud9/Interface/DeleteEnvironmentCommandOutput/)
 
 </details>
 <details>
@@ -299,7 +299,7 @@ DeleteEnvironment
 DeleteEnvironmentMembership
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/classes/deleteenvironmentmembershipcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/interfaces/deleteenvironmentmembershipcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/interfaces/deleteenvironmentmembershipcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloud9/command/DeleteEnvironmentMembershipCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloud9/Interface/DeleteEnvironmentMembershipCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloud9/Interface/DeleteEnvironmentMembershipCommandOutput/)
 
 </details>
 <details>
@@ -307,7 +307,7 @@ DeleteEnvironmentMembership
 DescribeEnvironmentMemberships
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/classes/describeenvironmentmembershipscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/interfaces/describeenvironmentmembershipscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/interfaces/describeenvironmentmembershipscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloud9/command/DescribeEnvironmentMembershipsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloud9/Interface/DescribeEnvironmentMembershipsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloud9/Interface/DescribeEnvironmentMembershipsCommandOutput/)
 
 </details>
 <details>
@@ -315,7 +315,7 @@ DescribeEnvironmentMemberships
 DescribeEnvironments
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/classes/describeenvironmentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/interfaces/describeenvironmentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/interfaces/describeenvironmentscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloud9/command/DescribeEnvironmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloud9/Interface/DescribeEnvironmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloud9/Interface/DescribeEnvironmentsCommandOutput/)
 
 </details>
 <details>
@@ -323,7 +323,7 @@ DescribeEnvironments
 DescribeEnvironmentStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/classes/describeenvironmentstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/interfaces/describeenvironmentstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/interfaces/describeenvironmentstatuscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloud9/command/DescribeEnvironmentStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloud9/Interface/DescribeEnvironmentStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloud9/Interface/DescribeEnvironmentStatusCommandOutput/)
 
 </details>
 <details>
@@ -331,7 +331,7 @@ DescribeEnvironmentStatus
 ListEnvironments
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/classes/listenvironmentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/interfaces/listenvironmentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/interfaces/listenvironmentscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloud9/command/ListEnvironmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloud9/Interface/ListEnvironmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloud9/Interface/ListEnvironmentsCommandOutput/)
 
 </details>
 <details>
@@ -339,7 +339,7 @@ ListEnvironments
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloud9/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloud9/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloud9/Interface/ListTagsForResourceCommandOutput/)
 
 </details>
 <details>
@@ -347,7 +347,7 @@ ListTagsForResource
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloud9/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloud9/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloud9/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -355,7 +355,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloud9/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloud9/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloud9/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -363,7 +363,7 @@ UntagResource
 UpdateEnvironment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/classes/updateenvironmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/interfaces/updateenvironmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/interfaces/updateenvironmentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloud9/command/UpdateEnvironmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloud9/Interface/UpdateEnvironmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloud9/Interface/UpdateEnvironmentCommandOutput/)
 
 </details>
 <details>
@@ -371,6 +371,6 @@ UpdateEnvironment
 UpdateEnvironmentMembership
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/classes/updateenvironmentmembershipcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/interfaces/updateenvironmentmembershipcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-cloud9/interfaces/updateenvironmentmembershipcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloud9/command/UpdateEnvironmentMembershipCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloud9/Interface/UpdateEnvironmentMembershipCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloud9/Interface/UpdateEnvironmentMembershipCommandOutput/)
 
 </details>

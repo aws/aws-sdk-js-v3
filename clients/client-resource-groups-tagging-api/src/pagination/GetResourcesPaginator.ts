@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import {
@@ -10,41 +11,14 @@ import { ResourceGroupsTaggingAPIClient } from "../ResourceGroupsTaggingAPIClien
 import { ResourceGroupsTaggingAPIPaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: ResourceGroupsTaggingAPIClient,
-  input: GetResourcesCommandInput,
-  ...args: any
-): Promise<GetResourcesCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new GetResourcesCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateGetResources(
+export const paginateGetResources: (
   config: ResourceGroupsTaggingAPIPaginationConfiguration,
   input: GetResourcesCommandInput,
-  ...additionalArguments: any
-): Paginator<GetResourcesCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.PaginationToken
-  let token: typeof input.PaginationToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: GetResourcesCommandOutput;
-  while (hasNext) {
-    input.PaginationToken = token;
-    input["ResourcesPerPage"] = config.pageSize;
-    if (config.client instanceof ResourceGroupsTaggingAPIClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected ResourceGroupsTaggingAPI | ResourceGroupsTaggingAPIClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.PaginationToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<GetResourcesCommandOutput> = createPaginator<
+  ResourceGroupsTaggingAPIPaginationConfiguration,
+  GetResourcesCommandInput,
+  GetResourcesCommandOutput
+>(ResourceGroupsTaggingAPIClient, GetResourcesCommand, "PaginationToken", "PaginationToken", "ResourcesPerPage");

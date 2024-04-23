@@ -73,6 +73,11 @@ import {
   GreetingWithErrorsCommandOutput,
 } from "./commands/GreetingWithErrorsCommand";
 import {
+  HttpEnumPayloadCommand,
+  HttpEnumPayloadCommandInput,
+  HttpEnumPayloadCommandOutput,
+} from "./commands/HttpEnumPayloadCommand";
+import {
   HttpPayloadTraitsCommand,
   HttpPayloadTraitsCommandInput,
   HttpPayloadTraitsCommandOutput,
@@ -92,6 +97,11 @@ import {
   HttpPayloadWithStructureCommandInput,
   HttpPayloadWithStructureCommandOutput,
 } from "./commands/HttpPayloadWithStructureCommand";
+import {
+  HttpPayloadWithUnionCommand,
+  HttpPayloadWithUnionCommandInput,
+  HttpPayloadWithUnionCommandOutput,
+} from "./commands/HttpPayloadWithUnionCommand";
 import {
   HttpPayloadWithXmlNameCommand,
   HttpPayloadWithXmlNameCommandInput,
@@ -137,6 +147,11 @@ import {
   HttpResponseCodeCommandInput,
   HttpResponseCodeCommandOutput,
 } from "./commands/HttpResponseCodeCommand";
+import {
+  HttpStringPayloadCommand,
+  HttpStringPayloadCommandInput,
+  HttpStringPayloadCommandOutput,
+} from "./commands/HttpStringPayloadCommand";
 import {
   IgnoreQueryParamsInResponseCommand,
   IgnoreQueryParamsInResponseCommandInput,
@@ -253,6 +268,11 @@ import {
   XmlMapsXmlNameCommandOutput,
 } from "./commands/XmlMapsXmlNameCommand";
 import {
+  XmlMapWithXmlNamespaceCommand,
+  XmlMapWithXmlNamespaceCommandInput,
+  XmlMapWithXmlNamespaceCommandOutput,
+} from "./commands/XmlMapWithXmlNamespaceCommand";
+import {
   XmlNamespacesCommand,
   XmlNamespacesCommandInput,
   XmlNamespacesCommandOutput,
@@ -280,10 +300,12 @@ const commands = {
   FlattenedXmlMapWithXmlNamespaceCommand,
   FractionalSecondsCommand,
   GreetingWithErrorsCommand,
+  HttpEnumPayloadCommand,
   HttpPayloadTraitsCommand,
   HttpPayloadTraitsWithMediaTypeCommand,
   HttpPayloadWithMemberXmlNameCommand,
   HttpPayloadWithStructureCommand,
+  HttpPayloadWithUnionCommand,
   HttpPayloadWithXmlNameCommand,
   HttpPayloadWithXmlNamespaceCommand,
   HttpPayloadWithXmlNamespaceAndPrefixCommand,
@@ -293,6 +315,7 @@ const commands = {
   HttpRequestWithLabelsCommand,
   HttpRequestWithLabelsAndTimestampFormatCommand,
   HttpResponseCodeCommand,
+  HttpStringPayloadCommand,
   IgnoreQueryParamsInResponseCommand,
   InputAndOutputWithHeadersCommand,
   NestedXmlMapsCommand,
@@ -320,6 +343,7 @@ const commands = {
   XmlListsCommand,
   XmlMapsCommand,
   XmlMapsXmlNameCommand,
+  XmlMapWithXmlNamespaceCommand,
   XmlNamespacesCommand,
   XmlTimestampsCommand,
   XmlUnionsCommand,
@@ -556,6 +580,20 @@ export interface RestXmlProtocol {
   ): void;
 
   /**
+   * @see {@link HttpEnumPayloadCommand}
+   */
+  httpEnumPayload(
+    args: HttpEnumPayloadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<HttpEnumPayloadCommandOutput>;
+  httpEnumPayload(args: HttpEnumPayloadCommandInput, cb: (err: any, data?: HttpEnumPayloadCommandOutput) => void): void;
+  httpEnumPayload(
+    args: HttpEnumPayloadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: HttpEnumPayloadCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link HttpPayloadTraitsCommand}
    */
   httpPayloadTraits(
@@ -621,6 +659,23 @@ export interface RestXmlProtocol {
     args: HttpPayloadWithStructureCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: HttpPayloadWithStructureCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link HttpPayloadWithUnionCommand}
+   */
+  httpPayloadWithUnion(
+    args: HttpPayloadWithUnionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<HttpPayloadWithUnionCommandOutput>;
+  httpPayloadWithUnion(
+    args: HttpPayloadWithUnionCommandInput,
+    cb: (err: any, data?: HttpPayloadWithUnionCommandOutput) => void
+  ): void;
+  httpPayloadWithUnion(
+    args: HttpPayloadWithUnionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: HttpPayloadWithUnionCommandOutput) => void
   ): void;
 
   /**
@@ -774,6 +829,23 @@ export interface RestXmlProtocol {
     args: HttpResponseCodeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: HttpResponseCodeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link HttpStringPayloadCommand}
+   */
+  httpStringPayload(
+    args: HttpStringPayloadCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<HttpStringPayloadCommandOutput>;
+  httpStringPayload(
+    args: HttpStringPayloadCommandInput,
+    cb: (err: any, data?: HttpStringPayloadCommandOutput) => void
+  ): void;
+  httpStringPayload(
+    args: HttpStringPayloadCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: HttpStringPayloadCommandOutput) => void
   ): void;
 
   /**
@@ -1161,6 +1233,23 @@ export interface RestXmlProtocol {
     args: XmlMapsXmlNameCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: XmlMapsXmlNameCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link XmlMapWithXmlNamespaceCommand}
+   */
+  xmlMapWithXmlNamespace(
+    args: XmlMapWithXmlNamespaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<XmlMapWithXmlNamespaceCommandOutput>;
+  xmlMapWithXmlNamespace(
+    args: XmlMapWithXmlNamespaceCommandInput,
+    cb: (err: any, data?: XmlMapWithXmlNamespaceCommandOutput) => void
+  ): void;
+  xmlMapWithXmlNamespace(
+    args: XmlMapWithXmlNamespaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: XmlMapWithXmlNamespaceCommandOutput) => void
   ): void;
 
   /**

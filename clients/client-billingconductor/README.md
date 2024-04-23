@@ -6,15 +6,16 @@
 
 AWS SDK for JavaScript Billingconductor Client for Node.js, Browser and React Native.
 
-<p>Amazon Web Services Billing Conductor is a fully managed service that you can use
-to customize a <a href="https://docs.aws.amazon.com/billingconductor/latest/userguide/understanding-eb.html#eb-other-definitions">pro forma</a> version of your billing data each month, to accurately show or chargeback
-your end customers. Amazon Web Services Billing Conductor doesn't change the way
-you're billed by Amazon Web Services each month by design. Instead, it provides you with a
-mechanism to configure, generate, and display rates to certain customers over a given billing
-period. You can also analyze the difference between the rates you apply to your accounting
-groupings relative to your actual rates from Amazon Web Services. As a result of your Amazon Web Services Billing Conductor configuration, the payer account can also see the
-custom rate applied on the billing details page of the <a href="https://console.aws.amazon.com/billing">Amazon Web Services Billing console</a>, or configure a cost and usage report per
-billing group.</p>
+<p>Amazon Web Services Billing Conductor is a fully managed service that you can use to
+customize a <a href="https://docs.aws.amazon.com/billingconductor/latest/userguide/understanding-eb.html#eb-other-definitions">proforma</a> version of your billing data each month, to accurately show or chargeback
+your end customers. Amazon Web Services Billing Conductor doesn't change the way you're billed
+by Amazon Web Services each month by design. Instead, it provides you with a mechanism to
+configure, generate, and display rates to certain customers over a given billing period. You
+can also analyze the difference between the rates you apply to your accounting groupings
+relative to your actual rates from Amazon Web Services. As a result of your Amazon Web Services
+Billing Conductor configuration, the payer account can also see the custom rate applied on the
+billing details page of the <a href="https://console.aws.amazon.com/billing">Amazon Web Services Billing
+console</a>, or configure a cost and usage report per billing group.</p>
 <p>This documentation shows how you can configure Amazon Web Services Billing Conductor using its
 API. For more information about using the <a href="https://console.aws.amazon.com/billingconductor/">Amazon Web Services
 Billing Conductor</a> user interface, see the <a href="https://docs.aws.amazon.com/billingconductor/latest/userguide/what-is-billingconductor.html"> Amazon Web Services Billing Conductor User Guide</a>.</p>
@@ -34,16 +35,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `BillingconductorClient` and
-the commands you need, for example `AssociateAccountsCommand`:
+the commands you need, for example `ListBillingGroupsCommand`:
 
 ```js
 // ES5 example
-const { BillingconductorClient, AssociateAccountsCommand } = require("@aws-sdk/client-billingconductor");
+const { BillingconductorClient, ListBillingGroupsCommand } = require("@aws-sdk/client-billingconductor");
 ```
 
 ```ts
 // ES6+ example
-import { BillingconductorClient, AssociateAccountsCommand } from "@aws-sdk/client-billingconductor";
+import { BillingconductorClient, ListBillingGroupsCommand } from "@aws-sdk/client-billingconductor";
 ```
 
 ### Usage
@@ -62,7 +63,7 @@ const client = new BillingconductorClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateAccountsCommand(params);
+const command = new ListBillingGroupsCommand(params);
 ```
 
 #### Async/await
@@ -141,7 +142,7 @@ const client = new AWS.Billingconductor({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateAccounts(params);
+  const data = await client.listBillingGroups(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -149,7 +150,7 @@ try {
 
 // Promises.
 client
-  .associateAccounts(params)
+  .listBillingGroups(params)
   .then((data) => {
     // process data.
   })
@@ -158,7 +159,7 @@ client
   });
 
 // callbacks.
-client.associateAccounts(params, (err, data) => {
+client.listBillingGroups(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -173,7 +174,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -219,7 +220,7 @@ see LICENSE for more information.
 AssociateAccounts
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/associateaccountscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/associateaccountscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/associateaccountscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/AssociateAccountsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/AssociateAccountsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/AssociateAccountsCommandOutput/)
 
 </details>
 <details>
@@ -227,7 +228,7 @@ AssociateAccounts
 AssociatePricingRules
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/associatepricingrulescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/associatepricingrulescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/associatepricingrulescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/AssociatePricingRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/AssociatePricingRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/AssociatePricingRulesCommandOutput/)
 
 </details>
 <details>
@@ -235,7 +236,7 @@ AssociatePricingRules
 BatchAssociateResourcesToCustomLineItem
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/batchassociateresourcestocustomlineitemcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/batchassociateresourcestocustomlineitemcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/batchassociateresourcestocustomlineitemcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/BatchAssociateResourcesToCustomLineItemCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/BatchAssociateResourcesToCustomLineItemCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/BatchAssociateResourcesToCustomLineItemCommandOutput/)
 
 </details>
 <details>
@@ -243,7 +244,7 @@ BatchAssociateResourcesToCustomLineItem
 BatchDisassociateResourcesFromCustomLineItem
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/batchdisassociateresourcesfromcustomlineitemcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/batchdisassociateresourcesfromcustomlineitemcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/batchdisassociateresourcesfromcustomlineitemcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/BatchDisassociateResourcesFromCustomLineItemCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/BatchDisassociateResourcesFromCustomLineItemCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/BatchDisassociateResourcesFromCustomLineItemCommandOutput/)
 
 </details>
 <details>
@@ -251,7 +252,7 @@ BatchDisassociateResourcesFromCustomLineItem
 CreateBillingGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/createbillinggroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/createbillinggroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/createbillinggroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/CreateBillingGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/CreateBillingGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/CreateBillingGroupCommandOutput/)
 
 </details>
 <details>
@@ -259,7 +260,7 @@ CreateBillingGroup
 CreateCustomLineItem
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/createcustomlineitemcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/createcustomlineitemcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/createcustomlineitemcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/CreateCustomLineItemCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/CreateCustomLineItemCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/CreateCustomLineItemCommandOutput/)
 
 </details>
 <details>
@@ -267,7 +268,7 @@ CreateCustomLineItem
 CreatePricingPlan
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/createpricingplancommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/createpricingplancommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/createpricingplancommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/CreatePricingPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/CreatePricingPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/CreatePricingPlanCommandOutput/)
 
 </details>
 <details>
@@ -275,7 +276,7 @@ CreatePricingPlan
 CreatePricingRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/createpricingrulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/createpricingrulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/createpricingrulecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/CreatePricingRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/CreatePricingRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/CreatePricingRuleCommandOutput/)
 
 </details>
 <details>
@@ -283,7 +284,7 @@ CreatePricingRule
 DeleteBillingGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/deletebillinggroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/deletebillinggroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/deletebillinggroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/DeleteBillingGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/DeleteBillingGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/DeleteBillingGroupCommandOutput/)
 
 </details>
 <details>
@@ -291,7 +292,7 @@ DeleteBillingGroup
 DeleteCustomLineItem
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/deletecustomlineitemcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/deletecustomlineitemcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/deletecustomlineitemcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/DeleteCustomLineItemCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/DeleteCustomLineItemCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/DeleteCustomLineItemCommandOutput/)
 
 </details>
 <details>
@@ -299,7 +300,7 @@ DeleteCustomLineItem
 DeletePricingPlan
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/deletepricingplancommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/deletepricingplancommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/deletepricingplancommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/DeletePricingPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/DeletePricingPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/DeletePricingPlanCommandOutput/)
 
 </details>
 <details>
@@ -307,7 +308,7 @@ DeletePricingPlan
 DeletePricingRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/deletepricingrulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/deletepricingrulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/deletepricingrulecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/DeletePricingRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/DeletePricingRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/DeletePricingRuleCommandOutput/)
 
 </details>
 <details>
@@ -315,7 +316,7 @@ DeletePricingRule
 DisassociateAccounts
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/disassociateaccountscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/disassociateaccountscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/disassociateaccountscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/DisassociateAccountsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/DisassociateAccountsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/DisassociateAccountsCommandOutput/)
 
 </details>
 <details>
@@ -323,7 +324,15 @@ DisassociateAccounts
 DisassociatePricingRules
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/disassociatepricingrulescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/disassociatepricingrulescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/disassociatepricingrulescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/DisassociatePricingRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/DisassociatePricingRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/DisassociatePricingRulesCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetBillingGroupCostReport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/GetBillingGroupCostReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/GetBillingGroupCostReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/GetBillingGroupCostReportCommandOutput/)
 
 </details>
 <details>
@@ -331,7 +340,7 @@ DisassociatePricingRules
 ListAccountAssociations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/listaccountassociationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/listaccountassociationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/listaccountassociationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/ListAccountAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/ListAccountAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/ListAccountAssociationsCommandOutput/)
 
 </details>
 <details>
@@ -339,7 +348,7 @@ ListAccountAssociations
 ListBillingGroupCostReports
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/listbillinggroupcostreportscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/listbillinggroupcostreportscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/listbillinggroupcostreportscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/ListBillingGroupCostReportsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/ListBillingGroupCostReportsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/ListBillingGroupCostReportsCommandOutput/)
 
 </details>
 <details>
@@ -347,7 +356,7 @@ ListBillingGroupCostReports
 ListBillingGroups
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/listbillinggroupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/listbillinggroupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/listbillinggroupscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/ListBillingGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/ListBillingGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/ListBillingGroupsCommandOutput/)
 
 </details>
 <details>
@@ -355,7 +364,7 @@ ListBillingGroups
 ListCustomLineItems
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/listcustomlineitemscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/listcustomlineitemscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/listcustomlineitemscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/ListCustomLineItemsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/ListCustomLineItemsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/ListCustomLineItemsCommandOutput/)
 
 </details>
 <details>
@@ -363,7 +372,7 @@ ListCustomLineItems
 ListCustomLineItemVersions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/listcustomlineitemversionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/listcustomlineitemversionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/listcustomlineitemversionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/ListCustomLineItemVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/ListCustomLineItemVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/ListCustomLineItemVersionsCommandOutput/)
 
 </details>
 <details>
@@ -371,7 +380,7 @@ ListCustomLineItemVersions
 ListPricingPlans
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/listpricingplanscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/listpricingplanscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/listpricingplanscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/ListPricingPlansCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/ListPricingPlansCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/ListPricingPlansCommandOutput/)
 
 </details>
 <details>
@@ -379,7 +388,7 @@ ListPricingPlans
 ListPricingPlansAssociatedWithPricingRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/listpricingplansassociatedwithpricingrulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/listpricingplansassociatedwithpricingrulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/listpricingplansassociatedwithpricingrulecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/ListPricingPlansAssociatedWithPricingRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/ListPricingPlansAssociatedWithPricingRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/ListPricingPlansAssociatedWithPricingRuleCommandOutput/)
 
 </details>
 <details>
@@ -387,7 +396,7 @@ ListPricingPlansAssociatedWithPricingRule
 ListPricingRules
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/listpricingrulescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/listpricingrulescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/listpricingrulescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/ListPricingRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/ListPricingRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/ListPricingRulesCommandOutput/)
 
 </details>
 <details>
@@ -395,7 +404,7 @@ ListPricingRules
 ListPricingRulesAssociatedToPricingPlan
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/listpricingrulesassociatedtopricingplancommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/listpricingrulesassociatedtopricingplancommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/listpricingrulesassociatedtopricingplancommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/ListPricingRulesAssociatedToPricingPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/ListPricingRulesAssociatedToPricingPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/ListPricingRulesAssociatedToPricingPlanCommandOutput/)
 
 </details>
 <details>
@@ -403,7 +412,7 @@ ListPricingRulesAssociatedToPricingPlan
 ListResourcesAssociatedToCustomLineItem
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/listresourcesassociatedtocustomlineitemcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/listresourcesassociatedtocustomlineitemcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/listresourcesassociatedtocustomlineitemcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/ListResourcesAssociatedToCustomLineItemCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/ListResourcesAssociatedToCustomLineItemCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/ListResourcesAssociatedToCustomLineItemCommandOutput/)
 
 </details>
 <details>
@@ -411,7 +420,7 @@ ListResourcesAssociatedToCustomLineItem
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/ListTagsForResourceCommandOutput/)
 
 </details>
 <details>
@@ -419,7 +428,7 @@ ListTagsForResource
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -427,7 +436,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -435,7 +444,7 @@ UntagResource
 UpdateBillingGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/updatebillinggroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/updatebillinggroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/updatebillinggroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/UpdateBillingGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/UpdateBillingGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/UpdateBillingGroupCommandOutput/)
 
 </details>
 <details>
@@ -443,7 +452,7 @@ UpdateBillingGroup
 UpdateCustomLineItem
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/updatecustomlineitemcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/updatecustomlineitemcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/updatecustomlineitemcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/UpdateCustomLineItemCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/UpdateCustomLineItemCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/UpdateCustomLineItemCommandOutput/)
 
 </details>
 <details>
@@ -451,7 +460,7 @@ UpdateCustomLineItem
 UpdatePricingPlan
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/updatepricingplancommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/updatepricingplancommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/updatepricingplancommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/UpdatePricingPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/UpdatePricingPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/UpdatePricingPlanCommandOutput/)
 
 </details>
 <details>
@@ -459,6 +468,6 @@ UpdatePricingPlan
 UpdatePricingRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/classes/updatepricingrulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/updatepricingrulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-billingconductor/interfaces/updatepricingrulecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billingconductor/command/UpdatePricingRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/UpdatePricingRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billingconductor/Interface/UpdatePricingRuleCommandOutput/)
 
 </details>

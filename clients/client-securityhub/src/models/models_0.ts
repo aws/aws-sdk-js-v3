@@ -768,7 +768,7 @@ export interface SeverityUpdate {
    *             </li>
    *          </ul>
    */
-  Label?: SeverityLabel | string;
+  Label?: SeverityLabel;
 }
 
 /**
@@ -847,7 +847,7 @@ export interface WorkflowUpdate {
    *             </li>
    *          </ul>
    */
-  Status?: WorkflowStatus | string;
+  Status?: WorkflowStatus;
 }
 
 /**
@@ -875,7 +875,7 @@ export interface AutomationRulesFindingFieldsUpdate {
    *          The rule action updates the <code>VerificationState</code> field of a finding.
    *       </p>
    */
-  VerificationState?: VerificationState | string;
+  VerificationState?: VerificationState;
 
   /**
    * @public
@@ -954,7 +954,7 @@ export interface AutomationRulesAction {
    *          the <i>Security Hub User Guide</i>.
    *       </p>
    */
-  Type?: AutomationRulesActionType | string;
+  Type?: AutomationRulesActionType;
 
   /**
    * @public
@@ -1038,7 +1038,7 @@ export interface AdminAccount {
    * <p>The current status of the Security Hub administrator account. Indicates whether the account is
    *          currently enabled as a Security Hub administrator.</p>
    */
-  Status?: AdminStatus | string;
+  Status?: AdminStatus;
 }
 
 /**
@@ -1055,6 +1055,70 @@ export interface AssociatedStandard {
    *       </p>
    */
   StandardsId?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ConfigurationPolicyAssociationStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfigurationPolicyAssociationStatus =
+  (typeof ConfigurationPolicyAssociationStatus)[keyof typeof ConfigurationPolicyAssociationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AssociationType = {
+  APPLIED: "APPLIED",
+  INHERITED: "INHERITED",
+} as const;
+
+/**
+ * @public
+ */
+export type AssociationType = (typeof AssociationType)[keyof typeof AssociationType];
+
+/**
+ * @public
+ * <p>
+ *             Options for filtering the <code>ListConfigurationPolicyAssociations</code> response. You can filter by the Amazon Resource Name (ARN) or
+ *             universally unique identifier (UUID) of a configuration policy, <code>AssociationType</code>, or <code>AssociationStatus</code>.
+ *         </p>
+ */
+export interface AssociationFilters {
+  /**
+   * @public
+   * <p>
+   *             The ARN or UUID of the configuration policy.
+   *         </p>
+   */
+  ConfigurationPolicyId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             Indicates whether the association between a target and a configuration was directly applied by the
+   *             Security Hub delegated administrator or inherited from a parent.
+   *         </p>
+   */
+  AssociationType?: AssociationType;
+
+  /**
+   * @public
+   * <p>
+   *             The current status of the association between a target and a configuration policy.
+   *         </p>
+   */
+  AssociationStatus?: ConfigurationPolicyAssociationStatus;
 }
 
 /**
@@ -1282,7 +1346,7 @@ export interface StringFilter {
    *             <code>CONTAINS</code> and <code>NOT_CONTAINS</code> operators can be used only with automation rules. For more information,
    *            see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html">Automation rules</a> in the <i>Security Hub User Guide</i>.</p>
    */
-  Comparison?: StringFilterComparison | string;
+  Comparison?: StringFilterComparison;
 }
 
 /**
@@ -1303,6 +1367,22 @@ export interface NumberFilter {
    *          findings. </p>
    */
   Lte?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The greater-than condition to be applied to a single field when querying for findings.
+   *         </p>
+   */
+  Gt?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The less-than condition to be applied to a single field when querying for findings.
+   *         </p>
+   */
+  Lt?: number;
 
   /**
    * @public
@@ -1340,7 +1420,7 @@ export interface DateRange {
    * @public
    * <p>A date range unit for the date filter.</p>
    */
-  Unit?: DateRangeUnit | string;
+  Unit?: DateRangeUnit;
 }
 
 /**
@@ -1461,7 +1541,7 @@ export interface MapFilter {
    *             <code>CONTAINS</code> and <code>NOT_CONTAINS</code> operators can be used only with automation rules. For more information,
    *            see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html">Automation rules</a> in the <i>Security Hub User Guide</i>.</p>
    */
-  Comparison?: MapFilterComparison | string;
+  Comparison?: MapFilterComparison;
 }
 
 /**
@@ -1477,12 +1557,18 @@ export interface AutomationRulesFindingFilters {
    *          The Amazon Resource Name (ARN) for a third-party product that generated a finding in
    *          Security Hub.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   ProductArn?: StringFilter[];
 
   /**
    * @public
-   * <p> The Amazon Web Services account ID in which a finding was generated. </p>
+   * <p>The Amazon Web Services account ID in which a finding was generated.</p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 100 items.
+   *    	</p>
    */
   AwsAccountId?: StringFilter[];
 
@@ -1491,6 +1577,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          The product-specific identifier for a finding.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   Id?: StringFilter[];
 
@@ -1500,6 +1589,9 @@ export interface AutomationRulesFindingFilters {
    *          The identifier for the solution-specific component that
    *          generated a finding.
    *       </p>
+   *          <p>
+   *       		Array Members: Minimum number of 1 item. Maximum number of 100 items.
+   *       	</p>
    */
   GeneratorId?: StringFilter[];
 
@@ -1507,7 +1599,10 @@ export interface AutomationRulesFindingFilters {
    * @public
    * <p> One or more finding types in the format of namespace/category/classifier that classify
    *          a finding. For a list of namespaces, classifiers, and categories, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format-type-taxonomy.html">Types
-   *             taxonomy for ASFF</a> in the <i>Security Hub User Guide</i>. </p>
+   *             taxonomy for ASFF</a> in the <i>Security Hub User Guide</i>.</p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   Type?: StringFilter[];
 
@@ -1520,6 +1615,9 @@ export interface AutomationRulesFindingFilters {
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *          Date/Time Format</a>. The value cannot contain spaces. For example,
    *          <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   FirstObservedAt?: DateFilter[];
 
@@ -1532,6 +1630,9 @@ export interface AutomationRulesFindingFilters {
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *          Date/Time Format</a>. The value cannot contain spaces. For example,
    *          <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   LastObservedAt?: DateFilter[];
 
@@ -1543,6 +1644,9 @@ export interface AutomationRulesFindingFilters {
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *          Date/Time Format</a>. The value cannot contain spaces. For example,
    *          <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   CreatedAt?: DateFilter[];
 
@@ -1554,6 +1658,9 @@ export interface AutomationRulesFindingFilters {
    *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
    *          Date/Time Format</a>. The value cannot contain spaces. For example,
    *          <code>2020-03-22T13:22:13.933Z</code>.</p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   UpdatedAt?: DateFilter[];
 
@@ -1564,7 +1671,10 @@ export interface AutomationRulesFindingFilters {
    *          scale. A value of <code>0</code> means 0 percent confidence, and a value of
    *             <code>100</code> means 100 percent confidence. For example, a data exfiltration
    *          detection based on a statistical deviation of network traffic has low confidence because an
-   *          actual exfiltration hasn't been verified. For more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence">Confidence</a> in the <i>Security Hub User Guide</i>. </p>
+   *          actual exfiltration hasn't been verified. For more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-confidence">Confidence</a> in the <i>Security Hub User Guide</i>.</p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   Confidence?: NumberFilter[];
 
@@ -1576,6 +1686,9 @@ export interface AutomationRulesFindingFilters {
    *          only full integers. A score of <code>0</code> means that the underlying resources have no
    *          criticality, and a score of <code>100</code> is reserved for the most critical resources. For
    *       more information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-criticality">Criticality</a> in the <i>Security Hub User Guide</i>.</p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   Criticality?: NumberFilter[];
 
@@ -1584,6 +1697,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          A finding's title.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 100 items.
+   *    	</p>
    */
   Title?: StringFilter[];
 
@@ -1592,6 +1708,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          A finding's description.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   Description?: StringFilter[];
 
@@ -1600,6 +1719,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          Provides a URL that links to a page about the current finding in the finding product.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   SourceUrl?: StringFilter[];
 
@@ -1609,6 +1731,9 @@ export interface AutomationRulesFindingFilters {
    *          Provides the name of the product that generated the finding. For
    *          control-based findings, the product name is Security Hub.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   ProductName?: StringFilter[];
 
@@ -1618,6 +1743,9 @@ export interface AutomationRulesFindingFilters {
    *          The name of the company for the product that generated the finding.
    *          For control-based findings, the company is Amazon Web Services.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   CompanyName?: StringFilter[];
 
@@ -1626,6 +1754,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          The severity value of the finding.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   SeverityLabel?: StringFilter[];
 
@@ -1634,6 +1765,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          The type of resource that the finding pertains to.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   ResourceType?: StringFilter[];
 
@@ -1646,6 +1780,9 @@ export interface AutomationRulesFindingFilters {
    *          For non-Amazon Web Services resources, this is a unique identifier that is associated with the
    *          resource.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 100 items.
+   *    	</p>
    */
   ResourceId?: StringFilter[];
 
@@ -1655,6 +1792,9 @@ export interface AutomationRulesFindingFilters {
    *          The partition in which the resource that the finding pertains to is located.
    *          A partition is a group of Amazon Web Services Regions. Each Amazon Web Services account is scoped to one partition.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   ResourcePartition?: StringFilter[];
 
@@ -1663,6 +1803,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          The Amazon Web Services Region where the resource that a finding pertains to is located.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   ResourceRegion?: StringFilter[];
 
@@ -1671,6 +1814,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          A list of Amazon Web Services tags associated with a resource at the time the finding was processed.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   ResourceTags?: MapFilter[];
 
@@ -1679,6 +1825,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          Custom fields and values about the resource that a finding pertains to.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   ResourceDetailsOther?: MapFilter[];
 
@@ -1688,12 +1837,18 @@ export interface AutomationRulesFindingFilters {
    *          The result of a security check. This field is only used for findings generated
    *          from controls.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   ComplianceStatus?: StringFilter[];
 
   /**
    * @public
    * <p> The security control ID for which a finding was generated. Security control IDs are the same across standards.</p>
+   *          <p>
+   *     		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *     	</p>
    */
   ComplianceSecurityControlId?: StringFilter[];
 
@@ -1701,6 +1856,9 @@ export interface AutomationRulesFindingFilters {
    * @public
    * <p>The unique identifier of a standard in which a control is enabled. This field consists of the resource portion of
    *             the Amazon Resource Name (ARN) returned for a standard in the <a href="https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_DescribeStandards.html">DescribeStandards</a> API response.</p>
+   *          <p>
+   *     		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *     	</p>
    */
   ComplianceAssociatedStandardsId?: StringFilter[];
 
@@ -1709,6 +1867,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          Provides the veracity of a finding.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   VerificationState?: StringFilter[];
 
@@ -1717,6 +1878,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          Provides information about the status of the investigation into a finding.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   WorkflowStatus?: StringFilter[];
 
@@ -1725,6 +1889,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          Provides the current state of a finding.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   RecordState?: StringFilter[];
 
@@ -1733,6 +1900,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          The ARN for the product that generated a related finding.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   RelatedFindingsProductArn?: StringFilter[];
 
@@ -1741,6 +1911,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          The product-generated identifier for a related finding.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   RelatedFindingsId?: StringFilter[];
 
@@ -1749,6 +1922,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          The text of a user-defined note that's added to a finding.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   NoteText?: StringFilter[];
 
@@ -1759,6 +1935,9 @@ export interface AutomationRulesFindingFilters {
    *          <a href="https://www.rfc-editor.org/rfc/rfc3339#section-5.6">RFC 3339 section 5.6, Internet Date/Time Format</a>. The value cannot contain spaces.
    *          For example, <code>2020-03-22T13:22:13.933Z</code>.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   NoteUpdatedAt?: DateFilter[];
 
@@ -1767,6 +1946,9 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *          The principal that created a note.
    *       </p>
+   *          <p>
+   *    		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *    	</p>
    */
   NoteUpdatedBy?: StringFilter[];
 
@@ -1775,8 +1957,43 @@ export interface AutomationRulesFindingFilters {
    * <p>
    *             A list of user-defined name and value string pairs added to a finding.
    *         </p>
+   *          <p>
+   *     		Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *     	</p>
    */
   UserDefinedFields?: MapFilter[];
+
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of the application that is related to a finding.
+   *         </p>
+   *          <p>
+   *             Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *         </p>
+   */
+  ResourceApplicationArn?: StringFilter[];
+
+  /**
+   * @public
+   * <p>
+   *             The name of the application that is related to a finding.
+   *         </p>
+   *          <p>
+   *             Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *         </p>
+   */
+  ResourceApplicationName?: StringFilter[];
+
+  /**
+   * @public
+   * <p>The name of the Amazon Web Services account in which a finding was generated.
+   *         </p>
+   *          <p>
+   *             Array Members: Minimum number of 1 item. Maximum number of 20 items.
+   *         </p>
+   */
+  AwsAccountName?: StringFilter[];
 }
 
 /**
@@ -1816,7 +2033,7 @@ export interface AutomationRulesConfig {
    *          and finding updates after the rule is created.
    *       </p>
    */
-  RuleStatus?: RuleStatus | string;
+  RuleStatus?: RuleStatus;
 
   /**
    * @public
@@ -1929,7 +2146,7 @@ export interface AutomationRulesMetadata {
    *             </a>.
    *       </p>
    */
-  RuleStatus?: RuleStatus | string;
+  RuleStatus?: RuleStatus;
 
   /**
    * @public
@@ -5308,7 +5525,7 @@ export interface AwsCloudFrontDistributionOriginS3OriginConfig {
 /**
  * @public
  * <p>A complex type that describes the
- *             Amazon S3 bucket, HTTP server (for example, a web server), AWS Elemental MediaStore, or other server from which CloudFront gets your files.</p>
+ *             Amazon S3 bucket, HTTP server (for example, a web server), Elemental MediaStore, or other server from which CloudFront gets your files.</p>
  */
 export interface AwsCloudFrontDistributionOriginItem {
   /**
@@ -6222,6 +6439,361 @@ export interface AwsCodeBuildProjectDetails {
 
 /**
  * @public
+ * <p>
+ *             Provides details about an Database Migration Service (DMS) endpoint. An endpoint provides connection, data
+ *             store type, and location information about your data store.
+ *         </p>
+ */
+export interface AwsDmsEndpointDetails {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) for the SSL certificate that encrypts connections between the DMS endpoint and the
+   *             replication instance.
+   *         </p>
+   */
+  CertificateArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The name of the endpoint database.</p>
+   */
+  DatabaseName?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of the endpoint.
+   *         </p>
+   */
+  EndpointArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The database endpoint identifier.
+   *         </p>
+   */
+  EndpointIdentifier?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The type of endpoint. Valid values are source and target.
+   *         </p>
+   */
+  EndpointType?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The type of engine for the endpoint, depending on the <code>EndpointType</code> value.
+   *         </p>
+   */
+  EngineName?: string;
+
+  /**
+   * @public
+   * <p>
+   *             A value that can be used for cross-account validation.
+   *         </p>
+   */
+  ExternalId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             Additional attributes associated with the connection.
+   *         </p>
+   */
+  ExtraConnectionAttributes?: string;
+
+  /**
+   * @public
+   * <p>
+   *             An DMS key identifier that is used to encrypt the connection parameters for the endpoint.
+   *             If you don't specify a value for the <code>KmsKeyId</code> parameter, then DMS uses your default
+   *             encryption key. KMS creates the default encryption key for your Amazon Web Services account. Your
+   *             Amazon Web Services account has a different default encryption key for each Amazon Web Services Region.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The port used to access the endpoint.
+   *         </p>
+   */
+  Port?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The name of the server where the endpoint database resides.</p>
+   */
+  ServerName?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The SSL mode used to connect to the endpoint. The default is none.</p>
+   */
+  SslMode?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The user name to be used to log in to the endpoint database.
+   *         </p>
+   */
+  Username?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Provides details about the replication subnet group.</p>
+ */
+export interface AwsDmsReplicationInstanceReplicationSubnetGroupDetails {
+  /**
+   * @public
+   * <p>
+   *             The identifier of the replication subnet group.
+   *         </p>
+   */
+  ReplicationSubnetGroupIdentifier?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Provides details about the virtual private cloud (VPC) security group that’s associated with the replication instance.</p>
+ */
+export interface AwsDmsReplicationInstanceVpcSecurityGroupsDetails {
+  /**
+   * @public
+   * <p>
+   *             The identifier of the VPC security group that’s associated with the replication instance.
+   *         </p>
+   */
+  VpcSecurityGroupId?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Provides details about an Database Migration Service (DMS) replication instance. DMS uses a replication instance to connect to
+ *             your source data store, read the source data, and format the data for consumption by the target data store.
+ *         </p>
+ */
+export interface AwsDmsReplicationInstanceDetails {
+  /**
+   * @public
+   * <p>
+   *             The amount of storage (in gigabytes) that is allocated for the replication instance.
+   *         </p>
+   */
+  AllocatedStorage?: number;
+
+  /**
+   * @public
+   * <p>
+   *         Indicates whether minor engine upgrades are applied automatically to the replication instance during the maintenance
+   *         window.
+   *         </p>
+   */
+  AutoMinorVersionUpgrade?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *             The Availability Zone that the replication instance is created in. The default value is a random, system-chosen
+   *             Availability Zone in the endpoint's Amazon Web Services Region, such as <code>us-east-1d</code>.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The engine version number of the replication instance. If an engine version number is not specified when a
+   *             replication instance is created, the default is the latest engine version available.
+   *         </p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * @public
+   * <p>
+   *             An KMS key identifier that is used to encrypt the data on the replication instance. If you don't
+   *             specify a value for the <code>KmsKeyId</code> parameter, DMS uses your default encryption key.
+   *             KMS creates the default encryption key for your Amazon Web Services account. Your
+   *             Amazon Web Services account has a different default encryption key for each Amazon Web Services Region.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             Specifies whether the replication instance is deployed across multiple Availability Zones (AZs). You can't set the
+   *             <code>AvailabilityZone</code> parameter if the <code>MultiAZ</code> parameter is set to <code>true</code>.</p>
+   */
+  MultiAZ?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *             The maintenance window times for the replication instance. Upgrades to the replication instance are performed during
+   *             this time.</p>
+   */
+  PreferredMaintenanceWindow?: string;
+
+  /**
+   * @public
+   * <p>
+   *             Specifies the accessibility options for the replication instance. A value of <code>true</code> represents an instance
+   *             with a public IP address. A value of <code>false</code> represents an instance with a private IP address. The default
+   *             value is <code>true</code>.</p>
+   */
+  PubliclyAccessible?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *             The compute and memory capacity of the replication instance as defined for the specified replication instance class. </p>
+   */
+  ReplicationInstanceClass?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The replication instance identifier.</p>
+   */
+  ReplicationInstanceIdentifier?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The subnet group for the replication instance.</p>
+   */
+  ReplicationSubnetGroup?: AwsDmsReplicationInstanceReplicationSubnetGroupDetails;
+
+  /**
+   * @public
+   * <p>
+   *             The virtual private cloud (VPC) security group for the replication instance.</p>
+   */
+  VpcSecurityGroups?: AwsDmsReplicationInstanceVpcSecurityGroupsDetails[];
+}
+
+/**
+ * @public
+ * <p>
+ *             Provides details about an Database Migration Service (DMS) replication task. A replication task moves a set of data from the
+ *             source endpoint to the target endpoint.</p>
+ */
+export interface AwsDmsReplicationTaskDetails {
+  /**
+   * @public
+   * <p>
+   *             Indicates when you want a change data capture (CDC) operation to start. <code>CCdcStartPosition</code> or
+   *             <code>CCdcStartTime</code> specifies when you want a CDC operation to start. Only a value for one of these fields
+   *             is included.</p>
+   */
+  CdcStartPosition?: string;
+
+  /**
+   * @public
+   * <p>
+   *             Indicates the start time for a CDC operation. <code>CdcStartPosition</code> or <code>CCdcStartTime</code> specifies
+   *             when you want a CDC operation to start. Only a value for one of these fields is included.</p>
+   */
+  CdcStartTime?: string;
+
+  /**
+   * @public
+   * <p>
+   *             Indicates when you want a CDC operation to stop. The value can be either server time or commit time.</p>
+   */
+  CdcStopPosition?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The migration type.
+   *         </p>
+   */
+  MigrationType?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The identifier of the replication task.</p>
+   */
+  Id?: string;
+
+  /**
+   * @public
+   * <p>
+   *             A display name for the resource identifier at the end of the <code>EndpointArn</code> response parameter.
+   *             If you don't specify a <code>ResourceIdentifier</code> value, DMS generates a default identifier value for
+   *             the end of <code>EndpointArn</code>.</p>
+   */
+  ResourceIdentifier?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of a replication instance.
+   *         </p>
+   */
+  ReplicationInstanceArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The user-defined replication task identifier or name.</p>
+   */
+  ReplicationTaskIdentifier?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The settings for the replication task.</p>
+   */
+  ReplicationTaskSettings?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The ARN of the source endpoint.</p>
+   */
+  SourceEndpointArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The table mappings for the replication task, in JSON format.</p>
+   */
+  TableMappings?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The ARN of the target endpoint.</p>
+   */
+  TargetEndpointArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             Supplemental information that the task requires to migrate the data for certain source and target endpoints.</p>
+   */
+  TaskData?: string;
+}
+
+/**
+ * @public
  * <p>Contains a definition of an attribute for the table.</p>
  */
 export interface AwsDynamoDbTableAttributeDefinition {
@@ -6819,6 +7391,361 @@ export interface AwsDynamoDbTableDetails {
    *          </ul>
    */
   TableStatus?: string;
+
+  /**
+   * @public
+   * <p>
+   *             Indicates whether deletion protection is to be enabled (true) or disabled (false) on the table.
+   *         </p>
+   */
+  DeletionProtectionEnabled?: boolean;
+}
+
+/**
+ * @public
+ * <p>
+ *             Provides details about an Active Directory that’s used to authenticate an Client VPN endpoint.
+ *         </p>
+ */
+export interface AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetails {
+  /**
+   * @public
+   * <p>
+   *             The ID of the Active Directory used for authentication.
+   *         </p>
+   */
+  DirectoryId?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Describes the IAM SAML identity providers used for federated authentication.
+ *         </p>
+ */
+export interface AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetails {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of the IAM SAML identity provider.
+   *         </p>
+   */
+  SamlProviderArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.
+   *         </p>
+   */
+  SelfServiceSamlProviderArn?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Information about the client certificate used for authentication.
+ *         </p>
+ */
+export interface AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetails {
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of the client certificate.
+   *         </p>
+   */
+  ClientRootCertificateChain?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Information about the authentication method used by the Client VPN endpoint.
+ *         </p>
+ */
+export interface AwsEc2ClientVpnEndpointAuthenticationOptionsDetails {
+  /**
+   * @public
+   * <p>
+   *             The authentication type used.
+   *         </p>
+   */
+  Type?: string;
+
+  /**
+   * @public
+   * <p>
+   *             Information about the Active Directory, if applicable. With Active Directory authentication, clients are authenticated
+   *             against existing Active Directory groups.
+   *         </p>
+   */
+  ActiveDirectory?: AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetails;
+
+  /**
+   * @public
+   * <p>
+   *             Information about the authentication certificates, if applicable.</p>
+   */
+  MutualAuthentication?: AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetails;
+
+  /**
+   * @public
+   * <p>
+   *             Information about the IAM SAML identity provider, if applicable.</p>
+   */
+  FederatedAuthentication?: AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetails;
+}
+
+/**
+ * @public
+ * <p>
+ *             Describes the status of the Client VPN endpoint attribute.
+ *         </p>
+ */
+export interface AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetails {
+  /**
+   * @public
+   * <p>
+   *             The status code.
+   *         </p>
+   */
+  Code?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The status message.
+   *         </p>
+   */
+  Message?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             The options for managing connection authorization for new client connections.
+ *         </p>
+ */
+export interface AwsEc2ClientVpnEndpointClientConnectOptionsDetails {
+  /**
+   * @public
+   * <p>
+   *             Indicates whether client connect options are enabled.
+   *         </p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
+   *         </p>
+   */
+  LambdaFunctionArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The status of any updates to the client connect options.
+   *         </p>
+   */
+  Status?: AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetails;
+}
+
+/**
+ * @public
+ * <p>
+ *             Options for enabling a customizable text banner that will be displayed on Amazon Web Services provided clients when a
+ *             VPN session is established.
+ *         </p>
+ */
+export interface AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetails {
+  /**
+   * @public
+   * <p>
+   *             Current state of text banner feature.
+   *         </p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *             Customizable text that will be displayed in a banner on Amazon Web Services provided clients when a VPN session is
+   *             established.
+   *         </p>
+   */
+  BannerText?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Information about the client connection logging options for the Client VPN endpoint.
+ *         </p>
+ */
+export interface AwsEc2ClientVpnEndpointConnectionLogOptionsDetails {
+  /**
+   * @public
+   * <p>
+   *             Indicates whether client connection logging is enabled for the Client VPN endpoint.
+   *         </p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *             The name of the Amazon CloudWatch Logs log group to which connection logging data is published.
+   *         </p>
+   */
+  CloudwatchLogGroup?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The name of the Amazon CloudWatch Logs log stream to which connection logging data is published.
+   *         </p>
+   */
+  CloudwatchLogStream?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Describes an Client VPN endpoint. A Client VPN endpoint is the resource that you create and
+ *             configure to enable and manage client VPN sessions. It's the termination point for all client VPN sessions.
+ *         </p>
+ */
+export interface AwsEc2ClientVpnEndpointDetails {
+  /**
+   * @public
+   * <p>
+   *             The ID of the Client VPN endpoint.
+   *         </p>
+   */
+  ClientVpnEndpointId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             A brief description of the endpoint.
+   *         </p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The IPv4 address range, in CIDR notation, from which client IP addresses are assigned.
+   *         </p>
+   */
+  ClientCidrBlock?: string;
+
+  /**
+   * @public
+   * <p>
+   *             Information about the DNS servers to be used for DNS resolution.
+   *         </p>
+   */
+  DnsServer?: string[];
+
+  /**
+   * @public
+   * <p>
+   *             Indicates whether split-tunnel is enabled in the Client VPN endpoint.
+   *         </p>
+   */
+  SplitTunnel?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *             The transport protocol used by the Client VPN endpoint.
+   *         </p>
+   */
+  TransportProtocol?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The port number for the Client VPN endpoint.
+   *         </p>
+   */
+  VpnPort?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The Amazon Resource Name (ARN) of the server certificate.
+   *         </p>
+   */
+  ServerCertificateArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             Information about the authentication method used by the Client VPN endpoint.
+   *         </p>
+   */
+  AuthenticationOptions?: AwsEc2ClientVpnEndpointAuthenticationOptionsDetails[];
+
+  /**
+   * @public
+   * <p>
+   *             Information about the client connection logging options for the Client VPN endpoint.
+   *         </p>
+   */
+  ConnectionLogOptions?: AwsEc2ClientVpnEndpointConnectionLogOptionsDetails;
+
+  /**
+   * @public
+   * <p>
+   *             The IDs of the security groups for the target network.
+   *         </p>
+   */
+  SecurityGroupIdSet?: string[];
+
+  /**
+   * @public
+   * <p>
+   *             The ID of the VPC.
+   *         </p>
+   */
+  VpcId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The URL of the self-service portal.
+   *         </p>
+   */
+  SelfServicePortalUrl?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The options for managing connection authorization for new client connections.
+   *         </p>
+   */
+  ClientConnectOptions?: AwsEc2ClientVpnEndpointClientConnectOptionsDetails;
+
+  /**
+   * @public
+   * <p>
+   *             The maximum VPN session duration time in hours.
+   *         </p>
+   */
+  SessionTimeoutHours?: number;
+
+  /**
+   * @public
+   * <p>
+   *             Options for enabling a customizable text banner that will be displayed on Amazon Web Services provided clients when a
+   *             VPN session is established.
+   *         </p>
+   */
+  ClientLoginBannerOptions?: AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetails;
 }
 
 /**
@@ -11725,860 +12652,4 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails {
    * <p>The soft limit for the ulimit type.</p>
    */
   SoftLimit?: number;
-}
-
-/**
- * @public
- * <p>A data volume to mount from another container.</p>
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails {
-  /**
-   * @public
-   * <p>Whether the container has read-only access to the volume.</p>
-   */
-  ReadOnly?: boolean;
-
-  /**
-   * @public
-   * <p>The name of another container within the same task definition from which to mount volumes.</p>
-   */
-  SourceContainer?: string;
-}
-
-/**
- * @public
- * <p>A container definition that describes a container in the task.</p>
- */
-export interface AwsEcsTaskDefinitionContainerDefinitionsDetails {
-  /**
-   * @public
-   * <p>The command that is passed to the container.</p>
-   */
-  Command?: string[];
-
-  /**
-   * @public
-   * <p>The number of CPU units reserved for the container.</p>
-   */
-  Cpu?: number;
-
-  /**
-   * @public
-   * <p>The dependencies that are defined for container startup and shutdown.</p>
-   */
-  DependsOn?: AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails[];
-
-  /**
-   * @public
-   * <p>Whether to disable networking within the container.</p>
-   */
-  DisableNetworking?: boolean;
-
-  /**
-   * @public
-   * <p>A list of DNS search domains that are presented to the container.</p>
-   */
-  DnsSearchDomains?: string[];
-
-  /**
-   * @public
-   * <p>A list of DNS servers that are presented to the container.</p>
-   */
-  DnsServers?: string[];
-
-  /**
-   * @public
-   * <p>A key-value map of labels to add to the container.</p>
-   */
-  DockerLabels?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>A list of strings to provide custom labels for SELinux and AppArmor multi-level security systems.</p>
-   */
-  DockerSecurityOptions?: string[];
-
-  /**
-   * @public
-   * <p>The entry point that is passed to the container.</p>
-   */
-  EntryPoint?: string[];
-
-  /**
-   * @public
-   * <p>The environment variables to pass to a container.</p>
-   */
-  Environment?: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails[];
-
-  /**
-   * @public
-   * <p>A list of files containing the environment variables to pass to a container.</p>
-   */
-  EnvironmentFiles?: AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails[];
-
-  /**
-   * @public
-   * <p>Whether the container is essential. All tasks must have at least one essential container.</p>
-   */
-  Essential?: boolean;
-
-  /**
-   * @public
-   * <p>A list of hostnames and IP address mappings to append to the <b>/etc/hosts</b> file on the container.</p>
-   */
-  ExtraHosts?: AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails[];
-
-  /**
-   * @public
-   * <p>The FireLens configuration for the container. Specifies and configures a log router for container logs.</p>
-   */
-  FirelensConfiguration?: AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails;
-
-  /**
-   * @public
-   * <p>The container health check command and associated configuration parameters for the container.</p>
-   */
-  HealthCheck?: AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails;
-
-  /**
-   * @public
-   * <p>The hostname to use for the container.</p>
-   */
-  Hostname?: string;
-
-  /**
-   * @public
-   * <p>The image used to start the container.</p>
-   */
-  Image?: string;
-
-  /**
-   * @public
-   * <p>If set to true, then containerized applications can be deployed that require <code>stdin</code> or a <code>tty</code> to be allocated.</p>
-   */
-  Interactive?: boolean;
-
-  /**
-   * @public
-   * <p>A list of links for the container in the form <code>
-   *                <i>container_name</i>:<i>alias</i>
-   *             </code>. Allows containers to communicate with each other without the need for port mappings.</p>
-   */
-  Links?: string[];
-
-  /**
-   * @public
-   * <p>Linux-specific modifications that are applied to the container, such as Linux kernel capabilities.</p>
-   */
-  LinuxParameters?: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails;
-
-  /**
-   * @public
-   * <p>The log configuration specification for the container.</p>
-   */
-  LogConfiguration?: AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails;
-
-  /**
-   * @public
-   * <p>The amount (in MiB) of memory to present to the container. If the container attempts to exceed the memory specified here, the container is shut down. The total amount of memory reserved for all containers within a task must be lower than the task memory value, if one is specified.</p>
-   */
-  Memory?: number;
-
-  /**
-   * @public
-   * <p>The soft limit (in MiB) of memory to reserve for the container.</p>
-   */
-  MemoryReservation?: number;
-
-  /**
-   * @public
-   * <p>The mount points for the data volumes in the container.</p>
-   */
-  MountPoints?: AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails[];
-
-  /**
-   * @public
-   * <p>The name of the container.</p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>The list of port mappings for the container.</p>
-   */
-  PortMappings?: AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails[];
-
-  /**
-   * @public
-   * <p>Whether the container is given elevated privileges on the host container instance. The elevated privileges are similar to the root user.</p>
-   */
-  Privileged?: boolean;
-
-  /**
-   * @public
-   * <p>Whether to allocate a TTY to the container.</p>
-   */
-  PseudoTerminal?: boolean;
-
-  /**
-   * @public
-   * <p>Whether the container is given read-only access to its root file system.</p>
-   */
-  ReadonlyRootFilesystem?: boolean;
-
-  /**
-   * @public
-   * <p>The private repository authentication credentials to use.</p>
-   */
-  RepositoryCredentials?: AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails;
-
-  /**
-   * @public
-   * <p>The type and amount of a resource to assign to a container. The only supported resource is a GPU.</p>
-   */
-  ResourceRequirements?: AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails[];
-
-  /**
-   * @public
-   * <p>The secrets to pass to the container.</p>
-   */
-  Secrets?: AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails[];
-
-  /**
-   * @public
-   * <p>The number of seconds to wait before giving up on resolving dependencies for a container. </p>
-   */
-  StartTimeout?: number;
-
-  /**
-   * @public
-   * <p>The number of seconds to wait before the container is stopped if it doesn't shut down normally on its own.</p>
-   */
-  StopTimeout?: number;
-
-  /**
-   * @public
-   * <p>A list of namespaced kernel parameters to set in the container.</p>
-   */
-  SystemControls?: AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails[];
-
-  /**
-   * @public
-   * <p>A list of ulimits to set in the container. </p>
-   */
-  Ulimits?: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails[];
-
-  /**
-   * @public
-   * <p>The user to use inside the container.</p>
-   *          <p>The value can use one of the following formats.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>
-   *                      <i>user</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>
-   *                      <i>user</i>
-   *                   </code>:<code>
-   *                      <i>group</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>
-   *                      <i>uid</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>
-   *                      <i>uid</i>
-   *                   </code>:<code>
-   *                      <i>gid</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>
-   *                      <i>user</i>
-   *                   </code>:<code>
-   *                      <i>gid</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>
-   *                      <i>uid</i>
-   *                   </code>:<code>
-   *                      <i>group</i>
-   *                   </code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  User?: string;
-
-  /**
-   * @public
-   * <p>Data volumes to mount from another container.</p>
-   */
-  VolumesFrom?: AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails[];
-
-  /**
-   * @public
-   * <p>The working directory in which to run commands inside the container.</p>
-   */
-  WorkingDirectory?: string;
-}
-
-/**
- * @public
- * <p>An Elastic Inference accelerator to use
- *          for the containers in the task.</p>
- */
-export interface AwsEcsTaskDefinitionInferenceAcceleratorsDetails {
-  /**
-   * @public
-   * <p>The Elastic Inference accelerator device name.</p>
-   */
-  DeviceName?: string;
-
-  /**
-   * @public
-   * <p>The Elastic Inference accelerator type to use.</p>
-   */
-  DeviceType?: string;
-}
-
-/**
- * @public
- * <p>A placement constraint object to use for tasks.</p>
- */
-export interface AwsEcsTaskDefinitionPlacementConstraintsDetails {
-  /**
-   * @public
-   * <p>A cluster query language expression to apply to the constraint.</p>
-   */
-  Expression?: string;
-
-  /**
-   * @public
-   * <p>The type of constraint.</p>
-   */
-  Type?: string;
-}
-
-/**
- * @public
- * <p>A network configuration parameter to provide to the Container Network Interface (CNI) plugin.</p>
- */
-export interface AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails {
-  /**
-   * @public
-   * <p>The name of the property.</p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>The value of the property.</p>
-   */
-  Value?: string;
-}
-
-/**
- * @public
- * <p>The configuration details for the App Mesh
- *          proxy.</p>
- */
-export interface AwsEcsTaskDefinitionProxyConfigurationDetails {
-  /**
-   * @public
-   * <p>The name of the container that will serve as the App Mesh proxy.</p>
-   */
-  ContainerName?: string;
-
-  /**
-   * @public
-   * <p>The set of network configuration parameters to provide to the Container Network Interface (CNI) plugin, specified as key-value pairs.</p>
-   */
-  ProxyConfigurationProperties?: AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails[];
-
-  /**
-   * @public
-   * <p>The proxy type.</p>
-   */
-  Type?: string;
-}
-
-/**
- * @public
- * <p>Information about a Docker volume.</p>
- */
-export interface AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails {
-  /**
-   * @public
-   * <p>Whether to create the Docker volume automatically if it does not already exist.</p>
-   */
-  Autoprovision?: boolean;
-
-  /**
-   * @public
-   * <p>The Docker volume driver to use.</p>
-   */
-  Driver?: string;
-
-  /**
-   * @public
-   * <p>A map of Docker driver-specific options that are passed through.</p>
-   */
-  DriverOpts?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>Custom metadata to add to the Docker volume.</p>
-   */
-  Labels?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>The scope for the Docker volume that determines its lifecycle. Docker volumes that are scoped to a task are provisioned
-   * automatically when the task starts and destroyed when the task stops. Docker volumes that are shared persist after the task stops. Valid values are <code>shared</code> or <code>task</code>.</p>
-   */
-  Scope?: string;
-}
-
-/**
- * @public
- * <p></p>
- */
-export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails {
-  /**
-   * @public
-   * <p>The Amazon EFS access point identifier to use.</p>
-   */
-  AccessPointId?: string;
-
-  /**
-   * @public
-   * <p>Whether to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system.</p>
-   */
-  Iam?: string;
-}
-
-/**
- * @public
- * <p>Information about the Amazon Elastic File System file system that is used for task storage.</p>
- */
-export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails {
-  /**
-   * @public
-   * <p>The authorization configuration details for the Amazon EFS file system.</p>
-   */
-  AuthorizationConfig?: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails;
-
-  /**
-   * @public
-   * <p>The Amazon EFS file system identifier to use.</p>
-   */
-  FilesystemId?: string;
-
-  /**
-   * @public
-   * <p>The directory within the Amazon EFS file system to mount as the root directory inside the host.</p>
-   */
-  RootDirectory?: string;
-
-  /**
-   * @public
-   * <p>Whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. </p>
-   */
-  TransitEncryption?: string;
-
-  /**
-   * @public
-   * <p>The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server.</p>
-   */
-  TransitEncryptionPort?: number;
-}
-
-/**
- * @public
- * <p>Information about a bind mount host volume.</p>
- */
-export interface AwsEcsTaskDefinitionVolumesHostDetails {
-  /**
-   * @public
-   * <p>The path on the host container instance that is presented to the container.</p>
-   */
-  SourcePath?: string;
-}
-
-/**
- * @public
- * <p>A data volume to mount from another container.</p>
- */
-export interface AwsEcsTaskDefinitionVolumesDetails {
-  /**
-   * @public
-   * <p>Information about a Docker volume.</p>
-   */
-  DockerVolumeConfiguration?: AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails;
-
-  /**
-   * @public
-   * <p>Information about the Amazon Elastic File System file system that is used for task storage.</p>
-   */
-  EfsVolumeConfiguration?: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails;
-
-  /**
-   * @public
-   * <p>Information about a bind mount host volume.</p>
-   */
-  Host?: AwsEcsTaskDefinitionVolumesHostDetails;
-
-  /**
-   * @public
-   * <p>The name of the data volume.</p>
-   */
-  Name?: string;
-}
-
-/**
- * @public
- * <p>Details about a task definition. A task definition describes the container and volume definitions
- *          of an Amazon Elastic Container Service task.</p>
- */
-export interface AwsEcsTaskDefinitionDetails {
-  /**
-   * @public
-   * <p>The container definitions that describe the containers that make up the task.</p>
-   */
-  ContainerDefinitions?: AwsEcsTaskDefinitionContainerDefinitionsDetails[];
-
-  /**
-   * @public
-   * <p>The number of CPU units used by the task.Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>256 (.25 vCPU)</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>512 (.5 vCPU)</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>1024 (1 vCPU)</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>2048 (2 vCPU)</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>4096 (4 vCPU)</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  Cpu?: string;
-
-  /**
-   * @public
-   * <p>The ARN of the task execution role that grants the container agent permission to make API calls on behalf of the container user.</p>
-   */
-  ExecutionRoleArn?: string;
-
-  /**
-   * @public
-   * <p>The name of a family that this task definition is registered to.</p>
-   */
-  Family?: string;
-
-  /**
-   * @public
-   * <p>The Elastic Inference accelerators to use for the containers in the task.</p>
-   */
-  InferenceAccelerators?: AwsEcsTaskDefinitionInferenceAcceleratorsDetails[];
-
-  /**
-   * @public
-   * <p>The inter-process communication (IPC) resource namespace to use for the containers in the task. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>host</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>none</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>task</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  IpcMode?: string;
-
-  /**
-   * @public
-   * <p>The amount (in MiB) of memory used by the task. </p>
-   *          <p>For tasks that are hosted on Amazon EC2, you can provide a task-level memory value or a container-level memory value.
-   *       For tasks that are hosted on Fargate, you must use one of the <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#task_size">specified values</a> in the <i>
-   *                <i>Amazon Elastic Container Service Developer Guide</i>
-   *             </i>, which determines your range of supported values for the <code>Cpu</code> and <code>Memory</code> parameters.</p>
-   */
-  Memory?: string;
-
-  /**
-   * @public
-   * <p>The Docker networking mode to use for the containers in the task. Valid values are as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>awsvpc</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>bridge</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>host</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>none</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  NetworkMode?: string;
-
-  /**
-   * @public
-   * <p>The process namespace to use for the containers in the task. Valid values are <code>host</code> or <code>task</code>.</p>
-   */
-  PidMode?: string;
-
-  /**
-   * @public
-   * <p>The placement constraint objects to use for tasks.</p>
-   */
-  PlacementConstraints?: AwsEcsTaskDefinitionPlacementConstraintsDetails[];
-
-  /**
-   * @public
-   * <p>The configuration details for the App Mesh proxy.</p>
-   */
-  ProxyConfiguration?: AwsEcsTaskDefinitionProxyConfigurationDetails;
-
-  /**
-   * @public
-   * <p>The task launch types that the task definition was validated against.</p>
-   */
-  RequiresCompatibilities?: string[];
-
-  /**
-   * @public
-   * <p>The short name or ARN of the IAM role that grants containers in the task permission to call Amazon Web Services API operations on your behalf.</p>
-   */
-  TaskRoleArn?: string;
-
-  /**
-   * @public
-   * <p>The data volume definitions for the task.</p>
-   */
-  Volumes?: AwsEcsTaskDefinitionVolumesDetails[];
-}
-
-/**
- * @public
- * <p>Provides details on a container instance bind mount host volume.
- *       </p>
- */
-export interface AwsEcsTaskVolumeHostDetails {
-  /**
-   * @public
-   * <p>When the <code>host</code> parameter is used, specify a <code>sourcePath</code> to declare the path
-   * on the host container instance that's presented to the container.
-   *       </p>
-   */
-  SourcePath?: string;
-}
-
-/**
- * @public
- * <p>Provides information about a data volume that's used in a task definition.
- *       </p>
- */
-export interface AwsEcsTaskVolumeDetails {
-  /**
-   * @public
-   * <p>The name of the volume. Up to 255 letters (uppercase and lowercase), numbers, underscores, and
-   * hyphens are allowed. This name is referenced in the <code>sourceVolume</code> parameter of container definition <code>mountPoints</code>.
-   *       </p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>This parameter is specified when you use bind mount host volumes. The contents of the <code>host</code> parameter
-   * determine whether your bind mount host volume persists on the host container instance and where it's stored.
-   *       </p>
-   */
-  Host?: AwsEcsTaskVolumeHostDetails;
-}
-
-/**
- * @public
- * <p>Provides details about a task in a cluster.
- *       </p>
- */
-export interface AwsEcsTaskDetails {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the cluster that hosts the task.
-   *       </p>
-   */
-  ClusterArn?: string;
-
-  /**
-   * @public
-   * <p>The ARN of the task definition that creates the task.
-   *       </p>
-   */
-  TaskDefinitionArn?: string;
-
-  /**
-   * @public
-   * <p>The version counter for the task.
-   *       </p>
-   */
-  Version?: string;
-
-  /**
-   * @public
-   * <p>The Unix timestamp for the time when the task was created. More specifically, it's for the time when
-   * the task entered the <code>PENDING</code> state.
-   *       </p>
-   */
-  CreatedAt?: string;
-
-  /**
-   * @public
-   * <p>The Unix timestamp for the time when the task started. More specifically, it's for the time when the
-   *          task transitioned from the <code>PENDING</code> state to the <code>RUNNING</code> state.
-   *    </p>
-   */
-  StartedAt?: string;
-
-  /**
-   * @public
-   * <p>The tag specified when a task is started. If an Amazon ECS service started the task, the
-   *          <code>startedBy</code> parameter contains the deployment ID of that service.
-   *       </p>
-   */
-  StartedBy?: string;
-
-  /**
-   * @public
-   * <p>The name of the task group that's associated with the task.
-   *       </p>
-   */
-  Group?: string;
-
-  /**
-   * @public
-   * <p>Details about the data volume that is used in a task definition.
-   *       </p>
-   */
-  Volumes?: AwsEcsTaskVolumeDetails[];
-
-  /**
-   * @public
-   * <p>The containers that are associated with the task.
-   *       </p>
-   */
-  Containers?: AwsEcsContainerDetails[];
-}
-
-/**
- * @public
- * <p>Provides details for all file system operations using this Amazon EFS access point.
- *       </p>
- */
-export interface AwsEfsAccessPointPosixUserDetails {
-  /**
-   * @public
-   * <p>The POSIX group ID used for all file system operations using this access point.
-   *       </p>
-   */
-  Gid?: string;
-
-  /**
-   * @public
-   * <p>Secondary POSIX group IDs used for all file system operations using this access point.
-   *       </p>
-   */
-  SecondaryGids?: string[];
-
-  /**
-   * @public
-   * <p>The POSIX user ID used for all file system operations using this access point.
-   *       </p>
-   */
-  Uid?: string;
-}
-
-/**
- * @public
- * <p>Provides information about the settings that Amazon EFS uses to create the root directory
- * when a client connects to an access point.
- *       </p>
- */
-export interface AwsEfsAccessPointRootDirectoryCreationInfoDetails {
-  /**
-   * @public
-   * <p>Specifies the POSIX group ID to apply to the root directory.
-   *       </p>
-   */
-  OwnerGid?: string;
-
-  /**
-   * @public
-   * <p>Specifies the POSIX user ID to apply to the root directory.
-   *       </p>
-   */
-  OwnerUid?: string;
-
-  /**
-   * @public
-   * <p>Specifies the POSIX permissions to apply to the root directory, in the format of an octal number
-   * representing the file's mode bits.
-   *       </p>
-   */
-  Permissions?: string;
 }

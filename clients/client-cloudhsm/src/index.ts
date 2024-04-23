@@ -18,7 +18,11 @@
 export * from "./CloudHSMClient";
 export * from "./CloudHSM";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { CloudHSMExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { CloudHSMServiceException } from "./models/CloudHSMServiceException";

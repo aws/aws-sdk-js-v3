@@ -75,22 +75,11 @@ AWS SDK for JavaScript MWAA Client for Node.js, Browser and React Native.
 </li>
 </ul>
 </li>
-<li>
-<p>
-<code>ops.airflow.{region}.amazonaws.com</code> - This endpoint is used to push environment metrics that track environment health.</p>
-<ul>
-<li>
-<p>
-<a href="https://docs.aws.amazon.com/mwaa/latest/API/API_PublishMetrics.html ">PublishMetrics</a>
-</p>
-</li>
-</ul>
-</li>
 </ul>
 <p>
 <b>Regions</b>
 </p>
-<p>For a list of regions that Amazon MWAA supports, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/what-is-mwaa.html#regions-mwaa">Region availability</a> in the <i>Amazon MWAA User Guide</i>.</p>
+<p>For a list of supported regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/mwaa.html">Amazon MWAA endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
 
 ## Installing
 
@@ -107,16 +96,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MWAAClient` and
-the commands you need, for example `CreateCliTokenCommand`:
+the commands you need, for example `ListEnvironmentsCommand`:
 
 ```js
 // ES5 example
-const { MWAAClient, CreateCliTokenCommand } = require("@aws-sdk/client-mwaa");
+const { MWAAClient, ListEnvironmentsCommand } = require("@aws-sdk/client-mwaa");
 ```
 
 ```ts
 // ES6+ example
-import { MWAAClient, CreateCliTokenCommand } from "@aws-sdk/client-mwaa";
+import { MWAAClient, ListEnvironmentsCommand } from "@aws-sdk/client-mwaa";
 ```
 
 ### Usage
@@ -135,7 +124,7 @@ const client = new MWAAClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateCliTokenCommand(params);
+const command = new ListEnvironmentsCommand(params);
 ```
 
 #### Async/await
@@ -214,7 +203,7 @@ const client = new AWS.MWAA({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createCliToken(params);
+  const data = await client.listEnvironments(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -222,7 +211,7 @@ try {
 
 // Promises.
 client
-  .createCliToken(params)
+  .listEnvironments(params)
   .then((data) => {
     // process data.
   })
@@ -231,7 +220,7 @@ client
   });
 
 // callbacks.
-client.createCliToken(params, (err, data) => {
+client.listEnvironments(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -246,7 +235,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -292,7 +281,7 @@ see LICENSE for more information.
 CreateCliToken
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/classes/createclitokencommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/interfaces/createclitokencommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/interfaces/createclitokencommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mwaa/command/CreateCliTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa/Interface/CreateCliTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa/Interface/CreateCliTokenCommandOutput/)
 
 </details>
 <details>
@@ -300,7 +289,7 @@ CreateCliToken
 CreateEnvironment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/classes/createenvironmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/interfaces/createenvironmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/interfaces/createenvironmentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mwaa/command/CreateEnvironmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa/Interface/CreateEnvironmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa/Interface/CreateEnvironmentCommandOutput/)
 
 </details>
 <details>
@@ -308,7 +297,7 @@ CreateEnvironment
 CreateWebLoginToken
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/classes/createweblogintokencommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/interfaces/createweblogintokencommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/interfaces/createweblogintokencommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mwaa/command/CreateWebLoginTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa/Interface/CreateWebLoginTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa/Interface/CreateWebLoginTokenCommandOutput/)
 
 </details>
 <details>
@@ -316,7 +305,7 @@ CreateWebLoginToken
 DeleteEnvironment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/classes/deleteenvironmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/interfaces/deleteenvironmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/interfaces/deleteenvironmentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mwaa/command/DeleteEnvironmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa/Interface/DeleteEnvironmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa/Interface/DeleteEnvironmentCommandOutput/)
 
 </details>
 <details>
@@ -324,7 +313,7 @@ DeleteEnvironment
 GetEnvironment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/classes/getenvironmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/interfaces/getenvironmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/interfaces/getenvironmentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mwaa/command/GetEnvironmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa/Interface/GetEnvironmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa/Interface/GetEnvironmentCommandOutput/)
 
 </details>
 <details>
@@ -332,7 +321,7 @@ GetEnvironment
 ListEnvironments
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/classes/listenvironmentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/interfaces/listenvironmentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/interfaces/listenvironmentscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mwaa/command/ListEnvironmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa/Interface/ListEnvironmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa/Interface/ListEnvironmentsCommandOutput/)
 
 </details>
 <details>
@@ -340,7 +329,7 @@ ListEnvironments
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mwaa/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa/Interface/ListTagsForResourceCommandOutput/)
 
 </details>
 <details>
@@ -348,7 +337,7 @@ ListTagsForResource
 PublishMetrics
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/classes/publishmetricscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/interfaces/publishmetricscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/interfaces/publishmetricscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mwaa/command/PublishMetricsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa/Interface/PublishMetricsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa/Interface/PublishMetricsCommandOutput/)
 
 </details>
 <details>
@@ -356,7 +345,7 @@ PublishMetrics
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mwaa/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -364,7 +353,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mwaa/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -372,6 +361,6 @@ UntagResource
 UpdateEnvironment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/classes/updateenvironmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/interfaces/updateenvironmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mwaa/interfaces/updateenvironmentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mwaa/command/UpdateEnvironmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa/Interface/UpdateEnvironmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mwaa/Interface/UpdateEnvironmentCommandOutput/)
 
 </details>

@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreateViewInput,
   CreateViewInputFilterSensitiveLog,
@@ -67,6 +59,7 @@ export interface CreateViewCommandOutput extends CreateViewOutput, __MetadataBea
  *       Name: "STRING_VALUE", // required
  *     },
  *   ],
+ *   Scope: "STRING_VALUE",
  *   Filters: { // SearchFilter
  *     FilterString: "STRING_VALUE", // required
  *   },
@@ -106,9 +99,13 @@ export interface CreateViewCommandOutput extends CreateViewOutput, __MetadataBea
  *             permissions.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request failed because either you specified parameters that didn’t match the
+ *  <p>If you attempted to create a view, then the request failed because either you specified parameters that didn’t match the
  *             original request, or you attempted to create a view with a name that already exists in
  *             this Amazon Web Services Region.</p>
+ *          <p>If you attempted to create an index, then the request failed because either you specified parameters that didn't match
+ *             the original request, or an index already exists in the current Amazon Web Services Region.</p>
+ *          <p>If you attempted to update an index type to <code>AGGREGATOR</code>, then the request failed because you already
+ *             have an <code>AGGREGATOR</code> index in a different Amazon Web Services Region.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request failed because of internal service error. Try your request again
@@ -119,8 +116,8 @@ export interface CreateViewCommandOutput extends CreateViewOutput, __MetadataBea
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request failed because you exceeded a rate limit for this operation. For more
- *             information, see <a href="https://docs.aws.amazon.com/arexug/mainline/quotas.html">Quotas
- *                 for Resource Explorer</a>.</p>
+ *             information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html">Quotas for
+ *             Resource Explorer</a>.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The principal making the request isn't permitted to perform the operation.</p>
@@ -133,76 +130,26 @@ export interface CreateViewCommandOutput extends CreateViewOutput, __MetadataBea
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
  */
-export class CreateViewCommand extends $Command<
-  CreateViewCommandInput,
-  CreateViewCommandOutput,
-  ResourceExplorer2ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateViewCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ResourceExplorer2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateViewCommandInput, CreateViewCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, CreateViewCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ResourceExplorer2Client";
-    const commandName = "CreateViewCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: CreateViewInputFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateViewOutputFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateViewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateViewCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateViewCommandOutput> {
-    return de_CreateViewCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateViewCommand extends $Command
+  .classBuilder<
+    CreateViewCommandInput,
+    CreateViewCommandOutput,
+    ResourceExplorer2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ResourceExplorer2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ResourceExplorer", "CreateView", {})
+  .n("ResourceExplorer2Client", "CreateViewCommand")
+  .f(CreateViewInputFilterSensitiveLog, CreateViewOutputFilterSensitiveLog)
+  .ser(se_CreateViewCommand)
+  .de(de_CreateViewCommand)
+  .build() {}

@@ -1,20 +1,12 @@
 // smithy-typescript generated code
 import { getAwsAuthPlugin } from "@aws-sdk/middleware-signing";
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { SetIdentityPoolRolesInput } from "../models/models_0";
 import { de_SetIdentityPoolRolesCommand, se_SetIdentityPoolRolesCommand } from "../protocols/Aws_json1_1";
 
@@ -52,13 +44,13 @@ export interface SetIdentityPoolRolesCommandOutput extends __MetadataBearer {}
  *   },
  *   RoleMappings: { // RoleMappingMap
  *     "<keys>": { // RoleMapping
- *       Type: "STRING_VALUE", // required
- *       AmbiguousRoleResolution: "STRING_VALUE",
+ *       Type: "Token" || "Rules", // required
+ *       AmbiguousRoleResolution: "AuthenticatedRole" || "Deny",
  *       RulesConfiguration: { // RulesConfigurationType
  *         Rules: [ // MappingRulesList // required
  *           { // MappingRule
  *             Claim: "STRING_VALUE", // required
- *             MatchType: "STRING_VALUE", // required
+ *             MatchType: "Equals" || "Contains" || "StartsWith" || "NotEqual", // required
  *             Value: "STRING_VALUE", // required
  *             RoleARN: "STRING_VALUE", // required
  *           },
@@ -106,80 +98,27 @@ export interface SetIdentityPoolRolesCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
  */
-export class SetIdentityPoolRolesCommand extends $Command<
-  SetIdentityPoolRolesCommandInput,
-  SetIdentityPoolRolesCommandOutput,
-  CognitoIdentityClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: SetIdentityPoolRolesCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CognitoIdentityClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<SetIdentityPoolRolesCommandInput, SetIdentityPoolRolesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, SetIdentityPoolRolesCommand.getEndpointParameterInstructions())
-    );
-    this.middlewareStack.use(getAwsAuthPlugin(configuration));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CognitoIdentityClient";
-    const commandName = "SetIdentityPoolRolesCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: SetIdentityPoolRolesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_SetIdentityPoolRolesCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SetIdentityPoolRolesCommandOutput> {
-    return de_SetIdentityPoolRolesCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class SetIdentityPoolRolesCommand extends $Command
+  .classBuilder<
+    SetIdentityPoolRolesCommandInput,
+    SetIdentityPoolRolesCommandOutput,
+    CognitoIdentityClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getAwsAuthPlugin(config),
+    ];
+  })
+  .s("AWSCognitoIdentityService", "SetIdentityPoolRoles", {})
+  .n("CognitoIdentityClient", "SetIdentityPoolRolesCommand")
+  .f(void 0, void 0)
+  .ser(se_SetIdentityPoolRolesCommand)
+  .de(de_SetIdentityPoolRolesCommand)
+  .build() {}

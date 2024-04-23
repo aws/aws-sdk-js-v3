@@ -26,16 +26,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ACMClient` and
-the commands you need, for example `AddTagsToCertificateCommand`:
+the commands you need, for example `ListCertificatesCommand`:
 
 ```js
 // ES5 example
-const { ACMClient, AddTagsToCertificateCommand } = require("@aws-sdk/client-acm");
+const { ACMClient, ListCertificatesCommand } = require("@aws-sdk/client-acm");
 ```
 
 ```ts
 // ES6+ example
-import { ACMClient, AddTagsToCertificateCommand } from "@aws-sdk/client-acm";
+import { ACMClient, ListCertificatesCommand } from "@aws-sdk/client-acm";
 ```
 
 ### Usage
@@ -54,7 +54,7 @@ const client = new ACMClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddTagsToCertificateCommand(params);
+const command = new ListCertificatesCommand(params);
 ```
 
 #### Async/await
@@ -133,7 +133,7 @@ const client = new AWS.ACM({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addTagsToCertificate(params);
+  const data = await client.listCertificates(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -141,7 +141,7 @@ try {
 
 // Promises.
 client
-  .addTagsToCertificate(params)
+  .listCertificates(params)
   .then((data) => {
     // process data.
   })
@@ -150,7 +150,7 @@ client
   });
 
 // callbacks.
-client.addTagsToCertificate(params, (err, data) => {
+client.listCertificates(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -165,7 +165,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -211,7 +211,7 @@ see LICENSE for more information.
 AddTagsToCertificate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/classes/addtagstocertificatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/interfaces/addtagstocertificatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/interfaces/addtagstocertificatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/acm/command/AddTagsToCertificateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/AddTagsToCertificateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/AddTagsToCertificateCommandOutput/)
 
 </details>
 <details>
@@ -219,7 +219,7 @@ AddTagsToCertificate
 DeleteCertificate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/classes/deletecertificatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/interfaces/deletecertificatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/interfaces/deletecertificatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/acm/command/DeleteCertificateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/DeleteCertificateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/DeleteCertificateCommandOutput/)
 
 </details>
 <details>
@@ -227,7 +227,7 @@ DeleteCertificate
 DescribeCertificate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/classes/describecertificatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/interfaces/describecertificatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/interfaces/describecertificatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/acm/command/DescribeCertificateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/DescribeCertificateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/DescribeCertificateCommandOutput/)
 
 </details>
 <details>
@@ -235,7 +235,7 @@ DescribeCertificate
 ExportCertificate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/classes/exportcertificatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/interfaces/exportcertificatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/interfaces/exportcertificatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/acm/command/ExportCertificateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/ExportCertificateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/ExportCertificateCommandOutput/)
 
 </details>
 <details>
@@ -243,7 +243,7 @@ ExportCertificate
 GetAccountConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/classes/getaccountconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/interfaces/getaccountconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/interfaces/getaccountconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/acm/command/GetAccountConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/GetAccountConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/GetAccountConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -251,7 +251,7 @@ GetAccountConfiguration
 GetCertificate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/classes/getcertificatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/interfaces/getcertificatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/interfaces/getcertificatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/acm/command/GetCertificateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/GetCertificateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/GetCertificateCommandOutput/)
 
 </details>
 <details>
@@ -259,7 +259,7 @@ GetCertificate
 ImportCertificate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/classes/importcertificatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/interfaces/importcertificatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/interfaces/importcertificatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/acm/command/ImportCertificateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/ImportCertificateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/ImportCertificateCommandOutput/)
 
 </details>
 <details>
@@ -267,7 +267,7 @@ ImportCertificate
 ListCertificates
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/classes/listcertificatescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/interfaces/listcertificatescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/interfaces/listcertificatescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/acm/command/ListCertificatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/ListCertificatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/ListCertificatesCommandOutput/)
 
 </details>
 <details>
@@ -275,7 +275,7 @@ ListCertificates
 ListTagsForCertificate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/classes/listtagsforcertificatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/interfaces/listtagsforcertificatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/interfaces/listtagsforcertificatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/acm/command/ListTagsForCertificateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/ListTagsForCertificateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/ListTagsForCertificateCommandOutput/)
 
 </details>
 <details>
@@ -283,7 +283,7 @@ ListTagsForCertificate
 PutAccountConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/classes/putaccountconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/interfaces/putaccountconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/interfaces/putaccountconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/acm/command/PutAccountConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/PutAccountConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/PutAccountConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -291,7 +291,7 @@ PutAccountConfiguration
 RemoveTagsFromCertificate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/classes/removetagsfromcertificatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/interfaces/removetagsfromcertificatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/interfaces/removetagsfromcertificatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/acm/command/RemoveTagsFromCertificateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/RemoveTagsFromCertificateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/RemoveTagsFromCertificateCommandOutput/)
 
 </details>
 <details>
@@ -299,7 +299,7 @@ RemoveTagsFromCertificate
 RenewCertificate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/classes/renewcertificatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/interfaces/renewcertificatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/interfaces/renewcertificatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/acm/command/RenewCertificateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/RenewCertificateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/RenewCertificateCommandOutput/)
 
 </details>
 <details>
@@ -307,7 +307,7 @@ RenewCertificate
 RequestCertificate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/classes/requestcertificatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/interfaces/requestcertificatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/interfaces/requestcertificatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/acm/command/RequestCertificateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/RequestCertificateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/RequestCertificateCommandOutput/)
 
 </details>
 <details>
@@ -315,7 +315,7 @@ RequestCertificate
 ResendValidationEmail
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/classes/resendvalidationemailcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/interfaces/resendvalidationemailcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/interfaces/resendvalidationemailcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/acm/command/ResendValidationEmailCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/ResendValidationEmailCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/ResendValidationEmailCommandOutput/)
 
 </details>
 <details>
@@ -323,6 +323,6 @@ ResendValidationEmail
 UpdateCertificateOptions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/classes/updatecertificateoptionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/interfaces/updatecertificateoptionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-acm/interfaces/updatecertificateoptionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/acm/command/UpdateCertificateOptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/UpdateCertificateOptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/UpdateCertificateOptionsCommandOutput/)
 
 </details>

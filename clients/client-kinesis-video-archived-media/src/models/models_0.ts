@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+
 import { StreamingBlobTypes } from "@smithy/types";
 
 import { KinesisVideoArchivedMediaServiceException as __BaseException } from "./KinesisVideoArchivedMediaServiceException";
@@ -85,7 +86,7 @@ export interface ClipFragmentSelector {
    * @public
    * <p>The origin of the timestamps to use (Server or Producer).</p>
    */
-  FragmentSelectorType: ClipFragmentSelectorType | string | undefined;
+  FragmentSelectorType: ClipFragmentSelectorType | undefined;
 
   /**
    * @public
@@ -232,7 +233,8 @@ export class MissingCodecPrivateDataException extends __BaseException {
 
 /**
  * @public
- * <p>A streaming session was requested for a stream that does not retain data (that is, has
+ * <p>
+ *             <code>GetImages</code> was requested for a stream that does not retain data (that is, has
  *             a <code>DataRetentionInHours</code> of 0). </p>
  */
 export class NoDataRetentionException extends __BaseException {
@@ -420,7 +422,7 @@ export interface DASHFragmentSelector {
    *             timestamps with values now, they are not included in the HLS media playlist.</p>
    *          <p>The default is <code>SERVER_TIMESTAMP</code>.</p>
    */
-  FragmentSelectorType?: DASHFragmentSelectorType | string;
+  FragmentSelectorType?: DASHFragmentSelectorType;
 
   /**
    * @public
@@ -559,7 +561,7 @@ export interface GetDASHStreamingSessionURLInput {
    *             player.</p>
    *          <p>The default is <code>LIVE</code>.</p>
    */
-  PlaybackMode?: DASHPlaybackMode | string;
+  PlaybackMode?: DASHPlaybackMode;
 
   /**
    * @public
@@ -578,7 +580,7 @@ export interface GetDASHStreamingSessionURLInput {
    *                 <code>PRODUCER_TIMESTAMP</code>, the timestamps will be the producer start
    *             timestamps. </p>
    */
-  DisplayFragmentTimestamp?: DASHDisplayFragmentTimestamp | string;
+  DisplayFragmentTimestamp?: DASHDisplayFragmentTimestamp;
 
   /**
    * @public
@@ -591,7 +593,7 @@ export interface GetDASHStreamingSessionURLInput {
    *             attribute.</p>
    *          <p>The default value is <code>NEVER</code>.</p>
    */
-  DisplayFragmentNumber?: DASHDisplayFragmentNumber | string;
+  DisplayFragmentNumber?: DASHDisplayFragmentNumber;
 
   /**
    * @public
@@ -779,7 +781,7 @@ export interface HLSFragmentSelector {
    *             timestamps with values now, they are not included in the HLS media playlist.</p>
    *          <p>The default is <code>SERVER_TIMESTAMP</code>.</p>
    */
-  FragmentSelectorType?: HLSFragmentSelectorType | string;
+  FragmentSelectorType?: HLSFragmentSelectorType;
 
   /**
    * @public
@@ -889,7 +891,7 @@ export interface GetHLSStreamingSessionURLInput {
    *             player.</p>
    *          <p>The default is <code>LIVE</code>.</p>
    */
-  PlaybackMode?: HLSPlaybackMode | string;
+  PlaybackMode?: HLSPlaybackMode;
 
   /**
    * @public
@@ -915,7 +917,7 @@ export interface GetHLSStreamingSessionURLInput {
    *             MPEG TS typically requires 5-25 percent more bandwidth and cost than fMP4.</p>
    *          <p>The default is <code>FRAGMENTED_MP4</code>.</p>
    */
-  ContainerFormat?: ContainerFormat | string;
+  ContainerFormat?: ContainerFormat;
 
   /**
    * @public
@@ -958,7 +960,7 @@ export interface GetHLSStreamingSessionURLInput {
    *             to <code>SERVER_TIMESTAMP</code>, and <code>NEVER</code> when it is set to
    *                 <code>PRODUCER_TIMESTAMP</code>.</p>
    */
-  DiscontinuityMode?: HLSDiscontinuityMode | string;
+  DiscontinuityMode?: HLSDiscontinuityMode;
 
   /**
    * @public
@@ -975,7 +977,7 @@ export interface GetHLSStreamingSessionURLInput {
    *             <code>PRODUCER_TIMESTAMP</code>, the timestamps will be the producer start timestamps.
    *         </p>
    */
-  DisplayFragmentTimestamp?: HLSDisplayFragmentTimestamp | string;
+  DisplayFragmentTimestamp?: HLSDisplayFragmentTimestamp;
 
   /**
    * @public
@@ -1083,7 +1085,7 @@ export interface GetImagesInput {
    * @public
    * <p>The origin of the Server or Producer timestamps to use to generate the images.</p>
    */
-  ImageSelectorType: ImageSelectorType | string | undefined;
+  ImageSelectorType: ImageSelectorType | undefined;
 
   /**
    * @public
@@ -1099,13 +1101,8 @@ export interface GetImagesInput {
 
   /**
    * @public
-   * <p>The time interval in milliseconds (ms) at which the images need to be generated from
-   *             the stream, with a default of 3000 ms. The minimum value that can be provided is 200 ms.
-   *             If the timestamp range is less than the sampling interval, the Image from the
-   *                 <code>startTimestamp</code> will be returned if available. </p>
-   *          <note>
-   *             <p>The minimum value of 200 ms is a hard limit.</p>
-   *          </note>
+   * <p>The time interval in milliseconds (ms) at which the images need to be generated from the stream. The minimum value that can be provided is 200 ms (5 images per second). If the timestamp range is less than the sampling interval, the image from the <code>startTimestamp</code> will be returned if available.
+   *         </p>
    */
   SamplingInterval?: number;
 
@@ -1113,7 +1110,7 @@ export interface GetImagesInput {
    * @public
    * <p>The format that will be used to encode the image.</p>
    */
-  Format: Format | string | undefined;
+  Format: Format | undefined;
 
   /**
    * @public
@@ -1121,7 +1118,7 @@ export interface GetImagesInput {
    *             The <code>FormatConfig</code> value accepts ints from 1 to 100. If the value is 1, the image will be generated with less quality and the best compression.
    *             If the value is 100, the image will be generated with the best quality and less compression. If no value is provided, the default value of the <code>JPEGQuality</code> key will be set to 80.</p>
    */
-  FormatConfig?: Record<string, string>;
+  FormatConfig?: Partial<Record<FormatConfigKey, string>>;
 
   /**
    * @public
@@ -1196,7 +1193,7 @@ export interface Image {
    *             </li>
    *          </ul>
    */
-  Error?: ImageError | string;
+  Error?: ImageError;
 
   /**
    * @public
@@ -1357,7 +1354,7 @@ export interface FragmentSelector {
    * @public
    * <p>The origin of the timestamps to use (Server or Producer).</p>
    */
-  FragmentSelectorType: FragmentSelectorType | string | undefined;
+  FragmentSelectorType: FragmentSelectorType | undefined;
 
   /**
    * @public
@@ -1401,6 +1398,9 @@ export interface ListFragmentsInput {
    * @public
    * <p>Describes the timestamp range and timestamp origin for the range of fragments to
    *             return.</p>
+   *          <note>
+   *             <p>This is only required when the <code>NextToken</code> isn't passed in the API.</p>
+   *          </note>
    */
   FragmentSelector?: FragmentSelector;
 }

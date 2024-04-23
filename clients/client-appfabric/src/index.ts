@@ -16,8 +16,12 @@
 export * from "./AppFabricClient";
 export * from "./AppFabric";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { AppFabricExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { AppFabricServiceException } from "./models/AppFabricServiceException";

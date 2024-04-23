@@ -858,6 +858,18 @@ export interface DBClusterSnapshot {
    *             the source cluster snapshot; otherwise, a null value.</p>
    */
   SourceDBClusterSnapshotArn?: string;
+
+  /**
+   * @public
+   * <p>Storage type associated with your cluster snapshot </p>
+   *          <p>For information on storage types for Amazon DocumentDB clusters, see
+   *             Cluster storage configurations in the <i>Amazon DocumentDB Developer Guide</i>.</p>
+   *          <p>Valid values for storage type - <code>standard | iopt1</code>
+   *          </p>
+   *          <p>Default value is <code>standard </code>
+   *          </p>
+   */
+  StorageType?: string;
 }
 
 /**
@@ -1194,6 +1206,22 @@ export interface CreateDBClusterMessage {
    * <p>The cluster identifier of the new global cluster.</p>
    */
   GlobalClusterIdentifier?: string;
+
+  /**
+   * @public
+   * <p>The storage type to associate with the DB cluster.</p>
+   *          <p>For information on storage types for Amazon DocumentDB clusters, see
+   *             Cluster storage configurations in the <i>Amazon DocumentDB Developer Guide</i>.</p>
+   *          <p>Valid values for storage type - <code>standard | iopt1</code>
+   *          </p>
+   *          <p>Default value is <code>standard </code>
+   *          </p>
+   *          <note>
+   *             <p>When you create a DocumentDB DB cluster with the storage type set to <code>iopt1</code>, the storage type is returned
+   *                     in the response. The storage type isn't returned when you set it to <code>standard</code>.</p>
+   *          </note>
+   */
+  StorageType?: string;
 }
 
 /**
@@ -1493,6 +1521,19 @@ export interface DBCluster {
    *             protects clusters from being accidentally deleted.</p>
    */
   DeletionProtection?: boolean;
+
+  /**
+   * @public
+   * <p>Storage type associated with your cluster</p>
+   *          <p>Storage type associated with your cluster</p>
+   *          <p>For information on storage types for Amazon DocumentDB clusters, see
+   *             Cluster storage configurations in the <i>Amazon DocumentDB Developer Guide</i>.</p>
+   *          <p>Valid values for storage type - <code>standard | iopt1</code>
+   *          </p>
+   *          <p>Default value is <code>standard </code>
+   *          </p>
+   */
+  StorageType?: string;
 }
 
 /**
@@ -2002,6 +2043,40 @@ export interface CreateDBInstanceMessage {
    *             default KMS key for each Amazon Web Services region.</p>
    */
   PerformanceInsightsKMSKeyId?: string;
+
+  /**
+   * @public
+   * <p>The CA certificate identifier to use for the DB instance's server certificate.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/ca_cert_rotation.html">Updating Your Amazon DocumentDB TLS
+   *             Certificates</a> and
+   *             <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/security.encryption.ssl.html">
+   *                 Encrypting Data in Transit</a> in the <i>Amazon DocumentDB Developer
+   *                     Guide</i>.</p>
+   */
+  CACertificateIdentifier?: string;
+}
+
+/**
+ * @public
+ * <p>Returns the details of the DB instance’s server certificate.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/ca_cert_rotation.html">Updating Your Amazon DocumentDB TLS
+ *             Certificates</a> and
+ *             <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/security.encryption.ssl.html">
+ *                 Encrypting Data in Transit</a> in the <i>Amazon DocumentDB Developer
+ *                     Guide</i>.</p>
+ */
+export interface CertificateDetails {
+  /**
+   * @public
+   * <p>The CA identifier of the CA certificate used for the DB instance's server certificate.</p>
+   */
+  CAIdentifier?: string;
+
+  /**
+   * @public
+   * <p>The expiration date of the DB instance’s server certificate.</p>
+   */
+  ValidTill?: Date;
 }
 
 /**
@@ -2440,6 +2515,24 @@ export interface DBInstance {
    * <p>A list of log types that this instance is configured to export to CloudWatch Logs.</p>
    */
   EnabledCloudwatchLogsExports?: string[];
+
+  /**
+   * @public
+   * <p>The details of the DB instance's server certificate.</p>
+   */
+  CertificateDetails?: CertificateDetails;
+
+  /**
+   * @public
+   * <p>Set to <code>true</code> if Amazon RDS Performance Insights is enabled for the DB instance, and otherwise <code>false</code>.</p>
+   */
+  PerformanceInsightsEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>The KMS key identifier for encryption of Performance Insights data. The KMS key ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the KMS encryption key.</p>
+   */
+  PerformanceInsightsKMSKeyId?: string;
 }
 
 /**
@@ -3641,7 +3734,7 @@ export interface Parameter {
    * @public
    * <p>Indicates when to apply parameter updates.</p>
    */
-  ApplyMethod?: ApplyMethod | string;
+  ApplyMethod?: ApplyMethod;
 }
 
 /**
@@ -4055,6 +4148,24 @@ export interface DBEngineVersion {
    *             specified by <code>ExportableLogTypes</code> to CloudWatch Logs.</p>
    */
   SupportsLogExportsToCloudwatchLogs?: boolean;
+
+  /**
+   * @public
+   * <p>A list of the supported CA certificate identifiers.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/ca_cert_rotation.html">Updating Your Amazon DocumentDB TLS
+   *             Certificates</a> and
+   *             <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/security.encryption.ssl.html">
+   *                 Encrypting Data in Transit</a> in the <i>Amazon DocumentDB Developer
+   *                     Guide</i>.</p>
+   */
+  SupportedCACertificateIdentifiers?: string[];
+
+  /**
+   * @public
+   * <p>Indicates whether the engine version supports rotating the server certificate without
+   *             rebooting the DB instance.</p>
+   */
+  SupportsCertificateRotationWithoutRestart?: boolean;
 }
 
 /**
@@ -4467,7 +4578,7 @@ export interface DescribeEventsMessage {
    * @public
    * <p>The event source to retrieve events for. If no value is specified, all events are returned.</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: SourceType;
 
   /**
    * @public
@@ -4538,7 +4649,7 @@ export interface Event {
    * @public
    * <p>Specifies the source type for this event.</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: SourceType;
 
   /**
    * @public
@@ -4793,6 +4904,12 @@ export interface OrderableDBInstanceOption {
    * <p>Indicates whether an instance is in a virtual private cloud (VPC).</p>
    */
   Vpc?: boolean;
+
+  /**
+   * @public
+   * <p>The storage type to associate with the DB cluster</p>
+   */
+  StorageType?: string;
 }
 
 /**
@@ -5173,6 +5290,18 @@ export interface ModifyDBClusterMessage {
    *             protects clusters from being accidentally deleted.</p>
    */
   DeletionProtection?: boolean;
+
+  /**
+   * @public
+   * <p>The storage type to associate with the DB cluster.</p>
+   *          <p>For information on storage types for Amazon DocumentDB clusters, see
+   *             Cluster storage configurations in the <i>Amazon DocumentDB Developer Guide</i>.</p>
+   *          <p>Valid values for storage type - <code>standard | iopt1</code>
+   *          </p>
+   *          <p>Default value is <code>standard </code>
+   *          </p>
+   */
+  StorageType?: string;
 }
 
 /**
@@ -5443,6 +5572,23 @@ export interface ModifyDBInstanceMessage {
    *             default KMS key for each Amazon Web Services region.</p>
    */
   PerformanceInsightsKMSKeyId?: string;
+
+  /**
+   * @public
+   * <p>Specifies whether the DB instance is restarted when you rotate your
+   *             SSL/TLS certificate.</p>
+   *          <p>By default, the DB instance is restarted when you rotate your SSL/TLS certificate. The certificate
+   *             is not updated until the DB instance is restarted.</p>
+   *          <important>
+   *             <p>Set this parameter only if you are <i>not</i> using SSL/TLS to connect to the DB instance.</p>
+   *          </important>
+   *          <p>If you are using SSL/TLS to connect to the DB instance, see <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/ca_cert_rotation.html">Updating Your Amazon DocumentDB TLS
+   *             Certificates</a> and
+   *             <a href="https://docs.aws.amazon.com/documentdb/latest/developerguide/security.encryption.ssl.html">
+   *                 Encrypting Data in Transit</a> in the <i>Amazon DocumentDB Developer
+   *                     Guide</i>.</p>
+   */
+  CertificateRotationRestart?: boolean;
 }
 
 /**
@@ -5956,6 +6102,18 @@ export interface RestoreDBClusterFromSnapshotMessage {
    *         hyphens.</p>
    */
   DBClusterParameterGroupName?: string;
+
+  /**
+   * @public
+   * <p>The storage type to associate with the DB cluster.</p>
+   *          <p>For information on storage types for Amazon DocumentDB clusters, see
+   *             Cluster storage configurations in the <i>Amazon DocumentDB Developer Guide</i>.</p>
+   *          <p>Valid values for storage type - <code>standard | iopt1</code>
+   *          </p>
+   *          <p>Default value is <code>standard </code>
+   *          </p>
+   */
+  StorageType?: string;
 }
 
 /**
@@ -6121,6 +6279,18 @@ export interface RestoreDBClusterToPointInTimeMessage {
    * <p>Specifies whether this cluster can be deleted. If <code>DeletionProtection</code> is enabled, the cluster cannot be deleted unless it is modified and <code>DeletionProtection</code> is disabled. <code>DeletionProtection</code> protects clusters from being accidentally deleted.</p>
    */
   DeletionProtection?: boolean;
+
+  /**
+   * @public
+   * <p>The storage type to associate with the DB cluster.</p>
+   *          <p>For information on storage types for Amazon DocumentDB clusters, see
+   *             Cluster storage configurations in the <i>Amazon DocumentDB Developer Guide</i>.</p>
+   *          <p>Valid values for storage type - <code>standard | iopt1</code>
+   *          </p>
+   *          <p>Default value is <code>standard </code>
+   *          </p>
+   */
+  StorageType?: string;
 }
 
 /**

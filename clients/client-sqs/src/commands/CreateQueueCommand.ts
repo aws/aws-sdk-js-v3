@@ -1,20 +1,12 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateQueueRequest, CreateQueueResult } from "../models/models_0";
-import { de_CreateQueueCommand, se_CreateQueueCommand } from "../protocols/Aws_query";
+import { de_CreateQueueCommand, se_CreateQueueCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "../SQSClient";
 
 /**
@@ -36,11 +28,12 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
 
 /**
  * @public
- * <p>Creates a new standard or FIFO queue. You can pass one or more attributes in
- *             the request. Keep the following in mind:</p>
+ * <p>Creates a new standard or FIFO queue. You can pass one or more attributes in the
+ *             request. Keep the following in mind:</p>
  *          <ul>
  *             <li>
- *                <p>If you don't specify the <code>FifoQueue</code> attribute, Amazon SQS creates a standard queue.</p>
+ *                <p>If you don't specify the <code>FifoQueue</code> attribute, Amazon SQS creates
+ *                     a standard queue.</p>
  *                <note>
  *                   <p>You can't change the queue type after you create it and you can't convert
  *                         an existing standard queue into a FIFO queue. You must either create a new
@@ -84,9 +77,9 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
  *             </li>
  *          </ul>
  *          <note>
- *             <p>Cross-account permissions don't apply to this action. For more information,
- * see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant
- * cross-account permissions to a role and a username</a> in the <i>Amazon SQS Developer Guide</i>.</p>
+ *             <p>Cross-account permissions don't apply to this action. For more information, see
+ *                     <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-customer-managed-policy-examples.html#grant-cross-account-permissions-to-role-and-user-name">Grant cross-account permissions to a role and a username</a> in the
+ *                     <i>Amazon SQS Developer Guide</i>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -96,10 +89,10 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
  * const client = new SQSClient(config);
  * const input = { // CreateQueueRequest
  *   QueueName: "STRING_VALUE", // required
- *   tags: { // TagMap
+ *   Attributes: { // QueueAttributeMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   Attributes: { // QueueAttributeMap
+ *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };
@@ -117,89 +110,72 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
  * @see {@link CreateQueueCommandOutput} for command's `response` shape.
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
+ * @throws {@link InvalidAddress} (client fault)
+ *  <p>The <code>accountId</code> is invalid.</p>
+ *
+ * @throws {@link InvalidAttributeName} (client fault)
+ *  <p>The specified attribute doesn't exist.</p>
+ *
+ * @throws {@link InvalidAttributeValue} (client fault)
+ *  <p>A queue attribute value is invalid.</p>
+ *
+ * @throws {@link InvalidSecurity} (client fault)
+ *  <p>When the request to a queue is not HTTPS and SigV4.</p>
+ *
  * @throws {@link QueueDeletedRecently} (client fault)
  *  <p>You must wait 60 seconds after deleting a queue before you can create another queue
  *             with the same name.</p>
  *
  * @throws {@link QueueNameExists} (client fault)
- *  <p>A queue with this name already exists. Amazon SQS returns this error only if the request
- *             includes attributes whose values differ from those of the existing queue.</p>
+ *  <p>A queue with this name already exists. Amazon SQS returns this error only if the
+ *             request includes attributes whose values differ from those of the existing queue.</p>
+ *
+ * @throws {@link RequestThrottled} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *          <ul>
+ *             <li>
+ *                <p>The rate of requests per second exceeds the Amazon Web Services KMS request quota for an
+ *                     account and Region. </p>
+ *             </li>
+ *             <li>
+ *                <p>A burst or sustained high rate of requests to change the state of the same KMS
+ *                     key. This condition is often known as a "hot key."</p>
+ *             </li>
+ *             <li>
+ *                <p>Requests for operations on KMS keys in a Amazon Web Services CloudHSM key store
+ *                     might be throttled at a lower-than-expected rate when the Amazon Web Services
+ *                     CloudHSM cluster associated with the Amazon Web Services CloudHSM key store is
+ *                     processing numerous commands, including those unrelated to the Amazon Web Services CloudHSM key store.</p>
+ *             </li>
+ *          </ul>
+ *
+ * @throws {@link UnsupportedOperation} (client fault)
+ *  <p>Error code 400. Unsupported operation.</p>
  *
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
  *
  */
-export class CreateQueueCommand extends $Command<
-  CreateQueueCommandInput,
-  CreateQueueCommandOutput,
-  SQSClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateQueueCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SQSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateQueueCommandInput, CreateQueueCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, CreateQueueCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SQSClient";
-    const commandName = "CreateQueueCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateQueueCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateQueueCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateQueueCommandOutput> {
-    return de_CreateQueueCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateQueueCommand extends $Command
+  .classBuilder<
+    CreateQueueCommandInput,
+    CreateQueueCommandOutput,
+    SQSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SQSClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonSQS", "CreateQueue", {})
+  .n("SQSClient", "CreateQueueCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateQueueCommand)
+  .de(de_CreateQueueCommand)
+  .build() {}

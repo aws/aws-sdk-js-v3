@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -81,6 +79,10 @@ import {
   GetServerStrategiesCommandInput,
   GetServerStrategiesCommandOutput,
 } from "./commands/GetServerStrategiesCommand";
+import {
+  ListAnalyzableServersCommandInput,
+  ListAnalyzableServersCommandOutput,
+} from "./commands/ListAnalyzableServersCommand";
 import {
   ListApplicationComponentsCommandInput,
   ListApplicationComponentsCommandOutput,
@@ -132,6 +134,7 @@ export type ServiceInputTypes =
   | GetRecommendationReportDetailsCommandInput
   | GetServerDetailsCommandInput
   | GetServerStrategiesCommandInput
+  | ListAnalyzableServersCommandInput
   | ListApplicationComponentsCommandInput
   | ListCollectorsCommandInput
   | ListImportFileTaskCommandInput
@@ -158,6 +161,7 @@ export type ServiceOutputTypes =
   | GetRecommendationReportDetailsCommandOutput
   | GetServerDetailsCommandOutput
   | GetServerStrategiesCommandOutput
+  | ListAnalyzableServersCommandOutput
   | ListApplicationComponentsCommandOutput
   | ListCollectorsCommandOutput
   | ListImportFileTaskCommandOutput
@@ -280,6 +284,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

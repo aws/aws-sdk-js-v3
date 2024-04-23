@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `BackupStorageClient` and
-the commands you need, for example `DeleteObjectCommand`:
+the commands you need, for example `ListObjectsCommand`:
 
 ```js
 // ES5 example
-const { BackupStorageClient, DeleteObjectCommand } = require("@aws-sdk/client-backupstorage");
+const { BackupStorageClient, ListObjectsCommand } = require("@aws-sdk/client-backupstorage");
 ```
 
 ```ts
 // ES6+ example
-import { BackupStorageClient, DeleteObjectCommand } from "@aws-sdk/client-backupstorage";
+import { BackupStorageClient, ListObjectsCommand } from "@aws-sdk/client-backupstorage";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new BackupStorageClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DeleteObjectCommand(params);
+const command = new ListObjectsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.BackupStorage({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.deleteObject(params);
+  const data = await client.listObjects(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .deleteObject(params)
+  .listObjects(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.deleteObject(params, (err, data) => {
+client.listObjects(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -162,7 +162,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -208,7 +208,7 @@ see LICENSE for more information.
 DeleteObject
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backupstorage/classes/deleteobjectcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backupstorage/interfaces/deleteobjectcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backupstorage/interfaces/deleteobjectcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backupstorage/command/DeleteObjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupstorage/Interface/DeleteObjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupstorage/Interface/DeleteObjectCommandOutput/)
 
 </details>
 <details>
@@ -216,7 +216,7 @@ DeleteObject
 GetChunk
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backupstorage/classes/getchunkcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backupstorage/interfaces/getchunkcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backupstorage/interfaces/getchunkcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backupstorage/command/GetChunkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupstorage/Interface/GetChunkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupstorage/Interface/GetChunkCommandOutput/)
 
 </details>
 <details>
@@ -224,7 +224,7 @@ GetChunk
 GetObjectMetadata
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backupstorage/classes/getobjectmetadatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backupstorage/interfaces/getobjectmetadatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backupstorage/interfaces/getobjectmetadatacommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backupstorage/command/GetObjectMetadataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupstorage/Interface/GetObjectMetadataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupstorage/Interface/GetObjectMetadataCommandOutput/)
 
 </details>
 <details>
@@ -232,7 +232,7 @@ GetObjectMetadata
 ListChunks
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backupstorage/classes/listchunkscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backupstorage/interfaces/listchunkscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backupstorage/interfaces/listchunkscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backupstorage/command/ListChunksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupstorage/Interface/ListChunksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupstorage/Interface/ListChunksCommandOutput/)
 
 </details>
 <details>
@@ -240,7 +240,7 @@ ListChunks
 ListObjects
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backupstorage/classes/listobjectscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backupstorage/interfaces/listobjectscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backupstorage/interfaces/listobjectscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backupstorage/command/ListObjectsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupstorage/Interface/ListObjectsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupstorage/Interface/ListObjectsCommandOutput/)
 
 </details>
 <details>
@@ -248,7 +248,7 @@ ListObjects
 NotifyObjectComplete
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backupstorage/classes/notifyobjectcompletecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backupstorage/interfaces/notifyobjectcompletecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backupstorage/interfaces/notifyobjectcompletecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backupstorage/command/NotifyObjectCompleteCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupstorage/Interface/NotifyObjectCompleteCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupstorage/Interface/NotifyObjectCompleteCommandOutput/)
 
 </details>
 <details>
@@ -256,7 +256,7 @@ NotifyObjectComplete
 PutChunk
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backupstorage/classes/putchunkcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backupstorage/interfaces/putchunkcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backupstorage/interfaces/putchunkcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backupstorage/command/PutChunkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupstorage/Interface/PutChunkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupstorage/Interface/PutChunkCommandOutput/)
 
 </details>
 <details>
@@ -264,7 +264,7 @@ PutChunk
 PutObject
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backupstorage/classes/putobjectcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backupstorage/interfaces/putobjectcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backupstorage/interfaces/putobjectcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backupstorage/command/PutObjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupstorage/Interface/PutObjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupstorage/Interface/PutObjectCommandOutput/)
 
 </details>
 <details>
@@ -272,6 +272,6 @@ PutObject
 StartObject
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backupstorage/classes/startobjectcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backupstorage/interfaces/startobjectcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-backupstorage/interfaces/startobjectcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backupstorage/command/StartObjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupstorage/Interface/StartObjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backupstorage/Interface/StartObjectCommandOutput/)
 
 </details>

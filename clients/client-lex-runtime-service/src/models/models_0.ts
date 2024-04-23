@@ -4,6 +4,7 @@ import {
   LazyJsonString as __LazyJsonString,
   SENSITIVE_STRING,
 } from "@smithy/smithy-client";
+
 import { StreamingBlobTypes } from "@smithy/types";
 
 import { LexRuntimeServiceServiceException as __BaseException } from "./LexRuntimeServiceServiceException";
@@ -345,7 +346,7 @@ export interface DialogAction {
    *             </li>
    *          </ul>
    */
-  type: DialogActionType | string | undefined;
+  type: DialogActionType | undefined;
 
   /**
    * @public
@@ -387,7 +388,7 @@ export interface DialogAction {
    *             </li>
    *          </ul>
    */
-  fulfillmentState?: FulfillmentState | string;
+  fulfillmentState?: FulfillmentState;
 
   /**
    * @public
@@ -422,7 +423,7 @@ export interface DialogAction {
    *             </li>
    *          </ul>
    */
-  messageFormat?: MessageFormatType | string;
+  messageFormat?: MessageFormatType;
 }
 
 /**
@@ -496,7 +497,7 @@ export interface IntentSummary {
    *             </li>
    *          </ul>
    */
-  confirmationStatus?: ConfirmationStatus | string;
+  confirmationStatus?: ConfirmationStatus;
 
   /**
    * @public
@@ -527,7 +528,7 @@ export interface IntentSummary {
    *             </li>
    *          </ul>
    */
-  dialogActionType: DialogActionType | string | undefined;
+  dialogActionType: DialogActionType | undefined;
 
   /**
    * @public
@@ -551,7 +552,7 @@ export interface IntentSummary {
    *             </li>
    *          </ul>
    */
-  fulfillmentState?: FulfillmentState | string;
+  fulfillmentState?: FulfillmentState;
 
   /**
    * @public
@@ -1068,7 +1069,7 @@ export interface PostContentResponse {
    *             </li>
    *          </ul>
    */
-  messageFormat?: MessageFormatType | string;
+  messageFormat?: MessageFormatType;
 
   /**
    * @public
@@ -1128,7 +1129,7 @@ export interface PostContentResponse {
    *             </li>
    *          </ul>
    */
-  dialogState?: DialogState | string;
+  dialogState?: DialogState;
 
   /**
    * @public
@@ -1466,7 +1467,7 @@ export interface ResponseCard {
    * @public
    * <p>The content type of the response.</p>
    */
-  contentType?: ContentType | string;
+  contentType?: ContentType;
 
   /**
    * @public
@@ -1609,7 +1610,7 @@ export interface PostTextResponse {
    *             </li>
    *          </ul>
    */
-  messageFormat?: MessageFormatType | string;
+  messageFormat?: MessageFormatType;
 
   /**
    * @public
@@ -1670,7 +1671,7 @@ export interface PostTextResponse {
    *             </li>
    *          </ul>
    */
-  dialogState?: DialogState | string;
+  dialogState?: DialogState;
 
   /**
    * @public
@@ -1939,7 +1940,7 @@ export interface PutSessionResponse {
    *             </li>
    *          </ul>
    */
-  messageFormat?: MessageFormatType | string;
+  messageFormat?: MessageFormatType;
 
   /**
    * @public
@@ -1979,7 +1980,7 @@ export interface PutSessionResponse {
    *             </li>
    *          </ul>
    */
-  dialogState?: DialogState | string;
+  dialogState?: DialogState;
 
   /**
    * @public

@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { M2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../M2Client";
 import { ListDataSetsRequest, ListDataSetsResponse } from "../models/models_0";
 import { de_ListDataSetsCommand, se_ListDataSetsCommand } from "../protocols/Aws_restJson1";
@@ -50,6 +42,7 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   prefix: "STRING_VALUE",
+ *   nameFilter: "STRING_VALUE",
  * };
  * const command = new ListDataSetsCommand(input);
  * const response = await client.send(command);
@@ -78,11 +71,20 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The account or role doesn't have the right permissions to make the request.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The parameters provided in the request conflict with existing resources.</p>
+ *
+ * @throws {@link ExecutionTimeoutException} (server fault)
+ *  <p> Failed to connect to server, or didn’t receive response within expected time period.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unexpected error occurred during the processing of the request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>Server cannot process the request at the moment.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The number of requests made exceeds the limit.</p>
@@ -94,77 +96,26 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
  */
-export class ListDataSetsCommand extends $Command<
-  ListDataSetsCommandInput,
-  ListDataSetsCommandOutput,
-  M2ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListDataSetsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: M2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListDataSetsCommandInput, ListDataSetsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListDataSetsCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "M2Client";
-    const commandName = "ListDataSetsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListDataSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListDataSetsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataSetsCommandOutput> {
-    return de_ListDataSetsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListDataSetsCommand extends $Command
+  .classBuilder<
+    ListDataSetsCommandInput,
+    ListDataSetsCommandOutput,
+    M2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: M2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AwsSupernovaControlPlaneService", "ListDataSets", {})
+  .n("M2Client", "ListDataSetsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListDataSetsCommand)
+  .de(de_ListDataSetsCommand)
+  .build() {}

@@ -8,8 +8,12 @@
 export * from "./FinspaceClient";
 export * from "./Finspace";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { FinspaceExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { FinspaceServiceException } from "./models/FinspaceServiceException";

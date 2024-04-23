@@ -1,20 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SdkStreamSerdeContext as __SdkStreamSerdeContext,
-  SerdeContext as __SerdeContext,
-  StreamingBlobPayloadOutputTypes,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaStoreDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreDataClient";
 import { GetObjectRequest, GetObjectResponse, GetObjectResponseFilterSensitiveLog } from "../models/models_0";
 import { de_GetObjectCommand, se_GetObjectCommand } from "../protocols/Aws_restJson1";
@@ -88,80 +78,26 @@ export interface GetObjectCommandOutput extends Omit<GetObjectResponse, "Body">,
  * <p>Base exception class for all service exceptions from MediaStoreData service.</p>
  *
  */
-export class GetObjectCommand extends $Command<
-  GetObjectCommandInput,
-  GetObjectCommandOutput,
-  MediaStoreDataClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetObjectCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: MediaStoreDataClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetObjectCommandInput, GetObjectCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GetObjectCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "MediaStoreDataClient";
-    const commandName = "GetObjectCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: GetObjectResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetObjectCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext & __SdkStreamSerdeContext
-  ): Promise<GetObjectCommandOutput> {
-    return de_GetObjectCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetObjectCommand extends $Command
+  .classBuilder<
+    GetObjectCommandInput,
+    GetObjectCommandOutput,
+    MediaStoreDataClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: MediaStoreDataClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("MediaStoreObject_20170901", "GetObject", {})
+  .n("MediaStoreDataClient", "GetObjectCommand")
+  .f(void 0, GetObjectResponseFilterSensitiveLog)
+  .ser(se_GetObjectCommand)
+  .de(de_GetObjectCommand)
+  .build() {}

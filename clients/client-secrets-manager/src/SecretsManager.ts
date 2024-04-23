@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  BatchGetSecretValueCommand,
+  BatchGetSecretValueCommandInput,
+  BatchGetSecretValueCommandOutput,
+} from "./commands/BatchGetSecretValueCommand";
+import {
   CancelRotateSecretCommand,
   CancelRotateSecretCommandInput,
   CancelRotateSecretCommandOutput,
@@ -107,6 +112,7 @@ import {
 import { SecretsManagerClient, SecretsManagerClientConfig } from "./SecretsManagerClient";
 
 const commands = {
+  BatchGetSecretValueCommand,
   CancelRotateSecretCommand,
   CreateSecretCommand,
   DeleteResourcePolicyCommand,
@@ -132,6 +138,23 @@ const commands = {
 };
 
 export interface SecretsManager {
+  /**
+   * @see {@link BatchGetSecretValueCommand}
+   */
+  batchGetSecretValue(
+    args: BatchGetSecretValueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetSecretValueCommandOutput>;
+  batchGetSecretValue(
+    args: BatchGetSecretValueCommandInput,
+    cb: (err: any, data?: BatchGetSecretValueCommandOutput) => void
+  ): void;
+  batchGetSecretValue(
+    args: BatchGetSecretValueCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetSecretValueCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CancelRotateSecretCommand}
    */

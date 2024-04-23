@@ -275,7 +275,7 @@ export interface Backup {
    *       The backup type. Valid values are <code>automated</code> or <code>manual</code>.
    *     </p>
    */
-  BackupType?: BackupType | string;
+  BackupType?: BackupType;
 
   /**
    * @public
@@ -415,7 +415,7 @@ export interface Backup {
    * <p>The status of a backup while in progress.
    *     </p>
    */
-  Status?: BackupStatus | string;
+  Status?: BackupStatus;
 
   /**
    * @public
@@ -1052,7 +1052,7 @@ export interface Server {
    * <p>The status of the most recent server maintenance run. Shows <code>SUCCESS</code> or <code>FAILED</code>.
    *     </p>
    */
-  MaintenanceStatus?: MaintenanceStatus | string;
+  MaintenanceStatus?: MaintenanceStatus;
 
   /**
    * @public
@@ -1091,7 +1091,7 @@ export interface Server {
    *       as well as the server's health state.
    *     </p>
    */
-  Status?: ServerStatus | string;
+  Status?: ServerStatus;
 
   /**
    * @public
@@ -1442,7 +1442,7 @@ export interface DescribeNodeAssociationStatusResponse {
    *             </li>
    *          </ul>
    */
-  NodeAssociationStatus?: NodeAssociationStatus | string;
+  NodeAssociationStatus?: NodeAssociationStatus;
 
   /**
    * @public

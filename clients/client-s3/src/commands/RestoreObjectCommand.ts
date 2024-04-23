@@ -1,19 +1,11 @@
 // smithy-typescript generated code
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { RestoreObjectOutput, RestoreObjectRequest, RestoreObjectRequestFilterSensitiveLog } from "../models/models_1";
 import { de_RestoreObjectCommand, se_RestoreObjectCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
@@ -37,8 +29,11 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
 
 /**
  * @public
- * <p>Restores an archived copy of an object back into Amazon S3</p>
- *          <p>This action is not supported by Amazon S3 on Outposts.</p>
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Restores an archived copy of an object back into Amazon S3</p>
+ *          <p>This functionality is not supported for Amazon S3 on Outposts.</p>
  *          <p>This action performs the following types of requests: </p>
  *          <ul>
  *             <li>
@@ -61,41 +56,39 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Managing Access with ACLs</a> in the
- *                         <i>Amazon S3 User Guide</i>
+ *                <i>Amazon S3 User Guide</i>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Protecting Data Using
- *                         Server-Side Encryption</a> in the
- *                      <i>Amazon S3 User Guide</i>
+ *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Protecting Data Using Server-Side Encryption</a> in the
+ *                   <i>Amazon S3 User Guide</i>
  *                </p>
  *             </li>
  *          </ul>
- *          <p>Define the SQL expression for the <code>SELECT</code> type of restoration for your
- *                query in the request body's <code>SelectParameters</code> structure. You can use
- *                expressions like the following examples.</p>
+ *          <p>Define the SQL expression for the <code>SELECT</code> type of restoration for your query
+ *          in the request body's <code>SelectParameters</code> structure. You can use expressions like
+ *          the following examples.</p>
  *          <ul>
  *             <li>
- *                <p>The following expression returns all records from the specified
- *                      object.</p>
+ *                <p>The following expression returns all records from the specified object.</p>
  *                <p>
  *                   <code>SELECT * FROM Object</code>
  *                </p>
  *             </li>
  *             <li>
- *                <p>Assuming that you are not using any headers for data stored in the object,
- *                      you can specify columns with positional headers.</p>
+ *                <p>Assuming that you are not using any headers for data stored in the object, you can
+ *                specify columns with positional headers.</p>
  *                <p>
  *                   <code>SELECT s._1, s._2 FROM Object s WHERE s._3 > 100</code>
  *                </p>
  *             </li>
  *             <li>
  *                <p>If you have headers and you set the <code>fileHeaderInfo</code> in the
- *                         <code>CSV</code> structure in the request body to <code>USE</code>, you can
- *                      specify headers in the query. (If you set the <code>fileHeaderInfo</code> field
- *                      to <code>IGNORE</code>, the first row is skipped for the query.) You cannot mix
- *                      ordinal positions with header column names. </p>
+ *                   <code>CSV</code> structure in the request body to <code>USE</code>, you can
+ *                specify headers in the query. (If you set the <code>fileHeaderInfo</code> field to
+ *                   <code>IGNORE</code>, the first row is skipped for the query.) You cannot mix
+ *                ordinal positions with header column names. </p>
  *                <p>
  *                   <code>SELECT s.Id, s.FirstName, s.SSN FROM S3Object s</code>
  *                </p>
@@ -131,100 +124,104 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  *             <dt>Permissions</dt>
  *             <dd>
  *                <p>To use this operation, you must have permissions to perform the
- *                   <code>s3:RestoreObject</code> action. The bucket owner has this permission by default
- *                   and can grant this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
- *                         Access Permissions to Your Amazon S3 Resources</a> in the
- *                   <i>Amazon S3 User Guide</i>.</p>
+ *                      <code>s3:RestoreObject</code> action. The bucket owner has this permission by
+ *                   default and can grant this permission to others. For more information about
+ *                   permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to Your Amazon S3 Resources</a> in the
+ *                      <i>Amazon S3 User Guide</i>.</p>
  *             </dd>
  *             <dt>Restoring objects</dt>
  *             <dd>
- *                <p>Objects that you archive to the S3 Glacier Flexible Retrieval Flexible Retrieval or
- *                   S3 Glacier Deep Archive storage class, and S3 Intelligent-Tiering Archive or
+ *                <p>Objects that you archive to the S3 Glacier Flexible Retrieval Flexible Retrieval
+ *                   or S3 Glacier Deep Archive storage class, and S3 Intelligent-Tiering Archive or
  *                   S3 Intelligent-Tiering Deep Archive tiers, are not accessible in real time. For objects in the
- *                   S3 Glacier Flexible Retrieval Flexible Retrieval or S3 Glacier Deep Archive storage
- *                   classes, you must first initiate a restore request, and then wait until a temporary copy of
- *                   the object is available. If you want a permanent copy of the object, create a copy of it in
- *                   the Amazon S3 Standard storage class in your S3 bucket. To access an archived object, you must
- *                   restore the object for the duration (number of days) that you specify. For objects in the
- *                   Archive Access or Deep Archive Access tiers of S3 Intelligent-Tiering, you must first
- *                   initiate a restore request, and then wait until the object is moved into the Frequent
- *                   Access tier.</p>
- *                <p>To restore a specific object version, you can provide a version ID. If you don't provide
- *                   a version ID, Amazon S3 restores the current version.</p>
- *                <p>When restoring an archived object, you can specify one of the following data access tier
- *                   options in the <code>Tier</code> element of the request body: </p>
+ *                   S3 Glacier Flexible Retrieval Flexible Retrieval or S3 Glacier Deep Archive
+ *                   storage classes, you must first initiate a restore request, and then wait until a
+ *                   temporary copy of the object is available. If you want a permanent copy of the
+ *                   object, create a copy of it in the Amazon S3 Standard storage class in your S3 bucket.
+ *                   To access an archived object, you must restore the object for the duration (number
+ *                   of days) that you specify. For objects in the Archive Access or Deep Archive
+ *                   Access tiers of S3 Intelligent-Tiering, you must first initiate a restore request,
+ *                   and then wait until the object is moved into the Frequent Access tier.</p>
+ *                <p>To restore a specific object version, you can provide a version ID. If you
+ *                   don't provide a version ID, Amazon S3 restores the current version.</p>
+ *                <p>When restoring an archived object, you can specify one of the following data
+ *                   access tier options in the <code>Tier</code> element of the request body: </p>
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <code>Expedited</code> - Expedited retrievals allow you to quickly access your
- *                         data stored in the S3 Glacier Flexible Retrieval Flexible Retrieval storage class or
- *                         S3 Intelligent-Tiering Archive tier when occasional urgent requests for restoring archives
- *                         are required. For all but the largest archived objects (250 MB+), data accessed using
- *                         Expedited retrievals is typically made available within 1–5 minutes. Provisioned
- *                         capacity ensures that retrieval capacity for Expedited retrievals is available when
- *                         you need it. Expedited retrievals and provisioned capacity are not available for
- *                         objects stored in the S3 Glacier Deep Archive storage class or
+ *                         <code>Expedited</code> - Expedited retrievals allow you to quickly access
+ *                         your data stored in the S3 Glacier Flexible Retrieval Flexible Retrieval
+ *                         storage class or S3 Intelligent-Tiering Archive tier when occasional urgent requests
+ *                         for restoring archives are required. For all but the largest archived
+ *                         objects (250 MB+), data accessed using Expedited retrievals is typically
+ *                         made available within 1–5 minutes. Provisioned capacity ensures that
+ *                         retrieval capacity for Expedited retrievals is available when you need it.
+ *                         Expedited retrievals and provisioned capacity are not available for objects
+ *                         stored in the S3 Glacier Deep Archive storage class or
  *                         S3 Intelligent-Tiering Deep Archive tier.</p>
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <code>Standard</code> - Standard retrievals allow you to access any of your
- *                         archived objects within several hours. This is the default option for retrieval
- *                         requests that do not specify the retrieval option. Standard retrievals typically
- *                         finish within 3–5 hours for objects stored in the S3 Glacier Flexible Retrieval Flexible
- *                         Retrieval storage class or S3 Intelligent-Tiering Archive tier. They typically finish within
- *                         12 hours for objects stored in the S3 Glacier Deep Archive storage class or
- *                         S3 Intelligent-Tiering Deep Archive tier. Standard retrievals are free for objects stored in
- *                         S3 Intelligent-Tiering.</p>
+ *                         <code>Standard</code> - Standard retrievals allow you to access any of
+ *                         your archived objects within several hours. This is the default option for
+ *                         retrieval requests that do not specify the retrieval option. Standard
+ *                         retrievals typically finish within 3–5 hours for objects stored in the
+ *                         S3 Glacier Flexible Retrieval Flexible Retrieval storage class or
+ *                         S3 Intelligent-Tiering Archive tier. They typically finish within 12 hours for
+ *                         objects stored in the S3 Glacier Deep Archive storage class or
+ *                         S3 Intelligent-Tiering Deep Archive tier. Standard retrievals are free for objects stored
+ *                         in S3 Intelligent-Tiering.</p>
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <code>Bulk</code> - Bulk retrievals free for objects stored in the S3 Glacier
- *                         Flexible Retrieval and S3 Intelligent-Tiering storage classes, enabling you to
- *                         retrieve large amounts, even petabytes, of data at no cost. Bulk retrievals typically
- *                         finish within 5–12 hours for objects stored in the S3 Glacier Flexible Retrieval
- *                         Flexible Retrieval storage class or S3 Intelligent-Tiering Archive tier. Bulk retrievals are
- *                         also the lowest-cost retrieval option when restoring objects from
- *                         S3 Glacier Deep Archive. They typically finish within 48 hours for objects
- *                         stored in the S3 Glacier Deep Archive storage class or S3 Intelligent-Tiering Deep Archive
- *                         tier. </p>
+ *                         <code>Bulk</code> - Bulk retrievals free for objects stored in the
+ *                         S3 Glacier Flexible Retrieval and S3 Intelligent-Tiering storage classes,
+ *                         enabling you to retrieve large amounts, even petabytes, of data at no cost.
+ *                         Bulk retrievals typically finish within 5–12 hours for objects stored in the
+ *                         S3 Glacier Flexible Retrieval Flexible Retrieval storage class or
+ *                         S3 Intelligent-Tiering Archive tier. Bulk retrievals are also the lowest-cost
+ *                         retrieval option when restoring objects from
+ *                         S3 Glacier Deep Archive. They typically finish within 48 hours for
+ *                         objects stored in the S3 Glacier Deep Archive storage class or
+ *                         S3 Intelligent-Tiering Deep Archive tier. </p>
  *                   </li>
  *                </ul>
- *                <p>For more information about archive retrieval options and provisioned capacity for
- *                   <code>Expedited</code> data access, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html">Restoring Archived Objects</a> in
- *                   the <i>Amazon S3 User Guide</i>. </p>
- *                <p>You can use Amazon S3 restore speed upgrade to change the restore speed to a faster speed
- *                   while it is in progress. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html#restoring-objects-upgrade-tier.title.html"> Upgrading the speed of an in-progress restore</a> in the
- *                   <i>Amazon S3 User Guide</i>. </p>
- *                <p>To get the status of object restoration, you can send a <code>HEAD</code> request.
- *                   Operations return the <code>x-amz-restore</code> header, which provides information about
- *                   the restoration status, in the response. You can use Amazon S3 event notifications to notify you
- *                   when a restore is initiated or completed. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Configuring Amazon S3
- *                      Event Notifications</a> in the <i>Amazon S3 User Guide</i>.</p>
- *                <p>After restoring an archived object, you can update the restoration period by reissuing
- *                   the request with a new period. Amazon S3 updates the restoration period relative to the current
- *                   time and charges only for the request-there are no data transfer charges. You cannot
- *                   update the restoration period when Amazon S3 is actively processing your current restore request
- *                   for the object.</p>
- *                <p>If your bucket has a lifecycle configuration with a rule that includes an expiration
- *                   action, the object expiration overrides the life span that you specify in a restore
- *                   request. For example, if you restore an object copy for 10 days, but the object is
- *                   scheduled to expire in 3 days, Amazon S3 deletes the object in 3 days. For more information
- *                   about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html">PutBucketLifecycleConfiguration</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html">Object Lifecycle Management</a>
- *                   in <i>Amazon S3 User Guide</i>.</p>
+ *                <p>For more information about archive retrieval options and provisioned capacity
+ *                   for <code>Expedited</code> data access, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html">Restoring Archived
+ *                      Objects</a> in the <i>Amazon S3 User Guide</i>. </p>
+ *                <p>You can use Amazon S3 restore speed upgrade to change the restore speed to a faster
+ *                   speed while it is in progress. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html#restoring-objects-upgrade-tier.title.html"> Upgrading the speed of an in-progress restore</a> in the
+ *                      <i>Amazon S3 User Guide</i>. </p>
+ *                <p>To get the status of object restoration, you can send a <code>HEAD</code>
+ *                   request. Operations return the <code>x-amz-restore</code> header, which provides
+ *                   information about the restoration status, in the response. You can use Amazon S3 event
+ *                   notifications to notify you when a restore is initiated or completed. For more
+ *                   information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Configuring Amazon S3 Event
+ *                      Notifications</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                <p>After restoring an archived object, you can update the restoration period by
+ *                   reissuing the request with a new period. Amazon S3 updates the restoration period
+ *                   relative to the current time and charges only for the request-there are no
+ *                   data transfer charges. You cannot update the restoration period when Amazon S3 is
+ *                   actively processing your current restore request for the object.</p>
+ *                <p>If your bucket has a lifecycle configuration with a rule that includes an
+ *                   expiration action, the object expiration overrides the life span that you specify
+ *                   in a restore request. For example, if you restore an object copy for 10 days, but
+ *                   the object is scheduled to expire in 3 days, Amazon S3 deletes the object in 3 days.
+ *                   For more information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html">PutBucketLifecycleConfiguration</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html">Object Lifecycle
+ *                      Management</a> in <i>Amazon S3 User Guide</i>.</p>
  *             </dd>
  *             <dt>Responses</dt>
  *             <dd>
- *                <p>A successful action returns either the <code>200 OK</code> or <code>202 Accepted</code>
- *                   status code. </p>
+ *                <p>A successful action returns either the <code>200 OK</code> or <code>202
+ *                      Accepted</code> status code. </p>
  *                <ul>
  *                   <li>
  *                      <p>If the object is not previously restored, then Amazon S3 returns <code>202
- *                         Accepted</code> in the response. </p>
+ *                            Accepted</code> in the response. </p>
  *                   </li>
  *                   <li>
- *                      <p>If the object is previously restored, Amazon S3 returns <code>200 OK</code> in the
- *                         response. </p>
+ *                      <p>If the object is previously restored, Amazon S3 returns <code>200 OK</code> in
+ *                         the response. </p>
  *                   </li>
  *                </ul>
  *                <ul>
@@ -238,8 +235,8 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  *                         </li>
  *                         <li>
  *                            <p>
- *                               <i>Cause: Object restore is already in progress. (This error does not
- *                               apply to SELECT type requests.)</i>
+ *                               <i>Cause: Object restore is already in progress. (This error
+ *                                  does not apply to SELECT type requests.)</i>
  *                            </p>
  *                         </li>
  *                         <li>
@@ -263,10 +260,10 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  *                         </li>
  *                         <li>
  *                            <p>
- *                               <i>Cause: expedited retrievals are currently not available. Try again
- *                               later. (Returned if there is insufficient capacity to process the Expedited
- *                               request. This error applies only to Expedited retrievals and not to
- *                               S3 Standard or Bulk retrievals.)</i>
+ *                               <i>Cause: expedited retrievals are currently not available.
+ *                                  Try again later. (Returned if there is insufficient capacity to
+ *                                  process the Expedited request. This error applies only to Expedited
+ *                                  retrievals and not to S3 Standard or Bulk retrievals.)</i>
  *                            </p>
  *                         </li>
  *                         <li>
@@ -383,7 +380,7 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  *             Value: "STRING_VALUE",
  *           },
  *         ],
- *         StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW",
+ *         StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE",
  *       },
  *     },
  *   },
@@ -431,90 +428,32 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  * ```
  *
  */
-export class RestoreObjectCommand extends $Command<
-  RestoreObjectCommandInput,
-  RestoreObjectCommandOutput,
-  S3ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      Bucket: { type: "contextParams", name: "Bucket" },
-      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
-      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
-      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
-      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
-      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: RestoreObjectCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: S3ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<RestoreObjectCommandInput, RestoreObjectCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, RestoreObjectCommand.getEndpointParameterInstructions()));
-    this.middlewareStack.use(
-      getFlexibleChecksumsPlugin(configuration, {
+export class RestoreObjectCommand extends $Command
+  .classBuilder<
+    RestoreObjectCommandInput,
+    RestoreObjectCommandOutput,
+    S3ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+    Bucket: { type: "contextParams", name: "Bucket" },
+  })
+  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getFlexibleChecksumsPlugin(config, {
         input: this.input,
         requestAlgorithmMember: "ChecksumAlgorithm",
         requestChecksumRequired: false,
-      })
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "S3Client";
-    const commandName = "RestoreObjectCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: RestoreObjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: RestoreObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_RestoreObjectCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RestoreObjectCommandOutput> {
-    return de_RestoreObjectCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+      }),
+    ];
+  })
+  .s("AmazonS3", "RestoreObject", {})
+  .n("S3Client", "RestoreObjectCommand")
+  .f(RestoreObjectRequestFilterSensitiveLog, void 0)
+  .ser(se_RestoreObjectCommand)
+  .de(de_RestoreObjectCommand)
+  .build() {}

@@ -21,7 +21,11 @@
 export * from "./LightsailClient";
 export * from "./Lightsail";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { LightsailExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { LightsailServiceException } from "./models/LightsailServiceException";

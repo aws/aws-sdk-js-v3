@@ -549,6 +549,11 @@ import {
   GetRelationalDatabaseSnapshotsCommandInput,
   GetRelationalDatabaseSnapshotsCommandOutput,
 } from "./commands/GetRelationalDatabaseSnapshotsCommand";
+import {
+  GetSetupHistoryCommand,
+  GetSetupHistoryCommandInput,
+  GetSetupHistoryCommandOutput,
+} from "./commands/GetSetupHistoryCommand";
 import { GetStaticIpCommand, GetStaticIpCommandInput, GetStaticIpCommandOutput } from "./commands/GetStaticIpCommand";
 import {
   GetStaticIpsCommand,
@@ -613,6 +618,11 @@ import {
   SetResourceAccessForBucketCommandInput,
   SetResourceAccessForBucketCommandOutput,
 } from "./commands/SetResourceAccessForBucketCommand";
+import {
+  SetupInstanceHttpsCommand,
+  SetupInstanceHttpsCommandInput,
+  SetupInstanceHttpsCommandOutput,
+} from "./commands/SetupInstanceHttpsCommand";
 import {
   StartGUISessionCommand,
   StartGUISessionCommandInput,
@@ -827,6 +837,7 @@ const commands = {
   GetRelationalDatabasesCommand,
   GetRelationalDatabaseSnapshotCommand,
   GetRelationalDatabaseSnapshotsCommand,
+  GetSetupHistoryCommand,
   GetStaticIpCommand,
   GetStaticIpsCommand,
   ImportKeyPairCommand,
@@ -843,6 +854,7 @@ const commands = {
   SendContactMethodVerificationCommand,
   SetIpAddressTypeCommand,
   SetResourceAccessForBucketCommand,
+  SetupInstanceHttpsCommand,
   StartGUISessionCommand,
   StartInstanceCommand,
   StartRelationalDatabaseCommand,
@@ -2751,6 +2763,20 @@ export interface Lightsail {
   ): void;
 
   /**
+   * @see {@link GetSetupHistoryCommand}
+   */
+  getSetupHistory(
+    args: GetSetupHistoryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSetupHistoryCommandOutput>;
+  getSetupHistory(args: GetSetupHistoryCommandInput, cb: (err: any, data?: GetSetupHistoryCommandOutput) => void): void;
+  getSetupHistory(
+    args: GetSetupHistoryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSetupHistoryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetStaticIpCommand}
    */
   getStaticIp(args: GetStaticIpCommandInput, options?: __HttpHandlerOptions): Promise<GetStaticIpCommandOutput>;
@@ -2978,6 +3004,23 @@ export interface Lightsail {
     args: SetResourceAccessForBucketCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SetResourceAccessForBucketCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SetupInstanceHttpsCommand}
+   */
+  setupInstanceHttps(
+    args: SetupInstanceHttpsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SetupInstanceHttpsCommandOutput>;
+  setupInstanceHttps(
+    args: SetupInstanceHttpsCommandInput,
+    cb: (err: any, data?: SetupInstanceHttpsCommandOutput) => void
+  ): void;
+  setupInstanceHttps(
+    args: SetupInstanceHttpsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SetupInstanceHttpsCommandOutput) => void
   ): void;
 
   /**

@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeServiceRequest,
   DescribeServiceResponse,
@@ -72,7 +64,7 @@ export interface DescribeServiceCommandOutput extends DescribeServiceResponse, _
  * //         CodeConfiguration: { // CodeConfiguration
  * //           ConfigurationSource: "REPOSITORY" || "API", // required
  * //           CodeConfigurationValues: { // CodeConfigurationValues
- * //             Runtime: "PYTHON_3" || "NODEJS_12" || "NODEJS_14" || "CORRETTO_8" || "CORRETTO_11" || "NODEJS_16" || "GO_1" || "DOTNET_6" || "PHP_81" || "RUBY_31", // required
+ * //             Runtime: "PYTHON_3" || "NODEJS_12" || "NODEJS_14" || "CORRETTO_8" || "CORRETTO_11" || "NODEJS_16" || "GO_1" || "DOTNET_6" || "PHP_81" || "RUBY_31" || "PYTHON_311" || "NODEJS_18", // required
  * //             BuildCommand: "STRING_VALUE",
  * //             StartCommand: "STRING_VALUE",
  * //             Port: "STRING_VALUE",
@@ -84,6 +76,7 @@ export interface DescribeServiceCommandOutput extends DescribeServiceResponse, _
  * //             },
  * //           },
  * //         },
+ * //         SourceDirectory: "STRING_VALUE",
  * //       },
  * //       ImageRepository: { // ImageRepository
  * //         ImageIdentifier: "STRING_VALUE", // required
@@ -125,6 +118,10 @@ export interface DescribeServiceCommandOutput extends DescribeServiceResponse, _
  * //       AutoScalingConfigurationArn: "STRING_VALUE",
  * //       AutoScalingConfigurationName: "STRING_VALUE",
  * //       AutoScalingConfigurationRevision: Number("int"),
+ * //       Status: "ACTIVE" || "INACTIVE",
+ * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       HasAssociatedService: true || false,
+ * //       IsDefault: true || false,
  * //     },
  * //     NetworkConfiguration: { // NetworkConfiguration
  * //       EgressConfiguration: { // EgressConfiguration
@@ -134,6 +131,7 @@ export interface DescribeServiceCommandOutput extends DescribeServiceResponse, _
  * //       IngressConfiguration: { // IngressConfiguration
  * //         IsPubliclyAccessible: true || false,
  * //       },
+ * //       IpAddressType: "IPV4" || "DUAL_STACK",
  * //     },
  * //     ObservabilityConfiguration: { // ServiceObservabilityConfiguration
  * //       ObservabilityEnabled: true || false, // required
@@ -163,79 +161,26 @@ export interface DescribeServiceCommandOutput extends DescribeServiceResponse, _
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
-export class DescribeServiceCommand extends $Command<
-  DescribeServiceCommandInput,
-  DescribeServiceCommandOutput,
-  AppRunnerClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeServiceCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AppRunnerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeServiceCommandInput, DescribeServiceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeServiceCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "AppRunnerClient";
-    const commandName = "DescribeServiceCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: DescribeServiceResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeServiceCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeServiceCommandOutput> {
-    return de_DescribeServiceCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeServiceCommand extends $Command
+  .classBuilder<
+    DescribeServiceCommandInput,
+    DescribeServiceCommandOutput,
+    AppRunnerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: AppRunnerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AppRunner", "DescribeService", {})
+  .n("AppRunnerClient", "DescribeServiceCommand")
+  .f(void 0, DescribeServiceResponseFilterSensitiveLog)
+  .ser(se_DescribeServiceCommand)
+  .de(de_DescribeServiceCommand)
+  .build() {}

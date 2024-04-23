@@ -16,8 +16,12 @@
 export * from "./GrafanaClient";
 export * from "./Grafana";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { GrafanaExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { GrafanaServiceException } from "./models/GrafanaServiceException";

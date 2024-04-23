@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { HoneycodeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HoneycodeClient";
 import {
   BatchCreateTableRowsRequest,
@@ -44,7 +36,7 @@ export interface BatchCreateTableRowsCommandOutput extends BatchCreateTableRowsR
  *             The BatchCreateTableRows API allows you to create one or more rows at the end of a table in a workbook.
  *             The API allows you to specify the values to set in some or all of the columns in the new rows.
  *         </p>
- *         <p>
+ *          <p>
  *             If a column is not explicitly set in a specific row, then the column level formula specified in the table
  *             will be applied to the new row. If there is no column level formula but the last row of the table has a
  *             formula, then that formula will be copied down to the new row. If there is no column level formula and
@@ -132,79 +124,26 @@ export interface BatchCreateTableRowsCommandOutput extends BatchCreateTableRowsR
  * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
  */
-export class BatchCreateTableRowsCommand extends $Command<
-  BatchCreateTableRowsCommandInput,
-  BatchCreateTableRowsCommandOutput,
-  HoneycodeClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: BatchCreateTableRowsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: HoneycodeClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<BatchCreateTableRowsCommandInput, BatchCreateTableRowsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, BatchCreateTableRowsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "HoneycodeClient";
-    const commandName = "BatchCreateTableRowsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: BatchCreateTableRowsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: BatchCreateTableRowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_BatchCreateTableRowsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchCreateTableRowsCommandOutput> {
-    return de_BatchCreateTableRowsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class BatchCreateTableRowsCommand extends $Command
+  .classBuilder<
+    BatchCreateTableRowsCommandInput,
+    BatchCreateTableRowsCommandOutput,
+    HoneycodeClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: HoneycodeClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("SheetsPublicApiService", "BatchCreateTableRows", {})
+  .n("HoneycodeClient", "BatchCreateTableRowsCommand")
+  .f(BatchCreateTableRowsRequestFilterSensitiveLog, void 0)
+  .ser(se_BatchCreateTableRowsCommand)
+  .de(de_BatchCreateTableRowsCommand)
+  .build() {}

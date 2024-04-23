@@ -10,9 +10,13 @@
 export * from "./EMRClient";
 export * from "./EMR";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { EMRExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./waiters";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { EMRServiceException } from "./models/EMRServiceException";

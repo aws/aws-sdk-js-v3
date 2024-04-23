@@ -14,8 +14,12 @@
 export * from "./ECRPUBLICClient";
 export * from "./ECRPUBLIC";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { ECRPUBLICExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { ECRPUBLICServiceException } from "./models/ECRPUBLICServiceException";

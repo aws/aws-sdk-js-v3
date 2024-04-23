@@ -12,8 +12,12 @@
 export * from "./ConnectCasesClient";
 export * from "./ConnectCases";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { ConnectCasesExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { ConnectCasesServiceException } from "./models/ConnectCasesServiceException";

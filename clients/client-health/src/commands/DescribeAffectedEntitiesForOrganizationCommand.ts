@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient";
 import {
   DescribeAffectedEntitiesForOrganizationRequest,
@@ -71,7 +63,7 @@ export interface DescribeAffectedEntitiesForOrganizationCommandOutput
  * // const { HealthClient, DescribeAffectedEntitiesForOrganizationCommand } = require("@aws-sdk/client-health"); // CommonJS import
  * const client = new HealthClient(config);
  * const input = { // DescribeAffectedEntitiesForOrganizationRequest
- *   organizationEntityFilters: [ // OrganizationEntityFiltersList // required
+ *   organizationEntityFilters: [ // OrganizationEntityFiltersList
  *     { // EventAccountFilter
  *       eventArn: "STRING_VALUE", // required
  *       awsAccountId: "STRING_VALUE",
@@ -80,6 +72,15 @@ export interface DescribeAffectedEntitiesForOrganizationCommandOutput
  *   locale: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   organizationEntityAccountFilters: [ // OrganizationEntityAccountFiltersList
+ *     { // EntityAccountFilter
+ *       eventArn: "STRING_VALUE", // required
+ *       awsAccountId: "STRING_VALUE",
+ *       statusCodes: [ // entityStatusCodeList
+ *         "IMPAIRED" || "UNIMPAIRED" || "UNKNOWN" || "PENDING" || "RESOLVED",
+ *       ],
+ *     },
+ *   ],
  * };
  * const command = new DescribeAffectedEntitiesForOrganizationCommand(input);
  * const response = await client.send(command);
@@ -92,7 +93,7 @@ export interface DescribeAffectedEntitiesForOrganizationCommandOutput
  * //       entityUrl: "STRING_VALUE",
  * //       awsAccountId: "STRING_VALUE",
  * //       lastUpdatedTime: new Date("TIMESTAMP"),
- * //       statusCode: "IMPAIRED" || "UNIMPAIRED" || "UNKNOWN",
+ * //       statusCode: "IMPAIRED" || "UNIMPAIRED" || "UNKNOWN" || "PENDING" || "RESOLVED",
  * //       tags: { // tagSet
  * //         "<keys>": "STRING_VALUE",
  * //       },
@@ -127,91 +128,26 @@ export interface DescribeAffectedEntitiesForOrganizationCommandOutput
  * <p>Base exception class for all service exceptions from Health service.</p>
  *
  */
-export class DescribeAffectedEntitiesForOrganizationCommand extends $Command<
-  DescribeAffectedEntitiesForOrganizationCommandInput,
-  DescribeAffectedEntitiesForOrganizationCommandOutput,
-  HealthClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeAffectedEntitiesForOrganizationCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: HealthClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<
+export class DescribeAffectedEntitiesForOrganizationCommand extends $Command
+  .classBuilder<
     DescribeAffectedEntitiesForOrganizationCommandInput,
-    DescribeAffectedEntitiesForOrganizationCommandOutput
-  > {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(
-        configuration,
-        DescribeAffectedEntitiesForOrganizationCommand.getEndpointParameterInstructions()
-      )
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "HealthClient";
-    const commandName = "DescribeAffectedEntitiesForOrganizationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: DescribeAffectedEntitiesForOrganizationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_DescribeAffectedEntitiesForOrganizationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeAffectedEntitiesForOrganizationCommandOutput> {
-    return de_DescribeAffectedEntitiesForOrganizationCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+    DescribeAffectedEntitiesForOrganizationCommandOutput,
+    HealthClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: HealthClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSHealth_20160804", "DescribeAffectedEntitiesForOrganization", {})
+  .n("HealthClient", "DescribeAffectedEntitiesForOrganizationCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeAffectedEntitiesForOrganizationCommand)
+  .de(de_DescribeAffectedEntitiesForOrganizationCommand)
+  .build() {}

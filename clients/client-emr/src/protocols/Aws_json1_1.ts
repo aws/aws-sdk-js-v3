@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -10,7 +11,6 @@ import {
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
   parseEpochTimestamp as __parseEpochTimestamp,
@@ -150,6 +150,10 @@ import {
 } from "../commands/RemoveManagedScalingPolicyCommand";
 import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "../commands/RemoveTagsCommand";
 import { RunJobFlowCommandInput, RunJobFlowCommandOutput } from "../commands/RunJobFlowCommand";
+import {
+  SetKeepJobFlowAliveWhenNoStepsCommandInput,
+  SetKeepJobFlowAliveWhenNoStepsCommandOutput,
+} from "../commands/SetKeepJobFlowAliveWhenNoStepsCommand";
 import {
   SetTerminationProtectionCommandInput,
   SetTerminationProtectionCommandOutput,
@@ -313,6 +317,7 @@ import {
   SecurityConfigurationSummary,
   SessionMappingDetail,
   SessionMappingSummary,
+  SetKeepJobFlowAliveWhenNoStepsInput,
   SetTerminationProtectionInput,
   SetVisibleToAllUsersInput,
   ShrinkPolicy,
@@ -948,6 +953,19 @@ export const se_RunJobFlowCommand = async (
   const headers: __HeaderBag = sharedHeaders("RunJobFlow");
   let body: any;
   body = JSON.stringify(se_RunJobFlowInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1SetKeepJobFlowAliveWhenNoStepsCommand
+ */
+export const se_SetKeepJobFlowAliveWhenNoStepsCommand = async (
+  input: SetKeepJobFlowAliveWhenNoStepsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("SetKeepJobFlowAliveWhenNoSteps");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3244,6 +3262,49 @@ const de_RunJobFlowCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1SetKeepJobFlowAliveWhenNoStepsCommand
+ */
+export const de_SetKeepJobFlowAliveWhenNoStepsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetKeepJobFlowAliveWhenNoStepsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_SetKeepJobFlowAliveWhenNoStepsCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: SetKeepJobFlowAliveWhenNoStepsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1SetKeepJobFlowAliveWhenNoStepsCommandError
+ */
+const de_SetKeepJobFlowAliveWhenNoStepsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetKeepJobFlowAliveWhenNoStepsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.emr#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1SetTerminationProtectionCommand
  */
 export const de_SetTerminationProtectionCommand = async (
@@ -4057,7 +4118,9 @@ const se_RunJobFlowInput = (input: RunJobFlowInput, context: __SerdeContext): an
     BootstrapActions: _json,
     Configurations: (_) => se_ConfigurationList(_, context),
     CustomAmiId: [],
+    EbsRootVolumeIops: [],
     EbsRootVolumeSize: [],
+    EbsRootVolumeThroughput: [],
     Instances: (_) => se_JobFlowInstancesConfig(_, context),
     JobFlowRole: [],
     KerberosAttributes: _json,
@@ -4120,6 +4183,8 @@ const se_ScalingTrigger = (input: ScalingTrigger, context: __SerdeContext): any 
 // se_ScriptBootstrapActionConfig omitted.
 
 // se_SecurityGroupsList omitted.
+
+// se_SetKeepJobFlowAliveWhenNoStepsInput omitted.
 
 // se_SetTerminationProtectionInput omitted.
 
@@ -4266,7 +4331,9 @@ const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
     ClusterArn: __expectString,
     Configurations: (_: any) => de_ConfigurationList(_, context),
     CustomAmiId: __expectString,
+    EbsRootVolumeIops: __expectInt32,
     EbsRootVolumeSize: __expectInt32,
+    EbsRootVolumeThroughput: __expectInt32,
     Ec2InstanceAttributes: _json,
     Id: __expectString,
     InstanceCollectionType: __expectString,
@@ -5302,7 +5369,10 @@ const de_Studio = (output: any, context: __SerdeContext): Studio => {
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DefaultS3Location: __expectString,
     Description: __expectString,
+    EncryptionKeyArn: __expectString,
     EngineSecurityGroupId: __expectString,
+    IdcInstanceArn: __expectString,
+    IdcUserAssignment: __expectString,
     IdpAuthUrl: __expectString,
     IdpRelayStateParameterName: __expectString,
     Name: __expectString,
@@ -5311,6 +5381,7 @@ const de_Studio = (output: any, context: __SerdeContext): Studio => {
     StudioId: __expectString,
     SubnetIds: _json,
     Tags: _json,
+    TrustedIdentityPropagationEnabled: __expectBoolean,
     Url: __expectString,
     UserRole: __expectString,
     VpcId: __expectString,

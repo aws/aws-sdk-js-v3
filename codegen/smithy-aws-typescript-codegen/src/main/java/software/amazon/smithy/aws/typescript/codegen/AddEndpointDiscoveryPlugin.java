@@ -40,6 +40,7 @@ import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+import software.amazon.smithy.typescript.codegen.auth.http.integration.AddHttpAuthSchemePlugin;
 import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.ListUtils;
@@ -51,6 +52,13 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  */
 @SmithyInternalApi
 public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
+
+    @Override
+    public List<String> runAfter() {
+        return List.of(
+            AddAwsAuthPlugin.class.getCanonicalName(),
+            AddHttpAuthSchemePlugin.class.getCanonicalName());
+    }
 
     @Override
     public void addConfigInterfaceFields(
@@ -117,7 +125,7 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
                         writer.addDependency(AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY);
                         writer.addImport("NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS",
                                 "NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS",
-                                AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY.packageName);
+                                AwsDependency.MIDDLEWARE_ENDPOINT_DISCOVERY);
                         writer.write("loadNodeConfig(NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS)");
                     }
                 );
@@ -178,8 +186,8 @@ public class AddEndpointDiscoveryPlugin implements TypeScriptIntegration  {
         OperationShape operationShape
     ) {
         Map<String, Object> params = new HashMap<String, Object>();
-        params.put("clientStack", Symbol.builder().name("clientStack").build());
-        params.put("options", Symbol.builder().name("options").build());
+        params.put("clientStack", Symbol.builder().name("cs").build());
+        params.put("options", Symbol.builder().name("o").build());
         params.put("isDiscoveredEndpointRequired", isClientDiscoveredEndpointRequired(
             serviceShape, operationShape));
 

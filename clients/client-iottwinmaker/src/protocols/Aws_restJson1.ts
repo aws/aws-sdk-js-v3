@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,
@@ -36,10 +37,18 @@ import {
   BatchPutPropertyValuesCommandOutput,
 } from "../commands/BatchPutPropertyValuesCommand";
 import {
+  CancelMetadataTransferJobCommandInput,
+  CancelMetadataTransferJobCommandOutput,
+} from "../commands/CancelMetadataTransferJobCommand";
+import {
   CreateComponentTypeCommandInput,
   CreateComponentTypeCommandOutput,
 } from "../commands/CreateComponentTypeCommand";
 import { CreateEntityCommandInput, CreateEntityCommandOutput } from "../commands/CreateEntityCommand";
+import {
+  CreateMetadataTransferJobCommandInput,
+  CreateMetadataTransferJobCommandOutput,
+} from "../commands/CreateMetadataTransferJobCommand";
 import { CreateSceneCommandInput, CreateSceneCommandOutput } from "../commands/CreateSceneCommand";
 import { CreateSyncJobCommandInput, CreateSyncJobCommandOutput } from "../commands/CreateSyncJobCommand";
 import { CreateWorkspaceCommandInput, CreateWorkspaceCommandOutput } from "../commands/CreateWorkspaceCommand";
@@ -54,6 +63,10 @@ import { DeleteWorkspaceCommandInput, DeleteWorkspaceCommandOutput } from "../co
 import { ExecuteQueryCommandInput, ExecuteQueryCommandOutput } from "../commands/ExecuteQueryCommand";
 import { GetComponentTypeCommandInput, GetComponentTypeCommandOutput } from "../commands/GetComponentTypeCommand";
 import { GetEntityCommandInput, GetEntityCommandOutput } from "../commands/GetEntityCommand";
+import {
+  GetMetadataTransferJobCommandInput,
+  GetMetadataTransferJobCommandOutput,
+} from "../commands/GetMetadataTransferJobCommand";
 import { GetPricingPlanCommandInput, GetPricingPlanCommandOutput } from "../commands/GetPricingPlanCommand";
 import { GetPropertyValueCommandInput, GetPropertyValueCommandOutput } from "../commands/GetPropertyValueCommand";
 import {
@@ -63,8 +76,14 @@ import {
 import { GetSceneCommandInput, GetSceneCommandOutput } from "../commands/GetSceneCommand";
 import { GetSyncJobCommandInput, GetSyncJobCommandOutput } from "../commands/GetSyncJobCommand";
 import { GetWorkspaceCommandInput, GetWorkspaceCommandOutput } from "../commands/GetWorkspaceCommand";
+import { ListComponentsCommandInput, ListComponentsCommandOutput } from "../commands/ListComponentsCommand";
 import { ListComponentTypesCommandInput, ListComponentTypesCommandOutput } from "../commands/ListComponentTypesCommand";
 import { ListEntitiesCommandInput, ListEntitiesCommandOutput } from "../commands/ListEntitiesCommand";
+import {
+  ListMetadataTransferJobsCommandInput,
+  ListMetadataTransferJobsCommandOutput,
+} from "../commands/ListMetadataTransferJobsCommand";
+import { ListPropertiesCommandInput, ListPropertiesCommandOutput } from "../commands/ListPropertiesCommand";
 import { ListScenesCommandInput, ListScenesCommandOutput } from "../commands/ListScenesCommand";
 import { ListSyncJobsCommandInput, ListSyncJobsCommandOutput } from "../commands/ListSyncJobsCommand";
 import { ListSyncResourcesCommandInput, ListSyncResourcesCommandOutput } from "../commands/ListSyncResourcesCommand";
@@ -93,20 +112,35 @@ import {
   ComponentResponse,
   ComponentTypeSummary,
   ComponentUpdateRequest,
+  CompositeComponentRequest,
+  CompositeComponentTypeRequest,
+  CompositeComponentUpdateRequest,
   ConflictException,
   ConnectorFailureException,
   ConnectorTimeoutException,
   DataConnector,
   DataType,
   DataValue,
+  DestinationConfiguration,
   EntityPropertyReference,
   EntitySummary,
+  FilterByAsset,
+  FilterByAssetModel,
+  FilterByComponentType,
+  FilterByEntity,
   FunctionRequest,
   InternalServerException,
   InterpolationParameters,
+  IotSiteWiseSourceConfiguration,
+  IotSiteWiseSourceConfigurationFilter,
+  IotTwinMakerDestinationConfiguration,
+  IotTwinMakerSourceConfiguration,
+  IotTwinMakerSourceConfigurationFilter,
   LambdaFunction,
   ListComponentTypesFilter,
   ListEntitiesFilter,
+  ListMetadataTransferJobsFilter,
+  MetadataTransferJobSummary,
   OrderBy,
   ParentEntityUpdateRequest,
   PricingPlan,
@@ -117,6 +151,7 @@ import {
   PropertyLatestValue,
   PropertyRequest,
   PropertyResponse,
+  PropertySummary,
   PropertyValue,
   PropertyValueEntry,
   PropertyValueHistory,
@@ -125,8 +160,11 @@ import {
   RelationshipValue,
   ResourceNotFoundException,
   Row,
+  S3DestinationConfiguration,
+  S3SourceConfiguration,
   SceneSummary,
   ServiceQuotaExceededException,
+  SourceConfiguration,
   SyncJobSummary,
   SyncResourceFilter,
   SyncResourceSummary,
@@ -144,14 +182,12 @@ export const se_BatchPutPropertyValuesCommand = async (
   input: BatchPutPropertyValuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workspaces/{workspaceId}/entity-properties";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.bp("/workspaces/{workspaceId}/entity-properties");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -165,15 +201,33 @@ export const se_BatchPutPropertyValuesCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CancelMetadataTransferJobCommand
+ */
+export const se_CancelMetadataTransferJobCommand = async (
+  input: CancelMetadataTransferJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/metadata-transfer-jobs/{metadataTransferJobId}/cancel");
+  b.p("metadataTransferJobId", () => input.metadataTransferJobId!, "{metadataTransferJobId}", false);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -183,26 +237,18 @@ export const se_CreateComponentTypeCommand = async (
   input: CreateComponentTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workspaces/{workspaceId}/component-types/{componentTypeId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "componentTypeId",
-    () => input.componentTypeId!,
-    "{componentTypeId}",
-    false
-  );
+  b.bp("/workspaces/{workspaceId}/component-types/{componentTypeId}");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.p("componentTypeId", () => input.componentTypeId!, "{componentTypeId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       componentTypeName: [],
+      compositeComponentTypes: (_) => _json(_),
       description: [],
       extendsFrom: (_) => _json(_),
       functions: (_) => _json(_),
@@ -219,15 +265,9 @@ export const se_CreateComponentTypeCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -237,17 +277,17 @@ export const se_CreateEntityCommand = async (
   input: CreateEntityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}/entities";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.bp("/workspaces/{workspaceId}/entities");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       components: (_) => se_ComponentsMapRequest(_, context),
+      compositeComponents: (_) => se_CompositeComponentsMapRequest(_, context),
       description: [],
       entityId: [],
       entityName: [],
@@ -262,15 +302,42 @@ export const se_CreateEntityCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateMetadataTransferJobCommand
+ */
+export const se_CreateMetadataTransferJobCommand = async (
+  input: CreateMetadataTransferJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/metadata-transfer-jobs");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      destination: (_) => _json(_),
+      metadataTransferJobId: [],
+      sources: (_) => _json(_),
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -280,13 +347,12 @@ export const se_CreateSceneCommand = async (
   input: CreateSceneCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}/scenes";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.bp("/workspaces/{workspaceId}/scenes");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -305,15 +371,9 @@ export const se_CreateSceneCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -323,15 +383,13 @@ export const se_CreateSyncJobCommand = async (
   input: CreateSyncJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workspaces/{workspaceId}/sync-jobs/{syncSource}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "syncSource", () => input.syncSource!, "{syncSource}", false);
+  b.bp("/workspaces/{workspaceId}/sync-jobs/{syncSource}");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.p("syncSource", () => input.syncSource!, "{syncSource}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -346,15 +404,9 @@ export const se_CreateSyncJobCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -364,13 +416,12 @@ export const se_CreateWorkspaceCommand = async (
   input: CreateWorkspaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.bp("/workspaces/{workspaceId}");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -387,15 +438,9 @@ export const se_CreateWorkspaceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -405,20 +450,11 @@ export const se_DeleteComponentTypeCommand = async (
   input: DeleteComponentTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workspaces/{workspaceId}/component-types/{componentTypeId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "componentTypeId",
-    () => input.componentTypeId!,
-    "{componentTypeId}",
-    false
-  );
+  b.bp("/workspaces/{workspaceId}/component-types/{componentTypeId}");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.p("componentTypeId", () => input.componentTypeId!, "{componentTypeId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -427,15 +463,9 @@ export const se_DeleteComponentTypeCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -445,15 +475,13 @@ export const se_DeleteEntityCommand = async (
   input: DeleteEntityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workspaces/{workspaceId}/entities/{entityId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "entityId", () => input.entityId!, "{entityId}", false);
+  b.bp("/workspaces/{workspaceId}/entities/{entityId}");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.p("entityId", () => input.entityId!, "{entityId}", false);
   const query: any = map({
-    isRecursive: [() => input.isRecursive !== void 0, () => input.isRecursive!.toString()],
+    [_iR]: [() => input.isRecursive !== void 0, () => input[_iR]!.toString()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -463,16 +491,9 @@ export const se_DeleteEntityCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -482,13 +503,11 @@ export const se_DeleteSceneCommand = async (
   input: DeleteSceneCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workspaces/{workspaceId}/scenes/{sceneId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "sceneId", () => input.sceneId!, "{sceneId}", false);
+  b.bp("/workspaces/{workspaceId}/scenes/{sceneId}");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.p("sceneId", () => input.sceneId!, "{sceneId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -497,15 +516,9 @@ export const se_DeleteSceneCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -515,13 +528,11 @@ export const se_DeleteSyncJobCommand = async (
   input: DeleteSyncJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workspaces/{workspaceId}/sync-jobs/{syncSource}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "syncSource", () => input.syncSource!, "{syncSource}", false);
+  b.bp("/workspaces/{workspaceId}/sync-jobs/{syncSource}");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.p("syncSource", () => input.syncSource!, "{syncSource}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -530,15 +541,9 @@ export const se_DeleteSyncJobCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -548,11 +553,10 @@ export const se_DeleteWorkspaceCommand = async (
   input: DeleteWorkspaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.bp("/workspaces/{workspaceId}");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -561,15 +565,9 @@ export const se_DeleteWorkspaceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -579,11 +577,11 @@ export const se_ExecuteQueryCommand = async (
   input: ExecuteQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/queries/execution";
+  b.bp("/queries/execution");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -600,15 +598,9 @@ export const se_ExecuteQueryCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -618,20 +610,11 @@ export const se_GetComponentTypeCommand = async (
   input: GetComponentTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workspaces/{workspaceId}/component-types/{componentTypeId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "componentTypeId",
-    () => input.componentTypeId!,
-    "{componentTypeId}",
-    false
-  );
+  b.bp("/workspaces/{workspaceId}/component-types/{componentTypeId}");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.p("componentTypeId", () => input.componentTypeId!, "{componentTypeId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -640,15 +623,9 @@ export const se_GetComponentTypeCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -658,13 +635,11 @@ export const se_GetEntityCommand = async (
   input: GetEntityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workspaces/{workspaceId}/entities/{entityId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "entityId", () => input.entityId!, "{entityId}", false);
+  b.bp("/workspaces/{workspaceId}/entities/{entityId}");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.p("entityId", () => input.entityId!, "{entityId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -673,15 +648,33 @@ export const se_GetEntityCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetMetadataTransferJobCommand
+ */
+export const se_GetMetadataTransferJobCommand = async (
+  input: GetMetadataTransferJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/metadata-transfer-jobs/{metadataTransferJobId}");
+  b.p("metadataTransferJobId", () => input.metadataTransferJobId!, "{metadataTransferJobId}", false);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -691,11 +684,11 @@ export const se_GetPricingPlanCommand = async (
   input: GetPricingPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/pricingplan";
+  b.bp("/pricingplan");
   let body: any;
   body = "";
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -705,15 +698,9 @@ export const se_GetPricingPlanCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -723,18 +710,17 @@ export const se_GetPropertyValueCommand = async (
   input: GetPropertyValueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workspaces/{workspaceId}/entity-properties/value";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.bp("/workspaces/{workspaceId}/entity-properties/value");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       componentName: [],
+      componentPath: [],
       componentTypeId: [],
       entityId: [],
       maxResults: [],
@@ -751,15 +737,9 @@ export const se_GetPropertyValueCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -769,18 +749,17 @@ export const se_GetPropertyValueHistoryCommand = async (
   input: GetPropertyValueHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workspaces/{workspaceId}/entity-properties/history";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.bp("/workspaces/{workspaceId}/entity-properties/history");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       componentName: [],
+      componentPath: [],
       componentTypeId: [],
       endDateTime: (_) => Math.round(_.getTime() / 1000),
       endTime: [],
@@ -802,15 +781,9 @@ export const se_GetPropertyValueHistoryCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -820,13 +793,11 @@ export const se_GetSceneCommand = async (
   input: GetSceneCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workspaces/{workspaceId}/scenes/{sceneId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "sceneId", () => input.sceneId!, "{sceneId}", false);
+  b.bp("/workspaces/{workspaceId}/scenes/{sceneId}");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.p("sceneId", () => input.sceneId!, "{sceneId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -835,15 +806,9 @@ export const se_GetSceneCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -853,12 +818,12 @@ export const se_GetSyncJobCommand = async (
   input: GetSyncJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sync-jobs/{syncSource}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "syncSource", () => input.syncSource!, "{syncSource}", false);
+  b.bp("/sync-jobs/{syncSource}");
+  b.p("syncSource", () => input.syncSource!, "{syncSource}", false);
   const query: any = map({
-    workspace: [, input.workspaceId!],
+    [_w]: [, input[_wI]!],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -868,16 +833,9 @@ export const se_GetSyncJobCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -887,11 +845,10 @@ export const se_GetWorkspaceCommand = async (
   input: GetWorkspaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.bp("/workspaces/{workspaceId}");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -900,15 +857,43 @@ export const se_GetWorkspaceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListComponentsCommand
+ */
+export const se_ListComponentsCommand = async (
+  input: ListComponentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/workspaces/{workspaceId}/entities/{entityId}/components-list");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.p("entityId", () => input.entityId!, "{entityId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      componentPath: [],
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -918,14 +903,12 @@ export const se_ListComponentTypesCommand = async (
   input: ListComponentTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workspaces/{workspaceId}/component-types-list";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.bp("/workspaces/{workspaceId}/component-types-list");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -941,15 +924,9 @@ export const se_ListComponentTypesCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -959,13 +936,12 @@ export const se_ListEntitiesCommand = async (
   input: ListEntitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}/entities-list";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.bp("/workspaces/{workspaceId}/entities-list");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -981,15 +957,78 @@ export const se_ListEntitiesCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListMetadataTransferJobsCommand
+ */
+export const se_ListMetadataTransferJobsCommand = async (
+  input: ListMetadataTransferJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/metadata-transfer-jobs-list");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      destinationType: [],
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+      sourceType: [],
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListPropertiesCommand
+ */
+export const se_ListPropertiesCommand = async (
+  input: ListPropertiesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/workspaces/{workspaceId}/properties-list");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      componentName: [],
+      componentPath: [],
+      entityId: [],
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -999,13 +1038,12 @@ export const se_ListScenesCommand = async (
   input: ListScenesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}/scenes-list";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.bp("/workspaces/{workspaceId}/scenes-list");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1020,15 +1058,9 @@ export const se_ListScenesCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1038,13 +1070,12 @@ export const se_ListSyncJobsCommand = async (
   input: ListSyncJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}/sync-jobs-list";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.bp("/workspaces/{workspaceId}/sync-jobs-list");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1059,15 +1090,9 @@ export const se_ListSyncJobsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1077,15 +1102,13 @@ export const se_ListSyncResourcesCommand = async (
   input: ListSyncResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workspaces/{workspaceId}/sync-jobs/{syncSource}/resources-list";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "syncSource", () => input.syncSource!, "{syncSource}", false);
+  b.bp("/workspaces/{workspaceId}/sync-jobs/{syncSource}/resources-list");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.p("syncSource", () => input.syncSource!, "{syncSource}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1101,15 +1124,9 @@ export const se_ListSyncResourcesCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1119,11 +1136,11 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags-list";
+  b.bp("/tags-list");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1139,15 +1156,9 @@ export const se_ListTagsForResourceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1157,11 +1168,11 @@ export const se_ListWorkspacesCommand = async (
   input: ListWorkspacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces-list";
+  b.bp("/workspaces-list");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1176,15 +1187,9 @@ export const se_ListWorkspacesCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1194,11 +1199,11 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
+  b.bp("/tags");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1213,15 +1218,9 @@ export const se_TagResourceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1231,14 +1230,14 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
+  b.bp("/tags");
   const query: any = map({
-    resourceARN: [, __expectNonNull(input.resourceARN!, `resourceARN`)],
-    tagKeys: [
+    [_rARN]: [, __expectNonNull(input[_rARN]!, `resourceARN`)],
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
@@ -1249,16 +1248,9 @@ export const se_UntagResourceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1268,26 +1260,18 @@ export const se_UpdateComponentTypeCommand = async (
   input: UpdateComponentTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workspaces/{workspaceId}/component-types/{componentTypeId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "componentTypeId",
-    () => input.componentTypeId!,
-    "{componentTypeId}",
-    false
-  );
+  b.bp("/workspaces/{workspaceId}/component-types/{componentTypeId}");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.p("componentTypeId", () => input.componentTypeId!, "{componentTypeId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       componentTypeName: [],
+      compositeComponentTypes: (_) => _json(_),
       description: [],
       extendsFrom: (_) => _json(_),
       functions: (_) => _json(_),
@@ -1303,15 +1287,9 @@ export const se_UpdateComponentTypeCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1321,19 +1299,18 @@ export const se_UpdateEntityCommand = async (
   input: UpdateEntityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workspaces/{workspaceId}/entities/{entityId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "entityId", () => input.entityId!, "{entityId}", false);
+  b.bp("/workspaces/{workspaceId}/entities/{entityId}");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.p("entityId", () => input.entityId!, "{entityId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       componentUpdates: (_) => se_ComponentUpdatesMapRequest(_, context),
+      compositeComponentUpdates: (_) => se_CompositeComponentUpdatesMapRequest(_, context),
       description: [],
       entityName: [],
       parentEntityUpdate: (_) => _json(_),
@@ -1346,15 +1323,9 @@ export const se_UpdateEntityCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1364,11 +1335,11 @@ export const se_UpdatePricingPlanCommand = async (
   input: UpdatePricingPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/pricingplan";
+  b.bp("/pricingplan");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1383,15 +1354,9 @@ export const se_UpdatePricingPlanCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1401,15 +1366,13 @@ export const se_UpdateSceneCommand = async (
   input: UpdateSceneCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workspaces/{workspaceId}/scenes/{sceneId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "sceneId", () => input.sceneId!, "{sceneId}", false);
+  b.bp("/workspaces/{workspaceId}/scenes/{sceneId}");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.p("sceneId", () => input.sceneId!, "{sceneId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1426,15 +1389,9 @@ export const se_UpdateSceneCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1444,18 +1401,18 @@ export const se_UpdateWorkspaceCommand = async (
   input: UpdateWorkspaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.bp("/workspaces/{workspaceId}");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       description: [],
       role: [],
+      s3Location: [],
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1465,15 +1422,9 @@ export const se_UpdateWorkspaceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1510,6 +1461,72 @@ const de_BatchPutPropertyValuesCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.iottwinmaker#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iottwinmaker#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iottwinmaker#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iottwinmaker#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CancelMetadataTransferJobCommand
+ */
+export const de_CancelMetadataTransferJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelMetadataTransferJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CancelMetadataTransferJobCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    metadataTransferJobId: __expectString,
+    progress: _json,
+    status: _json,
+    updateDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CancelMetadataTransferJobCommandError
+ */
+const de_CancelMetadataTransferJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelMetadataTransferJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iottwinmaker#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.iottwinmaker#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.iottwinmaker#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -1642,6 +1659,74 @@ const de_CreateEntityCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.iottwinmaker#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.iottwinmaker#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iottwinmaker#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iottwinmaker#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateMetadataTransferJobCommand
+ */
+export const de_CreateMetadataTransferJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMetadataTransferJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateMetadataTransferJobCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    metadataTransferJobId: __expectString,
+    status: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateMetadataTransferJobCommandError
+ */
+const de_CreateMetadataTransferJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateMetadataTransferJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iottwinmaker#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.iottwinmaker#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iottwinmaker#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iottwinmaker#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.iottwinmaker#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
@@ -2099,7 +2184,11 @@ export const de_DeleteWorkspaceCommand = async (
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
-  await collectBody(output.body, context);
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -2223,6 +2312,7 @@ export const de_GetComponentTypeCommand = async (
     arn: __expectString,
     componentTypeId: __expectString,
     componentTypeName: __expectString,
+    compositeComponentTypes: _json,
     creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
     extendsFrom: _json,
@@ -2294,6 +2384,7 @@ export const de_GetEntityCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    areAllComponentsReturned: __expectBoolean,
     arn: __expectString,
     components: (_) => de_ComponentsMap(_, context),
     creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -2333,6 +2424,75 @@ const de_GetEntityCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.iottwinmaker#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iottwinmaker#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iottwinmaker#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetMetadataTransferJobCommand
+ */
+export const de_GetMetadataTransferJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMetadataTransferJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetMetadataTransferJobCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    destination: _json,
+    metadataTransferJobId: __expectString,
+    metadataTransferJobRole: __expectString,
+    progress: _json,
+    reportUrl: __expectString,
+    sources: _json,
+    status: _json,
+    updateDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetMetadataTransferJobCommandError
+ */
+const de_GetMetadataTransferJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMetadataTransferJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iottwinmaker#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iottwinmaker#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iottwinmaker#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iottwinmaker#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -2694,6 +2854,7 @@ export const de_GetWorkspaceCommand = async (
     arn: __expectString,
     creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
+    linkedServices: _json,
     role: __expectString,
     s3Location: __expectString,
     updateDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -2725,6 +2886,66 @@ const de_GetWorkspaceCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.iottwinmaker#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iottwinmaker#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iottwinmaker#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListComponentsCommand
+ */
+export const de_ListComponentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListComponentsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListComponentsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    componentSummaries: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListComponentsCommandError
+ */
+const de_ListComponentsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListComponentsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iottwinmaker#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iottwinmaker#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iottwinmaker#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iottwinmaker#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -2841,6 +3062,123 @@ const de_ListEntitiesCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.iottwinmaker#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iottwinmaker#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iottwinmaker#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListMetadataTransferJobsCommand
+ */
+export const de_ListMetadataTransferJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMetadataTransferJobsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListMetadataTransferJobsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    metadataTransferJobSummaries: (_) => de_MetadataTransferJobSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListMetadataTransferJobsCommandError
+ */
+const de_ListMetadataTransferJobsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListMetadataTransferJobsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iottwinmaker#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iottwinmaker#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iottwinmaker#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iottwinmaker#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListPropertiesCommand
+ */
+export const de_ListPropertiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPropertiesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListPropertiesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    propertySummaries: (_) => de_PropertySummaries(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListPropertiesCommandError
+ */
+const de_ListPropertiesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPropertiesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iottwinmaker#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iottwinmaker#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iottwinmaker#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.iottwinmaker#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -3813,6 +4151,65 @@ const se_ComponentUpdatesMapRequest = (input: Record<string, ComponentUpdateRequ
   }, {});
 };
 
+/**
+ * serializeAws_restJson1CompositeComponentRequest
+ */
+const se_CompositeComponentRequest = (input: CompositeComponentRequest, context: __SerdeContext): any => {
+  return take(input, {
+    description: [],
+    properties: (_) => se_PropertyRequests(_, context),
+    propertyGroups: _json,
+  });
+};
+
+/**
+ * serializeAws_restJson1CompositeComponentsMapRequest
+ */
+const se_CompositeComponentsMapRequest = (
+  input: Record<string, CompositeComponentRequest>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = se_CompositeComponentRequest(value, context);
+    return acc;
+  }, {});
+};
+
+// se_CompositeComponentTypeRequest omitted.
+
+// se_CompositeComponentTypesRequest omitted.
+
+/**
+ * serializeAws_restJson1CompositeComponentUpdateRequest
+ */
+const se_CompositeComponentUpdateRequest = (input: CompositeComponentUpdateRequest, context: __SerdeContext): any => {
+  return take(input, {
+    description: [],
+    propertyGroupUpdates: _json,
+    propertyUpdates: (_) => se_PropertyRequests(_, context),
+    updateType: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1CompositeComponentUpdatesMapRequest
+ */
+const se_CompositeComponentUpdatesMapRequest = (
+  input: Record<string, CompositeComponentUpdateRequest>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = se_CompositeComponentUpdateRequest(value, context);
+    return acc;
+  }, {});
+};
+
 // se_Configuration omitted.
 
 // se_DataConnector omitted.
@@ -3871,6 +4268,8 @@ const se_DataValueMap = (input: Record<string, DataValue>, context: __SerdeConte
   }, {});
 };
 
+// se_DestinationConfiguration omitted.
+
 // se_EntityPropertyReference omitted.
 
 /**
@@ -3888,11 +4287,33 @@ const se_Entries = (input: PropertyValueEntry[], context: __SerdeContext): any =
 
 // se_ExternalIdProperty omitted.
 
+// se_FilterByAsset omitted.
+
+// se_FilterByAssetModel omitted.
+
+// se_FilterByComponentType omitted.
+
+// se_FilterByEntity omitted.
+
 // se_FunctionRequest omitted.
 
 // se_FunctionsRequest omitted.
 
 // se_InterpolationParameters omitted.
+
+// se_IotSiteWiseSourceConfiguration omitted.
+
+// se_IotSiteWiseSourceConfigurationFilter omitted.
+
+// se_IotSiteWiseSourceConfigurationFilters omitted.
+
+// se_IotTwinMakerDestinationConfiguration omitted.
+
+// se_IotTwinMakerSourceConfiguration omitted.
+
+// se_IotTwinMakerSourceConfigurationFilter omitted.
+
+// se_IotTwinMakerSourceConfigurationFilters omitted.
 
 // se_LambdaFunction omitted.
 
@@ -3903,6 +4324,10 @@ const se_Entries = (input: PropertyValueEntry[], context: __SerdeContext): any =
 // se_ListEntitiesFilter omitted.
 
 // se_ListEntitiesFilters omitted.
+
+// se_ListMetadataTransferJobsFilter omitted.
+
+// se_ListMetadataTransferJobsFilters omitted.
 
 // se_OrderBy omitted.
 
@@ -4034,11 +4459,19 @@ const se_PropertyValues = (input: PropertyValue[], context: __SerdeContext): any
 
 // se_RequiredProperties omitted.
 
+// se_S3DestinationConfiguration omitted.
+
+// se_S3SourceConfiguration omitted.
+
 // se_SceneCapabilities omitted.
 
 // se_SceneMetadataMap omitted.
 
 // se_SelectedPropertyList omitted.
+
+// se_SourceConfiguration omitted.
+
+// se_SourceConfigurations omitted.
 
 // se_SyncResourceFilter omitted.
 
@@ -4091,8 +4524,11 @@ const de_BatchPutPropertyErrorEntry = (output: any, context: __SerdeContext): Ba
  */
 const de_ComponentResponse = (output: any, context: __SerdeContext): ComponentResponse => {
   return take(output, {
+    areAllCompositeComponentsReturned: __expectBoolean,
+    areAllPropertiesReturned: __expectBoolean,
     componentName: __expectString,
     componentTypeId: __expectString,
+    compositeComponents: _json,
     definedIn: __expectString,
     description: __expectString,
     properties: (_: any) => de_PropertyResponses(_, context),
@@ -4110,10 +4546,14 @@ const de_ComponentsMap = (output: any, context: __SerdeContext): Record<string, 
     if (value === null) {
       return acc;
     }
-    acc[key] = de_ComponentResponse(value, context);
+    acc[key as string] = de_ComponentResponse(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, ComponentResponse>);
 };
+
+// de_ComponentSummaries omitted.
+
+// de_ComponentSummary omitted.
 
 /**
  * deserializeAws_restJson1ComponentTypeSummaries
@@ -4141,6 +4581,12 @@ const de_ComponentTypeSummary = (output: any, context: __SerdeContext): Componen
     updateDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+// de_CompositeComponentResponse omitted.
+
+// de_CompositeComponentTypeResponse omitted.
+
+// de_CompositeComponentTypesResponse omitted.
 
 // de_Configuration omitted.
 
@@ -4196,10 +4642,12 @@ const de_DataValueMap = (output: any, context: __SerdeContext): Record<string, D
     if (value === null) {
       return acc;
     }
-    acc[key] = de_DataValue(value, context);
+    acc[key as string] = de_DataValue(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, DataValue>);
 };
+
+// de_DestinationConfiguration omitted.
 
 // de_EntityPropertyReference omitted.
 
@@ -4262,13 +4710,67 @@ const de_Errors = (output: any, context: __SerdeContext): BatchPutPropertyError[
 
 // de_ExternalIdProperty omitted.
 
+// de_FilterByAsset omitted.
+
+// de_FilterByAssetModel omitted.
+
+// de_FilterByComponentType omitted.
+
+// de_FilterByEntity omitted.
+
 // de_FunctionResponse omitted.
 
 // de_FunctionsResponse omitted.
 
 // de_GeneratedSceneMetadataMap omitted.
 
+// de_IotSiteWiseSourceConfiguration omitted.
+
+// de_IotSiteWiseSourceConfigurationFilter omitted.
+
+// de_IotSiteWiseSourceConfigurationFilters omitted.
+
+// de_IotTwinMakerDestinationConfiguration omitted.
+
+// de_IotTwinMakerSourceConfiguration omitted.
+
+// de_IotTwinMakerSourceConfigurationFilter omitted.
+
+// de_IotTwinMakerSourceConfigurationFilters omitted.
+
 // de_LambdaFunction omitted.
+
+// de_LinkedServices omitted.
+
+// de_MetadataTransferJobProgress omitted.
+
+// de_MetadataTransferJobStatus omitted.
+
+/**
+ * deserializeAws_restJson1MetadataTransferJobSummaries
+ */
+const de_MetadataTransferJobSummaries = (output: any, context: __SerdeContext): MetadataTransferJobSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MetadataTransferJobSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1MetadataTransferJobSummary
+ */
+const de_MetadataTransferJobSummary = (output: any, context: __SerdeContext): MetadataTransferJobSummary => {
+  return take(output, {
+    arn: __expectString,
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    metadataTransferJobId: __expectString,
+    progress: _json,
+    status: _json,
+    updateDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
 
 // de_PricingBundles omitted.
 
@@ -4317,10 +4819,10 @@ const de_PropertyDefinitionsResponse = (
       if (value === null) {
         return acc;
       }
-      acc[key] = de_PropertyDefinitionResponse(value, context);
+      acc[key as string] = de_PropertyDefinitionResponse(value, context);
       return acc;
     },
-    {}
+    {} as Record<string, PropertyDefinitionResponse>
   );
 };
 
@@ -4346,9 +4848,9 @@ const de_PropertyLatestValueMap = (output: any, context: __SerdeContext): Record
     if (value === null) {
       return acc;
     }
-    acc[key] = de_PropertyLatestValue(value, context);
+    acc[key as string] = de_PropertyLatestValue(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, PropertyLatestValue>);
 };
 
 // de_PropertyNames omitted.
@@ -4358,6 +4860,7 @@ const de_PropertyLatestValueMap = (output: any, context: __SerdeContext): Record
  */
 const de_PropertyResponse = (output: any, context: __SerdeContext): PropertyResponse => {
   return take(output, {
+    areAllPropertyValuesReturned: __expectBoolean,
     definition: (_: any) => de_PropertyDefinitionResponse(_, context),
     value: (_: any) => de_DataValue(_, context),
   }) as any;
@@ -4371,9 +4874,33 @@ const de_PropertyResponses = (output: any, context: __SerdeContext): Record<stri
     if (value === null) {
       return acc;
     }
-    acc[key] = de_PropertyResponse(value, context);
+    acc[key as string] = de_PropertyResponse(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, PropertyResponse>);
+};
+
+/**
+ * deserializeAws_restJson1PropertySummaries
+ */
+const de_PropertySummaries = (output: any, context: __SerdeContext): PropertySummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_PropertySummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1PropertySummary
+ */
+const de_PropertySummary = (output: any, context: __SerdeContext): PropertySummary => {
+  return take(output, {
+    areAllPropertyValuesReturned: __expectBoolean,
+    definition: (_: any) => de_PropertyDefinitionResponse(_, context),
+    propertyName: __expectString,
+    value: (_: any) => de_DataValue(_, context),
+  }) as any;
 };
 
 /**
@@ -4384,9 +4911,9 @@ const de_PropertyTableValue = (output: any, context: __SerdeContext): Record<str
     if (value === null) {
       return acc;
     }
-    acc[key] = de_DataValue(value, context);
+    acc[key as string] = de_DataValue(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, DataValue>);
 };
 
 /**
@@ -4490,6 +5017,10 @@ const de_Rows = (output: any, context: __SerdeContext): Row[] => {
   return retVal;
 };
 
+// de_S3DestinationConfiguration omitted.
+
+// de_S3SourceConfiguration omitted.
+
 // de_SceneCapabilities omitted.
 
 // de_SceneError omitted.
@@ -4521,6 +5052,10 @@ const de_SceneSummary = (output: any, context: __SerdeContext): SceneSummary => 
     updateDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+// de_SourceConfiguration omitted.
+
+// de_SourceConfigurations omitted.
 
 // de_Status omitted.
 
@@ -4637,6 +5172,7 @@ const de_WorkspaceSummary = (output: any, context: __SerdeContext): WorkspaceSum
     arn: __expectString,
     creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
+    linkedServices: _json,
     updateDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     workspaceId: __expectString,
   }) as any;
@@ -4660,6 +5196,12 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _iR = "isRecursive";
+const _rARN = "resourceARN";
+const _tK = "tagKeys";
+const _w = "workspace";
+const _wI = "workspaceId";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

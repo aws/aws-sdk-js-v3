@@ -1,19 +1,11 @@
 // smithy-typescript generated code
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteObjectsOutput, DeleteObjectsRequest } from "../models/models_0";
 import { de_DeleteObjectsCommand, se_DeleteObjectsCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
@@ -37,29 +29,104 @@ export interface DeleteObjectsCommandOutput extends DeleteObjectsOutput, __Metad
 
 /**
  * @public
- * <p>This action enables you to delete multiple objects from a bucket using a single HTTP
- *          request. If you know the object keys that you want to delete, then this action provides a
+ * <p>This operation enables you to delete multiple objects from a bucket using a single HTTP
+ *          request. If you know the object keys that you want to delete, then this operation provides a
  *          suitable alternative to sending individual delete requests, reducing per-request
  *          overhead.</p>
- *          <p>The request contains a list of up to 1000 keys that you want to delete. In the XML, you
+ *          <p>The request can contain a list of up to 1000 keys that you want to delete. In the XML, you
  *          provide the object key names, and optionally, version IDs if you want to delete a specific
  *          version of the object from a versioning-enabled bucket. For each key, Amazon S3 performs a
- *          delete action and returns the result of that delete, success, or failure, in the response.
+ *          delete operation and returns the result of that delete, success or failure, in the response.
  *          Note that if the object specified in the request is not found, Amazon S3 returns the result as
  *          deleted.</p>
- *          <p> The action supports two modes for the response: verbose and quiet. By default, the
- *          action uses verbose mode in which the response includes the result of deletion of each key
- *          in your request. In quiet mode the response includes only keys where the delete action
- *          encountered an error. For a successful deletion, the action does not return any information
+ *          <note>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <b>Directory buckets</b> - S3 Versioning isn't enabled and supported for directory buckets.</p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <b>Directory buckets</b> - For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i>
+ *                      </code>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints</a> in the
+ *     <i>Amazon S3 User Guide</i>.</p>
+ *                </li>
+ *             </ul>
+ *          </note>
+ *          <p>The operation supports two modes for the response: verbose and quiet. By default, the
+ *          operation uses verbose mode in which the response includes the result of deletion of each key
+ *          in your request. In quiet mode the response includes only keys where the delete operation
+ *          encountered an error. For a successful deletion in a quiet mode, the operation does not return any information
  *          about the delete in the response body.</p>
  *          <p>When performing this action on an MFA Delete enabled bucket, that attempts to delete any
  *          versioned objects, you must include an MFA token. If you do not provide one, the entire
  *          request will fail, even if there are non-versioned objects you are trying to delete. If you
  *          provide an invalid token, whether there are versioned keys in the request or not, the
- *          entire Multi-Object Delete request will fail. For information about MFA Delete, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html#MultiFactorAuthenticationDelete"> MFA
- *             Delete</a>.</p>
- *          <p>Finally, the Content-MD5 header is required for all Multi-Object Delete requests. Amazon S3 uses the header value to ensure that your request body has not been altered in
- *          transit.</p>
+ *          entire Multi-Object Delete request will fail. For information about MFA Delete, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html#MultiFactorAuthenticationDelete">MFA
+ *             Delete</a> in the <i>Amazon S3
+ *                User Guide</i>.</p>
+ *          <note>
+ *             <p>
+ *                <b>Directory buckets</b> - MFA delete is not supported by directory buckets.</p>
+ *          </note>
+ *          <dl>
+ *             <dt>Permissions</dt>
+ *             <dd>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <b>General purpose bucket permissions</b> - The following permissions are required in your policies when your
+ *                         <code>DeleteObjects</code> request includes specific headers.</p>
+ *                      <ul>
+ *                         <li>
+ *                            <p>
+ *                               <b>
+ *                                  <code>s3:DeleteObject</code>
+ *                               </b> - To delete an object from a bucket, you must always specify the <code>s3:DeleteObject</code> permission.</p>
+ *                         </li>
+ *                         <li>
+ *                            <p>
+ *                               <b>
+ *                                  <code>s3:DeleteObjectVersion</code>
+ *                               </b> - To delete a specific version of an object from a versiong-enabled bucket, you must specify the <code>s3:DeleteObjectVersion</code> permission.</p>
+ *                         </li>
+ *                      </ul>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <b>Directory bucket permissions</b> - To grant access to this API operation on a directory bucket, we recommend that you use the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html">
+ *                            <code>CreateSession</code>
+ *                         </a> API operation for session-based authorization. Specifically, you grant the <code>s3express:CreateSession</code> permission to the directory bucket in a bucket policy or an IAM identity-based policy. Then, you make the <code>CreateSession</code> API call on the bucket to obtain a session token. With the session token in your request header, you can make API requests to this operation. After the session token expires, you make another <code>CreateSession</code> API call to generate a new session token for use.
+ * Amazon Web Services CLI or SDKs create session and refresh the session token automatically to avoid service interruptions when a session expires. For more information about authorization, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html">
+ *                            <code>CreateSession</code>
+ *                         </a>.</p>
+ *                   </li>
+ *                </ul>
+ *             </dd>
+ *             <dt>Content-MD5 request header</dt>
+ *             <dd>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <b>General purpose bucket</b> - The Content-MD5 request header is required for all Multi-Object Delete requests. Amazon S3
+ *                      uses the header value to ensure that your request body has not been altered in
+ *                      transit.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <b>Directory bucket</b> - The Content-MD5 request header or a additional checksum request header
+ *                      (including <code>x-amz-checksum-crc32</code>, <code>x-amz-checksum-crc32c</code>, <code>x-amz-checksum-sha1</code>, or
+ *                      <code>x-amz-checksum-sha256</code>) is required for all Multi-Object Delete requests.</p>
+ *                   </li>
+ *                </ul>
+ *             </dd>
+ *             <dt>HTTP Host header syntax</dt>
+ *             <dd>
+ *                <p>
+ *                   <b>Directory buckets </b> - The HTTP Host header syntax is <code>
+ *                      <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>.</p>
+ *             </dd>
+ *          </dl>
  *          <p>The following operations are related to <code>DeleteObjects</code>:</p>
  *          <ul>
  *             <li>
@@ -144,44 +211,6 @@ export interface DeleteObjectsCommandOutput extends DeleteObjectsOutput, __Metad
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @example To delete multiple objects from a versioned bucket
- * ```javascript
- * // The following example deletes objects from a bucket. The bucket is versioned, and the request does not specify the object version to delete. In this case, all versions remain in the bucket and S3 adds a delete marker.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "Delete": {
- *     "Objects": [
- *       {
- *         "Key": "objectkey1"
- *       },
- *       {
- *         "Key": "objectkey2"
- *       }
- *     ],
- *     "Quiet": false
- *   }
- * };
- * const command = new DeleteObjectsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Deleted": [
- *     {
- *       "DeleteMarker": "true",
- *       "DeleteMarkerVersionId": "A._w1z6EFiCF5uhtQMDal9JDkID9tQ7F",
- *       "Key": "objectkey1"
- *     },
- *     {
- *       "DeleteMarker": "true",
- *       "DeleteMarkerVersionId": "iOd_ORxhkKe_e8G8_oSGxt2PjsCZKlkt",
- *       "Key": "objectkey2"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-delete-multiple-objects-from-a-versioned-bucket-1483146248805
- * ```
- *
  * @example To delete multiple object versions from a versioned bucket
  * ```javascript
  * // The following example deletes objects from a bucket. The request specifies object versions. S3 deletes specific object versions and returns the key and versions of deleted objects in the response.
@@ -220,91 +249,71 @@ export interface DeleteObjectsCommandOutput extends DeleteObjectsOutput, __Metad
  * // example id: to-delete-multiple-object-versions-from-a-versioned-bucket-1483147087737
  * ```
  *
+ * @example To delete multiple objects from a versioned bucket
+ * ```javascript
+ * // The following example deletes objects from a bucket. The bucket is versioned, and the request does not specify the object version to delete. In this case, all versions remain in the bucket and S3 adds a delete marker.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Delete": {
+ *     "Objects": [
+ *       {
+ *         "Key": "objectkey1"
+ *       },
+ *       {
+ *         "Key": "objectkey2"
+ *       }
+ *     ],
+ *     "Quiet": false
+ *   }
+ * };
+ * const command = new DeleteObjectsCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Deleted": [
+ *     {
+ *       "DeleteMarker": "true",
+ *       "DeleteMarkerVersionId": "A._w1z6EFiCF5uhtQMDal9JDkID9tQ7F",
+ *       "Key": "objectkey1"
+ *     },
+ *     {
+ *       "DeleteMarker": "true",
+ *       "DeleteMarkerVersionId": "iOd_ORxhkKe_e8G8_oSGxt2PjsCZKlkt",
+ *       "Key": "objectkey2"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: to-delete-multiple-objects-from-a-versioned-bucket-1483146248805
+ * ```
+ *
  */
-export class DeleteObjectsCommand extends $Command<
-  DeleteObjectsCommandInput,
-  DeleteObjectsCommandOutput,
-  S3ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      Bucket: { type: "contextParams", name: "Bucket" },
-      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
-      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
-      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
-      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
-      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeleteObjectsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: S3ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DeleteObjectsCommandInput, DeleteObjectsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteObjectsCommand.getEndpointParameterInstructions()));
-    this.middlewareStack.use(
-      getFlexibleChecksumsPlugin(configuration, {
+export class DeleteObjectsCommand extends $Command
+  .classBuilder<
+    DeleteObjectsCommandInput,
+    DeleteObjectsCommandOutput,
+    S3ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+    Bucket: { type: "contextParams", name: "Bucket" },
+  })
+  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getFlexibleChecksumsPlugin(config, {
         input: this.input,
         requestAlgorithmMember: "ChecksumAlgorithm",
         requestChecksumRequired: true,
-      })
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "S3Client";
-    const commandName = "DeleteObjectsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DeleteObjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteObjectsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteObjectsCommandOutput> {
-    return de_DeleteObjectsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+      }),
+    ];
+  })
+  .s("AmazonS3", "DeleteObjects", {})
+  .n("S3Client", "DeleteObjectsCommand")
+  .f(void 0, void 0)
+  .ser(se_DeleteObjectsCommand)
+  .de(de_DeleteObjectsCommand)
+  .build() {}

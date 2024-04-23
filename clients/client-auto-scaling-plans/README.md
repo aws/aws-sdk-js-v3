@@ -56,16 +56,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `AutoScalingPlansClient` and
-the commands you need, for example `CreateScalingPlanCommand`:
+the commands you need, for example `DescribeScalingPlansCommand`:
 
 ```js
 // ES5 example
-const { AutoScalingPlansClient, CreateScalingPlanCommand } = require("@aws-sdk/client-auto-scaling-plans");
+const { AutoScalingPlansClient, DescribeScalingPlansCommand } = require("@aws-sdk/client-auto-scaling-plans");
 ```
 
 ```ts
 // ES6+ example
-import { AutoScalingPlansClient, CreateScalingPlanCommand } from "@aws-sdk/client-auto-scaling-plans";
+import { AutoScalingPlansClient, DescribeScalingPlansCommand } from "@aws-sdk/client-auto-scaling-plans";
 ```
 
 ### Usage
@@ -84,7 +84,7 @@ const client = new AutoScalingPlansClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateScalingPlanCommand(params);
+const command = new DescribeScalingPlansCommand(params);
 ```
 
 #### Async/await
@@ -163,7 +163,7 @@ const client = new AWS.AutoScalingPlans({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createScalingPlan(params);
+  const data = await client.describeScalingPlans(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -171,7 +171,7 @@ try {
 
 // Promises.
 client
-  .createScalingPlan(params)
+  .describeScalingPlans(params)
   .then((data) => {
     // process data.
   })
@@ -180,7 +180,7 @@ client
   });
 
 // callbacks.
-client.createScalingPlan(params, (err, data) => {
+client.describeScalingPlans(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -195,7 +195,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -241,7 +241,7 @@ see LICENSE for more information.
 CreateScalingPlan
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/classes/createscalingplancommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/createscalingplancommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/createscalingplancommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auto-scaling-plans/command/CreateScalingPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/CreateScalingPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/CreateScalingPlanCommandOutput/)
 
 </details>
 <details>
@@ -249,7 +249,7 @@ CreateScalingPlan
 DeleteScalingPlan
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/classes/deletescalingplancommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/deletescalingplancommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/deletescalingplancommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auto-scaling-plans/command/DeleteScalingPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/DeleteScalingPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/DeleteScalingPlanCommandOutput/)
 
 </details>
 <details>
@@ -257,7 +257,7 @@ DeleteScalingPlan
 DescribeScalingPlanResources
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/classes/describescalingplanresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/describescalingplanresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/describescalingplanresourcescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auto-scaling-plans/command/DescribeScalingPlanResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/DescribeScalingPlanResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/DescribeScalingPlanResourcesCommandOutput/)
 
 </details>
 <details>
@@ -265,7 +265,7 @@ DescribeScalingPlanResources
 DescribeScalingPlans
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/classes/describescalingplanscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/describescalingplanscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/describescalingplanscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auto-scaling-plans/command/DescribeScalingPlansCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/DescribeScalingPlansCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/DescribeScalingPlansCommandOutput/)
 
 </details>
 <details>
@@ -273,7 +273,7 @@ DescribeScalingPlans
 GetScalingPlanResourceForecastData
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/classes/getscalingplanresourceforecastdatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/getscalingplanresourceforecastdatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/getscalingplanresourceforecastdatacommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auto-scaling-plans/command/GetScalingPlanResourceForecastDataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/GetScalingPlanResourceForecastDataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/GetScalingPlanResourceForecastDataCommandOutput/)
 
 </details>
 <details>
@@ -281,6 +281,6 @@ GetScalingPlanResourceForecastData
 UpdateScalingPlan
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/classes/updatescalingplancommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/updatescalingplancommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-auto-scaling-plans/interfaces/updatescalingplancommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/auto-scaling-plans/command/UpdateScalingPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/UpdateScalingPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-auto-scaling-plans/Interface/UpdateScalingPlanCommandOutput/)
 
 </details>

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -29,12 +30,16 @@ import { CreateMonitorCommandInput, CreateMonitorCommandOutput } from "../comman
 import { DeleteMonitorCommandInput, DeleteMonitorCommandOutput } from "../commands/DeleteMonitorCommand";
 import { GetHealthEventCommandInput, GetHealthEventCommandOutput } from "../commands/GetHealthEventCommand";
 import { GetMonitorCommandInput, GetMonitorCommandOutput } from "../commands/GetMonitorCommand";
+import { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "../commands/GetQueryResultsCommand";
+import { GetQueryStatusCommandInput, GetQueryStatusCommandOutput } from "../commands/GetQueryStatusCommand";
 import { ListHealthEventsCommandInput, ListHealthEventsCommandOutput } from "../commands/ListHealthEventsCommand";
 import { ListMonitorsCommandInput, ListMonitorsCommandOutput } from "../commands/ListMonitorsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { StartQueryCommandInput, StartQueryCommandOutput } from "../commands/StartQueryCommand";
+import { StopQueryCommandInput, StopQueryCommandOutput } from "../commands/StopQueryCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateMonitorCommandInput, UpdateMonitorCommandOutput } from "../commands/UpdateMonitorCommand";
@@ -44,6 +49,7 @@ import {
   AvailabilityMeasurement,
   BadRequestException,
   ConflictException,
+  FilterParameter,
   HealthEvent,
   HealthEventsConfig,
   ImpactedLocation,
@@ -70,11 +76,11 @@ export const se_CreateMonitorCommand = async (
   input: CreateMonitorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20210603/Monitors";
+  b.bp("/v20210603/Monitors");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -88,15 +94,8 @@ export const se_CreateMonitorCommand = async (
       TrafficPercentageToMonitor: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -106,21 +105,13 @@ export const se_DeleteMonitorCommand = async (
   input: DeleteMonitorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20210603/Monitors/{MonitorName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MonitorName", () => input.MonitorName!, "{MonitorName}", false);
+  b.bp("/v20210603/Monitors/{MonitorName}");
+  b.p("MonitorName", () => input.MonitorName!, "{MonitorName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -130,23 +121,14 @@ export const se_GetHealthEventCommand = async (
   input: GetHealthEventCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20210603/Monitors/{MonitorName}/HealthEvents/{EventId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MonitorName", () => input.MonitorName!, "{MonitorName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "EventId", () => input.EventId!, "{EventId}", false);
+  b.bp("/v20210603/Monitors/{MonitorName}/HealthEvents/{EventId}");
+  b.p("MonitorName", () => input.MonitorName!, "{MonitorName}", false);
+  b.p("EventId", () => input.EventId!, "{EventId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -156,21 +138,51 @@ export const se_GetMonitorCommand = async (
   input: GetMonitorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20210603/Monitors/{MonitorName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MonitorName", () => input.MonitorName!, "{MonitorName}", false);
+  b.bp("/v20210603/Monitors/{MonitorName}");
+  b.p("MonitorName", () => input.MonitorName!, "{MonitorName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetQueryResultsCommand
+ */
+export const se_GetQueryResultsCommand = async (
+  input: GetQueryResultsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v20210603/Monitors/{MonitorName}/Queries/{QueryId}/Results");
+  b.p("MonitorName", () => input.MonitorName!, "{MonitorName}", false);
+  b.p("QueryId", () => input.QueryId!, "{QueryId}", false);
+  const query: any = map({
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetQueryStatusCommand
+ */
+export const se_GetQueryStatusCommand = async (
+  input: GetQueryStatusCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v20210603/Monitors/{MonitorName}/Queries/{QueryId}/Status");
+  b.p("MonitorName", () => input.MonitorName!, "{MonitorName}", false);
+  b.p("QueryId", () => input.QueryId!, "{QueryId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -180,33 +192,20 @@ export const se_ListHealthEventsCommand = async (
   input: ListHealthEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20210603/Monitors/{MonitorName}/HealthEvents";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MonitorName", () => input.MonitorName!, "{MonitorName}", false);
+  b.bp("/v20210603/Monitors/{MonitorName}/HealthEvents");
+  b.p("MonitorName", () => input.MonitorName!, "{MonitorName}", false);
   const query: any = map({
-    StartTime: [
-      () => input.StartTime !== void 0,
-      () => (input.StartTime!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    EndTime: [() => input.EndTime !== void 0, () => (input.EndTime!.toISOString().split(".")[0] + "Z").toString()],
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    EventStatus: [, input.EventStatus!],
+    [_ST]: [() => input.StartTime !== void 0, () => (input[_ST]!.toISOString().split(".")[0] + "Z").toString()],
+    [_ET]: [() => input.EndTime !== void 0, () => (input[_ET]!.toISOString().split(".")[0] + "Z").toString()],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_ES]: [, input[_ES]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -216,25 +215,17 @@ export const se_ListMonitorsCommand = async (
   input: ListMonitorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20210603/Monitors";
+  b.bp("/v20210603/Monitors");
   const query: any = map({
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    MonitorStatus: [, input.MonitorStatus!],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_MS]: [, input[_MS]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -244,20 +235,56 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartQueryCommand
+ */
+export const se_StartQueryCommand = async (
+  input: StartQueryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v20210603/Monitors/{MonitorName}/Queries");
+  b.p("MonitorName", () => input.MonitorName!, "{MonitorName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      EndTime: (_) => _.toISOString().split(".")[0] + "Z",
+      FilterParameters: (_) => _json(_),
+      QueryType: [],
+      StartTime: (_) => _.toISOString().split(".")[0] + "Z",
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StopQueryCommand
+ */
+export const se_StopQueryCommand = async (
+  input: StopQueryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v20210603/Monitors/{MonitorName}/Queries/{QueryId}");
+  b.p("MonitorName", () => input.MonitorName!, "{MonitorName}", false);
+  b.p("QueryId", () => input.QueryId!, "{QueryId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -267,27 +294,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -297,27 +317,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -327,13 +339,12 @@ export const se_UpdateMonitorCommand = async (
   input: UpdateMonitorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20210603/Monitors/{MonitorName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MonitorName", () => input.MonitorName!, "{MonitorName}", false);
+  b.bp("/v20210603/Monitors/{MonitorName}");
+  b.p("MonitorName", () => input.MonitorName!, "{MonitorName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -347,15 +358,8 @@ export const se_UpdateMonitorCommand = async (
       TrafficPercentageToMonitor: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -608,6 +612,126 @@ const de_GetMonitorCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1GetQueryResultsCommand
+ */
+export const de_GetQueryResultsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetQueryResultsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetQueryResultsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Data: _json,
+    Fields: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetQueryResultsCommandError
+ */
+const de_GetQueryResultsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetQueryResultsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.internetmonitor#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.internetmonitor#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.internetmonitor#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.internetmonitor#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.internetmonitor#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetQueryStatusCommand
+ */
+export const de_GetQueryStatusCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetQueryStatusCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetQueryStatusCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetQueryStatusCommandError
+ */
+const de_GetQueryStatusCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetQueryStatusCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.internetmonitor#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.internetmonitor#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.internetmonitor#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.internetmonitor#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.internetmonitor#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListHealthEventsCommand
  */
 export const de_ListHealthEventsCommand = async (
@@ -770,6 +894,120 @@ const de_ListTagsForResourceCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.internetmonitor#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1StartQueryCommand
+ */
+export const de_StartQueryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartQueryCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StartQueryCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    QueryId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartQueryCommandError
+ */
+const de_StartQueryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartQueryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.internetmonitor#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.internetmonitor#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.internetmonitor#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.internetmonitor#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.internetmonitor#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1StopQueryCommand
+ */
+export const de_StopQueryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopQueryCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StopQueryCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StopQueryCommandError
+ */
+const de_StopQueryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopQueryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.internetmonitor#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.internetmonitor#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.internetmonitor#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.internetmonitor#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.internetmonitor#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1159,6 +1397,12 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_FilterList omitted.
+
+// se_FilterParameter omitted.
+
+// se_FilterParameters omitted.
+
 /**
  * serializeAws_restJson1HealthEventsConfig
  */
@@ -1323,6 +1567,14 @@ const de_PerformanceMeasurement = (output: any, context: __SerdeContext): Perfor
   }) as any;
 };
 
+// de_QueryData omitted.
+
+// de_QueryField omitted.
+
+// de_QueryFields omitted.
+
+// de_QueryRow omitted.
+
 /**
  * deserializeAws_restJson1RoundTripTime
  */
@@ -1358,6 +1610,15 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _ES = "EventStatus";
+const _ET = "EndTime";
+const _MR = "MaxResults";
+const _MS = "MonitorStatus";
+const _NT = "NextToken";
+const _ST = "StartTime";
+const _TK = "TagKeys";
+const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

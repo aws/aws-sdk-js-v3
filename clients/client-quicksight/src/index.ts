@@ -12,8 +12,12 @@
 export * from "./QuickSightClient";
 export * from "./QuickSight";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { QuickSightExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { QuickSightServiceException } from "./models/QuickSightServiceException";

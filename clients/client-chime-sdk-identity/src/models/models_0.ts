@@ -167,7 +167,7 @@ export interface InvokedBy {
    *             </li>
    *          </ul>
    */
-  StandardMessages: StandardMessages | string | undefined;
+  StandardMessages: StandardMessages | undefined;
 
   /**
    * @public
@@ -184,7 +184,7 @@ export interface InvokedBy {
    *             </li>
    *          </ul>
    */
-  TargetedMessages: TargetedMessages | string | undefined;
+  TargetedMessages: TargetedMessages | undefined;
 }
 
 /**
@@ -213,7 +213,7 @@ export interface LexConfiguration {
    *          </important>
    *          <p>Determines whether the Amazon Lex V2 bot responds to all standard messages. Control messages are not supported.</p>
    */
-  RespondsTo?: RespondsTo | string;
+  RespondsTo?: RespondsTo;
 
   /**
    * @public
@@ -398,7 +398,7 @@ export interface ExpirationSettings {
    * @public
    * <p>Specifies the conditions under which an <code>AppInstanceUser</code> will expire.</p>
    */
-  ExpirationCriterion: ExpirationCriterion | string | undefined;
+  ExpirationCriterion: ExpirationCriterion | undefined;
 }
 
 /**
@@ -518,13 +518,13 @@ export interface EndpointState {
    * @public
    * <p>Enum that indicates the Status of an <code>AppInstanceUserEndpoint</code>.</p>
    */
-  Status: EndpointStatus | string | undefined;
+  Status: EndpointStatus | undefined;
 
   /**
    * @public
    * <p>The reason for the <code>EndpointStatus</code>.</p>
    */
-  StatusReason?: EndpointStatusReason | string;
+  StatusReason?: EndpointStatusReason;
 }
 
 /**
@@ -570,7 +570,7 @@ export interface AppInstanceUserEndpoint {
    * @public
    * <p>The type of the <code>AppInstanceUserEndpoint</code>.</p>
    */
-  Type?: AppInstanceUserEndpointType | string;
+  Type?: AppInstanceUserEndpointType;
 
   /**
    * @public
@@ -601,7 +601,7 @@ export interface AppInstanceUserEndpoint {
    * <p>Boolean that controls whether the <code>AppInstanceUserEndpoint</code> is opted in to receive messages. <code>ALL</code> indicates the endpoint will receive all messages.
    *          <code>NONE</code> indicates the endpoint will receive no messages.</p>
    */
-  AllowMessages?: AllowMessages | string;
+  AllowMessages?: AllowMessages;
 
   /**
    * @public
@@ -657,14 +657,14 @@ export interface AppInstanceUserEndpointSummary {
    * @public
    * <p>The type of the <code>AppInstanceUserEndpoint</code>.</p>
    */
-  Type?: AppInstanceUserEndpointType | string;
+  Type?: AppInstanceUserEndpointType;
 
   /**
    * @public
    * <p>BBoolean that controls whether the <code>AppInstanceUserEndpoint</code> is opted in to receive messages. <code>ALL</code> indicates the endpoint will receive all messages.
    *          <code>NONE</code> indicates the endpoint will receive no messages.</p>
    */
-  AllowMessages?: AllowMessages | string;
+  AllowMessages?: AllowMessages;
 
   /**
    * @public
@@ -731,7 +731,7 @@ export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -756,7 +756,7 @@ export class BadRequestException extends __BaseException {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -838,7 +838,7 @@ export interface CreateAppInstanceResponse {
 export class ForbiddenException extends __BaseException {
   readonly name: "ForbiddenException" = "ForbiddenException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -862,7 +862,7 @@ export class ForbiddenException extends __BaseException {
 export class ResourceLimitExceededException extends __BaseException {
   readonly name: "ResourceLimitExceededException" = "ResourceLimitExceededException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -886,7 +886,7 @@ export class ResourceLimitExceededException extends __BaseException {
 export class ServiceFailureException extends __BaseException {
   readonly name: "ServiceFailureException" = "ServiceFailureException";
   readonly $fault: "server" = "server";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -910,7 +910,7 @@ export class ServiceFailureException extends __BaseException {
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
   readonly $fault: "server" = "server";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -934,7 +934,7 @@ export class ServiceUnavailableException extends __BaseException {
 export class ThrottledClientException extends __BaseException {
   readonly name: "ThrottledClientException" = "ThrottledClientException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -958,7 +958,7 @@ export class ThrottledClientException extends __BaseException {
 export class UnauthorizedClientException extends __BaseException {
   readonly name: "UnauthorizedClientException" = "UnauthorizedClientException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -1269,7 +1269,7 @@ export interface DescribeAppInstanceBotResponse {
 export class NotFoundException extends __BaseException {
   readonly name: "NotFoundException" = "NotFoundException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -1707,7 +1707,7 @@ export interface RegisterAppInstanceUserEndpointRequest {
    *          </ul>
    *          <p>Populate the <code>ResourceArn</code> value of each type as <code>PinpointAppArn</code>.</p>
    */
-  Type: AppInstanceUserEndpointType | string | undefined;
+  Type: AppInstanceUserEndpointType | undefined;
 
   /**
    * @public
@@ -1732,7 +1732,7 @@ export interface RegisterAppInstanceUserEndpointRequest {
    * <p>Boolean that controls whether the AppInstanceUserEndpoint is opted in to receive messages. <code>ALL</code> indicates the endpoint receives all messages.
    *          <code>NONE</code> indicates the endpoint receives no messages.</p>
    */
-  AllowMessages?: AllowMessages | string;
+  AllowMessages?: AllowMessages;
 }
 
 /**
@@ -1921,7 +1921,7 @@ export interface UpdateAppInstanceUserEndpointRequest {
    * <p>Boolean that controls whether the <code>AppInstanceUserEndpoint</code> is opted in to receive messages. <code>ALL</code> indicates the endpoint will receive all messages.
    *          <code>NONE</code> indicates the endpoint will receive no messages.</p>
    */
-  AllowMessages?: AllowMessages | string;
+  AllowMessages?: AllowMessages;
 }
 
 /**

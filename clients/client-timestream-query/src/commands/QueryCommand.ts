@@ -1,19 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointDiscoveryPlugin } from "@aws-sdk/middleware-endpoint-discovery";
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { QueryRequest, QueryRequestFilterSensitiveLog, QueryResponse } from "../models/models_0";
 import { de_QueryCommand, se_QueryCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, TimestreamQueryClientResolvedConfig } from "../TimestreamQueryClient";
@@ -43,26 +35,26 @@ export interface QueryCommandOutput extends QueryResponse, __MetadataBearer {}
  *             You must update the default timeout in the SDK to support a timeout of 60 seconds. See
  *             the <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/code-samples.run-query.html">code
  *                 sample</a> for details. </p>
- *         <p>Your query request will fail in the following cases:</p>
- *         <ul>
+ *          <p>Your query request will fail in the following cases:</p>
+ *          <ul>
  *             <li>
- *                 <p> If you submit a <code>Query</code> request with the same client token outside
+ *                <p> If you submit a <code>Query</code> request with the same client token outside
  *                     of the 5-minute idempotency window. </p>
  *             </li>
  *             <li>
- *                 <p> If you submit a <code>Query</code> request with the same client token, but
+ *                <p> If you submit a <code>Query</code> request with the same client token, but
  *                     change other parameters, within the 5-minute idempotency window. </p>
  *             </li>
  *             <li>
- *                 <p> If the size of the row (including the query metadata) exceeds 1 MB, then the
+ *                <p> If the size of the row (including the query metadata) exceeds 1 MB, then the
  *                     query will fail with the following error message: </p>
- *                 <p>
+ *                <p>
  *                   <code>Query aborted as max page response size has been exceeded by the output
  *                         result row</code>
- *                 </p>
+ *                </p>
  *             </li>
  *             <li>
- *                 <p> If the IAM principal of the query initiator and the result reader are not the
+ *                <p> If the IAM principal of the query initiator and the result reader are not the
  *                     same and/or the query initiator and the result reader do not have the same query
  *                     string in the query requests, the query will fail with an <code>Invalid
  *                         pagination token</code> error. </p>
@@ -122,11 +114,11 @@ export interface QueryCommandOutput extends QueryResponse, __MetadataBearer {}
  * //     { // ColumnInfo
  * //       Name: "STRING_VALUE",
  * //       Type: { // Type
- * //         ScalarType: "STRING_VALUE",
+ * //         ScalarType: "VARCHAR" || "BOOLEAN" || "BIGINT" || "DOUBLE" || "TIMESTAMP" || "DATE" || "TIME" || "INTERVAL_DAY_TO_SECOND" || "INTERVAL_YEAR_TO_MONTH" || "UNKNOWN" || "INTEGER",
  * //         ArrayColumnInfo: {
  * //           Name: "STRING_VALUE",
  * //           Type: {
- * //             ScalarType: "STRING_VALUE",
+ * //             ScalarType: "VARCHAR" || "BOOLEAN" || "BIGINT" || "DOUBLE" || "TIMESTAMP" || "DATE" || "TIME" || "INTERVAL_DAY_TO_SECOND" || "INTERVAL_YEAR_TO_MONTH" || "UNKNOWN" || "INTEGER",
  * //             ArrayColumnInfo: "<ColumnInfo>",
  * //             TimeSeriesMeasureValueColumnInfo: "<ColumnInfo>",
  * //             RowColumnInfo: [
@@ -182,76 +174,27 @@ export interface QueryCommandOutput extends QueryResponse, __MetadataBearer {}
  * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
  */
-export class QueryCommand extends $Command<QueryCommandInput, QueryCommandOutput, TimestreamQueryClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: QueryCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: TimestreamQueryClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<QueryCommandInput, QueryCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, QueryCommand.getEndpointParameterInstructions()));
-    this.middlewareStack.use(
-      getEndpointDiscoveryPlugin(configuration, { clientStack, options, isDiscoveredEndpointRequired: true })
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "TimestreamQueryClient";
-    const commandName = "QueryCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: QueryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: QueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_QueryCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryCommandOutput> {
-    return de_QueryCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class QueryCommand extends $Command
+  .classBuilder<
+    QueryCommandInput,
+    QueryCommandOutput,
+    TimestreamQueryClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: TimestreamQueryClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getEndpointDiscoveryPlugin(config, { clientStack: cs, isDiscoveredEndpointRequired: true, options: o }),
+    ];
+  })
+  .s("Timestream_20181101", "Query", {})
+  .n("TimestreamQueryClient", "QueryCommand")
+  .f(QueryRequestFilterSensitiveLog, void 0)
+  .ser(se_QueryCommand)
+  .de(de_QueryCommand)
+  .build() {}

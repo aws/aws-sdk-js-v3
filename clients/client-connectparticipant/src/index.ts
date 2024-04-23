@@ -16,8 +16,12 @@
 export * from "./ConnectParticipantClient";
 export * from "./ConnectParticipant";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { ConnectParticipantExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { ConnectParticipantServiceException } from "./models/ConnectParticipantServiceException";

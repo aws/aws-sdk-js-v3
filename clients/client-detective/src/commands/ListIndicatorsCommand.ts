@@ -1,0 +1,152 @@
+// smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { Command as $Command } from "@smithy/smithy-client";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+
+import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
+import { commonParams } from "../endpoint/EndpointParameters";
+import { ListIndicatorsRequest, ListIndicatorsResponse } from "../models/models_0";
+import { de_ListIndicatorsCommand, se_ListIndicatorsCommand } from "../protocols/Aws_restJson1";
+
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link ListIndicatorsCommand}.
+ */
+export interface ListIndicatorsCommandInput extends ListIndicatorsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListIndicatorsCommand}.
+ */
+export interface ListIndicatorsCommandOutput extends ListIndicatorsResponse, __MetadataBearer {}
+
+/**
+ * @public
+ * <p>Get the indicators from an investigation</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DetectiveClient, ListIndicatorsCommand } from "@aws-sdk/client-detective"; // ES Modules import
+ * // const { DetectiveClient, ListIndicatorsCommand } = require("@aws-sdk/client-detective"); // CommonJS import
+ * const client = new DetectiveClient(config);
+ * const input = { // ListIndicatorsRequest
+ *   GraphArn: "STRING_VALUE", // required
+ *   InvestigationId: "STRING_VALUE", // required
+ *   IndicatorType: "TTP_OBSERVED" || "IMPOSSIBLE_TRAVEL" || "FLAGGED_IP_ADDRESS" || "NEW_GEOLOCATION" || "NEW_ASO" || "NEW_USER_AGENT" || "RELATED_FINDING" || "RELATED_FINDING_GROUP",
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ * };
+ * const command = new ListIndicatorsCommand(input);
+ * const response = await client.send(command);
+ * // { // ListIndicatorsResponse
+ * //   GraphArn: "STRING_VALUE",
+ * //   InvestigationId: "STRING_VALUE",
+ * //   NextToken: "STRING_VALUE",
+ * //   Indicators: [ // Indicators
+ * //     { // Indicator
+ * //       IndicatorType: "TTP_OBSERVED" || "IMPOSSIBLE_TRAVEL" || "FLAGGED_IP_ADDRESS" || "NEW_GEOLOCATION" || "NEW_ASO" || "NEW_USER_AGENT" || "RELATED_FINDING" || "RELATED_FINDING_GROUP",
+ * //       IndicatorDetail: { // IndicatorDetail
+ * //         TTPsObservedDetail: { // TTPsObservedDetail
+ * //           Tactic: "STRING_VALUE",
+ * //           Technique: "STRING_VALUE",
+ * //           Procedure: "STRING_VALUE",
+ * //           IpAddress: "STRING_VALUE",
+ * //           APIName: "STRING_VALUE",
+ * //           APISuccessCount: Number("long"),
+ * //           APIFailureCount: Number("long"),
+ * //         },
+ * //         ImpossibleTravelDetail: { // ImpossibleTravelDetail
+ * //           StartingIpAddress: "STRING_VALUE",
+ * //           EndingIpAddress: "STRING_VALUE",
+ * //           StartingLocation: "STRING_VALUE",
+ * //           EndingLocation: "STRING_VALUE",
+ * //           HourlyTimeDelta: Number("int"),
+ * //         },
+ * //         FlaggedIpAddressDetail: { // FlaggedIpAddressDetail
+ * //           IpAddress: "STRING_VALUE",
+ * //           Reason: "AWS_THREAT_INTELLIGENCE",
+ * //         },
+ * //         NewGeolocationDetail: { // NewGeolocationDetail
+ * //           Location: "STRING_VALUE",
+ * //           IpAddress: "STRING_VALUE",
+ * //           IsNewForEntireAccount: true || false,
+ * //         },
+ * //         NewAsoDetail: { // NewAsoDetail
+ * //           Aso: "STRING_VALUE",
+ * //           IsNewForEntireAccount: true || false,
+ * //         },
+ * //         NewUserAgentDetail: { // NewUserAgentDetail
+ * //           UserAgent: "STRING_VALUE",
+ * //           IsNewForEntireAccount: true || false,
+ * //         },
+ * //         RelatedFindingDetail: { // RelatedFindingDetail
+ * //           Arn: "STRING_VALUE",
+ * //           Type: "STRING_VALUE",
+ * //           IpAddress: "STRING_VALUE",
+ * //         },
+ * //         RelatedFindingGroupDetail: { // RelatedFindingGroupDetail
+ * //           Id: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
+ * // };
+ *
+ * ```
+ *
+ * @param ListIndicatorsCommandInput - {@link ListIndicatorsCommandInput}
+ * @returns {@link ListIndicatorsCommandOutput}
+ * @see {@link ListIndicatorsCommandInput} for command's `input` shape.
+ * @see {@link ListIndicatorsCommandOutput} for command's `response` shape.
+ * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request issuer does not have permission to access this resource or perform this
+ *          operation.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request was valid but failed because of a problem with the service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request refers to a nonexistent resource.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request cannot be completed because too many other requests are occurring at the
+ *          same time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request parameters are invalid.</p>
+ *
+ * @throws {@link DetectiveServiceException}
+ * <p>Base exception class for all service exceptions from Detective service.</p>
+ *
+ */
+export class ListIndicatorsCommand extends $Command
+  .classBuilder<
+    ListIndicatorsCommandInput,
+    ListIndicatorsCommandOutput,
+    DetectiveClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: DetectiveClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonDetective", "ListIndicators", {})
+  .n("DetectiveClient", "ListIndicatorsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListIndicatorsCommand)
+  .de(de_ListIndicatorsCommand)
+  .build() {}

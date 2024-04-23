@@ -8,17 +8,15 @@ AWS SDK for JavaScript Rbin Client for Node.js, Browser and React Native.
 
 <p>This is the <i>Recycle Bin API Reference</i>. This documentation provides
 descriptions and syntax for each of the actions and data types in Recycle Bin.</p>
-
 <p>Recycle Bin is a resource recovery feature that enables you to restore accidentally
 deleted snapshots and EBS-backed AMIs. When using Recycle Bin, if your resources are
 deleted, they are retained in the Recycle Bin for a time period that you specify.</p>
-
 <p>You can restore a resource from the Recycle Bin at any time before its retention period
 expires. After you restore a resource from the Recycle Bin, the resource is removed from the
 Recycle Bin, and you can then use it in the same way you use any other resource of that type
 in your account. If the retention period expires and the resource is not restored, the resource
 is permanently deleted from the Recycle Bin and is no longer available for recovery. For more
-information about Recycle Bin, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-recycle-bin.html">
+information about Recycle Bin, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">
 Recycle Bin</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
 
 ## Installing
@@ -36,16 +34,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `RbinClient` and
-the commands you need, for example `CreateRuleCommand`:
+the commands you need, for example `ListRulesCommand`:
 
 ```js
 // ES5 example
-const { RbinClient, CreateRuleCommand } = require("@aws-sdk/client-rbin");
+const { RbinClient, ListRulesCommand } = require("@aws-sdk/client-rbin");
 ```
 
 ```ts
 // ES6+ example
-import { RbinClient, CreateRuleCommand } from "@aws-sdk/client-rbin";
+import { RbinClient, ListRulesCommand } from "@aws-sdk/client-rbin";
 ```
 
 ### Usage
@@ -64,7 +62,7 @@ const client = new RbinClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateRuleCommand(params);
+const command = new ListRulesCommand(params);
 ```
 
 #### Async/await
@@ -143,7 +141,7 @@ const client = new AWS.Rbin({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createRule(params);
+  const data = await client.listRules(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -151,7 +149,7 @@ try {
 
 // Promises.
 client
-  .createRule(params)
+  .listRules(params)
   .then((data) => {
     // process data.
   })
@@ -160,7 +158,7 @@ client
   });
 
 // callbacks.
-client.createRule(params, (err, data) => {
+client.listRules(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -175,7 +173,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -221,7 +219,7 @@ see LICENSE for more information.
 CreateRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rbin/classes/createrulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rbin/interfaces/createrulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rbin/interfaces/createrulecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rbin/command/CreateRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rbin/Interface/CreateRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rbin/Interface/CreateRuleCommandOutput/)
 
 </details>
 <details>
@@ -229,7 +227,7 @@ CreateRule
 DeleteRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rbin/classes/deleterulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rbin/interfaces/deleterulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rbin/interfaces/deleterulecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rbin/command/DeleteRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rbin/Interface/DeleteRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rbin/Interface/DeleteRuleCommandOutput/)
 
 </details>
 <details>
@@ -237,7 +235,7 @@ DeleteRule
 GetRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rbin/classes/getrulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rbin/interfaces/getrulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rbin/interfaces/getrulecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rbin/command/GetRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rbin/Interface/GetRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rbin/Interface/GetRuleCommandOutput/)
 
 </details>
 <details>
@@ -245,7 +243,7 @@ GetRule
 ListRules
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rbin/classes/listrulescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rbin/interfaces/listrulescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rbin/interfaces/listrulescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rbin/command/ListRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rbin/Interface/ListRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rbin/Interface/ListRulesCommandOutput/)
 
 </details>
 <details>
@@ -253,7 +251,7 @@ ListRules
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rbin/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rbin/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rbin/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rbin/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rbin/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rbin/Interface/ListTagsForResourceCommandOutput/)
 
 </details>
 <details>
@@ -261,7 +259,7 @@ ListTagsForResource
 LockRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rbin/classes/lockrulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rbin/interfaces/lockrulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rbin/interfaces/lockrulecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rbin/command/LockRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rbin/Interface/LockRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rbin/Interface/LockRuleCommandOutput/)
 
 </details>
 <details>
@@ -269,7 +267,7 @@ LockRule
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rbin/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rbin/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rbin/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rbin/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rbin/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rbin/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -277,7 +275,7 @@ TagResource
 UnlockRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rbin/classes/unlockrulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rbin/interfaces/unlockrulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rbin/interfaces/unlockrulecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rbin/command/UnlockRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rbin/Interface/UnlockRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rbin/Interface/UnlockRuleCommandOutput/)
 
 </details>
 <details>
@@ -285,7 +283,7 @@ UnlockRule
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rbin/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rbin/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rbin/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rbin/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rbin/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rbin/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -293,6 +291,6 @@ UntagResource
 UpdateRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rbin/classes/updaterulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rbin/interfaces/updaterulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rbin/interfaces/updaterulecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rbin/command/UpdateRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rbin/Interface/UpdateRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rbin/Interface/UpdateRuleCommandOutput/)
 
 </details>

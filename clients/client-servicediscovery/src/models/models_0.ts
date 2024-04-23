@@ -347,7 +347,8 @@ export interface CreatePublicDnsNamespaceRequest {
    * @public
    * <p>The name that you want to assign to this namespace.</p>
    *          <note>
-   *             <p>Do not include sensitive information in the name. The name is publicly available using DNS queries.</p>
+   *             <p>Do not include sensitive information in the name. The name is publicly available using DNS
+   *     queries.</p>
    *          </note>
    */
   Name: string | undefined;
@@ -556,7 +557,7 @@ export interface DnsRecord {
    *             </dd>
    *          </dl>
    */
-  Type: RecordType | string | undefined;
+  Type: RecordType | undefined;
 
   /**
    * @public
@@ -650,7 +651,7 @@ export interface DnsConfig {
    *             </dd>
    *          </dl>
    */
-  RoutingPolicy?: RoutingPolicy | string;
+  RoutingPolicy?: RoutingPolicy;
 
   /**
    * @public
@@ -777,7 +778,7 @@ export interface HealthCheckConfig {
    *     Determines Whether an Endpoint Is Healthy</a> in the
    *    <i>Route 53 Developer Guide</i>.</p>
    */
-  Type: HealthCheckType | string | undefined;
+  Type: HealthCheckType | undefined;
 
   /**
    * @public
@@ -900,10 +901,12 @@ export interface CreateServiceRequest {
    * @public
    * <p>The name that you want to assign to the service.</p>
    *          <note>
-   *             <p>Do not include sensitive information in the name if the namespace is discoverable by public DNS queries.</p>
+   *             <p>Do not include sensitive information in the name if the namespace is discoverable by public
+   *     DNS queries.</p>
    *          </note>
-   *          <p>If you want Cloud Map to create an <code>SRV</code> record when you register an instance and you're using a
-   *    system that requires a specific <code>SRV</code> format, such as <a href="http://www.haproxy.org/">HAProxy</a>, specify the following for <code>Name</code>:</p>
+   *          <p>If you want Cloud Map to create an <code>SRV</code> record when you register an instance
+   *    and you're using a system that requires a specific <code>SRV</code> format, such as <a href="http://www.haproxy.org/">HAProxy</a>, specify the following for
+   *    <code>Name</code>:</p>
    *          <ul>
    *             <li>
    *                <p>Start the name with an underscore (_), such as <code>_exampleservice</code>.</p>
@@ -995,7 +998,7 @@ export interface CreateServiceRequest {
    *     <code>DiscoverInstances</code> API operation. No DNS records is registered for the service
    *    instances. The only valid value is <code>HTTP</code>.</p>
    */
-  Type?: ServiceTypeOption | string;
+  Type?: ServiceTypeOption;
 }
 
 /**
@@ -1087,7 +1090,7 @@ export interface Service {
    *             </dd>
    *          </dl>
    */
-  Type?: ServiceType | string;
+  Type?: ServiceType;
 
   /**
    * @public
@@ -1453,7 +1456,7 @@ export interface DiscoverInstancesRequest {
    *             </dd>
    *          </dl>
    */
-  HealthStatus?: HealthStatusFilter | string;
+  HealthStatus?: HealthStatusFilter;
 }
 
 /**
@@ -1508,7 +1511,7 @@ export interface HttpInstanceSummary {
    * <p>If you configured health checking in the service, the current health status of the service
    *    instance.</p>
    */
-  HealthStatus?: HealthStatus | string;
+  HealthStatus?: HealthStatus;
 
   /**
    * @public
@@ -1528,6 +1531,14 @@ export interface DiscoverInstancesResponse {
    *    instance.</p>
    */
   Instances?: HttpInstanceSummary[];
+
+  /**
+   * @public
+   * <p>The increasing revision associated to the response Instances list. If a new instance is
+   *    registered or deregistered, the <code>InstancesRevision</code> updates. The health status updates
+   *    don't update <code>InstancesRevision</code>.</p>
+   */
+  InstancesRevision?: number;
 }
 
 /**
@@ -1552,6 +1563,38 @@ export class RequestLimitExceeded extends __BaseException {
     Object.setPrototypeOf(this, RequestLimitExceeded.prototype);
     this.Message = opts.Message;
   }
+}
+
+/**
+ * @public
+ */
+export interface DiscoverInstancesRevisionRequest {
+  /**
+   * @public
+   * <p>The <code>HttpName</code> name of the namespace. It's found in the
+   *      <code>HttpProperties</code> member of the <code>Properties</code> member of the
+   *     namespace.</p>
+   */
+  NamespaceName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the service that you specified when you registered the instance.</p>
+   */
+  ServiceName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DiscoverInstancesRevisionResponse {
+  /**
+   * @public
+   * <p>The increasing revision associated to the response Instances list. If a new instance is
+   *    registered or deregistered, the <code>InstancesRevision</code> updates. The health status updates
+   *    don't update <code>InstancesRevision</code>.</p>
+   */
+  InstancesRevision?: number;
 }
 
 /**
@@ -1680,8 +1723,8 @@ export interface Instance {
    *             </li>
    *          </ul>
    *          <note>
-   *             <p>Do not include sensitive information in the attributes if the namespace is discoverable by public DNS
-   *     queries.</p>
+   *             <p>Do not include sensitive information in the attributes if the namespace is discoverable by
+   *     public DNS queries.</p>
    *          </note>
    *          <p>Supported attribute keys include the following:</p>
    *          <dl>
@@ -1830,7 +1873,7 @@ export interface GetInstancesHealthStatusResponse {
    * <p>A complex type that contains the IDs and the health status of the instances that you
    *    specified in the <code>GetInstancesHealthStatus</code> request.</p>
    */
-  Status?: Record<string, HealthStatus | string>;
+  Status?: Record<string, HealthStatus>;
 
   /**
    * @public
@@ -1943,7 +1986,7 @@ export interface Namespace {
    *             </dd>
    *          </dl>
    */
-  Type?: NamespaceType | string;
+  Type?: NamespaceType;
 
   /**
    * @public
@@ -2066,7 +2109,7 @@ export interface Operation {
    * @public
    * <p>The name of the operation that's associated with the specified ID.</p>
    */
-  Type?: OperationType | string;
+  Type?: OperationType;
 
   /**
    * @public
@@ -2090,7 +2133,7 @@ export interface Operation {
    *             </dd>
    *          </dl>
    */
-  Status?: OperationStatus | string;
+  Status?: OperationStatus;
 
   /**
    * @public
@@ -2179,7 +2222,7 @@ export interface Operation {
    *             </dd>
    *          </dl>
    */
-  Targets?: Record<string, string>;
+  Targets?: Partial<Record<OperationTargetType, string>>;
 }
 
 /**
@@ -2407,7 +2450,7 @@ export interface NamespaceFilter {
    *             </li>
    *          </ul>
    */
-  Name: NamespaceFilterName | string | undefined;
+  Name: NamespaceFilterName | undefined;
 
   /**
    * @public
@@ -2436,24 +2479,23 @@ export interface NamespaceFilter {
   /**
    * @public
    * <p>Specify the operator that you want to use to determine whether a namespace matches the
-   *     specified value. Valid values for <code>Condition</code> are one of the following.</p>
+   *    specified value. Valid values for <code>Condition</code> are one of the following.</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <code>EQ</code>: When you specify <code>EQ</code> for <code>Condition</code>, you can
-   *       specify only one value. <code>EQ</code> is supported for <code>TYPE</code>, <code>NAME</code>,
-   *       and <code>HTTP_NAME</code>. <code>EQ</code> is the default condition and can be
-   *       omitted.</p>
+   *      specify only one value. <code>EQ</code> is supported for <code>TYPE</code>, <code>NAME</code>,
+   *      and <code>HTTP_NAME</code>. <code>EQ</code> is the default condition and can be omitted.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>BEGINS_WITH</code>: When you specify <code>BEGINS_WITH</code> for
-   *        <code>Condition</code>, you can specify only one value. <code>BEGINS_WITH</code> is supported
-   *       for <code>TYPE</code>, <code>NAME</code>, and <code>HTTP_NAME</code>.</p>
+   *       <code>Condition</code>, you can specify only one value. <code>BEGINS_WITH</code> is supported
+   *      for <code>TYPE</code>, <code>NAME</code>, and <code>HTTP_NAME</code>.</p>
    *             </li>
    *          </ul>
    */
-  Condition?: FilterCondition | string;
+  Condition?: FilterCondition;
 }
 
 /**
@@ -2520,7 +2562,7 @@ export interface NamespaceSummary {
    * @public
    * <p>The type of the namespace, either public or private.</p>
    */
-  Type?: NamespaceType | string;
+  Type?: NamespaceType;
 
   /**
    * @public
@@ -2626,7 +2668,7 @@ export interface OperationFilter {
    *             </li>
    *          </ul>
    */
-  Name: OperationFilterName | string | undefined;
+  Name: OperationFilterName | undefined;
 
   /**
    * @public
@@ -2689,7 +2731,7 @@ export interface OperationFilter {
    *             </li>
    *          </ul>
    */
-  Condition?: FilterCondition | string;
+  Condition?: FilterCondition;
 }
 
 /**
@@ -2765,7 +2807,7 @@ export interface OperationSummary {
    *             </li>
    *          </ul>
    */
-  Status?: OperationStatus | string;
+  Status?: OperationStatus;
 }
 
 /**
@@ -2816,7 +2858,7 @@ export interface ServiceFilter {
    * @public
    * <p>Specify <code>NAMESPACE_ID</code>.</p>
    */
-  Name: ServiceFilterName | string | undefined;
+  Name: ServiceFilterName | undefined;
 
   /**
    * @public
@@ -2837,7 +2879,7 @@ export interface ServiceFilter {
    *             </li>
    *          </ul>
    */
-  Condition?: FilterCondition | string;
+  Condition?: FilterCondition;
 }
 
 /**
@@ -2920,7 +2962,7 @@ export interface ServiceSummary {
    *             </dd>
    *          </dl>
    */
-  Type?: ServiceType | string;
+  Type?: ServiceType;
 
   /**
    * @public
@@ -3205,9 +3247,10 @@ export interface RegisterInstanceRequest {
    *             </li>
    *          </ul>
    *          <note>
-   *             <p>Do not include sensitive information in <code>InstanceId</code> if the namespace is discoverable by public DNS
-   *     queries and any <code>Type</code> member of <code>DnsRecord</code> for the service contains <code>SRV</code> because
-   *     the <code>InstanceId</code> is discoverable by public DNS queries.</p>
+   *             <p>Do not include sensitive information in <code>InstanceId</code> if the namespace is
+   *     discoverable by public DNS queries and any <code>Type</code> member of <code>DnsRecord</code>
+   *     for the service contains <code>SRV</code> because the <code>InstanceId</code> is discoverable by
+   *     public DNS queries.</p>
    *          </note>
    */
   InstanceId: string | undefined;
@@ -3236,8 +3279,8 @@ export interface RegisterInstanceRequest {
    *             </li>
    *          </ul>
    *          <note>
-   *             <p>Do not include sensitive information in the attributes if the namespace is discoverable by public DNS
-   *     queries.</p>
+   *             <p>Do not include sensitive information in the attributes if the namespace is discoverable by
+   *     public DNS queries.</p>
    *          </note>
    *          <p>Supported attribute keys include the following:</p>
    *          <dl>
@@ -3262,7 +3305,7 @@ export interface RegisterInstanceRequest {
    *         it doesn't associate the health check with the alias record.</p>
    *                   </li>
    *                   <li>
-   *                      <p>Auto naming currently doesn't support creating alias records that route traffic to
+   *                      <p>Cloud Map currently doesn't support creating alias records that route traffic to
    *          Amazon Web Services resources other than Elastic Load Balancing load balancers.</p>
    *                   </li>
    *                   <li>
@@ -3454,7 +3497,7 @@ export interface UpdateInstanceCustomHealthStatusRequest {
    * @public
    * <p>The new status of the instance, <code>HEALTHY</code> or <code>UNHEALTHY</code>.</p>
    */
-  Status: CustomHealthStatus | string | undefined;
+  Status: CustomHealthStatus | undefined;
 }
 
 /**

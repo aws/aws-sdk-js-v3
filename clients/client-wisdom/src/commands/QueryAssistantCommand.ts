@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   QueryAssistantRequest,
   QueryAssistantRequestFilterSensitiveLog,
@@ -41,6 +33,8 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>Performs a manual search against the specified assistant. To retrieve recommendations for
  *       an assistant, use <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetRecommendations.html">GetRecommendations</a>.
  *     </p>
@@ -105,6 +99,11 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
  *
+ * @throws {@link RequestTimeoutException} (client fault)
+ *  <p>The request reached the service more than 15 minutes after the date stamp on the request
+ *       or more than 15 minutes after the request expiration date (such as for pre-signed URLs), or
+ *       the date stamp on the request is more than 15 minutes in the future.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>
  *
@@ -115,79 +114,26 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  */
-export class QueryAssistantCommand extends $Command<
-  QueryAssistantCommandInput,
-  QueryAssistantCommandOutput,
-  WisdomClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: QueryAssistantCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: WisdomClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<QueryAssistantCommandInput, QueryAssistantCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, QueryAssistantCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "WisdomClient";
-    const commandName = "QueryAssistantCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: QueryAssistantRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: QueryAssistantResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: QueryAssistantCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_QueryAssistantCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryAssistantCommandOutput> {
-    return de_QueryAssistantCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class QueryAssistantCommand extends $Command
+  .classBuilder<
+    QueryAssistantCommandInput,
+    QueryAssistantCommandOutput,
+    WisdomClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: WisdomClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("WisdomService", "QueryAssistant", {})
+  .n("WisdomClient", "QueryAssistantCommand")
+  .f(QueryAssistantRequestFilterSensitiveLog, QueryAssistantResponseFilterSensitiveLog)
+  .ser(se_QueryAssistantCommand)
+  .de(de_QueryAssistantCommand)
+  .build() {}

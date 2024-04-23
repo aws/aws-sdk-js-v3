@@ -221,6 +221,20 @@ export interface BatchInferenceJobConfig {
 
 /**
  * @public
+ * @enum
+ */
+export const BatchInferenceJobMode = {
+  BATCH_INFERENCE: "BATCH_INFERENCE",
+  THEME_GENERATION: "THEME_GENERATION",
+} as const;
+
+/**
+ * @public
+ */
+export type BatchInferenceJobMode = (typeof BatchInferenceJobMode)[keyof typeof BatchInferenceJobMode];
+
+/**
+ * @public
  * <p>The configuration details of an Amazon S3 input or output bucket.</p>
  */
 export interface S3DataConfig {
@@ -285,6 +299,30 @@ export interface Tag {
 
 /**
  * @public
+ * <p>A string to string map of the configuration details for theme generation.</p>
+ */
+export interface FieldsForThemeGeneration {
+  /**
+   * @public
+   * <p>The name of the Items dataset column that stores the name of each item in the dataset.</p>
+   */
+  itemName: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The configuration details for generating themes with a batch inference job.</p>
+ */
+export interface ThemeGenerationConfig {
+  /**
+   * @public
+   * <p>Fields used to generate descriptive themes for a batch inference job.</p>
+   */
+  fieldsForThemeGeneration: FieldsForThemeGeneration | undefined;
+}
+
+/**
+ * @public
  */
 export interface CreateBatchInferenceJobRequest {
   /**
@@ -345,6 +383,23 @@ export interface CreateBatchInferenceJobRequest {
    * <p>A list of <a href="https://docs.aws.amazon.com/personalize/latest/dg/tagging-resources.html">tags</a> to apply to the batch inference job.</p>
    */
   tags?: Tag[];
+
+  /**
+   * @public
+   * <p>The mode of the batch inference job. To generate descriptive themes for groups of similar items, set the
+   *       job mode to <code>THEME_GENERATION</code>. If you don't want to generate themes, use the default <code>BATCH_INFERENCE</code>.</p>
+   *          <p>
+   *       When you get batch recommendations with themes, you will incur additional costs. For more information, see <a href="https://aws.amazon.com/personalize/pricing/">Amazon Personalize pricing</a>.
+   *     </p>
+   */
+  batchInferenceJobMode?: BatchInferenceJobMode;
+
+  /**
+   * @public
+   * <p>For theme generation jobs, specify the name of the column in your Items
+   *       dataset that contains each item's name.</p>
+   */
+  themeGenerationConfig?: ThemeGenerationConfig;
 }
 
 /**
@@ -582,6 +637,17 @@ export interface CampaignConfig {
    *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html">User-Personalization</a> recipe.</p>
    */
   itemExplorationConfig?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Whether metadata with recommendations is enabled for the campaign.
+   *       If enabled, you can specify the columns from your Items dataset in your request for recommendations. Amazon Personalize returns this data for each item in the recommendation response.
+   *     For information about enabling metadata for a campaign, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/campaigns.html#create-campaign-return-metadata">Enabling metadata in recommendations for a campaign</a>.</p>
+   *          <p>
+   *       If you enable metadata in recommendations, you will incur additional costs. For more information, see <a href="https://aws.amazon.com/personalize/pricing/">Amazon Personalize pricing</a>.
+   *     </p>
+   */
+  enableMetadataWithRecommendations?: boolean;
 }
 
 /**
@@ -670,6 +736,12 @@ export interface CreateDatasetRequest {
    *             <li>
    *                <p>Users</p>
    *             </li>
+   *             <li>
+   *                <p>Actions</p>
+   *             </li>
+   *             <li>
+   *                <p>Action_Interactions</p>
+   *             </li>
    *          </ul>
    */
   datasetType: string | undefined;
@@ -745,7 +817,7 @@ export interface CreateDatasetExportJobRequest {
    *         <code>ALL</code> for both types. The default value is <code>PUT</code>.
    *     </p>
    */
-  ingestionMode?: IngestionMode | string;
+  ingestionMode?: IngestionMode;
 
   /**
    * @public
@@ -825,7 +897,7 @@ export interface CreateDatasetGroupRequest {
    *       don't specify a domain, you create a Custom dataset group with solution
    *       versions that you deploy with a campaign. </p>
    */
-  domain?: Domain | string;
+  domain?: Domain;
 
   /**
    * @public
@@ -848,7 +920,7 @@ export interface CreateDatasetGroupResponse {
    * @public
    * <p>The domain for the new Domain dataset group.</p>
    */
-  domain?: Domain | string;
+  domain?: Domain;
 }
 
 /**
@@ -934,7 +1006,7 @@ export interface CreateDatasetImportJobRequest {
    *             </li>
    *          </ul>
    */
-  importMode?: ImportMode | string;
+  importMode?: ImportMode;
 
   /**
    * @public
@@ -1168,6 +1240,17 @@ export interface RecommenderConfig {
    *     </p>
    */
   trainingDataConfig?: TrainingDataConfig;
+
+  /**
+   * @public
+   * <p>Whether metadata with recommendations is enabled for the recommender.
+   *       If enabled, you can specify the columns from your Items dataset in your request for recommendations. Amazon Personalize returns this data for each item in the recommendation response.
+   *       For information about enabling metadata for a recommender, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/creating-recommenders.html#create-recommender-return-metadata">Enabling metadata in recommendations for a recommender</a>.</p>
+   *          <p>
+   *       If you enable metadata in recommendations, you will incur additional costs. For more information, see <a href="https://aws.amazon.com/personalize/pricing/">Amazon Personalize pricing</a>.
+   *     </p>
+   */
+  enableMetadataWithRecommendations?: boolean;
 }
 
 /**
@@ -1239,7 +1322,7 @@ export interface CreateSchemaRequest {
    * <p>The domain for the schema. If you are creating a schema for a dataset in a Domain dataset group, specify
    *     the domain you chose when you created the Domain dataset group.</p>
    */
-  domain?: Domain | string;
+  domain?: Domain;
 }
 
 /**
@@ -1481,7 +1564,7 @@ export interface OptimizationObjective {
    * @public
    * <p>Specifies how Amazon Personalize balances the importance of your optimization objective versus relevance.</p>
    */
-  objectiveSensitivity?: ObjectiveSensitivity | string;
+  objectiveSensitivity?: ObjectiveSensitivity;
 }
 
 /**
@@ -1504,7 +1587,7 @@ export interface SolutionConfig {
 
   /**
    * @public
-   * <p>Lists the hyperparameter names and ranges.</p>
+   * <p>Lists the algorithm hyperparameters and their values.</p>
    */
   algorithmHyperParameters?: Record<string, string>;
 
@@ -1560,8 +1643,7 @@ export interface CreateSolutionRequest {
    * @public
    * <important>
    *             <p>We don't recommend enabling automated machine learning. Instead, match your use case to the available Amazon Personalize
-   *         recipes. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/determining-use-case.html">Determining your use case.</a>
-   *             </p>
+   *         recipes. For more information, see <a href="https://docs.aws.amazon.com/personalize/latest/dg/working-with-predefined-recipes.html">Choosing a recipe</a>.</p>
    *          </important>
    *          <p>Whether to perform automated machine learning (AutoML). The default is <code>false</code>.
    *       For this case, you must specify <code>recipeArn</code>.</p>
@@ -1575,8 +1657,11 @@ export interface CreateSolutionRequest {
 
   /**
    * @public
-   * <p>The ARN of the recipe to use for model training. This is required when
-   *       <code>performAutoML</code> is false.</p>
+   * <p>The Amazon Resource Name (ARN) of the recipe to use for model training. This is required when
+   *       <code>performAutoML</code> is false. For information about different Amazon Personalize recipes and their ARNs,
+   *       see <a href="https://docs.aws.amazon.com/personalize/latest/dg/working-with-predefined-recipes.html">Choosing a recipe</a>.
+   *
+   *     </p>
    */
   recipeArn?: string;
 
@@ -1659,21 +1744,27 @@ export interface CreateSolutionVersionRequest {
 
   /**
    * @public
-   * <p>The scope of training to be performed when creating the solution version. The
-   *         <code>FULL</code> option trains the solution version based on the entirety of the input
-   *       solution's training data, while the <code>UPDATE</code> option processes only the data that
-   *       has changed in comparison to the input solution. Choose <code>UPDATE</code> when you want to
-   *       incrementally update your solution version instead of creating an entirely new one.</p>
-   *          <important>
-   *             <p>The <code>UPDATE</code> option can only be used when you already have an active solution
+   * <p>The scope of training to be performed when creating the solution version.
+   *       The default is <code>FULL</code>. This creates a completely new model based on the entirety
+   *       of the training data from the datasets in your dataset group.
+   *     </p>
+   *          <p>If you use
+   *       <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html">User-Personalization</a>,
+   *       you can specify a training mode of <code>UPDATE</code>. This updates the model to consider new items for recommendations. It is not a full
+   *         retraining. You should still complete a full retraining weekly.
+   *         If you specify <code>UPDATE</code>, Amazon Personalize will stop automatic updates for the solution version. To resume updates, create a new solution with training mode set to <code>FULL</code>
+   *         and deploy it in a campaign.
+   *         For more information about automatic updates, see
+   *         <a href="https://docs.aws.amazon.com/personalize/latest/dg/use-case-recipe-features.html#maintaining-with-automatic-updates">Automatic updates</a>.
+   *       </p>
+   *          <p>The <code>UPDATE</code> option can only be used when you already have an active solution
    *         version created from the input solution using the <code>FULL</code> option and the input
    *         solution was trained with the
    *         <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-new-item-USER_PERSONALIZATION.html">User-Personalization</a>
-   *         recipe or the
+   *         recipe or the legacy
    *         <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-hrnn-coldstart.html">HRNN-Coldstart</a> recipe.</p>
-   *          </important>
    */
-  trainingMode?: TrainingMode | string;
+  trainingMode?: TrainingMode;
 
   /**
    * @public
@@ -1892,6 +1983,18 @@ export interface BatchInferenceJob {
    * <p>The ARN of the Amazon Identity and Access Management (IAM) role that requested the batch inference job.</p>
    */
   roleArn?: string;
+
+  /**
+   * @public
+   * <p>The job's mode.</p>
+   */
+  batchInferenceJobMode?: BatchInferenceJobMode;
+
+  /**
+   * @public
+   * <p>The job's theme generation settings.</p>
+   */
+  themeGenerationConfig?: ThemeGenerationConfig;
 
   /**
    * @public
@@ -2295,6 +2398,12 @@ export interface Dataset {
    *             <li>
    *                <p>Users</p>
    *             </li>
+   *             <li>
+   *                <p>Actions</p>
+   *             </li>
+   *             <li>
+   *                <p>Action_Interactions</p>
+   *             </li>
    *          </ul>
    */
   datasetType?: string;
@@ -2338,6 +2447,13 @@ export interface Dataset {
    * <p>Describes the latest update to the dataset.</p>
    */
   latestDatasetUpdate?: DatasetUpdateSummary;
+
+  /**
+   * @public
+   * <p>The ID of the event tracker for an Action interactions dataset.
+   *       You specify the tracker's ID in the <code>PutActionInteractions</code> API operation. Amazon Personalize uses it to direct new data to the Action interactions dataset in your dataset group.</p>
+   */
+  trackingId?: string;
 }
 
 /**
@@ -2402,7 +2518,7 @@ export interface DatasetExportJob {
    *       console, PutEvents, PutUsers and PutItems operations), or <code>ALL</code>
    *       for both types. The default value is <code>PUT</code>. </p>
    */
-  ingestionMode?: IngestionMode | string;
+  ingestionMode?: IngestionMode;
 
   /**
    * @public
@@ -2495,8 +2611,8 @@ export interface DescribeDatasetGroupRequest {
 
 /**
  * @public
- * <p>A dataset group is a collection of related datasets (Interactions,
- *       User, and Item). You create a dataset group by calling <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a>. You then create a dataset and add it to a
+ * <p>A dataset group is a collection of related datasets (Item interactions,
+ *       Users, Items, Actions, Action interactions). You create a dataset group by calling <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDatasetGroup.html">CreateDatasetGroup</a>. You then create a dataset and add it to a
  *       dataset group by calling <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a>. The dataset group is used to create and train a
  *       solution by calling <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateSolution.html">CreateSolution</a>. A dataset group can contain only one of each
  *       type of dataset.</p>
@@ -2534,8 +2650,9 @@ export interface DatasetGroup {
 
   /**
    * @public
-   * <p>The ARN of the IAM role that has permissions to create the dataset
-   *       group.</p>
+   * <p>The ARN of the Identity and Access Management (IAM) role that has permissions to access
+   *       the Key Management Service (KMS) key. Supplying an IAM role is only valid when also
+   *       specifying a KMS key.</p>
    */
   roleArn?: string;
 
@@ -2569,7 +2686,7 @@ export interface DatasetGroup {
    * @public
    * <p>The domain of a Domain dataset group.</p>
    */
-  domain?: Domain | string;
+  domain?: Domain;
 }
 
 /**
@@ -2677,7 +2794,7 @@ export interface DatasetImportJob {
    * <p>The import mode used by the dataset import job to import new
    *       records.</p>
    */
-  importMode?: ImportMode | string;
+  importMode?: ImportMode;
 
   /**
    * @public
@@ -3333,7 +3450,7 @@ export interface DatasetSchema {
    * @public
    * <p>The domain of a schema that you created for a dataset in a Domain dataset group.</p>
    */
-  domain?: Domain | string;
+  domain?: Domain;
 }
 
 /**
@@ -3640,7 +3757,7 @@ export interface SolutionVersion {
    *         <a href="https://docs.aws.amazon.com/personalize/latest/dg/native-recipe-hrnn-coldstart.html">HRNN-Coldstart</a> recipe.</p>
    *          </important>
    */
-  trainingMode?: TrainingMode | string;
+  trainingMode?: TrainingMode;
 
   /**
    * @public
@@ -3848,6 +3965,12 @@ export interface BatchInferenceJobSummary {
    * <p>The ARN of the solution version used by the batch inference job.</p>
    */
   solutionVersionArn?: string;
+
+  /**
+   * @public
+   * <p>The job's mode.</p>
+   */
+  batchInferenceJobMode?: BatchInferenceJobMode;
 }
 
 /**
@@ -3981,7 +4104,7 @@ export interface ListCampaignsRequest {
   /**
    * @public
    * <p>The Amazon Resource Name (ARN) of the solution to list the campaigns for. When
-   *         a solution is not specified, all the campaigns associated with the account are listed.</p>
+   *       a solution is not specified, all the campaigns associated with the account are listed.</p>
    */
   solutionArn?: string;
 
@@ -4235,7 +4358,7 @@ export interface DatasetGroupSummary {
    * @public
    * <p>The domain of a Domain dataset group.</p>
    */
-  domain?: Domain | string;
+  domain?: Domain;
 }
 
 /**
@@ -4337,7 +4460,7 @@ export interface DatasetImportJobSummary {
    *       data</a>.
    *     </p>
    */
-  importMode?: ImportMode | string;
+  importMode?: ImportMode;
 }
 
 /**
@@ -4372,7 +4495,7 @@ export interface ListDatasetsRequest {
   /**
    * @public
    * <p>A token returned from the previous call to
-   *         <code>ListDatasetImportJobs</code> for getting the next set of dataset
+   *         <code>ListDatasets</code> for getting the next set of dataset
    *       import jobs (if they exist).</p>
    */
   nextToken?: string;
@@ -4787,7 +4910,7 @@ export interface ListRecipesRequest {
    * @public
    * <p>The default is <code>SERVICE</code>.</p>
    */
-  recipeProvider?: RecipeProvider | string;
+  recipeProvider?: RecipeProvider;
 
   /**
    * @public
@@ -4809,7 +4932,7 @@ export interface ListRecipesRequest {
    *       for this domain are included in the response. If you don't specify a domain, all recipes are returned.
    *     </p>
    */
-  domain?: Domain | string;
+  domain?: Domain;
 }
 
 /**
@@ -4852,7 +4975,7 @@ export interface RecipeSummary {
    * @public
    * <p>The domain of the recipe (if the recipe is a Domain dataset group use case).</p>
    */
-  domain?: Domain | string;
+  domain?: Domain;
 }
 
 /**
@@ -5031,7 +5154,7 @@ export interface DatasetSchemaSummary {
    * @public
    * <p>The domain of a schema that you created for a dataset in a Domain dataset group.</p>
    */
-  domain?: Domain | string;
+  domain?: Domain;
 }
 
 /**

@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { GetUsageStatisticsRequest, GetUsageStatisticsResponse } from "../models/models_0";
 import { de_GetUsageStatisticsCommand, se_GetUsageStatisticsCommand } from "../protocols/Aws_restJson1";
@@ -48,7 +40,7 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  * const client = new GuardDutyClient(config);
  * const input = { // GetUsageStatisticsRequest
  *   DetectorId: "STRING_VALUE", // required
- *   UsageStatisticType: "SUM_BY_ACCOUNT" || "SUM_BY_DATA_SOURCE" || "SUM_BY_RESOURCE" || "TOP_RESOURCES" || "SUM_BY_FEATURES", // required
+ *   UsageStatisticType: "SUM_BY_ACCOUNT" || "SUM_BY_DATA_SOURCE" || "SUM_BY_RESOURCE" || "TOP_RESOURCES" || "SUM_BY_FEATURES" || "TOP_ACCOUNTS_BY_FEATURE", // required
  *   UsageCriteria: { // UsageCriteria
  *     AccountIds: [ // AccountIds
  *       "STRING_VALUE",
@@ -60,7 +52,7 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  *       "STRING_VALUE",
  *     ],
  *     Features: [ // UsageFeatureList
- *       "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING",
+ *       "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING" || "FARGATE_RUNTIME_MONITORING" || "EC2_RUNTIME_MONITORING",
  *     ],
  *   },
  *   Unit: "STRING_VALUE",
@@ -78,6 +70,20 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  * //           Amount: "STRING_VALUE",
  * //           Unit: "STRING_VALUE",
  * //         },
+ * //       },
+ * //     ],
+ * //     TopAccountsByFeature: [ // UsageTopAccountsResultList
+ * //       { // UsageTopAccountsResult
+ * //         Feature: "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING" || "FARGATE_RUNTIME_MONITORING" || "EC2_RUNTIME_MONITORING",
+ * //         Accounts: [ // UsageTopAccountsByFeatureList
+ * //           { // UsageTopAccountResult
+ * //             AccountId: "STRING_VALUE",
+ * //             Total: {
+ * //               Amount: "STRING_VALUE",
+ * //               Unit: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //         ],
  * //       },
  * //     ],
  * //     SumByDataSource: [ // UsageDataSourceResultList
@@ -109,11 +115,8 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  * //     ],
  * //     SumByFeature: [ // UsageFeatureResultList
  * //       { // UsageFeatureResult
- * //         Feature: "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING",
- * //         Total: {
- * //           Amount: "STRING_VALUE",
- * //           Unit: "STRING_VALUE",
- * //         },
+ * //         Feature: "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING" || "FARGATE_RUNTIME_MONITORING" || "EC2_RUNTIME_MONITORING",
+ * //         Total: "<Total>",
  * //       },
  * //     ],
  * //   },
@@ -138,79 +141,26 @@ export interface GetUsageStatisticsCommandOutput extends GetUsageStatisticsRespo
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
-export class GetUsageStatisticsCommand extends $Command<
-  GetUsageStatisticsCommandInput,
-  GetUsageStatisticsCommandOutput,
-  GuardDutyClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetUsageStatisticsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: GuardDutyClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetUsageStatisticsCommandInput, GetUsageStatisticsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetUsageStatisticsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "GuardDutyClient";
-    const commandName = "GetUsageStatisticsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetUsageStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetUsageStatisticsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetUsageStatisticsCommandOutput> {
-    return de_GetUsageStatisticsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetUsageStatisticsCommand extends $Command
+  .classBuilder<
+    GetUsageStatisticsCommandInput,
+    GetUsageStatisticsCommandOutput,
+    GuardDutyClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("GuardDutyAPIService", "GetUsageStatistics", {})
+  .n("GuardDutyClient", "GetUsageStatisticsCommand")
+  .f(void 0, void 0)
+  .ser(se_GetUsageStatisticsCommand)
+  .de(de_GetUsageStatisticsCommand)
+  .build() {}

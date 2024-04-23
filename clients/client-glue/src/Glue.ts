@@ -63,6 +63,11 @@ import {
   BatchGetPartitionCommandOutput,
 } from "./commands/BatchGetPartitionCommand";
 import {
+  BatchGetTableOptimizerCommand,
+  BatchGetTableOptimizerCommandInput,
+  BatchGetTableOptimizerCommandOutput,
+} from "./commands/BatchGetTableOptimizerCommand";
+import {
   BatchGetTriggersCommand,
   BatchGetTriggersCommandInput,
   BatchGetTriggersCommandOutput,
@@ -190,6 +195,11 @@ import {
 } from "./commands/CreateSessionCommand";
 import { CreateTableCommand, CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand";
 import {
+  CreateTableOptimizerCommand,
+  CreateTableOptimizerCommandInput,
+  CreateTableOptimizerCommandOutput,
+} from "./commands/CreateTableOptimizerCommand";
+import {
   CreateTriggerCommand,
   CreateTriggerCommandInput,
   CreateTriggerCommandOutput,
@@ -302,6 +312,11 @@ import {
 } from "./commands/DeleteSessionCommand";
 import { DeleteTableCommand, DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
 import {
+  DeleteTableOptimizerCommand,
+  DeleteTableOptimizerCommandInput,
+  DeleteTableOptimizerCommandOutput,
+} from "./commands/DeleteTableOptimizerCommand";
+import {
   DeleteTableVersionCommand,
   DeleteTableVersionCommandInput,
   DeleteTableVersionCommandOutput,
@@ -361,6 +376,16 @@ import {
   GetColumnStatisticsForTableCommandInput,
   GetColumnStatisticsForTableCommandOutput,
 } from "./commands/GetColumnStatisticsForTableCommand";
+import {
+  GetColumnStatisticsTaskRunCommand,
+  GetColumnStatisticsTaskRunCommandInput,
+  GetColumnStatisticsTaskRunCommandOutput,
+} from "./commands/GetColumnStatisticsTaskRunCommand";
+import {
+  GetColumnStatisticsTaskRunsCommand,
+  GetColumnStatisticsTaskRunsCommandInput,
+  GetColumnStatisticsTaskRunsCommandOutput,
+} from "./commands/GetColumnStatisticsTaskRunsCommand";
 import {
   GetConnectionCommand,
   GetConnectionCommandInput,
@@ -519,6 +544,11 @@ import {
   GetStatementCommandOutput,
 } from "./commands/GetStatementCommand";
 import { GetTableCommand, GetTableCommandInput, GetTableCommandOutput } from "./commands/GetTableCommand";
+import {
+  GetTableOptimizerCommand,
+  GetTableOptimizerCommandInput,
+  GetTableOptimizerCommandOutput,
+} from "./commands/GetTableOptimizerCommand";
 import { GetTablesCommand, GetTablesCommandInput, GetTablesCommandOutput } from "./commands/GetTablesCommand";
 import {
   GetTableVersionCommand,
@@ -585,6 +615,11 @@ import {
   ListBlueprintsCommandOutput,
 } from "./commands/ListBlueprintsCommand";
 import {
+  ListColumnStatisticsTaskRunsCommand,
+  ListColumnStatisticsTaskRunsCommandInput,
+  ListColumnStatisticsTaskRunsCommandOutput,
+} from "./commands/ListColumnStatisticsTaskRunsCommand";
+import {
   ListCrawlersCommand,
   ListCrawlersCommandInput,
   ListCrawlersCommandOutput,
@@ -647,6 +682,11 @@ import {
   ListStatementsCommandInput,
   ListStatementsCommandOutput,
 } from "./commands/ListStatementsCommand";
+import {
+  ListTableOptimizerRunsCommand,
+  ListTableOptimizerRunsCommandInput,
+  ListTableOptimizerRunsCommandOutput,
+} from "./commands/ListTableOptimizerRunsCommand";
 import {
   ListTriggersCommand,
   ListTriggersCommandInput,
@@ -718,6 +758,11 @@ import {
   StartBlueprintRunCommandOutput,
 } from "./commands/StartBlueprintRunCommand";
 import {
+  StartColumnStatisticsTaskRunCommand,
+  StartColumnStatisticsTaskRunCommandInput,
+  StartColumnStatisticsTaskRunCommandOutput,
+} from "./commands/StartColumnStatisticsTaskRunCommand";
+import {
   StartCrawlerCommand,
   StartCrawlerCommandInput,
   StartCrawlerCommandOutput,
@@ -768,6 +813,11 @@ import {
   StartWorkflowRunCommandInput,
   StartWorkflowRunCommandOutput,
 } from "./commands/StartWorkflowRunCommand";
+import {
+  StopColumnStatisticsTaskRunCommand,
+  StopColumnStatisticsTaskRunCommandInput,
+  StopColumnStatisticsTaskRunCommandOutput,
+} from "./commands/StopColumnStatisticsTaskRunCommand";
 import { StopCrawlerCommand, StopCrawlerCommandInput, StopCrawlerCommandOutput } from "./commands/StopCrawlerCommand";
 import {
   StopCrawlerScheduleCommand,
@@ -870,6 +920,11 @@ import {
 } from "./commands/UpdateSourceControlFromJobCommand";
 import { UpdateTableCommand, UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand";
 import {
+  UpdateTableOptimizerCommand,
+  UpdateTableOptimizerCommandInput,
+  UpdateTableOptimizerCommandOutput,
+} from "./commands/UpdateTableOptimizerCommand";
+import {
   UpdateTriggerCommand,
   UpdateTriggerCommandInput,
   UpdateTriggerCommandOutput,
@@ -899,6 +954,7 @@ const commands = {
   BatchGetDevEndpointsCommand,
   BatchGetJobsCommand,
   BatchGetPartitionCommand,
+  BatchGetTableOptimizerCommand,
   BatchGetTriggersCommand,
   BatchGetWorkflowsCommand,
   BatchStopJobRunCommand,
@@ -926,6 +982,7 @@ const commands = {
   CreateSecurityConfigurationCommand,
   CreateSessionCommand,
   CreateTableCommand,
+  CreateTableOptimizerCommand,
   CreateTriggerCommand,
   CreateUserDefinedFunctionCommand,
   CreateWorkflowCommand,
@@ -950,6 +1007,7 @@ const commands = {
   DeleteSecurityConfigurationCommand,
   DeleteSessionCommand,
   DeleteTableCommand,
+  DeleteTableOptimizerCommand,
   DeleteTableVersionCommand,
   DeleteTriggerCommand,
   DeleteUserDefinedFunctionCommand,
@@ -962,6 +1020,8 @@ const commands = {
   GetClassifiersCommand,
   GetColumnStatisticsForPartitionCommand,
   GetColumnStatisticsForTableCommand,
+  GetColumnStatisticsTaskRunCommand,
+  GetColumnStatisticsTaskRunsCommand,
   GetConnectionCommand,
   GetConnectionsCommand,
   GetCrawlerCommand,
@@ -1004,6 +1064,7 @@ const commands = {
   GetSessionCommand,
   GetStatementCommand,
   GetTableCommand,
+  GetTableOptimizerCommand,
   GetTablesCommand,
   GetTableVersionCommand,
   GetTableVersionsCommand,
@@ -1021,6 +1082,7 @@ const commands = {
   GetWorkflowRunsCommand,
   ImportCatalogToGlueCommand,
   ListBlueprintsCommand,
+  ListColumnStatisticsTaskRunsCommand,
   ListCrawlersCommand,
   ListCrawlsCommand,
   ListCustomEntityTypesCommand,
@@ -1036,6 +1098,7 @@ const commands = {
   ListSchemaVersionsCommand,
   ListSessionsCommand,
   ListStatementsCommand,
+  ListTableOptimizerRunsCommand,
   ListTriggersCommand,
   ListWorkflowsCommand,
   PutDataCatalogEncryptionSettingsCommand,
@@ -1050,6 +1113,7 @@ const commands = {
   RunStatementCommand,
   SearchTablesCommand,
   StartBlueprintRunCommand,
+  StartColumnStatisticsTaskRunCommand,
   StartCrawlerCommand,
   StartCrawlerScheduleCommand,
   StartDataQualityRuleRecommendationRunCommand,
@@ -1061,6 +1125,7 @@ const commands = {
   StartMLLabelingSetGenerationTaskRunCommand,
   StartTriggerCommand,
   StartWorkflowRunCommand,
+  StopColumnStatisticsTaskRunCommand,
   StopCrawlerCommand,
   StopCrawlerScheduleCommand,
   StopSessionCommand,
@@ -1086,6 +1151,7 @@ const commands = {
   UpdateSchemaCommand,
   UpdateSourceControlFromJobCommand,
   UpdateTableCommand,
+  UpdateTableOptimizerCommand,
   UpdateTriggerCommand,
   UpdateUserDefinedFunctionCommand,
   UpdateWorkflowCommand,
@@ -1288,6 +1354,23 @@ export interface Glue {
     args: BatchGetPartitionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetPartitionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetTableOptimizerCommand}
+   */
+  batchGetTableOptimizer(
+    args: BatchGetTableOptimizerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetTableOptimizerCommandOutput>;
+  batchGetTableOptimizer(
+    args: BatchGetTableOptimizerCommandInput,
+    cb: (err: any, data?: BatchGetTableOptimizerCommandOutput) => void
+  ): void;
+  batchGetTableOptimizer(
+    args: BatchGetTableOptimizerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetTableOptimizerCommandOutput) => void
   ): void;
 
   /**
@@ -1693,6 +1776,23 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link CreateTableOptimizerCommand}
+   */
+  createTableOptimizer(
+    args: CreateTableOptimizerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTableOptimizerCommandOutput>;
+  createTableOptimizer(
+    args: CreateTableOptimizerCommandInput,
+    cb: (err: any, data?: CreateTableOptimizerCommandOutput) => void
+  ): void;
+  createTableOptimizer(
+    args: CreateTableOptimizerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTableOptimizerCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateTriggerCommand}
    */
   createTrigger(args: CreateTriggerCommandInput, options?: __HttpHandlerOptions): Promise<CreateTriggerCommandOutput>;
@@ -2050,6 +2150,23 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link DeleteTableOptimizerCommand}
+   */
+  deleteTableOptimizer(
+    args: DeleteTableOptimizerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTableOptimizerCommandOutput>;
+  deleteTableOptimizer(
+    args: DeleteTableOptimizerCommandInput,
+    cb: (err: any, data?: DeleteTableOptimizerCommandOutput) => void
+  ): void;
+  deleteTableOptimizer(
+    args: DeleteTableOptimizerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTableOptimizerCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteTableVersionCommand}
    */
   deleteTableVersion(
@@ -2224,6 +2341,40 @@ export interface Glue {
     args: GetColumnStatisticsForTableCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetColumnStatisticsForTableCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetColumnStatisticsTaskRunCommand}
+   */
+  getColumnStatisticsTaskRun(
+    args: GetColumnStatisticsTaskRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetColumnStatisticsTaskRunCommandOutput>;
+  getColumnStatisticsTaskRun(
+    args: GetColumnStatisticsTaskRunCommandInput,
+    cb: (err: any, data?: GetColumnStatisticsTaskRunCommandOutput) => void
+  ): void;
+  getColumnStatisticsTaskRun(
+    args: GetColumnStatisticsTaskRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetColumnStatisticsTaskRunCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetColumnStatisticsTaskRunsCommand}
+   */
+  getColumnStatisticsTaskRuns(
+    args: GetColumnStatisticsTaskRunsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetColumnStatisticsTaskRunsCommandOutput>;
+  getColumnStatisticsTaskRuns(
+    args: GetColumnStatisticsTaskRunsCommandInput,
+    cb: (err: any, data?: GetColumnStatisticsTaskRunsCommandOutput) => void
+  ): void;
+  getColumnStatisticsTaskRuns(
+    args: GetColumnStatisticsTaskRunsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetColumnStatisticsTaskRunsCommandOutput) => void
   ): void;
 
   /**
@@ -2803,6 +2954,23 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link GetTableOptimizerCommand}
+   */
+  getTableOptimizer(
+    args: GetTableOptimizerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTableOptimizerCommandOutput>;
+  getTableOptimizer(
+    args: GetTableOptimizerCommandInput,
+    cb: (err: any, data?: GetTableOptimizerCommandOutput) => void
+  ): void;
+  getTableOptimizer(
+    args: GetTableOptimizerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTableOptimizerCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetTablesCommand}
    */
   getTables(args: GetTablesCommandInput, options?: __HttpHandlerOptions): Promise<GetTablesCommandOutput>;
@@ -3050,6 +3218,23 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link ListColumnStatisticsTaskRunsCommand}
+   */
+  listColumnStatisticsTaskRuns(
+    args: ListColumnStatisticsTaskRunsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListColumnStatisticsTaskRunsCommandOutput>;
+  listColumnStatisticsTaskRuns(
+    args: ListColumnStatisticsTaskRunsCommandInput,
+    cb: (err: any, data?: ListColumnStatisticsTaskRunsCommandOutput) => void
+  ): void;
+  listColumnStatisticsTaskRuns(
+    args: ListColumnStatisticsTaskRunsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListColumnStatisticsTaskRunsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListCrawlersCommand}
    */
   listCrawlers(args: ListCrawlersCommandInput, options?: __HttpHandlerOptions): Promise<ListCrawlersCommandOutput>;
@@ -3269,6 +3454,23 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link ListTableOptimizerRunsCommand}
+   */
+  listTableOptimizerRuns(
+    args: ListTableOptimizerRunsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTableOptimizerRunsCommandOutput>;
+  listTableOptimizerRuns(
+    args: ListTableOptimizerRunsCommandInput,
+    cb: (err: any, data?: ListTableOptimizerRunsCommandOutput) => void
+  ): void;
+  listTableOptimizerRuns(
+    args: ListTableOptimizerRunsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTableOptimizerRunsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTriggersCommand}
    */
   listTriggers(args: ListTriggersCommandInput, options?: __HttpHandlerOptions): Promise<ListTriggersCommandOutput>;
@@ -3483,6 +3685,23 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link StartColumnStatisticsTaskRunCommand}
+   */
+  startColumnStatisticsTaskRun(
+    args: StartColumnStatisticsTaskRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartColumnStatisticsTaskRunCommandOutput>;
+  startColumnStatisticsTaskRun(
+    args: StartColumnStatisticsTaskRunCommandInput,
+    cb: (err: any, data?: StartColumnStatisticsTaskRunCommandOutput) => void
+  ): void;
+  startColumnStatisticsTaskRun(
+    args: StartColumnStatisticsTaskRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartColumnStatisticsTaskRunCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartCrawlerCommand}
    */
   startCrawler(args: StartCrawlerCommandInput, options?: __HttpHandlerOptions): Promise<StartCrawlerCommandOutput>;
@@ -3649,6 +3868,23 @@ export interface Glue {
     args: StartWorkflowRunCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartWorkflowRunCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopColumnStatisticsTaskRunCommand}
+   */
+  stopColumnStatisticsTaskRun(
+    args: StopColumnStatisticsTaskRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopColumnStatisticsTaskRunCommandOutput>;
+  stopColumnStatisticsTaskRun(
+    args: StopColumnStatisticsTaskRunCommandInput,
+    cb: (err: any, data?: StopColumnStatisticsTaskRunCommandOutput) => void
+  ): void;
+  stopColumnStatisticsTaskRun(
+    args: StopColumnStatisticsTaskRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopColumnStatisticsTaskRunCommandOutput) => void
   ): void;
 
   /**
@@ -4005,6 +4241,23 @@ export interface Glue {
     args: UpdateTableCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTableCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateTableOptimizerCommand}
+   */
+  updateTableOptimizer(
+    args: UpdateTableOptimizerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTableOptimizerCommandOutput>;
+  updateTableOptimizer(
+    args: UpdateTableOptimizerCommandInput,
+    cb: (err: any, data?: UpdateTableOptimizerCommandOutput) => void
+  ): void;
+  updateTableOptimizer(
+    args: UpdateTableOptimizerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTableOptimizerCommandOutput) => void
   ): void;
 
   /**

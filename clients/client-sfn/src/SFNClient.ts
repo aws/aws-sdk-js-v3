@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -106,6 +104,7 @@ import {
   PublishStateMachineVersionCommandInput,
   PublishStateMachineVersionCommandOutput,
 } from "./commands/PublishStateMachineVersionCommand";
+import { RedriveExecutionCommandInput, RedriveExecutionCommandOutput } from "./commands/RedriveExecutionCommand";
 import { SendTaskFailureCommandInput, SendTaskFailureCommandOutput } from "./commands/SendTaskFailureCommand";
 import { SendTaskHeartbeatCommandInput, SendTaskHeartbeatCommandOutput } from "./commands/SendTaskHeartbeatCommand";
 import { SendTaskSuccessCommandInput, SendTaskSuccessCommandOutput } from "./commands/SendTaskSuccessCommand";
@@ -113,6 +112,7 @@ import { StartExecutionCommandInput, StartExecutionCommandOutput } from "./comma
 import { StartSyncExecutionCommandInput, StartSyncExecutionCommandOutput } from "./commands/StartSyncExecutionCommand";
 import { StopExecutionCommandInput, StopExecutionCommandOutput } from "./commands/StopExecutionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { TestStateCommandInput, TestStateCommandOutput } from "./commands/TestStateCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateMapRunCommandInput, UpdateMapRunCommandOutput } from "./commands/UpdateMapRunCommand";
 import {
@@ -158,6 +158,7 @@ export type ServiceInputTypes =
   | ListStateMachinesCommandInput
   | ListTagsForResourceCommandInput
   | PublishStateMachineVersionCommandInput
+  | RedriveExecutionCommandInput
   | SendTaskFailureCommandInput
   | SendTaskHeartbeatCommandInput
   | SendTaskSuccessCommandInput
@@ -165,6 +166,7 @@ export type ServiceInputTypes =
   | StartSyncExecutionCommandInput
   | StopExecutionCommandInput
   | TagResourceCommandInput
+  | TestStateCommandInput
   | UntagResourceCommandInput
   | UpdateMapRunCommandInput
   | UpdateStateMachineAliasCommandInput
@@ -197,6 +199,7 @@ export type ServiceOutputTypes =
   | ListStateMachinesCommandOutput
   | ListTagsForResourceCommandOutput
   | PublishStateMachineVersionCommandOutput
+  | RedriveExecutionCommandOutput
   | SendTaskFailureCommandOutput
   | SendTaskHeartbeatCommandOutput
   | SendTaskSuccessCommandOutput
@@ -204,6 +207,7 @@ export type ServiceOutputTypes =
   | StartSyncExecutionCommandOutput
   | StopExecutionCommandOutput
   | TagResourceCommandOutput
+  | TestStateCommandOutput
   | UntagResourceCommandOutput
   | UpdateMapRunCommandOutput
   | UpdateStateMachineAliasCommandOutput
@@ -319,6 +323,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 
@@ -395,6 +401,9 @@ export interface SFNClientResolvedConfig extends SFNClientResolvedConfigType {}
  *       For more information about Step Functions, see the <i>
  *                <a href="https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html">Step Functions Developer Guide</a>
  *             </i>.</p>
+ *          <important>
+ *             <p>If you use the Step Functions API actions using Amazon Web Services SDK integrations, make sure the API actions are in camel case and parameter names are in Pascal case. For example, you could use Step Functions API action <code>startSyncExecution</code> and specify its parameter as <code>StateMachineArn</code>.</p>
+ *          </important>
  */
 export class SFNClient extends __Client<
   __HttpHandlerOptions,

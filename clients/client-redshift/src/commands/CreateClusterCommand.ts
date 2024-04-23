@@ -1,19 +1,16 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CreateClusterMessage, CreateClusterResult } from "../models/models_0";
+import { commonParams } from "../endpoint/EndpointParameters";
+import {
+  CreateClusterMessage,
+  CreateClusterMessageFilterSensitiveLog,
+  CreateClusterResult,
+  CreateClusterResultFilterSensitiveLog,
+} from "../models/models_0";
 import { de_CreateClusterCommand, se_CreateClusterCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -55,7 +52,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  *   ClusterType: "STRING_VALUE",
  *   NodeType: "STRING_VALUE", // required
  *   MasterUsername: "STRING_VALUE", // required
- *   MasterUserPassword: "STRING_VALUE", // required
+ *   MasterUserPassword: "STRING_VALUE",
  *   ClusterSecurityGroups: [ // ClusterSecurityGroupNameList
  *     "STRING_VALUE",
  *   ],
@@ -95,6 +92,11 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  *   AquaConfigurationStatus: "enabled" || "disabled" || "auto",
  *   DefaultIamRoleArn: "STRING_VALUE",
  *   LoadSampleData: "STRING_VALUE",
+ *   ManageMasterPassword: true || false,
+ *   MasterPasswordSecretKmsKeyId: "STRING_VALUE",
+ *   IpAddressType: "STRING_VALUE",
+ *   MultiAZ: true || false,
+ *   RedshiftIdcApplicationArn: "STRING_VALUE",
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
@@ -120,6 +122,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  * //               SubnetId: "STRING_VALUE",
  * //               PrivateIpAddress: "STRING_VALUE",
  * //               AvailabilityZone: "STRING_VALUE",
+ * //               Ipv6Address: "STRING_VALUE",
  * //             },
  * //           ],
  * //         },
@@ -272,6 +275,20 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  * //     CustomDomainName: "STRING_VALUE",
  * //     CustomDomainCertificateArn: "STRING_VALUE",
  * //     CustomDomainCertificateExpiryDate: new Date("TIMESTAMP"),
+ * //     MasterPasswordSecretArn: "STRING_VALUE",
+ * //     MasterPasswordSecretKmsKeyId: "STRING_VALUE",
+ * //     IpAddressType: "STRING_VALUE",
+ * //     MultiAZ: "STRING_VALUE",
+ * //     MultiAZSecondary: { // SecondaryClusterInfo
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       ClusterNodes: [
+ * //         {
+ * //           NodeRole: "STRING_VALUE",
+ * //           PrivateIPAddress: "STRING_VALUE",
+ * //           PublicIPAddress: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * // };
  *
@@ -342,6 +359,10 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  * @throws {@link InvalidVPCNetworkStateFault} (client fault)
  *  <p>The cluster subnet group does not cover all Availability Zones.</p>
  *
+ * @throws {@link Ipv6CidrBlockNotFoundFault} (client fault)
+ *  <p>There are no subnets in your VPC with associated IPv6 CIDR blocks. To use dual-stack mode,
+ *             associate an IPv6 CIDR block with each subnet in your VPC.</p>
+ *
  * @throws {@link LimitExceededFault} (client fault)
  *  <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
  *
@@ -355,6 +376,9 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  * in the <i>Amazon Redshift Cluster Management Guide</i>.
  * </p>
  *
+ * @throws {@link RedshiftIdcApplicationNotExistsFault} (client fault)
+ *  <p>The application you attempted to find doesn't exist.</p>
+ *
  * @throws {@link SnapshotScheduleNotFoundFault} (client fault)
  *  <p>We could not find the specified snapshot schedule. </p>
  *
@@ -364,81 +388,33 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  * @throws {@link UnauthorizedOperation} (client fault)
  *  <p>Your account is not authorized to perform the requested operation.</p>
  *
+ * @throws {@link UnsupportedOperationFault} (client fault)
+ *  <p>The requested operation isn't supported.</p>
+ *
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
-export class CreateClusterCommand extends $Command<
-  CreateClusterCommandInput,
-  CreateClusterCommandOutput,
-  RedshiftClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateClusterCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RedshiftClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateClusterCommandInput, CreateClusterCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, CreateClusterCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RedshiftClient";
-    const commandName = "CreateClusterCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateClusterCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateClusterCommandOutput> {
-    return de_CreateClusterCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateClusterCommand extends $Command
+  .classBuilder<
+    CreateClusterCommandInput,
+    CreateClusterCommandOutput,
+    RedshiftClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("RedshiftServiceVersion20121201", "CreateCluster", {})
+  .n("RedshiftClient", "CreateClusterCommand")
+  .f(CreateClusterMessageFilterSensitiveLog, CreateClusterResultFilterSensitiveLog)
+  .ser(se_CreateClusterCommand)
+  .de(de_CreateClusterCommand)
+  .build() {}

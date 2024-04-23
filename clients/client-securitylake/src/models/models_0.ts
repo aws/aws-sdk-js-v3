@@ -104,7 +104,7 @@ export interface AwsLogSourceConfiguration {
    * @public
    * <p>The name for a Amazon Web Services source. This must be a Regionally unique value.</p>
    */
-  sourceName: AwsLogSourceName | string | undefined;
+  sourceName: AwsLogSourceName | undefined;
 
   /**
    * @public
@@ -122,7 +122,7 @@ export interface AwsLogSourceResource {
    * @public
    * <p>The name for a Amazon Web Services source. This must be a Regionally unique value.</p>
    */
-  sourceName?: AwsLogSourceName | string;
+  sourceName?: AwsLogSourceName;
 
   /**
    * @public
@@ -847,7 +847,7 @@ export interface DataLakeUpdateStatus {
    * <p>The status of the last <code>UpdateDataLake</code> or <code>DeleteDataLake</code> API
    *          request that was requested.</p>
    */
-  status?: DataLakeStatus | string;
+  status?: DataLakeStatus;
 
   /**
    * @public
@@ -902,7 +902,7 @@ export interface DataLakeResource {
    * @public
    * <p>Retrieves the status of the configuration operation for an account in Amazon Security Lake.</p>
    */
-  createStatus?: DataLakeStatus | string;
+  createStatus?: DataLakeStatus;
 
   /**
    * @public
@@ -1076,7 +1076,7 @@ export interface CreateSubscriberRequest {
    * @public
    * <p>The Amazon S3 or Lake Formation access type.</p>
    */
-  accessTypes?: (AccessType | string)[];
+  accessTypes?: AccessType[];
 
   /**
    * @public
@@ -1156,7 +1156,7 @@ export interface SubscriberResource {
    *             Amazon S3 bucket through services like Amazon Athena. This subscription
    *          type is defined as <code>LAKEFORMATION</code>.</p>
    */
-  accessTypes?: (AccessType | string)[];
+  accessTypes?: AccessType[];
 
   /**
    * @public
@@ -1180,7 +1180,7 @@ export interface SubscriberResource {
    * @public
    * <p>The subscriber status of the Amazon Security Lake subscriber account.</p>
    */
-  subscriberStatus?: SubscriberStatus | string;
+  subscriberStatus?: SubscriberStatus;
 
   /**
    * @public
@@ -1264,7 +1264,7 @@ export interface HttpsNotificationConfiguration {
    * @public
    * <p>The HTTPS method used for the notification subscription.</p>
    */
-  httpMethod?: HttpMethod | string;
+  httpMethod?: HttpMethod;
 
   /**
    * @public
@@ -1522,7 +1522,7 @@ export interface DataLakeSourceStatus {
    * @public
    * <p>The health status of services, including error codes and patterns.</p>
    */
-  status?: SourceCollectionStatus | string;
+  status?: SourceCollectionStatus;
 }
 
 /**

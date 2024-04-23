@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -43,6 +44,7 @@ import {
   ClipTimestampRange,
   DASHFragmentSelector,
   DASHTimestampRange,
+  FormatConfigKey,
   Fragment,
   FragmentSelector,
   HLSFragmentSelector,
@@ -66,11 +68,11 @@ export const se_GetClipCommand = async (
   input: GetClipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getClip";
+  b.bp("/getClip");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -79,15 +81,8 @@ export const se_GetClipCommand = async (
       StreamName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -97,12 +92,11 @@ export const se_GetDASHStreamingSessionURLCommand = async (
   input: GetDASHStreamingSessionURLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getDASHStreamingSessionURL";
+  b.bp("/getDASHStreamingSessionURL");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -116,15 +110,8 @@ export const se_GetDASHStreamingSessionURLCommand = async (
       StreamName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -134,12 +121,11 @@ export const se_GetHLSStreamingSessionURLCommand = async (
   input: GetHLSStreamingSessionURLCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getHLSStreamingSessionURL";
+  b.bp("/getHLSStreamingSessionURL");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -154,15 +140,8 @@ export const se_GetHLSStreamingSessionURLCommand = async (
       StreamName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -172,11 +151,11 @@ export const se_GetImagesCommand = async (
   input: GetImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getImages";
+  b.bp("/getImages");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -194,15 +173,8 @@ export const se_GetImagesCommand = async (
       WidthPixels: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -212,12 +184,11 @@ export const se_GetMediaForFragmentListCommand = async (
   input: GetMediaForFragmentListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getMediaForFragmentList";
+  b.bp("/getMediaForFragmentList");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -226,15 +197,8 @@ export const se_GetMediaForFragmentListCommand = async (
       StreamName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -244,11 +208,11 @@ export const se_ListFragmentsCommand = async (
   input: ListFragmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listFragments";
+  b.bp("/listFragments");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -259,15 +223,8 @@ export const se_ListFragmentsCommand = async (
       StreamName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -282,7 +239,7 @@ export const de_GetClipCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ContentType: [, output.headers["content-type"]],
+    [_CT]: [, output.headers[_ct]],
   });
   const data: any = output.body;
   context.sdkStreamMixin(data);
@@ -517,6 +474,9 @@ const de_GetImagesCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisvideoarchivedmedia#InvalidArgumentException":
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "NoDataRetentionException":
+    case "com.amazonaws.kinesisvideoarchivedmedia#NoDataRetentionException":
+      throw await de_NoDataRetentionExceptionRes(parsedOutput, context);
     case "NotAuthorizedException":
     case "com.amazonaws.kinesisvideoarchivedmedia#NotAuthorizedException":
       throw await de_NotAuthorizedExceptionRes(parsedOutput, context);
@@ -545,7 +505,7 @@ export const de_GetMediaForFragmentListCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ContentType: [, output.headers["content-type"]],
+    [_CT]: [, output.headers[_ct]],
   });
   const data: any = output.body;
   context.sdkStreamMixin(data);
@@ -976,6 +936,9 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _CT = "ContentType";
+const _ct = "content-type";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

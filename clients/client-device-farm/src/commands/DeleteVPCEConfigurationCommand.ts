@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteVPCEConfigurationRequest, DeleteVPCEConfigurationResult } from "../models/models_0";
 import { de_DeleteVPCEConfigurationCommand, se_DeleteVPCEConfigurationCommand } from "../protocols/Aws_json1_1";
 
@@ -75,79 +67,26 @@ export interface DeleteVPCEConfigurationCommandOutput extends DeleteVPCEConfigur
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
  */
-export class DeleteVPCEConfigurationCommand extends $Command<
-  DeleteVPCEConfigurationCommandInput,
-  DeleteVPCEConfigurationCommandOutput,
-  DeviceFarmClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeleteVPCEConfigurationCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: DeviceFarmClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DeleteVPCEConfigurationCommandInput, DeleteVPCEConfigurationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteVPCEConfigurationCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "DeviceFarmClient";
-    const commandName = "DeleteVPCEConfigurationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DeleteVPCEConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteVPCEConfigurationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteVPCEConfigurationCommandOutput> {
-    return de_DeleteVPCEConfigurationCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DeleteVPCEConfigurationCommand extends $Command
+  .classBuilder<
+    DeleteVPCEConfigurationCommandInput,
+    DeleteVPCEConfigurationCommandOutput,
+    DeviceFarmClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("DeviceFarm_20150623", "DeleteVPCEConfiguration", {})
+  .n("DeviceFarmClient", "DeleteVPCEConfigurationCommand")
+  .f(void 0, void 0)
+  .ser(se_DeleteVPCEConfigurationCommand)
+  .de(de_DeleteVPCEConfigurationCommand)
+  .build() {}

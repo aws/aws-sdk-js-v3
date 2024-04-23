@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import {
@@ -10,41 +11,14 @@ import { S3Client } from "../S3Client";
 import { S3PaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: S3Client,
-  input: ListObjectsV2CommandInput,
-  ...args: any
-): Promise<ListObjectsV2CommandOutput> => {
-  // @ts-ignore
-  return await client.send(new ListObjectsV2Command(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateListObjectsV2(
+export const paginateListObjectsV2: (
   config: S3PaginationConfiguration,
   input: ListObjectsV2CommandInput,
-  ...additionalArguments: any
-): Paginator<ListObjectsV2CommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.ContinuationToken
-  let token: typeof input.ContinuationToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: ListObjectsV2CommandOutput;
-  while (hasNext) {
-    input.ContinuationToken = token;
-    input["MaxKeys"] = config.pageSize;
-    if (config.client instanceof S3Client) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected S3 | S3Client");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.NextContinuationToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<ListObjectsV2CommandOutput> = createPaginator<
+  S3PaginationConfiguration,
+  ListObjectsV2CommandInput,
+  ListObjectsV2CommandOutput
+>(S3Client, ListObjectsV2Command, "ContinuationToken", "NextContinuationToken", "MaxKeys");

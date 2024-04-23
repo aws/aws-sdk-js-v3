@@ -86,7 +86,7 @@ export interface ClientVpcConnection {
    * @public
    * <p>State of the Vpc Connection.</p>
    */
-  State?: VpcConnectionState | string;
+  State?: VpcConnectionState;
 
   /**
    * @public
@@ -282,7 +282,7 @@ export interface BrokerNodeGroupInfo {
    * <p>The distribution of broker nodes across Availability Zones. This is an optional parameter. If you don't specify it, Amazon MSK gives it the value DEFAULT. You can also explicitly set this parameter to the value DEFAULT. No other values are currently allowed.</p>
    *          <p>Amazon MSK distributes the broker nodes evenly across the Availability Zones that correspond to the subnets you provide when you create the cluster.</p>
    */
-  BrokerAZDistribution?: BrokerAZDistribution | string;
+  BrokerAZDistribution?: BrokerAZDistribution;
 
   /**
    * @public
@@ -443,6 +443,21 @@ export interface BrokerSoftwareInfo {
 
 /**
  * @public
+ * @enum
+ */
+export const CustomerActionStatus = {
+  ACTION_RECOMMENDED: "ACTION_RECOMMENDED",
+  CRITICAL_ACTION_REQUIRED: "CRITICAL_ACTION_REQUIRED",
+  NONE: "NONE",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomerActionStatus = (typeof CustomerActionStatus)[keyof typeof CustomerActionStatus];
+
+/**
+ * @public
  * <p>The data-volume encryption details.</p>
  */
 export interface EncryptionAtRest {
@@ -484,7 +499,7 @@ export interface EncryptionInTransit {
    *                PLAINTEXT means that client-broker communication is enabled in plaintext only.</p>
    *             <p>The default value is TLS_PLAINTEXT.</p>
    */
-  ClientBroker?: ClientBroker | string;
+  ClientBroker?: ClientBroker;
 
   /**
    * @public
@@ -670,7 +685,7 @@ export interface Provisioned {
    * @public
    * <p>Specifies the level of monitoring for the MSK cluster. The possible values are DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION.</p>
    */
-  EnhancedMonitoring?: EnhancedMonitoring | string;
+  EnhancedMonitoring?: EnhancedMonitoring;
 
   /**
    * @public
@@ -706,7 +721,13 @@ export interface Provisioned {
    * @public
    * <p>This controls storage mode for supported storage tiers.</p>
    */
-  StorageMode?: StorageMode | string;
+  StorageMode?: StorageMode;
+
+  /**
+   * @public
+   * <p>Determines if there is an action required from the customer.</p>
+   */
+  CustomerActionStatus?: CustomerActionStatus;
 }
 
 /**
@@ -812,7 +833,7 @@ export interface Cluster {
    * @public
    * <p>Cluster Type.</p>
    */
-  ClusterType?: ClusterType | string;
+  ClusterType?: ClusterType;
 
   /**
    * @public
@@ -842,7 +863,7 @@ export interface Cluster {
    * @public
    * <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
    */
-  State?: ClusterState | string;
+  State?: ClusterState;
 
   /**
    * @public
@@ -986,7 +1007,7 @@ export interface ClusterInfo {
    * @public
    * <p>Specifies which metrics are gathered for the MSK cluster. This property has the following possible values: DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION. For a list of the metrics associated with each of these levels of monitoring, see <a href="https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html">Monitoring</a>.</p>
    */
-  EnhancedMonitoring?: EnhancedMonitoring | string;
+  EnhancedMonitoring?: EnhancedMonitoring;
 
   /**
    * @public
@@ -1005,7 +1026,7 @@ export interface ClusterInfo {
    * @public
    * <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
    */
-  State?: ClusterState | string;
+  State?: ClusterState;
 
   StateInfo?: StateInfo;
   /**
@@ -1030,7 +1051,13 @@ export interface ClusterInfo {
    * @public
    * <p>This controls storage mode for supported storage tiers.</p>
    */
-  StorageMode?: StorageMode | string;
+  StorageMode?: StorageMode;
+
+  /**
+   * @public
+   * <p>Determines if there is an action required from the customer.</p>
+   */
+  CustomerActionStatus?: CustomerActionStatus;
 }
 
 /**
@@ -1126,7 +1153,7 @@ export interface MutableClusterInfo {
    * @public
    * <p>Specifies which Apache Kafka metrics Amazon MSK gathers and sends to Amazon CloudWatch for this cluster.</p>
    */
-  EnhancedMonitoring?: EnhancedMonitoring | string;
+  EnhancedMonitoring?: EnhancedMonitoring;
 
   /**
    * @public
@@ -1174,7 +1201,7 @@ export interface MutableClusterInfo {
    * @public
    * <p>This controls storage mode for supported storage tiers.</p>
    */
-  StorageMode?: StorageMode | string;
+  StorageMode?: StorageMode;
 }
 
 /**
@@ -1200,7 +1227,7 @@ export interface UserIdentity {
    * @public
    * <p>The identity type of the requester that calls the API operation.</p>
    */
-  Type?: UserIdentityType | string;
+  Type?: UserIdentityType;
 
   /**
    * @public
@@ -1332,7 +1359,7 @@ export interface ClusterOperationV2Summary {
    * @public
    * <p>Type of the backend cluster.</p>
    */
-  ClusterType?: ClusterType | string;
+  ClusterType?: ClusterType;
 
   /**
    * @public
@@ -1467,7 +1494,97 @@ export interface Configuration {
    * @public
    * <p>The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED. </p>
    */
-  State: ConfigurationState | string | undefined;
+  State: ConfigurationState | undefined;
+}
+
+/**
+ * @public
+ * <p>Details of an Amazon MSK Cluster.</p>
+ */
+export interface AmazonMskCluster {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of an Amazon MSK cluster.</p>
+   */
+  MskClusterArn: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.</p>
+ */
+export interface KafkaClusterClientVpcConfig {
+  /**
+   * @public
+   * <p>The security groups to attach to the ENIs for the broker nodes.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * @public
+   * <p>The list of subnets in the client VPC to connect to.</p>
+   */
+  SubnetIds: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Information about Kafka Cluster to be used as source / target for replication.</p>
+ */
+export interface KafkaCluster {
+  /**
+   * @public
+   * <p>Details of an Amazon MSK Cluster.</p>
+   */
+  AmazonMskCluster: AmazonMskCluster | undefined;
+
+  /**
+   * @public
+   * <p>Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.</p>
+   */
+  VpcConfig: KafkaClusterClientVpcConfig | undefined;
+}
+
+/**
+ * @public
+ * <p>Information about Kafka Cluster used as source / target for replication.</p>
+ */
+export interface KafkaClusterDescription {
+  /**
+   * @public
+   * <p>Details of an Amazon MSK Cluster.</p>
+   */
+  AmazonMskCluster?: AmazonMskCluster;
+
+  /**
+   * @public
+   * <p>The alias of the Kafka cluster. Used to prefix names of replicated topics.</p>
+   */
+  KafkaClusterAlias?: string;
+
+  /**
+   * @public
+   * <p>Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.</p>
+   */
+  VpcConfig?: KafkaClusterClientVpcConfig;
+}
+
+/**
+ * @public
+ * <p>Summarized information about Kafka Cluster used as source / target for replication.</p>
+ */
+export interface KafkaClusterSummary {
+  /**
+   * @public
+   * <p>Details of an Amazon MSK Cluster.</p>
+   */
+  AmazonMskCluster?: AmazonMskCluster;
+
+  /**
+   * @public
+   * <p>The alias of the Kafka cluster. Used to prefix names of replicated topics.</p>
+   */
+  KafkaClusterAlias?: string;
 }
 
 /**
@@ -1489,7 +1606,7 @@ export type KafkaVersionStatus = (typeof KafkaVersionStatus)[keyof typeof KafkaV
  */
 export interface KafkaVersion {
   Version?: string;
-  Status?: KafkaVersionStatus | string;
+  Status?: KafkaVersionStatus;
 }
 
 /**
@@ -1616,13 +1733,263 @@ export interface NodeInfo {
    * @public
    * <p>The node type.</p>
    */
-  NodeType?: NodeType | string;
+  NodeType?: NodeType;
 
   /**
    * @public
    * <p>The ZookeeperNodeInfo.</p>
    */
   ZookeeperNodeInfo?: ZookeeperNodeInfo;
+}
+
+/**
+ * @public
+ * <p>Details about consumer group replication.</p>
+ */
+export interface ConsumerGroupReplication {
+  /**
+   * @public
+   * <p>List of regular expression patterns indicating the consumer groups that should not be replicated.</p>
+   */
+  ConsumerGroupsToExclude?: string[];
+
+  /**
+   * @public
+   * <p>List of regular expression patterns indicating the consumer groups to copy.</p>
+   */
+  ConsumerGroupsToReplicate: string[] | undefined;
+
+  /**
+   * @public
+   * <p>Enables synchronization of consumer groups to target cluster.</p>
+   */
+  DetectAndCopyNewConsumerGroups?: boolean;
+
+  /**
+   * @public
+   * <p>Enables synchronization of consumer group offsets to target cluster. The translated offsets will be written to topic __consumer_offsets.</p>
+   */
+  SynchroniseConsumerGroupOffsets?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetCompressionType = {
+  GZIP: "GZIP",
+  LZ4: "LZ4",
+  NONE: "NONE",
+  SNAPPY: "SNAPPY",
+  ZSTD: "ZSTD",
+} as const;
+
+/**
+ * @public
+ */
+export type TargetCompressionType = (typeof TargetCompressionType)[keyof typeof TargetCompressionType];
+
+/**
+ * @public
+ * <p>Details about topic replication.</p>
+ */
+export interface TopicReplication {
+  /**
+   * @public
+   * <p>Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.</p>
+   */
+  CopyAccessControlListsForTopics?: boolean;
+
+  /**
+   * @public
+   * <p>Whether to periodically configure remote topics to match their corresponding upstream topics.</p>
+   */
+  CopyTopicConfigurations?: boolean;
+
+  /**
+   * @public
+   * <p>Whether to periodically check for new topics and partitions.</p>
+   */
+  DetectAndCopyNewTopics?: boolean;
+
+  /**
+   * @public
+   * <p>List of regular expression patterns indicating the topics that should not be replicated.</p>
+   */
+  TopicsToExclude?: string[];
+
+  /**
+   * @public
+   * <p>List of regular expression patterns indicating the topics to copy.</p>
+   */
+  TopicsToReplicate: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Specifies configuration for replication between a source and target Kafka cluster.</p>
+ */
+export interface ReplicationInfo {
+  /**
+   * @public
+   * <p>Configuration relating to consumer group replication.</p>
+   */
+  ConsumerGroupReplication: ConsumerGroupReplication | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the source Kafka cluster.</p>
+   */
+  SourceKafkaClusterArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The compression type to use when producing records to target cluster.</p>
+   */
+  TargetCompressionType: TargetCompressionType | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the target Kafka cluster.</p>
+   */
+  TargetKafkaClusterArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Configuration relating to topic replication.</p>
+   */
+  TopicReplication: TopicReplication | undefined;
+}
+
+/**
+ * @public
+ * <p>Specifies configuration for replication between a source and target Kafka cluster (sourceKafkaClusterAlias -> targetKafkaClusterAlias)</p>
+ */
+export interface ReplicationInfoDescription {
+  /**
+   * @public
+   * <p>Configuration relating to consumer group replication.</p>
+   */
+  ConsumerGroupReplication?: ConsumerGroupReplication;
+
+  /**
+   * @public
+   * <p>The alias of the source Kafka cluster.</p>
+   */
+  SourceKafkaClusterAlias?: string;
+
+  /**
+   * @public
+   * <p>The compression type to use when producing records to target cluster.</p>
+   */
+  TargetCompressionType?: TargetCompressionType;
+
+  /**
+   * @public
+   * <p>The alias of the target Kafka cluster.</p>
+   */
+  TargetKafkaClusterAlias?: string;
+
+  /**
+   * @public
+   * <p>Configuration relating to topic replication.</p>
+   */
+  TopicReplication?: TopicReplication;
+}
+
+/**
+ * @public
+ * <p>Summarized information of replication between clusters.</p>
+ */
+export interface ReplicationInfoSummary {
+  /**
+   * @public
+   * <p>The alias of the source Kafka cluster.</p>
+   */
+  SourceKafkaClusterAlias?: string;
+
+  /**
+   * @public
+   * <p>The alias of the target Kafka cluster.</p>
+   */
+  TargetKafkaClusterAlias?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ReplicatorState = {
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplicatorState = (typeof ReplicatorState)[keyof typeof ReplicatorState];
+
+/**
+ * @public
+ * <p>Information about a replicator.</p>
+ */
+export interface ReplicatorSummary {
+  /**
+   * @public
+   * <p>The time the replicator was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>The current version of the replicator.</p>
+   */
+  CurrentVersion?: string;
+
+  /**
+   * @public
+   * <p>Whether this resource is a replicator reference.</p>
+   */
+  IsReplicatorReference?: boolean;
+
+  /**
+   * @public
+   * <p>Kafka Clusters used in setting up sources / targets for replication.</p>
+   */
+  KafkaClustersSummary?: KafkaClusterSummary[];
+
+  /**
+   * @public
+   * <p>A list of summarized information of replications between clusters.</p>
+   */
+  ReplicationInfoSummaryList?: ReplicationInfoSummary[];
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the replicator.</p>
+   */
+  ReplicatorArn?: string;
+
+  /**
+   * @public
+   * <p>The name of the replicator.</p>
+   */
+  ReplicatorName?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the replicator resource in the region where the replicator was created.</p>
+   */
+  ReplicatorResourceArn?: string;
+
+  /**
+   * @public
+   * <p>State of the replicator.</p>
+   */
+  ReplicatorState?: ReplicatorState;
 }
 
 /**
@@ -1688,7 +2055,7 @@ export interface VpcConnection {
    * @public
    * <p>State of the Vpc Connection.</p>
    */
-  State?: VpcConnectionState | string;
+  State?: VpcConnectionState;
 }
 
 /**
@@ -2079,7 +2446,7 @@ export interface ClusterOperationV2 {
    * @public
    * <p>Type of the backend cluster.</p>
    */
-  ClusterType?: ClusterType | string;
+  ClusterType?: ClusterType;
 
   /**
    * @public
@@ -2165,6 +2532,36 @@ export class ConflictException extends __BaseException {
 
 /**
  * @public
+ * <p>Details about consumer group replication.</p>
+ */
+export interface ConsumerGroupReplicationUpdate {
+  /**
+   * @public
+   * <p>List of regular expression patterns indicating the consumer groups that should not be replicated.</p>
+   */
+  ConsumerGroupsToExclude: string[] | undefined;
+
+  /**
+   * @public
+   * <p>List of regular expression patterns indicating the consumer groups to copy.</p>
+   */
+  ConsumerGroupsToReplicate: string[] | undefined;
+
+  /**
+   * @public
+   * <p>Enables synchronization of consumer groups to target cluster.</p>
+   */
+  DetectAndCopyNewConsumerGroups: boolean | undefined;
+
+  /**
+   * @public
+   * <p>Enables synchronization of consumer group offsets to target cluster. The translated offsets will be written to topic __consumer_offsets.</p>
+   */
+  SynchroniseConsumerGroupOffsets: boolean | undefined;
+}
+
+/**
+ * @public
  */
 export interface CreateClusterRequest {
   /**
@@ -2201,7 +2598,7 @@ export interface CreateClusterRequest {
    * @public
    * <p>Specifies the level of monitoring for the MSK cluster. The possible values are DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION.</p>
    */
-  EnhancedMonitoring?: EnhancedMonitoring | string;
+  EnhancedMonitoring?: EnhancedMonitoring;
 
   /**
    * @public
@@ -2232,7 +2629,7 @@ export interface CreateClusterRequest {
    * @public
    * <p>This controls storage mode for supported storage tiers.</p>
    */
-  StorageMode?: StorageMode | string;
+  StorageMode?: StorageMode;
 }
 
 /**
@@ -2255,7 +2652,7 @@ export interface CreateClusterResponse {
    * @public
    * <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
    */
-  State?: ClusterState | string;
+  State?: ClusterState;
 }
 
 /**
@@ -2291,7 +2688,7 @@ export interface ProvisionedRequest {
    * @public
    * <p>Specifies the level of monitoring for the MSK cluster. The possible values are DEFAULT, PER_BROKER, PER_TOPIC_PER_BROKER, and PER_TOPIC_PER_PARTITION.</p>
    */
-  EnhancedMonitoring?: EnhancedMonitoring | string;
+  EnhancedMonitoring?: EnhancedMonitoring;
 
   /**
    * @public
@@ -2321,7 +2718,7 @@ export interface ProvisionedRequest {
    * @public
    * <p>This controls storage mode for supported storage tiers.</p>
    */
-  StorageMode?: StorageMode | string;
+  StorageMode?: StorageMode;
 }
 
 /**
@@ -2391,13 +2788,13 @@ export interface CreateClusterV2Response {
    * @public
    * <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
    */
-  State?: ClusterState | string;
+  State?: ClusterState;
 
   /**
    * @public
    * <p>The type of the cluster. The possible states are PROVISIONED or SERVERLESS.</p>
    */
-  ClusterType?: ClusterType | string;
+  ClusterType?: ClusterType;
 }
 
 /**
@@ -2462,7 +2859,72 @@ export interface CreateConfigurationResponse {
    * @public
    * <p>The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED. </p>
    */
-  State?: ConfigurationState | string;
+  State?: ConfigurationState;
+}
+
+/**
+ * @public
+ * <p>Creates a replicator using the specified configuration.</p>
+ */
+export interface CreateReplicatorRequest {
+  /**
+   * @public
+   * <p>A summary description of the replicator.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>Kafka Clusters to use in setting up sources / targets for replication.</p>
+   */
+  KafkaClusters: KafkaCluster[] | undefined;
+
+  /**
+   * @public
+   * <p>A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.</p>
+   */
+  ReplicationInfoList: ReplicationInfo[] | undefined;
+
+  /**
+   * @public
+   * <p>The name of the replicator. Alpha-numeric characters with '-' are allowed.</p>
+   */
+  ReplicatorName: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters)</p>
+   */
+  ServiceExecutionRoleArn: string | undefined;
+
+  /**
+   * @public
+   * <p>List of tags to attach to created Replicator.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateReplicatorResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the replicator.</p>
+   */
+  ReplicatorArn?: string;
+
+  /**
+   * @public
+   * <p>Name of the replicator provided by the customer.</p>
+   */
+  ReplicatorName?: string;
+
+  /**
+   * @public
+   * <p>State of the replicator.</p>
+   */
+  ReplicatorState?: ReplicatorState;
 }
 
 /**
@@ -2520,7 +2982,7 @@ export interface CreateVpcConnectionResponse {
    * @public
    * <p>The State of Vpc Connection.</p>
    */
-  State?: VpcConnectionState | string;
+  State?: VpcConnectionState;
 
   /**
    * @public
@@ -2590,7 +3052,7 @@ export interface DeleteClusterResponse {
    * @public
    * <p>The state of the cluster. The possible states are ACTIVE, CREATING, DELETING, FAILED, HEALING, MAINTENANCE, REBOOTING_BROKER, and UPDATING.</p>
    */
-  State?: ClusterState | string;
+  State?: ClusterState;
 }
 
 /**
@@ -2634,7 +3096,41 @@ export interface DeleteConfigurationResponse {
    * @public
    * <p>The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED. </p>
    */
-  State?: ConfigurationState | string;
+  State?: ConfigurationState;
+}
+
+/**
+ * @public
+ */
+export interface DeleteReplicatorRequest {
+  /**
+   * @public
+   * <p>The current version of the replicator.</p>
+   */
+  CurrentVersion?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the replicator to be deleted.</p>
+   */
+  ReplicatorArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteReplicatorResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the replicator.</p>
+   */
+  ReplicatorArn?: string;
+
+  /**
+   * @public
+   * <p>The state of the replicator.</p>
+   */
+  ReplicatorState?: ReplicatorState;
 }
 
 /**
@@ -2662,7 +3158,7 @@ export interface DeleteVpcConnectionResponse {
    * @public
    * <p>The state of the VPC connection.</p>
    */
-  State?: VpcConnectionState | string;
+  State?: VpcConnectionState;
 }
 
 /**
@@ -2808,7 +3304,7 @@ export interface DescribeConfigurationResponse {
    * @public
    * <p>The state of the configuration. The possible states are ACTIVE, DELETING, and DELETE_FAILED. </p>
    */
-  State?: ConfigurationState | string;
+  State?: ConfigurationState;
 }
 
 /**
@@ -2867,6 +3363,118 @@ export interface DescribeConfigurationRevisionResponse {
 /**
  * @public
  */
+export interface DescribeReplicatorRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the replicator to be described.</p>
+   */
+  ReplicatorArn: string | undefined;
+}
+
+/**
+ * @public
+ * Details about the state of a replicator
+ */
+export interface ReplicationStateInfo {
+  /**
+   * @public
+   * Code that describes the current state of the replicator.
+   */
+  Code?: string;
+
+  /**
+   * @public
+   * Message that describes the state of the replicator.
+   */
+  Message?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeReplicatorResponse {
+  /**
+   * @public
+   * <p>The time when the replicator was created.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * @public
+   * <p>The current version number of the replicator.</p>
+   */
+  CurrentVersion?: string;
+
+  /**
+   * @public
+   * <p>Whether this resource is a replicator reference.</p>
+   */
+  IsReplicatorReference?: boolean;
+
+  /**
+   * @public
+   * <p>Kafka Clusters used in setting up sources / targets for replication.</p>
+   */
+  KafkaClusters?: KafkaClusterDescription[];
+
+  /**
+   * @public
+   * <p>A list of replication configurations, where each configuration targets a given source cluster to target cluster replication flow.</p>
+   */
+  ReplicationInfoList?: ReplicationInfoDescription[];
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the replicator.</p>
+   */
+  ReplicatorArn?: string;
+
+  /**
+   * @public
+   * <p>The description of the replicator.</p>
+   */
+  ReplicatorDescription?: string;
+
+  /**
+   * @public
+   * <p>The name of the replicator.</p>
+   */
+  ReplicatorName?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the replicator resource in the region where the replicator was created.</p>
+   */
+  ReplicatorResourceArn?: string;
+
+  /**
+   * @public
+   * <p>State of the replicator.</p>
+   */
+  ReplicatorState?: ReplicatorState;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the IAM role used by the replicator to access resources in the customer's account (e.g source and target clusters)</p>
+   */
+  ServiceExecutionRoleArn?: string;
+
+  /**
+   * @public
+   * <p>Details about the state of the replicator.</p>
+   */
+  StateInfo?: ReplicationStateInfo;
+
+  /**
+   * @public
+   * <p>List of tags attached to the Replicator.</p>
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
 export interface DescribeVpcConnectionRequest {
   /**
    * @public
@@ -2895,7 +3503,7 @@ export interface DescribeVpcConnectionResponse {
    * @public
    * <p>The state of VPC connection.</p>
    */
-  State?: VpcConnectionState | string;
+  State?: VpcConnectionState;
 
   /**
    * @public
@@ -3415,6 +4023,46 @@ export interface ListNodesResponse {
    * <p>List containing a NodeInfo object.</p>
    */
   NodeInfoList?: NodeInfo[];
+}
+
+/**
+ * @public
+ */
+export interface ListReplicatorsRequest {
+  /**
+   * @public
+   * <p>The maximum number of results to return in the response. If there are more results, the response includes a NextToken parameter.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>If the response of ListReplicators is truncated, it returns a NextToken in the response. This NextToken should be sent in the subsequent request to ListReplicators.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>Returns replicators starting with given name.</p>
+   */
+  ReplicatorNameFilter?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListReplicatorsResponse {
+  /**
+   * @public
+   * <p>If the response of ListReplicators is truncated, it returns a NextToken in the response. This NextToken should be sent in the subsequent request to ListReplicators.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>List containing information of each of the replicators in the account.</p>
+   */
+  Replicators?: ReplicatorSummary[];
 }
 
 /**
@@ -3968,7 +4616,7 @@ export interface UpdateMonitoringRequest {
    * @public
    * <p>Specifies which Apache Kafka metrics Amazon MSK gathers and sends to Amazon CloudWatch for this cluster.</p>
    */
-  EnhancedMonitoring?: EnhancedMonitoring | string;
+  EnhancedMonitoring?: EnhancedMonitoring;
 
   /**
    * @public
@@ -3994,6 +4642,101 @@ export interface UpdateMonitoringResponse {
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
    */
   ClusterOperationArn?: string;
+}
+
+/**
+ * @public
+ * <p>Details for updating the topic replication of a replicator.</p>
+ */
+export interface TopicReplicationUpdate {
+  /**
+   * @public
+   * <p>Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.</p>
+   */
+  CopyAccessControlListsForTopics: boolean | undefined;
+
+  /**
+   * @public
+   * <p>Whether to periodically configure remote topics to match their corresponding upstream topics.</p>
+   */
+  CopyTopicConfigurations: boolean | undefined;
+
+  /**
+   * @public
+   * <p>Whether to periodically check for new topics and partitions.</p>
+   */
+  DetectAndCopyNewTopics: boolean | undefined;
+
+  /**
+   * @public
+   * <p>List of regular expression patterns indicating the topics that should not be replicated.</p>
+   */
+  TopicsToExclude: string[] | undefined;
+
+  /**
+   * @public
+   * <p>List of regular expression patterns indicating the topics to copy.</p>
+   */
+  TopicsToReplicate: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Update information relating to replication between a given source and target Kafka cluster.</p>
+ */
+export interface UpdateReplicationInfoRequest {
+  /**
+   * @public
+   * <p>Updated consumer group replication information.</p>
+   */
+  ConsumerGroupReplication?: ConsumerGroupReplicationUpdate;
+
+  /**
+   * @public
+   * <p>Current replicator version.</p>
+   */
+  CurrentVersion: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the replicator to be updated.</p>
+   */
+  ReplicatorArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the source Kafka cluster.</p>
+   */
+  SourceKafkaClusterArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the target Kafka cluster.</p>
+   */
+  TargetKafkaClusterArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Updated topic replication information.</p>
+   */
+  TopicReplication?: TopicReplicationUpdate;
+}
+
+/**
+ * @public
+ */
+export interface UpdateReplicationInfoResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the replicator.</p>
+   */
+  ReplicatorArn?: string;
+
+  /**
+   * @public
+   * <p>State of the replicator.</p>
+   */
+  ReplicatorState?: ReplicatorState;
 }
 
 /**
@@ -4069,7 +4812,7 @@ export interface UpdateStorageRequest {
    * @public
    * <p>Controls storage mode for supported storage tiers.</p>
    */
-  StorageMode?: StorageMode | string;
+  StorageMode?: StorageMode;
 
   /**
    * @public

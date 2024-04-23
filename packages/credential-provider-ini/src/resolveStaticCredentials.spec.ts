@@ -4,6 +4,7 @@ const getMockStaticCredsProfile = () => ({
   aws_access_key_id: "mock_aws_access_key_id",
   aws_secret_access_key: "mock_aws_secret_access_key",
   aws_session_token: "mock_aws_session_token",
+  aws_credential_scope: "mock_aws_credential_scope",
 });
 
 describe(isStaticCredsProfile.name, () => {
@@ -44,6 +45,7 @@ describe(resolveStaticCredentials.name, () => {
       accessKeyId: mockProfile.aws_access_key_id,
       secretAccessKey: mockProfile.aws_secret_access_key,
       sessionToken: mockProfile.aws_session_token,
+      credentialScope: mockProfile.aws_credential_scope,
     });
   });
 });

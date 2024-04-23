@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { BatchGetProjectsInput, BatchGetProjectsOutput } from "../models/models_0";
 import { de_BatchGetProjectsCommand, se_BatchGetProjectsCommand } from "../protocols/Aws_json1_1";
 
@@ -57,7 +49,7 @@ export interface BatchGetProjectsCommandOutput extends BatchGetProjectsOutput, _
  * //       arn: "STRING_VALUE",
  * //       description: "STRING_VALUE",
  * //       source: { // ProjectSource
- * //         type: "STRING_VALUE", // required
+ * //         type: "CODECOMMIT" || "CODEPIPELINE" || "GITHUB" || "S3" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "NO_SOURCE", // required
  * //         location: "STRING_VALUE",
  * //         gitCloneDepth: Number("int"),
  * //         gitSubmodulesConfig: { // GitSubmodulesConfig
@@ -65,7 +57,7 @@ export interface BatchGetProjectsCommandOutput extends BatchGetProjectsOutput, _
  * //         },
  * //         buildspec: "STRING_VALUE",
  * //         auth: { // SourceAuth
- * //           type: "STRING_VALUE", // required
+ * //           type: "OAUTH", // required
  * //           resource: "STRING_VALUE",
  * //         },
  * //         reportBuildStatus: true || false,
@@ -78,7 +70,7 @@ export interface BatchGetProjectsCommandOutput extends BatchGetProjectsOutput, _
  * //       },
  * //       secondarySources: [ // ProjectSources
  * //         {
- * //           type: "STRING_VALUE", // required
+ * //           type: "CODECOMMIT" || "CODEPIPELINE" || "GITHUB" || "S3" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "NO_SOURCE", // required
  * //           location: "STRING_VALUE",
  * //           gitCloneDepth: Number("int"),
  * //           gitSubmodulesConfig: {
@@ -86,7 +78,7 @@ export interface BatchGetProjectsCommandOutput extends BatchGetProjectsOutput, _
  * //           },
  * //           buildspec: "STRING_VALUE",
  * //           auth: {
- * //             type: "STRING_VALUE", // required
+ * //             type: "OAUTH", // required
  * //             resource: "STRING_VALUE",
  * //           },
  * //           reportBuildStatus: true || false,
@@ -106,56 +98,59 @@ export interface BatchGetProjectsCommandOutput extends BatchGetProjectsOutput, _
  * //         },
  * //       ],
  * //       artifacts: { // ProjectArtifacts
- * //         type: "STRING_VALUE", // required
+ * //         type: "CODEPIPELINE" || "S3" || "NO_ARTIFACTS", // required
  * //         location: "STRING_VALUE",
  * //         path: "STRING_VALUE",
- * //         namespaceType: "STRING_VALUE",
+ * //         namespaceType: "NONE" || "BUILD_ID",
  * //         name: "STRING_VALUE",
- * //         packaging: "STRING_VALUE",
+ * //         packaging: "NONE" || "ZIP",
  * //         overrideArtifactName: true || false,
  * //         encryptionDisabled: true || false,
  * //         artifactIdentifier: "STRING_VALUE",
- * //         bucketOwnerAccess: "STRING_VALUE",
+ * //         bucketOwnerAccess: "NONE" || "READ_ONLY" || "FULL",
  * //       },
  * //       secondaryArtifacts: [ // ProjectArtifactsList
  * //         {
- * //           type: "STRING_VALUE", // required
+ * //           type: "CODEPIPELINE" || "S3" || "NO_ARTIFACTS", // required
  * //           location: "STRING_VALUE",
  * //           path: "STRING_VALUE",
- * //           namespaceType: "STRING_VALUE",
+ * //           namespaceType: "NONE" || "BUILD_ID",
  * //           name: "STRING_VALUE",
- * //           packaging: "STRING_VALUE",
+ * //           packaging: "NONE" || "ZIP",
  * //           overrideArtifactName: true || false,
  * //           encryptionDisabled: true || false,
  * //           artifactIdentifier: "STRING_VALUE",
- * //           bucketOwnerAccess: "STRING_VALUE",
+ * //           bucketOwnerAccess: "NONE" || "READ_ONLY" || "FULL",
  * //         },
  * //       ],
  * //       cache: { // ProjectCache
- * //         type: "STRING_VALUE", // required
+ * //         type: "NO_CACHE" || "S3" || "LOCAL", // required
  * //         location: "STRING_VALUE",
  * //         modes: [ // ProjectCacheModes
- * //           "STRING_VALUE",
+ * //           "LOCAL_DOCKER_LAYER_CACHE" || "LOCAL_SOURCE_CACHE" || "LOCAL_CUSTOM_CACHE",
  * //         ],
  * //       },
  * //       environment: { // ProjectEnvironment
- * //         type: "STRING_VALUE", // required
+ * //         type: "WINDOWS_CONTAINER" || "LINUX_CONTAINER" || "LINUX_GPU_CONTAINER" || "ARM_CONTAINER" || "WINDOWS_SERVER_2019_CONTAINER" || "LINUX_LAMBDA_CONTAINER" || "ARM_LAMBDA_CONTAINER", // required
  * //         image: "STRING_VALUE", // required
- * //         computeType: "STRING_VALUE", // required
+ * //         computeType: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE" || "BUILD_GENERAL1_XLARGE" || "BUILD_GENERAL1_2XLARGE" || "BUILD_LAMBDA_1GB" || "BUILD_LAMBDA_2GB" || "BUILD_LAMBDA_4GB" || "BUILD_LAMBDA_8GB" || "BUILD_LAMBDA_10GB", // required
+ * //         fleet: { // ProjectFleet
+ * //           fleetArn: "STRING_VALUE",
+ * //         },
  * //         environmentVariables: [ // EnvironmentVariables
  * //           { // EnvironmentVariable
  * //             name: "STRING_VALUE", // required
  * //             value: "STRING_VALUE", // required
- * //             type: "STRING_VALUE",
+ * //             type: "PLAINTEXT" || "PARAMETER_STORE" || "SECRETS_MANAGER",
  * //           },
  * //         ],
  * //         privilegedMode: true || false,
  * //         certificate: "STRING_VALUE",
  * //         registryCredential: { // RegistryCredential
  * //           credential: "STRING_VALUE", // required
- * //           credentialProvider: "STRING_VALUE", // required
+ * //           credentialProvider: "SECRETS_MANAGER", // required
  * //         },
- * //         imagePullCredentialsType: "STRING_VALUE",
+ * //         imagePullCredentialsType: "CODEBUILD" || "SERVICE_ROLE",
  * //       },
  * //       serviceRole: "STRING_VALUE",
  * //       timeoutInMinutes: Number("int"),
@@ -177,13 +172,13 @@ export interface BatchGetProjectsCommandOutput extends BatchGetProjectsOutput, _
  * //         filterGroups: [ // FilterGroups
  * //           [ // FilterGroup
  * //             { // WebhookFilter
- * //               type: "STRING_VALUE", // required
+ * //               type: "EVENT" || "BASE_REF" || "HEAD_REF" || "ACTOR_ACCOUNT_ID" || "FILE_PATH" || "COMMIT_MESSAGE", // required
  * //               pattern: "STRING_VALUE", // required
  * //               excludeMatchedPattern: true || false,
  * //             },
  * //           ],
  * //         ],
- * //         buildType: "STRING_VALUE",
+ * //         buildType: "BUILD" || "BUILD_BATCH",
  * //         lastModifiedSecret: new Date("TIMESTAMP"),
  * //       },
  * //       vpcConfig: { // VpcConfig
@@ -201,20 +196,20 @@ export interface BatchGetProjectsCommandOutput extends BatchGetProjectsOutput, _
  * //       },
  * //       logsConfig: { // LogsConfig
  * //         cloudWatchLogs: { // CloudWatchLogsConfig
- * //           status: "STRING_VALUE", // required
+ * //           status: "ENABLED" || "DISABLED", // required
  * //           groupName: "STRING_VALUE",
  * //           streamName: "STRING_VALUE",
  * //         },
  * //         s3Logs: { // S3LogsConfig
- * //           status: "STRING_VALUE", // required
+ * //           status: "ENABLED" || "DISABLED", // required
  * //           location: "STRING_VALUE",
  * //           encryptionDisabled: true || false,
- * //           bucketOwnerAccess: "STRING_VALUE",
+ * //           bucketOwnerAccess: "NONE" || "READ_ONLY" || "FULL",
  * //         },
  * //       },
  * //       fileSystemLocations: [ // ProjectFileSystemLocations
  * //         { // ProjectFileSystemLocation
- * //           type: "STRING_VALUE",
+ * //           type: "EFS",
  * //           location: "STRING_VALUE",
  * //           mountPoint: "STRING_VALUE",
  * //           identifier: "STRING_VALUE",
@@ -231,10 +226,10 @@ export interface BatchGetProjectsCommandOutput extends BatchGetProjectsOutput, _
  * //           ],
  * //         },
  * //         timeoutInMins: Number("int"),
- * //         batchReportMode: "STRING_VALUE",
+ * //         batchReportMode: "REPORT_INDIVIDUAL_BUILDS" || "REPORT_AGGREGATED_BATCH",
  * //       },
  * //       concurrentBuildLimit: Number("int"),
- * //       projectVisibility: "STRING_VALUE",
+ * //       projectVisibility: "PUBLIC_READ" || "PRIVATE",
  * //       publicProjectAlias: "STRING_VALUE",
  * //       resourceAccessRole: "STRING_VALUE",
  * //     },
@@ -259,79 +254,26 @@ export interface BatchGetProjectsCommandOutput extends BatchGetProjectsOutput, _
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
  */
-export class BatchGetProjectsCommand extends $Command<
-  BatchGetProjectsCommandInput,
-  BatchGetProjectsCommandOutput,
-  CodeBuildClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: BatchGetProjectsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CodeBuildClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<BatchGetProjectsCommandInput, BatchGetProjectsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, BatchGetProjectsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CodeBuildClient";
-    const commandName = "BatchGetProjectsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: BatchGetProjectsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_BatchGetProjectsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetProjectsCommandOutput> {
-    return de_BatchGetProjectsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class BatchGetProjectsCommand extends $Command
+  .classBuilder<
+    BatchGetProjectsCommandInput,
+    BatchGetProjectsCommandOutput,
+    CodeBuildClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CodeBuildClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CodeBuild_20161006", "BatchGetProjects", {})
+  .n("CodeBuildClient", "BatchGetProjectsCommand")
+  .f(void 0, void 0)
+  .ser(se_BatchGetProjectsCommand)
+  .de(de_BatchGetProjectsCommand)
+  .build() {}

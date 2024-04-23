@@ -168,7 +168,7 @@ export interface ApiDestination {
    * @public
    * <p>The state of the API destination.</p>
    */
-  ApiDestinationState?: ApiDestinationState | string;
+  ApiDestinationState?: ApiDestinationState;
 
   /**
    * @public
@@ -186,7 +186,7 @@ export interface ApiDestination {
    * @public
    * <p>The method to use to connect to the HTTP endpoint.</p>
    */
-  HttpMethod?: ApiDestinationHttpMethod | string;
+  HttpMethod?: ApiDestinationHttpMethod;
 
   /**
    * @public
@@ -205,6 +205,19 @@ export interface ApiDestination {
    * <p>A time stamp for the time that the API destination was last modified.</p>
    */
   LastModifiedTime?: Date;
+}
+
+/**
+ * @public
+ * <p>Contains the GraphQL operation to be parsed and executed, if the event target is an AppSync API.</p>
+ */
+export interface AppSyncParameters {
+  /**
+   * @public
+   * <p>The GraphQL operation; that is, the query, mutation, or subscription to be parsed and executed by the GraphQL service.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/appsync/latest/devguide/graphql-architecture.html#graphql-operations">Operations</a> in the <i>AppSync User Guide</i>.</p>
+   */
+  GraphQLOperation?: string;
 }
 
 /**
@@ -247,7 +260,7 @@ export interface Archive {
    * @public
    * <p>The current state of the archive.</p>
    */
-  State?: ArchiveState | string;
+  State?: ArchiveState;
 
   /**
    * @public
@@ -337,7 +350,7 @@ export interface CancelReplayResponse {
    * @public
    * <p>The current state of the replay.</p>
    */
-  State?: ReplayState | string;
+  State?: ReplayState;
 
   /**
    * @public
@@ -400,7 +413,7 @@ export interface CreateApiDestinationRequest {
    * @public
    * <p>The method to use for the request to the HTTP invocation endpoint.</p>
    */
-  HttpMethod: ApiDestinationHttpMethod | string | undefined;
+  HttpMethod: ApiDestinationHttpMethod | undefined;
 
   /**
    * @public
@@ -423,7 +436,7 @@ export interface CreateApiDestinationResponse {
    * @public
    * <p>The state of the API destination that was created by the request.</p>
    */
-  ApiDestinationState?: ApiDestinationState | string;
+  ApiDestinationState?: ApiDestinationState;
 
   /**
    * @public
@@ -529,7 +542,7 @@ export interface CreateArchiveResponse {
    * @public
    * <p>The state of the archive that was created.</p>
    */
-  State?: ArchiveState | string;
+  State?: ArchiveState;
 
   /**
    * @public
@@ -773,7 +786,7 @@ export interface CreateConnectionOAuthRequestParameters {
    * @public
    * <p>The method to use for the authorization request.</p>
    */
-  HttpMethod: ConnectionOAuthHttpMethod | string | undefined;
+  HttpMethod: ConnectionOAuthHttpMethod | undefined;
 
   /**
    * @public
@@ -842,7 +855,7 @@ export interface CreateConnectionRequest {
    *             <p>OAUTH tokens are refreshed when a 401 or 407 response is returned.</p>
    *          </note>
    */
-  AuthorizationType: ConnectionAuthorizationType | string | undefined;
+  AuthorizationType: ConnectionAuthorizationType | undefined;
 
   /**
    * @public
@@ -885,7 +898,7 @@ export interface CreateConnectionResponse {
    * @public
    * <p>The state of the connection that was created by the request.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: ConnectionState;
 
   /**
    * @public
@@ -935,7 +948,7 @@ export interface ReplicationConfig {
    * @public
    * <p>The state of event replication.</p>
    */
-  State?: ReplicationState | string;
+  State?: ReplicationState;
 }
 
 /**
@@ -1100,7 +1113,7 @@ export interface CreateEndpointResponse {
    * @public
    * <p>The state of the endpoint that was created by this request.</p>
    */
-  State?: EndpointState | string;
+  State?: EndpointState;
 }
 
 /**
@@ -1232,7 +1245,7 @@ export interface DeauthorizeConnectionResponse {
    * @public
    * <p>The state of the connection.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: ConnectionState;
 
   /**
    * @public
@@ -1310,7 +1323,7 @@ export interface DeleteConnectionResponse {
    * @public
    * <p>The state of the connection before it was deleted.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: ConnectionState;
 
   /**
    * @public
@@ -1467,7 +1480,7 @@ export interface DescribeApiDestinationResponse {
    * @public
    * <p>The state of the API destination retrieved.</p>
    */
-  ApiDestinationState?: ApiDestinationState | string;
+  ApiDestinationState?: ApiDestinationState;
 
   /**
    * @public
@@ -1485,7 +1498,7 @@ export interface DescribeApiDestinationResponse {
    * @public
    * <p>The method to use to connect to the HTTP endpoint.</p>
    */
-  HttpMethod?: ApiDestinationHttpMethod | string;
+  HttpMethod?: ApiDestinationHttpMethod;
 
   /**
    * @public
@@ -1560,7 +1573,7 @@ export interface DescribeArchiveResponse {
    * @public
    * <p>The state of the archive.</p>
    */
-  State?: ArchiveState | string;
+  State?: ArchiveState;
 
   /**
    * @public
@@ -1666,7 +1679,7 @@ export interface ConnectionOAuthResponseParameters {
    * @public
    * <p>The method used to connect to the HTTP endpoint.</p>
    */
-  HttpMethod?: ConnectionOAuthHttpMethod | string;
+  HttpMethod?: ConnectionOAuthHttpMethod;
 
   /**
    * @public
@@ -1732,7 +1745,7 @@ export interface DescribeConnectionResponse {
    * @public
    * <p>The state of the connection retrieved.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: ConnectionState;
 
   /**
    * @public
@@ -1744,7 +1757,7 @@ export interface DescribeConnectionResponse {
    * @public
    * <p>The type of authorization specified for the connection.</p>
    */
-  AuthorizationType?: ConnectionAuthorizationType | string;
+  AuthorizationType?: ConnectionAuthorizationType;
 
   /**
    * @public
@@ -1857,7 +1870,7 @@ export interface DescribeEndpointResponse {
    * @public
    * <p>The current state of the endpoint you asked for information about.</p>
    */
-  State?: EndpointState | string;
+  State?: EndpointState;
 
   /**
    * @public
@@ -1982,7 +1995,7 @@ export interface DescribeEventSourceResponse {
    *       yet created a matching event bus, or that event bus is deactivated. If it is DELETED, you have
    *       created a matching event bus, but the event source has since been deleted.</p>
    */
-  State?: EventSourceState | string;
+  State?: EventSourceState;
 }
 
 /**
@@ -2069,7 +2082,7 @@ export interface DescribeReplayResponse {
    * @public
    * <p>The current state of the replay.</p>
    */
-  State?: ReplayState | string;
+  State?: ReplayState;
 
   /**
    * @public
@@ -2145,6 +2158,7 @@ export interface DescribeRuleRequest {
 export const RuleState = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
+  ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS: "ENABLED_WITH_ALL_CLOUDTRAIL_MANAGEMENT_EVENTS",
 } as const;
 
 /**
@@ -2171,7 +2185,7 @@ export interface DescribeRuleResponse {
   /**
    * @public
    * <p>The event pattern. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html">Events and Event
-   *         Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+   *       Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
    */
   EventPattern?: string;
 
@@ -2185,7 +2199,7 @@ export interface DescribeRuleResponse {
    * @public
    * <p>Specifies whether the rule is enabled or disabled.</p>
    */
-  State?: RuleState | string;
+  State?: RuleState;
 
   /**
    * @public
@@ -2328,7 +2342,7 @@ export interface ListArchivesRequest {
    * @public
    * <p>The state of the archive.</p>
    */
-  State?: ArchiveState | string;
+  State?: ArchiveState;
 
   /**
    * @public
@@ -2375,7 +2389,7 @@ export interface ListConnectionsRequest {
    * @public
    * <p>The state of the connection.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: ConnectionState;
 
   /**
    * @public
@@ -2411,7 +2425,7 @@ export interface Connection {
    * @public
    * <p>The state of the connection.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: ConnectionState;
 
   /**
    * @public
@@ -2426,7 +2440,7 @@ export interface Connection {
    *             <p>OAUTH tokens are refreshed when a 401 or 407 response is returned.</p>
    *          </note>
    */
-  AuthorizationType?: ConnectionAuthorizationType | string;
+  AuthorizationType?: ConnectionAuthorizationType;
 
   /**
    * @public
@@ -2497,7 +2511,7 @@ export interface ListEndpointsRequest {
 
 /**
  * @public
- * <p>A global endpoint used to improve your application's availability by making it regional-fault tolerant. For more information about global endpoints, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html">Making applications Regional-fault tolerant with global endpoints and event replication</a> in the Amazon EventBridge User Guide.</p>
+ * <p>A global endpoint used to improve your application's availability by making it regional-fault tolerant. For more information about global endpoints, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-global-endpoints.html">Making applications Regional-fault tolerant with global endpoints and event replication</a> in the <i>Amazon EventBridge User Guide</i>.</p>
  */
 export interface Endpoint {
   /**
@@ -2559,7 +2573,7 @@ export interface Endpoint {
    * @public
    * <p>The current state of the endpoint.</p>
    */
-  State?: EndpointState | string;
+  State?: EndpointState;
 
   /**
    * @public
@@ -2742,7 +2756,7 @@ export interface EventSource {
    *       yet created a matching event bus, or that event bus is deactivated. If it is DELETED, you have
    *       created a matching event bus, but the event source has since been deleted.</p>
    */
-  State?: EventSourceState | string;
+  State?: EventSourceState;
 }
 
 /**
@@ -2819,7 +2833,7 @@ export interface PartnerEventSourceAccount {
    *       yet created a matching event bus, or that event bus is deactivated. If it is DELETED, you have
    *       created a matching event bus, but the event source has since been deleted.</p>
    */
-  State?: EventSourceState | string;
+  State?: EventSourceState;
 }
 
 /**
@@ -2918,7 +2932,7 @@ export interface ListReplaysRequest {
    * @public
    * <p>The state of the replay.</p>
    */
-  State?: ReplayState | string;
+  State?: ReplayState;
 
   /**
    * @public
@@ -2960,7 +2974,7 @@ export interface Replay {
    * @public
    * <p>The current state of the replay.</p>
    */
-  State?: ReplayState | string;
+  State?: ReplayState;
 
   /**
    * @public
@@ -3116,7 +3130,7 @@ export interface Rule {
   /**
    * @public
    * <p>The event pattern of the rule. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html">Events and Event
-   *         Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+   *       Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
    */
   EventPattern?: string;
 
@@ -3124,7 +3138,7 @@ export interface Rule {
    * @public
    * <p>The state of the rule.</p>
    */
-  State?: RuleState | string;
+  State?: RuleState;
 
   /**
    * @public
@@ -3382,7 +3396,7 @@ export interface AwsVpcConfiguration {
    *       can specify <code>ENABLED</code> only when <code>LaunchType</code> in
    *         <code>EcsParameters</code> is set to <code>FARGATE</code>.</p>
    */
-  AssignPublicIp?: AssignPublicIp | string;
+  AssignPublicIp?: AssignPublicIp;
 }
 
 /**
@@ -3425,7 +3439,7 @@ export interface PlacementConstraint {
    *       group is running on a different container instance. Use memberOf to restrict the selection to
    *       a group of valid candidates. </p>
    */
-  type?: PlacementConstraintType | string;
+  type?: PlacementConstraintType;
 
   /**
    * @public
@@ -3466,7 +3480,7 @@ export interface PlacementStrategy {
    *       field parameter. For example, if you binpack on memory, a task is placed on the instance with
    *       the least amount of remaining memory (but still enough to run the task). </p>
    */
-  type?: PlacementStrategyType | string;
+  type?: PlacementStrategyType;
 
   /**
    * @public
@@ -3518,7 +3532,7 @@ export interface EcsParameters {
    *      is supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html">Fargate on Amazon ECS</a> in
    *       the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
-  LaunchType?: LaunchType | string;
+  LaunchType?: LaunchType;
 
   /**
    * @public
@@ -3595,7 +3609,7 @@ export interface EcsParameters {
    *       is specified, the tags are not propagated. Tags can only be propagated to the task during task
    *       creation. To add tags to a task after task creation, use the TagResource API action. </p>
    */
-  PropagateTags?: PropagateTags | string;
+  PropagateTags?: PropagateTags;
 
   /**
    * @public
@@ -3751,7 +3765,7 @@ export interface KinesisParameters {
 
 /**
  * @public
- * <p>These are custom parameters to be used when the target is a Amazon Redshift cluster or Redshift Serverless workgroup to invoke the
+ * <p>These are custom parameters to be used when the target is a Amazon Redshift cluster  to invoke the
  *       Amazon Redshift Data API ExecuteStatement based on EventBridge events.</p>
  */
 export interface RedshiftDataParameters {
@@ -3771,7 +3785,6 @@ export interface RedshiftDataParameters {
   /**
    * @public
    * <p>The database user name. Required when authenticating using temporary credentials.</p>
-   *          <p>Do not provide this parameter when connecting to a Redshift Serverless workgroup.</p>
    */
   DbUser?: string;
 
@@ -3797,7 +3810,9 @@ export interface RedshiftDataParameters {
 
   /**
    * @public
-   * A list of SQLs.
+   * <p>One or more SQL statements to run. The SQL statements are run as a single transaction. They run serially in the order of the array.
+   *       Subsequent SQL statements don't start until the previous statement in the array completes.
+   *       If any SQL statement fails, then because they are run as one transaction, all work is rolled back.</p>
    */
   Sqls?: string[];
 }
@@ -4045,6 +4060,12 @@ export interface Target {
    *       for the dead-letter queue.</p>
    */
   RetryPolicy?: RetryPolicy;
+
+  /**
+   * @public
+   * <p>Contains the GraphQL operation to be parsed and executed, if the event target is an AppSync API.</p>
+   */
+  AppSyncParameters?: AppSyncParameters;
 }
 
 /**
@@ -4079,6 +4100,13 @@ export interface PutEventsRequestEntry {
   /**
    * @public
    * <p>The source of the event.</p>
+   *          <note>
+   *             <p>
+   *                <code>Detail</code>, <code>DetailType</code>, and <code>Source</code> are required for EventBridge to successfully send an event to an event bus.
+   *     If you include event entries in a request that do not include each of those properties, EventBridge fails that entry.
+   *     If you submit a request in which <i>none</i> of the entries have each of these properties, EventBridge fails the entire request.
+   *     </p>
+   *          </note>
    */
   Source?: string;
 
@@ -4092,13 +4120,27 @@ export interface PutEventsRequestEntry {
   /**
    * @public
    * <p>Free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.</p>
+   *          <note>
+   *             <p>
+   *                <code>Detail</code>, <code>DetailType</code>, and <code>Source</code> are required for EventBridge to successfully send an event to an event bus.
+   *     If you include event entries in a request that do not include each of those properties, EventBridge fails that entry.
+   *     If you submit a request in which <i>none</i> of the entries have each of these properties, EventBridge fails the entire request.
+   *     </p>
+   *          </note>
    */
   DetailType?: string;
 
   /**
    * @public
    * <p>A valid JSON object. There is no other schema imposed. The JSON object may contain fields
-   *       and nested subobjects.</p>
+   *       and nested sub-objects.</p>
+   *          <note>
+   *             <p>
+   *                <code>Detail</code>, <code>DetailType</code>, and <code>Source</code> are required for EventBridge to successfully send an event to an event bus.
+   *     If you include event entries in a request that do not include each of those properties, EventBridge fails that entry.
+   *     If you submit a request in which <i>none</i> of the entries have each of these properties, EventBridge fails the entire request.
+   *     </p>
+   *          </note>
    */
   Detail?: string;
 
@@ -4108,9 +4150,9 @@ export interface PutEventsRequestEntry {
    *       with this event bus are used to match the event. If you omit this, the default event bus is
    *       used.</p>
    *          <note>
-   *             <p>If you're using a global endpoint with a custom bus, you must enter the name, not the ARN, of the event bus in either
-   *       the primary or secondary Region here and the corresponding event bus in the
-   *       other Region will be determined based on the endpoint referenced by the <code>EndpointId</code>.</p>
+   *             <p>If you're using a global endpoint with a custom bus, you can enter either the name or Amazon Resource Name (ARN) of the event bus
+   *       in either the primary or secondary Region here. EventBridge then determines the corresponding event bus in the
+   *       other Region based on the endpoint referenced by the <code>EndpointId</code>. Specifying the event bus ARN is preferred.</p>
    *          </note>
    */
   EventBusName?: string;
@@ -4148,7 +4190,10 @@ export interface PutEventsRequest {
 
 /**
  * @public
- * <p>Represents an event that failed to be submitted. For information about the errors that are common to all actions, see
+ * <p>Represents the results of an event submitted to an event bus.</p>
+ *          <p>If the submission was successful, the entry has the event ID in it.
+ *       Otherwise, you can use the error code and error message to identify the problem with the entry.</p>
+ *          <p>For information about the errors that are common to all actions, see
  *       <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/CommonErrors.html">Common Errors</a>.</p>
  */
 export interface PutEventsResultEntry {
@@ -4161,6 +4206,72 @@ export interface PutEventsResultEntry {
   /**
    * @public
    * <p>The error code that indicates why the event submission failed.</p>
+   *          <p>Retryable errors include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>
+   *                      <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/CommonErrors.html">InternalFailure</a>
+   *                   </code>
+   *                </p>
+   *                <p>The request processing has failed because of an unknown error, exception or failure.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>
+   *                      <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/CommonErrors.html">ThrottlingException</a>
+   *                   </code>
+   *                </p>
+   *                <p>The request was denied due to request throttling.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Non-retryable errors include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>
+   *                      <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/CommonErrors.html">AccessDeniedException</a>
+   *                   </code>
+   *                </p>
+   *                <p>You do not have sufficient access to perform this action.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>InvalidAccountIdException</code>
+   *                </p>
+   *                <p>The account ID provided is not valid.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>InvalidArgument</code>
+   *                </p>
+   *                <p>A specified parameter is not valid.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MalformedDetail</code>
+   *                </p>
+   *                <p>The JSON provided is not valid.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RedactionFailure</code>
+   *                </p>
+   *                <p>Redacting the CloudTrail event failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NotAuthorizedForSourceException</code>
+   *                </p>
+   *                <p>You do not have permissions to publish events with this source onto this event bus.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NotAuthorizedForDetailTypeException</code>
+   *                </p>
+   *                <p>You do not have permissions to publish events with this detail type onto this event bus.</p>
+   *             </li>
+   *          </ul>
    */
   ErrorCode?: string;
 
@@ -4205,6 +4316,13 @@ export interface PutPartnerEventsRequestEntry {
   /**
    * @public
    * <p>The event source that is generating the entry.</p>
+   *          <note>
+   *             <p>
+   *                <code>Detail</code>, <code>DetailType</code>, and <code>Source</code> are required for EventBridge to successfully send an event to an event bus.
+   *     If you include event entries in a request that do not include each of those properties, EventBridge fails that entry.
+   *     If you submit a request in which <i>none</i> of the entries have each of these properties, EventBridge fails the entire request.
+   *     </p>
+   *          </note>
    */
   Source?: string;
 
@@ -4218,13 +4336,27 @@ export interface PutPartnerEventsRequestEntry {
   /**
    * @public
    * <p>A free-form string, with a maximum of 128 characters, used to decide what fields to expect in the event detail.</p>
+   *          <note>
+   *             <p>
+   *                <code>Detail</code>, <code>DetailType</code>, and <code>Source</code> are required for EventBridge to successfully send an event to an event bus.
+   *     If you include event entries in a request that do not include each of those properties, EventBridge fails that entry.
+   *     If you submit a request in which <i>none</i> of the entries have each of these properties, EventBridge fails the entire request.
+   *     </p>
+   *          </note>
    */
   DetailType?: string;
 
   /**
    * @public
    * <p>A valid JSON string. There is no other schema imposed. The JSON string may contain fields
-   *       and nested subobjects.</p>
+   *       and nested sub-objects.</p>
+   *          <note>
+   *             <p>
+   *                <code>Detail</code>, <code>DetailType</code>, and <code>Source</code> are required for EventBridge to successfully send an event to an event bus.
+   *     If you include event entries in a request that do not include each of those properties, EventBridge fails that entry.
+   *     If you submit a request in which <i>none</i> of the entries have each of these properties, EventBridge fails the entire request.
+   *     </p>
+   *          </note>
    */
   Detail?: string;
 }
@@ -4242,7 +4374,9 @@ export interface PutPartnerEventsRequest {
 
 /**
  * @public
- * <p>Represents an event that a partner tried to generate, but failed.</p>
+ * <p>The result of an event entry the partner submitted in this request.
+ *       If the event was successfully submitted, the entry has the event ID in it.
+ *       Otherwise, you can use the error code and error message to identify the problem with the entry.</p>
  */
 export interface PutPartnerEventsResultEntry {
   /**
@@ -4277,8 +4411,10 @@ export interface PutPartnerEventsResponse {
 
   /**
    * @public
-   * <p>The list of events from this operation that were successfully written to the partner event
-   *       bus.</p>
+   * <p>The results for each event entry the partner submitted in this request.
+   *       If the event was successfully submitted, the entry has the event ID in it.
+   *       Otherwise, you can use the error code and error message to identify the problem with the entry.</p>
+   *          <p>For each record, the index of the response element is the same as the index in the request array.</p>
    */
   Entries?: PutPartnerEventsResultEntry[];
 }
@@ -4420,7 +4556,7 @@ export interface PutRuleRequest {
   /**
    * @public
    * <p>The event pattern. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-event-patterns.html">Amazon EventBridge event
-   *         patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+   *       patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
    */
   EventPattern?: string;
 
@@ -4428,7 +4564,7 @@ export interface PutRuleRequest {
    * @public
    * <p>Indicates whether the rule is enabled or disabled.</p>
    */
-  State?: RuleState | string;
+  State?: RuleState;
 
   /**
    * @public
@@ -4698,7 +4834,7 @@ export interface StartReplayResponse {
    * @public
    * <p>The state of the replay.</p>
    */
-  State?: ReplayState | string;
+  State?: ReplayState;
 
   /**
    * @public
@@ -4742,7 +4878,7 @@ export interface TestEventPatternRequest {
   /**
    * @public
    * <p>The event pattern. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html">Events and Event
-   *         Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+   *       Patterns</a> in the <i>Amazon EventBridge User Guide</i>.</p>
    */
   EventPattern: string | undefined;
 
@@ -4857,7 +4993,7 @@ export interface UpdateApiDestinationRequest {
    * @public
    * <p>The method to use for the API destination.</p>
    */
-  HttpMethod?: ApiDestinationHttpMethod | string;
+  HttpMethod?: ApiDestinationHttpMethod;
 
   /**
    * @public
@@ -4880,7 +5016,7 @@ export interface UpdateApiDestinationResponse {
    * @public
    * <p>The state of the API destination that was updated.</p>
    */
-  ApiDestinationState?: ApiDestinationState | string;
+  ApiDestinationState?: ApiDestinationState;
 
   /**
    * @public
@@ -4938,7 +5074,7 @@ export interface UpdateArchiveResponse {
    * @public
    * <p>The state of the archive.</p>
    */
-  State?: ArchiveState | string;
+  State?: ArchiveState;
 
   /**
    * @public
@@ -5031,7 +5167,7 @@ export interface UpdateConnectionOAuthRequestParameters {
    * @public
    * <p>The method used to connect to the HTTP endpoint.</p>
    */
-  HttpMethod?: ConnectionOAuthHttpMethod | string;
+  HttpMethod?: ConnectionOAuthHttpMethod;
 
   /**
    * @public
@@ -5094,7 +5230,7 @@ export interface UpdateConnectionRequest {
    * @public
    * <p>The type of authorization to use for the connection.</p>
    */
-  AuthorizationType?: ConnectionAuthorizationType | string;
+  AuthorizationType?: ConnectionAuthorizationType;
 
   /**
    * @public
@@ -5117,7 +5253,7 @@ export interface UpdateConnectionResponse {
    * @public
    * <p>The state of the connection that was updated.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: ConnectionState;
 
   /**
    * @public
@@ -5235,8 +5371,165 @@ export interface UpdateEndpointResponse {
    * @public
    * <p>The state of the endpoint you updated in this request.</p>
    */
-  State?: EndpointState | string;
+  State?: EndpointState;
 }
+
+/**
+ * @internal
+ */
+export const AppSyncParametersFilterSensitiveLog = (obj: AppSyncParameters): any => ({
+  ...obj,
+  ...(obj.GraphQLOperation && { GraphQLOperation: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionApiKeyAuthRequestParametersFilterSensitiveLog = (
+  obj: CreateConnectionApiKeyAuthRequestParameters
+): any => ({
+  ...obj,
+  ...(obj.ApiKeyValue && { ApiKeyValue: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionBasicAuthRequestParametersFilterSensitiveLog = (
+  obj: CreateConnectionBasicAuthRequestParameters
+): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ConnectionBodyParameterFilterSensitiveLog = (obj: ConnectionBodyParameter): any => ({
+  ...obj,
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ConnectionHeaderParameterFilterSensitiveLog = (obj: ConnectionHeaderParameter): any => ({
+  ...obj,
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ConnectionQueryStringParameterFilterSensitiveLog = (obj: ConnectionQueryStringParameter): any => ({
+  ...obj,
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ConnectionHttpParametersFilterSensitiveLog = (obj: ConnectionHttpParameters): any => ({
+  ...obj,
+  ...(obj.HeaderParameters && {
+    HeaderParameters: obj.HeaderParameters.map((item) => ConnectionHeaderParameterFilterSensitiveLog(item)),
+  }),
+  ...(obj.QueryStringParameters && {
+    QueryStringParameters: obj.QueryStringParameters.map((item) =>
+      ConnectionQueryStringParameterFilterSensitiveLog(item)
+    ),
+  }),
+  ...(obj.BodyParameters && {
+    BodyParameters: obj.BodyParameters.map((item) => ConnectionBodyParameterFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionOAuthClientRequestParametersFilterSensitiveLog = (
+  obj: CreateConnectionOAuthClientRequestParameters
+): any => ({
+  ...obj,
+  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionOAuthRequestParametersFilterSensitiveLog = (
+  obj: CreateConnectionOAuthRequestParameters
+): any => ({
+  ...obj,
+  ...(obj.ClientParameters && {
+    ClientParameters: CreateConnectionOAuthClientRequestParametersFilterSensitiveLog(obj.ClientParameters),
+  }),
+  ...(obj.OAuthHttpParameters && {
+    OAuthHttpParameters: ConnectionHttpParametersFilterSensitiveLog(obj.OAuthHttpParameters),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionAuthRequestParametersFilterSensitiveLog = (
+  obj: CreateConnectionAuthRequestParameters
+): any => ({
+  ...obj,
+  ...(obj.BasicAuthParameters && {
+    BasicAuthParameters: CreateConnectionBasicAuthRequestParametersFilterSensitiveLog(obj.BasicAuthParameters),
+  }),
+  ...(obj.OAuthParameters && {
+    OAuthParameters: CreateConnectionOAuthRequestParametersFilterSensitiveLog(obj.OAuthParameters),
+  }),
+  ...(obj.ApiKeyAuthParameters && {
+    ApiKeyAuthParameters: CreateConnectionApiKeyAuthRequestParametersFilterSensitiveLog(obj.ApiKeyAuthParameters),
+  }),
+  ...(obj.InvocationHttpParameters && {
+    InvocationHttpParameters: ConnectionHttpParametersFilterSensitiveLog(obj.InvocationHttpParameters),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionRequestFilterSensitiveLog = (obj: CreateConnectionRequest): any => ({
+  ...obj,
+  ...(obj.AuthParameters && {
+    AuthParameters: CreateConnectionAuthRequestParametersFilterSensitiveLog(obj.AuthParameters),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ConnectionOAuthResponseParametersFilterSensitiveLog = (obj: ConnectionOAuthResponseParameters): any => ({
+  ...obj,
+  ...(obj.OAuthHttpParameters && {
+    OAuthHttpParameters: ConnectionHttpParametersFilterSensitiveLog(obj.OAuthHttpParameters),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ConnectionAuthResponseParametersFilterSensitiveLog = (obj: ConnectionAuthResponseParameters): any => ({
+  ...obj,
+  ...(obj.OAuthParameters && {
+    OAuthParameters: ConnectionOAuthResponseParametersFilterSensitiveLog(obj.OAuthParameters),
+  }),
+  ...(obj.InvocationHttpParameters && {
+    InvocationHttpParameters: ConnectionHttpParametersFilterSensitiveLog(obj.InvocationHttpParameters),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeConnectionResponseFilterSensitiveLog = (obj: DescribeConnectionResponse): any => ({
+  ...obj,
+  ...(obj.AuthParameters && { AuthParameters: ConnectionAuthResponseParametersFilterSensitiveLog(obj.AuthParameters) }),
+});
 
 /**
  * @internal
@@ -5255,6 +5548,7 @@ export const TargetFilterSensitiveLog = (obj: Target): any => ({
   ...(obj.RedshiftDataParameters && {
     RedshiftDataParameters: RedshiftDataParametersFilterSensitiveLog(obj.RedshiftDataParameters),
   }),
+  ...(obj.AppSyncParameters && { AppSyncParameters: AppSyncParametersFilterSensitiveLog(obj.AppSyncParameters) }),
 });
 
 /**
@@ -5271,4 +5565,80 @@ export const ListTargetsByRuleResponseFilterSensitiveLog = (obj: ListTargetsByRu
 export const PutTargetsRequestFilterSensitiveLog = (obj: PutTargetsRequest): any => ({
   ...obj,
   ...(obj.Targets && { Targets: obj.Targets.map((item) => TargetFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectionApiKeyAuthRequestParametersFilterSensitiveLog = (
+  obj: UpdateConnectionApiKeyAuthRequestParameters
+): any => ({
+  ...obj,
+  ...(obj.ApiKeyValue && { ApiKeyValue: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectionBasicAuthRequestParametersFilterSensitiveLog = (
+  obj: UpdateConnectionBasicAuthRequestParameters
+): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectionOAuthClientRequestParametersFilterSensitiveLog = (
+  obj: UpdateConnectionOAuthClientRequestParameters
+): any => ({
+  ...obj,
+  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectionOAuthRequestParametersFilterSensitiveLog = (
+  obj: UpdateConnectionOAuthRequestParameters
+): any => ({
+  ...obj,
+  ...(obj.ClientParameters && {
+    ClientParameters: UpdateConnectionOAuthClientRequestParametersFilterSensitiveLog(obj.ClientParameters),
+  }),
+  ...(obj.OAuthHttpParameters && {
+    OAuthHttpParameters: ConnectionHttpParametersFilterSensitiveLog(obj.OAuthHttpParameters),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectionAuthRequestParametersFilterSensitiveLog = (
+  obj: UpdateConnectionAuthRequestParameters
+): any => ({
+  ...obj,
+  ...(obj.BasicAuthParameters && {
+    BasicAuthParameters: UpdateConnectionBasicAuthRequestParametersFilterSensitiveLog(obj.BasicAuthParameters),
+  }),
+  ...(obj.OAuthParameters && {
+    OAuthParameters: UpdateConnectionOAuthRequestParametersFilterSensitiveLog(obj.OAuthParameters),
+  }),
+  ...(obj.ApiKeyAuthParameters && {
+    ApiKeyAuthParameters: UpdateConnectionApiKeyAuthRequestParametersFilterSensitiveLog(obj.ApiKeyAuthParameters),
+  }),
+  ...(obj.InvocationHttpParameters && {
+    InvocationHttpParameters: ConnectionHttpParametersFilterSensitiveLog(obj.InvocationHttpParameters),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectionRequestFilterSensitiveLog = (obj: UpdateConnectionRequest): any => ({
+  ...obj,
+  ...(obj.AuthParameters && {
+    AuthParameters: UpdateConnectionAuthRequestParametersFilterSensitiveLog(obj.AuthParameters),
+  }),
 });

@@ -34,16 +34,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ComputeOptimizerClient` and
-the commands you need, for example `DeleteRecommendationPreferencesCommand`:
+the commands you need, for example `GetEnrollmentStatusCommand`:
 
 ```js
 // ES5 example
-const { ComputeOptimizerClient, DeleteRecommendationPreferencesCommand } = require("@aws-sdk/client-compute-optimizer");
+const { ComputeOptimizerClient, GetEnrollmentStatusCommand } = require("@aws-sdk/client-compute-optimizer");
 ```
 
 ```ts
 // ES6+ example
-import { ComputeOptimizerClient, DeleteRecommendationPreferencesCommand } from "@aws-sdk/client-compute-optimizer";
+import { ComputeOptimizerClient, GetEnrollmentStatusCommand } from "@aws-sdk/client-compute-optimizer";
 ```
 
 ### Usage
@@ -62,7 +62,7 @@ const client = new ComputeOptimizerClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DeleteRecommendationPreferencesCommand(params);
+const command = new GetEnrollmentStatusCommand(params);
 ```
 
 #### Async/await
@@ -141,7 +141,7 @@ const client = new AWS.ComputeOptimizer({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.deleteRecommendationPreferences(params);
+  const data = await client.getEnrollmentStatus(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -149,7 +149,7 @@ try {
 
 // Promises.
 client
-  .deleteRecommendationPreferences(params)
+  .getEnrollmentStatus(params)
   .then((data) => {
     // process data.
   })
@@ -158,7 +158,7 @@ client
   });
 
 // callbacks.
-client.deleteRecommendationPreferences(params, (err, data) => {
+client.getEnrollmentStatus(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -173,7 +173,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -219,7 +219,7 @@ see LICENSE for more information.
 DeleteRecommendationPreferences
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/classes/deleterecommendationpreferencescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/deleterecommendationpreferencescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/deleterecommendationpreferencescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer/command/DeleteRecommendationPreferencesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/DeleteRecommendationPreferencesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/DeleteRecommendationPreferencesCommandOutput/)
 
 </details>
 <details>
@@ -227,7 +227,7 @@ DeleteRecommendationPreferences
 DescribeRecommendationExportJobs
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/classes/describerecommendationexportjobscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/describerecommendationexportjobscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/describerecommendationexportjobscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer/command/DescribeRecommendationExportJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/DescribeRecommendationExportJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/DescribeRecommendationExportJobsCommandOutput/)
 
 </details>
 <details>
@@ -235,7 +235,7 @@ DescribeRecommendationExportJobs
 ExportAutoScalingGroupRecommendations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/classes/exportautoscalinggrouprecommendationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/exportautoscalinggrouprecommendationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/exportautoscalinggrouprecommendationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer/command/ExportAutoScalingGroupRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/ExportAutoScalingGroupRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/ExportAutoScalingGroupRecommendationsCommandOutput/)
 
 </details>
 <details>
@@ -243,7 +243,7 @@ ExportAutoScalingGroupRecommendations
 ExportEBSVolumeRecommendations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/classes/exportebsvolumerecommendationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/exportebsvolumerecommendationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/exportebsvolumerecommendationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer/command/ExportEBSVolumeRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/ExportEBSVolumeRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/ExportEBSVolumeRecommendationsCommandOutput/)
 
 </details>
 <details>
@@ -251,7 +251,7 @@ ExportEBSVolumeRecommendations
 ExportEC2InstanceRecommendations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/classes/exportec2instancerecommendationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/exportec2instancerecommendationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/exportec2instancerecommendationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer/command/ExportEC2InstanceRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/ExportEC2InstanceRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/ExportEC2InstanceRecommendationsCommandOutput/)
 
 </details>
 <details>
@@ -259,7 +259,7 @@ ExportEC2InstanceRecommendations
 ExportECSServiceRecommendations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/classes/exportecsservicerecommendationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/exportecsservicerecommendationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/exportecsservicerecommendationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer/command/ExportECSServiceRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/ExportECSServiceRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/ExportECSServiceRecommendationsCommandOutput/)
 
 </details>
 <details>
@@ -267,7 +267,15 @@ ExportECSServiceRecommendations
 ExportLambdaFunctionRecommendations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/classes/exportlambdafunctionrecommendationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/exportlambdafunctionrecommendationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/exportlambdafunctionrecommendationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer/command/ExportLambdaFunctionRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/ExportLambdaFunctionRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/ExportLambdaFunctionRecommendationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ExportLicenseRecommendations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer/command/ExportLicenseRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/ExportLicenseRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/ExportLicenseRecommendationsCommandOutput/)
 
 </details>
 <details>
@@ -275,7 +283,7 @@ ExportLambdaFunctionRecommendations
 GetAutoScalingGroupRecommendations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/classes/getautoscalinggrouprecommendationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/getautoscalinggrouprecommendationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/getautoscalinggrouprecommendationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer/command/GetAutoScalingGroupRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetAutoScalingGroupRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetAutoScalingGroupRecommendationsCommandOutput/)
 
 </details>
 <details>
@@ -283,7 +291,7 @@ GetAutoScalingGroupRecommendations
 GetEBSVolumeRecommendations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/classes/getebsvolumerecommendationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/getebsvolumerecommendationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/getebsvolumerecommendationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer/command/GetEBSVolumeRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetEBSVolumeRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetEBSVolumeRecommendationsCommandOutput/)
 
 </details>
 <details>
@@ -291,7 +299,7 @@ GetEBSVolumeRecommendations
 GetEC2InstanceRecommendations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/classes/getec2instancerecommendationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/getec2instancerecommendationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/getec2instancerecommendationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer/command/GetEC2InstanceRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetEC2InstanceRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetEC2InstanceRecommendationsCommandOutput/)
 
 </details>
 <details>
@@ -299,7 +307,7 @@ GetEC2InstanceRecommendations
 GetEC2RecommendationProjectedMetrics
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/classes/getec2recommendationprojectedmetricscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/getec2recommendationprojectedmetricscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/getec2recommendationprojectedmetricscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer/command/GetEC2RecommendationProjectedMetricsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetEC2RecommendationProjectedMetricsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetEC2RecommendationProjectedMetricsCommandOutput/)
 
 </details>
 <details>
@@ -307,7 +315,7 @@ GetEC2RecommendationProjectedMetrics
 GetECSServiceRecommendationProjectedMetrics
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/classes/getecsservicerecommendationprojectedmetricscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/getecsservicerecommendationprojectedmetricscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/getecsservicerecommendationprojectedmetricscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer/command/GetECSServiceRecommendationProjectedMetricsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetECSServiceRecommendationProjectedMetricsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetECSServiceRecommendationProjectedMetricsCommandOutput/)
 
 </details>
 <details>
@@ -315,7 +323,7 @@ GetECSServiceRecommendationProjectedMetrics
 GetECSServiceRecommendations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/classes/getecsservicerecommendationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/getecsservicerecommendationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/getecsservicerecommendationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer/command/GetECSServiceRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetECSServiceRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetECSServiceRecommendationsCommandOutput/)
 
 </details>
 <details>
@@ -323,7 +331,7 @@ GetECSServiceRecommendations
 GetEffectiveRecommendationPreferences
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/classes/geteffectiverecommendationpreferencescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/geteffectiverecommendationpreferencescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/geteffectiverecommendationpreferencescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer/command/GetEffectiveRecommendationPreferencesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetEffectiveRecommendationPreferencesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetEffectiveRecommendationPreferencesCommandOutput/)
 
 </details>
 <details>
@@ -331,7 +339,7 @@ GetEffectiveRecommendationPreferences
 GetEnrollmentStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/classes/getenrollmentstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/getenrollmentstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/getenrollmentstatuscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer/command/GetEnrollmentStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetEnrollmentStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetEnrollmentStatusCommandOutput/)
 
 </details>
 <details>
@@ -339,7 +347,7 @@ GetEnrollmentStatus
 GetEnrollmentStatusesForOrganization
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/classes/getenrollmentstatusesfororganizationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/getenrollmentstatusesfororganizationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/getenrollmentstatusesfororganizationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer/command/GetEnrollmentStatusesForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetEnrollmentStatusesForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetEnrollmentStatusesForOrganizationCommandOutput/)
 
 </details>
 <details>
@@ -347,7 +355,15 @@ GetEnrollmentStatusesForOrganization
 GetLambdaFunctionRecommendations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/classes/getlambdafunctionrecommendationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/getlambdafunctionrecommendationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/getlambdafunctionrecommendationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer/command/GetLambdaFunctionRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetLambdaFunctionRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetLambdaFunctionRecommendationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetLicenseRecommendations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer/command/GetLicenseRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetLicenseRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetLicenseRecommendationsCommandOutput/)
 
 </details>
 <details>
@@ -355,7 +371,7 @@ GetLambdaFunctionRecommendations
 GetRecommendationPreferences
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/classes/getrecommendationpreferencescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/getrecommendationpreferencescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/getrecommendationpreferencescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer/command/GetRecommendationPreferencesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetRecommendationPreferencesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetRecommendationPreferencesCommandOutput/)
 
 </details>
 <details>
@@ -363,7 +379,7 @@ GetRecommendationPreferences
 GetRecommendationSummaries
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/classes/getrecommendationsummariescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/getrecommendationsummariescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/getrecommendationsummariescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer/command/GetRecommendationSummariesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetRecommendationSummariesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/GetRecommendationSummariesCommandOutput/)
 
 </details>
 <details>
@@ -371,7 +387,7 @@ GetRecommendationSummaries
 PutRecommendationPreferences
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/classes/putrecommendationpreferencescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/putrecommendationpreferencescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/putrecommendationpreferencescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer/command/PutRecommendationPreferencesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/PutRecommendationPreferencesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/PutRecommendationPreferencesCommandOutput/)
 
 </details>
 <details>
@@ -379,6 +395,6 @@ PutRecommendationPreferences
 UpdateEnrollmentStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/classes/updateenrollmentstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/updateenrollmentstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-compute-optimizer/interfaces/updateenrollmentstatuscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/compute-optimizer/command/UpdateEnrollmentStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/UpdateEnrollmentStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-compute-optimizer/Interface/UpdateEnrollmentStatusCommandOutput/)
 
 </details>

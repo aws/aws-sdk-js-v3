@@ -30,6 +30,7 @@ import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.HttpRpcProtocolGenerator;
+import software.amazon.smithy.typescript.codegen.util.StringStore;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
@@ -113,6 +114,9 @@ final class AwsQuery extends HttpRpcProtocolGenerator {
             writer.openBlock("if (output.statusCode == 404) {", "}", () -> writer.write("return 'NotFound';"));
         });
         writer.write("");
+        writer.write(
+            context.getStringStore().flushVariableDeclarationCode()
+        );
     }
 
     @Override
@@ -148,8 +152,15 @@ final class AwsQuery extends HttpRpcProtocolGenerator {
                     inputStructure.accept(new QueryMemberSerVisitor(context, "input", Format.DATE_TIME)));
             // Set the protocol required values.
             ServiceShape serviceShape = context.getService();
-            writer.write("Action: $S,", operation.getId().getName(serviceShape));
-            writer.write("Version: $S,", serviceShape.getVersion());
+            StringStore stringStore = context.getStringStore();
+            writer.write(
+                "[" + stringStore.var("Action") + "]: $L,",
+                stringStore.var(operation.getId().getName(serviceShape))
+            );
+            writer.write(
+                "[" + stringStore.var("Version") + "]: $L,",
+                stringStore.var(serviceShape.getVersion())
+            );
         });
     }
 

@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { LookoutEquipmentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutEquipmentClient";
 import { UpdateLabelGroupRequest } from "../models/models_0";
 import { de_UpdateLabelGroupCommand, se_UpdateLabelGroupCommand } from "../protocols/Aws_json1_0";
@@ -36,9 +28,7 @@ export interface UpdateLabelGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>
- *          Updates the label group.
- *       </p>
+ * <p> Updates the label group. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,86 +73,33 @@ export interface UpdateLabelGroupCommandOutput extends __MetadataBearer {}
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a
- *          related Amazon Web Services service that's being utilized. </p>
+ *  <p> The input fails to satisfy constraints specified by Amazon Lookout for Equipment or a related Amazon Web Services
+ *          service that's being utilized. </p>
  *
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
  */
-export class UpdateLabelGroupCommand extends $Command<
-  UpdateLabelGroupCommandInput,
-  UpdateLabelGroupCommandOutput,
-  LookoutEquipmentClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateLabelGroupCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: LookoutEquipmentClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateLabelGroupCommandInput, UpdateLabelGroupCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateLabelGroupCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "LookoutEquipmentClient";
-    const commandName = "UpdateLabelGroupCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateLabelGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateLabelGroupCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateLabelGroupCommandOutput> {
-    return de_UpdateLabelGroupCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateLabelGroupCommand extends $Command
+  .classBuilder<
+    UpdateLabelGroupCommandInput,
+    UpdateLabelGroupCommandOutput,
+    LookoutEquipmentClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: LookoutEquipmentClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSLookoutEquipmentFrontendService", "UpdateLabelGroup", {})
+  .n("LookoutEquipmentClient", "UpdateLabelGroupCommand")
+  .f(void 0, void 0)
+  .ser(se_UpdateLabelGroupCommand)
+  .de(de_UpdateLabelGroupCommand)
+  .build() {}

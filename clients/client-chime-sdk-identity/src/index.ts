@@ -11,8 +11,12 @@
 export * from "./ChimeSDKIdentityClient";
 export * from "./ChimeSDKIdentity";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { ChimeSDKIdentityExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { ChimeSDKIdentityServiceException } from "./models/ChimeSDKIdentityServiceException";

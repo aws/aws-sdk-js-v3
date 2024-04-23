@@ -49,7 +49,7 @@ export interface Filter {
    * @public
    * <p>An operator for filtering results.</p>
    */
-  Operator?: Operator | string;
+  Operator?: Operator;
 }
 
 /**
@@ -113,7 +113,7 @@ export interface LinuxSubscriptionsDiscoverySettings {
    * @public
    * <p>Details if you have enabled resource discovery across your accounts in Organizations.</p>
    */
-  OrganizationIntegration: OrganizationIntegration | string | undefined;
+  OrganizationIntegration: OrganizationIntegration | undefined;
 }
 
 /**
@@ -152,7 +152,7 @@ export interface GetServiceSettingsResponse {
    * @public
    * <p>Lists if discovery has been enabled for Linux subscriptions.</p>
    */
-  LinuxSubscriptionsDiscovery?: LinuxSubscriptionsDiscovery | string;
+  LinuxSubscriptionsDiscovery?: LinuxSubscriptionsDiscovery;
 
   /**
    * @public
@@ -165,7 +165,7 @@ export interface GetServiceSettingsResponse {
    * @public
    * <p>Indicates the status of Linux subscriptions settings being applied.</p>
    */
-  Status?: Status | string;
+  Status?: Status;
 
   /**
    * @public
@@ -521,7 +521,7 @@ export interface UpdateServiceSettingsRequest {
    * @public
    * <p>Describes if the discovery of Linux subscriptions is enabled.</p>
    */
-  LinuxSubscriptionsDiscovery: LinuxSubscriptionsDiscovery | string | undefined;
+  LinuxSubscriptionsDiscovery: LinuxSubscriptionsDiscovery | undefined;
 
   /**
    * @public
@@ -546,7 +546,7 @@ export interface UpdateServiceSettingsResponse {
    * @public
    * <p>Lists if discovery has been enabled for Linux subscriptions.</p>
    */
-  LinuxSubscriptionsDiscovery?: LinuxSubscriptionsDiscovery | string;
+  LinuxSubscriptionsDiscovery?: LinuxSubscriptionsDiscovery;
 
   /**
    * @public
@@ -559,7 +559,7 @@ export interface UpdateServiceSettingsResponse {
    * @public
    * <p>Indicates the status of Linux subscriptions settings being applied.</p>
    */
-  Status?: Status | string;
+  Status?: Status;
 
   /**
    * @public

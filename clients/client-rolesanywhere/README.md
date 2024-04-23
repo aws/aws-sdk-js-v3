@@ -37,16 +37,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `RolesAnywhereClient` and
-the commands you need, for example `CreateProfileCommand`:
+the commands you need, for example `ListCrlsCommand`:
 
 ```js
 // ES5 example
-const { RolesAnywhereClient, CreateProfileCommand } = require("@aws-sdk/client-rolesanywhere");
+const { RolesAnywhereClient, ListCrlsCommand } = require("@aws-sdk/client-rolesanywhere");
 ```
 
 ```ts
 // ES6+ example
-import { RolesAnywhereClient, CreateProfileCommand } from "@aws-sdk/client-rolesanywhere";
+import { RolesAnywhereClient, ListCrlsCommand } from "@aws-sdk/client-rolesanywhere";
 ```
 
 ### Usage
@@ -65,7 +65,7 @@ const client = new RolesAnywhereClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateProfileCommand(params);
+const command = new ListCrlsCommand(params);
 ```
 
 #### Async/await
@@ -144,7 +144,7 @@ const client = new AWS.RolesAnywhere({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createProfile(params);
+  const data = await client.listCrls(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -152,7 +152,7 @@ try {
 
 // Promises.
 client
-  .createProfile(params)
+  .listCrls(params)
   .then((data) => {
     // process data.
   })
@@ -161,7 +161,7 @@ client
   });
 
 // callbacks.
-client.createProfile(params, (err, data) => {
+client.listCrls(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -176,7 +176,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -222,7 +222,7 @@ see LICENSE for more information.
 CreateProfile
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/classes/createprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/createprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/createprofilecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/CreateProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/CreateProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/CreateProfileCommandOutput/)
 
 </details>
 <details>
@@ -230,7 +230,7 @@ CreateProfile
 CreateTrustAnchor
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/classes/createtrustanchorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/createtrustanchorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/createtrustanchorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/CreateTrustAnchorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/CreateTrustAnchorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/CreateTrustAnchorCommandOutput/)
 
 </details>
 <details>
@@ -238,7 +238,7 @@ CreateTrustAnchor
 DeleteCrl
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/classes/deletecrlcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/deletecrlcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/deletecrlcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/DeleteCrlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/DeleteCrlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/DeleteCrlCommandOutput/)
 
 </details>
 <details>
@@ -246,7 +246,7 @@ DeleteCrl
 DeleteProfile
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/classes/deleteprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/deleteprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/deleteprofilecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/DeleteProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/DeleteProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/DeleteProfileCommandOutput/)
 
 </details>
 <details>
@@ -254,7 +254,7 @@ DeleteProfile
 DeleteTrustAnchor
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/classes/deletetrustanchorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/deletetrustanchorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/deletetrustanchorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/DeleteTrustAnchorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/DeleteTrustAnchorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/DeleteTrustAnchorCommandOutput/)
 
 </details>
 <details>
@@ -262,7 +262,7 @@ DeleteTrustAnchor
 DisableCrl
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/classes/disablecrlcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/disablecrlcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/disablecrlcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/DisableCrlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/DisableCrlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/DisableCrlCommandOutput/)
 
 </details>
 <details>
@@ -270,7 +270,7 @@ DisableCrl
 DisableProfile
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/classes/disableprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/disableprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/disableprofilecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/DisableProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/DisableProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/DisableProfileCommandOutput/)
 
 </details>
 <details>
@@ -278,7 +278,7 @@ DisableProfile
 DisableTrustAnchor
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/classes/disabletrustanchorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/disabletrustanchorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/disabletrustanchorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/DisableTrustAnchorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/DisableTrustAnchorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/DisableTrustAnchorCommandOutput/)
 
 </details>
 <details>
@@ -286,7 +286,7 @@ DisableTrustAnchor
 EnableCrl
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/classes/enablecrlcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/enablecrlcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/enablecrlcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/EnableCrlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/EnableCrlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/EnableCrlCommandOutput/)
 
 </details>
 <details>
@@ -294,7 +294,7 @@ EnableCrl
 EnableProfile
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/classes/enableprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/enableprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/enableprofilecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/EnableProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/EnableProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/EnableProfileCommandOutput/)
 
 </details>
 <details>
@@ -302,7 +302,7 @@ EnableProfile
 EnableTrustAnchor
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/classes/enabletrustanchorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/enabletrustanchorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/enabletrustanchorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/EnableTrustAnchorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/EnableTrustAnchorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/EnableTrustAnchorCommandOutput/)
 
 </details>
 <details>
@@ -310,7 +310,7 @@ EnableTrustAnchor
 GetCrl
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/classes/getcrlcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/getcrlcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/getcrlcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/GetCrlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/GetCrlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/GetCrlCommandOutput/)
 
 </details>
 <details>
@@ -318,7 +318,7 @@ GetCrl
 GetProfile
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/classes/getprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/getprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/getprofilecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/GetProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/GetProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/GetProfileCommandOutput/)
 
 </details>
 <details>
@@ -326,7 +326,7 @@ GetProfile
 GetSubject
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/classes/getsubjectcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/getsubjectcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/getsubjectcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/GetSubjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/GetSubjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/GetSubjectCommandOutput/)
 
 </details>
 <details>
@@ -334,7 +334,7 @@ GetSubject
 GetTrustAnchor
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/classes/gettrustanchorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/gettrustanchorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/gettrustanchorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/GetTrustAnchorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/GetTrustAnchorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/GetTrustAnchorCommandOutput/)
 
 </details>
 <details>
@@ -342,7 +342,7 @@ GetTrustAnchor
 ImportCrl
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/classes/importcrlcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/importcrlcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/importcrlcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/ImportCrlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/ImportCrlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/ImportCrlCommandOutput/)
 
 </details>
 <details>
@@ -350,7 +350,7 @@ ImportCrl
 ListCrls
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/classes/listcrlscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/listcrlscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/listcrlscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/ListCrlsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/ListCrlsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/ListCrlsCommandOutput/)
 
 </details>
 <details>
@@ -358,7 +358,7 @@ ListCrls
 ListProfiles
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/classes/listprofilescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/listprofilescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/listprofilescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/ListProfilesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/ListProfilesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/ListProfilesCommandOutput/)
 
 </details>
 <details>
@@ -366,7 +366,7 @@ ListProfiles
 ListSubjects
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/classes/listsubjectscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/listsubjectscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/listsubjectscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/ListSubjectsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/ListSubjectsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/ListSubjectsCommandOutput/)
 
 </details>
 <details>
@@ -374,7 +374,7 @@ ListSubjects
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/ListTagsForResourceCommandOutput/)
 
 </details>
 <details>
@@ -382,7 +382,7 @@ ListTagsForResource
 ListTrustAnchors
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/classes/listtrustanchorscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/listtrustanchorscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/listtrustanchorscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/ListTrustAnchorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/ListTrustAnchorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/ListTrustAnchorsCommandOutput/)
 
 </details>
 <details>
@@ -390,7 +390,7 @@ ListTrustAnchors
 PutNotificationSettings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/classes/putnotificationsettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/putnotificationsettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/putnotificationsettingscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/PutNotificationSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/PutNotificationSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/PutNotificationSettingsCommandOutput/)
 
 </details>
 <details>
@@ -398,7 +398,7 @@ PutNotificationSettings
 ResetNotificationSettings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/classes/resetnotificationsettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/resetnotificationsettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/resetnotificationsettingscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/ResetNotificationSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/ResetNotificationSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/ResetNotificationSettingsCommandOutput/)
 
 </details>
 <details>
@@ -406,7 +406,7 @@ ResetNotificationSettings
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -414,7 +414,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -422,7 +422,7 @@ UntagResource
 UpdateCrl
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/classes/updatecrlcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/updatecrlcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/updatecrlcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/UpdateCrlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/UpdateCrlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/UpdateCrlCommandOutput/)
 
 </details>
 <details>
@@ -430,7 +430,7 @@ UpdateCrl
 UpdateProfile
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/classes/updateprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/updateprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/updateprofilecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/UpdateProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/UpdateProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/UpdateProfileCommandOutput/)
 
 </details>
 <details>
@@ -438,6 +438,6 @@ UpdateProfile
 UpdateTrustAnchor
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/classes/updatetrustanchorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/updatetrustanchorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rolesanywhere/interfaces/updatetrustanchorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rolesanywhere/command/UpdateTrustAnchorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/UpdateTrustAnchorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rolesanywhere/Interface/UpdateTrustAnchorCommandOutput/)
 
 </details>

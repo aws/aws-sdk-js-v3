@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   PutEmailIdentityMailFromAttributesRequest,
   PutEmailIdentityMailFromAttributesResponse,
@@ -55,7 +47,7 @@ export interface PutEmailIdentityMailFromAttributesCommandOutput
  * const input = { // PutEmailIdentityMailFromAttributesRequest
  *   EmailIdentity: "STRING_VALUE", // required
  *   MailFromDomain: "STRING_VALUE",
- *   BehaviorOnMxFailure: "STRING_VALUE",
+ *   BehaviorOnMxFailure: "USE_DEFAULT_VALUE" || "REJECT_MESSAGE",
  * };
  * const command = new PutEmailIdentityMailFromAttributesCommand(input);
  * const response = await client.send(command);
@@ -82,85 +74,26 @@ export interface PutEmailIdentityMailFromAttributesCommandOutput
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
  */
-export class PutEmailIdentityMailFromAttributesCommand extends $Command<
-  PutEmailIdentityMailFromAttributesCommandInput,
-  PutEmailIdentityMailFromAttributesCommandOutput,
-  PinpointEmailClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PutEmailIdentityMailFromAttributesCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: PinpointEmailClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PutEmailIdentityMailFromAttributesCommandInput, PutEmailIdentityMailFromAttributesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, PutEmailIdentityMailFromAttributesCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "PinpointEmailClient";
-    const commandName = "PutEmailIdentityMailFromAttributesCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: PutEmailIdentityMailFromAttributesCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_PutEmailIdentityMailFromAttributesCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutEmailIdentityMailFromAttributesCommandOutput> {
-    return de_PutEmailIdentityMailFromAttributesCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class PutEmailIdentityMailFromAttributesCommand extends $Command
+  .classBuilder<
+    PutEmailIdentityMailFromAttributesCommandInput,
+    PutEmailIdentityMailFromAttributesCommandOutput,
+    PinpointEmailClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: PinpointEmailClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonPinpointEmailService", "PutEmailIdentityMailFromAttributes", {})
+  .n("PinpointEmailClient", "PutEmailIdentityMailFromAttributesCommand")
+  .f(void 0, void 0)
+  .ser(se_PutEmailIdentityMailFromAttributesCommand)
+  .de(de_PutEmailIdentityMailFromAttributesCommand)
+  .build() {}

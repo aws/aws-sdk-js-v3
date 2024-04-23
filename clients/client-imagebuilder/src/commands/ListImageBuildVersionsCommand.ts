@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { ListImageBuildVersionsRequest, ListImageBuildVersionsResponse } from "../models/models_0";
 import { de_ListImageBuildVersionsCommand, se_ListImageBuildVersionsCommand } from "../protocols/Aws_restJson1";
@@ -69,7 +61,7 @@ export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersi
  * //       platform: "Windows" || "Linux",
  * //       osVersion: "STRING_VALUE",
  * //       state: { // ImageState
- * //         status: "PENDING" || "CREATING" || "BUILDING" || "TESTING" || "DISTRIBUTING" || "INTEGRATING" || "AVAILABLE" || "CANCELLED" || "FAILED" || "DEPRECATED" || "DELETED",
+ * //         status: "PENDING" || "CREATING" || "BUILDING" || "TESTING" || "DISTRIBUTING" || "INTEGRATING" || "AVAILABLE" || "CANCELLED" || "FAILED" || "DEPRECATED" || "DELETED" || "DISABLED",
  * //         reason: "STRING_VALUE",
  * //       },
  * //       owner: "STRING_VALUE",
@@ -82,7 +74,7 @@ export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersi
  * //             name: "STRING_VALUE",
  * //             description: "STRING_VALUE",
  * //             state: {
- * //               status: "PENDING" || "CREATING" || "BUILDING" || "TESTING" || "DISTRIBUTING" || "INTEGRATING" || "AVAILABLE" || "CANCELLED" || "FAILED" || "DEPRECATED" || "DELETED",
+ * //               status: "PENDING" || "CREATING" || "BUILDING" || "TESTING" || "DISTRIBUTING" || "INTEGRATING" || "AVAILABLE" || "CANCELLED" || "FAILED" || "DEPRECATED" || "DELETED" || "DISABLED",
  * //               reason: "STRING_VALUE",
  * //             },
  * //             accountId: "STRING_VALUE",
@@ -102,6 +94,8 @@ export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersi
  * //       },
  * //       buildType: "USER_INITIATED" || "SCHEDULED" || "IMPORT",
  * //       imageSource: "AMAZON_MANAGED" || "AWS_MARKETPLACE" || "IMPORTED" || "CUSTOM",
+ * //       deprecationTime: new Date("TIMESTAMP"),
+ * //       lifecycleExecutionId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -143,79 +137,26 @@ export interface ListImageBuildVersionsCommandOutput extends ListImageBuildVersi
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
-export class ListImageBuildVersionsCommand extends $Command<
-  ListImageBuildVersionsCommandInput,
-  ListImageBuildVersionsCommandOutput,
-  ImagebuilderClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListImageBuildVersionsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ImagebuilderClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListImageBuildVersionsCommandInput, ListImageBuildVersionsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListImageBuildVersionsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ImagebuilderClient";
-    const commandName = "ListImageBuildVersionsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListImageBuildVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListImageBuildVersionsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListImageBuildVersionsCommandOutput> {
-    return de_ListImageBuildVersionsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListImageBuildVersionsCommand extends $Command
+  .classBuilder<
+    ListImageBuildVersionsCommandInput,
+    ListImageBuildVersionsCommandOutput,
+    ImagebuilderClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("imagebuilder", "ListImageBuildVersions", {})
+  .n("ImagebuilderClient", "ListImageBuildVersionsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListImageBuildVersionsCommand)
+  .de(de_ListImageBuildVersionsCommand)
+  .build() {}

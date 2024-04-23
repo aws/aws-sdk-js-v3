@@ -89,7 +89,7 @@ export interface AuthenticateCognitoActionConfig {
    *             </li>
    *          </ul>
    */
-  OnUnauthenticatedRequest?: AuthenticateCognitoActionConditionalBehaviorEnum | string;
+  OnUnauthenticatedRequest?: AuthenticateCognitoActionConditionalBehaviorEnum;
 }
 
 /**
@@ -202,7 +202,7 @@ export interface AuthenticateOidcActionConfig {
    *             </li>
    *          </ul>
    */
-  OnUnauthenticatedRequest?: AuthenticateOidcActionConditionalBehaviorEnum | string;
+  OnUnauthenticatedRequest?: AuthenticateOidcActionConditionalBehaviorEnum;
 
   /**
    * @public
@@ -378,7 +378,7 @@ export interface RedirectActionConfig {
    * <p>The HTTP redirect code. The redirect is either permanent (HTTP 301) or temporary (HTTP
    *       302).</p>
    */
-  StatusCode: RedirectActionStatusCodeEnum | string | undefined;
+  StatusCode: RedirectActionStatusCodeEnum | undefined;
 }
 
 /**
@@ -410,7 +410,7 @@ export interface Action {
    * @public
    * <p>The type of action.</p>
    */
-  Type: ActionTypeEnum | string | undefined;
+  Type: ActionTypeEnum | undefined;
 
   /**
    * @public
@@ -713,7 +713,7 @@ export class TargetGroupNotFoundException extends __BaseException {
 
 /**
  * @public
- * <p>You've reached the limit on the number of tags per load balancer.</p>
+ * <p>You've reached the limit on the number of tags for this resource.</p>
  */
 export class TooManyTagsException extends __BaseException {
   readonly name: "TooManyTagsException" = "TooManyTagsException";
@@ -729,6 +729,195 @@ export class TooManyTagsException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, TooManyTagsException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>The specified trust store does not exist.</p>
+ */
+export class TrustStoreNotFoundException extends __BaseException {
+  readonly name: "TrustStoreNotFoundException" = "TrustStoreNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TrustStoreNotFoundException, __BaseException>) {
+    super({
+      name: "TrustStoreNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TrustStoreNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RevocationType = {
+  CRL: "CRL",
+} as const;
+
+/**
+ * @public
+ */
+export type RevocationType = (typeof RevocationType)[keyof typeof RevocationType];
+
+/**
+ * @public
+ * <p>Information about a revocation file.</p>
+ */
+export interface RevocationContent {
+  /**
+   * @public
+   * <p>The Amazon S3 bucket for the revocation file.</p>
+   */
+  S3Bucket?: string;
+
+  /**
+   * @public
+   * <p>The Amazon S3 path for the revocation file.</p>
+   */
+  S3Key?: string;
+
+  /**
+   * @public
+   * <p>The Amazon S3 object version of the revocation file.</p>
+   */
+  S3ObjectVersion?: string;
+
+  /**
+   * @public
+   * <p>The type of revocation file.</p>
+   */
+  RevocationType?: RevocationType;
+}
+
+/**
+ * @public
+ */
+export interface AddTrustStoreRevocationsInput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   */
+  TrustStoreArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The revocation file to add.</p>
+   */
+  RevocationContents?: RevocationContent[];
+}
+
+/**
+ * @public
+ * <p>Information about a revocation file in use by a trust store.</p>
+ */
+export interface TrustStoreRevocation {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   */
+  TrustStoreArn?: string;
+
+  /**
+   * @public
+   * <p>The revocation ID of the revocation file.</p>
+   */
+  RevocationId?: number;
+
+  /**
+   * @public
+   * <p>The type of revocation file.</p>
+   */
+  RevocationType?: RevocationType;
+
+  /**
+   * @public
+   * <p>The number of revoked certificates.</p>
+   */
+  NumberOfRevokedEntries?: number;
+}
+
+/**
+ * @public
+ */
+export interface AddTrustStoreRevocationsOutput {
+  /**
+   * @public
+   * <p>Information about the revocation file added to the trust store.</p>
+   */
+  TrustStoreRevocations?: TrustStoreRevocation[];
+}
+
+/**
+ * @public
+ * <p>The provided revocation file is an invalid format, or uses an incorrect algorithm.</p>
+ */
+export class InvalidRevocationContentException extends __BaseException {
+  readonly name: "InvalidRevocationContentException" = "InvalidRevocationContentException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRevocationContentException, __BaseException>) {
+    super({
+      name: "InvalidRevocationContentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRevocationContentException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>The specified revocation file does not exist.</p>
+ */
+export class RevocationContentNotFoundException extends __BaseException {
+  readonly name: "RevocationContentNotFoundException" = "RevocationContentNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RevocationContentNotFoundException, __BaseException>) {
+    super({
+      name: "RevocationContentNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RevocationContentNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>The specified trust store has too many revocation entries.</p>
+ */
+export class TooManyTrustStoreRevocationEntriesException extends __BaseException {
+  readonly name: "TooManyTrustStoreRevocationEntriesException" = "TooManyTrustStoreRevocationEntriesException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTrustStoreRevocationEntriesException, __BaseException>) {
+    super({
+      name: "TooManyTrustStoreRevocationEntriesException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTrustStoreRevocationEntriesException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -775,6 +964,52 @@ export class ALPNPolicyNotSupportedException extends __BaseException {
     Object.setPrototypeOf(this, ALPNPolicyNotSupportedException.prototype);
     this.Message = opts.Message;
   }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MitigationInEffectEnum = {
+  NO: "no",
+  YES: "yes",
+} as const;
+
+/**
+ * @public
+ */
+export type MitigationInEffectEnum = (typeof MitigationInEffectEnum)[keyof typeof MitigationInEffectEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnomalyResultEnum = {
+  ANOMALOUS: "anomalous",
+  NORMAL: "normal",
+} as const;
+
+/**
+ * @public
+ */
+export type AnomalyResultEnum = (typeof AnomalyResultEnum)[keyof typeof AnomalyResultEnum];
+
+/**
+ * @public
+ * <p>Information about anomaly detection and mitigation.</p>
+ */
+export interface AnomalyDetection {
+  /**
+   * @public
+   * <p>The latest anomaly detection result.</p>
+   */
+  Result?: AnomalyResultEnum;
+
+  /**
+   * @public
+   * <p>Indicates whether anomaly mitigation is in progress.</p>
+   */
+  MitigationInEffect?: MitigationInEffectEnum;
 }
 
 /**
@@ -865,6 +1100,28 @@ export class AvailabilityZoneNotSupportedException extends __BaseException {
 
 /**
  * @public
+ * <p>The specified ca certificate bundle does not exist.</p>
+ */
+export class CaCertificatesBundleNotFoundException extends __BaseException {
+  readonly name: "CaCertificatesBundleNotFoundException" = "CaCertificatesBundleNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CaCertificatesBundleNotFoundException, __BaseException>) {
+    super({
+      name: "CaCertificatesBundleNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CaCertificatesBundleNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  * <p>Information about a cipher used in a policy.</p>
  */
 export interface Cipher {
@@ -879,6 +1136,32 @@ export interface Cipher {
    * <p>The priority of the cipher.</p>
    */
   Priority?: number;
+}
+
+/**
+ * @public
+ * <p>Information about the mutual authentication attributes of a listener.</p>
+ */
+export interface MutualAuthenticationAttributes {
+  /**
+   * @public
+   * <p>The client certificate handling method. Options are <code>off</code>,
+   *       <code>passthrough</code> or <code>verify</code>. The default value is
+   *       <code>off</code>.</p>
+   */
+  Mode?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   */
+  TrustStoreArn?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether expired client certificates are ignored.</p>
+   */
+  IgnoreClientCertificateExpiry?: boolean;
 }
 
 /**
@@ -918,7 +1201,7 @@ export interface CreateListenerInput {
    *       protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load
    *       Balancer.</p>
    */
-  Protocol?: ProtocolEnum | string;
+  Protocol?: ProtocolEnum;
 
   /**
    * @public
@@ -991,6 +1274,12 @@ export interface CreateListenerInput {
    * <p>The tags to assign to the listener.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>The mutual authentication configuration information.</p>
+   */
+  MutualAuthentication?: MutualAuthenticationAttributes;
 }
 
 /**
@@ -1020,7 +1309,7 @@ export interface Listener {
    * @public
    * <p>The protocol for connections from clients to the load balancer.</p>
    */
-  Protocol?: ProtocolEnum | string;
+  Protocol?: ProtocolEnum;
 
   /**
    * @public
@@ -1047,6 +1336,12 @@ export interface Listener {
    *       policy.</p>
    */
   AlpnPolicy?: string[];
+
+  /**
+   * @public
+   * <p>The mutual authentication configuration information.</p>
+   */
+  MutualAuthentication?: MutualAuthenticationAttributes;
 }
 
 /**
@@ -1308,6 +1603,28 @@ export class TooManyUniqueTargetGroupsPerLoadBalancerException extends __BaseExc
 
 /**
  * @public
+ * <p>The specified trust store is not active.</p>
+ */
+export class TrustStoreNotReadyException extends __BaseException {
+  readonly name: "TrustStoreNotReadyException" = "TrustStoreNotReadyException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TrustStoreNotReadyException, __BaseException>) {
+    super({
+      name: "TrustStoreNotReadyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TrustStoreNotReadyException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  * <p>The specified protocol is not supported.</p>
  */
 export class UnsupportedProtocolException extends __BaseException {
@@ -1471,7 +1788,7 @@ export interface CreateLoadBalancerInput {
    *          <p>The default is an Internet-facing load balancer.</p>
    *          <p>You cannot specify a scheme for a Gateway Load Balancer.</p>
    */
-  Scheme?: LoadBalancerSchemeEnum | string;
+  Scheme?: LoadBalancerSchemeEnum;
 
   /**
    * @public
@@ -1483,7 +1800,7 @@ export interface CreateLoadBalancerInput {
    * @public
    * <p>The type of load balancer. The default is <code>application</code>.</p>
    */
-  Type?: LoadBalancerTypeEnum | string;
+  Type?: LoadBalancerTypeEnum;
 
   /**
    * @public
@@ -1491,7 +1808,7 @@ export interface CreateLoadBalancerInput {
    *       are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6
    *       addresses). </p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: IpAddressType;
 
   /**
    * @public
@@ -1530,7 +1847,7 @@ export interface LoadBalancerState {
    *       needs to scale, its state is<code>active_impaired</code>. If the load balancer could not be
    *       set up, its state is <code>failed</code>.</p>
    */
-  Code?: LoadBalancerStateEnum | string;
+  Code?: LoadBalancerStateEnum;
 
   /**
    * @public
@@ -1585,7 +1902,7 @@ export interface LoadBalancer {
    *       Therefore, internal load balancers can route requests only from clients with access to the VPC
    *       for the load balancer.</p>
    */
-  Scheme?: LoadBalancerSchemeEnum | string;
+  Scheme?: LoadBalancerSchemeEnum;
 
   /**
    * @public
@@ -1603,7 +1920,7 @@ export interface LoadBalancer {
    * @public
    * <p>The type of load balancer.</p>
    */
-  Type?: LoadBalancerTypeEnum | string;
+  Type?: LoadBalancerTypeEnum;
 
   /**
    * @public
@@ -1623,7 +1940,7 @@ export interface LoadBalancer {
    *       are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6
    *       addresses).</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: IpAddressType;
 
   /**
    * @public
@@ -1980,7 +2297,7 @@ export interface SourceIpConditionConfig {
  *       following conditions: <code>http-header</code> and <code>query-string</code>. Note that the
  *       value for a condition cannot be empty.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html">Quotas for your
- *         Application Load Balancers</a>.</p>
+ *       Application Load Balancers</a>.</p>
  */
 export interface RuleCondition {
   /**
@@ -2343,7 +2660,7 @@ export interface CreateTargetGroupInput {
    *       GENEVE. A TCP_UDP listener must be associated with a TCP_UDP target group. If the target is a
    *       Lambda function, this parameter does not apply.</p>
    */
-  Protocol?: ProtocolEnum | string;
+  Protocol?: ProtocolEnum;
 
   /**
    * @public
@@ -2376,7 +2693,7 @@ export interface CreateTargetGroupInput {
    *       protocol of the target group is HTTP or HTTPS. The GENEVE, TLS, UDP, and TCP_UDP protocols are
    *       not supported for health checks.</p>
    */
-  HealthCheckProtocol?: ProtocolEnum | string;
+  HealthCheckProtocol?: ProtocolEnum;
 
   /**
    * @public
@@ -2478,7 +2795,7 @@ export interface CreateTargetGroupInput {
    *             </li>
    *          </ul>
    */
-  TargetType?: TargetTypeEnum | string;
+  TargetType?: TargetTypeEnum;
 
   /**
    * @public
@@ -2492,7 +2809,7 @@ export interface CreateTargetGroupInput {
    *         <code>ipv4</code> and <code>ipv6</code>. This is an optional parameter. If not specified,
    *       the IP address type defaults to <code>ipv4</code>.</p>
    */
-  IpAddressType?: TargetGroupIpAddressTypeEnum | string;
+  IpAddressType?: TargetGroupIpAddressTypeEnum;
 }
 
 /**
@@ -2516,7 +2833,7 @@ export interface TargetGroup {
    * @public
    * <p>The protocol to use for routing traffic to the targets.</p>
    */
-  Protocol?: ProtocolEnum | string;
+  Protocol?: ProtocolEnum;
 
   /**
    * @public
@@ -2536,7 +2853,7 @@ export interface TargetGroup {
    * <p>The protocol to use to connect with the target. The GENEVE, TLS, UDP, and TCP_UDP
    *       protocols are not supported for health checks.</p>
    */
-  HealthCheckProtocol?: ProtocolEnum | string;
+  HealthCheckProtocol?: ProtocolEnum;
 
   /**
    * @public
@@ -2606,7 +2923,7 @@ export interface TargetGroup {
    *       Lambda function as a target), or <code>alb</code> (register a single Application Load Balancer
    *       as a target).</p>
    */
-  TargetType?: TargetTypeEnum | string;
+  TargetType?: TargetTypeEnum;
 
   /**
    * @public
@@ -2621,7 +2938,7 @@ export interface TargetGroup {
    *         <code>ipv4</code> and <code>ipv6</code>. This is an optional parameter. If not specified,
    *       the IP address type defaults to <code>ipv4</code>.</p>
    */
-  IpAddressType?: TargetGroupIpAddressTypeEnum | string;
+  IpAddressType?: TargetGroupIpAddressTypeEnum;
 }
 
 /**
@@ -2653,6 +2970,169 @@ export class DuplicateTargetGroupNameException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, DuplicateTargetGroupNameException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateTrustStoreInput {
+  /**
+   * @public
+   * <p>The name of the trust store.</p>
+   *          <p>This name must be unique per region and cannot be changed after creation.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon S3 bucket for the ca certificates bundle.</p>
+   */
+  CaCertificatesBundleS3Bucket: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon S3 path for the ca certificates bundle.</p>
+   */
+  CaCertificatesBundleS3Key: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon S3 object version for the ca certificates bundle. If undefined the current version is used.</p>
+   */
+  CaCertificatesBundleS3ObjectVersion?: string;
+
+  /**
+   * @public
+   * <p>The tags to assign to the trust store.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TrustStoreStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+} as const;
+
+/**
+ * @public
+ */
+export type TrustStoreStatus = (typeof TrustStoreStatus)[keyof typeof TrustStoreStatus];
+
+/**
+ * @public
+ * <p>Information about a trust store.</p>
+ */
+export interface TrustStore {
+  /**
+   * @public
+   * <p>The name of the trust store.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   */
+  TrustStoreArn?: string;
+
+  /**
+   * @public
+   * <p>The current status of the trust store.</p>
+   */
+  Status?: TrustStoreStatus;
+
+  /**
+   * @public
+   * <p>The number of ca certificates in the trust store.</p>
+   */
+  NumberOfCaCertificates?: number;
+
+  /**
+   * @public
+   * <p>The number of revoked certificates in the trust store.</p>
+   */
+  TotalRevokedEntries?: number;
+}
+
+/**
+ * @public
+ */
+export interface CreateTrustStoreOutput {
+  /**
+   * @public
+   * <p>Information about the trust store created.</p>
+   */
+  TrustStores?: TrustStore[];
+}
+
+/**
+ * @public
+ * <p>A trust store with the specified name already exists.</p>
+ */
+export class DuplicateTrustStoreNameException extends __BaseException {
+  readonly name: "DuplicateTrustStoreNameException" = "DuplicateTrustStoreNameException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicateTrustStoreNameException, __BaseException>) {
+    super({
+      name: "DuplicateTrustStoreNameException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateTrustStoreNameException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>The specified ca certificate bundle is in an invalid format, or corrupt.</p>
+ */
+export class InvalidCaCertificatesBundleException extends __BaseException {
+  readonly name: "InvalidCaCertificatesBundleException" = "InvalidCaCertificatesBundleException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidCaCertificatesBundleException, __BaseException>) {
+    super({
+      name: "InvalidCaCertificatesBundleException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidCaCertificatesBundleException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>You've reached the limit on the number of trust stores for your Amazon Web Services account.</p>
+ */
+export class TooManyTrustStoresException extends __BaseException {
+  readonly name: "TooManyTrustStoresException" = "TooManyTrustStoresException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTrustStoresException, __BaseException>) {
+    super({
+      name: "TooManyTrustStoresException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTrustStoresException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -2720,6 +3200,44 @@ export interface DeleteTargetGroupInput {
  * @public
  */
 export interface DeleteTargetGroupOutput {}
+
+/**
+ * @public
+ */
+export interface DeleteTrustStoreInput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   */
+  TrustStoreArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTrustStoreOutput {}
+
+/**
+ * @public
+ * <p>The specified trust store is currently in use.</p>
+ */
+export class TrustStoreInUseException extends __BaseException {
+  readonly name: "TrustStoreInUseException" = "TrustStoreInUseException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TrustStoreInUseException, __BaseException>) {
+    super({
+      name: "TrustStoreInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TrustStoreInUseException.prototype);
+    this.Message = opts.Message;
+  }
+}
 
 /**
  * @public
@@ -2839,19 +3357,19 @@ export interface DescribeAccountLimitsInput {
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html">Quotas for your
- *             Application Load Balancers</a>
+ *           Application Load Balancers</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-limits.html">Quotas for your
- *             Network Load Balancers</a>
+ *           Network Load Balancers</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/quotas-limits.html">Quotas for your Gateway
- *             Load Balancers</a>
+ *           Load Balancers</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -3107,6 +3625,23 @@ export interface LoadBalancerAttribute {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>connection_logs.s3.enabled</code> - Indicates whether connection logs are enabled. The
+   *           value is <code>true</code> or <code>false</code>. The default is <code>false</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>connection_logs.s3.bucket</code> - The name of the S3 bucket for the connection logs.
+   *           This attribute is required if connection logs are enabled. The bucket must exist in the same
+   *           region as the load balancer and have a bucket policy that grants Elastic Load Balancing
+   *           permissions to write to the bucket.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>connection_logs.s3.prefix</code> - The prefix for the location in the S3 bucket for the
+   *           connection logs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>routing.http.desync_mitigation_mode</code> - Determines how the load balancer
    *           handles requests that might pose a security risk to your application. The possible values
    *           are <code>monitor</code>, <code>defensive</code>, and <code>strictest</code>. The default
@@ -3181,6 +3716,17 @@ export interface LoadBalancerAttribute {
    *                   <code>waf.fail_open.enabled</code> - Indicates whether to allow a WAF-enabled load
    *           balancer to route requests to targets if it is unable to forward the request to Amazon Web Services WAF. The possible values are <code>true</code> and <code>false</code>. The
    *           default is <code>false</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The following attributes are supported by only Network Load Balancers:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>dns_record.client_routing_policy</code> - Indicates how traffic is
+   *           distributed among the load balancer Availability Zones. The possible values are
+   *           <code>availability_zone_affinity</code> with 100 percent zonal affinity,
+   *           <code>partial_availability_zone_affinity</code> with 85 percent zonal affinity,
+   *           and <code>any_availability_zone</code> with 0 percent zonal affinity.</p>
    *             </li>
    *          </ul>
    */
@@ -3329,7 +3875,7 @@ export interface DescribeSSLPoliciesInput {
    * <p> The type of load balancer. The default lists the SSL policies for all load
    *       balancers.</p>
    */
-  LoadBalancerType?: LoadBalancerTypeEnum | string;
+  LoadBalancerType?: LoadBalancerTypeEnum;
 }
 
 /**
@@ -3525,8 +4071,14 @@ export interface TargetGroupAttribute {
    *                <p>
    *                   <code>load_balancing.algorithm.type</code> - The load balancing algorithm determines
    *           how the load balancer selects targets when routing requests. The value is
-   *             <code>round_robin</code> or <code>least_outstanding_requests</code>. The default is
+   *             <code>round_robin</code>, <code>least_outstanding_requests</code>, or <code>weighted_random</code>. The default is
    *             <code>round_robin</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>load_balancing.algorithm.anomaly_mitigation</code> - Only available when <code>load_balancing.algorithm.type</code>
+   *           is <code>weighted_random</code>. Indicates whether anomaly mitigation is enabled. The value is <code>on</code>
+   *           or <code>off</code>. The default is <code>off</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3576,8 +4128,8 @@ export interface TargetGroupAttribute {
    *                <p>
    *                   <code>deregistration_delay.connection_termination.enabled</code> - Indicates whether
    *           the load balancer terminates connections at the end of the deregistration timeout. The
-   *           value is <code>true</code> or <code>false</code>. The default is
-   *           <code>false</code>.</p>
+   *           value is <code>true</code> or <code>false</code>. For new UDP/TCP_UDP target groups the
+   *           default is <code>true</code>. Otherwise, the default is <code>false</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3592,6 +4144,12 @@ export interface TargetGroupAttribute {
    *                   <code>proxy_protocol_v2.enabled</code> - Indicates whether Proxy Protocol version 2 is
    *           enabled. The value is <code>true</code> or <code>false</code>. The default is
    *             <code>false</code>. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>target_health_state.unhealthy.connection_termination.enabled</code> - Indicates whether
+   *           the load balancer terminates connections to unhealthy targets. The value is <code>true</code>
+   *           or <code>false</code>. The default is <code>true</code>.</p>
    *             </li>
    *          </ul>
    *          <p>The following attributes are supported only by Gateway Load Balancers:</p>
@@ -3694,6 +4252,21 @@ export interface DescribeTargetGroupsOutput {
 
 /**
  * @public
+ * @enum
+ */
+export const DescribeTargetHealthInputIncludeEnum = {
+  ALL: "All",
+  ANOMALY: "AnomalyDetection",
+} as const;
+
+/**
+ * @public
+ */
+export type DescribeTargetHealthInputIncludeEnum =
+  (typeof DescribeTargetHealthInputIncludeEnum)[keyof typeof DescribeTargetHealthInputIncludeEnum];
+
+/**
+ * @public
  */
 export interface DescribeTargetHealthInput {
   /**
@@ -3707,6 +4280,12 @@ export interface DescribeTargetHealthInput {
    * <p>The targets.</p>
    */
   Targets?: TargetDescription[];
+
+  /**
+   * @public
+   * <p>Used to inclue anomaly detection information.</p>
+   */
+  Include?: DescribeTargetHealthInputIncludeEnum[];
 }
 
 /**
@@ -3760,7 +4339,7 @@ export interface TargetHealth {
    * @public
    * <p>The state of the target.</p>
    */
-  State?: TargetHealthStateEnum | string;
+  State?: TargetHealthStateEnum;
 
   /**
    * @public
@@ -3853,7 +4432,7 @@ export interface TargetHealth {
    *             </li>
    *          </ul>
    */
-  Reason?: TargetHealthReasonEnum | string;
+  Reason?: TargetHealthReasonEnum;
 
   /**
    * @public
@@ -3885,6 +4464,14 @@ export interface TargetHealthDescription {
    * <p>The health information for the target.</p>
    */
   TargetHealth?: TargetHealth;
+
+  /**
+   * @public
+   * <p>The anomaly detection result for the target.</p>
+   *          <p>If no anomalies were detected, the result is <code>normal</code>.</p>
+   *          <p>If anomalies were detected, the result is <code>anomalous</code>.</p>
+   */
+  AnomalyDetection?: AnomalyDetection;
 }
 
 /**
@@ -3924,6 +4511,255 @@ export class HealthUnavailableException extends __BaseException {
 /**
  * @public
  */
+export interface DescribeTrustStoreAssociationsInput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   */
+  TrustStoreArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
+   */
+  Marker?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return with this call.</p>
+   */
+  PageSize?: number;
+}
+
+/**
+ * @public
+ * <p>Information about the resources a trust store is associated with.</p>
+ */
+export interface TrustStoreAssociation {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   */
+  ResourceArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrustStoreAssociationsOutput {
+  /**
+   * @public
+   * <p>Information about the resources the trust store is associated to.</p>
+   */
+  TrustStoreAssociations?: TrustStoreAssociation[];
+
+  /**
+   * @public
+   * <p>If there are additional results, this is the marker for the next set of results.
+   *       Otherwise, this is null.</p>
+   */
+  NextMarker?: string;
+}
+
+/**
+ * @public
+ * <p>Information about the revocations used by a trust store.</p>
+ */
+export interface DescribeTrustStoreRevocation {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   */
+  TrustStoreArn?: string;
+
+  /**
+   * @public
+   * <p>The revocation ID of a revocation file in use.</p>
+   */
+  RevocationId?: number;
+
+  /**
+   * @public
+   * <p>The type of revocation file.</p>
+   */
+  RevocationType?: RevocationType;
+
+  /**
+   * @public
+   * <p>The number of revoked certificates.</p>
+   */
+  NumberOfRevokedEntries?: number;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrustStoreRevocationsInput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   */
+  TrustStoreArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The revocation IDs of the revocation files you want to describe.</p>
+   */
+  RevocationIds?: number[];
+
+  /**
+   * @public
+   * <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
+   */
+  Marker?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return with this call.</p>
+   */
+  PageSize?: number;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrustStoreRevocationsOutput {
+  /**
+   * @public
+   * <p>Information about the revocation file in the trust store.</p>
+   */
+  TrustStoreRevocations?: DescribeTrustStoreRevocation[];
+
+  /**
+   * @public
+   * <p>If there are additional results, this is the marker for the next set of results.
+   *       Otherwise, this is null.</p>
+   */
+  NextMarker?: string;
+}
+
+/**
+ * @public
+ * <p>The specified revocation ID does not exist.</p>
+ */
+export class RevocationIdNotFoundException extends __BaseException {
+  readonly name: "RevocationIdNotFoundException" = "RevocationIdNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RevocationIdNotFoundException, __BaseException>) {
+    super({
+      name: "RevocationIdNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RevocationIdNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrustStoresInput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   */
+  TrustStoreArns?: string[];
+
+  /**
+   * @public
+   * <p>The names of the trust stores.</p>
+   */
+  Names?: string[];
+
+  /**
+   * @public
+   * <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
+   */
+  Marker?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return with this call.</p>
+   */
+  PageSize?: number;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTrustStoresOutput {
+  /**
+   * @public
+   * <p>Information about the trust stores.</p>
+   */
+  TrustStores?: TrustStore[];
+
+  /**
+   * @public
+   * <p>If there are additional results, this is the marker for the next set of results.
+   *       Otherwise, this is null.</p>
+   */
+  NextMarker?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetTrustStoreCaCertificatesBundleInput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   */
+  TrustStoreArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTrustStoreCaCertificatesBundleOutput {
+  /**
+   * @public
+   * <p>The ca certificate bundles Amazon S3 URI.</p>
+   */
+  Location?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetTrustStoreRevocationContentInput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   */
+  TrustStoreArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The revocation ID of the revocation file.</p>
+   */
+  RevocationId: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTrustStoreRevocationContentOutput {
+  /**
+   * @public
+   * <p>The revocation files Amazon S3 URI.</p>
+   */
+  Location?: string;
+}
+
+/**
+ * @public
+ */
 export interface ModifyListenerInput {
   /**
    * @public
@@ -3945,7 +4781,7 @@ export interface ModifyListenerInput {
    *       TCP_UDP protocols. You can’t change the protocol to UDP or TCP_UDP if dual-stack mode is
    *       enabled. You cannot specify a protocol for a Gateway Load Balancer.</p>
    */
-  Protocol?: ProtocolEnum | string;
+  Protocol?: ProtocolEnum;
 
   /**
    * @public
@@ -4005,6 +4841,12 @@ export interface ModifyListenerInput {
    *         policies</a> in the <i>Network Load Balancers Guide</i>.</p>
    */
   AlpnPolicy?: string[];
+
+  /**
+   * @public
+   * <p>The mutual authentication configuration information.</p>
+   */
+  MutualAuthentication?: MutualAuthenticationAttributes;
 }
 
 /**
@@ -4099,7 +4941,7 @@ export interface ModifyTargetGroupInput {
    *       protocol of the target group is TCP, TLS, UDP, or TCP_UDP. The GENEVE, TLS, UDP, and TCP_UDP
    *       protocols are not supported for health checks.</p>
    */
-  HealthCheckProtocol?: ProtocolEnum | string;
+  HealthCheckProtocol?: ProtocolEnum;
 
   /**
    * @public
@@ -4201,6 +5043,46 @@ export interface ModifyTargetGroupAttributesOutput {
 /**
  * @public
  */
+export interface ModifyTrustStoreInput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   */
+  TrustStoreArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon S3 bucket for the ca certificates bundle.</p>
+   */
+  CaCertificatesBundleS3Bucket: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon S3 path for the ca certificates bundle.</p>
+   */
+  CaCertificatesBundleS3Key: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon S3 object version for the ca certificates bundle. If undefined the current version is used.</p>
+   */
+  CaCertificatesBundleS3ObjectVersion?: string;
+}
+
+/**
+ * @public
+ */
+export interface ModifyTrustStoreOutput {
+  /**
+   * @public
+   * <p>Information about the modified trust store.</p>
+   */
+  TrustStores?: TrustStore[];
+}
+
+/**
+ * @public
+ */
 export interface RegisterTargetsInput {
   /**
    * @public
@@ -4269,6 +5151,28 @@ export interface RemoveTagsOutput {}
 /**
  * @public
  */
+export interface RemoveTrustStoreRevocationsInput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the trust store.</p>
+   */
+  TrustStoreArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The revocation IDs of the revocation files you want to remove.</p>
+   */
+  RevocationIds: number[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RemoveTrustStoreRevocationsOutput {}
+
+/**
+ * @public
+ */
 export interface SetIpAddressTypeInput {
   /**
    * @public
@@ -4282,7 +5186,7 @@ export interface SetIpAddressTypeInput {
    *         <code>dualstack</code> (for IPv4 and IPv6 addresses).  You can’t specify <code>dualstack</code> for a load balancer
    *       with a UDP or TCP_UDP listener.</p>
    */
-  IpAddressType: IpAddressType | string | undefined;
+  IpAddressType: IpAddressType | undefined;
 }
 
 /**
@@ -4293,7 +5197,7 @@ export interface SetIpAddressTypeOutput {
    * @public
    * <p>The IP address type.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: IpAddressType;
 }
 
 /**
@@ -4372,9 +5276,7 @@ export interface SetSecurityGroupsInput {
    * <p>Indicates whether to evaluate inbound security group rules for traffic sent to a
    *       Network Load Balancer through Amazon Web Services PrivateLink. The default is <code>on</code>.</p>
    */
-  EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic?:
-    | EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum
-    | string;
+  EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic?: EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum;
 }
 
 /**
@@ -4392,9 +5294,7 @@ export interface SetSecurityGroupsOutput {
    * <p>Indicates whether to evaluate inbound security group rules for traffic sent to a
    *       Network Load Balancer through Amazon Web Services PrivateLink.</p>
    */
-  EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic?:
-    | EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum
-    | string;
+  EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic?: EnforceSecurityGroupInboundRulesOnPrivateLinkTrafficEnum;
 }
 
 /**
@@ -4418,6 +5318,8 @@ export interface SetSubnetsInput {
    *       Zones.</p>
    *          <p>[Network Load Balancers] You can specify subnets from one or more Availability
    *       Zones.</p>
+   *          <p>[Gateway Load Balancers] You can specify subnets from one or more Availability
+   *       Zones.</p>
    */
   Subnets?: string[];
 
@@ -4435,6 +5337,8 @@ export interface SetSubnetsInput {
    *       internet-facing load balancer. For internal load balancers, you can specify one private IP
    *       address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you
    *       can specify one IPv6 address per subnet.</p>
+   *          <p>[Gateway Load Balancers] You can specify subnets from one or more Availability
+   *       Zones.</p>
    */
   SubnetMappings?: SubnetMapping[];
 
@@ -4444,8 +5348,11 @@ export interface SetSubnetsInput {
    *       balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and
    *         <code>dualstack</code> (for IPv4 and IPv6 addresses). You can’t specify
    *         <code>dualstack</code> for a load balancer with a UDP or TCP_UDP listener.</p>
+   *          <p>[Gateway Load Balancers] The type of IP addresses used by the subnets for your load
+   *       balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and
+   *       <code>dualstack</code> (for IPv4 and IPv6 addresses).</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: IpAddressType;
 }
 
 /**
@@ -4461,6 +5368,7 @@ export interface SetSubnetsOutput {
   /**
    * @public
    * <p>[Network Load Balancers] The IP address type.</p>
+   *          <p>[Gateway Load Balancers] The IP address type.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: IpAddressType;
 }

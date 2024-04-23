@@ -6,24 +6,27 @@ import { RuleSetObject } from "@smithy/types";
    or see "smithy.rules#endpointRuleSet"
    in codegen/sdk-codegen/aws-models/route53-recovery-cluster.json */
 
-const p="required",
-q="fn",
-r="argv",
-s="ref";
-const a="PartitionResult",
-b="tree",
-c="error",
-d="endpoint",
-e={[p]:false,"type":"String"},
-f={[p]:true,"default":false,"type":"Boolean"},
-g={[s]:"Endpoint"},
-h={[q]:"booleanEquals",[r]:[{[s]:"UseFIPS"},true]},
-i={[q]:"booleanEquals",[r]:[{[s]:"UseDualStack"},true]},
-j={},
-k={[q]:"booleanEquals",[r]:[true,{[q]:"getAttr",[r]:[{[s]:a},"supportsFIPS"]}]},
-l={[q]:"booleanEquals",[r]:[true,{[q]:"getAttr",[r]:[{[s]:a},"supportsDualStack"]}]},
-m=[g],
-n=[h],
-o=[i];
-const _data={version:"1.0",parameters:{Region:e,UseDualStack:f,UseFIPS:f,Endpoint:e},rules:[{conditions:[{[q]:"aws.partition",[r]:[{[s]:"Region"}],assign:a}],type:b,rules:[{conditions:[{[q]:"isSet",[r]:m},{[q]:"parseURL",[r]:m,assign:"url"}],type:b,rules:[{conditions:n,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:c},{type:b,rules:[{conditions:o,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:c},{endpoint:{url:g,properties:j,headers:j},type:d}]}]},{conditions:[h,i],type:b,rules:[{conditions:[k,l],type:b,rules:[{endpoint:{url:"https://route53-recovery-cluster-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:j,headers:j},type:d}]},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:c}]},{conditions:n,type:b,rules:[{conditions:[k],type:b,rules:[{endpoint:{url:"https://route53-recovery-cluster-fips.{Region}.{PartitionResult#dnsSuffix}",properties:j,headers:j},type:d}]},{error:"FIPS is enabled but this partition does not support FIPS",type:c}]},{conditions:o,type:b,rules:[{conditions:[l],type:b,rules:[{endpoint:{url:"https://route53-recovery-cluster.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:j,headers:j},type:d}]},{error:"DualStack is enabled but this partition does not support DualStack",type:c}]},{endpoint:{url:"https://route53-recovery-cluster.{Region}.{PartitionResult#dnsSuffix}",properties:j,headers:j},type:d}]}]};
+const s="required",
+t="fn",
+u="argv",
+v="ref";
+const a=true,
+b="isSet",
+c="booleanEquals",
+d="error",
+e="endpoint",
+f="tree",
+g="PartitionResult",
+h={[s]:false,"type":"String"},
+i={[s]:true,"default":false,"type":"Boolean"},
+j={[v]:"Endpoint"},
+k={[t]:c,[u]:[{[v]:"UseFIPS"},true]},
+l={[t]:c,[u]:[{[v]:"UseDualStack"},true]},
+m={},
+n={[t]:"getAttr",[u]:[{[v]:g},"supportsFIPS"]},
+o={[t]:c,[u]:[true,{[t]:"getAttr",[u]:[{[v]:g},"supportsDualStack"]}]},
+p=[k],
+q=[l],
+r=[{[v]:"Region"}];
+const _data={version:"1.0",parameters:{Region:h,UseDualStack:i,UseFIPS:i,Endpoint:h},rules:[{conditions:[{[t]:b,[u]:[j]}],rules:[{conditions:p,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:d},{conditions:q,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:d},{endpoint:{url:j,properties:m,headers:m},type:e}],type:f},{conditions:[{[t]:b,[u]:r}],rules:[{conditions:[{[t]:"aws.partition",[u]:r,assign:g}],rules:[{conditions:[k,l],rules:[{conditions:[{[t]:c,[u]:[a,n]},o],rules:[{endpoint:{url:"https://route53-recovery-cluster-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:m,headers:m},type:e}],type:f},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:d}],type:f},{conditions:p,rules:[{conditions:[{[t]:c,[u]:[n,a]}],rules:[{endpoint:{url:"https://route53-recovery-cluster-fips.{Region}.{PartitionResult#dnsSuffix}",properties:m,headers:m},type:e}],type:f},{error:"FIPS is enabled but this partition does not support FIPS",type:d}],type:f},{conditions:q,rules:[{conditions:[o],rules:[{endpoint:{url:"https://route53-recovery-cluster.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:m,headers:m},type:e}],type:f},{error:"DualStack is enabled but this partition does not support DualStack",type:d}],type:f},{endpoint:{url:"https://route53-recovery-cluster.{Region}.{PartitionResult#dnsSuffix}",properties:m,headers:m},type:e}],type:f}],type:f},{error:"Invalid Configuration: Missing Region",type:d}]};
 export const ruleSet: RuleSetObject = _data;

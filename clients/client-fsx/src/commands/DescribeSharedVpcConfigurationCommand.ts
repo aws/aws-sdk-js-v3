@@ -1,0 +1,92 @@
+// smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { Command as $Command } from "@smithy/smithy-client";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+
+import { commonParams } from "../endpoint/EndpointParameters";
+import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
+import { DescribeSharedVpcConfigurationRequest, DescribeSharedVpcConfigurationResponse } from "../models/models_0";
+import {
+  de_DescribeSharedVpcConfigurationCommand,
+  se_DescribeSharedVpcConfigurationCommand,
+} from "../protocols/Aws_json1_1";
+
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link DescribeSharedVpcConfigurationCommand}.
+ */
+export interface DescribeSharedVpcConfigurationCommandInput extends DescribeSharedVpcConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link DescribeSharedVpcConfigurationCommand}.
+ */
+export interface DescribeSharedVpcConfigurationCommandOutput
+  extends DescribeSharedVpcConfigurationResponse,
+    __MetadataBearer {}
+
+/**
+ * @public
+ * <p>Indicates whether participant accounts in your organization can create Amazon FSx for NetApp ONTAP Multi-AZ file systems in subnets that are shared by a virtual
+ *             private cloud (VPC) owner. For more information, see the <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/maz-shared-vpc.html">Amazon FSx for NetApp ONTAP User
+ *                 Guide</a>.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { FSxClient, DescribeSharedVpcConfigurationCommand } from "@aws-sdk/client-fsx"; // ES Modules import
+ * // const { FSxClient, DescribeSharedVpcConfigurationCommand } = require("@aws-sdk/client-fsx"); // CommonJS import
+ * const client = new FSxClient(config);
+ * const input = {};
+ * const command = new DescribeSharedVpcConfigurationCommand(input);
+ * const response = await client.send(command);
+ * // { // DescribeSharedVpcConfigurationResponse
+ * //   EnableFsxRouteTableUpdatesFromParticipantAccounts: "STRING_VALUE",
+ * // };
+ *
+ * ```
+ *
+ * @param DescribeSharedVpcConfigurationCommandInput - {@link DescribeSharedVpcConfigurationCommandInput}
+ * @returns {@link DescribeSharedVpcConfigurationCommandOutput}
+ * @see {@link DescribeSharedVpcConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DescribeSharedVpcConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link FSxClientResolvedConfig | config} for FSxClient's `config` shape.
+ *
+ * @throws {@link BadRequest} (client fault)
+ *  <p>A generic error indicating a failure with a client request.</p>
+ *
+ * @throws {@link InternalServerError} (server fault)
+ *  <p>A generic error indicating a server-side failure.</p>
+ *
+ * @throws {@link FSxServiceException}
+ * <p>Base exception class for all service exceptions from FSx service.</p>
+ *
+ */
+export class DescribeSharedVpcConfigurationCommand extends $Command
+  .classBuilder<
+    DescribeSharedVpcConfigurationCommandInput,
+    DescribeSharedVpcConfigurationCommandOutput,
+    FSxClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSSimbaAPIService_v20180301", "DescribeSharedVpcConfiguration", {})
+  .n("FSxClient", "DescribeSharedVpcConfigurationCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeSharedVpcConfigurationCommand)
+  .de(de_DescribeSharedVpcConfigurationCommand)
+  .build() {}

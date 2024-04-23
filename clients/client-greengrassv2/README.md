@@ -33,16 +33,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `GreengrassV2Client` and
-the commands you need, for example `AssociateServiceRoleToAccountCommand`:
+the commands you need, for example `ListComponentsCommand`:
 
 ```js
 // ES5 example
-const { GreengrassV2Client, AssociateServiceRoleToAccountCommand } = require("@aws-sdk/client-greengrassv2");
+const { GreengrassV2Client, ListComponentsCommand } = require("@aws-sdk/client-greengrassv2");
 ```
 
 ```ts
 // ES6+ example
-import { GreengrassV2Client, AssociateServiceRoleToAccountCommand } from "@aws-sdk/client-greengrassv2";
+import { GreengrassV2Client, ListComponentsCommand } from "@aws-sdk/client-greengrassv2";
 ```
 
 ### Usage
@@ -61,7 +61,7 @@ const client = new GreengrassV2Client({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateServiceRoleToAccountCommand(params);
+const command = new ListComponentsCommand(params);
 ```
 
 #### Async/await
@@ -140,7 +140,7 @@ const client = new AWS.GreengrassV2({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateServiceRoleToAccount(params);
+  const data = await client.listComponents(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -148,7 +148,7 @@ try {
 
 // Promises.
 client
-  .associateServiceRoleToAccount(params)
+  .listComponents(params)
   .then((data) => {
     // process data.
   })
@@ -157,7 +157,7 @@ client
   });
 
 // callbacks.
-client.associateServiceRoleToAccount(params, (err, data) => {
+client.listComponents(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -172,7 +172,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -218,7 +218,7 @@ see LICENSE for more information.
 AssociateServiceRoleToAccount
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/classes/associateserviceroletoaccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/associateserviceroletoaccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/associateserviceroletoaccountcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrassv2/command/AssociateServiceRoleToAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/AssociateServiceRoleToAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/AssociateServiceRoleToAccountCommandOutput/)
 
 </details>
 <details>
@@ -226,7 +226,7 @@ AssociateServiceRoleToAccount
 BatchAssociateClientDeviceWithCoreDevice
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/classes/batchassociateclientdevicewithcoredevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/batchassociateclientdevicewithcoredevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/batchassociateclientdevicewithcoredevicecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrassv2/command/BatchAssociateClientDeviceWithCoreDeviceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/BatchAssociateClientDeviceWithCoreDeviceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/BatchAssociateClientDeviceWithCoreDeviceCommandOutput/)
 
 </details>
 <details>
@@ -234,7 +234,7 @@ BatchAssociateClientDeviceWithCoreDevice
 BatchDisassociateClientDeviceFromCoreDevice
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/classes/batchdisassociateclientdevicefromcoredevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/batchdisassociateclientdevicefromcoredevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/batchdisassociateclientdevicefromcoredevicecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrassv2/command/BatchDisassociateClientDeviceFromCoreDeviceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/BatchDisassociateClientDeviceFromCoreDeviceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/BatchDisassociateClientDeviceFromCoreDeviceCommandOutput/)
 
 </details>
 <details>
@@ -242,7 +242,7 @@ BatchDisassociateClientDeviceFromCoreDevice
 CancelDeployment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/classes/canceldeploymentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/canceldeploymentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/canceldeploymentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrassv2/command/CancelDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/CancelDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/CancelDeploymentCommandOutput/)
 
 </details>
 <details>
@@ -250,7 +250,7 @@ CancelDeployment
 CreateComponentVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/classes/createcomponentversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/createcomponentversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/createcomponentversioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrassv2/command/CreateComponentVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/CreateComponentVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/CreateComponentVersionCommandOutput/)
 
 </details>
 <details>
@@ -258,7 +258,7 @@ CreateComponentVersion
 CreateDeployment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/classes/createdeploymentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/createdeploymentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/createdeploymentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrassv2/command/CreateDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/CreateDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/CreateDeploymentCommandOutput/)
 
 </details>
 <details>
@@ -266,7 +266,7 @@ CreateDeployment
 DeleteComponent
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/classes/deletecomponentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/deletecomponentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/deletecomponentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrassv2/command/DeleteComponentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/DeleteComponentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/DeleteComponentCommandOutput/)
 
 </details>
 <details>
@@ -274,7 +274,7 @@ DeleteComponent
 DeleteCoreDevice
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/classes/deletecoredevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/deletecoredevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/deletecoredevicecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrassv2/command/DeleteCoreDeviceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/DeleteCoreDeviceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/DeleteCoreDeviceCommandOutput/)
 
 </details>
 <details>
@@ -282,7 +282,7 @@ DeleteCoreDevice
 DeleteDeployment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/classes/deletedeploymentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/deletedeploymentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/deletedeploymentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrassv2/command/DeleteDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/DeleteDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/DeleteDeploymentCommandOutput/)
 
 </details>
 <details>
@@ -290,7 +290,7 @@ DeleteDeployment
 DescribeComponent
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/classes/describecomponentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/describecomponentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/describecomponentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrassv2/command/DescribeComponentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/DescribeComponentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/DescribeComponentCommandOutput/)
 
 </details>
 <details>
@@ -298,7 +298,7 @@ DescribeComponent
 DisassociateServiceRoleFromAccount
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/classes/disassociateservicerolefromaccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/disassociateservicerolefromaccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/disassociateservicerolefromaccountcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrassv2/command/DisassociateServiceRoleFromAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/DisassociateServiceRoleFromAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/DisassociateServiceRoleFromAccountCommandOutput/)
 
 </details>
 <details>
@@ -306,7 +306,7 @@ DisassociateServiceRoleFromAccount
 GetComponent
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/classes/getcomponentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/getcomponentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/getcomponentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrassv2/command/GetComponentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/GetComponentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/GetComponentCommandOutput/)
 
 </details>
 <details>
@@ -314,7 +314,7 @@ GetComponent
 GetComponentVersionArtifact
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/classes/getcomponentversionartifactcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/getcomponentversionartifactcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/getcomponentversionartifactcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrassv2/command/GetComponentVersionArtifactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/GetComponentVersionArtifactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/GetComponentVersionArtifactCommandOutput/)
 
 </details>
 <details>
@@ -322,7 +322,7 @@ GetComponentVersionArtifact
 GetConnectivityInfo
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/classes/getconnectivityinfocommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/getconnectivityinfocommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/getconnectivityinfocommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrassv2/command/GetConnectivityInfoCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/GetConnectivityInfoCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/GetConnectivityInfoCommandOutput/)
 
 </details>
 <details>
@@ -330,7 +330,7 @@ GetConnectivityInfo
 GetCoreDevice
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/classes/getcoredevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/getcoredevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/getcoredevicecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrassv2/command/GetCoreDeviceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/GetCoreDeviceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/GetCoreDeviceCommandOutput/)
 
 </details>
 <details>
@@ -338,7 +338,7 @@ GetCoreDevice
 GetDeployment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/classes/getdeploymentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/getdeploymentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/getdeploymentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrassv2/command/GetDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/GetDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/GetDeploymentCommandOutput/)
 
 </details>
 <details>
@@ -346,7 +346,7 @@ GetDeployment
 GetServiceRoleForAccount
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/classes/getserviceroleforaccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/getserviceroleforaccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/getserviceroleforaccountcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrassv2/command/GetServiceRoleForAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/GetServiceRoleForAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/GetServiceRoleForAccountCommandOutput/)
 
 </details>
 <details>
@@ -354,7 +354,7 @@ GetServiceRoleForAccount
 ListClientDevicesAssociatedWithCoreDevice
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/classes/listclientdevicesassociatedwithcoredevicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/listclientdevicesassociatedwithcoredevicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/listclientdevicesassociatedwithcoredevicecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrassv2/command/ListClientDevicesAssociatedWithCoreDeviceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/ListClientDevicesAssociatedWithCoreDeviceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/ListClientDevicesAssociatedWithCoreDeviceCommandOutput/)
 
 </details>
 <details>
@@ -362,7 +362,7 @@ ListClientDevicesAssociatedWithCoreDevice
 ListComponents
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/classes/listcomponentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/listcomponentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/listcomponentscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrassv2/command/ListComponentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/ListComponentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/ListComponentsCommandOutput/)
 
 </details>
 <details>
@@ -370,7 +370,7 @@ ListComponents
 ListComponentVersions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/classes/listcomponentversionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/listcomponentversionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/listcomponentversionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrassv2/command/ListComponentVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/ListComponentVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/ListComponentVersionsCommandOutput/)
 
 </details>
 <details>
@@ -378,7 +378,7 @@ ListComponentVersions
 ListCoreDevices
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/classes/listcoredevicescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/listcoredevicescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/listcoredevicescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrassv2/command/ListCoreDevicesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/ListCoreDevicesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/ListCoreDevicesCommandOutput/)
 
 </details>
 <details>
@@ -386,7 +386,7 @@ ListCoreDevices
 ListDeployments
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/classes/listdeploymentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/listdeploymentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/listdeploymentscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrassv2/command/ListDeploymentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/ListDeploymentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/ListDeploymentsCommandOutput/)
 
 </details>
 <details>
@@ -394,7 +394,7 @@ ListDeployments
 ListEffectiveDeployments
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/classes/listeffectivedeploymentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/listeffectivedeploymentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/listeffectivedeploymentscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrassv2/command/ListEffectiveDeploymentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/ListEffectiveDeploymentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/ListEffectiveDeploymentsCommandOutput/)
 
 </details>
 <details>
@@ -402,7 +402,7 @@ ListEffectiveDeployments
 ListInstalledComponents
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/classes/listinstalledcomponentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/listinstalledcomponentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/listinstalledcomponentscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrassv2/command/ListInstalledComponentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/ListInstalledComponentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/ListInstalledComponentsCommandOutput/)
 
 </details>
 <details>
@@ -410,7 +410,7 @@ ListInstalledComponents
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrassv2/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/ListTagsForResourceCommandOutput/)
 
 </details>
 <details>
@@ -418,7 +418,7 @@ ListTagsForResource
 ResolveComponentCandidates
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/classes/resolvecomponentcandidatescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/resolvecomponentcandidatescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/resolvecomponentcandidatescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrassv2/command/ResolveComponentCandidatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/ResolveComponentCandidatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/ResolveComponentCandidatesCommandOutput/)
 
 </details>
 <details>
@@ -426,7 +426,7 @@ ResolveComponentCandidates
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrassv2/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -434,7 +434,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrassv2/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -442,6 +442,6 @@ UntagResource
 UpdateConnectivityInfo
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/classes/updateconnectivityinfocommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/updateconnectivityinfocommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-greengrassv2/interfaces/updateconnectivityinfocommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/greengrassv2/command/UpdateConnectivityInfoCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/UpdateConnectivityInfoCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-greengrassv2/Interface/UpdateConnectivityInfoCommandOutput/)
 
 </details>

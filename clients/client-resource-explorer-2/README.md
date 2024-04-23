@@ -43,16 +43,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ResourceExplorer2Client` and
-the commands you need, for example `AssociateDefaultViewCommand`:
+the commands you need, for example `ListIndexesCommand`:
 
 ```js
 // ES5 example
-const { ResourceExplorer2Client, AssociateDefaultViewCommand } = require("@aws-sdk/client-resource-explorer-2");
+const { ResourceExplorer2Client, ListIndexesCommand } = require("@aws-sdk/client-resource-explorer-2");
 ```
 
 ```ts
 // ES6+ example
-import { ResourceExplorer2Client, AssociateDefaultViewCommand } from "@aws-sdk/client-resource-explorer-2";
+import { ResourceExplorer2Client, ListIndexesCommand } from "@aws-sdk/client-resource-explorer-2";
 ```
 
 ### Usage
@@ -71,7 +71,7 @@ const client = new ResourceExplorer2Client({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateDefaultViewCommand(params);
+const command = new ListIndexesCommand(params);
 ```
 
 #### Async/await
@@ -150,7 +150,7 @@ const client = new AWS.ResourceExplorer2({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateDefaultView(params);
+  const data = await client.listIndexes(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -158,7 +158,7 @@ try {
 
 // Promises.
 client
-  .associateDefaultView(params)
+  .listIndexes(params)
   .then((data) => {
     // process data.
   })
@@ -167,7 +167,7 @@ client
   });
 
 // callbacks.
-client.associateDefaultView(params, (err, data) => {
+client.listIndexes(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -182,7 +182,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -228,7 +228,7 @@ see LICENSE for more information.
 AssociateDefaultView
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/classes/associatedefaultviewcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/associatedefaultviewcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/associatedefaultviewcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-explorer-2/command/AssociateDefaultViewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/AssociateDefaultViewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/AssociateDefaultViewCommandOutput/)
 
 </details>
 <details>
@@ -236,7 +236,7 @@ AssociateDefaultView
 BatchGetView
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/classes/batchgetviewcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/batchgetviewcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/batchgetviewcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-explorer-2/command/BatchGetViewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/BatchGetViewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/BatchGetViewCommandOutput/)
 
 </details>
 <details>
@@ -244,7 +244,7 @@ BatchGetView
 CreateIndex
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/classes/createindexcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/createindexcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/createindexcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-explorer-2/command/CreateIndexCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/CreateIndexCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/CreateIndexCommandOutput/)
 
 </details>
 <details>
@@ -252,7 +252,7 @@ CreateIndex
 CreateView
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/classes/createviewcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/createviewcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/createviewcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-explorer-2/command/CreateViewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/CreateViewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/CreateViewCommandOutput/)
 
 </details>
 <details>
@@ -260,7 +260,7 @@ CreateView
 DeleteIndex
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/classes/deleteindexcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/deleteindexcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/deleteindexcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-explorer-2/command/DeleteIndexCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/DeleteIndexCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/DeleteIndexCommandOutput/)
 
 </details>
 <details>
@@ -268,7 +268,7 @@ DeleteIndex
 DeleteView
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/classes/deleteviewcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/deleteviewcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/deleteviewcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-explorer-2/command/DeleteViewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/DeleteViewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/DeleteViewCommandOutput/)
 
 </details>
 <details>
@@ -276,7 +276,15 @@ DeleteView
 DisassociateDefaultView
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/classes/disassociatedefaultviewcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/disassociatedefaultviewcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/disassociatedefaultviewcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-explorer-2/command/DisassociateDefaultViewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/DisassociateDefaultViewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/DisassociateDefaultViewCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetAccountLevelServiceConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-explorer-2/command/GetAccountLevelServiceConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/GetAccountLevelServiceConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/GetAccountLevelServiceConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -284,7 +292,7 @@ DisassociateDefaultView
 GetDefaultView
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/classes/getdefaultviewcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/getdefaultviewcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/getdefaultviewcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-explorer-2/command/GetDefaultViewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/GetDefaultViewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/GetDefaultViewCommandOutput/)
 
 </details>
 <details>
@@ -292,7 +300,7 @@ GetDefaultView
 GetIndex
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/classes/getindexcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/getindexcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/getindexcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-explorer-2/command/GetIndexCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/GetIndexCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/GetIndexCommandOutput/)
 
 </details>
 <details>
@@ -300,7 +308,7 @@ GetIndex
 GetView
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/classes/getviewcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/getviewcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/getviewcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-explorer-2/command/GetViewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/GetViewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/GetViewCommandOutput/)
 
 </details>
 <details>
@@ -308,7 +316,15 @@ GetView
 ListIndexes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/classes/listindexescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/listindexescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/listindexescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-explorer-2/command/ListIndexesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/ListIndexesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/ListIndexesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListIndexesForMembers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-explorer-2/command/ListIndexesForMembersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/ListIndexesForMembersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/ListIndexesForMembersCommandOutput/)
 
 </details>
 <details>
@@ -316,7 +332,7 @@ ListIndexes
 ListSupportedResourceTypes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/classes/listsupportedresourcetypescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/listsupportedresourcetypescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/listsupportedresourcetypescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-explorer-2/command/ListSupportedResourceTypesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/ListSupportedResourceTypesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/ListSupportedResourceTypesCommandOutput/)
 
 </details>
 <details>
@@ -324,7 +340,7 @@ ListSupportedResourceTypes
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-explorer-2/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/ListTagsForResourceCommandOutput/)
 
 </details>
 <details>
@@ -332,7 +348,7 @@ ListTagsForResource
 ListViews
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/classes/listviewscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/listviewscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/listviewscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-explorer-2/command/ListViewsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/ListViewsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/ListViewsCommandOutput/)
 
 </details>
 <details>
@@ -340,7 +356,7 @@ ListViews
 Search
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/classes/searchcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/searchcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/searchcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-explorer-2/command/SearchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/SearchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/SearchCommandOutput/)
 
 </details>
 <details>
@@ -348,7 +364,7 @@ Search
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-explorer-2/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -356,7 +372,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-explorer-2/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -364,7 +380,7 @@ UntagResource
 UpdateIndexType
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/classes/updateindextypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/updateindextypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/updateindextypecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-explorer-2/command/UpdateIndexTypeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/UpdateIndexTypeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/UpdateIndexTypeCommandOutput/)
 
 </details>
 <details>
@@ -372,6 +388,6 @@ UpdateIndexType
 UpdateView
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/classes/updateviewcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/updateviewcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-resource-explorer-2/interfaces/updateviewcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-explorer-2/command/UpdateViewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/UpdateViewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/UpdateViewCommandOutput/)
 
 </details>

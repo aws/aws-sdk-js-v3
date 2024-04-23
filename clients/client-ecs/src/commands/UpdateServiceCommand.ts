@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateServiceRequest, UpdateServiceResponse } from "../models/models_0";
 import { de_UpdateServiceCommand, se_UpdateServiceCommand } from "../protocols/Aws_json1_1";
 
@@ -42,6 +34,13 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * 			registries, enable ECS managed tags option, propagate tags option, task placement
  * 			constraints and strategies, and task definition. When you update any of these
  * 			parameters, Amazon ECS starts new tasks with the new configuration. </p>
+ *          <p>You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when starting or
+ * 			running a task, or when creating or updating a service. For more infomation, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. You can update
+ * 			your volume configurations and trigger a new deployment.
+ * 				<code>volumeConfigurations</code> is only supported for REPLICA service and not
+ * 			DAEMON service. If you leave <code>volumeConfigurations</code>
+ *             <code>null</code>, it doesn't trigger a new deployment. For more infomation on volumes,
+ * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  *          <p>For services using the blue/green (<code>CODE_DEPLOY</code>) deployment controller,
  * 			only the desired count, deployment configuration, health check grace period, task
  * 			placement constraints and strategies, enable ECS managed tags option, and propagate tags
@@ -56,7 +55,9 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *          <p>You can add to or subtract from the number of instantiations of a task definition in a
  * 			service by specifying the cluster that the service is running in and a new
  * 				<code>desiredCount</code> parameter.</p>
- *          <p>If you have updated the Docker image of your application, you can create a new task
+ *          <p>You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when starting or
+ * 			running a task, or when creating or updating a service. For more infomation, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ *          <p>If you have updated the container image of your application, you can create a new task
  * 			definition with that image and deploy it to your service. The service scheduler uses the
  * 			minimum healthy percent and maximum percent parameters (in the service's deployment
  * 			configuration) to determine the deployment strategy.</p>
@@ -155,8 +156,8 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *                   </p>
  *                </li>
  *             </ul>
- *             <p>For more information about the role see the <code>CreateService</code> request parameter
- * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html#ECS-CreateService-request-role">
+ *             <p>For more information about the role see the <code>CreateService</code> request
+ * 				parameter <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html#ECS-CreateService-request-role">
  *                   <code>role</code>
  *                </a>. </p>
  *          </note>
@@ -252,6 +253,17 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *           },
  *         ],
  *         ingressPortOverride: Number("int"),
+ *         timeout: { // TimeoutConfiguration
+ *           idleTimeoutSeconds: Number("int"),
+ *           perRequestTimeoutSeconds: Number("int"),
+ *         },
+ *         tls: { // ServiceConnectTlsConfiguration
+ *           issuerCertificateAuthority: { // ServiceConnectTlsCertificateAuthority
+ *             awsPcaAuthorityArn: "STRING_VALUE",
+ *           },
+ *           kmsKey: "STRING_VALUE",
+ *           roleArn: "STRING_VALUE",
+ *         },
  *       },
  *     ],
  *     logConfiguration: { // LogConfiguration
@@ -267,6 +279,34 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *       ],
  *     },
  *   },
+ *   volumeConfigurations: [ // ServiceVolumeConfigurations
+ *     { // ServiceVolumeConfiguration
+ *       name: "STRING_VALUE", // required
+ *       managedEBSVolume: { // ServiceManagedEBSVolumeConfiguration
+ *         encrypted: true || false,
+ *         kmsKeyId: "STRING_VALUE",
+ *         volumeType: "STRING_VALUE",
+ *         sizeInGiB: Number("int"),
+ *         snapshotId: "STRING_VALUE",
+ *         iops: Number("int"),
+ *         throughput: Number("int"),
+ *         tagSpecifications: [ // EBSTagSpecifications
+ *           { // EBSTagSpecification
+ *             resourceType: "volume", // required
+ *             tags: [ // Tags
+ *               { // Tag
+ *                 key: "STRING_VALUE",
+ *                 value: "STRING_VALUE",
+ *               },
+ *             ],
+ *             propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
+ *           },
+ *         ],
+ *         roleArn: "STRING_VALUE", // required
+ *         filesystemType: "ext3" || "ext4" || "xfs",
+ *       },
+ *     },
+ *   ],
  * };
  * const command = new UpdateServiceCommand(input);
  * const response = await client.send(command);
@@ -435,6 +475,17 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * //                 },
  * //               ],
  * //               ingressPortOverride: Number("int"),
+ * //               timeout: { // TimeoutConfiguration
+ * //                 idleTimeoutSeconds: Number("int"),
+ * //                 perRequestTimeoutSeconds: Number("int"),
+ * //               },
+ * //               tls: { // ServiceConnectTlsConfiguration
+ * //                 issuerCertificateAuthority: { // ServiceConnectTlsCertificateAuthority
+ * //                   awsPcaAuthorityArn: "STRING_VALUE",
+ * //                 },
+ * //                 kmsKey: "STRING_VALUE",
+ * //                 roleArn: "STRING_VALUE",
+ * //               },
  * //             },
  * //           ],
  * //           logConfiguration: { // LogConfiguration
@@ -454,6 +505,34 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * //           { // ServiceConnectServiceResource
  * //             discoveryName: "STRING_VALUE",
  * //             discoveryArn: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         volumeConfigurations: [ // ServiceVolumeConfigurations
+ * //           { // ServiceVolumeConfiguration
+ * //             name: "STRING_VALUE", // required
+ * //             managedEBSVolume: { // ServiceManagedEBSVolumeConfiguration
+ * //               encrypted: true || false,
+ * //               kmsKeyId: "STRING_VALUE",
+ * //               volumeType: "STRING_VALUE",
+ * //               sizeInGiB: Number("int"),
+ * //               snapshotId: "STRING_VALUE",
+ * //               iops: Number("int"),
+ * //               throughput: Number("int"),
+ * //               tagSpecifications: [ // EBSTagSpecifications
+ * //                 { // EBSTagSpecification
+ * //                   resourceType: "volume", // required
+ * //                   tags: [
+ * //                     {
+ * //                       key: "STRING_VALUE",
+ * //                       value: "STRING_VALUE",
+ * //                     },
+ * //                   ],
+ * //                   propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
+ * //                 },
+ * //               ],
+ * //               roleArn: "STRING_VALUE", // required
+ * //               filesystemType: "ext3" || "ext4" || "xfs",
+ * //             },
  * //           },
  * //         ],
  * //       },
@@ -491,12 +570,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * //     deploymentController: { // DeploymentController
  * //       type: "ECS" || "CODE_DEPLOY" || "EXTERNAL", // required
  * //     },
- * //     tags: [
- * //       {
- * //         key: "STRING_VALUE",
- * //         value: "STRING_VALUE",
- * //       },
- * //     ],
+ * //     tags: "<Tags>",
  * //     createdBy: "STRING_VALUE",
  * //     enableECSManagedTags: true || false,
  * //     propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
@@ -518,7 +592,7 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * @throws {@link ClientException} (client fault)
  *  <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
- * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
+ * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
  *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
@@ -548,6 +622,9 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *  <p>The specified service wasn't found. You can view your available services with <a>ListServices</a>. Amazon ECS services are cluster specific and Region
  * 			specific.</p>
  *
+ * @throws {@link UnsupportedFeatureException} (client fault)
+ *  <p>The specified task isn't supported in this Region.</p>
+ *
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
@@ -576,77 +653,26 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * ```
  *
  */
-export class UpdateServiceCommand extends $Command<
-  UpdateServiceCommandInput,
-  UpdateServiceCommandOutput,
-  ECSClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateServiceCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ECSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateServiceCommandInput, UpdateServiceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateServiceCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ECSClient";
-    const commandName = "UpdateServiceCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateServiceCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateServiceCommandOutput> {
-    return de_UpdateServiceCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateServiceCommand extends $Command
+  .classBuilder<
+    UpdateServiceCommandInput,
+    UpdateServiceCommandOutput,
+    ECSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonEC2ContainerServiceV20141113", "UpdateService", {})
+  .n("ECSClient", "UpdateServiceCommand")
+  .f(void 0, void 0)
+  .ser(se_UpdateServiceCommand)
+  .de(de_UpdateServiceCommand)
+  .build() {}

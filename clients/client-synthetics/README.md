@@ -19,7 +19,6 @@ ServiceLens to help you trace the causes of impacted nodes in your applications.
 information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ServiceLens.html">Using ServiceLens to Monitor
 the Health of Your Applications</a> in the <i>Amazon CloudWatch User
 Guide</i>.</p>
-
 <p>Before you create and manage canaries, be aware of the security considerations. For more
 information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/servicelens_canaries_security.html">Security
 Considerations for Synthetics Canaries</a>.</p>
@@ -39,16 +38,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SyntheticsClient` and
-the commands you need, for example `AssociateResourceCommand`:
+the commands you need, for example `ListGroupsCommand`:
 
 ```js
 // ES5 example
-const { SyntheticsClient, AssociateResourceCommand } = require("@aws-sdk/client-synthetics");
+const { SyntheticsClient, ListGroupsCommand } = require("@aws-sdk/client-synthetics");
 ```
 
 ```ts
 // ES6+ example
-import { SyntheticsClient, AssociateResourceCommand } from "@aws-sdk/client-synthetics";
+import { SyntheticsClient, ListGroupsCommand } from "@aws-sdk/client-synthetics";
 ```
 
 ### Usage
@@ -67,7 +66,7 @@ const client = new SyntheticsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateResourceCommand(params);
+const command = new ListGroupsCommand(params);
 ```
 
 #### Async/await
@@ -146,7 +145,7 @@ const client = new AWS.Synthetics({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateResource(params);
+  const data = await client.listGroups(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -154,7 +153,7 @@ try {
 
 // Promises.
 client
-  .associateResource(params)
+  .listGroups(params)
   .then((data) => {
     // process data.
   })
@@ -163,7 +162,7 @@ client
   });
 
 // callbacks.
-client.associateResource(params, (err, data) => {
+client.listGroups(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -178,7 +177,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -224,7 +223,7 @@ see LICENSE for more information.
 AssociateResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/classes/associateresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/associateresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/associateresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/synthetics/command/AssociateResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/AssociateResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/AssociateResourceCommandOutput/)
 
 </details>
 <details>
@@ -232,7 +231,7 @@ AssociateResource
 CreateCanary
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/classes/createcanarycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/createcanarycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/createcanarycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/synthetics/command/CreateCanaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/CreateCanaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/CreateCanaryCommandOutput/)
 
 </details>
 <details>
@@ -240,7 +239,7 @@ CreateCanary
 CreateGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/classes/creategroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/creategroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/creategroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/synthetics/command/CreateGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/CreateGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/CreateGroupCommandOutput/)
 
 </details>
 <details>
@@ -248,7 +247,7 @@ CreateGroup
 DeleteCanary
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/classes/deletecanarycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/deletecanarycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/deletecanarycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/synthetics/command/DeleteCanaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/DeleteCanaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/DeleteCanaryCommandOutput/)
 
 </details>
 <details>
@@ -256,7 +255,7 @@ DeleteCanary
 DeleteGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/classes/deletegroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/deletegroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/deletegroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/synthetics/command/DeleteGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/DeleteGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/DeleteGroupCommandOutput/)
 
 </details>
 <details>
@@ -264,7 +263,7 @@ DeleteGroup
 DescribeCanaries
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/classes/describecanariescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/describecanariescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/describecanariescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/synthetics/command/DescribeCanariesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/DescribeCanariesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/DescribeCanariesCommandOutput/)
 
 </details>
 <details>
@@ -272,7 +271,7 @@ DescribeCanaries
 DescribeCanariesLastRun
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/classes/describecanarieslastruncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/describecanarieslastruncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/describecanarieslastruncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/synthetics/command/DescribeCanariesLastRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/DescribeCanariesLastRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/DescribeCanariesLastRunCommandOutput/)
 
 </details>
 <details>
@@ -280,7 +279,7 @@ DescribeCanariesLastRun
 DescribeRuntimeVersions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/classes/describeruntimeversionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/describeruntimeversionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/describeruntimeversionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/synthetics/command/DescribeRuntimeVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/DescribeRuntimeVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/DescribeRuntimeVersionsCommandOutput/)
 
 </details>
 <details>
@@ -288,7 +287,7 @@ DescribeRuntimeVersions
 DisassociateResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/classes/disassociateresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/disassociateresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/disassociateresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/synthetics/command/DisassociateResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/DisassociateResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/DisassociateResourceCommandOutput/)
 
 </details>
 <details>
@@ -296,7 +295,7 @@ DisassociateResource
 GetCanary
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/classes/getcanarycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/getcanarycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/getcanarycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/synthetics/command/GetCanaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/GetCanaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/GetCanaryCommandOutput/)
 
 </details>
 <details>
@@ -304,7 +303,7 @@ GetCanary
 GetCanaryRuns
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/classes/getcanaryrunscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/getcanaryrunscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/getcanaryrunscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/synthetics/command/GetCanaryRunsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/GetCanaryRunsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/GetCanaryRunsCommandOutput/)
 
 </details>
 <details>
@@ -312,7 +311,7 @@ GetCanaryRuns
 GetGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/classes/getgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/getgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/getgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/synthetics/command/GetGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/GetGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/GetGroupCommandOutput/)
 
 </details>
 <details>
@@ -320,7 +319,7 @@ GetGroup
 ListAssociatedGroups
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/classes/listassociatedgroupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/listassociatedgroupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/listassociatedgroupscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/synthetics/command/ListAssociatedGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/ListAssociatedGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/ListAssociatedGroupsCommandOutput/)
 
 </details>
 <details>
@@ -328,7 +327,7 @@ ListAssociatedGroups
 ListGroupResources
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/classes/listgroupresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/listgroupresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/listgroupresourcescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/synthetics/command/ListGroupResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/ListGroupResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/ListGroupResourcesCommandOutput/)
 
 </details>
 <details>
@@ -336,7 +335,7 @@ ListGroupResources
 ListGroups
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/classes/listgroupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/listgroupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/listgroupscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/synthetics/command/ListGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/ListGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/ListGroupsCommandOutput/)
 
 </details>
 <details>
@@ -344,7 +343,7 @@ ListGroups
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/synthetics/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/ListTagsForResourceCommandOutput/)
 
 </details>
 <details>
@@ -352,7 +351,7 @@ ListTagsForResource
 StartCanary
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/classes/startcanarycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/startcanarycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/startcanarycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/synthetics/command/StartCanaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/StartCanaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/StartCanaryCommandOutput/)
 
 </details>
 <details>
@@ -360,7 +359,7 @@ StartCanary
 StopCanary
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/classes/stopcanarycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/stopcanarycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/stopcanarycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/synthetics/command/StopCanaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/StopCanaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/StopCanaryCommandOutput/)
 
 </details>
 <details>
@@ -368,7 +367,7 @@ StopCanary
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/synthetics/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -376,7 +375,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/synthetics/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -384,6 +383,6 @@ UntagResource
 UpdateCanary
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/classes/updatecanarycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/updatecanarycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-synthetics/interfaces/updatecanarycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/synthetics/command/UpdateCanaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/UpdateCanaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/UpdateCanaryCommandOutput/)
 
 </details>

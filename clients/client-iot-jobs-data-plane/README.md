@@ -33,16 +33,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `IoTJobsDataPlaneClient` and
-the commands you need, for example `DescribeJobExecutionCommand`:
+the commands you need, for example `GetPendingJobExecutionsCommand`:
 
 ```js
 // ES5 example
-const { IoTJobsDataPlaneClient, DescribeJobExecutionCommand } = require("@aws-sdk/client-iot-jobs-data-plane");
+const { IoTJobsDataPlaneClient, GetPendingJobExecutionsCommand } = require("@aws-sdk/client-iot-jobs-data-plane");
 ```
 
 ```ts
 // ES6+ example
-import { IoTJobsDataPlaneClient, DescribeJobExecutionCommand } from "@aws-sdk/client-iot-jobs-data-plane";
+import { IoTJobsDataPlaneClient, GetPendingJobExecutionsCommand } from "@aws-sdk/client-iot-jobs-data-plane";
 ```
 
 ### Usage
@@ -61,7 +61,7 @@ const client = new IoTJobsDataPlaneClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DescribeJobExecutionCommand(params);
+const command = new GetPendingJobExecutionsCommand(params);
 ```
 
 #### Async/await
@@ -140,7 +140,7 @@ const client = new AWS.IoTJobsDataPlane({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.describeJobExecution(params);
+  const data = await client.getPendingJobExecutions(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -148,7 +148,7 @@ try {
 
 // Promises.
 client
-  .describeJobExecution(params)
+  .getPendingJobExecutions(params)
   .then((data) => {
     // process data.
   })
@@ -157,7 +157,7 @@ client
   });
 
 // callbacks.
-client.describeJobExecution(params, (err, data) => {
+client.getPendingJobExecutions(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -172,7 +172,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -218,7 +218,7 @@ see LICENSE for more information.
 DescribeJobExecution
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-jobs-data-plane/classes/describejobexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-jobs-data-plane/interfaces/describejobexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-jobs-data-plane/interfaces/describejobexecutioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-jobs-data-plane/command/DescribeJobExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-jobs-data-plane/Interface/DescribeJobExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-jobs-data-plane/Interface/DescribeJobExecutionCommandOutput/)
 
 </details>
 <details>
@@ -226,7 +226,7 @@ DescribeJobExecution
 GetPendingJobExecutions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-jobs-data-plane/classes/getpendingjobexecutionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-jobs-data-plane/interfaces/getpendingjobexecutionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-jobs-data-plane/interfaces/getpendingjobexecutionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-jobs-data-plane/command/GetPendingJobExecutionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-jobs-data-plane/Interface/GetPendingJobExecutionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-jobs-data-plane/Interface/GetPendingJobExecutionsCommandOutput/)
 
 </details>
 <details>
@@ -234,7 +234,7 @@ GetPendingJobExecutions
 StartNextPendingJobExecution
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-jobs-data-plane/classes/startnextpendingjobexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-jobs-data-plane/interfaces/startnextpendingjobexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-jobs-data-plane/interfaces/startnextpendingjobexecutioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-jobs-data-plane/command/StartNextPendingJobExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-jobs-data-plane/Interface/StartNextPendingJobExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-jobs-data-plane/Interface/StartNextPendingJobExecutionCommandOutput/)
 
 </details>
 <details>
@@ -242,6 +242,6 @@ StartNextPendingJobExecution
 UpdateJobExecution
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-jobs-data-plane/classes/updatejobexecutioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-jobs-data-plane/interfaces/updatejobexecutioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-jobs-data-plane/interfaces/updatejobexecutioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-jobs-data-plane/command/UpdateJobExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-jobs-data-plane/Interface/UpdateJobExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-jobs-data-plane/Interface/UpdateJobExecutionCommandOutput/)
 
 </details>

@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ReleasePhoneNumberRequest, ReleasePhoneNumberResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
@@ -42,8 +34,8 @@ export interface ReleasePhoneNumberCommandOutput extends ReleasePhoneNumberResul
  * @public
  * <p>Releases an existing origination phone number in your account. Once released, a phone
  *             number is no longer available for sending messages.</p>
- *         <p>If the origination phone number has deletion protection enabled or is associated with
- *             a pool, an Error is returned.</p>
+ *          <p>If the origination phone number has deletion protection enabled or is associated with
+ *             a pool, an error is returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,8 +61,10 @@ export interface ReleasePhoneNumberCommandOutput extends ReleasePhoneNumberResul
  * //   MonthlyLeasingPrice: "STRING_VALUE",
  * //   TwoWayEnabled: true || false,
  * //   TwoWayChannelArn: "STRING_VALUE",
+ * //   TwoWayChannelRole: "STRING_VALUE",
  * //   SelfManagedOptOutsEnabled: true || false,
  * //   OptOutListName: "STRING_VALUE",
+ * //   RegistrationId: "STRING_VALUE",
  * //   CreatedTimestamp: new Date("TIMESTAMP"),
  * // };
  *
@@ -110,79 +104,26 @@ export interface ReleasePhoneNumberCommandOutput extends ReleasePhoneNumberResul
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
-export class ReleasePhoneNumberCommand extends $Command<
-  ReleasePhoneNumberCommandInput,
-  ReleasePhoneNumberCommandOutput,
-  PinpointSMSVoiceV2ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ReleasePhoneNumberCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: PinpointSMSVoiceV2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ReleasePhoneNumberCommandInput, ReleasePhoneNumberCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ReleasePhoneNumberCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "PinpointSMSVoiceV2Client";
-    const commandName = "ReleasePhoneNumberCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ReleasePhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ReleasePhoneNumberCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReleasePhoneNumberCommandOutput> {
-    return de_ReleasePhoneNumberCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ReleasePhoneNumberCommand extends $Command
+  .classBuilder<
+    ReleasePhoneNumberCommandInput,
+    ReleasePhoneNumberCommandOutput,
+    PinpointSMSVoiceV2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("PinpointSMSVoiceV2", "ReleasePhoneNumber", {})
+  .n("PinpointSMSVoiceV2Client", "ReleasePhoneNumberCommand")
+  .f(void 0, void 0)
+  .ser(se_ReleasePhoneNumberCommand)
+  .de(de_ReleasePhoneNumberCommand)
+  .build() {}

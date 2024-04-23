@@ -1,0 +1,93 @@
+// smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { Command as $Command } from "@smithy/smithy-client";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+
+import { AmpClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmpClient";
+import { commonParams } from "../endpoint/EndpointParameters";
+import { GetDefaultScraperConfigurationRequest, GetDefaultScraperConfigurationResponse } from "../models/models_0";
+import {
+  de_GetDefaultScraperConfigurationCommand,
+  se_GetDefaultScraperConfigurationCommand,
+} from "../protocols/Aws_restJson1";
+
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetDefaultScraperConfigurationCommand}.
+ */
+export interface GetDefaultScraperConfigurationCommandInput extends GetDefaultScraperConfigurationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link GetDefaultScraperConfigurationCommand}.
+ */
+export interface GetDefaultScraperConfigurationCommandOutput
+  extends GetDefaultScraperConfigurationResponse,
+    __MetadataBearer {}
+
+/**
+ * @public
+ * Gets a default configuration.
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { AmpClient, GetDefaultScraperConfigurationCommand } from "@aws-sdk/client-amp"; // ES Modules import
+ * // const { AmpClient, GetDefaultScraperConfigurationCommand } = require("@aws-sdk/client-amp"); // CommonJS import
+ * const client = new AmpClient(config);
+ * const input = {};
+ * const command = new GetDefaultScraperConfigurationCommand(input);
+ * const response = await client.send(command);
+ * // { // GetDefaultScraperConfigurationResponse
+ * //   configuration: "BLOB_VALUE", // required
+ * // };
+ *
+ * ```
+ *
+ * @param GetDefaultScraperConfigurationCommandInput - {@link GetDefaultScraperConfigurationCommandInput}
+ * @returns {@link GetDefaultScraperConfigurationCommandOutput}
+ * @see {@link GetDefaultScraperConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetDefaultScraperConfigurationCommandOutput} for command's `response` shape.
+ * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  User does not have sufficient access to perform this action.
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  Unexpected error during processing of request.
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  Request was denied due to request throttling.
+ *
+ * @throws {@link AmpServiceException}
+ * <p>Base exception class for all service exceptions from Amp service.</p>
+ *
+ */
+export class GetDefaultScraperConfigurationCommand extends $Command
+  .classBuilder<
+    GetDefaultScraperConfigurationCommandInput,
+    GetDefaultScraperConfigurationCommandOutput,
+    AmpClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonPrometheusService", "GetDefaultScraperConfiguration", {})
+  .n("AmpClient", "GetDefaultScraperConfigurationCommand")
+  .f(void 0, void 0)
+  .ser(se_GetDefaultScraperConfigurationCommand)
+  .de(de_GetDefaultScraperConfigurationCommand)
+  .build() {}

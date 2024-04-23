@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateRepositoryInput, CreateRepositoryOutput } from "../models/models_0";
 import { de_CreateRepositoryCommand, se_CreateRepositoryCommand } from "../protocols/Aws_json1_1";
 
@@ -49,6 +41,7 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, _
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   kmsKeyId: "STRING_VALUE",
  * };
  * const command = new CreateRepositoryCommand(input);
  * const response = await client.send(command);
@@ -64,6 +57,7 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, _
  * //     cloneUrlHttp: "STRING_VALUE",
  * //     cloneUrlSsh: "STRING_VALUE",
  * //     Arn: "STRING_VALUE",
+ * //     kmsKeyId: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -83,6 +77,13 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, _
  *
  * @throws {@link EncryptionKeyDisabledException} (client fault)
  *  <p>The encryption key is disabled.</p>
+ *
+ * @throws {@link EncryptionKeyInvalidIdException} (client fault)
+ *  <p>The Key Management Service encryption key is not valid.</p>
+ *
+ * @throws {@link EncryptionKeyInvalidUsageException} (client fault)
+ *  <p>A KMS encryption key was used to try and encrypt or decrypt a repository, but either the repository or the key was not
+ *         in a valid state to support the operation.</p>
  *
  * @throws {@link EncryptionKeyNotFoundException} (client fault)
  *  <p>No encryption key was found.</p>
@@ -126,79 +127,26 @@ export interface CreateRepositoryCommandOutput extends CreateRepositoryOutput, _
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
  */
-export class CreateRepositoryCommand extends $Command<
-  CreateRepositoryCommandInput,
-  CreateRepositoryCommandOutput,
-  CodeCommitClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateRepositoryCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CodeCommitClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateRepositoryCommandInput, CreateRepositoryCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateRepositoryCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CodeCommitClient";
-    const commandName = "CreateRepositoryCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateRepositoryCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRepositoryCommandOutput> {
-    return de_CreateRepositoryCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateRepositoryCommand extends $Command
+  .classBuilder<
+    CreateRepositoryCommandInput,
+    CreateRepositoryCommandOutput,
+    CodeCommitClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CodeCommit_20150413", "CreateRepository", {})
+  .n("CodeCommitClient", "CreateRepositoryCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateRepositoryCommand)
+  .de(de_CreateRepositoryCommand)
+  .build() {}

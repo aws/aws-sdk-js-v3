@@ -36,6 +36,9 @@
           "target": "com.amazonaws.migrationhubstrategy#GetServerStrategies"
         },
         {
+          "target": "com.amazonaws.migrationhubstrategy#ListAnalyzableServers"
+        },
+        {
           "target": "com.amazonaws.migrationhubstrategy#ListApplicationComponents"
         },
         {
@@ -123,7 +126,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -141,9 +143,187 @@
                   "type": "error"
                 },
                 {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
                   "conditions": [],
-                  "type": "tree",
+                  "endpoint": {
+                    "url": {
+                      "ref": "Endpoint"
+                    },
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ],
+              "type": "tree"
+            },
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ]
+                }
+              ],
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "aws.partition",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ],
+                      "assign": "PartitionResult"
+                    }
+                  ],
                   "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://migrationhub-strategy-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://migrationhub-strategy-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
                     {
                       "conditions": [
                         {
@@ -156,278 +336,65 @@
                           ]
                         }
                       ],
-                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                      "type": "error"
-                    },
-                    {
-                      "conditions": [],
-                      "endpoint": {
-                        "url": {
-                          "ref": "Endpoint"
-                        },
-                        "properties": {},
-                        "headers": {}
-                      },
-                      "type": "endpoint"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "conditions": [],
-              "type": "tree",
-              "rules": [
-                {
-                  "conditions": [
-                    {
-                      "fn": "isSet",
-                      "argv": [
-                        {
-                          "ref": "Region"
-                        }
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "aws.partition",
-                          "argv": [
-                            {
-                              "ref": "Region"
-                            }
-                          ],
-                          "assign": "PartitionResult"
-                        }
-                      ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
                             {
                               "fn": "booleanEquals",
                               "argv": [
+                                true,
                                 {
-                                  "ref": "UseFIPS"
-                                },
-                                true
-                              ]
-                            },
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseDualStack"
-                                },
-                                true
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
                               ]
                             }
                           ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsFIPS"
-                                      ]
-                                    }
-                                  ]
-                                },
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsDualStack"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://migrationhub-strategy-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseFIPS"
-                                },
-                                true
-                              ]
-                            }
-                          ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsFIPS"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://migrationhub-strategy-fips.{Region}.{PartitionResult#dnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "FIPS is enabled but this partition does not support FIPS",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseDualStack"
-                                },
-                                true
-                              ]
-                            }
-                          ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsDualStack"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://migrationhub-strategy.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "DualStack is enabled but this partition does not support DualStack",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
                               "endpoint": {
-                                "url": "https://migrationhub-strategy.{Region}.{PartitionResult#dnsSuffix}",
+                                "url": "https://migrationhub-strategy.{Region}.{PartitionResult#dualStackDnsSuffix}",
                                 "properties": {},
                                 "headers": {}
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://migrationhub-strategy.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
                     }
-                  ]
-                },
-                {
-                  "conditions": [],
-                  "error": "Invalid Configuration: Missing Region",
-                  "type": "error"
+                  ],
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
+            },
+            {
+              "conditions": [],
+              "error": "Invalid Configuration: Missing Region",
+              "type": "error"
             }
           ]
         },
@@ -668,6 +635,17 @@
               }
             },
             {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
               "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
@@ -678,6 +656,17 @@
                 "Region": "us-iso-east-1",
                 "UseFIPS": true,
                 "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -694,6 +683,17 @@
               }
             },
             {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
               "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
@@ -704,6 +704,17 @@
                 "Region": "us-isob-east-1",
                 "UseFIPS": true,
                 "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -769,6 +780,12 @@
                 "UseDualStack": true,
                 "Endpoint": "https://example.com"
               }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
+              }
             }
           ],
           "version": "1.0"
@@ -832,6 +849,44 @@
             "name": "BINARY_ANALYSIS"
           }
         ]
+      }
+    },
+    "com.amazonaws.migrationhubstrategy#AnalyzableServerSummary": {
+      "type": "structure",
+      "members": {
+        "hostname": {
+          "target": "com.amazonaws.migrationhubstrategy#String",
+          "traits": {
+            "smithy.api#documentation": "The host name of the analyzable server."
+          }
+        },
+        "ipAddress": {
+          "target": "com.amazonaws.migrationhubstrategy#String",
+          "traits": {
+            "smithy.api#documentation": "The ip address of the analyzable server."
+          }
+        },
+        "source": {
+          "target": "com.amazonaws.migrationhubstrategy#String",
+          "traits": {
+            "smithy.api#documentation": "The data source of the analyzable server."
+          }
+        },
+        "vmId": {
+          "target": "com.amazonaws.migrationhubstrategy#String",
+          "traits": {
+            "smithy.api#documentation": "The virtual machine id of the analyzable server."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Summary information about an analyzable server."
+      }
+    },
+    "com.amazonaws.migrationhubstrategy#AnalyzableServerSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.migrationhubstrategy#AnalyzableServerSummary"
       }
     },
     "com.amazonaws.migrationhubstrategy#AnalyzerNameUnion": {
@@ -1373,6 +1428,25 @@
       },
       "traits": {
         "smithy.api#documentation": "<p> Application preferences that you specify. </p>"
+      }
+    },
+    "com.amazonaws.migrationhubstrategy#AssessmentDataSourceType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "StrategyRecommendationsApplicationDataCollector",
+            "name": "SR_COLLECTOR"
+          },
+          {
+            "value": "ManualImport",
+            "name": "MANUAL_IMPORT"
+          },
+          {
+            "value": "ApplicationDiscoveryService",
+            "name": "ADS"
+          }
+        ]
       }
     },
     "com.amazonaws.migrationhubstrategy#AssessmentStatus": {
@@ -1920,6 +1994,10 @@
           {
             "value": "Import",
             "name": "IMPORT"
+          },
+          {
+            "value": "StrategyRecommendationsApplicationDataCollector",
+            "name": "MHSR_COLLECTOR"
           }
         ]
       }
@@ -3044,6 +3122,111 @@
         "smithy.api#documentation": "<p> The server experienced an internal error. Try again. </p>",
         "smithy.api#error": "server",
         "smithy.api#httpError": 500
+      }
+    },
+    "com.amazonaws.migrationhubstrategy#ListAnalyzableServers": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.migrationhubstrategy#ListAnalyzableServersRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.migrationhubstrategy#ListAnalyzableServersResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.migrationhubstrategy#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.migrationhubstrategy#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.migrationhubstrategy#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.migrationhubstrategy#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "Retrieves a list of all the servers fetched from customer vCenter using Strategy Recommendation Collector.",
+        "smithy.api#examples": [
+          {
+            "title": "Invoke ListAnalyzableServers",
+            "input": {
+              "maxResults": 100,
+              "sort": "ASC"
+            },
+            "output": {
+              "analyzableServers": [
+                {
+                  "hostname": "Ubuntu 1",
+                  "ipAddress": "1.1.1.1",
+                  "source": "Application Discover Service",
+                  "vmId": "vm-1"
+                }
+              ]
+            }
+          }
+        ],
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/list-analyzable-servers",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults",
+          "items": "analyzableServers"
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.migrationhubstrategy#ListAnalyzableServersRequest": {
+      "type": "structure",
+      "members": {
+        "sort": {
+          "target": "com.amazonaws.migrationhubstrategy#SortOrder",
+          "traits": {
+            "smithy.api#documentation": "Specifies whether to sort by ascending (ASC) or descending (DESC) order."
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.migrationhubstrategy#NextToken",
+          "traits": {
+            "smithy.api#documentation": "The token from a previous call that you use to retrieve the next set of results. For example, if a previous call to this action returned 100 items, but you set maxResults to 10. You'll receive a set of 10 results along with a token. You then use the returned token to retrieve the next set of 10."
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.migrationhubstrategy#MaxResult",
+          "traits": {
+            "smithy.api#documentation": "The maximum number of items to include in the response. The maximum value is 100."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents input for ListAnalyzableServers operation.",
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.migrationhubstrategy#ListAnalyzableServersResponse": {
+      "type": "structure",
+      "members": {
+        "analyzableServers": {
+          "target": "com.amazonaws.migrationhubstrategy#AnalyzableServerSummaryList",
+          "traits": {
+            "smithy.api#documentation": "The list of analyzable servers with summary information about each server."
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.migrationhubstrategy#NextToken",
+          "traits": {
+            "smithy.api#documentation": "The token you use to retrieve the next set of results, or null if there are no more results."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Represents output for ListAnalyzableServers operation.",
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.migrationhubstrategy#ListAntipatternSeveritySummary": {
@@ -4758,6 +4941,12 @@
           "target": "com.amazonaws.migrationhubstrategy#AssessmentTargets",
           "traits": {
             "smithy.api#documentation": "<p>List of criteria for assessment.</p>"
+          }
+        },
+        "assessmentDataSourceType": {
+          "target": "com.amazonaws.migrationhubstrategy#AssessmentDataSourceType",
+          "traits": {
+            "smithy.api#documentation": "The data source type of an assessment to be started."
           }
         }
       }

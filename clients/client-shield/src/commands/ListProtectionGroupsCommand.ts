@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListProtectionGroupsRequest, ListProtectionGroupsResponse } from "../models/models_0";
 import { de_ListProtectionGroupsCommand, se_ListProtectionGroupsCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient";
@@ -52,13 +44,13 @@ export interface ListProtectionGroupsCommandOutput extends ListProtectionGroupsR
  *       "STRING_VALUE",
  *     ],
  *     Patterns: [ // ProtectionGroupPatternFilters
- *       "STRING_VALUE",
+ *       "ALL" || "ARBITRARY" || "BY_RESOURCE_TYPE",
  *     ],
  *     ResourceTypes: [ // ProtectedResourceTypeFilters
- *       "STRING_VALUE",
+ *       "CLOUDFRONT_DISTRIBUTION" || "ROUTE_53_HOSTED_ZONE" || "ELASTIC_IP_ALLOCATION" || "CLASSIC_LOAD_BALANCER" || "APPLICATION_LOAD_BALANCER" || "GLOBAL_ACCELERATOR",
  *     ],
  *     Aggregations: [ // ProtectionGroupAggregationFilters
- *       "STRING_VALUE",
+ *       "SUM" || "MEAN" || "MAX",
  *     ],
  *   },
  * };
@@ -68,9 +60,9 @@ export interface ListProtectionGroupsCommandOutput extends ListProtectionGroupsR
  * //   ProtectionGroups: [ // ProtectionGroups // required
  * //     { // ProtectionGroup
  * //       ProtectionGroupId: "STRING_VALUE", // required
- * //       Aggregation: "STRING_VALUE", // required
- * //       Pattern: "STRING_VALUE", // required
- * //       ResourceType: "STRING_VALUE",
+ * //       Aggregation: "SUM" || "MEAN" || "MAX", // required
+ * //       Pattern: "ALL" || "ARBITRARY" || "BY_RESOURCE_TYPE", // required
+ * //       ResourceType: "CLOUDFRONT_DISTRIBUTION" || "ROUTE_53_HOSTED_ZONE" || "ELASTIC_IP_ALLOCATION" || "CLASSIC_LOAD_BALANCER" || "APPLICATION_LOAD_BALANCER" || "GLOBAL_ACCELERATOR",
  * //       Members: [ // ProtectionGroupMembers // required
  * //         "STRING_VALUE",
  * //       ],
@@ -101,79 +93,26 @@ export interface ListProtectionGroupsCommandOutput extends ListProtectionGroupsR
  * <p>Base exception class for all service exceptions from Shield service.</p>
  *
  */
-export class ListProtectionGroupsCommand extends $Command<
-  ListProtectionGroupsCommandInput,
-  ListProtectionGroupsCommandOutput,
-  ShieldClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListProtectionGroupsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ShieldClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListProtectionGroupsCommandInput, ListProtectionGroupsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListProtectionGroupsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ShieldClient";
-    const commandName = "ListProtectionGroupsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListProtectionGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListProtectionGroupsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListProtectionGroupsCommandOutput> {
-    return de_ListProtectionGroupsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListProtectionGroupsCommand extends $Command
+  .classBuilder<
+    ListProtectionGroupsCommandInput,
+    ListProtectionGroupsCommandOutput,
+    ShieldClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ShieldClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSShield_20160616", "ListProtectionGroups", {})
+  .n("ShieldClient", "ListProtectionGroupsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListProtectionGroupsCommand)
+  .de(de_ListProtectionGroupsCommand)
+  .build() {}

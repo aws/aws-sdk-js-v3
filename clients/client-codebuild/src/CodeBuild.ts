@@ -19,6 +19,11 @@ import {
   BatchGetBuildsCommandOutput,
 } from "./commands/BatchGetBuildsCommand";
 import {
+  BatchGetFleetsCommand,
+  BatchGetFleetsCommandInput,
+  BatchGetFleetsCommandOutput,
+} from "./commands/BatchGetFleetsCommand";
+import {
   BatchGetProjectsCommand,
   BatchGetProjectsCommandInput,
   BatchGetProjectsCommandOutput,
@@ -33,6 +38,7 @@ import {
   BatchGetReportsCommandInput,
   BatchGetReportsCommandOutput,
 } from "./commands/BatchGetReportsCommand";
+import { CreateFleetCommand, CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand";
 import {
   CreateProjectCommand,
   CreateProjectCommandInput,
@@ -53,6 +59,7 @@ import {
   DeleteBuildBatchCommandInput,
   DeleteBuildBatchCommandOutput,
 } from "./commands/DeleteBuildBatchCommand";
+import { DeleteFleetCommand, DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand";
 import {
   DeleteProjectCommand,
   DeleteProjectCommandInput,
@@ -134,6 +141,7 @@ import {
   ListCuratedEnvironmentImagesCommandInput,
   ListCuratedEnvironmentImagesCommandOutput,
 } from "./commands/ListCuratedEnvironmentImagesCommand";
+import { ListFleetsCommand, ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand";
 import {
   ListProjectsCommand,
   ListProjectsCommandInput,
@@ -188,6 +196,7 @@ import {
   StopBuildBatchCommandOutput,
 } from "./commands/StopBuildBatchCommand";
 import { StopBuildCommand, StopBuildCommandInput, StopBuildCommandOutput } from "./commands/StopBuildCommand";
+import { UpdateFleetCommand, UpdateFleetCommandInput, UpdateFleetCommandOutput } from "./commands/UpdateFleetCommand";
 import {
   UpdateProjectCommand,
   UpdateProjectCommandInput,
@@ -213,13 +222,16 @@ const commands = {
   BatchDeleteBuildsCommand,
   BatchGetBuildBatchesCommand,
   BatchGetBuildsCommand,
+  BatchGetFleetsCommand,
   BatchGetProjectsCommand,
   BatchGetReportGroupsCommand,
   BatchGetReportsCommand,
+  CreateFleetCommand,
   CreateProjectCommand,
   CreateReportGroupCommand,
   CreateWebhookCommand,
   DeleteBuildBatchCommand,
+  DeleteFleetCommand,
   DeleteProjectCommand,
   DeleteReportCommand,
   DeleteReportGroupCommand,
@@ -237,6 +249,7 @@ const commands = {
   ListBuildsCommand,
   ListBuildsForProjectCommand,
   ListCuratedEnvironmentImagesCommand,
+  ListFleetsCommand,
   ListProjectsCommand,
   ListReportGroupsCommand,
   ListReportsCommand,
@@ -251,6 +264,7 @@ const commands = {
   StartBuildBatchCommand,
   StopBuildCommand,
   StopBuildBatchCommand,
+  UpdateFleetCommand,
   UpdateProjectCommand,
   UpdateProjectVisibilityCommand,
   UpdateReportGroupCommand,
@@ -307,6 +321,20 @@ export interface CodeBuild {
   ): void;
 
   /**
+   * @see {@link BatchGetFleetsCommand}
+   */
+  batchGetFleets(
+    args: BatchGetFleetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetFleetsCommandOutput>;
+  batchGetFleets(args: BatchGetFleetsCommandInput, cb: (err: any, data?: BatchGetFleetsCommandOutput) => void): void;
+  batchGetFleets(
+    args: BatchGetFleetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetFleetsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link BatchGetProjectsCommand}
    */
   batchGetProjects(
@@ -352,6 +380,17 @@ export interface CodeBuild {
     args: BatchGetReportsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetReportsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateFleetCommand}
+   */
+  createFleet(args: CreateFleetCommandInput, options?: __HttpHandlerOptions): Promise<CreateFleetCommandOutput>;
+  createFleet(args: CreateFleetCommandInput, cb: (err: any, data?: CreateFleetCommandOutput) => void): void;
+  createFleet(
+    args: CreateFleetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateFleetCommandOutput) => void
   ): void;
 
   /**
@@ -408,6 +447,17 @@ export interface CodeBuild {
     args: DeleteBuildBatchCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteBuildBatchCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteFleetCommand}
+   */
+  deleteFleet(args: DeleteFleetCommandInput, options?: __HttpHandlerOptions): Promise<DeleteFleetCommandOutput>;
+  deleteFleet(args: DeleteFleetCommandInput, cb: (err: any, data?: DeleteFleetCommandOutput) => void): void;
+  deleteFleet(
+    args: DeleteFleetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteFleetCommandOutput) => void
   ): void;
 
   /**
@@ -676,6 +726,17 @@ export interface CodeBuild {
   ): void;
 
   /**
+   * @see {@link ListFleetsCommand}
+   */
+  listFleets(args: ListFleetsCommandInput, options?: __HttpHandlerOptions): Promise<ListFleetsCommandOutput>;
+  listFleets(args: ListFleetsCommandInput, cb: (err: any, data?: ListFleetsCommandOutput) => void): void;
+  listFleets(
+    args: ListFleetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFleetsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListProjectsCommand}
    */
   listProjects(args: ListProjectsCommandInput, options?: __HttpHandlerOptions): Promise<ListProjectsCommandOutput>;
@@ -875,6 +936,17 @@ export interface CodeBuild {
   ): void;
 
   /**
+   * @see {@link UpdateFleetCommand}
+   */
+  updateFleet(args: UpdateFleetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateFleetCommandOutput>;
+  updateFleet(args: UpdateFleetCommandInput, cb: (err: any, data?: UpdateFleetCommandOutput) => void): void;
+  updateFleet(
+    args: UpdateFleetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateFleetCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateProjectCommand}
    */
   updateProject(args: UpdateProjectCommandInput, options?: __HttpHandlerOptions): Promise<UpdateProjectCommandOutput>;
@@ -934,14 +1006,14 @@ export interface CodeBuild {
 /**
  * @public
  * <fullname>CodeBuild</fullname>
- *         <p>CodeBuild is a fully managed build service in the cloud. CodeBuild compiles your source code,
+ *          <p>CodeBuild is a fully managed build service in the cloud. CodeBuild compiles your source code,
  *             runs unit tests, and produces artifacts that are ready to deploy. CodeBuild eliminates the
  *             need to provision, manage, and scale your own build servers. It provides prepackaged
  *             build environments for the most popular programming languages and build tools, such as
  *             Apache Maven, Gradle, and more. You can also fully customize build environments in CodeBuild
  *             to use your own build tools. CodeBuild scales automatically to meet peak build requests. You
  *             pay only for the build time you consume. For more information about CodeBuild, see the <i>
- *                 <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html">CodeBuild User
+ *                <a href="https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html">CodeBuild User
  *                     Guide</a>.</i>
  *          </p>
  */

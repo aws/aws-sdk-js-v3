@@ -12,7 +12,6 @@ AWS SDK for JavaScript IoTThingsGraph Client for Node.js, Browser and React Nati
 such as units of measure and communication protocols. AWS IoT Things Graph makes it possible to build IoT applications with little to no code by connecting devices and services
 and defining how they interact at an abstract level.</p>
 <p>For more information about how AWS IoT Things Graph works, see the <a href="https://docs.aws.amazon.com/thingsgraph/latest/ug/iot-tg-whatis.html">User Guide</a>.</p>
-
 <p>The AWS IoT Things Graph service is discontinued.</p>
 
 ## Installing
@@ -30,16 +29,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `IoTThingsGraphClient` and
-the commands you need, for example `AssociateEntityToThingCommand`:
+the commands you need, for example `ListTagsForResourceCommand`:
 
 ```js
 // ES5 example
-const { IoTThingsGraphClient, AssociateEntityToThingCommand } = require("@aws-sdk/client-iotthingsgraph");
+const { IoTThingsGraphClient, ListTagsForResourceCommand } = require("@aws-sdk/client-iotthingsgraph");
 ```
 
 ```ts
 // ES6+ example
-import { IoTThingsGraphClient, AssociateEntityToThingCommand } from "@aws-sdk/client-iotthingsgraph";
+import { IoTThingsGraphClient, ListTagsForResourceCommand } from "@aws-sdk/client-iotthingsgraph";
 ```
 
 ### Usage
@@ -58,7 +57,7 @@ const client = new IoTThingsGraphClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateEntityToThingCommand(params);
+const command = new ListTagsForResourceCommand(params);
 ```
 
 #### Async/await
@@ -137,7 +136,7 @@ const client = new AWS.IoTThingsGraph({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateEntityToThing(params);
+  const data = await client.listTagsForResource(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -145,7 +144,7 @@ try {
 
 // Promises.
 client
-  .associateEntityToThing(params)
+  .listTagsForResource(params)
   .then((data) => {
     // process data.
   })
@@ -154,7 +153,7 @@ client
   });
 
 // callbacks.
-client.associateEntityToThing(params, (err, data) => {
+client.listTagsForResource(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -169,7 +168,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -215,7 +214,7 @@ see LICENSE for more information.
 AssociateEntityToThing
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/associateentitytothingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/associateentitytothingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/associateentitytothingcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/AssociateEntityToThingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/AssociateEntityToThingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/AssociateEntityToThingCommandOutput/)
 
 </details>
 <details>
@@ -223,7 +222,7 @@ AssociateEntityToThing
 CreateFlowTemplate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/createflowtemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/createflowtemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/createflowtemplatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/CreateFlowTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/CreateFlowTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/CreateFlowTemplateCommandOutput/)
 
 </details>
 <details>
@@ -231,7 +230,7 @@ CreateFlowTemplate
 CreateSystemInstance
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/createsysteminstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/createsysteminstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/createsysteminstancecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/CreateSystemInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/CreateSystemInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/CreateSystemInstanceCommandOutput/)
 
 </details>
 <details>
@@ -239,7 +238,7 @@ CreateSystemInstance
 CreateSystemTemplate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/createsystemtemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/createsystemtemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/createsystemtemplatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/CreateSystemTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/CreateSystemTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/CreateSystemTemplateCommandOutput/)
 
 </details>
 <details>
@@ -247,7 +246,7 @@ CreateSystemTemplate
 DeleteFlowTemplate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/deleteflowtemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/deleteflowtemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/deleteflowtemplatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/DeleteFlowTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/DeleteFlowTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/DeleteFlowTemplateCommandOutput/)
 
 </details>
 <details>
@@ -255,7 +254,7 @@ DeleteFlowTemplate
 DeleteNamespace
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/deletenamespacecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/deletenamespacecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/deletenamespacecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/DeleteNamespaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/DeleteNamespaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/DeleteNamespaceCommandOutput/)
 
 </details>
 <details>
@@ -263,7 +262,7 @@ DeleteNamespace
 DeleteSystemInstance
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/deletesysteminstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/deletesysteminstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/deletesysteminstancecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/DeleteSystemInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/DeleteSystemInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/DeleteSystemInstanceCommandOutput/)
 
 </details>
 <details>
@@ -271,7 +270,7 @@ DeleteSystemInstance
 DeleteSystemTemplate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/deletesystemtemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/deletesystemtemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/deletesystemtemplatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/DeleteSystemTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/DeleteSystemTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/DeleteSystemTemplateCommandOutput/)
 
 </details>
 <details>
@@ -279,7 +278,7 @@ DeleteSystemTemplate
 DeploySystemInstance
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/deploysysteminstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/deploysysteminstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/deploysysteminstancecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/DeploySystemInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/DeploySystemInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/DeploySystemInstanceCommandOutput/)
 
 </details>
 <details>
@@ -287,7 +286,7 @@ DeploySystemInstance
 DeprecateFlowTemplate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/deprecateflowtemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/deprecateflowtemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/deprecateflowtemplatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/DeprecateFlowTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/DeprecateFlowTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/DeprecateFlowTemplateCommandOutput/)
 
 </details>
 <details>
@@ -295,7 +294,7 @@ DeprecateFlowTemplate
 DeprecateSystemTemplate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/deprecatesystemtemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/deprecatesystemtemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/deprecatesystemtemplatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/DeprecateSystemTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/DeprecateSystemTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/DeprecateSystemTemplateCommandOutput/)
 
 </details>
 <details>
@@ -303,7 +302,7 @@ DeprecateSystemTemplate
 DescribeNamespace
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/describenamespacecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/describenamespacecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/describenamespacecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/DescribeNamespaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/DescribeNamespaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/DescribeNamespaceCommandOutput/)
 
 </details>
 <details>
@@ -311,7 +310,7 @@ DescribeNamespace
 DissociateEntityFromThing
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/dissociateentityfromthingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/dissociateentityfromthingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/dissociateentityfromthingcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/DissociateEntityFromThingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/DissociateEntityFromThingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/DissociateEntityFromThingCommandOutput/)
 
 </details>
 <details>
@@ -319,7 +318,7 @@ DissociateEntityFromThing
 GetEntities
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/getentitiescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/getentitiescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/getentitiescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/GetEntitiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/GetEntitiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/GetEntitiesCommandOutput/)
 
 </details>
 <details>
@@ -327,7 +326,7 @@ GetEntities
 GetFlowTemplate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/getflowtemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/getflowtemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/getflowtemplatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/GetFlowTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/GetFlowTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/GetFlowTemplateCommandOutput/)
 
 </details>
 <details>
@@ -335,7 +334,7 @@ GetFlowTemplate
 GetFlowTemplateRevisions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/getflowtemplaterevisionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/getflowtemplaterevisionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/getflowtemplaterevisionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/GetFlowTemplateRevisionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/GetFlowTemplateRevisionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/GetFlowTemplateRevisionsCommandOutput/)
 
 </details>
 <details>
@@ -343,7 +342,7 @@ GetFlowTemplateRevisions
 GetNamespaceDeletionStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/getnamespacedeletionstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/getnamespacedeletionstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/getnamespacedeletionstatuscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/GetNamespaceDeletionStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/GetNamespaceDeletionStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/GetNamespaceDeletionStatusCommandOutput/)
 
 </details>
 <details>
@@ -351,7 +350,7 @@ GetNamespaceDeletionStatus
 GetSystemInstance
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/getsysteminstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/getsysteminstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/getsysteminstancecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/GetSystemInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/GetSystemInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/GetSystemInstanceCommandOutput/)
 
 </details>
 <details>
@@ -359,7 +358,7 @@ GetSystemInstance
 GetSystemTemplate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/getsystemtemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/getsystemtemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/getsystemtemplatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/GetSystemTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/GetSystemTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/GetSystemTemplateCommandOutput/)
 
 </details>
 <details>
@@ -367,7 +366,7 @@ GetSystemTemplate
 GetSystemTemplateRevisions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/getsystemtemplaterevisionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/getsystemtemplaterevisionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/getsystemtemplaterevisionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/GetSystemTemplateRevisionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/GetSystemTemplateRevisionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/GetSystemTemplateRevisionsCommandOutput/)
 
 </details>
 <details>
@@ -375,7 +374,7 @@ GetSystemTemplateRevisions
 GetUploadStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/getuploadstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/getuploadstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/getuploadstatuscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/GetUploadStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/GetUploadStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/GetUploadStatusCommandOutput/)
 
 </details>
 <details>
@@ -383,7 +382,7 @@ GetUploadStatus
 ListFlowExecutionMessages
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/listflowexecutionmessagescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/listflowexecutionmessagescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/listflowexecutionmessagescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/ListFlowExecutionMessagesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/ListFlowExecutionMessagesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/ListFlowExecutionMessagesCommandOutput/)
 
 </details>
 <details>
@@ -391,7 +390,7 @@ ListFlowExecutionMessages
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/ListTagsForResourceCommandOutput/)
 
 </details>
 <details>
@@ -399,7 +398,7 @@ ListTagsForResource
 SearchEntities
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/searchentitiescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/searchentitiescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/searchentitiescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/SearchEntitiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/SearchEntitiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/SearchEntitiesCommandOutput/)
 
 </details>
 <details>
@@ -407,7 +406,7 @@ SearchEntities
 SearchFlowExecutions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/searchflowexecutionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/searchflowexecutionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/searchflowexecutionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/SearchFlowExecutionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/SearchFlowExecutionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/SearchFlowExecutionsCommandOutput/)
 
 </details>
 <details>
@@ -415,7 +414,7 @@ SearchFlowExecutions
 SearchFlowTemplates
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/searchflowtemplatescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/searchflowtemplatescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/searchflowtemplatescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/SearchFlowTemplatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/SearchFlowTemplatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/SearchFlowTemplatesCommandOutput/)
 
 </details>
 <details>
@@ -423,7 +422,7 @@ SearchFlowTemplates
 SearchSystemInstances
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/searchsysteminstancescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/searchsysteminstancescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/searchsysteminstancescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/SearchSystemInstancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/SearchSystemInstancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/SearchSystemInstancesCommandOutput/)
 
 </details>
 <details>
@@ -431,7 +430,7 @@ SearchSystemInstances
 SearchSystemTemplates
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/searchsystemtemplatescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/searchsystemtemplatescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/searchsystemtemplatescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/SearchSystemTemplatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/SearchSystemTemplatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/SearchSystemTemplatesCommandOutput/)
 
 </details>
 <details>
@@ -439,7 +438,7 @@ SearchSystemTemplates
 SearchThings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/searchthingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/searchthingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/searchthingscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/SearchThingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/SearchThingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/SearchThingsCommandOutput/)
 
 </details>
 <details>
@@ -447,7 +446,7 @@ SearchThings
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -455,7 +454,7 @@ TagResource
 UndeploySystemInstance
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/undeploysysteminstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/undeploysysteminstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/undeploysysteminstancecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/UndeploySystemInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/UndeploySystemInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/UndeploySystemInstanceCommandOutput/)
 
 </details>
 <details>
@@ -463,7 +462,7 @@ UndeploySystemInstance
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -471,7 +470,7 @@ UntagResource
 UpdateFlowTemplate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/updateflowtemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/updateflowtemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/updateflowtemplatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/UpdateFlowTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/UpdateFlowTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/UpdateFlowTemplateCommandOutput/)
 
 </details>
 <details>
@@ -479,7 +478,7 @@ UpdateFlowTemplate
 UpdateSystemTemplate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/updatesystemtemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/updatesystemtemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/updatesystemtemplatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/UpdateSystemTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/UpdateSystemTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/UpdateSystemTemplateCommandOutput/)
 
 </details>
 <details>
@@ -487,6 +486,6 @@ UpdateSystemTemplate
 UploadEntityDefinitions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/classes/uploadentitydefinitionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/uploadentitydefinitionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotthingsgraph/interfaces/uploadentitydefinitionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotthingsgraph/command/UploadEntityDefinitionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/UploadEntityDefinitionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotthingsgraph/Interface/UploadEntityDefinitionsCommandOutput/)
 
 </details>

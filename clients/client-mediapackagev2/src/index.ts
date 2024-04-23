@@ -19,8 +19,12 @@
 export * from "./MediaPackageV2Client";
 export * from "./MediaPackageV2";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { MediaPackageV2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { MediaPackageV2ServiceException } from "./models/MediaPackageV2ServiceException";

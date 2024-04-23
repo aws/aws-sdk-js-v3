@@ -49,12 +49,15 @@ const mergeManifest = (fromContent = {}, toContent = {}, parentKey = "root") => 
           concurrently: "7.0.0",
           "downlevel-dts": "0.10.1",
           rimraf: "3.0.2",
-          typedoc: "0.23.23",
           typescript: "~4.9.5",
         };
+
         fromContent[name] = Object.keys(fromContent[name])
           .filter((dep) => Object.keys(devDepToVersionHash).includes(dep))
           .reduce((acc, dep) => ({ ...acc, [dep]: devDepToVersionHash[dep] }), fromContent[name]);
+
+        // ToDo: Remove if typedoc is config driven or removed in smithy-typescript.
+        delete fromContent[name]["typedoc"];
       }
       if (name === "scripts" && !fromContent[name]["build:include:deps"]) {
         fromContent[name]["build:include:deps"] = "lerna run --scope $npm_package_name --include-dependencies build";
@@ -159,10 +162,10 @@ const copyToClients = async (sourceDir, destinationDir, solo) => {
         // no need for the default prepack script
         delete mergedManifest.scripts.prepack;
 
-        if (mergedManifest.private) {
-          // don't generate documentation for private packages
-          delete mergedManifest.scripts["build:docs"];
-        } else {
+        // ToDo: Remove if typedoc is config driven or removed in smithy-typescript.
+        delete mergedManifest.scripts["build:docs"];
+
+        if (!mergedManifest.private) {
           mergedManifest.scripts["extract:docs"] = "api-extractor run --local";
         }
 
@@ -177,13 +180,8 @@ const copyToClients = async (sourceDir, destinationDir, solo) => {
 
         writeFileSync(destSubPath, prettier.format(JSON.stringify(mergedManifest), { parser: "json-stringify" }));
       } else if (packageSub === "typedoc.json") {
-        const typedocJson = {
-          extends: ["../../typedoc.client.json"],
-          entryPoints: ["src/index.ts"],
-          out: "docs",
-          readme: "README.md",
-        };
-        writeFileSync(destSubPath, prettier.format(JSON.stringify(typedocJson), { parser: "json" }));
+        // Skip writing typedoc.json
+        // ToDo: Remove if typedoc.json is config driven or removed in smithy-typescript.
       } else if (overWritableSubs.includes(packageSub) || !existsSync(destSubPath)) {
         if (lstatSync(packageSubPath).isDirectory()) removeSync(destSubPath);
         copySync(packageSubPath, destSubPath, {
@@ -238,6 +236,9 @@ const copyServerTests = async (sourceDir, destinationDir) => {
           delete mergedManifest.scripts["build:docs"];
         }
         writeFileSync(destSubPath, prettier.format(JSON.stringify(mergedManifest), { parser: "json-stringify" }));
+      } else if (packageSub === "typedoc.json") {
+        // Skip writing typedoc.json
+        // ToDo: Remove if typedoc.json is config driven or removed in smithy-typescript.
       } else if (overWritableSubs.includes(packageSub) || !existsSync(destSubPath)) {
         if (lstatSync(packageSubPath).isDirectory()) removeSync(destSubPath);
         copySync(packageSubPath, destSubPath, {

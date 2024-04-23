@@ -1,20 +1,16 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
-import { CreateDataSourceFromRedshiftInput, CreateDataSourceFromRedshiftOutput } from "../models/models_0";
+import {
+  CreateDataSourceFromRedshiftInput,
+  CreateDataSourceFromRedshiftInputFilterSensitiveLog,
+  CreateDataSourceFromRedshiftOutput,
+} from "../models/models_0";
 import {
   de_CreateDataSourceFromRedshiftCommand,
   se_CreateDataSourceFromRedshiftCommand,
@@ -128,82 +124,26 @@ export interface CreateDataSourceFromRedshiftCommandOutput
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
-export class CreateDataSourceFromRedshiftCommand extends $Command<
-  CreateDataSourceFromRedshiftCommandInput,
-  CreateDataSourceFromRedshiftCommandOutput,
-  MachineLearningClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateDataSourceFromRedshiftCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: MachineLearningClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateDataSourceFromRedshiftCommandInput, CreateDataSourceFromRedshiftCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateDataSourceFromRedshiftCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "MachineLearningClient";
-    const commandName = "CreateDataSourceFromRedshiftCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateDataSourceFromRedshiftCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateDataSourceFromRedshiftCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateDataSourceFromRedshiftCommandOutput> {
-    return de_CreateDataSourceFromRedshiftCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateDataSourceFromRedshiftCommand extends $Command
+  .classBuilder<
+    CreateDataSourceFromRedshiftCommandInput,
+    CreateDataSourceFromRedshiftCommandOutput,
+    MachineLearningClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: MachineLearningClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonML_20141212", "CreateDataSourceFromRedshift", {})
+  .n("MachineLearningClient", "CreateDataSourceFromRedshiftCommand")
+  .f(CreateDataSourceFromRedshiftInputFilterSensitiveLog, void 0)
+  .ser(se_CreateDataSourceFromRedshiftCommand)
+  .de(de_CreateDataSourceFromRedshiftCommand)
+  .build() {}

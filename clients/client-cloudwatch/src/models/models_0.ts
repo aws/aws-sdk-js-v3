@@ -62,7 +62,7 @@ export interface AlarmHistoryItem {
    * @public
    * <p>The type of alarm, either metric alarm or composite alarm.</p>
    */
-  AlarmType?: AlarmType | string;
+  AlarmType?: AlarmType;
 
   /**
    * @public
@@ -74,7 +74,7 @@ export interface AlarmHistoryItem {
    * @public
    * <p>The type of alarm history item.</p>
    */
-  HistoryItemType?: HistoryItemType | string;
+  HistoryItemType?: HistoryItemType;
 
   /**
    * @public
@@ -273,7 +273,7 @@ export interface MetricStat {
    * 			when the data was reported to CloudWatch. If you specify a unit, the operation returns only data that was collected with that unit specified.
    * 			If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.</p>
    */
-  Unit?: StandardUnit | string;
+  Unit?: StandardUnit;
 }
 
 /**
@@ -505,7 +505,7 @@ export interface AnomalyDetector {
    * <p>The current status of the anomaly detector's training. The possible values are <code>TRAINED | PENDING_TRAINING | TRAINED_INSUFFICIENT_DATA</code>
    *          </p>
    */
-  StateValue?: AnomalyDetectorStateValue | string;
+  StateValue?: AnomalyDetectorStateValue;
 
   /**
    * @public
@@ -680,7 +680,7 @@ export interface CompositeAlarm {
    * @public
    * <p>The state value for the alarm.</p>
    */
-  StateValue?: StateValue | string;
+  StateValue?: StateValue;
 
   /**
    * @public
@@ -724,7 +724,7 @@ export interface CompositeAlarm {
    * 			the composite alarm performs its actions.
    * 		</p>
    */
-  ActionsSuppressedBy?: ActionsSuppressedBy | string;
+  ActionsSuppressedBy?: ActionsSuppressedBy;
 
   /**
    * @public
@@ -949,7 +949,7 @@ export interface Datapoint {
    * @public
    * <p>The standard unit for the data point.</p>
    */
-  Unit?: StandardUnit | string;
+  Unit?: StandardUnit;
 
   /**
    * @public
@@ -1295,13 +1295,13 @@ export interface DescribeAlarmHistoryInput {
    * <p>Use this parameter to specify whether you want the operation to return metric alarms or composite alarms. If you omit this parameter,
    * 			only metric alarms are returned.</p>
    */
-  AlarmTypes?: (AlarmType | string)[];
+  AlarmTypes?: AlarmType[];
 
   /**
    * @public
    * <p>The type of alarm histories to retrieve.</p>
    */
-  HistoryItemType?: HistoryItemType | string;
+  HistoryItemType?: HistoryItemType;
 
   /**
    * @public
@@ -1333,7 +1333,7 @@ export interface DescribeAlarmHistoryInput {
    * <p>Specified whether to return the newest or oldest alarm history first. Specify <code>TimestampDescending</code> to have the newest
    * 		event history returned first, and specify <code>TimestampAscending</code> to have the oldest history returned first.</p>
    */
-  ScanBy?: ScanBy | string;
+  ScanBy?: ScanBy;
 }
 
 /**
@@ -1402,7 +1402,7 @@ export interface DescribeAlarmsInput {
    *          <p>If you specify <code>CompositeAlarms</code>, the operation returns only a list of composite
    * 			alarms, and does not return any metric alarms.</p>
    */
-  AlarmTypes?: (AlarmType | string)[];
+  AlarmTypes?: AlarmType[];
 
   /**
    * @public
@@ -1449,7 +1449,7 @@ export interface DescribeAlarmsInput {
    * @public
    * <p>Specify this parameter to receive information only about alarms that are currently in the state that you specify.</p>
    */
-  StateValue?: StateValue | string;
+  StateValue?: StateValue;
 
   /**
    * @public
@@ -1563,7 +1563,7 @@ export interface MetricAlarm {
    * @public
    * <p>The state value for the alarm.</p>
    */
-  StateValue?: StateValue | string;
+  StateValue?: StateValue;
 
   /**
    * @public
@@ -1602,7 +1602,7 @@ export interface MetricAlarm {
    * <p>The statistic for the metric associated with the alarm, other than percentile.
    * 		    For percentile statistics, use <code>ExtendedStatistic</code>.</p>
    */
-  Statistic?: Statistic | string;
+  Statistic?: Statistic;
 
   /**
    * @public
@@ -1627,7 +1627,7 @@ export interface MetricAlarm {
    * @public
    * <p>The unit of the metric associated with the alarm.</p>
    */
-  Unit?: StandardUnit | string;
+  Unit?: StandardUnit;
 
   /**
    * @public
@@ -1652,7 +1652,7 @@ export interface MetricAlarm {
    * <p>The arithmetic operation to use when comparing the specified
    * 			statistic and threshold. The specified statistic value is used as the first operand.</p>
    */
-  ComparisonOperator?: ComparisonOperator | string;
+  ComparisonOperator?: ComparisonOperator;
 
   /**
    * @public
@@ -1702,7 +1702,7 @@ export interface MetricAlarm {
    * 	more information, see
    * 		<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Metrics_Insights_Alarm.html">Create alarms on Metrics Insights queries</a>.</p>
    */
-  EvaluationState?: EvaluationState | string;
+  EvaluationState?: EvaluationState;
 
   /**
    * @public
@@ -1755,7 +1755,7 @@ export interface DescribeAlarmsForMetricInput {
    * <p>The statistic for the metric, other than percentiles.
    * 		    For percentile statistics, use <code>ExtendedStatistics</code>.</p>
    */
-  Statistic?: Statistic | string;
+  Statistic?: Statistic;
 
   /**
    * @public
@@ -1781,7 +1781,7 @@ export interface DescribeAlarmsForMetricInput {
    * @public
    * <p>The unit for the metric.</p>
    */
-  Unit?: StandardUnit | string;
+  Unit?: StandardUnit;
 }
 
 /**
@@ -1842,7 +1842,7 @@ export interface DescribeAnomalyDetectorsInput {
    * <p>The anomaly detector types to request when using <code>DescribeAnomalyDetectorsInput</code>.
    * 			If empty, defaults to <code>SINGLE_METRIC</code>.</p>
    */
-  AnomalyDetectorTypes?: (AnomalyDetectorType | string)[];
+  AnomalyDetectorTypes?: AnomalyDetectorType[];
 }
 
 /**
@@ -2423,7 +2423,7 @@ export interface GetMetricDataInput {
    * 			when the <code>MaxDatapoints</code> limit is reached. <code>TimestampAscending</code> returns the oldest data first and paginates
    * 			when the <code>MaxDatapoints</code> limit is reached.</p>
    */
-  ScanBy?: ScanBy | string;
+  ScanBy?: ScanBy;
 
   /**
    * @public
@@ -2523,7 +2523,7 @@ export interface MetricDataResult {
    * 			<code>NextToken</code> is not returned if you are performing a math expression. <code>InternalError</code>
    * 			indicates that an error occurred. Retry your request using <code>NextToken</code>, if present.</p>
    */
-  StatusCode?: StatusCode | string;
+  StatusCode?: StatusCode;
 
   /**
    * @public
@@ -2655,7 +2655,7 @@ export interface GetMetricStatisticsInput {
    * 		    use <code>ExtendedStatistics</code>. When calling <code>GetMetricStatistics</code>, you must
    * 		specify either <code>Statistics</code> or <code>ExtendedStatistics</code>, but not both.</p>
    */
-  Statistics?: (Statistic | string)[];
+  Statistics?: Statistic[];
 
   /**
    * @public
@@ -2672,7 +2672,7 @@ export interface GetMetricStatisticsInput {
    * 			when the data was reported to CloudWatch. If you specify a unit, the operation returns only data that was collected with that unit specified.
    * 			If you specify a unit that does not match the data collected, the results of the operation are null. CloudWatch does not perform unit conversions.</p>
    */
-  Unit?: StandardUnit | string;
+  Unit?: StandardUnit;
 }
 
 /**
@@ -2740,6 +2740,7 @@ export interface MetricStreamFilter {
 export const MetricStreamOutputFormat = {
   JSON: "json",
   OPEN_TELEMETRY_0_7: "opentelemetry0.7",
+  OPEN_TELEMETRY_1_0: "opentelemetry1.0",
 } as const;
 
 /**
@@ -2790,7 +2791,7 @@ export interface MetricStreamStatisticsConfiguration {
    * @public
    * <p>The list of additional statistics that are to be streamed for the metrics listed
    * 			in the <code>IncludeMetrics</code> array in this structure. This list can include as many as 20 statistics.</p>
-   *          <p>If the <code>OutputFormat</code> for the stream is <code>opentelemetry0.7</code>, the only
+   *          <p>If the <code>OutputFormat</code> for the stream is <code>opentelemetry1.0</code> or <code>opentelemetry0.7</code>, the only
    * 			valid values are <code>p<i>??</i>
    *             </code> percentile statistics such as <code>p90</code>, <code>p99</code> and so on.</p>
    *          <p>If the <code>OutputFormat</code> for the stream is <code>json</code>,
@@ -2870,11 +2871,11 @@ export interface GetMetricStreamOutput {
   /**
    * @public
    * <p>The output format for the stream.
-   * 			Valid values are <code>json</code> and <code>opentelemetry0.7</code>.
+   * 			Valid values are <code>json</code>, <code>opentelemetry1.0</code>, and <code>opentelemetry0.7</code>.
    * 			For more information about metric stream output formats,
    * 			see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html">Metric streams output formats</a>.</p>
    */
-  OutputFormat?: MetricStreamOutputFormat | string;
+  OutputFormat?: MetricStreamOutputFormat;
 
   /**
    * @public
@@ -3203,7 +3204,7 @@ export interface ListMetricsInput {
    * 		is a low probability that the returned results include metrics with last published
    * 		data as much as 40 minutes more than the specified time interval.</p>
    */
-  RecentlyActive?: RecentlyActive | string;
+  RecentlyActive?: RecentlyActive;
 
   /**
    * @public
@@ -3309,10 +3310,10 @@ export interface MetricStreamEntry {
   /**
    * @public
    * <p>The output format of this metric stream. Valid values are
-   * 			<code>json</code>
+   * 			<code>json</code>, <code>opentelemetry1.0</code>,
    * 			and <code>opentelemetry0.7</code>.</p>
    */
-  OutputFormat?: MetricStreamOutputFormat | string;
+  OutputFormat?: MetricStreamOutputFormat;
 }
 
 /**
@@ -3345,7 +3346,7 @@ export interface ListTagsForResourceInput {
    *             </code>
    *          </p>
    *          <p>The ARN format of a Contributor Insights rule is
-   * 			<code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:insight-rule:<i>insight-rule-name</i>
+   * 			<code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:insight-rule/<i>insight-rule-name</i>
    *             </code>
    *          </p>
    *          <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies"> Resource
@@ -4198,8 +4199,8 @@ export interface PutMetricAlarmInput {
    * <p>The name for the metric associated with the alarm. For each <code>PutMetricAlarm</code>
    * 		operation, you must specify either <code>MetricName</code> or a <code>Metrics</code> array.</p>
    *          <p>If you are creating an alarm based on a math expression, you cannot specify this parameter, or any of the
-   * 			<code>Dimensions</code>, <code>Period</code>,
-   * 			<code>Namespace</code>, <code>Statistic</code>, or <code>ExtendedStatistic</code> parameters. Instead, you specify
+   * 			<code>Namespace</code>, <code>Dimensions</code>, <code>Period</code>,
+   * 			<code>Unit</code>, <code>Statistic</code>, or <code>ExtendedStatistic</code> parameters. Instead, you specify
    * 		all this information in the <code>Metrics</code> array.</p>
    */
   MetricName?: string;
@@ -4217,7 +4218,7 @@ export interface PutMetricAlarmInput {
    * 			a <code>MetricName</code>, you must
    * 		specify either <code>Statistic</code> or <code>ExtendedStatistic,</code> but not both.</p>
    */
-  Statistic?: Statistic | string;
+  Statistic?: Statistic;
 
   /**
    * @public
@@ -4319,7 +4320,9 @@ export interface PutMetricAlarmInput {
    * 			NetworkIn metric are Bytes because NetworkIn tracks the number of bytes that an instance
    * 			receives on all network interfaces. You can also specify a unit when you create a custom
    * 			metric. Units help provide conceptual meaning to your data. Metric data points that
-   * 			specify a unit of measure, such as Percent, are aggregated separately.</p>
+   * 			specify a unit of measure, such as Percent, are aggregated separately.
+   * 			If you are creating an alarm based on a metric math expression, you can specify the unit for each
+   * 			metric (if needed) within the objects in the <code>Metrics</code> array.</p>
    *          <p>If you don't specify <code>Unit</code>, CloudWatch retrieves all unit types that have been published for the
    * 			metric and attempts to evaluate the alarm.
    * 			Usually, metrics are
@@ -4332,7 +4335,7 @@ export interface PutMetricAlarmInput {
    * 			specify an incorrect unit that is not published for this metric. Doing so
    * 			causes the alarm to be stuck in the <code>INSUFFICIENT DATA</code> state.</p>
    */
-  Unit?: StandardUnit | string;
+  Unit?: StandardUnit;
 
   /**
    * @public
@@ -4370,7 +4373,7 @@ export interface PutMetricAlarmInput {
    * 			<code>LessThanLowerThreshold</code>, and <code>GreaterThanUpperThreshold</code>
    * 		are used only for alarms based on anomaly detection models.</p>
    */
-  ComparisonOperator: ComparisonOperator | string | undefined;
+  ComparisonOperator: ComparisonOperator | undefined;
 
   /**
    * @public
@@ -4405,8 +4408,9 @@ export interface PutMetricAlarmInput {
    *          <p>Each item in the <code>Metrics</code> array either retrieves a metric or performs a math expression.</p>
    *          <p>One item in the <code>Metrics</code> array is the expression that the alarm watches. You designate this expression
    * 			by setting <code>ReturnData</code> to true for this object in the array. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDataQuery.html">MetricDataQuery</a>.</p>
-   *          <p>If you use the <code>Metrics</code> parameter, you cannot include the <code>MetricName</code>, <code>Dimensions</code>, <code>Period</code>,
-   * 			<code>Namespace</code>, <code>Statistic</code>, or <code>ExtendedStatistic</code> parameters of <code>PutMetricAlarm</code> in the same operation.
+   *          <p>If you use the <code>Metrics</code> parameter, you cannot include the
+   * 			<code>Namespace</code>, <code>MetricName</code>, <code>Dimensions</code>, <code>Period</code>,
+   * 			<code>Unit</code>, <code>Statistic</code>, or <code>ExtendedStatistic</code> parameters of <code>PutMetricAlarm</code> in the same operation.
    * 			Instead, you retrieve
    * 		the metrics you are using in your math expression as part of the <code>Metrics</code> array.</p>
    */
@@ -4536,7 +4540,7 @@ export interface MetricDatum {
    *          <p>In
    * 		a <code>Get</code> operation, this displays the unit that is used for the metric.</p>
    */
-  Unit?: StandardUnit | string;
+  Unit?: StandardUnit;
 
   /**
    * @public
@@ -4630,13 +4634,13 @@ export interface PutMetricStreamInput {
 
   /**
    * @public
-   * <p>The output format for the stream. Valid values are <code>json</code>
-   * 		and <code>opentelemetry0.7</code>. For more information about metric stream
+   * <p>The output format for the stream. Valid values are <code>json</code>, <code>opentelemetry1.0</code>,
+   * 			and <code>opentelemetry0.7</code>. For more information about metric stream
    * 		output formats, see
    * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-formats.html">
    * 				Metric streams output formats</a>.</p>
    */
-  OutputFormat: MetricStreamOutputFormat | string | undefined;
+  OutputFormat: MetricStreamOutputFormat | undefined;
 
   /**
    * @public
@@ -4664,7 +4668,7 @@ export interface PutMetricStreamInput {
    * 				<code>json</code>, you can stream any additional statistic that is supported by
    * 				CloudWatch, listed in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html">
    * 				CloudWatch statistics definitions</a>. If the <code>OutputFormat</code>
-   * 			is <code>opentelemetry0.7</code>, you can stream percentile statistics such as p95,
+   * 			is <code>opentelemetry1.0</code> or <code>opentelemetry0.7</code>, you can stream percentile statistics such as p95,
    * 			p99.9, and so on.</p>
    */
   StatisticsConfigurations?: MetricStreamStatisticsConfiguration[];
@@ -4722,7 +4726,7 @@ export interface SetAlarmStateInput {
    * @public
    * <p>The value of the state.</p>
    */
-  StateValue: StateValue | string | undefined;
+  StateValue: StateValue | undefined;
 
   /**
    * @public
@@ -4789,7 +4793,7 @@ export interface TagResourceInput {
    *             </code>
    *          </p>
    *          <p>The ARN format of a Contributor Insights rule is
-   * 			<code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:insight-rule:<i>insight-rule-name</i>
+   * 			<code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:insight-rule/<i>insight-rule-name</i>
    *             </code>
    *          </p>
    *          <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies"> Resource
@@ -4822,7 +4826,7 @@ export interface UntagResourceInput {
    *             </code>
    *          </p>
    *          <p>The ARN format of a Contributor Insights rule is
-   * 			<code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:insight-rule:<i>insight-rule-name</i>
+   * 			<code>arn:aws:cloudwatch:<i>Region</i>:<i>account-id</i>:insight-rule/<i>insight-rule-name</i>
    *             </code>
    *          </p>
    *          <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazoncloudwatch.html#amazoncloudwatch-resources-for-iam-policies"> Resource

@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeClusterRequest, DescribeClusterResponse } from "../models/models_0";
 import { de_DescribeClusterCommand, se_DescribeClusterCommand } from "../protocols/Aws_restJson1";
 
@@ -36,11 +28,12 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
 
 /**
  * @public
- * <p>Returns descriptive information about an Amazon EKS cluster.</p>
+ * <p>Describes an Amazon EKS cluster.</p>
  *          <p>The API server endpoint and certificate authority data returned by this operation are
  *             required for <code>kubelet</code> and <code>kubectl</code> to communicate with your
- *             Kubernetes API server. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html">Create a
- *                 kubeconfig for Amazon EKS</a>.</p>
+ *             Kubernetes API server. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html">Creating or
+ *                 updating a <code>kubeconfig</code> file for an Amazon EKS
+ *             cluster</a>.</p>
  *          <note>
  *             <p>The API server endpoint and certificate authority data aren't available until the
  *                 cluster reaches the <code>ACTIVE</code> state.</p>
@@ -129,7 +122,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //     health: { // ClusterHealth
  * //       issues: [ // ClusterIssueList
  * //         { // ClusterIssue
- * //           code: "AccessDenied" || "ClusterUnreachable" || "ConfigurationConflict" || "InternalFailure" || "ResourceLimitExceeded" || "ResourceNotFound",
+ * //           code: "AccessDenied" || "ClusterUnreachable" || "ConfigurationConflict" || "InternalFailure" || "ResourceLimitExceeded" || "ResourceNotFound" || "IamRoleNotFound" || "VpcNotFound" || "InsufficientFreeAddresses" || "Ec2ServiceNotSubscribed" || "Ec2SubnetNotFound" || "Ec2SecurityGroupNotFound" || "KmsGrantRevoked" || "KmsKeyNotFound" || "KmsKeyMarkedForDeletion" || "KmsKeyDisabled" || "StsRegionalEndpointDisabled" || "UnsupportedVersion" || "Other",
  * //           message: "STRING_VALUE",
  * //           resourceIds: "<StringList>",
  * //         },
@@ -141,6 +134,10 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //       controlPlanePlacement: { // ControlPlanePlacementResponse
  * //         groupName: "STRING_VALUE",
  * //       },
+ * //     },
+ * //     accessConfig: { // AccessConfigResponse
+ * //       bootstrapClusterCreatorAdminPermissions: true || false,
+ * //       authenticationMode: "API" || "API_AND_CONFIG_MAP" || "CONFIG_MAP",
  * //     },
  * //   },
  * // };
@@ -155,14 +152,13 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  *
  * @throws {@link ClientException} (client fault)
  *  <p>These errors are usually caused by a client action. Actions can include using an
- *             action or resource on behalf of a user that doesn't have permissions to use the action
- *             or resource or specifying an identifier that is not valid.</p>
+ *             action or resource on behalf of an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a> that doesn't have permissions to use
+ *             the action or resource or specifying an identifier that is not valid.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found. You can view your available clusters with
- *                 <a>ListClusters</a>. You can view your available managed node groups with
- *                 <a>ListNodegroups</a>. Amazon EKS clusters and node groups are
- *             Region-specific.</p>
+ *                 <code>ListClusters</code>. You can view your available managed node groups with
+ *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
@@ -211,79 +207,26 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * ```
  *
  */
-export class DescribeClusterCommand extends $Command<
-  DescribeClusterCommandInput,
-  DescribeClusterCommandOutput,
-  EKSClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeClusterCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: EKSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeClusterCommandInput, DescribeClusterCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeClusterCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "EKSClient";
-    const commandName = "DescribeClusterCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeClusterCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeClusterCommandOutput> {
-    return de_DescribeClusterCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeClusterCommand extends $Command
+  .classBuilder<
+    DescribeClusterCommandInput,
+    DescribeClusterCommandOutput,
+    EKSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSWesleyFrontend", "DescribeCluster", {})
+  .n("EKSClient", "DescribeClusterCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeClusterCommand)
+  .de(de_DescribeClusterCommand)
+  .build() {}

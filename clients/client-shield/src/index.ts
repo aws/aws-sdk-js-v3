@@ -11,8 +11,12 @@
 export * from "./ShieldClient";
 export * from "./Shield";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { ShieldExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { ShieldServiceException } from "./models/ShieldServiceException";

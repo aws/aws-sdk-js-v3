@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
 import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,
@@ -14,7 +16,6 @@ import {
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
@@ -251,6 +252,7 @@ import {
   ExportReadSetJobDetail,
   Filter,
   FormatOptions,
+  FormatToHeaderKey,
   ImportReadSetFilter,
   ImportReadSetJobItem,
   ImportReferenceFilter,
@@ -313,20 +315,11 @@ export const se_AbortMultipartReadSetUploadCommand = async (
   input: AbortMultipartReadSetUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sequencestore/{sequenceStoreId}/upload/{uploadId}/abort";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "sequenceStoreId",
-    () => input.sequenceStoreId!,
-    "{sequenceStoreId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "uploadId", () => input.uploadId!, "{uploadId}", false);
+  b.bp("/sequencestore/{sequenceStoreId}/upload/{uploadId}/abort");
+  b.p("sequenceStoreId", () => input.sequenceStoreId!, "{sequenceStoreId}", false);
+  b.p("uploadId", () => input.uploadId!, "{uploadId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -335,15 +328,9 @@ export const se_AbortMultipartReadSetUploadCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -353,10 +340,10 @@ export const se_AcceptShareCommand = async (
   input: AcceptShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/share/{shareId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "shareId", () => input.shareId!, "{shareId}", false);
+  b.bp("/share/{shareId}");
+  b.p("shareId", () => input.shareId!, "{shareId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -365,15 +352,9 @@ export const se_AcceptShareCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -383,21 +364,12 @@ export const se_BatchDeleteReadSetCommand = async (
   input: BatchDeleteReadSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sequencestore/{sequenceStoreId}/readset/batch/delete";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "sequenceStoreId",
-    () => input.sequenceStoreId!,
-    "{sequenceStoreId}",
-    false
-  );
+  b.bp("/sequencestore/{sequenceStoreId}/readset/batch/delete");
+  b.p("sequenceStoreId", () => input.sequenceStoreId!, "{sequenceStoreId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -411,15 +383,9 @@ export const se_BatchDeleteReadSetCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -429,11 +395,10 @@ export const se_CancelAnnotationImportJobCommand = async (
   input: CancelAnnotationImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/import/annotation/{jobId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "jobId", () => input.jobId!, "{jobId}", false);
+  b.bp("/import/annotation/{jobId}");
+  b.p("jobId", () => input.jobId!, "{jobId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -442,15 +407,9 @@ export const se_CancelAnnotationImportJobCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -460,10 +419,10 @@ export const se_CancelRunCommand = async (
   input: CancelRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/run/{id}/cancel";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/run/{id}/cancel");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -472,15 +431,9 @@ export const se_CancelRunCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -490,10 +443,10 @@ export const se_CancelVariantImportJobCommand = async (
   input: CancelVariantImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/import/variant/{jobId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "jobId", () => input.jobId!, "{jobId}", false);
+  b.bp("/import/variant/{jobId}");
+  b.p("jobId", () => input.jobId!, "{jobId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -502,15 +455,9 @@ export const se_CancelVariantImportJobCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -520,22 +467,13 @@ export const se_CompleteMultipartReadSetUploadCommand = async (
   input: CompleteMultipartReadSetUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sequencestore/{sequenceStoreId}/upload/{uploadId}/complete";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "sequenceStoreId",
-    () => input.sequenceStoreId!,
-    "{sequenceStoreId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "uploadId", () => input.uploadId!, "{uploadId}", false);
+  b.bp("/sequencestore/{sequenceStoreId}/upload/{uploadId}/complete");
+  b.p("sequenceStoreId", () => input.sequenceStoreId!, "{sequenceStoreId}", false);
+  b.p("uploadId", () => input.uploadId!, "{uploadId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -549,15 +487,9 @@ export const se_CompleteMultipartReadSetUploadCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -567,11 +499,11 @@ export const se_CreateAnnotationStoreCommand = async (
   input: CreateAnnotationStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/annotationStore";
+  b.bp("/annotationStore");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -592,15 +524,9 @@ export const se_CreateAnnotationStoreCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -610,13 +536,12 @@ export const se_CreateAnnotationStoreVersionCommand = async (
   input: CreateAnnotationStoreVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/annotationStore/{name}/version";
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  b.bp("/annotationStore/{name}/version");
+  b.p("name", () => input.name!, "{name}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -633,15 +558,9 @@ export const se_CreateAnnotationStoreVersionCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -651,20 +570,12 @@ export const se_CreateMultipartReadSetUploadCommand = async (
   input: CreateMultipartReadSetUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sequencestore/{sequenceStoreId}/upload";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "sequenceStoreId",
-    () => input.sequenceStoreId!,
-    "{sequenceStoreId}",
-    false
-  );
+  b.bp("/sequencestore/{sequenceStoreId}/upload");
+  b.p("sequenceStoreId", () => input.sequenceStoreId!, "{sequenceStoreId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -686,15 +597,9 @@ export const se_CreateMultipartReadSetUploadCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -704,11 +609,11 @@ export const se_CreateReferenceStoreCommand = async (
   input: CreateReferenceStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/referencestore";
+  b.bp("/referencestore");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -726,15 +631,9 @@ export const se_CreateReferenceStoreCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -744,11 +643,11 @@ export const se_CreateRunGroupCommand = async (
   input: CreateRunGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/runGroup";
+  b.bp("/runGroup");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -768,15 +667,9 @@ export const se_CreateRunGroupCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -786,11 +679,11 @@ export const se_CreateSequenceStoreCommand = async (
   input: CreateSequenceStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sequencestore";
+  b.bp("/sequencestore");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -809,15 +702,9 @@ export const se_CreateSequenceStoreCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -827,11 +714,11 @@ export const se_CreateShareCommand = async (
   input: CreateShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/share";
+  b.bp("/share");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -847,15 +734,9 @@ export const se_CreateShareCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -865,11 +746,11 @@ export const se_CreateVariantStoreCommand = async (
   input: CreateVariantStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/variantStore";
+  b.bp("/variantStore");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -887,15 +768,9 @@ export const se_CreateVariantStoreCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -905,11 +780,11 @@ export const se_CreateWorkflowCommand = async (
   input: CreateWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workflow";
+  b.bp("/workflow");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -933,15 +808,9 @@ export const se_CreateWorkflowCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -951,12 +820,12 @@ export const se_DeleteAnnotationStoreCommand = async (
   input: DeleteAnnotationStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/annotationStore/{name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  b.bp("/annotationStore/{name}");
+  b.p("name", () => input.name!, "{name}", false);
   const query: any = map({
-    force: [() => input.force !== void 0, () => input.force!.toString()],
+    [_f]: [() => input.force !== void 0, () => input[_f]!.toString()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -966,16 +835,9 @@ export const se_DeleteAnnotationStoreCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -985,15 +847,14 @@ export const se_DeleteAnnotationStoreVersionsCommand = async (
   input: DeleteAnnotationStoreVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/annotationStore/{name}/versions/delete";
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  b.bp("/annotationStore/{name}/versions/delete");
+  b.p("name", () => input.name!, "{name}", false);
   const query: any = map({
-    force: [() => input.force !== void 0, () => input.force!.toString()],
+    [_f]: [() => input.force !== void 0, () => input[_f]!.toString()],
   });
   let body: any;
   body = JSON.stringify(
@@ -1008,16 +869,9 @@ export const se_DeleteAnnotationStoreVersionsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1027,20 +881,11 @@ export const se_DeleteReferenceCommand = async (
   input: DeleteReferenceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/referencestore/{referenceStoreId}/reference/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "referenceStoreId",
-    () => input.referenceStoreId!,
-    "{referenceStoreId}",
-    false
-  );
+  b.bp("/referencestore/{referenceStoreId}/reference/{id}");
+  b.p("id", () => input.id!, "{id}", false);
+  b.p("referenceStoreId", () => input.referenceStoreId!, "{referenceStoreId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1049,15 +894,9 @@ export const se_DeleteReferenceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1067,10 +906,10 @@ export const se_DeleteReferenceStoreCommand = async (
   input: DeleteReferenceStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/referencestore/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/referencestore/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1079,15 +918,9 @@ export const se_DeleteReferenceStoreCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1097,10 +930,10 @@ export const se_DeleteRunCommand = async (
   input: DeleteRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/run/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/run/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1109,15 +942,9 @@ export const se_DeleteRunCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1127,10 +954,10 @@ export const se_DeleteRunGroupCommand = async (
   input: DeleteRunGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/runGroup/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/runGroup/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1139,15 +966,9 @@ export const se_DeleteRunGroupCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1157,10 +978,10 @@ export const se_DeleteSequenceStoreCommand = async (
   input: DeleteSequenceStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sequencestore/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/sequencestore/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1169,15 +990,9 @@ export const se_DeleteSequenceStoreCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1187,10 +1002,10 @@ export const se_DeleteShareCommand = async (
   input: DeleteShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/share/{shareId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "shareId", () => input.shareId!, "{shareId}", false);
+  b.bp("/share/{shareId}");
+  b.p("shareId", () => input.shareId!, "{shareId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1199,15 +1014,9 @@ export const se_DeleteShareCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1217,12 +1026,12 @@ export const se_DeleteVariantStoreCommand = async (
   input: DeleteVariantStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/variantStore/{name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  b.bp("/variantStore/{name}");
+  b.p("name", () => input.name!, "{name}", false);
   const query: any = map({
-    force: [() => input.force !== void 0, () => input.force!.toString()],
+    [_f]: [() => input.force !== void 0, () => input[_f]!.toString()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1232,16 +1041,9 @@ export const se_DeleteVariantStoreCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1251,10 +1053,10 @@ export const se_DeleteWorkflowCommand = async (
   input: DeleteWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workflow/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/workflow/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1263,15 +1065,9 @@ export const se_DeleteWorkflowCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1281,11 +1077,10 @@ export const se_GetAnnotationImportJobCommand = async (
   input: GetAnnotationImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/import/annotation/{jobId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "jobId", () => input.jobId!, "{jobId}", false);
+  b.bp("/import/annotation/{jobId}");
+  b.p("jobId", () => input.jobId!, "{jobId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1294,15 +1089,9 @@ export const se_GetAnnotationImportJobCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1312,10 +1101,10 @@ export const se_GetAnnotationStoreCommand = async (
   input: GetAnnotationStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/annotationStore/{name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  b.bp("/annotationStore/{name}");
+  b.p("name", () => input.name!, "{name}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1324,15 +1113,9 @@ export const se_GetAnnotationStoreCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1342,13 +1125,11 @@ export const se_GetAnnotationStoreVersionCommand = async (
   input: GetAnnotationStoreVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/annotationStore/{name}/version/{versionName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "versionName", () => input.versionName!, "{versionName}", false);
+  b.bp("/annotationStore/{name}/version/{versionName}");
+  b.p("name", () => input.name!, "{name}", false);
+  b.p("versionName", () => input.versionName!, "{versionName}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1357,15 +1138,9 @@ export const se_GetAnnotationStoreVersionCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1375,23 +1150,14 @@ export const se_GetReadSetCommand = async (
   input: GetReadSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sequencestore/{sequenceStoreId}/readset/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "sequenceStoreId",
-    () => input.sequenceStoreId!,
-    "{sequenceStoreId}",
-    false
-  );
+  b.bp("/sequencestore/{sequenceStoreId}/readset/{id}");
+  b.p("id", () => input.id!, "{id}", false);
+  b.p("sequenceStoreId", () => input.sequenceStoreId!, "{sequenceStoreId}", false);
   const query: any = map({
-    file: [, input.file!],
-    partNumber: [__expectNonNull(input.partNumber, `partNumber`) != null, () => input.partNumber!.toString()],
+    [_fi]: [, input[_fi]!],
+    [_pN]: [__expectNonNull(input.partNumber, `partNumber`) != null, () => input[_pN]!.toString()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1401,16 +1167,9 @@ export const se_GetReadSetCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1420,20 +1179,11 @@ export const se_GetReadSetActivationJobCommand = async (
   input: GetReadSetActivationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sequencestore/{sequenceStoreId}/activationjob/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "sequenceStoreId",
-    () => input.sequenceStoreId!,
-    "{sequenceStoreId}",
-    false
-  );
+  b.bp("/sequencestore/{sequenceStoreId}/activationjob/{id}");
+  b.p("id", () => input.id!, "{id}", false);
+  b.p("sequenceStoreId", () => input.sequenceStoreId!, "{sequenceStoreId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1442,15 +1192,9 @@ export const se_GetReadSetActivationJobCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1460,20 +1204,11 @@ export const se_GetReadSetExportJobCommand = async (
   input: GetReadSetExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sequencestore/{sequenceStoreId}/exportjob/{id}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "sequenceStoreId",
-    () => input.sequenceStoreId!,
-    "{sequenceStoreId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/sequencestore/{sequenceStoreId}/exportjob/{id}");
+  b.p("sequenceStoreId", () => input.sequenceStoreId!, "{sequenceStoreId}", false);
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1482,15 +1217,9 @@ export const se_GetReadSetExportJobCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1500,20 +1229,11 @@ export const se_GetReadSetImportJobCommand = async (
   input: GetReadSetImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sequencestore/{sequenceStoreId}/importjob/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "sequenceStoreId",
-    () => input.sequenceStoreId!,
-    "{sequenceStoreId}",
-    false
-  );
+  b.bp("/sequencestore/{sequenceStoreId}/importjob/{id}");
+  b.p("id", () => input.id!, "{id}", false);
+  b.p("sequenceStoreId", () => input.sequenceStoreId!, "{sequenceStoreId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1522,15 +1242,9 @@ export const se_GetReadSetImportJobCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1540,20 +1254,11 @@ export const se_GetReadSetMetadataCommand = async (
   input: GetReadSetMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sequencestore/{sequenceStoreId}/readset/{id}/metadata";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "sequenceStoreId",
-    () => input.sequenceStoreId!,
-    "{sequenceStoreId}",
-    false
-  );
+  b.bp("/sequencestore/{sequenceStoreId}/readset/{id}/metadata");
+  b.p("id", () => input.id!, "{id}", false);
+  b.p("sequenceStoreId", () => input.sequenceStoreId!, "{sequenceStoreId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1562,15 +1267,9 @@ export const se_GetReadSetMetadataCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1580,25 +1279,16 @@ export const se_GetReferenceCommand = async (
   input: GetReferenceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    range: input.range!,
+    [_r]: input[_r]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/referencestore/{referenceStoreId}/reference/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "referenceStoreId",
-    () => input.referenceStoreId!,
-    "{referenceStoreId}",
-    false
-  );
+  b.bp("/referencestore/{referenceStoreId}/reference/{id}");
+  b.p("id", () => input.id!, "{id}", false);
+  b.p("referenceStoreId", () => input.referenceStoreId!, "{referenceStoreId}", false);
   const query: any = map({
-    partNumber: [__expectNonNull(input.partNumber, `partNumber`) != null, () => input.partNumber!.toString()],
-    file: [, input.file!],
+    [_pN]: [__expectNonNull(input.partNumber, `partNumber`) != null, () => input[_pN]!.toString()],
+    [_fi]: [, input[_fi]!],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1608,16 +1298,9 @@ export const se_GetReferenceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1627,20 +1310,11 @@ export const se_GetReferenceImportJobCommand = async (
   input: GetReferenceImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/referencestore/{referenceStoreId}/importjob/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "referenceStoreId",
-    () => input.referenceStoreId!,
-    "{referenceStoreId}",
-    false
-  );
+  b.bp("/referencestore/{referenceStoreId}/importjob/{id}");
+  b.p("id", () => input.id!, "{id}", false);
+  b.p("referenceStoreId", () => input.referenceStoreId!, "{referenceStoreId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1649,15 +1323,9 @@ export const se_GetReferenceImportJobCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1667,20 +1335,11 @@ export const se_GetReferenceMetadataCommand = async (
   input: GetReferenceMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/referencestore/{referenceStoreId}/reference/{id}/metadata";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "referenceStoreId",
-    () => input.referenceStoreId!,
-    "{referenceStoreId}",
-    false
-  );
+  b.bp("/referencestore/{referenceStoreId}/reference/{id}/metadata");
+  b.p("id", () => input.id!, "{id}", false);
+  b.p("referenceStoreId", () => input.referenceStoreId!, "{referenceStoreId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1689,15 +1348,9 @@ export const se_GetReferenceMetadataCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1707,10 +1360,10 @@ export const se_GetReferenceStoreCommand = async (
   input: GetReferenceStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/referencestore/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/referencestore/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1719,27 +1372,21 @@ export const se_GetReferenceStoreCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
  * serializeAws_restJson1GetRunCommand
  */
 export const se_GetRunCommand = async (input: GetRunCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/run/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/run/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   const query: any = map({
-    export: [() => input.export !== void 0, () => (input.export! || []).map((_entry) => _entry as any)],
+    [_e]: [() => input.export !== void 0, () => (input[_e]! || []).map((_entry) => _entry as any)],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1749,16 +1396,9 @@ export const se_GetRunCommand = async (input: GetRunCommandInput, context: __Ser
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1768,10 +1408,10 @@ export const se_GetRunGroupCommand = async (
   input: GetRunGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/runGroup/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/runGroup/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1780,15 +1420,9 @@ export const se_GetRunGroupCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1798,11 +1432,11 @@ export const se_GetRunTaskCommand = async (
   input: GetRunTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/run/{id}/task/{taskId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "taskId", () => input.taskId!, "{taskId}", false);
+  b.bp("/run/{id}/task/{taskId}");
+  b.p("id", () => input.id!, "{id}", false);
+  b.p("taskId", () => input.taskId!, "{taskId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1811,15 +1445,9 @@ export const se_GetRunTaskCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1829,10 +1457,10 @@ export const se_GetSequenceStoreCommand = async (
   input: GetSequenceStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sequencestore/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/sequencestore/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1841,15 +1469,9 @@ export const se_GetSequenceStoreCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1859,10 +1481,10 @@ export const se_GetShareCommand = async (
   input: GetShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/share/{shareId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "shareId", () => input.shareId!, "{shareId}", false);
+  b.bp("/share/{shareId}");
+  b.p("shareId", () => input.shareId!, "{shareId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1871,15 +1493,9 @@ export const se_GetShareCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1889,10 +1505,10 @@ export const se_GetVariantImportJobCommand = async (
   input: GetVariantImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/import/variant/{jobId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "jobId", () => input.jobId!, "{jobId}", false);
+  b.bp("/import/variant/{jobId}");
+  b.p("jobId", () => input.jobId!, "{jobId}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1901,15 +1517,9 @@ export const se_GetVariantImportJobCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1919,10 +1529,10 @@ export const se_GetVariantStoreCommand = async (
   input: GetVariantStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/variantStore/{name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  b.bp("/variantStore/{name}");
+  b.p("name", () => input.name!, "{name}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1931,15 +1541,9 @@ export const se_GetVariantStoreCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1949,13 +1553,13 @@ export const se_GetWorkflowCommand = async (
   input: GetWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workflow/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/workflow/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   const query: any = map({
-    type: [, input.type!],
-    export: [() => input.export !== void 0, () => (input.export! || []).map((_entry) => _entry as any)],
+    [_t]: [, input[_t]!],
+    [_e]: [() => input.export !== void 0, () => (input[_e]! || []).map((_entry) => _entry as any)],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1965,16 +1569,9 @@ export const se_GetWorkflowCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1984,14 +1581,14 @@ export const se_ListAnnotationImportJobsCommand = async (
   input: ListAnnotationImportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/import/annotations";
+  b.bp("/import/annotations");
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -2007,16 +1604,9 @@ export const se_ListAnnotationImportJobsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2026,14 +1616,14 @@ export const se_ListAnnotationStoresCommand = async (
   input: ListAnnotationStoresCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/annotationStores";
+  b.bp("/annotationStores");
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -2049,16 +1639,9 @@ export const se_ListAnnotationStoresCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2068,16 +1651,15 @@ export const se_ListAnnotationStoreVersionsCommand = async (
   input: ListAnnotationStoreVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/annotationStore/{name}/versions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  b.bp("/annotationStore/{name}/versions");
+  b.p("name", () => input.name!, "{name}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -2092,16 +1674,9 @@ export const se_ListAnnotationStoreVersionsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2111,21 +1686,13 @@ export const se_ListMultipartReadSetUploadsCommand = async (
   input: ListMultipartReadSetUploadsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sequencestore/{sequenceStoreId}/uploads";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "sequenceStoreId",
-    () => input.sequenceStoreId!,
-    "{sequenceStoreId}",
-    false
-  );
+  b.bp("/sequencestore/{sequenceStoreId}/uploads");
+  b.p("sequenceStoreId", () => input.sequenceStoreId!, "{sequenceStoreId}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -2135,16 +1702,9 @@ export const se_ListMultipartReadSetUploadsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2154,24 +1714,15 @@ export const se_ListReadSetActivationJobsCommand = async (
   input: ListReadSetActivationJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sequencestore/{sequenceStoreId}/activationjobs";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "sequenceStoreId",
-    () => input.sequenceStoreId!,
-    "{sequenceStoreId}",
-    false
-  );
+  b.bp("/sequencestore/{sequenceStoreId}/activationjobs");
+  b.p("sequenceStoreId", () => input.sequenceStoreId!, "{sequenceStoreId}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -2186,16 +1737,9 @@ export const se_ListReadSetActivationJobsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2205,24 +1749,15 @@ export const se_ListReadSetExportJobsCommand = async (
   input: ListReadSetExportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sequencestore/{sequenceStoreId}/exportjobs";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "sequenceStoreId",
-    () => input.sequenceStoreId!,
-    "{sequenceStoreId}",
-    false
-  );
+  b.bp("/sequencestore/{sequenceStoreId}/exportjobs");
+  b.p("sequenceStoreId", () => input.sequenceStoreId!, "{sequenceStoreId}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -2237,16 +1772,9 @@ export const se_ListReadSetExportJobsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2256,24 +1784,15 @@ export const se_ListReadSetImportJobsCommand = async (
   input: ListReadSetImportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sequencestore/{sequenceStoreId}/importjobs";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "sequenceStoreId",
-    () => input.sequenceStoreId!,
-    "{sequenceStoreId}",
-    false
-  );
+  b.bp("/sequencestore/{sequenceStoreId}/importjobs");
+  b.p("sequenceStoreId", () => input.sequenceStoreId!, "{sequenceStoreId}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -2288,16 +1807,9 @@ export const se_ListReadSetImportJobsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2307,23 +1819,15 @@ export const se_ListReadSetsCommand = async (
   input: ListReadSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sequencestore/{sequenceStoreId}/readsets";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "sequenceStoreId",
-    () => input.sequenceStoreId!,
-    "{sequenceStoreId}",
-    false
-  );
+  b.bp("/sequencestore/{sequenceStoreId}/readsets");
+  b.p("sequenceStoreId", () => input.sequenceStoreId!, "{sequenceStoreId}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -2338,16 +1842,9 @@ export const se_ListReadSetsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2357,25 +1854,16 @@ export const se_ListReadSetUploadPartsCommand = async (
   input: ListReadSetUploadPartsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sequencestore/{sequenceStoreId}/upload/{uploadId}/parts";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "sequenceStoreId",
-    () => input.sequenceStoreId!,
-    "{sequenceStoreId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "uploadId", () => input.uploadId!, "{uploadId}", false);
+  b.bp("/sequencestore/{sequenceStoreId}/upload/{uploadId}/parts");
+  b.p("sequenceStoreId", () => input.sequenceStoreId!, "{sequenceStoreId}", false);
+  b.p("uploadId", () => input.uploadId!, "{uploadId}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -2391,16 +1879,9 @@ export const se_ListReadSetUploadPartsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2410,24 +1891,15 @@ export const se_ListReferenceImportJobsCommand = async (
   input: ListReferenceImportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/referencestore/{referenceStoreId}/importjobs";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "referenceStoreId",
-    () => input.referenceStoreId!,
-    "{referenceStoreId}",
-    false
-  );
+  b.bp("/referencestore/{referenceStoreId}/importjobs");
+  b.p("referenceStoreId", () => input.referenceStoreId!, "{referenceStoreId}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -2442,16 +1914,9 @@ export const se_ListReferenceImportJobsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2461,24 +1926,15 @@ export const se_ListReferencesCommand = async (
   input: ListReferencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/referencestore/{referenceStoreId}/references";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "referenceStoreId",
-    () => input.referenceStoreId!,
-    "{referenceStoreId}",
-    false
-  );
+  b.bp("/referencestore/{referenceStoreId}/references");
+  b.p("referenceStoreId", () => input.referenceStoreId!, "{referenceStoreId}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -2493,16 +1949,9 @@ export const se_ListReferencesCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2512,14 +1961,14 @@ export const se_ListReferenceStoresCommand = async (
   input: ListReferenceStoresCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/referencestores";
+  b.bp("/referencestores");
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -2534,16 +1983,9 @@ export const se_ListReferenceStoresCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2553,13 +1995,13 @@ export const se_ListRunGroupsCommand = async (
   input: ListRunGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/runGroup";
+  b.bp("/runGroup");
   const query: any = map({
-    name: [, input.name!],
-    startingToken: [, input.startingToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_n]: [, input[_n]!],
+    [_sT]: [, input[_sT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -2569,16 +2011,9 @@ export const se_ListRunGroupsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2588,15 +2023,15 @@ export const se_ListRunsCommand = async (
   input: ListRunsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/run";
+  b.bp("/run");
   const query: any = map({
-    name: [, input.name!],
-    runGroupId: [, input.runGroupId!],
-    startingToken: [, input.startingToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    status: [, input.status!],
+    [_n]: [, input[_n]!],
+    [_rGI]: [, input[_rGI]!],
+    [_sT]: [, input[_sT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_s]: [, input[_s]!],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -2606,16 +2041,9 @@ export const se_ListRunsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2625,14 +2053,14 @@ export const se_ListRunTasksCommand = async (
   input: ListRunTasksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/run/{id}/task";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/run/{id}/task");
+  b.p("id", () => input.id!, "{id}", false);
   const query: any = map({
-    status: [, input.status!],
-    startingToken: [, input.startingToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_s]: [, input[_s]!],
+    [_sT]: [, input[_sT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -2642,16 +2070,9 @@ export const se_ListRunTasksCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2661,14 +2082,14 @@ export const se_ListSequenceStoresCommand = async (
   input: ListSequenceStoresCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sequencestores";
+  b.bp("/sequencestores");
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -2683,16 +2104,9 @@ export const se_ListSequenceStoresCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2702,14 +2116,14 @@ export const se_ListSharesCommand = async (
   input: ListSharesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/shares";
+  b.bp("/shares");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
   body = JSON.stringify(
@@ -2725,16 +2139,9 @@ export const se_ListSharesCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2744,10 +2151,10 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2756,15 +2163,9 @@ export const se_ListTagsForResourceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2774,14 +2175,14 @@ export const se_ListVariantImportJobsCommand = async (
   input: ListVariantImportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/import/variants";
+  b.bp("/import/variants");
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -2797,16 +2198,9 @@ export const se_ListVariantImportJobsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2816,14 +2210,14 @@ export const se_ListVariantStoresCommand = async (
   input: ListVariantStoresCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/variantStores";
+  b.bp("/variantStores");
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -2839,16 +2233,9 @@ export const se_ListVariantStoresCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2858,14 +2245,14 @@ export const se_ListWorkflowsCommand = async (
   input: ListWorkflowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workflow";
+  b.bp("/workflow");
   const query: any = map({
-    type: [, input.type!],
-    name: [, input.name!],
-    startingToken: [, input.startingToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_t]: [, input[_t]!],
+    [_n]: [, input[_n]!],
+    [_sT]: [, input[_sT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -2875,16 +2262,9 @@ export const se_ListWorkflowsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2894,11 +2274,11 @@ export const se_StartAnnotationImportJobCommand = async (
   input: StartAnnotationImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/import/annotation";
+  b.bp("/import/annotation");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2918,15 +2298,9 @@ export const se_StartAnnotationImportJobCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2936,21 +2310,12 @@ export const se_StartReadSetActivationJobCommand = async (
   input: StartReadSetActivationJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sequencestore/{sequenceStoreId}/activationjob";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "sequenceStoreId",
-    () => input.sequenceStoreId!,
-    "{sequenceStoreId}",
-    false
-  );
+  b.bp("/sequencestore/{sequenceStoreId}/activationjob");
+  b.p("sequenceStoreId", () => input.sequenceStoreId!, "{sequenceStoreId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2965,15 +2330,9 @@ export const se_StartReadSetActivationJobCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2983,21 +2342,12 @@ export const se_StartReadSetExportJobCommand = async (
   input: StartReadSetExportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sequencestore/{sequenceStoreId}/exportjob";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "sequenceStoreId",
-    () => input.sequenceStoreId!,
-    "{sequenceStoreId}",
-    false
-  );
+  b.bp("/sequencestore/{sequenceStoreId}/exportjob");
+  b.p("sequenceStoreId", () => input.sequenceStoreId!, "{sequenceStoreId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3014,15 +2364,9 @@ export const se_StartReadSetExportJobCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3032,21 +2376,12 @@ export const se_StartReadSetImportJobCommand = async (
   input: StartReadSetImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sequencestore/{sequenceStoreId}/importjob";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "sequenceStoreId",
-    () => input.sequenceStoreId!,
-    "{sequenceStoreId}",
-    false
-  );
+  b.bp("/sequencestore/{sequenceStoreId}/importjob");
+  b.p("sequenceStoreId", () => input.sequenceStoreId!, "{sequenceStoreId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3062,15 +2397,9 @@ export const se_StartReadSetImportJobCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3080,21 +2409,12 @@ export const se_StartReferenceImportJobCommand = async (
   input: StartReferenceImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/referencestore/{referenceStoreId}/importjob";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "referenceStoreId",
-    () => input.referenceStoreId!,
-    "{referenceStoreId}",
-    false
-  );
+  b.bp("/referencestore/{referenceStoreId}/importjob");
+  b.p("referenceStoreId", () => input.referenceStoreId!, "{referenceStoreId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3110,15 +2430,9 @@ export const se_StartReferenceImportJobCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3128,11 +2442,11 @@ export const se_StartRunCommand = async (
   input: StartRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/run";
+  b.bp("/run");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3142,6 +2456,7 @@ export const se_StartRunCommand = async (
       parameters: (_) => se_RunParameters(_, context),
       priority: [],
       requestId: [true, (_) => _ ?? generateIdempotencyToken()],
+      retentionMode: [],
       roleArn: [],
       runGroupId: [],
       runId: [],
@@ -3158,15 +2473,9 @@ export const se_StartRunCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3176,11 +2485,11 @@ export const se_StartVariantImportJobCommand = async (
   input: StartVariantImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/import/variant";
+  b.bp("/import/variant");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3198,15 +2507,9 @@ export const se_StartVariantImportJobCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3216,12 +2519,12 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3235,15 +2538,9 @@ export const se_TagResourceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3253,14 +2550,14 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
@@ -3271,16 +2568,9 @@ export const se_UntagResourceCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3290,12 +2580,12 @@ export const se_UpdateAnnotationStoreCommand = async (
   input: UpdateAnnotationStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/annotationStore/{name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  b.bp("/annotationStore/{name}");
+  b.p("name", () => input.name!, "{name}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3309,15 +2599,9 @@ export const se_UpdateAnnotationStoreCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3327,15 +2611,13 @@ export const se_UpdateAnnotationStoreVersionCommand = async (
   input: UpdateAnnotationStoreVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/annotationStore/{name}/version/{versionName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "versionName", () => input.versionName!, "{versionName}", false);
+  b.bp("/annotationStore/{name}/version/{versionName}");
+  b.p("name", () => input.name!, "{name}", false);
+  b.p("versionName", () => input.versionName!, "{versionName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3349,15 +2631,9 @@ export const se_UpdateAnnotationStoreVersionCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3367,12 +2643,12 @@ export const se_UpdateRunGroupCommand = async (
   input: UpdateRunGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/runGroup/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/runGroup/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3390,15 +2666,9 @@ export const se_UpdateRunGroupCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3408,12 +2678,12 @@ export const se_UpdateVariantStoreCommand = async (
   input: UpdateVariantStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/variantStore/{name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  b.bp("/variantStore/{name}");
+  b.p("name", () => input.name!, "{name}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3427,15 +2697,9 @@ export const se_UpdateVariantStoreCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3445,12 +2709,12 @@ export const se_UpdateWorkflowCommand = async (
   input: UpdateWorkflowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workflow/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/workflow/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3465,15 +2729,9 @@ export const se_UpdateWorkflowCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3483,26 +2741,17 @@ export const se_UploadReadSetPartCommand = async (
   input: UploadReadSetPartCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
     "content-type": "application/octet-stream",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sequencestore/{sequenceStoreId}/upload/{uploadId}/part";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "sequenceStoreId",
-    () => input.sequenceStoreId!,
-    "{sequenceStoreId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "uploadId", () => input.uploadId!, "{uploadId}", false);
+  b.bp("/sequencestore/{sequenceStoreId}/upload/{uploadId}/part");
+  b.p("sequenceStoreId", () => input.sequenceStoreId!, "{sequenceStoreId}", false);
+  b.p("uploadId", () => input.uploadId!, "{uploadId}", false);
   const query: any = map({
-    partSource: [, __expectNonNull(input.partSource!, `partSource`)],
-    partNumber: [__expectNonNull(input.partNumber, `partNumber`) != null, () => input.partNumber!.toString()],
+    [_pS]: [, __expectNonNull(input[_pS]!, `partSource`)],
+    [_pN]: [__expectNonNull(input.partNumber, `partNumber`) != null, () => input[_pN]!.toString()],
   });
   let body: any;
   if (input.payload !== undefined) {
@@ -3515,16 +2764,9 @@ export const se_UploadReadSetPartCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -5725,6 +4967,7 @@ export const de_GetReadSetMetadataCommand = async (
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     creationType: __expectString,
     description: __expectString,
+    etag: _json,
     fileType: __expectString,
     files: _json,
     id: __expectString,
@@ -6072,16 +5315,20 @@ export const de_GetRunCommand = async (
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     definition: __expectString,
     digest: __expectString,
+    failureReason: __expectString,
     id: __expectString,
     logLevel: __expectString,
+    logLocation: _json,
     name: __expectString,
     outputUri: __expectString,
     parameters: (_) => de_RunParameters(_, context),
     priority: __expectInt32,
     resourceDigests: _json,
+    retentionMode: __expectString,
     roleArn: __expectString,
     runGroupId: __expectString,
     runId: __expectString,
+    runOutputUri: __expectString,
     startTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     startedBy: __expectString,
     status: __expectString,
@@ -6089,6 +5336,7 @@ export const de_GetRunCommand = async (
     stopTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     storageCapacity: __expectInt32,
     tags: _json,
+    uuid: __expectString,
     workflowId: __expectString,
     workflowType: __expectString,
   });
@@ -6233,6 +5481,7 @@ export const de_GetRunTaskCommand = async (
   const doc = take(data, {
     cpus: __expectInt32,
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    failureReason: __expectString,
     gpus: __expectInt32,
     instanceType: __expectString,
     logStream: __expectString,
@@ -8351,8 +7600,10 @@ export const de_StartRunCommand = async (
   const doc = take(data, {
     arn: __expectString,
     id: __expectString,
+    runOutputUri: __expectString,
     status: __expectString,
     tags: _json,
+    uuid: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -9507,6 +8758,8 @@ const de_AnnotationStoreVersionItems = (output: any, context: __SerdeContext): A
   return retVal;
 };
 
+// de_ETag omitted.
+
 // de_ExportReadSetDetail omitted.
 
 // de_ExportReadSetDetailList omitted.
@@ -9663,6 +8916,7 @@ const de_ReadSetListItem = (output: any, context: __SerdeContext): ReadSetListIt
     creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     creationType: __expectString,
     description: __expectString,
+    etag: _json,
     fileType: __expectString,
     id: __expectString,
     name: __expectString,
@@ -9818,6 +9072,8 @@ const de_RunListItem = (output: any, context: __SerdeContext): RunListItem => {
     workflowId: __expectString,
   }) as any;
 };
+
+// de_RunLogLocation omitted.
 
 /**
  * deserializeAws_restJson1RunParameters
@@ -10058,6 +9314,21 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _e = "export";
+const _f = "force";
+const _fi = "file";
+const _mR = "maxResults";
+const _n = "name";
+const _nT = "nextToken";
+const _pN = "partNumber";
+const _pS = "partSource";
+const _r = "range";
+const _rGI = "runGroupId";
+const _s = "status";
+const _sT = "startingToken";
+const _t = "type";
+const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

@@ -12,7 +12,7 @@ recover applications by rerouting traffic across
 Availability Zones or Amazon Web Services Regions. Routing controls are simple on/off switches hosted
 on a highly available cluster in Route 53 ARC. A cluster provides a set of five redundant Regional endpoints against which you
 can run API calls to get or update the state of routing controls. To implement failover, you set
-one routing control On and another one Off, to reroute traffic from one Availability Zone or Amazon Web Services Region
+one routing control to ON and another one to OFF, to reroute traffic from one Availability Zone or Amazon Web Services Region
 to another. </p>
 <p>
 <i>Be aware that you must specify a Regional endpoint for a cluster when you work with API cluster operations
@@ -62,19 +62,19 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `Route53RecoveryClusterClient` and
-the commands you need, for example `GetRoutingControlStateCommand`:
+the commands you need, for example `ListRoutingControlsCommand`:
 
 ```js
 // ES5 example
 const {
   Route53RecoveryClusterClient,
-  GetRoutingControlStateCommand,
+  ListRoutingControlsCommand,
 } = require("@aws-sdk/client-route53-recovery-cluster");
 ```
 
 ```ts
 // ES6+ example
-import { Route53RecoveryClusterClient, GetRoutingControlStateCommand } from "@aws-sdk/client-route53-recovery-cluster";
+import { Route53RecoveryClusterClient, ListRoutingControlsCommand } from "@aws-sdk/client-route53-recovery-cluster";
 ```
 
 ### Usage
@@ -93,7 +93,7 @@ const client = new Route53RecoveryClusterClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new GetRoutingControlStateCommand(params);
+const command = new ListRoutingControlsCommand(params);
 ```
 
 #### Async/await
@@ -172,7 +172,7 @@ const client = new AWS.Route53RecoveryCluster({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.getRoutingControlState(params);
+  const data = await client.listRoutingControls(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -180,7 +180,7 @@ try {
 
 // Promises.
 client
-  .getRoutingControlState(params)
+  .listRoutingControls(params)
   .then((data) => {
     // process data.
   })
@@ -189,7 +189,7 @@ client
   });
 
 // callbacks.
-client.getRoutingControlState(params, (err, data) => {
+client.listRoutingControls(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -204,7 +204,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -250,7 +250,7 @@ see LICENSE for more information.
 GetRoutingControlState
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-route53-recovery-cluster/classes/getroutingcontrolstatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-route53-recovery-cluster/interfaces/getroutingcontrolstatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-route53-recovery-cluster/interfaces/getroutingcontrolstatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-cluster/command/GetRoutingControlStateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-cluster/Interface/GetRoutingControlStateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-cluster/Interface/GetRoutingControlStateCommandOutput/)
 
 </details>
 <details>
@@ -258,7 +258,7 @@ GetRoutingControlState
 ListRoutingControls
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-route53-recovery-cluster/classes/listroutingcontrolscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-route53-recovery-cluster/interfaces/listroutingcontrolscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-route53-recovery-cluster/interfaces/listroutingcontrolscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-cluster/command/ListRoutingControlsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-cluster/Interface/ListRoutingControlsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-cluster/Interface/ListRoutingControlsCommandOutput/)
 
 </details>
 <details>
@@ -266,7 +266,7 @@ ListRoutingControls
 UpdateRoutingControlState
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-route53-recovery-cluster/classes/updateroutingcontrolstatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-route53-recovery-cluster/interfaces/updateroutingcontrolstatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-route53-recovery-cluster/interfaces/updateroutingcontrolstatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-cluster/command/UpdateRoutingControlStateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-cluster/Interface/UpdateRoutingControlStateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-cluster/Interface/UpdateRoutingControlStateCommandOutput/)
 
 </details>
 <details>
@@ -274,6 +274,6 @@ UpdateRoutingControlState
 UpdateRoutingControlStates
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-route53-recovery-cluster/classes/updateroutingcontrolstatescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-route53-recovery-cluster/interfaces/updateroutingcontrolstatescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-route53-recovery-cluster/interfaces/updateroutingcontrolstatescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-cluster/command/UpdateRoutingControlStatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-cluster/Interface/UpdateRoutingControlStatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-cluster/Interface/UpdateRoutingControlStatesCommandOutput/)
 
 </details>

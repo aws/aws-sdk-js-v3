@@ -67,16 +67,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SupportClient` and
-the commands you need, for example `AddAttachmentsToSetCommand`:
+the commands you need, for example `DescribeCasesCommand`:
 
 ```js
 // ES5 example
-const { SupportClient, AddAttachmentsToSetCommand } = require("@aws-sdk/client-support");
+const { SupportClient, DescribeCasesCommand } = require("@aws-sdk/client-support");
 ```
 
 ```ts
 // ES6+ example
-import { SupportClient, AddAttachmentsToSetCommand } from "@aws-sdk/client-support";
+import { SupportClient, DescribeCasesCommand } from "@aws-sdk/client-support";
 ```
 
 ### Usage
@@ -95,7 +95,7 @@ const client = new SupportClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddAttachmentsToSetCommand(params);
+const command = new DescribeCasesCommand(params);
 ```
 
 #### Async/await
@@ -174,7 +174,7 @@ const client = new AWS.Support({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addAttachmentsToSet(params);
+  const data = await client.describeCases(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -182,7 +182,7 @@ try {
 
 // Promises.
 client
-  .addAttachmentsToSet(params)
+  .describeCases(params)
   .then((data) => {
     // process data.
   })
@@ -191,7 +191,7 @@ client
   });
 
 // callbacks.
-client.addAttachmentsToSet(params, (err, data) => {
+client.describeCases(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -206,7 +206,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -252,7 +252,7 @@ see LICENSE for more information.
 AddAttachmentsToSet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/addattachmentstosetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/addattachmentstosetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/addattachmentstosetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support/command/AddAttachmentsToSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/AddAttachmentsToSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/AddAttachmentsToSetCommandOutput/)
 
 </details>
 <details>
@@ -260,7 +260,7 @@ AddAttachmentsToSet
 AddCommunicationToCase
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/addcommunicationtocasecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/addcommunicationtocasecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/addcommunicationtocasecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support/command/AddCommunicationToCaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/AddCommunicationToCaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/AddCommunicationToCaseCommandOutput/)
 
 </details>
 <details>
@@ -268,7 +268,7 @@ AddCommunicationToCase
 CreateCase
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/createcasecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/createcasecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/createcasecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support/command/CreateCaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/CreateCaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/CreateCaseCommandOutput/)
 
 </details>
 <details>
@@ -276,7 +276,7 @@ CreateCase
 DescribeAttachment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/describeattachmentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describeattachmentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describeattachmentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support/command/DescribeAttachmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/DescribeAttachmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/DescribeAttachmentCommandOutput/)
 
 </details>
 <details>
@@ -284,7 +284,7 @@ DescribeAttachment
 DescribeCases
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/describecasescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describecasescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describecasescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support/command/DescribeCasesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/DescribeCasesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/DescribeCasesCommandOutput/)
 
 </details>
 <details>
@@ -292,7 +292,7 @@ DescribeCases
 DescribeCommunications
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/describecommunicationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describecommunicationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describecommunicationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support/command/DescribeCommunicationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/DescribeCommunicationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/DescribeCommunicationsCommandOutput/)
 
 </details>
 <details>
@@ -300,7 +300,7 @@ DescribeCommunications
 DescribeCreateCaseOptions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/describecreatecaseoptionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describecreatecaseoptionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describecreatecaseoptionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support/command/DescribeCreateCaseOptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/DescribeCreateCaseOptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/DescribeCreateCaseOptionsCommandOutput/)
 
 </details>
 <details>
@@ -308,7 +308,7 @@ DescribeCreateCaseOptions
 DescribeServices
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/describeservicescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describeservicescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describeservicescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support/command/DescribeServicesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/DescribeServicesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/DescribeServicesCommandOutput/)
 
 </details>
 <details>
@@ -316,7 +316,7 @@ DescribeServices
 DescribeSeverityLevels
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/describeseveritylevelscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describeseveritylevelscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describeseveritylevelscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support/command/DescribeSeverityLevelsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/DescribeSeverityLevelsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/DescribeSeverityLevelsCommandOutput/)
 
 </details>
 <details>
@@ -324,7 +324,7 @@ DescribeSeverityLevels
 DescribeSupportedLanguages
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/describesupportedlanguagescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describesupportedlanguagescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describesupportedlanguagescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support/command/DescribeSupportedLanguagesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/DescribeSupportedLanguagesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/DescribeSupportedLanguagesCommandOutput/)
 
 </details>
 <details>
@@ -332,7 +332,7 @@ DescribeSupportedLanguages
 DescribeTrustedAdvisorCheckRefreshStatuses
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/describetrustedadvisorcheckrefreshstatusescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describetrustedadvisorcheckrefreshstatusescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describetrustedadvisorcheckrefreshstatusescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support/command/DescribeTrustedAdvisorCheckRefreshStatusesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/DescribeTrustedAdvisorCheckRefreshStatusesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/DescribeTrustedAdvisorCheckRefreshStatusesCommandOutput/)
 
 </details>
 <details>
@@ -340,7 +340,7 @@ DescribeTrustedAdvisorCheckRefreshStatuses
 DescribeTrustedAdvisorCheckResult
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/describetrustedadvisorcheckresultcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describetrustedadvisorcheckresultcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describetrustedadvisorcheckresultcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support/command/DescribeTrustedAdvisorCheckResultCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/DescribeTrustedAdvisorCheckResultCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/DescribeTrustedAdvisorCheckResultCommandOutput/)
 
 </details>
 <details>
@@ -348,7 +348,7 @@ DescribeTrustedAdvisorCheckResult
 DescribeTrustedAdvisorChecks
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/describetrustedadvisorcheckscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describetrustedadvisorcheckscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describetrustedadvisorcheckscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support/command/DescribeTrustedAdvisorChecksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/DescribeTrustedAdvisorChecksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/DescribeTrustedAdvisorChecksCommandOutput/)
 
 </details>
 <details>
@@ -356,7 +356,7 @@ DescribeTrustedAdvisorChecks
 DescribeTrustedAdvisorCheckSummaries
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/describetrustedadvisorchecksummariescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describetrustedadvisorchecksummariescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/describetrustedadvisorchecksummariescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support/command/DescribeTrustedAdvisorCheckSummariesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/DescribeTrustedAdvisorCheckSummariesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/DescribeTrustedAdvisorCheckSummariesCommandOutput/)
 
 </details>
 <details>
@@ -364,7 +364,7 @@ DescribeTrustedAdvisorCheckSummaries
 RefreshTrustedAdvisorCheck
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/refreshtrustedadvisorcheckcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/refreshtrustedadvisorcheckcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/refreshtrustedadvisorcheckcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support/command/RefreshTrustedAdvisorCheckCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/RefreshTrustedAdvisorCheckCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/RefreshTrustedAdvisorCheckCommandOutput/)
 
 </details>
 <details>
@@ -372,6 +372,6 @@ RefreshTrustedAdvisorCheck
 ResolveCase
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/classes/resolvecasecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/resolvecasecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support/interfaces/resolvecasecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support/command/ResolveCaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/ResolveCaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support/Interface/ResolveCaseCommandOutput/)
 
 </details>

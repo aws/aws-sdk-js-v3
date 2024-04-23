@@ -56,7 +56,7 @@ export interface LayerFailure {
    * @public
    * <p>The failure code associated with the failure.</p>
    */
-  failureCode?: LayerFailureCode | string;
+  failureCode?: LayerFailureCode;
 
   /**
    * @public
@@ -94,7 +94,7 @@ export interface Layer {
    * @public
    * <p>The availability status of the image layer.</p>
    */
-  layerAvailability?: LayerAvailability | string;
+  layerAvailability?: LayerAvailability;
 
   /**
    * @public
@@ -249,6 +249,9 @@ export const ImageFailureCode = {
   InvalidImageTag: "InvalidImageTag",
   KmsError: "KmsError",
   MissingDigestAndTag: "MissingDigestAndTag",
+  UpstreamAccessDenied: "UpstreamAccessDenied",
+  UpstreamTooManyRequests: "UpstreamTooManyRequests",
+  UpstreamUnavailable: "UpstreamUnavailable",
 } as const;
 
 /**
@@ -271,7 +274,7 @@ export interface ImageFailure {
    * @public
    * <p>The code associated with the failure.</p>
    */
-  failureCode?: ImageFailureCode | string;
+  failureCode?: ImageFailureCode;
 
   /**
    * @public
@@ -325,7 +328,7 @@ export interface BatchGetImageRequest {
   /**
    * @public
    * <p>The accepted media types for the request.</p>
-   *         <p>Valid values: <code>application/vnd.docker.distribution.manifest.v1+json</code> |
+   *          <p>Valid values: <code>application/vnd.docker.distribution.manifest.v1+json</code> |
    *                 <code>application/vnd.docker.distribution.manifest.v2+json</code> |
    *                 <code>application/vnd.oci.image.manifest.v1+json</code>
    *          </p>
@@ -388,6 +391,50 @@ export interface BatchGetImageResponse {
 
 /**
  * @public
+ * <p>The operation did not succeed because it would have exceeded a service limit for your
+ *             account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon ECR service quotas</a> in
+ *             the Amazon Elastic Container Registry User Guide.</p>
+ */
+export class LimitExceededException extends __BaseException {
+  readonly name: "LimitExceededException" = "LimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
+    super({
+      name: "LimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, LimitExceededException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The image or images were unable to be pulled using the pull through cache rule. This
+ *             is usually caused because of an issue with the Secrets Manager secret containing the credentials
+ *             for the upstream registry.</p>
+ */
+export class UnableToGetUpstreamImageException extends __BaseException {
+  readonly name: "UnableToGetUpstreamImageException" = "UnableToGetUpstreamImageException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnableToGetUpstreamImageException, __BaseException>) {
+    super({
+      name: "UnableToGetUpstreamImageException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnableToGetUpstreamImageException.prototype);
+  }
+}
+
+/**
+ * @public
  */
 export interface BatchGetRepositoryScanningConfigurationRequest {
   /**
@@ -427,7 +474,7 @@ export interface RepositoryScanningConfigurationFailure {
    * @public
    * <p>The failure code.</p>
    */
-  failureCode?: ScanningConfigurationFailureCode | string;
+  failureCode?: ScanningConfigurationFailureCode;
 
   /**
    * @public
@@ -467,7 +514,7 @@ export interface ScanningRepositoryFilter {
    * @public
    * <p>The type associated with the filter.</p>
    */
-  filterType: ScanningRepositoryFilterType | string | undefined;
+  filterType: ScanningRepositoryFilterType | undefined;
 }
 
 /**
@@ -512,7 +559,7 @@ export interface RepositoryScanningConfiguration {
    * @public
    * <p>The scan frequency for the repository.</p>
    */
-  scanFrequency?: ScanFrequency | string;
+  scanFrequency?: ScanFrequency;
 
   /**
    * @public
@@ -749,6 +796,24 @@ export class UploadNotFoundException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const UpstreamRegistry = {
+  AzureContainerRegistry: "azure-container-registry",
+  DockerHub: "docker-hub",
+  EcrPublic: "ecr-public",
+  GitHubContainerRegistry: "github-container-registry",
+  K8s: "k8s",
+  Quay: "quay",
+} as const;
+
+/**
+ * @public
+ */
+export type UpstreamRegistry = (typeof UpstreamRegistry)[keyof typeof UpstreamRegistry];
+
+/**
+ * @public
  */
 export interface CreatePullThroughCacheRuleRequest {
   /**
@@ -760,7 +825,37 @@ export interface CreatePullThroughCacheRuleRequest {
   /**
    * @public
    * <p>The registry URL of the upstream public registry to use as the source for the pull
-   *             through cache rule.</p>
+   *             through cache rule. The following is the syntax to use for each supported upstream
+   *             registry.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Amazon ECR Public (<code>ecr-public</code>) - <code>public.ecr.aws</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Docker Hub (<code>docker-hub</code>) -
+   *                     <code>registry-1.docker.io</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Quay (<code>quay</code>) - <code>quay.io</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Kubernetes (<code>k8s</code>) - <code>registry.k8s.io</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>GitHub Container Registry (<code>github-container-registry</code>) -
+   *                         <code>ghcr.io</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Microsoft Azure Container Registry (<code>azure-container-registry</code>) -
+   *                         <code><custom>.azurecr.io</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   upstreamRegistryUrl: string | undefined;
 
@@ -770,6 +865,19 @@ export interface CreatePullThroughCacheRuleRequest {
    *             rule for. If you do not specify a registry, the default registry is assumed.</p>
    */
   registryId?: string;
+
+  /**
+   * @public
+   * <p>The name of the upstream registry.</p>
+   */
+  upstreamRegistry?: UpstreamRegistry;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that identifies the credentials to authenticate
+   *             to the upstream registry.</p>
+   */
+  credentialArn?: string;
 }
 
 /**
@@ -800,28 +908,19 @@ export interface CreatePullThroughCacheRuleResponse {
    * <p>The registry ID associated with the request.</p>
    */
   registryId?: string;
-}
 
-/**
- * @public
- * <p>The operation did not succeed because it would have exceeded a service limit for your
- *             account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon ECR service quotas</a> in
- *             the Amazon Elastic Container Registry User Guide.</p>
- */
-export class LimitExceededException extends __BaseException {
-  readonly name: "LimitExceededException" = "LimitExceededException";
-  readonly $fault: "client" = "client";
   /**
-   * @internal
+   * @public
+   * <p>The name of the upstream registry associated with the pull through cache rule.</p>
    */
-  constructor(opts: __ExceptionOptionType<LimitExceededException, __BaseException>) {
-    super({
-      name: "LimitExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, LimitExceededException.prototype);
-  }
+  upstreamRegistry?: UpstreamRegistry;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret associated with the pull through cache
+   *             rule.</p>
+   */
+  credentialArn?: string;
 }
 
 /**
@@ -842,6 +941,69 @@ export class PullThroughCacheRuleAlreadyExistsException extends __BaseException 
       ...opts,
     });
     Object.setPrototypeOf(this, PullThroughCacheRuleAlreadyExistsException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The ARN of the secret specified in the pull through cache rule was not found. Update
+ *             the pull through cache rule with a valid secret ARN and try again.</p>
+ */
+export class SecretNotFoundException extends __BaseException {
+  readonly name: "SecretNotFoundException" = "SecretNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SecretNotFoundException, __BaseException>) {
+    super({
+      name: "SecretNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SecretNotFoundException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The secret is unable to be accessed. Verify the resource permissions for the secret
+ *             and try again.</p>
+ */
+export class UnableToAccessSecretException extends __BaseException {
+  readonly name: "UnableToAccessSecretException" = "UnableToAccessSecretException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnableToAccessSecretException, __BaseException>) {
+    super({
+      name: "UnableToAccessSecretException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnableToAccessSecretException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The secret is accessible but is unable to be decrypted. Verify the resource
+ *             permisisons and try again.</p>
+ */
+export class UnableToDecryptSecretValueException extends __BaseException {
+  readonly name: "UnableToDecryptSecretValueException" = "UnableToDecryptSecretValueException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnableToDecryptSecretValueException, __BaseException>) {
+    super({
+      name: "UnableToDecryptSecretValueException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnableToDecryptSecretValueException.prototype);
   }
 }
 
@@ -883,11 +1045,11 @@ export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType
  * @public
  * <p>The encryption configuration for the repository. This determines how the contents of
  *             your repository are encrypted at rest.</p>
- *         <p>By default, when no encryption configuration is set or the <code>AES256</code>
+ *          <p>By default, when no encryption configuration is set or the <code>AES256</code>
  *             encryption type is used, Amazon ECR uses server-side encryption with Amazon S3-managed encryption
  *             keys which encrypts your data at rest using an AES-256 encryption algorithm. This does
  *             not require any action on your part.</p>
- *         <p>For more control over the encryption of the contents of your repository, you can use
+ *          <p>For more control over the encryption of the contents of your repository, you can use
  *             server-side encryption with Key Management Service key stored in Key Management Service (KMS) to encrypt your
  *             images. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/encryption-at-rest.html">Amazon ECR encryption at
  *                 rest</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
@@ -896,20 +1058,20 @@ export interface EncryptionConfiguration {
   /**
    * @public
    * <p>The encryption type to use.</p>
-   *         <p>If you use the <code>KMS</code> encryption type, the contents of the repository will
+   *          <p>If you use the <code>KMS</code> encryption type, the contents of the repository will
    *             be encrypted using server-side encryption with Key Management Service key stored in KMS. When you
    *             use KMS to encrypt your data, you can either use the default Amazon Web Services managed KMS key
    *             for Amazon ECR, or specify your own KMS key, which you already created. For more
    *             information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">Protecting data using server-side
    *                 encryption with an KMS key stored in Key Management Service (SSE-KMS)</a> in the
    *                 <i>Amazon Simple Storage Service Console Developer Guide</i>.</p>
-   *         <p>If you use the <code>AES256</code> encryption type, Amazon ECR uses server-side encryption
+   *          <p>If you use the <code>AES256</code> encryption type, Amazon ECR uses server-side encryption
    *             with Amazon S3-managed encryption keys which encrypts the images in the repository using an
    *             AES-256 encryption algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Protecting data using
    *                 server-side encryption with Amazon S3-managed encryption keys (SSE-S3)</a> in the
    *                 <i>Amazon Simple Storage Service Console Developer Guide</i>.</p>
    */
-  encryptionType: EncryptionType | string | undefined;
+  encryptionType: EncryptionType | undefined;
 
   /**
    * @public
@@ -962,13 +1124,13 @@ export interface Tag {
    * <p>One part of a key-value pair that make up a tag. A <code>key</code> is a general label
    *             that acts like a category for more specific tag values.</p>
    */
-  Key?: string;
+  Key: string | undefined;
 
   /**
    * @public
    * <p>A <code>value</code> acts as a descriptor within a tag category (key).</p>
    */
-  Value?: string;
+  Value: string | undefined;
 }
 
 /**
@@ -987,6 +1149,8 @@ export interface CreateRepositoryRequest {
    * <p>The name to use for the repository. The repository name may be specified on its own
    *             (such as <code>nginx-web-app</code>) or it can be prepended with a namespace to group
    *             the repository into a category (such as <code>project-a/nginx-web-app</code>).</p>
+   *          <p>The repository name must start with a letter and can only contain lowercase letters,
+   *             numbers, hyphens, underscores, and forward slashes.</p>
    */
   repositoryName: string | undefined;
 
@@ -1006,7 +1170,7 @@ export interface CreateRepositoryRequest {
    *             overwritten. If <code>IMMUTABLE</code> is specified, all image tags within the
    *             repository will be immutable which will prevent them from being overwritten.</p>
    */
-  imageTagMutability?: ImageTagMutability | string;
+  imageTagMutability?: ImageTagMutability;
 
   /**
    * @public
@@ -1032,7 +1196,7 @@ export interface Repository {
    * @public
    * <p>The Amazon Resource Name (ARN) that identifies the repository. The ARN contains the <code>arn:aws:ecr</code> namespace, followed by the region of the
    *     repository, Amazon Web Services account ID of the repository owner, repository namespace, and repository name.
-   *     For example, <code>arn:aws:ecr:region:012345678910:repository/test</code>.</p>
+   *     For example, <code>arn:aws:ecr:region:012345678910:repository-namespace/repository-name</code>.</p>
    */
   repositoryArn?: string;
 
@@ -1065,7 +1229,7 @@ export interface Repository {
    * @public
    * <p>The tag mutability setting for the repository.</p>
    */
-  imageTagMutability?: ImageTagMutability | string;
+  imageTagMutability?: ImageTagMutability;
 
   /**
    * @public
@@ -1268,6 +1432,13 @@ export interface DeletePullThroughCacheRuleResponse {
    * <p>The registry ID associated with the request.</p>
    */
   registryId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret associated with the pull through cache
+   *             rule.</p>
+   */
+  credentialArn?: string;
 }
 
 /**
@@ -1352,7 +1523,8 @@ export interface DeleteRepositoryRequest {
 
   /**
    * @public
-   * <p> If a repository contains images, forces the deletion.</p>
+   * <p>If true, deleting the repository force deletes the contents of the repository. If
+   *             false, the repository must be empty before attempting to delete it.</p>
    */
   force?: boolean;
 }
@@ -1511,7 +1683,7 @@ export interface ImageReplicationStatus {
    * @public
    * <p>The image replication status.</p>
    */
-  status?: ReplicationStatus | string;
+  status?: ReplicationStatus;
 
   /**
    * @public
@@ -1590,7 +1762,7 @@ export interface DescribeImagesFilter {
    *             can filter results based on whether they are <code>TAGGED</code> or
    *                 <code>UNTAGGED</code>.</p>
    */
-  tagStatus?: TagStatus | string;
+  tagStatus?: TagStatus;
 }
 
 /**
@@ -1688,7 +1860,7 @@ export interface ImageScanFindingsSummary {
    * @public
    * <p>The image vulnerability counts, sorted by severity.</p>
    */
-  findingSeverityCounts?: Record<string, number>;
+  findingSeverityCounts?: Partial<Record<FindingSeverity, number>>;
 }
 
 /**
@@ -1720,7 +1892,7 @@ export interface ImageScanStatus {
    * @public
    * <p>The current state of an image scan.</p>
    */
-  status?: ScanStatus | string;
+  status?: ScanStatus;
 
   /**
    * @public
@@ -1762,14 +1934,14 @@ export interface ImageDetail {
   /**
    * @public
    * <p>The size, in bytes, of the image in the repository.</p>
-   *         <p>If the image is a manifest list, this will be the max size of all manifests in the
+   *          <p>If the image is a manifest list, this will be the max size of all manifests in the
    *             list.</p>
-   *         <note>
+   *          <note>
    *             <p>Beginning with Docker version 1.9, the Docker client compresses image layers
    *                 before pushing them to a V2 Docker registry. The output of the <code>docker
    *                     images</code> command shows the uncompressed image size, so it may return a
    *                 larger image size than the image sizes returned by <a>DescribeImages</a>.</p>
-   *         </note>
+   *          </note>
    */
   imageSizeInBytes?: number;
 
@@ -1808,14 +1980,14 @@ export interface ImageDetail {
    * @public
    * <p>The date and time, expressed in standard JavaScript date format, when Amazon ECR recorded
    *             the last image pull.</p>
-   *         <note>
+   *          <note>
    *             <p>Amazon ECR refreshes the last image pull timestamp at least once every 24 hours. For
    *                 example, if you pull an image once a day then the <code>lastRecordedPullTime</code>
    *                 timestamp will indicate the exact time that the image was last pulled. However, if
    *                 you pull an image once an hour, because Amazon ECR refreshes the
    *                     <code>lastRecordedPullTime</code> timestamp at least once every 24 hours, the
    *                 result may not be the exact time that the image was last pulled.</p>
-   *         </note>
+   *          </note>
    */
   lastRecordedPullTime?: Date;
 }
@@ -2377,7 +2549,7 @@ export interface ImageScanFinding {
    * @public
    * <p>The finding severity.</p>
    */
-  severity?: FindingSeverity | string;
+  severity?: FindingSeverity;
 
   /**
    * @public
@@ -2407,7 +2579,7 @@ export interface ImageScanFindings {
    * @public
    * <p>The image vulnerability counts, sorted by severity.</p>
    */
-  findingSeverityCounts?: Record<string, number>;
+  findingSeverityCounts?: Partial<Record<FindingSeverity, number>>;
 
   /**
    * @public
@@ -2562,6 +2734,26 @@ export interface PullThroughCacheRule {
    *             associated with.</p>
    */
   registryId?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the Secrets Manager secret associated with the pull through cache rule.</p>
+   */
+  credentialArn?: string;
+
+  /**
+   * @public
+   * <p>The name of the upstream source registry associated with the pull through cache
+   *             rule.</p>
+   */
+  upstreamRegistry?: UpstreamRegistry;
+
+  /**
+   * @public
+   * <p>The date and time, in JavaScript date format, when the pull through cache rule was
+   *             last updated.</p>
+   */
+  updatedAt?: Date;
 }
 
 /**
@@ -2626,8 +2818,8 @@ export type RepositoryFilterType = (typeof RepositoryFilterType)[keyof typeof Re
  * @public
  * <p>The filter settings used with image replication. Specifying a repository filter to a
  *             replication rule provides a method for controlling which repositories in a private
- *             registry are replicated. If no repository filter is specified, all images in the
- *             repository are replicated.</p>
+ *             registry are replicated. If no filters are added, the contents of all repositories are
+ *             replicated.</p>
  */
 export interface RepositoryFilter {
   /**
@@ -2644,7 +2836,7 @@ export interface RepositoryFilter {
    *             which is a repository name prefix specified with the <code>filter</code>
    *             parameter.</p>
    */
-  filterType: RepositoryFilterType | string | undefined;
+  filterType: RepositoryFilterType | undefined;
 }
 
 /**
@@ -2724,10 +2916,10 @@ export interface DescribeRepositoriesRequest {
    *             the previous results that returned the <code>nextToken</code> value. This value is
    *                 <code>null</code> when there are no more results to return. This option cannot be
    *             used when you specify repositories with <code>repositoryNames</code>.</p>
-   *         <note>
+   *          <note>
    *             <p>This token should be treated as an opaque identifier that is only used to
    *                 retrieve the next items in a list and not for other programmatic purposes.</p>
-   *         </note>
+   *          </note>
    */
   nextToken?: string;
 
@@ -2910,6 +3102,27 @@ export class LayersNotFoundException extends __BaseException {
 
 /**
  * @public
+ * <p>There was an issue getting the upstream layer matching the pull through cache
+ *             rule.</p>
+ */
+export class UnableToGetUpstreamLayerException extends __BaseException {
+  readonly name: "UnableToGetUpstreamLayerException" = "UnableToGetUpstreamLayerException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnableToGetUpstreamLayerException, __BaseException>) {
+    super({
+      name: "UnableToGetUpstreamLayerException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnableToGetUpstreamLayerException.prototype);
+  }
+}
+
+/**
+ * @public
  */
 export interface GetLifecyclePolicyRequest {
   /**
@@ -2964,7 +3177,7 @@ export interface LifecyclePolicyPreviewFilter {
    * @public
    * <p>The tag status of the image.</p>
    */
-  tagStatus?: TagStatus | string;
+  tagStatus?: TagStatus;
 }
 
 /**
@@ -3047,7 +3260,7 @@ export interface LifecyclePolicyRuleAction {
    * @public
    * <p>The type of action to be taken.</p>
    */
-  type?: ImageActionType | string;
+  type?: ImageActionType;
 }
 
 /**
@@ -3142,7 +3355,7 @@ export interface GetLifecyclePolicyPreviewResponse {
    * @public
    * <p>The status of the lifecycle policy preview request.</p>
    */
-  status?: LifecyclePolicyPreviewStatus | string;
+  status?: LifecyclePolicyPreviewStatus;
 
   /**
    * @public
@@ -3224,10 +3437,11 @@ export interface RegistryScanningRule {
    * <p>The frequency that scans are performed at for a private registry. When the
    *                 <code>ENHANCED</code> scan type is specified, the supported scan frequencies are
    *                 <code>CONTINUOUS_SCAN</code> and <code>SCAN_ON_PUSH</code>. When the
-   *                 <code>BASIC</code> scan type is specified, the <code>SCAN_ON_PUSH</code> and
-   *                 <code>MANUAL</code> scan frequencies are supported.</p>
+   *                 <code>BASIC</code> scan type is specified, the <code>SCAN_ON_PUSH</code> scan
+   *             frequency is supported. If scan on push is not specified, then the <code>MANUAL</code>
+   *             scan frequency is set by default.</p>
    */
-  scanFrequency: ScanFrequency | string | undefined;
+  scanFrequency: ScanFrequency | undefined;
 
   /**
    * @public
@@ -3260,7 +3474,7 @@ export interface RegistryScanningConfiguration {
    * @public
    * <p>The type of scanning configured for the registry.</p>
    */
-  scanType?: ScanType | string;
+  scanType?: ScanType;
 
   /**
    * @public
@@ -3374,7 +3588,7 @@ export interface ListImagesFilter {
    *             filter results based on whether they are <code>TAGGED</code> or
    *             <code>UNTAGGED</code>.</p>
    */
-  tagStatus?: TagStatus | string;
+  tagStatus?: TagStatus;
 }
 
 /**
@@ -3401,10 +3615,10 @@ export interface ListImagesRequest {
    *             results exceeded the value of that parameter. Pagination continues from the end of the
    *             previous results that returned the <code>nextToken</code> value. This value is
    *                 <code>null</code> when there are no more results to return.</p>
-   *         <note>
+   *          <note>
    *             <p>This token should be treated as an opaque identifier that is only used to
    *                 retrieve the next items in a list and not for other programmatic purposes.</p>
-   *         </note>
+   *          </note>
    */
   nextToken?: string;
 
@@ -3688,7 +3902,7 @@ export interface PutImageTagMutabilityRequest {
    *             within the repository will be immutable which will prevent them from being
    *             overwritten.</p>
    */
-  imageTagMutability: ImageTagMutability | string | undefined;
+  imageTagMutability: ImageTagMutability | undefined;
 }
 
 /**
@@ -3711,7 +3925,7 @@ export interface PutImageTagMutabilityResponse {
    * @public
    * <p>The image tag mutability setting for the repository.</p>
    */
-  imageTagMutability?: ImageTagMutability | string;
+  imageTagMutability?: ImageTagMutability;
 }
 
 /**
@@ -3798,17 +4012,17 @@ export interface PutRegistryScanningConfigurationRequest {
   /**
    * @public
    * <p>The scanning type to set for the registry.</p>
-   *         <p>When a registry scanning configuration is not defined, by default the
+   *          <p>When a registry scanning configuration is not defined, by default the
    *                 <code>BASIC</code> scan type is used. When basic scanning is used, you may specify
    *             filters to determine which individual repositories, or all repositories, are scanned
    *             when new images are pushed to those repositories. Alternatively, you can do manual scans
    *             of images with basic scanning.</p>
-   *         <p>When the <code>ENHANCED</code> scan type is set, Amazon Inspector provides automated
+   *          <p>When the <code>ENHANCED</code> scan type is set, Amazon Inspector provides automated
    *             vulnerability scanning. You may choose between continuous scanning or scan on push and
    *             you may specify filters to determine which individual repositories, or all repositories,
    *             are scanned.</p>
    */
-  scanType?: ScanType | string;
+  scanType?: ScanType;
 
   /**
    * @public
@@ -4053,7 +4267,7 @@ export interface StartLifecyclePolicyPreviewResponse {
    * @public
    * <p>The status of the lifecycle policy preview request.</p>
    */
-  status?: LifecyclePolicyPreviewStatus | string;
+  status?: LifecyclePolicyPreviewStatus;
 }
 
 /**
@@ -4103,6 +4317,62 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UpdatePullThroughCacheRuleRequest {
+  /**
+   * @public
+   * <p>The Amazon Web Services account ID associated with the registry associated with the pull through
+   *             cache rule. If you do not specify a registry, the default registry is assumed.</p>
+   */
+  registryId?: string;
+
+  /**
+   * @public
+   * <p>The repository name prefix to use when caching images from the source registry.</p>
+   */
+  ecrRepositoryPrefix: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that identifies the credentials to authenticate
+   *             to the upstream registry.</p>
+   */
+  credentialArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePullThroughCacheRuleResponse {
+  /**
+   * @public
+   * <p>The Amazon ECR repository prefix associated with the pull through cache rule.</p>
+   */
+  ecrRepositoryPrefix?: string;
+
+  /**
+   * @public
+   * <p>The registry ID associated with the request.</p>
+   */
+  registryId?: string;
+
+  /**
+   * @public
+   * <p>The date and time, in JavaScript date format, when the pull through cache rule was
+   *             updated.</p>
+   */
+  updatedAt?: Date;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret associated with the pull through cache
+   *             rule.</p>
+   */
+  credentialArn?: string;
+}
 
 /**
  * @public
@@ -4224,4 +4494,69 @@ export interface UploadLayerPartResponse {
    * <p>The integer value of the last byte received in the request.</p>
    */
   lastByteReceived?: number;
+}
+
+/**
+ * @public
+ */
+export interface ValidatePullThroughCacheRuleRequest {
+  /**
+   * @public
+   * <p>The repository name prefix associated with the pull through cache rule.</p>
+   */
+  ecrRepositoryPrefix: string | undefined;
+
+  /**
+   * @public
+   * <p>The registry ID associated with the pull through cache rule.
+   *             If you do not specify a registry, the default registry is assumed.</p>
+   */
+  registryId?: string;
+}
+
+/**
+ * @public
+ */
+export interface ValidatePullThroughCacheRuleResponse {
+  /**
+   * @public
+   * <p>The Amazon ECR repository prefix associated with the pull through cache rule.</p>
+   */
+  ecrRepositoryPrefix?: string;
+
+  /**
+   * @public
+   * <p>The registry ID associated with the request.</p>
+   */
+  registryId?: string;
+
+  /**
+   * @public
+   * <p>The upstream registry URL associated with the pull through cache rule.</p>
+   */
+  upstreamRegistryUrl?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret associated with the pull through cache
+   *             rule.</p>
+   */
+  credentialArn?: string;
+
+  /**
+   * @public
+   * <p>Whether or not the pull through cache rule was validated. If <code>true</code>, Amazon ECR
+   *             was able to reach the upstream registry and authentication was successful. If
+   *                 <code>false</code>, there was an issue and validation failed. The
+   *                 <code>failure</code> reason indicates the cause.</p>
+   */
+  isValid?: boolean;
+
+  /**
+   * @public
+   * <p>The reason the validation failed. For more details about possible causes and how to
+   *             address them, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache.html">Using pull through cache
+   *                 rules</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
+   */
+  failure?: string;
 }

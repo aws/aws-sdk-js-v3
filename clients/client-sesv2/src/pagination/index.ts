@@ -10,6 +10,7 @@ export * from "./ListDeliverabilityTestReportsPaginator";
 export * from "./ListDomainDeliverabilityCampaignsPaginator";
 export * from "./ListEmailIdentitiesPaginator";
 export * from "./ListEmailTemplatesPaginator";
+export * from "./ListExportJobsPaginator";
 export * from "./ListImportJobsPaginator";
 export * from "./ListRecommendationsPaginator";
 export * from "./ListSuppressedDestinationsPaginator";

@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GetDeploymentGroupInput, GetDeploymentGroupOutput } from "../models/models_0";
 import { de_GetDeploymentGroupCommand, se_GetDeploymentGroupCommand } from "../protocols/Aws_json1_1";
 
@@ -73,6 +65,7 @@ export interface GetDeploymentGroupCommandOutput extends GetDeploymentGroupOutpu
  * //       { // AutoScalingGroup
  * //         name: "STRING_VALUE",
  * //         hook: "STRING_VALUE",
+ * //         terminationHook: "STRING_VALUE",
  * //       },
  * //     ],
  * //     serviceRoleArn: "STRING_VALUE",
@@ -212,6 +205,7 @@ export interface GetDeploymentGroupCommandOutput extends GetDeploymentGroupOutpu
  * //         clusterName: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     terminationHookEnabled: true || false,
  * //   },
  * // };
  *
@@ -224,17 +218,17 @@ export interface GetDeploymentGroupCommandOutput extends GetDeploymentGroupOutpu
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link ApplicationDoesNotExistException} (client fault)
- *  <p>The application does not exist with the IAM user or Amazon Web Services account.</p>
+ *  <p>The application does not exist with the user or Amazon Web Services account.</p>
  *
  * @throws {@link ApplicationNameRequiredException} (client fault)
  *  <p>The minimum number of required application names was not specified.</p>
  *
  * @throws {@link DeploymentConfigDoesNotExistException} (client fault)
- *  <p>The deployment configuration does not exist with the IAM user or
- *                 Amazon Web Services account.</p>
+ *  <p>The deployment configuration does not exist with the user or Amazon Web Services account.</p>
  *
  * @throws {@link DeploymentGroupDoesNotExistException} (client fault)
- *  <p>The named deployment group with the IAM user or Amazon Web Services account does not exist.</p>
+ *  <p>The named deployment group with the user or Amazon Web Services account does not
+ *             exist.</p>
  *
  * @throws {@link DeploymentGroupNameRequiredException} (client fault)
  *  <p>The deployment group name was not specified.</p>
@@ -249,79 +243,26 @@ export interface GetDeploymentGroupCommandOutput extends GetDeploymentGroupOutpu
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
-export class GetDeploymentGroupCommand extends $Command<
-  GetDeploymentGroupCommandInput,
-  GetDeploymentGroupCommandOutput,
-  CodeDeployClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetDeploymentGroupCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CodeDeployClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetDeploymentGroupCommandInput, GetDeploymentGroupCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetDeploymentGroupCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CodeDeployClient";
-    const commandName = "GetDeploymentGroupCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetDeploymentGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetDeploymentGroupCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDeploymentGroupCommandOutput> {
-    return de_GetDeploymentGroupCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetDeploymentGroupCommand extends $Command
+  .classBuilder<
+    GetDeploymentGroupCommandInput,
+    GetDeploymentGroupCommandOutput,
+    CodeDeployClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CodeDeployClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CodeDeploy_20141006", "GetDeploymentGroup", {})
+  .n("CodeDeployClient", "GetDeploymentGroupCommand")
+  .f(void 0, void 0)
+  .ser(se_GetDeploymentGroupCommand)
+  .de(de_GetDeploymentGroupCommand)
+  .build() {}

@@ -1,21 +1,12 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  BlobPayloadInputTypes,
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreateHostedConfigurationVersionRequest,
   CreateHostedConfigurationVersionRequestFilterSensitiveLog,
@@ -93,6 +84,7 @@ export interface CreateHostedConfigurationVersionCommandOutput
  * //   Content: "BLOB_VALUE",
  * //   ContentType: "STRING_VALUE",
  * //   VersionLabel: "STRING_VALUE",
+ * //   KmsKeyArn: "STRING_VALUE",
  * // };
  *
  * ```
@@ -120,7 +112,15 @@ export interface CreateHostedConfigurationVersionCommandOutput
  *  <p>The requested resource could not be found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The number of hosted configuration versions exceeds the limit for the AppConfig hosted configuration store. Delete one or more versions and try again.</p>
+ *  <p>The number of one more AppConfig resources exceeds the maximum allowed. Verify that your
+ *          environment doesn't exceed the following service quotas:</p>
+ *          <p>Applications: 100 max</p>
+ *          <p>Deployment strategies: 20 max</p>
+ *          <p>Configuration profiles: 100 max per application</p>
+ *          <p>Environments: 20 max per application</p>
+ *          <p>To resolve this issue, you can delete one or more resources and try again. Or, you can
+ *          request a quota increase. For more information about quotas and to request an increase, see
+ *             <a href="https://docs.aws.amazon.com/general/latest/gr/appconfig.html#limits_appconfig">Service quotas for AppConfig</a> in the Amazon Web Services General Reference.</p>
  *
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
@@ -149,85 +149,26 @@ export interface CreateHostedConfigurationVersionCommandOutput
  * ```
  *
  */
-export class CreateHostedConfigurationVersionCommand extends $Command<
-  CreateHostedConfigurationVersionCommandInput,
-  CreateHostedConfigurationVersionCommandOutput,
-  AppConfigClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateHostedConfigurationVersionCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AppConfigClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateHostedConfigurationVersionCommandInput, CreateHostedConfigurationVersionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateHostedConfigurationVersionCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "AppConfigClient";
-    const commandName = "CreateHostedConfigurationVersionCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: CreateHostedConfigurationVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: HostedConfigurationVersionFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: CreateHostedConfigurationVersionCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_CreateHostedConfigurationVersionCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateHostedConfigurationVersionCommandOutput> {
-    return de_CreateHostedConfigurationVersionCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateHostedConfigurationVersionCommand extends $Command
+  .classBuilder<
+    CreateHostedConfigurationVersionCommandInput,
+    CreateHostedConfigurationVersionCommandOutput,
+    AppConfigClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonAppConfig", "CreateHostedConfigurationVersion", {})
+  .n("AppConfigClient", "CreateHostedConfigurationVersionCommand")
+  .f(CreateHostedConfigurationVersionRequestFilterSensitiveLog, HostedConfigurationVersionFilterSensitiveLog)
+  .ser(se_CreateHostedConfigurationVersionCommand)
+  .de(de_CreateHostedConfigurationVersionCommand)
+  .build() {}

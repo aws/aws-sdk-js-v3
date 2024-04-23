@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
 import { PutTargetsRequest, PutTargetsRequestFilterSensitiveLog, PutTargetsResponse } from "../models/models_0";
 import { de_PutTargetsCommand, se_PutTargetsCommand } from "../protocols/Aws_json1_1";
@@ -39,126 +31,57 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  * <p>Adds the specified targets to the specified rule, or updates the targets if they are
  *       already associated with the rule.</p>
  *          <p>Targets are the resources that are invoked when a rule is triggered.</p>
+ *          <p>The maximum number of entries per request is 10.</p>
  *          <note>
  *             <p>Each rule can have up to five (5) targets associated with it at one time.</p>
  *          </note>
- *          <p>You can configure the following as targets for Events:</p>
+ *          <p>For a list of services you can configure as targets for events, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-targets.html">EventBridge targets</a>
+ *       in the <i>Amazon EventBridge User Guide</i>.</p>
+ *          <p>Creating rules with built-in targets is supported only in the Amazon Web Services Management Console. The
+ *       built-in targets are:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-destinations.html">API destination</a>
+ *                   <code>Amazon EBS CreateSnapshot API call</code>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-api-gateway-target.html">API Gateway</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>Batch job queue</p>
- *             </li>
- *             <li>
- *                <p>CloudWatch group</p>
- *             </li>
- *             <li>
- *                <p>CodeBuild project</p>
- *             </li>
- *             <li>
- *                <p>CodePipeline</p>
- *             </li>
- *             <li>
- *                <p>EC2 <code>CreateSnapshot</code> API call</p>
- *             </li>
- *             <li>
- *                <p>EC2 Image Builder</p>
- *             </li>
- *             <li>
- *                <p>EC2 <code>RebootInstances</code> API call</p>
- *             </li>
- *             <li>
- *                <p>EC2 <code>StopInstances</code> API call</p>
- *             </li>
- *             <li>
- *                <p>EC2 <code>TerminateInstances</code> API call</p>
- *             </li>
- *             <li>
- *                <p>ECS task</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-cross-account.html">Event bus in a different account or
- *           Region</a>
+ *                   <code>Amazon EC2 RebootInstances API call</code>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-bus-to-bus.html">Event bus in the same account and
- *           Region</a>
+ *                   <code>Amazon EC2 StopInstances API call</code>
  *                </p>
- *             </li>
- *             <li>
- *                <p>Firehose delivery stream</p>
- *             </li>
- *             <li>
- *                <p>Glue workflow</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/incident-creation.html#incident-tracking-auto-eventbridge">Incident Manager response plan</a>
+ *                   <code>Amazon EC2 TerminateInstances API
+ *         call</code>
  *                </p>
- *             </li>
- *             <li>
- *                <p>Inspector assessment template</p>
- *             </li>
- *             <li>
- *                <p>Kinesis stream</p>
- *             </li>
- *             <li>
- *                <p>Lambda function</p>
- *             </li>
- *             <li>
- *                <p>Redshift cluster</p>
- *             </li>
- *             <li>
- *                <p>Redshift Serverless workgroup</p>
- *             </li>
- *             <li>
- *                <p>SageMaker Pipeline</p>
- *             </li>
- *             <li>
- *                <p>SNS topic</p>
- *             </li>
- *             <li>
- *                <p>SQS queue</p>
- *             </li>
- *             <li>
- *                <p>Step Functions state machine</p>
- *             </li>
- *             <li>
- *                <p>Systems Manager Automation</p>
- *             </li>
- *             <li>
- *                <p>Systems Manager OpsItem</p>
- *             </li>
- *             <li>
- *                <p>Systems Manager Run Command</p>
  *             </li>
  *          </ul>
- *          <p>Creating rules with built-in targets is supported only in the Amazon Web Services Management Console. The
- *       built-in targets are <code>EC2 CreateSnapshot API call</code>, <code>EC2 RebootInstances API
- *         call</code>, <code>EC2 StopInstances API call</code>, and <code>EC2 TerminateInstances API
- *         call</code>. </p>
  *          <p>For some target types, <code>PutTargets</code> provides target-specific parameters. If the
  *       target is a Kinesis data stream, you can optionally specify which shard the event goes to by
  *       using the <code>KinesisParameters</code> argument. To invoke a command on multiple EC2
  *       instances with one rule, you can use the <code>RunCommandParameters</code> field.</p>
  *          <p>To be able to make API calls against the resources that you own, Amazon EventBridge
- *       needs the appropriate permissions. For Lambda and Amazon SNS
- *       resources, EventBridge relies on resource-based policies. For EC2 instances, Kinesis Data Streams,
- *       Step Functions state machines and API Gateway APIs, EventBridge relies on
- *       IAM roles that you specify in the <code>RoleARN</code> argument in <code>PutTargets</code>.
- *       For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/auth-and-access-control-eventbridge.html">Authentication
- *         and Access Control</a> in the <i>Amazon EventBridge User Guide</i>.</p>
+ *       needs the appropriate permissions:
+ *       </p>
+ *          <ul>
+ *             <li>
+ *                <p>For Lambda and Amazon SNS
+ *         resources, EventBridge relies on resource-based policies.</p>
+ *             </li>
+ *             <li>
+ *                <p>For EC2 instances, Kinesis Data Streams,
+ *         Step Functions state machines and API Gateway APIs, EventBridge relies on
+ *         IAM roles that you specify in the <code>RoleARN</code> argument in <code>PutTargets</code>.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/auth-and-access-control-eventbridge.html">Authentication
+ *       and Access Control</a> in the <i>Amazon EventBridge User Guide</i>.</p>
  *          <p>If another Amazon Web Services account is in the same region and has granted you permission (using
  *         <code>PutPermission</code>), you can send events to that account. Set that account's event
  *       bus as a target of the rules in your account. To send the matched events to the other account,
@@ -179,6 +102,10 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  *         <code>Target</code> structure. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html">Sending and
  *           Receiving Events Between Amazon Web Services Accounts</a> in the <i>Amazon EventBridge User
  *         Guide</i>.</p>
+ *          <note>
+ *             <p>If you have an IAM role on a cross-account event bus target,
+ *       a <code>PutTargets</code> call without a role on the same target (same <code>Id</code> and <code>Arn</code>) will not remove the role.</p>
+ *          </note>
  *          <p>For more information about enabling cross-account events, see <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutPermission.html">PutPermission</a>.</p>
  *          <p>
  *             <b>Input</b>, <b>InputPath</b>, and
@@ -346,6 +273,9 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  *         MaximumRetryAttempts: Number("int"),
  *         MaximumEventAgeInSeconds: Number("int"),
  *       },
+ *       AppSyncParameters: { // AppSyncParameters
+ *         GraphQLOperation: "STRING_VALUE",
+ *       },
  *     },
  *   ],
  * };
@@ -395,77 +325,26 @@ export interface PutTargetsCommandOutput extends PutTargetsResponse, __MetadataB
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
-export class PutTargetsCommand extends $Command<
-  PutTargetsCommandInput,
-  PutTargetsCommandOutput,
-  EventBridgeClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PutTargetsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: EventBridgeClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PutTargetsCommandInput, PutTargetsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, PutTargetsCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "EventBridgeClient";
-    const commandName = "PutTargetsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: PutTargetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: PutTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PutTargetsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutTargetsCommandOutput> {
-    return de_PutTargetsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class PutTargetsCommand extends $Command
+  .classBuilder<
+    PutTargetsCommandInput,
+    PutTargetsCommandOutput,
+    EventBridgeClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: EventBridgeClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSEvents", "PutTargets", {})
+  .n("EventBridgeClient", "PutTargetsCommand")
+  .f(PutTargetsRequestFilterSensitiveLog, void 0)
+  .ser(se_PutTargetsCommand)
+  .de(de_PutTargetsCommand)
+  .build() {}

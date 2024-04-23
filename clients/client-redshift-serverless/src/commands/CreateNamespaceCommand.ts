@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreateNamespaceRequest,
   CreateNamespaceRequestFilterSensitiveLog,
@@ -71,6 +63,9 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
  *       value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   manageAdminPassword: true || false,
+ *   adminPasswordSecretKmsKeyId: "STRING_VALUE",
+ *   redshiftIdcApplicationArn: "STRING_VALUE",
  * };
  * const command = new CreateNamespaceCommand(input);
  * const response = await client.send(command);
@@ -91,6 +86,8 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
  * //     ],
  * //     status: "STRING_VALUE",
  * //     creationDate: new Date("TIMESTAMP"),
+ * //     adminPasswordSecretArn: "STRING_VALUE",
+ * //     adminPasswordSecretKmsKeyId: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -118,79 +115,26 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
-export class CreateNamespaceCommand extends $Command<
-  CreateNamespaceCommandInput,
-  CreateNamespaceCommandOutput,
-  RedshiftServerlessClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateNamespaceCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RedshiftServerlessClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateNamespaceCommandInput, CreateNamespaceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateNamespaceCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RedshiftServerlessClient";
-    const commandName = "CreateNamespaceCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: CreateNamespaceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateNamespaceResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateNamespaceCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateNamespaceCommandOutput> {
-    return de_CreateNamespaceCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateNamespaceCommand extends $Command
+  .classBuilder<
+    CreateNamespaceCommandInput,
+    CreateNamespaceCommandOutput,
+    RedshiftServerlessClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("RedshiftServerless", "CreateNamespace", {})
+  .n("RedshiftServerlessClient", "CreateNamespaceCommand")
+  .f(CreateNamespaceRequestFilterSensitiveLog, CreateNamespaceResponseFilterSensitiveLog)
+  .ser(se_CreateNamespaceCommand)
+  .de(de_CreateNamespaceCommand)
+  .build() {}

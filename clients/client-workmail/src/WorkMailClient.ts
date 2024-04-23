@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -132,6 +130,7 @@ import {
   DescribeEmailMonitoringConfigurationCommandInput,
   DescribeEmailMonitoringConfigurationCommandOutput,
 } from "./commands/DescribeEmailMonitoringConfigurationCommand";
+import { DescribeEntityCommandInput, DescribeEntityCommandOutput } from "./commands/DescribeEntityCommand";
 import { DescribeGroupCommandInput, DescribeGroupCommandOutput } from "./commands/DescribeGroupCommand";
 import {
   DescribeInboundDmarcSettingsCommandInput,
@@ -192,6 +191,10 @@ import {
 } from "./commands/ListAvailabilityConfigurationsCommand";
 import { ListGroupMembersCommandInput, ListGroupMembersCommandOutput } from "./commands/ListGroupMembersCommand";
 import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand";
+import {
+  ListGroupsForEntityCommandInput,
+  ListGroupsForEntityCommandOutput,
+} from "./commands/ListGroupsForEntityCommand";
 import {
   ListImpersonationRolesCommandInput,
   ListImpersonationRolesCommandOutput,
@@ -266,6 +269,7 @@ import {
   UpdateDefaultMailDomainCommandInput,
   UpdateDefaultMailDomainCommandOutput,
 } from "./commands/UpdateDefaultMailDomainCommand";
+import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import {
   UpdateImpersonationRoleCommandInput,
   UpdateImpersonationRoleCommandOutput,
@@ -280,6 +284,7 @@ import {
   UpdatePrimaryEmailAddressCommandOutput,
 } from "./commands/UpdatePrimaryEmailAddressCommand";
 import { UpdateResourceCommandInput, UpdateResourceCommandOutput } from "./commands/UpdateResourceCommand";
+import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -323,6 +328,7 @@ export type ServiceInputTypes =
   | DeregisterFromWorkMailCommandInput
   | DeregisterMailDomainCommandInput
   | DescribeEmailMonitoringConfigurationCommandInput
+  | DescribeEntityCommandInput
   | DescribeGroupCommandInput
   | DescribeInboundDmarcSettingsCommandInput
   | DescribeMailboxExportJobCommandInput
@@ -344,6 +350,7 @@ export type ServiceInputTypes =
   | ListAvailabilityConfigurationsCommandInput
   | ListGroupMembersCommandInput
   | ListGroupsCommandInput
+  | ListGroupsForEntityCommandInput
   | ListImpersonationRolesCommandInput
   | ListMailDomainsCommandInput
   | ListMailboxExportJobsCommandInput
@@ -370,11 +377,13 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateAvailabilityConfigurationCommandInput
   | UpdateDefaultMailDomainCommandInput
+  | UpdateGroupCommandInput
   | UpdateImpersonationRoleCommandInput
   | UpdateMailboxQuotaCommandInput
   | UpdateMobileDeviceAccessRuleCommandInput
   | UpdatePrimaryEmailAddressCommandInput
-  | UpdateResourceCommandInput;
+  | UpdateResourceCommandInput
+  | UpdateUserCommandInput;
 
 /**
  * @public
@@ -408,6 +417,7 @@ export type ServiceOutputTypes =
   | DeregisterFromWorkMailCommandOutput
   | DeregisterMailDomainCommandOutput
   | DescribeEmailMonitoringConfigurationCommandOutput
+  | DescribeEntityCommandOutput
   | DescribeGroupCommandOutput
   | DescribeInboundDmarcSettingsCommandOutput
   | DescribeMailboxExportJobCommandOutput
@@ -429,6 +439,7 @@ export type ServiceOutputTypes =
   | ListAvailabilityConfigurationsCommandOutput
   | ListGroupMembersCommandOutput
   | ListGroupsCommandOutput
+  | ListGroupsForEntityCommandOutput
   | ListImpersonationRolesCommandOutput
   | ListMailDomainsCommandOutput
   | ListMailboxExportJobsCommandOutput
@@ -455,11 +466,13 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateAvailabilityConfigurationCommandOutput
   | UpdateDefaultMailDomainCommandOutput
+  | UpdateGroupCommandOutput
   | UpdateImpersonationRoleCommandOutput
   | UpdateMailboxQuotaCommandOutput
   | UpdateMobileDeviceAccessRuleCommandOutput
   | UpdatePrimaryEmailAddressCommandOutput
-  | UpdateResourceCommandOutput;
+  | UpdateResourceCommandOutput
+  | UpdateUserCommandOutput;
 
 /**
  * @public
@@ -571,6 +584,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

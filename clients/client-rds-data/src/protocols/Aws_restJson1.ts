@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -10,7 +12,6 @@ import {
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
   map,
@@ -41,17 +42,25 @@ import {
   AccessDeniedException,
   ArrayValue,
   BadRequestException,
+  DatabaseErrorException,
+  DatabaseNotFoundException,
+  DatabaseUnavailableException,
   Field,
   ForbiddenException,
+  HttpEndpointNotEnabledException,
   InternalServerErrorException,
+  InvalidSecretException,
   NotFoundException,
   ResultFrame,
   ResultSetOptions,
+  SecretsErrorException,
   ServiceUnavailableError,
   SqlParameter,
   SqlStatementResult,
   StatementTimeoutException,
   StructValue,
+  TransactionNotFoundException,
+  UnsupportedResultException,
   UpdateResult,
   Value,
 } from "../models/models_0";
@@ -64,11 +73,11 @@ export const se_BatchExecuteStatementCommand = async (
   input: BatchExecuteStatementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BatchExecute";
+  b.bp("/BatchExecute");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -81,15 +90,8 @@ export const se_BatchExecuteStatementCommand = async (
       transactionId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -99,11 +101,11 @@ export const se_BeginTransactionCommand = async (
   input: BeginTransactionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BeginTransaction";
+  b.bp("/BeginTransaction");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -113,15 +115,8 @@ export const se_BeginTransactionCommand = async (
       secretArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -131,11 +126,11 @@ export const se_CommitTransactionCommand = async (
   input: CommitTransactionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CommitTransaction";
+  b.bp("/CommitTransaction");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -144,15 +139,8 @@ export const se_CommitTransactionCommand = async (
       transactionId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -162,11 +150,11 @@ export const se_ExecuteSqlCommand = async (
   input: ExecuteSqlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ExecuteSql";
+  b.bp("/ExecuteSql");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -177,15 +165,8 @@ export const se_ExecuteSqlCommand = async (
       sqlStatements: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -195,11 +176,11 @@ export const se_ExecuteStatementCommand = async (
   input: ExecuteStatementCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/Execute";
+  b.bp("/Execute");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -216,15 +197,8 @@ export const se_ExecuteStatementCommand = async (
       transactionId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -234,11 +208,11 @@ export const se_RollbackTransactionCommand = async (
   input: RollbackTransactionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/RollbackTransaction";
+  b.bp("/RollbackTransaction");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -247,15 +221,8 @@ export const se_RollbackTransactionCommand = async (
       transactionId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -298,18 +265,39 @@ const de_BatchExecuteStatementCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.rdsdata#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "DatabaseErrorException":
+    case "com.amazonaws.rdsdata#DatabaseErrorException":
+      throw await de_DatabaseErrorExceptionRes(parsedOutput, context);
+    case "DatabaseNotFoundException":
+    case "com.amazonaws.rdsdata#DatabaseNotFoundException":
+      throw await de_DatabaseNotFoundExceptionRes(parsedOutput, context);
+    case "DatabaseUnavailableException":
+    case "com.amazonaws.rdsdata#DatabaseUnavailableException":
+      throw await de_DatabaseUnavailableExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.rdsdata#ForbiddenException":
       throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "HttpEndpointNotEnabledException":
+    case "com.amazonaws.rdsdata#HttpEndpointNotEnabledException":
+      throw await de_HttpEndpointNotEnabledExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.rdsdata#InternalServerErrorException":
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "InvalidSecretException":
+    case "com.amazonaws.rdsdata#InvalidSecretException":
+      throw await de_InvalidSecretExceptionRes(parsedOutput, context);
+    case "SecretsErrorException":
+    case "com.amazonaws.rdsdata#SecretsErrorException":
+      throw await de_SecretsErrorExceptionRes(parsedOutput, context);
     case "ServiceUnavailableError":
     case "com.amazonaws.rdsdata#ServiceUnavailableError":
       throw await de_ServiceUnavailableErrorRes(parsedOutput, context);
     case "StatementTimeoutException":
     case "com.amazonaws.rdsdata#StatementTimeoutException":
       throw await de_StatementTimeoutExceptionRes(parsedOutput, context);
+    case "TransactionNotFoundException":
+    case "com.amazonaws.rdsdata#TransactionNotFoundException":
+      throw await de_TransactionNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -360,18 +348,39 @@ const de_BeginTransactionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.rdsdata#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "DatabaseErrorException":
+    case "com.amazonaws.rdsdata#DatabaseErrorException":
+      throw await de_DatabaseErrorExceptionRes(parsedOutput, context);
+    case "DatabaseNotFoundException":
+    case "com.amazonaws.rdsdata#DatabaseNotFoundException":
+      throw await de_DatabaseNotFoundExceptionRes(parsedOutput, context);
+    case "DatabaseUnavailableException":
+    case "com.amazonaws.rdsdata#DatabaseUnavailableException":
+      throw await de_DatabaseUnavailableExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.rdsdata#ForbiddenException":
       throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "HttpEndpointNotEnabledException":
+    case "com.amazonaws.rdsdata#HttpEndpointNotEnabledException":
+      throw await de_HttpEndpointNotEnabledExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.rdsdata#InternalServerErrorException":
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "InvalidSecretException":
+    case "com.amazonaws.rdsdata#InvalidSecretException":
+      throw await de_InvalidSecretExceptionRes(parsedOutput, context);
+    case "SecretsErrorException":
+    case "com.amazonaws.rdsdata#SecretsErrorException":
+      throw await de_SecretsErrorExceptionRes(parsedOutput, context);
     case "ServiceUnavailableError":
     case "com.amazonaws.rdsdata#ServiceUnavailableError":
       throw await de_ServiceUnavailableErrorRes(parsedOutput, context);
     case "StatementTimeoutException":
     case "com.amazonaws.rdsdata#StatementTimeoutException":
       throw await de_StatementTimeoutExceptionRes(parsedOutput, context);
+    case "TransactionNotFoundException":
+    case "com.amazonaws.rdsdata#TransactionNotFoundException":
+      throw await de_TransactionNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -422,21 +431,42 @@ const de_CommitTransactionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.rdsdata#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "DatabaseErrorException":
+    case "com.amazonaws.rdsdata#DatabaseErrorException":
+      throw await de_DatabaseErrorExceptionRes(parsedOutput, context);
+    case "DatabaseNotFoundException":
+    case "com.amazonaws.rdsdata#DatabaseNotFoundException":
+      throw await de_DatabaseNotFoundExceptionRes(parsedOutput, context);
+    case "DatabaseUnavailableException":
+    case "com.amazonaws.rdsdata#DatabaseUnavailableException":
+      throw await de_DatabaseUnavailableExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.rdsdata#ForbiddenException":
       throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "HttpEndpointNotEnabledException":
+    case "com.amazonaws.rdsdata#HttpEndpointNotEnabledException":
+      throw await de_HttpEndpointNotEnabledExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.rdsdata#InternalServerErrorException":
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "InvalidSecretException":
+    case "com.amazonaws.rdsdata#InvalidSecretException":
+      throw await de_InvalidSecretExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.rdsdata#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "SecretsErrorException":
+    case "com.amazonaws.rdsdata#SecretsErrorException":
+      throw await de_SecretsErrorExceptionRes(parsedOutput, context);
     case "ServiceUnavailableError":
     case "com.amazonaws.rdsdata#ServiceUnavailableError":
       throw await de_ServiceUnavailableErrorRes(parsedOutput, context);
     case "StatementTimeoutException":
     case "com.amazonaws.rdsdata#StatementTimeoutException":
       throw await de_StatementTimeoutExceptionRes(parsedOutput, context);
+    case "TransactionNotFoundException":
+    case "com.amazonaws.rdsdata#TransactionNotFoundException":
+      throw await de_TransactionNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -550,18 +580,42 @@ const de_ExecuteStatementCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.rdsdata#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "DatabaseErrorException":
+    case "com.amazonaws.rdsdata#DatabaseErrorException":
+      throw await de_DatabaseErrorExceptionRes(parsedOutput, context);
+    case "DatabaseNotFoundException":
+    case "com.amazonaws.rdsdata#DatabaseNotFoundException":
+      throw await de_DatabaseNotFoundExceptionRes(parsedOutput, context);
+    case "DatabaseUnavailableException":
+    case "com.amazonaws.rdsdata#DatabaseUnavailableException":
+      throw await de_DatabaseUnavailableExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.rdsdata#ForbiddenException":
       throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "HttpEndpointNotEnabledException":
+    case "com.amazonaws.rdsdata#HttpEndpointNotEnabledException":
+      throw await de_HttpEndpointNotEnabledExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.rdsdata#InternalServerErrorException":
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "InvalidSecretException":
+    case "com.amazonaws.rdsdata#InvalidSecretException":
+      throw await de_InvalidSecretExceptionRes(parsedOutput, context);
+    case "SecretsErrorException":
+    case "com.amazonaws.rdsdata#SecretsErrorException":
+      throw await de_SecretsErrorExceptionRes(parsedOutput, context);
     case "ServiceUnavailableError":
     case "com.amazonaws.rdsdata#ServiceUnavailableError":
       throw await de_ServiceUnavailableErrorRes(parsedOutput, context);
     case "StatementTimeoutException":
     case "com.amazonaws.rdsdata#StatementTimeoutException":
       throw await de_StatementTimeoutExceptionRes(parsedOutput, context);
+    case "TransactionNotFoundException":
+    case "com.amazonaws.rdsdata#TransactionNotFoundException":
+      throw await de_TransactionNotFoundExceptionRes(parsedOutput, context);
+    case "UnsupportedResultException":
+    case "com.amazonaws.rdsdata#UnsupportedResultException":
+      throw await de_UnsupportedResultExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -612,21 +666,42 @@ const de_RollbackTransactionCommandError = async (
     case "BadRequestException":
     case "com.amazonaws.rdsdata#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "DatabaseErrorException":
+    case "com.amazonaws.rdsdata#DatabaseErrorException":
+      throw await de_DatabaseErrorExceptionRes(parsedOutput, context);
+    case "DatabaseNotFoundException":
+    case "com.amazonaws.rdsdata#DatabaseNotFoundException":
+      throw await de_DatabaseNotFoundExceptionRes(parsedOutput, context);
+    case "DatabaseUnavailableException":
+    case "com.amazonaws.rdsdata#DatabaseUnavailableException":
+      throw await de_DatabaseUnavailableExceptionRes(parsedOutput, context);
     case "ForbiddenException":
     case "com.amazonaws.rdsdata#ForbiddenException":
       throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "HttpEndpointNotEnabledException":
+    case "com.amazonaws.rdsdata#HttpEndpointNotEnabledException":
+      throw await de_HttpEndpointNotEnabledExceptionRes(parsedOutput, context);
     case "InternalServerErrorException":
     case "com.amazonaws.rdsdata#InternalServerErrorException":
       throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "InvalidSecretException":
+    case "com.amazonaws.rdsdata#InvalidSecretException":
+      throw await de_InvalidSecretExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.rdsdata#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "SecretsErrorException":
+    case "com.amazonaws.rdsdata#SecretsErrorException":
+      throw await de_SecretsErrorExceptionRes(parsedOutput, context);
     case "ServiceUnavailableError":
     case "com.amazonaws.rdsdata#ServiceUnavailableError":
       throw await de_ServiceUnavailableErrorRes(parsedOutput, context);
     case "StatementTimeoutException":
     case "com.amazonaws.rdsdata#StatementTimeoutException":
       throw await de_StatementTimeoutExceptionRes(parsedOutput, context);
+    case "TransactionNotFoundException":
+    case "com.amazonaws.rdsdata#TransactionNotFoundException":
+      throw await de_TransactionNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -676,6 +751,64 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 };
 
 /**
+ * deserializeAws_restJson1DatabaseErrorExceptionRes
+ */
+const de_DatabaseErrorExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DatabaseErrorException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new DatabaseErrorException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1DatabaseNotFoundExceptionRes
+ */
+const de_DatabaseNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DatabaseNotFoundException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new DatabaseNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1DatabaseUnavailableExceptionRes
+ */
+const de_DatabaseUnavailableExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DatabaseUnavailableException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {});
+  Object.assign(contents, doc);
+  const exception = new DatabaseUnavailableException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1ForbiddenExceptionRes
  */
 const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ForbiddenException> => {
@@ -686,6 +819,26 @@ const de_ForbiddenExceptionRes = async (parsedOutput: any, context: __SerdeConte
   });
   Object.assign(contents, doc);
   const exception = new ForbiddenException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1HttpEndpointNotEnabledExceptionRes
+ */
+const de_HttpEndpointNotEnabledExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<HttpEndpointNotEnabledException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new HttpEndpointNotEnabledException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -711,6 +864,26 @@ const de_InternalServerErrorExceptionRes = async (
 };
 
 /**
+ * deserializeAws_restJson1InvalidSecretExceptionRes
+ */
+const de_InvalidSecretExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidSecretException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new InvalidSecretException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1NotFoundExceptionRes
  */
 const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<NotFoundException> => {
@@ -721,6 +894,26 @@ const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContex
   });
   Object.assign(contents, doc);
   const exception = new NotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1SecretsErrorExceptionRes
+ */
+const de_SecretsErrorExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SecretsErrorException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new SecretsErrorException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -760,6 +953,46 @@ const de_StatementTimeoutExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new StatementTimeoutException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1TransactionNotFoundExceptionRes
+ */
+const de_TransactionNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TransactionNotFoundException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new TransactionNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1UnsupportedResultExceptionRes
+ */
+const de_UnsupportedResultExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnsupportedResultException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new UnsupportedResultException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });

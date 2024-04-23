@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -11,11 +13,12 @@ import {
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  limitedParseFloat32 as __limitedParseFloat32,
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
   serializeFloat as __serializeFloat,
   take,
@@ -33,6 +36,10 @@ import {
   ActivateEvaluationFormCommandOutput,
 } from "../commands/ActivateEvaluationFormCommand";
 import {
+  AssociateAnalyticsDataSetCommandInput,
+  AssociateAnalyticsDataSetCommandOutput,
+} from "../commands/AssociateAnalyticsDataSetCommand";
+import {
   AssociateApprovedOriginCommandInput,
   AssociateApprovedOriginCommandOutput,
 } from "../commands/AssociateApprovedOriginCommand";
@@ -41,6 +48,7 @@ import {
   AssociateDefaultVocabularyCommandInput,
   AssociateDefaultVocabularyCommandOutput,
 } from "../commands/AssociateDefaultVocabularyCommand";
+import { AssociateFlowCommandInput, AssociateFlowCommandOutput } from "../commands/AssociateFlowCommand";
 import {
   AssociateInstanceStorageConfigCommandInput,
   AssociateInstanceStorageConfigCommandOutput,
@@ -70,6 +78,23 @@ import {
   AssociateTrafficDistributionGroupUserCommandInput,
   AssociateTrafficDistributionGroupUserCommandOutput,
 } from "../commands/AssociateTrafficDistributionGroupUserCommand";
+import {
+  AssociateUserProficienciesCommandInput,
+  AssociateUserProficienciesCommandOutput,
+} from "../commands/AssociateUserProficienciesCommand";
+import {
+  BatchAssociateAnalyticsDataSetCommandInput,
+  BatchAssociateAnalyticsDataSetCommandOutput,
+} from "../commands/BatchAssociateAnalyticsDataSetCommand";
+import {
+  BatchDisassociateAnalyticsDataSetCommandInput,
+  BatchDisassociateAnalyticsDataSetCommandOutput,
+} from "../commands/BatchDisassociateAnalyticsDataSetCommand";
+import {
+  BatchGetFlowAssociationCommandInput,
+  BatchGetFlowAssociationCommandOutput,
+} from "../commands/BatchGetFlowAssociationCommand";
+import { BatchPutContactCommandInput, BatchPutContactCommandOutput } from "../commands/BatchPutContactCommand";
 import { ClaimPhoneNumberCommandInput, ClaimPhoneNumberCommandOutput } from "../commands/ClaimPhoneNumberCommand";
 import { CreateAgentStatusCommandInput, CreateAgentStatusCommandOutput } from "../commands/CreateAgentStatusCommand";
 import { CreateContactFlowCommandInput, CreateContactFlowCommandOutput } from "../commands/CreateContactFlowCommand";
@@ -91,6 +116,14 @@ import {
   CreateIntegrationAssociationCommandOutput,
 } from "../commands/CreateIntegrationAssociationCommand";
 import { CreateParticipantCommandInput, CreateParticipantCommandOutput } from "../commands/CreateParticipantCommand";
+import {
+  CreatePersistentContactAssociationCommandInput,
+  CreatePersistentContactAssociationCommandOutput,
+} from "../commands/CreatePersistentContactAssociationCommand";
+import {
+  CreatePredefinedAttributeCommandInput,
+  CreatePredefinedAttributeCommandOutput,
+} from "../commands/CreatePredefinedAttributeCommand";
 import { CreatePromptCommandInput, CreatePromptCommandOutput } from "../commands/CreatePromptCommand";
 import { CreateQueueCommandInput, CreateQueueCommandOutput } from "../commands/CreateQueueCommand";
 import { CreateQuickConnectCommandInput, CreateQuickConnectCommandOutput } from "../commands/CreateQuickConnectCommand";
@@ -114,6 +147,8 @@ import {
   CreateUserHierarchyGroupCommandInput,
   CreateUserHierarchyGroupCommandOutput,
 } from "../commands/CreateUserHierarchyGroupCommand";
+import { CreateViewCommandInput, CreateViewCommandOutput } from "../commands/CreateViewCommand";
+import { CreateViewVersionCommandInput, CreateViewVersionCommandOutput } from "../commands/CreateViewVersionCommand";
 import { CreateVocabularyCommandInput, CreateVocabularyCommandOutput } from "../commands/CreateVocabularyCommand";
 import {
   DeactivateEvaluationFormCommandInput,
@@ -141,6 +176,10 @@ import {
   DeleteIntegrationAssociationCommandInput,
   DeleteIntegrationAssociationCommandOutput,
 } from "../commands/DeleteIntegrationAssociationCommand";
+import {
+  DeletePredefinedAttributeCommandInput,
+  DeletePredefinedAttributeCommandOutput,
+} from "../commands/DeletePredefinedAttributeCommand";
 import { DeletePromptCommandInput, DeletePromptCommandOutput } from "../commands/DeletePromptCommand";
 import { DeleteQueueCommandInput, DeleteQueueCommandOutput } from "../commands/DeleteQueueCommand";
 import { DeleteQuickConnectCommandInput, DeleteQuickConnectCommandOutput } from "../commands/DeleteQuickConnectCommand";
@@ -164,6 +203,8 @@ import {
   DeleteUserHierarchyGroupCommandInput,
   DeleteUserHierarchyGroupCommandOutput,
 } from "../commands/DeleteUserHierarchyGroupCommand";
+import { DeleteViewCommandInput, DeleteViewCommandOutput } from "../commands/DeleteViewCommand";
+import { DeleteViewVersionCommandInput, DeleteViewVersionCommandOutput } from "../commands/DeleteViewVersionCommand";
 import { DeleteVocabularyCommandInput, DeleteVocabularyCommandOutput } from "../commands/DeleteVocabularyCommand";
 import {
   DescribeAgentStatusCommandInput,
@@ -203,6 +244,10 @@ import {
   DescribePhoneNumberCommandInput,
   DescribePhoneNumberCommandOutput,
 } from "../commands/DescribePhoneNumberCommand";
+import {
+  DescribePredefinedAttributeCommandInput,
+  DescribePredefinedAttributeCommandOutput,
+} from "../commands/DescribePredefinedAttributeCommand";
 import { DescribePromptCommandInput, DescribePromptCommandOutput } from "../commands/DescribePromptCommand";
 import { DescribeQueueCommandInput, DescribeQueueCommandOutput } from "../commands/DescribeQueueCommand";
 import {
@@ -231,12 +276,18 @@ import {
   DescribeUserHierarchyStructureCommandInput,
   DescribeUserHierarchyStructureCommandOutput,
 } from "../commands/DescribeUserHierarchyStructureCommand";
+import { DescribeViewCommandInput, DescribeViewCommandOutput } from "../commands/DescribeViewCommand";
 import { DescribeVocabularyCommandInput, DescribeVocabularyCommandOutput } from "../commands/DescribeVocabularyCommand";
+import {
+  DisassociateAnalyticsDataSetCommandInput,
+  DisassociateAnalyticsDataSetCommandOutput,
+} from "../commands/DisassociateAnalyticsDataSetCommand";
 import {
   DisassociateApprovedOriginCommandInput,
   DisassociateApprovedOriginCommandOutput,
 } from "../commands/DisassociateApprovedOriginCommand";
 import { DisassociateBotCommandInput, DisassociateBotCommandOutput } from "../commands/DisassociateBotCommand";
+import { DisassociateFlowCommandInput, DisassociateFlowCommandOutput } from "../commands/DisassociateFlowCommand";
 import {
   DisassociateInstanceStorageConfigCommandInput,
   DisassociateInstanceStorageConfigCommandOutput,
@@ -266,6 +317,10 @@ import {
   DisassociateTrafficDistributionGroupUserCommandInput,
   DisassociateTrafficDistributionGroupUserCommandOutput,
 } from "../commands/DisassociateTrafficDistributionGroupUserCommand";
+import {
+  DisassociateUserProficienciesCommandInput,
+  DisassociateUserProficienciesCommandOutput,
+} from "../commands/DisassociateUserProficienciesCommand";
 import { DismissUserContactCommandInput, DismissUserContactCommandOutput } from "../commands/DismissUserContactCommand";
 import {
   GetContactAttributesCommandInput,
@@ -277,6 +332,7 @@ import {
 } from "../commands/GetCurrentMetricDataCommand";
 import { GetCurrentUserDataCommandInput, GetCurrentUserDataCommandOutput } from "../commands/GetCurrentUserDataCommand";
 import { GetFederationTokenCommandInput, GetFederationTokenCommandOutput } from "../commands/GetFederationTokenCommand";
+import { GetFlowAssociationCommandInput, GetFlowAssociationCommandOutput } from "../commands/GetFlowAssociationCommand";
 import { GetMetricDataCommandInput, GetMetricDataCommandOutput } from "../commands/GetMetricDataCommand";
 import { GetMetricDataV2CommandInput, GetMetricDataV2CommandOutput } from "../commands/GetMetricDataV2Command";
 import { GetPromptFileCommandInput, GetPromptFileCommandOutput } from "../commands/GetPromptFileCommand";
@@ -285,7 +341,12 @@ import {
   GetTrafficDistributionCommandInput,
   GetTrafficDistributionCommandOutput,
 } from "../commands/GetTrafficDistributionCommand";
+import { ImportPhoneNumberCommandInput, ImportPhoneNumberCommandOutput } from "../commands/ImportPhoneNumberCommand";
 import { ListAgentStatusesCommandInput, ListAgentStatusesCommandOutput } from "../commands/ListAgentStatusesCommand";
+import {
+  ListAnalyticsDataAssociationsCommandInput,
+  ListAnalyticsDataAssociationsCommandOutput,
+} from "../commands/ListAnalyticsDataAssociationsCommand";
 import {
   ListApprovedOriginsCommandInput,
   ListApprovedOriginsCommandOutput,
@@ -317,6 +378,10 @@ import {
   ListEvaluationFormVersionsCommandOutput,
 } from "../commands/ListEvaluationFormVersionsCommand";
 import {
+  ListFlowAssociationsCommandInput,
+  ListFlowAssociationsCommandOutput,
+} from "../commands/ListFlowAssociationsCommand";
+import {
   ListHoursOfOperationsCommandInput,
   ListHoursOfOperationsCommandOutput,
 } from "../commands/ListHoursOfOperationsCommand";
@@ -340,6 +405,10 @@ import {
 import { ListLexBotsCommandInput, ListLexBotsCommandOutput } from "../commands/ListLexBotsCommand";
 import { ListPhoneNumbersCommandInput, ListPhoneNumbersCommandOutput } from "../commands/ListPhoneNumbersCommand";
 import { ListPhoneNumbersV2CommandInput, ListPhoneNumbersV2CommandOutput } from "../commands/ListPhoneNumbersV2Command";
+import {
+  ListPredefinedAttributesCommandInput,
+  ListPredefinedAttributesCommandOutput,
+} from "../commands/ListPredefinedAttributesCommand";
 import { ListPromptsCommandInput, ListPromptsCommandOutput } from "../commands/ListPromptsCommand";
 import {
   ListQueueQuickConnectsCommandInput,
@@ -347,6 +416,10 @@ import {
 } from "../commands/ListQueueQuickConnectsCommand";
 import { ListQueuesCommandInput, ListQueuesCommandOutput } from "../commands/ListQueuesCommand";
 import { ListQuickConnectsCommandInput, ListQuickConnectsCommandOutput } from "../commands/ListQuickConnectsCommand";
+import {
+  ListRealtimeContactAnalysisSegmentsV2CommandInput,
+  ListRealtimeContactAnalysisSegmentsV2CommandOutput,
+} from "../commands/ListRealtimeContactAnalysisSegmentsV2Command";
 import {
   ListRoutingProfileQueuesCommandInput,
   ListRoutingProfileQueuesCommandOutput,
@@ -357,6 +430,10 @@ import {
 } from "../commands/ListRoutingProfilesCommand";
 import { ListRulesCommandInput, ListRulesCommandOutput } from "../commands/ListRulesCommand";
 import { ListSecurityKeysCommandInput, ListSecurityKeysCommandOutput } from "../commands/ListSecurityKeysCommand";
+import {
+  ListSecurityProfileApplicationsCommandInput,
+  ListSecurityProfileApplicationsCommandOutput,
+} from "../commands/ListSecurityProfileApplicationsCommand";
 import {
   ListSecurityProfilePermissionsCommandInput,
   ListSecurityProfilePermissionsCommandOutput,
@@ -383,11 +460,19 @@ import {
   ListUserHierarchyGroupsCommandInput,
   ListUserHierarchyGroupsCommandOutput,
 } from "../commands/ListUserHierarchyGroupsCommand";
+import {
+  ListUserProficienciesCommandInput,
+  ListUserProficienciesCommandOutput,
+} from "../commands/ListUserProficienciesCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "../commands/ListUsersCommand";
+import { ListViewsCommandInput, ListViewsCommandOutput } from "../commands/ListViewsCommand";
+import { ListViewVersionsCommandInput, ListViewVersionsCommandOutput } from "../commands/ListViewVersionsCommand";
 import { MonitorContactCommandInput, MonitorContactCommandOutput } from "../commands/MonitorContactCommand";
+import { PauseContactCommandInput, PauseContactCommandOutput } from "../commands/PauseContactCommand";
 import { PutUserStatusCommandInput, PutUserStatusCommandOutput } from "../commands/PutUserStatusCommand";
 import { ReleasePhoneNumberCommandInput, ReleasePhoneNumberCommandOutput } from "../commands/ReleasePhoneNumberCommand";
 import { ReplicateInstanceCommandInput, ReplicateInstanceCommandOutput } from "../commands/ReplicateInstanceCommand";
+import { ResumeContactCommandInput, ResumeContactCommandOutput } from "../commands/ResumeContactCommand";
 import {
   ResumeContactRecordingCommandInput,
   ResumeContactRecordingCommandOutput,
@@ -396,10 +481,15 @@ import {
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
 } from "../commands/SearchAvailablePhoneNumbersCommand";
+import { SearchContactsCommandInput, SearchContactsCommandOutput } from "../commands/SearchContactsCommand";
 import {
   SearchHoursOfOperationsCommandInput,
   SearchHoursOfOperationsCommandOutput,
 } from "../commands/SearchHoursOfOperationsCommand";
+import {
+  SearchPredefinedAttributesCommandInput,
+  SearchPredefinedAttributesCommandOutput,
+} from "../commands/SearchPredefinedAttributesCommand";
 import { SearchPromptsCommandInput, SearchPromptsCommandOutput } from "../commands/SearchPromptsCommand";
 import { SearchQueuesCommandInput, SearchQueuesCommandOutput } from "../commands/SearchQueuesCommand";
 import {
@@ -417,6 +507,10 @@ import {
 } from "../commands/SearchSecurityProfilesCommand";
 import { SearchUsersCommandInput, SearchUsersCommandOutput } from "../commands/SearchUsersCommand";
 import { SearchVocabulariesCommandInput, SearchVocabulariesCommandOutput } from "../commands/SearchVocabulariesCommand";
+import {
+  SendChatIntegrationEventCommandInput,
+  SendChatIntegrationEventCommandOutput,
+} from "../commands/SendChatIntegrationEventCommand";
 import { StartChatContactCommandInput, StartChatContactCommandOutput } from "../commands/StartChatContactCommand";
 import {
   StartContactEvaluationCommandInput,
@@ -435,6 +529,7 @@ import {
   StartOutboundVoiceContactCommandOutput,
 } from "../commands/StartOutboundVoiceContactCommand";
 import { StartTaskContactCommandInput, StartTaskContactCommandOutput } from "../commands/StartTaskContactCommand";
+import { StartWebRTCContactCommandInput, StartWebRTCContactCommandOutput } from "../commands/StartWebRTCContactCommand";
 import { StopContactCommandInput, StopContactCommandOutput } from "../commands/StopContactCommand";
 import {
   StopContactRecordingCommandInput,
@@ -452,8 +547,10 @@ import {
   SuspendContactRecordingCommandInput,
   SuspendContactRecordingCommandOutput,
 } from "../commands/SuspendContactRecordingCommand";
+import { TagContactCommandInput, TagContactCommandOutput } from "../commands/TagContactCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { TransferContactCommandInput, TransferContactCommandOutput } from "../commands/TransferContactCommand";
+import { UntagContactCommandInput, UntagContactCommandOutput } from "../commands/UntagContactCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateAgentStatusCommandInput, UpdateAgentStatusCommandOutput } from "../commands/UpdateAgentStatusCommand";
 import {
@@ -486,6 +583,10 @@ import {
   UpdateContactFlowNameCommandOutput,
 } from "../commands/UpdateContactFlowNameCommand";
 import {
+  UpdateContactRoutingDataCommandInput,
+  UpdateContactRoutingDataCommandOutput,
+} from "../commands/UpdateContactRoutingDataCommand";
+import {
   UpdateContactScheduleCommandInput,
   UpdateContactScheduleCommandOutput,
 } from "../commands/UpdateContactScheduleCommand";
@@ -510,6 +611,14 @@ import {
   UpdateParticipantRoleConfigCommandOutput,
 } from "../commands/UpdateParticipantRoleConfigCommand";
 import { UpdatePhoneNumberCommandInput, UpdatePhoneNumberCommandOutput } from "../commands/UpdatePhoneNumberCommand";
+import {
+  UpdatePhoneNumberMetadataCommandInput,
+  UpdatePhoneNumberMetadataCommandOutput,
+} from "../commands/UpdatePhoneNumberMetadataCommand";
+import {
+  UpdatePredefinedAttributeCommandInput,
+  UpdatePredefinedAttributeCommandOutput,
+} from "../commands/UpdatePredefinedAttributeCommand";
 import { UpdatePromptCommandInput, UpdatePromptCommandOutput } from "../commands/UpdatePromptCommand";
 import {
   UpdateQueueHoursOfOperationCommandInput,
@@ -584,6 +693,10 @@ import {
   UpdateUserPhoneConfigCommandOutput,
 } from "../commands/UpdateUserPhoneConfigCommand";
 import {
+  UpdateUserProficienciesCommandInput,
+  UpdateUserProficienciesCommandOutput,
+} from "../commands/UpdateUserProficienciesCommand";
+import {
   UpdateUserRoutingProfileCommandInput,
   UpdateUserRoutingProfileCommandOutput,
 } from "../commands/UpdateUserRoutingProfileCommand";
@@ -591,22 +704,36 @@ import {
   UpdateUserSecurityProfilesCommandInput,
   UpdateUserSecurityProfilesCommandOutput,
 } from "../commands/UpdateUserSecurityProfilesCommand";
+import { UpdateViewContentCommandInput, UpdateViewContentCommandOutput } from "../commands/UpdateViewContentCommand";
+import { UpdateViewMetadataCommandInput, UpdateViewMetadataCommandOutput } from "../commands/UpdateViewMetadataCommand";
 import { ConnectServiceException as __BaseException } from "../models/ConnectServiceException";
 import {
   AccessDeniedException,
   AgentConfig,
   AgentContactReference,
+  AgentHierarchyGroups,
   AgentInfo,
+  AgentStatus,
   AgentStatusReference,
+  AgentStatusSummary,
+  AllowedCapabilities,
+  Application,
   AssignContactCategoryActionDefinition,
+  Campaign,
   Channel,
   Contact,
+  ContactDataRequest,
   ContactFlowNotPublishedException,
+  ContactInitiationMethod,
   ContactState,
+  CreateCaseActionDefinition,
   CrossChannelBehavior,
   Distribution,
   DuplicateResourceException,
+  EmptyFieldValue,
   EncryptionConfig,
+  EndAssociatedTasksActionDefinition,
+  Endpoint,
   Evaluation,
   EvaluationAnswerData,
   EvaluationAnswerOutput,
@@ -624,6 +751,9 @@ import {
   EvaluationNote,
   EvaluationScore,
   EventBridgeActionDefinition,
+  FieldValue,
+  FieldValueUnion,
+  HoursOfOperation,
   HoursOfOperationConfig,
   HoursOfOperationTimeSlice,
   IdempotencyException,
@@ -646,10 +776,11 @@ import {
   NotificationRecipientType,
   NumericQuestionPropertyValueAutomation,
   OutboundCallerConfig,
+  ParticipantCapabilities,
   ParticipantDetailsToAdd,
   PhoneNumberCountryCode,
   PhoneNumberQuickConnectConfig,
-  PhoneNumberType,
+  PredefinedAttributeValues,
   PropertyValidationException,
   QueueInfo,
   QueueQuickConnectConfig,
@@ -663,7 +794,6 @@ import {
   ResourceNotReadyException,
   RoutingProfileQueueConfig,
   RoutingProfileQueueReference,
-  Rule,
   RuleAction,
   RuleTriggerEventSource,
   S3Config,
@@ -677,87 +807,141 @@ import {
   TaskTemplateField,
   TaskTemplateFieldIdentifier,
   ThrottlingException,
+  TooManyRequestsException,
+  UpdateCaseActionDefinition,
   UserIdentityInfo,
   UserPhoneConfig,
+  UserProficiency,
   UserQuickConnectConfig,
-  Vocabulary,
+  View,
+  ViewInputContent,
 } from "../models/models_0";
 import {
-  AnswerMachineDetectionConfig,
-  ChatMessage,
-  ChatParticipantRoleConfig,
-  ChatStreamingConfiguration,
+  ConflictException,
+  ContactAnalysis,
   ContactFilter,
-  ContactNotFoundException,
-  ControlPlaneTagFilter,
   Credentials,
   CurrentMetric,
   CurrentMetricData,
   CurrentMetricResult,
   CurrentMetricSortCriteria,
-  DestinationNotAllowedException,
-  EvaluationAnswerInput,
   EvaluationFormSummary,
   EvaluationFormVersionSummary,
   EvaluationSummary,
   Filters,
   FilterV2,
   Grouping,
-  HierarchyGroupCondition,
-  HierarchyLevelUpdate,
+  HierarchyGroup,
+  HierarchyGroupSummary,
+  HierarchyLevel,
+  HierarchyPath,
+  HierarchyStructure,
   HistoricalMetric,
   HistoricalMetricData,
   HistoricalMetricResult,
-  HoursOfOperationSearchFilter,
+  HoursOfOperationSummary,
   InstanceSummary,
-  MaximumResultReturnedException,
+  IntervalDetails,
   MetricDataV2,
   MetricFilterV2,
+  MetricInterval,
   MetricResultV2,
   MetricV2,
+  OutputTypeNotFoundException,
+  PhoneNumberType,
+  PredefinedAttribute,
+  PredefinedAttributeSummary,
+  Prompt,
+  PromptSummary,
+  Queue,
+  QueueSummary,
+  QuickConnect,
+  QuickConnectSummary,
+  RealtimeContactAnalysisSegment,
+  RealTimeContactAnalysisSegmentAttachments,
+  RealTimeContactAnalysisSegmentEvent,
+  RealTimeContactAnalysisSegmentTranscript,
+  RealTimeContactAnalysisSegmentType,
+  RealTimeContactAnalysisTimeData,
+  RoutingProfile,
+  RoutingProfileSummary,
+  Rule,
+  RuleSummary,
+  SearchableContactAttributes,
+  SearchableContactAttributesCriteria,
+  SearchCriteria,
+  SecurityKey,
+  SecurityProfile,
+  SecurityProfileSummary,
+  SignInConfig,
+  SignInDistribution,
+  Sort,
+  TaskTemplateMetadata,
+  TelephonyConfig,
+  Threshold,
+  ThresholdV2,
+  Transcript,
+  TranscriptCriteria,
+  User,
+  UserData,
+  UserDataFilters,
+  UserNotFoundException,
+  UserProficiencyDisassociate,
+  UserSummary,
+  Vocabulary,
+} from "../models/models_1";
+import {
+  AnswerMachineDetectionConfig,
+  ChatEvent,
+  ChatMessage,
+  ChatParticipantRoleConfig,
+  ChatStreamingConfiguration,
+  ContactNotFoundException,
+  ContactSearchSummary,
+  ContactSearchSummaryAgentInfo,
+  ContactSearchSummaryQueueInfo,
+  ControlPlaneTagFilter,
+  DestinationNotAllowedException,
+  DisconnectReason,
+  EvaluationAnswerInput,
+  EvaluationForm,
+  EvaluationFormContent,
+  EvaluationFormItem,
+  EvaluationFormSection,
+  HierarchyGroupCondition,
+  HierarchyLevelUpdate,
+  HierarchyStructureUpdate,
+  HoursOfOperationSearchCriteria,
+  HoursOfOperationSearchFilter,
+  MaximumResultReturnedException,
+  NewSessionDetails,
   OutboundContactNotPermittedException,
   ParticipantDetails,
   ParticipantTimerConfiguration,
   ParticipantTimerValue,
   PersistentChat,
+  PredefinedAttributeSearchCriteria,
+  PromptSearchCriteria,
   PromptSearchFilter,
+  QueueSearchCriteria,
   QueueSearchFilter,
+  QuickConnectSearchCriteria,
   QuickConnectSearchFilter,
   ResourceTagsSearchCriteria,
+  RoutingProfileSearchCriteria,
   RoutingProfileSearchFilter,
-  RuleSummary,
-  SecurityKey,
+  SearchContactsTimeRange,
+  SecurityProfileSearchCriteria,
   SecurityProfilesSearchFilter,
-  SignInConfig,
-  SignInDistribution,
+  SegmentAttributeValue,
   StringCondition,
   TagCondition,
   TagSearchCondition,
-  TaskTemplateMetadata,
-  TelephonyConfig,
-  Threshold,
-  ThresholdV2,
   UpdateParticipantRoleConfigChannelInfo,
-  UserData,
-  UserDataFilters,
-  UserNotFoundException,
+  UserSearchCriteria,
   UserSearchFilter,
   VocabularySummary,
   VoiceRecordingConfiguration,
-} from "../models/models_1";
-import {
-  EvaluationForm,
-  EvaluationFormContent,
-  EvaluationFormItem,
-  EvaluationFormSection,
-  HierarchyStructureUpdate,
-  HoursOfOperationSearchCriteria,
-  PromptSearchCriteria,
-  QueueSearchCriteria,
-  QuickConnectSearchCriteria,
-  RoutingProfileSearchCriteria,
-  SecurityProfileSearchCriteria,
-  UserSearchCriteria,
 } from "../models/models_2";
 
 /**
@@ -767,37 +951,45 @@ export const se_ActivateEvaluationFormCommand = async (
   input: ActivateEvaluationFormCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/evaluation-forms/{InstanceId}/{EvaluationFormId}/activate";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EvaluationFormId",
-    () => input.EvaluationFormId!,
-    "{EvaluationFormId}",
-    false
-  );
+  b.bp("/evaluation-forms/{InstanceId}/{EvaluationFormId}/activate");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("EvaluationFormId", () => input.EvaluationFormId!, "{EvaluationFormId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       EvaluationFormVersion: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1AssociateAnalyticsDataSetCommand
+ */
+export const se_AssociateAnalyticsDataSetCommand = async (
+  input: AssociateAnalyticsDataSetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/analytics-data/instance/{InstanceId}/association");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      DataSetId: [],
+      TargetAccountId: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -807,28 +999,20 @@ export const se_AssociateApprovedOriginCommand = async (
   input: AssociateApprovedOriginCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/approved-origin";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/instance/{InstanceId}/approved-origin");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Origin: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -838,13 +1022,12 @@ export const se_AssociateBotCommand = async (
   input: AssociateBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/bot";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/instance/{InstanceId}/bot");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -852,15 +1035,8 @@ export const se_AssociateBotCommand = async (
       LexV2Bot: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -870,37 +1046,46 @@ export const se_AssociateDefaultVocabularyCommand = async (
   input: AssociateDefaultVocabularyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/default-vocabulary/{InstanceId}/{LanguageCode}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "LanguageCode",
-    () => input.LanguageCode!,
-    "{LanguageCode}",
-    false
-  );
+  b.bp("/default-vocabulary/{InstanceId}/{LanguageCode}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("LanguageCode", () => input.LanguageCode!, "{LanguageCode}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       VocabularyId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1AssociateFlowCommand
+ */
+export const se_AssociateFlowCommand = async (
+  input: AssociateFlowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/flow-associations/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      FlowId: [],
+      ResourceId: [],
+      ResourceType: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -910,13 +1095,12 @@ export const se_AssociateInstanceStorageConfigCommand = async (
   input: AssociateInstanceStorageConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/storage-config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/instance/{InstanceId}/storage-config");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -924,15 +1108,8 @@ export const se_AssociateInstanceStorageConfigCommand = async (
       StorageConfig: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -942,28 +1119,20 @@ export const se_AssociateLambdaFunctionCommand = async (
   input: AssociateLambdaFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/lambda-function";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/instance/{InstanceId}/lambda-function");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       FunctionArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -973,28 +1142,20 @@ export const se_AssociateLexBotCommand = async (
   input: AssociateLexBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/lex-bot";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/instance/{InstanceId}/lex-bot");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       LexBot: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1004,21 +1165,12 @@ export const se_AssociatePhoneNumberContactFlowCommand = async (
   input: AssociatePhoneNumberContactFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/phone-number/{PhoneNumberId}/contact-flow";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "PhoneNumberId",
-    () => input.PhoneNumberId!,
-    "{PhoneNumberId}",
-    false
-  );
+  b.bp("/phone-number/{PhoneNumberId}/contact-flow");
+  b.p("PhoneNumberId", () => input.PhoneNumberId!, "{PhoneNumberId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1026,15 +1178,8 @@ export const se_AssociatePhoneNumberContactFlowCommand = async (
       InstanceId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1044,30 +1189,21 @@ export const se_AssociateQueueQuickConnectsCommand = async (
   input: AssociateQueueQuickConnectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/queues/{InstanceId}/{QueueId}/associate-quick-connects";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "QueueId", () => input.QueueId!, "{QueueId}", false);
+  b.bp("/queues/{InstanceId}/{QueueId}/associate-quick-connects");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("QueueId", () => input.QueueId!, "{QueueId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       QuickConnectIds: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1077,37 +1213,21 @@ export const se_AssociateRoutingProfileQueuesCommand = async (
   input: AssociateRoutingProfileQueuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/routing-profiles/{InstanceId}/{RoutingProfileId}/associate-queues";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RoutingProfileId",
-    () => input.RoutingProfileId!,
-    "{RoutingProfileId}",
-    false
-  );
+  b.bp("/routing-profiles/{InstanceId}/{RoutingProfileId}/associate-queues");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("RoutingProfileId", () => input.RoutingProfileId!, "{RoutingProfileId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       QueueConfigs: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1117,28 +1237,20 @@ export const se_AssociateSecurityKeyCommand = async (
   input: AssociateSecurityKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/security-key";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/instance/{InstanceId}/security-key");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Key: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1148,21 +1260,12 @@ export const se_AssociateTrafficDistributionGroupUserCommand = async (
   input: AssociateTrafficDistributionGroupUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/traffic-distribution-group/{TrafficDistributionGroupId}/user";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "TrafficDistributionGroupId",
-    () => input.TrafficDistributionGroupId!,
-    "{TrafficDistributionGroupId}",
-    false
-  );
+  b.bp("/traffic-distribution-group/{TrafficDistributionGroupId}/user");
+  b.p("TrafficDistributionGroupId", () => input.TrafficDistributionGroupId!, "{TrafficDistributionGroupId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1170,15 +1273,128 @@ export const se_AssociateTrafficDistributionGroupUserCommand = async (
       UserId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1AssociateUserProficienciesCommand
+ */
+export const se_AssociateUserProficienciesCommand = async (
+  input: AssociateUserProficienciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/users/{InstanceId}/{UserId}/associate-proficiencies");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("UserId", () => input.UserId!, "{UserId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      UserProficiencies: (_) => se_UserProficiencyList(_, context),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1BatchAssociateAnalyticsDataSetCommand
+ */
+export const se_BatchAssociateAnalyticsDataSetCommand = async (
+  input: BatchAssociateAnalyticsDataSetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/analytics-data/instance/{InstanceId}/associations");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      DataSetIds: (_) => _json(_),
+      TargetAccountId: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1BatchDisassociateAnalyticsDataSetCommand
+ */
+export const se_BatchDisassociateAnalyticsDataSetCommand = async (
+  input: BatchDisassociateAnalyticsDataSetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/analytics-data/instance/{InstanceId}/associations");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      DataSetIds: (_) => _json(_),
+      TargetAccountId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1BatchGetFlowAssociationCommand
+ */
+export const se_BatchGetFlowAssociationCommand = async (
+  input: BatchGetFlowAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/flow-associations-batch/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ResourceIds: (_) => _json(_),
+      ResourceType: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1BatchPutContactCommand
+ */
+export const se_BatchPutContactCommand = async (
+  input: BatchPutContactCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/contact/batch/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      ContactDataRequestList: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1188,30 +1404,24 @@ export const se_ClaimPhoneNumberCommand = async (
   input: ClaimPhoneNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/phone-number/claim";
+  b.bp("/phone-number/claim");
   let body: any;
   body = JSON.stringify(
     take(input, {
       ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      InstanceId: [],
       PhoneNumber: [],
       PhoneNumberDescription: [],
       Tags: (_) => _json(_),
       TargetArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1221,13 +1431,12 @@ export const se_CreateAgentStatusCommand = async (
   input: CreateAgentStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/agent-status/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/agent-status/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1238,15 +1447,8 @@ export const se_CreateAgentStatusCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1256,13 +1458,12 @@ export const se_CreateContactFlowCommand = async (
   input: CreateContactFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact-flows/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/contact-flows/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1273,15 +1474,8 @@ export const se_CreateContactFlowCommand = async (
       Type: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1291,13 +1485,12 @@ export const se_CreateContactFlowModuleCommand = async (
   input: CreateContactFlowModuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact-flow-modules/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/contact-flow-modules/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1308,15 +1501,8 @@ export const se_CreateContactFlowModuleCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1326,13 +1512,12 @@ export const se_CreateEvaluationFormCommand = async (
   input: CreateEvaluationFormCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/evaluation-forms/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/evaluation-forms/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1343,15 +1528,8 @@ export const se_CreateEvaluationFormCommand = async (
       Title: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1361,13 +1539,12 @@ export const se_CreateHoursOfOperationCommand = async (
   input: CreateHoursOfOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/hours-of-operations/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/hours-of-operations/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1378,15 +1555,8 @@ export const se_CreateHoursOfOperationCommand = async (
       TimeZone: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1396,11 +1566,11 @@ export const se_CreateInstanceCommand = async (
   input: CreateInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance";
+  b.bp("/instance");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1410,17 +1580,11 @@ export const se_CreateInstanceCommand = async (
       InboundCallsEnabled: [],
       InstanceAlias: [],
       OutboundCallsEnabled: [],
+      Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1430,14 +1594,12 @@ export const se_CreateIntegrationAssociationCommand = async (
   input: CreateIntegrationAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/instance/{InstanceId}/integration-associations";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/instance/{InstanceId}/integration-associations");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1449,15 +1611,8 @@ export const se_CreateIntegrationAssociationCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1467,12 +1622,11 @@ export const se_CreateParticipantCommand = async (
   input: CreateParticipantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/create-participant";
+  b.bp("/contact/create-participant");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1482,15 +1636,58 @@ export const se_CreateParticipantCommand = async (
       ParticipantDetails: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreatePersistentContactAssociationCommand
+ */
+export const se_CreatePersistentContactAssociationCommand = async (
+  input: CreatePersistentContactAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/contact/persistent-contact-association/{InstanceId}/{InitialContactId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("InitialContactId", () => input.InitialContactId!, "{InitialContactId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: [],
+      RehydrationType: [],
+      SourceContactId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreatePredefinedAttributeCommand
+ */
+export const se_CreatePredefinedAttributeCommand = async (
+  input: CreatePredefinedAttributeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/predefined-attributes/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+      Values: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1500,12 +1697,12 @@ export const se_CreatePromptCommand = async (
   input: CreatePromptCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prompts/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/prompts/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1515,15 +1712,8 @@ export const se_CreatePromptCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1533,12 +1723,12 @@ export const se_CreateQueueCommand = async (
   input: CreateQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/queues/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/queues/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1551,15 +1741,8 @@ export const se_CreateQueueCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1569,13 +1752,12 @@ export const se_CreateQuickConnectCommand = async (
   input: CreateQuickConnectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/quick-connects/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/quick-connects/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1585,15 +1767,8 @@ export const se_CreateQuickConnectCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1603,13 +1778,12 @@ export const se_CreateRoutingProfileCommand = async (
   input: CreateRoutingProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/routing-profiles/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/routing-profiles/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1622,15 +1796,8 @@ export const se_CreateRoutingProfileCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1640,16 +1807,16 @@ export const se_CreateRuleCommand = async (
   input: CreateRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/rules/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/rules/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
-      Actions: (_) => _json(_),
+      Actions: (_) => se_RuleActions(_, context),
       ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Function: [],
       Name: [],
@@ -1657,15 +1824,8 @@ export const se_CreateRuleCommand = async (
       TriggerEventSource: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1675,17 +1835,17 @@ export const se_CreateSecurityProfileCommand = async (
   input: CreateSecurityProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/security-profiles/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/security-profiles/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       AllowedAccessControlTags: (_) => _json(_),
+      Applications: (_) => _json(_),
       Description: [],
       Permissions: (_) => _json(_),
       SecurityProfileName: [],
@@ -1693,15 +1853,8 @@ export const se_CreateSecurityProfileCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1711,13 +1864,12 @@ export const se_CreateTaskTemplateCommand = async (
   input: CreateTaskTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/task/template";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/instance/{InstanceId}/task/template");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1731,15 +1883,8 @@ export const se_CreateTaskTemplateCommand = async (
       Status: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1749,12 +1894,11 @@ export const se_CreateTrafficDistributionGroupCommand = async (
   input: CreateTrafficDistributionGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/traffic-distribution-group";
+  b.bp("/traffic-distribution-group");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1765,15 +1909,8 @@ export const se_CreateTrafficDistributionGroupCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1783,22 +1920,13 @@ export const se_CreateUseCaseCommand = async (
   input: CreateUseCaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}/use-cases";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "IntegrationAssociationId",
-    () => input.IntegrationAssociationId!,
-    "{IntegrationAssociationId}",
-    false
-  );
+  b.bp("/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}/use-cases");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("IntegrationAssociationId", () => input.IntegrationAssociationId!, "{IntegrationAssociationId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1806,15 +1934,8 @@ export const se_CreateUseCaseCommand = async (
       UseCaseType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1824,12 +1945,12 @@ export const se_CreateUserCommand = async (
   input: CreateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/users/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/users/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1844,15 +1965,8 @@ export const se_CreateUserCommand = async (
       Username: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1862,13 +1976,12 @@ export const se_CreateUserHierarchyGroupCommand = async (
   input: CreateUserHierarchyGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user-hierarchy-groups/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/user-hierarchy-groups/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1877,15 +1990,61 @@ export const se_CreateUserHierarchyGroupCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateViewCommand
+ */
+export const se_CreateViewCommand = async (
+  input: CreateViewCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/views/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: [],
+      Content: (_) => _json(_),
+      Description: [],
+      Name: [],
+      Status: [],
+      Tags: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateViewVersionCommand
+ */
+export const se_CreateViewVersionCommand = async (
+  input: CreateViewVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/views/{InstanceId}/{ViewId}/versions");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("ViewId", () => input.ViewId!, "{ViewId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      VersionDescription: [],
+      ViewContentSha256: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1895,12 +2054,12 @@ export const se_CreateVocabularyCommand = async (
   input: CreateVocabularyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/vocabulary/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/vocabulary/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1911,15 +2070,8 @@ export const se_CreateVocabularyCommand = async (
       VocabularyName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1929,37 +2081,21 @@ export const se_DeactivateEvaluationFormCommand = async (
   input: DeactivateEvaluationFormCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/evaluation-forms/{InstanceId}/{EvaluationFormId}/deactivate";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EvaluationFormId",
-    () => input.EvaluationFormId!,
-    "{EvaluationFormId}",
-    false
-  );
+  b.bp("/evaluation-forms/{InstanceId}/{EvaluationFormId}/deactivate");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("EvaluationFormId", () => input.EvaluationFormId!, "{EvaluationFormId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       EvaluationFormVersion: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1969,30 +2105,14 @@ export const se_DeleteContactEvaluationCommand = async (
   input: DeleteContactEvaluationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/contact-evaluations/{InstanceId}/{EvaluationId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EvaluationId",
-    () => input.EvaluationId!,
-    "{EvaluationId}",
-    false
-  );
+  b.bp("/contact-evaluations/{InstanceId}/{EvaluationId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("EvaluationId", () => input.EvaluationId!, "{EvaluationId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2002,30 +2122,14 @@ export const se_DeleteContactFlowCommand = async (
   input: DeleteContactFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/contact-flows/{InstanceId}/{ContactFlowId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ContactFlowId",
-    () => input.ContactFlowId!,
-    "{ContactFlowId}",
-    false
-  );
+  b.bp("/contact-flows/{InstanceId}/{ContactFlowId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("ContactFlowId", () => input.ContactFlowId!, "{ContactFlowId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2035,30 +2139,14 @@ export const se_DeleteContactFlowModuleCommand = async (
   input: DeleteContactFlowModuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ContactFlowModuleId",
-    () => input.ContactFlowModuleId!,
-    "{ContactFlowModuleId}",
-    false
-  );
+  b.bp("/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("ContactFlowModuleId", () => input.ContactFlowModuleId!, "{ContactFlowModuleId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2068,34 +2156,17 @@ export const se_DeleteEvaluationFormCommand = async (
   input: DeleteEvaluationFormCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/evaluation-forms/{InstanceId}/{EvaluationFormId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EvaluationFormId",
-    () => input.EvaluationFormId!,
-    "{EvaluationFormId}",
-    false
-  );
+  b.bp("/evaluation-forms/{InstanceId}/{EvaluationFormId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("EvaluationFormId", () => input.EvaluationFormId!, "{EvaluationFormId}", false);
   const query: any = map({
-    version: [() => input.EvaluationFormVersion !== void 0, () => input.EvaluationFormVersion!.toString()],
+    [_v]: [() => input.EvaluationFormVersion !== void 0, () => input[_EFV]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2105,30 +2176,14 @@ export const se_DeleteHoursOfOperationCommand = async (
   input: DeleteHoursOfOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/hours-of-operations/{InstanceId}/{HoursOfOperationId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "HoursOfOperationId",
-    () => input.HoursOfOperationId!,
-    "{HoursOfOperationId}",
-    false
-  );
+  b.bp("/hours-of-operations/{InstanceId}/{HoursOfOperationId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("HoursOfOperationId", () => input.HoursOfOperationId!, "{HoursOfOperationId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2138,20 +2193,13 @@ export const se_DeleteInstanceCommand = async (
   input: DeleteInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/instance/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2161,30 +2209,31 @@ export const se_DeleteIntegrationAssociationCommand = async (
   input: DeleteIntegrationAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "IntegrationAssociationId",
-    () => input.IntegrationAssociationId!,
-    "{IntegrationAssociationId}",
-    false
-  );
+  b.bp("/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("IntegrationAssociationId", () => input.IntegrationAssociationId!, "{IntegrationAssociationId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeletePredefinedAttributeCommand
+ */
+export const se_DeletePredefinedAttributeCommand = async (
+  input: DeletePredefinedAttributeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/predefined-attributes/{InstanceId}/{Name}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("Name", () => input.Name!, "{Name}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2194,22 +2243,14 @@ export const se_DeletePromptCommand = async (
   input: DeletePromptCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prompts/{InstanceId}/{PromptId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "PromptId", () => input.PromptId!, "{PromptId}", false);
+  b.bp("/prompts/{InstanceId}/{PromptId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("PromptId", () => input.PromptId!, "{PromptId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2219,22 +2260,14 @@ export const se_DeleteQueueCommand = async (
   input: DeleteQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/queues/{InstanceId}/{QueueId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "QueueId", () => input.QueueId!, "{QueueId}", false);
+  b.bp("/queues/{InstanceId}/{QueueId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("QueueId", () => input.QueueId!, "{QueueId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2244,30 +2277,14 @@ export const se_DeleteQuickConnectCommand = async (
   input: DeleteQuickConnectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/quick-connects/{InstanceId}/{QuickConnectId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "QuickConnectId",
-    () => input.QuickConnectId!,
-    "{QuickConnectId}",
-    false
-  );
+  b.bp("/quick-connects/{InstanceId}/{QuickConnectId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("QuickConnectId", () => input.QuickConnectId!, "{QuickConnectId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2277,30 +2294,14 @@ export const se_DeleteRoutingProfileCommand = async (
   input: DeleteRoutingProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/routing-profiles/{InstanceId}/{RoutingProfileId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RoutingProfileId",
-    () => input.RoutingProfileId!,
-    "{RoutingProfileId}",
-    false
-  );
+  b.bp("/routing-profiles/{InstanceId}/{RoutingProfileId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("RoutingProfileId", () => input.RoutingProfileId!, "{RoutingProfileId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2310,22 +2311,14 @@ export const se_DeleteRuleCommand = async (
   input: DeleteRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/rules/{InstanceId}/{RuleId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "RuleId", () => input.RuleId!, "{RuleId}", false);
+  b.bp("/rules/{InstanceId}/{RuleId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("RuleId", () => input.RuleId!, "{RuleId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2335,30 +2328,14 @@ export const se_DeleteSecurityProfileCommand = async (
   input: DeleteSecurityProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/security-profiles/{InstanceId}/{SecurityProfileId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SecurityProfileId",
-    () => input.SecurityProfileId!,
-    "{SecurityProfileId}",
-    false
-  );
+  b.bp("/security-profiles/{InstanceId}/{SecurityProfileId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("SecurityProfileId", () => input.SecurityProfileId!, "{SecurityProfileId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2368,30 +2345,14 @@ export const se_DeleteTaskTemplateCommand = async (
   input: DeleteTaskTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/instance/{InstanceId}/task/template/{TaskTemplateId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "TaskTemplateId",
-    () => input.TaskTemplateId!,
-    "{TaskTemplateId}",
-    false
-  );
+  b.bp("/instance/{InstanceId}/task/template/{TaskTemplateId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("TaskTemplateId", () => input.TaskTemplateId!, "{TaskTemplateId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2401,29 +2362,13 @@ export const se_DeleteTrafficDistributionGroupCommand = async (
   input: DeleteTrafficDistributionGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/traffic-distribution-group/{TrafficDistributionGroupId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "TrafficDistributionGroupId",
-    () => input.TrafficDistributionGroupId!,
-    "{TrafficDistributionGroupId}",
-    false
-  );
+  b.bp("/traffic-distribution-group/{TrafficDistributionGroupId}");
+  b.p("TrafficDistributionGroupId", () => input.TrafficDistributionGroupId!, "{TrafficDistributionGroupId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2433,31 +2378,15 @@ export const se_DeleteUseCaseCommand = async (
   input: DeleteUseCaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}/use-cases/{UseCaseId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "IntegrationAssociationId",
-    () => input.IntegrationAssociationId!,
-    "{IntegrationAssociationId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "UseCaseId", () => input.UseCaseId!, "{UseCaseId}", false);
+  b.bp("/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}/use-cases/{UseCaseId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("IntegrationAssociationId", () => input.IntegrationAssociationId!, "{IntegrationAssociationId}", false);
+  b.p("UseCaseId", () => input.UseCaseId!, "{UseCaseId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2467,22 +2396,14 @@ export const se_DeleteUserCommand = async (
   input: DeleteUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/users/{InstanceId}/{UserId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "UserId", () => input.UserId!, "{UserId}", false);
+  b.bp("/users/{InstanceId}/{UserId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("UserId", () => input.UserId!, "{UserId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2492,30 +2413,49 @@ export const se_DeleteUserHierarchyGroupCommand = async (
   input: DeleteUserHierarchyGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "HierarchyGroupId",
-    () => input.HierarchyGroupId!,
-    "{HierarchyGroupId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}");
+  b.p("HierarchyGroupId", () => input.HierarchyGroupId!, "{HierarchyGroupId}", false);
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteViewCommand
+ */
+export const se_DeleteViewCommand = async (
+  input: DeleteViewCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/views/{InstanceId}/{ViewId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("ViewId", () => input.ViewId!, "{ViewId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteViewVersionCommand
+ */
+export const se_DeleteViewVersionCommand = async (
+  input: DeleteViewVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/views/{InstanceId}/{ViewId}/versions/{ViewVersion}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("ViewId", () => input.ViewId!, "{ViewId}", false);
+  b.p("ViewVersion", () => input.ViewVersion!.toString(), "{ViewVersion}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2525,30 +2465,14 @@ export const se_DeleteVocabularyCommand = async (
   input: DeleteVocabularyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/vocabulary-remove/{InstanceId}/{VocabularyId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VocabularyId",
-    () => input.VocabularyId!,
-    "{VocabularyId}",
-    false
-  );
+  b.bp("/vocabulary-remove/{InstanceId}/{VocabularyId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("VocabularyId", () => input.VocabularyId!, "{VocabularyId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2558,30 +2482,14 @@ export const se_DescribeAgentStatusCommand = async (
   input: DescribeAgentStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/agent-status/{InstanceId}/{AgentStatusId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AgentStatusId",
-    () => input.AgentStatusId!,
-    "{AgentStatusId}",
-    false
-  );
+  b.bp("/agent-status/{InstanceId}/{AgentStatusId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("AgentStatusId", () => input.AgentStatusId!, "{AgentStatusId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2591,22 +2499,14 @@ export const se_DescribeContactCommand = async (
   input: DescribeContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contacts/{InstanceId}/{ContactId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "ContactId", () => input.ContactId!, "{ContactId}", false);
+  b.bp("/contacts/{InstanceId}/{ContactId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("ContactId", () => input.ContactId!, "{ContactId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2616,30 +2516,14 @@ export const se_DescribeContactEvaluationCommand = async (
   input: DescribeContactEvaluationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/contact-evaluations/{InstanceId}/{EvaluationId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EvaluationId",
-    () => input.EvaluationId!,
-    "{EvaluationId}",
-    false
-  );
+  b.bp("/contact-evaluations/{InstanceId}/{EvaluationId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("EvaluationId", () => input.EvaluationId!, "{EvaluationId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2649,30 +2533,14 @@ export const se_DescribeContactFlowCommand = async (
   input: DescribeContactFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/contact-flows/{InstanceId}/{ContactFlowId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ContactFlowId",
-    () => input.ContactFlowId!,
-    "{ContactFlowId}",
-    false
-  );
+  b.bp("/contact-flows/{InstanceId}/{ContactFlowId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("ContactFlowId", () => input.ContactFlowId!, "{ContactFlowId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2682,30 +2550,14 @@ export const se_DescribeContactFlowModuleCommand = async (
   input: DescribeContactFlowModuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ContactFlowModuleId",
-    () => input.ContactFlowModuleId!,
-    "{ContactFlowModuleId}",
-    false
-  );
+  b.bp("/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("ContactFlowModuleId", () => input.ContactFlowModuleId!, "{ContactFlowModuleId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2715,34 +2567,17 @@ export const se_DescribeEvaluationFormCommand = async (
   input: DescribeEvaluationFormCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/evaluation-forms/{InstanceId}/{EvaluationFormId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EvaluationFormId",
-    () => input.EvaluationFormId!,
-    "{EvaluationFormId}",
-    false
-  );
+  b.bp("/evaluation-forms/{InstanceId}/{EvaluationFormId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("EvaluationFormId", () => input.EvaluationFormId!, "{EvaluationFormId}", false);
   const query: any = map({
-    version: [() => input.EvaluationFormVersion !== void 0, () => input.EvaluationFormVersion!.toString()],
+    [_v]: [() => input.EvaluationFormVersion !== void 0, () => input[_EFV]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2752,30 +2587,14 @@ export const se_DescribeHoursOfOperationCommand = async (
   input: DescribeHoursOfOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/hours-of-operations/{InstanceId}/{HoursOfOperationId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "HoursOfOperationId",
-    () => input.HoursOfOperationId!,
-    "{HoursOfOperationId}",
-    false
-  );
+  b.bp("/hours-of-operations/{InstanceId}/{HoursOfOperationId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("HoursOfOperationId", () => input.HoursOfOperationId!, "{HoursOfOperationId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2785,20 +2604,13 @@ export const se_DescribeInstanceCommand = async (
   input: DescribeInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/instance/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2808,30 +2620,14 @@ export const se_DescribeInstanceAttributeCommand = async (
   input: DescribeInstanceAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/instance/{InstanceId}/attribute/{AttributeType}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AttributeType",
-    () => input.AttributeType!,
-    "{AttributeType}",
-    false
-  );
+  b.bp("/instance/{InstanceId}/attribute/{AttributeType}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("AttributeType", () => input.AttributeType!, "{AttributeType}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2841,34 +2637,17 @@ export const se_DescribeInstanceStorageConfigCommand = async (
   input: DescribeInstanceStorageConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/instance/{InstanceId}/storage-config/{AssociationId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AssociationId",
-    () => input.AssociationId!,
-    "{AssociationId}",
-    false
-  );
+  b.bp("/instance/{InstanceId}/storage-config/{AssociationId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("AssociationId", () => input.AssociationId!, "{AssociationId}", false);
   const query: any = map({
-    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
+    [_rT]: [, __expectNonNull(input[_RT]!, `ResourceType`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2878,28 +2657,30 @@ export const se_DescribePhoneNumberCommand = async (
   input: DescribePhoneNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/phone-number/{PhoneNumberId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "PhoneNumberId",
-    () => input.PhoneNumberId!,
-    "{PhoneNumberId}",
-    false
-  );
+  b.bp("/phone-number/{PhoneNumberId}");
+  b.p("PhoneNumberId", () => input.PhoneNumberId!, "{PhoneNumberId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribePredefinedAttributeCommand
+ */
+export const se_DescribePredefinedAttributeCommand = async (
+  input: DescribePredefinedAttributeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/predefined-attributes/{InstanceId}/{Name}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("Name", () => input.Name!, "{Name}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2909,22 +2690,14 @@ export const se_DescribePromptCommand = async (
   input: DescribePromptCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prompts/{InstanceId}/{PromptId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "PromptId", () => input.PromptId!, "{PromptId}", false);
+  b.bp("/prompts/{InstanceId}/{PromptId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("PromptId", () => input.PromptId!, "{PromptId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2934,22 +2707,14 @@ export const se_DescribeQueueCommand = async (
   input: DescribeQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/queues/{InstanceId}/{QueueId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "QueueId", () => input.QueueId!, "{QueueId}", false);
+  b.bp("/queues/{InstanceId}/{QueueId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("QueueId", () => input.QueueId!, "{QueueId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2959,30 +2724,14 @@ export const se_DescribeQuickConnectCommand = async (
   input: DescribeQuickConnectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/quick-connects/{InstanceId}/{QuickConnectId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "QuickConnectId",
-    () => input.QuickConnectId!,
-    "{QuickConnectId}",
-    false
-  );
+  b.bp("/quick-connects/{InstanceId}/{QuickConnectId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("QuickConnectId", () => input.QuickConnectId!, "{QuickConnectId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2992,30 +2741,14 @@ export const se_DescribeRoutingProfileCommand = async (
   input: DescribeRoutingProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/routing-profiles/{InstanceId}/{RoutingProfileId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RoutingProfileId",
-    () => input.RoutingProfileId!,
-    "{RoutingProfileId}",
-    false
-  );
+  b.bp("/routing-profiles/{InstanceId}/{RoutingProfileId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("RoutingProfileId", () => input.RoutingProfileId!, "{RoutingProfileId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3025,22 +2758,14 @@ export const se_DescribeRuleCommand = async (
   input: DescribeRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/rules/{InstanceId}/{RuleId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "RuleId", () => input.RuleId!, "{RuleId}", false);
+  b.bp("/rules/{InstanceId}/{RuleId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("RuleId", () => input.RuleId!, "{RuleId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3050,30 +2775,14 @@ export const se_DescribeSecurityProfileCommand = async (
   input: DescribeSecurityProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/security-profiles/{InstanceId}/{SecurityProfileId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SecurityProfileId",
-    () => input.SecurityProfileId!,
-    "{SecurityProfileId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/security-profiles/{InstanceId}/{SecurityProfileId}");
+  b.p("SecurityProfileId", () => input.SecurityProfileId!, "{SecurityProfileId}", false);
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3083,29 +2792,13 @@ export const se_DescribeTrafficDistributionGroupCommand = async (
   input: DescribeTrafficDistributionGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/traffic-distribution-group/{TrafficDistributionGroupId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "TrafficDistributionGroupId",
-    () => input.TrafficDistributionGroupId!,
-    "{TrafficDistributionGroupId}",
-    false
-  );
+  b.bp("/traffic-distribution-group/{TrafficDistributionGroupId}");
+  b.p("TrafficDistributionGroupId", () => input.TrafficDistributionGroupId!, "{TrafficDistributionGroupId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3115,22 +2808,14 @@ export const se_DescribeUserCommand = async (
   input: DescribeUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/users/{InstanceId}/{UserId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "UserId", () => input.UserId!, "{UserId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/users/{InstanceId}/{UserId}");
+  b.p("UserId", () => input.UserId!, "{UserId}", false);
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3140,30 +2825,14 @@ export const se_DescribeUserHierarchyGroupCommand = async (
   input: DescribeUserHierarchyGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "HierarchyGroupId",
-    () => input.HierarchyGroupId!,
-    "{HierarchyGroupId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}");
+  b.p("HierarchyGroupId", () => input.HierarchyGroupId!, "{HierarchyGroupId}", false);
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3173,21 +2842,30 @@ export const se_DescribeUserHierarchyStructureCommand = async (
   input: DescribeUserHierarchyStructureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user-hierarchy-structure/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/user-hierarchy-structure/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeViewCommand
+ */
+export const se_DescribeViewCommand = async (
+  input: DescribeViewCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/views/{InstanceId}/{ViewId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("ViewId", () => input.ViewId!, "{ViewId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3197,29 +2875,38 @@ export const se_DescribeVocabularyCommand = async (
   input: DescribeVocabularyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/vocabulary/{InstanceId}/{VocabularyId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VocabularyId",
-    () => input.VocabularyId!,
-    "{VocabularyId}",
-    false
-  );
+  b.bp("/vocabulary/{InstanceId}/{VocabularyId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("VocabularyId", () => input.VocabularyId!, "{VocabularyId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DisassociateAnalyticsDataSetCommand
+ */
+export const se_DisassociateAnalyticsDataSetCommand = async (
+  input: DisassociateAnalyticsDataSetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/analytics-data/instance/{InstanceId}/association");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      DataSetId: [],
+      TargetAccountId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3229,25 +2916,16 @@ export const se_DisassociateApprovedOriginCommand = async (
   input: DisassociateApprovedOriginCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/approved-origin";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/instance/{InstanceId}/approved-origin");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    origin: [, __expectNonNull(input.Origin!, `Origin`)],
+    [_o]: [, __expectNonNull(input[_O]!, `Origin`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3257,13 +2935,12 @@ export const se_DisassociateBotCommand = async (
   input: DisassociateBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/bot";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/instance/{InstanceId}/bot");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3271,15 +2948,26 @@ export const se_DisassociateBotCommand = async (
       LexV2Bot: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DisassociateFlowCommand
+ */
+export const se_DisassociateFlowCommand = async (
+  input: DisassociateFlowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/flow-associations/{InstanceId}/{ResourceId}/{ResourceType}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("ResourceId", () => input.ResourceId!, "{ResourceId}", false);
+  b.p("ResourceType", () => input.ResourceType!, "{ResourceType}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3289,34 +2977,17 @@ export const se_DisassociateInstanceStorageConfigCommand = async (
   input: DisassociateInstanceStorageConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/instance/{InstanceId}/storage-config/{AssociationId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AssociationId",
-    () => input.AssociationId!,
-    "{AssociationId}",
-    false
-  );
+  b.bp("/instance/{InstanceId}/storage-config/{AssociationId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("AssociationId", () => input.AssociationId!, "{AssociationId}", false);
   const query: any = map({
-    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
+    [_rT]: [, __expectNonNull(input[_RT]!, `ResourceType`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3326,25 +2997,16 @@ export const se_DisassociateLambdaFunctionCommand = async (
   input: DisassociateLambdaFunctionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/lambda-function";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/instance/{InstanceId}/lambda-function");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    functionArn: [, __expectNonNull(input.FunctionArn!, `FunctionArn`)],
+    [_fA]: [, __expectNonNull(input[_FA]!, `FunctionArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3354,26 +3016,17 @@ export const se_DisassociateLexBotCommand = async (
   input: DisassociateLexBotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/lex-bot";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/instance/{InstanceId}/lex-bot");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    botName: [, __expectNonNull(input.BotName!, `BotName`)],
-    lexRegion: [, __expectNonNull(input.LexRegion!, `LexRegion`)],
+    [_bN]: [, __expectNonNull(input[_BN]!, `BotName`)],
+    [_lR]: [, __expectNonNull(input[_LR]!, `LexRegion`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3383,33 +3036,16 @@ export const se_DisassociatePhoneNumberContactFlowCommand = async (
   input: DisassociatePhoneNumberContactFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/phone-number/{PhoneNumberId}/contact-flow";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "PhoneNumberId",
-    () => input.PhoneNumberId!,
-    "{PhoneNumberId}",
-    false
-  );
+  b.bp("/phone-number/{PhoneNumberId}/contact-flow");
+  b.p("PhoneNumberId", () => input.PhoneNumberId!, "{PhoneNumberId}", false);
   const query: any = map({
-    instanceId: [, __expectNonNull(input.InstanceId!, `InstanceId`)],
+    [_iI]: [, __expectNonNull(input[_II]!, `InstanceId`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3419,30 +3055,21 @@ export const se_DisassociateQueueQuickConnectsCommand = async (
   input: DisassociateQueueQuickConnectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/queues/{InstanceId}/{QueueId}/disassociate-quick-connects";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "QueueId", () => input.QueueId!, "{QueueId}", false);
+  b.bp("/queues/{InstanceId}/{QueueId}/disassociate-quick-connects");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("QueueId", () => input.QueueId!, "{QueueId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       QuickConnectIds: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3452,37 +3079,21 @@ export const se_DisassociateRoutingProfileQueuesCommand = async (
   input: DisassociateRoutingProfileQueuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/routing-profiles/{InstanceId}/{RoutingProfileId}/disassociate-queues";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RoutingProfileId",
-    () => input.RoutingProfileId!,
-    "{RoutingProfileId}",
-    false
-  );
+  b.bp("/routing-profiles/{InstanceId}/{RoutingProfileId}/disassociate-queues");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("RoutingProfileId", () => input.RoutingProfileId!, "{RoutingProfileId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       QueueReferences: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3492,30 +3103,14 @@ export const se_DisassociateSecurityKeyCommand = async (
   input: DisassociateSecurityKeyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/instance/{InstanceId}/security-key/{AssociationId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AssociationId",
-    () => input.AssociationId!,
-    "{AssociationId}",
-    false
-  );
+  b.bp("/instance/{InstanceId}/security-key/{AssociationId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("AssociationId", () => input.AssociationId!, "{AssociationId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3525,34 +3120,41 @@ export const se_DisassociateTrafficDistributionGroupUserCommand = async (
   input: DisassociateTrafficDistributionGroupUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/traffic-distribution-group/{TrafficDistributionGroupId}/user";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "TrafficDistributionGroupId",
-    () => input.TrafficDistributionGroupId!,
-    "{TrafficDistributionGroupId}",
-    false
-  );
+  b.bp("/traffic-distribution-group/{TrafficDistributionGroupId}/user");
+  b.p("TrafficDistributionGroupId", () => input.TrafficDistributionGroupId!, "{TrafficDistributionGroupId}", false);
   const query: any = map({
-    UserId: [, __expectNonNull(input.UserId!, `UserId`)],
-    InstanceId: [, __expectNonNull(input.InstanceId!, `InstanceId`)],
+    [_UI]: [, __expectNonNull(input[_UI]!, `UserId`)],
+    [_II]: [, __expectNonNull(input[_II]!, `InstanceId`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DisassociateUserProficienciesCommand
+ */
+export const se_DisassociateUserProficienciesCommand = async (
+  input: DisassociateUserProficienciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/users/{InstanceId}/{UserId}/disassociate-proficiencies");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("UserId", () => input.UserId!, "{UserId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      UserProficiencies: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3562,29 +3164,21 @@ export const se_DismissUserContactCommand = async (
   input: DismissUserContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/users/{InstanceId}/{UserId}/contact";
-  resolvedPath = __resolvedPath(resolvedPath, input, "UserId", () => input.UserId!, "{UserId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/users/{InstanceId}/{UserId}/contact");
+  b.p("UserId", () => input.UserId!, "{UserId}", false);
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       ContactId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3594,30 +3188,14 @@ export const se_GetContactAttributesCommand = async (
   input: GetContactAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/contact/attributes/{InstanceId}/{InitialContactId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "InitialContactId",
-    () => input.InitialContactId!,
-    "{InitialContactId}",
-    false
-  );
+  b.bp("/contact/attributes/{InstanceId}/{InitialContactId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("InitialContactId", () => input.InitialContactId!, "{InitialContactId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3627,13 +3205,12 @@ export const se_GetCurrentMetricDataCommand = async (
   input: GetCurrentMetricDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/metrics/current/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/metrics/current/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3645,15 +3222,8 @@ export const se_GetCurrentMetricDataCommand = async (
       SortCriteria: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3663,13 +3233,12 @@ export const se_GetCurrentUserDataCommand = async (
   input: GetCurrentUserDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/metrics/userdata/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/metrics/userdata/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3678,15 +3247,8 @@ export const se_GetCurrentUserDataCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3696,21 +3258,31 @@ export const se_GetFederationTokenCommand = async (
   input: GetFederationTokenCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user/federate/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/user/federate/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetFlowAssociationCommand
+ */
+export const se_GetFlowAssociationCommand = async (
+  input: GetFlowAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/flow-associations/{InstanceId}/{ResourceId}/{ResourceType}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("ResourceId", () => input.ResourceId!, "{ResourceId}", false);
+  b.p("ResourceType", () => input.ResourceType!, "{ResourceType}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3720,13 +3292,12 @@ export const se_GetMetricDataCommand = async (
   input: GetMetricDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/metrics/historical/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/metrics/historical/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3739,15 +3310,8 @@ export const se_GetMetricDataCommand = async (
       StartTime: (_) => Math.round(_.getTime() / 1000),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3757,17 +3321,18 @@ export const se_GetMetricDataV2Command = async (
   input: GetMetricDataV2CommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/metrics/data";
+  b.bp("/metrics/data");
   let body: any;
   body = JSON.stringify(
     take(input, {
       EndTime: (_) => Math.round(_.getTime() / 1000),
       Filters: (_) => _json(_),
       Groupings: (_) => _json(_),
+      Interval: (_) => _json(_),
       MaxResults: [],
       Metrics: (_) => se_MetricsV2(_, context),
       NextToken: [],
@@ -3775,15 +3340,8 @@ export const se_GetMetricDataV2Command = async (
       StartTime: (_) => Math.round(_.getTime() / 1000),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3793,22 +3351,14 @@ export const se_GetPromptFileCommand = async (
   input: GetPromptFileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prompts/{InstanceId}/{PromptId}/file";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "PromptId", () => input.PromptId!, "{PromptId}", false);
+  b.bp("/prompts/{InstanceId}/{PromptId}/file");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("PromptId", () => input.PromptId!, "{PromptId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3818,34 +3368,17 @@ export const se_GetTaskTemplateCommand = async (
   input: GetTaskTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/instance/{InstanceId}/task/template/{TaskTemplateId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "TaskTemplateId",
-    () => input.TaskTemplateId!,
-    "{TaskTemplateId}",
-    false
-  );
+  b.bp("/instance/{InstanceId}/task/template/{TaskTemplateId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("TaskTemplateId", () => input.TaskTemplateId!, "{TaskTemplateId}", false);
   const query: any = map({
-    snapshotVersion: [, input.SnapshotVersion!],
+    [_sV]: [, input[_SV]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3855,21 +3388,39 @@ export const se_GetTrafficDistributionCommand = async (
   input: GetTrafficDistributionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/traffic-distribution/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/traffic-distribution/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ImportPhoneNumberCommand
+ */
+export const se_ImportPhoneNumberCommand = async (
+  input: ImportPhoneNumberCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/phone-number/import");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      InstanceId: [],
+      PhoneNumberDescription: [],
+      SourcePhoneNumberArn: [],
+      Tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3879,30 +3430,39 @@ export const se_ListAgentStatusesCommand = async (
   input: ListAgentStatusesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/agent-status/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/agent-status/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    AgentStatusTypes: [
-      () => input.AgentStatusTypes !== void 0,
-      () => (input.AgentStatusTypes! || []).map((_entry) => _entry as any),
-    ],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_AST]: [() => input.AgentStatusTypes !== void 0, () => (input[_AST]! || []).map((_entry) => _entry as any)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListAnalyticsDataAssociationsCommand
+ */
+export const se_ListAnalyticsDataAssociationsCommand = async (
+  input: ListAnalyticsDataAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/analytics-data/instance/{InstanceId}/association");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  const query: any = map({
+    [_DSI]: [, input[_DSI]!],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3912,26 +3472,17 @@ export const se_ListApprovedOriginsCommand = async (
   input: ListApprovedOriginsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/approved-origins";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/instance/{InstanceId}/approved-origins");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3941,27 +3492,18 @@ export const se_ListBotsCommand = async (
   input: ListBotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/bots";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/instance/{InstanceId}/bots");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    lexVersion: [, __expectNonNull(input.LexVersion!, `LexVersion`)],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_lV]: [, __expectNonNull(input[_LV]!, `LexVersion`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3971,26 +3513,17 @@ export const se_ListContactEvaluationsCommand = async (
   input: ListContactEvaluationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact-evaluations/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/contact-evaluations/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    contactId: [, __expectNonNull(input.ContactId!, `ContactId`)],
-    nextToken: [, input.NextToken!],
+    [_cI]: [, __expectNonNull(input[_CI]!, `ContactId`)],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4000,28 +3533,18 @@ export const se_ListContactFlowModulesCommand = async (
   input: ListContactFlowModulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/contact-flow-modules-summary/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/contact-flow-modules-summary/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    state: [, input.ContactFlowModuleState!],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_s]: [, input[_CFMS]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4031,30 +3554,18 @@ export const se_ListContactFlowsCommand = async (
   input: ListContactFlowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact-flows-summary/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/contact-flows-summary/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    contactFlowTypes: [
-      () => input.ContactFlowTypes !== void 0,
-      () => (input.ContactFlowTypes! || []).map((_entry) => _entry as any),
-    ],
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_cFT]: [() => input.ContactFlowTypes !== void 0, () => (input[_CFT]! || []).map((_entry) => _entry as any)],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4064,31 +3575,21 @@ export const se_ListContactReferencesCommand = async (
   input: ListContactReferencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/contact/references/{InstanceId}/{ContactId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "ContactId", () => input.ContactId!, "{ContactId}", false);
+  b.bp("/contact/references/{InstanceId}/{ContactId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("ContactId", () => input.ContactId!, "{ContactId}", false);
   const query: any = map({
-    referenceTypes: [
+    [_rTe]: [
       __expectNonNull(input.ReferenceTypes, `ReferenceTypes`) != null,
-      () => (input.ReferenceTypes! || []).map((_entry) => _entry as any),
+      () => (input[_RTe]! || []).map((_entry) => _entry as any),
     ],
-    nextToken: [, input.NextToken!],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4098,13 +3599,12 @@ export const se_ListDefaultVocabulariesCommand = async (
   input: ListDefaultVocabulariesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/default-vocabulary-summary/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/default-vocabulary-summary/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -4113,15 +3613,8 @@ export const se_ListDefaultVocabulariesCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4131,26 +3624,17 @@ export const se_ListEvaluationFormsCommand = async (
   input: ListEvaluationFormsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/evaluation-forms/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/evaluation-forms/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4160,35 +3644,39 @@ export const se_ListEvaluationFormVersionsCommand = async (
   input: ListEvaluationFormVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/evaluation-forms/{InstanceId}/{EvaluationFormId}/versions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EvaluationFormId",
-    () => input.EvaluationFormId!,
-    "{EvaluationFormId}",
-    false
-  );
+  b.bp("/evaluation-forms/{InstanceId}/{EvaluationFormId}/versions");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("EvaluationFormId", () => input.EvaluationFormId!, "{EvaluationFormId}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListFlowAssociationsCommand
+ */
+export const se_ListFlowAssociationsCommand = async (
+  input: ListFlowAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/flow-associations-summary/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  const query: any = map({
+    [_RT]: [, input[_RT]!],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4198,26 +3686,17 @@ export const se_ListHoursOfOperationsCommand = async (
   input: ListHoursOfOperationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/hours-of-operations-summary/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/hours-of-operations-summary/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4227,26 +3706,17 @@ export const se_ListInstanceAttributesCommand = async (
   input: ListInstanceAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/attributes";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/instance/{InstanceId}/attributes");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4256,24 +3726,16 @@ export const se_ListInstancesCommand = async (
   input: ListInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance";
+  b.bp("/instance");
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4283,27 +3745,18 @@ export const se_ListInstanceStorageConfigsCommand = async (
   input: ListInstanceStorageConfigsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/storage-configs";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/instance/{InstanceId}/storage-configs");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_rT]: [, __expectNonNull(input[_RT]!, `ResourceType`)],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4313,28 +3766,19 @@ export const se_ListIntegrationAssociationsCommand = async (
   input: ListIntegrationAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/instance/{InstanceId}/integration-associations";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/instance/{InstanceId}/integration-associations");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    integrationType: [, input.IntegrationType!],
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_iT]: [, input[_IT]!],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_iA]: [, input[_IA]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4344,26 +3788,17 @@ export const se_ListLambdaFunctionsCommand = async (
   input: ListLambdaFunctionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/lambda-functions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/instance/{InstanceId}/lambda-functions");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4373,26 +3808,17 @@ export const se_ListLexBotsCommand = async (
   input: ListLexBotsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/lex-bots";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/instance/{InstanceId}/lex-bots");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4402,34 +3828,22 @@ export const se_ListPhoneNumbersCommand = async (
   input: ListPhoneNumbersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/phone-numbers-summary/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/phone-numbers-summary/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    phoneNumberTypes: [
-      () => input.PhoneNumberTypes !== void 0,
-      () => (input.PhoneNumberTypes! || []).map((_entry) => _entry as any),
-    ],
-    phoneNumberCountryCodes: [
+    [_pNT]: [() => input.PhoneNumberTypes !== void 0, () => (input[_PNT]! || []).map((_entry) => _entry as any)],
+    [_pNCC]: [
       () => input.PhoneNumberCountryCodes !== void 0,
-      () => (input.PhoneNumberCountryCodes! || []).map((_entry) => _entry as any),
+      () => (input[_PNCC]! || []).map((_entry) => _entry as any),
     ],
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4439,14 +3853,15 @@ export const se_ListPhoneNumbersV2Command = async (
   input: ListPhoneNumbersV2CommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/phone-number/list";
+  b.bp("/phone-number/list");
   let body: any;
   body = JSON.stringify(
     take(input, {
+      InstanceId: [],
       MaxResults: [],
       NextToken: [],
       PhoneNumberCountryCodes: (_) => _json(_),
@@ -4455,15 +3870,28 @@ export const se_ListPhoneNumbersV2Command = async (
       TargetArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListPredefinedAttributesCommand
+ */
+export const se_ListPredefinedAttributesCommand = async (
+  input: ListPredefinedAttributesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/predefined-attributes/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  const query: any = map({
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4473,26 +3901,17 @@ export const se_ListPromptsCommand = async (
   input: ListPromptsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prompts-summary/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/prompts-summary/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4502,28 +3921,18 @@ export const se_ListQueueQuickConnectsCommand = async (
   input: ListQueueQuickConnectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/queues/{InstanceId}/{QueueId}/quick-connects";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "QueueId", () => input.QueueId!, "{QueueId}", false);
+  b.bp("/queues/{InstanceId}/{QueueId}/quick-connects");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("QueueId", () => input.QueueId!, "{QueueId}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4533,27 +3942,18 @@ export const se_ListQueuesCommand = async (
   input: ListQueuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/queues-summary/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/queues-summary/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    queueTypes: [() => input.QueueTypes !== void 0, () => (input.QueueTypes! || []).map((_entry) => _entry as any)],
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_qT]: [() => input.QueueTypes !== void 0, () => (input[_QT]! || []).map((_entry) => _entry as any)],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4563,30 +3963,45 @@ export const se_ListQuickConnectsCommand = async (
   input: ListQuickConnectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/quick-connects/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/quick-connects/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    QuickConnectTypes: [
-      () => input.QuickConnectTypes !== void 0,
-      () => (input.QuickConnectTypes! || []).map((_entry) => _entry as any),
-    ],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_QCT]: [() => input.QuickConnectTypes !== void 0, () => (input[_QCT]! || []).map((_entry) => _entry as any)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListRealtimeContactAnalysisSegmentsV2Command
+ */
+export const se_ListRealtimeContactAnalysisSegmentsV2Command = async (
+  input: ListRealtimeContactAnalysisSegmentsV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/contact/list-real-time-analysis-segments-v2/{InstanceId}/{ContactId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("ContactId", () => input.ContactId!, "{ContactId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      OutputType: [],
+      SegmentTypes: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4596,35 +4011,18 @@ export const se_ListRoutingProfileQueuesCommand = async (
   input: ListRoutingProfileQueuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/routing-profiles/{InstanceId}/{RoutingProfileId}/queues";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RoutingProfileId",
-    () => input.RoutingProfileId!,
-    "{RoutingProfileId}",
-    false
-  );
+  b.bp("/routing-profiles/{InstanceId}/{RoutingProfileId}/queues");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("RoutingProfileId", () => input.RoutingProfileId!, "{RoutingProfileId}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4634,26 +4032,17 @@ export const se_ListRoutingProfilesCommand = async (
   input: ListRoutingProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/routing-profiles-summary/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/routing-profiles-summary/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4663,27 +4052,19 @@ export const se_ListRulesCommand = async (
   input: ListRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/rules/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/rules/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    publishStatus: [, input.PublishStatus!],
-    eventSourceName: [, input.EventSourceName!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_pS]: [, input[_PS]!],
+    [_eSN]: [, input[_ESN]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4693,26 +4074,38 @@ export const se_ListSecurityKeysCommand = async (
   input: ListSecurityKeysCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/security-keys";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/instance/{InstanceId}/security-keys");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListSecurityProfileApplicationsCommand
+ */
+export const se_ListSecurityProfileApplicationsCommand = async (
+  input: ListSecurityProfileApplicationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/security-profiles-applications/{InstanceId}/{SecurityProfileId}");
+  b.p("SecurityProfileId", () => input.SecurityProfileId!, "{SecurityProfileId}", false);
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  const query: any = map({
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4722,35 +4115,18 @@ export const se_ListSecurityProfilePermissionsCommand = async (
   input: ListSecurityProfilePermissionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/security-profiles-permissions/{InstanceId}/{SecurityProfileId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SecurityProfileId",
-    () => input.SecurityProfileId!,
-    "{SecurityProfileId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/security-profiles-permissions/{InstanceId}/{SecurityProfileId}");
+  b.p("SecurityProfileId", () => input.SecurityProfileId!, "{SecurityProfileId}", false);
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4760,26 +4136,17 @@ export const se_ListSecurityProfilesCommand = async (
   input: ListSecurityProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/security-profiles-summary/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/security-profiles-summary/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4789,20 +4156,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4812,28 +4172,19 @@ export const se_ListTaskTemplatesCommand = async (
   input: ListTaskTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/task/template";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/instance/{InstanceId}/task/template");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    status: [, input.Status!],
-    name: [, input.Name!],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_st]: [, input[_S]!],
+    [_n]: [, input[_N]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4843,26 +4194,17 @@ export const se_ListTrafficDistributionGroupsCommand = async (
   input: ListTrafficDistributionGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/traffic-distribution-groups";
+  b.bp("/traffic-distribution-groups");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
-    instanceId: [, input.InstanceId!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_iI]: [, input[_II]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4872,34 +4214,17 @@ export const se_ListTrafficDistributionGroupUsersCommand = async (
   input: ListTrafficDistributionGroupUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/traffic-distribution-group/{TrafficDistributionGroupId}/user";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "TrafficDistributionGroupId",
-    () => input.TrafficDistributionGroupId!,
-    "{TrafficDistributionGroupId}",
-    false
-  );
+  b.bp("/traffic-distribution-group/{TrafficDistributionGroupId}/user");
+  b.p("TrafficDistributionGroupId", () => input.TrafficDistributionGroupId!, "{TrafficDistributionGroupId}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4909,35 +4234,18 @@ export const se_ListUseCasesCommand = async (
   input: ListUseCasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}/use-cases";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "IntegrationAssociationId",
-    () => input.IntegrationAssociationId!,
-    "{IntegrationAssociationId}",
-    false
-  );
+  b.bp("/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}/use-cases");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("IntegrationAssociationId", () => input.IntegrationAssociationId!, "{IntegrationAssociationId}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4947,27 +4255,38 @@ export const se_ListUserHierarchyGroupsCommand = async (
   input: ListUserHierarchyGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/user-hierarchy-groups-summary/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/user-hierarchy-groups-summary/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListUserProficienciesCommand
+ */
+export const se_ListUserProficienciesCommand = async (
+  input: ListUserProficienciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/users/{InstanceId}/{UserId}/proficiencies");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("UserId", () => input.UserId!, "{UserId}", false);
+  const query: any = map({
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -4977,26 +4296,59 @@ export const se_ListUsersCommand = async (
   input: ListUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/users-summary/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/users-summary/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListViewsCommand
+ */
+export const se_ListViewsCommand = async (
+  input: ListViewsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/views/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  const query: any = map({
+    [_t]: [, input[_T]!],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListViewVersionsCommand
+ */
+export const se_ListViewVersionsCommand = async (
+  input: ListViewVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/views/{InstanceId}/{ViewId}/versions");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("ViewId", () => input.ViewId!, "{ViewId}", false);
+  const query: any = map({
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -5006,11 +4358,11 @@ export const se_MonitorContactCommand = async (
   input: MonitorContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/monitor";
+  b.bp("/contact/monitor");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -5021,15 +4373,32 @@ export const se_MonitorContactCommand = async (
       UserId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1PauseContactCommand
+ */
+export const se_PauseContactCommand = async (
+  input: PauseContactCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/contact/pause");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ContactFlowId: [],
+      ContactId: [],
+      InstanceId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5039,29 +4408,21 @@ export const se_PutUserStatusCommand = async (
   input: PutUserStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/users/{InstanceId}/{UserId}/status";
-  resolvedPath = __resolvedPath(resolvedPath, input, "UserId", () => input.UserId!, "{UserId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/users/{InstanceId}/{UserId}/status");
+  b.p("UserId", () => input.UserId!, "{UserId}", false);
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       AgentStatusId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5071,32 +4432,16 @@ export const se_ReleasePhoneNumberCommand = async (
   input: ReleasePhoneNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/phone-number/{PhoneNumberId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "PhoneNumberId",
-    () => input.PhoneNumberId!,
-    "{PhoneNumberId}",
-    false
-  );
+  b.bp("/phone-number/{PhoneNumberId}");
+  b.p("PhoneNumberId", () => input.PhoneNumberId!, "{PhoneNumberId}", false);
   const query: any = map({
-    clientToken: [, input.ClientToken ?? generateIdempotencyToken()],
+    [_cT]: [, input[_CT] ?? generateIdempotencyToken()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -5106,13 +4451,12 @@ export const se_ReplicateInstanceCommand = async (
   input: ReplicateInstanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/replicate";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/instance/{InstanceId}/replicate");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -5121,15 +4465,32 @@ export const se_ReplicateInstanceCommand = async (
       ReplicaRegion: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ResumeContactCommand
+ */
+export const se_ResumeContactCommand = async (
+  input: ResumeContactCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/contact/resume");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ContactFlowId: [],
+      ContactId: [],
+      InstanceId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5139,12 +4500,11 @@ export const se_ResumeContactRecordingCommand = async (
   input: ResumeContactRecordingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/resume-recording";
+  b.bp("/contact/resume-recording");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -5153,15 +4513,8 @@ export const se_ResumeContactRecordingCommand = async (
       InstanceId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5171,15 +4524,15 @@ export const se_SearchAvailablePhoneNumbersCommand = async (
   input: SearchAvailablePhoneNumbersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/phone-number/search-available";
+  b.bp("/phone-number/search-available");
   let body: any;
   body = JSON.stringify(
     take(input, {
+      InstanceId: [],
       MaxResults: [],
       NextToken: [],
       PhoneNumberCountryCode: [],
@@ -5188,15 +4541,35 @@ export const se_SearchAvailablePhoneNumbersCommand = async (
       TargetArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1SearchContactsCommand
+ */
+export const se_SearchContactsCommand = async (
+  input: SearchContactsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/search-contacts");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      InstanceId: [],
+      MaxResults: [],
+      NextToken: [],
+      SearchCriteria: (_) => _json(_),
+      Sort: (_) => _json(_),
+      TimeRange: (_) => se_SearchContactsTimeRange(_, context),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5206,12 +4579,11 @@ export const se_SearchHoursOfOperationsCommand = async (
   input: SearchHoursOfOperationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/search-hours-of-operations";
+  b.bp("/search-hours-of-operations");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -5222,15 +4594,33 @@ export const se_SearchHoursOfOperationsCommand = async (
       SearchFilter: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1SearchPredefinedAttributesCommand
+ */
+export const se_SearchPredefinedAttributesCommand = async (
+  input: SearchPredefinedAttributesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/search-predefined-attributes");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      InstanceId: [],
+      MaxResults: [],
+      NextToken: [],
+      SearchCriteria: (_) => se_PredefinedAttributeSearchCriteria(_, context),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5240,11 +4630,11 @@ export const se_SearchPromptsCommand = async (
   input: SearchPromptsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/search-prompts";
+  b.bp("/search-prompts");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -5255,15 +4645,8 @@ export const se_SearchPromptsCommand = async (
       SearchFilter: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5273,11 +4656,11 @@ export const se_SearchQueuesCommand = async (
   input: SearchQueuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/search-queues";
+  b.bp("/search-queues");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -5288,15 +4671,8 @@ export const se_SearchQueuesCommand = async (
       SearchFilter: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5306,11 +4682,11 @@ export const se_SearchQuickConnectsCommand = async (
   input: SearchQuickConnectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/search-quick-connects";
+  b.bp("/search-quick-connects");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -5321,15 +4697,8 @@ export const se_SearchQuickConnectsCommand = async (
       SearchFilter: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5339,11 +4708,11 @@ export const se_SearchResourceTagsCommand = async (
   input: SearchResourceTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/search-resource-tags";
+  b.bp("/search-resource-tags");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -5354,15 +4723,8 @@ export const se_SearchResourceTagsCommand = async (
       SearchCriteria: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5372,12 +4734,11 @@ export const se_SearchRoutingProfilesCommand = async (
   input: SearchRoutingProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/search-routing-profiles";
+  b.bp("/search-routing-profiles");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -5388,15 +4749,8 @@ export const se_SearchRoutingProfilesCommand = async (
       SearchFilter: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5406,12 +4760,11 @@ export const se_SearchSecurityProfilesCommand = async (
   input: SearchSecurityProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/search-security-profiles";
+  b.bp("/search-security-profiles");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -5422,15 +4775,8 @@ export const se_SearchSecurityProfilesCommand = async (
       SearchFilter: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5440,11 +4786,11 @@ export const se_SearchUsersCommand = async (
   input: SearchUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/search-users";
+  b.bp("/search-users");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -5455,15 +4801,8 @@ export const se_SearchUsersCommand = async (
       SearchFilter: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5473,13 +4812,12 @@ export const se_SearchVocabulariesCommand = async (
   input: SearchVocabulariesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/vocabulary-summary/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/vocabulary-summary/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -5490,15 +4828,34 @@ export const se_SearchVocabulariesCommand = async (
       State: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1SendChatIntegrationEventCommand
+ */
+export const se_SendChatIntegrationEventCommand = async (
+  input: SendChatIntegrationEventCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/chat-integration-event");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      DestinationId: [],
+      Event: (_) => _json(_),
+      NewSessionDetails: (_) => _json(_),
+      SourceId: [],
+      Subtype: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5508,11 +4865,11 @@ export const se_StartChatContactCommand = async (
   input: StartChatContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/chat";
+  b.bp("/contact/chat");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -5525,18 +4882,12 @@ export const se_StartChatContactCommand = async (
       ParticipantDetails: (_) => _json(_),
       PersistentChat: (_) => _json(_),
       RelatedContactId: [],
+      SegmentAttributes: (_) => _json(_),
       SupportedMessagingContentTypes: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5546,13 +4897,12 @@ export const se_StartContactEvaluationCommand = async (
   input: StartContactEvaluationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact-evaluations/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/contact-evaluations/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -5561,15 +4911,8 @@ export const se_StartContactEvaluationCommand = async (
       EvaluationFormId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5579,12 +4922,11 @@ export const se_StartContactRecordingCommand = async (
   input: StartContactRecordingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/start-recording";
+  b.bp("/contact/start-recording");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -5594,15 +4936,8 @@ export const se_StartContactRecordingCommand = async (
       VoiceRecordingConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5612,12 +4947,11 @@ export const se_StartContactStreamingCommand = async (
   input: StartContactStreamingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/start-streaming";
+  b.bp("/contact/start-streaming");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -5627,15 +4961,8 @@ export const se_StartContactStreamingCommand = async (
       InstanceId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5645,12 +4972,11 @@ export const se_StartOutboundVoiceContactCommand = async (
   input: StartOutboundVoiceContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/outbound-voice";
+  b.bp("/contact/outbound-voice");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -5659,22 +4985,19 @@ export const se_StartOutboundVoiceContactCommand = async (
       CampaignId: [],
       ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       ContactFlowId: [],
+      Description: [],
       DestinationPhoneNumber: [],
       InstanceId: [],
+      Name: [],
       QueueId: [],
+      References: (_) => _json(_),
+      RelatedContactId: [],
       SourcePhoneNumber: [],
       TrafficType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5684,11 +5007,11 @@ export const se_StartTaskContactCommand = async (
   input: StartTaskContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/task";
+  b.bp("/contact/task");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -5706,15 +5029,38 @@ export const se_StartTaskContactCommand = async (
       TaskTemplateId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartWebRTCContactCommand
+ */
+export const se_StartWebRTCContactCommand = async (
+  input: StartWebRTCContactCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/contact/webrtc");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AllowedCapabilities: (_) => _json(_),
+      Attributes: (_) => _json(_),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      ContactFlowId: [],
+      Description: [],
+      InstanceId: [],
+      ParticipantDetails: (_) => _json(_),
+      References: (_) => _json(_),
+      RelatedContactId: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5724,27 +5070,21 @@ export const se_StopContactCommand = async (
   input: StopContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/stop";
+  b.bp("/contact/stop");
   let body: any;
   body = JSON.stringify(
     take(input, {
       ContactId: [],
+      DisconnectReason: (_) => _json(_),
       InstanceId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5754,12 +5094,11 @@ export const se_StopContactRecordingCommand = async (
   input: StopContactRecordingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/stop-recording";
+  b.bp("/contact/stop-recording");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -5768,15 +5107,8 @@ export const se_StopContactRecordingCommand = async (
       InstanceId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5786,12 +5118,11 @@ export const se_StopContactStreamingCommand = async (
   input: StopContactStreamingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/stop-streaming";
+  b.bp("/contact/stop-streaming");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -5800,15 +5131,8 @@ export const se_StopContactStreamingCommand = async (
       StreamingId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5818,22 +5142,13 @@ export const se_SubmitContactEvaluationCommand = async (
   input: SubmitContactEvaluationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/contact-evaluations/{InstanceId}/{EvaluationId}/submit";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EvaluationId",
-    () => input.EvaluationId!,
-    "{EvaluationId}",
-    false
-  );
+  b.bp("/contact-evaluations/{InstanceId}/{EvaluationId}/submit");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("EvaluationId", () => input.EvaluationId!, "{EvaluationId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -5841,15 +5156,8 @@ export const se_SubmitContactEvaluationCommand = async (
       Notes: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5859,12 +5167,11 @@ export const se_SuspendContactRecordingCommand = async (
   input: SuspendContactRecordingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/suspend-recording";
+  b.bp("/contact/suspend-recording");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -5873,15 +5180,32 @@ export const se_SuspendContactRecordingCommand = async (
       InstanceId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1TagContactCommand
+ */
+export const se_TagContactCommand = async (
+  input: TagContactCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/contact/tags");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ContactId: [],
+      InstanceId: [],
+      Tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5891,27 +5215,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5921,11 +5238,11 @@ export const se_TransferContactCommand = async (
   input: TransferContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/transfer";
+  b.bp("/contact/transfer");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -5937,15 +5254,31 @@ export const se_TransferContactCommand = async (
       UserId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UntagContactCommand
+ */
+export const se_UntagContactCommand = async (
+  input: UntagContactCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/contact/tags/{InstanceId}/{ContactId}");
+  b.p("ContactId", () => input.ContactId!, "{ContactId}", false);
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  const query: any = map({
+    [_TK]: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
+    ],
   });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -5955,27 +5288,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -5985,22 +5310,13 @@ export const se_UpdateAgentStatusCommand = async (
   input: UpdateAgentStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/agent-status/{InstanceId}/{AgentStatusId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AgentStatusId",
-    () => input.AgentStatusId!,
-    "{AgentStatusId}",
-    false
-  );
+  b.bp("/agent-status/{InstanceId}/{AgentStatusId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("AgentStatusId", () => input.AgentStatusId!, "{AgentStatusId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -6011,15 +5327,8 @@ export const se_UpdateAgentStatusCommand = async (
       State: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6029,14 +5338,13 @@ export const se_UpdateContactCommand = async (
   input: UpdateContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contacts/{InstanceId}/{ContactId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "ContactId", () => input.ContactId!, "{ContactId}", false);
+  b.bp("/contacts/{InstanceId}/{ContactId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("ContactId", () => input.ContactId!, "{ContactId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -6045,15 +5353,8 @@ export const se_UpdateContactCommand = async (
       References: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6063,11 +5364,11 @@ export const se_UpdateContactAttributesCommand = async (
   input: UpdateContactAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/attributes";
+  b.bp("/contact/attributes");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -6076,15 +5377,8 @@ export const se_UpdateContactAttributesCommand = async (
       InstanceId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6094,22 +5388,13 @@ export const se_UpdateContactEvaluationCommand = async (
   input: UpdateContactEvaluationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/contact-evaluations/{InstanceId}/{EvaluationId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EvaluationId",
-    () => input.EvaluationId!,
-    "{EvaluationId}",
-    false
-  );
+  b.bp("/contact-evaluations/{InstanceId}/{EvaluationId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("EvaluationId", () => input.EvaluationId!, "{EvaluationId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -6117,15 +5402,8 @@ export const se_UpdateContactEvaluationCommand = async (
       Notes: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6135,37 +5413,21 @@ export const se_UpdateContactFlowContentCommand = async (
   input: UpdateContactFlowContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/contact-flows/{InstanceId}/{ContactFlowId}/content";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ContactFlowId",
-    () => input.ContactFlowId!,
-    "{ContactFlowId}",
-    false
-  );
+  b.bp("/contact-flows/{InstanceId}/{ContactFlowId}/content");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("ContactFlowId", () => input.ContactFlowId!, "{ContactFlowId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Content: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6175,22 +5437,13 @@ export const se_UpdateContactFlowMetadataCommand = async (
   input: UpdateContactFlowMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/contact-flows/{InstanceId}/{ContactFlowId}/metadata";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ContactFlowId",
-    () => input.ContactFlowId!,
-    "{ContactFlowId}",
-    false
-  );
+  b.bp("/contact-flows/{InstanceId}/{ContactFlowId}/metadata");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("ContactFlowId", () => input.ContactFlowId!, "{ContactFlowId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -6199,15 +5452,8 @@ export const se_UpdateContactFlowMetadataCommand = async (
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6217,37 +5463,21 @@ export const se_UpdateContactFlowModuleContentCommand = async (
   input: UpdateContactFlowModuleContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/content";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ContactFlowModuleId",
-    () => input.ContactFlowModuleId!,
-    "{ContactFlowModuleId}",
-    false
-  );
+  b.bp("/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/content");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("ContactFlowModuleId", () => input.ContactFlowModuleId!, "{ContactFlowModuleId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Content: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6257,22 +5487,13 @@ export const se_UpdateContactFlowModuleMetadataCommand = async (
   input: UpdateContactFlowModuleMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/metadata";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ContactFlowModuleId",
-    () => input.ContactFlowModuleId!,
-    "{ContactFlowModuleId}",
-    false
-  );
+  b.bp("/contact-flow-modules/{InstanceId}/{ContactFlowModuleId}/metadata");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("ContactFlowModuleId", () => input.ContactFlowModuleId!, "{ContactFlowModuleId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -6281,15 +5502,8 @@ export const se_UpdateContactFlowModuleMetadataCommand = async (
       State: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6299,22 +5513,13 @@ export const se_UpdateContactFlowNameCommand = async (
   input: UpdateContactFlowNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/contact-flows/{InstanceId}/{ContactFlowId}/name";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ContactFlowId",
-    () => input.ContactFlowId!,
-    "{ContactFlowId}",
-    false
-  );
+  b.bp("/contact-flows/{InstanceId}/{ContactFlowId}/name");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("ContactFlowId", () => input.ContactFlowId!, "{ContactFlowId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -6322,15 +5527,33 @@ export const se_UpdateContactFlowNameCommand = async (
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateContactRoutingDataCommand
+ */
+export const se_UpdateContactRoutingDataCommand = async (
+  input: UpdateContactRoutingDataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/contacts/{InstanceId}/{ContactId}/routing-data");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("ContactId", () => input.ContactId!, "{ContactId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      QueuePriority: [],
+      QueueTimeAdjustmentSeconds: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6340,11 +5563,11 @@ export const se_UpdateContactScheduleCommand = async (
   input: UpdateContactScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/schedule";
+  b.bp("/contact/schedule");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -6353,15 +5576,8 @@ export const se_UpdateContactScheduleCommand = async (
       ScheduledTime: (_) => Math.round(_.getTime() / 1000),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6371,22 +5587,13 @@ export const se_UpdateEvaluationFormCommand = async (
   input: UpdateEvaluationFormCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/evaluation-forms/{InstanceId}/{EvaluationFormId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EvaluationFormId",
-    () => input.EvaluationFormId!,
-    "{EvaluationFormId}",
-    false
-  );
+  b.bp("/evaluation-forms/{InstanceId}/{EvaluationFormId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("EvaluationFormId", () => input.EvaluationFormId!, "{EvaluationFormId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -6399,15 +5606,8 @@ export const se_UpdateEvaluationFormCommand = async (
       Title: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6417,22 +5617,13 @@ export const se_UpdateHoursOfOperationCommand = async (
   input: UpdateHoursOfOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/hours-of-operations/{InstanceId}/{HoursOfOperationId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "HoursOfOperationId",
-    () => input.HoursOfOperationId!,
-    "{HoursOfOperationId}",
-    false
-  );
+  b.bp("/hours-of-operations/{InstanceId}/{HoursOfOperationId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("HoursOfOperationId", () => input.HoursOfOperationId!, "{HoursOfOperationId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -6442,15 +5633,8 @@ export const se_UpdateHoursOfOperationCommand = async (
       TimeZone: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6460,37 +5644,21 @@ export const se_UpdateInstanceAttributeCommand = async (
   input: UpdateInstanceAttributeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/instance/{InstanceId}/attribute/{AttributeType}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AttributeType",
-    () => input.AttributeType!,
-    "{AttributeType}",
-    false
-  );
+  b.bp("/instance/{InstanceId}/attribute/{AttributeType}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("AttributeType", () => input.AttributeType!, "{AttributeType}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Value: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6500,24 +5668,15 @@ export const se_UpdateInstanceStorageConfigCommand = async (
   input: UpdateInstanceStorageConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/instance/{InstanceId}/storage-config/{AssociationId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AssociationId",
-    () => input.AssociationId!,
-    "{AssociationId}",
-    false
-  );
+  b.bp("/instance/{InstanceId}/storage-config/{AssociationId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("AssociationId", () => input.AssociationId!, "{AssociationId}", false);
   const query: any = map({
-    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
+    [_rT]: [, __expectNonNull(input[_RT]!, `ResourceType`)],
   });
   let body: any;
   body = JSON.stringify(
@@ -6525,16 +5684,8 @@ export const se_UpdateInstanceStorageConfigCommand = async (
       StorageConfig: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -6544,30 +5695,21 @@ export const se_UpdateParticipantRoleConfigCommand = async (
   input: UpdateParticipantRoleConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/contact/participant-role-config/{InstanceId}/{ContactId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "ContactId", () => input.ContactId!, "{ContactId}", false);
+  b.bp("/contact/participant-role-config/{InstanceId}/{ContactId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("ContactId", () => input.ContactId!, "{ContactId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       ChannelConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6577,36 +5719,70 @@ export const se_UpdatePhoneNumberCommand = async (
   input: UpdatePhoneNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/phone-number/{PhoneNumberId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "PhoneNumberId",
-    () => input.PhoneNumberId!,
-    "{PhoneNumberId}",
-    false
-  );
+  b.bp("/phone-number/{PhoneNumberId}");
+  b.p("PhoneNumberId", () => input.PhoneNumberId!, "{PhoneNumberId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      InstanceId: [],
       TargetArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdatePhoneNumberMetadataCommand
+ */
+export const se_UpdatePhoneNumberMetadataCommand = async (
+  input: UpdatePhoneNumberMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/phone-number/{PhoneNumberId}/metadata");
+  b.p("PhoneNumberId", () => input.PhoneNumberId!, "{PhoneNumberId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      PhoneNumberDescription: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdatePredefinedAttributeCommand
+ */
+export const se_UpdatePredefinedAttributeCommand = async (
+  input: UpdatePredefinedAttributeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/predefined-attributes/{InstanceId}/{Name}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("Name", () => input.Name!, "{Name}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Values: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6616,14 +5792,13 @@ export const se_UpdatePromptCommand = async (
   input: UpdatePromptCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prompts/{InstanceId}/{PromptId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "PromptId", () => input.PromptId!, "{PromptId}", false);
+  b.bp("/prompts/{InstanceId}/{PromptId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("PromptId", () => input.PromptId!, "{PromptId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -6632,15 +5807,8 @@ export const se_UpdatePromptCommand = async (
       S3Uri: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6650,30 +5818,21 @@ export const se_UpdateQueueHoursOfOperationCommand = async (
   input: UpdateQueueHoursOfOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/queues/{InstanceId}/{QueueId}/hours-of-operation";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "QueueId", () => input.QueueId!, "{QueueId}", false);
+  b.bp("/queues/{InstanceId}/{QueueId}/hours-of-operation");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("QueueId", () => input.QueueId!, "{QueueId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       HoursOfOperationId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6683,30 +5842,21 @@ export const se_UpdateQueueMaxContactsCommand = async (
   input: UpdateQueueMaxContactsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/queues/{InstanceId}/{QueueId}/max-contacts";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "QueueId", () => input.QueueId!, "{QueueId}", false);
+  b.bp("/queues/{InstanceId}/{QueueId}/max-contacts");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("QueueId", () => input.QueueId!, "{QueueId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       MaxContacts: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6716,14 +5866,13 @@ export const se_UpdateQueueNameCommand = async (
   input: UpdateQueueNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/queues/{InstanceId}/{QueueId}/name";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "QueueId", () => input.QueueId!, "{QueueId}", false);
+  b.bp("/queues/{InstanceId}/{QueueId}/name");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("QueueId", () => input.QueueId!, "{QueueId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -6731,15 +5880,8 @@ export const se_UpdateQueueNameCommand = async (
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6749,30 +5891,21 @@ export const se_UpdateQueueOutboundCallerConfigCommand = async (
   input: UpdateQueueOutboundCallerConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/queues/{InstanceId}/{QueueId}/outbound-caller-config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "QueueId", () => input.QueueId!, "{QueueId}", false);
+  b.bp("/queues/{InstanceId}/{QueueId}/outbound-caller-config");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("QueueId", () => input.QueueId!, "{QueueId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       OutboundCallerConfig: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6782,29 +5915,21 @@ export const se_UpdateQueueStatusCommand = async (
   input: UpdateQueueStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/queues/{InstanceId}/{QueueId}/status";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "QueueId", () => input.QueueId!, "{QueueId}", false);
+  b.bp("/queues/{InstanceId}/{QueueId}/status");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("QueueId", () => input.QueueId!, "{QueueId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Status: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6814,37 +5939,21 @@ export const se_UpdateQuickConnectConfigCommand = async (
   input: UpdateQuickConnectConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/quick-connects/{InstanceId}/{QuickConnectId}/config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "QuickConnectId",
-    () => input.QuickConnectId!,
-    "{QuickConnectId}",
-    false
-  );
+  b.bp("/quick-connects/{InstanceId}/{QuickConnectId}/config");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("QuickConnectId", () => input.QuickConnectId!, "{QuickConnectId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       QuickConnectConfig: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6854,22 +5963,13 @@ export const se_UpdateQuickConnectNameCommand = async (
   input: UpdateQuickConnectNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/quick-connects/{InstanceId}/{QuickConnectId}/name";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "QuickConnectId",
-    () => input.QuickConnectId!,
-    "{QuickConnectId}",
-    false
-  );
+  b.bp("/quick-connects/{InstanceId}/{QuickConnectId}/name");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("QuickConnectId", () => input.QuickConnectId!, "{QuickConnectId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -6877,15 +5977,8 @@ export const se_UpdateQuickConnectNameCommand = async (
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6895,37 +5988,21 @@ export const se_UpdateRoutingProfileAgentAvailabilityTimerCommand = async (
   input: UpdateRoutingProfileAgentAvailabilityTimerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/routing-profiles/{InstanceId}/{RoutingProfileId}/agent-availability-timer";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RoutingProfileId",
-    () => input.RoutingProfileId!,
-    "{RoutingProfileId}",
-    false
-  );
+  b.bp("/routing-profiles/{InstanceId}/{RoutingProfileId}/agent-availability-timer");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("RoutingProfileId", () => input.RoutingProfileId!, "{RoutingProfileId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       AgentAvailabilityTimer: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6935,37 +6012,21 @@ export const se_UpdateRoutingProfileConcurrencyCommand = async (
   input: UpdateRoutingProfileConcurrencyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/routing-profiles/{InstanceId}/{RoutingProfileId}/concurrency";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RoutingProfileId",
-    () => input.RoutingProfileId!,
-    "{RoutingProfileId}",
-    false
-  );
+  b.bp("/routing-profiles/{InstanceId}/{RoutingProfileId}/concurrency");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("RoutingProfileId", () => input.RoutingProfileId!, "{RoutingProfileId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       MediaConcurrencies: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -6975,37 +6036,21 @@ export const se_UpdateRoutingProfileDefaultOutboundQueueCommand = async (
   input: UpdateRoutingProfileDefaultOutboundQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/routing-profiles/{InstanceId}/{RoutingProfileId}/default-outbound-queue";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RoutingProfileId",
-    () => input.RoutingProfileId!,
-    "{RoutingProfileId}",
-    false
-  );
+  b.bp("/routing-profiles/{InstanceId}/{RoutingProfileId}/default-outbound-queue");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("RoutingProfileId", () => input.RoutingProfileId!, "{RoutingProfileId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       DefaultOutboundQueueId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7015,22 +6060,13 @@ export const se_UpdateRoutingProfileNameCommand = async (
   input: UpdateRoutingProfileNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/routing-profiles/{InstanceId}/{RoutingProfileId}/name";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RoutingProfileId",
-    () => input.RoutingProfileId!,
-    "{RoutingProfileId}",
-    false
-  );
+  b.bp("/routing-profiles/{InstanceId}/{RoutingProfileId}/name");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("RoutingProfileId", () => input.RoutingProfileId!, "{RoutingProfileId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -7038,15 +6074,8 @@ export const se_UpdateRoutingProfileNameCommand = async (
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7056,37 +6085,21 @@ export const se_UpdateRoutingProfileQueuesCommand = async (
   input: UpdateRoutingProfileQueuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/routing-profiles/{InstanceId}/{RoutingProfileId}/queues";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RoutingProfileId",
-    () => input.RoutingProfileId!,
-    "{RoutingProfileId}",
-    false
-  );
+  b.bp("/routing-profiles/{InstanceId}/{RoutingProfileId}/queues");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("RoutingProfileId", () => input.RoutingProfileId!, "{RoutingProfileId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       QueueConfigs: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7096,32 +6109,24 @@ export const se_UpdateRuleCommand = async (
   input: UpdateRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/rules/{InstanceId}/{RuleId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "RuleId", () => input.RuleId!, "{RuleId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/rules/{InstanceId}/{RuleId}");
+  b.p("RuleId", () => input.RuleId!, "{RuleId}", false);
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
-      Actions: (_) => _json(_),
+      Actions: (_) => se_RuleActions(_, context),
       Function: [],
       Name: [],
       PublishStatus: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7131,40 +6136,25 @@ export const se_UpdateSecurityProfileCommand = async (
   input: UpdateSecurityProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/security-profiles/{InstanceId}/{SecurityProfileId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SecurityProfileId",
-    () => input.SecurityProfileId!,
-    "{SecurityProfileId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/security-profiles/{InstanceId}/{SecurityProfileId}");
+  b.p("SecurityProfileId", () => input.SecurityProfileId!, "{SecurityProfileId}", false);
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       AllowedAccessControlTags: (_) => _json(_),
+      Applications: (_) => _json(_),
       Description: [],
       Permissions: (_) => _json(_),
       TagRestrictedResources: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7174,22 +6164,13 @@ export const se_UpdateTaskTemplateCommand = async (
   input: UpdateTaskTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/instance/{InstanceId}/task/template/{TaskTemplateId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "TaskTemplateId",
-    () => input.TaskTemplateId!,
-    "{TaskTemplateId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/instance/{InstanceId}/task/template/{TaskTemplateId}");
+  b.p("TaskTemplateId", () => input.TaskTemplateId!, "{TaskTemplateId}", false);
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -7202,15 +6183,8 @@ export const se_UpdateTaskTemplateCommand = async (
       Status: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7220,13 +6194,12 @@ export const se_UpdateTrafficDistributionCommand = async (
   input: UpdateTrafficDistributionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/traffic-distribution/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/traffic-distribution/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -7235,15 +6208,8 @@ export const se_UpdateTrafficDistributionCommand = async (
       TelephonyConfig: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7253,29 +6219,21 @@ export const se_UpdateUserHierarchyCommand = async (
   input: UpdateUserHierarchyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/users/{InstanceId}/{UserId}/hierarchy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "UserId", () => input.UserId!, "{UserId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/users/{InstanceId}/{UserId}/hierarchy");
+  b.p("UserId", () => input.UserId!, "{UserId}", false);
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       HierarchyGroupId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7285,37 +6243,21 @@ export const se_UpdateUserHierarchyGroupNameCommand = async (
   input: UpdateUserHierarchyGroupNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}/name";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "HierarchyGroupId",
-    () => input.HierarchyGroupId!,
-    "{HierarchyGroupId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}/name");
+  b.p("HierarchyGroupId", () => input.HierarchyGroupId!, "{HierarchyGroupId}", false);
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7325,28 +6267,20 @@ export const se_UpdateUserHierarchyStructureCommand = async (
   input: UpdateUserHierarchyStructureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user-hierarchy-structure/{InstanceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/user-hierarchy-structure/{InstanceId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       HierarchyStructure: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7356,30 +6290,21 @@ export const se_UpdateUserIdentityInfoCommand = async (
   input: UpdateUserIdentityInfoCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/users/{InstanceId}/{UserId}/identity-info";
-  resolvedPath = __resolvedPath(resolvedPath, input, "UserId", () => input.UserId!, "{UserId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/users/{InstanceId}/{UserId}/identity-info");
+  b.p("UserId", () => input.UserId!, "{UserId}", false);
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       IdentityInfo: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7389,29 +6314,45 @@ export const se_UpdateUserPhoneConfigCommand = async (
   input: UpdateUserPhoneConfigCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/users/{InstanceId}/{UserId}/phone-config";
-  resolvedPath = __resolvedPath(resolvedPath, input, "UserId", () => input.UserId!, "{UserId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/users/{InstanceId}/{UserId}/phone-config");
+  b.p("UserId", () => input.UserId!, "{UserId}", false);
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       PhoneConfig: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateUserProficienciesCommand
+ */
+export const se_UpdateUserProficienciesCommand = async (
+  input: UpdateUserProficienciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/users/{InstanceId}/{UserId}/proficiencies");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("UserId", () => input.UserId!, "{UserId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      UserProficiencies: (_) => se_UserProficiencyList(_, context),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7421,30 +6362,21 @@ export const se_UpdateUserRoutingProfileCommand = async (
   input: UpdateUserRoutingProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/users/{InstanceId}/{UserId}/routing-profile";
-  resolvedPath = __resolvedPath(resolvedPath, input, "UserId", () => input.UserId!, "{UserId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/users/{InstanceId}/{UserId}/routing-profile");
+  b.p("UserId", () => input.UserId!, "{UserId}", false);
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       RoutingProfileId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7454,30 +6386,71 @@ export const se_UpdateUserSecurityProfilesCommand = async (
   input: UpdateUserSecurityProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/users/{InstanceId}/{UserId}/security-profiles";
-  resolvedPath = __resolvedPath(resolvedPath, input, "UserId", () => input.UserId!, "{UserId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.bp("/users/{InstanceId}/{UserId}/security-profiles");
+  b.p("UserId", () => input.UserId!, "{UserId}", false);
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       SecurityProfileIds: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateViewContentCommand
+ */
+export const se_UpdateViewContentCommand = async (
+  input: UpdateViewContentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/views/{InstanceId}/{ViewId}");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("ViewId", () => input.ViewId!, "{ViewId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Content: (_) => _json(_),
+      Status: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateViewMetadataCommand
+ */
+export const se_UpdateViewMetadataCommand = async (
+  input: UpdateViewMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/views/{InstanceId}/{ViewId}/metadata");
+  b.p("InstanceId", () => input.InstanceId!, "{InstanceId}", false);
+  b.p("ViewId", () => input.ViewId!, "{ViewId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      Name: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -7525,6 +6498,68 @@ const de_ActivateEvaluationFormCommandError = async (
     case "ResourceConflictException":
     case "com.amazonaws.connect#ResourceConflictException":
       throw await de_ResourceConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1AssociateAnalyticsDataSetCommand
+ */
+export const de_AssociateAnalyticsDataSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateAnalyticsDataSetCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_AssociateAnalyticsDataSetCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DataSetId: __expectString,
+    ResourceShareArn: __expectString,
+    ResourceShareId: __expectString,
+    TargetAccountId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1AssociateAnalyticsDataSetCommandError
+ */
+const de_AssociateAnalyticsDataSetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateAnalyticsDataSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connect#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -7699,6 +6734,64 @@ const de_AssociateDefaultVocabularyCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.connect#InternalServiceException":
       throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1AssociateFlowCommand
+ */
+export const de_AssociateFlowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateFlowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_AssociateFlowCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1AssociateFlowCommandError
+ */
+const de_AssociateFlowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateFlowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.connect#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
@@ -8183,6 +7276,306 @@ const de_AssociateTrafficDistributionGroupUserCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.connect#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1AssociateUserProficienciesCommand
+ */
+export const de_AssociateUserProficienciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateUserProficienciesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_AssociateUserProficienciesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1AssociateUserProficienciesCommandError
+ */
+const de_AssociateUserProficienciesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateUserProficienciesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1BatchAssociateAnalyticsDataSetCommand
+ */
+export const de_BatchAssociateAnalyticsDataSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchAssociateAnalyticsDataSetCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_BatchAssociateAnalyticsDataSetCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Created: _json,
+    Errors: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchAssociateAnalyticsDataSetCommandError
+ */
+const de_BatchAssociateAnalyticsDataSetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchAssociateAnalyticsDataSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1BatchDisassociateAnalyticsDataSetCommand
+ */
+export const de_BatchDisassociateAnalyticsDataSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDisassociateAnalyticsDataSetCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_BatchDisassociateAnalyticsDataSetCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Deleted: _json,
+    Errors: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchDisassociateAnalyticsDataSetCommandError
+ */
+const de_BatchDisassociateAnalyticsDataSetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDisassociateAnalyticsDataSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1BatchGetFlowAssociationCommand
+ */
+export const de_BatchGetFlowAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetFlowAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_BatchGetFlowAssociationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    FlowAssociationSummaryList: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchGetFlowAssociationCommandError
+ */
+const de_BatchGetFlowAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetFlowAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1BatchPutContactCommand
+ */
+export const de_BatchPutContactCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchPutContactCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_BatchPutContactCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    FailedRequestList: _json,
+    SuccessfulRequestList: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchPutContactCommandError
+ */
+const de_BatchPutContactCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchPutContactCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "IdempotencyException":
+    case "com.amazonaws.connect#IdempotencyException":
+      throw await de_IdempotencyExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.connect#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -8762,6 +8155,129 @@ const de_CreateParticipantCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.connect#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreatePersistentContactAssociationCommand
+ */
+export const de_CreatePersistentContactAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePersistentContactAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreatePersistentContactAssociationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ContinuedFromContactId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreatePersistentContactAssociationCommandError
+ */
+const de_CreatePersistentContactAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePersistentContactAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreatePredefinedAttributeCommand
+ */
+export const de_CreatePredefinedAttributeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePredefinedAttributeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreatePredefinedAttributeCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreatePredefinedAttributeCommandError
+ */
+const de_CreatePredefinedAttributeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePredefinedAttributeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DuplicateResourceException":
+    case "com.amazonaws.connect#DuplicateResourceException":
+      throw await de_DuplicateResourceExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.connect#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connect#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -9493,6 +9009,145 @@ const de_CreateUserHierarchyGroupCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateViewCommand
+ */
+export const de_CreateViewCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateViewCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateViewCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    View: (_) => de_View(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateViewCommandError
+ */
+const de_CreateViewCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateViewCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "DuplicateResourceException":
+    case "com.amazonaws.connect#DuplicateResourceException":
+      throw await de_DuplicateResourceExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.connect#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.connect#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.connect#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateViewVersionCommand
+ */
+export const de_CreateViewVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateViewVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateViewVersionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    View: (_) => de_View(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateViewVersionCommandError
+ */
+const de_CreateViewVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateViewVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.connect#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.connect#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.connect#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1CreateVocabularyCommand
  */
 export const de_CreateVocabularyCommand = async (
@@ -9986,6 +9641,64 @@ const de_DeleteIntegrationAssociationCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.connect#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeletePredefinedAttributeCommand
+ */
+export const de_DeletePredefinedAttributeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePredefinedAttributeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeletePredefinedAttributeCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeletePredefinedAttributeCommandError
+ */
+const de_DeletePredefinedAttributeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePredefinedAttributeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.connect#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connect#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -10620,6 +10333,128 @@ const de_DeleteUserHierarchyGroupCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteViewCommand
+ */
+export const de_DeleteViewCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteViewCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteViewCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteViewCommandError
+ */
+const de_DeleteViewCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteViewCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.connect#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.connect#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteViewVersionCommand
+ */
+export const de_DeleteViewVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteViewVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteViewVersionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteViewVersionCommandError
+ */
+const de_DeleteViewVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteViewVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.connect#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.connect#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DeleteVocabularyCommand
  */
 export const de_DeleteVocabularyCommand = async (
@@ -10698,7 +10533,7 @@ export const de_DescribeAgentStatusCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    AgentStatus: _json,
+    AgentStatus: (_) => de_AgentStatus(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -11053,7 +10888,7 @@ export const de_DescribeHoursOfOperationCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    HoursOfOperation: _json,
+    HoursOfOperation: (_) => de_HoursOfOperation(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -11328,6 +11163,65 @@ const de_DescribePhoneNumberCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribePredefinedAttributeCommand
+ */
+export const de_DescribePredefinedAttributeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePredefinedAttributeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribePredefinedAttributeCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    PredefinedAttribute: (_) => de_PredefinedAttribute(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribePredefinedAttributeCommandError
+ */
+const de_DescribePredefinedAttributeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePredefinedAttributeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DescribePromptCommand
  */
 export const de_DescribePromptCommand = async (
@@ -11342,7 +11236,7 @@ export const de_DescribePromptCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    Prompt: _json,
+    Prompt: (_) => de_Prompt(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -11401,7 +11295,7 @@ export const de_DescribeQueueCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    Queue: _json,
+    Queue: (_) => de_Queue(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -11460,7 +11354,7 @@ export const de_DescribeQuickConnectCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    QuickConnect: _json,
+    QuickConnect: (_) => de_QuickConnect(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -11519,7 +11413,7 @@ export const de_DescribeRoutingProfileCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    RoutingProfile: _json,
+    RoutingProfile: (_) => de_RoutingProfile(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -11637,7 +11531,7 @@ export const de_DescribeSecurityProfileCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    SecurityProfile: _json,
+    SecurityProfile: (_) => de_SecurityProfile(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -11755,7 +11649,7 @@ export const de_DescribeUserCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    User: _json,
+    User: (_) => de_User(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -11814,7 +11708,7 @@ export const de_DescribeUserHierarchyGroupCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    HierarchyGroup: _json,
+    HierarchyGroup: (_) => de_HierarchyGroup(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -11873,7 +11767,7 @@ export const de_DescribeUserHierarchyStructureCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    HierarchyStructure: _json,
+    HierarchyStructure: (_) => de_HierarchyStructure(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -11907,6 +11801,68 @@ const de_DescribeUserHierarchyStructureCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.connect#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeViewCommand
+ */
+export const de_DescribeViewCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeViewCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeViewCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    View: (_) => de_View(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeViewCommandError
+ */
+const de_DescribeViewCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeViewCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.connect#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -11957,6 +11913,61 @@ const de_DescribeVocabularyCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.connect#InternalServiceException":
       throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DisassociateAnalyticsDataSetCommand
+ */
+export const de_DisassociateAnalyticsDataSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateAnalyticsDataSetCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DisassociateAnalyticsDataSetCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DisassociateAnalyticsDataSetCommandError
+ */
+const de_DisassociateAnalyticsDataSetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateAnalyticsDataSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.connect#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
@@ -12064,6 +12075,64 @@ const de_DisassociateBotCommandError = async (
     case "InternalServiceException":
     case "com.amazonaws.connect#InternalServiceException":
       throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DisassociateFlowCommand
+ */
+export const de_DisassociateFlowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateFlowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DisassociateFlowCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DisassociateFlowCommandError
+ */
+const de_DisassociateFlowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateFlowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.connect#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
@@ -12527,6 +12596,61 @@ const de_DisassociateTrafficDistributionGroupUserCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DisassociateUserProficienciesCommand
+ */
+export const de_DisassociateUserProficienciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateUserProficienciesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DisassociateUserProficienciesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DisassociateUserProficienciesCommandError
+ */
+const de_DisassociateUserProficienciesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateUserProficienciesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DismissUserContactCommand
  */
 export const de_DismissUserContactCommand = async (
@@ -12826,6 +12950,70 @@ const de_GetFederationTokenCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1GetFlowAssociationCommand
+ */
+export const de_GetFlowAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFlowAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetFlowAssociationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    FlowId: __expectString,
+    ResourceId: __expectString,
+    ResourceType: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetFlowAssociationCommandError
+ */
+const de_GetFlowAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFlowAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1GetMetricDataCommand
  */
 export const de_GetMetricDataCommand = async (
@@ -12960,6 +13148,8 @@ export const de_GetPromptFileCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     PromptPresignedUrl: __expectString,
   });
   Object.assign(contents, doc);
@@ -13139,6 +13329,69 @@ const de_GetTrafficDistributionCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ImportPhoneNumberCommand
+ */
+export const de_ImportPhoneNumberCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportPhoneNumberCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ImportPhoneNumberCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    PhoneNumberArn: __expectString,
+    PhoneNumberId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ImportPhoneNumberCommandError
+ */
+const de_ImportPhoneNumberCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportPhoneNumberCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "IdempotencyException":
+    case "com.amazonaws.connect#IdempotencyException":
+      throw await de_IdempotencyExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListAgentStatusesCommand
  */
 export const de_ListAgentStatusesCommand = async (
@@ -13153,7 +13406,7 @@ export const de_ListAgentStatusesCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    AgentStatusSummaryList: _json,
+    AgentStatusSummaryList: (_) => de_AgentStatusSummaryList(_, context),
     NextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -13167,6 +13420,66 @@ const de_ListAgentStatusesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAgentStatusesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListAnalyticsDataAssociationsCommand
+ */
+export const de_ListAnalyticsDataAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAnalyticsDataAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListAnalyticsDataAssociationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    Results: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAnalyticsDataAssociationsCommandError
+ */
+const de_ListAnalyticsDataAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAnalyticsDataAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -13727,6 +14040,69 @@ const de_ListEvaluationFormVersionsCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListFlowAssociationsCommand
+ */
+export const de_ListFlowAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFlowAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListFlowAssociationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    FlowAssociationSummaryList: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListFlowAssociationsCommandError
+ */
+const de_ListFlowAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListFlowAssociationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListHoursOfOperationsCommand
  */
 export const de_ListHoursOfOperationsCommand = async (
@@ -13741,7 +14117,7 @@ export const de_ListHoursOfOperationsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    HoursOfOperationSummaryList: _json,
+    HoursOfOperationSummaryList: (_) => de_HoursOfOperationSummaryList(_, context),
     NextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -14255,6 +14631,66 @@ const de_ListPhoneNumbersV2CommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListPredefinedAttributesCommand
+ */
+export const de_ListPredefinedAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPredefinedAttributesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListPredefinedAttributesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    PredefinedAttributeSummaryList: (_) => de_PredefinedAttributeSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListPredefinedAttributesCommandError
+ */
+const de_ListPredefinedAttributesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPredefinedAttributesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListPromptsCommand
  */
 export const de_ListPromptsCommand = async (
@@ -14270,7 +14706,7 @@ export const de_ListPromptsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     NextToken: __expectString,
-    PromptSummaryList: _json,
+    PromptSummaryList: (_) => de_PromptSummaryList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -14329,8 +14765,10 @@ export const de_ListQueueQuickConnectsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     NextToken: __expectString,
-    QuickConnectSummaryList: _json,
+    QuickConnectSummaryList: (_) => de_QuickConnectSummaryList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -14390,7 +14828,7 @@ export const de_ListQueuesCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     NextToken: __expectString,
-    QueueSummaryList: _json,
+    QueueSummaryList: (_) => de_QueueSummaryList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -14450,7 +14888,7 @@ export const de_ListQuickConnectsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     NextToken: __expectString,
-    QuickConnectSummaryList: _json,
+    QuickConnectSummaryList: (_) => de_QuickConnectSummaryList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -14495,6 +14933,71 @@ const de_ListQuickConnectsCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListRealtimeContactAnalysisSegmentsV2Command
+ */
+export const de_ListRealtimeContactAnalysisSegmentsV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRealtimeContactAnalysisSegmentsV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListRealtimeContactAnalysisSegmentsV2CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Channel: __expectString,
+    NextToken: __expectString,
+    Segments: (_) => de_RealtimeContactAnalysisSegments(_, context),
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListRealtimeContactAnalysisSegmentsV2CommandError
+ */
+const de_ListRealtimeContactAnalysisSegmentsV2CommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRealtimeContactAnalysisSegmentsV2CommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "OutputTypeNotFoundException":
+    case "com.amazonaws.connect#OutputTypeNotFoundException":
+      throw await de_OutputTypeNotFoundExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListRoutingProfileQueuesCommand
  */
 export const de_ListRoutingProfileQueuesCommand = async (
@@ -14509,6 +15012,8 @@ export const de_ListRoutingProfileQueuesCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     NextToken: __expectString,
     RoutingProfileQueueConfigSummaryList: _json,
   });
@@ -14570,7 +15075,7 @@ export const de_ListRoutingProfilesCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     NextToken: __expectString,
-    RoutingProfileSummaryList: _json,
+    RoutingProfileSummaryList: (_) => de_RoutingProfileSummaryList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -14735,6 +15240,68 @@ const de_ListSecurityKeysCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListSecurityProfileApplicationsCommand
+ */
+export const de_ListSecurityProfileApplicationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSecurityProfileApplicationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListSecurityProfileApplicationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Applications: _json,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListSecurityProfileApplicationsCommandError
+ */
+const de_ListSecurityProfileApplicationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSecurityProfileApplicationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListSecurityProfilePermissionsCommand
  */
 export const de_ListSecurityProfilePermissionsCommand = async (
@@ -14749,6 +15316,8 @@ export const de_ListSecurityProfilePermissionsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     NextToken: __expectString,
     Permissions: _json,
   });
@@ -14810,7 +15379,7 @@ export const de_ListSecurityProfilesCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     NextToken: __expectString,
-    SecurityProfileSummaryList: _json,
+    SecurityProfileSummaryList: (_) => de_SecurityProfileSummaryList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -15163,7 +15732,7 @@ export const de_ListUserHierarchyGroupsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     NextToken: __expectString,
-    UserHierarchyGroupSummaryList: _json,
+    UserHierarchyGroupSummaryList: (_) => de_HierarchyGroupSummaryList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -15176,6 +15745,68 @@ const de_ListUserHierarchyGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUserHierarchyGroupsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListUserProficienciesCommand
+ */
+export const de_ListUserProficienciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListUserProficienciesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListUserProficienciesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    NextToken: __expectString,
+    UserProficiencyList: (_) => de_UserProficiencyList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListUserProficienciesCommandError
+ */
+const de_ListUserProficienciesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListUserProficienciesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -15223,7 +15854,7 @@ export const de_ListUsersCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     NextToken: __expectString,
-    UserSummaryList: _json,
+    UserSummaryList: (_) => de_UserSummaryList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -15257,6 +15888,132 @@ const de_ListUsersCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.connect#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListViewsCommand
+ */
+export const de_ListViewsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListViewsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListViewsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    ViewsSummaryList: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListViewsCommandError
+ */
+const de_ListViewsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListViewsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.connect#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListViewVersionsCommand
+ */
+export const de_ListViewVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListViewVersionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListViewVersionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    ViewVersionSummaryList: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListViewVersionsCommandError
+ */
+const de_ListViewVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListViewVersionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.connect#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -15320,6 +16077,70 @@ const de_MonitorContactCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.connect#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1PauseContactCommand
+ */
+export const de_PauseContactCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PauseContactCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_PauseContactCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PauseContactCommandError
+ */
+const de_PauseContactCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PauseContactCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.connect#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.connect#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connect#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -15522,6 +16343,67 @@ const de_ReplicateInstanceCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ResumeContactCommand
+ */
+export const de_ResumeContactCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResumeContactCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ResumeContactCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ResumeContactCommandError
+ */
+const de_ResumeContactCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResumeContactCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.connect#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ResumeContactRecordingCommand
  */
 export const de_ResumeContactRecordingCommand = async (
@@ -15628,6 +16510,67 @@ const de_SearchAvailablePhoneNumbersCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1SearchContactsCommand
+ */
+export const de_SearchContactsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchContactsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_SearchContactsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Contacts: (_) => de_Contacts(_, context),
+    NextToken: __expectString,
+    TotalCount: __expectLong,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SearchContactsCommandError
+ */
+const de_SearchContactsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchContactsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1SearchHoursOfOperationsCommand
  */
 export const de_SearchHoursOfOperationsCommand = async (
@@ -15643,7 +16586,7 @@ export const de_SearchHoursOfOperationsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     ApproximateTotalCount: __expectLong,
-    HoursOfOperations: _json,
+    HoursOfOperations: (_) => de_HoursOfOperationList(_, context),
     NextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -15657,6 +16600,67 @@ const de_SearchHoursOfOperationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchHoursOfOperationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1SearchPredefinedAttributesCommand
+ */
+export const de_SearchPredefinedAttributesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchPredefinedAttributesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_SearchPredefinedAttributesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ApproximateTotalCount: __expectLong,
+    NextToken: __expectString,
+    PredefinedAttributes: (_) => de_PredefinedAttributeSearchSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SearchPredefinedAttributesCommandError
+ */
+const de_SearchPredefinedAttributesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchPredefinedAttributesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -15705,7 +16709,7 @@ export const de_SearchPromptsCommand = async (
   const doc = take(data, {
     ApproximateTotalCount: __expectLong,
     NextToken: __expectString,
-    Prompts: _json,
+    Prompts: (_) => de_PromptList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -15766,7 +16770,7 @@ export const de_SearchQueuesCommand = async (
   const doc = take(data, {
     ApproximateTotalCount: __expectLong,
     NextToken: __expectString,
-    Queues: _json,
+    Queues: (_) => de_QueueSearchSummaryList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -15827,7 +16831,7 @@ export const de_SearchQuickConnectsCommand = async (
   const doc = take(data, {
     ApproximateTotalCount: __expectLong,
     NextToken: __expectString,
-    QuickConnects: _json,
+    QuickConnects: (_) => de_QuickConnectSearchSummaryList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -15951,7 +16955,7 @@ export const de_SearchRoutingProfilesCommand = async (
   const doc = take(data, {
     ApproximateTotalCount: __expectLong,
     NextToken: __expectString,
-    RoutingProfiles: _json,
+    RoutingProfiles: (_) => de_RoutingProfileList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -16161,6 +17165,66 @@ const de_SearchVocabulariesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.connect#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1SendChatIntegrationEventCommand
+ */
+export const de_SendChatIntegrationEventCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendChatIntegrationEventCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_SendChatIntegrationEventCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    InitialContactId: __expectString,
+    NewChatCreated: __expectBoolean,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SendChatIntegrationEventCommandError
+ */
+const de_SendChatIntegrationEventCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendChatIntegrationEventCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connect#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -16538,6 +17602,68 @@ const de_StartTaskContactCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1StartWebRTCContactCommand
+ */
+export const de_StartWebRTCContactCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartWebRTCContactCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StartWebRTCContactCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ConnectionData: _json,
+    ContactId: __expectString,
+    ParticipantId: __expectString,
+    ParticipantToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartWebRTCContactCommandError
+ */
+const de_StartWebRTCContactCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartWebRTCContactCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.connect#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1StopContactCommand
  */
 export const de_StopContactCommand = async (
@@ -16803,6 +17929,61 @@ const de_SuspendContactRecordingCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1TagContactCommand
+ */
+export const de_TagContactCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagContactCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_TagContactCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1TagContactCommandError
+ */
+const de_TagContactCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagContactCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -16910,6 +18091,61 @@ const de_TransferContactCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.connect#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UntagContactCommand
+ */
+export const de_UntagContactCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagContactCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UntagContactCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UntagContactCommandError
+ */
+const de_UntagContactCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagContactCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connect#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -17500,6 +18736,64 @@ const de_UpdateContactFlowNameCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateContactRoutingDataCommand
+ */
+export const de_UpdateContactRoutingDataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateContactRoutingDataCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateContactRoutingDataCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateContactRoutingDataCommandError
+ */
+const de_UpdateContactRoutingDataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateContactRoutingDataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "ResourceConflictException":
+    case "com.amazonaws.connect#ResourceConflictException":
+      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateContactScheduleCommand
  */
 export const de_UpdateContactScheduleCommand = async (
@@ -17897,6 +19191,125 @@ const de_UpdatePhoneNumberCommandError = async (
     case "ResourceInUseException":
     case "com.amazonaws.connect#ResourceInUseException":
       throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdatePhoneNumberMetadataCommand
+ */
+export const de_UpdatePhoneNumberMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePhoneNumberMetadataCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdatePhoneNumberMetadataCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdatePhoneNumberMetadataCommandError
+ */
+const de_UpdatePhoneNumberMetadataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePhoneNumberMetadataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "IdempotencyException":
+    case "com.amazonaws.connect#IdempotencyException":
+      throw await de_IdempotencyExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.connect#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdatePredefinedAttributeCommand
+ */
+export const de_UpdatePredefinedAttributeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePredefinedAttributeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdatePredefinedAttributeCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdatePredefinedAttributeCommandError
+ */
+const de_UpdatePredefinedAttributeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePredefinedAttributeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.connect#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -19165,6 +20578,61 @@ const de_UpdateUserPhoneConfigCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateUserProficienciesCommand
+ */
+export const de_UpdateUserProficienciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateUserProficienciesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateUserProficienciesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateUserProficienciesCommandError
+ */
+const de_UpdateUserProficienciesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateUserProficienciesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateUserRoutingProfileCommand
  */
 export const de_UpdateUserRoutingProfileCommand = async (
@@ -19274,6 +20742,135 @@ const de_UpdateUserSecurityProfilesCommandError = async (
   }
 };
 
+/**
+ * deserializeAws_restJson1UpdateViewContentCommand
+ */
+export const de_UpdateViewContentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateViewContentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateViewContentCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    View: (_) => de_View(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateViewContentCommandError
+ */
+const de_UpdateViewContentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateViewContentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.connect#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.connect#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateViewMetadataCommand
+ */
+export const de_UpdateViewMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateViewMetadataCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateViewMetadataCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateViewMetadataCommandError
+ */
+const de_UpdateViewMetadataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateViewMetadataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "DuplicateResourceException":
+    case "com.amazonaws.connect#DuplicateResourceException":
+      throw await de_DuplicateResourceExceptionRes(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await de_InternalServiceExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.connect#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.connect#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.connect#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
 const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
@@ -19289,6 +20886,23 @@ const de_AccessDeniedExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new AccessDeniedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -19556,6 +21170,26 @@ const de_OutboundContactNotPermittedExceptionRes = async (
 };
 
 /**
+ * deserializeAws_restJson1OutputTypeNotFoundExceptionRes
+ */
+const de_OutputTypeNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<OutputTypeNotFoundException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new OutputTypeNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1PropertyValidationExceptionRes
  */
 const de_PropertyValidationExceptionRes = async (
@@ -19696,6 +21330,26 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 };
 
 /**
+ * deserializeAws_restJson1TooManyRequestsExceptionRes
+ */
+const de_TooManyRequestsExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooManyRequestsException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new TooManyRequestsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1UserNotFoundExceptionRes
  */
 const de_UserNotFoundExceptionRes = async (
@@ -19717,19 +21371,37 @@ const de_UserNotFoundExceptionRes = async (
 
 // se_AgentConfig omitted.
 
+// se_AgentHierarchyGroups omitted.
+
+// se_AgentResourceIdList omitted.
+
 // se_AgentsMinOneMaxHundred omitted.
 
 // se_AllowedAccessControlTags omitted.
+
+// se_AllowedCapabilities omitted.
 
 // se_AllowedMonitorCapabilities omitted.
 
 // se_AnswerMachineDetectionConfig omitted.
 
+// se_Application omitted.
+
+// se_ApplicationPermissions omitted.
+
+// se_Applications omitted.
+
 // se_AssignContactCategoryActionDefinition omitted.
 
 // se_Attributes omitted.
 
+// se_Campaign omitted.
+
+// se_ChannelList omitted.
+
 // se_Channels omitted.
+
+// se_ChatEvent omitted.
 
 // se_ChatMessage omitted.
 
@@ -19737,13 +21409,31 @@ const de_UserNotFoundExceptionRes = async (
 
 // se_ChatStreamingConfiguration omitted.
 
+// se_ContactAnalysis omitted.
+
+// se_ContactDataRequest omitted.
+
+// se_ContactDataRequestList omitted.
+
 // se_ContactFilter omitted.
 
 // se_ContactReferences omitted.
 
 // se_ContactStates omitted.
 
+// se_ContactTagMap omitted.
+
 // se_ControlPlaneTagFilter omitted.
+
+/**
+ * serializeAws_restJson1CreateCaseActionDefinition
+ */
+const se_CreateCaseActionDefinition = (input: CreateCaseActionDefinition, context: __SerdeContext): any => {
+  return take(input, {
+    Fields: (_) => se_FieldValues(_, context),
+    TemplateId: [],
+  });
+};
 
 // se_CrossChannelBehavior omitted.
 
@@ -19755,11 +21445,21 @@ const de_UserNotFoundExceptionRes = async (
 
 // se_CurrentMetricSortCriteriaMaxOne omitted.
 
+// se_DataSetIds omitted.
+
+// se_DisconnectReason omitted.
+
 // se_Distribution omitted.
 
 // se_DistributionList omitted.
 
+// se_EmptyFieldValue omitted.
+
 // se_EncryptionConfig omitted.
+
+// se_EndAssociatedTasksActionDefinition omitted.
+
+// se_Endpoint omitted.
 
 /**
  * serializeAws_restJson1EvaluationAnswerData
@@ -19875,6 +21575,39 @@ const se_EvaluationFormSection = (input: EvaluationFormSection, context: __Serde
 
 // se_EventBridgeActionDefinition omitted.
 
+/**
+ * serializeAws_restJson1FieldValue
+ */
+const se_FieldValue = (input: FieldValue, context: __SerdeContext): any => {
+  return take(input, {
+    Id: [],
+    Value: (_) => se_FieldValueUnion(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1FieldValues
+ */
+const se_FieldValues = (input: FieldValue[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_FieldValue(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1FieldValueUnion
+ */
+const se_FieldValueUnion = (input: FieldValueUnion, context: __SerdeContext): any => {
+  return take(input, {
+    BooleanValue: [],
+    DoubleValue: __serializeFloat,
+    EmptyValue: _json,
+    StringValue: [],
+  });
+};
+
 // se_Filters omitted.
 
 // se_FiltersV2List omitted.
@@ -19888,6 +21621,8 @@ const se_EvaluationFormSection = (input: EvaluationFormSection, context: __Serde
 // se_GroupingsV2 omitted.
 
 // se_HierarchyGroupCondition omitted.
+
+// se_HierarchyGroupIdList omitted.
 
 // se_HierarchyLevelUpdate omitted.
 
@@ -19949,7 +21684,11 @@ const se_HoursOfOperationSearchCriteria = (input: HoursOfOperationSearchCriteria
 
 // se_HoursOfOperationTimeSlice omitted.
 
+// se_InitiationMethodList omitted.
+
 // se_InstanceStorageConfig omitted.
+
+// se_IntervalDetails omitted.
 
 // se_InvisibleFieldInfo omitted.
 
@@ -19997,11 +21736,15 @@ const se_MetricV2 = (input: MetricV2, context: __SerdeContext): any => {
   });
 };
 
+// se_NewSessionDetails omitted.
+
 // se_NotificationRecipientType omitted.
 
 // se_NumericQuestionPropertyValueAutomation omitted.
 
 // se_OutboundCallerConfig omitted.
+
+// se_ParticipantCapabilities omitted.
 
 // se_ParticipantDetails omitted.
 
@@ -20022,6 +21765,38 @@ const se_MetricV2 = (input: MetricV2, context: __SerdeContext): any => {
 // se_PhoneNumberQuickConnectConfig omitted.
 
 // se_PhoneNumberTypes omitted.
+
+/**
+ * serializeAws_restJson1PredefinedAttributeSearchConditionList
+ */
+const se_PredefinedAttributeSearchConditionList = (
+  input: PredefinedAttributeSearchCriteria[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_PredefinedAttributeSearchCriteria(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1PredefinedAttributeSearchCriteria
+ */
+const se_PredefinedAttributeSearchCriteria = (
+  input: PredefinedAttributeSearchCriteria,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    AndConditions: (_) => se_PredefinedAttributeSearchConditionList(_, context),
+    OrConditions: (_) => se_PredefinedAttributeSearchConditionList(_, context),
+    StringCondition: _json,
+  });
+};
+
+// se_PredefinedAttributeStringValuesList omitted.
+
+// se_PredefinedAttributeValues omitted.
 
 /**
  * serializeAws_restJson1PromptSearchConditionList
@@ -20046,6 +21821,8 @@ const se_PromptSearchCriteria = (input: PromptSearchCriteria, context: __SerdeCo
 };
 
 // se_PromptSearchFilter omitted.
+
+// se_QueueIdList omitted.
 
 // se_QueueQuickConnectConfig omitted.
 
@@ -20108,15 +21885,21 @@ const se_QuickConnectSearchCriteria = (input: QuickConnectSearchCriteria, contex
 
 // se_ReadOnlyTaskTemplateFields omitted.
 
+// se_RealTimeContactAnalysisSegmentTypes omitted.
+
 // se_Reference omitted.
 
 // se_RequiredFieldInfo omitted.
 
 // se_RequiredTaskTemplateFields omitted.
 
+// se_resourceArnListMaxLimit100 omitted.
+
 // se_ResourceTagsSearchCriteria omitted.
 
 // se_ResourceTypeList omitted.
+
+// se_RoutingExpressions omitted.
 
 // se_RoutingProfileQueueConfig omitted.
 
@@ -20152,13 +21935,59 @@ const se_RoutingProfileSearchCriteria = (input: RoutingProfileSearchCriteria, co
 
 // se_RoutingProfileSearchFilter omitted.
 
-// se_RuleAction omitted.
+/**
+ * serializeAws_restJson1RuleAction
+ */
+const se_RuleAction = (input: RuleAction, context: __SerdeContext): any => {
+  return take(input, {
+    ActionType: [],
+    AssignContactCategoryAction: _json,
+    CreateCaseAction: (_) => se_CreateCaseActionDefinition(_, context),
+    EndAssociatedTasksAction: _json,
+    EventBridgeAction: _json,
+    SendNotificationAction: _json,
+    TaskAction: _json,
+    UpdateCaseAction: (_) => se_UpdateCaseActionDefinition(_, context),
+  });
+};
 
-// se_RuleActions omitted.
+/**
+ * serializeAws_restJson1RuleActions
+ */
+const se_RuleActions = (input: RuleAction[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_RuleAction(entry, context);
+    });
+};
 
 // se_RuleTriggerEventSource omitted.
 
 // se_S3Config omitted.
+
+// se_SearchableContactAttributes omitted.
+
+// se_SearchableContactAttributesCriteria omitted.
+
+// se_SearchableContactAttributesCriteriaList omitted.
+
+// se_SearchableContactAttributeValueList omitted.
+
+/**
+ * serializeAws_restJson1SearchContactsTimeRange
+ */
+const se_SearchContactsTimeRange = (input: SearchContactsTimeRange, context: __SerdeContext): any => {
+  return take(input, {
+    EndTime: (_) => Math.round(_.getTime() / 1000),
+    StartTime: (_) => Math.round(_.getTime() / 1000),
+    Type: [],
+  });
+};
+
+// se_SearchCriteria omitted.
+
+// se_SearchTextList omitted.
 
 // se_SecurityProfileIds omitted.
 
@@ -20189,6 +22018,10 @@ const se_SecurityProfileSearchCriteria = (input: SecurityProfileSearchCriteria, 
 
 // se_SecurityProfilesSearchFilter omitted.
 
+// se_SegmentAttributes omitted.
+
+// se_SegmentAttributeValue omitted.
+
 // se_SendNotificationActionDefinition omitted.
 
 // se_SignInConfig omitted.
@@ -20200,6 +22033,8 @@ const se_SecurityProfileSearchCriteria = (input: SecurityProfileSearchCriteria, 
 // se_SingleSelectOptions omitted.
 
 // se_SingleSelectQuestionRuleCategoryAutomation omitted.
+
+// se_Sort omitted.
 
 // se_StringCondition omitted.
 
@@ -20266,6 +22101,21 @@ const se_ThresholdV2 = (input: ThresholdV2, context: __SerdeContext): any => {
   });
 };
 
+// se_Transcript omitted.
+
+// se_TranscriptCriteria omitted.
+
+// se_TranscriptCriteriaList omitted.
+
+/**
+ * serializeAws_restJson1UpdateCaseActionDefinition
+ */
+const se_UpdateCaseActionDefinition = (input: UpdateCaseActionDefinition, context: __SerdeContext): any => {
+  return take(input, {
+    Fields: (_) => se_FieldValues(_, context),
+  });
+};
+
 // se_UpdateParticipantRoleConfigChannelInfo omitted.
 
 // se_UserDataFilters omitted.
@@ -20277,6 +22127,32 @@ const se_ThresholdV2 = (input: ThresholdV2, context: __SerdeContext): any => {
 // se_UserIdList omitted.
 
 // se_UserPhoneConfig omitted.
+
+/**
+ * serializeAws_restJson1UserProficiency
+ */
+const se_UserProficiency = (input: UserProficiency, context: __SerdeContext): any => {
+  return take(input, {
+    AttributeName: [],
+    AttributeValue: [],
+    Level: __serializeFloat,
+  });
+};
+
+// se_UserProficiencyDisassociate omitted.
+
+// se_UserProficiencyDisassociateList omitted.
+
+/**
+ * serializeAws_restJson1UserProficiencyList
+ */
+const se_UserProficiencyList = (input: UserProficiency[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_UserProficiency(entry, context);
+    });
+};
 
 // se_UserQuickConnectConfig omitted.
 
@@ -20306,6 +22182,10 @@ const se_UserSearchCriteria = (input: UserSearchCriteria, context: __SerdeContex
 // se_UserSearchFilter omitted.
 
 // se_UserTagMap omitted.
+
+// se_ViewActions omitted.
+
+// se_ViewInputContent omitted.
 
 // se_VoiceRecordingConfiguration omitted.
 
@@ -20347,12 +22227,29 @@ const de_AgentContactReferenceList = (output: any, context: __SerdeContext): Age
  */
 const de_AgentInfo = (output: any, context: __SerdeContext): AgentInfo => {
   return take(output, {
+    AgentPauseDurationInSeconds: __expectInt32,
     ConnectedToAgentTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Id: __expectString,
   }) as any;
 };
 
-// de_AgentStatus omitted.
+/**
+ * deserializeAws_restJson1AgentStatus
+ */
+const de_AgentStatus = (output: any, context: __SerdeContext): AgentStatus => {
+  return take(output, {
+    AgentStatusARN: __expectString,
+    AgentStatusId: __expectString,
+    Description: __expectString,
+    DisplayOrder: __expectInt32,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    State: __expectString,
+    Tags: _json,
+    Type: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1AgentStatusReference
@@ -20365,21 +22262,57 @@ const de_AgentStatusReference = (output: any, context: __SerdeContext): AgentSta
   }) as any;
 };
 
-// de_AgentStatusSummary omitted.
+/**
+ * deserializeAws_restJson1AgentStatusSummary
+ */
+const de_AgentStatusSummary = (output: any, context: __SerdeContext): AgentStatusSummary => {
+  return take(output, {
+    Arn: __expectString,
+    Id: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Type: __expectString,
+  }) as any;
+};
 
-// de_AgentStatusSummaryList omitted.
+/**
+ * deserializeAws_restJson1AgentStatusSummaryList
+ */
+const de_AgentStatusSummaryList = (output: any, context: __SerdeContext): AgentStatusSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AgentStatusSummary(entry, context);
+    });
+  return retVal;
+};
 
 // de_AllowedAccessControlTags omitted.
+
+// de_AnalyticsDataAssociationResult omitted.
+
+// de_AnalyticsDataAssociationResults omitted.
+
+// de_Application omitted.
+
+// de_ApplicationPermissions omitted.
+
+// de_Applications omitted.
 
 // de_AssignContactCategoryActionDefinition omitted.
 
 // de_AttachmentReference omitted.
+
+// de_Attendee omitted.
 
 // de_Attribute omitted.
 
 // de_Attributes omitted.
 
 // de_AttributesList omitted.
+
+// de_AudioFeatures omitted.
 
 // de_AvailableNumbersList omitted.
 
@@ -20388,6 +22321,8 @@ const de_AgentStatusReference = (output: any, context: __SerdeContext): AgentSta
 // de_ChannelToCountMap omitted.
 
 // de_ClaimedPhoneNumberSummary omitted.
+
+// de_ConnectionData omitted.
 
 /**
  * deserializeAws_restJson1Contact
@@ -20403,12 +22338,19 @@ const de_Contact = (output: any, context: __SerdeContext): Contact => {
     InitialContactId: __expectString,
     InitiationMethod: __expectString,
     InitiationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastPausedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastResumedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LastUpdateTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,
     PreviousContactId: __expectString,
     QueueInfo: (_: any) => de_QueueInfo(_, context),
+    QueuePriority: __expectLong,
+    QueueTimeAdjustmentSeconds: __expectInt32,
     RelatedContactId: __expectString,
     ScheduledTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Tags: _json,
+    TotalPauseCount: __expectInt32,
+    TotalPauseDurationInSeconds: __expectInt32,
     WisdomInfo: _json,
   }) as any;
 };
@@ -20426,6 +22368,69 @@ const de_Contact = (output: any, context: __SerdeContext): Contact => {
 // de_ContactFlowSummaryList omitted.
 
 // de_ContactReferences omitted.
+
+/**
+ * deserializeAws_restJson1Contacts
+ */
+const de_Contacts = (output: any, context: __SerdeContext): ContactSearchSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ContactSearchSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ContactSearchSummary
+ */
+const de_ContactSearchSummary = (output: any, context: __SerdeContext): ContactSearchSummary => {
+  return take(output, {
+    AgentInfo: (_: any) => de_ContactSearchSummaryAgentInfo(_, context),
+    Arn: __expectString,
+    Channel: __expectString,
+    DisconnectTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Id: __expectString,
+    InitialContactId: __expectString,
+    InitiationMethod: __expectString,
+    InitiationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    PreviousContactId: __expectString,
+    QueueInfo: (_: any) => de_ContactSearchSummaryQueueInfo(_, context),
+    ScheduledTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ContactSearchSummaryAgentInfo
+ */
+const de_ContactSearchSummaryAgentInfo = (output: any, context: __SerdeContext): ContactSearchSummaryAgentInfo => {
+  return take(output, {
+    ConnectedToAgentTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Id: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ContactSearchSummaryQueueInfo
+ */
+const de_ContactSearchSummaryQueueInfo = (output: any, context: __SerdeContext): ContactSearchSummaryQueueInfo => {
+  return take(output, {
+    EnqueueTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Id: __expectString,
+  }) as any;
+};
+
+// de_ContactTagMap omitted.
+
+/**
+ * deserializeAws_restJson1CreateCaseActionDefinition
+ */
+const de_CreateCaseActionDefinition = (output: any, context: __SerdeContext): CreateCaseActionDefinition => {
+  return take(output, {
+    Fields: (_: any) => de_FieldValues(_, context),
+    TemplateId: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1Credentials
@@ -20487,6 +22492,8 @@ const de_CurrentMetricResults = (output: any, context: __SerdeContext): CurrentM
   return retVal;
 };
 
+// de_DataSetIds omitted.
+
 // de_DateReference omitted.
 
 // de_DefaultVocabulary omitted.
@@ -20503,7 +22510,15 @@ const de_CurrentMetricResults = (output: any, context: __SerdeContext): CurrentM
 
 // de_EmailReference omitted.
 
+// de_EmptyFieldValue omitted.
+
 // de_EncryptionConfig omitted.
+
+// de_EndAssociatedTasksActionDefinition omitted.
+
+// de_ErrorResult omitted.
+
+// de_ErrorResults omitted.
 
 /**
  * deserializeAws_restJson1Evaluation
@@ -20560,9 +22575,9 @@ const de_EvaluationAnswersOutputMap = (
     if (value === null) {
       return acc;
     }
-    acc[key] = de_EvaluationAnswerOutput(value, context);
+    acc[key as string] = de_EvaluationAnswerOutput(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, EvaluationAnswerOutput>);
 };
 
 /**
@@ -20778,9 +22793,9 @@ const de_EvaluationScoresMap = (output: any, context: __SerdeContext): Record<st
     if (value === null) {
       return acc;
     }
-    acc[key] = de_EvaluationScore(value, context);
+    acc[key as string] = de_EvaluationScore(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, EvaluationScore>);
 };
 
 /**
@@ -20814,23 +22829,133 @@ const de_EvaluationSummaryList = (output: any, context: __SerdeContext): Evaluat
 
 // de_EventBridgeActionDefinition omitted.
 
+// de_FailedRequest omitted.
+
+// de_FailedRequestList omitted.
+
+/**
+ * deserializeAws_restJson1FieldValue
+ */
+const de_FieldValue = (output: any, context: __SerdeContext): FieldValue => {
+  return take(output, {
+    Id: __expectString,
+    Value: (_: any) => de_FieldValueUnion(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1FieldValues
+ */
+const de_FieldValues = (output: any, context: __SerdeContext): FieldValue[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_FieldValue(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1FieldValueUnion
+ */
+const de_FieldValueUnion = (output: any, context: __SerdeContext): FieldValueUnion => {
+  return take(output, {
+    BooleanValue: __expectBoolean,
+    DoubleValue: __limitedParseDouble,
+    EmptyValue: _json,
+    StringValue: __expectString,
+  }) as any;
+};
+
+// de_FlowAssociationSummary omitted.
+
+// de_FlowAssociationSummaryList omitted.
+
 // de_FunctionArnsList omitted.
 
-// de_HierarchyGroup omitted.
+/**
+ * deserializeAws_restJson1HierarchyGroup
+ */
+const de_HierarchyGroup = (output: any, context: __SerdeContext): HierarchyGroup => {
+  return take(output, {
+    Arn: __expectString,
+    HierarchyPath: (_: any) => de_HierarchyPath(_, context),
+    Id: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LevelId: __expectString,
+    Name: __expectString,
+    Tags: _json,
+  }) as any;
+};
 
-// de_HierarchyGroupSummary omitted.
+/**
+ * deserializeAws_restJson1HierarchyGroupSummary
+ */
+const de_HierarchyGroupSummary = (output: any, context: __SerdeContext): HierarchyGroupSummary => {
+  return take(output, {
+    Arn: __expectString,
+    Id: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+  }) as any;
+};
 
-// de_HierarchyGroupSummaryList omitted.
+/**
+ * deserializeAws_restJson1HierarchyGroupSummaryList
+ */
+const de_HierarchyGroupSummaryList = (output: any, context: __SerdeContext): HierarchyGroupSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_HierarchyGroupSummary(entry, context);
+    });
+  return retVal;
+};
 
 // de_HierarchyGroupSummaryReference omitted.
 
-// de_HierarchyLevel omitted.
+/**
+ * deserializeAws_restJson1HierarchyLevel
+ */
+const de_HierarchyLevel = (output: any, context: __SerdeContext): HierarchyLevel => {
+  return take(output, {
+    Arn: __expectString,
+    Id: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+  }) as any;
+};
 
-// de_HierarchyPath omitted.
+/**
+ * deserializeAws_restJson1HierarchyPath
+ */
+const de_HierarchyPath = (output: any, context: __SerdeContext): HierarchyPath => {
+  return take(output, {
+    LevelFive: (_: any) => de_HierarchyGroupSummary(_, context),
+    LevelFour: (_: any) => de_HierarchyGroupSummary(_, context),
+    LevelOne: (_: any) => de_HierarchyGroupSummary(_, context),
+    LevelThree: (_: any) => de_HierarchyGroupSummary(_, context),
+    LevelTwo: (_: any) => de_HierarchyGroupSummary(_, context),
+  }) as any;
+};
 
 // de_HierarchyPathReference omitted.
 
-// de_HierarchyStructure omitted.
+/**
+ * deserializeAws_restJson1HierarchyStructure
+ */
+const de_HierarchyStructure = (output: any, context: __SerdeContext): HierarchyStructure => {
+  return take(output, {
+    LevelFive: (_: any) => de_HierarchyLevel(_, context),
+    LevelFour: (_: any) => de_HierarchyLevel(_, context),
+    LevelOne: (_: any) => de_HierarchyLevel(_, context),
+    LevelThree: (_: any) => de_HierarchyLevel(_, context),
+    LevelTwo: (_: any) => de_HierarchyLevel(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1HistoricalMetric
@@ -20888,17 +23013,63 @@ const de_HistoricalMetricResults = (output: any, context: __SerdeContext): Histo
   return retVal;
 };
 
-// de_HoursOfOperation omitted.
+/**
+ * deserializeAws_restJson1HoursOfOperation
+ */
+const de_HoursOfOperation = (output: any, context: __SerdeContext): HoursOfOperation => {
+  return take(output, {
+    Config: _json,
+    Description: __expectString,
+    HoursOfOperationArn: __expectString,
+    HoursOfOperationId: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Tags: _json,
+    TimeZone: __expectString,
+  }) as any;
+};
 
 // de_HoursOfOperationConfig omitted.
 
 // de_HoursOfOperationConfigList omitted.
 
-// de_HoursOfOperationList omitted.
+/**
+ * deserializeAws_restJson1HoursOfOperationList
+ */
+const de_HoursOfOperationList = (output: any, context: __SerdeContext): HoursOfOperation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_HoursOfOperation(entry, context);
+    });
+  return retVal;
+};
 
-// de_HoursOfOperationSummary omitted.
+/**
+ * deserializeAws_restJson1HoursOfOperationSummary
+ */
+const de_HoursOfOperationSummary = (output: any, context: __SerdeContext): HoursOfOperationSummary => {
+  return take(output, {
+    Arn: __expectString,
+    Id: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+  }) as any;
+};
 
-// de_HoursOfOperationSummaryList omitted.
+/**
+ * deserializeAws_restJson1HoursOfOperationSummaryList
+ */
+const de_HoursOfOperationSummaryList = (output: any, context: __SerdeContext): HoursOfOperationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_HoursOfOperationSummary(entry, context);
+    });
+  return retVal;
+};
 
 // de_HoursOfOperationTimeSlice omitted.
 
@@ -20918,6 +23089,7 @@ const de_Instance = (output: any, context: __SerdeContext): Instance => {
     OutboundCallsEnabled: __expectBoolean,
     ServiceRole: __expectString,
     StatusReason: _json,
+    Tags: _json,
   }) as any;
 };
 
@@ -20989,6 +23161,12 @@ const de_InstanceSummaryList = (output: any, context: __SerdeContext): InstanceS
 
 // de_MediaConcurrency omitted.
 
+// de_MediaPlacement omitted.
+
+// de_Meeting omitted.
+
+// de_MeetingFeaturesConfiguration omitted.
+
 /**
  * deserializeAws_restJson1MetricDataCollectionsV2
  */
@@ -21018,6 +23196,17 @@ const de_MetricDataV2 = (output: any, context: __SerdeContext): MetricDataV2 => 
 // de_MetricFilterValueList omitted.
 
 /**
+ * deserializeAws_restJson1MetricInterval
+ */
+const de_MetricInterval = (output: any, context: __SerdeContext): MetricInterval => {
+  return take(output, {
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Interval: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1MetricResultsV2
  */
 const de_MetricResultsV2 = (output: any, context: __SerdeContext): MetricResultV2[] => {
@@ -21036,6 +23225,7 @@ const de_MetricResultV2 = (output: any, context: __SerdeContext): MetricResultV2
   return take(output, {
     Collections: (_: any) => de_MetricDataCollectionsV2(_, context),
     Dimensions: _json,
+    MetricInterval: (_: any) => de_MetricInterval(_, context),
   }) as any;
 };
 
@@ -21072,23 +23262,135 @@ const de_MetricV2 = (output: any, context: __SerdeContext): MetricV2 => {
 
 // de_PhoneNumberSummaryList omitted.
 
+/**
+ * deserializeAws_restJson1PredefinedAttribute
+ */
+const de_PredefinedAttribute = (output: any, context: __SerdeContext): PredefinedAttribute => {
+  return take(output, {
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Values: (_: any) => _json(__expectUnion(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1PredefinedAttributeSearchSummaryList
+ */
+const de_PredefinedAttributeSearchSummaryList = (output: any, context: __SerdeContext): PredefinedAttribute[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_PredefinedAttribute(entry, context);
+    });
+  return retVal;
+};
+
+// de_PredefinedAttributeStringValuesList omitted.
+
+/**
+ * deserializeAws_restJson1PredefinedAttributeSummary
+ */
+const de_PredefinedAttributeSummary = (output: any, context: __SerdeContext): PredefinedAttributeSummary => {
+  return take(output, {
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1PredefinedAttributeSummaryList
+ */
+const de_PredefinedAttributeSummaryList = (output: any, context: __SerdeContext): PredefinedAttributeSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_PredefinedAttributeSummary(entry, context);
+    });
+  return retVal;
+};
+
+// de_PredefinedAttributeValues omitted.
+
 // de_ProblemDetail omitted.
 
 // de_Problems omitted.
 
-// de_Prompt omitted.
+/**
+ * deserializeAws_restJson1Prompt
+ */
+const de_Prompt = (output: any, context: __SerdeContext): Prompt => {
+  return take(output, {
+    Description: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    PromptARN: __expectString,
+    PromptId: __expectString,
+    Tags: _json,
+  }) as any;
+};
 
-// de_PromptList omitted.
+/**
+ * deserializeAws_restJson1PromptList
+ */
+const de_PromptList = (output: any, context: __SerdeContext): Prompt[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Prompt(entry, context);
+    });
+  return retVal;
+};
 
-// de_PromptSummary omitted.
+/**
+ * deserializeAws_restJson1PromptSummary
+ */
+const de_PromptSummary = (output: any, context: __SerdeContext): PromptSummary => {
+  return take(output, {
+    Arn: __expectString,
+    Id: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+  }) as any;
+};
 
-// de_PromptSummaryList omitted.
+/**
+ * deserializeAws_restJson1PromptSummaryList
+ */
+const de_PromptSummaryList = (output: any, context: __SerdeContext): PromptSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_PromptSummary(entry, context);
+    });
+  return retVal;
+};
 
 // de_PropertyValidationExceptionProperty omitted.
 
 // de_PropertyValidationExceptionPropertyList omitted.
 
-// de_Queue omitted.
+/**
+ * deserializeAws_restJson1Queue
+ */
+const de_Queue = (output: any, context: __SerdeContext): Queue => {
+  return take(output, {
+    Description: __expectString,
+    HoursOfOperationId: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MaxContacts: __expectInt32,
+    Name: __expectString,
+    OutboundCallerConfig: _json,
+    QueueArn: __expectString,
+    QueueId: __expectString,
+    Status: __expectString,
+    Tags: _json,
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1QueueInfo
@@ -21104,25 +23406,247 @@ const de_QueueInfo = (output: any, context: __SerdeContext): QueueInfo => {
 
 // de_QueueReference omitted.
 
-// de_QueueSearchSummaryList omitted.
+/**
+ * deserializeAws_restJson1QueueSearchSummaryList
+ */
+const de_QueueSearchSummaryList = (output: any, context: __SerdeContext): Queue[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Queue(entry, context);
+    });
+  return retVal;
+};
 
-// de_QueueSummary omitted.
+/**
+ * deserializeAws_restJson1QueueSummary
+ */
+const de_QueueSummary = (output: any, context: __SerdeContext): QueueSummary => {
+  return take(output, {
+    Arn: __expectString,
+    Id: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    QueueType: __expectString,
+  }) as any;
+};
 
-// de_QueueSummaryList omitted.
+/**
+ * deserializeAws_restJson1QueueSummaryList
+ */
+const de_QueueSummaryList = (output: any, context: __SerdeContext): QueueSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_QueueSummary(entry, context);
+    });
+  return retVal;
+};
 
-// de_QuickConnect omitted.
+/**
+ * deserializeAws_restJson1QuickConnect
+ */
+const de_QuickConnect = (output: any, context: __SerdeContext): QuickConnect => {
+  return take(output, {
+    Description: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    QuickConnectARN: __expectString,
+    QuickConnectConfig: _json,
+    QuickConnectId: __expectString,
+    Tags: _json,
+  }) as any;
+};
 
 // de_QuickConnectConfig omitted.
 
-// de_QuickConnectSearchSummaryList omitted.
+/**
+ * deserializeAws_restJson1QuickConnectSearchSummaryList
+ */
+const de_QuickConnectSearchSummaryList = (output: any, context: __SerdeContext): QuickConnect[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_QuickConnect(entry, context);
+    });
+  return retVal;
+};
 
-// de_QuickConnectSummary omitted.
+/**
+ * deserializeAws_restJson1QuickConnectSummary
+ */
+const de_QuickConnectSummary = (output: any, context: __SerdeContext): QuickConnectSummary => {
+  return take(output, {
+    Arn: __expectString,
+    Id: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    QuickConnectType: __expectString,
+  }) as any;
+};
 
-// de_QuickConnectSummaryList omitted.
+/**
+ * deserializeAws_restJson1QuickConnectSummaryList
+ */
+const de_QuickConnectSummaryList = (output: any, context: __SerdeContext): QuickConnectSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_QuickConnectSummary(entry, context);
+    });
+  return retVal;
+};
 
 // de_ReadOnlyFieldInfo omitted.
 
 // de_ReadOnlyTaskTemplateFields omitted.
+
+// de_RealTimeContactAnalysisAttachment omitted.
+
+// de_RealTimeContactAnalysisAttachments omitted.
+
+// de_RealTimeContactAnalysisCategoryDetails omitted.
+
+// de_RealTimeContactAnalysisCharacterInterval omitted.
+
+// de_RealTimeContactAnalysisCharacterIntervals omitted.
+
+// de_RealTimeContactAnalysisIssueDetected omitted.
+
+// de_RealTimeContactAnalysisIssuesDetected omitted.
+
+// de_RealTimeContactAnalysisMatchedDetails omitted.
+
+// de_RealTimeContactAnalysisPointOfInterest omitted.
+
+// de_RealTimeContactAnalysisPointsOfInterest omitted.
+
+/**
+ * deserializeAws_restJson1RealtimeContactAnalysisSegment
+ */
+const de_RealtimeContactAnalysisSegment = (output: any, context: __SerdeContext): RealtimeContactAnalysisSegment => {
+  if (output.Attachments != null) {
+    return {
+      Attachments: de_RealTimeContactAnalysisSegmentAttachments(output.Attachments, context),
+    };
+  }
+  if (output.Categories != null) {
+    return {
+      Categories: _json(output.Categories),
+    };
+  }
+  if (output.Event != null) {
+    return {
+      Event: de_RealTimeContactAnalysisSegmentEvent(output.Event, context),
+    };
+  }
+  if (output.Issues != null) {
+    return {
+      Issues: _json(output.Issues),
+    };
+  }
+  if (output.Transcript != null) {
+    return {
+      Transcript: de_RealTimeContactAnalysisSegmentTranscript(output.Transcript, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1RealTimeContactAnalysisSegmentAttachments
+ */
+const de_RealTimeContactAnalysisSegmentAttachments = (
+  output: any,
+  context: __SerdeContext
+): RealTimeContactAnalysisSegmentAttachments => {
+  return take(output, {
+    Attachments: _json,
+    DisplayName: __expectString,
+    Id: __expectString,
+    ParticipantId: __expectString,
+    ParticipantRole: __expectString,
+    Time: (_: any) => de_RealTimeContactAnalysisTimeData(__expectUnion(_), context),
+  }) as any;
+};
+
+// de_RealTimeContactAnalysisSegmentCategories omitted.
+
+/**
+ * deserializeAws_restJson1RealTimeContactAnalysisSegmentEvent
+ */
+const de_RealTimeContactAnalysisSegmentEvent = (
+  output: any,
+  context: __SerdeContext
+): RealTimeContactAnalysisSegmentEvent => {
+  return take(output, {
+    DisplayName: __expectString,
+    EventType: __expectString,
+    Id: __expectString,
+    ParticipantId: __expectString,
+    ParticipantRole: __expectString,
+    Time: (_: any) => de_RealTimeContactAnalysisTimeData(__expectUnion(_), context),
+  }) as any;
+};
+
+// de_RealTimeContactAnalysisSegmentIssues omitted.
+
+/**
+ * deserializeAws_restJson1RealtimeContactAnalysisSegments
+ */
+const de_RealtimeContactAnalysisSegments = (output: any, context: __SerdeContext): RealtimeContactAnalysisSegment[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RealtimeContactAnalysisSegment(__expectUnion(entry), context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1RealTimeContactAnalysisSegmentTranscript
+ */
+const de_RealTimeContactAnalysisSegmentTranscript = (
+  output: any,
+  context: __SerdeContext
+): RealTimeContactAnalysisSegmentTranscript => {
+  return take(output, {
+    Content: __expectString,
+    ContentType: __expectString,
+    DisplayName: __expectString,
+    Id: __expectString,
+    ParticipantId: __expectString,
+    ParticipantRole: __expectString,
+    Redaction: _json,
+    Sentiment: __expectString,
+    Time: (_: any) => de_RealTimeContactAnalysisTimeData(__expectUnion(_), context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RealTimeContactAnalysisTimeData
+ */
+const de_RealTimeContactAnalysisTimeData = (output: any, context: __SerdeContext): RealTimeContactAnalysisTimeData => {
+  if (output.AbsoluteTime != null) {
+    return {
+      AbsoluteTime: __expectNonNull(__parseRfc3339DateTimeWithOffset(output.AbsoluteTime)),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+// de_RealTimeContactAnalysisTranscriptItemRedaction omitted.
+
+// de_RealTimeContactAnalysisTranscriptItemsWithCharacterOffsets omitted.
+
+// de_RealTimeContactAnalysisTranscriptItemsWithContent omitted.
+
+// de_RealTimeContactAnalysisTranscriptItemWithCharacterOffsets omitted.
+
+// de_RealTimeContactAnalysisTranscriptItemWithContent omitted.
 
 // de_Reference omitted.
 
@@ -21134,9 +23658,39 @@ const de_QueueInfo = (output: any, context: __SerdeContext): QueueInfo => {
 
 // de_RequiredTaskTemplateFields omitted.
 
-// de_RoutingProfile omitted.
+/**
+ * deserializeAws_restJson1RoutingProfile
+ */
+const de_RoutingProfile = (output: any, context: __SerdeContext): RoutingProfile => {
+  return take(output, {
+    AgentAvailabilityTimer: __expectString,
+    DefaultOutboundQueueId: __expectString,
+    Description: __expectString,
+    InstanceId: __expectString,
+    IsDefault: __expectBoolean,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MediaConcurrencies: _json,
+    Name: __expectString,
+    NumberOfAssociatedQueues: __expectLong,
+    NumberOfAssociatedUsers: __expectLong,
+    RoutingProfileArn: __expectString,
+    RoutingProfileId: __expectString,
+    Tags: _json,
+  }) as any;
+};
 
-// de_RoutingProfileList omitted.
+/**
+ * deserializeAws_restJson1RoutingProfileList
+ */
+const de_RoutingProfileList = (output: any, context: __SerdeContext): RoutingProfile[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RoutingProfile(entry, context);
+    });
+  return retVal;
+};
 
 // de_RoutingProfileQueueConfigSummary omitted.
 
@@ -21144,16 +23698,37 @@ const de_QueueInfo = (output: any, context: __SerdeContext): QueueInfo => {
 
 // de_RoutingProfileReference omitted.
 
-// de_RoutingProfileSummary omitted.
+/**
+ * deserializeAws_restJson1RoutingProfileSummary
+ */
+const de_RoutingProfileSummary = (output: any, context: __SerdeContext): RoutingProfileSummary => {
+  return take(output, {
+    Arn: __expectString,
+    Id: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+  }) as any;
+};
 
-// de_RoutingProfileSummaryList omitted.
+/**
+ * deserializeAws_restJson1RoutingProfileSummaryList
+ */
+const de_RoutingProfileSummaryList = (output: any, context: __SerdeContext): RoutingProfileSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RoutingProfileSummary(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1Rule
  */
 const de_Rule = (output: any, context: __SerdeContext): Rule => {
   return take(output, {
-    Actions: _json,
+    Actions: (_: any) => de_RuleActions(_, context),
     CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Function: __expectString,
     LastUpdatedBy: __expectString,
@@ -21167,9 +23742,33 @@ const de_Rule = (output: any, context: __SerdeContext): Rule => {
   }) as any;
 };
 
-// de_RuleAction omitted.
+/**
+ * deserializeAws_restJson1RuleAction
+ */
+const de_RuleAction = (output: any, context: __SerdeContext): RuleAction => {
+  return take(output, {
+    ActionType: __expectString,
+    AssignContactCategoryAction: _json,
+    CreateCaseAction: (_: any) => de_CreateCaseActionDefinition(_, context),
+    EndAssociatedTasksAction: _json,
+    EventBridgeAction: _json,
+    SendNotificationAction: _json,
+    TaskAction: _json,
+    UpdateCaseAction: (_: any) => de_UpdateCaseActionDefinition(_, context),
+  }) as any;
+};
 
-// de_RuleActions omitted.
+/**
+ * deserializeAws_restJson1RuleActions
+ */
+const de_RuleActions = (output: any, context: __SerdeContext): RuleAction[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RuleAction(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1RuleSummary
@@ -21226,7 +23825,23 @@ const de_SecurityKeysList = (output: any, context: __SerdeContext): SecurityKey[
   return retVal;
 };
 
-// de_SecurityProfile omitted.
+/**
+ * deserializeAws_restJson1SecurityProfile
+ */
+const de_SecurityProfile = (output: any, context: __SerdeContext): SecurityProfile => {
+  return take(output, {
+    AllowedAccessControlTags: _json,
+    Arn: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    OrganizationResourceId: __expectString,
+    SecurityProfileName: __expectString,
+    TagRestrictedResources: _json,
+    Tags: _json,
+  }) as any;
+};
 
 // de_SecurityProfileIds omitted.
 
@@ -21234,9 +23849,30 @@ const de_SecurityKeysList = (output: any, context: __SerdeContext): SecurityKey[
 
 // de_SecurityProfilesSearchSummaryList omitted.
 
-// de_SecurityProfileSummary omitted.
+/**
+ * deserializeAws_restJson1SecurityProfileSummary
+ */
+const de_SecurityProfileSummary = (output: any, context: __SerdeContext): SecurityProfileSummary => {
+  return take(output, {
+    Arn: __expectString,
+    Id: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+  }) as any;
+};
 
-// de_SecurityProfileSummaryList omitted.
+/**
+ * deserializeAws_restJson1SecurityProfileSummaryList
+ */
+const de_SecurityProfileSummaryList = (output: any, context: __SerdeContext): SecurityProfileSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SecurityProfileSummary(entry, context);
+    });
+  return retVal;
+};
 
 // de_SendNotificationActionDefinition omitted.
 
@@ -21251,6 +23887,10 @@ const de_SecurityKeysList = (output: any, context: __SerdeContext): SecurityKey[
 // de_SingleSelectQuestionRuleCategoryAutomation omitted.
 
 // de_StringReference omitted.
+
+// de_SuccessfulRequest omitted.
+
+// de_SuccessfulRequestList omitted.
 
 // de_TagMap omitted.
 
@@ -21347,13 +23987,40 @@ const de_ThresholdV2 = (output: any, context: __SerdeContext): ThresholdV2 => {
 
 // de_TrafficDistributionGroupUserSummaryList omitted.
 
+/**
+ * deserializeAws_restJson1UpdateCaseActionDefinition
+ */
+const de_UpdateCaseActionDefinition = (output: any, context: __SerdeContext): UpdateCaseActionDefinition => {
+  return take(output, {
+    Fields: (_: any) => de_FieldValues(_, context),
+  }) as any;
+};
+
 // de_UrlReference omitted.
 
 // de_UseCase omitted.
 
 // de_UseCaseSummaryList omitted.
 
-// de_User omitted.
+/**
+ * deserializeAws_restJson1User
+ */
+const de_User = (output: any, context: __SerdeContext): User => {
+  return take(output, {
+    Arn: __expectString,
+    DirectoryUserId: __expectString,
+    HierarchyGroupId: __expectString,
+    Id: __expectString,
+    IdentityInfo: _json,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    PhoneConfig: _json,
+    RoutingProfileId: __expectString,
+    SecurityProfileIds: _json,
+    Tags: _json,
+    Username: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1UserData
@@ -21392,6 +24059,29 @@ const de_UserDataList = (output: any, context: __SerdeContext): UserData[] => {
 
 // de_UserPhoneConfig omitted.
 
+/**
+ * deserializeAws_restJson1UserProficiency
+ */
+const de_UserProficiency = (output: any, context: __SerdeContext): UserProficiency => {
+  return take(output, {
+    AttributeName: __expectString,
+    AttributeValue: __expectString,
+    Level: __limitedParseFloat32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1UserProficiencyList
+ */
+const de_UserProficiencyList = (output: any, context: __SerdeContext): UserProficiency[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_UserProficiency(entry, context);
+    });
+  return retVal;
+};
+
 // de_UserQuickConnectConfig omitted.
 
 // de_UserReference omitted.
@@ -21400,11 +24090,65 @@ const de_UserDataList = (output: any, context: __SerdeContext): UserData[] => {
 
 // de_UserSearchSummaryList omitted.
 
-// de_UserSummary omitted.
+/**
+ * deserializeAws_restJson1UserSummary
+ */
+const de_UserSummary = (output: any, context: __SerdeContext): UserSummary => {
+  return take(output, {
+    Arn: __expectString,
+    Id: __expectString,
+    LastModifiedRegion: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Username: __expectString,
+  }) as any;
+};
 
-// de_UserSummaryList omitted.
+/**
+ * deserializeAws_restJson1UserSummaryList
+ */
+const de_UserSummaryList = (output: any, context: __SerdeContext): UserSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_UserSummary(entry, context);
+    });
+  return retVal;
+};
 
 // de_UserTagMap omitted.
+
+/**
+ * deserializeAws_restJson1View
+ */
+const de_View = (output: any, context: __SerdeContext): View => {
+  return take(output, {
+    Arn: __expectString,
+    Content: _json,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    Id: __expectString,
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Status: __expectString,
+    Tags: _json,
+    Type: __expectString,
+    Version: __expectInt32,
+    VersionDescription: __expectString,
+    ViewContentSha256: __expectString,
+  }) as any;
+};
+
+// de_ViewActions omitted.
+
+// de_ViewContent omitted.
+
+// de_ViewsSummaryList omitted.
+
+// de_ViewSummary omitted.
+
+// de_ViewVersionSummary omitted.
+
+// de_ViewVersionSummaryList omitted.
 
 /**
  * deserializeAws_restJson1Vocabulary
@@ -21470,6 +24214,65 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _AST = "AgentStatusTypes";
+const _BN = "BotName";
+const _CFMS = "ContactFlowModuleState";
+const _CFT = "ContactFlowTypes";
+const _CI = "ContactId";
+const _CT = "ClientToken";
+const _DSI = "DataSetId";
+const _EFV = "EvaluationFormVersion";
+const _ESN = "EventSourceName";
+const _FA = "FunctionArn";
+const _IA = "IntegrationArn";
+const _II = "InstanceId";
+const _IT = "IntegrationType";
+const _LR = "LexRegion";
+const _LV = "LexVersion";
+const _MR = "MaxResults";
+const _N = "Name";
+const _NT = "NextToken";
+const _O = "Origin";
+const _PNCC = "PhoneNumberCountryCodes";
+const _PNT = "PhoneNumberTypes";
+const _PS = "PublishStatus";
+const _QCT = "QuickConnectTypes";
+const _QT = "QueueTypes";
+const _RT = "ResourceType";
+const _RTe = "ReferenceTypes";
+const _S = "Status";
+const _SV = "SnapshotVersion";
+const _T = "Type";
+const _TK = "TagKeys";
+const _UI = "UserId";
+const _bN = "botName";
+const _cFT = "contactFlowTypes";
+const _cI = "contactId";
+const _cT = "clientToken";
+const _eSN = "eventSourceName";
+const _fA = "functionArn";
+const _iA = "integrationArn";
+const _iI = "instanceId";
+const _iT = "integrationType";
+const _lR = "lexRegion";
+const _lV = "lexVersion";
+const _mR = "maxResults";
+const _n = "name";
+const _nT = "nextToken";
+const _o = "origin";
+const _pNCC = "phoneNumberCountryCodes";
+const _pNT = "phoneNumberTypes";
+const _pS = "publishStatus";
+const _qT = "queueTypes";
+const _rT = "resourceType";
+const _rTe = "referenceTypes";
+const _s = "state";
+const _sV = "snapshotVersion";
+const _st = "status";
+const _t = "type";
+const _tK = "tagKeys";
+const _v = "version";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

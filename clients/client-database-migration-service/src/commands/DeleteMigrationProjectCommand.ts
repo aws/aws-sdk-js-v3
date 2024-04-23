@@ -1,23 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   DatabaseMigrationServiceClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteMigrationProjectMessage, DeleteMigrationProjectResponse } from "../models/models_0";
 import { de_DeleteMigrationProjectCommand, se_DeleteMigrationProjectCommand } from "../protocols/Aws_json1_1";
 
@@ -108,80 +100,69 @@ export interface DeleteMigrationProjectCommandOutput extends DeleteMigrationProj
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @example Delete Migration Project
+ * ```javascript
+ * // Deletes the specified migration project.
+ * const input = {
+ *   "MigrationProjectIdentifier": "arn:aws:dms:us-east-1:012345678901:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345"
+ * };
+ * const command = new DeleteMigrationProjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "MigrationProject": {
+ *     "InstanceProfileArn": "arn:aws:dms:us-east-1:012345678901:instance-profile:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *     "InstanceProfileName": "my-instance-profile",
+ *     "MigrationProjectArn": "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *     "MigrationProjectCreationTime": "2023-04-19T11:45:15.805253Z",
+ *     "MigrationProjectName": "my-migration-project",
+ *     "SchemaConversionApplicationAttributes": {
+ *       "S3BucketPath": "my-s3-bucket/my_folder",
+ *       "S3BucketRoleArn": "arn:aws:iam::012345678901:role/my-s3role"
+ *     },
+ *     "SourceDataProviderDescriptors": [
+ *       {
+ *         "DataProviderArn": "arn:aws:dms:us-east-1:012345678901:data-provider:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *         "DataProviderName": "all-source-oracle-12",
+ *         "SecretsManagerAccessRoleArn": "arn:aws:iam::012345678901:role/my-access-role",
+ *         "SecretsManagerSecretId": "arn:aws:secretsmanager:us-east-1:012345678901:secret:myuser/ALL.SOURCE.ORACLE_12-0123456"
+ *       }
+ *     ],
+ *     "TargetDataProviderDescriptors": [
+ *       {
+ *         "DataProviderArn": "arn:aws:dms:us-east-1:012345678901:data-provider:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *         "DataProviderName": "sde-obilyns-dataprovider-3",
+ *         "SecretsManagerAccessRoleArn": "arn:aws:iam::437223687239:role/dmytbon-admin-access",
+ *         "SecretsManagerSecretId": "arn:aws:secretsmanager:us-east-1:012345678901:secret:myuser/TARGET.postgresql-0123456"
+ *       }
+ *     ]
+ *   }
+ * }
+ * *\/
+ * // example id: delete-migration-project-1689717217454
+ * ```
+ *
  */
-export class DeleteMigrationProjectCommand extends $Command<
-  DeleteMigrationProjectCommandInput,
-  DeleteMigrationProjectCommandOutput,
-  DatabaseMigrationServiceClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeleteMigrationProjectCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: DatabaseMigrationServiceClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DeleteMigrationProjectCommandInput, DeleteMigrationProjectCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteMigrationProjectCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "DatabaseMigrationServiceClient";
-    const commandName = "DeleteMigrationProjectCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DeleteMigrationProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteMigrationProjectCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteMigrationProjectCommandOutput> {
-    return de_DeleteMigrationProjectCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DeleteMigrationProjectCommand extends $Command
+  .classBuilder<
+    DeleteMigrationProjectCommandInput,
+    DeleteMigrationProjectCommandOutput,
+    DatabaseMigrationServiceClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonDMSv20160101", "DeleteMigrationProject", {})
+  .n("DatabaseMigrationServiceClient", "DeleteMigrationProjectCommand")
+  .f(void 0, void 0)
+  .ser(se_DeleteMigrationProjectCommand)
+  .de(de_DeleteMigrationProjectCommand)
+  .build() {}

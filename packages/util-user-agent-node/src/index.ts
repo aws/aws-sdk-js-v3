@@ -5,6 +5,8 @@ import { env, versions } from "process";
 
 import { isCrtAvailable } from "./is-crt-available";
 
+export { crtAvailability } from "./crt-availability";
+
 /**
  * @internal
  */

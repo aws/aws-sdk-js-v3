@@ -72,6 +72,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.iot1clickdevicesservice#ClaimDevicesByClaimCodeResponse": {
@@ -87,11 +90,13 @@
         "Total": {
           "target": "com.amazonaws.iot1clickdevicesservice#__integer",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The total number of devices associated with the claim code that has been processed in\n the claim request.</p>",
             "smithy.api#jsonName": "total"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.iot1clickdevicesservice#DescribeDevice": {
@@ -133,6 +138,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.iot1clickdevicesservice#DescribeDeviceResponse": {
@@ -145,6 +153,9 @@
             "smithy.api#jsonName": "deviceDescription"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.iot1clickdevicesservice#Device": {
@@ -212,7 +223,6 @@
         "Enabled": {
           "target": "com.amazonaws.iot1clickdevicesservice#__boolean",
           "traits": {
-            "smithy.api#default": false,
             "smithy.api#documentation": "<p>A Boolean value indicating whether or not the device is enabled.</p>",
             "smithy.api#jsonName": "enabled"
           }
@@ -220,7 +230,6 @@
         "RemainingLife": {
           "target": "com.amazonaws.iot1clickdevicesservice#__doubleMin0Max100",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>A value between 0 and 1 inclusive, representing the fraction of life remaining for the\n device.</p>",
             "smithy.api#jsonName": "remainingLife"
           }
@@ -331,6 +340,9 @@
             "smithy.api#jsonName": "tags"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.iot1clickdevicesservice#FinalizeDeviceClaimResponse": {
@@ -343,6 +355,9 @@
             "smithy.api#jsonName": "state"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.iot1clickdevicesservice#ForbiddenException": {
@@ -407,6 +422,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.iot1clickdevicesservice#GetDeviceMethodsResponse": {
@@ -419,6 +437,9 @@
             "smithy.api#jsonName": "deviceMethods"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.iot1clickdevicesservice#InitiateDeviceClaim": {
@@ -463,6 +484,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.iot1clickdevicesservice#InitiateDeviceClaimResponse": {
@@ -475,6 +499,9 @@
             "smithy.api#jsonName": "state"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.iot1clickdevicesservice#InternalFailureException": {
@@ -585,6 +612,9 @@
             "smithy.api#jsonName": "deviceMethodParameters"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.iot1clickdevicesservice#InvokeDeviceMethodResponse": {
@@ -597,6 +627,9 @@
             "smithy.api#jsonName": "deviceMethodResponse"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.iot1clickdevicesservice#IoT1ClickDevicesService": {
@@ -649,6 +682,7 @@
           "arnNamespace": "iot1click",
           "cloudFormationName": "IoT1ClickDevicesService",
           "cloudTrailEventSource": "iot1clickdevicesservice.amazonaws.com",
+          "docId": "devices-2018-05-14",
           "endpointPrefix": "devices.iot1click"
         },
         "aws.auth#sigv4": {
@@ -691,39 +725,160 @@
             {
               "conditions": [
                 {
-                  "fn": "aws.partition",
+                  "fn": "isSet",
                   "argv": [
                     {
-                      "ref": "Region"
+                      "ref": "Endpoint"
                     }
-                  ],
-                  "assign": "PartitionResult"
+                  ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
                     {
-                      "fn": "isSet",
+                      "fn": "booleanEquals",
                       "argv": [
                         {
-                          "ref": "Endpoint"
-                        }
+                          "ref": "UseFIPS"
+                        },
+                        true
                       ]
-                    },
-                    {
-                      "fn": "parseURL",
-                      "argv": [
-                        {
-                          "ref": "Endpoint"
-                        }
-                      ],
-                      "assign": "url"
                     }
                   ],
-                  "type": "tree",
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": {
+                      "ref": "Endpoint"
+                    },
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ],
+              "type": "tree"
+            },
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ]
+                }
+              ],
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "aws.partition",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ],
+                      "assign": "PartitionResult"
+                    }
+                  ],
                   "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://devices.iot1click-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
                     {
                       "conditions": [
                         {
@@ -736,12 +891,6 @@
                           ]
                         }
                       ],
-                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
-                      "type": "error"
-                    },
-                    {
-                      "conditions": [],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -749,279 +898,369 @@
                               "fn": "booleanEquals",
                               "argv": [
                                 {
-                                  "ref": "UseDualStack"
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
                                 },
                                 true
                               ]
                             }
                           ],
-                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://devices.iot1click-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
                           "type": "error"
-                        },
+                        }
+                      ],
+                      "type": "tree"
+                    },
+                    {
+                      "conditions": [
                         {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": {
-                              "ref": "Endpoint"
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
                             },
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    },
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
+                            true
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": "https://devices.iot1click-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
+                          "conditions": [
                             {
-                              "fn": "getAttr",
+                              "fn": "booleanEquals",
                               "argv": [
+                                true,
                                 {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
                               ]
                             }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://devices.iot1click.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
                         {
                           "conditions": [],
-                          "endpoint": {
-                            "url": "https://devices.iot1click-fips.{Region}.{PartitionResult#dnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [],
-                      "error": "FIPS is enabled but this partition does not support FIPS",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
+                      "endpoint": {
+                        "url": "https://devices.iot1click.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
                     }
                   ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": "https://devices.iot1click.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "DualStack is enabled but this partition does not support DualStack",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [],
-                  "endpoint": {
-                    "url": "https://devices.iot1click.{Region}.{PartitionResult#dnsSuffix}",
-                    "properties": {},
-                    "headers": {}
-                  },
-                  "type": "endpoint"
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
+            },
+            {
+              "conditions": [],
+              "error": "Invalid Configuration: Missing Region",
+              "type": "error"
             }
           ]
         },
         "smithy.rules#endpointTests": {
           "testCases": [
             {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack enabled",
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://devices.iot1click-fips.us-west-2.api.aws"
+                  "url": "https://devices.iot1click-fips.us-east-1.api.aws"
                 }
               },
               "params": {
-                "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
-              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://devices.iot1click-fips.us-west-2.amazonaws.com"
+                  "url": "https://devices.iot1click-fips.us-east-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack enabled",
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://devices.iot1click.us-west-2.api.aws"
+                  "url": "https://devices.iot1click.us-east-1.api.aws"
                 }
               },
               "params": {
-                "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
-              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://devices.iot1click.us-west-2.amazonaws.com"
+                  "url": "https://devices.iot1click.us-east-1.amazonaws.com"
                 }
               },
               "params": {
-                "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://devices.iot1click-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://devices.iot1click-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://devices.iot1click.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://devices.iot1click.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://devices.iot1click-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://devices.iot1click-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://devices.iot1click.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://devices.iot1click.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://devices.iot1click-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://devices.iot1click.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://devices.iot1click-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://devices.iot1click.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
               "expect": {
                 "endpoint": {
                   "url": "https://example.com"
@@ -1029,8 +1268,21 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -1041,8 +1293,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": true,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -1053,9 +1305,15 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": true,
                 "UseFIPS": false,
+                "UseDualStack": true,
                 "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
               }
             }
           ],
@@ -1108,6 +1366,7 @@
         "FromTimeStamp": {
           "target": "com.amazonaws.iot1clickdevicesservice#__timestampIso8601",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The start date for the device event query, in ISO8061 format. For example,\n 2018-03-28T15:45:12.880Z\n </p>",
             "smithy.api#httpQuery": "fromTimeStamp",
             "smithy.api#required": {}
@@ -1116,7 +1375,6 @@
         "MaxResults": {
           "target": "com.amazonaws.iot1clickdevicesservice#MaxResults",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of results to return per request. If not set, a default value of\n 100 is used.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -1131,11 +1389,15 @@
         "ToTimeStamp": {
           "target": "com.amazonaws.iot1clickdevicesservice#__timestampIso8601",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The end date for the device event query, in ISO8061 format. For example,\n 2018-03-28T15:45:12.880Z\n </p>",
             "smithy.api#httpQuery": "toTimeStamp",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.iot1clickdevicesservice#ListDeviceEventsResponse": {
@@ -1155,6 +1417,9 @@
             "smithy.api#jsonName": "nextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.iot1clickdevicesservice#ListDevices": {
@@ -1198,7 +1463,6 @@
         "MaxResults": {
           "target": "com.amazonaws.iot1clickdevicesservice#MaxResults",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of results to return per request. If not set, a default value of\n 100 is used.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -1210,6 +1474,9 @@
             "smithy.api#httpQuery": "nextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.iot1clickdevicesservice#ListDevicesResponse": {
@@ -1229,6 +1496,9 @@
             "smithy.api#jsonName": "nextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.iot1clickdevicesservice#ListTagsForResource": {
@@ -1267,6 +1537,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.iot1clickdevicesservice#ListTagsForResourceResponse": {
@@ -1279,12 +1552,14 @@
             "smithy.api#jsonName": "tags"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.iot1clickdevicesservice#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1,
           "max": 250
@@ -1425,11 +1700,15 @@
         "Tags": {
           "target": "com.amazonaws.iot1clickdevicesservice#__mapOf__string",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>A collection of key/value pairs defining the resource tags. For example, {\n \"tags\": {\"key1\": \"value1\", \"key2\": \"value2\"} }. For more information, see <a href=\"https://aws.amazon.com/answers/account-management/aws-tagging-strategies/\">AWS\n Tagging Strategies</a>.</p><p>\n \n </p>",
             "smithy.api#jsonName": "tags",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.iot1clickdevicesservice#UnclaimDevice": {
@@ -1471,6 +1750,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.iot1clickdevicesservice#UnclaimDeviceResponse": {
@@ -1483,6 +1765,9 @@
             "smithy.api#jsonName": "state"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.iot1clickdevicesservice#UntagResource": {
@@ -1527,11 +1812,15 @@
         "TagKeys": {
           "target": "com.amazonaws.iot1clickdevicesservice#__listOf__string",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>A collections of tag keys. For example, {\"key1\",\"key2\"}</p>",
             "smithy.api#httpQuery": "tagKeys",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.iot1clickdevicesservice#UpdateDeviceState": {
@@ -1576,34 +1865,30 @@
         "Enabled": {
           "target": "com.amazonaws.iot1clickdevicesservice#__boolean",
           "traits": {
-            "smithy.api#default": false,
             "smithy.api#documentation": "<p>If true, the device is enabled. If false, the device is\n disabled.</p>",
             "smithy.api#jsonName": "enabled"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.iot1clickdevicesservice#UpdateDeviceStateResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.iot1clickdevicesservice#__boolean": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#default": false
-      }
+      "type": "boolean"
     },
     "com.amazonaws.iot1clickdevicesservice#__doubleMin0Max100": {
-      "type": "double",
-      "traits": {
-        "smithy.api#default": 0
-      }
+      "type": "double"
     },
     "com.amazonaws.iot1clickdevicesservice#__integer": {
-      "type": "integer",
-      "traits": {
-        "smithy.api#default": 0
-      }
+      "type": "integer"
     },
     "com.amazonaws.iot1clickdevicesservice#__listOfDeviceDescription": {
       "type": "list",

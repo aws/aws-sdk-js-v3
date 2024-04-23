@@ -244,8 +244,8 @@ export const se_AddTagsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AddTagsInput(input, context),
-    Action: "AddTags",
-    Version: "2012-06-01",
+    [_A]: _AT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -261,8 +261,8 @@ export const se_ApplySecurityGroupsToLoadBalancerCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ApplySecurityGroupsToLoadBalancerInput(input, context),
-    Action: "ApplySecurityGroupsToLoadBalancer",
-    Version: "2012-06-01",
+    [_A]: _ASGTLB,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -278,8 +278,8 @@ export const se_AttachLoadBalancerToSubnetsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AttachLoadBalancerToSubnetsInput(input, context),
-    Action: "AttachLoadBalancerToSubnets",
-    Version: "2012-06-01",
+    [_A]: _ALBTS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -295,8 +295,8 @@ export const se_ConfigureHealthCheckCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ConfigureHealthCheckInput(input, context),
-    Action: "ConfigureHealthCheck",
-    Version: "2012-06-01",
+    [_A]: _CHC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -312,8 +312,8 @@ export const se_CreateAppCookieStickinessPolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateAppCookieStickinessPolicyInput(input, context),
-    Action: "CreateAppCookieStickinessPolicy",
-    Version: "2012-06-01",
+    [_A]: _CACSP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -329,8 +329,8 @@ export const se_CreateLBCookieStickinessPolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateLBCookieStickinessPolicyInput(input, context),
-    Action: "CreateLBCookieStickinessPolicy",
-    Version: "2012-06-01",
+    [_A]: _CLBCSP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -346,8 +346,8 @@ export const se_CreateLoadBalancerCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateAccessPointInput(input, context),
-    Action: "CreateLoadBalancer",
-    Version: "2012-06-01",
+    [_A]: _CLB,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -363,8 +363,8 @@ export const se_CreateLoadBalancerListenersCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateLoadBalancerListenerInput(input, context),
-    Action: "CreateLoadBalancerListeners",
-    Version: "2012-06-01",
+    [_A]: _CLBL,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -380,8 +380,8 @@ export const se_CreateLoadBalancerPolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateLoadBalancerPolicyInput(input, context),
-    Action: "CreateLoadBalancerPolicy",
-    Version: "2012-06-01",
+    [_A]: _CLBP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -397,8 +397,8 @@ export const se_DeleteLoadBalancerCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteAccessPointInput(input, context),
-    Action: "DeleteLoadBalancer",
-    Version: "2012-06-01",
+    [_A]: _DLB,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -414,8 +414,8 @@ export const se_DeleteLoadBalancerListenersCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteLoadBalancerListenerInput(input, context),
-    Action: "DeleteLoadBalancerListeners",
-    Version: "2012-06-01",
+    [_A]: _DLBL,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -431,8 +431,8 @@ export const se_DeleteLoadBalancerPolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteLoadBalancerPolicyInput(input, context),
-    Action: "DeleteLoadBalancerPolicy",
-    Version: "2012-06-01",
+    [_A]: _DLBP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -448,8 +448,8 @@ export const se_DeregisterInstancesFromLoadBalancerCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeregisterEndPointsInput(input, context),
-    Action: "DeregisterInstancesFromLoadBalancer",
-    Version: "2012-06-01",
+    [_A]: _DIFLB,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -465,8 +465,8 @@ export const se_DescribeAccountLimitsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeAccountLimitsInput(input, context),
-    Action: "DescribeAccountLimits",
-    Version: "2012-06-01",
+    [_A]: _DAL,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -482,8 +482,8 @@ export const se_DescribeInstanceHealthCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeEndPointStateInput(input, context),
-    Action: "DescribeInstanceHealth",
-    Version: "2012-06-01",
+    [_A]: _DIH,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -499,8 +499,8 @@ export const se_DescribeLoadBalancerAttributesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeLoadBalancerAttributesInput(input, context),
-    Action: "DescribeLoadBalancerAttributes",
-    Version: "2012-06-01",
+    [_A]: _DLBA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -516,8 +516,8 @@ export const se_DescribeLoadBalancerPoliciesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeLoadBalancerPoliciesInput(input, context),
-    Action: "DescribeLoadBalancerPolicies",
-    Version: "2012-06-01",
+    [_A]: _DLBPe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -533,8 +533,8 @@ export const se_DescribeLoadBalancerPolicyTypesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeLoadBalancerPolicyTypesInput(input, context),
-    Action: "DescribeLoadBalancerPolicyTypes",
-    Version: "2012-06-01",
+    [_A]: _DLBPT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -550,8 +550,8 @@ export const se_DescribeLoadBalancersCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeAccessPointsInput(input, context),
-    Action: "DescribeLoadBalancers",
-    Version: "2012-06-01",
+    [_A]: _DLBe,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -567,8 +567,8 @@ export const se_DescribeTagsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DescribeTagsInput(input, context),
-    Action: "DescribeTags",
-    Version: "2012-06-01",
+    [_A]: _DT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -584,8 +584,8 @@ export const se_DetachLoadBalancerFromSubnetsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DetachLoadBalancerFromSubnetsInput(input, context),
-    Action: "DetachLoadBalancerFromSubnets",
-    Version: "2012-06-01",
+    [_A]: _DLBFS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -601,8 +601,8 @@ export const se_DisableAvailabilityZonesForLoadBalancerCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RemoveAvailabilityZonesInput(input, context),
-    Action: "DisableAvailabilityZonesForLoadBalancer",
-    Version: "2012-06-01",
+    [_A]: _DAZFLB,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -618,8 +618,8 @@ export const se_EnableAvailabilityZonesForLoadBalancerCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AddAvailabilityZonesInput(input, context),
-    Action: "EnableAvailabilityZonesForLoadBalancer",
-    Version: "2012-06-01",
+    [_A]: _EAZFLB,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -635,8 +635,8 @@ export const se_ModifyLoadBalancerAttributesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ModifyLoadBalancerAttributesInput(input, context),
-    Action: "ModifyLoadBalancerAttributes",
-    Version: "2012-06-01",
+    [_A]: _MLBA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -652,8 +652,8 @@ export const se_RegisterInstancesWithLoadBalancerCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RegisterEndPointsInput(input, context),
-    Action: "RegisterInstancesWithLoadBalancer",
-    Version: "2012-06-01",
+    [_A]: _RIWLB,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -669,8 +669,8 @@ export const se_RemoveTagsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RemoveTagsInput(input, context),
-    Action: "RemoveTags",
-    Version: "2012-06-01",
+    [_A]: _RT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -686,8 +686,8 @@ export const se_SetLoadBalancerListenerSSLCertificateCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetLoadBalancerListenerSSLCertificateInput(input, context),
-    Action: "SetLoadBalancerListenerSSLCertificate",
-    Version: "2012-06-01",
+    [_A]: _SLBLSSLC,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -703,8 +703,8 @@ export const se_SetLoadBalancerPoliciesForBackendServerCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetLoadBalancerPoliciesForBackendServerInput(input, context),
-    Action: "SetLoadBalancerPoliciesForBackendServer",
-    Version: "2012-06-01",
+    [_A]: _SLBPFBS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -720,8 +720,8 @@ export const se_SetLoadBalancerPoliciesOfListenerCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetLoadBalancerPoliciesOfListenerInput(input, context),
-    Action: "SetLoadBalancerPoliciesOfListener",
-    Version: "2012-06-01",
+    [_A]: _SLBPOL,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -2564,17 +2564,17 @@ const de_UnsupportedProtocolExceptionRes = async (
  */
 const se_AccessLog = (input: AccessLog, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Enabled != null) {
-    entries["Enabled"] = input.Enabled;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.S3BucketName != null) {
-    entries["S3BucketName"] = input.S3BucketName;
+  if (input[_SBN] != null) {
+    entries[_SBN] = input[_SBN];
   }
-  if (input.EmitInterval != null) {
-    entries["EmitInterval"] = input.EmitInterval;
+  if (input[_EI] != null) {
+    entries[_EI] = input[_EI];
   }
-  if (input.S3BucketPrefix != null) {
-    entries["S3BucketPrefix"] = input.S3BucketPrefix;
+  if (input[_SBP] != null) {
+    entries[_SBP] = input[_SBP];
   }
   return entries;
 };
@@ -2584,12 +2584,12 @@ const se_AccessLog = (input: AccessLog, context: __SerdeContext): any => {
  */
 const se_AddAvailabilityZonesInput = (input: AddAvailabilityZonesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName != null) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
+  if (input[_LBN] != null) {
+    entries[_LBN] = input[_LBN];
   }
-  if (input.AvailabilityZones != null) {
-    const memberEntries = se_AvailabilityZones(input.AvailabilityZones, context);
-    if (input.AvailabilityZones?.length === 0) {
+  if (input[_AZ] != null) {
+    const memberEntries = se_AvailabilityZones(input[_AZ], context);
+    if (input[_AZ]?.length === 0) {
       entries.AvailabilityZones = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -2605,11 +2605,11 @@ const se_AddAvailabilityZonesInput = (input: AddAvailabilityZonesInput, context:
  */
 const se_AdditionalAttribute = (input: AdditionalAttribute, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key != null) {
-    entries["Key"] = input.Key;
+  if (input[_K] != null) {
+    entries[_K] = input[_K];
   }
-  if (input.Value != null) {
-    entries["Value"] = input.Value;
+  if (input[_Va] != null) {
+    entries[_Va] = input[_Va];
   }
   return entries;
 };
@@ -2638,9 +2638,9 @@ const se_AdditionalAttributes = (input: AdditionalAttribute[], context: __SerdeC
  */
 const se_AddTagsInput = (input: AddTagsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerNames != null) {
-    const memberEntries = se_LoadBalancerNames(input.LoadBalancerNames, context);
-    if (input.LoadBalancerNames?.length === 0) {
+  if (input[_LBNo] != null) {
+    const memberEntries = se_LoadBalancerNames(input[_LBNo], context);
+    if (input[_LBNo]?.length === 0) {
       entries.LoadBalancerNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -2648,9 +2648,9 @@ const se_AddTagsInput = (input: AddTagsInput, context: __SerdeContext): any => {
       entries[loc] = value;
     });
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -2669,12 +2669,12 @@ const se_ApplySecurityGroupsToLoadBalancerInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName != null) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
+  if (input[_LBN] != null) {
+    entries[_LBN] = input[_LBN];
   }
-  if (input.SecurityGroups != null) {
-    const memberEntries = se_SecurityGroups(input.SecurityGroups, context);
-    if (input.SecurityGroups?.length === 0) {
+  if (input[_SG] != null) {
+    const memberEntries = se_SecurityGroups(input[_SG], context);
+    if (input[_SG]?.length === 0) {
       entries.SecurityGroups = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -2690,12 +2690,12 @@ const se_ApplySecurityGroupsToLoadBalancerInput = (
  */
 const se_AttachLoadBalancerToSubnetsInput = (input: AttachLoadBalancerToSubnetsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName != null) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
+  if (input[_LBN] != null) {
+    entries[_LBN] = input[_LBN];
   }
-  if (input.Subnets != null) {
-    const memberEntries = se_Subnets(input.Subnets, context);
-    if (input.Subnets?.length === 0) {
+  if (input[_S] != null) {
+    const memberEntries = se_Subnets(input[_S], context);
+    if (input[_S]?.length === 0) {
       entries.Subnets = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -2727,11 +2727,11 @@ const se_AvailabilityZones = (input: string[], context: __SerdeContext): any => 
  */
 const se_ConfigureHealthCheckInput = (input: ConfigureHealthCheckInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName != null) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
+  if (input[_LBN] != null) {
+    entries[_LBN] = input[_LBN];
   }
-  if (input.HealthCheck != null) {
-    const memberEntries = se_HealthCheck(input.HealthCheck, context);
+  if (input[_HC] != null) {
+    const memberEntries = se_HealthCheck(input[_HC], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `HealthCheck.${key}`;
       entries[loc] = value;
@@ -2745,11 +2745,11 @@ const se_ConfigureHealthCheckInput = (input: ConfigureHealthCheckInput, context:
  */
 const se_ConnectionDraining = (input: ConnectionDraining, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Enabled != null) {
-    entries["Enabled"] = input.Enabled;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.Timeout != null) {
-    entries["Timeout"] = input.Timeout;
+  if (input[_Ti] != null) {
+    entries[_Ti] = input[_Ti];
   }
   return entries;
 };
@@ -2759,8 +2759,8 @@ const se_ConnectionDraining = (input: ConnectionDraining, context: __SerdeContex
  */
 const se_ConnectionSettings = (input: ConnectionSettings, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.IdleTimeout != null) {
-    entries["IdleTimeout"] = input.IdleTimeout;
+  if (input[_IT] != null) {
+    entries[_IT] = input[_IT];
   }
   return entries;
 };
@@ -2770,12 +2770,12 @@ const se_ConnectionSettings = (input: ConnectionSettings, context: __SerdeContex
  */
 const se_CreateAccessPointInput = (input: CreateAccessPointInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName != null) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
+  if (input[_LBN] != null) {
+    entries[_LBN] = input[_LBN];
   }
-  if (input.Listeners != null) {
-    const memberEntries = se_Listeners(input.Listeners, context);
-    if (input.Listeners?.length === 0) {
+  if (input[_L] != null) {
+    const memberEntries = se_Listeners(input[_L], context);
+    if (input[_L]?.length === 0) {
       entries.Listeners = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -2783,9 +2783,9 @@ const se_CreateAccessPointInput = (input: CreateAccessPointInput, context: __Ser
       entries[loc] = value;
     });
   }
-  if (input.AvailabilityZones != null) {
-    const memberEntries = se_AvailabilityZones(input.AvailabilityZones, context);
-    if (input.AvailabilityZones?.length === 0) {
+  if (input[_AZ] != null) {
+    const memberEntries = se_AvailabilityZones(input[_AZ], context);
+    if (input[_AZ]?.length === 0) {
       entries.AvailabilityZones = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -2793,9 +2793,9 @@ const se_CreateAccessPointInput = (input: CreateAccessPointInput, context: __Ser
       entries[loc] = value;
     });
   }
-  if (input.Subnets != null) {
-    const memberEntries = se_Subnets(input.Subnets, context);
-    if (input.Subnets?.length === 0) {
+  if (input[_S] != null) {
+    const memberEntries = se_Subnets(input[_S], context);
+    if (input[_S]?.length === 0) {
       entries.Subnets = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -2803,9 +2803,9 @@ const se_CreateAccessPointInput = (input: CreateAccessPointInput, context: __Ser
       entries[loc] = value;
     });
   }
-  if (input.SecurityGroups != null) {
-    const memberEntries = se_SecurityGroups(input.SecurityGroups, context);
-    if (input.SecurityGroups?.length === 0) {
+  if (input[_SG] != null) {
+    const memberEntries = se_SecurityGroups(input[_SG], context);
+    if (input[_SG]?.length === 0) {
       entries.SecurityGroups = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -2813,12 +2813,12 @@ const se_CreateAccessPointInput = (input: CreateAccessPointInput, context: __Ser
       entries[loc] = value;
     });
   }
-  if (input.Scheme != null) {
-    entries["Scheme"] = input.Scheme;
+  if (input[_Sc] != null) {
+    entries[_Sc] = input[_Sc];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -2837,14 +2837,14 @@ const se_CreateAppCookieStickinessPolicyInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName != null) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
+  if (input[_LBN] != null) {
+    entries[_LBN] = input[_LBN];
   }
-  if (input.PolicyName != null) {
-    entries["PolicyName"] = input.PolicyName;
+  if (input[_PN] != null) {
+    entries[_PN] = input[_PN];
   }
-  if (input.CookieName != null) {
-    entries["CookieName"] = input.CookieName;
+  if (input[_CN] != null) {
+    entries[_CN] = input[_CN];
   }
   return entries;
 };
@@ -2857,14 +2857,14 @@ const se_CreateLBCookieStickinessPolicyInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName != null) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
+  if (input[_LBN] != null) {
+    entries[_LBN] = input[_LBN];
   }
-  if (input.PolicyName != null) {
-    entries["PolicyName"] = input.PolicyName;
+  if (input[_PN] != null) {
+    entries[_PN] = input[_PN];
   }
-  if (input.CookieExpirationPeriod != null) {
-    entries["CookieExpirationPeriod"] = input.CookieExpirationPeriod;
+  if (input[_CEP] != null) {
+    entries[_CEP] = input[_CEP];
   }
   return entries;
 };
@@ -2874,12 +2874,12 @@ const se_CreateLBCookieStickinessPolicyInput = (
  */
 const se_CreateLoadBalancerListenerInput = (input: CreateLoadBalancerListenerInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName != null) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
+  if (input[_LBN] != null) {
+    entries[_LBN] = input[_LBN];
   }
-  if (input.Listeners != null) {
-    const memberEntries = se_Listeners(input.Listeners, context);
-    if (input.Listeners?.length === 0) {
+  if (input[_L] != null) {
+    const memberEntries = se_Listeners(input[_L], context);
+    if (input[_L]?.length === 0) {
       entries.Listeners = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -2895,18 +2895,18 @@ const se_CreateLoadBalancerListenerInput = (input: CreateLoadBalancerListenerInp
  */
 const se_CreateLoadBalancerPolicyInput = (input: CreateLoadBalancerPolicyInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName != null) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
+  if (input[_LBN] != null) {
+    entries[_LBN] = input[_LBN];
   }
-  if (input.PolicyName != null) {
-    entries["PolicyName"] = input.PolicyName;
+  if (input[_PN] != null) {
+    entries[_PN] = input[_PN];
   }
-  if (input.PolicyTypeName != null) {
-    entries["PolicyTypeName"] = input.PolicyTypeName;
+  if (input[_PTN] != null) {
+    entries[_PTN] = input[_PTN];
   }
-  if (input.PolicyAttributes != null) {
-    const memberEntries = se_PolicyAttributes(input.PolicyAttributes, context);
-    if (input.PolicyAttributes?.length === 0) {
+  if (input[_PA] != null) {
+    const memberEntries = se_PolicyAttributes(input[_PA], context);
+    if (input[_PA]?.length === 0) {
       entries.PolicyAttributes = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -2922,8 +2922,8 @@ const se_CreateLoadBalancerPolicyInput = (input: CreateLoadBalancerPolicyInput, 
  */
 const se_CrossZoneLoadBalancing = (input: CrossZoneLoadBalancing, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Enabled != null) {
-    entries["Enabled"] = input.Enabled;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
   return entries;
 };
@@ -2933,8 +2933,8 @@ const se_CrossZoneLoadBalancing = (input: CrossZoneLoadBalancing, context: __Ser
  */
 const se_DeleteAccessPointInput = (input: DeleteAccessPointInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName != null) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
+  if (input[_LBN] != null) {
+    entries[_LBN] = input[_LBN];
   }
   return entries;
 };
@@ -2944,12 +2944,12 @@ const se_DeleteAccessPointInput = (input: DeleteAccessPointInput, context: __Ser
  */
 const se_DeleteLoadBalancerListenerInput = (input: DeleteLoadBalancerListenerInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName != null) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
+  if (input[_LBN] != null) {
+    entries[_LBN] = input[_LBN];
   }
-  if (input.LoadBalancerPorts != null) {
-    const memberEntries = se_Ports(input.LoadBalancerPorts, context);
-    if (input.LoadBalancerPorts?.length === 0) {
+  if (input[_LBP] != null) {
+    const memberEntries = se_Ports(input[_LBP], context);
+    if (input[_LBP]?.length === 0) {
       entries.LoadBalancerPorts = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -2965,11 +2965,11 @@ const se_DeleteLoadBalancerListenerInput = (input: DeleteLoadBalancerListenerInp
  */
 const se_DeleteLoadBalancerPolicyInput = (input: DeleteLoadBalancerPolicyInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName != null) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
+  if (input[_LBN] != null) {
+    entries[_LBN] = input[_LBN];
   }
-  if (input.PolicyName != null) {
-    entries["PolicyName"] = input.PolicyName;
+  if (input[_PN] != null) {
+    entries[_PN] = input[_PN];
   }
   return entries;
 };
@@ -2979,12 +2979,12 @@ const se_DeleteLoadBalancerPolicyInput = (input: DeleteLoadBalancerPolicyInput, 
  */
 const se_DeregisterEndPointsInput = (input: DeregisterEndPointsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName != null) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
+  if (input[_LBN] != null) {
+    entries[_LBN] = input[_LBN];
   }
-  if (input.Instances != null) {
-    const memberEntries = se_Instances(input.Instances, context);
-    if (input.Instances?.length === 0) {
+  if (input[_I] != null) {
+    const memberEntries = se_Instances(input[_I], context);
+    if (input[_I]?.length === 0) {
       entries.Instances = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3000,9 +3000,9 @@ const se_DeregisterEndPointsInput = (input: DeregisterEndPointsInput, context: _
  */
 const se_DescribeAccessPointsInput = (input: DescribeAccessPointsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerNames != null) {
-    const memberEntries = se_LoadBalancerNames(input.LoadBalancerNames, context);
-    if (input.LoadBalancerNames?.length === 0) {
+  if (input[_LBNo] != null) {
+    const memberEntries = se_LoadBalancerNames(input[_LBNo], context);
+    if (input[_LBNo]?.length === 0) {
       entries.LoadBalancerNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3010,11 +3010,11 @@ const se_DescribeAccessPointsInput = (input: DescribeAccessPointsInput, context:
       entries[loc] = value;
     });
   }
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.PageSize != null) {
-    entries["PageSize"] = input.PageSize;
+  if (input[_PS] != null) {
+    entries[_PS] = input[_PS];
   }
   return entries;
 };
@@ -3024,11 +3024,11 @@ const se_DescribeAccessPointsInput = (input: DescribeAccessPointsInput, context:
  */
 const se_DescribeAccountLimitsInput = (input: DescribeAccountLimitsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Marker != null) {
-    entries["Marker"] = input.Marker;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.PageSize != null) {
-    entries["PageSize"] = input.PageSize;
+  if (input[_PS] != null) {
+    entries[_PS] = input[_PS];
   }
   return entries;
 };
@@ -3038,12 +3038,12 @@ const se_DescribeAccountLimitsInput = (input: DescribeAccountLimitsInput, contex
  */
 const se_DescribeEndPointStateInput = (input: DescribeEndPointStateInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName != null) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
+  if (input[_LBN] != null) {
+    entries[_LBN] = input[_LBN];
   }
-  if (input.Instances != null) {
-    const memberEntries = se_Instances(input.Instances, context);
-    if (input.Instances?.length === 0) {
+  if (input[_I] != null) {
+    const memberEntries = se_Instances(input[_I], context);
+    if (input[_I]?.length === 0) {
       entries.Instances = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3062,8 +3062,8 @@ const se_DescribeLoadBalancerAttributesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName != null) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
+  if (input[_LBN] != null) {
+    entries[_LBN] = input[_LBN];
   }
   return entries;
 };
@@ -3076,12 +3076,12 @@ const se_DescribeLoadBalancerPoliciesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName != null) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
+  if (input[_LBN] != null) {
+    entries[_LBN] = input[_LBN];
   }
-  if (input.PolicyNames != null) {
-    const memberEntries = se_PolicyNames(input.PolicyNames, context);
-    if (input.PolicyNames?.length === 0) {
+  if (input[_PNo] != null) {
+    const memberEntries = se_PolicyNames(input[_PNo], context);
+    if (input[_PNo]?.length === 0) {
       entries.PolicyNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3100,9 +3100,9 @@ const se_DescribeLoadBalancerPolicyTypesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PolicyTypeNames != null) {
-    const memberEntries = se_PolicyTypeNames(input.PolicyTypeNames, context);
-    if (input.PolicyTypeNames?.length === 0) {
+  if (input[_PTNo] != null) {
+    const memberEntries = se_PolicyTypeNames(input[_PTNo], context);
+    if (input[_PTNo]?.length === 0) {
       entries.PolicyTypeNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3118,9 +3118,9 @@ const se_DescribeLoadBalancerPolicyTypesInput = (
  */
 const se_DescribeTagsInput = (input: DescribeTagsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerNames != null) {
-    const memberEntries = se_LoadBalancerNamesMax20(input.LoadBalancerNames, context);
-    if (input.LoadBalancerNames?.length === 0) {
+  if (input[_LBNo] != null) {
+    const memberEntries = se_LoadBalancerNamesMax20(input[_LBNo], context);
+    if (input[_LBNo]?.length === 0) {
       entries.LoadBalancerNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3139,12 +3139,12 @@ const se_DetachLoadBalancerFromSubnetsInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName != null) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
+  if (input[_LBN] != null) {
+    entries[_LBN] = input[_LBN];
   }
-  if (input.Subnets != null) {
-    const memberEntries = se_Subnets(input.Subnets, context);
-    if (input.Subnets?.length === 0) {
+  if (input[_S] != null) {
+    const memberEntries = se_Subnets(input[_S], context);
+    if (input[_S]?.length === 0) {
       entries.Subnets = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3160,20 +3160,20 @@ const se_DetachLoadBalancerFromSubnetsInput = (
  */
 const se_HealthCheck = (input: HealthCheck, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Target != null) {
-    entries["Target"] = input.Target;
+  if (input[_Ta] != null) {
+    entries[_Ta] = input[_Ta];
   }
-  if (input.Interval != null) {
-    entries["Interval"] = input.Interval;
+  if (input[_In] != null) {
+    entries[_In] = input[_In];
   }
-  if (input.Timeout != null) {
-    entries["Timeout"] = input.Timeout;
+  if (input[_Ti] != null) {
+    entries[_Ti] = input[_Ti];
   }
-  if (input.UnhealthyThreshold != null) {
-    entries["UnhealthyThreshold"] = input.UnhealthyThreshold;
+  if (input[_UT] != null) {
+    entries[_UT] = input[_UT];
   }
-  if (input.HealthyThreshold != null) {
-    entries["HealthyThreshold"] = input.HealthyThreshold;
+  if (input[_HT] != null) {
+    entries[_HT] = input[_HT];
   }
   return entries;
 };
@@ -3183,8 +3183,8 @@ const se_HealthCheck = (input: HealthCheck, context: __SerdeContext): any => {
  */
 const se_Instance = (input: Instance, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.InstanceId != null) {
-    entries["InstanceId"] = input.InstanceId;
+  if (input[_II] != null) {
+    entries[_II] = input[_II];
   }
   return entries;
 };
@@ -3213,20 +3213,20 @@ const se_Instances = (input: Instance[], context: __SerdeContext): any => {
  */
 const se_Listener = (input: Listener, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Protocol != null) {
-    entries["Protocol"] = input.Protocol;
+  if (input[_P] != null) {
+    entries[_P] = input[_P];
   }
-  if (input.LoadBalancerPort != null) {
-    entries["LoadBalancerPort"] = input.LoadBalancerPort;
+  if (input[_LBPo] != null) {
+    entries[_LBPo] = input[_LBPo];
   }
-  if (input.InstanceProtocol != null) {
-    entries["InstanceProtocol"] = input.InstanceProtocol;
+  if (input[_IP] != null) {
+    entries[_IP] = input[_IP];
   }
-  if (input.InstancePort != null) {
-    entries["InstancePort"] = input.InstancePort;
+  if (input[_IPn] != null) {
+    entries[_IPn] = input[_IPn];
   }
-  if (input.SSLCertificateId != null) {
-    entries["SSLCertificateId"] = input.SSLCertificateId;
+  if (input[_SSLCI] != null) {
+    entries[_SSLCI] = input[_SSLCI];
   }
   return entries;
 };
@@ -3255,37 +3255,37 @@ const se_Listeners = (input: Listener[], context: __SerdeContext): any => {
  */
 const se_LoadBalancerAttributes = (input: LoadBalancerAttributes, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.CrossZoneLoadBalancing != null) {
-    const memberEntries = se_CrossZoneLoadBalancing(input.CrossZoneLoadBalancing, context);
+  if (input[_CZLB] != null) {
+    const memberEntries = se_CrossZoneLoadBalancing(input[_CZLB], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CrossZoneLoadBalancing.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.AccessLog != null) {
-    const memberEntries = se_AccessLog(input.AccessLog, context);
+  if (input[_AL] != null) {
+    const memberEntries = se_AccessLog(input[_AL], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AccessLog.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ConnectionDraining != null) {
-    const memberEntries = se_ConnectionDraining(input.ConnectionDraining, context);
+  if (input[_CD] != null) {
+    const memberEntries = se_ConnectionDraining(input[_CD], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ConnectionDraining.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ConnectionSettings != null) {
-    const memberEntries = se_ConnectionSettings(input.ConnectionSettings, context);
+  if (input[_CS] != null) {
+    const memberEntries = se_ConnectionSettings(input[_CS], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ConnectionSettings.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.AdditionalAttributes != null) {
-    const memberEntries = se_AdditionalAttributes(input.AdditionalAttributes, context);
-    if (input.AdditionalAttributes?.length === 0) {
+  if (input[_AA] != null) {
+    const memberEntries = se_AdditionalAttributes(input[_AA], context);
+    if (input[_AA]?.length === 0) {
       entries.AdditionalAttributes = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3336,11 +3336,11 @@ const se_ModifyLoadBalancerAttributesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName != null) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
+  if (input[_LBN] != null) {
+    entries[_LBN] = input[_LBN];
   }
-  if (input.LoadBalancerAttributes != null) {
-    const memberEntries = se_LoadBalancerAttributes(input.LoadBalancerAttributes, context);
+  if (input[_LBA] != null) {
+    const memberEntries = se_LoadBalancerAttributes(input[_LBA], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `LoadBalancerAttributes.${key}`;
       entries[loc] = value;
@@ -3354,11 +3354,11 @@ const se_ModifyLoadBalancerAttributesInput = (
  */
 const se_PolicyAttribute = (input: PolicyAttribute, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AttributeName != null) {
-    entries["AttributeName"] = input.AttributeName;
+  if (input[_AN] != null) {
+    entries[_AN] = input[_AN];
   }
-  if (input.AttributeValue != null) {
-    entries["AttributeValue"] = input.AttributeValue;
+  if (input[_AV] != null) {
+    entries[_AV] = input[_AV];
   }
   return entries;
 };
@@ -3435,12 +3435,12 @@ const se_Ports = (input: number[], context: __SerdeContext): any => {
  */
 const se_RegisterEndPointsInput = (input: RegisterEndPointsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName != null) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
+  if (input[_LBN] != null) {
+    entries[_LBN] = input[_LBN];
   }
-  if (input.Instances != null) {
-    const memberEntries = se_Instances(input.Instances, context);
-    if (input.Instances?.length === 0) {
+  if (input[_I] != null) {
+    const memberEntries = se_Instances(input[_I], context);
+    if (input[_I]?.length === 0) {
       entries.Instances = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3456,12 +3456,12 @@ const se_RegisterEndPointsInput = (input: RegisterEndPointsInput, context: __Ser
  */
 const se_RemoveAvailabilityZonesInput = (input: RemoveAvailabilityZonesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerName != null) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
+  if (input[_LBN] != null) {
+    entries[_LBN] = input[_LBN];
   }
-  if (input.AvailabilityZones != null) {
-    const memberEntries = se_AvailabilityZones(input.AvailabilityZones, context);
-    if (input.AvailabilityZones?.length === 0) {
+  if (input[_AZ] != null) {
+    const memberEntries = se_AvailabilityZones(input[_AZ], context);
+    if (input[_AZ]?.length === 0) {
       entries.AvailabilityZones = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3477,9 +3477,9 @@ const se_RemoveAvailabilityZonesInput = (input: RemoveAvailabilityZonesInput, co
  */
 const se_RemoveTagsInput = (input: RemoveTagsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.LoadBalancerNames != null) {
-    const memberEntries = se_LoadBalancerNames(input.LoadBalancerNames, context);
-    if (input.LoadBalancerNames?.length === 0) {
+  if (input[_LBNo] != null) {
+    const memberEntries = se_LoadBalancerNames(input[_LBNo], context);
+    if (input[_LBNo]?.length === 0) {
       entries.LoadBalancerNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3487,9 +3487,9 @@ const se_RemoveTagsInput = (input: RemoveTagsInput, context: __SerdeContext): an
       entries[loc] = value;
     });
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagKeyList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_T] != null) {
+    const memberEntries = se_TagKeyList(input[_T], context);
+    if (input[_T]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3524,14 +3524,14 @@ const se_SetLoadBalancerListenerSSLCertificateInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName != null) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
+  if (input[_LBN] != null) {
+    entries[_LBN] = input[_LBN];
   }
-  if (input.LoadBalancerPort != null) {
-    entries["LoadBalancerPort"] = input.LoadBalancerPort;
+  if (input[_LBPo] != null) {
+    entries[_LBPo] = input[_LBPo];
   }
-  if (input.SSLCertificateId != null) {
-    entries["SSLCertificateId"] = input.SSLCertificateId;
+  if (input[_SSLCI] != null) {
+    entries[_SSLCI] = input[_SSLCI];
   }
   return entries;
 };
@@ -3544,15 +3544,15 @@ const se_SetLoadBalancerPoliciesForBackendServerInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName != null) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
+  if (input[_LBN] != null) {
+    entries[_LBN] = input[_LBN];
   }
-  if (input.InstancePort != null) {
-    entries["InstancePort"] = input.InstancePort;
+  if (input[_IPn] != null) {
+    entries[_IPn] = input[_IPn];
   }
-  if (input.PolicyNames != null) {
-    const memberEntries = se_PolicyNames(input.PolicyNames, context);
-    if (input.PolicyNames?.length === 0) {
+  if (input[_PNo] != null) {
+    const memberEntries = se_PolicyNames(input[_PNo], context);
+    if (input[_PNo]?.length === 0) {
       entries.PolicyNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3571,15 +3571,15 @@ const se_SetLoadBalancerPoliciesOfListenerInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.LoadBalancerName != null) {
-    entries["LoadBalancerName"] = input.LoadBalancerName;
+  if (input[_LBN] != null) {
+    entries[_LBN] = input[_LBN];
   }
-  if (input.LoadBalancerPort != null) {
-    entries["LoadBalancerPort"] = input.LoadBalancerPort;
+  if (input[_LBPo] != null) {
+    entries[_LBPo] = input[_LBPo];
   }
-  if (input.PolicyNames != null) {
-    const memberEntries = se_PolicyNames(input.PolicyNames, context);
-    if (input.PolicyNames?.length === 0) {
+  if (input[_PNo] != null) {
+    const memberEntries = se_PolicyNames(input[_PNo], context);
+    if (input[_PNo]?.length === 0) {
       entries.PolicyNames = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3611,11 +3611,11 @@ const se_Subnets = (input: string[], context: __SerdeContext): any => {
  */
 const se_Tag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key != null) {
-    entries["Key"] = input.Key;
+  if (input[_K] != null) {
+    entries[_K] = input[_K];
   }
-  if (input.Value != null) {
-    entries["Value"] = input.Value;
+  if (input[_Va] != null) {
+    entries[_Va] = input[_Va];
   }
   return entries;
 };
@@ -3644,8 +3644,8 @@ const se_TagKeyList = (input: TagKeyOnly[], context: __SerdeContext): any => {
  */
 const se_TagKeyOnly = (input: TagKeyOnly, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key != null) {
-    entries["Key"] = input.Key;
+  if (input[_K] != null) {
+    entries[_K] = input[_K];
   }
   return entries;
 };
@@ -3674,17 +3674,17 @@ const se_TagList = (input: Tag[], context: __SerdeContext): any => {
  */
 const de_AccessLog = (output: any, context: __SerdeContext): AccessLog => {
   const contents: any = {};
-  if (output["Enabled"] !== undefined) {
-    contents.Enabled = __parseBoolean(output["Enabled"]);
+  if (output[_E] != null) {
+    contents[_E] = __parseBoolean(output[_E]);
   }
-  if (output["S3BucketName"] !== undefined) {
-    contents.S3BucketName = __expectString(output["S3BucketName"]);
+  if (output[_SBN] != null) {
+    contents[_SBN] = __expectString(output[_SBN]);
   }
-  if (output["EmitInterval"] !== undefined) {
-    contents.EmitInterval = __strictParseInt32(output["EmitInterval"]) as number;
+  if (output[_EI] != null) {
+    contents[_EI] = __strictParseInt32(output[_EI]) as number;
   }
-  if (output["S3BucketPrefix"] !== undefined) {
-    contents.S3BucketPrefix = __expectString(output["S3BucketPrefix"]);
+  if (output[_SBP] != null) {
+    contents[_SBP] = __expectString(output[_SBP]);
   }
   return contents;
 };
@@ -3694,8 +3694,8 @@ const de_AccessLog = (output: any, context: __SerdeContext): AccessLog => {
  */
 const de_AccessPointNotFoundException = (output: any, context: __SerdeContext): AccessPointNotFoundException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -3706,12 +3706,9 @@ const de_AccessPointNotFoundException = (output: any, context: __SerdeContext): 
 const de_AddAvailabilityZonesOutput = (output: any, context: __SerdeContext): AddAvailabilityZonesOutput => {
   const contents: any = {};
   if (output.AvailabilityZones === "") {
-    contents.AvailabilityZones = [];
-  } else if (output["AvailabilityZones"] !== undefined && output["AvailabilityZones"]["member"] !== undefined) {
-    contents.AvailabilityZones = de_AvailabilityZones(
-      __getArrayIfSingleItem(output["AvailabilityZones"]["member"]),
-      context
-    );
+    contents[_AZ] = [];
+  } else if (output[_AZ] != null && output[_AZ][_m] != null) {
+    contents[_AZ] = de_AvailabilityZones(__getArrayIfSingleItem(output[_AZ][_m]), context);
   }
   return contents;
 };
@@ -3721,11 +3718,11 @@ const de_AddAvailabilityZonesOutput = (output: any, context: __SerdeContext): Ad
  */
 const de_AdditionalAttribute = (output: any, context: __SerdeContext): AdditionalAttribute => {
   const contents: any = {};
-  if (output["Key"] !== undefined) {
-    contents.Key = __expectString(output["Key"]);
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_Va] != null) {
+    contents[_Va] = __expectString(output[_Va]);
   }
   return contents;
 };
@@ -3765,11 +3762,11 @@ const de_AppCookieStickinessPolicies = (output: any, context: __SerdeContext): A
  */
 const de_AppCookieStickinessPolicy = (output: any, context: __SerdeContext): AppCookieStickinessPolicy => {
   const contents: any = {};
-  if (output["PolicyName"] !== undefined) {
-    contents.PolicyName = __expectString(output["PolicyName"]);
+  if (output[_PN] != null) {
+    contents[_PN] = __expectString(output[_PN]);
   }
-  if (output["CookieName"] !== undefined) {
-    contents.CookieName = __expectString(output["CookieName"]);
+  if (output[_CN] != null) {
+    contents[_CN] = __expectString(output[_CN]);
   }
   return contents;
 };
@@ -3783,9 +3780,9 @@ const de_ApplySecurityGroupsToLoadBalancerOutput = (
 ): ApplySecurityGroupsToLoadBalancerOutput => {
   const contents: any = {};
   if (output.SecurityGroups === "") {
-    contents.SecurityGroups = [];
-  } else if (output["SecurityGroups"] !== undefined && output["SecurityGroups"]["member"] !== undefined) {
-    contents.SecurityGroups = de_SecurityGroups(__getArrayIfSingleItem(output["SecurityGroups"]["member"]), context);
+    contents[_SG] = [];
+  } else if (output[_SG] != null && output[_SG][_m] != null) {
+    contents[_SG] = de_SecurityGroups(__getArrayIfSingleItem(output[_SG][_m]), context);
   }
   return contents;
 };
@@ -3799,9 +3796,9 @@ const de_AttachLoadBalancerToSubnetsOutput = (
 ): AttachLoadBalancerToSubnetsOutput => {
   const contents: any = {};
   if (output.Subnets === "") {
-    contents.Subnets = [];
-  } else if (output["Subnets"] !== undefined && output["Subnets"]["member"] !== undefined) {
-    contents.Subnets = de_Subnets(__getArrayIfSingleItem(output["Subnets"]["member"]), context);
+    contents[_S] = [];
+  } else if (output[_S] != null && output[_S][_m] != null) {
+    contents[_S] = de_Subnets(__getArrayIfSingleItem(output[_S][_m]), context);
   }
   return contents;
 };
@@ -3822,13 +3819,13 @@ const de_AvailabilityZones = (output: any, context: __SerdeContext): string[] =>
  */
 const de_BackendServerDescription = (output: any, context: __SerdeContext): BackendServerDescription => {
   const contents: any = {};
-  if (output["InstancePort"] !== undefined) {
-    contents.InstancePort = __strictParseInt32(output["InstancePort"]) as number;
+  if (output[_IPn] != null) {
+    contents[_IPn] = __strictParseInt32(output[_IPn]) as number;
   }
   if (output.PolicyNames === "") {
-    contents.PolicyNames = [];
-  } else if (output["PolicyNames"] !== undefined && output["PolicyNames"]["member"] !== undefined) {
-    contents.PolicyNames = de_PolicyNames(__getArrayIfSingleItem(output["PolicyNames"]["member"]), context);
+    contents[_PNo] = [];
+  } else if (output[_PNo] != null && output[_PNo][_m] != null) {
+    contents[_PNo] = de_PolicyNames(__getArrayIfSingleItem(output[_PNo][_m]), context);
   }
   return contents;
 };
@@ -3849,8 +3846,8 @@ const de_BackendServerDescriptions = (output: any, context: __SerdeContext): Bac
  */
 const de_CertificateNotFoundException = (output: any, context: __SerdeContext): CertificateNotFoundException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -3860,8 +3857,8 @@ const de_CertificateNotFoundException = (output: any, context: __SerdeContext): 
  */
 const de_ConfigureHealthCheckOutput = (output: any, context: __SerdeContext): ConfigureHealthCheckOutput => {
   const contents: any = {};
-  if (output["HealthCheck"] !== undefined) {
-    contents.HealthCheck = de_HealthCheck(output["HealthCheck"], context);
+  if (output[_HC] != null) {
+    contents[_HC] = de_HealthCheck(output[_HC], context);
   }
   return contents;
 };
@@ -3871,11 +3868,11 @@ const de_ConfigureHealthCheckOutput = (output: any, context: __SerdeContext): Co
  */
 const de_ConnectionDraining = (output: any, context: __SerdeContext): ConnectionDraining => {
   const contents: any = {};
-  if (output["Enabled"] !== undefined) {
-    contents.Enabled = __parseBoolean(output["Enabled"]);
+  if (output[_E] != null) {
+    contents[_E] = __parseBoolean(output[_E]);
   }
-  if (output["Timeout"] !== undefined) {
-    contents.Timeout = __strictParseInt32(output["Timeout"]) as number;
+  if (output[_Ti] != null) {
+    contents[_Ti] = __strictParseInt32(output[_Ti]) as number;
   }
   return contents;
 };
@@ -3885,8 +3882,8 @@ const de_ConnectionDraining = (output: any, context: __SerdeContext): Connection
  */
 const de_ConnectionSettings = (output: any, context: __SerdeContext): ConnectionSettings => {
   const contents: any = {};
-  if (output["IdleTimeout"] !== undefined) {
-    contents.IdleTimeout = __strictParseInt32(output["IdleTimeout"]) as number;
+  if (output[_IT] != null) {
+    contents[_IT] = __strictParseInt32(output[_IT]) as number;
   }
   return contents;
 };
@@ -3896,8 +3893,8 @@ const de_ConnectionSettings = (output: any, context: __SerdeContext): Connection
  */
 const de_CreateAccessPointOutput = (output: any, context: __SerdeContext): CreateAccessPointOutput => {
   const contents: any = {};
-  if (output["DNSName"] !== undefined) {
-    contents.DNSName = __expectString(output["DNSName"]);
+  if (output[_DNSN] != null) {
+    contents[_DNSN] = __expectString(output[_DNSN]);
   }
   return contents;
 };
@@ -3948,8 +3945,8 @@ const de_CreateLoadBalancerPolicyOutput = (output: any, context: __SerdeContext)
  */
 const de_CrossZoneLoadBalancing = (output: any, context: __SerdeContext): CrossZoneLoadBalancing => {
   const contents: any = {};
-  if (output["Enabled"] !== undefined) {
-    contents.Enabled = __parseBoolean(output["Enabled"]);
+  if (output[_E] != null) {
+    contents[_E] = __parseBoolean(output[_E]);
   }
   return contents;
 };
@@ -3986,8 +3983,8 @@ const de_DeleteLoadBalancerPolicyOutput = (output: any, context: __SerdeContext)
  */
 const de_DependencyThrottleException = (output: any, context: __SerdeContext): DependencyThrottleException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -3998,9 +3995,9 @@ const de_DependencyThrottleException = (output: any, context: __SerdeContext): D
 const de_DeregisterEndPointsOutput = (output: any, context: __SerdeContext): DeregisterEndPointsOutput => {
   const contents: any = {};
   if (output.Instances === "") {
-    contents.Instances = [];
-  } else if (output["Instances"] !== undefined && output["Instances"]["member"] !== undefined) {
-    contents.Instances = de_Instances(__getArrayIfSingleItem(output["Instances"]["member"]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_m] != null) {
+    contents[_I] = de_Instances(__getArrayIfSingleItem(output[_I][_m]), context);
   }
   return contents;
 };
@@ -4011,18 +4008,12 @@ const de_DeregisterEndPointsOutput = (output: any, context: __SerdeContext): Der
 const de_DescribeAccessPointsOutput = (output: any, context: __SerdeContext): DescribeAccessPointsOutput => {
   const contents: any = {};
   if (output.LoadBalancerDescriptions === "") {
-    contents.LoadBalancerDescriptions = [];
-  } else if (
-    output["LoadBalancerDescriptions"] !== undefined &&
-    output["LoadBalancerDescriptions"]["member"] !== undefined
-  ) {
-    contents.LoadBalancerDescriptions = de_LoadBalancerDescriptions(
-      __getArrayIfSingleItem(output["LoadBalancerDescriptions"]["member"]),
-      context
-    );
+    contents[_LBD] = [];
+  } else if (output[_LBD] != null && output[_LBD][_m] != null) {
+    contents[_LBD] = de_LoadBalancerDescriptions(__getArrayIfSingleItem(output[_LBD][_m]), context);
   }
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(output["NextMarker"]);
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
   }
   return contents;
 };
@@ -4033,12 +4024,12 @@ const de_DescribeAccessPointsOutput = (output: any, context: __SerdeContext): De
 const de_DescribeAccountLimitsOutput = (output: any, context: __SerdeContext): DescribeAccountLimitsOutput => {
   const contents: any = {};
   if (output.Limits === "") {
-    contents.Limits = [];
-  } else if (output["Limits"] !== undefined && output["Limits"]["member"] !== undefined) {
-    contents.Limits = de_Limits(__getArrayIfSingleItem(output["Limits"]["member"]), context);
+    contents[_Li] = [];
+  } else if (output[_Li] != null && output[_Li][_m] != null) {
+    contents[_Li] = de_Limits(__getArrayIfSingleItem(output[_Li][_m]), context);
   }
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = __expectString(output["NextMarker"]);
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
   }
   return contents;
 };
@@ -4049,9 +4040,9 @@ const de_DescribeAccountLimitsOutput = (output: any, context: __SerdeContext): D
 const de_DescribeEndPointStateOutput = (output: any, context: __SerdeContext): DescribeEndPointStateOutput => {
   const contents: any = {};
   if (output.InstanceStates === "") {
-    contents.InstanceStates = [];
-  } else if (output["InstanceStates"] !== undefined && output["InstanceStates"]["member"] !== undefined) {
-    contents.InstanceStates = de_InstanceStates(__getArrayIfSingleItem(output["InstanceStates"]["member"]), context);
+    contents[_IS] = [];
+  } else if (output[_IS] != null && output[_IS][_m] != null) {
+    contents[_IS] = de_InstanceStates(__getArrayIfSingleItem(output[_IS][_m]), context);
   }
   return contents;
 };
@@ -4064,8 +4055,8 @@ const de_DescribeLoadBalancerAttributesOutput = (
   context: __SerdeContext
 ): DescribeLoadBalancerAttributesOutput => {
   const contents: any = {};
-  if (output["LoadBalancerAttributes"] !== undefined) {
-    contents.LoadBalancerAttributes = de_LoadBalancerAttributes(output["LoadBalancerAttributes"], context);
+  if (output[_LBA] != null) {
+    contents[_LBA] = de_LoadBalancerAttributes(output[_LBA], context);
   }
   return contents;
 };
@@ -4079,12 +4070,9 @@ const de_DescribeLoadBalancerPoliciesOutput = (
 ): DescribeLoadBalancerPoliciesOutput => {
   const contents: any = {};
   if (output.PolicyDescriptions === "") {
-    contents.PolicyDescriptions = [];
-  } else if (output["PolicyDescriptions"] !== undefined && output["PolicyDescriptions"]["member"] !== undefined) {
-    contents.PolicyDescriptions = de_PolicyDescriptions(
-      __getArrayIfSingleItem(output["PolicyDescriptions"]["member"]),
-      context
-    );
+    contents[_PD] = [];
+  } else if (output[_PD] != null && output[_PD][_m] != null) {
+    contents[_PD] = de_PolicyDescriptions(__getArrayIfSingleItem(output[_PD][_m]), context);
   }
   return contents;
 };
@@ -4098,15 +4086,9 @@ const de_DescribeLoadBalancerPolicyTypesOutput = (
 ): DescribeLoadBalancerPolicyTypesOutput => {
   const contents: any = {};
   if (output.PolicyTypeDescriptions === "") {
-    contents.PolicyTypeDescriptions = [];
-  } else if (
-    output["PolicyTypeDescriptions"] !== undefined &&
-    output["PolicyTypeDescriptions"]["member"] !== undefined
-  ) {
-    contents.PolicyTypeDescriptions = de_PolicyTypeDescriptions(
-      __getArrayIfSingleItem(output["PolicyTypeDescriptions"]["member"]),
-      context
-    );
+    contents[_PTD] = [];
+  } else if (output[_PTD] != null && output[_PTD][_m] != null) {
+    contents[_PTD] = de_PolicyTypeDescriptions(__getArrayIfSingleItem(output[_PTD][_m]), context);
   }
   return contents;
 };
@@ -4117,9 +4099,9 @@ const de_DescribeLoadBalancerPolicyTypesOutput = (
 const de_DescribeTagsOutput = (output: any, context: __SerdeContext): DescribeTagsOutput => {
   const contents: any = {};
   if (output.TagDescriptions === "") {
-    contents.TagDescriptions = [];
-  } else if (output["TagDescriptions"] !== undefined && output["TagDescriptions"]["member"] !== undefined) {
-    contents.TagDescriptions = de_TagDescriptions(__getArrayIfSingleItem(output["TagDescriptions"]["member"]), context);
+    contents[_TD] = [];
+  } else if (output[_TD] != null && output[_TD][_m] != null) {
+    contents[_TD] = de_TagDescriptions(__getArrayIfSingleItem(output[_TD][_m]), context);
   }
   return contents;
 };
@@ -4133,9 +4115,9 @@ const de_DetachLoadBalancerFromSubnetsOutput = (
 ): DetachLoadBalancerFromSubnetsOutput => {
   const contents: any = {};
   if (output.Subnets === "") {
-    contents.Subnets = [];
-  } else if (output["Subnets"] !== undefined && output["Subnets"]["member"] !== undefined) {
-    contents.Subnets = de_Subnets(__getArrayIfSingleItem(output["Subnets"]["member"]), context);
+    contents[_S] = [];
+  } else if (output[_S] != null && output[_S][_m] != null) {
+    contents[_S] = de_Subnets(__getArrayIfSingleItem(output[_S][_m]), context);
   }
   return contents;
 };
@@ -4148,8 +4130,8 @@ const de_DuplicateAccessPointNameException = (
   context: __SerdeContext
 ): DuplicateAccessPointNameException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -4159,8 +4141,8 @@ const de_DuplicateAccessPointNameException = (
  */
 const de_DuplicateListenerException = (output: any, context: __SerdeContext): DuplicateListenerException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -4170,8 +4152,8 @@ const de_DuplicateListenerException = (output: any, context: __SerdeContext): Du
  */
 const de_DuplicatePolicyNameException = (output: any, context: __SerdeContext): DuplicatePolicyNameException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -4181,8 +4163,8 @@ const de_DuplicatePolicyNameException = (output: any, context: __SerdeContext): 
  */
 const de_DuplicateTagKeysException = (output: any, context: __SerdeContext): DuplicateTagKeysException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -4192,20 +4174,20 @@ const de_DuplicateTagKeysException = (output: any, context: __SerdeContext): Dup
  */
 const de_HealthCheck = (output: any, context: __SerdeContext): HealthCheck => {
   const contents: any = {};
-  if (output["Target"] !== undefined) {
-    contents.Target = __expectString(output["Target"]);
+  if (output[_Ta] != null) {
+    contents[_Ta] = __expectString(output[_Ta]);
   }
-  if (output["Interval"] !== undefined) {
-    contents.Interval = __strictParseInt32(output["Interval"]) as number;
+  if (output[_In] != null) {
+    contents[_In] = __strictParseInt32(output[_In]) as number;
   }
-  if (output["Timeout"] !== undefined) {
-    contents.Timeout = __strictParseInt32(output["Timeout"]) as number;
+  if (output[_Ti] != null) {
+    contents[_Ti] = __strictParseInt32(output[_Ti]) as number;
   }
-  if (output["UnhealthyThreshold"] !== undefined) {
-    contents.UnhealthyThreshold = __strictParseInt32(output["UnhealthyThreshold"]) as number;
+  if (output[_UT] != null) {
+    contents[_UT] = __strictParseInt32(output[_UT]) as number;
   }
-  if (output["HealthyThreshold"] !== undefined) {
-    contents.HealthyThreshold = __strictParseInt32(output["HealthyThreshold"]) as number;
+  if (output[_HT] != null) {
+    contents[_HT] = __strictParseInt32(output[_HT]) as number;
   }
   return contents;
 };
@@ -4215,8 +4197,8 @@ const de_HealthCheck = (output: any, context: __SerdeContext): HealthCheck => {
  */
 const de_Instance = (output: any, context: __SerdeContext): Instance => {
   const contents: any = {};
-  if (output["InstanceId"] !== undefined) {
-    contents.InstanceId = __expectString(output["InstanceId"]);
+  if (output[_II] != null) {
+    contents[_II] = __expectString(output[_II]);
   }
   return contents;
 };
@@ -4237,17 +4219,17 @@ const de_Instances = (output: any, context: __SerdeContext): Instance[] => {
  */
 const de_InstanceState = (output: any, context: __SerdeContext): InstanceState => {
   const contents: any = {};
-  if (output["InstanceId"] !== undefined) {
-    contents.InstanceId = __expectString(output["InstanceId"]);
+  if (output[_II] != null) {
+    contents[_II] = __expectString(output[_II]);
   }
-  if (output["State"] !== undefined) {
-    contents.State = __expectString(output["State"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["ReasonCode"] !== undefined) {
-    contents.ReasonCode = __expectString(output["ReasonCode"]);
+  if (output[_RC] != null) {
+    contents[_RC] = __expectString(output[_RC]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
   return contents;
 };
@@ -4271,8 +4253,8 @@ const de_InvalidConfigurationRequestException = (
   context: __SerdeContext
 ): InvalidConfigurationRequestException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -4282,8 +4264,8 @@ const de_InvalidConfigurationRequestException = (
  */
 const de_InvalidEndPointException = (output: any, context: __SerdeContext): InvalidEndPointException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -4293,8 +4275,8 @@ const de_InvalidEndPointException = (output: any, context: __SerdeContext): Inva
  */
 const de_InvalidSchemeException = (output: any, context: __SerdeContext): InvalidSchemeException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -4304,8 +4286,8 @@ const de_InvalidSchemeException = (output: any, context: __SerdeContext): Invali
  */
 const de_InvalidSecurityGroupException = (output: any, context: __SerdeContext): InvalidSecurityGroupException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -4315,8 +4297,8 @@ const de_InvalidSecurityGroupException = (output: any, context: __SerdeContext):
  */
 const de_InvalidSubnetException = (output: any, context: __SerdeContext): InvalidSubnetException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -4337,11 +4319,11 @@ const de_LBCookieStickinessPolicies = (output: any, context: __SerdeContext): LB
  */
 const de_LBCookieStickinessPolicy = (output: any, context: __SerdeContext): LBCookieStickinessPolicy => {
   const contents: any = {};
-  if (output["PolicyName"] !== undefined) {
-    contents.PolicyName = __expectString(output["PolicyName"]);
+  if (output[_PN] != null) {
+    contents[_PN] = __expectString(output[_PN]);
   }
-  if (output["CookieExpirationPeriod"] !== undefined) {
-    contents.CookieExpirationPeriod = __strictParseLong(output["CookieExpirationPeriod"]) as number;
+  if (output[_CEP] != null) {
+    contents[_CEP] = __strictParseLong(output[_CEP]) as number;
   }
   return contents;
 };
@@ -4351,11 +4333,11 @@ const de_LBCookieStickinessPolicy = (output: any, context: __SerdeContext): LBCo
  */
 const de_Limit = (output: any, context: __SerdeContext): Limit => {
   const contents: any = {};
-  if (output["Name"] !== undefined) {
-    contents.Name = __expectString(output["Name"]);
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
   }
-  if (output["Max"] !== undefined) {
-    contents.Max = __expectString(output["Max"]);
+  if (output[_Ma] != null) {
+    contents[_Ma] = __expectString(output[_Ma]);
   }
   return contents;
 };
@@ -4376,20 +4358,20 @@ const de_Limits = (output: any, context: __SerdeContext): Limit[] => {
  */
 const de_Listener = (output: any, context: __SerdeContext): Listener => {
   const contents: any = {};
-  if (output["Protocol"] !== undefined) {
-    contents.Protocol = __expectString(output["Protocol"]);
+  if (output[_P] != null) {
+    contents[_P] = __expectString(output[_P]);
   }
-  if (output["LoadBalancerPort"] !== undefined) {
-    contents.LoadBalancerPort = __strictParseInt32(output["LoadBalancerPort"]) as number;
+  if (output[_LBPo] != null) {
+    contents[_LBPo] = __strictParseInt32(output[_LBPo]) as number;
   }
-  if (output["InstanceProtocol"] !== undefined) {
-    contents.InstanceProtocol = __expectString(output["InstanceProtocol"]);
+  if (output[_IP] != null) {
+    contents[_IP] = __expectString(output[_IP]);
   }
-  if (output["InstancePort"] !== undefined) {
-    contents.InstancePort = __strictParseInt32(output["InstancePort"]) as number;
+  if (output[_IPn] != null) {
+    contents[_IPn] = __strictParseInt32(output[_IPn]) as number;
   }
-  if (output["SSLCertificateId"] !== undefined) {
-    contents.SSLCertificateId = __expectString(output["SSLCertificateId"]);
+  if (output[_SSLCI] != null) {
+    contents[_SSLCI] = __expectString(output[_SSLCI]);
   }
   return contents;
 };
@@ -4399,13 +4381,13 @@ const de_Listener = (output: any, context: __SerdeContext): Listener => {
  */
 const de_ListenerDescription = (output: any, context: __SerdeContext): ListenerDescription => {
   const contents: any = {};
-  if (output["Listener"] !== undefined) {
-    contents.Listener = de_Listener(output["Listener"], context);
+  if (output[_Lis] != null) {
+    contents[_Lis] = de_Listener(output[_Lis], context);
   }
   if (output.PolicyNames === "") {
-    contents.PolicyNames = [];
-  } else if (output["PolicyNames"] !== undefined && output["PolicyNames"]["member"] !== undefined) {
-    contents.PolicyNames = de_PolicyNames(__getArrayIfSingleItem(output["PolicyNames"]["member"]), context);
+    contents[_PNo] = [];
+  } else if (output[_PNo] != null && output[_PNo][_m] != null) {
+    contents[_PNo] = de_PolicyNames(__getArrayIfSingleItem(output[_PNo][_m]), context);
   }
   return contents;
 };
@@ -4426,8 +4408,8 @@ const de_ListenerDescriptions = (output: any, context: __SerdeContext): Listener
  */
 const de_ListenerNotFoundException = (output: any, context: __SerdeContext): ListenerNotFoundException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -4440,8 +4422,8 @@ const de_LoadBalancerAttributeNotFoundException = (
   context: __SerdeContext
 ): LoadBalancerAttributeNotFoundException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -4451,25 +4433,22 @@ const de_LoadBalancerAttributeNotFoundException = (
  */
 const de_LoadBalancerAttributes = (output: any, context: __SerdeContext): LoadBalancerAttributes => {
   const contents: any = {};
-  if (output["CrossZoneLoadBalancing"] !== undefined) {
-    contents.CrossZoneLoadBalancing = de_CrossZoneLoadBalancing(output["CrossZoneLoadBalancing"], context);
+  if (output[_CZLB] != null) {
+    contents[_CZLB] = de_CrossZoneLoadBalancing(output[_CZLB], context);
   }
-  if (output["AccessLog"] !== undefined) {
-    contents.AccessLog = de_AccessLog(output["AccessLog"], context);
+  if (output[_AL] != null) {
+    contents[_AL] = de_AccessLog(output[_AL], context);
   }
-  if (output["ConnectionDraining"] !== undefined) {
-    contents.ConnectionDraining = de_ConnectionDraining(output["ConnectionDraining"], context);
+  if (output[_CD] != null) {
+    contents[_CD] = de_ConnectionDraining(output[_CD], context);
   }
-  if (output["ConnectionSettings"] !== undefined) {
-    contents.ConnectionSettings = de_ConnectionSettings(output["ConnectionSettings"], context);
+  if (output[_CS] != null) {
+    contents[_CS] = de_ConnectionSettings(output[_CS], context);
   }
   if (output.AdditionalAttributes === "") {
-    contents.AdditionalAttributes = [];
-  } else if (output["AdditionalAttributes"] !== undefined && output["AdditionalAttributes"]["member"] !== undefined) {
-    contents.AdditionalAttributes = de_AdditionalAttributes(
-      __getArrayIfSingleItem(output["AdditionalAttributes"]["member"]),
-      context
-    );
+    contents[_AA] = [];
+  } else if (output[_AA] != null && output[_AA][_m] != null) {
+    contents[_AA] = de_AdditionalAttributes(__getArrayIfSingleItem(output[_AA][_m]), context);
   }
   return contents;
 };
@@ -4479,77 +4458,65 @@ const de_LoadBalancerAttributes = (output: any, context: __SerdeContext): LoadBa
  */
 const de_LoadBalancerDescription = (output: any, context: __SerdeContext): LoadBalancerDescription => {
   const contents: any = {};
-  if (output["LoadBalancerName"] !== undefined) {
-    contents.LoadBalancerName = __expectString(output["LoadBalancerName"]);
+  if (output[_LBN] != null) {
+    contents[_LBN] = __expectString(output[_LBN]);
   }
-  if (output["DNSName"] !== undefined) {
-    contents.DNSName = __expectString(output["DNSName"]);
+  if (output[_DNSN] != null) {
+    contents[_DNSN] = __expectString(output[_DNSN]);
   }
-  if (output["CanonicalHostedZoneName"] !== undefined) {
-    contents.CanonicalHostedZoneName = __expectString(output["CanonicalHostedZoneName"]);
+  if (output[_CHZN] != null) {
+    contents[_CHZN] = __expectString(output[_CHZN]);
   }
-  if (output["CanonicalHostedZoneNameID"] !== undefined) {
-    contents.CanonicalHostedZoneNameID = __expectString(output["CanonicalHostedZoneNameID"]);
+  if (output[_CHZNID] != null) {
+    contents[_CHZNID] = __expectString(output[_CHZNID]);
   }
   if (output.ListenerDescriptions === "") {
-    contents.ListenerDescriptions = [];
-  } else if (output["ListenerDescriptions"] !== undefined && output["ListenerDescriptions"]["member"] !== undefined) {
-    contents.ListenerDescriptions = de_ListenerDescriptions(
-      __getArrayIfSingleItem(output["ListenerDescriptions"]["member"]),
-      context
-    );
+    contents[_LD] = [];
+  } else if (output[_LD] != null && output[_LD][_m] != null) {
+    contents[_LD] = de_ListenerDescriptions(__getArrayIfSingleItem(output[_LD][_m]), context);
   }
-  if (output["Policies"] !== undefined) {
-    contents.Policies = de_Policies(output["Policies"], context);
+  if (output[_Po] != null) {
+    contents[_Po] = de_Policies(output[_Po], context);
   }
   if (output.BackendServerDescriptions === "") {
-    contents.BackendServerDescriptions = [];
-  } else if (
-    output["BackendServerDescriptions"] !== undefined &&
-    output["BackendServerDescriptions"]["member"] !== undefined
-  ) {
-    contents.BackendServerDescriptions = de_BackendServerDescriptions(
-      __getArrayIfSingleItem(output["BackendServerDescriptions"]["member"]),
-      context
-    );
+    contents[_BSD] = [];
+  } else if (output[_BSD] != null && output[_BSD][_m] != null) {
+    contents[_BSD] = de_BackendServerDescriptions(__getArrayIfSingleItem(output[_BSD][_m]), context);
   }
   if (output.AvailabilityZones === "") {
-    contents.AvailabilityZones = [];
-  } else if (output["AvailabilityZones"] !== undefined && output["AvailabilityZones"]["member"] !== undefined) {
-    contents.AvailabilityZones = de_AvailabilityZones(
-      __getArrayIfSingleItem(output["AvailabilityZones"]["member"]),
-      context
-    );
+    contents[_AZ] = [];
+  } else if (output[_AZ] != null && output[_AZ][_m] != null) {
+    contents[_AZ] = de_AvailabilityZones(__getArrayIfSingleItem(output[_AZ][_m]), context);
   }
   if (output.Subnets === "") {
-    contents.Subnets = [];
-  } else if (output["Subnets"] !== undefined && output["Subnets"]["member"] !== undefined) {
-    contents.Subnets = de_Subnets(__getArrayIfSingleItem(output["Subnets"]["member"]), context);
+    contents[_S] = [];
+  } else if (output[_S] != null && output[_S][_m] != null) {
+    contents[_S] = de_Subnets(__getArrayIfSingleItem(output[_S][_m]), context);
   }
-  if (output["VPCId"] !== undefined) {
-    contents.VPCId = __expectString(output["VPCId"]);
+  if (output[_VPCI] != null) {
+    contents[_VPCI] = __expectString(output[_VPCI]);
   }
   if (output.Instances === "") {
-    contents.Instances = [];
-  } else if (output["Instances"] !== undefined && output["Instances"]["member"] !== undefined) {
-    contents.Instances = de_Instances(__getArrayIfSingleItem(output["Instances"]["member"]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_m] != null) {
+    contents[_I] = de_Instances(__getArrayIfSingleItem(output[_I][_m]), context);
   }
-  if (output["HealthCheck"] !== undefined) {
-    contents.HealthCheck = de_HealthCheck(output["HealthCheck"], context);
+  if (output[_HC] != null) {
+    contents[_HC] = de_HealthCheck(output[_HC], context);
   }
-  if (output["SourceSecurityGroup"] !== undefined) {
-    contents.SourceSecurityGroup = de_SourceSecurityGroup(output["SourceSecurityGroup"], context);
+  if (output[_SSG] != null) {
+    contents[_SSG] = de_SourceSecurityGroup(output[_SSG], context);
   }
   if (output.SecurityGroups === "") {
-    contents.SecurityGroups = [];
-  } else if (output["SecurityGroups"] !== undefined && output["SecurityGroups"]["member"] !== undefined) {
-    contents.SecurityGroups = de_SecurityGroups(__getArrayIfSingleItem(output["SecurityGroups"]["member"]), context);
+    contents[_SG] = [];
+  } else if (output[_SG] != null && output[_SG][_m] != null) {
+    contents[_SG] = de_SecurityGroups(__getArrayIfSingleItem(output[_SG][_m]), context);
   }
-  if (output["CreatedTime"] !== undefined) {
-    contents.CreatedTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedTime"]));
+  if (output[_CT] != null) {
+    contents[_CT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CT]));
   }
-  if (output["Scheme"] !== undefined) {
-    contents.Scheme = __expectString(output["Scheme"]);
+  if (output[_Sc] != null) {
+    contents[_Sc] = __expectString(output[_Sc]);
   }
   return contents;
 };
@@ -4573,11 +4540,11 @@ const de_ModifyLoadBalancerAttributesOutput = (
   context: __SerdeContext
 ): ModifyLoadBalancerAttributesOutput => {
   const contents: any = {};
-  if (output["LoadBalancerName"] !== undefined) {
-    contents.LoadBalancerName = __expectString(output["LoadBalancerName"]);
+  if (output[_LBN] != null) {
+    contents[_LBN] = __expectString(output[_LBN]);
   }
-  if (output["LoadBalancerAttributes"] !== undefined) {
-    contents.LoadBalancerAttributes = de_LoadBalancerAttributes(output["LoadBalancerAttributes"], context);
+  if (output[_LBA] != null) {
+    contents[_LBA] = de_LoadBalancerAttributes(output[_LBA], context);
   }
   return contents;
 };
@@ -4587,8 +4554,8 @@ const de_ModifyLoadBalancerAttributesOutput = (
  */
 const de_OperationNotPermittedException = (output: any, context: __SerdeContext): OperationNotPermittedException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -4599,31 +4566,19 @@ const de_OperationNotPermittedException = (output: any, context: __SerdeContext)
 const de_Policies = (output: any, context: __SerdeContext): Policies => {
   const contents: any = {};
   if (output.AppCookieStickinessPolicies === "") {
-    contents.AppCookieStickinessPolicies = [];
-  } else if (
-    output["AppCookieStickinessPolicies"] !== undefined &&
-    output["AppCookieStickinessPolicies"]["member"] !== undefined
-  ) {
-    contents.AppCookieStickinessPolicies = de_AppCookieStickinessPolicies(
-      __getArrayIfSingleItem(output["AppCookieStickinessPolicies"]["member"]),
-      context
-    );
+    contents[_ACSP] = [];
+  } else if (output[_ACSP] != null && output[_ACSP][_m] != null) {
+    contents[_ACSP] = de_AppCookieStickinessPolicies(__getArrayIfSingleItem(output[_ACSP][_m]), context);
   }
   if (output.LBCookieStickinessPolicies === "") {
-    contents.LBCookieStickinessPolicies = [];
-  } else if (
-    output["LBCookieStickinessPolicies"] !== undefined &&
-    output["LBCookieStickinessPolicies"]["member"] !== undefined
-  ) {
-    contents.LBCookieStickinessPolicies = de_LBCookieStickinessPolicies(
-      __getArrayIfSingleItem(output["LBCookieStickinessPolicies"]["member"]),
-      context
-    );
+    contents[_LBCSP] = [];
+  } else if (output[_LBCSP] != null && output[_LBCSP][_m] != null) {
+    contents[_LBCSP] = de_LBCookieStickinessPolicies(__getArrayIfSingleItem(output[_LBCSP][_m]), context);
   }
   if (output.OtherPolicies === "") {
-    contents.OtherPolicies = [];
-  } else if (output["OtherPolicies"] !== undefined && output["OtherPolicies"]["member"] !== undefined) {
-    contents.OtherPolicies = de_PolicyNames(__getArrayIfSingleItem(output["OtherPolicies"]["member"]), context);
+    contents[_OP] = [];
+  } else if (output[_OP] != null && output[_OP][_m] != null) {
+    contents[_OP] = de_PolicyNames(__getArrayIfSingleItem(output[_OP][_m]), context);
   }
   return contents;
 };
@@ -4633,11 +4588,11 @@ const de_Policies = (output: any, context: __SerdeContext): Policies => {
  */
 const de_PolicyAttributeDescription = (output: any, context: __SerdeContext): PolicyAttributeDescription => {
   const contents: any = {};
-  if (output["AttributeName"] !== undefined) {
-    contents.AttributeName = __expectString(output["AttributeName"]);
+  if (output[_AN] != null) {
+    contents[_AN] = __expectString(output[_AN]);
   }
-  if (output["AttributeValue"] !== undefined) {
-    contents.AttributeValue = __expectString(output["AttributeValue"]);
+  if (output[_AV] != null) {
+    contents[_AV] = __expectString(output[_AV]);
   }
   return contents;
 };
@@ -4658,20 +4613,20 @@ const de_PolicyAttributeDescriptions = (output: any, context: __SerdeContext): P
  */
 const de_PolicyAttributeTypeDescription = (output: any, context: __SerdeContext): PolicyAttributeTypeDescription => {
   const contents: any = {};
-  if (output["AttributeName"] !== undefined) {
-    contents.AttributeName = __expectString(output["AttributeName"]);
+  if (output[_AN] != null) {
+    contents[_AN] = __expectString(output[_AN]);
   }
-  if (output["AttributeType"] !== undefined) {
-    contents.AttributeType = __expectString(output["AttributeType"]);
+  if (output[_ATt] != null) {
+    contents[_ATt] = __expectString(output[_ATt]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
-  if (output["DefaultValue"] !== undefined) {
-    contents.DefaultValue = __expectString(output["DefaultValue"]);
+  if (output[_DV] != null) {
+    contents[_DV] = __expectString(output[_DV]);
   }
-  if (output["Cardinality"] !== undefined) {
-    contents.Cardinality = __expectString(output["Cardinality"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
   return contents;
 };
@@ -4692,22 +4647,16 @@ const de_PolicyAttributeTypeDescriptions = (output: any, context: __SerdeContext
  */
 const de_PolicyDescription = (output: any, context: __SerdeContext): PolicyDescription => {
   const contents: any = {};
-  if (output["PolicyName"] !== undefined) {
-    contents.PolicyName = __expectString(output["PolicyName"]);
+  if (output[_PN] != null) {
+    contents[_PN] = __expectString(output[_PN]);
   }
-  if (output["PolicyTypeName"] !== undefined) {
-    contents.PolicyTypeName = __expectString(output["PolicyTypeName"]);
+  if (output[_PTN] != null) {
+    contents[_PTN] = __expectString(output[_PTN]);
   }
   if (output.PolicyAttributeDescriptions === "") {
-    contents.PolicyAttributeDescriptions = [];
-  } else if (
-    output["PolicyAttributeDescriptions"] !== undefined &&
-    output["PolicyAttributeDescriptions"]["member"] !== undefined
-  ) {
-    contents.PolicyAttributeDescriptions = de_PolicyAttributeDescriptions(
-      __getArrayIfSingleItem(output["PolicyAttributeDescriptions"]["member"]),
-      context
-    );
+    contents[_PAD] = [];
+  } else if (output[_PAD] != null && output[_PAD][_m] != null) {
+    contents[_PAD] = de_PolicyAttributeDescriptions(__getArrayIfSingleItem(output[_PAD][_m]), context);
   }
   return contents;
 };
@@ -4739,8 +4688,8 @@ const de_PolicyNames = (output: any, context: __SerdeContext): string[] => {
  */
 const de_PolicyNotFoundException = (output: any, context: __SerdeContext): PolicyNotFoundException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -4750,22 +4699,16 @@ const de_PolicyNotFoundException = (output: any, context: __SerdeContext): Polic
  */
 const de_PolicyTypeDescription = (output: any, context: __SerdeContext): PolicyTypeDescription => {
   const contents: any = {};
-  if (output["PolicyTypeName"] !== undefined) {
-    contents.PolicyTypeName = __expectString(output["PolicyTypeName"]);
+  if (output[_PTN] != null) {
+    contents[_PTN] = __expectString(output[_PTN]);
   }
-  if (output["Description"] !== undefined) {
-    contents.Description = __expectString(output["Description"]);
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
   }
   if (output.PolicyAttributeTypeDescriptions === "") {
-    contents.PolicyAttributeTypeDescriptions = [];
-  } else if (
-    output["PolicyAttributeTypeDescriptions"] !== undefined &&
-    output["PolicyAttributeTypeDescriptions"]["member"] !== undefined
-  ) {
-    contents.PolicyAttributeTypeDescriptions = de_PolicyAttributeTypeDescriptions(
-      __getArrayIfSingleItem(output["PolicyAttributeTypeDescriptions"]["member"]),
-      context
-    );
+    contents[_PATD] = [];
+  } else if (output[_PATD] != null && output[_PATD][_m] != null) {
+    contents[_PATD] = de_PolicyAttributeTypeDescriptions(__getArrayIfSingleItem(output[_PATD][_m]), context);
   }
   return contents;
 };
@@ -4786,8 +4729,8 @@ const de_PolicyTypeDescriptions = (output: any, context: __SerdeContext): Policy
  */
 const de_PolicyTypeNotFoundException = (output: any, context: __SerdeContext): PolicyTypeNotFoundException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -4798,9 +4741,9 @@ const de_PolicyTypeNotFoundException = (output: any, context: __SerdeContext): P
 const de_RegisterEndPointsOutput = (output: any, context: __SerdeContext): RegisterEndPointsOutput => {
   const contents: any = {};
   if (output.Instances === "") {
-    contents.Instances = [];
-  } else if (output["Instances"] !== undefined && output["Instances"]["member"] !== undefined) {
-    contents.Instances = de_Instances(__getArrayIfSingleItem(output["Instances"]["member"]), context);
+    contents[_I] = [];
+  } else if (output[_I] != null && output[_I][_m] != null) {
+    contents[_I] = de_Instances(__getArrayIfSingleItem(output[_I][_m]), context);
   }
   return contents;
 };
@@ -4811,12 +4754,9 @@ const de_RegisterEndPointsOutput = (output: any, context: __SerdeContext): Regis
 const de_RemoveAvailabilityZonesOutput = (output: any, context: __SerdeContext): RemoveAvailabilityZonesOutput => {
   const contents: any = {};
   if (output.AvailabilityZones === "") {
-    contents.AvailabilityZones = [];
-  } else if (output["AvailabilityZones"] !== undefined && output["AvailabilityZones"]["member"] !== undefined) {
-    contents.AvailabilityZones = de_AvailabilityZones(
-      __getArrayIfSingleItem(output["AvailabilityZones"]["member"]),
-      context
-    );
+    contents[_AZ] = [];
+  } else if (output[_AZ] != null && output[_AZ][_m] != null) {
+    contents[_AZ] = de_AvailabilityZones(__getArrayIfSingleItem(output[_AZ][_m]), context);
   }
   return contents;
 };
@@ -4878,11 +4818,11 @@ const de_SetLoadBalancerPoliciesOfListenerOutput = (
  */
 const de_SourceSecurityGroup = (output: any, context: __SerdeContext): SourceSecurityGroup => {
   const contents: any = {};
-  if (output["OwnerAlias"] !== undefined) {
-    contents.OwnerAlias = __expectString(output["OwnerAlias"]);
+  if (output[_OA] != null) {
+    contents[_OA] = __expectString(output[_OA]);
   }
-  if (output["GroupName"] !== undefined) {
-    contents.GroupName = __expectString(output["GroupName"]);
+  if (output[_GN] != null) {
+    contents[_GN] = __expectString(output[_GN]);
   }
   return contents;
 };
@@ -4892,8 +4832,8 @@ const de_SourceSecurityGroup = (output: any, context: __SerdeContext): SourceSec
  */
 const de_SubnetNotFoundException = (output: any, context: __SerdeContext): SubnetNotFoundException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -4914,11 +4854,11 @@ const de_Subnets = (output: any, context: __SerdeContext): string[] => {
  */
 const de_Tag = (output: any, context: __SerdeContext): Tag => {
   const contents: any = {};
-  if (output["Key"] !== undefined) {
-    contents.Key = __expectString(output["Key"]);
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_Va] != null) {
+    contents[_Va] = __expectString(output[_Va]);
   }
   return contents;
 };
@@ -4928,13 +4868,13 @@ const de_Tag = (output: any, context: __SerdeContext): Tag => {
  */
 const de_TagDescription = (output: any, context: __SerdeContext): TagDescription => {
   const contents: any = {};
-  if (output["LoadBalancerName"] !== undefined) {
-    contents.LoadBalancerName = __expectString(output["LoadBalancerName"]);
+  if (output[_LBN] != null) {
+    contents[_LBN] = __expectString(output[_LBN]);
   }
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = de_TagList(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents[_T] = [];
+  } else if (output[_T] != null && output[_T][_m] != null) {
+    contents[_T] = de_TagList(__getArrayIfSingleItem(output[_T][_m]), context);
   }
   return contents;
 };
@@ -4966,8 +4906,8 @@ const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
  */
 const de_TooManyAccessPointsException = (output: any, context: __SerdeContext): TooManyAccessPointsException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -4977,8 +4917,8 @@ const de_TooManyAccessPointsException = (output: any, context: __SerdeContext): 
  */
 const de_TooManyPoliciesException = (output: any, context: __SerdeContext): TooManyPoliciesException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -4988,8 +4928,8 @@ const de_TooManyPoliciesException = (output: any, context: __SerdeContext): TooM
  */
 const de_TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -4999,8 +4939,8 @@ const de_TooManyTagsException = (output: any, context: __SerdeContext): TooManyT
  */
 const de_UnsupportedProtocolException = (output: any, context: __SerdeContext): UnsupportedProtocolException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_Me] != null) {
+    contents[_Me] = __expectString(output[_Me]);
   }
   return contents;
 };
@@ -5045,6 +4985,119 @@ const buildHttpRpcRequest = async (
 const SHARED_HEADERS: __HeaderBag = {
   "content-type": "application/x-www-form-urlencoded",
 };
+
+const _ = "2012-06-01";
+const _A = "Action";
+const _AA = "AdditionalAttributes";
+const _ACSP = "AppCookieStickinessPolicies";
+const _AL = "AccessLog";
+const _ALBTS = "AttachLoadBalancerToSubnets";
+const _AN = "AttributeName";
+const _ASGTLB = "ApplySecurityGroupsToLoadBalancer";
+const _AT = "AddTags";
+const _ATt = "AttributeType";
+const _AV = "AttributeValue";
+const _AZ = "AvailabilityZones";
+const _BSD = "BackendServerDescriptions";
+const _C = "Cardinality";
+const _CACSP = "CreateAppCookieStickinessPolicy";
+const _CD = "ConnectionDraining";
+const _CEP = "CookieExpirationPeriod";
+const _CHC = "ConfigureHealthCheck";
+const _CHZN = "CanonicalHostedZoneName";
+const _CHZNID = "CanonicalHostedZoneNameID";
+const _CLB = "CreateLoadBalancer";
+const _CLBCSP = "CreateLBCookieStickinessPolicy";
+const _CLBL = "CreateLoadBalancerListeners";
+const _CLBP = "CreateLoadBalancerPolicy";
+const _CN = "CookieName";
+const _CS = "ConnectionSettings";
+const _CT = "CreatedTime";
+const _CZLB = "CrossZoneLoadBalancing";
+const _D = "Description";
+const _DAL = "DescribeAccountLimits";
+const _DAZFLB = "DisableAvailabilityZonesForLoadBalancer";
+const _DIFLB = "DeregisterInstancesFromLoadBalancer";
+const _DIH = "DescribeInstanceHealth";
+const _DLB = "DeleteLoadBalancer";
+const _DLBA = "DescribeLoadBalancerAttributes";
+const _DLBFS = "DetachLoadBalancerFromSubnets";
+const _DLBL = "DeleteLoadBalancerListeners";
+const _DLBP = "DeleteLoadBalancerPolicy";
+const _DLBPT = "DescribeLoadBalancerPolicyTypes";
+const _DLBPe = "DescribeLoadBalancerPolicies";
+const _DLBe = "DescribeLoadBalancers";
+const _DNSN = "DNSName";
+const _DT = "DescribeTags";
+const _DV = "DefaultValue";
+const _E = "Enabled";
+const _EAZFLB = "EnableAvailabilityZonesForLoadBalancer";
+const _EI = "EmitInterval";
+const _GN = "GroupName";
+const _HC = "HealthCheck";
+const _HT = "HealthyThreshold";
+const _I = "Instances";
+const _II = "InstanceId";
+const _IP = "InstanceProtocol";
+const _IPn = "InstancePort";
+const _IS = "InstanceStates";
+const _IT = "IdleTimeout";
+const _In = "Interval";
+const _K = "Key";
+const _L = "Listeners";
+const _LBA = "LoadBalancerAttributes";
+const _LBCSP = "LBCookieStickinessPolicies";
+const _LBD = "LoadBalancerDescriptions";
+const _LBN = "LoadBalancerName";
+const _LBNo = "LoadBalancerNames";
+const _LBP = "LoadBalancerPorts";
+const _LBPo = "LoadBalancerPort";
+const _LD = "ListenerDescriptions";
+const _Li = "Limits";
+const _Lis = "Listener";
+const _M = "Marker";
+const _MLBA = "ModifyLoadBalancerAttributes";
+const _Ma = "Max";
+const _Me = "Message";
+const _N = "Name";
+const _NM = "NextMarker";
+const _OA = "OwnerAlias";
+const _OP = "OtherPolicies";
+const _P = "Protocol";
+const _PA = "PolicyAttributes";
+const _PAD = "PolicyAttributeDescriptions";
+const _PATD = "PolicyAttributeTypeDescriptions";
+const _PD = "PolicyDescriptions";
+const _PN = "PolicyName";
+const _PNo = "PolicyNames";
+const _PS = "PageSize";
+const _PTD = "PolicyTypeDescriptions";
+const _PTN = "PolicyTypeName";
+const _PTNo = "PolicyTypeNames";
+const _Po = "Policies";
+const _RC = "ReasonCode";
+const _RIWLB = "RegisterInstancesWithLoadBalancer";
+const _RT = "RemoveTags";
+const _S = "Subnets";
+const _SBN = "S3BucketName";
+const _SBP = "S3BucketPrefix";
+const _SG = "SecurityGroups";
+const _SLBLSSLC = "SetLoadBalancerListenerSSLCertificate";
+const _SLBPFBS = "SetLoadBalancerPoliciesForBackendServer";
+const _SLBPOL = "SetLoadBalancerPoliciesOfListener";
+const _SSG = "SourceSecurityGroup";
+const _SSLCI = "SSLCertificateId";
+const _Sc = "Scheme";
+const _St = "State";
+const _T = "Tags";
+const _TD = "TagDescriptions";
+const _Ta = "Target";
+const _Ti = "Timeout";
+const _UT = "UnhealthyThreshold";
+const _V = "Version";
+const _VPCI = "VPCId";
+const _Va = "Value";
+const _m = "member";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

@@ -1,3 +1,5 @@
+export * from "./GetCaseAuditEventsPaginator";
+
 export * from "./GetCasePaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";

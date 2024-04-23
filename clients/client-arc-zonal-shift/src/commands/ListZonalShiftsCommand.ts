@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListZonalShiftsRequest, ListZonalShiftsResponse } from "../models/models_0";
 import { de_ListZonalShiftsCommand, se_ListZonalShiftsCommand } from "../protocols/Aws_restJson1";
 
@@ -36,7 +28,11 @@ export interface ListZonalShiftsCommandOutput extends ListZonalShiftsResponse, _
 
 /**
  * @public
- * <p>Lists all the active zonal shifts in Amazon Route 53 Application Recovery Controller in your AWS account in this AWS Region.</p>
+ * <p>Lists all active and completed zonal shifts in Amazon Route 53 Application Recovery Controller in your Amazon Web Services account in this Amazon Web Services Region.
+ *    		<code>ListZonalShifts</code> returns customer-started zonal shifts, as well as practice run zonal shifts that Route 53 ARC started on
+ *    		your behalf for zonal autoshift.</p>
+ *          <p>The <code>ListZonalShifts</code> operation does not list autoshifts. For more information about listing
+ *    		autoshifts, see <a href="https://docs.aws.amazon.com/arc-zonal-shift/latest/api/API_ListAutoshifts.html">"&gt;ListAutoshifts</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,6 +43,7 @@ export interface ListZonalShiftsCommandOutput extends ListZonalShiftsResponse, _
  *   nextToken: "STRING_VALUE",
  *   status: "ACTIVE" || "EXPIRED" || "CANCELED",
  *   maxResults: Number("int"),
+ *   resourceIdentifier: "STRING_VALUE",
  * };
  * const command = new ListZonalShiftsCommand(input);
  * const response = await client.send(command);
@@ -60,6 +57,7 @@ export interface ListZonalShiftsCommandOutput extends ListZonalShiftsResponse, _
  * //       startTime: new Date("TIMESTAMP"), // required
  * //       status: "ACTIVE" || "EXPIRED" || "CANCELED", // required
  * //       comment: "STRING_VALUE", // required
+ * //       practiceRunOutcome: "FAILED" || "INTERRUPTED" || "PENDING" || "SUCCEEDED",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -83,85 +81,32 @@ export interface ListZonalShiftsCommandOutput extends ListZonalShiftsResponse, _
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link ARCZonalShiftServiceException}
  * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
  */
-export class ListZonalShiftsCommand extends $Command<
-  ListZonalShiftsCommandInput,
-  ListZonalShiftsCommandOutput,
-  ARCZonalShiftClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListZonalShiftsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ARCZonalShiftClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListZonalShiftsCommandInput, ListZonalShiftsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListZonalShiftsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ARCZonalShiftClient";
-    const commandName = "ListZonalShiftsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListZonalShiftsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListZonalShiftsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListZonalShiftsCommandOutput> {
-    return de_ListZonalShiftsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListZonalShiftsCommand extends $Command
+  .classBuilder<
+    ListZonalShiftsCommandInput,
+    ListZonalShiftsCommandOutput,
+    ARCZonalShiftClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ARCZonalShiftClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("PercDataPlane", "ListZonalShifts", {})
+  .n("ARCZonalShiftClient", "ListZonalShiftsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListZonalShiftsCommand)
+  .de(de_ListZonalShiftsCommand)
+  .build() {}

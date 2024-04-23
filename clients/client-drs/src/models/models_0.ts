@@ -147,7 +147,205 @@ export interface ParticipatingResource {
    * @public
    * <p>The launch status of a participating resource.</p>
    */
-  launchStatus?: LaunchStatus | string;
+  launchStatus?: LaunchStatus;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LaunchActionCategory = {
+  CONFIGURATION: "CONFIGURATION",
+  MONITORING: "MONITORING",
+  OTHER: "OTHER",
+  SECURITY: "SECURITY",
+  VALIDATION: "VALIDATION",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchActionCategory = (typeof LaunchActionCategory)[keyof typeof LaunchActionCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const LaunchActionParameterType = {
+  DYNAMIC: "DYNAMIC",
+  SSM_STORE: "SSM_STORE",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchActionParameterType = (typeof LaunchActionParameterType)[keyof typeof LaunchActionParameterType];
+
+/**
+ * @public
+ * <p>Launch action parameter.</p>
+ */
+export interface LaunchActionParameter {
+  /**
+   * @public
+   * <p>Value.</p>
+   */
+  value?: string;
+
+  /**
+   * @public
+   * <p>Type.</p>
+   */
+  type?: LaunchActionParameterType;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LaunchActionType = {
+  SSM_AUTOMATION: "SSM_AUTOMATION",
+  SSM_COMMAND: "SSM_COMMAND",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchActionType = (typeof LaunchActionType)[keyof typeof LaunchActionType];
+
+/**
+ * @public
+ * <p>Launch action.</p>
+ */
+export interface LaunchAction {
+  /**
+   * @public
+   * <p>Launch action Id.</p>
+   */
+  actionId?: string;
+
+  /**
+   * @public
+   * <p>Launch action code.</p>
+   */
+  actionCode?: string;
+
+  /**
+   * @public
+   * <p>Launch action type.</p>
+   */
+  type?: LaunchActionType;
+
+  /**
+   * @public
+   * <p>Launch action name.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>Whether the launch action is active.</p>
+   */
+  active?: boolean;
+
+  /**
+   * @public
+   * <p>Launch action order.</p>
+   */
+  order?: number;
+
+  /**
+   * @public
+   * <p>Launch action version.</p>
+   */
+  actionVersion?: string;
+
+  /**
+   * @public
+   * <p>Whether the launch will not be marked as failed if this action fails.</p>
+   */
+  optional?: boolean;
+
+  /**
+   * @public
+   * <p>Launch action parameters.</p>
+   */
+  parameters?: Record<string, LaunchActionParameter>;
+
+  /**
+   * @public
+   * <p>Launch action description.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>Launch action category.</p>
+   */
+  category?: LaunchActionCategory;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LaunchActionRunStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type LaunchActionRunStatus = (typeof LaunchActionRunStatus)[keyof typeof LaunchActionRunStatus];
+
+/**
+ * @public
+ * <p>Launch action run.</p>
+ */
+export interface LaunchActionRun {
+  /**
+   * @public
+   * <p>Action.</p>
+   */
+  action?: LaunchAction;
+
+  /**
+   * @public
+   * <p>Run Id.</p>
+   */
+  runId?: string;
+
+  /**
+   * @public
+   * <p>Run status.</p>
+   */
+  status?: LaunchActionRunStatus;
+
+  /**
+   * @public
+   * <p>Failure reason.</p>
+   */
+  failureReason?: string;
+}
+
+/**
+ * @public
+ * <p>Launch actions status.</p>
+ */
+export interface LaunchActionsStatus {
+  /**
+   * @public
+   * <p>Time where the AWS Systems Manager was detected as running on the launched instance.</p>
+   */
+  ssmAgentDiscoveryDatetime?: string;
+
+  /**
+   * @public
+   * <p>List of post launch action status.</p>
+   */
+  runs?: LaunchActionRun[];
 }
 
 /**
@@ -171,7 +369,13 @@ export interface ParticipatingServer {
    * @public
    * <p>The launch status of a participating server.</p>
    */
-  launchStatus?: LaunchStatus | string;
+  launchStatus?: LaunchStatus;
+
+  /**
+   * @public
+   * <p>The post-launch action runs of a participating server.</p>
+   */
+  launchActionsStatus?: LaunchActionsStatus;
 }
 
 /**
@@ -225,13 +429,13 @@ export interface Job {
    * @public
    * <p>The type of the Job.</p>
    */
-  type?: JobType | string;
+  type?: JobType;
 
   /**
    * @public
    * <p>A string representing who initiated the Job.</p>
    */
-  initiatedBy?: InitiatedBy | string;
+  initiatedBy?: InitiatedBy;
 
   /**
    * @public
@@ -249,7 +453,7 @@ export interface Job {
    * @public
    * <p>The status of the Job.</p>
    */
-  status?: JobStatus | string;
+  status?: JobStatus;
 
   /**
    * @public
@@ -539,7 +743,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>Validation exception reason.</p>
    */
-  reason?: ValidationExceptionReason | string;
+  reason?: ValidationExceptionReason;
 
   /**
    * @public
@@ -669,7 +873,7 @@ export interface DataReplicationError {
    * @public
    * <p>Error in data replication.</p>
    */
-  error?: DataReplicationErrorString | string;
+  error?: DataReplicationErrorString;
 
   /**
    * @public
@@ -729,13 +933,13 @@ export interface DataReplicationInitiationStep {
    * @public
    * <p>The name of the step.</p>
    */
-  name?: DataReplicationInitiationStepName | string;
+  name?: DataReplicationInitiationStepName;
 
   /**
    * @public
    * <p>The status of the step.</p>
    */
-  status?: DataReplicationInitiationStepStatus | string;
+  status?: DataReplicationInitiationStepStatus;
 }
 
 /**
@@ -847,7 +1051,7 @@ export interface DataReplicationInfo {
    * @public
    * <p>The state of the data replication.</p>
    */
-  dataReplicationState?: DataReplicationState | string;
+  dataReplicationState?: DataReplicationState;
 
   /**
    * @public
@@ -919,7 +1123,7 @@ export interface LifeCycleLastLaunchInitiated {
    * @public
    * <p>The Job type that was used to last launch the Source Server.</p>
    */
-  type?: LastLaunchType | string;
+  type?: LastLaunchType;
 }
 
 /**
@@ -937,7 +1141,7 @@ export interface LifeCycleLastLaunch {
    * @public
    * <p>Status of Source Server's last launch.</p>
    */
-  status?: LaunchStatus | string;
+  status?: LaunchStatus;
 }
 
 /**
@@ -1185,7 +1389,7 @@ export interface StagingArea {
    *             (b) EXTENDED - Source server is extended from a staging source server. In this case, the value of stagingSourceServerArn is pointing to the Arn of the source server in the staging account.
    *             (c) EXTENSION_ERROR - Some issue occurred when accessing staging source server. In this case, errorMessage field will contain an error message that explains what happened.</p>
    */
-  status?: ExtensionStatus | string;
+  status?: ExtensionStatus;
 
   /**
    * @public
@@ -1238,7 +1442,7 @@ export interface SourceServer {
    * @public
    * <p>The status of the last recovery launch of this Source Server.</p>
    */
-  lastLaunchResult?: LastLaunchResult | string;
+  lastLaunchResult?: LastLaunchResult;
 
   /**
    * @public
@@ -1274,7 +1478,7 @@ export interface SourceServer {
    * @public
    * <p>Replication direction of the Source Server.</p>
    */
-  replicationDirection?: ReplicationDirection | string;
+  replicationDirection?: ReplicationDirection;
 
   /**
    * @public
@@ -1287,6 +1491,12 @@ export interface SourceServer {
    * <p>ID of the Source Network which is protecting this Source Server's network.</p>
    */
   sourceNetworkID?: string;
+
+  /**
+   * @public
+   * <p>The version of the DRS agent installed on the source server</p>
+   */
+  agentVersion?: string;
 }
 
 /**
@@ -1356,13 +1566,13 @@ export interface CreateLaunchConfigurationTemplateRequest {
    * @public
    * <p>Launch disposition.</p>
    */
-  launchDisposition?: LaunchDisposition | string;
+  launchDisposition?: LaunchDisposition;
 
   /**
    * @public
    * <p>Target instance type right-sizing method.</p>
    */
-  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod;
 
   /**
    * @public
@@ -1387,6 +1597,18 @@ export interface CreateLaunchConfigurationTemplateRequest {
    * <p>S3 bucket ARN to export Source Network templates.</p>
    */
   exportBucketArn?: string;
+
+  /**
+   * @public
+   * <p>Whether we want to activate post-launch actions.</p>
+   */
+  postLaunchEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>DRS will set the 'launch into instance ID' of any source server when performing a drill, recovery or failback to the previous region or availability zone, using the instance ID of the source instance.</p>
+   */
+  launchIntoSourceInstance?: boolean;
 }
 
 /**
@@ -1416,13 +1638,13 @@ export interface LaunchConfigurationTemplate {
    * @public
    * <p>Launch disposition.</p>
    */
-  launchDisposition?: LaunchDisposition | string;
+  launchDisposition?: LaunchDisposition;
 
   /**
    * @public
    * <p>Target instance type right-sizing method.</p>
    */
-  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod;
 
   /**
    * @public
@@ -1447,6 +1669,18 @@ export interface LaunchConfigurationTemplate {
    * <p>S3 bucket ARN to export Source Network templates.</p>
    */
   exportBucketArn?: string;
+
+  /**
+   * @public
+   * <p>Post-launch actions activated.</p>
+   */
+  postLaunchEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>DRS will set the 'launch into instance ID' of any source server when performing a drill, recovery or failback to the previous region or availability zone, using the instance ID of the source instance.</p>
+   */
+  launchIntoSourceInstance?: boolean;
 }
 
 /**
@@ -1538,7 +1772,7 @@ export interface PITPolicyRule {
    * @public
    * <p>The units used to measure the interval and retentionDuration.</p>
    */
-  units: PITPolicyRuleUnits | string | undefined;
+  units: PITPolicyRuleUnits | undefined;
 
   /**
    * @public
@@ -1597,13 +1831,13 @@ export interface CreateReplicationConfigurationTemplateRequest {
    * @public
    * <p>The Staging Disk EBS volume type to be used during replication.</p>
    */
-  defaultLargeStagingDiskType: ReplicationConfigurationDefaultLargeStagingDiskType | string | undefined;
+  defaultLargeStagingDiskType: ReplicationConfigurationDefaultLargeStagingDiskType | undefined;
 
   /**
    * @public
    * <p>The type of EBS encryption to be used during replication.</p>
    */
-  ebsEncryption: ReplicationConfigurationEbsEncryption | string | undefined;
+  ebsEncryption: ReplicationConfigurationEbsEncryption | undefined;
 
   /**
    * @public
@@ -1621,7 +1855,7 @@ export interface CreateReplicationConfigurationTemplateRequest {
    * @public
    * <p>The data plane routing mechanism that will be used for replication.</p>
    */
-  dataPlaneRouting: ReplicationConfigurationDataPlaneRouting | string | undefined;
+  dataPlaneRouting: ReplicationConfigurationDataPlaneRouting | undefined;
 
   /**
    * @public
@@ -1704,13 +1938,13 @@ export interface ReplicationConfigurationTemplate {
    * @public
    * <p>The Staging Disk EBS volume type to be used during replication.</p>
    */
-  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | string;
+  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType;
 
   /**
    * @public
    * <p>The type of EBS encryption to be used during replication.</p>
    */
-  ebsEncryption?: ReplicationConfigurationEbsEncryption | string;
+  ebsEncryption?: ReplicationConfigurationEbsEncryption;
 
   /**
    * @public
@@ -1728,7 +1962,7 @@ export interface ReplicationConfigurationTemplate {
    * @public
    * <p>The data plane routing mechanism that will be used for replication.</p>
    */
-  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | string;
+  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting;
 
   /**
    * @public
@@ -1816,6 +2050,28 @@ export interface DeleteJobRequest {
  * @public
  */
 export interface DeleteJobResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteLaunchActionRequest {
+  /**
+   * @public
+   * <p>Launch configuration template Id or Source Server Id</p>
+   */
+  resourceId: string | undefined;
+
+  /**
+   * @public
+   * <p>Launch action Id.</p>
+   */
+  actionId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLaunchActionResponse {}
 
 /**
  * @public
@@ -2079,7 +2335,7 @@ export interface JobLog {
    * @public
    * <p>The event represents the type of a log.</p>
    */
-  event?: JobLogEvent | string;
+  event?: JobLogEvent;
 
   /**
    * @public
@@ -2294,7 +2550,7 @@ export interface RecoveryInstanceDataReplicationError {
    * @public
    * <p>Error in data replication.</p>
    */
-  error?: FailbackReplicationError | string;
+  error?: FailbackReplicationError;
 
   /**
    * @public
@@ -2361,13 +2617,13 @@ export interface RecoveryInstanceDataReplicationInitiationStep {
    * @public
    * <p>The name of the step.</p>
    */
-  name?: RecoveryInstanceDataReplicationInitiationStepName | string;
+  name?: RecoveryInstanceDataReplicationInitiationStepName;
 
   /**
    * @public
    * <p>The status of the step.</p>
    */
-  status?: RecoveryInstanceDataReplicationInitiationStepStatus | string;
+  status?: RecoveryInstanceDataReplicationInitiationStepStatus;
 }
 
 /**
@@ -2476,7 +2732,7 @@ export interface RecoveryInstanceDataReplicationInfo {
    * @public
    * <p>The state of the data replication.</p>
    */
-  dataReplicationState?: RecoveryInstanceDataReplicationState | string;
+  dataReplicationState?: RecoveryInstanceDataReplicationState;
 
   /**
    * @public
@@ -2576,7 +2832,7 @@ export interface RecoveryInstanceFailback {
    * @public
    * <p>The state of the failback process that this Recovery Instance is in.</p>
    */
-  state?: FailbackState | string;
+  state?: FailbackState;
 
   /**
    * @public
@@ -2612,7 +2868,7 @@ export interface RecoveryInstanceFailback {
    * @public
    * <p>The launch type (Recovery / Drill) of the last launch for the failback replication of this recovery instance.</p>
    */
-  failbackLaunchType?: FailbackLaunchType | string;
+  failbackLaunchType?: FailbackLaunchType;
 }
 
 /**
@@ -2716,7 +2972,7 @@ export interface RecoveryInstance {
    * @public
    * <p>The state of the EC2 instance for this Recovery Instance.</p>
    */
-  ec2InstanceState?: EC2InstanceState | string;
+  ec2InstanceState?: EC2InstanceState;
 
   /**
    * @public
@@ -2782,13 +3038,19 @@ export interface RecoveryInstance {
    * @public
    * <p>Environment (On Premises / AWS) of the instance that the recovery instance originated from.</p>
    */
-  originEnvironment?: OriginEnvironment | string;
+  originEnvironment?: OriginEnvironment;
 
   /**
    * @public
    * <p>AWS availability zone associated with the recovery instance.</p>
    */
   originAvailabilityZone?: string;
+
+  /**
+   * @public
+   * <p>The version of the DRS agent installed on the recovery instance</p>
+   */
+  agentVersion?: string;
 }
 
 /**
@@ -2860,7 +3122,7 @@ export interface DescribeRecoverySnapshotsRequest {
    * @public
    * <p>The sorted ordering by which to return Recovery Snapshots.</p>
    */
-  order?: RecoverySnapshotsOrder | string;
+  order?: RecoverySnapshotsOrder;
 
   /**
    * @public
@@ -3055,7 +3317,7 @@ export interface RecoveryLifeCycle {
    * @public
    * <p>The status of the last recovery status of this Source Network.</p>
    */
-  lastRecoveryResult?: RecoveryResult | string;
+  lastRecoveryResult?: RecoveryResult;
 }
 
 /**
@@ -3111,7 +3373,7 @@ export interface SourceNetwork {
    *             (c) PROTECTED - Source Network was replicated successfully and is being synchronized for changes.
    *             (d) ERROR - Source Network replication has failed</p>
    */
-  replicationStatus?: ReplicationStatus | string;
+  replicationStatus?: ReplicationStatus;
 
   /**
    * @public
@@ -3277,13 +3539,13 @@ export interface UpdateLaunchConfigurationTemplateRequest {
    * @public
    * <p>Launch disposition.</p>
    */
-  launchDisposition?: LaunchDisposition | string;
+  launchDisposition?: LaunchDisposition;
 
   /**
    * @public
    * <p>Target instance type right-sizing method.</p>
    */
-  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod;
 
   /**
    * @public
@@ -3308,6 +3570,18 @@ export interface UpdateLaunchConfigurationTemplateRequest {
    * <p>S3 bucket ARN to export Source Network templates.</p>
    */
   exportBucketArn?: string;
+
+  /**
+   * @public
+   * <p>Whether we want to activate post-launch actions.</p>
+   */
+  postLaunchEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>DRS will set the 'launch into instance ID' of any source server when performing a drill, recovery or failback to the previous region or availability zone, using the instance ID of the source instance.</p>
+   */
+  launchIntoSourceInstance?: boolean;
 }
 
 /**
@@ -3387,6 +3661,64 @@ export interface ListExtensibleSourceServersResponse {
 
 /**
  * @public
+ * <p>Resource launch actions filter.</p>
+ */
+export interface LaunchActionsRequestFilters {
+  /**
+   * @public
+   * <p>Launch actions Ids.</p>
+   */
+  actionIds?: string[];
+}
+
+/**
+ * @public
+ */
+export interface ListLaunchActionsRequest {
+  /**
+   * @public
+   * <p>Launch configuration template Id or Source Server Id</p>
+   */
+  resourceId: string | undefined;
+
+  /**
+   * @public
+   * <p>Filters to apply when listing resource launch actions.</p>
+   */
+  filters?: LaunchActionsRequestFilters;
+
+  /**
+   * @public
+   * <p>Maximum amount of items to return when listing resource launch actions.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>Next token to use when listing resource launch actions.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListLaunchActionsResponse {
+  /**
+   * @public
+   * <p>List of resource launch actions.</p>
+   */
+  items?: LaunchAction[];
+
+  /**
+   * @public
+   * <p>Next token returned when listing resource launch actions.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
  */
 export interface ListStagingAccountsRequest {
   /**
@@ -3439,6 +3771,154 @@ export interface ListTagsForResourceResponse {
    * <p>The tags of the requested resource.</p>
    */
   tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface PutLaunchActionRequest {
+  /**
+   * @public
+   * <p>Launch configuration template Id or Source Server Id</p>
+   */
+  resourceId: string | undefined;
+
+  /**
+   * @public
+   * <p>Launch action code.</p>
+   */
+  actionCode: string | undefined;
+
+  /**
+   * @public
+   * <p>Launch action order.</p>
+   */
+  order: number | undefined;
+
+  /**
+   * @public
+   * <p>Launch action Id.</p>
+   */
+  actionId: string | undefined;
+
+  /**
+   * @public
+   * <p>Whether the launch will not be marked as failed if this action fails.</p>
+   */
+  optional: boolean | undefined;
+
+  /**
+   * @public
+   * <p>Whether the launch action is active.</p>
+   */
+  active: boolean | undefined;
+
+  /**
+   * @public
+   * <p>Launch action name.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>Launch action version.</p>
+   */
+  actionVersion: string | undefined;
+
+  /**
+   * @public
+   * <p>Launch action category.</p>
+   */
+  category: LaunchActionCategory | undefined;
+
+  /**
+   * @public
+   * <p>Launch action parameters.</p>
+   */
+  parameters?: Record<string, LaunchActionParameter>;
+
+  /**
+   * @public
+   * <p>Launch action description.</p>
+   */
+  description: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutLaunchActionResponse {
+  /**
+   * @public
+   * <p>Launch configuration template Id or Source Server Id</p>
+   */
+  resourceId?: string;
+
+  /**
+   * @public
+   * <p>Launch action Id.</p>
+   */
+  actionId?: string;
+
+  /**
+   * @public
+   * <p>Launch action code.</p>
+   */
+  actionCode?: string;
+
+  /**
+   * @public
+   * <p>Launch action type.</p>
+   */
+  type?: LaunchActionType;
+
+  /**
+   * @public
+   * <p>Launch action name.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>Whether the launch action is active.</p>
+   */
+  active?: boolean;
+
+  /**
+   * @public
+   * <p>Launch action order.</p>
+   */
+  order?: number;
+
+  /**
+   * @public
+   * <p>Launch action version.</p>
+   */
+  actionVersion?: string;
+
+  /**
+   * @public
+   * <p>Whether the launch will not be marked as failed if this action fails.</p>
+   */
+  optional?: boolean;
+
+  /**
+   * @public
+   * <p>Launch action parameters.</p>
+   */
+  parameters?: Record<string, LaunchActionParameter>;
+
+  /**
+   * @public
+   * <p>Launch action description.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>Launch action category.</p>
+   */
+  category?: LaunchActionCategory;
 }
 
 /**
@@ -3643,13 +4123,13 @@ export interface UpdateReplicationConfigurationTemplateRequest {
    * @public
    * <p>The Staging Disk EBS volume type to be used during replication.</p>
    */
-  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | string;
+  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType;
 
   /**
    * @public
    * <p>The type of EBS encryption to be used during replication.</p>
    */
-  ebsEncryption?: ReplicationConfigurationEbsEncryption | string;
+  ebsEncryption?: ReplicationConfigurationEbsEncryption;
 
   /**
    * @public
@@ -3667,7 +4147,7 @@ export interface UpdateReplicationConfigurationTemplateRequest {
    * @public
    * <p>The data plane routing mechanism that will be used for replication.</p>
    */
-  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | string;
+  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting;
 
   /**
    * @public
@@ -3825,6 +4305,18 @@ export interface GetLaunchConfigurationRequest {
 
 /**
  * @public
+ * <p>Launch into existing instance.</p>
+ */
+export interface LaunchIntoInstanceProperties {
+  /**
+   * @public
+   * <p>Optionally holds EC2 instance ID of an instance to launch into, instead of launching a new instance during drill, recovery or failback.</p>
+   */
+  launchIntoEC2InstanceID?: string;
+}
+
+/**
+ * @public
  */
 export interface LaunchConfiguration {
   /**
@@ -3849,13 +4341,13 @@ export interface LaunchConfiguration {
    * @public
    * <p>The state of the Recovery Instance in EC2 after the recovery operation.</p>
    */
-  launchDisposition?: LaunchDisposition | string;
+  launchDisposition?: LaunchDisposition;
 
   /**
    * @public
    * <p>Whether Elastic Disaster Recovery should try to automatically choose the instance type that best matches the OS, CPU, and RAM of your Source Server.</p>
    */
-  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod;
 
   /**
    * @public
@@ -3874,6 +4366,18 @@ export interface LaunchConfiguration {
    * <p>The licensing configuration to be used for this launch configuration.</p>
    */
   licensing?: Licensing;
+
+  /**
+   * @public
+   * <p>Whether we want to activate post-launch actions for the Source Server.</p>
+   */
+  postLaunchEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>Launch into existing instance properties.</p>
+   */
+  launchIntoInstanceProperties?: LaunchIntoInstanceProperties;
 }
 
 /**
@@ -3928,7 +4432,7 @@ export interface ReplicationConfigurationReplicatedDisk {
    * @public
    * <p>The Staging Disk EBS volume type to be used during replication.</p>
    */
-  stagingDiskType?: ReplicationConfigurationReplicatedDiskStagingDiskType | string;
+  stagingDiskType?: ReplicationConfigurationReplicatedDiskStagingDiskType;
 
   /**
    * @public
@@ -3946,7 +4450,7 @@ export interface ReplicationConfigurationReplicatedDisk {
    * @public
    * <p>The Staging Disk EBS volume type to be used during replication when <code>stagingDiskType</code> is set to Auto. This is a read-only field.</p>
    */
-  optimizedStagingDiskType?: ReplicationConfigurationReplicatedDiskStagingDiskType | string;
+  optimizedStagingDiskType?: ReplicationConfigurationReplicatedDiskStagingDiskType;
 }
 
 /**
@@ -3999,7 +4503,7 @@ export interface ReplicationConfiguration {
    * @public
    * <p>The Staging Disk EBS volume type to be used during replication.</p>
    */
-  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | string;
+  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType;
 
   /**
    * @public
@@ -4011,7 +4515,7 @@ export interface ReplicationConfiguration {
    * @public
    * <p>The type of EBS encryption to be used during replication.</p>
    */
-  ebsEncryption?: ReplicationConfigurationEbsEncryption | string;
+  ebsEncryption?: ReplicationConfigurationEbsEncryption;
 
   /**
    * @public
@@ -4029,7 +4533,7 @@ export interface ReplicationConfiguration {
    * @public
    * <p>The data plane routing mechanism that will be used for replication.</p>
    */
-  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | string;
+  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting;
 
   /**
    * @public
@@ -4183,13 +4687,13 @@ export interface UpdateLaunchConfigurationRequest {
    * @public
    * <p>The state of the Recovery Instance in EC2 after the recovery operation.</p>
    */
-  launchDisposition?: LaunchDisposition | string;
+  launchDisposition?: LaunchDisposition;
 
   /**
    * @public
    * <p>Whether Elastic Disaster Recovery should try to automatically choose the instance type that best matches the OS, CPU, and RAM of your Source Server.</p>
    */
-  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod;
 
   /**
    * @public
@@ -4208,6 +4712,18 @@ export interface UpdateLaunchConfigurationRequest {
    * <p>The licensing configuration to be used for this launch configuration.</p>
    */
   licensing?: Licensing;
+
+  /**
+   * @public
+   * <p>Whether we want to enable post-launch actions for the Source Server.</p>
+   */
+  postLaunchEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>Launch into existing instance properties.</p>
+   */
+  launchIntoInstanceProperties?: LaunchIntoInstanceProperties;
 }
 
 /**
@@ -4260,7 +4776,7 @@ export interface UpdateReplicationConfigurationRequest {
    * @public
    * <p>The Staging Disk EBS volume type to be used during replication.</p>
    */
-  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | string;
+  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType;
 
   /**
    * @public
@@ -4272,7 +4788,7 @@ export interface UpdateReplicationConfigurationRequest {
    * @public
    * <p>The type of EBS encryption to be used during replication.</p>
    */
-  ebsEncryption?: ReplicationConfigurationEbsEncryption | string;
+  ebsEncryption?: ReplicationConfigurationEbsEncryption;
 
   /**
    * @public
@@ -4290,7 +4806,7 @@ export interface UpdateReplicationConfigurationRequest {
    * @public
    * <p>The data plane routing mechanism that will be used for replication.</p>
    */
-  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | string;
+  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting;
 
   /**
    * @public

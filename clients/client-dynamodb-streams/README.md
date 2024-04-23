@@ -28,16 +28,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `DynamoDBStreamsClient` and
-the commands you need, for example `DescribeStreamCommand`:
+the commands you need, for example `ListStreamsCommand`:
 
 ```js
 // ES5 example
-const { DynamoDBStreamsClient, DescribeStreamCommand } = require("@aws-sdk/client-dynamodb-streams");
+const { DynamoDBStreamsClient, ListStreamsCommand } = require("@aws-sdk/client-dynamodb-streams");
 ```
 
 ```ts
 // ES6+ example
-import { DynamoDBStreamsClient, DescribeStreamCommand } from "@aws-sdk/client-dynamodb-streams";
+import { DynamoDBStreamsClient, ListStreamsCommand } from "@aws-sdk/client-dynamodb-streams";
 ```
 
 ### Usage
@@ -56,7 +56,7 @@ const client = new DynamoDBStreamsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DescribeStreamCommand(params);
+const command = new ListStreamsCommand(params);
 ```
 
 #### Async/await
@@ -135,7 +135,7 @@ const client = new AWS.DynamoDBStreams({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.describeStream(params);
+  const data = await client.listStreams(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -143,7 +143,7 @@ try {
 
 // Promises.
 client
-  .describeStream(params)
+  .listStreams(params)
   .then((data) => {
     // process data.
   })
@@ -152,7 +152,7 @@ client
   });
 
 // callbacks.
-client.describeStream(params, (err, data) => {
+client.listStreams(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -167,7 +167,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -213,7 +213,7 @@ see LICENSE for more information.
 DescribeStream
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb-streams/classes/describestreamcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb-streams/interfaces/describestreamcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb-streams/interfaces/describestreamcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb-streams/command/DescribeStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dynamodb-streams/Interface/DescribeStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dynamodb-streams/Interface/DescribeStreamCommandOutput/)
 
 </details>
 <details>
@@ -221,7 +221,7 @@ DescribeStream
 GetRecords
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb-streams/classes/getrecordscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb-streams/interfaces/getrecordscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb-streams/interfaces/getrecordscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb-streams/command/GetRecordsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dynamodb-streams/Interface/GetRecordsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dynamodb-streams/Interface/GetRecordsCommandOutput/)
 
 </details>
 <details>
@@ -229,7 +229,7 @@ GetRecords
 GetShardIterator
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb-streams/classes/getsharditeratorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb-streams/interfaces/getsharditeratorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb-streams/interfaces/getsharditeratorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb-streams/command/GetShardIteratorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dynamodb-streams/Interface/GetShardIteratorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dynamodb-streams/Interface/GetShardIteratorCommandOutput/)
 
 </details>
 <details>
@@ -237,6 +237,6 @@ GetShardIterator
 ListStreams
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb-streams/classes/liststreamscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb-streams/interfaces/liststreamscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb-streams/interfaces/liststreamscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb-streams/command/ListStreamsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dynamodb-streams/Interface/ListStreamsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dynamodb-streams/Interface/ListStreamsCommandOutput/)
 
 </details>

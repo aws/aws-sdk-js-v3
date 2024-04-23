@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
 import { CreatePartnerEventSourceRequest, CreatePartnerEventSourceResponse } from "../models/models_0";
 import { de_CreatePartnerEventSourceCommand, se_CreatePartnerEventSourceCommand } from "../protocols/Aws_json1_1";
@@ -52,13 +44,27 @@ export interface CreatePartnerEventSourceCommandOutput extends CreatePartnerEven
  *                <i>partner_name</i>/<i>event_namespace</i>/<i>event_name</i>
  *             </code>
  *          </p>
- *          <p>
- *             <i>partner_name</i> is determined during partner registration and identifies
- *       the partner to Amazon Web Services customers. <i>event_namespace</i> is determined by the
- *       partner and is a way for the partner to categorize their events.
- *         <i>event_name</i> is determined by the partner, and should uniquely identify
- *       an event-generating resource within the partner system. The combination of
- *         <i>event_namespace</i> and <i>event_name</i> should help Amazon Web Services
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <i>partner_name</i> is determined during partner registration, and
+ *           identifies the partner to Amazon Web Services customers. </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <i>event_namespace</i> is determined by the partner, and is a way for
+ *           the partner to categorize their events.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <i>event_name</i> is determined by the partner, and should uniquely identify
+ *         an event-generating resource within the partner system. </p>
+ *                <p>The <i>event_name</i> must be unique across all Amazon Web Services customers. This is because the event source is a shared resource
+ *           between the partner and customer accounts, and each partner event source unique in the partner account.</p>
+ *             </li>
+ *          </ul>
+ *          <p>The combination of
+ *       <i>event_namespace</i> and <i>event_name</i> should help Amazon Web Services
  *       customers decide whether to create an event bus to receive these events.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,79 +110,26 @@ export interface CreatePartnerEventSourceCommandOutput extends CreatePartnerEven
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
-export class CreatePartnerEventSourceCommand extends $Command<
-  CreatePartnerEventSourceCommandInput,
-  CreatePartnerEventSourceCommandOutput,
-  EventBridgeClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreatePartnerEventSourceCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: EventBridgeClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreatePartnerEventSourceCommandInput, CreatePartnerEventSourceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreatePartnerEventSourceCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "EventBridgeClient";
-    const commandName = "CreatePartnerEventSourceCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreatePartnerEventSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreatePartnerEventSourceCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePartnerEventSourceCommandOutput> {
-    return de_CreatePartnerEventSourceCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreatePartnerEventSourceCommand extends $Command
+  .classBuilder<
+    CreatePartnerEventSourceCommandInput,
+    CreatePartnerEventSourceCommandOutput,
+    EventBridgeClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: EventBridgeClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSEvents", "CreatePartnerEventSource", {})
+  .n("EventBridgeClient", "CreatePartnerEventSourceCommand")
+  .f(void 0, void 0)
+  .ser(se_CreatePartnerEventSourceCommand)
+  .de(de_CreatePartnerEventSourceCommand)
+  .build() {}

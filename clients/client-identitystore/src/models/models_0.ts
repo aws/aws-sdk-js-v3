@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+
 import { DocumentType as __DocumentType } from "@smithy/types";
 
 import { IdentitystoreServiceException as __BaseException } from "./IdentitystoreServiceException";
@@ -126,7 +127,7 @@ export interface UniqueAttribute {
   /**
    * @public
    * <p>The value of the attribute. This is a <code>Document</code> type.
-   *          This type is not supported by Java V1, Go V1, and older versions of the AWS CLI.</p>
+   *          This type is not supported by Java V1, Go V1, and older versions of the CLI.</p>
    */
   AttributeValue: __DocumentType | undefined;
 }
@@ -202,7 +203,7 @@ export interface AttributeOperation {
   /**
    * @public
    * <p>The value of the attribute. This is a <code>Document</code> type.
-   *          This type is not supported by Java V1, Go V1, and older versions of the AWS CLI.</p>
+   *          This type is not supported by Java V1, Go V1, and older versions of the CLI.</p>
    */
   AttributeValue?: __DocumentType;
 }
@@ -307,7 +308,7 @@ export class ResourceNotFoundException extends __BaseException {
    * @public
    * <p>An enum object indicating the type of resource in the identity store service. Valid values include USER, GROUP, and IDENTITY_STORE.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -571,7 +572,7 @@ export class ConflictException extends __BaseException {
    *             </li>
    *          </ul>
    */
-  Reason?: ConflictExceptionReason | string;
+  Reason?: ConflictExceptionReason;
   /**
    * @internal
    */
@@ -816,8 +817,8 @@ export interface CreateGroupRequest {
   /**
    * @public
    * <p>A string containing the name of the group. This value is commonly displayed when the
-   *          group is referenced. "Administrator" and "AWSAdministrators" are reserved names and can't be used for users
-   *          or groups.</p>
+   *          group is referenced. <code>Administrator</code> and <code>AWSAdministrators</code> are
+   *          reserved names and can't be used for users or groups.</p>
    */
   DisplayName?: string;
 
@@ -1300,8 +1301,8 @@ export interface CreateUserRequest {
    * <p>A unique string used to identify the user. The length limit is 128 characters. This
    *          value can consist of letters, accented characters, symbols, numbers, and punctuation. This
    *          value is specified at the time the user is created and stored as an attribute of the user
-   *          object in the identity store. "Administrator" and "AWSAdministrators" are reserved names and can't be used for users
-   *          or groups.</p>
+   *          object in the identity store. <code>Administrator</code> and <code>AWSAdministrators</code>
+   *          are reserved names and can't be used for users or groups.</p>
    */
   UserName?: string;
 

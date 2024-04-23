@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder";
+import { requestBuilder as rb } from "@smithy/core";
 import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,
@@ -78,6 +79,7 @@ import {
 } from "../commands/FlattenedXmlMapWithXmlNamespaceCommand";
 import { FractionalSecondsCommandInput, FractionalSecondsCommandOutput } from "../commands/FractionalSecondsCommand";
 import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "../commands/GreetingWithErrorsCommand";
+import { HttpEnumPayloadCommandInput, HttpEnumPayloadCommandOutput } from "../commands/HttpEnumPayloadCommand";
 import { HttpPayloadTraitsCommandInput, HttpPayloadTraitsCommandOutput } from "../commands/HttpPayloadTraitsCommand";
 import {
   HttpPayloadTraitsWithMediaTypeCommandInput,
@@ -91,6 +93,10 @@ import {
   HttpPayloadWithStructureCommandInput,
   HttpPayloadWithStructureCommandOutput,
 } from "../commands/HttpPayloadWithStructureCommand";
+import {
+  HttpPayloadWithUnionCommandInput,
+  HttpPayloadWithUnionCommandOutput,
+} from "../commands/HttpPayloadWithUnionCommand";
 import {
   HttpPayloadWithXmlNameCommandInput,
   HttpPayloadWithXmlNameCommandOutput,
@@ -121,6 +127,7 @@ import {
   HttpRequestWithLabelsCommandOutput,
 } from "../commands/HttpRequestWithLabelsCommand";
 import { HttpResponseCodeCommandInput, HttpResponseCodeCommandOutput } from "../commands/HttpResponseCodeCommand";
+import { HttpStringPayloadCommandInput, HttpStringPayloadCommandOutput } from "../commands/HttpStringPayloadCommand";
 import {
   IgnoreQueryParamsInResponseCommandInput,
   IgnoreQueryParamsInResponseCommandOutput,
@@ -181,6 +188,10 @@ import { XmlIntEnumsCommandInput, XmlIntEnumsCommandOutput } from "../commands/X
 import { XmlListsCommandInput, XmlListsCommandOutput } from "../commands/XmlListsCommand";
 import { XmlMapsCommandInput, XmlMapsCommandOutput } from "../commands/XmlMapsCommand";
 import { XmlMapsXmlNameCommandInput, XmlMapsXmlNameCommandOutput } from "../commands/XmlMapsXmlNameCommand";
+import {
+  XmlMapWithXmlNamespaceCommandInput,
+  XmlMapWithXmlNamespaceCommandOutput,
+} from "../commands/XmlMapWithXmlNamespaceCommand";
 import { XmlNamespacesCommandInput, XmlNamespacesCommandOutput } from "../commands/XmlNamespacesCommand";
 import { XmlTimestampsCommandInput, XmlTimestampsCommandOutput } from "../commands/XmlTimestampsCommand";
 import { XmlUnionsCommandInput, XmlUnionsCommandOutput } from "../commands/XmlUnionsCommand";
@@ -198,6 +209,7 @@ import {
   RecursiveShapesInputOutputNested1,
   RecursiveShapesInputOutputNested2,
   StructureListMember,
+  UnionPayload,
   XmlAttributesInputOutput,
   XmlNamespaceNested,
   XmlNestedUnionStruct,
@@ -212,79 +224,59 @@ export const se_AllQueryStringTypesCommand = async (
   input: AllQueryStringTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/AllQueryStringTypesInput";
+  b.bp("/AllQueryStringTypesInput");
   const query: any = map({
     ...convertMap(input.queryParamsMapOfStrings),
-    String: [, input.queryString!],
-    StringList: [
-      () => input.queryStringList !== void 0,
-      () => (input.queryStringList! || []).map((_entry) => _entry as any),
-    ],
-    StringSet: [
-      () => input.queryStringSet !== void 0,
-      () => (input.queryStringSet! || []).map((_entry) => _entry as any),
-    ],
-    Byte: [() => input.queryByte !== void 0, () => input.queryByte!.toString()],
-    Short: [() => input.queryShort !== void 0, () => input.queryShort!.toString()],
-    Integer: [() => input.queryInteger !== void 0, () => input.queryInteger!.toString()],
-    IntegerList: [
+    [_S]: [, input[_qS]!],
+    [_SL]: [() => input.queryStringList !== void 0, () => (input[_qSL]! || []).map((_entry) => _entry as any)],
+    [_SS]: [() => input.queryStringSet !== void 0, () => (input[_qSS]! || []).map((_entry) => _entry as any)],
+    [_B]: [() => input.queryByte !== void 0, () => input[_qB]!.toString()],
+    [_Sh]: [() => input.queryShort !== void 0, () => input[_qSu]!.toString()],
+    [_I]: [() => input.queryInteger !== void 0, () => input[_qI]!.toString()],
+    [_IL]: [
       () => input.queryIntegerList !== void 0,
-      () => (input.queryIntegerList! || []).map((_entry) => _entry.toString() as any),
+      () => (input[_qIL]! || []).map((_entry) => _entry.toString() as any),
     ],
-    IntegerSet: [
+    [_IS]: [
       () => input.queryIntegerSet !== void 0,
-      () => (input.queryIntegerSet! || []).map((_entry) => _entry.toString() as any),
+      () => (input[_qIS]! || []).map((_entry) => _entry.toString() as any),
     ],
-    Long: [() => input.queryLong !== void 0, () => input.queryLong!.toString()],
-    Float: [
+    [_L]: [() => input.queryLong !== void 0, () => input[_qL]!.toString()],
+    [_F]: [
       () => input.queryFloat !== void 0,
-      () => (input.queryFloat! % 1 == 0 ? input.queryFloat! + ".0" : input.queryFloat!.toString()),
+      () => (input[_qF]! % 1 == 0 ? input[_qF]! + ".0" : input[_qF]!.toString()),
     ],
-    Double: [
+    [_D]: [
       () => input.queryDouble !== void 0,
-      () => (input.queryDouble! % 1 == 0 ? input.queryDouble! + ".0" : input.queryDouble!.toString()),
+      () => (input[_qD]! % 1 == 0 ? input[_qD]! + ".0" : input[_qD]!.toString()),
     ],
-    DoubleList: [
+    [_DL]: [
       () => input.queryDoubleList !== void 0,
-      () =>
-        (input.queryDoubleList! || []).map((_entry) => (_entry % 1 == 0 ? _entry + ".0" : _entry.toString()) as any),
+      () => (input[_qDL]! || []).map((_entry) => (_entry % 1 == 0 ? _entry + ".0" : _entry.toString()) as any),
     ],
-    Boolean: [() => input.queryBoolean !== void 0, () => input.queryBoolean!.toString()],
-    BooleanList: [
+    [_Bo]: [() => input.queryBoolean !== void 0, () => input[_qBu]!.toString()],
+    [_BL]: [
       () => input.queryBooleanList !== void 0,
-      () => (input.queryBooleanList! || []).map((_entry) => _entry.toString() as any),
+      () => (input[_qBL]! || []).map((_entry) => _entry.toString() as any),
     ],
-    Timestamp: [
-      () => input.queryTimestamp !== void 0,
-      () => (input.queryTimestamp!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    TimestampList: [
+    [_T]: [() => input.queryTimestamp !== void 0, () => (input[_qT]!.toISOString().split(".")[0] + "Z").toString()],
+    [_TL]: [
       () => input.queryTimestampList !== void 0,
-      () =>
-        (input.queryTimestampList! || []).map((_entry) => (_entry.toISOString().split(".")[0] + "Z").toString() as any),
+      () => (input[_qTL]! || []).map((_entry) => (_entry.toISOString().split(".")[0] + "Z").toString() as any),
     ],
-    Enum: [, input.queryEnum!],
-    EnumList: [() => input.queryEnumList !== void 0, () => (input.queryEnumList! || []).map((_entry) => _entry as any)],
-    IntegerEnum: [() => input.queryIntegerEnum !== void 0, () => input.queryIntegerEnum!.toString()],
-    IntegerEnumList: [
+    [_E]: [, input[_qE]!],
+    [_EL]: [() => input.queryEnumList !== void 0, () => (input[_qEL]! || []).map((_entry) => _entry as any)],
+    [_IE]: [() => input.queryIntegerEnum !== void 0, () => input[_qIE]!.toString()],
+    [_IEL]: [
       () => input.queryIntegerEnumList !== void 0,
-      () => (input.queryIntegerEnumList! || []).map((_entry) => _entry.toString() as any),
+      () => (input[_qIEL]! || []).map((_entry) => _entry.toString() as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -294,28 +286,20 @@ export const se_BodyWithXmlNameCommand = async (
   input: BodyWithXmlNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/BodyWithXmlName";
+  b.bp("/BodyWithXmlName");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("Ahoy");
-  if (input.nested !== undefined) {
-    const node = se_PayloadWithXmlName(input.nested, context).withName("nested");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_A);
+  if (input[_n] != null) {
+    bn.c(se_PayloadWithXmlName(input[_n], context).n(_n));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -325,26 +309,17 @@ export const se_ConstantAndVariableQueryStringCommand = async (
   input: ConstantAndVariableQueryStringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ConstantAndVariableQueryString";
+  b.bp("/ConstantAndVariableQueryString");
   const query: any = map({
-    foo: [, "bar"],
-    baz: [, input.baz!],
-    maybeSet: [, input.maybeSet!],
+    [_f]: [, "bar"],
+    [_b]: [, input[_b]!],
+    [_mS]: [, input[_mS]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -354,26 +329,17 @@ export const se_ConstantQueryStringCommand = async (
   input: ConstantQueryStringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ConstantQueryString/{hello}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "hello", () => input.hello!, "{hello}", false);
+  b.bp("/ConstantQueryString/{hello}");
+  b.p("hello", () => input.hello!, "{hello}", false);
   const query: any = map({
-    foo: [, "bar"],
-    hello: [, ""],
+    [_f]: [, "bar"],
+    [_h]: [, ""],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -383,22 +349,15 @@ export const se_DatetimeOffsetsCommand = async (
   input: DatetimeOffsetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DatetimeOffsets";
+  b.bp("/DatetimeOffsets");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -408,23 +367,15 @@ export const se_EmptyInputAndEmptyOutputCommand = async (
   input: EmptyInputAndEmptyOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/EmptyInputAndEmptyOutput";
+  b.bp("/EmptyInputAndEmptyOutput");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -434,11 +385,11 @@ export const se_EndpointOperationCommand = async (
   input: EndpointOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/EndpointOperation";
+  b.bp("/EndpointOperation");
   let body: any;
   body = "";
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -448,15 +399,9 @@ export const se_EndpointOperationCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -466,12 +411,11 @@ export const se_EndpointWithHostLabelHeaderOperationCommand = async (
   input: EndpointWithHostLabelHeaderOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-account-id": input.accountId!,
+    [_xaai]: input[_aI]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/EndpointWithHostLabelHeaderOperation";
+  b.bp("/EndpointWithHostLabelHeaderOperation");
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -484,15 +428,9 @@ export const se_EndpointWithHostLabelHeaderOperationCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -502,20 +440,18 @@ export const se_EndpointWithHostLabelOperationCommand = async (
   input: EndpointWithHostLabelOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/EndpointWithHostLabelOperation";
+  b.bp("/EndpointWithHostLabelOperation");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("HostLabelInput");
-  if (input.label !== undefined) {
-    const node = __XmlNode.of("String", input.label).withName("label");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_HLI);
+  if (input[_l] != null) {
+    bn.c(__XmlNode.of(_S, input[_l]).n(_l));
   }
-  body += bodyNode.toString();
+  body += bn.toString();
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "foo.{label}." + resolvedHostname;
@@ -527,15 +463,9 @@ export const se_EndpointWithHostLabelOperationCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -545,31 +475,18 @@ export const se_FlattenedXmlMapCommand = async (
   input: FlattenedXmlMapCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/FlattenedXmlMap";
+  b.bp("/FlattenedXmlMap");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("FlattenedXmlMapInputOutput");
-  if (input.myMap !== undefined) {
-    const nodes = se_FooEnumMap(input.myMap, context);
-    nodes.map((node: any) => {
-      node = node.withName("myMap");
-      bodyNode.addChildNode(node);
-    });
-  }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body = _ve;
+  const bn = new __XmlNode(_FXMIO);
+  bn.l(input, "myMap", "myMap", () => se_FooEnumMap(input[_mM]!, context));
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -579,32 +496,18 @@ export const se_FlattenedXmlMapWithXmlNameCommand = async (
   input: FlattenedXmlMapWithXmlNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/FlattenedXmlMapWithXmlName";
+  b.bp("/FlattenedXmlMapWithXmlName");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("FlattenedXmlMapWithXmlNameInputOutput");
-  if (input.myMap !== undefined) {
-    const nodes = se_FlattenedXmlMapWithXmlNameInputOutputMap(input.myMap, context);
-    nodes.map((node: any) => {
-      node = node.withName("KVP");
-      bodyNode.addChildNode(node);
-    });
-  }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body = _ve;
+  const bn = new __XmlNode(_FXMWXNIO);
+  bn.l(input, "myMap", "KVP", () => se_FlattenedXmlMapWithXmlNameInputOutputMap(input[_mM]!, context));
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -614,23 +517,15 @@ export const se_FlattenedXmlMapWithXmlNamespaceCommand = async (
   input: FlattenedXmlMapWithXmlNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/FlattenedXmlMapWithXmlNamespace";
+  b.bp("/FlattenedXmlMapWithXmlNamespace");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -640,22 +535,15 @@ export const se_FractionalSecondsCommand = async (
   input: FractionalSecondsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/FractionalSeconds";
+  b.bp("/FractionalSeconds");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -665,22 +553,37 @@ export const se_GreetingWithErrorsCommand = async (
   input: GreetingWithErrorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GreetingWithErrors";
+  b.bp("/GreetingWithErrors");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlHttpEnumPayloadCommand
+ */
+export const se_HttpEnumPayloadCommand = async (
+  input: HttpEnumPayloadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "text/plain",
+  };
+  b.bp("/EnumPayload");
+  let body: any;
+  let contents: any;
+  if (input.payload !== undefined) {
+    contents = input.payload;
+    body = contents;
+  }
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -690,30 +593,20 @@ export const se_HttpPayloadTraitsCommand = async (
   input: HttpPayloadTraitsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/octet-stream",
-    "x-foo": input.foo!,
+    [_xf]: input[_f]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadTraits";
+  b.bp("/HttpPayloadTraits");
   let body: any;
-  if (input.blob !== undefined) {
-    body = input.blob;
-  }
   let contents: any;
   if (input.blob !== undefined) {
     contents = input.blob;
     body = contents;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -723,31 +616,20 @@ export const se_HttpPayloadTraitsWithMediaTypeCommand = async (
   input: HttpPayloadTraitsWithMediaTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "text/plain",
-    "x-foo": input.foo!,
+    [_xf]: input[_f]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadTraitsWithMediaType";
+  b.bp("/HttpPayloadTraitsWithMediaType");
   let body: any;
-  if (input.blob !== undefined) {
-    body = input.blob;
-  }
   let contents: any;
   if (input.blob !== undefined) {
     contents = input.blob;
     body = contents;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -757,32 +639,21 @@ export const se_HttpPayloadWithMemberXmlNameCommand = async (
   input: HttpPayloadWithMemberXmlNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadWithMemberXmlName";
+  b.bp("/HttpPayloadWithMemberXmlName");
   let body: any;
-  if (input.nested !== undefined) {
-    body = se_PayloadWithXmlName(input.nested, context);
-  }
   let contents: any;
   if (input.nested !== undefined) {
     contents = se_PayloadWithXmlName(input.nested, context);
-    contents = contents.withName("Hola");
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
+    contents = contents.n("Hola");
+    body = _ve;
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -792,31 +663,43 @@ export const se_HttpPayloadWithStructureCommand = async (
   input: HttpPayloadWithStructureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadWithStructure";
+  b.bp("/HttpPayloadWithStructure");
   let body: any;
-  if (input.nested !== undefined) {
-    body = se_NestedPayload(input.nested, context);
-  }
   let contents: any;
   if (input.nested !== undefined) {
     contents = se_NestedPayload(input.nested, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
+    body = _ve;
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlHttpPayloadWithUnionCommand
+ */
+export const se_HttpPayloadWithUnionCommand = async (
+  input: HttpPayloadWithUnionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  b.bp("/HttpPayloadWithUnion");
+  let body: any;
+  let contents: any;
+  if (input.nested !== undefined) {
+    contents = se_UnionPayload(input.nested, context);
+    body = _ve;
+    body += contents.toString();
+  }
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -826,31 +709,20 @@ export const se_HttpPayloadWithXmlNameCommand = async (
   input: HttpPayloadWithXmlNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadWithXmlName";
+  b.bp("/HttpPayloadWithXmlName");
   let body: any;
-  if (input.nested !== undefined) {
-    body = se_PayloadWithXmlName(input.nested, context);
-  }
   let contents: any;
   if (input.nested !== undefined) {
     contents = se_PayloadWithXmlName(input.nested, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
+    body = _ve;
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -860,32 +732,21 @@ export const se_HttpPayloadWithXmlNamespaceCommand = async (
   input: HttpPayloadWithXmlNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadWithXmlNamespace";
+  b.bp("/HttpPayloadWithXmlNamespace");
   let body: any;
-  if (input.nested !== undefined) {
-    body = se_PayloadWithXmlNamespace(input.nested, context);
-  }
   let contents: any;
   if (input.nested !== undefined) {
     contents = se_PayloadWithXmlNamespace(input.nested, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns", "http://foo.com");
+    body = _ve;
+    contents.a("xmlns", "http://foo.com");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -895,32 +756,21 @@ export const se_HttpPayloadWithXmlNamespaceAndPrefixCommand = async (
   input: HttpPayloadWithXmlNamespaceAndPrefixCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPayloadWithXmlNamespaceAndPrefix";
+  b.bp("/HttpPayloadWithXmlNamespaceAndPrefix");
   let body: any;
-  if (input.nested !== undefined) {
-    body = se_PayloadWithXmlNamespaceAndPrefix(input.nested, context);
-  }
   let contents: any;
   if (input.nested !== undefined) {
     contents = se_PayloadWithXmlNamespaceAndPrefix(input.nested, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
-    contents.addAttribute("xmlns:baz", "http://foo.com");
+    body = _ve;
+    contents.a("xmlns:baz", "http://foo.com");
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -930,26 +780,19 @@ export const se_HttpPrefixHeadersCommand = async (
   input: HttpPrefixHeadersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-foo": input.foo!,
+    [_xf]: input[_f]!,
     ...(input.fooMap !== undefined &&
       Object.keys(input.fooMap).reduce((acc: any, suffix: string) => {
         acc[`x-foo-${suffix.toLowerCase()}`] = input.fooMap![suffix];
         return acc;
       }, {})),
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPrefixHeaders";
+  b.bp("/HttpPrefixHeaders");
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -959,36 +802,14 @@ export const se_HttpRequestWithFloatLabelsCommand = async (
   input: HttpRequestWithFloatLabelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/FloatHttpLabels/{float}/{double}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "float",
-    () => (input.float! % 1 == 0 ? input.float! + ".0" : input.float!.toString()),
-    "{float}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "double",
-    () => (input.double! % 1 == 0 ? input.double! + ".0" : input.double!.toString()),
-    "{double}",
-    false
-  );
+  b.bp("/FloatHttpLabels/{float}/{double}");
+  b.p("float", () => (input.float! % 1 == 0 ? input.float! + ".0" : input.float!.toString()), "{float}", false);
+  b.p("double", () => (input.double! % 1 == 0 ? input.double! + ".0" : input.double!.toString()), "{double}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -998,23 +819,14 @@ export const se_HttpRequestWithGreedyLabelInPathCommand = async (
   input: HttpRequestWithGreedyLabelInPathCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/HttpRequestWithGreedyLabelInPath/foo/{foo}/baz/{baz+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "foo", () => input.foo!, "{foo}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "baz", () => input.baz!, "{baz+}", true);
+  b.bp("/HttpRequestWithGreedyLabelInPath/foo/{foo}/baz/{baz+}");
+  b.p("foo", () => input.foo!, "{foo}", false);
+  b.p("baz", () => input.baz!, "{baz+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1024,50 +836,20 @@ export const se_HttpRequestWithLabelsCommand = async (
   input: HttpRequestWithLabelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/HttpRequestWithLabels/{string}/{short}/{integer}/{long}/{float}/{double}/{boolean}/{timestamp}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "string", () => input.string!, "{string}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "short", () => input.short!.toString(), "{short}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "integer", () => input.integer!.toString(), "{integer}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "long", () => input.long!.toString(), "{long}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "float",
-    () => (input.float! % 1 == 0 ? input.float! + ".0" : input.float!.toString()),
-    "{float}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "double",
-    () => (input.double! % 1 == 0 ? input.double! + ".0" : input.double!.toString()),
-    "{double}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "boolean", () => input.boolean!.toString(), "{boolean}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "timestamp",
-    () => (input.timestamp!.toISOString().split(".")[0] + "Z").toString(),
-    "{timestamp}",
-    false
-  );
+  b.bp("/HttpRequestWithLabels/{string}/{short}/{integer}/{long}/{float}/{double}/{boolean}/{timestamp}");
+  b.p("string", () => input.string!, "{string}", false);
+  b.p("short", () => input.short!.toString(), "{short}", false);
+  b.p("integer", () => input.integer!.toString(), "{integer}", false);
+  b.p("long", () => input.long!.toString(), "{long}", false);
+  b.p("float", () => (input.float! % 1 == 0 ? input.float! + ".0" : input.float!.toString()), "{float}", false);
+  b.p("double", () => (input.double! % 1 == 0 ? input.double! + ".0" : input.double!.toString()), "{double}", false);
+  b.p("boolean", () => input.boolean!.toString(), "{boolean}", false);
+  b.p("timestamp", () => (input.timestamp!.toISOString().split(".")[0] + "Z").toString(), "{timestamp}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1077,77 +859,46 @@ export const se_HttpRequestWithLabelsAndTimestampFormatCommand = async (
   input: HttpRequestWithLabelsAndTimestampFormatCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/HttpRequestWithLabelsAndTimestampFormat/{memberEpochSeconds}/{memberHttpDate}/{memberDateTime}/{defaultFormat}/{targetEpochSeconds}/{targetHttpDate}/{targetDateTime}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp(
+    "/HttpRequestWithLabelsAndTimestampFormat/{memberEpochSeconds}/{memberHttpDate}/{memberDateTime}/{defaultFormat}/{targetEpochSeconds}/{targetHttpDate}/{targetDateTime}"
+  );
+  b.p(
     "memberEpochSeconds",
     () => Math.round(input.memberEpochSeconds!.getTime() / 1000).toString(),
     "{memberEpochSeconds}",
     false
   );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "memberHttpDate",
-    () => __dateToUtcString(input.memberHttpDate!).toString(),
-    "{memberHttpDate}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.p("memberHttpDate", () => __dateToUtcString(input.memberHttpDate!).toString(), "{memberHttpDate}", false);
+  b.p(
     "memberDateTime",
     () => (input.memberDateTime!.toISOString().split(".")[0] + "Z").toString(),
     "{memberDateTime}",
     false
   );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.p(
     "defaultFormat",
     () => (input.defaultFormat!.toISOString().split(".")[0] + "Z").toString(),
     "{defaultFormat}",
     false
   );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.p(
     "targetEpochSeconds",
     () => Math.round(input.targetEpochSeconds!.getTime() / 1000).toString(),
     "{targetEpochSeconds}",
     false
   );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "targetHttpDate",
-    () => __dateToUtcString(input.targetHttpDate!).toString(),
-    "{targetHttpDate}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.p("targetHttpDate", () => __dateToUtcString(input.targetHttpDate!).toString(), "{targetHttpDate}", false);
+  b.p(
     "targetDateTime",
     () => (input.targetDateTime!.toISOString().split(".")[0] + "Z").toString(),
     "{targetDateTime}",
     false
   );
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1157,22 +908,37 @@ export const se_HttpResponseCodeCommand = async (
   input: HttpResponseCodeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpResponseCode";
+  b.bp("/HttpResponseCode");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlHttpStringPayloadCommand
+ */
+export const se_HttpStringPayloadCommand = async (
+  input: HttpStringPayloadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "text/plain",
+  };
+  b.bp("/StringPayload");
+  let body: any;
+  let contents: any;
+  if (input.payload !== undefined) {
+    contents = input.payload;
+    body = contents;
+  }
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1182,23 +948,15 @@ export const se_IgnoreQueryParamsInResponseCommand = async (
   input: IgnoreQueryParamsInResponseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/IgnoreQueryParamsInResponse";
+  b.bp("/IgnoreQueryParamsInResponse");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1208,61 +966,53 @@ export const se_InputAndOutputWithHeadersCommand = async (
   input: InputAndOutputWithHeadersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-string": input.headerString!,
-    "x-byte": [() => isSerializableHeaderValue(input.headerByte), () => input.headerByte!.toString()],
-    "x-short": [() => isSerializableHeaderValue(input.headerShort), () => input.headerShort!.toString()],
-    "x-integer": [() => isSerializableHeaderValue(input.headerInteger), () => input.headerInteger!.toString()],
-    "x-long": [() => isSerializableHeaderValue(input.headerLong), () => input.headerLong!.toString()],
-    "x-float": [
-      () => isSerializableHeaderValue(input.headerFloat),
-      () => (input.headerFloat! % 1 == 0 ? input.headerFloat! + ".0" : input.headerFloat!.toString()),
+    [_xs]: input[_hS]!,
+    [_xb]: [() => isSerializableHeaderValue(input[_hB]), () => input[_hB]!.toString()],
+    [_xs_]: [() => isSerializableHeaderValue(input[_hSe]), () => input[_hSe]!.toString()],
+    [_xi]: [() => isSerializableHeaderValue(input[_hI]), () => input[_hI]!.toString()],
+    [_xl]: [() => isSerializableHeaderValue(input[_hL]), () => input[_hL]!.toString()],
+    [_xf_]: [
+      () => isSerializableHeaderValue(input[_hF]),
+      () => (input[_hF]! % 1 == 0 ? input[_hF]! + ".0" : input[_hF]!.toString()),
     ],
-    "x-double": [
-      () => isSerializableHeaderValue(input.headerDouble),
-      () => (input.headerDouble! % 1 == 0 ? input.headerDouble! + ".0" : input.headerDouble!.toString()),
+    [_xd]: [
+      () => isSerializableHeaderValue(input[_hD]),
+      () => (input[_hD]! % 1 == 0 ? input[_hD]! + ".0" : input[_hD]!.toString()),
     ],
-    "x-boolean1": [() => isSerializableHeaderValue(input.headerTrueBool), () => input.headerTrueBool!.toString()],
-    "x-boolean2": [() => isSerializableHeaderValue(input.headerFalseBool), () => input.headerFalseBool!.toString()],
-    "x-stringlist": [
-      () => isSerializableHeaderValue(input.headerStringList),
-      () => (input.headerStringList! || []).map((_entry) => _entry as any).join(", "),
+    [_xb_]: [() => isSerializableHeaderValue(input[_hTB]), () => input[_hTB]!.toString()],
+    [_xb__]: [() => isSerializableHeaderValue(input[_hFB]), () => input[_hFB]!.toString()],
+    [_xs__]: [
+      () => isSerializableHeaderValue(input[_hSL]),
+      () => (input[_hSL]! || []).map((_entry) => _entry as any).join(", "),
     ],
-    "x-stringset": [
-      () => isSerializableHeaderValue(input.headerStringSet),
-      () => (input.headerStringSet! || []).map((_entry) => _entry as any).join(", "),
+    [_xs___]: [
+      () => isSerializableHeaderValue(input[_hSS]),
+      () => (input[_hSS]! || []).map((_entry) => _entry as any).join(", "),
     ],
-    "x-integerlist": [
-      () => isSerializableHeaderValue(input.headerIntegerList),
-      () => (input.headerIntegerList! || []).map((_entry) => _entry.toString() as any).join(", "),
+    [_xi_]: [
+      () => isSerializableHeaderValue(input[_hIL]),
+      () => (input[_hIL]! || []).map((_entry) => _entry.toString() as any).join(", "),
     ],
-    "x-booleanlist": [
-      () => isSerializableHeaderValue(input.headerBooleanList),
-      () => (input.headerBooleanList! || []).map((_entry) => _entry.toString() as any).join(", "),
+    [_xb___]: [
+      () => isSerializableHeaderValue(input[_hBL]),
+      () => (input[_hBL]! || []).map((_entry) => _entry.toString() as any).join(", "),
     ],
-    "x-timestamplist": [
-      () => isSerializableHeaderValue(input.headerTimestampList),
-      () => (input.headerTimestampList! || []).map((_entry) => __dateToUtcString(_entry).toString() as any).join(", "),
+    [_xt]: [
+      () => isSerializableHeaderValue(input[_hTL]),
+      () => (input[_hTL]! || []).map((_entry) => __dateToUtcString(_entry).toString() as any).join(", "),
     ],
-    "x-enum": input.headerEnum!,
-    "x-enumlist": [
-      () => isSerializableHeaderValue(input.headerEnumList),
-      () => (input.headerEnumList! || []).map((_entry) => _entry as any).join(", "),
+    [_xe]: input[_hE]!,
+    [_xe_]: [
+      () => isSerializableHeaderValue(input[_hEL]),
+      () => (input[_hEL]! || []).map((_entry) => _entry as any).join(", "),
     ],
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/InputAndOutputWithHeaders";
+  b.bp("/InputAndOutputWithHeaders");
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1272,39 +1022,19 @@ export const se_NestedXmlMapsCommand = async (
   input: NestedXmlMapsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/NestedXmlMaps";
+  b.bp("/NestedXmlMaps");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("NestedXmlMapsInputOutput");
-  if (input.flatNestedMap !== undefined) {
-    const nodes = se_NestedMap(input.flatNestedMap, context);
-    nodes.map((node: any) => {
-      node = node.withName("flatNestedMap");
-      bodyNode.addChildNode(node);
-    });
-  }
-  if (input.nestedMap !== undefined) {
-    const nodes = se_NestedMap(input.nestedMap, context);
-    const containerNode = new __XmlNode("nestedMap");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body = _ve;
+  const bn = new __XmlNode(_NXMIO);
+  bn.l(input, "flatNestedMap", "flatNestedMap", () => se_NestedMap(input[_fNM]!, context));
+  bn.lc(input, "nestedMap", "nestedMap", () => se_NestedMap(input[_nM]!, context));
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1314,22 +1044,15 @@ export const se_NoInputAndNoOutputCommand = async (
   input: NoInputAndNoOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/NoInputAndNoOutput";
+  b.bp("/NoInputAndNoOutput");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1339,23 +1062,15 @@ export const se_NoInputAndOutputCommand = async (
   input: NoInputAndOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/NoInputAndOutputOutput";
+  b.bp("/NoInputAndOutputOutput");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1365,24 +1080,19 @@ export const se_NullAndEmptyHeadersClientCommand = async (
   input: NullAndEmptyHeadersClientCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-a": input.a!,
-    "x-b": input.b!,
-    "x-c": [() => isSerializableHeaderValue(input.c), () => (input.c! || []).map((_entry) => _entry as any).join(", ")],
+    [_xa]: input[_a]!,
+    [_xb____]: input[_b_]!,
+    [_xc]: [
+      () => isSerializableHeaderValue(input[_c]),
+      () => (input[_c]! || []).map((_entry) => _entry as any).join(", "),
+    ],
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/NullAndEmptyHeadersClient";
+  b.bp("/NullAndEmptyHeadersClient");
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1392,24 +1102,19 @@ export const se_NullAndEmptyHeadersServerCommand = async (
   input: NullAndEmptyHeadersServerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-a": input.a!,
-    "x-b": input.b!,
-    "x-c": [() => isSerializableHeaderValue(input.c), () => (input.c! || []).map((_entry) => _entry as any).join(", ")],
+    [_xa]: input[_a]!,
+    [_xb____]: input[_b_]!,
+    [_xc]: [
+      () => isSerializableHeaderValue(input[_c]),
+      () => (input[_c]! || []).map((_entry) => _entry as any).join(", "),
+    ],
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/NullAndEmptyHeadersServer";
+  b.bp("/NullAndEmptyHeadersServer");
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1419,25 +1124,16 @@ export const se_OmitsNullSerializesEmptyStringCommand = async (
   input: OmitsNullSerializesEmptyStringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/OmitsNullSerializesEmptyString";
+  b.bp("/OmitsNullSerializesEmptyString");
   const query: any = map({
-    Null: [, input.nullValue!],
-    Empty: [, input.emptyString!],
+    [_N]: [, input[_nV]!],
+    [_Em]: [, input[_eS]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1447,31 +1143,21 @@ export const se_PutWithContentEncodingCommand = async (
   input: PutWithContentEncodingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "content-encoding": input.encoding!,
+    [_ce]: input[_e]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/requestcompression/putcontentwithencoding";
+  b.bp("/requestcompression/putcontentwithencoding");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("PutWithContentEncodingInput");
-  if (input.data !== undefined) {
-    const node = __XmlNode.of("String", input.data).withName("data");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_PWCEI);
+  if (input[_d] != null) {
+    bn.c(__XmlNode.of(_S, input[_d]).n(_d));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1481,24 +1167,15 @@ export const se_QueryIdempotencyTokenAutoFillCommand = async (
   input: QueryIdempotencyTokenAutoFillCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/QueryIdempotencyTokenAutoFill";
+  b.bp("/QueryIdempotencyTokenAutoFill");
   const query: any = map({
-    token: [, input.token ?? generateIdempotencyToken()],
+    [_t]: [, input[_t] ?? generateIdempotencyToken()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1508,24 +1185,16 @@ export const se_QueryParamsAsStringListMapCommand = async (
   input: QueryParamsAsStringListMapCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StringListMap";
+  b.bp("/StringListMap");
   const query: any = map({
     ...convertMap(input.foo),
-    corge: [, input.qux!],
+    [_co]: [, input[_q]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1535,24 +1204,16 @@ export const se_QueryPrecedenceCommand = async (
   input: QueryPrecedenceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/Precedence";
+  b.bp("/Precedence");
   const query: any = map({
     ...convertMap(input.baz),
-    bar: [, input.foo!],
+    [_ba]: [, input[_f]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1562,28 +1223,20 @@ export const se_RecursiveShapesCommand = async (
   input: RecursiveShapesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/RecursiveShapes";
+  b.bp("/RecursiveShapes");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("RecursiveShapesInputOutput");
-  if (input.nested !== undefined) {
-    const node = se_RecursiveShapesInputOutputNested1(input.nested, context).withName("nested");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_RSIO);
+  if (input[_n] != null) {
+    bn.c(se_RecursiveShapesInputOutputNested1(input[_n], context).n(_n));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1593,62 +1246,45 @@ export const se_SimpleScalarPropertiesCommand = async (
   input: SimpleScalarPropertiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    "x-foo": input.foo!,
+    [_xf]: input[_f]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/SimpleScalarProperties";
+  b.bp("/SimpleScalarProperties");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("SimpleScalarPropertiesInputOutput");
-  if (input.byteValue !== undefined) {
-    const node = __XmlNode.of("Byte", String(input.byteValue)).withName("byteValue");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_SSPIO);
+  if (input[_bV] != null) {
+    bn.c(__XmlNode.of(_B, String(input[_bV])).n(_bV));
   }
-  if (input.doubleValue !== undefined) {
-    const node = __XmlNode.of("Double", String(input.doubleValue)).withName("DoubleDribble");
-    bodyNode.addChildNode(node);
+  if (input[_dV] != null) {
+    bn.c(__XmlNode.of(_D, String(input[_dV])).n(_DD));
   }
-  if (input.falseBooleanValue !== undefined) {
-    const node = __XmlNode.of("Boolean", String(input.falseBooleanValue)).withName("falseBooleanValue");
-    bodyNode.addChildNode(node);
+  if (input[_fBV] != null) {
+    bn.c(__XmlNode.of(_Bo, String(input[_fBV])).n(_fBV));
   }
-  if (input.floatValue !== undefined) {
-    const node = __XmlNode.of("Float", String(input.floatValue)).withName("floatValue");
-    bodyNode.addChildNode(node);
+  if (input[_fV] != null) {
+    bn.c(__XmlNode.of(_F, String(input[_fV])).n(_fV));
   }
-  if (input.integerValue !== undefined) {
-    const node = __XmlNode.of("Integer", String(input.integerValue)).withName("integerValue");
-    bodyNode.addChildNode(node);
+  if (input[_iV] != null) {
+    bn.c(__XmlNode.of(_I, String(input[_iV])).n(_iV));
   }
-  if (input.longValue !== undefined) {
-    const node = __XmlNode.of("Long", String(input.longValue)).withName("longValue");
-    bodyNode.addChildNode(node);
+  if (input[_lV] != null) {
+    bn.c(__XmlNode.of(_L, String(input[_lV])).n(_lV));
   }
-  if (input.shortValue !== undefined) {
-    const node = __XmlNode.of("Short", String(input.shortValue)).withName("shortValue");
-    bodyNode.addChildNode(node);
+  if (input[_sV] != null) {
+    bn.c(__XmlNode.of(_Sh, String(input[_sV])).n(_sV));
   }
-  if (input.stringValue !== undefined) {
-    const node = __XmlNode.of("String", input.stringValue).withName("stringValue");
-    bodyNode.addChildNode(node);
+  if (input[_sVt] != null) {
+    bn.c(__XmlNode.of(_S, input[_sVt]).n(_sVt));
   }
-  if (input.trueBooleanValue !== undefined) {
-    const node = __XmlNode.of("Boolean", String(input.trueBooleanValue)).withName("trueBooleanValue");
-    bodyNode.addChildNode(node);
+  if (input[_tBV] != null) {
+    bn.c(__XmlNode.of(_Bo, String(input[_tBV])).n(_tBV));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1658,49 +1294,26 @@ export const se_TimestampFormatHeadersCommand = async (
   input: TimestampFormatHeadersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-memberepochseconds": [
-      () => isSerializableHeaderValue(input.memberEpochSeconds),
-      () => Math.round(input.memberEpochSeconds!.getTime() / 1000).toString(),
+    [_xm]: [() => isSerializableHeaderValue(input[_mES]), () => Math.round(input[_mES]!.getTime() / 1000).toString()],
+    [_xm_]: [() => isSerializableHeaderValue(input[_mHD]), () => __dateToUtcString(input[_mHD]!).toString()],
+    [_xm__]: [
+      () => isSerializableHeaderValue(input[_mDT]),
+      () => (input[_mDT]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    "x-memberhttpdate": [
-      () => isSerializableHeaderValue(input.memberHttpDate),
-      () => __dateToUtcString(input.memberHttpDate!).toString(),
-    ],
-    "x-memberdatetime": [
-      () => isSerializableHeaderValue(input.memberDateTime),
-      () => (input.memberDateTime!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    "x-defaultformat": [
-      () => isSerializableHeaderValue(input.defaultFormat),
-      () => __dateToUtcString(input.defaultFormat!).toString(),
-    ],
-    "x-targetepochseconds": [
-      () => isSerializableHeaderValue(input.targetEpochSeconds),
-      () => Math.round(input.targetEpochSeconds!.getTime() / 1000).toString(),
-    ],
-    "x-targethttpdate": [
-      () => isSerializableHeaderValue(input.targetHttpDate),
-      () => __dateToUtcString(input.targetHttpDate!).toString(),
-    ],
-    "x-targetdatetime": [
-      () => isSerializableHeaderValue(input.targetDateTime),
-      () => (input.targetDateTime!.toISOString().split(".")[0] + "Z").toString(),
+    [_xd_]: [() => isSerializableHeaderValue(input[_dF]), () => __dateToUtcString(input[_dF]!).toString()],
+    [_xt_]: [() => isSerializableHeaderValue(input[_tES]), () => Math.round(input[_tES]!.getTime() / 1000).toString()],
+    [_xt__]: [() => isSerializableHeaderValue(input[_tHD]), () => __dateToUtcString(input[_tHD]!).toString()],
+    [_xt___]: [
+      () => isSerializableHeaderValue(input[_tDT]),
+      () => (input[_tDT]!.toISOString().split(".")[0] + "Z").toString(),
     ],
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/TimestampFormatHeaders";
+  b.bp("/TimestampFormatHeaders");
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1710,31 +1323,21 @@ export const se_XmlAttributesCommand = async (
   input: XmlAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlAttributes";
+  b.bp("/XmlAttributes");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("XmlAttributesInputOutput");
-  if (input.attr !== undefined) {
-    bodyNode.addAttribute("test", input.attr);
+  body = _ve;
+  const bn = new __XmlNode(_XAIO);
+  bn.a("test", input[_at]);
+  if (input[_f] != null) {
+    bn.c(__XmlNode.of(_S, input[_f]).n(_f));
   }
-  if (input.foo !== undefined) {
-    const node = __XmlNode.of("String", input.foo).withName("foo");
-    bodyNode.addChildNode(node);
-  }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1744,31 +1347,20 @@ export const se_XmlAttributesOnPayloadCommand = async (
   input: XmlAttributesOnPayloadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlAttributesOnPayload";
+  b.bp("/XmlAttributesOnPayload");
   let body: any;
-  if (input.payload !== undefined) {
-    body = se_XmlAttributesInputOutput(input.payload, context);
-  }
   let contents: any;
   if (input.payload !== undefined) {
     contents = se_XmlAttributesInputOutput(input.payload, context);
-    body = '<?xml version="1.0" encoding="UTF-8"?>';
+    body = _ve;
     body += contents.toString();
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1778,28 +1370,20 @@ export const se_XmlBlobsCommand = async (
   input: XmlBlobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlBlobs";
+  b.bp("/XmlBlobs");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("XmlBlobsInputOutput");
-  if (input.data !== undefined) {
-    const node = __XmlNode.of("Blob", context.base64Encoder(input.data)).withName("data");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_XBIO);
+  if (input[_d] != null) {
+    bn.c(__XmlNode.of(_Bl, context.base64Encoder(input[_d])).n(_d));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1809,28 +1393,20 @@ export const se_XmlEmptyBlobsCommand = async (
   input: XmlEmptyBlobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlEmptyBlobs";
+  b.bp("/XmlEmptyBlobs");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("XmlBlobsInputOutput");
-  if (input.data !== undefined) {
-    const node = __XmlNode.of("Blob", context.base64Encoder(input.data)).withName("data");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_XBIO);
+  if (input[_d] != null) {
+    bn.c(__XmlNode.of(_Bl, context.base64Encoder(input[_d])).n(_d));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1840,139 +1416,36 @@ export const se_XmlEmptyListsCommand = async (
   input: XmlEmptyListsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlEmptyLists";
+  b.bp("/XmlEmptyLists");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("XmlListsInputOutput");
-  if (input.booleanList !== undefined) {
-    const nodes = se_BooleanList(input.booleanList, context);
-    const containerNode = new __XmlNode("booleanList");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.enumList !== undefined) {
-    const nodes = se_FooEnumList(input.enumList, context);
-    const containerNode = new __XmlNode("enumList");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.flattenedList !== undefined) {
-    const nodes = se_RenamedListMembers(input.flattenedList, context);
-    nodes.map((node: any) => {
-      node = node.withName("flattenedList");
-      bodyNode.addChildNode(node);
-    });
-  }
-  if (input.flattenedList2 !== undefined) {
-    const nodes = se_RenamedListMembers(input.flattenedList2, context);
-    nodes.map((node: any) => {
-      node = node.withName("customName");
-      bodyNode.addChildNode(node);
-    });
-  }
-  if (input.flattenedListWithMemberNamespace !== undefined) {
-    const nodes = se_ListWithMemberNamespace(input.flattenedListWithMemberNamespace, context);
-    nodes.map((node: any) => {
-      node = node.withName("flattenedListWithMemberNamespace");
-      bodyNode.addChildNode(node);
-    });
-  }
-  if (input.flattenedListWithNamespace !== undefined) {
-    const nodes = se_ListWithNamespace(input.flattenedListWithNamespace, context);
-    nodes.map((node: any) => {
-      node = node.withName("flattenedListWithNamespace");
-      bodyNode.addChildNode(node);
-    });
-  }
-  if (input.flattenedStructureList !== undefined) {
-    const nodes = se_StructureList(input.flattenedStructureList, context);
-    nodes.map((node: any) => {
-      node = node.withName("flattenedStructureList");
-      bodyNode.addChildNode(node);
-    });
-  }
-  if (input.intEnumList !== undefined) {
-    const nodes = se_IntegerEnumList(input.intEnumList, context);
-    const containerNode = new __XmlNode("intEnumList");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.integerList !== undefined) {
-    const nodes = se_IntegerList(input.integerList, context);
-    const containerNode = new __XmlNode("integerList");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.nestedStringList !== undefined) {
-    const nodes = se_NestedStringList(input.nestedStringList, context);
-    const containerNode = new __XmlNode("nestedStringList");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.renamedListMembers !== undefined) {
-    const nodes = se_RenamedListMembers(input.renamedListMembers, context);
-    const containerNode = new __XmlNode("renamed");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.stringList !== undefined) {
-    const nodes = se_StringList(input.stringList, context);
-    const containerNode = new __XmlNode("stringList");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.stringSet !== undefined) {
-    const nodes = se_StringSet(input.stringSet, context);
-    const containerNode = new __XmlNode("stringSet");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.structureList !== undefined) {
-    const nodes = se_StructureList(input.structureList, context);
-    const containerNode = new __XmlNode("myStructureList");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.timestampList !== undefined) {
-    const nodes = se_TimestampList(input.timestampList, context);
-    const containerNode = new __XmlNode("timestampList");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body = _ve;
+  const bn = new __XmlNode(_XLIO);
+  bn.lc(input, "booleanList", "booleanList", () => se_BooleanList(input[_bL]!, context));
+  bn.lc(input, "enumList", "enumList", () => se_FooEnumList(input[_eL]!, context));
+  bn.l(input, "flattenedList", "flattenedList", () => se_RenamedListMembers(input[_fL]!, context));
+  bn.l(input, "flattenedList2", "customName", () => se_RenamedListMembers(input[_fLl]!, context));
+  bn.l(input, "flattenedListWithMemberNamespace", "flattenedListWithMemberNamespace", () =>
+    se_ListWithMemberNamespace(input[_fLWMN]!, context)
+  );
+  bn.l(input, "flattenedListWithNamespace", "flattenedListWithNamespace", () =>
+    se_ListWithNamespace(input[_fLWN]!, context)
+  );
+  bn.l(input, "flattenedStructureList", "flattenedStructureList", () => se_StructureList(input[_fSL]!, context));
+  bn.lc(input, "intEnumList", "intEnumList", () => se_IntegerEnumList(input[_iEL]!, context));
+  bn.lc(input, "integerList", "integerList", () => se_IntegerList(input[_iL]!, context));
+  bn.lc(input, "nestedStringList", "nestedStringList", () => se_NestedStringList(input[_nSL]!, context));
+  bn.lc(input, "renamedListMembers", "renamed", () => se_RenamedListMembers(input[_rLM]!, context));
+  bn.lc(input, "stringList", "stringList", () => se_StringList(input[_sL]!, context));
+  bn.lc(input, "stringSet", "stringSet", () => se_StringSet(input[_sS]!, context));
+  bn.lc(input, "structureList", "myStructureList", () => se_StructureList(input[_sLt]!, context));
+  bn.lc(input, "timestampList", "timestampList", () => se_TimestampList(input[_tL]!, context));
+  body += bn.toString();
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1982,32 +1455,18 @@ export const se_XmlEmptyMapsCommand = async (
   input: XmlEmptyMapsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlEmptyMaps";
+  b.bp("/XmlEmptyMaps");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("XmlMapsInputOutput");
-  if (input.myMap !== undefined) {
-    const nodes = se_XmlMapsInputOutputMap(input.myMap, context);
-    const containerNode = new __XmlNode("myMap");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body = _ve;
+  const bn = new __XmlNode(_XMIO);
+  bn.lc(input, "myMap", "myMap", () => se_XmlMapsInputOutputMap(input[_mM]!, context));
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2017,28 +1476,20 @@ export const se_XmlEmptyStringsCommand = async (
   input: XmlEmptyStringsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlEmptyStrings";
+  b.bp("/XmlEmptyStrings");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("XmlEmptyStringsInputOutput");
-  if (input.emptyString !== undefined) {
-    const node = __XmlNode.of("String", input.emptyString).withName("emptyString");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_XESIO);
+  if (input[_eS] != null) {
+    bn.c(__XmlNode.of(_S, input[_eS]).n(_eS));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2048,60 +1499,29 @@ export const se_XmlEnumsCommand = async (
   input: XmlEnumsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlEnums";
+  b.bp("/XmlEnums");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("XmlEnumsInputOutput");
-  if (input.fooEnum1 !== undefined) {
-    const node = __XmlNode.of("FooEnum", input.fooEnum1).withName("fooEnum1");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_XEIO);
+  if (input[_fE] != null) {
+    bn.c(__XmlNode.of(_FE, input[_fE]).n(_fE));
   }
-  if (input.fooEnum2 !== undefined) {
-    const node = __XmlNode.of("FooEnum", input.fooEnum2).withName("fooEnum2");
-    bodyNode.addChildNode(node);
+  if (input[_fEo] != null) {
+    bn.c(__XmlNode.of(_FE, input[_fEo]).n(_fEo));
   }
-  if (input.fooEnum3 !== undefined) {
-    const node = __XmlNode.of("FooEnum", input.fooEnum3).withName("fooEnum3");
-    bodyNode.addChildNode(node);
+  if (input[_fEoo] != null) {
+    bn.c(__XmlNode.of(_FE, input[_fEoo]).n(_fEoo));
   }
-  if (input.fooEnumList !== undefined) {
-    const nodes = se_FooEnumList(input.fooEnumList, context);
-    const containerNode = new __XmlNode("fooEnumList");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.fooEnumMap !== undefined) {
-    const nodes = se_FooEnumMap(input.fooEnumMap, context);
-    const containerNode = new __XmlNode("fooEnumMap");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.fooEnumSet !== undefined) {
-    const nodes = se_FooEnumSet(input.fooEnumSet, context);
-    const containerNode = new __XmlNode("fooEnumSet");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  bn.lc(input, "fooEnumList", "fooEnumList", () => se_FooEnumList(input[_fEL]!, context));
+  bn.lc(input, "fooEnumMap", "fooEnumMap", () => se_FooEnumMap(input[_fEM]!, context));
+  bn.lc(input, "fooEnumSet", "fooEnumSet", () => se_FooEnumSet(input[_fES]!, context));
+  body += bn.toString();
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2111,60 +1531,29 @@ export const se_XmlIntEnumsCommand = async (
   input: XmlIntEnumsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlIntEnums";
+  b.bp("/XmlIntEnums");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("XmlIntEnumsInputOutput");
-  if (input.intEnum1 !== undefined) {
-    const node = __XmlNode.of("IntegerEnum", String(input.intEnum1)).withName("intEnum1");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_XIEIO);
+  if (input[_iE] != null) {
+    bn.c(__XmlNode.of(_IE, String(input[_iE])).n(_iE));
   }
-  if (input.intEnum2 !== undefined) {
-    const node = __XmlNode.of("IntegerEnum", String(input.intEnum2)).withName("intEnum2");
-    bodyNode.addChildNode(node);
+  if (input[_iEn] != null) {
+    bn.c(__XmlNode.of(_IE, String(input[_iEn])).n(_iEn));
   }
-  if (input.intEnum3 !== undefined) {
-    const node = __XmlNode.of("IntegerEnum", String(input.intEnum3)).withName("intEnum3");
-    bodyNode.addChildNode(node);
+  if (input[_iEnt] != null) {
+    bn.c(__XmlNode.of(_IE, String(input[_iEnt])).n(_iEnt));
   }
-  if (input.intEnumList !== undefined) {
-    const nodes = se_IntegerEnumList(input.intEnumList, context);
-    const containerNode = new __XmlNode("intEnumList");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.intEnumMap !== undefined) {
-    const nodes = se_IntegerEnumMap(input.intEnumMap, context);
-    const containerNode = new __XmlNode("intEnumMap");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.intEnumSet !== undefined) {
-    const nodes = se_IntegerEnumSet(input.intEnumSet, context);
-    const containerNode = new __XmlNode("intEnumSet");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  bn.lc(input, "intEnumList", "intEnumList", () => se_IntegerEnumList(input[_iEL]!, context));
+  bn.lc(input, "intEnumMap", "intEnumMap", () => se_IntegerEnumMap(input[_iEM]!, context));
+  bn.lc(input, "intEnumSet", "intEnumSet", () => se_IntegerEnumSet(input[_iES]!, context));
+  body += bn.toString();
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2174,139 +1563,36 @@ export const se_XmlListsCommand = async (
   input: XmlListsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlLists";
+  b.bp("/XmlLists");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("XmlListsInputOutput");
-  if (input.booleanList !== undefined) {
-    const nodes = se_BooleanList(input.booleanList, context);
-    const containerNode = new __XmlNode("booleanList");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.enumList !== undefined) {
-    const nodes = se_FooEnumList(input.enumList, context);
-    const containerNode = new __XmlNode("enumList");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.flattenedList !== undefined) {
-    const nodes = se_RenamedListMembers(input.flattenedList, context);
-    nodes.map((node: any) => {
-      node = node.withName("flattenedList");
-      bodyNode.addChildNode(node);
-    });
-  }
-  if (input.flattenedList2 !== undefined) {
-    const nodes = se_RenamedListMembers(input.flattenedList2, context);
-    nodes.map((node: any) => {
-      node = node.withName("customName");
-      bodyNode.addChildNode(node);
-    });
-  }
-  if (input.flattenedListWithMemberNamespace !== undefined) {
-    const nodes = se_ListWithMemberNamespace(input.flattenedListWithMemberNamespace, context);
-    nodes.map((node: any) => {
-      node = node.withName("flattenedListWithMemberNamespace");
-      bodyNode.addChildNode(node);
-    });
-  }
-  if (input.flattenedListWithNamespace !== undefined) {
-    const nodes = se_ListWithNamespace(input.flattenedListWithNamespace, context);
-    nodes.map((node: any) => {
-      node = node.withName("flattenedListWithNamespace");
-      bodyNode.addChildNode(node);
-    });
-  }
-  if (input.flattenedStructureList !== undefined) {
-    const nodes = se_StructureList(input.flattenedStructureList, context);
-    nodes.map((node: any) => {
-      node = node.withName("flattenedStructureList");
-      bodyNode.addChildNode(node);
-    });
-  }
-  if (input.intEnumList !== undefined) {
-    const nodes = se_IntegerEnumList(input.intEnumList, context);
-    const containerNode = new __XmlNode("intEnumList");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.integerList !== undefined) {
-    const nodes = se_IntegerList(input.integerList, context);
-    const containerNode = new __XmlNode("integerList");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.nestedStringList !== undefined) {
-    const nodes = se_NestedStringList(input.nestedStringList, context);
-    const containerNode = new __XmlNode("nestedStringList");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.renamedListMembers !== undefined) {
-    const nodes = se_RenamedListMembers(input.renamedListMembers, context);
-    const containerNode = new __XmlNode("renamed");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.stringList !== undefined) {
-    const nodes = se_StringList(input.stringList, context);
-    const containerNode = new __XmlNode("stringList");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.stringSet !== undefined) {
-    const nodes = se_StringSet(input.stringSet, context);
-    const containerNode = new __XmlNode("stringSet");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.structureList !== undefined) {
-    const nodes = se_StructureList(input.structureList, context);
-    const containerNode = new __XmlNode("myStructureList");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  if (input.timestampList !== undefined) {
-    const nodes = se_TimestampList(input.timestampList, context);
-    const containerNode = new __XmlNode("timestampList");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body = _ve;
+  const bn = new __XmlNode(_XLIO);
+  bn.lc(input, "booleanList", "booleanList", () => se_BooleanList(input[_bL]!, context));
+  bn.lc(input, "enumList", "enumList", () => se_FooEnumList(input[_eL]!, context));
+  bn.l(input, "flattenedList", "flattenedList", () => se_RenamedListMembers(input[_fL]!, context));
+  bn.l(input, "flattenedList2", "customName", () => se_RenamedListMembers(input[_fLl]!, context));
+  bn.l(input, "flattenedListWithMemberNamespace", "flattenedListWithMemberNamespace", () =>
+    se_ListWithMemberNamespace(input[_fLWMN]!, context)
+  );
+  bn.l(input, "flattenedListWithNamespace", "flattenedListWithNamespace", () =>
+    se_ListWithNamespace(input[_fLWN]!, context)
+  );
+  bn.l(input, "flattenedStructureList", "flattenedStructureList", () => se_StructureList(input[_fSL]!, context));
+  bn.lc(input, "intEnumList", "intEnumList", () => se_IntegerEnumList(input[_iEL]!, context));
+  bn.lc(input, "integerList", "integerList", () => se_IntegerList(input[_iL]!, context));
+  bn.lc(input, "nestedStringList", "nestedStringList", () => se_NestedStringList(input[_nSL]!, context));
+  bn.lc(input, "renamedListMembers", "renamed", () => se_RenamedListMembers(input[_rLM]!, context));
+  bn.lc(input, "stringList", "stringList", () => se_StringList(input[_sL]!, context));
+  bn.lc(input, "stringSet", "stringSet", () => se_StringSet(input[_sS]!, context));
+  bn.lc(input, "structureList", "myStructureList", () => se_StructureList(input[_sLt]!, context));
+  bn.lc(input, "timestampList", "timestampList", () => se_TimestampList(input[_tL]!, context));
+  body += bn.toString();
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2316,32 +1602,18 @@ export const se_XmlMapsCommand = async (
   input: XmlMapsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlMaps";
+  b.bp("/XmlMaps");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("XmlMapsInputOutput");
-  if (input.myMap !== undefined) {
-    const nodes = se_XmlMapsInputOutputMap(input.myMap, context);
-    const containerNode = new __XmlNode("myMap");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
-    });
-    bodyNode.addChildNode(containerNode);
-  }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body = _ve;
+  const bn = new __XmlNode(_XMIO);
+  bn.lc(input, "myMap", "myMap", () => se_XmlMapsInputOutputMap(input[_mM]!, context));
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2351,32 +1623,47 @@ export const se_XmlMapsXmlNameCommand = async (
   input: XmlMapsXmlNameCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlMapsXmlName";
+  b.bp("/XmlMapsXmlName");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("XmlMapsXmlNameInputOutput");
-  if (input.myMap !== undefined) {
-    const nodes = se_XmlMapsXmlNameInputOutputMap(input.myMap, context);
-    const containerNode = new __XmlNode("myMap");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_XMXNIO);
+  bn.lc(input, "myMap", "myMap", () => se_XmlMapsXmlNameInputOutputMap(input[_mM]!, context));
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlXmlMapWithXmlNamespaceCommand
+ */
+export const se_XmlMapWithXmlNamespaceCommand = async (
+  input: XmlMapWithXmlNamespaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  b.bp("/XmlMapWithXmlNamespace");
+  let body: any;
+  body = _ve;
+  const bn = new __XmlNode(_XMWXNIO);
+  if (input[_mM] != null) {
+    const ns = se_XmlMapWithXmlNamespaceInputOutputMap(input[_mM], context);
+    const containerNode = new __XmlNode(_KVP);
+    containerNode.a("xmlns", "https://the-member.example.com");
+    ns.map((n: any) => {
+      containerNode.c(n);
     });
-    bodyNode.addChildNode(containerNode);
+    bn.c(containerNode);
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2386,29 +1673,21 @@ export const se_XmlNamespacesCommand = async (
   input: XmlNamespacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlNamespaces";
+  b.bp("/XmlNamespaces");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("XmlNamespacesInputOutput");
-  bodyNode.addAttribute("xmlns", "http://foo.com");
-  if (input.nested !== undefined) {
-    const node = se_XmlNamespaceNested(input.nested, context).withName("nested");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_XNIO);
+  bn.a("xmlns", "http://foo.com");
+  if (input[_n] != null) {
+    bn.c(se_XmlNamespaceNested(input[_n], context).n(_n));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2418,62 +1697,38 @@ export const se_XmlTimestampsCommand = async (
   input: XmlTimestampsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlTimestamps";
+  b.bp("/XmlTimestamps");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("XmlTimestampsInputOutput");
-  if (input.dateTime !== undefined) {
-    const node = __XmlNode
-      .of("Timestamp", (input.dateTime.toISOString().split(".")[0] + "Z").toString())
-      .withName("dateTime");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_XTIO);
+  if (input[_dT] != null) {
+    bn.c(__XmlNode.of(_T, (input[_dT].toISOString().split(".")[0] + "Z").toString()).n(_dT));
   }
-  if (input.dateTimeOnTarget !== undefined) {
-    const node = __XmlNode
-      .of("DateTime", (input.dateTimeOnTarget.toISOString().split(".")[0] + "Z").toString())
-      .withName("dateTimeOnTarget");
-    bodyNode.addChildNode(node);
+  if (input[_dTOT] != null) {
+    bn.c(__XmlNode.of(_DT, (input[_dTOT].toISOString().split(".")[0] + "Z").toString()).n(_dTOT));
   }
-  if (input.epochSeconds !== undefined) {
-    const node = __XmlNode
-      .of("Timestamp", Math.round(input.epochSeconds.getTime() / 1000).toString())
-      .withName("epochSeconds");
-    bodyNode.addChildNode(node);
+  if (input[_eSp] != null) {
+    bn.c(__XmlNode.of(_T, Math.round(input[_eSp].getTime() / 1000).toString()).n(_eSp));
   }
-  if (input.epochSecondsOnTarget !== undefined) {
-    const node = __XmlNode
-      .of("EpochSeconds", Math.round(input.epochSecondsOnTarget.getTime() / 1000).toString())
-      .withName("epochSecondsOnTarget");
-    bodyNode.addChildNode(node);
+  if (input[_eSOT] != null) {
+    bn.c(__XmlNode.of(_ES, Math.round(input[_eSOT].getTime() / 1000).toString()).n(_eSOT));
   }
-  if (input.httpDate !== undefined) {
-    const node = __XmlNode.of("Timestamp", __dateToUtcString(input.httpDate).toString()).withName("httpDate");
-    bodyNode.addChildNode(node);
+  if (input[_hDt] != null) {
+    bn.c(__XmlNode.of(_T, __dateToUtcString(input[_hDt]).toString()).n(_hDt));
   }
-  if (input.httpDateOnTarget !== undefined) {
-    const node = __XmlNode
-      .of("HttpDate", __dateToUtcString(input.httpDateOnTarget).toString())
-      .withName("httpDateOnTarget");
-    bodyNode.addChildNode(node);
+  if (input[_hDOT] != null) {
+    bn.c(__XmlNode.of(_HD, __dateToUtcString(input[_hDOT]).toString()).n(_hDOT));
   }
-  if (input.normal !== undefined) {
-    const node = __XmlNode.of("Timestamp", input.normal.toISOString().split(".")[0] + "Z").withName("normal");
-    bodyNode.addChildNode(node);
+  if (input[_no] != null) {
+    bn.c(__XmlNode.of(_T, input[_no].toISOString().split(".")[0] + "Z").n(_no));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2483,28 +1738,20 @@ export const se_XmlUnionsCommand = async (
   input: XmlUnionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/xml",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/XmlUnions";
+  b.bp("/XmlUnions");
   let body: any;
-  body = '<?xml version="1.0" encoding="UTF-8"?>';
-  const bodyNode = new __XmlNode("XmlUnionsInputOutput");
-  if (input.unionValue !== undefined) {
-    const node = se_XmlUnionShape(input.unionValue, context).withName("unionValue");
-    bodyNode.addChildNode(node);
+  body = _ve;
+  const bn = new __XmlNode(_XUIO);
+  if (input[_uV] != null) {
+    bn.c(se_XmlUnionShape(input[_uV], context).n(_uV));
   }
-  body += bodyNode.toString();
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  body += bn.toString();
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2558,8 +1805,8 @@ export const de_BodyWithXmlNameCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["nested"] !== undefined) {
-    contents.nested = de_PayloadWithXmlName(data["nested"], context);
+  if (data[_n] != null) {
+    contents[_n] = de_PayloadWithXmlName(data[_n], context);
   }
   return contents;
 };
@@ -2672,8 +1919,8 @@ export const de_DatetimeOffsetsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["datetime"] !== undefined) {
-    contents.datetime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["datetime"]));
+  if (data[_da] != null) {
+    contents[_da] = __expectNonNull(__parseRfc3339DateTimeWithOffset(data[_da]));
   }
   return contents;
 };
@@ -2861,9 +2108,9 @@ export const de_FlattenedXmlMapCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.myMap === "") {
-    contents.myMap = {};
-  } else if (data["myMap"] !== undefined) {
-    contents.myMap = de_FooEnumMap(__getArrayIfSingleItem(data["myMap"]), context);
+    contents[_mM] = {};
+  } else if (data[_mM] != null) {
+    contents[_mM] = de_FooEnumMap(__getArrayIfSingleItem(data[_mM]), context);
   }
   return contents;
 };
@@ -2903,9 +2150,9 @@ export const de_FlattenedXmlMapWithXmlNameCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.KVP === "") {
-    contents.myMap = {};
-  } else if (data["KVP"] !== undefined) {
-    contents.myMap = de_FlattenedXmlMapWithXmlNameInputOutputMap(__getArrayIfSingleItem(data["KVP"]), context);
+    contents[_mM] = {};
+  } else if (data[_KVP] != null) {
+    contents[_mM] = de_FlattenedXmlMapWithXmlNameInputOutputMap(__getArrayIfSingleItem(data[_KVP]), context);
   }
   return contents;
 };
@@ -2945,9 +2192,9 @@ export const de_FlattenedXmlMapWithXmlNamespaceCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.KVP === "") {
-    contents.myMap = {};
-  } else if (data["KVP"] !== undefined) {
-    contents.myMap = de_FlattenedXmlMapWithXmlNamespaceOutputMap(__getArrayIfSingleItem(data["KVP"]), context);
+    contents[_mM] = {};
+  } else if (data[_KVP] != null) {
+    contents[_mM] = de_FlattenedXmlMapWithXmlNamespaceOutputMap(__getArrayIfSingleItem(data[_KVP]), context);
   }
   return contents;
 };
@@ -2986,11 +2233,8 @@ export const de_FractionalSecondsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["datetime"] !== undefined) {
-    contents.datetime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["datetime"]));
-  }
-  if (data["httpdate"] !== undefined) {
-    contents.httpdate = __expectNonNull(__parseRfc7231DateTime(data["httpdate"]));
+  if (data[_da] != null) {
+    contents[_da] = __expectNonNull(__parseRfc3339DateTimeWithOffset(data[_da]));
   }
   return contents;
 };
@@ -3027,7 +2271,7 @@ export const de_GreetingWithErrorsCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    greeting: [, output.headers["x-greeting"]],
+    [_g]: [, output.headers[_xg]],
   });
   await collectBody(output.body, context);
   return contents;
@@ -3063,6 +2307,44 @@ const de_GreetingWithErrorsCommandError = async (
 };
 
 /**
+ * deserializeAws_restXmlHttpEnumPayloadCommand
+ */
+export const de_HttpEnumPayloadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpEnumPayloadCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_HttpEnumPayloadCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: any = await collectBodyString(output.body, context);
+  contents.payload = __expectString(data);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlHttpEnumPayloadCommandError
+ */
+const de_HttpEnumPayloadCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpEnumPayloadCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
  * deserializeAws_restXmlHttpPayloadTraitsCommand
  */
 export const de_HttpPayloadTraitsCommand = async (
@@ -3074,7 +2356,7 @@ export const de_HttpPayloadTraitsCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    foo: [, output.headers["x-foo"]],
+    [_f]: [, output.headers[_xf]],
   });
   const data: any = await collectBody(output.body, context);
   contents.blob = data;
@@ -3113,7 +2395,7 @@ export const de_HttpPayloadTraitsWithMediaTypeCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    foo: [, output.headers["x-foo"]],
+    [_f]: [, output.headers[_xf]],
   });
   const data: any = await collectBody(output.body, context);
   contents.blob = data;
@@ -3203,6 +2485,44 @@ const de_HttpPayloadWithStructureCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<HttpPayloadWithStructureCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restXmlHttpPayloadWithUnionCommand
+ */
+export const de_HttpPayloadWithUnionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpPayloadWithUnionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_HttpPayloadWithUnionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> | undefined = __expectUnion(await parseBody(output.body, context));
+  contents.nested = de_UnionPayload(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlHttpPayloadWithUnionCommandError
+ */
+const de_HttpPayloadWithUnionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpPayloadWithUnionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3342,7 +2662,7 @@ export const de_HttpPrefixHeadersCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    foo: [, output.headers["x-foo"]],
+    [_f]: [, output.headers[_xf]],
     fooMap: [
       ,
       Object.keys(output.headers)
@@ -3566,6 +2886,44 @@ const de_HttpResponseCodeCommandError = async (
 };
 
 /**
+ * deserializeAws_restXmlHttpStringPayloadCommand
+ */
+export const de_HttpStringPayloadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpStringPayloadCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_HttpStringPayloadCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: any = await collectBodyString(output.body, context);
+  contents.payload = __expectString(data);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlHttpStringPayloadCommandError
+ */
+const de_HttpStringPayloadCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<HttpStringPayloadCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
  * deserializeAws_restXmlIgnoreQueryParamsInResponseCommand
  */
 export const de_IgnoreQueryParamsInResponseCommand = async (
@@ -3579,8 +2937,8 @@ export const de_IgnoreQueryParamsInResponseCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["baz"] !== undefined) {
-    contents.baz = __expectString(data["baz"]);
+  if (data[_b] != null) {
+    contents[_b] = __expectString(data[_b]);
   }
   return contents;
 };
@@ -3617,49 +2975,42 @@ export const de_InputAndOutputWithHeadersCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    headerString: [, output.headers["x-string"]],
-    headerByte: [() => void 0 !== output.headers["x-byte"], () => __strictParseByte(output.headers["x-byte"])],
-    headerShort: [() => void 0 !== output.headers["x-short"], () => __strictParseShort(output.headers["x-short"])],
-    headerInteger: [
-      () => void 0 !== output.headers["x-integer"],
-      () => __strictParseInt32(output.headers["x-integer"]),
+    [_hS]: [, output.headers[_xs]],
+    [_hB]: [() => void 0 !== output.headers[_xb], () => __strictParseByte(output.headers[_xb])],
+    [_hSe]: [() => void 0 !== output.headers[_xs_], () => __strictParseShort(output.headers[_xs_])],
+    [_hI]: [() => void 0 !== output.headers[_xi], () => __strictParseInt32(output.headers[_xi])],
+    [_hL]: [() => void 0 !== output.headers[_xl], () => __strictParseLong(output.headers[_xl])],
+    [_hF]: [() => void 0 !== output.headers[_xf_], () => __strictParseFloat(output.headers[_xf_])],
+    [_hD]: [() => void 0 !== output.headers[_xd], () => __strictParseDouble(output.headers[_xd])],
+    [_hTB]: [() => void 0 !== output.headers[_xb_], () => __parseBoolean(output.headers[_xb_])],
+    [_hFB]: [() => void 0 !== output.headers[_xb__], () => __parseBoolean(output.headers[_xb__])],
+    [_hSL]: [
+      () => void 0 !== output.headers[_xs__],
+      () => (output.headers[_xs__] || "").split(",").map((_entry) => _entry.trim() as any),
     ],
-    headerLong: [() => void 0 !== output.headers["x-long"], () => __strictParseLong(output.headers["x-long"])],
-    headerFloat: [() => void 0 !== output.headers["x-float"], () => __strictParseFloat(output.headers["x-float"])],
-    headerDouble: [() => void 0 !== output.headers["x-double"], () => __strictParseDouble(output.headers["x-double"])],
-    headerTrueBool: [() => void 0 !== output.headers["x-boolean1"], () => __parseBoolean(output.headers["x-boolean1"])],
-    headerFalseBool: [
-      () => void 0 !== output.headers["x-boolean2"],
-      () => __parseBoolean(output.headers["x-boolean2"]),
+    [_hSS]: [
+      () => void 0 !== output.headers[_xs___],
+      () => (output.headers[_xs___] || "").split(",").map((_entry) => _entry.trim() as any),
     ],
-    headerStringList: [
-      () => void 0 !== output.headers["x-stringlist"],
-      () => (output.headers["x-stringlist"] || "").split(",").map((_entry) => _entry.trim() as any),
+    [_hIL]: [
+      () => void 0 !== output.headers[_xi_],
+      () => (output.headers[_xi_] || "").split(",").map((_entry) => __strictParseInt32(_entry.trim()) as any),
     ],
-    headerStringSet: [
-      () => void 0 !== output.headers["x-stringset"],
-      () => (output.headers["x-stringset"] || "").split(",").map((_entry) => _entry.trim() as any),
+    [_hBL]: [
+      () => void 0 !== output.headers[_xb___],
+      () => (output.headers[_xb___] || "").split(",").map((_entry) => __parseBoolean(_entry.trim()) as any),
     ],
-    headerIntegerList: [
-      () => void 0 !== output.headers["x-integerlist"],
+    [_hTL]: [
+      () => void 0 !== output.headers[_xt],
       () =>
-        (output.headers["x-integerlist"] || "").split(",").map((_entry) => __strictParseInt32(_entry.trim()) as any),
-    ],
-    headerBooleanList: [
-      () => void 0 !== output.headers["x-booleanlist"],
-      () => (output.headers["x-booleanlist"] || "").split(",").map((_entry) => __parseBoolean(_entry.trim()) as any),
-    ],
-    headerTimestampList: [
-      () => void 0 !== output.headers["x-timestamplist"],
-      () =>
-        __splitEvery(output.headers["x-timestamplist"] || "", ",", 2).map(
+        __splitEvery(output.headers[_xt] || "", ",", 2).map(
           (_entry) => __expectNonNull(__parseRfc7231DateTime(_entry.trim())) as any
         ),
     ],
-    headerEnum: [, output.headers["x-enum"]],
-    headerEnumList: [
-      () => void 0 !== output.headers["x-enumlist"],
-      () => (output.headers["x-enumlist"] || "").split(",").map((_entry) => _entry.trim() as any),
+    [_hE]: [, output.headers[_xe]],
+    [_hEL]: [
+      () => void 0 !== output.headers[_xe_],
+      () => (output.headers[_xe_] || "").split(",").map((_entry) => _entry.trim() as any),
     ],
   });
   await collectBody(output.body, context);
@@ -3701,14 +3052,14 @@ export const de_NestedXmlMapsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.flatNestedMap === "") {
-    contents.flatNestedMap = {};
-  } else if (data["flatNestedMap"] !== undefined) {
-    contents.flatNestedMap = de_NestedMap(__getArrayIfSingleItem(data["flatNestedMap"]), context);
+    contents[_fNM] = {};
+  } else if (data[_fNM] != null) {
+    contents[_fNM] = de_NestedMap(__getArrayIfSingleItem(data[_fNM]), context);
   }
   if (data.nestedMap === "") {
-    contents.nestedMap = {};
-  } else if (data["nestedMap"] !== undefined && data["nestedMap"]["entry"] !== undefined) {
-    contents.nestedMap = de_NestedMap(__getArrayIfSingleItem(data["nestedMap"]["entry"]), context);
+    contents[_nM] = {};
+  } else if (data[_nM] != null && data[_nM][_en] != null) {
+    contents[_nM] = de_NestedMap(__getArrayIfSingleItem(data[_nM][_en]), context);
   }
   return contents;
 };
@@ -3819,11 +3170,11 @@ export const de_NullAndEmptyHeadersClientCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    a: [, output.headers["x-a"]],
-    b: [, output.headers["x-b"]],
-    c: [
-      () => void 0 !== output.headers["x-c"],
-      () => (output.headers["x-c"] || "").split(",").map((_entry) => _entry.trim() as any),
+    [_a]: [, output.headers[_xa]],
+    [_b_]: [, output.headers[_xb____]],
+    [_c]: [
+      () => void 0 !== output.headers[_xc],
+      () => (output.headers[_xc] || "").split(",").map((_entry) => _entry.trim() as any),
     ],
   });
   await collectBody(output.body, context);
@@ -3862,11 +3213,11 @@ export const de_NullAndEmptyHeadersServerCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    a: [, output.headers["x-a"]],
-    b: [, output.headers["x-b"]],
-    c: [
-      () => void 0 !== output.headers["x-c"],
-      () => (output.headers["x-c"] || "").split(",").map((_entry) => _entry.trim() as any),
+    [_a]: [, output.headers[_xa]],
+    [_b_]: [, output.headers[_xb____]],
+    [_c]: [
+      () => void 0 !== output.headers[_xc],
+      () => (output.headers[_xc] || "").split(",").map((_entry) => _entry.trim() as any),
     ],
   });
   await collectBody(output.body, context);
@@ -4092,8 +3443,8 @@ export const de_RecursiveShapesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["nested"] !== undefined) {
-    contents.nested = de_RecursiveShapesInputOutputNested1(data["nested"], context);
+  if (data[_n] != null) {
+    contents[_n] = de_RecursiveShapesInputOutputNested1(data[_n], context);
   }
   return contents;
 };
@@ -4130,35 +3481,35 @@ export const de_SimpleScalarPropertiesCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    foo: [, output.headers["x-foo"]],
+    [_f]: [, output.headers[_xf]],
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["byteValue"] !== undefined) {
-    contents.byteValue = __strictParseByte(data["byteValue"]) as number;
+  if (data[_bV] != null) {
+    contents[_bV] = __strictParseByte(data[_bV]) as number;
   }
-  if (data["DoubleDribble"] !== undefined) {
-    contents.doubleValue = __strictParseFloat(data["DoubleDribble"]) as number;
+  if (data[_DD] != null) {
+    contents[_dV] = __strictParseFloat(data[_DD]) as number;
   }
-  if (data["falseBooleanValue"] !== undefined) {
-    contents.falseBooleanValue = __parseBoolean(data["falseBooleanValue"]);
+  if (data[_fBV] != null) {
+    contents[_fBV] = __parseBoolean(data[_fBV]);
   }
-  if (data["floatValue"] !== undefined) {
-    contents.floatValue = __strictParseFloat(data["floatValue"]) as number;
+  if (data[_fV] != null) {
+    contents[_fV] = __strictParseFloat(data[_fV]) as number;
   }
-  if (data["integerValue"] !== undefined) {
-    contents.integerValue = __strictParseInt32(data["integerValue"]) as number;
+  if (data[_iV] != null) {
+    contents[_iV] = __strictParseInt32(data[_iV]) as number;
   }
-  if (data["longValue"] !== undefined) {
-    contents.longValue = __strictParseLong(data["longValue"]) as number;
+  if (data[_lV] != null) {
+    contents[_lV] = __strictParseLong(data[_lV]) as number;
   }
-  if (data["shortValue"] !== undefined) {
-    contents.shortValue = __strictParseShort(data["shortValue"]) as number;
+  if (data[_sV] != null) {
+    contents[_sV] = __strictParseShort(data[_sV]) as number;
   }
-  if (data["stringValue"] !== undefined) {
-    contents.stringValue = __expectString(data["stringValue"]);
+  if (data[_sVt] != null) {
+    contents[_sVt] = __expectString(data[_sVt]);
   }
-  if (data["trueBooleanValue"] !== undefined) {
-    contents.trueBooleanValue = __parseBoolean(data["trueBooleanValue"]);
+  if (data[_tBV] != null) {
+    contents[_tBV] = __parseBoolean(data[_tBV]);
   }
   return contents;
 };
@@ -4195,33 +3546,24 @@ export const de_TimestampFormatHeadersCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    memberEpochSeconds: [
-      () => void 0 !== output.headers["x-memberepochseconds"],
-      () => __expectNonNull(__parseEpochTimestamp(output.headers["x-memberepochseconds"])),
+    [_mES]: [() => void 0 !== output.headers[_xm], () => __expectNonNull(__parseEpochTimestamp(output.headers[_xm]))],
+    [_mHD]: [
+      () => void 0 !== output.headers[_xm_],
+      () => __expectNonNull(__parseRfc7231DateTime(output.headers[_xm_])),
     ],
-    memberHttpDate: [
-      () => void 0 !== output.headers["x-memberhttpdate"],
-      () => __expectNonNull(__parseRfc7231DateTime(output.headers["x-memberhttpdate"])),
+    [_mDT]: [
+      () => void 0 !== output.headers[_xm__],
+      () => __expectNonNull(__parseRfc3339DateTimeWithOffset(output.headers[_xm__])),
     ],
-    memberDateTime: [
-      () => void 0 !== output.headers["x-memberdatetime"],
-      () => __expectNonNull(__parseRfc3339DateTimeWithOffset(output.headers["x-memberdatetime"])),
+    [_dF]: [() => void 0 !== output.headers[_xd_], () => __expectNonNull(__parseRfc7231DateTime(output.headers[_xd_]))],
+    [_tES]: [() => void 0 !== output.headers[_xt_], () => __expectNonNull(__parseEpochTimestamp(output.headers[_xt_]))],
+    [_tHD]: [
+      () => void 0 !== output.headers[_xt__],
+      () => __expectNonNull(__parseRfc7231DateTime(output.headers[_xt__])),
     ],
-    defaultFormat: [
-      () => void 0 !== output.headers["x-defaultformat"],
-      () => __expectNonNull(__parseRfc7231DateTime(output.headers["x-defaultformat"])),
-    ],
-    targetEpochSeconds: [
-      () => void 0 !== output.headers["x-targetepochseconds"],
-      () => __expectNonNull(__parseEpochTimestamp(output.headers["x-targetepochseconds"])),
-    ],
-    targetHttpDate: [
-      () => void 0 !== output.headers["x-targethttpdate"],
-      () => __expectNonNull(__parseRfc7231DateTime(output.headers["x-targethttpdate"])),
-    ],
-    targetDateTime: [
-      () => void 0 !== output.headers["x-targetdatetime"],
-      () => __expectNonNull(__parseRfc3339DateTimeWithOffset(output.headers["x-targetdatetime"])),
+    [_tDT]: [
+      () => void 0 !== output.headers[_xt___],
+      () => __expectNonNull(__parseRfc3339DateTimeWithOffset(output.headers[_xt___])),
     ],
   });
   await collectBody(output.body, context);
@@ -4262,11 +3604,11 @@ export const de_XmlAttributesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["test"] !== undefined) {
-    contents.attr = __expectString(data["test"]);
+  if (data[_te] != null) {
+    contents[_at] = __expectString(data[_te]);
   }
-  if (data["foo"] !== undefined) {
-    contents.foo = __expectString(data["foo"]);
+  if (data[_f] != null) {
+    contents[_f] = __expectString(data[_f]);
   }
   return contents;
 };
@@ -4343,8 +3685,8 @@ export const de_XmlBlobsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["data"] !== undefined) {
-    contents.data = context.base64Decoder(data["data"]);
+  if (data[_d] != null) {
+    contents[_d] = context.base64Decoder(data[_d]);
   }
   return contents;
 };
@@ -4383,8 +3725,8 @@ export const de_XmlEmptyBlobsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["data"] !== undefined) {
-    contents.data = context.base64Decoder(data["data"]);
+  if (data[_d] != null) {
+    contents[_d] = context.base64Decoder(data[_d]);
   }
   return contents;
 };
@@ -4424,88 +3766,79 @@ export const de_XmlEmptyListsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.booleanList === "") {
-    contents.booleanList = [];
-  } else if (data["booleanList"] !== undefined && data["booleanList"]["member"] !== undefined) {
-    contents.booleanList = de_BooleanList(__getArrayIfSingleItem(data["booleanList"]["member"]), context);
+    contents[_bL] = [];
+  } else if (data[_bL] != null && data[_bL][_m] != null) {
+    contents[_bL] = de_BooleanList(__getArrayIfSingleItem(data[_bL][_m]), context);
   }
   if (data.enumList === "") {
-    contents.enumList = [];
-  } else if (data["enumList"] !== undefined && data["enumList"]["member"] !== undefined) {
-    contents.enumList = de_FooEnumList(__getArrayIfSingleItem(data["enumList"]["member"]), context);
+    contents[_eL] = [];
+  } else if (data[_eL] != null && data[_eL][_m] != null) {
+    contents[_eL] = de_FooEnumList(__getArrayIfSingleItem(data[_eL][_m]), context);
   }
   if (data.flattenedList === "") {
-    contents.flattenedList = [];
-  } else if (data["flattenedList"] !== undefined) {
-    contents.flattenedList = de_RenamedListMembers(__getArrayIfSingleItem(data["flattenedList"]), context);
+    contents[_fL] = [];
+  } else if (data[_fL] != null) {
+    contents[_fL] = de_RenamedListMembers(__getArrayIfSingleItem(data[_fL]), context);
   }
   if (data.customName === "") {
-    contents.flattenedList2 = [];
-  } else if (data["customName"] !== undefined) {
-    contents.flattenedList2 = de_RenamedListMembers(__getArrayIfSingleItem(data["customName"]), context);
+    contents[_fLl] = [];
+  } else if (data[_cN] != null) {
+    contents[_fLl] = de_RenamedListMembers(__getArrayIfSingleItem(data[_cN]), context);
   }
   if (data.flattenedListWithMemberNamespace === "") {
-    contents.flattenedListWithMemberNamespace = [];
-  } else if (data["flattenedListWithMemberNamespace"] !== undefined) {
-    contents.flattenedListWithMemberNamespace = de_ListWithMemberNamespace(
-      __getArrayIfSingleItem(data["flattenedListWithMemberNamespace"]),
-      context
-    );
+    contents[_fLWMN] = [];
+  } else if (data[_fLWMN] != null) {
+    contents[_fLWMN] = de_ListWithMemberNamespace(__getArrayIfSingleItem(data[_fLWMN]), context);
   }
   if (data.flattenedListWithNamespace === "") {
-    contents.flattenedListWithNamespace = [];
-  } else if (data["flattenedListWithNamespace"] !== undefined) {
-    contents.flattenedListWithNamespace = de_ListWithNamespace(
-      __getArrayIfSingleItem(data["flattenedListWithNamespace"]),
-      context
-    );
+    contents[_fLWN] = [];
+  } else if (data[_fLWN] != null) {
+    contents[_fLWN] = de_ListWithNamespace(__getArrayIfSingleItem(data[_fLWN]), context);
   }
   if (data.flattenedStructureList === "") {
-    contents.flattenedStructureList = [];
-  } else if (data["flattenedStructureList"] !== undefined) {
-    contents.flattenedStructureList = de_StructureList(__getArrayIfSingleItem(data["flattenedStructureList"]), context);
+    contents[_fSL] = [];
+  } else if (data[_fSL] != null) {
+    contents[_fSL] = de_StructureList(__getArrayIfSingleItem(data[_fSL]), context);
   }
   if (data.intEnumList === "") {
-    contents.intEnumList = [];
-  } else if (data["intEnumList"] !== undefined && data["intEnumList"]["member"] !== undefined) {
-    contents.intEnumList = de_IntegerEnumList(__getArrayIfSingleItem(data["intEnumList"]["member"]), context);
+    contents[_iEL] = [];
+  } else if (data[_iEL] != null && data[_iEL][_m] != null) {
+    contents[_iEL] = de_IntegerEnumList(__getArrayIfSingleItem(data[_iEL][_m]), context);
   }
   if (data.integerList === "") {
-    contents.integerList = [];
-  } else if (data["integerList"] !== undefined && data["integerList"]["member"] !== undefined) {
-    contents.integerList = de_IntegerList(__getArrayIfSingleItem(data["integerList"]["member"]), context);
+    contents[_iL] = [];
+  } else if (data[_iL] != null && data[_iL][_m] != null) {
+    contents[_iL] = de_IntegerList(__getArrayIfSingleItem(data[_iL][_m]), context);
   }
   if (data.nestedStringList === "") {
-    contents.nestedStringList = [];
-  } else if (data["nestedStringList"] !== undefined && data["nestedStringList"]["member"] !== undefined) {
-    contents.nestedStringList = de_NestedStringList(
-      __getArrayIfSingleItem(data["nestedStringList"]["member"]),
-      context
-    );
+    contents[_nSL] = [];
+  } else if (data[_nSL] != null && data[_nSL][_m] != null) {
+    contents[_nSL] = de_NestedStringList(__getArrayIfSingleItem(data[_nSL][_m]), context);
   }
   if (data.renamed === "") {
-    contents.renamedListMembers = [];
-  } else if (data["renamed"] !== undefined && data["renamed"]["item"] !== undefined) {
-    contents.renamedListMembers = de_RenamedListMembers(__getArrayIfSingleItem(data["renamed"]["item"]), context);
+    contents[_rLM] = [];
+  } else if (data[_r] != null && data[_r][_i] != null) {
+    contents[_rLM] = de_RenamedListMembers(__getArrayIfSingleItem(data[_r][_i]), context);
   }
   if (data.stringList === "") {
-    contents.stringList = [];
-  } else if (data["stringList"] !== undefined && data["stringList"]["member"] !== undefined) {
-    contents.stringList = de_StringList(__getArrayIfSingleItem(data["stringList"]["member"]), context);
+    contents[_sL] = [];
+  } else if (data[_sL] != null && data[_sL][_m] != null) {
+    contents[_sL] = de_StringList(__getArrayIfSingleItem(data[_sL][_m]), context);
   }
   if (data.stringSet === "") {
-    contents.stringSet = [];
-  } else if (data["stringSet"] !== undefined && data["stringSet"]["member"] !== undefined) {
-    contents.stringSet = de_StringSet(__getArrayIfSingleItem(data["stringSet"]["member"]), context);
+    contents[_sS] = [];
+  } else if (data[_sS] != null && data[_sS][_m] != null) {
+    contents[_sS] = de_StringSet(__getArrayIfSingleItem(data[_sS][_m]), context);
   }
   if (data.myStructureList === "") {
-    contents.structureList = [];
-  } else if (data["myStructureList"] !== undefined && data["myStructureList"]["item"] !== undefined) {
-    contents.structureList = de_StructureList(__getArrayIfSingleItem(data["myStructureList"]["item"]), context);
+    contents[_sLt] = [];
+  } else if (data[_mSL] != null && data[_mSL][_i] != null) {
+    contents[_sLt] = de_StructureList(__getArrayIfSingleItem(data[_mSL][_i]), context);
   }
   if (data.timestampList === "") {
-    contents.timestampList = [];
-  } else if (data["timestampList"] !== undefined && data["timestampList"]["member"] !== undefined) {
-    contents.timestampList = de_TimestampList(__getArrayIfSingleItem(data["timestampList"]["member"]), context);
+    contents[_tL] = [];
+  } else if (data[_tL] != null && data[_tL][_m] != null) {
+    contents[_tL] = de_TimestampList(__getArrayIfSingleItem(data[_tL][_m]), context);
   }
   return contents;
 };
@@ -4545,9 +3878,9 @@ export const de_XmlEmptyMapsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.myMap === "") {
-    contents.myMap = {};
-  } else if (data["myMap"] !== undefined && data["myMap"]["entry"] !== undefined) {
-    contents.myMap = de_XmlMapsInputOutputMap(__getArrayIfSingleItem(data["myMap"]["entry"]), context);
+    contents[_mM] = {};
+  } else if (data[_mM] != null && data[_mM][_en] != null) {
+    contents[_mM] = de_XmlMapsInputOutputMap(__getArrayIfSingleItem(data[_mM][_en]), context);
   }
   return contents;
 };
@@ -4586,8 +3919,8 @@ export const de_XmlEmptyStringsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["emptyString"] !== undefined) {
-    contents.emptyString = __expectString(data["emptyString"]);
+  if (data[_eS] != null) {
+    contents[_eS] = __expectString(data[_eS]);
   }
   return contents;
 };
@@ -4626,29 +3959,29 @@ export const de_XmlEnumsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["fooEnum1"] !== undefined) {
-    contents.fooEnum1 = __expectString(data["fooEnum1"]);
+  if (data[_fE] != null) {
+    contents[_fE] = __expectString(data[_fE]);
   }
-  if (data["fooEnum2"] !== undefined) {
-    contents.fooEnum2 = __expectString(data["fooEnum2"]);
+  if (data[_fEo] != null) {
+    contents[_fEo] = __expectString(data[_fEo]);
   }
-  if (data["fooEnum3"] !== undefined) {
-    contents.fooEnum3 = __expectString(data["fooEnum3"]);
+  if (data[_fEoo] != null) {
+    contents[_fEoo] = __expectString(data[_fEoo]);
   }
   if (data.fooEnumList === "") {
-    contents.fooEnumList = [];
-  } else if (data["fooEnumList"] !== undefined && data["fooEnumList"]["member"] !== undefined) {
-    contents.fooEnumList = de_FooEnumList(__getArrayIfSingleItem(data["fooEnumList"]["member"]), context);
+    contents[_fEL] = [];
+  } else if (data[_fEL] != null && data[_fEL][_m] != null) {
+    contents[_fEL] = de_FooEnumList(__getArrayIfSingleItem(data[_fEL][_m]), context);
   }
   if (data.fooEnumMap === "") {
-    contents.fooEnumMap = {};
-  } else if (data["fooEnumMap"] !== undefined && data["fooEnumMap"]["entry"] !== undefined) {
-    contents.fooEnumMap = de_FooEnumMap(__getArrayIfSingleItem(data["fooEnumMap"]["entry"]), context);
+    contents[_fEM] = {};
+  } else if (data[_fEM] != null && data[_fEM][_en] != null) {
+    contents[_fEM] = de_FooEnumMap(__getArrayIfSingleItem(data[_fEM][_en]), context);
   }
   if (data.fooEnumSet === "") {
-    contents.fooEnumSet = [];
-  } else if (data["fooEnumSet"] !== undefined && data["fooEnumSet"]["member"] !== undefined) {
-    contents.fooEnumSet = de_FooEnumSet(__getArrayIfSingleItem(data["fooEnumSet"]["member"]), context);
+    contents[_fES] = [];
+  } else if (data[_fES] != null && data[_fES][_m] != null) {
+    contents[_fES] = de_FooEnumSet(__getArrayIfSingleItem(data[_fES][_m]), context);
   }
   return contents;
 };
@@ -4687,29 +4020,29 @@ export const de_XmlIntEnumsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["intEnum1"] !== undefined) {
-    contents.intEnum1 = __strictParseInt32(data["intEnum1"]) as number;
+  if (data[_iE] != null) {
+    contents[_iE] = __strictParseInt32(data[_iE]) as number;
   }
-  if (data["intEnum2"] !== undefined) {
-    contents.intEnum2 = __strictParseInt32(data["intEnum2"]) as number;
+  if (data[_iEn] != null) {
+    contents[_iEn] = __strictParseInt32(data[_iEn]) as number;
   }
-  if (data["intEnum3"] !== undefined) {
-    contents.intEnum3 = __strictParseInt32(data["intEnum3"]) as number;
+  if (data[_iEnt] != null) {
+    contents[_iEnt] = __strictParseInt32(data[_iEnt]) as number;
   }
   if (data.intEnumList === "") {
-    contents.intEnumList = [];
-  } else if (data["intEnumList"] !== undefined && data["intEnumList"]["member"] !== undefined) {
-    contents.intEnumList = de_IntegerEnumList(__getArrayIfSingleItem(data["intEnumList"]["member"]), context);
+    contents[_iEL] = [];
+  } else if (data[_iEL] != null && data[_iEL][_m] != null) {
+    contents[_iEL] = de_IntegerEnumList(__getArrayIfSingleItem(data[_iEL][_m]), context);
   }
   if (data.intEnumMap === "") {
-    contents.intEnumMap = {};
-  } else if (data["intEnumMap"] !== undefined && data["intEnumMap"]["entry"] !== undefined) {
-    contents.intEnumMap = de_IntegerEnumMap(__getArrayIfSingleItem(data["intEnumMap"]["entry"]), context);
+    contents[_iEM] = {};
+  } else if (data[_iEM] != null && data[_iEM][_en] != null) {
+    contents[_iEM] = de_IntegerEnumMap(__getArrayIfSingleItem(data[_iEM][_en]), context);
   }
   if (data.intEnumSet === "") {
-    contents.intEnumSet = [];
-  } else if (data["intEnumSet"] !== undefined && data["intEnumSet"]["member"] !== undefined) {
-    contents.intEnumSet = de_IntegerEnumSet(__getArrayIfSingleItem(data["intEnumSet"]["member"]), context);
+    contents[_iES] = [];
+  } else if (data[_iES] != null && data[_iES][_m] != null) {
+    contents[_iES] = de_IntegerEnumSet(__getArrayIfSingleItem(data[_iES][_m]), context);
   }
   return contents;
 };
@@ -4749,88 +4082,79 @@ export const de_XmlListsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.booleanList === "") {
-    contents.booleanList = [];
-  } else if (data["booleanList"] !== undefined && data["booleanList"]["member"] !== undefined) {
-    contents.booleanList = de_BooleanList(__getArrayIfSingleItem(data["booleanList"]["member"]), context);
+    contents[_bL] = [];
+  } else if (data[_bL] != null && data[_bL][_m] != null) {
+    contents[_bL] = de_BooleanList(__getArrayIfSingleItem(data[_bL][_m]), context);
   }
   if (data.enumList === "") {
-    contents.enumList = [];
-  } else if (data["enumList"] !== undefined && data["enumList"]["member"] !== undefined) {
-    contents.enumList = de_FooEnumList(__getArrayIfSingleItem(data["enumList"]["member"]), context);
+    contents[_eL] = [];
+  } else if (data[_eL] != null && data[_eL][_m] != null) {
+    contents[_eL] = de_FooEnumList(__getArrayIfSingleItem(data[_eL][_m]), context);
   }
   if (data.flattenedList === "") {
-    contents.flattenedList = [];
-  } else if (data["flattenedList"] !== undefined) {
-    contents.flattenedList = de_RenamedListMembers(__getArrayIfSingleItem(data["flattenedList"]), context);
+    contents[_fL] = [];
+  } else if (data[_fL] != null) {
+    contents[_fL] = de_RenamedListMembers(__getArrayIfSingleItem(data[_fL]), context);
   }
   if (data.customName === "") {
-    contents.flattenedList2 = [];
-  } else if (data["customName"] !== undefined) {
-    contents.flattenedList2 = de_RenamedListMembers(__getArrayIfSingleItem(data["customName"]), context);
+    contents[_fLl] = [];
+  } else if (data[_cN] != null) {
+    contents[_fLl] = de_RenamedListMembers(__getArrayIfSingleItem(data[_cN]), context);
   }
   if (data.flattenedListWithMemberNamespace === "") {
-    contents.flattenedListWithMemberNamespace = [];
-  } else if (data["flattenedListWithMemberNamespace"] !== undefined) {
-    contents.flattenedListWithMemberNamespace = de_ListWithMemberNamespace(
-      __getArrayIfSingleItem(data["flattenedListWithMemberNamespace"]),
-      context
-    );
+    contents[_fLWMN] = [];
+  } else if (data[_fLWMN] != null) {
+    contents[_fLWMN] = de_ListWithMemberNamespace(__getArrayIfSingleItem(data[_fLWMN]), context);
   }
   if (data.flattenedListWithNamespace === "") {
-    contents.flattenedListWithNamespace = [];
-  } else if (data["flattenedListWithNamespace"] !== undefined) {
-    contents.flattenedListWithNamespace = de_ListWithNamespace(
-      __getArrayIfSingleItem(data["flattenedListWithNamespace"]),
-      context
-    );
+    contents[_fLWN] = [];
+  } else if (data[_fLWN] != null) {
+    contents[_fLWN] = de_ListWithNamespace(__getArrayIfSingleItem(data[_fLWN]), context);
   }
   if (data.flattenedStructureList === "") {
-    contents.flattenedStructureList = [];
-  } else if (data["flattenedStructureList"] !== undefined) {
-    contents.flattenedStructureList = de_StructureList(__getArrayIfSingleItem(data["flattenedStructureList"]), context);
+    contents[_fSL] = [];
+  } else if (data[_fSL] != null) {
+    contents[_fSL] = de_StructureList(__getArrayIfSingleItem(data[_fSL]), context);
   }
   if (data.intEnumList === "") {
-    contents.intEnumList = [];
-  } else if (data["intEnumList"] !== undefined && data["intEnumList"]["member"] !== undefined) {
-    contents.intEnumList = de_IntegerEnumList(__getArrayIfSingleItem(data["intEnumList"]["member"]), context);
+    contents[_iEL] = [];
+  } else if (data[_iEL] != null && data[_iEL][_m] != null) {
+    contents[_iEL] = de_IntegerEnumList(__getArrayIfSingleItem(data[_iEL][_m]), context);
   }
   if (data.integerList === "") {
-    contents.integerList = [];
-  } else if (data["integerList"] !== undefined && data["integerList"]["member"] !== undefined) {
-    contents.integerList = de_IntegerList(__getArrayIfSingleItem(data["integerList"]["member"]), context);
+    contents[_iL] = [];
+  } else if (data[_iL] != null && data[_iL][_m] != null) {
+    contents[_iL] = de_IntegerList(__getArrayIfSingleItem(data[_iL][_m]), context);
   }
   if (data.nestedStringList === "") {
-    contents.nestedStringList = [];
-  } else if (data["nestedStringList"] !== undefined && data["nestedStringList"]["member"] !== undefined) {
-    contents.nestedStringList = de_NestedStringList(
-      __getArrayIfSingleItem(data["nestedStringList"]["member"]),
-      context
-    );
+    contents[_nSL] = [];
+  } else if (data[_nSL] != null && data[_nSL][_m] != null) {
+    contents[_nSL] = de_NestedStringList(__getArrayIfSingleItem(data[_nSL][_m]), context);
   }
   if (data.renamed === "") {
-    contents.renamedListMembers = [];
-  } else if (data["renamed"] !== undefined && data["renamed"]["item"] !== undefined) {
-    contents.renamedListMembers = de_RenamedListMembers(__getArrayIfSingleItem(data["renamed"]["item"]), context);
+    contents[_rLM] = [];
+  } else if (data[_r] != null && data[_r][_i] != null) {
+    contents[_rLM] = de_RenamedListMembers(__getArrayIfSingleItem(data[_r][_i]), context);
   }
   if (data.stringList === "") {
-    contents.stringList = [];
-  } else if (data["stringList"] !== undefined && data["stringList"]["member"] !== undefined) {
-    contents.stringList = de_StringList(__getArrayIfSingleItem(data["stringList"]["member"]), context);
+    contents[_sL] = [];
+  } else if (data[_sL] != null && data[_sL][_m] != null) {
+    contents[_sL] = de_StringList(__getArrayIfSingleItem(data[_sL][_m]), context);
   }
   if (data.stringSet === "") {
-    contents.stringSet = [];
-  } else if (data["stringSet"] !== undefined && data["stringSet"]["member"] !== undefined) {
-    contents.stringSet = de_StringSet(__getArrayIfSingleItem(data["stringSet"]["member"]), context);
+    contents[_sS] = [];
+  } else if (data[_sS] != null && data[_sS][_m] != null) {
+    contents[_sS] = de_StringSet(__getArrayIfSingleItem(data[_sS][_m]), context);
   }
   if (data.myStructureList === "") {
-    contents.structureList = [];
-  } else if (data["myStructureList"] !== undefined && data["myStructureList"]["item"] !== undefined) {
-    contents.structureList = de_StructureList(__getArrayIfSingleItem(data["myStructureList"]["item"]), context);
+    contents[_sLt] = [];
+  } else if (data[_mSL] != null && data[_mSL][_i] != null) {
+    contents[_sLt] = de_StructureList(__getArrayIfSingleItem(data[_mSL][_i]), context);
   }
   if (data.timestampList === "") {
-    contents.timestampList = [];
-  } else if (data["timestampList"] !== undefined && data["timestampList"]["member"] !== undefined) {
-    contents.timestampList = de_TimestampList(__getArrayIfSingleItem(data["timestampList"]["member"]), context);
+    contents[_tL] = [];
+  } else if (data[_tL] != null && data[_tL][_m] != null) {
+    contents[_tL] = de_TimestampList(__getArrayIfSingleItem(data[_tL][_m]), context);
   }
   return contents;
 };
@@ -4870,9 +4194,9 @@ export const de_XmlMapsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.myMap === "") {
-    contents.myMap = {};
-  } else if (data["myMap"] !== undefined && data["myMap"]["entry"] !== undefined) {
-    contents.myMap = de_XmlMapsInputOutputMap(__getArrayIfSingleItem(data["myMap"]["entry"]), context);
+    contents[_mM] = {};
+  } else if (data[_mM] != null && data[_mM][_en] != null) {
+    contents[_mM] = de_XmlMapsInputOutputMap(__getArrayIfSingleItem(data[_mM][_en]), context);
   }
   return contents;
 };
@@ -4912,9 +4236,9 @@ export const de_XmlMapsXmlNameCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.myMap === "") {
-    contents.myMap = {};
-  } else if (data["myMap"] !== undefined && data["myMap"]["entry"] !== undefined) {
-    contents.myMap = de_XmlMapsXmlNameInputOutputMap(__getArrayIfSingleItem(data["myMap"]["entry"]), context);
+    contents[_mM] = {};
+  } else if (data[_mM] != null && data[_mM][_en] != null) {
+    contents[_mM] = de_XmlMapsXmlNameInputOutputMap(__getArrayIfSingleItem(data[_mM][_en]), context);
   }
   return contents;
 };
@@ -4926,6 +4250,48 @@ const de_XmlMapsXmlNameCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<XmlMapsXmlNameCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_restXmlXmlMapWithXmlNamespaceCommand
+ */
+export const de_XmlMapWithXmlNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlMapWithXmlNamespaceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_XmlMapWithXmlNamespaceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.KVP === "") {
+    contents[_mM] = {};
+  } else if (data[_KVP] != null && data[_KVP][_en] != null) {
+    contents[_mM] = de_XmlMapWithXmlNamespaceInputOutputMap(__getArrayIfSingleItem(data[_KVP][_en]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlXmlMapWithXmlNamespaceCommandError
+ */
+const de_XmlMapWithXmlNamespaceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<XmlMapWithXmlNamespaceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4953,8 +4319,8 @@ export const de_XmlNamespacesCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["nested"] !== undefined) {
-    contents.nested = de_XmlNamespaceNested(data["nested"], context);
+  if (data[_n] != null) {
+    contents[_n] = de_XmlNamespaceNested(data[_n], context);
   }
   return contents;
 };
@@ -4993,26 +4359,26 @@ export const de_XmlTimestampsCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
-  if (data["dateTime"] !== undefined) {
-    contents.dateTime = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["dateTime"]));
+  if (data[_dT] != null) {
+    contents[_dT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(data[_dT]));
   }
-  if (data["dateTimeOnTarget"] !== undefined) {
-    contents.dateTimeOnTarget = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["dateTimeOnTarget"]));
+  if (data[_dTOT] != null) {
+    contents[_dTOT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(data[_dTOT]));
   }
-  if (data["epochSeconds"] !== undefined) {
-    contents.epochSeconds = __expectNonNull(__parseEpochTimestamp(data["epochSeconds"]));
+  if (data[_eSp] != null) {
+    contents[_eSp] = __expectNonNull(__parseEpochTimestamp(data[_eSp]));
   }
-  if (data["epochSecondsOnTarget"] !== undefined) {
-    contents.epochSecondsOnTarget = __expectNonNull(__parseEpochTimestamp(data["epochSecondsOnTarget"]));
+  if (data[_eSOT] != null) {
+    contents[_eSOT] = __expectNonNull(__parseEpochTimestamp(data[_eSOT]));
   }
-  if (data["httpDate"] !== undefined) {
-    contents.httpDate = __expectNonNull(__parseRfc7231DateTime(data["httpDate"]));
+  if (data[_hDt] != null) {
+    contents[_hDt] = __expectNonNull(__parseRfc7231DateTime(data[_hDt]));
   }
-  if (data["httpDateOnTarget"] !== undefined) {
-    contents.httpDateOnTarget = __expectNonNull(__parseRfc7231DateTime(data["httpDateOnTarget"]));
+  if (data[_hDOT] != null) {
+    contents[_hDOT] = __expectNonNull(__parseRfc7231DateTime(data[_hDOT]));
   }
-  if (data["normal"] !== undefined) {
-    contents.normal = __expectNonNull(__parseRfc3339DateTimeWithOffset(data["normal"]));
+  if (data[_no] != null) {
+    contents[_no] = __expectNonNull(__parseRfc3339DateTimeWithOffset(data[_no]));
   }
   return contents;
 };
@@ -5053,8 +4419,8 @@ export const de_XmlUnionsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.unionValue === "") {
     // Pass empty tags.
-  } else if (data["unionValue"] !== undefined) {
-    contents.unionValue = de_XmlUnionShape(__expectUnion(data["unionValue"]), context);
+  } else if (data[_uV] != null) {
+    contents[_uV] = de_XmlUnionShape(__expectUnion(data[_uV]), context);
   }
   return contents;
 };
@@ -5085,14 +4451,14 @@ const throwDefaultError = withBaseException(__BaseException);
  */
 const de_ComplexErrorRes = async (parsedOutput: any, context: __SerdeContext): Promise<ComplexError> => {
   const contents: any = map({
-    Header: [, parsedOutput.headers["x-header"]],
+    [_H]: [, parsedOutput.headers[_xh]],
   });
   const data: any = parsedOutput.body.Error;
-  if (data["Nested"] !== undefined) {
-    contents.Nested = de_ComplexNestedErrorData(data["Nested"], context);
+  if (data[_Ne] != null) {
+    contents[_Ne] = de_ComplexNestedErrorData(data[_Ne], context);
   }
-  if (data["TopLevel"] !== undefined) {
-    contents.TopLevel = __expectString(data["TopLevel"]);
+  if (data[_TLo] != null) {
+    contents[_TLo] = __expectString(data[_TLo]);
   }
   const exception = new ComplexError({
     $metadata: deserializeMetadata(parsedOutput),
@@ -5107,8 +4473,8 @@ const de_ComplexErrorRes = async (parsedOutput: any, context: __SerdeContext): P
 const de_InvalidGreetingRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidGreeting> => {
   const contents: any = map({});
   const data: any = parsedOutput.body.Error;
-  if (data["Message"] !== undefined) {
-    contents.Message = __expectString(data["Message"]);
+  if (data[_M] != null) {
+    contents[_M] = __expectString(data[_M]);
   }
   const exception = new InvalidGreeting({
     $metadata: deserializeMetadata(parsedOutput),
@@ -5122,14 +4488,14 @@ const de_InvalidGreetingRes = async (parsedOutput: any, context: __SerdeContext)
  */
 const se_FlattenedXmlMapWithXmlNameInputOutputMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .map((key) => {
       const entryNode = new __XmlNode("entry");
-      const keyNode = __XmlNode.of("String", key).withName("K");
-      entryNode.addChildNode(keyNode);
-      let node;
-      node = __XmlNode.of("String", input[key]);
-      entryNode.addChildNode(node.withName("V"));
+      const keyNode = __XmlNode.of(_S, key).n("K");
+      entryNode.c(keyNode);
+      let n;
+      n = __XmlNode.of(_S, input[key as keyof typeof input]!);
+      entryNode.c(n.n(_V));
       return entryNode;
     });
 };
@@ -5141,9 +4507,9 @@ const se_ListWithMemberNamespace = (input: string[], context: __SerdeContext): a
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("String", entry);
-      node.addAttribute("xmlns", "https://xml-member.example.com");
-      return node.withName("member");
+      const n = __XmlNode.of(_S, entry);
+      n.a("xmlns", "https://xml-member.example.com");
+      return n.n(_m);
     });
 };
 
@@ -5154,27 +4520,27 @@ const se_ListWithNamespace = (input: string[], context: __SerdeContext): any => 
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("String", entry);
-      return node.withName("member");
+      const n = __XmlNode.of(_S, entry);
+      return n.n(_m);
     });
 };
 
 /**
  * serializeAws_restXmlNestedMap
  */
-const se_NestedMap = (input: Record<string, Record<string, FooEnum | string>>, context: __SerdeContext): any => {
+const se_NestedMap = (input: Record<string, Record<string, FooEnum>>, context: __SerdeContext): any => {
   return Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .map((key) => {
       const entryNode = new __XmlNode("entry");
-      const keyNode = __XmlNode.of("String", key).withName("key");
-      entryNode.addChildNode(keyNode);
-      let node;
-      node = se_FooEnumMap(input[key], context);
-      entryNode.addChildNode(
-        node.reduce((acc: __XmlNode, workingNode: any) => {
-          return acc.addChildNode(workingNode);
-        }, new __XmlNode("value"))
+      const keyNode = __XmlNode.of(_S, key).n("key");
+      entryNode.c(keyNode);
+      let n;
+      n = se_FooEnumMap(input[key as keyof typeof input]!, context);
+      entryNode.c(
+        n.reduce((acc: __XmlNode, workingNode: any) => {
+          return acc.c(workingNode);
+        }, new __XmlNode(_v))
       );
       return entryNode;
     });
@@ -5184,52 +4550,47 @@ const se_NestedMap = (input: Record<string, Record<string, FooEnum | string>>, c
  * serializeAws_restXmlNestedPayload
  */
 const se_NestedPayload = (input: NestedPayload, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("NestedPayload");
-  if (input.greeting != null) {
-    const node = __XmlNode.of("String", input.greeting).withName("greeting");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_NP);
+  if (input[_g] != null) {
+    bn.c(__XmlNode.of(_S, input[_g]).n(_g));
   }
-  if (input.name != null) {
-    const node = __XmlNode.of("String", input.name).withName("name");
-    bodyNode.addChildNode(node);
+  if (input[_na] != null) {
+    bn.c(__XmlNode.of(_S, input[_na]).n(_na));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlPayloadWithXmlName
  */
 const se_PayloadWithXmlName = (input: PayloadWithXmlName, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("Hello");
-  if (input.name != null) {
-    const node = __XmlNode.of("String", input.name).withName("name");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_He);
+  if (input[_na] != null) {
+    bn.c(__XmlNode.of(_S, input[_na]).n(_na));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlPayloadWithXmlNamespace
  */
 const se_PayloadWithXmlNamespace = (input: PayloadWithXmlNamespace, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("PayloadWithXmlNamespace");
-  if (input.name != null) {
-    const node = __XmlNode.of("String", input.name).withName("name");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_PWXN);
+  if (input[_na] != null) {
+    bn.c(__XmlNode.of(_S, input[_na]).n(_na));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlPayloadWithXmlNamespaceAndPrefix
  */
 const se_PayloadWithXmlNamespaceAndPrefix = (input: PayloadWithXmlNamespaceAndPrefix, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("PayloadWithXmlNamespaceAndPrefix");
-  if (input.name != null) {
-    const node = __XmlNode.of("String", input.name).withName("name");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_PWXNAP);
+  if (input[_na] != null) {
+    bn.c(__XmlNode.of(_S, input[_na]).n(_na));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -5239,16 +4600,14 @@ const se_RecursiveShapesInputOutputNested1 = (
   input: RecursiveShapesInputOutputNested1,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("RecursiveShapesInputOutputNested1");
-  if (input.foo != null) {
-    const node = __XmlNode.of("String", input.foo).withName("foo");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RSION);
+  if (input[_f] != null) {
+    bn.c(__XmlNode.of(_S, input[_f]).n(_f));
   }
-  if (input.nested != null) {
-    const node = se_RecursiveShapesInputOutputNested2(input.nested, context).withName("nested");
-    bodyNode.addChildNode(node);
+  if (input[_n] != null) {
+    bn.c(se_RecursiveShapesInputOutputNested2(input[_n], context).n(_n));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -5258,16 +4617,14 @@ const se_RecursiveShapesInputOutputNested2 = (
   input: RecursiveShapesInputOutputNested2,
   context: __SerdeContext
 ): any => {
-  const bodyNode = new __XmlNode("RecursiveShapesInputOutputNested2");
-  if (input.bar != null) {
-    const node = __XmlNode.of("String", input.bar).withName("bar");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_RSIONe);
+  if (input[_ba] != null) {
+    bn.c(__XmlNode.of(_S, input[_ba]).n(_ba));
   }
-  if (input.recursiveMember != null) {
-    const node = se_RecursiveShapesInputOutputNested1(input.recursiveMember, context).withName("recursiveMember");
-    bodyNode.addChildNode(node);
+  if (input[_rM] != null) {
+    bn.c(se_RecursiveShapesInputOutputNested1(input[_rM], context).n(_rM));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -5277,8 +4634,8 @@ const se_RenamedListMembers = (input: string[], context: __SerdeContext): any =>
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("String", entry);
-      return node.withName("item");
+      const n = __XmlNode.of(_S, entry);
+      return n.n(_i);
     });
 };
 
@@ -5289,8 +4646,8 @@ const se_StructureList = (input: StructureListMember[], context: __SerdeContext)
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_StructureListMember(entry, context);
-      return node.withName("item");
+      const n = se_StructureListMember(entry, context);
+      return n.n(_i);
     });
 };
 
@@ -5298,31 +4655,47 @@ const se_StructureList = (input: StructureListMember[], context: __SerdeContext)
  * serializeAws_restXmlStructureListMember
  */
 const se_StructureListMember = (input: StructureListMember, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("StructureListMember");
-  if (input.a != null) {
-    const node = __XmlNode.of("String", input.a).withName("value");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_SLM);
+  if (input[_a] != null) {
+    bn.c(__XmlNode.of(_S, input[_a]).n(_v));
   }
-  if (input.b != null) {
-    const node = __XmlNode.of("String", input.b).withName("other");
-    bodyNode.addChildNode(node);
+  if (input[_b_] != null) {
+    bn.c(__XmlNode.of(_S, input[_b_]).n(_o));
   }
-  return bodyNode;
+  return bn;
+};
+
+/**
+ * serializeAws_restXmlUnionPayload
+ */
+const se_UnionPayload = (input: UnionPayload, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_UP);
+  UnionPayload.visit(input, {
+    greeting: (value) => {
+      if (input[_g] != null) {
+        bn.c(__XmlNode.of(_S, value).n(_g));
+      }
+    },
+    _: (name: string, value: any) => {
+      if (!(value instanceof __XmlNode || value instanceof __XmlText)) {
+        throw new Error("Unable to serialize unknown union members in XML.");
+      }
+      bn.c(new __XmlNode(name).c(value));
+    },
+  });
+  return bn;
 };
 
 /**
  * serializeAws_restXmlXmlAttributesInputOutput
  */
 const se_XmlAttributesInputOutput = (input: XmlAttributesInputOutput, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("XmlAttributesInputOutput");
-  if (input.foo != null) {
-    const node = __XmlNode.of("String", input.foo).withName("foo");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_XAIO);
+  if (input[_f] != null) {
+    bn.c(__XmlNode.of(_S, input[_f]).n(_f));
   }
-  if (input.attr != null) {
-    bodyNode.addAttribute("test", input.attr);
-  }
-  return bodyNode;
+  bn.a("test", input[_at]);
+  return bn;
 };
 
 /**
@@ -5330,14 +4703,14 @@ const se_XmlAttributesInputOutput = (input: XmlAttributesInputOutput, context: _
  */
 const se_XmlMapsInputOutputMap = (input: Record<string, GreetingStruct>, context: __SerdeContext): any => {
   return Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .map((key) => {
       const entryNode = new __XmlNode("entry");
-      const keyNode = __XmlNode.of("String", key).withName("key");
-      entryNode.addChildNode(keyNode);
-      let node;
-      node = se_GreetingStruct(input[key], context);
-      entryNode.addChildNode(node.withName("value"));
+      const keyNode = __XmlNode.of(_S, key).n("key");
+      entryNode.c(keyNode);
+      let n;
+      n = se_GreetingStruct(input[key as keyof typeof input]!, context);
+      entryNode.c(n.n(_v));
       return entryNode;
     });
 };
@@ -5347,14 +4720,33 @@ const se_XmlMapsInputOutputMap = (input: Record<string, GreetingStruct>, context
  */
 const se_XmlMapsXmlNameInputOutputMap = (input: Record<string, GreetingStruct>, context: __SerdeContext): any => {
   return Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .map((key) => {
       const entryNode = new __XmlNode("entry");
-      const keyNode = __XmlNode.of("String", key).withName("Attribute");
-      entryNode.addChildNode(keyNode);
-      let node;
-      node = se_GreetingStruct(input[key], context);
-      entryNode.addChildNode(node.withName("Setting"));
+      const keyNode = __XmlNode.of(_S, key).n("Attribute");
+      entryNode.c(keyNode);
+      let n;
+      n = se_GreetingStruct(input[key as keyof typeof input]!, context);
+      entryNode.c(n.n(_Se));
+      return entryNode;
+    });
+};
+
+/**
+ * serializeAws_restXmlXmlMapWithXmlNamespaceInputOutputMap
+ */
+const se_XmlMapWithXmlNamespaceInputOutputMap = (input: Record<string, string>, context: __SerdeContext): any => {
+  return Object.keys(input)
+    .filter((key) => input[key as keyof typeof input] != null)
+    .map((key) => {
+      const entryNode = new __XmlNode("entry");
+      const keyNode = __XmlNode.of(_S, key).n("K");
+      keyNode.a("xmlns", "https://the-key.example.com");
+      entryNode.c(keyNode);
+      let n;
+      n = __XmlNode.of(_S, input[key as keyof typeof input]!);
+      n.a("xmlns", "https://the-value.example.com");
+      entryNode.c(n.n(_V));
       return entryNode;
     });
 };
@@ -5366,9 +4758,9 @@ const se_XmlNamespacedList = (input: string[], context: __SerdeContext): any => 
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("String", entry);
-      node.addAttribute("xmlns", "http://bux.com");
-      return node.withName("member");
+      const n = __XmlNode.of(_S, entry);
+      n.a("xmlns", "http://bux.com");
+      return n.n(_m);
     });
 };
 
@@ -5376,118 +4768,120 @@ const se_XmlNamespacedList = (input: string[], context: __SerdeContext): any => 
  * serializeAws_restXmlXmlNamespaceNested
  */
 const se_XmlNamespaceNested = (input: XmlNamespaceNested, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("XmlNamespaceNested");
-  if (input.foo != null) {
-    const node = __XmlNode.of("String", input.foo).withName("foo");
-    node.addAttribute("xmlns:baz", "http://baz.com");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_XNN);
+  if (input[_f] != null) {
+    const n = __XmlNode.of(_S, input[_f]).n(_f);
+    n.a("xmlns:baz", "http://baz.com");
+    bn.c(n);
   }
-  if (input.values != null) {
-    const nodes = se_XmlNamespacedList(input.values, context);
-    const containerNode = new __XmlNode("values");
-    containerNode.addAttribute("xmlns", "http://qux.com");
-    nodes.map((node: any) => {
-      containerNode.addChildNode(node);
+  if (input[_va] != null) {
+    const ns = se_XmlNamespacedList(input[_va], context);
+    const containerNode = new __XmlNode(_va);
+    containerNode.a("xmlns", "http://qux.com");
+    ns.map((n: any) => {
+      containerNode.c(n);
     });
-    bodyNode.addChildNode(containerNode);
+    bn.c(containerNode);
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlXmlNestedUnionStruct
  */
 const se_XmlNestedUnionStruct = (input: XmlNestedUnionStruct, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("XmlNestedUnionStruct");
-  if (input.stringValue != null) {
-    const node = __XmlNode.of("String", input.stringValue).withName("stringValue");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_XNUS);
+  if (input[_sVt] != null) {
+    bn.c(__XmlNode.of(_S, input[_sVt]).n(_sVt));
   }
-  if (input.booleanValue != null) {
-    const node = __XmlNode.of("Boolean", String(input.booleanValue)).withName("booleanValue");
-    bodyNode.addChildNode(node);
+  if (input[_bVo] != null) {
+    bn.c(__XmlNode.of(_Bo, String(input[_bVo])).n(_bVo));
   }
-  if (input.byteValue != null) {
-    const node = __XmlNode.of("Byte", String(input.byteValue)).withName("byteValue");
-    bodyNode.addChildNode(node);
+  if (input[_bV] != null) {
+    bn.c(__XmlNode.of(_B, String(input[_bV])).n(_bV));
   }
-  if (input.shortValue != null) {
-    const node = __XmlNode.of("Short", String(input.shortValue)).withName("shortValue");
-    bodyNode.addChildNode(node);
+  if (input[_sV] != null) {
+    bn.c(__XmlNode.of(_Sh, String(input[_sV])).n(_sV));
   }
-  if (input.integerValue != null) {
-    const node = __XmlNode.of("Integer", String(input.integerValue)).withName("integerValue");
-    bodyNode.addChildNode(node);
+  if (input[_iV] != null) {
+    bn.c(__XmlNode.of(_I, String(input[_iV])).n(_iV));
   }
-  if (input.longValue != null) {
-    const node = __XmlNode.of("Long", String(input.longValue)).withName("longValue");
-    bodyNode.addChildNode(node);
+  if (input[_lV] != null) {
+    bn.c(__XmlNode.of(_L, String(input[_lV])).n(_lV));
   }
-  if (input.floatValue != null) {
-    const node = __XmlNode.of("Float", String(input.floatValue)).withName("floatValue");
-    bodyNode.addChildNode(node);
+  if (input[_fV] != null) {
+    bn.c(__XmlNode.of(_F, String(input[_fV])).n(_fV));
   }
-  if (input.doubleValue != null) {
-    const node = __XmlNode.of("Double", String(input.doubleValue)).withName("doubleValue");
-    bodyNode.addChildNode(node);
+  if (input[_dV] != null) {
+    bn.c(__XmlNode.of(_D, String(input[_dV])).n(_dV));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlXmlUnionShape
  */
 const se_XmlUnionShape = (input: XmlUnionShape, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("XmlUnionShape");
+  const bn = new __XmlNode(_XUS);
   XmlUnionShape.visit(input, {
     stringValue: (value) => {
-      const node = __XmlNode.of("String", value).withName("stringValue");
-      bodyNode.addChildNode(node);
+      if (input[_sVt] != null) {
+        bn.c(__XmlNode.of(_S, value).n(_sVt));
+      }
     },
     booleanValue: (value) => {
-      const node = __XmlNode.of("Boolean", String(value)).withName("booleanValue");
-      bodyNode.addChildNode(node);
+      if (input[_bVo] != null) {
+        bn.c(__XmlNode.of(_Bo, String(value)).n(_bVo));
+      }
     },
     byteValue: (value) => {
-      const node = __XmlNode.of("Byte", String(value)).withName("byteValue");
-      bodyNode.addChildNode(node);
+      if (input[_bV] != null) {
+        bn.c(__XmlNode.of(_B, String(value)).n(_bV));
+      }
     },
     shortValue: (value) => {
-      const node = __XmlNode.of("Short", String(value)).withName("shortValue");
-      bodyNode.addChildNode(node);
+      if (input[_sV] != null) {
+        bn.c(__XmlNode.of(_Sh, String(value)).n(_sV));
+      }
     },
     integerValue: (value) => {
-      const node = __XmlNode.of("Integer", String(value)).withName("integerValue");
-      bodyNode.addChildNode(node);
+      if (input[_iV] != null) {
+        bn.c(__XmlNode.of(_I, String(value)).n(_iV));
+      }
     },
     longValue: (value) => {
-      const node = __XmlNode.of("Long", String(value)).withName("longValue");
-      bodyNode.addChildNode(node);
+      if (input[_lV] != null) {
+        bn.c(__XmlNode.of(_L, String(value)).n(_lV));
+      }
     },
     floatValue: (value) => {
-      const node = __XmlNode.of("Float", String(value)).withName("floatValue");
-      bodyNode.addChildNode(node);
+      if (input[_fV] != null) {
+        bn.c(__XmlNode.of(_F, String(value)).n(_fV));
+      }
     },
     doubleValue: (value) => {
-      const node = __XmlNode.of("Double", String(value)).withName("doubleValue");
-      bodyNode.addChildNode(node);
+      if (input[_dV] != null) {
+        bn.c(__XmlNode.of(_D, String(value)).n(_dV));
+      }
     },
     unionValue: (value) => {
-      const node = se_XmlUnionShape(value, context).withName("unionValue");
-      bodyNode.addChildNode(node);
+      if (input[_uV] != null) {
+        bn.c(se_XmlUnionShape(value, context).n(_uV));
+      }
     },
     structValue: (value) => {
-      const node = se_XmlNestedUnionStruct(value, context).withName("structValue");
-      bodyNode.addChildNode(node);
+      if (input[_sVtr] != null) {
+        bn.c(se_XmlNestedUnionStruct(value, context).n(_sVtr));
+      }
     },
     _: (name: string, value: any) => {
       if (!(value instanceof __XmlNode || value instanceof __XmlText)) {
         throw new Error("Unable to serialize unknown union members in XML.");
       }
-      bodyNode.addChildNode(new __XmlNode(name).addChildNode(value));
+      bn.c(new __XmlNode(name).c(value));
     },
   });
-  return bodyNode;
+  return bn;
 };
 
 /**
@@ -5497,36 +4891,36 @@ const se_BooleanList = (input: boolean[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("Boolean", String(entry));
-      return node.withName("member");
+      const n = __XmlNode.of(_Bo, String(entry));
+      return n.n(_m);
     });
 };
 
 /**
  * serializeAws_restXmlFooEnumList
  */
-const se_FooEnumList = (input: (FooEnum | string)[], context: __SerdeContext): any => {
+const se_FooEnumList = (input: FooEnum[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("FooEnum", entry);
-      return node.withName("member");
+      const n = __XmlNode.of(_FE, entry);
+      return n.n(_m);
     });
 };
 
 /**
  * serializeAws_restXmlFooEnumMap
  */
-const se_FooEnumMap = (input: Record<string, FooEnum | string>, context: __SerdeContext): any => {
+const se_FooEnumMap = (input: Record<string, FooEnum>, context: __SerdeContext): any => {
   return Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .map((key) => {
       const entryNode = new __XmlNode("entry");
-      const keyNode = __XmlNode.of("String", key).withName("key");
-      entryNode.addChildNode(keyNode);
-      let node;
-      node = __XmlNode.of("FooEnum", input[key]);
-      entryNode.addChildNode(node.withName("value"));
+      const keyNode = __XmlNode.of(_S, key).n("key");
+      entryNode.c(keyNode);
+      let n;
+      n = __XmlNode.of(_FE, input[key as keyof typeof input]!);
+      entryNode.c(n.n(_v));
       return entryNode;
     });
 };
@@ -5534,12 +4928,12 @@ const se_FooEnumMap = (input: Record<string, FooEnum | string>, context: __Serde
 /**
  * serializeAws_restXmlFooEnumSet
  */
-const se_FooEnumSet = (input: (FooEnum | string)[], context: __SerdeContext): any => {
+const se_FooEnumSet = (input: FooEnum[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("FooEnum", entry);
-      return node.withName("member");
+      const n = __XmlNode.of(_FE, entry);
+      return n.n(_m);
     });
 };
 
@@ -5547,39 +4941,38 @@ const se_FooEnumSet = (input: (FooEnum | string)[], context: __SerdeContext): an
  * serializeAws_restXmlGreetingStruct
  */
 const se_GreetingStruct = (input: GreetingStruct, context: __SerdeContext): any => {
-  const bodyNode = new __XmlNode("GreetingStruct");
-  if (input.hi != null) {
-    const node = __XmlNode.of("String", input.hi).withName("hi");
-    bodyNode.addChildNode(node);
+  const bn = new __XmlNode(_GS);
+  if (input[_hi] != null) {
+    bn.c(__XmlNode.of(_S, input[_hi]).n(_hi));
   }
-  return bodyNode;
+  return bn;
 };
 
 /**
  * serializeAws_restXmlIntegerEnumList
  */
-const se_IntegerEnumList = (input: (IntegerEnum | number)[], context: __SerdeContext): any => {
+const se_IntegerEnumList = (input: IntegerEnum[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("IntegerEnum", String(entry));
-      return node.withName("member");
+      const n = __XmlNode.of(_IE, String(entry));
+      return n.n(_m);
     });
 };
 
 /**
  * serializeAws_restXmlIntegerEnumMap
  */
-const se_IntegerEnumMap = (input: Record<string, IntegerEnum | number>, context: __SerdeContext): any => {
+const se_IntegerEnumMap = (input: Record<string, IntegerEnum>, context: __SerdeContext): any => {
   return Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .map((key) => {
       const entryNode = new __XmlNode("entry");
-      const keyNode = __XmlNode.of("String", key).withName("key");
-      entryNode.addChildNode(keyNode);
-      let node;
-      node = __XmlNode.of("IntegerEnum", String(input[key]));
-      entryNode.addChildNode(node.withName("value"));
+      const keyNode = __XmlNode.of(_S, key).n("key");
+      entryNode.c(keyNode);
+      let n;
+      n = __XmlNode.of(_IE, String(input[key as keyof typeof input]!));
+      entryNode.c(n.n(_v));
       return entryNode;
     });
 };
@@ -5587,12 +4980,12 @@ const se_IntegerEnumMap = (input: Record<string, IntegerEnum | number>, context:
 /**
  * serializeAws_restXmlIntegerEnumSet
  */
-const se_IntegerEnumSet = (input: (IntegerEnum | number)[], context: __SerdeContext): any => {
+const se_IntegerEnumSet = (input: IntegerEnum[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("IntegerEnum", String(entry));
-      return node.withName("member");
+      const n = __XmlNode.of(_IE, String(entry));
+      return n.n(_m);
     });
 };
 
@@ -5603,8 +4996,8 @@ const se_IntegerList = (input: number[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("Integer", String(entry));
-      return node.withName("member");
+      const n = __XmlNode.of(_I, String(entry));
+      return n.n(_m);
     });
 };
 
@@ -5615,10 +5008,10 @@ const se_NestedStringList = (input: string[][], context: __SerdeContext): any =>
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = se_StringList(entry, context);
-      return node.reduce((acc: __XmlNode, workingNode: any) => {
-        return acc.addChildNode(workingNode);
-      }, new __XmlNode("member"));
+      const n = se_StringList(entry, context);
+      return n.reduce((acc: __XmlNode, workingNode: any) => {
+        return acc.c(workingNode);
+      }, new __XmlNode(_m));
     });
 };
 
@@ -5629,8 +5022,8 @@ const se_StringList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("String", entry);
-      return node.withName("member");
+      const n = __XmlNode.of(_S, entry);
+      return n.n(_m);
     });
 };
 
@@ -5641,8 +5034,8 @@ const se_StringSet = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("String", entry);
-      return node.withName("member");
+      const n = __XmlNode.of(_S, entry);
+      return n.n(_m);
     });
 };
 
@@ -5653,8 +5046,8 @@ const se_TimestampList = (input: Date[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const node = __XmlNode.of("Timestamp", entry.toISOString().split(".")[0] + "Z");
-      return node.withName("member");
+      const n = __XmlNode.of(_T, entry.toISOString().split(".")[0] + "Z");
+      return n.n(_m);
     });
 };
 
@@ -5663,8 +5056,8 @@ const se_TimestampList = (input: Date[], context: __SerdeContext): any => {
  */
 const de_ComplexNestedErrorData = (output: any, context: __SerdeContext): ComplexNestedErrorData => {
   const contents: any = {};
-  if (output["Foo"] !== undefined) {
-    contents.Foo = __expectString(output["Foo"]);
+  if (output[_Fo] != null) {
+    contents[_Fo] = __expectString(output[_Fo]);
   }
   return contents;
 };
@@ -5720,7 +5113,7 @@ const de_ListWithNamespace = (output: any, context: __SerdeContext): string[] =>
 /**
  * deserializeAws_restXmlNestedMap
  */
-const de_NestedMap = (output: any, context: __SerdeContext): Record<string, Record<string, FooEnum | string>> => {
+const de_NestedMap = (output: any, context: __SerdeContext): Record<string, Record<string, FooEnum>> => {
   return output.reduce((acc: any, pair: any) => {
     if (__getArrayIfSingleItem(pair["value"]["entry"]) === null) {
       return acc;
@@ -5735,11 +5128,11 @@ const de_NestedMap = (output: any, context: __SerdeContext): Record<string, Reco
  */
 const de_NestedPayload = (output: any, context: __SerdeContext): NestedPayload => {
   const contents: any = {};
-  if (output["greeting"] !== undefined) {
-    contents.greeting = __expectString(output["greeting"]);
+  if (output[_g] != null) {
+    contents[_g] = __expectString(output[_g]);
   }
-  if (output["name"] !== undefined) {
-    contents.name = __expectString(output["name"]);
+  if (output[_na] != null) {
+    contents[_na] = __expectString(output[_na]);
   }
   return contents;
 };
@@ -5749,8 +5142,8 @@ const de_NestedPayload = (output: any, context: __SerdeContext): NestedPayload =
  */
 const de_PayloadWithXmlName = (output: any, context: __SerdeContext): PayloadWithXmlName => {
   const contents: any = {};
-  if (output["name"] !== undefined) {
-    contents.name = __expectString(output["name"]);
+  if (output[_na] != null) {
+    contents[_na] = __expectString(output[_na]);
   }
   return contents;
 };
@@ -5760,8 +5153,8 @@ const de_PayloadWithXmlName = (output: any, context: __SerdeContext): PayloadWit
  */
 const de_PayloadWithXmlNamespace = (output: any, context: __SerdeContext): PayloadWithXmlNamespace => {
   const contents: any = {};
-  if (output["name"] !== undefined) {
-    contents.name = __expectString(output["name"]);
+  if (output[_na] != null) {
+    contents[_na] = __expectString(output[_na]);
   }
   return contents;
 };
@@ -5774,8 +5167,8 @@ const de_PayloadWithXmlNamespaceAndPrefix = (
   context: __SerdeContext
 ): PayloadWithXmlNamespaceAndPrefix => {
   const contents: any = {};
-  if (output["name"] !== undefined) {
-    contents.name = __expectString(output["name"]);
+  if (output[_na] != null) {
+    contents[_na] = __expectString(output[_na]);
   }
   return contents;
 };
@@ -5788,11 +5181,11 @@ const de_RecursiveShapesInputOutputNested1 = (
   context: __SerdeContext
 ): RecursiveShapesInputOutputNested1 => {
   const contents: any = {};
-  if (output["foo"] !== undefined) {
-    contents.foo = __expectString(output["foo"]);
+  if (output[_f] != null) {
+    contents[_f] = __expectString(output[_f]);
   }
-  if (output["nested"] !== undefined) {
-    contents.nested = de_RecursiveShapesInputOutputNested2(output["nested"], context);
+  if (output[_n] != null) {
+    contents[_n] = de_RecursiveShapesInputOutputNested2(output[_n], context);
   }
   return contents;
 };
@@ -5805,11 +5198,11 @@ const de_RecursiveShapesInputOutputNested2 = (
   context: __SerdeContext
 ): RecursiveShapesInputOutputNested2 => {
   const contents: any = {};
-  if (output["bar"] !== undefined) {
-    contents.bar = __expectString(output["bar"]);
+  if (output[_ba] != null) {
+    contents[_ba] = __expectString(output[_ba]);
   }
-  if (output["recursiveMember"] !== undefined) {
-    contents.recursiveMember = de_RecursiveShapesInputOutputNested1(output["recursiveMember"], context);
+  if (output[_rM] != null) {
+    contents[_rM] = de_RecursiveShapesInputOutputNested1(output[_rM], context);
   }
   return contents;
 };
@@ -5841,13 +5234,25 @@ const de_StructureList = (output: any, context: __SerdeContext): StructureListMe
  */
 const de_StructureListMember = (output: any, context: __SerdeContext): StructureListMember => {
   const contents: any = {};
-  if (output["value"] !== undefined) {
-    contents.a = __expectString(output["value"]);
+  if (output[_v] != null) {
+    contents[_a] = __expectString(output[_v]);
   }
-  if (output["other"] !== undefined) {
-    contents.b = __expectString(output["other"]);
+  if (output[_o] != null) {
+    contents[_b_] = __expectString(output[_o]);
   }
   return contents;
+};
+
+/**
+ * deserializeAws_restXmlUnionPayload
+ */
+const de_UnionPayload = (output: any, context: __SerdeContext): UnionPayload => {
+  if (output[_g] != null) {
+    return {
+      greeting: __expectString(output[_g]) as any,
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
 };
 
 /**
@@ -5855,11 +5260,11 @@ const de_StructureListMember = (output: any, context: __SerdeContext): Structure
  */
 const de_XmlAttributesInputOutput = (output: any, context: __SerdeContext): XmlAttributesInputOutput => {
   const contents: any = {};
-  if (output["foo"] !== undefined) {
-    contents.foo = __expectString(output["foo"]);
+  if (output[_f] != null) {
+    contents[_f] = __expectString(output[_f]);
   }
-  if (output["test"] !== undefined) {
-    contents.attr = __expectString(output["test"]);
+  if (output[_te] != null) {
+    contents[_at] = __expectString(output[_te]);
   }
   return contents;
 };
@@ -5891,6 +5296,19 @@ const de_XmlMapsXmlNameInputOutputMap = (output: any, context: __SerdeContext): 
 };
 
 /**
+ * deserializeAws_restXmlXmlMapWithXmlNamespaceInputOutputMap
+ */
+const de_XmlMapWithXmlNamespaceInputOutputMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["V"] === null) {
+      return acc;
+    }
+    acc[pair["K"]] = __expectString(pair["V"]) as any;
+    return acc;
+  }, {});
+};
+
+/**
  * deserializeAws_restXmlXmlNamespacedList
  */
 const de_XmlNamespacedList = (output: any, context: __SerdeContext): string[] => {
@@ -5906,13 +5324,13 @@ const de_XmlNamespacedList = (output: any, context: __SerdeContext): string[] =>
  */
 const de_XmlNamespaceNested = (output: any, context: __SerdeContext): XmlNamespaceNested => {
   const contents: any = {};
-  if (output["foo"] !== undefined) {
-    contents.foo = __expectString(output["foo"]);
+  if (output[_f] != null) {
+    contents[_f] = __expectString(output[_f]);
   }
   if (output.values === "") {
-    contents.values = [];
-  } else if (output["values"] !== undefined && output["values"]["member"] !== undefined) {
-    contents.values = de_XmlNamespacedList(__getArrayIfSingleItem(output["values"]["member"]), context);
+    contents[_va] = [];
+  } else if (output[_va] != null && output[_va][_m] != null) {
+    contents[_va] = de_XmlNamespacedList(__getArrayIfSingleItem(output[_va][_m]), context);
   }
   return contents;
 };
@@ -5922,29 +5340,29 @@ const de_XmlNamespaceNested = (output: any, context: __SerdeContext): XmlNamespa
  */
 const de_XmlNestedUnionStruct = (output: any, context: __SerdeContext): XmlNestedUnionStruct => {
   const contents: any = {};
-  if (output["stringValue"] !== undefined) {
-    contents.stringValue = __expectString(output["stringValue"]);
+  if (output[_sVt] != null) {
+    contents[_sVt] = __expectString(output[_sVt]);
   }
-  if (output["booleanValue"] !== undefined) {
-    contents.booleanValue = __parseBoolean(output["booleanValue"]);
+  if (output[_bVo] != null) {
+    contents[_bVo] = __parseBoolean(output[_bVo]);
   }
-  if (output["byteValue"] !== undefined) {
-    contents.byteValue = __strictParseByte(output["byteValue"]) as number;
+  if (output[_bV] != null) {
+    contents[_bV] = __strictParseByte(output[_bV]) as number;
   }
-  if (output["shortValue"] !== undefined) {
-    contents.shortValue = __strictParseShort(output["shortValue"]) as number;
+  if (output[_sV] != null) {
+    contents[_sV] = __strictParseShort(output[_sV]) as number;
   }
-  if (output["integerValue"] !== undefined) {
-    contents.integerValue = __strictParseInt32(output["integerValue"]) as number;
+  if (output[_iV] != null) {
+    contents[_iV] = __strictParseInt32(output[_iV]) as number;
   }
-  if (output["longValue"] !== undefined) {
-    contents.longValue = __strictParseLong(output["longValue"]) as number;
+  if (output[_lV] != null) {
+    contents[_lV] = __strictParseLong(output[_lV]) as number;
   }
-  if (output["floatValue"] !== undefined) {
-    contents.floatValue = __strictParseFloat(output["floatValue"]) as number;
+  if (output[_fV] != null) {
+    contents[_fV] = __strictParseFloat(output[_fV]) as number;
   }
-  if (output["doubleValue"] !== undefined) {
-    contents.doubleValue = __strictParseFloat(output["doubleValue"]) as number;
+  if (output[_dV] != null) {
+    contents[_dV] = __strictParseFloat(output[_dV]) as number;
   }
   return contents;
 };
@@ -5953,56 +5371,56 @@ const de_XmlNestedUnionStruct = (output: any, context: __SerdeContext): XmlNeste
  * deserializeAws_restXmlXmlUnionShape
  */
 const de_XmlUnionShape = (output: any, context: __SerdeContext): XmlUnionShape => {
-  if (output["stringValue"] !== undefined) {
+  if (output[_sVt] != null) {
     return {
-      stringValue: __expectString(output["stringValue"]) as any,
+      stringValue: __expectString(output[_sVt]) as any,
     };
   }
-  if (output["booleanValue"] !== undefined) {
+  if (output[_bVo] != null) {
     return {
-      booleanValue: __parseBoolean(output["booleanValue"]),
+      booleanValue: __parseBoolean(output[_bVo]),
     };
   }
-  if (output["byteValue"] !== undefined) {
+  if (output[_bV] != null) {
     return {
-      byteValue: __strictParseByte(output["byteValue"]) as number,
+      byteValue: __strictParseByte(output[_bV]) as number,
     };
   }
-  if (output["shortValue"] !== undefined) {
+  if (output[_sV] != null) {
     return {
-      shortValue: __strictParseShort(output["shortValue"]) as number,
+      shortValue: __strictParseShort(output[_sV]) as number,
     };
   }
-  if (output["integerValue"] !== undefined) {
+  if (output[_iV] != null) {
     return {
-      integerValue: __strictParseInt32(output["integerValue"]) as number,
+      integerValue: __strictParseInt32(output[_iV]) as number,
     };
   }
-  if (output["longValue"] !== undefined) {
+  if (output[_lV] != null) {
     return {
-      longValue: __strictParseLong(output["longValue"]) as number,
+      longValue: __strictParseLong(output[_lV]) as number,
     };
   }
-  if (output["floatValue"] !== undefined) {
+  if (output[_fV] != null) {
     return {
-      floatValue: __strictParseFloat(output["floatValue"]) as number,
+      floatValue: __strictParseFloat(output[_fV]) as number,
     };
   }
-  if (output["doubleValue"] !== undefined) {
+  if (output[_dV] != null) {
     return {
-      doubleValue: __strictParseFloat(output["doubleValue"]) as number,
+      doubleValue: __strictParseFloat(output[_dV]) as number,
     };
   }
   if (output.unionValue === "") {
     // Pass empty tags.
-  } else if (output["unionValue"] !== undefined) {
+  } else if (output[_uV] != null) {
     return {
-      unionValue: de_XmlUnionShape(__expectUnion(output["unionValue"]), context),
+      unionValue: de_XmlUnionShape(__expectUnion(output[_uV]), context),
     };
   }
-  if (output["structValue"] !== undefined) {
+  if (output[_sVtr] != null) {
     return {
-      structValue: de_XmlNestedUnionStruct(output["structValue"], context),
+      structValue: de_XmlNestedUnionStruct(output[_sVtr], context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
@@ -6022,7 +5440,7 @@ const de_BooleanList = (output: any, context: __SerdeContext): boolean[] => {
 /**
  * deserializeAws_restXmlFooEnumList
  */
-const de_FooEnumList = (output: any, context: __SerdeContext): (FooEnum | string)[] => {
+const de_FooEnumList = (output: any, context: __SerdeContext): FooEnum[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6033,7 +5451,7 @@ const de_FooEnumList = (output: any, context: __SerdeContext): (FooEnum | string
 /**
  * deserializeAws_restXmlFooEnumMap
  */
-const de_FooEnumMap = (output: any, context: __SerdeContext): Record<string, FooEnum | string> => {
+const de_FooEnumMap = (output: any, context: __SerdeContext): Record<string, FooEnum> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;
@@ -6046,7 +5464,7 @@ const de_FooEnumMap = (output: any, context: __SerdeContext): Record<string, Foo
 /**
  * deserializeAws_restXmlFooEnumSet
  */
-const de_FooEnumSet = (output: any, context: __SerdeContext): (FooEnum | string)[] => {
+const de_FooEnumSet = (output: any, context: __SerdeContext): FooEnum[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6059,8 +5477,8 @@ const de_FooEnumSet = (output: any, context: __SerdeContext): (FooEnum | string)
  */
 const de_GreetingStruct = (output: any, context: __SerdeContext): GreetingStruct => {
   const contents: any = {};
-  if (output["hi"] !== undefined) {
-    contents.hi = __expectString(output["hi"]);
+  if (output[_hi] != null) {
+    contents[_hi] = __expectString(output[_hi]);
   }
   return contents;
 };
@@ -6068,7 +5486,7 @@ const de_GreetingStruct = (output: any, context: __SerdeContext): GreetingStruct
 /**
  * deserializeAws_restXmlIntegerEnumList
  */
-const de_IntegerEnumList = (output: any, context: __SerdeContext): (IntegerEnum | number)[] => {
+const de_IntegerEnumList = (output: any, context: __SerdeContext): IntegerEnum[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6079,7 +5497,7 @@ const de_IntegerEnumList = (output: any, context: __SerdeContext): (IntegerEnum 
 /**
  * deserializeAws_restXmlIntegerEnumMap
  */
-const de_IntegerEnumMap = (output: any, context: __SerdeContext): Record<string, IntegerEnum | number> => {
+const de_IntegerEnumMap = (output: any, context: __SerdeContext): Record<string, IntegerEnum> => {
   return output.reduce((acc: any, pair: any) => {
     if (pair["value"] === null) {
       return acc;
@@ -6092,7 +5510,7 @@ const de_IntegerEnumMap = (output: any, context: __SerdeContext): Record<string,
 /**
  * deserializeAws_restXmlIntegerEnumSet
  */
-const de_IntegerEnumSet = (output: any, context: __SerdeContext): (IntegerEnum | number)[] => {
+const de_IntegerEnumSet = (output: any, context: __SerdeContext): IntegerEnum[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -6173,6 +5591,232 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _A = "Ahoy";
+const _B = "Byte";
+const _BL = "BooleanList";
+const _Bl = "Blob";
+const _Bo = "Boolean";
+const _D = "Double";
+const _DD = "DoubleDribble";
+const _DL = "DoubleList";
+const _DT = "DateTime";
+const _E = "Enum";
+const _EL = "EnumList";
+const _ES = "EpochSeconds";
+const _Em = "Empty";
+const _F = "Float";
+const _FE = "FooEnum";
+const _FXMIO = "FlattenedXmlMapInputOutput";
+const _FXMWXNIO = "FlattenedXmlMapWithXmlNameInputOutput";
+const _Fo = "Foo";
+const _GS = "GreetingStruct";
+const _H = "Header";
+const _HD = "HttpDate";
+const _HLI = "HostLabelInput";
+const _He = "Hello";
+const _I = "Integer";
+const _IE = "IntegerEnum";
+const _IEL = "IntegerEnumList";
+const _IL = "IntegerList";
+const _IS = "IntegerSet";
+const _KVP = "KVP";
+const _L = "Long";
+const _M = "Message";
+const _N = "Null";
+const _NP = "NestedPayload";
+const _NXMIO = "NestedXmlMapsInputOutput";
+const _Ne = "Nested";
+const _PWCEI = "PutWithContentEncodingInput";
+const _PWXN = "PayloadWithXmlNamespace";
+const _PWXNAP = "PayloadWithXmlNamespaceAndPrefix";
+const _RSIO = "RecursiveShapesInputOutput";
+const _RSION = "RecursiveShapesInputOutputNested1";
+const _RSIONe = "RecursiveShapesInputOutputNested2";
+const _S = "String";
+const _SL = "StringList";
+const _SLM = "StructureListMember";
+const _SS = "StringSet";
+const _SSPIO = "SimpleScalarPropertiesInputOutput";
+const _Se = "Setting";
+const _Sh = "Short";
+const _T = "Timestamp";
+const _TL = "TimestampList";
+const _TLo = "TopLevel";
+const _UP = "UnionPayload";
+const _V = "V";
+const _XAIO = "XmlAttributesInputOutput";
+const _XBIO = "XmlBlobsInputOutput";
+const _XEIO = "XmlEnumsInputOutput";
+const _XESIO = "XmlEmptyStringsInputOutput";
+const _XIEIO = "XmlIntEnumsInputOutput";
+const _XLIO = "XmlListsInputOutput";
+const _XMIO = "XmlMapsInputOutput";
+const _XMWXNIO = "XmlMapWithXmlNamespaceInputOutput";
+const _XMXNIO = "XmlMapsXmlNameInputOutput";
+const _XNIO = "XmlNamespacesInputOutput";
+const _XNN = "XmlNamespaceNested";
+const _XNUS = "XmlNestedUnionStruct";
+const _XTIO = "XmlTimestampsInputOutput";
+const _XUIO = "XmlUnionsInputOutput";
+const _XUS = "XmlUnionShape";
+const _a = "a";
+const _aI = "accountId";
+const _at = "attr";
+const _b = "baz";
+const _bL = "booleanList";
+const _bV = "byteValue";
+const _bVo = "booleanValue";
+const _b_ = "b";
+const _ba = "bar";
+const _c = "c";
+const _cN = "customName";
+const _ce = "content-encoding";
+const _co = "corge";
+const _d = "data";
+const _dF = "defaultFormat";
+const _dT = "dateTime";
+const _dTOT = "dateTimeOnTarget";
+const _dV = "doubleValue";
+const _da = "datetime";
+const _e = "encoding";
+const _eL = "enumList";
+const _eS = "emptyString";
+const _eSOT = "epochSecondsOnTarget";
+const _eSp = "epochSeconds";
+const _en = "entry";
+const _f = "foo";
+const _fBV = "falseBooleanValue";
+const _fE = "fooEnum1";
+const _fEL = "fooEnumList";
+const _fEM = "fooEnumMap";
+const _fES = "fooEnumSet";
+const _fEo = "fooEnum2";
+const _fEoo = "fooEnum3";
+const _fL = "flattenedList";
+const _fLWMN = "flattenedListWithMemberNamespace";
+const _fLWN = "flattenedListWithNamespace";
+const _fLl = "flattenedList2";
+const _fNM = "flatNestedMap";
+const _fSL = "flattenedStructureList";
+const _fV = "floatValue";
+const _g = "greeting";
+const _h = "hello";
+const _hB = "headerByte";
+const _hBL = "headerBooleanList";
+const _hD = "headerDouble";
+const _hDOT = "httpDateOnTarget";
+const _hDt = "httpDate";
+const _hE = "headerEnum";
+const _hEL = "headerEnumList";
+const _hF = "headerFloat";
+const _hFB = "headerFalseBool";
+const _hI = "headerInteger";
+const _hIL = "headerIntegerList";
+const _hL = "headerLong";
+const _hS = "headerString";
+const _hSL = "headerStringList";
+const _hSS = "headerStringSet";
+const _hSe = "headerShort";
+const _hTB = "headerTrueBool";
+const _hTL = "headerTimestampList";
+const _hi = "hi";
+const _i = "item";
+const _iE = "intEnum1";
+const _iEL = "intEnumList";
+const _iEM = "intEnumMap";
+const _iES = "intEnumSet";
+const _iEn = "intEnum2";
+const _iEnt = "intEnum3";
+const _iL = "integerList";
+const _iV = "integerValue";
+const _l = "label";
+const _lV = "longValue";
+const _m = "member";
+const _mDT = "memberDateTime";
+const _mES = "memberEpochSeconds";
+const _mHD = "memberHttpDate";
+const _mM = "myMap";
+const _mS = "maybeSet";
+const _mSL = "myStructureList";
+const _n = "nested";
+const _nM = "nestedMap";
+const _nSL = "nestedStringList";
+const _nV = "nullValue";
+const _na = "name";
+const _no = "normal";
+const _o = "other";
+const _q = "qux";
+const _qB = "queryByte";
+const _qBL = "queryBooleanList";
+const _qBu = "queryBoolean";
+const _qD = "queryDouble";
+const _qDL = "queryDoubleList";
+const _qE = "queryEnum";
+const _qEL = "queryEnumList";
+const _qF = "queryFloat";
+const _qI = "queryInteger";
+const _qIE = "queryIntegerEnum";
+const _qIEL = "queryIntegerEnumList";
+const _qIL = "queryIntegerList";
+const _qIS = "queryIntegerSet";
+const _qL = "queryLong";
+const _qS = "queryString";
+const _qSL = "queryStringList";
+const _qSS = "queryStringSet";
+const _qSu = "queryShort";
+const _qT = "queryTimestamp";
+const _qTL = "queryTimestampList";
+const _r = "renamed";
+const _rLM = "renamedListMembers";
+const _rM = "recursiveMember";
+const _sL = "stringList";
+const _sLt = "structureList";
+const _sS = "stringSet";
+const _sV = "shortValue";
+const _sVt = "stringValue";
+const _sVtr = "structValue";
+const _t = "token";
+const _tBV = "trueBooleanValue";
+const _tDT = "targetDateTime";
+const _tES = "targetEpochSeconds";
+const _tHD = "targetHttpDate";
+const _tL = "timestampList";
+const _te = "test";
+const _uV = "unionValue";
+const _v = "value";
+const _va = "values";
+const _ve = '<?xml version="1.0" encoding="UTF-8"?>';
+const _xa = "x-a";
+const _xaai = "x-amz-account-id";
+const _xb = "x-byte";
+const _xb_ = "x-boolean1";
+const _xb__ = "x-boolean2";
+const _xb___ = "x-booleanlist";
+const _xb____ = "x-b";
+const _xc = "x-c";
+const _xd = "x-double";
+const _xd_ = "x-defaultformat";
+const _xe = "x-enum";
+const _xe_ = "x-enumlist";
+const _xf = "x-foo";
+const _xf_ = "x-float";
+const _xg = "x-greeting";
+const _xh = "x-header";
+const _xi = "x-integer";
+const _xi_ = "x-integerlist";
+const _xl = "x-long";
+const _xm = "x-memberepochseconds";
+const _xm_ = "x-memberhttpdate";
+const _xm__ = "x-memberdatetime";
+const _xs = "x-string";
+const _xs_ = "x-short";
+const _xs__ = "x-stringlist";
+const _xs___ = "x-stringset";
+const _xt = "x-timestamplist";
+const _xt_ = "x-targetepochseconds";
+const _xt__ = "x-targethttpdate";
+const _xt___ = "x-targetdatetime";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

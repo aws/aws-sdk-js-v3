@@ -33,6 +33,7 @@ import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+import software.amazon.smithy.typescript.codegen.auth.http.integration.AddHttpAuthSchemePlugin;
 import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.ListUtils;
@@ -45,6 +46,12 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  */
 @SmithyInternalApi
 public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
+
+    @Override
+    public List<String> runAfter() {
+        return List.of(AddHttpAuthSchemePlugin.class.getCanonicalName());
+    }
+
     @Override
     public List<RuntimeClientPlugin> getClientPlugins() {
         return ListUtils.of(
@@ -52,13 +59,11 @@ public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
                         .withConventions(AwsDependency.MIDDLEWARE_EVENTSTREAM.dependency,
                                 "EventStream", HAS_CONFIG)
                         .servicePredicate(AddEventStreamHandlingDependency::hasEventStreamInput)
-                        .settingsPredicate((m, s, settings) -> !settings.getExperimentalIdentityAndAuth())
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MIDDLEWARE_EVENTSTREAM.dependency,
                                 "EventStream", HAS_MIDDLEWARE)
                         .operationPredicate(AddEventStreamHandlingDependency::hasEventStreamInput)
-                        .settingsPredicate((m, s, settings) -> !settings.getExperimentalIdentityAndAuth())
                         .build()
         );
     }
@@ -70,10 +75,6 @@ public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
             SymbolProvider symbolProvider,
             TypeScriptWriter writer
     ) {
-        if (settings.getExperimentalIdentityAndAuth()) {
-            return;
-        }
-        // feat(experimentalIdentityAndAuth): control branch for event stream handler interface fields
         if (hasEventStreamInput(model, settings.getService(model))) {
             writer.addImport("EventStreamPayloadHandlerProvider", "__EventStreamPayloadHandlerProvider",
                     TypeScriptDependency.AWS_SDK_TYPES);
@@ -94,11 +95,6 @@ public class AddEventStreamHandlingDependency implements TypeScriptIntegration {
         if (!hasEventStreamInput(model, service)) {
             return Collections.emptyMap();
         }
-
-        if (settings.getExperimentalIdentityAndAuth()) {
-            return Collections.emptyMap();
-        }
-        // feat(experimentalIdentityAndAuth): control branch for event stream handler runtime config
         switch (target) {
             case NODE:
                 return MapUtils.of("eventStreamPayloadHandlerProvider", writer -> {

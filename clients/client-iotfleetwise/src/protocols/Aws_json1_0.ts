@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -10,7 +11,6 @@ import {
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
   serializeFloat as __serializeFloat,
@@ -66,6 +66,10 @@ import {
 } from "../commands/DisassociateVehicleFleetCommand";
 import { GetCampaignCommandInput, GetCampaignCommandOutput } from "../commands/GetCampaignCommand";
 import { GetDecoderManifestCommandInput, GetDecoderManifestCommandOutput } from "../commands/GetDecoderManifestCommand";
+import {
+  GetEncryptionConfigurationCommandInput,
+  GetEncryptionConfigurationCommandOutput,
+} from "../commands/GetEncryptionConfigurationCommand";
 import { GetFleetCommandInput, GetFleetCommandOutput } from "../commands/GetFleetCommand";
 import { GetLoggingOptionsCommandInput, GetLoggingOptionsCommandOutput } from "../commands/GetLoggingOptionsCommand";
 import { GetModelManifestCommandInput, GetModelManifestCommandOutput } from "../commands/GetModelManifestCommand";
@@ -121,6 +125,10 @@ import {
   ListVehiclesInFleetCommandInput,
   ListVehiclesInFleetCommandOutput,
 } from "../commands/ListVehiclesInFleetCommand";
+import {
+  PutEncryptionConfigurationCommandInput,
+  PutEncryptionConfigurationCommandOutput,
+} from "../commands/PutEncryptionConfigurationCommand";
 import { PutLoggingOptionsCommandInput, PutLoggingOptionsCommandOutput } from "../commands/PutLoggingOptionsCommand";
 import { RegisterAccountCommandInput, RegisterAccountCommandOutput } from "../commands/RegisterAccountCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
@@ -164,6 +172,8 @@ import {
   CreateSignalCatalogRequest,
   CreateVehicleRequest,
   CreateVehicleRequestItem,
+  CustomProperty,
+  CustomStruct,
   DataDestinationConfig,
   DecoderManifestSummary,
   DecoderManifestValidationException,
@@ -180,6 +190,8 @@ import {
   GetCampaignResponse,
   GetDecoderManifestRequest,
   GetDecoderManifestResponse,
+  GetEncryptionConfigurationRequest,
+  GetEncryptionConfigurationResponse,
   GetFleetRequest,
   GetFleetResponse,
   GetLoggingOptionsRequest,
@@ -221,21 +233,28 @@ import {
   ListVehiclesInFleetRequest,
   ListVehiclesRequest,
   ListVehiclesResponse,
+  MessageSignal,
   ModelManifestSummary,
   NetworkFileDefinition,
   NetworkInterface,
   Node,
   ObdInterface,
   ObdSignal,
+  PrimitiveMessageDefinition,
+  PutEncryptionConfigurationRequest,
   PutLoggingOptionsRequest,
   RegisterAccountRequest,
   RegisterAccountResponse,
   ResourceNotFoundException,
+  ROS2PrimitiveMessageDefinition,
   S3Config,
   Sensor,
   SignalCatalogSummary,
   SignalDecoder,
   SignalInformation,
+  StructuredMessage,
+  StructuredMessageFieldNameAndDataTypePair,
+  StructuredMessageListDefinition,
   Tag,
   TagResourceRequest,
   ThrottlingException,
@@ -251,6 +270,7 @@ import {
   UpdateVehicleRequest,
   UpdateVehicleRequestItem,
   ValidationException,
+  VehicleMiddleware,
   VehicleSummary,
 } from "../models/models_0";
 
@@ -483,6 +503,19 @@ export const se_GetDecoderManifestCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetDecoderManifest");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0GetEncryptionConfigurationCommand
+ */
+export const se_GetEncryptionConfigurationCommand = async (
+  input: GetEncryptionConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetEncryptionConfiguration");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -775,6 +808,19 @@ export const se_ListVehiclesInFleetCommand = async (
 };
 
 /**
+ * serializeAws_json1_0PutEncryptionConfigurationCommand
+ */
+export const se_PutEncryptionConfigurationCommand = async (
+  input: PutEncryptionConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("PutEncryptionConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0PutLoggingOptionsCommand
  */
 export const se_PutLoggingOptionsCommand = async (
@@ -943,6 +989,9 @@ const de_AssociateVehicleFleetCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.iotfleetwise#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.iotfleetwise#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -1953,6 +2002,64 @@ const de_GetDecoderManifestCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDecoderManifestCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotfleetwise#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iotfleetwise#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotfleetwise#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotfleetwise#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0GetEncryptionConfigurationCommand
+ */
+export const de_GetEncryptionConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEncryptionConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_GetEncryptionConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetEncryptionConfigurationResponse(data, context);
+  const response: GetEncryptionConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0GetEncryptionConfigurationCommandError
+ */
+const de_GetEncryptionConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEncryptionConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3264,6 +3371,67 @@ const de_ListVehiclesInFleetCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_0PutEncryptionConfigurationCommand
+ */
+export const de_PutEncryptionConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutEncryptionConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_PutEncryptionConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutEncryptionConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0PutEncryptionConfigurationCommandError
+ */
+const de_PutEncryptionConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutEncryptionConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iotfleetwise#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.iotfleetwise#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iotfleetwise#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iotfleetwise#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotfleetwise#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotfleetwise#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_0PutLoggingOptionsCommand
  */
 export const de_PutLoggingOptionsCommand = async (
@@ -4050,6 +4218,7 @@ const se_Actuator = (input: Actuator, context: __SerdeContext): any => {
     fullyQualifiedName: [],
     max: __serializeFloat,
     min: __serializeFloat,
+    structFullyQualifiedName: [],
     unit: [],
   });
 };
@@ -4178,6 +4347,10 @@ const se_CreateSignalCatalogRequest = (input: CreateSignalCatalogRequest, contex
 
 // se_createVehicleRequestItems omitted.
 
+// se_CustomProperty omitted.
+
+// se_CustomStruct omitted.
+
 // se_DataDestinationConfig omitted.
 
 // se_DataDestinationConfigs omitted.
@@ -4205,6 +4378,8 @@ const se_CreateSignalCatalogRequest = (input: CreateSignalCatalogRequest, contex
 // se_GetCampaignRequest omitted.
 
 // se_GetDecoderManifestRequest omitted.
+
+// se_GetEncryptionConfigurationRequest omitted.
 
 // se_GetFleetRequest omitted.
 
@@ -4264,6 +4439,16 @@ const se_ImportDecoderManifestRequest = (input: ImportDecoderManifestRequest, co
 
 // se_ListVehiclesRequest omitted.
 
+/**
+ * serializeAws_json1_0MessageSignal
+ */
+const se_MessageSignal = (input: MessageSignal, context: __SerdeContext): any => {
+  return take(input, {
+    structuredMessage: (_) => se_StructuredMessage(_, context),
+    topicName: [],
+  });
+};
+
 // se_ModelSignalsMap omitted.
 
 /**
@@ -4310,7 +4495,9 @@ const se_Node = (input: Node, context: __SerdeContext): any => {
     actuator: (value) => ({ actuator: se_Actuator(value, context) }),
     attribute: (value) => ({ attribute: se_Attribute(value, context) }),
     branch: (value) => ({ branch: _json(value) }),
+    property: (value) => ({ property: _json(value) }),
     sensor: (value) => ({ sensor: se_Sensor(value, context) }),
+    struct: (value) => ({ struct: _json(value) }),
     _: (name, value) => ({ name: value } as any),
   });
 };
@@ -4347,9 +4534,35 @@ const se_ObdSignal = (input: ObdSignal, context: __SerdeContext): any => {
   });
 };
 
+/**
+ * serializeAws_json1_0PrimitiveMessageDefinition
+ */
+const se_PrimitiveMessageDefinition = (input: PrimitiveMessageDefinition, context: __SerdeContext): any => {
+  return PrimitiveMessageDefinition.visit(input, {
+    ros2PrimitiveMessageDefinition: (value) => ({
+      ros2PrimitiveMessageDefinition: se_ROS2PrimitiveMessageDefinition(value, context),
+    }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+// se_PutEncryptionConfigurationRequest omitted.
+
 // se_PutLoggingOptionsRequest omitted.
 
 // se_RegisterAccountRequest omitted.
+
+/**
+ * serializeAws_json1_0ROS2PrimitiveMessageDefinition
+ */
+const se_ROS2PrimitiveMessageDefinition = (input: ROS2PrimitiveMessageDefinition, context: __SerdeContext): any => {
+  return take(input, {
+    offset: __serializeFloat,
+    primitiveType: [],
+    scaling: __serializeFloat,
+    upperBound: [],
+  });
+};
 
 // se_S3Config omitted.
 
@@ -4366,6 +4579,7 @@ const se_Sensor = (input: Sensor, context: __SerdeContext): any => {
     fullyQualifiedName: [],
     max: __serializeFloat,
     min: __serializeFloat,
+    structFullyQualifiedName: [],
     unit: [],
   });
 };
@@ -4378,6 +4592,7 @@ const se_SignalDecoder = (input: SignalDecoder, context: __SerdeContext): any =>
     canSignal: (_) => se_CanSignal(_, context),
     fullyQualifiedName: [],
     interfaceId: [],
+    messageSignal: (_) => se_MessageSignal(_, context),
     obdSignal: (_) => se_ObdSignal(_, context),
     type: [],
   });
@@ -4397,6 +4612,63 @@ const se_SignalDecoders = (input: SignalDecoder[], context: __SerdeContext): any
 // se_SignalInformation omitted.
 
 // se_SignalInformationList omitted.
+
+/**
+ * serializeAws_json1_0StructuredMessage
+ */
+const se_StructuredMessage = (input: StructuredMessage, context: __SerdeContext): any => {
+  return StructuredMessage.visit(input, {
+    primitiveMessageDefinition: (value) => ({
+      primitiveMessageDefinition: se_PrimitiveMessageDefinition(value, context),
+    }),
+    structuredMessageDefinition: (value) => ({
+      structuredMessageDefinition: se_StructuredMessageDefinition(value, context),
+    }),
+    structuredMessageListDefinition: (value) => ({
+      structuredMessageListDefinition: se_StructuredMessageListDefinition(value, context),
+    }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+/**
+ * serializeAws_json1_0StructuredMessageDefinition
+ */
+const se_StructuredMessageDefinition = (
+  input: StructuredMessageFieldNameAndDataTypePair[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_StructuredMessageFieldNameAndDataTypePair(entry, context);
+    });
+};
+
+/**
+ * serializeAws_json1_0StructuredMessageFieldNameAndDataTypePair
+ */
+const se_StructuredMessageFieldNameAndDataTypePair = (
+  input: StructuredMessageFieldNameAndDataTypePair,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    dataType: (_) => se_StructuredMessage(_, context),
+    fieldName: [],
+  });
+};
+
+/**
+ * serializeAws_json1_0StructuredMessageListDefinition
+ */
+const se_StructuredMessageListDefinition = (input: StructuredMessageListDefinition, context: __SerdeContext): any => {
+  return take(input, {
+    capacity: [],
+    listType: [],
+    memberType: (_) => se_StructuredMessage(_, context),
+    name: [],
+  });
+};
 
 // se_Tag omitted.
 
@@ -4456,6 +4728,8 @@ const se_UpdateSignalCatalogRequest = (input: UpdateSignalCatalogRequest, contex
 
 // se_updateVehicleRequestItems omitted.
 
+// se_VehicleMiddleware omitted.
+
 // de_AccessDeniedException omitted.
 
 /**
@@ -4472,6 +4746,7 @@ const de_Actuator = (output: any, context: __SerdeContext): Actuator => {
     fullyQualifiedName: __expectString,
     max: __limitedParseDouble,
     min: __limitedParseDouble,
+    structFullyQualifiedName: __expectString,
     unit: __expectString,
   }) as any;
 };
@@ -4579,6 +4854,10 @@ const de_CanSignal = (output: any, context: __SerdeContext): CanSignal => {
 
 // de_createVehicleResponses omitted.
 
+// de_CustomProperty omitted.
+
+// de_CustomStruct omitted.
+
 // de_DataDestinationConfig omitted.
 
 // de_DataDestinationConfigs omitted.
@@ -4606,6 +4885,7 @@ const de_DecoderManifestSummary = (output: any, context: __SerdeContext): Decode
     creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
     lastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    message: __expectString,
     modelManifestArn: __expectString,
     name: __expectString,
     status: __expectString,
@@ -4692,9 +4972,27 @@ const de_GetDecoderManifestResponse = (output: any, context: __SerdeContext): Ge
     creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
     lastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    message: __expectString,
     modelManifestArn: __expectString,
     name: __expectString,
     status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0GetEncryptionConfigurationResponse
+ */
+const de_GetEncryptionConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): GetEncryptionConfigurationResponse => {
+  return take(output, {
+    creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    encryptionStatus: __expectString,
+    encryptionType: __expectString,
+    errorMessage: __expectString,
+    kmsKeyId: __expectString,
+    lastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
 
@@ -4918,6 +5216,16 @@ const de_ListVehiclesResponse = (output: any, context: __SerdeContext): ListVehi
 };
 
 /**
+ * deserializeAws_json1_0MessageSignal
+ */
+const de_MessageSignal = (output: any, context: __SerdeContext): MessageSignal => {
+  return take(output, {
+    structuredMessage: (_: any) => de_StructuredMessage(__expectUnion(_), context),
+    topicName: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_0modelManifestSummaries
  */
 const de_modelManifestSummaries = (output: any, context: __SerdeContext): ModelManifestSummary[] => {
@@ -4967,9 +5275,19 @@ const de_Node = (output: any, context: __SerdeContext): Node => {
       branch: _json(output.branch),
     };
   }
+  if (output.property != null) {
+    return {
+      property: _json(output.property),
+    };
+  }
   if (output.sensor != null) {
     return {
       sensor: de_Sensor(output.sensor, context),
+    };
+  }
+  if (output.struct != null) {
+    return {
+      struct: _json(output.struct),
     };
   }
   return { $unknown: Object.entries(output)[0] };
@@ -5008,6 +5326,20 @@ const de_ObdSignal = (output: any, context: __SerdeContext): ObdSignal => {
   }) as any;
 };
 
+/**
+ * deserializeAws_json1_0PrimitiveMessageDefinition
+ */
+const de_PrimitiveMessageDefinition = (output: any, context: __SerdeContext): PrimitiveMessageDefinition => {
+  if (output.ros2PrimitiveMessageDefinition != null) {
+    return {
+      ros2PrimitiveMessageDefinition: de_ROS2PrimitiveMessageDefinition(output.ros2PrimitiveMessageDefinition, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+// de_PutEncryptionConfigurationResponse omitted.
+
 // de_PutLoggingOptionsResponse omitted.
 
 /**
@@ -5025,6 +5357,18 @@ const de_RegisterAccountResponse = (output: any, context: __SerdeContext): Regis
 
 // de_ResourceNotFoundException omitted.
 
+/**
+ * deserializeAws_json1_0ROS2PrimitiveMessageDefinition
+ */
+const de_ROS2PrimitiveMessageDefinition = (output: any, context: __SerdeContext): ROS2PrimitiveMessageDefinition => {
+  return take(output, {
+    offset: __limitedParseDouble,
+    primitiveType: __expectString,
+    scaling: __limitedParseDouble,
+    upperBound: __expectLong,
+  }) as any;
+};
+
 // de_S3Config omitted.
 
 /**
@@ -5040,6 +5384,7 @@ const de_Sensor = (output: any, context: __SerdeContext): Sensor => {
     fullyQualifiedName: __expectString,
     max: __limitedParseDouble,
     min: __limitedParseDouble,
+    structFullyQualifiedName: __expectString,
     unit: __expectString,
   }) as any;
 };
@@ -5076,6 +5421,7 @@ const de_SignalDecoder = (output: any, context: __SerdeContext): SignalDecoder =
     canSignal: (_: any) => de_CanSignal(_, context),
     fullyQualifiedName: __expectString,
     interfaceId: __expectString,
+    messageSignal: (_: any) => de_MessageSignal(_, context),
     obdSignal: (_: any) => de_ObdSignal(_, context),
     type: __expectString,
   }) as any;
@@ -5096,6 +5442,74 @@ const de_SignalDecoders = (output: any, context: __SerdeContext): SignalDecoder[
 // de_SignalInformation omitted.
 
 // de_SignalInformationList omitted.
+
+/**
+ * deserializeAws_json1_0StructuredMessage
+ */
+const de_StructuredMessage = (output: any, context: __SerdeContext): StructuredMessage => {
+  if (output.primitiveMessageDefinition != null) {
+    return {
+      primitiveMessageDefinition: de_PrimitiveMessageDefinition(
+        __expectUnion(output.primitiveMessageDefinition),
+        context
+      ),
+    };
+  }
+  if (output.structuredMessageDefinition != null) {
+    return {
+      structuredMessageDefinition: de_StructuredMessageDefinition(output.structuredMessageDefinition, context),
+    };
+  }
+  if (output.structuredMessageListDefinition != null) {
+    return {
+      structuredMessageListDefinition: de_StructuredMessageListDefinition(
+        output.structuredMessageListDefinition,
+        context
+      ),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_json1_0StructuredMessageDefinition
+ */
+const de_StructuredMessageDefinition = (
+  output: any,
+  context: __SerdeContext
+): StructuredMessageFieldNameAndDataTypePair[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_StructuredMessageFieldNameAndDataTypePair(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_0StructuredMessageFieldNameAndDataTypePair
+ */
+const de_StructuredMessageFieldNameAndDataTypePair = (
+  output: any,
+  context: __SerdeContext
+): StructuredMessageFieldNameAndDataTypePair => {
+  return take(output, {
+    dataType: (_: any) => de_StructuredMessage(__expectUnion(_), context),
+    fieldName: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0StructuredMessageListDefinition
+ */
+const de_StructuredMessageListDefinition = (output: any, context: __SerdeContext): StructuredMessageListDefinition => {
+  return take(output, {
+    capacity: __expectInt32,
+    listType: __expectString,
+    memberType: (_: any) => de_StructuredMessage(__expectUnion(_), context),
+    name: __expectString,
+  }) as any;
+};
 
 // de_Tag omitted.
 
@@ -5141,6 +5555,8 @@ const de_SignalDecoders = (output: any, context: __SerdeContext): SignalDecoder[
 
 // de_ValidationExceptionFieldList omitted.
 
+// de_VehicleMiddleware omitted.
+
 // de_vehicles omitted.
 
 // de_VehicleStatus omitted.
@@ -5165,6 +5581,7 @@ const de_vehicleSummaries = (output: any, context: __SerdeContext): VehicleSumma
 const de_VehicleSummary = (output: any, context: __SerdeContext): VehicleSummary => {
   return take(output, {
     arn: __expectString,
+    attributes: _json,
     creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     decoderManifestArn: __expectString,
     lastModificationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),

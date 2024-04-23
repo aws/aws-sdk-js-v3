@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetReservationPurchaseRecommendationRequest,
   GetReservationPurchaseRecommendationResponse,
@@ -213,6 +205,13 @@ export interface GetReservationPurchaseRecommendationCommandOutput
  * //               CurrentGeneration: true || false,
  * //               SizeFlexEligible: true || false,
  * //             },
+ * //             MemoryDBInstanceDetails: { // MemoryDBInstanceDetails
+ * //               Family: "STRING_VALUE",
+ * //               NodeType: "STRING_VALUE",
+ * //               Region: "STRING_VALUE",
+ * //               CurrentGeneration: true || false,
+ * //               SizeFlexEligible: true || false,
+ * //             },
  * //           },
  * //           RecommendedNumberOfInstancesToPurchase: "STRING_VALUE",
  * //           RecommendedNormalizedUnitsToPurchase: "STRING_VALUE",
@@ -264,85 +263,26 @@ export interface GetReservationPurchaseRecommendationCommandOutput
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
-export class GetReservationPurchaseRecommendationCommand extends $Command<
-  GetReservationPurchaseRecommendationCommandInput,
-  GetReservationPurchaseRecommendationCommandOutput,
-  CostExplorerClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetReservationPurchaseRecommendationCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CostExplorerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetReservationPurchaseRecommendationCommandInput, GetReservationPurchaseRecommendationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetReservationPurchaseRecommendationCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CostExplorerClient";
-    const commandName = "GetReservationPurchaseRecommendationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: GetReservationPurchaseRecommendationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_GetReservationPurchaseRecommendationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetReservationPurchaseRecommendationCommandOutput> {
-    return de_GetReservationPurchaseRecommendationCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetReservationPurchaseRecommendationCommand extends $Command
+  .classBuilder<
+    GetReservationPurchaseRecommendationCommandInput,
+    GetReservationPurchaseRecommendationCommandOutput,
+    CostExplorerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSInsightsIndexService", "GetReservationPurchaseRecommendation", {})
+  .n("CostExplorerClient", "GetReservationPurchaseRecommendationCommand")
+  .f(void 0, void 0)
+  .ser(se_GetReservationPurchaseRecommendationCommand)
+  .de(de_GetReservationPurchaseRecommendationCommand)
+  .build() {}

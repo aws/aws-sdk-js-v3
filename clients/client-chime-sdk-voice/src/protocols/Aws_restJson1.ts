@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -384,22 +385,14 @@ export const se_AssociatePhoneNumbersWithVoiceConnectorCommand = async (
   input: AssociatePhoneNumbersWithVoiceConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/voice-connectors/{VoiceConnectorId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   const query: any = map({
-    operation: [, "associate-phone-numbers"],
+    [_o]: [, "associate-phone-numbers"],
   });
   let body: any;
   body = JSON.stringify(
@@ -408,16 +401,8 @@ export const se_AssociatePhoneNumbersWithVoiceConnectorCommand = async (
       ForceAssociate: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -427,23 +412,14 @@ export const se_AssociatePhoneNumbersWithVoiceConnectorGroupCommand = async (
   input: AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connector-groups/{VoiceConnectorGroupId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorGroupId",
-    () => input.VoiceConnectorGroupId!,
-    "{VoiceConnectorGroupId}",
-    false
-  );
+  b.bp("/voice-connector-groups/{VoiceConnectorGroupId}");
+  b.p("VoiceConnectorGroupId", () => input.VoiceConnectorGroupId!, "{VoiceConnectorGroupId}", false);
   const query: any = map({
-    operation: [, "associate-phone-numbers"],
+    [_o]: [, "associate-phone-numbers"],
   });
   let body: any;
   body = JSON.stringify(
@@ -452,16 +428,8 @@ export const se_AssociatePhoneNumbersWithVoiceConnectorGroupCommand = async (
       ForceAssociate: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -471,13 +439,13 @@ export const se_BatchDeletePhoneNumberCommand = async (
   input: BatchDeletePhoneNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/phone-numbers";
+  b.bp("/phone-numbers");
   const query: any = map({
-    operation: [, "batch-delete"],
+    [_o]: [, "batch-delete"],
   });
   let body: any;
   body = JSON.stringify(
@@ -485,16 +453,8 @@ export const se_BatchDeletePhoneNumberCommand = async (
       PhoneNumberIds: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -504,13 +464,13 @@ export const se_BatchUpdatePhoneNumberCommand = async (
   input: BatchUpdatePhoneNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/phone-numbers";
+  b.bp("/phone-numbers");
   const query: any = map({
-    operation: [, "batch-update"],
+    [_o]: [, "batch-update"],
   });
   let body: any;
   body = JSON.stringify(
@@ -518,16 +478,8 @@ export const se_BatchUpdatePhoneNumberCommand = async (
       UpdatePhoneNumberRequestItems: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -537,11 +489,11 @@ export const se_CreatePhoneNumberOrderCommand = async (
   input: CreatePhoneNumberOrderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/phone-number-orders";
+  b.bp("/phone-number-orders");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -550,15 +502,8 @@ export const se_CreatePhoneNumberOrderCommand = async (
       ProductType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -568,21 +513,12 @@ export const se_CreateProxySessionCommand = async (
   input: CreateProxySessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/proxy-sessions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/proxy-sessions");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -595,15 +531,8 @@ export const se_CreateProxySessionCommand = async (
       ParticipantPhoneNumbers: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -613,12 +542,11 @@ export const se_CreateSipMediaApplicationCommand = async (
   input: CreateSipMediaApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sip-media-applications";
+  b.bp("/sip-media-applications");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -628,15 +556,8 @@ export const se_CreateSipMediaApplicationCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -646,21 +567,12 @@ export const se_CreateSipMediaApplicationCallCommand = async (
   input: CreateSipMediaApplicationCallCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sip-media-applications/{SipMediaApplicationId}/calls";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SipMediaApplicationId",
-    () => input.SipMediaApplicationId!,
-    "{SipMediaApplicationId}",
-    false
-  );
+  b.bp("/sip-media-applications/{SipMediaApplicationId}/calls");
+  b.p("SipMediaApplicationId", () => input.SipMediaApplicationId!, "{SipMediaApplicationId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -670,15 +582,8 @@ export const se_CreateSipMediaApplicationCallCommand = async (
       ToPhoneNumber: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -688,11 +593,11 @@ export const se_CreateSipRuleCommand = async (
   input: CreateSipRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sip-rules";
+  b.bp("/sip-rules");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -703,15 +608,8 @@ export const se_CreateSipRuleCommand = async (
       TriggerValue: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -721,11 +619,11 @@ export const se_CreateVoiceConnectorCommand = async (
   input: CreateVoiceConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/voice-connectors";
+  b.bp("/voice-connectors");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -735,15 +633,8 @@ export const se_CreateVoiceConnectorCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -753,12 +644,11 @@ export const se_CreateVoiceConnectorGroupCommand = async (
   input: CreateVoiceConnectorGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/voice-connector-groups";
+  b.bp("/voice-connector-groups");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -766,15 +656,8 @@ export const se_CreateVoiceConnectorGroupCommand = async (
       VoiceConnectorItems: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -784,26 +667,19 @@ export const se_CreateVoiceProfileCommand = async (
   input: CreateVoiceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/voice-profiles";
+  b.bp("/voice-profiles");
   let body: any;
   body = JSON.stringify(
     take(input, {
       SpeakerSearchTaskId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -813,11 +689,11 @@ export const se_CreateVoiceProfileDomainCommand = async (
   input: CreateVoiceProfileDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/voice-profile-domains";
+  b.bp("/voice-profile-domains");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -828,15 +704,8 @@ export const se_CreateVoiceProfileDomainCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -846,28 +715,13 @@ export const se_DeletePhoneNumberCommand = async (
   input: DeletePhoneNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/phone-numbers/{PhoneNumberId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "PhoneNumberId",
-    () => input.PhoneNumberId!,
-    "{PhoneNumberId}",
-    false
-  );
+  b.bp("/phone-numbers/{PhoneNumberId}");
+  b.p("PhoneNumberId", () => input.PhoneNumberId!, "{PhoneNumberId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -877,37 +731,14 @@ export const se_DeleteProxySessionCommand = async (
   input: DeleteProxySessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/proxy-sessions/{ProxySessionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ProxySessionId",
-    () => input.ProxySessionId!,
-    "{ProxySessionId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/proxy-sessions/{ProxySessionId}");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
+  b.p("ProxySessionId", () => input.ProxySessionId!, "{ProxySessionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -917,29 +748,13 @@ export const se_DeleteSipMediaApplicationCommand = async (
   input: DeleteSipMediaApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sip-media-applications/{SipMediaApplicationId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SipMediaApplicationId",
-    () => input.SipMediaApplicationId!,
-    "{SipMediaApplicationId}",
-    false
-  );
+  b.bp("/sip-media-applications/{SipMediaApplicationId}");
+  b.p("SipMediaApplicationId", () => input.SipMediaApplicationId!, "{SipMediaApplicationId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -949,20 +764,13 @@ export const se_DeleteSipRuleCommand = async (
   input: DeleteSipRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sip-rules/{SipRuleId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "SipRuleId", () => input.SipRuleId!, "{SipRuleId}", false);
+  b.bp("/sip-rules/{SipRuleId}");
+  b.p("SipRuleId", () => input.SipRuleId!, "{SipRuleId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -972,28 +780,13 @@ export const se_DeleteVoiceConnectorCommand = async (
   input: DeleteVoiceConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/voice-connectors/{VoiceConnectorId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1003,29 +796,13 @@ export const se_DeleteVoiceConnectorEmergencyCallingConfigurationCommand = async
   input: DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/emergency-calling-configuration";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/emergency-calling-configuration");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1035,29 +812,13 @@ export const se_DeleteVoiceConnectorGroupCommand = async (
   input: DeleteVoiceConnectorGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connector-groups/{VoiceConnectorGroupId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorGroupId",
-    () => input.VoiceConnectorGroupId!,
-    "{VoiceConnectorGroupId}",
-    false
-  );
+  b.bp("/voice-connector-groups/{VoiceConnectorGroupId}");
+  b.p("VoiceConnectorGroupId", () => input.VoiceConnectorGroupId!, "{VoiceConnectorGroupId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1067,29 +828,13 @@ export const se_DeleteVoiceConnectorOriginationCommand = async (
   input: DeleteVoiceConnectorOriginationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/origination";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/origination");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1099,29 +844,13 @@ export const se_DeleteVoiceConnectorProxyCommand = async (
   input: DeleteVoiceConnectorProxyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/programmable-numbers/proxy";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/programmable-numbers/proxy");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1131,29 +860,13 @@ export const se_DeleteVoiceConnectorStreamingConfigurationCommand = async (
   input: DeleteVoiceConnectorStreamingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/streaming-configuration";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/streaming-configuration");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1163,29 +876,13 @@ export const se_DeleteVoiceConnectorTerminationCommand = async (
   input: DeleteVoiceConnectorTerminationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/termination";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/termination");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1195,23 +892,14 @@ export const se_DeleteVoiceConnectorTerminationCredentialsCommand = async (
   input: DeleteVoiceConnectorTerminationCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/termination/credentials";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/termination/credentials");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   const query: any = map({
-    operation: [, "delete"],
+    [_o]: [, "delete"],
   });
   let body: any;
   body = JSON.stringify(
@@ -1219,16 +907,8 @@ export const se_DeleteVoiceConnectorTerminationCredentialsCommand = async (
       Usernames: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1238,28 +918,13 @@ export const se_DeleteVoiceProfileCommand = async (
   input: DeleteVoiceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/voice-profiles/{VoiceProfileId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceProfileId",
-    () => input.VoiceProfileId!,
-    "{VoiceProfileId}",
-    false
-  );
+  b.bp("/voice-profiles/{VoiceProfileId}");
+  b.p("VoiceProfileId", () => input.VoiceProfileId!, "{VoiceProfileId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1269,29 +934,13 @@ export const se_DeleteVoiceProfileDomainCommand = async (
   input: DeleteVoiceProfileDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-profile-domains/{VoiceProfileDomainId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceProfileDomainId",
-    () => input.VoiceProfileDomainId!,
-    "{VoiceProfileDomainId}",
-    false
-  );
+  b.bp("/voice-profile-domains/{VoiceProfileDomainId}");
+  b.p("VoiceProfileDomainId", () => input.VoiceProfileDomainId!, "{VoiceProfileDomainId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1301,22 +950,14 @@ export const se_DisassociatePhoneNumbersFromVoiceConnectorCommand = async (
   input: DisassociatePhoneNumbersFromVoiceConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/voice-connectors/{VoiceConnectorId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   const query: any = map({
-    operation: [, "disassociate-phone-numbers"],
+    [_o]: [, "disassociate-phone-numbers"],
   });
   let body: any;
   body = JSON.stringify(
@@ -1324,16 +965,8 @@ export const se_DisassociatePhoneNumbersFromVoiceConnectorCommand = async (
       E164PhoneNumbers: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1343,23 +976,14 @@ export const se_DisassociatePhoneNumbersFromVoiceConnectorGroupCommand = async (
   input: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connector-groups/{VoiceConnectorGroupId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorGroupId",
-    () => input.VoiceConnectorGroupId!,
-    "{VoiceConnectorGroupId}",
-    false
-  );
+  b.bp("/voice-connector-groups/{VoiceConnectorGroupId}");
+  b.p("VoiceConnectorGroupId", () => input.VoiceConnectorGroupId!, "{VoiceConnectorGroupId}", false);
   const query: any = map({
-    operation: [, "disassociate-phone-numbers"],
+    [_o]: [, "disassociate-phone-numbers"],
   });
   let body: any;
   body = JSON.stringify(
@@ -1367,16 +991,8 @@ export const se_DisassociatePhoneNumbersFromVoiceConnectorGroupCommand = async (
       E164PhoneNumbers: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1386,22 +1002,15 @@ export const se_GetGlobalSettingsCommand = async (
   input: GetGlobalSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/settings";
+  b.bp("/settings");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1411,28 +1020,13 @@ export const se_GetPhoneNumberCommand = async (
   input: GetPhoneNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/phone-numbers/{PhoneNumberId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "PhoneNumberId",
-    () => input.PhoneNumberId!,
-    "{PhoneNumberId}",
-    false
-  );
+  b.bp("/phone-numbers/{PhoneNumberId}");
+  b.p("PhoneNumberId", () => input.PhoneNumberId!, "{PhoneNumberId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1442,28 +1036,13 @@ export const se_GetPhoneNumberOrderCommand = async (
   input: GetPhoneNumberOrderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/phone-number-orders/{PhoneNumberOrderId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "PhoneNumberOrderId",
-    () => input.PhoneNumberOrderId!,
-    "{PhoneNumberOrderId}",
-    false
-  );
+  b.bp("/phone-number-orders/{PhoneNumberOrderId}");
+  b.p("PhoneNumberOrderId", () => input.PhoneNumberOrderId!, "{PhoneNumberOrderId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1473,22 +1052,15 @@ export const se_GetPhoneNumberSettingsCommand = async (
   input: GetPhoneNumberSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/settings/phone-number";
+  b.bp("/settings/phone-number");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1498,37 +1070,14 @@ export const se_GetProxySessionCommand = async (
   input: GetProxySessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/proxy-sessions/{ProxySessionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ProxySessionId",
-    () => input.ProxySessionId!,
-    "{ProxySessionId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/proxy-sessions/{ProxySessionId}");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
+  b.p("ProxySessionId", () => input.ProxySessionId!, "{ProxySessionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1538,29 +1087,13 @@ export const se_GetSipMediaApplicationCommand = async (
   input: GetSipMediaApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sip-media-applications/{SipMediaApplicationId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SipMediaApplicationId",
-    () => input.SipMediaApplicationId!,
-    "{SipMediaApplicationId}",
-    false
-  );
+  b.bp("/sip-media-applications/{SipMediaApplicationId}");
+  b.p("SipMediaApplicationId", () => input.SipMediaApplicationId!, "{SipMediaApplicationId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1570,29 +1103,13 @@ export const se_GetSipMediaApplicationAlexaSkillConfigurationCommand = async (
   input: GetSipMediaApplicationAlexaSkillConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sip-media-applications/{SipMediaApplicationId}/alexa-skill-configuration";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SipMediaApplicationId",
-    () => input.SipMediaApplicationId!,
-    "{SipMediaApplicationId}",
-    false
-  );
+  b.bp("/sip-media-applications/{SipMediaApplicationId}/alexa-skill-configuration");
+  b.p("SipMediaApplicationId", () => input.SipMediaApplicationId!, "{SipMediaApplicationId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1602,29 +1119,13 @@ export const se_GetSipMediaApplicationLoggingConfigurationCommand = async (
   input: GetSipMediaApplicationLoggingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sip-media-applications/{SipMediaApplicationId}/logging-configuration";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SipMediaApplicationId",
-    () => input.SipMediaApplicationId!,
-    "{SipMediaApplicationId}",
-    false
-  );
+  b.bp("/sip-media-applications/{SipMediaApplicationId}/logging-configuration");
+  b.p("SipMediaApplicationId", () => input.SipMediaApplicationId!, "{SipMediaApplicationId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1634,20 +1135,13 @@ export const se_GetSipRuleCommand = async (
   input: GetSipRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sip-rules/{SipRuleId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "SipRuleId", () => input.SipRuleId!, "{SipRuleId}", false);
+  b.bp("/sip-rules/{SipRuleId}");
+  b.p("SipRuleId", () => input.SipRuleId!, "{SipRuleId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1657,37 +1151,14 @@ export const se_GetSpeakerSearchTaskCommand = async (
   input: GetSpeakerSearchTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/speaker-search-tasks/{SpeakerSearchTaskId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SpeakerSearchTaskId",
-    () => input.SpeakerSearchTaskId!,
-    "{SpeakerSearchTaskId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/speaker-search-tasks/{SpeakerSearchTaskId}");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
+  b.p("SpeakerSearchTaskId", () => input.SpeakerSearchTaskId!, "{SpeakerSearchTaskId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1697,28 +1168,13 @@ export const se_GetVoiceConnectorCommand = async (
   input: GetVoiceConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/voice-connectors/{VoiceConnectorId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1728,29 +1184,13 @@ export const se_GetVoiceConnectorEmergencyCallingConfigurationCommand = async (
   input: GetVoiceConnectorEmergencyCallingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/emergency-calling-configuration";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/emergency-calling-configuration");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1760,29 +1200,13 @@ export const se_GetVoiceConnectorGroupCommand = async (
   input: GetVoiceConnectorGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connector-groups/{VoiceConnectorGroupId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorGroupId",
-    () => input.VoiceConnectorGroupId!,
-    "{VoiceConnectorGroupId}",
-    false
-  );
+  b.bp("/voice-connector-groups/{VoiceConnectorGroupId}");
+  b.p("VoiceConnectorGroupId", () => input.VoiceConnectorGroupId!, "{VoiceConnectorGroupId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1792,29 +1216,13 @@ export const se_GetVoiceConnectorLoggingConfigurationCommand = async (
   input: GetVoiceConnectorLoggingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/logging-configuration";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/logging-configuration");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1824,29 +1232,13 @@ export const se_GetVoiceConnectorOriginationCommand = async (
   input: GetVoiceConnectorOriginationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/origination";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/origination");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1856,29 +1248,13 @@ export const se_GetVoiceConnectorProxyCommand = async (
   input: GetVoiceConnectorProxyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/programmable-numbers/proxy";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/programmable-numbers/proxy");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1888,29 +1264,13 @@ export const se_GetVoiceConnectorStreamingConfigurationCommand = async (
   input: GetVoiceConnectorStreamingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/streaming-configuration";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/streaming-configuration");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1920,29 +1280,13 @@ export const se_GetVoiceConnectorTerminationCommand = async (
   input: GetVoiceConnectorTerminationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/termination";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/termination");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1952,29 +1296,13 @@ export const se_GetVoiceConnectorTerminationHealthCommand = async (
   input: GetVoiceConnectorTerminationHealthCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/termination/health";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/termination/health");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1984,28 +1312,13 @@ export const se_GetVoiceProfileCommand = async (
   input: GetVoiceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/voice-profiles/{VoiceProfileId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceProfileId",
-    () => input.VoiceProfileId!,
-    "{VoiceProfileId}",
-    false
-  );
+  b.bp("/voice-profiles/{VoiceProfileId}");
+  b.p("VoiceProfileId", () => input.VoiceProfileId!, "{VoiceProfileId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2015,29 +1328,13 @@ export const se_GetVoiceProfileDomainCommand = async (
   input: GetVoiceProfileDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-profile-domains/{VoiceProfileDomainId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceProfileDomainId",
-    () => input.VoiceProfileDomainId!,
-    "{VoiceProfileDomainId}",
-    false
-  );
+  b.bp("/voice-profile-domains/{VoiceProfileDomainId}");
+  b.p("VoiceProfileDomainId", () => input.VoiceProfileDomainId!, "{VoiceProfileDomainId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2047,41 +1344,17 @@ export const se_GetVoiceToneAnalysisTaskCommand = async (
   input: GetVoiceToneAnalysisTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/voice-tone-analysis-tasks/{VoiceToneAnalysisTaskId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceToneAnalysisTaskId",
-    () => input.VoiceToneAnalysisTaskId!,
-    "{VoiceToneAnalysisTaskId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/voice-tone-analysis-tasks/{VoiceToneAnalysisTaskId}");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
+  b.p("VoiceToneAnalysisTaskId", () => input.VoiceToneAnalysisTaskId!, "{VoiceToneAnalysisTaskId}", false);
   const query: any = map({
-    isCaller: [__expectNonNull(input.IsCaller, `IsCaller`) != null, () => input.IsCaller!.toString()],
+    [_iC]: [__expectNonNull(input.IsCaller, `IsCaller`) != null, () => input[_IC]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2091,23 +1364,15 @@ export const se_ListAvailableVoiceConnectorRegionsCommand = async (
   input: ListAvailableVoiceConnectorRegionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/voice-connector-regions";
+  b.bp("/voice-connector-regions");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2117,24 +1382,16 @@ export const se_ListPhoneNumberOrdersCommand = async (
   input: ListPhoneNumberOrdersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/phone-number-orders";
+  b.bp("/phone-number-orders");
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2144,28 +1401,20 @@ export const se_ListPhoneNumbersCommand = async (
   input: ListPhoneNumbersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/phone-numbers";
+  b.bp("/phone-numbers");
   const query: any = map({
-    status: [, input.Status!],
-    "product-type": [, input.ProductType!],
-    "filter-name": [, input.FilterName!],
-    "filter-value": [, input.FilterValue!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    "next-token": [, input.NextToken!],
+    [_s]: [, input[_S]!],
+    [_pt]: [, input[_PT]!],
+    [_fn]: [, input[_FN]!],
+    [_fv]: [, input[_FV]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2175,35 +1424,18 @@ export const se_ListProxySessionsCommand = async (
   input: ListProxySessionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/proxy-sessions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/proxy-sessions");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   const query: any = map({
-    status: [, input.Status!],
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_s]: [, input[_S]!],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2213,25 +1445,16 @@ export const se_ListSipMediaApplicationsCommand = async (
   input: ListSipMediaApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sip-media-applications";
+  b.bp("/sip-media-applications");
   const query: any = map({
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    "next-token": [, input.NextToken!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2241,25 +1464,17 @@ export const se_ListSipRulesCommand = async (
   input: ListSipRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sip-rules";
+  b.bp("/sip-rules");
   const query: any = map({
-    "sip-media-application": [, input.SipMediaApplicationId!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    "next-token": [, input.NextToken!],
+    [_sma]: [, input[_SMAI]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2269,24 +1484,15 @@ export const se_ListSupportedPhoneNumberCountriesCommand = async (
   input: ListSupportedPhoneNumberCountriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/phone-number-countries";
+  b.bp("/phone-number-countries");
   const query: any = map({
-    "product-type": [, __expectNonNull(input.ProductType!, `ProductType`)],
+    [_pt]: [, __expectNonNull(input[_PT]!, `ProductType`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2296,23 +1502,15 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
+  b.bp("/tags");
   const query: any = map({
-    arn: [, __expectNonNull(input.ResourceARN!, `ResourceARN`)],
+    [_a]: [, __expectNonNull(input[_RARN]!, `ResourceARN`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2322,25 +1520,16 @@ export const se_ListVoiceConnectorGroupsCommand = async (
   input: ListVoiceConnectorGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/voice-connector-groups";
+  b.bp("/voice-connector-groups");
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2350,24 +1539,16 @@ export const se_ListVoiceConnectorsCommand = async (
   input: ListVoiceConnectorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/voice-connectors";
+  b.bp("/voice-connectors");
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2377,29 +1558,13 @@ export const se_ListVoiceConnectorTerminationCredentialsCommand = async (
   input: ListVoiceConnectorTerminationCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/termination/credentials";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/termination/credentials");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2409,24 +1574,16 @@ export const se_ListVoiceProfileDomainsCommand = async (
   input: ListVoiceProfileDomainsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/voice-profile-domains";
+  b.bp("/voice-profile-domains");
   const query: any = map({
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2436,25 +1593,17 @@ export const se_ListVoiceProfilesCommand = async (
   input: ListVoiceProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/voice-profiles";
+  b.bp("/voice-profiles");
   const query: any = map({
-    "voice-profile-domain-id": [, __expectNonNull(input.VoiceProfileDomainId!, `VoiceProfileDomainId`)],
-    "next-token": [, input.NextToken!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_vpdi]: [, __expectNonNull(input[_VPDI]!, `VoiceProfileDomainId`)],
+    [_nt]: [, input[_NT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2464,36 +1613,20 @@ export const se_PutSipMediaApplicationAlexaSkillConfigurationCommand = async (
   input: PutSipMediaApplicationAlexaSkillConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sip-media-applications/{SipMediaApplicationId}/alexa-skill-configuration";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SipMediaApplicationId",
-    () => input.SipMediaApplicationId!,
-    "{SipMediaApplicationId}",
-    false
-  );
+  b.bp("/sip-media-applications/{SipMediaApplicationId}/alexa-skill-configuration");
+  b.p("SipMediaApplicationId", () => input.SipMediaApplicationId!, "{SipMediaApplicationId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       SipMediaApplicationAlexaSkillConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2503,36 +1636,20 @@ export const se_PutSipMediaApplicationLoggingConfigurationCommand = async (
   input: PutSipMediaApplicationLoggingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sip-media-applications/{SipMediaApplicationId}/logging-configuration";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SipMediaApplicationId",
-    () => input.SipMediaApplicationId!,
-    "{SipMediaApplicationId}",
-    false
-  );
+  b.bp("/sip-media-applications/{SipMediaApplicationId}/logging-configuration");
+  b.p("SipMediaApplicationId", () => input.SipMediaApplicationId!, "{SipMediaApplicationId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       SipMediaApplicationLoggingConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2542,36 +1659,20 @@ export const se_PutVoiceConnectorEmergencyCallingConfigurationCommand = async (
   input: PutVoiceConnectorEmergencyCallingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/emergency-calling-configuration";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/emergency-calling-configuration");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       EmergencyCallingConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2581,36 +1682,20 @@ export const se_PutVoiceConnectorLoggingConfigurationCommand = async (
   input: PutVoiceConnectorLoggingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/logging-configuration";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/logging-configuration");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       LoggingConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2620,36 +1705,20 @@ export const se_PutVoiceConnectorOriginationCommand = async (
   input: PutVoiceConnectorOriginationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/origination";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/origination");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Origination: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2659,21 +1728,12 @@ export const se_PutVoiceConnectorProxyCommand = async (
   input: PutVoiceConnectorProxyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/programmable-numbers/proxy";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/programmable-numbers/proxy");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2683,15 +1743,8 @@ export const se_PutVoiceConnectorProxyCommand = async (
       PhoneNumberPoolCountries: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2701,36 +1754,20 @@ export const se_PutVoiceConnectorStreamingConfigurationCommand = async (
   input: PutVoiceConnectorStreamingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/streaming-configuration";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/streaming-configuration");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       StreamingConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2740,36 +1777,20 @@ export const se_PutVoiceConnectorTerminationCommand = async (
   input: PutVoiceConnectorTerminationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/termination";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/termination");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Termination: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2779,23 +1800,14 @@ export const se_PutVoiceConnectorTerminationCredentialsCommand = async (
   input: PutVoiceConnectorTerminationCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/termination/credentials";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/termination/credentials");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   const query: any = map({
-    operation: [, "put"],
+    [_o]: [, "put"],
   });
   let body: any;
   body = JSON.stringify(
@@ -2803,16 +1815,8 @@ export const se_PutVoiceConnectorTerminationCredentialsCommand = async (
       Credentials: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2822,32 +1826,16 @@ export const se_RestorePhoneNumberCommand = async (
   input: RestorePhoneNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/phone-numbers/{PhoneNumberId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "PhoneNumberId",
-    () => input.PhoneNumberId!,
-    "{PhoneNumberId}",
-    false
-  );
+  b.bp("/phone-numbers/{PhoneNumberId}");
+  b.p("PhoneNumberId", () => input.PhoneNumberId!, "{PhoneNumberId}", false);
   const query: any = map({
-    operation: [, "restore"],
+    [_o]: [, "restore"],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2857,31 +1845,23 @@ export const se_SearchAvailablePhoneNumbersCommand = async (
   input: SearchAvailablePhoneNumbersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/search";
+  b.bp("/search");
   const query: any = map({
-    type: [, "phone-numbers"],
-    "area-code": [, input.AreaCode!],
-    city: [, input.City!],
-    country: [, input.Country!],
-    state: [, input.State!],
-    "toll-free-prefix": [, input.TollFreePrefix!],
-    "phone-number-type": [, input.PhoneNumberType!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    "next-token": [, input.NextToken!],
+    [_t]: [, "phone-numbers"],
+    [_ac]: [, input[_AC]!],
+    [_c]: [, input[_C]!],
+    [_co]: [, input[_Co]!],
+    [_st]: [, input[_St]!],
+    [_tfp]: [, input[_TFP]!],
+    [_pnt]: [, input[_PNT]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2891,21 +1871,12 @@ export const se_StartSpeakerSearchTaskCommand = async (
   input: StartSpeakerSearchTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/speaker-search-tasks";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/speaker-search-tasks");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2915,15 +1886,8 @@ export const se_StartSpeakerSearchTaskCommand = async (
       VoiceProfileDomainId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2933,21 +1897,12 @@ export const se_StartVoiceToneAnalysisTaskCommand = async (
   input: StartVoiceToneAnalysisTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/voice-tone-analysis-tasks";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/voice-tone-analysis-tasks");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2956,15 +1911,8 @@ export const se_StartVoiceToneAnalysisTaskCommand = async (
       TransactionId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2974,41 +1922,17 @@ export const se_StopSpeakerSearchTaskCommand = async (
   input: StopSpeakerSearchTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/speaker-search-tasks/{SpeakerSearchTaskId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SpeakerSearchTaskId",
-    () => input.SpeakerSearchTaskId!,
-    "{SpeakerSearchTaskId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/speaker-search-tasks/{SpeakerSearchTaskId}");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
+  b.p("SpeakerSearchTaskId", () => input.SpeakerSearchTaskId!, "{SpeakerSearchTaskId}", false);
   const query: any = map({
-    operation: [, "stop"],
+    [_o]: [, "stop"],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3018,41 +1942,17 @@ export const se_StopVoiceToneAnalysisTaskCommand = async (
   input: StopVoiceToneAnalysisTaskCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/voice-tone-analysis-tasks/{VoiceToneAnalysisTaskId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceToneAnalysisTaskId",
-    () => input.VoiceToneAnalysisTaskId!,
-    "{VoiceToneAnalysisTaskId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/voice-tone-analysis-tasks/{VoiceToneAnalysisTaskId}");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
+  b.p("VoiceToneAnalysisTaskId", () => input.VoiceToneAnalysisTaskId!, "{VoiceToneAnalysisTaskId}", false);
   const query: any = map({
-    operation: [, "stop"],
+    [_o]: [, "stop"],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3062,13 +1962,13 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
+  b.bp("/tags");
   const query: any = map({
-    operation: [, "tag-resource"],
+    [_o]: [, "tag-resource"],
   });
   let body: any;
   body = JSON.stringify(
@@ -3077,16 +1977,8 @@ export const se_TagResourceCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3096,13 +1988,13 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
+  b.bp("/tags");
   const query: any = map({
-    operation: [, "untag-resource"],
+    [_o]: [, "untag-resource"],
   });
   let body: any;
   body = JSON.stringify(
@@ -3111,16 +2003,8 @@ export const se_UntagResourceCommand = async (
       TagKeys: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3130,26 +2014,19 @@ export const se_UpdateGlobalSettingsCommand = async (
   input: UpdateGlobalSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/settings";
+  b.bp("/settings");
   let body: any;
   body = JSON.stringify(
     take(input, {
       VoiceConnector: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3159,20 +2036,12 @@ export const se_UpdatePhoneNumberCommand = async (
   input: UpdatePhoneNumberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/phone-numbers/{PhoneNumberId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "PhoneNumberId",
-    () => input.PhoneNumberId!,
-    "{PhoneNumberId}",
-    false
-  );
+  b.bp("/phone-numbers/{PhoneNumberId}");
+  b.p("PhoneNumberId", () => input.PhoneNumberId!, "{PhoneNumberId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3181,15 +2050,8 @@ export const se_UpdatePhoneNumberCommand = async (
       ProductType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3199,26 +2061,19 @@ export const se_UpdatePhoneNumberSettingsCommand = async (
   input: UpdatePhoneNumberSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/settings/phone-number";
+  b.bp("/settings/phone-number");
   let body: any;
   body = JSON.stringify(
     take(input, {
       CallingName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3228,29 +2083,13 @@ export const se_UpdateProxySessionCommand = async (
   input: UpdateProxySessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connectors/{VoiceConnectorId}/proxy-sessions/{ProxySessionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ProxySessionId",
-    () => input.ProxySessionId!,
-    "{ProxySessionId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}/proxy-sessions/{ProxySessionId}");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
+  b.p("ProxySessionId", () => input.ProxySessionId!, "{ProxySessionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3258,15 +2097,8 @@ export const se_UpdateProxySessionCommand = async (
       ExpiryMinutes: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3276,21 +2108,12 @@ export const se_UpdateSipMediaApplicationCommand = async (
   input: UpdateSipMediaApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sip-media-applications/{SipMediaApplicationId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SipMediaApplicationId",
-    () => input.SipMediaApplicationId!,
-    "{SipMediaApplicationId}",
-    false
-  );
+  b.bp("/sip-media-applications/{SipMediaApplicationId}");
+  b.p("SipMediaApplicationId", () => input.SipMediaApplicationId!, "{SipMediaApplicationId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3298,15 +2121,8 @@ export const se_UpdateSipMediaApplicationCommand = async (
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3316,44 +2132,21 @@ export const se_UpdateSipMediaApplicationCallCommand = async (
   input: UpdateSipMediaApplicationCallCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/sip-media-applications/{SipMediaApplicationId}/calls/{TransactionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SipMediaApplicationId",
-    () => input.SipMediaApplicationId!,
-    "{SipMediaApplicationId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "TransactionId",
-    () => input.TransactionId!,
-    "{TransactionId}",
-    false
-  );
+  b.bp("/sip-media-applications/{SipMediaApplicationId}/calls/{TransactionId}");
+  b.p("SipMediaApplicationId", () => input.SipMediaApplicationId!, "{SipMediaApplicationId}", false);
+  b.p("TransactionId", () => input.TransactionId!, "{TransactionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Arguments: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3363,12 +2156,12 @@ export const se_UpdateSipRuleCommand = async (
   input: UpdateSipRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/sip-rules/{SipRuleId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "SipRuleId", () => input.SipRuleId!, "{SipRuleId}", false);
+  b.bp("/sip-rules/{SipRuleId}");
+  b.p("SipRuleId", () => input.SipRuleId!, "{SipRuleId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3377,15 +2170,8 @@ export const se_UpdateSipRuleCommand = async (
       TargetApplications: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3395,20 +2181,12 @@ export const se_UpdateVoiceConnectorCommand = async (
   input: UpdateVoiceConnectorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/voice-connectors/{VoiceConnectorId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorId",
-    () => input.VoiceConnectorId!,
-    "{VoiceConnectorId}",
-    false
-  );
+  b.bp("/voice-connectors/{VoiceConnectorId}");
+  b.p("VoiceConnectorId", () => input.VoiceConnectorId!, "{VoiceConnectorId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3416,15 +2194,8 @@ export const se_UpdateVoiceConnectorCommand = async (
       RequireEncryption: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3434,21 +2205,12 @@ export const se_UpdateVoiceConnectorGroupCommand = async (
   input: UpdateVoiceConnectorGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-connector-groups/{VoiceConnectorGroupId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceConnectorGroupId",
-    () => input.VoiceConnectorGroupId!,
-    "{VoiceConnectorGroupId}",
-    false
-  );
+  b.bp("/voice-connector-groups/{VoiceConnectorGroupId}");
+  b.p("VoiceConnectorGroupId", () => input.VoiceConnectorGroupId!, "{VoiceConnectorGroupId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3456,15 +2218,8 @@ export const se_UpdateVoiceConnectorGroupCommand = async (
       VoiceConnectorItems: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3474,35 +2229,20 @@ export const se_UpdateVoiceProfileCommand = async (
   input: UpdateVoiceProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/voice-profiles/{VoiceProfileId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceProfileId",
-    () => input.VoiceProfileId!,
-    "{VoiceProfileId}",
-    false
-  );
+  b.bp("/voice-profiles/{VoiceProfileId}");
+  b.p("VoiceProfileId", () => input.VoiceProfileId!, "{VoiceProfileId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       SpeakerSearchTaskId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3512,21 +2252,12 @@ export const se_UpdateVoiceProfileDomainCommand = async (
   input: UpdateVoiceProfileDomainCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/voice-profile-domains/{VoiceProfileDomainId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VoiceProfileDomainId",
-    () => input.VoiceProfileDomainId!,
-    "{VoiceProfileDomainId}",
-    false
-  );
+  b.bp("/voice-profile-domains/{VoiceProfileDomainId}");
+  b.p("VoiceProfileDomainId", () => input.VoiceProfileDomainId!, "{VoiceProfileDomainId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3534,15 +2265,8 @@ export const se_UpdateVoiceProfileDomainCommand = async (
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3552,12 +2276,11 @@ export const se_ValidateE911AddressCommand = async (
   input: ValidateE911AddressCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/emergency-calling/address";
+  b.bp("/emergency-calling/address");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3570,15 +2293,8 @@ export const se_ValidateE911AddressCommand = async (
       StreetNumber: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -10514,6 +9230,41 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _AC = "AreaCode";
+const _C = "City";
+const _Co = "Country";
+const _FN = "FilterName";
+const _FV = "FilterValue";
+const _IC = "IsCaller";
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _PNT = "PhoneNumberType";
+const _PT = "ProductType";
+const _RARN = "ResourceARN";
+const _S = "Status";
+const _SMAI = "SipMediaApplicationId";
+const _St = "State";
+const _TFP = "TollFreePrefix";
+const _VPDI = "VoiceProfileDomainId";
+const _a = "arn";
+const _ac = "area-code";
+const _c = "city";
+const _co = "country";
+const _fn = "filter-name";
+const _fv = "filter-value";
+const _iC = "isCaller";
+const _mr = "max-results";
+const _nt = "next-token";
+const _o = "operation";
+const _pnt = "phone-number-type";
+const _pt = "product-type";
+const _s = "status";
+const _sma = "sip-media-application";
+const _st = "state";
+const _t = "type";
+const _tfp = "toll-free-prefix";
+const _vpdi = "voice-profile-domain-id";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

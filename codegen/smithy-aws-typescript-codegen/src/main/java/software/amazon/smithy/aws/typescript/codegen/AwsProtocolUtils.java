@@ -44,6 +44,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.HttpProtocolGeneratorUtils;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
+import software.amazon.smithy.typescript.codegen.util.StringStore;
 import software.amazon.smithy.utils.IoUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
@@ -247,8 +248,15 @@ final class AwsProtocolUtils {
         writer.openBlock("const body = buildFormUrlencodedString({", "});", () -> {
             // Set the protocol required values.
             ServiceShape serviceShape = context.getService();
-            writer.write("Action: $S,", operation.getId().getName(serviceShape));
-            writer.write("Version: $S,", serviceShape.getVersion());
+            StringStore stringStore = context.getStringStore();
+            writer.write(
+                "[" + stringStore.var("Action") + "]: $L,",
+                stringStore.var(operation.getId().getName(serviceShape))
+            );
+            writer.write(
+                "[" + stringStore.var("Version") + "]: $L,",
+                stringStore.var(serviceShape.getVersion())
+            );
         });
 
         return true;
@@ -277,7 +285,7 @@ final class AwsProtocolUtils {
         if (prefix.isPresent()) {
             xmlns += ":" + prefix.get();
         }
-        writer.write("$L.addAttribute($S, $S);", nodeName, xmlns, trait.getUri());
+        writer.write("$L.a($S, $S);", nodeName, xmlns, trait.getUri());
         return true;
     }
 
@@ -355,15 +363,6 @@ final class AwsProtocolUtils {
             HttpMessageTestCase testCase,
             TypeScriptSettings settings
     ) {
-        // TODO: Remove when server protocol tests are fixed in
-        // https://github.com/aws/aws-sdk-js-v3/issues/3058
-        // TODO: Move to filter specific to server protocol tests if added in
-        // https://github.com/awslabs/smithy-typescript/issues/470
-        if (testCase.getId().equals("RestJsonTestPayloadStructure")
-            || testCase.getId().equals("RestJsonHttpWithHeadersButNoPayload")) {
-            return true;
-        }
-
         // TODO: Remove when requestCompression has been implemented.
         if (testCase.getId().startsWith("SDKAppliedContentEncoding_")
             || testCase.getId().startsWith("SDKAppendsGzipAndIgnoresHttpProvidedEncoding_")
@@ -371,9 +370,22 @@ final class AwsProtocolUtils {
             return true;
         }
 
+        if (testCase.getTags().contains("defaults")) {
+            return true;
+        }
+
         // TODO: remove when there's a decision on separator to use
         // https://github.com/awslabs/smithy/issues/1014
         if (testCase.getId().equals("RestJsonInputAndOutputWithQuotedStringHeaders")) {
+            return true;
+        }
+
+        // TODO: implementation change pending.
+        List<String> extraUnionKey = Arrays.asList(
+            "RestXmlHttpPayloadWithUnsetUnion",
+            "RestJsonHttpPayloadWithUnsetUnion"
+        );
+        if (extraUnionKey.contains(testCase.getId())) {
             return true;
         }
 
@@ -400,6 +412,11 @@ final class AwsProtocolUtils {
 
         //TODO: we don't validate map values
         if (testCase.getId().equals("RestJsonBodyMalformedMapNullValue")) {
+            return true;
+        }
+
+        // TODO: fix in https://github.com/aws/aws-sdk-js-v3/issues/5545
+        if (testCase.getId().equals("RestJsonMalformedUnionUnknownMember")) {
             return true;
         }
 

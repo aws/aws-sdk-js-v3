@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateExtensionRequest, Extension } from "../models/models_0";
 import { de_CreateExtensionCommand, se_CreateExtensionCommand } from "../protocols/Aws_restJson1";
 
@@ -40,9 +32,25 @@ export interface CreateExtensionCommandOutput extends Extension, __MetadataBeare
  *          logic or behavior at different points during the AppConfig workflow of creating
  *          or deploying a configuration.</p>
  *          <p>You can create your own extensions or use the Amazon Web Services authored extensions provided by
- *             AppConfig. For most use cases, to create your own extension, you must create
- *          an Lambda function to perform any computation and processing defined in the
- *          extension. For more information about extensions, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
+ *             AppConfig. For an AppConfig extension that uses Lambda, you must create a Lambda function to perform any computation and processing
+ *          defined in the extension. If you plan to create custom versions of the Amazon Web Services
+ *          authored notification extensions, you only need to specify an Amazon Resource Name (ARN) in
+ *          the <code>Uri</code> field for the new extension version.</p>
+ *          <ul>
+ *             <li>
+ *                <p>For a custom EventBridge notification extension, enter the ARN of the EventBridge
+ *                default events in the <code>Uri</code> field.</p>
+ *             </li>
+ *             <li>
+ *                <p>For a custom Amazon SNS notification extension, enter the ARN of an Amazon SNS
+ *                topic in the <code>Uri</code> field.</p>
+ *             </li>
+ *             <li>
+ *                <p>For a custom Amazon SQS notification extension, enter the ARN of an Amazon SQS
+ *                message queue in the <code>Uri</code> field. </p>
+ *             </li>
+ *          </ul>
+ *          <p>For more information about extensions, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
  *                AppConfig extensions</a> in the
  *          <i>AppConfig User Guide</i>.</p>
  * @example
@@ -120,85 +128,40 @@ export interface CreateExtensionCommandOutput extends Extension, __MetadataBeare
  *  <p>There was an internal failure in the AppConfig service.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The number of hosted configuration versions exceeds the limit for the AppConfig hosted configuration store. Delete one or more versions and try again.</p>
+ *  <p>The number of one more AppConfig resources exceeds the maximum allowed. Verify that your
+ *          environment doesn't exceed the following service quotas:</p>
+ *          <p>Applications: 100 max</p>
+ *          <p>Deployment strategies: 20 max</p>
+ *          <p>Configuration profiles: 100 max per application</p>
+ *          <p>Environments: 20 max per application</p>
+ *          <p>To resolve this issue, you can delete one or more resources and try again. Or, you can
+ *          request a quota increase. For more information about quotas and to request an increase, see
+ *             <a href="https://docs.aws.amazon.com/general/latest/gr/appconfig.html#limits_appconfig">Service quotas for AppConfig</a> in the Amazon Web Services General Reference.</p>
  *
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  */
-export class CreateExtensionCommand extends $Command<
-  CreateExtensionCommandInput,
-  CreateExtensionCommandOutput,
-  AppConfigClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateExtensionCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AppConfigClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateExtensionCommandInput, CreateExtensionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateExtensionCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "AppConfigClient";
-    const commandName = "CreateExtensionCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateExtensionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateExtensionCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateExtensionCommandOutput> {
-    return de_CreateExtensionCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateExtensionCommand extends $Command
+  .classBuilder<
+    CreateExtensionCommandInput,
+    CreateExtensionCommandOutput,
+    AppConfigClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonAppConfig", "CreateExtension", {})
+  .n("AppConfigClient", "CreateExtensionCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateExtensionCommand)
+  .de(de_CreateExtensionCommand)
+  .build() {}

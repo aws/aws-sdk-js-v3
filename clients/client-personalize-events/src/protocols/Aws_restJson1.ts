@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -17,10 +18,17 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
+import {
+  PutActionInteractionsCommandInput,
+  PutActionInteractionsCommandOutput,
+} from "../commands/PutActionInteractionsCommand";
+import { PutActionsCommandInput, PutActionsCommandOutput } from "../commands/PutActionsCommand";
 import { PutEventsCommandInput, PutEventsCommandOutput } from "../commands/PutEventsCommand";
 import { PutItemsCommandInput, PutItemsCommandOutput } from "../commands/PutItemsCommand";
 import { PutUsersCommandInput, PutUsersCommandOutput } from "../commands/PutUsersCommand";
 import {
+  Action,
+  ActionInteraction,
   Event,
   InvalidInputException,
   Item,
@@ -32,17 +40,63 @@ import {
 import { PersonalizeEventsServiceException as __BaseException } from "../models/PersonalizeEventsServiceException";
 
 /**
+ * serializeAws_restJson1PutActionInteractionsCommand
+ */
+export const se_PutActionInteractionsCommand = async (
+  input: PutActionInteractionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/action-interactions");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      actionInteractions: (_) => se_ActionInteractionsList(_, context),
+      trackingId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1PutActionsCommand
+ */
+export const se_PutActionsCommand = async (
+  input: PutActionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/actions");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      actions: (_) => se_ActionList(_, context),
+      datasetArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1PutEventsCommand
  */
 export const se_PutEventsCommand = async (
   input: PutEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/events";
+  b.bp("/events");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -52,15 +106,8 @@ export const se_PutEventsCommand = async (
       userId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -70,11 +117,11 @@ export const se_PutItemsCommand = async (
   input: PutItemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/items";
+  b.bp("/items");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -82,15 +129,8 @@ export const se_PutItemsCommand = async (
       items: (_) => se_ItemList(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -100,11 +140,11 @@ export const se_PutUsersCommand = async (
   input: PutUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/users";
+  b.bp("/users");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -112,15 +152,106 @@ export const se_PutUsersCommand = async (
       users: (_) => se_UserList(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * deserializeAws_restJson1PutActionInteractionsCommand
+ */
+export const de_PutActionInteractionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutActionInteractionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_PutActionInteractionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
   });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutActionInteractionsCommandError
+ */
+const de_PutActionInteractionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutActionInteractionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalizeevents#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.personalizeevents#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalizeevents#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1PutActionsCommand
+ */
+export const de_PutActionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutActionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_PutActionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutActionsCommandError
+ */
+const de_PutActionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutActionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInputException":
+    case "com.amazonaws.personalizeevents#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.personalizeevents#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.personalizeevents#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
 };
 
 /**
@@ -323,6 +454,57 @@ const de_ResourceNotFoundExceptionRes = async (
     ...contents,
   });
   return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * serializeAws_restJson1Action
+ */
+const se_Action = (input: Action, context: __SerdeContext): any => {
+  return take(input, {
+    actionId: [],
+    properties: __LazyJsonString.fromObject,
+  });
+};
+
+// se_ActionImpression omitted.
+
+/**
+ * serializeAws_restJson1ActionInteraction
+ */
+const se_ActionInteraction = (input: ActionInteraction, context: __SerdeContext): any => {
+  return take(input, {
+    actionId: [],
+    eventId: [],
+    eventType: [],
+    impression: _json,
+    properties: __LazyJsonString.fromObject,
+    recommendationId: [],
+    sessionId: [],
+    timestamp: (_) => Math.round(_.getTime() / 1000),
+    userId: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1ActionInteractionsList
+ */
+const se_ActionInteractionsList = (input: ActionInteraction[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ActionInteraction(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1ActionList
+ */
+const se_ActionList = (input: Action[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_Action(entry, context);
+    });
 };
 
 /**

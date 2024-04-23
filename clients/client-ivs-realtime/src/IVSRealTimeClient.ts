@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -51,18 +49,48 @@ import {
 } from "@smithy/types";
 
 import {
+  CreateEncoderConfigurationCommandInput,
+  CreateEncoderConfigurationCommandOutput,
+} from "./commands/CreateEncoderConfigurationCommand";
+import {
   CreateParticipantTokenCommandInput,
   CreateParticipantTokenCommandOutput,
 } from "./commands/CreateParticipantTokenCommand";
 import { CreateStageCommandInput, CreateStageCommandOutput } from "./commands/CreateStageCommand";
+import {
+  CreateStorageConfigurationCommandInput,
+  CreateStorageConfigurationCommandOutput,
+} from "./commands/CreateStorageConfigurationCommand";
+import {
+  DeleteEncoderConfigurationCommandInput,
+  DeleteEncoderConfigurationCommandOutput,
+} from "./commands/DeleteEncoderConfigurationCommand";
 import { DeleteStageCommandInput, DeleteStageCommandOutput } from "./commands/DeleteStageCommand";
+import {
+  DeleteStorageConfigurationCommandInput,
+  DeleteStorageConfigurationCommandOutput,
+} from "./commands/DeleteStorageConfigurationCommand";
 import {
   DisconnectParticipantCommandInput,
   DisconnectParticipantCommandOutput,
 } from "./commands/DisconnectParticipantCommand";
+import { GetCompositionCommandInput, GetCompositionCommandOutput } from "./commands/GetCompositionCommand";
+import {
+  GetEncoderConfigurationCommandInput,
+  GetEncoderConfigurationCommandOutput,
+} from "./commands/GetEncoderConfigurationCommand";
 import { GetParticipantCommandInput, GetParticipantCommandOutput } from "./commands/GetParticipantCommand";
 import { GetStageCommandInput, GetStageCommandOutput } from "./commands/GetStageCommand";
 import { GetStageSessionCommandInput, GetStageSessionCommandOutput } from "./commands/GetStageSessionCommand";
+import {
+  GetStorageConfigurationCommandInput,
+  GetStorageConfigurationCommandOutput,
+} from "./commands/GetStorageConfigurationCommand";
+import { ListCompositionsCommandInput, ListCompositionsCommandOutput } from "./commands/ListCompositionsCommand";
+import {
+  ListEncoderConfigurationsCommandInput,
+  ListEncoderConfigurationsCommandOutput,
+} from "./commands/ListEncoderConfigurationsCommand";
 import {
   ListParticipantEventsCommandInput,
   ListParticipantEventsCommandOutput,
@@ -71,9 +99,15 @@ import { ListParticipantsCommandInput, ListParticipantsCommandOutput } from "./c
 import { ListStagesCommandInput, ListStagesCommandOutput } from "./commands/ListStagesCommand";
 import { ListStageSessionsCommandInput, ListStageSessionsCommandOutput } from "./commands/ListStageSessionsCommand";
 import {
+  ListStorageConfigurationsCommandInput,
+  ListStorageConfigurationsCommandOutput,
+} from "./commands/ListStorageConfigurationsCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { StartCompositionCommandInput, StartCompositionCommandOutput } from "./commands/StartCompositionCommand";
+import { StopCompositionCommandInput, StopCompositionCommandOutput } from "./commands/StopCompositionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateStageCommandInput, UpdateStageCommandOutput } from "./commands/UpdateStageCommand";
@@ -92,18 +126,30 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | CreateEncoderConfigurationCommandInput
   | CreateParticipantTokenCommandInput
   | CreateStageCommandInput
+  | CreateStorageConfigurationCommandInput
+  | DeleteEncoderConfigurationCommandInput
   | DeleteStageCommandInput
+  | DeleteStorageConfigurationCommandInput
   | DisconnectParticipantCommandInput
+  | GetCompositionCommandInput
+  | GetEncoderConfigurationCommandInput
   | GetParticipantCommandInput
   | GetStageCommandInput
   | GetStageSessionCommandInput
+  | GetStorageConfigurationCommandInput
+  | ListCompositionsCommandInput
+  | ListEncoderConfigurationsCommandInput
   | ListParticipantEventsCommandInput
   | ListParticipantsCommandInput
   | ListStageSessionsCommandInput
   | ListStagesCommandInput
+  | ListStorageConfigurationsCommandInput
   | ListTagsForResourceCommandInput
+  | StartCompositionCommandInput
+  | StopCompositionCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateStageCommandInput;
@@ -112,18 +158,30 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | CreateEncoderConfigurationCommandOutput
   | CreateParticipantTokenCommandOutput
   | CreateStageCommandOutput
+  | CreateStorageConfigurationCommandOutput
+  | DeleteEncoderConfigurationCommandOutput
   | DeleteStageCommandOutput
+  | DeleteStorageConfigurationCommandOutput
   | DisconnectParticipantCommandOutput
+  | GetCompositionCommandOutput
+  | GetEncoderConfigurationCommandOutput
   | GetParticipantCommandOutput
   | GetStageCommandOutput
   | GetStageSessionCommandOutput
+  | GetStorageConfigurationCommandOutput
+  | ListCompositionsCommandOutput
+  | ListEncoderConfigurationsCommandOutput
   | ListParticipantEventsCommandOutput
   | ListParticipantsCommandOutput
   | ListStageSessionsCommandOutput
   | ListStagesCommandOutput
+  | ListStorageConfigurationsCommandOutput
   | ListTagsForResourceCommandOutput
+  | StartCompositionCommandOutput
+  | StopCompositionCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateStageCommandOutput;
@@ -238,6 +296,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 
@@ -314,11 +374,20 @@ export interface IVSRealTimeClientResolvedConfig extends IVSRealTimeClientResolv
  *                <p>A <i>participant token</i> is a token that authenticates a participant when they join a stage.</p>
  *             </li>
  *             <li>
- *                <p>A <i>participant object</i> represents participants
- *           (people) in the stage and contains information about them. When a token is created, it
- *           includes a participant ID; when a participant uses that token to join a stage, the
- *           participant is associated with that participant ID There is a 1:1 mapping between
- *           participant tokens and participants.</p>
+ *                <p>A <i>participant object</i> represents participants (people) in the stage and
+ *           contains information about them. When a token is created, it includes a participant ID;
+ *           when a participant uses that token to join a stage, the participant is associated with
+ *           that participant ID. There is a 1:1 mapping between participant tokens and
+ *           participants.</p>
+ *             </li>
+ *             <li>
+ *                <p>Server-side composition: The <i>composition</i> process composites participants
+ *           of a stage into a single video and forwards it to a set of outputs (e.g., IVS channels).
+ *           Composition endpoints support this process.</p>
+ *             </li>
+ *             <li>
+ *                <p>Server-side composition: A <i>composition</i> controls the look of the outputs,
+ *           including how participants are positioned in the video.</p>
  *             </li>
  *          </ul>
  *          <p>
@@ -401,6 +470,80 @@ export interface IVSRealTimeClientResolvedConfig extends IVSRealTimeClientResolv
  *             <li>
  *                <p>
  *                   <a>UpdateStage</a> — Updates a stage’s configuration.</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Composition Endpoints</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>GetComposition</a> — Gets information about the specified
+ *           Composition resource.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListCompositions</a> — Gets summary information about all
+ *           Compositions in your account, in the AWS region where the API request is processed.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>StartComposition</a> — Starts a Composition from a stage based on
+ *           the configuration provided in the request.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>StopComposition</a> — Stops and deletes a Composition resource.
+ *           Any broadcast from the Composition resource is stopped.</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>EncoderConfiguration Endpoints</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateEncoderConfiguration</a> — Creates an EncoderConfiguration object.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteEncoderConfiguration</a> — Deletes an EncoderConfiguration
+ *           resource. Ensures that no Compositions are using this template; otherwise, returns an
+ *           error.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetEncoderConfiguration</a> — Gets information about the specified
+ *           EncoderConfiguration resource.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListEncoderConfigurations</a> — Gets summary information about all
+ *           EncoderConfigurations in your account, in the AWS region where the API request is
+ *           processed.</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>StorageConfiguration Endpoints</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>CreateStorageConfiguration</a> — Creates a new storage configuration, used to enable
+ * 		recording to Amazon S3.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>DeleteStorageConfiguration</a> — Deletes the storage configuration for the specified ARN.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetStorageConfiguration</a> — Gets the storage configuration for the specified ARN.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListStorageConfigurations</a> — Gets summary information about all storage configurations in your
+ * 		account, in the AWS region where the API request is processed.</p>
  *             </li>
  *          </ul>
  *          <p>

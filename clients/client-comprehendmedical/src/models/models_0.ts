@@ -86,7 +86,7 @@ export interface Trait {
    * @public
    * <p> Provides a name or contextual description about the trait. </p>
    */
-  Name?: AttributeName | string;
+  Name?: AttributeName;
 
   /**
    * @public
@@ -164,7 +164,7 @@ export interface Attribute {
    * @public
    * <p> The type of attribute. </p>
    */
-  Type?: EntitySubType | string;
+  Type?: EntitySubType;
 
   /**
    * @public
@@ -186,7 +186,7 @@ export interface Attribute {
    *         <code>OVERLAP</code>, indicating that the entity occurred at the same time as the
    *         <code>Date_Expression</code>. </p>
    */
-  RelationshipType?: RelationshipType | string;
+  RelationshipType?: RelationshipType;
 
   /**
    * @public
@@ -219,7 +219,7 @@ export interface Attribute {
    * @public
    * <p> The category of attribute. </p>
    */
-  Category?: EntityType | string;
+  Category?: EntityType;
 
   /**
    * @public
@@ -354,7 +354,7 @@ export interface ComprehendMedicalAsyncJobProperties {
    * <p>The current status of the detection job. If the status is <code>FAILED</code>, the
    *         <code>Message</code> field shows the reason for the failure.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -399,7 +399,7 @@ export interface ComprehendMedicalAsyncJobProperties {
    * @public
    * <p>The language code of the input documents.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -677,13 +677,13 @@ export interface Entity {
    * @public
    * <p> The category of the entity.</p>
    */
-  Category?: EntityType | string;
+  Category?: EntityType;
 
   /**
    * @public
    * <p> Describes the specific type of entity with category of entities.</p>
    */
-  Type?: EntitySubType | string;
+  Type?: EntitySubType;
 
   /**
    * @public
@@ -709,7 +709,7 @@ export interface UnmappedAttribute {
    *       "MEDICAL_CONDITION", "ANATOMY", "TEST_AND_TREATMENT_PROCEDURE" or
    *       "PROTECTED_HEALTH_INFORMATION". </p>
    */
-  Type?: EntityType | string;
+  Type?: EntityType;
 
   /**
    * @public
@@ -979,7 +979,7 @@ export interface ICD10CMTrait {
    * @public
    * <p>Provides a name or contextual description about the trait.</p>
    */
-  Name?: ICD10CMTraitName | string;
+  Name?: ICD10CMTraitName;
 
   /**
    * @public
@@ -1021,7 +1021,7 @@ export interface ICD10CMAttribute {
    * <p>The type of attribute. InferICD10CM detects entities of the type <code>DX_NAME</code>.
    *     </p>
    */
-  Type?: ICD10CMAttributeType | string;
+  Type?: ICD10CMAttributeType;
 
   /**
    * @public
@@ -1076,14 +1076,14 @@ export interface ICD10CMAttribute {
    * @public
    * <p>The category of attribute. Can be either of <code>DX_NAME</code> or <code>TIME_EXPRESSION</code>.</p>
    */
-  Category?: ICD10CMEntityType | string;
+  Category?: ICD10CMEntityType;
 
   /**
    * @public
    * <p>The type of relationship between the entity and attribute. Type for the relationship can
    *         be either of <code>OVERLAP</code> or <code>SYSTEM_ORGAN_SITE</code>.</p>
    */
-  RelationshipType?: ICD10CMRelationshipType | string;
+  RelationshipType?: ICD10CMRelationshipType;
 }
 
 /**
@@ -1153,14 +1153,14 @@ export interface ICD10CMEntity {
    * <p> The category of the entity. InferICD10CM detects entities in the
    *         <code>MEDICAL_CONDITION</code> category. </p>
    */
-  Category?: ICD10CMEntityCategory | string;
+  Category?: ICD10CMEntityCategory;
 
   /**
    * @public
    * <p>Describes the specific type of entity with category of entities. InferICD10CM detects
    *       entities of the type <code>DX_NAME</code> and <code>TIME_EXPRESSION</code>.</p>
    */
-  Type?: ICD10CMEntityType | string;
+  Type?: ICD10CMEntityType;
 
   /**
    * @public
@@ -1272,7 +1272,7 @@ export interface RxNormTrait {
    * @public
    * <p>Provides a name or contextual description about the trait.</p>
    */
-  Name?: RxNormTraitName | string;
+  Name?: RxNormTraitName;
 
   /**
    * @public
@@ -1313,7 +1313,7 @@ export interface RxNormAttribute {
    * <p>The type of attribute. The types of attributes recognized by InferRxNorm are
    *         <code>BRAND_NAME</code> and <code>GENERIC_NAME</code>.</p>
    */
-  Type?: RxNormAttributeType | string;
+  Type?: RxNormAttributeType;
 
   /**
    * @public
@@ -1445,14 +1445,14 @@ export interface RxNormEntity {
    * <p>The category of the entity. The recognized categories are <code>GENERIC</code> or
    *         <code>BRAND_NAME</code>.</p>
    */
-  Category?: RxNormEntityCategory | string;
+  Category?: RxNormEntityCategory;
 
   /**
    * @public
    * <p> Describes the specific type of entity. For InferRxNorm, the recognized entity type is
    *         <code>MEDICATION</code>.</p>
    */
-  Type?: RxNormEntityType | string;
+  Type?: RxNormEntityType;
 
   /**
    * @public
@@ -1637,7 +1637,7 @@ export interface SNOMEDCTTrait {
    *       The name or contextual description of a detected trait.
    *     </p>
    */
-  Name?: SNOMEDCTTraitName | string;
+  Name?: SNOMEDCTTraitName;
 
   /**
    * @public
@@ -1679,7 +1679,7 @@ export interface SNOMEDCTAttribute {
    *       The category of the detected attribute. Possible categories include MEDICAL_CONDITION, ANATOMY, and TEST_TREATMENT_PROCEDURE.
    *     </p>
    */
-  Category?: SNOMEDCTEntityCategory | string;
+  Category?: SNOMEDCTEntityCategory;
 
   /**
    * @public
@@ -1687,7 +1687,7 @@ export interface SNOMEDCTAttribute {
    *       The type of attribute. Possible types include DX_NAME, ACUITY, DIRECTION, SYSTEM_ORGAN_SITE,TEST_NAME, TEST_VALUE, TEST_UNIT, PROCEDURE_NAME, and TREATMENT_NAME.
    *     </p>
    */
-  Type?: SNOMEDCTAttributeType | string;
+  Type?: SNOMEDCTAttributeType;
 
   /**
    * @public
@@ -1711,7 +1711,7 @@ export interface SNOMEDCTAttribute {
    *       The type of relationship that exists between the entity and the related attribute.
    *     </p>
    */
-  RelationshipType?: SNOMEDCTRelationshipType | string;
+  RelationshipType?: SNOMEDCTRelationshipType;
 
   /**
    * @public
@@ -1807,7 +1807,7 @@ export interface SNOMEDCTEntity {
    *       The category of the detected entity. Possible categories are MEDICAL_CONDITION, ANATOMY, or TEST_TREATMENT_PROCEDURE.
    *     </p>
    */
-  Category?: SNOMEDCTEntityCategory | string;
+  Category?: SNOMEDCTEntityCategory;
 
   /**
    * @public
@@ -1815,7 +1815,7 @@ export interface SNOMEDCTEntity {
    *       Describes the specific type of entity with category of entities. Possible types include DX_NAME, ACUITY, DIRECTION, SYSTEM_ORGAN_SITE, TEST_NAME, TEST_VALUE, TEST_UNIT, PROCEDURE_NAME, or TREATMENT_NAME.
    *     </p>
    */
-  Type?: SNOMEDCTEntityType | string;
+  Type?: SNOMEDCTEntityType;
 
   /**
    * @public
@@ -1959,7 +1959,7 @@ export interface ComprehendMedicalAsyncJobFilter {
    * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
    *       status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -2260,7 +2260,7 @@ export interface StartEntitiesDetectionV2JobRequest {
    * @public
    * <p>The language of the input documents. All documents must be in the same language. Amazon Comprehend Medical processes files in US English (en).</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 }
 
 /**
@@ -2321,7 +2321,7 @@ export interface StartICD10CMInferenceJobRequest {
    * @public
    * <p>The language of the input documents. All documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 }
 
 /**
@@ -2383,7 +2383,7 @@ export interface StartPHIDetectionJobRequest {
    * @public
    * <p>The language of the input documents. All documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 }
 
 /**
@@ -2445,7 +2445,7 @@ export interface StartRxNormInferenceJobRequest {
    * @public
    * <p>The language of the input documents. All documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 }
 
 /**
@@ -2514,7 +2514,7 @@ export interface StartSNOMEDCTInferenceJobRequest {
    *       The language of the input documents. All documents must be in the same language.
    *     </p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 }
 
 /**

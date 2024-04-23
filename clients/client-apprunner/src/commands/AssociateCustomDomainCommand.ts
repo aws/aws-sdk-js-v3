@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppRunnerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppRunnerClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { AssociateCustomDomainRequest, AssociateCustomDomainResponse } from "../models/models_0";
 import { de_AssociateCustomDomainCommand, se_AssociateCustomDomainCommand } from "../protocols/Aws_json1_0";
 
@@ -100,79 +92,26 @@ export interface AssociateCustomDomainCommandOutput extends AssociateCustomDomai
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
  */
-export class AssociateCustomDomainCommand extends $Command<
-  AssociateCustomDomainCommandInput,
-  AssociateCustomDomainCommandOutput,
-  AppRunnerClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: AssociateCustomDomainCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AppRunnerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<AssociateCustomDomainCommandInput, AssociateCustomDomainCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, AssociateCustomDomainCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "AppRunnerClient";
-    const commandName = "AssociateCustomDomainCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: AssociateCustomDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_AssociateCustomDomainCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateCustomDomainCommandOutput> {
-    return de_AssociateCustomDomainCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class AssociateCustomDomainCommand extends $Command
+  .classBuilder<
+    AssociateCustomDomainCommandInput,
+    AssociateCustomDomainCommandOutput,
+    AppRunnerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: AppRunnerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AppRunner", "AssociateCustomDomain", {})
+  .n("AppRunnerClient", "AssociateCustomDomainCommand")
+  .f(void 0, void 0)
+  .ser(se_AssociateCustomDomainCommand)
+  .de(de_AssociateCustomDomainCommand)
+  .build() {}

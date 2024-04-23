@@ -29,6 +29,7 @@ import software.amazon.smithy.model.shapes.MapShape;
 import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.NumberShape;
 import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.ShapeVisitor;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
 import software.amazon.smithy.model.traits.JsonNameTrait;
@@ -39,7 +40,6 @@ import software.amazon.smithy.typescript.codegen.CodegenUtils;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings.ArtifactType;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
-import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
 import software.amazon.smithy.typescript.codegen.integration.DocumentShapeDeserVisitor;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
 import software.amazon.smithy.utils.SmithyInternalApi;
@@ -74,7 +74,7 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
         this.memberNameStrategy = memberNameStrategy;
     }
 
-    private DocumentMemberDeserVisitor getMemberVisitor(MemberShape memberShape, String dataSource) {
+    private ShapeVisitor<String> getMemberVisitor(MemberShape memberShape, String dataSource) {
         return new JsonMemberDeserVisitor(getContext(), memberShape, dataSource, Format.EPOCH_SECONDS);
     }
 
@@ -150,28 +150,31 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
 
         // Get the right serialization for each entry in the map. Undefined
         // outputs won't have this deserializer invoked.
-        writer.openBlock("return Object.entries(output).reduce((acc: $T, [key, value]: [$T, any]) => {",
-            "}, {});",
+        writer.openBlock("return Object.entries(output).reduce((acc: $T, [key, value]: [string, any]) => {",
+            "",
             symbolProvider.toSymbol(shape),
-            symbolProvider.toSymbol(shape.getKey()),
             () -> {
                 writer.openBlock("if (value === null) {", "}", () -> {
                     // Handle the sparse trait by short-circuiting null values
                     // from deserialization, and not including them if encountered
                     // when not sparse.
                     if (shape.hasTrait(SparseTrait.ID)) {
-                        writer.write("acc[key] = null as any;");
+                        writer.write("acc[key as $T] = null as any;", symbolProvider.toSymbol(shape.getKey()));
                     }
 
                     writer.write("return acc;");
                 });
 
                 // Dispatch to the output value provider for any additional handling.
-                writer.write("acc[key] = $L$L", target.accept(getMemberVisitor(shape.getValue(), "value")),
-                    usesExpect(target) ? " as any;" : ";");
+                writer.write("acc[key as $T] = $L$L",
+                    symbolProvider.toSymbol(shape.getKey()),
+                    target.accept(getMemberVisitor(shape.getValue(), "value")),
+                    usesExpect(target) ? " as any;" : ";"
+                );
                 writer.write("return acc;");
             }
         );
+        writer.writeInline("}, {} as $T);", symbolProvider.toSymbol(shape));
     }
 
     @Override

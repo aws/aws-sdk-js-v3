@@ -112,7 +112,7 @@ export interface EncryptionKey {
    * @public
    * <p>The type of encryption key used by Amazon Translate to encrypt this object.</p>
    */
-  Type: EncryptionKeyType | string | undefined;
+  Type: EncryptionKeyType | undefined;
 
   /**
    * @public
@@ -146,13 +146,13 @@ export interface ParallelDataConfig {
    * <p>The URI of the Amazon S3 folder that contains the parallel data input file. The folder
    *       must be in the same Region as the API endpoint you are calling.</p>
    */
-  S3Uri: string | undefined;
+  S3Uri?: string;
 
   /**
    * @public
    * <p>The format of the parallel data input file.</p>
    */
-  Format: ParallelDataFormat | string | undefined;
+  Format?: ParallelDataFormat;
 }
 
 /**
@@ -252,7 +252,7 @@ export interface CreateParallelDataResponse {
    * <p>The status of the parallel data resource. When the resource is ready for you to use, the
    *       status is <code>ACTIVE</code>.</p>
    */
-  Status?: ParallelDataStatus | string;
+  Status?: ParallelDataStatus;
 }
 
 /**
@@ -416,7 +416,7 @@ export interface DeleteParallelDataResponse {
    * @public
    * <p>The status of the parallel data deletion.</p>
    */
-  Status?: ParallelDataStatus | string;
+  Status?: ParallelDataStatus;
 }
 
 /**
@@ -594,6 +594,19 @@ export interface OutputDataConfig {
  * @public
  * @enum
  */
+export const Brevity = {
+  ON: "ON",
+} as const;
+
+/**
+ * @public
+ */
+export type Brevity = (typeof Brevity)[keyof typeof Brevity];
+
+/**
+ * @public
+ * @enum
+ */
 export const Formality = {
   FORMAL: "FORMAL",
   INFORMAL: "INFORMAL",
@@ -619,13 +632,24 @@ export type Profanity = (typeof Profanity)[keyof typeof Profanity];
 
 /**
  * @public
- * <p>Settings to configure your translation output, including the option to set the formality
- *       level of the output text and the option to mask profane words and phrases.</p>
+ * <p>Settings to configure your translation output. You can configure the following options:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Brevity: reduces the length of the translation output for most translations. Available for
+ *             <code>TranslateText</code> only.</p>
+ *             </li>
+ *             <li>
+ *                <p>Formality: sets the formality level of the translation output.</p>
+ *             </li>
+ *             <li>
+ *                <p>Profanity: masks profane words and phrases in the translation output.</p>
+ *             </li>
+ *          </ul>
  */
 export interface TranslationSettings {
   /**
    * @public
-   * <p>You can optionally specify the desired level of formality for translations
+   * <p>You can specify the desired level of formality for translations
    *         to supported target languages. The formality
    *       setting controls the level of formal language usage (also known as <a href="https://en.wikipedia.org/wiki/Register_(sociolinguistics)">register</a>) in the
    *       translation output.  You can set the value to informal or formal. If you don't specify a value for
@@ -636,11 +660,11 @@ export interface TranslationSettings {
    *          <p>For a list of target languages that support formality, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html#customizing-translations-formality-languages">Supported languages</a>
    *       in the Amazon Translate Developer Guide.</p>
    */
-  Formality?: Formality | string;
+  Formality?: Formality;
 
   /**
    * @public
-   * <p>Enable the profanity setting if you want Amazon Translate to mask profane words and
+   * <p>You can enable the profanity setting if you want to mask profane words and
    *       phrases in your translation output.</p>
    *          <p>To mask profane words and phrases, Amazon Translate replaces them with the grawlix string
    *       “?$#@$“. This 5-character sequence is used for each profane word or phrase, regardless of the
@@ -653,7 +677,19 @@ export interface TranslationSettings {
    *       translation job won't mask profanity for any target
    *       language.</p>
    */
-  Profanity?: Profanity | string;
+  Profanity?: Profanity;
+
+  /**
+   * @public
+   * <p>When you turn on brevity, Amazon Translate reduces the length of the translation output for most translations (when
+   *       compared with the same translation with brevity turned off). By default, brevity is turned
+   *       off.</p>
+   *          <p>If you turn on brevity for a translation request with an unsupported language pair, the
+   *       translation proceeds with the brevity setting turned off.</p>
+   *          <p>For the language pairs that brevity supports, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-brevity">Using brevity</a> in the
+   *       Amazon Translate Developer Guide.</p>
+   */
+  Brevity?: Brevity;
 }
 
 /**
@@ -677,7 +713,7 @@ export interface TextTranslationJobProperties {
    * @public
    * <p>The status of the translation job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -840,7 +876,7 @@ export interface ParallelDataProperties {
    * <p>The status of the parallel data resource. When the parallel data is ready for you to use,
    *       the status is <code>ACTIVE</code>.</p>
    */
-  Status?: ParallelDataStatus | string;
+  Status?: ParallelDataStatus;
 
   /**
    * @public
@@ -918,7 +954,7 @@ export interface ParallelDataProperties {
    * @public
    * <p>The status of the most recent update attempt for the parallel data resource.</p>
    */
-  LatestUpdateAttemptStatus?: ParallelDataStatus | string;
+  LatestUpdateAttemptStatus?: ParallelDataStatus;
 
   /**
    * @public
@@ -1008,7 +1044,7 @@ export interface GetTerminologyRequest {
    *       you must specify the same format as the input file that was imported to create it. Otherwise,
    *       Amazon Translate throws an error.</p>
    */
-  TerminologyDataFormat?: TerminologyDataFormat | string;
+  TerminologyDataFormat?: TerminologyDataFormat;
 }
 
 /**
@@ -1138,7 +1174,7 @@ export interface TerminologyProperties {
    *             </dd>
    *          </dl>
    */
-  Directionality?: Directionality | string;
+  Directionality?: Directionality;
 
   /**
    * @public
@@ -1157,7 +1193,7 @@ export interface TerminologyProperties {
    * @public
    * <p>The format of the custom terminology input file.</p>
    */
-  Format?: TerminologyDataFormat | string;
+  Format?: TerminologyDataFormat;
 }
 
 /**
@@ -1230,7 +1266,7 @@ export interface TerminologyData {
    * @public
    * <p>The data format of the custom terminology.</p>
    */
-  Format: TerminologyDataFormat | string | undefined;
+  Format: TerminologyDataFormat | undefined;
 
   /**
    * @public
@@ -1254,7 +1290,7 @@ export interface TerminologyData {
    *          <p>When you create a custom terminology resource without specifying the directionality, it
    *       behaves as uni-directional terminology, although this parameter will have a null value.</p>
    */
-  Directionality?: Directionality | string;
+  Directionality?: Directionality;
 }
 
 /**
@@ -1273,7 +1309,7 @@ export interface ImportTerminologyRequest {
    *       merge strategy is supported. In this case, the imported terminology will overwrite an existing
    *       terminology of the same name.</p>
    */
-  MergeStrategy: MergeStrategy | string | undefined;
+  MergeStrategy: MergeStrategy | undefined;
 
   /**
    * @public
@@ -1354,7 +1390,7 @@ export interface ListLanguagesRequest {
    * <p>The language code for the language to use to display the language names in the response.
    *       The language code is <code>en</code> by default. </p>
    */
-  DisplayLanguageCode?: DisplayLanguageCode | string;
+  DisplayLanguageCode?: DisplayLanguageCode;
 
   /**
    * @public
@@ -1401,7 +1437,7 @@ export interface ListLanguagesResponse {
    * @public
    * <p>The language code passed in with the request.</p>
    */
-  DisplayLanguageCode?: DisplayLanguageCode | string;
+  DisplayLanguageCode?: DisplayLanguageCode;
 
   /**
    * @public
@@ -1574,7 +1610,7 @@ export interface TextTranslationJobFilter {
    * @public
    * <p>Filters the list of jobs based by job status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -1727,8 +1763,18 @@ export interface StartTextTranslationJobRequest {
 
   /**
    * @public
-   * <p>Settings to configure your translation output, including the option to set the formality
-   *       level of the output text and the option to mask profane words and phrases.</p>
+   * <p>Settings to configure your translation output. You can configure the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Brevity: not supported.</p>
+   *             </li>
+   *             <li>
+   *                <p>Formality: sets the formality level of the output text.</p>
+   *             </li>
+   *             <li>
+   *                <p>Profanity: masks profane words and phrases in your translation output.</p>
+   *             </li>
+   *          </ul>
    */
   Settings?: TranslationSettings;
 }
@@ -1782,7 +1828,7 @@ export interface StartTextTranslationJobResponse {
    *             </li>
    *          </ul>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 }
 
 /**
@@ -1847,7 +1893,7 @@ export interface StopTextTranslationJobResponse {
    * <p>The status of the designated job. Upon successful completion, the job's status will be
    *         <code>STOPPED</code>.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 }
 
 /**
@@ -1960,10 +2006,16 @@ export interface TranslateDocumentRequest {
 
   /**
    * @public
-   * <p>The language code for the language of the source text. Do not use <code>auto</code>, because
-   *       <code>TranslateDocument</code> does not support language auto-detection.
-   *       For a list of supported language codes, see
+   * <p>The language code for the language of the source text. For a list of supported language codes, see
    *       <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
+   *          <p>To have Amazon Translate determine the source language of your text, you can specify
+   *       <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify
+   *       <code>auto</code>, Amazon Translate will call <a href="https://docs.aws.amazon.com/comprehend/latest/dg/comprehend-general.html">Amazon
+   *         Comprehend</a> to determine the source language.</p>
+   *          <note>
+   *             <p>If you specify <code>auto</code>, you must send the <code>TranslateDocument</code> request in a region that supports
+   *       Amazon Comprehend. Otherwise, the request returns an error indicating that autodetect is not supported. </p>
+   *          </note>
    */
   SourceLanguageCode: string | undefined;
 
@@ -1977,8 +2029,18 @@ export interface TranslateDocumentRequest {
 
   /**
    * @public
-   * <p>Settings to configure your translation output, including the option to set the formality
-   *       level of the output text and the option to mask profane words and phrases.</p>
+   * <p>Settings to configure your translation output. You can configure the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Brevity: not supported.</p>
+   *             </li>
+   *             <li>
+   *                <p>Formality: sets the formality level of the output text.</p>
+   *             </li>
+   *             <li>
+   *                <p>Profanity: masks profane words and phrases in your translation output.</p>
+   *             </li>
+   *          </ul>
    */
   Settings?: TranslationSettings;
 }
@@ -2026,8 +2088,19 @@ export interface TranslateDocumentResponse {
 
   /**
    * @public
-   * <p>Settings to configure your translation output, including the option to set the formality
-   *       level of the output text and the option to mask profane words and phrases.</p>
+   * <p>Settings to configure your translation output. You can configure the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Brevity: reduces the length of the translation output for most translations. Available for
+   *             <code>TranslateText</code> only.</p>
+   *             </li>
+   *             <li>
+   *                <p>Formality: sets the formality level of the translation output.</p>
+   *             </li>
+   *             <li>
+   *                <p>Profanity: masks profane words and phrases in the translation output.</p>
+   *             </li>
+   *          </ul>
    */
   AppliedSettings?: TranslationSettings;
 }
@@ -2132,8 +2205,18 @@ export interface TranslateTextRequest {
 
   /**
    * @public
-   * <p>Settings to configure your translation output, including the option to set the formality
-   *       level of the output text and the option to mask profane words and phrases.</p>
+   * <p>Settings to configure your translation output. You can configure the following options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Brevity: reduces the length of the translated output for most translations.</p>
+   *             </li>
+   *             <li>
+   *                <p>Formality: sets the formality level of the output text.</p>
+   *             </li>
+   *             <li>
+   *                <p>Profanity: masks profane words and phrases in your translation output.</p>
+   *             </li>
+   *          </ul>
    */
   Settings?: TranslationSettings;
 }
@@ -2245,14 +2328,14 @@ export interface UpdateParallelDataResponse {
    *       request is accepted only if this status is either <code>ACTIVE</code> or
    *       <code>FAILED</code>.</p>
    */
-  Status?: ParallelDataStatus | string;
+  Status?: ParallelDataStatus;
 
   /**
    * @public
    * <p>The status of the parallel data update attempt. When the updated parallel data resource is
    *       ready for you to use, the status is <code>ACTIVE</code>.</p>
    */
-  LatestUpdateAttemptStatus?: ParallelDataStatus | string;
+  LatestUpdateAttemptStatus?: ParallelDataStatus;
 
   /**
    * @public

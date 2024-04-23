@@ -50,6 +50,14 @@ export interface Application {
    * <p>Key-value pairs you can use to associate with the application.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>
+   *       A key-value pair that identifies an associated resource.
+   *     </p>
+   */
+  applicationTag?: Record<string, string>;
 }
 
 /**
@@ -92,6 +100,101 @@ export interface ApplicationSummary {
    * <p> The ISO-8601 formatted timestamp of the moment when the application was last updated.</p>
    */
   lastUpdateTime?: Date;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ApplicationTagStatus = {
+  FAILURE: "FAILURE",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ApplicationTagStatus = (typeof ApplicationTagStatus)[keyof typeof ApplicationTagStatus];
+
+/**
+ * @public
+ * <p>
+ *       The resource in a list of resources.
+ *     </p>
+ */
+export interface ResourcesListItem {
+  /**
+   * @public
+   * <p>
+   *       The Amazon resource name (ARN) of the resource.
+   *     </p>
+   */
+  resourceArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *       The message returned if the call fails.
+   *     </p>
+   */
+  errorMessage?: string;
+
+  /**
+   * @public
+   * <p>
+   *       The status of the list item.
+   *     </p>
+   */
+  status?: string;
+
+  /**
+   * @public
+   * <p>
+   *       Provides information about the AppRegistry resource type.
+   *     </p>
+   */
+  resourceType?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *       The result of the application tag that's applied to a resource.
+ *     </p>
+ */
+export interface ApplicationTagResult {
+  /**
+   * @public
+   * <p>
+   *       The application tag is in the process of being applied to a resource, was successfully applied to a resource, or failed to apply to a resource.
+   *     </p>
+   */
+  applicationTagStatus?: ApplicationTagStatus;
+
+  /**
+   * @public
+   * <p>
+   *       The message returned if the call fails.
+   *     </p>
+   */
+  errorMessage?: string;
+
+  /**
+   * @public
+   * <p>
+   *       The resources associated with an application
+   *     </p>
+   */
+  resources?: ResourcesListItem[];
+
+  /**
+   * @public
+   * <p>
+   *       A unique pagination token for each page of results. Make the call again with the returned token to retrieve the next page of results.
+   *     </p>
+   */
+  nextToken?: string;
 }
 
 /**
@@ -285,6 +388,20 @@ export class ValidationException extends __BaseException {
  * @public
  * @enum
  */
+export const AssociationOption = {
+  APPLY_APPLICATION_TAG: "APPLY_APPLICATION_TAG",
+  SKIP_APPLICATION_TAG: "SKIP_APPLICATION_TAG",
+} as const;
+
+/**
+ * @public
+ */
+export type AssociationOption = (typeof AssociationOption)[keyof typeof AssociationOption];
+
+/**
+ * @public
+ * @enum
+ */
 export const ResourceType = {
   CFN_STACK: "CFN_STACK",
   RESOURCE_TAG_VALUE: "RESOURCE_TAG_VALUE",
@@ -312,13 +429,21 @@ export interface AssociateResourceRequest {
    * @public
    * <p>The type of resource of which the application will be associated.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
    * <p>The name or ID of the resource of which the application will be associated.</p>
    */
   resource: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *       Determines whether an application tag is applied or skipped.
+   *     </p>
+   */
+  options?: AssociationOption[];
 }
 
 /**
@@ -336,6 +461,14 @@ export interface AssociateResourceResponse {
    * <p>The Amazon resource name (ARN) that specifies the resource.</p>
    */
   resourceArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *       Determines whether an application tag is applied or skipped.
+   *     </p>
+   */
+  options?: AssociationOption[];
 }
 
 /**
@@ -438,8 +571,6 @@ export interface AttributeGroupDetails {
 
   /**
    * @public
-   * @deprecated
-   *
    * <important>
    *             <p>
    *         This field is no longer supported.
@@ -708,7 +839,7 @@ export interface DisassociateResourceRequest {
    * @public
    * <p>The type of the resource that is being disassociated.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -787,7 +918,7 @@ export interface ResourceGroup {
    *          <p>
    *             <code>UPDATE_FAILED</code> if the resource group could not update successfully.</p>
    */
-  state?: ResourceGroupState | string;
+  state?: ResourceGroupState;
 
   /**
    * @public
@@ -812,6 +943,12 @@ export interface Integrations {
    * <p> The information about the resource group integration.</p>
    */
   resourceGroup?: ResourceGroup;
+
+  /**
+   * @public
+   * <p>The information about the resource group integration.</p>
+   */
+  applicationTagResourceGroup?: ResourceGroup;
 }
 
 /**
@@ -878,7 +1015,31 @@ export interface GetApplicationResponse {
    *      </p>
    */
   integrations?: Integrations;
+
+  /**
+   * @public
+   * <p>
+   *       A key-value pair that identifies an associated resource.
+   *     </p>
+   */
+  applicationTag?: Record<string, string>;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceItemStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SKIPPED: "SKIPPED",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceItemStatus = (typeof ResourceItemStatus)[keyof typeof ResourceItemStatus];
 
 /**
  * @public
@@ -897,13 +1058,38 @@ export interface GetAssociatedResourceRequest {
    * @public
    * <p>The type of resource associated with the application.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
    * <p>The name or ID of the resource associated with the application.</p>
    */
   resource: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *       A unique pagination token for each page of results.
+   *       Make the call again with the returned token to retrieve the next page of results.
+   *     </p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>
+   *       States whether an application tag is applied, not applied, in the process of being applied, or skipped.
+   *     </p>
+   */
+  resourceTagStatus?: ResourceItemStatus[];
+
+  /**
+   * @public
+   * <p>
+   *       The maximum number of results to return. If the parameter is omitted, it defaults to 25. The value is optional.
+   *     </p>
+   */
+  maxResults?: number;
 }
 
 /**
@@ -958,6 +1144,22 @@ export interface GetAssociatedResourceResponse {
    * <p>The resource associated with the application.</p>
    */
   resource?: Resource;
+
+  /**
+   * @public
+   * <p>
+   *       Determines whether an application tag is applied or skipped.
+   *     </p>
+   */
+  options?: AssociationOption[];
+
+  /**
+   * @public
+   * <p>
+   *       The result of the application that's tag applied to a resource.
+   *     </p>
+   */
+  applicationTagResult?: ApplicationTagResult;
 }
 
 /**
@@ -1190,7 +1392,7 @@ export interface ResourceInfo {
    *       about the Service Catalog App Registry resource type.
    *     </p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -1201,6 +1403,14 @@ export interface ResourceInfo {
    *     </p>
    */
   resourceDetails?: ResourceDetails;
+
+  /**
+   * @public
+   * <p>
+   *       Determines whether an application tag is applied or skipped.
+   *     </p>
+   */
+  options?: AssociationOption[];
 }
 
 /**
@@ -1338,7 +1548,7 @@ export interface SyncResourceRequest {
    * @public
    * <p>The type of resource of which the application will be associated.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -1381,7 +1591,7 @@ export interface SyncResourceResponse {
    * @public
    * <p>The results of the output if an application is associated with an ARN value, which could be <code>syncStarted</code> or None.</p>
    */
-  actionTaken?: SyncAction | string;
+  actionTaken?: SyncAction;
 }
 
 /**

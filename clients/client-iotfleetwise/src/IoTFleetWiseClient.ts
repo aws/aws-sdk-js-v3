@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -92,6 +90,10 @@ import {
 } from "./commands/DisassociateVehicleFleetCommand";
 import { GetCampaignCommandInput, GetCampaignCommandOutput } from "./commands/GetCampaignCommand";
 import { GetDecoderManifestCommandInput, GetDecoderManifestCommandOutput } from "./commands/GetDecoderManifestCommand";
+import {
+  GetEncryptionConfigurationCommandInput,
+  GetEncryptionConfigurationCommandOutput,
+} from "./commands/GetEncryptionConfigurationCommand";
 import { GetFleetCommandInput, GetFleetCommandOutput } from "./commands/GetFleetCommand";
 import { GetLoggingOptionsCommandInput, GetLoggingOptionsCommandOutput } from "./commands/GetLoggingOptionsCommand";
 import { GetModelManifestCommandInput, GetModelManifestCommandOutput } from "./commands/GetModelManifestCommand";
@@ -147,6 +149,10 @@ import {
   ListVehiclesInFleetCommandInput,
   ListVehiclesInFleetCommandOutput,
 } from "./commands/ListVehiclesInFleetCommand";
+import {
+  PutEncryptionConfigurationCommandInput,
+  PutEncryptionConfigurationCommandOutput,
+} from "./commands/PutEncryptionConfigurationCommand";
 import { PutLoggingOptionsCommandInput, PutLoggingOptionsCommandOutput } from "./commands/PutLoggingOptionsCommand";
 import { RegisterAccountCommandInput, RegisterAccountCommandOutput } from "./commands/RegisterAccountCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -199,6 +205,7 @@ export type ServiceInputTypes =
   | DisassociateVehicleFleetCommandInput
   | GetCampaignCommandInput
   | GetDecoderManifestCommandInput
+  | GetEncryptionConfigurationCommandInput
   | GetFleetCommandInput
   | GetLoggingOptionsCommandInput
   | GetModelManifestCommandInput
@@ -221,6 +228,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ListVehiclesCommandInput
   | ListVehiclesInFleetCommandInput
+  | PutEncryptionConfigurationCommandInput
   | PutLoggingOptionsCommandInput
   | RegisterAccountCommandInput
   | TagResourceCommandInput
@@ -254,6 +262,7 @@ export type ServiceOutputTypes =
   | DisassociateVehicleFleetCommandOutput
   | GetCampaignCommandOutput
   | GetDecoderManifestCommandOutput
+  | GetEncryptionConfigurationCommandOutput
   | GetFleetCommandOutput
   | GetLoggingOptionsCommandOutput
   | GetModelManifestCommandOutput
@@ -276,6 +285,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ListVehiclesCommandOutput
   | ListVehiclesInFleetCommandOutput
+  | PutEncryptionConfigurationCommandOutput
   | PutLoggingOptionsCommandOutput
   | RegisterAccountCommandOutput
   | TagResourceCommandOutput
@@ -397,6 +407,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 
@@ -462,7 +474,7 @@ export interface IoTFleetWiseClientResolvedConfig extends IoTFleetWiseClientReso
  *             your vehicle data models, independent of the in-vehicle communication architecture, and
  *             define data collection rules to transfer only high-value data to the cloud.
  *             </p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/">What is Amazon Web Services IoT FleetWise?</a> in the
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/">What is Amazon Web Services IoT FleetWise?</a> in the
  *                 <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
  */
 export class IoTFleetWiseClient extends __Client<

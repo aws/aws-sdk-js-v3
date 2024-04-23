@@ -2,6 +2,7 @@
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { IAMServiceException as __BaseException } from "./IAMServiceException";
+
 import { Role, ServerCertificateMetadata, SigningCertificate, SSHPublicKey, StatusType, Tag } from "./models_0";
 
 /**
@@ -173,7 +174,7 @@ export interface UpdateAccessKeyRequest {
    *             that the key can be used for programmatic calls to Amazon Web Services, while <code>Inactive</code>
    *             means that the key cannot be used.</p>
    */
-  Status: StatusType | string | undefined;
+  Status: StatusType | undefined;
 }
 
 /**
@@ -579,7 +580,7 @@ export interface UpdateServiceSpecificCredentialRequest {
    * @public
    * <p>The status to be assigned to the service-specific credential.</p>
    */
-  Status: StatusType | string | undefined;
+  Status: StatusType | undefined;
 }
 
 /**
@@ -608,7 +609,7 @@ export interface UpdateSigningCertificateRequest {
    *             certificate can be used for programmatic calls to Amazon Web Services <code>Inactive</code> means that
    *             the certificate cannot be used.</p>
    */
-  Status: StatusType | string | undefined;
+  Status: StatusType | undefined;
 }
 
 /**
@@ -637,7 +638,7 @@ export interface UpdateSSHPublicKeyRequest {
    *             be used for authentication with an CodeCommit repository. <code>Inactive</code> means that
    *             the key cannot be used.</p>
    */
-  Status: StatusType | string | undefined;
+  Status: StatusType | undefined;
 }
 
 /**

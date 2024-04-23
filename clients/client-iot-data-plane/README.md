@@ -34,16 +34,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `IoTDataPlaneClient` and
-the commands you need, for example `DeleteThingShadowCommand`:
+the commands you need, for example `ListRetainedMessagesCommand`:
 
 ```js
 // ES5 example
-const { IoTDataPlaneClient, DeleteThingShadowCommand } = require("@aws-sdk/client-iot-data-plane");
+const { IoTDataPlaneClient, ListRetainedMessagesCommand } = require("@aws-sdk/client-iot-data-plane");
 ```
 
 ```ts
 // ES6+ example
-import { IoTDataPlaneClient, DeleteThingShadowCommand } from "@aws-sdk/client-iot-data-plane";
+import { IoTDataPlaneClient, ListRetainedMessagesCommand } from "@aws-sdk/client-iot-data-plane";
 ```
 
 ### Usage
@@ -62,7 +62,7 @@ const client = new IoTDataPlaneClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DeleteThingShadowCommand(params);
+const command = new ListRetainedMessagesCommand(params);
 ```
 
 #### Async/await
@@ -141,7 +141,7 @@ const client = new AWS.IoTDataPlane({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.deleteThingShadow(params);
+  const data = await client.listRetainedMessages(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -149,7 +149,7 @@ try {
 
 // Promises.
 client
-  .deleteThingShadow(params)
+  .listRetainedMessages(params)
   .then((data) => {
     // process data.
   })
@@ -158,7 +158,7 @@ client
   });
 
 // callbacks.
-client.deleteThingShadow(params, (err, data) => {
+client.listRetainedMessages(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -173,7 +173,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -219,7 +219,7 @@ see LICENSE for more information.
 DeleteThingShadow
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-data-plane/classes/deletethingshadowcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-data-plane/interfaces/deletethingshadowcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-data-plane/interfaces/deletethingshadowcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-data-plane/command/DeleteThingShadowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-data-plane/Interface/DeleteThingShadowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-data-plane/Interface/DeleteThingShadowCommandOutput/)
 
 </details>
 <details>
@@ -227,7 +227,7 @@ DeleteThingShadow
 GetRetainedMessage
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-data-plane/classes/getretainedmessagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-data-plane/interfaces/getretainedmessagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-data-plane/interfaces/getretainedmessagecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-data-plane/command/GetRetainedMessageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-data-plane/Interface/GetRetainedMessageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-data-plane/Interface/GetRetainedMessageCommandOutput/)
 
 </details>
 <details>
@@ -235,7 +235,7 @@ GetRetainedMessage
 GetThingShadow
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-data-plane/classes/getthingshadowcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-data-plane/interfaces/getthingshadowcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-data-plane/interfaces/getthingshadowcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-data-plane/command/GetThingShadowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-data-plane/Interface/GetThingShadowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-data-plane/Interface/GetThingShadowCommandOutput/)
 
 </details>
 <details>
@@ -243,7 +243,7 @@ GetThingShadow
 ListNamedShadowsForThing
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-data-plane/classes/listnamedshadowsforthingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-data-plane/interfaces/listnamedshadowsforthingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-data-plane/interfaces/listnamedshadowsforthingcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-data-plane/command/ListNamedShadowsForThingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-data-plane/Interface/ListNamedShadowsForThingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-data-plane/Interface/ListNamedShadowsForThingCommandOutput/)
 
 </details>
 <details>
@@ -251,7 +251,7 @@ ListNamedShadowsForThing
 ListRetainedMessages
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-data-plane/classes/listretainedmessagescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-data-plane/interfaces/listretainedmessagescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-data-plane/interfaces/listretainedmessagescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-data-plane/command/ListRetainedMessagesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-data-plane/Interface/ListRetainedMessagesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-data-plane/Interface/ListRetainedMessagesCommandOutput/)
 
 </details>
 <details>
@@ -259,7 +259,7 @@ ListRetainedMessages
 Publish
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-data-plane/classes/publishcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-data-plane/interfaces/publishcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-data-plane/interfaces/publishcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-data-plane/command/PublishCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-data-plane/Interface/PublishCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-data-plane/Interface/PublishCommandOutput/)
 
 </details>
 <details>
@@ -267,6 +267,6 @@ Publish
 UpdateThingShadow
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-data-plane/classes/updatethingshadowcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-data-plane/interfaces/updatethingshadowcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-data-plane/interfaces/updatethingshadowcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-data-plane/command/UpdateThingShadowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-data-plane/Interface/UpdateThingShadowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-data-plane/Interface/UpdateThingShadowCommandOutput/)
 
 </details>

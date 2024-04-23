@@ -4,7 +4,6 @@
  * <p>The AWS Migration Hub home region APIs are available specifically for working with your
  *       Migration Hub home region. You can use these APIs to determine a home region, as well as to
  *       create and work with controls that describe the home region.</p>
- *
  *          <ul>
  *             <li>
  *                <p>You must make API calls for write actions (create, notify, associate, disassociate,
@@ -24,7 +23,6 @@
  *           home region.</p>
  *             </li>
  *          </ul>
- *
  *          <p>For specific API usage, see the sections that follow in this AWS Migration Hub Home Region
  *       API reference. </p>
  *
@@ -33,8 +31,12 @@
 export * from "./MigrationHubConfigClient";
 export * from "./MigrationHubConfig";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { MigrationHubConfigExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { MigrationHubConfigServiceException } from "./models/MigrationHubConfigServiceException";

@@ -29,7 +29,7 @@ export interface AddTagsToOnPremisesInstancesInput {
   /**
    * @public
    * <p>The tag key-value pairs to add to the on-premises instances.</p>
-   *         <p>Keys and values are both required. Keys cannot be null or empty strings. Value-only
+   *          <p>Keys and values are both required. Keys cannot be null or empty strings. Value-only
    *             tags are not allowed.</p>
    */
   tags: Tag[] | undefined;
@@ -210,14 +210,14 @@ export interface AlarmConfiguration {
    * @public
    * <p>Indicates whether a deployment should continue if information about the current state
    *             of alarms cannot be retrieved from Amazon CloudWatch. The default value is false.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>true</code>: The deployment proceeds even if alarm status information
    *                     can't be retrieved from Amazon CloudWatch.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>false</code>: The deployment stops if alarm status information can't be
    *                     retrieved from Amazon CloudWatch.</p>
    *             </li>
@@ -255,7 +255,8 @@ export class AlarmsLimitExceededException extends __BaseException {
 
 /**
  * @public
- * <p>An application with the specified name with the IAM user or Amazon Web Services account already exists.</p>
+ * <p>An application with the specified name with the user or Amazon Web Services account
+ *             already exists.</p>
  */
 export class ApplicationAlreadyExistsException extends __BaseException {
   readonly name: "ApplicationAlreadyExistsException" = "ApplicationAlreadyExistsException";
@@ -275,7 +276,7 @@ export class ApplicationAlreadyExistsException extends __BaseException {
 
 /**
  * @public
- * <p>The application does not exist with the IAM user or Amazon Web Services account.</p>
+ * <p>The application does not exist with the user or Amazon Web Services account.</p>
  */
 export class ApplicationDoesNotExistException extends __BaseException {
   readonly name: "ApplicationDoesNotExistException" = "ApplicationDoesNotExistException";
@@ -348,7 +349,7 @@ export interface ApplicationInfo {
    * @public
    * <p>The destination platform type for deployment of the application (<code>Lambda</code> or <code>Server</code>).</p>
    */
-  computePlatform?: ComputePlatform | string;
+  computePlatform?: ComputePlatform;
 }
 
 /**
@@ -416,12 +417,12 @@ export interface AppSpecContent {
   /**
    * @public
    * <p> The YAML-formatted or JSON-formatted revision string. </p>
-   *         <p> For an Lambda deployment, the content includes a Lambda
+   *          <p> For an Lambda deployment, the content includes a Lambda
    *             function name, the alias for its original version, and the alias for its replacement
    *             version. The deployment shifts traffic from the original version of the Lambda function to the replacement version. </p>
-   *         <p> For an Amazon ECS deployment, the content includes the task name, information
+   *          <p> For an Amazon ECS deployment, the content includes the task name, information
    *             about the load balancer that serves traffic to the container, and more. </p>
-   *         <p> For both types of deployments, the content can specify Lambda functions
+   *          <p> For both types of deployments, the content can specify Lambda functions
    *             that run at specified hooks, such as <code>BeforeInstall</code>, during a deployment.
    *         </p>
    */
@@ -487,7 +488,7 @@ export interface AutoRollbackConfiguration {
    * @public
    * <p>The event type or types that trigger a rollback.</p>
    */
-  events?: (AutoRollbackEvent | string)[];
+  events?: AutoRollbackEvent[];
 }
 
 /**
@@ -503,9 +504,19 @@ export interface AutoScalingGroup {
 
   /**
    * @public
-   * <p>An Auto Scaling lifecycle event hook name.</p>
+   * <p>The name of the launch hook that CodeDeploy installed into the Auto Scaling group.</p>
+   *          <p>For more information about the launch hook, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-auto-scaling.html#integrations-aws-auto-scaling-behaviors">How Amazon EC2 Auto Scaling works with CodeDeploy</a> in the
+   *                     <i>CodeDeploy User Guide</i>.</p>
    */
   hook?: string;
+
+  /**
+   * @public
+   * <p>The name of the termination hook that CodeDeploy installed into the Auto Scaling group.</p>
+   *          <p>For more information about the termination hook, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-auto-scaling.html#integrations-aws-auto-scaling-behaviors-hook-enable">Enabling termination deployments during Auto Scaling scale-in events</a> in the
+   *             <i>CodeDeploy User Guide</i>.</p>
+   */
+  terminationHook?: string;
 }
 
 /**
@@ -517,7 +528,7 @@ export interface GitHubLocation {
    * @public
    * <p>The GitHub account and repository pair that stores a reference to the commit that
    *             represents the bundled artifacts for the application revision. </p>
-   *         <p>Specified as account/repository.</p>
+   *          <p>Specified as account/repository.</p>
    */
   repository?: string;
 
@@ -584,28 +595,36 @@ export interface S3Location {
   /**
    * @public
    * <p>The file type of the application revision. Must be one of the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>tar</code>: A tar archive file.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>tgz</code>: A compressed tar archive file.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>zip</code>: A zip archive file.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>YAML</code>: A YAML-formatted file.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>JSON</code>: A JSON-formatted file.</p>
    *             </li>
    *          </ul>
    */
-  bundleType?: BundleType | string;
+  bundleType?: BundleType;
 
   /**
    * @public
    * <p>A specific version of the Amazon S3 object that represents the bundled
    *             artifacts for the application revision.</p>
-   *         <p>If the version is not specified, the system uses the most recent version by
+   *          <p>If the version is not specified, the system uses the most recent version by
    *             default.</p>
    */
   version?: string;
@@ -614,7 +633,7 @@ export interface S3Location {
    * @public
    * <p>The ETag of the Amazon S3 object that represents the bundled artifacts for the
    *             application revision.</p>
-   *         <p>If the ETag is not specified as an input parameter, ETag validation of the object is
+   *          <p>If the ETag is not specified as an input parameter, ETag validation of the object is
    *             skipped.</p>
    */
   eTag?: string;
@@ -652,27 +671,27 @@ export interface RevisionLocation {
   /**
    * @public
    * <p>The type of application revision:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>S3: An application revision stored in Amazon S3.</p>
+   *                <p>S3: An application revision stored in Amazon S3.</p>
    *             </li>
    *             <li>
-   *                 <p>GitHub: An application revision stored in GitHub (EC2/On-premises deployments
+   *                <p>GitHub: An application revision stored in GitHub (EC2/On-premises deployments
    *                     only).</p>
    *             </li>
    *             <li>
-   *                 <p>String: A YAML-formatted or JSON-formatted string (Lambda
+   *                <p>String: A YAML-formatted or JSON-formatted string (Lambda
    *                     deployments only).</p>
    *             </li>
    *             <li>
-   *                 <p>AppSpecContent: An <code>AppSpecContent</code> object that contains the
+   *                <p>AppSpecContent: An <code>AppSpecContent</code> object that contains the
    *                     contents of an AppSpec file for an Lambda or Amazon ECS
    *                     deployment. The content is formatted as JSON or YAML stored as a
    *                     RawString.</p>
    *             </li>
    *          </ul>
    */
-  revisionType?: RevisionLocationType | string;
+  revisionType?: RevisionLocationType;
 
   /**
    * @public
@@ -915,8 +934,8 @@ export interface BatchGetApplicationsOutput {
 export interface BatchGetDeploymentGroupsInput {
   /**
    * @public
-   * <p>The name of an CodeDeploy application associated with the applicable
-   *                 IAM or Amazon Web Services account.</p>
+   * <p>The name of an CodeDeploy application associated with the applicable user
+   *             or Amazon Web Services account.</p>
    */
   applicationName: string | undefined;
 
@@ -951,21 +970,21 @@ export interface DeploymentReadyOption {
    * @public
    * <p>Information about when to reroute traffic from an original environment to a
    *             replacement environment in a blue/green deployment.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>CONTINUE_DEPLOYMENT: Register new instances with the load balancer immediately
+   *                <p>CONTINUE_DEPLOYMENT: Register new instances with the load balancer immediately
    *                     after the new application revision is installed on the instances in the
    *                     replacement environment.</p>
    *             </li>
    *             <li>
-   *                 <p>STOP_DEPLOYMENT: Do not register new instances with a load balancer unless
+   *                <p>STOP_DEPLOYMENT: Do not register new instances with a load balancer unless
    *                     traffic rerouting is started using <a>ContinueDeployment</a>. If
    *                     traffic rerouting is not started before the end of the specified wait period,
    *                     the deployment status is changed to Stopped.</p>
    *             </li>
    *          </ul>
    */
-  actionOnTimeout?: DeploymentReadyAction | string;
+  actionOnTimeout?: DeploymentReadyAction;
 
   /**
    * @public
@@ -1000,20 +1019,20 @@ export interface GreenFleetProvisioningOption {
   /**
    * @public
    * <p>The method used to add instances to a replacement environment.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DISCOVER_EXISTING</code>: Use instances that already exist or will be
    *                     created manually.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>COPY_AUTO_SCALING_GROUP</code>: Use settings from a specified Auto Scaling group to define and create instances in a new Auto Scaling
    *                     group.</p>
    *             </li>
    *          </ul>
    */
-  action?: GreenFleetProvisioningAction | string;
+  action?: GreenFleetProvisioningAction;
 }
 
 /**
@@ -1041,32 +1060,30 @@ export interface BlueInstanceTerminationOption {
    * @public
    * <p>The action to take on instances in the original environment after a successful
    *             blue/green deployment.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>TERMINATE</code>: Instances are terminated after a specified wait
    *                     time.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>KEEP_ALIVE</code>: Instances are left running after they are
    *                     deregistered from the load balancer and removed from the deployment
    *                     group.</p>
    *             </li>
    *          </ul>
    */
-  action?: InstanceAction | string;
+  action?: InstanceAction;
 
   /**
    * @public
    * <p>For an Amazon EC2 deployment, the number of minutes to wait after a successful
    *             blue/green deployment before terminating instances from the original environment.</p>
-   *
-   *         <p> For an Amazon ECS deployment, the number of minutes before deleting the
+   *          <p> For an Amazon ECS deployment, the number of minutes before deleting the
    *             original (blue) task set. During an Amazon ECS deployment, CodeDeploy shifts
    *             traffic from the original (blue) task set to a replacement (green) task set. </p>
-   *
-   *         <p> The maximum setting is 2880 minutes (2 days). </p>
+   *          <p> The maximum setting is 2880 minutes (2 days). </p>
    */
   terminationWaitTimeInMinutes?: number;
 }
@@ -1136,13 +1153,13 @@ export interface DeploymentStyle {
    * @public
    * <p>Indicates whether to run an in-place deployment or a blue/green deployment.</p>
    */
-  deploymentType?: DeploymentType | string;
+  deploymentType?: DeploymentType;
 
   /**
    * @public
    * <p>Indicates whether to route deployment traffic behind a load balancer.</p>
    */
-  deploymentOption?: DeploymentOption | string;
+  deploymentOption?: DeploymentOption;
 }
 
 /**
@@ -1180,22 +1197,22 @@ export interface EC2TagFilter {
   /**
    * @public
    * <p>The tag filter type:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>KEY_ONLY</code>: Key only.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>VALUE_ONLY</code>: Value only.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>KEY_AND_VALUE</code>: Key and value.</p>
    *             </li>
    *          </ul>
    */
-  Type?: EC2TagFilterType | string;
+  Type?: EC2TagFilterType;
 }
 
 /**
@@ -1268,7 +1285,7 @@ export interface LastDeploymentInfo {
    * @public
    * <p>The status of the most recent deployment.</p>
    */
-  status?: DeploymentStatus | string;
+  status?: DeploymentStatus;
 
   /**
    * @public
@@ -1287,18 +1304,18 @@ export interface LastDeploymentInfo {
 
 /**
  * @public
- * <p>Information about a load balancer in Elastic Load Balancing to use in a deployment.
- *             Instances are registered directly with a load balancer, and traffic is routed to the
- *             load balancer.</p>
+ * <p>Information about a Classic Load Balancer in Elastic Load Balancing to use in a
+ *             deployment. Instances are registered directly with a load balancer, and traffic is
+ *             routed to the load balancer.</p>
  */
 export interface ELBInfo {
   /**
    * @public
-   * <p>For blue/green deployments, the name of the load balancer that is used to route
-   *             traffic from original instances to replacement instances in a blue/green deployment. For
-   *             in-place deployments, the name of the load balancer that instances are deregistered from
-   *             so they are not serving traffic during a deployment, and then re-registered with after
-   *             the deployment is complete.</p>
+   * <p>For blue/green deployments, the name of the Classic Load Balancer that is used to
+   *             route traffic from original instances to replacement instances in a blue/green
+   *             deployment. For in-place deployments, the name of the Classic Load Balancer that
+   *             instances are deregistered from so they are not serving traffic during a deployment, and
+   *             then re-registered with after the deployment is complete.</p>
    */
   name?: string;
 }
@@ -1367,27 +1384,39 @@ export interface TargetGroupPairInfo {
  * @public
  * <p>Information about the Elastic Load Balancing load balancer or target group used in a
  *             deployment.</p>
+ *          <p>You can use load balancers and target groups in combination. For example, if you have
+ *             two Classic Load Balancers, and five target groups tied to an Application Load Balancer,
+ *             you can specify the two Classic Load Balancers in <code>elbInfoList</code>, and the five
+ *             target groups in <code>targetGroupInfoList</code>.</p>
  */
 export interface LoadBalancerInfo {
   /**
    * @public
-   * <p>An array that contains information about the load balancer to use for load balancing
-   *             in a deployment. In Elastic Load Balancing, load balancers are used with Classic Load
-   *             Balancers.</p>
-   *         <note>
-   *             <p> Adding more than one load balancer to the array is not supported. </p>
-   *         </note>
+   * <p>An array that contains information about the load balancers to use for load balancing
+   *             in a deployment. If you're using Classic Load Balancers, specify those load balancers in
+   *             this array. </p>
+   *          <note>
+   *             <p>You can add up to 10 load balancers to the array.</p>
+   *          </note>
+   *          <note>
+   *             <p>If you're using Application Load Balancers or Network Load Balancers, use the
+   *                     <code>targetGroupInfoList</code> array instead of this one.</p>
+   *          </note>
    */
   elbInfoList?: ELBInfo[];
 
   /**
    * @public
-   * <p>An array that contains information about the target group to use for load balancing in
-   *             a deployment. In Elastic Load Balancing, target groups are used with Application Load
-   *             Balancers.</p>
-   *         <note>
-   *             <p> Adding more than one target group to the array is not supported. </p>
-   *         </note>
+   * <p>An array that contains information about the target groups to use for load balancing
+   *             in a deployment. If you're using Application Load Balancers and Network Load Balancers,
+   *             specify their associated target groups in this array.</p>
+   *          <note>
+   *             <p>You can add up to 10 target groups to the array.</p>
+   *          </note>
+   *          <note>
+   *             <p>If you're using Classic Load Balancers, use the <code>elbInfoList</code> array
+   *                 instead of this one.</p>
+   *          </note>
    */
   targetGroupInfoList?: TargetGroupInfo[];
 
@@ -1434,19 +1463,19 @@ export interface TagFilter {
   /**
    * @public
    * <p>The on-premises instance tag filter type:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>KEY_ONLY: Key only.</p>
+   *                <p>KEY_ONLY: Key only.</p>
    *             </li>
    *             <li>
-   *                 <p>VALUE_ONLY: Value only.</p>
+   *                <p>VALUE_ONLY: Value only.</p>
    *             </li>
    *             <li>
-   *                 <p>KEY_AND_VALUE: Key and value.</p>
+   *                <p>KEY_AND_VALUE: Key and value.</p>
    *             </li>
    *          </ul>
    */
-  Type?: TagFilterType | string;
+  Type?: TagFilterType;
 }
 
 /**
@@ -1521,7 +1550,7 @@ export interface TriggerConfig {
    * @public
    * <p>The event type or types for which notifications are triggered.</p>
    */
-  triggerEvents?: (TriggerEventType | string)[];
+  triggerEvents?: TriggerEventType[];
 }
 
 /**
@@ -1618,14 +1647,14 @@ export interface DeploymentGroupInfo {
    * @public
    * <p>Indicates what happens when new Amazon EC2 instances are launched
    *             mid-deployment and do not receive the deployed application revision.</p>
-   *         <p>If this option is set to <code>UPDATE</code> or is unspecified, CodeDeploy initiates
+   *          <p>If this option is set to <code>UPDATE</code> or is unspecified, CodeDeploy initiates
    *             one or more 'auto-update outdated instances' deployments to apply the deployed
    *             application revision to the new Amazon EC2 instances.</p>
-   *         <p>If this option is set to <code>IGNORE</code>, CodeDeploy does not initiate a
+   *          <p>If this option is set to <code>IGNORE</code>, CodeDeploy does not initiate a
    *             deployment to update the new Amazon EC2 instances. This may result in instances
    *             having different revisions.</p>
    */
-  outdatedInstancesStrategy?: OutdatedInstancesStrategy | string;
+  outdatedInstancesStrategy?: OutdatedInstancesStrategy;
 
   /**
    * @public
@@ -1673,7 +1702,7 @@ export interface DeploymentGroupInfo {
    * <p>The destination platform type for the deployment (<code>Lambda</code>,
    *                 <code>Server</code>, or <code>ECS</code>).</p>
    */
-  computePlatform?: ComputePlatform | string;
+  computePlatform?: ComputePlatform;
 
   /**
    * @public
@@ -1682,6 +1711,15 @@ export interface DeploymentGroupInfo {
    *             pair using the format <code><clustername>:<servicename></code>. </p>
    */
   ecsServices?: ECSService[];
+
+  /**
+   * @public
+   * <p>Indicates whether the deployment group was configured to have CodeDeploy
+   *             install a termination hook into an Auto Scaling group.</p>
+   *          <p>For more information about the termination hook, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-auto-scaling.html#integrations-aws-auto-scaling-behaviors">How Amazon EC2 Auto Scaling works with CodeDeploy</a> in the
+   *                     <i>CodeDeploy User Guide</i>.</p>
+   */
+  terminationHookEnabled?: boolean;
 }
 
 /**
@@ -1704,8 +1742,7 @@ export interface BatchGetDeploymentGroupsOutput {
 
 /**
  * @public
- * <p>The deployment configuration does not exist with the IAM user or
- *                 Amazon Web Services account.</p>
+ * <p>The deployment configuration does not exist with the user or Amazon Web Services account.</p>
  */
 export class DeploymentConfigDoesNotExistException extends __BaseException {
   readonly name: "DeploymentConfigDoesNotExistException" = "DeploymentConfigDoesNotExistException";
@@ -1822,31 +1859,31 @@ export interface Diagnostics {
   /**
    * @public
    * <p>The associated error code:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Success: The specified script ran.</p>
+   *                <p>Success: The specified script ran.</p>
    *             </li>
    *             <li>
-   *                 <p>ScriptMissing: The specified script was not found in the specified
+   *                <p>ScriptMissing: The specified script was not found in the specified
    *                     location.</p>
    *             </li>
    *             <li>
-   *                 <p>ScriptNotExecutable: The specified script is not a recognized executable file
+   *                <p>ScriptNotExecutable: The specified script is not a recognized executable file
    *                     type.</p>
    *             </li>
    *             <li>
-   *                 <p>ScriptTimedOut: The specified script did not finish running in the specified
+   *                <p>ScriptTimedOut: The specified script did not finish running in the specified
    *                     time period.</p>
    *             </li>
    *             <li>
-   *                 <p>ScriptFailed: The specified script failed to run as expected.</p>
+   *                <p>ScriptFailed: The specified script failed to run as expected.</p>
    *             </li>
    *             <li>
-   *                 <p>UnknownError: The specified script did not run for an unknown reason.</p>
+   *                <p>UnknownError: The specified script did not run for an unknown reason.</p>
    *             </li>
    *          </ul>
    */
-  errorCode?: LifecycleErrorCode | string;
+  errorCode?: LifecycleErrorCode;
 
   /**
    * @public
@@ -1863,7 +1900,7 @@ export interface Diagnostics {
   /**
    * @public
    * <p>The last portion of the diagnostic log.</p>
-   *         <p>If available, CodeDeploy returns up to the last 4 KB of the diagnostic
+   *          <p>If available, CodeDeploy returns up to the last 4 KB of the diagnostic
    *             log.</p>
    */
   logTail?: string;
@@ -1921,28 +1958,28 @@ export interface LifecycleEvent {
   /**
    * @public
    * <p>The deployment lifecycle event status:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Pending: The deployment lifecycle event is pending.</p>
+   *                <p>Pending: The deployment lifecycle event is pending.</p>
    *             </li>
    *             <li>
-   *                 <p>InProgress: The deployment lifecycle event is in progress.</p>
+   *                <p>InProgress: The deployment lifecycle event is in progress.</p>
    *             </li>
    *             <li>
-   *                 <p>Succeeded: The deployment lifecycle event ran successfully.</p>
+   *                <p>Succeeded: The deployment lifecycle event ran successfully.</p>
    *             </li>
    *             <li>
-   *                 <p>Failed: The deployment lifecycle event has failed.</p>
+   *                <p>Failed: The deployment lifecycle event has failed.</p>
    *             </li>
    *             <li>
-   *                 <p>Skipped: The deployment lifecycle event has been skipped.</p>
+   *                <p>Skipped: The deployment lifecycle event has been skipped.</p>
    *             </li>
    *             <li>
-   *                 <p>Unknown: The deployment lifecycle event is unknown.</p>
+   *                <p>Unknown: The deployment lifecycle event is unknown.</p>
    *             </li>
    *          </ul>
    */
-  status?: LifecycleEventStatus | string;
+  status?: LifecycleEventStatus;
 }
 
 /**
@@ -1988,37 +2025,37 @@ export interface InstanceSummary {
    * @deprecated
    *
    * <p>The deployment status for this instance:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Pending</code>: The deployment is pending for this instance.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>In Progress</code>: The deployment is in progress for this
    *                     instance.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Succeeded</code>: The deployment has succeeded for this instance.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Failed</code>: The deployment has failed for this instance.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Skipped</code>: The deployment has been skipped for this
    *                     instance.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Unknown</code>: The deployment status is unknown for this
    *                     instance.</p>
    *             </li>
    *          </ul>
    */
-  status?: InstanceStatus | string;
+  status?: InstanceStatus;
 
   /**
    * @public
@@ -2036,16 +2073,16 @@ export interface InstanceSummary {
    * @public
    * <p>Information about which environment an instance belongs to in a blue/green
    *             deployment.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>BLUE: The instance is part of the original environment.</p>
+   *                <p>BLUE: The instance is part of the original environment.</p>
    *             </li>
    *             <li>
-   *                 <p>GREEN: The instance is part of the replacement environment.</p>
+   *                <p>GREEN: The instance is part of the replacement environment.</p>
    *             </li>
    *          </ul>
    */
-  instanceType?: _InstanceType | string;
+  instanceType?: _InstanceType;
 }
 
 /**
@@ -2068,8 +2105,7 @@ export interface BatchGetDeploymentInstancesOutput {
 
 /**
  * @public
- * <p>The deployment with the IAM user or Amazon Web Services account does not
- *             exist.</p>
+ * <p>The deployment with the user or Amazon Web Services account does not exist.</p>
  */
 export class DeploymentDoesNotExistException extends __BaseException {
   readonly name: "DeploymentDoesNotExistException" = "DeploymentDoesNotExistException";
@@ -2188,6 +2224,7 @@ export interface BatchGetDeploymentsInput {
  */
 export const DeploymentCreator = {
   Autoscaling: "autoscaling",
+  AutoscalingTermination: "autoscalingTermination",
   CloudFormation: "CloudFormation",
   CloudFormationRollback: "CloudFormationRollback",
   CodeDeploy: "CodeDeploy",
@@ -2299,61 +2336,61 @@ export interface ErrorInformation {
   /**
    * @public
    * <p>For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/error-codes.html">Error Codes for CodeDeploy</a> in the <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide">CodeDeploy User Guide</a>.</p>
-   *         <p>The error code:</p>
-   *         <ul>
+   *          <p>The error code:</p>
+   *          <ul>
    *             <li>
-   *                 <p>APPLICATION_MISSING: The application was missing. This error code is most
+   *                <p>APPLICATION_MISSING: The application was missing. This error code is most
    *                     likely raised if the application is deleted after the deployment is created, but
    *                     before it is started.</p>
    *             </li>
    *             <li>
-   *                 <p>DEPLOYMENT_GROUP_MISSING: The deployment group was missing. This error code is
+   *                <p>DEPLOYMENT_GROUP_MISSING: The deployment group was missing. This error code is
    *                     most likely raised if the deployment group is deleted after the deployment is
    *                     created, but before it is started.</p>
    *             </li>
    *             <li>
-   *                 <p>HEALTH_CONSTRAINTS: The deployment failed on too many instances to be
+   *                <p>HEALTH_CONSTRAINTS: The deployment failed on too many instances to be
    *                     successfully deployed within the instance health constraints specified.</p>
    *             </li>
    *             <li>
-   *                 <p>HEALTH_CONSTRAINTS_INVALID: The revision cannot be successfully deployed
+   *                <p>HEALTH_CONSTRAINTS_INVALID: The revision cannot be successfully deployed
    *                     within the instance health constraints specified.</p>
    *             </li>
    *             <li>
-   *                 <p>IAM_ROLE_MISSING: The service role cannot be accessed.</p>
+   *                <p>IAM_ROLE_MISSING: The service role cannot be accessed.</p>
    *             </li>
    *             <li>
-   *                 <p>IAM_ROLE_PERMISSIONS: The service role does not have the
+   *                <p>IAM_ROLE_PERMISSIONS: The service role does not have the
    *                     correct permissions.</p>
    *             </li>
    *             <li>
-   *                 <p>INTERNAL_ERROR: There was an internal error.</p>
+   *                <p>INTERNAL_ERROR: There was an internal error.</p>
    *             </li>
    *             <li>
-   *                 <p>NO_EC2_SUBSCRIPTION: The calling account is not subscribed to Amazon EC2.</p>
+   *                <p>NO_EC2_SUBSCRIPTION: The calling account is not subscribed to Amazon EC2.</p>
    *             </li>
    *             <li>
-   *                 <p>NO_INSTANCES: No instances were specified, or no instances can be
+   *                <p>NO_INSTANCES: No instances were specified, or no instances can be
    *                     found.</p>
    *             </li>
    *             <li>
-   *                 <p>OVER_MAX_INSTANCES: The maximum number of instances was exceeded.</p>
+   *                <p>OVER_MAX_INSTANCES: The maximum number of instances was exceeded.</p>
    *             </li>
    *             <li>
-   *                 <p>THROTTLED: The operation was throttled because the calling account exceeded
+   *                <p>THROTTLED: The operation was throttled because the calling account exceeded
    *                     the throttling limits of one or more Amazon Web Services services.</p>
    *             </li>
    *             <li>
-   *                 <p>TIMEOUT: The deployment has timed out.</p>
+   *                <p>TIMEOUT: The deployment has timed out.</p>
    *             </li>
    *             <li>
-   *                 <p>REVISION_MISSING: The revision ID was missing. This error code is most likely
+   *                <p>REVISION_MISSING: The revision ID was missing. This error code is most likely
    *                     raised if the revision is deleted after the deployment is created, but before it
    *                     is started.</p>
    *             </li>
    *          </ul>
    */
-  code?: ErrorCode | string;
+  code?: ErrorCode;
 
   /**
    * @public
@@ -2500,7 +2537,7 @@ export interface DeploymentInfo {
    * @public
    * <p>The current state of the deployment as a whole.</p>
    */
-  status?: DeploymentStatus | string;
+  status?: DeploymentStatus;
 
   /**
    * @public
@@ -2518,7 +2555,7 @@ export interface DeploymentInfo {
    * @public
    * <p>A timestamp that indicates when the deployment was deployed to the deployment
    *             group.</p>
-   *         <p>In some cases, the reported value of the start time might be later than the complete
+   *          <p>In some cases, the reported value of the start time might be later than the complete
    *             time. This is due to differences in the clock settings of backend servers that
    *             participate in the deployment process.</p>
    */
@@ -2545,28 +2582,28 @@ export interface DeploymentInfo {
   /**
    * @public
    * <p>The means by which the deployment was created:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>user</code>: A user created the deployment.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>autoscaling</code>: Amazon EC2 Auto Scaling created the deployment.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>codeDeployRollback</code>: A rollback process created the
    *                     deployment.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CodeDeployAutoUpdate</code>: An auto-update process created the
    *                     deployment when it detected outdated Amazon EC2 instances.</p>
    *             </li>
    *          </ul>
    */
-  creator?: DeploymentCreator | string;
+  creator?: DeploymentCreator;
 
   /**
    * @public
@@ -2577,20 +2614,17 @@ export interface DeploymentInfo {
    *                 <code>BeforeBlockTraffic</code> fails, the deployment continues with
    *                 <code>BlockTraffic</code>. If <code>AfterBlockTraffic</code> fails, the deployment
    *             continues with <code>ApplicationStop</code>. </p>
-   *
-   *         <p> If false or not specified, then if a lifecycle event fails during a deployment to an
+   *          <p> If false or not specified, then if a lifecycle event fails during a deployment to an
    *             instance, that deployment fails. If deployment to that instance is part of an overall
    *             deployment and the number of healthy hosts is not less than the minimum number of
    *             healthy hosts, then a deployment to the next instance is attempted. </p>
-   *
-   *         <p> During a deployment, the CodeDeploy agent runs the scripts specified for
+   *          <p> During a deployment, the CodeDeploy agent runs the scripts specified for
    *                 <code>ApplicationStop</code>, <code>BeforeBlockTraffic</code>, and
    *                 <code>AfterBlockTraffic</code> in the AppSpec file from the previous successful
    *             deployment. (All other scripts are run from the AppSpec file in the current deployment.)
    *             If one of these scripts contains an error and does not run successfully, the deployment
    *             can fail. </p>
-   *
-   *         <p> If the cause of the failure is a script from the last successful deployment that will
+   *          <p> If the cause of the failure is a script from the last successful deployment that will
    *             never run successfully, create a new deployment and use
    *                 <code>ignoreApplicationStopFailures</code> to specify that the
    *                 <code>ApplicationStop</code>, <code>BeforeBlockTraffic</code>, and
@@ -2666,25 +2700,25 @@ export interface DeploymentInfo {
    * <p>Information about how CodeDeploy handles files that already exist in a
    *             deployment target location but weren't part of the previous successful
    *             deployment.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DISALLOW</code>: The deployment fails. This is also the default behavior
    *                     if no option is specified.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>OVERWRITE</code>: The version of the file from the application revision
    *                     currently being deployed replaces the version already on the instance.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>RETAIN</code>: The version of the file already on the instance is kept
    *                     and used as part of the new deployment.</p>
    *             </li>
    *          </ul>
    */
-  fileExistsBehavior?: FileExistsBehavior | string;
+  fileExistsBehavior?: FileExistsBehavior;
 
   /**
    * @public
@@ -2697,7 +2731,7 @@ export interface DeploymentInfo {
    * <p>The destination platform type for the deployment (<code>Lambda</code>,
    *                 <code>Server</code>, or <code>ECS</code>).</p>
    */
-  computePlatform?: ComputePlatform | string;
+  computePlatform?: ComputePlatform;
 
   /**
    * @public
@@ -2739,38 +2773,38 @@ export interface BatchGetDeploymentTargetsInput {
    * @public
    * <p> The unique ID of a deployment. </p>
    */
-  deploymentId?: string;
+  deploymentId: string | undefined;
 
   /**
    * @public
    * <p> The unique IDs of the deployment targets. The compute platform of the deployment
    *             determines the type of the targets and their formats. The maximum number of deployment
    *             target IDs you can specify is 25.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p> For deployments that use the EC2/On-premises compute platform, the target IDs
+   *                <p> For deployments that use the EC2/On-premises compute platform, the target IDs
    *                     are Amazon EC2 or on-premises instances IDs, and their target type is
    *                         <code>instanceTarget</code>. </p>
    *             </li>
    *             <li>
-   *                 <p> For deployments that use the Lambda compute platform, the
+   *                <p> For deployments that use the Lambda compute platform, the
    *                     target IDs are the names of Lambda functions, and their target type
    *                     is <code>instanceTarget</code>. </p>
    *             </li>
    *             <li>
-   *                 <p> For deployments that use the Amazon ECS compute platform, the target
+   *                <p> For deployments that use the Amazon ECS compute platform, the target
    *                     IDs are pairs of Amazon ECS clusters and services specified using the
    *                     format <code><clustername>:<servicename></code>. Their target type
    *                     is <code>ecsTarget</code>. </p>
    *             </li>
    *             <li>
-   *                 <p> For deployments that are deployed with CloudFormation, the target IDs are
+   *                <p> For deployments that are deployed with CloudFormation, the target IDs are
    *                         CloudFormation stack IDs. Their target type is
    *                         <code>cloudFormationTarget</code>. </p>
    *             </li>
    *          </ul>
    */
-  targetIds?: string[];
+  targetIds: string[] | undefined;
 }
 
 /**
@@ -2830,7 +2864,7 @@ export interface CloudFormationTarget {
    * <p> The status of an CloudFormation blue/green deployment's target application.
    *         </p>
    */
-  status?: TargetStatus | string;
+  status?: TargetStatus;
 
   /**
    * @public
@@ -2921,20 +2955,20 @@ export interface ECSTaskSet {
   /**
    * @public
    * <p> The status of the task set. There are three valid task set statuses: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>PRIMARY</code>: Indicates the task set is serving production traffic.
+   *                <p>
+   *                   <code>PRIMARY</code>: Indicates the task set is serving production traffic.
    *                 </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>ACTIVE</code>: Indicates the task set is not serving production traffic.
+   *                <p>
+   *                   <code>ACTIVE</code>: Indicates the task set is not serving production traffic.
    *                 </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>DRAINING</code>: Indicates the tasks in the task set are being stopped and
+   *                <p>
+   *                   <code>DRAINING</code>: Indicates the tasks in the task set are being stopped and
    *                     their corresponding targets are being deregistered from their target group.
    *                 </p>
    *             </li>
@@ -2959,7 +2993,7 @@ export interface ECSTaskSet {
    * <p> A label that identifies whether the ECS task set is an original target
    *                 (<code>BLUE</code>) or a replacement target (<code>GREEN</code>). </p>
    */
-  taskSetLabel?: TargetLabel | string;
+  taskSetLabel?: TargetLabel;
 }
 
 /**
@@ -3004,7 +3038,7 @@ export interface ECSTarget {
    * @public
    * <p> The status an Amazon ECS deployment's target ECS application. </p>
    */
-  status?: TargetStatus | string;
+  status?: TargetStatus;
 
   /**
    * @public
@@ -3042,7 +3076,7 @@ export interface InstanceTarget {
    * @public
    * <p> The status an EC2/On-premises deployment's target instance. </p>
    */
-  status?: TargetStatus | string;
+  status?: TargetStatus;
 
   /**
    * @public
@@ -3061,7 +3095,7 @@ export interface InstanceTarget {
    * <p> A label that identifies whether the instance is an original target
    *             (<code>BLUE</code>) or a replacement target (<code>GREEN</code>). </p>
    */
-  instanceLabel?: TargetLabel | string;
+  instanceLabel?: TargetLabel;
 }
 
 /**
@@ -3133,7 +3167,7 @@ export interface LambdaTarget {
    * <p> The status an Lambda deployment's target Lambda function.
    *         </p>
    */
-  status?: TargetStatus | string;
+  status?: TargetStatus;
 
   /**
    * @public
@@ -3167,7 +3201,7 @@ export interface DeploymentTarget {
    * <p>The deployment type that is specific to the deployment's compute platform or
    *             deployments initiated by a CloudFormation stack update.</p>
    */
-  deploymentTargetType?: DeploymentTargetType | string;
+  deploymentTargetType?: DeploymentTargetType;
 
   /**
    * @public
@@ -3207,25 +3241,25 @@ export interface BatchGetDeploymentTargetsOutput {
    * <p> A list of target objects for a deployment. Each target object contains details about
    *             the target, such as its status and lifecycle events. The type of the target objects
    *             depends on the deployment' compute platform. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <b>EC2/On-premises</b>: Each target object is an
+   *                <p>
+   *                   <b>EC2/On-premises</b>: Each target object is an
    *                         Amazon EC2 or on-premises instance. </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <b>Lambda</b>: The target object is a
+   *                <p>
+   *                   <b>Lambda</b>: The target object is a
    *                     specific version of an Lambda function. </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <b>Amazon ECS</b>: The target object is an
+   *                <p>
+   *                   <b>Amazon ECS</b>: The target object is an
    *                         Amazon ECS service. </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <b>CloudFormation</b>: The target object is
+   *                <p>
+   *                   <b>CloudFormation</b>: The target object is
    *                     an CloudFormation blue/green deployment. </p>
    *             </li>
    *          </ul>
@@ -3384,13 +3418,14 @@ export interface InstanceInfo {
 
   /**
    * @public
-   * <p>The ARN of the IAM session associated with the on-premises instance.</p>
+   * <p>The ARN of the IAM session associated with the on-premises
+   *             instance.</p>
    */
   iamSessionArn?: string;
 
   /**
    * @public
-   * <p>The IAM user ARN associated with the on-premises instance.</p>
+   * <p>The user ARN associated with the on-premises instance.</p>
    */
   iamUserArn?: string;
 
@@ -3484,7 +3519,7 @@ export interface ContinueDeploymentInput {
    *             indicates that the traffic is shifted, but the original target is not terminated.
    *         </p>
    */
-  deploymentWaitType?: DeploymentWaitType | string;
+  deploymentWaitType?: DeploymentWaitType;
 }
 
 /**
@@ -3594,7 +3629,8 @@ export class UnsupportedActionForDeploymentTypeException extends __BaseException
 export interface CreateApplicationInput {
   /**
    * @public
-   * <p>The name of the application. This name must be unique with the applicable IAM or Amazon Web Services account.</p>
+   * <p>The name of the application. This name must be unique with the applicable user or
+   *                 Amazon Web Services account.</p>
    */
   applicationName: string | undefined;
 
@@ -3603,7 +3639,7 @@ export interface CreateApplicationInput {
    * <p> The destination platform type for the deployment (<code>Lambda</code>,
    *                 <code>Server</code>, or <code>ECS</code>).</p>
    */
-  computePlatform?: ComputePlatform | string;
+  computePlatform?: ComputePlatform;
 
   /**
    * @public
@@ -3653,7 +3689,7 @@ export class InvalidTagsToAddException extends __BaseException {
 export interface CreateDeploymentInput {
   /**
    * @public
-   * <p>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services account.</p>
+   * <p>The name of an CodeDeploy application associated with the user or Amazon Web Services account.</p>
    */
   applicationName: string | undefined;
 
@@ -3671,9 +3707,8 @@ export interface CreateDeploymentInput {
 
   /**
    * @public
-   * <p>The name of a deployment configuration associated with the IAM user or
-   *                 Amazon Web Services account.</p>
-   *         <p>If not specified, the value configured in the deployment group is used as the default.
+   * <p>The name of a deployment configuration associated with the user or Amazon Web Services account.</p>
+   *          <p>If not specified, the value configured in the deployment group is used as the default.
    *             If the deployment group does not have a deployment configuration associated with it,
    *                 <code>CodeDeployDefault</code>.<code>OneAtATime</code> is used by default.</p>
    */
@@ -3694,20 +3729,17 @@ export interface CreateDeploymentInput {
    *                 <code>DownloadBundle</code>. If <code>BeforeBlockTraffic</code> fails, the
    *             deployment continues with <code>BlockTraffic</code>. If <code>AfterBlockTraffic</code>
    *             fails, the deployment continues with <code>ApplicationStop</code>. </p>
-   *
-   *         <p> If false or not specified, then if a lifecycle event fails during a deployment to an
+   *          <p> If false or not specified, then if a lifecycle event fails during a deployment to an
    *             instance, that deployment fails. If deployment to that instance is part of an overall
    *             deployment and the number of healthy hosts is not less than the minimum number of
    *             healthy hosts, then a deployment to the next instance is attempted. </p>
-   *
-   *         <p> During a deployment, the CodeDeploy agent runs the scripts specified for
+   *          <p> During a deployment, the CodeDeploy agent runs the scripts specified for
    *                 <code>ApplicationStop</code>, <code>BeforeBlockTraffic</code>, and
    *                 <code>AfterBlockTraffic</code> in the AppSpec file from the previous successful
    *             deployment. (All other scripts are run from the AppSpec file in the current deployment.)
    *             If one of these scripts contains an error and does not run successfully, the deployment
    *             can fail. </p>
-   *
-   *         <p> If the cause of the failure is a script from the last successful deployment that will
+   *          <p> If the cause of the failure is a script from the last successful deployment that will
    *             never run successfully, create a new deployment and use
    *                 <code>ignoreApplicationStopFailures</code> to specify that the
    *                 <code>ApplicationStop</code>, <code>BeforeBlockTraffic</code>, and
@@ -3741,24 +3773,24 @@ export interface CreateDeploymentInput {
    * <p>Information about how CodeDeploy handles files that already exist in a
    *             deployment target location but weren't part of the previous successful
    *             deployment.</p>
-   *         <p>The <code>fileExistsBehavior</code> parameter takes any of the following
+   *          <p>The <code>fileExistsBehavior</code> parameter takes any of the following
    *             values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>DISALLOW: The deployment fails. This is also the default behavior if no option
+   *                <p>DISALLOW: The deployment fails. This is also the default behavior if no option
    *                     is specified.</p>
    *             </li>
    *             <li>
-   *                 <p>OVERWRITE: The version of the file from the application revision currently
+   *                <p>OVERWRITE: The version of the file from the application revision currently
    *                     being deployed replaces the version already on the instance.</p>
    *             </li>
    *             <li>
-   *                 <p>RETAIN: The version of the file already on the instance is kept and used as
+   *                <p>RETAIN: The version of the file already on the instance is kept and used as
    *                     part of the new deployment.</p>
    *             </li>
    *          </ul>
    */
-  fileExistsBehavior?: FileExistsBehavior | string;
+  fileExistsBehavior?: FileExistsBehavior;
 
   /**
    * @public
@@ -3771,11 +3803,11 @@ export interface CreateDeploymentInput {
    *             turn off alarm polling. Turning off alarm polling ensures that the new deployment
    *             proceeds without being blocked by the alarm that was generated by the previous, failed,
    *             deployment.</p>
-   *         <note>
+   *          <note>
    *             <p>If you specify an <code>overrideAlarmConfiguration</code>, you need the
-   *                     <code>UpdateDeploymentGroup</code> IAM permission when calling
-   *                     <code>CreateDeployment</code>.</p>
-   *         </note>
+   *                     <code>UpdateDeploymentGroup</code>
+   *                 IAM permission when calling <code>CreateDeployment</code>.</p>
+   *          </note>
    */
   overrideAlarmConfiguration?: AlarmConfiguration;
 }
@@ -3794,7 +3826,8 @@ export interface CreateDeploymentOutput {
 
 /**
  * @public
- * <p>The named deployment group with the IAM user or Amazon Web Services account does not exist.</p>
+ * <p>The named deployment group with the user or Amazon Web Services account does not
+ *             exist.</p>
  */
 export class DeploymentGroupDoesNotExistException extends __BaseException {
   readonly name: "DeploymentGroupDoesNotExistException" = "DeploymentGroupDoesNotExistException";
@@ -3855,21 +3888,21 @@ export class DescriptionTooLongException extends __BaseException {
 /**
  * @public
  * <p>The format of the alarm configuration is invalid. Possible causes include:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>The alarm list is null.</p>
+ *                <p>The alarm list is null.</p>
  *             </li>
  *             <li>
- *                 <p>The alarm object is null.</p>
+ *                <p>The alarm object is null.</p>
  *             </li>
  *             <li>
- *                 <p>The alarm name is empty or null or exceeds the limit of 255 characters.</p>
+ *                <p>The alarm name is empty or null or exceeds the limit of 255 characters.</p>
  *             </li>
  *             <li>
- *                 <p>Two alarms with the same name have been specified.</p>
+ *                <p>Two alarms with the same name have been specified.</p>
  *             </li>
  *             <li>
- *                 <p>The alarm configuration is enabled, but the alarm list is empty.</p>
+ *                <p>The alarm configuration is enabled, but the alarm list is empty.</p>
  *             </li>
  *          </ul>
  */
@@ -4062,19 +4095,19 @@ export class InvalidRoleException extends __BaseException {
 /**
  * @public
  * <p>The target instance configuration is invalid. Possible causes include:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>Configuration data for target instances was entered for an in-place
+ *                <p>Configuration data for target instances was entered for an in-place
  *                     deployment.</p>
  *             </li>
  *             <li>
- *                 <p>The limit of 10 tags for a tag type was exceeded.</p>
+ *                <p>The limit of 10 tags for a tag type was exceeded.</p>
  *             </li>
  *             <li>
- *                 <p>The combined length of the tag names exceeded the limit. </p>
+ *                <p>The combined length of the tag names exceeded the limit. </p>
  *             </li>
  *             <li>
- *                 <p>A specified tag is not currently applied to any instances.</p>
+ *                <p>A specified tag is not currently applied to any instances.</p>
  *             </li>
  *          </ul>
  */
@@ -4140,7 +4173,7 @@ export class InvalidUpdateOutdatedInstancesOnlyValueException extends __BaseExce
 
 /**
  * @public
- * <p>The named revision does not exist with the IAM user or Amazon Web Services account.</p>
+ * <p>The named revision does not exist with the user or Amazon Web Services account.</p>
  */
 export class RevisionDoesNotExistException extends __BaseException {
   readonly name: "RevisionDoesNotExistException" = "RevisionDoesNotExistException";
@@ -4194,31 +4227,31 @@ export type MinimumHealthyHostsType = (typeof MinimumHealthyHostsType)[keyof typ
 
 /**
  * @public
- * <p>Information about minimum healthy instance.</p>
+ * <p>Information about the minimum number of healthy instances.</p>
  */
 export interface MinimumHealthyHosts {
   /**
    * @public
    * <p>The minimum healthy instance type:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>HOST_COUNT</code>: The minimum number of healthy instances as an
    *                     absolute value.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>FLEET_PERCENT</code>: The minimum number of healthy instances as a
    *                     percentage of the total number of instances in the deployment.</p>
    *             </li>
    *          </ul>
-   *         <p>In an example of nine instances, if a HOST_COUNT of six is specified, deploy to up to
+   *          <p>In an example of nine instances, if a HOST_COUNT of six is specified, deploy to up to
    *             three instances at a time. The deployment is successful if six or more instances are
    *             deployed to successfully. Otherwise, the deployment fails. If a FLEET_PERCENT of 40 is
    *             specified, deploy to up to five instances at a time. The deployment is successful if
    *             four or more instances are deployed to successfully. Otherwise, the deployment
    *             fails.</p>
-   *         <note>
+   *          <note>
    *             <p>In a call to the <code>GetDeploymentConfig</code>, CodeDeployDefault.OneAtATime
    *                 returns a minimum healthy instance type of MOST_CONCURRENCY and a value of 1. This
    *                 means a deployment to only one instance at a time. (You cannot set the type to
@@ -4228,12 +4261,12 @@ export interface MinimumHealthyHosts {
    *                 allows one instance at a time to be taken offline for a new deployment, it also
    *                 means that if the deployment to the last instance fails, the overall deployment is
    *                 still successful.</p>
-   *         </note>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html">CodeDeploy
+   *          </note>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html">CodeDeploy
    *                 Instance Health</a> in the <i>CodeDeploy User
    *                 Guide</i>.</p>
    */
-  type?: MinimumHealthyHostsType | string;
+  type?: MinimumHealthyHostsType;
 
   /**
    * @public
@@ -4315,7 +4348,7 @@ export interface TrafficRoutingConfig {
    * <p>The type of traffic shifting (<code>TimeBasedCanary</code> or
    *                 <code>TimeBasedLinear</code>) used by a deployment configuration.</p>
    */
-  type?: TrafficRoutingType | string;
+  type?: TrafficRoutingType;
 
   /**
    * @public
@@ -4339,6 +4372,95 @@ export interface TrafficRoutingConfig {
 
 /**
  * @public
+ * @enum
+ */
+export const MinimumHealthyHostsPerZoneType = {
+  FLEET_PERCENT: "FLEET_PERCENT",
+  HOST_COUNT: "HOST_COUNT",
+} as const;
+
+/**
+ * @public
+ */
+export type MinimumHealthyHostsPerZoneType =
+  (typeof MinimumHealthyHostsPerZoneType)[keyof typeof MinimumHealthyHostsPerZoneType];
+
+/**
+ * @public
+ * <p>Information about the minimum number of healthy instances per Availability
+ *             Zone.</p>
+ */
+export interface MinimumHealthyHostsPerZone {
+  /**
+   * @public
+   * <p>The <code>type</code> associated with the <code>MinimumHealthyHostsPerZone</code>
+   *             option.</p>
+   */
+  type?: MinimumHealthyHostsPerZoneType;
+
+  /**
+   * @public
+   * <p>The <code>value</code> associated with the <code>MinimumHealthyHostsPerZone</code>
+   *             option.</p>
+   */
+  value?: number;
+}
+
+/**
+ * @public
+ * <p>Configure the <code>ZonalConfig</code> object if you want CodeDeploy to
+ *             deploy your application to one <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-availability-zones">Availability Zone</a> at a time, within an Amazon Web Services Region. By
+ *             deploying to one Availability Zone at a time, you can expose your deployment to a
+ *             progressively larger audience as confidence in the deployment's performance and
+ *             viability grows. If you don't configure the <code>ZonalConfig</code> object, CodeDeploy deploys your application to a random selection of hosts across a
+ *             Region.</p>
+ *          <p>For more information about the zonal configuration feature, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config">zonal configuration</a> in the <i>CodeDeploy User
+ *                 Guide</i>.</p>
+ */
+export interface ZonalConfig {
+  /**
+   * @public
+   * <p>The period of time, in seconds, that CodeDeploy must wait after completing a
+   *             deployment to the <i>first</i> Availability Zone. CodeDeploy will
+   *             wait this amount of time before starting a deployment to the second Availability Zone.
+   *             You might set this option if you want to allow extra bake time for the first
+   *             Availability Zone. If you don't specify a value for
+   *                 <code>firstZoneMonitorDurationInSeconds</code>, then CodeDeploy uses the
+   *                 <code>monitorDurationInSeconds</code> value for the first Availability Zone.</p>
+   *          <p>For more information about the zonal configuration feature, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config">zonal configuration</a> in the <i>CodeDeploy User
+   *                 Guide</i>.</p>
+   */
+  firstZoneMonitorDurationInSeconds?: number;
+
+  /**
+   * @public
+   * <p>The period of time, in seconds, that CodeDeploy must wait after completing a
+   *             deployment to an Availability Zone. CodeDeploy will wait this amount of time
+   *             before starting a deployment to the next Availability Zone. Consider adding a monitor
+   *             duration to give the deployment some time to prove itself (or 'bake') in one
+   *             Availability Zone before it is released in the next zone. If you don't specify a
+   *                 <code>monitorDurationInSeconds</code>, CodeDeploy starts deploying to the
+   *             next Availability Zone immediately.</p>
+   *          <p>For more information about the zonal configuration feature, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config">zonal configuration</a> in the <i>CodeDeploy User
+   *                 Guide</i>.</p>
+   */
+  monitorDurationInSeconds?: number;
+
+  /**
+   * @public
+   * <p>The number or percentage of instances that must remain available per Availability Zone
+   *             during a deployment. This option works in conjunction with the
+   *                 <code>MinimumHealthyHosts</code> option. For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/instances-health.html#minimum-healthy-hosts-az">About the minimum number of healthy hosts per Availability Zone</a> in the
+   *                     <i>CodeDeploy User Guide</i>.</p>
+   *          <p>If you don't specify the <code>minimumHealthyHostsPerZone</code> option, then CodeDeploy uses a default value of <code>0</code> percent.</p>
+   *          <p>For more information about the zonal configuration feature, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config">zonal configuration</a> in the <i>CodeDeploy User
+   *                 Guide</i>.</p>
+   */
+  minimumHealthyHostsPerZone?: MinimumHealthyHostsPerZone;
+}
+
+/**
+ * @public
  * <p>Represents the input of a <code>CreateDeploymentConfig</code> operation.</p>
  */
 export interface CreateDeploymentConfigInput {
@@ -4352,21 +4474,21 @@ export interface CreateDeploymentConfigInput {
    * @public
    * <p>The minimum number of healthy instances that should be available at any time during
    *             the deployment. There are two parameters expected in the input: type and value.</p>
-   *         <p>The type parameter takes either of the following values:</p>
-   *         <ul>
+   *          <p>The type parameter takes either of the following values:</p>
+   *          <ul>
    *             <li>
-   *                 <p>HOST_COUNT: The value parameter represents the minimum number of healthy
+   *                <p>HOST_COUNT: The value parameter represents the minimum number of healthy
    *                     instances as an absolute value.</p>
    *             </li>
    *             <li>
-   *                 <p>FLEET_PERCENT: The value parameter represents the minimum number of healthy
+   *                <p>FLEET_PERCENT: The value parameter represents the minimum number of healthy
    *                     instances as a percentage of the total number of instances in the deployment. If
    *                     you specify FLEET_PERCENT, at the start of the deployment, CodeDeploy converts the percentage to the equivalent number of instances and rounds up
    *                     fractional instances.</p>
    *             </li>
    *          </ul>
-   *         <p>The value parameter takes an integer.</p>
-   *         <p>For example, to set a minimum of 95% healthy instance, specify a type of FLEET_PERCENT
+   *          <p>The value parameter takes an integer.</p>
+   *          <p>For example, to set a minimum of 95% healthy instance, specify a type of FLEET_PERCENT
    *             and a value of 95.</p>
    */
   minimumHealthyHosts?: MinimumHealthyHosts;
@@ -4382,7 +4504,16 @@ export interface CreateDeploymentConfigInput {
    * <p>The destination platform type for the deployment (<code>Lambda</code>,
    *                 <code>Server</code>, or <code>ECS</code>).</p>
    */
-  computePlatform?: ComputePlatform | string;
+  computePlatform?: ComputePlatform;
+
+  /**
+   * @public
+   * <p>Configure the <code>ZonalConfig</code> object if you want CodeDeploy to
+   *             deploy your application to one <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-availability-zones">Availability Zone</a> at a time, within an Amazon Web Services Region.</p>
+   *          <p>For more information about the zonal configuration feature, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations-create.html#zonal-config">zonal configuration</a> in the <i>CodeDeploy User
+   *                 Guide</i>.</p>
+   */
+  zonalConfig?: ZonalConfig;
 }
 
 /**
@@ -4399,8 +4530,7 @@ export interface CreateDeploymentConfigOutput {
 
 /**
  * @public
- * <p>A deployment configuration with the specified name with the IAM user or
- *                 Amazon Web Services account already exists.</p>
+ * <p>A deployment configuration with the specified name with the user or Amazon Web Services account already exists.</p>
  */
 export class DeploymentConfigAlreadyExistsException extends __BaseException {
   readonly name: "DeploymentConfigAlreadyExistsException" = "DeploymentConfigAlreadyExistsException";
@@ -4480,12 +4610,32 @@ export class InvalidMinimumHealthyHostValueException extends __BaseException {
 
 /**
  * @public
+ * <p>The <code>ZonalConfig</code> object is not valid.</p>
+ */
+export class InvalidZonalDeploymentConfigurationException extends __BaseException {
+  readonly name: "InvalidZonalDeploymentConfigurationException" = "InvalidZonalDeploymentConfigurationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidZonalDeploymentConfigurationException, __BaseException>) {
+    super({
+      name: "InvalidZonalDeploymentConfigurationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidZonalDeploymentConfigurationException.prototype);
+  }
+}
+
+/**
+ * @public
  * <p>Represents the input of a <code>CreateDeploymentGroup</code> operation.</p>
  */
 export interface CreateDeploymentGroupInput {
   /**
    * @public
-   * <p>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services account.</p>
+   * <p>The name of an CodeDeploy application associated with the user or Amazon Web Services account.</p>
    */
   applicationName: string | undefined;
 
@@ -4500,11 +4650,11 @@ export interface CreateDeploymentGroupInput {
    * <p>If specified, the deployment configuration name can be either one of the predefined
    *             configurations provided with CodeDeploy or a custom deployment configuration
    *             that you create by calling the create deployment configuration operation.</p>
-   *         <p>
+   *          <p>
    *             <code>CodeDeployDefault.OneAtATime</code> is the default deployment configuration. It
    *             is used if a configuration isn't specified for the deployment or deployment
    *             group.</p>
-   *         <p>For more information about the predefined deployment configurations in CodeDeploy, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html">Working with
+   *          <p>For more information about the predefined deployment configurations in CodeDeploy, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/deployment-configurations.html">Working with
    *                 Deployment Configurations in CodeDeploy</a> in the <i>CodeDeploy User Guide</i>.</p>
    */
   deploymentConfigName?: string;
@@ -4564,14 +4714,14 @@ export interface CreateDeploymentGroupInput {
    * @public
    * <p>Indicates what happens when new Amazon EC2 instances are launched
    *             mid-deployment and do not receive the deployed application revision.</p>
-   *         <p>If this option is set to <code>UPDATE</code> or is unspecified, CodeDeploy initiates
+   *          <p>If this option is set to <code>UPDATE</code> or is unspecified, CodeDeploy initiates
    *             one or more 'auto-update outdated instances' deployments to apply the deployed
    *             application revision to the new Amazon EC2 instances.</p>
-   *         <p>If this option is set to <code>IGNORE</code>, CodeDeploy does not initiate a
+   *          <p>If this option is set to <code>IGNORE</code>, CodeDeploy does not initiate a
    *             deployment to update the new Amazon EC2 instances. This may result in instances
    *             having different revisions.</p>
    */
-  outdatedInstancesStrategy?: OutdatedInstancesStrategy | string;
+  outdatedInstancesStrategy?: OutdatedInstancesStrategy;
 
   /**
    * @public
@@ -4623,6 +4773,20 @@ export interface CreateDeploymentGroupInput {
    *             define. </p>
    */
   tags?: Tag[];
+
+  /**
+   * @public
+   * <p>This parameter only applies if you are using CodeDeploy with Amazon EC2 Auto Scaling. For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-auto-scaling.html">Integrating
+   *                     CodeDeploy with Amazon EC2 Auto Scaling</a> in the <i>CodeDeploy User Guide</i>.</p>
+   *          <p>Set <code>terminationHookEnabled</code> to <code>true</code> to have CodeDeploy install a termination hook into your Auto Scaling group when you create a
+   *             deployment group. When this hook is installed, CodeDeploy will perform
+   *             termination deployments.</p>
+   *          <p>For information about termination deployments, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-auto-scaling.html#integrations-aws-auto-scaling-behaviors-hook-enable">Enabling termination deployments during Auto Scaling scale-in events</a> in the
+   *                     <i>CodeDeploy User Guide</i>.</p>
+   *          <p>For more information about Auto Scaling scale-in events, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-lifecycle.html#as-lifecycle-scale-in">Scale in</a> topic in the <i>Amazon EC2 Auto Scaling User
+   *             Guide</i>.</p>
+   */
+  terminationHookEnabled?: boolean;
 }
 
 /**
@@ -4639,7 +4803,8 @@ export interface CreateDeploymentGroupOutput {
 
 /**
  * @public
- * <p>A deployment group with the specified name with the IAM user or Amazon Web Services account already exists.</p>
+ * <p>A deployment group with the specified name with the user or Amazon Web Services account
+ *             already exists.</p>
  */
 export class DeploymentGroupAlreadyExistsException extends __BaseException {
   readonly name: "DeploymentGroupAlreadyExistsException" = "DeploymentGroupAlreadyExistsException";
@@ -4972,7 +5137,7 @@ export class TriggerTargetsLimitExceededException extends __BaseException {
 export interface DeleteApplicationInput {
   /**
    * @public
-   * <p>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services account.</p>
+   * <p>The name of an CodeDeploy application associated with the user or Amazon Web Services account.</p>
    */
   applicationName: string | undefined;
 }
@@ -4984,8 +5149,7 @@ export interface DeleteApplicationInput {
 export interface DeleteDeploymentConfigInput {
   /**
    * @public
-   * <p>The name of a deployment configuration associated with the IAM user or
-   *                 Amazon Web Services account.</p>
+   * <p>The name of a deployment configuration associated with the user or Amazon Web Services account.</p>
    */
   deploymentConfigName: string | undefined;
 }
@@ -5037,7 +5201,7 @@ export class InvalidOperationException extends __BaseException {
 export interface DeleteDeploymentGroupInput {
   /**
    * @public
-   * <p>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services account.</p>
+   * <p>The name of an CodeDeploy application associated with the user or Amazon Web Services account.</p>
    */
   applicationName: string | undefined;
 
@@ -5224,7 +5388,7 @@ export interface DeregisterOnPremisesInstanceInput {
 export interface GetApplicationInput {
   /**
    * @public
-   * <p>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services account.</p>
+   * <p>The name of an CodeDeploy application associated with the user or Amazon Web Services account.</p>
    */
   applicationName: string | undefined;
 }
@@ -5290,7 +5454,8 @@ export interface GetApplicationRevisionOutput {
 export interface GetDeploymentInput {
   /**
    * @public
-   * <p> The unique ID of a deployment associated with the IAM user or Amazon Web Services account. </p>
+   * <p> The unique ID of a deployment associated with the user or Amazon Web Services account.
+   *         </p>
    */
   deploymentId: string | undefined;
 }
@@ -5314,8 +5479,7 @@ export interface GetDeploymentOutput {
 export interface GetDeploymentConfigInput {
   /**
    * @public
-   * <p>The name of a deployment configuration associated with the IAM user or
-   *                 Amazon Web Services account.</p>
+   * <p>The name of a deployment configuration associated with the user or Amazon Web Services account.</p>
    */
   deploymentConfigName: string | undefined;
 }
@@ -5339,7 +5503,7 @@ export interface DeploymentConfigInfo {
 
   /**
    * @public
-   * <p>Information about the number or percentage of minimum healthy instance.</p>
+   * <p>Information about the number or percentage of minimum healthy instances.</p>
    */
   minimumHealthyHosts?: MinimumHealthyHosts;
 
@@ -5354,7 +5518,7 @@ export interface DeploymentConfigInfo {
    * <p>The destination platform type for the deployment (<code>Lambda</code>,
    *                 <code>Server</code>, or <code>ECS</code>).</p>
    */
-  computePlatform?: ComputePlatform | string;
+  computePlatform?: ComputePlatform;
 
   /**
    * @public
@@ -5363,6 +5527,12 @@ export interface DeploymentConfigInfo {
    *             only.</p>
    */
   trafficRoutingConfig?: TrafficRoutingConfig;
+
+  /**
+   * @public
+   * <p>Information about a zonal configuration.</p>
+   */
+  zonalConfig?: ZonalConfig;
 }
 
 /**
@@ -5384,7 +5554,7 @@ export interface GetDeploymentConfigOutput {
 export interface GetDeploymentGroupInput {
   /**
    * @public
-   * <p>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services account.</p>
+   * <p>The name of an CodeDeploy application associated with the user or Amazon Web Services account.</p>
    */
   applicationName: string | undefined;
 
@@ -5447,13 +5617,13 @@ export interface GetDeploymentTargetInput {
    * @public
    * <p> The unique ID of a deployment. </p>
    */
-  deploymentId?: string;
+  deploymentId: string | undefined;
 
   /**
    * @public
    * <p> The unique ID of a deployment target. </p>
    */
-  targetId?: string;
+  targetId: string | undefined;
 }
 
 /**
@@ -5652,57 +5822,57 @@ export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
 export interface ListApplicationRevisionsInput {
   /**
    * @public
-   * <p> The name of an CodeDeploy application associated with the IAM user or Amazon Web Services account. </p>
+   * <p> The name of an CodeDeploy application associated with the user or Amazon Web Services account. </p>
    */
   applicationName: string | undefined;
 
   /**
    * @public
    * <p>The column name to use to sort the list results:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>registerTime</code>: Sort by the time the revisions were registered with
    *                         CodeDeploy.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>firstUsedTime</code>: Sort by the time the revisions were first used in
    *                     a deployment.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>lastUsedTime</code>: Sort by the time the revisions were last used in a
    *                     deployment.</p>
    *             </li>
    *          </ul>
-   *         <p> If not specified or set to null, the results are returned in an arbitrary order.
+   *          <p> If not specified or set to null, the results are returned in an arbitrary order.
    *         </p>
    */
-  sortBy?: ApplicationRevisionSortBy | string;
+  sortBy?: ApplicationRevisionSortBy;
 
   /**
    * @public
    * <p> The order in which to sort the list results: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ascending</code>: ascending order.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>descending</code>: descending order.</p>
    *             </li>
    *          </ul>
-   *         <p>If not specified, the results are sorted in ascending order.</p>
-   *         <p>If set to null, the results are sorted in an arbitrary order.</p>
+   *          <p>If not specified, the results are sorted in ascending order.</p>
+   *          <p>If set to null, the results are sorted in an arbitrary order.</p>
    */
-  sortOrder?: SortOrder | string;
+  sortOrder?: SortOrder;
 
   /**
    * @public
    * <p> An Amazon S3 bucket name to limit the search for revisions. </p>
-   *         <p> If set to null, all of the user's buckets are searched. </p>
+   *          <p> If set to null, all of the user's buckets are searched. </p>
    */
   s3Bucket?: string;
 
@@ -5717,24 +5887,24 @@ export interface ListApplicationRevisionsInput {
    * @public
    * <p> Whether to list revisions based on whether the revision is the target revision of a
    *             deployment group: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>include</code>: List revisions that are target revisions of a deployment
    *                     group.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>exclude</code>: Do not list revisions that are target revisions of a
    *                     deployment group.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ignore</code>: List all revisions.</p>
    *             </li>
    *          </ul>
    */
-  deployed?: ListStateFilterAction | string;
+  deployed?: ListStateFilterAction;
 
   /**
    * @public
@@ -5838,7 +6008,7 @@ export interface ListDeploymentConfigsOutput {
 export interface ListDeploymentGroupsInput {
   /**
    * @public
-   * <p>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services account.</p>
+   * <p>The name of an CodeDeploy application associated with the user or Amazon Web Services account.</p>
    */
   applicationName: string | undefined;
 
@@ -5980,37 +6150,37 @@ export interface ListDeploymentInstancesInput {
   /**
    * @public
    * <p>A subset of instances to list by status:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Pending</code>: Include those instances with pending deployments.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>InProgress</code>: Include those instances where deployments are still
    *                     in progress.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Succeeded</code>: Include those instances with successful
    *                     deployments.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Failed</code>: Include those instances with failed deployments.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Skipped</code>: Include those instances with skipped deployments.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Unknown</code>: Include those instances with deployments in an unknown
    *                     state.</p>
    *             </li>
    *          </ul>
    */
-  instanceStatusFilter?: (InstanceStatus | string)[];
+  instanceStatusFilter?: InstanceStatus[];
 
   /**
    * @public
@@ -6018,7 +6188,7 @@ export interface ListDeploymentInstancesInput {
    *             environment ("BLUE") or those in the replacement environment ("GREEN"), for which you
    *             want to view instance information.</p>
    */
-  instanceTypeFilter?: (_InstanceType | string)[];
+  instanceTypeFilter?: _InstanceType[];
 }
 
 /**
@@ -6089,18 +6259,18 @@ export interface TimeRange {
   /**
    * @public
    * <p>The start time of the time range.</p>
-   *         <note>
+   *          <note>
    *             <p>Specify null to leave the start time open-ended.</p>
-   *         </note>
+   *          </note>
    */
   start?: Date;
 
   /**
    * @public
    * <p>The end time of the time range.</p>
-   *         <note>
+   *          <note>
    *             <p>Specify null to leave the end time open-ended.</p>
-   *         </note>
+   *          </note>
    */
   end?: Date;
 }
@@ -6112,23 +6282,23 @@ export interface TimeRange {
 export interface ListDeploymentsInput {
   /**
    * @public
-   * <p>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services account.</p>
-   *         <note>
+   * <p>The name of an CodeDeploy application associated with the user or Amazon Web Services account.</p>
+   *          <note>
    *             <p>If <code>applicationName</code> is specified, then
    *                     <code>deploymentGroupName</code> must be specified. If it is not specified, then
    *                     <code>deploymentGroupName</code> must not be specified. </p>
-   *         </note>
+   *          </note>
    */
   applicationName?: string;
 
   /**
    * @public
    * <p>The name of a deployment group for the specified application.</p>
-   *         <note>
+   *          <note>
    *             <p>If <code>deploymentGroupName</code> is specified, then
    *                     <code>applicationName</code> must be specified. If it is not specified, then
    *                     <code>applicationName</code> must not be specified. </p>
-   *         </note>
+   *          </note>
    */
   deploymentGroupName?: string;
 
@@ -6142,38 +6312,38 @@ export interface ListDeploymentsInput {
   /**
    * @public
    * <p>A subset of deployments to list by status:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Created</code>: Include created deployments in the resulting
    *                     list.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Queued</code>: Include queued deployments in the resulting list.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>In Progress</code>: Include in-progress deployments in the resulting
    *                     list.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Succeeded</code>: Include successful deployments in the resulting
    *                     list.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Failed</code>: Include failed deployments in the resulting list.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Stopped</code>: Include stopped deployments in the resulting
    *                     list.</p>
    *             </li>
    *          </ul>
    */
-  includeOnlyStatuses?: (DeploymentStatus | string)[];
+  includeOnlyStatuses?: DeploymentStatus[];
 
   /**
    * @public
@@ -6231,7 +6401,7 @@ export interface ListDeploymentTargetsInput {
    * @public
    * <p> The unique ID of a deployment. </p>
    */
-  deploymentId?: string;
+  deploymentId: string | undefined;
 
   /**
    * @public
@@ -6243,22 +6413,22 @@ export interface ListDeploymentTargetsInput {
   /**
    * @public
    * <p> A key used to filter the returned targets. The two valid values are:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>TargetStatus</code> - A <code>TargetStatus</code> filter string can be
+   *                <p>
+   *                   <code>TargetStatus</code> - A <code>TargetStatus</code> filter string can be
    *                         <code>Failed</code>, <code>InProgress</code>, <code>Pending</code>,
    *                         <code>Ready</code>, <code>Skipped</code>, <code>Succeeded</code>, or
    *                         <code>Unknown</code>. </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>ServerInstanceLabel</code> - A <code>ServerInstanceLabel</code> filter
+   *                <p>
+   *                   <code>ServerInstanceLabel</code> - A <code>ServerInstanceLabel</code> filter
    *                     string can be <code>Blue</code> or <code>Green</code>. </p>
    *             </li>
    *          </ul>
    */
-  targetFilters?: Record<string, string[]>;
+  targetFilters?: Partial<Record<TargetFilterName, string[]>>;
 }
 
 /**
@@ -6375,20 +6545,20 @@ export interface ListOnPremisesInstancesInput {
   /**
    * @public
    * <p>The registration status of the on-premises instances:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Deregistered</code>: Include deregistered on-premises instances in the
    *                     resulting list.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Registered</code>: Include registered on-premises instances in the
    *                     resulting list.</p>
    *             </li>
    *          </ul>
    */
-  registrationStatus?: RegistrationStatus | string;
+  registrationStatus?: RegistrationStatus;
 
   /**
    * @public
@@ -6595,7 +6765,7 @@ export interface PutLifecycleEventHookExecutionStatusInput {
    *             lifecycle statuses in general; however, only <code>Succeeded</code> and
    *                 <code>Failed</code> can be passed successfully in your API call.</p>
    */
-  status?: LifecycleEventStatus | string;
+  status?: LifecycleEventStatus;
 }
 
 /**
@@ -6617,7 +6787,7 @@ export interface PutLifecycleEventHookExecutionStatusOutput {
 export interface RegisterApplicationRevisionInput {
   /**
    * @public
-   * <p>The name of an CodeDeploy application associated with the IAM user or Amazon Web Services account.</p>
+   * <p>The name of an CodeDeploy application associated with the user or Amazon Web Services account.</p>
    */
   applicationName: string | undefined;
 
@@ -6637,7 +6807,7 @@ export interface RegisterApplicationRevisionInput {
 
 /**
  * @public
- * <p>No IAM ARN was included in the request. You must use an IAM session ARN or IAM user ARN in the request.</p>
+ * <p>No IAM ARN was included in the request. You must use an IAM session ARN or user ARN in the request.</p>
  */
 export class IamArnRequiredException extends __BaseException {
   readonly name: "IamArnRequiredException" = "IamArnRequiredException";
@@ -6678,8 +6848,7 @@ export class IamSessionArnAlreadyRegisteredException extends __BaseException {
 
 /**
  * @public
- * <p>The specified IAM user ARN is already registered with an on-premises
- *             instance.</p>
+ * <p>The specified user ARN is already registered with an on-premises instance.</p>
  */
 export class IamUserArnAlreadyRegisteredException extends __BaseException {
   readonly name: "IamUserArnAlreadyRegisteredException" = "IamUserArnAlreadyRegisteredException";
@@ -6699,7 +6868,7 @@ export class IamUserArnAlreadyRegisteredException extends __BaseException {
 
 /**
  * @public
- * <p>An IAM user ARN was not specified.</p>
+ * <p>An user ARN was not specified.</p>
  */
 export class IamUserArnRequiredException extends __BaseException {
   readonly name: "IamUserArnRequiredException" = "IamUserArnRequiredException";
@@ -6759,7 +6928,7 @@ export class InvalidIamSessionArnException extends __BaseException {
 
 /**
  * @public
- * <p>The IAM user ARN was specified in an invalid format.</p>
+ * <p>The user ARN was specified in an invalid format.</p>
  */
 export class InvalidIamUserArnException extends __BaseException {
   readonly name: "InvalidIamUserArnException" = "InvalidIamUserArnException";
@@ -6779,8 +6948,8 @@ export class InvalidIamUserArnException extends __BaseException {
 
 /**
  * @public
- * <p>Both an IAM user ARN and an IAM session ARN were
- *             included in the request. Use only one ARN type.</p>
+ * <p>Both an user ARN and an IAM session ARN were included in the request.
+ *             Use only one ARN type.</p>
  */
 export class MultipleIamArnsProvidedException extends __BaseException {
   readonly name: "MultipleIamArnsProvidedException" = "MultipleIamArnsProvidedException";
@@ -6818,8 +6987,7 @@ export interface RegisterOnPremisesInstanceInput {
 
   /**
    * @public
-   * <p>The ARN of the IAM user to associate with the on-premises
-   *             instance.</p>
+   * <p>The ARN of the user to associate with the on-premises instance.</p>
    */
   iamUserArn?: string;
 }
@@ -6896,16 +7064,16 @@ export interface StopDeploymentOutput {
   /**
    * @public
    * <p>The status of the stop deployment operation:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Pending: The stop operation is pending.</p>
+   *                <p>Pending: The stop operation is pending.</p>
    *             </li>
    *             <li>
-   *                 <p>Succeeded: The stop operation was successful.</p>
+   *                <p>Succeeded: The stop operation was successful.</p>
    *             </li>
    *          </ul>
    */
-  status?: StopStatus | string;
+  status?: StopStatus;
 
   /**
    * @public
@@ -7029,13 +7197,13 @@ export interface UpdateDeploymentGroupInput {
    * @public
    * <p>The replacement list of Auto Scaling groups to be included in the deployment
    *             group, if you want to change them.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>To keep the Auto Scaling groups, enter their names or do not specify this
+   *                <p>To keep the Auto Scaling groups, enter their names or do not specify this
    *                     parameter. </p>
    *             </li>
    *             <li>
-   *                 <p>To remove Auto Scaling groups, specify a non-null empty list of Auto Scaling group names to detach all CodeDeploy-managed Auto Scaling lifecycle hooks. For examples, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/codedeploy/latest/userguide/troubleshooting-auto-scaling.html#troubleshooting-auto-scaling-heartbeat">Amazon EC2 instances in an Amazon EC2 Auto Scaling group fail to
+   *                <p>To remove Auto Scaling groups, specify a non-null empty list of Auto Scaling group names to detach all CodeDeploy-managed Auto Scaling lifecycle hooks. For examples, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/troubleshooting-auto-scaling.html#troubleshooting-auto-scaling-heartbeat">Amazon EC2 instances in an Amazon EC2 Auto Scaling group fail to
    *                         launch and receive the error "Heartbeat Timeout"</a> in the
    *                             <i>CodeDeploy User Guide</i>.</p>
    *             </li>
@@ -7076,14 +7244,14 @@ export interface UpdateDeploymentGroupInput {
    * @public
    * <p>Indicates what happens when new Amazon EC2 instances are launched
    *             mid-deployment and do not receive the deployed application revision.</p>
-   *         <p>If this option is set to <code>UPDATE</code> or is unspecified, CodeDeploy initiates
+   *          <p>If this option is set to <code>UPDATE</code> or is unspecified, CodeDeploy initiates
    *             one or more 'auto-update outdated instances' deployments to apply the deployed
    *             application revision to the new Amazon EC2 instances.</p>
-   *         <p>If this option is set to <code>IGNORE</code>, CodeDeploy does not initiate a
+   *          <p>If this option is set to <code>IGNORE</code>, CodeDeploy does not initiate a
    *             deployment to update the new Amazon EC2 instances. This may result in instances
    *             having different revisions.</p>
    */
-  outdatedInstancesStrategy?: OutdatedInstancesStrategy | string;
+  outdatedInstancesStrategy?: OutdatedInstancesStrategy;
 
   /**
    * @public
@@ -7126,6 +7294,20 @@ export interface UpdateDeploymentGroupInput {
    *             on-premises instances identified by all the tag groups.</p>
    */
   onPremisesTagSet?: OnPremisesTagSet;
+
+  /**
+   * @public
+   * <p>This parameter only applies if you are using CodeDeploy with Amazon EC2 Auto Scaling. For more information, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-auto-scaling.html">Integrating
+   *                 CodeDeploy with Amazon EC2 Auto Scaling</a> in the <i>CodeDeploy User Guide</i>.</p>
+   *          <p>Set <code>terminationHookEnabled</code> to <code>true</code> to have CodeDeploy install a termination hook into your Auto Scaling group when you update a
+   *             deployment group. When this hook is installed, CodeDeploy will perform
+   *             termination deployments.</p>
+   *          <p>For information about termination deployments, see <a href="https://docs.aws.amazon.com/codedeploy/latest/userguide/integrations-aws-auto-scaling.html#integrations-aws-auto-scaling-behaviors-hook-enable">Enabling termination deployments during Auto Scaling scale-in events</a> in the
+   *             <i>CodeDeploy User Guide</i>.</p>
+   *          <p>For more information about Auto Scaling scale-in events, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-lifecycle.html#as-lifecycle-scale-in">Scale in</a> topic in the <i>Amazon EC2 Auto Scaling User
+   *                 Guide</i>.</p>
+   */
+  terminationHookEnabled?: boolean;
 }
 
 /**

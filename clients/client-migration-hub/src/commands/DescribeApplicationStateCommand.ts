@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient";
 import { DescribeApplicationStateRequest, DescribeApplicationStateResult } from "../models/models_0";
 import { de_DescribeApplicationStateCommand, se_DescribeApplicationStateCommand } from "../protocols/Aws_json1_1";
@@ -49,7 +41,7 @@ export interface DescribeApplicationStateCommandOutput extends DescribeApplicati
  * const command = new DescribeApplicationStateCommand(input);
  * const response = await client.send(command);
  * // { // DescribeApplicationStateResult
- * //   ApplicationStatus: "STRING_VALUE",
+ * //   ApplicationStatus: "NOT_STARTED" || "IN_PROGRESS" || "COMPLETED",
  * //   LastUpdatedTime: new Date("TIMESTAMP"),
  * // };
  *
@@ -96,79 +88,26 @@ export interface DescribeApplicationStateCommandOutput extends DescribeApplicati
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
  */
-export class DescribeApplicationStateCommand extends $Command<
-  DescribeApplicationStateCommandInput,
-  DescribeApplicationStateCommandOutput,
-  MigrationHubClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeApplicationStateCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: MigrationHubClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeApplicationStateCommandInput, DescribeApplicationStateCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeApplicationStateCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "MigrationHubClient";
-    const commandName = "DescribeApplicationStateCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeApplicationStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeApplicationStateCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeApplicationStateCommandOutput> {
-    return de_DescribeApplicationStateCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeApplicationStateCommand extends $Command
+  .classBuilder<
+    DescribeApplicationStateCommandInput,
+    DescribeApplicationStateCommandOutput,
+    MigrationHubClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: MigrationHubClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSMigrationHub", "DescribeApplicationState", {})
+  .n("MigrationHubClient", "DescribeApplicationStateCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeApplicationStateCommand)
+  .de(de_DescribeApplicationStateCommand)
+  .build() {}

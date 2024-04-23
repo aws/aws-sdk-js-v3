@@ -9,8 +9,12 @@
 export * from "./MediaTailorClient";
 export * from "./MediaTailor";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { MediaTailorExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { MediaTailorServiceException } from "./models/MediaTailorServiceException";

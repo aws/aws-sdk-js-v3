@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { AuditManagerServiceException as __BaseException } from "./AuditManagerServiceException";
 
@@ -167,13 +167,13 @@ export interface AssessmentControl {
    * @public
    * <p> The status of the control. </p>
    */
-  status?: ControlStatus | string;
+  status?: ControlStatus;
 
   /**
    * @public
    * <p> The response of the control. </p>
    */
-  response?: ControlResponse | string;
+  response?: ControlResponse;
 
   /**
    * @public
@@ -256,7 +256,7 @@ export interface Delegation {
    * @public
    * <p> The status of the delegation. </p>
    */
-  status?: DelegationStatus | string;
+  status?: DelegationStatus;
 
   /**
    * @public
@@ -276,7 +276,7 @@ export interface Delegation {
    *                <code>RESOURCE_OWNER</code>.</p>
    *          </note>
    */
-  roleType?: RoleType | string;
+  roleType?: RoleType;
 
   /**
    * @public
@@ -327,7 +327,7 @@ export interface Role {
    *                <code>RESOURCE_OWNER</code>.</p>
    *          </note>
    */
-  roleType: RoleType | string | undefined;
+  roleType: RoleType | undefined;
 
   /**
    * @public
@@ -373,7 +373,7 @@ export interface AssessmentControlSet {
    * @public
    * <p> The current status of the control set. </p>
    */
-  status?: ControlSetStatus | string;
+  status?: ControlSetStatus;
 
   /**
    * @public
@@ -494,7 +494,7 @@ export interface AssessmentReportsDestination {
    * @public
    * <p> The destination type, such as Amazon S3. </p>
    */
-  destinationType?: AssessmentReportDestinationType | string;
+  destinationType?: AssessmentReportDestinationType;
 
   /**
    * @public
@@ -599,7 +599,7 @@ export interface AssessmentMetadata {
    * @public
    * <p> The overall status of the assessment. </p>
    */
-  status?: AssessmentStatus | string;
+  status?: AssessmentStatus;
 
   /**
    * @public
@@ -832,7 +832,7 @@ export interface AssessmentFrameworkMetadata {
    * @public
    * <p> The framework type, such as a standard framework or a custom framework. </p>
    */
-  type?: FrameworkType | string;
+  type?: FrameworkType;
 
   /**
    * @public
@@ -937,7 +937,7 @@ export interface AssessmentFrameworkShareRequest {
    * @public
    * <p> The status of the share request. </p>
    */
-  status?: ShareRequestStatus | string;
+  status?: ShareRequestStatus;
 
   /**
    * @public
@@ -1030,7 +1030,7 @@ export interface AssessmentMetadataItem {
    * @public
    * <p> The current status of the assessment. </p>
    */
-  status?: AssessmentStatus | string;
+  status?: AssessmentStatus;
 
   /**
    * @public
@@ -1126,7 +1126,7 @@ export interface AssessmentReport {
    * @public
    * <p> The current status of the specified assessment report. </p>
    */
-  status?: AssessmentReportStatus | string;
+  status?: AssessmentReportStatus;
 
   /**
    * @public
@@ -1205,7 +1205,7 @@ export interface AssessmentReportMetadata {
    * @public
    * <p> The current status of the assessment report. </p>
    */
-  status?: AssessmentReportStatus | string;
+  status?: AssessmentReportStatus;
 
   /**
    * @public
@@ -1336,7 +1336,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p> The reason the request failed validation. </p>
    */
-  reason?: ValidationExceptionReason | string;
+  reason?: ValidationExceptionReason;
 
   /**
    * @public
@@ -1436,7 +1436,7 @@ export interface CreateDelegationRequest {
    *                <code>RESOURCE_OWNER</code>.</p>
    *          </note>
    */
-  roleType?: RoleType | string;
+  roleType?: RoleType;
 }
 
 /**
@@ -1965,7 +1965,7 @@ export interface SourceKeyword {
    *             </li>
    *          </ul>
    */
-  keywordInputType?: KeywordInputType | string;
+  keywordInputType?: KeywordInputType;
 
   /**
    * @public
@@ -2139,13 +2139,13 @@ export interface ControlMappingSource {
    * <p> The setup option for the data source. This option reflects if the evidence collection
    *          is automated or manual. </p>
    */
-  sourceSetUpOption?: SourceSetUpOption | string;
+  sourceSetUpOption?: SourceSetUpOption;
 
   /**
    * @public
    * <p> Specifies one of the five data source types for evidence collection. </p>
    */
-  sourceType?: SourceType | string;
+  sourceType?: SourceType;
 
   /**
    * @public
@@ -2187,7 +2187,7 @@ export interface ControlMappingSource {
    * @public
    * <p>Specifies how often evidence is collected from the control mapping source. </p>
    */
-  sourceFrequency?: SourceFrequency | string;
+  sourceFrequency?: SourceFrequency;
 
   /**
    * @public
@@ -2231,7 +2231,7 @@ export interface Control {
    * @public
    * <p> Specifies whether the control is a standard control or a custom control.</p>
    */
-  type?: ControlType | string;
+  type?: ControlType;
 
   /**
    * @public
@@ -2361,7 +2361,7 @@ export interface Framework {
    * @public
    * <p> Specifies whether the framework is a standard framework or a custom framework.</p>
    */
-  type?: FrameworkType | string;
+  type?: FrameworkType;
 
   /**
    * @public
@@ -2510,13 +2510,13 @@ export interface CreateControlMappingSource {
    * <p> The setup option for the data source, which reflects if the evidence collection is
    *          automated or manual. </p>
    */
-  sourceSetUpOption?: SourceSetUpOption | string;
+  sourceSetUpOption?: SourceSetUpOption;
 
   /**
    * @public
    * <p> Specifies one of the five types of data sources for evidence collection. </p>
    */
-  sourceType?: SourceType | string;
+  sourceType?: SourceType;
 
   /**
    * @public
@@ -2558,7 +2558,7 @@ export interface CreateControlMappingSource {
    * @public
    * <p>Specifies how often evidence is collected from the control mapping source. </p>
    */
-  sourceFrequency?: SourceFrequency | string;
+  sourceFrequency?: SourceFrequency;
 
   /**
    * @public
@@ -2685,7 +2685,7 @@ export interface DeleteAssessmentFrameworkShareRequest {
    * @public
    * <p>Specifies whether the share request is a sent request or a received request.</p>
    */
-  requestType: ShareRequestType | string | undefined;
+  requestType: ShareRequestType | undefined;
 }
 
 /**
@@ -2744,7 +2744,7 @@ export interface DeregisterAccountResponse {
    * @public
    * <p> The registration status of the account. </p>
    */
-  status?: AccountStatus | string;
+  status?: AccountStatus;
 }
 
 /**
@@ -2798,7 +2798,7 @@ export interface GetAccountStatusResponse {
    * @public
    * <p> The status of the Amazon Web Services account. </p>
    */
-  status?: AccountStatus | string;
+  status?: AccountStatus;
 }
 
 /**
@@ -2963,7 +2963,7 @@ export interface ChangeLog {
    * @public
    * <p> The object that was changed, such as an assessment, control, or control set. </p>
    */
-  objectType?: ObjectTypeEnum | string;
+  objectType?: ObjectTypeEnum;
 
   /**
    * @public
@@ -2976,7 +2976,7 @@ export interface ChangeLog {
    * @public
    * <p> The action that was performed. </p>
    */
-  action?: ActionEnum | string;
+  action?: ActionEnum;
 
   /**
    * @public
@@ -3074,7 +3074,7 @@ export interface DelegationMetadata {
    * @public
    * <p> The current status of the delegation. </p>
    */
-  status?: DelegationStatus | string;
+  status?: DelegationStatus;
 
   /**
    * @public
@@ -3842,7 +3842,7 @@ export interface GetSettingsRequest {
    * @public
    * <p> The list of setting attribute enum values. </p>
    */
-  attribute: SettingAttribute | string | undefined;
+  attribute: SettingAttribute | undefined;
 }
 
 /**
@@ -3867,7 +3867,7 @@ export interface DefaultExportDestination {
    * @public
    * <p>The destination type, such as Amazon S3.</p>
    */
-  destinationType?: ExportDestinationType | string;
+  destinationType?: ExportDestinationType;
 
   /**
    * @public
@@ -3926,7 +3926,7 @@ export interface DeregistrationPolicy {
    *             </li>
    *          </ul>
    */
-  deleteResources?: DeleteResources | string;
+  deleteResources?: DeleteResources;
 }
 
 /**
@@ -4008,7 +4008,7 @@ export interface EvidenceFinderEnablement {
    *             </li>
    *          </ul>
    */
-  enablementStatus?: EvidenceFinderEnablementStatus | string;
+  enablementStatus?: EvidenceFinderEnablementStatus;
 
   /**
    * @public
@@ -4032,7 +4032,7 @@ export interface EvidenceFinderEnablement {
    *             </li>
    *          </ul>
    */
-  backfillStatus?: EvidenceFinderBackfillStatus | string;
+  backfillStatus?: EvidenceFinderBackfillStatus;
 
   /**
    * @public
@@ -4240,7 +4240,7 @@ export interface ListAssessmentFrameworksRequest {
    * @public
    * <p> The type of framework, such as a standard framework or a custom framework. </p>
    */
-  frameworkType: FrameworkType | string | undefined;
+  frameworkType: FrameworkType | undefined;
 
   /**
    * @public
@@ -4281,7 +4281,7 @@ export interface ListAssessmentFrameworkShareRequestsRequest {
    * @public
    * <p> Specifies whether the share request is a sent request or a received request.</p>
    */
-  requestType: ShareRequestType | string | undefined;
+  requestType: ShareRequestType | undefined;
 
   /**
    * @public
@@ -4357,7 +4357,7 @@ export interface ListAssessmentsRequest {
    * @public
    * <p> The current status of the assessment.</p>
    */
-  status?: AssessmentStatus | string;
+  status?: AssessmentStatus;
 
   /**
    * @public
@@ -4595,7 +4595,7 @@ export interface ListControlsRequest {
    * @public
    * <p> The type of control, such as a standard control or a custom control. </p>
    */
-  controlType: ControlType | string | undefined;
+  controlType: ControlType | undefined;
 
   /**
    * @public
@@ -4679,7 +4679,7 @@ export interface ListKeywordsForDataSourceRequest {
    * @public
    * <p> The control mapping data source that the keywords apply to. </p>
    */
-  source: SourceType | string | undefined;
+  source: SourceType | undefined;
 
   /**
    * @public
@@ -4848,7 +4848,7 @@ export interface RegisterAccountResponse {
    * @public
    * <p> The status of the account registration request. </p>
    */
-  status?: AccountStatus | string;
+  status?: AccountStatus;
 }
 
 /**
@@ -5044,7 +5044,7 @@ export interface UpdateAssessmentControlRequest {
    * @public
    * <p> The status of the control. </p>
    */
-  controlStatus?: ControlStatus | string;
+  controlStatus?: ControlStatus;
 
   /**
    * @public
@@ -5085,7 +5085,7 @@ export interface UpdateAssessmentControlSetStatusRequest {
    * @public
    * <p> The status of the control set that's being updated. </p>
    */
-  status: ControlSetStatus | string | undefined;
+  status: ControlSetStatus | undefined;
 
   /**
    * @public
@@ -5206,13 +5206,13 @@ export interface UpdateAssessmentFrameworkShareRequest {
    * @public
    * <p>Specifies whether the share request is a sent request or a received request.</p>
    */
-  requestType: ShareRequestType | string | undefined;
+  requestType: ShareRequestType | undefined;
 
   /**
    * @public
    * <p>Specifies the update action for the share request.</p>
    */
-  action: ShareRequestAction | string | undefined;
+  action: ShareRequestAction | undefined;
 }
 
 /**
@@ -5241,7 +5241,7 @@ export interface UpdateAssessmentStatusRequest {
    * @public
    * <p> The current status of the assessment. </p>
    */
-  status: AssessmentStatus | string | undefined;
+  status: AssessmentStatus | undefined;
 }
 
 /**
@@ -5429,3 +5429,647 @@ export interface ValidateAssessmentReportIntegrityResponse {
    */
   validationErrors?: string[];
 }
+
+/**
+ * @internal
+ */
+export const AWSAccountFilterSensitiveLog = (obj: AWSAccount): any => ({
+  ...obj,
+  ...(obj.emailAddress && { emailAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ControlCommentFilterSensitiveLog = (obj: ControlComment): any => ({
+  ...obj,
+  ...(obj.authorName && { authorName: SENSITIVE_STRING }),
+  ...(obj.commentBody && { commentBody: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AssessmentControlFilterSensitiveLog = (obj: AssessmentControl): any => ({
+  ...obj,
+  ...(obj.comments && { comments: obj.comments.map((item) => ControlCommentFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const DelegationFilterSensitiveLog = (obj: Delegation): any => ({
+  ...obj,
+  ...(obj.assessmentName && { assessmentName: SENSITIVE_STRING }),
+  ...(obj.comment && { comment: SENSITIVE_STRING }),
+  ...(obj.createdBy && { createdBy: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AssessmentControlSetFilterSensitiveLog = (obj: AssessmentControlSet): any => ({
+  ...obj,
+  ...(obj.roles && { roles: SENSITIVE_STRING }),
+  ...(obj.delegations && { delegations: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const FrameworkMetadataFilterSensitiveLog = (obj: FrameworkMetadata): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.complianceType && { complianceType: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AssessmentFrameworkFilterSensitiveLog = (obj: AssessmentFramework): any => ({
+  ...obj,
+  ...(obj.metadata && { metadata: FrameworkMetadataFilterSensitiveLog(obj.metadata) }),
+  ...(obj.controlSets && { controlSets: obj.controlSets.map((item) => AssessmentControlSetFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const AssessmentReportsDestinationFilterSensitiveLog = (obj: AssessmentReportsDestination): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ScopeFilterSensitiveLog = (obj: Scope): any => ({
+  ...obj,
+  ...(obj.awsAccounts && { awsAccounts: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AssessmentMetadataFilterSensitiveLog = (obj: AssessmentMetadata): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.complianceType && { complianceType: SENSITIVE_STRING }),
+  ...(obj.assessmentReportsDestination && { assessmentReportsDestination: SENSITIVE_STRING }),
+  ...(obj.scope && { scope: SENSITIVE_STRING }),
+  ...(obj.roles && { roles: SENSITIVE_STRING }),
+  ...(obj.delegations && { delegations: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AssessmentFilterSensitiveLog = (obj: Assessment): any => ({
+  ...obj,
+  ...(obj.awsAccount && { awsAccount: AWSAccountFilterSensitiveLog(obj.awsAccount) }),
+  ...(obj.metadata && { metadata: AssessmentMetadataFilterSensitiveLog(obj.metadata) }),
+  ...(obj.framework && { framework: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AssessmentFrameworkMetadataFilterSensitiveLog = (obj: AssessmentFrameworkMetadata): any => ({
+  ...obj,
+  ...(obj.complianceType && { complianceType: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AssessmentFrameworkShareRequestFilterSensitiveLog = (obj: AssessmentFrameworkShareRequest): any => ({
+  ...obj,
+  ...(obj.complianceType && { complianceType: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AssessmentMetadataItemFilterSensitiveLog = (obj: AssessmentMetadataItem): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.complianceType && { complianceType: SENSITIVE_STRING }),
+  ...(obj.roles && { roles: SENSITIVE_STRING }),
+  ...(obj.delegations && { delegations: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AssessmentReportFilterSensitiveLog = (obj: AssessmentReport): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.assessmentName && { assessmentName: SENSITIVE_STRING }),
+  ...(obj.author && { author: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AssessmentReportMetadataFilterSensitiveLog = (obj: AssessmentReportMetadata): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.assessmentName && { assessmentName: SENSITIVE_STRING }),
+  ...(obj.author && { author: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateDelegationRequestFilterSensitiveLog = (obj: CreateDelegationRequest): any => ({
+  ...obj,
+  ...(obj.comment && { comment: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const BatchCreateDelegationByAssessmentRequestFilterSensitiveLog = (
+  obj: BatchCreateDelegationByAssessmentRequest
+): any => ({
+  ...obj,
+  ...(obj.createDelegationRequests && { createDelegationRequests: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const BatchCreateDelegationByAssessmentErrorFilterSensitiveLog = (
+  obj: BatchCreateDelegationByAssessmentError
+): any => ({
+  ...obj,
+  ...(obj.createDelegationRequest && {
+    createDelegationRequest: CreateDelegationRequestFilterSensitiveLog(obj.createDelegationRequest),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const BatchCreateDelegationByAssessmentResponseFilterSensitiveLog = (
+  obj: BatchCreateDelegationByAssessmentResponse
+): any => ({
+  ...obj,
+  ...(obj.delegations && { delegations: SENSITIVE_STRING }),
+  ...(obj.errors && { errors: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const BatchDeleteDelegationByAssessmentResponseFilterSensitiveLog = (
+  obj: BatchDeleteDelegationByAssessmentResponse
+): any => ({
+  ...obj,
+  ...(obj.errors && { errors: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ManualEvidenceFilterSensitiveLog = (obj: ManualEvidence): any => ({
+  ...obj,
+  ...(obj.textResponse && { textResponse: SENSITIVE_STRING }),
+  ...(obj.evidenceFileName && { evidenceFileName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const BatchImportEvidenceToAssessmentControlRequestFilterSensitiveLog = (
+  obj: BatchImportEvidenceToAssessmentControlRequest
+): any => ({
+  ...obj,
+  ...(obj.manualEvidence && {
+    manualEvidence: obj.manualEvidence.map((item) => ManualEvidenceFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const BatchImportEvidenceToAssessmentControlErrorFilterSensitiveLog = (
+  obj: BatchImportEvidenceToAssessmentControlError
+): any => ({
+  ...obj,
+  ...(obj.manualEvidence && { manualEvidence: ManualEvidenceFilterSensitiveLog(obj.manualEvidence) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchImportEvidenceToAssessmentControlResponseFilterSensitiveLog = (
+  obj: BatchImportEvidenceToAssessmentControlResponse
+): any => ({
+  ...obj,
+  ...(obj.errors && {
+    errors: obj.errors.map((item) => BatchImportEvidenceToAssessmentControlErrorFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAssessmentRequestFilterSensitiveLog = (obj: CreateAssessmentRequest): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.assessmentReportsDestination && { assessmentReportsDestination: SENSITIVE_STRING }),
+  ...(obj.scope && { scope: SENSITIVE_STRING }),
+  ...(obj.roles && { roles: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAssessmentResponseFilterSensitiveLog = (obj: CreateAssessmentResponse): any => ({
+  ...obj,
+  ...(obj.assessment && { assessment: AssessmentFilterSensitiveLog(obj.assessment) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAssessmentFrameworkRequestFilterSensitiveLog = (obj: CreateAssessmentFrameworkRequest): any => ({
+  ...obj,
+  ...(obj.complianceType && { complianceType: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ControlMappingSourceFilterSensitiveLog = (obj: ControlMappingSource): any => ({
+  ...obj,
+  ...(obj.troubleshootingText && { troubleshootingText: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ControlFilterSensitiveLog = (obj: Control): any => ({
+  ...obj,
+  ...(obj.testingInformation && { testingInformation: SENSITIVE_STRING }),
+  ...(obj.actionPlanTitle && { actionPlanTitle: SENSITIVE_STRING }),
+  ...(obj.actionPlanInstructions && { actionPlanInstructions: SENSITIVE_STRING }),
+  ...(obj.controlMappingSources && {
+    controlMappingSources: obj.controlMappingSources.map((item) => ControlMappingSourceFilterSensitiveLog(item)),
+  }),
+  ...(obj.createdBy && { createdBy: SENSITIVE_STRING }),
+  ...(obj.lastUpdatedBy && { lastUpdatedBy: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ControlSetFilterSensitiveLog = (obj: ControlSet): any => ({
+  ...obj,
+  ...(obj.controls && { controls: obj.controls.map((item) => ControlFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const FrameworkFilterSensitiveLog = (obj: Framework): any => ({
+  ...obj,
+  ...(obj.complianceType && { complianceType: SENSITIVE_STRING }),
+  ...(obj.controlSets && { controlSets: SENSITIVE_STRING }),
+  ...(obj.createdBy && { createdBy: SENSITIVE_STRING }),
+  ...(obj.lastUpdatedBy && { lastUpdatedBy: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAssessmentFrameworkResponseFilterSensitiveLog = (obj: CreateAssessmentFrameworkResponse): any => ({
+  ...obj,
+  ...(obj.framework && { framework: FrameworkFilterSensitiveLog(obj.framework) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAssessmentReportRequestFilterSensitiveLog = (obj: CreateAssessmentReportRequest): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateAssessmentReportResponseFilterSensitiveLog = (obj: CreateAssessmentReportResponse): any => ({
+  ...obj,
+  ...(obj.assessmentReport && { assessmentReport: AssessmentReportFilterSensitiveLog(obj.assessmentReport) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateControlMappingSourceFilterSensitiveLog = (obj: CreateControlMappingSource): any => ({
+  ...obj,
+  ...(obj.troubleshootingText && { troubleshootingText: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateControlRequestFilterSensitiveLog = (obj: CreateControlRequest): any => ({
+  ...obj,
+  ...(obj.testingInformation && { testingInformation: SENSITIVE_STRING }),
+  ...(obj.actionPlanTitle && { actionPlanTitle: SENSITIVE_STRING }),
+  ...(obj.actionPlanInstructions && { actionPlanInstructions: SENSITIVE_STRING }),
+  ...(obj.controlMappingSources && {
+    controlMappingSources: obj.controlMappingSources.map((item) => CreateControlMappingSourceFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateControlResponseFilterSensitiveLog = (obj: CreateControlResponse): any => ({
+  ...obj,
+  ...(obj.control && { control: ControlFilterSensitiveLog(obj.control) }),
+});
+
+/**
+ * @internal
+ */
+export const GetAssessmentResponseFilterSensitiveLog = (obj: GetAssessmentResponse): any => ({
+  ...obj,
+  ...(obj.assessment && { assessment: AssessmentFilterSensitiveLog(obj.assessment) }),
+});
+
+/**
+ * @internal
+ */
+export const GetAssessmentFrameworkResponseFilterSensitiveLog = (obj: GetAssessmentFrameworkResponse): any => ({
+  ...obj,
+  ...(obj.framework && { framework: FrameworkFilterSensitiveLog(obj.framework) }),
+});
+
+/**
+ * @internal
+ */
+export const GetControlResponseFilterSensitiveLog = (obj: GetControlResponse): any => ({
+  ...obj,
+  ...(obj.control && { control: ControlFilterSensitiveLog(obj.control) }),
+});
+
+/**
+ * @internal
+ */
+export const DelegationMetadataFilterSensitiveLog = (obj: DelegationMetadata): any => ({
+  ...obj,
+  ...(obj.assessmentName && { assessmentName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetDelegationsResponseFilterSensitiveLog = (obj: GetDelegationsResponse): any => ({
+  ...obj,
+  ...(obj.delegations && { delegations: obj.delegations.map((item) => DelegationMetadataFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const GetEvidenceFileUploadUrlRequestFilterSensitiveLog = (obj: GetEvidenceFileUploadUrlRequest): any => ({
+  ...obj,
+  ...(obj.fileName && { fileName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetEvidenceFileUploadUrlResponseFilterSensitiveLog = (obj: GetEvidenceFileUploadUrlResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SettingsFilterSensitiveLog = (obj: Settings): any => ({
+  ...obj,
+  ...(obj.snsTopic && { snsTopic: SENSITIVE_STRING }),
+  ...(obj.defaultAssessmentReportsDestination && { defaultAssessmentReportsDestination: SENSITIVE_STRING }),
+  ...(obj.defaultProcessOwners && { defaultProcessOwners: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetSettingsResponseFilterSensitiveLog = (obj: GetSettingsResponse): any => ({
+  ...obj,
+  ...(obj.settings && { settings: SettingsFilterSensitiveLog(obj.settings) }),
+});
+
+/**
+ * @internal
+ */
+export const ListAssessmentFrameworksResponseFilterSensitiveLog = (obj: ListAssessmentFrameworksResponse): any => ({
+  ...obj,
+  ...(obj.frameworkMetadataList && {
+    frameworkMetadataList: obj.frameworkMetadataList.map((item) => AssessmentFrameworkMetadataFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListAssessmentFrameworkShareRequestsResponseFilterSensitiveLog = (
+  obj: ListAssessmentFrameworkShareRequestsResponse
+): any => ({
+  ...obj,
+  ...(obj.assessmentFrameworkShareRequests && {
+    assessmentFrameworkShareRequests: obj.assessmentFrameworkShareRequests.map((item) =>
+      AssessmentFrameworkShareRequestFilterSensitiveLog(item)
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListAssessmentReportsResponseFilterSensitiveLog = (obj: ListAssessmentReportsResponse): any => ({
+  ...obj,
+  ...(obj.assessmentReports && {
+    assessmentReports: obj.assessmentReports.map((item) => AssessmentReportMetadataFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListAssessmentsResponseFilterSensitiveLog = (obj: ListAssessmentsResponse): any => ({
+  ...obj,
+  ...(obj.assessmentMetadata && {
+    assessmentMetadata: obj.assessmentMetadata.map((item) => AssessmentMetadataItemFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const NotificationFilterSensitiveLog = (obj: Notification): any => ({
+  ...obj,
+  ...(obj.assessmentName && { assessmentName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListNotificationsResponseFilterSensitiveLog = (obj: ListNotificationsResponse): any => ({
+  ...obj,
+  ...(obj.notifications && { notifications: obj.notifications.map((item) => NotificationFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const StartAssessmentFrameworkShareResponseFilterSensitiveLog = (
+  obj: StartAssessmentFrameworkShareResponse
+): any => ({
+  ...obj,
+  ...(obj.assessmentFrameworkShareRequest && {
+    assessmentFrameworkShareRequest: AssessmentFrameworkShareRequestFilterSensitiveLog(
+      obj.assessmentFrameworkShareRequest
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssessmentRequestFilterSensitiveLog = (obj: UpdateAssessmentRequest): any => ({
+  ...obj,
+  ...(obj.assessmentName && { assessmentName: SENSITIVE_STRING }),
+  ...(obj.assessmentDescription && { assessmentDescription: SENSITIVE_STRING }),
+  ...(obj.scope && { scope: SENSITIVE_STRING }),
+  ...(obj.assessmentReportsDestination && { assessmentReportsDestination: SENSITIVE_STRING }),
+  ...(obj.roles && { roles: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssessmentResponseFilterSensitiveLog = (obj: UpdateAssessmentResponse): any => ({
+  ...obj,
+  ...(obj.assessment && { assessment: AssessmentFilterSensitiveLog(obj.assessment) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssessmentControlRequestFilterSensitiveLog = (obj: UpdateAssessmentControlRequest): any => ({
+  ...obj,
+  ...(obj.commentBody && { commentBody: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssessmentControlResponseFilterSensitiveLog = (obj: UpdateAssessmentControlResponse): any => ({
+  ...obj,
+  ...(obj.control && { control: AssessmentControlFilterSensitiveLog(obj.control) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssessmentControlSetStatusRequestFilterSensitiveLog = (
+  obj: UpdateAssessmentControlSetStatusRequest
+): any => ({
+  ...obj,
+  ...(obj.comment && { comment: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssessmentControlSetStatusResponseFilterSensitiveLog = (
+  obj: UpdateAssessmentControlSetStatusResponse
+): any => ({
+  ...obj,
+  ...(obj.controlSet && { controlSet: AssessmentControlSetFilterSensitiveLog(obj.controlSet) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssessmentFrameworkRequestFilterSensitiveLog = (obj: UpdateAssessmentFrameworkRequest): any => ({
+  ...obj,
+  ...(obj.complianceType && { complianceType: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssessmentFrameworkResponseFilterSensitiveLog = (obj: UpdateAssessmentFrameworkResponse): any => ({
+  ...obj,
+  ...(obj.framework && { framework: FrameworkFilterSensitiveLog(obj.framework) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssessmentFrameworkShareResponseFilterSensitiveLog = (
+  obj: UpdateAssessmentFrameworkShareResponse
+): any => ({
+  ...obj,
+  ...(obj.assessmentFrameworkShareRequest && {
+    assessmentFrameworkShareRequest: AssessmentFrameworkShareRequestFilterSensitiveLog(
+      obj.assessmentFrameworkShareRequest
+    ),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssessmentStatusResponseFilterSensitiveLog = (obj: UpdateAssessmentStatusResponse): any => ({
+  ...obj,
+  ...(obj.assessment && { assessment: AssessmentFilterSensitiveLog(obj.assessment) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateControlRequestFilterSensitiveLog = (obj: UpdateControlRequest): any => ({
+  ...obj,
+  ...(obj.testingInformation && { testingInformation: SENSITIVE_STRING }),
+  ...(obj.actionPlanTitle && { actionPlanTitle: SENSITIVE_STRING }),
+  ...(obj.actionPlanInstructions && { actionPlanInstructions: SENSITIVE_STRING }),
+  ...(obj.controlMappingSources && {
+    controlMappingSources: obj.controlMappingSources.map((item) => ControlMappingSourceFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateControlResponseFilterSensitiveLog = (obj: UpdateControlResponse): any => ({
+  ...obj,
+  ...(obj.control && { control: ControlFilterSensitiveLog(obj.control) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateSettingsRequestFilterSensitiveLog = (obj: UpdateSettingsRequest): any => ({
+  ...obj,
+  ...(obj.defaultAssessmentReportsDestination && { defaultAssessmentReportsDestination: SENSITIVE_STRING }),
+  ...(obj.defaultProcessOwners && { defaultProcessOwners: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateSettingsResponseFilterSensitiveLog = (obj: UpdateSettingsResponse): any => ({
+  ...obj,
+  ...(obj.settings && { settings: SettingsFilterSensitiveLog(obj.settings) }),
+});

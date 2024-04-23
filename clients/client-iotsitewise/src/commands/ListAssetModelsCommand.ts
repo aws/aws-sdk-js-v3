@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { ListAssetModelsRequest, ListAssetModelsResponse } from "../models/models_0";
 import { de_ListAssetModelsCommand, se_ListAssetModelsCommand } from "../protocols/Aws_restJson1";
@@ -46,6 +38,9 @@ export interface ListAssetModelsCommandOutput extends ListAssetModelsResponse, _
  * const input = { // ListAssetModelsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   assetModelTypes: [ // ListAssetModelsTypeFilter
+ *     "ASSET_MODEL" || "COMPONENT_MODEL",
+ *   ],
  * };
  * const command = new ListAssetModelsCommand(input);
  * const response = await client.send(command);
@@ -71,6 +66,8 @@ export interface ListAssetModelsCommandOutput extends ListAssetModelsResponse, _
  * //           ],
  * //         },
  * //       },
+ * //       assetModelType: "ASSET_MODEL" || "COMPONENT_MODEL",
+ * //       externalId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -101,79 +98,26 @@ export interface ListAssetModelsCommandOutput extends ListAssetModelsResponse, _
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
-export class ListAssetModelsCommand extends $Command<
-  ListAssetModelsCommandInput,
-  ListAssetModelsCommandOutput,
-  IoTSiteWiseClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListAssetModelsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: IoTSiteWiseClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListAssetModelsCommandInput, ListAssetModelsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListAssetModelsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "IoTSiteWiseClient";
-    const commandName = "ListAssetModelsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListAssetModelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListAssetModelsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssetModelsCommandOutput> {
-    return de_ListAssetModelsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListAssetModelsCommand extends $Command
+  .classBuilder<
+    ListAssetModelsCommandInput,
+    ListAssetModelsCommandOutput,
+    IoTSiteWiseClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSIoTSiteWise", "ListAssetModels", {})
+  .n("IoTSiteWiseClient", "ListAssetModelsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListAssetModelsCommand)
+  .de(de_ListAssetModelsCommand)
+  .build() {}

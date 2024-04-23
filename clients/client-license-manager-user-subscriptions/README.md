@@ -24,13 +24,13 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `LicenseManagerUserSubscriptionsClient` and
-the commands you need, for example `AssociateUserCommand`:
+the commands you need, for example `ListInstancesCommand`:
 
 ```js
 // ES5 example
 const {
   LicenseManagerUserSubscriptionsClient,
-  AssociateUserCommand,
+  ListInstancesCommand,
 } = require("@aws-sdk/client-license-manager-user-subscriptions");
 ```
 
@@ -38,7 +38,7 @@ const {
 // ES6+ example
 import {
   LicenseManagerUserSubscriptionsClient,
-  AssociateUserCommand,
+  ListInstancesCommand,
 } from "@aws-sdk/client-license-manager-user-subscriptions";
 ```
 
@@ -58,7 +58,7 @@ const client = new LicenseManagerUserSubscriptionsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateUserCommand(params);
+const command = new ListInstancesCommand(params);
 ```
 
 #### Async/await
@@ -137,7 +137,7 @@ const client = new AWS.LicenseManagerUserSubscriptions({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateUser(params);
+  const data = await client.listInstances(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -145,7 +145,7 @@ try {
 
 // Promises.
 client
-  .associateUser(params)
+  .listInstances(params)
   .then((data) => {
     // process data.
   })
@@ -154,7 +154,7 @@ client
   });
 
 // callbacks.
-client.associateUser(params, (err, data) => {
+client.listInstances(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -169,7 +169,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -215,7 +215,7 @@ see LICENSE for more information.
 AssociateUser
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/classes/associateusercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/interfaces/associateusercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/interfaces/associateusercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager-user-subscriptions/command/AssociateUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-user-subscriptions/Interface/AssociateUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-user-subscriptions/Interface/AssociateUserCommandOutput/)
 
 </details>
 <details>
@@ -223,7 +223,7 @@ AssociateUser
 DeregisterIdentityProvider
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/classes/deregisteridentityprovidercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/interfaces/deregisteridentityprovidercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/interfaces/deregisteridentityprovidercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager-user-subscriptions/command/DeregisterIdentityProviderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-user-subscriptions/Interface/DeregisterIdentityProviderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-user-subscriptions/Interface/DeregisterIdentityProviderCommandOutput/)
 
 </details>
 <details>
@@ -231,7 +231,7 @@ DeregisterIdentityProvider
 DisassociateUser
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/classes/disassociateusercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/interfaces/disassociateusercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/interfaces/disassociateusercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager-user-subscriptions/command/DisassociateUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-user-subscriptions/Interface/DisassociateUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-user-subscriptions/Interface/DisassociateUserCommandOutput/)
 
 </details>
 <details>
@@ -239,7 +239,7 @@ DisassociateUser
 ListIdentityProviders
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/classes/listidentityproviderscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/interfaces/listidentityproviderscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/interfaces/listidentityproviderscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager-user-subscriptions/command/ListIdentityProvidersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-user-subscriptions/Interface/ListIdentityProvidersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-user-subscriptions/Interface/ListIdentityProvidersCommandOutput/)
 
 </details>
 <details>
@@ -247,7 +247,7 @@ ListIdentityProviders
 ListInstances
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/classes/listinstancescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/interfaces/listinstancescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/interfaces/listinstancescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager-user-subscriptions/command/ListInstancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-user-subscriptions/Interface/ListInstancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-user-subscriptions/Interface/ListInstancesCommandOutput/)
 
 </details>
 <details>
@@ -255,7 +255,7 @@ ListInstances
 ListProductSubscriptions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/classes/listproductsubscriptionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/interfaces/listproductsubscriptionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/interfaces/listproductsubscriptionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager-user-subscriptions/command/ListProductSubscriptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-user-subscriptions/Interface/ListProductSubscriptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-user-subscriptions/Interface/ListProductSubscriptionsCommandOutput/)
 
 </details>
 <details>
@@ -263,7 +263,7 @@ ListProductSubscriptions
 ListUserAssociations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/classes/listuserassociationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/interfaces/listuserassociationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/interfaces/listuserassociationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager-user-subscriptions/command/ListUserAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-user-subscriptions/Interface/ListUserAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-user-subscriptions/Interface/ListUserAssociationsCommandOutput/)
 
 </details>
 <details>
@@ -271,7 +271,7 @@ ListUserAssociations
 RegisterIdentityProvider
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/classes/registeridentityprovidercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/interfaces/registeridentityprovidercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/interfaces/registeridentityprovidercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager-user-subscriptions/command/RegisterIdentityProviderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-user-subscriptions/Interface/RegisterIdentityProviderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-user-subscriptions/Interface/RegisterIdentityProviderCommandOutput/)
 
 </details>
 <details>
@@ -279,7 +279,7 @@ RegisterIdentityProvider
 StartProductSubscription
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/classes/startproductsubscriptioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/interfaces/startproductsubscriptioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/interfaces/startproductsubscriptioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager-user-subscriptions/command/StartProductSubscriptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-user-subscriptions/Interface/StartProductSubscriptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-user-subscriptions/Interface/StartProductSubscriptionCommandOutput/)
 
 </details>
 <details>
@@ -287,7 +287,7 @@ StartProductSubscription
 StopProductSubscription
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/classes/stopproductsubscriptioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/interfaces/stopproductsubscriptioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/interfaces/stopproductsubscriptioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager-user-subscriptions/command/StopProductSubscriptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-user-subscriptions/Interface/StopProductSubscriptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-user-subscriptions/Interface/StopProductSubscriptionCommandOutput/)
 
 </details>
 <details>
@@ -295,6 +295,6 @@ StopProductSubscription
 UpdateIdentityProviderSettings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/classes/updateidentityprovidersettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/interfaces/updateidentityprovidersettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-license-manager-user-subscriptions/interfaces/updateidentityprovidersettingscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/license-manager-user-subscriptions/command/UpdateIdentityProviderSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-user-subscriptions/Interface/UpdateIdentityProviderSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-license-manager-user-subscriptions/Interface/UpdateIdentityProviderSettingsCommandOutput/)
 
 </details>

@@ -65,16 +65,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `BudgetsClient` and
-the commands you need, for example `CreateBudgetCommand`:
+the commands you need, for example `DescribeBudgetsCommand`:
 
 ```js
 // ES5 example
-const { BudgetsClient, CreateBudgetCommand } = require("@aws-sdk/client-budgets");
+const { BudgetsClient, DescribeBudgetsCommand } = require("@aws-sdk/client-budgets");
 ```
 
 ```ts
 // ES6+ example
-import { BudgetsClient, CreateBudgetCommand } from "@aws-sdk/client-budgets";
+import { BudgetsClient, DescribeBudgetsCommand } from "@aws-sdk/client-budgets";
 ```
 
 ### Usage
@@ -93,7 +93,7 @@ const client = new BudgetsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateBudgetCommand(params);
+const command = new DescribeBudgetsCommand(params);
 ```
 
 #### Async/await
@@ -172,7 +172,7 @@ const client = new AWS.Budgets({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createBudget(params);
+  const data = await client.describeBudgets(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -180,7 +180,7 @@ try {
 
 // Promises.
 client
-  .createBudget(params)
+  .describeBudgets(params)
   .then((data) => {
     // process data.
   })
@@ -189,7 +189,7 @@ client
   });
 
 // callbacks.
-client.createBudget(params, (err, data) => {
+client.describeBudgets(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -204,7 +204,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -250,7 +250,7 @@ see LICENSE for more information.
 CreateBudget
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/createbudgetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/createbudgetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/createbudgetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/budgets/command/CreateBudgetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/CreateBudgetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/CreateBudgetCommandOutput/)
 
 </details>
 <details>
@@ -258,7 +258,7 @@ CreateBudget
 CreateBudgetAction
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/createbudgetactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/createbudgetactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/createbudgetactioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/budgets/command/CreateBudgetActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/CreateBudgetActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/CreateBudgetActionCommandOutput/)
 
 </details>
 <details>
@@ -266,7 +266,7 @@ CreateBudgetAction
 CreateNotification
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/createnotificationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/createnotificationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/createnotificationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/budgets/command/CreateNotificationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/CreateNotificationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/CreateNotificationCommandOutput/)
 
 </details>
 <details>
@@ -274,7 +274,7 @@ CreateNotification
 CreateSubscriber
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/createsubscribercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/createsubscribercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/createsubscribercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/budgets/command/CreateSubscriberCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/CreateSubscriberCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/CreateSubscriberCommandOutput/)
 
 </details>
 <details>
@@ -282,7 +282,7 @@ CreateSubscriber
 DeleteBudget
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/deletebudgetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/deletebudgetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/deletebudgetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/budgets/command/DeleteBudgetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/DeleteBudgetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/DeleteBudgetCommandOutput/)
 
 </details>
 <details>
@@ -290,7 +290,7 @@ DeleteBudget
 DeleteBudgetAction
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/deletebudgetactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/deletebudgetactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/deletebudgetactioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/budgets/command/DeleteBudgetActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/DeleteBudgetActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/DeleteBudgetActionCommandOutput/)
 
 </details>
 <details>
@@ -298,7 +298,7 @@ DeleteBudgetAction
 DeleteNotification
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/deletenotificationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/deletenotificationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/deletenotificationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/budgets/command/DeleteNotificationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/DeleteNotificationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/DeleteNotificationCommandOutput/)
 
 </details>
 <details>
@@ -306,7 +306,7 @@ DeleteNotification
 DeleteSubscriber
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/deletesubscribercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/deletesubscribercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/deletesubscribercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/budgets/command/DeleteSubscriberCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/DeleteSubscriberCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/DeleteSubscriberCommandOutput/)
 
 </details>
 <details>
@@ -314,7 +314,7 @@ DeleteSubscriber
 DescribeBudget
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/describebudgetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/budgets/command/DescribeBudgetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/DescribeBudgetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/DescribeBudgetCommandOutput/)
 
 </details>
 <details>
@@ -322,7 +322,7 @@ DescribeBudget
 DescribeBudgetAction
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/describebudgetactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetactioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/budgets/command/DescribeBudgetActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/DescribeBudgetActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/DescribeBudgetActionCommandOutput/)
 
 </details>
 <details>
@@ -330,7 +330,7 @@ DescribeBudgetAction
 DescribeBudgetActionHistories
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/describebudgetactionhistoriescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetactionhistoriescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetactionhistoriescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/budgets/command/DescribeBudgetActionHistoriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/DescribeBudgetActionHistoriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/DescribeBudgetActionHistoriesCommandOutput/)
 
 </details>
 <details>
@@ -338,7 +338,7 @@ DescribeBudgetActionHistories
 DescribeBudgetActionsForAccount
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/describebudgetactionsforaccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetactionsforaccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetactionsforaccountcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/budgets/command/DescribeBudgetActionsForAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/DescribeBudgetActionsForAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/DescribeBudgetActionsForAccountCommandOutput/)
 
 </details>
 <details>
@@ -346,7 +346,7 @@ DescribeBudgetActionsForAccount
 DescribeBudgetActionsForBudget
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/describebudgetactionsforbudgetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetactionsforbudgetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetactionsforbudgetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/budgets/command/DescribeBudgetActionsForBudgetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/DescribeBudgetActionsForBudgetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/DescribeBudgetActionsForBudgetCommandOutput/)
 
 </details>
 <details>
@@ -354,7 +354,7 @@ DescribeBudgetActionsForBudget
 DescribeBudgetNotificationsForAccount
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/describebudgetnotificationsforaccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetnotificationsforaccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetnotificationsforaccountcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/budgets/command/DescribeBudgetNotificationsForAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/DescribeBudgetNotificationsForAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/DescribeBudgetNotificationsForAccountCommandOutput/)
 
 </details>
 <details>
@@ -362,7 +362,7 @@ DescribeBudgetNotificationsForAccount
 DescribeBudgetPerformanceHistory
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/describebudgetperformancehistorycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetperformancehistorycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetperformancehistorycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/budgets/command/DescribeBudgetPerformanceHistoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/DescribeBudgetPerformanceHistoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/DescribeBudgetPerformanceHistoryCommandOutput/)
 
 </details>
 <details>
@@ -370,7 +370,7 @@ DescribeBudgetPerformanceHistory
 DescribeBudgets
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/describebudgetscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describebudgetscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/budgets/command/DescribeBudgetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/DescribeBudgetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/DescribeBudgetsCommandOutput/)
 
 </details>
 <details>
@@ -378,7 +378,7 @@ DescribeBudgets
 DescribeNotificationsForBudget
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/describenotificationsforbudgetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describenotificationsforbudgetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describenotificationsforbudgetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/budgets/command/DescribeNotificationsForBudgetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/DescribeNotificationsForBudgetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/DescribeNotificationsForBudgetCommandOutput/)
 
 </details>
 <details>
@@ -386,7 +386,7 @@ DescribeNotificationsForBudget
 DescribeSubscribersForNotification
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/describesubscribersfornotificationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describesubscribersfornotificationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/describesubscribersfornotificationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/budgets/command/DescribeSubscribersForNotificationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/DescribeSubscribersForNotificationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/DescribeSubscribersForNotificationCommandOutput/)
 
 </details>
 <details>
@@ -394,7 +394,7 @@ DescribeSubscribersForNotification
 ExecuteBudgetAction
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/executebudgetactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/executebudgetactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/executebudgetactioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/budgets/command/ExecuteBudgetActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/ExecuteBudgetActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/ExecuteBudgetActionCommandOutput/)
 
 </details>
 <details>
@@ -402,7 +402,7 @@ ExecuteBudgetAction
 UpdateBudget
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/updatebudgetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/updatebudgetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/updatebudgetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/budgets/command/UpdateBudgetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/UpdateBudgetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/UpdateBudgetCommandOutput/)
 
 </details>
 <details>
@@ -410,7 +410,7 @@ UpdateBudget
 UpdateBudgetAction
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/updatebudgetactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/updatebudgetactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/updatebudgetactioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/budgets/command/UpdateBudgetActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/UpdateBudgetActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/UpdateBudgetActionCommandOutput/)
 
 </details>
 <details>
@@ -418,7 +418,7 @@ UpdateBudgetAction
 UpdateNotification
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/updatenotificationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/updatenotificationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/updatenotificationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/budgets/command/UpdateNotificationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/UpdateNotificationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/UpdateNotificationCommandOutput/)
 
 </details>
 <details>
@@ -426,6 +426,6 @@ UpdateNotification
 UpdateSubscriber
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/classes/updatesubscribercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/updatesubscribercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-budgets/interfaces/updatesubscribercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/budgets/command/UpdateSubscriberCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/UpdateSubscriberCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-budgets/Interface/UpdateSubscriberCommandOutput/)
 
 </details>

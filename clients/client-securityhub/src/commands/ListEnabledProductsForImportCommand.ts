@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListEnabledProductsForImportRequest, ListEnabledProductsForImportResponse } from "../models/models_2";
 import {
   de_ListEnabledProductsForImportCommand,
@@ -86,7 +78,7 @@ export interface ListEnabledProductsForImportCommandOutput
  * @example To list ARNs for enabled integrations
  * ```javascript
  * // The following example returns a list of subscription Amazon Resource Names (ARNs) for the product integrations that you have currently enabled in Security Hub.
- * const input = undefined;
+ * const input = {};
  * const command = new ListEnabledProductsForImportCommand(input);
  * const response = await client.send(command);
  * /* response ==
@@ -101,82 +93,26 @@ export interface ListEnabledProductsForImportCommandOutput
  * ```
  *
  */
-export class ListEnabledProductsForImportCommand extends $Command<
-  ListEnabledProductsForImportCommandInput,
-  ListEnabledProductsForImportCommandOutput,
-  SecurityHubClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListEnabledProductsForImportCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SecurityHubClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListEnabledProductsForImportCommandInput, ListEnabledProductsForImportCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListEnabledProductsForImportCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SecurityHubClient";
-    const commandName = "ListEnabledProductsForImportCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListEnabledProductsForImportCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListEnabledProductsForImportCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListEnabledProductsForImportCommandOutput> {
-    return de_ListEnabledProductsForImportCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListEnabledProductsForImportCommand extends $Command
+  .classBuilder<
+    ListEnabledProductsForImportCommandInput,
+    ListEnabledProductsForImportCommandOutput,
+    SecurityHubClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("SecurityHubAPIService", "ListEnabledProductsForImport", {})
+  .n("SecurityHubClient", "ListEnabledProductsForImportCommand")
+  .f(void 0, void 0)
+  .ser(se_ListEnabledProductsForImportCommand)
+  .de(de_ListEnabledProductsForImportCommand)
+  .build() {}

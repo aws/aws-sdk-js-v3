@@ -76,6 +76,12 @@ import {
   GetUserDetailsCommandInput,
   GetUserDetailsCommandOutput,
 } from "./commands/GetUserDetailsCommand";
+import { GetWorkflowCommand, GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
+import {
+  GetWorkflowRunCommand,
+  GetWorkflowRunCommandInput,
+  GetWorkflowRunCommandOutput,
+} from "./commands/GetWorkflowRunCommand";
 import {
   ListAccessTokensCommand,
   ListAccessTokensCommandInput,
@@ -113,6 +119,16 @@ import {
 } from "./commands/ListSourceRepositoryBranchesCommand";
 import { ListSpacesCommand, ListSpacesCommandInput, ListSpacesCommandOutput } from "./commands/ListSpacesCommand";
 import {
+  ListWorkflowRunsCommand,
+  ListWorkflowRunsCommandInput,
+  ListWorkflowRunsCommandOutput,
+} from "./commands/ListWorkflowRunsCommand";
+import {
+  ListWorkflowsCommand,
+  ListWorkflowsCommandInput,
+  ListWorkflowsCommandOutput,
+} from "./commands/ListWorkflowsCommand";
+import {
   StartDevEnvironmentCommand,
   StartDevEnvironmentCommandInput,
   StartDevEnvironmentCommandOutput,
@@ -122,6 +138,11 @@ import {
   StartDevEnvironmentSessionCommandInput,
   StartDevEnvironmentSessionCommandOutput,
 } from "./commands/StartDevEnvironmentSessionCommand";
+import {
+  StartWorkflowRunCommand,
+  StartWorkflowRunCommandInput,
+  StartWorkflowRunCommandOutput,
+} from "./commands/StartWorkflowRunCommand";
 import {
   StopDevEnvironmentCommand,
   StopDevEnvironmentCommandInput,
@@ -167,6 +188,8 @@ const commands = {
   GetSpaceCommand,
   GetSubscriptionCommand,
   GetUserDetailsCommand,
+  GetWorkflowCommand,
+  GetWorkflowRunCommand,
   ListAccessTokensCommand,
   ListDevEnvironmentsCommand,
   ListDevEnvironmentSessionsCommand,
@@ -175,8 +198,11 @@ const commands = {
   ListSourceRepositoriesCommand,
   ListSourceRepositoryBranchesCommand,
   ListSpacesCommand,
+  ListWorkflowRunsCommand,
+  ListWorkflowsCommand,
   StartDevEnvironmentCommand,
   StartDevEnvironmentSessionCommand,
+  StartWorkflowRunCommand,
   StopDevEnvironmentCommand,
   StopDevEnvironmentSessionCommand,
   UpdateDevEnvironmentCommand,
@@ -440,6 +466,31 @@ export interface CodeCatalyst {
   ): void;
 
   /**
+   * @see {@link GetWorkflowCommand}
+   */
+  getWorkflow(args: GetWorkflowCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkflowCommandOutput>;
+  getWorkflow(args: GetWorkflowCommandInput, cb: (err: any, data?: GetWorkflowCommandOutput) => void): void;
+  getWorkflow(
+    args: GetWorkflowCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetWorkflowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetWorkflowRunCommand}
+   */
+  getWorkflowRun(
+    args: GetWorkflowRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetWorkflowRunCommandOutput>;
+  getWorkflowRun(args: GetWorkflowRunCommandInput, cb: (err: any, data?: GetWorkflowRunCommandOutput) => void): void;
+  getWorkflowRun(
+    args: GetWorkflowRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetWorkflowRunCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListAccessTokensCommand}
    */
   listAccessTokens(
@@ -558,6 +609,34 @@ export interface CodeCatalyst {
   ): void;
 
   /**
+   * @see {@link ListWorkflowRunsCommand}
+   */
+  listWorkflowRuns(
+    args: ListWorkflowRunsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWorkflowRunsCommandOutput>;
+  listWorkflowRuns(
+    args: ListWorkflowRunsCommandInput,
+    cb: (err: any, data?: ListWorkflowRunsCommandOutput) => void
+  ): void;
+  listWorkflowRuns(
+    args: ListWorkflowRunsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWorkflowRunsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListWorkflowsCommand}
+   */
+  listWorkflows(args: ListWorkflowsCommandInput, options?: __HttpHandlerOptions): Promise<ListWorkflowsCommandOutput>;
+  listWorkflows(args: ListWorkflowsCommandInput, cb: (err: any, data?: ListWorkflowsCommandOutput) => void): void;
+  listWorkflows(
+    args: ListWorkflowsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWorkflowsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartDevEnvironmentCommand}
    */
   startDevEnvironment(
@@ -589,6 +668,23 @@ export interface CodeCatalyst {
     args: StartDevEnvironmentSessionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartDevEnvironmentSessionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartWorkflowRunCommand}
+   */
+  startWorkflowRun(
+    args: StartWorkflowRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartWorkflowRunCommandOutput>;
+  startWorkflowRun(
+    args: StartWorkflowRunCommandInput,
+    cb: (err: any, data?: StartWorkflowRunCommandOutput) => void
+  ): void;
+  startWorkflowRun(
+    args: StartWorkflowRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartWorkflowRunCommandOutput) => void
   ): void;
 
   /**
@@ -701,7 +797,7 @@ export interface CodeCatalyst {
  *             </li>
  *             <li>
  *                <p>
- *                   <a>UpdateSpace</a>, which hanges one or more values for a space.</p>
+ *                   <a>UpdateSpace</a>, which changes one or more values for a space.</p>
  *             </li>
  *          </ul>
  *          <p>Projects, by calling the following:</p>
@@ -800,6 +896,29 @@ export interface CodeCatalyst {
  *             <li>
  *                <p>
  *                   <a>UpdateDevEnvironment</a>, which changes one or more values for a Dev Environment.</p>
+ *             </li>
+ *          </ul>
+ *          <p>Workflows, by calling the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>GetWorkflow</a>, which returns information about a workflow.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetWorkflowRun</a>, which returns information about a specified run of a workflow.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListWorkflowRuns</a>, which retrieves a list of runs of a specified workflow.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListWorkflows</a>, which retrieves a list of workflows in a specified project.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>StartWorkflowRun</a>, which starts a run of a specified workflow.</p>
  *             </li>
  *          </ul>
  *          <p>Security, activity, and resource management in Amazon CodeCatalyst, by calling the following:</p>

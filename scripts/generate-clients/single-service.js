@@ -4,6 +4,7 @@ const { generateClient } = require("./code-gen");
 const { codeOrdering } = require("./code-ordering");
 const { copyToClients } = require("./copy-to-clients");
 const { spawnProcess } = require("../utils/spawn-process");
+const s3Hack = require("./s3-hack");
 
 const SDK_CLIENTS_DIR = normalize(join(__dirname, "..", "..", "clients"));
 
@@ -14,7 +15,14 @@ const { solo } = yargs(process.argv.slice(2))
 
 (async () => {
   try {
+    let afterGenerate = () => {};
+    if (solo === "s3") {
+      afterGenerate = s3Hack();
+    }
     await generateClient(solo);
+    if (solo === "s3") {
+      afterGenerate();
+    }
     await copyToClients(
       normalize(join(__dirname, "..", "..", "codegen", "sdk-codegen", "build-single", solo)),
       SDK_CLIENTS_DIR,
@@ -22,8 +30,13 @@ const { solo } = yargs(process.argv.slice(2))
     );
     await codeOrdering(join(SDK_CLIENTS_DIR, `client-${solo}`));
 
+    if (solo === "workspaces-thin-client") {
+      require("./customizations/workspaces-thin-client")();
+    }
+
     // post-generation transforms
     const clientFolder = join(SDK_CLIENTS_DIR, `client-${solo}`);
+    const libFolder = join(SDK_CLIENTS_DIR, "..", "lib", `lib-${solo}`);
 
     // examples merging
     require("../api-examples/get-examples");
@@ -34,6 +47,12 @@ const { solo } = yargs(process.argv.slice(2))
       await spawnProcess("npx", ["eslint", "--quiet", "--fix", `${clientFolder}/src/**/*`]);
     } catch (ignored) {}
 
+    if (solo === "dynamodb") {
+      try {
+        await spawnProcess("npx", ["eslint", "--quiet", "--fix", `${libFolder}/src/**/*`]);
+      } catch (ignored) {}
+    }
+
     console.log("================ starting prettier ================", "\n", new Date().toString(), solo);
     await spawnProcess("npx", [
       "prettier",
@@ -43,6 +62,9 @@ const { solo } = yargs(process.argv.slice(2))
       `${clientFolder}/src/**/*.{md,js,ts,json}`,
     ]);
     await spawnProcess("npx", ["prettier", "--write", "--loglevel", "warn", `${clientFolder}/README.md`]);
+    if (solo === "dynamodb") {
+      await spawnProcess("npx", ["prettier", "--write", "--loglevel", "warn", `${libFolder}/src/**/*.{md,js,ts,json}`]);
+    }
 
     const compress = require("../endpoints-ruleset/compress");
     compress(solo);

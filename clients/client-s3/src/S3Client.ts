@@ -9,6 +9,8 @@ import {
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
+  getRegionRedirectMiddlewarePlugin,
+  getS3ExpressPlugin,
   getValidateBucketNamePlugin,
   resolveS3Config,
   S3InputConfig,
@@ -80,6 +82,11 @@ import {
   CreateMultipartUploadCommandInput,
   CreateMultipartUploadCommandOutput,
 } from "./commands/CreateMultipartUploadCommand";
+import {
+  CreateSessionCommand,
+  CreateSessionCommandInput,
+  CreateSessionCommandOutput,
+} from "./commands/CreateSessionCommand";
 import {
   DeleteBucketAnalyticsConfigurationCommandInput,
   DeleteBucketAnalyticsConfigurationCommandOutput,
@@ -230,6 +237,10 @@ import {
 } from "./commands/ListBucketMetricsConfigurationsCommand";
 import { ListBucketsCommandInput, ListBucketsCommandOutput } from "./commands/ListBucketsCommand";
 import {
+  ListDirectoryBucketsCommandInput,
+  ListDirectoryBucketsCommandOutput,
+} from "./commands/ListDirectoryBucketsCommand";
+import {
   ListMultipartUploadsCommandInput,
   ListMultipartUploadsCommandOutput,
 } from "./commands/ListMultipartUploadsCommand";
@@ -335,6 +346,7 @@ export type ServiceInputTypes =
   | CopyObjectCommandInput
   | CreateBucketCommandInput
   | CreateMultipartUploadCommandInput
+  | CreateSessionCommandInput
   | DeleteBucketAnalyticsConfigurationCommandInput
   | DeleteBucketCommandInput
   | DeleteBucketCorsCommandInput
@@ -388,6 +400,7 @@ export type ServiceInputTypes =
   | ListBucketInventoryConfigurationsCommandInput
   | ListBucketMetricsConfigurationsCommandInput
   | ListBucketsCommandInput
+  | ListDirectoryBucketsCommandInput
   | ListMultipartUploadsCommandInput
   | ListObjectVersionsCommandInput
   | ListObjectsCommandInput
@@ -433,6 +446,7 @@ export type ServiceOutputTypes =
   | CopyObjectCommandOutput
   | CreateBucketCommandOutput
   | CreateMultipartUploadCommandOutput
+  | CreateSessionCommandOutput
   | DeleteBucketAnalyticsConfigurationCommandOutput
   | DeleteBucketCommandOutput
   | DeleteBucketCorsCommandOutput
@@ -486,6 +500,7 @@ export type ServiceOutputTypes =
   | ListBucketInventoryConfigurationsCommandOutput
   | ListBucketMetricsConfigurationsCommandOutput
   | ListBucketsCommandOutput
+  | ListDirectoryBucketsCommandOutput
   | ListMultipartUploadsCommandOutput
   | ListObjectVersionsCommandOutput
   | ListObjectsCommandOutput
@@ -668,6 +683,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 
@@ -764,7 +781,7 @@ export class S3Client extends __Client<
     const _config_4 = resolveRetryConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
     const _config_6 = resolveAwsAuthConfig(_config_5);
-    const _config_7 = resolveS3Config(_config_6);
+    const _config_7 = resolveS3Config(_config_6, { session: [() => this, CreateSessionCommand] });
     const _config_8 = resolveUserAgentConfig(_config_7);
     const _config_9 = resolveEventStreamSerdeConfig(_config_8);
     const _config_10 = resolveRuntimeExtensions(_config_9, configuration?.extensions || []);
@@ -778,6 +795,8 @@ export class S3Client extends __Client<
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getValidateBucketNamePlugin(this.config));
     this.middlewareStack.use(getAddExpectContinuePlugin(this.config));
+    this.middlewareStack.use(getRegionRedirectMiddlewarePlugin(this.config));
+    this.middlewareStack.use(getS3ExpressPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
   }
 

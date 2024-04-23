@@ -24,16 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `FisClient` and
-the commands you need, for example `CreateExperimentTemplateCommand`:
+the commands you need, for example `ListActionsCommand`:
 
 ```js
 // ES5 example
-const { FisClient, CreateExperimentTemplateCommand } = require("@aws-sdk/client-fis");
+const { FisClient, ListActionsCommand } = require("@aws-sdk/client-fis");
 ```
 
 ```ts
 // ES6+ example
-import { FisClient, CreateExperimentTemplateCommand } from "@aws-sdk/client-fis";
+import { FisClient, ListActionsCommand } from "@aws-sdk/client-fis";
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ const client = new FisClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateExperimentTemplateCommand(params);
+const command = new ListActionsCommand(params);
 ```
 
 #### Async/await
@@ -131,7 +131,7 @@ const client = new AWS.Fis({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createExperimentTemplate(params);
+  const data = await client.listActions(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +139,7 @@ try {
 
 // Promises.
 client
-  .createExperimentTemplate(params)
+  .listActions(params)
   .then((data) => {
     // process data.
   })
@@ -148,7 +148,7 @@ client
   });
 
 // callbacks.
-client.createExperimentTemplate(params, (err, data) => {
+client.listActions(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -163,7 +163,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -209,7 +209,15 @@ see LICENSE for more information.
 CreateExperimentTemplate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/classes/createexperimenttemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/createexperimenttemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/createexperimenttemplatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fis/command/CreateExperimentTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/CreateExperimentTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/CreateExperimentTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateTargetAccountConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fis/command/CreateTargetAccountConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/CreateTargetAccountConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/CreateTargetAccountConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -217,7 +225,15 @@ CreateExperimentTemplate
 DeleteExperimentTemplate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/classes/deleteexperimenttemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/deleteexperimenttemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/deleteexperimenttemplatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fis/command/DeleteExperimentTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/DeleteExperimentTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/DeleteExperimentTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteTargetAccountConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fis/command/DeleteTargetAccountConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/DeleteTargetAccountConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/DeleteTargetAccountConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -225,7 +241,7 @@ DeleteExperimentTemplate
 GetAction
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/classes/getactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/getactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/getactioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fis/command/GetActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/GetActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/GetActionCommandOutput/)
 
 </details>
 <details>
@@ -233,7 +249,15 @@ GetAction
 GetExperiment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/classes/getexperimentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/getexperimentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/getexperimentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fis/command/GetExperimentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/GetExperimentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/GetExperimentCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetExperimentTargetAccountConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fis/command/GetExperimentTargetAccountConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/GetExperimentTargetAccountConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/GetExperimentTargetAccountConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -241,7 +265,15 @@ GetExperiment
 GetExperimentTemplate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/classes/getexperimenttemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/getexperimenttemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/getexperimenttemplatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fis/command/GetExperimentTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/GetExperimentTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/GetExperimentTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetTargetAccountConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fis/command/GetTargetAccountConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/GetTargetAccountConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/GetTargetAccountConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -249,7 +281,7 @@ GetExperimentTemplate
 GetTargetResourceType
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/classes/gettargetresourcetypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/gettargetresourcetypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/gettargetresourcetypecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fis/command/GetTargetResourceTypeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/GetTargetResourceTypeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/GetTargetResourceTypeCommandOutput/)
 
 </details>
 <details>
@@ -257,7 +289,15 @@ GetTargetResourceType
 ListActions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/classes/listactionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/listactionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/listactionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fis/command/ListActionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/ListActionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/ListActionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListExperimentResolvedTargets
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fis/command/ListExperimentResolvedTargetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/ListExperimentResolvedTargetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/ListExperimentResolvedTargetsCommandOutput/)
 
 </details>
 <details>
@@ -265,7 +305,15 @@ ListActions
 ListExperiments
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/classes/listexperimentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/listexperimentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/listexperimentscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fis/command/ListExperimentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/ListExperimentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/ListExperimentsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListExperimentTargetAccountConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fis/command/ListExperimentTargetAccountConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/ListExperimentTargetAccountConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/ListExperimentTargetAccountConfigurationsCommandOutput/)
 
 </details>
 <details>
@@ -273,7 +321,7 @@ ListExperiments
 ListExperimentTemplates
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/classes/listexperimenttemplatescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/listexperimenttemplatescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/listexperimenttemplatescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fis/command/ListExperimentTemplatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/ListExperimentTemplatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/ListExperimentTemplatesCommandOutput/)
 
 </details>
 <details>
@@ -281,7 +329,15 @@ ListExperimentTemplates
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fis/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/ListTagsForResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListTargetAccountConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fis/command/ListTargetAccountConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/ListTargetAccountConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/ListTargetAccountConfigurationsCommandOutput/)
 
 </details>
 <details>
@@ -289,7 +345,7 @@ ListTagsForResource
 ListTargetResourceTypes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/classes/listtargetresourcetypescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/listtargetresourcetypescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/listtargetresourcetypescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fis/command/ListTargetResourceTypesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/ListTargetResourceTypesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/ListTargetResourceTypesCommandOutput/)
 
 </details>
 <details>
@@ -297,7 +353,7 @@ ListTargetResourceTypes
 StartExperiment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/classes/startexperimentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/startexperimentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/startexperimentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fis/command/StartExperimentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/StartExperimentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/StartExperimentCommandOutput/)
 
 </details>
 <details>
@@ -305,7 +361,7 @@ StartExperiment
 StopExperiment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/classes/stopexperimentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/stopexperimentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/stopexperimentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fis/command/StopExperimentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/StopExperimentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/StopExperimentCommandOutput/)
 
 </details>
 <details>
@@ -313,7 +369,7 @@ StopExperiment
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fis/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -321,7 +377,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fis/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -329,6 +385,14 @@ UntagResource
 UpdateExperimentTemplate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/classes/updateexperimenttemplatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/updateexperimenttemplatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-fis/interfaces/updateexperimenttemplatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fis/command/UpdateExperimentTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/UpdateExperimentTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/UpdateExperimentTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateTargetAccountConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/fis/command/UpdateTargetAccountConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/UpdateTargetAccountConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-fis/Interface/UpdateTargetAccountConfigurationCommandOutput/)
 
 </details>

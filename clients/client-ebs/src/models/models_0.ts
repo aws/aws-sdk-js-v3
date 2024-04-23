@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+
 import { StreamingBlobTypes } from "@smithy/types";
 
 import { EBSServiceException as __BaseException } from "./EBSServiceException";
@@ -31,7 +32,7 @@ export class AccessDeniedException extends __BaseException {
    * @public
    * <p>The reason for the exception.</p>
    */
-  Reason: AccessDeniedExceptionReason | string | undefined;
+  Reason: AccessDeniedExceptionReason | undefined;
   /**
    * @internal
    */
@@ -151,14 +152,14 @@ export interface CompleteSnapshotRequest {
    * <p>The algorithm used to generate the checksum. Currently, the only supported algorithm
    *             is <code>SHA256</code>.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: ChecksumAlgorithm;
 
   /**
    * @public
    * <p>The aggregation method used to generate the checksum. Currently, the only supported
    *             aggregation method is <code>LINEAR</code>.</p>
    */
-  ChecksumAggregationMethod?: ChecksumAggregationMethod | string;
+  ChecksumAggregationMethod?: ChecksumAggregationMethod;
 }
 
 /**
@@ -184,7 +185,7 @@ export interface CompleteSnapshotResponse {
    * @public
    * <p>The status of the snapshot.</p>
    */
-  Status?: Status | string;
+  Status?: Status;
 }
 
 /**
@@ -238,7 +239,7 @@ export class RequestThrottledException extends __BaseException {
    * @public
    * <p>The reason for the exception.</p>
    */
-  Reason?: RequestThrottledExceptionReason | string;
+  Reason?: RequestThrottledExceptionReason;
   /**
    * @internal
    */
@@ -283,7 +284,7 @@ export class ResourceNotFoundException extends __BaseException {
    * @public
    * <p>The reason for the exception.</p>
    */
-  Reason?: ResourceNotFoundExceptionReason | string;
+  Reason?: ResourceNotFoundExceptionReason;
   /**
    * @internal
    */
@@ -325,7 +326,7 @@ export class ServiceQuotaExceededException extends __BaseException {
    * @public
    * <p>The reason for the exception.</p>
    */
-  Reason?: ServiceQuotaExceededExceptionReason | string;
+  Reason?: ServiceQuotaExceededExceptionReason;
   /**
    * @internal
    */
@@ -380,7 +381,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>The reason for the validation exception.</p>
    */
-  Reason?: ValidationExceptionReason | string;
+  Reason?: ValidationExceptionReason;
   /**
    * @internal
    */
@@ -504,7 +505,7 @@ export interface GetSnapshotBlockResponse {
    * @public
    * <p>The algorithm used to generate the checksum for the block, such as SHA256.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: ChecksumAlgorithm;
 }
 
 /**
@@ -746,7 +747,7 @@ export interface PutSnapshotBlockRequest {
    * <p>The algorithm used to generate the checksum. Currently, the only supported algorithm
    *             is <code>SHA256</code>.</p>
    */
-  ChecksumAlgorithm: ChecksumAlgorithm | string | undefined;
+  ChecksumAlgorithm: ChecksumAlgorithm | undefined;
 }
 
 /**
@@ -763,7 +764,7 @@ export interface PutSnapshotBlockResponse {
    * @public
    * <p>The algorithm used by Amazon EBS to generate the checksum.</p>
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: ChecksumAlgorithm;
 }
 
 /**
@@ -940,7 +941,7 @@ export interface StartSnapshotResponse {
    * @public
    * <p>The status of the snapshot.</p>
    */
-  Status?: Status | string;
+  Status?: Status;
 
   /**
    * @public
@@ -984,7 +985,7 @@ export interface StartSnapshotResponse {
    * @public
    * <p>Reserved for future use.</p>
    */
-  SseType?: SSEType | string;
+  SseType?: SSEType;
 }
 
 /**

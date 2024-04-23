@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GetTagKeysInput, GetTagKeysOutput } from "../models/models_0";
 import { de_GetTagKeysCommand, se_GetTagKeysCommand } from "../protocols/Aws_json1_1";
 import {
@@ -42,7 +34,7 @@ export interface GetTagKeysCommandOutput extends GetTagKeysOutput, __MetadataBea
  * @public
  * <p>Returns all tag keys currently in use in the specified Amazon Web Services Region for the calling
  *             account.</p>
- *         <p>This operation supports pagination, where the response can be sent in
+ *          <p>This operation supports pagination, where the response can be sent in
  *     multiple pages. You should check the <code>PaginationToken</code> response parameter to determine
  *     if there are additional results available to return. Repeat the query, passing the
  *     <code>PaginationToken</code> response parameter value as an input to the next request until you
@@ -80,21 +72,21 @@ export interface GetTagKeysCommandOutput extends GetTagKeysOutput, __MetadataBea
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>This error indicates one of the following:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>A parameter is missing.</p>
+ *                <p>A parameter is missing.</p>
  *             </li>
  *             <li>
- *                 <p>A malformed string was supplied for the request parameter.</p>
+ *                <p>A malformed string was supplied for the request parameter.</p>
  *             </li>
  *             <li>
- *                 <p>An out-of-range value was supplied for the request parameter.</p>
+ *                <p>An out-of-range value was supplied for the request parameter.</p>
  *             </li>
  *             <li>
- *                 <p>The target ID is invalid, unsupported, or doesn't exist.</p>
+ *                <p>The target ID is invalid, unsupported, or doesn't exist.</p>
  *             </li>
  *             <li>
- *                 <p>You can't access the Amazon S3 bucket for report storage. For more information, see
+ *                <p>You can't access the Amazon S3 bucket for report storage. For more information, see
  *                         <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies-prereqs.html#bucket-policies-org-report">Additional Requirements for Organization-wide Tag Compliance
  *                         Reports</a> in the <i>Organizations User Guide.</i>
  *                </p>
@@ -112,77 +104,26 @@ export interface GetTagKeysCommandOutput extends GetTagKeysOutput, __MetadataBea
  * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>
  *
  */
-export class GetTagKeysCommand extends $Command<
-  GetTagKeysCommandInput,
-  GetTagKeysCommandOutput,
-  ResourceGroupsTaggingAPIClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetTagKeysCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ResourceGroupsTaggingAPIClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetTagKeysCommandInput, GetTagKeysCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GetTagKeysCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ResourceGroupsTaggingAPIClient";
-    const commandName = "GetTagKeysCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetTagKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetTagKeysCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTagKeysCommandOutput> {
-    return de_GetTagKeysCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetTagKeysCommand extends $Command
+  .classBuilder<
+    GetTagKeysCommandInput,
+    GetTagKeysCommandOutput,
+    ResourceGroupsTaggingAPIClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ResourceGroupsTaggingAPIClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ResourceGroupsTaggingAPI_20170126", "GetTagKeys", {})
+  .n("ResourceGroupsTaggingAPIClient", "GetTagKeysCommand")
+  .f(void 0, void 0)
+  .ser(se_GetTagKeysCommand)
+  .de(de_GetTagKeysCommand)
+  .build() {}

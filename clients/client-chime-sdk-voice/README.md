@@ -24,19 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ChimeSDKVoiceClient` and
-the commands you need, for example `AssociatePhoneNumbersWithVoiceConnectorCommand`:
+the commands you need, for example `ListPhoneNumbersCommand`:
 
 ```js
 // ES5 example
-const {
-  ChimeSDKVoiceClient,
-  AssociatePhoneNumbersWithVoiceConnectorCommand,
-} = require("@aws-sdk/client-chime-sdk-voice");
+const { ChimeSDKVoiceClient, ListPhoneNumbersCommand } = require("@aws-sdk/client-chime-sdk-voice");
 ```
 
 ```ts
 // ES6+ example
-import { ChimeSDKVoiceClient, AssociatePhoneNumbersWithVoiceConnectorCommand } from "@aws-sdk/client-chime-sdk-voice";
+import { ChimeSDKVoiceClient, ListPhoneNumbersCommand } from "@aws-sdk/client-chime-sdk-voice";
 ```
 
 ### Usage
@@ -55,7 +52,7 @@ const client = new ChimeSDKVoiceClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociatePhoneNumbersWithVoiceConnectorCommand(params);
+const command = new ListPhoneNumbersCommand(params);
 ```
 
 #### Async/await
@@ -134,7 +131,7 @@ const client = new AWS.ChimeSDKVoice({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associatePhoneNumbersWithVoiceConnector(params);
+  const data = await client.listPhoneNumbers(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -142,7 +139,7 @@ try {
 
 // Promises.
 client
-  .associatePhoneNumbersWithVoiceConnector(params)
+  .listPhoneNumbers(params)
   .then((data) => {
     // process data.
   })
@@ -151,7 +148,7 @@ client
   });
 
 // callbacks.
-client.associatePhoneNumbersWithVoiceConnector(params, (err, data) => {
+client.listPhoneNumbers(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -166,7 +163,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -212,7 +209,7 @@ see LICENSE for more information.
 AssociatePhoneNumbersWithVoiceConnector
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/associatephonenumberswithvoiceconnectorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/associatephonenumberswithvoiceconnectorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/associatephonenumberswithvoiceconnectorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/AssociatePhoneNumbersWithVoiceConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/AssociatePhoneNumbersWithVoiceConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/AssociatePhoneNumbersWithVoiceConnectorCommandOutput/)
 
 </details>
 <details>
@@ -220,7 +217,7 @@ AssociatePhoneNumbersWithVoiceConnector
 AssociatePhoneNumbersWithVoiceConnectorGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/associatephonenumberswithvoiceconnectorgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/associatephonenumberswithvoiceconnectorgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/associatephonenumberswithvoiceconnectorgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/AssociatePhoneNumbersWithVoiceConnectorGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/AssociatePhoneNumbersWithVoiceConnectorGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput/)
 
 </details>
 <details>
@@ -228,7 +225,7 @@ AssociatePhoneNumbersWithVoiceConnectorGroup
 BatchDeletePhoneNumber
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/batchdeletephonenumbercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/batchdeletephonenumbercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/batchdeletephonenumbercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/BatchDeletePhoneNumberCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/BatchDeletePhoneNumberCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/BatchDeletePhoneNumberCommandOutput/)
 
 </details>
 <details>
@@ -236,7 +233,7 @@ BatchDeletePhoneNumber
 BatchUpdatePhoneNumber
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/batchupdatephonenumbercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/batchupdatephonenumbercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/batchupdatephonenumbercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/BatchUpdatePhoneNumberCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/BatchUpdatePhoneNumberCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/BatchUpdatePhoneNumberCommandOutput/)
 
 </details>
 <details>
@@ -244,7 +241,7 @@ BatchUpdatePhoneNumber
 CreatePhoneNumberOrder
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/createphonenumberordercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/createphonenumberordercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/createphonenumberordercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/CreatePhoneNumberOrderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/CreatePhoneNumberOrderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/CreatePhoneNumberOrderCommandOutput/)
 
 </details>
 <details>
@@ -252,7 +249,7 @@ CreatePhoneNumberOrder
 CreateProxySession
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/createproxysessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/createproxysessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/createproxysessioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/CreateProxySessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/CreateProxySessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/CreateProxySessionCommandOutput/)
 
 </details>
 <details>
@@ -260,7 +257,7 @@ CreateProxySession
 CreateSipMediaApplication
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/createsipmediaapplicationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/createsipmediaapplicationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/createsipmediaapplicationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/CreateSipMediaApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/CreateSipMediaApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/CreateSipMediaApplicationCommandOutput/)
 
 </details>
 <details>
@@ -268,7 +265,7 @@ CreateSipMediaApplication
 CreateSipMediaApplicationCall
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/createsipmediaapplicationcallcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/createsipmediaapplicationcallcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/createsipmediaapplicationcallcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/CreateSipMediaApplicationCallCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/CreateSipMediaApplicationCallCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/CreateSipMediaApplicationCallCommandOutput/)
 
 </details>
 <details>
@@ -276,7 +273,7 @@ CreateSipMediaApplicationCall
 CreateSipRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/createsiprulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/createsiprulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/createsiprulecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/CreateSipRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/CreateSipRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/CreateSipRuleCommandOutput/)
 
 </details>
 <details>
@@ -284,7 +281,7 @@ CreateSipRule
 CreateVoiceConnector
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/createvoiceconnectorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/createvoiceconnectorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/createvoiceconnectorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/CreateVoiceConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/CreateVoiceConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/CreateVoiceConnectorCommandOutput/)
 
 </details>
 <details>
@@ -292,7 +289,7 @@ CreateVoiceConnector
 CreateVoiceConnectorGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/createvoiceconnectorgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/createvoiceconnectorgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/createvoiceconnectorgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/CreateVoiceConnectorGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/CreateVoiceConnectorGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/CreateVoiceConnectorGroupCommandOutput/)
 
 </details>
 <details>
@@ -300,7 +297,7 @@ CreateVoiceConnectorGroup
 CreateVoiceProfile
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/createvoiceprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/createvoiceprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/createvoiceprofilecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/CreateVoiceProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/CreateVoiceProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/CreateVoiceProfileCommandOutput/)
 
 </details>
 <details>
@@ -308,7 +305,7 @@ CreateVoiceProfile
 CreateVoiceProfileDomain
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/createvoiceprofiledomaincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/createvoiceprofiledomaincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/createvoiceprofiledomaincommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/CreateVoiceProfileDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/CreateVoiceProfileDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/CreateVoiceProfileDomainCommandOutput/)
 
 </details>
 <details>
@@ -316,7 +313,7 @@ CreateVoiceProfileDomain
 DeletePhoneNumber
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/deletephonenumbercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/deletephonenumbercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/deletephonenumbercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/DeletePhoneNumberCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DeletePhoneNumberCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DeletePhoneNumberCommandOutput/)
 
 </details>
 <details>
@@ -324,7 +321,7 @@ DeletePhoneNumber
 DeleteProxySession
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/deleteproxysessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/deleteproxysessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/deleteproxysessioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/DeleteProxySessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DeleteProxySessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DeleteProxySessionCommandOutput/)
 
 </details>
 <details>
@@ -332,7 +329,7 @@ DeleteProxySession
 DeleteSipMediaApplication
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/deletesipmediaapplicationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/deletesipmediaapplicationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/deletesipmediaapplicationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/DeleteSipMediaApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DeleteSipMediaApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DeleteSipMediaApplicationCommandOutput/)
 
 </details>
 <details>
@@ -340,7 +337,7 @@ DeleteSipMediaApplication
 DeleteSipRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/deletesiprulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/deletesiprulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/deletesiprulecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/DeleteSipRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DeleteSipRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DeleteSipRuleCommandOutput/)
 
 </details>
 <details>
@@ -348,7 +345,7 @@ DeleteSipRule
 DeleteVoiceConnector
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/deletevoiceconnectorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/deletevoiceconnectorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/deletevoiceconnectorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/DeleteVoiceConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DeleteVoiceConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DeleteVoiceConnectorCommandOutput/)
 
 </details>
 <details>
@@ -356,7 +353,7 @@ DeleteVoiceConnector
 DeleteVoiceConnectorEmergencyCallingConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/deletevoiceconnectoremergencycallingconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/deletevoiceconnectoremergencycallingconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/deletevoiceconnectoremergencycallingconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/DeleteVoiceConnectorEmergencyCallingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DeleteVoiceConnectorEmergencyCallingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DeleteVoiceConnectorEmergencyCallingConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -364,7 +361,7 @@ DeleteVoiceConnectorEmergencyCallingConfiguration
 DeleteVoiceConnectorGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/deletevoiceconnectorgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/deletevoiceconnectorgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/deletevoiceconnectorgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/DeleteVoiceConnectorGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DeleteVoiceConnectorGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DeleteVoiceConnectorGroupCommandOutput/)
 
 </details>
 <details>
@@ -372,7 +369,7 @@ DeleteVoiceConnectorGroup
 DeleteVoiceConnectorOrigination
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/deletevoiceconnectororiginationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/deletevoiceconnectororiginationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/deletevoiceconnectororiginationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/DeleteVoiceConnectorOriginationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DeleteVoiceConnectorOriginationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DeleteVoiceConnectorOriginationCommandOutput/)
 
 </details>
 <details>
@@ -380,7 +377,7 @@ DeleteVoiceConnectorOrigination
 DeleteVoiceConnectorProxy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/deletevoiceconnectorproxycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/deletevoiceconnectorproxycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/deletevoiceconnectorproxycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/DeleteVoiceConnectorProxyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DeleteVoiceConnectorProxyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DeleteVoiceConnectorProxyCommandOutput/)
 
 </details>
 <details>
@@ -388,7 +385,7 @@ DeleteVoiceConnectorProxy
 DeleteVoiceConnectorStreamingConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/deletevoiceconnectorstreamingconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/deletevoiceconnectorstreamingconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/deletevoiceconnectorstreamingconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/DeleteVoiceConnectorStreamingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DeleteVoiceConnectorStreamingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DeleteVoiceConnectorStreamingConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -396,7 +393,7 @@ DeleteVoiceConnectorStreamingConfiguration
 DeleteVoiceConnectorTermination
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/deletevoiceconnectorterminationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/deletevoiceconnectorterminationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/deletevoiceconnectorterminationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/DeleteVoiceConnectorTerminationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DeleteVoiceConnectorTerminationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DeleteVoiceConnectorTerminationCommandOutput/)
 
 </details>
 <details>
@@ -404,7 +401,7 @@ DeleteVoiceConnectorTermination
 DeleteVoiceConnectorTerminationCredentials
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/deletevoiceconnectorterminationcredentialscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/deletevoiceconnectorterminationcredentialscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/deletevoiceconnectorterminationcredentialscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/DeleteVoiceConnectorTerminationCredentialsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DeleteVoiceConnectorTerminationCredentialsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DeleteVoiceConnectorTerminationCredentialsCommandOutput/)
 
 </details>
 <details>
@@ -412,7 +409,7 @@ DeleteVoiceConnectorTerminationCredentials
 DeleteVoiceProfile
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/deletevoiceprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/deletevoiceprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/deletevoiceprofilecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/DeleteVoiceProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DeleteVoiceProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DeleteVoiceProfileCommandOutput/)
 
 </details>
 <details>
@@ -420,7 +417,7 @@ DeleteVoiceProfile
 DeleteVoiceProfileDomain
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/deletevoiceprofiledomaincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/deletevoiceprofiledomaincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/deletevoiceprofiledomaincommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/DeleteVoiceProfileDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DeleteVoiceProfileDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DeleteVoiceProfileDomainCommandOutput/)
 
 </details>
 <details>
@@ -428,7 +425,7 @@ DeleteVoiceProfileDomain
 DisassociatePhoneNumbersFromVoiceConnector
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/disassociatephonenumbersfromvoiceconnectorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/disassociatephonenumbersfromvoiceconnectorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/disassociatephonenumbersfromvoiceconnectorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/DisassociatePhoneNumbersFromVoiceConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DisassociatePhoneNumbersFromVoiceConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DisassociatePhoneNumbersFromVoiceConnectorCommandOutput/)
 
 </details>
 <details>
@@ -436,7 +433,7 @@ DisassociatePhoneNumbersFromVoiceConnector
 DisassociatePhoneNumbersFromVoiceConnectorGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/disassociatephonenumbersfromvoiceconnectorgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/disassociatephonenumbersfromvoiceconnectorgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/disassociatephonenumbersfromvoiceconnectorgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/DisassociatePhoneNumbersFromVoiceConnectorGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DisassociatePhoneNumbersFromVoiceConnectorGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput/)
 
 </details>
 <details>
@@ -444,7 +441,7 @@ DisassociatePhoneNumbersFromVoiceConnectorGroup
 GetGlobalSettings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/getglobalsettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getglobalsettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getglobalsettingscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/GetGlobalSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetGlobalSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetGlobalSettingsCommandOutput/)
 
 </details>
 <details>
@@ -452,7 +449,7 @@ GetGlobalSettings
 GetPhoneNumber
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/getphonenumbercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getphonenumbercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getphonenumbercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/GetPhoneNumberCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetPhoneNumberCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetPhoneNumberCommandOutput/)
 
 </details>
 <details>
@@ -460,7 +457,7 @@ GetPhoneNumber
 GetPhoneNumberOrder
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/getphonenumberordercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getphonenumberordercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getphonenumberordercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/GetPhoneNumberOrderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetPhoneNumberOrderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetPhoneNumberOrderCommandOutput/)
 
 </details>
 <details>
@@ -468,7 +465,7 @@ GetPhoneNumberOrder
 GetPhoneNumberSettings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/getphonenumbersettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getphonenumbersettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getphonenumbersettingscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/GetPhoneNumberSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetPhoneNumberSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetPhoneNumberSettingsCommandOutput/)
 
 </details>
 <details>
@@ -476,7 +473,7 @@ GetPhoneNumberSettings
 GetProxySession
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/getproxysessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getproxysessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getproxysessioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/GetProxySessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetProxySessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetProxySessionCommandOutput/)
 
 </details>
 <details>
@@ -484,7 +481,7 @@ GetProxySession
 GetSipMediaApplication
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/getsipmediaapplicationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getsipmediaapplicationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getsipmediaapplicationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/GetSipMediaApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetSipMediaApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetSipMediaApplicationCommandOutput/)
 
 </details>
 <details>
@@ -492,7 +489,7 @@ GetSipMediaApplication
 GetSipMediaApplicationAlexaSkillConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/getsipmediaapplicationalexaskillconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getsipmediaapplicationalexaskillconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getsipmediaapplicationalexaskillconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/GetSipMediaApplicationAlexaSkillConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetSipMediaApplicationAlexaSkillConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetSipMediaApplicationAlexaSkillConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -500,7 +497,7 @@ GetSipMediaApplicationAlexaSkillConfiguration
 GetSipMediaApplicationLoggingConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/getsipmediaapplicationloggingconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getsipmediaapplicationloggingconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getsipmediaapplicationloggingconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/GetSipMediaApplicationLoggingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetSipMediaApplicationLoggingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetSipMediaApplicationLoggingConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -508,7 +505,7 @@ GetSipMediaApplicationLoggingConfiguration
 GetSipRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/getsiprulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getsiprulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getsiprulecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/GetSipRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetSipRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetSipRuleCommandOutput/)
 
 </details>
 <details>
@@ -516,7 +513,7 @@ GetSipRule
 GetSpeakerSearchTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/getspeakersearchtaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getspeakersearchtaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getspeakersearchtaskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/GetSpeakerSearchTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetSpeakerSearchTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetSpeakerSearchTaskCommandOutput/)
 
 </details>
 <details>
@@ -524,7 +521,7 @@ GetSpeakerSearchTask
 GetVoiceConnector
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/getvoiceconnectorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getvoiceconnectorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getvoiceconnectorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/GetVoiceConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetVoiceConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetVoiceConnectorCommandOutput/)
 
 </details>
 <details>
@@ -532,7 +529,7 @@ GetVoiceConnector
 GetVoiceConnectorEmergencyCallingConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/getvoiceconnectoremergencycallingconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getvoiceconnectoremergencycallingconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getvoiceconnectoremergencycallingconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/GetVoiceConnectorEmergencyCallingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetVoiceConnectorEmergencyCallingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetVoiceConnectorEmergencyCallingConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -540,7 +537,7 @@ GetVoiceConnectorEmergencyCallingConfiguration
 GetVoiceConnectorGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/getvoiceconnectorgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getvoiceconnectorgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getvoiceconnectorgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/GetVoiceConnectorGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetVoiceConnectorGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetVoiceConnectorGroupCommandOutput/)
 
 </details>
 <details>
@@ -548,7 +545,7 @@ GetVoiceConnectorGroup
 GetVoiceConnectorLoggingConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/getvoiceconnectorloggingconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getvoiceconnectorloggingconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getvoiceconnectorloggingconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/GetVoiceConnectorLoggingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetVoiceConnectorLoggingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetVoiceConnectorLoggingConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -556,7 +553,7 @@ GetVoiceConnectorLoggingConfiguration
 GetVoiceConnectorOrigination
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/getvoiceconnectororiginationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getvoiceconnectororiginationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getvoiceconnectororiginationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/GetVoiceConnectorOriginationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetVoiceConnectorOriginationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetVoiceConnectorOriginationCommandOutput/)
 
 </details>
 <details>
@@ -564,7 +561,7 @@ GetVoiceConnectorOrigination
 GetVoiceConnectorProxy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/getvoiceconnectorproxycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getvoiceconnectorproxycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getvoiceconnectorproxycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/GetVoiceConnectorProxyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetVoiceConnectorProxyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetVoiceConnectorProxyCommandOutput/)
 
 </details>
 <details>
@@ -572,7 +569,7 @@ GetVoiceConnectorProxy
 GetVoiceConnectorStreamingConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/getvoiceconnectorstreamingconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getvoiceconnectorstreamingconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getvoiceconnectorstreamingconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/GetVoiceConnectorStreamingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetVoiceConnectorStreamingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetVoiceConnectorStreamingConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -580,7 +577,7 @@ GetVoiceConnectorStreamingConfiguration
 GetVoiceConnectorTermination
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/getvoiceconnectorterminationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getvoiceconnectorterminationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getvoiceconnectorterminationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/GetVoiceConnectorTerminationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetVoiceConnectorTerminationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetVoiceConnectorTerminationCommandOutput/)
 
 </details>
 <details>
@@ -588,7 +585,7 @@ GetVoiceConnectorTermination
 GetVoiceConnectorTerminationHealth
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/getvoiceconnectorterminationhealthcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getvoiceconnectorterminationhealthcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getvoiceconnectorterminationhealthcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/GetVoiceConnectorTerminationHealthCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetVoiceConnectorTerminationHealthCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetVoiceConnectorTerminationHealthCommandOutput/)
 
 </details>
 <details>
@@ -596,7 +593,7 @@ GetVoiceConnectorTerminationHealth
 GetVoiceProfile
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/getvoiceprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getvoiceprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getvoiceprofilecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/GetVoiceProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetVoiceProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetVoiceProfileCommandOutput/)
 
 </details>
 <details>
@@ -604,7 +601,7 @@ GetVoiceProfile
 GetVoiceProfileDomain
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/getvoiceprofiledomaincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getvoiceprofiledomaincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getvoiceprofiledomaincommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/GetVoiceProfileDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetVoiceProfileDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetVoiceProfileDomainCommandOutput/)
 
 </details>
 <details>
@@ -612,7 +609,7 @@ GetVoiceProfileDomain
 GetVoiceToneAnalysisTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/getvoicetoneanalysistaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getvoicetoneanalysistaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/getvoicetoneanalysistaskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/GetVoiceToneAnalysisTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetVoiceToneAnalysisTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetVoiceToneAnalysisTaskCommandOutput/)
 
 </details>
 <details>
@@ -620,7 +617,7 @@ GetVoiceToneAnalysisTask
 ListAvailableVoiceConnectorRegions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/listavailablevoiceconnectorregionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/listavailablevoiceconnectorregionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/listavailablevoiceconnectorregionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/ListAvailableVoiceConnectorRegionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/ListAvailableVoiceConnectorRegionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/ListAvailableVoiceConnectorRegionsCommandOutput/)
 
 </details>
 <details>
@@ -628,7 +625,7 @@ ListAvailableVoiceConnectorRegions
 ListPhoneNumberOrders
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/listphonenumberorderscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/listphonenumberorderscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/listphonenumberorderscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/ListPhoneNumberOrdersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/ListPhoneNumberOrdersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/ListPhoneNumberOrdersCommandOutput/)
 
 </details>
 <details>
@@ -636,7 +633,7 @@ ListPhoneNumberOrders
 ListPhoneNumbers
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/listphonenumberscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/listphonenumberscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/listphonenumberscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/ListPhoneNumbersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/ListPhoneNumbersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/ListPhoneNumbersCommandOutput/)
 
 </details>
 <details>
@@ -644,7 +641,7 @@ ListPhoneNumbers
 ListProxySessions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/listproxysessionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/listproxysessionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/listproxysessionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/ListProxySessionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/ListProxySessionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/ListProxySessionsCommandOutput/)
 
 </details>
 <details>
@@ -652,7 +649,7 @@ ListProxySessions
 ListSipMediaApplications
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/listsipmediaapplicationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/listsipmediaapplicationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/listsipmediaapplicationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/ListSipMediaApplicationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/ListSipMediaApplicationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/ListSipMediaApplicationsCommandOutput/)
 
 </details>
 <details>
@@ -660,7 +657,7 @@ ListSipMediaApplications
 ListSipRules
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/listsiprulescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/listsiprulescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/listsiprulescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/ListSipRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/ListSipRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/ListSipRulesCommandOutput/)
 
 </details>
 <details>
@@ -668,7 +665,7 @@ ListSipRules
 ListSupportedPhoneNumberCountries
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/listsupportedphonenumbercountriescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/listsupportedphonenumbercountriescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/listsupportedphonenumbercountriescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/ListSupportedPhoneNumberCountriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/ListSupportedPhoneNumberCountriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/ListSupportedPhoneNumberCountriesCommandOutput/)
 
 </details>
 <details>
@@ -676,7 +673,7 @@ ListSupportedPhoneNumberCountries
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/ListTagsForResourceCommandOutput/)
 
 </details>
 <details>
@@ -684,7 +681,7 @@ ListTagsForResource
 ListVoiceConnectorGroups
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/listvoiceconnectorgroupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/listvoiceconnectorgroupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/listvoiceconnectorgroupscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/ListVoiceConnectorGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/ListVoiceConnectorGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/ListVoiceConnectorGroupsCommandOutput/)
 
 </details>
 <details>
@@ -692,7 +689,7 @@ ListVoiceConnectorGroups
 ListVoiceConnectors
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/listvoiceconnectorscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/listvoiceconnectorscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/listvoiceconnectorscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/ListVoiceConnectorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/ListVoiceConnectorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/ListVoiceConnectorsCommandOutput/)
 
 </details>
 <details>
@@ -700,7 +697,7 @@ ListVoiceConnectors
 ListVoiceConnectorTerminationCredentials
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/listvoiceconnectorterminationcredentialscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/listvoiceconnectorterminationcredentialscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/listvoiceconnectorterminationcredentialscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/ListVoiceConnectorTerminationCredentialsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/ListVoiceConnectorTerminationCredentialsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/ListVoiceConnectorTerminationCredentialsCommandOutput/)
 
 </details>
 <details>
@@ -708,7 +705,7 @@ ListVoiceConnectorTerminationCredentials
 ListVoiceProfileDomains
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/listvoiceprofiledomainscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/listvoiceprofiledomainscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/listvoiceprofiledomainscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/ListVoiceProfileDomainsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/ListVoiceProfileDomainsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/ListVoiceProfileDomainsCommandOutput/)
 
 </details>
 <details>
@@ -716,7 +713,7 @@ ListVoiceProfileDomains
 ListVoiceProfiles
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/listvoiceprofilescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/listvoiceprofilescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/listvoiceprofilescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/ListVoiceProfilesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/ListVoiceProfilesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/ListVoiceProfilesCommandOutput/)
 
 </details>
 <details>
@@ -724,7 +721,7 @@ ListVoiceProfiles
 PutSipMediaApplicationAlexaSkillConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/putsipmediaapplicationalexaskillconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/putsipmediaapplicationalexaskillconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/putsipmediaapplicationalexaskillconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/PutSipMediaApplicationAlexaSkillConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/PutSipMediaApplicationAlexaSkillConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/PutSipMediaApplicationAlexaSkillConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -732,7 +729,7 @@ PutSipMediaApplicationAlexaSkillConfiguration
 PutSipMediaApplicationLoggingConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/putsipmediaapplicationloggingconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/putsipmediaapplicationloggingconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/putsipmediaapplicationloggingconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/PutSipMediaApplicationLoggingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/PutSipMediaApplicationLoggingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/PutSipMediaApplicationLoggingConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -740,7 +737,7 @@ PutSipMediaApplicationLoggingConfiguration
 PutVoiceConnectorEmergencyCallingConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/putvoiceconnectoremergencycallingconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/putvoiceconnectoremergencycallingconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/putvoiceconnectoremergencycallingconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/PutVoiceConnectorEmergencyCallingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/PutVoiceConnectorEmergencyCallingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/PutVoiceConnectorEmergencyCallingConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -748,7 +745,7 @@ PutVoiceConnectorEmergencyCallingConfiguration
 PutVoiceConnectorLoggingConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/putvoiceconnectorloggingconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/putvoiceconnectorloggingconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/putvoiceconnectorloggingconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/PutVoiceConnectorLoggingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/PutVoiceConnectorLoggingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/PutVoiceConnectorLoggingConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -756,7 +753,7 @@ PutVoiceConnectorLoggingConfiguration
 PutVoiceConnectorOrigination
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/putvoiceconnectororiginationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/putvoiceconnectororiginationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/putvoiceconnectororiginationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/PutVoiceConnectorOriginationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/PutVoiceConnectorOriginationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/PutVoiceConnectorOriginationCommandOutput/)
 
 </details>
 <details>
@@ -764,7 +761,7 @@ PutVoiceConnectorOrigination
 PutVoiceConnectorProxy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/putvoiceconnectorproxycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/putvoiceconnectorproxycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/putvoiceconnectorproxycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/PutVoiceConnectorProxyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/PutVoiceConnectorProxyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/PutVoiceConnectorProxyCommandOutput/)
 
 </details>
 <details>
@@ -772,7 +769,7 @@ PutVoiceConnectorProxy
 PutVoiceConnectorStreamingConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/putvoiceconnectorstreamingconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/putvoiceconnectorstreamingconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/putvoiceconnectorstreamingconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/PutVoiceConnectorStreamingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/PutVoiceConnectorStreamingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/PutVoiceConnectorStreamingConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -780,7 +777,7 @@ PutVoiceConnectorStreamingConfiguration
 PutVoiceConnectorTermination
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/putvoiceconnectorterminationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/putvoiceconnectorterminationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/putvoiceconnectorterminationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/PutVoiceConnectorTerminationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/PutVoiceConnectorTerminationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/PutVoiceConnectorTerminationCommandOutput/)
 
 </details>
 <details>
@@ -788,7 +785,7 @@ PutVoiceConnectorTermination
 PutVoiceConnectorTerminationCredentials
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/putvoiceconnectorterminationcredentialscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/putvoiceconnectorterminationcredentialscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/putvoiceconnectorterminationcredentialscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/PutVoiceConnectorTerminationCredentialsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/PutVoiceConnectorTerminationCredentialsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/PutVoiceConnectorTerminationCredentialsCommandOutput/)
 
 </details>
 <details>
@@ -796,7 +793,7 @@ PutVoiceConnectorTerminationCredentials
 RestorePhoneNumber
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/restorephonenumbercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/restorephonenumbercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/restorephonenumbercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/RestorePhoneNumberCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/RestorePhoneNumberCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/RestorePhoneNumberCommandOutput/)
 
 </details>
 <details>
@@ -804,7 +801,7 @@ RestorePhoneNumber
 SearchAvailablePhoneNumbers
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/searchavailablephonenumberscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/searchavailablephonenumberscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/searchavailablephonenumberscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/SearchAvailablePhoneNumbersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/SearchAvailablePhoneNumbersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/SearchAvailablePhoneNumbersCommandOutput/)
 
 </details>
 <details>
@@ -812,7 +809,7 @@ SearchAvailablePhoneNumbers
 StartSpeakerSearchTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/startspeakersearchtaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/startspeakersearchtaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/startspeakersearchtaskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/StartSpeakerSearchTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/StartSpeakerSearchTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/StartSpeakerSearchTaskCommandOutput/)
 
 </details>
 <details>
@@ -820,7 +817,7 @@ StartSpeakerSearchTask
 StartVoiceToneAnalysisTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/startvoicetoneanalysistaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/startvoicetoneanalysistaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/startvoicetoneanalysistaskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/StartVoiceToneAnalysisTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/StartVoiceToneAnalysisTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/StartVoiceToneAnalysisTaskCommandOutput/)
 
 </details>
 <details>
@@ -828,7 +825,7 @@ StartVoiceToneAnalysisTask
 StopSpeakerSearchTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/stopspeakersearchtaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/stopspeakersearchtaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/stopspeakersearchtaskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/StopSpeakerSearchTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/StopSpeakerSearchTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/StopSpeakerSearchTaskCommandOutput/)
 
 </details>
 <details>
@@ -836,7 +833,7 @@ StopSpeakerSearchTask
 StopVoiceToneAnalysisTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/stopvoicetoneanalysistaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/stopvoicetoneanalysistaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/stopvoicetoneanalysistaskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/StopVoiceToneAnalysisTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/StopVoiceToneAnalysisTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/StopVoiceToneAnalysisTaskCommandOutput/)
 
 </details>
 <details>
@@ -844,7 +841,7 @@ StopVoiceToneAnalysisTask
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -852,7 +849,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -860,7 +857,7 @@ UntagResource
 UpdateGlobalSettings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/updateglobalsettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/updateglobalsettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/updateglobalsettingscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/UpdateGlobalSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/UpdateGlobalSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/UpdateGlobalSettingsCommandOutput/)
 
 </details>
 <details>
@@ -868,7 +865,7 @@ UpdateGlobalSettings
 UpdatePhoneNumber
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/updatephonenumbercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/updatephonenumbercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/updatephonenumbercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/UpdatePhoneNumberCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/UpdatePhoneNumberCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/UpdatePhoneNumberCommandOutput/)
 
 </details>
 <details>
@@ -876,7 +873,7 @@ UpdatePhoneNumber
 UpdatePhoneNumberSettings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/updatephonenumbersettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/updatephonenumbersettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/updatephonenumbersettingscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/UpdatePhoneNumberSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/UpdatePhoneNumberSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/UpdatePhoneNumberSettingsCommandOutput/)
 
 </details>
 <details>
@@ -884,7 +881,7 @@ UpdatePhoneNumberSettings
 UpdateProxySession
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/updateproxysessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/updateproxysessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/updateproxysessioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/UpdateProxySessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/UpdateProxySessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/UpdateProxySessionCommandOutput/)
 
 </details>
 <details>
@@ -892,7 +889,7 @@ UpdateProxySession
 UpdateSipMediaApplication
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/updatesipmediaapplicationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/updatesipmediaapplicationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/updatesipmediaapplicationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/UpdateSipMediaApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/UpdateSipMediaApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/UpdateSipMediaApplicationCommandOutput/)
 
 </details>
 <details>
@@ -900,7 +897,7 @@ UpdateSipMediaApplication
 UpdateSipMediaApplicationCall
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/updatesipmediaapplicationcallcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/updatesipmediaapplicationcallcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/updatesipmediaapplicationcallcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/UpdateSipMediaApplicationCallCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/UpdateSipMediaApplicationCallCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/UpdateSipMediaApplicationCallCommandOutput/)
 
 </details>
 <details>
@@ -908,7 +905,7 @@ UpdateSipMediaApplicationCall
 UpdateSipRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/updatesiprulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/updatesiprulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/updatesiprulecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/UpdateSipRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/UpdateSipRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/UpdateSipRuleCommandOutput/)
 
 </details>
 <details>
@@ -916,7 +913,7 @@ UpdateSipRule
 UpdateVoiceConnector
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/updatevoiceconnectorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/updatevoiceconnectorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/updatevoiceconnectorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/UpdateVoiceConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/UpdateVoiceConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/UpdateVoiceConnectorCommandOutput/)
 
 </details>
 <details>
@@ -924,7 +921,7 @@ UpdateVoiceConnector
 UpdateVoiceConnectorGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/updatevoiceconnectorgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/updatevoiceconnectorgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/updatevoiceconnectorgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/UpdateVoiceConnectorGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/UpdateVoiceConnectorGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/UpdateVoiceConnectorGroupCommandOutput/)
 
 </details>
 <details>
@@ -932,7 +929,7 @@ UpdateVoiceConnectorGroup
 UpdateVoiceProfile
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/updatevoiceprofilecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/updatevoiceprofilecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/updatevoiceprofilecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/UpdateVoiceProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/UpdateVoiceProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/UpdateVoiceProfileCommandOutput/)
 
 </details>
 <details>
@@ -940,7 +937,7 @@ UpdateVoiceProfile
 UpdateVoiceProfileDomain
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/updatevoiceprofiledomaincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/updatevoiceprofiledomaincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/updatevoiceprofiledomaincommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/UpdateVoiceProfileDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/UpdateVoiceProfileDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/UpdateVoiceProfileDomainCommandOutput/)
 
 </details>
 <details>
@@ -948,6 +945,6 @@ UpdateVoiceProfileDomain
 ValidateE911Address
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/classes/validatee911addresscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/validatee911addresscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-chime-sdk-voice/interfaces/validatee911addresscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/ValidateE911AddressCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/ValidateE911AddressCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/ValidateE911AddressCommandOutput/)
 
 </details>

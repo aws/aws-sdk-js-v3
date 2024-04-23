@@ -450,7 +450,7 @@ export interface LoggingConfiguration {
    * @public
    * <p>Defines which category of execution history events are logged.</p>
    */
-  level?: LogLevel | string;
+  level?: LogLevel;
 
   /**
    * @public
@@ -545,7 +545,7 @@ export interface CreateStateMachineInput {
    *         <code>STANDARD</code>. You cannot update the <code>type</code> of a state machine once it
    *       has been created.</p>
    */
-  type?: StateMachineType | string;
+  type?: StateMachineType;
 
   /**
    * @public
@@ -801,7 +801,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
    */
-  reason?: ValidationExceptionReason | string;
+  reason?: ValidationExceptionReason;
 
   /**
    * @internal
@@ -833,7 +833,7 @@ export interface RoutingConfigurationListItem {
 
   /**
    * @public
-   * <p>The percentage of traffic you want to route to the second state machine
+   * <p>The percentage of traffic you want to route to a state machine
    *       version. The sum of the weights in the routing
    *       configuration must be equal to 100.</p>
    */
@@ -1076,9 +1076,25 @@ export interface CloudWatchEventsExecutionDataDetails {
  * @public
  * @enum
  */
+export const ExecutionRedriveStatus = {
+  NOT_REDRIVABLE: "NOT_REDRIVABLE",
+  REDRIVABLE: "REDRIVABLE",
+  REDRIVABLE_BY_MAP_RUN: "REDRIVABLE_BY_MAP_RUN",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutionRedriveStatus = (typeof ExecutionRedriveStatus)[keyof typeof ExecutionRedriveStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const ExecutionStatus = {
   ABORTED: "ABORTED",
   FAILED: "FAILED",
+  PENDING_REDRIVE: "PENDING_REDRIVE",
   RUNNING: "RUNNING",
   SUCCEEDED: "SUCCEEDED",
   TIMED_OUT: "TIMED_OUT",
@@ -1137,7 +1153,7 @@ export interface DescribeExecutionOutput {
    * @public
    * <p>The current status of the execution.</p>
    */
-  status: ExecutionStatus | string | undefined;
+  status: ExecutionStatus | undefined;
 
   /**
    * @public
@@ -1218,6 +1234,81 @@ export interface DescribeExecutionOutput {
    *       state machine version ARN, this field will be null.</p>
    */
   stateMachineAliasArn?: string;
+
+  /**
+   * @public
+   * <p>The number of times you've redriven an execution. If you have not yet redriven an execution, the <code>redriveCount</code> is 0. This count is only updated if you successfully redrive an execution.</p>
+   */
+  redriveCount?: number;
+
+  /**
+   * @public
+   * <p>The date the execution was last redriven. If you have not yet redriven an execution, the <code>redriveDate</code> is null.</p>
+   *          <p>The <code>redriveDate</code> is unavailable if you redrive a Map Run that starts child workflow executions of type <code>EXPRESS</code>.</p>
+   */
+  redriveDate?: Date;
+
+  /**
+   * @public
+   * <p>Indicates whether or not an execution can be redriven at a given point in time.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For executions of type <code>STANDARD</code>, <code>redriveStatus</code> is <code>NOT_REDRIVABLE</code> if calling the <a>RedriveExecution</a> API action would return the <code>ExecutionNotRedrivable</code> error.</p>
+   *             </li>
+   *             <li>
+   *                <p>For a Distributed Map that includes child workflows of type <code>STANDARD</code>, <code>redriveStatus</code> indicates whether or not the Map Run can redrive child workflow executions.</p>
+   *             </li>
+   *             <li>
+   *                <p>For a Distributed Map that includes child workflows of type <code>EXPRESS</code>, <code>redriveStatus</code> indicates whether or not the Map Run can redrive child workflow executions.</p>
+   *                <p>You can redrive failed or timed out <code>EXPRESS</code> workflows <i>only if</i> they're a part of a Map Run. When you <a href="https://docs.aws.amazon.com/step-functions/latest/dg/redrive-map-run.html">redrive</a> the Map Run, these workflows are restarted using the <a>StartExecution</a> API action.</p>
+   *             </li>
+   *          </ul>
+   */
+  redriveStatus?: ExecutionRedriveStatus;
+
+  /**
+   * @public
+   * <p>When <code>redriveStatus</code> is <code>NOT_REDRIVABLE</code>, <code>redriveStatusReason</code> specifies the reason why an execution cannot be redriven.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For executions of type <code>STANDARD</code>, or for a Distributed Map that includes child workflows of type <code>STANDARD</code>, <code>redriveStatusReason</code> can include one of the following reasons:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>State machine is in DELETING status</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Execution is RUNNING and cannot be redriven</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Execution is SUCCEEDED and cannot be redriven</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Execution was started before the launch of RedriveExecution</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Execution history event limit exceeded</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Execution has exceeded the max execution time</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Execution redrivable period exceeded</code>.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>For a Distributed Map that includes child workflows of type <code>EXPRESS</code>, <code>redriveStatusReason</code> is only returned if the child workflows are not redrivable. This happens when the child workflow executions have completed successfully.</p>
+   *             </li>
+   *          </ul>
+   */
+  redriveStatusReason?: string;
 }
 
 /**
@@ -1303,6 +1394,18 @@ export interface MapRunExecutionCounts {
    * <p>Returns the count of child workflow executions whose results were written by <code>ResultWriter</code>. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultwriter.html">ResultWriter</a> in the <i>Step Functions Developer Guide</i>.</p>
    */
   resultsWritten: number | undefined;
+
+  /**
+   * @public
+   * <p>The number of <code>FAILED</code>, <code>ABORTED</code>, or <code>TIMED_OUT</code> child workflow executions that cannot be redriven because their execution status is terminal. For example, child workflows with an execution status of <code>FAILED</code>, <code>ABORTED</code>, or <code>TIMED_OUT</code> and a <code>redriveStatus</code> of <code>NOT_REDRIVABLE</code>.</p>
+   */
+  failuresNotRedrivable?: number;
+
+  /**
+   * @public
+   * <p>The number of unsuccessful child workflow executions currently waiting to be redriven. The status of these child workflow executions could be <code>FAILED</code>, <code>ABORTED</code>, or <code>TIMED_OUT</code> in the original execution attempt or a previous redrive attempt.</p>
+   */
+  pendingRedrive?: number;
 }
 
 /**
@@ -1357,6 +1460,18 @@ export interface MapRunItemCounts {
    * <p>Returns the count of items whose results were written by <code>ResultWriter</code>. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultwriter.html">ResultWriter</a> in the <i>Step Functions Developer Guide</i>.</p>
    */
   resultsWritten: number | undefined;
+
+  /**
+   * @public
+   * <p>The number of <code>FAILED</code>, <code>ABORTED</code>, or <code>TIMED_OUT</code> items in child workflow executions that cannot be redriven because the execution status of those child workflows is terminal. For example, child workflows with an execution status of <code>FAILED</code>, <code>ABORTED</code>, or <code>TIMED_OUT</code> and a <code>redriveStatus</code> of <code>NOT_REDRIVABLE</code>.</p>
+   */
+  failuresNotRedrivable?: number;
+
+  /**
+   * @public
+   * <p>The number of unsuccessful items in child workflow executions currently waiting to be redriven.</p>
+   */
+  pendingRedrive?: number;
 }
 
 /**
@@ -1395,7 +1510,7 @@ export interface DescribeMapRunOutput {
    * @public
    * <p>The current status of the Map Run.</p>
    */
-  status: MapRunStatus | string | undefined;
+  status: MapRunStatus | undefined;
 
   /**
    * @public
@@ -1438,6 +1553,18 @@ export interface DescribeMapRunOutput {
    * <p>A JSON object that contains information about the total number of child workflow executions for the Map Run, and the count of child workflow executions for each status, such as <code>failed</code> and <code>succeeded</code>.</p>
    */
   executionCounts: MapRunExecutionCounts | undefined;
+
+  /**
+   * @public
+   * <p>The number of times you've redriven a Map Run. If you have not yet redriven a Map Run, the <code>redriveCount</code> is 0. This count is only updated if you successfully redrive a Map Run.</p>
+   */
+  redriveCount?: number;
+
+  /**
+   * @public
+   * <p>The date a Map Run was last redriven. If you have not yet redriven a Map Run, the <code>redriveDate</code> is null.</p>
+   */
+  redriveDate?: Date;
 }
 
 /**
@@ -1509,7 +1636,7 @@ export interface DescribeStateMachineOutput {
    * @public
    * <p>The current status of the state machine.</p>
    */
-  status?: StateMachineStatus | string;
+  status?: StateMachineStatus;
 
   /**
    * @public
@@ -1529,7 +1656,7 @@ export interface DescribeStateMachineOutput {
    * <p>The <code>type</code> of the state machine (<code>STANDARD</code> or
    *       <code>EXPRESS</code>).</p>
    */
-  type: StateMachineType | string | undefined;
+  type: StateMachineType | undefined;
 
   /**
    * @public
@@ -1841,6 +1968,18 @@ export interface ExecutionFailedEventDetails {
 
 /**
  * @public
+ * <p>Contains details about a redriven execution.</p>
+ */
+export interface ExecutionRedrivenEventDetails {
+  /**
+   * @public
+   * <p>The number of times you've redriven an execution. If you have not yet redriven an execution, the <code>redriveCount</code> is 0. This count is not updated for redrives that failed to start or are pending to be redriven.</p>
+   */
+  redriveCount?: number;
+}
+
+/**
+ * @public
  * <p>Contains details about the start of the execution.</p>
  */
 export interface ExecutionStartedEventDetails {
@@ -2085,6 +2224,24 @@ export interface MapRunFailedEventDetails {
    * <p>A more detailed explanation of the cause of the failure.</p>
    */
   cause?: string;
+}
+
+/**
+ * @public
+ * <p>Contains details about a Map Run that was redriven.</p>
+ */
+export interface MapRunRedrivenEventDetails {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of a Map Run that was redriven.</p>
+   */
+  mapRunArn?: string;
+
+  /**
+   * @public
+   * <p>The number of times the Map Run has been redriven at this point in the execution's history including this event. The redrive count for a redriven Map Run is always greater than 0.</p>
+   */
+  redriveCount?: number;
 }
 
 /**
@@ -2444,6 +2601,7 @@ export const HistoryEventType = {
   ChoiceStateExited: "ChoiceStateExited",
   ExecutionAborted: "ExecutionAborted",
   ExecutionFailed: "ExecutionFailed",
+  ExecutionRedriven: "ExecutionRedriven",
   ExecutionStarted: "ExecutionStarted",
   ExecutionSucceeded: "ExecutionSucceeded",
   ExecutionTimedOut: "ExecutionTimedOut",
@@ -2461,6 +2619,7 @@ export const HistoryEventType = {
   MapIterationSucceeded: "MapIterationSucceeded",
   MapRunAborted: "MapRunAborted",
   MapRunFailed: "MapRunFailed",
+  MapRunRedriven: "MapRunRedriven",
   MapRunStarted: "MapRunStarted",
   MapRunSucceeded: "MapRunSucceeded",
   MapStateAborted: "MapStateAborted",
@@ -2515,7 +2674,7 @@ export interface HistoryEvent {
    * @public
    * <p>The type of the event.</p>
    */
-  type: HistoryEventType | string | undefined;
+  type: HistoryEventType | undefined;
 
   /**
    * @public
@@ -2646,6 +2805,12 @@ export interface HistoryEvent {
 
   /**
    * @public
+   * <p>Contains details about the redrive attempt of an execution.</p>
+   */
+  executionRedrivenEventDetails?: ExecutionRedrivenEventDetails;
+
+  /**
+   * @public
    * <p>Contains details about Map state that was started.</p>
    */
   mapStateStartedEventDetails?: MapStateStartedEventDetails;
@@ -2735,6 +2900,12 @@ export interface HistoryEvent {
    * <p>Contains error and cause details about a Map Run that failed.</p>
    */
   mapRunFailedEventDetails?: MapRunFailedEventDetails;
+
+  /**
+   * @public
+   * <p>Contains details about the redrive attempt of a Map Run.</p>
+   */
+  mapRunRedrivenEventDetails?: MapRunRedrivenEventDetails;
 }
 
 /**
@@ -2815,6 +2986,20 @@ export interface ListActivitiesOutput {
 
 /**
  * @public
+ * @enum
+ */
+export const ExecutionRedriveFilter = {
+  NOT_REDRIVEN: "NOT_REDRIVEN",
+  REDRIVEN: "REDRIVEN",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutionRedriveFilter = (typeof ExecutionRedriveFilter)[keyof typeof ExecutionRedriveFilter];
+
+/**
+ * @public
  */
 export interface ListExecutionsInput {
   /**
@@ -2830,7 +3015,7 @@ export interface ListExecutionsInput {
    * <p>If specified, only list the executions whose current execution status matches the given
    *       filter.</p>
    */
-  statusFilter?: ExecutionStatus | string;
+  statusFilter?: ExecutionStatus;
 
   /**
    * @public
@@ -2853,6 +3038,15 @@ export interface ListExecutionsInput {
    *          <p>You can specify either a <code>mapRunArn</code> or a <code>stateMachineArn</code>, but not both.</p>
    */
   mapRunArn?: string;
+
+  /**
+   * @public
+   * <p>Sets a filter to list executions based on whether or not they have been redriven.</p>
+   *          <p>For a Distributed Map, <code>redriveFilter</code> sets a filter to list child workflow executions based on whether or not they have been redriven.</p>
+   *          <p>If you do not provide a <code>redriveFilter</code>, Step Functions returns a list of both redriven and non-redriven executions.</p>
+   *          <p>If you provide a state machine ARN in <code>redriveFilter</code>, the API returns a validation exception.</p>
+   */
+  redriveFilter?: ExecutionRedriveFilter;
 }
 
 /**
@@ -2904,7 +3098,7 @@ export interface ExecutionListItem {
    * @public
    * <p>The current status of the execution.</p>
    */
-  status: ExecutionStatus | string | undefined;
+  status: ExecutionStatus | undefined;
 
   /**
    * @public
@@ -2944,6 +3138,18 @@ export interface ExecutionListItem {
    *          <p>If the state machine execution was started with an unqualified ARN or a version ARN, it returns null.</p>
    */
   stateMachineAliasArn?: string;
+
+  /**
+   * @public
+   * <p>The number of times you've redriven an execution. If you have not yet redriven an execution, the <code>redriveCount</code> is 0. This count is only updated when you successfully redrive an execution.</p>
+   */
+  redriveCount?: number;
+
+  /**
+   * @public
+   * <p>The date the execution was last redriven.</p>
+   */
+  redriveDate?: Date;
 }
 
 /**
@@ -3170,7 +3376,7 @@ export interface StateMachineListItem {
    * @public
    * <p></p>
    */
-  type: StateMachineType | string | undefined;
+  type: StateMachineType | undefined;
 
   /**
    * @public
@@ -3327,6 +3533,75 @@ export interface PublishStateMachineVersionOutput {
 
 /**
  * @public
+ * <p>The maximum number of running executions has been reached. Running executions must end or
+ *       be stopped before a new execution can be started.</p>
+ */
+export class ExecutionLimitExceeded extends __BaseException {
+  readonly name: "ExecutionLimitExceeded" = "ExecutionLimitExceeded";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ExecutionLimitExceeded, __BaseException>) {
+    super({
+      name: "ExecutionLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ExecutionLimitExceeded.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The execution Amazon Resource Name (ARN) that you specified for <code>executionArn</code> cannot be redriven.</p>
+ */
+export class ExecutionNotRedrivable extends __BaseException {
+  readonly name: "ExecutionNotRedrivable" = "ExecutionNotRedrivable";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ExecutionNotRedrivable, __BaseException>) {
+    super({
+      name: "ExecutionNotRedrivable",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ExecutionNotRedrivable.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface RedriveExecutionInput {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the execution to be redriven.</p>
+   */
+  executionArn: string | undefined;
+
+  /**
+   * @public
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don’t specify a client token, the Amazon Web Services SDK automatically generates a client token and uses it for the request to ensure idempotency. The API will return idempotent responses for the last 10 client tokens used to successfully redrive the execution. These client tokens are valid for up to 15 minutes after they are first used.</p>
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface RedriveExecutionOutput {
+  /**
+   * @public
+   * <p>The date the execution was last redriven.</p>
+   */
+  redriveDate: Date | undefined;
+}
+
+/**
+ * @public
  */
 export interface SendTaskFailureInput {
   /**
@@ -3357,6 +3632,7 @@ export interface SendTaskFailureOutput {}
 
 /**
  * @public
+ * <p>The activity does not exist.</p>
  */
 export class TaskDoesNotExist extends __BaseException {
   readonly name: "TaskDoesNotExist" = "TaskDoesNotExist";
@@ -3376,6 +3652,7 @@ export class TaskDoesNotExist extends __BaseException {
 
 /**
  * @public
+ * <p>The task token has either expired or the task associated with the token has already been closed.</p>
  */
 export class TaskTimedOut extends __BaseException {
   readonly name: "TaskTimedOut" = "TaskTimedOut";
@@ -3482,27 +3759,6 @@ export class ExecutionAlreadyExists extends __BaseException {
 
 /**
  * @public
- * <p>The maximum number of running executions has been reached. Running executions must end or
- *       be stopped before a new execution can be started.</p>
- */
-export class ExecutionLimitExceeded extends __BaseException {
-  readonly name: "ExecutionLimitExceeded" = "ExecutionLimitExceeded";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ExecutionLimitExceeded, __BaseException>) {
-    super({
-      name: "ExecutionLimitExceeded",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ExecutionLimitExceeded.prototype);
-  }
-}
-
-/**
- * @public
  * <p>The provided JSON input data is not valid.</p>
  */
 export class InvalidExecutionInput extends __BaseException {
@@ -3566,6 +3822,7 @@ export interface StartExecutionInput {
    *       This name must be unique for your Amazon Web Services account, Region, and state machine for 90 days. For more information,
    *     see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions">
    *     Limits Related to State Machine Executions</a> in the <i>Step Functions Developer Guide</i>.</p>
+   *          <p>If you don't provide a name for the execution, Step Functions automatically generates a universally unique identifier (UUID) as the execution name.</p>
    *          <p>A name must <i>not</i> contain:</p>
    *          <ul>
    *             <li>
@@ -3741,7 +3998,7 @@ export interface StartSyncExecutionOutput {
    * @public
    * <p>The current status of the execution.</p>
    */
-  status: SyncExecutionStatus | string | undefined;
+  status: SyncExecutionStatus | undefined;
 
   /**
    * @public
@@ -3853,6 +4110,256 @@ export interface TagResourceInput {
  * @public
  */
 export interface TagResourceOutput {}
+
+/**
+ * @public
+ * @enum
+ */
+export const InspectionLevel = {
+  DEBUG: "DEBUG",
+  INFO: "INFO",
+  TRACE: "TRACE",
+} as const;
+
+/**
+ * @public
+ */
+export type InspectionLevel = (typeof InspectionLevel)[keyof typeof InspectionLevel];
+
+/**
+ * @public
+ */
+export interface TestStateInput {
+  /**
+   * @public
+   * <p>The <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon States Language</a> (ASL) definition of the state.</p>
+   */
+  definition: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the execution role with the required IAM permissions for the state.</p>
+   */
+  roleArn: string | undefined;
+
+  /**
+   * @public
+   * <p>A string that contains the JSON input data for the state.</p>
+   */
+  input?: string;
+
+  /**
+   * @public
+   * <p>Determines the values to return when a state is tested. You can specify one of the following types:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INFO</code>: Shows the final state output. By default, Step Functions sets <code>inspectionLevel</code> to <code>INFO</code> if you don't specify a level.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DEBUG</code>: Shows the final state output along with the input and output data processing result.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TRACE</code>: Shows the HTTP request and response for an HTTP Task. This level also shows the final state output along with the input and output data processing result.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Each of these levels also provide information about the status of the state execution and the next state to transition to.</p>
+   */
+  inspectionLevel?: InspectionLevel;
+
+  /**
+   * @public
+   * <p>Specifies whether or not to include secret information in the test result. For HTTP Tasks, a secret includes the data that an EventBridge connection adds to modify the HTTP request headers, query parameters, and body. Step Functions doesn't omit any information included in the state definition or the HTTP response.</p>
+   *          <p>If you set <code>revealSecrets</code> to <code>true</code>, you must make sure that the IAM user that calls the <code>TestState</code> API has permission for the <code>states:RevealSecrets</code> action. For an example of IAM policy that sets the <code>states:RevealSecrets</code> permission, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/test-state-isolation.html#test-state-permissions">IAM permissions to test a state</a>. Without this permission, Step Functions throws an access denied error.</p>
+   *          <p>By default, <code>revealSecrets</code> is set to <code>false</code>.</p>
+   */
+  revealSecrets?: boolean;
+}
+
+/**
+ * @public
+ * <p>Contains additional details about the state's execution, including its input and output data processing flow, and HTTP request information.</p>
+ */
+export interface InspectionDataRequest {
+  /**
+   * @public
+   * <p>The protocol used to make the HTTP request.</p>
+   */
+  protocol?: string;
+
+  /**
+   * @public
+   * <p>The HTTP method used for the HTTP request.</p>
+   */
+  method?: string;
+
+  /**
+   * @public
+   * <p>The API endpoint used for the HTTP request.</p>
+   */
+  url?: string;
+
+  /**
+   * @public
+   * <p>The request headers associated with the HTTP request.</p>
+   */
+  headers?: string;
+
+  /**
+   * @public
+   * <p>The request body for the HTTP request.</p>
+   */
+  body?: string;
+}
+
+/**
+ * @public
+ * <p>Contains additional details about the state's execution, including its input and output data processing flow, and HTTP response information. The <code>inspectionLevel</code> request parameter specifies which details are returned.</p>
+ */
+export interface InspectionDataResponse {
+  /**
+   * @public
+   * <p>The protocol used to return the HTTP response.</p>
+   */
+  protocol?: string;
+
+  /**
+   * @public
+   * <p>The HTTP response status code for the HTTP response.</p>
+   */
+  statusCode?: string;
+
+  /**
+   * @public
+   * <p>The message associated with the HTTP status code.</p>
+   */
+  statusMessage?: string;
+
+  /**
+   * @public
+   * <p>The response headers associated with the HTTP response.</p>
+   */
+  headers?: string;
+
+  /**
+   * @public
+   * <p>The HTTP response returned.</p>
+   */
+  body?: string;
+}
+
+/**
+ * @public
+ * <p>Contains additional details about the state's execution, including its input and output data processing flow, and HTTP request and response information.</p>
+ */
+export interface InspectionData {
+  /**
+   * @public
+   * <p>The raw state input.</p>
+   */
+  input?: string;
+
+  /**
+   * @public
+   * <p>The input after Step Functions applies the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-inputpath">InputPath</a> filter.</p>
+   */
+  afterInputPath?: string;
+
+  /**
+   * @public
+   * <p>The effective input after Step Functions applies the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-parameters">Parameters</a> filter.</p>
+   */
+  afterParameters?: string;
+
+  /**
+   * @public
+   * <p>The state's raw result.</p>
+   */
+  result?: string;
+
+  /**
+   * @public
+   * <p>The effective result after Step Functions applies the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector">ResultSelector</a> filter.</p>
+   */
+  afterResultSelector?: string;
+
+  /**
+   * @public
+   * <p>The effective result combined with the raw state input after Step Functions applies the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultpath.html">ResultPath</a> filter.</p>
+   */
+  afterResultPath?: string;
+
+  /**
+   * @public
+   * <p>The raw HTTP request that is sent when you test an HTTP Task.</p>
+   */
+  request?: InspectionDataRequest;
+
+  /**
+   * @public
+   * <p>The raw HTTP response that is returned when you test an HTTP Task.</p>
+   */
+  response?: InspectionDataResponse;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TestExecutionStatus = {
+  CAUGHT_ERROR: "CAUGHT_ERROR",
+  FAILED: "FAILED",
+  RETRIABLE: "RETRIABLE",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type TestExecutionStatus = (typeof TestExecutionStatus)[keyof typeof TestExecutionStatus];
+
+/**
+ * @public
+ */
+export interface TestStateOutput {
+  /**
+   * @public
+   * <p>The JSON output data of the state. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
+   */
+  output?: string;
+
+  /**
+   * @public
+   * <p>The error returned when the execution of a state fails.</p>
+   */
+  error?: string;
+
+  /**
+   * @public
+   * <p>A detailed explanation of the cause for the error when the execution of a state fails.</p>
+   */
+  cause?: string;
+
+  /**
+   * @public
+   * <p>Returns additional details about the state's execution, including its input and output data processing flow, and HTTP request and response information. The <code>inspectionLevel</code> request parameter specifies which details are returned.</p>
+   */
+  inspectionData?: InspectionData;
+
+  /**
+   * @public
+   * <p>The name of the next state to transition to. If you haven't defined a next state in your definition or if the execution of the state fails, this ﬁeld doesn't contain a value.</p>
+   */
+  nextState?: string;
+
+  /**
+   * @public
+   * <p>The execution status of the state.</p>
+   */
+  status?: TestExecutionStatus;
+}
 
 /**
  * @public
@@ -4110,6 +4617,7 @@ export const DescribeExecutionOutputFilterSensitiveLog = (obj: DescribeExecution
   ...(obj.output && { output: SENSITIVE_STRING }),
   ...(obj.error && { error: SENSITIVE_STRING }),
   ...(obj.cause && { cause: SENSITIVE_STRING }),
+  ...(obj.redriveStatusReason && { redriveStatusReason: SENSITIVE_STRING }),
 });
 
 /**
@@ -4503,6 +5011,39 @@ export const StopExecutionInputFilterSensitiveLog = (obj: StopExecutionInput): a
   ...obj,
   ...(obj.error && { error: SENSITIVE_STRING }),
   ...(obj.cause && { cause: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TestStateInputFilterSensitiveLog = (obj: TestStateInput): any => ({
+  ...obj,
+  ...(obj.definition && { definition: SENSITIVE_STRING }),
+  ...(obj.input && { input: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const InspectionDataFilterSensitiveLog = (obj: InspectionData): any => ({
+  ...obj,
+  ...(obj.input && { input: SENSITIVE_STRING }),
+  ...(obj.afterInputPath && { afterInputPath: SENSITIVE_STRING }),
+  ...(obj.afterParameters && { afterParameters: SENSITIVE_STRING }),
+  ...(obj.result && { result: SENSITIVE_STRING }),
+  ...(obj.afterResultSelector && { afterResultSelector: SENSITIVE_STRING }),
+  ...(obj.afterResultPath && { afterResultPath: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TestStateOutputFilterSensitiveLog = (obj: TestStateOutput): any => ({
+  ...obj,
+  ...(obj.output && { output: SENSITIVE_STRING }),
+  ...(obj.error && { error: SENSITIVE_STRING }),
+  ...(obj.cause && { cause: SENSITIVE_STRING }),
+  ...(obj.inspectionData && { inspectionData: SENSITIVE_STRING }),
 });
 
 /**

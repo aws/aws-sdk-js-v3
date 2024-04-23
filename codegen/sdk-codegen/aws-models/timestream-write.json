@@ -1674,7 +1674,6 @@
     "com.amazonaws.timestreamwrite#MagneticStoreRetentionPeriodInDays": {
       "type": "long",
       "traits": {
-        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1,
           "max": 73000
@@ -1781,7 +1780,6 @@
     "com.amazonaws.timestreamwrite#MemoryStoreRetentionPeriodInHours": {
       "type": "long",
       "traits": {
-        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1,
           "max": 8766
@@ -2282,7 +2280,6 @@
         "MemoryStoreRetentionPeriodInHours": {
           "target": "com.amazonaws.timestreamwrite#MemoryStoreRetentionPeriodInHours",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The duration for which data must be stored in the memory store. </p>",
             "smithy.api#required": {}
           }
@@ -2290,7 +2287,6 @@
         "MagneticStoreRetentionPeriodInDays": {
           "target": "com.amazonaws.timestreamwrite#MagneticStoreRetentionPeriodInDays",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The duration for which data must be stored in the magnetic store. </p>",
             "smithy.api#required": {}
           }
@@ -2865,7 +2861,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -2883,9 +2878,212 @@
                   "type": "error"
                 },
                 {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
                   "conditions": [],
-                  "type": "tree",
+                  "endpoint": {
+                    "url": {
+                      "ref": "Endpoint"
+                    },
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ],
+              "type": "tree"
+            },
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ]
+                }
+              ],
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "aws.partition",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ],
+                      "assign": "PartitionResult"
+                    }
+                  ],
                   "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://ingest.timestream-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "stringEquals",
+                                  "argv": [
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "name"
+                                      ]
+                                    },
+                                    "aws-us-gov"
+                                  ]
+                                }
+                              ],
+                              "endpoint": {
+                                "url": "https://ingest.timestream.{Region}.amazonaws.com",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            },
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://ingest.timestream-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
                     {
                       "conditions": [
                         {
@@ -2898,278 +3096,65 @@
                           ]
                         }
                       ],
-                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                      "type": "error"
-                    },
-                    {
-                      "conditions": [],
-                      "endpoint": {
-                        "url": {
-                          "ref": "Endpoint"
-                        },
-                        "properties": {},
-                        "headers": {}
-                      },
-                      "type": "endpoint"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "conditions": [],
-              "type": "tree",
-              "rules": [
-                {
-                  "conditions": [
-                    {
-                      "fn": "isSet",
-                      "argv": [
-                        {
-                          "ref": "Region"
-                        }
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "aws.partition",
-                          "argv": [
-                            {
-                              "ref": "Region"
-                            }
-                          ],
-                          "assign": "PartitionResult"
-                        }
-                      ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
                             {
                               "fn": "booleanEquals",
                               "argv": [
+                                true,
                                 {
-                                  "ref": "UseFIPS"
-                                },
-                                true
-                              ]
-                            },
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseDualStack"
-                                },
-                                true
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
                               ]
                             }
                           ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsFIPS"
-                                      ]
-                                    }
-                                  ]
-                                },
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsDualStack"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://ingest.timestream-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseFIPS"
-                                },
-                                true
-                              ]
-                            }
-                          ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsFIPS"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://ingest.timestream-fips.{Region}.{PartitionResult#dnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "FIPS is enabled but this partition does not support FIPS",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseDualStack"
-                                },
-                                true
-                              ]
-                            }
-                          ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsDualStack"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://ingest.timestream.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "DualStack is enabled but this partition does not support DualStack",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
                               "endpoint": {
-                                "url": "https://ingest.timestream.{Region}.{PartitionResult#dnsSuffix}",
+                                "url": "https://ingest.timestream.{Region}.{PartitionResult#dualStackDnsSuffix}",
                                 "properties": {},
                                 "headers": {}
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://ingest.timestream.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
                     }
-                  ]
-                },
-                {
-                  "conditions": [],
-                  "error": "Invalid Configuration: Missing Region",
-                  "type": "error"
+                  ],
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
+            },
+            {
+              "conditions": [],
+              "error": "Invalid Configuration: Missing Region",
+              "type": "error"
             }
           ]
         },
@@ -3280,6 +3265,32 @@
               }
             },
             {
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ingest.timestream.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://ingest.timestream.us-gov-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-west-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
               "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
               "expect": {
                 "endpoint": {
@@ -3296,7 +3307,7 @@
               "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://ingest.timestream-fips.us-gov-east-1.amazonaws.com"
+                  "url": "https://ingest.timestream.us-gov-east-1.amazonaws.com"
                 }
               },
               "params": {

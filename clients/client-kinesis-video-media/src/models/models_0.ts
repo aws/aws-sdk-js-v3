@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+
 import { StreamingBlobTypes } from "@smithy/types";
 
 import { KinesisVideoMediaServiceException as __BaseException } from "./KinesisVideoMediaServiceException";
@@ -121,7 +122,7 @@ export interface StartSelector {
    *           <code>startSelector</code>.</p>
    *          </note>
    */
-  StartSelectorType: StartSelectorType | string | undefined;
+  StartSelectorType: StartSelectorType | undefined;
 
   /**
    * @public

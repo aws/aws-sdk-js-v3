@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -63,17 +61,44 @@ import {
   CreateAccountAssignmentCommandOutput,
 } from "./commands/CreateAccountAssignmentCommand";
 import {
+  CreateApplicationAssignmentCommandInput,
+  CreateApplicationAssignmentCommandOutput,
+} from "./commands/CreateApplicationAssignmentCommand";
+import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
+import {
   CreateInstanceAccessControlAttributeConfigurationCommandInput,
   CreateInstanceAccessControlAttributeConfigurationCommandOutput,
 } from "./commands/CreateInstanceAccessControlAttributeConfigurationCommand";
+import { CreateInstanceCommandInput, CreateInstanceCommandOutput } from "./commands/CreateInstanceCommand";
 import {
   CreatePermissionSetCommandInput,
   CreatePermissionSetCommandOutput,
 } from "./commands/CreatePermissionSetCommand";
 import {
+  CreateTrustedTokenIssuerCommandInput,
+  CreateTrustedTokenIssuerCommandOutput,
+} from "./commands/CreateTrustedTokenIssuerCommand";
+import {
   DeleteAccountAssignmentCommandInput,
   DeleteAccountAssignmentCommandOutput,
 } from "./commands/DeleteAccountAssignmentCommand";
+import {
+  DeleteApplicationAccessScopeCommandInput,
+  DeleteApplicationAccessScopeCommandOutput,
+} from "./commands/DeleteApplicationAccessScopeCommand";
+import {
+  DeleteApplicationAssignmentCommandInput,
+  DeleteApplicationAssignmentCommandOutput,
+} from "./commands/DeleteApplicationAssignmentCommand";
+import {
+  DeleteApplicationAuthenticationMethodCommandInput,
+  DeleteApplicationAuthenticationMethodCommandOutput,
+} from "./commands/DeleteApplicationAuthenticationMethodCommand";
+import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
+import {
+  DeleteApplicationGrantCommandInput,
+  DeleteApplicationGrantCommandOutput,
+} from "./commands/DeleteApplicationGrantCommand";
 import {
   DeleteInlinePolicyFromPermissionSetCommandInput,
   DeleteInlinePolicyFromPermissionSetCommandOutput,
@@ -82,6 +107,7 @@ import {
   DeleteInstanceAccessControlAttributeConfigurationCommandInput,
   DeleteInstanceAccessControlAttributeConfigurationCommandOutput,
 } from "./commands/DeleteInstanceAccessControlAttributeConfigurationCommand";
+import { DeleteInstanceCommandInput, DeleteInstanceCommandOutput } from "./commands/DeleteInstanceCommand";
 import {
   DeletePermissionsBoundaryFromPermissionSetCommandInput,
   DeletePermissionsBoundaryFromPermissionSetCommandOutput,
@@ -91,6 +117,10 @@ import {
   DeletePermissionSetCommandOutput,
 } from "./commands/DeletePermissionSetCommand";
 import {
+  DeleteTrustedTokenIssuerCommandInput,
+  DeleteTrustedTokenIssuerCommandOutput,
+} from "./commands/DeleteTrustedTokenIssuerCommand";
+import {
   DescribeAccountAssignmentCreationStatusCommandInput,
   DescribeAccountAssignmentCreationStatusCommandOutput,
 } from "./commands/DescribeAccountAssignmentCreationStatusCommand";
@@ -99,9 +129,22 @@ import {
   DescribeAccountAssignmentDeletionStatusCommandOutput,
 } from "./commands/DescribeAccountAssignmentDeletionStatusCommand";
 import {
+  DescribeApplicationAssignmentCommandInput,
+  DescribeApplicationAssignmentCommandOutput,
+} from "./commands/DescribeApplicationAssignmentCommand";
+import {
+  DescribeApplicationCommandInput,
+  DescribeApplicationCommandOutput,
+} from "./commands/DescribeApplicationCommand";
+import {
+  DescribeApplicationProviderCommandInput,
+  DescribeApplicationProviderCommandOutput,
+} from "./commands/DescribeApplicationProviderCommand";
+import {
   DescribeInstanceAccessControlAttributeConfigurationCommandInput,
   DescribeInstanceAccessControlAttributeConfigurationCommandOutput,
 } from "./commands/DescribeInstanceAccessControlAttributeConfigurationCommand";
+import { DescribeInstanceCommandInput, DescribeInstanceCommandOutput } from "./commands/DescribeInstanceCommand";
 import {
   DescribePermissionSetCommandInput,
   DescribePermissionSetCommandOutput,
@@ -111,6 +154,10 @@ import {
   DescribePermissionSetProvisioningStatusCommandOutput,
 } from "./commands/DescribePermissionSetProvisioningStatusCommand";
 import {
+  DescribeTrustedTokenIssuerCommandInput,
+  DescribeTrustedTokenIssuerCommandOutput,
+} from "./commands/DescribeTrustedTokenIssuerCommand";
+import {
   DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput,
   DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput,
 } from "./commands/DetachCustomerManagedPolicyReferenceFromPermissionSetCommand";
@@ -118,6 +165,22 @@ import {
   DetachManagedPolicyFromPermissionSetCommandInput,
   DetachManagedPolicyFromPermissionSetCommandOutput,
 } from "./commands/DetachManagedPolicyFromPermissionSetCommand";
+import {
+  GetApplicationAccessScopeCommandInput,
+  GetApplicationAccessScopeCommandOutput,
+} from "./commands/GetApplicationAccessScopeCommand";
+import {
+  GetApplicationAssignmentConfigurationCommandInput,
+  GetApplicationAssignmentConfigurationCommandOutput,
+} from "./commands/GetApplicationAssignmentConfigurationCommand";
+import {
+  GetApplicationAuthenticationMethodCommandInput,
+  GetApplicationAuthenticationMethodCommandOutput,
+} from "./commands/GetApplicationAuthenticationMethodCommand";
+import {
+  GetApplicationGrantCommandInput,
+  GetApplicationGrantCommandOutput,
+} from "./commands/GetApplicationGrantCommand";
 import {
   GetInlinePolicyForPermissionSetCommandInput,
   GetInlinePolicyForPermissionSetCommandOutput,
@@ -139,9 +202,38 @@ import {
   ListAccountAssignmentsCommandOutput,
 } from "./commands/ListAccountAssignmentsCommand";
 import {
+  ListAccountAssignmentsForPrincipalCommandInput,
+  ListAccountAssignmentsForPrincipalCommandOutput,
+} from "./commands/ListAccountAssignmentsForPrincipalCommand";
+import {
   ListAccountsForProvisionedPermissionSetCommandInput,
   ListAccountsForProvisionedPermissionSetCommandOutput,
 } from "./commands/ListAccountsForProvisionedPermissionSetCommand";
+import {
+  ListApplicationAccessScopesCommandInput,
+  ListApplicationAccessScopesCommandOutput,
+} from "./commands/ListApplicationAccessScopesCommand";
+import {
+  ListApplicationAssignmentsCommandInput,
+  ListApplicationAssignmentsCommandOutput,
+} from "./commands/ListApplicationAssignmentsCommand";
+import {
+  ListApplicationAssignmentsForPrincipalCommandInput,
+  ListApplicationAssignmentsForPrincipalCommandOutput,
+} from "./commands/ListApplicationAssignmentsForPrincipalCommand";
+import {
+  ListApplicationAuthenticationMethodsCommandInput,
+  ListApplicationAuthenticationMethodsCommandOutput,
+} from "./commands/ListApplicationAuthenticationMethodsCommand";
+import {
+  ListApplicationGrantsCommandInput,
+  ListApplicationGrantsCommandOutput,
+} from "./commands/ListApplicationGrantsCommand";
+import {
+  ListApplicationProvidersCommandInput,
+  ListApplicationProvidersCommandOutput,
+} from "./commands/ListApplicationProvidersCommand";
+import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
 import {
   ListCustomerManagedPolicyReferencesInPermissionSetCommandInput,
   ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput,
@@ -165,9 +257,29 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  ListTrustedTokenIssuersCommandInput,
+  ListTrustedTokenIssuersCommandOutput,
+} from "./commands/ListTrustedTokenIssuersCommand";
+import {
   ProvisionPermissionSetCommandInput,
   ProvisionPermissionSetCommandOutput,
 } from "./commands/ProvisionPermissionSetCommand";
+import {
+  PutApplicationAccessScopeCommandInput,
+  PutApplicationAccessScopeCommandOutput,
+} from "./commands/PutApplicationAccessScopeCommand";
+import {
+  PutApplicationAssignmentConfigurationCommandInput,
+  PutApplicationAssignmentConfigurationCommandOutput,
+} from "./commands/PutApplicationAssignmentConfigurationCommand";
+import {
+  PutApplicationAuthenticationMethodCommandInput,
+  PutApplicationAuthenticationMethodCommandOutput,
+} from "./commands/PutApplicationAuthenticationMethodCommand";
+import {
+  PutApplicationGrantCommandInput,
+  PutApplicationGrantCommandOutput,
+} from "./commands/PutApplicationGrantCommand";
 import {
   PutInlinePolicyToPermissionSetCommandInput,
   PutInlinePolicyToPermissionSetCommandOutput,
@@ -178,14 +290,20 @@ import {
 } from "./commands/PutPermissionsBoundaryToPermissionSetCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
 import {
   UpdateInstanceAccessControlAttributeConfigurationCommandInput,
   UpdateInstanceAccessControlAttributeConfigurationCommandOutput,
 } from "./commands/UpdateInstanceAccessControlAttributeConfigurationCommand";
+import { UpdateInstanceCommandInput, UpdateInstanceCommandOutput } from "./commands/UpdateInstanceCommand";
 import {
   UpdatePermissionSetCommandInput,
   UpdatePermissionSetCommandOutput,
 } from "./commands/UpdatePermissionSetCommand";
+import {
+  UpdateTrustedTokenIssuerCommandInput,
+  UpdateTrustedTokenIssuerCommandOutput,
+} from "./commands/UpdateTrustedTokenIssuerCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -204,26 +322,54 @@ export type ServiceInputTypes =
   | AttachCustomerManagedPolicyReferenceToPermissionSetCommandInput
   | AttachManagedPolicyToPermissionSetCommandInput
   | CreateAccountAssignmentCommandInput
+  | CreateApplicationAssignmentCommandInput
+  | CreateApplicationCommandInput
   | CreateInstanceAccessControlAttributeConfigurationCommandInput
+  | CreateInstanceCommandInput
   | CreatePermissionSetCommandInput
+  | CreateTrustedTokenIssuerCommandInput
   | DeleteAccountAssignmentCommandInput
+  | DeleteApplicationAccessScopeCommandInput
+  | DeleteApplicationAssignmentCommandInput
+  | DeleteApplicationAuthenticationMethodCommandInput
+  | DeleteApplicationCommandInput
+  | DeleteApplicationGrantCommandInput
   | DeleteInlinePolicyFromPermissionSetCommandInput
   | DeleteInstanceAccessControlAttributeConfigurationCommandInput
+  | DeleteInstanceCommandInput
   | DeletePermissionSetCommandInput
   | DeletePermissionsBoundaryFromPermissionSetCommandInput
+  | DeleteTrustedTokenIssuerCommandInput
   | DescribeAccountAssignmentCreationStatusCommandInput
   | DescribeAccountAssignmentDeletionStatusCommandInput
+  | DescribeApplicationAssignmentCommandInput
+  | DescribeApplicationCommandInput
+  | DescribeApplicationProviderCommandInput
   | DescribeInstanceAccessControlAttributeConfigurationCommandInput
+  | DescribeInstanceCommandInput
   | DescribePermissionSetCommandInput
   | DescribePermissionSetProvisioningStatusCommandInput
+  | DescribeTrustedTokenIssuerCommandInput
   | DetachCustomerManagedPolicyReferenceFromPermissionSetCommandInput
   | DetachManagedPolicyFromPermissionSetCommandInput
+  | GetApplicationAccessScopeCommandInput
+  | GetApplicationAssignmentConfigurationCommandInput
+  | GetApplicationAuthenticationMethodCommandInput
+  | GetApplicationGrantCommandInput
   | GetInlinePolicyForPermissionSetCommandInput
   | GetPermissionsBoundaryForPermissionSetCommandInput
   | ListAccountAssignmentCreationStatusCommandInput
   | ListAccountAssignmentDeletionStatusCommandInput
   | ListAccountAssignmentsCommandInput
+  | ListAccountAssignmentsForPrincipalCommandInput
   | ListAccountsForProvisionedPermissionSetCommandInput
+  | ListApplicationAccessScopesCommandInput
+  | ListApplicationAssignmentsCommandInput
+  | ListApplicationAssignmentsForPrincipalCommandInput
+  | ListApplicationAuthenticationMethodsCommandInput
+  | ListApplicationGrantsCommandInput
+  | ListApplicationProvidersCommandInput
+  | ListApplicationsCommandInput
   | ListCustomerManagedPolicyReferencesInPermissionSetCommandInput
   | ListInstancesCommandInput
   | ListManagedPoliciesInPermissionSetCommandInput
@@ -231,13 +377,21 @@ export type ServiceInputTypes =
   | ListPermissionSetsCommandInput
   | ListPermissionSetsProvisionedToAccountCommandInput
   | ListTagsForResourceCommandInput
+  | ListTrustedTokenIssuersCommandInput
   | ProvisionPermissionSetCommandInput
+  | PutApplicationAccessScopeCommandInput
+  | PutApplicationAssignmentConfigurationCommandInput
+  | PutApplicationAuthenticationMethodCommandInput
+  | PutApplicationGrantCommandInput
   | PutInlinePolicyToPermissionSetCommandInput
   | PutPermissionsBoundaryToPermissionSetCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateApplicationCommandInput
   | UpdateInstanceAccessControlAttributeConfigurationCommandInput
-  | UpdatePermissionSetCommandInput;
+  | UpdateInstanceCommandInput
+  | UpdatePermissionSetCommandInput
+  | UpdateTrustedTokenIssuerCommandInput;
 
 /**
  * @public
@@ -246,26 +400,54 @@ export type ServiceOutputTypes =
   | AttachCustomerManagedPolicyReferenceToPermissionSetCommandOutput
   | AttachManagedPolicyToPermissionSetCommandOutput
   | CreateAccountAssignmentCommandOutput
+  | CreateApplicationAssignmentCommandOutput
+  | CreateApplicationCommandOutput
   | CreateInstanceAccessControlAttributeConfigurationCommandOutput
+  | CreateInstanceCommandOutput
   | CreatePermissionSetCommandOutput
+  | CreateTrustedTokenIssuerCommandOutput
   | DeleteAccountAssignmentCommandOutput
+  | DeleteApplicationAccessScopeCommandOutput
+  | DeleteApplicationAssignmentCommandOutput
+  | DeleteApplicationAuthenticationMethodCommandOutput
+  | DeleteApplicationCommandOutput
+  | DeleteApplicationGrantCommandOutput
   | DeleteInlinePolicyFromPermissionSetCommandOutput
   | DeleteInstanceAccessControlAttributeConfigurationCommandOutput
+  | DeleteInstanceCommandOutput
   | DeletePermissionSetCommandOutput
   | DeletePermissionsBoundaryFromPermissionSetCommandOutput
+  | DeleteTrustedTokenIssuerCommandOutput
   | DescribeAccountAssignmentCreationStatusCommandOutput
   | DescribeAccountAssignmentDeletionStatusCommandOutput
+  | DescribeApplicationAssignmentCommandOutput
+  | DescribeApplicationCommandOutput
+  | DescribeApplicationProviderCommandOutput
   | DescribeInstanceAccessControlAttributeConfigurationCommandOutput
+  | DescribeInstanceCommandOutput
   | DescribePermissionSetCommandOutput
   | DescribePermissionSetProvisioningStatusCommandOutput
+  | DescribeTrustedTokenIssuerCommandOutput
   | DetachCustomerManagedPolicyReferenceFromPermissionSetCommandOutput
   | DetachManagedPolicyFromPermissionSetCommandOutput
+  | GetApplicationAccessScopeCommandOutput
+  | GetApplicationAssignmentConfigurationCommandOutput
+  | GetApplicationAuthenticationMethodCommandOutput
+  | GetApplicationGrantCommandOutput
   | GetInlinePolicyForPermissionSetCommandOutput
   | GetPermissionsBoundaryForPermissionSetCommandOutput
   | ListAccountAssignmentCreationStatusCommandOutput
   | ListAccountAssignmentDeletionStatusCommandOutput
   | ListAccountAssignmentsCommandOutput
+  | ListAccountAssignmentsForPrincipalCommandOutput
   | ListAccountsForProvisionedPermissionSetCommandOutput
+  | ListApplicationAccessScopesCommandOutput
+  | ListApplicationAssignmentsCommandOutput
+  | ListApplicationAssignmentsForPrincipalCommandOutput
+  | ListApplicationAuthenticationMethodsCommandOutput
+  | ListApplicationGrantsCommandOutput
+  | ListApplicationProvidersCommandOutput
+  | ListApplicationsCommandOutput
   | ListCustomerManagedPolicyReferencesInPermissionSetCommandOutput
   | ListInstancesCommandOutput
   | ListManagedPoliciesInPermissionSetCommandOutput
@@ -273,13 +455,21 @@ export type ServiceOutputTypes =
   | ListPermissionSetsCommandOutput
   | ListPermissionSetsProvisionedToAccountCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTrustedTokenIssuersCommandOutput
   | ProvisionPermissionSetCommandOutput
+  | PutApplicationAccessScopeCommandOutput
+  | PutApplicationAssignmentConfigurationCommandOutput
+  | PutApplicationAuthenticationMethodCommandOutput
+  | PutApplicationGrantCommandOutput
   | PutInlinePolicyToPermissionSetCommandOutput
   | PutPermissionsBoundaryToPermissionSetCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateApplicationCommandOutput
   | UpdateInstanceAccessControlAttributeConfigurationCommandOutput
-  | UpdatePermissionSetCommandOutput;
+  | UpdateInstanceCommandOutput
+  | UpdatePermissionSetCommandOutput
+  | UpdateTrustedTokenIssuerCommandOutput;
 
 /**
  * @public
@@ -391,6 +581,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 
@@ -451,27 +643,29 @@ export interface SSOAdminClientResolvedConfig extends SSOAdminClientResolvedConf
 
 /**
  * @public
- * <p>AWS IAM Identity Center (successor to AWS Single Sign-On) helps you securely create, or connect, your workforce identities and manage their
- *       access centrally across AWS accounts and applications. IAM Identity Center is the recommended
- *       approach for workforce authentication and authorization in AWS, for organizations of any size
- *       and type.</p>
+ * <p>IAM Identity Center (successor to Single Sign-On) helps you securely create, or connect, your workforce identities and manage
+ *             their access centrally across Amazon Web Services accounts and applications. IAM Identity Center is the recommended
+ *             approach for workforce authentication and authorization in Amazon Web Services, for organizations of
+ *             any size and type.</p>
  *          <note>
- *             <p>Although AWS Single Sign-On was renamed, the <code>sso</code> and
- *         <code>identitystore</code> API namespaces will continue to retain their original name for
- *         backward compatibility purposes. For more information, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html#renamed">IAM Identity Center rename</a>.</p>
+ *             <p>IAM Identity Center uses the <code>sso</code> and <code>identitystore</code> API
+ *                 namespaces.</p>
  *          </note>
- *          <p>This reference guide provides information on single sign-on operations which could be used for
- *       access management of AWS accounts. For information about IAM Identity Center features, see the <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">IAM Identity Center User
- *         Guide</a>.</p>
+ *          <p>This reference guide provides information on single sign-on operations which could be
+ *             used for access management of Amazon Web Services accounts. For information about IAM Identity Center features, see
+ *             the <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">IAM Identity Center
+ *                 User Guide</a>.</p>
  *          <p>Many operations in the IAM Identity Center APIs rely on identifiers for users and groups, known as
- *       principals. For more information about how to work with principals and principal IDs in IAM Identity Center,
- *       see the <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html">Identity Store API
- *         Reference</a>.</p>
+ *             principals. For more information about how to work with principals and principal IDs in
+ *             IAM Identity Center, see the <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html">Identity Store API
+ *                 Reference</a>.</p>
  *          <note>
- *             <p>AWS provides SDKs that consist of libraries and sample code for various programming
- *         languages and platforms (Java, Ruby, .Net, iOS, Android, and more). The SDKs provide a
- *         convenient way to create programmatic access to IAM Identity Center and other AWS services. For more
- *         information about the AWS SDKs, including how to download and install them, see <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>.</p>
+ *             <p>Amazon Web Services provides SDKs that consist of libraries and sample code for various
+ *                 programming languages and platforms (Java, Ruby, .Net, iOS, Android, and more). The
+ *                 SDKs provide a convenient way to create programmatic access to IAM Identity Center and other Amazon Web Services
+ *                 services. For more information about the Amazon Web Services SDKs, including how to download and
+ *                 install them, see <a href="http://aws.amazon.com/tools/">Tools for Amazon Web
+ *                     Services</a>.</p>
  *          </note>
  */
 export class SSOAdminClient extends __Client<

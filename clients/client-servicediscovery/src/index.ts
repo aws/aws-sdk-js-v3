@@ -14,8 +14,12 @@
 export * from "./ServiceDiscoveryClient";
 export * from "./ServiceDiscovery";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { ServiceDiscoveryExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { ServiceDiscoveryServiceException } from "./models/ServiceDiscoveryServiceException";

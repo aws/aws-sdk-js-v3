@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   MarketplaceMeteringClientResolvedConfig,
   ServiceInputTypes,
@@ -42,14 +34,14 @@ export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBea
  * @public
  * <p>API to emit metering records. For identical requests, the API is idempotent. It simply
  *             returns the metering record ID.</p>
- *         <p>
+ *          <p>
  *             <code>MeterUsage</code> is authenticated on the buyer's AWS account using credentials
  *             from the EC2 instance, ECS task, or EKS pod.</p>
- *         <p>
+ *          <p>
  *             <code>MeterUsage</code> can optionally include multiple usage allocations, to provide
  *             customers with usage data split into buckets by tags that you define (or allow the
  *             customer to define).</p>
- *         <p>Usage records are expected to be submitted as quickly as possible after the event that
+ *          <p>Usage records are expected to be submitted as quickly as possible after the event that
  *             is being recorded, and are not accepted more than 6 hours after the event.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -128,7 +120,7 @@ export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBea
  * @throws {@link TimestampOutOfBoundsException} (client fault)
  *  <p>The <code>timestamp</code> value passed in the <code>UsageRecord</code> is out of
  *             allowed range.</p>
- *         <p>For <code>BatchMeterUsage</code>, if any of the records are outside of the allowed
+ *          <p>For <code>BatchMeterUsage</code>, if any of the records are outside of the allowed
  *             range, the entire batch is not processed. You must remove invalid records and try
  *             again.</p>
  *
@@ -136,77 +128,26 @@ export interface MeterUsageCommandOutput extends MeterUsageResult, __MetadataBea
  * <p>Base exception class for all service exceptions from MarketplaceMetering service.</p>
  *
  */
-export class MeterUsageCommand extends $Command<
-  MeterUsageCommandInput,
-  MeterUsageCommandOutput,
-  MarketplaceMeteringClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: MeterUsageCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: MarketplaceMeteringClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<MeterUsageCommandInput, MeterUsageCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, MeterUsageCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "MarketplaceMeteringClient";
-    const commandName = "MeterUsageCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: MeterUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_MeterUsageCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MeterUsageCommandOutput> {
-    return de_MeterUsageCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class MeterUsageCommand extends $Command
+  .classBuilder<
+    MeterUsageCommandInput,
+    MeterUsageCommandOutput,
+    MarketplaceMeteringClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: MarketplaceMeteringClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSMPMeteringService", "MeterUsage", {})
+  .n("MarketplaceMeteringClient", "MeterUsageCommand")
+  .f(void 0, void 0)
+  .ser(se_MeterUsageCommand)
+  .de(de_MeterUsageCommand)
+  .build() {}

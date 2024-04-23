@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteRepositoryRequest, DeleteRepositoryResponse } from "../models/models_0";
 import { de_DeleteRepositoryCommand, se_DeleteRepositoryCommand } from "../protocols/Aws_json1_1";
 
@@ -36,9 +28,9 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResponse,
 
 /**
  * @public
- * <p>Deletes a repository. If the repository contains images, you must either delete all
- *             images in the repository or use the <code>force</code> option to delete the
- *             repository.</p>
+ * <p>Deletes a repository. If the repository isn't empty, you must either delete the
+ *             contents of the repository or use the <code>force</code> option to delete the repository
+ *             and have Amazon ECR delete all of its contents on your behalf.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,12 +51,12 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResponse,
  * //     repositoryName: "STRING_VALUE",
  * //     repositoryUri: "STRING_VALUE",
  * //     createdAt: new Date("TIMESTAMP"),
- * //     imageTagMutability: "STRING_VALUE",
+ * //     imageTagMutability: "MUTABLE" || "IMMUTABLE",
  * //     imageScanningConfiguration: { // ImageScanningConfiguration
  * //       scanOnPush: true || false,
  * //     },
  * //     encryptionConfiguration: { // EncryptionConfiguration
- * //       encryptionType: "STRING_VALUE", // required
+ * //       encryptionType: "AES256" || "KMS", // required
  * //       kmsKey: "STRING_VALUE",
  * //     },
  * //   },
@@ -121,79 +113,26 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResponse,
  * ```
  *
  */
-export class DeleteRepositoryCommand extends $Command<
-  DeleteRepositoryCommandInput,
-  DeleteRepositoryCommandOutput,
-  ECRClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeleteRepositoryCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ECRClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DeleteRepositoryCommandInput, DeleteRepositoryCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteRepositoryCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ECRClient";
-    const commandName = "DeleteRepositoryCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DeleteRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteRepositoryCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRepositoryCommandOutput> {
-    return de_DeleteRepositoryCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DeleteRepositoryCommand extends $Command
+  .classBuilder<
+    DeleteRepositoryCommandInput,
+    DeleteRepositoryCommandOutput,
+    ECRClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonEC2ContainerRegistry_V20150921", "DeleteRepository", {})
+  .n("ECRClient", "DeleteRepositoryCommand")
+  .f(void 0, void 0)
+  .ser(se_DeleteRepositoryCommand)
+  .de(de_DeleteRepositoryCommand)
+  .build() {}

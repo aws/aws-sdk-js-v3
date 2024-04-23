@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DeregisterClusterRequest, DeregisterClusterResponse } from "../models/models_0";
 import { de_DeregisterClusterCommand, se_DeregisterClusterCommand } from "../protocols/Aws_restJson1";
 
@@ -38,6 +30,8 @@ export interface DeregisterClusterCommandOutput extends DeregisterClusterRespons
  * @public
  * <p>Deregisters a connected cluster to remove it from the Amazon EKS control
  *             plane.</p>
+ *          <p>A connected cluster is a Kubernetes cluster that you've connected to your control plane
+ *             using the <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-connector.html">Amazon EKS Connector</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -122,7 +116,7 @@ export interface DeregisterClusterCommandOutput extends DeregisterClusterRespons
  * //     health: { // ClusterHealth
  * //       issues: [ // ClusterIssueList
  * //         { // ClusterIssue
- * //           code: "AccessDenied" || "ClusterUnreachable" || "ConfigurationConflict" || "InternalFailure" || "ResourceLimitExceeded" || "ResourceNotFound",
+ * //           code: "AccessDenied" || "ClusterUnreachable" || "ConfigurationConflict" || "InternalFailure" || "ResourceLimitExceeded" || "ResourceNotFound" || "IamRoleNotFound" || "VpcNotFound" || "InsufficientFreeAddresses" || "Ec2ServiceNotSubscribed" || "Ec2SubnetNotFound" || "Ec2SecurityGroupNotFound" || "KmsGrantRevoked" || "KmsKeyNotFound" || "KmsKeyMarkedForDeletion" || "KmsKeyDisabled" || "StsRegionalEndpointDisabled" || "UnsupportedVersion" || "Other",
  * //           message: "STRING_VALUE",
  * //           resourceIds: "<StringList>",
  * //         },
@@ -134,6 +128,10 @@ export interface DeregisterClusterCommandOutput extends DeregisterClusterRespons
  * //       controlPlanePlacement: { // ControlPlanePlacementResponse
  * //         groupName: "STRING_VALUE",
  * //       },
+ * //     },
+ * //     accessConfig: { // AccessConfigResponse
+ * //       bootstrapClusterCreatorAdminPermissions: true || false,
+ * //       authenticationMode: "API" || "API_AND_CONFIG_MAP" || "CONFIG_MAP",
  * //     },
  * //   },
  * // };
@@ -147,24 +145,24 @@ export interface DeregisterClusterCommandOutput extends DeregisterClusterRespons
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permissions to perform the requested operation. The user or role that
- *             is making the request must have at least one IAM permissions policy
- *             attached that grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
- *                 Management</a> in the <i>IAM User Guide</i>. </p>
+ *  <p>You don't have permissions to perform the requested operation. The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a>
+ *             making the request must have at least one IAM permissions policy attached
+ *             that grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
+ *                 management</a> in the <i>IAM User Guide</i>.
+ *         </p>
  *
  * @throws {@link ClientException} (client fault)
  *  <p>These errors are usually caused by a client action. Actions can include using an
- *             action or resource on behalf of a user that doesn't have permissions to use the action
- *             or resource or specifying an identifier that is not valid.</p>
+ *             action or resource on behalf of an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a> that doesn't have permissions to use
+ *             the action or resource or specifying an identifier that is not valid.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>The specified resource is in use.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found. You can view your available clusters with
- *                 <a>ListClusters</a>. You can view your available managed node groups with
- *                 <a>ListNodegroups</a>. Amazon EKS clusters and node groups are
- *             Region-specific.</p>
+ *                 <code>ListClusters</code>. You can view your available managed node groups with
+ *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
@@ -176,79 +174,26 @@ export interface DeregisterClusterCommandOutput extends DeregisterClusterRespons
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
-export class DeregisterClusterCommand extends $Command<
-  DeregisterClusterCommandInput,
-  DeregisterClusterCommandOutput,
-  EKSClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeregisterClusterCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: EKSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DeregisterClusterCommandInput, DeregisterClusterCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeregisterClusterCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "EKSClient";
-    const commandName = "DeregisterClusterCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DeregisterClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeregisterClusterCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeregisterClusterCommandOutput> {
-    return de_DeregisterClusterCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DeregisterClusterCommand extends $Command
+  .classBuilder<
+    DeregisterClusterCommandInput,
+    DeregisterClusterCommandOutput,
+    EKSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSWesleyFrontend", "DeregisterCluster", {})
+  .n("EKSClient", "DeregisterClusterCommand")
+  .f(void 0, void 0)
+  .ser(se_DeregisterClusterCommand)
+  .de(de_DeregisterClusterCommand)
+  .build() {}

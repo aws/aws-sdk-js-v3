@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -139,24 +140,15 @@ export const se_AbortMultipartUploadCommand = async (
   input: AbortMultipartUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "uploadId", () => input.uploadId!, "{uploadId}", false);
+  b.bp("/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  b.p("vaultName", () => input.vaultName!, "{vaultName}", false);
+  b.p("uploadId", () => input.uploadId!, "{uploadId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -166,23 +158,14 @@ export const se_AbortVaultLockCommand = async (
   input: AbortVaultLockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/{accountId}/vaults/{vaultName}/lock-policy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
+  b.bp("/{accountId}/vaults/{vaultName}/lock-policy");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  b.p("vaultName", () => input.vaultName!, "{vaultName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -192,16 +175,15 @@ export const se_AddTagsToVaultCommand = async (
   input: AddTagsToVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/vaults/{vaultName}/tags";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
+  b.bp("/{accountId}/vaults/{vaultName}/tags");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  b.p("vaultName", () => input.vaultName!, "{vaultName}", false);
   const query: any = map({
-    operation: [, "add"],
+    [_o]: [, "add"],
   });
   let body: any;
   body = JSON.stringify(
@@ -209,16 +191,8 @@ export const se_AddTagsToVaultCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -228,27 +202,18 @@ export const se_CompleteMultipartUploadCommand = async (
   input: CompleteMultipartUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-archive-size": input.archiveSize!,
-    "x-amz-sha256-tree-hash": input.checksum!,
+    [_xaas]: input[_aS]!,
+    [_xasth]: input[_c]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "uploadId", () => input.uploadId!, "{uploadId}", false);
+  b.bp("/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  b.p("vaultName", () => input.vaultName!, "{vaultName}", false);
+  b.p("uploadId", () => input.uploadId!, "{uploadId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -258,24 +223,15 @@ export const se_CompleteVaultLockCommand = async (
   input: CompleteVaultLockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/{accountId}/vaults/{vaultName}/lock-policy/{lockId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "lockId", () => input.lockId!, "{lockId}", false);
+  b.bp("/{accountId}/vaults/{vaultName}/lock-policy/{lockId}");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  b.p("vaultName", () => input.vaultName!, "{vaultName}", false);
+  b.p("lockId", () => input.lockId!, "{lockId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -285,22 +241,14 @@ export const se_CreateVaultCommand = async (
   input: CreateVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/vaults/{vaultName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
+  b.bp("/{accountId}/vaults/{vaultName}");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  b.p("vaultName", () => input.vaultName!, "{vaultName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -310,24 +258,15 @@ export const se_DeleteArchiveCommand = async (
   input: DeleteArchiveCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/{accountId}/vaults/{vaultName}/archives/{archiveId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "archiveId", () => input.archiveId!, "{archiveId}", false);
+  b.bp("/{accountId}/vaults/{vaultName}/archives/{archiveId}");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  b.p("vaultName", () => input.vaultName!, "{vaultName}", false);
+  b.p("archiveId", () => input.archiveId!, "{archiveId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -337,22 +276,14 @@ export const se_DeleteVaultCommand = async (
   input: DeleteVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/vaults/{vaultName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
+  b.bp("/{accountId}/vaults/{vaultName}");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  b.p("vaultName", () => input.vaultName!, "{vaultName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -362,23 +293,14 @@ export const se_DeleteVaultAccessPolicyCommand = async (
   input: DeleteVaultAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/{accountId}/vaults/{vaultName}/access-policy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
+  b.bp("/{accountId}/vaults/{vaultName}/access-policy");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  b.p("vaultName", () => input.vaultName!, "{vaultName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -388,23 +310,14 @@ export const se_DeleteVaultNotificationsCommand = async (
   input: DeleteVaultNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/{accountId}/vaults/{vaultName}/notification-configuration";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
+  b.bp("/{accountId}/vaults/{vaultName}/notification-configuration");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  b.p("vaultName", () => input.vaultName!, "{vaultName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -414,24 +327,15 @@ export const se_DescribeJobCommand = async (
   input: DescribeJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/{accountId}/vaults/{vaultName}/jobs/{jobId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "jobId", () => input.jobId!, "{jobId}", false);
+  b.bp("/{accountId}/vaults/{vaultName}/jobs/{jobId}");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  b.p("vaultName", () => input.vaultName!, "{vaultName}", false);
+  b.p("jobId", () => input.jobId!, "{jobId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -441,22 +345,14 @@ export const se_DescribeVaultCommand = async (
   input: DescribeVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/vaults/{vaultName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
+  b.bp("/{accountId}/vaults/{vaultName}");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  b.p("vaultName", () => input.vaultName!, "{vaultName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -466,21 +362,13 @@ export const se_GetDataRetrievalPolicyCommand = async (
   input: GetDataRetrievalPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/policies/data-retrieval";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
+  b.bp("/{accountId}/policies/data-retrieval");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -490,26 +378,17 @@ export const se_GetJobOutputCommand = async (
   input: GetJobOutputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    range: input.range!,
+    [_r]: input[_r]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/{accountId}/vaults/{vaultName}/jobs/{jobId}/output";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "jobId", () => input.jobId!, "{jobId}", false);
+  b.bp("/{accountId}/vaults/{vaultName}/jobs/{jobId}/output");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  b.p("vaultName", () => input.vaultName!, "{vaultName}", false);
+  b.p("jobId", () => input.jobId!, "{jobId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -519,23 +398,14 @@ export const se_GetVaultAccessPolicyCommand = async (
   input: GetVaultAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/{accountId}/vaults/{vaultName}/access-policy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
+  b.bp("/{accountId}/vaults/{vaultName}/access-policy");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  b.p("vaultName", () => input.vaultName!, "{vaultName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -545,23 +415,14 @@ export const se_GetVaultLockCommand = async (
   input: GetVaultLockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/{accountId}/vaults/{vaultName}/lock-policy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
+  b.bp("/{accountId}/vaults/{vaultName}/lock-policy");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  b.p("vaultName", () => input.vaultName!, "{vaultName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -571,23 +432,14 @@ export const se_GetVaultNotificationsCommand = async (
   input: GetVaultNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/{accountId}/vaults/{vaultName}/notification-configuration";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
+  b.bp("/{accountId}/vaults/{vaultName}/notification-configuration");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  b.p("vaultName", () => input.vaultName!, "{vaultName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -597,14 +449,13 @@ export const se_InitiateJobCommand = async (
   input: InitiateJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/vaults/{vaultName}/jobs";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
+  b.bp("/{accountId}/vaults/{vaultName}/jobs");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  b.p("vaultName", () => input.vaultName!, "{vaultName}", false);
   let body: any;
   if (input.jobParameters !== undefined) {
     body = _json(input.jobParameters);
@@ -613,15 +464,8 @@ export const se_InitiateJobCommand = async (
     body = {};
   }
   body = JSON.stringify(body);
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -631,26 +475,17 @@ export const se_InitiateMultipartUploadCommand = async (
   input: InitiateMultipartUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-archive-description": input.archiveDescription!,
-    "x-amz-part-size": input.partSize!,
+    [_xaad]: input[_aD]!,
+    [_xaps]: input[_pS]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/{accountId}/vaults/{vaultName}/multipart-uploads";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
+  b.bp("/{accountId}/vaults/{vaultName}/multipart-uploads");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  b.p("vaultName", () => input.vaultName!, "{vaultName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -660,15 +495,13 @@ export const se_InitiateVaultLockCommand = async (
   input: InitiateVaultLockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/{accountId}/vaults/{vaultName}/lock-policy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
+  b.bp("/{accountId}/vaults/{vaultName}/lock-policy");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  b.p("vaultName", () => input.vaultName!, "{vaultName}", false);
   let body: any;
   if (input.policy !== undefined) {
     body = _json(input.policy);
@@ -677,15 +510,8 @@ export const se_InitiateVaultLockCommand = async (
     body = {};
   }
   body = JSON.stringify(body);
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -695,29 +521,20 @@ export const se_ListJobsCommand = async (
   input: ListJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/vaults/{vaultName}/jobs";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
+  b.bp("/{accountId}/vaults/{vaultName}/jobs");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  b.p("vaultName", () => input.vaultName!, "{vaultName}", false);
   const query: any = map({
-    limit: [() => input.limit !== void 0, () => input.limit!.toString()],
-    marker: [, input.marker!],
-    statuscode: [, input.statuscode!],
-    completed: [, input.completed!],
+    [_l]: [() => input.limit !== void 0, () => input[_l]!.toString()],
+    [_m]: [, input[_m]!],
+    [_s]: [, input[_s]!],
+    [_co]: [, input[_co]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -727,28 +544,18 @@ export const se_ListMultipartUploadsCommand = async (
   input: ListMultipartUploadsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/{accountId}/vaults/{vaultName}/multipart-uploads";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
+  b.bp("/{accountId}/vaults/{vaultName}/multipart-uploads");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  b.p("vaultName", () => input.vaultName!, "{vaultName}", false);
   const query: any = map({
-    limit: [() => input.limit !== void 0, () => input.limit!.toString()],
-    marker: [, input.marker!],
+    [_l]: [() => input.limit !== void 0, () => input[_l]!.toString()],
+    [_m]: [, input[_m]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -758,29 +565,19 @@ export const se_ListPartsCommand = async (
   input: ListPartsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "uploadId", () => input.uploadId!, "{uploadId}", false);
+  b.bp("/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  b.p("vaultName", () => input.vaultName!, "{vaultName}", false);
+  b.p("uploadId", () => input.uploadId!, "{uploadId}", false);
   const query: any = map({
-    marker: [, input.marker!],
-    limit: [() => input.limit !== void 0, () => input.limit!.toString()],
+    [_m]: [, input[_m]!],
+    [_l]: [() => input.limit !== void 0, () => input[_l]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -790,21 +587,13 @@ export const se_ListProvisionedCapacityCommand = async (
   input: ListProvisionedCapacityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/provisioned-capacity";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
+  b.bp("/{accountId}/provisioned-capacity");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -814,22 +603,14 @@ export const se_ListTagsForVaultCommand = async (
   input: ListTagsForVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/vaults/{vaultName}/tags";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
+  b.bp("/{accountId}/vaults/{vaultName}/tags");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  b.p("vaultName", () => input.vaultName!, "{vaultName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -839,25 +620,17 @@ export const se_ListVaultsCommand = async (
   input: ListVaultsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/vaults";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
+  b.bp("/{accountId}/vaults");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
   const query: any = map({
-    marker: [, input.marker!],
-    limit: [() => input.limit !== void 0, () => input.limit!.toString()],
+    [_m]: [, input[_m]!],
+    [_l]: [() => input.limit !== void 0, () => input[_l]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -867,21 +640,13 @@ export const se_PurchaseProvisionedCapacityCommand = async (
   input: PurchaseProvisionedCapacityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/provisioned-capacity";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
+  b.bp("/{accountId}/provisioned-capacity");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -891,16 +656,15 @@ export const se_RemoveTagsFromVaultCommand = async (
   input: RemoveTagsFromVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/vaults/{vaultName}/tags";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
+  b.bp("/{accountId}/vaults/{vaultName}/tags");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  b.p("vaultName", () => input.vaultName!, "{vaultName}", false);
   const query: any = map({
-    operation: [, "remove"],
+    [_o]: [, "remove"],
   });
   let body: any;
   body = JSON.stringify(
@@ -908,16 +672,8 @@ export const se_RemoveTagsFromVaultCommand = async (
       TagKeys: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -927,28 +683,20 @@ export const se_SetDataRetrievalPolicyCommand = async (
   input: SetDataRetrievalPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/policies/data-retrieval";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
+  b.bp("/{accountId}/policies/data-retrieval");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Policy: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -958,15 +706,13 @@ export const se_SetVaultAccessPolicyCommand = async (
   input: SetVaultAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/{accountId}/vaults/{vaultName}/access-policy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
+  b.bp("/{accountId}/vaults/{vaultName}/access-policy");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  b.p("vaultName", () => input.vaultName!, "{vaultName}", false);
   let body: any;
   if (input.policy !== undefined) {
     body = _json(input.policy);
@@ -975,15 +721,8 @@ export const se_SetVaultAccessPolicyCommand = async (
     body = {};
   }
   body = JSON.stringify(body);
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -993,15 +732,13 @@ export const se_SetVaultNotificationsCommand = async (
   input: SetVaultNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/{accountId}/vaults/{vaultName}/notification-configuration";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
+  b.bp("/{accountId}/vaults/{vaultName}/notification-configuration");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  b.p("vaultName", () => input.vaultName!, "{vaultName}", false);
   let body: any;
   if (input.vaultNotificationConfig !== undefined) {
     body = _json(input.vaultNotificationConfig);
@@ -1010,15 +747,8 @@ export const se_SetVaultNotificationsCommand = async (
     body = {};
   }
   body = JSON.stringify(body);
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1028,29 +758,21 @@ export const se_UploadArchiveCommand = async (
   input: UploadArchiveCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/octet-stream",
-    "x-amz-archive-description": input.archiveDescription!,
-    "x-amz-sha256-tree-hash": input.checksum!,
+    [_xaad]: input[_aD]!,
+    [_xasth]: input[_c]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{accountId}/vaults/{vaultName}/archives";
-  resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
+  b.bp("/{accountId}/vaults/{vaultName}/archives");
+  b.p("vaultName", () => input.vaultName!, "{vaultName}", false);
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
   let body: any;
   if (input.body !== undefined) {
     body = input.body;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1060,31 +782,22 @@ export const se_UploadMultipartPartCommand = async (
   input: UploadMultipartPartCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/octet-stream",
-    "x-amz-sha256-tree-hash": input.checksum!,
-    "content-range": input.range!,
+    [_xasth]: input[_c]!,
+    [_cr]: input[_r]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "vaultName", () => input.vaultName!, "{vaultName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "uploadId", () => input.uploadId!, "{uploadId}", false);
+  b.bp("/{accountId}/vaults/{vaultName}/multipart-uploads/{uploadId}");
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  b.p("vaultName", () => input.vaultName!, "{vaultName}", false);
+  b.p("uploadId", () => input.uploadId!, "{uploadId}", false);
   let body: any;
   if (input.body !== undefined) {
     body = input.body;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1258,9 +971,9 @@ export const de_CompleteMultipartUploadCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    location: [, output.headers["location"]],
-    checksum: [, output.headers["x-amz-sha256-tree-hash"]],
-    archiveId: [, output.headers["x-amz-archive-id"]],
+    [_lo]: [, output.headers[_lo]],
+    [_c]: [, output.headers[_xasth]],
+    [_aI]: [, output.headers[_xaai]],
   });
   await collectBody(output.body, context);
   return contents;
@@ -1365,7 +1078,7 @@ export const de_CreateVaultCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    location: [, output.headers["location"]],
+    [_lo]: [, output.headers[_lo]],
   });
   await collectBody(output.body, context);
   return contents;
@@ -1816,11 +1529,11 @@ export const de_GetJobOutputCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    checksum: [, output.headers["x-amz-sha256-tree-hash"]],
-    contentRange: [, output.headers["content-range"]],
-    acceptRanges: [, output.headers["accept-ranges"]],
-    contentType: [, output.headers["content-type"]],
-    archiveDescription: [, output.headers["x-amz-archive-description"]],
+    [_c]: [, output.headers[_xasth]],
+    [_cR]: [, output.headers[_cr]],
+    [_aR]: [, output.headers[_ar]],
+    [_cT]: [, output.headers[_ct]],
+    [_aD]: [, output.headers[_xaad]],
   });
   const data: any = output.body;
   context.sdkStreamMixin(data);
@@ -2043,9 +1756,9 @@ export const de_InitiateJobCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    location: [, output.headers["location"]],
-    jobId: [, output.headers["x-amz-job-id"]],
-    jobOutputPath: [, output.headers["x-amz-job-output-path"]],
+    [_lo]: [, output.headers[_lo]],
+    [_jI]: [, output.headers[_xaji]],
+    [_jOP]: [, output.headers[_xajop]],
   });
   await collectBody(output.body, context);
   return contents;
@@ -2104,8 +1817,8 @@ export const de_InitiateMultipartUploadCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    location: [, output.headers["location"]],
-    uploadId: [, output.headers["x-amz-multipart-upload-id"]],
+    [_lo]: [, output.headers[_lo]],
+    [_uI]: [, output.headers[_xamui]],
   });
   await collectBody(output.body, context);
   return contents;
@@ -2158,7 +1871,7 @@ export const de_InitiateVaultLockCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    lockId: [, output.headers["x-amz-lock-id"]],
+    [_lI]: [, output.headers[_xali]],
   });
   await collectBody(output.body, context);
   return contents;
@@ -2553,7 +2266,7 @@ export const de_PurchaseProvisionedCapacityCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    capacityId: [, output.headers["x-amz-capacity-id"]],
+    [_cI]: [, output.headers[_xaci]],
   });
   await collectBody(output.body, context);
   return contents;
@@ -2811,9 +2524,9 @@ export const de_UploadArchiveCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    location: [, output.headers["location"]],
-    checksum: [, output.headers["x-amz-sha256-tree-hash"]],
-    archiveId: [, output.headers["x-amz-archive-id"]],
+    [_lo]: [, output.headers[_lo]],
+    [_c]: [, output.headers[_xasth]],
+    [_aI]: [, output.headers[_xaai]],
   });
   await collectBody(output.body, context);
   return contents;
@@ -2869,7 +2582,7 @@ export const de_UploadMultipartPartCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    checksum: [, output.headers["x-amz-sha256-tree-hash"]],
+    [_c]: [, output.headers[_xasth]],
   });
   await collectBody(output.body, context);
   return contents;
@@ -3214,6 +2927,40 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _aD = "archiveDescription";
+const _aI = "archiveId";
+const _aR = "acceptRanges";
+const _aS = "archiveSize";
+const _ar = "accept-ranges";
+const _c = "checksum";
+const _cI = "capacityId";
+const _cR = "contentRange";
+const _cT = "contentType";
+const _co = "completed";
+const _cr = "content-range";
+const _ct = "content-type";
+const _jI = "jobId";
+const _jOP = "jobOutputPath";
+const _l = "limit";
+const _lI = "lockId";
+const _lo = "location";
+const _m = "marker";
+const _o = "operation";
+const _pS = "partSize";
+const _r = "range";
+const _s = "statuscode";
+const _uI = "uploadId";
+const _xaad = "x-amz-archive-description";
+const _xaai = "x-amz-archive-id";
+const _xaas = "x-amz-archive-size";
+const _xaci = "x-amz-capacity-id";
+const _xaji = "x-amz-job-id";
+const _xajop = "x-amz-job-output-path";
+const _xali = "x-amz-lock-id";
+const _xamui = "x-amz-multipart-upload-id";
+const _xaps = "x-amz-part-size";
+const _xasth = "x-amz-sha256-tree-hash";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

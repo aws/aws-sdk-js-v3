@@ -48,6 +48,10 @@ class RequestSerializationTestHandler implements HttpHandler {
   handle(request: HttpRequest, options?: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
     return Promise.reject(new EXPECTED_REQUEST_SERIALIZATION_ERROR(request));
   }
+  updateHttpClientConfig(key: never, value: never): void {}
+  httpHandlerConfigs() {
+    return {};
+  }
 }
 
 /**
@@ -81,6 +85,10 @@ class ResponseDeserializationTestHandler implements HttpHandler {
         body: Readable.from([this.body]),
       }),
     });
+  }
+  updateHttpClientConfig(key: never, value: never): void {}
+  httpHandlerConfigs() {
+    return {};
   }
 }
 
@@ -199,7 +207,7 @@ it("Ec2QueryDateTimeWithNegativeOffset:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      datetime: new Date(1576540098000),
+      datetime: new Date(1576540098 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -241,7 +249,7 @@ it("Ec2QueryDateTimeWithPositiveOffset:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      datetime: new Date(1576540098000),
+      datetime: new Date(1576540098 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -424,49 +432,7 @@ it("Ec2QueryDateTimeWithFractionalSeconds:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      datetime: new Date(9.46845296123e8000),
-    },
-  ][0];
-  Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
-  });
-});
-
-/**
- * Ensures that clients can correctly parse http-date timestamps with fractional seconds
- */
-it("Ec2QueryHttpDateWithFractionalSeconds:Response", async () => {
-  const client = new EC2ProtocolClient({
-    ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      {
-        "content-type": "text/xml;charset=UTF-8",
-      },
-      `<FractionalSecondsResponse xmlns="https://example.com/">
-          <httpdate>Sun, 02 Jan 2000 20:34:56.456 GMT</httpdate>
-          <RequestId>requestid</RequestId>
-      </FractionalSecondsResponse>
-      `
-    ),
-  });
-
-  const params: any = {};
-  const command = new FractionalSecondsCommand(params);
-
-  let r: any;
-  try {
-    r = await client.send(command);
-  } catch (err) {
-    fail("Expected a valid response to be returned, got " + err);
-    return;
-  }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
-  const paramsToValidate: any = [
-    {
-      httpdate: new Date(9.46845296456e8000),
+      datetime: new Date(9.46845296123e8 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -2376,7 +2342,7 @@ it("Ec2XmlLists:Response", async () => {
 
       booleanList: [true, false],
 
-      timestampList: [new Date(1398796238000), new Date(1398796238000)],
+      timestampList: [new Date(1398796238 * 1000), new Date(1398796238 * 1000)],
 
       enumList: ["Foo", "0"],
 
@@ -2508,7 +2474,7 @@ it("Ec2XmlTimestamps:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      normal: new Date(1398796238000),
+      normal: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -2550,7 +2516,7 @@ it("Ec2XmlTimestampsWithDateTimeFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      dateTime: new Date(1398796238000),
+      dateTime: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -2592,7 +2558,7 @@ it("Ec2XmlTimestampsWithDateTimeOnTargetFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      dateTimeOnTarget: new Date(1398796238000),
+      dateTimeOnTarget: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -2634,7 +2600,7 @@ it("Ec2XmlTimestampsWithEpochSecondsFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      epochSeconds: new Date(1398796238000),
+      epochSeconds: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -2676,7 +2642,7 @@ it("Ec2XmlTimestampsWithEpochSecondsOnTargetFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      epochSecondsOnTarget: new Date(1398796238000),
+      epochSecondsOnTarget: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -2718,7 +2684,7 @@ it("Ec2XmlTimestampsWithHttpDateFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      httpDate: new Date(1398796238000),
+      httpDate: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -2760,7 +2726,7 @@ it("Ec2XmlTimestampsWithHttpDateOnTargetFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      httpDateOnTarget: new Date(1398796238000),
+      httpDateOnTarget: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {

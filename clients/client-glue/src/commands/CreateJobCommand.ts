@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import { CreateJobResponse } from "../models/models_1";
 import { CreateJobRequest, CreateJobRequestFilterSensitiveLog } from "../models/models_2";
@@ -1089,11 +1081,27 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  *         },
  *         Inputs: "<OneInput>",
  *       },
+ *       ConnectorDataSource: { // ConnectorDataSource
+ *         Name: "STRING_VALUE", // required
+ *         ConnectionType: "STRING_VALUE", // required
+ *         Data: { // ConnectorOptions // required
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         OutputSchemas: "<GlueSchemas>",
+ *       },
+ *       ConnectorDataTarget: { // ConnectorDataTarget
+ *         Name: "STRING_VALUE", // required
+ *         ConnectionType: "STRING_VALUE", // required
+ *         Data: { // required
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         Inputs: "<OneInput>",
+ *       },
  *     },
  *   },
  *   ExecutionClass: "FLEX" || "STANDARD",
  *   SourceControlDetails: { // SourceControlDetails
- *     Provider: "GITHUB" || "AWS_CODE_COMMIT",
+ *     Provider: "GITHUB" || "GITLAB" || "BITBUCKET" || "AWS_CODE_COMMIT",
  *     Repository: "STRING_VALUE",
  *     Owner: "STRING_VALUE",
  *     Branch: "STRING_VALUE",
@@ -1142,77 +1150,26 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
  */
-export class CreateJobCommand extends $Command<
-  CreateJobCommandInput,
-  CreateJobCommandOutput,
-  GlueClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateJobCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: GlueClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateJobCommandInput, CreateJobCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, CreateJobCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "GlueClient";
-    const commandName = "CreateJobCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: CreateJobRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateJobCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateJobCommandOutput> {
-    return de_CreateJobCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateJobCommand extends $Command
+  .classBuilder<
+    CreateJobCommandInput,
+    CreateJobCommandOutput,
+    GlueClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSGlue", "CreateJob", {})
+  .n("GlueClient", "CreateJobCommand")
+  .f(CreateJobRequestFilterSensitiveLog, void 0)
+  .ser(se_CreateJobCommand)
+  .de(de_CreateJobCommand)
+  .build() {}

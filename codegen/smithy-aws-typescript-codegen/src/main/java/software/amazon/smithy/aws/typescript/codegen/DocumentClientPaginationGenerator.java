@@ -86,10 +86,6 @@ final class DocumentClientPaginationGenerator implements Runnable {
             DocumentClientUtils.CLIENT_NAME,
             DocumentClientUtils.CLIENT_NAME,
             Paths.get(".", DocumentClientUtils.CLIENT_NAME).toString());
-        writer.addImport(
-            DocumentClientUtils.CLIENT_FULL_NAME,
-            DocumentClientUtils.CLIENT_FULL_NAME,
-            Paths.get(".", DocumentClientUtils.CLIENT_FULL_NAME).toString());
 
         // Import Pagination types
         writer.addImport("Paginator", "Paginator", TypeScriptDependency.SMITHY_TYPES);
@@ -100,7 +96,6 @@ final class DocumentClientPaginationGenerator implements Runnable {
         writer.write("export { Paginator }");
 
         writeCommandRequest();
-        writeMethodRequest();
         writePager();
     }
 
@@ -168,12 +163,7 @@ final class DocumentClientPaginationGenerator implements Runnable {
                     writer.write("input[$S] = config.pageSize;", pageSize);
                 }
 
-                writer.openBlock("if (config.client instanceof $L) {", "}", DocumentClientUtils.CLIENT_FULL_NAME,
-                    () -> {
-                        writer.write("page = await makePagedRequest(config.client, input, ...additionalArguments);");
-                    }
-                );
-                writer.openBlock("else if (config.client instanceof $L) {", "}", DocumentClientUtils.CLIENT_NAME,
+                writer.openBlock("if (config.client instanceof $L) {", "}", DocumentClientUtils.CLIENT_NAME,
                     () -> {
                         writer.write(
                             "page = await makePagedClientRequest(config.client, input, ...additionalArguments);");
@@ -195,21 +185,6 @@ final class DocumentClientPaginationGenerator implements Runnable {
         });
     }
 
-
-    /**
-     * Paginated command that calls client.method({...}) under the hood. This is meant for server side environments and
-     * exposes the entire service.
-     */
-    private void writeMethodRequest() {
-        writer.writeDocs("@internal");
-        writer.openBlock(
-                "const makePagedRequest = async (client: $L, input: $L, ...args: any): Promise<$L> => {",
-                "}", DocumentClientUtils.CLIENT_FULL_NAME, inputTypeName,
-                outputTypeName, () -> {
-            writer.write("// @ts-ignore");
-            writer.write("return await client.$L(input, ...args);", methodName);
-        });
-    }
 
     /**
      * Paginated command that calls CommandClient().send({...}) under the hood. This is meant for client side (browser)

@@ -1,14 +1,16 @@
 // smithy-typescript generated code
+import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
   map,
@@ -34,6 +36,10 @@ import {
   CreateKnowledgeBaseCommandInput,
   CreateKnowledgeBaseCommandOutput,
 } from "../commands/CreateKnowledgeBaseCommand";
+import {
+  CreateQuickResponseCommandInput,
+  CreateQuickResponseCommandOutput,
+} from "../commands/CreateQuickResponseCommand";
 import { CreateSessionCommandInput, CreateSessionCommandOutput } from "../commands/CreateSessionCommand";
 import {
   DeleteAssistantAssociationCommandInput,
@@ -41,10 +47,15 @@ import {
 } from "../commands/DeleteAssistantAssociationCommand";
 import { DeleteAssistantCommandInput, DeleteAssistantCommandOutput } from "../commands/DeleteAssistantCommand";
 import { DeleteContentCommandInput, DeleteContentCommandOutput } from "../commands/DeleteContentCommand";
+import { DeleteImportJobCommandInput, DeleteImportJobCommandOutput } from "../commands/DeleteImportJobCommand";
 import {
   DeleteKnowledgeBaseCommandInput,
   DeleteKnowledgeBaseCommandOutput,
 } from "../commands/DeleteKnowledgeBaseCommand";
+import {
+  DeleteQuickResponseCommandInput,
+  DeleteQuickResponseCommandOutput,
+} from "../commands/DeleteQuickResponseCommand";
 import {
   GetAssistantAssociationCommandInput,
   GetAssistantAssociationCommandOutput,
@@ -52,7 +63,9 @@ import {
 import { GetAssistantCommandInput, GetAssistantCommandOutput } from "../commands/GetAssistantCommand";
 import { GetContentCommandInput, GetContentCommandOutput } from "../commands/GetContentCommand";
 import { GetContentSummaryCommandInput, GetContentSummaryCommandOutput } from "../commands/GetContentSummaryCommand";
+import { GetImportJobCommandInput, GetImportJobCommandOutput } from "../commands/GetImportJobCommand";
 import { GetKnowledgeBaseCommandInput, GetKnowledgeBaseCommandOutput } from "../commands/GetKnowledgeBaseCommand";
+import { GetQuickResponseCommandInput, GetQuickResponseCommandOutput } from "../commands/GetQuickResponseCommand";
 import { GetRecommendationsCommandInput, GetRecommendationsCommandOutput } from "../commands/GetRecommendationsCommand";
 import { GetSessionCommandInput, GetSessionCommandOutput } from "../commands/GetSessionCommand";
 import {
@@ -61,7 +74,9 @@ import {
 } from "../commands/ListAssistantAssociationsCommand";
 import { ListAssistantsCommandInput, ListAssistantsCommandOutput } from "../commands/ListAssistantsCommand";
 import { ListContentsCommandInput, ListContentsCommandOutput } from "../commands/ListContentsCommand";
+import { ListImportJobsCommandInput, ListImportJobsCommandOutput } from "../commands/ListImportJobsCommand";
 import { ListKnowledgeBasesCommandInput, ListKnowledgeBasesCommandOutput } from "../commands/ListKnowledgeBasesCommand";
+import { ListQuickResponsesCommandInput, ListQuickResponsesCommandOutput } from "../commands/ListQuickResponsesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -76,8 +91,13 @@ import {
   RemoveKnowledgeBaseTemplateUriCommandOutput,
 } from "../commands/RemoveKnowledgeBaseTemplateUriCommand";
 import { SearchContentCommandInput, SearchContentCommandOutput } from "../commands/SearchContentCommand";
+import {
+  SearchQuickResponsesCommandInput,
+  SearchQuickResponsesCommandOutput,
+} from "../commands/SearchQuickResponsesCommand";
 import { SearchSessionsCommandInput, SearchSessionsCommandOutput } from "../commands/SearchSessionsCommand";
 import { StartContentUploadCommandInput, StartContentUploadCommandOutput } from "../commands/StartContentUploadCommand";
+import { StartImportJobCommandInput, StartImportJobCommandOutput } from "../commands/StartImportJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateContentCommandInput, UpdateContentCommandOutput } from "../commands/UpdateContentCommand";
@@ -86,16 +106,35 @@ import {
   UpdateKnowledgeBaseTemplateUriCommandOutput,
 } from "../commands/UpdateKnowledgeBaseTemplateUriCommand";
 import {
+  UpdateQuickResponseCommandInput,
+  UpdateQuickResponseCommandOutput,
+} from "../commands/UpdateQuickResponseCommand";
+import {
   AccessDeniedException,
   AppIntegrationsConfiguration,
   AssistantAssociationInputData,
+  Configuration,
   ConflictException,
+  ConnectConfiguration,
   ContentData,
+  ExternalSourceConfiguration,
   Filter,
+  GroupingConfiguration,
+  ImportJobData,
+  ImportJobSummary,
   KnowledgeBaseData,
   PreconditionFailedException,
+  QuickResponseData,
+  QuickResponseDataProvider,
+  QuickResponseFilterField,
+  QuickResponseOrderField,
+  QuickResponseQueryField,
+  QuickResponseSearchExpression,
+  QuickResponseSearchResultData,
+  QuickResponseSummary,
   RecommendationData,
   RenderingConfiguration,
+  RequestTimeoutException,
   ResourceNotFoundException,
   ResultData,
   SearchExpression,
@@ -114,11 +153,11 @@ export const se_CreateAssistantCommand = async (
   input: CreateAssistantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assistants";
+  b.bp("/assistants");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -130,15 +169,8 @@ export const se_CreateAssistantCommand = async (
       type: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -148,13 +180,12 @@ export const se_CreateAssistantAssociationCommand = async (
   input: CreateAssistantAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assistants/{assistantId}/associations";
-  resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.bp("/assistants/{assistantId}/associations");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -164,15 +195,8 @@ export const se_CreateAssistantAssociationCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -182,21 +206,12 @@ export const se_CreateContentCommand = async (
   input: CreateContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgeBases/{knowledgeBaseId}/contents";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgeBases/{knowledgeBaseId}/contents");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -209,15 +224,8 @@ export const se_CreateContentCommand = async (
       uploadId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -227,11 +235,11 @@ export const se_CreateKnowledgeBaseCommand = async (
   input: CreateKnowledgeBaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/knowledgeBases";
+  b.bp("/knowledgeBases");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -245,15 +253,41 @@ export const se_CreateKnowledgeBaseCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateQuickResponseCommand
+ */
+export const se_CreateQuickResponseCommand = async (
+  input: CreateQuickResponseCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/knowledgeBases/{knowledgeBaseId}/quickResponses");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      channels: (_) => _json(_),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      content: (_) => _json(_),
+      contentType: [],
+      description: [],
+      groupingConfiguration: (_) => _json(_),
+      isActive: [],
+      language: [],
+      name: [],
+      shortcutKey: [],
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -263,13 +297,12 @@ export const se_CreateSessionCommand = async (
   input: CreateSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assistants/{assistantId}/sessions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.bp("/assistants/{assistantId}/sessions");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -279,15 +312,8 @@ export const se_CreateSessionCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -297,21 +323,13 @@ export const se_DeleteAssistantCommand = async (
   input: DeleteAssistantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assistants/{assistantId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.bp("/assistants/{assistantId}");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -321,30 +339,14 @@ export const se_DeleteAssistantAssociationCommand = async (
   input: DeleteAssistantAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/assistants/{assistantId}/associations/{assistantAssociationId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "assistantAssociationId",
-    () => input.assistantAssociationId!,
-    "{assistantAssociationId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.bp("/assistants/{assistantId}/associations/{assistantAssociationId}");
+  b.p("assistantAssociationId", () => input.assistantAssociationId!, "{assistantAssociationId}", false);
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -354,30 +356,31 @@ export const se_DeleteContentCommand = async (
   input: DeleteContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "contentId", () => input.contentId!, "{contentId}", false);
+  b.bp("/knowledgeBases/{knowledgeBaseId}/contents/{contentId}");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("contentId", () => input.contentId!, "{contentId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteImportJobCommand
+ */
+export const se_DeleteImportJobCommand = async (
+  input: DeleteImportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/knowledgeBases/{knowledgeBaseId}/importJobs/{importJobId}");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("importJobId", () => input.importJobId!, "{importJobId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -387,28 +390,30 @@ export const se_DeleteKnowledgeBaseCommand = async (
   input: DeleteKnowledgeBaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/knowledgeBases/{knowledgeBaseId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgeBases/{knowledgeBaseId}");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteQuickResponseCommand
+ */
+export const se_DeleteQuickResponseCommand = async (
+  input: DeleteQuickResponseCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/knowledgeBases/{knowledgeBaseId}/quickResponses/{quickResponseId}");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("quickResponseId", () => input.quickResponseId!, "{quickResponseId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -418,21 +423,13 @@ export const se_GetAssistantCommand = async (
   input: GetAssistantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assistants/{assistantId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.bp("/assistants/{assistantId}");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -442,30 +439,14 @@ export const se_GetAssistantAssociationCommand = async (
   input: GetAssistantAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/assistants/{assistantId}/associations/{assistantAssociationId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "assistantAssociationId",
-    () => input.assistantAssociationId!,
-    "{assistantAssociationId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.bp("/assistants/{assistantId}/associations/{assistantAssociationId}");
+  b.p("assistantAssociationId", () => input.assistantAssociationId!, "{assistantAssociationId}", false);
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -475,30 +456,14 @@ export const se_GetContentCommand = async (
   input: GetContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "contentId", () => input.contentId!, "{contentId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgeBases/{knowledgeBaseId}/contents/{contentId}");
+  b.p("contentId", () => input.contentId!, "{contentId}", false);
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -508,30 +473,31 @@ export const se_GetContentSummaryCommand = async (
   input: GetContentSummaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}/summary";
-  resolvedPath = __resolvedPath(resolvedPath, input, "contentId", () => input.contentId!, "{contentId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgeBases/{knowledgeBaseId}/contents/{contentId}/summary");
+  b.p("contentId", () => input.contentId!, "{contentId}", false);
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetImportJobCommand
+ */
+export const se_GetImportJobCommand = async (
+  input: GetImportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/knowledgeBases/{knowledgeBaseId}/importJobs/{importJobId}");
+  b.p("importJobId", () => input.importJobId!, "{importJobId}", false);
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -541,28 +507,30 @@ export const se_GetKnowledgeBaseCommand = async (
   input: GetKnowledgeBaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/knowledgeBases/{knowledgeBaseId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgeBases/{knowledgeBaseId}");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetQuickResponseCommand
+ */
+export const se_GetQuickResponseCommand = async (
+  input: GetQuickResponseCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/knowledgeBases/{knowledgeBaseId}/quickResponses/{quickResponseId}");
+  b.p("quickResponseId", () => input.quickResponseId!, "{quickResponseId}", false);
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -572,28 +540,18 @@ export const se_GetRecommendationsCommand = async (
   input: GetRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/assistants/{assistantId}/sessions/{sessionId}/recommendations";
-  resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
+  b.bp("/assistants/{assistantId}/sessions/{sessionId}/recommendations");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    waitTimeSeconds: [() => input.waitTimeSeconds !== void 0, () => input.waitTimeSeconds!.toString()],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_wTS]: [() => input.waitTimeSeconds !== void 0, () => input[_wTS]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -603,23 +561,14 @@ export const se_GetSessionCommand = async (
   input: GetSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/assistants/{assistantId}/sessions/{sessionId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
+  b.bp("/assistants/{assistantId}/sessions/{sessionId}");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -629,26 +578,17 @@ export const se_ListAssistantAssociationsCommand = async (
   input: ListAssistantAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assistants/{assistantId}/associations";
-  resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.bp("/assistants/{assistantId}/associations");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -658,24 +598,16 @@ export const se_ListAssistantsCommand = async (
   input: ListAssistantsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assistants";
+  b.bp("/assistants");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -685,34 +617,37 @@ export const se_ListContentsCommand = async (
   input: ListContentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgeBases/{knowledgeBaseId}/contents";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgeBases/{knowledgeBaseId}/contents");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListImportJobsCommand
+ */
+export const se_ListImportJobsCommand = async (
+  input: ListImportJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/knowledgeBases/{knowledgeBaseId}/importJobs");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -722,24 +657,36 @@ export const se_ListKnowledgeBasesCommand = async (
   input: ListKnowledgeBasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/knowledgeBases";
+  b.bp("/knowledgeBases");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListQuickResponsesCommand
+ */
+export const se_ListQuickResponsesCommand = async (
+  input: ListQuickResponsesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/knowledgeBases/{knowledgeBaseId}/quickResponses");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -749,20 +696,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -772,30 +712,21 @@ export const se_NotifyRecommendationsReceivedCommand = async (
   input: NotifyRecommendationsReceivedCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/assistants/{assistantId}/sessions/{sessionId}/recommendations/notify";
-  resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
+  b.bp("/assistants/{assistantId}/sessions/{sessionId}/recommendations/notify");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.p("sessionId", () => input.sessionId!, "{sessionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       recommendationIds: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -805,13 +736,12 @@ export const se_QueryAssistantCommand = async (
   input: QueryAssistantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assistants/{assistantId}/query";
-  resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.bp("/assistants/{assistantId}/query");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -820,15 +750,8 @@ export const se_QueryAssistantCommand = async (
       queryText: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -838,29 +761,13 @@ export const se_RemoveKnowledgeBaseTemplateUriCommand = async (
   input: RemoveKnowledgeBaseTemplateUriCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgeBases/{knowledgeBaseId}/templateUri";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgeBases/{knowledgeBaseId}/templateUri");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -870,23 +777,15 @@ export const se_SearchContentCommand = async (
   input: SearchContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/knowledgeBases/{knowledgeBaseId}/search";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgeBases/{knowledgeBaseId}/search");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
   body = JSON.stringify(
@@ -894,16 +793,36 @@ export const se_SearchContentCommand = async (
       searchExpression: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1SearchQuickResponsesCommand
+ */
+export const se_SearchQuickResponsesCommand = async (
+  input: SearchQuickResponsesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/knowledgeBases/{knowledgeBaseId}/search/quickResponses");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      attributes: (_) => _json(_),
+      searchExpression: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -913,16 +832,15 @@ export const se_SearchSessionsCommand = async (
   input: SearchSessionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assistants/{assistantId}/searchSessions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "assistantId", () => input.assistantId!, "{assistantId}", false);
+  b.bp("/assistants/{assistantId}/searchSessions");
+  b.p("assistantId", () => input.assistantId!, "{assistantId}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
   body = JSON.stringify(
@@ -930,16 +848,8 @@ export const se_SearchSessionsCommand = async (
       searchExpression: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -949,35 +859,48 @@ export const se_StartContentUploadCommand = async (
   input: StartContentUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/knowledgeBases/{knowledgeBaseId}/upload";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgeBases/{knowledgeBaseId}/upload");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       contentType: [],
+      presignedUrlTimeToLive: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartImportJobCommand
+ */
+export const se_StartImportJobCommand = async (
+  input: StartImportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/knowledgeBases/{knowledgeBaseId}/importJobs");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      externalSourceConfiguration: (_) => _json(_),
+      importJobType: [],
+      metadata: (_) => _json(_),
+      uploadId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -987,27 +910,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1017,27 +933,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1047,22 +955,13 @@ export const se_UpdateContentCommand = async (
   input: UpdateContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgeBases/{knowledgeBaseId}/contents/{contentId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "contentId", () => input.contentId!, "{contentId}", false);
+  b.bp("/knowledgeBases/{knowledgeBaseId}/contents/{contentId}");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("contentId", () => input.contentId!, "{contentId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1074,15 +973,8 @@ export const se_UpdateContentCommand = async (
       uploadId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1092,36 +984,55 @@ export const se_UpdateKnowledgeBaseTemplateUriCommand = async (
   input: UpdateKnowledgeBaseTemplateUriCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/knowledgeBases/{knowledgeBaseId}/templateUri";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "knowledgeBaseId",
-    () => input.knowledgeBaseId!,
-    "{knowledgeBaseId}",
-    false
-  );
+  b.bp("/knowledgeBases/{knowledgeBaseId}/templateUri");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       templateUri: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateQuickResponseCommand
+ */
+export const se_UpdateQuickResponseCommand = async (
+  input: UpdateQuickResponseCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/knowledgeBases/{knowledgeBaseId}/quickResponses/{quickResponseId}");
+  b.p("knowledgeBaseId", () => input.knowledgeBaseId!, "{knowledgeBaseId}", false);
+  b.p("quickResponseId", () => input.quickResponseId!, "{quickResponseId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      channels: (_) => _json(_),
+      content: (_) => _json(_),
+      contentType: [],
+      description: [],
+      groupingConfiguration: (_) => _json(_),
+      isActive: [],
+      language: [],
+      name: [],
+      removeDescription: [],
+      removeGroupingConfiguration: [],
+      removeShortcutKey: [],
+      shortcutKey: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1355,6 +1266,65 @@ const de_CreateKnowledgeBaseCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateQuickResponseCommand
+ */
+export const de_CreateQuickResponseCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateQuickResponseCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateQuickResponseCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    quickResponse: (_) => de_QuickResponseData(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateQuickResponseCommandError
+ */
+const de_CreateQuickResponseCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateQuickResponseCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wisdom#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.wisdom#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wisdom#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.wisdom#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wisdom#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1CreateSessionCommand
  */
 export const de_CreateSessionCommand = async (
@@ -1555,6 +1525,58 @@ const de_DeleteContentCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteImportJobCommand
+ */
+export const de_DeleteImportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteImportJobCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_DeleteImportJobCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteImportJobCommandError
+ */
+const de_DeleteImportJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteImportJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wisdom#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.wisdom#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wisdom#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wisdom#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DeleteKnowledgeBaseCommand
  */
 export const de_DeleteKnowledgeBaseCommand = async (
@@ -1590,6 +1612,55 @@ const de_DeleteKnowledgeBaseCommandError = async (
     case "ConflictException":
     case "com.amazonaws.wisdom#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wisdom#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wisdom#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteQuickResponseCommand
+ */
+export const de_DeleteQuickResponseCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteQuickResponseCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_DeleteQuickResponseCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteQuickResponseCommandError
+ */
+const de_DeleteQuickResponseCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteQuickResponseCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wisdom#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -1819,6 +1890,59 @@ const de_GetContentSummaryCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1GetImportJobCommand
+ */
+export const de_GetImportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetImportJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetImportJobCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    importJob: (_) => de_ImportJobData(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetImportJobCommandError
+ */
+const de_GetImportJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetImportJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wisdom#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wisdom#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wisdom#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1GetKnowledgeBaseCommand
  */
 export const de_GetKnowledgeBaseCommand = async (
@@ -1846,6 +1970,59 @@ const de_GetKnowledgeBaseCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetKnowledgeBaseCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wisdom#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wisdom#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wisdom#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetQuickResponseCommand
+ */
+export const de_GetQuickResponseCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetQuickResponseCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetQuickResponseCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    quickResponse: (_) => de_QuickResponseData(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetQuickResponseCommandError
+ */
+const de_GetQuickResponseCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetQuickResponseCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2138,6 +2315,57 @@ const de_ListContentsCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListImportJobsCommand
+ */
+export const de_ListImportJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImportJobsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListImportJobsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    importJobSummaries: (_) => de_ImportJobList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListImportJobsCommandError
+ */
+const de_ListImportJobsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListImportJobsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wisdom#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wisdom#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListKnowledgeBasesCommand
  */
 export const de_ListKnowledgeBasesCommand = async (
@@ -2175,6 +2403,60 @@ const de_ListKnowledgeBasesCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.wisdom#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wisdom#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListQuickResponsesCommand
+ */
+export const de_ListQuickResponsesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListQuickResponsesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListQuickResponsesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    quickResponseSummaries: (_) => de_QuickResponseSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListQuickResponsesCommandError
+ */
+const de_ListQuickResponsesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListQuickResponsesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wisdom#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wisdom#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.wisdom#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -2327,6 +2609,9 @@ const de_QueryAssistantCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.wisdom#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "RequestTimeoutException":
+    case "com.amazonaws.wisdom#RequestTimeoutException":
+      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -2447,6 +2732,63 @@ const de_SearchContentCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1SearchQuickResponsesCommand
+ */
+export const de_SearchQuickResponsesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchQuickResponsesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_SearchQuickResponsesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    results: (_) => de_QuickResponseSearchResultsList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SearchQuickResponsesCommandError
+ */
+const de_SearchQuickResponsesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchQuickResponsesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wisdom#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "RequestTimeoutException":
+    case "com.amazonaws.wisdom#RequestTimeoutException":
+      throw await de_RequestTimeoutExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wisdom#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wisdom#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1SearchSessionsCommand
  */
 export const de_SearchSessionsCommand = async (
@@ -2543,6 +2885,65 @@ const de_StartContentUploadCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.wisdom#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wisdom#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1StartImportJobCommand
+ */
+export const de_StartImportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartImportJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StartImportJobCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    importJob: (_) => de_ImportJobData(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartImportJobCommandError
+ */
+const de_StartImportJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartImportJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wisdom#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.wisdom#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wisdom#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.wisdom#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.wisdom#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -2754,6 +3155,65 @@ const de_UpdateKnowledgeBaseTemplateUriCommandError = async (
   }
 };
 
+/**
+ * deserializeAws_restJson1UpdateQuickResponseCommand
+ */
+export const de_UpdateQuickResponseCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateQuickResponseCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateQuickResponseCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    quickResponse: (_) => de_QuickResponseData(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateQuickResponseCommandError
+ */
+const de_UpdateQuickResponseCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateQuickResponseCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wisdom#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.wisdom#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "PreconditionFailedException":
+    case "com.amazonaws.wisdom#PreconditionFailedException":
+      throw await de_PreconditionFailedExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wisdom#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wisdom#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
 const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
@@ -2806,6 +3266,26 @@ const de_PreconditionFailedExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new PreconditionFailedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1RequestTimeoutExceptionRes
+ */
+const de_RequestTimeoutExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<RequestTimeoutException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new RequestTimeoutException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -2895,13 +3375,45 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AssistantAssociationInputData omitted.
 
+// se_Channels omitted.
+
+// se_Configuration omitted.
+
+// se_ConnectConfiguration omitted.
+
+// se_ContactAttributes omitted.
+
 // se_ContentMetadata omitted.
+
+// se_ExternalSourceConfiguration omitted.
 
 // se_Filter omitted.
 
 // se_FilterList omitted.
 
+// se_GroupingConfiguration omitted.
+
+// se_GroupingValues omitted.
+
 // se_ObjectFieldsList omitted.
+
+// se_QuickResponseDataProvider omitted.
+
+// se_QuickResponseFilterField omitted.
+
+// se_QuickResponseFilterFieldList omitted.
+
+// se_QuickResponseFilterValueList omitted.
+
+// se_QuickResponseOrderField omitted.
+
+// se_QuickResponseQueryField omitted.
+
+// se_QuickResponseQueryFieldList omitted.
+
+// se_QuickResponseQueryValueList omitted.
+
+// se_QuickResponseSearchExpression omitted.
 
 // se_RecommendationIdList omitted.
 
@@ -2932,6 +3444,14 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_AssistantList omitted.
 
 // de_AssistantSummary omitted.
+
+// de_Channels omitted.
+
+// de_Configuration omitted.
+
+// de_ConnectConfiguration omitted.
+
+// de_ContactAttributeKeys omitted.
 
 /**
  * deserializeAws_restJson1ContentData
@@ -2967,11 +3487,68 @@ const de_ContentData = (output: any, context: __SerdeContext): ContentData => {
 
 // de_DocumentText omitted.
 
+// de_ExternalSourceConfiguration omitted.
+
+// de_GroupingConfiguration omitted.
+
+// de_GroupingValues omitted.
+
 // de_Headers omitted.
 
 // de_Highlight omitted.
 
 // de_Highlights omitted.
+
+/**
+ * deserializeAws_restJson1ImportJobData
+ */
+const de_ImportJobData = (output: any, context: __SerdeContext): ImportJobData => {
+  return take(output, {
+    createdTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    externalSourceConfiguration: _json,
+    failedRecordReport: __expectString,
+    importJobId: __expectString,
+    importJobType: __expectString,
+    knowledgeBaseArn: __expectString,
+    knowledgeBaseId: __expectString,
+    lastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    metadata: _json,
+    status: __expectString,
+    uploadId: __expectString,
+    url: __expectString,
+    urlExpiry: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ImportJobList
+ */
+const de_ImportJobList = (output: any, context: __SerdeContext): ImportJobSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ImportJobSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ImportJobSummary
+ */
+const de_ImportJobSummary = (output: any, context: __SerdeContext): ImportJobSummary => {
+  return take(output, {
+    createdTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    externalSourceConfiguration: _json,
+    importJobId: __expectString,
+    importJobType: __expectString,
+    knowledgeBaseArn: __expectString,
+    knowledgeBaseId: __expectString,
+    lastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    metadata: _json,
+    status: __expectString,
+    uploadId: __expectString,
+  }) as any;
+};
 
 // de_KnowledgeBaseAssociationData omitted.
 
@@ -3014,6 +3591,110 @@ const de_QueryResultsList = (output: any, context: __SerdeContext): ResultData[]
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_ResultData(entry, context);
+    });
+  return retVal;
+};
+
+// de_QuickResponseContentProvider omitted.
+
+// de_QuickResponseContents omitted.
+
+/**
+ * deserializeAws_restJson1QuickResponseData
+ */
+const de_QuickResponseData = (output: any, context: __SerdeContext): QuickResponseData => {
+  return take(output, {
+    channels: _json,
+    contentType: __expectString,
+    contents: _json,
+    createdTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    groupingConfiguration: _json,
+    isActive: __expectBoolean,
+    knowledgeBaseArn: __expectString,
+    knowledgeBaseId: __expectString,
+    language: __expectString,
+    lastModifiedBy: __expectString,
+    lastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    quickResponseArn: __expectString,
+    quickResponseId: __expectString,
+    shortcutKey: __expectString,
+    status: __expectString,
+    tags: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1QuickResponseSearchResultData
+ */
+const de_QuickResponseSearchResultData = (output: any, context: __SerdeContext): QuickResponseSearchResultData => {
+  return take(output, {
+    attributesInterpolated: _json,
+    attributesNotInterpolated: _json,
+    channels: _json,
+    contentType: __expectString,
+    contents: _json,
+    createdTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    groupingConfiguration: _json,
+    isActive: __expectBoolean,
+    knowledgeBaseArn: __expectString,
+    knowledgeBaseId: __expectString,
+    language: __expectString,
+    lastModifiedBy: __expectString,
+    lastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    quickResponseArn: __expectString,
+    quickResponseId: __expectString,
+    shortcutKey: __expectString,
+    status: __expectString,
+    tags: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1QuickResponseSearchResultsList
+ */
+const de_QuickResponseSearchResultsList = (output: any, context: __SerdeContext): QuickResponseSearchResultData[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_QuickResponseSearchResultData(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1QuickResponseSummary
+ */
+const de_QuickResponseSummary = (output: any, context: __SerdeContext): QuickResponseSummary => {
+  return take(output, {
+    channels: _json,
+    contentType: __expectString,
+    createdTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    isActive: __expectBoolean,
+    knowledgeBaseArn: __expectString,
+    knowledgeBaseId: __expectString,
+    lastModifiedBy: __expectString,
+    lastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    quickResponseArn: __expectString,
+    quickResponseId: __expectString,
+    status: __expectString,
+    tags: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1QuickResponseSummaryList
+ */
+const de_QuickResponseSummaryList = (output: any, context: __SerdeContext): QuickResponseSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_QuickResponseSummary(entry, context);
     });
   return retVal;
 };
@@ -3096,6 +3777,11 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _tK = "tagKeys";
+const _wTS = "waitTimeSeconds";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

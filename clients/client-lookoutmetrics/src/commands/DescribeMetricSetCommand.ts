@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
 import { DescribeMetricSetRequest, DescribeMetricSetResponse } from "../models/models_0";
 import { de_DescribeMetricSetCommand, se_DescribeMetricSetCommand } from "../protocols/Aws_restJson1";
@@ -61,7 +53,7 @@ export interface DescribeMetricSetCommandOutput extends DescribeMetricSetRespons
  * //   MetricList: [ // MetricList
  * //     { // Metric
  * //       MetricName: "STRING_VALUE", // required
- * //       AggregationFunction: "STRING_VALUE", // required
+ * //       AggregationFunction: "AVG" || "SUM", // required
  * //       Namespace: "STRING_VALUE",
  * //     },
  * //   ],
@@ -72,7 +64,7 @@ export interface DescribeMetricSetCommandOutput extends DescribeMetricSetRespons
  * //   DimensionList: [ // DimensionList
  * //     "STRING_VALUE",
  * //   ],
- * //   MetricSetFrequency: "STRING_VALUE",
+ * //   MetricSetFrequency: "P1D" || "PT1H" || "PT10M" || "PT5M",
  * //   Timezone: "STRING_VALUE",
  * //   MetricSource: { // MetricSource
  * //     S3SourceConfig: { // S3SourceConfig
@@ -85,7 +77,7 @@ export interface DescribeMetricSetCommandOutput extends DescribeMetricSetRespons
  * //       ],
  * //       FileFormatDescriptor: { // FileFormatDescriptor
  * //         CsvFormatDescriptor: { // CsvFormatDescriptor
- * //           FileCompression: "STRING_VALUE",
+ * //           FileCompression: "NONE" || "GZIP",
  * //           Charset: "STRING_VALUE",
  * //           ContainsHeader: true || false,
  * //           Delimiter: "STRING_VALUE",
@@ -95,7 +87,7 @@ export interface DescribeMetricSetCommandOutput extends DescribeMetricSetRespons
  * //           QuoteSymbol: "STRING_VALUE",
  * //         },
  * //         JsonFormatDescriptor: { // JsonFormatDescriptor
- * //           FileCompression: "STRING_VALUE",
+ * //           FileCompression: "NONE" || "GZIP",
  * //           Charset: "STRING_VALUE",
  * //         },
  * //       },
@@ -162,7 +154,7 @@ export interface DescribeMetricSetCommandOutput extends DescribeMetricSetRespons
  * //       FilterList: [ // FilterList
  * //         { // Filter
  * //           DimensionValue: "STRING_VALUE",
- * //           FilterOperation: "STRING_VALUE",
+ * //           FilterOperation: "EQUALS",
  * //         },
  * //       ],
  * //     },
@@ -197,79 +189,26 @@ export interface DescribeMetricSetCommandOutput extends DescribeMetricSetRespons
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
-export class DescribeMetricSetCommand extends $Command<
-  DescribeMetricSetCommandInput,
-  DescribeMetricSetCommandOutput,
-  LookoutMetricsClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeMetricSetCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: LookoutMetricsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeMetricSetCommandInput, DescribeMetricSetCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeMetricSetCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "LookoutMetricsClient";
-    const commandName = "DescribeMetricSetCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeMetricSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeMetricSetCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMetricSetCommandOutput> {
-    return de_DescribeMetricSetCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeMetricSetCommand extends $Command
+  .classBuilder<
+    DescribeMetricSetCommandInput,
+    DescribeMetricSetCommandOutput,
+    LookoutMetricsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: LookoutMetricsClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("LookoutMetrics", "DescribeMetricSet", {})
+  .n("LookoutMetricsClient", "DescribeMetricSetCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeMetricSetCommand)
+  .de(de_DescribeMetricSetCommand)
+  .build() {}

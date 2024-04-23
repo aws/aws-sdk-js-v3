@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
 import { CreateSignalCatalogRequest, CreateSignalCatalogResponse } from "../models/models_0";
 import { de_CreateSignalCatalogCommand, se_CreateSignalCatalogCommand } from "../protocols/Aws_json1_0";
@@ -57,7 +49,7 @@ export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogRes
  *       },
  *       sensor: { // Sensor
  *         fullyQualifiedName: "STRING_VALUE", // required
- *         dataType: "STRING_VALUE", // required
+ *         dataType: "INT8" || "UINT8" || "INT16" || "UINT16" || "INT32" || "UINT32" || "INT64" || "UINT64" || "BOOLEAN" || "FLOAT" || "DOUBLE" || "STRING" || "UNIX_TIMESTAMP" || "INT8_ARRAY" || "UINT8_ARRAY" || "INT16_ARRAY" || "UINT16_ARRAY" || "INT32_ARRAY" || "UINT32_ARRAY" || "INT64_ARRAY" || "UINT64_ARRAY" || "BOOLEAN_ARRAY" || "FLOAT_ARRAY" || "DOUBLE_ARRAY" || "STRING_ARRAY" || "UNIX_TIMESTAMP_ARRAY" || "UNKNOWN" || "STRUCT" || "STRUCT_ARRAY", // required
  *         description: "STRING_VALUE",
  *         unit: "STRING_VALUE",
  *         allowedValues: [ // listOfStrings
@@ -67,10 +59,11 @@ export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogRes
  *         max: Number("double"),
  *         deprecationMessage: "STRING_VALUE",
  *         comment: "STRING_VALUE",
+ *         structFullyQualifiedName: "STRING_VALUE",
  *       },
  *       actuator: { // Actuator
  *         fullyQualifiedName: "STRING_VALUE", // required
- *         dataType: "STRING_VALUE", // required
+ *         dataType: "INT8" || "UINT8" || "INT16" || "UINT16" || "INT32" || "UINT32" || "INT64" || "UINT64" || "BOOLEAN" || "FLOAT" || "DOUBLE" || "STRING" || "UNIX_TIMESTAMP" || "INT8_ARRAY" || "UINT8_ARRAY" || "INT16_ARRAY" || "UINT16_ARRAY" || "INT32_ARRAY" || "UINT32_ARRAY" || "INT64_ARRAY" || "UINT64_ARRAY" || "BOOLEAN_ARRAY" || "FLOAT_ARRAY" || "DOUBLE_ARRAY" || "STRING_ARRAY" || "UNIX_TIMESTAMP_ARRAY" || "UNKNOWN" || "STRUCT" || "STRUCT_ARRAY", // required
  *         description: "STRING_VALUE",
  *         unit: "STRING_VALUE",
  *         allowedValues: [
@@ -81,10 +74,11 @@ export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogRes
  *         assignedValue: "STRING_VALUE",
  *         deprecationMessage: "STRING_VALUE",
  *         comment: "STRING_VALUE",
+ *         structFullyQualifiedName: "STRING_VALUE",
  *       },
  *       attribute: { // Attribute
  *         fullyQualifiedName: "STRING_VALUE", // required
- *         dataType: "STRING_VALUE", // required
+ *         dataType: "INT8" || "UINT8" || "INT16" || "UINT16" || "INT32" || "UINT32" || "INT64" || "UINT64" || "BOOLEAN" || "FLOAT" || "DOUBLE" || "STRING" || "UNIX_TIMESTAMP" || "INT8_ARRAY" || "UINT8_ARRAY" || "INT16_ARRAY" || "UINT16_ARRAY" || "INT32_ARRAY" || "UINT32_ARRAY" || "INT64_ARRAY" || "UINT64_ARRAY" || "BOOLEAN_ARRAY" || "FLOAT_ARRAY" || "DOUBLE_ARRAY" || "STRING_ARRAY" || "UNIX_TIMESTAMP_ARRAY" || "UNKNOWN" || "STRUCT" || "STRUCT_ARRAY", // required
  *         description: "STRING_VALUE",
  *         unit: "STRING_VALUE",
  *         allowedValues: [
@@ -96,6 +90,21 @@ export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogRes
  *         defaultValue: "STRING_VALUE",
  *         deprecationMessage: "STRING_VALUE",
  *         comment: "STRING_VALUE",
+ *       },
+ *       struct: { // CustomStruct
+ *         fullyQualifiedName: "STRING_VALUE", // required
+ *         description: "STRING_VALUE",
+ *         deprecationMessage: "STRING_VALUE",
+ *         comment: "STRING_VALUE",
+ *       },
+ *       property: { // CustomProperty
+ *         fullyQualifiedName: "STRING_VALUE", // required
+ *         dataType: "INT8" || "UINT8" || "INT16" || "UINT16" || "INT32" || "UINT32" || "INT64" || "UINT64" || "BOOLEAN" || "FLOAT" || "DOUBLE" || "STRING" || "UNIX_TIMESTAMP" || "INT8_ARRAY" || "UINT8_ARRAY" || "INT16_ARRAY" || "UINT16_ARRAY" || "INT32_ARRAY" || "UINT32_ARRAY" || "INT64_ARRAY" || "UINT64_ARRAY" || "BOOLEAN_ARRAY" || "FLOAT_ARRAY" || "DOUBLE_ARRAY" || "STRING_ARRAY" || "UNIX_TIMESTAMP_ARRAY" || "UNKNOWN" || "STRUCT" || "STRUCT_ARRAY", // required
+ *         dataEncoding: "BINARY" || "TYPED",
+ *         description: "STRING_VALUE",
+ *         deprecationMessage: "STRING_VALUE",
+ *         comment: "STRING_VALUE",
+ *         structFullyQualifiedName: "STRING_VALUE",
  *       },
  *     },
  *   ],
@@ -151,79 +160,26 @@ export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogRes
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
-export class CreateSignalCatalogCommand extends $Command<
-  CreateSignalCatalogCommandInput,
-  CreateSignalCatalogCommandOutput,
-  IoTFleetWiseClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateSignalCatalogCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: IoTFleetWiseClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateSignalCatalogCommandInput, CreateSignalCatalogCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateSignalCatalogCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "IoTFleetWiseClient";
-    const commandName = "CreateSignalCatalogCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateSignalCatalogCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateSignalCatalogCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSignalCatalogCommandOutput> {
-    return de_CreateSignalCatalogCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateSignalCatalogCommand extends $Command
+  .classBuilder<
+    CreateSignalCatalogCommandInput,
+    CreateSignalCatalogCommandOutput,
+    IoTFleetWiseClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("IoTAutobahnControlPlane", "CreateSignalCatalog", {})
+  .n("IoTFleetWiseClient", "CreateSignalCatalogCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateSignalCatalogCommand)
+  .de(de_CreateSignalCatalogCommand)
+  .build() {}

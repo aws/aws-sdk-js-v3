@@ -10,6 +10,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
 
 import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
+import { ALL_MEMBERS, ALL_VALUES } from "../commands/utils";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
 /**
@@ -58,17 +59,21 @@ export class ScanCommand extends DynamoDBDocumentClientCommand<
   __ScanCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
-  protected readonly inputKeyNodes = [
-    {
-      key: "ScanFilter",
-      children: {
-        children: [{ key: "AttributeValueList" }],
+  protected readonly inputKeyNodes = {
+    ScanFilter: {
+      "*": {
+        AttributeValueList: ALL_MEMBERS, // set/list of AttributeValue
       },
     },
-    { key: "ExclusiveStartKey" },
-    { key: "ExpressionAttributeValues" },
-  ];
-  protected readonly outputKeyNodes = [{ key: "Items" }, { key: "LastEvaluatedKey" }];
+    ExclusiveStartKey: ALL_VALUES, // map with AttributeValue
+    ExpressionAttributeValues: ALL_VALUES, // map with AttributeValue
+  };
+  protected readonly outputKeyNodes = {
+    Items: {
+      "*": ALL_VALUES, // map with AttributeValue
+    },
+    LastEvaluatedKey: ALL_VALUES, // map with AttributeValue
+  };
 
   protected readonly clientCommand: __ScanCommand;
   public readonly middlewareStack: MiddlewareStack<

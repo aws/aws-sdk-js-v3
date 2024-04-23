@@ -129,7 +129,7 @@ export interface AppMonitorConfiguration {
    *             </li>
    *          </ul>
    */
-  Telemetries?: (Telemetry | string)[];
+  Telemetries?: Telemetry[];
 
   /**
    * @public
@@ -167,7 +167,7 @@ export interface CustomEvents {
    * <p>Specifies whether this app monitor allows the web client to define and send
    *          custom events. The default is for custom events to be <code>DISABLED</code>.</p>
    */
-  Status?: CustomEventsStatus | string;
+  Status?: CustomEventsStatus;
 }
 
 /**
@@ -266,7 +266,7 @@ export interface AppMonitor {
    * @public
    * <p>The current state of the app monitor.</p>
    */
-  State?: StateEnum | string;
+  State?: StateEnum;
 
   /**
    * @public
@@ -760,7 +760,7 @@ export interface BatchCreateRumMetricDefinitionsRequest {
    *          that will receive
    *          the metrics and an IAM role that has permission to write to the experiment.</p>
    */
-  Destination: MetricDestination | string | undefined;
+  Destination: MetricDestination | undefined;
 
   /**
    * @public
@@ -1077,7 +1077,7 @@ export interface BatchDeleteRumMetricDefinitionsRequest {
    *          you specify <code>Evidently</code>, you must also specify the ARN of the CloudWatchEvidently experiment that is to
    *          be the destination and an IAM role that has permission to write to the experiment.</p>
    */
-  Destination: MetricDestination | string | undefined;
+  Destination: MetricDestination | undefined;
 
   /**
    * @public
@@ -1153,7 +1153,7 @@ export interface BatchGetRumMetricDefinitionsRequest {
    * <p>The type of destination that you want to view metrics for. Valid values are <code>CloudWatch</code>
    *          and <code>Evidently</code>.</p>
    */
-  Destination: MetricDestination | string | undefined;
+  Destination: MetricDestination | undefined;
 
   /**
    * @public
@@ -1300,7 +1300,7 @@ export interface DeleteRumMetricsDestinationRequest {
    * @public
    * <p>The type of destination to delete. Valid values are <code>CloudWatch</code> and <code>Evidently</code>.</p>
    */
-  Destination: MetricDestination | string | undefined;
+  Destination: MetricDestination | undefined;
 
   /**
    * @public
@@ -1495,7 +1495,7 @@ export interface AppMonitorSummary {
    * @public
    * <p>The current state of this app monitor.</p>
    */
-  State?: StateEnum | string;
+  State?: StateEnum;
 }
 
 /**
@@ -1552,7 +1552,7 @@ export interface MetricDestinationSummary {
    * @public
    * <p>Specifies whether the destination is <code>CloudWatch</code> or <code>Evidently</code>.</p>
    */
-  Destination?: MetricDestination | string;
+  Destination?: MetricDestination;
 
   /**
    * @public
@@ -1605,7 +1605,7 @@ export interface PutRumMetricsDestinationRequest {
    *          you specify <code>Evidently</code>, you must also specify the ARN of the CloudWatchEvidently experiment that is to
    *          be the destination and an IAM role that has permission to write to the experiment.</p>
    */
-  Destination: MetricDestination | string | undefined;
+  Destination: MetricDestination | undefined;
 
   /**
    * @public
@@ -1698,7 +1698,7 @@ export interface UpdateRumMetricDefinitionRequest {
    *          that will receive
    *          the metrics and an IAM role that has permission to write to the experiment.</p>
    */
-  Destination: MetricDestination | string | undefined;
+  Destination: MetricDestination | undefined;
 
   /**
    * @public

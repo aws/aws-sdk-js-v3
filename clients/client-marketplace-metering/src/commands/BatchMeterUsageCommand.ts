@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   MarketplaceMeteringClientResolvedConfig,
   ServiceInputTypes,
@@ -43,30 +35,30 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  * <p>
  *             <code>BatchMeterUsage</code> is called from a SaaS application listed on AWS
  *             Marketplace to post metering records for a set of customers.</p>
- *         <p>For identical requests, the API is idempotent; requests can be retried with the same
+ *          <p>For identical requests, the API is idempotent; requests can be retried with the same
  *             records or a subset of the input records.</p>
- *         <p>Every request to <code>BatchMeterUsage</code> is for one product. If you need to meter
+ *          <p>Every request to <code>BatchMeterUsage</code> is for one product. If you need to meter
  *             usage for multiple products, you must make multiple calls to
  *                 <code>BatchMeterUsage</code>.</p>
- *         <p>Usage records are expected to be submitted as quickly as possible after the event that
+ *          <p>Usage records are expected to be submitted as quickly as possible after the event that
  *             is being recorded, and are not accepted more than 6 hours after the event.</p>
- *         <p>
+ *          <p>
  *             <code>BatchMeterUsage</code> can process up to 25 <code>UsageRecords</code> at a
  *             time.</p>
- *         <p>A <code>UsageRecord</code> can optionally include multiple usage allocations, to
+ *          <p>A <code>UsageRecord</code> can optionally include multiple usage allocations, to
  *             provide customers with usage data split into buckets by tags that you define (or allow
  *             the customer to define).</p>
- *         <p>
+ *          <p>
  *             <code>BatchMeterUsage</code> returns a list of <code>UsageRecordResult</code> objects,
  *             showing the result for each <code>UsageRecord</code>, as well as a list of
  *                 <code>UnprocessedRecords</code>, indicating errors in the service side that you
  *             should retry.</p>
- *         <p>
+ *          <p>
  *             <code>BatchMeterUsage</code> requests must be less than 1MB in size.</p>
- *         <note>
+ *          <note>
  *             <p>For an example of using <code>BatchMeterUsage</code>, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/saas-code-examples.html#saas-batchmeterusage-example"> BatchMeterUsage code example</a> in the <i>AWS Marketplace Seller
  *                     Guide</i>.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -118,7 +110,7 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  * //         ],
  * //       },
  * //       MeteringRecordId: "STRING_VALUE",
- * //       Status: "STRING_VALUE",
+ * //       Status: "Success" || "CustomerNotSubscribed" || "DuplicateRecord",
  * //     },
  * //   ],
  * //   UnprocessedRecords: [ // UsageRecordList
@@ -182,7 +174,7 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  * @throws {@link TimestampOutOfBoundsException} (client fault)
  *  <p>The <code>timestamp</code> value passed in the <code>UsageRecord</code> is out of
  *             allowed range.</p>
- *         <p>For <code>BatchMeterUsage</code>, if any of the records are outside of the allowed
+ *          <p>For <code>BatchMeterUsage</code>, if any of the records are outside of the allowed
  *             range, the entire batch is not processed. You must remove invalid records and try
  *             again.</p>
  *
@@ -190,79 +182,26 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  * <p>Base exception class for all service exceptions from MarketplaceMetering service.</p>
  *
  */
-export class BatchMeterUsageCommand extends $Command<
-  BatchMeterUsageCommandInput,
-  BatchMeterUsageCommandOutput,
-  MarketplaceMeteringClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: BatchMeterUsageCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: MarketplaceMeteringClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<BatchMeterUsageCommandInput, BatchMeterUsageCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, BatchMeterUsageCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "MarketplaceMeteringClient";
-    const commandName = "BatchMeterUsageCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: BatchMeterUsageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_BatchMeterUsageCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchMeterUsageCommandOutput> {
-    return de_BatchMeterUsageCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class BatchMeterUsageCommand extends $Command
+  .classBuilder<
+    BatchMeterUsageCommandInput,
+    BatchMeterUsageCommandOutput,
+    MarketplaceMeteringClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: MarketplaceMeteringClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSMPMeteringService", "BatchMeterUsage", {})
+  .n("MarketplaceMeteringClient", "BatchMeterUsageCommand")
+  .f(void 0, void 0)
+  .ser(se_BatchMeterUsageCommand)
+  .de(de_BatchMeterUsageCommand)
+  .build() {}

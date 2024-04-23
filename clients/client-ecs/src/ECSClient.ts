@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -436,6 +434,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 
@@ -508,7 +508,7 @@ export interface ECSClientResolvedConfig extends ECSClientResolvedConfigType {}
  *          <p>You can use Amazon ECS to schedule the placement of containers across your cluster based on
  * 			your resource needs, isolation policies, and availability requirements. With Amazon ECS, you
  * 			don't need to operate your own cluster management and configuration management systems.
- * 			You also don't need to worry about scaling your management infrastructure.</p>
+ * 			You also don't need to worry about scaling your management infrastructure. </p>
  */
 export class ECSClient extends __Client<
   __HttpHandlerOptions,

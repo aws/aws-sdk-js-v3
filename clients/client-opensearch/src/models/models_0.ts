@@ -100,7 +100,7 @@ export interface InboundConnectionStatus {
    *             </li>
    *          </ul>
    */
-  StatusCode?: InboundConnectionStatusCode | string;
+  StatusCode?: InboundConnectionStatusCode;
 
   /**
    * @public
@@ -180,7 +180,7 @@ export interface InboundConnection {
    * @public
    * <p>The connection mode.</p>
    */
-  ConnectionMode?: ConnectionMode | string;
+  ConnectionMode?: ConnectionMode;
 }
 
 /**
@@ -317,7 +317,7 @@ export interface OptionStatus {
    * @public
    * <p>The state of the entity.</p>
    */
-  State: OptionState | string | undefined;
+  State: OptionState | undefined;
 
   /**
    * @public
@@ -396,6 +396,179 @@ export type ActionType = (typeof ActionType)[keyof typeof ActionType];
 
 /**
  * @public
+ * <p>Information about the Amazon S3 Glue Data Catalog.</p>
+ */
+export interface S3GlueDataCatalog {
+  /**
+   * @public
+   * <p>>The Amazon Resource Name (ARN) for the S3 Glue Data Catalog.</p>
+   */
+  RoleArn?: string;
+}
+
+/**
+ * @public
+ * <p>The type of data source.</p>
+ */
+export type DataSourceType = DataSourceType.S3GlueDataCatalogMember | DataSourceType.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace DataSourceType {
+  /**
+   * @public
+   * <p>An Amazon S3 data source.</p>
+   */
+  export interface S3GlueDataCatalogMember {
+    S3GlueDataCatalog: S3GlueDataCatalog;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    S3GlueDataCatalog?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    S3GlueDataCatalog: (value: S3GlueDataCatalog) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: DataSourceType, visitor: Visitor<T>): T => {
+    if (value.S3GlueDataCatalog !== undefined) return visitor.S3GlueDataCatalog(value.S3GlueDataCatalog);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * <p>Container for the parameters to the <code>AddDataSource</code>
+ *    operation.</p>
+ */
+export interface AddDataSourceRequest {
+  /**
+   * @public
+   * <p>The name of the domain to add the data source to.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * @public
+   * <p>A name for the data source.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of data source.</p>
+   */
+  DataSourceType: DataSourceType | undefined;
+
+  /**
+   * @public
+   * <p>A description of the data source.</p>
+   */
+  Description?: string;
+}
+
+/**
+ * @public
+ * <p>The result of an <code>AddDataSource</code> operation.</p>
+ */
+export interface AddDataSourceResponse {
+  /**
+   * @public
+   * <p>A message associated with creation of the data source.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * @public
+ * <p>An error occurred while processing the request.</p>
+ */
+export class BaseException extends __BaseException {
+  readonly name: "BaseException" = "BaseException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BaseException, __BaseException>) {
+    super({
+      name: "BaseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BaseException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>An exception for when a failure in one of the dependencies results in the service being unable to fetch details about the resource.</p>
+ */
+export class DependencyFailureException extends __BaseException {
+  readonly name: "DependencyFailureException" = "DependencyFailureException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DependencyFailureException, __BaseException>) {
+    super({
+      name: "DependencyFailureException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DependencyFailureException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
+ */
+export class InternalException extends __BaseException {
+  readonly name: "InternalException" = "InternalException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalException, __BaseException>) {
+    super({
+      name: "InternalException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>An exception for accessing or deleting a resource that doesn't exist.</p>
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
+}
+
+/**
+ * @public
  * <p> List of limits that are specific to a given instance type.</p>
  */
 export interface AdditionalLimit {
@@ -464,66 +637,6 @@ export interface AddTagsRequest {
    * <p>List of resource tags.</p>
    */
   TagList: Tag[] | undefined;
-}
-
-/**
- * @public
- * <p>An error occurred while processing the request.</p>
- */
-export class BaseException extends __BaseException {
-  readonly name: "BaseException" = "BaseException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BaseException, __BaseException>) {
-    super({
-      name: "BaseException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BaseException.prototype);
-  }
-}
-
-/**
- * @public
- * <p>Request processing failed because of an unknown error, exception, or internal failure.</p>
- */
-export class InternalException extends __BaseException {
-  readonly name: "InternalException" = "InternalException";
-  readonly $fault: "server" = "server";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalException, __BaseException>) {
-    super({
-      name: "InternalException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalException.prototype);
-  }
-}
-
-/**
- * @public
- * <p>An exception for accessing or deleting a resource that doesn't exist.</p>
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
 }
 
 /**
@@ -864,6 +977,7 @@ export interface ErrorDetails {
  */
 export const PackageType = {
   TXT_DICTIONARY: "TXT-DICTIONARY",
+  ZIP_PLUGIN: "ZIP-PLUGIN",
 } as const;
 
 /**
@@ -893,7 +1007,7 @@ export interface DomainPackageDetails {
    * @public
    * <p>The type of package.</p>
    */
-  PackageType?: PackageType | string;
+  PackageType?: PackageType;
 
   /**
    * @public
@@ -911,7 +1025,7 @@ export interface DomainPackageDetails {
    * @public
    * <p>State of the association.</p>
    */
-  DomainPackageStatus?: DomainPackageStatus | string;
+  DomainPackageStatus?: DomainPackageStatus;
 
   /**
    * @public
@@ -1006,7 +1120,7 @@ export interface AuthorizedPrincipal {
    * @public
    * <p>The type of principal.</p>
    */
-  PrincipalType?: PrincipalType | string;
+  PrincipalType?: PrincipalType;
 
   /**
    * @public
@@ -1094,7 +1208,7 @@ export interface ServiceSoftwareOptions {
    * @public
    * <p>The status of your service software update.</p>
    */
-  UpdateStatus?: DeploymentStatus | string;
+  UpdateStatus?: DeploymentStatus;
 
   /**
    * @public
@@ -1173,7 +1287,7 @@ export interface Duration {
    * @public
    * <p>The unit of measurement for the duration of a maintenance schedule.</p>
    */
-  Unit?: TimeUnit | string;
+  Unit?: TimeUnit;
 }
 
 /**
@@ -1220,7 +1334,7 @@ export interface AutoTuneOptionsInput {
    * @public
    * <p>Whether Auto-Tune is enabled or disabled.</p>
    */
-  DesiredState?: AutoTuneDesiredState | string;
+  DesiredState?: AutoTuneDesiredState;
 
   /**
    * @public
@@ -1397,12 +1511,12 @@ export interface ClusterConfig {
    * @public
    * <p>Instance type of data nodes in the cluster.</p>
    */
-  InstanceType?: OpenSearchPartitionInstanceType | string;
+  InstanceType?: OpenSearchPartitionInstanceType;
 
   /**
    * @public
-   * <p>Number of dedicated master nodes in the cluster. This number must be greater than 1,
-   *    otherwise you receive a validation exception.</p>
+   * <p>Number of data nodes in the cluster. This number must be greater than 1, otherwise you
+   *    receive a validation exception.</p>
    */
   InstanceCount?: number;
 
@@ -1430,7 +1544,7 @@ export interface ClusterConfig {
    * @public
    * <p>OpenSearch Service instance type of the dedicated master nodes in the cluster.</p>
    */
-  DedicatedMasterType?: OpenSearchPartitionInstanceType | string;
+  DedicatedMasterType?: OpenSearchPartitionInstanceType;
 
   /**
    * @public
@@ -1449,7 +1563,7 @@ export interface ClusterConfig {
    * @public
    * <p>The instance type for the cluster's warm nodes.</p>
    */
-  WarmType?: OpenSearchWarmPartitionInstanceType | string;
+  WarmType?: OpenSearchWarmPartitionInstanceType;
 
   /**
    * @public
@@ -1512,6 +1626,7 @@ export interface CognitoOptions {
 export const TLSSecurityPolicy = {
   POLICY_MIN_TLS_1_0_2019_07: "Policy-Min-TLS-1-0-2019-07",
   POLICY_MIN_TLS_1_2_2019_07: "Policy-Min-TLS-1-2-2019-07",
+  POLICY_MIN_TLS_1_2_PFS_2023_10: "Policy-Min-TLS-1-2-PFS-2023-10",
 } as const;
 
 /**
@@ -1532,22 +1647,27 @@ export interface DomainEndpointOptions {
 
   /**
    * @public
-   * <p>Specify the TLS security policy to apply to the HTTPS endpoint of the domain.</p>
-   *          <p> Can be one of the following values:</p>
+   * <p>Specify the TLS security policy to apply to the HTTPS endpoint of the domain. The policy can
+   *    be one of the following values:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <b>Policy-Min-TLS-1-0-2019-07:</b> TLS security policy which supports
-   *      TLS version 1.0 and higher.</p>
+   *                   <b>Policy-Min-TLS-1-0-2019-07:</b> TLS security policy that
+   *      supports TLS version 1.0 to TLS version 1.2</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Policy-Min-TLS-1-2-2019-07:</b> TLS security policy which supports
-   *      only TLS version 1.2 </p>
+   *                   <b>Policy-Min-TLS-1-2-2019-07:</b> TLS security policy that
+   *      supports only TLS version 1.2</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Policy-Min-TLS-1-2-PFS-2023-10:</b> TLS security policy that
+   *      supports TLS version 1.2 to TLS version 1.3 with perfect forward secrecy cipher suites</p>
    *             </li>
    *          </ul>
    */
-  TLSSecurityPolicy?: TLSSecurityPolicy | string;
+  TLSSecurityPolicy?: TLSSecurityPolicy;
 
   /**
    * @public
@@ -1602,7 +1722,7 @@ export interface EBSOptions {
    * @public
    * <p>Specifies the type of EBS volumes attached to data nodes.</p>
    */
-  VolumeType?: VolumeType | string;
+  VolumeType?: VolumeType;
 
   /**
    * @public
@@ -1644,6 +1764,20 @@ export interface EncryptionAtRestOptions {
    */
   KmsKeyId?: string;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const IPAddressType = {
+  DUALSTACK: "dualstack",
+  IPV4: "ipv4",
+} as const;
+
+/**
+ * @public
+ */
+export type IPAddressType = (typeof IPAddressType)[keyof typeof IPAddressType];
 
 /**
  * @public
@@ -1849,6 +1983,14 @@ export interface CreateDomainRequest {
 
   /**
    * @public
+   * <p>Specify either dual stack or IPv4 as your IP address type. Dual stack allows you to share
+   *    domain resources across IPv4 and IPv6 address types, and is the recommended option.
+   *    If you set your IP address type to dual stack, you can't change your address type later.</p>
+   */
+  IPAddressType?: IPAddressType;
+
+  /**
+   * @public
    * <p>DEPRECATED. Container for the parameters required to configure automated snapshots of domain
    *    indexes.</p>
    */
@@ -1923,7 +2065,7 @@ export interface CreateDomainRequest {
    * @public
    * <p>Key-value pairs to configure log publishing.</p>
    */
-  LogPublishingOptions?: Record<string, LogPublishingOption>;
+  LogPublishingOptions?: Partial<Record<LogType, LogPublishingOption>>;
 
   /**
    * @public
@@ -1996,7 +2138,7 @@ export interface AutoTuneOptionsOutput {
    * @public
    * <p>The current state of Auto-Tune on the domain.</p>
    */
-  State?: AutoTuneState | string;
+  State?: AutoTuneState;
 
   /**
    * @public
@@ -2112,7 +2254,16 @@ export interface DomainStatus {
 
   /**
    * @public
-   * <p>The key-value pair that exists if the OpenSearch Service domain uses VPC endpoints.. Example
+   * <p>If <code>IPAddressType</code> to set to <code>dualstack</code>, a version 2 domain endpoint is provisioned.
+   *    This endpoint functions like a normal endpoint, except that it works with both IPv4 and IPv6 IP addresses.
+   *    Normal endpoints work only with IPv4 IP addresses.
+   *   </p>
+   */
+  EndpointV2?: string;
+
+  /**
+   * @public
+   * <p>The key-value pair that exists if the OpenSearch Service domain uses VPC endpoints. Example
    *     <code>key, value</code>:
    *     <code>'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'</code>.</p>
    */
@@ -2161,6 +2312,12 @@ export interface DomainStatus {
 
   /**
    * @public
+   * <p>The type of IP addresses supported by the endpoint for the domain.</p>
+   */
+  IPAddressType?: IPAddressType;
+
+  /**
+   * @public
    * <p>DEPRECATED. Container for parameters required to configure automated snapshots of domain
    *    indexes.</p>
    */
@@ -2200,7 +2357,7 @@ export interface DomainStatus {
    * @public
    * <p>Log publishing options for the domain.</p>
    */
-  LogPublishingOptions?: Record<string, LogPublishingOption>;
+  LogPublishingOptions?: Partial<Record<LogType, LogPublishingOption>>;
 
   /**
    * @public
@@ -2316,14 +2473,16 @@ export type SkipUnavailableStatus = (typeof SkipUnavailableStatus)[keyof typeof 
 
 /**
  * @public
- * <p>Cross cluster search specific connection properties.</p>
+ * <p>Cross-cluster search specific connection properties.</p>
  */
 export interface CrossClusterSearchConnectionProperties {
   /**
    * @public
-   * <p>Status of SkipUnavailable param for outbound connection.</p>
+   * <p>The status of the <code>SkipUnavailable</code> setting for the outbound connection. This
+   *    feature allows you to specify some clusters as optional and ensure that your cross-cluster
+   *    queries return partial results despite failures on one or more remote clusters.</p>
    */
-  SkipUnavailable?: SkipUnavailableStatus | string;
+  SkipUnavailable?: SkipUnavailableStatus;
 }
 
 /**
@@ -2374,7 +2533,7 @@ export interface CreateOutboundConnectionRequest {
    * @public
    * <p>The connection mode.</p>
    */
-  ConnectionMode?: ConnectionMode | string;
+  ConnectionMode?: ConnectionMode;
 
   /**
    * @public
@@ -2464,7 +2623,7 @@ export interface OutboundConnectionStatus {
    *             </li>
    *          </ul>
    */
-  StatusCode?: OutboundConnectionStatusCode | string;
+  StatusCode?: OutboundConnectionStatusCode;
 
   /**
    * @public
@@ -2514,7 +2673,7 @@ export interface CreateOutboundConnectionResponse {
    * @public
    * <p>The connection mode.</p>
    */
-  ConnectionMode?: ConnectionMode | string;
+  ConnectionMode?: ConnectionMode;
 
   /**
    * @public
@@ -2556,7 +2715,7 @@ export interface CreatePackageRequest {
    * @public
    * <p>The type of package.</p>
    */
-  PackageType: PackageType | string | undefined;
+  PackageType: PackageType | undefined;
 
   /**
    * @public
@@ -2569,6 +2728,42 @@ export interface CreatePackageRequest {
    * <p>The Amazon S3 location from which to import the package.</p>
    */
   PackageSource: PackageSource | undefined;
+}
+
+/**
+ * @public
+ * <p>Basic information about the plugin.</p>
+ */
+export interface PluginProperties {
+  /**
+   * @public
+   * <p>The name of the plugin.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The description of the plugin.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>The version of the plugin.</p>
+   */
+  Version?: string;
+
+  /**
+   * @public
+   * <p>The name of the class to load.</p>
+   */
+  ClassName?: string;
+
+  /**
+   * @public
+   * <p>The uncompressed size of the plugin.</p>
+   */
+  UncompressedSizeInBytes?: number;
 }
 
 /**
@@ -2612,7 +2807,7 @@ export interface PackageDetails {
    * @public
    * <p>The type of package.</p>
    */
-  PackageType?: PackageType | string;
+  PackageType?: PackageType;
 
   /**
    * @public
@@ -2624,7 +2819,7 @@ export interface PackageDetails {
    * @public
    * <p>The current status of the package. The available options are <code>AVAILABLE</code>, <code>COPYING</code>, <code>COPY_FAILED</code>, <code>VALIDATNG</code>, <code>VALIDATION_FAILED</code>, <code>DELETING</code>, and <code>DELETE_FAILED</code>.</p>
    */
-  PackageStatus?: PackageStatus | string;
+  PackageStatus?: PackageStatus;
 
   /**
    * @public
@@ -2649,6 +2844,19 @@ export interface PackageDetails {
    * <p>Additional information if the package is in an error state. Null otherwise.</p>
    */
   ErrorDetails?: ErrorDetails;
+
+  /**
+   * @public
+   * <p>Version of OpenSearch or Elasticsearch, in the format Elasticsearch_X.Y or OpenSearch_X.Y.
+   *    Defaults to the latest version of OpenSearch.</p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * @public
+   * <p>If the package is a <code>ZIP-PLUGIN</code> package, additional information about plugin properties.</p>
+   */
+  AvailablePluginProperties?: PluginProperties;
 }
 
 /**
@@ -2740,7 +2948,7 @@ export interface VpcEndpoint {
    * @public
    * <p>The current status of the endpoint.</p>
    */
-  Status?: VpcEndpointStatus | string;
+  Status?: VpcEndpointStatus;
 
   /**
    * @public
@@ -2758,6 +2966,37 @@ export interface CreateVpcEndpointResponse {
    * <p>Information about the newly created VPC endpoint.</p>
    */
   VpcEndpoint: VpcEndpoint | undefined;
+}
+
+/**
+ * @public
+ * <p>Container for the parameters to the <code>DeleteDataSource</code>
+ *    operation.</p>
+ */
+export interface DeleteDataSourceRequest {
+  /**
+   * @public
+   * <p>The name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the data source to delete.</p>
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The result of a <code>GetDataSource</code> operation.</p>
+ */
+export interface DeleteDataSourceResponse {
+  /**
+   * @public
+   * <p>A message associated with deletion of the data source.</p>
+   */
+  Message?: string;
 }
 
 /**
@@ -2861,7 +3100,7 @@ export interface OutboundConnection {
    * @public
    * <p>The connection mode.</p>
    */
-  ConnectionMode?: ConnectionMode | string;
+  ConnectionMode?: ConnectionMode;
 
   /**
    * @public
@@ -2945,7 +3184,7 @@ export interface VpcEndpointSummary {
    * @public
    * <p>The current status of the endpoint.</p>
    */
-  Status?: VpcEndpointStatus | string;
+  Status?: VpcEndpointStatus;
 }
 
 /**
@@ -3058,7 +3297,7 @@ export interface ScheduledAutoTuneDetails {
    * @public
    * <p>The type of Auto-Tune action.</p>
    */
-  ActionType?: ScheduledAutoTuneActionType | string;
+  ActionType?: ScheduledAutoTuneActionType;
 
   /**
    * @public
@@ -3071,7 +3310,7 @@ export interface ScheduledAutoTuneDetails {
    * <p>The severity of the Auto-Tune action. Valid values are <code>LOW</code>,
    *    <code>MEDIUM</code>, and <code>HIGH</code>.</p>
    */
-  Severity?: ScheduledAutoTuneSeverityType | string;
+  Severity?: ScheduledAutoTuneSeverityType;
 }
 
 /**
@@ -3110,7 +3349,7 @@ export interface AutoTune {
    * @public
    * <p>The type of Auto-Tune action.</p>
    */
-  AutoTuneType?: AutoTuneType | string;
+  AutoTuneType?: AutoTuneType;
 
   /**
    * @public
@@ -3226,7 +3465,7 @@ export interface ChangeProgressStatusDetails {
    * @public
    * <p>The overall status of the domain configuration change.</p>
    */
-  Status?: OverallChangeStatus | string;
+  Status?: OverallChangeStatus;
 
   /**
    * @public
@@ -3302,7 +3541,7 @@ export interface AutoTuneOptions {
    * @public
    * <p>Whether Auto-Tune is enabled or disabled.</p>
    */
-  DesiredState?: AutoTuneDesiredState | string;
+  DesiredState?: AutoTuneDesiredState;
 
   /**
    * @public
@@ -3311,7 +3550,7 @@ export interface AutoTuneOptions {
    *    specify <code>DEFAULT_ROLLBACK</code>, you must include a <code>MaintenanceSchedule</code> in the
    *    request. Otherwise, OpenSearch Service is unable to perform the rollback.</p>
    */
-  RollbackOnDisable?: RollbackOnDisable | string;
+  RollbackOnDisable?: RollbackOnDisable;
 
   /**
    * @public
@@ -3357,7 +3596,7 @@ export interface AutoTuneStatus {
    * @public
    * <p>The current state of Auto-Tune on the domain.</p>
    */
-  State: AutoTuneState | string | undefined;
+  State: AutoTuneState | undefined;
 
   /**
    * @public
@@ -3501,6 +3740,24 @@ export interface VersionStatus {
 
 /**
  * @public
+ * <p>The IP address type status for the domain.</p>
+ */
+export interface IPAddressTypeStatus {
+  /**
+   * @public
+   * <p>The IP address options for the domain.</p>
+   */
+  Options: IPAddressType | undefined;
+
+  /**
+   * @public
+   * <p>Provides the current status of an entity.</p>
+   */
+  Status: OptionStatus | undefined;
+}
+
+/**
+ * @public
  * <p>The configured log publishing options for the domain and their current status.</p>
  */
 export interface LogPublishingOptionsStatus {
@@ -3508,7 +3765,7 @@ export interface LogPublishingOptionsStatus {
    * @public
    * <p>The log publishing options configured for the domain.</p>
    */
-  Options?: Record<string, LogPublishingOption>;
+  Options?: Partial<Record<LogType, LogPublishingOption>>;
 
   /**
    * @public
@@ -3637,6 +3894,14 @@ export interface DomainConfig {
    * <p>Specifies the access policies for the domain.</p>
    */
   AccessPolicies?: AccessPoliciesStatus;
+
+  /**
+   * @public
+   * <p>Choose either dual stack or IPv4 as your IP address type.
+   *    Dual stack allows you to share domain resources across IPv4 and IPv6 address types, and is the recommended option.
+   *    If you set your IP address type to dual stack, you can't change your address type later.</p>
+   */
+  IPAddressType?: IPAddressTypeStatus;
 
   /**
    * @public
@@ -3819,7 +4084,7 @@ export interface AvailabilityZoneInfo {
    *             </li>
    *          </ul>
    */
-  ZoneStatus?: ZoneStatus | string;
+  ZoneStatus?: ZoneStatus;
 
   /**
    * @public
@@ -3891,7 +4156,7 @@ export interface DescribeDomainHealthResponse {
    *             </li>
    *          </ul>
    */
-  DomainState?: DomainState | string;
+  DomainState?: DomainState;
 
   /**
    * @public
@@ -3950,7 +4215,7 @@ export interface DescribeDomainHealthResponse {
    *             </li>
    *          </ul>
    */
-  MasterNode?: MasterNodeStatus | string;
+  MasterNode?: MasterNodeStatus;
 
   /**
    * @public
@@ -3974,7 +4239,7 @@ export interface DescribeDomainHealthResponse {
    *             </li>
    *          </ul>
    */
-  ClusterHealth?: DomainHealth | string;
+  ClusterHealth?: DomainHealth;
 
   /**
    * @public
@@ -3993,26 +4258,6 @@ export interface DescribeDomainHealthResponse {
    * <p>A list of <code>EnvironmentInfo</code> for the domain. </p>
    */
   EnvironmentInformation?: EnvironmentInfo[];
-}
-
-/**
- * @public
- * <p>An exception for when a failure in one of the dependencies results in the service being unable to fetch details about the resource.</p>
- */
-export class DependencyFailureException extends __BaseException {
-  readonly name: "DependencyFailureException" = "DependencyFailureException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DependencyFailureException, __BaseException>) {
-    super({
-      name: "DependencyFailureException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DependencyFailureException.prototype);
-  }
 }
 
 /**
@@ -4073,7 +4318,7 @@ export interface DomainNodesStatus {
    * @public
    * <p>Indicates whether the nodes is a data, master, or ultrawarm node.</p>
    */
-  NodeType?: NodeType | string;
+  NodeType?: NodeType;
 
   /**
    * @public
@@ -4085,13 +4330,13 @@ export interface DomainNodesStatus {
    * @public
    * <p>The instance type information of the node.</p>
    */
-  InstanceType?: OpenSearchPartitionInstanceType | string;
+  InstanceType?: OpenSearchPartitionInstanceType;
 
   /**
    * @public
    * <p>Indicates if the node is active or in standby.</p>
    */
-  NodeStatus?: NodeStatus | string;
+  NodeStatus?: NodeStatus;
 
   /**
    * @public
@@ -4104,7 +4349,7 @@ export interface DomainNodesStatus {
    * <p>If the nodes has EBS storage, indicates if the volume type is GP2 or GP3. Only applicable
    *    for data nodes. </p>
    */
-  StorageVolumeType?: VolumeType | string;
+  StorageVolumeType?: VolumeType;
 
   /**
    * @public
@@ -4133,9 +4378,8 @@ export interface DescribeDomainNodesResponse {
 export interface DescribeDomainsRequest {
   /**
    * @public
-   * <p>Array of OpenSearch Service domain names that you want information about. If you don't
-   *    specify any domains, OpenSearch Service returns information about all domains owned by the
-   *    account.</p>
+   * <p>Array of OpenSearch Service domain names that you want information about. You must specify
+   *    at least one domain name.</p>
    */
   DomainNames: string[] | undefined;
 }
@@ -4397,7 +4641,7 @@ export interface DescribeInstanceTypeLimitsRequest {
    * @public
    * <p>The OpenSearch Service instance type for which you need limit information.</p>
    */
-  InstanceType: OpenSearchPartitionInstanceType | string | undefined;
+  InstanceType: OpenSearchPartitionInstanceType | undefined;
 
   /**
    * @public
@@ -4606,9 +4850,11 @@ export interface DescribeOutboundConnectionsResponse {
  * @enum
  */
 export const DescribePackagesFilterName = {
+  EngineVersion: "EngineVersion",
   PackageID: "PackageID",
   PackageName: "PackageName",
   PackageStatus: "PackageStatus",
+  PackageType: "PackageType",
 } as const;
 
 /**
@@ -4625,7 +4871,7 @@ export interface DescribePackagesFilter {
    * @public
    * <p>Any field from <code>PackageDetails</code>.</p>
    */
-  Name?: DescribePackagesFilterName | string;
+  Name?: DescribePackagesFilterName;
 
   /**
    * @public
@@ -4648,15 +4894,15 @@ export interface DescribePackagesRequest {
   /**
    * @public
    * <p>An optional parameter that specifies the maximum number of results to return. You can use
-   *     <code>nextToken</code> to get the next page of results.</p>
+   *    <code>nextToken</code> to get the next page of results.</p>
    */
   MaxResults?: number;
 
   /**
    * @public
    * <p>If your initial <code>DescribePackageFilters</code> operation returns a
-   *     <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
-   *     <code>DescribePackageFilters</code> operations, which returns results in the next page.</p>
+   *    <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent
+   *    <code>DescribePackageFilters</code> operations, which returns results in the next page.</p>
    */
   NextToken?: string;
 }
@@ -4675,7 +4921,7 @@ export interface DescribePackagesResponse {
   /**
    * @public
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *     <code>nextToken</code> is a unique pagination token for each page. Make the call again using the
+   *    <code>nextToken</code> is a unique pagination token for each page. Make the call again using the
    *    returned token to retrieve the next page.</p>
    */
   NextToken?: string;
@@ -4761,7 +5007,7 @@ export interface ReservedInstanceOffering {
    * @public
    * <p>The OpenSearch instance type offered by the Reserved Instance offering.</p>
    */
-  InstanceType?: OpenSearchPartitionInstanceType | string;
+  InstanceType?: OpenSearchPartitionInstanceType;
 
   /**
    * @public
@@ -4792,7 +5038,7 @@ export interface ReservedInstanceOffering {
    * @public
    * <p>Payment option for the Reserved Instance offering</p>
    */
-  PaymentOption?: ReservedInstancePaymentOption | string;
+  PaymentOption?: ReservedInstancePaymentOption;
 
   /**
    * @public
@@ -4885,7 +5131,7 @@ export interface ReservedInstance {
    * @public
    * <p>The OpenSearch instance type offered by theReserved Instance offering.</p>
    */
-  InstanceType?: OpenSearchPartitionInstanceType | string;
+  InstanceType?: OpenSearchPartitionInstanceType;
 
   /**
    * @public
@@ -4934,7 +5180,7 @@ export interface ReservedInstance {
    * @public
    * <p>The payment option as defined in the Reserved Instance offering.</p>
    */
-  PaymentOption?: ReservedInstancePaymentOption | string;
+  PaymentOption?: ReservedInstancePaymentOption;
 
   /**
    * @public
@@ -5006,7 +5252,7 @@ export interface VpcEndpointError {
    * @public
    * <p>The code associated with the error.</p>
    */
-  ErrorCode?: VpcEndpointErrorCode | string;
+  ErrorCode?: VpcEndpointErrorCode;
 
   /**
    * @public
@@ -5110,6 +5356,142 @@ export interface GetCompatibleVersionsResponse {
 
 /**
  * @public
+ * <p>Container for the parameters to the <code>GetDataSource</code>
+ *    operation.</p>
+ */
+export interface GetDataSourceRequest {
+  /**
+   * @public
+   * <p>The name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the data source to get information about.</p>
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The result of a <code>GetDataSource</code> operation.</p>
+ */
+export interface GetDataSourceResponse {
+  /**
+   * @public
+   * <p>The type of data source.</p>
+   */
+  DataSourceType?: DataSourceType;
+
+  /**
+   * @public
+   * <p>The name of the data source.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>A description of the data source.</p>
+   */
+  Description?: string;
+}
+
+/**
+ * @public
+ * <p>Container for the parameters to the <code>GetDomainMaintenanceStatus</code>
+ *    operation.</p>
+ */
+export interface GetDomainMaintenanceStatusRequest {
+  /**
+   * @public
+   * <p>The name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * @public
+   * <p>The request ID of the maintenance action.</p>
+   */
+  MaintenanceId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MaintenanceType = {
+  REBOOT_NODE: "REBOOT_NODE",
+  RESTART_DASHBOARD: "RESTART_DASHBOARD",
+  RESTART_SEARCH_PROCESS: "RESTART_SEARCH_PROCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type MaintenanceType = (typeof MaintenanceType)[keyof typeof MaintenanceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const MaintenanceStatus = {
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+  TIMED_OUT: "TIMED_OUT",
+} as const;
+
+/**
+ * @public
+ */
+export type MaintenanceStatus = (typeof MaintenanceStatus)[keyof typeof MaintenanceStatus];
+
+/**
+ * @public
+ * <p>The result of a <code>GetDomainMaintenanceStatus</code> request that information about the requested action.</p>
+ */
+export interface GetDomainMaintenanceStatusResponse {
+  /**
+   * @public
+   * <p>The status of the maintenance action.</p>
+   */
+  Status?: MaintenanceStatus;
+
+  /**
+   * @public
+   * <p>The status message of the maintenance action.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * @public
+   * <p>The node ID of the maintenance action.</p>
+   */
+  NodeId?: string;
+
+  /**
+   * @public
+   * <p>The action name.</p>
+   */
+  Action?: MaintenanceType;
+
+  /**
+   * @public
+   * <p>The time at which the action was created.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * @public
+   * <p>The time at which the action was updated.</p>
+   */
+  UpdatedAt?: Date;
+}
+
+/**
+ * @public
  * <p>Container for the request parameters to the <code>GetPackageVersionHistory</code> operation.</p>
  */
 export interface GetPackageVersionHistoryRequest {
@@ -5158,6 +5540,12 @@ export interface PackageVersionHistory {
    * <p>The date and time when the package was created.</p>
    */
   CreatedAt?: Date;
+
+  /**
+   * @public
+   * <p>Additional information about plugin properties if the package is a <code>ZIP-PLUGIN</code> package.</p>
+   */
+  PluginProperties?: PluginProperties;
 }
 
 /**
@@ -5264,7 +5652,7 @@ export interface UpgradeStepItem {
    *             </li>
    *          </ul>
    */
-  UpgradeStep?: UpgradeStep | string;
+  UpgradeStep?: UpgradeStep;
 
   /**
    * @public
@@ -5284,7 +5672,7 @@ export interface UpgradeStepItem {
    *             </li>
    *          </ul>
    */
-  UpgradeStepStatus?: UpgradeStatus | string;
+  UpgradeStepStatus?: UpgradeStatus;
 
   /**
    * @public
@@ -5336,7 +5724,7 @@ export interface UpgradeHistory {
    *             </li>
    *          </ul>
    */
-  UpgradeStatus?: UpgradeStatus | string;
+  UpgradeStatus?: UpgradeStatus;
 
   /**
    * @public
@@ -5387,19 +5775,182 @@ export interface GetUpgradeStatusResponse {
    * @public
    * <p>One of three steps that an upgrade or upgrade eligibility check goes through.</p>
    */
-  UpgradeStep?: UpgradeStep | string;
+  UpgradeStep?: UpgradeStep;
 
   /**
    * @public
    * <p>The status of the current step that an upgrade is on.</p>
    */
-  StepStatus?: UpgradeStatus | string;
+  StepStatus?: UpgradeStatus;
 
   /**
    * @public
    * <p>A string that describes the update.</p>
    */
   UpgradeName?: string;
+}
+
+/**
+ * @public
+ * <p>Container for the parameters to the <code>ListDataSources</code>
+ *    operation.</p>
+ */
+export interface ListDataSourcesRequest {
+  /**
+   * @public
+   * <p>The name of the domain.</p>
+   */
+  DomainName: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Details about a direct-query data source.</p>
+ */
+export interface DataSourceDetails {
+  /**
+   * @public
+   * <p>The type of data source.</p>
+   */
+  DataSourceType?: DataSourceType;
+
+  /**
+   * @public
+   * <p>The name of the data source.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>A description of the data source.</p>
+   */
+  Description?: string;
+}
+
+/**
+ * @public
+ * <p>The result of a <code>ListDataSources</code> operation.</p>
+ */
+export interface ListDataSourcesResponse {
+  /**
+   * @public
+   * <p>A list of data sources associated with specified domain.</p>
+   */
+  DataSources?: DataSourceDetails[];
+}
+
+/**
+ * @public
+ * <p>Container for the parameters to the <code>ListDomainMaintenances</code>
+ *    operation.</p>
+ */
+export interface ListDomainMaintenancesRequest {
+  /**
+   * @public
+   * <p>The name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the action.</p>
+   */
+  Action?: MaintenanceType;
+
+  /**
+   * @public
+   * <p>The status of the action.</p>
+   */
+  Status?: MaintenanceStatus;
+
+  /**
+   * @public
+   * <p>An optional parameter that specifies the maximum number of results to return. You can use
+   *    <code>nextToken</code> to get the next page of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>If your initial <code>ListDomainMaintenances</code> operation returns a
+   *    <code>nextToken</code>, include the returned <code>nextToken</code> in subsequent
+   *    <code>ListDomainMaintenances</code> operations, which returns results in the next page.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * <p>Container for the domain maintenance details.</p>
+ */
+export interface DomainMaintenanceDetails {
+  /**
+   * @public
+   * <p>The ID of the requested action.</p>
+   */
+  MaintenanceId?: string;
+
+  /**
+   * @public
+   * <p>The name of the domain.</p>
+   */
+  DomainName?: string;
+
+  /**
+   * @public
+   * <p>The name of the action.</p>
+   */
+  Action?: MaintenanceType;
+
+  /**
+   * @public
+   * <p>The ID of the data node.</p>
+   */
+  NodeId?: string;
+
+  /**
+   * @public
+   * <p>The status of the action.</p>
+   */
+  Status?: MaintenanceStatus;
+
+  /**
+   * @public
+   * <p>The status message for the action.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * @public
+   * <p>The time at which the action was created.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * @public
+   * <p>The time at which the action was updated.</p>
+   */
+  UpdatedAt?: Date;
+}
+
+/**
+ * @public
+ * <p>The result of a <code>ListDomainMaintenances</code> request that contains information about the requested actions. </p>
+ */
+export interface ListDomainMaintenancesResponse {
+  /**
+   * @public
+   * <p>A list of the submitted maintenance actions.</p>
+   */
+  DomainMaintenances?: DomainMaintenanceDetails[];
+
+  /**
+   * @public
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value of
+   *    <code>nextToken</code> is a unique pagination token for each page. Make the call again using the
+   *    returned token to retrieve the next page.</p>
+   */
+  NextToken?: string;
 }
 
 /**
@@ -5425,7 +5976,7 @@ export interface ListDomainNamesRequest {
    * @public
    * <p>Filters the output by domain engine type.</p>
    */
-  EngineType?: EngineType | string;
+  EngineType?: EngineType;
 }
 
 /**
@@ -5444,7 +5995,7 @@ export interface DomainInfo {
    * <p>The type of search engine that the domain is running.<code>OpenSearch</code> for an
    *    OpenSearch engine, or <code>Elasticsearch</code> for a legacy Elasticsearch OSS engine.</p>
    */
-  EngineType?: EngineType | string;
+  EngineType?: EngineType;
 }
 
 /**
@@ -5563,7 +6114,7 @@ export interface InstanceTypeDetails {
    * @public
    * <p>The instance type.</p>
    */
-  InstanceType?: OpenSearchPartitionInstanceType | string;
+  InstanceType?: OpenSearchPartitionInstanceType;
 
   /**
    * @public
@@ -5735,13 +6286,13 @@ export interface ScheduledAction {
    * @public
    * <p>The type of action that will be taken on the domain.</p>
    */
-  Type: ActionType | string | undefined;
+  Type: ActionType | undefined;
 
   /**
    * @public
    * <p>The severity of the action.</p>
    */
-  Severity: ActionSeverity | string | undefined;
+  Severity: ActionSeverity | undefined;
 
   /**
    * @public
@@ -5759,13 +6310,13 @@ export interface ScheduledAction {
    * @public
    * <p>Whether the action was scheduled manually (<code>CUSTOMER</code>, or by OpenSearch Service automatically (<code>SYSTEM</code>).</p>
    */
-  ScheduledBy?: ScheduledBy | string;
+  ScheduledBy?: ScheduledBy;
 
   /**
    * @public
    * <p>The current status of the scheduled action.</p>
    */
-  Status?: ActionStatus | string;
+  Status?: ActionStatus;
 
   /**
    * @public
@@ -6085,6 +6636,43 @@ export interface RevokeVpcEndpointAccessResponse {}
 
 /**
  * @public
+ * <p>Container for the parameters to the <code>StartDomainMaintenance</code>
+ *    operation.</p>
+ */
+export interface StartDomainMaintenanceRequest {
+  /**
+   * @public
+   * <p>The name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the action.</p>
+   */
+  Action: MaintenanceType | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the data node.</p>
+   */
+  NodeId?: string;
+}
+
+/**
+ * @public
+ * <p>The result of a <code>StartDomainMaintenance</code> request that information about the requested action. </p>
+ */
+export interface StartDomainMaintenanceResponse {
+  /**
+   * @public
+   * <p>The request ID of requested action.</p>
+   */
+  MaintenanceId?: string;
+}
+
+/**
+ * @public
  * @enum
  */
 export const ScheduleAt = {
@@ -6134,7 +6722,7 @@ export interface StartServiceSoftwareUpdateRequest {
    *          <p>Default: <code>NOW</code> if you don't specify a value for <code>DesiredStartTime</code>,
    *    and <code>TIMESTAMP</code> if you do.</p>
    */
-  ScheduleAt?: ScheduleAt | string;
+  ScheduleAt?: ScheduleAt;
 
   /**
    * @public
@@ -6155,6 +6743,49 @@ export interface StartServiceSoftwareUpdateResponse {
    * <p>The current status of the OpenSearch Service software update.</p>
    */
   ServiceSoftwareOptions?: ServiceSoftwareOptions;
+}
+
+/**
+ * @public
+ * <p>Container for the parameters to the <code>UpdateDataSource</code>
+ *    operation.</p>
+ */
+export interface UpdateDataSourceRequest {
+  /**
+   * @public
+   * <p>The name of the domain.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the data source to modify.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of data source.</p>
+   */
+  DataSourceType: DataSourceType | undefined;
+
+  /**
+   * @public
+   * <p>A new description of the data source.</p>
+   */
+  Description?: string;
+}
+
+/**
+ * @public
+ * <p>The result of an <code>UpdateDataSource</code> operation.</p>
+ */
+export interface UpdateDataSourceResponse {
+  /**
+   * @public
+   * <p>A message associated with the updated data source.</p>
+   */
+  Message?: string;
 }
 
 /**
@@ -6255,9 +6886,18 @@ export interface UpdateDomainConfigRequest {
 
   /**
    * @public
+   * <p>Specify either dual stack or IPv4 as your IP address type. Dual stack allows you to share domain resources across
+   *    IPv4 and IPv6 address types, and is the recommended option.
+   *    If your IP address type is currently set to dual stack, you can't change it.
+   *   </p>
+   */
+  IPAddressType?: IPAddressType;
+
+  /**
+   * @public
    * <p>Options to publish OpenSearch logs to Amazon CloudWatch Logs.</p>
    */
-  LogPublishingOptions?: Record<string, LogPublishingOption>;
+  LogPublishingOptions?: Partial<Record<LogType, LogPublishingOption>>;
 
   /**
    * @public
@@ -6314,7 +6954,7 @@ export interface UpdateDomainConfigRequest {
    *             </li>
    *          </ul>
    */
-  DryRunMode?: DryRunMode | string;
+  DryRunMode?: DryRunMode;
 
   /**
    * @public
@@ -6445,7 +7085,7 @@ export interface UpdateScheduledActionRequest {
    * <p>The type of action to reschedule. Can be one of <code>SERVICE_SOFTWARE_UPDATE</code>,
    *    <code>JVM_HEAP_SIZE_TUNING</code>, or <code>JVM_YOUNG_GEN_TUNING</code>. To retrieve this value, send a <a href="https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_ListScheduledActions.html">ListScheduledActions</a> request.</p>
    */
-  ActionType: ActionType | string | undefined;
+  ActionType: ActionType | undefined;
 
   /**
    * @public
@@ -6469,7 +7109,7 @@ export interface UpdateScheduledActionRequest {
    *             </li>
    *          </ul>
    */
-  ScheduleAt: ScheduleAt | string | undefined;
+  ScheduleAt: ScheduleAt | undefined;
 
   /**
    * @public

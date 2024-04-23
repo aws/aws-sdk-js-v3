@@ -342,7 +342,7 @@ export interface ActivityTaskTimedOutEventAttributes {
    * @public
    * <p>The type of the timeout that caused this event.</p>
    */
-  timeoutType: ActivityTaskTimeoutType | string | undefined;
+  timeoutType: ActivityTaskTimeoutType | undefined;
 
   /**
    * @public
@@ -470,7 +470,7 @@ export interface ActivityTypeInfo {
    * @public
    * <p>The current status of the activity type.</p>
    */
-  status: RegistrationStatus | string | undefined;
+  status: RegistrationStatus | undefined;
 
   /**
    * @public
@@ -613,7 +613,7 @@ export interface CancelTimerFailedEventAttributes {
    *           in the <i>Amazon SWF Developer Guide</i>.</p>
    *          </note>
    */
-  cause: CancelTimerFailedCause | string | undefined;
+  cause: CancelTimerFailedCause | undefined;
 
   /**
    * @public
@@ -684,7 +684,7 @@ export interface CancelWorkflowExecutionFailedEventAttributes {
    *           in the <i>Amazon SWF Developer Guide</i>.</p>
    *          </note>
    */
-  cause: CancelWorkflowExecutionFailedCause | string | undefined;
+  cause: CancelWorkflowExecutionFailedCause | undefined;
 
   /**
    * @public
@@ -962,7 +962,7 @@ export interface ChildWorkflowExecutionTimedOutEventAttributes {
    * @public
    * <p>The type of the timeout that caused the child workflow execution to time out.</p>
    */
-  timeoutType: WorkflowExecutionTimeoutType | string | undefined;
+  timeoutType: WorkflowExecutionTimeoutType | undefined;
 
   /**
    * @public
@@ -1011,7 +1011,7 @@ export interface CloseStatusFilter {
    *          The close status that must match the close status of an execution for it to meet the criteria of
    *       this filter.</p>
    */
-  status: CloseStatus | string | undefined;
+  status: CloseStatus | undefined;
 }
 
 /**
@@ -1075,7 +1075,7 @@ export interface CompleteWorkflowExecutionFailedEventAttributes {
    *           in the <i>Amazon SWF Developer Guide</i>.</p>
    *          </note>
    */
-  cause: CompleteWorkflowExecutionFailedCause | string | undefined;
+  cause: CompleteWorkflowExecutionFailedCause | undefined;
 
   /**
    * @public
@@ -1200,7 +1200,7 @@ export interface ContinueAsNewWorkflowExecutionDecisionAttributes {
    *             <p>A child policy for this workflow execution must be specified either as a default for the workflow type or through this parameter. If neither this parameter is set nor a default child policy was specified at registration time then a fault is returned.</p>
    *          </note>
    */
-  childPolicy?: ChildPolicy | string;
+  childPolicy?: ChildPolicy;
 
   /**
    * @public
@@ -1259,7 +1259,7 @@ export interface ContinueAsNewWorkflowExecutionFailedEventAttributes {
    *           in the <i>Amazon SWF Developer Guide</i>.</p>
    *          </note>
    */
-  cause: ContinueAsNewWorkflowExecutionFailedCause | string | undefined;
+  cause: ContinueAsNewWorkflowExecutionFailedCause | undefined;
 
   /**
    * @public
@@ -2164,7 +2164,7 @@ export interface StartChildWorkflowExecutionDecisionAttributes {
    *             <p>A child policy for this workflow execution must be specified either as a default for the workflow type or through this parameter. If neither this parameter is set nor a default child policy was specified at registration time then a fault is returned.</p>
    *          </note>
    */
-  childPolicy?: ChildPolicy | string;
+  childPolicy?: ChildPolicy;
 
   /**
    * @public
@@ -2509,7 +2509,7 @@ export interface Decision {
    * @public
    * <p>Specifies the type of the decision.</p>
    */
-  decisionType: DecisionType | string | undefined;
+  decisionType: DecisionType | undefined;
 
   /**
    * @public
@@ -2710,7 +2710,7 @@ export interface DecisionTaskTimedOutEventAttributes {
    * @public
    * <p>The type of timeout that expired before the decision task could be completed.</p>
    */
-  timeoutType: DecisionTaskTimeoutType | string | undefined;
+  timeoutType: DecisionTaskTimeoutType | undefined;
 
   /**
    * @public
@@ -2865,7 +2865,7 @@ export interface FailWorkflowExecutionFailedEventAttributes {
    *           in the <i>Amazon SWF Developer Guide</i>.</p>
    *          </note>
    */
-  cause: FailWorkflowExecutionFailedCause | string | undefined;
+  cause: FailWorkflowExecutionFailedCause | undefined;
 
   /**
    * @public
@@ -3031,7 +3031,7 @@ export interface LambdaFunctionTimedOutEventAttributes {
    * @public
    * <p>The type of the timeout that caused this event.</p>
    */
-  timeoutType?: LambdaFunctionTimeoutType | string;
+  timeoutType?: LambdaFunctionTimeoutType;
 }
 
 /**
@@ -3093,7 +3093,7 @@ export interface RecordMarkerFailedEventAttributes {
    *           in the <i>Amazon SWF Developer Guide</i>.</p>
    *          </note>
    */
-  cause: RecordMarkerFailedCause | string | undefined;
+  cause: RecordMarkerFailedCause | undefined;
 
   /**
    * @public
@@ -3139,7 +3139,7 @@ export interface RequestCancelActivityTaskFailedEventAttributes {
    *           in the <i>Amazon SWF Developer Guide</i>.</p>
    *          </note>
    */
-  cause: RequestCancelActivityTaskFailedCause | string | undefined;
+  cause: RequestCancelActivityTaskFailedCause | undefined;
 
   /**
    * @public
@@ -3192,7 +3192,7 @@ export interface RequestCancelExternalWorkflowExecutionFailedEventAttributes {
    *           in the <i>Amazon SWF Developer Guide</i>.</p>
    *          </note>
    */
-  cause: RequestCancelExternalWorkflowExecutionFailedCause | string | undefined;
+  cause: RequestCancelExternalWorkflowExecutionFailedCause | undefined;
 
   /**
    * @public
@@ -3302,7 +3302,7 @@ export interface ScheduleActivityTaskFailedEventAttributes {
    *           in the <i>Amazon SWF Developer Guide</i>.</p>
    *          </note>
    */
-  cause: ScheduleActivityTaskFailedCause | string | undefined;
+  cause: ScheduleActivityTaskFailedCause | undefined;
 
   /**
    * @public
@@ -3360,7 +3360,7 @@ export interface ScheduleLambdaFunctionFailedEventAttributes {
    *           <i>Amazon SWF Developer Guide</i>.</p>
    *          </note>
    */
-  cause: ScheduleLambdaFunctionFailedCause | string | undefined;
+  cause: ScheduleLambdaFunctionFailedCause | undefined;
 
   /**
    * @public
@@ -3412,7 +3412,7 @@ export interface SignalExternalWorkflowExecutionFailedEventAttributes {
    *           in the <i>Amazon SWF Developer Guide</i>.</p>
    *          </note>
    */
-  cause: SignalExternalWorkflowExecutionFailedCause | string | undefined;
+  cause: SignalExternalWorkflowExecutionFailedCause | undefined;
 
   /**
    * @public
@@ -3527,7 +3527,7 @@ export interface StartChildWorkflowExecutionFailedEventAttributes {
    *                   Using IAM to Manage Access to Amazon SWF Workflows</a>  in the <i>Amazon SWF Developer Guide</i>.</p>
    *          </note>
    */
-  cause: StartChildWorkflowExecutionFailedCause | string | undefined;
+  cause: StartChildWorkflowExecutionFailedCause | undefined;
 
   /**
    * @public
@@ -3644,7 +3644,7 @@ export interface StartChildWorkflowExecutionInitiatedEventAttributes {
    *             </li>
    *          </ul>
    */
-  childPolicy: ChildPolicy | string | undefined;
+  childPolicy: ChildPolicy | undefined;
 
   /**
    * @public
@@ -3703,7 +3703,7 @@ export interface StartLambdaFunctionFailedEventAttributes {
    *           <i>Amazon SWF Developer Guide</i>.</p>
    *          </note>
    */
-  cause?: StartLambdaFunctionFailedCause | string;
+  cause?: StartLambdaFunctionFailedCause;
 
   /**
    * @public
@@ -3748,7 +3748,7 @@ export interface StartTimerFailedEventAttributes {
    *           in the <i>Amazon SWF Developer Guide</i>.</p>
    *          </note>
    */
-  cause: StartTimerFailedCause | string | undefined;
+  cause: StartTimerFailedCause | undefined;
 
   /**
    * @public
@@ -3900,7 +3900,7 @@ export interface WorkflowExecutionCancelRequestedEventAttributes {
    * @public
    * <p>If set, indicates that the request to cancel the workflow execution was automatically generated, and specifies the cause. This happens if the parent workflow execution times out or is terminated, and the child policy is set to cancel child executions.</p>
    */
-  cause?: WorkflowExecutionCancelRequestedCause | string;
+  cause?: WorkflowExecutionCancelRequestedCause;
 }
 
 /**
@@ -3998,7 +3998,7 @@ export interface WorkflowExecutionContinuedAsNewEventAttributes {
    *             </li>
    *          </ul>
    */
-  childPolicy: ChildPolicy | string | undefined;
+  childPolicy: ChildPolicy | undefined;
 
   /**
    * @public
@@ -4126,7 +4126,7 @@ export interface WorkflowExecutionStartedEventAttributes {
    *             </li>
    *          </ul>
    */
-  childPolicy: ChildPolicy | string | undefined;
+  childPolicy: ChildPolicy | undefined;
 
   /**
    * @public
@@ -4237,13 +4237,13 @@ export interface WorkflowExecutionTerminatedEventAttributes {
    *             </li>
    *          </ul>
    */
-  childPolicy: ChildPolicy | string | undefined;
+  childPolicy: ChildPolicy | undefined;
 
   /**
    * @public
    * <p>If set, indicates that the workflow execution was automatically terminated, and specifies the cause. This happens if the parent workflow execution times out or is terminated and the child policy is set to terminate child executions.</p>
    */
-  cause?: WorkflowExecutionTerminatedCause | string;
+  cause?: WorkflowExecutionTerminatedCause;
 }
 
 /**
@@ -4255,7 +4255,7 @@ export interface WorkflowExecutionTimedOutEventAttributes {
    * @public
    * <p>The type of timeout that caused this event.</p>
    */
-  timeoutType: WorkflowExecutionTimeoutType | string | undefined;
+  timeoutType: WorkflowExecutionTimeoutType | undefined;
 
   /**
    * @public
@@ -4278,7 +4278,7 @@ export interface WorkflowExecutionTimedOutEventAttributes {
    *             </li>
    *          </ul>
    */
-  childPolicy: ChildPolicy | string | undefined;
+  childPolicy: ChildPolicy | undefined;
 }
 
 /**
@@ -4513,7 +4513,7 @@ export interface HistoryEvent {
    * @public
    * <p>The type of the history event.</p>
    */
-  eventType: EventType | string | undefined;
+  eventType: EventType | undefined;
 
   /**
    * @public
@@ -5137,7 +5137,7 @@ export interface DomainInfo {
    *             </li>
    *          </ul>
    */
-  status: RegistrationStatus | string | undefined;
+  status: RegistrationStatus | undefined;
 
   /**
    * @public
@@ -5244,7 +5244,7 @@ export interface WorkflowExecutionConfiguration {
    *             </li>
    *          </ul>
    */
-  childPolicy: ChildPolicy | string | undefined;
+  childPolicy: ChildPolicy | undefined;
 
   /**
    * @public
@@ -5300,7 +5300,7 @@ export interface WorkflowExecutionInfo {
    * @public
    * <p>The current status of the execution.</p>
    */
-  executionStatus: ExecutionStatus | string | undefined;
+  executionStatus: ExecutionStatus | undefined;
 
   /**
    * @public
@@ -5335,7 +5335,7 @@ export interface WorkflowExecutionInfo {
    *             </li>
    *          </ul>
    */
-  closeStatus?: CloseStatus | string;
+  closeStatus?: CloseStatus;
 
   /**
    * @public
@@ -5523,7 +5523,7 @@ export interface WorkflowTypeConfiguration {
    *             </li>
    *          </ul>
    */
-  defaultChildPolicy?: ChildPolicy | string;
+  defaultChildPolicy?: ChildPolicy;
 
   /**
    * @public
@@ -5553,7 +5553,7 @@ export interface WorkflowTypeInfo {
    * @public
    * <p>The current status of the workflow type.</p>
    */
-  status: RegistrationStatus | string | undefined;
+  status: RegistrationStatus | undefined;
 
   /**
    * @public
@@ -5751,7 +5751,7 @@ export interface ListActivityTypesInput {
    * @public
    * <p>Specifies the registration status of the activity types to list.</p>
    */
-  registrationStatus: RegistrationStatus | string | undefined;
+  registrationStatus: RegistrationStatus | undefined;
 
   /**
    * @public
@@ -5938,7 +5938,7 @@ export interface ListDomainsInput {
    * @public
    * <p>Specifies the registration status of the domains to list.</p>
    */
-  registrationStatus: RegistrationStatus | string | undefined;
+  registrationStatus: RegistrationStatus | undefined;
 
   /**
    * @public
@@ -6097,7 +6097,7 @@ export interface ListWorkflowTypesInput {
    * @public
    * <p>Specifies the registration status of the workflow types to list.</p>
    */
-  registrationStatus: RegistrationStatus | string | undefined;
+  registrationStatus: RegistrationStatus | undefined;
 
   /**
    * @public
@@ -6574,7 +6574,7 @@ export interface RegisterWorkflowTypeInput {
    *             </li>
    *          </ul>
    */
-  defaultChildPolicy?: ChildPolicy | string;
+  defaultChildPolicy?: ChildPolicy;
 
   /**
    * @public
@@ -6925,7 +6925,7 @@ export interface StartWorkflowExecutionInput {
    *         child policy was specified at registration time then a fault is returned.</p>
    *          </note>
    */
-  childPolicy?: ChildPolicy | string;
+  childPolicy?: ChildPolicy;
 
   /**
    * @public
@@ -7043,7 +7043,7 @@ export interface TerminateWorkflowExecutionInput {
    *         child policy was specified at registration time then a fault is returned.</p>
    *          </note>
    */
-  childPolicy?: ChildPolicy | string;
+  childPolicy?: ChildPolicy;
 }
 
 /**

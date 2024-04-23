@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteRequestValidatorRequest } from "../models/models_0";
 import { de_DeleteRequestValidatorCommand, se_DeleteRequestValidatorCommand } from "../protocols/Aws_restJson1";
 
@@ -78,79 +70,26 @@ export interface DeleteRequestValidatorCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
  */
-export class DeleteRequestValidatorCommand extends $Command<
-  DeleteRequestValidatorCommandInput,
-  DeleteRequestValidatorCommandOutput,
-  APIGatewayClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeleteRequestValidatorCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: APIGatewayClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DeleteRequestValidatorCommandInput, DeleteRequestValidatorCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteRequestValidatorCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "APIGatewayClient";
-    const commandName = "DeleteRequestValidatorCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DeleteRequestValidatorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteRequestValidatorCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRequestValidatorCommandOutput> {
-    return de_DeleteRequestValidatorCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DeleteRequestValidatorCommand extends $Command
+  .classBuilder<
+    DeleteRequestValidatorCommandInput,
+    DeleteRequestValidatorCommandOutput,
+    APIGatewayClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("BackplaneControlService", "DeleteRequestValidator", {})
+  .n("APIGatewayClient", "DeleteRequestValidatorCommand")
+  .f(void 0, void 0)
+  .ser(se_DeleteRequestValidatorCommand)
+  .de(de_DeleteRequestValidatorCommand)
+  .build() {}

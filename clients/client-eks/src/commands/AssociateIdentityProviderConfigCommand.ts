@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { AssociateIdentityProviderConfigRequest, AssociateIdentityProviderConfigResponse } from "../models/models_0";
 import {
   de_AssociateIdentityProviderConfigCommand,
@@ -41,13 +33,13 @@ export interface AssociateIdentityProviderConfigCommandOutput
 
 /**
  * @public
- * <p>Associate an identity provider configuration to a cluster.</p>
+ * <p>Associates an identity provider configuration to a cluster.</p>
  *          <p>If you want to authenticate identities using an identity provider, you can create an
  *             identity provider configuration and associate it to your cluster. After configuring
- *             authentication to your cluster you can create Kubernetes <code>roles</code> and
- *                 <code>clusterroles</code> to assign permissions to the roles, and then bind the
- *             roles to the identities using Kubernetes <code>rolebindings</code> and
- *                 <code>clusterrolebindings</code>. For more information see <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">Using RBAC
+ *             authentication to your cluster you can create Kubernetes <code>Role</code> and
+ *                 <code>ClusterRole</code> objects, assign permissions to them, and then bind them to
+ *             the identities using Kubernetes <code>RoleBinding</code> and <code>ClusterRoleBinding</code>
+ *             objects. For more information see <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">Using RBAC
  *                 Authorization</a> in the Kubernetes documentation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,10 +72,10 @@ export interface AssociateIdentityProviderConfigCommandOutput
  * //   update: { // Update
  * //     id: "STRING_VALUE",
  * //     status: "InProgress" || "Failed" || "Cancelled" || "Successful",
- * //     type: "VersionUpdate" || "EndpointAccessUpdate" || "LoggingUpdate" || "ConfigUpdate" || "AssociateIdentityProviderConfig" || "DisassociateIdentityProviderConfig" || "AssociateEncryptionConfig" || "AddonUpdate",
+ * //     type: "VersionUpdate" || "EndpointAccessUpdate" || "LoggingUpdate" || "ConfigUpdate" || "AssociateIdentityProviderConfig" || "DisassociateIdentityProviderConfig" || "AssociateEncryptionConfig" || "AddonUpdate" || "VpcConfigUpdate" || "AccessConfigUpdate",
  * //     params: [ // UpdateParams
  * //       { // UpdateParam
- * //         type: "Version" || "PlatformVersion" || "EndpointPrivateAccess" || "EndpointPublicAccess" || "ClusterLogging" || "DesiredSize" || "LabelsToAdd" || "LabelsToRemove" || "TaintsToAdd" || "TaintsToRemove" || "MaxSize" || "MinSize" || "ReleaseVersion" || "PublicAccessCidrs" || "LaunchTemplateName" || "LaunchTemplateVersion" || "IdentityProviderConfig" || "EncryptionConfig" || "AddonVersion" || "ServiceAccountRoleArn" || "ResolveConflicts" || "MaxUnavailable" || "MaxUnavailablePercentage",
+ * //         type: "Version" || "PlatformVersion" || "EndpointPrivateAccess" || "EndpointPublicAccess" || "ClusterLogging" || "DesiredSize" || "LabelsToAdd" || "LabelsToRemove" || "TaintsToAdd" || "TaintsToRemove" || "MaxSize" || "MinSize" || "ReleaseVersion" || "PublicAccessCidrs" || "LaunchTemplateName" || "LaunchTemplateVersion" || "IdentityProviderConfig" || "EncryptionConfig" || "AddonVersion" || "ServiceAccountRoleArn" || "ResolveConflicts" || "MaxUnavailable" || "MaxUnavailablePercentage" || "ConfigurationValues" || "SecurityGroups" || "Subnets" || "AuthenticationMode",
  * //         value: "STRING_VALUE",
  * //       },
  * //     ],
@@ -113,8 +105,8 @@ export interface AssociateIdentityProviderConfigCommandOutput
  *
  * @throws {@link ClientException} (client fault)
  *  <p>These errors are usually caused by a client action. Actions can include using an
- *             action or resource on behalf of a user that doesn't have permissions to use the action
- *             or resource or specifying an identifier that is not valid.</p>
+ *             action or resource on behalf of an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a> that doesn't have permissions to use
+ *             the action or resource or specifying an identifier that is not valid.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter is invalid. Review the available parameters for the API
@@ -129,9 +121,8 @@ export interface AssociateIdentityProviderConfigCommandOutput
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found. You can view your available clusters with
- *                 <a>ListClusters</a>. You can view your available managed node groups with
- *                 <a>ListNodegroups</a>. Amazon EKS clusters and node groups are
- *             Region-specific.</p>
+ *                 <code>ListClusters</code>. You can view your available managed node groups with
+ *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
@@ -140,85 +131,26 @@ export interface AssociateIdentityProviderConfigCommandOutput
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
-export class AssociateIdentityProviderConfigCommand extends $Command<
-  AssociateIdentityProviderConfigCommandInput,
-  AssociateIdentityProviderConfigCommandOutput,
-  EKSClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: AssociateIdentityProviderConfigCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: EKSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<AssociateIdentityProviderConfigCommandInput, AssociateIdentityProviderConfigCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, AssociateIdentityProviderConfigCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "EKSClient";
-    const commandName = "AssociateIdentityProviderConfigCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: AssociateIdentityProviderConfigCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_AssociateIdentityProviderConfigCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AssociateIdentityProviderConfigCommandOutput> {
-    return de_AssociateIdentityProviderConfigCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class AssociateIdentityProviderConfigCommand extends $Command
+  .classBuilder<
+    AssociateIdentityProviderConfigCommandInput,
+    AssociateIdentityProviderConfigCommandOutput,
+    EKSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSWesleyFrontend", "AssociateIdentityProviderConfig", {})
+  .n("EKSClient", "AssociateIdentityProviderConfigCommand")
+  .f(void 0, void 0)
+  .ser(se_AssociateIdentityProviderConfigCommand)
+  .de(de_AssociateIdentityProviderConfigCommand)
+  .build() {}

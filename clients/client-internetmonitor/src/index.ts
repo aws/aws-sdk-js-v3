@@ -23,8 +23,12 @@
 export * from "./InternetMonitorClient";
 export * from "./InternetMonitor";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { InternetMonitorExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { InternetMonitorServiceException } from "./models/InternetMonitorServiceException";

@@ -13,6 +13,11 @@ import {
   AssociateIpGroupsCommandOutput,
 } from "./commands/AssociateIpGroupsCommand";
 import {
+  AssociateWorkspaceApplicationCommand,
+  AssociateWorkspaceApplicationCommandInput,
+  AssociateWorkspaceApplicationCommandOutput,
+} from "./commands/AssociateWorkspaceApplicationCommand";
+import {
   AuthorizeIpRulesCommand,
   AuthorizeIpRulesCommandInput,
   AuthorizeIpRulesCommandOutput,
@@ -95,6 +100,11 @@ import {
   DeleteWorkspaceImageCommandOutput,
 } from "./commands/DeleteWorkspaceImageCommand";
 import {
+  DeployWorkspaceApplicationsCommand,
+  DeployWorkspaceApplicationsCommandInput,
+  DeployWorkspaceApplicationsCommandOutput,
+} from "./commands/DeployWorkspaceApplicationsCommand";
+import {
   DeregisterWorkspaceDirectoryCommand,
   DeregisterWorkspaceDirectoryCommandInput,
   DeregisterWorkspaceDirectoryCommandOutput,
@@ -109,6 +119,21 @@ import {
   DescribeAccountModificationsCommandInput,
   DescribeAccountModificationsCommandOutput,
 } from "./commands/DescribeAccountModificationsCommand";
+import {
+  DescribeApplicationAssociationsCommand,
+  DescribeApplicationAssociationsCommandInput,
+  DescribeApplicationAssociationsCommandOutput,
+} from "./commands/DescribeApplicationAssociationsCommand";
+import {
+  DescribeApplicationsCommand,
+  DescribeApplicationsCommandInput,
+  DescribeApplicationsCommandOutput,
+} from "./commands/DescribeApplicationsCommand";
+import {
+  DescribeBundleAssociationsCommand,
+  DescribeBundleAssociationsCommandInput,
+  DescribeBundleAssociationsCommandOutput,
+} from "./commands/DescribeBundleAssociationsCommand";
 import {
   DescribeClientBrandingCommand,
   DescribeClientBrandingCommandInput,
@@ -135,6 +160,11 @@ import {
   DescribeConnectionAliasPermissionsCommandOutput,
 } from "./commands/DescribeConnectionAliasPermissionsCommand";
 import {
+  DescribeImageAssociationsCommand,
+  DescribeImageAssociationsCommandInput,
+  DescribeImageAssociationsCommandOutput,
+} from "./commands/DescribeImageAssociationsCommand";
+import {
   DescribeIpGroupsCommand,
   DescribeIpGroupsCommandInput,
   DescribeIpGroupsCommandOutput,
@@ -144,6 +174,11 @@ import {
   DescribeTagsCommandInput,
   DescribeTagsCommandOutput,
 } from "./commands/DescribeTagsCommand";
+import {
+  DescribeWorkspaceAssociationsCommand,
+  DescribeWorkspaceAssociationsCommandInput,
+  DescribeWorkspaceAssociationsCommandOutput,
+} from "./commands/DescribeWorkspaceAssociationsCommand";
 import {
   DescribeWorkspaceBundlesCommand,
   DescribeWorkspaceBundlesCommandInput,
@@ -189,6 +224,11 @@ import {
   DisassociateIpGroupsCommandInput,
   DisassociateIpGroupsCommandOutput,
 } from "./commands/DisassociateIpGroupsCommand";
+import {
+  DisassociateWorkspaceApplicationCommand,
+  DisassociateWorkspaceApplicationCommandInput,
+  DisassociateWorkspaceApplicationCommandOutput,
+} from "./commands/DisassociateWorkspaceApplicationCommand";
 import {
   ImportClientBrandingCommand,
   ImportClientBrandingCommandInput,
@@ -324,6 +364,7 @@ import { WorkSpacesClient, WorkSpacesClientConfig } from "./WorkSpacesClient";
 const commands = {
   AssociateConnectionAliasCommand,
   AssociateIpGroupsCommand,
+  AssociateWorkspaceApplicationCommand,
   AuthorizeIpRulesCommand,
   CopyWorkspaceImageCommand,
   CreateConnectClientAddInCommand,
@@ -342,16 +383,22 @@ const commands = {
   DeleteTagsCommand,
   DeleteWorkspaceBundleCommand,
   DeleteWorkspaceImageCommand,
+  DeployWorkspaceApplicationsCommand,
   DeregisterWorkspaceDirectoryCommand,
   DescribeAccountCommand,
   DescribeAccountModificationsCommand,
+  DescribeApplicationAssociationsCommand,
+  DescribeApplicationsCommand,
+  DescribeBundleAssociationsCommand,
   DescribeClientBrandingCommand,
   DescribeClientPropertiesCommand,
   DescribeConnectClientAddInsCommand,
   DescribeConnectionAliasesCommand,
   DescribeConnectionAliasPermissionsCommand,
+  DescribeImageAssociationsCommand,
   DescribeIpGroupsCommand,
   DescribeTagsCommand,
+  DescribeWorkspaceAssociationsCommand,
   DescribeWorkspaceBundlesCommand,
   DescribeWorkspaceDirectoriesCommand,
   DescribeWorkspaceImagePermissionsCommand,
@@ -361,6 +408,7 @@ const commands = {
   DescribeWorkspaceSnapshotsCommand,
   DisassociateConnectionAliasCommand,
   DisassociateIpGroupsCommand,
+  DisassociateWorkspaceApplicationCommand,
   ImportClientBrandingCommand,
   ImportWorkspaceImageCommand,
   ListAvailableManagementCidrRangesCommand,
@@ -422,6 +470,23 @@ export interface WorkSpaces {
     args: AssociateIpGroupsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateIpGroupsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateWorkspaceApplicationCommand}
+   */
+  associateWorkspaceApplication(
+    args: AssociateWorkspaceApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateWorkspaceApplicationCommandOutput>;
+  associateWorkspaceApplication(
+    args: AssociateWorkspaceApplicationCommandInput,
+    cb: (err: any, data?: AssociateWorkspaceApplicationCommandOutput) => void
+  ): void;
+  associateWorkspaceApplication(
+    args: AssociateWorkspaceApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateWorkspaceApplicationCommandOutput) => void
   ): void;
 
   /**
@@ -707,6 +772,23 @@ export interface WorkSpaces {
   ): void;
 
   /**
+   * @see {@link DeployWorkspaceApplicationsCommand}
+   */
+  deployWorkspaceApplications(
+    args: DeployWorkspaceApplicationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeployWorkspaceApplicationsCommandOutput>;
+  deployWorkspaceApplications(
+    args: DeployWorkspaceApplicationsCommandInput,
+    cb: (err: any, data?: DeployWorkspaceApplicationsCommandOutput) => void
+  ): void;
+  deployWorkspaceApplications(
+    args: DeployWorkspaceApplicationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeployWorkspaceApplicationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeregisterWorkspaceDirectoryCommand}
    */
   deregisterWorkspaceDirectory(
@@ -752,6 +834,57 @@ export interface WorkSpaces {
     args: DescribeAccountModificationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeAccountModificationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeApplicationAssociationsCommand}
+   */
+  describeApplicationAssociations(
+    args: DescribeApplicationAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeApplicationAssociationsCommandOutput>;
+  describeApplicationAssociations(
+    args: DescribeApplicationAssociationsCommandInput,
+    cb: (err: any, data?: DescribeApplicationAssociationsCommandOutput) => void
+  ): void;
+  describeApplicationAssociations(
+    args: DescribeApplicationAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeApplicationAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeApplicationsCommand}
+   */
+  describeApplications(
+    args: DescribeApplicationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeApplicationsCommandOutput>;
+  describeApplications(
+    args: DescribeApplicationsCommandInput,
+    cb: (err: any, data?: DescribeApplicationsCommandOutput) => void
+  ): void;
+  describeApplications(
+    args: DescribeApplicationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeApplicationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeBundleAssociationsCommand}
+   */
+  describeBundleAssociations(
+    args: DescribeBundleAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeBundleAssociationsCommandOutput>;
+  describeBundleAssociations(
+    args: DescribeBundleAssociationsCommandInput,
+    cb: (err: any, data?: DescribeBundleAssociationsCommandOutput) => void
+  ): void;
+  describeBundleAssociations(
+    args: DescribeBundleAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeBundleAssociationsCommandOutput) => void
   ): void;
 
   /**
@@ -840,6 +973,23 @@ export interface WorkSpaces {
   ): void;
 
   /**
+   * @see {@link DescribeImageAssociationsCommand}
+   */
+  describeImageAssociations(
+    args: DescribeImageAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeImageAssociationsCommandOutput>;
+  describeImageAssociations(
+    args: DescribeImageAssociationsCommandInput,
+    cb: (err: any, data?: DescribeImageAssociationsCommandOutput) => void
+  ): void;
+  describeImageAssociations(
+    args: DescribeImageAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeImageAssociationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeIpGroupsCommand}
    */
   describeIpGroups(
@@ -865,6 +1015,23 @@ export interface WorkSpaces {
     args: DescribeTagsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeTagsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeWorkspaceAssociationsCommand}
+   */
+  describeWorkspaceAssociations(
+    args: DescribeWorkspaceAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeWorkspaceAssociationsCommandOutput>;
+  describeWorkspaceAssociations(
+    args: DescribeWorkspaceAssociationsCommandInput,
+    cb: (err: any, data?: DescribeWorkspaceAssociationsCommandOutput) => void
+  ): void;
+  describeWorkspaceAssociations(
+    args: DescribeWorkspaceAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeWorkspaceAssociationsCommandOutput) => void
   ): void;
 
   /**
@@ -1018,6 +1185,23 @@ export interface WorkSpaces {
     args: DisassociateIpGroupsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisassociateIpGroupsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateWorkspaceApplicationCommand}
+   */
+  disassociateWorkspaceApplication(
+    args: DisassociateWorkspaceApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateWorkspaceApplicationCommandOutput>;
+  disassociateWorkspaceApplication(
+    args: DisassociateWorkspaceApplicationCommandInput,
+    cb: (err: any, data?: DisassociateWorkspaceApplicationCommandOutput) => void
+  ): void;
+  disassociateWorkspaceApplication(
+    args: DisassociateWorkspaceApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateWorkspaceApplicationCommandOutput) => void
   ): void;
 
   /**

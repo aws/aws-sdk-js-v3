@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -9,7 +10,6 @@ import {
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   parseEpochTimestamp as __parseEpochTimestamp,
   take,
   withBaseException,
@@ -397,9 +397,9 @@ const de_AttributeMap = (output: any, context: __SerdeContext): Record<string, A
     if (value === null) {
       return acc;
     }
-    acc[key] = de_AttributeValue(__expectUnion(value), context);
+    acc[key as string] = de_AttributeValue(__expectUnion(value), context);
     return acc;
-  }, {});
+  }, {} as Record<string, AttributeValue>);
 };
 
 /**
@@ -518,9 +518,9 @@ const de_MapAttributeValue = (output: any, context: __SerdeContext): Record<stri
     if (value === null) {
       return acc;
     }
-    acc[key] = de_AttributeValue(__expectUnion(value), context);
+    acc[key as string] = de_AttributeValue(__expectUnion(value), context);
     return acc;
-  }, {});
+  }, {} as Record<string, AttributeValue>);
 };
 
 // de_NumberSetAttributeValue omitted.

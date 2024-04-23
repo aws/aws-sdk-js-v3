@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -75,11 +76,11 @@ export const se_CreateSuiteDefinitionCommand = async (
   input: CreateSuiteDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/suiteDefinitions";
+  b.bp("/suiteDefinitions");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -87,15 +88,8 @@ export const se_CreateSuiteDefinitionCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -105,28 +99,13 @@ export const se_DeleteSuiteDefinitionCommand = async (
   input: DeleteSuiteDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/suiteDefinitions/{suiteDefinitionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "suiteDefinitionId",
-    () => input.suiteDefinitionId!,
-    "{suiteDefinitionId}",
-    false
-  );
+  b.bp("/suiteDefinitions/{suiteDefinitionId}");
+  b.p("suiteDefinitionId", () => input.suiteDefinitionId!, "{suiteDefinitionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -136,26 +115,18 @@ export const se_GetEndpointCommand = async (
   input: GetEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/endpoint";
+  b.bp("/endpoint");
   const query: any = map({
-    thingArn: [, input.thingArn!],
-    certificateArn: [, input.certificateArn!],
-    deviceRoleArn: [, input.deviceRoleArn!],
-    authenticationMethod: [, input.authenticationMethod!],
+    [_tA]: [, input[_tA]!],
+    [_cA]: [, input[_cA]!],
+    [_dRA]: [, input[_dRA]!],
+    [_aM]: [, input[_aM]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -165,32 +136,16 @@ export const se_GetSuiteDefinitionCommand = async (
   input: GetSuiteDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/suiteDefinitions/{suiteDefinitionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "suiteDefinitionId",
-    () => input.suiteDefinitionId!,
-    "{suiteDefinitionId}",
-    false
-  );
+  b.bp("/suiteDefinitions/{suiteDefinitionId}");
+  b.p("suiteDefinitionId", () => input.suiteDefinitionId!, "{suiteDefinitionId}", false);
   const query: any = map({
-    suiteDefinitionVersion: [, input.suiteDefinitionVersion!],
+    [_sDV]: [, input[_sDV]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -200,30 +155,14 @@ export const se_GetSuiteRunCommand = async (
   input: GetSuiteRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "suiteDefinitionId",
-    () => input.suiteDefinitionId!,
-    "{suiteDefinitionId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "suiteRunId", () => input.suiteRunId!, "{suiteRunId}", false);
+  b.bp("/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}");
+  b.p("suiteDefinitionId", () => input.suiteDefinitionId!, "{suiteDefinitionId}", false);
+  b.p("suiteRunId", () => input.suiteRunId!, "{suiteRunId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -233,30 +172,14 @@ export const se_GetSuiteRunReportCommand = async (
   input: GetSuiteRunReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}/report";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "suiteDefinitionId",
-    () => input.suiteDefinitionId!,
-    "{suiteDefinitionId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "suiteRunId", () => input.suiteRunId!, "{suiteRunId}", false);
+  b.bp("/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}/report");
+  b.p("suiteDefinitionId", () => input.suiteDefinitionId!, "{suiteDefinitionId}", false);
+  b.p("suiteRunId", () => input.suiteRunId!, "{suiteRunId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -266,24 +189,16 @@ export const se_ListSuiteDefinitionsCommand = async (
   input: ListSuiteDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/suiteDefinitions";
+  b.bp("/suiteDefinitions");
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -293,26 +208,18 @@ export const se_ListSuiteRunsCommand = async (
   input: ListSuiteRunsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/suiteRuns";
+  b.bp("/suiteRuns");
   const query: any = map({
-    suiteDefinitionId: [, input.suiteDefinitionId!],
-    suiteDefinitionVersion: [, input.suiteDefinitionVersion!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_sDI]: [, input[_sDI]!],
+    [_sDV]: [, input[_sDV]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -322,20 +229,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -345,21 +245,12 @@ export const se_StartSuiteRunCommand = async (
   input: StartSuiteRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/suiteDefinitions/{suiteDefinitionId}/suiteRuns";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "suiteDefinitionId",
-    () => input.suiteDefinitionId!,
-    "{suiteDefinitionId}",
-    false
-  );
+  b.bp("/suiteDefinitions/{suiteDefinitionId}/suiteRuns");
+  b.p("suiteDefinitionId", () => input.suiteDefinitionId!, "{suiteDefinitionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -368,15 +259,8 @@ export const se_StartSuiteRunCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -386,30 +270,14 @@ export const se_StopSuiteRunCommand = async (
   input: StopSuiteRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}/stop";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "suiteDefinitionId",
-    () => input.suiteDefinitionId!,
-    "{suiteDefinitionId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "suiteRunId", () => input.suiteRunId!, "{suiteRunId}", false);
+  b.bp("/suiteDefinitions/{suiteDefinitionId}/suiteRuns/{suiteRunId}/stop");
+  b.p("suiteDefinitionId", () => input.suiteDefinitionId!, "{suiteDefinitionId}", false);
+  b.p("suiteRunId", () => input.suiteRunId!, "{suiteRunId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -419,27 +287,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -449,27 +310,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -479,35 +332,20 @@ export const se_UpdateSuiteDefinitionCommand = async (
   input: UpdateSuiteDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/suiteDefinitions/{suiteDefinitionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "suiteDefinitionId",
-    () => input.suiteDefinitionId!,
-    "{suiteDefinitionId}",
-    false
-  );
+  b.bp("/suiteDefinitions/{suiteDefinitionId}");
+  b.p("suiteDefinitionId", () => input.suiteDefinitionId!, "{suiteDefinitionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       suiteDefinitionConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1491,6 +1329,16 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _aM = "authenticationMethod";
+const _cA = "certificateArn";
+const _dRA = "deviceRoleArn";
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _sDI = "suiteDefinitionId";
+const _sDV = "suiteDefinitionVersion";
+const _tA = "thingArn";
+const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { TagResourceRequest, TagResourceResponse } from "../models/models_3";
+import { commonParams } from "../endpoint/EndpointParameters";
+import { TagResourceRequest, TagResourceResponse } from "../models/models_4";
 import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
@@ -45,15 +37,12 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * 			that is already associated with the resource, the new tag value that you specify
  * 			replaces the previous value for that tag.</p>
  *          <p>You can associate as many as 50 tags with a resource. Amazon QuickSight supports tagging on data
- * 			set, data source, dashboard, template, and topic. </p>
+ * 			set, data source, dashboard, template, topic, and user. </p>
  *          <p>Tagging for Amazon QuickSight works in a similar way to tagging for other Amazon Web Services services, except for
  * 			the following:</p>
  *          <ul>
  *             <li>
- *                <p>You can't use tags to track costs for Amazon QuickSight. This isn't
- * 				possible because you can't tag the resources that Amazon QuickSight costs are based
- * 				on, for example Amazon QuickSight storage capacity (SPICE), number of users, type
- * 				of users, and usage metrics.</p>
+ *                <p>Tags are used to track costs for users in Amazon QuickSight. You can't tag other resources that Amazon QuickSight costs are based on, such as storage capacoty (SPICE), session usage, alert consumption, or reporting units.</p>
  *             </li>
  *             <li>
  *                <p>Amazon QuickSight doesn't currently support the tag editor for Resource Groups.</p>
@@ -114,77 +103,26 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
-export class TagResourceCommand extends $Command<
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-  QuickSightClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: TagResourceCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: QuickSightClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<TagResourceCommandInput, TagResourceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, TagResourceCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "QuickSightClient";
-    const commandName = "TagResourceCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: TagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_TagResourceCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagResourceCommandOutput> {
-    return de_TagResourceCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class TagResourceCommand extends $Command
+  .classBuilder<
+    TagResourceCommandInput,
+    TagResourceCommandOutput,
+    QuickSightClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("QuickSight_20180401", "TagResource", {})
+  .n("QuickSightClient", "TagResourceCommand")
+  .f(void 0, void 0)
+  .ser(se_TagResourceCommand)
+  .de(de_TagResourceCommand)
+  .build() {}

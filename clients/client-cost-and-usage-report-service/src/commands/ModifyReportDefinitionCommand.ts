@@ -1,23 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   CostAndUsageReportServiceClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CostAndUsageReportServiceClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ModifyReportDefinitionRequest, ModifyReportDefinitionResponse } from "../models/models_0";
 import { de_ModifyReportDefinitionCommand, se_ModifyReportDefinitionCommand } from "../protocols/Aws_json1_1";
 
@@ -40,7 +32,7 @@ export interface ModifyReportDefinitionCommandOutput extends ModifyReportDefinit
 
 /**
  * @public
- * <p>Allows you to programatically update your report preferences.</p>
+ * <p>Allows you to programmatically update your report preferences.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,7 +47,7 @@ export interface ModifyReportDefinitionCommandOutput extends ModifyReportDefinit
  *     Format: "textORcsv" || "Parquet", // required
  *     Compression: "ZIP" || "GZIP" || "Parquet", // required
  *     AdditionalSchemaElements: [ // SchemaElementList // required
- *       "RESOURCES" || "SPLIT_COST_ALLOCATION_DATA",
+ *       "RESOURCES" || "SPLIT_COST_ALLOCATION_DATA" || "MANUAL_DISCOUNT_COMPATIBILITY",
  *     ],
  *     S3Bucket: "STRING_VALUE", // required
  *     S3Prefix: "STRING_VALUE", // required
@@ -66,6 +58,10 @@ export interface ModifyReportDefinitionCommandOutput extends ModifyReportDefinit
  *     RefreshClosedReports: true || false,
  *     ReportVersioning: "CREATE_NEW_REPORT" || "OVERWRITE_REPORT",
  *     BillingViewArn: "STRING_VALUE",
+ *     ReportStatus: { // ReportStatus
+ *       lastDelivery: "STRING_VALUE",
+ *       lastStatus: "SUCCESS" || "ERROR_PERMISSIONS" || "ERROR_NO_BUCKET",
+ *     },
  *   },
  * };
  * const command = new ModifyReportDefinitionCommand(input);
@@ -84,85 +80,32 @@ export interface ModifyReportDefinitionCommandOutput extends ModifyReportDefinit
  *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link CostAndUsageReportServiceServiceException}
  * <p>Base exception class for all service exceptions from CostAndUsageReportService service.</p>
  *
  */
-export class ModifyReportDefinitionCommand extends $Command<
-  ModifyReportDefinitionCommandInput,
-  ModifyReportDefinitionCommandOutput,
-  CostAndUsageReportServiceClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ModifyReportDefinitionCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CostAndUsageReportServiceClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ModifyReportDefinitionCommandInput, ModifyReportDefinitionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ModifyReportDefinitionCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CostAndUsageReportServiceClient";
-    const commandName = "ModifyReportDefinitionCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ModifyReportDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ModifyReportDefinitionCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyReportDefinitionCommandOutput> {
-    return de_ModifyReportDefinitionCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ModifyReportDefinitionCommand extends $Command
+  .classBuilder<
+    ModifyReportDefinitionCommandInput,
+    ModifyReportDefinitionCommandOutput,
+    CostAndUsageReportServiceClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CostAndUsageReportServiceClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSOrigamiServiceGatewayService", "ModifyReportDefinition", {})
+  .n("CostAndUsageReportServiceClient", "ModifyReportDefinitionCommand")
+  .f(void 0, void 0)
+  .ser(se_ModifyReportDefinitionCommand)
+  .de(de_ModifyReportDefinitionCommand)
+  .build() {}

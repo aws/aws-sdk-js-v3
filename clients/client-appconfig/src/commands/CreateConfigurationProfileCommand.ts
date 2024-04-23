@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ConfigurationProfile,
   ConfigurationProfileFilterSensitiveLog,
@@ -103,6 +95,7 @@ export interface CreateConfigurationProfileCommandOutput extends ConfigurationPr
  *     "<keys>": "STRING_VALUE",
  *   },
  *   Type: "STRING_VALUE",
+ *   KmsKeyIdentifier: "STRING_VALUE",
  * };
  * const command = new CreateConfigurationProfileCommand(input);
  * const response = await client.send(command);
@@ -120,6 +113,8 @@ export interface CreateConfigurationProfileCommandOutput extends ConfigurationPr
  * //     },
  * //   ],
  * //   Type: "STRING_VALUE",
+ * //   KmsKeyArn: "STRING_VALUE",
+ * //   KmsKeyIdentifier: "STRING_VALUE",
  * // };
  *
  * ```
@@ -138,6 +133,17 @@ export interface CreateConfigurationProfileCommandOutput extends ConfigurationPr
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The number of one more AppConfig resources exceeds the maximum allowed. Verify that your
+ *          environment doesn't exceed the following service quotas:</p>
+ *          <p>Applications: 100 max</p>
+ *          <p>Deployment strategies: 20 max</p>
+ *          <p>Configuration profiles: 100 max per application</p>
+ *          <p>Environments: 20 max per application</p>
+ *          <p>To resolve this issue, you can delete one or more resources and try again. Or, you can
+ *          request a quota increase. For more information about quotas and to request an increase, see
+ *             <a href="https://docs.aws.amazon.com/general/latest/gr/appconfig.html#limits_appconfig">Service quotas for AppConfig</a> in the Amazon Web Services General Reference.</p>
  *
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
@@ -166,82 +172,26 @@ export interface CreateConfigurationProfileCommandOutput extends ConfigurationPr
  * ```
  *
  */
-export class CreateConfigurationProfileCommand extends $Command<
-  CreateConfigurationProfileCommandInput,
-  CreateConfigurationProfileCommandOutput,
-  AppConfigClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateConfigurationProfileCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AppConfigClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateConfigurationProfileCommandInput, CreateConfigurationProfileCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateConfigurationProfileCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "AppConfigClient";
-    const commandName = "CreateConfigurationProfileCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: CreateConfigurationProfileRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ConfigurationProfileFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateConfigurationProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateConfigurationProfileCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateConfigurationProfileCommandOutput> {
-    return de_CreateConfigurationProfileCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateConfigurationProfileCommand extends $Command
+  .classBuilder<
+    CreateConfigurationProfileCommandInput,
+    CreateConfigurationProfileCommandOutput,
+    AppConfigClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonAppConfig", "CreateConfigurationProfile", {})
+  .n("AppConfigClient", "CreateConfigurationProfileCommand")
+  .f(CreateConfigurationProfileRequestFilterSensitiveLog, ConfigurationProfileFilterSensitiveLog)
+  .ser(se_CreateConfigurationProfileCommand)
+  .de(de_CreateConfigurationProfileCommand)
+  .build() {}

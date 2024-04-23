@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetRecommendationsRequest,
   GetRecommendationsRequestFilterSensitiveLog,
@@ -91,6 +83,11 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  *       },
  *     },
  *   ],
+ *   metadataColumns: { // MetadataColumns
+ *     "<keys>": [ // ColumnNamesList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new GetRecommendationsCommand(input);
  * const response = await client.send(command);
@@ -100,6 +97,9 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * //       itemId: "STRING_VALUE",
  * //       score: Number("double"),
  * //       promotionName: "STRING_VALUE",
+ * //       metadata: { // Metadata
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   recommendationId: "STRING_VALUE",
@@ -123,79 +123,26 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * <p>Base exception class for all service exceptions from PersonalizeRuntime service.</p>
  *
  */
-export class GetRecommendationsCommand extends $Command<
-  GetRecommendationsCommandInput,
-  GetRecommendationsCommandOutput,
-  PersonalizeRuntimeClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetRecommendationsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: PersonalizeRuntimeClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetRecommendationsCommandInput, GetRecommendationsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetRecommendationsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "PersonalizeRuntimeClient";
-    const commandName = "GetRecommendationsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: GetRecommendationsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetRecommendationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetRecommendationsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRecommendationsCommandOutput> {
-    return de_GetRecommendationsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetRecommendationsCommand extends $Command
+  .classBuilder<
+    GetRecommendationsCommandInput,
+    GetRecommendationsCommandOutput,
+    PersonalizeRuntimeClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: PersonalizeRuntimeClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonPersonalizeRuntime", "GetRecommendations", {})
+  .n("PersonalizeRuntimeClient", "GetRecommendationsCommand")
+  .f(GetRecommendationsRequestFilterSensitiveLog, void 0)
+  .ser(se_GetRecommendationsCommand)
+  .de(de_GetRecommendationsCommand)
+  .build() {}

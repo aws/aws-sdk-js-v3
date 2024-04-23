@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
 import { StartDeliveryStreamEncryptionInput, StartDeliveryStreamEncryptionOutput } from "../models/models_0";
 import {
@@ -61,6 +53,7 @@ export interface StartDeliveryStreamEncryptionCommandOutput
  *          CMK is of type <code>CUSTOMER_MANAGED_CMK</code>, Kinesis Data Firehose creates a grant
  *          that enables it to use the new CMK to encrypt and decrypt data and to manage the
  *          grant.</p>
+ *          <p>For the KMS grant creation to be successful, Kinesis Data Firehose APIs <code>StartDeliveryStreamEncryption</code> and <code>CreateDeliveryStream</code> should not be called with session credentials that are more than 6 hours old.</p>
  *          <p>If a delivery stream already has encryption enabled and then you invoke this operation
  *          to change the ARN of the CMK or both its type and ARN and you get
  *             <code>ENABLING_FAILED</code>, this only means that the attempt to change the CMK failed.
@@ -125,82 +118,26 @@ export interface StartDeliveryStreamEncryptionCommandOutput
  * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
  */
-export class StartDeliveryStreamEncryptionCommand extends $Command<
-  StartDeliveryStreamEncryptionCommandInput,
-  StartDeliveryStreamEncryptionCommandOutput,
-  FirehoseClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StartDeliveryStreamEncryptionCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: FirehoseClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StartDeliveryStreamEncryptionCommandInput, StartDeliveryStreamEncryptionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartDeliveryStreamEncryptionCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "FirehoseClient";
-    const commandName = "StartDeliveryStreamEncryptionCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StartDeliveryStreamEncryptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartDeliveryStreamEncryptionCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartDeliveryStreamEncryptionCommandOutput> {
-    return de_StartDeliveryStreamEncryptionCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class StartDeliveryStreamEncryptionCommand extends $Command
+  .classBuilder<
+    StartDeliveryStreamEncryptionCommandInput,
+    StartDeliveryStreamEncryptionCommandOutput,
+    FirehoseClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: FirehoseClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("Firehose_20150804", "StartDeliveryStreamEncryption", {})
+  .n("FirehoseClient", "StartDeliveryStreamEncryptionCommand")
+  .f(void 0, void 0)
+  .ser(se_StartDeliveryStreamEncryptionCommand)
+  .de(de_StartDeliveryStreamEncryptionCommand)
+  .build() {}

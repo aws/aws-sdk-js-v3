@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { GetTopicRuleRequest, GetTopicRuleResponse } from "../models/models_1";
 import { de_GetTopicRuleCommand, se_GetTopicRuleCommand } from "../protocols/Aws_restJson1";
@@ -237,6 +229,12 @@ export interface GetTopicRuleCommandOutput extends GetTopicRuleResponse, __Metad
  * //           clientProperties: { // ClientProperties // required
  * //             "<keys>": "STRING_VALUE",
  * //           },
+ * //           headers: [ // KafkaHeaders
+ * //             { // KafkaActionHeader
+ * //               key: "STRING_VALUE", // required
+ * //               value: "STRING_VALUE", // required
+ * //             },
+ * //           ],
  * //         },
  * //         openSearch: { // OpenSearchAction
  * //           roleArn: "STRING_VALUE", // required
@@ -440,6 +438,12 @@ export interface GetTopicRuleCommandOutput extends GetTopicRuleResponse, __Metad
  * //         clientProperties: { // required
  * //           "<keys>": "STRING_VALUE",
  * //         },
+ * //         headers: [
+ * //           {
+ * //             key: "STRING_VALUE", // required
+ * //             value: "STRING_VALUE", // required
+ * //           },
+ * //         ],
  * //       },
  * //       openSearch: {
  * //         roleArn: "STRING_VALUE", // required
@@ -487,77 +491,26 @@ export interface GetTopicRuleCommandOutput extends GetTopicRuleResponse, __Metad
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
-export class GetTopicRuleCommand extends $Command<
-  GetTopicRuleCommandInput,
-  GetTopicRuleCommandOutput,
-  IoTClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetTopicRuleCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: IoTClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetTopicRuleCommandInput, GetTopicRuleCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GetTopicRuleCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "IoTClient";
-    const commandName = "GetTopicRuleCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetTopicRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetTopicRuleCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTopicRuleCommandOutput> {
-    return de_GetTopicRuleCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetTopicRuleCommand extends $Command
+  .classBuilder<
+    GetTopicRuleCommandInput,
+    GetTopicRuleCommandOutput,
+    IoTClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSIotService", "GetTopicRule", {})
+  .n("IoTClient", "GetTopicRuleCommand")
+  .f(void 0, void 0)
+  .ser(se_GetTopicRuleCommand)
+  .de(de_GetTopicRuleCommand)
+  .build() {}

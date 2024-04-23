@@ -129,7 +129,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -172,7 +171,8 @@
                   },
                   "type": "endpoint"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [
@@ -185,7 +185,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -199,7 +198,6 @@
                       "assign": "PartitionResult"
                     }
                   ],
-                  "type": "tree",
                   "rules": [
                     {
                       "conditions": [
@@ -222,7 +220,6 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -257,7 +254,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -268,14 +264,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [
@@ -289,14 +287,12 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
                             {
                               "fn": "booleanEquals",
                               "argv": [
-                                true,
                                 {
                                   "fn": "getAttr",
                                   "argv": [
@@ -305,11 +301,11 @@
                                     },
                                     "supportsFIPS"
                                   ]
-                                }
+                                },
+                                true
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -320,14 +316,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "FIPS is enabled but this partition does not support FIPS",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [
@@ -341,7 +339,6 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -361,7 +358,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -372,14 +368,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "DualStack is enabled but this partition does not support DualStack",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [],
@@ -390,9 +388,11 @@
                       },
                       "type": "endpoint"
                     }
-                  ]
+                  ],
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [],
@@ -1125,6 +1125,7 @@
               "name": "my-demo-environment",
               "description": "This is my demonstration environment.",
               "instanceType": "t2.micro",
+              "imageId": "amazonlinux-2023-x86_64",
               "subnetId": "subnet-6300cd1b",
               "automaticStopTimeMinutes": 60,
               "ownerArn": "arn:aws:iam::123456789012:user/MyDemoUser"
@@ -1175,7 +1176,8 @@
         "imageId": {
           "target": "com.amazonaws.cloud9#ImageId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance.\n      To choose an AMI for the instance, you must specify a valid AMI alias or a valid Amazon EC2 Systems Manager (SSM)\n      path.</p>\n         <p>The default Amazon Linux AMI is currently used if the parameter isn't explicitly assigned\n      a value in the request. Because Amazon Linux AMI has ended standard support as of December 31,\n      2020, we recommend you choose Amazon Linux 2, which includes long term support through\n      2023.</p>\n         <p>From December 31, 2023, the parameter for Amazon Linux will no longer be available when\n      you specify an AMI for your instance. Amazon Linux 2 will then become the default AMI, which\n      is used to launch your instance if no parameter is explicitly defined.</p>\n         <p>\n            <b>AMI aliases </b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Amazon Linux (default):\n            <code>amazonlinux-1-x86_64</code>\n                  </b>\n               </p>\n            </li>\n            <li>\n               <p>Amazon Linux 2: <code>amazonlinux-2-x86_64</code>\n               </p>\n            </li>\n            <li>\n               <p>Ubuntu 18.04: <code>ubuntu-18.04-x86_64</code>\n               </p>\n            </li>\n         </ul>\n         <p>\n            <b>SSM paths</b>\n         </p>\n         <ul>\n            <li>\n               <p>\n                  <b>Amazon Linux (default):\n              <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-1-x86_64</code>\n                  </b>\n               </p>\n            </li>\n            <li>\n               <p>Amazon Linux 2:\n          <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64</code>\n               </p>\n            </li>\n            <li>\n               <p>Ubuntu 18.04:\n          <code>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</code>\n               </p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance.\n      To choose an AMI for the instance, you must specify a valid AMI alias or a valid Amazon EC2 Systems Manager (SSM)\n      path.</p>\n         <p>From December 04, 2023, you will be required to include the <code>imageId</code> parameter\n      for the <code>CreateEnvironmentEC2</code> action. This change will be reflected across all\n      direct methods of communicating with the API, such as Amazon Web Services SDK, Amazon Web Services CLI and Amazon Web Services\n      CloudFormation. This change will only affect direct API consumers, and not Cloud9 console\n      users.</p>\n         <p>We recommend using Amazon Linux 2023 as the AMI to create your environment as it is fully\n      supported. </p>\n         <p>Since Ubuntu 18.04 has ended standard support as of May 31, 2023, we recommend you choose Ubuntu 22.04.</p>\n         <p>\n            <b>AMI aliases </b>\n         </p>\n         <ul>\n            <li>\n               <p>Amazon Linux 2: <code>amazonlinux-2-x86_64</code>\n               </p>\n            </li>\n            <li>\n               <p>Amazon Linux 2023 (recommended): <code>amazonlinux-2023-x86_64</code>\n               </p>\n            </li>\n            <li>\n               <p>Ubuntu 18.04: <code>ubuntu-18.04-x86_64</code>\n               </p>\n            </li>\n            <li>\n               <p>Ubuntu 22.04:  <code>ubuntu-22.04-x86_64</code>\n               </p>\n            </li>\n         </ul>\n         <p>\n            <b>SSM paths</b>\n         </p>\n         <ul>\n            <li>\n               <p>Amazon Linux 2:\n          <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2-x86_64</code>\n               </p>\n            </li>\n            <li>\n               <p>Amazon Linux 2023 (recommended): <code>resolve:ssm:/aws/service/cloud9/amis/amazonlinux-2023-x86_64</code>\n               </p>\n            </li>\n            <li>\n               <p>Ubuntu 18.04:\n          <code>resolve:ssm:/aws/service/cloud9/amis/ubuntu-18.04-x86_64</code>\n               </p>\n            </li>\n            <li>\n               <p>Ubuntu 22.04:\n        <code>resolve:ssm:/aws/service/cloud9/amis/ubuntu-22.04-x86_64</code>\n               </p>\n            </li>\n         </ul>",
+            "smithy.api#required": {}
           }
         },
         "automaticStopTimeMinutes": {
@@ -1520,6 +1522,49 @@
                 },
                 {
                   "environmentId": "8d9967e2f0624182b74e7690ad69ebEX",
+                  "permissions": "owner",
+                  "userArn": "arn:aws:iam::123456789012:user/MyDemoUser",
+                  "userId": "AIDAJNUEDQAQWFELJDLEX"
+                }
+              ]
+            }
+          },
+          {
+            "title": "DescribeEnvironmentMemberships2",
+            "documentation": "The following example gets information about the owner of the specified development environment.",
+            "input": {
+              "permissions": ["owner"],
+              "environmentId": "8d9967e2f0624182b74e7690ad69ebEX"
+            },
+            "output": {
+              "memberships": [
+                {
+                  "environmentId": "8d9967e2f0624182b74e7690ad69ebEX",
+                  "permissions": "owner",
+                  "userArn": "arn:aws:iam::123456789012:user/MyDemoUser",
+                  "userId": "AIDAJNUEDQAQWFELJDLEX"
+                }
+              ]
+            }
+          },
+          {
+            "title": "DescribeEnvironmentMemberships3",
+            "documentation": "The following example gets development environment membership information for the specified user.",
+            "input": {
+              "userArn": "arn:aws:iam::123456789012:user/MyDemoUser"
+            },
+            "output": {
+              "memberships": [
+                {
+                  "environmentId": "10a75714bd494714929e7f5ec4125aEX",
+                  "lastAccess": "2018-01-19T11:06:13Z",
+                  "permissions": "owner",
+                  "userArn": "arn:aws:iam::123456789012:user/MyDemoUser",
+                  "userId": "AIDAJNUEDQAQWFELJDLEX"
+                },
+                {
+                  "environmentId": "12bfc3cd537f41cb9776f8af5525c9EX",
+                  "lastAccess": "2018-01-19T11:39:19Z",
                   "permissions": "owner",
                   "userArn": "arn:aws:iam::123456789012:user/MyDemoUser",
                   "userId": "AIDAJNUEDQAQWFELJDLEX"
@@ -2095,7 +2140,7 @@
           "min": 5,
           "max": 20
         },
-        "smithy.api#pattern": "^[a-z][1-9][.][a-z0-9]+$"
+        "smithy.api#pattern": "^[a-z]+[1-9][.][a-z0-9]+$"
       }
     },
     "com.amazonaws.cloud9#Integer": {

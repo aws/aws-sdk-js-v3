@@ -2,6 +2,7 @@
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { IoTWirelessServiceException as __BaseException } from "./IoTWirelessServiceException";
+
 import {
   ApplicationConfig,
   CertificateList,
@@ -80,7 +81,7 @@ export interface SidewalkListDevice {
    * @public
    * <p>The status of the Sidewalk devices, such as provisioned or registered.</p>
    */
-  Status?: WirelessDeviceSidewalkStatus | string;
+  Status?: WirelessDeviceSidewalkStatus;
 }
 
 /**
@@ -104,7 +105,7 @@ export interface WirelessDeviceStatistics {
    * @public
    * <p>The wireless device type.</p>
    */
-  Type?: WirelessDeviceType | string;
+  Type?: WirelessDeviceType;
 
   /**
    * @public
@@ -143,7 +144,7 @@ export interface WirelessDeviceStatistics {
    * @public
    * <p>The status of a wireless device in a FUOTA task.</p>
    */
-  FuotaDeviceStatus?: FuotaDeviceStatus | string;
+  FuotaDeviceStatus?: FuotaDeviceStatus;
 
   /**
    * @public
@@ -293,7 +294,7 @@ export interface ListWirelessGatewayTaskDefinitionsRequest {
    * <p>A filter to list only the wireless gateway task definitions that use this task
    *             definition type.</p>
    */
-  TaskDefinitionType?: WirelessGatewayTaskDefinitionType | string;
+  TaskDefinitionType?: WirelessGatewayTaskDefinitionType;
 }
 
 /**
@@ -364,13 +365,13 @@ export interface SemtechGnssConfiguration {
    * @public
    * <p>The status indicating whether the solver is enabled.</p>
    */
-  Status: PositionConfigurationStatus | string | undefined;
+  Status: PositionConfigurationStatus | undefined;
 
   /**
    * @public
    * <p>Whether forward error correction is enabled.</p>
    */
-  Fec: PositionConfigurationFec | string | undefined;
+  Fec: PositionConfigurationFec | undefined;
 }
 
 /**
@@ -400,7 +401,7 @@ export interface PutPositionConfigurationRequest {
    * <p>Resource type of the resource for which you want to update the position
    *             configuration.</p>
    */
-  ResourceType: PositionResourceType | string | undefined;
+  ResourceType: PositionResourceType | undefined;
 
   /**
    * @public
@@ -446,7 +447,7 @@ export interface PutResourceLogLevelRequest {
    *                 <code>ERROR</code> to display less verbose logs containing only error information,
    *             or to <code>INFO</code> for more detailed logs.</p>
    */
-  LogLevel: LogLevel | string | undefined;
+  LogLevel: LogLevel | undefined;
 }
 
 /**
@@ -578,7 +579,7 @@ export interface SidewalkSendDataToDevice {
    * <p>Sidewalk device message type. Default value is
    *             <code>CUSTOM_COMMAND_ID_NOTIFY</code>.</p>
    */
-  MessageType?: MessageType | string;
+  MessageType?: MessageType;
 
   /**
    * @public
@@ -769,7 +770,8 @@ export interface StartMulticastGroupSessionResponse {}
 export interface SidewalkSingleStartImportInfo {
   /**
    * @public
-   * <p>The Sidewalk manufacturing serial number (SMSN) of the device added to the import task.</p>
+   * <p>The Sidewalk manufacturing serial number (SMSN) of the device added to the import
+   *             task.</p>
    */
   SidewalkManufacturingSn?: string;
 }
@@ -780,8 +782,8 @@ export interface SidewalkSingleStartImportInfo {
 export interface StartSingleWirelessDeviceImportTaskRequest {
   /**
    * @public
-   * <p>The name of the Sidewalk destination that describes the IoT rule to route messages from the device in the import
-   *          task that will be onboarded to AWS IoT Wireless.</p>
+   * <p>The name of the Sidewalk destination that describes the IoT rule to route messages
+   *             from the device in the import task that will be onboarded to AWS IoT Wireless.</p>
    */
   DestinationName: string | undefined;
 
@@ -838,13 +840,15 @@ export interface StartSingleWirelessDeviceImportTaskResponse {
 export interface SidewalkStartImportInfo {
   /**
    * @public
-   * <p>The CSV file contained in an S3 bucket that's used for adding devices to an import task.</p>
+   * <p>The CSV file contained in an S3 bucket that's used for adding devices to an import
+   *             task.</p>
    */
   DeviceCreationFile?: string;
 
   /**
    * @public
-   * <p>The IAM role that allows AWS IoT Wireless to access the CSV file in the S3 bucket.</p>
+   * <p>The IAM role that allows AWS IoT Wireless to access the CSV file in the S3
+   *             bucket.</p>
    */
   Role?: string;
 }
@@ -855,8 +859,8 @@ export interface SidewalkStartImportInfo {
 export interface StartWirelessDeviceImportTaskRequest {
   /**
    * @public
-   * <p>The name of the Sidewalk destination that describes the IoT rule to route messages from the devices in the import
-   *          task that are onboarded to AWS IoT Wireless.</p>
+   * <p>The name of the Sidewalk destination that describes the IoT rule to route messages
+   *             from the devices in the import task that are onboarded to AWS IoT Wireless.</p>
    */
   DestinationName: string | undefined;
 
@@ -878,7 +882,8 @@ export interface StartWirelessDeviceImportTaskRequest {
 
   /**
    * @public
-   * <p>The Sidewalk-related parameters for importing wireless devices that need to be provisioned in bulk.</p>
+   * <p>The Sidewalk-related parameters for importing wireless devices that need to be
+   *             provisioned in bulk.</p>
    */
   Sidewalk: SidewalkStartImportInfo | undefined;
 }
@@ -1009,7 +1014,7 @@ export interface UpdateDestinationRequest {
    * @public
    * <p>The type of value in <code>Expression</code>.</p>
    */
-  ExpressionType?: ExpressionType | string;
+  ExpressionType?: ExpressionType;
 
   /**
    * @public
@@ -1166,7 +1171,7 @@ export interface UpdateLogLevelsByResourceTypesRequest {
    *                 <code>ERROR</code> to display less verbose logs containing only error information,
    *             or to <code>INFO</code> for more detailed logs.</p>
    */
-  DefaultLogLevel?: LogLevel | string;
+  DefaultLogLevel?: LogLevel;
 
   /**
    * @public
@@ -1232,7 +1237,7 @@ export interface UpdateNetworkAnalyzerConfigurationRequest {
 
   /**
    * @public
-   * <p>Trace content for your wireless gateway and wireless device resources.</p>
+   * <p>Trace content for your wireless devices, gateways, and multicast groups.</p>
    */
   TraceContent?: TraceContent;
 
@@ -1280,7 +1285,7 @@ export interface UpdateNetworkAnalyzerConfigurationRequest {
   /**
    * @public
    * <p>Multicast group resources to remove from the network analyzer configuration. Provide the
-   *             <code>MulticastGroupId</code> of the resource to remove in the input array.</p>
+   *             <code>MulticastGroupId</code> of the resources to remove in the input array.</p>
    */
   MulticastGroupsToRemove?: string[];
 }
@@ -1322,7 +1327,7 @@ export interface UpdatePartnerAccountRequest {
    * @public
    * <p>The partner type.</p>
    */
-  PartnerType: PartnerType | string | undefined;
+  PartnerType: PartnerType | undefined;
 }
 
 /**
@@ -1344,7 +1349,7 @@ export interface UpdatePositionRequest {
    * @public
    * <p>Resource type of the resource for which position is updated.</p>
    */
-  ResourceType: PositionResourceType | string | undefined;
+  ResourceType: PositionResourceType | undefined;
 
   /**
    * @public
@@ -1372,7 +1377,7 @@ export interface UpdateResourceEventConfigurationRequest {
    * @public
    * <p>Identifier type of the particular resource identifier for event configuration.</p>
    */
-  IdentifierType: IdentifierType | string | undefined;
+  IdentifierType: IdentifierType | undefined;
 
   /**
    * @public
@@ -1380,7 +1385,7 @@ export interface UpdateResourceEventConfigurationRequest {
    *             <code>PartnerAccountId</code>
    *          </p>
    */
-  PartnerType?: EventNotificationPartnerType | string;
+  PartnerType?: EventNotificationPartnerType;
 
   /**
    * @public
@@ -1424,22 +1429,24 @@ export interface UpdateResourceEventConfigurationResponse {}
 export interface UpdateResourcePositionRequest {
   /**
    * @public
-   * <p>The identifier of the resource for which position information is updated. It can be the
-   *             wireless device ID or the wireless gateway ID, depending on the resource type.</p>
+   * <p>The identifier of the resource for which position information is updated. It can be
+   *             the wireless device ID or the wireless gateway ID, depending on the resource
+   *             type.</p>
    */
   ResourceIdentifier: string | undefined;
 
   /**
    * @public
-   * <p>The type of resource for which position information is updated, which can be a wireless device or a
-   *            wireless gateway.</p>
+   * <p>The type of resource for which position information is updated, which can be a
+   *             wireless device or a wireless gateway.</p>
    */
-  ResourceType: PositionResourceType | string | undefined;
+  ResourceType: PositionResourceType | undefined;
 
   /**
    * @public
-   * <p>The position information of the resource, displayed as a JSON payload. The payload uses the GeoJSON format,
-   *            which a format that's used to encode geographic data structures. For more information, see <a href="https://geojson.org/">GeoJSON</a>.</p>
+   * <p>The position information of the resource, displayed as a JSON payload. The payload
+   *             uses the GeoJSON format, which a format that's used to encode geographic data
+   *             structures. For more information, see <a href="https://geojson.org/">GeoJSON</a>.</p>
    */
   GeoJsonPayload?: Uint8Array;
 }
@@ -1486,7 +1493,8 @@ export interface UpdateFPorts {
 
   /**
    * @public
-   * <p>LoRaWAN application, which can be used for geolocation by activating positioning.</p>
+   * <p>LoRaWAN application, which can be used for geolocation by activating
+   *             positioning.</p>
    */
   Applications?: ApplicationConfig[];
 }
@@ -1566,7 +1574,7 @@ export interface UpdateWirelessDeviceRequest {
    * <p>FPort values for the GNSS, stream, and ClockSync functions of the positioning
    *             information.</p>
    */
-  Positioning?: PositioningConfigStatus | string;
+  Positioning?: PositioningConfigStatus;
 }
 
 /**
@@ -1581,7 +1589,8 @@ export interface UpdateWirelessDeviceResponse {}
 export interface SidewalkUpdateImportInfo {
   /**
    * @public
-   * <p>The CSV file contained in an S3 bucket that's used for appending devices to an existing import task.</p>
+   * <p>The CSV file contained in an S3 bucket that's used for appending devices to an
+   *             existing import task.</p>
    */
   DeviceCreationFile?: string;
 }

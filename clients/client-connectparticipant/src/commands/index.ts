@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 export * from "./CompleteAttachmentUploadCommand";
 export * from "./CreateParticipantConnectionCommand";
+export * from "./DescribeViewCommand";
 export * from "./DisconnectParticipantCommand";
 export * from "./GetAttachmentCommand";
 export * from "./GetTranscriptCommand";

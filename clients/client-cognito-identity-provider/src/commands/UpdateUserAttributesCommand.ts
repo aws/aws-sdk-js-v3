@@ -1,23 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   CognitoIdentityProviderClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateUserAttributesRequest,
   UpdateUserAttributesRequestFilterSensitiveLog,
@@ -44,7 +36,11 @@ export interface UpdateUserAttributesCommandOutput extends UpdateUserAttributesR
 
 /**
  * @public
- * <p>Allows a user to update a specific attribute (one at a time).</p>
+ * <p>With this operation, your users can update one or more of their attributes with their
+ *             own credentials. You authorize this API request with the user's access token. To delete
+ *             an attribute from your user, submit the attribute in your API request with a blank
+ *             value. Custom attribute values in this request must include the <code>custom:</code>
+ *             prefix.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  *             this operation, you can't use IAM credentials to authorize requests, and you can't
@@ -184,79 +180,26 @@ export interface UpdateUserAttributesCommandOutput extends UpdateUserAttributesR
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
-export class UpdateUserAttributesCommand extends $Command<
-  UpdateUserAttributesCommandInput,
-  UpdateUserAttributesCommandOutput,
-  CognitoIdentityProviderClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateUserAttributesCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CognitoIdentityProviderClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateUserAttributesCommandInput, UpdateUserAttributesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateUserAttributesCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CognitoIdentityProviderClient";
-    const commandName = "UpdateUserAttributesCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: UpdateUserAttributesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateUserAttributesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateUserAttributesCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateUserAttributesCommandOutput> {
-    return de_UpdateUserAttributesCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateUserAttributesCommand extends $Command
+  .classBuilder<
+    UpdateUserAttributesCommandInput,
+    UpdateUserAttributesCommandOutput,
+    CognitoIdentityProviderClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSCognitoIdentityProviderService", "UpdateUserAttributes", {})
+  .n("CognitoIdentityProviderClient", "UpdateUserAttributesCommand")
+  .f(UpdateUserAttributesRequestFilterSensitiveLog, void 0)
+  .ser(se_UpdateUserAttributesCommand)
+  .de(de_UpdateUserAttributesCommand)
+  .build() {}

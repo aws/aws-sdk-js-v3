@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateFlowRequest, UpdateFlowResponse } from "../models/models_0";
 import { de_UpdateFlowCommand, se_UpdateFlowCommand } from "../protocols/Aws_restJson1";
 
@@ -121,6 +113,12 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  *       },
  *       SAPOData: { // SAPODataSourceProperties
  *         objectPath: "STRING_VALUE",
+ *         parallelismConfig: { // SAPODataParallelismConfig
+ *           maxParallelism: Number("int"), // required
+ *         },
+ *         paginationConfig: { // SAPODataPaginationConfig
+ *           maxPageSize: Number("int"), // required
+ *         },
  *       },
  *       CustomConnector: { // CustomConnectorSourceProperties
  *         entityName: "STRING_VALUE", // required
@@ -329,6 +327,9 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  * @see {@link UpdateFlowCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>AppFlow/Requester has invalid or missing permissions.</p>
+ *
  * @throws {@link ConflictException} (client fault)
  *  <p> There was a conflict when processing the request (for example, a flow with the given name
  *       already exists within the account. Check for conflicting resource names and try again. </p>
@@ -358,77 +359,26 @@ export interface UpdateFlowCommandOutput extends UpdateFlowResponse, __MetadataB
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
  */
-export class UpdateFlowCommand extends $Command<
-  UpdateFlowCommandInput,
-  UpdateFlowCommandOutput,
-  AppflowClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateFlowCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AppflowClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateFlowCommandInput, UpdateFlowCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateFlowCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "AppflowClient";
-    const commandName = "UpdateFlowCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateFlowCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFlowCommandOutput> {
-    return de_UpdateFlowCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateFlowCommand extends $Command
+  .classBuilder<
+    UpdateFlowCommandInput,
+    UpdateFlowCommandOutput,
+    AppflowClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: AppflowClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("SandstoneConfigurationServiceLambda", "UpdateFlow", {})
+  .n("AppflowClient", "UpdateFlowCommand")
+  .f(void 0, void 0)
+  .ser(se_UpdateFlowCommand)
+  .de(de_UpdateFlowCommand)
+  .build() {}

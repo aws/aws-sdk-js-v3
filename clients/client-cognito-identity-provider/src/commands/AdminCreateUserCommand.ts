@@ -1,24 +1,16 @@
 // smithy-typescript generated code
 import { getAwsAuthPlugin } from "@aws-sdk/middleware-signing";
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   CognitoIdentityProviderClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   AdminCreateUserRequest,
   AdminCreateUserRequestFilterSensitiveLog,
@@ -218,81 +210,88 @@ export interface AdminCreateUserCommandOutput extends AdminCreateUserResponse, _
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @example An AdminCreateUser request for for a test user named John.
+ * ```javascript
+ * // This request submits a value for all possible parameters for AdminCreateUser.
+ * const input = {
+ *   "DesiredDeliveryMediums": [
+ *     "SMS"
+ *   ],
+ *   "MessageAction": "SUPPRESS",
+ *   "TemporaryPassword": "This-is-my-test-99!",
+ *   "UserAttributes": [
+ *     {
+ *       "Name": "name",
+ *       "Value": "John"
+ *     },
+ *     {
+ *       "Name": "phone_number",
+ *       "Value": "+12065551212"
+ *     },
+ *     {
+ *       "Name": "email",
+ *       "Value": "testuser@example.com"
+ *     }
+ *   ],
+ *   "UserPoolId": "us-east-1_EXAMPLE",
+ *   "Username": "testuser"
+ * };
+ * const command = new AdminCreateUserCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "User": {
+ *     "Attributes": [
+ *       {
+ *         "Name": "sub",
+ *         "Value": "d16b4aa8-8633-4abd-93b3-5062a8e1b5f8"
+ *       },
+ *       {
+ *         "Name": "name",
+ *         "Value": "John"
+ *       },
+ *       {
+ *         "Name": "phone_number",
+ *         "Value": "+12065551212"
+ *       },
+ *       {
+ *         "Name": "email",
+ *         "Value": "testuser@example.com"
+ *       }
+ *     ],
+ *     "Enabled": true,
+ *     "UserCreateDate": 1689980857.949,
+ *     "UserLastModifiedDate": 1689980857.949,
+ *     "UserStatus": "FORCE_CHANGE_PASSWORD",
+ *     "Username": "testuser"
+ *   }
+ * }
+ * *\/
+ * // example id: an-admincreateuser-request-for-for-a-test-user-named-john-1689980900481
+ * ```
+ *
  */
-export class AdminCreateUserCommand extends $Command<
-  AdminCreateUserCommandInput,
-  AdminCreateUserCommandOutput,
-  CognitoIdentityProviderClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: AdminCreateUserCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CognitoIdentityProviderClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<AdminCreateUserCommandInput, AdminCreateUserCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, AdminCreateUserCommand.getEndpointParameterInstructions())
-    );
-    this.middlewareStack.use(getAwsAuthPlugin(configuration));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CognitoIdentityProviderClient";
-    const commandName = "AdminCreateUserCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: AdminCreateUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AdminCreateUserResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: AdminCreateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_AdminCreateUserCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AdminCreateUserCommandOutput> {
-    return de_AdminCreateUserCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class AdminCreateUserCommand extends $Command
+  .classBuilder<
+    AdminCreateUserCommandInput,
+    AdminCreateUserCommandOutput,
+    CognitoIdentityProviderClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getAwsAuthPlugin(config),
+    ];
+  })
+  .s("AWSCognitoIdentityProviderService", "AdminCreateUser", {})
+  .n("CognitoIdentityProviderClient", "AdminCreateUserCommand")
+  .f(AdminCreateUserRequestFilterSensitiveLog, AdminCreateUserResponseFilterSensitiveLog)
+  .ser(se_AdminCreateUserCommand)
+  .de(de_AdminCreateUserCommand)
+  .build() {}

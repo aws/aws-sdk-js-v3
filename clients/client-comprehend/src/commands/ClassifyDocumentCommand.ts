@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ClassifyDocumentRequest,
   ClassifyDocumentRequestFilterSensitiveLog,
@@ -41,11 +33,24 @@ export interface ClassifyDocumentCommandOutput extends ClassifyDocumentResponse,
 
 /**
  * @public
- * <p>Creates a new document classification request to analyze a single document in real-time,
- *       using a previously created and trained custom model and an endpoint.</p>
- *          <p>You can input plain text or you can upload a single-page input document (text, PDF, Word, or image). </p>
+ * <p>Creates a classification request to analyze a single document in real-time. <code>ClassifyDocument</code>
+ *       supports the following model types:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Custom classifier - a custom model that you have created and trained.
+ *         For input, you can provide plain text, a single-page document (PDF, Word, or image), or
+ *         Amazon Textract API output. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-document-classification.html">Custom classification</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Prompt safety classifier - Amazon Comprehend provides a pre-trained model for classifying
+ *         input prompts for generative AI applications.
+ *         For input, you provide English plain text input.
+ *         For prompt safety classification, the response includes only the <code>Classes</code> field.
+ *         For more information about prompt safety classifiers, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/trust-safety.html#prompt-classification">Prompt safety classification</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+ *             </li>
+ *          </ul>
  *          <p>If the system detects errors while processing a page in the input document,
- *       the API response includes an entry in <code>Errors</code> that describes the errors.</p>
+ *       the API response includes an <code>Errors</code> field that describes the errors.</p>
  *          <p>If the system detects a document-level error in your input document, the API returns an
  *       <code>InvalidRequestException</code> error response.
  *       For details about this exception, see
@@ -143,79 +148,26 @@ export interface ClassifyDocumentCommandOutput extends ClassifyDocumentResponse,
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
-export class ClassifyDocumentCommand extends $Command<
-  ClassifyDocumentCommandInput,
-  ClassifyDocumentCommandOutput,
-  ComprehendClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ClassifyDocumentCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ComprehendClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ClassifyDocumentCommandInput, ClassifyDocumentCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ClassifyDocumentCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ComprehendClient";
-    const commandName = "ClassifyDocumentCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: ClassifyDocumentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ClassifyDocumentResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ClassifyDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ClassifyDocumentCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ClassifyDocumentCommandOutput> {
-    return de_ClassifyDocumentCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ClassifyDocumentCommand extends $Command
+  .classBuilder<
+    ClassifyDocumentCommandInput,
+    ClassifyDocumentCommandOutput,
+    ComprehendClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("Comprehend_20171127", "ClassifyDocument", {})
+  .n("ComprehendClient", "ClassifyDocumentCommand")
+  .f(ClassifyDocumentRequestFilterSensitiveLog, ClassifyDocumentResponseFilterSensitiveLog)
+  .ser(se_ClassifyDocumentCommand)
+  .de(de_ClassifyDocumentCommand)
+  .build() {}

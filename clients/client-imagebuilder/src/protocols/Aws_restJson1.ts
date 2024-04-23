@@ -1,9 +1,11 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
@@ -28,6 +30,10 @@ import {
   CancelImageCreationCommandInput,
   CancelImageCreationCommandOutput,
 } from "../commands/CancelImageCreationCommand";
+import {
+  CancelLifecycleExecutionCommandInput,
+  CancelLifecycleExecutionCommandOutput,
+} from "../commands/CancelLifecycleExecutionCommand";
 import { CreateComponentCommandInput, CreateComponentCommandOutput } from "../commands/CreateComponentCommand";
 import {
   CreateContainerRecipeCommandInput,
@@ -47,6 +53,11 @@ import {
   CreateInfrastructureConfigurationCommandInput,
   CreateInfrastructureConfigurationCommandOutput,
 } from "../commands/CreateInfrastructureConfigurationCommand";
+import {
+  CreateLifecyclePolicyCommandInput,
+  CreateLifecyclePolicyCommandOutput,
+} from "../commands/CreateLifecyclePolicyCommand";
+import { CreateWorkflowCommandInput, CreateWorkflowCommandOutput } from "../commands/CreateWorkflowCommand";
 import { DeleteComponentCommandInput, DeleteComponentCommandOutput } from "../commands/DeleteComponentCommand";
 import {
   DeleteContainerRecipeCommandInput,
@@ -66,6 +77,11 @@ import {
   DeleteInfrastructureConfigurationCommandInput,
   DeleteInfrastructureConfigurationCommandOutput,
 } from "../commands/DeleteInfrastructureConfigurationCommand";
+import {
+  DeleteLifecyclePolicyCommandInput,
+  DeleteLifecyclePolicyCommandOutput,
+} from "../commands/DeleteLifecyclePolicyCommand";
+import { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "../commands/DeleteWorkflowCommand";
 import { GetComponentCommandInput, GetComponentCommandOutput } from "../commands/GetComponentCommand";
 import { GetComponentPolicyCommandInput, GetComponentPolicyCommandOutput } from "../commands/GetComponentPolicyCommand";
 import { GetContainerRecipeCommandInput, GetContainerRecipeCommandOutput } from "../commands/GetContainerRecipeCommand";
@@ -89,6 +105,12 @@ import {
   GetInfrastructureConfigurationCommandInput,
   GetInfrastructureConfigurationCommandOutput,
 } from "../commands/GetInfrastructureConfigurationCommand";
+import {
+  GetLifecycleExecutionCommandInput,
+  GetLifecycleExecutionCommandOutput,
+} from "../commands/GetLifecycleExecutionCommand";
+import { GetLifecyclePolicyCommandInput, GetLifecyclePolicyCommandOutput } from "../commands/GetLifecyclePolicyCommand";
+import { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "../commands/GetWorkflowCommand";
 import {
   GetWorkflowExecutionCommandInput,
   GetWorkflowExecutionCommandOutput,
@@ -137,13 +159,34 @@ import {
   ListInfrastructureConfigurationsCommandOutput,
 } from "../commands/ListInfrastructureConfigurationsCommand";
 import {
+  ListLifecycleExecutionResourcesCommandInput,
+  ListLifecycleExecutionResourcesCommandOutput,
+} from "../commands/ListLifecycleExecutionResourcesCommand";
+import {
+  ListLifecycleExecutionsCommandInput,
+  ListLifecycleExecutionsCommandOutput,
+} from "../commands/ListLifecycleExecutionsCommand";
+import {
+  ListLifecyclePoliciesCommandInput,
+  ListLifecyclePoliciesCommandOutput,
+} from "../commands/ListLifecyclePoliciesCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import {
+  ListWaitingWorkflowStepsCommandInput,
+  ListWaitingWorkflowStepsCommandOutput,
+} from "../commands/ListWaitingWorkflowStepsCommand";
+import {
+  ListWorkflowBuildVersionsCommandInput,
+  ListWorkflowBuildVersionsCommandOutput,
+} from "../commands/ListWorkflowBuildVersionsCommand";
+import {
   ListWorkflowExecutionsCommandInput,
   ListWorkflowExecutionsCommandOutput,
 } from "../commands/ListWorkflowExecutionsCommand";
+import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "../commands/ListWorkflowsCommand";
 import {
   ListWorkflowStepExecutionsCommandInput,
   ListWorkflowStepExecutionsCommandOutput,
@@ -159,9 +202,17 @@ import {
   PutImageRecipePolicyCommandOutput,
 } from "../commands/PutImageRecipePolicyCommand";
 import {
+  SendWorkflowStepActionCommandInput,
+  SendWorkflowStepActionCommandOutput,
+} from "../commands/SendWorkflowStepActionCommand";
+import {
   StartImagePipelineExecutionCommandInput,
   StartImagePipelineExecutionCommandOutput,
 } from "../commands/StartImagePipelineExecutionCommand";
+import {
+  StartResourceStateUpdateCommandInput,
+  StartResourceStateUpdateCommandOutput,
+} from "../commands/StartResourceStateUpdateCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
@@ -176,6 +227,10 @@ import {
   UpdateInfrastructureConfigurationCommandInput,
   UpdateInfrastructureConfigurationCommandOutput,
 } from "../commands/UpdateInfrastructureConfigurationCommand";
+import {
+  UpdateLifecyclePolicyCommandInput,
+  UpdateLifecyclePolicyCommandOutput,
+} from "../commands/UpdateLifecyclePolicyCommand";
 import { ImagebuilderServiceException as __BaseException } from "../models/ImagebuilderServiceException";
 import {
   AdditionalInstanceConfiguration,
@@ -196,9 +251,11 @@ import {
   Filter,
   ForbiddenException,
   IdempotentParameterMismatchException,
+  Image,
   ImageScanFinding,
   ImageScanFindingsFilter,
   ImageScanningConfiguration,
+  ImageSummary,
   ImageTestsConfiguration,
   InspectorScoreDetails,
   InstanceBlockDeviceMapping,
@@ -212,12 +269,27 @@ import {
   InvalidVersionNumberException,
   LaunchPermissionConfiguration,
   LaunchTemplateConfiguration,
+  LifecycleExecution,
+  LifecyclePolicy,
+  LifecyclePolicyDetail,
+  LifecyclePolicyDetailAction,
+  LifecyclePolicyDetailActionIncludeResources,
+  LifecyclePolicyDetailExclusionRules,
+  LifecyclePolicyDetailExclusionRulesAmis,
+  LifecyclePolicyDetailExclusionRulesAmisLastLaunched,
+  LifecyclePolicyDetailFilter,
+  LifecyclePolicyResourceSelection,
+  LifecyclePolicyResourceSelectionRecipe,
+  LifecyclePolicySummary,
   Logging,
   PackageVulnerabilityDetails,
   ResourceAlreadyExistsException,
   ResourceDependencyException,
   ResourceInUseException,
   ResourceNotFoundException,
+  ResourceState,
+  ResourceStateUpdateExclusionRules,
+  ResourceStateUpdateIncludeResources,
   S3ExportConfiguration,
   S3Logs,
   Schedule,
@@ -226,6 +298,8 @@ import {
   ServiceUnavailableException,
   SystemsManagerAgent,
   TargetContainerRepository,
+  WorkflowConfiguration,
+  WorkflowParameter,
 } from "../models/models_0";
 
 /**
@@ -235,11 +309,11 @@ export const se_CancelImageCreationCommand = async (
   input: CancelImageCreationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CancelImageCreation";
+  b.bp("/CancelImageCreation");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -247,15 +321,31 @@ export const se_CancelImageCreationCommand = async (
       imageBuildVersionArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CancelLifecycleExecutionCommand
+ */
+export const se_CancelLifecycleExecutionCommand = async (
+  input: CancelLifecycleExecutionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/CancelLifecycleExecution");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      lifecycleExecutionId: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -265,11 +355,11 @@ export const se_CreateComponentCommand = async (
   input: CreateComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateComponent";
+  b.bp("/CreateComponent");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -286,15 +376,8 @@ export const se_CreateComponentCommand = async (
       uri: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -304,11 +387,11 @@ export const se_CreateContainerRecipeCommand = async (
   input: CreateContainerRecipeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateContainerRecipe";
+  b.bp("/CreateContainerRecipe");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -330,15 +413,8 @@ export const se_CreateContainerRecipeCommand = async (
       workingDirectory: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -348,12 +424,11 @@ export const se_CreateDistributionConfigurationCommand = async (
   input: CreateDistributionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateDistributionConfiguration";
+  b.bp("/CreateDistributionConfiguration");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -364,15 +439,8 @@ export const se_CreateDistributionConfigurationCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -382,11 +450,11 @@ export const se_CreateImageCommand = async (
   input: CreateImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateImage";
+  b.bp("/CreateImage");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -394,22 +462,17 @@ export const se_CreateImageCommand = async (
       containerRecipeArn: [],
       distributionConfigurationArn: [],
       enhancedImageMetadataEnabled: [],
+      executionRole: [],
       imageRecipeArn: [],
       imageScanningConfiguration: (_) => _json(_),
       imageTestsConfiguration: (_) => _json(_),
       infrastructureConfigurationArn: [],
       tags: (_) => _json(_),
+      workflows: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -419,11 +482,11 @@ export const se_CreateImagePipelineCommand = async (
   input: CreateImagePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateImagePipeline";
+  b.bp("/CreateImagePipeline");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -432,6 +495,7 @@ export const se_CreateImagePipelineCommand = async (
       description: [],
       distributionConfigurationArn: [],
       enhancedImageMetadataEnabled: [],
+      executionRole: [],
       imageRecipeArn: [],
       imageScanningConfiguration: (_) => _json(_),
       imageTestsConfiguration: (_) => _json(_),
@@ -440,17 +504,11 @@ export const se_CreateImagePipelineCommand = async (
       schedule: (_) => _json(_),
       status: [],
       tags: (_) => _json(_),
+      workflows: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -460,11 +518,11 @@ export const se_CreateImageRecipeCommand = async (
   input: CreateImageRecipeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateImageRecipe";
+  b.bp("/CreateImageRecipe");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -480,15 +538,8 @@ export const se_CreateImageRecipeCommand = async (
       workingDirectory: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -498,12 +549,11 @@ export const se_CreateInfrastructureConfigurationCommand = async (
   input: CreateInfrastructureConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateInfrastructureConfiguration";
+  b.bp("/CreateInfrastructureConfiguration");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -523,15 +573,69 @@ export const se_CreateInfrastructureConfigurationCommand = async (
       terminateInstanceOnFailure: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateLifecyclePolicyCommand
+ */
+export const se_CreateLifecyclePolicyCommand = async (
+  input: CreateLifecyclePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/CreateLifecyclePolicy");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      description: [],
+      executionRole: [],
+      name: [],
+      policyDetails: (_) => _json(_),
+      resourceSelection: (_) => _json(_),
+      resourceType: [],
+      status: [],
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateWorkflowCommand
+ */
+export const se_CreateWorkflowCommand = async (
+  input: CreateWorkflowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/CreateWorkflow");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      changeDescription: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      data: [],
+      description: [],
+      kmsKeyId: [],
+      name: [],
+      semanticVersion: [],
+      tags: (_) => _json(_),
+      type: [],
+      uri: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -541,23 +645,15 @@ export const se_DeleteComponentCommand = async (
   input: DeleteComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteComponent";
+  b.bp("/DeleteComponent");
   const query: any = map({
-    componentBuildVersionArn: [, __expectNonNull(input.componentBuildVersionArn!, `componentBuildVersionArn`)],
+    [_cBVA]: [, __expectNonNull(input[_cBVA]!, `componentBuildVersionArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -567,23 +663,15 @@ export const se_DeleteContainerRecipeCommand = async (
   input: DeleteContainerRecipeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteContainerRecipe";
+  b.bp("/DeleteContainerRecipe");
   const query: any = map({
-    containerRecipeArn: [, __expectNonNull(input.containerRecipeArn!, `containerRecipeArn`)],
+    [_cRA]: [, __expectNonNull(input[_cRA]!, `containerRecipeArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -593,27 +681,15 @@ export const se_DeleteDistributionConfigurationCommand = async (
   input: DeleteDistributionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteDistributionConfiguration";
+  b.bp("/DeleteDistributionConfiguration");
   const query: any = map({
-    distributionConfigurationArn: [
-      ,
-      __expectNonNull(input.distributionConfigurationArn!, `distributionConfigurationArn`),
-    ],
+    [_dCA]: [, __expectNonNull(input[_dCA]!, `distributionConfigurationArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -623,23 +699,15 @@ export const se_DeleteImageCommand = async (
   input: DeleteImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteImage";
+  b.bp("/DeleteImage");
   const query: any = map({
-    imageBuildVersionArn: [, __expectNonNull(input.imageBuildVersionArn!, `imageBuildVersionArn`)],
+    [_iBVA]: [, __expectNonNull(input[_iBVA]!, `imageBuildVersionArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -649,23 +717,15 @@ export const se_DeleteImagePipelineCommand = async (
   input: DeleteImagePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteImagePipeline";
+  b.bp("/DeleteImagePipeline");
   const query: any = map({
-    imagePipelineArn: [, __expectNonNull(input.imagePipelineArn!, `imagePipelineArn`)],
+    [_iPA]: [, __expectNonNull(input[_iPA]!, `imagePipelineArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -675,23 +735,15 @@ export const se_DeleteImageRecipeCommand = async (
   input: DeleteImageRecipeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteImageRecipe";
+  b.bp("/DeleteImageRecipe");
   const query: any = map({
-    imageRecipeArn: [, __expectNonNull(input.imageRecipeArn!, `imageRecipeArn`)],
+    [_iRA]: [, __expectNonNull(input[_iRA]!, `imageRecipeArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -701,27 +753,51 @@ export const se_DeleteInfrastructureConfigurationCommand = async (
   input: DeleteInfrastructureConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteInfrastructureConfiguration";
+  b.bp("/DeleteInfrastructureConfiguration");
   const query: any = map({
-    infrastructureConfigurationArn: [
-      ,
-      __expectNonNull(input.infrastructureConfigurationArn!, `infrastructureConfigurationArn`),
-    ],
+    [_iCA]: [, __expectNonNull(input[_iCA]!, `infrastructureConfigurationArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteLifecyclePolicyCommand
+ */
+export const se_DeleteLifecyclePolicyCommand = async (
+  input: DeleteLifecyclePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/DeleteLifecyclePolicy");
+  const query: any = map({
+    [_lPA]: [, __expectNonNull(input[_lPA]!, `lifecyclePolicyArn`)],
   });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteWorkflowCommand
+ */
+export const se_DeleteWorkflowCommand = async (
+  input: DeleteWorkflowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/DeleteWorkflow");
+  const query: any = map({
+    [_wBVA]: [, __expectNonNull(input[_wBVA]!, `workflowBuildVersionArn`)],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -731,23 +807,15 @@ export const se_GetComponentCommand = async (
   input: GetComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetComponent";
+  b.bp("/GetComponent");
   const query: any = map({
-    componentBuildVersionArn: [, __expectNonNull(input.componentBuildVersionArn!, `componentBuildVersionArn`)],
+    [_cBVA]: [, __expectNonNull(input[_cBVA]!, `componentBuildVersionArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -757,23 +825,15 @@ export const se_GetComponentPolicyCommand = async (
   input: GetComponentPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetComponentPolicy";
+  b.bp("/GetComponentPolicy");
   const query: any = map({
-    componentArn: [, __expectNonNull(input.componentArn!, `componentArn`)],
+    [_cA]: [, __expectNonNull(input[_cA]!, `componentArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -783,23 +843,15 @@ export const se_GetContainerRecipeCommand = async (
   input: GetContainerRecipeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetContainerRecipe";
+  b.bp("/GetContainerRecipe");
   const query: any = map({
-    containerRecipeArn: [, __expectNonNull(input.containerRecipeArn!, `containerRecipeArn`)],
+    [_cRA]: [, __expectNonNull(input[_cRA]!, `containerRecipeArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -809,24 +861,15 @@ export const se_GetContainerRecipePolicyCommand = async (
   input: GetContainerRecipePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetContainerRecipePolicy";
+  b.bp("/GetContainerRecipePolicy");
   const query: any = map({
-    containerRecipeArn: [, __expectNonNull(input.containerRecipeArn!, `containerRecipeArn`)],
+    [_cRA]: [, __expectNonNull(input[_cRA]!, `containerRecipeArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -836,27 +879,15 @@ export const se_GetDistributionConfigurationCommand = async (
   input: GetDistributionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetDistributionConfiguration";
+  b.bp("/GetDistributionConfiguration");
   const query: any = map({
-    distributionConfigurationArn: [
-      ,
-      __expectNonNull(input.distributionConfigurationArn!, `distributionConfigurationArn`),
-    ],
+    [_dCA]: [, __expectNonNull(input[_dCA]!, `distributionConfigurationArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -866,23 +897,15 @@ export const se_GetImageCommand = async (
   input: GetImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetImage";
+  b.bp("/GetImage");
   const query: any = map({
-    imageBuildVersionArn: [, __expectNonNull(input.imageBuildVersionArn!, `imageBuildVersionArn`)],
+    [_iBVA]: [, __expectNonNull(input[_iBVA]!, `imageBuildVersionArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -892,23 +915,15 @@ export const se_GetImagePipelineCommand = async (
   input: GetImagePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetImagePipeline";
+  b.bp("/GetImagePipeline");
   const query: any = map({
-    imagePipelineArn: [, __expectNonNull(input.imagePipelineArn!, `imagePipelineArn`)],
+    [_iPA]: [, __expectNonNull(input[_iPA]!, `imagePipelineArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -918,23 +933,15 @@ export const se_GetImagePolicyCommand = async (
   input: GetImagePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetImagePolicy";
+  b.bp("/GetImagePolicy");
   const query: any = map({
-    imageArn: [, __expectNonNull(input.imageArn!, `imageArn`)],
+    [_iA]: [, __expectNonNull(input[_iA]!, `imageArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -944,23 +951,15 @@ export const se_GetImageRecipeCommand = async (
   input: GetImageRecipeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetImageRecipe";
+  b.bp("/GetImageRecipe");
   const query: any = map({
-    imageRecipeArn: [, __expectNonNull(input.imageRecipeArn!, `imageRecipeArn`)],
+    [_iRA]: [, __expectNonNull(input[_iRA]!, `imageRecipeArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -970,23 +969,15 @@ export const se_GetImageRecipePolicyCommand = async (
   input: GetImageRecipePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetImageRecipePolicy";
+  b.bp("/GetImageRecipePolicy");
   const query: any = map({
-    imageRecipeArn: [, __expectNonNull(input.imageRecipeArn!, `imageRecipeArn`)],
+    [_iRA]: [, __expectNonNull(input[_iRA]!, `imageRecipeArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -996,27 +987,69 @@ export const se_GetInfrastructureConfigurationCommand = async (
   input: GetInfrastructureConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetInfrastructureConfiguration";
+  b.bp("/GetInfrastructureConfiguration");
   const query: any = map({
-    infrastructureConfigurationArn: [
-      ,
-      __expectNonNull(input.infrastructureConfigurationArn!, `infrastructureConfigurationArn`),
-    ],
+    [_iCA]: [, __expectNonNull(input[_iCA]!, `infrastructureConfigurationArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetLifecycleExecutionCommand
+ */
+export const se_GetLifecycleExecutionCommand = async (
+  input: GetLifecycleExecutionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/GetLifecycleExecution");
+  const query: any = map({
+    [_lEI]: [, __expectNonNull(input[_lEI]!, `lifecycleExecutionId`)],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetLifecyclePolicyCommand
+ */
+export const se_GetLifecyclePolicyCommand = async (
+  input: GetLifecyclePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/GetLifecyclePolicy");
+  const query: any = map({
+    [_lPA]: [, __expectNonNull(input[_lPA]!, `lifecyclePolicyArn`)],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetWorkflowCommand
+ */
+export const se_GetWorkflowCommand = async (
+  input: GetWorkflowCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/GetWorkflow");
+  const query: any = map({
+    [_wBVA]: [, __expectNonNull(input[_wBVA]!, `workflowBuildVersionArn`)],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1026,23 +1059,15 @@ export const se_GetWorkflowExecutionCommand = async (
   input: GetWorkflowExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetWorkflowExecution";
+  b.bp("/GetWorkflowExecution");
   const query: any = map({
-    workflowExecutionId: [, __expectNonNull(input.workflowExecutionId!, `workflowExecutionId`)],
+    [_wEI]: [, __expectNonNull(input[_wEI]!, `workflowExecutionId`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1052,24 +1077,15 @@ export const se_GetWorkflowStepExecutionCommand = async (
   input: GetWorkflowStepExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetWorkflowStepExecution";
+  b.bp("/GetWorkflowStepExecution");
   const query: any = map({
-    stepExecutionId: [, __expectNonNull(input.stepExecutionId!, `stepExecutionId`)],
+    [_sEI]: [, __expectNonNull(input[_sEI]!, `stepExecutionId`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1079,11 +1095,11 @@ export const se_ImportComponentCommand = async (
   input: ImportComponentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ImportComponent";
+  b.bp("/ImportComponent");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1101,15 +1117,8 @@ export const se_ImportComponentCommand = async (
       uri: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1119,11 +1128,11 @@ export const se_ImportVmImageCommand = async (
   input: ImportVmImageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ImportVmImage";
+  b.bp("/ImportVmImage");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1137,15 +1146,8 @@ export const se_ImportVmImageCommand = async (
       vmImportTaskId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1155,12 +1157,11 @@ export const se_ListComponentBuildVersionsCommand = async (
   input: ListComponentBuildVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListComponentBuildVersions";
+  b.bp("/ListComponentBuildVersions");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1169,15 +1170,8 @@ export const se_ListComponentBuildVersionsCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1187,11 +1181,11 @@ export const se_ListComponentsCommand = async (
   input: ListComponentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListComponents";
+  b.bp("/ListComponents");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1202,15 +1196,8 @@ export const se_ListComponentsCommand = async (
       owner: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1220,11 +1207,11 @@ export const se_ListContainerRecipesCommand = async (
   input: ListContainerRecipesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListContainerRecipes";
+  b.bp("/ListContainerRecipes");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1234,15 +1221,8 @@ export const se_ListContainerRecipesCommand = async (
       owner: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1252,12 +1232,11 @@ export const se_ListDistributionConfigurationsCommand = async (
   input: ListDistributionConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListDistributionConfigurations";
+  b.bp("/ListDistributionConfigurations");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1266,15 +1245,8 @@ export const se_ListDistributionConfigurationsCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1284,12 +1256,11 @@ export const se_ListImageBuildVersionsCommand = async (
   input: ListImageBuildVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListImageBuildVersions";
+  b.bp("/ListImageBuildVersions");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1299,15 +1270,8 @@ export const se_ListImageBuildVersionsCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1317,11 +1281,11 @@ export const se_ListImagePackagesCommand = async (
   input: ListImagePackagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListImagePackages";
+  b.bp("/ListImagePackages");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1330,15 +1294,8 @@ export const se_ListImagePackagesCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1348,12 +1305,11 @@ export const se_ListImagePipelineImagesCommand = async (
   input: ListImagePipelineImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListImagePipelineImages";
+  b.bp("/ListImagePipelineImages");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1363,15 +1319,8 @@ export const se_ListImagePipelineImagesCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1381,11 +1330,11 @@ export const se_ListImagePipelinesCommand = async (
   input: ListImagePipelinesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListImagePipelines";
+  b.bp("/ListImagePipelines");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1394,15 +1343,8 @@ export const se_ListImagePipelinesCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1412,11 +1354,11 @@ export const se_ListImageRecipesCommand = async (
   input: ListImageRecipesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListImageRecipes";
+  b.bp("/ListImageRecipes");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1426,15 +1368,8 @@ export const se_ListImageRecipesCommand = async (
       owner: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1444,11 +1379,11 @@ export const se_ListImagesCommand = async (
   input: ListImagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListImages";
+  b.bp("/ListImages");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1460,15 +1395,8 @@ export const se_ListImagesCommand = async (
       owner: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1478,12 +1406,11 @@ export const se_ListImageScanFindingAggregationsCommand = async (
   input: ListImageScanFindingAggregationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListImageScanFindingAggregations";
+  b.bp("/ListImageScanFindingAggregations");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1491,15 +1418,8 @@ export const se_ListImageScanFindingAggregationsCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1509,11 +1429,11 @@ export const se_ListImageScanFindingsCommand = async (
   input: ListImageScanFindingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListImageScanFindings";
+  b.bp("/ListImageScanFindings");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1522,15 +1442,8 @@ export const se_ListImageScanFindingsCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1540,12 +1453,11 @@ export const se_ListInfrastructureConfigurationsCommand = async (
   input: ListInfrastructureConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListInfrastructureConfigurations";
+  b.bp("/ListInfrastructureConfigurations");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1554,15 +1466,81 @@ export const se_ListInfrastructureConfigurationsCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListLifecycleExecutionResourcesCommand
+ */
+export const se_ListLifecycleExecutionResourcesCommand = async (
+  input: ListLifecycleExecutionResourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/ListLifecycleExecutionResources");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      lifecycleExecutionId: [],
+      maxResults: [],
+      nextToken: [],
+      parentResourceId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListLifecycleExecutionsCommand
+ */
+export const se_ListLifecycleExecutionsCommand = async (
+  input: ListLifecycleExecutionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/ListLifecycleExecutions");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+      resourceArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListLifecyclePoliciesCommand
+ */
+export const se_ListLifecyclePoliciesCommand = async (
+  input: ListLifecyclePoliciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/ListLifecyclePolicies");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1572,20 +1550,60 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListWaitingWorkflowStepsCommand
+ */
+export const se_ListWaitingWorkflowStepsCommand = async (
+  input: ListWaitingWorkflowStepsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/ListWaitingWorkflowSteps");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListWorkflowBuildVersionsCommand
+ */
+export const se_ListWorkflowBuildVersionsCommand = async (
+  input: ListWorkflowBuildVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/ListWorkflowBuildVersions");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+      workflowVersionArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1595,12 +1613,11 @@ export const se_ListWorkflowExecutionsCommand = async (
   input: ListWorkflowExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListWorkflowExecutions";
+  b.bp("/ListWorkflowExecutions");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1609,15 +1626,34 @@ export const se_ListWorkflowExecutionsCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListWorkflowsCommand
+ */
+export const se_ListWorkflowsCommand = async (
+  input: ListWorkflowsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/ListWorkflows");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      byName: [],
+      filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+      owner: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1627,12 +1663,11 @@ export const se_ListWorkflowStepExecutionsCommand = async (
   input: ListWorkflowStepExecutionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListWorkflowStepExecutions";
+  b.bp("/ListWorkflowStepExecutions");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1641,15 +1676,8 @@ export const se_ListWorkflowStepExecutionsCommand = async (
       workflowExecutionId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1659,11 +1687,11 @@ export const se_PutComponentPolicyCommand = async (
   input: PutComponentPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/PutComponentPolicy";
+  b.bp("/PutComponentPolicy");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1671,15 +1699,8 @@ export const se_PutComponentPolicyCommand = async (
       policy: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1689,12 +1710,11 @@ export const se_PutContainerRecipePolicyCommand = async (
   input: PutContainerRecipePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/PutContainerRecipePolicy";
+  b.bp("/PutContainerRecipePolicy");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1702,15 +1722,8 @@ export const se_PutContainerRecipePolicyCommand = async (
       policy: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1720,11 +1733,11 @@ export const se_PutImagePolicyCommand = async (
   input: PutImagePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/PutImagePolicy";
+  b.bp("/PutImagePolicy");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1732,15 +1745,8 @@ export const se_PutImagePolicyCommand = async (
       policy: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1750,11 +1756,11 @@ export const se_PutImageRecipePolicyCommand = async (
   input: PutImageRecipePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/PutImageRecipePolicy";
+  b.bp("/PutImageRecipePolicy");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1762,15 +1768,34 @@ export const se_PutImageRecipePolicyCommand = async (
       policy: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1SendWorkflowStepActionCommand
+ */
+export const se_SendWorkflowStepActionCommand = async (
+  input: SendWorkflowStepActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/SendWorkflowStepAction");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      action: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      imageBuildVersionArn: [],
+      reason: [],
+      stepExecutionId: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1780,12 +1805,11 @@ export const se_StartImagePipelineExecutionCommand = async (
   input: StartImagePipelineExecutionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/StartImagePipelineExecution";
+  b.bp("/StartImagePipelineExecution");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1793,15 +1817,36 @@ export const se_StartImagePipelineExecutionCommand = async (
       imagePipelineArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartResourceStateUpdateCommand
+ */
+export const se_StartResourceStateUpdateCommand = async (
+  input: StartResourceStateUpdateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/StartResourceStateUpdate");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      exclusionRules: (_) => _json(_),
+      executionRole: [],
+      includeResources: (_) => _json(_),
+      resourceArn: [],
+      state: (_) => _json(_),
+      updateAt: (_) => Math.round(_.getTime() / 1000),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1811,27 +1856,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1841,27 +1879,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1871,12 +1901,11 @@ export const se_UpdateDistributionConfigurationCommand = async (
   input: UpdateDistributionConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateDistributionConfiguration";
+  b.bp("/UpdateDistributionConfiguration");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1886,15 +1915,8 @@ export const se_UpdateDistributionConfigurationCommand = async (
       distributions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1904,11 +1926,11 @@ export const se_UpdateImagePipelineCommand = async (
   input: UpdateImagePipelineCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateImagePipeline";
+  b.bp("/UpdateImagePipeline");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1917,6 +1939,7 @@ export const se_UpdateImagePipelineCommand = async (
       description: [],
       distributionConfigurationArn: [],
       enhancedImageMetadataEnabled: [],
+      executionRole: [],
       imagePipelineArn: [],
       imageRecipeArn: [],
       imageScanningConfiguration: (_) => _json(_),
@@ -1924,17 +1947,11 @@ export const se_UpdateImagePipelineCommand = async (
       infrastructureConfigurationArn: [],
       schedule: (_) => _json(_),
       status: [],
+      workflows: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1944,12 +1961,11 @@ export const se_UpdateInfrastructureConfigurationCommand = async (
   input: UpdateInfrastructureConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateInfrastructureConfiguration";
+  b.bp("/UpdateInfrastructureConfiguration");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1968,15 +1984,37 @@ export const se_UpdateInfrastructureConfigurationCommand = async (
       terminateInstanceOnFailure: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateLifecyclePolicyCommand
+ */
+export const se_UpdateLifecyclePolicyCommand = async (
+  input: UpdateLifecyclePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/UpdateLifecyclePolicy");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      description: [],
+      executionRole: [],
+      lifecyclePolicyArn: [],
+      policyDetails: (_) => _json(_),
+      resourceSelection: (_) => _json(_),
+      resourceType: [],
+      status: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2009,6 +2047,74 @@ const de_CancelImageCreationCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelImageCreationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.imagebuilder#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CancelLifecycleExecutionCommand
+ */
+export const de_CancelLifecycleExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelLifecycleExecutionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CancelLifecycleExecutionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    lifecycleExecutionId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CancelLifecycleExecutionCommandError
+ */
+const de_CancelLifecycleExecutionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelLifecycleExecutionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2591,6 +2697,159 @@ const de_CreateInfrastructureConfigurationCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateLifecyclePolicyCommand
+ */
+export const de_CreateLifecyclePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLifecyclePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateLifecyclePolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    clientToken: __expectString,
+    lifecyclePolicyArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateLifecyclePolicyCommandError
+ */
+const de_CreateLifecyclePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLifecyclePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.imagebuilder#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.imagebuilder#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.imagebuilder#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateWorkflowCommand
+ */
+export const de_CreateWorkflowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWorkflowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateWorkflowCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    clientToken: __expectString,
+    workflowBuildVersionArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateWorkflowCommandError
+ */
+const de_CreateWorkflowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWorkflowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.imagebuilder#InvalidParameterCombinationException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "InvalidVersionNumberException":
+    case "com.amazonaws.imagebuilder#InvalidVersionNumberException":
+      throw await de_InvalidVersionNumberExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.imagebuilder#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.imagebuilder#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DeleteComponentCommand
  */
 export const de_DeleteComponentCommand = async (
@@ -3053,6 +3312,136 @@ const de_DeleteInfrastructureConfigurationCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteLifecyclePolicyCommand
+ */
+export const de_DeleteLifecyclePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLifecyclePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteLifecyclePolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    lifecyclePolicyArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteLifecyclePolicyCommandError
+ */
+const de_DeleteLifecyclePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLifecyclePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceDependencyException":
+    case "com.amazonaws.imagebuilder#ResourceDependencyException":
+      throw await de_ResourceDependencyExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteWorkflowCommand
+ */
+export const de_DeleteWorkflowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWorkflowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteWorkflowCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    workflowBuildVersionArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteWorkflowCommandError
+ */
+const de_DeleteWorkflowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWorkflowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceDependencyException":
+    case "com.amazonaws.imagebuilder#ResourceDependencyException":
+      throw await de_ResourceDependencyExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1GetComponentCommand
  */
 export const de_GetComponentCommand = async (
@@ -3382,7 +3771,7 @@ export const de_GetImageCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    image: _json,
+    image: (_) => de_Image(_, context),
     requestId: __expectString,
   });
   Object.assign(contents, doc);
@@ -3746,6 +4135,192 @@ const de_GetInfrastructureConfigurationCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1GetLifecycleExecutionCommand
+ */
+export const de_GetLifecycleExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLifecycleExecutionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetLifecycleExecutionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    lifecycleExecution: (_) => de_LifecycleExecution(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetLifecycleExecutionCommandError
+ */
+const de_GetLifecycleExecutionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLifecycleExecutionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetLifecyclePolicyCommand
+ */
+export const de_GetLifecyclePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLifecyclePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetLifecyclePolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    lifecyclePolicy: (_) => de_LifecyclePolicy(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetLifecyclePolicyCommandError
+ */
+const de_GetLifecyclePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLifecyclePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetWorkflowCommand
+ */
+export const de_GetWorkflowCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetWorkflowCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetWorkflowCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    workflow: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetWorkflowCommandError
+ */
+const de_GetWorkflowCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetWorkflowCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1GetWorkflowExecutionCommand
  */
 export const de_GetWorkflowExecutionCommand = async (
@@ -3763,6 +4338,7 @@ export const de_GetWorkflowExecutionCommand = async (
     endTime: __expectString,
     imageBuildVersionArn: __expectString,
     message: __expectString,
+    parallelGroup: __expectString,
     requestId: __expectString,
     startTime: __expectString,
     status: __expectString,
@@ -4311,7 +4887,7 @@ export const de_ListImageBuildVersionsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    imageSummaryList: _json,
+    imageSummaryList: (_) => de_ImageSummaryList(_, context),
     nextToken: __expectString,
     requestId: __expectString,
   });
@@ -4448,7 +5024,7 @@ export const de_ListImagePipelineImagesCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    imageSummaryList: _json,
+    imageSummaryList: (_) => de_ImageSummaryList(_, context),
     nextToken: __expectString,
     requestId: __expectString,
   });
@@ -4907,6 +5483,206 @@ const de_ListInfrastructureConfigurationsCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListLifecycleExecutionResourcesCommand
+ */
+export const de_ListLifecycleExecutionResourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLifecycleExecutionResourcesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListLifecycleExecutionResourcesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    lifecycleExecutionId: __expectString,
+    lifecycleExecutionState: _json,
+    nextToken: __expectString,
+    resources: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListLifecycleExecutionResourcesCommandError
+ */
+const de_ListLifecycleExecutionResourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLifecycleExecutionResourcesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
+      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListLifecycleExecutionsCommand
+ */
+export const de_ListLifecycleExecutionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLifecycleExecutionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListLifecycleExecutionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    lifecycleExecutions: (_) => de_LifecycleExecutionsList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListLifecycleExecutionsCommandError
+ */
+const de_ListLifecycleExecutionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLifecycleExecutionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
+      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListLifecyclePoliciesCommand
+ */
+export const de_ListLifecyclePoliciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLifecyclePoliciesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListLifecyclePoliciesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    lifecyclePolicySummaryList: (_) => de_LifecyclePolicySummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListLifecyclePoliciesCommandError
+ */
+const de_ListLifecyclePoliciesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLifecyclePoliciesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
+      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListTagsForResourceCommand
  */
 export const de_ListTagsForResourceCommand = async (
@@ -4960,6 +5736,138 @@ const de_ListTagsForResourceCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListWaitingWorkflowStepsCommand
+ */
+export const de_ListWaitingWorkflowStepsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWaitingWorkflowStepsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListWaitingWorkflowStepsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    steps: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListWaitingWorkflowStepsCommandError
+ */
+const de_ListWaitingWorkflowStepsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWaitingWorkflowStepsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
+      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListWorkflowBuildVersionsCommand
+ */
+export const de_ListWorkflowBuildVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorkflowBuildVersionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListWorkflowBuildVersionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    workflowSummaryList: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListWorkflowBuildVersionsCommandError
+ */
+const de_ListWorkflowBuildVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorkflowBuildVersionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
+      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListWorkflowExecutionsCommand
  */
 export const de_ListWorkflowExecutionsCommand = async (
@@ -4991,6 +5899,72 @@ const de_ListWorkflowExecutionsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListWorkflowExecutionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.imagebuilder#InvalidPaginationTokenException":
+      throw await de_InvalidPaginationTokenExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListWorkflowsCommand
+ */
+export const de_ListWorkflowsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorkflowsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListWorkflowsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    workflowVersionList: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListWorkflowsCommandError
+ */
+const de_ListWorkflowsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorkflowsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5376,6 +6350,82 @@ const de_PutImageRecipePolicyCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1SendWorkflowStepActionCommand
+ */
+export const de_SendWorkflowStepActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendWorkflowStepActionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_SendWorkflowStepActionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    clientToken: __expectString,
+    imageBuildVersionArn: __expectString,
+    stepExecutionId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1SendWorkflowStepActionCommandError
+ */
+const de_SendWorkflowStepActionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SendWorkflowStepActionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.imagebuilder#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.imagebuilder#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1StartImagePipelineExecutionCommand
  */
 export const de_StartImagePipelineExecutionCommand = async (
@@ -5405,6 +6455,78 @@ const de_StartImagePipelineExecutionCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartImagePipelineExecutionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.imagebuilder#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.imagebuilder#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1StartResourceStateUpdateCommand
+ */
+export const de_StartResourceStateUpdateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartResourceStateUpdateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StartResourceStateUpdateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    lifecycleExecutionId: __expectString,
+    resourceArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartResourceStateUpdateCommandError
+ */
+const de_StartResourceStateUpdateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartResourceStateUpdateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5737,6 +6859,77 @@ const de_UpdateInfrastructureConfigurationCommandError = async (
     case "IdempotentParameterMismatchException":
     case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
       throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.imagebuilder#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.imagebuilder#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ServiceException":
+    case "com.amazonaws.imagebuilder#ServiceException":
+      throw await de_ServiceExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.imagebuilder#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateLifecyclePolicyCommand
+ */
+export const de_UpdateLifecyclePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLifecyclePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateLifecyclePolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    lifecyclePolicyArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateLifecyclePolicyCommandError
+ */
+const de_UpdateLifecyclePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateLifecyclePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "CallRateLimitExceededException":
+    case "com.amazonaws.imagebuilder#CallRateLimitExceededException":
+      throw await de_CallRateLimitExceededExceptionRes(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.imagebuilder#ClientException":
+      throw await de_ClientExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.imagebuilder#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "IdempotentParameterMismatchException":
+    case "com.amazonaws.imagebuilder#IdempotentParameterMismatchException":
+      throw await de_IdempotentParameterMismatchExceptionRes(parsedOutput, context);
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.imagebuilder#InvalidParameterCombinationException":
+      throw await de_InvalidParameterCombinationExceptionRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.imagebuilder#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
@@ -6159,6 +7352,28 @@ const de_ServiceUnavailableExceptionRes = async (
 
 // se_LicenseConfigurationArnList omitted.
 
+// se_LifecyclePolicyDetail omitted.
+
+// se_LifecyclePolicyDetailAction omitted.
+
+// se_LifecyclePolicyDetailActionIncludeResources omitted.
+
+// se_LifecyclePolicyDetailExclusionRules omitted.
+
+// se_LifecyclePolicyDetailExclusionRulesAmis omitted.
+
+// se_LifecyclePolicyDetailExclusionRulesAmisLastLaunched omitted.
+
+// se_LifecyclePolicyDetailFilter omitted.
+
+// se_LifecyclePolicyDetails omitted.
+
+// se_LifecyclePolicyResourceSelection omitted.
+
+// se_LifecyclePolicyResourceSelectionRecipe omitted.
+
+// se_LifecyclePolicyResourceSelectionRecipes omitted.
+
 // se_Logging omitted.
 
 // se_OrganizationalUnitArnList omitted.
@@ -6166,6 +7381,12 @@ const de_ServiceUnavailableExceptionRes = async (
 // se_OrganizationArnList omitted.
 
 // se_OsVersionList omitted.
+
+// se_ResourceState omitted.
+
+// se_ResourceStateUpdateExclusionRules omitted.
+
+// se_ResourceStateUpdateIncludeResources omitted.
 
 // se_ResourceTagMap omitted.
 
@@ -6184,6 +7405,16 @@ const de_ServiceUnavailableExceptionRes = async (
 // se_TagMap omitted.
 
 // se_TargetContainerRepository omitted.
+
+// se_WorkflowConfiguration omitted.
+
+// se_WorkflowConfigurationList omitted.
+
+// se_WorkflowParameter omitted.
+
+// se_WorkflowParameterList omitted.
+
+// se_WorkflowParameterValueList omitted.
 
 // de_AccountAggregation omitted.
 
@@ -6299,7 +7530,39 @@ const de_CvssScoreList = (output: any, context: __SerdeContext): CvssScore[] => 
 
 // de_FastLaunchSnapshotConfiguration omitted.
 
-// de_Image omitted.
+/**
+ * deserializeAws_restJson1Image
+ */
+const de_Image = (output: any, context: __SerdeContext): Image => {
+  return take(output, {
+    arn: __expectString,
+    buildType: __expectString,
+    containerRecipe: _json,
+    dateCreated: __expectString,
+    deprecationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    distributionConfiguration: _json,
+    enhancedImageMetadataEnabled: __expectBoolean,
+    executionRole: __expectString,
+    imageRecipe: _json,
+    imageScanningConfiguration: _json,
+    imageSource: __expectString,
+    imageTestsConfiguration: _json,
+    infrastructureConfiguration: _json,
+    lifecycleExecutionId: __expectString,
+    name: __expectString,
+    osVersion: __expectString,
+    outputResources: _json,
+    platform: __expectString,
+    scanState: _json,
+    sourcePipelineArn: __expectString,
+    sourcePipelineName: __expectString,
+    state: _json,
+    tags: _json,
+    type: __expectString,
+    version: __expectString,
+    workflows: _json,
+  }) as any;
+};
 
 // de_ImageAggregation omitted.
 
@@ -6363,9 +7626,40 @@ const de_ImageScanFindingsList = (output: any, context: __SerdeContext): ImageSc
 
 // de_ImageState omitted.
 
-// de_ImageSummary omitted.
+/**
+ * deserializeAws_restJson1ImageSummary
+ */
+const de_ImageSummary = (output: any, context: __SerdeContext): ImageSummary => {
+  return take(output, {
+    arn: __expectString,
+    buildType: __expectString,
+    dateCreated: __expectString,
+    deprecationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    imageSource: __expectString,
+    lifecycleExecutionId: __expectString,
+    name: __expectString,
+    osVersion: __expectString,
+    outputResources: _json,
+    owner: __expectString,
+    platform: __expectString,
+    state: _json,
+    tags: _json,
+    type: __expectString,
+    version: __expectString,
+  }) as any;
+};
 
-// de_ImageSummaryList omitted.
+/**
+ * deserializeAws_restJson1ImageSummaryList
+ */
+const de_ImageSummaryList = (output: any, context: __SerdeContext): ImageSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ImageSummary(entry, context);
+    });
+  return retVal;
+};
 
 // de_ImageTestsConfiguration omitted.
 
@@ -6405,6 +7699,120 @@ const de_InspectorScoreDetails = (output: any, context: __SerdeContext): Inspect
 // de_LaunchTemplateConfigurationList omitted.
 
 // de_LicenseConfigurationArnList omitted.
+
+/**
+ * deserializeAws_restJson1LifecycleExecution
+ */
+const de_LifecycleExecution = (output: any, context: __SerdeContext): LifecycleExecution => {
+  return take(output, {
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lifecycleExecutionId: __expectString,
+    lifecyclePolicyArn: __expectString,
+    resourcesImpactedSummary: _json,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    state: _json,
+  }) as any;
+};
+
+// de_LifecycleExecutionResource omitted.
+
+// de_LifecycleExecutionResourceAction omitted.
+
+// de_LifecycleExecutionResourceList omitted.
+
+// de_LifecycleExecutionResourcesImpactedSummary omitted.
+
+// de_LifecycleExecutionResourceState omitted.
+
+/**
+ * deserializeAws_restJson1LifecycleExecutionsList
+ */
+const de_LifecycleExecutionsList = (output: any, context: __SerdeContext): LifecycleExecution[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_LifecycleExecution(entry, context);
+    });
+  return retVal;
+};
+
+// de_LifecycleExecutionSnapshotResource omitted.
+
+// de_LifecycleExecutionSnapshotResourceList omitted.
+
+// de_LifecycleExecutionState omitted.
+
+/**
+ * deserializeAws_restJson1LifecyclePolicy
+ */
+const de_LifecyclePolicy = (output: any, context: __SerdeContext): LifecyclePolicy => {
+  return take(output, {
+    arn: __expectString,
+    dateCreated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dateLastRun: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dateUpdated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    executionRole: __expectString,
+    name: __expectString,
+    policyDetails: _json,
+    resourceSelection: _json,
+    resourceType: __expectString,
+    status: __expectString,
+    tags: _json,
+  }) as any;
+};
+
+// de_LifecyclePolicyDetail omitted.
+
+// de_LifecyclePolicyDetailAction omitted.
+
+// de_LifecyclePolicyDetailActionIncludeResources omitted.
+
+// de_LifecyclePolicyDetailExclusionRules omitted.
+
+// de_LifecyclePolicyDetailExclusionRulesAmis omitted.
+
+// de_LifecyclePolicyDetailExclusionRulesAmisLastLaunched omitted.
+
+// de_LifecyclePolicyDetailFilter omitted.
+
+// de_LifecyclePolicyDetails omitted.
+
+// de_LifecyclePolicyResourceSelection omitted.
+
+// de_LifecyclePolicyResourceSelectionRecipe omitted.
+
+// de_LifecyclePolicyResourceSelectionRecipes omitted.
+
+/**
+ * deserializeAws_restJson1LifecyclePolicySummary
+ */
+const de_LifecyclePolicySummary = (output: any, context: __SerdeContext): LifecyclePolicySummary => {
+  return take(output, {
+    arn: __expectString,
+    dateCreated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dateLastRun: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dateUpdated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    executionRole: __expectString,
+    name: __expectString,
+    resourceType: __expectString,
+    status: __expectString,
+    tags: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1LifecyclePolicySummaryList
+ */
+const de_LifecyclePolicySummaryList = (output: any, context: __SerdeContext): LifecyclePolicySummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_LifecyclePolicySummary(entry, context);
+    });
+  return retVal;
+};
 
 // de_Logging omitted.
 
@@ -6470,13 +7878,43 @@ const de_PackageVulnerabilityDetails = (output: any, context: __SerdeContext): P
 
 // de_VulnerablePackageList omitted.
 
+// de_Workflow omitted.
+
+// de_WorkflowConfiguration omitted.
+
+// de_WorkflowConfigurationList omitted.
+
 // de_WorkflowExecutionMetadata omitted.
 
 // de_WorkflowExecutionsList omitted.
 
+// de_WorkflowParameter omitted.
+
+// de_WorkflowParameterDetail omitted.
+
+// de_WorkflowParameterDetailList omitted.
+
+// de_WorkflowParameterList omitted.
+
+// de_WorkflowParameterValueList omitted.
+
+// de_WorkflowState omitted.
+
+// de_WorkflowStepExecution omitted.
+
+// de_WorkflowStepExecutionList omitted.
+
 // de_WorkflowStepExecutionsList omitted.
 
 // de_WorkflowStepMetadata omitted.
+
+// de_WorkflowSummary omitted.
+
+// de_WorkflowSummaryList omitted.
+
+// de_WorkflowVersion omitted.
+
+// de_WorkflowVersionList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -6496,6 +7934,22 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _cA = "componentArn";
+const _cBVA = "componentBuildVersionArn";
+const _cRA = "containerRecipeArn";
+const _dCA = "distributionConfigurationArn";
+const _iA = "imageArn";
+const _iBVA = "imageBuildVersionArn";
+const _iCA = "infrastructureConfigurationArn";
+const _iPA = "imagePipelineArn";
+const _iRA = "imageRecipeArn";
+const _lEI = "lifecycleExecutionId";
+const _lPA = "lifecyclePolicyArn";
+const _sEI = "stepExecutionId";
+const _tK = "tagKeys";
+const _wBVA = "workflowBuildVersionArn";
+const _wEI = "workflowExecutionId";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

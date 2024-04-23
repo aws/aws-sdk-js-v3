@@ -1,23 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   ChimeSDKMessagingClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ListChannelModeratorsRequest,
   ListChannelModeratorsRequestFilterSensitiveLog,
@@ -108,79 +100,26 @@ export interface ListChannelModeratorsCommandOutput extends ListChannelModerator
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
-export class ListChannelModeratorsCommand extends $Command<
-  ListChannelModeratorsCommandInput,
-  ListChannelModeratorsCommandOutput,
-  ChimeSDKMessagingClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListChannelModeratorsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ChimeSDKMessagingClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListChannelModeratorsCommandInput, ListChannelModeratorsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListChannelModeratorsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ChimeSDKMessagingClient";
-    const commandName = "ListChannelModeratorsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: ListChannelModeratorsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListChannelModeratorsResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListChannelModeratorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListChannelModeratorsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChannelModeratorsCommandOutput> {
-    return de_ListChannelModeratorsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListChannelModeratorsCommand extends $Command
+  .classBuilder<
+    ListChannelModeratorsCommandInput,
+    ListChannelModeratorsCommandOutput,
+    ChimeSDKMessagingClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ChimeMessagingService", "ListChannelModerators", {})
+  .n("ChimeSDKMessagingClient", "ListChannelModeratorsCommand")
+  .f(ListChannelModeratorsRequestFilterSensitiveLog, ListChannelModeratorsResponseFilterSensitiveLog)
+  .ser(se_ListChannelModeratorsCommand)
+  .de(de_ListChannelModeratorsCommand)
+  .build() {}

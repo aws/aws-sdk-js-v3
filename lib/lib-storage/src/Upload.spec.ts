@@ -296,6 +296,22 @@ describe(Upload.name, () => {
     expect(result.Location).toEqual("https://s3.region.amazonaws.com/example-bucket/example-key");
   });
 
+  it("should return a Location field with decoded slash symbols", async () => {
+    const partSize = 1024 * 1024 * 5;
+    const largeBuffer = Buffer.from("#".repeat(partSize + 10));
+    const actionParams = { ...params, Body: largeBuffer };
+    const completeMultipartMockWithLocation = completeMultipartMock.mockResolvedValueOnce({
+      Location: "https://example-bucket.example-host.com/folder%2Fexample-key",
+    });
+    const upload = new Upload({
+      params: actionParams,
+      client: new S3({}),
+    });
+    const result = (await upload.done()) as CompleteMultipartUploadCommandOutput;
+    expect(completeMultipartMockWithLocation).toHaveBeenCalledTimes(1);
+    expect(result.Location).toEqual("https://example-bucket.example-host.com/folder/example-key");
+  });
+
   it("should upload using multi-part when parts are larger than part size", async () => {
     // create a string that's larger than 5MB.
     const partSize = 1024 * 1024 * 5;

@@ -1,19 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { StartDeviceAuthorizationRequest, StartDeviceAuthorizationResponse } from "../models/models_0";
+import { commonParams } from "../endpoint/EndpointParameters";
+import {
+  StartDeviceAuthorizationRequest,
+  StartDeviceAuthorizationRequestFilterSensitiveLog,
+  StartDeviceAuthorizationResponse,
+} from "../models/models_0";
 import { de_StartDeviceAuthorizationCommand, se_StartDeviceAuthorizationCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOOIDCClientResolvedConfig } from "../SSOOIDCClient";
 
@@ -92,80 +88,50 @@ export interface StartDeviceAuthorizationCommandOutput extends StartDeviceAuthor
  * @throws {@link SSOOIDCServiceException}
  * <p>Base exception class for all service exceptions from SSOOIDC service.</p>
  *
+ * @example Call OAuth/OIDC /start-device-authorization endpoint
+ * ```javascript
+ * //
+ * const input = {
+ *   "clientId": "_yzkThXVzLWVhc3QtMQEXAMPLECLIENTID",
+ *   "clientSecret": "VERYLONGSECRETeyJraWQiOiJrZXktMTU2NDAyODA5OSIsImFsZyI6IkhTMzg0In0",
+ *   "startUrl": "https://identitycenter.amazonaws.com/ssoins-111111111111"
+ * };
+ * const command = new StartDeviceAuthorizationCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "deviceCode": "yJraWQiOiJrZXktMTU2Njk2ODA4OCIsImFsZyI6IkhTMzIn0EXAMPLEDEVICECODE",
+ *   "expiresIn": 1579729529,
+ *   "interval": 1,
+ *   "userCode": "makdfsk83yJraWQiOiJrZXktMTU2Njk2sImFsZyI6IkhTMzIn0EXAMPLEUSERCODE",
+ *   "verificationUri": "https://device.sso.us-west-2.amazonaws.com",
+ *   "verificationUriComplete": "https://device.sso.us-west-2.amazonaws.com?user_code=makdfsk83yJraWQiOiJrZXktMTU2Njk2sImFsZyI6IkhTMzIn0EXAMPLEUSERCODE"
+ * }
+ * *\/
+ * // example id: start-device-authorization
+ * ```
+ *
  */
-export class StartDeviceAuthorizationCommand extends $Command<
-  StartDeviceAuthorizationCommandInput,
-  StartDeviceAuthorizationCommandOutput,
-  SSOOIDCClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StartDeviceAuthorizationCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SSOOIDCClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StartDeviceAuthorizationCommandInput, StartDeviceAuthorizationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartDeviceAuthorizationCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SSOOIDCClient";
-    const commandName = "StartDeviceAuthorizationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StartDeviceAuthorizationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartDeviceAuthorizationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDeviceAuthorizationCommandOutput> {
-    return de_StartDeviceAuthorizationCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class StartDeviceAuthorizationCommand extends $Command
+  .classBuilder<
+    StartDeviceAuthorizationCommandInput,
+    StartDeviceAuthorizationCommandOutput,
+    SSOOIDCClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SSOOIDCClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSSSOOIDCService", "StartDeviceAuthorization", {})
+  .n("SSOOIDCClient", "StartDeviceAuthorizationCommand")
+  .f(StartDeviceAuthorizationRequestFilterSensitiveLog, void 0)
+  .ser(se_StartDeviceAuthorizationCommand)
+  .de(de_StartDeviceAuthorizationCommand)
+  .build() {}

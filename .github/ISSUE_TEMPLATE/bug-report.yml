@@ -94,6 +94,7 @@ body:
     attributes:
       label: Additional Information/Context
       description: |
-        Anything else that might be relevant for troubleshooting this bug. Providing context helps us come up with a solution that is most useful in the real world.
+        Anything else that might be relevant for troubleshooting this bug. Providing context helps us come up with a solution that is most useful in the real world. 
+        If you believe the issue may be related to Smithy code generation, add the smithy-codegen label.
     validations:
       required: false

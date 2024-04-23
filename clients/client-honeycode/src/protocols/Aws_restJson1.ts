@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -95,15 +96,13 @@ export const se_BatchCreateTableRowsCommand = async (
   input: BatchCreateTableRowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workbooks/{workbookId}/tables/{tableId}/rows/batchcreate";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workbookId", () => input.workbookId!, "{workbookId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "tableId", () => input.tableId!, "{tableId}", false);
+  b.bp("/workbooks/{workbookId}/tables/{tableId}/rows/batchcreate");
+  b.p("workbookId", () => input.workbookId!, "{workbookId}", false);
+  b.p("tableId", () => input.tableId!, "{tableId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -111,15 +110,8 @@ export const se_BatchCreateTableRowsCommand = async (
       rowsToCreate: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -129,15 +121,13 @@ export const se_BatchDeleteTableRowsCommand = async (
   input: BatchDeleteTableRowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workbooks/{workbookId}/tables/{tableId}/rows/batchdelete";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workbookId", () => input.workbookId!, "{workbookId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "tableId", () => input.tableId!, "{tableId}", false);
+  b.bp("/workbooks/{workbookId}/tables/{tableId}/rows/batchdelete");
+  b.p("workbookId", () => input.workbookId!, "{workbookId}", false);
+  b.p("tableId", () => input.tableId!, "{tableId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -145,15 +135,8 @@ export const se_BatchDeleteTableRowsCommand = async (
       rowIds: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -163,15 +146,13 @@ export const se_BatchUpdateTableRowsCommand = async (
   input: BatchUpdateTableRowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workbooks/{workbookId}/tables/{tableId}/rows/batchupdate";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workbookId", () => input.workbookId!, "{workbookId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "tableId", () => input.tableId!, "{tableId}", false);
+  b.bp("/workbooks/{workbookId}/tables/{tableId}/rows/batchupdate");
+  b.p("workbookId", () => input.workbookId!, "{workbookId}", false);
+  b.p("tableId", () => input.tableId!, "{tableId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -179,15 +160,8 @@ export const se_BatchUpdateTableRowsCommand = async (
       rowsToUpdate: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -197,15 +171,13 @@ export const se_BatchUpsertTableRowsCommand = async (
   input: BatchUpsertTableRowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workbooks/{workbookId}/tables/{tableId}/rows/batchupsert";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workbookId", () => input.workbookId!, "{workbookId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "tableId", () => input.tableId!, "{tableId}", false);
+  b.bp("/workbooks/{workbookId}/tables/{tableId}/rows/batchupsert");
+  b.p("workbookId", () => input.workbookId!, "{workbookId}", false);
+  b.p("tableId", () => input.tableId!, "{tableId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -213,15 +185,8 @@ export const se_BatchUpsertTableRowsCommand = async (
       rowsToUpsert: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -231,24 +196,15 @@ export const se_DescribeTableDataImportJobCommand = async (
   input: DescribeTableDataImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workbooks/{workbookId}/tables/{tableId}/import/{jobId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workbookId", () => input.workbookId!, "{workbookId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "tableId", () => input.tableId!, "{tableId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "jobId", () => input.jobId!, "{jobId}", false);
+  b.bp("/workbooks/{workbookId}/tables/{tableId}/import/{jobId}");
+  b.p("workbookId", () => input.workbookId!, "{workbookId}", false);
+  b.p("tableId", () => input.tableId!, "{tableId}", false);
+  b.p("jobId", () => input.jobId!, "{jobId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -258,11 +214,11 @@ export const se_GetScreenDataCommand = async (
   input: GetScreenDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/screendata";
+  b.bp("/screendata");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -274,15 +230,8 @@ export const se_GetScreenDataCommand = async (
       workbookId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -292,24 +241,15 @@ export const se_InvokeScreenAutomationCommand = async (
   input: InvokeScreenAutomationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workbooks/{workbookId}/apps/{appId}/screens/{screenId}/automations/{screenAutomationId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workbookId", () => input.workbookId!, "{workbookId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "appId", () => input.appId!, "{appId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "screenId", () => input.screenId!, "{screenId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "screenAutomationId",
-    () => input.screenAutomationId!,
-    "{screenAutomationId}",
-    false
-  );
+  b.bp("/workbooks/{workbookId}/apps/{appId}/screens/{screenId}/automations/{screenAutomationId}");
+  b.p("workbookId", () => input.workbookId!, "{workbookId}", false);
+  b.p("appId", () => input.appId!, "{appId}", false);
+  b.p("screenId", () => input.screenId!, "{screenId}", false);
+  b.p("screenAutomationId", () => input.screenAutomationId!, "{screenAutomationId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -318,15 +258,8 @@ export const se_InvokeScreenAutomationCommand = async (
       variables: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -336,27 +269,17 @@ export const se_ListTableColumnsCommand = async (
   input: ListTableColumnsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workbooks/{workbookId}/tables/{tableId}/columns";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workbookId", () => input.workbookId!, "{workbookId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "tableId", () => input.tableId!, "{tableId}", false);
+  b.bp("/workbooks/{workbookId}/tables/{tableId}/columns");
+  b.p("workbookId", () => input.workbookId!, "{workbookId}", false);
+  b.p("tableId", () => input.tableId!, "{tableId}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -366,15 +289,13 @@ export const se_ListTableRowsCommand = async (
   input: ListTableRowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workbooks/{workbookId}/tables/{tableId}/rows/list";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workbookId", () => input.workbookId!, "{workbookId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "tableId", () => input.tableId!, "{tableId}", false);
+  b.bp("/workbooks/{workbookId}/tables/{tableId}/rows/list");
+  b.p("workbookId", () => input.workbookId!, "{workbookId}", false);
+  b.p("tableId", () => input.tableId!, "{tableId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -383,15 +304,8 @@ export const se_ListTableRowsCommand = async (
       rowIds: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -401,26 +315,17 @@ export const se_ListTablesCommand = async (
   input: ListTablesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workbooks/{workbookId}/tables";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workbookId", () => input.workbookId!, "{workbookId}", false);
+  b.bp("/workbooks/{workbookId}/tables");
+  b.p("workbookId", () => input.workbookId!, "{workbookId}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -430,20 +335,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -453,15 +351,13 @@ export const se_QueryTableRowsCommand = async (
   input: QueryTableRowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workbooks/{workbookId}/tables/{tableId}/rows/query";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workbookId", () => input.workbookId!, "{workbookId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "tableId", () => input.tableId!, "{tableId}", false);
+  b.bp("/workbooks/{workbookId}/tables/{tableId}/rows/query");
+  b.p("workbookId", () => input.workbookId!, "{workbookId}", false);
+  b.p("tableId", () => input.tableId!, "{tableId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -470,15 +366,8 @@ export const se_QueryTableRowsCommand = async (
       nextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -488,22 +377,13 @@ export const se_StartTableDataImportJobCommand = async (
   input: StartTableDataImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workbooks/{workbookId}/tables/{destinationTableId}/import";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workbookId", () => input.workbookId!, "{workbookId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "destinationTableId",
-    () => input.destinationTableId!,
-    "{destinationTableId}",
-    false
-  );
+  b.bp("/workbooks/{workbookId}/tables/{destinationTableId}/import");
+  b.p("workbookId", () => input.workbookId!, "{workbookId}", false);
+  b.p("destinationTableId", () => input.destinationTableId!, "{destinationTableId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -513,15 +393,8 @@ export const se_StartTableDataImportJobCommand = async (
       importOptions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -531,27 +404,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -561,27 +427,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1925,6 +1783,10 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { ConnectParticipantServiceException as __BaseException } from "./ConnectParticipantServiceException";
 
@@ -186,10 +186,11 @@ export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType
 export interface CreateParticipantConnectionRequest {
   /**
    * @public
-   * <p>Type of connection information required. This can be omitted if
-   *                 <code>ConnectParticipant</code> is <code>true</code>.</p>
+   * <p>Type of connection information required. If you need <code>CONNECTION_CREDENTIALS</code> along with marking
+   *             participant as connected, pass <code>CONNECTION_CREDENTIALS</code> in
+   *             <code>Type</code>.</p>
    */
-  Type?: (ConnectionType | string)[];
+  Type?: ConnectionType[];
 
   /**
    * @public
@@ -264,6 +265,150 @@ export interface CreateParticipantConnectionResponse {
    *             with the participant's connection.</p>
    */
   ConnectionCredentials?: ConnectionCredentials;
+}
+
+/**
+ * @public
+ */
+export interface DescribeViewRequest {
+  /**
+   * @public
+   * <p>An encrypted token originating from the interactive message of a ShowView block operation.
+   *             Represents the desired view.</p>
+   */
+  ViewToken: string | undefined;
+
+  /**
+   * @public
+   * <p>The connection token.</p>
+   */
+  ConnectionToken: string | undefined;
+}
+
+/**
+ * @public
+ * <p>View content containing all content necessary to render a view except for runtime input data.</p>
+ */
+export interface ViewContent {
+  /**
+   * @public
+   * <p>The schema representing the input data that the view template must be supplied to render.</p>
+   */
+  InputSchema?: string;
+
+  /**
+   * @public
+   * <p>The view template representing the structure of the view.</p>
+   */
+  Template?: string;
+
+  /**
+   * @public
+   * <p>A list of actions possible from the view</p>
+   */
+  Actions?: string[];
+}
+
+/**
+ * @public
+ * <p>A view resource object. Contains metadata and content necessary to render the view.</p>
+ */
+export interface View {
+  /**
+   * @public
+   * <p>The identifier of the view.</p>
+   */
+  Id?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the view.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>The name of the view.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The current version of the view.</p>
+   */
+  Version?: number;
+
+  /**
+   * @public
+   * <p>View content containing all content necessary to render a view except for runtime input data.</p>
+   */
+  Content?: ViewContent;
+}
+
+/**
+ * @public
+ */
+export interface DescribeViewResponse {
+  /**
+   * @public
+   * <p>A view resource object. Contains metadata and content necessary to render the view.</p>
+   */
+  View?: View;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  CONTACT: "CONTACT",
+  CONTACT_FLOW: "CONTACT_FLOW",
+  HIERARCHY_GROUP: "HIERARCHY_GROUP",
+  HIERARCHY_LEVEL: "HIERARCHY_LEVEL",
+  INSTANCE: "INSTANCE",
+  PARTICIPANT: "PARTICIPANT",
+  PHONE_NUMBER: "PHONE_NUMBER",
+  USER: "USER",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
+ * <p>The resource was not found.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @public
+   * <p>The identifier of the resource.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * @public
+   * <p>The type of Amazon Connect resource.</p>
+   */
+  ResourceType?: ResourceType;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+    this.ResourceId = opts.ResourceId;
+    this.ResourceType = opts.ResourceType;
+  }
 }
 
 /**
@@ -409,13 +554,13 @@ export interface GetTranscriptRequest {
    * <p>The direction from StartPosition from which to retrieve message. Default: BACKWARD
    *             when no StartPosition is provided, FORWARD with StartPosition. </p>
    */
-  ScanDirection?: ScanDirection | string;
+  ScanDirection?: ScanDirection;
 
   /**
    * @public
    * <p>The sort order for the records. Default: DESCENDING.</p>
    */
-  SortOrder?: SortKey | string;
+  SortOrder?: SortKey;
 
   /**
    * @public
@@ -473,7 +618,7 @@ export interface AttachmentItem {
    * @public
    * <p>Status of the attachment.</p>
    */
-  Status?: ArtifactStatus | string;
+  Status?: ArtifactStatus;
 }
 
 /**
@@ -525,6 +670,8 @@ export interface MessageMetadata {
 export const ParticipantRole = {
   AGENT: "AGENT",
   CUSTOMER: "CUSTOMER",
+  CUSTOM_BOT: "CUSTOM_BOT",
+  SUPERVISOR: "SUPERVISOR",
   SYSTEM: "SYSTEM",
 } as const;
 
@@ -592,7 +739,7 @@ export interface Item {
    * @public
    * <p>Type of the item: message or event. </p>
    */
-  Type?: ChatItemType | string;
+  Type?: ChatItemType;
 
   /**
    * @public
@@ -610,7 +757,7 @@ export interface Item {
    * @public
    * <p>The role of the sender. For example, is it a customer, agent, or system.</p>
    */
-  ParticipantRole?: ParticipantRole | string;
+  ParticipantRole?: ParticipantRole;
 
   /**
    * @public
@@ -879,3 +1026,30 @@ export interface StartAttachmentUploadResponse {
    */
   UploadMetadata?: UploadMetadata;
 }
+
+/**
+ * @internal
+ */
+export const ViewContentFilterSensitiveLog = (obj: ViewContent): any => ({
+  ...obj,
+  ...(obj.InputSchema && { InputSchema: SENSITIVE_STRING }),
+  ...(obj.Template && { Template: SENSITIVE_STRING }),
+  ...(obj.Actions && { Actions: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ViewFilterSensitiveLog = (obj: View): any => ({
+  ...obj,
+  ...(obj.Name && { Name: SENSITIVE_STRING }),
+  ...(obj.Content && { Content: ViewContentFilterSensitiveLog(obj.Content) }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeViewResponseFilterSensitiveLog = (obj: DescribeViewResponse): any => ({
+  ...obj,
+  ...(obj.View && { View: ViewFilterSensitiveLog(obj.View) }),
+});

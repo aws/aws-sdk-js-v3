@@ -33,6 +33,11 @@
  *             </li>
  *             <li>
  *                <p>
+ *                   <a>UpdateRepositoryEncryptionKey</a>, which updates the Key Management Service encryption key used
+ *               to encrypt and decrypt a repository.</p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a>UpdateRepositoryName</a>, which changes the name of the
  *                     repository. If you change the name of a repository, no other users of that
  *                     repository can access it until you send them the new HTTPS or SSH URL to
@@ -388,8 +393,12 @@
 export * from "./CodeCommitClient";
 export * from "./CodeCommit";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { CodeCommitExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { CodeCommitServiceException } from "./models/CodeCommitServiceException";

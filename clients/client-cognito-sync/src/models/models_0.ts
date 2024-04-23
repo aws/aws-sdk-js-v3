@@ -560,7 +560,7 @@ export interface GetBulkPublishDetailsResponse {
    *       <p>SUCCEEDED - All data for the identity pool has been published to the configured stream</p>
    *       <p>FAILED - Some portion of the data has failed to publish, check FailureMessage for the cause.</p>
    */
-  BulkPublishStatus?: BulkPublishStatus | string;
+  BulkPublishStatus?: BulkPublishStatus;
 
   /**
    * @public
@@ -608,8 +608,17 @@ export interface GetIdentityPoolConfigurationRequest {
 
 /**
  * @public
+ * @enum
  */
-export type StreamingStatus = "DISABLED" | "ENABLED";
+export const StreamingStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type StreamingStatus = (typeof StreamingStatus)[keyof typeof StreamingStatus];
 
 /**
  * @public
@@ -634,7 +643,7 @@ export interface CognitoStreams {
    *       <p>ENABLED - Streaming of updates to identity pool is enabled.</p>
    *       <p>DISABLED - Streaming of updates to identity pool is disabled. Bulk publish will also fail if StreamingStatus is DISABLED.</p>
    */
-  StreamingStatus?: StreamingStatus | string;
+  StreamingStatus?: StreamingStatus;
 }
 
 /**
@@ -990,8 +999,19 @@ export class InvalidConfigurationException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export type Platform = "ADM" | "APNS" | "APNS_SANDBOX" | "GCM";
+export const Platform = {
+  ADM: "ADM",
+  APNS: "APNS",
+  APNS_SANDBOX: "APNS_SANDBOX",
+  GCM: "GCM",
+} as const;
+
+/**
+ * @public
+ */
+export type Platform = (typeof Platform)[keyof typeof Platform];
 
 /**
  * @public
@@ -1015,7 +1035,7 @@ export interface RegisterDeviceRequest {
    * @public
    * <p>The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).</p>
    */
-  Platform: Platform | string | undefined;
+  Platform: Platform | undefined;
 
   /**
    * @public
@@ -1261,8 +1281,17 @@ export class LimitExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export type Operation = "remove" | "replace";
+export const Operation = {
+  remove: "remove",
+  replace: "replace",
+} as const;
+
+/**
+ * @public
+ */
+export type Operation = (typeof Operation)[keyof typeof Operation];
 
 /**
  * @public
@@ -1273,7 +1302,7 @@ export interface RecordPatch {
    * @public
    * An operation, either replace or remove.
    */
-  Op: Operation | string | undefined;
+  Op: Operation | undefined;
 
   /**
    * @public

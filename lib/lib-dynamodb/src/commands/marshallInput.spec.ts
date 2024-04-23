@@ -2,9 +2,13 @@ import { marshallInput } from "./utils";
 
 describe("marshallInput and processObj", () => {
   it("marshallInput should not ignore falsy values", () => {
-    expect(marshallInput({ Items: [0, false, null, ""] }, [{ key: "Items" }])).toEqual({
-      Items: [{ N: "0" }, { BOOL: false }, { NULL: true }, { S: "" }],
-    });
+    expect(marshallInput({ Items: [0, false, null, ""] }, { Items: null }, { convertTopLevelContainer: true })).toEqual(
+      {
+        Items: {
+          L: [{ N: "0" }, { BOOL: false }, { NULL: true }, { S: "" }],
+        },
+      }
+    );
   });
 });
 
@@ -19,22 +23,20 @@ describe("marshallInput for commands", () => {
         },
       },
     };
-    const inputKeyNodes = [
-      {
-        key: "KeyConditions",
-        children: {
-          children: [{ key: "AttributeValueList" }],
+    const inputKeyNodes = {
+      KeyConditions: {
+        "*": {
+          AttributeValueList: [],
         },
       },
-      {
-        key: "QueryFilter",
-        children: {
-          children: [{ key: "AttributeValueList" }],
+      QueryFilter: {
+        "*": {
+          AttributeValueList: null,
         },
       },
-      { key: "ExclusiveStartKey" },
-      { key: "ExpressionAttributeValues" },
-    ];
+      ExclusiveStartKey: null,
+      ExpressionAttributeValues: null,
+    };
     const output = {
       TableName: "TestTable",
       KeyConditions: { id: { AttributeValueList: [{ S: "test" }], ComparisonOperator: "EQ" } },
@@ -42,7 +44,7 @@ describe("marshallInput for commands", () => {
       ExclusiveStartKey: undefined,
       ExpressionAttributeValues: undefined,
     };
-    expect(marshallInput(input, inputKeyNodes)).toEqual(output);
+    expect(marshallInput(input, inputKeyNodes, { convertTopLevelContainer: true })).toEqual(output);
   });
   it("marshals ExecuteStatementCommand input", () => {
     const input = {
@@ -51,12 +53,14 @@ describe("marshallInput for commands", () => {
                         WHERE contains("col_1", ?)`,
       Parameters: ["some_param"],
     };
-    const inputKeyNodes = [{ key: "Parameters" }];
+    const inputKeyNodes = {
+      Parameters: [],
+    };
     const output = {
       Statement: input.Statement,
       Parameters: [{ S: "some_param" }],
     };
-    expect(marshallInput(input, inputKeyNodes)).toEqual(output);
+    expect(marshallInput(input, inputKeyNodes, { convertTopLevelContainer: true })).toEqual(output);
   });
   it("marshals BatchExecuteStatementCommand input", () => {
     const input = {
@@ -72,7 +76,13 @@ describe("marshallInput for commands", () => {
         },
       ],
     };
-    const inputKeyNodes = [{ key: "Statements", children: [{ key: "Parameters" }] }];
+    const inputKeyNodes = {
+      Statements: {
+        "*": {
+          Parameters: [],
+        },
+      },
+    };
     const output = {
       Statements: [
         {
@@ -87,6 +97,6 @@ describe("marshallInput for commands", () => {
         },
       ],
     };
-    expect(marshallInput(input, inputKeyNodes)).toEqual(output);
+    expect(marshallInput(input, inputKeyNodes, { convertTopLevelContainer: true })).toEqual(output);
   });
 });

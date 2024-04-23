@@ -3,6 +3,593 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.501.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.500.0...v3.501.0) (2024-01-26)
+
+
+### Features
+
+* **client-sagemaker:** Amazon SageMaker Automatic Model Tuning now provides an API to programmatically delete tuning jobs. ([1462147](https://github.com/aws/aws-sdk-js-v3/commit/146214780655ca705aead47920395ea170a53aec))
+
+
+
+
+
+# [3.499.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.498.0...v3.499.0) (2024-01-24)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.496.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.495.0...v3.496.0) (2024-01-19)
+
+
+### Bug Fixes
+
+* get full list of exports for esm compat in dist-cjs ([#5694](https://github.com/aws/aws-sdk-js-v3/issues/5694)) ([5d26da6](https://github.com/aws/aws-sdk-js-v3/commit/5d26da6d07b593ae286ca674fb3cbff7c833cbb0))
+
+
+
+
+
+# [3.495.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.494.0...v3.495.0) (2024-01-18)
+
+
+### Features
+
+* use bundled dist-cjs build ([#5687](https://github.com/aws/aws-sdk-js-v3/issues/5687)) ([5f79e22](https://github.com/aws/aws-sdk-js-v3/commit/5f79e225e32f0b2ed5b432ae4e4108663eb0acfb))
+
+
+
+
+
+# [3.492.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.491.0...v3.492.0) (2024-01-14)
+
+
+### Features
+
+* **client-sagemaker:** This release will have ValidationException thrown if certain invalid app types are provided. The release will also throw ValidationException if more than 10 account ids are provided in VpcOnlyTrustedAccounts. ([b548c9f](https://github.com/aws/aws-sdk-js-v3/commit/b548c9f78b0f743af94303a35553bfd63baa47e6))
+
+
+
+
+
+# [3.490.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.489.0...v3.490.0) (2024-01-11)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.489.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.488.0...v3.489.0) (2024-01-10)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.486.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.485.0...v3.486.0) (2024-01-04)
+
+
+### Features
+
+* **client-sagemaker:** Adding support for provisioned throughput mode for SageMaker Feature Groups ([985a85e](https://github.com/aws/aws-sdk-js-v3/commit/985a85e32ab4e71c9c88e7d4b1134458dbece21e))
+
+
+
+
+
+# [3.485.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.484.0...v3.485.0) (2024-01-03)
+
+
+### Features
+
+* **credential-providers:** add credentialScope field ([#5606](https://github.com/aws/aws-sdk-js-v3/issues/5606)) ([04c1459](https://github.com/aws/aws-sdk-js-v3/commit/04c14592898ac63ed87d47f2a53320ccaa991083))
+
+
+
+
+
+# [3.484.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.483.0...v3.484.0) (2023-12-29)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.483.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.482.0...v3.483.0) (2023-12-28)
+
+
+### Features
+
+* **client-sagemaker:** Amazon SageMaker Studio now supports Docker access from within app container ([16531e4](https://github.com/aws/aws-sdk-js-v3/commit/16531e45649f2a963f6cf6510699bf0527246499))
+
+
+
+
+
+# [3.481.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.480.0...v3.481.0) (2023-12-26)
+
+
+### Features
+
+* codegen for command class builder ([#5604](https://github.com/aws/aws-sdk-js-v3/issues/5604)) ([4835de4](https://github.com/aws/aws-sdk-js-v3/commit/4835de4ebb8f302ae1e838ac1efaf5f12384910d))
+
+
+
+
+
+# [3.479.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.478.0...v3.479.0) (2023-12-21)
+
+
+### Features
+
+* **client-sagemaker:** Amazon SageMaker Training now provides model training container access for debugging purposes. Amazon SageMaker Search now provides the ability to use visibility conditions to limit resource access to a single domain or multiple domains. ([d7c4e6f](https://github.com/aws/aws-sdk-js-v3/commit/d7c4e6f13662568f325012986ffd7a3b7768bbbd))
+
+
+
+
+
+# [3.478.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.477.0...v3.478.0) (2023-12-20)
+
+
+### Features
+
+* codegen for paginator factory ([#5590](https://github.com/aws/aws-sdk-js-v3/issues/5590)) ([e54099b](https://github.com/aws/aws-sdk-js-v3/commit/e54099b7c1eb3b1de5737d5494821b1dae045fca))
+
+
+
+
+
+# [3.477.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.476.0...v3.477.0) (2023-12-19)
+
+
+### Features
+
+* xml codegen reduction ([#5566](https://github.com/aws/aws-sdk-js-v3/issues/5566)) ([3ed7c81](https://github.com/aws/aws-sdk-js-v3/commit/3ed7c81f9191182826de7645078cc6ed1d2ee959))
+
+
+
+
+
+# [3.476.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.475.0...v3.476.0) (2023-12-18)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.475.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.474.0...v3.475.0) (2023-12-15)
+
+
+### Features
+
+* **client-sagemaker:** This release 1) introduces a new API: DeleteCompilationJob , and 2) adds InfraCheckConfig for Create/Describe training job API ([30f3686](https://github.com/aws/aws-sdk-js-v3/commit/30f36867c6fedd3ad09698df03d63cdee424c860))
+
+
+
+
+
+# [3.474.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.473.0...v3.474.0) (2023-12-14)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.473.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.472.0...v3.473.0) (2023-12-13)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.470.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.469.0...v3.470.0) (2023-12-08)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.468.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.467.0...v3.468.0) (2023-12-06)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.465.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.464.0...v3.465.0) (2023-12-01)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.464.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.463.0...v3.464.0) (2023-11-30)
+
+
+### Features
+
+* **client-sagemaker:** This release adds support for 1/ Code Editor, based on Code-OSS, Visual Studio Code Open Source, a new fully managed IDE option in SageMaker Studio  2/ JupyterLab, a new fully managed JupyterLab IDE experience in SageMaker Studio ([53b4aa3](https://github.com/aws/aws-sdk-js-v3/commit/53b4aa3f9cec16e27ab52224dce85a179a893678))
+
+
+
+
+
+# [3.462.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.461.0...v3.462.0) (2023-11-29)
+
+
+### Features
+
+* **client-sagemaker:** This release adds following support 1/ Improved SDK tooling for model deployment. 2/ New Inference Component based features to lower inference costs and latency 3/ SageMaker HyperPod management. 4/ Additional parameters for FM Fine Tuning in Autopilot ([a8ae1e9](https://github.com/aws/aws-sdk-js-v3/commit/a8ae1e9c82109185904580eca01132e8d6eff2b5))
+
+
+
+
+
+# [3.461.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.460.0...v3.461.0) (2023-11-28)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.460.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.459.0...v3.460.0) (2023-11-28)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.458.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.457.0...v3.458.0) (2023-11-27)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.457.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.456.0...v3.457.0) (2023-11-22)
+
+
+### Features
+
+* **client-sagemaker:** This feature adds the end user license agreement status as a model access configuration parameter. ([c3aa186](https://github.com/aws/aws-sdk-js-v3/commit/c3aa1867b3e91f5275b1a24b4874c3815be905d3))
+
+
+
+
+
+# [3.456.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.455.0...v3.456.0) (2023-11-21)
+
+
+### Bug Fixes
+
+* **codegen:** create deser fn elision denylist ([#5506](https://github.com/aws/aws-sdk-js-v3/issues/5506)) ([59d599a](https://github.com/aws/aws-sdk-js-v3/commit/59d599a67a614f17cffe9cca877d733c881677ac))
+
+
+
+
+
+# [3.454.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.453.0...v3.454.0) (2023-11-17)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.453.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.452.0...v3.453.0) (2023-11-16)
+
+
+### Features
+
+* **client-sagemaker:** Amazon SageMaker Studio now supports Trainium instance types - trn1.2xlarge, trn1.32xlarge, trn1n.32xlarge. ([e1f639f](https://github.com/aws/aws-sdk-js-v3/commit/e1f639fd556d8c7c01d63128d1c4ba6a52e3f0ce))
+
+
+
+
+
+# [3.451.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.450.0...v3.451.0) (2023-11-14)
+
+
+### Features
+
+* **client-sagemaker:** This release makes Model Registry Inference Specification fields as not required. ([6c3fba8](https://github.com/aws/aws-sdk-js-v3/commit/6c3fba80da6034d1e96ac8beeb74184f6a723132))
+
+
+
+
+
+# [3.450.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.449.0...v3.450.0) (2023-11-13)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.449.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.448.0...v3.449.0) (2023-11-10)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.445.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.444.0...v3.445.0) (2023-11-07)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.441.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.440.0...v3.441.0) (2023-11-01)
+
+
+### Features
+
+* **client-sagemaker:** Support for batch transform input in Model dashboard ([1725b9c](https://github.com/aws/aws-sdk-js-v3/commit/1725b9ce02eb2e8c4ff3cefe471d58ebbb16b07a))
+
+
+
+
+
+# [3.438.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.437.0...v3.438.0) (2023-10-27)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.437.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.436.0...v3.437.0) (2023-10-26)
+
+
+### Features
+
+* **client-sagemaker:** Amazon Sagemaker Autopilot now supports Text Generation jobs. ([fd8ca90](https://github.com/aws/aws-sdk-js-v3/commit/fd8ca9031d4f06d108b60f43f98bfb288ab2a261))
+
+
+
+
+
+# [3.436.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.435.0...v3.436.0) (2023-10-25)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.435.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.434.0...v3.435.0) (2023-10-24)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.433.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.432.0...v3.433.0) (2023-10-20)
+
+
+### Bug Fixes
+
+* **codegen:** use partial record for enum keyed types ([#5391](https://github.com/aws/aws-sdk-js-v3/issues/5391)) ([70c2107](https://github.com/aws/aws-sdk-js-v3/commit/70c2107b970d035bfedb211278c88fdbfc2e5334))
+
+
+
+
+
+# [3.431.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.430.0...v3.431.0) (2023-10-18)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.430.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.429.0...v3.430.0) (2023-10-17)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.429.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.428.0...v3.429.0) (2023-10-16)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.428.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.427.0...v3.428.0) (2023-10-12)
+
+
+### Features
+
+* **client-sagemaker:** Amazon SageMaker Canvas adds KendraSettings and DirectDeploySettings support for CanvasAppSettings ([685916c](https://github.com/aws/aws-sdk-js-v3/commit/685916ce1a1d171c083afe0800bd3c4124408caa))
+
+
+
+
+
+# [3.427.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.426.0...v3.427.0) (2023-10-06)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.425.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.424.0...v3.425.0) (2023-10-04)
+
+
+### Features
+
+* **client-sagemaker:** Adding support for AdditionalS3DataSource, a data source used for training or inference that is in addition to the input dataset or model data. ([4fa41b7](https://github.com/aws/aws-sdk-js-v3/commit/4fa41b79af58bceb76c1658a26841e4f72e2ed55))
+
+
+
+
+
+# [3.424.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.423.0...v3.424.0) (2023-10-03)
+
+
+### Features
+
+* **client-sagemaker:** This release allows users to run Selective Execution in SageMaker Pipelines without SourcePipelineExecutionArn if selected steps do not have any dependent steps. ([47c3a81](https://github.com/aws/aws-sdk-js-v3/commit/47c3a81265145630b4e616182bb3811098be9f61))
+
+
+
+
+
+# [3.423.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.422.0...v3.423.0) (2023-10-02)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.422.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.421.0...v3.422.0) (2023-09-28)
+
+
+### Features
+
+* **client-sagemaker:** Online store feature groups supports Standard and InMemory tier storage types for low latency storage for real-time data retrieval. The InMemory tier supports collection types List, Set, and Vector. ([5fc40b0](https://github.com/aws/aws-sdk-js-v3/commit/5fc40b046014c981ddd68997bacc4190c1c3bf0c))
+
+
+
+
+
+# [3.421.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.420.0...v3.421.0) (2023-09-27)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.418.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.417.0...v3.418.0) (2023-09-22)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.416.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.415.0...v3.416.0) (2023-09-19)
+
+
+### Features
+
+* **client-sagemaker:** This release adds support for one-time model monitoring schedules that are executed immediately without delay, explicit data analysis windows for model monitoring schedules and exclude features attributes to remove features from model monitor analysis. ([2604b84](https://github.com/aws/aws-sdk-js-v3/commit/2604b84433480cdfd4a6738ac9617a1793abddb4))
+
+
+
+
+
+# [3.414.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.413.0...v3.414.0) (2023-09-15)
+
+
+### Features
+
+* **client-sagemaker:** This release introduces Skip Model Validation for Model Packages ([c5ed6cc](https://github.com/aws/aws-sdk-js-v3/commit/c5ed6cc13d79ca1dddbdfd6e5ad69f9ed3b45e4e))
+* **region-config:** add aws region runtime extension codegen ([#5157](https://github.com/aws/aws-sdk-js-v3/issues/5157)) ([b9d59e8](https://github.com/aws/aws-sdk-js-v3/commit/b9d59e81696f9628c6502473bb01a2d1a617e928))
+
+
+
+
+
+# [3.413.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.412.0...v3.413.0) (2023-09-14)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.410.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.409.0...v3.410.0) (2023-09-11)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.409.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.408.0...v3.409.0) (2023-09-08)
+
+
+### Features
+
+* **client-sagemaker:** Autopilot APIs will now support holiday featurization for Timeseries models. The models will now hold holiday metadata and should be able to accommodate holiday effect during inference. ([ee36843](https://github.com/aws/aws-sdk-js-v3/commit/ee368433c443948c536c59f4b3b9c6d95e8858cf))
+
+
+
+
+
+# [3.408.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.407.0...v3.408.0) (2023-09-07)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.406.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.405.0...v3.406.0) (2023-09-05)
+
+
+### Features
+
+* **client-sagemaker:** SageMaker Neo now supports data input shape derivation for Pytorch 2.0  and XGBoost compilation job for cloud instance targets. You can skip DataInputConfig field during compilation job creation. You can also access derived information from model in DescribeCompilationJob response. ([159d684](https://github.com/aws/aws-sdk-js-v3/commit/159d684d8a076d37c7951bdaeb0188fa108d0ccd))
+
+
+
+
+
+# [3.405.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.404.0...v3.405.0) (2023-09-01)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
+# [3.403.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.402.0...v3.403.0) (2023-08-30)
+
+
+### Features
+
+* **client-sagemaker:** Amazon SageMaker Canvas adds IdentityProviderOAuthSettings support for CanvasAppSettings ([6d84166](https://github.com/aws/aws-sdk-js-v3/commit/6d841668d3d1e12a59223097ff869c40bf4efccf))
+
+
+
+
+
+# [3.398.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.397.0...v3.398.0) (2023-08-23)
+
+**Note:** Version bump only for package @aws-sdk/client-sagemaker
+
+
+
+
+
 # [3.395.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.394.0...v3.395.0) (2023-08-18)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

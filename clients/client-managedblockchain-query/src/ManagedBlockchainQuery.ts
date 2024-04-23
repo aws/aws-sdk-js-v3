@@ -8,6 +8,11 @@ import {
   BatchGetTokenBalanceCommandOutput,
 } from "./commands/BatchGetTokenBalanceCommand";
 import {
+  GetAssetContractCommand,
+  GetAssetContractCommandInput,
+  GetAssetContractCommandOutput,
+} from "./commands/GetAssetContractCommand";
+import {
   GetTokenBalanceCommand,
   GetTokenBalanceCommandInput,
   GetTokenBalanceCommandOutput,
@@ -17,6 +22,11 @@ import {
   GetTransactionCommandInput,
   GetTransactionCommandOutput,
 } from "./commands/GetTransactionCommand";
+import {
+  ListAssetContractsCommand,
+  ListAssetContractsCommandInput,
+  ListAssetContractsCommandOutput,
+} from "./commands/ListAssetContractsCommand";
 import {
   ListTokenBalancesCommand,
   ListTokenBalancesCommandInput,
@@ -36,8 +46,10 @@ import { ManagedBlockchainQueryClient, ManagedBlockchainQueryClientConfig } from
 
 const commands = {
   BatchGetTokenBalanceCommand,
+  GetAssetContractCommand,
   GetTokenBalanceCommand,
   GetTransactionCommand,
+  ListAssetContractsCommand,
   ListTokenBalancesCommand,
   ListTransactionEventsCommand,
   ListTransactionsCommand,
@@ -59,6 +71,23 @@ export interface ManagedBlockchainQuery {
     args: BatchGetTokenBalanceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetTokenBalanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAssetContractCommand}
+   */
+  getAssetContract(
+    args: GetAssetContractCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAssetContractCommandOutput>;
+  getAssetContract(
+    args: GetAssetContractCommandInput,
+    cb: (err: any, data?: GetAssetContractCommandOutput) => void
+  ): void;
+  getAssetContract(
+    args: GetAssetContractCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAssetContractCommandOutput) => void
   ): void;
 
   /**
@@ -87,6 +116,23 @@ export interface ManagedBlockchainQuery {
     args: GetTransactionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetTransactionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAssetContractsCommand}
+   */
+  listAssetContracts(
+    args: ListAssetContractsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssetContractsCommandOutput>;
+  listAssetContracts(
+    args: ListAssetContractsCommandInput,
+    cb: (err: any, data?: ListAssetContractsCommandOutput) => void
+  ): void;
+  listAssetContracts(
+    args: ListAssetContractsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssetContractsCommandOutput) => void
   ): void;
 
   /**

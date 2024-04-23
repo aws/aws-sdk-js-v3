@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribePackageRequest, DescribePackageResult } from "../models/models_0";
 import { de_DescribePackageCommand, se_DescribePackageCommand } from "../protocols/Aws_restJson1";
 
@@ -49,7 +41,7 @@ export interface DescribePackageCommandOutput extends DescribePackageResult, __M
  *   domain: "STRING_VALUE", // required
  *   domainOwner: "STRING_VALUE",
  *   repository: "STRING_VALUE", // required
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "swift", // required
  *   namespace: "STRING_VALUE",
  *   package: "STRING_VALUE", // required
  * };
@@ -57,7 +49,7 @@ export interface DescribePackageCommandOutput extends DescribePackageResult, __M
  * const response = await client.send(command);
  * // { // DescribePackageResult
  * //   package: { // PackageDescription
- * //     format: "npm" || "pypi" || "maven" || "nuget" || "generic",
+ * //     format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "swift",
  * //     namespace: "STRING_VALUE",
  * //     name: "STRING_VALUE",
  * //     originConfiguration: { // PackageOriginConfiguration
@@ -104,79 +96,26 @@ export interface DescribePackageCommandOutput extends DescribePackageResult, __M
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
-export class DescribePackageCommand extends $Command<
-  DescribePackageCommandInput,
-  DescribePackageCommandOutput,
-  CodeartifactClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribePackageCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CodeartifactClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribePackageCommandInput, DescribePackageCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribePackageCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CodeartifactClient";
-    const commandName = "DescribePackageCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribePackageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribePackageCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePackageCommandOutput> {
-    return de_DescribePackageCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribePackageCommand extends $Command
+  .classBuilder<
+    DescribePackageCommandInput,
+    DescribePackageCommandOutput,
+    CodeartifactClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CodeArtifactControlPlaneService", "DescribePackage", {})
+  .n("CodeartifactClient", "DescribePackageCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribePackageCommand)
+  .de(de_DescribePackageCommand)
+  .build() {}

@@ -1,19 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ListUserSettingsRequest, ListUserSettingsResponse } from "../models/models_0";
+import { commonParams } from "../endpoint/EndpointParameters";
+import {
+  ListUserSettingsRequest,
+  ListUserSettingsResponse,
+  ListUserSettingsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_ListUserSettingsCommand, se_ListUserSettingsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfig } from "../WorkSpacesWebClient";
 
@@ -52,7 +48,7 @@ export interface ListUserSettingsCommandOutput extends ListUserSettingsResponse,
  * // { // ListUserSettingsResponse
  * //   userSettings: [ // UserSettingsList
  * //     { // UserSettingsSummary
- * //       userSettingsArn: "STRING_VALUE",
+ * //       userSettingsArn: "STRING_VALUE", // required
  * //       copyAllowed: "STRING_VALUE",
  * //       pasteAllowed: "STRING_VALUE",
  * //       downloadAllowed: "STRING_VALUE",
@@ -60,6 +56,22 @@ export interface ListUserSettingsCommandOutput extends ListUserSettingsResponse,
  * //       printAllowed: "STRING_VALUE",
  * //       disconnectTimeoutInMinutes: Number("int"),
  * //       idleDisconnectTimeoutInMinutes: Number("int"),
+ * //       cookieSynchronizationConfiguration: { // CookieSynchronizationConfiguration
+ * //         allowlist: [ // CookieSpecifications // required
+ * //           { // CookieSpecification
+ * //             domain: "STRING_VALUE", // required
+ * //             name: "STRING_VALUE",
+ * //             path: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         blocklist: [
+ * //           {
+ * //             domain: "STRING_VALUE", // required
+ * //             name: "STRING_VALUE",
+ * //             path: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -89,79 +101,26 @@ export interface ListUserSettingsCommandOutput extends ListUserSettingsResponse,
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
  */
-export class ListUserSettingsCommand extends $Command<
-  ListUserSettingsCommandInput,
-  ListUserSettingsCommandOutput,
-  WorkSpacesWebClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListUserSettingsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: WorkSpacesWebClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListUserSettingsCommandInput, ListUserSettingsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListUserSettingsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "WorkSpacesWebClient";
-    const commandName = "ListUserSettingsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListUserSettingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListUserSettingsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUserSettingsCommandOutput> {
-    return de_ListUserSettingsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListUserSettingsCommand extends $Command
+  .classBuilder<
+    ListUserSettingsCommandInput,
+    ListUserSettingsCommandOutput,
+    WorkSpacesWebClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSErmineControlPlaneService", "ListUserSettings", {})
+  .n("WorkSpacesWebClient", "ListUserSettingsCommand")
+  .f(void 0, ListUserSettingsResponseFilterSensitiveLog)
+  .ser(se_ListUserSettingsCommand)
+  .de(de_ListUserSettingsCommand)
+  .build() {}

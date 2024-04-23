@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreatePhoneNumberOrderRequest,
   CreatePhoneNumberOrderRequestFilterSensitiveLog,
@@ -109,79 +101,26 @@ export interface CreatePhoneNumberOrderCommandOutput extends CreatePhoneNumberOr
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
-export class CreatePhoneNumberOrderCommand extends $Command<
-  CreatePhoneNumberOrderCommandInput,
-  CreatePhoneNumberOrderCommandOutput,
-  ChimeClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreatePhoneNumberOrderCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ChimeClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreatePhoneNumberOrderCommandInput, CreatePhoneNumberOrderCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreatePhoneNumberOrderCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ChimeClient";
-    const commandName = "CreatePhoneNumberOrderCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: CreatePhoneNumberOrderRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreatePhoneNumberOrderResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreatePhoneNumberOrderCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreatePhoneNumberOrderCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePhoneNumberOrderCommandOutput> {
-    return de_CreatePhoneNumberOrderCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreatePhoneNumberOrderCommand extends $Command
+  .classBuilder<
+    CreatePhoneNumberOrderCommandInput,
+    CreatePhoneNumberOrderCommandOutput,
+    ChimeClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("UCBuzzConsoleService", "CreatePhoneNumberOrder", {})
+  .n("ChimeClient", "CreatePhoneNumberOrderCommand")
+  .f(CreatePhoneNumberOrderRequestFilterSensitiveLog, CreatePhoneNumberOrderResponseFilterSensitiveLog)
+  .ser(se_CreatePhoneNumberOrderCommand)
+  .de(de_CreatePhoneNumberOrderCommand)
+  .build() {}

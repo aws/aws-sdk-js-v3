@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GetWebACLForResourceRequest, GetWebACLForResourceResponse } from "../models/models_0";
 import { de_GetWebACLForResourceCommand, se_GetWebACLForResourceCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
@@ -37,6 +29,16 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
 /**
  * @public
  * <p>Retrieves the <a>WebACL</a> for the specified resource. </p>
+ *          <p>This call uses <code>GetWebACL</code>, to verify that your account has permission to access the retrieved web ACL.
+ *           If you get an error that indicates that your account isn't authorized to perform <code>wafv2:GetWebACL</code> on the resource,
+ *               that error won't be included in your CloudTrail event history. </p>
+ *          <p>For Amazon CloudFront, don't use this call. Instead, call the CloudFront action
+ *             <code>GetDistributionConfig</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetDistributionConfig.html">GetDistributionConfig</a> in the <i>Amazon CloudFront API Reference</i>. </p>
+ *          <p>
+ *             <b>Required permissions for customer-managed IAM policies</b>
+ *          </p>
+ *          <p>This call requires permissions that are specific to the protected resource type.
+ *     For details, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/security_iam_service-with-iam.html#security_iam_action-GetWebACLForResource">Permissions for GetWebACLForResource</a> in the <i>WAF Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -139,6 +141,9 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //               HeaderOrder: { // HeaderOrder
  * //                 OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
  * //               },
+ * //               JA3Fingerprint: { // JA3Fingerprint
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
  * //             },
  * //             TextTransformations: [ // TextTransformations // required
  * //               { // TextTransformation
@@ -203,6 +208,9 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //               HeaderOrder: {
  * //                 OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
  * //               },
+ * //               JA3Fingerprint: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
  * //             },
  * //             TextTransformations: [ // required
  * //               {
@@ -263,6 +271,9 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //               HeaderOrder: {
  * //                 OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
  * //               },
+ * //               JA3Fingerprint: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
  * //             },
  * //             TextTransformations: [ // required
  * //               {
@@ -317,6 +328,9 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //               },
  * //               HeaderOrder: {
  * //                 OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               JA3Fingerprint: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //               },
  * //             },
  * //             ComparisonOperator: "EQ" || "NE" || "LE" || "LT" || "GE" || "GT", // required
@@ -449,6 +463,9 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //               },
  * //               HeaderOrder: {
  * //                 OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               JA3Fingerprint: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //               },
  * //             },
  * //             TextTransformations: [ // required
@@ -603,6 +620,7 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //                     },
  * //                     AWSManagedRulesBotControlRuleSet: { // AWSManagedRulesBotControlRuleSet
  * //                       InspectionLevel: "COMMON" || "TARGETED", // required
+ * //                       EnableMachineLearning: true || false,
  * //                     },
  * //                     AWSManagedRulesATPRuleSet: { // AWSManagedRulesATPRuleSet
  * //                       LoginPath: "STRING_VALUE", // required
@@ -811,6 +829,7 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //                 PasswordField: "<PasswordField>",
  * //                 AWSManagedRulesBotControlRuleSet: {
  * //                   InspectionLevel: "COMMON" || "TARGETED", // required
+ * //                   EnableMachineLearning: true || false,
  * //                 },
  * //                 AWSManagedRulesATPRuleSet: {
  * //                   LoginPath: "STRING_VALUE", // required
@@ -1003,6 +1022,7 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //                 PasswordField: "<PasswordField>",
  * //                 AWSManagedRulesBotControlRuleSet: {
  * //                   InspectionLevel: "COMMON" || "TARGETED", // required
+ * //                   EnableMachineLearning: true || false,
  * //                 },
  * //                 AWSManagedRulesATPRuleSet: {
  * //                   LoginPath: "STRING_VALUE", // required
@@ -1118,6 +1138,7 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //                 PasswordField: "<PasswordField>",
  * //                 AWSManagedRulesBotControlRuleSet: {
  * //                   InspectionLevel: "COMMON" || "TARGETED", // required
+ * //                   EnableMachineLearning: true || false,
  * //                 },
  * //                 AWSManagedRulesATPRuleSet: {
  * //                   LoginPath: "STRING_VALUE", // required
@@ -1258,79 +1279,26 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
-export class GetWebACLForResourceCommand extends $Command<
-  GetWebACLForResourceCommandInput,
-  GetWebACLForResourceCommandOutput,
-  WAFV2ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetWebACLForResourceCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: WAFV2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetWebACLForResourceCommandInput, GetWebACLForResourceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetWebACLForResourceCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "WAFV2Client";
-    const commandName = "GetWebACLForResourceCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetWebACLForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetWebACLForResourceCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetWebACLForResourceCommandOutput> {
-    return de_GetWebACLForResourceCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetWebACLForResourceCommand extends $Command
+  .classBuilder<
+    GetWebACLForResourceCommandInput,
+    GetWebACLForResourceCommandOutput,
+    WAFV2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSWAF_20190729", "GetWebACLForResource", {})
+  .n("WAFV2Client", "GetWebACLForResourceCommand")
+  .f(void 0, void 0)
+  .ser(se_GetWebACLForResourceCommand)
+  .de(de_GetWebACLForResourceCommand)
+  .build() {}

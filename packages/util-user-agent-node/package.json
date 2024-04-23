@@ -1,9 +1,9 @@
 {
   "name": "@aws-sdk/util-user-agent-node",
-  "version": "3.391.0",
+  "version": "3.496.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
-    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:cjs": "node ../../scripts/compilation/inline util-user-agent-node",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",
@@ -21,8 +21,8 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/node-config-provider": "^2.0.3",
-    "@smithy/types": "^2.2.0",
+    "@smithy/node-config-provider": "^2.2.1",
+    "@smithy/types": "^2.9.1",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
@@ -31,7 +31,6 @@
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typedoc": "0.23.23",
     "typescript": "~4.9.5"
   },
   "peerDependencies": {
@@ -60,8 +59,5 @@
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/util-user-agent-node"
-  },
-  "typedoc": {
-    "entryPoint": "src/index.ts"
   }
 }

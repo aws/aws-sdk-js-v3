@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetFederationTokenRequest,
   GetFederationTokenResponse,
@@ -40,7 +32,13 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
 
 /**
  * @public
- * <p>Retrieves a token for federation.</p>
+ * <p>Supports SAML sign-in for Amazon Connect. Retrieves a token for federation. The token is
+ *    for the Amazon Connect user which corresponds to the IAM credentials that were
+ *    used to invoke this action. </p>
+ *          <p>For more information about how SAML sign-in works in Amazon Connect, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/configure-saml.html ">Configure SAML with
+ *      IAM for Amazon Connect in the <i>Amazon Connect Administrator
+ *      Guide</i>.</a>
+ *          </p>
  *          <note>
  *             <p>This API doesn't support root users. If you try to invoke GetFederationToken with root
  *     credentials, an error message similar to the following one appears: </p>
@@ -102,79 +100,26 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
-export class GetFederationTokenCommand extends $Command<
-  GetFederationTokenCommandInput,
-  GetFederationTokenCommandOutput,
-  ConnectClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetFederationTokenCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ConnectClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetFederationTokenCommandInput, GetFederationTokenCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetFederationTokenCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ConnectClient";
-    const commandName = "GetFederationTokenCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: GetFederationTokenResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetFederationTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetFederationTokenCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFederationTokenCommandOutput> {
-    return de_GetFederationTokenCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetFederationTokenCommand extends $Command
+  .classBuilder<
+    GetFederationTokenCommandInput,
+    GetFederationTokenCommandOutput,
+    ConnectClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonConnectService", "GetFederationToken", {})
+  .n("ConnectClient", "GetFederationTokenCommand")
+  .f(void 0, GetFederationTokenResponseFilterSensitiveLog)
+  .ser(se_GetFederationTokenCommand)
+  .de(de_GetFederationTokenCommand)
+  .build() {}

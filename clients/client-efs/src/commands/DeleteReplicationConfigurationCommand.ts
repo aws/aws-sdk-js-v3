@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteReplicationConfigurationRequest } from "../models/models_0";
 import {
   de_DeleteReplicationConfigurationCommand,
@@ -39,12 +31,12 @@ export interface DeleteReplicationConfigurationCommandOutput extends __MetadataB
 
 /**
  * @public
- * <p>Deletes an existing replication configuration. To delete a replication configuration, you
- *       must make the request from the Amazon Web Services Region in which the destination file system
- *       is located. Deleting a replication configuration ends the replication process. After a
- *       replication configuration is deleted, the destination file system is no longer read-only. You
- *       can write to the destination file system after its status becomes
- *       <code>Writeable</code>.</p>
+ * <p>Deletes a replication configuration. Deleting a replication configuration ends the
+ *       replication process. After a replication configuration is deleted, the destination file system
+ *       becomes <code>Writeable</code> and its replication overwrite protection is re-enabled. For
+ *       more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/delete-replications.html">Delete a replication configuration</a>.</p>
+ *          <p>This operation requires permissions for the
+ *         <code>elasticfilesystem:DeleteReplicationConfiguration</code> action. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,85 +77,26 @@ export interface DeleteReplicationConfigurationCommandOutput extends __MetadataB
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  */
-export class DeleteReplicationConfigurationCommand extends $Command<
-  DeleteReplicationConfigurationCommandInput,
-  DeleteReplicationConfigurationCommandOutput,
-  EFSClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeleteReplicationConfigurationCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: EFSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DeleteReplicationConfigurationCommandInput, DeleteReplicationConfigurationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteReplicationConfigurationCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "EFSClient";
-    const commandName = "DeleteReplicationConfigurationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: DeleteReplicationConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_DeleteReplicationConfigurationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteReplicationConfigurationCommandOutput> {
-    return de_DeleteReplicationConfigurationCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DeleteReplicationConfigurationCommand extends $Command
+  .classBuilder<
+    DeleteReplicationConfigurationCommandInput,
+    DeleteReplicationConfigurationCommandOutput,
+    EFSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("MagnolioAPIService_v20150201", "DeleteReplicationConfiguration", {})
+  .n("EFSClient", "DeleteReplicationConfigurationCommand")
+  .f(void 0, void 0)
+  .ser(se_DeleteReplicationConfigurationCommand)
+  .de(de_DeleteReplicationConfigurationCommand)
+  .build() {}

@@ -94,10 +94,10 @@ export interface AllQueryStringTypesInput {
   queryBooleanList?: boolean[];
   queryTimestamp?: Date;
   queryTimestampList?: Date[];
-  queryEnum?: FooEnum | string;
-  queryEnumList?: (FooEnum | string)[];
-  queryIntegerEnum?: IntegerEnum | number;
-  queryIntegerEnumList?: (IntegerEnum | number)[];
+  queryEnum?: FooEnum;
+  queryEnumList?: FooEnum[];
+  queryIntegerEnum?: IntegerEnum;
+  queryIntegerEnumList?: IntegerEnum[];
   queryParamsMapOfStringList?: Record<string, string[]>;
 }
 
@@ -617,7 +617,7 @@ export type StringEnum = (typeof StringEnum)[keyof typeof StringEnum];
  * @public
  */
 export interface EnumPayloadInput {
-  payload?: StringEnum | string;
+  payload?: StringEnum;
 }
 
 export namespace EnumPayloadInput {
@@ -670,13 +670,11 @@ export class FooError extends __BaseException {
  */
 export interface FractionalSecondsOutput {
   datetime?: Date;
-  httpdate?: Date;
 }
 
 export namespace FractionalSecondsOutput {
   const memberValidators: {
     datetime?: __MultiConstraintValidator<Date>;
-    httpdate?: __MultiConstraintValidator<Date>;
   } = {};
   /**
    * @internal
@@ -691,18 +689,11 @@ export namespace FractionalSecondsOutput {
             memberValidators["datetime"] = new __NoOpValidator();
             break;
           }
-          case "httpdate": {
-            memberValidators["httpdate"] = new __NoOpValidator();
-            break;
-          }
         }
       }
       return memberValidators[member]!;
     }
-    return [
-      ...getMemberValidator("datetime").validate(obj.datetime, `${path}/datetime`),
-      ...getMemberValidator("httpdate").validate(obj.httpdate, `${path}/httpdate`),
-    ];
+    return [...getMemberValidator("datetime").validate(obj.datetime, `${path}/datetime`)];
   };
 }
 
@@ -936,6 +927,97 @@ export namespace HttpPayloadWithStructureInputOutput {
             memberValidators["nested"] = new __CompositeStructureValidator<NestedPayload>(
               new __NoOpValidator(),
               NestedPayload.validate
+            );
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [...getMemberValidator("nested").validate(obj.nested, `${path}/nested`)];
+  };
+}
+
+/**
+ * @public
+ */
+export type UnionPayload = UnionPayload.GreetingMember | UnionPayload.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace UnionPayload {
+  export interface GreetingMember {
+    greeting: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    greeting?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    greeting: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: UnionPayload, visitor: Visitor<T>): T => {
+    if (value.greeting !== undefined) return visitor.greeting(value.greeting);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+
+  const memberValidators: {
+    greeting?: __MultiConstraintValidator<string>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: UnionPayload, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "greeting": {
+            memberValidators["greeting"] = new __NoOpValidator();
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [...getMemberValidator("greeting").validate(obj.greeting, `${path}/greeting`)];
+  };
+}
+
+/**
+ * @public
+ */
+export interface HttpPayloadWithUnionInputOutput {
+  nested?: UnionPayload;
+}
+
+export namespace HttpPayloadWithUnionInputOutput {
+  const memberValidators: {
+    nested?: __MultiConstraintValidator<UnionPayload>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: HttpPayloadWithUnionInputOutput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "nested": {
+            memberValidators["nested"] = new __CompositeStructureValidator<UnionPayload>(
+              new __NoOpValidator(),
+              UnionPayload.validate
             );
             break;
           }
@@ -1493,10 +1575,10 @@ export interface InputAndOutputWithHeadersIO {
   headerIntegerList?: number[];
   headerBooleanList?: boolean[];
   headerTimestampList?: Date[];
-  headerEnum?: FooEnum | string;
-  headerEnumList?: (FooEnum | string)[];
-  headerIntegerEnum?: IntegerEnum | number;
-  headerIntegerEnumList?: (IntegerEnum | number)[];
+  headerEnum?: FooEnum;
+  headerEnumList?: FooEnum[];
+  headerIntegerEnum?: IntegerEnum;
+  headerIntegerEnumList?: IntegerEnum[];
 }
 
 export namespace InputAndOutputWithHeadersIO {
@@ -1694,12 +1776,12 @@ export namespace JsonBlobsInputOutput {
  * @public
  */
 export interface JsonEnumsInputOutput {
-  fooEnum1?: FooEnum | string;
-  fooEnum2?: FooEnum | string;
-  fooEnum3?: FooEnum | string;
-  fooEnumList?: (FooEnum | string)[];
-  fooEnumSet?: (FooEnum | string)[];
-  fooEnumMap?: Record<string, FooEnum | string>;
+  fooEnum1?: FooEnum;
+  fooEnum2?: FooEnum;
+  fooEnum3?: FooEnum;
+  fooEnumList?: FooEnum[];
+  fooEnumSet?: FooEnum[];
+  fooEnumMap?: Record<string, FooEnum>;
 }
 
 export namespace JsonEnumsInputOutput {
@@ -1709,7 +1791,7 @@ export namespace JsonEnumsInputOutput {
     fooEnum3?: __MultiConstraintValidator<string>;
     fooEnumList?: __MultiConstraintValidator<Iterable<string>>;
     fooEnumSet?: __MultiConstraintValidator<Iterable<string>>;
-    fooEnumMap?: __MultiConstraintValidator<Record<string, FooEnum | string>>;
+    fooEnumMap?: __MultiConstraintValidator<Record<string, FooEnum>>;
   } = {};
   /**
    * @internal
@@ -1749,7 +1831,7 @@ export namespace JsonEnumsInputOutput {
           }
           case "fooEnumSet": {
             memberValidators["fooEnumSet"] = new __CompositeCollectionValidator<string>(
-              new __CompositeValidator<(FooEnum | string)[]>([new __UniqueItemsValidator()]),
+              new __CompositeValidator<FooEnum[]>([new __UniqueItemsValidator()]),
               new __CompositeValidator<string>([
                 new __EnumValidator(["Foo", "Baz", "Bar", "1", "0"], ["Foo", "Baz", "Bar", "1", "0"]),
               ])
@@ -1757,7 +1839,7 @@ export namespace JsonEnumsInputOutput {
             break;
           }
           case "fooEnumMap": {
-            memberValidators["fooEnumMap"] = new __CompositeMapValidator<FooEnum | string>(
+            memberValidators["fooEnumMap"] = new __CompositeMapValidator<FooEnum>(
               new __NoOpValidator(),
               new __NoOpValidator(),
               new __CompositeValidator<string>([
@@ -1785,12 +1867,12 @@ export namespace JsonEnumsInputOutput {
  * @public
  */
 export interface JsonIntEnumsInputOutput {
-  integerEnum1?: IntegerEnum | number;
-  integerEnum2?: IntegerEnum | number;
-  integerEnum3?: IntegerEnum | number;
-  integerEnumList?: (IntegerEnum | number)[];
-  integerEnumSet?: (IntegerEnum | number)[];
-  integerEnumMap?: Record<string, IntegerEnum | number>;
+  integerEnum1?: IntegerEnum;
+  integerEnum2?: IntegerEnum;
+  integerEnum3?: IntegerEnum;
+  integerEnumList?: IntegerEnum[];
+  integerEnumSet?: IntegerEnum[];
+  integerEnumMap?: Record<string, IntegerEnum>;
 }
 
 export namespace JsonIntEnumsInputOutput {
@@ -1800,7 +1882,7 @@ export namespace JsonIntEnumsInputOutput {
     integerEnum3?: __MultiConstraintValidator<number>;
     integerEnumList?: __MultiConstraintValidator<Iterable<number>>;
     integerEnumSet?: __MultiConstraintValidator<Iterable<number>>;
-    integerEnumMap?: __MultiConstraintValidator<Record<string, IntegerEnum | number>>;
+    integerEnumMap?: __MultiConstraintValidator<Record<string, IntegerEnum>>;
   } = {};
   /**
    * @internal
@@ -1838,13 +1920,13 @@ export namespace JsonIntEnumsInputOutput {
           }
           case "integerEnumSet": {
             memberValidators["integerEnumSet"] = new __CompositeCollectionValidator<number>(
-              new __CompositeValidator<(IntegerEnum | number)[]>([new __UniqueItemsValidator()]),
+              new __CompositeValidator<IntegerEnum[]>([new __UniqueItemsValidator()]),
               new __CompositeValidator<number>([new __IntegerEnumValidator([1, 2, 3])])
             );
             break;
           }
           case "integerEnumMap": {
-            memberValidators["integerEnumMap"] = new __CompositeMapValidator<IntegerEnum | number>(
+            memberValidators["integerEnumMap"] = new __CompositeMapValidator<IntegerEnum>(
               new __NoOpValidator(),
               new __NoOpValidator(),
               new __CompositeValidator<number>([new __IntegerEnumValidator([1, 2, 3])])
@@ -1917,8 +1999,8 @@ export interface JsonListsInputOutput {
   integerList?: number[];
   booleanList?: boolean[];
   timestampList?: Date[];
-  enumList?: (FooEnum | string)[];
-  intEnumList?: (IntegerEnum | number)[];
+  enumList?: FooEnum[];
+  intEnumList?: IntegerEnum[];
   /**
    * @public
    * A list of lists of strings.
@@ -2392,7 +2474,7 @@ export namespace MyUnion {
     numberValue?: never;
     blobValue?: never;
     timestampValue?: never;
-    enumValue: FooEnum | string;
+    enumValue: FooEnum;
     listValue?: never;
     mapValue?: never;
     structureValue?: never;
@@ -2479,7 +2561,7 @@ export namespace MyUnion {
     numberValue: (value: number) => T;
     blobValue: (value: Uint8Array) => T;
     timestampValue: (value: Date) => T;
-    enumValue: (value: FooEnum | string) => T;
+    enumValue: (value: FooEnum) => T;
     listValue: (value: string[]) => T;
     mapValue: (value: Record<string, string>) => T;
     structureValue: (value: GreetingStruct) => T;
@@ -4010,8 +4092,8 @@ export interface OmitsSerializingEmptyListsInput {
   queryDoubleList?: number[];
   queryBooleanList?: boolean[];
   queryTimestampList?: Date[];
-  queryEnumList?: (FooEnum | string)[];
-  queryIntegerEnumList?: (IntegerEnum | number)[];
+  queryEnumList?: FooEnum[];
+  queryIntegerEnumList?: IntegerEnum[];
 }
 
 export namespace OmitsSerializingEmptyListsInput {

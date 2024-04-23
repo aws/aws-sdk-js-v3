@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -50,6 +48,7 @@ import {
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
+import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
 import {
   CreateDataIntegrationCommandInput,
   CreateDataIntegrationCommandOutput,
@@ -58,6 +57,7 @@ import {
   CreateEventIntegrationCommandInput,
   CreateEventIntegrationCommandOutput,
 } from "./commands/CreateEventIntegrationCommand";
+import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
 import {
   DeleteDataIntegrationCommandInput,
   DeleteDataIntegrationCommandOutput,
@@ -66,11 +66,17 @@ import {
   DeleteEventIntegrationCommandInput,
   DeleteEventIntegrationCommandOutput,
 } from "./commands/DeleteEventIntegrationCommand";
+import { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
 import { GetDataIntegrationCommandInput, GetDataIntegrationCommandOutput } from "./commands/GetDataIntegrationCommand";
 import {
   GetEventIntegrationCommandInput,
   GetEventIntegrationCommandOutput,
 } from "./commands/GetEventIntegrationCommand";
+import {
+  ListApplicationAssociationsCommandInput,
+  ListApplicationAssociationsCommandOutput,
+} from "./commands/ListApplicationAssociationsCommand";
+import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
 import {
   ListDataIntegrationAssociationsCommandInput,
   ListDataIntegrationAssociationsCommandOutput,
@@ -93,6 +99,7 @@ import {
 } from "./commands/ListTagsForResourceCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
 import {
   UpdateDataIntegrationCommandInput,
   UpdateDataIntegrationCommandOutput,
@@ -116,12 +123,17 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | CreateApplicationCommandInput
   | CreateDataIntegrationCommandInput
   | CreateEventIntegrationCommandInput
+  | DeleteApplicationCommandInput
   | DeleteDataIntegrationCommandInput
   | DeleteEventIntegrationCommandInput
+  | GetApplicationCommandInput
   | GetDataIntegrationCommandInput
   | GetEventIntegrationCommandInput
+  | ListApplicationAssociationsCommandInput
+  | ListApplicationsCommandInput
   | ListDataIntegrationAssociationsCommandInput
   | ListDataIntegrationsCommandInput
   | ListEventIntegrationAssociationsCommandInput
@@ -129,6 +141,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateApplicationCommandInput
   | UpdateDataIntegrationCommandInput
   | UpdateEventIntegrationCommandInput;
 
@@ -136,12 +149,17 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | CreateApplicationCommandOutput
   | CreateDataIntegrationCommandOutput
   | CreateEventIntegrationCommandOutput
+  | DeleteApplicationCommandOutput
   | DeleteDataIntegrationCommandOutput
   | DeleteEventIntegrationCommandOutput
+  | GetApplicationCommandOutput
   | GetDataIntegrationCommandOutput
   | GetEventIntegrationCommandOutput
+  | ListApplicationAssociationsCommandOutput
+  | ListApplicationsCommandOutput
   | ListDataIntegrationAssociationsCommandOutput
   | ListDataIntegrationsCommandOutput
   | ListEventIntegrationAssociationsCommandOutput
@@ -149,6 +167,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateApplicationCommandOutput
   | UpdateDataIntegrationCommandOutput
   | UpdateEventIntegrationCommandOutput;
 
@@ -262,6 +281,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

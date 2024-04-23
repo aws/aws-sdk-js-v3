@@ -97,39 +97,160 @@
             {
               "conditions": [
                 {
-                  "fn": "aws.partition",
+                  "fn": "isSet",
                   "argv": [
                     {
-                      "ref": "Region"
+                      "ref": "Endpoint"
                     }
-                  ],
-                  "assign": "PartitionResult"
+                  ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
                     {
-                      "fn": "isSet",
+                      "fn": "booleanEquals",
                       "argv": [
                         {
-                          "ref": "Endpoint"
-                        }
+                          "ref": "UseFIPS"
+                        },
+                        true
                       ]
-                    },
-                    {
-                      "fn": "parseURL",
-                      "argv": [
-                        {
-                          "ref": "Endpoint"
-                        }
-                      ],
-                      "assign": "url"
                     }
                   ],
-                  "type": "tree",
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": {
+                      "ref": "Endpoint"
+                    },
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ],
+              "type": "tree"
+            },
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ]
+                }
+              ],
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "aws.partition",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ],
+                      "assign": "PartitionResult"
+                    }
+                  ],
                   "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://a2i-runtime.sagemaker-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
                     {
                       "conditions": [
                         {
@@ -142,12 +263,6 @@
                           ]
                         }
                       ],
-                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
-                      "type": "error"
-                    },
-                    {
-                      "conditions": [],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -155,227 +270,369 @@
                               "fn": "booleanEquals",
                               "argv": [
                                 {
-                                  "ref": "UseDualStack"
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
                                 },
                                 true
                               ]
                             }
                           ],
-                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://a2i-runtime.sagemaker-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
                           "type": "error"
-                        },
+                        }
+                      ],
+                      "type": "tree"
+                    },
+                    {
+                      "conditions": [
                         {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": {
-                              "ref": "Endpoint"
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
                             },
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    },
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
+                            true
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": "https://a2i-runtime.sagemaker-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
+                          "conditions": [
                             {
-                              "fn": "getAttr",
+                              "fn": "booleanEquals",
                               "argv": [
+                                true,
                                 {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
                               ]
                             }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://a2i-runtime.sagemaker.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
                         {
                           "conditions": [],
-                          "endpoint": {
-                            "url": "https://a2i-runtime.sagemaker-fips.{Region}.{PartitionResult#dnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [],
-                      "error": "FIPS is enabled but this partition does not support FIPS",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
+                      "endpoint": {
+                        "url": "https://a2i-runtime.sagemaker.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
                     }
                   ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": "https://a2i-runtime.sagemaker.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "DualStack is enabled but this partition does not support DualStack",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [],
-                  "endpoint": {
-                    "url": "https://a2i-runtime.sagemaker.{Region}.{PartitionResult#dnsSuffix}",
-                    "properties": {},
-                    "headers": {}
-                  },
-                  "type": "endpoint"
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
+            },
+            {
+              "conditions": [],
+              "error": "Invalid Configuration: Missing Region",
+              "type": "error"
             }
           ]
         },
         "smithy.rules#endpointTests": {
           "testCases": [
             {
-              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://a2i-runtime.sagemaker-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://a2i-runtime.sagemaker-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://a2i-runtime.sagemaker.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://a2i-runtime.sagemaker.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://a2i-runtime.sagemaker-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://a2i-runtime.sagemaker-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://a2i-runtime.sagemaker.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://a2i-runtime.sagemaker.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://a2i-runtime.sagemaker-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://a2i-runtime.sagemaker-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://a2i-runtime.sagemaker.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://a2i-runtime.sagemaker.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://a2i-runtime.sagemaker-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://a2i-runtime.sagemaker.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://a2i-runtime.sagemaker-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://a2i-runtime.sagemaker.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
               "expect": {
                 "endpoint": {
                   "url": "https://example.com"
@@ -383,8 +640,21 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -395,8 +665,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": true,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -407,9 +677,15 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": true,
                 "UseFIPS": false,
+                "UseDualStack": true,
                 "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
               }
             }
           ],
@@ -431,18 +707,20 @@
       }
     },
     "com.amazonaws.sagemakera2iruntime#ContentClassifier": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "FreeOfPersonallyIdentifiableInformation",
-            "name": "FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION"
-          },
-          {
-            "value": "FreeOfAdultContent",
-            "name": "FREE_OF_ADULT_CONTENT"
+      "type": "enum",
+      "members": {
+        "FREE_OF_PERSONALLY_IDENTIFIABLE_INFORMATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FreeOfPersonallyIdentifiableInformation"
           }
-        ]
+        },
+        "FREE_OF_ADULT_CONTENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FreeOfAdultContent"
+          }
+        }
       }
     },
     "com.amazonaws.sagemakera2iruntime#ContentClassifiers": {
@@ -499,11 +777,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.sagemakera2iruntime#DeleteHumanLoopResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.sagemakera2iruntime#DescribeHumanLoop": {
       "type": "operation",
@@ -547,6 +831,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.sagemakera2iruntime#DescribeHumanLoopResponse": {
@@ -555,6 +842,7 @@
         "CreationTime": {
           "target": "com.amazonaws.sagemakera2iruntime#Timestamp",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The creation time when Amazon Augmented AI created the human loop.</p>",
             "smithy.api#required": {}
           }
@@ -574,6 +862,7 @@
         "HumanLoopStatus": {
           "target": "com.amazonaws.sagemakera2iruntime#HumanLoopStatus",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The status of the human loop. </p>",
             "smithy.api#required": {}
           }
@@ -581,6 +870,7 @@
         "HumanLoopName": {
           "target": "com.amazonaws.sagemakera2iruntime#HumanLoopName",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The name of the human loop. The name must be lowercase, unique within the Region in your\n      account, and can have up to 63 characters. Valid characters: a-z, 0-9, and - (hyphen).</p>",
             "smithy.api#required": {}
           }
@@ -588,6 +878,7 @@
         "HumanLoopArn": {
           "target": "com.amazonaws.sagemakera2iruntime#HumanLoopArn",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the human loop.</p>",
             "smithy.api#required": {}
           }
@@ -595,6 +886,7 @@
         "FlowDefinitionArn": {
           "target": "com.amazonaws.sagemakera2iruntime#FlowDefinitionArn",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the flow definition.</p>",
             "smithy.api#required": {}
           }
@@ -605,6 +897,9 @@
             "smithy.api#documentation": "<p>An object that contains information about the output of the human loop.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.sagemakera2iruntime#FailureReason": {
@@ -642,6 +937,7 @@
         "ContentClassifiers": {
           "target": "com.amazonaws.sagemakera2iruntime#ContentClassifiers",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>Declares that your content is free of personally identifiable information or adult content.</p>\n         <p>Amazon SageMaker can restrict the Amazon Mechanical Turk workers who can view your task based on this information.</p>",
             "smithy.api#required": {}
           }
@@ -657,6 +953,7 @@
         "InputContent": {
           "target": "com.amazonaws.sagemakera2iruntime#InputContent",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>Serialized input from the human loop. The input must be a string representation of a file in JSON format.</p>",
             "smithy.api#required": {}
           }
@@ -682,6 +979,7 @@
         "OutputS3Uri": {
           "target": "com.amazonaws.sagemakera2iruntime#String",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The location of the Amazon S3 object where Amazon Augmented AI stores your human loop output.</p>",
             "smithy.api#required": {}
           }
@@ -692,30 +990,38 @@
       }
     },
     "com.amazonaws.sagemakera2iruntime#HumanLoopStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "InProgress",
-            "name": "IN_PROGRESS"
-          },
-          {
-            "value": "Failed",
-            "name": "FAILED"
-          },
-          {
-            "value": "Completed",
-            "name": "COMPLETED"
-          },
-          {
-            "value": "Stopped",
-            "name": "STOPPED"
-          },
-          {
-            "value": "Stopping",
-            "name": "STOPPING"
+      "type": "enum",
+      "members": {
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InProgress"
           }
-        ]
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Failed"
+          }
+        },
+        "COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Completed"
+          }
+        },
+        "STOPPED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Stopped"
+          }
+        },
+        "STOPPING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Stopping"
+          }
+        }
       }
     },
     "com.amazonaws.sagemakera2iruntime#HumanLoopSummaries": {
@@ -841,6 +1147,7 @@
         "FlowDefinitionArn": {
           "target": "com.amazonaws.sagemakera2iruntime#FlowDefinitionArn",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of a flow definition.</p>",
             "smithy.api#httpQuery": "FlowDefinitionArn",
             "smithy.api#required": {}
@@ -863,11 +1170,13 @@
         "MaxResults": {
           "target": "com.amazonaws.sagemakera2iruntime#MaxResults",
           "traits": {
-            "smithy.api#default": null,
             "smithy.api#documentation": "<p>The total number of items to return. If the total number of available items is more than\n      the value specified in <code>MaxResults</code>, then a <code>NextToken</code> is returned in\n      the output. You can use this token to display the next page of results. </p>",
             "smithy.api#httpQuery": "MaxResults"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.sagemakera2iruntime#ListHumanLoopsResponse": {
@@ -876,6 +1185,7 @@
         "HumanLoopSummaries": {
           "target": "com.amazonaws.sagemakera2iruntime#HumanLoopSummaries",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>An array of objects that contain information about the human loops.</p>",
             "smithy.api#required": {}
           }
@@ -886,12 +1196,14 @@
             "smithy.api#documentation": "<p>A token to display the next page of results.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.sagemakera2iruntime#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1,
           "max": 100
@@ -935,18 +1247,20 @@
       }
     },
     "com.amazonaws.sagemakera2iruntime#SortOrder": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Ascending",
-            "name": "ASCENDING"
-          },
-          {
-            "value": "Descending",
-            "name": "DESCENDING"
+      "type": "enum",
+      "members": {
+        "ASCENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Ascending"
           }
-        ]
+        },
+        "DESCENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Descending"
+          }
+        }
       }
     },
     "com.amazonaws.sagemakera2iruntime#StartHumanLoop": {
@@ -989,6 +1303,7 @@
         "HumanLoopName": {
           "target": "com.amazonaws.sagemakera2iruntime#HumanLoopName",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The name of the human loop.</p>",
             "smithy.api#required": {}
           }
@@ -996,6 +1311,7 @@
         "FlowDefinitionArn": {
           "target": "com.amazonaws.sagemakera2iruntime#FlowDefinitionArn",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the flow definition associated with this human\n      loop.</p>",
             "smithy.api#required": {}
           }
@@ -1003,6 +1319,7 @@
         "HumanLoopInput": {
           "target": "com.amazonaws.sagemakera2iruntime#HumanLoopInput",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>An object that contains information about the human loop.</p>",
             "smithy.api#required": {}
           }
@@ -1013,6 +1330,9 @@
             "smithy.api#documentation": "<p>Attributes of the specified data. Use <code>DataAttributes</code> to specify if your data\n      is free of personally identifiable information and/or free of adult content.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.sagemakera2iruntime#StartHumanLoopResponse": {
@@ -1024,6 +1344,9 @@
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the human loop.</p>"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.sagemakera2iruntime#StopHumanLoop": {
@@ -1063,15 +1386,22 @@
         "HumanLoopName": {
           "target": "com.amazonaws.sagemakera2iruntime#HumanLoopName",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The name of the human loop that you want to stop.</p>",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.sagemakera2iruntime#StopHumanLoopResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.sagemakera2iruntime#String": {
       "type": "string"

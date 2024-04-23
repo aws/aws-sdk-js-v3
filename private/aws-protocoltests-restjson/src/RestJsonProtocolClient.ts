@@ -21,6 +21,11 @@ import {
   resolveEndpointsConfig,
   resolveRegionConfig,
 } from "@smithy/config-resolver";
+import {
+  CompressionInputConfig,
+  CompressionResolvedConfig,
+  resolveCompressionConfig,
+} from "@smithy/middleware-compression";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
 import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
 import { HttpHandler as __HttpHandler } from "@smithy/protocol-http";
@@ -37,7 +42,6 @@ import {
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -99,6 +103,10 @@ import {
   HttpPayloadWithStructureCommandInput,
   HttpPayloadWithStructureCommandOutput,
 } from "./commands/HttpPayloadWithStructureCommand";
+import {
+  HttpPayloadWithUnionCommandInput,
+  HttpPayloadWithUnionCommandOutput,
+} from "./commands/HttpPayloadWithUnionCommand";
 import { HttpPrefixHeadersCommandInput, HttpPrefixHeadersCommandOutput } from "./commands/HttpPrefixHeadersCommand";
 import {
   HttpPrefixHeadersInResponseCommandInput,
@@ -322,6 +330,7 @@ export type ServiceInputTypes =
   | HttpPayloadTraitsCommandInput
   | HttpPayloadTraitsWithMediaTypeCommandInput
   | HttpPayloadWithStructureCommandInput
+  | HttpPayloadWithUnionCommandInput
   | HttpPrefixHeadersCommandInput
   | HttpPrefixHeadersInResponseCommandInput
   | HttpRequestWithFloatLabelsCommandInput
@@ -418,6 +427,7 @@ export type ServiceOutputTypes =
   | HttpPayloadTraitsCommandOutput
   | HttpPayloadTraitsWithMediaTypeCommandOutput
   | HttpPayloadWithStructureCommandOutput
+  | HttpPayloadWithUnionCommandOutput
   | HttpPrefixHeadersCommandOutput
   | HttpPrefixHeadersInResponseCommandOutput
   | HttpRequestWithFloatLabelsCommandOutput
@@ -598,6 +608,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 
@@ -619,7 +631,7 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   streamHasher?: __StreamHasher<Readable> | __StreamHasher<Blob>;
 
   /**
-   * A constructor for a class implementing the {@link __checksum} interface
+   * A constructor for a class implementing the {@link __Checksum} interface
    * that computes MD5 hashes.
    * @internal
    */
@@ -646,7 +658,8 @@ export type RestJsonProtocolClientConfigType = Partial<__SmithyConfiguration<__H
   EndpointsInputConfig &
   RetryInputConfig &
   HostHeaderInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  CompressionInputConfig;
 /**
  * @public
  *
@@ -664,7 +677,8 @@ export type RestJsonProtocolClientResolvedConfigType = __SmithyResolvedConfigura
   EndpointsResolvedConfig &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  CompressionResolvedConfig;
 /**
  * @public
  *
@@ -694,9 +708,10 @@ export class RestJsonProtocolClient extends __Client<
     const _config_3 = resolveRetryConfig(_config_2);
     const _config_4 = resolveHostHeaderConfig(_config_3);
     const _config_5 = resolveUserAgentConfig(_config_4);
-    const _config_6 = resolveRuntimeExtensions(_config_5, configuration?.extensions || []);
-    super(_config_6);
-    this.config = _config_6;
+    const _config_6 = resolveCompressionConfig(_config_5);
+    const _config_7 = resolveRuntimeExtensions(_config_6, configuration?.extensions || []);
+    super(_config_7);
+    this.config = _config_7;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));

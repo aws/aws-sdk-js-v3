@@ -2331,6 +2331,9 @@ const de_CreateStackCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.appstream#ResourceAlreadyExistsException":
       throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
@@ -6359,6 +6362,7 @@ const de_Fleet = (output: any, context: __SerdeContext): Fleet => {
     ImageName: __expectString,
     InstanceType: __expectString,
     MaxConcurrentSessions: __expectInt32,
+    MaxSessionsPerInstance: __expectInt32,
     MaxUserDurationInSeconds: __expectInt32,
     Name: __expectString,
     Platform: __expectString,
@@ -6549,6 +6553,7 @@ const de_Session = (output: any, context: __SerdeContext): Session => {
     ConnectionState: __expectString,
     FleetName: __expectString,
     Id: __expectString,
+    InstanceId: __expectString,
     MaxExpirationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     NetworkAccessConfiguration: _json,
     StackName: __expectString,

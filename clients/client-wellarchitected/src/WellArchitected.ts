@@ -38,6 +38,16 @@ import {
   CreateProfileShareCommandOutput,
 } from "./commands/CreateProfileShareCommand";
 import {
+  CreateReviewTemplateCommand,
+  CreateReviewTemplateCommandInput,
+  CreateReviewTemplateCommandOutput,
+} from "./commands/CreateReviewTemplateCommand";
+import {
+  CreateTemplateShareCommand,
+  CreateTemplateShareCommandInput,
+  CreateTemplateShareCommandOutput,
+} from "./commands/CreateTemplateShareCommand";
+import {
   CreateWorkloadCommand,
   CreateWorkloadCommandInput,
   CreateWorkloadCommandOutput,
@@ -63,6 +73,16 @@ import {
   DeleteProfileShareCommandInput,
   DeleteProfileShareCommandOutput,
 } from "./commands/DeleteProfileShareCommand";
+import {
+  DeleteReviewTemplateCommand,
+  DeleteReviewTemplateCommandInput,
+  DeleteReviewTemplateCommandOutput,
+} from "./commands/DeleteReviewTemplateCommand";
+import {
+  DeleteTemplateShareCommand,
+  DeleteTemplateShareCommandInput,
+  DeleteTemplateShareCommandOutput,
+} from "./commands/DeleteTemplateShareCommand";
 import {
   DeleteWorkloadCommand,
   DeleteWorkloadCommandInput,
@@ -117,6 +137,21 @@ import {
   GetProfileTemplateCommandInput,
   GetProfileTemplateCommandOutput,
 } from "./commands/GetProfileTemplateCommand";
+import {
+  GetReviewTemplateAnswerCommand,
+  GetReviewTemplateAnswerCommandInput,
+  GetReviewTemplateAnswerCommandOutput,
+} from "./commands/GetReviewTemplateAnswerCommand";
+import {
+  GetReviewTemplateCommand,
+  GetReviewTemplateCommandInput,
+  GetReviewTemplateCommandOutput,
+} from "./commands/GetReviewTemplateCommand";
+import {
+  GetReviewTemplateLensReviewCommand,
+  GetReviewTemplateLensReviewCommandInput,
+  GetReviewTemplateLensReviewCommandOutput,
+} from "./commands/GetReviewTemplateLensReviewCommand";
 import { GetWorkloadCommand, GetWorkloadCommandInput, GetWorkloadCommandOutput } from "./commands/GetWorkloadCommand";
 import { ImportLensCommand, ImportLensCommandInput, ImportLensCommandOutput } from "./commands/ImportLensCommand";
 import { ListAnswersCommand, ListAnswersCommandInput, ListAnswersCommandOutput } from "./commands/ListAnswersCommand";
@@ -172,6 +207,16 @@ import {
   ListProfileSharesCommandOutput,
 } from "./commands/ListProfileSharesCommand";
 import {
+  ListReviewTemplateAnswersCommand,
+  ListReviewTemplateAnswersCommandInput,
+  ListReviewTemplateAnswersCommandOutput,
+} from "./commands/ListReviewTemplateAnswersCommand";
+import {
+  ListReviewTemplatesCommand,
+  ListReviewTemplatesCommandInput,
+  ListReviewTemplatesCommandOutput,
+} from "./commands/ListReviewTemplatesCommand";
+import {
   ListShareInvitationsCommand,
   ListShareInvitationsCommandInput,
   ListShareInvitationsCommandOutput,
@@ -181,6 +226,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListTemplateSharesCommand,
+  ListTemplateSharesCommandInput,
+  ListTemplateSharesCommandOutput,
+} from "./commands/ListTemplateSharesCommand";
 import {
   ListWorkloadsCommand,
   ListWorkloadsCommandInput,
@@ -218,6 +268,21 @@ import {
   UpdateProfileCommandOutput,
 } from "./commands/UpdateProfileCommand";
 import {
+  UpdateReviewTemplateAnswerCommand,
+  UpdateReviewTemplateAnswerCommandInput,
+  UpdateReviewTemplateAnswerCommandOutput,
+} from "./commands/UpdateReviewTemplateAnswerCommand";
+import {
+  UpdateReviewTemplateCommand,
+  UpdateReviewTemplateCommandInput,
+  UpdateReviewTemplateCommandOutput,
+} from "./commands/UpdateReviewTemplateCommand";
+import {
+  UpdateReviewTemplateLensReviewCommand,
+  UpdateReviewTemplateLensReviewCommandInput,
+  UpdateReviewTemplateLensReviewCommandOutput,
+} from "./commands/UpdateReviewTemplateLensReviewCommand";
+import {
   UpdateShareInvitationCommand,
   UpdateShareInvitationCommandInput,
   UpdateShareInvitationCommandOutput,
@@ -242,6 +307,11 @@ import {
   UpgradeProfileVersionCommandInput,
   UpgradeProfileVersionCommandOutput,
 } from "./commands/UpgradeProfileVersionCommand";
+import {
+  UpgradeReviewTemplateLensReviewCommand,
+  UpgradeReviewTemplateLensReviewCommandInput,
+  UpgradeReviewTemplateLensReviewCommandOutput,
+} from "./commands/UpgradeReviewTemplateLensReviewCommand";
 import { WellArchitectedClient, WellArchitectedClientConfig } from "./WellArchitectedClient";
 
 const commands = {
@@ -252,12 +322,16 @@ const commands = {
   CreateMilestoneCommand,
   CreateProfileCommand,
   CreateProfileShareCommand,
+  CreateReviewTemplateCommand,
+  CreateTemplateShareCommand,
   CreateWorkloadCommand,
   CreateWorkloadShareCommand,
   DeleteLensCommand,
   DeleteLensShareCommand,
   DeleteProfileCommand,
   DeleteProfileShareCommand,
+  DeleteReviewTemplateCommand,
+  DeleteTemplateShareCommand,
   DeleteWorkloadCommand,
   DeleteWorkloadShareCommand,
   DisassociateLensesCommand,
@@ -272,6 +346,9 @@ const commands = {
   GetMilestoneCommand,
   GetProfileCommand,
   GetProfileTemplateCommand,
+  GetReviewTemplateCommand,
+  GetReviewTemplateAnswerCommand,
+  GetReviewTemplateLensReviewCommand,
   GetWorkloadCommand,
   ImportLensCommand,
   ListAnswersCommand,
@@ -286,8 +363,11 @@ const commands = {
   ListProfileNotificationsCommand,
   ListProfilesCommand,
   ListProfileSharesCommand,
+  ListReviewTemplateAnswersCommand,
+  ListReviewTemplatesCommand,
   ListShareInvitationsCommand,
   ListTagsForResourceCommand,
+  ListTemplateSharesCommand,
   ListWorkloadsCommand,
   ListWorkloadSharesCommand,
   TagResourceCommand,
@@ -296,11 +376,15 @@ const commands = {
   UpdateGlobalSettingsCommand,
   UpdateLensReviewCommand,
   UpdateProfileCommand,
+  UpdateReviewTemplateCommand,
+  UpdateReviewTemplateAnswerCommand,
+  UpdateReviewTemplateLensReviewCommand,
   UpdateShareInvitationCommand,
   UpdateWorkloadCommand,
   UpdateWorkloadShareCommand,
   UpgradeLensReviewCommand,
   UpgradeProfileVersionCommand,
+  UpgradeReviewTemplateLensReviewCommand,
 };
 
 export interface WellArchitected {
@@ -409,6 +493,40 @@ export interface WellArchitected {
   ): void;
 
   /**
+   * @see {@link CreateReviewTemplateCommand}
+   */
+  createReviewTemplate(
+    args: CreateReviewTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateReviewTemplateCommandOutput>;
+  createReviewTemplate(
+    args: CreateReviewTemplateCommandInput,
+    cb: (err: any, data?: CreateReviewTemplateCommandOutput) => void
+  ): void;
+  createReviewTemplate(
+    args: CreateReviewTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateReviewTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateTemplateShareCommand}
+   */
+  createTemplateShare(
+    args: CreateTemplateShareCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTemplateShareCommandOutput>;
+  createTemplateShare(
+    args: CreateTemplateShareCommandInput,
+    cb: (err: any, data?: CreateTemplateShareCommandOutput) => void
+  ): void;
+  createTemplateShare(
+    args: CreateTemplateShareCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTemplateShareCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateWorkloadCommand}
    */
   createWorkload(
@@ -490,6 +608,40 @@ export interface WellArchitected {
     args: DeleteProfileShareCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteProfileShareCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteReviewTemplateCommand}
+   */
+  deleteReviewTemplate(
+    args: DeleteReviewTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteReviewTemplateCommandOutput>;
+  deleteReviewTemplate(
+    args: DeleteReviewTemplateCommandInput,
+    cb: (err: any, data?: DeleteReviewTemplateCommandOutput) => void
+  ): void;
+  deleteReviewTemplate(
+    args: DeleteReviewTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteReviewTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTemplateShareCommand}
+   */
+  deleteTemplateShare(
+    args: DeleteTemplateShareCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTemplateShareCommandOutput>;
+  deleteTemplateShare(
+    args: DeleteTemplateShareCommandInput,
+    cb: (err: any, data?: DeleteTemplateShareCommandOutput) => void
+  ): void;
+  deleteTemplateShare(
+    args: DeleteTemplateShareCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTemplateShareCommandOutput) => void
   ): void;
 
   /**
@@ -692,6 +844,57 @@ export interface WellArchitected {
   ): void;
 
   /**
+   * @see {@link GetReviewTemplateCommand}
+   */
+  getReviewTemplate(
+    args: GetReviewTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetReviewTemplateCommandOutput>;
+  getReviewTemplate(
+    args: GetReviewTemplateCommandInput,
+    cb: (err: any, data?: GetReviewTemplateCommandOutput) => void
+  ): void;
+  getReviewTemplate(
+    args: GetReviewTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetReviewTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetReviewTemplateAnswerCommand}
+   */
+  getReviewTemplateAnswer(
+    args: GetReviewTemplateAnswerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetReviewTemplateAnswerCommandOutput>;
+  getReviewTemplateAnswer(
+    args: GetReviewTemplateAnswerCommandInput,
+    cb: (err: any, data?: GetReviewTemplateAnswerCommandOutput) => void
+  ): void;
+  getReviewTemplateAnswer(
+    args: GetReviewTemplateAnswerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetReviewTemplateAnswerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetReviewTemplateLensReviewCommand}
+   */
+  getReviewTemplateLensReview(
+    args: GetReviewTemplateLensReviewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetReviewTemplateLensReviewCommandOutput>;
+  getReviewTemplateLensReview(
+    args: GetReviewTemplateLensReviewCommandInput,
+    cb: (err: any, data?: GetReviewTemplateLensReviewCommandOutput) => void
+  ): void;
+  getReviewTemplateLensReview(
+    args: GetReviewTemplateLensReviewCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetReviewTemplateLensReviewCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetWorkloadCommand}
    */
   getWorkload(args: GetWorkloadCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkloadCommandOutput>;
@@ -891,6 +1094,40 @@ export interface WellArchitected {
   ): void;
 
   /**
+   * @see {@link ListReviewTemplateAnswersCommand}
+   */
+  listReviewTemplateAnswers(
+    args: ListReviewTemplateAnswersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListReviewTemplateAnswersCommandOutput>;
+  listReviewTemplateAnswers(
+    args: ListReviewTemplateAnswersCommandInput,
+    cb: (err: any, data?: ListReviewTemplateAnswersCommandOutput) => void
+  ): void;
+  listReviewTemplateAnswers(
+    args: ListReviewTemplateAnswersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListReviewTemplateAnswersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListReviewTemplatesCommand}
+   */
+  listReviewTemplates(
+    args: ListReviewTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListReviewTemplatesCommandOutput>;
+  listReviewTemplates(
+    args: ListReviewTemplatesCommandInput,
+    cb: (err: any, data?: ListReviewTemplatesCommandOutput) => void
+  ): void;
+  listReviewTemplates(
+    args: ListReviewTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListReviewTemplatesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListShareInvitationsCommand}
    */
   listShareInvitations(
@@ -922,6 +1159,23 @@ export interface WellArchitected {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTemplateSharesCommand}
+   */
+  listTemplateShares(
+    args: ListTemplateSharesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTemplateSharesCommandOutput>;
+  listTemplateShares(
+    args: ListTemplateSharesCommandInput,
+    cb: (err: any, data?: ListTemplateSharesCommandOutput) => void
+  ): void;
+  listTemplateShares(
+    args: ListTemplateSharesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTemplateSharesCommandOutput) => void
   ): void;
 
   /**
@@ -1031,6 +1285,57 @@ export interface WellArchitected {
   ): void;
 
   /**
+   * @see {@link UpdateReviewTemplateCommand}
+   */
+  updateReviewTemplate(
+    args: UpdateReviewTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateReviewTemplateCommandOutput>;
+  updateReviewTemplate(
+    args: UpdateReviewTemplateCommandInput,
+    cb: (err: any, data?: UpdateReviewTemplateCommandOutput) => void
+  ): void;
+  updateReviewTemplate(
+    args: UpdateReviewTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateReviewTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateReviewTemplateAnswerCommand}
+   */
+  updateReviewTemplateAnswer(
+    args: UpdateReviewTemplateAnswerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateReviewTemplateAnswerCommandOutput>;
+  updateReviewTemplateAnswer(
+    args: UpdateReviewTemplateAnswerCommandInput,
+    cb: (err: any, data?: UpdateReviewTemplateAnswerCommandOutput) => void
+  ): void;
+  updateReviewTemplateAnswer(
+    args: UpdateReviewTemplateAnswerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateReviewTemplateAnswerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateReviewTemplateLensReviewCommand}
+   */
+  updateReviewTemplateLensReview(
+    args: UpdateReviewTemplateLensReviewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateReviewTemplateLensReviewCommandOutput>;
+  updateReviewTemplateLensReview(
+    args: UpdateReviewTemplateLensReviewCommandInput,
+    cb: (err: any, data?: UpdateReviewTemplateLensReviewCommandOutput) => void
+  ): void;
+  updateReviewTemplateLensReview(
+    args: UpdateReviewTemplateLensReviewCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateReviewTemplateLensReviewCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateShareInvitationCommand}
    */
   updateShareInvitation(
@@ -1110,6 +1415,23 @@ export interface WellArchitected {
     args: UpgradeProfileVersionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpgradeProfileVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpgradeReviewTemplateLensReviewCommand}
+   */
+  upgradeReviewTemplateLensReview(
+    args: UpgradeReviewTemplateLensReviewCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpgradeReviewTemplateLensReviewCommandOutput>;
+  upgradeReviewTemplateLensReview(
+    args: UpgradeReviewTemplateLensReviewCommandInput,
+    cb: (err: any, data?: UpgradeReviewTemplateLensReviewCommandOutput) => void
+  ): void;
+  upgradeReviewTemplateLensReview(
+    args: UpgradeReviewTemplateLensReviewCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpgradeReviewTemplateLensReviewCommandOutput) => void
   ): void;
 }
 

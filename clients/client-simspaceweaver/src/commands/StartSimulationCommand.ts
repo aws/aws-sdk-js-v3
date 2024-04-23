@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   StartSimulationInput,
   StartSimulationInputFilterSensitiveLog,
@@ -58,16 +50,16 @@ export interface StartSimulationCommandOutput extends StartSimulationOutput, __M
  *   Description: "STRING_VALUE",
  *   RoleArn: "STRING_VALUE", // required
  *   SchemaS3Location: { // S3Location
- *     BucketName: "STRING_VALUE",
- *     ObjectKey: "STRING_VALUE",
+ *     BucketName: "STRING_VALUE", // required
+ *     ObjectKey: "STRING_VALUE", // required
  *   },
  *   MaximumDuration: "STRING_VALUE",
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
  *   SnapshotS3Location: {
- *     BucketName: "STRING_VALUE",
- *     ObjectKey: "STRING_VALUE",
+ *     BucketName: "STRING_VALUE", // required
+ *     ObjectKey: "STRING_VALUE", // required
  *   },
  * };
  * const command = new StartSimulationCommand(input);
@@ -105,79 +97,26 @@ export interface StartSimulationCommandOutput extends StartSimulationOutput, __M
  * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
  */
-export class StartSimulationCommand extends $Command<
-  StartSimulationCommandInput,
-  StartSimulationCommandOutput,
-  SimSpaceWeaverClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StartSimulationCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SimSpaceWeaverClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StartSimulationCommandInput, StartSimulationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartSimulationCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SimSpaceWeaverClient";
-    const commandName = "StartSimulationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: StartSimulationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StartSimulationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartSimulationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartSimulationCommandOutput> {
-    return de_StartSimulationCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class StartSimulationCommand extends $Command
+  .classBuilder<
+    StartSimulationCommandInput,
+    StartSimulationCommandOutput,
+    SimSpaceWeaverClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SimSpaceWeaverClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("SimSpaceWeaver", "StartSimulation", {})
+  .n("SimSpaceWeaverClient", "StartSimulationCommand")
+  .f(StartSimulationInputFilterSensitiveLog, void 0)
+  .ser(se_StartSimulationCommand)
+  .de(de_StartSimulationCommand)
+  .build() {}

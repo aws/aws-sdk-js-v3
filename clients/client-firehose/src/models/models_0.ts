@@ -60,6 +60,7 @@ export interface CloudWatchLoggingOptions {
 export const ProcessorParameterName = {
   BUFFER_INTERVAL_IN_SECONDS: "BufferIntervalInSeconds",
   BUFFER_SIZE_IN_MB: "BufferSizeInMBs",
+  COMPRESSION_FORMAT: "CompressionFormat",
   Delimiter: "Delimiter",
   JSON_PARSING_ENGINE: "JsonParsingEngine",
   LAMBDA_ARN: "LambdaArn",
@@ -87,7 +88,7 @@ export interface ProcessorParameter {
    *          hint is 1MB for all destinations, except Splunk. For Splunk, the default buffering hint is
    *          256 KB. </p>
    */
-  ParameterName: ProcessorParameterName | string | undefined;
+  ParameterName: ProcessorParameterName | undefined;
 
   /**
    * @public
@@ -102,6 +103,7 @@ export interface ProcessorParameter {
  */
 export const ProcessorType = {
   AppendDelimiterToRecord: "AppendDelimiterToRecord",
+  Decompression: "Decompression",
   Lambda: "Lambda",
   MetadataExtraction: "MetadataExtraction",
   RecordDeAggregation: "RecordDeAggregation",
@@ -121,7 +123,7 @@ export interface Processor {
    * @public
    * <p>The type of processor.</p>
    */
-  Type: ProcessorType | string | undefined;
+  Type: ProcessorType | undefined;
 
   /**
    * @public
@@ -264,7 +266,7 @@ export interface EncryptionConfiguration {
    * <p>Specifically override existing encryption information to ensure that no encryption is
    *          used.</p>
    */
-  NoEncryptionConfig?: NoEncryptionConfig | string;
+  NoEncryptionConfig?: NoEncryptionConfig;
 
   /**
    * @public
@@ -325,7 +327,7 @@ export interface S3DestinationConfiguration {
    *          for Amazon Redshift destinations because they are not supported by the Amazon Redshift
    *             <code>COPY</code> operation that reads from the S3 bucket.</p>
    */
-  CompressionFormat?: CompressionFormat | string;
+  CompressionFormat?: CompressionFormat;
 
   /**
    * @public
@@ -343,7 +345,8 @@ export interface S3DestinationConfiguration {
 
 /**
  * @public
- * <p>The details of the VPC of the Amazon ES destination.</p>
+ * <p>The details of the VPC of the Amazon OpenSearch or Amazon OpenSearch Serverless
+ *          destination.</p>
  */
 export interface VpcConfiguration {
   /**
@@ -484,7 +487,7 @@ export interface AmazonOpenSearchServerlessDestinationConfiguration {
    *          records to Amazon S3, and also writes failed documents with AmazonOpenSearchService-failed/
    *          appended to the prefix.</p>
    */
-  S3BackupMode?: AmazonOpenSearchServerlessS3BackupMode | string;
+  S3BackupMode?: AmazonOpenSearchServerlessS3BackupMode;
 
   /**
    * @public
@@ -506,7 +509,8 @@ export interface AmazonOpenSearchServerlessDestinationConfiguration {
 
   /**
    * @public
-   * <p>The details of the VPC of the Amazon ES destination.</p>
+   * <p>The details of the VPC of the Amazon OpenSearch or Amazon OpenSearch Serverless
+   *          destination.</p>
    */
   VpcConfiguration?: VpcConfiguration;
 }
@@ -560,7 +564,7 @@ export interface S3DestinationDescription {
    * <p>The compression format. If no value is specified, the default is
    *             <code>UNCOMPRESSED</code>.</p>
    */
-  CompressionFormat: CompressionFormat | string | undefined;
+  CompressionFormat: CompressionFormat | undefined;
 
   /**
    * @public
@@ -681,7 +685,7 @@ export interface VpcConfigurationDescription {
 export interface AmazonOpenSearchServerlessDestinationDescription {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the AWS credentials.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services credentials.</p>
    */
   RoleARN?: string;
 
@@ -714,7 +718,7 @@ export interface AmazonOpenSearchServerlessDestinationDescription {
    * @public
    * <p>The Amazon S3 backup mode.</p>
    */
-  S3BackupMode?: AmazonOpenSearchServerlessS3BackupMode | string;
+  S3BackupMode?: AmazonOpenSearchServerlessS3BackupMode;
 
   /**
    * @public
@@ -793,7 +797,7 @@ export interface S3DestinationUpdate {
    *          for Amazon Redshift destinations because they are not supported by the Amazon Redshift
    *             <code>COPY</code> operation that reads from the S3 bucket.</p>
    */
-  CompressionFormat?: CompressionFormat | string;
+  CompressionFormat?: CompressionFormat;
 
   /**
    * @public
@@ -898,6 +902,44 @@ export interface AmazonopensearchserviceBufferingHints {
  * @public
  * @enum
  */
+export const DefaultDocumentIdFormat = {
+  FIREHOSE_DEFAULT: "FIREHOSE_DEFAULT",
+  NO_DOCUMENT_ID: "NO_DOCUMENT_ID",
+} as const;
+
+/**
+ * @public
+ */
+export type DefaultDocumentIdFormat = (typeof DefaultDocumentIdFormat)[keyof typeof DefaultDocumentIdFormat];
+
+/**
+ * @public
+ * <p>Indicates the method for setting up document ID. The supported methods are Kinesis Data
+ *          Firehose generated document ID and OpenSearch Service generated document ID.</p>
+ *          <p></p>
+ */
+export interface DocumentIdOptions {
+  /**
+   * @public
+   * <p>When the <code>FIREHOSE_DEFAULT</code> option is chosen, Kinesis Data Firehose generates
+   *          a unique document ID for each record based on a unique internal identifier. The generated
+   *          document ID is stable across multiple delivery attempts, which helps prevent the same
+   *          record from being indexed multiple times with different document IDs.</p>
+   *          <p>When the <code>NO_DOCUMENT_ID</code> option is chosen, Kinesis Data Firehose does not
+   *          include any document IDs in the requests it sends to the Amazon OpenSearch Service. This
+   *          causes the Amazon OpenSearch Service domain to generate document IDs. In case of multiple
+   *          delivery attempts, this may cause the same record to be indexed more than once with
+   *          different document IDs. This option enables write-heavy operations, such as the ingestion
+   *          of logs and observability data, to consume less resources in the Amazon OpenSearch Service
+   *          domain, resulting in improved performance.</p>
+   */
+  DefaultDocumentIdFormat: DefaultDocumentIdFormat | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const AmazonopensearchserviceIndexRotationPeriod = {
   NoRotation: "NoRotation",
   OneDay: "OneDay",
@@ -990,7 +1032,7 @@ export interface AmazonopensearchserviceDestinationConfiguration {
    * <p>The Amazon OpenSearch Service index rotation period. Index rotation appends a timestamp
    *          to the IndexName to facilitate the expiration of old data.</p>
    */
-  IndexRotationPeriod?: AmazonopensearchserviceIndexRotationPeriod | string;
+  IndexRotationPeriod?: AmazonopensearchserviceIndexRotationPeriod;
 
   /**
    * @public
@@ -1015,7 +1057,7 @@ export interface AmazonopensearchserviceDestinationConfiguration {
    *          records to Amazon S3, and also writes failed documents with AmazonOpenSearchService-failed/
    *          appended to the prefix. </p>
    */
-  S3BackupMode?: AmazonopensearchserviceS3BackupMode | string;
+  S3BackupMode?: AmazonopensearchserviceS3BackupMode;
 
   /**
    * @public
@@ -1037,9 +1079,17 @@ export interface AmazonopensearchserviceDestinationConfiguration {
 
   /**
    * @public
-   * <p>The details of the VPC of the Amazon ES destination.</p>
+   * <p>The details of the VPC of the Amazon OpenSearch or Amazon OpenSearch Serverless
+   *          destination.</p>
    */
   VpcConfiguration?: VpcConfiguration;
+
+  /**
+   * @public
+   * <p>Indicates the method for setting up document ID. The supported methods are Kinesis Data
+   *          Firehose generated document ID and OpenSearch Service generated document ID.</p>
+   */
+  DocumentIdOptions?: DocumentIdOptions;
 }
 
 /**
@@ -1084,7 +1134,7 @@ export interface AmazonopensearchserviceDestinationDescription {
    * @public
    * <p>The Amazon OpenSearch Service index rotation period</p>
    */
-  IndexRotationPeriod?: AmazonopensearchserviceIndexRotationPeriod | string;
+  IndexRotationPeriod?: AmazonopensearchserviceIndexRotationPeriod;
 
   /**
    * @public
@@ -1102,7 +1152,7 @@ export interface AmazonopensearchserviceDestinationDescription {
    * @public
    * <p>The Amazon S3 backup mode.</p>
    */
-  S3BackupMode?: AmazonopensearchserviceS3BackupMode | string;
+  S3BackupMode?: AmazonopensearchserviceS3BackupMode;
 
   /**
    * @public
@@ -1127,6 +1177,13 @@ export interface AmazonopensearchserviceDestinationDescription {
    * <p>The details of the VPC of the Amazon ES destination.</p>
    */
   VpcConfigurationDescription?: VpcConfigurationDescription;
+
+  /**
+   * @public
+   * <p>Indicates the method for setting up document ID. The supported methods are Kinesis Data
+   *          Firehose generated document ID and OpenSearch Service generated document ID.</p>
+   */
+  DocumentIdOptions?: DocumentIdOptions;
 }
 
 /**
@@ -1180,7 +1237,7 @@ export interface AmazonopensearchserviceDestinationUpdate {
    * <p>The Amazon OpenSearch Service index rotation period. Index rotation appends a timestamp
    *          to IndexName to facilitate the expiration of old data.</p>
    */
-  IndexRotationPeriod?: AmazonopensearchserviceIndexRotationPeriod | string;
+  IndexRotationPeriod?: AmazonopensearchserviceIndexRotationPeriod;
 
   /**
    * @public
@@ -1213,6 +1270,45 @@ export interface AmazonopensearchserviceDestinationUpdate {
    * <p>Describes the Amazon CloudWatch logging options for your delivery stream.</p>
    */
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+
+  /**
+   * @public
+   * <p>Indicates the method for setting up document ID. The supported methods are Kinesis Data
+   *          Firehose generated document ID and OpenSearch Service generated document ID.</p>
+   */
+  DocumentIdOptions?: DocumentIdOptions;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Connectivity = {
+  PRIVATE: "PRIVATE",
+  PUBLIC: "PUBLIC",
+} as const;
+
+/**
+ * @public
+ */
+export type Connectivity = (typeof Connectivity)[keyof typeof Connectivity];
+
+/**
+ * @public
+ * <p>The authentication configuration of the Amazon MSK cluster.</p>
+ */
+export interface AuthenticationConfiguration {
+  /**
+   * @public
+   * <p>The ARN of the role used to access the Amazon MSK cluster.</p>
+   */
+  RoleARN: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of connectivity used to access the Amazon MSK cluster.</p>
+   */
+  Connectivity: Connectivity | undefined;
 }
 
 /**
@@ -1343,7 +1439,7 @@ export interface DeliveryStreamEncryptionConfigurationInput {
    *             Service developer guide.</p>
    *          </important>
    */
-  KeyType: KeyType | string | undefined;
+  KeyType: KeyType | undefined;
 }
 
 /**
@@ -1353,6 +1449,7 @@ export interface DeliveryStreamEncryptionConfigurationInput {
 export const DeliveryStreamType = {
   DirectPut: "DirectPut",
   KinesisStreamAsSource: "KinesisStreamAsSource",
+  MSKAsSource: "MSKAsSource",
 } as const;
 
 /**
@@ -1453,7 +1550,6 @@ export interface ElasticsearchDestinationConfiguration {
    *             for <code>DescribeDomain</code>, <code>DescribeDomains</code>, and
    *             <code>DescribeDomainConfig</code> after assuming the role specified in <b>RoleARN</b>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
    *                Amazon Web Services Service Namespaces</a>.</p>
-   *
    *          <p>Specify either <code>ClusterEndpoint</code> or <code>DomainARN</code>.</p>
    */
   DomainARN?: string;
@@ -1476,7 +1572,6 @@ export interface ElasticsearchDestinationConfiguration {
    * <p>The Elasticsearch type name. For Elasticsearch 6.x, there can be only one type per
    *          index. If you try to specify a new type for an existing index that already has another
    *          type, Kinesis Data Firehose returns an error during run time.</p>
-   *
    *          <p>For Elasticsearch 7.x, don't specify a <code>TypeName</code>.</p>
    */
   TypeName?: string;
@@ -1488,7 +1583,7 @@ export interface ElasticsearchDestinationConfiguration {
    *          see <a href="https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation">Index Rotation for the
    *             Amazon ES Destination</a>. The default value is <code>OneDay</code>.</p>
    */
-  IndexRotationPeriod?: ElasticsearchIndexRotationPeriod | string;
+  IndexRotationPeriod?: ElasticsearchIndexRotationPeriod;
 
   /**
    * @public
@@ -1517,7 +1612,7 @@ export interface ElasticsearchDestinationConfiguration {
    *          <code>FailedDocumentsOnly</code>.</p>
    *          <p>You can't change this backup mode after you create the delivery stream. </p>
    */
-  S3BackupMode?: ElasticsearchS3BackupMode | string;
+  S3BackupMode?: ElasticsearchS3BackupMode;
 
   /**
    * @public
@@ -1539,9 +1634,16 @@ export interface ElasticsearchDestinationConfiguration {
 
   /**
    * @public
-   * <p>The details of the VPC of the Amazon ES destination.</p>
+   * <p>The details of the VPC of the Amazon destination.</p>
    */
   VpcConfiguration?: VpcConfiguration;
+
+  /**
+   * @public
+   * <p>Indicates the method for setting up document ID. The supported methods are Kinesis Data
+   *          Firehose generated document ID and OpenSearch Service generated document ID.</p>
+   */
+  DocumentIdOptions?: DocumentIdOptions;
 }
 
 /**
@@ -1725,7 +1827,7 @@ export interface OrcSerDe {
    * @public
    * <p>The compression code to use over data blocks. The default is <code>SNAPPY</code>.</p>
    */
-  Compression?: OrcCompression | string;
+  Compression?: OrcCompression;
 
   /**
    * @public
@@ -1754,7 +1856,7 @@ export interface OrcSerDe {
    * <p>The version of the file to write. The possible values are <code>V0_11</code> and
    *             <code>V0_12</code>. The default is <code>V0_12</code>.</p>
    */
-  FormatVersion?: OrcFormatVersion | string;
+  FormatVersion?: OrcFormatVersion;
 }
 
 /**
@@ -1815,7 +1917,7 @@ export interface ParquetSerDe {
    *          being <code>SNAPPY</code>. Use <code>SNAPPY</code> for higher decompression speed. Use
    *             <code>GZIP</code> if the compression ratio is more important than speed.</p>
    */
-  Compression?: ParquetCompression | string;
+  Compression?: ParquetCompression;
 
   /**
    * @public
@@ -1835,7 +1937,7 @@ export interface ParquetSerDe {
    * <p>Indicates the version of row format to output. The possible values are <code>V1</code>
    *          and <code>V2</code>. The default is <code>V1</code>.</p>
    */
-  WriterVersion?: ParquetWriterVersion | string;
+  WriterVersion?: ParquetWriterVersion;
 }
 
 /**
@@ -2084,7 +2186,7 @@ export interface ExtendedS3DestinationConfiguration {
    * <p>The compression format. If no value is specified, the default is
    *          UNCOMPRESSED.</p>
    */
-  CompressionFormat?: CompressionFormat | string;
+  CompressionFormat?: CompressionFormat;
 
   /**
    * @public
@@ -2111,7 +2213,7 @@ export interface ExtendedS3DestinationConfiguration {
    *          enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the
    *          delivery stream to disable it. </p>
    */
-  S3BackupMode?: S3BackupMode | string;
+  S3BackupMode?: S3BackupMode;
 
   /**
    * @public
@@ -2223,7 +2325,7 @@ export interface HttpEndpointRequestConfiguration {
    * <p>Kinesis Data Firehose uses the content encoding to compress the body of a request before
    *          sending the request to the destination. For more information, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding">Content-Encoding</a> in MDN Web Docs, the official Mozilla documentation.</p>
    */
-  ContentEncoding?: ContentEncoding | string;
+  ContentEncoding?: ContentEncoding;
 
   /**
    * @public
@@ -2325,7 +2427,7 @@ export interface HttpEndpointDestinationConfiguration {
    *          only the documents that Kinesis Data Firehose could not deliver to the specified HTTP
    *          endpoint destination (<code>FailedDataOnly</code>).</p>
    */
-  S3BackupMode?: HttpEndpointS3BackupMode | string;
+  S3BackupMode?: HttpEndpointS3BackupMode;
 
   /**
    * @public
@@ -2354,6 +2456,31 @@ export interface KinesisStreamSourceConfiguration {
    *             Identity and Access Management (IAM) ARN Format</a>.</p>
    */
   RoleARN: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The configuration for the Amazon MSK cluster to be used as the source for a delivery
+ *          stream.</p>
+ */
+export interface MSKSourceConfiguration {
+  /**
+   * @public
+   * <p>The ARN of the Amazon MSK cluster.</p>
+   */
+  MSKClusterARN: string | undefined;
+
+  /**
+   * @public
+   * <p>The topic name within the Amazon MSK cluster. </p>
+   */
+  TopicName: string | undefined;
+
+  /**
+   * @public
+   * <p>The authentication configuration of the Amazon MSK cluster.</p>
+   */
+  AuthenticationConfiguration: AuthenticationConfiguration | undefined;
 }
 
 /**
@@ -2454,7 +2581,7 @@ export interface RedshiftDestinationConfiguration {
    *          enable Amazon S3 backup if it is disabled. If backup is enabled, you can't update the
    *          delivery stream to disable it. </p>
    */
-  S3BackupMode?: RedshiftS3BackupMode | string;
+  S3BackupMode?: RedshiftS3BackupMode;
 
   /**
    * @public
@@ -2467,6 +2594,224 @@ export interface RedshiftDestinationConfiguration {
    * <p>The CloudWatch logging options for your delivery stream.</p>
    */
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SnowflakeDataLoadingOption = {
+  JSON_MAPPING: "JSON_MAPPING",
+  VARIANT_CONTENT_AND_METADATA_MAPPING: "VARIANT_CONTENT_AND_METADATA_MAPPING",
+  VARIANT_CONTENT_MAPPING: "VARIANT_CONTENT_MAPPING",
+} as const;
+
+/**
+ * @public
+ */
+export type SnowflakeDataLoadingOption = (typeof SnowflakeDataLoadingOption)[keyof typeof SnowflakeDataLoadingOption];
+
+/**
+ * @public
+ * <p>Specify how long Kinesis Data Firehose retries sending data to the New Relic HTTP endpoint.
+ *
+ *          After sending data, Kinesis Data Firehose first waits for an acknowledgment from the HTTP endpoint. If an error occurs or the acknowledgment doesn’t arrive within the acknowledgment timeout period, Kinesis Data Firehose starts the retry duration counter. It keeps retrying until the retry duration expires. After that, Kinesis Data Firehose considers it a data delivery failure and backs up the data to your Amazon S3 bucket.
+ *
+ *          Every time that Kinesis Data Firehose sends data to the HTTP endpoint (either the initial attempt or a retry), it restarts the acknowledgement timeout counter and waits for an acknowledgement from the HTTP endpoint.
+ *
+ *          Even if the retry duration expires, Kinesis Data Firehose still waits for the acknowledgment until it receives it or the acknowledgement timeout period is reached. If the acknowledgment times out, Kinesis Data Firehose determines whether there's time left in the retry counter. If there is time left, it retries again and repeats the logic until it receives an acknowledgment or determines that the retry time has expired.
+ *
+ *          If you don't want Kinesis Data Firehose to retry sending data, set this value to 0.</p>
+ */
+export interface SnowflakeRetryOptions {
+  /**
+   * @public
+   * <p>the time period where Kinesis Data Firehose will retry sending data to the chosen HTTP endpoint.</p>
+   */
+  DurationInSeconds?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SnowflakeS3BackupMode = {
+  AllData: "AllData",
+  FailedDataOnly: "FailedDataOnly",
+} as const;
+
+/**
+ * @public
+ */
+export type SnowflakeS3BackupMode = (typeof SnowflakeS3BackupMode)[keyof typeof SnowflakeS3BackupMode];
+
+/**
+ * @public
+ * <p>Optionally configure a Snowflake role. Otherwise the default user role will be used.</p>
+ */
+export interface SnowflakeRoleConfiguration {
+  /**
+   * @public
+   * <p>Enable Snowflake role</p>
+   */
+  Enabled?: boolean;
+
+  /**
+   * @public
+   * <p>The Snowflake role you wish to configure</p>
+   */
+  SnowflakeRole?: string;
+}
+
+/**
+ * @public
+ * <p>Configure a Snowflake VPC</p>
+ */
+export interface SnowflakeVpcConfiguration {
+  /**
+   * @public
+   * <p>The VPCE ID for Firehose to privately connect with Snowflake. The ID format is
+   *          com.amazonaws.vpce.[region].vpce-svc-<[id]>. For more information, see <a href="https://docs.snowflake.com/en/user-guide/admin-security-privatelink">Amazon PrivateLink & Snowflake</a>
+   *          </p>
+   */
+  PrivateLinkVpceId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Configure Snowflake destination</p>
+ */
+export interface SnowflakeDestinationConfiguration {
+  /**
+   * @public
+   * <p>URL for accessing your Snowflake account. This URL must include your <a href="https://docs.snowflake.com/en/user-guide/admin-account-identifier">account identifier</a>.
+   *          Note that the protocol (https://) and port number are optional.</p>
+   */
+  AccountUrl: string | undefined;
+
+  /**
+   * @public
+   * <p>The private key used to encrypt your Snowflake client. For information, see <a href="https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation">Using Key Pair Authentication & Key Rotation</a>.</p>
+   */
+  PrivateKey: string | undefined;
+
+  /**
+   * @public
+   * <p>Passphrase to decrypt the private key when the key is encrypted. For information, see <a href="https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation">Using Key Pair Authentication & Key Rotation</a>.</p>
+   */
+  KeyPassphrase?: string;
+
+  /**
+   * @public
+   * <p>User login name for the Snowflake account.</p>
+   */
+  User: string | undefined;
+
+  /**
+   * @public
+   * <p>All data in Snowflake is maintained in databases.</p>
+   */
+  Database: string | undefined;
+
+  /**
+   * @public
+   * <p>Each database consists of one or more schemas, which are logical groupings of database objects, such as tables and views</p>
+   */
+  Schema: string | undefined;
+
+  /**
+   * @public
+   * <p>All data in Snowflake is stored in database tables, logically structured as collections of columns and rows.</p>
+   */
+  Table: string | undefined;
+
+  /**
+   * @public
+   * <p>Optionally configure a Snowflake role. Otherwise the default user role will be used.</p>
+   */
+  SnowflakeRoleConfiguration?: SnowflakeRoleConfiguration;
+
+  /**
+   * @public
+   * <p>Choose to load JSON keys mapped to table column names or choose to split the JSON payload where content is mapped to a record content column and source metadata is mapped to a record metadata column.</p>
+   */
+  DataLoadingOption?: SnowflakeDataLoadingOption;
+
+  /**
+   * @public
+   * <p>The name of the record metadata column</p>
+   */
+  MetaDataColumnName?: string;
+
+  /**
+   * @public
+   * <p>The name of the record content column</p>
+   */
+  ContentColumnName?: string;
+
+  /**
+   * @public
+   * <p>The VPCE ID for Firehose to privately connect with Snowflake. The ID format is
+   *          com.amazonaws.vpce.[region].vpce-svc-<[id]>. For more information, see <a href="https://docs.snowflake.com/en/user-guide/admin-security-privatelink">Amazon PrivateLink & Snowflake</a>
+   *          </p>
+   */
+  SnowflakeVpcConfiguration?: SnowflakeVpcConfiguration;
+
+  /**
+   * @public
+   * <p>Describes the Amazon CloudWatch logging options for your delivery stream.</p>
+   */
+  CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+
+  /**
+   * @public
+   * <p>Describes a data processing configuration.</p>
+   */
+  ProcessingConfiguration?: ProcessingConfiguration;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Snowflake role</p>
+   */
+  RoleARN: string | undefined;
+
+  /**
+   * @public
+   * <p>The time period where Kinesis Data Firehose will retry sending data to the chosen HTTP endpoint.</p>
+   */
+  RetryOptions?: SnowflakeRetryOptions;
+
+  /**
+   * @public
+   * <p>Choose an S3 backup mode</p>
+   */
+  S3BackupMode?: SnowflakeS3BackupMode;
+
+  /**
+   * @public
+   * <p>Describes the configuration of a destination in Amazon S3.</p>
+   */
+  S3Configuration: S3DestinationConfiguration | undefined;
+}
+
+/**
+ * @public
+ * <p>The buffering options. If no value is specified, the default values for Splunk are used.</p>
+ */
+export interface SplunkBufferingHints {
+  /**
+   * @public
+   * <p>Buffer incoming data for the specified period of time, in seconds, before delivering it to the destination. The default value is 60 (1 minute).</p>
+   */
+  IntervalInSeconds?: number;
+
+  /**
+   * @public
+   * <p>Buffer incoming data to the specified size, in MBs, before delivering it to the destination. The default value is 5.
+   *
+   *          </p>
+   */
+  SizeInMBs?: number;
 }
 
 /**
@@ -2529,7 +2874,7 @@ export interface SplunkDestinationConfiguration {
    * @public
    * <p>This type can be either "Raw" or "Event."</p>
    */
-  HECEndpointType: HECEndpointType | string | undefined;
+  HECEndpointType: HECEndpointType | undefined;
 
   /**
    * @public
@@ -2565,7 +2910,7 @@ export interface SplunkDestinationConfiguration {
    *             <code>AllEvents</code>. You can't update it from <code>AllEvents</code> to
    *             <code>FailedEventsOnly</code>.</p>
    */
-  S3BackupMode?: SplunkS3BackupMode | string;
+  S3BackupMode?: SplunkS3BackupMode;
 
   /**
    * @public
@@ -2584,6 +2929,12 @@ export interface SplunkDestinationConfiguration {
    * <p>The Amazon CloudWatch logging options for your delivery stream.</p>
    */
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+
+  /**
+   * @public
+   * <p>The buffering options. If no value is specified, the default values for Splunk are used.</p>
+   */
+  BufferingHints?: SplunkBufferingHints;
 }
 
 /**
@@ -2638,7 +2989,7 @@ export interface CreateDeliveryStreamInput {
    *             </li>
    *          </ul>
    */
-  DeliveryStreamType?: DeliveryStreamType | string;
+  DeliveryStreamType?: DeliveryStreamType;
 
   /**
    * @public
@@ -2709,7 +3060,6 @@ export interface CreateDeliveryStreamInput {
    *          distinguish the delivery stream. For more information about tags, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
    *             Cost Allocation Tags</a> in the Amazon Web Services Billing and Cost Management User
    *          Guide.</p>
-   *
    *          <p>You can specify up to 50 tags when creating a delivery stream.</p>
    */
   Tags?: Tag[];
@@ -2720,6 +3070,19 @@ export interface CreateDeliveryStreamInput {
    *          specify only one destination.</p>
    */
   AmazonOpenSearchServerlessDestinationConfiguration?: AmazonOpenSearchServerlessDestinationConfiguration;
+
+  /**
+   * @public
+   * <p>The configuration for the Amazon MSK cluster to be used as the source for a delivery
+   *          stream.</p>
+   */
+  MSKSourceConfiguration?: MSKSourceConfiguration;
+
+  /**
+   * @public
+   * <p>Configure Snowflake destination</p>
+   */
+  SnowflakeDestinationConfiguration?: SnowflakeDestinationConfiguration;
 }
 
 /**
@@ -2906,7 +3269,7 @@ export interface FailureDescription {
    * @public
    * <p>The type of error that caused the failure.</p>
    */
-  Type: DeliveryStreamFailureType | string | undefined;
+  Type: DeliveryStreamFailureType | undefined;
 
   /**
    * @public
@@ -2955,7 +3318,7 @@ export interface DeliveryStreamEncryptionConfiguration {
    *          setting is <code>Amazon Web Services_OWNED_CMK</code>. For more information about CMKs, see
    *             <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">Customer Master Keys (CMKs)</a>.</p>
    */
-  KeyType?: KeyType | string;
+  KeyType?: KeyType;
 
   /**
    * @public
@@ -2964,7 +3327,7 @@ export interface DeliveryStreamEncryptionConfiguration {
    *          or <code>DISABLING_FAILED</code>, it is the status of the most recent attempt to enable or
    *          disable SSE, respectively.</p>
    */
-  Status?: DeliveryStreamEncryptionStatus | string;
+  Status?: DeliveryStreamEncryptionStatus;
 
   /**
    * @public
@@ -3009,7 +3372,6 @@ export interface ElasticsearchDestinationDescription {
    * @public
    * <p>The ARN of the Amazon ES domain. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
    *             Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p>
-   *
    *          <p>Kinesis Data Firehose uses either <code>ClusterEndpoint</code> or <code>DomainARN</code>
    *          to send data to Amazon ES.</p>
    */
@@ -3041,7 +3403,7 @@ export interface ElasticsearchDestinationDescription {
    * @public
    * <p>The Elasticsearch index rotation period</p>
    */
-  IndexRotationPeriod?: ElasticsearchIndexRotationPeriod | string;
+  IndexRotationPeriod?: ElasticsearchIndexRotationPeriod;
 
   /**
    * @public
@@ -3059,7 +3421,7 @@ export interface ElasticsearchDestinationDescription {
    * @public
    * <p>The Amazon S3 backup mode.</p>
    */
-  S3BackupMode?: ElasticsearchS3BackupMode | string;
+  S3BackupMode?: ElasticsearchS3BackupMode;
 
   /**
    * @public
@@ -3081,9 +3443,17 @@ export interface ElasticsearchDestinationDescription {
 
   /**
    * @public
-   * <p>The details of the VPC of the Amazon ES destination.</p>
+   * <p>The details of the VPC of the Amazon OpenSearch or the Amazon OpenSearch Serverless
+   *          destination.</p>
    */
   VpcConfigurationDescription?: VpcConfigurationDescription;
+
+  /**
+   * @public
+   * <p>Indicates the method for setting up document ID. The supported methods are Kinesis Data
+   *          Firehose generated document ID and OpenSearch Service generated document ID.</p>
+   */
+  DocumentIdOptions?: DocumentIdOptions;
 }
 
 /**
@@ -3134,7 +3504,7 @@ export interface ExtendedS3DestinationDescription {
    * <p>The compression format. If no value is specified, the default is
    *             <code>UNCOMPRESSED</code>.</p>
    */
-  CompressionFormat: CompressionFormat | string | undefined;
+  CompressionFormat: CompressionFormat | undefined;
 
   /**
    * @public
@@ -3159,7 +3529,7 @@ export interface ExtendedS3DestinationDescription {
    * @public
    * <p>The Amazon S3 backup mode.</p>
    */
-  S3BackupMode?: S3BackupMode | string;
+  S3BackupMode?: S3BackupMode;
 
   /**
    * @public
@@ -3264,7 +3634,7 @@ export interface HttpEndpointDestinationDescription {
    *          the documents that Kinesis Data Firehose could not deliver to the specified HTTP endpoint
    *          destination (<code>FailedDataOnly</code>).</p>
    */
-  S3BackupMode?: HttpEndpointS3BackupMode | string;
+  S3BackupMode?: HttpEndpointS3BackupMode;
 
   /**
    * @public
@@ -3327,7 +3697,7 @@ export interface RedshiftDestinationDescription {
    * @public
    * <p>The Amazon S3 backup mode.</p>
    */
-  S3BackupMode?: RedshiftS3BackupMode | string;
+  S3BackupMode?: RedshiftS3BackupMode;
 
   /**
    * @public
@@ -3340,6 +3710,111 @@ export interface RedshiftDestinationDescription {
    * <p>The Amazon CloudWatch logging options for your delivery stream.</p>
    */
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+}
+
+/**
+ * @public
+ * <p>Optional Snowflake destination description</p>
+ */
+export interface SnowflakeDestinationDescription {
+  /**
+   * @public
+   * <p>URL for accessing your Snowflake account. This URL must include your <a href="https://docs.snowflake.com/en/user-guide/admin-account-identifier">account identifier</a>.
+   *          Note that the protocol (https://) and port number are optional.</p>
+   */
+  AccountUrl?: string;
+
+  /**
+   * @public
+   * <p>User login name for the Snowflake account.</p>
+   */
+  User?: string;
+
+  /**
+   * @public
+   * <p>All data in Snowflake is maintained in databases.</p>
+   */
+  Database?: string;
+
+  /**
+   * @public
+   * <p>Each database consists of one or more schemas, which are logical groupings of database objects, such as tables and views</p>
+   */
+  Schema?: string;
+
+  /**
+   * @public
+   * <p>All data in Snowflake is stored in database tables, logically structured as collections of columns and rows.</p>
+   */
+  Table?: string;
+
+  /**
+   * @public
+   * <p>Optionally configure a Snowflake role. Otherwise the default user role will be used.</p>
+   */
+  SnowflakeRoleConfiguration?: SnowflakeRoleConfiguration;
+
+  /**
+   * @public
+   * <p>Choose to load JSON keys mapped to table column names or choose to split the JSON payload where content is mapped to a record content column and source metadata is mapped to a record metadata column.</p>
+   */
+  DataLoadingOption?: SnowflakeDataLoadingOption;
+
+  /**
+   * @public
+   * <p>The name of the record metadata column</p>
+   */
+  MetaDataColumnName?: string;
+
+  /**
+   * @public
+   * <p>The name of the record content column</p>
+   */
+  ContentColumnName?: string;
+
+  /**
+   * @public
+   * <p>The VPCE ID for Firehose to privately connect with Snowflake. The ID format is
+   *          com.amazonaws.vpce.[region].vpce-svc-<[id]>. For more information, see <a href="https://docs.snowflake.com/en/user-guide/admin-security-privatelink">Amazon PrivateLink & Snowflake</a>
+   *          </p>
+   */
+  SnowflakeVpcConfiguration?: SnowflakeVpcConfiguration;
+
+  /**
+   * @public
+   * <p>Describes the Amazon CloudWatch logging options for your delivery stream.</p>
+   */
+  CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+
+  /**
+   * @public
+   * <p>Describes a data processing configuration.</p>
+   */
+  ProcessingConfiguration?: ProcessingConfiguration;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Snowflake role</p>
+   */
+  RoleARN?: string;
+
+  /**
+   * @public
+   * <p>The time period where Kinesis Data Firehose will retry sending data to the chosen HTTP endpoint.</p>
+   */
+  RetryOptions?: SnowflakeRetryOptions;
+
+  /**
+   * @public
+   * <p>Choose an S3 backup mode</p>
+   */
+  S3BackupMode?: SnowflakeS3BackupMode;
+
+  /**
+   * @public
+   * <p>Describes a destination in Amazon S3.</p>
+   */
+  S3DestinationDescription?: S3DestinationDescription;
 }
 
 /**
@@ -3358,7 +3833,7 @@ export interface SplunkDestinationDescription {
    * @public
    * <p>This type can be either "Raw" or "Event."</p>
    */
-  HECEndpointType?: HECEndpointType | string;
+  HECEndpointType?: HECEndpointType;
 
   /**
    * @public
@@ -3391,7 +3866,7 @@ export interface SplunkDestinationDescription {
    *          Kinesis Data Firehose delivers all incoming records to Amazon S3, and also writes failed
    *          documents to Amazon S3. Default value is <code>FailedDocumentsOnly</code>. </p>
    */
-  S3BackupMode?: SplunkS3BackupMode | string;
+  S3BackupMode?: SplunkS3BackupMode;
 
   /**
    * @public
@@ -3410,6 +3885,12 @@ export interface SplunkDestinationDescription {
    * <p>The Amazon CloudWatch logging options for your delivery stream.</p>
    */
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+
+  /**
+   * @public
+   * <p>The buffering options. If no value is specified, the default values for Splunk are used.</p>
+   */
+  BufferingHints?: SplunkBufferingHints;
 }
 
 /**
@@ -3467,6 +3948,12 @@ export interface DestinationDescription {
 
   /**
    * @public
+   * <p>Optional description for the destination</p>
+   */
+  SnowflakeDestinationDescription?: SnowflakeDestinationDescription;
+
+  /**
+   * @public
    * <p>The destination in the Serverless offering for Amazon OpenSearch Service.</p>
    */
   AmazonOpenSearchServerlessDestinationDescription?: AmazonOpenSearchServerlessDestinationDescription;
@@ -3504,6 +3991,38 @@ export interface KinesisStreamSourceDescription {
 
 /**
  * @public
+ * <p>Details about the Amazon MSK cluster used as the source for a Kinesis Data Firehose
+ *          delivery stream.</p>
+ */
+export interface MSKSourceDescription {
+  /**
+   * @public
+   * <p>The ARN of the Amazon MSK cluster.</p>
+   */
+  MSKClusterARN?: string;
+
+  /**
+   * @public
+   * <p>The topic name within the Amazon MSK cluster.</p>
+   */
+  TopicName?: string;
+
+  /**
+   * @public
+   * <p>The authentication configuration of the Amazon MSK cluster.</p>
+   */
+  AuthenticationConfiguration?: AuthenticationConfiguration;
+
+  /**
+   * @public
+   * <p>Kinesis Data Firehose starts retrieving records from the topic within the Amazon MSK
+   *          cluster starting with this timestamp.</p>
+   */
+  DeliveryStartTimestamp?: Date;
+}
+
+/**
+ * @public
  * <p>Details about a Kinesis data stream used as the source for a Kinesis Data Firehose
  *          delivery stream.</p>
  */
@@ -3514,6 +4033,13 @@ export interface SourceDescription {
    *          data stream.</p>
    */
   KinesisStreamSourceDescription?: KinesisStreamSourceDescription;
+
+  /**
+   * @public
+   * <p>The configuration description for the Amazon MSK cluster to be used as the source for a delivery
+   *          stream.</p>
+   */
+  MSKSourceDescription?: MSKSourceDescription;
 }
 
 /**
@@ -3541,7 +4067,7 @@ export interface DeliveryStreamDescription {
    *             <code>CREATING_FAILED</code>, this status doesn't change, and you can't invoke
    *             <code>CreateDeliveryStream</code> again on it. However, you can invoke the <a>DeleteDeliveryStream</a> operation to delete it.</p>
    */
-  DeliveryStreamStatus: DeliveryStreamStatus | string | undefined;
+  DeliveryStreamStatus: DeliveryStreamStatus | undefined;
 
   /**
    * @public
@@ -3573,7 +4099,7 @@ export interface DeliveryStreamDescription {
    *             </li>
    *          </ul>
    */
-  DeliveryStreamType: DeliveryStreamType | string | undefined;
+  DeliveryStreamType: DeliveryStreamType | undefined;
 
   /**
    * @public
@@ -3675,7 +4201,6 @@ export interface ElasticsearchDestinationUpdate {
    *             <code>DescribeDomainConfig</code> after assuming the IAM role specified in
    *             <code>RoleARN</code>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
    *                Amazon Web Services Service Namespaces</a>.</p>
-   *
    *          <p>Specify either <code>ClusterEndpoint</code> or <code>DomainARN</code>.</p>
    */
   DomainARN?: string;
@@ -3698,7 +4223,6 @@ export interface ElasticsearchDestinationUpdate {
    * <p>The Elasticsearch type name. For Elasticsearch 6.x, there can be only one type per
    *          index. If you try to specify a new type for an existing index that already has another
    *          type, Kinesis Data Firehose returns an error during runtime.</p>
-   *
    *          <p>If you upgrade Elasticsearch from 6.x to 7.x and don’t update your delivery stream,
    *          Kinesis Data Firehose still delivers data to Elasticsearch with the old index name and type
    *          name. If you want to update your delivery stream with a new index name, provide an empty
@@ -3713,7 +4237,7 @@ export interface ElasticsearchDestinationUpdate {
    *          see <a href="https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation">Index Rotation for the
    *             Amazon ES Destination</a>. Default value is <code>OneDay</code>.</p>
    */
-  IndexRotationPeriod?: ElasticsearchIndexRotationPeriod | string;
+  IndexRotationPeriod?: ElasticsearchIndexRotationPeriod;
 
   /**
    * @public
@@ -3746,6 +4270,13 @@ export interface ElasticsearchDestinationUpdate {
    * <p>The CloudWatch logging options for your delivery stream.</p>
    */
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+
+  /**
+   * @public
+   * <p>Indicates the method for setting up document ID. The supported methods are Kinesis Data
+   *          Firehose generated document ID and OpenSearch Service generated document ID.</p>
+   */
+  DocumentIdOptions?: DocumentIdOptions;
 }
 
 /**
@@ -3796,7 +4327,7 @@ export interface ExtendedS3DestinationUpdate {
    * <p>The compression format. If no value is specified, the default is
    *             <code>UNCOMPRESSED</code>. </p>
    */
-  CompressionFormat?: CompressionFormat | string;
+  CompressionFormat?: CompressionFormat;
 
   /**
    * @public
@@ -3822,7 +4353,7 @@ export interface ExtendedS3DestinationUpdate {
    * <p>You can update a delivery stream to enable Amazon S3 backup if it is disabled. If
    *          backup is enabled, you can't update the delivery stream to disable it. </p>
    */
-  S3BackupMode?: S3BackupMode | string;
+  S3BackupMode?: S3BackupMode;
 
   /**
    * @public
@@ -3875,7 +4406,7 @@ export interface ListDeliveryStreamsInput {
    *          <p>This parameter is optional. If this parameter is omitted, delivery streams of all
    *          types are returned.</p>
    */
-  DeliveryStreamType?: DeliveryStreamType | string;
+  DeliveryStreamType?: DeliveryStreamType;
 
   /**
    * @public
@@ -3951,6 +4482,28 @@ export interface ListTagsForDeliveryStreamOutput {
    *          and call <code>ListTagsForDeliveryStream</code> again.</p>
    */
   HasMoreTags: boolean | undefined;
+}
+
+/**
+ * @public
+ * <p>Only requests from CloudWatch Logs are supported when CloudWatch Logs decompression is enabled.</p>
+ */
+export class InvalidSourceException extends __BaseException {
+  readonly name: "InvalidSourceException" = "InvalidSourceException";
+  readonly $fault: "client" = "client";
+  code?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidSourceException, __BaseException>) {
+    super({
+      name: "InvalidSourceException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidSourceException.prototype);
+    this.code = opts.code;
+  }
 }
 
 /**
@@ -4242,7 +4795,7 @@ export interface HttpEndpointDestinationUpdate {
    *          the documents that Kinesis Data Firehose could not deliver to the specified HTTP endpoint
    *          destination (<code>FailedDataOnly</code>).</p>
    */
-  S3BackupMode?: HttpEndpointS3BackupMode | string;
+  S3BackupMode?: HttpEndpointS3BackupMode;
 
   /**
    * @public
@@ -4316,7 +4869,7 @@ export interface RedshiftDestinationUpdate {
    * <p>You can update a delivery stream to enable Amazon S3 backup if it is disabled. If
    *          backup is enabled, you can't update the delivery stream to disable it. </p>
    */
-  S3BackupMode?: RedshiftS3BackupMode | string;
+  S3BackupMode?: RedshiftS3BackupMode;
 
   /**
    * @public
@@ -4329,6 +4882,123 @@ export interface RedshiftDestinationUpdate {
    * <p>The Amazon CloudWatch logging options for your delivery stream.</p>
    */
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+}
+
+/**
+ * @public
+ * <p>Update to configuration settings</p>
+ */
+export interface SnowflakeDestinationUpdate {
+  /**
+   * @public
+   * <p>URL for accessing your Snowflake account. This URL must include your <a href="https://docs.snowflake.com/en/user-guide/admin-account-identifier">account identifier</a>.
+   *          Note that the protocol (https://) and port number are optional.</p>
+   */
+  AccountUrl?: string;
+
+  /**
+   * @public
+   * <p>The private key used to encrypt your Snowflake client. For information, see <a href="https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation">Using Key Pair Authentication & Key Rotation</a>.</p>
+   */
+  PrivateKey?: string;
+
+  /**
+   * @public
+   * <p>Passphrase to decrypt the private key when the key is encrypted. For information, see <a href="https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-configuration#using-key-pair-authentication-key-rotation">Using Key Pair Authentication & Key Rotation</a>.</p>
+   */
+  KeyPassphrase?: string;
+
+  /**
+   * @public
+   * <p>User login name for the Snowflake account.</p>
+   */
+  User?: string;
+
+  /**
+   * @public
+   * <p>All data in Snowflake is maintained in databases.</p>
+   */
+  Database?: string;
+
+  /**
+   * @public
+   * <p>Each database consists of one or more schemas, which are logical groupings of database objects, such as tables and views</p>
+   */
+  Schema?: string;
+
+  /**
+   * @public
+   * <p>All data in Snowflake is stored in database tables, logically structured as collections of columns and rows.</p>
+   */
+  Table?: string;
+
+  /**
+   * @public
+   * <p>Optionally configure a Snowflake role. Otherwise the default user role will be used.</p>
+   */
+  SnowflakeRoleConfiguration?: SnowflakeRoleConfiguration;
+
+  /**
+   * @public
+   * <p> JSON keys mapped to table column names or choose to split the JSON payload where content is mapped to a record content column and source metadata is mapped to a record metadata column.</p>
+   */
+  DataLoadingOption?: SnowflakeDataLoadingOption;
+
+  /**
+   * @public
+   * <p>The name of the record metadata column</p>
+   */
+  MetaDataColumnName?: string;
+
+  /**
+   * @public
+   * <p>The name of the content metadata column</p>
+   */
+  ContentColumnName?: string;
+
+  /**
+   * @public
+   * <p>Describes the Amazon CloudWatch logging options for your delivery stream.</p>
+   */
+  CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+
+  /**
+   * @public
+   * <p>Describes a data processing configuration.</p>
+   */
+  ProcessingConfiguration?: ProcessingConfiguration;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Snowflake role</p>
+   */
+  RoleARN?: string;
+
+  /**
+   * @public
+   * <p>Specify how long Kinesis Data Firehose retries sending data to the New Relic HTTP endpoint.
+   *
+   *          After sending data, Kinesis Data Firehose first waits for an acknowledgment from the HTTP endpoint. If an error occurs or the acknowledgment doesn’t arrive within the acknowledgment timeout period, Kinesis Data Firehose starts the retry duration counter. It keeps retrying until the retry duration expires. After that, Kinesis Data Firehose considers it a data delivery failure and backs up the data to your Amazon S3 bucket.
+   *
+   *          Every time that Kinesis Data Firehose sends data to the HTTP endpoint (either the initial attempt or a retry), it restarts the acknowledgement timeout counter and waits for an acknowledgement from the HTTP endpoint.
+   *
+   *          Even if the retry duration expires, Kinesis Data Firehose still waits for the acknowledgment until it receives it or the acknowledgement timeout period is reached. If the acknowledgment times out, Kinesis Data Firehose determines whether there's time left in the retry counter. If there is time left, it retries again and repeats the logic until it receives an acknowledgment or determines that the retry time has expired.
+   *
+   *          If you don't want Kinesis Data Firehose to retry sending data, set this value to 0.</p>
+   */
+  RetryOptions?: SnowflakeRetryOptions;
+
+  /**
+   * @public
+   * <p>Choose an S3 backup mode</p>
+   */
+  S3BackupMode?: SnowflakeS3BackupMode;
+
+  /**
+   * @public
+   * <p>Describes an update for a destination in Amazon S3.</p>
+   */
+  S3Update?: S3DestinationUpdate;
 }
 
 /**
@@ -4347,7 +5017,7 @@ export interface SplunkDestinationUpdate {
    * @public
    * <p>This type can be either "Raw" or "Event."</p>
    */
-  HECEndpointType?: HECEndpointType | string;
+  HECEndpointType?: HECEndpointType;
 
   /**
    * @public
@@ -4383,7 +5053,7 @@ export interface SplunkDestinationUpdate {
    *             <code>AllEvents</code>. You can't update it from <code>AllEvents</code> to
    *             <code>FailedEventsOnly</code>.</p>
    */
-  S3BackupMode?: SplunkS3BackupMode | string;
+  S3BackupMode?: SplunkS3BackupMode;
 
   /**
    * @public
@@ -4402,6 +5072,12 @@ export interface SplunkDestinationUpdate {
    * <p>The Amazon CloudWatch logging options for your delivery stream.</p>
    */
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+
+  /**
+   * @public
+   * <p>The buffering options. If no value is specified, the default values for Splunk are used.</p>
+   */
+  BufferingHints?: SplunkBufferingHints;
 }
 
 /**
@@ -4480,6 +5156,12 @@ export interface UpdateDestinationInput {
    *          Service.</p>
    */
   AmazonOpenSearchServerlessDestinationUpdate?: AmazonOpenSearchServerlessDestinationUpdate;
+
+  /**
+   * @public
+   * <p>Update to the Snowflake destination condiguration settings</p>
+   */
+  SnowflakeDestinationUpdate?: SnowflakeDestinationUpdate;
 }
 
 /**
@@ -4542,6 +5224,44 @@ export const RedshiftDestinationConfigurationFilterSensitiveLog = (obj: Redshift
 /**
  * @internal
  */
+export const SnowflakeRoleConfigurationFilterSensitiveLog = (obj: SnowflakeRoleConfiguration): any => ({
+  ...obj,
+  ...(obj.SnowflakeRole && { SnowflakeRole: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SnowflakeVpcConfigurationFilterSensitiveLog = (obj: SnowflakeVpcConfiguration): any => ({
+  ...obj,
+  ...(obj.PrivateLinkVpceId && { PrivateLinkVpceId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SnowflakeDestinationConfigurationFilterSensitiveLog = (obj: SnowflakeDestinationConfiguration): any => ({
+  ...obj,
+  ...(obj.AccountUrl && { AccountUrl: SENSITIVE_STRING }),
+  ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING }),
+  ...(obj.KeyPassphrase && { KeyPassphrase: SENSITIVE_STRING }),
+  ...(obj.User && { User: SENSITIVE_STRING }),
+  ...(obj.Database && { Database: SENSITIVE_STRING }),
+  ...(obj.Schema && { Schema: SENSITIVE_STRING }),
+  ...(obj.Table && { Table: SENSITIVE_STRING }),
+  ...(obj.SnowflakeRoleConfiguration && {
+    SnowflakeRoleConfiguration: SnowflakeRoleConfigurationFilterSensitiveLog(obj.SnowflakeRoleConfiguration),
+  }),
+  ...(obj.MetaDataColumnName && { MetaDataColumnName: SENSITIVE_STRING }),
+  ...(obj.ContentColumnName && { ContentColumnName: SENSITIVE_STRING }),
+  ...(obj.SnowflakeVpcConfiguration && {
+    SnowflakeVpcConfiguration: SnowflakeVpcConfigurationFilterSensitiveLog(obj.SnowflakeVpcConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const CreateDeliveryStreamInputFilterSensitiveLog = (obj: CreateDeliveryStreamInput): any => ({
   ...obj,
   ...(obj.RedshiftDestinationConfiguration && {
@@ -4552,6 +5272,11 @@ export const CreateDeliveryStreamInputFilterSensitiveLog = (obj: CreateDeliveryS
   ...(obj.HttpEndpointDestinationConfiguration && {
     HttpEndpointDestinationConfiguration: HttpEndpointDestinationConfigurationFilterSensitiveLog(
       obj.HttpEndpointDestinationConfiguration
+    ),
+  }),
+  ...(obj.SnowflakeDestinationConfiguration && {
+    SnowflakeDestinationConfiguration: SnowflakeDestinationConfigurationFilterSensitiveLog(
+      obj.SnowflakeDestinationConfiguration
     ),
   }),
 });
@@ -4588,6 +5313,26 @@ export const RedshiftDestinationDescriptionFilterSensitiveLog = (obj: RedshiftDe
 /**
  * @internal
  */
+export const SnowflakeDestinationDescriptionFilterSensitiveLog = (obj: SnowflakeDestinationDescription): any => ({
+  ...obj,
+  ...(obj.AccountUrl && { AccountUrl: SENSITIVE_STRING }),
+  ...(obj.User && { User: SENSITIVE_STRING }),
+  ...(obj.Database && { Database: SENSITIVE_STRING }),
+  ...(obj.Schema && { Schema: SENSITIVE_STRING }),
+  ...(obj.Table && { Table: SENSITIVE_STRING }),
+  ...(obj.SnowflakeRoleConfiguration && {
+    SnowflakeRoleConfiguration: SnowflakeRoleConfigurationFilterSensitiveLog(obj.SnowflakeRoleConfiguration),
+  }),
+  ...(obj.MetaDataColumnName && { MetaDataColumnName: SENSITIVE_STRING }),
+  ...(obj.ContentColumnName && { ContentColumnName: SENSITIVE_STRING }),
+  ...(obj.SnowflakeVpcConfiguration && {
+    SnowflakeVpcConfiguration: SnowflakeVpcConfigurationFilterSensitiveLog(obj.SnowflakeVpcConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const DestinationDescriptionFilterSensitiveLog = (obj: DestinationDescription): any => ({
   ...obj,
   ...(obj.RedshiftDestinationDescription && {
@@ -4598,6 +5343,11 @@ export const DestinationDescriptionFilterSensitiveLog = (obj: DestinationDescrip
   ...(obj.HttpEndpointDestinationDescription && {
     HttpEndpointDestinationDescription: HttpEndpointDestinationDescriptionFilterSensitiveLog(
       obj.HttpEndpointDestinationDescription
+    ),
+  }),
+  ...(obj.SnowflakeDestinationDescription && {
+    SnowflakeDestinationDescription: SnowflakeDestinationDescriptionFilterSensitiveLog(
+      obj.SnowflakeDestinationDescription
     ),
   }),
 });
@@ -4647,6 +5397,25 @@ export const RedshiftDestinationUpdateFilterSensitiveLog = (obj: RedshiftDestina
 /**
  * @internal
  */
+export const SnowflakeDestinationUpdateFilterSensitiveLog = (obj: SnowflakeDestinationUpdate): any => ({
+  ...obj,
+  ...(obj.AccountUrl && { AccountUrl: SENSITIVE_STRING }),
+  ...(obj.PrivateKey && { PrivateKey: SENSITIVE_STRING }),
+  ...(obj.KeyPassphrase && { KeyPassphrase: SENSITIVE_STRING }),
+  ...(obj.User && { User: SENSITIVE_STRING }),
+  ...(obj.Database && { Database: SENSITIVE_STRING }),
+  ...(obj.Schema && { Schema: SENSITIVE_STRING }),
+  ...(obj.Table && { Table: SENSITIVE_STRING }),
+  ...(obj.SnowflakeRoleConfiguration && {
+    SnowflakeRoleConfiguration: SnowflakeRoleConfigurationFilterSensitiveLog(obj.SnowflakeRoleConfiguration),
+  }),
+  ...(obj.MetaDataColumnName && { MetaDataColumnName: SENSITIVE_STRING }),
+  ...(obj.ContentColumnName && { ContentColumnName: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const UpdateDestinationInputFilterSensitiveLog = (obj: UpdateDestinationInput): any => ({
   ...obj,
   ...(obj.RedshiftDestinationUpdate && {
@@ -4654,5 +5423,8 @@ export const UpdateDestinationInputFilterSensitiveLog = (obj: UpdateDestinationI
   }),
   ...(obj.HttpEndpointDestinationUpdate && {
     HttpEndpointDestinationUpdate: HttpEndpointDestinationUpdateFilterSensitiveLog(obj.HttpEndpointDestinationUpdate),
+  }),
+  ...(obj.SnowflakeDestinationUpdate && {
+    SnowflakeDestinationUpdate: SnowflakeDestinationUpdateFilterSensitiveLog(obj.SnowflakeDestinationUpdate),
   }),
 });

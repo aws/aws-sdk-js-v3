@@ -1,19 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { DescribeGatewayInformationInput, DescribeGatewayInformationOutput } from "../models/models_0";
+import { commonParams } from "../endpoint/EndpointParameters";
+import {
+  DescribeGatewayInformationInput,
+  DescribeGatewayInformationOutput,
+  DescribeGatewayInformationOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { de_DescribeGatewayInformationCommand, se_DescribeGatewayInformationCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
 
@@ -36,9 +32,9 @@ export interface DescribeGatewayInformationCommandOutput extends DescribeGateway
 
 /**
  * @public
- * <p>Returns metadata about a gateway such as its name, network interfaces, configured time
- *          zone, and the state (whether the gateway is running or not). To specify which gateway to
- *          describe, use the Amazon Resource Name (ARN) of the gateway in your request.</p>
+ * <p>Returns metadata about a gateway such as its name, network interfaces, time zone,
+ *          status, and software version. To specify which gateway to describe, use the Amazon Resource
+ *          Name (ARN) of the gateway in your request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,15 +72,16 @@ export interface DescribeGatewayInformationCommandOutput extends DescribeGateway
  * //   ],
  * //   VPCEndpoint: "STRING_VALUE",
  * //   CloudWatchLogGroupARN: "STRING_VALUE",
- * //   HostEnvironment: "STRING_VALUE",
+ * //   HostEnvironment: "VMWARE" || "HYPER-V" || "EC2" || "KVM" || "OTHER" || "SNOWBALL",
  * //   EndpointType: "STRING_VALUE",
  * //   SoftwareUpdatesEndDate: "STRING_VALUE",
  * //   DeprecationDate: "STRING_VALUE",
- * //   GatewayCapacity: "STRING_VALUE",
+ * //   GatewayCapacity: "Small" || "Medium" || "Large",
  * //   SupportedGatewayCapacities: [ // SupportedGatewayCapacities
- * //     "STRING_VALUE",
+ * //     "Small" || "Medium" || "Large",
  * //   ],
  * //   HostEnvironmentId: "STRING_VALUE",
+ * //   SoftwareVersion: "STRING_VALUE",
  * // };
  *
  * ```
@@ -135,82 +132,26 @@ export interface DescribeGatewayInformationCommandOutput extends DescribeGateway
  * ```
  *
  */
-export class DescribeGatewayInformationCommand extends $Command<
-  DescribeGatewayInformationCommandInput,
-  DescribeGatewayInformationCommandOutput,
-  StorageGatewayClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeGatewayInformationCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: StorageGatewayClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeGatewayInformationCommandInput, DescribeGatewayInformationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeGatewayInformationCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "StorageGatewayClient";
-    const commandName = "DescribeGatewayInformationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeGatewayInformationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeGatewayInformationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeGatewayInformationCommandOutput> {
-    return de_DescribeGatewayInformationCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeGatewayInformationCommand extends $Command
+  .classBuilder<
+    DescribeGatewayInformationCommandInput,
+    DescribeGatewayInformationCommandOutput,
+    StorageGatewayClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("StorageGateway_20130630", "DescribeGatewayInformation", {})
+  .n("StorageGatewayClient", "DescribeGatewayInformationCommand")
+  .f(void 0, DescribeGatewayInformationOutputFilterSensitiveLog)
+  .ser(se_DescribeGatewayInformationCommand)
+  .de(de_DescribeGatewayInformationCommand)
+  .build() {}

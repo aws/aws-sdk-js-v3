@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateCustomLineItemInput,
   UpdateCustomLineItemInputFilterSensitiveLog,
@@ -61,6 +53,15 @@ export interface UpdateCustomLineItemCommandOutput extends UpdateCustomLineItemO
  *     Percentage: { // UpdateCustomLineItemPercentageChargeDetails
  *       PercentageValue: Number("double"), // required
  *     },
+ *     LineItemFilters: [ // LineItemFiltersList
+ *       { // LineItemFilter
+ *         Attribute: "STRING_VALUE", // required
+ *         MatchOption: "STRING_VALUE", // required
+ *         Values: [ // LineItemFilterValuesList // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
  *   },
  *   BillingPeriodRange: { // CustomLineItemBillingPeriodRange
  *     InclusiveStartBillingPeriod: "STRING_VALUE", // required
@@ -82,6 +83,15 @@ export interface UpdateCustomLineItemCommandOutput extends UpdateCustomLineItemO
  * //       PercentageValue: Number("double"), // required
  * //     },
  * //     Type: "STRING_VALUE", // required
+ * //     LineItemFilters: [ // LineItemFiltersList
+ * //       { // LineItemFilter
+ * //         Attribute: "STRING_VALUE", // required
+ * //         MatchOption: "STRING_VALUE", // required
+ * //         Values: [ // LineItemFilterValuesList // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
  * //   },
  * //   LastModifiedTime: Number("long"),
  * //   AssociationSize: Number("long"),
@@ -118,79 +128,26 @@ export interface UpdateCustomLineItemCommandOutput extends UpdateCustomLineItemO
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
-export class UpdateCustomLineItemCommand extends $Command<
-  UpdateCustomLineItemCommandInput,
-  UpdateCustomLineItemCommandOutput,
-  BillingconductorClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateCustomLineItemCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: BillingconductorClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateCustomLineItemCommandInput, UpdateCustomLineItemCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateCustomLineItemCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "BillingconductorClient";
-    const commandName = "UpdateCustomLineItemCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: UpdateCustomLineItemInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateCustomLineItemOutputFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateCustomLineItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateCustomLineItemCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCustomLineItemCommandOutput> {
-    return de_UpdateCustomLineItemCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateCustomLineItemCommand extends $Command
+  .classBuilder<
+    UpdateCustomLineItemCommandInput,
+    UpdateCustomLineItemCommandOutput,
+    BillingconductorClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: BillingconductorClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSBillingConductor", "UpdateCustomLineItem", {})
+  .n("BillingconductorClient", "UpdateCustomLineItemCommand")
+  .f(UpdateCustomLineItemInputFilterSensitiveLog, UpdateCustomLineItemOutputFilterSensitiveLog)
+  .ser(se_UpdateCustomLineItemCommand)
+  .de(de_UpdateCustomLineItemCommand)
+  .build() {}

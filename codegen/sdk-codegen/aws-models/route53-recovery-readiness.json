@@ -51,6 +51,7 @@
         "CellArn": {
           "target": "com.amazonaws.route53recoveryreadiness#__stringMax256",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the cell.</p>",
             "smithy.api#jsonName": "cellArn",
             "smithy.api#required": {}
@@ -59,6 +60,7 @@
         "CellName": {
           "target": "com.amazonaws.route53recoveryreadiness#__stringMax64PatternAAZAZ09Z",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The name of the cell.</p>",
             "smithy.api#jsonName": "cellName",
             "smithy.api#required": {}
@@ -67,6 +69,7 @@
         "Cells": {
           "target": "com.amazonaws.route53recoveryreadiness#__listOf__string",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>A list of cell ARNs.</p>",
             "smithy.api#jsonName": "cells",
             "smithy.api#required": {}
@@ -75,6 +78,7 @@
         "ParentReadinessScopes": {
           "target": "com.amazonaws.route53recoveryreadiness#__listOf__string",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The readiness scope for the cell, which can be a cell Amazon Resource Name (ARN) or a recovery group ARN. This is a list but currently can have only one element.</p>",
             "smithy.api#jsonName": "parentReadinessScopes",
             "smithy.api#required": {}
@@ -148,6 +152,7 @@
         "CellName": {
           "target": "com.amazonaws.route53recoveryreadiness#__string",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The name of the cell to create.</p>",
             "smithy.api#jsonName": "cellName",
             "smithy.api#required": {}
@@ -166,6 +171,9 @@
             "smithy.api#jsonName": "tags"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#CreateCellResponse": {
@@ -206,6 +214,9 @@
             "smithy.api#jsonName": "tags"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#CreateCrossAccountAuthorization": {
@@ -248,11 +259,15 @@
         "CrossAccountAuthorization": {
           "target": "com.amazonaws.route53recoveryreadiness#CrossAccountAuthorization",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The cross-account authorization.</p>",
             "smithy.api#jsonName": "crossAccountAuthorization",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#CreateCrossAccountAuthorizationResponse": {
@@ -265,6 +280,9 @@
             "smithy.api#jsonName": "crossAccountAuthorization"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#CreateReadinessCheck": {
@@ -307,6 +325,7 @@
         "ReadinessCheckName": {
           "target": "com.amazonaws.route53recoveryreadiness#__string",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The name of the readiness check to create.</p>",
             "smithy.api#jsonName": "readinessCheckName",
             "smithy.api#required": {}
@@ -315,6 +334,7 @@
         "ResourceSetName": {
           "target": "com.amazonaws.route53recoveryreadiness#__string",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The name of the resource set to check.</p>",
             "smithy.api#jsonName": "resourceSetName",
             "smithy.api#required": {}
@@ -326,6 +346,9 @@
             "smithy.api#jsonName": "tags"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#CreateReadinessCheckResponse": {
@@ -358,6 +381,9 @@
             "smithy.api#jsonName": "tags"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#CreateRecoveryGroup": {
@@ -407,6 +433,7 @@
         "RecoveryGroupName": {
           "target": "com.amazonaws.route53recoveryreadiness#__string",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The name of the recovery group to create.</p>",
             "smithy.api#jsonName": "recoveryGroupName",
             "smithy.api#required": {}
@@ -418,6 +445,9 @@
             "smithy.api#jsonName": "tags"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#CreateRecoveryGroupResponse": {
@@ -451,6 +481,9 @@
             "smithy.api#jsonName": "tags"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#CreateResourceSet": {
@@ -493,6 +526,7 @@
         "ResourceSetName": {
           "target": "com.amazonaws.route53recoveryreadiness#__string",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The name of the resource set to create.</p>",
             "smithy.api#jsonName": "resourceSetName",
             "smithy.api#required": {}
@@ -501,6 +535,7 @@
         "ResourceSetType": {
           "target": "com.amazonaws.route53recoveryreadiness#__stringPatternAWSAZaZ09AZaZ09",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The resource type of the resources in the resource set. Enter one of the following values for resource type:</p> <p>AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage, AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm, AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume, AWS::ElasticLoadBalancing::LoadBalancer, AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::Lambda::Function, AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck, AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC, AWS::EC2::VPNConnection, AWS::EC2::VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource</p>",
             "smithy.api#jsonName": "resourceSetType",
             "smithy.api#required": {}
@@ -509,6 +544,7 @@
         "Resources": {
           "target": "com.amazonaws.route53recoveryreadiness#__listOfResource",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>A list of resource objects in the resource set.</p>",
             "smithy.api#jsonName": "resources",
             "smithy.api#required": {}
@@ -521,6 +557,9 @@
             "smithy.api#jsonName": "tags"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#CreateResourceSetResponse": {
@@ -560,6 +599,9 @@
             "smithy.api#jsonName": "tags"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#CrossAccountAuthorization": {
@@ -656,6 +698,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#DeleteCrossAccountAuthorization": {
@@ -700,11 +745,17 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#DeleteCrossAccountAuthorizationResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.route53recoveryreadiness#DeleteReadinessCheck": {
       "type": "operation",
@@ -751,6 +802,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#DeleteRecoveryGroup": {
@@ -798,6 +852,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#DeleteResourceSet": {
@@ -845,6 +902,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#GetArchitectureRecommendations": {
@@ -887,7 +947,6 @@
         "MaxResults": {
           "target": "com.amazonaws.route53recoveryreadiness#MaxResults",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of objects that you want to return with this call.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -907,6 +966,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#GetArchitectureRecommendationsResponse": {
@@ -933,6 +995,9 @@
             "smithy.api#jsonName": "recommendations"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#GetCell": {
@@ -1023,7 +1088,6 @@
         "MaxResults": {
           "target": "com.amazonaws.route53recoveryreadiness#MaxResults",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of objects that you want to return with this call.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -1035,6 +1099,9 @@
             "smithy.api#httpQuery": "nextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#GetCellReadinessSummaryResponse": {
@@ -1061,6 +1128,9 @@
             "smithy.api#jsonName": "readinessChecks"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#GetCellRequest": {
@@ -1074,6 +1144,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#GetCellResponse": {
@@ -1114,6 +1187,9 @@
             "smithy.api#jsonName": "tags"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#GetReadinessCheck": {
@@ -1161,6 +1237,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#GetReadinessCheckResourceStatus": {
@@ -1209,7 +1288,6 @@
         "MaxResults": {
           "target": "com.amazonaws.route53recoveryreadiness#MaxResults",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of objects that you want to return with this call.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -1237,6 +1315,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#GetReadinessCheckResourceStatusResponse": {
@@ -1263,6 +1344,9 @@
             "smithy.api#jsonName": "rules"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#GetReadinessCheckResponse": {
@@ -1295,6 +1379,9 @@
             "smithy.api#jsonName": "tags"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#GetReadinessCheckStatus": {
@@ -1343,7 +1430,6 @@
         "MaxResults": {
           "target": "com.amazonaws.route53recoveryreadiness#MaxResults",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of objects that you want to return with this call.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -1363,6 +1449,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#GetReadinessCheckStatusResponse": {
@@ -1396,6 +1485,9 @@
             "smithy.api#jsonName": "resources"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#GetRecoveryGroup": {
@@ -1478,7 +1570,6 @@
         "MaxResults": {
           "target": "com.amazonaws.route53recoveryreadiness#MaxResults",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of objects that you want to return with this call.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -1498,6 +1589,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#GetRecoveryGroupReadinessSummaryResponse": {
@@ -1524,6 +1618,9 @@
             "smithy.api#jsonName": "readinessChecks"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#GetRecoveryGroupRequest": {
@@ -1537,6 +1634,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#GetRecoveryGroupResponse": {
@@ -1570,6 +1670,9 @@
             "smithy.api#jsonName": "tags"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#GetResourceSet": {
@@ -1617,6 +1720,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#GetResourceSetResponse": {
@@ -1656,6 +1762,9 @@
             "smithy.api#jsonName": "tags"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#InternalServerException": {
@@ -1724,7 +1833,6 @@
         "MaxResults": {
           "target": "com.amazonaws.route53recoveryreadiness#MaxResults",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of objects that you want to return with this call.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -1736,6 +1844,9 @@
             "smithy.api#httpQuery": "nextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#ListCellsResponse": {
@@ -1755,6 +1866,9 @@
             "smithy.api#jsonName": "nextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#ListCrossAccountAuthorizations": {
@@ -1800,7 +1914,6 @@
         "MaxResults": {
           "target": "com.amazonaws.route53recoveryreadiness#MaxResults",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of objects that you want to return with this call.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -1812,6 +1925,9 @@
             "smithy.api#httpQuery": "nextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#ListCrossAccountAuthorizationsResponse": {
@@ -1831,6 +1947,9 @@
             "smithy.api#jsonName": "nextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#ListReadinessChecks": {
@@ -1876,7 +1995,6 @@
         "MaxResults": {
           "target": "com.amazonaws.route53recoveryreadiness#MaxResults",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of objects that you want to return with this call.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -1888,6 +2006,9 @@
             "smithy.api#httpQuery": "nextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#ListReadinessChecksResponse": {
@@ -1907,6 +2028,9 @@
             "smithy.api#jsonName": "readinessChecks"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#ListRecoveryGroups": {
@@ -1952,7 +2076,6 @@
         "MaxResults": {
           "target": "com.amazonaws.route53recoveryreadiness#MaxResults",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of objects that you want to return with this call.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -1964,6 +2087,9 @@
             "smithy.api#httpQuery": "nextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#ListRecoveryGroupsResponse": {
@@ -1983,6 +2109,9 @@
             "smithy.api#jsonName": "recoveryGroups"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#ListResourceSets": {
@@ -2028,7 +2157,6 @@
         "MaxResults": {
           "target": "com.amazonaws.route53recoveryreadiness#MaxResults",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of objects that you want to return with this call.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -2040,6 +2168,9 @@
             "smithy.api#httpQuery": "nextToken"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#ListResourceSetsResponse": {
@@ -2059,6 +2190,9 @@
             "smithy.api#jsonName": "resourceSets"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#ListRules": {
@@ -2104,6 +2238,7 @@
         "ResourceType": {
           "target": "com.amazonaws.route53recoveryreadiness#__stringMax64",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The resource type that the readiness rule applies to.</p>",
             "smithy.api#jsonName": "resourceType",
             "smithy.api#required": {}
@@ -2112,6 +2247,7 @@
         "RuleDescription": {
           "target": "com.amazonaws.route53recoveryreadiness#__stringMax256",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The description of a readiness rule.</p>",
             "smithy.api#jsonName": "ruleDescription",
             "smithy.api#required": {}
@@ -2120,6 +2256,7 @@
         "RuleId": {
           "target": "com.amazonaws.route53recoveryreadiness#__stringMax64",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The ID for the readiness rule.</p>",
             "smithy.api#jsonName": "ruleId",
             "smithy.api#required": {}
@@ -2136,7 +2273,6 @@
         "MaxResults": {
           "target": "com.amazonaws.route53recoveryreadiness#MaxResults",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The number of objects that you want to return with this call.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -2155,6 +2291,9 @@
             "smithy.api#httpQuery": "resourceType"
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#ListRulesResponse": {
@@ -2174,6 +2313,9 @@
             "smithy.api#jsonName": "rules"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#ListTagsForResources": {
@@ -2215,6 +2357,9 @@
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#ListTagsForResourcesResponse": {
@@ -2227,12 +2372,14 @@
             "smithy.api#jsonName": "tags"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1,
           "max": 1000
@@ -2292,27 +2439,35 @@
       }
     },
     "com.amazonaws.route53recoveryreadiness#Readiness": {
-      "type": "string",
-      "traits": {
-        "smithy.api#documentation": "<p>The readiness status.</p>",
-        "smithy.api#enum": [
-          {
-            "value": "READY",
-            "name": "READY"
-          },
-          {
-            "value": "NOT_READY",
-            "name": "NOT_READY"
-          },
-          {
-            "value": "UNKNOWN",
-            "name": "UNKNOWN"
-          },
-          {
-            "value": "NOT_AUTHORIZED",
-            "name": "NOT_AUTHORIZED"
+      "type": "enum",
+      "members": {
+        "READY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "READY"
           }
-        ]
+        },
+        "NOT_READY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NOT_READY"
+          }
+        },
+        "UNKNOWN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNKNOWN"
+          }
+        },
+        "NOT_AUTHORIZED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NOT_AUTHORIZED"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The readiness status.</p>"
       }
     },
     "com.amazonaws.route53recoveryreadiness#ReadinessCheckOutput": {
@@ -2321,6 +2476,7 @@
         "ReadinessCheckArn": {
           "target": "com.amazonaws.route53recoveryreadiness#__stringMax256",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) associated with a readiness check.</p>",
             "smithy.api#jsonName": "readinessCheckArn",
             "smithy.api#required": {}
@@ -2336,6 +2492,7 @@
         "ResourceSet": {
           "target": "com.amazonaws.route53recoveryreadiness#__stringMax64PatternAAZAZ09Z",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>Name of the resource set to be checked.</p>",
             "smithy.api#jsonName": "resourceSet",
             "smithy.api#required": {}
@@ -2387,6 +2544,7 @@
         "RecommendationText": {
           "target": "com.amazonaws.route53recoveryreadiness#__string",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>Text of the recommendations that are provided to make an application more recovery resilient.</p>",
             "smithy.api#jsonName": "recommendationText",
             "smithy.api#required": {}
@@ -2403,6 +2561,7 @@
         "Cells": {
           "target": "com.amazonaws.route53recoveryreadiness#__listOf__string",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>A list of a cell's Amazon Resource Names (ARNs).</p>",
             "smithy.api#jsonName": "cells",
             "smithy.api#required": {}
@@ -2411,6 +2570,7 @@
         "RecoveryGroupArn": {
           "target": "com.amazonaws.route53recoveryreadiness#__stringMax256",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the recovery group.</p>",
             "smithy.api#jsonName": "recoveryGroupArn",
             "smithy.api#required": {}
@@ -2419,6 +2579,7 @@
         "RecoveryGroupName": {
           "target": "com.amazonaws.route53recoveryreadiness#__stringMax64PatternAAZAZ09Z",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The name of the recovery group.</p>",
             "smithy.api#jsonName": "recoveryGroupName",
             "smithy.api#required": {}
@@ -2501,6 +2662,7 @@
         "LastCheckedTimestamp": {
           "target": "com.amazonaws.route53recoveryreadiness#ReadinessCheckTimestamp",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The time (UTC) that the resource was last checked for readiness, in ISO-8601 format.</p>",
             "smithy.api#jsonName": "lastCheckedTimestamp",
             "smithy.api#required": {}
@@ -2509,6 +2671,7 @@
         "Readiness": {
           "target": "com.amazonaws.route53recoveryreadiness#Readiness",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The readiness of a resource.</p>",
             "smithy.api#jsonName": "readiness",
             "smithy.api#required": {}
@@ -2532,6 +2695,7 @@
         "ResourceSetArn": {
           "target": "com.amazonaws.route53recoveryreadiness#__stringMax256",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the resource set.</p>",
             "smithy.api#jsonName": "resourceSetArn",
             "smithy.api#required": {}
@@ -2540,6 +2704,7 @@
         "ResourceSetName": {
           "target": "com.amazonaws.route53recoveryreadiness#__stringMax64PatternAAZAZ09Z",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The name of the resource set.</p>",
             "smithy.api#jsonName": "resourceSetName",
             "smithy.api#required": {}
@@ -2548,6 +2713,7 @@
         "ResourceSetType": {
           "target": "com.amazonaws.route53recoveryreadiness#__stringPatternAWSAZaZ09AZaZ09",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The resource type of the resources in the resource set. Enter one of the following values for resource type:</p> <p>AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage, AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm, AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume, AWS::ElasticLoadBalancing::LoadBalancer, AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::Lambda::Function, AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck, AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC, AWS::EC2::VPNConnection, AWS::EC2::VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource</p>",
             "smithy.api#jsonName": "resourceSetType",
             "smithy.api#required": {}
@@ -2556,6 +2722,7 @@
         "Resources": {
           "target": "com.amazonaws.route53recoveryreadiness#__listOfResource",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>A list of resource objects.</p>",
             "smithy.api#jsonName": "resources",
             "smithy.api#required": {}
@@ -2721,39 +2888,160 @@
             {
               "conditions": [
                 {
-                  "fn": "aws.partition",
+                  "fn": "isSet",
                   "argv": [
                     {
-                      "ref": "Region"
+                      "ref": "Endpoint"
                     }
-                  ],
-                  "assign": "PartitionResult"
+                  ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
                     {
-                      "fn": "isSet",
+                      "fn": "booleanEquals",
                       "argv": [
                         {
-                          "ref": "Endpoint"
-                        }
+                          "ref": "UseFIPS"
+                        },
+                        true
                       ]
-                    },
-                    {
-                      "fn": "parseURL",
-                      "argv": [
-                        {
-                          "ref": "Endpoint"
-                        }
-                      ],
-                      "assign": "url"
                     }
                   ],
-                  "type": "tree",
+                  "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
+                  "conditions": [],
+                  "endpoint": {
+                    "url": {
+                      "ref": "Endpoint"
+                    },
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ],
+              "type": "tree"
+            },
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ]
+                }
+              ],
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "aws.partition",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ],
+                      "assign": "PartitionResult"
+                    }
+                  ],
                   "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://route53-recovery-readiness-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
                     {
                       "conditions": [
                         {
@@ -2766,12 +3054,6 @@
                           ]
                         }
                       ],
-                      "error": "Invalid Configuration: FIPS and custom endpoint are not supported",
-                      "type": "error"
-                    },
-                    {
-                      "conditions": [],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -2779,227 +3061,369 @@
                               "fn": "booleanEquals",
                               "argv": [
                                 {
-                                  "ref": "UseDualStack"
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
                                 },
                                 true
                               ]
                             }
                           ],
-                          "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://route53-recovery-readiness-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
                           "type": "error"
-                        },
+                        }
+                      ],
+                      "type": "tree"
+                    },
+                    {
+                      "conditions": [
                         {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": {
-                              "ref": "Endpoint"
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
                             },
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    },
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
+                            true
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": "https://route53-recovery-readiness-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseFIPS"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
+                          "conditions": [
                             {
-                              "fn": "getAttr",
+                              "fn": "booleanEquals",
                               "argv": [
+                                true,
                                 {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsFIPS"
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
                               ]
                             }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://route53-recovery-readiness.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
                         {
                           "conditions": [],
-                          "endpoint": {
-                            "url": "https://route53-recovery-readiness-fips.{Region}.{PartitionResult#dnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [],
-                      "error": "FIPS is enabled but this partition does not support FIPS",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
+                      "endpoint": {
+                        "url": "https://route53-recovery-readiness.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
                     }
                   ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            true,
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "supportsDualStack"
-                              ]
-                            }
-                          ]
-                        }
-                      ],
-                      "type": "tree",
-                      "rules": [
-                        {
-                          "conditions": [],
-                          "endpoint": {
-                            "url": "https://route53-recovery-readiness.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            "properties": {},
-                            "headers": {}
-                          },
-                          "type": "endpoint"
-                        }
-                      ]
-                    },
-                    {
-                      "conditions": [],
-                      "error": "DualStack is enabled but this partition does not support DualStack",
-                      "type": "error"
-                    }
-                  ]
-                },
-                {
-                  "conditions": [],
-                  "endpoint": {
-                    "url": "https://route53-recovery-readiness.{Region}.{PartitionResult#dnsSuffix}",
-                    "properties": {},
-                    "headers": {}
-                  },
-                  "type": "endpoint"
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
+            },
+            {
+              "conditions": [],
+              "error": "Invalid Configuration: Missing Region",
+              "type": "error"
             }
           ]
         },
         "smithy.rules#endpointTests": {
           "testCases": [
             {
-              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://route53-recovery-readiness-fips.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://route53-recovery-readiness-fips.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://route53-recovery-readiness.us-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://route53-recovery-readiness.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://route53-recovery-readiness-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://route53-recovery-readiness-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://route53-recovery-readiness.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://route53-recovery-readiness.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://route53-recovery-readiness-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://route53-recovery-readiness-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://route53-recovery-readiness.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://route53-recovery-readiness.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://route53-recovery-readiness-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://route53-recovery-readiness.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://route53-recovery-readiness-fips.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://route53-recovery-readiness.us-isob-east-1.sc2s.sgov.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
               "expect": {
                 "endpoint": {
                   "url": "https://example.com"
@@ -3007,8 +3431,21 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -3019,8 +3456,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": true,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -3031,9 +3468,15 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": true,
                 "UseFIPS": false,
+                "UseDualStack": true,
                 "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
               }
             }
           ],
@@ -3047,6 +3490,7 @@
         "LastCheckedTimestamp": {
           "target": "com.amazonaws.route53recoveryreadiness#ReadinessCheckTimestamp",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The time the resource was last checked for readiness, in ISO-8601 format, UTC.</p>",
             "smithy.api#jsonName": "lastCheckedTimestamp",
             "smithy.api#required": {}
@@ -3055,6 +3499,7 @@
         "Messages": {
           "target": "com.amazonaws.route53recoveryreadiness#__listOfMessage",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>Details about the resource's readiness.</p>",
             "smithy.api#jsonName": "messages",
             "smithy.api#required": {}
@@ -3063,6 +3508,7 @@
         "Readiness": {
           "target": "com.amazonaws.route53recoveryreadiness#Readiness",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The readiness at rule level.</p>",
             "smithy.api#jsonName": "readiness",
             "smithy.api#required": {}
@@ -3071,6 +3517,7 @@
         "RuleId": {
           "target": "com.amazonaws.route53recoveryreadiness#__string",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The identifier of the rule.</p>",
             "smithy.api#jsonName": "ruleId",
             "smithy.api#required": {}
@@ -3123,16 +3570,23 @@
         "Tags": {
           "target": "com.amazonaws.route53recoveryreadiness#Tags",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p></p>",
             "smithy.api#jsonName": "tags",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#TagResourceResponse": {
       "type": "structure",
-      "members": {}
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.route53recoveryreadiness#Tags": {
       "type": "map",
@@ -3226,11 +3680,15 @@
         "TagKeys": {
           "target": "com.amazonaws.route53recoveryreadiness#__listOf__string",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The keys for tags you add to resources.</p>",
             "smithy.api#httpQuery": "tagKeys",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#UpdateCell": {
@@ -3281,11 +3739,15 @@
         "Cells": {
           "target": "com.amazonaws.route53recoveryreadiness#__listOf__string",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>A list of cell Amazon Resource Names (ARNs), which completely replaces the previous list.</p>",
             "smithy.api#jsonName": "cells",
             "smithy.api#required": {}
           }
         }
+      },
+      "traits": {
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#UpdateCellResponse": {
@@ -3326,6 +3788,9 @@
             "smithy.api#jsonName": "tags"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#UpdateReadinessCheck": {
@@ -3376,6 +3841,7 @@
         "ResourceSetName": {
           "target": "com.amazonaws.route53recoveryreadiness#__string",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The name of the resource set to be checked.</p>",
             "smithy.api#jsonName": "resourceSetName",
             "smithy.api#required": {}
@@ -3383,7 +3849,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Name of a readiness check to describe.</p>"
+        "smithy.api#documentation": "<p>Name of a readiness check to describe.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#UpdateReadinessCheckResponse": {
@@ -3416,6 +3883,9 @@
             "smithy.api#jsonName": "tags"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#UpdateRecoveryGroup": {
@@ -3458,6 +3928,7 @@
         "Cells": {
           "target": "com.amazonaws.route53recoveryreadiness#__listOf__string",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>A list of cell Amazon Resource Names (ARNs). This list completely replaces the previous list.</p>",
             "smithy.api#jsonName": "cells",
             "smithy.api#required": {}
@@ -3473,7 +3944,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Name of a recovery group.</p>"
+        "smithy.api#documentation": "<p>Name of a recovery group.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#UpdateRecoveryGroupResponse": {
@@ -3507,6 +3979,9 @@
             "smithy.api#jsonName": "tags"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#UpdateResourceSet": {
@@ -3557,6 +4032,7 @@
         "ResourceSetType": {
           "target": "com.amazonaws.route53recoveryreadiness#__stringPatternAWSAZaZ09AZaZ09",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The resource type of the resources in the resource set. Enter one of the following values for resource type:</p> <p>AWS::ApiGateway::Stage, AWS::ApiGatewayV2::Stage, AWS::AutoScaling::AutoScalingGroup, AWS::CloudWatch::Alarm, AWS::EC2::CustomerGateway, AWS::DynamoDB::Table, AWS::EC2::Volume, AWS::ElasticLoadBalancing::LoadBalancer, AWS::ElasticLoadBalancingV2::LoadBalancer, AWS::Lambda::Function, AWS::MSK::Cluster, AWS::RDS::DBCluster, AWS::Route53::HealthCheck, AWS::SQS::Queue, AWS::SNS::Topic, AWS::SNS::Subscription, AWS::EC2::VPC, AWS::EC2::VPNConnection, AWS::EC2::VPNGateway, AWS::Route53RecoveryReadiness::DNSTargetResource</p>",
             "smithy.api#jsonName": "resourceSetType",
             "smithy.api#required": {}
@@ -3565,6 +4041,7 @@
         "Resources": {
           "target": "com.amazonaws.route53recoveryreadiness#__listOfResource",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>A list of resource objects.</p>",
             "smithy.api#jsonName": "resources",
             "smithy.api#required": {}
@@ -3572,7 +4049,8 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Name of a resource set.</p>"
+        "smithy.api#documentation": "<p>Name of a resource set.</p>",
+        "smithy.api#input": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#UpdateResourceSetResponse": {
@@ -3612,6 +4090,9 @@
             "smithy.api#jsonName": "tags"
           }
         }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.route53recoveryreadiness#ValidationException": {

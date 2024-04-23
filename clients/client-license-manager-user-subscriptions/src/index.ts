@@ -9,8 +9,12 @@
 export * from "./LicenseManagerUserSubscriptionsClient";
 export * from "./LicenseManagerUserSubscriptions";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { LicenseManagerUserSubscriptionsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { LicenseManagerUserSubscriptionsServiceException } from "./models/LicenseManagerUserSubscriptionsServiceException";

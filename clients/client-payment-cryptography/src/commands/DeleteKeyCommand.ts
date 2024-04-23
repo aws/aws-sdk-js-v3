@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteKeyInput, DeleteKeyOutput } from "../models/models_0";
 import {
   PaymentCryptographyClientResolvedConfig,
@@ -40,9 +32,8 @@ export interface DeleteKeyCommandOutput extends DeleteKeyOutput, __MetadataBeare
 
 /**
  * @public
- * <p>Deletes the key material and all metadata associated with Amazon Web Services Payment Cryptography key.</p>
- *          <p>Key deletion is irreversible. After a key is deleted, you can't perform cryptographic operations using the key. For example, you can't decrypt data that was encrypted by a deleted Amazon Web Services Payment Cryptography key, and the data may become unrecoverable. Because key deletion is destructive, Amazon Web Services Payment Cryptography has a safety mechanism to prevent accidental deletion of a key. When you call this operation, Amazon Web Services Payment Cryptography disables the specified key but doesn't delete it until after a waiting period. The default waiting period is 7 days. To set a different waiting period, set <code>DeleteKeyInDays</code>. During the waiting period, the <code>KeyState</code> is <code>DELETE_PENDING</code>. After the key is deleted, the <code>KeyState</code> is <code>DELETE_COMPLETE</code>.</p>
- *          <p>If you delete key material, you can use <a>ImportKey</a> to reimport the same key material into the Amazon Web Services Payment Cryptography key.</p>
+ * <p>Deletes the key material and metadata associated with Amazon Web Services Payment Cryptography key.</p>
+ *          <p>Key deletion is irreversible. After a key is deleted, you can't perform cryptographic operations using the key. For example, you can't decrypt data that was encrypted by a deleted Amazon Web Services Payment Cryptography key, and the data may become unrecoverable. Because key deletion is destructive, Amazon Web Services Payment Cryptography has a safety mechanism to prevent accidental deletion of a key. When you call this operation, Amazon Web Services Payment Cryptography disables the specified key but doesn't delete it until after a waiting period set using <code>DeleteKeyInDays</code>. The default waiting period is 7 days. During the waiting period, the <code>KeyState</code> is <code>DELETE_PENDING</code>. After the key is deleted, the <code>KeyState</code> is <code>DELETE_COMPLETE</code>.</p>
  *          <p>You should delete a key only when you are sure that you don't need to use it anymore and no other parties are utilizing this key. If you aren't sure, consider deactivating it instead by calling <a>StopKeyUsage</a>.</p>
  *          <p>
  *             <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p>
@@ -144,77 +135,26 @@ export interface DeleteKeyCommandOutput extends DeleteKeyOutput, __MetadataBeare
  * <p>Base exception class for all service exceptions from PaymentCryptography service.</p>
  *
  */
-export class DeleteKeyCommand extends $Command<
-  DeleteKeyCommandInput,
-  DeleteKeyCommandOutput,
-  PaymentCryptographyClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeleteKeyCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: PaymentCryptographyClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DeleteKeyCommandInput, DeleteKeyCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteKeyCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "PaymentCryptographyClient";
-    const commandName = "DeleteKeyCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DeleteKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteKeyCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteKeyCommandOutput> {
-    return de_DeleteKeyCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DeleteKeyCommand extends $Command
+  .classBuilder<
+    DeleteKeyCommandInput,
+    DeleteKeyCommandOutput,
+    PaymentCryptographyClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("PaymentCryptographyControlPlane", "DeleteKey", {})
+  .n("PaymentCryptographyClient", "DeleteKeyCommand")
+  .f(void 0, void 0)
+  .ser(se_DeleteKeyCommand)
+  .de(de_DeleteKeyCommand)
+  .build() {}

@@ -1,23 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   DatabaseMigrationServiceClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ModifyMigrationProjectMessage, ModifyMigrationProjectResponse } from "../models/models_1";
 import { de_ModifyMigrationProjectCommand, se_ModifyMigrationProjectCommand } from "../protocols/Aws_json1_1";
 
@@ -137,80 +129,90 @@ export interface ModifyMigrationProjectCommandOutput extends ModifyMigrationProj
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ * @example Modify Migration Project
+ * ```javascript
+ * // Modifies the specified migration project using the provided parameters.
+ * const input = {
+ *   "Description": "description",
+ *   "InstanceProfileIdentifier": "my-instance-profile",
+ *   "MigrationProjectIdentifier": "arn:aws:dms:us-east-1:012345678901:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345",
+ *   "MigrationProjectName": "new-name",
+ *   "SchemaConversionApplicationAttributes": {
+ *     "S3BucketPath": "arn:aws:s3:::myuser-bucket",
+ *     "S3BucketRoleArn": "arn:aws:iam::012345678901:role/Admin"
+ *   },
+ *   "SourceDataProviderDescriptors": [
+ *     {
+ *       "DataProviderIdentifier": "arn:aws:dms:us-east-1:012345678901:data-provider:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345",
+ *       "SecretsManagerAccessRoleArn": "arn:aws:iam::012345678901:role/myuser-admin-access",
+ *       "SecretsManagerSecretId": "arn:aws:secretsmanager:us-east-1:012345678901:secret:myorg/myuser/ALL.SOURCE.ORACLE_12-A1B2C3"
+ *     }
+ *   ],
+ *   "TargetDataProviderDescriptors": [
+ *     {
+ *       "DataProviderIdentifier": "arn:aws:dms:us-east-1:012345678901:data-provider:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345",
+ *       "SecretsManagerAccessRoleArn": "arn:aws:iam::012345678901:role/myuser-admin-access",
+ *       "SecretsManagerSecretId": "arn:aws:secretsmanager:us-east-1:012345678901:secret:myorg/myuser/TARGET.postgresql-A1B2C3"
+ *     }
+ *   ]
+ * };
+ * const command = new ModifyMigrationProjectCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "MigrationProject": {
+ *     "InstanceProfileArn": "arn:aws:dms:us-east-1:012345678901:instance-profile:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *     "InstanceProfileName": "my-instance-profile",
+ *     "MigrationProjectArn": "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *     "MigrationProjectCreationTime": "2023-04-19T11:45:15.805253Z",
+ *     "MigrationProjectName": "my-migration-project",
+ *     "SchemaConversionApplicationAttributes": {
+ *       "S3BucketPath": "my-s3-bucket/my_folder",
+ *       "S3BucketRoleArn": "arn:aws:iam::012345678901:role/my-s3role"
+ *     },
+ *     "SourceDataProviderDescriptors": [
+ *       {
+ *         "DataProviderArn": "arn:aws:dms:us-east-1:012345678901:data-provider:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *         "DataProviderName": "all-source-oracle-12",
+ *         "SecretsManagerAccessRoleArn": "arn:aws:iam::012345678901:role/my-access-role",
+ *         "SecretsManagerSecretId": "arn:aws:secretsmanager:us-east-1:012345678901:secret:mygroup/myalias/ALL.SOURCE.ORACLE_12-TP5rA9"
+ *       }
+ *     ],
+ *     "TargetDataProviderDescriptors": [
+ *       {
+ *         "DataProviderArn": "arn:aws:dms:us-east-1:012345678901:data-provider:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *         "DataProviderName": "my-dataprovider",
+ *         "SecretsManagerAccessRoleArn": "arn:aws:iam::012345678901:role/my-access-role",
+ *         "SecretsManagerSecretId": "arn:aws:secretsmanager:us-east-1:012345678901:secret:mygroup/myalias/TARGET.postgresql-mysecret"
+ *       }
+ *     ]
+ *   }
+ * }
+ * *\/
+ * // example id: modify-migration-project-1689721117475
+ * ```
+ *
  */
-export class ModifyMigrationProjectCommand extends $Command<
-  ModifyMigrationProjectCommandInput,
-  ModifyMigrationProjectCommandOutput,
-  DatabaseMigrationServiceClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ModifyMigrationProjectCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: DatabaseMigrationServiceClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ModifyMigrationProjectCommandInput, ModifyMigrationProjectCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ModifyMigrationProjectCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "DatabaseMigrationServiceClient";
-    const commandName = "ModifyMigrationProjectCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ModifyMigrationProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ModifyMigrationProjectCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyMigrationProjectCommandOutput> {
-    return de_ModifyMigrationProjectCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ModifyMigrationProjectCommand extends $Command
+  .classBuilder<
+    ModifyMigrationProjectCommandInput,
+    ModifyMigrationProjectCommandOutput,
+    DatabaseMigrationServiceClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonDMSv20160101", "ModifyMigrationProject", {})
+  .n("DatabaseMigrationServiceClient", "ModifyMigrationProjectCommand")
+  .f(void 0, void 0)
+  .ser(se_ModifyMigrationProjectCommand)
+  .de(de_ModifyMigrationProjectCommand)
+  .build() {}

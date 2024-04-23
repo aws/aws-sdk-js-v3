@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { StartDocumentAnalysisRequest, StartDocumentAnalysisResponse } from "../models/models_0";
 import { de_StartDocumentAnalysisCommand, se_StartDocumentAnalysisCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient";
@@ -68,7 +60,7 @@ export interface StartDocumentAnalysisCommandOutput extends StartDocumentAnalysi
  *     },
  *   },
  *   FeatureTypes: [ // FeatureTypes // required
- *     "TABLES" || "FORMS" || "QUERIES" || "SIGNATURES",
+ *     "TABLES" || "FORMS" || "QUERIES" || "SIGNATURES" || "LAYOUT",
  *   ],
  *   ClientRequestToken: "STRING_VALUE",
  *   JobTag: "STRING_VALUE",
@@ -89,6 +81,17 @@ export interface StartDocumentAnalysisCommandOutput extends StartDocumentAnalysi
  *         Pages: [ // QueryPages
  *           "STRING_VALUE",
  *         ],
+ *       },
+ *     ],
+ *   },
+ *   AdaptersConfig: { // AdaptersConfig
+ *     Adapters: [ // Adapters // required
+ *       { // Adapter
+ *         AdapterId: "STRING_VALUE", // required
+ *         Pages: [ // AdapterPages
+ *           "STRING_VALUE",
+ *         ],
+ *         Version: "STRING_VALUE", // required
  *       },
  *     ],
  *   },
@@ -167,79 +170,26 @@ export interface StartDocumentAnalysisCommandOutput extends StartDocumentAnalysi
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
  */
-export class StartDocumentAnalysisCommand extends $Command<
-  StartDocumentAnalysisCommandInput,
-  StartDocumentAnalysisCommandOutput,
-  TextractClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StartDocumentAnalysisCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: TextractClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StartDocumentAnalysisCommandInput, StartDocumentAnalysisCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartDocumentAnalysisCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "TextractClient";
-    const commandName = "StartDocumentAnalysisCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StartDocumentAnalysisCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartDocumentAnalysisCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartDocumentAnalysisCommandOutput> {
-    return de_StartDocumentAnalysisCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class StartDocumentAnalysisCommand extends $Command
+  .classBuilder<
+    StartDocumentAnalysisCommandInput,
+    StartDocumentAnalysisCommandOutput,
+    TextractClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: TextractClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("Textract", "StartDocumentAnalysis", {})
+  .n("TextractClient", "StartDocumentAnalysisCommand")
+  .f(void 0, void 0)
+  .ser(se_StartDocumentAnalysisCommand)
+  .de(de_StartDocumentAnalysisCommand)
+  .build() {}

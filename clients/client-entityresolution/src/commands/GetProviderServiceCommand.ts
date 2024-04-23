@@ -1,0 +1,129 @@
+// smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { Command as $Command } from "@smithy/smithy-client";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+
+import { commonParams } from "../endpoint/EndpointParameters";
+import { EntityResolutionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EntityResolutionClient";
+import { GetProviderServiceInput, GetProviderServiceOutput } from "../models/models_0";
+import { de_GetProviderServiceCommand, se_GetProviderServiceCommand } from "../protocols/Aws_restJson1";
+
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetProviderServiceCommand}.
+ */
+export interface GetProviderServiceCommandInput extends GetProviderServiceInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetProviderServiceCommand}.
+ */
+export interface GetProviderServiceCommandOutput extends GetProviderServiceOutput, __MetadataBearer {}
+
+/**
+ * @public
+ * <p>Returns the <code>ProviderService</code> of a given name.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EntityResolutionClient, GetProviderServiceCommand } from "@aws-sdk/client-entityresolution"; // ES Modules import
+ * // const { EntityResolutionClient, GetProviderServiceCommand } = require("@aws-sdk/client-entityresolution"); // CommonJS import
+ * const client = new EntityResolutionClient(config);
+ * const input = { // GetProviderServiceInput
+ *   providerName: "STRING_VALUE", // required
+ *   providerServiceName: "STRING_VALUE", // required
+ * };
+ * const command = new GetProviderServiceCommand(input);
+ * const response = await client.send(command);
+ * // { // GetProviderServiceOutput
+ * //   providerName: "STRING_VALUE", // required
+ * //   providerServiceName: "STRING_VALUE", // required
+ * //   providerServiceDisplayName: "STRING_VALUE", // required
+ * //   providerServiceType: "ASSIGNMENT" || "ID_MAPPING", // required
+ * //   providerServiceArn: "STRING_VALUE", // required
+ * //   providerConfigurationDefinition: "DOCUMENT_VALUE",
+ * //   providerEndpointConfiguration: { // ProviderEndpointConfiguration Union: only one key present
+ * //     marketplaceConfiguration: { // ProviderMarketplaceConfiguration
+ * //       dataSetId: "STRING_VALUE", // required
+ * //       revisionId: "STRING_VALUE", // required
+ * //       assetId: "STRING_VALUE", // required
+ * //       listingId: "STRING_VALUE", // required
+ * //     },
+ * //   },
+ * //   anonymizedOutput: true || false, // required
+ * //   providerEntityOutputDefinition: "DOCUMENT_VALUE", // required
+ * //   providerIntermediateDataAccessConfiguration: { // ProviderIntermediateDataAccessConfiguration
+ * //     awsAccountIds: [ // AwsAccountIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     requiredBucketActions: [ // RequiredBucketActionsList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * // };
+ *
+ * ```
+ *
+ * @param GetProviderServiceCommandInput - {@link GetProviderServiceCommandInput}
+ * @returns {@link GetProviderServiceCommandOutput}
+ * @see {@link GetProviderServiceCommandInput} for command's `input` shape.
+ * @see {@link GetProviderServiceCommandOutput} for command's `response` shape.
+ * @see {@link EntityResolutionClientResolvedConfig | config} for EntityResolutionClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action. <code>HTTP Status Code:
+ *             403</code>
+ *          </p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This exception occurs when there is an internal failure in the Entity Resolution
+ *          service. <code>HTTP Status Code: 500</code>
+ *          </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource could not be found. <code>HTTP Status Code: 404</code>
+ *          </p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling. <code>HTTP Status Code:
+ *          429</code>
+ *          </p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by Entity Resolution. <code>HTTP
+ *             Status Code: 400</code>
+ *          </p>
+ *
+ * @throws {@link EntityResolutionServiceException}
+ * <p>Base exception class for all service exceptions from EntityResolution service.</p>
+ *
+ */
+export class GetProviderServiceCommand extends $Command
+  .classBuilder<
+    GetProviderServiceCommandInput,
+    GetProviderServiceCommandOutput,
+    EntityResolutionClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: EntityResolutionClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSVeniceService", "GetProviderService", {})
+  .n("EntityResolutionClient", "GetProviderServiceCommand")
+  .f(void 0, void 0)
+  .ser(se_GetProviderServiceCommand)
+  .de(de_GetProviderServiceCommand)
+  .build() {}

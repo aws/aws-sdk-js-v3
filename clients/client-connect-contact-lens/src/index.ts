@@ -14,8 +14,12 @@
 export * from "./ConnectContactLensClient";
 export * from "./ConnectContactLens";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { ConnectContactLensExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { ConnectContactLensServiceException } from "./models/ConnectContactLensServiceException";

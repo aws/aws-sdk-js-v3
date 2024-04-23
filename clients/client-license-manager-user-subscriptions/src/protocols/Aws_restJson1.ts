@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -75,11 +76,11 @@ export const se_AssociateUserCommand = async (
   input: AssociateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user/AssociateUser";
+  b.bp("/user/AssociateUser");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -89,15 +90,8 @@ export const se_AssociateUserCommand = async (
       Username: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -107,13 +101,11 @@ export const se_DeregisterIdentityProviderCommand = async (
   input: DeregisterIdentityProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/identity-provider/DeregisterIdentityProvider";
+  b.bp("/identity-provider/DeregisterIdentityProvider");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -121,15 +113,8 @@ export const se_DeregisterIdentityProviderCommand = async (
       Product: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -139,11 +124,11 @@ export const se_DisassociateUserCommand = async (
   input: DisassociateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user/DisassociateUser";
+  b.bp("/user/DisassociateUser");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -153,15 +138,8 @@ export const se_DisassociateUserCommand = async (
       Username: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -171,12 +149,11 @@ export const se_ListIdentityProvidersCommand = async (
   input: ListIdentityProvidersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/identity-provider/ListIdentityProviders";
+  b.bp("/identity-provider/ListIdentityProviders");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -184,15 +161,8 @@ export const se_ListIdentityProvidersCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -202,12 +172,11 @@ export const se_ListInstancesCommand = async (
   input: ListInstancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/ListInstances";
+  b.bp("/instance/ListInstances");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -216,15 +185,8 @@ export const se_ListInstancesCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -234,12 +196,11 @@ export const se_ListProductSubscriptionsCommand = async (
   input: ListProductSubscriptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user/ListProductSubscriptions";
+  b.bp("/user/ListProductSubscriptions");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -250,15 +211,8 @@ export const se_ListProductSubscriptionsCommand = async (
       Product: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -268,12 +222,11 @@ export const se_ListUserAssociationsCommand = async (
   input: ListUserAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user/ListUserAssociations";
+  b.bp("/user/ListUserAssociations");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -284,15 +237,8 @@ export const se_ListUserAssociationsCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -302,13 +248,11 @@ export const se_RegisterIdentityProviderCommand = async (
   input: RegisterIdentityProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/identity-provider/RegisterIdentityProvider";
+  b.bp("/identity-provider/RegisterIdentityProvider");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -317,15 +261,8 @@ export const se_RegisterIdentityProviderCommand = async (
       Settings: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -335,12 +272,11 @@ export const se_StartProductSubscriptionCommand = async (
   input: StartProductSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user/StartProductSubscription";
+  b.bp("/user/StartProductSubscription");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -350,15 +286,8 @@ export const se_StartProductSubscriptionCommand = async (
       Username: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -368,12 +297,11 @@ export const se_StopProductSubscriptionCommand = async (
   input: StopProductSubscriptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user/StopProductSubscription";
+  b.bp("/user/StopProductSubscription");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -383,15 +311,8 @@ export const se_StopProductSubscriptionCommand = async (
       Username: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -401,13 +322,11 @@ export const se_UpdateIdentityProviderSettingsCommand = async (
   input: UpdateIdentityProviderSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/identity-provider/UpdateIdentityProviderSettings";
+  b.bp("/identity-provider/UpdateIdentityProviderSettings");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -416,15 +335,8 @@ export const se_UpdateIdentityProviderSettingsCommand = async (
       UpdateSettings: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**

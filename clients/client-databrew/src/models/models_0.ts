@@ -461,7 +461,7 @@ export interface FilesLimit {
    * <p>A criteria to use for Amazon S3 files sorting before their selection. By default uses LAST_MODIFIED_DATE as
    *             a sorting criteria. Currently it's the only allowed value.</p>
    */
-  OrderedBy?: OrderedBy | string;
+  OrderedBy?: OrderedBy;
 
   /**
    * @public
@@ -469,7 +469,7 @@ export interface FilesLimit {
    *             default uses DESCENDING order, i.e. most recent files are selected first. Another
    *             possible value is ASCENDING.</p>
    */
-  Order?: Order | string;
+  Order?: Order;
 }
 
 /**
@@ -555,7 +555,7 @@ export interface DatasetParameter {
    * @public
    * <p>The type of the dataset parameter, can be one of a 'String', 'Number' or 'Datetime'.</p>
    */
-  Type: ParameterType | string | undefined;
+  Type: ParameterType | undefined;
 
   /**
    * @public
@@ -618,7 +618,7 @@ export interface CreateDatasetRequest {
    * @public
    * <p>The file format of a dataset that is created from an Amazon S3 file or folder.</p>
    */
-  Format?: InputFormat | string;
+  Format?: InputFormat;
 
   /**
    * @public
@@ -936,7 +936,7 @@ export interface JobSample {
    *             </li>
    *          </ul>
    */
-  Mode?: SampleMode | string;
+  Mode?: SampleMode;
 
   /**
    * @public
@@ -995,7 +995,7 @@ export interface ValidationConfiguration {
    * <p>Mode of data quality validation. Default mode is “CHECK_ALL” which verifies all rules
    *             defined in the selected ruleset.</p>
    */
-  ValidationMode?: ValidationMode | string;
+  ValidationMode?: ValidationMode;
 }
 
 /**
@@ -1030,7 +1030,7 @@ export interface CreateProfileJobRequest {
    *             </li>
    *          </ul>
    */
-  EncryptionMode?: EncryptionMode | string;
+  EncryptionMode?: EncryptionMode;
 
   /**
    * @public
@@ -1044,7 +1044,7 @@ export interface CreateProfileJobRequest {
    * <p>Enables or disables Amazon CloudWatch logging for the job. If logging is enabled,
    *             CloudWatch writes one log stream for each job run.</p>
    */
-  LogSubscription?: LogSubscription | string;
+  LogSubscription?: LogSubscription;
 
   /**
    * @public
@@ -1151,7 +1151,7 @@ export interface Sample {
    * @public
    * <p>The way in which DataBrew obtains rows from a dataset.</p>
    */
-  Type: SampleType | string | undefined;
+  Type: SampleType | undefined;
 }
 
 /**
@@ -1403,7 +1403,7 @@ export interface DatabaseOutput {
    * @public
    * <p>The output mode to write into the database. Currently supported option: NEW_TABLE.</p>
    */
-  DatabaseOutputMode?: DatabaseOutputMode | string;
+  DatabaseOutputMode?: DatabaseOutputMode;
 }
 
 /**
@@ -1544,13 +1544,13 @@ export interface Output {
    * @public
    * <p>The compression algorithm used to compress the output text of the job.</p>
    */
-  CompressionFormat?: CompressionFormat | string;
+  CompressionFormat?: CompressionFormat;
 
   /**
    * @public
    * <p>The data format of the output of the job.</p>
    */
-  Format?: OutputFormat | string;
+  Format?: OutputFormat;
 
   /**
    * @public
@@ -1634,7 +1634,7 @@ export interface CreateRecipeJobRequest {
    *             </li>
    *          </ul>
    */
-  EncryptionMode?: EncryptionMode | string;
+  EncryptionMode?: EncryptionMode;
 
   /**
    * @public
@@ -1648,7 +1648,7 @@ export interface CreateRecipeJobRequest {
    * <p>Enables or disables Amazon CloudWatch logging for the job. If logging is enabled,
    *             CloudWatch writes one log stream for each job run.</p>
    */
-  LogSubscription?: LogSubscription | string;
+  LogSubscription?: LogSubscription;
 
   /**
    * @public
@@ -1775,14 +1775,14 @@ export interface Threshold {
    * <p>The type of a threshold. Used for comparison of an actual count of rows that satisfy the
    *             rule to the threshold value.</p>
    */
-  Type?: ThresholdType | string;
+  Type?: ThresholdType;
 
   /**
    * @public
    * <p>Unit of threshold value. Can be either a COUNT or PERCENTAGE of the full sample size
    *             used for validation.</p>
    */
-  Unit?: ThresholdUnit | string;
+  Unit?: ThresholdUnit;
 }
 
 /**
@@ -2140,7 +2140,7 @@ export interface DescribeDatasetResponse {
    * <p>The file format of a dataset that is created from an Amazon S3 file
    *             or folder.</p>
    */
-  Format?: InputFormat | string;
+  Format?: InputFormat;
 
   /**
    * @public
@@ -2173,7 +2173,7 @@ export interface DescribeDatasetResponse {
    * <p>The location of the data for this dataset, Amazon S3 or the
    *             Glue Data Catalog.</p>
    */
-  Source?: Source | string;
+  Source?: Source;
 
   /**
    * @public
@@ -2264,7 +2264,7 @@ export interface DescribeJobResponse {
    *             </li>
    *          </ul>
    */
-  EncryptionMode?: EncryptionMode | string;
+  EncryptionMode?: EncryptionMode;
 
   /**
    * @public
@@ -2288,7 +2288,7 @@ export interface DescribeJobResponse {
    *             </li>
    *          </ul>
    */
-  Type?: JobType | string;
+  Type?: JobType;
 
   /**
    * @public
@@ -2306,7 +2306,7 @@ export interface DescribeJobResponse {
    * @public
    * <p>Indicates whether Amazon CloudWatch logging is enabled for this job.</p>
    */
-  LogSubscription?: LogSubscription | string;
+  LogSubscription?: LogSubscription;
 
   /**
    * @public
@@ -2500,13 +2500,13 @@ export interface DescribeJobRunResponse {
    * @public
    * <p>The current state of the job run entity itself.</p>
    */
-  State?: JobRunState | string;
+  State?: JobRunState;
 
   /**
    * @public
    * <p>The current status of Amazon CloudWatch logging for the job run.</p>
    */
-  LogSubscription?: LogSubscription | string;
+  LogSubscription?: LogSubscription;
 
   /**
    * @public
@@ -2685,7 +2685,7 @@ export interface DescribeProjectResponse {
    *             </li>
    *          </ul>
    */
-  SessionStatus?: SessionStatus | string;
+  SessionStatus?: SessionStatus;
 
   /**
    * @public
@@ -3002,7 +3002,7 @@ export interface Dataset {
    * @public
    * <p>The file format of a dataset that is created from an Amazon S3 file or folder.</p>
    */
-  Format?: InputFormat | string;
+  Format?: InputFormat;
 
   /**
    * @public
@@ -3033,7 +3033,7 @@ export interface Dataset {
    * @public
    * <p>The location of the data for the dataset, either Amazon S3 or the Glue Data Catalog.</p>
    */
-  Source?: Source | string;
+  Source?: Source;
 
   /**
    * @public
@@ -3147,13 +3147,13 @@ export interface JobRun {
    * @public
    * <p>The current state of the job run entity itself.</p>
    */
-  State?: JobRunState | string;
+  State?: JobRunState;
 
   /**
    * @public
    * <p>The current status of Amazon CloudWatch logging for the job run.</p>
    */
-  LogSubscription?: LogSubscription | string;
+  LogSubscription?: LogSubscription;
 
   /**
    * @public
@@ -3319,7 +3319,7 @@ export interface Job {
    *             </li>
    *          </ul>
    */
-  EncryptionMode?: EncryptionMode | string;
+  EncryptionMode?: EncryptionMode;
 
   /**
    * @public
@@ -3343,7 +3343,7 @@ export interface Job {
    *             </li>
    *          </ul>
    */
-  Type?: JobType | string;
+  Type?: JobType;
 
   /**
    * @public
@@ -3361,7 +3361,7 @@ export interface Job {
    * @public
    * <p>The current status of Amazon CloudWatch logging for the job.</p>
    */
-  LogSubscription?: LogSubscription | string;
+  LogSubscription?: LogSubscription;
 
   /**
    * @public
@@ -4100,7 +4100,7 @@ export interface ViewFrame {
    * @public
    * <p>Controls if analytics computation is enabled or disabled. Enabled by default.</p>
    */
-  Analytics?: AnalyticsMode | string;
+  Analytics?: AnalyticsMode;
 }
 
 /**
@@ -4316,7 +4316,7 @@ export interface UpdateDatasetRequest {
    * @public
    * <p>The file format of a dataset that is created from an Amazon S3 file or folder.</p>
    */
-  Format?: InputFormat | string;
+  Format?: InputFormat;
 
   /**
    * @public
@@ -4384,7 +4384,7 @@ export interface UpdateProfileJobRequest {
    *             </li>
    *          </ul>
    */
-  EncryptionMode?: EncryptionMode | string;
+  EncryptionMode?: EncryptionMode;
 
   /**
    * @public
@@ -4397,7 +4397,7 @@ export interface UpdateProfileJobRequest {
    * <p>Enables or disables Amazon CloudWatch logging for the job. If logging is enabled,
    *             CloudWatch writes one log stream for each job run.</p>
    */
-  LogSubscription?: LogSubscription | string;
+  LogSubscription?: LogSubscription;
 
   /**
    * @public
@@ -4561,7 +4561,7 @@ export interface UpdateRecipeJobRequest {
    *             </li>
    *          </ul>
    */
-  EncryptionMode?: EncryptionMode | string;
+  EncryptionMode?: EncryptionMode;
 
   /**
    * @public
@@ -4574,7 +4574,7 @@ export interface UpdateRecipeJobRequest {
    * <p>Enables or disables Amazon CloudWatch logging for the job. If logging is enabled,
    *             CloudWatch writes one log stream for each job run.</p>
    */
-  LogSubscription?: LogSubscription | string;
+  LogSubscription?: LogSubscription;
 
   /**
    * @public

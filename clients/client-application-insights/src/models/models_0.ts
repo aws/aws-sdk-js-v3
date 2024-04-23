@@ -73,7 +73,7 @@ export interface WorkloadConfiguration {
    * @public
    * <p>The configuration of the workload tier.</p>
    */
-  Tier?: Tier | string;
+  Tier?: Tier;
 
   /**
    * @public
@@ -254,13 +254,13 @@ export interface ApplicationComponent {
    * @public
    * <p> The operating system of the component. </p>
    */
-  OsType?: OsType | string;
+  OsType?: OsType;
 
   /**
    * @public
    * <p>The stack tier of the application component.</p>
    */
-  Tier?: Tier | string;
+  Tier?: Tier;
 
   /**
    * @public
@@ -272,7 +272,7 @@ export interface ApplicationComponent {
    * @public
    * <p> Workloads detected in the application component. </p>
    */
-  DetectedWorkload?: Record<string, Record<string, string>>;
+  DetectedWorkload?: Partial<Record<Tier, Record<string, string>>>;
 }
 
 /**
@@ -359,7 +359,13 @@ export interface ApplicationInfo {
    * @public
    * <p> The method used by Application Insights to onboard your resources. </p>
    */
-  DiscoveryType?: DiscoveryType | string;
+  DiscoveryType?: DiscoveryType;
+
+  /**
+   * @public
+   * <p>If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing.</p>
+   */
+  AttachMissingPermission?: boolean;
 }
 
 /**
@@ -460,14 +466,14 @@ export interface ConfigurationEvent {
    * <p> The status of the configuration update event. Possible values include INFO, WARN, and
    *          ERROR. </p>
    */
-  EventStatus?: ConfigurationEventStatus | string;
+  EventStatus?: ConfigurationEventStatus;
 
   /**
    * @public
    * <p> The resource type that Application Insights attempted to configure, for example,
    *          CLOUDWATCH_ALARM. </p>
    */
-  EventResourceType?: ConfigurationEventResourceType | string;
+  EventResourceType?: ConfigurationEventResourceType;
 
   /**
    * @public
@@ -606,7 +612,13 @@ export interface CreateApplicationRequest {
    *          To create an account-based application using all of the resources in the account, set this
    *          parameter to <code>ACCOUNT_BASED</code>. </p>
    */
-  GroupingType?: GroupingType | string;
+  GroupingType?: GroupingType;
+
+  /**
+   * @public
+   * <p>If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing.</p>
+   */
+  AttachMissingPermission?: boolean;
 }
 
 /**
@@ -953,7 +965,7 @@ export interface DescribeComponentConfigurationResponse {
    *             <code>SQL_SERVER</code>, and <code>DEFAULT</code>
    *          </p>
    */
-  Tier?: Tier | string;
+  Tier?: Tier;
 
   /**
    * @public
@@ -998,13 +1010,19 @@ export interface DescribeComponentConfigurationRecommendationRequest {
    * @public
    * <p>The tier of the application component.</p>
    */
-  Tier: Tier | string | undefined;
+  Tier: Tier | undefined;
+
+  /**
+   * @public
+   * <p>The name of the workload.</p>
+   */
+  WorkloadName?: string;
 
   /**
    * @public
    * <p>The recommended configuration type.</p>
    */
-  RecommendationType?: RecommendationType | string;
+  RecommendationType?: RecommendationType;
 }
 
 /**
@@ -1161,7 +1179,7 @@ export interface Observation {
    * @public
    * <p>The log filter of the observation.</p>
    */
-  LogFilter?: LogFilter | string;
+  LogFilter?: LogFilter;
 
   /**
    * @public
@@ -1198,7 +1216,7 @@ export interface Observation {
    * @public
    * <p> The source of the CloudWatch Event. </p>
    */
-  CloudWatchEventSource?: CloudWatchEventSource | string;
+  CloudWatchEventSource?: CloudWatchEventSource;
 
   /**
    * @public
@@ -1535,7 +1553,7 @@ export interface Problem {
    * @public
    * <p>The status of the problem.</p>
    */
-  Status?: Status | string;
+  Status?: Status;
 
   /**
    * @public
@@ -1559,7 +1577,7 @@ export interface Problem {
    * @public
    * <p>A measure of the level of impact of the problem.</p>
    */
-  SeverityLevel?: SeverityLevel | string;
+  SeverityLevel?: SeverityLevel;
 
   /**
    * @public
@@ -1577,7 +1595,7 @@ export interface Problem {
    * @public
    * <p>Feedback provided by the user about the problem.</p>
    */
-  Feedback?: Record<string, FeedbackValue | string>;
+  Feedback?: Partial<Record<FeedbackKey, FeedbackValue>>;
 
   /**
    * @public
@@ -1597,7 +1615,7 @@ export interface Problem {
    * <p>Specifies whether or not you can view the problem. Updates to ignored problems do not
    *          generate notifications.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 
   /**
    * @public
@@ -1605,7 +1623,7 @@ export interface Problem {
    *          system resolved the problem. If the value is <code>MANUAL</code>, the user resolved the
    *          problem. If the value is <code>UNRESOLVED</code>, then the problem is not resolved.</p>
    */
-  ResolutionMethod?: ResolutionMethod | string;
+  ResolutionMethod?: ResolutionMethod;
 }
 
 /**
@@ -1827,7 +1845,7 @@ export interface ListConfigurationHistoryRequest {
    * <p>The status of the configuration update event. Possible values include INFO, WARN, and
    *          ERROR.</p>
    */
-  EventStatus?: ConfigurationEventStatus | string;
+  EventStatus?: ConfigurationEventStatus;
 
   /**
    * @public
@@ -2059,7 +2077,7 @@ export interface ListProblemsRequest {
    * <p>Specifies whether or not you can view the problem. If not specified, visible and
    *          ignored problems are returned.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 }
 
 /**
@@ -2180,7 +2198,7 @@ export interface Workload {
    * @public
    * <p>The tier of the workload.</p>
    */
-  Tier?: Tier | string;
+  Tier?: Tier;
 
   /**
    * @public
@@ -2358,6 +2376,12 @@ export interface UpdateApplicationRequest {
    * <p> Turns auto-configuration on or off. </p>
    */
   AutoConfigEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>If set to true, the managed policies for SSM and CW will be attached to the instance roles if they are missing.</p>
+   */
+  AttachMissingPermission?: boolean;
 }
 
 /**
@@ -2431,7 +2455,7 @@ export interface UpdateComponentConfigurationRequest {
    * @public
    * <p>The tier of the application component.</p>
    */
-  Tier?: Tier | string;
+  Tier?: Tier;
 
   /**
    * @public
@@ -2546,7 +2570,7 @@ export interface UpdateProblemRequest {
    * <p>The status of the problem. Arguments can be passed for only problems that show a status
    *          of <code>RECOVERING</code>.</p>
    */
-  UpdateStatus?: UpdateStatus | string;
+  UpdateStatus?: UpdateStatus;
 
   /**
    * @public
@@ -2554,7 +2578,7 @@ export interface UpdateProblemRequest {
    *          is removed from the default view, and all notifications for the problem are suspended. When
    *          <code>VISIBLE</code> is passed, the <code>IGNORED</code> action is reversed.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 }
 
 /**

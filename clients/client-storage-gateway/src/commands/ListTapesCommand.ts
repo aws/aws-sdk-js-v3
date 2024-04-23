@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListTapesInput, ListTapesOutput } from "../models/models_0";
 import { de_ListTapesCommand, se_ListTapesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
@@ -40,7 +32,6 @@ export interface ListTapesCommandOutput extends ListTapesOutput, __MetadataBeare
  *          (VTS). You specify the tapes to list by specifying one or more tape Amazon Resource Names
  *          (ARNs). If you don't specify a tape ARN, the operation lists all virtual tapes in both
  *          your VTL and VTS.</p>
- *
  *          <p>This operation supports pagination. By default, the operation returns a maximum of up to
  *          100 tapes. You can optionally specify the <code>Limit</code> parameter in the body to limit
  *          the number of tapes in the response. If the number of tapes returned in the response is
@@ -98,77 +89,26 @@ export interface ListTapesCommandOutput extends ListTapesOutput, __MetadataBeare
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
-export class ListTapesCommand extends $Command<
-  ListTapesCommandInput,
-  ListTapesCommandOutput,
-  StorageGatewayClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListTapesCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: StorageGatewayClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListTapesCommandInput, ListTapesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListTapesCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "StorageGatewayClient";
-    const commandName = "ListTapesCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListTapesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListTapesCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTapesCommandOutput> {
-    return de_ListTapesCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListTapesCommand extends $Command
+  .classBuilder<
+    ListTapesCommandInput,
+    ListTapesCommandOutput,
+    StorageGatewayClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("StorageGateway_20130630", "ListTapes", {})
+  .n("StorageGatewayClient", "ListTapesCommand")
+  .f(void 0, void 0)
+  .ser(se_ListTapesCommand)
+  .de(de_ListTapesCommand)
+  .build() {}

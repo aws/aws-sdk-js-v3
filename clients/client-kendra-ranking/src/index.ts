@@ -10,8 +10,12 @@
 export * from "./KendraRankingClient";
 export * from "./KendraRanking";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { KendraRankingExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { KendraRankingServiceException } from "./models/KendraRankingServiceException";

@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -7,7 +9,6 @@ import {
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
@@ -113,30 +114,14 @@ export const se_CancelJobRunCommand = async (
   input: CancelJobRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/virtualclusters/{virtualClusterId}/jobruns/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualClusterId",
-    () => input.virtualClusterId!,
-    "{virtualClusterId}",
-    false
-  );
+  b.bp("/virtualclusters/{virtualClusterId}/jobruns/{id}");
+  b.p("id", () => input.id!, "{id}", false);
+  b.p("virtualClusterId", () => input.virtualClusterId!, "{virtualClusterId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -146,11 +131,11 @@ export const se_CreateJobTemplateCommand = async (
   input: CreateJobTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/jobtemplates";
+  b.bp("/jobtemplates");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -161,15 +146,8 @@ export const se_CreateJobTemplateCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -179,21 +157,12 @@ export const se_CreateManagedEndpointCommand = async (
   input: CreateManagedEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/virtualclusters/{virtualClusterId}/endpoints";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualClusterId",
-    () => input.virtualClusterId!,
-    "{virtualClusterId}",
-    false
-  );
+  b.bp("/virtualclusters/{virtualClusterId}/endpoints");
+  b.p("virtualClusterId", () => input.virtualClusterId!, "{virtualClusterId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -207,15 +176,8 @@ export const se_CreateManagedEndpointCommand = async (
       type: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -225,11 +187,11 @@ export const se_CreateVirtualClusterCommand = async (
   input: CreateVirtualClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/virtualclusters";
+  b.bp("/virtualclusters");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -239,15 +201,8 @@ export const se_CreateVirtualClusterCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -257,20 +212,13 @@ export const se_DeleteJobTemplateCommand = async (
   input: DeleteJobTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/jobtemplates/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/jobtemplates/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -280,30 +228,14 @@ export const se_DeleteManagedEndpointCommand = async (
   input: DeleteManagedEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/virtualclusters/{virtualClusterId}/endpoints/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualClusterId",
-    () => input.virtualClusterId!,
-    "{virtualClusterId}",
-    false
-  );
+  b.bp("/virtualclusters/{virtualClusterId}/endpoints/{id}");
+  b.p("id", () => input.id!, "{id}", false);
+  b.p("virtualClusterId", () => input.virtualClusterId!, "{virtualClusterId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -313,20 +245,13 @@ export const se_DeleteVirtualClusterCommand = async (
   input: DeleteVirtualClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/virtualclusters/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/virtualclusters/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -336,30 +261,14 @@ export const se_DescribeJobRunCommand = async (
   input: DescribeJobRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/virtualclusters/{virtualClusterId}/jobruns/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualClusterId",
-    () => input.virtualClusterId!,
-    "{virtualClusterId}",
-    false
-  );
+  b.bp("/virtualclusters/{virtualClusterId}/jobruns/{id}");
+  b.p("id", () => input.id!, "{id}", false);
+  b.p("virtualClusterId", () => input.virtualClusterId!, "{virtualClusterId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -369,20 +278,13 @@ export const se_DescribeJobTemplateCommand = async (
   input: DescribeJobTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/jobtemplates/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/jobtemplates/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -392,30 +294,14 @@ export const se_DescribeManagedEndpointCommand = async (
   input: DescribeManagedEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/virtualclusters/{virtualClusterId}/endpoints/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualClusterId",
-    () => input.virtualClusterId!,
-    "{virtualClusterId}",
-    false
-  );
+  b.bp("/virtualclusters/{virtualClusterId}/endpoints/{id}");
+  b.p("id", () => input.id!, "{id}", false);
+  b.p("virtualClusterId", () => input.virtualClusterId!, "{virtualClusterId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -425,20 +311,13 @@ export const se_DescribeVirtualClusterCommand = async (
   input: DescribeVirtualClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/virtualclusters/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/virtualclusters/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -448,29 +327,13 @@ export const se_GetManagedEndpointSessionCredentialsCommand = async (
   input: GetManagedEndpointSessionCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/virtualclusters/{virtualClusterIdentifier}/endpoints/{endpointIdentifier}/credentials";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "endpointIdentifier",
-    () => input.endpointIdentifier!,
-    "{endpointIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualClusterIdentifier",
-    () => input.virtualClusterIdentifier!,
-    "{virtualClusterIdentifier}",
-    false
-  );
+  b.bp("/virtualclusters/{virtualClusterIdentifier}/endpoints/{endpointIdentifier}/credentials");
+  b.p("endpointIdentifier", () => input.endpointIdentifier!, "{endpointIdentifier}", false);
+  b.p("virtualClusterIdentifier", () => input.virtualClusterIdentifier!, "{virtualClusterIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -481,15 +344,8 @@ export const se_GetManagedEndpointSessionCredentialsCommand = async (
       logContext: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -499,44 +355,21 @@ export const se_ListJobRunsCommand = async (
   input: ListJobRunsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/virtualclusters/{virtualClusterId}/jobruns";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualClusterId",
-    () => input.virtualClusterId!,
-    "{virtualClusterId}",
-    false
-  );
+  b.bp("/virtualclusters/{virtualClusterId}/jobruns");
+  b.p("virtualClusterId", () => input.virtualClusterId!, "{virtualClusterId}", false);
   const query: any = map({
-    createdBefore: [
-      () => input.createdBefore !== void 0,
-      () => (input.createdBefore!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    createdAfter: [
-      () => input.createdAfter !== void 0,
-      () => (input.createdAfter!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    name: [, input.name!],
-    states: [() => input.states !== void 0, () => (input.states! || []).map((_entry) => _entry as any)],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_cB]: [() => input.createdBefore !== void 0, () => (input[_cB]!.toISOString().split(".")[0] + "Z").toString()],
+    [_cA]: [() => input.createdAfter !== void 0, () => (input[_cA]!.toISOString().split(".")[0] + "Z").toString()],
+    [_n]: [, input[_n]!],
+    [_s]: [() => input.states !== void 0, () => (input[_s]! || []).map((_entry) => _entry as any)],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -546,32 +379,18 @@ export const se_ListJobTemplatesCommand = async (
   input: ListJobTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/jobtemplates";
+  b.bp("/jobtemplates");
   const query: any = map({
-    createdAfter: [
-      () => input.createdAfter !== void 0,
-      () => (input.createdAfter!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    createdBefore: [
-      () => input.createdBefore !== void 0,
-      () => (input.createdBefore!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_cA]: [() => input.createdAfter !== void 0, () => (input[_cA]!.toISOString().split(".")[0] + "Z").toString()],
+    [_cB]: [() => input.createdBefore !== void 0, () => (input[_cB]!.toISOString().split(".")[0] + "Z").toString()],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -581,44 +400,21 @@ export const se_ListManagedEndpointsCommand = async (
   input: ListManagedEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/virtualclusters/{virtualClusterId}/endpoints";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualClusterId",
-    () => input.virtualClusterId!,
-    "{virtualClusterId}",
-    false
-  );
+  b.bp("/virtualclusters/{virtualClusterId}/endpoints");
+  b.p("virtualClusterId", () => input.virtualClusterId!, "{virtualClusterId}", false);
   const query: any = map({
-    createdBefore: [
-      () => input.createdBefore !== void 0,
-      () => (input.createdBefore!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    createdAfter: [
-      () => input.createdAfter !== void 0,
-      () => (input.createdAfter!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    types: [() => input.types !== void 0, () => (input.types! || []).map((_entry) => _entry as any)],
-    states: [() => input.states !== void 0, () => (input.states! || []).map((_entry) => _entry as any)],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_cB]: [() => input.createdBefore !== void 0, () => (input[_cB]!.toISOString().split(".")[0] + "Z").toString()],
+    [_cA]: [() => input.createdAfter !== void 0, () => (input[_cA]!.toISOString().split(".")[0] + "Z").toString()],
+    [_t]: [() => input.types !== void 0, () => (input[_t]! || []).map((_entry) => _entry as any)],
+    [_s]: [() => input.states !== void 0, () => (input[_s]! || []).map((_entry) => _entry as any)],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -628,20 +424,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -651,35 +440,21 @@ export const se_ListVirtualClustersCommand = async (
   input: ListVirtualClustersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/virtualclusters";
+  b.bp("/virtualclusters");
   const query: any = map({
-    containerProviderId: [, input.containerProviderId!],
-    containerProviderType: [, input.containerProviderType!],
-    createdAfter: [
-      () => input.createdAfter !== void 0,
-      () => (input.createdAfter!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    createdBefore: [
-      () => input.createdBefore !== void 0,
-      () => (input.createdBefore!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    states: [() => input.states !== void 0, () => (input.states! || []).map((_entry) => _entry as any)],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_cPI]: [, input[_cPI]!],
+    [_cPT]: [, input[_cPT]!],
+    [_cA]: [() => input.createdAfter !== void 0, () => (input[_cA]!.toISOString().split(".")[0] + "Z").toString()],
+    [_cB]: [() => input.createdBefore !== void 0, () => (input[_cB]!.toISOString().split(".")[0] + "Z").toString()],
+    [_s]: [() => input.states !== void 0, () => (input[_s]! || []).map((_entry) => _entry as any)],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -689,21 +464,12 @@ export const se_StartJobRunCommand = async (
   input: StartJobRunCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/virtualclusters/{virtualClusterId}/jobruns";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "virtualClusterId",
-    () => input.virtualClusterId!,
-    "{virtualClusterId}",
-    false
-  );
+  b.bp("/virtualclusters/{virtualClusterId}/jobruns");
+  b.p("virtualClusterId", () => input.virtualClusterId!, "{virtualClusterId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -719,15 +485,8 @@ export const se_StartJobRunCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -737,27 +496,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -767,27 +519,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2270,6 +2014,17 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _cA = "createdAfter";
+const _cB = "createdBefore";
+const _cPI = "containerProviderId";
+const _cPT = "containerProviderType";
+const _mR = "maxResults";
+const _n = "name";
+const _nT = "nextToken";
+const _s = "states";
+const _t = "types";
+const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

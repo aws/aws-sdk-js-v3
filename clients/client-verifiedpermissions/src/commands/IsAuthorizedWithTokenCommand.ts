@@ -1,19 +1,16 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { IsAuthorizedWithTokenInput, IsAuthorizedWithTokenOutput } from "../models/models_0";
+import { commonParams } from "../endpoint/EndpointParameters";
+import {
+  IsAuthorizedWithTokenInput,
+  IsAuthorizedWithTokenInputFilterSensitiveLog,
+  IsAuthorizedWithTokenOutput,
+  IsAuthorizedWithTokenOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { de_IsAuthorizedWithTokenCommand, se_IsAuthorizedWithTokenCommand } from "../protocols/Aws_json1_0";
 import {
   ServiceInputTypes,
@@ -41,11 +38,25 @@ export interface IsAuthorizedWithTokenCommandOutput extends IsAuthorizedWithToke
 /**
  * @public
  * <p>Makes an authorization decision about a service request described in the parameters.
- *             The principal in this request comes from an external identity source. The information in the
- *             parameters can also define additional context that Verified Permissions can include in the evaluation.
- *             The request is evaluated against all matching policies in the specified policy store. The result
- *             of the decision is either <code>Allow</code> or <code>Deny</code>, along with a list of
- *             the policies that resulted in the decision.</p>
+ *             The principal in this request comes from an external identity source in the form of an identity
+ *             token formatted as a <a href="https://wikipedia.org/wiki/JSON_Web_Token">JSON web
+ *                 token (JWT)</a>. The information in the parameters can also define additional
+ *             context that Verified Permissions can include in the evaluation. The request is evaluated against all
+ *             matching policies in the specified policy store. The result of the decision is either
+ *                 <code>Allow</code> or <code>Deny</code>, along with a list of the policies that
+ *             resulted in the decision.</p>
+ *          <important>
+ *             <p>If you specify the <code>identityToken</code> parameter, then this operation
+ *                 derives the principal from that token. You must not also include that principal in
+ *                 the <code>entities</code> parameter or the operation fails and reports a conflict
+ *                 between the two entity sources.</p>
+ *             <p>If you provide only an <code>accessToken</code>, then you can include the entity
+ *                 as part of the <code>entities</code> parameter to provide additional
+ *                 attributes.</p>
+ *          </important>
+ *          <p>At this time, Verified Permissions accepts tokens from only Amazon Cognito.</p>
+ *          <p>Verified Permissions validates each token that is specified in a request by checking its expiration
+ *             date and its signature.</p>
  *          <important>
  *             <p>If you delete a Amazon Cognito user pool or user, tokens from that deleted pool or that deleted user continue to be usable until they expire.</p>
  *          </important>
@@ -193,7 +204,7 @@ export interface IsAuthorizedWithTokenCommandOutput extends IsAuthorizedWithToke
  *                </p>
  *                <p>The policy attempts to access a record or entity attribute that isn't
  *                     specified in the schema. Test for the existence of the attribute first before
- *                     attempting to access its value. For more information, see the <a href="https://docs.cedarpolicy.com/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
+ *                     attempting to access its value. For more information, see the <a href="https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
  *                         <i>Cedar Policy Language Guide</i>.</p>
  *             </li>
  *             <li>
@@ -203,7 +214,7 @@ export interface IsAuthorizedWithTokenCommandOutput extends IsAuthorizedWithToke
  *                <p>The policy attempts to access a record or entity attribute that is optional
  *                     and isn't guaranteed to be present. Test for the existence of the attribute
  *                     first before attempting to access its value. For more information, see the
- *                         <a href="https://docs.cedarpolicy.com/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
+ *                         <a href="https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
  *                         <i>Cedar Policy Language Guide</i>.</p>
  *             </li>
  *             <li>
@@ -235,79 +246,26 @@ export interface IsAuthorizedWithTokenCommandOutput extends IsAuthorizedWithToke
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
  */
-export class IsAuthorizedWithTokenCommand extends $Command<
-  IsAuthorizedWithTokenCommandInput,
-  IsAuthorizedWithTokenCommandOutput,
-  VerifiedPermissionsClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: IsAuthorizedWithTokenCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: VerifiedPermissionsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<IsAuthorizedWithTokenCommandInput, IsAuthorizedWithTokenCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, IsAuthorizedWithTokenCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "VerifiedPermissionsClient";
-    const commandName = "IsAuthorizedWithTokenCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: IsAuthorizedWithTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_IsAuthorizedWithTokenCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<IsAuthorizedWithTokenCommandOutput> {
-    return de_IsAuthorizedWithTokenCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class IsAuthorizedWithTokenCommand extends $Command
+  .classBuilder<
+    IsAuthorizedWithTokenCommandInput,
+    IsAuthorizedWithTokenCommandOutput,
+    VerifiedPermissionsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("VerifiedPermissions", "IsAuthorizedWithToken", {})
+  .n("VerifiedPermissionsClient", "IsAuthorizedWithTokenCommand")
+  .f(IsAuthorizedWithTokenInputFilterSensitiveLog, IsAuthorizedWithTokenOutputFilterSensitiveLog)
+  .ser(se_IsAuthorizedWithTokenCommand)
+  .de(de_IsAuthorizedWithTokenCommand)
+  .build() {}

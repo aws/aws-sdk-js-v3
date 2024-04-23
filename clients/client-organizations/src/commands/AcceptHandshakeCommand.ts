@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   AcceptHandshakeRequest,
   AcceptHandshakeResponse,
@@ -54,7 +46,7 @@ export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, _
  *                     features in the organization, the user must also have the
  *                         <code>iam:CreateServiceLinkedRole</code> permission so that Organizations can
  *                     create the required service-linked role named <code>AWSServiceRoleForOrganizations</code>. For
- *                     more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integration_services.html#orgs_integration_service-linked-roles">Organizations and Service-Linked Roles</a> in the
+ *                     more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integration_services.html#orgs_integrate_services-using_slrs">Organizations and service-linked roles</a> in the
  *                         <i>Organizations User Guide</i>.</p>
  *             </li>
  *             <li>
@@ -63,10 +55,9 @@ export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, _
  *                     handshake: only a principal from the management account.</p>
  *                <p>For more information about invitations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_invites.html">Inviting an
  *                         Amazon Web Services account to join your organization</a> in the
- *                         <i>Organizations User Guide.</i> For more information about requests to
+ *                         <i>Organizations User Guide</i>. For more information about requests to
  *                     enable all features in the organization, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">Enabling all features in your organization</a> in
- *                     the <i>Organizations User Guide.</i>
- *                </p>
+ *                     the <i>Organizations User Guide</i>.</p>
  *             </li>
  *          </ul>
  *          <p>After you accept a handshake, it continues to appear in the results of relevant APIs
@@ -124,8 +115,7 @@ export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, _
  *  <p>You don't have permissions to perform the requested operation. The user or role that
  *             is making the request must have at least one IAM permissions policy attached that
  *             grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access Management</a> in the
- *                 <i>IAM User Guide.</i>
- *          </p>
+ *                 <i>IAM User Guide</i>.</p>
  *
  * @throws {@link AccessDeniedForDependencyException} (client fault)
  *  <p>The operation that you attempted requires you to have the
@@ -160,7 +150,8 @@ export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, _
  *                <important>
  *                   <p>If you get this exception immediately after creating the organization,
  *                         wait one hour and try again. If after an hour it continues to fail with this
- *                         error, contact <a href="https://docs.aws.amazon.com/support/home#/">Amazon Web Services Support</a>.</p>
+ *                         error, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services
+ *                             Support</a>.</p>
  *                </important>
  *             </li>
  *             <li>
@@ -323,9 +314,8 @@ export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, _
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>You have sent too many requests in too short a period of time. The quota helps protect
  *             against denial-of-service attacks. Try again later.</p>
- *          <p>For information about quotas that affect Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html">Quotas for Organizations</a>in the
- *                 <i>Organizations User Guide.</i>
- *          </p>
+ *          <p>For information about quotas that affect Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html">Quotas for Organizations</a> in the
+ *                 <i>Organizations User Guide</i>.</p>
  *
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
@@ -388,79 +378,26 @@ export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, _
  * ```
  *
  */
-export class AcceptHandshakeCommand extends $Command<
-  AcceptHandshakeCommandInput,
-  AcceptHandshakeCommandOutput,
-  OrganizationsClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: AcceptHandshakeCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: OrganizationsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<AcceptHandshakeCommandInput, AcceptHandshakeCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, AcceptHandshakeCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "OrganizationsClient";
-    const commandName = "AcceptHandshakeCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: AcceptHandshakeResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: AcceptHandshakeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_AcceptHandshakeCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AcceptHandshakeCommandOutput> {
-    return de_AcceptHandshakeCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class AcceptHandshakeCommand extends $Command
+  .classBuilder<
+    AcceptHandshakeCommandInput,
+    AcceptHandshakeCommandOutput,
+    OrganizationsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSOrganizationsV20161128", "AcceptHandshake", {})
+  .n("OrganizationsClient", "AcceptHandshakeCommand")
+  .f(void 0, AcceptHandshakeResponseFilterSensitiveLog)
+  .ser(se_AcceptHandshakeCommand)
+  .de(de_AcceptHandshakeCommand)
+  .build() {}

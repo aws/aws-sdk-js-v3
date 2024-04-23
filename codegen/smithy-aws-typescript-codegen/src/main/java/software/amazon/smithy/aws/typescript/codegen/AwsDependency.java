@@ -26,8 +26,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import software.amazon.smithy.codegen.core.SymbolDependency;
-import software.amazon.smithy.codegen.core.SymbolDependencyContainer;
-import software.amazon.smithy.typescript.codegen.PackageContainer;
+import software.amazon.smithy.typescript.codegen.Dependency;
 import software.amazon.smithy.utils.IoUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
@@ -36,8 +35,9 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  * this package.
  */
 @SmithyInternalApi
-public enum AwsDependency implements PackageContainer, SymbolDependencyContainer {
+public enum AwsDependency implements Dependency {
 
+    AWS_SDK_CORE(NORMAL_DEPENDENCY, "@aws-sdk/core"),
     MIDDLEWARE_SIGNING(NORMAL_DEPENDENCY, "@aws-sdk/middleware-signing"),
     MIDDLEWARE_TOKEN(NORMAL_DEPENDENCY, "@aws-sdk/middleware-token"),
     CREDENTIAL_PROVIDER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/credential-provider-node"),
@@ -83,7 +83,15 @@ public enum AwsDependency implements PackageContainer, SymbolDependencyContainer
     FLEXIBLE_CHECKSUMS_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-flexible-checksums"),
 
     // Conditionally added when auth trait is present
-    MIDDLEWARE_API_KEY(NORMAL_DEPENDENCY, "@aws-sdk/middleware-api-key");
+    MIDDLEWARE_API_KEY(NORMAL_DEPENDENCY, "@aws-sdk/middleware-api-key"),
+
+    // Conditionally added when EndpointRuleSetTrait is present
+    UTIL_ENDPOINTS(NORMAL_DEPENDENCY, "@aws-sdk/util-endpoints"),
+
+    // feat(experimentalIdentityAndAuth): Conditionally added when @httpBearerAuth is used in an AWS service
+    TOKEN_PROVIDERS(NORMAL_DEPENDENCY, "@aws-sdk/token-providers"),
+    TYPES(NORMAL_DEPENDENCY, "@aws-sdk/types"),
+    REGION_CONFIG_RESOLVER(NORMAL_DEPENDENCY, "@aws-sdk/region-config-resolver");
 
     public final String packageName;
     public final String version;
@@ -140,4 +148,3 @@ public enum AwsDependency implements PackageContainer, SymbolDependencyContainer
         }
     }
 }
-

@@ -190,7 +190,7 @@ export interface Anomaly {
    * @public
    * <p>The feedback value. </p>
    */
-  Feedback?: AnomalyFeedbackType | string;
+  Feedback?: AnomalyFeedbackType;
 }
 
 /**
@@ -275,7 +275,7 @@ export interface CostCategoryValues {
    *                 <code>MatchOptions</code> is <code>EQUALS</code> and <code>CASE_SENSITIVE</code>.
    *         </p>
    */
-  MatchOptions?: (MatchOption | string)[];
+  MatchOptions?: MatchOption[];
 }
 
 /**
@@ -343,7 +343,7 @@ export interface DimensionValues {
    *             <code>ANOMALY_TOTAL_IMPACT_ABSOLUTE</code> and
    *                 <code>ANOMALY_TOTAL_IMPACT_PERCENTAGE</code> can only be used in <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalySubscription.html">AnomalySubscriptions</a>.</p>
    */
-  Key?: Dimension | string;
+  Key?: Dimension;
 
   /**
    * @public
@@ -362,7 +362,7 @@ export interface DimensionValues {
    *          <p>The default values for <code>MatchOptions</code> are <code>EQUALS</code> and
    *                 <code>CASE_SENSITIVE</code>.</p>
    */
-  MatchOptions?: (MatchOption | string)[];
+  MatchOptions?: MatchOption[];
 }
 
 /**
@@ -396,7 +396,7 @@ export interface TagValues {
    *                 <code>MatchOptions</code> are <code>EQUALS</code> and
    *             <code>CASE_SENSITIVE</code>.</p>
    */
-  MatchOptions?: (MatchOption | string)[];
+  MatchOptions?: MatchOption[];
 }
 
 /**
@@ -473,13 +473,13 @@ export interface Subscriber {
    * @public
    * <p>The notification delivery channel. </p>
    */
-  Type?: SubscriberType | string;
+  Type?: SubscriberType;
 
   /**
    * @public
    * <p>Indicates if the subscriber accepts the notifications. </p>
    */
-  Status?: SubscriberStatus | string;
+  Status?: SubscriberStatus;
 }
 
 /**
@@ -610,7 +610,7 @@ export interface CostCategoryInheritedValueDimension {
    *             account name. If you specify <code>TAG</code>, the cost category value is based on the
    *             value of the specified tag key.</p>
    */
-  DimensionName?: CostCategoryInheritedValueDimensionName | string;
+  DimensionName?: CostCategoryInheritedValueDimensionName;
 
   /**
    * @public
@@ -685,7 +685,7 @@ export interface CostCategorySplitChargeRuleParameter {
    * @public
    * <p>The parameter type. </p>
    */
-  Type: CostCategorySplitChargeRuleParameterType | string | undefined;
+  Type: CostCategorySplitChargeRuleParameterType | undefined;
 
   /**
    * @public
@@ -726,7 +726,7 @@ export interface CostCategorySplitChargeRule {
    *             allocation percentage.</p>
    *          <p>><code>Even</code> - Allocates costs evenly across all targets.</p>
    */
-  Method: CostCategorySplitChargeMethod | string | undefined;
+  Method: CostCategorySplitChargeMethod | undefined;
 
   /**
    * @public
@@ -938,13 +938,13 @@ export interface CostCategoryProcessingStatus {
    * @public
    * <p>The Cost Management product name of the applied status. </p>
    */
-  Component?: CostCategoryStatusComponent | string;
+  Component?: CostCategoryStatusComponent;
 
   /**
    * @public
    * <p>The process status for a specific cost category. </p>
    */
-  Status?: CostCategoryStatus | string;
+  Status?: CostCategoryStatus;
 }
 
 /**
@@ -974,7 +974,7 @@ export interface TotalImpactFilter {
    * @public
    * <p>The comparing value that's used in the filter. </p>
    */
-  NumericOperator: NumericOperator | string | undefined;
+  NumericOperator: NumericOperator | undefined;
 
   /**
    * @public
@@ -1011,7 +1011,7 @@ export interface GetAnomaliesRequest {
    * @public
    * <p>Filters anomaly results by the feedback field on the anomaly object. </p>
    */
-  Feedback?: AnomalyFeedbackType | string;
+  Feedback?: AnomalyFeedbackType;
 
   /**
    * @public
@@ -1213,7 +1213,7 @@ export interface GroupDefinition {
    * @public
    * <p>The string that represents the type of group.</p>
    */
-  Type?: GroupDefinitionType | string;
+  Type?: GroupDefinitionType;
 
   /**
    * @public
@@ -1446,7 +1446,7 @@ export interface SortDefinition {
    * @public
    * <p>The order that's used to sort the data.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 }
 
 /**
@@ -1959,7 +1959,7 @@ export interface EC2Specification {
    * <p>Indicates whether you want a recommendation for standard or convertible
    *             reservations.</p>
    */
-  OfferingClass?: OfferingClass | string;
+  OfferingClass?: OfferingClass;
 }
 
 /**
@@ -2009,7 +2009,7 @@ export interface ReservationPurchaseRecommendationMetadata {
 
 /**
  * @public
- * <p>Details about the Amazon EC2 instances that Amazon Web Services recommends that you
+ * <p>Details about the Amazon EC2 reservations that Amazon Web Services recommends that you
  *             purchase.</p>
  */
 export interface EC2InstanceDetails {
@@ -2065,8 +2065,8 @@ export interface EC2InstanceDetails {
 
 /**
  * @public
- * <p>Details about the Amazon ElastiCache instances that Amazon Web Services recommends that
- *             you purchase.</p>
+ * <p>Details about the Amazon ElastiCache reservations that Amazon Web Services recommends
+ *             that you purchase.</p>
  */
 export interface ElastiCacheInstanceDetails {
   /**
@@ -2108,8 +2108,8 @@ export interface ElastiCacheInstanceDetails {
 
 /**
  * @public
- * <p>Details about the Amazon OpenSearch Service instances that Amazon Web Services recommends
- *             that you purchase.</p>
+ * <p>Details about the Amazon OpenSearch Service reservations that Amazon Web Services
+ *             recommends that you purchase.</p>
  */
 export interface ESInstanceDetails {
   /**
@@ -2145,7 +2145,44 @@ export interface ESInstanceDetails {
 
 /**
  * @public
- * <p>Details about the Amazon RDS instances that Amazon Web Services recommends that you
+ * <p>Details about the MemoryDB reservations that Amazon Web Services recommends that you
+ *             purchase.</p>
+ */
+export interface MemoryDBInstanceDetails {
+  /**
+   * @public
+   * <p>The instance family of the recommended reservation.</p>
+   */
+  Family?: string;
+
+  /**
+   * @public
+   * <p>The node type of the recommended reservation.</p>
+   */
+  NodeType?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Region of the recommended reservation.</p>
+   */
+  Region?: string;
+
+  /**
+   * @public
+   * <p>Determines whether the recommendation is for a current generation instance.</p>
+   */
+  CurrentGeneration?: boolean;
+
+  /**
+   * @public
+   * <p>Determines whether the recommended reservation is size flexible.</p>
+   */
+  SizeFlexEligible?: boolean;
+}
+
+/**
+ * @public
+ * <p>Details about the Amazon RDS reservations that Amazon Web Services recommends that you
  *             purchase.</p>
  */
 export interface RDSInstanceDetails {
@@ -2207,7 +2244,7 @@ export interface RDSInstanceDetails {
 
 /**
  * @public
- * <p>Details about the Amazon Redshift instances that Amazon Web Services recommends that
+ * <p>Details about the Amazon Redshift reservations that Amazon Web Services recommends that
  *             you purchase.</p>
  */
 export interface RedshiftInstanceDetails {
@@ -2244,41 +2281,50 @@ export interface RedshiftInstanceDetails {
 
 /**
  * @public
- * <p>Details about the instances that Amazon Web Services recommends that you
+ * <p>Details about the reservations that Amazon Web Services recommends that you
  *             purchase.</p>
  */
 export interface InstanceDetails {
   /**
    * @public
-   * <p>The Amazon EC2 instances that Amazon Web Services recommends that you purchase.</p>
+   * <p>The Amazon EC2 reservations that Amazon Web Services recommends that you
+   *             purchase.</p>
    */
   EC2InstanceDetails?: EC2InstanceDetails;
 
   /**
    * @public
-   * <p>The Amazon RDS instances that Amazon Web Services recommends that you purchase.</p>
+   * <p>The Amazon RDS reservations that Amazon Web Services recommends that you
+   *             purchase.</p>
    */
   RDSInstanceDetails?: RDSInstanceDetails;
 
   /**
    * @public
-   * <p>The Amazon Redshift instances that Amazon Web Services recommends that you
+   * <p>The Amazon Redshift reservations that Amazon Web Services recommends that you
    *             purchase.</p>
    */
   RedshiftInstanceDetails?: RedshiftInstanceDetails;
 
   /**
    * @public
-   * <p>The ElastiCache instances that Amazon Web Services recommends that you purchase.</p>
+   * <p>The ElastiCache reservations that Amazon Web Services recommends that you
+   *             purchase.</p>
    */
   ElastiCacheInstanceDetails?: ElastiCacheInstanceDetails;
 
   /**
    * @public
-   * <p>The Amazon OpenSearch Service instances that Amazon Web Services recommends that you
+   * <p>The Amazon OpenSearch Service reservations that Amazon Web Services recommends that you
    *             purchase.</p>
    */
   ESInstanceDetails?: ESInstanceDetails;
+
+  /**
+   * @public
+   * <p>The MemoryDB reservations that Amazon Web Services recommends that you purchase.</p>
+   */
+  MemoryDBInstanceDetails?: MemoryDBInstanceDetails;
 }
 
 /**
@@ -2294,7 +2340,7 @@ export interface ReservationPurchaseRecommendationDetail {
 
   /**
    * @public
-   * <p>Details about the instances that Amazon Web Services recommends that you
+   * <p>Details about the reservations that Amazon Web Services recommends that you
    *             purchase.</p>
    */
   InstanceDetails?: InstanceDetails;
@@ -2461,27 +2507,27 @@ export interface ReservationPurchaseRecommendation {
    *             for. For example, you can purchase this reservation for an entire organization in
    *                 Amazon Web Services Organizations.</p>
    */
-  AccountScope?: AccountScope | string;
+  AccountScope?: AccountScope;
 
   /**
    * @public
    * <p>How many days of previous usage that Amazon Web Services considers when making this
    *             recommendation.</p>
    */
-  LookbackPeriodInDays?: LookbackPeriodInDays | string;
+  LookbackPeriodInDays?: LookbackPeriodInDays;
 
   /**
    * @public
    * <p>The term of the reservation that you want recommendations for, in years.</p>
    */
-  TermInYears?: TermInYears | string;
+  TermInYears?: TermInYears;
 
   /**
    * @public
    * <p>The payment option for the reservation (for example, <code>AllUpfront</code> or
    *                 <code>NoUpfront</code>).</p>
    */
-  PaymentOption?: PaymentOption | string;
+  PaymentOption?: PaymentOption;
 
   /**
    * @public
@@ -2754,7 +2800,7 @@ export interface RightsizingRecommendationConfiguration {
    *             for instances across other families. The default value is
    *                 <code>SAME_INSTANCE_FAMILY</code>. </p>
    */
-  RecommendationTarget: RecommendationTarget | string | undefined;
+  RecommendationTarget: RecommendationTarget | undefined;
 
   /**
    * @public
@@ -2786,7 +2832,7 @@ export interface RightsizingRecommendationMetadata {
    * <p>The number of days of previous usage that Amazon Web Services considers when making
    *             this recommendation.</p>
    */
-  LookbackPeriodInDays?: LookbackPeriodInDays | string;
+  LookbackPeriodInDays?: LookbackPeriodInDays;
 
   /**
    * @public
@@ -3189,7 +3235,7 @@ export interface TargetInstance {
    * <p>Explains the actions that you might need to take to successfully migrate your
    *             workloads from the current instance type to the recommended instance type. </p>
    */
-  PlatformDifferences?: (PlatformDifference | string)[];
+  PlatformDifferences?: PlatformDifference[];
 }
 
 /**
@@ -3260,7 +3306,7 @@ export interface RightsizingRecommendation {
    * @public
    * <p>A recommendation to either terminate or modify the resource.</p>
    */
-  RightsizingType?: RightsizingType | string;
+  RightsizingType?: RightsizingType;
 
   /**
    * @public
@@ -3279,7 +3325,7 @@ export interface RightsizingRecommendation {
    * <p>The list of possible reasons why the recommendation is generated, such as under- or
    *             over-utilization of specific metrics (for example, CPU, Memory, Network). </p>
    */
-  FindingReasonCodes?: (FindingReasonCode | string)[];
+  FindingReasonCodes?: FindingReasonCode[];
 }
 
 /**
@@ -3429,32 +3475,32 @@ export interface RecommendationDetailData {
    *             value is set to PAYER. If the value is LINKED, recommendations are calculated for
    *             individual member accounts only.</p>
    */
-  AccountScope?: AccountScope | string;
+  AccountScope?: AccountScope;
 
   /**
    * @public
    * <p>How many days of previous usage that Amazon Web Services considers when making this
    *             recommendation.</p>
    */
-  LookbackPeriodInDays?: LookbackPeriodInDays | string;
+  LookbackPeriodInDays?: LookbackPeriodInDays;
 
   /**
    * @public
    * <p>The requested Savings Plan recommendation type.</p>
    */
-  SavingsPlansType?: SupportedSavingsPlansType | string;
+  SavingsPlansType?: SupportedSavingsPlansType;
 
   /**
    * @public
    * <p>The term of the commitment in years.</p>
    */
-  TermInYears?: TermInYears | string;
+  TermInYears?: TermInYears;
 
   /**
    * @public
    * <p>The payment option for the commitment (for example, All Upfront or No Upfront).</p>
    */
-  PaymentOption?: PaymentOption | string;
+  PaymentOption?: PaymentOption;
 
   /**
    * @public
@@ -3973,32 +4019,32 @@ export interface SavingsPlansPurchaseRecommendation {
    *             the value is set to <code>PAYER</code>. If the value is <code>LINKED</code>,
    *             recommendations are calculated for individual member accounts only.</p>
    */
-  AccountScope?: AccountScope | string;
+  AccountScope?: AccountScope;
 
   /**
    * @public
    * <p>The requested Savings Plans recommendation type.</p>
    */
-  SavingsPlansType?: SupportedSavingsPlansType | string;
+  SavingsPlansType?: SupportedSavingsPlansType;
 
   /**
    * @public
    * <p>The Savings Plans recommendation term in years. It's used to generate the
    *             recommendation.</p>
    */
-  TermInYears?: TermInYears | string;
+  TermInYears?: TermInYears;
 
   /**
    * @public
    * <p>The payment option that's used to generate the recommendation.</p>
    */
-  PaymentOption?: PaymentOption | string;
+  PaymentOption?: PaymentOption;
 
   /**
    * @public
    * <p>The lookback period in days that's used to generate the recommendation.</p>
    */
-  LookbackPeriodInDays?: LookbackPeriodInDays | string;
+  LookbackPeriodInDays?: LookbackPeriodInDays;
 
   /**
    * @public
@@ -4400,7 +4446,7 @@ export interface ListCostAllocationTagsRequest {
    * @public
    * <p>The status of cost allocation tag keys that are returned for this request. </p>
    */
-  Status?: CostAllocationTagStatus | string;
+  Status?: CostAllocationTagStatus;
 
   /**
    * @public
@@ -4416,7 +4462,7 @@ export interface ListCostAllocationTagsRequest {
    *         <code>UserDefined</code> type tags are tags that you define, create, and apply to resources.
    *     </p>
    */
-  Type?: CostAllocationTagType | string;
+  Type?: CostAllocationTagType;
 
   /**
    * @public
@@ -4453,13 +4499,25 @@ export interface CostAllocationTag {
    *             cost allocation purposes. <code>UserDefined</code> type tags are tags that you define,
    *             create, and apply to resources. </p>
    */
-  Type: CostAllocationTagType | string | undefined;
+  Type: CostAllocationTagType | undefined;
 
   /**
    * @public
    * <p>The status of a cost allocation tag. </p>
    */
-  Status: CostAllocationTagStatus | string | undefined;
+  Status: CostAllocationTagStatus | undefined;
+
+  /**
+   * @public
+   * <p>The last date that the tag was either activated or deactivated.</p>
+   */
+  LastUpdatedDate?: string;
+
+  /**
+   * @public
+   * <p>The last month that the tag was used on an Amazon Web Services resource.</p>
+   */
+  LastUsedDate?: string;
 }
 
 /**
@@ -4605,7 +4663,7 @@ export interface ListSavingsPlansPurchaseRecommendationGenerationRequest {
    * @public
    * <p>The status of the recommendation generation.</p>
    */
-  GenerationStatus?: GenerationStatus | string;
+  GenerationStatus?: GenerationStatus;
 
   /**
    * @public
@@ -4642,7 +4700,7 @@ export interface GenerationSummary {
    * <p>Indicates whether the recommendation generation succeeded, is processing, or
    *             failed.</p>
    */
-  GenerationStatus?: GenerationStatus | string;
+  GenerationStatus?: GenerationStatus;
 
   /**
    * @public
@@ -4719,7 +4777,7 @@ export interface ProvideAnomalyFeedbackRequest {
    * <p>Describes whether the cost anomaly was a planned activity or you considered it an anomaly.
    *     </p>
    */
-  Feedback: AnomalyFeedbackType | string | undefined;
+  Feedback: AnomalyFeedbackType | undefined;
 }
 
 /**
@@ -4943,7 +5001,7 @@ export interface CostAllocationTagStatusEntry {
    * @public
    * <p>The status of a cost allocation tag. </p>
    */
-  Status: CostAllocationTagStatus | string | undefined;
+  Status: CostAllocationTagStatus | undefined;
 }
 
 /**
@@ -5217,13 +5275,13 @@ export interface AnomalyMonitor {
    * @public
    * <p>The possible type values. </p>
    */
-  MonitorType: MonitorType | string | undefined;
+  MonitorType: MonitorType | undefined;
 
   /**
    * @public
    * <p>The dimensions to evaluate. </p>
    */
-  MonitorDimension?: MonitorDimension | string;
+  MonitorDimension?: MonitorDimension;
 
   /**
    * @public
@@ -5425,7 +5483,7 @@ export interface AnomalySubscription {
    *             information, see <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/ad-SNS.html">Creating an Amazon SNS topic for
    *                 anomaly notifications</a>.</p>
    */
-  Frequency: AnomalySubscriptionFrequency | string | undefined;
+  Frequency: AnomalySubscriptionFrequency | undefined;
 
   /**
    * @public
@@ -5530,7 +5588,7 @@ export interface CostCategoryRule {
    *             key. First, choose an inherited value rule type, and then choose the tag dimension and
    *             specify the tag key to use.</p>
    */
-  Type?: CostCategoryRuleType | string;
+  Type?: CostCategoryRuleType;
 }
 
 /**
@@ -5554,7 +5612,7 @@ export interface GetCostAndUsageRequest {
    *       response object doesn't include the <code>Granularity</code>, either <code>MONTHLY</code> or
    *         <code>DAILY</code>, or <code>HOURLY</code>. </p>
    */
-  Granularity: Granularity | string | undefined;
+  Granularity: Granularity | undefined;
 
   /**
    * @public
@@ -5637,7 +5695,7 @@ export interface GetCostAndUsageWithResourcesRequest {
    *       response object doesn't include the <code>Granularity</code>, <code>MONTHLY</code>,
    *         <code>DAILY</code>, or <code>HOURLY</code>. </p>
    */
-  Granularity: Granularity | string | undefined;
+  Granularity: Granularity | undefined;
 
   /**
    * @public
@@ -5950,7 +6008,7 @@ export interface GetCostForecastRequest {
    *             </li>
    *          </ul>
    */
-  Metric: Metric | string | undefined;
+  Metric: Metric | undefined;
 
   /**
    * @public
@@ -5959,7 +6017,7 @@ export interface GetCostForecastRequest {
    *          <p>The <code>GetCostForecast</code> operation supports only <code>DAILY</code> and
    *         <code>MONTHLY</code> granularities.</p>
    */
-  Granularity: Granularity | string | undefined;
+  Granularity: Granularity | undefined;
 
   /**
    * @public
@@ -6121,7 +6179,7 @@ export interface GetDimensionValuesRequest {
    *         <code>Context</code>. For more information, see <code>Context</code>.
    *         <code>LINK_ACCOUNT_NAME</code> and <code>SERVICE_CODE</code> can only be used in <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/AAPI_CostCategoryRule.html">CostCategoryRule</a>. </p>
    */
-  Dimension: Dimension | string | undefined;
+  Dimension: Dimension | undefined;
 
   /**
    * @public
@@ -6303,7 +6361,7 @@ export interface GetDimensionValuesRequest {
    *             </li>
    *          </ul>
    */
-  Context?: Context | string;
+  Context?: Context;
 
   /**
    * @public
@@ -6567,7 +6625,7 @@ export interface GetReservationCoverageRequest {
    *          <p>The <code>GetReservationCoverage</code> operation supports only <code>DAILY</code> and
    *         <code>MONTHLY</code> granularities.</p>
    */
-  Granularity?: Granularity | string;
+  Granularity?: Granularity;
 
   /**
    * @public
@@ -6857,26 +6915,26 @@ export interface GetReservationPurchaseRecommendationRequest {
    *       is set to <code>PAYER</code>. If the value is <code>LINKED</code>, recommendations are
    *       calculated for individual member accounts only.</p>
    */
-  AccountScope?: AccountScope | string;
+  AccountScope?: AccountScope;
 
   /**
    * @public
    * <p>The number of previous days that you want Amazon Web Services to consider when it
    *       calculates your recommendations.</p>
    */
-  LookbackPeriodInDays?: LookbackPeriodInDays | string;
+  LookbackPeriodInDays?: LookbackPeriodInDays;
 
   /**
    * @public
    * <p>The reservation term that you want recommendations for.</p>
    */
-  TermInYears?: TermInYears | string;
+  TermInYears?: TermInYears;
 
   /**
    * @public
    * <p>The reservation purchase option that you want recommendations for.</p>
    */
-  PaymentOption?: PaymentOption | string;
+  PaymentOption?: PaymentOption;
 
   /**
    * @public
@@ -6930,7 +6988,7 @@ export interface GetReservationUtilizationRequest {
    *          <p>The <code>GetReservationUtilization</code> operation supports only <code>DAILY</code> and
    *         <code>MONTHLY</code> granularities.</p>
    */
-  Granularity?: Granularity | string;
+  Granularity?: Granularity;
 
   /**
    * @public
@@ -7279,7 +7337,7 @@ export interface GetSavingsPlansCoverageRequest {
    *          <p>The <code>GetSavingsPlansCoverage</code> operation supports only <code>DAILY</code> and
    *         <code>MONTHLY</code> granularities.</p>
    */
-  Granularity?: Granularity | string;
+  Granularity?: Granularity;
 
   /**
    * @public
@@ -7391,19 +7449,19 @@ export interface GetSavingsPlansPurchaseRecommendationRequest {
    * @public
    * <p>The Savings Plans recommendation type that's requested.</p>
    */
-  SavingsPlansType: SupportedSavingsPlansType | string | undefined;
+  SavingsPlansType: SupportedSavingsPlansType | undefined;
 
   /**
    * @public
    * <p>The savings plan recommendation term that's used to generate these recommendations.</p>
    */
-  TermInYears: TermInYears | string | undefined;
+  TermInYears: TermInYears | undefined;
 
   /**
    * @public
    * <p>The payment option that's used to generate these recommendations.</p>
    */
-  PaymentOption: PaymentOption | string | undefined;
+  PaymentOption: PaymentOption | undefined;
 
   /**
    * @public
@@ -7412,7 +7470,7 @@ export interface GetSavingsPlansPurchaseRecommendationRequest {
    *         <code>PAYER</code>. If the value is <code>LINKED</code>, recommendations are calculated for
    *       individual member accounts only.</p>
    */
-  AccountScope?: AccountScope | string;
+  AccountScope?: AccountScope;
 
   /**
    * @public
@@ -7431,7 +7489,7 @@ export interface GetSavingsPlansPurchaseRecommendationRequest {
    * @public
    * <p>The lookback period that's used to generate the recommendation.</p>
    */
-  LookbackPeriodInDays: LookbackPeriodInDays | string | undefined;
+  LookbackPeriodInDays: LookbackPeriodInDays | undefined;
 
   /**
    * @public
@@ -7502,7 +7560,7 @@ export interface GetSavingsPlansUtilizationDetailsRequest {
    * @public
    * <p>The data type.</p>
    */
-  DataType?: (SavingsPlansDataType | string)[];
+  DataType?: SavingsPlansDataType[];
 
   /**
    * @public
@@ -7584,7 +7642,7 @@ export interface GetSavingsPlansUtilizationRequest {
    *          <p>The <code>GetSavingsPlansUtilization</code> operation supports only <code>DAILY</code> and
    *         <code>MONTHLY</code> granularities.</p>
    */
-  Granularity?: Granularity | string;
+  Granularity?: Granularity;
 
   /**
    * @public
@@ -7912,7 +7970,7 @@ export interface GetUsageForecastRequest {
    *             </li>
    *          </ul>
    */
-  Metric: Metric | string | undefined;
+  Metric: Metric | undefined;
 
   /**
    * @public
@@ -7921,7 +7979,7 @@ export interface GetUsageForecastRequest {
    *          <p>The <code>GetUsageForecast</code> operation supports only <code>DAILY</code> and
    *         <code>MONTHLY</code> granularities.</p>
    */
-  Granularity: Granularity | string | undefined;
+  Granularity: Granularity | undefined;
 
   /**
    * @public
@@ -8084,7 +8142,7 @@ export interface UpdateAnomalySubscriptionRequest {
    * @public
    * <p>The update to the frequency value that subscribers receive notifications. </p>
    */
-  Frequency?: AnomalySubscriptionFrequency | string;
+  Frequency?: AnomalySubscriptionFrequency;
 
   /**
    * @public
@@ -8280,7 +8338,7 @@ export interface CostCategory {
    * @public
    * <p>The rule schema version in this particular Cost Category.</p>
    */
-  RuleVersion: CostCategoryRuleVersion | string | undefined;
+  RuleVersion: CostCategoryRuleVersion | undefined;
 
   /**
    * @public
@@ -8332,7 +8390,7 @@ export interface CreateCostCategoryDefinitionRequest {
    * @public
    * <p>The rule schema version in this particular Cost Category.</p>
    */
-  RuleVersion: CostCategoryRuleVersion | string | undefined;
+  RuleVersion: CostCategoryRuleVersion | undefined;
 
   /**
    * @public
@@ -8451,7 +8509,7 @@ export interface UpdateCostCategoryDefinitionRequest {
    * @public
    * <p>The rule schema version in this particular Cost Category.</p>
    */
-  RuleVersion: CostCategoryRuleVersion | string | undefined;
+  RuleVersion: CostCategoryRuleVersion | undefined;
 
   /**
    * @public

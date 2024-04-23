@@ -10,16 +10,18 @@ import { RestXmlProtocolClientConfig } from "./RestXmlProtocolClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: RestXmlProtocolClientConfig) => ({
-  apiVersion: "2019-12-16",
-  base64Decoder: config?.base64Decoder ?? fromBase64,
-  base64Encoder: config?.base64Encoder ?? toBase64,
-  disableHostPrefix: config?.disableHostPrefix ?? false,
-  extensions: config?.extensions ?? [],
-  logger: config?.logger ?? new NoOpLogger(),
-  regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
-  serviceId: config?.serviceId ?? "Rest Xml Protocol",
-  urlParser: config?.urlParser ?? parseUrl,
-  utf8Decoder: config?.utf8Decoder ?? fromUtf8,
-  utf8Encoder: config?.utf8Encoder ?? toUtf8,
-});
+export const getRuntimeConfig = (config: RestXmlProtocolClientConfig) => {
+  return {
+    apiVersion: "2019-12-16",
+    base64Decoder: config?.base64Decoder ?? fromBase64,
+    base64Encoder: config?.base64Encoder ?? toBase64,
+    disableHostPrefix: config?.disableHostPrefix ?? false,
+    extensions: config?.extensions ?? [],
+    logger: config?.logger ?? new NoOpLogger(),
+    regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
+    serviceId: config?.serviceId ?? "Rest Xml Protocol",
+    urlParser: config?.urlParser ?? parseUrl,
+    utf8Decoder: config?.utf8Decoder ?? fromUtf8,
+    utf8Encoder: config?.utf8Encoder ?? toUtf8,
+  };
+};

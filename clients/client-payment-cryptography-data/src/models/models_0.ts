@@ -80,7 +80,7 @@ export interface AsymmetricEncryptionAttributes {
    * @public
    * <p>The padding to be included with the data.</p>
    */
-  PaddingType?: PaddingType | string;
+  PaddingType?: PaddingType;
 }
 
 /**
@@ -726,20 +726,20 @@ export interface DukptEncryptionAttributes {
    * <p>The block cipher mode of operation. Block ciphers are designed to encrypt a block of data of fixed size, for example, 128 bits. The size of the input block is usually same as the size of the encrypted output block, while the key length can be different. A mode of operation describes how to repeatedly apply a cipher's single-block operation to securely transform amounts of data larger than a block.</p>
    *          <p>The default is CBC.</p>
    */
-  Mode?: DukptEncryptionMode | string;
+  Mode?: DukptEncryptionMode;
 
   /**
    * @public
    * <p>The key type encrypted using DUKPT from a Base Derivation Key (BDK) and Key Serial Number (KSN). This must be less than or equal to the strength of the BDK. For example, you can't use <code>AES_128</code> as a derivation type for a BDK of <code>AES_128</code> or <code>TDES_2KEY</code>
    *          </p>
    */
-  DukptKeyDerivationType?: DukptDerivationType | string;
+  DukptKeyDerivationType?: DukptDerivationType;
 
   /**
    * @public
    * <p>The type of use of DUKPT, which can be incoming data decryption, outgoing data encryption, or both.</p>
    */
-  DukptKeyVariant?: DukptKeyVariant | string;
+  DukptKeyVariant?: DukptKeyVariant;
 
   /**
    * @public
@@ -777,7 +777,7 @@ export interface SymmetricEncryptionAttributes {
    * @public
    * <p>The block cipher mode of operation. Block ciphers are designed to encrypt a block of data of fixed size (for example, 128 bits). The size of the input block is usually same as the size of the encrypted output block, while the key length can be different. A mode of operation describes how to repeatedly apply a cipher's single-block operation to securely transform amounts of data larger than a block.</p>
    */
-  Mode: EncryptionMode | string | undefined;
+  Mode: EncryptionMode | undefined;
 
   /**
    * @public
@@ -789,7 +789,7 @@ export interface SymmetricEncryptionAttributes {
    * @public
    * <p>The padding to be included with the data.</p>
    */
-  PaddingType?: PaddingType | string;
+  PaddingType?: PaddingType;
 }
 
 /**
@@ -1040,7 +1040,7 @@ export interface DukptAttributes {
    * @public
    * <p>The key type derived using DUKPT from a Base Derivation Key (BDK) and Key Serial Number (KSN). This must be less than or equal to the strength of the BDK. For example, you can't use <code>AES_128</code> as a derivation type for a BDK of <code>AES_128</code> or <code>TDES_2KEY</code>.</p>
    */
-  DukptDerivationType: DukptDerivationType | string | undefined;
+  DukptDerivationType: DukptDerivationType | undefined;
 }
 
 /**
@@ -1059,13 +1059,13 @@ export interface DukptDerivationAttributes {
    * <p>The key type derived using DUKPT from a Base Derivation Key (BDK) and Key Serial Number (KSN). This must be less than or equal to the strength of the BDK. For example, you can't use <code>AES_128</code> as a derivation type for a BDK of <code>AES_128</code> or <code>TDES_2KEY</code>
    *          </p>
    */
-  DukptKeyDerivationType?: DukptDerivationType | string;
+  DukptKeyDerivationType?: DukptDerivationType;
 
   /**
    * @public
    * <p>The type of use of DUKPT, which can be for incoming data decryption, outgoing data encryption, or both.</p>
    */
-  DukptKeyVariant?: DukptKeyVariant | string;
+  DukptKeyVariant?: DukptKeyVariant;
 }
 
 /**
@@ -1105,7 +1105,7 @@ export interface EncryptDataOutput {
    * @public
    * <p>The key check value (KCV) of the encryption key. The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed. Amazon Web Services Payment Cryptography calculates the KCV by using standard algorithms, typically by encrypting 8 or 16 bytes or "00" or "01" and then truncating the result to the first 3 bytes, or 6 hex digits, of the resulting cryptogram.</p>
    */
-  KeyCheckValue: string | undefined;
+  KeyCheckValue?: string;
 
   /**
    * @public
@@ -1200,13 +1200,13 @@ export interface MacAlgorithmDukpt {
    * @public
    * <p>The type of use of DUKPT, which can be MAC generation, MAC verification, or both.</p>
    */
-  DukptKeyVariant: DukptKeyVariant | string | undefined;
+  DukptKeyVariant: DukptKeyVariant | undefined;
 
   /**
    * @public
    * <p>The key type derived using DUKPT from a Base Derivation Key (BDK) and Key Serial Number (KSN). This must be less than or equal to the strength of the BDK. For example, you can't use <code>AES_128</code> as a derivation type for a BDK of <code>AES_128</code> or <code>TDES_2KEY</code>.</p>
    */
-  DukptDerivationType?: DukptDerivationType | string;
+  DukptDerivationType?: DukptDerivationType;
 }
 
 /**
@@ -1305,7 +1305,7 @@ export interface MacAlgorithmEmv {
    * @public
    * <p>The method to use when deriving the master key for EMV MAC generation or verification.</p>
    */
-  MajorKeyDerivationMode: MajorKeyDerivationMode | string | undefined;
+  MajorKeyDerivationMode: MajorKeyDerivationMode | undefined;
 
   /**
    * @public
@@ -1323,7 +1323,7 @@ export interface MacAlgorithmEmv {
    * @public
    * <p>The method of deriving a session key for EMV MAC generation or verification.</p>
    */
-  SessionKeyDerivationMode: SessionKeyDerivationMode | string | undefined;
+  SessionKeyDerivationMode: SessionKeyDerivationMode | undefined;
 
   /**
    * @public
@@ -1353,7 +1353,7 @@ export namespace MacAttributes {
    * <p>The encryption algorithm for MAC generation or verification.</p>
    */
   export interface AlgorithmMember {
-    Algorithm: MacAlgorithm | string;
+    Algorithm: MacAlgorithm;
     EmvMac?: never;
     DukptIso9797Algorithm1?: never;
     DukptIso9797Algorithm3?: never;
@@ -1426,7 +1426,7 @@ export namespace MacAttributes {
   }
 
   export interface Visitor<T> {
-    Algorithm: (value: MacAlgorithm | string) => T;
+    Algorithm: (value: MacAlgorithm) => T;
     EmvMac: (value: MacAlgorithmEmv) => T;
     DukptIso9797Algorithm1: (value: MacAlgorithmDukpt) => T;
     DukptIso9797Algorithm3: (value: MacAlgorithmDukpt) => T;
@@ -1824,7 +1824,7 @@ export interface GeneratePinDataInput {
    *          <p>The <code>ISO_Format_0</code> PIN block format is equivalent to the ANSI X9.8, VISA-1, and ECI-1 PIN block formats. It is similar to a VISA-4 PIN block format. It supports a PIN from 4 to 12 digits in length.</p>
    *          <p>The <code>ISO_Format_3</code> PIN block format is the same as <code>ISO_Format_0</code> except that the fill digits are random values from 10 to 15.</p>
    */
-  PinBlockFormat: PinBlockFormatForPinData | string | undefined;
+  PinBlockFormat: PinBlockFormatForPinData | undefined;
 }
 
 /**
@@ -2269,7 +2269,7 @@ export class VerificationFailedException extends __BaseException {
    * @public
    * <p>The reason for the exception.</p>
    */
-  Reason: VerificationFailedReason | string | undefined;
+  Reason: VerificationFailedReason | undefined;
 
   Message: string | undefined;
   /**
@@ -2539,7 +2539,7 @@ export interface VerifyAuthRequestCryptogramInput {
    * @public
    * <p>The method to use when deriving the major encryption key for ARQC verification within Amazon Web Services Payment Cryptography. The same key derivation mode was used for ARQC generation outside of Amazon Web Services Payment Cryptography.</p>
    */
-  MajorKeyDerivationMode: MajorKeyDerivationMode | string | undefined;
+  MajorKeyDerivationMode: MajorKeyDerivationMode | undefined;
 
   /**
    * @public
@@ -2788,7 +2788,7 @@ export interface VerifyPinDataInput {
    *          <p>The <code>ISO_Format_0</code> PIN block format is equivalent to the ANSI X9.8, VISA-1, and ECI-1 PIN block formats. It is similar to a VISA-4 PIN block format. It supports a PIN from 4 to 12 digits in length.</p>
    *          <p>The <code>ISO_Format_3</code> PIN block format is the same as <code>ISO_Format_0</code> except that the fill digits are random values from 10 to 15.</p>
    */
-  PinBlockFormat: PinBlockFormatForPinData | string | undefined;
+  PinBlockFormat: PinBlockFormatForPinData | undefined;
 
   /**
    * @public
@@ -2931,6 +2931,7 @@ export const MacAttributesFilterSensitiveLog = (obj: MacAttributes): any => {
  */
 export const GenerateMacInputFilterSensitiveLog = (obj: GenerateMacInput): any => ({
   ...obj,
+  ...(obj.MessageData && { MessageData: SENSITIVE_STRING }),
   ...(obj.GenerationAttributes && { GenerationAttributes: MacAttributesFilterSensitiveLog(obj.GenerationAttributes) }),
 });
 
@@ -3007,6 +3008,7 @@ export const TranslatePinDataInputFilterSensitiveLog = (obj: TranslatePinDataInp
   ...(obj.OutgoingTranslationAttributes && {
     OutgoingTranslationAttributes: TranslationIsoFormatsFilterSensitiveLog(obj.OutgoingTranslationAttributes),
   }),
+  ...(obj.EncryptedPinBlock && { EncryptedPinBlock: SENSITIVE_STRING }),
 });
 
 /**
@@ -3086,6 +3088,8 @@ export const VerifyCardValidationDataInputFilterSensitiveLog = (obj: VerifyCardV
  */
 export const VerifyMacInputFilterSensitiveLog = (obj: VerifyMacInput): any => ({
   ...obj,
+  ...(obj.MessageData && { MessageData: SENSITIVE_STRING }),
+  ...(obj.Mac && { Mac: SENSITIVE_STRING }),
   ...(obj.VerificationAttributes && {
     VerificationAttributes: MacAttributesFilterSensitiveLog(obj.VerificationAttributes),
   }),

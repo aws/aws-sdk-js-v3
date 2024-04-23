@@ -39,16 +39,12 @@ public final class AddEventBridgePlugin implements TypeScriptIntegration {
         if (!testServiceId(settings.getService(model))) {
             return Collections.emptyMap();
         }
-        if (settings.getExperimentalIdentityAndAuth()) {
-            return Collections.emptyMap();
-        }
-        // feat(experimentalIdentityAndAuth): control branch for EventBridge runtime config
         switch (target) {
             case SHARED:
                 return MapUtils.of("signerConstructor", writer -> {
                     writer.addDependency(AwsDependency.SIGNATURE_V4_MULTIREGION)
                     .addImport("SignatureV4MultiRegion", "SignatureV4MultiRegion",
-                            AwsDependency.SIGNATURE_V4_MULTIREGION.packageName)
+                            AwsDependency.SIGNATURE_V4_MULTIREGION)
                     .write("SignatureV4MultiRegion");
                 });
             default:

@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteStateMachineInput, DeleteStateMachineOutput } from "../models/models_0";
 import { de_DeleteStateMachineCommand, se_DeleteStateMachineCommand } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
@@ -36,8 +28,8 @@ export interface DeleteStateMachineCommandOutput extends DeleteStateMachineOutpu
 
 /**
  * @public
- * <p>Deletes a state machine. This is an asynchronous operation: It sets the state machine's
- *       status to <code>DELETING</code> and begins the deletion process. </p>
+ * <p>Deletes a state machine. This is an asynchronous operation. It sets the state machine's
+ *       status to <code>DELETING</code> and begins the deletion process. A state machine is deleted only when all its executions are completed. On the next state transition, the state machine's executions are terminated.</p>
  *          <p>A qualified state machine ARN can either refer to a <i>Distributed Map state</i> defined within a state machine, a version ARN, or an alias ARN.</p>
  *          <p>The following are some examples of qualified and unqualified state machine ARNs:</p>
  *          <ul>
@@ -94,79 +86,26 @@ export interface DeleteStateMachineCommandOutput extends DeleteStateMachineOutpu
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
  */
-export class DeleteStateMachineCommand extends $Command<
-  DeleteStateMachineCommandInput,
-  DeleteStateMachineCommandOutput,
-  SFNClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeleteStateMachineCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SFNClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DeleteStateMachineCommandInput, DeleteStateMachineCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteStateMachineCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SFNClient";
-    const commandName = "DeleteStateMachineCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DeleteStateMachineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteStateMachineCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteStateMachineCommandOutput> {
-    return de_DeleteStateMachineCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DeleteStateMachineCommand extends $Command
+  .classBuilder<
+    DeleteStateMachineCommandInput,
+    DeleteStateMachineCommandOutput,
+    SFNClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSStepFunctions", "DeleteStateMachine", {})
+  .n("SFNClient", "DeleteStateMachineCommand")
+  .f(void 0, void 0)
+  .ser(se_DeleteStateMachineCommand)
+  .de(de_DeleteStateMachineCommand)
+  .build() {}

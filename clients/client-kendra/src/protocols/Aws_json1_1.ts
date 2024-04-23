@@ -212,6 +212,8 @@ import {
   BoxConfiguration,
   CapacityUnitsConfiguration,
   ClearQuerySuggestionsRequest,
+  CollapseConfiguration,
+  CollapsedResultDetail,
   ColumnConfiguration,
   ConflictException,
   ConfluenceAttachmentConfiguration,
@@ -281,6 +283,8 @@ import {
   DocumentsMetadataConfiguration,
   EntityConfiguration,
   EntityPersonaConfiguration,
+  ExpandConfiguration,
+  ExpandedResultItem,
   ExperienceConfiguration,
   ExperiencesSummary,
   FaqSummary,
@@ -5504,6 +5508,8 @@ const se_ClickFeedbackList = (input: ClickFeedback[], context: __SerdeContext): 
     });
 };
 
+// se_CollapseConfiguration omitted.
+
 // se_ColumnConfiguration omitted.
 
 // se_ConfluenceAttachmentConfiguration omitted.
@@ -5896,6 +5902,8 @@ const se_DocumentList = (input: Document[], context: __SerdeContext): any => {
 
 // se_ExcludeUserAccountsList omitted.
 
+// se_ExpandConfiguration omitted.
+
 // se_ExperienceConfiguration omitted.
 
 /**
@@ -6086,6 +6094,7 @@ const se_ListDataSourceSyncJobsRequest = (input: ListDataSourceSyncJobsRequest, 
 const se_QueryRequest = (input: QueryRequest, context: __SerdeContext): any => {
   return take(input, {
     AttributeFilter: (_) => se_AttributeFilter(_, context),
+    CollapseConfiguration: _json,
     DocumentRelevanceOverrideConfigurations: _json,
     Facets: (_) => se_FacetList(_, context),
     IndexId: [],
@@ -6095,6 +6104,7 @@ const se_QueryRequest = (input: QueryRequest, context: __SerdeContext): any => {
     QueryText: [],
     RequestedDocumentAttributes: _json,
     SortingConfiguration: _json,
+    SortingConfigurations: _json,
     SpellCorrectionConfiguration: _json,
     UserContext: _json,
     VisitorId: [],
@@ -6186,6 +6196,8 @@ const se_RetrieveRequest = (input: RetrieveRequest, context: __SerdeContext): an
 // se_SlackEntityList omitted.
 
 // se_SortingConfiguration omitted.
+
+// se_SortingConfigurationList omitted.
 
 // se_SpellCorrectionConfiguration omitted.
 
@@ -6379,6 +6391,16 @@ const se_WebCrawlerConfiguration = (input: WebCrawlerConfiguration, context: __S
 // de_CapacityUnitsConfiguration omitted.
 
 // de_ChangeDetectingColumns omitted.
+
+/**
+ * deserializeAws_json1_1CollapsedResultDetail
+ */
+const de_CollapsedResultDetail = (output: any, context: __SerdeContext): CollapsedResultDetail => {
+  return take(output, {
+    DocumentAttribute: (_: any) => de_DocumentAttribute(_, context),
+    ExpandedResults: (_: any) => de_ExpandedResultList(_, context),
+  }) as any;
+};
 
 // de_ColumnConfiguration omitted.
 
@@ -6831,6 +6853,32 @@ const de_DocumentAttributeValueCountPairList = (
 // de_ExcludeSharedDrivesList omitted.
 
 // de_ExcludeUserAccountsList omitted.
+
+/**
+ * deserializeAws_json1_1ExpandedResultItem
+ */
+const de_ExpandedResultItem = (output: any, context: __SerdeContext): ExpandedResultItem => {
+  return take(output, {
+    DocumentAttributes: (_: any) => de_DocumentAttributeList(_, context),
+    DocumentExcerpt: _json,
+    DocumentId: __expectString,
+    DocumentTitle: _json,
+    DocumentURI: __expectString,
+    Id: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ExpandedResultList
+ */
+const de_ExpandedResultList = (output: any, context: __SerdeContext): ExpandedResultItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ExpandedResultItem(entry, context);
+    });
+  return retVal;
+};
 
 // de_ExperienceConfiguration omitted.
 
@@ -7285,6 +7333,7 @@ const de_QueryResult = (output: any, context: __SerdeContext): QueryResult => {
 const de_QueryResultItem = (output: any, context: __SerdeContext): QueryResultItem => {
   return take(output, {
     AdditionalAttributes: _json,
+    CollapsedResultDetail: (_: any) => de_CollapsedResultDetail(_, context),
     DocumentAttributes: (_: any) => de_DocumentAttributeList(_, context),
     DocumentExcerpt: _json,
     DocumentId: __expectString,
@@ -7380,6 +7429,7 @@ const de_RetrieveResultItem = (output: any, context: __SerdeContext): RetrieveRe
     DocumentTitle: __expectString,
     DocumentURI: __expectString,
     Id: __expectString,
+    ScoreAttributes: _json,
   }) as any;
 };
 

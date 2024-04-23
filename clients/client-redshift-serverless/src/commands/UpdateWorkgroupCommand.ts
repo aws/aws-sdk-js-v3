@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateWorkgroupRequest, UpdateWorkgroupResponse } from "../models/models_0";
 import { de_UpdateWorkgroupCommand, se_UpdateWorkgroupCommand } from "../protocols/Aws_json1_1";
 import {
@@ -66,6 +58,7 @@ export interface UpdateWorkgroupCommandOutput extends UpdateWorkgroupResponse, _
  *     "STRING_VALUE",
  *   ],
  *   port: Number("int"),
+ *   maxCapacity: Number("int"),
  * };
  * const command = new UpdateWorkgroupCommand(input);
  * const response = await client.send(command);
@@ -111,6 +104,15 @@ export interface UpdateWorkgroupCommandOutput extends UpdateWorkgroupResponse, _
  * //     publiclyAccessible: true || false,
  * //     creationDate: new Date("TIMESTAMP"),
  * //     port: Number("int"),
+ * //     customDomainName: "STRING_VALUE",
+ * //     customDomainCertificateArn: "STRING_VALUE",
+ * //     customDomainCertificateExpiryTime: new Date("TIMESTAMP"),
+ * //     workgroupVersion: "STRING_VALUE",
+ * //     patchVersion: "STRING_VALUE",
+ * //     maxCapacity: Number("int"),
+ * //     crossAccountVpcs: [ // VpcIds
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *
@@ -141,79 +143,26 @@ export interface UpdateWorkgroupCommandOutput extends UpdateWorkgroupResponse, _
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
-export class UpdateWorkgroupCommand extends $Command<
-  UpdateWorkgroupCommandInput,
-  UpdateWorkgroupCommandOutput,
-  RedshiftServerlessClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateWorkgroupCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RedshiftServerlessClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateWorkgroupCommandInput, UpdateWorkgroupCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateWorkgroupCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RedshiftServerlessClient";
-    const commandName = "UpdateWorkgroupCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateWorkgroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateWorkgroupCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWorkgroupCommandOutput> {
-    return de_UpdateWorkgroupCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateWorkgroupCommand extends $Command
+  .classBuilder<
+    UpdateWorkgroupCommandInput,
+    UpdateWorkgroupCommandOutput,
+    RedshiftServerlessClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("RedshiftServerless", "UpdateWorkgroup", {})
+  .n("RedshiftServerlessClient", "UpdateWorkgroupCommand")
+  .f(void 0, void 0)
+  .ser(se_UpdateWorkgroupCommand)
+  .de(de_UpdateWorkgroupCommand)
+  .build() {}

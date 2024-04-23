@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import { PutRecordInput, PutRecordOutput } from "../models/models_0";
 import { de_PutRecordCommand, se_PutRecordCommand } from "../protocols/Aws_json1_1";
@@ -41,8 +33,9 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  *             subsequent processing, one record at a time. Each shard can support writes up to 1,000
  *             records per second, up to a maximum data write total of 1 MiB per second.</p>
  *          <note>
- *             <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input
- *                 parameter rather than the <code>StreamName</code> input parameter.</p>
+ *             <p>When invoking this API, you must use either the <code>StreamARN</code> or the
+ *                     <code>StreamName</code> parameter, or both. It is recommended that you use the
+ *                     <code>StreamARN</code> input parameter when you invoke this API.</p>
  *          </note>
  *          <p>You must specify the name of the stream that captures, stores, and transports the
  *             data; a partition key; and the data blob itself.</p>
@@ -156,79 +149,28 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
-export class PutRecordCommand extends $Command<
-  PutRecordCommandInput,
-  PutRecordCommandOutput,
-  KinesisClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      OperationType: { type: "staticContextParams", value: `data` },
-      StreamARN: { type: "contextParams", name: "StreamARN" },
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PutRecordCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: KinesisClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PutRecordCommandInput, PutRecordCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, PutRecordCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "KinesisClient";
-    const commandName = "PutRecordCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: PutRecordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PutRecordCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRecordCommandOutput> {
-    return de_PutRecordCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class PutRecordCommand extends $Command
+  .classBuilder<
+    PutRecordCommandInput,
+    PutRecordCommandOutput,
+    KinesisClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+    OperationType: { type: "staticContextParams", value: `data` },
+    StreamARN: { type: "contextParams", name: "StreamARN" },
+  })
+  .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("Kinesis_20131202", "PutRecord", {})
+  .n("KinesisClient", "PutRecordCommand")
+  .f(void 0, void 0)
+  .ser(se_PutRecordCommand)
+  .de(de_PutRecordCommand)
+  .build() {}

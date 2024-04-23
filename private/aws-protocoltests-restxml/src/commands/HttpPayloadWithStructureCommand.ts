@@ -1,16 +1,7 @@
 // smithy-typescript generated code
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { HttpPayloadWithStructureInputOutput } from "../models/models_0";
 import { de_HttpPayloadWithStructureCommand, se_HttpPayloadWithStructureCommand } from "../protocols/Aws_restXml";
@@ -35,7 +26,7 @@ export interface HttpPayloadWithStructureCommandOutput extends HttpPayloadWithSt
 
 /**
  * @public
- * This examples serializes a structure in the payload.
+ * This example serializes a structure in the payload.
  *
  * Note that serializing a structure changes the wrapper element name
  * to match the targeted structure.
@@ -72,67 +63,20 @@ export interface HttpPayloadWithStructureCommandOutput extends HttpPayloadWithSt
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
  */
-export class HttpPayloadWithStructureCommand extends $Command<
-  HttpPayloadWithStructureCommandInput,
-  HttpPayloadWithStructureCommandOutput,
-  RestXmlProtocolClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  /**
-   * @public
-   */
-  constructor(readonly input: HttpPayloadWithStructureCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RestXmlProtocolClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<HttpPayloadWithStructureCommandInput, HttpPayloadWithStructureCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RestXmlProtocolClient";
-    const commandName = "HttpPayloadWithStructureCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: HttpPayloadWithStructureCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_HttpPayloadWithStructureCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HttpPayloadWithStructureCommandOutput> {
-    return de_HttpPayloadWithStructureCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class HttpPayloadWithStructureCommand extends $Command
+  .classBuilder<
+    HttpPayloadWithStructureCommandInput,
+    HttpPayloadWithStructureCommandOutput,
+    RestXmlProtocolClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .m(function (this: any, Command: any, cs: any, config: RestXmlProtocolClientResolvedConfig, o: any) {
+    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+  })
+  .s("RestXml", "HttpPayloadWithStructure", {})
+  .n("RestXmlProtocolClient", "HttpPayloadWithStructureCommand")
+  .f(void 0, void 0)
+  .ser(se_HttpPayloadWithStructureCommand)
+  .de(de_HttpPayloadWithStructureCommand)
+  .build() {}

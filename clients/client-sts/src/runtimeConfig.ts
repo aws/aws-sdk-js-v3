@@ -3,6 +3,7 @@
 import packageInfo from "../package.json"; // eslint-disable-line
 
 import { decorateDefaultCredentialProvider } from "./defaultStsRoleAssumers";
+import { AwsSdkSigV4Signer, emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/core";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
 import {
@@ -11,10 +12,12 @@ import {
   NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS,
   NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS,
 } from "@smithy/config-resolver";
+import { NoAuthSigner } from "@smithy/core";
 import { Hash } from "@smithy/hash-node";
 import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS } from "@smithy/middleware-retry";
 import { loadConfig as loadNodeConfig } from "@smithy/node-config-provider";
 import { NodeHttpHandler as RequestHandler, streamCollector } from "@smithy/node-http-handler";
+import { IdentityProviderConfig } from "@smithy/types";
 import { calculateBodyLength } from "@smithy/util-body-length-node";
 import { DEFAULT_RETRY_MODE } from "@smithy/util-retry";
 import { STSClientConfig } from "./STSClient";
@@ -31,6 +34,7 @@ export const getRuntimeConfig = (config: STSClientConfig) => {
   const defaultsMode = resolveDefaultsModeConfig(config);
   const defaultConfigProvider = () => defaultsMode().then(loadConfigsForDefaultMode);
   const clientSharedValues = getSharedRuntimeConfig(config);
+  awsCheckVersion(process.version);
   return {
     ...clientSharedValues,
     ...config,
@@ -42,6 +46,22 @@ export const getRuntimeConfig = (config: STSClientConfig) => {
     defaultUserAgentProvider:
       config?.defaultUserAgentProvider ??
       defaultUserAgent({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
+    httpAuthSchemes: config?.httpAuthSchemes ?? [
+      {
+        schemeId: "aws.auth#sigv4",
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("aws.auth#sigv4") ||
+          (async (idProps) =>
+            await decorateDefaultCredentialProvider(credentialDefaultProvider)(idProps?.__config || {})()),
+        signer: new AwsSdkSigV4Signer(),
+      },
+      {
+        schemeId: "smithy.api#noAuth",
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("smithy.api#noAuth") || (async () => ({})),
+        signer: new NoAuthSigner(),
+      },
+    ],
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
     region: config?.region ?? loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),
     requestHandler: config?.requestHandler ?? new RequestHandler(defaultConfigProvider),

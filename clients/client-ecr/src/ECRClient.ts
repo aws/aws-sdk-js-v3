@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -165,7 +163,15 @@ import {
 } from "./commands/StartLifecyclePolicyPreviewCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdatePullThroughCacheRuleCommandInput,
+  UpdatePullThroughCacheRuleCommandOutput,
+} from "./commands/UpdatePullThroughCacheRuleCommand";
 import { UploadLayerPartCommandInput, UploadLayerPartCommandOutput } from "./commands/UploadLayerPartCommand";
+import {
+  ValidatePullThroughCacheRuleCommandInput,
+  ValidatePullThroughCacheRuleCommandOutput,
+} from "./commands/ValidatePullThroughCacheRuleCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -221,7 +227,9 @@ export type ServiceInputTypes =
   | StartLifecyclePolicyPreviewCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
-  | UploadLayerPartCommandInput;
+  | UpdatePullThroughCacheRuleCommandInput
+  | UploadLayerPartCommandInput
+  | ValidatePullThroughCacheRuleCommandInput;
 
 /**
  * @public
@@ -267,7 +275,9 @@ export type ServiceOutputTypes =
   | StartLifecyclePolicyPreviewCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
-  | UploadLayerPartCommandOutput;
+  | UpdatePullThroughCacheRuleCommandOutput
+  | UploadLayerPartCommandOutput
+  | ValidatePullThroughCacheRuleCommandOutput;
 
 /**
  * @public
@@ -379,6 +389,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 
@@ -440,13 +452,13 @@ export interface ECRClientResolvedConfig extends ECRClientResolvedConfigType {}
 /**
  * @public
  * <fullname>Amazon Elastic Container Registry</fullname>
- *         <p>Amazon Elastic Container Registry (Amazon ECR) is a managed container image registry service. Customers can use the
+ *          <p>Amazon Elastic Container Registry (Amazon ECR) is a managed container image registry service. Customers can use the
  *             familiar Docker CLI, or their preferred client, to push, pull, and manage images. Amazon ECR
  *             provides a secure, scalable, and reliable registry for your Docker or Open Container
  *             Initiative (OCI) images. Amazon ECR supports private repositories with resource-based
  *             permissions using IAM so that specific users or Amazon EC2 instances can access
  *             repositories and images.</p>
- *         <p>Amazon ECR has service endpoints in each supported Region. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/ecr.html">Amazon ECR endpoints</a> in the
+ *          <p>Amazon ECR has service endpoints in each supported Region. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/ecr.html">Amazon ECR endpoints</a> in the
  *                 <i>Amazon Web Services General Reference</i>.</p>
  */
 export class ECRClient extends __Client<

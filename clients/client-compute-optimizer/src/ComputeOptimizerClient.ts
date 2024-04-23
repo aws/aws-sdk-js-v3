@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -78,6 +76,10 @@ import {
   ExportLambdaFunctionRecommendationsCommandInput,
   ExportLambdaFunctionRecommendationsCommandOutput,
 } from "./commands/ExportLambdaFunctionRecommendationsCommand";
+import {
+  ExportLicenseRecommendationsCommandInput,
+  ExportLicenseRecommendationsCommandOutput,
+} from "./commands/ExportLicenseRecommendationsCommand";
 import {
   GetAutoScalingGroupRecommendationsCommandInput,
   GetAutoScalingGroupRecommendationsCommandOutput,
@@ -119,6 +121,10 @@ import {
   GetLambdaFunctionRecommendationsCommandOutput,
 } from "./commands/GetLambdaFunctionRecommendationsCommand";
 import {
+  GetLicenseRecommendationsCommandInput,
+  GetLicenseRecommendationsCommandOutput,
+} from "./commands/GetLicenseRecommendationsCommand";
+import {
   GetRecommendationPreferencesCommandInput,
   GetRecommendationPreferencesCommandOutput,
 } from "./commands/GetRecommendationPreferencesCommand";
@@ -156,6 +162,7 @@ export type ServiceInputTypes =
   | ExportEC2InstanceRecommendationsCommandInput
   | ExportECSServiceRecommendationsCommandInput
   | ExportLambdaFunctionRecommendationsCommandInput
+  | ExportLicenseRecommendationsCommandInput
   | GetAutoScalingGroupRecommendationsCommandInput
   | GetEBSVolumeRecommendationsCommandInput
   | GetEC2InstanceRecommendationsCommandInput
@@ -166,6 +173,7 @@ export type ServiceInputTypes =
   | GetEnrollmentStatusCommandInput
   | GetEnrollmentStatusesForOrganizationCommandInput
   | GetLambdaFunctionRecommendationsCommandInput
+  | GetLicenseRecommendationsCommandInput
   | GetRecommendationPreferencesCommandInput
   | GetRecommendationSummariesCommandInput
   | PutRecommendationPreferencesCommandInput
@@ -182,6 +190,7 @@ export type ServiceOutputTypes =
   | ExportEC2InstanceRecommendationsCommandOutput
   | ExportECSServiceRecommendationsCommandOutput
   | ExportLambdaFunctionRecommendationsCommandOutput
+  | ExportLicenseRecommendationsCommandOutput
   | GetAutoScalingGroupRecommendationsCommandOutput
   | GetEBSVolumeRecommendationsCommandOutput
   | GetEC2InstanceRecommendationsCommandOutput
@@ -192,6 +201,7 @@ export type ServiceOutputTypes =
   | GetEnrollmentStatusCommandOutput
   | GetEnrollmentStatusesForOrganizationCommandOutput
   | GetLambdaFunctionRecommendationsCommandOutput
+  | GetLicenseRecommendationsCommandOutput
   | GetRecommendationPreferencesCommandOutput
   | GetRecommendationSummariesCommandOutput
   | PutRecommendationPreferencesCommandOutput
@@ -307,6 +317,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

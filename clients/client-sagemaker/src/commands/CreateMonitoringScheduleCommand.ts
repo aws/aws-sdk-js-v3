@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateMonitoringScheduleRequest, CreateMonitoringScheduleResponse } from "../models/models_1";
 import { de_CreateMonitoringScheduleCommand, se_CreateMonitoringScheduleCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
@@ -36,8 +28,8 @@ export interface CreateMonitoringScheduleCommandOutput extends CreateMonitoringS
 
 /**
  * @public
- * <p>Creates a schedule that regularly starts Amazon SageMaker Processing Jobs to monitor the data
- *          captured for an Amazon SageMaker Endpoint.</p>
+ * <p>Creates a schedule that regularly starts Amazon SageMaker Processing Jobs to
+ *          monitor the data captured for an Amazon SageMaker Endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,6 +41,8 @@ export interface CreateMonitoringScheduleCommandOutput extends CreateMonitoringS
  *   MonitoringScheduleConfig: { // MonitoringScheduleConfig
  *     ScheduleConfig: { // ScheduleConfig
  *       ScheduleExpression: "STRING_VALUE", // required
+ *       DataAnalysisStartTime: "STRING_VALUE",
+ *       DataAnalysisEndTime: "STRING_VALUE",
  *     },
  *     MonitoringJobDefinition: { // MonitoringJobDefinition
  *       BaselineConfig: { // MonitoringBaselineConfig
@@ -73,6 +67,7 @@ export interface CreateMonitoringScheduleCommandOutput extends CreateMonitoringS
  *             ProbabilityThresholdAttribute: Number("double"),
  *             StartTimeOffset: "STRING_VALUE",
  *             EndTimeOffset: "STRING_VALUE",
+ *             ExcludeFeaturesAttribute: "STRING_VALUE",
  *           },
  *           BatchTransformInput: { // BatchTransformInput
  *             DataCapturedDestinationS3Uri: "STRING_VALUE", // required
@@ -94,6 +89,7 @@ export interface CreateMonitoringScheduleCommandOutput extends CreateMonitoringS
  *             ProbabilityThresholdAttribute: Number("double"),
  *             StartTimeOffset: "STRING_VALUE",
  *             EndTimeOffset: "STRING_VALUE",
+ *             ExcludeFeaturesAttribute: "STRING_VALUE",
  *           },
  *         },
  *       ],
@@ -183,79 +179,26 @@ export interface CreateMonitoringScheduleCommandOutput extends CreateMonitoringS
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
-export class CreateMonitoringScheduleCommand extends $Command<
-  CreateMonitoringScheduleCommandInput,
-  CreateMonitoringScheduleCommandOutput,
-  SageMakerClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateMonitoringScheduleCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SageMakerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateMonitoringScheduleCommandInput, CreateMonitoringScheduleCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateMonitoringScheduleCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SageMakerClient";
-    const commandName = "CreateMonitoringScheduleCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateMonitoringScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateMonitoringScheduleCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMonitoringScheduleCommandOutput> {
-    return de_CreateMonitoringScheduleCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateMonitoringScheduleCommand extends $Command
+  .classBuilder<
+    CreateMonitoringScheduleCommandInput,
+    CreateMonitoringScheduleCommandOutput,
+    SageMakerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("SageMaker", "CreateMonitoringSchedule", {})
+  .n("SageMakerClient", "CreateMonitoringScheduleCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateMonitoringScheduleCommand)
+  .de(de_CreateMonitoringScheduleCommand)
+  .build() {}

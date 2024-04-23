@@ -195,7 +195,7 @@ export interface KafkaClusterClientAuthenticationDescription {
    * <p>The type of client authentication used to connect to the Apache Kafka cluster. Value
    *          NONE means that no client authentication is used.</p>
    */
-  authenticationType?: KafkaClusterClientAuthenticationType | string;
+  authenticationType?: KafkaClusterClientAuthenticationType;
 }
 
 /**
@@ -222,7 +222,7 @@ export interface KafkaClusterEncryptionInTransitDescription {
    * @public
    * <p>The type of encryption in transit to the Apache Kafka cluster.</p>
    */
-  encryptionType?: KafkaClusterEncryptionInTransitType | string;
+  encryptionType?: KafkaClusterEncryptionInTransitType;
 }
 
 /**
@@ -406,7 +406,7 @@ export interface ConnectorSummary {
    * @public
    * <p>The state of the connector.</p>
    */
-  connectorState?: ConnectorState | string;
+  connectorState?: ConnectorState;
 
   /**
    * @public
@@ -569,7 +569,7 @@ export interface CustomPluginRevisionSummary {
    * @public
    * <p>The format of the plugin file.</p>
    */
-  contentType?: CustomPluginContentType | string;
+  contentType?: CustomPluginContentType;
 
   /**
    * @public
@@ -623,7 +623,7 @@ export interface CustomPluginSummary {
    * @public
    * <p>The state of the custom plugin.</p>
    */
-  customPluginState?: CustomPluginState | string;
+  customPluginState?: CustomPluginState;
 
   /**
    * @public
@@ -1058,7 +1058,7 @@ export interface KafkaClusterClientAuthentication {
    * <p>The type of client authentication used to connect to the Apache Kafka cluster. Value
    *          NONE means that no client authentication is used.</p>
    */
-  authenticationType: KafkaClusterClientAuthenticationType | string | undefined;
+  authenticationType: KafkaClusterClientAuthenticationType | undefined;
 }
 
 /**
@@ -1070,7 +1070,7 @@ export interface KafkaClusterEncryptionInTransit {
    * @public
    * <p>The type of encryption in transit to the Apache Kafka cluster.</p>
    */
-  encryptionType: KafkaClusterEncryptionInTransitType | string | undefined;
+  encryptionType: KafkaClusterEncryptionInTransitType | undefined;
 }
 
 /**
@@ -1275,7 +1275,7 @@ export interface CreateConnectorResponse {
    * @public
    * <p>The state of the connector.</p>
    */
-  connectorState?: ConnectorState | string;
+  connectorState?: ConnectorState;
 }
 
 /**
@@ -1448,7 +1448,7 @@ export interface CreateCustomPluginRequest {
    * @public
    * <p>The type of the plugin file.</p>
    */
-  contentType: CustomPluginContentType | string | undefined;
+  contentType: CustomPluginContentType | undefined;
 
   /**
    * @public
@@ -1483,7 +1483,7 @@ export interface CreateCustomPluginResponse {
    * @public
    * <p>The state of the custom plugin.</p>
    */
-  customPluginState?: CustomPluginState | string;
+  customPluginState?: CustomPluginState;
 
   /**
    * @public
@@ -1581,7 +1581,7 @@ export interface DeleteConnectorResponse {
    * @public
    * <p>The state of the connector that you requested to delete.</p>
    */
-  connectorState?: ConnectorState | string;
+  connectorState?: ConnectorState;
 }
 
 /**
@@ -1609,7 +1609,7 @@ export interface DeleteCustomPluginResponse {
    * @public
    * <p>The state of the custom plugin.</p>
    */
-  customPluginState?: CustomPluginState | string;
+  customPluginState?: CustomPluginState;
 }
 
 /**
@@ -1680,7 +1680,7 @@ export interface DescribeConnectorResponse {
    * @public
    * <p>The state of the connector.</p>
    */
-  connectorState?: ConnectorState | string;
+  connectorState?: ConnectorState;
 
   /**
    * @public
@@ -1783,7 +1783,7 @@ export interface DescribeCustomPluginResponse {
    * @public
    * <p>The state of the custom plugin.</p>
    */
-  customPluginState?: CustomPluginState | string;
+  customPluginState?: CustomPluginState;
 
   /**
    * @public
@@ -2045,7 +2045,7 @@ export interface UpdateConnectorResponse {
    * @public
    * <p>The state of the connector.</p>
    */
-  connectorState?: ConnectorState | string;
+  connectorState?: ConnectorState;
 }
 
 /**

@@ -1,0 +1,101 @@
+// smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { Command as $Command } from "@smithy/smithy-client";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+
+import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient";
+import { commonParams } from "../endpoint/EndpointParameters";
+import { StartInvestigationRequest, StartInvestigationResponse } from "../models/models_0";
+import { de_StartInvestigationCommand, se_StartInvestigationCommand } from "../protocols/Aws_restJson1";
+
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link StartInvestigationCommand}.
+ */
+export interface StartInvestigationCommandInput extends StartInvestigationRequest {}
+/**
+ * @public
+ *
+ * The output of {@link StartInvestigationCommand}.
+ */
+export interface StartInvestigationCommandOutput extends StartInvestigationResponse, __MetadataBearer {}
+
+/**
+ * @public
+ * <p>initiate an investigation on an entity in a graph</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { DetectiveClient, StartInvestigationCommand } from "@aws-sdk/client-detective"; // ES Modules import
+ * // const { DetectiveClient, StartInvestigationCommand } = require("@aws-sdk/client-detective"); // CommonJS import
+ * const client = new DetectiveClient(config);
+ * const input = { // StartInvestigationRequest
+ *   GraphArn: "STRING_VALUE", // required
+ *   EntityArn: "STRING_VALUE", // required
+ *   ScopeStartTime: new Date("TIMESTAMP"), // required
+ *   ScopeEndTime: new Date("TIMESTAMP"), // required
+ * };
+ * const command = new StartInvestigationCommand(input);
+ * const response = await client.send(command);
+ * // { // StartInvestigationResponse
+ * //   InvestigationId: "STRING_VALUE",
+ * // };
+ *
+ * ```
+ *
+ * @param StartInvestigationCommandInput - {@link StartInvestigationCommandInput}
+ * @returns {@link StartInvestigationCommandOutput}
+ * @see {@link StartInvestigationCommandInput} for command's `input` shape.
+ * @see {@link StartInvestigationCommandOutput} for command's `response` shape.
+ * @see {@link DetectiveClientResolvedConfig | config} for DetectiveClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The request issuer does not have permission to access this resource or perform this
+ *          operation.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>The request was valid but failed because of a problem with the service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request refers to a nonexistent resource.</p>
+ *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>The request cannot be completed because too many other requests are occurring at the
+ *          same time.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The request parameters are invalid.</p>
+ *
+ * @throws {@link DetectiveServiceException}
+ * <p>Base exception class for all service exceptions from Detective service.</p>
+ *
+ */
+export class StartInvestigationCommand extends $Command
+  .classBuilder<
+    StartInvestigationCommandInput,
+    StartInvestigationCommandOutput,
+    DetectiveClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: DetectiveClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonDetective", "StartInvestigation", {})
+  .n("DetectiveClient", "StartInvestigationCommand")
+  .f(void 0, void 0)
+  .ser(se_StartInvestigationCommand)
+  .de(de_StartInvestigationCommand)
+  .build() {}

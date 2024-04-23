@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -96,6 +97,7 @@ import {
   FrameMetricDatum,
   InternalServerException,
   Match,
+  MetadataField,
   Pattern,
   ProfileTime,
   ProfilingGroupDescription,
@@ -115,36 +117,20 @@ export const se_AddNotificationChannelsCommand = async (
   input: AddNotificationChannelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/profilingGroups/{profilingGroupName}/notificationConfiguration";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "profilingGroupName",
-    () => input.profilingGroupName!,
-    "{profilingGroupName}",
-    false
-  );
+  b.bp("/profilingGroups/{profilingGroupName}/notificationConfiguration");
+  b.p("profilingGroupName", () => input.profilingGroupName!, "{profilingGroupName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       channels: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -154,29 +140,17 @@ export const se_BatchGetFrameMetricDataCommand = async (
   input: BatchGetFrameMetricDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/profilingGroups/{profilingGroupName}/frames/-/metrics";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "profilingGroupName",
-    () => input.profilingGroupName!,
-    "{profilingGroupName}",
-    false
-  );
+  b.bp("/profilingGroups/{profilingGroupName}/frames/-/metrics");
+  b.p("profilingGroupName", () => input.profilingGroupName!, "{profilingGroupName}", false);
   const query: any = map({
-    startTime: [
-      () => input.startTime !== void 0,
-      () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    endTime: [() => input.endTime !== void 0, () => (input.endTime!.toISOString().split(".")[0] + "Z").toString()],
-    period: [, input.period!],
-    targetResolution: [, input.targetResolution!],
+    [_sT]: [() => input.startTime !== void 0, () => (input[_sT]!.toISOString().split(".")[0] + "Z").toString()],
+    [_eT]: [() => input.endTime !== void 0, () => (input[_eT]!.toISOString().split(".")[0] + "Z").toString()],
+    [_p]: [, input[_p]!],
+    [_tR]: [, input[_tR]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -184,16 +158,8 @@ export const se_BatchGetFrameMetricDataCommand = async (
       frameMetrics: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -203,21 +169,12 @@ export const se_ConfigureAgentCommand = async (
   input: ConfigureAgentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/profilingGroups/{profilingGroupName}/configureAgent";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "profilingGroupName",
-    () => input.profilingGroupName!,
-    "{profilingGroupName}",
-    false
-  );
+  b.bp("/profilingGroups/{profilingGroupName}/configureAgent");
+  b.p("profilingGroupName", () => input.profilingGroupName!, "{profilingGroupName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -225,15 +182,8 @@ export const se_ConfigureAgentCommand = async (
       metadata: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -243,13 +193,13 @@ export const se_CreateProfilingGroupCommand = async (
   input: CreateProfilingGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profilingGroups";
+  b.bp("/profilingGroups");
   const query: any = map({
-    clientToken: [, __expectNonNull(input.clientToken!, `clientToken`)],
+    [_cT]: [, __expectNonNull(input[_cT]!, `clientToken`)],
   });
   let body: any;
   body = JSON.stringify(
@@ -260,16 +210,8 @@ export const se_CreateProfilingGroupCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -279,28 +221,13 @@ export const se_DeleteProfilingGroupCommand = async (
   input: DeleteProfilingGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profilingGroups/{profilingGroupName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "profilingGroupName",
-    () => input.profilingGroupName!,
-    "{profilingGroupName}",
-    false
-  );
+  b.bp("/profilingGroups/{profilingGroupName}");
+  b.p("profilingGroupName", () => input.profilingGroupName!, "{profilingGroupName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -310,28 +237,13 @@ export const se_DescribeProfilingGroupCommand = async (
   input: DescribeProfilingGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profilingGroups/{profilingGroupName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "profilingGroupName",
-    () => input.profilingGroupName!,
-    "{profilingGroupName}",
-    false
-  );
+  b.bp("/profilingGroups/{profilingGroupName}");
+  b.p("profilingGroupName", () => input.profilingGroupName!, "{profilingGroupName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -341,26 +253,17 @@ export const se_GetFindingsReportAccountSummaryCommand = async (
   input: GetFindingsReportAccountSummaryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/internal/findingsReports";
+  b.bp("/internal/findingsReports");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    dailyReportsOnly: [() => input.dailyReportsOnly !== void 0, () => input.dailyReportsOnly!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_dRO]: [() => input.dailyReportsOnly !== void 0, () => input[_dRO]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -370,29 +273,13 @@ export const se_GetNotificationConfigurationCommand = async (
   input: GetNotificationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/profilingGroups/{profilingGroupName}/notificationConfiguration";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "profilingGroupName",
-    () => input.profilingGroupName!,
-    "{profilingGroupName}",
-    false
-  );
+  b.bp("/profilingGroups/{profilingGroupName}/notificationConfiguration");
+  b.p("profilingGroupName", () => input.profilingGroupName!, "{profilingGroupName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -402,29 +289,13 @@ export const se_GetPolicyCommand = async (
   input: GetPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/profilingGroups/{profilingGroupName}/policy";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "profilingGroupName",
-    () => input.profilingGroupName!,
-    "{profilingGroupName}",
-    false
-  );
+  b.bp("/profilingGroups/{profilingGroupName}/policy");
+  b.p("profilingGroupName", () => input.profilingGroupName!, "{profilingGroupName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -434,41 +305,21 @@ export const se_GetProfileCommand = async (
   input: GetProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    accept: input.accept!,
+    [_a]: input[_a]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/profilingGroups/{profilingGroupName}/profile";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "profilingGroupName",
-    () => input.profilingGroupName!,
-    "{profilingGroupName}",
-    false
-  );
+  b.bp("/profilingGroups/{profilingGroupName}/profile");
+  b.p("profilingGroupName", () => input.profilingGroupName!, "{profilingGroupName}", false);
   const query: any = map({
-    startTime: [
-      () => input.startTime !== void 0,
-      () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    period: [, input.period!],
-    endTime: [() => input.endTime !== void 0, () => (input.endTime!.toISOString().split(".")[0] + "Z").toString()],
-    maxDepth: [() => input.maxDepth !== void 0, () => input.maxDepth!.toString()],
+    [_sT]: [() => input.startTime !== void 0, () => (input[_sT]!.toISOString().split(".")[0] + "Z").toString()],
+    [_p]: [, input[_p]!],
+    [_eT]: [() => input.endTime !== void 0, () => (input[_eT]!.toISOString().split(".")[0] + "Z").toString()],
+    [_mD]: [() => input.maxDepth !== void 0, () => input[_mD]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -478,41 +329,24 @@ export const se_GetRecommendationsCommand = async (
   input: GetRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/internal/profilingGroups/{profilingGroupName}/recommendations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "profilingGroupName",
-    () => input.profilingGroupName!,
-    "{profilingGroupName}",
-    false
-  );
+  b.bp("/internal/profilingGroups/{profilingGroupName}/recommendations");
+  b.p("profilingGroupName", () => input.profilingGroupName!, "{profilingGroupName}", false);
   const query: any = map({
-    startTime: [
+    [_sT]: [
       __expectNonNull(input.startTime, `startTime`) != null,
-      () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_sT]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    endTime: [
+    [_eT]: [
       __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_eT]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    locale: [, input.locale!],
+    [_l]: [, input[_l]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -522,43 +356,26 @@ export const se_ListFindingsReportsCommand = async (
   input: ListFindingsReportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/internal/profilingGroups/{profilingGroupName}/findingsReports";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "profilingGroupName",
-    () => input.profilingGroupName!,
-    "{profilingGroupName}",
-    false
-  );
+  b.bp("/internal/profilingGroups/{profilingGroupName}/findingsReports");
+  b.p("profilingGroupName", () => input.profilingGroupName!, "{profilingGroupName}", false);
   const query: any = map({
-    startTime: [
+    [_sT]: [
       __expectNonNull(input.startTime, `startTime`) != null,
-      () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_sT]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    endTime: [
+    [_eT]: [
       __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_eT]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    dailyReportsOnly: [() => input.dailyReportsOnly !== void 0, () => input.dailyReportsOnly!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_dRO]: [() => input.dailyReportsOnly !== void 0, () => input[_dRO]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -568,44 +385,27 @@ export const se_ListProfileTimesCommand = async (
   input: ListProfileTimesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/profilingGroups/{profilingGroupName}/profileTimes";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "profilingGroupName",
-    () => input.profilingGroupName!,
-    "{profilingGroupName}",
-    false
-  );
+  b.bp("/profilingGroups/{profilingGroupName}/profileTimes");
+  b.p("profilingGroupName", () => input.profilingGroupName!, "{profilingGroupName}", false);
   const query: any = map({
-    startTime: [
+    [_sT]: [
       __expectNonNull(input.startTime, `startTime`) != null,
-      () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_sT]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    endTime: [
+    [_eT]: [
       __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_eT]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    period: [, __expectNonNull(input.period!, `period`)],
-    orderBy: [, input.orderBy!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_p]: [, __expectNonNull(input[_p]!, `period`)],
+    [_oB]: [, input[_oB]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -615,25 +415,17 @@ export const se_ListProfilingGroupsCommand = async (
   input: ListProfilingGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profilingGroups";
+  b.bp("/profilingGroups");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    includeDescription: [() => input.includeDescription !== void 0, () => input.includeDescription!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_iD]: [() => input.includeDescription !== void 0, () => input[_iD]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -643,20 +435,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -666,38 +451,21 @@ export const se_PostAgentProfileCommand = async (
   input: PostAgentProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "content-type": input.contentType! || "application/octet-stream",
+    [_ct]: input[_cTo]! || "application/octet-stream",
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/profilingGroups/{profilingGroupName}/agentProfile";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "profilingGroupName",
-    () => input.profilingGroupName!,
-    "{profilingGroupName}",
-    false
-  );
+  b.bp("/profilingGroups/{profilingGroupName}/agentProfile");
+  b.p("profilingGroupName", () => input.profilingGroupName!, "{profilingGroupName}", false);
   const query: any = map({
-    profileToken: [, input.profileToken ?? generateIdempotencyToken()],
+    [_pT]: [, input[_pT] ?? generateIdempotencyToken()],
   });
   let body: any;
   if (input.agentProfile !== undefined) {
     body = input.agentProfile;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -707,22 +475,13 @@ export const se_PutPermissionCommand = async (
   input: PutPermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/profilingGroups/{profilingGroupName}/policy/{actionGroup}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "profilingGroupName",
-    () => input.profilingGroupName!,
-    "{profilingGroupName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "actionGroup", () => input.actionGroup!, "{actionGroup}", false);
+  b.bp("/profilingGroups/{profilingGroupName}/policy/{actionGroup}");
+  b.p("profilingGroupName", () => input.profilingGroupName!, "{profilingGroupName}", false);
+  b.p("actionGroup", () => input.actionGroup!, "{actionGroup}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -730,15 +489,8 @@ export const se_PutPermissionCommand = async (
       revisionId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -748,30 +500,14 @@ export const se_RemoveNotificationChannelCommand = async (
   input: RemoveNotificationChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/profilingGroups/{profilingGroupName}/notificationConfiguration/{channelId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "profilingGroupName",
-    () => input.profilingGroupName!,
-    "{profilingGroupName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "channelId", () => input.channelId!, "{channelId}", false);
+  b.bp("/profilingGroups/{profilingGroupName}/notificationConfiguration/{channelId}");
+  b.p("profilingGroupName", () => input.profilingGroupName!, "{profilingGroupName}", false);
+  b.p("channelId", () => input.channelId!, "{channelId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -781,34 +517,17 @@ export const se_RemovePermissionCommand = async (
   input: RemovePermissionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/profilingGroups/{profilingGroupName}/policy/{actionGroup}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "profilingGroupName",
-    () => input.profilingGroupName!,
-    "{profilingGroupName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "actionGroup", () => input.actionGroup!, "{actionGroup}", false);
+  b.bp("/profilingGroups/{profilingGroupName}/policy/{actionGroup}");
+  b.p("profilingGroupName", () => input.profilingGroupName!, "{profilingGroupName}", false);
+  b.p("actionGroup", () => input.actionGroup!, "{actionGroup}", false);
   const query: any = map({
-    revisionId: [, __expectNonNull(input.revisionId!, `revisionId`)],
+    [_rI]: [, __expectNonNull(input[_rI]!, `revisionId`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -818,29 +537,13 @@ export const se_SubmitFeedbackCommand = async (
   input: SubmitFeedbackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/internal/profilingGroups/{profilingGroupName}/anomalies/{anomalyInstanceId}/feedback";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "profilingGroupName",
-    () => input.profilingGroupName!,
-    "{profilingGroupName}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "anomalyInstanceId",
-    () => input.anomalyInstanceId!,
-    "{anomalyInstanceId}",
-    false
-  );
+  b.bp("/internal/profilingGroups/{profilingGroupName}/anomalies/{anomalyInstanceId}/feedback");
+  b.p("profilingGroupName", () => input.profilingGroupName!, "{profilingGroupName}", false);
+  b.p("anomalyInstanceId", () => input.anomalyInstanceId!, "{anomalyInstanceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -848,15 +551,8 @@ export const se_SubmitFeedbackCommand = async (
       type: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -866,27 +562,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -896,27 +585,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -926,35 +607,20 @@ export const se_UpdateProfilingGroupCommand = async (
   input: UpdateProfilingGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profilingGroups/{profilingGroupName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "profilingGroupName",
-    () => input.profilingGroupName!,
-    "{profilingGroupName}",
-    false
-  );
+  b.bp("/profilingGroups/{profilingGroupName}");
+  b.p("profilingGroupName", () => input.profilingGroupName!, "{profilingGroupName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       agentOrchestrationConfig: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1473,8 +1139,8 @@ export const de_GetProfileCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    contentType: [, output.headers["content-type"]],
-    contentEncoding: [, output.headers["content-encoding"]],
+    [_cTo]: [, output.headers[_ct]],
+    [_cE]: [, output.headers[_ce]],
   });
   const data: any = await collectBody(output.body, context);
   contents.profile = data;
@@ -2660,9 +2326,9 @@ const de_UnprocessedEndTimeMap = (output: any, context: __SerdeContext): Record<
     if (value === null) {
       return acc;
     }
-    acc[key] = de_ListOfTimestamps(value, context);
+    acc[key as string] = de_ListOfTimestamps(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, TimestampStructure[]>);
 };
 
 // de_UserFeedback omitted.
@@ -2685,6 +2351,27 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _a = "accept";
+const _cE = "contentEncoding";
+const _cT = "clientToken";
+const _cTo = "contentType";
+const _ce = "content-encoding";
+const _ct = "content-type";
+const _dRO = "dailyReportsOnly";
+const _eT = "endTime";
+const _iD = "includeDescription";
+const _l = "locale";
+const _mD = "maxDepth";
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _oB = "orderBy";
+const _p = "period";
+const _pT = "profileToken";
+const _rI = "revisionId";
+const _sT = "startTime";
+const _tK = "tagKeys";
+const _tR = "targetResolution";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

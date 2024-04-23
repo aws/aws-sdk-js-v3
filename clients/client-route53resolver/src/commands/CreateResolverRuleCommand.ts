@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateResolverRuleRequest, CreateResolverRuleResponse } from "../models/models_0";
 import { de_CreateResolverRuleCommand, se_CreateResolverRuleCommand } from "../protocols/Aws_json1_1";
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient";
@@ -48,12 +40,13 @@ export interface CreateResolverRuleCommandOutput extends CreateResolverRuleRespo
  *   CreatorRequestId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
  *   RuleType: "FORWARD" || "SYSTEM" || "RECURSIVE", // required
- *   DomainName: "STRING_VALUE", // required
+ *   DomainName: "STRING_VALUE",
  *   TargetIps: [ // TargetList
  *     { // TargetAddress
  *       Ip: "STRING_VALUE",
  *       Port: Number("int"),
  *       Ipv6: "STRING_VALUE",
+ *       Protocol: "DoH" || "Do53" || "DoH-FIPS",
  *     },
  *   ],
  *   ResolverEndpointId: "STRING_VALUE",
@@ -81,6 +74,7 @@ export interface CreateResolverRuleCommandOutput extends CreateResolverRuleRespo
  * //         Ip: "STRING_VALUE",
  * //         Port: Number("int"),
  * //         Ipv6: "STRING_VALUE",
+ * //         Protocol: "DoH" || "Do53" || "DoH-FIPS",
  * //       },
  * //     ],
  * //     ResolverEndpointId: "STRING_VALUE",
@@ -98,6 +92,9 @@ export interface CreateResolverRuleCommandOutput extends CreateResolverRuleRespo
  * @see {@link CreateResolverRuleCommandInput} for command's `input` shape.
  * @see {@link CreateResolverRuleCommandOutput} for command's `response` shape.
  * @see {@link Route53ResolverClientResolvedConfig | config} for Route53ResolverClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>The current account doesn't have the IAM permissions required to perform the specified Resolver operation.</p>
  *
  * @throws {@link InternalServiceErrorException} (client fault)
  *  <p>We encountered an unknown error. Try again in a few minutes.</p>
@@ -127,79 +124,26 @@ export interface CreateResolverRuleCommandOutput extends CreateResolverRuleRespo
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
  */
-export class CreateResolverRuleCommand extends $Command<
-  CreateResolverRuleCommandInput,
-  CreateResolverRuleCommandOutput,
-  Route53ResolverClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateResolverRuleCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: Route53ResolverClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateResolverRuleCommandInput, CreateResolverRuleCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateResolverRuleCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "Route53ResolverClient";
-    const commandName = "CreateResolverRuleCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateResolverRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateResolverRuleCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateResolverRuleCommandOutput> {
-    return de_CreateResolverRuleCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateResolverRuleCommand extends $Command
+  .classBuilder<
+    CreateResolverRuleCommandInput,
+    CreateResolverRuleCommandOutput,
+    Route53ResolverClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("Route53Resolver", "CreateResolverRule", {})
+  .n("Route53ResolverClient", "CreateResolverRuleCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateResolverRuleCommand)
+  .de(de_CreateResolverRuleCommand)
+  .build() {}

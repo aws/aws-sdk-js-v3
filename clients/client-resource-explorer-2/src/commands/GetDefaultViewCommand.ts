@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GetDefaultViewOutput } from "../models/models_0";
 import { de_GetDefaultViewCommand, se_GetDefaultViewCommand } from "../protocols/Aws_restJson1";
 import {
@@ -77,8 +69,8 @@ export interface GetDefaultViewCommandOutput extends GetDefaultViewOutput, __Met
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request failed because you exceeded a rate limit for this operation. For more
- *             information, see <a href="https://docs.aws.amazon.com/arexug/mainline/quotas.html">Quotas
- *                 for Resource Explorer</a>.</p>
+ *             information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/quotas.html">Quotas for
+ *             Resource Explorer</a>.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>You provided an invalid value for one of the operation's parameters. Check the syntax
@@ -88,78 +80,26 @@ export interface GetDefaultViewCommandOutput extends GetDefaultViewOutput, __Met
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
  */
-export class GetDefaultViewCommand extends $Command<
-  GetDefaultViewCommandInput,
-  GetDefaultViewCommandOutput,
-  ResourceExplorer2ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetDefaultViewCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ResourceExplorer2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetDefaultViewCommandInput, GetDefaultViewCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetDefaultViewCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ResourceExplorer2Client";
-    const commandName = "GetDefaultViewCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetDefaultViewCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetDefaultViewCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDefaultViewCommandOutput> {
-    return de_GetDefaultViewCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetDefaultViewCommand extends $Command
+  .classBuilder<
+    GetDefaultViewCommandInput,
+    GetDefaultViewCommandOutput,
+    ResourceExplorer2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ResourceExplorer2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ResourceExplorer", "GetDefaultView", {})
+  .n("ResourceExplorer2Client", "GetDefaultViewCommand")
+  .f(void 0, void 0)
+  .ser(se_GetDefaultViewCommand)
+  .de(de_GetDefaultViewCommand)
+  .build() {}

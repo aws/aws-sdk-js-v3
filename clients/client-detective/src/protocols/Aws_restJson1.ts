@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -52,12 +53,15 @@ import {
   EnableOrganizationAdminAccountCommandInput,
   EnableOrganizationAdminAccountCommandOutput,
 } from "../commands/EnableOrganizationAdminAccountCommand";
+import { GetInvestigationCommandInput, GetInvestigationCommandOutput } from "../commands/GetInvestigationCommand";
 import { GetMembersCommandInput, GetMembersCommandOutput } from "../commands/GetMembersCommand";
 import {
   ListDatasourcePackagesCommandInput,
   ListDatasourcePackagesCommandOutput,
 } from "../commands/ListDatasourcePackagesCommand";
 import { ListGraphsCommandInput, ListGraphsCommandOutput } from "../commands/ListGraphsCommand";
+import { ListIndicatorsCommandInput, ListIndicatorsCommandOutput } from "../commands/ListIndicatorsCommand";
+import { ListInvestigationsCommandInput, ListInvestigationsCommandOutput } from "../commands/ListInvestigationsCommand";
 import { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "../commands/ListInvitationsCommand";
 import { ListMembersCommandInput, ListMembersCommandOutput } from "../commands/ListMembersCommand";
 import {
@@ -69,6 +73,7 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { RejectInvitationCommandInput, RejectInvitationCommandOutput } from "../commands/RejectInvitationCommand";
+import { StartInvestigationCommandInput, StartInvestigationCommandOutput } from "../commands/StartInvestigationCommand";
 import {
   StartMonitoringMemberCommandInput,
   StartMonitoringMemberCommandOutput,
@@ -79,6 +84,10 @@ import {
   UpdateDatasourcePackagesCommandInput,
   UpdateDatasourcePackagesCommandOutput,
 } from "../commands/UpdateDatasourcePackagesCommand";
+import {
+  UpdateInvestigationStateCommandInput,
+  UpdateInvestigationStateCommandOutput,
+} from "../commands/UpdateInvestigationStateCommand";
 import {
   UpdateOrganizationConfigurationCommandInput,
   UpdateOrganizationConfigurationCommandOutput,
@@ -93,12 +102,17 @@ import {
   DatasourcePackageIngestDetail,
   DatasourcePackageIngestState,
   DatasourcePackageUsageInfo,
+  DateFilter,
+  FilterCriteria,
   Graph,
   InternalServerException,
+  InvestigationDetail,
   MemberDetail,
   MembershipDatasources,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
+  SortCriteria,
+  StringFilter,
   TimestampForCollection,
   TooManyRequestsException,
   ValidationException,
@@ -111,26 +125,19 @@ export const se_AcceptInvitationCommand = async (
   input: AcceptInvitationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/invitation";
+  b.bp("/invitation");
   let body: any;
   body = JSON.stringify(
     take(input, {
       GraphArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -140,11 +147,11 @@ export const se_BatchGetGraphMemberDatasourcesCommand = async (
   input: BatchGetGraphMemberDatasourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graph/datasources/get";
+  b.bp("/graph/datasources/get");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -152,15 +159,8 @@ export const se_BatchGetGraphMemberDatasourcesCommand = async (
       GraphArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -170,27 +170,19 @@ export const se_BatchGetMembershipDatasourcesCommand = async (
   input: BatchGetMembershipDatasourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/membership/datasources/get";
+  b.bp("/membership/datasources/get");
   let body: any;
   body = JSON.stringify(
     take(input, {
       GraphArns: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -200,26 +192,19 @@ export const se_CreateGraphCommand = async (
   input: CreateGraphCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graph";
+  b.bp("/graph");
   let body: any;
   body = JSON.stringify(
     take(input, {
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -229,11 +214,11 @@ export const se_CreateMembersCommand = async (
   input: CreateMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graph/members";
+  b.bp("/graph/members");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -243,15 +228,8 @@ export const se_CreateMembersCommand = async (
       Message: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -261,26 +239,19 @@ export const se_DeleteGraphCommand = async (
   input: DeleteGraphCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graph/removal";
+  b.bp("/graph/removal");
   let body: any;
   body = JSON.stringify(
     take(input, {
       GraphArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -290,11 +261,11 @@ export const se_DeleteMembersCommand = async (
   input: DeleteMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graph/members/removal";
+  b.bp("/graph/members/removal");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -302,15 +273,8 @@ export const se_DeleteMembersCommand = async (
       GraphArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -320,27 +284,19 @@ export const se_DescribeOrganizationConfigurationCommand = async (
   input: DescribeOrganizationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/orgs/describeOrganizationConfiguration";
+  b.bp("/orgs/describeOrganizationConfiguration");
   let body: any;
   body = JSON.stringify(
     take(input, {
       GraphArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -350,23 +306,15 @@ export const se_DisableOrganizationAdminAccountCommand = async (
   input: DisableOrganizationAdminAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/orgs/disableAdminAccount";
+  b.bp("/orgs/disableAdminAccount");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -376,26 +324,19 @@ export const se_DisassociateMembershipCommand = async (
   input: DisassociateMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/membership/removal";
+  b.bp("/membership/removal");
   let body: any;
   body = JSON.stringify(
     take(input, {
       GraphArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -405,27 +346,42 @@ export const se_EnableOrganizationAdminAccountCommand = async (
   input: EnableOrganizationAdminAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/orgs/enableAdminAccount";
+  b.bp("/orgs/enableAdminAccount");
   let body: any;
   body = JSON.stringify(
     take(input, {
       AccountId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetInvestigationCommand
+ */
+export const se_GetInvestigationCommand = async (
+  input: GetInvestigationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/investigations/getInvestigation");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      GraphArn: [],
+      InvestigationId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -435,11 +391,11 @@ export const se_GetMembersCommand = async (
   input: GetMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graph/members/get";
+  b.bp("/graph/members/get");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -447,15 +403,8 @@ export const se_GetMembersCommand = async (
       GraphArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -465,12 +414,11 @@ export const se_ListDatasourcePackagesCommand = async (
   input: ListDatasourcePackagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graph/datasources/list";
+  b.bp("/graph/datasources/list");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -479,15 +427,8 @@ export const se_ListDatasourcePackagesCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -497,11 +438,11 @@ export const se_ListGraphsCommand = async (
   input: ListGraphsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graphs/list";
+  b.bp("/graphs/list");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -509,15 +450,60 @@ export const se_ListGraphsCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListIndicatorsCommand
+ */
+export const se_ListIndicatorsCommand = async (
+  input: ListIndicatorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/investigations/listIndicators");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      GraphArn: [],
+      IndicatorType: [],
+      InvestigationId: [],
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListInvestigationsCommand
+ */
+export const se_ListInvestigationsCommand = async (
+  input: ListInvestigationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/investigations/listInvestigations");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      FilterCriteria: (_) => se_FilterCriteria(_, context),
+      GraphArn: [],
+      MaxResults: [],
+      NextToken: [],
+      SortCriteria: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -527,11 +513,11 @@ export const se_ListInvitationsCommand = async (
   input: ListInvitationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/invitations/list";
+  b.bp("/invitations/list");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -539,15 +525,8 @@ export const se_ListInvitationsCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -557,11 +536,11 @@ export const se_ListMembersCommand = async (
   input: ListMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graph/members/list";
+  b.bp("/graph/members/list");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -570,15 +549,8 @@ export const se_ListMembersCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -588,12 +560,11 @@ export const se_ListOrganizationAdminAccountsCommand = async (
   input: ListOrganizationAdminAccountsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/orgs/adminAccountslist";
+  b.bp("/orgs/adminAccountslist");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -601,15 +572,8 @@ export const se_ListOrganizationAdminAccountsCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -619,20 +583,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -642,26 +599,44 @@ export const se_RejectInvitationCommand = async (
   input: RejectInvitationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/invitation/removal";
+  b.bp("/invitation/removal");
   let body: any;
   body = JSON.stringify(
     take(input, {
       GraphArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartInvestigationCommand
+ */
+export const se_StartInvestigationCommand = async (
+  input: StartInvestigationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/investigations/startInvestigation");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      EntityArn: [],
+      GraphArn: [],
+      ScopeEndTime: (_) => _.toISOString().split(".")[0] + "Z",
+      ScopeStartTime: (_) => _.toISOString().split(".")[0] + "Z",
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -671,12 +646,11 @@ export const se_StartMonitoringMemberCommand = async (
   input: StartMonitoringMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graph/member/monitoringstate";
+  b.bp("/graph/member/monitoringstate");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -684,15 +658,8 @@ export const se_StartMonitoringMemberCommand = async (
       GraphArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -702,27 +669,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -732,27 +692,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -762,12 +714,11 @@ export const se_UpdateDatasourcePackagesCommand = async (
   input: UpdateDatasourcePackagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/graph/datasources/update";
+  b.bp("/graph/datasources/update");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -775,15 +726,32 @@ export const se_UpdateDatasourcePackagesCommand = async (
       GraphArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateInvestigationStateCommand
+ */
+export const se_UpdateInvestigationStateCommand = async (
+  input: UpdateInvestigationStateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/investigations/updateInvestigationState");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      GraphArn: [],
+      InvestigationId: [],
+      State: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -793,12 +761,11 @@ export const se_UpdateOrganizationConfigurationCommand = async (
   input: UpdateOrganizationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/orgs/updateOrganizationConfiguration";
+  b.bp("/orgs/updateOrganizationConfiguration");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -806,15 +773,8 @@ export const se_UpdateOrganizationConfigurationCommand = async (
       GraphArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1430,6 +1390,74 @@ const de_EnableOrganizationAdminAccountCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1GetInvestigationCommand
+ */
+export const de_GetInvestigationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetInvestigationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetInvestigationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreatedTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    EntityArn: __expectString,
+    EntityType: __expectString,
+    GraphArn: __expectString,
+    InvestigationId: __expectString,
+    ScopeEndTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    ScopeStartTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Severity: __expectString,
+    State: __expectString,
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetInvestigationCommandError
+ */
+const de_GetInvestigationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetInvestigationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.detective#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.detective#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.detective#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.detective#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1GetMembersCommand
  */
 export const de_GetMembersCommand = async (
@@ -1584,6 +1612,128 @@ const de_ListGraphsCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.detective#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.detective#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListIndicatorsCommand
+ */
+export const de_ListIndicatorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListIndicatorsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListIndicatorsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    GraphArn: __expectString,
+    Indicators: _json,
+    InvestigationId: __expectString,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListIndicatorsCommandError
+ */
+const de_ListIndicatorsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListIndicatorsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.detective#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.detective#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.detective#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.detective#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListInvestigationsCommand
+ */
+export const de_ListInvestigationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInvestigationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListInvestigationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    InvestigationDetails: (_) => de_InvestigationDetails(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListInvestigationsCommandError
+ */
+const de_ListInvestigationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInvestigationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.detective#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.detective#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.detective#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.detective#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -1877,6 +2027,65 @@ const de_RejectInvitationCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1StartInvestigationCommand
+ */
+export const de_StartInvestigationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartInvestigationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StartInvestigationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    InvestigationId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartInvestigationCommandError
+ */
+const de_StartInvestigationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartInvestigationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.detective#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.detective#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.detective#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.detective#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1StartMonitoringMemberCommand
  */
 export const de_StartMonitoringMemberCommand = async (
@@ -2094,6 +2303,61 @@ const de_UpdateDatasourcePackagesCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateInvestigationStateCommand
+ */
+export const de_UpdateInvestigationStateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateInvestigationStateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateInvestigationStateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateInvestigationStateCommandError
+ */
+const de_UpdateInvestigationStateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateInvestigationStateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.detective#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.detective#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.detective#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.detective#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.detective#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateOrganizationConfigurationCommand
  */
 export const de_UpdateOrganizationConfigurationCommand = async (
@@ -2297,7 +2561,34 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DatasourcePackageList omitted.
 
+/**
+ * serializeAws_restJson1DateFilter
+ */
+const se_DateFilter = (input: DateFilter, context: __SerdeContext): any => {
+  return take(input, {
+    EndInclusive: (_) => _.toISOString().split(".")[0] + "Z",
+    StartInclusive: (_) => _.toISOString().split(".")[0] + "Z",
+  });
+};
+
+/**
+ * serializeAws_restJson1FilterCriteria
+ */
+const se_FilterCriteria = (input: FilterCriteria, context: __SerdeContext): any => {
+  return take(input, {
+    CreatedTime: (_) => se_DateFilter(_, context),
+    EntityArn: _json,
+    Severity: _json,
+    State: _json,
+    Status: _json,
+  });
+};
+
 // se_GraphArnList omitted.
+
+// se_SortCriteria omitted.
+
+// se_StringFilter omitted.
 
 // se_TagMap omitted.
 
@@ -2342,16 +2633,16 @@ const de_DatasourcePackageIngestDetail = (output: any, context: __SerdeContext):
 const de_DatasourcePackageIngestDetails = (
   output: any,
   context: __SerdeContext
-): Record<string, DatasourcePackageIngestDetail> => {
+): Partial<Record<DatasourcePackage, DatasourcePackageIngestDetail>> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, DatasourcePackageIngestDetail>, [key, value]: [DatasourcePackage | string, any]) => {
+    (acc: Partial<Record<DatasourcePackage, DatasourcePackageIngestDetail>>, [key, value]: [string, any]) => {
       if (value === null) {
         return acc;
       }
-      acc[key] = de_DatasourcePackageIngestDetail(value, context);
+      acc[key as DatasourcePackage] = de_DatasourcePackageIngestDetail(value, context);
       return acc;
     },
-    {}
+    {} as Partial<Record<DatasourcePackage, DatasourcePackageIngestDetail>>
   );
 };
 
@@ -2361,16 +2652,19 @@ const de_DatasourcePackageIngestDetails = (
 const de_DatasourcePackageIngestHistory = (
   output: any,
   context: __SerdeContext
-): Record<string, Record<string, TimestampForCollection>> => {
+): Partial<Record<DatasourcePackage, Partial<Record<DatasourcePackageIngestState, TimestampForCollection>>>> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, Record<string, TimestampForCollection>>, [key, value]: [DatasourcePackage | string, any]) => {
+    (
+      acc: Partial<Record<DatasourcePackage, Partial<Record<DatasourcePackageIngestState, TimestampForCollection>>>>,
+      [key, value]: [string, any]
+    ) => {
       if (value === null) {
         return acc;
       }
-      acc[key] = de_LastIngestStateChangeDates(value, context);
+      acc[key as DatasourcePackage] = de_LastIngestStateChangeDates(value, context);
       return acc;
     },
-    {}
+    {} as Partial<Record<DatasourcePackage, Partial<Record<DatasourcePackageIngestState, TimestampForCollection>>>>
   );
 };
 
@@ -2385,6 +2679,8 @@ const de_DatasourcePackageUsageInfo = (output: any, context: __SerdeContext): Da
     VolumeUsageUpdateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
 };
+
+// de_FlaggedIpAddressDetail omitted.
 
 /**
  * deserializeAws_restJson1Graph
@@ -2408,22 +2704,57 @@ const de_GraphList = (output: any, context: __SerdeContext): Graph[] => {
   return retVal;
 };
 
+// de_ImpossibleTravelDetail omitted.
+
+// de_Indicator omitted.
+
+// de_IndicatorDetail omitted.
+
+// de_Indicators omitted.
+
+/**
+ * deserializeAws_restJson1InvestigationDetail
+ */
+const de_InvestigationDetail = (output: any, context: __SerdeContext): InvestigationDetail => {
+  return take(output, {
+    CreatedTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    EntityArn: __expectString,
+    EntityType: __expectString,
+    InvestigationId: __expectString,
+    Severity: __expectString,
+    State: __expectString,
+    Status: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1InvestigationDetails
+ */
+const de_InvestigationDetails = (output: any, context: __SerdeContext): InvestigationDetail[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_InvestigationDetail(entry, context);
+    });
+  return retVal;
+};
+
 /**
  * deserializeAws_restJson1LastIngestStateChangeDates
  */
 const de_LastIngestStateChangeDates = (
   output: any,
   context: __SerdeContext
-): Record<string, TimestampForCollection> => {
+): Partial<Record<DatasourcePackageIngestState, TimestampForCollection>> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, TimestampForCollection>, [key, value]: [DatasourcePackageIngestState | string, any]) => {
+    (acc: Partial<Record<DatasourcePackageIngestState, TimestampForCollection>>, [key, value]: [string, any]) => {
       if (value === null) {
         return acc;
       }
-      acc[key] = de_TimestampForCollection(value, context);
+      acc[key as DatasourcePackageIngestState] = de_TimestampForCollection(value, context);
       return acc;
     },
-    {}
+    {} as Partial<Record<DatasourcePackageIngestState, TimestampForCollection>>
   );
 };
 
@@ -2486,6 +2817,16 @@ const de_MembershipDatasourcesList = (output: any, context: __SerdeContext): Mem
   return retVal;
 };
 
+// de_NewAsoDetail omitted.
+
+// de_NewGeolocationDetail omitted.
+
+// de_NewUserAgentDetail omitted.
+
+// de_RelatedFindingDetail omitted.
+
+// de_RelatedFindingGroupDetail omitted.
+
 // de_ResourceList omitted.
 
 // de_TagMap omitted.
@@ -2498,6 +2839,8 @@ const de_TimestampForCollection = (output: any, context: __SerdeContext): Timest
     Timestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
 };
+
+// de_TTPsObservedDetail omitted.
 
 // de_UnprocessedAccount omitted.
 
@@ -2513,16 +2856,16 @@ const de_TimestampForCollection = (output: any, context: __SerdeContext): Timest
 const de_VolumeUsageByDatasourcePackage = (
   output: any,
   context: __SerdeContext
-): Record<string, DatasourcePackageUsageInfo> => {
+): Partial<Record<DatasourcePackage, DatasourcePackageUsageInfo>> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, DatasourcePackageUsageInfo>, [key, value]: [DatasourcePackage | string, any]) => {
+    (acc: Partial<Record<DatasourcePackage, DatasourcePackageUsageInfo>>, [key, value]: [string, any]) => {
       if (value === null) {
         return acc;
       }
-      acc[key] = de_DatasourcePackageUsageInfo(value, context);
+      acc[key as DatasourcePackage] = de_DatasourcePackageUsageInfo(value, context);
       return acc;
     },
-    {}
+    {} as Partial<Record<DatasourcePackage, DatasourcePackageUsageInfo>>
   );
 };
 
@@ -2544,6 +2887,9 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _TK = "TagKeys";
+const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

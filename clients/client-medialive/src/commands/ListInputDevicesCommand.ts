@@ -1,20 +1,12 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { ListInputDevicesRequest, ListInputDevicesResponse } from "../models/models_1";
+import { ListInputDevicesRequest, ListInputDevicesResponse } from "../models/models_2";
 import { de_ListInputDevicesCommand, se_ListInputDevicesCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -91,11 +83,28 @@ export interface ListInputDevicesCommandOutput extends ListInputDevicesResponse,
  * //         ScanType: "INTERLACED" || "PROGRESSIVE",
  * //         Width: Number("int"),
  * //         LatencyMs: Number("int"),
+ * //         Codec: "HEVC" || "AVC",
+ * //         MediaconnectSettings: { // InputDeviceMediaConnectSettings
+ * //           FlowArn: "STRING_VALUE",
+ * //           RoleArn: "STRING_VALUE",
+ * //           SecretArn: "STRING_VALUE",
+ * //           SourceName: "STRING_VALUE",
+ * //         },
+ * //         AudioChannelPairs: [ // __listOfInputDeviceUhdAudioChannelPairConfig
+ * //           { // InputDeviceUhdAudioChannelPairConfig
+ * //             Id: Number("int"),
+ * //             Profile: "DISABLED" || "VBR-AAC_HHE-16000" || "VBR-AAC_HE-64000" || "VBR-AAC_LC-128000" || "CBR-AAC_HQ-192000" || "CBR-AAC_HQ-256000" || "CBR-AAC_HQ-384000" || "CBR-AAC_HQ-512000",
+ * //           },
+ * //         ],
  * //       },
  * //       Tags: { // Tags
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //       AvailabilityZone: "STRING_VALUE",
+ * //       MedialiveInputArns: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       OutputType: "NONE" || "MEDIALIVE_INPUT" || "MEDIACONNECT_FLOW",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -131,79 +140,26 @@ export interface ListInputDevicesCommandOutput extends ListInputDevicesResponse,
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
-export class ListInputDevicesCommand extends $Command<
-  ListInputDevicesCommandInput,
-  ListInputDevicesCommandOutput,
-  MediaLiveClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListInputDevicesCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: MediaLiveClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListInputDevicesCommandInput, ListInputDevicesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListInputDevicesCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "MediaLiveClient";
-    const commandName = "ListInputDevicesCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListInputDevicesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListInputDevicesCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListInputDevicesCommandOutput> {
-    return de_ListInputDevicesCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListInputDevicesCommand extends $Command
+  .classBuilder<
+    ListInputDevicesCommandInput,
+    ListInputDevicesCommandOutput,
+    MediaLiveClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("MediaLive", "ListInputDevices", {})
+  .n("MediaLiveClient", "ListInputDevicesCommand")
+  .f(void 0, void 0)
+  .ser(se_ListInputDevicesCommand)
+  .de(de_ListInputDevicesCommand)
+  .build() {}

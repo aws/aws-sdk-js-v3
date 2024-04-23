@@ -408,7 +408,7 @@ export interface BusinessReportContentRange {
    * @public
    * <p>The interval of the content range.</p>
    */
-  Interval: BusinessReportInterval | string | undefined;
+  Interval: BusinessReportInterval | undefined;
 }
 
 /**
@@ -465,7 +465,7 @@ export interface CreateBusinessReportScheduleRequest {
    * <p>The format of the generated report (individual CSV files or zipped files of
    *          individual files).</p>
    */
-  Format: BusinessReportFormat | string | undefined;
+  Format: BusinessReportFormat | undefined;
 
   /**
    * @public
@@ -556,7 +556,7 @@ export interface IPDialIn {
    * @public
    * <p>The protocol, including SIP, SIPS, and H323.</p>
    */
-  CommsProtocol: CommsProtocol | string | undefined;
+  CommsProtocol: CommsProtocol | undefined;
 }
 
 /**
@@ -596,7 +596,7 @@ export interface MeetingSetting {
    * @public
    * <p>The values that indicate whether the pin is always required.</p>
    */
-  RequirePin: RequirePin | string | undefined;
+  RequirePin: RequirePin | undefined;
 }
 
 /**
@@ -643,7 +643,7 @@ export interface CreateConferenceProviderRequest {
    * @public
    * <p>Represents a type within a list of predefined types.</p>
    */
-  ConferenceProviderType: ConferenceProviderType | string | undefined;
+  ConferenceProviderType: ConferenceProviderType | undefined;
 
   /**
    * @public
@@ -717,7 +717,7 @@ export interface PhoneNumber {
    * @public
    * <p>The type of the phone number.</p>
    */
-  Type: PhoneNumberType | string | undefined;
+  Type: PhoneNumberType | undefined;
 }
 
 /**
@@ -748,7 +748,7 @@ export interface SipAddress {
    * @public
    * <p>The type of the SIP address.</p>
    */
-  Type: SipType | string | undefined;
+  Type: SipType | undefined;
 }
 
 /**
@@ -917,14 +917,14 @@ export interface CreateNetworkProfileRequest {
    * <p>The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE, WPA2_PSK, WPA_PSK,
    *          WEP, or OPEN.</p>
    */
-  SecurityType: NetworkSecurityType | string | undefined;
+  SecurityType: NetworkSecurityType | undefined;
 
   /**
    * @public
    * <p>The authentication standard that is used in the EAP framework. Currently, EAP_TLS is
    *          supported.</p>
    */
-  EapMethod?: NetworkEapMethod | string;
+  EapMethod?: NetworkEapMethod;
 
   /**
    * @public
@@ -1069,7 +1069,7 @@ export interface CreateEndOfMeetingReminder {
    * @public
    * <p>The type of sound that users hear during the end of meeting reminder. </p>
    */
-  ReminderType: EndOfMeetingReminderType | string | undefined;
+  ReminderType: EndOfMeetingReminderType | undefined;
 
   /**
    * @public
@@ -1214,19 +1214,19 @@ export interface CreateProfileRequest {
    * @public
    * <p>The distance unit to be used by devices in the profile.</p>
    */
-  DistanceUnit: DistanceUnit | string | undefined;
+  DistanceUnit: DistanceUnit | undefined;
 
   /**
    * @public
    * <p>The temperature unit to be used by devices in the profile.</p>
    */
-  TemperatureUnit: TemperatureUnit | string | undefined;
+  TemperatureUnit: TemperatureUnit | undefined;
 
   /**
    * @public
    * <p>A wake word for Alexa, Echo, Amazon, or a computer.</p>
    */
-  WakeWord: WakeWord | string | undefined;
+  WakeWord: WakeWord | undefined;
 
   /**
    * @public
@@ -1570,7 +1570,7 @@ export interface DeleteDeviceUsageDataRequest {
    * @public
    * <p>The type of usage data to delete.</p>
    */
-  DeviceUsageType: DeviceUsageType | string | undefined;
+  DeviceUsageType: DeviceUsageType | undefined;
 }
 
 /**
@@ -1950,7 +1950,7 @@ export interface ConferenceProvider {
    * @public
    * <p>The type of conference providers.</p>
    */
-  Type?: ConferenceProviderType | string;
+  Type?: ConferenceProviderType;
 
   /**
    * @public
@@ -2154,13 +2154,13 @@ export interface DeviceStatusDetail {
    * @public
    * <p>The list of available features on the device.</p>
    */
-  Feature?: Feature | string;
+  Feature?: Feature;
 
   /**
    * @public
    * <p>The device status detail code.</p>
    */
-  Code?: DeviceStatusDetailCode | string;
+  Code?: DeviceStatusDetailCode;
 }
 
 /**
@@ -2178,7 +2178,7 @@ export interface DeviceStatusInfo {
    * @public
    * <p>The latest available information about the connection status of a device. </p>
    */
-  ConnectionStatus?: ConnectionStatus | string;
+  ConnectionStatus?: ConnectionStatus;
 
   /**
    * @public
@@ -2263,7 +2263,7 @@ export interface Device {
    * <p>The status of a device. If the status is not READY, check the DeviceStatusInfo value
    *          for details.</p>
    */
-  DeviceStatus?: DeviceStatus | string;
+  DeviceStatus?: DeviceStatus;
 
   /**
    * @public
@@ -2469,14 +2469,14 @@ export interface NetworkProfile {
    * <p>The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE, WPA2_PSK, WPA_PSK,
    *          WEP, or OPEN.</p>
    */
-  SecurityType?: NetworkSecurityType | string;
+  SecurityType?: NetworkSecurityType;
 
   /**
    * @public
    * <p>The authentication standard that is used in the EAP framework. Currently, EAP_TLS is
    *          supported. </p>
    */
-  EapMethod?: NetworkEapMethod | string;
+  EapMethod?: NetworkEapMethod;
 
   /**
    * @public
@@ -2567,7 +2567,7 @@ export interface EndOfMeetingReminder {
    * @public
    * <p>The type of sound that users hear during the end of meeting reminder. </p>
    */
-  ReminderType?: EndOfMeetingReminderType | string;
+  ReminderType?: EndOfMeetingReminderType;
 
   /**
    * @public
@@ -2698,19 +2698,19 @@ export interface Profile {
    * @public
    * <p>The distance unit of a room profile.</p>
    */
-  DistanceUnit?: DistanceUnit | string;
+  DistanceUnit?: DistanceUnit;
 
   /**
    * @public
    * <p>The temperature unit of a room profile.</p>
    */
-  TemperatureUnit?: TemperatureUnit | string;
+  TemperatureUnit?: TemperatureUnit;
 
   /**
    * @public
    * <p>The wake word of a room profile.</p>
    */
-  WakeWord?: WakeWord | string;
+  WakeWord?: WakeWord;
 
   /**
    * @public
@@ -3000,13 +3000,13 @@ export interface BusinessReport {
    * <p>The status of the report generation execution (RUNNING, SUCCEEDED, or
    *          FAILED).</p>
    */
-  Status?: BusinessReportStatus | string;
+  Status?: BusinessReportStatus;
 
   /**
    * @public
    * <p>The failure code.</p>
    */
-  FailureCode?: BusinessReportFailureCode | string;
+  FailureCode?: BusinessReportFailureCode;
 
   /**
    * @public
@@ -3061,7 +3061,7 @@ export interface BusinessReportSchedule {
    * <p>The format of the generated report (individual CSV files or zipped files of
    *          individual files).</p>
    */
-  Format?: BusinessReportFormat | string;
+  Format?: BusinessReportFormat;
 
   /**
    * @public
@@ -3166,7 +3166,7 @@ export interface ListDeviceEventsRequest {
    *          returns a list of device events for that EventType in reverse chronological order.
    *       </p>
    */
-  EventType?: DeviceEventType | string;
+  EventType?: DeviceEventType;
 
   /**
    * @public
@@ -3195,7 +3195,7 @@ export interface DeviceEvent {
    * @public
    * <p>The type of device event.</p>
    */
-  Type?: DeviceEventType | string;
+  Type?: DeviceEventType;
 
   /**
    * @public
@@ -3405,13 +3405,13 @@ export interface ListSkillsRequest {
    * @public
    * <p>Whether the skill is enabled under the user's account.</p>
    */
-  EnablementType?: EnablementTypeFilter | string;
+  EnablementType?: EnablementTypeFilter;
 
   /**
    * @public
    * <p>Whether the skill is publicly available or is a private skill.</p>
    */
-  SkillType?: SkillTypeFilter | string;
+  SkillType?: SkillTypeFilter;
 
   /**
    * @public
@@ -3486,13 +3486,13 @@ export interface SkillSummary {
    * <p>Whether the skill is enabled under the user's account, or if it requires linking to be
    *          used.</p>
    */
-  EnablementType?: EnablementType | string;
+  EnablementType?: EnablementType;
 
   /**
    * @public
    * <p>Whether the skill is publicly available or is a private skill.</p>
    */
-  SkillType?: SkillType | string;
+  SkillType?: SkillType;
 }
 
 /**
@@ -4199,7 +4199,7 @@ export interface Sort {
    * @public
    * <p>The sort value of a sort object.</p>
    */
-  Value: SortValue | string | undefined;
+  Value: SortValue | undefined;
 }
 
 /**
@@ -4452,7 +4452,7 @@ export interface DeviceData {
    * @public
    * <p>The status of a device.</p>
    */
-  DeviceStatus?: DeviceStatus | string;
+  DeviceStatus?: DeviceStatus;
 
   /**
    * @public
@@ -4583,14 +4583,14 @@ export interface NetworkProfileData {
    * <p>The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE, WPA2_PSK, WPA_PSK,
    *          WEP, or OPEN.</p>
    */
-  SecurityType?: NetworkSecurityType | string;
+  SecurityType?: NetworkSecurityType;
 
   /**
    * @public
    * <p>The authentication standard that is used in the EAP framework. Currently, EAP_TLS is
    *          supported.</p>
    */
-  EapMethod?: NetworkEapMethod | string;
+  EapMethod?: NetworkEapMethod;
 
   /**
    * @public
@@ -4700,19 +4700,19 @@ export interface ProfileData {
    * @public
    * <p>The distance unit of a room profile.</p>
    */
-  DistanceUnit?: DistanceUnit | string;
+  DistanceUnit?: DistanceUnit;
 
   /**
    * @public
    * <p>The temperature unit of a room profile.</p>
    */
-  TemperatureUnit?: TemperatureUnit | string;
+  TemperatureUnit?: TemperatureUnit;
 
   /**
    * @public
    * <p>The wake word of a room profile.</p>
    */
-  WakeWord?: WakeWord | string;
+  WakeWord?: WakeWord;
 
   /**
    * @public
@@ -5014,7 +5014,7 @@ export interface UserData {
    * @public
    * <p>The enrollment status of a user.</p>
    */
-  EnrollmentStatus?: EnrollmentStatus | string;
+  EnrollmentStatus?: EnrollmentStatus;
 
   /**
    * @public
@@ -5077,7 +5077,7 @@ export interface Audio {
    * @public
    * <p>The locale of the audio message. Currently, en-US is supported.</p>
    */
-  Locale: Locale | string | undefined;
+  Locale: Locale | undefined;
 
   /**
    * @public
@@ -5096,7 +5096,7 @@ export interface Ssml {
    * @public
    * <p>The locale of the SSML message. Currently, en-US is supported.</p>
    */
-  Locale: Locale | string | undefined;
+  Locale: Locale | undefined;
 
   /**
    * @public
@@ -5114,7 +5114,7 @@ export interface Text {
    * @public
    * <p>The locale of the text message. Currently, en-US is supported.</p>
    */
-  Locale: Locale | string | undefined;
+  Locale: Locale | undefined;
 
   /**
    * @public
@@ -5247,7 +5247,7 @@ export interface StartDeviceSyncRequest {
    * @public
    * <p>Request structure to start the device sync. Required.</p>
    */
-  Features: (Feature | string)[] | undefined;
+  Features: Feature[] | undefined;
 }
 
 /**
@@ -5394,7 +5394,7 @@ export interface UpdateBusinessReportScheduleRequest {
    * <p>The format of the generated report (individual CSV files or zipped files of
    *          individual files).</p>
    */
-  Format?: BusinessReportFormat | string;
+  Format?: BusinessReportFormat;
 
   /**
    * @public
@@ -5428,7 +5428,7 @@ export interface UpdateConferenceProviderRequest {
    * @public
    * <p>The type of the conference provider.</p>
    */
-  ConferenceProviderType: ConferenceProviderType | string | undefined;
+  ConferenceProviderType: ConferenceProviderType | undefined;
 
   /**
    * @public
@@ -5667,7 +5667,7 @@ export interface UpdateEndOfMeetingReminder {
    * @public
    * <p>The type of sound that users hear during the end of meeting reminder. </p>
    */
-  ReminderType?: EndOfMeetingReminderType | string;
+  ReminderType?: EndOfMeetingReminderType;
 
   /**
    * @public
@@ -5795,19 +5795,19 @@ export interface UpdateProfileRequest {
    * @public
    * <p>The updated distance unit for the room profile.</p>
    */
-  DistanceUnit?: DistanceUnit | string;
+  DistanceUnit?: DistanceUnit;
 
   /**
    * @public
    * <p>The updated temperature unit for the room profile.</p>
    */
-  TemperatureUnit?: TemperatureUnit | string;
+  TemperatureUnit?: TemperatureUnit;
 
   /**
    * @public
    * <p>The updated wake word for the room profile.</p>
    */
-  WakeWord?: WakeWord | string;
+  WakeWord?: WakeWord;
 
   /**
    * @public

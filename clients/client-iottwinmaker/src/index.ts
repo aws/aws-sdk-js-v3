@@ -1,8 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>IoT TwinMaker is a service with which you
- *          can
+ * <p>IoT TwinMaker is a service with which you can
  *          build operational digital twins of physical systems. IoT TwinMaker overlays measurements
  *          and analysis from real-world sensors, cameras, and enterprise applications so you can
  *          create data visualizations to monitor your physical factory, building, or industrial plant.
@@ -14,8 +13,12 @@
 export * from "./IoTTwinMakerClient";
 export * from "./IoTTwinMaker";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { IoTTwinMakerExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { IoTTwinMakerServiceException } from "./models/IoTTwinMakerServiceException";

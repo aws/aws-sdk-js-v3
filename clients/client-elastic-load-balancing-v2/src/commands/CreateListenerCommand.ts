@@ -1,23 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   ElasticLoadBalancingV2ClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateListenerInput, CreateListenerOutput } from "../models/models_0";
 import { de_CreateListenerCommand, se_CreateListenerCommand } from "../protocols/Aws_query";
 
@@ -151,6 +143,11 @@ export interface CreateListenerCommandOutput extends CreateListenerOutput, __Met
  *       Value: "STRING_VALUE",
  *     },
  *   ],
+ *   MutualAuthentication: { // MutualAuthenticationAttributes
+ *     Mode: "STRING_VALUE",
+ *     TrustStoreArn: "STRING_VALUE",
+ *     IgnoreClientCertificateExpiry: true || false,
+ *   },
  * };
  * const command = new CreateListenerCommand(input);
  * const response = await client.send(command);
@@ -231,6 +228,11 @@ export interface CreateListenerCommandOutput extends CreateListenerOutput, __Met
  * //       AlpnPolicy: [ // AlpnPolicyName
  * //         "STRING_VALUE",
  * //       ],
+ * //       MutualAuthentication: { // MutualAuthenticationAttributes
+ * //         Mode: "STRING_VALUE",
+ * //         TrustStoreArn: "STRING_VALUE",
+ * //         IgnoreClientCertificateExpiry: true || false,
+ * //       },
  * //     },
  * //   ],
  * // };
@@ -287,7 +289,7 @@ export interface CreateListenerCommandOutput extends CreateListenerOutput, __Met
  *       balancer.</p>
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>You've reached the limit on the number of tags per load balancer.</p>
+ *  <p>You've reached the limit on the number of tags for this resource.</p>
  *
  * @throws {@link TooManyTargetsException} (client fault)
  *  <p>You've reached the limit on the number of targets.</p>
@@ -296,6 +298,12 @@ export interface CreateListenerCommandOutput extends CreateListenerOutput, __Met
  *  <p>You've reached the limit on the number of unique target groups per load balancer across
  *       all listeners. If a target group is used by multiple actions for a load balancer, it is
  *       counted as only one use.</p>
+ *
+ * @throws {@link TrustStoreNotFoundException} (client fault)
+ *  <p>The specified trust store does not exist.</p>
+ *
+ * @throws {@link TrustStoreNotReadyException} (client fault)
+ *  <p>The specified trust store is not active.</p>
  *
  * @throws {@link UnsupportedProtocolException} (client fault)
  *  <p>The specified protocol is not supported.</p>
@@ -390,79 +398,26 @@ export interface CreateListenerCommandOutput extends CreateListenerOutput, __Met
  * ```
  *
  */
-export class CreateListenerCommand extends $Command<
-  CreateListenerCommandInput,
-  CreateListenerCommandOutput,
-  ElasticLoadBalancingV2ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateListenerCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ElasticLoadBalancingV2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateListenerCommandInput, CreateListenerCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateListenerCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ElasticLoadBalancingV2Client";
-    const commandName = "CreateListenerCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateListenerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateListenerCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateListenerCommandOutput> {
-    return de_CreateListenerCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateListenerCommand extends $Command
+  .classBuilder<
+    CreateListenerCommandInput,
+    CreateListenerCommandOutput,
+    ElasticLoadBalancingV2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ElasticLoadBalancing_v10", "CreateListener", {})
+  .n("ElasticLoadBalancingV2Client", "CreateListenerCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateListenerCommand)
+  .de(de_CreateListenerCommand)
+  .build() {}

@@ -1,9 +1,9 @@
 {
   "name": "@aws-sdk/middleware-sdk-s3",
-  "version": "3.391.0",
+  "version": "3.499.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
-    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:cjs": "node ../../scripts/compilation/inline middleware-sdk-s3",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",
@@ -11,6 +11,7 @@
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "test": "jest",
     "test:integration": "jest -c jest.config.integ.js",
+    "test:e2e": "jest -c jest.config.e2e.js",
     "extract:docs": "api-extractor run --local"
   },
   "main": "./dist-cjs/index.js",
@@ -24,8 +25,12 @@
   "dependencies": {
     "@aws-sdk/types": "*",
     "@aws-sdk/util-arn-parser": "*",
-    "@smithy/protocol-http": "^2.0.3",
-    "@smithy/types": "^2.2.0",
+    "@smithy/node-config-provider": "^2.2.1",
+    "@smithy/protocol-http": "^3.1.1",
+    "@smithy/signature-v4": "^2.1.1",
+    "@smithy/smithy-client": "^2.3.1",
+    "@smithy/types": "^2.9.1",
+    "@smithy/util-config-provider": "^2.2.1",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
@@ -33,7 +38,6 @@
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typedoc": "0.23.23",
     "typescript": "~4.9.5"
   },
   "engines": {
@@ -54,8 +58,5 @@
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/middleware-sdk-s3"
-  },
-  "typedoc": {
-    "entryPoint": "src/index.ts"
   }
 }

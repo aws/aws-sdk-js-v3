@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateSimulationJobRequest, CreateSimulationJobResponse } from "../models/models_0";
 import { de_CreateSimulationJobCommand, se_CreateSimulationJobCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
@@ -58,7 +50,7 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  *   },
  *   maxJobDurationInSeconds: Number("long"), // required
  *   iamRole: "STRING_VALUE", // required
- *   failureBehavior: "STRING_VALUE",
+ *   failureBehavior: "Fail" || "Continue",
  *   robotApplications: [ // RobotApplicationConfigs
  *     { // RobotApplicationConfig
  *       application: "STRING_VALUE", // required
@@ -87,7 +79,7 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  *         { // UploadConfiguration
  *           name: "STRING_VALUE", // required
  *           path: "STRING_VALUE", // required
- *           uploadBehavior: "STRING_VALUE", // required
+ *           uploadBehavior: "UPLOAD_ON_TERMINATE" || "UPLOAD_ROLLING_AUTO_REMOVE", // required
  *         },
  *       ],
  *       useDefaultUploadConfigurations: true || false,
@@ -97,7 +89,7 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  *           name: "STRING_VALUE", // required
  *           command: "STRING_VALUE", // required
  *           streamOutputToCloudWatch: true || false,
- *           exitBehavior: "STRING_VALUE",
+ *           exitBehavior: "FAIL" || "RESTART",
  *         },
  *       ],
  *       useDefaultTools: true || false,
@@ -131,7 +123,7 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  *         {
  *           name: "STRING_VALUE", // required
  *           path: "STRING_VALUE", // required
- *           uploadBehavior: "STRING_VALUE", // required
+ *           uploadBehavior: "UPLOAD_ON_TERMINATE" || "UPLOAD_ROLLING_AUTO_REMOVE", // required
  *         },
  *       ],
  *       worldConfigs: [ // WorldConfigs
@@ -146,7 +138,7 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  *           name: "STRING_VALUE", // required
  *           command: "STRING_VALUE", // required
  *           streamOutputToCloudWatch: true || false,
- *           exitBehavior: "STRING_VALUE",
+ *           exitBehavior: "FAIL" || "RESTART",
  *         },
  *       ],
  *       useDefaultTools: true || false,
@@ -159,7 +151,7 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  *       s3Keys: [ // S3KeysOrPrefixes // required
  *         "STRING_VALUE",
  *       ],
- *       type: "STRING_VALUE",
+ *       type: "Prefix" || "Archive" || "File",
  *       destination: "STRING_VALUE",
  *     },
  *   ],
@@ -177,7 +169,7 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  *   },
  *   compute: { // Compute
  *     simulationUnitLimit: Number("int"),
- *     computeType: "STRING_VALUE",
+ *     computeType: "CPU" || "GPU_AND_CPU",
  *     gpuUnitLimit: Number("int"),
  *   },
  * };
@@ -185,11 +177,11 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  * const response = await client.send(command);
  * // { // CreateSimulationJobResponse
  * //   arn: "STRING_VALUE",
- * //   status: "STRING_VALUE",
+ * //   status: "Pending" || "Preparing" || "Running" || "Restarting" || "Completed" || "Failed" || "RunningFailed" || "Terminating" || "Terminated" || "Canceled",
  * //   lastStartedAt: new Date("TIMESTAMP"),
  * //   lastUpdatedAt: new Date("TIMESTAMP"),
- * //   failureBehavior: "STRING_VALUE",
- * //   failureCode: "STRING_VALUE",
+ * //   failureBehavior: "Fail" || "Continue",
+ * //   failureCode: "InternalServiceError" || "RobotApplicationCrash" || "SimulationApplicationCrash" || "RobotApplicationHealthCheckFailure" || "SimulationApplicationHealthCheckFailure" || "BadPermissionsRobotApplication" || "BadPermissionsSimulationApplication" || "BadPermissionsS3Object" || "BadPermissionsS3Output" || "BadPermissionsCloudwatchLogs" || "SubnetIpLimitExceeded" || "ENILimitExceeded" || "BadPermissionsUserCredentials" || "InvalidBundleRobotApplication" || "InvalidBundleSimulationApplication" || "InvalidS3Resource" || "ThrottlingError" || "LimitExceeded" || "MismatchedEtag" || "RobotApplicationVersionMismatchedEtag" || "SimulationApplicationVersionMismatchedEtag" || "ResourceNotFound" || "RequestThrottled" || "BatchTimedOut" || "BatchCanceled" || "InvalidInput" || "WrongRegionS3Bucket" || "WrongRegionS3Output" || "WrongRegionRobotApplication" || "WrongRegionSimulationApplication" || "UploadContentMismatchError",
  * //   clientRequestToken: "STRING_VALUE",
  * //   outputLocation: { // OutputLocation
  * //     s3Bucket: "STRING_VALUE",
@@ -229,7 +221,7 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  * //         { // UploadConfiguration
  * //           name: "STRING_VALUE", // required
  * //           path: "STRING_VALUE", // required
- * //           uploadBehavior: "STRING_VALUE", // required
+ * //           uploadBehavior: "UPLOAD_ON_TERMINATE" || "UPLOAD_ROLLING_AUTO_REMOVE", // required
  * //         },
  * //       ],
  * //       useDefaultUploadConfigurations: true || false,
@@ -239,7 +231,7 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  * //           name: "STRING_VALUE", // required
  * //           command: "STRING_VALUE", // required
  * //           streamOutputToCloudWatch: true || false,
- * //           exitBehavior: "STRING_VALUE",
+ * //           exitBehavior: "FAIL" || "RESTART",
  * //         },
  * //       ],
  * //       useDefaultTools: true || false,
@@ -273,7 +265,7 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  * //         {
  * //           name: "STRING_VALUE", // required
  * //           path: "STRING_VALUE", // required
- * //           uploadBehavior: "STRING_VALUE", // required
+ * //           uploadBehavior: "UPLOAD_ON_TERMINATE" || "UPLOAD_ROLLING_AUTO_REMOVE", // required
  * //         },
  * //       ],
  * //       worldConfigs: [ // WorldConfigs
@@ -288,7 +280,7 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  * //           name: "STRING_VALUE", // required
  * //           command: "STRING_VALUE", // required
  * //           streamOutputToCloudWatch: true || false,
- * //           exitBehavior: "STRING_VALUE",
+ * //           exitBehavior: "FAIL" || "RESTART",
  * //         },
  * //       ],
  * //       useDefaultTools: true || false,
@@ -304,7 +296,7 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  * //           etag: "STRING_VALUE",
  * //         },
  * //       ],
- * //       type: "STRING_VALUE",
+ * //       type: "Prefix" || "Archive" || "File",
  * //       destination: "STRING_VALUE",
  * //     },
  * //   ],
@@ -323,7 +315,7 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  * //   },
  * //   compute: { // ComputeResponse
  * //     simulationUnitLimit: Number("int"),
- * //     computeType: "STRING_VALUE",
+ * //     computeType: "CPU" || "GPU_AND_CPU",
  * //     gpuUnitLimit: Number("int"),
  * //   },
  * // };
@@ -364,79 +356,26 @@ export interface CreateSimulationJobCommandOutput extends CreateSimulationJobRes
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
-export class CreateSimulationJobCommand extends $Command<
-  CreateSimulationJobCommandInput,
-  CreateSimulationJobCommandOutput,
-  RoboMakerClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateSimulationJobCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RoboMakerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateSimulationJobCommandInput, CreateSimulationJobCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateSimulationJobCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RoboMakerClient";
-    const commandName = "CreateSimulationJobCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateSimulationJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateSimulationJobCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSimulationJobCommandOutput> {
-    return de_CreateSimulationJobCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateSimulationJobCommand extends $Command
+  .classBuilder<
+    CreateSimulationJobCommandInput,
+    CreateSimulationJobCommandOutput,
+    RoboMakerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: RoboMakerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("robomaker", "CreateSimulationJob", {})
+  .n("RoboMakerClient", "CreateSimulationJobCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateSimulationJobCommand)
+  .de(de_CreateSimulationJobCommand)
+  .build() {}

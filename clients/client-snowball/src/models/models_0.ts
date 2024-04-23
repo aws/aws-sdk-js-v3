@@ -119,7 +119,7 @@ export interface Address {
    * @public
    * <p>Differentiates between delivery address and pickup address in the customer account. Provided at job creation.</p>
    */
-  Type?: AddressType | string;
+  Type?: AddressType;
 }
 
 /**
@@ -368,7 +368,7 @@ export interface Notification {
    * @public
    * <p>The list of job states that will trigger a notification for this job.</p>
    */
-  JobStatesToNotify?: (JobState | string)[];
+  JobStatesToNotify?: JobState[];
 
   /**
    * @public
@@ -431,7 +431,7 @@ export interface NFSOnDeviceServiceConfiguration {
    * <p>The scale unit of the NFS storage on the device.</p>
    *          <p>Valid values: TB.</p>
    */
-  StorageUnit?: StorageUnit | string;
+  StorageUnit?: StorageUnit;
 }
 
 /**
@@ -451,7 +451,7 @@ export interface S3OnDeviceServiceConfiguration {
    * @public
    * <p>Storage unit. Currently the only supported unit is TB.</p>
    */
-  StorageUnit?: StorageUnit | string;
+  StorageUnit?: StorageUnit;
 
   /**
    * @public
@@ -483,7 +483,7 @@ export interface TGWOnDeviceServiceConfiguration {
    * @public
    * <p>The scale unit of the virtual tapes on the device.</p>
    */
-  StorageUnit?: StorageUnit | string;
+  StorageUnit?: StorageUnit;
 }
 
 /**
@@ -647,14 +647,14 @@ export interface TargetOnDeviceService {
    * <p>Specifies the name of the service on the Snow Family device that your transferred data
    *       will be exported from or imported into.</p>
    */
-  ServiceName?: DeviceServiceName | string;
+  ServiceName?: DeviceServiceName;
 
   /**
    * @public
    * <p>Specifies whether the data is being imported or exported. You can import or export the
    *       data, or use it locally on the device.</p>
    */
-  TransferOption?: TransferOption | string;
+  TransferOption?: TransferOption;
 }
 
 /**
@@ -816,7 +816,7 @@ export interface CreateClusterRequest {
    *       "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
    */
-  JobType: JobType | string | undefined;
+  JobType: JobType | undefined;
 
   /**
    * @public
@@ -874,7 +874,7 @@ export interface CreateClusterRequest {
    *       "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
    */
-  SnowballType: SnowballType | string | undefined;
+  SnowballType: SnowballType | undefined;
 
   /**
    * @public
@@ -919,7 +919,7 @@ export interface CreateClusterRequest {
    *             </li>
    *          </ul>
    */
-  ShippingOption: ShippingOption | string | undefined;
+  ShippingOption: ShippingOption | undefined;
 
   /**
    * @public
@@ -948,7 +948,7 @@ export interface CreateClusterRequest {
    *       automatically be available when the device arrives at your location. Otherwise, you need to
    *       use the Snowball Client to manage the device.</p>
    */
-  RemoteManagement?: RemoteManagement | string;
+  RemoteManagement?: RemoteManagement;
 
   /**
    * @public
@@ -980,7 +980,7 @@ export interface CreateClusterRequest {
    *       "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
    */
-  SnowballCapacityPreference?: SnowballCapacity | string;
+  SnowballCapacityPreference?: SnowballCapacity;
 }
 
 /**
@@ -1000,7 +1000,7 @@ export interface JobListEntry {
    * @public
    * <p>The current state of this job.</p>
    */
-  JobState?: JobState | string;
+  JobState?: JobState;
 
   /**
    * @public
@@ -1016,13 +1016,13 @@ export interface JobListEntry {
    * @public
    * <p>The type of job.</p>
    */
-  JobType?: JobType | string;
+  JobType?: JobType;
 
   /**
    * @public
    * <p>The type of device used with this job.</p>
    */
-  SnowballType?: SnowballType | string;
+  SnowballType?: SnowballType;
 
   /**
    * @public
@@ -1235,7 +1235,7 @@ export interface CreateJobRequest {
    * <p>Defines the type of job that you're creating.
    *       </p>
    */
-  JobType?: JobType | string;
+  JobType?: JobType;
 
   /**
    * @public
@@ -1298,7 +1298,7 @@ export interface CreateJobRequest {
    *       "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
    */
-  SnowballCapacityPreference?: SnowballCapacity | string;
+  SnowballCapacityPreference?: SnowballCapacity;
 
   /**
    * @public
@@ -1324,7 +1324,7 @@ export interface CreateJobRequest {
    *             </li>
    *          </ul>
    */
-  ShippingOption?: ShippingOption | string;
+  ShippingOption?: ShippingOption;
 
   /**
    * @public
@@ -1359,7 +1359,7 @@ export interface CreateJobRequest {
    *       "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
    */
-  SnowballType?: SnowballType | string;
+  SnowballType?: SnowballType;
 
   /**
    * @public
@@ -1392,7 +1392,7 @@ export interface CreateJobRequest {
    *       automatically be available when the device arrives at your location. Otherwise, you need to
    *       use the Snowball Edge client to manage the device. When set to <code>NOT_INSTALLED</code>, remote management will not be available on the device. </p>
    */
-  RemoteManagement?: RemoteManagement | string;
+  RemoteManagement?: RemoteManagement;
 
   /**
    * @public
@@ -1404,7 +1404,7 @@ export interface CreateJobRequest {
    * @public
    * <p>The highest impact level of data that will be stored or processed on the device, provided at job creation.</p>
    */
-  ImpactLevel?: ImpactLevel | string;
+  ImpactLevel?: ImpactLevel;
 
   /**
    * @public
@@ -1449,7 +1449,7 @@ export interface CreateLongTermPricingRequest {
    * <p>The type of long-term pricing option you want for the device, either 1-year or 3-year
    *       long-term pricing.</p>
    */
-  LongTermPricingType: LongTermPricingType | string | undefined;
+  LongTermPricingType: LongTermPricingType | undefined;
 
   /**
    * @public
@@ -1462,7 +1462,7 @@ export interface CreateLongTermPricingRequest {
    * @public
    * <p>The type of Snow Family devices to use for the long-term pricing job.</p>
    */
-  SnowballType: SnowballType | string | undefined;
+  SnowballType: SnowballType | undefined;
 }
 
 /**
@@ -1523,7 +1523,7 @@ export interface CreateReturnShippingLabelRequest {
    *       is returned to Amazon Web Services. This speed represents how quickly it moves to its
    *       destination while in transit. Regional shipping speeds are as follows:</p>
    */
-  ShippingOption?: ShippingOption | string;
+  ShippingOption?: ShippingOption;
 }
 
 /**
@@ -1550,7 +1550,7 @@ export interface CreateReturnShippingLabelResult {
    * @public
    * <p>The status information of the task on a Snow device that is being returned to Amazon Web Services.</p>
    */
-  Status?: ShippingLabelStatus | string;
+  Status?: ShippingLabelStatus;
 }
 
 /**
@@ -1725,14 +1725,14 @@ export interface ClusterMetadata {
    * @public
    * <p>The current status of the cluster.</p>
    */
-  ClusterState?: ClusterState | string;
+  ClusterState?: ClusterState;
 
   /**
    * @public
    * <p>The type of job for this cluster. Currently, the only job type supported for clusters
    *       is <code>LOCAL_USE</code>.</p>
    */
-  JobType?: JobType | string;
+  JobType?: JobType;
 
   /**
    * @public
@@ -1743,7 +1743,7 @@ export interface ClusterMetadata {
    *           <code>EDGE</code> device type.</p>
    *          </note>
    */
-  SnowballType?: SnowballType | string;
+  SnowballType?: SnowballType;
 
   /**
    * @public
@@ -1787,7 +1787,7 @@ export interface ClusterMetadata {
    *             </li>
    *          </ul>
    */
-  ShippingOption?: ShippingOption | string;
+  ShippingOption?: ShippingOption;
 
   /**
    * @public
@@ -1968,7 +1968,7 @@ export interface ShippingDetails {
    *             </li>
    *          </ul>
    */
-  ShippingOption?: ShippingOption | string;
+  ShippingOption?: ShippingOption;
 
   /**
    * @public
@@ -2003,19 +2003,19 @@ export interface JobMetadata {
    * @public
    * <p>The current status of the jobs.</p>
    */
-  JobState?: JobState | string;
+  JobState?: JobState;
 
   /**
    * @public
    * <p>The type of job.</p>
    */
-  JobType?: JobType | string;
+  JobType?: JobType;
 
   /**
    * @public
    * <p>The type of device used with this job.</p>
    */
-  SnowballType?: SnowballType | string;
+  SnowballType?: SnowballType;
 
   /**
    * @public
@@ -2075,7 +2075,7 @@ export interface JobMetadata {
    *       "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
    */
-  SnowballCapacityPreference?: SnowballCapacity | string;
+  SnowballCapacityPreference?: SnowballCapacity;
 
   /**
    * @public
@@ -2137,7 +2137,7 @@ export interface JobMetadata {
    *       automatically be available when the device arrives at your location. Otherwise, you need to
    *       use the Snowball Client to manage the device.</p>
    */
-  RemoteManagement?: RemoteManagement | string;
+  RemoteManagement?: RemoteManagement;
 
   /**
    * @public
@@ -2156,7 +2156,7 @@ export interface JobMetadata {
    * @public
    * <p>The highest impact level of data that will be stored or processed on the device, provided at job creation.</p>
    */
-  ImpactLevel?: ImpactLevel | string;
+  ImpactLevel?: ImpactLevel;
 
   /**
    * @public
@@ -2210,7 +2210,7 @@ export interface DescribeReturnShippingLabelResult {
    * @public
    * <p>The status information of the task on a Snow device that is being returned to Amazon Web Services.</p>
    */
-  Status?: ShippingLabelStatus | string;
+  Status?: ShippingLabelStatus;
 
   /**
    * @public
@@ -2404,7 +2404,7 @@ export interface ClusterListEntry {
    * <p>The current state of this cluster. For information about the state of a specific node,
    *       see <a>JobListEntry$JobState</a>.</p>
    */
-  ClusterState?: ClusterState | string;
+  ClusterState?: ClusterState;
 
   /**
    * @public
@@ -2585,7 +2585,7 @@ export interface LongTermPricingListEntry {
    * @public
    * <p>The type of long-term pricing that was selected for the device.</p>
    */
-  LongTermPricingType?: LongTermPricingType | string;
+  LongTermPricingType?: LongTermPricingType;
 
   /**
    * @public
@@ -2616,7 +2616,7 @@ export interface LongTermPricingListEntry {
    * @public
    * <p>The type of Snow Family devices associated with this long-term pricing job.</p>
    */
-  SnowballType?: SnowballType | string;
+  SnowballType?: SnowballType;
 
   /**
    * @public
@@ -2713,7 +2713,7 @@ export interface DependentService {
    * @public
    * <p>The name of the dependent service.</p>
    */
-  ServiceName?: ServiceName | string;
+  ServiceName?: ServiceName;
 
   /**
    * @public
@@ -2730,7 +2730,7 @@ export interface ListServiceVersionsRequest {
    * @public
    * <p>The name of the service for which you're requesting supported versions.</p>
    */
-  ServiceName: ServiceName | string | undefined;
+  ServiceName: ServiceName | undefined;
 
   /**
    * @public
@@ -2766,7 +2766,7 @@ export interface ListServiceVersionsResult {
    * @public
    * <p>The name of the service for which the system provided supported versions.</p>
    */
-  ServiceName: ServiceName | string | undefined;
+  ServiceName: ServiceName | undefined;
 
   /**
    * @public
@@ -2832,7 +2832,7 @@ export interface UpdateClusterRequest {
    * <p>The updated shipping option value of this cluster's <a>ShippingDetails</a>
    *       object.</p>
    */
-  ShippingOption?: ShippingOption | string;
+  ShippingOption?: ShippingOption;
 
   /**
    * @public
@@ -2903,7 +2903,7 @@ export interface UpdateJobRequest {
    * <p>The updated shipping option value of this job's <a>ShippingDetails</a>
    *       object.</p>
    */
-  ShippingOption?: ShippingOption | string;
+  ShippingOption?: ShippingOption;
 
   /**
    * @public
@@ -2921,7 +2921,7 @@ export interface UpdateJobRequest {
    *       "https://docs.aws.amazon.com/snowball/latest/developer-guide/snow-device-types.html" (Snow
    *       Family Devices and Capacity) in the <i>Snowcone User Guide</i>.</p>
    */
-  SnowballCapacityPreference?: SnowballCapacity | string;
+  SnowballCapacityPreference?: SnowballCapacity;
 
   /**
    * @public
@@ -2973,7 +2973,7 @@ export interface UpdateJobShipmentStateRequest {
    *          <p>Set to <code>RECEIVED</code> when the device arrives at your location.</p>
    *          <p>Set to <code>RETURNED</code> when you have returned the device to Amazon Web Services.</p>
    */
-  ShipmentState: ShipmentState | string | undefined;
+  ShipmentState: ShipmentState | undefined;
 }
 
 /**

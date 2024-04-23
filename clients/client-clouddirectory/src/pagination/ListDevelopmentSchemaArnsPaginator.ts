@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import { CloudDirectoryClient } from "../CloudDirectoryClient";
@@ -10,41 +11,14 @@ import {
 import { CloudDirectoryPaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: CloudDirectoryClient,
-  input: ListDevelopmentSchemaArnsCommandInput,
-  ...args: any
-): Promise<ListDevelopmentSchemaArnsCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new ListDevelopmentSchemaArnsCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateListDevelopmentSchemaArns(
+export const paginateListDevelopmentSchemaArns: (
   config: CloudDirectoryPaginationConfiguration,
   input: ListDevelopmentSchemaArnsCommandInput,
-  ...additionalArguments: any
-): Paginator<ListDevelopmentSchemaArnsCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.NextToken
-  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: ListDevelopmentSchemaArnsCommandOutput;
-  while (hasNext) {
-    input.NextToken = token;
-    input["MaxResults"] = config.pageSize;
-    if (config.client instanceof CloudDirectoryClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected CloudDirectory | CloudDirectoryClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.NextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<ListDevelopmentSchemaArnsCommandOutput> = createPaginator<
+  CloudDirectoryPaginationConfiguration,
+  ListDevelopmentSchemaArnsCommandInput,
+  ListDevelopmentSchemaArnsCommandOutput
+>(CloudDirectoryClient, ListDevelopmentSchemaArnsCommand, "NextToken", "NextToken", "MaxResults");

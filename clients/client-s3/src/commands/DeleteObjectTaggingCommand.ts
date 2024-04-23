@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteObjectTaggingOutput, DeleteObjectTaggingRequest } from "../models/models_0";
 import { de_DeleteObjectTaggingCommand, se_DeleteObjectTaggingCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
@@ -36,7 +28,10 @@ export interface DeleteObjectTaggingCommandOutput extends DeleteObjectTaggingOut
 
 /**
  * @public
- * <p>Removes the entire tag set from the specified object. For more information about
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Removes the entire tag set from the specified object. For more information about
  *          managing object tags, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-tagging.html"> Object Tagging</a>.</p>
  *          <p>To use this operation, you must have permission to perform the
  *             <code>s3:DeleteObjectTagging</code> action.</p>
@@ -85,23 +80,6 @@ export interface DeleteObjectTaggingCommandOutput extends DeleteObjectTaggingOut
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @example To remove tag set from an object
- * ```javascript
- * // The following example removes tag set associated with the specified object. If the bucket is versioning enabled, the operation removes tag set from the latest object version.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "HappyFace.jpg"
- * };
- * const command = new DeleteObjectTaggingCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "VersionId": "null"
- * }
- * *\/
- * // example id: to-remove-tag-set-from-an-object-1483145342862
- * ```
- *
  * @example To remove tag set from an object version
  * ```javascript
  * // The following example removes tag set associated with the specified object version. The request specifies both the object key and object version.
@@ -120,86 +98,45 @@ export interface DeleteObjectTaggingCommandOutput extends DeleteObjectTaggingOut
  * // example id: to-remove-tag-set-from-an-object-version-1483145285913
  * ```
  *
+ * @example To remove tag set from an object
+ * ```javascript
+ * // The following example removes tag set associated with the specified object. If the bucket is versioning enabled, the operation removes tag set from the latest object version.
+ * const input = {
+ *   "Bucket": "examplebucket",
+ *   "Key": "HappyFace.jpg"
+ * };
+ * const command = new DeleteObjectTaggingCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "VersionId": "null"
+ * }
+ * *\/
+ * // example id: to-remove-tag-set-from-an-object-1483145342862
+ * ```
+ *
  */
-export class DeleteObjectTaggingCommand extends $Command<
-  DeleteObjectTaggingCommandInput,
-  DeleteObjectTaggingCommandOutput,
-  S3ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      Bucket: { type: "contextParams", name: "Bucket" },
-      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
-      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
-      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
-      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
-      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeleteObjectTaggingCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: S3ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DeleteObjectTaggingCommandInput, DeleteObjectTaggingCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteObjectTaggingCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "S3Client";
-    const commandName = "DeleteObjectTaggingCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DeleteObjectTaggingCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteObjectTaggingCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteObjectTaggingCommandOutput> {
-    return de_DeleteObjectTaggingCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DeleteObjectTaggingCommand extends $Command
+  .classBuilder<
+    DeleteObjectTaggingCommandInput,
+    DeleteObjectTaggingCommandOutput,
+    S3ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+    Bucket: { type: "contextParams", name: "Bucket" },
+  })
+  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonS3", "DeleteObjectTagging", {})
+  .n("S3Client", "DeleteObjectTaggingCommand")
+  .f(void 0, void 0)
+  .ser(se_DeleteObjectTaggingCommand)
+  .de(de_DeleteObjectTaggingCommand)
+  .build() {}

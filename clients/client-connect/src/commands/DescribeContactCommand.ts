@@ -1,20 +1,16 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { DescribeContactRequest, DescribeContactResponse } from "../models/models_0";
+import { commonParams } from "../endpoint/EndpointParameters";
+import {
+  DescribeContactRequest,
+  DescribeContactResponse,
+  DescribeContactResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_DescribeContactCommand, se_DescribeContactCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -73,14 +69,24 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //     AgentInfo: { // AgentInfo
  * //       Id: "STRING_VALUE",
  * //       ConnectedToAgentTimestamp: new Date("TIMESTAMP"),
+ * //       AgentPauseDurationInSeconds: Number("int"),
  * //     },
  * //     InitiationTimestamp: new Date("TIMESTAMP"),
  * //     DisconnectTimestamp: new Date("TIMESTAMP"),
  * //     LastUpdateTimestamp: new Date("TIMESTAMP"),
+ * //     LastPausedTimestamp: new Date("TIMESTAMP"),
+ * //     LastResumedTimestamp: new Date("TIMESTAMP"),
+ * //     TotalPauseCount: Number("int"),
+ * //     TotalPauseDurationInSeconds: Number("int"),
  * //     ScheduledTimestamp: new Date("TIMESTAMP"),
  * //     RelatedContactId: "STRING_VALUE",
  * //     WisdomInfo: { // WisdomInfo
  * //       SessionArn: "STRING_VALUE",
+ * //     },
+ * //     QueueTimeAdjustmentSeconds: Number("int"),
+ * //     QueuePriority: Number("long"),
+ * //     Tags: { // ContactTagMap
+ * //       "<keys>": "STRING_VALUE",
  * //     },
  * //   },
  * // };
@@ -112,79 +118,26 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
-export class DescribeContactCommand extends $Command<
-  DescribeContactCommandInput,
-  DescribeContactCommandOutput,
-  ConnectClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeContactCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ConnectClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeContactCommandInput, DescribeContactCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeContactCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ConnectClient";
-    const commandName = "DescribeContactCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeContactCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeContactCommandOutput> {
-    return de_DescribeContactCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeContactCommand extends $Command
+  .classBuilder<
+    DescribeContactCommandInput,
+    DescribeContactCommandOutput,
+    ConnectClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonConnectService", "DescribeContact", {})
+  .n("ConnectClient", "DescribeContactCommand")
+  .f(void 0, DescribeContactResponseFilterSensitiveLog)
+  .ser(se_DescribeContactCommand)
+  .de(de_DescribeContactCommand)
+  .build() {}

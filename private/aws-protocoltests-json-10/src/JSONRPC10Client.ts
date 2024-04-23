@@ -21,6 +21,11 @@ import {
   resolveEndpointsConfig,
   resolveRegionConfig,
 } from "@smithy/config-resolver";
+import {
+  CompressionInputConfig,
+  CompressionResolvedConfig,
+  resolveCompressionConfig,
+} from "@smithy/middleware-compression";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
 import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
 import { HttpHandler as __HttpHandler } from "@smithy/protocol-http";
@@ -33,11 +38,9 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -67,6 +70,18 @@ import { JsonUnionsCommandInput, JsonUnionsCommandOutput } from "./commands/Json
 import { NoInputAndNoOutputCommandInput, NoInputAndNoOutputCommandOutput } from "./commands/NoInputAndNoOutputCommand";
 import { NoInputAndOutputCommandInput, NoInputAndOutputCommandOutput } from "./commands/NoInputAndOutputCommand";
 import {
+  OperationWithDefaultsCommandInput,
+  OperationWithDefaultsCommandOutput,
+} from "./commands/OperationWithDefaultsCommand";
+import {
+  OperationWithNestedStructureCommandInput,
+  OperationWithNestedStructureCommandOutput,
+} from "./commands/OperationWithNestedStructureCommand";
+import {
+  OperationWithRequiredMembersCommandInput,
+  OperationWithRequiredMembersCommandOutput,
+} from "./commands/OperationWithRequiredMembersCommand";
+import {
   PutWithContentEncodingCommandInput,
   PutWithContentEncodingCommandOutput,
 } from "./commands/PutWithContentEncodingCommand";
@@ -91,6 +106,9 @@ export type ServiceInputTypes =
   | JsonUnionsCommandInput
   | NoInputAndNoOutputCommandInput
   | NoInputAndOutputCommandInput
+  | OperationWithDefaultsCommandInput
+  | OperationWithNestedStructureCommandInput
+  | OperationWithRequiredMembersCommandInput
   | PutWithContentEncodingCommandInput
   | SimpleScalarPropertiesCommandInput;
 
@@ -106,6 +124,9 @@ export type ServiceOutputTypes =
   | JsonUnionsCommandOutput
   | NoInputAndNoOutputCommandOutput
   | NoInputAndOutputCommandOutput
+  | OperationWithDefaultsCommandOutput
+  | OperationWithNestedStructureCommandOutput
+  | OperationWithRequiredMembersCommandOutput
   | PutWithContentEncodingCommandOutput
   | SimpleScalarPropertiesCommandOutput;
 
@@ -214,6 +235,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 
@@ -242,7 +265,8 @@ export type JSONRPC10ClientConfigType = Partial<__SmithyConfiguration<__HttpHand
   EndpointsInputConfig &
   RetryInputConfig &
   HostHeaderInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  CompressionInputConfig;
 /**
  * @public
  *
@@ -260,7 +284,8 @@ export type JSONRPC10ClientResolvedConfigType = __SmithyResolvedConfiguration<__
   EndpointsResolvedConfig &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  CompressionResolvedConfig;
 /**
  * @public
  *
@@ -289,9 +314,10 @@ export class JSONRPC10Client extends __Client<
     const _config_3 = resolveRetryConfig(_config_2);
     const _config_4 = resolveHostHeaderConfig(_config_3);
     const _config_5 = resolveUserAgentConfig(_config_4);
-    const _config_6 = resolveRuntimeExtensions(_config_5, configuration?.extensions || []);
-    super(_config_6);
-    this.config = _config_6;
+    const _config_6 = resolveCompressionConfig(_config_5);
+    const _config_7 = resolveRuntimeExtensions(_config_6, configuration?.extensions || []);
+    super(_config_7);
+    this.config = _config_7;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));

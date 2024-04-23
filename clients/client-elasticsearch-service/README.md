@@ -30,22 +30,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ElasticsearchServiceClient` and
-the commands you need, for example `AcceptInboundCrossClusterSearchConnectionCommand`:
+the commands you need, for example `ListDomainNamesCommand`:
 
 ```js
 // ES5 example
-const {
-  ElasticsearchServiceClient,
-  AcceptInboundCrossClusterSearchConnectionCommand,
-} = require("@aws-sdk/client-elasticsearch-service");
+const { ElasticsearchServiceClient, ListDomainNamesCommand } = require("@aws-sdk/client-elasticsearch-service");
 ```
 
 ```ts
 // ES6+ example
-import {
-  ElasticsearchServiceClient,
-  AcceptInboundCrossClusterSearchConnectionCommand,
-} from "@aws-sdk/client-elasticsearch-service";
+import { ElasticsearchServiceClient, ListDomainNamesCommand } from "@aws-sdk/client-elasticsearch-service";
 ```
 
 ### Usage
@@ -64,7 +58,7 @@ const client = new ElasticsearchServiceClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AcceptInboundCrossClusterSearchConnectionCommand(params);
+const command = new ListDomainNamesCommand(params);
 ```
 
 #### Async/await
@@ -143,7 +137,7 @@ const client = new AWS.ElasticsearchService({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.acceptInboundCrossClusterSearchConnection(params);
+  const data = await client.listDomainNames(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -151,7 +145,7 @@ try {
 
 // Promises.
 client
-  .acceptInboundCrossClusterSearchConnection(params)
+  .listDomainNames(params)
   .then((data) => {
     // process data.
   })
@@ -160,7 +154,7 @@ client
   });
 
 // callbacks.
-client.acceptInboundCrossClusterSearchConnection(params, (err, data) => {
+client.listDomainNames(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -175,7 +169,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -221,7 +215,7 @@ see LICENSE for more information.
 AcceptInboundCrossClusterSearchConnection
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/acceptinboundcrossclustersearchconnectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/acceptinboundcrossclustersearchconnectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/acceptinboundcrossclustersearchconnectioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/AcceptInboundCrossClusterSearchConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/AcceptInboundCrossClusterSearchConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/AcceptInboundCrossClusterSearchConnectionCommandOutput/)
 
 </details>
 <details>
@@ -229,7 +223,7 @@ AcceptInboundCrossClusterSearchConnection
 AddTags
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/addtagscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/addtagscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/addtagscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/AddTagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/AddTagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/AddTagsCommandOutput/)
 
 </details>
 <details>
@@ -237,7 +231,7 @@ AddTags
 AssociatePackage
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/associatepackagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/associatepackagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/associatepackagecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/AssociatePackageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/AssociatePackageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/AssociatePackageCommandOutput/)
 
 </details>
 <details>
@@ -245,7 +239,7 @@ AssociatePackage
 AuthorizeVpcEndpointAccess
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/authorizevpcendpointaccesscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/authorizevpcendpointaccesscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/authorizevpcendpointaccesscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/AuthorizeVpcEndpointAccessCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/AuthorizeVpcEndpointAccessCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/AuthorizeVpcEndpointAccessCommandOutput/)
 
 </details>
 <details>
@@ -253,7 +247,7 @@ AuthorizeVpcEndpointAccess
 CancelElasticsearchServiceSoftwareUpdate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/cancelelasticsearchservicesoftwareupdatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/cancelelasticsearchservicesoftwareupdatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/cancelelasticsearchservicesoftwareupdatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/CancelElasticsearchServiceSoftwareUpdateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/CancelElasticsearchServiceSoftwareUpdateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/CancelElasticsearchServiceSoftwareUpdateCommandOutput/)
 
 </details>
 <details>
@@ -261,7 +255,7 @@ CancelElasticsearchServiceSoftwareUpdate
 CreateElasticsearchDomain
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/createelasticsearchdomaincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/createelasticsearchdomaincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/createelasticsearchdomaincommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/CreateElasticsearchDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/CreateElasticsearchDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/CreateElasticsearchDomainCommandOutput/)
 
 </details>
 <details>
@@ -269,7 +263,7 @@ CreateElasticsearchDomain
 CreateOutboundCrossClusterSearchConnection
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/createoutboundcrossclustersearchconnectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/createoutboundcrossclustersearchconnectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/createoutboundcrossclustersearchconnectioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/CreateOutboundCrossClusterSearchConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/CreateOutboundCrossClusterSearchConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/CreateOutboundCrossClusterSearchConnectionCommandOutput/)
 
 </details>
 <details>
@@ -277,7 +271,7 @@ CreateOutboundCrossClusterSearchConnection
 CreatePackage
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/createpackagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/createpackagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/createpackagecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/CreatePackageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/CreatePackageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/CreatePackageCommandOutput/)
 
 </details>
 <details>
@@ -285,7 +279,7 @@ CreatePackage
 CreateVpcEndpoint
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/createvpcendpointcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/createvpcendpointcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/createvpcendpointcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/CreateVpcEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/CreateVpcEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/CreateVpcEndpointCommandOutput/)
 
 </details>
 <details>
@@ -293,7 +287,7 @@ CreateVpcEndpoint
 DeleteElasticsearchDomain
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/deleteelasticsearchdomaincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/deleteelasticsearchdomaincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/deleteelasticsearchdomaincommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/DeleteElasticsearchDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DeleteElasticsearchDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DeleteElasticsearchDomainCommandOutput/)
 
 </details>
 <details>
@@ -301,7 +295,7 @@ DeleteElasticsearchDomain
 DeleteElasticsearchServiceRole
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/deleteelasticsearchservicerolecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/deleteelasticsearchservicerolecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/deleteelasticsearchservicerolecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/DeleteElasticsearchServiceRoleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DeleteElasticsearchServiceRoleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DeleteElasticsearchServiceRoleCommandOutput/)
 
 </details>
 <details>
@@ -309,7 +303,7 @@ DeleteElasticsearchServiceRole
 DeleteInboundCrossClusterSearchConnection
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/deleteinboundcrossclustersearchconnectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/deleteinboundcrossclustersearchconnectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/deleteinboundcrossclustersearchconnectioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/DeleteInboundCrossClusterSearchConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DeleteInboundCrossClusterSearchConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DeleteInboundCrossClusterSearchConnectionCommandOutput/)
 
 </details>
 <details>
@@ -317,7 +311,7 @@ DeleteInboundCrossClusterSearchConnection
 DeleteOutboundCrossClusterSearchConnection
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/deleteoutboundcrossclustersearchconnectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/deleteoutboundcrossclustersearchconnectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/deleteoutboundcrossclustersearchconnectioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/DeleteOutboundCrossClusterSearchConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DeleteOutboundCrossClusterSearchConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DeleteOutboundCrossClusterSearchConnectionCommandOutput/)
 
 </details>
 <details>
@@ -325,7 +319,7 @@ DeleteOutboundCrossClusterSearchConnection
 DeletePackage
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/deletepackagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/deletepackagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/deletepackagecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/DeletePackageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DeletePackageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DeletePackageCommandOutput/)
 
 </details>
 <details>
@@ -333,7 +327,7 @@ DeletePackage
 DeleteVpcEndpoint
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/deletevpcendpointcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/deletevpcendpointcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/deletevpcendpointcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/DeleteVpcEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DeleteVpcEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DeleteVpcEndpointCommandOutput/)
 
 </details>
 <details>
@@ -341,7 +335,7 @@ DeleteVpcEndpoint
 DescribeDomainAutoTunes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/describedomainautotunescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/describedomainautotunescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/describedomainautotunescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/DescribeDomainAutoTunesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DescribeDomainAutoTunesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DescribeDomainAutoTunesCommandOutput/)
 
 </details>
 <details>
@@ -349,7 +343,7 @@ DescribeDomainAutoTunes
 DescribeDomainChangeProgress
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/describedomainchangeprogresscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/describedomainchangeprogresscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/describedomainchangeprogresscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/DescribeDomainChangeProgressCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DescribeDomainChangeProgressCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DescribeDomainChangeProgressCommandOutput/)
 
 </details>
 <details>
@@ -357,7 +351,7 @@ DescribeDomainChangeProgress
 DescribeElasticsearchDomain
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/describeelasticsearchdomaincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/describeelasticsearchdomaincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/describeelasticsearchdomaincommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/DescribeElasticsearchDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DescribeElasticsearchDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DescribeElasticsearchDomainCommandOutput/)
 
 </details>
 <details>
@@ -365,7 +359,7 @@ DescribeElasticsearchDomain
 DescribeElasticsearchDomainConfig
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/describeelasticsearchdomainconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/describeelasticsearchdomainconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/describeelasticsearchdomainconfigcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/DescribeElasticsearchDomainConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DescribeElasticsearchDomainConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DescribeElasticsearchDomainConfigCommandOutput/)
 
 </details>
 <details>
@@ -373,7 +367,7 @@ DescribeElasticsearchDomainConfig
 DescribeElasticsearchDomains
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/describeelasticsearchdomainscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/describeelasticsearchdomainscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/describeelasticsearchdomainscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/DescribeElasticsearchDomainsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DescribeElasticsearchDomainsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DescribeElasticsearchDomainsCommandOutput/)
 
 </details>
 <details>
@@ -381,7 +375,7 @@ DescribeElasticsearchDomains
 DescribeElasticsearchInstanceTypeLimits
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/describeelasticsearchinstancetypelimitscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/describeelasticsearchinstancetypelimitscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/describeelasticsearchinstancetypelimitscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/DescribeElasticsearchInstanceTypeLimitsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DescribeElasticsearchInstanceTypeLimitsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DescribeElasticsearchInstanceTypeLimitsCommandOutput/)
 
 </details>
 <details>
@@ -389,7 +383,7 @@ DescribeElasticsearchInstanceTypeLimits
 DescribeInboundCrossClusterSearchConnections
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/describeinboundcrossclustersearchconnectionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/describeinboundcrossclustersearchconnectionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/describeinboundcrossclustersearchconnectionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/DescribeInboundCrossClusterSearchConnectionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DescribeInboundCrossClusterSearchConnectionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DescribeInboundCrossClusterSearchConnectionsCommandOutput/)
 
 </details>
 <details>
@@ -397,7 +391,7 @@ DescribeInboundCrossClusterSearchConnections
 DescribeOutboundCrossClusterSearchConnections
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/describeoutboundcrossclustersearchconnectionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/describeoutboundcrossclustersearchconnectionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/describeoutboundcrossclustersearchconnectionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/DescribeOutboundCrossClusterSearchConnectionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DescribeOutboundCrossClusterSearchConnectionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DescribeOutboundCrossClusterSearchConnectionsCommandOutput/)
 
 </details>
 <details>
@@ -405,7 +399,7 @@ DescribeOutboundCrossClusterSearchConnections
 DescribePackages
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/describepackagescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/describepackagescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/describepackagescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/DescribePackagesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DescribePackagesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DescribePackagesCommandOutput/)
 
 </details>
 <details>
@@ -413,7 +407,7 @@ DescribePackages
 DescribeReservedElasticsearchInstanceOfferings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/describereservedelasticsearchinstanceofferingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/describereservedelasticsearchinstanceofferingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/describereservedelasticsearchinstanceofferingscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/DescribeReservedElasticsearchInstanceOfferingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DescribeReservedElasticsearchInstanceOfferingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DescribeReservedElasticsearchInstanceOfferingsCommandOutput/)
 
 </details>
 <details>
@@ -421,7 +415,7 @@ DescribeReservedElasticsearchInstanceOfferings
 DescribeReservedElasticsearchInstances
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/describereservedelasticsearchinstancescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/describereservedelasticsearchinstancescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/describereservedelasticsearchinstancescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/DescribeReservedElasticsearchInstancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DescribeReservedElasticsearchInstancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DescribeReservedElasticsearchInstancesCommandOutput/)
 
 </details>
 <details>
@@ -429,7 +423,7 @@ DescribeReservedElasticsearchInstances
 DescribeVpcEndpoints
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/describevpcendpointscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/describevpcendpointscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/describevpcendpointscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/DescribeVpcEndpointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DescribeVpcEndpointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DescribeVpcEndpointsCommandOutput/)
 
 </details>
 <details>
@@ -437,7 +431,7 @@ DescribeVpcEndpoints
 DissociatePackage
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/dissociatepackagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/dissociatepackagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/dissociatepackagecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/DissociatePackageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DissociatePackageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/DissociatePackageCommandOutput/)
 
 </details>
 <details>
@@ -445,7 +439,7 @@ DissociatePackage
 GetCompatibleElasticsearchVersions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/getcompatibleelasticsearchversionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/getcompatibleelasticsearchversionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/getcompatibleelasticsearchversionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/GetCompatibleElasticsearchVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/GetCompatibleElasticsearchVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/GetCompatibleElasticsearchVersionsCommandOutput/)
 
 </details>
 <details>
@@ -453,7 +447,7 @@ GetCompatibleElasticsearchVersions
 GetPackageVersionHistory
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/getpackageversionhistorycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/getpackageversionhistorycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/getpackageversionhistorycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/GetPackageVersionHistoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/GetPackageVersionHistoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/GetPackageVersionHistoryCommandOutput/)
 
 </details>
 <details>
@@ -461,7 +455,7 @@ GetPackageVersionHistory
 GetUpgradeHistory
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/getupgradehistorycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/getupgradehistorycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/getupgradehistorycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/GetUpgradeHistoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/GetUpgradeHistoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/GetUpgradeHistoryCommandOutput/)
 
 </details>
 <details>
@@ -469,7 +463,7 @@ GetUpgradeHistory
 GetUpgradeStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/getupgradestatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/getupgradestatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/getupgradestatuscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/GetUpgradeStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/GetUpgradeStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/GetUpgradeStatusCommandOutput/)
 
 </details>
 <details>
@@ -477,7 +471,7 @@ GetUpgradeStatus
 ListDomainNames
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/listdomainnamescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/listdomainnamescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/listdomainnamescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/ListDomainNamesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/ListDomainNamesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/ListDomainNamesCommandOutput/)
 
 </details>
 <details>
@@ -485,7 +479,7 @@ ListDomainNames
 ListDomainsForPackage
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/listdomainsforpackagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/listdomainsforpackagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/listdomainsforpackagecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/ListDomainsForPackageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/ListDomainsForPackageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/ListDomainsForPackageCommandOutput/)
 
 </details>
 <details>
@@ -493,7 +487,7 @@ ListDomainsForPackage
 ListElasticsearchInstanceTypes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/listelasticsearchinstancetypescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/listelasticsearchinstancetypescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/listelasticsearchinstancetypescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/ListElasticsearchInstanceTypesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/ListElasticsearchInstanceTypesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/ListElasticsearchInstanceTypesCommandOutput/)
 
 </details>
 <details>
@@ -501,7 +495,7 @@ ListElasticsearchInstanceTypes
 ListElasticsearchVersions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/listelasticsearchversionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/listelasticsearchversionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/listelasticsearchversionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/ListElasticsearchVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/ListElasticsearchVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/ListElasticsearchVersionsCommandOutput/)
 
 </details>
 <details>
@@ -509,7 +503,7 @@ ListElasticsearchVersions
 ListPackagesForDomain
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/listpackagesfordomaincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/listpackagesfordomaincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/listpackagesfordomaincommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/ListPackagesForDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/ListPackagesForDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/ListPackagesForDomainCommandOutput/)
 
 </details>
 <details>
@@ -517,7 +511,7 @@ ListPackagesForDomain
 ListTags
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/listtagscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/listtagscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/listtagscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/ListTagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/ListTagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/ListTagsCommandOutput/)
 
 </details>
 <details>
@@ -525,7 +519,7 @@ ListTags
 ListVpcEndpointAccess
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/listvpcendpointaccesscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/listvpcendpointaccesscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/listvpcendpointaccesscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/ListVpcEndpointAccessCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/ListVpcEndpointAccessCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/ListVpcEndpointAccessCommandOutput/)
 
 </details>
 <details>
@@ -533,7 +527,7 @@ ListVpcEndpointAccess
 ListVpcEndpoints
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/listvpcendpointscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/listvpcendpointscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/listvpcendpointscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/ListVpcEndpointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/ListVpcEndpointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/ListVpcEndpointsCommandOutput/)
 
 </details>
 <details>
@@ -541,7 +535,7 @@ ListVpcEndpoints
 ListVpcEndpointsForDomain
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/listvpcendpointsfordomaincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/listvpcendpointsfordomaincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/listvpcendpointsfordomaincommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/ListVpcEndpointsForDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/ListVpcEndpointsForDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/ListVpcEndpointsForDomainCommandOutput/)
 
 </details>
 <details>
@@ -549,7 +543,7 @@ ListVpcEndpointsForDomain
 PurchaseReservedElasticsearchInstanceOffering
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/purchasereservedelasticsearchinstanceofferingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/purchasereservedelasticsearchinstanceofferingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/purchasereservedelasticsearchinstanceofferingcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/PurchaseReservedElasticsearchInstanceOfferingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/PurchaseReservedElasticsearchInstanceOfferingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/PurchaseReservedElasticsearchInstanceOfferingCommandOutput/)
 
 </details>
 <details>
@@ -557,7 +551,7 @@ PurchaseReservedElasticsearchInstanceOffering
 RejectInboundCrossClusterSearchConnection
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/rejectinboundcrossclustersearchconnectioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/rejectinboundcrossclustersearchconnectioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/rejectinboundcrossclustersearchconnectioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/RejectInboundCrossClusterSearchConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/RejectInboundCrossClusterSearchConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/RejectInboundCrossClusterSearchConnectionCommandOutput/)
 
 </details>
 <details>
@@ -565,7 +559,7 @@ RejectInboundCrossClusterSearchConnection
 RemoveTags
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/removetagscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/removetagscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/removetagscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/RemoveTagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/RemoveTagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/RemoveTagsCommandOutput/)
 
 </details>
 <details>
@@ -573,7 +567,7 @@ RemoveTags
 RevokeVpcEndpointAccess
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/revokevpcendpointaccesscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/revokevpcendpointaccesscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/revokevpcendpointaccesscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/RevokeVpcEndpointAccessCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/RevokeVpcEndpointAccessCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/RevokeVpcEndpointAccessCommandOutput/)
 
 </details>
 <details>
@@ -581,7 +575,7 @@ RevokeVpcEndpointAccess
 StartElasticsearchServiceSoftwareUpdate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/startelasticsearchservicesoftwareupdatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/startelasticsearchservicesoftwareupdatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/startelasticsearchservicesoftwareupdatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/StartElasticsearchServiceSoftwareUpdateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/StartElasticsearchServiceSoftwareUpdateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/StartElasticsearchServiceSoftwareUpdateCommandOutput/)
 
 </details>
 <details>
@@ -589,7 +583,7 @@ StartElasticsearchServiceSoftwareUpdate
 UpdateElasticsearchDomainConfig
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/updateelasticsearchdomainconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/updateelasticsearchdomainconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/updateelasticsearchdomainconfigcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/UpdateElasticsearchDomainConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/UpdateElasticsearchDomainConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/UpdateElasticsearchDomainConfigCommandOutput/)
 
 </details>
 <details>
@@ -597,7 +591,7 @@ UpdateElasticsearchDomainConfig
 UpdatePackage
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/updatepackagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/updatepackagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/updatepackagecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/UpdatePackageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/UpdatePackageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/UpdatePackageCommandOutput/)
 
 </details>
 <details>
@@ -605,7 +599,7 @@ UpdatePackage
 UpdateVpcEndpoint
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/updatevpcendpointcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/updatevpcendpointcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/updatevpcendpointcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/UpdateVpcEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/UpdateVpcEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/UpdateVpcEndpointCommandOutput/)
 
 </details>
 <details>
@@ -613,6 +607,6 @@ UpdateVpcEndpoint
 UpgradeElasticsearchDomain
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/classes/upgradeelasticsearchdomaincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/upgradeelasticsearchdomaincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-elasticsearch-service/interfaces/upgradeelasticsearchdomaincommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/UpgradeElasticsearchDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/UpgradeElasticsearchDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/UpgradeElasticsearchDomainCommandOutput/)
 
 </details>

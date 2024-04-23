@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
 import { CreateCertificateFromCsrRequest, CreateCertificateFromCsrResponse } from "../models/models_0";
 import { de_CreateCertificateFromCsrCommand, se_CreateCertificateFromCsrCommand } from "../protocols/Aws_restJson1";
@@ -42,11 +34,9 @@ export interface CreateCertificateFromCsrCommandOutput extends CreateCertificate
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateCertificateFromCsr</a> action.
  *       </p>
  *          <note>
- *             <p>The CSR must include a public key that is either an
- *             RSA key with a length of at least 2048 bits or an ECC key from NIST P-256 or NIST P-384 curves.
- *             For supported certificates, consult <a href="https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms">
- *                Certificate signing algorithms supported by IoT</a>.
- *          </p>
+ *             <p>The CSR must include a public key that is either an RSA key with a length of at least
+ *             2048 bits or an ECC key from NIST P-256, NIST P-384, or NIST P-521 curves. For supported
+ *             certificates, consult <a href="https://docs.aws.amazon.com/iot/latest/developerguide/x509-client-certs.html#x509-cert-algorithms"> Certificate signing algorithms supported by IoT</a>. </p>
  *          </note>
  *          <note>
  *             <p>Reusing the same certificate signing request (CSR)
@@ -131,79 +121,26 @@ export interface CreateCertificateFromCsrCommandOutput extends CreateCertificate
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
  */
-export class CreateCertificateFromCsrCommand extends $Command<
-  CreateCertificateFromCsrCommandInput,
-  CreateCertificateFromCsrCommandOutput,
-  IoTClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateCertificateFromCsrCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: IoTClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateCertificateFromCsrCommandInput, CreateCertificateFromCsrCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateCertificateFromCsrCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "IoTClient";
-    const commandName = "CreateCertificateFromCsrCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateCertificateFromCsrCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateCertificateFromCsrCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCertificateFromCsrCommandOutput> {
-    return de_CreateCertificateFromCsrCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateCertificateFromCsrCommand extends $Command
+  .classBuilder<
+    CreateCertificateFromCsrCommandInput,
+    CreateCertificateFromCsrCommandOutput,
+    IoTClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSIotService", "CreateCertificateFromCsr", {})
+  .n("IoTClient", "CreateCertificateFromCsrCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateCertificateFromCsrCommand)
+  .de(de_CreateCertificateFromCsrCommand)
+  .build() {}

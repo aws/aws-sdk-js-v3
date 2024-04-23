@@ -14,6 +14,7 @@ export * from "./DeleteProfileKeyCommand";
 export * from "./DeleteProfileObjectCommand";
 export * from "./DeleteProfileObjectTypeCommand";
 export * from "./DeleteWorkflowCommand";
+export * from "./DetectProfileObjectTypeCommand";
 export * from "./GetAutoMergingPreviewCommand";
 export * from "./GetCalculatedAttributeDefinitionCommand";
 export * from "./GetCalculatedAttributeForProfileCommand";

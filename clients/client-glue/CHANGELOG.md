@@ -3,6 +3,486 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.501.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.500.0...v3.501.0) (2024-01-26)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.499.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.498.0...v3.499.0) (2024-01-24)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.496.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.495.0...v3.496.0) (2024-01-19)
+
+
+### Bug Fixes
+
+* get full list of exports for esm compat in dist-cjs ([#5694](https://github.com/aws/aws-sdk-js-v3/issues/5694)) ([5d26da6](https://github.com/aws/aws-sdk-js-v3/commit/5d26da6d07b593ae286ca674fb3cbff7c833cbb0))
+
+
+
+
+
+# [3.495.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.494.0...v3.495.0) (2024-01-18)
+
+
+### Features
+
+* use bundled dist-cjs build ([#5687](https://github.com/aws/aws-sdk-js-v3/issues/5687)) ([5f79e22](https://github.com/aws/aws-sdk-js-v3/commit/5f79e225e32f0b2ed5b432ae4e4108663eb0acfb))
+
+
+
+
+
+# [3.490.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.489.0...v3.490.0) (2024-01-11)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.489.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.488.0...v3.489.0) (2024-01-10)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.485.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.484.0...v3.485.0) (2024-01-03)
+
+
+### Features
+
+* **credential-providers:** add credentialScope field ([#5606](https://github.com/aws/aws-sdk-js-v3/issues/5606)) ([04c1459](https://github.com/aws/aws-sdk-js-v3/commit/04c14592898ac63ed87d47f2a53320ccaa991083))
+
+
+
+
+
+# [3.484.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.483.0...v3.484.0) (2023-12-29)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.481.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.480.0...v3.481.0) (2023-12-26)
+
+
+### Features
+
+* codegen for command class builder ([#5604](https://github.com/aws/aws-sdk-js-v3/issues/5604)) ([4835de4](https://github.com/aws/aws-sdk-js-v3/commit/4835de4ebb8f302ae1e838ac1efaf5f12384910d))
+
+
+
+
+
+# [3.480.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.479.0...v3.480.0) (2023-12-22)
+
+
+### Features
+
+* **client-glue:** This release adds additional configurations for Query Session Context on the following APIs: GetUnfilteredTableMetadata, GetUnfilteredPartitionMetadata, GetUnfilteredPartitionsMetadata. ([c1607f6](https://github.com/aws/aws-sdk-js-v3/commit/c1607f62644bd71352fe4d22c6823de4e39851b1))
+
+
+
+
+
+# [3.478.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.477.0...v3.478.0) (2023-12-20)
+
+
+### Features
+
+* codegen for paginator factory ([#5590](https://github.com/aws/aws-sdk-js-v3/issues/5590)) ([e54099b](https://github.com/aws/aws-sdk-js-v3/commit/e54099b7c1eb3b1de5737d5494821b1dae045fca))
+
+
+
+
+
+# [3.477.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.476.0...v3.477.0) (2023-12-19)
+
+
+### Features
+
+* xml codegen reduction ([#5566](https://github.com/aws/aws-sdk-js-v3/issues/5566)) ([3ed7c81](https://github.com/aws/aws-sdk-js-v3/commit/3ed7c81f9191182826de7645078cc6ed1d2ee959))
+
+
+
+
+
+# [3.476.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.475.0...v3.476.0) (2023-12-18)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.474.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.473.0...v3.474.0) (2023-12-14)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.473.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.472.0...v3.473.0) (2023-12-13)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.470.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.469.0...v3.470.0) (2023-12-08)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.468.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.467.0...v3.468.0) (2023-12-06)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.465.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.464.0...v3.465.0) (2023-12-01)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.464.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.463.0...v3.464.0) (2023-11-30)
+
+
+### Features
+
+* **client-glue:** Adds observation and analyzer support to the GetDataQualityResult and BatchGetDataQualityResult APIs. ([fd0d898](https://github.com/aws/aws-sdk-js-v3/commit/fd0d898f7964796ad56f4bef3baeac085f0a2d1a))
+
+
+
+
+
+# [3.462.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.461.0...v3.462.0) (2023-11-29)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.461.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.460.0...v3.461.0) (2023-11-28)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.460.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.459.0...v3.460.0) (2023-11-28)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.459.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.458.0...v3.459.0) (2023-11-27)
+
+
+### Features
+
+* **client-glue:** add observations support to DQ CodeGen config model + update document for connectiontypes supported by ConnectorData entities ([465c757](https://github.com/aws/aws-sdk-js-v3/commit/465c757fde12a56851a6bbbd1d4ae39df2960455))
+
+
+
+
+
+# [3.458.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.457.0...v3.458.0) (2023-11-27)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.454.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.453.0...v3.454.0) (2023-11-17)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.453.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.452.0...v3.453.0) (2023-11-16)
+
+
+### Features
+
+* **client-glue:** Introduces new column statistics APIs to support statistics generation for tables within the Glue Data Catalog. ([de24311](https://github.com/aws/aws-sdk-js-v3/commit/de2431129916aaf4af5c49dbf33e16437e4b281c))
+
+
+
+
+
+# [3.451.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.450.0...v3.451.0) (2023-11-14)
+
+
+### Features
+
+* **client-glue:** Introduces new storage optimization APIs to support automatic compaction of Apache Iceberg tables. ([89bfc1a](https://github.com/aws/aws-sdk-js-v3/commit/89bfc1a0cbfef70f9feb41cac4acbfa83701711d))
+
+
+
+
+
+# [3.450.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.449.0...v3.450.0) (2023-11-13)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.449.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.448.0...v3.449.0) (2023-11-10)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.445.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.444.0...v3.445.0) (2023-11-07)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.442.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.441.0...v3.442.0) (2023-11-02)
+
+
+### Features
+
+* **client-glue:** This release introduces Google BigQuery Source and Target in AWS Glue CodeGenConfigurationNode. ([08d5b25](https://github.com/aws/aws-sdk-js-v3/commit/08d5b256779a884a6adedf20c1e8b3ec14b44533))
+
+
+
+
+
+# [3.441.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.440.0...v3.441.0) (2023-11-01)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.438.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.437.0...v3.438.0) (2023-10-27)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.437.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.436.0...v3.437.0) (2023-10-26)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.436.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.435.0...v3.436.0) (2023-10-25)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.435.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.434.0...v3.435.0) (2023-10-24)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.433.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.432.0...v3.433.0) (2023-10-20)
+
+
+### Bug Fixes
+
+* **codegen:** use partial record for enum keyed types ([#5391](https://github.com/aws/aws-sdk-js-v3/issues/5391)) ([70c2107](https://github.com/aws/aws-sdk-js-v3/commit/70c2107b970d035bfedb211278c88fdbfc2e5334))
+
+
+
+
+
+# [3.431.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.430.0...v3.431.0) (2023-10-18)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.430.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.429.0...v3.430.0) (2023-10-17)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.429.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.428.0...v3.429.0) (2023-10-16)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.428.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.427.0...v3.428.0) (2023-10-12)
+
+
+### Features
+
+* **client-glue:** Extending version control support to GitLab and Bitbucket from AWSGlue ([b683df3](https://github.com/aws/aws-sdk-js-v3/commit/b683df3c866f42d759c18b10be7007bf8e24f608))
+
+
+
+
+
+# [3.427.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.426.0...v3.427.0) (2023-10-06)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.425.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.424.0...v3.425.0) (2023-10-04)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.423.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.422.0...v3.423.0) (2023-10-02)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.421.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.420.0...v3.421.0) (2023-09-27)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.418.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.417.0...v3.418.0) (2023-09-22)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.414.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.413.0...v3.414.0) (2023-09-15)
+
+
+### Features
+
+* **region-config:** add aws region runtime extension codegen ([#5157](https://github.com/aws/aws-sdk-js-v3/issues/5157)) ([b9d59e8](https://github.com/aws/aws-sdk-js-v3/commit/b9d59e81696f9628c6502473bb01a2d1a617e928))
+
+
+
+
+
+# [3.413.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.412.0...v3.413.0) (2023-09-14)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.410.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.409.0...v3.410.0) (2023-09-11)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.409.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.408.0...v3.409.0) (2023-09-08)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.408.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.407.0...v3.408.0) (2023-09-07)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.405.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.404.0...v3.405.0) (2023-09-01)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
+# [3.399.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.398.0...v3.399.0) (2023-08-24)
+
+
+### Features
+
+* **client-glue:** Added API attributes that help in the monitoring of sessions. ([b1ac978](https://github.com/aws/aws-sdk-js-v3/commit/b1ac97822f27c33ed5b47e15ebade4974133b24e))
+
+
+
+
+
+# [3.398.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.397.0...v3.398.0) (2023-08-23)
+
+**Note:** Version bump only for package @aws-sdk/client-glue
+
+
+
+
+
 # [3.395.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.394.0...v3.395.0) (2023-08-18)
 
 **Note:** Version bump only for package @aws-sdk/client-glue

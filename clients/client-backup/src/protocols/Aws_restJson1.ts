@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -39,6 +40,14 @@ import {
   CreateLogicallyAirGappedBackupVaultCommandOutput,
 } from "../commands/CreateLogicallyAirGappedBackupVaultCommand";
 import { CreateReportPlanCommandInput, CreateReportPlanCommandOutput } from "../commands/CreateReportPlanCommand";
+import {
+  CreateRestoreTestingPlanCommandInput,
+  CreateRestoreTestingPlanCommandOutput,
+} from "../commands/CreateRestoreTestingPlanCommand";
+import {
+  CreateRestoreTestingSelectionCommandInput,
+  CreateRestoreTestingSelectionCommandOutput,
+} from "../commands/CreateRestoreTestingSelectionCommand";
 import { DeleteBackupPlanCommandInput, DeleteBackupPlanCommandOutput } from "../commands/DeleteBackupPlanCommand";
 import {
   DeleteBackupSelectionCommandInput,
@@ -63,6 +72,14 @@ import {
   DeleteRecoveryPointCommandOutput,
 } from "../commands/DeleteRecoveryPointCommand";
 import { DeleteReportPlanCommandInput, DeleteReportPlanCommandOutput } from "../commands/DeleteReportPlanCommand";
+import {
+  DeleteRestoreTestingPlanCommandInput,
+  DeleteRestoreTestingPlanCommandOutput,
+} from "../commands/DeleteRestoreTestingPlanCommand";
+import {
+  DeleteRestoreTestingSelectionCommandInput,
+  DeleteRestoreTestingSelectionCommandOutput,
+} from "../commands/DeleteRestoreTestingSelectionCommand";
 import { DescribeBackupJobCommandInput, DescribeBackupJobCommandOutput } from "../commands/DescribeBackupJobCommand";
 import {
   DescribeBackupVaultCommandInput,
@@ -125,10 +142,30 @@ import {
   GetRecoveryPointRestoreMetadataCommandOutput,
 } from "../commands/GetRecoveryPointRestoreMetadataCommand";
 import {
+  GetRestoreJobMetadataCommandInput,
+  GetRestoreJobMetadataCommandOutput,
+} from "../commands/GetRestoreJobMetadataCommand";
+import {
+  GetRestoreTestingInferredMetadataCommandInput,
+  GetRestoreTestingInferredMetadataCommandOutput,
+} from "../commands/GetRestoreTestingInferredMetadataCommand";
+import {
+  GetRestoreTestingPlanCommandInput,
+  GetRestoreTestingPlanCommandOutput,
+} from "../commands/GetRestoreTestingPlanCommand";
+import {
+  GetRestoreTestingSelectionCommandInput,
+  GetRestoreTestingSelectionCommandOutput,
+} from "../commands/GetRestoreTestingSelectionCommand";
+import {
   GetSupportedResourceTypesCommandInput,
   GetSupportedResourceTypesCommandOutput,
 } from "../commands/GetSupportedResourceTypesCommand";
 import { ListBackupJobsCommandInput, ListBackupJobsCommandOutput } from "../commands/ListBackupJobsCommand";
+import {
+  ListBackupJobSummariesCommandInput,
+  ListBackupJobSummariesCommandOutput,
+} from "../commands/ListBackupJobSummariesCommand";
 import { ListBackupPlansCommandInput, ListBackupPlansCommandOutput } from "../commands/ListBackupPlansCommand";
 import {
   ListBackupPlanTemplatesCommandInput,
@@ -144,6 +181,10 @@ import {
 } from "../commands/ListBackupSelectionsCommand";
 import { ListBackupVaultsCommandInput, ListBackupVaultsCommandOutput } from "../commands/ListBackupVaultsCommand";
 import { ListCopyJobsCommandInput, ListCopyJobsCommandOutput } from "../commands/ListCopyJobsCommand";
+import {
+  ListCopyJobSummariesCommandInput,
+  ListCopyJobSummariesCommandOutput,
+} from "../commands/ListCopyJobSummariesCommand";
 import { ListFrameworksCommandInput, ListFrameworksCommandOutput } from "../commands/ListFrameworksCommand";
 import { ListLegalHoldsCommandInput, ListLegalHoldsCommandOutput } from "../commands/ListLegalHoldsCommand";
 import {
@@ -168,7 +209,23 @@ import {
 } from "../commands/ListRecoveryPointsByResourceCommand";
 import { ListReportJobsCommandInput, ListReportJobsCommandOutput } from "../commands/ListReportJobsCommand";
 import { ListReportPlansCommandInput, ListReportPlansCommandOutput } from "../commands/ListReportPlansCommand";
+import {
+  ListRestoreJobsByProtectedResourceCommandInput,
+  ListRestoreJobsByProtectedResourceCommandOutput,
+} from "../commands/ListRestoreJobsByProtectedResourceCommand";
 import { ListRestoreJobsCommandInput, ListRestoreJobsCommandOutput } from "../commands/ListRestoreJobsCommand";
+import {
+  ListRestoreJobSummariesCommandInput,
+  ListRestoreJobSummariesCommandOutput,
+} from "../commands/ListRestoreJobSummariesCommand";
+import {
+  ListRestoreTestingPlansCommandInput,
+  ListRestoreTestingPlansCommandOutput,
+} from "../commands/ListRestoreTestingPlansCommand";
+import {
+  ListRestoreTestingSelectionsCommandInput,
+  ListRestoreTestingSelectionsCommandOutput,
+} from "../commands/ListRestoreTestingSelectionsCommand";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "../commands/ListTagsCommand";
 import {
   PutBackupVaultAccessPolicyCommandInput,
@@ -182,6 +239,10 @@ import {
   PutBackupVaultNotificationsCommandInput,
   PutBackupVaultNotificationsCommandOutput,
 } from "../commands/PutBackupVaultNotificationsCommand";
+import {
+  PutRestoreValidationResultCommandInput,
+  PutRestoreValidationResultCommandOutput,
+} from "../commands/PutRestoreValidationResultCommand";
 import { StartBackupJobCommandInput, StartBackupJobCommandOutput } from "../commands/StartBackupJobCommand";
 import { StartCopyJobCommandInput, StartCopyJobCommandOutput } from "../commands/StartCopyJobCommand";
 import { StartReportJobCommandInput, StartReportJobCommandOutput } from "../commands/StartReportJobCommand";
@@ -204,11 +265,20 @@ import {
   UpdateRegionSettingsCommandOutput,
 } from "../commands/UpdateRegionSettingsCommand";
 import { UpdateReportPlanCommandInput, UpdateReportPlanCommandOutput } from "../commands/UpdateReportPlanCommand";
+import {
+  UpdateRestoreTestingPlanCommandInput,
+  UpdateRestoreTestingPlanCommandOutput,
+} from "../commands/UpdateRestoreTestingPlanCommand";
+import {
+  UpdateRestoreTestingSelectionCommandInput,
+  UpdateRestoreTestingSelectionCommandOutput,
+} from "../commands/UpdateRestoreTestingSelectionCommand";
 import { BackupServiceException as __BaseException } from "../models/BackupServiceException";
 import {
   AdvancedBackupSetting,
   AlreadyExistsException,
   BackupJob,
+  BackupJobSummary,
   BackupPlanInput,
   BackupPlansListMember,
   BackupRuleInput,
@@ -225,6 +295,7 @@ import {
   ControlScope,
   CopyAction,
   CopyJob,
+  CopyJobSummary,
   DateRange,
   DependencyFailureException,
   Framework,
@@ -232,11 +303,13 @@ import {
   InvalidParameterValueException,
   InvalidRequestException,
   InvalidResourceStateException,
+  KeyValue,
   LegalHold,
   Lifecycle,
   LimitExceededException,
   MissingParameterValueException,
   ProtectedResource,
+  ProtectedResourceConditions,
   RecoveryPointByBackupVault,
   RecoveryPointByResource,
   RecoveryPointSelection,
@@ -246,6 +319,17 @@ import {
   ReportSetting,
   ResourceNotFoundException,
   RestoreJobsListMember,
+  RestoreJobSummary,
+  RestoreTestingPlanForCreate,
+  RestoreTestingPlanForGet,
+  RestoreTestingPlanForList,
+  RestoreTestingPlanForUpdate,
+  RestoreTestingRecoveryPointSelection,
+  RestoreTestingRecoveryPointType,
+  RestoreTestingSelectionForCreate,
+  RestoreTestingSelectionForGet,
+  RestoreTestingSelectionForList,
+  RestoreTestingSelectionForUpdate,
   ServiceUnavailableException,
 } from "../models/models_0";
 
@@ -256,26 +340,17 @@ export const se_CancelLegalHoldCommand = async (
   input: CancelLegalHoldCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/legal-holds/{LegalHoldId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "LegalHoldId", () => input.LegalHoldId!, "{LegalHoldId}", false);
+  b.bp("/legal-holds/{LegalHoldId}");
+  b.p("LegalHoldId", () => input.LegalHoldId!, "{LegalHoldId}", false);
   const query: any = map({
-    cancelDescription: [, __expectNonNull(input.CancelDescription!, `CancelDescription`)],
-    retainRecordInDays: [() => input.RetainRecordInDays !== void 0, () => input.RetainRecordInDays!.toString()],
+    [_cD]: [, __expectNonNull(input[_CD]!, `CancelDescription`)],
+    [_rRID]: [() => input.RetainRecordInDays !== void 0, () => input[_RRID]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -285,11 +360,11 @@ export const se_CreateBackupPlanCommand = async (
   input: CreateBackupPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup/plans";
+  b.bp("/backup/plans");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -298,15 +373,8 @@ export const se_CreateBackupPlanCommand = async (
       CreatorRequestId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -316,20 +384,12 @@ export const se_CreateBackupSelectionCommand = async (
   input: CreateBackupSelectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup/plans/{BackupPlanId}/selections";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackupPlanId",
-    () => input.BackupPlanId!,
-    "{BackupPlanId}",
-    false
-  );
+  b.bp("/backup/plans/{BackupPlanId}/selections");
+  b.p("BackupPlanId", () => input.BackupPlanId!, "{BackupPlanId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -337,15 +397,8 @@ export const se_CreateBackupSelectionCommand = async (
       CreatorRequestId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -355,20 +408,12 @@ export const se_CreateBackupVaultCommand = async (
   input: CreateBackupVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup-vaults/{BackupVaultName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackupVaultName",
-    () => input.BackupVaultName!,
-    "{BackupVaultName}",
-    false
-  );
+  b.bp("/backup-vaults/{BackupVaultName}");
+  b.p("BackupVaultName", () => input.BackupVaultName!, "{BackupVaultName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -377,15 +422,8 @@ export const se_CreateBackupVaultCommand = async (
       EncryptionKeyArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -395,11 +433,11 @@ export const se_CreateFrameworkCommand = async (
   input: CreateFrameworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/frameworks";
+  b.bp("/audit/frameworks");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -410,15 +448,8 @@ export const se_CreateFrameworkCommand = async (
       IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -428,11 +459,11 @@ export const se_CreateLegalHoldCommand = async (
   input: CreateLegalHoldCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/legal-holds";
+  b.bp("/legal-holds");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -443,15 +474,8 @@ export const se_CreateLegalHoldCommand = async (
       Title: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -461,21 +485,12 @@ export const se_CreateLogicallyAirGappedBackupVaultCommand = async (
   input: CreateLogicallyAirGappedBackupVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/logically-air-gapped-backup-vaults/{BackupVaultName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackupVaultName",
-    () => input.BackupVaultName!,
-    "{BackupVaultName}",
-    false
-  );
+  b.bp("/logically-air-gapped-backup-vaults/{BackupVaultName}");
+  b.p("BackupVaultName", () => input.BackupVaultName!, "{BackupVaultName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -485,15 +500,8 @@ export const se_CreateLogicallyAirGappedBackupVaultCommand = async (
       MinRetentionDays: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -503,11 +511,11 @@ export const se_CreateReportPlanCommand = async (
   input: CreateReportPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/report-plans";
+  b.bp("/audit/report-plans");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -519,15 +527,56 @@ export const se_CreateReportPlanCommand = async (
       ReportSetting: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateRestoreTestingPlanCommand
+ */
+export const se_CreateRestoreTestingPlanCommand = async (
+  input: CreateRestoreTestingPlanCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/restore-testing/plans");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      CreatorRequestId: [],
+      RestoreTestingPlan: (_) => _json(_),
+      Tags: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateRestoreTestingSelectionCommand
+ */
+export const se_CreateRestoreTestingSelectionCommand = async (
+  input: CreateRestoreTestingSelectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/restore-testing/plans/{RestoreTestingPlanName}/selections");
+  b.p("RestoreTestingPlanName", () => input.RestoreTestingPlanName!, "{RestoreTestingPlanName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      CreatorRequestId: [],
+      RestoreTestingSelection: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -537,28 +586,13 @@ export const se_DeleteBackupPlanCommand = async (
   input: DeleteBackupPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup/plans/{BackupPlanId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackupPlanId",
-    () => input.BackupPlanId!,
-    "{BackupPlanId}",
-    false
-  );
+  b.bp("/backup/plans/{BackupPlanId}");
+  b.p("BackupPlanId", () => input.BackupPlanId!, "{BackupPlanId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -568,30 +602,14 @@ export const se_DeleteBackupSelectionCommand = async (
   input: DeleteBackupSelectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backup/plans/{BackupPlanId}/selections/{SelectionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackupPlanId",
-    () => input.BackupPlanId!,
-    "{BackupPlanId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "SelectionId", () => input.SelectionId!, "{SelectionId}", false);
+  b.bp("/backup/plans/{BackupPlanId}/selections/{SelectionId}");
+  b.p("BackupPlanId", () => input.BackupPlanId!, "{BackupPlanId}", false);
+  b.p("SelectionId", () => input.SelectionId!, "{SelectionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -601,28 +619,13 @@ export const se_DeleteBackupVaultCommand = async (
   input: DeleteBackupVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup-vaults/{BackupVaultName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackupVaultName",
-    () => input.BackupVaultName!,
-    "{BackupVaultName}",
-    false
-  );
+  b.bp("/backup-vaults/{BackupVaultName}");
+  b.p("BackupVaultName", () => input.BackupVaultName!, "{BackupVaultName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -632,29 +635,13 @@ export const se_DeleteBackupVaultAccessPolicyCommand = async (
   input: DeleteBackupVaultAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backup-vaults/{BackupVaultName}/access-policy";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackupVaultName",
-    () => input.BackupVaultName!,
-    "{BackupVaultName}",
-    false
-  );
+  b.bp("/backup-vaults/{BackupVaultName}/access-policy");
+  b.p("BackupVaultName", () => input.BackupVaultName!, "{BackupVaultName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -664,29 +651,13 @@ export const se_DeleteBackupVaultLockConfigurationCommand = async (
   input: DeleteBackupVaultLockConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backup-vaults/{BackupVaultName}/vault-lock";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackupVaultName",
-    () => input.BackupVaultName!,
-    "{BackupVaultName}",
-    false
-  );
+  b.bp("/backup-vaults/{BackupVaultName}/vault-lock");
+  b.p("BackupVaultName", () => input.BackupVaultName!, "{BackupVaultName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -696,29 +667,13 @@ export const se_DeleteBackupVaultNotificationsCommand = async (
   input: DeleteBackupVaultNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backup-vaults/{BackupVaultName}/notification-configuration";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackupVaultName",
-    () => input.BackupVaultName!,
-    "{BackupVaultName}",
-    false
-  );
+  b.bp("/backup-vaults/{BackupVaultName}/notification-configuration");
+  b.p("BackupVaultName", () => input.BackupVaultName!, "{BackupVaultName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -728,28 +683,13 @@ export const se_DeleteFrameworkCommand = async (
   input: DeleteFrameworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/frameworks/{FrameworkName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FrameworkName",
-    () => input.FrameworkName!,
-    "{FrameworkName}",
-    false
-  );
+  b.bp("/audit/frameworks/{FrameworkName}");
+  b.p("FrameworkName", () => input.FrameworkName!, "{FrameworkName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -759,37 +699,14 @@ export const se_DeleteRecoveryPointCommand = async (
   input: DeleteRecoveryPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackupVaultName",
-    () => input.BackupVaultName!,
-    "{BackupVaultName}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RecoveryPointArn",
-    () => input.RecoveryPointArn!,
-    "{RecoveryPointArn}",
-    false
-  );
+  b.bp("/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}");
+  b.p("BackupVaultName", () => input.BackupVaultName!, "{BackupVaultName}", false);
+  b.p("RecoveryPointArn", () => input.RecoveryPointArn!, "{RecoveryPointArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -799,28 +716,46 @@ export const se_DeleteReportPlanCommand = async (
   input: DeleteReportPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/report-plans/{ReportPlanName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ReportPlanName",
-    () => input.ReportPlanName!,
-    "{ReportPlanName}",
-    false
-  );
+  b.bp("/audit/report-plans/{ReportPlanName}");
+  b.p("ReportPlanName", () => input.ReportPlanName!, "{ReportPlanName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteRestoreTestingPlanCommand
+ */
+export const se_DeleteRestoreTestingPlanCommand = async (
+  input: DeleteRestoreTestingPlanCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/restore-testing/plans/{RestoreTestingPlanName}");
+  b.p("RestoreTestingPlanName", () => input.RestoreTestingPlanName!, "{RestoreTestingPlanName}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteRestoreTestingSelectionCommand
+ */
+export const se_DeleteRestoreTestingSelectionCommand = async (
+  input: DeleteRestoreTestingSelectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/restore-testing/plans/{RestoreTestingPlanName}/selections/{RestoreTestingSelectionName}");
+  b.p("RestoreTestingPlanName", () => input.RestoreTestingPlanName!, "{RestoreTestingPlanName}", false);
+  b.p("RestoreTestingSelectionName", () => input.RestoreTestingSelectionName!, "{RestoreTestingSelectionName}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -830,21 +765,13 @@ export const se_DescribeBackupJobCommand = async (
   input: DescribeBackupJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup-jobs/{BackupJobId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "BackupJobId", () => input.BackupJobId!, "{BackupJobId}", false);
+  b.bp("/backup-jobs/{BackupJobId}");
+  b.p("BackupJobId", () => input.BackupJobId!, "{BackupJobId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -854,32 +781,16 @@ export const se_DescribeBackupVaultCommand = async (
   input: DescribeBackupVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup-vaults/{BackupVaultName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackupVaultName",
-    () => input.BackupVaultName!,
-    "{BackupVaultName}",
-    false
-  );
+  b.bp("/backup-vaults/{BackupVaultName}");
+  b.p("BackupVaultName", () => input.BackupVaultName!, "{BackupVaultName}", false);
   const query: any = map({
-    backupVaultAccountId: [, input.BackupVaultAccountId!],
+    [_bVAI]: [, input[_BVAI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -889,20 +800,13 @@ export const se_DescribeCopyJobCommand = async (
   input: DescribeCopyJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/copy-jobs/{CopyJobId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "CopyJobId", () => input.CopyJobId!, "{CopyJobId}", false);
+  b.bp("/copy-jobs/{CopyJobId}");
+  b.p("CopyJobId", () => input.CopyJobId!, "{CopyJobId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -912,28 +816,13 @@ export const se_DescribeFrameworkCommand = async (
   input: DescribeFrameworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/frameworks/{FrameworkName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FrameworkName",
-    () => input.FrameworkName!,
-    "{FrameworkName}",
-    false
-  );
+  b.bp("/audit/frameworks/{FrameworkName}");
+  b.p("FrameworkName", () => input.FrameworkName!, "{FrameworkName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -943,22 +832,15 @@ export const se_DescribeGlobalSettingsCommand = async (
   input: DescribeGlobalSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/global-settings";
+  b.bp("/global-settings");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -968,20 +850,13 @@ export const se_DescribeProtectedResourceCommand = async (
   input: DescribeProtectedResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resources/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/resources/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -991,41 +866,17 @@ export const se_DescribeRecoveryPointCommand = async (
   input: DescribeRecoveryPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackupVaultName",
-    () => input.BackupVaultName!,
-    "{BackupVaultName}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RecoveryPointArn",
-    () => input.RecoveryPointArn!,
-    "{RecoveryPointArn}",
-    false
-  );
+  b.bp("/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}");
+  b.p("BackupVaultName", () => input.BackupVaultName!, "{BackupVaultName}", false);
+  b.p("RecoveryPointArn", () => input.RecoveryPointArn!, "{RecoveryPointArn}", false);
   const query: any = map({
-    backupVaultAccountId: [, input.BackupVaultAccountId!],
+    [_bVAI]: [, input[_BVAI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1035,22 +886,15 @@ export const se_DescribeRegionSettingsCommand = async (
   input: DescribeRegionSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/account-settings";
+  b.bp("/account-settings");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1060,21 +904,13 @@ export const se_DescribeReportJobCommand = async (
   input: DescribeReportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/report-jobs/{ReportJobId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ReportJobId", () => input.ReportJobId!, "{ReportJobId}", false);
+  b.bp("/audit/report-jobs/{ReportJobId}");
+  b.p("ReportJobId", () => input.ReportJobId!, "{ReportJobId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1084,28 +920,13 @@ export const se_DescribeReportPlanCommand = async (
   input: DescribeReportPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/report-plans/{ReportPlanName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ReportPlanName",
-    () => input.ReportPlanName!,
-    "{ReportPlanName}",
-    false
-  );
+  b.bp("/audit/report-plans/{ReportPlanName}");
+  b.p("ReportPlanName", () => input.ReportPlanName!, "{ReportPlanName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1115,28 +936,13 @@ export const se_DescribeRestoreJobCommand = async (
   input: DescribeRestoreJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/restore-jobs/{RestoreJobId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RestoreJobId",
-    () => input.RestoreJobId!,
-    "{RestoreJobId}",
-    false
-  );
+  b.bp("/restore-jobs/{RestoreJobId}");
+  b.p("RestoreJobId", () => input.RestoreJobId!, "{RestoreJobId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1146,37 +952,14 @@ export const se_DisassociateRecoveryPointCommand = async (
   input: DisassociateRecoveryPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/disassociate";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackupVaultName",
-    () => input.BackupVaultName!,
-    "{BackupVaultName}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RecoveryPointArn",
-    () => input.RecoveryPointArn!,
-    "{RecoveryPointArn}",
-    false
-  );
+  b.bp("/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/disassociate");
+  b.p("BackupVaultName", () => input.BackupVaultName!, "{BackupVaultName}", false);
+  b.p("RecoveryPointArn", () => input.RecoveryPointArn!, "{RecoveryPointArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1186,37 +969,14 @@ export const se_DisassociateRecoveryPointFromParentCommand = async (
   input: DisassociateRecoveryPointFromParentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/parentAssociation";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackupVaultName",
-    () => input.BackupVaultName!,
-    "{BackupVaultName}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RecoveryPointArn",
-    () => input.RecoveryPointArn!,
-    "{RecoveryPointArn}",
-    false
-  );
+  b.bp("/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/parentAssociation");
+  b.p("BackupVaultName", () => input.BackupVaultName!, "{BackupVaultName}", false);
+  b.p("RecoveryPointArn", () => input.RecoveryPointArn!, "{RecoveryPointArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1226,28 +986,13 @@ export const se_ExportBackupPlanTemplateCommand = async (
   input: ExportBackupPlanTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup/plans/{BackupPlanId}/toTemplate";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackupPlanId",
-    () => input.BackupPlanId!,
-    "{BackupPlanId}",
-    false
-  );
+  b.bp("/backup/plans/{BackupPlanId}/toTemplate");
+  b.p("BackupPlanId", () => input.BackupPlanId!, "{BackupPlanId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1257,32 +1002,16 @@ export const se_GetBackupPlanCommand = async (
   input: GetBackupPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup/plans/{BackupPlanId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackupPlanId",
-    () => input.BackupPlanId!,
-    "{BackupPlanId}",
-    false
-  );
+  b.bp("/backup/plans/{BackupPlanId}");
+  b.p("BackupPlanId", () => input.BackupPlanId!, "{BackupPlanId}", false);
   const query: any = map({
-    versionId: [, input.VersionId!],
+    [_vI]: [, input[_VI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1292,27 +1021,19 @@ export const se_GetBackupPlanFromJSONCommand = async (
   input: GetBackupPlanFromJSONCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup/template/json/toPlan";
+  b.bp("/backup/template/json/toPlan");
   let body: any;
   body = JSON.stringify(
     take(input, {
       BackupPlanTemplateJson: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1322,29 +1043,13 @@ export const se_GetBackupPlanFromTemplateCommand = async (
   input: GetBackupPlanFromTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backup/template/plans/{BackupPlanTemplateId}/toPlan";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackupPlanTemplateId",
-    () => input.BackupPlanTemplateId!,
-    "{BackupPlanTemplateId}",
-    false
-  );
+  b.bp("/backup/template/plans/{BackupPlanTemplateId}/toPlan");
+  b.p("BackupPlanTemplateId", () => input.BackupPlanTemplateId!, "{BackupPlanTemplateId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1354,30 +1059,14 @@ export const se_GetBackupSelectionCommand = async (
   input: GetBackupSelectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backup/plans/{BackupPlanId}/selections/{SelectionId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackupPlanId",
-    () => input.BackupPlanId!,
-    "{BackupPlanId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "SelectionId", () => input.SelectionId!, "{SelectionId}", false);
+  b.bp("/backup/plans/{BackupPlanId}/selections/{SelectionId}");
+  b.p("BackupPlanId", () => input.BackupPlanId!, "{BackupPlanId}", false);
+  b.p("SelectionId", () => input.SelectionId!, "{SelectionId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1387,29 +1076,13 @@ export const se_GetBackupVaultAccessPolicyCommand = async (
   input: GetBackupVaultAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backup-vaults/{BackupVaultName}/access-policy";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackupVaultName",
-    () => input.BackupVaultName!,
-    "{BackupVaultName}",
-    false
-  );
+  b.bp("/backup-vaults/{BackupVaultName}/access-policy");
+  b.p("BackupVaultName", () => input.BackupVaultName!, "{BackupVaultName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1419,29 +1092,13 @@ export const se_GetBackupVaultNotificationsCommand = async (
   input: GetBackupVaultNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backup-vaults/{BackupVaultName}/notification-configuration";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackupVaultName",
-    () => input.BackupVaultName!,
-    "{BackupVaultName}",
-    false
-  );
+  b.bp("/backup-vaults/{BackupVaultName}/notification-configuration");
+  b.p("BackupVaultName", () => input.BackupVaultName!, "{BackupVaultName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1451,21 +1108,13 @@ export const se_GetLegalHoldCommand = async (
   input: GetLegalHoldCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/legal-holds/{LegalHoldId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "LegalHoldId", () => input.LegalHoldId!, "{LegalHoldId}", false);
+  b.bp("/legal-holds/{LegalHoldId}");
+  b.p("LegalHoldId", () => input.LegalHoldId!, "{LegalHoldId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1475,41 +1124,86 @@ export const se_GetRecoveryPointRestoreMetadataCommand = async (
   input: GetRecoveryPointRestoreMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/restore-metadata";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackupVaultName",
-    () => input.BackupVaultName!,
-    "{BackupVaultName}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RecoveryPointArn",
-    () => input.RecoveryPointArn!,
-    "{RecoveryPointArn}",
-    false
-  );
+  b.bp("/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/restore-metadata");
+  b.p("BackupVaultName", () => input.BackupVaultName!, "{BackupVaultName}", false);
+  b.p("RecoveryPointArn", () => input.RecoveryPointArn!, "{RecoveryPointArn}", false);
   const query: any = map({
-    backupVaultAccountId: [, input.BackupVaultAccountId!],
+    [_bVAI]: [, input[_BVAI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetRestoreJobMetadataCommand
+ */
+export const se_GetRestoreJobMetadataCommand = async (
+  input: GetRestoreJobMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/restore-jobs/{RestoreJobId}/metadata");
+  b.p("RestoreJobId", () => input.RestoreJobId!, "{RestoreJobId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetRestoreTestingInferredMetadataCommand
+ */
+export const se_GetRestoreTestingInferredMetadataCommand = async (
+  input: GetRestoreTestingInferredMetadataCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/restore-testing/inferred-metadata");
+  const query: any = map({
+    [_BVAI]: [, input[_BVAI]!],
+    [_BVN]: [, __expectNonNull(input[_BVN]!, `BackupVaultName`)],
+    [_RPA]: [, __expectNonNull(input[_RPA]!, `RecoveryPointArn`)],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetRestoreTestingPlanCommand
+ */
+export const se_GetRestoreTestingPlanCommand = async (
+  input: GetRestoreTestingPlanCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/restore-testing/plans/{RestoreTestingPlanName}");
+  b.p("RestoreTestingPlanName", () => input.RestoreTestingPlanName!, "{RestoreTestingPlanName}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetRestoreTestingSelectionCommand
+ */
+export const se_GetRestoreTestingSelectionCommand = async (
+  input: GetRestoreTestingSelectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/restore-testing/plans/{RestoreTestingPlanName}/selections/{RestoreTestingSelectionName}");
+  b.p("RestoreTestingPlanName", () => input.RestoreTestingPlanName!, "{RestoreTestingPlanName}", false);
+  b.p("RestoreTestingSelectionName", () => input.RestoreTestingSelectionName!, "{RestoreTestingSelectionName}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1519,23 +1213,15 @@ export const se_GetSupportedResourceTypesCommand = async (
   input: GetSupportedResourceTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/supported-resource-types";
+  b.bp("/supported-resource-types");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1545,46 +1231,57 @@ export const se_ListBackupJobsCommand = async (
   input: ListBackupJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup-jobs";
+  b.bp("/backup-jobs");
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    resourceArn: [, input.ByResourceArn!],
-    state: [, input.ByState!],
-    backupVaultName: [, input.ByBackupVaultName!],
-    createdBefore: [
-      () => input.ByCreatedBefore !== void 0,
-      () => (input.ByCreatedBefore!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    createdAfter: [
-      () => input.ByCreatedAfter !== void 0,
-      () => (input.ByCreatedAfter!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    resourceType: [, input.ByResourceType!],
-    accountId: [, input.ByAccountId!],
-    completeAfter: [
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_rA]: [, input[_BRA]!],
+    [_s]: [, input[_BS]!],
+    [_bVN]: [, input[_BBVN]!],
+    [_cB]: [() => input.ByCreatedBefore !== void 0, () => (input[_BCB]!.toISOString().split(".")[0] + "Z").toString()],
+    [_cA]: [() => input.ByCreatedAfter !== void 0, () => (input[_BCA]!.toISOString().split(".")[0] + "Z").toString()],
+    [_rT]: [, input[_BRT]!],
+    [_aI]: [, input[_BAI]!],
+    [_cAo]: [
       () => input.ByCompleteAfter !== void 0,
-      () => (input.ByCompleteAfter!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_BCAy]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    completeBefore: [
+    [_cBo]: [
       () => input.ByCompleteBefore !== void 0,
-      () => (input.ByCompleteBefore!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_BCBy]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    parentJobId: [, input.ByParentJobId!],
+    [_pJI]: [, input[_BPJI]!],
+    [_mC]: [, input[_BMC]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListBackupJobSummariesCommand
+ */
+export const se_ListBackupJobSummariesCommand = async (
+  input: ListBackupJobSummariesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/audit/backup-job-summaries");
+  const query: any = map({
+    [_AI]: [, input[_AI]!],
+    [_S]: [, input[_S]!],
+    [_RT]: [, input[_RT]!],
+    [_MC]: [, input[_MC]!],
+    [_AP]: [, input[_AP]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1594,25 +1291,17 @@ export const se_ListBackupPlansCommand = async (
   input: ListBackupPlansCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup/plans";
+  b.bp("/backup/plans");
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    includeDeleted: [() => input.IncludeDeleted !== void 0, () => input.IncludeDeleted!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_iD]: [() => input.IncludeDeleted !== void 0, () => input[_ID]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1622,24 +1311,16 @@ export const se_ListBackupPlanTemplatesCommand = async (
   input: ListBackupPlanTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup/template/plans";
+  b.bp("/backup/template/plans");
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1649,33 +1330,17 @@ export const se_ListBackupPlanVersionsCommand = async (
   input: ListBackupPlanVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup/plans/{BackupPlanId}/versions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackupPlanId",
-    () => input.BackupPlanId!,
-    "{BackupPlanId}",
-    false
-  );
+  b.bp("/backup/plans/{BackupPlanId}/versions");
+  b.p("BackupPlanId", () => input.BackupPlanId!, "{BackupPlanId}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1685,33 +1350,17 @@ export const se_ListBackupSelectionsCommand = async (
   input: ListBackupSelectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup/plans/{BackupPlanId}/selections";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackupPlanId",
-    () => input.BackupPlanId!,
-    "{BackupPlanId}",
-    false
-  );
+  b.bp("/backup/plans/{BackupPlanId}/selections");
+  b.p("BackupPlanId", () => input.BackupPlanId!, "{BackupPlanId}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1721,26 +1370,18 @@ export const se_ListBackupVaultsCommand = async (
   input: ListBackupVaultsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup-vaults";
+  b.bp("/backup-vaults");
   const query: any = map({
-    vaultType: [, input.ByVaultType!],
-    shared: [() => input.ByShared !== void 0, () => input.ByShared!.toString()],
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_vT]: [, input[_BVT]!],
+    [_sh]: [() => input.ByShared !== void 0, () => input[_BSy]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1750,46 +1391,57 @@ export const se_ListCopyJobsCommand = async (
   input: ListCopyJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/copy-jobs";
+  b.bp("/copy-jobs");
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    resourceArn: [, input.ByResourceArn!],
-    state: [, input.ByState!],
-    createdBefore: [
-      () => input.ByCreatedBefore !== void 0,
-      () => (input.ByCreatedBefore!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    createdAfter: [
-      () => input.ByCreatedAfter !== void 0,
-      () => (input.ByCreatedAfter!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    resourceType: [, input.ByResourceType!],
-    destinationVaultArn: [, input.ByDestinationVaultArn!],
-    accountId: [, input.ByAccountId!],
-    completeBefore: [
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_rA]: [, input[_BRA]!],
+    [_s]: [, input[_BS]!],
+    [_cB]: [() => input.ByCreatedBefore !== void 0, () => (input[_BCB]!.toISOString().split(".")[0] + "Z").toString()],
+    [_cA]: [() => input.ByCreatedAfter !== void 0, () => (input[_BCA]!.toISOString().split(".")[0] + "Z").toString()],
+    [_rT]: [, input[_BRT]!],
+    [_dVA]: [, input[_BDVA]!],
+    [_aI]: [, input[_BAI]!],
+    [_cBo]: [
       () => input.ByCompleteBefore !== void 0,
-      () => (input.ByCompleteBefore!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_BCBy]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    completeAfter: [
+    [_cAo]: [
       () => input.ByCompleteAfter !== void 0,
-      () => (input.ByCompleteAfter!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_BCAy]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    parentJobId: [, input.ByParentJobId!],
+    [_pJI]: [, input[_BPJI]!],
+    [_mC]: [, input[_BMC]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListCopyJobSummariesCommand
+ */
+export const se_ListCopyJobSummariesCommand = async (
+  input: ListCopyJobSummariesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/audit/copy-job-summaries");
+  const query: any = map({
+    [_AI]: [, input[_AI]!],
+    [_S]: [, input[_S]!],
+    [_RT]: [, input[_RT]!],
+    [_MC]: [, input[_MC]!],
+    [_AP]: [, input[_AP]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1799,24 +1451,16 @@ export const se_ListFrameworksCommand = async (
   input: ListFrameworksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/frameworks";
+  b.bp("/audit/frameworks");
   const query: any = map({
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    NextToken: [, input.NextToken!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1826,24 +1470,16 @@ export const se_ListLegalHoldsCommand = async (
   input: ListLegalHoldsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/legal-holds";
+  b.bp("/legal-holds");
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1853,24 +1489,16 @@ export const se_ListProtectedResourcesCommand = async (
   input: ListProtectedResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resources";
+  b.bp("/resources");
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1880,35 +1508,18 @@ export const se_ListProtectedResourcesByBackupVaultCommand = async (
   input: ListProtectedResourcesByBackupVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backup-vaults/{BackupVaultName}/resources";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackupVaultName",
-    () => input.BackupVaultName!,
-    "{BackupVaultName}",
-    false
-  );
+  b.bp("/backup-vaults/{BackupVaultName}/resources");
+  b.p("BackupVaultName", () => input.BackupVaultName!, "{BackupVaultName}", false);
   const query: any = map({
-    backupVaultAccountId: [, input.BackupVaultAccountId!],
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_bVAI]: [, input[_BVAI]!],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1918,47 +1529,24 @@ export const se_ListRecoveryPointsByBackupVaultCommand = async (
   input: ListRecoveryPointsByBackupVaultCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backup-vaults/{BackupVaultName}/recovery-points";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackupVaultName",
-    () => input.BackupVaultName!,
-    "{BackupVaultName}",
-    false
-  );
+  b.bp("/backup-vaults/{BackupVaultName}/recovery-points");
+  b.p("BackupVaultName", () => input.BackupVaultName!, "{BackupVaultName}", false);
   const query: any = map({
-    backupVaultAccountId: [, input.BackupVaultAccountId!],
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    resourceArn: [, input.ByResourceArn!],
-    resourceType: [, input.ByResourceType!],
-    backupPlanId: [, input.ByBackupPlanId!],
-    createdBefore: [
-      () => input.ByCreatedBefore !== void 0,
-      () => (input.ByCreatedBefore!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    createdAfter: [
-      () => input.ByCreatedAfter !== void 0,
-      () => (input.ByCreatedAfter!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    parentRecoveryPointArn: [, input.ByParentRecoveryPointArn!],
+    [_bVAI]: [, input[_BVAI]!],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_rA]: [, input[_BRA]!],
+    [_rT]: [, input[_BRT]!],
+    [_bPI]: [, input[_BBPI]!],
+    [_cB]: [() => input.ByCreatedBefore !== void 0, () => (input[_BCB]!.toISOString().split(".")[0] + "Z").toString()],
+    [_cA]: [() => input.ByCreatedAfter !== void 0, () => (input[_BCA]!.toISOString().split(".")[0] + "Z").toString()],
+    [_pRPA]: [, input[_BPRPA]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1968,27 +1556,17 @@ export const se_ListRecoveryPointsByLegalHoldCommand = async (
   input: ListRecoveryPointsByLegalHoldCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/legal-holds/{LegalHoldId}/recovery-points";
-  resolvedPath = __resolvedPath(resolvedPath, input, "LegalHoldId", () => input.LegalHoldId!, "{LegalHoldId}", false);
+  b.bp("/legal-holds/{LegalHoldId}/recovery-points");
+  b.p("LegalHoldId", () => input.LegalHoldId!, "{LegalHoldId}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1998,26 +1576,17 @@ export const se_ListRecoveryPointsByResourceCommand = async (
   input: ListRecoveryPointsByResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resources/{ResourceArn}/recovery-points";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/resources/{ResourceArn}/recovery-points");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2027,34 +1596,26 @@ export const se_ListReportJobsCommand = async (
   input: ListReportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/report-jobs";
+  b.bp("/audit/report-jobs");
   const query: any = map({
-    ReportPlanName: [, input.ByReportPlanName!],
-    CreationBefore: [
+    [_RPN]: [, input[_BRPN]!],
+    [_CB]: [
       () => input.ByCreationBefore !== void 0,
-      () => (input.ByCreationBefore!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_BCByr]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    CreationAfter: [
+    [_CA]: [
       () => input.ByCreationAfter !== void 0,
-      () => (input.ByCreationAfter!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_BCAyr]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    Status: [, input.ByStatus!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    NextToken: [, input.NextToken!],
+    [_St]: [, input[_BSyt]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2064,24 +1625,16 @@ export const se_ListReportPlansCommand = async (
   input: ListReportPlansCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/report-plans";
+  b.bp("/audit/report-plans");
   const query: any = map({
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    NextToken: [, input.NextToken!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2091,42 +1644,121 @@ export const se_ListRestoreJobsCommand = async (
   input: ListRestoreJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/restore-jobs";
+  b.bp("/restore-jobs");
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    accountId: [, input.ByAccountId!],
-    createdBefore: [
-      () => input.ByCreatedBefore !== void 0,
-      () => (input.ByCreatedBefore!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    createdAfter: [
-      () => input.ByCreatedAfter !== void 0,
-      () => (input.ByCreatedAfter!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    status: [, input.ByStatus!],
-    completeBefore: [
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_aI]: [, input[_BAI]!],
+    [_rT]: [, input[_BRT]!],
+    [_cB]: [() => input.ByCreatedBefore !== void 0, () => (input[_BCB]!.toISOString().split(".")[0] + "Z").toString()],
+    [_cA]: [() => input.ByCreatedAfter !== void 0, () => (input[_BCA]!.toISOString().split(".")[0] + "Z").toString()],
+    [_st]: [, input[_BSyt]!],
+    [_cBo]: [
       () => input.ByCompleteBefore !== void 0,
-      () => (input.ByCompleteBefore!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_BCBy]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    completeAfter: [
+    [_cAo]: [
       () => input.ByCompleteAfter !== void 0,
-      () => (input.ByCompleteAfter!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_BCAy]!.toISOString().split(".")[0] + "Z").toString(),
     ],
+    [_rTPA]: [, input[_BRTPA]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListRestoreJobsByProtectedResourceCommand
+ */
+export const se_ListRestoreJobsByProtectedResourceCommand = async (
+  input: ListRestoreJobsByProtectedResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/resources/{ResourceArn}/restore-jobs");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  const query: any = map({
+    [_st]: [, input[_BSyt]!],
+    [_rPCDA]: [
+      () => input.ByRecoveryPointCreationDateAfter !== void 0,
+      () => (input[_BRPCDA]!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    [_rPCDB]: [
+      () => input.ByRecoveryPointCreationDateBefore !== void 0,
+      () => (input[_BRPCDB]!.toISOString().split(".")[0] + "Z").toString(),
+    ],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListRestoreJobSummariesCommand
+ */
+export const se_ListRestoreJobSummariesCommand = async (
+  input: ListRestoreJobSummariesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/audit/restore-job-summaries");
+  const query: any = map({
+    [_AI]: [, input[_AI]!],
+    [_S]: [, input[_S]!],
+    [_RT]: [, input[_RT]!],
+    [_AP]: [, input[_AP]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListRestoreTestingPlansCommand
+ */
+export const se_ListRestoreTestingPlansCommand = async (
+  input: ListRestoreTestingPlansCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/restore-testing/plans");
+  const query: any = map({
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListRestoreTestingSelectionsCommand
+ */
+export const se_ListRestoreTestingSelectionsCommand = async (
+  input: ListRestoreTestingSelectionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/restore-testing/plans/{RestoreTestingPlanName}/selections");
+  b.p("RestoreTestingPlanName", () => input.RestoreTestingPlanName!, "{RestoreTestingPlanName}", false);
+  const query: any = map({
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2136,25 +1768,17 @@ export const se_ListTagsCommand = async (
   input: ListTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    nextToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2164,36 +1788,20 @@ export const se_PutBackupVaultAccessPolicyCommand = async (
   input: PutBackupVaultAccessPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backup-vaults/{BackupVaultName}/access-policy";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackupVaultName",
-    () => input.BackupVaultName!,
-    "{BackupVaultName}",
-    false
-  );
+  b.bp("/backup-vaults/{BackupVaultName}/access-policy");
+  b.p("BackupVaultName", () => input.BackupVaultName!, "{BackupVaultName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Policy: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2203,21 +1811,12 @@ export const se_PutBackupVaultLockConfigurationCommand = async (
   input: PutBackupVaultLockConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backup-vaults/{BackupVaultName}/vault-lock";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackupVaultName",
-    () => input.BackupVaultName!,
-    "{BackupVaultName}",
-    false
-  );
+  b.bp("/backup-vaults/{BackupVaultName}/vault-lock");
+  b.p("BackupVaultName", () => input.BackupVaultName!, "{BackupVaultName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2226,15 +1825,8 @@ export const se_PutBackupVaultLockConfigurationCommand = async (
       MinRetentionDays: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2244,21 +1836,12 @@ export const se_PutBackupVaultNotificationsCommand = async (
   input: PutBackupVaultNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backup-vaults/{BackupVaultName}/notification-configuration";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackupVaultName",
-    () => input.BackupVaultName!,
-    "{BackupVaultName}",
-    false
-  );
+  b.bp("/backup-vaults/{BackupVaultName}/notification-configuration");
+  b.p("BackupVaultName", () => input.BackupVaultName!, "{BackupVaultName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2266,15 +1849,32 @@ export const se_PutBackupVaultNotificationsCommand = async (
       SNSTopicArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1PutRestoreValidationResultCommand
+ */
+export const se_PutRestoreValidationResultCommand = async (
+  input: PutRestoreValidationResultCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/restore-jobs/{RestoreJobId}/validations");
+  b.p("RestoreJobId", () => input.RestoreJobId!, "{RestoreJobId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ValidationStatus: [],
+      ValidationStatusMessage: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2284,11 +1884,11 @@ export const se_StartBackupJobCommand = async (
   input: StartBackupJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup-jobs";
+  b.bp("/backup-jobs");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2303,15 +1903,8 @@ export const se_StartBackupJobCommand = async (
       StartWindowMinutes: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2321,11 +1914,11 @@ export const se_StartCopyJobCommand = async (
   input: StartCopyJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/copy-jobs";
+  b.bp("/copy-jobs");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2337,15 +1930,8 @@ export const se_StartCopyJobCommand = async (
       SourceBackupVaultName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2355,35 +1941,20 @@ export const se_StartReportJobCommand = async (
   input: StartReportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/report-jobs/{ReportPlanName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ReportPlanName",
-    () => input.ReportPlanName!,
-    "{ReportPlanName}",
-    false
-  );
+  b.bp("/audit/report-jobs/{ReportPlanName}");
+  b.p("ReportPlanName", () => input.ReportPlanName!, "{ReportPlanName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2393,11 +1964,11 @@ export const se_StartRestoreJobCommand = async (
   input: StartRestoreJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/restore-jobs";
+  b.bp("/restore-jobs");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2409,15 +1980,8 @@ export const se_StartRestoreJobCommand = async (
       ResourceType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2427,21 +1991,13 @@ export const se_StopBackupJobCommand = async (
   input: StopBackupJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup-jobs/{BackupJobId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "BackupJobId", () => input.BackupJobId!, "{BackupJobId}", false);
+  b.bp("/backup-jobs/{BackupJobId}");
+  b.p("BackupJobId", () => input.BackupJobId!, "{BackupJobId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2451,27 +2007,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2481,27 +2030,20 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/untag/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/untag/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       TagKeyList: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2511,35 +2053,20 @@ export const se_UpdateBackupPlanCommand = async (
   input: UpdateBackupPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/backup/plans/{BackupPlanId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackupPlanId",
-    () => input.BackupPlanId!,
-    "{BackupPlanId}",
-    false
-  );
+  b.bp("/backup/plans/{BackupPlanId}");
+  b.p("BackupPlanId", () => input.BackupPlanId!, "{BackupPlanId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       BackupPlan: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2549,20 +2076,12 @@ export const se_UpdateFrameworkCommand = async (
   input: UpdateFrameworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/frameworks/{FrameworkName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FrameworkName",
-    () => input.FrameworkName!,
-    "{FrameworkName}",
-    false
-  );
+  b.bp("/audit/frameworks/{FrameworkName}");
+  b.p("FrameworkName", () => input.FrameworkName!, "{FrameworkName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2571,15 +2090,8 @@ export const se_UpdateFrameworkCommand = async (
       IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2589,26 +2101,19 @@ export const se_UpdateGlobalSettingsCommand = async (
   input: UpdateGlobalSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/global-settings";
+  b.bp("/global-settings");
   let body: any;
   body = JSON.stringify(
     take(input, {
       GlobalSettings: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2618,44 +2123,21 @@ export const se_UpdateRecoveryPointLifecycleCommand = async (
   input: UpdateRecoveryPointLifecycleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BackupVaultName",
-    () => input.BackupVaultName!,
-    "{BackupVaultName}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "RecoveryPointArn",
-    () => input.RecoveryPointArn!,
-    "{RecoveryPointArn}",
-    false
-  );
+  b.bp("/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}");
+  b.p("BackupVaultName", () => input.BackupVaultName!, "{BackupVaultName}", false);
+  b.p("RecoveryPointArn", () => input.RecoveryPointArn!, "{RecoveryPointArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Lifecycle: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2665,11 +2147,11 @@ export const se_UpdateRegionSettingsCommand = async (
   input: UpdateRegionSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/account-settings";
+  b.bp("/account-settings");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2677,15 +2159,8 @@ export const se_UpdateRegionSettingsCommand = async (
       ResourceTypeOptInPreference: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2695,20 +2170,12 @@ export const se_UpdateReportPlanCommand = async (
   input: UpdateReportPlanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/report-plans/{ReportPlanName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ReportPlanName",
-    () => input.ReportPlanName!,
-    "{ReportPlanName}",
-    false
-  );
+  b.bp("/audit/report-plans/{ReportPlanName}");
+  b.p("ReportPlanName", () => input.ReportPlanName!, "{ReportPlanName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2718,15 +2185,55 @@ export const se_UpdateReportPlanCommand = async (
       ReportSetting: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateRestoreTestingPlanCommand
+ */
+export const se_UpdateRestoreTestingPlanCommand = async (
+  input: UpdateRestoreTestingPlanCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/restore-testing/plans/{RestoreTestingPlanName}");
+  b.p("RestoreTestingPlanName", () => input.RestoreTestingPlanName!, "{RestoreTestingPlanName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      RestoreTestingPlan: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateRestoreTestingSelectionCommand
+ */
+export const se_UpdateRestoreTestingSelectionCommand = async (
+  input: UpdateRestoreTestingSelectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/restore-testing/plans/{RestoreTestingPlanName}/selections/{RestoreTestingSelectionName}");
+  b.p("RestoreTestingPlanName", () => input.RestoreTestingPlanName!, "{RestoreTestingPlanName}", false);
+  b.p("RestoreTestingSelectionName", () => input.RestoreTestingSelectionName!, "{RestoreTestingSelectionName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      RestoreTestingSelection: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3204,6 +2711,135 @@ const de_CreateReportPlanCommandError = async (
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
       throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateRestoreTestingPlanCommand
+ */
+export const de_CreateRestoreTestingPlanCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRestoreTestingPlanCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CreateRestoreTestingPlanCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RestoreTestingPlanArn: __expectString,
+    RestoreTestingPlanName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateRestoreTestingPlanCommandError
+ */
+const de_CreateRestoreTestingPlanCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRestoreTestingPlanCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AlreadyExistsException":
+    case "com.amazonaws.backup#AlreadyExistsException":
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.backup#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.backup#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateRestoreTestingSelectionCommand
+ */
+export const de_CreateRestoreTestingSelectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRestoreTestingSelectionCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CreateRestoreTestingSelectionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RestoreTestingPlanArn: __expectString,
+    RestoreTestingPlanName: __expectString,
+    RestoreTestingSelectionName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateRestoreTestingSelectionCommandError
+ */
+const de_CreateRestoreTestingSelectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRestoreTestingSelectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AlreadyExistsException":
+    case "com.amazonaws.backup#AlreadyExistsException":
+      throw await de_AlreadyExistsExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.backup#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
@@ -3714,6 +3350,98 @@ const de_DeleteReportPlanCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteRestoreTestingPlanCommand
+ */
+export const de_DeleteRestoreTestingPlanCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRestoreTestingPlanCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_DeleteRestoreTestingPlanCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteRestoreTestingPlanCommandError
+ */
+const de_DeleteRestoreTestingPlanCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRestoreTestingPlanCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidRequestException":
+    case "com.amazonaws.backup#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteRestoreTestingSelectionCommand
+ */
+export const de_DeleteRestoreTestingSelectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRestoreTestingSelectionCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_DeleteRestoreTestingSelectionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteRestoreTestingSelectionCommandError
+ */
+const de_DeleteRestoreTestingSelectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRestoreTestingSelectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DescribeBackupJobCommand
  */
 export const de_DescribeBackupJobCommand = async (
@@ -3742,7 +3470,9 @@ export const de_DescribeBackupJobCommand = async (
     CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ExpectedCompletionDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     IamRoleArn: __expectString,
+    InitiationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     IsParent: __expectBoolean,
+    MessageCategory: __expectString,
     NumberOfChildJobs: __expectLong,
     ParentJobId: __expectString,
     PercentDone: __expectString,
@@ -4048,6 +3778,11 @@ export const de_DescribeProtectedResourceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     LastBackupTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastBackupVaultArn: __expectString,
+    LastRecoveryPointArn: __expectString,
+    LatestRestoreExecutionTimeMinutes: __expectLong,
+    LatestRestoreJobCreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LatestRestoreRecoveryPointCreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ResourceArn: __expectString,
     ResourceName: __expectString,
     ResourceType: __expectString,
@@ -4129,6 +3864,7 @@ export const de_DescribeRecoveryPointCommand = async (
     Status: __expectString,
     StatusMessage: __expectString,
     StorageClass: __expectString,
+    VaultType: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -4344,16 +4080,22 @@ export const de_DescribeRestoreJobCommand = async (
     AccountId: __expectString,
     BackupSizeInBytes: __expectLong,
     CompletionDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedBy: _json,
     CreatedResourceArn: __expectString,
     CreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeletionStatus: __expectString,
+    DeletionStatusMessage: __expectString,
     ExpectedCompletionTimeMinutes: __expectLong,
     IamRoleArn: __expectString,
     PercentDone: __expectString,
     RecoveryPointArn: __expectString,
+    RecoveryPointCreationDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ResourceType: __expectString,
     RestoreJobId: __expectString,
     Status: __expectString,
     StatusMessage: __expectString,
+    ValidationStatus: __expectString,
+    ValidationStatusMessage: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -5004,6 +4746,7 @@ export const de_GetRecoveryPointRestoreMetadataCommand = async (
   const doc = take(data, {
     BackupVaultArn: __expectString,
     RecoveryPointArn: __expectString,
+    ResourceType: __expectString,
     RestoreMetadata: _json,
   });
   Object.assign(contents, doc);
@@ -5029,6 +4772,219 @@ const de_GetRecoveryPointRestoreMetadataCommandError = async (
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
       throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetRestoreJobMetadataCommand
+ */
+export const de_GetRestoreJobMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRestoreJobMetadataCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetRestoreJobMetadataCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Metadata: _json,
+    RestoreJobId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetRestoreJobMetadataCommandError
+ */
+const de_GetRestoreJobMetadataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRestoreJobMetadataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetRestoreTestingInferredMetadataCommand
+ */
+export const de_GetRestoreTestingInferredMetadataCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRestoreTestingInferredMetadataCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetRestoreTestingInferredMetadataCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    InferredMetadata: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetRestoreTestingInferredMetadataCommandError
+ */
+const de_GetRestoreTestingInferredMetadataCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRestoreTestingInferredMetadataCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetRestoreTestingPlanCommand
+ */
+export const de_GetRestoreTestingPlanCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRestoreTestingPlanCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetRestoreTestingPlanCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RestoreTestingPlan: (_) => de_RestoreTestingPlanForGet(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetRestoreTestingPlanCommandError
+ */
+const de_GetRestoreTestingPlanCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRestoreTestingPlanCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetRestoreTestingSelectionCommand
+ */
+export const de_GetRestoreTestingSelectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRestoreTestingSelectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetRestoreTestingSelectionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RestoreTestingSelection: (_) => de_RestoreTestingSelectionForGet(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetRestoreTestingSelectionCommandError
+ */
+const de_GetRestoreTestingSelectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRestoreTestingSelectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
     case "ResourceNotFoundException":
     case "com.amazonaws.backup#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -5121,6 +5077,58 @@ const de_ListBackupJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupJobsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListBackupJobSummariesCommand
+ */
+export const de_ListBackupJobSummariesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListBackupJobSummariesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListBackupJobSummariesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AggregationPeriod: __expectString,
+    BackupJobSummaries: (_) => de_BackupJobSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListBackupJobSummariesCommandError
+ */
+const de_ListBackupJobSummariesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListBackupJobSummariesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5457,6 +5465,58 @@ const de_ListCopyJobsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCopyJobsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListCopyJobSummariesCommand
+ */
+export const de_ListCopyJobSummariesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCopyJobSummariesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListCopyJobSummariesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AggregationPeriod: __expectString,
+    CopyJobSummaries: (_) => de_CopyJobSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCopyJobSummariesCommandError
+ */
+const de_ListCopyJobSummariesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCopyJobSummariesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -6017,6 +6077,220 @@ const de_ListRestoreJobsCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListRestoreJobsByProtectedResourceCommand
+ */
+export const de_ListRestoreJobsByProtectedResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRestoreJobsByProtectedResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListRestoreJobsByProtectedResourceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    RestoreJobs: (_) => de_RestoreJobsList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListRestoreJobsByProtectedResourceCommandError
+ */
+const de_ListRestoreJobsByProtectedResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRestoreJobsByProtectedResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListRestoreJobSummariesCommand
+ */
+export const de_ListRestoreJobSummariesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRestoreJobSummariesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListRestoreJobSummariesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AggregationPeriod: __expectString,
+    NextToken: __expectString,
+    RestoreJobSummaries: (_) => de_RestoreJobSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListRestoreJobSummariesCommandError
+ */
+const de_ListRestoreJobSummariesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRestoreJobSummariesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListRestoreTestingPlansCommand
+ */
+export const de_ListRestoreTestingPlansCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRestoreTestingPlansCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListRestoreTestingPlansCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    RestoreTestingPlans: (_) => de_RestoreTestingPlans(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListRestoreTestingPlansCommandError
+ */
+const de_ListRestoreTestingPlansCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRestoreTestingPlansCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListRestoreTestingSelectionsCommand
+ */
+export const de_ListRestoreTestingSelectionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRestoreTestingSelectionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListRestoreTestingSelectionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    RestoreTestingSelections: (_) => de_RestoreTestingSelections(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListRestoreTestingSelectionsCommandError
+ */
+const de_ListRestoreTestingSelectionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRestoreTestingSelectionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListTagsCommand
  */
 export const de_ListTagsCommand = async (
@@ -6213,6 +6487,61 @@ const de_PutBackupVaultNotificationsCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1PutRestoreValidationResultCommand
+ */
+export const de_PutRestoreValidationResultCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutRestoreValidationResultCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_PutRestoreValidationResultCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutRestoreValidationResultCommandError
+ */
+const de_PutRestoreValidationResultCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutRestoreValidationResultCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.backup#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
       throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
@@ -6989,6 +7318,131 @@ const de_UpdateReportPlanCommandError = async (
   }
 };
 
+/**
+ * deserializeAws_restJson1UpdateRestoreTestingPlanCommand
+ */
+export const de_UpdateRestoreTestingPlanCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRestoreTestingPlanCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateRestoreTestingPlanCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RestoreTestingPlanArn: __expectString,
+    RestoreTestingPlanName: __expectString,
+    UpdateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateRestoreTestingPlanCommandError
+ */
+const de_UpdateRestoreTestingPlanCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRestoreTestingPlanCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.backup#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateRestoreTestingSelectionCommand
+ */
+export const de_UpdateRestoreTestingSelectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRestoreTestingSelectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateRestoreTestingSelectionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreationTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RestoreTestingPlanArn: __expectString,
+    RestoreTestingPlanName: __expectString,
+    RestoreTestingSelectionName: __expectString,
+    UpdateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateRestoreTestingSelectionCommandError
+ */
+const de_UpdateRestoreTestingSelectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRestoreTestingSelectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.backup#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      throw await de_MissingParameterValueExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
 const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AlreadyExistsExceptionRes
@@ -7273,11 +7727,17 @@ const se_DateRange = (input: DateRange, context: __SerdeContext): any => {
 
 // se_GlobalSettings omitted.
 
+// se_KeyValue omitted.
+
+// se_KeyValueList omitted.
+
 // se_Lifecycle omitted.
 
 // se_ListOfTags omitted.
 
 // se_Metadata omitted.
+
+// se_ProtectedResourceConditions omitted.
 
 /**
  * serializeAws_restJson1RecoveryPointSelection
@@ -7303,6 +7763,20 @@ const se_RecoveryPointSelection = (input: RecoveryPointSelection, context: __Ser
 // se_ResourceTypeManagementPreference omitted.
 
 // se_ResourceTypeOptInPreference omitted.
+
+// se_RestoreTestingPlanForCreate omitted.
+
+// se_RestoreTestingPlanForUpdate omitted.
+
+// se_RestoreTestingRecoveryPointSelection omitted.
+
+// se_RestoreTestingRecoveryPointTypeList omitted.
+
+// se_RestoreTestingSelectionForCreate omitted.
+
+// se_RestoreTestingSelectionForUpdate omitted.
+
+// se_SensitiveStringMap omitted.
 
 // se_stringList omitted.
 
@@ -7336,7 +7810,9 @@ const de_BackupJob = (output: any, context: __SerdeContext): BackupJob => {
     CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ExpectedCompletionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     IamRoleArn: __expectString,
+    InitiationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     IsParent: __expectBoolean,
+    MessageCategory: __expectString,
     ParentJobId: __expectString,
     PercentDone: __expectString,
     RecoveryPointArn: __expectString,
@@ -7359,6 +7835,34 @@ const de_BackupJobsList = (output: any, context: __SerdeContext): BackupJob[] =>
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_BackupJob(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1BackupJobSummary
+ */
+const de_BackupJobSummary = (output: any, context: __SerdeContext): BackupJobSummary => {
+  return take(output, {
+    AccountId: __expectString,
+    Count: __expectInt32,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MessageCategory: __expectString,
+    Region: __expectString,
+    ResourceType: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1BackupJobSummaryList
+ */
+const de_BackupJobSummaryList = (output: any, context: __SerdeContext): BackupJobSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_BackupJobSummary(entry, context);
     });
   return retVal;
 };
@@ -7523,6 +8027,7 @@ const de_CopyJob = (output: any, context: __SerdeContext): CopyJob => {
     DestinationRecoveryPointArn: __expectString,
     IamRoleArn: __expectString,
     IsParent: __expectBoolean,
+    MessageCategory: __expectString,
     NumberOfChildJobs: __expectLong,
     ParentJobId: __expectString,
     ResourceArn: __expectString,
@@ -7545,6 +8050,34 @@ const de_CopyJobsList = (output: any, context: __SerdeContext): CopyJob[] => {
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_CopyJob(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1CopyJobSummary
+ */
+const de_CopyJobSummary = (output: any, context: __SerdeContext): CopyJobSummary => {
+  return take(output, {
+    AccountId: __expectString,
+    Count: __expectInt32,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MessageCategory: __expectString,
+    Region: __expectString,
+    ResourceType: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CopyJobSummaryList
+ */
+const de_CopyJobSummaryList = (output: any, context: __SerdeContext): CopyJobSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CopyJobSummary(entry, context);
     });
   return retVal;
 };
@@ -7593,6 +8126,10 @@ const de_FrameworkList = (output: any, context: __SerdeContext): Framework[] => 
 
 // de_GlobalSettings omitted.
 
+// de_KeyValue omitted.
+
+// de_KeyValueList omitted.
+
 /**
  * deserializeAws_restJson1LegalHold
  */
@@ -7632,11 +8169,15 @@ const de_LegalHoldsList = (output: any, context: __SerdeContext): LegalHold[] =>
 const de_ProtectedResource = (output: any, context: __SerdeContext): ProtectedResource => {
   return take(output, {
     LastBackupTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastBackupVaultArn: __expectString,
+    LastRecoveryPointArn: __expectString,
     ResourceArn: __expectString,
     ResourceName: __expectString,
     ResourceType: __expectString,
   }) as any;
 };
+
+// de_ProtectedResourceConditions omitted.
 
 /**
  * deserializeAws_restJson1ProtectedResourcesList
@@ -7677,6 +8218,7 @@ const de_RecoveryPointByBackupVault = (output: any, context: __SerdeContext): Re
     SourceBackupVaultArn: __expectString,
     Status: __expectString,
     StatusMessage: __expectString,
+    VaultType: __expectString,
   }) as any;
 };
 
@@ -7814,6 +8356,8 @@ const de_ReportPlanList = (output: any, context: __SerdeContext): ReportPlan[] =
 
 // de_ResourceTypes omitted.
 
+// de_RestoreJobCreator omitted.
+
 /**
  * deserializeAws_restJson1RestoreJobsList
  */
@@ -7834,18 +8378,147 @@ const de_RestoreJobsListMember = (output: any, context: __SerdeContext): Restore
     AccountId: __expectString,
     BackupSizeInBytes: __expectLong,
     CompletionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedBy: _json,
     CreatedResourceArn: __expectString,
     CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeletionStatus: __expectString,
+    DeletionStatusMessage: __expectString,
     ExpectedCompletionTimeMinutes: __expectLong,
     IamRoleArn: __expectString,
     PercentDone: __expectString,
     RecoveryPointArn: __expectString,
+    RecoveryPointCreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ResourceType: __expectString,
     RestoreJobId: __expectString,
     Status: __expectString,
     StatusMessage: __expectString,
+    ValidationStatus: __expectString,
+    ValidationStatusMessage: __expectString,
   }) as any;
 };
+
+/**
+ * deserializeAws_restJson1RestoreJobSummary
+ */
+const de_RestoreJobSummary = (output: any, context: __SerdeContext): RestoreJobSummary => {
+  return take(output, {
+    AccountId: __expectString,
+    Count: __expectInt32,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Region: __expectString,
+    ResourceType: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    State: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RestoreJobSummaryList
+ */
+const de_RestoreJobSummaryList = (output: any, context: __SerdeContext): RestoreJobSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RestoreJobSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1RestoreTestingPlanForGet
+ */
+const de_RestoreTestingPlanForGet = (output: any, context: __SerdeContext): RestoreTestingPlanForGet => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatorRequestId: __expectString,
+    LastExecutionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RecoveryPointSelection: _json,
+    RestoreTestingPlanArn: __expectString,
+    RestoreTestingPlanName: __expectString,
+    ScheduleExpression: __expectString,
+    ScheduleExpressionTimezone: __expectString,
+    StartWindowHours: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RestoreTestingPlanForList
+ */
+const de_RestoreTestingPlanForList = (output: any, context: __SerdeContext): RestoreTestingPlanForList => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastExecutionTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RestoreTestingPlanArn: __expectString,
+    RestoreTestingPlanName: __expectString,
+    ScheduleExpression: __expectString,
+    ScheduleExpressionTimezone: __expectString,
+    StartWindowHours: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RestoreTestingPlans
+ */
+const de_RestoreTestingPlans = (output: any, context: __SerdeContext): RestoreTestingPlanForList[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RestoreTestingPlanForList(entry, context);
+    });
+  return retVal;
+};
+
+// de_RestoreTestingRecoveryPointSelection omitted.
+
+// de_RestoreTestingRecoveryPointTypeList omitted.
+
+/**
+ * deserializeAws_restJson1RestoreTestingSelectionForGet
+ */
+const de_RestoreTestingSelectionForGet = (output: any, context: __SerdeContext): RestoreTestingSelectionForGet => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatorRequestId: __expectString,
+    IamRoleArn: __expectString,
+    ProtectedResourceArns: _json,
+    ProtectedResourceConditions: _json,
+    ProtectedResourceType: __expectString,
+    RestoreMetadataOverrides: _json,
+    RestoreTestingPlanName: __expectString,
+    RestoreTestingSelectionName: __expectString,
+    ValidationWindowHours: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RestoreTestingSelectionForList
+ */
+const de_RestoreTestingSelectionForList = (output: any, context: __SerdeContext): RestoreTestingSelectionForList => {
+  return take(output, {
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    IamRoleArn: __expectString,
+    ProtectedResourceType: __expectString,
+    RestoreTestingPlanName: __expectString,
+    RestoreTestingSelectionName: __expectString,
+    ValidationWindowHours: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RestoreTestingSelections
+ */
+const de_RestoreTestingSelections = (output: any, context: __SerdeContext): RestoreTestingSelectionForList[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RestoreTestingSelectionForList(entry, context);
+    });
+  return retVal;
+};
+
+// de_SensitiveStringMap omitted.
 
 // de_stringList omitted.
 
@@ -7873,6 +8546,75 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _AI = "AccountId";
+const _AP = "AggregationPeriod";
+const _BAI = "ByAccountId";
+const _BBPI = "ByBackupPlanId";
+const _BBVN = "ByBackupVaultName";
+const _BCA = "ByCreatedAfter";
+const _BCAy = "ByCompleteAfter";
+const _BCAyr = "ByCreationAfter";
+const _BCB = "ByCreatedBefore";
+const _BCBy = "ByCompleteBefore";
+const _BCByr = "ByCreationBefore";
+const _BDVA = "ByDestinationVaultArn";
+const _BMC = "ByMessageCategory";
+const _BPJI = "ByParentJobId";
+const _BPRPA = "ByParentRecoveryPointArn";
+const _BRA = "ByResourceArn";
+const _BRPCDA = "ByRecoveryPointCreationDateAfter";
+const _BRPCDB = "ByRecoveryPointCreationDateBefore";
+const _BRPN = "ByReportPlanName";
+const _BRT = "ByResourceType";
+const _BRTPA = "ByRestoreTestingPlanArn";
+const _BS = "ByState";
+const _BSy = "ByShared";
+const _BSyt = "ByStatus";
+const _BVAI = "BackupVaultAccountId";
+const _BVN = "BackupVaultName";
+const _BVT = "ByVaultType";
+const _CA = "CreationAfter";
+const _CB = "CreationBefore";
+const _CD = "CancelDescription";
+const _ID = "IncludeDeleted";
+const _MC = "MessageCategory";
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _RPA = "RecoveryPointArn";
+const _RPN = "ReportPlanName";
+const _RRID = "RetainRecordInDays";
+const _RT = "ResourceType";
+const _S = "State";
+const _St = "Status";
+const _VI = "VersionId";
+const _aI = "accountId";
+const _bPI = "backupPlanId";
+const _bVAI = "backupVaultAccountId";
+const _bVN = "backupVaultName";
+const _cA = "createdAfter";
+const _cAo = "completeAfter";
+const _cB = "createdBefore";
+const _cBo = "completeBefore";
+const _cD = "cancelDescription";
+const _dVA = "destinationVaultArn";
+const _iD = "includeDeleted";
+const _mC = "messageCategory";
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _pJI = "parentJobId";
+const _pRPA = "parentRecoveryPointArn";
+const _rA = "resourceArn";
+const _rPCDA = "recoveryPointCreationDateAfter";
+const _rPCDB = "recoveryPointCreationDateBefore";
+const _rRID = "retainRecordInDays";
+const _rT = "resourceType";
+const _rTPA = "restoreTestingPlanArn";
+const _s = "state";
+const _sh = "shared";
+const _st = "status";
+const _vI = "versionId";
+const _vT = "vaultType";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

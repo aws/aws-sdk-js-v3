@@ -12,7 +12,11 @@
 export * from "./FirehoseClient";
 export * from "./Firehose";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { FirehoseExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { FirehoseServiceException } from "./models/FirehoseServiceException";

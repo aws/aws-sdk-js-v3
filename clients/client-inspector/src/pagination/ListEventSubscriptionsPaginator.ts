@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import {
@@ -10,41 +11,14 @@ import { InspectorClient } from "../InspectorClient";
 import { InspectorPaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: InspectorClient,
-  input: ListEventSubscriptionsCommandInput,
-  ...args: any
-): Promise<ListEventSubscriptionsCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new ListEventSubscriptionsCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateListEventSubscriptions(
+export const paginateListEventSubscriptions: (
   config: InspectorPaginationConfiguration,
   input: ListEventSubscriptionsCommandInput,
-  ...additionalArguments: any
-): Paginator<ListEventSubscriptionsCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.nextToken
-  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: ListEventSubscriptionsCommandOutput;
-  while (hasNext) {
-    input.nextToken = token;
-    input["maxResults"] = config.pageSize;
-    if (config.client instanceof InspectorClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected Inspector | InspectorClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.nextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<ListEventSubscriptionsCommandOutput> = createPaginator<
+  InspectorPaginationConfiguration,
+  ListEventSubscriptionsCommandInput,
+  ListEventSubscriptionsCommandOutput
+>(InspectorClient, ListEventSubscriptionsCommand, "nextToken", "nextToken", "maxResults");

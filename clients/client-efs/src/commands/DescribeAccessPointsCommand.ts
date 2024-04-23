@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeAccessPointsRequest, DescribeAccessPointsResponse } from "../models/models_0";
 import { de_DescribeAccessPointsCommand, se_DescribeAccessPointsCommand } from "../protocols/Aws_restJson1";
 
@@ -36,9 +28,11 @@ export interface DescribeAccessPointsCommandOutput extends DescribeAccessPointsR
 
 /**
  * @public
- * <p>Returns the description of a specific Amazon EFS access point if the <code>AccessPointId</code> is provided.
- *       If you provide an EFS <code>FileSystemId</code>, it returns descriptions of all access points for that file system.
- *       You can provide either an <code>AccessPointId</code> or a <code>FileSystemId</code> in the request, but not both. </p>
+ * <p>Returns the description of a specific Amazon EFS access point if the
+ *         <code>AccessPointId</code> is provided. If you provide an EFS
+ *         <code>FileSystemId</code>, it returns descriptions of all access points for that file
+ *       system. You can provide either an <code>AccessPointId</code> or a <code>FileSystemId</code> in
+ *       the request, but not both. </p>
  *          <p>This operation requires permissions for the <code>elasticfilesystem:DescribeAccessPoints</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -117,79 +111,26 @@ export interface DescribeAccessPointsCommandOutput extends DescribeAccessPointsR
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  */
-export class DescribeAccessPointsCommand extends $Command<
-  DescribeAccessPointsCommandInput,
-  DescribeAccessPointsCommandOutput,
-  EFSClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeAccessPointsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: EFSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeAccessPointsCommandInput, DescribeAccessPointsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeAccessPointsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "EFSClient";
-    const commandName = "DescribeAccessPointsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeAccessPointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeAccessPointsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAccessPointsCommandOutput> {
-    return de_DescribeAccessPointsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeAccessPointsCommand extends $Command
+  .classBuilder<
+    DescribeAccessPointsCommandInput,
+    DescribeAccessPointsCommandOutput,
+    EFSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("MagnolioAPIService_v20150201", "DescribeAccessPoints", {})
+  .n("EFSClient", "DescribeAccessPointsCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeAccessPointsCommand)
+  .de(de_DescribeAccessPointsCommand)
+  .build() {}

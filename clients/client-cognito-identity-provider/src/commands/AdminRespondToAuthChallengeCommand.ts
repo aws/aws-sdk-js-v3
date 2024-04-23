@@ -1,24 +1,16 @@
 // smithy-typescript generated code
 import { getAwsAuthPlugin } from "@aws-sdk/middleware-signing";
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   CognitoIdentityProviderClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   AdminRespondToAuthChallengeRequest,
   AdminRespondToAuthChallengeRequestFilterSensitiveLog,
@@ -48,7 +40,13 @@ export interface AdminRespondToAuthChallengeCommandOutput
 
 /**
  * @public
- * <p>Responds to an authentication challenge, as an administrator.</p>
+ * <p>Some API operations in a user pool generate a challenge, like a prompt for an MFA
+ *             code, for device authentication that bypasses MFA, or for a custom authentication
+ *             challenge. An <code>AdminRespondToAuthChallenge</code> API request provides the answer
+ *             to that challenge, like a code or a secure remote password (SRP). The parameters of a
+ *             response to an authentication challenge vary with the type of challenge.</p>
+ *          <p>For more information about custom authentication challenges, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html">Custom
+ *                 authentication challenge Lambda triggers</a>.</p>
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  *                 require you to register an origination phone number before you can send SMS messages
@@ -228,83 +226,27 @@ export interface AdminRespondToAuthChallengeCommandOutput
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  */
-export class AdminRespondToAuthChallengeCommand extends $Command<
-  AdminRespondToAuthChallengeCommandInput,
-  AdminRespondToAuthChallengeCommandOutput,
-  CognitoIdentityProviderClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: AdminRespondToAuthChallengeCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CognitoIdentityProviderClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<AdminRespondToAuthChallengeCommandInput, AdminRespondToAuthChallengeCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, AdminRespondToAuthChallengeCommand.getEndpointParameterInstructions())
-    );
-    this.middlewareStack.use(getAwsAuthPlugin(configuration));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CognitoIdentityProviderClient";
-    const commandName = "AdminRespondToAuthChallengeCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: AdminRespondToAuthChallengeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AdminRespondToAuthChallengeResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: AdminRespondToAuthChallengeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_AdminRespondToAuthChallengeCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<AdminRespondToAuthChallengeCommandOutput> {
-    return de_AdminRespondToAuthChallengeCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class AdminRespondToAuthChallengeCommand extends $Command
+  .classBuilder<
+    AdminRespondToAuthChallengeCommandInput,
+    AdminRespondToAuthChallengeCommandOutput,
+    CognitoIdentityProviderClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getAwsAuthPlugin(config),
+    ];
+  })
+  .s("AWSCognitoIdentityProviderService", "AdminRespondToAuthChallenge", {})
+  .n("CognitoIdentityProviderClient", "AdminRespondToAuthChallengeCommand")
+  .f(AdminRespondToAuthChallengeRequestFilterSensitiveLog, AdminRespondToAuthChallengeResponseFilterSensitiveLog)
+  .ser(se_AdminRespondToAuthChallengeCommand)
+  .de(de_AdminRespondToAuthChallengeCommand)
+  .build() {}

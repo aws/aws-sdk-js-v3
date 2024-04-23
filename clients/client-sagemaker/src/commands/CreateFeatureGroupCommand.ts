@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateFeatureGroupRequest, CreateFeatureGroupResponse } from "../models/models_1";
 import { de_CreateFeatureGroupCommand, se_CreateFeatureGroupCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
@@ -40,12 +32,16 @@ export interface CreateFeatureGroupCommandOutput extends CreateFeatureGroupRespo
  *             <code>Features</code> defined in the <code>FeatureStore</code> to describe a
  *             <code>Record</code>. </p>
  *          <p>The <code>FeatureGroup</code> defines the schema and features contained in the
- *          FeatureGroup. A <code>FeatureGroup</code> definition is composed of a list of
- *             <code>Features</code>, a <code>RecordIdentifierFeatureName</code>, an
+ *             <code>FeatureGroup</code>. A <code>FeatureGroup</code> definition is composed of a list
+ *          of <code>Features</code>, a <code>RecordIdentifierFeatureName</code>, an
  *             <code>EventTimeFeatureName</code> and configurations for its <code>OnlineStore</code>
  *          and <code>OfflineStore</code>. Check <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">Amazon Web Services service
  *             quotas</a> to see the <code>FeatureGroup</code>s quota for your Amazon Web Services
  *          account.</p>
+ *          <p>Note that it can take approximately 10-15 minutes to provision an
+ *             <code>OnlineStore</code>
+ *             <code>FeatureGroup</code> with the <code>InMemory</code>
+ *             <code>StorageType</code>.</p>
  *          <important>
  *             <p>You must include at least one of <code>OnlineStoreConfig</code> and
  *                <code>OfflineStoreConfig</code> to create a <code>FeatureGroup</code>.</p>
@@ -62,8 +58,14 @@ export interface CreateFeatureGroupCommandOutput extends CreateFeatureGroupRespo
  *   EventTimeFeatureName: "STRING_VALUE", // required
  *   FeatureDefinitions: [ // FeatureDefinitions // required
  *     { // FeatureDefinition
- *       FeatureName: "STRING_VALUE",
- *       FeatureType: "Integral" || "Fractional" || "String",
+ *       FeatureName: "STRING_VALUE", // required
+ *       FeatureType: "Integral" || "Fractional" || "String", // required
+ *       CollectionType: "List" || "Set" || "Vector",
+ *       CollectionConfig: { // CollectionConfig Union: only one key present
+ *         VectorConfig: { // VectorConfig
+ *           Dimension: Number("int"), // required
+ *         },
+ *       },
  *     },
  *   ],
  *   OnlineStoreConfig: { // OnlineStoreConfig
@@ -75,6 +77,7 @@ export interface CreateFeatureGroupCommandOutput extends CreateFeatureGroupRespo
  *       Unit: "Seconds" || "Minutes" || "Hours" || "Days" || "Weeks",
  *       Value: Number("int"),
  *     },
+ *     StorageType: "Standard" || "InMemory",
  *   },
  *   OfflineStoreConfig: { // OfflineStoreConfig
  *     S3StorageConfig: { // S3StorageConfig
@@ -88,7 +91,12 @@ export interface CreateFeatureGroupCommandOutput extends CreateFeatureGroupRespo
  *       Catalog: "STRING_VALUE", // required
  *       Database: "STRING_VALUE", // required
  *     },
- *     TableFormat: "Glue" || "Iceberg",
+ *     TableFormat: "Default" || "Glue" || "Iceberg",
+ *   },
+ *   ThroughputConfig: { // ThroughputConfig
+ *     ThroughputMode: "OnDemand" || "Provisioned", // required
+ *     ProvisionedReadCapacityUnits: Number("int"),
+ *     ProvisionedWriteCapacityUnits: Number("int"),
  *   },
  *   RoleArn: "STRING_VALUE",
  *   Description: "STRING_VALUE",
@@ -124,79 +132,26 @@ export interface CreateFeatureGroupCommandOutput extends CreateFeatureGroupRespo
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
-export class CreateFeatureGroupCommand extends $Command<
-  CreateFeatureGroupCommandInput,
-  CreateFeatureGroupCommandOutput,
-  SageMakerClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateFeatureGroupCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SageMakerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateFeatureGroupCommandInput, CreateFeatureGroupCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateFeatureGroupCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SageMakerClient";
-    const commandName = "CreateFeatureGroupCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateFeatureGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateFeatureGroupCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFeatureGroupCommandOutput> {
-    return de_CreateFeatureGroupCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateFeatureGroupCommand extends $Command
+  .classBuilder<
+    CreateFeatureGroupCommandInput,
+    CreateFeatureGroupCommandOutput,
+    SageMakerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("SageMaker", "CreateFeatureGroup", {})
+  .n("SageMakerClient", "CreateFeatureGroupCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateFeatureGroupCommand)
+  .de(de_CreateFeatureGroupCommand)
+  .build() {}

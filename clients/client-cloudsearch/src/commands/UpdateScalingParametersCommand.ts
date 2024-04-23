@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateScalingParametersRequest, UpdateScalingParametersResponse } from "../models/models_0";
 import { de_UpdateScalingParametersCommand, se_UpdateScalingParametersCommand } from "../protocols/Aws_query";
 
@@ -46,7 +38,7 @@ export interface UpdateScalingParametersCommandOutput extends UpdateScalingParam
  * const input = { // UpdateScalingParametersRequest
  *   DomainName: "STRING_VALUE", // required
  *   ScalingParameters: { // ScalingParameters
- *     DesiredInstanceType: "STRING_VALUE",
+ *     DesiredInstanceType: "search.m1.small" || "search.m1.large" || "search.m2.xlarge" || "search.m2.2xlarge" || "search.m3.medium" || "search.m3.large" || "search.m3.xlarge" || "search.m3.2xlarge" || "search.small" || "search.medium" || "search.large" || "search.xlarge" || "search.2xlarge" || "search.previousgeneration.small" || "search.previousgeneration.large" || "search.previousgeneration.xlarge" || "search.previousgeneration.2xlarge",
  *     DesiredReplicationCount: Number("int"),
  *     DesiredPartitionCount: Number("int"),
  *   },
@@ -56,7 +48,7 @@ export interface UpdateScalingParametersCommandOutput extends UpdateScalingParam
  * // { // UpdateScalingParametersResponse
  * //   ScalingParameters: { // ScalingParametersStatus
  * //     Options: { // ScalingParameters
- * //       DesiredInstanceType: "STRING_VALUE",
+ * //       DesiredInstanceType: "search.m1.small" || "search.m1.large" || "search.m2.xlarge" || "search.m2.2xlarge" || "search.m3.medium" || "search.m3.large" || "search.m3.xlarge" || "search.m3.2xlarge" || "search.small" || "search.medium" || "search.large" || "search.xlarge" || "search.2xlarge" || "search.previousgeneration.small" || "search.previousgeneration.large" || "search.previousgeneration.xlarge" || "search.previousgeneration.2xlarge",
  * //       DesiredReplicationCount: Number("int"),
  * //       DesiredPartitionCount: Number("int"),
  * //     },
@@ -64,7 +56,7 @@ export interface UpdateScalingParametersCommandOutput extends UpdateScalingParam
  * //       CreationDate: new Date("TIMESTAMP"), // required
  * //       UpdateDate: new Date("TIMESTAMP"), // required
  * //       UpdateVersion: Number("int"),
- * //       State: "STRING_VALUE", // required
+ * //       State: "RequiresIndexDocuments" || "Processing" || "Active" || "FailedToValidate", // required
  * //       PendingDeletion: true || false,
  * //     },
  * //   },
@@ -101,79 +93,26 @@ export interface UpdateScalingParametersCommandOutput extends UpdateScalingParam
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
  */
-export class UpdateScalingParametersCommand extends $Command<
-  UpdateScalingParametersCommandInput,
-  UpdateScalingParametersCommandOutput,
-  CloudSearchClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateScalingParametersCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CloudSearchClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateScalingParametersCommandInput, UpdateScalingParametersCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateScalingParametersCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CloudSearchClient";
-    const commandName = "UpdateScalingParametersCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateScalingParametersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateScalingParametersCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateScalingParametersCommandOutput> {
-    return de_UpdateScalingParametersCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateScalingParametersCommand extends $Command
+  .classBuilder<
+    UpdateScalingParametersCommandInput,
+    UpdateScalingParametersCommandOutput,
+    CloudSearchClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CloudSearchClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("A9SearchCloudConfigService2013", "UpdateScalingParameters", {})
+  .n("CloudSearchClient", "UpdateScalingParametersCommand")
+  .f(void 0, void 0)
+  .ser(se_UpdateScalingParametersCommand)
+  .de(de_UpdateScalingParametersCommand)
+  .build() {}

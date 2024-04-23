@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
 import { CreateTableRequest, CreateTableResponse } from "../models/models_0";
 import { de_CreateTableCommand, se_CreateTableCommand } from "../protocols/Aws_json1_0";
@@ -105,6 +97,53 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  *   clientSideTimestamps: { // ClientSideTimestamps
  *     status: "STRING_VALUE", // required
  *   },
+ *   autoScalingSpecification: { // AutoScalingSpecification
+ *     writeCapacityAutoScaling: { // AutoScalingSettings
+ *       autoScalingDisabled: true || false,
+ *       minimumUnits: Number("long"),
+ *       maximumUnits: Number("long"),
+ *       scalingPolicy: { // AutoScalingPolicy
+ *         targetTrackingScalingPolicyConfiguration: { // TargetTrackingScalingPolicyConfiguration
+ *           disableScaleIn: true || false,
+ *           scaleInCooldown: Number("int"),
+ *           scaleOutCooldown: Number("int"),
+ *           targetValue: Number("double"), // required
+ *         },
+ *       },
+ *     },
+ *     readCapacityAutoScaling: {
+ *       autoScalingDisabled: true || false,
+ *       minimumUnits: Number("long"),
+ *       maximumUnits: Number("long"),
+ *       scalingPolicy: {
+ *         targetTrackingScalingPolicyConfiguration: {
+ *           disableScaleIn: true || false,
+ *           scaleInCooldown: Number("int"),
+ *           scaleOutCooldown: Number("int"),
+ *           targetValue: Number("double"), // required
+ *         },
+ *       },
+ *     },
+ *   },
+ *   replicaSpecifications: [ // ReplicaSpecificationList
+ *     { // ReplicaSpecification
+ *       region: "STRING_VALUE", // required
+ *       readCapacityUnits: Number("long"),
+ *       readCapacityAutoScaling: {
+ *         autoScalingDisabled: true || false,
+ *         minimumUnits: Number("long"),
+ *         maximumUnits: Number("long"),
+ *         scalingPolicy: {
+ *           targetTrackingScalingPolicyConfiguration: {
+ *             disableScaleIn: true || false,
+ *             scaleInCooldown: Number("int"),
+ *             scaleOutCooldown: Number("int"),
+ *             targetValue: Number("double"), // required
+ *           },
+ *         },
+ *       },
+ *     },
+ *   ],
  * };
  * const command = new CreateTableCommand(input);
  * const response = await client.send(command);
@@ -121,10 +160,10 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action. </p>
+ *  <p>You don't have sufficient access permissions to perform this action. </p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Amazon Keyspaces could not complete the requested action. This error may occur if you try to
+ *  <p>Amazon Keyspaces couldn't complete the requested action. This error may occur if you try to
  *          perform an action and the same or a different action is already
  *          in progress, or if you try to create a resource that already exists. </p>
  *
@@ -145,77 +184,26 @@ export interface CreateTableCommandOutput extends CreateTableResponse, __Metadat
  * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
  */
-export class CreateTableCommand extends $Command<
-  CreateTableCommandInput,
-  CreateTableCommandOutput,
-  KeyspacesClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateTableCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: KeyspacesClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateTableCommandInput, CreateTableCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, CreateTableCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "KeyspacesClient";
-    const commandName = "CreateTableCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateTableCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTableCommandOutput> {
-    return de_CreateTableCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateTableCommand extends $Command
+  .classBuilder<
+    CreateTableCommandInput,
+    CreateTableCommandOutput,
+    KeyspacesClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: KeyspacesClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("KeyspacesService", "CreateTable", {})
+  .n("KeyspacesClient", "CreateTableCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateTableCommand)
+  .de(de_CreateTableCommand)
+  .build() {}

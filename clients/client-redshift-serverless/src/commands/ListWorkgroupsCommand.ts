@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListWorkgroupsRequest, ListWorkgroupsResponse } from "../models/models_0";
 import { de_ListWorkgroupsCommand, se_ListWorkgroupsCommand } from "../protocols/Aws_json1_1";
 import {
@@ -50,6 +42,7 @@ export interface ListWorkgroupsCommandOutput extends ListWorkgroupsResponse, __M
  * const input = { // ListWorkgroupsRequest
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   ownerAccount: "STRING_VALUE",
  * };
  * const command = new ListWorkgroupsCommand(input);
  * const response = await client.send(command);
@@ -97,6 +90,15 @@ export interface ListWorkgroupsCommandOutput extends ListWorkgroupsResponse, __M
  * //       publiclyAccessible: true || false,
  * //       creationDate: new Date("TIMESTAMP"),
  * //       port: Number("int"),
+ * //       customDomainName: "STRING_VALUE",
+ * //       customDomainCertificateArn: "STRING_VALUE",
+ * //       customDomainCertificateExpiryTime: new Date("TIMESTAMP"),
+ * //       workgroupVersion: "STRING_VALUE",
+ * //       patchVersion: "STRING_VALUE",
+ * //       maxCapacity: Number("int"),
+ * //       crossAccountVpcs: [ // VpcIds
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * // };
@@ -119,79 +121,26 @@ export interface ListWorkgroupsCommandOutput extends ListWorkgroupsResponse, __M
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
-export class ListWorkgroupsCommand extends $Command<
-  ListWorkgroupsCommandInput,
-  ListWorkgroupsCommandOutput,
-  RedshiftServerlessClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListWorkgroupsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RedshiftServerlessClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListWorkgroupsCommandInput, ListWorkgroupsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListWorkgroupsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RedshiftServerlessClient";
-    const commandName = "ListWorkgroupsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListWorkgroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListWorkgroupsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkgroupsCommandOutput> {
-    return de_ListWorkgroupsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListWorkgroupsCommand extends $Command
+  .classBuilder<
+    ListWorkgroupsCommandInput,
+    ListWorkgroupsCommandOutput,
+    RedshiftServerlessClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("RedshiftServerless", "ListWorkgroups", {})
+  .n("RedshiftServerlessClient", "ListWorkgroupsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListWorkgroupsCommand)
+  .de(de_ListWorkgroupsCommand)
+  .build() {}

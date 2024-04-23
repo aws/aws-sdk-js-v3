@@ -1,20 +1,12 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import { StopContactRequest, StopContactResponse } from "../models/models_1";
+import { commonParams } from "../endpoint/EndpointParameters";
+import { StopContactRequest, StopContactResponse } from "../models/models_2";
 import { de_StopContactCommand, se_StopContactCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -36,8 +28,8 @@ export interface StopContactCommandOutput extends StopContactResponse, __Metadat
 
 /**
  * @public
- * <p>Ends the specified contact. This call does not work for the following initiation
- *    methods:</p>
+ * <p>Ends the specified contact. This call does not work for voice contacts that use the
+ *    following initiation methods:</p>
  *          <ul>
  *             <li>
  *                <p>DISCONNECT</p>
@@ -49,6 +41,8 @@ export interface StopContactCommandOutput extends StopContactResponse, __Metadat
  *                <p>QUEUE_TRANSFER</p>
  *             </li>
  *          </ul>
+ *          <p>Chat and task contacts, however, can be terminated in any state, regardless of initiation
+ *    method.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +52,9 @@ export interface StopContactCommandOutput extends StopContactResponse, __Metadat
  * const input = { // StopContactRequest
  *   ContactId: "STRING_VALUE", // required
  *   InstanceId: "STRING_VALUE", // required
+ *   DisconnectReason: { // DisconnectReason
+ *     Code: "STRING_VALUE",
+ *   },
  * };
  * const command = new StopContactCommand(input);
  * const response = await client.send(command);
@@ -73,7 +70,7 @@ export interface StopContactCommandOutput extends StopContactResponse, __Metadat
  *
  * @throws {@link ContactNotFoundException} (client fault)
  *  <p>The contact with the specified ID is not active or does not exist. Applies to Voice calls
- *    only, not to Chat, Task, or Voice Callback.</p>
+ *    only, not to Chat or Task contacts.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>
@@ -91,77 +88,26 @@ export interface StopContactCommandOutput extends StopContactResponse, __Metadat
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
-export class StopContactCommand extends $Command<
-  StopContactCommandInput,
-  StopContactCommandOutput,
-  ConnectClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StopContactCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ConnectClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StopContactCommandInput, StopContactCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, StopContactCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ConnectClient";
-    const commandName = "StopContactCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StopContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StopContactCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopContactCommandOutput> {
-    return de_StopContactCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class StopContactCommand extends $Command
+  .classBuilder<
+    StopContactCommandInput,
+    StopContactCommandOutput,
+    ConnectClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonConnectService", "StopContact", {})
+  .n("ConnectClient", "StopContactCommand")
+  .f(void 0, void 0)
+  .ser(se_StopContactCommand)
+  .de(de_StopContactCommand)
+  .build() {}

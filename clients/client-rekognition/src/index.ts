@@ -86,12 +86,22 @@
  *             </li>
  *             <li>
  *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetMediaAnalysisJob.html">GetMediaAnalysisJob</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_IndexFaces.html">IndexFaces</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListCollections.html">ListCollections</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListMediaAnalysisJob.html">ListMediaAnalysisJob</a>
  *                </p>
  *             </li>
  *             <li>
@@ -127,6 +137,11 @@
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchUsersByImage.html">SearchUsersByImage</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartMediaAnalysisJob.html">StartMediaAnalysisJob</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -366,9 +381,13 @@
 export * from "./RekognitionClient";
 export * from "./Rekognition";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { RekognitionExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./waiters";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { RekognitionServiceException } from "./models/RekognitionServiceException";

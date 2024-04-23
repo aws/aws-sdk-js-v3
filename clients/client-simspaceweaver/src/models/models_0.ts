@@ -129,7 +129,7 @@ export interface S3Destination {
    *             configuring, and working with Amazon S3 buckets</a> in the <i>Amazon Simple Storage Service User
    *             Guide</i>.</p>
    */
-  BucketName?: string;
+  BucketName: string | undefined;
 
   /**
    * @public
@@ -390,13 +390,13 @@ export interface DescribeAppOutput {
    * @public
    * <p>The current lifecycle state of the custom app.</p>
    */
-  Status?: SimulationAppStatus | string;
+  Status?: SimulationAppStatus;
 
   /**
    * @public
    * <p>The desired lifecycle state of the custom app.</p>
    */
-  TargetStatus?: SimulationAppTargetStatus | string;
+  TargetStatus?: SimulationAppTargetStatus;
 
   /**
    * @public
@@ -437,13 +437,13 @@ export interface SimulationClock {
    * @public
    * <p>The current status of the simulation clock.</p>
    */
-  Status?: ClockStatus | string;
+  Status?: ClockStatus;
 
   /**
    * @public
    * <p>The desired status of the simulation clock.</p>
    */
-  TargetStatus?: ClockTargetStatus | string;
+  TargetStatus?: ClockTargetStatus;
 }
 
 /**
@@ -503,7 +503,7 @@ export interface Domain {
    *             </li>
    *          </ul>
    */
-  Lifecycle?: LifecycleManagementStrategy | string;
+  Lifecycle?: LifecycleManagementStrategy;
 }
 
 /**
@@ -568,7 +568,7 @@ export interface S3Location {
    *             configuring, and working with Amazon S3 buckets</a> in the <i>Amazon Simple Storage Service User
    *             Guide</i>.</p>
    */
-  BucketName?: string;
+  BucketName: string | undefined;
 
   /**
    * @public
@@ -577,7 +577,7 @@ export interface S3Location {
    *             downloading, and working with objects in Amazon S3</a> in the <i>Amazon Simple Storage Service User
    *             Guide</i>.</p>
    */
-  ObjectKey?: string;
+  ObjectKey: string | undefined;
 }
 
 /**
@@ -667,13 +667,13 @@ export interface DescribeSimulationOutput {
    * @public
    * <p>The current lifecycle state of the simulation.</p>
    */
-  Status?: SimulationStatus | string;
+  Status?: SimulationStatus;
 
   /**
    * @public
    * <p>The desired lifecycle state of the simulation.</p>
    */
-  TargetStatus?: SimulationTargetStatus | string;
+  TargetStatus?: SimulationTargetStatus;
 
   /**
    * @public
@@ -793,13 +793,13 @@ export interface SimulationAppMetadata {
    * @public
    * <p>The current status of the app.</p>
    */
-  Status?: SimulationAppStatus | string;
+  Status?: SimulationAppStatus;
 
   /**
    * @public
    * <p>The desired status of the app.</p>
    */
-  TargetStatus?: SimulationAppTargetStatus | string;
+  TargetStatus?: SimulationAppTargetStatus;
 }
 
 /**
@@ -873,13 +873,13 @@ export interface SimulationMetadata {
    * @public
    * <p>The current status of the simulation.</p>
    */
-  Status?: SimulationStatus | string;
+  Status?: SimulationStatus;
 
   /**
    * @public
    * <p>The desired status of the simulation.</p>
    */
-  TargetStatus?: SimulationTargetStatus | string;
+  TargetStatus?: SimulationTargetStatus;
 }
 
 /**

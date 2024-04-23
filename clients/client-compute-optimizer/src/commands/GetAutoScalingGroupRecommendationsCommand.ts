@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetAutoScalingGroupRecommendationsRequest,
   GetAutoScalingGroupRecommendationsResponse,
@@ -90,7 +82,7 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  * //       finding: "Underprovisioned" || "Overprovisioned" || "Optimized" || "NotOptimized",
  * //       utilizationMetrics: [ // UtilizationMetrics
  * //         { // UtilizationMetric
- * //           name: "Cpu" || "Memory" || "EBS_READ_OPS_PER_SECOND" || "EBS_WRITE_OPS_PER_SECOND" || "EBS_READ_BYTES_PER_SECOND" || "EBS_WRITE_BYTES_PER_SECOND" || "DISK_READ_OPS_PER_SECOND" || "DISK_WRITE_OPS_PER_SECOND" || "DISK_READ_BYTES_PER_SECOND" || "DISK_WRITE_BYTES_PER_SECOND" || "NETWORK_IN_BYTES_PER_SECOND" || "NETWORK_OUT_BYTES_PER_SECOND" || "NETWORK_PACKETS_IN_PER_SECOND" || "NETWORK_PACKETS_OUT_PER_SECOND",
+ * //           name: "Cpu" || "Memory" || "EBS_READ_OPS_PER_SECOND" || "EBS_WRITE_OPS_PER_SECOND" || "EBS_READ_BYTES_PER_SECOND" || "EBS_WRITE_BYTES_PER_SECOND" || "DISK_READ_OPS_PER_SECOND" || "DISK_WRITE_OPS_PER_SECOND" || "DISK_READ_BYTES_PER_SECOND" || "DISK_WRITE_BYTES_PER_SECOND" || "NETWORK_IN_BYTES_PER_SECOND" || "NETWORK_OUT_BYTES_PER_SECOND" || "NETWORK_PACKETS_IN_PER_SECOND" || "NETWORK_PACKETS_OUT_PER_SECOND" || "GPU_PERCENTAGE" || "GPU_MEMORY_PERCENTAGE",
  * //           statistic: "Maximum" || "Average",
  * //           value: Number("double"),
  * //         },
@@ -112,7 +104,7 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  * //           },
  * //           projectedUtilizationMetrics: [ // ProjectedUtilizationMetrics
  * //             {
- * //               name: "Cpu" || "Memory" || "EBS_READ_OPS_PER_SECOND" || "EBS_WRITE_OPS_PER_SECOND" || "EBS_READ_BYTES_PER_SECOND" || "EBS_WRITE_BYTES_PER_SECOND" || "DISK_READ_OPS_PER_SECOND" || "DISK_WRITE_OPS_PER_SECOND" || "DISK_READ_BYTES_PER_SECOND" || "DISK_WRITE_BYTES_PER_SECOND" || "NETWORK_IN_BYTES_PER_SECOND" || "NETWORK_OUT_BYTES_PER_SECOND" || "NETWORK_PACKETS_IN_PER_SECOND" || "NETWORK_PACKETS_OUT_PER_SECOND",
+ * //               name: "Cpu" || "Memory" || "EBS_READ_OPS_PER_SECOND" || "EBS_WRITE_OPS_PER_SECOND" || "EBS_READ_BYTES_PER_SECOND" || "EBS_WRITE_BYTES_PER_SECOND" || "DISK_READ_OPS_PER_SECOND" || "DISK_WRITE_OPS_PER_SECOND" || "DISK_READ_BYTES_PER_SECOND" || "DISK_WRITE_BYTES_PER_SECOND" || "NETWORK_IN_BYTES_PER_SECOND" || "NETWORK_OUT_BYTES_PER_SECOND" || "NETWORK_PACKETS_IN_PER_SECOND" || "NETWORK_PACKETS_OUT_PER_SECOND" || "GPU_PERCENTAGE" || "GPU_MEMORY_PERCENTAGE",
  * //               statistic: "Maximum" || "Average",
  * //               value: Number("double"),
  * //             },
@@ -127,6 +119,21 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  * //             },
  * //           },
  * //           migrationEffort: "VeryLow" || "Low" || "Medium" || "High",
+ * //           instanceGpuInfo: { // GpuInfo
+ * //             gpus: [ // Gpus
+ * //               { // Gpu
+ * //                 gpuCount: Number("int"),
+ * //                 gpuMemorySizeInMiB: Number("int"),
+ * //               },
+ * //             ],
+ * //           },
+ * //           savingsOpportunityAfterDiscounts: { // AutoScalingGroupSavingsOpportunityAfterDiscounts
+ * //             savingsOpportunityPercentage: Number("double"),
+ * //             estimatedMonthlySavings: { // AutoScalingGroupEstimatedMonthlySavings
+ * //               currency: "USD" || "CNY",
+ * //               value: Number("double"),
+ * //             },
+ * //           },
  * //         },
  * //       ],
  * //       lastRefreshTimestamp: new Date("TIMESTAMP"),
@@ -140,10 +147,45 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  * //         externalMetricsPreference: { // ExternalMetricsPreference
  * //           source: "Datadog" || "Dynatrace" || "NewRelic" || "Instana",
  * //         },
+ * //         lookBackPeriod: "DAYS_14" || "DAYS_32" || "DAYS_93",
+ * //         utilizationPreferences: [ // UtilizationPreferences
+ * //           { // UtilizationPreference
+ * //             metricName: "CpuUtilization",
+ * //             metricParameters: { // CustomizableMetricParameters
+ * //               threshold: "P90" || "P95" || "P99_5",
+ * //               headroom: "PERCENT_30" || "PERCENT_20" || "PERCENT_0",
+ * //             },
+ * //           },
+ * //         ],
+ * //         preferredResources: [ // EffectivePreferredResources
+ * //           { // EffectivePreferredResource
+ * //             name: "Ec2InstanceTypes",
+ * //             includeList: [ // PreferredResourceValues
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             effectiveIncludeList: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             excludeList: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //         savingsEstimationMode: { // InstanceSavingsEstimationMode
+ * //           source: "PublicPricing" || "CostExplorerRightsizing" || "CostOptimizationHub",
+ * //         },
  * //       },
  * //       inferredWorkloadTypes: [ // InferredWorkloadTypes
  * //         "AmazonEmr" || "ApacheCassandra" || "ApacheHadoop" || "Memcached" || "Nginx" || "PostgreSql" || "Redis" || "Kafka" || "SQLServer",
  * //       ],
+ * //       currentInstanceGpuInfo: {
+ * //         gpus: [
+ * //           {
+ * //             gpuCount: Number("int"),
+ * //             gpuMemorySizeInMiB: Number("int"),
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * //   errors: [ // GetRecommendationErrors
@@ -192,85 +234,26 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
  */
-export class GetAutoScalingGroupRecommendationsCommand extends $Command<
-  GetAutoScalingGroupRecommendationsCommandInput,
-  GetAutoScalingGroupRecommendationsCommandOutput,
-  ComputeOptimizerClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetAutoScalingGroupRecommendationsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ComputeOptimizerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetAutoScalingGroupRecommendationsCommandInput, GetAutoScalingGroupRecommendationsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetAutoScalingGroupRecommendationsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ComputeOptimizerClient";
-    const commandName = "GetAutoScalingGroupRecommendationsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: GetAutoScalingGroupRecommendationsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_GetAutoScalingGroupRecommendationsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetAutoScalingGroupRecommendationsCommandOutput> {
-    return de_GetAutoScalingGroupRecommendationsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetAutoScalingGroupRecommendationsCommand extends $Command
+  .classBuilder<
+    GetAutoScalingGroupRecommendationsCommandInput,
+    GetAutoScalingGroupRecommendationsCommandOutput,
+    ComputeOptimizerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ComputeOptimizerService", "GetAutoScalingGroupRecommendations", {})
+  .n("ComputeOptimizerClient", "GetAutoScalingGroupRecommendationsCommand")
+  .f(void 0, void 0)
+  .ser(se_GetAutoScalingGroupRecommendationsCommand)
+  .de(de_GetAutoScalingGroupRecommendationsCommand)
+  .build() {}

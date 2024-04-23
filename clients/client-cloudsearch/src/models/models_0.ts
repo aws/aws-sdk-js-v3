@@ -352,8 +352,19 @@ export class ResourceAlreadyExistsException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export type AlgorithmicStemming = "full" | "light" | "minimal" | "none";
+export const AlgorithmicStemming = {
+  full: "full",
+  light: "light",
+  minimal: "minimal",
+  none: "none",
+} as const;
+
+/**
+ * @public
+ */
+export type AlgorithmicStemming = (typeof AlgorithmicStemming)[keyof typeof AlgorithmicStemming];
 
 /**
  * @public
@@ -388,48 +399,55 @@ export interface AnalysisOptions {
    * @public
    * <p>The level of algorithmic stemming to perform: <code>none</code>, <code>minimal</code>, <code>light</code>, or <code>full</code>. The available levels vary depending on the language. For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/text-processing.html#text-processing-settings" target="_blank">Language Specific Text Processing Settings</a> in the <i>Amazon CloudSearch Developer Guide</i> </p>
    */
-  AlgorithmicStemming?: AlgorithmicStemming | string;
+  AlgorithmicStemming?: AlgorithmicStemming;
 }
 
 /**
  * @public
+ * @enum
  */
-export type AnalysisSchemeLanguage =
-  | "ar"
-  | "bg"
-  | "ca"
-  | "cs"
-  | "da"
-  | "de"
-  | "el"
-  | "en"
-  | "es"
-  | "eu"
-  | "fa"
-  | "fi"
-  | "fr"
-  | "ga"
-  | "gl"
-  | "he"
-  | "hi"
-  | "hu"
-  | "hy"
-  | "id"
-  | "it"
-  | "ja"
-  | "ko"
-  | "lv"
-  | "mul"
-  | "nl"
-  | "no"
-  | "pt"
-  | "ro"
-  | "ru"
-  | "sv"
-  | "th"
-  | "tr"
-  | "zh-Hans"
-  | "zh-Hant";
+export const AnalysisSchemeLanguage = {
+  ar: "ar",
+  bg: "bg",
+  ca: "ca",
+  cs: "cs",
+  da: "da",
+  de: "de",
+  el: "el",
+  en: "en",
+  es: "es",
+  eu: "eu",
+  fa: "fa",
+  fi: "fi",
+  fr: "fr",
+  ga: "ga",
+  gl: "gl",
+  he: "he",
+  hi: "hi",
+  hu: "hu",
+  hy: "hy",
+  id: "id",
+  it: "it",
+  ja: "ja",
+  ko: "ko",
+  lv: "lv",
+  mul: "mul",
+  nl: "nl",
+  no: "no",
+  pt: "pt",
+  ro: "ro",
+  ru: "ru",
+  sv: "sv",
+  th: "th",
+  tr: "tr",
+  zh_Hans: "zh-Hans",
+  zh_Hant: "zh-Hant",
+} as const;
+
+/**
+ * @public
+ */
+export type AnalysisSchemeLanguage = (typeof AnalysisSchemeLanguage)[keyof typeof AnalysisSchemeLanguage];
 
 /**
  * @public
@@ -447,7 +465,7 @@ export interface AnalysisScheme {
    * @public
    * <p>An <a href="http://tools.ietf.org/html/rfc4646" target="_blank">IETF RFC 4646</a> language code or <code>mul</code>  for multiple languages.</p>
    */
-  AnalysisSchemeLanguage: AnalysisSchemeLanguage | string | undefined;
+  AnalysisSchemeLanguage: AnalysisSchemeLanguage | undefined;
 
   /**
    * @public
@@ -476,8 +494,19 @@ export interface DefineAnalysisSchemeRequest {
 
 /**
  * @public
+ * @enum
  */
-export type OptionState = "Active" | "FailedToValidate" | "Processing" | "RequiresIndexDocuments";
+export const OptionState = {
+  Active: "Active",
+  FailedToValidate: "FailedToValidate",
+  Processing: "Processing",
+  RequiresIndexDocuments: "RequiresIndexDocuments",
+} as const;
+
+/**
+ * @public
+ */
+export type OptionState = (typeof OptionState)[keyof typeof OptionState];
 
 /**
  * @public
@@ -511,7 +540,7 @@ export interface OptionStatus {
    *     <li><code>FailedToValidate</code>: the option value is not compatible with the domain's data and cannot be used to index the data. You must either modify the option value or update or remove the incompatible documents.</li>
    *   </ul>
    */
-  State: OptionState | string | undefined;
+  State: OptionState | undefined;
 
   /**
    * @public
@@ -821,19 +850,26 @@ export interface DoubleOptions {
 
 /**
  * @public
+ * @enum
  */
-export type IndexFieldType =
-  | "date"
-  | "date-array"
-  | "double"
-  | "double-array"
-  | "int"
-  | "int-array"
-  | "latlon"
-  | "literal"
-  | "literal-array"
-  | "text"
-  | "text-array";
+export const IndexFieldType = {
+  date: "date",
+  date_array: "date-array",
+  double: "double",
+  double_array: "double-array",
+  int: "int",
+  int_array: "int-array",
+  latlon: "latlon",
+  literal: "literal",
+  literal_array: "literal-array",
+  text: "text",
+  text_array: "text-array",
+} as const;
+
+/**
+ * @public
+ */
+export type IndexFieldType = (typeof IndexFieldType)[keyof typeof IndexFieldType];
 
 /**
  * @public
@@ -1178,7 +1214,7 @@ export interface IndexField {
    * @public
    * <p>The type of field. The valid options for a field depend on the field type. For more information about the supported field types, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html" target="_blank">Configuring Index Fields</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
    */
-  IndexFieldType: IndexFieldType | string | undefined;
+  IndexFieldType: IndexFieldType | undefined;
 
   /**
    * @public
@@ -1297,8 +1333,18 @@ export interface DefineIndexFieldResponse {
 
 /**
  * @public
+ * @enum
  */
-export type SuggesterFuzzyMatching = "high" | "low" | "none";
+export const SuggesterFuzzyMatching = {
+  high: "high",
+  low: "low",
+  none: "none",
+} as const;
+
+/**
+ * @public
+ */
+export type SuggesterFuzzyMatching = (typeof SuggesterFuzzyMatching)[keyof typeof SuggesterFuzzyMatching];
 
 /**
  * @public
@@ -1316,7 +1362,7 @@ export interface DocumentSuggesterOptions {
    * @public
    * <p>The level of fuzziness allowed when suggesting matches for a string: <code>none</code>, <code>low</code>, or <code>high</code>. With none, the specified string is treated as an exact prefix. With low, suggestions must differ from the specified string by no more than one character. With high, suggestions can differ by up to two characters. The default is none. </p>
    */
-  FuzzyMatching?: SuggesterFuzzyMatching | string;
+  FuzzyMatching?: SuggesterFuzzyMatching;
 
   /**
    * @public
@@ -1705,7 +1751,7 @@ export interface DomainEndpointOptions {
    * @public
    * <p>The minimum required TLS version</p>
    */
-  TLSSecurityPolicy?: TLSSecurityPolicy | string;
+  TLSSecurityPolicy?: TLSSecurityPolicy;
 }
 
 /**
@@ -1849,25 +1895,32 @@ export interface DescribeScalingParametersRequest {
 
 /**
  * @public
+ * @enum
  */
-export type PartitionInstanceType =
-  | "search.2xlarge"
-  | "search.large"
-  | "search.m1.large"
-  | "search.m1.small"
-  | "search.m2.2xlarge"
-  | "search.m2.xlarge"
-  | "search.m3.2xlarge"
-  | "search.m3.large"
-  | "search.m3.medium"
-  | "search.m3.xlarge"
-  | "search.medium"
-  | "search.previousgeneration.2xlarge"
-  | "search.previousgeneration.large"
-  | "search.previousgeneration.small"
-  | "search.previousgeneration.xlarge"
-  | "search.small"
-  | "search.xlarge";
+export const PartitionInstanceType = {
+  search_2xlarge: "search.2xlarge",
+  search_large: "search.large",
+  search_m1_large: "search.m1.large",
+  search_m1_small: "search.m1.small",
+  search_m2_2xlarge: "search.m2.2xlarge",
+  search_m2_xlarge: "search.m2.xlarge",
+  search_m3_2xlarge: "search.m3.2xlarge",
+  search_m3_large: "search.m3.large",
+  search_m3_medium: "search.m3.medium",
+  search_m3_xlarge: "search.m3.xlarge",
+  search_medium: "search.medium",
+  search_previousgeneration_2xlarge: "search.previousgeneration.2xlarge",
+  search_previousgeneration_large: "search.previousgeneration.large",
+  search_previousgeneration_small: "search.previousgeneration.small",
+  search_previousgeneration_xlarge: "search.previousgeneration.xlarge",
+  search_small: "search.small",
+  search_xlarge: "search.xlarge",
+} as const;
+
+/**
+ * @public
+ */
+export type PartitionInstanceType = (typeof PartitionInstanceType)[keyof typeof PartitionInstanceType];
 
 /**
  * @public
@@ -1878,7 +1931,7 @@ export interface ScalingParameters {
    * @public
    * <p>The instance type that you want to preconfigure for your domain. For example, <code>search.m1.small</code>.</p>
    */
-  DesiredInstanceType?: PartitionInstanceType | string;
+  DesiredInstanceType?: PartitionInstanceType;
 
   /**
    * @public

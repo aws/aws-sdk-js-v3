@@ -26,6 +26,7 @@ import {
   AssociateConfigurationItemsToApplicationCommandInput,
   AssociateConfigurationItemsToApplicationCommandOutput,
 } from "../commands/AssociateConfigurationItemsToApplicationCommand";
+import { BatchDeleteAgentsCommandInput, BatchDeleteAgentsCommandOutput } from "../commands/BatchDeleteAgentsCommand";
 import {
   BatchDeleteImportDataCommandInput,
   BatchDeleteImportDataCommandOutput,
@@ -35,6 +36,10 @@ import { CreateTagsCommandInput, CreateTagsCommandOutput } from "../commands/Cre
 import { DeleteApplicationsCommandInput, DeleteApplicationsCommandOutput } from "../commands/DeleteApplicationsCommand";
 import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "../commands/DeleteTagsCommand";
 import { DescribeAgentsCommandInput, DescribeAgentsCommandOutput } from "../commands/DescribeAgentsCommand";
+import {
+  DescribeBatchDeleteConfigurationTaskCommandInput,
+  DescribeBatchDeleteConfigurationTaskCommandOutput,
+} from "../commands/DescribeBatchDeleteConfigurationTaskCommand";
 import {
   DescribeConfigurationsCommandInput,
   DescribeConfigurationsCommandOutput,
@@ -74,6 +79,10 @@ import {
   ListServerNeighborsCommandOutput,
 } from "../commands/ListServerNeighborsCommand";
 import {
+  StartBatchDeleteConfigurationTaskCommandInput,
+  StartBatchDeleteConfigurationTaskCommandOutput,
+} from "../commands/StartBatchDeleteConfigurationTaskCommand";
+import {
   StartContinuousExportCommandInput,
   StartContinuousExportCommandOutput,
 } from "../commands/StartContinuousExportCommand";
@@ -96,15 +105,20 @@ import { ApplicationDiscoveryServiceServiceException as __BaseException } from "
 import {
   AssociateConfigurationItemsToApplicationRequest,
   AuthorizationErrorException,
+  BatchDeleteAgentsRequest,
+  BatchDeleteConfigurationTask,
   BatchDeleteImportDataRequest,
   ConfigurationTag,
   ConflictErrorException,
   ContinuousExportDescription,
   CreateApplicationRequest,
   CreateTagsRequest,
+  DeleteAgent,
   DeleteApplicationsRequest,
   DeleteTagsRequest,
   DescribeAgentsRequest,
+  DescribeBatchDeleteConfigurationTaskRequest,
+  DescribeBatchDeleteConfigurationTaskResponse,
   DescribeConfigurationsRequest,
   DescribeContinuousExportsRequest,
   DescribeContinuousExportsResponse,
@@ -129,6 +143,7 @@ import {
   ImportTaskFilter,
   InvalidParameterException,
   InvalidParameterValueException,
+  LimitExceededException,
   ListConfigurationsRequest,
   ListServerNeighborsRequest,
   OperationNotPermittedException,
@@ -137,6 +152,7 @@ import {
   ResourceInUseException,
   ResourceNotFoundException,
   ServerInternalErrorException,
+  StartBatchDeleteConfigurationTaskRequest,
   StartContinuousExportRequest,
   StartContinuousExportResponse,
   StartDataCollectionByAgentIdsRequest,
@@ -160,6 +176,19 @@ export const se_AssociateConfigurationItemsToApplicationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateConfigurationItemsToApplication");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1BatchDeleteAgentsCommand
+ */
+export const se_BatchDeleteAgentsCommand = async (
+  input: BatchDeleteAgentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("BatchDeleteAgents");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -238,6 +267,19 @@ export const se_DescribeAgentsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeAgents");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeBatchDeleteConfigurationTaskCommand
+ */
+export const se_DescribeBatchDeleteConfigurationTaskCommand = async (
+  input: DescribeBatchDeleteConfigurationTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeBatchDeleteConfigurationTask");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -386,6 +428,19 @@ export const se_ListServerNeighborsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1StartBatchDeleteConfigurationTaskCommand
+ */
+export const se_StartBatchDeleteConfigurationTaskCommand = async (
+  input: StartBatchDeleteConfigurationTaskCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartBatchDeleteConfigurationTask");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1StartContinuousExportCommand
  */
 export const se_StartContinuousExportCommand = async (
@@ -515,6 +570,61 @@ const de_AssociateConfigurationItemsToApplicationCommandError = async (
     case "HomeRegionNotSetException":
     case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
       throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
+      throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ServerInternalErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
+      throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1BatchDeleteAgentsCommand
+ */
+export const de_BatchDeleteAgentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDeleteAgentsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_BatchDeleteAgentsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: BatchDeleteAgentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1BatchDeleteAgentsCommandError
+ */
+const de_BatchDeleteAgentsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDeleteAgentsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AuthorizationErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
       throw await de_InvalidParameterExceptionRes(parsedOutput, context);
@@ -872,6 +982,61 @@ const de_DescribeAgentsCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterException":
       throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "ServerInternalErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
+      throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DescribeBatchDeleteConfigurationTaskCommand
+ */
+export const de_DescribeBatchDeleteConfigurationTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBatchDeleteConfigurationTaskCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeBatchDeleteConfigurationTaskCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeBatchDeleteConfigurationTaskResponse(data, context);
+  const response: DescribeBatchDeleteConfigurationTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeBatchDeleteConfigurationTaskCommandError
+ */
+const de_DescribeBatchDeleteConfigurationTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBatchDeleteConfigurationTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AuthorizationErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
+    case "HomeRegionNotSetException":
+    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
+      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
     case "InvalidParameterValueException":
     case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
       throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
@@ -1545,6 +1710,67 @@ const de_ListServerNeighborsCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1StartBatchDeleteConfigurationTaskCommand
+ */
+export const de_StartBatchDeleteConfigurationTaskCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartBatchDeleteConfigurationTaskCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_StartBatchDeleteConfigurationTaskCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartBatchDeleteConfigurationTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartBatchDeleteConfigurationTaskCommandError
+ */
+const de_StartBatchDeleteConfigurationTaskCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartBatchDeleteConfigurationTaskCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AuthorizationErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#AuthorizationErrorException":
+      throw await de_AuthorizationErrorExceptionRes(parsedOutput, context);
+    case "HomeRegionNotSetException":
+    case "com.amazonaws.applicationdiscoveryservice#HomeRegionNotSetException":
+      throw await de_HomeRegionNotSetExceptionRes(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.applicationdiscoveryservice#InvalidParameterValueException":
+      throw await de_InvalidParameterValueExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.applicationdiscoveryservice#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "OperationNotPermittedException":
+    case "com.amazonaws.applicationdiscoveryservice#OperationNotPermittedException":
+      throw await de_OperationNotPermittedExceptionRes(parsedOutput, context);
+    case "ServerInternalErrorException":
+    case "com.amazonaws.applicationdiscoveryservice#ServerInternalErrorException":
+      throw await de_ServerInternalErrorExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1StartContinuousExportCommand
  */
 export const de_StartContinuousExportCommand = async (
@@ -2055,6 +2281,22 @@ const de_InvalidParameterValueExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1LimitExceededExceptionRes
+ */
+const de_LimitExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<LimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new LimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1OperationNotPermittedExceptionRes
  */
 const de_OperationNotPermittedExceptionRes = async (
@@ -2124,6 +2366,8 @@ const de_ServerInternalErrorExceptionRes = async (
 
 // se_AssociateConfigurationItemsToApplicationRequest omitted.
 
+// se_BatchDeleteAgentsRequest omitted.
+
 // se_BatchDeleteImportDataRequest omitted.
 
 // se_ConfigurationIdList omitted.
@@ -2134,11 +2378,17 @@ const de_ServerInternalErrorExceptionRes = async (
 
 // se_CreateTagsRequest omitted.
 
+// se_DeleteAgent omitted.
+
+// se_DeleteAgents omitted.
+
 // se_DeleteApplicationsRequest omitted.
 
 // se_DeleteTagsRequest omitted.
 
 // se_DescribeAgentsRequest omitted.
+
+// se_DescribeBatchDeleteConfigurationTaskRequest omitted.
 
 // se_DescribeConfigurationsRequest omitted.
 
@@ -2218,6 +2468,8 @@ const se_ExportPreferences = (input: ExportPreferences, context: __SerdeContext)
 
 // se_ReservedInstanceOptions omitted.
 
+// se_StartBatchDeleteConfigurationTaskRequest omitted.
+
 // se_StartContinuousExportRequest omitted.
 
 // se_StartDataCollectionByAgentIdsRequest omitted.
@@ -2288,6 +2540,29 @@ const se_UsageMetricBasis = (input: UsageMetricBasis, context: __SerdeContext): 
 
 // de_AuthorizationErrorException omitted.
 
+// de_BatchDeleteAgentError omitted.
+
+// de_BatchDeleteAgentErrors omitted.
+
+// de_BatchDeleteAgentsResponse omitted.
+
+/**
+ * deserializeAws_json1_1BatchDeleteConfigurationTask
+ */
+const de_BatchDeleteConfigurationTask = (output: any, context: __SerdeContext): BatchDeleteConfigurationTask => {
+  return take(output, {
+    configurationType: __expectString,
+    deletedConfigurations: _json,
+    deletionWarnings: _json,
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failedConfigurations: _json,
+    requestedConfigurations: _json,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    taskId: __expectString,
+  }) as any;
+};
+
 // de_BatchDeleteImportDataError omitted.
 
 // de_BatchDeleteImportDataErrorList omitted.
@@ -2295,6 +2570,8 @@ const se_UsageMetricBasis = (input: UsageMetricBasis, context: __SerdeContext): 
 // de_BatchDeleteImportDataResponse omitted.
 
 // de_Configuration omitted.
+
+// de_ConfigurationIdList omitted.
 
 // de_Configurations omitted.
 
@@ -2369,7 +2646,23 @@ const de_ContinuousExportDescriptions = (output: any, context: __SerdeContext): 
 
 // de_DeleteTagsResponse omitted.
 
+// de_DeletionWarning omitted.
+
+// de_DeletionWarningsList omitted.
+
 // de_DescribeAgentsResponse omitted.
+
+/**
+ * deserializeAws_json1_1DescribeBatchDeleteConfigurationTaskResponse
+ */
+const de_DescribeBatchDeleteConfigurationTaskResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeBatchDeleteConfigurationTaskResponse => {
+  return take(output, {
+    task: (_: any) => de_BatchDeleteConfigurationTask(_, context),
+  }) as any;
+};
 
 // de_DescribeConfigurationsAttribute omitted.
 
@@ -2465,6 +2758,10 @@ const de_ExportsInfo = (output: any, context: __SerdeContext): ExportInfo[] => {
   return retVal;
 };
 
+// de_FailedConfiguration omitted.
+
+// de_FailedConfigurationList omitted.
+
 // de_GetDiscoverySummaryResponse omitted.
 
 // de_HomeRegionNotSetException omitted.
@@ -2506,6 +2803,8 @@ const de_ImportTaskList = (output: any, context: __SerdeContext): ImportTask[] =
 
 // de_InvalidParameterValueException omitted.
 
+// de_LimitExceededException omitted.
+
 // de_ListConfigurationsResponse omitted.
 
 // de_ListServerNeighborsResponse omitted.
@@ -2523,6 +2822,8 @@ const de_ImportTaskList = (output: any, context: __SerdeContext): ImportTask[] =
 // de_SchemaStorageConfig omitted.
 
 // de_ServerInternalErrorException omitted.
+
+// de_StartBatchDeleteConfigurationTaskResponse omitted.
 
 /**
  * deserializeAws_json1_1StartContinuousExportResponse

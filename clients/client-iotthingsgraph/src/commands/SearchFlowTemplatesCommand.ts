@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient";
 import { SearchFlowTemplatesRequest, SearchFlowTemplatesResponse } from "../models/models_0";
 import { de_SearchFlowTemplatesCommand, se_SearchFlowTemplatesCommand } from "../protocols/Aws_json1_1";
@@ -48,7 +40,7 @@ export interface SearchFlowTemplatesCommandOutput extends SearchFlowTemplatesRes
  * const input = { // SearchFlowTemplatesRequest
  *   filters: [ // FlowTemplateFilters
  *     { // FlowTemplateFilter
- *       name: "STRING_VALUE", // required
+ *       name: "DEVICE_MODEL_ID", // required
  *       value: [ // FlowTemplateFilterValues // required
  *         "STRING_VALUE",
  *       ],
@@ -92,79 +84,26 @@ export interface SearchFlowTemplatesCommandOutput extends SearchFlowTemplatesRes
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  */
-export class SearchFlowTemplatesCommand extends $Command<
-  SearchFlowTemplatesCommandInput,
-  SearchFlowTemplatesCommandOutput,
-  IoTThingsGraphClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: SearchFlowTemplatesCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: IoTThingsGraphClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<SearchFlowTemplatesCommandInput, SearchFlowTemplatesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, SearchFlowTemplatesCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "IoTThingsGraphClient";
-    const commandName = "SearchFlowTemplatesCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: SearchFlowTemplatesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_SearchFlowTemplatesCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchFlowTemplatesCommandOutput> {
-    return de_SearchFlowTemplatesCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class SearchFlowTemplatesCommand extends $Command
+  .classBuilder<
+    SearchFlowTemplatesCommandInput,
+    SearchFlowTemplatesCommandOutput,
+    IoTThingsGraphClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: IoTThingsGraphClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("IotThingsGraphFrontEndService", "SearchFlowTemplates", {})
+  .n("IoTThingsGraphClient", "SearchFlowTemplatesCommand")
+  .f(void 0, void 0)
+  .ser(se_SearchFlowTemplatesCommand)
+  .de(de_SearchFlowTemplatesCommand)
+  .build() {}

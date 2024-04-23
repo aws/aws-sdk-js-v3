@@ -3,6 +3,572 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.501.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.500.0...v3.501.0) (2024-01-26)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.500.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.499.0...v3.500.0) (2024-01-25)
+
+
+### Features
+
+* **clients:** update command documentation examples as of 2024-01-25 ([922a7c9](https://github.com/aws/aws-sdk-js-v3/commit/922a7c9c70d1be441f22a88f4ee3a7d7fa47bbd0))
+
+
+
+
+
+# [3.499.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.498.0...v3.499.0) (2024-01-24)
+
+
+### Features
+
+* **client-rds:** This release adds support for Aurora Limitless Database. ([ecd7fe6](https://github.com/aws/aws-sdk-js-v3/commit/ecd7fe6a2ca4aa7a30c7f6086c83b3da36f5ce50))
+
+
+
+
+
+# [3.497.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.496.0...v3.497.0) (2024-01-22)
+
+
+### Features
+
+* **client-rds:** Introduced support for the InsufficientDBInstanceCapacityFault error in the RDS CreateDBCluster API method. This provides enhanced error handling, ensuring a more robust experience when creating database clusters with insufficient instance capacity. ([549616d](https://github.com/aws/aws-sdk-js-v3/commit/549616d002860ce9b3c3a8b9741a23ec2e094a73))
+
+
+
+
+
+# [3.496.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.495.0...v3.496.0) (2024-01-19)
+
+
+### Bug Fixes
+
+* get full list of exports for esm compat in dist-cjs ([#5694](https://github.com/aws/aws-sdk-js-v3/issues/5694)) ([5d26da6](https://github.com/aws/aws-sdk-js-v3/commit/5d26da6d07b593ae286ca674fb3cbff7c833cbb0))
+
+
+
+
+
+# [3.495.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.494.0...v3.495.0) (2024-01-18)
+
+
+### Features
+
+* use bundled dist-cjs build ([#5687](https://github.com/aws/aws-sdk-js-v3/issues/5687)) ([5f79e22](https://github.com/aws/aws-sdk-js-v3/commit/5f79e225e32f0b2ed5b432ae4e4108663eb0acfb))
+
+
+
+
+
+# [3.490.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.489.0...v3.490.0) (2024-01-11)
+
+
+### Bug Fixes
+
+* **experimentalIdentityAndAuth:** rename `AWSSDKSigV4` to `AwsSdkSigV4` ([#5667](https://github.com/aws/aws-sdk-js-v3/issues/5667)) ([9c3e91a](https://github.com/aws/aws-sdk-js-v3/commit/9c3e91aeb155cad42ce56cc116aa71bc8f2457c9))
+
+
+### Features
+
+* **experimentalIdentityAndAuth:** release phase for services with customizations ([#5288](https://github.com/aws/aws-sdk-js-v3/issues/5288)) ([ddc477c](https://github.com/aws/aws-sdk-js-v3/commit/ddc477c39da563db4d26e552f9e6edf7254d4ea3))
+
+
+
+
+
+# [3.489.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.488.0...v3.489.0) (2024-01-10)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.488.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.487.0...v3.488.0) (2024-01-08)
+
+
+### Features
+
+* **experimentalIdentityAndAuth:** release phase for services with signing customizations ([#5286](https://github.com/aws/aws-sdk-js-v3/issues/5286)) ([1ba36c4](https://github.com/aws/aws-sdk-js-v3/commit/1ba36c483267397a903d8cf6dde068641772b552))
+
+
+
+
+
+# [3.485.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.484.0...v3.485.0) (2024-01-03)
+
+
+### Features
+
+* **credential-providers:** add credentialScope field ([#5606](https://github.com/aws/aws-sdk-js-v3/issues/5606)) ([04c1459](https://github.com/aws/aws-sdk-js-v3/commit/04c14592898ac63ed87d47f2a53320ccaa991083))
+
+
+
+
+
+# [3.484.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.483.0...v3.484.0) (2023-12-29)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.481.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.480.0...v3.481.0) (2023-12-26)
+
+
+### Features
+
+* codegen for command class builder ([#5604](https://github.com/aws/aws-sdk-js-v3/issues/5604)) ([4835de4](https://github.com/aws/aws-sdk-js-v3/commit/4835de4ebb8f302ae1e838ac1efaf5f12384910d))
+
+
+
+
+
+# [3.479.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.478.0...v3.479.0) (2023-12-21)
+
+
+### Features
+
+* **client-rds:** This release adds support for using RDS Data API with Aurora PostgreSQL Serverless v2 and provisioned DB clusters. ([ee4406c](https://github.com/aws/aws-sdk-js-v3/commit/ee4406c0c6bd8aebceb3853ddc98d48b745bafcb))
+
+
+
+
+
+# [3.478.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.477.0...v3.478.0) (2023-12-20)
+
+
+### Features
+
+* codegen for paginator factory ([#5590](https://github.com/aws/aws-sdk-js-v3/issues/5590)) ([e54099b](https://github.com/aws/aws-sdk-js-v3/commit/e54099b7c1eb3b1de5737d5494821b1dae045fca))
+
+
+
+
+
+# [3.477.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.476.0...v3.477.0) (2023-12-19)
+
+
+### Features
+
+* **client-rds:** RDS - The release adds two new APIs: DescribeDBRecommendations and ModifyDBRecommendation ([ba936d1](https://github.com/aws/aws-sdk-js-v3/commit/ba936d143fd4c11837258dcf74709b6fbc760b91))
+* xml codegen reduction ([#5566](https://github.com/aws/aws-sdk-js-v3/issues/5566)) ([3ed7c81](https://github.com/aws/aws-sdk-js-v3/commit/3ed7c81f9191182826de7645078cc6ed1d2ee959))
+
+
+
+
+
+# [3.476.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.475.0...v3.476.0) (2023-12-18)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.475.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.474.0...v3.475.0) (2023-12-15)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.474.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.473.0...v3.474.0) (2023-12-14)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.473.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.472.0...v3.473.0) (2023-12-13)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.470.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.469.0...v3.470.0) (2023-12-08)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.468.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.467.0...v3.468.0) (2023-12-06)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.465.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.464.0...v3.465.0) (2023-12-01)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.462.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.461.0...v3.462.0) (2023-11-29)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.461.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.460.0...v3.461.0) (2023-11-28)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.460.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.459.0...v3.460.0) (2023-11-28)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.459.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.458.0...v3.459.0) (2023-11-27)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.458.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.457.0...v3.458.0) (2023-11-27)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.454.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.453.0...v3.454.0) (2023-11-17)
+
+
+### Features
+
+* **client-rds:** This release adds support for option groups and replica enhancements to Amazon RDS Custom. ([fb8ad1a](https://github.com/aws/aws-sdk-js-v3/commit/fb8ad1a222d78af980a252144eecbb217cd23e9d))
+
+
+
+
+
+# [3.452.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.451.0...v3.452.0) (2023-11-15)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.451.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.450.0...v3.451.0) (2023-11-14)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.450.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.449.0...v3.450.0) (2023-11-13)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.449.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.448.0...v3.449.0) (2023-11-10)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.446.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.445.0...v3.446.0) (2023-11-08)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.445.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.444.0...v3.445.0) (2023-11-07)
+
+
+### Features
+
+* **client-rds:** This Amazon RDS release adds support for the multi-tenant configuration. In this configuration, an RDS DB instance can contain multiple tenant databases. In RDS for Oracle, a tenant database is a pluggable database (PDB). ([c28ec75](https://github.com/aws/aws-sdk-js-v3/commit/c28ec75cf387d1c1b30558e19a50e74fb456bbd1))
+
+
+
+
+
+# [3.441.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.440.0...v3.441.0) (2023-11-01)
+
+
+### Features
+
+* **client-rds:** This release adds support for customized networking resources to Amazon RDS Custom. ([0c0921a](https://github.com/aws/aws-sdk-js-v3/commit/0c0921a96c3cfb676f79f10c8a17061ea33ccbf2))
+
+
+
+
+
+# [3.439.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.438.0...v3.439.0) (2023-10-30)
+
+
+### Features
+
+* **client-rds:** This release launches the CreateIntegration, DeleteIntegration, and DescribeIntegrations APIs to manage zero-ETL Integrations. ([8bc90cc](https://github.com/aws/aws-sdk-js-v3/commit/8bc90cc7b707f1050cf803a659f5a53c76ff1ee4))
+
+
+
+
+
+# [3.438.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.437.0...v3.438.0) (2023-10-27)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.437.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.436.0...v3.437.0) (2023-10-26)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.436.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.435.0...v3.436.0) (2023-10-25)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.435.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.434.0...v3.435.0) (2023-10-24)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.433.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.432.0...v3.433.0) (2023-10-20)
+
+
+### Bug Fixes
+
+* **codegen:** use partial record for enum keyed types ([#5391](https://github.com/aws/aws-sdk-js-v3/issues/5391)) ([70c2107](https://github.com/aws/aws-sdk-js-v3/commit/70c2107b970d035bfedb211278c88fdbfc2e5334))
+
+
+
+
+
+# [3.431.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.430.0...v3.431.0) (2023-10-18)
+
+
+### Features
+
+* **client-rds:** This release adds support for upgrading the storage file system configuration on the DB instance using a blue/green deployment or a read replica. ([dbac71a](https://github.com/aws/aws-sdk-js-v3/commit/dbac71a6a3403999b94c91f84bede98ae2077265))
+
+
+
+
+
+# [3.430.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.429.0...v3.430.0) (2023-10-17)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.429.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.428.0...v3.429.0) (2023-10-16)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.428.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.427.0...v3.428.0) (2023-10-12)
+
+
+### Features
+
+* **client-rds:** This release adds support for adding a dedicated log volume to open-source RDS instances. ([634a983](https://github.com/aws/aws-sdk-js-v3/commit/634a98311610222f33aa38a6912eccda25ff6d5f))
+
+
+
+
+
+# [3.427.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.426.0...v3.427.0) (2023-10-06)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.426.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.425.0...v3.426.0) (2023-10-05)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.425.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.424.0...v3.425.0) (2023-10-04)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.423.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.422.0...v3.423.0) (2023-10-02)
+
+
+### Features
+
+* **client-rds:** Adds DefaultCertificateForNewLaunches field in the DescribeCertificates API response. ([679fd29](https://github.com/aws/aws-sdk-js-v3/commit/679fd290e48a3996cb5e80d972779cf142a15600))
+
+
+
+
+
+# [3.421.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.420.0...v3.421.0) (2023-09-27)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.418.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.417.0...v3.418.0) (2023-09-22)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.414.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.413.0...v3.414.0) (2023-09-15)
+
+
+### Features
+
+* **region-config:** add aws region runtime extension codegen ([#5157](https://github.com/aws/aws-sdk-js-v3/issues/5157)) ([b9d59e8](https://github.com/aws/aws-sdk-js-v3/commit/b9d59e81696f9628c6502473bb01a2d1a617e928))
+
+
+
+
+
+# [3.413.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.412.0...v3.413.0) (2023-09-14)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.410.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.409.0...v3.410.0) (2023-09-11)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.409.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.408.0...v3.409.0) (2023-09-08)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.408.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.407.0...v3.408.0) (2023-09-07)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.406.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.405.0...v3.406.0) (2023-09-05)
+
+
+### Features
+
+* **client-rds:** Add support for feature integration with AWS Backup. ([56dc806](https://github.com/aws/aws-sdk-js-v3/commit/56dc806be2dcc99ca345e27d60e7684bb02f763a))
+
+
+
+
+
+# [3.405.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.404.0...v3.405.0) (2023-09-01)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.399.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.398.0...v3.399.0) (2023-08-24)
+
+
+### Features
+
+* **client-rds:** This release updates the supported versions for Percona XtraBackup in Aurora MySQL. ([9345898](https://github.com/aws/aws-sdk-js-v3/commit/9345898cc956f2e727dd6d75da62f564658a2a9c))
+
+
+
+
+
+# [3.398.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.397.0...v3.398.0) (2023-08-23)
+
+**Note:** Version bump only for package @aws-sdk/client-rds
+
+
+
+
+
+# [3.397.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.396.0...v3.397.0) (2023-08-22)
+
+
+### Features
+
+* **client-rds:** Adding parameters to CreateCustomDbEngineVersion reserved for future use. ([8981d51](https://github.com/aws/aws-sdk-js-v3/commit/8981d5184f8060aba4cc9798c316362b95202e5d))
+
+
+
+
+
 # [3.396.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.395.0...v3.396.0) (2023-08-21)
 
 

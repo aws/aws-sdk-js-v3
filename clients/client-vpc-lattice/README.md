@@ -27,16 +27,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `VPCLatticeClient` and
-the commands you need, for example `BatchUpdateRuleCommand`:
+the commands you need, for example `ListServicesCommand`:
 
 ```js
 // ES5 example
-const { VPCLatticeClient, BatchUpdateRuleCommand } = require("@aws-sdk/client-vpc-lattice");
+const { VPCLatticeClient, ListServicesCommand } = require("@aws-sdk/client-vpc-lattice");
 ```
 
 ```ts
 // ES6+ example
-import { VPCLatticeClient, BatchUpdateRuleCommand } from "@aws-sdk/client-vpc-lattice";
+import { VPCLatticeClient, ListServicesCommand } from "@aws-sdk/client-vpc-lattice";
 ```
 
 ### Usage
@@ -55,7 +55,7 @@ const client = new VPCLatticeClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchUpdateRuleCommand(params);
+const command = new ListServicesCommand(params);
 ```
 
 #### Async/await
@@ -134,7 +134,7 @@ const client = new AWS.VPCLattice({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchUpdateRule(params);
+  const data = await client.listServices(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -142,7 +142,7 @@ try {
 
 // Promises.
 client
-  .batchUpdateRule(params)
+  .listServices(params)
   .then((data) => {
     // process data.
   })
@@ -151,7 +151,7 @@ client
   });
 
 // callbacks.
-client.batchUpdateRule(params, (err, data) => {
+client.listServices(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -166,7 +166,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -212,7 +212,7 @@ see LICENSE for more information.
 BatchUpdateRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/batchupdaterulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/batchupdaterulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/batchupdaterulecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/BatchUpdateRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/BatchUpdateRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/BatchUpdateRuleCommandOutput/)
 
 </details>
 <details>
@@ -220,7 +220,7 @@ BatchUpdateRule
 CreateAccessLogSubscription
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/createaccesslogsubscriptioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/createaccesslogsubscriptioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/createaccesslogsubscriptioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/CreateAccessLogSubscriptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/CreateAccessLogSubscriptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/CreateAccessLogSubscriptionCommandOutput/)
 
 </details>
 <details>
@@ -228,7 +228,7 @@ CreateAccessLogSubscription
 CreateListener
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/createlistenercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/createlistenercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/createlistenercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/CreateListenerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/CreateListenerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/CreateListenerCommandOutput/)
 
 </details>
 <details>
@@ -236,7 +236,7 @@ CreateListener
 CreateRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/createrulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/createrulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/createrulecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/CreateRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/CreateRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/CreateRuleCommandOutput/)
 
 </details>
 <details>
@@ -244,7 +244,7 @@ CreateRule
 CreateService
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/createservicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/createservicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/createservicecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/CreateServiceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/CreateServiceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/CreateServiceCommandOutput/)
 
 </details>
 <details>
@@ -252,7 +252,7 @@ CreateService
 CreateServiceNetwork
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/createservicenetworkcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/createservicenetworkcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/createservicenetworkcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/CreateServiceNetworkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/CreateServiceNetworkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/CreateServiceNetworkCommandOutput/)
 
 </details>
 <details>
@@ -260,7 +260,7 @@ CreateServiceNetwork
 CreateServiceNetworkServiceAssociation
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/createservicenetworkserviceassociationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/createservicenetworkserviceassociationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/createservicenetworkserviceassociationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/CreateServiceNetworkServiceAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/CreateServiceNetworkServiceAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/CreateServiceNetworkServiceAssociationCommandOutput/)
 
 </details>
 <details>
@@ -268,7 +268,7 @@ CreateServiceNetworkServiceAssociation
 CreateServiceNetworkVpcAssociation
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/createservicenetworkvpcassociationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/createservicenetworkvpcassociationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/createservicenetworkvpcassociationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/CreateServiceNetworkVpcAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/CreateServiceNetworkVpcAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/CreateServiceNetworkVpcAssociationCommandOutput/)
 
 </details>
 <details>
@@ -276,7 +276,7 @@ CreateServiceNetworkVpcAssociation
 CreateTargetGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/createtargetgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/createtargetgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/createtargetgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/CreateTargetGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/CreateTargetGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/CreateTargetGroupCommandOutput/)
 
 </details>
 <details>
@@ -284,7 +284,7 @@ CreateTargetGroup
 DeleteAccessLogSubscription
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/deleteaccesslogsubscriptioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/deleteaccesslogsubscriptioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/deleteaccesslogsubscriptioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/DeleteAccessLogSubscriptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteAccessLogSubscriptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteAccessLogSubscriptionCommandOutput/)
 
 </details>
 <details>
@@ -292,7 +292,7 @@ DeleteAccessLogSubscription
 DeleteAuthPolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/deleteauthpolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/deleteauthpolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/deleteauthpolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/DeleteAuthPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteAuthPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteAuthPolicyCommandOutput/)
 
 </details>
 <details>
@@ -300,7 +300,7 @@ DeleteAuthPolicy
 DeleteListener
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/deletelistenercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/deletelistenercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/deletelistenercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/DeleteListenerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteListenerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteListenerCommandOutput/)
 
 </details>
 <details>
@@ -308,7 +308,7 @@ DeleteListener
 DeleteResourcePolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/deleteresourcepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/deleteresourcepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/deleteresourcepolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/DeleteResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteResourcePolicyCommandOutput/)
 
 </details>
 <details>
@@ -316,7 +316,7 @@ DeleteResourcePolicy
 DeleteRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/deleterulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/deleterulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/deleterulecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/DeleteRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteRuleCommandOutput/)
 
 </details>
 <details>
@@ -324,7 +324,7 @@ DeleteRule
 DeleteService
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/deleteservicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/deleteservicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/deleteservicecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/DeleteServiceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteServiceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteServiceCommandOutput/)
 
 </details>
 <details>
@@ -332,7 +332,7 @@ DeleteService
 DeleteServiceNetwork
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/deleteservicenetworkcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/deleteservicenetworkcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/deleteservicenetworkcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/DeleteServiceNetworkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteServiceNetworkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteServiceNetworkCommandOutput/)
 
 </details>
 <details>
@@ -340,7 +340,7 @@ DeleteServiceNetwork
 DeleteServiceNetworkServiceAssociation
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/deleteservicenetworkserviceassociationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/deleteservicenetworkserviceassociationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/deleteservicenetworkserviceassociationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/DeleteServiceNetworkServiceAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteServiceNetworkServiceAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteServiceNetworkServiceAssociationCommandOutput/)
 
 </details>
 <details>
@@ -348,7 +348,7 @@ DeleteServiceNetworkServiceAssociation
 DeleteServiceNetworkVpcAssociation
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/deleteservicenetworkvpcassociationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/deleteservicenetworkvpcassociationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/deleteservicenetworkvpcassociationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/DeleteServiceNetworkVpcAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteServiceNetworkVpcAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteServiceNetworkVpcAssociationCommandOutput/)
 
 </details>
 <details>
@@ -356,7 +356,7 @@ DeleteServiceNetworkVpcAssociation
 DeleteTargetGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/deletetargetgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/deletetargetgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/deletetargetgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/DeleteTargetGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteTargetGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeleteTargetGroupCommandOutput/)
 
 </details>
 <details>
@@ -364,7 +364,7 @@ DeleteTargetGroup
 DeregisterTargets
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/deregistertargetscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/deregistertargetscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/deregistertargetscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/DeregisterTargetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeregisterTargetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/DeregisterTargetsCommandOutput/)
 
 </details>
 <details>
@@ -372,7 +372,7 @@ DeregisterTargets
 GetAccessLogSubscription
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/getaccesslogsubscriptioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/getaccesslogsubscriptioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/getaccesslogsubscriptioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/GetAccessLogSubscriptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/GetAccessLogSubscriptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/GetAccessLogSubscriptionCommandOutput/)
 
 </details>
 <details>
@@ -380,7 +380,7 @@ GetAccessLogSubscription
 GetAuthPolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/getauthpolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/getauthpolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/getauthpolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/GetAuthPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/GetAuthPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/GetAuthPolicyCommandOutput/)
 
 </details>
 <details>
@@ -388,7 +388,7 @@ GetAuthPolicy
 GetListener
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/getlistenercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/getlistenercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/getlistenercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/GetListenerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/GetListenerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/GetListenerCommandOutput/)
 
 </details>
 <details>
@@ -396,7 +396,7 @@ GetListener
 GetResourcePolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/getresourcepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/getresourcepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/getresourcepolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/GetResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/GetResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/GetResourcePolicyCommandOutput/)
 
 </details>
 <details>
@@ -404,7 +404,7 @@ GetResourcePolicy
 GetRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/getrulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/getrulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/getrulecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/GetRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/GetRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/GetRuleCommandOutput/)
 
 </details>
 <details>
@@ -412,7 +412,7 @@ GetRule
 GetService
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/getservicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/getservicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/getservicecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/GetServiceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/GetServiceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/GetServiceCommandOutput/)
 
 </details>
 <details>
@@ -420,7 +420,7 @@ GetService
 GetServiceNetwork
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/getservicenetworkcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/getservicenetworkcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/getservicenetworkcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/GetServiceNetworkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/GetServiceNetworkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/GetServiceNetworkCommandOutput/)
 
 </details>
 <details>
@@ -428,7 +428,7 @@ GetServiceNetwork
 GetServiceNetworkServiceAssociation
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/getservicenetworkserviceassociationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/getservicenetworkserviceassociationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/getservicenetworkserviceassociationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/GetServiceNetworkServiceAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/GetServiceNetworkServiceAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/GetServiceNetworkServiceAssociationCommandOutput/)
 
 </details>
 <details>
@@ -436,7 +436,7 @@ GetServiceNetworkServiceAssociation
 GetServiceNetworkVpcAssociation
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/getservicenetworkvpcassociationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/getservicenetworkvpcassociationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/getservicenetworkvpcassociationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/GetServiceNetworkVpcAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/GetServiceNetworkVpcAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/GetServiceNetworkVpcAssociationCommandOutput/)
 
 </details>
 <details>
@@ -444,7 +444,7 @@ GetServiceNetworkVpcAssociation
 GetTargetGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/gettargetgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/gettargetgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/gettargetgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/GetTargetGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/GetTargetGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/GetTargetGroupCommandOutput/)
 
 </details>
 <details>
@@ -452,7 +452,7 @@ GetTargetGroup
 ListAccessLogSubscriptions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/listaccesslogsubscriptionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/listaccesslogsubscriptionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/listaccesslogsubscriptionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/ListAccessLogSubscriptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListAccessLogSubscriptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListAccessLogSubscriptionsCommandOutput/)
 
 </details>
 <details>
@@ -460,7 +460,7 @@ ListAccessLogSubscriptions
 ListListeners
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/listlistenerscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/listlistenerscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/listlistenerscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/ListListenersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListListenersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListListenersCommandOutput/)
 
 </details>
 <details>
@@ -468,7 +468,7 @@ ListListeners
 ListRules
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/listrulescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/listrulescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/listrulescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/ListRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListRulesCommandOutput/)
 
 </details>
 <details>
@@ -476,7 +476,7 @@ ListRules
 ListServiceNetworks
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/listservicenetworkscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/listservicenetworkscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/listservicenetworkscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/ListServiceNetworksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListServiceNetworksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListServiceNetworksCommandOutput/)
 
 </details>
 <details>
@@ -484,7 +484,7 @@ ListServiceNetworks
 ListServiceNetworkServiceAssociations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/listservicenetworkserviceassociationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/listservicenetworkserviceassociationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/listservicenetworkserviceassociationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/ListServiceNetworkServiceAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListServiceNetworkServiceAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListServiceNetworkServiceAssociationsCommandOutput/)
 
 </details>
 <details>
@@ -492,7 +492,7 @@ ListServiceNetworkServiceAssociations
 ListServiceNetworkVpcAssociations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/listservicenetworkvpcassociationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/listservicenetworkvpcassociationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/listservicenetworkvpcassociationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/ListServiceNetworkVpcAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListServiceNetworkVpcAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListServiceNetworkVpcAssociationsCommandOutput/)
 
 </details>
 <details>
@@ -500,7 +500,7 @@ ListServiceNetworkVpcAssociations
 ListServices
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/listservicescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/listservicescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/listservicescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/ListServicesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListServicesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListServicesCommandOutput/)
 
 </details>
 <details>
@@ -508,7 +508,7 @@ ListServices
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListTagsForResourceCommandOutput/)
 
 </details>
 <details>
@@ -516,7 +516,7 @@ ListTagsForResource
 ListTargetGroups
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/listtargetgroupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/listtargetgroupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/listtargetgroupscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/ListTargetGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListTargetGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListTargetGroupsCommandOutput/)
 
 </details>
 <details>
@@ -524,7 +524,7 @@ ListTargetGroups
 ListTargets
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/listtargetscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/listtargetscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/listtargetscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/ListTargetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListTargetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/ListTargetsCommandOutput/)
 
 </details>
 <details>
@@ -532,7 +532,7 @@ ListTargets
 PutAuthPolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/putauthpolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/putauthpolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/putauthpolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/PutAuthPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/PutAuthPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/PutAuthPolicyCommandOutput/)
 
 </details>
 <details>
@@ -540,7 +540,7 @@ PutAuthPolicy
 PutResourcePolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/putresourcepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/putresourcepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/putresourcepolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/PutResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/PutResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/PutResourcePolicyCommandOutput/)
 
 </details>
 <details>
@@ -548,7 +548,7 @@ PutResourcePolicy
 RegisterTargets
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/registertargetscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/registertargetscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/registertargetscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/RegisterTargetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/RegisterTargetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/RegisterTargetsCommandOutput/)
 
 </details>
 <details>
@@ -556,7 +556,7 @@ RegisterTargets
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -564,7 +564,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -572,7 +572,7 @@ UntagResource
 UpdateAccessLogSubscription
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/updateaccesslogsubscriptioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/updateaccesslogsubscriptioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/updateaccesslogsubscriptioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/UpdateAccessLogSubscriptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/UpdateAccessLogSubscriptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/UpdateAccessLogSubscriptionCommandOutput/)
 
 </details>
 <details>
@@ -580,7 +580,7 @@ UpdateAccessLogSubscription
 UpdateListener
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/updatelistenercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/updatelistenercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/updatelistenercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/UpdateListenerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/UpdateListenerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/UpdateListenerCommandOutput/)
 
 </details>
 <details>
@@ -588,7 +588,7 @@ UpdateListener
 UpdateRule
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/updaterulecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/updaterulecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/updaterulecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/UpdateRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/UpdateRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/UpdateRuleCommandOutput/)
 
 </details>
 <details>
@@ -596,7 +596,7 @@ UpdateRule
 UpdateService
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/updateservicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/updateservicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/updateservicecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/UpdateServiceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/UpdateServiceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/UpdateServiceCommandOutput/)
 
 </details>
 <details>
@@ -604,7 +604,7 @@ UpdateService
 UpdateServiceNetwork
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/updateservicenetworkcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/updateservicenetworkcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/updateservicenetworkcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/UpdateServiceNetworkCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/UpdateServiceNetworkCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/UpdateServiceNetworkCommandOutput/)
 
 </details>
 <details>
@@ -612,7 +612,7 @@ UpdateServiceNetwork
 UpdateServiceNetworkVpcAssociation
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/updateservicenetworkvpcassociationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/updateservicenetworkvpcassociationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/updateservicenetworkvpcassociationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/UpdateServiceNetworkVpcAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/UpdateServiceNetworkVpcAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/UpdateServiceNetworkVpcAssociationCommandOutput/)
 
 </details>
 <details>
@@ -620,6 +620,6 @@ UpdateServiceNetworkVpcAssociation
 UpdateTargetGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/classes/updatetargetgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/updatetargetgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-vpc-lattice/interfaces/updatetargetgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/vpc-lattice/command/UpdateTargetGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/UpdateTargetGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-vpc-lattice/Interface/UpdateTargetGroupCommandOutput/)
 
 </details>

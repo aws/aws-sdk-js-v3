@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { HoneycodeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HoneycodeClient";
 import {
   BatchUpdateTableRowsRequest,
@@ -43,7 +35,7 @@ export interface BatchUpdateTableRowsCommandOutput extends BatchUpdateTableRowsR
  * <p>
  *             The BatchUpdateTableRows API allows you to update one or more rows in a table in a workbook.
  *         </p>
- *         <p>
+ *          <p>
  *             You can specify the values to set in some or all of the columns in the table for the specified
  *             rows.
  *             If a column is not explicitly specified in a particular row, then that column will not be updated
@@ -124,79 +116,26 @@ export interface BatchUpdateTableRowsCommandOutput extends BatchUpdateTableRowsR
  * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
  */
-export class BatchUpdateTableRowsCommand extends $Command<
-  BatchUpdateTableRowsCommandInput,
-  BatchUpdateTableRowsCommandOutput,
-  HoneycodeClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: BatchUpdateTableRowsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: HoneycodeClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<BatchUpdateTableRowsCommandInput, BatchUpdateTableRowsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, BatchUpdateTableRowsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "HoneycodeClient";
-    const commandName = "BatchUpdateTableRowsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: BatchUpdateTableRowsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: BatchUpdateTableRowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_BatchUpdateTableRowsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchUpdateTableRowsCommandOutput> {
-    return de_BatchUpdateTableRowsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class BatchUpdateTableRowsCommand extends $Command
+  .classBuilder<
+    BatchUpdateTableRowsCommandInput,
+    BatchUpdateTableRowsCommandOutput,
+    HoneycodeClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: HoneycodeClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("SheetsPublicApiService", "BatchUpdateTableRows", {})
+  .n("HoneycodeClient", "BatchUpdateTableRowsCommand")
+  .f(BatchUpdateTableRowsRequestFilterSensitiveLog, void 0)
+  .ser(se_BatchUpdateTableRowsCommand)
+  .de(de_BatchUpdateTableRowsCommand)
+  .build() {}

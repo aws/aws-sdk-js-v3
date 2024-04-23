@@ -1,19 +1,16 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { CreateTokenRequest, CreateTokenResponse } from "../models/models_0";
+import { commonParams } from "../endpoint/EndpointParameters";
+import {
+  CreateTokenRequest,
+  CreateTokenRequestFilterSensitiveLog,
+  CreateTokenResponse,
+  CreateTokenResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_CreateTokenCommand, se_CreateTokenCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOOIDCClientResolvedConfig } from "../SSOOIDCClient";
 
@@ -36,9 +33,9 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
 
 /**
  * @public
- * <p>Creates and returns an access token for the authorized client. The access token issued
- *       will be used to fetch short-term credentials for the assigned roles in the AWS
- *       account.</p>
+ * <p>Creates and returns access and refresh tokens for clients that are authenticated using
+ *       client secrets. The access token can be used to fetch short-term credentials for the assigned
+ *       AWS accounts or to access application APIs using <code>bearer</code> authentication.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -119,78 +116,74 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  * @throws {@link SSOOIDCServiceException}
  * <p>Base exception class for all service exceptions from SSOOIDC service.</p>
  *
+ * @example Call OAuth/OIDC /token endpoint for Device Code grant with Secret authentication
+ * ```javascript
+ * //
+ * const input = {
+ *   "clientId": "_yzkThXVzLWVhc3QtMQEXAMPLECLIENTID",
+ *   "clientSecret": "VERYLONGSECRETeyJraWQiOiJrZXktMTU2NDAyODA5OSIsImFsZyI6IkhTMzg0In0",
+ *   "deviceCode": "yJraWQiOiJrZXktMTU2Njk2ODA4OCIsImFsZyI6IkhTMzIn0EXAMPLEDEVICECODE",
+ *   "grantType": "urn:ietf:params:oauth:grant-type:device-code"
+ * };
+ * const command = new CreateTokenCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "accessToken": "aoal-YigITUDiNX1xZwOMXM5MxOWDL0E0jg9P6_C_jKQPxS_SKCP6f0kh1Up4g7TtvQqkMnD-GJiU_S1gvug6SrggAkc0:MGYCMQD3IatVjV7jAJU91kK3PkS/SfA2wtgWzOgZWDOR7sDGN9t0phCZz5It/aes/3C1Zj0CMQCKWOgRaiz6AIhza3DSXQNMLjRKXC8F8ceCsHlgYLMZ7hZidEXAMPLEACCESSTOKEN",
+ *   "expiresIn": 1579729529,
+ *   "refreshToken": "aorvJYubGpU6i91YnH7Mfo-AT2fIVa1zCfA_Rvq9yjVKIP3onFmmykuQ7E93y2I-9Nyj-A_sVvMufaLNL0bqnDRtgAkc0:MGUCMFrRsktMRVlWaOR70XGMFGLL0SlcCw4DiYveIiOVx1uK9BbD0gvAddsW3UTLozXKMgIxAJ3qxUvjpnlLIOaaKOoa/FuNgqJVvr9GMwDtnAtlh9iZzAkEXAMPLEREFRESHTOKEN",
+ *   "tokenType": "Bearer"
+ * }
+ * *\/
+ * // example id: create-token-for-device-code
+ * ```
+ *
+ * @example Call OAuth/OIDC /token endpoint for Refresh Token grant with Secret authentication
+ * ```javascript
+ * //
+ * const input = {
+ *   "clientId": "_yzkThXVzLWVhc3QtMQEXAMPLECLIENTID",
+ *   "clientSecret": "VERYLONGSECRETeyJraWQiOiJrZXktMTU2NDAyODA5OSIsImFsZyI6IkhTMzg0In0",
+ *   "grantType": "refresh_token",
+ *   "refreshToken": "aorvJYubGpU6i91YnH7Mfo-AT2fIVa1zCfA_Rvq9yjVKIP3onFmmykuQ7E93y2I-9Nyj-A_sVvMufaLNL0bqnDRtgAkc0:MGUCMFrRsktMRVlWaOR70XGMFGLL0SlcCw4DiYveIiOVx1uK9BbD0gvAddsW3UTLozXKMgIxAJ3qxUvjpnlLIOaaKOoa/FuNgqJVvr9GMwDtnAtlh9iZzAkEXAMPLEREFRESHTOKEN",
+ *   "scope": [
+ *     "codewhisperer:completions"
+ *   ]
+ * };
+ * const command = new CreateTokenCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "accessToken": "aoal-YigITUDiNX1xZwOMXM5MxOWDL0E0jg9P6_C_jKQPxS_SKCP6f0kh1Up4g7TtvQqkMnD-GJiU_S1gvug6SrggAkc0:MGYCMQD3IatVjV7jAJU91kK3PkS/SfA2wtgWzOgZWDOR7sDGN9t0phCZz5It/aes/3C1Zj0CMQCKWOgRaiz6AIhza3DSXQNMLjRKXC8F8ceCsHlgYLMZ7hZidEXAMPLEACCESSTOKEN",
+ *   "expiresIn": 1579729529,
+ *   "refreshToken": "aorvJYubGpU6i91YnH7Mfo-AT2fIVa1zCfA_Rvq9yjVKIP3onFmmykuQ7E93y2I-9Nyj-A_sVvMufaLNL0bqnDRtgAkc0:MGUCMFrRsktMRVlWaOR70XGMFGLL0SlcCw4DiYveIiOVx1uK9BbD0gvAddsW3UTLozXKMgIxAJ3qxUvjpnlLIOaaKOoa/FuNgqJVvr9GMwDtnAtlh9iZzAkEXAMPLEREFRESHTOKEN",
+ *   "tokenType": "Bearer"
+ * }
+ * *\/
+ * // example id: create-token-for-refresh-token
+ * ```
+ *
  */
-export class CreateTokenCommand extends $Command<
-  CreateTokenCommandInput,
-  CreateTokenCommandOutput,
-  SSOOIDCClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateTokenCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SSOOIDCClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateTokenCommandInput, CreateTokenCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, CreateTokenCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SSOOIDCClient";
-    const commandName = "CreateTokenCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateTokenCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateTokenCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTokenCommandOutput> {
-    return de_CreateTokenCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateTokenCommand extends $Command
+  .classBuilder<
+    CreateTokenCommandInput,
+    CreateTokenCommandOutput,
+    SSOOIDCClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SSOOIDCClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSSSOOIDCService", "CreateToken", {})
+  .n("SSOOIDCClient", "CreateTokenCommand")
+  .f(CreateTokenRequestFilterSensitiveLog, CreateTokenResponseFilterSensitiveLog)
+  .ser(se_CreateTokenCommand)
+  .de(de_CreateTokenCommand)
+  .build() {}

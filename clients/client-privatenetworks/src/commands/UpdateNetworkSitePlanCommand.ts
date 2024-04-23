@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateNetworkSitePlanRequest,
   UpdateNetworkSiteResponse,
@@ -151,79 +143,26 @@ export interface UpdateNetworkSitePlanCommandOutput extends UpdateNetworkSiteRes
  * <p>Base exception class for all service exceptions from PrivateNetworks service.</p>
  *
  */
-export class UpdateNetworkSitePlanCommand extends $Command<
-  UpdateNetworkSitePlanCommandInput,
-  UpdateNetworkSitePlanCommandOutput,
-  PrivateNetworksClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateNetworkSitePlanCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: PrivateNetworksClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateNetworkSitePlanCommandInput, UpdateNetworkSitePlanCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateNetworkSitePlanCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "PrivateNetworksClient";
-    const commandName = "UpdateNetworkSitePlanCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: UpdateNetworkSiteResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateNetworkSitePlanCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateNetworkSitePlanCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNetworkSitePlanCommandOutput> {
-    return de_UpdateNetworkSitePlanCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateNetworkSitePlanCommand extends $Command
+  .classBuilder<
+    UpdateNetworkSitePlanCommandInput,
+    UpdateNetworkSitePlanCommandOutput,
+    PrivateNetworksClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: PrivateNetworksClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("E5GNetworkControllerLambda", "UpdateNetworkSitePlan", {})
+  .n("PrivateNetworksClient", "UpdateNetworkSitePlanCommand")
+  .f(void 0, UpdateNetworkSiteResponseFilterSensitiveLog)
+  .ser(se_UpdateNetworkSitePlanCommand)
+  .de(de_UpdateNetworkSitePlanCommand)
+  .build() {}

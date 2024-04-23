@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateDomainConfigRequest,
   UpdateDomainConfigRequestFilterSensitiveLog,
@@ -41,7 +33,7 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
 /**
  * @public
  * <p>Modifies the cluster configuration of the specified Amazon OpenSearch Service
- *    domain.sl</p>
+ *    domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,6 +88,7 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  *     "<keys>": "STRING_VALUE",
  *   },
  *   AccessPolicies: "STRING_VALUE",
+ *   IPAddressType: "ipv4" || "dualstack",
  *   LogPublishingOptions: { // LogPublishingOptions
  *     "<keys>": { // LogPublishingOption
  *       CloudWatchLogsLogGroupArn: "STRING_VALUE",
@@ -108,7 +101,7 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  *   },
  *   DomainEndpointOptions: { // DomainEndpointOptions
  *     EnforceHTTPS: true || false,
- *     TLSSecurityPolicy: "Policy-Min-TLS-1-0-2019-07" || "Policy-Min-TLS-1-2-2019-07",
+ *     TLSSecurityPolicy: "Policy-Min-TLS-1-0-2019-07" || "Policy-Min-TLS-1-2-2019-07" || "Policy-Min-TLS-1-2-PFS-2023-10",
  *     CustomEndpointEnabled: true || false,
  *     CustomEndpoint: "STRING_VALUE",
  *     CustomEndpointCertificateArn: "STRING_VALUE",
@@ -235,10 +228,8 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  * //         PendingDeletion: true || false,
  * //       },
  * //     },
- * //     SnapshotOptions: { // SnapshotOptionsStatus
- * //       Options: { // SnapshotOptions
- * //         AutomatedSnapshotStartHour: Number("int"),
- * //       },
+ * //     IPAddressType: { // IPAddressTypeStatus
+ * //       Options: "ipv4" || "dualstack", // required
  * //       Status: {
  * //         CreationDate: new Date("TIMESTAMP"), // required
  * //         UpdateDate: new Date("TIMESTAMP"), // required
@@ -246,6 +237,12 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  * //         State: "RequiresIndexDocuments" || "Processing" || "Active", // required
  * //         PendingDeletion: true || false,
  * //       },
+ * //     },
+ * //     SnapshotOptions: { // SnapshotOptionsStatus
+ * //       Options: { // SnapshotOptions
+ * //         AutomatedSnapshotStartHour: Number("int"),
+ * //       },
+ * //       Status: "<OptionStatus>", // required
  * //     },
  * //     VPCOptions: { // VPCDerivedInfoStatus
  * //       Options: { // VPCDerivedInfo
@@ -302,7 +299,7 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  * //     DomainEndpointOptions: { // DomainEndpointOptionsStatus
  * //       Options: { // DomainEndpointOptions
  * //         EnforceHTTPS: true || false,
- * //         TLSSecurityPolicy: "Policy-Min-TLS-1-0-2019-07" || "Policy-Min-TLS-1-2-2019-07",
+ * //         TLSSecurityPolicy: "Policy-Min-TLS-1-0-2019-07" || "Policy-Min-TLS-1-2-2019-07" || "Policy-Min-TLS-1-2-PFS-2023-10",
  * //         CustomEndpointEnabled: true || false,
  * //         CustomEndpoint: "STRING_VALUE",
  * //         CustomEndpointCertificateArn: "STRING_VALUE",
@@ -424,79 +421,26 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
-export class UpdateDomainConfigCommand extends $Command<
-  UpdateDomainConfigCommandInput,
-  UpdateDomainConfigCommandOutput,
-  OpenSearchClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateDomainConfigCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: OpenSearchClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateDomainConfigCommandInput, UpdateDomainConfigCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateDomainConfigCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "OpenSearchClient";
-    const commandName = "UpdateDomainConfigCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: UpdateDomainConfigRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateDomainConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateDomainConfigCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDomainConfigCommandOutput> {
-    return de_UpdateDomainConfigCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateDomainConfigCommand extends $Command
+  .classBuilder<
+    UpdateDomainConfigCommandInput,
+    UpdateDomainConfigCommandOutput,
+    OpenSearchClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonOpenSearchService", "UpdateDomainConfig", {})
+  .n("OpenSearchClient", "UpdateDomainConfigCommand")
+  .f(UpdateDomainConfigRequestFilterSensitiveLog, void 0)
+  .ser(se_UpdateDomainConfigCommand)
+  .de(de_UpdateDomainConfigCommand)
+  .build() {}

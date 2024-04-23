@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListGatewaysInput, ListGatewaysOutput } from "../models/models_0";
 import { de_ListGatewaysCommand, se_ListGatewaysCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
@@ -39,11 +31,9 @@ export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __Metadat
  * <p>Lists gateways owned by an Amazon Web Services account in an Amazon Web Services Region
  *          specified in the request. The returned list is ordered by gateway Amazon Resource Name
  *          (ARN).</p>
- *
  *          <p>By default, the operation returns a maximum of 100 gateways. This operation supports
  *          pagination that allows you to optionally reduce the number of gateways returned in a
  *          response.</p>
- *
  *          <p>If you have more gateways than are returned in a response (that is, the response returns
  *          only a truncated list of your gateways), the response contains a marker that you can
  *          specify in your next request to fetch the next page of gateways.</p>
@@ -69,8 +59,10 @@ export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __Metadat
  * //       GatewayName: "STRING_VALUE",
  * //       Ec2InstanceId: "STRING_VALUE",
  * //       Ec2InstanceRegion: "STRING_VALUE",
- * //       HostEnvironment: "STRING_VALUE",
+ * //       HostEnvironment: "VMWARE" || "HYPER-V" || "EC2" || "KVM" || "OTHER" || "SNOWBALL",
  * //       HostEnvironmentId: "STRING_VALUE",
+ * //       DeprecationDate: "STRING_VALUE",
+ * //       SoftwareVersion: "STRING_VALUE",
  * //     },
  * //   ],
  * //   Marker: "STRING_VALUE",
@@ -121,77 +113,26 @@ export interface ListGatewaysCommandOutput extends ListGatewaysOutput, __Metadat
  * ```
  *
  */
-export class ListGatewaysCommand extends $Command<
-  ListGatewaysCommandInput,
-  ListGatewaysCommandOutput,
-  StorageGatewayClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListGatewaysCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: StorageGatewayClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListGatewaysCommandInput, ListGatewaysCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListGatewaysCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "StorageGatewayClient";
-    const commandName = "ListGatewaysCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListGatewaysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListGatewaysCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListGatewaysCommandOutput> {
-    return de_ListGatewaysCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListGatewaysCommand extends $Command
+  .classBuilder<
+    ListGatewaysCommandInput,
+    ListGatewaysCommandOutput,
+    StorageGatewayClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("StorageGateway_20130630", "ListGateways", {})
+  .n("StorageGatewayClient", "ListGatewaysCommand")
+  .f(void 0, void 0)
+  .ser(se_ListGatewaysCommand)
+  .de(de_ListGatewaysCommand)
+  .build() {}

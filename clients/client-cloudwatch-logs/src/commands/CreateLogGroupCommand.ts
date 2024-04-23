@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateLogGroupRequest } from "../models/models_0";
 import { de_CreateLogGroupCommand, se_CreateLogGroupCommand } from "../protocols/Aws_json1_1";
 
@@ -36,7 +28,7 @@ export interface CreateLogGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Creates a log group with the specified name. You can create up to 20,000 log groups per account.</p>
+ * <p>Creates a log group with the specified name. You can create up to 1,000,000 log groups per Region per account.</p>
  *          <p>You must use the following guidelines when naming a log group:</p>
  *          <ul>
  *             <li>
@@ -77,6 +69,7 @@ export interface CreateLogGroupCommandOutput extends __MetadataBearer {}
  *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   logGroupClass: "STANDARD" || "INFREQUENT_ACCESS",
  * };
  * const command = new CreateLogGroupCommand(input);
  * const response = await client.send(command);
@@ -109,79 +102,26 @@ export interface CreateLogGroupCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
  */
-export class CreateLogGroupCommand extends $Command<
-  CreateLogGroupCommandInput,
-  CreateLogGroupCommandOutput,
-  CloudWatchLogsClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateLogGroupCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CloudWatchLogsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateLogGroupCommandInput, CreateLogGroupCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateLogGroupCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CloudWatchLogsClient";
-    const commandName = "CreateLogGroupCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateLogGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateLogGroupCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLogGroupCommandOutput> {
-    return de_CreateLogGroupCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateLogGroupCommand extends $Command
+  .classBuilder<
+    CreateLogGroupCommandInput,
+    CreateLogGroupCommandOutput,
+    CloudWatchLogsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("Logs_20140328", "CreateLogGroup", {})
+  .n("CloudWatchLogsClient", "CreateLogGroupCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateLogGroupCommand)
+  .de(de_CreateLogGroupCommand)
+  .build() {}

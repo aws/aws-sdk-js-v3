@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -83,6 +81,10 @@ import { CreateAccessPolicyCommandInput, CreateAccessPolicyCommandOutput } from 
 import { CreateAssetCommandInput, CreateAssetCommandOutput } from "./commands/CreateAssetCommand";
 import { CreateAssetModelCommandInput, CreateAssetModelCommandOutput } from "./commands/CreateAssetModelCommand";
 import {
+  CreateAssetModelCompositeModelCommandInput,
+  CreateAssetModelCompositeModelCommandOutput,
+} from "./commands/CreateAssetModelCompositeModelCommand";
+import {
   CreateBulkImportJobCommandInput,
   CreateBulkImportJobCommandOutput,
 } from "./commands/CreateBulkImportJobCommand";
@@ -93,6 +95,10 @@ import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./command
 import { DeleteAccessPolicyCommandInput, DeleteAccessPolicyCommandOutput } from "./commands/DeleteAccessPolicyCommand";
 import { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand";
 import { DeleteAssetModelCommandInput, DeleteAssetModelCommandOutput } from "./commands/DeleteAssetModelCommand";
+import {
+  DeleteAssetModelCompositeModelCommandInput,
+  DeleteAssetModelCompositeModelCommandOutput,
+} from "./commands/DeleteAssetModelCompositeModelCommand";
 import { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "./commands/DeleteDashboardCommand";
 import { DeleteGatewayCommandInput, DeleteGatewayCommandOutput } from "./commands/DeleteGatewayCommand";
 import { DeletePortalCommandInput, DeletePortalCommandOutput } from "./commands/DeletePortalCommand";
@@ -102,8 +108,17 @@ import {
   DescribeAccessPolicyCommandInput,
   DescribeAccessPolicyCommandOutput,
 } from "./commands/DescribeAccessPolicyCommand";
+import { DescribeActionCommandInput, DescribeActionCommandOutput } from "./commands/DescribeActionCommand";
 import { DescribeAssetCommandInput, DescribeAssetCommandOutput } from "./commands/DescribeAssetCommand";
+import {
+  DescribeAssetCompositeModelCommandInput,
+  DescribeAssetCompositeModelCommandOutput,
+} from "./commands/DescribeAssetCompositeModelCommand";
 import { DescribeAssetModelCommandInput, DescribeAssetModelCommandOutput } from "./commands/DescribeAssetModelCommand";
+import {
+  DescribeAssetModelCompositeModelCommandInput,
+  DescribeAssetModelCompositeModelCommandOutput,
+} from "./commands/DescribeAssetModelCompositeModelCommand";
 import {
   DescribeAssetPropertyCommandInput,
   DescribeAssetPropertyCommandOutput,
@@ -138,6 +153,8 @@ import {
   DisassociateTimeSeriesFromAssetPropertyCommandInput,
   DisassociateTimeSeriesFromAssetPropertyCommandOutput,
 } from "./commands/DisassociateTimeSeriesFromAssetPropertyCommand";
+import { ExecuteActionCommandInput, ExecuteActionCommandOutput } from "./commands/ExecuteActionCommand";
+import { ExecuteQueryCommandInput, ExecuteQueryCommandOutput } from "./commands/ExecuteQueryCommand";
 import {
   GetAssetPropertyAggregatesCommandInput,
   GetAssetPropertyAggregatesCommandOutput,
@@ -155,6 +172,11 @@ import {
   GetInterpolatedAssetPropertyValuesCommandOutput,
 } from "./commands/GetInterpolatedAssetPropertyValuesCommand";
 import { ListAccessPoliciesCommandInput, ListAccessPoliciesCommandOutput } from "./commands/ListAccessPoliciesCommand";
+import { ListActionsCommandInput, ListActionsCommandOutput } from "./commands/ListActionsCommand";
+import {
+  ListAssetModelCompositeModelsCommandInput,
+  ListAssetModelCompositeModelsCommandOutput,
+} from "./commands/ListAssetModelCompositeModelsCommand";
 import {
   ListAssetModelPropertiesCommandInput,
   ListAssetModelPropertiesCommandOutput,
@@ -174,6 +196,10 @@ import {
   ListAssociatedAssetsCommandOutput,
 } from "./commands/ListAssociatedAssetsCommand";
 import { ListBulkImportJobsCommandInput, ListBulkImportJobsCommandOutput } from "./commands/ListBulkImportJobsCommand";
+import {
+  ListCompositionRelationshipsCommandInput,
+  ListCompositionRelationshipsCommandOutput,
+} from "./commands/ListCompositionRelationshipsCommand";
 import { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "./commands/ListDashboardsCommand";
 import { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "./commands/ListGatewaysCommand";
 import { ListPortalsCommandInput, ListPortalsCommandOutput } from "./commands/ListPortalsCommand";
@@ -198,6 +224,10 @@ import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./command
 import { UpdateAccessPolicyCommandInput, UpdateAccessPolicyCommandOutput } from "./commands/UpdateAccessPolicyCommand";
 import { UpdateAssetCommandInput, UpdateAssetCommandOutput } from "./commands/UpdateAssetCommand";
 import { UpdateAssetModelCommandInput, UpdateAssetModelCommandOutput } from "./commands/UpdateAssetModelCommand";
+import {
+  UpdateAssetModelCompositeModelCommandInput,
+  UpdateAssetModelCompositeModelCommandOutput,
+} from "./commands/UpdateAssetModelCompositeModelCommand";
 import {
   UpdateAssetPropertyCommandInput,
   UpdateAssetPropertyCommandOutput,
@@ -236,6 +266,7 @@ export type ServiceInputTypes =
   | CreateAccessPolicyCommandInput
   | CreateAssetCommandInput
   | CreateAssetModelCommandInput
+  | CreateAssetModelCompositeModelCommandInput
   | CreateBulkImportJobCommandInput
   | CreateDashboardCommandInput
   | CreateGatewayCommandInput
@@ -244,14 +275,18 @@ export type ServiceInputTypes =
   | DeleteAccessPolicyCommandInput
   | DeleteAssetCommandInput
   | DeleteAssetModelCommandInput
+  | DeleteAssetModelCompositeModelCommandInput
   | DeleteDashboardCommandInput
   | DeleteGatewayCommandInput
   | DeletePortalCommandInput
   | DeleteProjectCommandInput
   | DeleteTimeSeriesCommandInput
   | DescribeAccessPolicyCommandInput
+  | DescribeActionCommandInput
   | DescribeAssetCommandInput
+  | DescribeAssetCompositeModelCommandInput
   | DescribeAssetModelCommandInput
+  | DescribeAssetModelCompositeModelCommandInput
   | DescribeAssetPropertyCommandInput
   | DescribeBulkImportJobCommandInput
   | DescribeDashboardCommandInput
@@ -265,11 +300,15 @@ export type ServiceInputTypes =
   | DescribeTimeSeriesCommandInput
   | DisassociateAssetsCommandInput
   | DisassociateTimeSeriesFromAssetPropertyCommandInput
+  | ExecuteActionCommandInput
+  | ExecuteQueryCommandInput
   | GetAssetPropertyAggregatesCommandInput
   | GetAssetPropertyValueCommandInput
   | GetAssetPropertyValueHistoryCommandInput
   | GetInterpolatedAssetPropertyValuesCommandInput
   | ListAccessPoliciesCommandInput
+  | ListActionsCommandInput
+  | ListAssetModelCompositeModelsCommandInput
   | ListAssetModelPropertiesCommandInput
   | ListAssetModelsCommandInput
   | ListAssetPropertiesCommandInput
@@ -277,6 +316,7 @@ export type ServiceInputTypes =
   | ListAssetsCommandInput
   | ListAssociatedAssetsCommandInput
   | ListBulkImportJobsCommandInput
+  | ListCompositionRelationshipsCommandInput
   | ListDashboardsCommandInput
   | ListGatewaysCommandInput
   | ListPortalsCommandInput
@@ -292,6 +332,7 @@ export type ServiceInputTypes =
   | UpdateAccessPolicyCommandInput
   | UpdateAssetCommandInput
   | UpdateAssetModelCommandInput
+  | UpdateAssetModelCompositeModelCommandInput
   | UpdateAssetPropertyCommandInput
   | UpdateDashboardCommandInput
   | UpdateGatewayCapabilityConfigurationCommandInput
@@ -314,6 +355,7 @@ export type ServiceOutputTypes =
   | CreateAccessPolicyCommandOutput
   | CreateAssetCommandOutput
   | CreateAssetModelCommandOutput
+  | CreateAssetModelCompositeModelCommandOutput
   | CreateBulkImportJobCommandOutput
   | CreateDashboardCommandOutput
   | CreateGatewayCommandOutput
@@ -322,14 +364,18 @@ export type ServiceOutputTypes =
   | DeleteAccessPolicyCommandOutput
   | DeleteAssetCommandOutput
   | DeleteAssetModelCommandOutput
+  | DeleteAssetModelCompositeModelCommandOutput
   | DeleteDashboardCommandOutput
   | DeleteGatewayCommandOutput
   | DeletePortalCommandOutput
   | DeleteProjectCommandOutput
   | DeleteTimeSeriesCommandOutput
   | DescribeAccessPolicyCommandOutput
+  | DescribeActionCommandOutput
   | DescribeAssetCommandOutput
+  | DescribeAssetCompositeModelCommandOutput
   | DescribeAssetModelCommandOutput
+  | DescribeAssetModelCompositeModelCommandOutput
   | DescribeAssetPropertyCommandOutput
   | DescribeBulkImportJobCommandOutput
   | DescribeDashboardCommandOutput
@@ -343,11 +389,15 @@ export type ServiceOutputTypes =
   | DescribeTimeSeriesCommandOutput
   | DisassociateAssetsCommandOutput
   | DisassociateTimeSeriesFromAssetPropertyCommandOutput
+  | ExecuteActionCommandOutput
+  | ExecuteQueryCommandOutput
   | GetAssetPropertyAggregatesCommandOutput
   | GetAssetPropertyValueCommandOutput
   | GetAssetPropertyValueHistoryCommandOutput
   | GetInterpolatedAssetPropertyValuesCommandOutput
   | ListAccessPoliciesCommandOutput
+  | ListActionsCommandOutput
+  | ListAssetModelCompositeModelsCommandOutput
   | ListAssetModelPropertiesCommandOutput
   | ListAssetModelsCommandOutput
   | ListAssetPropertiesCommandOutput
@@ -355,6 +405,7 @@ export type ServiceOutputTypes =
   | ListAssetsCommandOutput
   | ListAssociatedAssetsCommandOutput
   | ListBulkImportJobsCommandOutput
+  | ListCompositionRelationshipsCommandOutput
   | ListDashboardsCommandOutput
   | ListGatewaysCommandOutput
   | ListPortalsCommandOutput
@@ -370,6 +421,7 @@ export type ServiceOutputTypes =
   | UpdateAccessPolicyCommandOutput
   | UpdateAssetCommandOutput
   | UpdateAssetModelCommandOutput
+  | UpdateAssetModelCompositeModelCommandOutput
   | UpdateAssetPropertyCommandOutput
   | UpdateDashboardCommandOutput
   | UpdateGatewayCapabilityConfigurationCommandOutput
@@ -487,6 +539,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

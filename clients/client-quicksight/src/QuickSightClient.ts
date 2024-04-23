@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -83,6 +81,10 @@ import {
   CreateRefreshScheduleCommandInput,
   CreateRefreshScheduleCommandOutput,
 } from "./commands/CreateRefreshScheduleCommand";
+import {
+  CreateRoleMembershipCommandInput,
+  CreateRoleMembershipCommandOutput,
+} from "./commands/CreateRoleMembershipCommand";
 import {
   CreateTemplateAliasCommandInput,
   CreateTemplateAliasCommandOutput,
@@ -129,11 +131,23 @@ import {
   DeleteIAMPolicyAssignmentCommandInput,
   DeleteIAMPolicyAssignmentCommandOutput,
 } from "./commands/DeleteIAMPolicyAssignmentCommand";
+import {
+  DeleteIdentityPropagationConfigCommandInput,
+  DeleteIdentityPropagationConfigCommandOutput,
+} from "./commands/DeleteIdentityPropagationConfigCommand";
 import { DeleteNamespaceCommandInput, DeleteNamespaceCommandOutput } from "./commands/DeleteNamespaceCommand";
 import {
   DeleteRefreshScheduleCommandInput,
   DeleteRefreshScheduleCommandOutput,
 } from "./commands/DeleteRefreshScheduleCommand";
+import {
+  DeleteRoleCustomPermissionCommandInput,
+  DeleteRoleCustomPermissionCommandOutput,
+} from "./commands/DeleteRoleCustomPermissionCommand";
+import {
+  DeleteRoleMembershipCommandInput,
+  DeleteRoleMembershipCommandOutput,
+} from "./commands/DeleteRoleMembershipCommand";
 import {
   DeleteTemplateAliasCommandInput,
   DeleteTemplateAliasCommandOutput,
@@ -244,6 +258,10 @@ import {
   DescribeRefreshScheduleCommandOutput,
 } from "./commands/DescribeRefreshScheduleCommand";
 import {
+  DescribeRoleCustomPermissionCommandInput,
+  DescribeRoleCustomPermissionCommandOutput,
+} from "./commands/DescribeRoleCustomPermissionCommand";
+import {
   DescribeTemplateAliasCommandInput,
   DescribeTemplateAliasCommandOutput,
 } from "./commands/DescribeTemplateAliasCommand";
@@ -324,12 +342,20 @@ import {
   ListIAMPolicyAssignmentsForUserCommandInput,
   ListIAMPolicyAssignmentsForUserCommandOutput,
 } from "./commands/ListIAMPolicyAssignmentsForUserCommand";
+import {
+  ListIdentityPropagationConfigsCommandInput,
+  ListIdentityPropagationConfigsCommandOutput,
+} from "./commands/ListIdentityPropagationConfigsCommand";
 import { ListIngestionsCommandInput, ListIngestionsCommandOutput } from "./commands/ListIngestionsCommand";
 import { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "./commands/ListNamespacesCommand";
 import {
   ListRefreshSchedulesCommandInput,
   ListRefreshSchedulesCommandOutput,
 } from "./commands/ListRefreshSchedulesCommand";
+import {
+  ListRoleMembershipsCommandInput,
+  ListRoleMembershipsCommandOutput,
+} from "./commands/ListRoleMembershipsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -395,6 +421,10 @@ import {
 } from "./commands/UpdateAnalysisPermissionsCommand";
 import { UpdateDashboardCommandInput, UpdateDashboardCommandOutput } from "./commands/UpdateDashboardCommand";
 import {
+  UpdateDashboardLinksCommandInput,
+  UpdateDashboardLinksCommandOutput,
+} from "./commands/UpdateDashboardLinksCommand";
+import {
   UpdateDashboardPermissionsCommandInput,
   UpdateDashboardPermissionsCommandOutput,
 } from "./commands/UpdateDashboardPermissionsCommand";
@@ -423,6 +453,10 @@ import {
   UpdateIAMPolicyAssignmentCommandOutput,
 } from "./commands/UpdateIAMPolicyAssignmentCommand";
 import {
+  UpdateIdentityPropagationConfigCommandInput,
+  UpdateIdentityPropagationConfigCommandOutput,
+} from "./commands/UpdateIdentityPropagationConfigCommand";
+import {
   UpdateIpRestrictionCommandInput,
   UpdateIpRestrictionCommandOutput,
 } from "./commands/UpdateIpRestrictionCommand";
@@ -434,6 +468,10 @@ import {
   UpdateRefreshScheduleCommandInput,
   UpdateRefreshScheduleCommandOutput,
 } from "./commands/UpdateRefreshScheduleCommand";
+import {
+  UpdateRoleCustomPermissionCommandInput,
+  UpdateRoleCustomPermissionCommandOutput,
+} from "./commands/UpdateRoleCustomPermissionCommand";
 import {
   UpdateTemplateAliasCommandInput,
   UpdateTemplateAliasCommandOutput,
@@ -493,6 +531,7 @@ export type ServiceInputTypes =
   | CreateIngestionCommandInput
   | CreateNamespaceCommandInput
   | CreateRefreshScheduleCommandInput
+  | CreateRoleMembershipCommandInput
   | CreateTemplateAliasCommandInput
   | CreateTemplateCommandInput
   | CreateThemeAliasCommandInput
@@ -512,8 +551,11 @@ export type ServiceInputTypes =
   | DeleteGroupCommandInput
   | DeleteGroupMembershipCommandInput
   | DeleteIAMPolicyAssignmentCommandInput
+  | DeleteIdentityPropagationConfigCommandInput
   | DeleteNamespaceCommandInput
   | DeleteRefreshScheduleCommandInput
+  | DeleteRoleCustomPermissionCommandInput
+  | DeleteRoleMembershipCommandInput
   | DeleteTemplateAliasCommandInput
   | DeleteTemplateCommandInput
   | DeleteThemeAliasCommandInput
@@ -551,6 +593,7 @@ export type ServiceInputTypes =
   | DescribeIpRestrictionCommandInput
   | DescribeNamespaceCommandInput
   | DescribeRefreshScheduleCommandInput
+  | DescribeRoleCustomPermissionCommandInput
   | DescribeTemplateAliasCommandInput
   | DescribeTemplateCommandInput
   | DescribeTemplateDefinitionCommandInput
@@ -581,9 +624,11 @@ export type ServiceInputTypes =
   | ListGroupsCommandInput
   | ListIAMPolicyAssignmentsCommandInput
   | ListIAMPolicyAssignmentsForUserCommandInput
+  | ListIdentityPropagationConfigsCommandInput
   | ListIngestionsCommandInput
   | ListNamespacesCommandInput
   | ListRefreshSchedulesCommandInput
+  | ListRoleMembershipsCommandInput
   | ListTagsForResourceCommandInput
   | ListTemplateAliasesCommandInput
   | ListTemplateVersionsCommandInput
@@ -615,6 +660,7 @@ export type ServiceInputTypes =
   | UpdateAnalysisCommandInput
   | UpdateAnalysisPermissionsCommandInput
   | UpdateDashboardCommandInput
+  | UpdateDashboardLinksCommandInput
   | UpdateDashboardPermissionsCommandInput
   | UpdateDashboardPublishedVersionCommandInput
   | UpdateDataSetCommandInput
@@ -625,9 +671,11 @@ export type ServiceInputTypes =
   | UpdateFolderPermissionsCommandInput
   | UpdateGroupCommandInput
   | UpdateIAMPolicyAssignmentCommandInput
+  | UpdateIdentityPropagationConfigCommandInput
   | UpdateIpRestrictionCommandInput
   | UpdatePublicSharingSettingsCommandInput
   | UpdateRefreshScheduleCommandInput
+  | UpdateRoleCustomPermissionCommandInput
   | UpdateTemplateAliasCommandInput
   | UpdateTemplateCommandInput
   | UpdateTemplatePermissionsCommandInput
@@ -659,6 +707,7 @@ export type ServiceOutputTypes =
   | CreateIngestionCommandOutput
   | CreateNamespaceCommandOutput
   | CreateRefreshScheduleCommandOutput
+  | CreateRoleMembershipCommandOutput
   | CreateTemplateAliasCommandOutput
   | CreateTemplateCommandOutput
   | CreateThemeAliasCommandOutput
@@ -678,8 +727,11 @@ export type ServiceOutputTypes =
   | DeleteGroupCommandOutput
   | DeleteGroupMembershipCommandOutput
   | DeleteIAMPolicyAssignmentCommandOutput
+  | DeleteIdentityPropagationConfigCommandOutput
   | DeleteNamespaceCommandOutput
   | DeleteRefreshScheduleCommandOutput
+  | DeleteRoleCustomPermissionCommandOutput
+  | DeleteRoleMembershipCommandOutput
   | DeleteTemplateAliasCommandOutput
   | DeleteTemplateCommandOutput
   | DeleteThemeAliasCommandOutput
@@ -717,6 +769,7 @@ export type ServiceOutputTypes =
   | DescribeIpRestrictionCommandOutput
   | DescribeNamespaceCommandOutput
   | DescribeRefreshScheduleCommandOutput
+  | DescribeRoleCustomPermissionCommandOutput
   | DescribeTemplateAliasCommandOutput
   | DescribeTemplateCommandOutput
   | DescribeTemplateDefinitionCommandOutput
@@ -747,9 +800,11 @@ export type ServiceOutputTypes =
   | ListGroupsCommandOutput
   | ListIAMPolicyAssignmentsCommandOutput
   | ListIAMPolicyAssignmentsForUserCommandOutput
+  | ListIdentityPropagationConfigsCommandOutput
   | ListIngestionsCommandOutput
   | ListNamespacesCommandOutput
   | ListRefreshSchedulesCommandOutput
+  | ListRoleMembershipsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTemplateAliasesCommandOutput
   | ListTemplateVersionsCommandOutput
@@ -781,6 +836,7 @@ export type ServiceOutputTypes =
   | UpdateAnalysisCommandOutput
   | UpdateAnalysisPermissionsCommandOutput
   | UpdateDashboardCommandOutput
+  | UpdateDashboardLinksCommandOutput
   | UpdateDashboardPermissionsCommandOutput
   | UpdateDashboardPublishedVersionCommandOutput
   | UpdateDataSetCommandOutput
@@ -791,9 +847,11 @@ export type ServiceOutputTypes =
   | UpdateFolderPermissionsCommandOutput
   | UpdateGroupCommandOutput
   | UpdateIAMPolicyAssignmentCommandOutput
+  | UpdateIdentityPropagationConfigCommandOutput
   | UpdateIpRestrictionCommandOutput
   | UpdatePublicSharingSettingsCommandOutput
   | UpdateRefreshScheduleCommandOutput
+  | UpdateRoleCustomPermissionCommandOutput
   | UpdateTemplateAliasCommandOutput
   | UpdateTemplateCommandOutput
   | UpdateTemplatePermissionsCommandOutput
@@ -916,6 +974,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

@@ -1,0 +1,112 @@
+// smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { Command as $Command } from "@smithy/smithy-client";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+
+import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
+import { commonParams } from "../endpoint/EndpointParameters";
+import { GetRestoreTestingPlanInput, GetRestoreTestingPlanOutput } from "../models/models_0";
+import { de_GetRestoreTestingPlanCommand, se_GetRestoreTestingPlanCommand } from "../protocols/Aws_restJson1";
+
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link GetRestoreTestingPlanCommand}.
+ */
+export interface GetRestoreTestingPlanCommandInput extends GetRestoreTestingPlanInput {}
+/**
+ * @public
+ *
+ * The output of {@link GetRestoreTestingPlanCommand}.
+ */
+export interface GetRestoreTestingPlanCommandOutput extends GetRestoreTestingPlanOutput, __MetadataBearer {}
+
+/**
+ * @public
+ * <p>Returns <code>RestoreTestingPlan</code> details for the specified
+ *             <code>RestoreTestingPlanName</code>. The details are the body of a restore testing plan
+ *          in JSON format, in addition to plan metadata.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { BackupClient, GetRestoreTestingPlanCommand } from "@aws-sdk/client-backup"; // ES Modules import
+ * // const { BackupClient, GetRestoreTestingPlanCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * const client = new BackupClient(config);
+ * const input = { // GetRestoreTestingPlanInput
+ *   RestoreTestingPlanName: "STRING_VALUE", // required
+ * };
+ * const command = new GetRestoreTestingPlanCommand(input);
+ * const response = await client.send(command);
+ * // { // GetRestoreTestingPlanOutput
+ * //   RestoreTestingPlan: { // RestoreTestingPlanForGet
+ * //     CreationTime: new Date("TIMESTAMP"), // required
+ * //     CreatorRequestId: "STRING_VALUE",
+ * //     LastExecutionTime: new Date("TIMESTAMP"),
+ * //     LastUpdateTime: new Date("TIMESTAMP"),
+ * //     RecoveryPointSelection: { // RestoreTestingRecoveryPointSelection
+ * //       Algorithm: "LATEST_WITHIN_WINDOW" || "RANDOM_WITHIN_WINDOW",
+ * //       ExcludeVaults: [ // stringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       IncludeVaults: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       RecoveryPointTypes: [ // RestoreTestingRecoveryPointTypeList
+ * //         "CONTINUOUS" || "SNAPSHOT",
+ * //       ],
+ * //       SelectionWindowDays: Number("int"),
+ * //     },
+ * //     RestoreTestingPlanArn: "STRING_VALUE", // required
+ * //     RestoreTestingPlanName: "STRING_VALUE", // required
+ * //     ScheduleExpression: "STRING_VALUE", // required
+ * //     ScheduleExpressionTimezone: "STRING_VALUE",
+ * //     StartWindowHours: Number("int"),
+ * //   },
+ * // };
+ *
+ * ```
+ *
+ * @param GetRestoreTestingPlanCommandInput - {@link GetRestoreTestingPlanCommandInput}
+ * @returns {@link GetRestoreTestingPlanCommandOutput}
+ * @see {@link GetRestoreTestingPlanCommandInput} for command's `input` shape.
+ * @see {@link GetRestoreTestingPlanCommandOutput} for command's `response` shape.
+ * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>A resource that is required for the action doesn't exist.</p>
+ *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The request failed due to a temporary failure of the server.</p>
+ *
+ * @throws {@link BackupServiceException}
+ * <p>Base exception class for all service exceptions from Backup service.</p>
+ *
+ */
+export class GetRestoreTestingPlanCommand extends $Command
+  .classBuilder<
+    GetRestoreTestingPlanCommandInput,
+    GetRestoreTestingPlanCommandOutput,
+    BackupClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CryoControllerUserManager", "GetRestoreTestingPlan", {})
+  .n("BackupClient", "GetRestoreTestingPlanCommand")
+  .f(void 0, void 0)
+  .ser(se_GetRestoreTestingPlanCommand)
+  .de(de_GetRestoreTestingPlanCommand)
+  .build() {}

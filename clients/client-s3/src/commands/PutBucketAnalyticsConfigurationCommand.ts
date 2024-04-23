@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { PutBucketAnalyticsConfigurationRequest } from "../models/models_0";
 import {
   de_PutBucketAnalyticsConfigurationCommand,
@@ -39,7 +31,10 @@ export interface PutBucketAnalyticsConfigurationCommandOutput extends __Metadata
 
 /**
  * @public
- * <p>Sets an analytics configuration for the bucket (specified by the analytics configuration
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Sets an analytics configuration for the bucket (specified by the analytics configuration
  *          ID). You can have up to 1,000 analytics configurations per bucket.</p>
  *          <p>You can choose to have storage class analysis export analysis reports sent to a
  *          comma-separated values (CSV) flat file. See the <code>DataExport</code> request element.
@@ -123,7 +118,8 @@ export interface PutBucketAnalyticsConfigurationCommandOutput extends __Metadata
  *                </ul>
  *             </li>
  *          </ul>
- *          <p>The following operations are related to <code>PutBucketAnalyticsConfiguration</code>:</p>
+ *          <p>The following operations are related to
+ *          <code>PutBucketAnalyticsConfiguration</code>:</p>
  *          <ul>
  *             <li>
  *                <p>
@@ -200,91 +196,28 @@ export interface PutBucketAnalyticsConfigurationCommandOutput extends __Metadata
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
  */
-export class PutBucketAnalyticsConfigurationCommand extends $Command<
-  PutBucketAnalyticsConfigurationCommandInput,
-  PutBucketAnalyticsConfigurationCommandOutput,
-  S3ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      Bucket: { type: "contextParams", name: "Bucket" },
-      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
-      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
-      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
-      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
-      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PutBucketAnalyticsConfigurationCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: S3ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PutBucketAnalyticsConfigurationCommandInput, PutBucketAnalyticsConfigurationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, PutBucketAnalyticsConfigurationCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "S3Client";
-    const commandName = "PutBucketAnalyticsConfigurationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: PutBucketAnalyticsConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_PutBucketAnalyticsConfigurationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutBucketAnalyticsConfigurationCommandOutput> {
-    return de_PutBucketAnalyticsConfigurationCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class PutBucketAnalyticsConfigurationCommand extends $Command
+  .classBuilder<
+    PutBucketAnalyticsConfigurationCommandInput,
+    PutBucketAnalyticsConfigurationCommandOutput,
+    S3ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+    UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
+    Bucket: { type: "contextParams", name: "Bucket" },
+  })
+  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonS3", "PutBucketAnalyticsConfiguration", {})
+  .n("S3Client", "PutBucketAnalyticsConfigurationCommand")
+  .f(void 0, void 0)
+  .ser(se_PutBucketAnalyticsConfigurationCommand)
+  .de(de_PutBucketAnalyticsConfigurationCommand)
+  .build() {}

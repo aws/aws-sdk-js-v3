@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { AssociateResourceRequest, AssociateResourceResponse } from "../models/models_0";
 import { de_AssociateResourceCommand, se_AssociateResourceCommand } from "../protocols/Aws_restJson1";
 import {
@@ -41,13 +33,55 @@ export interface AssociateResourceCommandOutput extends AssociateResourceRespons
 /**
  * @public
  * <p>
- *        Associates a resource
- *        with an application.
- *        The resource can be specified
- *        by its ARN or name.
- *        The application can be specified
- *        by ARN, ID, or name.
+ *        Associates a resource with an application.
+ *        The resource can be specified by its ARN or name.
+ *        The application can be specified by ARN, ID, or name.
  *      </p>
+ *          <p>
+ *             <b>Minimum permissions</b>
+ *          </p>
+ *          <p>
+ *        You must have the following permissions to associate a resource using the <code>OPTIONS</code> parameter set to <code>APPLY_APPLICATION_TAG</code>.
+ *      </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>tag:GetResources</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>tag:TagResources</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *        You must also have these additional permissions if you don't use the <code>AWSServiceCatalogAppRegistryFullAccess</code> policy.
+ *        For more information, see <a href="https://docs.aws.amazon.com/servicecatalog/latest/arguide/full.html">AWSServiceCatalogAppRegistryFullAccess</a> in the AppRegistry Administrator Guide.
+ *      </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>resource-groups:AssociateResource</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>cloudformation:UpdateStack</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>cloudformation:DescribeStacks</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <note>
+ *             <p>
+ *          In addition, you must have the tagging permission defined by the Amazon Web Services service that creates the resource.
+ *          For more information, see <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_TagResources.html">TagResources</a> in the <i>Resource Groups Tagging API Reference</i>.
+ *        </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,12 +92,18 @@ export interface AssociateResourceCommandOutput extends AssociateResourceRespons
  *   application: "STRING_VALUE", // required
  *   resourceType: "CFN_STACK" || "RESOURCE_TAG_VALUE", // required
  *   resource: "STRING_VALUE", // required
+ *   options: [ // Options
+ *     "APPLY_APPLICATION_TAG" || "SKIP_APPLICATION_TAG",
+ *   ],
  * };
  * const command = new AssociateResourceCommand(input);
  * const response = await client.send(command);
  * // { // AssociateResourceResponse
  * //   applicationArn: "STRING_VALUE",
  * //   resourceArn: "STRING_VALUE",
+ * //   options: [ // Options
+ * //     "APPLY_APPLICATION_TAG" || "SKIP_APPLICATION_TAG",
+ * //   ],
  * // };
  *
  * ```
@@ -104,79 +144,26 @@ export interface AssociateResourceCommandOutput extends AssociateResourceRespons
  * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
  */
-export class AssociateResourceCommand extends $Command<
-  AssociateResourceCommandInput,
-  AssociateResourceCommandOutput,
-  ServiceCatalogAppRegistryClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: AssociateResourceCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ServiceCatalogAppRegistryClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<AssociateResourceCommandInput, AssociateResourceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, AssociateResourceCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ServiceCatalogAppRegistryClient";
-    const commandName = "AssociateResourceCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: AssociateResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_AssociateResourceCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateResourceCommandOutput> {
-    return de_AssociateResourceCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class AssociateResourceCommand extends $Command
+  .classBuilder<
+    AssociateResourceCommandInput,
+    AssociateResourceCommandOutput,
+    ServiceCatalogAppRegistryClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogAppRegistryClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWS242AppRegistry", "AssociateResource", {})
+  .n("ServiceCatalogAppRegistryClient", "AssociateResourceCommand")
+  .f(void 0, void 0)
+  .ser(se_AssociateResourceCommand)
+  .de(de_AssociateResourceCommand)
+  .build() {}

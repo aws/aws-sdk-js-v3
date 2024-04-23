@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -37,27 +38,18 @@ export const se_GetRoleCredentialsCommand = async (
   input: GetRoleCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-sso_bearer_token": input.accessToken!,
+    [_xasbt]: input[_aT]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/federation/credentials";
+  b.bp("/federation/credentials");
   const query: any = map({
-    role_name: [, __expectNonNull(input.roleName!, `roleName`)],
-    account_id: [, __expectNonNull(input.accountId!, `accountId`)],
+    [_rn]: [, __expectNonNull(input[_rN]!, `roleName`)],
+    [_ai]: [, __expectNonNull(input[_aI]!, `accountId`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -67,27 +59,19 @@ export const se_ListAccountRolesCommand = async (
   input: ListAccountRolesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-sso_bearer_token": input.accessToken!,
+    [_xasbt]: input[_aT]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assignment/roles";
+  b.bp("/assignment/roles");
   const query: any = map({
-    next_token: [, input.nextToken!],
-    max_result: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    account_id: [, __expectNonNull(input.accountId!, `accountId`)],
+    [_nt]: [, input[_nT]!],
+    [_mr]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_ai]: [, __expectNonNull(input[_aI]!, `accountId`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -97,47 +81,32 @@ export const se_ListAccountsCommand = async (
   input: ListAccountsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-sso_bearer_token": input.accessToken!,
+    [_xasbt]: input[_aT]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assignment/accounts";
+  b.bp("/assignment/accounts");
   const query: any = map({
-    next_token: [, input.nextToken!],
-    max_result: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nt]: [, input[_nT]!],
+    [_mr]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
  * serializeAws_restJson1LogoutCommand
  */
 export const se_LogoutCommand = async (input: LogoutCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-sso_bearer_token": input.accessToken!,
+    [_xasbt]: input[_aT]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/logout";
+  b.bp("/logout");
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -465,6 +434,17 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _aI = "accountId";
+const _aT = "accessToken";
+const _ai = "account_id";
+const _mR = "maxResults";
+const _mr = "max_result";
+const _nT = "nextToken";
+const _nt = "next_token";
+const _rN = "roleName";
+const _rn = "role_name";
+const _xasbt = "x-amz-sso_bearer_token";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

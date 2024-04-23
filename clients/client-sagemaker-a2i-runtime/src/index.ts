@@ -33,8 +33,12 @@
 export * from "./SageMakerA2IRuntimeClient";
 export * from "./SageMakerA2IRuntime";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { SageMakerA2IRuntimeExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { SageMakerA2IRuntimeServiceException } from "./models/SageMakerA2IRuntimeServiceException";

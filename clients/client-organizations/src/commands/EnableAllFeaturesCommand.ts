@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   EnableAllFeaturesRequest,
   EnableAllFeaturesResponse,
@@ -44,9 +36,8 @@ export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesRespons
  *             that can restrict the services and actions that can be called in each account. Until you
  *             enable all features, you have access only to consolidated billing, and you can't use any
  *             of the advanced account administration features that Organizations supports. For more
- *             information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">Enabling All Features in Your Organization</a> in the
- *                 <i>Organizations User Guide.</i>
- *          </p>
+ *             information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">Enabling all features in your organization</a> in the
+ *                 <i>Organizations User Guide</i>.</p>
  *          <important>
  *             <p>This operation is required only for organizations that were created explicitly
  *                 with only the consolidated billing features enabled. Calling this operation sends a
@@ -117,8 +108,7 @@ export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesRespons
  *  <p>You don't have permissions to perform the requested operation. The user or role that
  *             is making the request must have at least one IAM permissions policy attached that
  *             grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access Management</a> in the
- *                 <i>IAM User Guide.</i>
- *          </p>
+ *                 <i>IAM User Guide</i>.</p>
  *
  * @throws {@link AWSOrganizationsNotInUseException} (client fault)
  *  <p>Your account isn't a member of an organization. To make this request, you must use the
@@ -143,7 +133,8 @@ export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesRespons
  *                <important>
  *                   <p>If you get this exception immediately after creating the organization,
  *                         wait one hour and try again. If after an hour it continues to fail with this
- *                         error, contact <a href="https://docs.aws.amazon.com/support/home#/">Amazon Web Services Support</a>.</p>
+ *                         error, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services
+ *                             Support</a>.</p>
  *                </important>
  *             </li>
  *             <li>
@@ -298,9 +289,8 @@ export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesRespons
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>You have sent too many requests in too short a period of time. The quota helps protect
  *             against denial-of-service attacks. Try again later.</p>
- *          <p>For information about quotas that affect Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html">Quotas for Organizations</a>in the
- *                 <i>Organizations User Guide.</i>
- *          </p>
+ *          <p>For information about quotas that affect Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html">Quotas for Organizations</a> in the
+ *                 <i>Organizations User Guide</i>.</p>
  *
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
@@ -339,79 +329,26 @@ export interface EnableAllFeaturesCommandOutput extends EnableAllFeaturesRespons
  * ```
  *
  */
-export class EnableAllFeaturesCommand extends $Command<
-  EnableAllFeaturesCommandInput,
-  EnableAllFeaturesCommandOutput,
-  OrganizationsClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: EnableAllFeaturesCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: OrganizationsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<EnableAllFeaturesCommandInput, EnableAllFeaturesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, EnableAllFeaturesCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "OrganizationsClient";
-    const commandName = "EnableAllFeaturesCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: EnableAllFeaturesResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: EnableAllFeaturesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_EnableAllFeaturesCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EnableAllFeaturesCommandOutput> {
-    return de_EnableAllFeaturesCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class EnableAllFeaturesCommand extends $Command
+  .classBuilder<
+    EnableAllFeaturesCommandInput,
+    EnableAllFeaturesCommandOutput,
+    OrganizationsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSOrganizationsV20161128", "EnableAllFeatures", {})
+  .n("OrganizationsClient", "EnableAllFeaturesCommand")
+  .f(void 0, EnableAllFeaturesResponseFilterSensitiveLog)
+  .ser(se_EnableAllFeaturesCommand)
+  .de(de_EnableAllFeaturesCommand)
+  .build() {}

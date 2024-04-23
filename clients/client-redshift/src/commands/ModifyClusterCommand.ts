@@ -1,19 +1,16 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { ModifyClusterMessage, ModifyClusterResult } from "../models/models_1";
+import { commonParams } from "../endpoint/EndpointParameters";
+import {
+  ModifyClusterMessage,
+  ModifyClusterMessageFilterSensitiveLog,
+  ModifyClusterResult,
+  ModifyClusterResultFilterSensitiveLog,
+} from "../models/models_1";
 import { de_ModifyClusterCommand, se_ModifyClusterCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
@@ -81,6 +78,10 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResult, __Metad
  *   AvailabilityZoneRelocation: true || false,
  *   AvailabilityZone: "STRING_VALUE",
  *   Port: Number("int"),
+ *   ManageMasterPassword: true || false,
+ *   MasterPasswordSecretKmsKeyId: "STRING_VALUE",
+ *   IpAddressType: "STRING_VALUE",
+ *   MultiAZ: true || false,
  * };
  * const command = new ModifyClusterCommand(input);
  * const response = await client.send(command);
@@ -106,6 +107,7 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResult, __Metad
  * //               SubnetId: "STRING_VALUE",
  * //               PrivateIpAddress: "STRING_VALUE",
  * //               AvailabilityZone: "STRING_VALUE",
+ * //               Ipv6Address: "STRING_VALUE",
  * //             },
  * //           ],
  * //         },
@@ -258,6 +260,20 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResult, __Metad
  * //     CustomDomainName: "STRING_VALUE",
  * //     CustomDomainCertificateArn: "STRING_VALUE",
  * //     CustomDomainCertificateExpiryDate: new Date("TIMESTAMP"),
+ * //     MasterPasswordSecretArn: "STRING_VALUE",
+ * //     MasterPasswordSecretKmsKeyId: "STRING_VALUE",
+ * //     IpAddressType: "STRING_VALUE",
+ * //     MultiAZ: "STRING_VALUE",
+ * //     MultiAZSecondary: { // SecondaryClusterInfo
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       ClusterNodes: [
+ * //         {
+ * //           NodeRole: "STRING_VALUE",
+ * //           PrivateIPAddress: "STRING_VALUE",
+ * //           PublicIPAddress: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * // };
  *
@@ -317,6 +333,10 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResult, __Metad
  *  <p>The retention period specified is either in the past or is not a valid value.</p>
  *          <p>The value must be either -1 or an integer between 1 and 3,653.</p>
  *
+ * @throws {@link Ipv6CidrBlockNotFoundFault} (client fault)
+ *  <p>There are no subnets in your VPC with associated IPv6 CIDR blocks. To use dual-stack mode,
+ *             associate an IPv6 CIDR block with each subnet in your VPC.</p>
+ *
  * @throws {@link LimitExceededFault} (client fault)
  *  <p>The encryption key has exceeded its grant limit in Amazon Web Services KMS.</p>
  *
@@ -347,77 +367,26 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResult, __Metad
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
  */
-export class ModifyClusterCommand extends $Command<
-  ModifyClusterCommandInput,
-  ModifyClusterCommandOutput,
-  RedshiftClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ModifyClusterCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RedshiftClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ModifyClusterCommandInput, ModifyClusterCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ModifyClusterCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RedshiftClient";
-    const commandName = "ModifyClusterCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ModifyClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ModifyClusterCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyClusterCommandOutput> {
-    return de_ModifyClusterCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ModifyClusterCommand extends $Command
+  .classBuilder<
+    ModifyClusterCommandInput,
+    ModifyClusterCommandOutput,
+    RedshiftClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("RedshiftServiceVersion20121201", "ModifyCluster", {})
+  .n("RedshiftClient", "ModifyClusterCommand")
+  .f(ModifyClusterMessageFilterSensitiveLog, ModifyClusterResultFilterSensitiveLog)
+  .ser(se_ModifyClusterCommand)
+  .de(de_ModifyClusterCommand)
+  .build() {}

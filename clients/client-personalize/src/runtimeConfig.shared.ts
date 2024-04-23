@@ -10,16 +10,18 @@ import { PersonalizeClientConfig } from "./PersonalizeClient";
 /**
  * @internal
  */
-export const getRuntimeConfig = (config: PersonalizeClientConfig) => ({
-  apiVersion: "2018-05-22",
-  base64Decoder: config?.base64Decoder ?? fromBase64,
-  base64Encoder: config?.base64Encoder ?? toBase64,
-  disableHostPrefix: config?.disableHostPrefix ?? false,
-  endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
-  extensions: config?.extensions ?? [],
-  logger: config?.logger ?? new NoOpLogger(),
-  serviceId: config?.serviceId ?? "Personalize",
-  urlParser: config?.urlParser ?? parseUrl,
-  utf8Decoder: config?.utf8Decoder ?? fromUtf8,
-  utf8Encoder: config?.utf8Encoder ?? toUtf8,
-});
+export const getRuntimeConfig = (config: PersonalizeClientConfig) => {
+  return {
+    apiVersion: "2018-05-22",
+    base64Decoder: config?.base64Decoder ?? fromBase64,
+    base64Encoder: config?.base64Encoder ?? toBase64,
+    disableHostPrefix: config?.disableHostPrefix ?? false,
+    endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
+    extensions: config?.extensions ?? [],
+    logger: config?.logger ?? new NoOpLogger(),
+    serviceId: config?.serviceId ?? "Personalize",
+    urlParser: config?.urlParser ?? parseUrl,
+    utf8Decoder: config?.utf8Decoder ?? fromUtf8,
+    utf8Encoder: config?.utf8Encoder ?? toUtf8,
+  };
+};

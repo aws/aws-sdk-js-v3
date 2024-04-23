@@ -102,7 +102,7 @@ export class ConflictException extends __BaseException {
    * @public
    * <p>The type of ConflictException.</p>
    */
-  ConflictExceptionType?: ConflictExceptionType | string;
+  ConflictExceptionType?: ConflictExceptionType;
   /**
    * @internal
    */
@@ -196,10 +196,13 @@ export const ValidationExceptionType = {
   ENCRYPTION_CONTRACT_UNENCRYPTED: "ENCRYPTION_CONTRACT_UNENCRYPTED",
   ENCRYPTION_CONTRACT_WITHOUT_AUDIO_RENDITION_INCOMPATIBLE: "ENCRYPTION_CONTRACT_WITHOUT_AUDIO_RENDITION_INCOMPATIBLE",
   ENCRYPTION_METHOD_CONTAINER_TYPE_MISMATCH: "ENCRYPTION_METHOD_CONTAINER_TYPE_MISMATCH",
+  END_TIME_EARLIER_THAN_START_TIME: "END_TIME_EARLIER_THAN_START_TIME",
+  INVALID_MANIFEST_FILTER: "INVALID_MANIFEST_FILTER",
   INVALID_PAGINATION_MAX_RESULTS: "INVALID_PAGINATION_MAX_RESULTS",
   INVALID_PAGINATION_TOKEN: "INVALID_PAGINATION_TOKEN",
   INVALID_POLICY: "INVALID_POLICY",
   INVALID_ROLE_ARN: "INVALID_ROLE_ARN",
+  INVALID_TIME_DELAY_SECONDS: "INVALID_TIME_DELAY_SECONDS",
   MANIFEST_NAME_COLLISION: "MANIFEST_NAME_COLLISION",
   MEMBER_DOES_NOT_MATCH_PATTERN: "MEMBER_DOES_NOT_MATCH_PATTERN",
   MEMBER_INVALID: "MEMBER_INVALID",
@@ -242,7 +245,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>The type of ValidationException.</p>
    */
-  ValidationExceptionType?: ValidationExceptionType | string;
+  ValidationExceptionType?: ValidationExceptionType;
   /**
    * @internal
    */
@@ -325,7 +328,7 @@ export class ResourceNotFoundException extends __BaseException {
    * @public
    * <p>The specified resource type wasn't found.</p>
    */
-  ResourceTypeNotFound?: ResourceTypeNotFound | string;
+  ResourceTypeNotFound?: ResourceTypeNotFound;
   /**
    * @internal
    */
@@ -693,6 +696,36 @@ export type ContainerType = (typeof ContainerType)[keyof typeof ContainerType];
 
 /**
  * @public
+ * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+ */
+export interface FilterConfiguration {
+  /**
+   * @public
+   * <p>Optionally specify one or more manifest filters for all of your manifest egress requests. When you include a manifest filter, note that you cannot use an identical manifest filter query parameter for this manifest's endpoint URL.</p>
+   */
+  ManifestFilter?: string;
+
+  /**
+   * @public
+   * <p>Optionally specify the start time for all of your manifest egress requests. When you include start time, note that you cannot use start time query parameters for this manifest's endpoint URL.</p>
+   */
+  Start?: Date;
+
+  /**
+   * @public
+   * <p>Optionally specify the end time for all of your manifest egress requests. When you include end time, note that you cannot use end time query parameters for this manifest's endpoint URL.</p>
+   */
+  End?: Date;
+
+  /**
+   * @public
+   * <p>Optionally specify the time delay for all of your manifest egress requests. Enter a value that is smaller than your endpoint's startover window. When you include time delay, note that you cannot use time delay query parameters for this manifest's endpoint URL.</p>
+   */
+  TimeDelaySeconds?: number;
+}
+
+/**
+ * @public
  * <p>The SCTE configuration.</p>
  */
 export interface ScteHls {
@@ -706,7 +739,7 @@ export interface ScteHls {
    *             </li>
    *          </ul>
    */
-  AdMarkerHls?: AdMarkerHls | string;
+  AdMarkerHls?: AdMarkerHls;
 }
 
 /**
@@ -747,6 +780,12 @@ export interface CreateHlsManifestConfiguration {
    *          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
    */
   ProgramDateTimeIntervalSeconds?: number;
+
+  /**
+   * @public
+   * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+   */
+  FilterConfiguration?: FilterConfiguration;
 }
 
 /**
@@ -787,6 +826,12 @@ export interface CreateLowLatencyHlsManifestConfiguration {
    *          <p>Irrespective of this parameter, if any ID3Timed metadata is in the HLS input, it is passed through to the HLS output.</p>
    */
   ProgramDateTimeIntervalSeconds?: number;
+
+  /**
+   * @public
+   * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+   */
+  FilterConfiguration?: FilterConfiguration;
 }
 
 /**
@@ -826,13 +871,13 @@ export interface EncryptionMethod {
    * @public
    * <p>The encryption method to use.</p>
    */
-  TsEncryptionMethod?: TsEncryptionMethod | string;
+  TsEncryptionMethod?: TsEncryptionMethod;
 
   /**
    * @public
    * <p>The encryption method to use.</p>
    */
-  CmafEncryptionMethod?: CmafEncryptionMethod | string;
+  CmafEncryptionMethod?: CmafEncryptionMethod;
 }
 
 /**
@@ -925,7 +970,7 @@ export interface EncryptionContractConfiguration {
    *             </li>
    *          </ul>
    */
-  PresetSpeke20Audio: PresetSpeke20Audio | string | undefined;
+  PresetSpeke20Audio: PresetSpeke20Audio | undefined;
 
   /**
    * @public
@@ -981,7 +1026,7 @@ export interface EncryptionContractConfiguration {
    *             </li>
    *          </ul>
    */
-  PresetSpeke20Video: PresetSpeke20Video | string | undefined;
+  PresetSpeke20Video: PresetSpeke20Video | undefined;
 }
 
 /**
@@ -1007,7 +1052,7 @@ export interface SpekeKeyProvider {
    * @public
    * <p>The DRM solution provider you're using to protect your content during distribution.</p>
    */
-  DrmSystems: (DrmSystem | string)[] | undefined;
+  DrmSystems: DrmSystem[] | undefined;
 
   /**
    * @public
@@ -1088,7 +1133,7 @@ export interface Scte {
    * @public
    * <p>The SCTE-35 message types that you want to be treated as ad markers in the output.</p>
    */
-  ScteFilter?: (ScteFilter | string)[];
+  ScteFilter?: ScteFilter[];
 }
 
 /**
@@ -1165,7 +1210,7 @@ export interface CreateOriginEndpointRequest {
    * @public
    * <p>The type of container to attach to this origin endpoint. A container type is a file format that encapsulates one or more media streams, such as audio and video, into a single file. You can't change the container type after you create the endpoint.</p>
    */
-  ContainerType: ContainerType | string | undefined;
+  ContainerType: ContainerType | undefined;
 
   /**
    * @public
@@ -1260,6 +1305,12 @@ export interface GetHlsManifestConfiguration {
    * <p>The SCTE configuration.</p>
    */
   ScteHls?: ScteHls;
+
+  /**
+   * @public
+   * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+   */
+  FilterConfiguration?: FilterConfiguration;
 }
 
 /**
@@ -1306,6 +1357,12 @@ export interface GetLowLatencyHlsManifestConfiguration {
    * <p>The SCTE configuration.</p>
    */
   ScteHls?: ScteHls;
+
+  /**
+   * @public
+   * <p>Filter configuration includes settings for manifest filtering, start and end times, and time delay that apply to all of your egress requests for this manifest. </p>
+   */
+  FilterConfiguration?: FilterConfiguration;
 }
 
 /**
@@ -1340,7 +1397,7 @@ export interface CreateOriginEndpointResponse {
    * @public
    * <p>The type of container attached to this origin endpoint.</p>
    */
-  ContainerType: ContainerType | string | undefined;
+  ContainerType: ContainerType | undefined;
 
   /**
    * @public
@@ -1474,7 +1531,7 @@ export interface GetOriginEndpointResponse {
    * @public
    * <p>The type of container attached to this origin endpoint.</p>
    */
-  ContainerType: ContainerType | string | undefined;
+  ContainerType: ContainerType | undefined;
 
   /**
    * @public
@@ -1635,7 +1692,7 @@ export interface OriginEndpointListConfiguration {
    * @public
    * <p>The type of container attached to this origin endpoint. A container type is a file format that encapsulates one or more media streams, such as audio and video, into a single file. </p>
    */
-  ContainerType: ContainerType | string | undefined;
+  ContainerType: ContainerType | undefined;
 
   /**
    * @public
@@ -1825,7 +1882,7 @@ export interface UpdateOriginEndpointRequest {
    * @public
    * <p>The type of container attached to this origin endpoint. A container type is a file format that encapsulates one or more media streams, such as audio and video, into a single file. </p>
    */
-  ContainerType: ContainerType | string | undefined;
+  ContainerType: ContainerType | undefined;
 
   /**
    * @public
@@ -1890,7 +1947,7 @@ export interface UpdateOriginEndpointResponse {
    * @public
    * <p>The type of container attached to this origin endpoint.</p>
    */
-  ContainerType: ContainerType | string | undefined;
+  ContainerType: ContainerType | undefined;
 
   /**
    * @public

@@ -49,7 +49,7 @@ export interface Target {
    * @public
    * <p>The target type is always an <code>ACCOUNT</code>.</p>
    */
-  Type: TargetType | string | undefined;
+  Type: TargetType | undefined;
 
   /**
    * @public
@@ -252,6 +252,23 @@ export class ThrottlingException extends __BaseException {
     this.RetryAfterSeconds = opts.RetryAfterSeconds;
   }
 }
+
+/**
+ * @public
+ */
+export interface DeleteHomeRegionControlRequest {
+  /**
+   * @public
+   * <p>A unique identifier that's generated for each home region control. It's always a string
+   *       that begins with "hrc-" followed by 12 lowercase letters and numbers.</p>
+   */
+  ControlId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteHomeRegionControlResult {}
 
 /**
  * @public

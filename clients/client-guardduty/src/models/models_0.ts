@@ -320,8 +320,10 @@ export const FreeTrialFeatureResult = {
   CLOUD_TRAIL: "CLOUD_TRAIL",
   DNS_LOGS: "DNS_LOGS",
   EBS_MALWARE_PROTECTION: "EBS_MALWARE_PROTECTION",
+  EC2_RUNTIME_MONITORING: "EC2_RUNTIME_MONITORING",
   EKS_AUDIT_LOGS: "EKS_AUDIT_LOGS",
   EKS_RUNTIME_MONITORING: "EKS_RUNTIME_MONITORING",
+  FARGATE_RUNTIME_MONITORING: "FARGATE_RUNTIME_MONITORING",
   FLOW_LOGS: "FLOW_LOGS",
   LAMBDA_NETWORK_LOGS: "LAMBDA_NETWORK_LOGS",
   RDS_LOGIN_EVENTS: "RDS_LOGIN_EVENTS",
@@ -342,7 +344,7 @@ export interface FreeTrialFeatureConfigurationResult {
    * @public
    * <p>The name of the feature for which the free trial is configured.</p>
    */
-  Name?: FreeTrialFeatureResult | string;
+  Name?: FreeTrialFeatureResult;
 
   /**
    * @public
@@ -654,6 +656,13 @@ export interface DnsRequestAction {
    * <p>Indicates whether the targeted port is blocked.</p>
    */
   Blocked?: boolean;
+
+  /**
+   * @public
+   * <p>The second and top level domain involved in the
+   *       activity that prompted GuardDuty to generate this finding.</p>
+   */
+  DomainWithSuffix?: string;
 }
 
 /**
@@ -703,6 +712,123 @@ export interface KubernetesApiCallAction {
    * <p>Parameters related to the Kubernetes API call action.</p>
    */
   Parameters?: string;
+
+  /**
+   * @public
+   * <p>The resource component in the Kubernetes API call action.</p>
+   */
+  Resource?: string;
+
+  /**
+   * @public
+   * <p>The name of the sub-resource in the Kubernetes API call action.</p>
+   */
+  Subresource?: string;
+
+  /**
+   * @public
+   * <p>The name of the namespace where the Kubernetes API call action takes place.</p>
+   */
+  Namespace?: string;
+
+  /**
+   * @public
+   * <p>The name of the resource in the Kubernetes API call action.</p>
+   */
+  ResourceName?: string;
+}
+
+/**
+ * @public
+ * <p>Information about the Kubernetes API for which you check if you have permission to call.</p>
+ */
+export interface KubernetesPermissionCheckedDetails {
+  /**
+   * @public
+   * <p>The verb component of the Kubernetes API call. For example, when you check whether or not you have the permission
+   *     to call the <code>CreatePod</code> API, the verb component will be <code>Create</code>.</p>
+   */
+  Verb?: string;
+
+  /**
+   * @public
+   * <p>The Kubernetes resource with which your Kubernetes API call will interact.</p>
+   */
+  Resource?: string;
+
+  /**
+   * @public
+   * <p>The namespace where the Kubernetes API action will take place.</p>
+   */
+  Namespace?: string;
+
+  /**
+   * @public
+   * <p>Information whether the user has the permission to call the Kubernetes API.</p>
+   */
+  Allowed?: boolean;
+}
+
+/**
+ * @public
+ * <p>Contains information about the role binding that grants the permission defined in a Kubernetes role.</p>
+ */
+export interface KubernetesRoleBindingDetails {
+  /**
+   * @public
+   * <p>The kind of the role. For role binding, this value will be <code>RoleBinding</code>.</p>
+   */
+  Kind?: string;
+
+  /**
+   * @public
+   * <p>The name of the <code>RoleBinding</code>.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The unique identifier of the role binding.</p>
+   */
+  Uid?: string;
+
+  /**
+   * @public
+   * <p>The name of the role being referenced. This must match the name of the <code>Role</code>
+   *     or <code>ClusterRole</code> that you want to bind to.</p>
+   */
+  RoleRefName?: string;
+
+  /**
+   * @public
+   * <p>The type of the role being referenced. This could be either <code>Role</code> or
+   *     <code>ClusterRole</code>.</p>
+   */
+  RoleRefKind?: string;
+}
+
+/**
+ * @public
+ * <p>Information about the Kubernetes role name and role type.</p>
+ */
+export interface KubernetesRoleDetails {
+  /**
+   * @public
+   * <p>The kind of role. For this API, the value of <code>kind</code> will be <code>Role</code>.</p>
+   */
+  Kind?: string;
+
+  /**
+   * @public
+   * <p>The name of the Kubernetes role.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The unique identifier of the Kubernetes role name.</p>
+   */
+  Uid?: string;
 }
 
 /**
@@ -940,6 +1066,24 @@ export interface Action {
    * <p>Information about <code>RDS_LOGIN_ATTEMPT</code> action described in this finding.</p>
    */
   RdsLoginAttemptAction?: RdsLoginAttemptAction;
+
+  /**
+   * @public
+   * <p>Information whether the user has the permission to use a specific Kubernetes API.</p>
+   */
+  KubernetesPermissionCheckedDetails?: KubernetesPermissionCheckedDetails;
+
+  /**
+   * @public
+   * <p>Information about the role binding that grants the permission defined in a Kubernetes role.</p>
+   */
+  KubernetesRoleBindingDetails?: KubernetesRoleBindingDetails;
+
+  /**
+   * @public
+   * <p>Information about the Kubernetes role name and role type.</p>
+   */
+  KubernetesRoleDetails?: KubernetesRoleDetails;
 }
 
 /**
@@ -990,7 +1134,7 @@ export interface AdminAccount {
    * @public
    * <p>Indicates whether the account is enabled as the delegated administrator.</p>
    */
-  AdminStatus?: AdminStatus | string;
+  AdminStatus?: AdminStatus;
 }
 
 /**
@@ -1022,6 +1166,114 @@ export interface Administrator {
    * <p>The timestamp when the invitation was sent.</p>
    */
   InvitedAt?: string;
+}
+
+/**
+ * @public
+ * <p>Information about the installed GuardDuty security agent.</p>
+ */
+export interface AgentDetails {
+  /**
+   * @public
+   * <p>Version of the installed GuardDuty security agent.</p>
+   */
+  Version?: string;
+}
+
+/**
+ * @public
+ * <p>Contains information about the observed behavior.</p>
+ */
+export interface Observations {
+  /**
+   * @public
+   * <p>The text that was unusual.</p>
+   */
+  Text?: string[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ProfileSubtype = {
+  FREQUENT: "FREQUENT",
+  INFREQUENT: "INFREQUENT",
+  RARE: "RARE",
+  UNSEEN: "UNSEEN",
+} as const;
+
+/**
+ * @public
+ */
+export type ProfileSubtype = (typeof ProfileSubtype)[keyof typeof ProfileSubtype];
+
+/**
+ * @public
+ * @enum
+ */
+export const ProfileType = {
+  FREQUENCY: "FREQUENCY",
+} as const;
+
+/**
+ * @public
+ */
+export type ProfileType = (typeof ProfileType)[keyof typeof ProfileType];
+
+/**
+ * @public
+ * <p>Contains information about the unusual anomalies.</p>
+ */
+export interface AnomalyObject {
+  /**
+   * @public
+   * <p>The type of behavior of the profile.</p>
+   */
+  ProfileType?: ProfileType;
+
+  /**
+   * @public
+   * <p>The frequency of the anomaly.</p>
+   */
+  ProfileSubtype?: ProfileSubtype;
+
+  /**
+   * @public
+   * <p>The recorded value.</p>
+   */
+  Observations?: Observations;
+}
+
+/**
+ * @public
+ * <p>Contains information about the behavior of the anomaly that is new to GuardDuty.</p>
+ */
+export interface AnomalyUnusual {
+  /**
+   * @public
+   * <p>The behavior of the anomalous activity that caused GuardDuty to
+   *       generate the finding.</p>
+   */
+  Behavior?: Record<string, Record<string, AnomalyObject>>;
+}
+
+/**
+ * @public
+ * <p>Contains information about the anomalies.</p>
+ */
+export interface Anomaly {
+  /**
+   * @public
+   * <p>Information about the types of profiles.</p>
+   */
+  Profiles?: Record<string, Record<string, AnomalyObject[]>>;
+
+  /**
+   * @public
+   * <p>Information about the behavior of the anomalies.</p>
+   */
+  Unusual?: AnomalyUnusual;
 }
 
 /**
@@ -1130,7 +1382,7 @@ export interface CloudTrailConfigurationResult {
    * @public
    * <p>Describes whether CloudTrail is enabled as a data source for the detector.</p>
    */
-  Status: DataSourceStatus | string | undefined;
+  Status: DataSourceStatus | undefined;
 }
 
 /**
@@ -1280,6 +1532,12 @@ export interface SecurityContext {
    * <p>Whether the container is privileged.</p>
    */
   Privileged?: boolean;
+
+  /**
+   * @public
+   * <p>Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process.</p>
+   */
+  AllowPrivilegeEscalation?: boolean;
 }
 
 /**
@@ -1352,6 +1610,26 @@ export interface Container {
 
 /**
  * @public
+ * <p>Contains information about the Amazon EC2 instance that is running
+ *     the Amazon ECS container.</p>
+ */
+export interface ContainerInstanceDetails {
+  /**
+   * @public
+   * <p>Represents the nodes in the Amazon ECS cluster that has a <code>HEALTHY</code>
+   *       coverage status.</p>
+   */
+  CoveredContainerInstances?: number;
+
+  /**
+   * @public
+   * <p>Represents total number of nodes in the Amazon ECS cluster.</p>
+   */
+  CompatibleContainerInstances?: number;
+}
+
+/**
+ * @public
  * @enum
  */
 export const CoverageStatus = {
@@ -1369,6 +1647,8 @@ export type CoverageStatus = (typeof CoverageStatus)[keyof typeof CoverageStatus
  * @enum
  */
 export const ResourceType = {
+  EC2: "EC2",
+  ECS: "ECS",
   EKS: "EKS",
 } as const;
 
@@ -1376,6 +1656,138 @@ export const ResourceType = {
  * @public
  */
 export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ManagementType = {
+  AUTO_MANAGED: "AUTO_MANAGED",
+  DISABLED: "DISABLED",
+  MANUAL: "MANUAL",
+} as const;
+
+/**
+ * @public
+ */
+export type ManagementType = (typeof ManagementType)[keyof typeof ManagementType];
+
+/**
+ * @public
+ * <note>
+ *             <p>This API is also used when you use GuardDuty Runtime Monitoring
+ *       for your Amazon EC2 instances (currently in preview
+ *       release) and is subject to change. The use of this API is subject to Section 2 of the
+ *       <a href="http://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a> ("Betas and Previews").</p>
+ *          </note>
+ *          <p>Contains information about the Amazon EC2 instance runtime
+ *     coverage details.</p>
+ */
+export interface CoverageEc2InstanceDetails {
+  /**
+   * @public
+   * <p>The Amazon EC2 instance ID.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * @public
+   * <p>The instance type of the Amazon EC2 instance.</p>
+   */
+  InstanceType?: string;
+
+  /**
+   * @public
+   * <p>The cluster ARN of the Amazon ECS cluster running on
+   *     the Amazon EC2 instance.</p>
+   */
+  ClusterArn?: string;
+
+  /**
+   * @public
+   * <p>Information about the installed security agent.</p>
+   */
+  AgentDetails?: AgentDetails;
+
+  /**
+   * @public
+   * <p>Indicates how the GuardDuty security agent is managed for this resource.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AUTO_MANAGED</code> indicates that GuardDuty deploys and manages updates for this resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MANUAL</code> indicates that you are responsible to deploy, update, and manage the GuardDuty
+   *           security agent updates for this resource.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>The <code>DISABLED</code> status doesn't apply to Amazon
+   *     EC2 instances and Amazon EKS clusters.</p>
+   *          </note>
+   */
+  ManagementType?: ManagementType;
+}
+
+/**
+ * @public
+ * <p>Contains information about Amazon Web Services Fargate details associated with
+ *       an Amazon ECS cluster.</p>
+ */
+export interface FargateDetails {
+  /**
+   * @public
+   * <p>Runtime coverage issues identified for the resource running on Amazon Web Services Fargate.</p>
+   */
+  Issues?: string[];
+
+  /**
+   * @public
+   * <p>Indicates how the GuardDuty security agent is managed for this resource.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AUTO_MANAGED</code> indicates that GuardDuty deploys and manages updates for this resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> indicates that the deployment of the GuardDuty security agent is disabled for this resource.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>The <code>MANUAL</code> status doesn't apply to the Amazon Web Services Fargate (Amazon ECS only) woprkloads.</p>
+   *          </note>
+   */
+  ManagementType?: ManagementType;
+}
+
+/**
+ * @public
+ * <p>Contains information about Amazon ECS cluster runtime coverage details.</p>
+ */
+export interface CoverageEcsClusterDetails {
+  /**
+   * @public
+   * <p>The name of the Amazon ECS cluster.</p>
+   */
+  ClusterName?: string;
+
+  /**
+   * @public
+   * <p>Information about the Fargate details associated with the Amazon
+   *       ECS cluster.</p>
+   */
+  FargateDetails?: FargateDetails;
+
+  /**
+   * @public
+   * <p>Information about the Amazon ECS container running on Amazon EC2
+   *       instance.</p>
+   */
+  ContainerInstanceDetails?: ContainerInstanceDetails;
+}
 
 /**
  * @public
@@ -1406,6 +1818,17 @@ export interface CoverageEksClusterDetails {
    * <p>Information about the installed EKS add-on.</p>
    */
   AddonDetails?: AddonDetails;
+
+  /**
+   * @public
+   * <p>Indicates how the Amazon EKS add-on GuardDuty agent is managed for this EKS cluster.</p>
+   *          <p>
+   *             <code>AUTO_MANAGED</code> indicates GuardDuty deploys and manages updates for this resource.</p>
+   *          <p>
+   *             <code>MANUAL</code> indicates that you are responsible to deploy, update, and manage
+   *       the Amazon EKS add-on GuardDuty agent for this resource.</p>
+   */
+  ManagementType?: ManagementType;
 }
 
 /**
@@ -1436,8 +1859,14 @@ export interface CoverageFilterCondition {
 export const CoverageFilterCriterionKey = {
   ACCOUNT_ID: "ACCOUNT_ID",
   ADDON_VERSION: "ADDON_VERSION",
+  AGENT_VERSION: "AGENT_VERSION",
+  CLUSTER_ARN: "CLUSTER_ARN",
   CLUSTER_NAME: "CLUSTER_NAME",
   COVERAGE_STATUS: "COVERAGE_STATUS",
+  ECS_CLUSTER_NAME: "ECS_CLUSTER_NAME",
+  EKS_CLUSTER_NAME: "EKS_CLUSTER_NAME",
+  INSTANCE_ID: "INSTANCE_ID",
+  MANAGEMENT_TYPE: "MANAGEMENT_TYPE",
   RESOURCE_TYPE: "RESOURCE_TYPE",
 } as const;
 
@@ -1455,8 +1884,12 @@ export interface CoverageFilterCriterion {
   /**
    * @public
    * <p>An enum value representing possible filter fields.</p>
+   *          <note>
+   *             <p>Replace the enum value <code>CLUSTER_NAME</code> with <code>EKS_CLUSTER_NAME</code>.
+   *       <code>CLUSTER_NAME</code> has been deprecated.</p>
+   *          </note>
    */
-  CriterionKey?: CoverageFilterCriterionKey | string;
+  CriterionKey?: CoverageFilterCriterionKey;
 
   /**
    * @public
@@ -1493,7 +1926,27 @@ export interface CoverageResourceDetails {
    * @public
    * <p>The type of Amazon Web Services resource.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
+
+  /**
+   * @public
+   * <p>Information about the Amazon ECS cluster that is assessed for
+   *     runtime coverage.</p>
+   */
+  EcsClusterDetails?: CoverageEcsClusterDetails;
+
+  /**
+   * @public
+   * <note>
+   *             <p>This API is also used when you use GuardDuty Runtime Monitoring
+   *       for your Amazon EC2 instances (currently in preview
+   *       release) and is subject to change. The use of this API is subject to Section 2 of the
+   *       <a href="http://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a> ("Betas and Previews").</p>
+   *          </note>
+   *          <p>Information about the Amazon EC2 instance assessed
+   *       for runtime coverage.</p>
+   */
+  Ec2InstanceDetails?: CoverageEc2InstanceDetails;
 }
 
 /**
@@ -1529,7 +1982,7 @@ export interface CoverageResource {
    * @public
    * <p>Represents the status of the EKS cluster coverage.</p>
    */
-  CoverageStatus?: CoverageStatus | string;
+  CoverageStatus?: CoverageStatus;
 
   /**
    * @public
@@ -1555,6 +2008,9 @@ export const CoverageSortKey = {
   ADDON_VERSION: "ADDON_VERSION",
   CLUSTER_NAME: "CLUSTER_NAME",
   COVERAGE_STATUS: "COVERAGE_STATUS",
+  ECS_CLUSTER_NAME: "ECS_CLUSTER_NAME",
+  EKS_CLUSTER_NAME: "EKS_CLUSTER_NAME",
+  INSTANCE_ID: "INSTANCE_ID",
   ISSUE: "ISSUE",
   UPDATED_AT: "UPDATED_AT",
 } as const;
@@ -1586,14 +2042,18 @@ export interface CoverageSortCriteria {
   /**
    * @public
    * <p>Represents the field name used to sort the coverage details.</p>
+   *          <note>
+   *             <p>Replace the enum value <code>CLUSTER_NAME</code> with <code>EKS_CLUSTER_NAME</code>.
+   *       <code>CLUSTER_NAME</code> has been deprecated.</p>
+   *          </note>
    */
-  AttributeName?: CoverageSortKey | string;
+  AttributeName?: CoverageSortKey;
 
   /**
    * @public
    * <p>The order in which the sorted findings are to be displayed.</p>
    */
-  OrderBy?: OrderBy | string;
+  OrderBy?: OrderBy;
 }
 
 /**
@@ -1605,13 +2065,13 @@ export interface CoverageStatistics {
    * @public
    * <p>Represents coverage statistics for EKS clusters aggregated by resource type.</p>
    */
-  CountByResourceType?: Record<string, number>;
+  CountByResourceType?: Partial<Record<ResourceType, number>>;
 
   /**
    * @public
    * <p>Represents coverage statistics for EKS clusters aggregated by coverage status.</p>
    */
-  CountByCoverageStatus?: Record<string, number>;
+  CountByCoverageStatus?: Partial<Record<CoverageStatus, number>>;
 }
 
 /**
@@ -1718,6 +2178,7 @@ export interface DataSourceConfigurations {
  * @enum
  */
 export const FeatureAdditionalConfiguration = {
+  ECS_FARGATE_AGENT_MANAGEMENT: "ECS_FARGATE_AGENT_MANAGEMENT",
   EKS_ADDON_MANAGEMENT: "EKS_ADDON_MANAGEMENT",
 } as const;
 
@@ -1750,13 +2211,13 @@ export interface DetectorAdditionalConfiguration {
    * @public
    * <p>Name of the additional configuration.</p>
    */
-  Name?: FeatureAdditionalConfiguration | string;
+  Name?: FeatureAdditionalConfiguration;
 
   /**
    * @public
    * <p>Status of the additional configuration.</p>
    */
-  Status?: FeatureStatus | string;
+  Status?: FeatureStatus;
 }
 
 /**
@@ -1769,6 +2230,7 @@ export const DetectorFeature = {
   EKS_RUNTIME_MONITORING: "EKS_RUNTIME_MONITORING",
   LAMBDA_NETWORK_LOGS: "LAMBDA_NETWORK_LOGS",
   RDS_LOGIN_EVENTS: "RDS_LOGIN_EVENTS",
+  RUNTIME_MONITORING: "RUNTIME_MONITORING",
   S3_DATA_EVENTS: "S3_DATA_EVENTS",
 } as const;
 
@@ -1786,13 +2248,13 @@ export interface DetectorFeatureConfiguration {
    * @public
    * <p>The name of the feature.</p>
    */
-  Name?: DetectorFeature | string;
+  Name?: DetectorFeature;
 
   /**
    * @public
    * <p>The status of the feature.</p>
    */
-  Status?: FeatureStatus | string;
+  Status?: FeatureStatus;
 
   /**
    * @public
@@ -1836,7 +2298,7 @@ export interface CreateDetectorRequest {
    * @public
    * <p>A value that specifies how frequently updated findings are exported.</p>
    */
-  FindingPublishingFrequency?: FindingPublishingFrequency | string;
+  FindingPublishingFrequency?: FindingPublishingFrequency;
 
   /**
    * @public
@@ -1871,7 +2333,7 @@ export interface EbsVolumesResult {
    * @public
    * <p>Describes whether scanning EBS volumes is enabled as a data source.</p>
    */
-  Status?: DataSourceStatus | string;
+  Status?: DataSourceStatus;
 
   /**
    * @public
@@ -2002,7 +2464,7 @@ export interface CreateFilterRequest {
    * @public
    * <p>Specifies the action that is to be applied to the findings that match the filter.</p>
    */
-  Action?: FilterAction | string;
+  Action?: FilterAction;
 
   /**
    * @public
@@ -2048,7 +2510,7 @@ export interface CreateFilterRequest {
    *                   </li>
    *                </ul>
    *                <p>For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html#guardduty_findings-severity">Severity
-   *             levels for GuardDuty findings</a>.</p>
+   *           levels for GuardDuty findings</a>.</p>
    *             </li>
    *             <li>
    *                <p>type</p>
@@ -2164,6 +2626,9 @@ export interface CreateFilterRequest {
    *                <p>service.action.dnsRequestAction.domain</p>
    *             </li>
    *             <li>
+   *                <p>service.action.dnsRequestAction.domainWithSuffix</p>
+   *             </li>
+   *             <li>
    *                <p>service.action.networkConnectionAction.blocked</p>
    *             </li>
    *             <li>
@@ -2200,7 +2665,16 @@ export interface CreateFilterRequest {
    *                <p>service.action.kubernetesApiCallAction.remoteIpDetails.ipAddressV4</p>
    *             </li>
    *             <li>
+   *                <p>service.action.kubernetesApiCallAction.namespace</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.kubernetesApiCallAction.remoteIpDetails.organization.asn</p>
+   *             </li>
+   *             <li>
    *                <p>service.action.kubernetesApiCallAction.requestUri</p>
+   *             </li>
+   *             <li>
+   *                <p>service.action.kubernetesApiCallAction.statusCode</p>
    *             </li>
    *             <li>
    *                <p>service.action.networkConnectionAction.localIpDetails.ipAddressV4</p>
@@ -2369,7 +2843,7 @@ export interface CreateIPSetRequest {
    * @public
    * <p>The format of the file that contains the IPSet.</p>
    */
-  Format: IpSetFormat | string | undefined;
+  Format: IpSetFormat | undefined;
 
   /**
    * @public
@@ -2507,7 +2981,7 @@ export interface CreatePublishingDestinationRequest {
    * <p>The type of resource for the publishing destination. Currently only Amazon S3 buckets are
    *       supported.</p>
    */
-  DestinationType: DestinationType | string | undefined;
+  DestinationType: DestinationType | undefined;
 
   /**
    * @public
@@ -2596,7 +3070,7 @@ export interface CreateThreatIntelSetRequest {
    * @public
    * <p>The format of the file that contains the ThreatIntelSet.</p>
    */
-  Format: ThreatIntelSetFormat | string | undefined;
+  Format: ThreatIntelSetFormat | undefined;
 
   /**
    * @public
@@ -2681,7 +3155,7 @@ export interface DNSLogsConfigurationResult {
    * @public
    * <p>Denotes whether DNS logs is enabled as a data source.</p>
    */
-  Status: DataSourceStatus | string | undefined;
+  Status: DataSourceStatus | undefined;
 }
 
 /**
@@ -2693,7 +3167,7 @@ export interface FlowLogsConfigurationResult {
    * @public
    * <p>Denotes whether VPC flow logs is enabled as a data source.</p>
    */
-  Status: DataSourceStatus | string | undefined;
+  Status: DataSourceStatus | undefined;
 }
 
 /**
@@ -2705,7 +3179,7 @@ export interface KubernetesAuditLogsConfigurationResult {
    * @public
    * <p>A value that describes whether Kubernetes audit logs are enabled as a data source.</p>
    */
-  Status: DataSourceStatus | string | undefined;
+  Status: DataSourceStatus | undefined;
 }
 
 /**
@@ -2730,7 +3204,7 @@ export interface S3LogsConfigurationResult {
    * <p>A value that describes whether S3 data event logs are automatically enabled for new
    *       members of the organization.</p>
    */
-  Status: DataSourceStatus | string | undefined;
+  Status: DataSourceStatus | undefined;
 }
 
 /**
@@ -3019,8 +3493,12 @@ export interface FilterCriterion {
    * @public
    * <p>An enum value representing possible scan properties to match with given scan
    *       entries.</p>
+   *          <note>
+   *             <p>Replace the enum value <code>CLUSTER_NAME</code> with <code>EKS_CLUSTER_NAME</code>.
+   *       <code>CLUSTER_NAME</code> has been deprecated.</p>
+   *          </note>
    */
-  CriterionKey?: CriterionKey | string;
+  CriterionKey?: CriterionKey;
 
   /**
    * @public
@@ -3058,7 +3536,7 @@ export interface SortCriteria {
    * @public
    * <p>The order by which the sorted findings are to be displayed.</p>
    */
-  OrderBy?: OrderBy | string;
+  OrderBy?: OrderBy;
 }
 
 /**
@@ -3186,7 +3664,7 @@ export interface ScanResultDetails {
    * @public
    * <p>An enum value representing possible scan results.</p>
    */
-  ScanResult?: ScanResult | string;
+  ScanResult?: ScanResult;
 }
 
 /**
@@ -3266,7 +3744,7 @@ export interface Scan {
    * @public
    * <p>An enum value representing possible scan statuses.</p>
    */
-  ScanStatus?: ScanStatus | string;
+  ScanStatus?: ScanStatus;
 
   /**
    * @public
@@ -3332,7 +3810,7 @@ export interface Scan {
    * @public
    * <p>Specifies the scan type that invoked the malware scan.</p>
    */
-  ScanType?: ScanType | string;
+  ScanType?: ScanType;
 }
 
 /**
@@ -3508,6 +3986,7 @@ export type OrgFeatureStatus = (typeof OrgFeatureStatus)[keyof typeof OrgFeature
  * @enum
  */
 export const OrgFeatureAdditionalConfiguration = {
+  ECS_FARGATE_AGENT_MANAGEMENT: "ECS_FARGATE_AGENT_MANAGEMENT",
   EKS_ADDON_MANAGEMENT: "EKS_ADDON_MANAGEMENT",
 } as const;
 
@@ -3527,18 +4006,38 @@ export interface OrganizationAdditionalConfigurationResult {
    * <p>The name of the additional configuration that is configured for the member accounts within
    *       the organization.</p>
    */
-  Name?: OrgFeatureAdditionalConfiguration | string;
+  Name?: OrgFeatureAdditionalConfiguration;
 
   /**
    * @public
-   * <p>Describes how The status of the additional configuration that are configured for the
-   *       member accounts within the organization.</p>
-   *          <p>If you set <code>AutoEnable</code> to <code>NEW</code>, a feature will be configured for
-   *       only the new accounts when they join the organization.</p>
-   *          <p>If you set <code>AutoEnable</code> to <code>NONE</code>, no feature will be configured for
-   *       the accounts when they join the organization.</p>
+   * <p>Describes the status of the additional configuration that is configured for the
+   *       member accounts within the organization. One of the following
+   *     values is the status for the entire organization:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NEW</code>: Indicates that when a new account joins the organization, they will
+   *           have the additional configuration enabled automatically. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALL</code>: Indicates that all accounts in the organization have
+   *           the additional configuration
+   *           enabled automatically. This includes <code>NEW</code> accounts that join the organization
+   *           and accounts that may have been suspended or removed from the organization in
+   *           GuardDuty.</p>
+   *                <p>It may take up to 24 hours to update the configuration for all the member accounts.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code>: Indicates that the additional configuration will not be
+   *           automatically enabled for any
+   *           account in the organization. The administrator must manage the additional configuration
+   *           for each account individually.</p>
+   *             </li>
+   *          </ul>
    */
-  AutoEnable?: OrgFeatureStatus | string;
+  AutoEnable?: OrgFeatureStatus;
 }
 
 /**
@@ -3551,6 +4050,7 @@ export const OrgFeature = {
   EKS_RUNTIME_MONITORING: "EKS_RUNTIME_MONITORING",
   LAMBDA_NETWORK_LOGS: "LAMBDA_NETWORK_LOGS",
   RDS_LOGIN_EVENTS: "RDS_LOGIN_EVENTS",
+  RUNTIME_MONITORING: "RUNTIME_MONITORING",
   S3_DATA_EVENTS: "S3_DATA_EVENTS",
 } as const;
 
@@ -3569,18 +4069,35 @@ export interface OrganizationFeatureConfigurationResult {
    * <p>The name of the feature that is configured for the member accounts within the
    *       organization.</p>
    */
-  Name?: OrgFeature | string;
+  Name?: OrgFeature;
 
   /**
    * @public
-   * <p>Describes how The status of the feature that are configured for the member accounts within
+   * <p>Describes the status of the feature that is configured for the member accounts within
    *       the organization.</p>
-   *          <p>If you set <code>AutoEnable</code> to <code>NEW</code>, a feature will be configured for
-   *       only the new accounts when they join the organization.</p>
-   *          <p>If you set <code>AutoEnable</code> to <code>NONE</code>, no feature will be configured for
-   *       the accounts when they join the organization.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NEW</code>: Indicates that when a new account joins the organization, they will
+   *           have the feature enabled automatically. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALL</code>: Indicates that all accounts in the organization have the feature
+   *           enabled automatically. This includes <code>NEW</code> accounts that join the organization
+   *           and accounts that may have been suspended or removed from the organization in
+   *           GuardDuty.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code>: Indicates that the feature will not be automatically enabled for any
+   *           account in the organization. In this case, each account will be managed individually
+   *           by the
+   *           administrator.</p>
+   *             </li>
+   *          </ul>
    */
-  AutoEnable?: OrgFeatureStatus | string;
+  AutoEnable?: OrgFeatureStatus;
 
   /**
    * @public
@@ -3645,7 +4162,7 @@ export interface DescribeOrganizationConfigurationResponse {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ALL</code>: Indicates that all accounts in the Amazon Web Services Organization have GuardDuty
+   *                   <code>ALL</code>: Indicates that all accounts in the organization have GuardDuty
    *           enabled automatically. This includes <code>NEW</code> accounts that join the organization
    *           and accounts that may have been suspended or removed from the organization in
    *           GuardDuty.</p>
@@ -3653,12 +4170,12 @@ export interface DescribeOrganizationConfigurationResponse {
    *             <li>
    *                <p>
    *                   <code>NONE</code>: Indicates that GuardDuty will not be automatically enabled for any
-   *           accounts in the organization. GuardDuty must be managed for each account individually by the
-   *           administrator.</p>
+   *           account in the organization. The administrator must manage GuardDuty for each account in
+   *           the organization individually.</p>
    *             </li>
    *          </ul>
    */
-  AutoEnableOrganizationMembers?: AutoEnableMembers | string;
+  AutoEnableOrganizationMembers?: AutoEnableMembers;
 }
 
 /**
@@ -3710,13 +4227,13 @@ export interface DescribePublishingDestinationResponse {
    * <p>The type of publishing destination. Currently, only Amazon S3 buckets are
    *       supported.</p>
    */
-  DestinationType: DestinationType | string | undefined;
+  DestinationType: DestinationType | undefined;
 
   /**
    * @public
    * <p>The status of the publishing destination.</p>
    */
-  Status: PublishingStatus | string | undefined;
+  Status: PublishingStatus | undefined;
 
   /**
    * @public
@@ -3750,13 +4267,26 @@ export interface Destination {
    * <p>The type of resource used for the publishing destination. Currently, only Amazon S3
    *       buckets are supported.</p>
    */
-  DestinationType: DestinationType | string | undefined;
+  DestinationType: DestinationType | undefined;
 
   /**
    * @public
    * <p>The status of the publishing destination.</p>
    */
-  Status: PublishingStatus | string | undefined;
+  Status: PublishingStatus | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains information about the detected behavior.</p>
+ */
+export interface Detection {
+  /**
+   * @public
+   * <p>The details about the anomalous activity that caused GuardDuty to
+   *       generate the finding.</p>
+   */
+  Anomaly?: Anomaly;
 }
 
 /**
@@ -3768,13 +4298,13 @@ export interface DetectorAdditionalConfigurationResult {
    * @public
    * <p>Name of the additional configuration.</p>
    */
-  Name?: FeatureAdditionalConfiguration | string;
+  Name?: FeatureAdditionalConfiguration;
 
   /**
    * @public
    * <p>Status of the additional configuration.</p>
    */
-  Status?: FeatureStatus | string;
+  Status?: FeatureStatus;
 
   /**
    * @public
@@ -3797,6 +4327,7 @@ export const DetectorFeatureResult = {
   FLOW_LOGS: "FLOW_LOGS",
   LAMBDA_NETWORK_LOGS: "LAMBDA_NETWORK_LOGS",
   RDS_LOGIN_EVENTS: "RDS_LOGIN_EVENTS",
+  RUNTIME_MONITORING: "RUNTIME_MONITORING",
   S3_DATA_EVENTS: "S3_DATA_EVENTS",
 } as const;
 
@@ -3814,13 +4345,13 @@ export interface DetectorFeatureConfigurationResult {
    * @public
    * <p>Indicates the name of the feature that can be enabled for the detector.</p>
    */
-  Name?: DetectorFeatureResult | string;
+  Name?: DetectorFeatureResult;
 
   /**
    * @public
    * <p>Indicates the status of the feature that is enabled for the detector.</p>
    */
-  Status?: FeatureStatus | string;
+  Status?: FeatureStatus;
 
   /**
    * @public
@@ -4190,7 +4721,7 @@ export interface EbsVolumeScanDetails {
    * @public
    * <p>Specifies the scan type that invoked the malware scan.</p>
    */
-  ScanType?: ScanType | string;
+  ScanType?: ScanType;
 }
 
 /**
@@ -4411,7 +4942,7 @@ export interface EksClusterDetails {
 export interface EnableOrganizationAdminAccountRequest {
   /**
    * @public
-   * <p>The Amazon Web Services Account ID for the organization account to be enabled as a GuardDuty delegated
+   * <p>The Amazon Web Services account ID for the organization account to be enabled as a GuardDuty delegated
    *       administrator.</p>
    */
   AdminAccountId: string | undefined;
@@ -4693,6 +5224,24 @@ export interface InstanceDetails {
 
 /**
  * @public
+ * <p>Contains information about the impersonated user.</p>
+ */
+export interface ImpersonatedUser {
+  /**
+   * @public
+   * <p>Information about the <code>username</code> that was being impersonated.</p>
+   */
+  Username?: string;
+
+  /**
+   * @public
+   * <p>The <code>group</code> to which the user name belongs.</p>
+   */
+  Groups?: string[];
+}
+
+/**
+ * @public
  * <p>Details about the Kubernetes user involved in a Kubernetes finding.</p>
  */
 export interface KubernetesUserDetails {
@@ -4716,10 +5265,16 @@ export interface KubernetesUserDetails {
 
   /**
    * @public
-   * <p>Entity that assumes the IAM role when Kubernetes RBAC permissions are assigned to that
-   *       role.</p>
+   * <p>Entity that assumes the IAM role
+   *       when Kubernetes RBAC permissions are assigned to that role.</p>
    */
   SessionName?: string[];
+
+  /**
+   * @public
+   * <p>Information about the impersonated user.</p>
+   */
+  ImpersonatedUser?: ImpersonatedUser;
 }
 
 /**
@@ -4768,6 +5323,24 @@ export interface KubernetesWorkloadDetails {
    * <p>Volumes used by the Kubernetes workload.</p>
    */
   Volumes?: Volume[];
+
+  /**
+   * @public
+   * <p>The service account name that is associated with a Kubernetes workload.</p>
+   */
+  ServiceAccountName?: string;
+
+  /**
+   * @public
+   * <p>Whether the host IPC flag is enabled for the pods in the workload.</p>
+   */
+  HostIPC?: boolean;
+
+  /**
+   * @public
+   * <p>Whether the host PID flag is enabled for the pods in the workload. </p>
+   */
+  HostPID?: boolean;
 }
 
 /**
@@ -4838,8 +5411,8 @@ export interface LambdaDetails {
 
   /**
    * @public
-   * <p>The timestamp when the Lambda function was last modified. This field is in the UTC date
-   *       string format <code>(2023-03-22T19:37:20.168Z)</code>.</p>
+   * <p>The timestamp when the Lambda function was last modified. This field is in the UTC date string
+   *       format <code>(2023-03-22T19:37:20.168Z)</code>.</p>
    */
   LastModifiedAt?: Date;
 
@@ -4870,7 +5443,7 @@ export interface LambdaDetails {
   /**
    * @public
    * <p>A list of tags attached to this resource, listed in the format of
-   *         <code>key</code>:<code>value</code> pair.</p>
+   *       <code>key</code>:<code>value</code> pair.</p>
    */
   Tags?: Tag[];
 }
@@ -5325,8 +5898,8 @@ export interface RuntimeContext {
 
   /**
    * @public
-   * <p>The timestamp at which the process modified the current process. The timestamp is in UTC
-   *       date string format.</p>
+   * <p>The timestamp at which the process modified the current process. The timestamp is in UTC date string
+   *       format.</p>
    */
   ModifiedAt?: Date;
 
@@ -5417,15 +5990,14 @@ export interface RuntimeContext {
 
   /**
    * @public
-   * <p>Information about the process that had its memory overwritten by the current
-   *       process.</p>
+   * <p>Information about the process that had its memory overwritten by the current process.</p>
    */
   TargetProcess?: ProcessDetails;
 
   /**
    * @public
-   * <p>Represents the communication protocol associated with the address. For example, the
-   *       address family <code>AF_INET</code> is used for IP version of 4 protocol.</p>
+   * <p>Represents the communication protocol associated with the address. For example, the address
+   *       family <code>AF_INET</code> is used for IP version of 4 protocol.</p>
    */
   AddressFamily?: string;
 
@@ -5554,11 +6126,17 @@ export interface Service {
    *       finding</p>
    */
   RuntimeDetails?: RuntimeDetails;
+
+  /**
+   * @public
+   * <p>Contains information about the detected unusual behavior.</p>
+   */
+  Detection?: Detection;
 }
 
 /**
  * @public
- * <p>Contains information about the finding, which is generated when abnormal or suspicious
+ * <p>Contains information about the finding that is generated when abnormal or suspicious
  *       activity is detected.</p>
  */
 export interface Finding {
@@ -5721,7 +6299,7 @@ export interface GetCoverageStatisticsRequest {
    * @public
    * <p>Represents the statistics type used to aggregate the coverage details.</p>
    */
-  StatisticsType: (CoverageStatisticsType | string)[] | undefined;
+  StatisticsType: CoverageStatisticsType[] | undefined;
 }
 
 /**
@@ -5761,7 +6339,7 @@ export interface GetDetectorResponse {
    * @public
    * <p>The publishing frequency of the finding.</p>
    */
-  FindingPublishingFrequency?: FindingPublishingFrequency | string;
+  FindingPublishingFrequency?: FindingPublishingFrequency;
 
   /**
    * @public
@@ -5773,7 +6351,7 @@ export interface GetDetectorResponse {
    * @public
    * <p>The detector status.</p>
    */
-  Status: DetectorStatus | string | undefined;
+  Status: DetectorStatus | undefined;
 
   /**
    * @public
@@ -5839,7 +6417,7 @@ export interface GetFilterResponse {
    * @public
    * <p>Specifies the action that is to be applied to the findings that match the filter.</p>
    */
-  Action: FilterAction | string | undefined;
+  Action: FilterAction | undefined;
 
   /**
    * @public
@@ -5911,7 +6489,7 @@ export interface GetFindingsStatisticsRequest {
    * @public
    * <p>The types of finding statistics to retrieve.</p>
    */
-  FindingStatisticTypes: (FindingStatisticType | string)[] | undefined;
+  FindingStatisticTypes: FindingStatisticType[] | undefined;
 
   /**
    * @public
@@ -5997,7 +6575,7 @@ export interface GetIPSetResponse {
    * @public
    * <p>The format of the file that contains the IPSet.</p>
    */
-  Format: IpSetFormat | string | undefined;
+  Format: IpSetFormat | undefined;
 
   /**
    * @public
@@ -6009,7 +6587,7 @@ export interface GetIPSetResponse {
    * @public
    * <p>The status of IPSet file that was uploaded.</p>
    */
-  Status: IpSetStatus | string | undefined;
+  Status: IpSetStatus | undefined;
 
   /**
    * @public
@@ -6044,22 +6622,19 @@ export type ScanCriterionKey = (typeof ScanCriterionKey)[keyof typeof ScanCriter
 
 /**
  * @public
- * <p>Represents key, value pair to be matched against given resource property.</p>
+ * <p>Represents the <code>key:value</code> pair to be matched against given resource property.</p>
  */
 export interface ScanConditionPair {
   /**
    * @public
-   * <p>Represents <i>key</i>
-   *             <b></b> in the map condition.</p>
+   * <p>Represents the <b>key</b> in the map condition.</p>
    */
   Key: string | undefined;
 
   /**
    * @public
-   * <p>Represents optional <i>value</i>
-   *             <b></b> in the map
-   *       condition. If not specified, only <i>key</i>
-   *             <b></b> will be
+   * <p>Represents optional <b>value</b> in the map
+   *       condition. If not specified, only the <b>key</b> will be
    *       matched.</p>
    */
   Value?: string;
@@ -6090,14 +6665,14 @@ export interface ScanResourceCriteria {
    * <p>Represents condition that when matched will allow a malware scan for a certain
    *       resource.</p>
    */
-  Include?: Record<string, ScanCondition>;
+  Include?: Partial<Record<ScanCriterionKey, ScanCondition>>;
 
   /**
    * @public
    * <p>Represents condition that when matched will prevent a malware scan for a certain
    *       resource.</p>
    */
-  Exclude?: Record<string, ScanCondition>;
+  Exclude?: Partial<Record<ScanCriterionKey, ScanCondition>>;
 }
 
 /**
@@ -6114,7 +6689,7 @@ export interface GetMalwareScanSettingsResponse {
    * @public
    * <p>An enum value representing possible snapshot preservation settings.</p>
    */
-  EbsSnapshotPreservation?: EbsSnapshotPreservation | string;
+  EbsSnapshotPreservation?: EbsSnapshotPreservation;
 }
 
 /**
@@ -6196,14 +6771,14 @@ export interface MemberAdditionalConfigurationResult {
    * <p>Indicates the name of the additional configuration that is set for the member
    *       account.</p>
    */
-  Name?: OrgFeatureAdditionalConfiguration | string;
+  Name?: OrgFeatureAdditionalConfiguration;
 
   /**
    * @public
    * <p>Indicates the status of the additional configuration that is set for the member
    *       account.</p>
    */
-  Status?: FeatureStatus | string;
+  Status?: FeatureStatus;
 
   /**
    * @public
@@ -6222,13 +6797,13 @@ export interface MemberFeaturesConfigurationResult {
    * @public
    * <p>Indicates the name of the feature that is enabled for the detector.</p>
    */
-  Name?: OrgFeature | string;
+  Name?: OrgFeature;
 
   /**
    * @public
    * <p>Indicates the status of the feature that is enabled for the detector.</p>
    */
-  Status?: FeatureStatus | string;
+  Status?: FeatureStatus;
 
   /**
    * @public
@@ -6380,6 +6955,130 @@ export interface GetMembersResponse {
 
 /**
  * @public
+ * <p>Information about the coverage
+ *       statistic for the additional
+ *     configuration of the feature.</p>
+ */
+export interface OrganizationFeatureStatisticsAdditionalConfiguration {
+  /**
+   * @public
+   * <p>Name of the additional configuration within a feature.</p>
+   */
+  Name?: OrgFeatureAdditionalConfiguration;
+
+  /**
+   * @public
+   * <p>Total number of accounts that have enabled the additional
+   *       configuration.</p>
+   */
+  EnabledAccountsCount?: number;
+}
+
+/**
+ * @public
+ * <p>Information about the number of accounts
+ *       that have enabled a specific feature.</p>
+ */
+export interface OrganizationFeatureStatistics {
+  /**
+   * @public
+   * <p>Name of the feature.</p>
+   */
+  Name?: OrgFeature;
+
+  /**
+   * @public
+   * <p>Total number of accounts that have enabled a specific
+   *       feature.</p>
+   */
+  EnabledAccountsCount?: number;
+
+  /**
+   * @public
+   * <p>Name of the additional configuration.</p>
+   */
+  AdditionalConfiguration?: OrganizationFeatureStatisticsAdditionalConfiguration[];
+}
+
+/**
+ * @public
+ * <p>Information about the coverage statistics of the
+ *       features for the entire
+ *       Amazon Web Services organization.</p>
+ *          <p>When you create a new Amazon Web Services organization, it might
+ *       take up to 24 hours to
+ *       generate the statistics summary for this organization.</p>
+ */
+export interface OrganizationStatistics {
+  /**
+   * @public
+   * <p>Total number of accounts in your Amazon Web Services organization.</p>
+   */
+  TotalAccountsCount?: number;
+
+  /**
+   * @public
+   * <p>Total number of accounts in your Amazon Web Services organization
+   *       that are associated with GuardDuty.</p>
+   */
+  MemberAccountsCount?: number;
+
+  /**
+   * @public
+   * <p>Total number of active accounts in your Amazon Web Services
+   *       organization that are associated with GuardDuty.</p>
+   */
+  ActiveAccountsCount?: number;
+
+  /**
+   * @public
+   * <p>Total number of accounts that have enabled GuardDuty.</p>
+   */
+  EnabledAccountsCount?: number;
+
+  /**
+   * @public
+   * <p>Retrieves the coverage
+   *       statistics for each feature.</p>
+   */
+  CountByFeature?: OrganizationFeatureStatistics[];
+}
+
+/**
+ * @public
+ * <p>Information about GuardDuty coverage statistics for members
+ *       in your Amazon Web Services organization.</p>
+ */
+export interface OrganizationDetails {
+  /**
+   * @public
+   * <p>The timestamp at which the organization statistics
+   *       was last updated. This is in
+   *       UTC format.</p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * @public
+   * <p>Information about the GuardDuty coverage statistics
+   *       for members in your Amazon Web Services organization.</p>
+   */
+  OrganizationStatistics?: OrganizationStatistics;
+}
+
+/**
+ * @public
+ */
+export interface GetOrganizationStatisticsResponse {
+  /**
+   * @public
+   * <p>Information about the statistics report for your organization.</p>
+   */
+  OrganizationDetails?: OrganizationDetails;
+}
+
+/**
+ * @public
  */
 export interface GetRemainingFreeTrialDaysRequest {
   /**
@@ -6465,7 +7164,7 @@ export interface GetThreatIntelSetResponse {
    * @public
    * <p>The format of the threatIntelSet.</p>
    */
-  Format: ThreatIntelSetFormat | string | undefined;
+  Format: ThreatIntelSetFormat | undefined;
 
   /**
    * @public
@@ -6477,7 +7176,7 @@ export interface GetThreatIntelSetResponse {
    * @public
    * <p>The status of threatIntelSet file uploaded.</p>
    */
-  Status: ThreatIntelSetStatus | string | undefined;
+  Status: ThreatIntelSetStatus | undefined;
 
   /**
    * @public
@@ -6494,8 +7193,10 @@ export const UsageFeature = {
   CLOUD_TRAIL: "CLOUD_TRAIL",
   DNS_LOGS: "DNS_LOGS",
   EBS_MALWARE_PROTECTION: "EBS_MALWARE_PROTECTION",
+  EC2_RUNTIME_MONITORING: "EC2_RUNTIME_MONITORING",
   EKS_AUDIT_LOGS: "EKS_AUDIT_LOGS",
   EKS_RUNTIME_MONITORING: "EKS_RUNTIME_MONITORING",
+  FARGATE_RUNTIME_MONITORING: "FARGATE_RUNTIME_MONITORING",
   FLOW_LOGS: "FLOW_LOGS",
   LAMBDA_NETWORK_LOGS: "LAMBDA_NETWORK_LOGS",
   RDS_LOGIN_EVENTS: "RDS_LOGIN_EVENTS",
@@ -6524,7 +7225,7 @@ export interface UsageCriteria {
    *
    * <p>The data sources to aggregate usage statistics from.</p>
    */
-  DataSources?: (DataSource | string)[];
+  DataSources?: DataSource[];
 
   /**
    * @public
@@ -6537,7 +7238,7 @@ export interface UsageCriteria {
    * @public
    * <p>The features to aggregate usage statistics from.</p>
    */
-  Features?: (UsageFeature | string)[];
+  Features?: UsageFeature[];
 }
 
 /**
@@ -6549,6 +7250,7 @@ export const UsageStatisticType = {
   SUM_BY_DATA_SOURCE: "SUM_BY_DATA_SOURCE",
   SUM_BY_FEATURES: "SUM_BY_FEATURES",
   SUM_BY_RESOURCE: "SUM_BY_RESOURCE",
+  TOP_ACCOUNTS_BY_FEATURE: "TOP_ACCOUNTS_BY_FEATURE",
   TOP_RESOURCES: "TOP_RESOURCES",
 } as const;
 
@@ -6572,7 +7274,7 @@ export interface GetUsageStatisticsRequest {
    * @public
    * <p>The type of usage statistics to retrieve.</p>
    */
-  UsageStatisticType: UsageStatisticType | string | undefined;
+  UsageStatisticType: UsageStatisticType | undefined;
 
   /**
    * @public
@@ -6648,7 +7350,7 @@ export interface UsageDataSourceResult {
    * @public
    * <p>The data source type that generated usage.</p>
    */
-  DataSource?: DataSource | string;
+  DataSource?: DataSource;
 
   /**
    * @public
@@ -6666,7 +7368,7 @@ export interface UsageFeatureResult {
    * @public
    * <p>The feature that generated the usage cost.</p>
    */
-  Feature?: UsageFeature | string;
+  Feature?: UsageFeature;
 
   /**
    * @public
@@ -6695,6 +7397,47 @@ export interface UsageResourceResult {
 
 /**
  * @public
+ * <p>Contains information on the total of usage based on the topmost 50
+ *       account IDs.</p>
+ */
+export interface UsageTopAccountResult {
+  /**
+   * @public
+   * <p>The unique account ID.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>Contains the total usage with the corresponding currency unit for that value.</p>
+   */
+  Total?: Total;
+}
+
+/**
+ * @public
+ * <p>Information about the usage statistics, calculated
+ *       by top accounts by feature.</p>
+ */
+export interface UsageTopAccountsResult {
+  /**
+   * @public
+   * <p>Features by which you can generate the usage statistics.</p>
+   *          <p>
+   *             <code>RDS_LOGIN_EVENTS</code> is currently not supported
+   *       with <code>topAccountsByFeature</code>.</p>
+   */
+  Feature?: UsageFeature;
+
+  /**
+   * @public
+   * <p>The accounts that contributed to the total usage cost.</p>
+   */
+  Accounts?: UsageTopAccountResult[];
+}
+
+/**
+ * @public
  * <p>Contains the result of GuardDuty usage. If a UsageStatisticType is provided the result for
  *       other types will be null. </p>
  */
@@ -6704,6 +7447,14 @@ export interface UsageStatistics {
    * <p>The usage statistic sum organized by account ID.</p>
    */
   SumByAccount?: UsageAccountResult[];
+
+  /**
+   * @public
+   * <p>Lists the top 50 accounts by feature that have generated the most
+   *       GuardDuty usage, in the order from most to least expensive.</p>
+   *          <p>Currently, this doesn't support <code>RDS_LOGIN_EVENTS</code>.</p>
+   */
+  TopAccountsByFeature?: UsageTopAccountsResult[];
 
   /**
    * @public
@@ -6849,661 +7600,4 @@ export interface ListCoverageResponse {
    *       items.</p>
    */
   NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListDetectorsRequest {
-  /**
-   * @public
-   * <p>You can use this parameter to indicate the maximum number of items that you want in the
-   *       response. The default value is 50. The maximum value is 50.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>You can use this parameter when paginating results. Set the value of this parameter to
-   *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
-   *       in the request with the value of NextToken from the previous response to continue listing
-   *       data.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListDetectorsResponse {
-  /**
-   * @public
-   * <p>A list of detector IDs.</p>
-   */
-  DetectorIds: string[] | undefined;
-
-  /**
-   * @public
-   * <p>The pagination parameter to be used on the next list operation to retrieve more
-   *       items.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListFiltersRequest {
-  /**
-   * @public
-   * <p>The unique ID of the detector that the filter is associated with.</p>
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * @public
-   * <p>You can use this parameter to indicate the maximum number of items that you want in the
-   *       response. The default value is 50. The maximum value is 50.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>You can use this parameter when paginating results. Set the value of this parameter to
-   *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
-   *       in the request with the value of NextToken from the previous response to continue listing
-   *       data.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListFiltersResponse {
-  /**
-   * @public
-   * <p>A list of filter names.</p>
-   */
-  FilterNames: string[] | undefined;
-
-  /**
-   * @public
-   * <p>The pagination parameter to be used on the next list operation to retrieve more
-   *       items.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListFindingsRequest {
-  /**
-   * @public
-   * <p>The ID of the detector that specifies the GuardDuty service whose findings you want to
-   *       list.</p>
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * @public
-   * <p>Represents the criteria used for querying findings. Valid values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>JSON field name</p>
-   *             </li>
-   *             <li>
-   *                <p>accountId</p>
-   *             </li>
-   *             <li>
-   *                <p>region</p>
-   *             </li>
-   *             <li>
-   *                <p>confidence</p>
-   *             </li>
-   *             <li>
-   *                <p>id</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.accessKeyDetails.accessKeyId</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.accessKeyDetails.principalId</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.accessKeyDetails.userName</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.accessKeyDetails.userType</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.iamInstanceProfile.id</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.imageId</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.instanceId</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.networkInterfaces.ipv6Addresses</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.networkInterfaces.privateIpAddresses.privateIpAddress</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.networkInterfaces.publicDnsName</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.networkInterfaces.publicIp</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.networkInterfaces.securityGroups.groupId</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.networkInterfaces.securityGroups.groupName</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.networkInterfaces.subnetId</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.networkInterfaces.vpcId</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.tags.key</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.instanceDetails.tags.value</p>
-   *             </li>
-   *             <li>
-   *                <p>resource.resourceType</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.actionType</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.awsApiCallAction.api</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.awsApiCallAction.callerType</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.awsApiCallAction.remoteIpDetails.city.cityName</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.awsApiCallAction.remoteIpDetails.country.countryName</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.awsApiCallAction.remoteIpDetails.ipAddressV4</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.awsApiCallAction.remoteIpDetails.organization.asn</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.awsApiCallAction.remoteIpDetails.organization.asnOrg</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.awsApiCallAction.serviceName</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.dnsRequestAction.domain</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.blocked</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.connectionDirection</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.localPortDetails.port</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.protocol</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.remoteIpDetails.country.countryName</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.remoteIpDetails.ipAddressV4</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.remoteIpDetails.organization.asn</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.remoteIpDetails.organization.asnOrg</p>
-   *             </li>
-   *             <li>
-   *                <p>service.action.networkConnectionAction.remotePortDetails.port</p>
-   *             </li>
-   *             <li>
-   *                <p>service.additionalInfo.threatListName</p>
-   *             </li>
-   *             <li>
-   *                <p>service.archived</p>
-   *                <p>When this attribute is set to 'true', only archived findings are listed. When it's set
-   *           to 'false', only unarchived findings are listed. When this attribute is not set, all
-   *           existing findings are listed.</p>
-   *             </li>
-   *             <li>
-   *                <p>service.resourceRole</p>
-   *             </li>
-   *             <li>
-   *                <p>severity</p>
-   *             </li>
-   *             <li>
-   *                <p>type</p>
-   *             </li>
-   *             <li>
-   *                <p>updatedAt</p>
-   *                <p>Type: Timestamp in Unix Epoch millisecond format: 1486685375000</p>
-   *             </li>
-   *          </ul>
-   */
-  FindingCriteria?: FindingCriteria;
-
-  /**
-   * @public
-   * <p>Represents the criteria used for sorting findings.</p>
-   */
-  SortCriteria?: SortCriteria;
-
-  /**
-   * @public
-   * <p>You can use this parameter to indicate the maximum number of items you want in the
-   *       response. The default value is 50. The maximum value is 50.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>You can use this parameter when paginating results. Set the value of this parameter to
-   *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
-   *       in the request with the value of NextToken from the previous response to continue listing
-   *       data.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListFindingsResponse {
-  /**
-   * @public
-   * <p>The IDs of the findings that you're listing.</p>
-   */
-  FindingIds: string[] | undefined;
-
-  /**
-   * @public
-   * <p>The pagination parameter to be used on the next list operation to retrieve more
-   *       items.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListInvitationsRequest {
-  /**
-   * @public
-   * <p>You can use this parameter to indicate the maximum number of items that you want in the
-   *       response. The default value is 50. The maximum value is 50.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>You can use this parameter when paginating results. Set the value of this parameter to
-   *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
-   *       in the request with the value of NextToken from the previous response to continue listing
-   *       data.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- * <p>Contains information about the invitation to become a member account.</p>
- */
-export interface Invitation {
-  /**
-   * @public
-   * <p>The ID of the account that the invitation was sent from.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * @public
-   * <p>The ID of the invitation. This value is used to validate the inviter account to the member
-   *       account.</p>
-   */
-  InvitationId?: string;
-
-  /**
-   * @public
-   * <p>The status of the relationship between the inviter and invitee accounts.</p>
-   */
-  RelationshipStatus?: string;
-
-  /**
-   * @public
-   * <p>The timestamp when the invitation was sent.</p>
-   */
-  InvitedAt?: string;
-}
-
-/**
- * @public
- */
-export interface ListInvitationsResponse {
-  /**
-   * @public
-   * <p>A list of invitation descriptions.</p>
-   */
-  Invitations?: Invitation[];
-
-  /**
-   * @public
-   * <p>The pagination parameter to be used on the next list operation to retrieve more
-   *       items.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListIPSetsRequest {
-  /**
-   * @public
-   * <p>The unique ID of the detector that the IPSet is associated with.</p>
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * @public
-   * <p>You can use this parameter to indicate the maximum number of items you want in the
-   *       response. The default value is 50. The maximum value is 50.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>You can use this parameter when paginating results. Set the value of this parameter to
-   *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
-   *       in the request with the value of NextToken from the previous response to continue listing
-   *       data.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListIPSetsResponse {
-  /**
-   * @public
-   * <p>The IDs of the IPSet resources.</p>
-   */
-  IpSetIds: string[] | undefined;
-
-  /**
-   * @public
-   * <p>The pagination parameter to be used on the next list operation to retrieve more
-   *       items.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListMembersRequest {
-  /**
-   * @public
-   * <p>The unique ID of the detector the member is associated with.</p>
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * @public
-   * <p>You can use this parameter to indicate the maximum number of items you want in the
-   *       response. The default value is 50. The maximum value is 50.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>You can use this parameter when paginating results. Set the value of this parameter to
-   *       null on your first call to the list action. For subsequent calls to the action, fill nextToken
-   *       in the request with the value of NextToken from the previous response to continue listing
-   *       data.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>Specifies whether to only return associated members or to return all members (including
-   *       members who haven't been invited yet or have been disassociated). Member accounts must have
-   *       been previously associated with the GuardDuty administrator account using <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_CreateMembers.html">
-   *                <code>Create
-   *           Members</code>
-   *             </a>. </p>
-   */
-  OnlyAssociated?: string;
-}
-
-/**
- * @public
- */
-export interface ListMembersResponse {
-  /**
-   * @public
-   * <p>A list of members.</p>
-   */
-  Members?: Member[];
-
-  /**
-   * @public
-   * <p>The pagination parameter to be used on the next list operation to retrieve more
-   *       items.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListOrganizationAdminAccountsRequest {
-  /**
-   * @public
-   * <p>The maximum number of results to return in the response.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>A token to use for paginating results that are returned in the response. Set the value of
-   *       this parameter to null for the first request to a list action. For subsequent calls, use the
-   *         <code>NextToken</code> value returned from the previous request to continue listing results
-   *       after the first page.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListOrganizationAdminAccountsResponse {
-  /**
-   * @public
-   * <p>A list of accounts configured as GuardDuty delegated administrators.</p>
-   */
-  AdminAccounts?: AdminAccount[];
-
-  /**
-   * @public
-   * <p>The pagination parameter to be used on the next list operation to retrieve more
-   *       items.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListPublishingDestinationsRequest {
-  /**
-   * @public
-   * <p>The ID of the detector to retrieve publishing destinations for.</p>
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * @public
-   * <p>The maximum number of results to return in the response.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>A token to use for paginating results that are returned in the response. Set the value of
-   *       this parameter to null for the first request to a list action. For subsequent calls, use the
-   *         <code>NextToken</code> value returned from the previous request to continue listing results
-   *       after the first page.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListPublishingDestinationsResponse {
-  /**
-   * @public
-   * <p>A <code>Destinations</code> object that includes information about each publishing
-   *       destination returned.</p>
-   */
-  Destinations: Destination[] | undefined;
-
-  /**
-   * @public
-   * <p>A token to use for paginating results that are returned in the response. Set the value of
-   *       this parameter to null for the first request to a list action. For subsequent calls, use the
-   *         <code>NextToken</code> value returned from the previous request to continue listing results
-   *       after the first page.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceRequest {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) for the given GuardDuty resource. </p>
-   */
-  ResourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceResponse {
-  /**
-   * @public
-   * <p>The tags associated with the resource.</p>
-   */
-  Tags?: Record<string, string>;
-}
-
-/**
- * @public
- */
-export interface ListThreatIntelSetsRequest {
-  /**
-   * @public
-   * <p>The unique ID of the detector that the threatIntelSet is associated with.</p>
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * @public
-   * <p>You can use this parameter to indicate the maximum number of items that you want in the
-   *       response. The default value is 50. The maximum value is 50.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * <p>You can use this parameter to paginate results in the response. Set the value of this
-   *       parameter to null on your first call to the list action. For subsequent calls to the action,
-   *       fill nextToken in the request with the value of NextToken from the previous response to
-   *       continue listing data.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface ListThreatIntelSetsResponse {
-  /**
-   * @public
-   * <p>The IDs of the ThreatIntelSet resources.</p>
-   */
-  ThreatIntelSetIds: string[] | undefined;
-
-  /**
-   * @public
-   * <p>The pagination parameter to be used on the next list operation to retrieve more
-   *       items.</p>
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface StartMalwareScanRequest {
-  /**
-   * @public
-   * <p>Amazon Resource Name (ARN) of the resource for which you invoked the API.</p>
-   */
-  ResourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartMalwareScanResponse {
-  /**
-   * @public
-   * <p>A unique identifier that gets generated when you invoke the API without any error. Each
-   *       malware scan has a corresponding scan ID. Using this scan ID, you can monitor the status of
-   *       your malware scan.</p>
-   */
-  ScanId?: string;
-}
-
-/**
- * @public
- */
-export interface StartMonitoringMembersRequest {
-  /**
-   * @public
-   * <p>The unique ID of the detector of the GuardDuty administrator account associated with the
-   *       member accounts to monitor.</p>
-   */
-  DetectorId: string | undefined;
-
-  /**
-   * @public
-   * <p>A list of account IDs of the GuardDuty member accounts to start monitoring.</p>
-   */
-  AccountIds: string[] | undefined;
 }

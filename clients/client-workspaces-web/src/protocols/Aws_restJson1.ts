@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -203,6 +204,8 @@ import {
   Certificate,
   CertificateSummary,
   ConflictException,
+  CookieSpecification,
+  CookieSynchronizationConfiguration,
   InternalServerException,
   IpAccessSettings,
   IpAccessSettingsSummary,
@@ -225,25 +228,16 @@ export const se_AssociateBrowserSettingsCommand = async (
   input: AssociateBrowserSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals/{portalArn+}/browserSettings";
-  resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
+  b.bp("/portals/{portalArn+}/browserSettings");
+  b.p("portalArn", () => input.portalArn!, "{portalArn+}", true);
   const query: any = map({
-    browserSettingsArn: [, __expectNonNull(input.browserSettingsArn!, `browserSettingsArn`)],
+    [_bSA]: [, __expectNonNull(input[_bSA]!, `browserSettingsArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -253,25 +247,16 @@ export const se_AssociateIpAccessSettingsCommand = async (
   input: AssociateIpAccessSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals/{portalArn+}/ipAccessSettings";
-  resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
+  b.bp("/portals/{portalArn+}/ipAccessSettings");
+  b.p("portalArn", () => input.portalArn!, "{portalArn+}", true);
   const query: any = map({
-    ipAccessSettingsArn: [, __expectNonNull(input.ipAccessSettingsArn!, `ipAccessSettingsArn`)],
+    [_iASA]: [, __expectNonNull(input[_iASA]!, `ipAccessSettingsArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -281,25 +266,16 @@ export const se_AssociateNetworkSettingsCommand = async (
   input: AssociateNetworkSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals/{portalArn+}/networkSettings";
-  resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
+  b.bp("/portals/{portalArn+}/networkSettings");
+  b.p("portalArn", () => input.portalArn!, "{portalArn+}", true);
   const query: any = map({
-    networkSettingsArn: [, __expectNonNull(input.networkSettingsArn!, `networkSettingsArn`)],
+    [_nSA]: [, __expectNonNull(input[_nSA]!, `networkSettingsArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -309,25 +285,16 @@ export const se_AssociateTrustStoreCommand = async (
   input: AssociateTrustStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals/{portalArn+}/trustStores";
-  resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
+  b.bp("/portals/{portalArn+}/trustStores");
+  b.p("portalArn", () => input.portalArn!, "{portalArn+}", true);
   const query: any = map({
-    trustStoreArn: [, __expectNonNull(input.trustStoreArn!, `trustStoreArn`)],
+    [_tSA]: [, __expectNonNull(input[_tSA]!, `trustStoreArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -337,29 +304,16 @@ export const se_AssociateUserAccessLoggingSettingsCommand = async (
   input: AssociateUserAccessLoggingSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/portals/{portalArn+}/userAccessLoggingSettings";
-  resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
+  b.bp("/portals/{portalArn+}/userAccessLoggingSettings");
+  b.p("portalArn", () => input.portalArn!, "{portalArn+}", true);
   const query: any = map({
-    userAccessLoggingSettingsArn: [
-      ,
-      __expectNonNull(input.userAccessLoggingSettingsArn!, `userAccessLoggingSettingsArn`),
-    ],
+    [_uALSA]: [, __expectNonNull(input[_uALSA]!, `userAccessLoggingSettingsArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -369,25 +323,16 @@ export const se_AssociateUserSettingsCommand = async (
   input: AssociateUserSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals/{portalArn+}/userSettings";
-  resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
+  b.bp("/portals/{portalArn+}/userSettings");
+  b.p("portalArn", () => input.portalArn!, "{portalArn+}", true);
   const query: any = map({
-    userSettingsArn: [, __expectNonNull(input.userSettingsArn!, `userSettingsArn`)],
+    [_uSA]: [, __expectNonNull(input[_uSA]!, `userSettingsArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -397,11 +342,11 @@ export const se_CreateBrowserSettingsCommand = async (
   input: CreateBrowserSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/browserSettings";
+  b.bp("/browserSettings");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -412,15 +357,8 @@ export const se_CreateBrowserSettingsCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -430,11 +368,11 @@ export const se_CreateIdentityProviderCommand = async (
   input: CreateIdentityProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/identityProviders";
+  b.bp("/identityProviders");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -445,15 +383,8 @@ export const se_CreateIdentityProviderCommand = async (
       portalArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -463,11 +394,11 @@ export const se_CreateIpAccessSettingsCommand = async (
   input: CreateIpAccessSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ipAccessSettings";
+  b.bp("/ipAccessSettings");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -480,15 +411,8 @@ export const se_CreateIpAccessSettingsCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -498,11 +422,11 @@ export const se_CreateNetworkSettingsCommand = async (
   input: CreateNetworkSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/networkSettings";
+  b.bp("/networkSettings");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -513,15 +437,8 @@ export const se_CreateNetworkSettingsCommand = async (
       vpcId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -531,11 +448,11 @@ export const se_CreatePortalCommand = async (
   input: CreatePortalCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals";
+  b.bp("/portals");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -547,15 +464,8 @@ export const se_CreatePortalCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -565,11 +475,11 @@ export const se_CreateTrustStoreCommand = async (
   input: CreateTrustStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/trustStores";
+  b.bp("/trustStores");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -578,15 +488,8 @@ export const se_CreateTrustStoreCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -596,12 +499,11 @@ export const se_CreateUserAccessLoggingSettingsCommand = async (
   input: CreateUserAccessLoggingSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/userAccessLoggingSettings";
+  b.bp("/userAccessLoggingSettings");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -610,15 +512,8 @@ export const se_CreateUserAccessLoggingSettingsCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -628,16 +523,19 @@ export const se_CreateUserSettingsCommand = async (
   input: CreateUserSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/userSettings";
+  b.bp("/userSettings");
   let body: any;
   body = JSON.stringify(
     take(input, {
+      additionalEncryptionContext: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      cookieSynchronizationConfiguration: (_) => _json(_),
       copyAllowed: [],
+      customerManagedKey: [],
       disconnectTimeoutInMinutes: [],
       downloadAllowed: [],
       idleDisconnectTimeoutInMinutes: [],
@@ -647,15 +545,8 @@ export const se_CreateUserSettingsCommand = async (
       uploadAllowed: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -665,28 +556,13 @@ export const se_DeleteBrowserSettingsCommand = async (
   input: DeleteBrowserSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/browserSettings/{browserSettingsArn+}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "browserSettingsArn",
-    () => input.browserSettingsArn!,
-    "{browserSettingsArn+}",
-    true
-  );
+  b.bp("/browserSettings/{browserSettingsArn+}");
+  b.p("browserSettingsArn", () => input.browserSettingsArn!, "{browserSettingsArn+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -696,28 +572,13 @@ export const se_DeleteIdentityProviderCommand = async (
   input: DeleteIdentityProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/identityProviders/{identityProviderArn+}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "identityProviderArn",
-    () => input.identityProviderArn!,
-    "{identityProviderArn+}",
-    true
-  );
+  b.bp("/identityProviders/{identityProviderArn+}");
+  b.p("identityProviderArn", () => input.identityProviderArn!, "{identityProviderArn+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -727,28 +588,13 @@ export const se_DeleteIpAccessSettingsCommand = async (
   input: DeleteIpAccessSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ipAccessSettings/{ipAccessSettingsArn+}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ipAccessSettingsArn",
-    () => input.ipAccessSettingsArn!,
-    "{ipAccessSettingsArn+}",
-    true
-  );
+  b.bp("/ipAccessSettings/{ipAccessSettingsArn+}");
+  b.p("ipAccessSettingsArn", () => input.ipAccessSettingsArn!, "{ipAccessSettingsArn+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -758,28 +604,13 @@ export const se_DeleteNetworkSettingsCommand = async (
   input: DeleteNetworkSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/networkSettings/{networkSettingsArn+}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "networkSettingsArn",
-    () => input.networkSettingsArn!,
-    "{networkSettingsArn+}",
-    true
-  );
+  b.bp("/networkSettings/{networkSettingsArn+}");
+  b.p("networkSettingsArn", () => input.networkSettingsArn!, "{networkSettingsArn+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -789,20 +620,13 @@ export const se_DeletePortalCommand = async (
   input: DeletePortalCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals/{portalArn+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
+  b.bp("/portals/{portalArn+}");
+  b.p("portalArn", () => input.portalArn!, "{portalArn+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -812,28 +636,13 @@ export const se_DeleteTrustStoreCommand = async (
   input: DeleteTrustStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/trustStores/{trustStoreArn+}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "trustStoreArn",
-    () => input.trustStoreArn!,
-    "{trustStoreArn+}",
-    true
-  );
+  b.bp("/trustStores/{trustStoreArn+}");
+  b.p("trustStoreArn", () => input.trustStoreArn!, "{trustStoreArn+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -843,29 +652,18 @@ export const se_DeleteUserAccessLoggingSettingsCommand = async (
   input: DeleteUserAccessLoggingSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/userAccessLoggingSettings/{userAccessLoggingSettingsArn+}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp("/userAccessLoggingSettings/{userAccessLoggingSettingsArn+}");
+  b.p(
     "userAccessLoggingSettingsArn",
     () => input.userAccessLoggingSettingsArn!,
     "{userAccessLoggingSettingsArn+}",
     true
   );
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -875,28 +673,13 @@ export const se_DeleteUserSettingsCommand = async (
   input: DeleteUserSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/userSettings/{userSettingsArn+}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "userSettingsArn",
-    () => input.userSettingsArn!,
-    "{userSettingsArn+}",
-    true
-  );
+  b.bp("/userSettings/{userSettingsArn+}");
+  b.p("userSettingsArn", () => input.userSettingsArn!, "{userSettingsArn+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -906,21 +689,13 @@ export const se_DisassociateBrowserSettingsCommand = async (
   input: DisassociateBrowserSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals/{portalArn+}/browserSettings";
-  resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
+  b.bp("/portals/{portalArn+}/browserSettings");
+  b.p("portalArn", () => input.portalArn!, "{portalArn+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -930,21 +705,13 @@ export const se_DisassociateIpAccessSettingsCommand = async (
   input: DisassociateIpAccessSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals/{portalArn+}/ipAccessSettings";
-  resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
+  b.bp("/portals/{portalArn+}/ipAccessSettings");
+  b.p("portalArn", () => input.portalArn!, "{portalArn+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -954,21 +721,13 @@ export const se_DisassociateNetworkSettingsCommand = async (
   input: DisassociateNetworkSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals/{portalArn+}/networkSettings";
-  resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
+  b.bp("/portals/{portalArn+}/networkSettings");
+  b.p("portalArn", () => input.portalArn!, "{portalArn+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -978,21 +737,13 @@ export const se_DisassociateTrustStoreCommand = async (
   input: DisassociateTrustStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals/{portalArn+}/trustStores";
-  resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
+  b.bp("/portals/{portalArn+}/trustStores");
+  b.p("portalArn", () => input.portalArn!, "{portalArn+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1002,22 +753,13 @@ export const se_DisassociateUserAccessLoggingSettingsCommand = async (
   input: DisassociateUserAccessLoggingSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/portals/{portalArn+}/userAccessLoggingSettings";
-  resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
+  b.bp("/portals/{portalArn+}/userAccessLoggingSettings");
+  b.p("portalArn", () => input.portalArn!, "{portalArn+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1027,21 +769,13 @@ export const se_DisassociateUserSettingsCommand = async (
   input: DisassociateUserSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals/{portalArn+}/userSettings";
-  resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
+  b.bp("/portals/{portalArn+}/userSettings");
+  b.p("portalArn", () => input.portalArn!, "{portalArn+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1051,28 +785,13 @@ export const se_GetBrowserSettingsCommand = async (
   input: GetBrowserSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/browserSettings/{browserSettingsArn+}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "browserSettingsArn",
-    () => input.browserSettingsArn!,
-    "{browserSettingsArn+}",
-    true
-  );
+  b.bp("/browserSettings/{browserSettingsArn+}");
+  b.p("browserSettingsArn", () => input.browserSettingsArn!, "{browserSettingsArn+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1082,28 +801,13 @@ export const se_GetIdentityProviderCommand = async (
   input: GetIdentityProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/identityProviders/{identityProviderArn+}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "identityProviderArn",
-    () => input.identityProviderArn!,
-    "{identityProviderArn+}",
-    true
-  );
+  b.bp("/identityProviders/{identityProviderArn+}");
+  b.p("identityProviderArn", () => input.identityProviderArn!, "{identityProviderArn+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1113,28 +817,13 @@ export const se_GetIpAccessSettingsCommand = async (
   input: GetIpAccessSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ipAccessSettings/{ipAccessSettingsArn+}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ipAccessSettingsArn",
-    () => input.ipAccessSettingsArn!,
-    "{ipAccessSettingsArn+}",
-    true
-  );
+  b.bp("/ipAccessSettings/{ipAccessSettingsArn+}");
+  b.p("ipAccessSettingsArn", () => input.ipAccessSettingsArn!, "{ipAccessSettingsArn+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1144,28 +833,13 @@ export const se_GetNetworkSettingsCommand = async (
   input: GetNetworkSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/networkSettings/{networkSettingsArn+}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "networkSettingsArn",
-    () => input.networkSettingsArn!,
-    "{networkSettingsArn+}",
-    true
-  );
+  b.bp("/networkSettings/{networkSettingsArn+}");
+  b.p("networkSettingsArn", () => input.networkSettingsArn!, "{networkSettingsArn+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1175,20 +849,13 @@ export const se_GetPortalCommand = async (
   input: GetPortalCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals/{portalArn+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
+  b.bp("/portals/{portalArn+}");
+  b.p("portalArn", () => input.portalArn!, "{portalArn+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1198,20 +865,13 @@ export const se_GetPortalServiceProviderMetadataCommand = async (
   input: GetPortalServiceProviderMetadataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portalIdp/{portalArn+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
+  b.bp("/portalIdp/{portalArn+}");
+  b.p("portalArn", () => input.portalArn!, "{portalArn+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1221,28 +881,13 @@ export const se_GetTrustStoreCommand = async (
   input: GetTrustStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/trustStores/{trustStoreArn+}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "trustStoreArn",
-    () => input.trustStoreArn!,
-    "{trustStoreArn+}",
-    true
-  );
+  b.bp("/trustStores/{trustStoreArn+}");
+  b.p("trustStoreArn", () => input.trustStoreArn!, "{trustStoreArn+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1252,32 +897,16 @@ export const se_GetTrustStoreCertificateCommand = async (
   input: GetTrustStoreCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/trustStores/{trustStoreArn+}/certificate";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "trustStoreArn",
-    () => input.trustStoreArn!,
-    "{trustStoreArn+}",
-    true
-  );
+  b.bp("/trustStores/{trustStoreArn+}/certificate");
+  b.p("trustStoreArn", () => input.trustStoreArn!, "{trustStoreArn+}", true);
   const query: any = map({
-    thumbprint: [, __expectNonNull(input.thumbprint!, `thumbprint`)],
+    [_t]: [, __expectNonNull(input[_t]!, `thumbprint`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1287,29 +916,18 @@ export const se_GetUserAccessLoggingSettingsCommand = async (
   input: GetUserAccessLoggingSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/userAccessLoggingSettings/{userAccessLoggingSettingsArn+}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp("/userAccessLoggingSettings/{userAccessLoggingSettingsArn+}");
+  b.p(
     "userAccessLoggingSettingsArn",
     () => input.userAccessLoggingSettingsArn!,
     "{userAccessLoggingSettingsArn+}",
     true
   );
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1319,28 +937,13 @@ export const se_GetUserSettingsCommand = async (
   input: GetUserSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/userSettings/{userSettingsArn+}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "userSettingsArn",
-    () => input.userSettingsArn!,
-    "{userSettingsArn+}",
-    true
-  );
+  b.bp("/userSettings/{userSettingsArn+}");
+  b.p("userSettingsArn", () => input.userSettingsArn!, "{userSettingsArn+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1350,24 +953,16 @@ export const se_ListBrowserSettingsCommand = async (
   input: ListBrowserSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/browserSettings";
+  b.bp("/browserSettings");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1377,26 +972,17 @@ export const se_ListIdentityProvidersCommand = async (
   input: ListIdentityProvidersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals/{portalArn+}/identityProviders";
-  resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
+  b.bp("/portals/{portalArn+}/identityProviders");
+  b.p("portalArn", () => input.portalArn!, "{portalArn+}", true);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1406,24 +992,16 @@ export const se_ListIpAccessSettingsCommand = async (
   input: ListIpAccessSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ipAccessSettings";
+  b.bp("/ipAccessSettings");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1433,24 +1011,16 @@ export const se_ListNetworkSettingsCommand = async (
   input: ListNetworkSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/networkSettings";
+  b.bp("/networkSettings");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1460,24 +1030,16 @@ export const se_ListPortalsCommand = async (
   input: ListPortalsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals";
+  b.bp("/portals");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1487,20 +1049,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn+}", true);
+  b.bp("/tags/{resourceArn+}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1510,34 +1065,17 @@ export const se_ListTrustStoreCertificatesCommand = async (
   input: ListTrustStoreCertificatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/trustStores/{trustStoreArn+}/certificates";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "trustStoreArn",
-    () => input.trustStoreArn!,
-    "{trustStoreArn+}",
-    true
-  );
+  b.bp("/trustStores/{trustStoreArn+}/certificates");
+  b.p("trustStoreArn", () => input.trustStoreArn!, "{trustStoreArn+}", true);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1547,24 +1085,16 @@ export const se_ListTrustStoresCommand = async (
   input: ListTrustStoresCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/trustStores";
+  b.bp("/trustStores");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1574,25 +1104,16 @@ export const se_ListUserAccessLoggingSettingsCommand = async (
   input: ListUserAccessLoggingSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/userAccessLoggingSettings";
+  b.bp("/userAccessLoggingSettings");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1602,24 +1123,16 @@ export const se_ListUserSettingsCommand = async (
   input: ListUserSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/userSettings";
+  b.bp("/userSettings");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1629,12 +1142,12 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn+}", true);
+  b.bp("/tags/{resourceArn+}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn+}", true);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1642,15 +1155,8 @@ export const se_TagResourceCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1660,27 +1166,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn+}", true);
+  b.bp("/tags/{resourceArn+}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn+}", true);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1690,20 +1188,12 @@ export const se_UpdateBrowserSettingsCommand = async (
   input: UpdateBrowserSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/browserSettings/{browserSettingsArn+}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "browserSettingsArn",
-    () => input.browserSettingsArn!,
-    "{browserSettingsArn+}",
-    true
-  );
+  b.bp("/browserSettings/{browserSettingsArn+}");
+  b.p("browserSettingsArn", () => input.browserSettingsArn!, "{browserSettingsArn+}", true);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1711,15 +1201,8 @@ export const se_UpdateBrowserSettingsCommand = async (
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1729,20 +1212,12 @@ export const se_UpdateIdentityProviderCommand = async (
   input: UpdateIdentityProviderCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/identityProviders/{identityProviderArn+}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "identityProviderArn",
-    () => input.identityProviderArn!,
-    "{identityProviderArn+}",
-    true
-  );
+  b.bp("/identityProviders/{identityProviderArn+}");
+  b.p("identityProviderArn", () => input.identityProviderArn!, "{identityProviderArn+}", true);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1752,15 +1227,8 @@ export const se_UpdateIdentityProviderCommand = async (
       identityProviderType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1770,20 +1238,12 @@ export const se_UpdateIpAccessSettingsCommand = async (
   input: UpdateIpAccessSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ipAccessSettings/{ipAccessSettingsArn+}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ipAccessSettingsArn",
-    () => input.ipAccessSettingsArn!,
-    "{ipAccessSettingsArn+}",
-    true
-  );
+  b.bp("/ipAccessSettings/{ipAccessSettingsArn+}");
+  b.p("ipAccessSettingsArn", () => input.ipAccessSettingsArn!, "{ipAccessSettingsArn+}", true);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1793,15 +1253,8 @@ export const se_UpdateIpAccessSettingsCommand = async (
       ipRules: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1811,20 +1264,12 @@ export const se_UpdateNetworkSettingsCommand = async (
   input: UpdateNetworkSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/networkSettings/{networkSettingsArn+}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "networkSettingsArn",
-    () => input.networkSettingsArn!,
-    "{networkSettingsArn+}",
-    true
-  );
+  b.bp("/networkSettings/{networkSettingsArn+}");
+  b.p("networkSettingsArn", () => input.networkSettingsArn!, "{networkSettingsArn+}", true);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1834,15 +1279,8 @@ export const se_UpdateNetworkSettingsCommand = async (
       vpcId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1852,12 +1290,12 @@ export const se_UpdatePortalCommand = async (
   input: UpdatePortalCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals/{portalArn+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
+  b.bp("/portals/{portalArn+}");
+  b.p("portalArn", () => input.portalArn!, "{portalArn+}", true);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1865,15 +1303,8 @@ export const se_UpdatePortalCommand = async (
       displayName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1883,20 +1314,12 @@ export const se_UpdateTrustStoreCommand = async (
   input: UpdateTrustStoreCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/trustStores/{trustStoreArn+}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "trustStoreArn",
-    () => input.trustStoreArn!,
-    "{trustStoreArn+}",
-    true
-  );
+  b.bp("/trustStores/{trustStoreArn+}");
+  b.p("trustStoreArn", () => input.trustStoreArn!, "{trustStoreArn+}", true);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1905,15 +1328,8 @@ export const se_UpdateTrustStoreCommand = async (
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1923,16 +1339,12 @@ export const se_UpdateUserAccessLoggingSettingsCommand = async (
   input: UpdateUserAccessLoggingSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/userAccessLoggingSettings/{userAccessLoggingSettingsArn+}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp("/userAccessLoggingSettings/{userAccessLoggingSettingsArn+}");
+  b.p(
     "userAccessLoggingSettingsArn",
     () => input.userAccessLoggingSettingsArn!,
     "{userAccessLoggingSettingsArn+}",
@@ -1945,15 +1357,8 @@ export const se_UpdateUserAccessLoggingSettingsCommand = async (
       kinesisStreamArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1963,24 +1368,17 @@ export const se_UpdateUserSettingsCommand = async (
   input: UpdateUserSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/userSettings/{userSettingsArn+}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "userSettingsArn",
-    () => input.userSettingsArn!,
-    "{userSettingsArn+}",
-    true
-  );
+  b.bp("/userSettings/{userSettingsArn+}");
+  b.p("userSettingsArn", () => input.userSettingsArn!, "{userSettingsArn+}", true);
   let body: any;
   body = JSON.stringify(
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      cookieSynchronizationConfiguration: (_) => _json(_),
       copyAllowed: [],
       disconnectTimeoutInMinutes: [],
       downloadAllowed: [],
@@ -1990,15 +1388,8 @@ export const se_UpdateUserSettingsCommand = async (
       uploadAllowed: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5459,10 +4850,7 @@ const de_InternalServerExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const contents: any = map({
-    retryAfterSeconds: [
-      () => void 0 !== parsedOutput.headers["retry-after"],
-      () => __strictParseInt32(parsedOutput.headers["retry-after"]),
-    ],
+    [_rAS]: [() => void 0 !== parsedOutput.headers[_ra], () => __strictParseInt32(parsedOutput.headers[_ra])],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -5527,10 +4915,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({
-    retryAfterSeconds: [
-      () => void 0 !== parsedOutput.headers["retry-after"],
-      () => __strictParseInt32(parsedOutput.headers["retry-after"]),
-    ],
+    [_rAS]: [() => void 0 !== parsedOutput.headers[_ra], () => __strictParseInt32(parsedOutput.headers[_ra])],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -5599,6 +4984,12 @@ const se_CertificateList = (input: Uint8Array[], context: __SerdeContext): any =
 
 // se_CertificateThumbprintList omitted.
 
+// se_CookieSpecification omitted.
+
+// se_CookieSpecifications omitted.
+
+// se_CookieSynchronizationConfiguration omitted.
+
 // se_EncryptionContextMap omitted.
 
 // se_IdentityProviderDetails omitted.
@@ -5661,6 +5052,12 @@ const de_CertificateSummaryList = (output: any, context: __SerdeContext): Certif
     });
   return retVal;
 };
+
+// de_CookieSpecification omitted.
+
+// de_CookieSpecifications omitted.
+
+// de_CookieSynchronizationConfiguration omitted.
 
 // de_IdentityProvider omitted.
 
@@ -5823,6 +5220,19 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _bSA = "browserSettingsArn";
+const _iASA = "ipAccessSettingsArn";
+const _mR = "maxResults";
+const _nSA = "networkSettingsArn";
+const _nT = "nextToken";
+const _rAS = "retryAfterSeconds";
+const _ra = "retry-after";
+const _t = "thumbprint";
+const _tK = "tagKeys";
+const _tSA = "trustStoreArn";
+const _uALSA = "userAccessLoggingSettingsArn";
+const _uSA = "userSettingsArn";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

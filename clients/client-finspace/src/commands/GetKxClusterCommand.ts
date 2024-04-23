@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { FinspaceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FinspaceClient";
 import { GetKxClusterRequest, GetKxClusterResponse } from "../models/models_0";
 import { de_GetKxClusterCommand, se_GetKxClusterCommand } from "../protocols/Aws_restJson1";
@@ -53,7 +45,18 @@ export interface GetKxClusterCommandOutput extends GetKxClusterResponse, __Metad
  * //   status: "PENDING" || "CREATING" || "CREATE_FAILED" || "RUNNING" || "UPDATING" || "DELETING" || "DELETED" || "DELETE_FAILED",
  * //   statusReason: "STRING_VALUE",
  * //   clusterName: "STRING_VALUE",
- * //   clusterType: "HDB" || "RDB" || "GATEWAY",
+ * //   clusterType: "HDB" || "RDB" || "GATEWAY" || "GP" || "TICKERPLANT",
+ * //   tickerplantLogConfiguration: { // TickerplantLogConfiguration
+ * //     tickerplantLogVolumes: [ // TickerplantLogVolumes
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
+ * //   volumes: [ // Volumes
+ * //     { // Volume
+ * //       volumeName: "STRING_VALUE",
+ * //       volumeType: "NAS_1",
+ * //     },
+ * //   ],
  * //   databases: [ // KxDatabaseConfigurations
  * //     { // KxDatabaseConfiguration
  * //       databaseName: "STRING_VALUE", // required
@@ -63,9 +66,24 @@ export interface GetKxClusterCommandOutput extends GetKxClusterResponse, __Metad
  * //           dbPaths: [ // DbPaths // required
  * //             "STRING_VALUE",
  * //           ],
+ * //           dataviewName: "STRING_VALUE",
  * //         },
  * //       ],
  * //       changesetId: "STRING_VALUE",
+ * //       dataviewName: "STRING_VALUE",
+ * //       dataviewConfiguration: { // KxDataviewConfiguration
+ * //         dataviewName: "STRING_VALUE",
+ * //         dataviewVersionId: "STRING_VALUE",
+ * //         changesetId: "STRING_VALUE",
+ * //         segmentConfigurations: [ // KxDataviewSegmentConfigurationList
+ * //           { // KxDataviewSegmentConfiguration
+ * //             dbPaths: [ // SegmentConfigurationDbPathList // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             volumeName: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * //   cacheStorageConfigurations: [ // KxCacheStorageConfigurations
@@ -113,12 +131,20 @@ export interface GetKxClusterCommandOutput extends GetKxClusterResponse, __Metad
  * //   executionRole: "STRING_VALUE",
  * //   lastModifiedTimestamp: new Date("TIMESTAMP"),
  * //   savedownStorageConfiguration: { // KxSavedownStorageConfiguration
- * //     type: "SDS01", // required
- * //     size: Number("int"), // required
+ * //     type: "SDS01",
+ * //     size: Number("int"),
+ * //     volumeName: "STRING_VALUE",
  * //   },
  * //   azMode: "SINGLE" || "MULTI",
  * //   availabilityZoneId: "STRING_VALUE",
  * //   createdTimestamp: new Date("TIMESTAMP"),
+ * //   scalingGroupConfiguration: { // KxScalingGroupConfiguration
+ * //     scalingGroupName: "STRING_VALUE", // required
+ * //     memoryLimit: Number("int"),
+ * //     memoryReservation: Number("int"), // required
+ * //     nodeCount: Number("int"), // required
+ * //     cpu: Number("double"),
+ * //   },
  * // };
  *
  * ```
@@ -155,77 +181,26 @@ export interface GetKxClusterCommandOutput extends GetKxClusterResponse, __Metad
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
  */
-export class GetKxClusterCommand extends $Command<
-  GetKxClusterCommandInput,
-  GetKxClusterCommandOutput,
-  FinspaceClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetKxClusterCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: FinspaceClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetKxClusterCommandInput, GetKxClusterCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GetKxClusterCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "FinspaceClient";
-    const commandName = "GetKxClusterCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetKxClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetKxClusterCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetKxClusterCommandOutput> {
-    return de_GetKxClusterCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetKxClusterCommand extends $Command
+  .classBuilder<
+    GetKxClusterCommandInput,
+    GetKxClusterCommandOutput,
+    FinspaceClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: FinspaceClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSHabaneroManagementService", "GetKxCluster", {})
+  .n("FinspaceClient", "GetKxClusterCommand")
+  .f(void 0, void 0)
+  .ser(se_GetKxClusterCommand)
+  .de(de_GetKxClusterCommand)
+  .build() {}

@@ -243,6 +243,10 @@ import {
   UpdateRepositoryDescriptionCommandOutput,
 } from "../commands/UpdateRepositoryDescriptionCommand";
 import {
+  UpdateRepositoryEncryptionKeyCommandInput,
+  UpdateRepositoryEncryptionKeyCommandOutput,
+} from "../commands/UpdateRepositoryEncryptionKeyCommand";
+import {
   UpdateRepositoryNameCommandInput,
   UpdateRepositoryNameCommandOutput,
 } from "../commands/UpdateRepositoryNameCommand";
@@ -322,6 +326,8 @@ import {
   EncryptionIntegrityChecksFailedException,
   EncryptionKeyAccessDeniedException,
   EncryptionKeyDisabledException,
+  EncryptionKeyInvalidIdException,
+  EncryptionKeyInvalidUsageException,
   EncryptionKeyNotFoundException,
   EncryptionKeyUnavailableException,
   EvaluatePullRequestApprovalRulesInput,
@@ -369,7 +375,6 @@ import {
   InvalidApprovalRuleTemplateContentException,
   InvalidApprovalRuleTemplateDescriptionException,
   InvalidApprovalRuleTemplateNameException,
-  InvalidAuthorArnException,
   InvalidBlobIdException,
   InvalidBranchNameException,
   InvalidClientRequestTokenException,
@@ -393,7 +398,6 @@ import {
   InvalidPathException,
   InvalidPullRequestEventTypeException,
   InvalidPullRequestIdException,
-  InvalidPullRequestStatusException,
   InvalidReactionUserArnException,
   InvalidReferenceNameException,
   InvalidReplacementContentException,
@@ -411,7 +415,6 @@ import {
   ListAssociatedApprovalRuleTemplatesForRepositoryInput,
   ListBranchesInput,
   ListFileCommitHistoryRequest,
-  ListPullRequestsInput,
   Location,
   ManualMergeRequiredException,
   MaximumConflictResolutionEntriesExceededException,
@@ -475,12 +478,15 @@ import {
   CommentContentRequiredException,
   CommentContentSizeLimitExceededException,
   CommentNotCreatedByCallerException,
+  EncryptionKeyRequiredException,
   FileContentRequiredException,
   InvalidApprovalStateException,
+  InvalidAuthorArnException,
   InvalidFileLocationException,
   InvalidFilePositionException,
   InvalidOrderException,
   InvalidOverrideStatusException,
+  InvalidPullRequestStatusException,
   InvalidPullRequestStatusUpdateException,
   InvalidReactionValueException,
   InvalidRelativeFileVersionEnumException,
@@ -495,6 +501,7 @@ import {
   InvalidSortByException,
   InvalidTagKeysListException,
   InvalidTargetBranchException,
+  ListPullRequestsInput,
   ListRepositoriesForApprovalRuleTemplateInput,
   ListRepositoriesInput,
   ListTagsForResourceInput,
@@ -559,6 +566,7 @@ import {
   UpdatePullRequestTitleInput,
   UpdatePullRequestTitleOutput,
   UpdateRepositoryDescriptionInput,
+  UpdateRepositoryEncryptionKeyInput,
   UpdateRepositoryNameInput,
 } from "../models/models_1";
 
@@ -1558,6 +1566,19 @@ export const se_UpdateRepositoryDescriptionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateRepositoryDescription");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateRepositoryEncryptionKeyCommand
+ */
+export const se_UpdateRepositoryEncryptionKeyCommand = async (
+  input: UpdateRepositoryEncryptionKeyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateRepositoryEncryptionKey");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2595,6 +2616,12 @@ const de_CreateRepositoryCommandError = async (
     case "EncryptionKeyDisabledException":
     case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
       throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
+    case "EncryptionKeyInvalidIdException":
+    case "com.amazonaws.codecommit#EncryptionKeyInvalidIdException":
+      throw await de_EncryptionKeyInvalidIdExceptionRes(parsedOutput, context);
+    case "EncryptionKeyInvalidUsageException":
+    case "com.amazonaws.codecommit#EncryptionKeyInvalidUsageException":
+      throw await de_EncryptionKeyInvalidUsageExceptionRes(parsedOutput, context);
     case "EncryptionKeyNotFoundException":
     case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
       throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
@@ -8098,6 +8125,82 @@ const de_UpdateRepositoryDescriptionCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateRepositoryEncryptionKeyCommand
+ */
+export const de_UpdateRepositoryEncryptionKeyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRepositoryEncryptionKeyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateRepositoryEncryptionKeyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateRepositoryEncryptionKeyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateRepositoryEncryptionKeyCommandError
+ */
+const de_UpdateRepositoryEncryptionKeyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRepositoryEncryptionKeyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "EncryptionIntegrityChecksFailedException":
+    case "com.amazonaws.codecommit#EncryptionIntegrityChecksFailedException":
+      throw await de_EncryptionIntegrityChecksFailedExceptionRes(parsedOutput, context);
+    case "EncryptionKeyAccessDeniedException":
+    case "com.amazonaws.codecommit#EncryptionKeyAccessDeniedException":
+      throw await de_EncryptionKeyAccessDeniedExceptionRes(parsedOutput, context);
+    case "EncryptionKeyDisabledException":
+    case "com.amazonaws.codecommit#EncryptionKeyDisabledException":
+      throw await de_EncryptionKeyDisabledExceptionRes(parsedOutput, context);
+    case "EncryptionKeyInvalidIdException":
+    case "com.amazonaws.codecommit#EncryptionKeyInvalidIdException":
+      throw await de_EncryptionKeyInvalidIdExceptionRes(parsedOutput, context);
+    case "EncryptionKeyInvalidUsageException":
+    case "com.amazonaws.codecommit#EncryptionKeyInvalidUsageException":
+      throw await de_EncryptionKeyInvalidUsageExceptionRes(parsedOutput, context);
+    case "EncryptionKeyNotFoundException":
+    case "com.amazonaws.codecommit#EncryptionKeyNotFoundException":
+      throw await de_EncryptionKeyNotFoundExceptionRes(parsedOutput, context);
+    case "EncryptionKeyRequiredException":
+    case "com.amazonaws.codecommit#EncryptionKeyRequiredException":
+      throw await de_EncryptionKeyRequiredExceptionRes(parsedOutput, context);
+    case "EncryptionKeyUnavailableException":
+    case "com.amazonaws.codecommit#EncryptionKeyUnavailableException":
+      throw await de_EncryptionKeyUnavailableExceptionRes(parsedOutput, context);
+    case "InvalidRepositoryNameException":
+    case "com.amazonaws.codecommit#InvalidRepositoryNameException":
+      throw await de_InvalidRepositoryNameExceptionRes(parsedOutput, context);
+    case "RepositoryDoesNotExistException":
+    case "com.amazonaws.codecommit#RepositoryDoesNotExistException":
+      throw await de_RepositoryDoesNotExistExceptionRes(parsedOutput, context);
+    case "RepositoryNameRequiredException":
+    case "com.amazonaws.codecommit#RepositoryNameRequiredException":
+      throw await de_RepositoryNameRequiredExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1UpdateRepositoryNameCommand
  */
 export const de_UpdateRepositoryNameCommand = async (
@@ -8806,6 +8909,38 @@ const de_EncryptionKeyDisabledExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1EncryptionKeyInvalidIdExceptionRes
+ */
+const de_EncryptionKeyInvalidIdExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<EncryptionKeyInvalidIdException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new EncryptionKeyInvalidIdException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1EncryptionKeyInvalidUsageExceptionRes
+ */
+const de_EncryptionKeyInvalidUsageExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<EncryptionKeyInvalidUsageException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new EncryptionKeyInvalidUsageException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1EncryptionKeyNotFoundExceptionRes
  */
 const de_EncryptionKeyNotFoundExceptionRes = async (
@@ -8815,6 +8950,22 @@ const de_EncryptionKeyNotFoundExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new EncryptionKeyNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1EncryptionKeyRequiredExceptionRes
+ */
+const de_EncryptionKeyRequiredExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<EncryptionKeyRequiredException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new EncryptionKeyRequiredException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -11512,6 +11663,8 @@ const se_ReplaceContentEntry = (input: ReplaceContentEntry, context: __SerdeCont
 
 // se_UpdateRepositoryDescriptionInput omitted.
 
+// se_UpdateRepositoryEncryptionKeyInput omitted.
+
 // se_UpdateRepositoryNameInput omitted.
 
 // de_ActorDoesNotExistException omitted.
@@ -11622,11 +11775,16 @@ const de_ApprovalRuleTemplate = (output: any, context: __SerdeContext): Approval
 
 // de_BatchGetCommitsOutput omitted.
 
+// de_BatchGetRepositoriesError omitted.
+
+// de_BatchGetRepositoriesErrorsList omitted.
+
 /**
  * deserializeAws_json1_1BatchGetRepositoriesOutput
  */
 const de_BatchGetRepositoriesOutput = (output: any, context: __SerdeContext): BatchGetRepositoriesOutput => {
   return take(output, {
+    errors: _json,
     repositories: (_: any) => de_RepositoryMetadataList(_, context),
     repositoriesNotFound: _json,
   }) as any;
@@ -11876,7 +12034,13 @@ const de_DescribePullRequestEventsOutput = (output: any, context: __SerdeContext
 
 // de_EncryptionKeyDisabledException omitted.
 
+// de_EncryptionKeyInvalidIdException omitted.
+
+// de_EncryptionKeyInvalidUsageException omitted.
+
 // de_EncryptionKeyNotFoundException omitted.
+
+// de_EncryptionKeyRequiredException omitted.
 
 // de_EncryptionKeyUnavailableException omitted.
 
@@ -12447,6 +12611,7 @@ const de_RepositoryMetadata = (output: any, context: __SerdeContext): Repository
     cloneUrlSsh: __expectString,
     creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     defaultBranch: __expectString,
+    kmsKeyId: __expectString,
     lastModifiedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     repositoryDescription: __expectString,
     repositoryId: __expectString,
@@ -12640,6 +12805,8 @@ const de_UpdatePullRequestTitleOutput = (output: any, context: __SerdeContext): 
     pullRequest: (_: any) => de_PullRequest(_, context),
   }) as any;
 };
+
+// de_UpdateRepositoryEncryptionKeyOutput omitted.
 
 // de_UserInfo omitted.
 

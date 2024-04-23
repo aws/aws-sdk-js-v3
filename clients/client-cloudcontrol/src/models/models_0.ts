@@ -132,7 +132,7 @@ export interface ProgressEvent {
    * @public
    * <p>The resource operation type.</p>
    */
-  Operation?: Operation | string;
+  Operation?: Operation;
 
   /**
    * @public
@@ -166,7 +166,7 @@ export interface ProgressEvent {
    *             </li>
    *          </ul>
    */
-  OperationStatus?: OperationStatus | string;
+  OperationStatus?: OperationStatus;
 
   /**
    * @public
@@ -193,7 +193,7 @@ export interface ProgressEvent {
    *          <p>For error code definitions, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-test-contract-errors.html">Handler error codes</a> in the <i>CloudFormation Command
    *         Line Interface User Guide for Extension Development</i>.</p>
    */
-  ErrorCode?: HandlerErrorCode | string;
+  ErrorCode?: HandlerErrorCode;
 
   /**
    * @public
@@ -969,7 +969,7 @@ export interface ResourceRequestStatusFilter {
    * @public
    * <p>The operation types to include in the filter.</p>
    */
-  Operations?: (Operation | string)[];
+  Operations?: Operation[];
 
   /**
    * @public
@@ -1002,7 +1002,7 @@ export interface ResourceRequestStatusFilter {
    *             </li>
    *          </ul>
    */
-  OperationStatuses?: (OperationStatus | string)[];
+  OperationStatuses?: OperationStatus[];
 }
 
 /**

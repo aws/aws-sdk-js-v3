@@ -1,21 +1,12 @@
 // smithy-typescript generated code
 import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
 import { getWebSocketPlugin } from "@aws-sdk/middleware-websocket";
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  EventStreamSerdeContext as __EventStreamSerdeContext,
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   StartFaceLivenessSessionRequest,
   StartFaceLivenessSessionRequestFilterSensitiveLog,
@@ -57,6 +48,8 @@ export interface StartFaceLivenessSessionCommandOutput extends StartFaceLiveness
  *          <p>The maximum video size for Face Liveness is 10 MB. Face Liveness throws a
  *         <code>ValidationException</code> if the video does not match the necessary formatting and
  *       size parameters. </p>
+ *          <p>StartFaceLivenessSession supports the websockets and <a href="https://aws.amazon.com/sdk-for-javascript/">the AWS SDK
+ *        for JavaScript</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -144,6 +137,7 @@ export interface StartFaceLivenessSessionCommandOutput extends StartFaceLiveness
  * //               OvalIouHeightThreshold: Number("float"),
  * //               FaceIouWidthThreshold: Number("float"),
  * //               FaceIouHeightThreshold: Number("float"),
+ * //               OvalFitTimeout: Number("int"),
  * //             },
  * //             ColorSequences: [ // ColorSequences // required
  * //               { // ColorSequence
@@ -224,89 +218,36 @@ export interface StartFaceLivenessSessionCommandOutput extends StartFaceLiveness
  * <p>Base exception class for all service exceptions from RekognitionStreaming service.</p>
  *
  */
-export class StartFaceLivenessSessionCommand extends $Command<
-  StartFaceLivenessSessionCommandInput,
-  StartFaceLivenessSessionCommandOutput,
-  RekognitionStreamingClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StartFaceLivenessSessionCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RekognitionStreamingClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StartFaceLivenessSessionCommandInput, StartFaceLivenessSessionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartFaceLivenessSessionCommand.getEndpointParameterInstructions())
-    );
-    this.middlewareStack.use(getEventStreamPlugin(configuration));
-    this.middlewareStack.use(
-      getWebSocketPlugin(configuration, { headerPrefix: "x-amz-rekognition-streaming-liveness-" })
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RekognitionStreamingClient";
-    const commandName = "StartFaceLivenessSessionCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: StartFaceLivenessSessionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartFaceLivenessSessionResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: StartFaceLivenessSessionCommandInput,
-    context: __SerdeContext & __EventStreamSerdeContext
-  ): Promise<__HttpRequest> {
-    return se_StartFaceLivenessSessionCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext & __EventStreamSerdeContext
-  ): Promise<StartFaceLivenessSessionCommandOutput> {
-    return de_StartFaceLivenessSessionCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class StartFaceLivenessSessionCommand extends $Command
+  .classBuilder<
+    StartFaceLivenessSessionCommandInput,
+    StartFaceLivenessSessionCommandOutput,
+    RekognitionStreamingClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: RekognitionStreamingClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getEventStreamPlugin(config),
+      getWebSocketPlugin(config, { headerPrefix: "x-amz-rekognition-streaming-liveness-" }),
+    ];
+  })
+  .s("RekognitionStreamingService", "StartFaceLivenessSession", {
+    /**
+     * @internal
+     */
+    eventStream: {
+      input: true,
+      output: true,
+    },
+  })
+  .n("RekognitionStreamingClient", "StartFaceLivenessSessionCommand")
+  .f(StartFaceLivenessSessionRequestFilterSensitiveLog, StartFaceLivenessSessionResponseFilterSensitiveLog)
+  .ser(se_StartFaceLivenessSessionCommand)
+  .de(de_StartFaceLivenessSessionCommand)
+  .build() {}

@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -127,6 +125,10 @@ import {
   CreateHsmConfigurationCommandOutput,
 } from "./commands/CreateHsmConfigurationCommand";
 import {
+  CreateRedshiftIdcApplicationCommandInput,
+  CreateRedshiftIdcApplicationCommandOutput,
+} from "./commands/CreateRedshiftIdcApplicationCommand";
+import {
   CreateScheduledActionCommandInput,
   CreateScheduledActionCommandOutput,
 } from "./commands/CreateScheduledActionCommand";
@@ -186,6 +188,14 @@ import {
   DeleteHsmConfigurationCommandOutput,
 } from "./commands/DeleteHsmConfigurationCommand";
 import { DeletePartnerCommandInput, DeletePartnerCommandOutput } from "./commands/DeletePartnerCommand";
+import {
+  DeleteRedshiftIdcApplicationCommandInput,
+  DeleteRedshiftIdcApplicationCommandOutput,
+} from "./commands/DeleteRedshiftIdcApplicationCommand";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
 import {
   DeleteScheduledActionCommandInput,
   DeleteScheduledActionCommandOutput,
@@ -284,6 +294,10 @@ import {
   DescribeHsmConfigurationsCommandOutput,
 } from "./commands/DescribeHsmConfigurationsCommand";
 import {
+  DescribeInboundIntegrationsCommandInput,
+  DescribeInboundIntegrationsCommandOutput,
+} from "./commands/DescribeInboundIntegrationsCommand";
+import {
   DescribeLoggingStatusCommandInput,
   DescribeLoggingStatusCommandOutput,
 } from "./commands/DescribeLoggingStatusCommand";
@@ -296,6 +310,10 @@ import {
   DescribeOrderableClusterOptionsCommandOutput,
 } from "./commands/DescribeOrderableClusterOptionsCommand";
 import { DescribePartnersCommandInput, DescribePartnersCommandOutput } from "./commands/DescribePartnersCommand";
+import {
+  DescribeRedshiftIdcApplicationsCommandInput,
+  DescribeRedshiftIdcApplicationsCommandOutput,
+} from "./commands/DescribeRedshiftIdcApplicationsCommand";
 import {
   DescribeReservedNodeExchangeStatusCommandInput,
   DescribeReservedNodeExchangeStatusCommandOutput,
@@ -343,6 +361,10 @@ import {
 import { EnableLoggingCommandInput, EnableLoggingCommandOutput } from "./commands/EnableLoggingCommand";
 import { EnableSnapshotCopyCommandInput, EnableSnapshotCopyCommandOutput } from "./commands/EnableSnapshotCopyCommand";
 import {
+  FailoverPrimaryComputeCommandInput,
+  FailoverPrimaryComputeCommandOutput,
+} from "./commands/FailoverPrimaryComputeCommand";
+import {
   GetClusterCredentialsCommandInput,
   GetClusterCredentialsCommandOutput,
 } from "./commands/GetClusterCredentialsCommand";
@@ -358,6 +380,7 @@ import {
   GetReservedNodeExchangeOfferingsCommandInput,
   GetReservedNodeExchangeOfferingsCommandOutput,
 } from "./commands/GetReservedNodeExchangeOfferingsCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
 import {
   ModifyAquaConfigurationCommandInput,
   ModifyAquaConfigurationCommandOutput,
@@ -408,6 +431,10 @@ import {
   ModifyEventSubscriptionCommandOutput,
 } from "./commands/ModifyEventSubscriptionCommand";
 import {
+  ModifyRedshiftIdcApplicationCommandInput,
+  ModifyRedshiftIdcApplicationCommandOutput,
+} from "./commands/ModifyRedshiftIdcApplicationCommand";
+import {
   ModifyScheduledActionCommandInput,
   ModifyScheduledActionCommandOutput,
 } from "./commands/ModifyScheduledActionCommand";
@@ -425,6 +452,7 @@ import {
   PurchaseReservedNodeOfferingCommandInput,
   PurchaseReservedNodeOfferingCommandOutput,
 } from "./commands/PurchaseReservedNodeOfferingCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import { RebootClusterCommandInput, RebootClusterCommandOutput } from "./commands/RebootClusterCommand";
 import { RejectDataShareCommandInput, RejectDataShareCommandOutput } from "./commands/RejectDataShareCommand";
 import {
@@ -498,6 +526,7 @@ export type ServiceInputTypes =
   | CreateEventSubscriptionCommandInput
   | CreateHsmClientCertificateCommandInput
   | CreateHsmConfigurationCommandInput
+  | CreateRedshiftIdcApplicationCommandInput
   | CreateScheduledActionCommandInput
   | CreateSnapshotCopyGrantCommandInput
   | CreateSnapshotScheduleCommandInput
@@ -516,6 +545,8 @@ export type ServiceInputTypes =
   | DeleteHsmClientCertificateCommandInput
   | DeleteHsmConfigurationCommandInput
   | DeletePartnerCommandInput
+  | DeleteRedshiftIdcApplicationCommandInput
+  | DeleteResourcePolicyCommandInput
   | DeleteScheduledActionCommandInput
   | DeleteSnapshotCopyGrantCommandInput
   | DeleteSnapshotScheduleCommandInput
@@ -544,10 +575,12 @@ export type ServiceInputTypes =
   | DescribeEventsCommandInput
   | DescribeHsmClientCertificatesCommandInput
   | DescribeHsmConfigurationsCommandInput
+  | DescribeInboundIntegrationsCommandInput
   | DescribeLoggingStatusCommandInput
   | DescribeNodeConfigurationOptionsCommandInput
   | DescribeOrderableClusterOptionsCommandInput
   | DescribePartnersCommandInput
+  | DescribeRedshiftIdcApplicationsCommandInput
   | DescribeReservedNodeExchangeStatusCommandInput
   | DescribeReservedNodeOfferingsCommandInput
   | DescribeReservedNodesCommandInput
@@ -564,10 +597,12 @@ export type ServiceInputTypes =
   | DisassociateDataShareConsumerCommandInput
   | EnableLoggingCommandInput
   | EnableSnapshotCopyCommandInput
+  | FailoverPrimaryComputeCommandInput
   | GetClusterCredentialsCommandInput
   | GetClusterCredentialsWithIAMCommandInput
   | GetReservedNodeExchangeConfigurationOptionsCommandInput
   | GetReservedNodeExchangeOfferingsCommandInput
+  | GetResourcePolicyCommandInput
   | ModifyAquaConfigurationCommandInput
   | ModifyAuthenticationProfileCommandInput
   | ModifyClusterCommandInput
@@ -581,12 +616,14 @@ export type ServiceInputTypes =
   | ModifyCustomDomainAssociationCommandInput
   | ModifyEndpointAccessCommandInput
   | ModifyEventSubscriptionCommandInput
+  | ModifyRedshiftIdcApplicationCommandInput
   | ModifyScheduledActionCommandInput
   | ModifySnapshotCopyRetentionPeriodCommandInput
   | ModifySnapshotScheduleCommandInput
   | ModifyUsageLimitCommandInput
   | PauseClusterCommandInput
   | PurchaseReservedNodeOfferingCommandInput
+  | PutResourcePolicyCommandInput
   | RebootClusterCommandInput
   | RejectDataShareCommandInput
   | ResetClusterParameterGroupCommandInput
@@ -626,6 +663,7 @@ export type ServiceOutputTypes =
   | CreateEventSubscriptionCommandOutput
   | CreateHsmClientCertificateCommandOutput
   | CreateHsmConfigurationCommandOutput
+  | CreateRedshiftIdcApplicationCommandOutput
   | CreateScheduledActionCommandOutput
   | CreateSnapshotCopyGrantCommandOutput
   | CreateSnapshotScheduleCommandOutput
@@ -644,6 +682,8 @@ export type ServiceOutputTypes =
   | DeleteHsmClientCertificateCommandOutput
   | DeleteHsmConfigurationCommandOutput
   | DeletePartnerCommandOutput
+  | DeleteRedshiftIdcApplicationCommandOutput
+  | DeleteResourcePolicyCommandOutput
   | DeleteScheduledActionCommandOutput
   | DeleteSnapshotCopyGrantCommandOutput
   | DeleteSnapshotScheduleCommandOutput
@@ -672,10 +712,12 @@ export type ServiceOutputTypes =
   | DescribeEventsCommandOutput
   | DescribeHsmClientCertificatesCommandOutput
   | DescribeHsmConfigurationsCommandOutput
+  | DescribeInboundIntegrationsCommandOutput
   | DescribeLoggingStatusCommandOutput
   | DescribeNodeConfigurationOptionsCommandOutput
   | DescribeOrderableClusterOptionsCommandOutput
   | DescribePartnersCommandOutput
+  | DescribeRedshiftIdcApplicationsCommandOutput
   | DescribeReservedNodeExchangeStatusCommandOutput
   | DescribeReservedNodeOfferingsCommandOutput
   | DescribeReservedNodesCommandOutput
@@ -692,10 +734,12 @@ export type ServiceOutputTypes =
   | DisassociateDataShareConsumerCommandOutput
   | EnableLoggingCommandOutput
   | EnableSnapshotCopyCommandOutput
+  | FailoverPrimaryComputeCommandOutput
   | GetClusterCredentialsCommandOutput
   | GetClusterCredentialsWithIAMCommandOutput
   | GetReservedNodeExchangeConfigurationOptionsCommandOutput
   | GetReservedNodeExchangeOfferingsCommandOutput
+  | GetResourcePolicyCommandOutput
   | ModifyAquaConfigurationCommandOutput
   | ModifyAuthenticationProfileCommandOutput
   | ModifyClusterCommandOutput
@@ -709,12 +753,14 @@ export type ServiceOutputTypes =
   | ModifyCustomDomainAssociationCommandOutput
   | ModifyEndpointAccessCommandOutput
   | ModifyEventSubscriptionCommandOutput
+  | ModifyRedshiftIdcApplicationCommandOutput
   | ModifyScheduledActionCommandOutput
   | ModifySnapshotCopyRetentionPeriodCommandOutput
   | ModifySnapshotScheduleCommandOutput
   | ModifyUsageLimitCommandOutput
   | PauseClusterCommandOutput
   | PurchaseReservedNodeOfferingCommandOutput
+  | PutResourcePolicyCommandOutput
   | RebootClusterCommandOutput
   | RejectDataShareCommandOutput
   | ResetClusterParameterGroupCommandOutput
@@ -838,6 +884,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

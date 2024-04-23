@@ -44,6 +44,9 @@
  *                <p>Amazon SageMaker Serverless endpoint provisioned concurrency</p>
  *             </li>
  *             <li>
+ *                <p>Amazon SageMaker inference components</p>
+ *             </li>
+ *             <li>
  *                <p>Spot Fleets (Amazon EC2)</p>
  *             </li>
  *             <li>
@@ -81,8 +84,12 @@
 export * from "./ApplicationAutoScalingClient";
 export * from "./ApplicationAutoScaling";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { ApplicationAutoScalingExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { ApplicationAutoScalingServiceException } from "./models/ApplicationAutoScalingServiceException";

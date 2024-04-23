@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreatePipelineRequest, CreatePipelineResponse } from "../models/models_0";
 import { OSISClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OSISClient";
 import { de_CreatePipelineCommand, se_CreatePipelineCommand } from "../protocols/Aws_restJson1";
@@ -62,6 +54,12 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   BufferOptions: { // BufferOptions
+ *     PersistentBufferEnabled: true || false, // required
+ *   },
+ *   EncryptionAtRestOptions: { // EncryptionAtRestOptions
+ *     KmsKeyArn: "STRING_VALUE", // required
+ *   },
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required
@@ -107,6 +105,24 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  * //         },
  * //       },
  * //     ],
+ * //     BufferOptions: { // BufferOptions
+ * //       PersistentBufferEnabled: true || false, // required
+ * //     },
+ * //     EncryptionAtRestOptions: { // EncryptionAtRestOptions
+ * //       KmsKeyArn: "STRING_VALUE", // required
+ * //     },
+ * //     ServiceVpcEndpoints: [ // ServiceVpcEndpointsList
+ * //       { // ServiceVpcEndpoint
+ * //         ServiceName: "OPENSEARCH_SERVERLESS",
+ * //         VpcEndpointId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
  * //   },
  * // };
  *
@@ -131,6 +147,9 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>You attempted to create a resource that already exists.</p>
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>You attempted to access or delete a resource that does not exist.</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p>An exception for missing or invalid input fields.</p>
  *
@@ -138,79 +157,26 @@ export interface CreatePipelineCommandOutput extends CreatePipelineResponse, __M
  * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
  */
-export class CreatePipelineCommand extends $Command<
-  CreatePipelineCommandInput,
-  CreatePipelineCommandOutput,
-  OSISClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreatePipelineCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: OSISClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreatePipelineCommandInput, CreatePipelineCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreatePipelineCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "OSISClient";
-    const commandName = "CreatePipelineCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreatePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreatePipelineCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreatePipelineCommandOutput> {
-    return de_CreatePipelineCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreatePipelineCommand extends $Command
+  .classBuilder<
+    CreatePipelineCommandInput,
+    CreatePipelineCommandOutput,
+    OSISClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: OSISClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonOpenSearchIngestionService", "CreatePipeline", {})
+  .n("OSISClient", "CreatePipelineCommand")
+  .f(void 0, void 0)
+  .ser(se_CreatePipelineCommand)
+  .de(de_CreatePipelineCommand)
+  .build() {}

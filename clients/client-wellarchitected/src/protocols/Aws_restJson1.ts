@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -31,6 +32,14 @@ import { CreateLensVersionCommandInput, CreateLensVersionCommandOutput } from ".
 import { CreateMilestoneCommandInput, CreateMilestoneCommandOutput } from "../commands/CreateMilestoneCommand";
 import { CreateProfileCommandInput, CreateProfileCommandOutput } from "../commands/CreateProfileCommand";
 import { CreateProfileShareCommandInput, CreateProfileShareCommandOutput } from "../commands/CreateProfileShareCommand";
+import {
+  CreateReviewTemplateCommandInput,
+  CreateReviewTemplateCommandOutput,
+} from "../commands/CreateReviewTemplateCommand";
+import {
+  CreateTemplateShareCommandInput,
+  CreateTemplateShareCommandOutput,
+} from "../commands/CreateTemplateShareCommand";
 import { CreateWorkloadCommandInput, CreateWorkloadCommandOutput } from "../commands/CreateWorkloadCommand";
 import {
   CreateWorkloadShareCommandInput,
@@ -40,6 +49,14 @@ import { DeleteLensCommandInput, DeleteLensCommandOutput } from "../commands/Del
 import { DeleteLensShareCommandInput, DeleteLensShareCommandOutput } from "../commands/DeleteLensShareCommand";
 import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "../commands/DeleteProfileCommand";
 import { DeleteProfileShareCommandInput, DeleteProfileShareCommandOutput } from "../commands/DeleteProfileShareCommand";
+import {
+  DeleteReviewTemplateCommandInput,
+  DeleteReviewTemplateCommandOutput,
+} from "../commands/DeleteReviewTemplateCommand";
+import {
+  DeleteTemplateShareCommandInput,
+  DeleteTemplateShareCommandOutput,
+} from "../commands/DeleteTemplateShareCommand";
 import { DeleteWorkloadCommandInput, DeleteWorkloadCommandOutput } from "../commands/DeleteWorkloadCommand";
 import {
   DeleteWorkloadShareCommandInput,
@@ -69,6 +86,15 @@ import {
 import { GetMilestoneCommandInput, GetMilestoneCommandOutput } from "../commands/GetMilestoneCommand";
 import { GetProfileCommandInput, GetProfileCommandOutput } from "../commands/GetProfileCommand";
 import { GetProfileTemplateCommandInput, GetProfileTemplateCommandOutput } from "../commands/GetProfileTemplateCommand";
+import {
+  GetReviewTemplateAnswerCommandInput,
+  GetReviewTemplateAnswerCommandOutput,
+} from "../commands/GetReviewTemplateAnswerCommand";
+import { GetReviewTemplateCommandInput, GetReviewTemplateCommandOutput } from "../commands/GetReviewTemplateCommand";
+import {
+  GetReviewTemplateLensReviewCommandInput,
+  GetReviewTemplateLensReviewCommandOutput,
+} from "../commands/GetReviewTemplateLensReviewCommand";
 import { GetWorkloadCommandInput, GetWorkloadCommandOutput } from "../commands/GetWorkloadCommand";
 import { ImportLensCommandInput, ImportLensCommandOutput } from "../commands/ImportLensCommand";
 import { ListAnswersCommandInput, ListAnswersCommandOutput } from "../commands/ListAnswersCommand";
@@ -90,6 +116,14 @@ import {
 import { ListProfilesCommandInput, ListProfilesCommandOutput } from "../commands/ListProfilesCommand";
 import { ListProfileSharesCommandInput, ListProfileSharesCommandOutput } from "../commands/ListProfileSharesCommand";
 import {
+  ListReviewTemplateAnswersCommandInput,
+  ListReviewTemplateAnswersCommandOutput,
+} from "../commands/ListReviewTemplateAnswersCommand";
+import {
+  ListReviewTemplatesCommandInput,
+  ListReviewTemplatesCommandOutput,
+} from "../commands/ListReviewTemplatesCommand";
+import {
   ListShareInvitationsCommandInput,
   ListShareInvitationsCommandOutput,
 } from "../commands/ListShareInvitationsCommand";
@@ -97,6 +131,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { ListTemplateSharesCommandInput, ListTemplateSharesCommandOutput } from "../commands/ListTemplateSharesCommand";
 import { ListWorkloadsCommandInput, ListWorkloadsCommandOutput } from "../commands/ListWorkloadsCommand";
 import { ListWorkloadSharesCommandInput, ListWorkloadSharesCommandOutput } from "../commands/ListWorkloadSharesCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
@@ -108,6 +143,18 @@ import {
 } from "../commands/UpdateGlobalSettingsCommand";
 import { UpdateLensReviewCommandInput, UpdateLensReviewCommandOutput } from "../commands/UpdateLensReviewCommand";
 import { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "../commands/UpdateProfileCommand";
+import {
+  UpdateReviewTemplateAnswerCommandInput,
+  UpdateReviewTemplateAnswerCommandOutput,
+} from "../commands/UpdateReviewTemplateAnswerCommand";
+import {
+  UpdateReviewTemplateCommandInput,
+  UpdateReviewTemplateCommandOutput,
+} from "../commands/UpdateReviewTemplateCommand";
+import {
+  UpdateReviewTemplateLensReviewCommandInput,
+  UpdateReviewTemplateLensReviewCommandOutput,
+} from "../commands/UpdateReviewTemplateLensReviewCommand";
 import {
   UpdateShareInvitationCommandInput,
   UpdateShareInvitationCommandOutput,
@@ -122,6 +169,10 @@ import {
   UpgradeProfileVersionCommandInput,
   UpgradeProfileVersionCommandOutput,
 } from "../commands/UpgradeProfileVersionCommand";
+import {
+  UpgradeReviewTemplateLensReviewCommandInput,
+  UpgradeReviewTemplateLensReviewCommandOutput,
+} from "../commands/UpgradeReviewTemplateLensReviewCommand";
 import {
   AccessDeniedException,
   CheckDetail,
@@ -141,6 +192,9 @@ import {
   ProfileSummary,
   ProfileTemplate,
   ResourceNotFoundException,
+  ReviewTemplate,
+  ReviewTemplateLensReview,
+  ReviewTemplateSummary,
   ServiceQuotaExceededException,
   ThrottlingException,
   ValidationException,
@@ -157,28 +211,20 @@ export const se_AssociateLensesCommand = async (
   input: AssociateLensesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/associateLenses";
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  b.bp("/workloads/{WorkloadId}/associateLenses");
+  b.p("WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       LensAliases: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -188,28 +234,20 @@ export const se_AssociateProfilesCommand = async (
   input: AssociateProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/associateProfiles";
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  b.bp("/workloads/{WorkloadId}/associateProfiles");
+  b.p("WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       ProfileArns: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -219,13 +257,12 @@ export const se_CreateLensShareCommand = async (
   input: CreateLensShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/lenses/{LensAlias}/shares";
-  resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
+  b.bp("/lenses/{LensAlias}/shares");
+  b.p("LensAlias", () => input.LensAlias!, "{LensAlias}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -233,15 +270,8 @@ export const se_CreateLensShareCommand = async (
       SharedWith: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -251,13 +281,12 @@ export const se_CreateLensVersionCommand = async (
   input: CreateLensVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/lenses/{LensAlias}/versions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
+  b.bp("/lenses/{LensAlias}/versions");
+  b.p("LensAlias", () => input.LensAlias!, "{LensAlias}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -266,15 +295,8 @@ export const se_CreateLensVersionCommand = async (
       LensVersion: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -284,13 +306,12 @@ export const se_CreateMilestoneCommand = async (
   input: CreateMilestoneCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/milestones";
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  b.bp("/workloads/{WorkloadId}/milestones");
+  b.p("WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -298,15 +319,8 @@ export const se_CreateMilestoneCommand = async (
       MilestoneName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -316,11 +330,11 @@ export const se_CreateProfileCommand = async (
   input: CreateProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profiles";
+  b.bp("/profiles");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -331,15 +345,8 @@ export const se_CreateProfileCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -349,13 +356,12 @@ export const se_CreateProfileShareCommand = async (
   input: CreateProfileShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profiles/{ProfileArn}/shares";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ProfileArn", () => input.ProfileArn!, "{ProfileArn}", false);
+  b.bp("/profiles/{ProfileArn}/shares");
+  b.p("ProfileArn", () => input.ProfileArn!, "{ProfileArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -363,15 +369,59 @@ export const se_CreateProfileShareCommand = async (
       SharedWith: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateReviewTemplateCommand
+ */
+export const se_CreateReviewTemplateCommand = async (
+  input: CreateReviewTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/reviewTemplates");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      Description: [],
+      Lenses: (_) => _json(_),
+      Notes: [],
+      Tags: (_) => _json(_),
+      TemplateName: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateTemplateShareCommand
+ */
+export const se_CreateTemplateShareCommand = async (
+  input: CreateTemplateShareCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/templates/shares/{TemplateArn}");
+  b.p("TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      SharedWith: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -381,11 +431,11 @@ export const se_CreateWorkloadCommand = async (
   input: CreateWorkloadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads";
+  b.bp("/workloads");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -405,19 +455,13 @@ export const se_CreateWorkloadCommand = async (
       PillarPriorities: (_) => _json(_),
       ProfileArns: (_) => _json(_),
       ReviewOwner: [],
+      ReviewTemplateArns: (_) => _json(_),
       Tags: (_) => _json(_),
       WorkloadName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -427,13 +471,12 @@ export const se_CreateWorkloadShareCommand = async (
   input: CreateWorkloadShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/shares";
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  b.bp("/workloads/{WorkloadId}/shares");
+  b.p("WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -442,15 +485,8 @@ export const se_CreateWorkloadShareCommand = async (
       SharedWith: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -460,25 +496,17 @@ export const se_DeleteLensCommand = async (
   input: DeleteLensCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/lenses/{LensAlias}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
+  b.bp("/lenses/{LensAlias}");
+  b.p("LensAlias", () => input.LensAlias!, "{LensAlias}", false);
   const query: any = map({
-    ClientRequestToken: [, __expectNonNull(input.ClientRequestToken!, `ClientRequestToken`)],
-    LensStatus: [, __expectNonNull(input.LensStatus!, `LensStatus`)],
+    [_CRT]: [, __expectNonNull(input[_CRT]!, `ClientRequestToken`)],
+    [_LS]: [, __expectNonNull(input[_LS]!, `LensStatus`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -488,26 +516,17 @@ export const se_DeleteLensShareCommand = async (
   input: DeleteLensShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/lenses/{LensAlias}/shares/{ShareId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ShareId", () => input.ShareId!, "{ShareId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
+  b.bp("/lenses/{LensAlias}/shares/{ShareId}");
+  b.p("ShareId", () => input.ShareId!, "{ShareId}", false);
+  b.p("LensAlias", () => input.LensAlias!, "{LensAlias}", false);
   const query: any = map({
-    ClientRequestToken: [, __expectNonNull(input.ClientRequestToken!, `ClientRequestToken`)],
+    [_CRT]: [, __expectNonNull(input[_CRT]!, `ClientRequestToken`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -517,24 +536,16 @@ export const se_DeleteProfileCommand = async (
   input: DeleteProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profiles/{ProfileArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ProfileArn", () => input.ProfileArn!, "{ProfileArn}", false);
+  b.bp("/profiles/{ProfileArn}");
+  b.p("ProfileArn", () => input.ProfileArn!, "{ProfileArn}", false);
   const query: any = map({
-    ClientRequestToken: [, __expectNonNull(input.ClientRequestToken!, `ClientRequestToken`)],
+    [_CRT]: [, __expectNonNull(input[_CRT]!, `ClientRequestToken`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -544,26 +555,56 @@ export const se_DeleteProfileShareCommand = async (
   input: DeleteProfileShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profiles/{ProfileArn}/shares/{ShareId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ShareId", () => input.ShareId!, "{ShareId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "ProfileArn", () => input.ProfileArn!, "{ProfileArn}", false);
+  b.bp("/profiles/{ProfileArn}/shares/{ShareId}");
+  b.p("ShareId", () => input.ShareId!, "{ShareId}", false);
+  b.p("ProfileArn", () => input.ProfileArn!, "{ProfileArn}", false);
   const query: any = map({
-    ClientRequestToken: [, __expectNonNull(input.ClientRequestToken!, `ClientRequestToken`)],
+    [_CRT]: [, __expectNonNull(input[_CRT]!, `ClientRequestToken`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteReviewTemplateCommand
+ */
+export const se_DeleteReviewTemplateCommand = async (
+  input: DeleteReviewTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/reviewTemplates/{TemplateArn}");
+  b.p("TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  const query: any = map({
+    [_CRT]: [, __expectNonNull(input[_CRT]!, `ClientRequestToken`)],
   });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteTemplateShareCommand
+ */
+export const se_DeleteTemplateShareCommand = async (
+  input: DeleteTemplateShareCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/templates/shares/{TemplateArn}/{ShareId}");
+  b.p("ShareId", () => input.ShareId!, "{ShareId}", false);
+  b.p("TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  const query: any = map({
+    [_CRT]: [, __expectNonNull(input[_CRT]!, `ClientRequestToken`)],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -573,24 +614,16 @@ export const se_DeleteWorkloadCommand = async (
   input: DeleteWorkloadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  b.bp("/workloads/{WorkloadId}");
+  b.p("WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   const query: any = map({
-    ClientRequestToken: [, __expectNonNull(input.ClientRequestToken!, `ClientRequestToken`)],
+    [_CRT]: [, __expectNonNull(input[_CRT]!, `ClientRequestToken`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -600,26 +633,17 @@ export const se_DeleteWorkloadShareCommand = async (
   input: DeleteWorkloadShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/shares/{ShareId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ShareId", () => input.ShareId!, "{ShareId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  b.bp("/workloads/{WorkloadId}/shares/{ShareId}");
+  b.p("ShareId", () => input.ShareId!, "{ShareId}", false);
+  b.p("WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   const query: any = map({
-    ClientRequestToken: [, __expectNonNull(input.ClientRequestToken!, `ClientRequestToken`)],
+    [_CRT]: [, __expectNonNull(input[_CRT]!, `ClientRequestToken`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -629,29 +653,20 @@ export const se_DisassociateLensesCommand = async (
   input: DisassociateLensesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workloads/{WorkloadId}/disassociateLenses";
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  b.bp("/workloads/{WorkloadId}/disassociateLenses");
+  b.p("WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       LensAliases: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -661,29 +676,20 @@ export const se_DisassociateProfilesCommand = async (
   input: DisassociateProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workloads/{WorkloadId}/disassociateProfiles";
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  b.bp("/workloads/{WorkloadId}/disassociateProfiles");
+  b.p("WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       ProfileArns: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -693,25 +699,16 @@ export const se_ExportLensCommand = async (
   input: ExportLensCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/lenses/{LensAlias}/export";
-  resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
+  b.bp("/lenses/{LensAlias}/export");
+  b.p("LensAlias", () => input.LensAlias!, "{LensAlias}", false);
   const query: any = map({
-    LensVersion: [, input.LensVersion!],
+    [_LV]: [, input[_LV]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -721,28 +718,18 @@ export const se_GetAnswerCommand = async (
   input: GetAnswerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers/{QuestionId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "QuestionId", () => input.QuestionId!, "{QuestionId}", false);
+  b.bp("/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers/{QuestionId}");
+  b.p("WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  b.p("LensAlias", () => input.LensAlias!, "{LensAlias}", false);
+  b.p("QuestionId", () => input.QuestionId!, "{QuestionId}", false);
   const query: any = map({
-    MilestoneNumber: [() => input.MilestoneNumber !== void 0, () => input.MilestoneNumber!.toString()],
+    [_MN]: [() => input.MilestoneNumber !== void 0, () => input[_MN]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -752,29 +739,18 @@ export const se_GetConsolidatedReportCommand = async (
   input: GetConsolidatedReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/consolidatedReport";
+  b.bp("/consolidatedReport");
   const query: any = map({
-    Format: [, __expectNonNull(input.Format!, `Format`)],
-    IncludeSharedResources: [
-      () => input.IncludeSharedResources !== void 0,
-      () => input.IncludeSharedResources!.toString(),
-    ],
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_F]: [, __expectNonNull(input[_F]!, `Format`)],
+    [_ISR]: [() => input.IncludeSharedResources !== void 0, () => input[_ISR]!.toString()],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -784,24 +760,16 @@ export const se_GetLensCommand = async (
   input: GetLensCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/lenses/{LensAlias}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
+  b.bp("/lenses/{LensAlias}");
+  b.p("LensAlias", () => input.LensAlias!, "{LensAlias}", false);
   const query: any = map({
-    LensVersion: [, input.LensVersion!],
+    [_LV]: [, input[_LV]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -811,27 +779,17 @@ export const se_GetLensReviewCommand = async (
   input: GetLensReviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workloads/{WorkloadId}/lensReviews/{LensAlias}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
+  b.bp("/workloads/{WorkloadId}/lensReviews/{LensAlias}");
+  b.p("WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  b.p("LensAlias", () => input.LensAlias!, "{LensAlias}", false);
   const query: any = map({
-    MilestoneNumber: [() => input.MilestoneNumber !== void 0, () => input.MilestoneNumber!.toString()],
+    [_MN]: [() => input.MilestoneNumber !== void 0, () => input[_MN]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -841,27 +799,17 @@ export const se_GetLensReviewReportCommand = async (
   input: GetLensReviewReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workloads/{WorkloadId}/lensReviews/{LensAlias}/report";
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
+  b.bp("/workloads/{WorkloadId}/lensReviews/{LensAlias}/report");
+  b.p("WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  b.p("LensAlias", () => input.LensAlias!, "{LensAlias}", false);
   const query: any = map({
-    MilestoneNumber: [() => input.MilestoneNumber !== void 0, () => input.MilestoneNumber!.toString()],
+    [_MN]: [() => input.MilestoneNumber !== void 0, () => input[_MN]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -871,26 +819,17 @@ export const se_GetLensVersionDifferenceCommand = async (
   input: GetLensVersionDifferenceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/lenses/{LensAlias}/versionDifference";
-  resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
+  b.bp("/lenses/{LensAlias}/versionDifference");
+  b.p("LensAlias", () => input.LensAlias!, "{LensAlias}", false);
   const query: any = map({
-    BaseLensVersion: [, input.BaseLensVersion!],
-    TargetLensVersion: [, input.TargetLensVersion!],
+    [_BLV]: [, input[_BLV]!],
+    [_TLV]: [, input[_TLV]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -900,30 +839,14 @@ export const se_GetMilestoneCommand = async (
   input: GetMilestoneCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workloads/{WorkloadId}/milestones/{MilestoneNumber}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "MilestoneNumber",
-    () => input.MilestoneNumber!.toString(),
-    "{MilestoneNumber}",
-    false
-  );
+  b.bp("/workloads/{WorkloadId}/milestones/{MilestoneNumber}");
+  b.p("WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  b.p("MilestoneNumber", () => input.MilestoneNumber!.toString(), "{MilestoneNumber}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -933,24 +856,16 @@ export const se_GetProfileCommand = async (
   input: GetProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profiles/{ProfileArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ProfileArn", () => input.ProfileArn!, "{ProfileArn}", false);
+  b.bp("/profiles/{ProfileArn}");
+  b.p("ProfileArn", () => input.ProfileArn!, "{ProfileArn}", false);
   const query: any = map({
-    ProfileVersion: [, input.ProfileVersion!],
+    [_PV]: [, input[_PV]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -960,22 +875,66 @@ export const se_GetProfileTemplateCommand = async (
   input: GetProfileTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profileTemplate";
+  b.bp("/profileTemplate");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetReviewTemplateCommand
+ */
+export const se_GetReviewTemplateCommand = async (
+  input: GetReviewTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/reviewTemplates/{TemplateArn}");
+  b.p("TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetReviewTemplateAnswerCommand
+ */
+export const se_GetReviewTemplateAnswerCommand = async (
+  input: GetReviewTemplateAnswerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/answers/{QuestionId}");
+  b.p("TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  b.p("LensAlias", () => input.LensAlias!, "{LensAlias}", false);
+  b.p("QuestionId", () => input.QuestionId!, "{QuestionId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetReviewTemplateLensReviewCommand
+ */
+export const se_GetReviewTemplateLensReviewCommand = async (
+  input: GetReviewTemplateLensReviewCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}");
+  b.p("TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  b.p("LensAlias", () => input.LensAlias!, "{LensAlias}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -985,20 +944,13 @@ export const se_GetWorkloadCommand = async (
   input: GetWorkloadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  b.bp("/workloads/{WorkloadId}");
+  b.p("WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1008,11 +960,11 @@ export const se_ImportLensCommand = async (
   input: ImportLensCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/importLens";
+  b.bp("/importLens");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1022,15 +974,8 @@ export const se_ImportLensCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1040,31 +985,21 @@ export const se_ListAnswersCommand = async (
   input: ListAnswersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers";
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
+  b.bp("/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers");
+  b.p("WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  b.p("LensAlias", () => input.LensAlias!, "{LensAlias}", false);
   const query: any = map({
-    PillarId: [, input.PillarId!],
-    MilestoneNumber: [() => input.MilestoneNumber !== void 0, () => input.MilestoneNumber!.toString()],
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    QuestionPriority: [, input.QuestionPriority!],
+    [_PI]: [, input[_PI]!],
+    [_MN]: [() => input.MilestoneNumber !== void 0, () => input[_MN]!.toString()],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_QP]: [, input[_QP]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1074,13 +1009,12 @@ export const se_ListCheckDetailsCommand = async (
   input: ListCheckDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/checks";
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  b.bp("/workloads/{WorkloadId}/checks");
+  b.p("WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1092,15 +1026,8 @@ export const se_ListCheckDetailsCommand = async (
       QuestionId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1110,13 +1037,12 @@ export const se_ListCheckSummariesCommand = async (
   input: ListCheckSummariesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/checkSummaries";
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  b.bp("/workloads/{WorkloadId}/checkSummaries");
+  b.p("WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1128,15 +1054,8 @@ export const se_ListCheckSummariesCommand = async (
       QuestionId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1146,27 +1065,19 @@ export const se_ListLensesCommand = async (
   input: ListLensesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/lenses";
+  b.bp("/lenses");
   const query: any = map({
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    LensType: [, input.LensType!],
-    LensStatus: [, input.LensStatus!],
-    LensName: [, input.LensName!],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_LT]: [, input[_LT]!],
+    [_LS]: [, input[_LS]!],
+    [_LN]: [, input[_LN]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1176,31 +1087,21 @@ export const se_ListLensReviewImprovementsCommand = async (
   input: ListLensReviewImprovementsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workloads/{WorkloadId}/lensReviews/{LensAlias}/improvements";
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
+  b.bp("/workloads/{WorkloadId}/lensReviews/{LensAlias}/improvements");
+  b.p("WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  b.p("LensAlias", () => input.LensAlias!, "{LensAlias}", false);
   const query: any = map({
-    PillarId: [, input.PillarId!],
-    MilestoneNumber: [() => input.MilestoneNumber !== void 0, () => input.MilestoneNumber!.toString()],
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    QuestionPriority: [, input.QuestionPriority!],
+    [_PI]: [, input[_PI]!],
+    [_MN]: [() => input.MilestoneNumber !== void 0, () => input[_MN]!.toString()],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_QP]: [, input[_QP]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1210,27 +1111,18 @@ export const se_ListLensReviewsCommand = async (
   input: ListLensReviewsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/lensReviews";
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  b.bp("/workloads/{WorkloadId}/lensReviews");
+  b.p("WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   const query: any = map({
-    MilestoneNumber: [() => input.MilestoneNumber !== void 0, () => input.MilestoneNumber!.toString()],
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_MN]: [() => input.MilestoneNumber !== void 0, () => input[_MN]!.toString()],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1240,28 +1132,19 @@ export const se_ListLensSharesCommand = async (
   input: ListLensSharesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/lenses/{LensAlias}/shares";
-  resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
+  b.bp("/lenses/{LensAlias}/shares");
+  b.p("LensAlias", () => input.LensAlias!, "{LensAlias}", false);
   const query: any = map({
-    SharedWithPrefix: [, input.SharedWithPrefix!],
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    Status: [, input.Status!],
+    [_SWP]: [, input[_SWP]!],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_S]: [, input[_S]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1271,14 +1154,12 @@ export const se_ListMilestonesCommand = async (
   input: ListMilestonesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workloads/{WorkloadId}/milestonesSummaries";
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  b.bp("/workloads/{WorkloadId}/milestonesSummaries");
+  b.p("WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1286,15 +1167,8 @@ export const se_ListMilestonesCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1304,28 +1178,22 @@ export const se_ListNotificationsCommand = async (
   input: ListNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/notifications";
+  b.bp("/notifications");
   let body: any;
   body = JSON.stringify(
     take(input, {
       MaxResults: [],
       NextToken: [],
+      ResourceArn: [],
       WorkloadId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1335,25 +1203,17 @@ export const se_ListProfileNotificationsCommand = async (
   input: ListProfileNotificationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profileNotifications";
+  b.bp("/profileNotifications");
   const query: any = map({
-    WorkloadId: [, input.WorkloadId!],
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_WI]: [, input[_WI]!],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1363,26 +1223,18 @@ export const se_ListProfilesCommand = async (
   input: ListProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profileSummaries";
+  b.bp("/profileSummaries");
   const query: any = map({
-    ProfileNamePrefix: [, input.ProfileNamePrefix!],
-    ProfileOwnerType: [, input.ProfileOwnerType!],
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_PNP]: [, input[_PNP]!],
+    [_POT]: [, input[_POT]!],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1392,28 +1244,60 @@ export const se_ListProfileSharesCommand = async (
   input: ListProfileSharesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profiles/{ProfileArn}/shares";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ProfileArn", () => input.ProfileArn!, "{ProfileArn}", false);
+  b.bp("/profiles/{ProfileArn}/shares");
+  b.p("ProfileArn", () => input.ProfileArn!, "{ProfileArn}", false);
   const query: any = map({
-    SharedWithPrefix: [, input.SharedWithPrefix!],
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    Status: [, input.Status!],
+    [_SWP]: [, input[_SWP]!],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_S]: [, input[_S]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListReviewTemplateAnswersCommand
+ */
+export const se_ListReviewTemplateAnswersCommand = async (
+  input: ListReviewTemplateAnswersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/answers");
+  b.p("TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  b.p("LensAlias", () => input.LensAlias!, "{LensAlias}", false);
+  const query: any = map({
+    [_PI]: [, input[_PI]!],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListReviewTemplatesCommand
+ */
+export const se_ListReviewTemplatesCommand = async (
+  input: ListReviewTemplatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/reviewTemplates");
+  const query: any = map({
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1423,28 +1307,21 @@ export const se_ListShareInvitationsCommand = async (
   input: ListShareInvitationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/shareInvitations";
+  b.bp("/shareInvitations");
   const query: any = map({
-    WorkloadNamePrefix: [, input.WorkloadNamePrefix!],
-    LensNamePrefix: [, input.LensNamePrefix!],
-    ShareResourceType: [, input.ShareResourceType!],
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    ProfileNamePrefix: [, input.ProfileNamePrefix!],
+    [_WNP]: [, input[_WNP]!],
+    [_LNP]: [, input[_LNP]!],
+    [_SRT]: [, input[_SRT]!],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_PNP]: [, input[_PNP]!],
+    [_TNP]: [, input[_TNP]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1454,20 +1331,35 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{WorkloadArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadArn", () => input.WorkloadArn!, "{WorkloadArn}", false);
+  b.bp("/tags/{WorkloadArn}");
+  b.p("WorkloadArn", () => input.WorkloadArn!, "{WorkloadArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListTemplateSharesCommand
+ */
+export const se_ListTemplateSharesCommand = async (
+  input: ListTemplateSharesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/templates/shares/{TemplateArn}");
+  b.p("TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  const query: any = map({
+    [_SWP]: [, input[_SWP]!],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_S]: [, input[_S]!],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1477,11 +1369,11 @@ export const se_ListWorkloadsCommand = async (
   input: ListWorkloadsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloadsSummaries";
+  b.bp("/workloadsSummaries");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1490,15 +1382,8 @@ export const se_ListWorkloadsCommand = async (
       WorkloadNamePrefix: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1508,28 +1393,19 @@ export const se_ListWorkloadSharesCommand = async (
   input: ListWorkloadSharesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/shares";
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  b.bp("/workloads/{WorkloadId}/shares");
+  b.p("WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   const query: any = map({
-    SharedWithPrefix: [, input.SharedWithPrefix!],
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    Status: [, input.Status!],
+    [_SWP]: [, input[_SWP]!],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_S]: [, input[_S]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1539,27 +1415,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{WorkloadArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadArn", () => input.WorkloadArn!, "{WorkloadArn}", false);
+  b.bp("/tags/{WorkloadArn}");
+  b.p("WorkloadArn", () => input.WorkloadArn!, "{WorkloadArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1569,27 +1438,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{WorkloadArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadArn", () => input.WorkloadArn!, "{WorkloadArn}", false);
+  b.bp("/tags/{WorkloadArn}");
+  b.p("WorkloadArn", () => input.WorkloadArn!, "{WorkloadArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1599,16 +1460,14 @@ export const se_UpdateAnswerCommand = async (
   input: UpdateAnswerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers/{QuestionId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "QuestionId", () => input.QuestionId!, "{QuestionId}", false);
+  b.bp("/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers/{QuestionId}");
+  b.p("WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  b.p("LensAlias", () => input.LensAlias!, "{LensAlias}", false);
+  b.p("QuestionId", () => input.QuestionId!, "{QuestionId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1619,15 +1478,8 @@ export const se_UpdateAnswerCommand = async (
       SelectedChoices: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1637,11 +1489,11 @@ export const se_UpdateGlobalSettingsCommand = async (
   input: UpdateGlobalSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/global-settings";
+  b.bp("/global-settings");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1649,15 +1501,8 @@ export const se_UpdateGlobalSettingsCommand = async (
       OrganizationSharingStatus: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1667,15 +1512,13 @@ export const se_UpdateLensReviewCommand = async (
   input: UpdateLensReviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workloads/{WorkloadId}/lensReviews/{LensAlias}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
+  b.bp("/workloads/{WorkloadId}/lensReviews/{LensAlias}");
+  b.p("WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  b.p("LensAlias", () => input.LensAlias!, "{LensAlias}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1683,15 +1526,8 @@ export const se_UpdateLensReviewCommand = async (
       PillarNotes: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1701,12 +1537,12 @@ export const se_UpdateProfileCommand = async (
   input: UpdateProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profiles/{ProfileArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ProfileArn", () => input.ProfileArn!, "{ProfileArn}", false);
+  b.bp("/profiles/{ProfileArn}");
+  b.p("ProfileArn", () => input.ProfileArn!, "{ProfileArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1714,15 +1550,89 @@ export const se_UpdateProfileCommand = async (
       ProfileQuestions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateReviewTemplateCommand
+ */
+export const se_UpdateReviewTemplateCommand = async (
+  input: UpdateReviewTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/reviewTemplates/{TemplateArn}");
+  b.p("TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Description: [],
+      LensesToAssociate: (_) => _json(_),
+      LensesToDisassociate: (_) => _json(_),
+      Notes: [],
+      TemplateName: [],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateReviewTemplateAnswerCommand
+ */
+export const se_UpdateReviewTemplateAnswerCommand = async (
+  input: UpdateReviewTemplateAnswerCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/answers/{QuestionId}");
+  b.p("TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  b.p("LensAlias", () => input.LensAlias!, "{LensAlias}", false);
+  b.p("QuestionId", () => input.QuestionId!, "{QuestionId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ChoiceUpdates: (_) => _json(_),
+      IsApplicable: [],
+      Notes: [],
+      Reason: [],
+      SelectedChoices: (_) => _json(_),
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateReviewTemplateLensReviewCommand
+ */
+export const se_UpdateReviewTemplateLensReviewCommand = async (
+  input: UpdateReviewTemplateLensReviewCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}");
+  b.p("TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  b.p("LensAlias", () => input.LensAlias!, "{LensAlias}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      LensNotes: [],
+      PillarNotes: (_) => _json(_),
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1732,35 +1642,20 @@ export const se_UpdateShareInvitationCommand = async (
   input: UpdateShareInvitationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/shareInvitations/{ShareInvitationId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ShareInvitationId",
-    () => input.ShareInvitationId!,
-    "{ShareInvitationId}",
-    false
-  );
+  b.bp("/shareInvitations/{ShareInvitationId}");
+  b.p("ShareInvitationId", () => input.ShareInvitationId!, "{ShareInvitationId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       ShareInvitationAction: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1770,12 +1665,12 @@ export const se_UpdateWorkloadCommand = async (
   input: UpdateWorkloadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  b.bp("/workloads/{WorkloadId}");
+  b.p("WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1797,15 +1692,8 @@ export const se_UpdateWorkloadCommand = async (
       WorkloadName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1815,29 +1703,21 @@ export const se_UpdateWorkloadShareCommand = async (
   input: UpdateWorkloadShareCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}/shares/{ShareId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ShareId", () => input.ShareId!, "{ShareId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  b.bp("/workloads/{WorkloadId}/shares/{ShareId}");
+  b.p("ShareId", () => input.ShareId!, "{ShareId}", false);
+  b.p("WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       PermissionType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1847,15 +1727,13 @@ export const se_UpgradeLensReviewCommand = async (
   input: UpgradeLensReviewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workloads/{WorkloadId}/lensReviews/{LensAlias}/upgrade";
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
+  b.bp("/workloads/{WorkloadId}/lensReviews/{LensAlias}/upgrade");
+  b.p("WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  b.p("LensAlias", () => input.LensAlias!, "{LensAlias}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1863,15 +1741,8 @@ export const se_UpgradeLensReviewCommand = async (
       MilestoneName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1881,15 +1752,13 @@ export const se_UpgradeProfileVersionCommand = async (
   input: UpgradeProfileVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workloads/{WorkloadId}/profiles/{ProfileArn}/upgrade";
-  resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "ProfileArn", () => input.ProfileArn!, "{ProfileArn}", false);
+  b.bp("/workloads/{WorkloadId}/profiles/{ProfileArn}/upgrade");
+  b.p("WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
+  b.p("ProfileArn", () => input.ProfileArn!, "{ProfileArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1897,15 +1766,32 @@ export const se_UpgradeProfileVersionCommand = async (
       MilestoneName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpgradeReviewTemplateLensReviewCommand
+ */
+export const se_UpgradeReviewTemplateLensReviewCommand = async (
+  input: UpgradeReviewTemplateLensReviewCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/upgrade");
+  b.p("TemplateArn", () => input.TemplateArn!, "{TemplateArn}", false);
+  b.p("LensAlias", () => input.LensAlias!, "{LensAlias}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientRequestToken: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2351,6 +2237,137 @@ const de_CreateProfileShareCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateReviewTemplateCommand
+ */
+export const de_CreateReviewTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateReviewTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateReviewTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    TemplateArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateReviewTemplateCommandError
+ */
+const de_CreateReviewTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateReviewTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.wellarchitected#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.wellarchitected#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateTemplateShareCommand
+ */
+export const de_CreateTemplateShareCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTemplateShareCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateTemplateShareCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ShareId: __expectString,
+    TemplateArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateTemplateShareCommandError
+ */
+const de_CreateTemplateShareCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTemplateShareCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.wellarchitected#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.wellarchitected#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1CreateWorkloadCommand
  */
 export const de_CreateWorkloadCommand = async (
@@ -2680,6 +2697,122 @@ const de_DeleteProfileShareCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProfileShareCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.wellarchitected#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteReviewTemplateCommand
+ */
+export const de_DeleteReviewTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteReviewTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteReviewTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteReviewTemplateCommandError
+ */
+const de_DeleteReviewTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteReviewTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.wellarchitected#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteTemplateShareCommand
+ */
+export const de_DeleteTemplateShareCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTemplateShareCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteTemplateShareCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteTemplateShareCommandError
+ */
+const de_DeleteTemplateShareCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTemplateShareCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3521,6 +3654,186 @@ const de_GetProfileTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetProfileTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetReviewTemplateCommand
+ */
+export const de_GetReviewTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetReviewTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetReviewTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ReviewTemplate: (_) => de_ReviewTemplate(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetReviewTemplateCommandError
+ */
+const de_GetReviewTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetReviewTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetReviewTemplateAnswerCommand
+ */
+export const de_GetReviewTemplateAnswerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetReviewTemplateAnswerCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetReviewTemplateAnswerCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Answer: _json,
+    LensAlias: __expectString,
+    TemplateArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetReviewTemplateAnswerCommandError
+ */
+const de_GetReviewTemplateAnswerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetReviewTemplateAnswerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetReviewTemplateLensReviewCommand
+ */
+export const de_GetReviewTemplateLensReviewCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetReviewTemplateLensReviewCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetReviewTemplateLensReviewCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    LensReview: (_) => de_ReviewTemplateLensReview(_, context),
+    TemplateArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetReviewTemplateLensReviewCommandError
+ */
+const de_GetReviewTemplateLensReviewCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetReviewTemplateLensReviewCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4397,6 +4710,125 @@ const de_ListProfileSharesCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListReviewTemplateAnswersCommand
+ */
+export const de_ListReviewTemplateAnswersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReviewTemplateAnswersCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListReviewTemplateAnswersCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AnswerSummaries: _json,
+    LensAlias: __expectString,
+    NextToken: __expectString,
+    TemplateArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListReviewTemplateAnswersCommandError
+ */
+const de_ListReviewTemplateAnswersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReviewTemplateAnswersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListReviewTemplatesCommand
+ */
+export const de_ListReviewTemplatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReviewTemplatesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListReviewTemplatesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    ReviewTemplates: (_) => de_ReviewTemplates(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListReviewTemplatesCommandError
+ */
+const de_ListReviewTemplatesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReviewTemplatesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListShareInvitationsCommand
  */
 export const de_ListShareInvitationsCommand = async (
@@ -4493,6 +4925,67 @@ const de_ListTagsForResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.wellarchitected#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListTemplateSharesCommand
+ */
+export const de_ListTemplateSharesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTemplateSharesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListTemplateSharesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    TemplateArn: __expectString,
+    TemplateShareSummaries: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListTemplateSharesCommandError
+ */
+const de_ListTemplateSharesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTemplateSharesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -4959,6 +5452,195 @@ const de_UpdateProfileCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateReviewTemplateCommand
+ */
+export const de_UpdateReviewTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateReviewTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateReviewTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ReviewTemplate: (_) => de_ReviewTemplate(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateReviewTemplateCommandError
+ */
+const de_UpdateReviewTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateReviewTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.wellarchitected#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateReviewTemplateAnswerCommand
+ */
+export const de_UpdateReviewTemplateAnswerCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateReviewTemplateAnswerCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateReviewTemplateAnswerCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Answer: _json,
+    LensAlias: __expectString,
+    TemplateArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateReviewTemplateAnswerCommandError
+ */
+const de_UpdateReviewTemplateAnswerCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateReviewTemplateAnswerCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.wellarchitected#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateReviewTemplateLensReviewCommand
+ */
+export const de_UpdateReviewTemplateLensReviewCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateReviewTemplateLensReviewCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateReviewTemplateLensReviewCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    LensReview: (_) => de_ReviewTemplateLensReview(_, context),
+    TemplateArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateReviewTemplateLensReviewCommandError
+ */
+const de_UpdateReviewTemplateLensReviewCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateReviewTemplateLensReviewCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.wellarchitected#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateShareInvitationCommand
  */
 export const de_UpdateShareInvitationCommand = async (
@@ -5261,6 +5943,64 @@ const de_UpgradeProfileVersionCommandError = async (
   }
 };
 
+/**
+ * deserializeAws_restJson1UpgradeReviewTemplateLensReviewCommand
+ */
+export const de_UpgradeReviewTemplateLensReviewCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpgradeReviewTemplateLensReviewCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpgradeReviewTemplateLensReviewCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpgradeReviewTemplateLensReviewCommandError
+ */
+const de_UpgradeReviewTemplateLensReviewCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpgradeReviewTemplateLensReviewCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.wellarchitected#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.wellarchitected#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.wellarchitected#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.wellarchitected#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.wellarchitected#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.wellarchitected#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
 const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1AccessDeniedExceptionRes
@@ -5418,6 +6158,12 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_ProfileQuestionUpdate omitted.
 
 // se_ProfileQuestionUpdates omitted.
+
+// se_ReviewTemplateArns omitted.
+
+// se_ReviewTemplateLensAliases omitted.
+
+// se_ReviewTemplateLenses omitted.
 
 // se_SelectedChoices omitted.
 
@@ -5797,6 +6543,8 @@ const de_ProfileTemplate = (output: any, context: __SerdeContext): ProfileTempla
 
 // de_ProfileTemplateQuestionChoices omitted.
 
+// de_QuestionCounts omitted.
+
 // de_QuestionDifference omitted.
 
 // de_QuestionDifferences omitted.
@@ -5804,6 +6552,82 @@ const de_ProfileTemplate = (output: any, context: __SerdeContext): ProfileTempla
 // de_QuestionMetric omitted.
 
 // de_QuestionMetrics omitted.
+
+/**
+ * deserializeAws_restJson1ReviewTemplate
+ */
+const de_ReviewTemplate = (output: any, context: __SerdeContext): ReviewTemplate => {
+  return take(output, {
+    Description: __expectString,
+    Lenses: _json,
+    Notes: __expectString,
+    Owner: __expectString,
+    QuestionCounts: _json,
+    ShareInvitationId: __expectString,
+    Tags: _json,
+    TemplateArn: __expectString,
+    TemplateName: __expectString,
+    UpdateStatus: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+// de_ReviewTemplateAnswer omitted.
+
+// de_ReviewTemplateAnswerSummaries omitted.
+
+// de_ReviewTemplateAnswerSummary omitted.
+
+// de_ReviewTemplateLenses omitted.
+
+/**
+ * deserializeAws_restJson1ReviewTemplateLensReview
+ */
+const de_ReviewTemplateLensReview = (output: any, context: __SerdeContext): ReviewTemplateLensReview => {
+  return take(output, {
+    LensAlias: __expectString,
+    LensArn: __expectString,
+    LensName: __expectString,
+    LensStatus: __expectString,
+    LensVersion: __expectString,
+    NextToken: __expectString,
+    Notes: __expectString,
+    PillarReviewSummaries: _json,
+    QuestionCounts: _json,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+// de_ReviewTemplatePillarReviewSummaries omitted.
+
+// de_ReviewTemplatePillarReviewSummary omitted.
+
+/**
+ * deserializeAws_restJson1ReviewTemplates
+ */
+const de_ReviewTemplates = (output: any, context: __SerdeContext): ReviewTemplateSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ReviewTemplateSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ReviewTemplateSummary
+ */
+const de_ReviewTemplateSummary = (output: any, context: __SerdeContext): ReviewTemplateSummary => {
+  return take(output, {
+    Description: __expectString,
+    Lenses: _json,
+    Owner: __expectString,
+    TemplateArn: __expectString,
+    TemplateName: __expectString,
+    UpdateStatus: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
 
 // de_RiskCounts omitted.
 
@@ -5820,6 +6644,10 @@ const de_ProfileTemplate = (output: any, context: __SerdeContext): ProfileTempla
 // de_TagMap omitted.
 
 // de_TemplateQuestions omitted.
+
+// de_TemplateShareSummaries omitted.
+
+// de_TemplateShareSummary omitted.
 
 // de_Urls omitted.
 
@@ -5938,6 +6766,33 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _BLV = "BaseLensVersion";
+const _CRT = "ClientRequestToken";
+const _F = "Format";
+const _ISR = "IncludeSharedResources";
+const _LN = "LensName";
+const _LNP = "LensNamePrefix";
+const _LS = "LensStatus";
+const _LT = "LensType";
+const _LV = "LensVersion";
+const _MN = "MilestoneNumber";
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _PI = "PillarId";
+const _PNP = "ProfileNamePrefix";
+const _POT = "ProfileOwnerType";
+const _PV = "ProfileVersion";
+const _QP = "QuestionPriority";
+const _S = "Status";
+const _SRT = "ShareResourceType";
+const _SWP = "SharedWithPrefix";
+const _TK = "TagKeys";
+const _TLV = "TargetLensVersion";
+const _TNP = "TemplateNamePrefix";
+const _WI = "WorkloadId";
+const _WNP = "WorkloadNamePrefix";
+const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

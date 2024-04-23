@@ -55,10 +55,22 @@
           "target": "com.amazonaws.lakeformation#CreateDataCellsFilter"
         },
         {
+          "target": "com.amazonaws.lakeformation#CreateLakeFormationIdentityCenterConfiguration"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#CreateLakeFormationOptIn"
+        },
+        {
           "target": "com.amazonaws.lakeformation#CreateLFTag"
         },
         {
           "target": "com.amazonaws.lakeformation#DeleteDataCellsFilter"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#DeleteLakeFormationIdentityCenterConfiguration"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#DeleteLakeFormationOptIn"
         },
         {
           "target": "com.amazonaws.lakeformation#DeleteLFTag"
@@ -68,6 +80,9 @@
         },
         {
           "target": "com.amazonaws.lakeformation#DeregisterResource"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#DescribeLakeFormationIdentityCenterConfiguration"
         },
         {
           "target": "com.amazonaws.lakeformation#DescribeResource"
@@ -121,6 +136,9 @@
           "target": "com.amazonaws.lakeformation#ListDataCellsFilter"
         },
         {
+          "target": "com.amazonaws.lakeformation#ListLakeFormationOptIns"
+        },
+        {
           "target": "com.amazonaws.lakeformation#ListLFTags"
         },
         {
@@ -161,6 +179,9 @@
         },
         {
           "target": "com.amazonaws.lakeformation#UpdateDataCellsFilter"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#UpdateLakeFormationIdentityCenterConfiguration"
         },
         {
           "target": "com.amazonaws.lakeformation#UpdateLFTag"
@@ -231,7 +252,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -249,9 +269,187 @@
                   "type": "error"
                 },
                 {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
                   "conditions": [],
-                  "type": "tree",
+                  "endpoint": {
+                    "url": {
+                      "ref": "Endpoint"
+                    },
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ],
+              "type": "tree"
+            },
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ]
+                }
+              ],
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "aws.partition",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ],
+                      "assign": "PartitionResult"
+                    }
+                  ],
                   "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://lakeformation-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://lakeformation-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
                     {
                       "conditions": [
                         {
@@ -264,278 +462,65 @@
                           ]
                         }
                       ],
-                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                      "type": "error"
-                    },
-                    {
-                      "conditions": [],
-                      "endpoint": {
-                        "url": {
-                          "ref": "Endpoint"
-                        },
-                        "properties": {},
-                        "headers": {}
-                      },
-                      "type": "endpoint"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "conditions": [],
-              "type": "tree",
-              "rules": [
-                {
-                  "conditions": [
-                    {
-                      "fn": "isSet",
-                      "argv": [
-                        {
-                          "ref": "Region"
-                        }
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "aws.partition",
-                          "argv": [
-                            {
-                              "ref": "Region"
-                            }
-                          ],
-                          "assign": "PartitionResult"
-                        }
-                      ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
                             {
                               "fn": "booleanEquals",
                               "argv": [
+                                true,
                                 {
-                                  "ref": "UseFIPS"
-                                },
-                                true
-                              ]
-                            },
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseDualStack"
-                                },
-                                true
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
                               ]
                             }
                           ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsFIPS"
-                                      ]
-                                    }
-                                  ]
-                                },
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsDualStack"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://lakeformation-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseFIPS"
-                                },
-                                true
-                              ]
-                            }
-                          ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsFIPS"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://lakeformation-fips.{Region}.{PartitionResult#dnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "FIPS is enabled but this partition does not support FIPS",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseDualStack"
-                                },
-                                true
-                              ]
-                            }
-                          ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsDualStack"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://lakeformation.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "DualStack is enabled but this partition does not support DualStack",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
                               "endpoint": {
-                                "url": "https://lakeformation.{Region}.{PartitionResult#dnsSuffix}",
+                                "url": "https://lakeformation.{Region}.{PartitionResult#dualStackDnsSuffix}",
                                 "properties": {},
                                 "headers": {}
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://lakeformation.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
                     }
-                  ]
-                },
-                {
-                  "conditions": [],
-                  "error": "Invalid Configuration: Missing Region",
-                  "type": "error"
+                  ],
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
+            },
+            {
+              "conditions": [],
+              "error": "Invalid Configuration: Missing Region",
+              "type": "error"
             }
           ]
         },
@@ -1327,6 +1312,15 @@
         "smithy.api#documentation": "<p>A new object to add to the governed table.</p>"
       }
     },
+    "com.amazonaws.lakeformation#AdditionalContextMap": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.lakeformation#ContextKey"
+      },
+      "value": {
+        "target": "com.amazonaws.lakeformation#ContextValue"
+      }
+    },
     "com.amazonaws.lakeformation#AllRowsWildcard": {
       "type": "structure",
       "members": {},
@@ -1347,6 +1341,26 @@
       "traits": {
         "smithy.api#documentation": "<p>A resource to be created or added already exists.</p>",
         "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.lakeformation#ApplicationArn": {
+      "type": "string"
+    },
+    "com.amazonaws.lakeformation#ApplicationStatus": {
+      "type": "enum",
+      "members": {
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED"
+          }
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        }
       }
     },
     "com.amazonaws.lakeformation#AssumeDecoratedRoleWithSAML": {
@@ -1951,6 +1965,24 @@
         "smithy.api#error": "client"
       }
     },
+    "com.amazonaws.lakeformation#ContextKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        }
+      }
+    },
+    "com.amazonaws.lakeformation#ContextValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        }
+      }
+    },
     "com.amazonaws.lakeformation#CreateDataCellsFilter": {
       "type": "operation",
       "input": {
@@ -2079,6 +2111,147 @@
       }
     },
     "com.amazonaws.lakeformation#CreateLFTagResponse": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.lakeformation#CreateLakeFormationIdentityCenterConfiguration": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.lakeformation#CreateLakeFormationIdentityCenterConfigurationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.lakeformation#CreateLakeFormationIdentityCenterConfigurationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.lakeformation#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#AlreadyExistsException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#OperationTimeoutException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates an IAM Identity Center connection with Lake Formation to allow IAM Identity Center users and groups to access Data Catalog resources.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/CreateLakeFormationIdentityCenterConfiguration",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.lakeformation#CreateLakeFormationIdentityCenterConfigurationRequest": {
+      "type": "structure",
+      "members": {
+        "CatalogId": {
+          "target": "com.amazonaws.lakeformation#CatalogIdString",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the\n         persistent metadata store. It contains database definitions, table definitions, view\n         definitions, and other control information to manage your Lake Formation\n         environment.</p>"
+          }
+        },
+        "InstanceArn": {
+          "target": "com.amazonaws.lakeformation#IdentityCenterInstanceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the IAM Identity Center instance for which the operation will be executed.\n         For more information about ARNs, see Amazon Resource Names (ARNs) and Amazon Web Services Service\n         Namespaces in the Amazon Web Services General Reference.</p>"
+          }
+        },
+        "ExternalFiltering": {
+          "target": "com.amazonaws.lakeformation#ExternalFilteringConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of the account IDs of Amazon Web Services accounts of third-party applications\n         that are allowed to access data managed by Lake Formation.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.lakeformation#CreateLakeFormationIdentityCenterConfigurationResponse": {
+      "type": "structure",
+      "members": {
+        "ApplicationArn": {
+          "target": "com.amazonaws.lakeformation#ApplicationArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the integrated application.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.lakeformation#CreateLakeFormationOptIn": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.lakeformation#CreateLakeFormationOptInRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.lakeformation#CreateLakeFormationOptInResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.lakeformation#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#OperationTimeoutException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Enforce Lake Formation permissions for the given databases, tables, and principals.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/CreateLakeFormationOptIn",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.lakeformation#CreateLakeFormationOptInRequest": {
+      "type": "structure",
+      "members": {
+        "Principal": {
+          "target": "com.amazonaws.lakeformation#DataLakePrincipal",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
+        "Resource": {
+          "target": "com.amazonaws.lakeformation#Resource",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.lakeformation#CreateLakeFormationOptInResponse": {
       "type": "structure",
       "members": {},
       "traits": {
@@ -2310,7 +2483,7 @@
         "Parameters": {
           "target": "com.amazonaws.lakeformation#ParametersMap",
           "traits": {
-            "smithy.api#documentation": "<p>A key-value map that provides an additional configuration on your data lake. CrossAccountVersion is the key you can configure in the Parameters field. Accepted values for the CrossAccountVersion key are 1, 2, and 3.</p>"
+            "smithy.api#documentation": "<p>A key-value map that provides an additional configuration on your data lake. CROSS_ACCOUNT_VERSION is the key you can configure in the Parameters field. Accepted values for the CrossAccountVersion key are 1, 2, 3, and 4.</p>"
           }
         },
         "TrustedResourceOwners": {
@@ -2537,6 +2710,128 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.lakeformation#DeleteLakeFormationIdentityCenterConfiguration": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.lakeformation#DeleteLakeFormationIdentityCenterConfigurationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.lakeformation#DeleteLakeFormationIdentityCenterConfigurationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.lakeformation#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#OperationTimeoutException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes an IAM Identity Center connection with Lake Formation.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/DeleteLakeFormationIdentityCenterConfiguration",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.lakeformation#DeleteLakeFormationIdentityCenterConfigurationRequest": {
+      "type": "structure",
+      "members": {
+        "CatalogId": {
+          "target": "com.amazonaws.lakeformation#CatalogIdString",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the\n         persistent metadata store. It contains database definitions, table definitions, view\n         definition, and other control information to manage your Lake Formation environment.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.lakeformation#DeleteLakeFormationIdentityCenterConfigurationResponse": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.lakeformation#DeleteLakeFormationOptIn": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.lakeformation#DeleteLakeFormationOptInRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.lakeformation#DeleteLakeFormationOptInResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.lakeformation#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#OperationTimeoutException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Remove the Lake Formation permissions enforcement of the given databases, tables, and principals.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/DeleteLakeFormationOptIn",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.lakeformation#DeleteLakeFormationOptInRequest": {
+      "type": "structure",
+      "members": {
+        "Principal": {
+          "target": "com.amazonaws.lakeformation#DataLakePrincipal",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
+        "Resource": {
+          "target": "com.amazonaws.lakeformation#Resource",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.lakeformation#DeleteLakeFormationOptInResponse": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.lakeformation#DeleteObjectInput": {
       "type": "structure",
       "members": {
@@ -2709,6 +3004,86 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.lakeformation#DescribeLakeFormationIdentityCenterConfiguration": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.lakeformation#DescribeLakeFormationIdentityCenterConfigurationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.lakeformation#DescribeLakeFormationIdentityCenterConfigurationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.lakeformation#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#OperationTimeoutException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves the instance ARN and application ARN for the connection.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/DescribeLakeFormationIdentityCenterConfiguration",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.lakeformation#DescribeLakeFormationIdentityCenterConfigurationRequest": {
+      "type": "structure",
+      "members": {
+        "CatalogId": {
+          "target": "com.amazonaws.lakeformation#CatalogIdString",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.lakeformation#DescribeLakeFormationIdentityCenterConfigurationResponse": {
+      "type": "structure",
+      "members": {
+        "CatalogId": {
+          "target": "com.amazonaws.lakeformation#CatalogIdString",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.</p>"
+          }
+        },
+        "InstanceArn": {
+          "target": "com.amazonaws.lakeformation#IdentityCenterInstanceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the connection.</p>"
+          }
+        },
+        "ApplicationArn": {
+          "target": "com.amazonaws.lakeformation#ApplicationArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the integrated application.</p>"
+          }
+        },
+        "ExternalFiltering": {
+          "target": "com.amazonaws.lakeformation#ExternalFilteringConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates if external filtering is enabled.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.lakeformation#DescribeResource": {
       "type": "operation",
       "input": {
@@ -2863,6 +3238,23 @@
         "smithy.api#pattern": "^[\\p{L}\\p{N}\\p{P}]*$"
       }
     },
+    "com.amazonaws.lakeformation#EnableStatus": {
+      "type": "enum",
+      "members": {
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED"
+          }
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        }
+      }
+    },
     "com.amazonaws.lakeformation#EntityNotFoundException": {
       "type": "structure",
       "members": {
@@ -3014,6 +3406,28 @@
       "members": {},
       "traits": {
         "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.lakeformation#ExternalFilteringConfiguration": {
+      "type": "structure",
+      "members": {
+        "Status": {
+          "target": "com.amazonaws.lakeformation#EnableStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Allows to enable or disable the third-party applications that are allowed to access data\n         managed by Lake Formation.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "AuthorizedTargets": {
+          "target": "com.amazonaws.lakeformation#ScopeTargets",
+          "traits": {
+            "smithy.api#documentation": "<p>List of third-party application <code>ARNs</code> integrated with Lake Formation.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Configuration for enabling external data filtering for third-party applications to\n         access data managed by Lake Formation .</p>"
       }
     },
     "com.amazonaws.lakeformation#FieldNameString": {
@@ -3952,6 +4366,18 @@
           "traits": {
             "smithy.api#documentation": "<p>A list of supported permission types for the table. Valid values are <code>COLUMN_PERMISSION</code> and <code>CELL_FILTER_PERMISSION</code>.</p>"
           }
+        },
+        "S3Path": {
+          "target": "com.amazonaws.lakeformation#PathString",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon S3 path for the table.</p>"
+          }
+        },
+        "QuerySessionContext": {
+          "target": "com.amazonaws.lakeformation#QuerySessionContext",
+          "traits": {
+            "smithy.api#documentation": "<p>A structure used as a protocol between query engines and Lake Formation or Glue. Contains both a Lake Formation generated authorization identifier and information from the request's authorization context.</p>"
+          }
         }
       },
       "traits": {
@@ -3983,6 +4409,12 @@
           "target": "com.amazonaws.lakeformation#ExpirationTimestamp",
           "traits": {
             "smithy.api#documentation": "<p>The date and time when the temporary credentials expire.</p>"
+          }
+        },
+        "VendedS3Path": {
+          "target": "com.amazonaws.lakeformation#PathStringList",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon S3 path for the temporary credentials.</p>"
           }
         }
       },
@@ -4291,6 +4723,16 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.lakeformation#HashString": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 255
+        },
+        "smithy.api#pattern": "^[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*$"
+      }
+    },
     "com.amazonaws.lakeformation#IAMRoleArn": {
       "type": "string",
       "traits": {
@@ -4311,6 +4753,9 @@
           "max": 255
         }
       }
+    },
+    "com.amazonaws.lakeformation#IdentityCenterInstanceArn": {
+      "type": "string"
     },
     "com.amazonaws.lakeformation#InternalServiceException": {
       "type": "structure",
@@ -4367,7 +4812,7 @@
         "TagValues": {
           "target": "com.amazonaws.lakeformation#TagValueList",
           "traits": {
-            "smithy.api#documentation": "<p>A list of possible values an attribute can take.</p>",
+            "smithy.api#documentation": "<p>A list of possible values an attribute can take.</p>\n         <p>The maximum number of values that can be defined for a LF-Tag is 1000. A single API call\n      supports 50 values. You can use multiple API calls to add more values.</p>",
             "smithy.api#required": {}
           }
         }
@@ -4516,6 +4961,38 @@
           "min": 1,
           "max": 50
         }
+      }
+    },
+    "com.amazonaws.lakeformation#LakeFormationOptInsInfo": {
+      "type": "structure",
+      "members": {
+        "Resource": {
+          "target": "com.amazonaws.lakeformation#Resource"
+        },
+        "Principal": {
+          "target": "com.amazonaws.lakeformation#DataLakePrincipal"
+        },
+        "LastModified": {
+          "target": "com.amazonaws.lakeformation#LastModifiedTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The last modified date and time of the record.</p>"
+          }
+        },
+        "LastUpdatedBy": {
+          "target": "com.amazonaws.lakeformation#NameString",
+          "traits": {
+            "smithy.api#documentation": "<p>The user who updated the record.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A single principal-resource pair that has Lake Formation permissins enforced.</p>"
+      }
+    },
+    "com.amazonaws.lakeformation#LakeFormationOptInsInfoList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.lakeformation#LakeFormationOptInsInfo"
       }
     },
     "com.amazonaws.lakeformation#LastModifiedTimestamp": {
@@ -4689,6 +5166,91 @@
           "target": "com.amazonaws.lakeformation#Token",
           "traits": {
             "smithy.api#documentation": "<p>A continuation token, present if the current list segment is not the last.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.lakeformation#ListLakeFormationOptIns": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.lakeformation#ListLakeFormationOptInsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.lakeformation#ListLakeFormationOptInsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.lakeformation#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#OperationTimeoutException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieve the current list of resources and principals that are opt in to enforce Lake Formation permissions.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/ListLakeFormationOptIns",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.lakeformation#ListLakeFormationOptInsRequest": {
+      "type": "structure",
+      "members": {
+        "Principal": {
+          "target": "com.amazonaws.lakeformation#DataLakePrincipal"
+        },
+        "Resource": {
+          "target": "com.amazonaws.lakeformation#Resource",
+          "traits": {
+            "smithy.api#documentation": "<p>A structure for the resource.</p>"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.lakeformation#PageSize",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.lakeformation#Token",
+          "traits": {
+            "smithy.api#documentation": "<p>A continuation token, if this is not the first call to retrieve this list.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.lakeformation#ListLakeFormationOptInsResponse": {
+      "type": "structure",
+      "members": {
+        "LakeFormationOptInsInfoList": {
+          "target": "com.amazonaws.lakeformation#LakeFormationOptInsInfoList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of principal-resource pairs that have Lake Formation permissins enforced.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.lakeformation#Token",
+          "traits": {
+            "smithy.api#documentation": "<p>A continuation token, if this is not the first call to retrieve this list.</p>"
           }
         }
       },
@@ -5081,6 +5643,9 @@
     "com.amazonaws.lakeformation#NullableBoolean": {
       "type": "boolean"
     },
+    "com.amazonaws.lakeformation#NullableString": {
+      "type": "string"
+    },
     "com.amazonaws.lakeformation#NumberOfBytes": {
       "type": "long",
       "traits": {
@@ -5230,6 +5795,15 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.lakeformation#PartitionObjects"
+      }
+    },
+    "com.amazonaws.lakeformation#PathString": {
+      "type": "string"
+    },
+    "com.amazonaws.lakeformation#PathStringList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.lakeformation#PathString"
       }
     },
     "com.amazonaws.lakeformation#Permission": {
@@ -5481,6 +6055,18 @@
           "traits": {
             "smithy.api#documentation": "<p>This attribute can be used to return any additional details of <code>PrincipalResourcePermissions</code>. Currently returns only as a RAM resource share ARN.</p>"
           }
+        },
+        "LastUpdated": {
+          "target": "com.amazonaws.lakeformation#LastModifiedTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time when the resource was last updated.</p>"
+          }
+        },
+        "LastUpdatedBy": {
+          "target": "com.amazonaws.lakeformation#NameString",
+          "traits": {
+            "smithy.api#documentation": "<p>The user who updated the record.</p>"
+          }
         }
       },
       "traits": {
@@ -5606,6 +6192,44 @@
         "smithy.api#pattern": "^[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*$"
       }
     },
+    "com.amazonaws.lakeformation#QuerySessionContext": {
+      "type": "structure",
+      "members": {
+        "QueryId": {
+          "target": "com.amazonaws.lakeformation#HashString",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier generated by the query engine for the query.</p>"
+          }
+        },
+        "QueryStartTime": {
+          "target": "com.amazonaws.lakeformation#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>A timestamp provided by the query engine for when the query started.</p>"
+          }
+        },
+        "ClusterId": {
+          "target": "com.amazonaws.lakeformation#NullableString",
+          "traits": {
+            "smithy.api#documentation": "<p>An identifier string for the consumer cluster.</p>"
+          }
+        },
+        "QueryAuthorizationId": {
+          "target": "com.amazonaws.lakeformation#HashString",
+          "traits": {
+            "smithy.api#documentation": "<p>A cryptographically generated query identifier generated by Glue or Lake Formation.</p>"
+          }
+        },
+        "AdditionalContext": {
+          "target": "com.amazonaws.lakeformation#AdditionalContextMap",
+          "traits": {
+            "smithy.api#documentation": "<p>An opaque string-string map passed by the query engine.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A structure used as a protocol between query engines and Lake Formation or Glue. Contains both a Lake Formation generated authorization identifier and information from the request's authorization context.</p>"
+      }
+    },
     "com.amazonaws.lakeformation#QueryStateString": {
       "type": "enum",
       "members": {
@@ -5710,6 +6334,12 @@
           "target": "com.amazonaws.lakeformation#NullableBoolean",
           "traits": {
             "smithy.api#documentation": "<p>Whether or not the resource is a federated resource.</p>"
+          }
+        },
+        "HybridAccessEnabled": {
+          "target": "com.amazonaws.lakeformation#NullableBoolean",
+          "traits": {
+            "smithy.api#documentation": "<p>\n    Specifies whether the data access of tables pointing to the location can be managed by both Lake Formation permissions as well as Amazon S3 bucket policies.\n  </p>"
           }
         }
       },
@@ -5890,6 +6520,12 @@
           "target": "com.amazonaws.lakeformation#NullableBoolean",
           "traits": {
             "smithy.api#documentation": "<p>Whether or not the resource is a federated resource.</p>"
+          }
+        },
+        "HybridAccessEnabled": {
+          "target": "com.amazonaws.lakeformation#NullableBoolean",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      Indicates whether the data access of tables pointing to the location can be managed by both Lake Formation permissions as well as Amazon S3 bucket policies.\n    </p>"
           }
         }
       },
@@ -6088,6 +6724,15 @@
         }
       }
     },
+    "com.amazonaws.lakeformation#ScopeTarget": {
+      "type": "string"
+    },
+    "com.amazonaws.lakeformation#ScopeTargets": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.lakeformation#ScopeTarget"
+      }
+    },
     "com.amazonaws.lakeformation#SearchDatabasesByLFTags": {
       "type": "operation",
       "input": {
@@ -6275,7 +6920,7 @@
         "NextToken": {
           "target": "com.amazonaws.lakeformation#Token",
           "traits": {
-            "smithy.api#documentation": "<p>A continuation token, present if the current list segment is not the last.</p>"
+            "smithy.api#documentation": "<p>A continuation token, present if the current list segment is not the last. On the first run, if you include a not null (a value) token you can get empty pages.</p>"
           }
         },
         "TableList": {
@@ -7087,6 +7732,76 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.lakeformation#UpdateLakeFormationIdentityCenterConfiguration": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.lakeformation#UpdateLakeFormationIdentityCenterConfigurationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.lakeformation#UpdateLakeFormationIdentityCenterConfigurationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.lakeformation#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#ConcurrentModificationException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#EntityNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#InternalServiceException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#InvalidInputException"
+        },
+        {
+          "target": "com.amazonaws.lakeformation#OperationTimeoutException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates the IAM Identity Center connection parameters.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/UpdateLakeFormationIdentityCenterConfiguration",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.lakeformation#UpdateLakeFormationIdentityCenterConfigurationRequest": {
+      "type": "structure",
+      "members": {
+        "CatalogId": {
+          "target": "com.amazonaws.lakeformation#CatalogIdString",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the Data Catalog. By default, the account ID. The Data Catalog is the\n         persistent metadata store. It contains database definitions, table definitions, view\n         definitions, and other control information to manage your Lake Formation\n         environment.</p>"
+          }
+        },
+        "ApplicationStatus": {
+          "target": "com.amazonaws.lakeformation#ApplicationStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Allows to enable or disable the IAM Identity Center connection.</p>"
+          }
+        },
+        "ExternalFiltering": {
+          "target": "com.amazonaws.lakeformation#ExternalFilteringConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of the account IDs of Amazon Web Services accounts of third-party applications\n         that are allowed to access data managed by Lake Formation.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.lakeformation#UpdateLakeFormationIdentityCenterConfigurationResponse": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.lakeformation#UpdateResource": {
       "type": "operation",
       "input": {
@@ -7139,6 +7854,12 @@
           "target": "com.amazonaws.lakeformation#NullableBoolean",
           "traits": {
             "smithy.api#documentation": "<p>Whether or not the resource is a federated resource.</p>"
+          }
+        },
+        "HybridAccessEnabled": {
+          "target": "com.amazonaws.lakeformation#NullableBoolean",
+          "traits": {
+            "smithy.api#documentation": "<p>\n      Specifies whether the data access of tables pointing to the location can be managed by both Lake Formation permissions as well as Amazon S3 bucket policies.\n    </p>"
           }
         }
       },

@@ -245,6 +245,7 @@ import {
   GetTableMetadataOutput,
   GetWorkGroupInput,
   GetWorkGroupOutput,
+  IdentityCenterConfiguration,
   ImportNotebookInput,
   InternalServerException,
   InvalidRequestException,
@@ -281,6 +282,7 @@ import {
   QueryExecution,
   QueryExecutionContext,
   QueryExecutionStatus,
+  QueryResultsS3AccessGrantsConfiguration,
   QueryRuntimeStatistics,
   QueryStage,
   QueryStagePlanNode,
@@ -4845,6 +4847,8 @@ const se_DeleteNamedQueryInput = (input: DeleteNamedQueryInput, context: __Serde
 
 // se_GetWorkGroupInput omitted.
 
+// se_IdentityCenterConfiguration omitted.
+
 // se_ImportNotebookInput omitted.
 
 // se_ListApplicationDPUSizesInput omitted.
@@ -4890,6 +4894,8 @@ const se_DeleteNamedQueryInput = (input: DeleteNamedQueryInput, context: __Serde
 // se_QueryExecutionContext omitted.
 
 // se_QueryExecutionIdList omitted.
+
+// se_QueryResultsS3AccessGrantsConfiguration omitted.
 
 // se_ResultConfiguration omitted.
 
@@ -5281,6 +5287,8 @@ const de_GetWorkGroupOutput = (output: any, context: __SerdeContext): GetWorkGro
   }) as any;
 };
 
+// de_IdentityCenterConfiguration omitted.
+
 // de_ImportNotebookOutput omitted.
 
 // de_InternalServerException omitted.
@@ -5503,6 +5511,7 @@ const de_QueryExecution = (output: any, context: __SerdeContext): QueryExecution
     Query: __expectString,
     QueryExecutionContext: _json,
     QueryExecutionId: __expectString,
+    QueryResultsS3AccessGrantsConfiguration: _json,
     ResultConfiguration: _json,
     ResultReuseConfiguration: _json,
     StatementType: __expectString,
@@ -5543,6 +5552,8 @@ const de_QueryExecutionStatus = (output: any, context: __SerdeContext): QueryExe
     SubmissionDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+// de_QueryResultsS3AccessGrantsConfiguration omitted.
 
 /**
  * deserializeAws_json1_1QueryRuntimeStatistics
@@ -5762,6 +5773,7 @@ const de_WorkGroup = (output: any, context: __SerdeContext): WorkGroup => {
     Configuration: _json,
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
+    IdentityCenterApplicationArn: __expectString,
     Name: __expectString,
     State: __expectString,
   }) as any;
@@ -5791,6 +5803,7 @@ const de_WorkGroupSummary = (output: any, context: __SerdeContext): WorkGroupSum
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
     EngineVersion: _json,
+    IdentityCenterApplicationArn: __expectString,
     Name: __expectString,
     State: __expectString,
   }) as any;

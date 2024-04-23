@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { Uint8ArrayBlobAdapter } from "@smithy/util-stream";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GetCodeBindingSourceRequest, GetCodeBindingSourceResponse } from "../models/models_0";
 import { de_GetCodeBindingSourceCommand, se_GetCodeBindingSourceCommand } from "../protocols/Aws_restJson1";
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient";
@@ -87,79 +79,26 @@ export interface GetCodeBindingSourceCommandOutput extends GetCodeBindingSourceC
  * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
  */
-export class GetCodeBindingSourceCommand extends $Command<
-  GetCodeBindingSourceCommandInput,
-  GetCodeBindingSourceCommandOutput,
-  SchemasClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetCodeBindingSourceCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SchemasClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetCodeBindingSourceCommandInput, GetCodeBindingSourceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetCodeBindingSourceCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SchemasClient";
-    const commandName = "GetCodeBindingSourceCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetCodeBindingSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetCodeBindingSourceCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCodeBindingSourceCommandOutput> {
-    return de_GetCodeBindingSourceCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetCodeBindingSourceCommand extends $Command
+  .classBuilder<
+    GetCodeBindingSourceCommandInput,
+    GetCodeBindingSourceCommandOutput,
+    SchemasClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SchemasClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("schemas", "GetCodeBindingSource", {})
+  .n("SchemasClient", "GetCodeBindingSourceCommand")
+  .f(void 0, void 0)
+  .ser(se_GetCodeBindingSourceCommand)
+  .de(de_GetCodeBindingSourceCommand)
+  .build() {}

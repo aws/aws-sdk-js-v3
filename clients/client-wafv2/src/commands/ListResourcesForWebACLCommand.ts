@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListResourcesForWebACLRequest, ListResourcesForWebACLResponse } from "../models/models_0";
 import { de_ListResourcesForWebACLCommand, se_ListResourcesForWebACLCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
@@ -37,8 +29,15 @@ export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWeb
 /**
  * @public
  * <p>Retrieves an array of the Amazon Resource Names (ARNs) for the regional resources that
- *          are associated with the specified web ACL. If you want the list of Amazon CloudFront resources, use
- *          the CloudFront call <code>ListDistributionsByWebACLId</code>. </p>
+ *       are associated with the specified web ACL. </p>
+ *          <p>For Amazon CloudFront, don't use this call. Instead, use the CloudFront call
+ *           <code>ListDistributionsByWebACLId</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDistributionsByWebACLId.html">ListDistributionsByWebACLId</a>
+ *           in the <i>Amazon CloudFront API Reference</i>. </p>
+ *          <p>
+ *             <b>Required permissions for customer-managed IAM policies</b>
+ *          </p>
+ *          <p>This call requires permissions that are specific to the protected resource type.
+ *     For details, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/security_iam_service-with-iam.html#security_iam_action-ListResourcesForWebACL">Permissions for ListResourcesForWebACL</a> in the <i>WAF Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -103,79 +102,26 @@ export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWeb
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
-export class ListResourcesForWebACLCommand extends $Command<
-  ListResourcesForWebACLCommandInput,
-  ListResourcesForWebACLCommandOutput,
-  WAFV2ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListResourcesForWebACLCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: WAFV2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListResourcesForWebACLCommandInput, ListResourcesForWebACLCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListResourcesForWebACLCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "WAFV2Client";
-    const commandName = "ListResourcesForWebACLCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListResourcesForWebACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListResourcesForWebACLCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourcesForWebACLCommandOutput> {
-    return de_ListResourcesForWebACLCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListResourcesForWebACLCommand extends $Command
+  .classBuilder<
+    ListResourcesForWebACLCommandInput,
+    ListResourcesForWebACLCommandOutput,
+    WAFV2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSWAF_20190729", "ListResourcesForWebACL", {})
+  .n("WAFV2Client", "ListResourcesForWebACLCommand")
+  .f(void 0, void 0)
+  .ser(se_ListResourcesForWebACLCommand)
+  .de(de_ListResourcesForWebACLCommand)
+  .build() {}

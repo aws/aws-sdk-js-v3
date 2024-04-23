@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { StopStackSetOperationInput, StopStackSetOperationOutput } from "../models/models_0";
 import { de_StopStackSetOperationCommand, se_StopStackSetOperationCommand } from "../protocols/Aws_query";
 
@@ -36,8 +28,9 @@ export interface StopStackSetOperationCommandOutput extends StopStackSetOperatio
 
 /**
  * @public
- * <p>Stops an in-progress operation on a stack set and its associated stack instances. StackSets will cancel all the
- *    unstarted stack instance deployments and wait for those are in-progress to complete.</p>
+ * <p>Stops an in-progress operation on a stack set and its associated stack instances. StackSets
+ *    will cancel all the unstarted stack instance deployments and wait for those are in-progress to
+ *    complete.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,79 +67,26 @@ export interface StopStackSetOperationCommandOutput extends StopStackSetOperatio
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
-export class StopStackSetOperationCommand extends $Command<
-  StopStackSetOperationCommandInput,
-  StopStackSetOperationCommandOutput,
-  CloudFormationClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StopStackSetOperationCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CloudFormationClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StopStackSetOperationCommandInput, StopStackSetOperationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StopStackSetOperationCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CloudFormationClient";
-    const commandName = "StopStackSetOperationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StopStackSetOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StopStackSetOperationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopStackSetOperationCommandOutput> {
-    return de_StopStackSetOperationCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class StopStackSetOperationCommand extends $Command
+  .classBuilder<
+    StopStackSetOperationCommandInput,
+    StopStackSetOperationCommandOutput,
+    CloudFormationClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CloudFormation", "StopStackSetOperation", {})
+  .n("CloudFormationClient", "StopStackSetOperationCommand")
+  .f(void 0, void 0)
+  .ser(se_StopStackSetOperationCommand)
+  .de(de_StopStackSetOperationCommand)
+  .build() {}

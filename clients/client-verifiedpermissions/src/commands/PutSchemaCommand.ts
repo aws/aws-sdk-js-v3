@@ -1,19 +1,16 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { PutSchemaInput, PutSchemaOutput } from "../models/models_0";
+import { commonParams } from "../endpoint/EndpointParameters";
+import {
+  PutSchemaInput,
+  PutSchemaInputFilterSensitiveLog,
+  PutSchemaOutput,
+  PutSchemaOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { de_PutSchemaCommand, se_PutSchemaCommand } from "../protocols/Aws_json1_0";
 import {
   ServiceInputTypes,
@@ -45,6 +42,12 @@ export interface PutSchemaCommandOutput extends PutSchemaOutput, __MetadataBeare
  *             validate only policies and templates submitted after the schema change. Existing
  *             policies and templates are not re-evaluated against the changed schema. If you later
  *             update a policy, then it is evaluated against the new schema at that time.</p>
+ *          <note>
+ *             <p>Verified Permissions is <i>
+ *                   <a href="https://wikipedia.org/wiki/Eventual_consistency">eventually consistent</a>
+ *                </i>. It can take a few seconds for a new or changed element to be propagate through
+ *     the service and be visible in the results of other Verified Permissions operations.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -141,7 +144,7 @@ export interface PutSchemaCommandOutput extends PutSchemaOutput, __MetadataBeare
  *                </p>
  *                <p>The policy attempts to access a record or entity attribute that isn't
  *                     specified in the schema. Test for the existence of the attribute first before
- *                     attempting to access its value. For more information, see the <a href="https://docs.cedarpolicy.com/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
+ *                     attempting to access its value. For more information, see the <a href="https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
  *                         <i>Cedar Policy Language Guide</i>.</p>
  *             </li>
  *             <li>
@@ -151,7 +154,7 @@ export interface PutSchemaCommandOutput extends PutSchemaOutput, __MetadataBeare
  *                <p>The policy attempts to access a record or entity attribute that is optional
  *                     and isn't guaranteed to be present. Test for the existence of the attribute
  *                     first before attempting to access its value. For more information, see the
- *                         <a href="https://docs.cedarpolicy.com/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
+ *                         <a href="https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
  *                         <i>Cedar Policy Language Guide</i>.</p>
  *             </li>
  *             <li>
@@ -183,77 +186,26 @@ export interface PutSchemaCommandOutput extends PutSchemaOutput, __MetadataBeare
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
  *
  */
-export class PutSchemaCommand extends $Command<
-  PutSchemaCommandInput,
-  PutSchemaCommandOutput,
-  VerifiedPermissionsClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PutSchemaCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: VerifiedPermissionsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PutSchemaCommandInput, PutSchemaCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, PutSchemaCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "VerifiedPermissionsClient";
-    const commandName = "PutSchemaCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: PutSchemaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PutSchemaCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutSchemaCommandOutput> {
-    return de_PutSchemaCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class PutSchemaCommand extends $Command
+  .classBuilder<
+    PutSchemaCommandInput,
+    PutSchemaCommandOutput,
+    VerifiedPermissionsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("VerifiedPermissions", "PutSchema", {})
+  .n("VerifiedPermissionsClient", "PutSchemaCommand")
+  .f(PutSchemaInputFilterSensitiveLog, PutSchemaOutputFilterSensitiveLog)
+  .ser(se_PutSchemaCommand)
+  .de(de_PutSchemaCommand)
+  .build() {}

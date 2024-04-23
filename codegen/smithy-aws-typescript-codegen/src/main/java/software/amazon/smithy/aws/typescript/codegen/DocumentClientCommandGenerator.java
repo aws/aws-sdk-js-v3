@@ -134,10 +134,10 @@ final class DocumentClientCommandGenerator implements Runnable {
             () -> {
                 // Section for adding custom command properties.
                 writer.pushState(COMMAND_PROPERTIES_SECTION);
-                writer.openBlock("protected readonly $L = [", "];", COMMAND_INPUT_KEYNODES, () -> {
+                writer.openBlock("protected readonly $L = {", "};", COMMAND_INPUT_KEYNODES, () -> {
                     writeKeyNodes(inputMembersWithAttr);
                 });
-                writer.openBlock("protected readonly $L = [", "];", COMMAND_OUTPUT_KEYNODES, () -> {
+                writer.openBlock("protected readonly $L = {", "};", COMMAND_OUTPUT_KEYNODES, () -> {
                     writeKeyNodes(outputMembersWithAttr);
                 });
                 writer.popState();
@@ -220,7 +220,7 @@ final class DocumentClientCommandGenerator implements Runnable {
 
     private void writeKeyNodes(List<MemberShape> membersWithAttr) {
         for (MemberShape member: membersWithAttr) {
-            writer.openBlock("{key: '$L', ", "},", symbolProvider.toMemberName(member), () -> {
+            writer.openBlock("'$L': ", ",", symbolProvider.toMemberName(member), () -> {
                 writeKeyNode(member);
             });
         }
@@ -230,9 +230,21 @@ final class DocumentClientCommandGenerator implements Runnable {
         Shape memberTarget = model.expectShape(member.getTarget());
         if (memberTarget instanceof CollectionShape) {
             MemberShape collectionMember = ((CollectionShape) memberTarget).getMember();
-            writeKeyNode(collectionMember);
+            Shape collectionMemberTarget = model.expectShape(collectionMember.getTarget());
+            if (collectionMemberTarget.isUnionShape()
+                    && symbolProvider.toSymbol(collectionMemberTarget).getName().equals("AttributeValue")) {
+                writer.addImport("ALL_MEMBERS", null, "./commands/utils");
+                writer.write("ALL_MEMBERS // set/list of AttributeValue");
+                return;
+            }
+            writer.openBlock("{", "}", () -> {
+                writer.write("'*':");
+                writeKeyNode(collectionMember);
+            });
         } else if (memberTarget.isUnionShape()) {
             if (symbolProvider.toSymbol(memberTarget).getName().equals("AttributeValue")) {
+                writer.addImport("SELF", null, "./commands/utils");
+                writer.write("SELF");
                 return;
             } else {
                 // An AttributeValue inside Union is not present as of Q1 2021, and is less
@@ -241,29 +253,30 @@ final class DocumentClientCommandGenerator implements Runnable {
                     "AttributeValue inside Union is not supported, attempted for %s", memberTarget.getType()
                 ));
             }
-        } else {
-            if (memberTarget.isMapShape()) {
-                MemberShape mapMember = ((MapShape) memberTarget).getValue();
-                Shape mapMemberTarget = model.expectShape(mapMember.getTarget());
-                if (mapMemberTarget.isUnionShape()
-                        && symbolProvider.toSymbol(mapMemberTarget).getName().equals("AttributeValue")) {
-                    return;
-                } else {
-                    writer.openBlock("children: {", "},", () -> {
-                        writeKeyNode(mapMember);
-                    });
-                }
-            } else if (memberTarget.isStructureShape()) {
-                writeStructureKeyNode((StructureShape) memberTarget);
+        } else if (memberTarget.isMapShape()) {
+            MemberShape mapMember = ((MapShape) memberTarget).getValue();
+            Shape mapMemberTarget = model.expectShape(mapMember.getTarget());
+            if (mapMemberTarget.isUnionShape()
+                    && symbolProvider.toSymbol(mapMemberTarget).getName().equals("AttributeValue")) {
+                writer.addImport("ALL_VALUES", null, "./commands/utils");
+                writer.write("ALL_VALUES // map with AttributeValue");
+                return;
+            } else {
+                writer.openBlock("{", "}", () -> {
+                    writer.write("'*':");
+                    writeKeyNode(mapMember);
+                });
             }
+        } else if (memberTarget.isStructureShape()) {
+            writeStructureKeyNode((StructureShape) memberTarget);
         }
     }
 
     private void writeStructureKeyNode(StructureShape structureTarget) {
         List<MemberShape> membersWithAttr = getStructureMembersWithAttr(Optional.of(structureTarget));
-        writer.openBlock("children: [", "],", () -> {
+        writer.openBlock("{", "}", () -> {
             for (MemberShape member: membersWithAttr) {
-                writer.openBlock("{key: '$L', ", "},", symbolProvider.toMemberName(member), () -> {
+                writer.openBlock("'$L': ", ",", symbolProvider.toMemberName(member), () -> {
                     writeKeyNode(member);
                 });
             }

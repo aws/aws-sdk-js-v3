@@ -2,6 +2,7 @@
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { CloudFrontServiceException as __BaseException } from "./CloudFrontServiceException";
+
 import {
   ActiveTrustedSigners,
   Aliases,
@@ -35,6 +36,7 @@ import {
   Invalidation,
   KeyGroup,
   KeyGroupConfig,
+  KeyValueStore,
   MonitoringSubscription,
   OriginAccessControl,
   OriginAccessControlConfig,
@@ -50,13 +52,422 @@ import {
   PublicKeyConfig,
   QueryArgProfileConfig,
   RealtimeLogConfig,
-  ResponseHeadersPolicy,
-  ResponseHeadersPolicyConfig,
+  ResponseHeadersPolicyContentSecurityPolicy,
+  ResponseHeadersPolicyContentTypeOptions,
+  ResponseHeadersPolicyCorsConfig,
+  ResponseHeadersPolicyCustomHeadersConfig,
+  ResponseHeadersPolicyRemoveHeadersConfig,
   Restrictions,
   Tags,
   TrustedSigners,
   ViewerCertificate,
 } from "./models_0";
+
+/**
+ * @public
+ * @enum
+ */
+export const FrameOptionsList = {
+  DENY: "DENY",
+  SAMEORIGIN: "SAMEORIGIN",
+} as const;
+
+/**
+ * @public
+ */
+export type FrameOptionsList = (typeof FrameOptionsList)[keyof typeof FrameOptionsList];
+
+/**
+ * @public
+ * <p>Determines whether CloudFront includes the <code>X-Frame-Options</code> HTTP response header
+ * 			and the header's value.</p>
+ *          <p>For more information about the <code>X-Frame-Options</code> HTTP response header, see
+ * 				<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">X-Frame-Options</a> in the MDN Web Docs.</p>
+ */
+export interface ResponseHeadersPolicyFrameOptions {
+  /**
+   * @public
+   * <p>A Boolean that determines whether CloudFront overrides the <code>X-Frame-Options</code> HTTP
+   * 			response header received from the origin with the one specified in this response headers
+   * 			policy.</p>
+   */
+  Override: boolean | undefined;
+
+  /**
+   * @public
+   * <p>The value of the <code>X-Frame-Options</code> HTTP response header. Valid values are
+   * 				<code>DENY</code> and <code>SAMEORIGIN</code>.</p>
+   *          <p>For more information about these values, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">X-Frame-Options</a> in the MDN Web Docs.</p>
+   */
+  FrameOption: FrameOptionsList | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ReferrerPolicyList = {
+  no_referrer: "no-referrer",
+  no_referrer_when_downgrade: "no-referrer-when-downgrade",
+  origin: "origin",
+  origin_when_cross_origin: "origin-when-cross-origin",
+  same_origin: "same-origin",
+  strict_origin: "strict-origin",
+  strict_origin_when_cross_origin: "strict-origin-when-cross-origin",
+  unsafe_url: "unsafe-url",
+} as const;
+
+/**
+ * @public
+ */
+export type ReferrerPolicyList = (typeof ReferrerPolicyList)[keyof typeof ReferrerPolicyList];
+
+/**
+ * @public
+ * <p>Determines whether CloudFront includes the <code>Referrer-Policy</code> HTTP response header
+ * 			and the header's value.</p>
+ *          <p>For more information about the <code>Referrer-Policy</code> HTTP response header, see
+ * 				<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy">Referrer-Policy</a> in the MDN Web Docs.</p>
+ */
+export interface ResponseHeadersPolicyReferrerPolicy {
+  /**
+   * @public
+   * <p>A Boolean that determines whether CloudFront overrides the <code>Referrer-Policy</code> HTTP
+   * 			response header received from the origin with the one specified in this response headers
+   * 			policy.</p>
+   */
+  Override: boolean | undefined;
+
+  /**
+   * @public
+   * <p>The value of the <code>Referrer-Policy</code> HTTP response header. Valid values
+   * 			are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>no-referrer</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>no-referrer-when-downgrade</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>origin</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>origin-when-cross-origin</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>same-origin</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>strict-origin</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>strict-origin-when-cross-origin</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>unsafe-url</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information about these values, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy">Referrer-Policy</a> in the MDN Web Docs.</p>
+   */
+  ReferrerPolicy: ReferrerPolicyList | undefined;
+}
+
+/**
+ * @public
+ * <p>Determines whether CloudFront includes the <code>Strict-Transport-Security</code> HTTP
+ * 			response header and the header's value.</p>
+ *          <p>For more information about the <code>Strict-Transport-Security</code> HTTP response
+ * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security">Strict-Transport-Security</a> in the MDN Web Docs.</p>
+ */
+export interface ResponseHeadersPolicyStrictTransportSecurity {
+  /**
+   * @public
+   * <p>A Boolean that determines whether CloudFront overrides the
+   * 				<code>Strict-Transport-Security</code> HTTP response header received from the origin
+   * 			with the one specified in this response headers policy.</p>
+   */
+  Override: boolean | undefined;
+
+  /**
+   * @public
+   * <p>A Boolean that determines whether CloudFront includes the <code>includeSubDomains</code>
+   * 			directive in the <code>Strict-Transport-Security</code> HTTP response header.</p>
+   */
+  IncludeSubdomains?: boolean;
+
+  /**
+   * @public
+   * <p>A Boolean that determines whether CloudFront includes the <code>preload</code> directive in
+   * 			the <code>Strict-Transport-Security</code> HTTP response header.</p>
+   */
+  Preload?: boolean;
+
+  /**
+   * @public
+   * <p>A number that CloudFront uses as the value for the <code>max-age</code> directive in the
+   * 				<code>Strict-Transport-Security</code> HTTP response header.</p>
+   */
+  AccessControlMaxAgeSec: number | undefined;
+}
+
+/**
+ * @public
+ * <p>Determines whether CloudFront includes the <code>X-XSS-Protection</code> HTTP response
+ * 			header and the header's value.</p>
+ *          <p>For more information about the <code>X-XSS-Protection</code> HTTP response header, see
+ * 				<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a> in the MDN Web Docs.</p>
+ */
+export interface ResponseHeadersPolicyXSSProtection {
+  /**
+   * @public
+   * <p>A Boolean that determines whether CloudFront overrides the <code>X-XSS-Protection</code>
+   * 			HTTP response header received from the origin with the one specified in this response
+   * 			headers policy.</p>
+   */
+  Override: boolean | undefined;
+
+  /**
+   * @public
+   * <p>A Boolean that determines the value of the <code>X-XSS-Protection</code> HTTP response
+   * 			header. When this setting is <code>true</code>, the value of the
+   * 				<code>X-XSS-Protection</code> header is <code>1</code>. When this setting is
+   * 				<code>false</code>, the value of the <code>X-XSS-Protection</code> header is
+   * 				<code>0</code>.</p>
+   *          <p>For more information about these settings, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a> in the MDN Web Docs.</p>
+   */
+  Protection: boolean | undefined;
+
+  /**
+   * @public
+   * <p>A Boolean that determines whether CloudFront includes the <code>mode=block</code> directive
+   * 			in the <code>X-XSS-Protection</code> header.</p>
+   *          <p>For more information about this directive, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a> in the MDN Web Docs.</p>
+   */
+  ModeBlock?: boolean;
+
+  /**
+   * @public
+   * <p>A reporting URI, which CloudFront uses as the value of the <code>report</code> directive in
+   * 			the <code>X-XSS-Protection</code> header.</p>
+   *          <p>You cannot specify a <code>ReportUri</code> when <code>ModeBlock</code> is
+   * 				<code>true</code>.</p>
+   *          <p>For more information about using a reporting URL, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a> in the MDN Web Docs.</p>
+   */
+  ReportUri?: string;
+}
+
+/**
+ * @public
+ * <p>A configuration for a set of security-related HTTP response headers. CloudFront adds these
+ * 			headers to HTTP responses that it sends for requests that match a cache behavior
+ * 			associated with this response headers policy.</p>
+ */
+export interface ResponseHeadersPolicySecurityHeadersConfig {
+  /**
+   * @public
+   * <p>Determines whether CloudFront includes the <code>X-XSS-Protection</code> HTTP response
+   * 			header and the header's value.</p>
+   *          <p>For more information about the <code>X-XSS-Protection</code> HTTP response header, see
+   * 				<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a> in the MDN Web Docs.</p>
+   */
+  XSSProtection?: ResponseHeadersPolicyXSSProtection;
+
+  /**
+   * @public
+   * <p>Determines whether CloudFront includes the <code>X-Frame-Options</code> HTTP response header
+   * 			and the header's value.</p>
+   *          <p>For more information about the <code>X-Frame-Options</code> HTTP response header, see
+   * 				<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options">X-Frame-Options</a> in the MDN Web Docs.</p>
+   */
+  FrameOptions?: ResponseHeadersPolicyFrameOptions;
+
+  /**
+   * @public
+   * <p>Determines whether CloudFront includes the <code>Referrer-Policy</code> HTTP response header
+   * 			and the header's value.</p>
+   *          <p>For more information about the <code>Referrer-Policy</code> HTTP response header, see
+   * 				<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy">Referrer-Policy</a> in the MDN Web Docs.</p>
+   */
+  ReferrerPolicy?: ResponseHeadersPolicyReferrerPolicy;
+
+  /**
+   * @public
+   * <p>The policy directives and their values that CloudFront includes as values for the
+   * 				<code>Content-Security-Policy</code> HTTP response header.</p>
+   *          <p>For more information about the <code>Content-Security-Policy</code> HTTP response
+   * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy">Content-Security-Policy</a> in the MDN Web Docs.</p>
+   */
+  ContentSecurityPolicy?: ResponseHeadersPolicyContentSecurityPolicy;
+
+  /**
+   * @public
+   * <p>Determines whether CloudFront includes the <code>X-Content-Type-Options</code> HTTP response
+   * 			header with its value set to <code>nosniff</code>.</p>
+   *          <p>For more information about the <code>X-Content-Type-Options</code> HTTP response
+   * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options">X-Content-Type-Options</a> in the MDN Web Docs.</p>
+   */
+  ContentTypeOptions?: ResponseHeadersPolicyContentTypeOptions;
+
+  /**
+   * @public
+   * <p>Determines whether CloudFront includes the <code>Strict-Transport-Security</code> HTTP
+   * 			response header and the header's value.</p>
+   *          <p>For more information about the <code>Strict-Transport-Security</code> HTTP response
+   * 			header, see <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security">Strict-Transport-Security</a> in the MDN Web Docs.</p>
+   */
+  StrictTransportSecurity?: ResponseHeadersPolicyStrictTransportSecurity;
+}
+
+/**
+ * @public
+ * <p>A configuration for enabling the <code>Server-Timing</code> header in HTTP responses
+ * 			sent from CloudFront. CloudFront adds this header to HTTP responses that it sends in response to
+ * 			requests that match a cache behavior that's associated with this response headers
+ * 			policy.</p>
+ *          <p>You can use the <code>Server-Timing</code> header to view metrics that can help you
+ * 			gain insights about the behavior and performance of CloudFront. For example, you can see which
+ * 			cache layer served a cache hit, or the first byte latency from the origin when there was
+ * 			a cache miss. You can use the metrics in the <code>Server-Timing</code> header to
+ * 			troubleshoot issues or test the efficiency of your CloudFront configuration. For more
+ * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/understanding-response-headers-policies.html#server-timing-header">Server-Timing header</a> in the
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ */
+export interface ResponseHeadersPolicyServerTimingHeadersConfig {
+  /**
+   * @public
+   * <p>A Boolean that determines whether CloudFront adds the <code>Server-Timing</code> header to
+   * 			HTTP responses that it sends in response to requests that match a cache behavior that's
+   * 			associated with this response headers policy.</p>
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * @public
+   * <p>A number 0–100 (inclusive) that specifies the percentage of responses that you want
+   * 			CloudFront to add the <code>Server-Timing</code> header to. When you set the sampling rate to
+   * 			100, CloudFront adds the <code>Server-Timing</code> header to the HTTP response for every
+   * 			request that matches the cache behavior that this response headers policy is attached
+   * 			to. When you set it to 50, CloudFront adds the header to 50% of the responses for requests
+   * 			that match the cache behavior. You can set the sampling rate to any number 0–100 with up
+   * 			to four decimal places.</p>
+   */
+  SamplingRate?: number;
+}
+
+/**
+ * @public
+ * <p>A response headers policy configuration.</p>
+ *          <p>A response headers policy configuration contains metadata about the response headers policy,
+ * 			and configurations for sets of HTTP response headers.</p>
+ */
+export interface ResponseHeadersPolicyConfig {
+  /**
+   * @public
+   * <p>A comment to describe the response headers policy.</p>
+   *          <p>The comment cannot be longer than 128 characters.</p>
+   */
+  Comment?: string;
+
+  /**
+   * @public
+   * <p>A name to identify the response headers policy.</p>
+   *          <p>The name must be unique for response headers policies in this Amazon Web Services account.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>A configuration for a set of HTTP response headers that are used for cross-origin
+   * 			resource sharing (CORS).</p>
+   */
+  CorsConfig?: ResponseHeadersPolicyCorsConfig;
+
+  /**
+   * @public
+   * <p>A configuration for a set of security-related HTTP response headers.</p>
+   */
+  SecurityHeadersConfig?: ResponseHeadersPolicySecurityHeadersConfig;
+
+  /**
+   * @public
+   * <p>A configuration for enabling the <code>Server-Timing</code> header in HTTP responses
+   * 			sent from CloudFront.</p>
+   */
+  ServerTimingHeadersConfig?: ResponseHeadersPolicyServerTimingHeadersConfig;
+
+  /**
+   * @public
+   * <p>A configuration for a set of custom HTTP response headers.</p>
+   */
+  CustomHeadersConfig?: ResponseHeadersPolicyCustomHeadersConfig;
+
+  /**
+   * @public
+   * <p>A configuration for a set of HTTP headers to remove from the HTTP response.</p>
+   */
+  RemoveHeadersConfig?: ResponseHeadersPolicyRemoveHeadersConfig;
+}
+
+/**
+ * @public
+ */
+export interface CreateResponseHeadersPolicyRequest {
+  /**
+   * @public
+   * <p>Contains metadata about the response headers policy, and a set of configurations that
+   * 			specify the HTTP headers.</p>
+   */
+  ResponseHeadersPolicyConfig: ResponseHeadersPolicyConfig | undefined;
+}
+
+/**
+ * @public
+ * <p>A response headers policy.</p>
+ *          <p>A response headers policy contains information about a set of HTTP response headers.</p>
+ *          <p>After you create a response headers policy, you can use its ID to attach it to one or more
+ * 			cache behaviors in a CloudFront distribution. When it's attached to a cache behavior, the
+ * 			response headers policy affects the HTTP headers that CloudFront includes in HTTP responses to
+ * 			requests that match the cache behavior. CloudFront adds or removes response headers according
+ * 			to the configuration of the response headers policy.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/modifying-response-headers.html">Adding or removing HTTP headers in CloudFront responses</a> in the
+ * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+ */
+export interface ResponseHeadersPolicy {
+  /**
+   * @public
+   * <p>The identifier for the response headers policy.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * @public
+   * <p>The date and time when the response headers policy was last modified.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>A response headers policy configuration.</p>
+   */
+  ResponseHeadersPolicyConfig: ResponseHeadersPolicyConfig | undefined;
+}
 
 /**
  * @public
@@ -330,7 +741,7 @@ export interface StreamingDistributionConfig {
    * <p>A complex type that contains information about price class for this streaming
    * 			distribution.</p>
    */
-  PriceClass?: PriceClass | string;
+  PriceClass?: PriceClass;
 
   /**
    * @public
@@ -989,6 +1400,45 @@ export class ResourceInUse extends __BaseException {
 /**
  * @public
  */
+export interface DeleteKeyValueStoreRequest {
+  /**
+   * @public
+   * <p>The name of the Key Value Store.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>The Key Value Store to delete, if a match occurs.</p>
+   */
+  IfMatch: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The Key Value Store entity was not found.</p>
+ */
+export class EntityNotFound extends __BaseException {
+  readonly name: "EntityNotFound" = "EntityNotFound";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EntityNotFound, __BaseException>) {
+    super({
+      name: "EntityNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EntityNotFound.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
 export interface DeleteMonitoringSubscriptionRequest {
   /**
    * @public
@@ -1334,7 +1784,7 @@ export interface DescribeFunctionRequest {
    * @public
    * <p>The function's stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
    */
-  Stage?: FunctionStage | string;
+  Stage?: FunctionStage;
 }
 
 /**
@@ -1350,6 +1800,34 @@ export interface DescribeFunctionResult {
   /**
    * @public
    * <p>The version identifier for the current version of the CloudFront function.</p>
+   */
+  ETag?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeKeyValueStoreRequest {
+  /**
+   * @public
+   * <p>The name of the Key Value Store.</p>
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeKeyValueStoreResult {
+  /**
+   * @public
+   * <p>The resulting Key Value Store.</p>
+   */
+  KeyValueStore?: KeyValueStore;
+
+  /**
+   * @public
+   * <p>The ETag of the resulting Key Value Store.</p>
    */
   ETag?: string;
 }
@@ -1734,7 +2212,7 @@ export interface GetFunctionRequest {
    * @public
    * <p>The function's stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
    */
-  Stage?: FunctionStage | string;
+  Stage?: FunctionStage;
 }
 
 /**
@@ -2248,7 +2726,7 @@ export interface ListCachePoliciesRequest {
    *             </li>
    *          </ul>
    */
-  Type?: CachePolicyType | string;
+  Type?: CachePolicyType;
 
   /**
    * @public
@@ -2696,7 +3174,7 @@ export interface DistributionSummary {
    * <p>A complex type that contains information about price class for this streaming
    * 			distribution.</p>
    */
-  PriceClass: PriceClass | string | undefined;
+  PriceClass: PriceClass | undefined;
 
   /**
    * @public
@@ -2730,7 +3208,7 @@ export interface DistributionSummary {
    * 			CloudFront. The default value for new web distributions is <code>http2</code>. Viewers that
    * 			don't support <code>HTTP/2</code> will automatically use an earlier version.</p>
    */
-  HttpVersion: HttpVersion | string | undefined;
+  HttpVersion: HttpVersion | undefined;
 
   /**
    * @public
@@ -3164,7 +3642,7 @@ export interface FieldLevelEncryptionSummary {
 
 /**
  * @public
- * <p>List of field-level encrpytion configurations.</p>
+ * <p>List of field-level encryption configurations.</p>
  */
 export interface FieldLevelEncryptionList {
   /**
@@ -3241,7 +3719,7 @@ export interface FieldLevelEncryptionProfileSummary {
 
   /**
    * @public
-   * <p>The time when the the field-level encryption profile summary was last updated.</p>
+   * <p>The time when the  field-level encryption profile summary was last updated.</p>
    */
   LastModifiedTime: Date | undefined;
 
@@ -3336,7 +3814,7 @@ export interface ListFunctionsRequest {
    * <p>An optional filter to return only the functions that are in the specified stage,
    * 			either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
    */
-  Stage?: FunctionStage | string;
+  Stage?: FunctionStage;
 }
 
 /**
@@ -3577,6 +4055,70 @@ export interface ListKeyGroupsResult {
 /**
  * @public
  */
+export interface ListKeyValueStoresRequest {
+  /**
+   * @public
+   * <p>The marker associated with the Key Value Stores list.</p>
+   */
+  Marker?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of items in the Key Value Stores list.</p>
+   */
+  MaxItems?: number;
+
+  /**
+   * @public
+   * <p>The status of the request for the Key Value Stores list.</p>
+   */
+  Status?: string;
+}
+
+/**
+ * @public
+ * <p>The Key Value Store list.</p>
+ */
+export interface KeyValueStoreList {
+  /**
+   * @public
+   * <p>The next marker associated with the Key Value Store list.</p>
+   */
+  NextMarker?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of items in the Key Value Store list.</p>
+   */
+  MaxItems: number | undefined;
+
+  /**
+   * @public
+   * <p>The quantity of the Key Value Store list.</p>
+   */
+  Quantity: number | undefined;
+
+  /**
+   * @public
+   * <p>The items of the Key Value Store list.</p>
+   */
+  Items?: KeyValueStore[];
+}
+
+/**
+ * @public
+ */
+export interface ListKeyValueStoresResult {
+  /**
+   * @public
+   * <p>The resulting Key Value Stores list.</p>
+   */
+  KeyValueStoreList?: KeyValueStoreList;
+}
+
+/**
+ * @public
+ */
 export interface ListOriginAccessControlsRequest {
   /**
    * @public
@@ -3622,7 +4164,7 @@ export interface OriginAccessControlSummary {
    * <p>The signing protocol of the origin access control. The signing protocol determines how
    * 			CloudFront signs (authenticates) requests. The only valid value is <code>sigv4</code>.</p>
    */
-  SigningProtocol: OriginAccessControlSigningProtocols | string | undefined;
+  SigningProtocol: OriginAccessControlSigningProtocols | undefined;
 
   /**
    * @public
@@ -3649,13 +4191,13 @@ export interface OriginAccessControlSummary {
    *             </li>
    *          </ul>
    */
-  SigningBehavior: OriginAccessControlSigningBehaviors | string | undefined;
+  SigningBehavior: OriginAccessControlSigningBehaviors | undefined;
 
   /**
    * @public
    * <p>The type of origin that this origin access control is for.</p>
    */
-  OriginAccessControlOriginType: OriginAccessControlOriginTypes | string | undefined;
+  OriginAccessControlOriginType: OriginAccessControlOriginTypes | undefined;
 }
 
 /**
@@ -3749,7 +4291,7 @@ export interface ListOriginRequestPoliciesRequest {
    *             </li>
    *          </ul>
    */
-  Type?: OriginRequestPolicyType | string;
+  Type?: OriginRequestPolicyType;
 
   /**
    * @public
@@ -3777,7 +4319,7 @@ export interface OriginRequestPolicySummary {
    * <p>The type of origin request policy, either <code>managed</code> (created by Amazon Web Services) or
    * 				<code>custom</code> (created in this Amazon Web Services account).</p>
    */
-  Type: OriginRequestPolicyType | string | undefined;
+  Type: OriginRequestPolicyType | undefined;
 
   /**
    * @public
@@ -4039,7 +4581,7 @@ export interface ListResponseHeadersPoliciesRequest {
    *             </li>
    *          </ul>
    */
-  Type?: ResponseHeadersPolicyType | string;
+  Type?: ResponseHeadersPolicyType;
 
   /**
    * @public
@@ -4068,7 +4610,7 @@ export interface ResponseHeadersPolicySummary {
    * <p>The type of response headers policy, either <code>managed</code> (created by Amazon Web Services) or
    * 				<code>custom</code> (created in this Amazon Web Services account).</p>
    */
-  Type: ResponseHeadersPolicyType | string | undefined;
+  Type: ResponseHeadersPolicyType | undefined;
 
   /**
    * @public
@@ -4222,7 +4764,7 @@ export interface StreamingDistributionSummary {
    * <p>A complex type that contains information about price class for this streaming
    * 			distribution.</p>
    */
-  PriceClass: PriceClass | string | undefined;
+  PriceClass: PriceClass | undefined;
 
   /**
    * @public
@@ -4407,7 +4949,7 @@ export interface TestFunctionRequest {
    * <p>The stage of the function that you are testing, either <code>DEVELOPMENT</code> or
    * 				<code>LIVE</code>.</p>
    */
-  Stage?: FunctionStage | string;
+  Stage?: FunctionStage;
 
   /**
    * @public
@@ -4890,6 +5432,46 @@ export interface UpdateKeyGroupResult {
   /**
    * @public
    * <p>The identifier for this version of the key group.</p>
+   */
+  ETag?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateKeyValueStoreRequest {
+  /**
+   * @public
+   * <p>The name of the Key Value Store to update.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>The comment of the Key Value Store to update.</p>
+   */
+  Comment: string | undefined;
+
+  /**
+   * @public
+   * <p>The Key Value Store to update, if a match occurs.</p>
+   */
+  IfMatch: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateKeyValueStoreResult {
+  /**
+   * @public
+   * <p>The resulting Key Value Store to update.</p>
+   */
+  KeyValueStore?: KeyValueStore;
+
+  /**
+   * @public
+   * <p>The ETag of the resulting Key Value Store.</p>
    */
   ETag?: string;
 }

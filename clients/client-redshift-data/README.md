@@ -27,16 +27,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `RedshiftDataClient` and
-the commands you need, for example `BatchExecuteStatementCommand`:
+the commands you need, for example `ListSchemasCommand`:
 
 ```js
 // ES5 example
-const { RedshiftDataClient, BatchExecuteStatementCommand } = require("@aws-sdk/client-redshift-data");
+const { RedshiftDataClient, ListSchemasCommand } = require("@aws-sdk/client-redshift-data");
 ```
 
 ```ts
 // ES6+ example
-import { RedshiftDataClient, BatchExecuteStatementCommand } from "@aws-sdk/client-redshift-data";
+import { RedshiftDataClient, ListSchemasCommand } from "@aws-sdk/client-redshift-data";
 ```
 
 ### Usage
@@ -55,7 +55,7 @@ const client = new RedshiftDataClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchExecuteStatementCommand(params);
+const command = new ListSchemasCommand(params);
 ```
 
 #### Async/await
@@ -134,7 +134,7 @@ const client = new AWS.RedshiftData({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchExecuteStatement(params);
+  const data = await client.listSchemas(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -142,7 +142,7 @@ try {
 
 // Promises.
 client
-  .batchExecuteStatement(params)
+  .listSchemas(params)
   .then((data) => {
     // process data.
   })
@@ -151,7 +151,7 @@ client
   });
 
 // callbacks.
-client.batchExecuteStatement(params, (err, data) => {
+client.listSchemas(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -166,7 +166,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -212,7 +212,7 @@ see LICENSE for more information.
 BatchExecuteStatement
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/classes/batchexecutestatementcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/batchexecutestatementcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/batchexecutestatementcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-data/command/BatchExecuteStatementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-data/Interface/BatchExecuteStatementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-data/Interface/BatchExecuteStatementCommandOutput/)
 
 </details>
 <details>
@@ -220,7 +220,7 @@ BatchExecuteStatement
 CancelStatement
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/classes/cancelstatementcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/cancelstatementcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/cancelstatementcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-data/command/CancelStatementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-data/Interface/CancelStatementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-data/Interface/CancelStatementCommandOutput/)
 
 </details>
 <details>
@@ -228,7 +228,7 @@ CancelStatement
 DescribeStatement
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/classes/describestatementcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/describestatementcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/describestatementcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-data/command/DescribeStatementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-data/Interface/DescribeStatementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-data/Interface/DescribeStatementCommandOutput/)
 
 </details>
 <details>
@@ -236,7 +236,7 @@ DescribeStatement
 DescribeTable
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/classes/describetablecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/describetablecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/describetablecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-data/command/DescribeTableCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-data/Interface/DescribeTableCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-data/Interface/DescribeTableCommandOutput/)
 
 </details>
 <details>
@@ -244,7 +244,7 @@ DescribeTable
 ExecuteStatement
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/classes/executestatementcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/executestatementcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/executestatementcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-data/command/ExecuteStatementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-data/Interface/ExecuteStatementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-data/Interface/ExecuteStatementCommandOutput/)
 
 </details>
 <details>
@@ -252,7 +252,7 @@ ExecuteStatement
 GetStatementResult
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/classes/getstatementresultcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/getstatementresultcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/getstatementresultcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-data/command/GetStatementResultCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-data/Interface/GetStatementResultCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-data/Interface/GetStatementResultCommandOutput/)
 
 </details>
 <details>
@@ -260,7 +260,7 @@ GetStatementResult
 ListDatabases
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/classes/listdatabasescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/listdatabasescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/listdatabasescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-data/command/ListDatabasesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-data/Interface/ListDatabasesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-data/Interface/ListDatabasesCommandOutput/)
 
 </details>
 <details>
@@ -268,7 +268,7 @@ ListDatabases
 ListSchemas
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/classes/listschemascommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/listschemascommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/listschemascommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-data/command/ListSchemasCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-data/Interface/ListSchemasCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-data/Interface/ListSchemasCommandOutput/)
 
 </details>
 <details>
@@ -276,7 +276,7 @@ ListSchemas
 ListStatements
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/classes/liststatementscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/liststatementscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/liststatementscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-data/command/ListStatementsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-data/Interface/ListStatementsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-data/Interface/ListStatementsCommandOutput/)
 
 </details>
 <details>
@@ -284,6 +284,6 @@ ListStatements
 ListTables
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/classes/listtablescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/listtablescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-redshift-data/interfaces/listtablescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-data/command/ListTablesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-data/Interface/ListTablesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-data/Interface/ListTablesCommandOutput/)
 
 </details>

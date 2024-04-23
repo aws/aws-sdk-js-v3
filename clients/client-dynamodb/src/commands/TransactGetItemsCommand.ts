@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { TransactGetItemsInput, TransactGetItemsOutput } from "../models/models_0";
 import { de_TransactGetItemsCommand, se_TransactGetItemsCommand } from "../protocols/Aws_json1_0";
 
@@ -265,6 +257,13 @@ export interface TransactGetItemsCommandOutput extends TransactGetItemsOutput, _
  *             <li>
  *                <p>There is a user error, such as an invalid data format.</p>
  *             </li>
+ *             <li>
+ *                <p>
+ *                     There is an ongoing <code>TransactWriteItems</code> operation that conflicts with a concurrent
+ *                     <code>TransactWriteItems</code> request. In this case the <code>TransactWriteItems</code> operation
+ *                     fails with a <code>TransactionCanceledException</code>.
+ *                 </p>
+ *             </li>
  *          </ul>
  *          <p>DynamoDB cancels a <code>TransactGetItems</code> request under the
  *             following circumstances:</p>
@@ -474,79 +473,26 @@ export interface TransactGetItemsCommandOutput extends TransactGetItemsOutput, _
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
  */
-export class TransactGetItemsCommand extends $Command<
-  TransactGetItemsCommandInput,
-  TransactGetItemsCommandOutput,
-  DynamoDBClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: TransactGetItemsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: DynamoDBClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<TransactGetItemsCommandInput, TransactGetItemsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, TransactGetItemsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "DynamoDBClient";
-    const commandName = "TransactGetItemsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: TransactGetItemsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_TransactGetItemsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TransactGetItemsCommandOutput> {
-    return de_TransactGetItemsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class TransactGetItemsCommand extends $Command
+  .classBuilder<
+    TransactGetItemsCommandInput,
+    TransactGetItemsCommandOutput,
+    DynamoDBClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("DynamoDB_20120810", "TransactGetItems", {})
+  .n("DynamoDBClient", "TransactGetItemsCommand")
+  .f(void 0, void 0)
+  .ser(se_TransactGetItemsCommand)
+  .de(de_TransactGetItemsCommand)
+  .build() {}

@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateSubnetRequest, CreateSubnetResult } from "../models/models_2";
 import { de_CreateSubnetCommand, se_CreateSubnetCommand } from "../protocols/Aws_ec2";
 
@@ -45,8 +37,8 @@ export interface CreateSubnetCommandOutput extends CreateSubnetResult, __Metadat
  *          <p>The allowed size for an IPv4 subnet is between a /28 netmask (16 IP addresses) and
  *             a /16 netmask (65,536 IP addresses). Amazon Web Services reserves both the first four and
  *             the last IPv4 address in each subnet's CIDR block. They're not available for your use.</p>
- *          <p>If you've associated an IPv6 CIDR block with your VPC, you can associate an IPv6 CIDR block
- *             with a subnet when you create it. The allowed block size for an IPv6 subnet is a /64 netmask.</p>
+ *          <p>If you've associated an IPv6 CIDR block with your VPC, you can associate an IPv6 CIDR
+ *             block with a subnet when you create it. </p>
  *          <p>If you add more than one subnet to a VPC, they're set up in a star topology with a
  *             logical router in the middle.</p>
  *          <p>When you stop an instance in a subnet, it retains its private IPv4 address. It's
@@ -79,6 +71,10 @@ export interface CreateSubnetCommandOutput extends CreateSubnetResult, __Metadat
  *   VpcId: "STRING_VALUE", // required
  *   DryRun: true || false,
  *   Ipv6Native: true || false,
+ *   Ipv4IpamPoolId: "STRING_VALUE",
+ *   Ipv4NetmaskLength: Number("int"),
+ *   Ipv6IpamPoolId: "STRING_VALUE",
+ *   Ipv6NetmaskLength: Number("int"),
  * };
  * const command = new CreateSubnetCommand(input);
  * const response = await client.send(command);
@@ -93,7 +89,7 @@ export interface CreateSubnetCommandOutput extends CreateSubnetResult, __Metadat
  * //     MapPublicIpOnLaunch: true || false,
  * //     MapCustomerOwnedIpOnLaunch: true || false,
  * //     CustomerOwnedIpv4Pool: "STRING_VALUE",
- * //     State: "pending" || "available",
+ * //     State: "pending" || "available" || "unavailable",
  * //     SubnetId: "STRING_VALUE",
  * //     VpcId: "STRING_VALUE",
  * //     OwnerId: "STRING_VALUE",
@@ -162,77 +158,26 @@ export interface CreateSubnetCommandOutput extends CreateSubnetResult, __Metadat
  * ```
  *
  */
-export class CreateSubnetCommand extends $Command<
-  CreateSubnetCommandInput,
-  CreateSubnetCommandOutput,
-  EC2ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateSubnetCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: EC2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateSubnetCommandInput, CreateSubnetCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, CreateSubnetCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "EC2Client";
-    const commandName = "CreateSubnetCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateSubnetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateSubnetCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateSubnetCommandOutput> {
-    return de_CreateSubnetCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateSubnetCommand extends $Command
+  .classBuilder<
+    CreateSubnetCommandInput,
+    CreateSubnetCommandOutput,
+    EC2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonEC2", "CreateSubnet", {})
+  .n("EC2Client", "CreateSubnetCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateSubnetCommand)
+  .de(de_CreateSubnetCommand)
+  .build() {}

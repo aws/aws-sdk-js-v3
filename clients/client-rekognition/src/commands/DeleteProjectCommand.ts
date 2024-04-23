@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteProjectRequest, DeleteProjectResponse } from "../models/models_0";
 import { de_DeleteProjectCommand, se_DeleteProjectCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
@@ -36,8 +28,8 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
 
 /**
  * @public
- * <p>Deletes an Amazon Rekognition Custom Labels project.  To delete a project you must first delete all models associated
- *          with the project. To delete a model, see <a>DeleteProjectVersion</a>.</p>
+ * <p>Deletes a Amazon Rekognition project. To delete a project you must first delete all models or
+ *          adapters associated with the project. To delete a model or adapter, see <a>DeleteProjectVersion</a>.</p>
  *          <p>
  *             <code>DeleteProject</code> is an asynchronous operation. To check if the project is
  *          deleted, call <a>DescribeProjects</a>. The project is deleted when the project
@@ -111,77 +103,26 @@ export interface DeleteProjectCommandOutput extends DeleteProjectResponse, __Met
  * ```
  *
  */
-export class DeleteProjectCommand extends $Command<
-  DeleteProjectCommandInput,
-  DeleteProjectCommandOutput,
-  RekognitionClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeleteProjectCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RekognitionClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DeleteProjectCommandInput, DeleteProjectCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteProjectCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RekognitionClient";
-    const commandName = "DeleteProjectCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DeleteProjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteProjectCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteProjectCommandOutput> {
-    return de_DeleteProjectCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DeleteProjectCommand extends $Command
+  .classBuilder<
+    DeleteProjectCommandInput,
+    DeleteProjectCommandOutput,
+    RekognitionClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("RekognitionService", "DeleteProject", {})
+  .n("RekognitionClient", "DeleteProjectCommand")
+  .f(void 0, void 0)
+  .ser(se_DeleteProjectCommand)
+  .de(de_DeleteProjectCommand)
+  .build() {}

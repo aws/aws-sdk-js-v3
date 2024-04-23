@@ -39,6 +39,11 @@ export interface AssumeRoleParams {
    * The value provided by the MFA device.
    */
   TokenCode?: string;
+
+  /**
+   * The duration, in seconds, of the role session.
+   */
+  DurationSeconds?: number;
 }
 
 interface AssumeRoleWithSourceProfile extends Profile {
@@ -108,6 +113,7 @@ export const resolveAssumeRoleCredentials = async (
     RoleArn: data.role_arn!,
     RoleSessionName: data.role_session_name || `aws-sdk-js-${Date.now()}`,
     ExternalId: data.external_id,
+    DurationSeconds: parseInt(data.duration_seconds || "3600", 10),
   };
 
   const { mfa_serial } = data;

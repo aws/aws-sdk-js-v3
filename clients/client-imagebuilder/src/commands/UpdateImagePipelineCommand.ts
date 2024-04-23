@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient";
 import { UpdateImagePipelineRequest, UpdateImagePipelineResponse } from "../models/models_0";
 import { de_UpdateImagePipelineCommand, se_UpdateImagePipelineCommand } from "../protocols/Aws_restJson1";
@@ -37,7 +29,8 @@ export interface UpdateImagePipelineCommandOutput extends UpdateImagePipelineRes
 /**
  * @public
  * <p>Updates an image pipeline. Image pipelines enable you to automate the creation and
- * 			distribution of images.</p>
+ * 			distribution of images. You must specify exactly one recipe for your image, using either
+ * 			a <code>containerRecipeArn</code> or an <code>imageRecipeArn</code>.</p>
  *          <note>
  *             <p>UpdateImagePipeline does not support selective updates for the pipeline. You must
  * 				specify all of the required properties in the update request, not just the
@@ -77,6 +70,22 @@ export interface UpdateImagePipelineCommandOutput extends UpdateImagePipelineRes
  *       ],
  *     },
  *   },
+ *   workflows: [ // WorkflowConfigurationList
+ *     { // WorkflowConfiguration
+ *       workflowArn: "STRING_VALUE", // required
+ *       parameters: [ // WorkflowParameterList
+ *         { // WorkflowParameter
+ *           name: "STRING_VALUE", // required
+ *           value: [ // WorkflowParameterValueList // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *       parallelGroup: "STRING_VALUE",
+ *       onFailure: "CONTINUE" || "ABORT",
+ *     },
+ *   ],
+ *   executionRole: "STRING_VALUE",
  * };
  * const command = new UpdateImagePipelineCommand(input);
  * const response = await client.send(command);
@@ -127,79 +136,26 @@ export interface UpdateImagePipelineCommandOutput extends UpdateImagePipelineRes
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
  */
-export class UpdateImagePipelineCommand extends $Command<
-  UpdateImagePipelineCommandInput,
-  UpdateImagePipelineCommandOutput,
-  ImagebuilderClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateImagePipelineCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ImagebuilderClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateImagePipelineCommandInput, UpdateImagePipelineCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateImagePipelineCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ImagebuilderClient";
-    const commandName = "UpdateImagePipelineCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateImagePipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateImagePipelineCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateImagePipelineCommandOutput> {
-    return de_UpdateImagePipelineCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateImagePipelineCommand extends $Command
+  .classBuilder<
+    UpdateImagePipelineCommandInput,
+    UpdateImagePipelineCommandOutput,
+    ImagebuilderClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("imagebuilder", "UpdateImagePipeline", {})
+  .n("ImagebuilderClient", "UpdateImagePipelineCommand")
+  .f(void 0, void 0)
+  .ser(se_UpdateImagePipelineCommand)
+  .de(de_UpdateImagePipelineCommand)
+  .build() {}

@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreatePullThroughCacheRuleRequest, CreatePullThroughCacheRuleResponse } from "../models/models_0";
 import { de_CreatePullThroughCacheRuleCommand, se_CreatePullThroughCacheRuleCommand } from "../protocols/Aws_json1_1";
 
@@ -37,7 +29,9 @@ export interface CreatePullThroughCacheRuleCommandOutput extends CreatePullThrou
 /**
  * @public
  * <p>Creates a pull through cache rule. A pull through cache rule provides a way to cache
- *             images from an external public registry in your Amazon ECR private registry.</p>
+ *             images from an upstream registry source in your Amazon ECR private registry. For more
+ *             information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache.html">Using pull through cache
+ *                 rules</a> in the <i>Amazon Elastic Container Registry User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,6 +42,8 @@ export interface CreatePullThroughCacheRuleCommandOutput extends CreatePullThrou
  *   ecrRepositoryPrefix: "STRING_VALUE", // required
  *   upstreamRegistryUrl: "STRING_VALUE", // required
  *   registryId: "STRING_VALUE",
+ *   upstreamRegistry: "ecr-public" || "quay" || "k8s" || "docker-hub" || "github-container-registry" || "azure-container-registry",
+ *   credentialArn: "STRING_VALUE",
  * };
  * const command = new CreatePullThroughCacheRuleCommand(input);
  * const response = await client.send(command);
@@ -56,6 +52,8 @@ export interface CreatePullThroughCacheRuleCommandOutput extends CreatePullThrou
  * //   upstreamRegistryUrl: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"),
  * //   registryId: "STRING_VALUE",
+ * //   upstreamRegistry: "ecr-public" || "quay" || "k8s" || "docker-hub" || "github-container-registry" || "azure-container-registry",
+ * //   credentialArn: "STRING_VALUE",
  * // };
  *
  * ```
@@ -79,8 +77,20 @@ export interface CreatePullThroughCacheRuleCommandOutput extends CreatePullThrou
  *  <p>A pull through cache rule with these settings already exists for the private
  *             registry.</p>
  *
+ * @throws {@link SecretNotFoundException} (client fault)
+ *  <p>The ARN of the secret specified in the pull through cache rule was not found. Update
+ *             the pull through cache rule with a valid secret ARN and try again.</p>
+ *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link UnableToAccessSecretException} (client fault)
+ *  <p>The secret is unable to be accessed. Verify the resource permissions for the secret
+ *             and try again.</p>
+ *
+ * @throws {@link UnableToDecryptSecretValueException} (client fault)
+ *  <p>The secret is accessible but is unable to be decrypted. Verify the resource
+ *             permisisons and try again.</p>
  *
  * @throws {@link UnsupportedUpstreamRegistryException} (client fault)
  *  <p>The specified upstream registry isn't supported.</p>
@@ -92,82 +102,26 @@ export interface CreatePullThroughCacheRuleCommandOutput extends CreatePullThrou
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
-export class CreatePullThroughCacheRuleCommand extends $Command<
-  CreatePullThroughCacheRuleCommandInput,
-  CreatePullThroughCacheRuleCommandOutput,
-  ECRClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreatePullThroughCacheRuleCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ECRClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreatePullThroughCacheRuleCommandInput, CreatePullThroughCacheRuleCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreatePullThroughCacheRuleCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ECRClient";
-    const commandName = "CreatePullThroughCacheRuleCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreatePullThroughCacheRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreatePullThroughCacheRuleCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreatePullThroughCacheRuleCommandOutput> {
-    return de_CreatePullThroughCacheRuleCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreatePullThroughCacheRuleCommand extends $Command
+  .classBuilder<
+    CreatePullThroughCacheRuleCommandInput,
+    CreatePullThroughCacheRuleCommandOutput,
+    ECRClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonEC2ContainerRegistry_V20150921", "CreatePullThroughCacheRule", {})
+  .n("ECRClient", "CreatePullThroughCacheRuleCommand")
+  .f(void 0, void 0)
+  .ser(se_CreatePullThroughCacheRuleCommand)
+  .de(de_CreatePullThroughCacheRuleCommand)
+  .build() {}

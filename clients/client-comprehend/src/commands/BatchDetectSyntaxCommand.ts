@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   BatchDetectSyntaxRequest,
   BatchDetectSyntaxRequestFilterSensitiveLog,
@@ -108,9 +100,7 @@ export interface BatchDetectSyntaxCommandOutput extends BatchDetectSyntaxRespons
  *  <p>The size of the input text exceeds the limit. Use a smaller document.</p>
  *
  * @throws {@link UnsupportedLanguageException} (client fault)
- *  <p>Amazon Comprehend can't process the language of the input text. For custom entity
- *       recognition APIs, only English, Spanish, French, Italian, German, or Portuguese are accepted.
- *       For a list of supported languages,
+ *  <p>Amazon Comprehend can't process the language of the input text. For a list of supported languages,
  *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
  *     </p>
  *
@@ -118,79 +108,26 @@ export interface BatchDetectSyntaxCommandOutput extends BatchDetectSyntaxRespons
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
-export class BatchDetectSyntaxCommand extends $Command<
-  BatchDetectSyntaxCommandInput,
-  BatchDetectSyntaxCommandOutput,
-  ComprehendClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: BatchDetectSyntaxCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ComprehendClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<BatchDetectSyntaxCommandInput, BatchDetectSyntaxCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, BatchDetectSyntaxCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ComprehendClient";
-    const commandName = "BatchDetectSyntaxCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: BatchDetectSyntaxRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDetectSyntaxResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: BatchDetectSyntaxCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_BatchDetectSyntaxCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchDetectSyntaxCommandOutput> {
-    return de_BatchDetectSyntaxCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class BatchDetectSyntaxCommand extends $Command
+  .classBuilder<
+    BatchDetectSyntaxCommandInput,
+    BatchDetectSyntaxCommandOutput,
+    ComprehendClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("Comprehend_20171127", "BatchDetectSyntax", {})
+  .n("ComprehendClient", "BatchDetectSyntaxCommand")
+  .f(BatchDetectSyntaxRequestFilterSensitiveLog, BatchDetectSyntaxResponseFilterSensitiveLog)
+  .ser(se_BatchDetectSyntaxCommand)
+  .de(de_BatchDetectSyntaxCommand)
+  .build() {}

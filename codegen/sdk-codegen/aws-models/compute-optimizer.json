@@ -150,6 +150,27 @@
         "smithy.api#documentation": "<p>Describes the configuration of an Auto Scaling group.</p>"
       }
     },
+    "com.amazonaws.computeoptimizer#AutoScalingGroupEstimatedMonthlySavings": {
+      "type": "structure",
+      "members": {
+        "currency": {
+          "target": "com.amazonaws.computeoptimizer#Currency",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The currency of the estimated monthly savings.\n        </p>"
+          }
+        },
+        "value": {
+          "target": "com.amazonaws.computeoptimizer#Value",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>\n            The value of the estimated monthly savings.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            An object that describes the estimated monthly savings  possible by adopting Compute Optimizer’s Auto Scaling group recommendations. This is based on the \n            Savings Plans and Reserved Instances discounts.\n        </p>"
+      }
+    },
     "com.amazonaws.computeoptimizer#AutoScalingGroupName": {
       "type": "string"
     },
@@ -228,6 +249,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The applications that might be running on the instances in the Auto Scaling group\n            as inferred by Compute Optimizer.</p>\n         <p>Compute Optimizer can infer if one of the following applications might be running on\n            the instances:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>AmazonEmr</code> - Infers that Amazon EMR might be running on\n                    the instances.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ApacheCassandra</code> - Infers that Apache Cassandra might be running\n                    on the instances.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ApacheHadoop</code> - Infers that Apache Hadoop might be running on the\n                    instances.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Memcached</code> - Infers that Memcached might be running on the\n                    instances.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NGINX</code> - Infers that NGINX might be running on the\n                    instances.</p>\n            </li>\n            <li>\n               <p>\n                  <code>PostgreSql</code> - Infers that PostgreSQL might be running on the\n                    instances.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Redis</code> - Infers that Redis might be running on the\n                    instances.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Kafka</code> - Infers that Kafka might be running on the\n                    instance.</p>\n            </li>\n            <li>\n               <p>\n                  <code>SQLServer</code> - Infers that SQLServer might be running on the\n                    instance.</p>\n            </li>\n         </ul>"
           }
+        },
+        "currentInstanceGpuInfo": {
+          "target": "com.amazonaws.computeoptimizer#GpuInfo",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            Describes the GPU accelerator settings for the current instance type of the Auto Scaling group.\n        </p>"
+          }
         }
       },
       "traits": {
@@ -274,6 +301,18 @@
           "traits": {
             "smithy.api#documentation": "<p>The level of effort required to migrate from the current instance type to the\n            recommended instance type.</p>\n         <p>For example, the migration effort is <code>Low</code> if Amazon EMR is the\n            inferred workload type and an Amazon Web Services Graviton instance type is recommended.\n            The migration effort is <code>Medium</code> if a workload type couldn't be inferred but\n            an Amazon Web Services Graviton instance type is recommended. The migration effort is\n                <code>VeryLow</code> if both the current and recommended instance types are of the\n            same CPU architecture.</p>"
           }
+        },
+        "instanceGpuInfo": {
+          "target": "com.amazonaws.computeoptimizer#GpuInfo",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            Describes the GPU accelerator settings for the recommended instance type of the Auto Scaling group.\n        </p>"
+          }
+        },
+        "savingsOpportunityAfterDiscounts": {
+          "target": "com.amazonaws.computeoptimizer#AutoScalingGroupSavingsOpportunityAfterDiscounts",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            An object that describes the savings opportunity for the Auto Scaling group recommendation option that includes Savings Plans and Reserved Instances discounts. \n            Savings opportunity includes the estimated monthly savings and percentage.\n        </p>"
+          }
         }
       },
       "traits": {
@@ -290,6 +329,27 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.computeoptimizer#AutoScalingGroupRecommendation"
+      }
+    },
+    "com.amazonaws.computeoptimizer#AutoScalingGroupSavingsOpportunityAfterDiscounts": {
+      "type": "structure",
+      "members": {
+        "savingsOpportunityPercentage": {
+          "target": "com.amazonaws.computeoptimizer#SavingsOpportunityPercentage",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>\n            The estimated monthly savings possible as a percentage of monthly cost after applying the Savings Plans and Reserved Instances discounts. This saving can be \n            achieved by adopting Compute Optimizer’s Auto Scaling group recommendations.\n        </p>"
+          }
+        },
+        "estimatedMonthlySavings": {
+          "target": "com.amazonaws.computeoptimizer#AutoScalingGroupEstimatedMonthlySavings",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            An object that describes the estimated monthly savings possible by adopting Compute Optimizer’s Auto Scaling group recommendations. This is based on the \n            Savings Plans and Reserved Instances pricing discounts.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Describes the savings opportunity for Auto Scaling group recommendations after applying the Savings Plans and Reserved Instances discounts.\n        </p>\n         <p>Savings opportunity represents the estimated monthly savings you can achieve by implementing Compute Optimizer recommendations.</p>"
       }
     },
     "com.amazonaws.computeoptimizer#Code": {
@@ -321,6 +381,9 @@
           "target": "com.amazonaws.computeoptimizer#ExportLambdaFunctionRecommendations"
         },
         {
+          "target": "com.amazonaws.computeoptimizer#ExportLicenseRecommendations"
+        },
+        {
           "target": "com.amazonaws.computeoptimizer#GetAutoScalingGroupRecommendations"
         },
         {
@@ -349,6 +412,9 @@
         },
         {
           "target": "com.amazonaws.computeoptimizer#GetLambdaFunctionRecommendations"
+        },
+        {
+          "target": "com.amazonaws.computeoptimizer#GetLicenseRecommendations"
         },
         {
           "target": "com.amazonaws.computeoptimizer#GetRecommendationPreferences"
@@ -419,7 +485,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -437,9 +502,187 @@
                   "type": "error"
                 },
                 {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
                   "conditions": [],
-                  "type": "tree",
+                  "endpoint": {
+                    "url": {
+                      "ref": "Endpoint"
+                    },
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ],
+              "type": "tree"
+            },
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ]
+                }
+              ],
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "aws.partition",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ],
+                      "assign": "PartitionResult"
+                    }
+                  ],
                   "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://compute-optimizer-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://compute-optimizer-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
                     {
                       "conditions": [
                         {
@@ -452,278 +695,65 @@
                           ]
                         }
                       ],
-                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                      "type": "error"
-                    },
-                    {
-                      "conditions": [],
-                      "endpoint": {
-                        "url": {
-                          "ref": "Endpoint"
-                        },
-                        "properties": {},
-                        "headers": {}
-                      },
-                      "type": "endpoint"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "conditions": [],
-              "type": "tree",
-              "rules": [
-                {
-                  "conditions": [
-                    {
-                      "fn": "isSet",
-                      "argv": [
-                        {
-                          "ref": "Region"
-                        }
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "aws.partition",
-                          "argv": [
-                            {
-                              "ref": "Region"
-                            }
-                          ],
-                          "assign": "PartitionResult"
-                        }
-                      ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
                             {
                               "fn": "booleanEquals",
                               "argv": [
+                                true,
                                 {
-                                  "ref": "UseFIPS"
-                                },
-                                true
-                              ]
-                            },
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseDualStack"
-                                },
-                                true
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
                               ]
                             }
                           ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsFIPS"
-                                      ]
-                                    }
-                                  ]
-                                },
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsDualStack"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://compute-optimizer-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseFIPS"
-                                },
-                                true
-                              ]
-                            }
-                          ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsFIPS"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://compute-optimizer-fips.{Region}.{PartitionResult#dnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "FIPS is enabled but this partition does not support FIPS",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseDualStack"
-                                },
-                                true
-                              ]
-                            }
-                          ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsDualStack"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://compute-optimizer.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "DualStack is enabled but this partition does not support DualStack",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
                               "endpoint": {
-                                "url": "https://compute-optimizer.{Region}.{PartitionResult#dnsSuffix}",
+                                "url": "https://compute-optimizer.{Region}.{PartitionResult#dualStackDnsSuffix}",
                                 "properties": {},
                                 "headers": {}
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://compute-optimizer.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
                     }
-                  ]
-                },
-                {
-                  "conditions": [],
-                  "error": "Invalid Configuration: Missing Region",
-                  "type": "error"
+                  ],
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
+            },
+            {
+              "conditions": [],
+              "error": "Invalid Configuration: Missing Region",
+              "type": "error"
             }
           ]
         },
@@ -1435,6 +1465,83 @@
         "smithy.api#documentation": "<p>Describes the performance risk ratings for a given resource type.</p>\n         <p>Resources with a <code>high</code> or <code>medium</code> rating are at risk of not\n            meeting the performance needs of their workloads, while resources with a\n                <code>low</code> rating are performing well in their workloads.</p>"
       }
     },
+    "com.amazonaws.computeoptimizer#CustomizableMetricHeadroom": {
+      "type": "enum",
+      "members": {
+        "PERCENT_30": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PERCENT_30"
+          }
+        },
+        "PERCENT_20": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PERCENT_20"
+          }
+        },
+        "PERCENT_0": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PERCENT_0"
+          }
+        }
+      }
+    },
+    "com.amazonaws.computeoptimizer#CustomizableMetricName": {
+      "type": "enum",
+      "members": {
+        "CPU_UTILIZATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CpuUtilization"
+          }
+        }
+      }
+    },
+    "com.amazonaws.computeoptimizer#CustomizableMetricParameters": {
+      "type": "structure",
+      "members": {
+        "threshold": {
+          "target": "com.amazonaws.computeoptimizer#CustomizableMetricThreshold",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The threshold value used for the specified metric parameter.\n        </p>"
+          }
+        },
+        "headroom": {
+          "target": "com.amazonaws.computeoptimizer#CustomizableMetricHeadroom",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The headroom threshold value in percentage used for the specified metric parameter.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Defines the various metric parameters that can be customized, such as threshold and headroom.\n        </p>"
+      }
+    },
+    "com.amazonaws.computeoptimizer#CustomizableMetricThreshold": {
+      "type": "enum",
+      "members": {
+        "P90": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "P90"
+          }
+        },
+        "P95": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "P95"
+          }
+        },
+        "P99_5": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "P99_5"
+          }
+        }
+      }
+    },
     "com.amazonaws.computeoptimizer#DeleteRecommendationPreferences": {
       "type": "operation",
       "input": {
@@ -1619,6 +1726,41 @@
     "com.amazonaws.computeoptimizer#DestinationKeyPrefix": {
       "type": "string"
     },
+    "com.amazonaws.computeoptimizer#EBSEffectiveRecommendationPreferences": {
+      "type": "structure",
+      "members": {
+        "savingsEstimationMode": {
+          "target": "com.amazonaws.computeoptimizer#EBSSavingsEstimationMode",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            Describes the savings estimation mode preference applied for calculating savings opportunity for Amazon EBS volumes.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Describes the effective recommendation preferences for Amazon EBS volumes.\n        </p>"
+      }
+    },
+    "com.amazonaws.computeoptimizer#EBSEstimatedMonthlySavings": {
+      "type": "structure",
+      "members": {
+        "currency": {
+          "target": "com.amazonaws.computeoptimizer#Currency",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The currency of the estimated monthly savings.\n        </p>"
+          }
+        },
+        "value": {
+          "target": "com.amazonaws.computeoptimizer#Value",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>\n            The value of the estimated monthly savings.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            An object that describes the estimated monthly savings possible by adopting Compute Optimizer’s Amazon EBS volume \n            recommendations. This includes any applicable discounts.\n        </p>"
+      }
+    },
     "com.amazonaws.computeoptimizer#EBSFilter": {
       "type": "structure",
       "members": {
@@ -1702,6 +1844,64 @@
         }
       }
     },
+    "com.amazonaws.computeoptimizer#EBSSavingsEstimationMode": {
+      "type": "structure",
+      "members": {
+        "source": {
+          "target": "com.amazonaws.computeoptimizer#EBSSavingsEstimationModeSource",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            Describes the source for calculating the savings opportunity for Amazon EBS volumes.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Describes the savings estimation mode used for calculating savings opportunity for Amazon EBS volumes.\n        </p>"
+      }
+    },
+    "com.amazonaws.computeoptimizer#EBSSavingsEstimationModeSource": {
+      "type": "enum",
+      "members": {
+        "PUBLIC_PRICING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PublicPricing"
+          }
+        },
+        "COST_EXPLORER_RIGHTSIZING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CostExplorerRightsizing"
+          }
+        },
+        "COST_OPTIMIZATION_HUB": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CostOptimizationHub"
+          }
+        }
+      }
+    },
+    "com.amazonaws.computeoptimizer#EBSSavingsOpportunityAfterDiscounts": {
+      "type": "structure",
+      "members": {
+        "savingsOpportunityPercentage": {
+          "target": "com.amazonaws.computeoptimizer#SavingsOpportunityPercentage",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>\n            The estimated monthly savings possible as a percentage of monthly cost after applying the specific discounts. \n            This saving can be achieved by adopting Compute Optimizer’s Amazon EBS volume recommendations.\n        </p>"
+          }
+        },
+        "estimatedMonthlySavings": {
+          "target": "com.amazonaws.computeoptimizer#EBSEstimatedMonthlySavings",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The estimated monthly savings possible as a percentage of monthly cost by adopting Compute Optimizer’s Amazon EBS volume \n            recommendations. This saving includes any applicable discounts.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Describes the savings opportunity for Amazon EBS volume recommendations after applying specific discounts.\n        </p>"
+      }
+    },
     "com.amazonaws.computeoptimizer#EBSUtilizationMetric": {
       "type": "structure",
       "members": {
@@ -1733,6 +1933,99 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.computeoptimizer#EBSUtilizationMetric"
+      }
+    },
+    "com.amazonaws.computeoptimizer#ECSEffectiveRecommendationPreferences": {
+      "type": "structure",
+      "members": {
+        "savingsEstimationMode": {
+          "target": "com.amazonaws.computeoptimizer#ECSSavingsEstimationMode",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            Describes the savings estimation mode preference applied for calculating savings opportunity for Amazon ECS services.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Describes the effective recommendation preferences for Amazon ECS services.\n        </p>"
+      }
+    },
+    "com.amazonaws.computeoptimizer#ECSEstimatedMonthlySavings": {
+      "type": "structure",
+      "members": {
+        "currency": {
+          "target": "com.amazonaws.computeoptimizer#Currency",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The currency of the estimated monthly savings.\n        </p>"
+          }
+        },
+        "value": {
+          "target": "com.amazonaws.computeoptimizer#Value",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>\n            The value of the estimated monthly savings for Amazon ECS services.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Describes the estimated monthly savings possible for Amazon ECS services by adopting Compute Optimizer recommendations. \n            This is based on Amazon ECS service pricing after applying Savings Plans discounts.\n        </p>"
+      }
+    },
+    "com.amazonaws.computeoptimizer#ECSSavingsEstimationMode": {
+      "type": "structure",
+      "members": {
+        "source": {
+          "target": "com.amazonaws.computeoptimizer#ECSSavingsEstimationModeSource",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            Describes the source for calculating the savings opportunity for Amazon ECS services.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Describes the savings estimation mode used for calculating savings opportunity for Amazon ECS services.\n        </p>"
+      }
+    },
+    "com.amazonaws.computeoptimizer#ECSSavingsEstimationModeSource": {
+      "type": "enum",
+      "members": {
+        "PUBLIC_PRICING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PublicPricing"
+          }
+        },
+        "COST_EXPLORER_RIGHTSIZING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CostExplorerRightsizing"
+          }
+        },
+        "COST_OPTIMIZATION_HUB": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CostOptimizationHub"
+          }
+        }
+      }
+    },
+    "com.amazonaws.computeoptimizer#ECSSavingsOpportunityAfterDiscounts": {
+      "type": "structure",
+      "members": {
+        "savingsOpportunityPercentage": {
+          "target": "com.amazonaws.computeoptimizer#SavingsOpportunityPercentage",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>\n            The estimated monthly savings possible as a percentage of monthly cost by adopting Compute Optimizer’s \n            Amazon ECS service recommendations. This includes any applicable Savings Plans discounts.\n        </p>"
+          }
+        },
+        "estimatedMonthlySavings": {
+          "target": "com.amazonaws.computeoptimizer#ECSEstimatedMonthlySavings",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The estimated monthly savings possible by adopting Compute Optimizer’s Amazon ECS service recommendations. \n            This includes any applicable Savings Plans discounts.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Describes the savings opportunity for Amazon ECS service recommendations after applying Savings Plans discounts.\n        </p>\n         <p>Savings opportunity represents the estimated monthly savings after applying Savings Plans discounts. \n            You can achieve this by implementing a given Compute Optimizer recommendation.</p>"
       }
     },
     "com.amazonaws.computeoptimizer#ECSServiceLaunchType": {
@@ -1939,6 +2232,12 @@
           "traits": {
             "smithy.api#documentation": "<p>\n            A list of tags assigned to your Amazon ECS service recommendations.\n        </p>"
           }
+        },
+        "effectiveRecommendationPreferences": {
+          "target": "com.amazonaws.computeoptimizer#ECSEffectiveRecommendationPreferences",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            Describes the effective recommendation preferences for Amazon ECS services.\n        </p>"
+          }
         }
       },
       "traits": {
@@ -2075,6 +2374,12 @@
           "traits": {
             "smithy.api#documentation": "<p>\n            The CPU and memory size recommendations for the containers within the task of your Amazon ECS service.\n        </p>"
           }
+        },
+        "savingsOpportunityAfterDiscounts": {
+          "target": "com.amazonaws.computeoptimizer#ECSSavingsOpportunityAfterDiscounts",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            Describes the savings opportunity for Amazon ECS service recommendations or for the recommendation option.\n        </p>\n         <p>Savings opportunity represents the estimated monthly savings after applying Savings Plans discounts. \n            You can achieve this by implementing a given Compute Optimizer recommendation.</p>"
+          }
         }
       },
       "traits": {
@@ -2160,6 +2465,44 @@
         "target": "com.amazonaws.computeoptimizer#ECSServiceUtilizationMetric"
       }
     },
+    "com.amazonaws.computeoptimizer#EffectivePreferredResource": {
+      "type": "structure",
+      "members": {
+        "name": {
+          "target": "com.amazonaws.computeoptimizer#PreferredResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The name of the preferred resource list.\n        </p>"
+          }
+        },
+        "includeList": {
+          "target": "com.amazonaws.computeoptimizer#PreferredResourceValues",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The list of preferred resource values that you want considered as rightsizing recommendation candidates.\n        </p>"
+          }
+        },
+        "effectiveIncludeList": {
+          "target": "com.amazonaws.computeoptimizer#PreferredResourceValues",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The expanded version of your preferred resource's include list.\n        </p>"
+          }
+        },
+        "excludeList": {
+          "target": "com.amazonaws.computeoptimizer#PreferredResourceValues",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The list of preferred resources values that you want excluded from rightsizing recommendation candidates.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Describes the effective preferred resources that Compute Optimizer considers as rightsizing recommendation candidates.\n        </p>\n         <note>\n            <p>Compute Optimizer only supports Amazon EC2 instance types.</p>\n         </note>"
+      }
+    },
+    "com.amazonaws.computeoptimizer#EffectivePreferredResources": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.computeoptimizer#EffectivePreferredResource"
+      }
+    },
     "com.amazonaws.computeoptimizer#EffectiveRecommendationPreferences": {
       "type": "structure",
       "members": {
@@ -2185,6 +2528,30 @@
           "target": "com.amazonaws.computeoptimizer#ExternalMetricsPreference",
           "traits": {
             "smithy.api#documentation": "<p> An object that describes the external metrics recommendation preference. </p>\n         <p> If the preference is applied in the latest recommendation refresh, an object with a\n            valid <code>source</code> value appears in the response. If the preference isn't applied\n            to the recommendations already, then this object doesn't appear in the response. </p>"
+          }
+        },
+        "lookBackPeriod": {
+          "target": "com.amazonaws.computeoptimizer#LookBackPeriodPreference",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The number of days the utilization metrics of the Amazon Web Services resource are analyzed.\n        </p>"
+          }
+        },
+        "utilizationPreferences": {
+          "target": "com.amazonaws.computeoptimizer#UtilizationPreferences",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The resource’s CPU utilization threshold preferences, such as threshold and headroom, that \n            are used to generate rightsizing recommendations. \n        </p>\n         <note>\n            <p>This preference is only available for the Amazon EC2 instance resource type.</p>\n         </note>"
+          }
+        },
+        "preferredResources": {
+          "target": "com.amazonaws.computeoptimizer#EffectivePreferredResources",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The resource type values that are considered as candidates when generating rightsizing recommendations.\n        </p>"
+          }
+        },
+        "savingsEstimationMode": {
+          "target": "com.amazonaws.computeoptimizer#InstanceSavingsEstimationMode",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            Describes the savings estimation mode applied for calculating savings opportunity for a resource.\n        </p>"
           }
         }
       },
@@ -2804,6 +3171,106 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.computeoptimizer#ExportLicenseRecommendations": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.computeoptimizer#ExportLicenseRecommendationsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.computeoptimizer#ExportLicenseRecommendationsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.computeoptimizer#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.computeoptimizer#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.computeoptimizer#InvalidParameterValueException"
+        },
+        {
+          "target": "com.amazonaws.computeoptimizer#LimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.computeoptimizer#MissingAuthenticationToken"
+        },
+        {
+          "target": "com.amazonaws.computeoptimizer#OptInRequiredException"
+        },
+        {
+          "target": "com.amazonaws.computeoptimizer#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.computeoptimizer#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Export optimization recommendations for your licenses.\n        </p>\n         <p>Recommendations are exported in a comma-separated values (CSV) file, and its metadata\n            in a JavaScript Object Notation (JSON) file, to an existing Amazon Simple Storage Service (Amazon S3) bucket that you specify. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html\">Exporting\n                Recommendations</a> in the <i>Compute Optimizer User\n                    Guide</i>.</p>\n         <p>You can have only one license export job in progress per Amazon Web Services Region.</p>"
+      }
+    },
+    "com.amazonaws.computeoptimizer#ExportLicenseRecommendationsRequest": {
+      "type": "structure",
+      "members": {
+        "accountIds": {
+          "target": "com.amazonaws.computeoptimizer#AccountIds",
+          "traits": {
+            "smithy.api#documentation": "<p>The IDs of the Amazon Web Services accounts for which to export license\n            recommendations.</p>\n         <p>If your account is the management account of an organization, use this parameter to\n            specify the member account for which you want to export recommendations.</p>\n         <p>This parameter can't be specified together with the include member accounts\n            parameter. The parameters are mutually exclusive.</p>\n         <p>If this parameter is omitted, recommendations \n            for member accounts aren't included in the export.</p>\n         <p>You can specify multiple account IDs per request.</p>"
+          }
+        },
+        "filters": {
+          "target": "com.amazonaws.computeoptimizer#LicenseRecommendationFilters",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            An array of objects to specify a filter that exports a more specific set of license recommendations.\n        </p>"
+          }
+        },
+        "fieldsToExport": {
+          "target": "com.amazonaws.computeoptimizer#ExportableLicenseFields",
+          "traits": {
+            "smithy.api#documentation": "<p>The recommendations data to include in the export file. For more information about the\n            fields that can be exported, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files\">Exported files</a> in the <i>Compute Optimizer User\n                    Guide</i>.</p>"
+          }
+        },
+        "s3DestinationConfig": {
+          "target": "com.amazonaws.computeoptimizer#S3DestinationConfig",
+          "traits": {
+            "smithy.api#required": {}
+          }
+        },
+        "fileFormat": {
+          "target": "com.amazonaws.computeoptimizer#FileFormat",
+          "traits": {
+            "smithy.api#documentation": "<p>The format of the export file.</p>\n         <p>A CSV file is the only export format currently supported.</p>"
+          }
+        },
+        "includeMemberAccounts": {
+          "target": "com.amazonaws.computeoptimizer#IncludeMemberAccounts",
+          "traits": {
+            "smithy.api#default": false,
+            "smithy.api#documentation": "<p>Indicates whether to include recommendations for resources in all member accounts of\n            the organization if your account is the management account of an organization.</p>\n         <p>The member accounts must also be opted in to Compute Optimizer, and trusted access for\n            Compute Optimizer must be enabled in the organization account. For more information,\n            see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html#trusted-service-access\">Compute Optimizer and Amazon Web Services Organizations trusted access</a> in the\n            <i>Compute Optimizer User Guide</i>.</p>\n         <p>If this parameter is omitted, recommendations for member accounts of the organization \n            aren't included in the export file .</p>\n         <p>This parameter cannot be specified together with the account IDs parameter. The\n            parameters are mutually exclusive.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.computeoptimizer#ExportLicenseRecommendationsResponse": {
+      "type": "structure",
+      "members": {
+        "jobId": {
+          "target": "com.amazonaws.computeoptimizer#JobId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The identification number of the export job.\n        </p>\n         <p>To view the status of an export job, use the <a>DescribeRecommendationExportJobs</a> \n            action and specify the job ID.</p>"
+          }
+        },
+        "s3Destination": {
+          "target": "com.amazonaws.computeoptimizer#S3Destination"
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.computeoptimizer#ExportableAutoScalingGroupField": {
       "type": "enum",
       "members": {
@@ -3130,6 +3597,78 @@
           "traits": {
             "smithy.api#enumValue": "RecommendationOptionsMigrationEffort"
           }
+        },
+        "CURRENT_INSTANCE_GPU_INFO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentInstanceGpuInfo"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_INSTANCE_GPU_INFO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsInstanceGpuInfo"
+          }
+        },
+        "UTILIZATION_METRICS_GPU_PERCENTAGE_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsGpuPercentageMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_GPU_MEMORY_PERCENTAGE_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsGpuMemoryPercentageMaximum"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_GPU_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsProjectedUtilizationMetricsGpuPercentageMaximum"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_GPU_MEMORY_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsProjectedUtilizationMetricsGpuMemoryPercentageMaximum"
+          }
+        },
+        "EFFECTIVE_RECOMMENDATION_PREFERENCES_SAVINGS_ESTIMATION_MODE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EffectiveRecommendationPreferencesSavingsEstimationMode"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsSavingsOpportunityAfterDiscountsPercentage"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts"
+          }
+        },
+        "EFFECTIVE_RECOMMENDATION_PREFERENCES_PREFERRED_RESOURCES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EffectiveRecommendationPreferencesPreferredResources"
+          }
+        },
+        "EFFECTIVE_RECOMMENDATION_PREFERENCES_LOOKBACK_PERIOD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EffectiveRecommendationPreferencesLookBackPeriod"
+          }
         }
       }
     },
@@ -3284,6 +3823,30 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "Tags"
+          }
+        },
+        "EFFECTIVE_RECOMMENDATION_PREFERENCES_SAVINGS_ESTIMATION_MODE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EffectiveRecommendationPreferencesSavingsEstimationMode"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsSavingsOpportunityAfterDiscountsPercentage"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts"
           }
         }
       }
@@ -3638,6 +4201,90 @@
           "traits": {
             "smithy.api#enumValue": "ExternalMetricStatusReason"
           }
+        },
+        "CURRENT_INSTANCE_GPU_INFO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentInstanceGpuInfo"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_INSTANCE_GPU_INFO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsInstanceGpuInfo"
+          }
+        },
+        "UTILIZATION_METRICS_GPU_PERCENTAGE_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsGpuPercentageMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_GPU_MEMORY_PERCENTAGE_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsGpuMemoryPercentageMaximum"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_GPU_PERCENTAGE_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsProjectedUtilizationMetricsGpuPercentageMaximum"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_GPU_MEMORY_PERCENTAGE_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsProjectedUtilizationMetricsGpuMemoryPercentageMaximum"
+          }
+        },
+        "IDLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Idle"
+          }
+        },
+        "EFFECTIVE_RECOMMENDATION_PREFERENCES_PREFERRED_RESOURCES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EffectiveRecommendationPreferencesPreferredResources"
+          }
+        },
+        "EFFECTIVE_RECOMMENDATION_PREFERENCES_LOOKBACK_PERIOD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EffectiveRecommendationPreferencesLookBackPeriod"
+          }
+        },
+        "EFFECTIVE_RECOMMENDATION_PREFERENCES_UTILIZATION_PREFERENCES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EffectiveRecommendationPreferencesUtilizationPreferences"
+          }
+        },
+        "EFFECTIVE_RECOMMENDATION_PREFERENCES_SAVINGS_ESTIMATION_MODE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EffectiveRecommendationPreferencesSavingsEstimationMode"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsSavingsOpportunityAfterDiscountsPercentage"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts"
+          }
         }
       }
     },
@@ -3811,6 +4458,30 @@
           "traits": {
             "smithy.api#enumValue": "Tags"
           }
+        },
+        "EFFECTIVE_RECOMMENDATION_PREFERENCES_SAVINGS_ESTIMATION_MODE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EffectiveRecommendationPreferencesSavingsEstimationMode"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsSavingsOpportunityAfterDiscountsPercentage"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts"
+          }
         }
       }
     },
@@ -3818,6 +4489,143 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.computeoptimizer#ExportableLambdaFunctionField"
+      }
+    },
+    "com.amazonaws.computeoptimizer#ExportableLicenseField": {
+      "type": "enum",
+      "members": {
+        "ACCOUNT_ID": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AccountId"
+          }
+        },
+        "RESOURCE_ARN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ResourceArn"
+          }
+        },
+        "LOOKBACK_PERIOD_IN_DAYS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LookbackPeriodInDays"
+          }
+        },
+        "LAST_REFRESH_TIMESTAMP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LastRefreshTimestamp"
+          }
+        },
+        "LICENSE_FINDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Finding"
+          }
+        },
+        "LICENSE_FINDING_REASON_CODES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FindingReasonCodes"
+          }
+        },
+        "CURRENT_LICENSE_CONFIGURATION_NUMBER_OF_CORES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentLicenseConfigurationNumberOfCores"
+          }
+        },
+        "CURRENT_LICENSE_CONFIGURATION_INSTANCE_TYPE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentLicenseConfigurationInstanceType"
+          }
+        },
+        "CURRENT_LICENSE_CONFIGURATION_OPERATING_SYSTEM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentLicenseConfigurationOperatingSystem"
+          }
+        },
+        "CURRENT_LICENSE_CONFIGURATION_LICENSE_NAME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentLicenseConfigurationLicenseName"
+          }
+        },
+        "CURRENT_LICENSE_CONFIGURATION_LICENSE_EDITION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentLicenseConfigurationLicenseEdition"
+          }
+        },
+        "CURRENT_LICENSE_CONFIGURATION_LICENSE_MODEL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentLicenseConfigurationLicenseModel"
+          }
+        },
+        "CURRENT_LICENSE_CONFIGURATION_LICENSE_VERSION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentLicenseConfigurationLicenseVersion"
+          }
+        },
+        "CURRENT_LICENSE_CONFIGURATION_METRICS_SOURCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentLicenseConfigurationMetricsSource"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_OPERATING_SYSTEM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsOperatingSystem"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_LICENSE_EDITION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsLicenseEdition"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_LICENSE_MODEL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsLicenseModel"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsSavingsOpportunityPercentage"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsEstimatedMonthlySavingsCurrency"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsEstimatedMonthlySavingsValue"
+          }
+        },
+        "TAGS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Tags"
+          }
+        }
+      }
+    },
+    "com.amazonaws.computeoptimizer#ExportableLicenseFields": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.computeoptimizer#ExportableLicenseField"
       }
     },
     "com.amazonaws.computeoptimizer#ExportableVolumeField": {
@@ -4001,6 +4809,36 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "Tags"
+          }
+        },
+        "CURRENT_CONFIGURATION_ROOT_VOLUME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentConfigurationRootVolume"
+          }
+        },
+        "EFFECTIVE_RECOMMENDATION_PREFERENCES_SAVINGS_ESTIMATION_MODE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EffectiveRecommendationPreferencesSavingsEstimationMode"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsSavingsOpportunityAfterDiscountsPercentage"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts"
           }
         }
       }
@@ -4963,6 +5801,24 @@
           "traits": {
             "smithy.api#documentation": "<p>The provider of the external metrics recommendation preference. Considers all\n            applicable preferences that you might have set at the account and organization\n            level.</p>\n         <p>If the preference is applied in the latest recommendation refresh, an object with a\n            valid <code>source</code> value appears in the response. If the preference isn't applied\n            to the recommendations already, then this object doesn't appear in the response.</p>\n         <p>To validate whether the preference is applied to your last generated set of\n            recommendations, review the <code>effectiveRecommendationPreferences</code> value in the\n            response of the <a>GetEC2InstanceRecommendations</a> actions.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/external-metrics-ingestion.html\">Enhanced\n                infrastructure metrics</a> in the <i>Compute Optimizer User\n                Guide</i>.</p>"
           }
+        },
+        "lookBackPeriod": {
+          "target": "com.amazonaws.computeoptimizer#LookBackPeriodPreference",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The number of days the utilization metrics of the Amazon Web Services resource are analyzed. \n        </p>\n         <p>To validate that the preference is applied to your last generated set of recommendations, review \n            the <code>effectiveRecommendationPreferences</code> value in the response of the \n            GetAutoScalingGroupRecommendations or GetEC2InstanceRecommendations actions.</p>"
+          }
+        },
+        "utilizationPreferences": {
+          "target": "com.amazonaws.computeoptimizer#UtilizationPreferences",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The resource’s CPU utilization threshold preferences, such as threshold and headroom, \n            that were used to generate rightsizing recommendations. It considers all applicable preferences \n            that you set at the resource, account, and organization level.\n        </p>\n         <p>To validate that the preference is applied to your last generated set of recommendations, review the \n            <code>effectiveRecommendationPreferences</code> value in the response of the \n            GetAutoScalingGroupRecommendations or GetEC2InstanceRecommendations actions.</p>"
+          }
+        },
+        "preferredResources": {
+          "target": "com.amazonaws.computeoptimizer#EffectivePreferredResources",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The resource type values that are considered as candidates when generating rightsizing recommendations. \n            This object resolves any wildcard expressions and returns the effective list of candidate resource type \n            values. It also considers all applicable preferences that you set at the resource, account, and \n            organization level.\n        </p>\n         <p>To validate that the preference is applied to your last generated set of recommendations, review the \n            <code>effectiveRecommendationPreferences</code> value in the response of the GetAutoScalingGroupRecommendations \n            or GetEC2InstanceRecommendations actions.</p>"
+          }
         }
       },
       "traits": {
@@ -5233,6 +6089,108 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.computeoptimizer#GetLicenseRecommendations": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.computeoptimizer#GetLicenseRecommendationsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.computeoptimizer#GetLicenseRecommendationsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.computeoptimizer#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.computeoptimizer#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.computeoptimizer#InvalidParameterValueException"
+        },
+        {
+          "target": "com.amazonaws.computeoptimizer#MissingAuthenticationToken"
+        },
+        {
+          "target": "com.amazonaws.computeoptimizer#OptInRequiredException"
+        },
+        {
+          "target": "com.amazonaws.computeoptimizer#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.computeoptimizer#ServiceUnavailableException"
+        },
+        {
+          "target": "com.amazonaws.computeoptimizer#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns license recommendations for Amazon EC2 instances that run on a specific license.</p>\n         <p>Compute Optimizer generates recommendations for licenses that meet a specific set of requirements. For more\n            information, see the <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/requirements.html\">Supported resources and\n                requirements</a> in the <i>Compute Optimizer User\n                    Guide</i>.</p>"
+      }
+    },
+    "com.amazonaws.computeoptimizer#GetLicenseRecommendationsRequest": {
+      "type": "structure",
+      "members": {
+        "resourceArns": {
+          "target": "com.amazonaws.computeoptimizer#ResourceArns",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The ARN that identifies the Amazon EC2 instance.\n        </p>\n         <p>\n            The following is the format of the ARN:\n        </p>\n         <p>\n            <code>arn:aws:ec2:region:aws_account_id:instance/instance-id</code>\n         </p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.computeoptimizer#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The token to advance to the next page of license recommendations.\n        </p>"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.computeoptimizer#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The maximum number of license recommendations to return with a single request.\n        </p>\n         <p>\n            To retrieve the remaining results, make another request with the returned\n            <code>nextToken</code> value.\n        </p>"
+          }
+        },
+        "filters": {
+          "target": "com.amazonaws.computeoptimizer#LicenseRecommendationFilters",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            An array of objects to specify a filter that returns a more specific list of license recommendations.\n        </p>"
+          }
+        },
+        "accountIds": {
+          "target": "com.amazonaws.computeoptimizer#AccountIds",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the Amazon Web Services account for which to return license recommendations.</p>\n         <p>If your account is the management account of an organization, use this parameter to\n            specify the member account for which you want to return license recommendations.</p>\n         <p>Only one account ID can be specified per request.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.computeoptimizer#GetLicenseRecommendationsResponse": {
+      "type": "structure",
+      "members": {
+        "nextToken": {
+          "target": "com.amazonaws.computeoptimizer#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The token to use to advance to the next page of license recommendations.\n        </p>"
+          }
+        },
+        "licenseRecommendations": {
+          "target": "com.amazonaws.computeoptimizer#LicenseRecommendations",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            An array of objects that describe license recommendations.\n        </p>"
+          }
+        },
+        "errors": {
+          "target": "com.amazonaws.computeoptimizer#GetRecommendationErrors",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            An array of objects that describe errors of the request.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.computeoptimizer#GetRecommendationError": {
       "type": "structure",
       "members": {
@@ -5449,6 +6407,60 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.computeoptimizer#Gpu": {
+      "type": "structure",
+      "members": {
+        "gpuCount": {
+          "target": "com.amazonaws.computeoptimizer#GpuCount",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>\n            The number of GPUs for the instance type.\n        </p>"
+          }
+        },
+        "gpuMemorySizeInMiB": {
+          "target": "com.amazonaws.computeoptimizer#GpuMemorySizeInMiB",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>\n            The total size of the memory for the GPU accelerators for the instance type, in MiB.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Describes the GPU accelerators for the instance type.\n        </p>"
+      }
+    },
+    "com.amazonaws.computeoptimizer#GpuCount": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0
+      }
+    },
+    "com.amazonaws.computeoptimizer#GpuInfo": {
+      "type": "structure",
+      "members": {
+        "gpus": {
+          "target": "com.amazonaws.computeoptimizer#Gpus",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            Describes the GPU accelerators for the instance type.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Describes the GPU accelerator settings for the instance type.\n        </p>"
+      }
+    },
+    "com.amazonaws.computeoptimizer#GpuMemorySizeInMiB": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0
+      }
+    },
+    "com.amazonaws.computeoptimizer#Gpus": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.computeoptimizer#Gpu"
+      }
+    },
     "com.amazonaws.computeoptimizer#High": {
       "type": "long",
       "traits": {
@@ -5581,6 +6593,44 @@
         "target": "com.amazonaws.computeoptimizer#InstanceArn"
       }
     },
+    "com.amazonaws.computeoptimizer#InstanceEstimatedMonthlySavings": {
+      "type": "structure",
+      "members": {
+        "currency": {
+          "target": "com.amazonaws.computeoptimizer#Currency",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The currency of the estimated monthly savings.\n        </p>"
+          }
+        },
+        "value": {
+          "target": "com.amazonaws.computeoptimizer#Value",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>\n            The value of the estimated monthly savings.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            An object that describes the estimated monthly savings possible by adopting Compute Optimizer’s Amazon EC2 instance \n            recommendations. This is based on the Savings Plans and Reserved Instances pricing discounts.\n        </p>"
+      }
+    },
+    "com.amazonaws.computeoptimizer#InstanceIdle": {
+      "type": "enum",
+      "members": {
+        "TRUE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "True"
+          }
+        },
+        "FALSE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "False"
+          }
+        }
+      }
+    },
     "com.amazonaws.computeoptimizer#InstanceName": {
       "type": "string"
     },
@@ -5689,6 +6739,18 @@
           "traits": {
             "smithy.api#documentation": "<p>\n            An object that describes Compute Optimizer's integration status with your external metrics provider.\n        </p>"
           }
+        },
+        "currentInstanceGpuInfo": {
+          "target": "com.amazonaws.computeoptimizer#GpuInfo",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            Describes the GPU accelerator settings for the current instance type.\n        </p>"
+          }
+        },
+        "idle": {
+          "target": "com.amazonaws.computeoptimizer#InstanceIdle",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            Describes if an Amazon EC2 instance is idle.\n        </p>"
+          }
         }
       },
       "traits": {
@@ -5793,6 +6855,30 @@
           "traits": {
             "smithy.api#enumValue": "DiskThroughputUnderprovisioned"
           }
+        },
+        "GPU_UNDER_PROVISIONED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GPUUnderprovisioned"
+          }
+        },
+        "GPU_OVER_PROVISIONED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GPUOverprovisioned"
+          }
+        },
+        "GPU_MEMORY_UNDER_PROVISIONED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GPUMemoryUnderprovisioned"
+          }
+        },
+        "GPU_MEMORY_OVER_PROVISIONED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GPUMemoryOverprovisioned"
+          }
         }
       }
     },
@@ -5848,6 +6934,18 @@
           "traits": {
             "smithy.api#documentation": "<p>The level of effort required to migrate from the current instance type to the\n            recommended instance type.</p>\n         <p>For example, the migration effort is <code>Low</code> if Amazon EMR is the\n            inferred workload type and an Amazon Web Services Graviton instance type is recommended.\n            The migration effort is <code>Medium</code> if a workload type couldn't be inferred but\n            an Amazon Web Services Graviton instance type is recommended. The migration effort is\n                <code>VeryLow</code> if both the current and recommended instance types are of the\n            same CPU architecture.</p>"
           }
+        },
+        "instanceGpuInfo": {
+          "target": "com.amazonaws.computeoptimizer#GpuInfo",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            Describes the GPU accelerator settings for the recommended instance type.\n        </p>"
+          }
+        },
+        "savingsOpportunityAfterDiscounts": {
+          "target": "com.amazonaws.computeoptimizer#InstanceSavingsOpportunityAfterDiscounts",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            An object that describes the savings opportunity for the instance recommendation option that includes Savings Plans and Reserved Instances \n            discounts. Savings opportunity includes the estimated monthly savings and percentage.\n        </p>"
+          }
         }
       },
       "traits": {
@@ -5858,6 +6956,64 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.computeoptimizer#InstanceRecommendation"
+      }
+    },
+    "com.amazonaws.computeoptimizer#InstanceSavingsEstimationMode": {
+      "type": "structure",
+      "members": {
+        "source": {
+          "target": "com.amazonaws.computeoptimizer#InstanceSavingsEstimationModeSource",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            Describes the source for calculating the savings opportunity for Amazon EC2 instances.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Describes the savings estimation mode used for calculating savings opportunity for Amazon EC2 instances.\n        </p>"
+      }
+    },
+    "com.amazonaws.computeoptimizer#InstanceSavingsEstimationModeSource": {
+      "type": "enum",
+      "members": {
+        "PUBLIC_PRICING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PublicPricing"
+          }
+        },
+        "COST_EXPLORER_RIGHTSIZING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CostExplorerRightsizing"
+          }
+        },
+        "COST_OPTIMIZATION_HUB": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CostOptimizationHub"
+          }
+        }
+      }
+    },
+    "com.amazonaws.computeoptimizer#InstanceSavingsOpportunityAfterDiscounts": {
+      "type": "structure",
+      "members": {
+        "savingsOpportunityPercentage": {
+          "target": "com.amazonaws.computeoptimizer#SavingsOpportunityPercentage",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>\n            The estimated monthly savings possible as a percentage of monthly cost after applying the Savings Plans and Reserved Instances discounts. \n            This saving can be achieved by adopting Compute Optimizer’s EC2 instance recommendations.\n        </p>"
+          }
+        },
+        "estimatedMonthlySavings": {
+          "target": "com.amazonaws.computeoptimizer#InstanceEstimatedMonthlySavings",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            An object that describes the estimated monthly savings possible by adopting Compute Optimizer’s Amazon EC2 instance recommendations. This is \n            based on pricing after applying the Savings Plans and Reserved Instances discounts.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Describes the savings opportunity for instance recommendations after applying the Savings Plans and Reserved Instances discounts.\n        </p>\n         <p>Savings opportunity after discounts represents the estimated monthly savings you can achieve by \n            implementing Compute Optimizer recommendations.</p>"
       }
     },
     "com.amazonaws.computeoptimizer#InstanceState": {
@@ -6011,6 +7167,41 @@
         }
       }
     },
+    "com.amazonaws.computeoptimizer#LambdaEffectiveRecommendationPreferences": {
+      "type": "structure",
+      "members": {
+        "savingsEstimationMode": {
+          "target": "com.amazonaws.computeoptimizer#LambdaSavingsEstimationMode",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            Describes the savings estimation mode applied for calculating savings opportunity for Lambda functions.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Describes the effective recommendation preferences for Lambda functions.\n        </p>"
+      }
+    },
+    "com.amazonaws.computeoptimizer#LambdaEstimatedMonthlySavings": {
+      "type": "structure",
+      "members": {
+        "currency": {
+          "target": "com.amazonaws.computeoptimizer#Currency",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The currency of the estimated monthly savings.\n        </p>"
+          }
+        },
+        "value": {
+          "target": "com.amazonaws.computeoptimizer#Value",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>\n            The value of the estimated monthly savings.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Describes the estimated monthly savings possible for Lambda functions by adopting Compute Optimizer recommendations. This is based \n            on Lambda functions pricing after applying Savings Plans discounts.\n        </p>"
+      }
+    },
     "com.amazonaws.computeoptimizer#LambdaFunctionMemoryMetricName": {
       "type": "enum",
       "members": {
@@ -6105,6 +7296,12 @@
           "target": "com.amazonaws.computeoptimizer#SavingsOpportunity",
           "traits": {
             "smithy.api#documentation": "<p>An object that describes the savings opportunity for the Lambda function\n            recommendation option. Savings opportunity includes the estimated monthly savings amount\n            and percentage.</p>"
+          }
+        },
+        "savingsOpportunityAfterDiscounts": {
+          "target": "com.amazonaws.computeoptimizer#LambdaSavingsOpportunityAfterDiscounts",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            An object that describes the savings opportunity for the Lambda recommendation option which includes Saving Plans \n            discounts. Savings opportunity includes the estimated monthly savings and percentage.\n        </p>"
           }
         }
       },
@@ -6234,6 +7431,12 @@
           "target": "com.amazonaws.computeoptimizer#Tags",
           "traits": {
             "smithy.api#documentation": "<p>\n            A list of tags assigned to your Lambda function recommendations.\n        </p>"
+          }
+        },
+        "effectiveRecommendationPreferences": {
+          "target": "com.amazonaws.computeoptimizer#LambdaEffectiveRecommendationPreferences",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            Describes the effective recommendation preferences for Lambda functions.\n        </p>"
           }
         }
       },
@@ -6381,11 +7584,404 @@
         "target": "com.amazonaws.computeoptimizer#LambdaFunctionUtilizationMetric"
       }
     },
+    "com.amazonaws.computeoptimizer#LambdaSavingsEstimationMode": {
+      "type": "structure",
+      "members": {
+        "source": {
+          "target": "com.amazonaws.computeoptimizer#LambdaSavingsEstimationModeSource",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            Describes the source for calculation of savings opportunity for Lambda functions.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Describes the savings estimation used for calculating savings opportunity for Lambda functions.\n        </p>"
+      }
+    },
+    "com.amazonaws.computeoptimizer#LambdaSavingsEstimationModeSource": {
+      "type": "enum",
+      "members": {
+        "PUBLIC_PRICING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PublicPricing"
+          }
+        },
+        "COST_EXPLORER_RIGHTSIZING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CostExplorerRightsizing"
+          }
+        },
+        "COST_OPTIMIZATION_HUB": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CostOptimizationHub"
+          }
+        }
+      }
+    },
+    "com.amazonaws.computeoptimizer#LambdaSavingsOpportunityAfterDiscounts": {
+      "type": "structure",
+      "members": {
+        "savingsOpportunityPercentage": {
+          "target": "com.amazonaws.computeoptimizer#SavingsOpportunityPercentage",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>\n            The estimated monthly savings possible as a percentage of monthly cost by adopting Compute Optimizer’s Lambda \n            function recommendations. This includes any applicable Savings Plans discounts.\n        </p>"
+          }
+        },
+        "estimatedMonthlySavings": {
+          "target": "com.amazonaws.computeoptimizer#LambdaEstimatedMonthlySavings",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The estimated monthly savings possible by adopting Compute Optimizer’s Lambda function recommendations. This \n            includes any applicable Savings Plans discounts.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Describes the savings opportunity for Lambda functions recommendations after applying Savings Plans discounts.\n        </p>\n         <p>Savings opportunity represents the estimated monthly savings after applying Savings Plans discounts. \n            You can achieve this by implementing a given Compute Optimizer recommendation.</p>"
+      }
+    },
     "com.amazonaws.computeoptimizer#LastRefreshTimestamp": {
       "type": "timestamp"
     },
     "com.amazonaws.computeoptimizer#LastUpdatedTimestamp": {
       "type": "timestamp"
+    },
+    "com.amazonaws.computeoptimizer#LicenseConfiguration": {
+      "type": "structure",
+      "members": {
+        "numberOfCores": {
+          "target": "com.amazonaws.computeoptimizer#NumberOfCores",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>\n            The current number of cores associated with the instance.\n        </p>"
+          }
+        },
+        "instanceType": {
+          "target": "com.amazonaws.computeoptimizer#InstanceType",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The instance type used in the license.\n        </p>"
+          }
+        },
+        "operatingSystem": {
+          "target": "com.amazonaws.computeoptimizer#OperatingSystem",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The operating system of the instance. \n        </p>"
+          }
+        },
+        "licenseEdition": {
+          "target": "com.amazonaws.computeoptimizer#LicenseEdition",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The edition of the license for the application that runs on the instance.\n        </p>"
+          }
+        },
+        "licenseName": {
+          "target": "com.amazonaws.computeoptimizer#LicenseName",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The name of the license for the application that runs on the instance.\n        </p>"
+          }
+        },
+        "licenseModel": {
+          "target": "com.amazonaws.computeoptimizer#LicenseModel",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The license type associated with the instance.\n        </p>"
+          }
+        },
+        "licenseVersion": {
+          "target": "com.amazonaws.computeoptimizer#LicenseVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The version of the license for the application that runs on the instance.\n        </p>"
+          }
+        },
+        "metricsSource": {
+          "target": "com.amazonaws.computeoptimizer#MetricsSource",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The list of metric sources required to generate recommendations for commercial software licenses.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Describes the configuration of a license for an Amazon EC2 instance.\n        </p>"
+      }
+    },
+    "com.amazonaws.computeoptimizer#LicenseEdition": {
+      "type": "enum",
+      "members": {
+        "ENTERPRISE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Enterprise"
+          }
+        },
+        "STANDARD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Standard"
+          }
+        },
+        "FREE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Free"
+          }
+        },
+        "NO_LICENSE_EDITION_FOUND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NoLicenseEditionFound"
+          }
+        }
+      }
+    },
+    "com.amazonaws.computeoptimizer#LicenseFinding": {
+      "type": "enum",
+      "members": {
+        "INSUFFICIENT_METRICS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InsufficientMetrics"
+          }
+        },
+        "OPTIMIZED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Optimized"
+          }
+        },
+        "NOT_OPTIMIZED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NotOptimized"
+          }
+        }
+      }
+    },
+    "com.amazonaws.computeoptimizer#LicenseFindingReasonCode": {
+      "type": "enum",
+      "members": {
+        "CW_APP_INSIGHTS_DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InvalidCloudWatchApplicationInsightsSetup"
+          }
+        },
+        "CW_APP_INSIGHTS_ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CloudWatchApplicationInsightsError"
+          }
+        },
+        "LICENSE_OVER_PROVISIONED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LicenseOverprovisioned"
+          }
+        },
+        "OPTIMIZED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Optimized"
+          }
+        }
+      }
+    },
+    "com.amazonaws.computeoptimizer#LicenseFindingReasonCodes": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.computeoptimizer#LicenseFindingReasonCode"
+      }
+    },
+    "com.amazonaws.computeoptimizer#LicenseModel": {
+      "type": "enum",
+      "members": {
+        "LICENSE_INCLUDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LicenseIncluded"
+          }
+        },
+        "BRING_YOUR_OWN_LICENSE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BringYourOwnLicense"
+          }
+        }
+      }
+    },
+    "com.amazonaws.computeoptimizer#LicenseName": {
+      "type": "enum",
+      "members": {
+        "SQLSERVER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SQLServer"
+          }
+        }
+      }
+    },
+    "com.amazonaws.computeoptimizer#LicenseRecommendation": {
+      "type": "structure",
+      "members": {
+        "resourceArn": {
+          "target": "com.amazonaws.computeoptimizer#ResourceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The ARN that identifies the Amazon EC2 instance.\n        </p>"
+          }
+        },
+        "accountId": {
+          "target": "com.amazonaws.computeoptimizer#AccountId",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The Amazon Web Services account ID of the license. \n        </p>"
+          }
+        },
+        "currentLicenseConfiguration": {
+          "target": "com.amazonaws.computeoptimizer#LicenseConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            An object that describes the current configuration of an instance that runs on a license.\n        </p>"
+          }
+        },
+        "lookbackPeriodInDays": {
+          "target": "com.amazonaws.computeoptimizer#LookBackPeriodInDays",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>\n            The number of days for which utilization metrics were analyzed for an instance that runs on a license.\n        </p>"
+          }
+        },
+        "lastRefreshTimestamp": {
+          "target": "com.amazonaws.computeoptimizer#LastRefreshTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The timestamp of when the license recommendation was last generated.\n        </p>"
+          }
+        },
+        "finding": {
+          "target": "com.amazonaws.computeoptimizer#LicenseFinding",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The finding classification for an instance that runs on a license.\n        </p>\n         <p>Findings include:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>InsufficentMetrics</code> — When Compute Optimizer detects that your CloudWatch\n                        Application Insights isn't enabled or is enabled with insufficient permissions. </p>\n            </li>\n            <li>\n               <p>\n                  <code>NotOptimized</code> — When Compute Optimizer detects that your EC2 infrastructure \n                        isn't using any of the SQL server license features you're paying for, a license is considered \n                        not optimized.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Optimized</code> — When Compute Optimizer detects that all specifications of your \n                        license meet the performance requirements of your workload. </p>\n            </li>\n         </ul>"
+          }
+        },
+        "findingReasonCodes": {
+          "target": "com.amazonaws.computeoptimizer#LicenseFindingReasonCodes",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The reason for the finding classification for an instance that runs on a license.\n        </p>\n         <p>Finding reason codes include:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Optimized</code> — All specifications of your \n                        license meet the performance requirements of your workload. </p>\n            </li>\n            <li>\n               <p>\n                  <code>LicenseOverprovisioned</code> — A license is considered over-provisioned when your license can be \n                        downgraded while still meeting the performance requirements of your workload.</p>\n            </li>\n            <li>\n               <p>\n                  <code>InvalidCloudwatchApplicationInsights</code> — CloudWatch\n                        Application Insights isn't configured properly.</p>\n            </li>\n            <li>\n               <p>\n                  <code>CloudwatchApplicationInsightsError</code> — There is a CloudWatch\n                        Application Insights error. </p>\n            </li>\n         </ul>"
+          }
+        },
+        "licenseRecommendationOptions": {
+          "target": "com.amazonaws.computeoptimizer#LicenseRecommendationOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            An array of objects that describe the license recommendation options.\n        </p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.computeoptimizer#Tags",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            A list of tags assigned to an EC2 instance.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Describes a license recommendation for an EC2 instance.\n        </p>"
+      }
+    },
+    "com.amazonaws.computeoptimizer#LicenseRecommendationFilter": {
+      "type": "structure",
+      "members": {
+        "name": {
+          "target": "com.amazonaws.computeoptimizer#LicenseRecommendationFilterName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the filter.</p>\n         <p>Specify <code>Finding</code> to return recommendations with a specific finding\n            classification.</p>\n         <p>Specify <code>FindingReasonCode</code> to return recommendations with a specific\n            finding reason code.</p>\n         <p>You can filter your license recommendations by <code>tag:key</code> \n            and <code>tag-key</code> tags.</p>\n         <p>A <code>tag:key</code> is a key and value combination of a tag assigned to your \n            license recommendations. Use the tag key in the filter name and the tag value \n            as the filter value. For example, to find all license recommendations that have \n            a tag with the key of <code>Owner</code> and the value of <code>TeamA</code>, \n            specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>\n         <p>A <code>tag-key</code> is the key of a tag assigned to your license recommendations. Use \n            this filter to find all of your license recommendations that have a tag with a \n            specific key. This doesn’t consider the tag value. For example, you can find \n            your license recommendations with a tag key value of <code>Owner</code> or without any tag \n            keys assigned.</p>"
+          }
+        },
+        "values": {
+          "target": "com.amazonaws.computeoptimizer#FilterValues",
+          "traits": {
+            "smithy.api#documentation": "<p>The value of the filter.</p>\n         <p>The valid values for this parameter are as follows, depending on what you specify for\n            the <code>name</code> parameter:</p>\n         <ul>\n            <li>\n               <p>If you specify the <code>name</code> parameter as\n                    <code>Finding</code>, then specify <code>Optimized</code>, <code>NotOptimized</code>, or\n                    <code>InsufficentMetrics</code>.</p>\n            </li>\n            <li>\n               <p>If you specify the <code>name</code> parameter as\n                    <code>FindingReasonCode</code>, then specify <code>Optimized</code>,\n                    <code>LicenseOverprovisioned</code>, <code>InvalidCloudwatchApplicationInsights</code>, or\n                    <code>CloudwatchApplicationInsightsError</code>.</p>\n            </li>\n         </ul>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Describes a filter that returns a more specific list of license recommendations. Use this filter \n            with the <code>GetLicenseRecommendation</code> action.\n        </p>"
+      }
+    },
+    "com.amazonaws.computeoptimizer#LicenseRecommendationFilterName": {
+      "type": "enum",
+      "members": {
+        "LICENSE_FINDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Finding"
+          }
+        },
+        "LICENSE_FINDING_REASON_CODE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FindingReasonCode"
+          }
+        },
+        "LICENSE_NAME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LicenseName"
+          }
+        }
+      }
+    },
+    "com.amazonaws.computeoptimizer#LicenseRecommendationFilters": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.computeoptimizer#LicenseRecommendationFilter"
+      }
+    },
+    "com.amazonaws.computeoptimizer#LicenseRecommendationOption": {
+      "type": "structure",
+      "members": {
+        "rank": {
+          "target": "com.amazonaws.computeoptimizer#Rank",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>\n            The rank of the license recommendation option.\n        </p>\n         <p>\n            The top recommendation option is ranked as <code>1</code>.\n        </p>"
+          }
+        },
+        "operatingSystem": {
+          "target": "com.amazonaws.computeoptimizer#OperatingSystem",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The operating system of a license recommendation option.\n        </p>"
+          }
+        },
+        "licenseEdition": {
+          "target": "com.amazonaws.computeoptimizer#LicenseEdition",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The recommended edition of the license for the application that runs on the instance.\n        </p>"
+          }
+        },
+        "licenseModel": {
+          "target": "com.amazonaws.computeoptimizer#LicenseModel",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The recommended license type associated with the instance.\n        </p>"
+          }
+        },
+        "savingsOpportunity": {
+          "target": "com.amazonaws.computeoptimizer#SavingsOpportunity"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Describes the recommendation options for licenses.\n        </p>"
+      }
+    },
+    "com.amazonaws.computeoptimizer#LicenseRecommendationOptions": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.computeoptimizer#LicenseRecommendationOption"
+      }
+    },
+    "com.amazonaws.computeoptimizer#LicenseRecommendations": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.computeoptimizer#LicenseRecommendation"
+      }
+    },
+    "com.amazonaws.computeoptimizer#LicenseVersion": {
+      "type": "string"
     },
     "com.amazonaws.computeoptimizer#LimitExceededException": {
       "type": "structure",
@@ -6404,6 +8000,29 @@
       "type": "double",
       "traits": {
         "smithy.api#default": 0
+      }
+    },
+    "com.amazonaws.computeoptimizer#LookBackPeriodPreference": {
+      "type": "enum",
+      "members": {
+        "DAYS_14": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DAYS_14"
+          }
+        },
+        "DAYS_32": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DAYS_32"
+          }
+        },
+        "DAYS_93": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DAYS_93"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#Low": {
@@ -6563,6 +8182,52 @@
           "traits": {
             "smithy.api#enumValue": "NETWORK_PACKETS_OUT_PER_SECOND"
           }
+        },
+        "GPU_PERCENTAGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GPU_PERCENTAGE"
+          }
+        },
+        "GPU_MEMORY_PERCENTAGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GPU_MEMORY_PERCENTAGE"
+          }
+        }
+      }
+    },
+    "com.amazonaws.computeoptimizer#MetricProviderArn": {
+      "type": "string"
+    },
+    "com.amazonaws.computeoptimizer#MetricSource": {
+      "type": "structure",
+      "members": {
+        "provider": {
+          "target": "com.amazonaws.computeoptimizer#MetricSourceProvider",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The name of the metric source provider.\n        </p>"
+          }
+        },
+        "providerArn": {
+          "target": "com.amazonaws.computeoptimizer#MetricProviderArn",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The ARN of the metric source provider.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            The list of metric sources required to generate recommendations for commercial software licenses.\n        </p>"
+      }
+    },
+    "com.amazonaws.computeoptimizer#MetricSourceProvider": {
+      "type": "enum",
+      "members": {
+        "CloudWatchAppInsights": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CloudWatchApplicationInsights"
+          }
         }
       }
     },
@@ -6593,6 +8258,12 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.computeoptimizer#MetricValue"
+      }
+    },
+    "com.amazonaws.computeoptimizer#MetricsSource": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.computeoptimizer#MetricSource"
       }
     },
     "com.amazonaws.computeoptimizer#MigrationEffort": {
@@ -6655,6 +8326,12 @@
     "com.amazonaws.computeoptimizer#NullableMemoryReservation": {
       "type": "integer"
     },
+    "com.amazonaws.computeoptimizer#NumberOfCores": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0
+      }
+    },
     "com.amazonaws.computeoptimizer#NumberOfInvocations": {
       "type": "long",
       "traits": {
@@ -6663,6 +8340,9 @@
     },
     "com.amazonaws.computeoptimizer#NumberOfMemberAccountsOptedIn": {
       "type": "integer"
+    },
+    "com.amazonaws.computeoptimizer#OperatingSystem": {
+      "type": "string"
     },
     "com.amazonaws.computeoptimizer#OptInRequiredException": {
       "type": "structure",
@@ -6740,13 +8420,65 @@
         "target": "com.amazonaws.computeoptimizer#PlatformDifference"
       }
     },
+    "com.amazonaws.computeoptimizer#PreferredResource": {
+      "type": "structure",
+      "members": {
+        "name": {
+          "target": "com.amazonaws.computeoptimizer#PreferredResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The type of preferred resource to customize.\n        </p>\n         <note>\n            <p>Compute Optimizer only supports the customization of <code>Ec2InstanceTypes</code>.</p>\n         </note>"
+          }
+        },
+        "includeList": {
+          "target": "com.amazonaws.computeoptimizer#PreferredResourceValues",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The preferred resource type values to include in the recommendation candidates. You can specify the exact resource type value, \n            such as m5.large, or use wild card expressions, such as m5. If this isn’t specified, all supported resources are included by default. \n            You can specify up to 1000 values in this list.\n        </p>"
+          }
+        },
+        "excludeList": {
+          "target": "com.amazonaws.computeoptimizer#PreferredResourceValues",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The preferred resource type values to exclude from the recommendation candidates. If this isn’t specified, all supported \n            resources are included by default. You can specify up to 1000 values in this list.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            The preference to control which resource type values are considered when generating rightsizing recommendations. \n            You can specify this preference as a combination of include and exclude lists. You must specify either an \n            <code>includeList</code> or <code>excludeList</code>. If the preference is an empty set of resource type values, \n            an error occurs. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/rightsizing-preferences.html\">\n                Rightsizing recommendation preferences</a> in the <i>Compute Optimizer User\n                    Guide</i>.\n        </p>\n         <note>\n            <ul>\n               <li>\n                  <p>This preference is only available for the Amazon EC2 instance and Auto Scaling group resource types.</p>\n               </li>\n               <li>\n                  <p>Compute Optimizer only supports the customization of <code>Ec2InstanceTypes</code>.</p>\n               </li>\n            </ul>\n         </note>"
+      }
+    },
+    "com.amazonaws.computeoptimizer#PreferredResourceName": {
+      "type": "enum",
+      "members": {
+        "EC2_INSTANCE_TYPES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Ec2InstanceTypes"
+          }
+        }
+      }
+    },
+    "com.amazonaws.computeoptimizer#PreferredResourceValue": {
+      "type": "string"
+    },
+    "com.amazonaws.computeoptimizer#PreferredResourceValues": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.computeoptimizer#PreferredResourceValue"
+      }
+    },
+    "com.amazonaws.computeoptimizer#PreferredResources": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.computeoptimizer#PreferredResource"
+      }
+    },
     "com.amazonaws.computeoptimizer#ProjectedMetric": {
       "type": "structure",
       "members": {
         "name": {
           "target": "com.amazonaws.computeoptimizer#MetricName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the projected utilization metric.</p>\n         <p>The following projected utilization metrics are returned:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Cpu</code> - The projected percentage of allocated EC2 compute units\n                    that would be in use on the recommendation option had you used that resource\n                    during the analyzed period. This metric identifies the processing power required\n                    to run an application on the recommendation option.</p>\n               <p>Depending on the instance type, tools in your operating system can show a\n                    lower percentage than CloudWatch when the instance is not allocated a full\n                    processor core.</p>\n               <p>Units: Percent</p>\n            </li>\n            <li>\n               <p>\n                  <code>Memory</code> - The percentage of memory that would be in use on the\n                    recommendation option had you used that resource during the analyzed period.\n                    This metric identifies the amount of memory required to run an application on\n                    the recommendation option.</p>\n               <p>Units: Percent</p>\n               <note>\n                  <p>The <code>Memory</code> metric is returned only for resources that have\n                        the unified CloudWatch agent installed on them. For more information,\n                        see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent\">Enabling Memory\n                            Utilization with the CloudWatch Agent</a>.</p>\n               </note>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The name of the projected utilization metric.</p>\n         <p>The following projected utilization metrics are returned:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Cpu</code> - The projected percentage of allocated EC2 compute units\n                    that would be in use on the recommendation option had you used that resource\n                    during the analyzed period. This metric identifies the processing power required\n                    to run an application on the recommendation option.</p>\n               <p>Depending on the instance type, tools in your operating system can show a\n                    lower percentage than CloudWatch when the instance is not allocated a full\n                    processor core.</p>\n            </li>\n            <li>\n               <p>\n                  <code>Memory</code> - The percentage of memory that would be in use on the\n                    recommendation option had you used that resource during the analyzed period.\n                    This metric identifies the amount of memory required to run an application on\n                    the recommendation option.</p>\n               <p>Units: Percent</p>\n               <note>\n                  <p>The <code>Memory</code> metric is only returned for resources with\n                        the unified CloudWatch agent installed on them. For more information,\n                        see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent\">Enabling Memory\n                            Utilization with the CloudWatch Agent</a>.</p>\n               </note>\n            </li>\n            <li>\n               <p>\n                  <code>GPU</code> - The projected percentage of allocated GPUs if you adjust your\n                    configurations to Compute Optimizer's recommendation option.</p>\n            </li>\n            <li>\n               <p>\n                  <code>GPU_MEMORY</code> - The projected percentage of total GPU memory if you adjust your\n                    configurations to Compute Optimizer's recommendation option.</p>\n               <note>\n                  <p>The <code>GPU</code> and <code>GPU_MEMORY</code> metrics are only returned for resources \n                        with the unified CloudWatch Agent installed on them. For more information, see \n                        <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#nvidia-cw-agent\">Enabling NVIDIA GPU \n                            utilization with the CloudWatch Agent</a>.</p>\n               </note>\n            </li>\n         </ul>"
           }
         },
         "timestamps": {
@@ -6763,7 +8495,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes a projected utilization metric of a recommendation option, such as an\n                Amazon EC2 instance. This represents the projected utilization of a\n            recommendation option had you used that resource during the analyzed period.</p>\n         <p>Compare the utilization metric data of your resource against its projected utilization\n            metric data to determine the performance difference between your current resource and\n            the recommended option.</p>\n         <note>\n            <p>The <code>Cpu</code> and <code>Memory</code> metrics are the only projected\n                utilization metrics returned when you run the <a>GetEC2RecommendationProjectedMetrics</a> action. Additionally, the\n                    <code>Memory</code> metric is returned only for resources that have the unified\n                    CloudWatch agent installed on them. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent\">Enabling Memory Utilization with the CloudWatch Agent</a>.</p>\n         </note>"
+        "smithy.api#documentation": "<p>Describes a projected utilization metric of a recommendation option, such as an\n                Amazon EC2 instance. This represents the projected utilization of a\n            recommendation option had you used that resource during the analyzed period.</p>\n         <p>Compare the utilization metric data of your resource against its projected utilization\n            metric data to determine the performance difference between your current resource and\n            the recommended option.</p>\n         <note>\n            <p>The <code>Cpu</code>, <code>Memory</code>, <code>GPU</code>, and <code>GPU_MEMORY</code> metrics \n                are the only projected utilization metrics returned when you run the <a>GetEC2RecommendationProjectedMetrics</a> action. Additionally, these\n                    metrics are only returned for resources with the unified\n                    CloudWatch agent installed on them. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent\">Enabling Memory Utilization with the CloudWatch Agent</a> and\n                    <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#nvidia-cw-agent\">Enabling NVIDIA GPU \n                        utilization with the CloudWatch Agent</a>.</p>\n         </note>"
       }
     },
     "com.amazonaws.computeoptimizer#ProjectedMetrics": {
@@ -6848,6 +8580,30 @@
           "target": "com.amazonaws.computeoptimizer#ExternalMetricsPreference",
           "traits": {
             "smithy.api#documentation": "<p>The provider of the external metrics recommendation preference to create or\n            update.</p>\n         <p>Specify a valid provider in the <code>source</code> field to activate the preference.\n            To delete this preference, see the <a>DeleteRecommendationPreferences</a>\n            action.</p>\n         <p>This preference can only be set for the <code>Ec2Instance</code> resource type.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/external-metrics-ingestion.html\">External metrics\n                ingestion</a> in the <i>Compute Optimizer User\n            Guide</i>.</p>"
+          }
+        },
+        "lookBackPeriod": {
+          "target": "com.amazonaws.computeoptimizer#LookBackPeriodPreference",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The preference to control the number of days the utilization metrics of the Amazon Web Services resource are analyzed. \n            When this preference isn't specified, we use the default value <code>DAYS_14</code>.\n        </p>\n         <note>\n            <p>You can only set this preference for the Amazon EC2 instance and Auto Scaling group resource types.</p>\n         </note>"
+          }
+        },
+        "utilizationPreferences": {
+          "target": "com.amazonaws.computeoptimizer#UtilizationPreferences",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The preference to control the resource’s CPU utilization thresholds - threshold and headroom. When this \n            preference isn't specified, we use the following default values:\n        </p>\n         <ul>\n            <li>\n               <p>\n                  <code>P99_5</code> for threshold</p>\n            </li>\n            <li>\n               <p>\n                  <code>PERCENT_17</code> for headroom</p>\n            </li>\n         </ul>\n         <note>\n            <p>You can only set this preference for the Amazon EC2 instance resource type.</p>\n         </note>"
+          }
+        },
+        "preferredResources": {
+          "target": "com.amazonaws.computeoptimizer#PreferredResources",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The preference to control which resource type values are considered when generating rightsizing recommendations. \n            You can specify this preference as a combination of include and exclude lists. You must specify either an \n            <code>includeList</code> or <code>excludeList</code>. If the preference is an empty set of resource type values, \n            an error occurs.\n        </p>\n         <note>\n            <p>You can only set this preference for the Amazon EC2 instance and Auto Scaling group resource types.</p>\n         </note>"
+          }
+        },
+        "savingsEstimationMode": {
+          "target": "com.amazonaws.computeoptimizer#SavingsEstimationMode",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The status of the savings estimation mode preference to create or update.\n        </p>\n         <p>Specify the <code>AfterDiscounts</code> status to activate the preference, or specify <code>BeforeDiscounts</code> to deactivate the preference.</p>\n         <p>Only the account manager or delegated administrator of your organization can activate this preference.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/savings-estimation-mode.html\">\n            Savings estimation mode</a> in the <i>Compute Optimizer User Guide</i>.</p>"
           }
         }
       },
@@ -6977,6 +8733,24 @@
           "traits": {
             "smithy.api#enumValue": "ExternalMetricsPreference"
           }
+        },
+        "LOOKBACK_PERIOD_PREFERENCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LookBackPeriodPreference"
+          }
+        },
+        "PREFERRED_RESOURCES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PreferredResources"
+          }
+        },
+        "UTILIZATION_PREFERENCES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationPreferences"
+          }
         }
       }
     },
@@ -7031,6 +8805,30 @@
           "target": "com.amazonaws.computeoptimizer#ExternalMetricsPreference",
           "traits": {
             "smithy.api#documentation": "<p> An object that describes the external metrics recommendation preference. </p>\n         <p> If the preference is applied in the latest recommendation refresh, an object with a\n            valid <code>source</code> value appears in the response. If the preference isn't applied\n            to the recommendations already, then this object doesn't appear in the response. </p>"
+          }
+        },
+        "lookBackPeriod": {
+          "target": "com.amazonaws.computeoptimizer#LookBackPeriodPreference",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The preference to control the number of days the utilization metrics of the Amazon Web Services resource are analyzed. \n            If the preference isn’t set, this object is null.\n        </p>"
+          }
+        },
+        "utilizationPreferences": {
+          "target": "com.amazonaws.computeoptimizer#UtilizationPreferences",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The preference to control the resource’s CPU utilization thresholds - threshold and headroom. \n            If the preference isn’t set, this object is null. \n        </p>\n         <note>\n            <p>This preference is only available for the Amazon EC2 instance resource type.</p>\n         </note>"
+          }
+        },
+        "preferredResources": {
+          "target": "com.amazonaws.computeoptimizer#EffectivePreferredResources",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The preference to control which resource type values are considered when generating rightsizing recommendations. \n            This object resolves any wildcard expressions and returns the effective list of candidate resource type values. \n            If the preference isn’t set, this object is null.\n        </p>"
+          }
+        },
+        "savingsEstimationMode": {
+          "target": "com.amazonaws.computeoptimizer#SavingsEstimationMode",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            Describes the savings estimation mode used for calculating savings opportunity. \n        </p>\n         <p>Only the account manager or delegated administrator of your organization can activate this preference.</p>"
           }
         }
       },
@@ -7099,6 +8897,12 @@
           "traits": {
             "smithy.api#enumValue": "EcsService"
           }
+        },
+        "LICENSE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "License"
+          }
         }
       }
     },
@@ -7150,7 +8954,7 @@
         "inferredWorkloadSavings": {
           "target": "com.amazonaws.computeoptimizer#InferredWorkloadSavings",
           "traits": {
-            "smithy.api#documentation": "<p>\n            An array of objects that describes the estimated monthly saving amounts for the instances running on the specified \n            <code>inferredWorkloadTypes</code>. The array contains the top three savings opportunites for the instances running \n            inferred workload types.\n        </p>"
+            "smithy.api#documentation": "<p>\n            An array of objects that describes the estimated monthly saving amounts for the instances running on the specified \n            <code>inferredWorkloadTypes</code>. The array contains the top five savings opportunites for the instances that run \n            inferred workload types.\n        </p>"
           }
         }
       },
@@ -7196,6 +9000,12 @@
     },
     "com.amazonaws.computeoptimizer#ResourceArn": {
       "type": "string"
+    },
+    "com.amazonaws.computeoptimizer#ResourceArns": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.computeoptimizer#ResourceArn"
+      }
     },
     "com.amazonaws.computeoptimizer#ResourceNotFoundException": {
       "type": "structure",
@@ -7248,6 +9058,12 @@
           "traits": {
             "smithy.api#enumValue": "EcsService"
           }
+        },
+        "LICENSE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "License"
+          }
         }
       }
     },
@@ -7298,6 +9114,23 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and\n            key prefix for a recommendations export job.</p>\n         <p>You must create the destination Amazon S3 bucket for your recommendations\n            export before you create the export job. Compute Optimizer does not create the S3 bucket\n            for you. After you create the S3 bucket, ensure that it has the required permission\n            policy to allow Compute Optimizer to write the export file to it. If you plan to specify\n            an object prefix when you create the export job, you must include the object prefix in\n            the policy that you add to the S3 bucket. For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/create-s3-bucket-policy-for-compute-optimizer.html\">Amazon S3 Bucket Policy for Compute Optimizer</a> in the\n                    <i>Compute Optimizer User Guide</i>.</p>"
+      }
+    },
+    "com.amazonaws.computeoptimizer#SavingsEstimationMode": {
+      "type": "enum",
+      "members": {
+        "AFTER_DISCOUNTS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AfterDiscounts"
+          }
+        },
+        "BEFORE_DISCOUNTS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BeforeDiscounts"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#SavingsOpportunity": {
@@ -7650,7 +9483,7 @@
         "name": {
           "target": "com.amazonaws.computeoptimizer#MetricName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the utilization metric.</p>\n         <p>The following utilization metrics are available:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Cpu</code> - The percentage of allocated EC2 compute units that are\n                    currently in use on the instance. This metric identifies the processing power\n                    required to run an application on the instance.</p>\n               <p>Depending on the instance type, tools in your operating system can show a\n                    lower percentage than CloudWatch when the instance is not allocated a full\n                    processor core.</p>\n               <p>Units: Percent</p>\n            </li>\n            <li>\n               <p>\n                  <code>Memory</code> - The percentage of memory that is currently in use on the\n                    instance. This metric identifies the amount of memory required to run an\n                    application on the instance.</p>\n               <p>Units: Percent</p>\n               <note>\n                  <p>The <code>Memory</code> metric is returned only for resources that have\n                        the unified CloudWatch agent installed on them. For more information,\n                        see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent\">Enabling Memory\n                            Utilization with the CloudWatch Agent</a>.</p>\n               </note>\n            </li>\n            <li>\n               <p>\n                  <code>EBS_READ_OPS_PER_SECOND</code> - The completed read operations from all\n                    EBS volumes attached to the instance in a specified period of time.</p>\n               <p>Unit: Count</p>\n            </li>\n            <li>\n               <p>\n                  <code>EBS_WRITE_OPS_PER_SECOND</code> - The completed write operations to all\n                    EBS volumes attached to the instance in a specified period of time.</p>\n               <p>Unit: Count</p>\n            </li>\n            <li>\n               <p>\n                  <code>EBS_READ_BYTES_PER_SECOND</code> - The bytes read from all EBS volumes\n                    attached to the instance in a specified period of time.</p>\n               <p>Unit: Bytes</p>\n            </li>\n            <li>\n               <p>\n                  <code>EBS_WRITE_BYTES_PER_SECOND</code> - The bytes written to all EBS volumes\n                    attached to the instance in a specified period of time.</p>\n               <p>Unit: Bytes</p>\n            </li>\n            <li>\n               <p>\n                  <code>DISK_READ_OPS_PER_SECOND</code> - The completed read operations from all\n                    instance store volumes available to the instance in a specified period of\n                    time.</p>\n               <p>If there are no instance store volumes, either the value is <code>0</code> or\n                    the metric is not reported.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DISK_WRITE_OPS_PER_SECOND</code> - The completed write operations from\n                    all instance store volumes available to the instance in a specified period of\n                    time.</p>\n               <p>If there are no instance store volumes, either the value is <code>0</code> or\n                    the metric is not reported.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DISK_READ_BYTES_PER_SECOND</code> - The bytes read from all instance\n                    store volumes available to the instance. This metric is used to determine the\n                    volume of the data the application reads from the disk of the instance. This can\n                    be used to determine the speed of the application.</p>\n               <p>If there are no instance store volumes, either the value is <code>0</code> or\n                    the metric is not reported.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DISK_WRITE_BYTES_PER_SECOND</code> - The bytes written to all instance\n                    store volumes available to the instance. This metric is used to determine the\n                    volume of the data the application writes onto the disk of the instance. This\n                    can be used to determine the speed of the application.</p>\n               <p>If there are no instance store volumes, either the value is <code>0</code> or\n                    the metric is not reported.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NETWORK_IN_BYTES_PER_SECOND</code> - The number of bytes received by the\n                    instance on all network interfaces. This metric identifies the volume of\n                    incoming network traffic to a single instance.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NETWORK_OUT_BYTES_PER_SECOND</code> - The number of bytes sent out by\n                    the instance on all network interfaces. This metric identifies the volume of\n                    outgoing network traffic from a single instance.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NETWORK_PACKETS_IN_PER_SECOND</code> - The number of packets received by\n                    the instance on all network interfaces. This metric identifies the volume of\n                    incoming traffic in terms of the number of packets on a single instance.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NETWORK_PACKETS_OUT_PER_SECOND</code> - The number of packets sent out\n                    by the instance on all network interfaces. This metric identifies the volume of\n                    outgoing traffic in terms of the number of packets on a single instance.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The name of the utilization metric.</p>\n         <p>The following utilization metrics are available:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Cpu</code> - The percentage of allocated EC2 compute units that are\n                    currently in use on the instance. This metric identifies the processing power\n                    required to run an application on the instance.</p>\n               <p>Depending on the instance type, tools in your operating system can show a\n                    lower percentage than CloudWatch when the instance is not allocated a full\n                    processor core.</p>\n               <p>Units: Percent</p>\n            </li>\n            <li>\n               <p>\n                  <code>Memory</code> - The percentage of memory that is currently in use on the\n                    instance. This metric identifies the amount of memory required to run an\n                    application on the instance.</p>\n               <p>Units: Percent</p>\n               <note>\n                  <p>The <code>Memory</code> metric is returned only for resources that have\n                        the unified CloudWatch agent installed on them. For more information,\n                        see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent\">Enabling Memory\n                            Utilization with the CloudWatch Agent</a>.</p>\n               </note>\n            </li>\n            <li>\n               <p>\n                  <code>GPU</code> - The percentage of allocated GPUs that currently run on \n                    the instance.</p>\n            </li>\n            <li>\n               <p>\n                  <code>GPU_MEMORY</code> - The percentage of total GPU memory that currently runs on \n                    the instance.</p>\n               <note>\n                  <p>The <code>GPU</code> and <code>GPU_MEMORY</code> metrics are only returned for resources \n                        with the unified CloudWatch Agent installed on them. For more information, see \n                        <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#nvidia-cw-agent\">Enabling NVIDIA GPU \n                            utilization with the CloudWatch Agent</a>.</p>\n               </note>\n            </li>\n            <li>\n               <p>\n                  <code>EBS_READ_OPS_PER_SECOND</code> - The completed read operations from all\n                    EBS volumes attached to the instance in a specified period of time.</p>\n               <p>Unit: Count</p>\n            </li>\n            <li>\n               <p>\n                  <code>EBS_WRITE_OPS_PER_SECOND</code> - The completed write operations to all\n                    EBS volumes attached to the instance in a specified period of time.</p>\n               <p>Unit: Count</p>\n            </li>\n            <li>\n               <p>\n                  <code>EBS_READ_BYTES_PER_SECOND</code> - The bytes read from all EBS volumes\n                    attached to the instance in a specified period of time.</p>\n               <p>Unit: Bytes</p>\n            </li>\n            <li>\n               <p>\n                  <code>EBS_WRITE_BYTES_PER_SECOND</code> - The bytes written to all EBS volumes\n                    attached to the instance in a specified period of time.</p>\n               <p>Unit: Bytes</p>\n            </li>\n            <li>\n               <p>\n                  <code>DISK_READ_OPS_PER_SECOND</code> - The completed read operations from all\n                    instance store volumes available to the instance in a specified period of\n                    time.</p>\n               <p>If there are no instance store volumes, either the value is <code>0</code> or\n                    the metric is not reported.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DISK_WRITE_OPS_PER_SECOND</code> - The completed write operations from\n                    all instance store volumes available to the instance in a specified period of\n                    time.</p>\n               <p>If there are no instance store volumes, either the value is <code>0</code> or\n                    the metric is not reported.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DISK_READ_BYTES_PER_SECOND</code> - The bytes read from all instance\n                    store volumes available to the instance. This metric is used to determine the\n                    volume of the data the application reads from the disk of the instance. This can\n                    be used to determine the speed of the application.</p>\n               <p>If there are no instance store volumes, either the value is <code>0</code> or\n                    the metric is not reported.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DISK_WRITE_BYTES_PER_SECOND</code> - The bytes written to all instance\n                    store volumes available to the instance. This metric is used to determine the\n                    volume of the data the application writes onto the disk of the instance. This\n                    can be used to determine the speed of the application.</p>\n               <p>If there are no instance store volumes, either the value is <code>0</code> or\n                    the metric is not reported.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NETWORK_IN_BYTES_PER_SECOND</code> - The number of bytes received by the\n                    instance on all network interfaces. This metric identifies the volume of\n                    incoming network traffic to a single instance.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NETWORK_OUT_BYTES_PER_SECOND</code> - The number of bytes sent out by\n                    the instance on all network interfaces. This metric identifies the volume of\n                    outgoing network traffic from a single instance.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NETWORK_PACKETS_IN_PER_SECOND</code> - The number of packets received by\n                    the instance on all network interfaces. This metric identifies the volume of\n                    incoming traffic in terms of the number of packets on a single instance.</p>\n            </li>\n            <li>\n               <p>\n                  <code>NETWORK_PACKETS_OUT_PER_SECOND</code> - The number of packets sent out\n                    by the instance on all network interfaces. This metric identifies the volume of\n                    outgoing traffic in terms of the number of packets on a single instance.</p>\n            </li>\n         </ul>"
           }
         },
         "statistic": {
@@ -7675,6 +9508,32 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.computeoptimizer#UtilizationMetric"
+      }
+    },
+    "com.amazonaws.computeoptimizer#UtilizationPreference": {
+      "type": "structure",
+      "members": {
+        "metricName": {
+          "target": "com.amazonaws.computeoptimizer#CustomizableMetricName",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The name of the resource utilization metric name to customize. \n        </p>\n         <note>\n            <p>Compute Optimizer only supports <code>CpuUtilization</code>.</p>\n         </note>"
+          }
+        },
+        "metricParameters": {
+          "target": "com.amazonaws.computeoptimizer#CustomizableMetricParameters",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            The parameters to set when customizing the resource utilization thresholds.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            The preference to control the resource’s CPU utilization thresholds - threshold and headroom.\n        </p>\n         <note>\n            <p>This preference is only available for the Amazon EC2 instance resource type.</p>\n         </note>"
+      }
+    },
+    "com.amazonaws.computeoptimizer#UtilizationPreferences": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.computeoptimizer#UtilizationPreference"
       }
     },
     "com.amazonaws.computeoptimizer#Value": {
@@ -7840,6 +9699,12 @@
           "traits": {
             "smithy.api#documentation": "<p>\n            A list of tags assigned to your Amazon EBS volume recommendations.\n        </p>"
           }
+        },
+        "effectiveRecommendationPreferences": {
+          "target": "com.amazonaws.computeoptimizer#EBSEffectiveRecommendationPreferences",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            Describes the effective recommendation preferences for Amazon EBS volume.\n        </p>"
+          }
         }
       },
       "traits": {
@@ -7873,6 +9738,12 @@
           "target": "com.amazonaws.computeoptimizer#SavingsOpportunity",
           "traits": {
             "smithy.api#documentation": "<p>An object that describes the savings opportunity for the EBS volume recommendation\n            option. Savings opportunity includes the estimated monthly savings amount and\n            percentage.</p>"
+          }
+        },
+        "savingsOpportunityAfterDiscounts": {
+          "target": "com.amazonaws.computeoptimizer#EBSSavingsOpportunityAfterDiscounts",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            An object that describes the savings opportunity for the Amazon EBS volume recommendation option with specific discounts. Savings \n            opportunity includes the estimated monthly savings  and percentage.\n        </p>"
           }
         }
       },

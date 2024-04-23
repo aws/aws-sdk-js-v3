@@ -36,16 +36,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `LightsailClient` and
-the commands you need, for example `AllocateStaticIpCommand`:
+the commands you need, for example `GetAlarmsCommand`:
 
 ```js
 // ES5 example
-const { LightsailClient, AllocateStaticIpCommand } = require("@aws-sdk/client-lightsail");
+const { LightsailClient, GetAlarmsCommand } = require("@aws-sdk/client-lightsail");
 ```
 
 ```ts
 // ES6+ example
-import { LightsailClient, AllocateStaticIpCommand } from "@aws-sdk/client-lightsail";
+import { LightsailClient, GetAlarmsCommand } from "@aws-sdk/client-lightsail";
 ```
 
 ### Usage
@@ -64,7 +64,7 @@ const client = new LightsailClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AllocateStaticIpCommand(params);
+const command = new GetAlarmsCommand(params);
 ```
 
 #### Async/await
@@ -143,7 +143,7 @@ const client = new AWS.Lightsail({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.allocateStaticIp(params);
+  const data = await client.getAlarms(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -151,7 +151,7 @@ try {
 
 // Promises.
 client
-  .allocateStaticIp(params)
+  .getAlarms(params)
   .then((data) => {
     // process data.
   })
@@ -160,7 +160,7 @@ client
   });
 
 // callbacks.
-client.allocateStaticIp(params, (err, data) => {
+client.getAlarms(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -175,7 +175,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -221,7 +221,7 @@ see LICENSE for more information.
 AllocateStaticIp
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/allocatestaticipcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/allocatestaticipcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/allocatestaticipcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/AllocateStaticIpCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/AllocateStaticIpCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/AllocateStaticIpCommandOutput/)
 
 </details>
 <details>
@@ -229,7 +229,7 @@ AllocateStaticIp
 AttachCertificateToDistribution
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/attachcertificatetodistributioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/attachcertificatetodistributioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/attachcertificatetodistributioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/AttachCertificateToDistributionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/AttachCertificateToDistributionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/AttachCertificateToDistributionCommandOutput/)
 
 </details>
 <details>
@@ -237,7 +237,7 @@ AttachCertificateToDistribution
 AttachDisk
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/attachdiskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/attachdiskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/attachdiskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/AttachDiskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/AttachDiskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/AttachDiskCommandOutput/)
 
 </details>
 <details>
@@ -245,7 +245,7 @@ AttachDisk
 AttachInstancesToLoadBalancer
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/attachinstancestoloadbalancercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/attachinstancestoloadbalancercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/attachinstancestoloadbalancercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/AttachInstancesToLoadBalancerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/AttachInstancesToLoadBalancerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/AttachInstancesToLoadBalancerCommandOutput/)
 
 </details>
 <details>
@@ -253,7 +253,7 @@ AttachInstancesToLoadBalancer
 AttachLoadBalancerTlsCertificate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/attachloadbalancertlscertificatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/attachloadbalancertlscertificatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/attachloadbalancertlscertificatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/AttachLoadBalancerTlsCertificateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/AttachLoadBalancerTlsCertificateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/AttachLoadBalancerTlsCertificateCommandOutput/)
 
 </details>
 <details>
@@ -261,7 +261,7 @@ AttachLoadBalancerTlsCertificate
 AttachStaticIp
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/attachstaticipcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/attachstaticipcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/attachstaticipcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/AttachStaticIpCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/AttachStaticIpCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/AttachStaticIpCommandOutput/)
 
 </details>
 <details>
@@ -269,7 +269,7 @@ AttachStaticIp
 CloseInstancePublicPorts
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/closeinstancepublicportscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/closeinstancepublicportscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/closeinstancepublicportscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/CloseInstancePublicPortsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CloseInstancePublicPortsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CloseInstancePublicPortsCommandOutput/)
 
 </details>
 <details>
@@ -277,7 +277,7 @@ CloseInstancePublicPorts
 CopySnapshot
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/copysnapshotcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/copysnapshotcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/copysnapshotcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/CopySnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CopySnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CopySnapshotCommandOutput/)
 
 </details>
 <details>
@@ -285,7 +285,7 @@ CopySnapshot
 CreateBucket
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/createbucketcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createbucketcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createbucketcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/CreateBucketCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateBucketCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateBucketCommandOutput/)
 
 </details>
 <details>
@@ -293,7 +293,7 @@ CreateBucket
 CreateBucketAccessKey
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/createbucketaccesskeycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createbucketaccesskeycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createbucketaccesskeycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/CreateBucketAccessKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateBucketAccessKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateBucketAccessKeyCommandOutput/)
 
 </details>
 <details>
@@ -301,7 +301,7 @@ CreateBucketAccessKey
 CreateCertificate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/createcertificatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createcertificatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createcertificatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/CreateCertificateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateCertificateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateCertificateCommandOutput/)
 
 </details>
 <details>
@@ -309,7 +309,7 @@ CreateCertificate
 CreateCloudFormationStack
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/createcloudformationstackcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createcloudformationstackcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createcloudformationstackcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/CreateCloudFormationStackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateCloudFormationStackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateCloudFormationStackCommandOutput/)
 
 </details>
 <details>
@@ -317,7 +317,7 @@ CreateCloudFormationStack
 CreateContactMethod
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/createcontactmethodcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createcontactmethodcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createcontactmethodcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/CreateContactMethodCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateContactMethodCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateContactMethodCommandOutput/)
 
 </details>
 <details>
@@ -325,7 +325,7 @@ CreateContactMethod
 CreateContainerService
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/createcontainerservicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createcontainerservicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createcontainerservicecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/CreateContainerServiceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateContainerServiceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateContainerServiceCommandOutput/)
 
 </details>
 <details>
@@ -333,7 +333,7 @@ CreateContainerService
 CreateContainerServiceDeployment
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/createcontainerservicedeploymentcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createcontainerservicedeploymentcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createcontainerservicedeploymentcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/CreateContainerServiceDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateContainerServiceDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateContainerServiceDeploymentCommandOutput/)
 
 </details>
 <details>
@@ -341,7 +341,7 @@ CreateContainerServiceDeployment
 CreateContainerServiceRegistryLogin
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/createcontainerserviceregistrylogincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createcontainerserviceregistrylogincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createcontainerserviceregistrylogincommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/CreateContainerServiceRegistryLoginCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateContainerServiceRegistryLoginCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateContainerServiceRegistryLoginCommandOutput/)
 
 </details>
 <details>
@@ -349,7 +349,7 @@ CreateContainerServiceRegistryLogin
 CreateDisk
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/creatediskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/creatediskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/creatediskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/CreateDiskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateDiskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateDiskCommandOutput/)
 
 </details>
 <details>
@@ -357,7 +357,7 @@ CreateDisk
 CreateDiskFromSnapshot
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/creatediskfromsnapshotcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/creatediskfromsnapshotcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/creatediskfromsnapshotcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/CreateDiskFromSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateDiskFromSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateDiskFromSnapshotCommandOutput/)
 
 </details>
 <details>
@@ -365,7 +365,7 @@ CreateDiskFromSnapshot
 CreateDiskSnapshot
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/createdisksnapshotcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createdisksnapshotcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createdisksnapshotcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/CreateDiskSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateDiskSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateDiskSnapshotCommandOutput/)
 
 </details>
 <details>
@@ -373,7 +373,7 @@ CreateDiskSnapshot
 CreateDistribution
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/createdistributioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createdistributioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createdistributioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/CreateDistributionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateDistributionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateDistributionCommandOutput/)
 
 </details>
 <details>
@@ -381,7 +381,7 @@ CreateDistribution
 CreateDomain
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/createdomaincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createdomaincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createdomaincommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/CreateDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateDomainCommandOutput/)
 
 </details>
 <details>
@@ -389,7 +389,7 @@ CreateDomain
 CreateDomainEntry
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/createdomainentrycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createdomainentrycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createdomainentrycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/CreateDomainEntryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateDomainEntryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateDomainEntryCommandOutput/)
 
 </details>
 <details>
@@ -397,7 +397,7 @@ CreateDomainEntry
 CreateGUISessionAccessDetails
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/createguisessionaccessdetailscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createguisessionaccessdetailscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createguisessionaccessdetailscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/CreateGUISessionAccessDetailsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateGUISessionAccessDetailsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateGUISessionAccessDetailsCommandOutput/)
 
 </details>
 <details>
@@ -405,7 +405,7 @@ CreateGUISessionAccessDetails
 CreateInstances
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/createinstancescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createinstancescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createinstancescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/CreateInstancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateInstancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateInstancesCommandOutput/)
 
 </details>
 <details>
@@ -413,7 +413,7 @@ CreateInstances
 CreateInstancesFromSnapshot
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/createinstancesfromsnapshotcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createinstancesfromsnapshotcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createinstancesfromsnapshotcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/CreateInstancesFromSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateInstancesFromSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateInstancesFromSnapshotCommandOutput/)
 
 </details>
 <details>
@@ -421,7 +421,7 @@ CreateInstancesFromSnapshot
 CreateInstanceSnapshot
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/createinstancesnapshotcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createinstancesnapshotcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createinstancesnapshotcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/CreateInstanceSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateInstanceSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateInstanceSnapshotCommandOutput/)
 
 </details>
 <details>
@@ -429,7 +429,7 @@ CreateInstanceSnapshot
 CreateKeyPair
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/createkeypaircommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createkeypaircommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createkeypaircommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/CreateKeyPairCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateKeyPairCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateKeyPairCommandOutput/)
 
 </details>
 <details>
@@ -437,7 +437,7 @@ CreateKeyPair
 CreateLoadBalancer
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/createloadbalancercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createloadbalancercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createloadbalancercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/CreateLoadBalancerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateLoadBalancerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateLoadBalancerCommandOutput/)
 
 </details>
 <details>
@@ -445,7 +445,7 @@ CreateLoadBalancer
 CreateLoadBalancerTlsCertificate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/createloadbalancertlscertificatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createloadbalancertlscertificatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createloadbalancertlscertificatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/CreateLoadBalancerTlsCertificateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateLoadBalancerTlsCertificateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateLoadBalancerTlsCertificateCommandOutput/)
 
 </details>
 <details>
@@ -453,7 +453,7 @@ CreateLoadBalancerTlsCertificate
 CreateRelationalDatabase
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/createrelationaldatabasecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createrelationaldatabasecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createrelationaldatabasecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/CreateRelationalDatabaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateRelationalDatabaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateRelationalDatabaseCommandOutput/)
 
 </details>
 <details>
@@ -461,7 +461,7 @@ CreateRelationalDatabase
 CreateRelationalDatabaseFromSnapshot
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/createrelationaldatabasefromsnapshotcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createrelationaldatabasefromsnapshotcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createrelationaldatabasefromsnapshotcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/CreateRelationalDatabaseFromSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateRelationalDatabaseFromSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateRelationalDatabaseFromSnapshotCommandOutput/)
 
 </details>
 <details>
@@ -469,7 +469,7 @@ CreateRelationalDatabaseFromSnapshot
 CreateRelationalDatabaseSnapshot
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/createrelationaldatabasesnapshotcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createrelationaldatabasesnapshotcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/createrelationaldatabasesnapshotcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/CreateRelationalDatabaseSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateRelationalDatabaseSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/CreateRelationalDatabaseSnapshotCommandOutput/)
 
 </details>
 <details>
@@ -477,7 +477,7 @@ CreateRelationalDatabaseSnapshot
 DeleteAlarm
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/deletealarmcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deletealarmcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deletealarmcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/DeleteAlarmCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteAlarmCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteAlarmCommandOutput/)
 
 </details>
 <details>
@@ -485,7 +485,7 @@ DeleteAlarm
 DeleteAutoSnapshot
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/deleteautosnapshotcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deleteautosnapshotcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deleteautosnapshotcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/DeleteAutoSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteAutoSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteAutoSnapshotCommandOutput/)
 
 </details>
 <details>
@@ -493,7 +493,7 @@ DeleteAutoSnapshot
 DeleteBucket
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/deletebucketcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deletebucketcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deletebucketcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/DeleteBucketCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteBucketCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteBucketCommandOutput/)
 
 </details>
 <details>
@@ -501,7 +501,7 @@ DeleteBucket
 DeleteBucketAccessKey
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/deletebucketaccesskeycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deletebucketaccesskeycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deletebucketaccesskeycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/DeleteBucketAccessKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteBucketAccessKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteBucketAccessKeyCommandOutput/)
 
 </details>
 <details>
@@ -509,7 +509,7 @@ DeleteBucketAccessKey
 DeleteCertificate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/deletecertificatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deletecertificatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deletecertificatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/DeleteCertificateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteCertificateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteCertificateCommandOutput/)
 
 </details>
 <details>
@@ -517,7 +517,7 @@ DeleteCertificate
 DeleteContactMethod
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/deletecontactmethodcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deletecontactmethodcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deletecontactmethodcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/DeleteContactMethodCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteContactMethodCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteContactMethodCommandOutput/)
 
 </details>
 <details>
@@ -525,7 +525,7 @@ DeleteContactMethod
 DeleteContainerImage
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/deletecontainerimagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deletecontainerimagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deletecontainerimagecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/DeleteContainerImageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteContainerImageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteContainerImageCommandOutput/)
 
 </details>
 <details>
@@ -533,7 +533,7 @@ DeleteContainerImage
 DeleteContainerService
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/deletecontainerservicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deletecontainerservicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deletecontainerservicecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/DeleteContainerServiceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteContainerServiceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteContainerServiceCommandOutput/)
 
 </details>
 <details>
@@ -541,7 +541,7 @@ DeleteContainerService
 DeleteDisk
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/deletediskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deletediskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deletediskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/DeleteDiskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteDiskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteDiskCommandOutput/)
 
 </details>
 <details>
@@ -549,7 +549,7 @@ DeleteDisk
 DeleteDiskSnapshot
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/deletedisksnapshotcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deletedisksnapshotcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deletedisksnapshotcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/DeleteDiskSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteDiskSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteDiskSnapshotCommandOutput/)
 
 </details>
 <details>
@@ -557,7 +557,7 @@ DeleteDiskSnapshot
 DeleteDistribution
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/deletedistributioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deletedistributioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deletedistributioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/DeleteDistributionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteDistributionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteDistributionCommandOutput/)
 
 </details>
 <details>
@@ -565,7 +565,7 @@ DeleteDistribution
 DeleteDomain
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/deletedomaincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deletedomaincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deletedomaincommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/DeleteDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteDomainCommandOutput/)
 
 </details>
 <details>
@@ -573,7 +573,7 @@ DeleteDomain
 DeleteDomainEntry
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/deletedomainentrycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deletedomainentrycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deletedomainentrycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/DeleteDomainEntryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteDomainEntryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteDomainEntryCommandOutput/)
 
 </details>
 <details>
@@ -581,7 +581,7 @@ DeleteDomainEntry
 DeleteInstance
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/deleteinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deleteinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deleteinstancecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/DeleteInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteInstanceCommandOutput/)
 
 </details>
 <details>
@@ -589,7 +589,7 @@ DeleteInstance
 DeleteInstanceSnapshot
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/deleteinstancesnapshotcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deleteinstancesnapshotcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deleteinstancesnapshotcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/DeleteInstanceSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteInstanceSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteInstanceSnapshotCommandOutput/)
 
 </details>
 <details>
@@ -597,7 +597,7 @@ DeleteInstanceSnapshot
 DeleteKeyPair
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/deletekeypaircommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deletekeypaircommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deletekeypaircommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/DeleteKeyPairCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteKeyPairCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteKeyPairCommandOutput/)
 
 </details>
 <details>
@@ -605,7 +605,7 @@ DeleteKeyPair
 DeleteKnownHostKeys
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/deleteknownhostkeyscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deleteknownhostkeyscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deleteknownhostkeyscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/DeleteKnownHostKeysCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteKnownHostKeysCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteKnownHostKeysCommandOutput/)
 
 </details>
 <details>
@@ -613,7 +613,7 @@ DeleteKnownHostKeys
 DeleteLoadBalancer
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/deleteloadbalancercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deleteloadbalancercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deleteloadbalancercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/DeleteLoadBalancerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteLoadBalancerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteLoadBalancerCommandOutput/)
 
 </details>
 <details>
@@ -621,7 +621,7 @@ DeleteLoadBalancer
 DeleteLoadBalancerTlsCertificate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/deleteloadbalancertlscertificatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deleteloadbalancertlscertificatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deleteloadbalancertlscertificatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/DeleteLoadBalancerTlsCertificateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteLoadBalancerTlsCertificateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteLoadBalancerTlsCertificateCommandOutput/)
 
 </details>
 <details>
@@ -629,7 +629,7 @@ DeleteLoadBalancerTlsCertificate
 DeleteRelationalDatabase
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/deleterelationaldatabasecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deleterelationaldatabasecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deleterelationaldatabasecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/DeleteRelationalDatabaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteRelationalDatabaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteRelationalDatabaseCommandOutput/)
 
 </details>
 <details>
@@ -637,7 +637,7 @@ DeleteRelationalDatabase
 DeleteRelationalDatabaseSnapshot
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/deleterelationaldatabasesnapshotcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deleterelationaldatabasesnapshotcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/deleterelationaldatabasesnapshotcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/DeleteRelationalDatabaseSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteRelationalDatabaseSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DeleteRelationalDatabaseSnapshotCommandOutput/)
 
 </details>
 <details>
@@ -645,7 +645,7 @@ DeleteRelationalDatabaseSnapshot
 DetachCertificateFromDistribution
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/detachcertificatefromdistributioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/detachcertificatefromdistributioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/detachcertificatefromdistributioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/DetachCertificateFromDistributionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DetachCertificateFromDistributionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DetachCertificateFromDistributionCommandOutput/)
 
 </details>
 <details>
@@ -653,7 +653,7 @@ DetachCertificateFromDistribution
 DetachDisk
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/detachdiskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/detachdiskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/detachdiskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/DetachDiskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DetachDiskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DetachDiskCommandOutput/)
 
 </details>
 <details>
@@ -661,7 +661,7 @@ DetachDisk
 DetachInstancesFromLoadBalancer
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/detachinstancesfromloadbalancercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/detachinstancesfromloadbalancercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/detachinstancesfromloadbalancercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/DetachInstancesFromLoadBalancerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DetachInstancesFromLoadBalancerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DetachInstancesFromLoadBalancerCommandOutput/)
 
 </details>
 <details>
@@ -669,7 +669,7 @@ DetachInstancesFromLoadBalancer
 DetachStaticIp
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/detachstaticipcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/detachstaticipcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/detachstaticipcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/DetachStaticIpCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DetachStaticIpCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DetachStaticIpCommandOutput/)
 
 </details>
 <details>
@@ -677,7 +677,7 @@ DetachStaticIp
 DisableAddOn
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/disableaddoncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/disableaddoncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/disableaddoncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/DisableAddOnCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DisableAddOnCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DisableAddOnCommandOutput/)
 
 </details>
 <details>
@@ -685,7 +685,7 @@ DisableAddOn
 DownloadDefaultKeyPair
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/downloaddefaultkeypaircommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/downloaddefaultkeypaircommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/downloaddefaultkeypaircommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/DownloadDefaultKeyPairCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DownloadDefaultKeyPairCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/DownloadDefaultKeyPairCommandOutput/)
 
 </details>
 <details>
@@ -693,7 +693,7 @@ DownloadDefaultKeyPair
 EnableAddOn
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/enableaddoncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/enableaddoncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/enableaddoncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/EnableAddOnCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/EnableAddOnCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/EnableAddOnCommandOutput/)
 
 </details>
 <details>
@@ -701,7 +701,7 @@ EnableAddOn
 ExportSnapshot
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/exportsnapshotcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/exportsnapshotcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/exportsnapshotcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/ExportSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/ExportSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/ExportSnapshotCommandOutput/)
 
 </details>
 <details>
@@ -709,7 +709,7 @@ ExportSnapshot
 GetActiveNames
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getactivenamescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getactivenamescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getactivenamescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetActiveNamesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetActiveNamesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetActiveNamesCommandOutput/)
 
 </details>
 <details>
@@ -717,7 +717,7 @@ GetActiveNames
 GetAlarms
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getalarmscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getalarmscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getalarmscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetAlarmsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetAlarmsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetAlarmsCommandOutput/)
 
 </details>
 <details>
@@ -725,7 +725,7 @@ GetAlarms
 GetAutoSnapshots
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getautosnapshotscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getautosnapshotscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getautosnapshotscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetAutoSnapshotsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetAutoSnapshotsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetAutoSnapshotsCommandOutput/)
 
 </details>
 <details>
@@ -733,7 +733,7 @@ GetAutoSnapshots
 GetBlueprints
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getblueprintscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getblueprintscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getblueprintscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetBlueprintsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetBlueprintsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetBlueprintsCommandOutput/)
 
 </details>
 <details>
@@ -741,7 +741,7 @@ GetBlueprints
 GetBucketAccessKeys
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getbucketaccesskeyscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getbucketaccesskeyscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getbucketaccesskeyscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetBucketAccessKeysCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetBucketAccessKeysCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetBucketAccessKeysCommandOutput/)
 
 </details>
 <details>
@@ -749,7 +749,7 @@ GetBucketAccessKeys
 GetBucketBundles
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getbucketbundlescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getbucketbundlescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getbucketbundlescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetBucketBundlesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetBucketBundlesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetBucketBundlesCommandOutput/)
 
 </details>
 <details>
@@ -757,7 +757,7 @@ GetBucketBundles
 GetBucketMetricData
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getbucketmetricdatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getbucketmetricdatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getbucketmetricdatacommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetBucketMetricDataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetBucketMetricDataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetBucketMetricDataCommandOutput/)
 
 </details>
 <details>
@@ -765,7 +765,7 @@ GetBucketMetricData
 GetBuckets
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getbucketscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getbucketscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getbucketscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetBucketsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetBucketsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetBucketsCommandOutput/)
 
 </details>
 <details>
@@ -773,7 +773,7 @@ GetBuckets
 GetBundles
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getbundlescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getbundlescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getbundlescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetBundlesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetBundlesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetBundlesCommandOutput/)
 
 </details>
 <details>
@@ -781,7 +781,7 @@ GetBundles
 GetCertificates
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getcertificatescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getcertificatescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getcertificatescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetCertificatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetCertificatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetCertificatesCommandOutput/)
 
 </details>
 <details>
@@ -789,7 +789,7 @@ GetCertificates
 GetCloudFormationStackRecords
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getcloudformationstackrecordscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getcloudformationstackrecordscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getcloudformationstackrecordscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetCloudFormationStackRecordsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetCloudFormationStackRecordsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetCloudFormationStackRecordsCommandOutput/)
 
 </details>
 <details>
@@ -797,7 +797,7 @@ GetCloudFormationStackRecords
 GetContactMethods
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getcontactmethodscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getcontactmethodscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getcontactmethodscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetContactMethodsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetContactMethodsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetContactMethodsCommandOutput/)
 
 </details>
 <details>
@@ -805,7 +805,7 @@ GetContactMethods
 GetContainerAPIMetadata
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getcontainerapimetadatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getcontainerapimetadatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getcontainerapimetadatacommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetContainerAPIMetadataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetContainerAPIMetadataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetContainerAPIMetadataCommandOutput/)
 
 </details>
 <details>
@@ -813,7 +813,7 @@ GetContainerAPIMetadata
 GetContainerImages
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getcontainerimagescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getcontainerimagescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getcontainerimagescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetContainerImagesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetContainerImagesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetContainerImagesCommandOutput/)
 
 </details>
 <details>
@@ -821,7 +821,7 @@ GetContainerImages
 GetContainerLog
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getcontainerlogcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getcontainerlogcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getcontainerlogcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetContainerLogCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetContainerLogCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetContainerLogCommandOutput/)
 
 </details>
 <details>
@@ -829,7 +829,7 @@ GetContainerLog
 GetContainerServiceDeployments
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getcontainerservicedeploymentscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getcontainerservicedeploymentscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getcontainerservicedeploymentscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetContainerServiceDeploymentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetContainerServiceDeploymentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetContainerServiceDeploymentsCommandOutput/)
 
 </details>
 <details>
@@ -837,7 +837,7 @@ GetContainerServiceDeployments
 GetContainerServiceMetricData
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getcontainerservicemetricdatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getcontainerservicemetricdatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getcontainerservicemetricdatacommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetContainerServiceMetricDataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetContainerServiceMetricDataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetContainerServiceMetricDataCommandOutput/)
 
 </details>
 <details>
@@ -845,7 +845,7 @@ GetContainerServiceMetricData
 GetContainerServicePowers
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getcontainerservicepowerscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getcontainerservicepowerscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getcontainerservicepowerscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetContainerServicePowersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetContainerServicePowersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetContainerServicePowersCommandOutput/)
 
 </details>
 <details>
@@ -853,7 +853,7 @@ GetContainerServicePowers
 GetContainerServices
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getcontainerservicescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getcontainerservicescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getcontainerservicescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetContainerServicesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetContainerServicesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetContainerServicesCommandOutput/)
 
 </details>
 <details>
@@ -861,7 +861,7 @@ GetContainerServices
 GetCostEstimate
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getcostestimatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getcostestimatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getcostestimatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetCostEstimateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetCostEstimateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetCostEstimateCommandOutput/)
 
 </details>
 <details>
@@ -869,7 +869,7 @@ GetCostEstimate
 GetDisk
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getdiskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getdiskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getdiskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetDiskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetDiskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetDiskCommandOutput/)
 
 </details>
 <details>
@@ -877,7 +877,7 @@ GetDisk
 GetDisks
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getdiskscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getdiskscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getdiskscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetDisksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetDisksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetDisksCommandOutput/)
 
 </details>
 <details>
@@ -885,7 +885,7 @@ GetDisks
 GetDiskSnapshot
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getdisksnapshotcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getdisksnapshotcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getdisksnapshotcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetDiskSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetDiskSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetDiskSnapshotCommandOutput/)
 
 </details>
 <details>
@@ -893,7 +893,7 @@ GetDiskSnapshot
 GetDiskSnapshots
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getdisksnapshotscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getdisksnapshotscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getdisksnapshotscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetDiskSnapshotsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetDiskSnapshotsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetDiskSnapshotsCommandOutput/)
 
 </details>
 <details>
@@ -901,7 +901,7 @@ GetDiskSnapshots
 GetDistributionBundles
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getdistributionbundlescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getdistributionbundlescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getdistributionbundlescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetDistributionBundlesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetDistributionBundlesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetDistributionBundlesCommandOutput/)
 
 </details>
 <details>
@@ -909,7 +909,7 @@ GetDistributionBundles
 GetDistributionLatestCacheReset
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getdistributionlatestcacheresetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getdistributionlatestcacheresetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getdistributionlatestcacheresetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetDistributionLatestCacheResetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetDistributionLatestCacheResetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetDistributionLatestCacheResetCommandOutput/)
 
 </details>
 <details>
@@ -917,7 +917,7 @@ GetDistributionLatestCacheReset
 GetDistributionMetricData
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getdistributionmetricdatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getdistributionmetricdatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getdistributionmetricdatacommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetDistributionMetricDataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetDistributionMetricDataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetDistributionMetricDataCommandOutput/)
 
 </details>
 <details>
@@ -925,7 +925,7 @@ GetDistributionMetricData
 GetDistributions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getdistributionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getdistributionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getdistributionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetDistributionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetDistributionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetDistributionsCommandOutput/)
 
 </details>
 <details>
@@ -933,7 +933,7 @@ GetDistributions
 GetDomain
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getdomaincommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getdomaincommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getdomaincommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetDomainCommandOutput/)
 
 </details>
 <details>
@@ -941,7 +941,7 @@ GetDomain
 GetDomains
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getdomainscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getdomainscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getdomainscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetDomainsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetDomainsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetDomainsCommandOutput/)
 
 </details>
 <details>
@@ -949,7 +949,7 @@ GetDomains
 GetExportSnapshotRecords
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getexportsnapshotrecordscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getexportsnapshotrecordscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getexportsnapshotrecordscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetExportSnapshotRecordsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetExportSnapshotRecordsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetExportSnapshotRecordsCommandOutput/)
 
 </details>
 <details>
@@ -957,7 +957,7 @@ GetExportSnapshotRecords
 GetInstance
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getinstancecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetInstanceCommandOutput/)
 
 </details>
 <details>
@@ -965,7 +965,7 @@ GetInstance
 GetInstanceAccessDetails
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getinstanceaccessdetailscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getinstanceaccessdetailscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getinstanceaccessdetailscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetInstanceAccessDetailsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetInstanceAccessDetailsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetInstanceAccessDetailsCommandOutput/)
 
 </details>
 <details>
@@ -973,7 +973,7 @@ GetInstanceAccessDetails
 GetInstanceMetricData
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getinstancemetricdatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getinstancemetricdatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getinstancemetricdatacommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetInstanceMetricDataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetInstanceMetricDataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetInstanceMetricDataCommandOutput/)
 
 </details>
 <details>
@@ -981,7 +981,7 @@ GetInstanceMetricData
 GetInstancePortStates
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getinstanceportstatescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getinstanceportstatescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getinstanceportstatescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetInstancePortStatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetInstancePortStatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetInstancePortStatesCommandOutput/)
 
 </details>
 <details>
@@ -989,7 +989,7 @@ GetInstancePortStates
 GetInstances
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getinstancescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getinstancescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getinstancescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetInstancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetInstancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetInstancesCommandOutput/)
 
 </details>
 <details>
@@ -997,7 +997,7 @@ GetInstances
 GetInstanceSnapshot
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getinstancesnapshotcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getinstancesnapshotcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getinstancesnapshotcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetInstanceSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetInstanceSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetInstanceSnapshotCommandOutput/)
 
 </details>
 <details>
@@ -1005,7 +1005,7 @@ GetInstanceSnapshot
 GetInstanceSnapshots
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getinstancesnapshotscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getinstancesnapshotscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getinstancesnapshotscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetInstanceSnapshotsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetInstanceSnapshotsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetInstanceSnapshotsCommandOutput/)
 
 </details>
 <details>
@@ -1013,7 +1013,7 @@ GetInstanceSnapshots
 GetInstanceState
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getinstancestatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getinstancestatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getinstancestatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetInstanceStateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetInstanceStateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetInstanceStateCommandOutput/)
 
 </details>
 <details>
@@ -1021,7 +1021,7 @@ GetInstanceState
 GetKeyPair
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getkeypaircommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getkeypaircommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getkeypaircommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetKeyPairCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetKeyPairCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetKeyPairCommandOutput/)
 
 </details>
 <details>
@@ -1029,7 +1029,7 @@ GetKeyPair
 GetKeyPairs
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getkeypairscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getkeypairscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getkeypairscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetKeyPairsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetKeyPairsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetKeyPairsCommandOutput/)
 
 </details>
 <details>
@@ -1037,7 +1037,7 @@ GetKeyPairs
 GetLoadBalancer
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getloadbalancercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getloadbalancercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getloadbalancercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetLoadBalancerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetLoadBalancerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetLoadBalancerCommandOutput/)
 
 </details>
 <details>
@@ -1045,7 +1045,7 @@ GetLoadBalancer
 GetLoadBalancerMetricData
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getloadbalancermetricdatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getloadbalancermetricdatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getloadbalancermetricdatacommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetLoadBalancerMetricDataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetLoadBalancerMetricDataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetLoadBalancerMetricDataCommandOutput/)
 
 </details>
 <details>
@@ -1053,7 +1053,7 @@ GetLoadBalancerMetricData
 GetLoadBalancers
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getloadbalancerscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getloadbalancerscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getloadbalancerscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetLoadBalancersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetLoadBalancersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetLoadBalancersCommandOutput/)
 
 </details>
 <details>
@@ -1061,7 +1061,7 @@ GetLoadBalancers
 GetLoadBalancerTlsCertificates
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getloadbalancertlscertificatescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getloadbalancertlscertificatescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getloadbalancertlscertificatescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetLoadBalancerTlsCertificatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetLoadBalancerTlsCertificatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetLoadBalancerTlsCertificatesCommandOutput/)
 
 </details>
 <details>
@@ -1069,7 +1069,7 @@ GetLoadBalancerTlsCertificates
 GetLoadBalancerTlsPolicies
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getloadbalancertlspoliciescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getloadbalancertlspoliciescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getloadbalancertlspoliciescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetLoadBalancerTlsPoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetLoadBalancerTlsPoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetLoadBalancerTlsPoliciesCommandOutput/)
 
 </details>
 <details>
@@ -1077,7 +1077,7 @@ GetLoadBalancerTlsPolicies
 GetOperation
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getoperationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getoperationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getoperationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetOperationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetOperationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetOperationCommandOutput/)
 
 </details>
 <details>
@@ -1085,7 +1085,7 @@ GetOperation
 GetOperations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getoperationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getoperationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getoperationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetOperationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetOperationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetOperationsCommandOutput/)
 
 </details>
 <details>
@@ -1093,7 +1093,7 @@ GetOperations
 GetOperationsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getoperationsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getoperationsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getoperationsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetOperationsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetOperationsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetOperationsForResourceCommandOutput/)
 
 </details>
 <details>
@@ -1101,7 +1101,7 @@ GetOperationsForResource
 GetRegions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getregionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getregionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getregionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetRegionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetRegionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetRegionsCommandOutput/)
 
 </details>
 <details>
@@ -1109,7 +1109,7 @@ GetRegions
 GetRelationalDatabase
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getrelationaldatabasecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getrelationaldatabasecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getrelationaldatabasecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetRelationalDatabaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetRelationalDatabaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetRelationalDatabaseCommandOutput/)
 
 </details>
 <details>
@@ -1117,7 +1117,7 @@ GetRelationalDatabase
 GetRelationalDatabaseBlueprints
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getrelationaldatabaseblueprintscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getrelationaldatabaseblueprintscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getrelationaldatabaseblueprintscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetRelationalDatabaseBlueprintsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetRelationalDatabaseBlueprintsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetRelationalDatabaseBlueprintsCommandOutput/)
 
 </details>
 <details>
@@ -1125,7 +1125,7 @@ GetRelationalDatabaseBlueprints
 GetRelationalDatabaseBundles
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getrelationaldatabasebundlescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getrelationaldatabasebundlescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getrelationaldatabasebundlescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetRelationalDatabaseBundlesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetRelationalDatabaseBundlesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetRelationalDatabaseBundlesCommandOutput/)
 
 </details>
 <details>
@@ -1133,7 +1133,7 @@ GetRelationalDatabaseBundles
 GetRelationalDatabaseEvents
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getrelationaldatabaseeventscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getrelationaldatabaseeventscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getrelationaldatabaseeventscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetRelationalDatabaseEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetRelationalDatabaseEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetRelationalDatabaseEventsCommandOutput/)
 
 </details>
 <details>
@@ -1141,7 +1141,7 @@ GetRelationalDatabaseEvents
 GetRelationalDatabaseLogEvents
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getrelationaldatabaselogeventscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getrelationaldatabaselogeventscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getrelationaldatabaselogeventscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetRelationalDatabaseLogEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetRelationalDatabaseLogEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetRelationalDatabaseLogEventsCommandOutput/)
 
 </details>
 <details>
@@ -1149,7 +1149,7 @@ GetRelationalDatabaseLogEvents
 GetRelationalDatabaseLogStreams
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getrelationaldatabaselogstreamscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getrelationaldatabaselogstreamscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getrelationaldatabaselogstreamscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetRelationalDatabaseLogStreamsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetRelationalDatabaseLogStreamsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetRelationalDatabaseLogStreamsCommandOutput/)
 
 </details>
 <details>
@@ -1157,7 +1157,7 @@ GetRelationalDatabaseLogStreams
 GetRelationalDatabaseMasterUserPassword
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getrelationaldatabasemasteruserpasswordcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getrelationaldatabasemasteruserpasswordcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getrelationaldatabasemasteruserpasswordcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetRelationalDatabaseMasterUserPasswordCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetRelationalDatabaseMasterUserPasswordCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetRelationalDatabaseMasterUserPasswordCommandOutput/)
 
 </details>
 <details>
@@ -1165,7 +1165,7 @@ GetRelationalDatabaseMasterUserPassword
 GetRelationalDatabaseMetricData
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getrelationaldatabasemetricdatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getrelationaldatabasemetricdatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getrelationaldatabasemetricdatacommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetRelationalDatabaseMetricDataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetRelationalDatabaseMetricDataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetRelationalDatabaseMetricDataCommandOutput/)
 
 </details>
 <details>
@@ -1173,7 +1173,7 @@ GetRelationalDatabaseMetricData
 GetRelationalDatabaseParameters
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getrelationaldatabaseparameterscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getrelationaldatabaseparameterscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getrelationaldatabaseparameterscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetRelationalDatabaseParametersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetRelationalDatabaseParametersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetRelationalDatabaseParametersCommandOutput/)
 
 </details>
 <details>
@@ -1181,7 +1181,7 @@ GetRelationalDatabaseParameters
 GetRelationalDatabases
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getrelationaldatabasescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getrelationaldatabasescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getrelationaldatabasescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetRelationalDatabasesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetRelationalDatabasesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetRelationalDatabasesCommandOutput/)
 
 </details>
 <details>
@@ -1189,7 +1189,7 @@ GetRelationalDatabases
 GetRelationalDatabaseSnapshot
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getrelationaldatabasesnapshotcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getrelationaldatabasesnapshotcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getrelationaldatabasesnapshotcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetRelationalDatabaseSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetRelationalDatabaseSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetRelationalDatabaseSnapshotCommandOutput/)
 
 </details>
 <details>
@@ -1197,7 +1197,15 @@ GetRelationalDatabaseSnapshot
 GetRelationalDatabaseSnapshots
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getrelationaldatabasesnapshotscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getrelationaldatabasesnapshotscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getrelationaldatabasesnapshotscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetRelationalDatabaseSnapshotsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetRelationalDatabaseSnapshotsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetRelationalDatabaseSnapshotsCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetSetupHistory
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetSetupHistoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetSetupHistoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetSetupHistoryCommandOutput/)
 
 </details>
 <details>
@@ -1205,7 +1213,7 @@ GetRelationalDatabaseSnapshots
 GetStaticIp
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getstaticipcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getstaticipcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getstaticipcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetStaticIpCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetStaticIpCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetStaticIpCommandOutput/)
 
 </details>
 <details>
@@ -1213,7 +1221,7 @@ GetStaticIp
 GetStaticIps
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/getstaticipscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getstaticipscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/getstaticipscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/GetStaticIpsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetStaticIpsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/GetStaticIpsCommandOutput/)
 
 </details>
 <details>
@@ -1221,7 +1229,7 @@ GetStaticIps
 ImportKeyPair
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/importkeypaircommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/importkeypaircommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/importkeypaircommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/ImportKeyPairCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/ImportKeyPairCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/ImportKeyPairCommandOutput/)
 
 </details>
 <details>
@@ -1229,7 +1237,7 @@ ImportKeyPair
 IsVpcPeered
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/isvpcpeeredcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/isvpcpeeredcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/isvpcpeeredcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/IsVpcPeeredCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/IsVpcPeeredCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/IsVpcPeeredCommandOutput/)
 
 </details>
 <details>
@@ -1237,7 +1245,7 @@ IsVpcPeered
 OpenInstancePublicPorts
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/openinstancepublicportscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/openinstancepublicportscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/openinstancepublicportscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/OpenInstancePublicPortsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/OpenInstancePublicPortsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/OpenInstancePublicPortsCommandOutput/)
 
 </details>
 <details>
@@ -1245,7 +1253,7 @@ OpenInstancePublicPorts
 PeerVpc
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/peervpccommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/peervpccommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/peervpccommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/PeerVpcCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/PeerVpcCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/PeerVpcCommandOutput/)
 
 </details>
 <details>
@@ -1253,7 +1261,7 @@ PeerVpc
 PutAlarm
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/putalarmcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/putalarmcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/putalarmcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/PutAlarmCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/PutAlarmCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/PutAlarmCommandOutput/)
 
 </details>
 <details>
@@ -1261,7 +1269,7 @@ PutAlarm
 PutInstancePublicPorts
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/putinstancepublicportscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/putinstancepublicportscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/putinstancepublicportscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/PutInstancePublicPortsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/PutInstancePublicPortsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/PutInstancePublicPortsCommandOutput/)
 
 </details>
 <details>
@@ -1269,7 +1277,7 @@ PutInstancePublicPorts
 RebootInstance
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/rebootinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/rebootinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/rebootinstancecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/RebootInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/RebootInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/RebootInstanceCommandOutput/)
 
 </details>
 <details>
@@ -1277,7 +1285,7 @@ RebootInstance
 RebootRelationalDatabase
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/rebootrelationaldatabasecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/rebootrelationaldatabasecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/rebootrelationaldatabasecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/RebootRelationalDatabaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/RebootRelationalDatabaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/RebootRelationalDatabaseCommandOutput/)
 
 </details>
 <details>
@@ -1285,7 +1293,7 @@ RebootRelationalDatabase
 RegisterContainerImage
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/registercontainerimagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/registercontainerimagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/registercontainerimagecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/RegisterContainerImageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/RegisterContainerImageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/RegisterContainerImageCommandOutput/)
 
 </details>
 <details>
@@ -1293,7 +1301,7 @@ RegisterContainerImage
 ReleaseStaticIp
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/releasestaticipcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/releasestaticipcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/releasestaticipcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/ReleaseStaticIpCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/ReleaseStaticIpCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/ReleaseStaticIpCommandOutput/)
 
 </details>
 <details>
@@ -1301,7 +1309,7 @@ ReleaseStaticIp
 ResetDistributionCache
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/resetdistributioncachecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/resetdistributioncachecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/resetdistributioncachecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/ResetDistributionCacheCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/ResetDistributionCacheCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/ResetDistributionCacheCommandOutput/)
 
 </details>
 <details>
@@ -1309,7 +1317,7 @@ ResetDistributionCache
 SendContactMethodVerification
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/sendcontactmethodverificationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/sendcontactmethodverificationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/sendcontactmethodverificationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/SendContactMethodVerificationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/SendContactMethodVerificationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/SendContactMethodVerificationCommandOutput/)
 
 </details>
 <details>
@@ -1317,7 +1325,7 @@ SendContactMethodVerification
 SetIpAddressType
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/setipaddresstypecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/setipaddresstypecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/setipaddresstypecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/SetIpAddressTypeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/SetIpAddressTypeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/SetIpAddressTypeCommandOutput/)
 
 </details>
 <details>
@@ -1325,7 +1333,15 @@ SetIpAddressType
 SetResourceAccessForBucket
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/setresourceaccessforbucketcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/setresourceaccessforbucketcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/setresourceaccessforbucketcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/SetResourceAccessForBucketCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/SetResourceAccessForBucketCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/SetResourceAccessForBucketCommandOutput/)
+
+</details>
+<details>
+<summary>
+SetupInstanceHttps
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/SetupInstanceHttpsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/SetupInstanceHttpsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/SetupInstanceHttpsCommandOutput/)
 
 </details>
 <details>
@@ -1333,7 +1349,7 @@ SetResourceAccessForBucket
 StartGUISession
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/startguisessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/startguisessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/startguisessioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/StartGUISessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/StartGUISessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/StartGUISessionCommandOutput/)
 
 </details>
 <details>
@@ -1341,7 +1357,7 @@ StartGUISession
 StartInstance
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/startinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/startinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/startinstancecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/StartInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/StartInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/StartInstanceCommandOutput/)
 
 </details>
 <details>
@@ -1349,7 +1365,7 @@ StartInstance
 StartRelationalDatabase
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/startrelationaldatabasecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/startrelationaldatabasecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/startrelationaldatabasecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/StartRelationalDatabaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/StartRelationalDatabaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/StartRelationalDatabaseCommandOutput/)
 
 </details>
 <details>
@@ -1357,7 +1373,7 @@ StartRelationalDatabase
 StopGUISession
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/stopguisessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/stopguisessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/stopguisessioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/StopGUISessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/StopGUISessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/StopGUISessionCommandOutput/)
 
 </details>
 <details>
@@ -1365,7 +1381,7 @@ StopGUISession
 StopInstance
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/stopinstancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/stopinstancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/stopinstancecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/StopInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/StopInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/StopInstanceCommandOutput/)
 
 </details>
 <details>
@@ -1373,7 +1389,7 @@ StopInstance
 StopRelationalDatabase
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/stoprelationaldatabasecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/stoprelationaldatabasecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/stoprelationaldatabasecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/StopRelationalDatabaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/StopRelationalDatabaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/StopRelationalDatabaseCommandOutput/)
 
 </details>
 <details>
@@ -1381,7 +1397,7 @@ StopRelationalDatabase
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -1389,7 +1405,7 @@ TagResource
 TestAlarm
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/testalarmcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/testalarmcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/testalarmcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/TestAlarmCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/TestAlarmCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/TestAlarmCommandOutput/)
 
 </details>
 <details>
@@ -1397,7 +1413,7 @@ TestAlarm
 UnpeerVpc
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/unpeervpccommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/unpeervpccommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/unpeervpccommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/UnpeerVpcCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/UnpeerVpcCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/UnpeerVpcCommandOutput/)
 
 </details>
 <details>
@@ -1405,7 +1421,7 @@ UnpeerVpc
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -1413,7 +1429,7 @@ UntagResource
 UpdateBucket
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/updatebucketcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/updatebucketcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/updatebucketcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/UpdateBucketCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/UpdateBucketCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/UpdateBucketCommandOutput/)
 
 </details>
 <details>
@@ -1421,7 +1437,7 @@ UpdateBucket
 UpdateBucketBundle
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/updatebucketbundlecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/updatebucketbundlecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/updatebucketbundlecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/UpdateBucketBundleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/UpdateBucketBundleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/UpdateBucketBundleCommandOutput/)
 
 </details>
 <details>
@@ -1429,7 +1445,7 @@ UpdateBucketBundle
 UpdateContainerService
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/updatecontainerservicecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/updatecontainerservicecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/updatecontainerservicecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/UpdateContainerServiceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/UpdateContainerServiceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/UpdateContainerServiceCommandOutput/)
 
 </details>
 <details>
@@ -1437,7 +1453,7 @@ UpdateContainerService
 UpdateDistribution
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/updatedistributioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/updatedistributioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/updatedistributioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/UpdateDistributionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/UpdateDistributionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/UpdateDistributionCommandOutput/)
 
 </details>
 <details>
@@ -1445,7 +1461,7 @@ UpdateDistribution
 UpdateDistributionBundle
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/updatedistributionbundlecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/updatedistributionbundlecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/updatedistributionbundlecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/UpdateDistributionBundleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/UpdateDistributionBundleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/UpdateDistributionBundleCommandOutput/)
 
 </details>
 <details>
@@ -1453,7 +1469,7 @@ UpdateDistributionBundle
 UpdateDomainEntry
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/updatedomainentrycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/updatedomainentrycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/updatedomainentrycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/UpdateDomainEntryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/UpdateDomainEntryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/UpdateDomainEntryCommandOutput/)
 
 </details>
 <details>
@@ -1461,7 +1477,7 @@ UpdateDomainEntry
 UpdateInstanceMetadataOptions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/updateinstancemetadataoptionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/updateinstancemetadataoptionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/updateinstancemetadataoptionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/UpdateInstanceMetadataOptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/UpdateInstanceMetadataOptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/UpdateInstanceMetadataOptionsCommandOutput/)
 
 </details>
 <details>
@@ -1469,7 +1485,7 @@ UpdateInstanceMetadataOptions
 UpdateLoadBalancerAttribute
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/updateloadbalancerattributecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/updateloadbalancerattributecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/updateloadbalancerattributecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/UpdateLoadBalancerAttributeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/UpdateLoadBalancerAttributeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/UpdateLoadBalancerAttributeCommandOutput/)
 
 </details>
 <details>
@@ -1477,7 +1493,7 @@ UpdateLoadBalancerAttribute
 UpdateRelationalDatabase
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/updaterelationaldatabasecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/updaterelationaldatabasecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/updaterelationaldatabasecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/UpdateRelationalDatabaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/UpdateRelationalDatabaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/UpdateRelationalDatabaseCommandOutput/)
 
 </details>
 <details>
@@ -1485,6 +1501,6 @@ UpdateRelationalDatabase
 UpdateRelationalDatabaseParameters
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/classes/updaterelationaldatabaseparameterscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/updaterelationaldatabaseparameterscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lightsail/interfaces/updaterelationaldatabaseparameterscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lightsail/command/UpdateRelationalDatabaseParametersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/UpdateRelationalDatabaseParametersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lightsail/Interface/UpdateRelationalDatabaseParametersCommandOutput/)
 
 </details>

@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ARCZonalShiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ARCZonalShiftClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { StartZonalShiftRequest, ZonalShift } from "../models/models_0";
 import { de_StartZonalShiftCommand, se_StartZonalShiftCommand } from "../protocols/Aws_restJson1";
 
@@ -36,15 +28,16 @@ export interface StartZonalShiftCommandOutput extends ZonalShift, __MetadataBear
 
 /**
  * @public
- * <p>You start a zonal shift to temporarily move load balancer traffic away from an Availability Zone in a AWS Region,
- *    		to help your application recover immediately, for example, from a developer's bad code deployment or from an AWS
+ * <p>You start a zonal shift to temporarily move load balancer traffic away from an Availability Zone in an Amazon Web Services Region,
+ *    		to help your application recover immediately, for example, from a developer's bad code deployment or from an Amazon Web Services
  *    		infrastructure failure in a single Availability Zone. You can start a zonal shift in Route 53 ARC only for managed
- *    		resources in your account in an AWS Region. Resources are automatically registered with Route 53 ARC by AWS services.</p>
- *    	     <p>At this time, you can only start a zonal shift for Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.</p>
- *    	     <p>When you start a zonal shift, traffic for the resource is no longer routed to the Availability Zone. The
+ *    		resources in your Amazon Web Services account in an Amazon Web Services Region. Resources are automatically registered with Route 53 ARC
+ *    		by Amazon Web Services services.</p>
+ *          <p>At this time, you can only start a zonal shift for Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.</p>
+ *          <p>When you start a zonal shift, traffic for the resource is no longer routed to the Availability Zone. The
  *    		zonal shift is created immediately in Route 53 ARC. However, it can take a short time, typically up to a few minutes,
  *    		for existing, in-progress connections in the Availability Zone to complete.</p>
- *    	     <p>For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.html">Zonal shift</a>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/arc-zonal-shift.html">Zonal shift</a>
  *    		in the Amazon Route 53 Application Recovery Controller Developer Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,85 +87,32 @@ export interface StartZonalShiftCommandOutput extends ZonalShift, __MetadataBear
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link ARCZonalShiftServiceException}
  * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
  */
-export class StartZonalShiftCommand extends $Command<
-  StartZonalShiftCommandInput,
-  StartZonalShiftCommandOutput,
-  ARCZonalShiftClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StartZonalShiftCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ARCZonalShiftClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StartZonalShiftCommandInput, StartZonalShiftCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartZonalShiftCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ARCZonalShiftClient";
-    const commandName = "StartZonalShiftCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StartZonalShiftCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartZonalShiftCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartZonalShiftCommandOutput> {
-    return de_StartZonalShiftCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class StartZonalShiftCommand extends $Command
+  .classBuilder<
+    StartZonalShiftCommandInput,
+    StartZonalShiftCommandOutput,
+    ARCZonalShiftClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ARCZonalShiftClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("PercDataPlane", "StartZonalShift", {})
+  .n("ARCZonalShiftClient", "StartZonalShiftCommand")
+  .f(void 0, void 0)
+  .ser(se_StartZonalShiftCommand)
+  .de(de_StartZonalShiftCommand)
+  .build() {}

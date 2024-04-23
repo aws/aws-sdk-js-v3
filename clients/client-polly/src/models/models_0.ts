@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+
 import { StreamingBlobTypes } from "@smithy/types";
 
 import { PollyServiceException as __BaseException } from "./PollyServiceException";
@@ -70,6 +71,7 @@ export class ServiceFailureException extends __BaseException {
  * @enum
  */
 export const Engine = {
+  LONG_FORM: "long-form",
   NEURAL: "neural",
   STANDARD: "standard",
 } as const;
@@ -136,10 +138,11 @@ export type LanguageCode = (typeof LanguageCode)[keyof typeof LanguageCode];
 export interface DescribeVoicesInput {
   /**
    * @public
-   * <p>Specifies the engine (<code>standard</code> or <code>neural</code>)
-   *       used by Amazon Polly when processing input text for speech synthesis. </p>
+   * <p>Specifies the engine (<code>standard</code>, <code>neural</code> or
+   *       <code>long-form</code>) used by Amazon Polly when processing input text for
+   *       speech synthesis. </p>
    */
-  Engine?: Engine | string;
+  Engine?: Engine;
 
   /**
    * @public
@@ -148,7 +151,7 @@ export interface DescribeVoicesInput {
    *       you don't specify this optional parameter, all available voices are
    *       returned. </p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -208,6 +211,7 @@ export const VoiceId = {
   Conchita: "Conchita",
   Cristiano: "Cristiano",
   Daniel: "Daniel",
+  Danielle: "Danielle",
   Dora: "Dora",
   Elin: "Elin",
   Emma: "Emma",
@@ -217,6 +221,7 @@ export const VoiceId = {
   Gabrielle: "Gabrielle",
   Geraint: "Geraint",
   Giorgio: "Giorgio",
+  Gregory: "Gregory",
   Gwyneth: "Gwyneth",
   Hala: "Hala",
   Hannah: "Hannah",
@@ -279,6 +284,7 @@ export const VoiceId = {
   Tomoko: "Tomoko",
   Vicki: "Vicki",
   Vitoria: "Vitoria",
+  Zayd: "Zayd",
   Zeina: "Zeina",
   Zhiyu: "Zhiyu",
 } as const;
@@ -297,20 +303,20 @@ export interface Voice {
    * @public
    * <p>Gender of the voice.</p>
    */
-  Gender?: Gender | string;
+  Gender?: Gender;
 
   /**
    * @public
    * <p>Amazon Polly assigned voice ID. This is the ID that you specify when
    *       calling the <code>SynthesizeSpeech</code> operation.</p>
    */
-  Id?: VoiceId | string;
+  Id?: VoiceId;
 
   /**
    * @public
    * <p>Language code of the voice.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -335,14 +341,14 @@ export interface Voice {
    *       fluent in both Indian English and Hindi, this parameter would show the
    *       code <code>hi-IN</code>.</p>
    */
-  AdditionalLanguageCodes?: (LanguageCode | string)[];
+  AdditionalLanguageCodes?: LanguageCode[];
 
   /**
    * @public
-   * <p>Specifies which engines (<code>standard</code> or <code>neural</code>)
-   *       that are supported by a given voice.</p>
+   * <p>Specifies which engines (<code>standard</code>, <code>neural</code> or
+   *       <code>long-form</code>) are supported by a given voice.</p>
    */
-  SupportedEngines?: (Engine | string)[];
+  SupportedEngines?: Engine[];
 }
 
 /**
@@ -458,7 +464,7 @@ export interface LexiconAttributes {
    *       language code such as "en" would be applied to all English languages
    *       (en-GB, en-US, en-AUS, en-WLS, and so on.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -586,12 +592,12 @@ export type TextType = (typeof TextType)[keyof typeof TextType];
 export interface SynthesisTask {
   /**
    * @public
-   * <p>Specifies the engine (<code>standard</code> or <code>neural</code>)
-   *       for Amazon Polly to use when processing input text for speech synthesis. Using a
-   *       voice that is not supported for the engine selected will result in an
-   *       error.</p>
+   * <p>Specifies the engine (<code>standard</code>, <code>neural</code> or
+   *       <code>long-form</code>) for Amazon Polly to use when processing input text for
+   *       speech synthesis. Using a voice that is not supported for the engine
+   *       selected will result in an error.</p>
    */
-  Engine?: Engine | string;
+  Engine?: Engine;
 
   /**
    * @public
@@ -603,7 +609,7 @@ export interface SynthesisTask {
    * @public
    * <p>Current status of the individual speech synthesis task.</p>
    */
-  TaskStatus?: TaskStatus | string;
+  TaskStatus?: TaskStatus;
 
   /**
    * @public
@@ -651,14 +657,15 @@ export interface SynthesisTask {
    *       stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will
    *       be json. </p>
    */
-  OutputFormat?: OutputFormat | string;
+  OutputFormat?: OutputFormat;
 
   /**
    * @public
    * <p>The audio frequency specified in Hz.</p>
    *          <p>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050",
    *       and "24000". The default value for standard voices is "22050". The default
-   *       value for neural voices is "24000".</p>
+   *       value for neural voices is "24000". The default value for long-form voices
+   *       is "24000".</p>
    *          <p>Valid values for pcm are "8000" and "16000" The default value is
    *       "16000". </p>
    */
@@ -668,20 +675,20 @@ export interface SynthesisTask {
    * @public
    * <p>The type of speech marks returned for the input text.</p>
    */
-  SpeechMarkTypes?: (SpeechMarkType | string)[];
+  SpeechMarkTypes?: SpeechMarkType[];
 
   /**
    * @public
    * <p>Specifies whether the input text is plain text or SSML. The default
    *       value is plain text. </p>
    */
-  TextType?: TextType | string;
+  TextType?: TextType;
 
   /**
    * @public
    * <p>Voice ID to use for the synthesis. </p>
    */
-  VoiceId?: VoiceId | string;
+  VoiceId?: VoiceId;
 
   /**
    * @public
@@ -694,7 +701,7 @@ export interface SynthesisTask {
    *       parameter. For example, if no language code is specified, Aditi will use
    *       Indian English rather than Hindi.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 }
 
 /**
@@ -992,7 +999,7 @@ export interface ListSpeechSynthesisTasksInput {
    * <p>Status of the speech synthesis tasks returned in a List
    *       operation</p>
    */
-  Status?: TaskStatus | string;
+  Status?: TaskStatus;
 }
 
 /**
@@ -1173,12 +1180,12 @@ export class SsmlMarksNotSupportedForTextTypeException extends __BaseException {
 export interface StartSpeechSynthesisTaskInput {
   /**
    * @public
-   * <p>Specifies the engine (<code>standard</code> or <code>neural</code>)
-   *       for Amazon Polly to use when processing input text for speech synthesis. Using a
-   *       voice that is not supported for the engine selected will result in an
-   *       error.</p>
+   * <p>Specifies the engine (<code>standard</code>, <code>neural</code> or
+   *       <code>long-form</code>) for Amazon Polly to use when processing input text for
+   *       speech synthesis. Using a voice that is not supported for the engine
+   *       selected will result in an error.</p>
    */
-  Engine?: Engine | string;
+  Engine?: Engine;
 
   /**
    * @public
@@ -1191,7 +1198,7 @@ export interface StartSpeechSynthesisTaskInput {
    *       parameter. For example, if no language code is specified, Aditi will use
    *       Indian English rather than Hindi.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -1207,7 +1214,7 @@ export interface StartSpeechSynthesisTaskInput {
    *       stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will
    *       be json. </p>
    */
-  OutputFormat: OutputFormat | string | undefined;
+  OutputFormat: OutputFormat | undefined;
 
   /**
    * @public
@@ -1226,7 +1233,8 @@ export interface StartSpeechSynthesisTaskInput {
    * <p>The audio frequency specified in Hz.</p>
    *          <p>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050",
    *       and "24000". The default value for standard voices is "22050". The default
-   *       value for neural voices is "24000".</p>
+   *       value for neural voices is "24000". The default value for long-form voices
+   *       is "24000".</p>
    *          <p>Valid values for pcm are "8000" and "16000" The default value is
    *       "16000". </p>
    */
@@ -1243,7 +1251,7 @@ export interface StartSpeechSynthesisTaskInput {
    * @public
    * <p>The type of speech marks returned for the input text.</p>
    */
-  SpeechMarkTypes?: (SpeechMarkType | string)[];
+  SpeechMarkTypes?: SpeechMarkType[];
 
   /**
    * @public
@@ -1257,13 +1265,13 @@ export interface StartSpeechSynthesisTaskInput {
    * <p>Specifies whether the input text is plain text or SSML. The default
    *       value is plain text. </p>
    */
-  TextType?: TextType | string;
+  TextType?: TextType;
 
   /**
    * @public
    * <p>Voice ID to use for the synthesis. </p>
    */
-  VoiceId: VoiceId | string | undefined;
+  VoiceId: VoiceId | undefined;
 }
 
 /**
@@ -1310,10 +1318,10 @@ export class TextLengthExceededException extends __BaseException {
 export interface SynthesizeSpeechInput {
   /**
    * @public
-   * <p>Specifies the engine (<code>standard</code> or <code>neural</code>)
-   *       for Amazon Polly to use when processing input text for speech synthesis. For
-   *       information on Amazon Polly voices and which voices are available in
-   *       standard-only, NTTS-only, and both standard and NTTS formats, see <a href="https://docs.aws.amazon.com/polly/latest/dg/voicelist.html">Available Voices</a>.</p>
+   * <p>Specifies the engine (<code>standard</code>, <code>neural</code> or
+   *       <code>long-form</code>) for Amazon Polly to use when processing input text for
+   *       speech synthesis. For information on Amazon Polly voices and which voices are
+   *       available for each engine, see <a href="https://docs.aws.amazon.com/polly/latest/dg/voicelist.html">Available Voices</a>.</p>
    *          <p>
    *             <b>NTTS-only voices</b>
    *          </p>
@@ -1321,8 +1329,16 @@ export interface SynthesizeSpeechInput {
    *       required and must be set to <code>neural</code>. If the engine is not
    *       specified, or is set to <code>standard</code>, this will result in an
    *       error. </p>
+   *          <p>
+   *             <b>long-form-only voices</b>
+   *          </p>
+   *          <p>When using long-form-only voices such as Danielle (en-US), this
+   *       parameter is required and must be set to <code>long-form</code>. If the
+   *       engine is not specified, or is set to <code>standard</code> or
+   *       <code>neural</code>, this will result in an error. </p>
    *          <p>Type: String</p>
-   *          <p>Valid Values: <code>standard</code> | <code>neural</code>
+   *          <p>Valid Values: <code>standard</code> | <code>neural</code> |
+   *       <code>long-form</code>
    *          </p>
    *          <p>Required: Yes</p>
    *          <p>
@@ -1333,7 +1349,7 @@ export interface SynthesizeSpeechInput {
    *       set to <code>standard</code> and an NTTS-only voice is selected, this will
    *       result in an error. </p>
    */
-  Engine?: Engine | string;
+  Engine?: Engine;
 
   /**
    * @public
@@ -1346,7 +1362,7 @@ export interface SynthesizeSpeechInput {
    *       parameter. For example, if no language code is specified, Aditi will use
    *       Indian English rather than Hindi.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -1365,14 +1381,15 @@ export interface SynthesizeSpeechInput {
    *          <p>When pcm is used, the content returned is audio/pcm in a signed
    *       16-bit, 1 channel (mono), little-endian format. </p>
    */
-  OutputFormat: OutputFormat | string | undefined;
+  OutputFormat: OutputFormat | undefined;
 
   /**
    * @public
    * <p>The audio frequency specified in Hz.</p>
    *          <p>The valid values for mp3 and ogg_vorbis are "8000", "16000", "22050",
    *       and "24000". The default value for standard voices is "22050". The default
-   *       value for neural voices is "24000".</p>
+   *       value for neural voices is "24000". The default value for long-form voices
+   *       is "24000".</p>
    *          <p>Valid values for pcm are "8000" and "16000" The default value is
    *       "16000". </p>
    */
@@ -1382,7 +1399,7 @@ export interface SynthesizeSpeechInput {
    * @public
    * <p>The type of speech marks returned for the input text.</p>
    */
-  SpeechMarkTypes?: (SpeechMarkType | string)[];
+  SpeechMarkTypes?: SpeechMarkType[];
 
   /**
    * @public
@@ -1398,14 +1415,14 @@ export interface SynthesizeSpeechInput {
    *       default value is plain text. For more information, see <a href="https://docs.aws.amazon.com/polly/latest/dg/ssml.html">Using
    *         SSML</a>.</p>
    */
-  TextType?: TextType | string;
+  TextType?: TextType;
 
   /**
    * @public
    * <p> Voice ID to use for the synthesis. You can get a list of available
    *       voice IDs by calling the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a> operation. </p>
    */
-  VoiceId: VoiceId | string | undefined;
+  VoiceId: VoiceId | undefined;
 }
 
 /**

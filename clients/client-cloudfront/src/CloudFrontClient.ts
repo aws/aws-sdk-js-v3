@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -77,6 +75,10 @@ import {
 import { CreateFunctionCommandInput, CreateFunctionCommandOutput } from "./commands/CreateFunctionCommand";
 import { CreateInvalidationCommandInput, CreateInvalidationCommandOutput } from "./commands/CreateInvalidationCommand";
 import { CreateKeyGroupCommandInput, CreateKeyGroupCommandOutput } from "./commands/CreateKeyGroupCommand";
+import {
+  CreateKeyValueStoreCommandInput,
+  CreateKeyValueStoreCommandOutput,
+} from "./commands/CreateKeyValueStoreCommand";
 import {
   CreateMonitoringSubscriptionCommandInput,
   CreateMonitoringSubscriptionCommandOutput,
@@ -127,6 +129,10 @@ import {
 import { DeleteFunctionCommandInput, DeleteFunctionCommandOutput } from "./commands/DeleteFunctionCommand";
 import { DeleteKeyGroupCommandInput, DeleteKeyGroupCommandOutput } from "./commands/DeleteKeyGroupCommand";
 import {
+  DeleteKeyValueStoreCommandInput,
+  DeleteKeyValueStoreCommandOutput,
+} from "./commands/DeleteKeyValueStoreCommand";
+import {
   DeleteMonitoringSubscriptionCommandInput,
   DeleteMonitoringSubscriptionCommandOutput,
 } from "./commands/DeleteMonitoringSubscriptionCommand";
@@ -152,6 +158,10 @@ import {
   DeleteStreamingDistributionCommandOutput,
 } from "./commands/DeleteStreamingDistributionCommand";
 import { DescribeFunctionCommandInput, DescribeFunctionCommandOutput } from "./commands/DescribeFunctionCommand";
+import {
+  DescribeKeyValueStoreCommandInput,
+  DescribeKeyValueStoreCommandOutput,
+} from "./commands/DescribeKeyValueStoreCommand";
 import { GetCachePolicyCommandInput, GetCachePolicyCommandOutput } from "./commands/GetCachePolicyCommand";
 import {
   GetCachePolicyConfigCommandInput,
@@ -289,6 +299,7 @@ import {
 import { ListFunctionsCommandInput, ListFunctionsCommandOutput } from "./commands/ListFunctionsCommand";
 import { ListInvalidationsCommandInput, ListInvalidationsCommandOutput } from "./commands/ListInvalidationsCommand";
 import { ListKeyGroupsCommandInput, ListKeyGroupsCommandOutput } from "./commands/ListKeyGroupsCommand";
+import { ListKeyValueStoresCommandInput, ListKeyValueStoresCommandOutput } from "./commands/ListKeyValueStoresCommand";
 import {
   ListOriginAccessControlsCommandInput,
   ListOriginAccessControlsCommandOutput,
@@ -343,6 +354,10 @@ import {
 import { UpdateFunctionCommandInput, UpdateFunctionCommandOutput } from "./commands/UpdateFunctionCommand";
 import { UpdateKeyGroupCommandInput, UpdateKeyGroupCommandOutput } from "./commands/UpdateKeyGroupCommand";
 import {
+  UpdateKeyValueStoreCommandInput,
+  UpdateKeyValueStoreCommandOutput,
+} from "./commands/UpdateKeyValueStoreCommand";
+import {
   UpdateOriginAccessControlCommandInput,
   UpdateOriginAccessControlCommandOutput,
 } from "./commands/UpdateOriginAccessControlCommand";
@@ -390,6 +405,7 @@ export type ServiceInputTypes =
   | CreateFunctionCommandInput
   | CreateInvalidationCommandInput
   | CreateKeyGroupCommandInput
+  | CreateKeyValueStoreCommandInput
   | CreateMonitoringSubscriptionCommandInput
   | CreateOriginAccessControlCommandInput
   | CreateOriginRequestPolicyCommandInput
@@ -406,6 +422,7 @@ export type ServiceInputTypes =
   | DeleteFieldLevelEncryptionProfileCommandInput
   | DeleteFunctionCommandInput
   | DeleteKeyGroupCommandInput
+  | DeleteKeyValueStoreCommandInput
   | DeleteMonitoringSubscriptionCommandInput
   | DeleteOriginAccessControlCommandInput
   | DeleteOriginRequestPolicyCommandInput
@@ -414,6 +431,7 @@ export type ServiceInputTypes =
   | DeleteResponseHeadersPolicyCommandInput
   | DeleteStreamingDistributionCommandInput
   | DescribeFunctionCommandInput
+  | DescribeKeyValueStoreCommandInput
   | GetCachePolicyCommandInput
   | GetCachePolicyConfigCommandInput
   | GetCloudFrontOriginAccessIdentityCommandInput
@@ -458,6 +476,7 @@ export type ServiceInputTypes =
   | ListFunctionsCommandInput
   | ListInvalidationsCommandInput
   | ListKeyGroupsCommandInput
+  | ListKeyValueStoresCommandInput
   | ListOriginAccessControlsCommandInput
   | ListOriginRequestPoliciesCommandInput
   | ListPublicKeysCommandInput
@@ -478,6 +497,7 @@ export type ServiceInputTypes =
   | UpdateFieldLevelEncryptionProfileCommandInput
   | UpdateFunctionCommandInput
   | UpdateKeyGroupCommandInput
+  | UpdateKeyValueStoreCommandInput
   | UpdateOriginAccessControlCommandInput
   | UpdateOriginRequestPolicyCommandInput
   | UpdatePublicKeyCommandInput
@@ -501,6 +521,7 @@ export type ServiceOutputTypes =
   | CreateFunctionCommandOutput
   | CreateInvalidationCommandOutput
   | CreateKeyGroupCommandOutput
+  | CreateKeyValueStoreCommandOutput
   | CreateMonitoringSubscriptionCommandOutput
   | CreateOriginAccessControlCommandOutput
   | CreateOriginRequestPolicyCommandOutput
@@ -517,6 +538,7 @@ export type ServiceOutputTypes =
   | DeleteFieldLevelEncryptionProfileCommandOutput
   | DeleteFunctionCommandOutput
   | DeleteKeyGroupCommandOutput
+  | DeleteKeyValueStoreCommandOutput
   | DeleteMonitoringSubscriptionCommandOutput
   | DeleteOriginAccessControlCommandOutput
   | DeleteOriginRequestPolicyCommandOutput
@@ -525,6 +547,7 @@ export type ServiceOutputTypes =
   | DeleteResponseHeadersPolicyCommandOutput
   | DeleteStreamingDistributionCommandOutput
   | DescribeFunctionCommandOutput
+  | DescribeKeyValueStoreCommandOutput
   | GetCachePolicyCommandOutput
   | GetCachePolicyConfigCommandOutput
   | GetCloudFrontOriginAccessIdentityCommandOutput
@@ -569,6 +592,7 @@ export type ServiceOutputTypes =
   | ListFunctionsCommandOutput
   | ListInvalidationsCommandOutput
   | ListKeyGroupsCommandOutput
+  | ListKeyValueStoresCommandOutput
   | ListOriginAccessControlsCommandOutput
   | ListOriginRequestPoliciesCommandOutput
   | ListPublicKeysCommandOutput
@@ -589,6 +613,7 @@ export type ServiceOutputTypes =
   | UpdateFieldLevelEncryptionProfileCommandOutput
   | UpdateFunctionCommandOutput
   | UpdateKeyGroupCommandOutput
+  | UpdateKeyValueStoreCommandOutput
   | UpdateOriginAccessControlCommandOutput
   | UpdateOriginRequestPolicyCommandOutput
   | UpdatePublicKeyCommandOutput
@@ -706,6 +731,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

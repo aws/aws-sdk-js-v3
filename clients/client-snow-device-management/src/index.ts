@@ -8,8 +8,12 @@
 export * from "./SnowDeviceManagementClient";
 export * from "./SnowDeviceManagement";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { SnowDeviceManagementExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { SnowDeviceManagementServiceException } from "./models/SnowDeviceManagementServiceException";

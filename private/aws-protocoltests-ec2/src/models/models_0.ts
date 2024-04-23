@@ -32,7 +32,6 @@ export interface HostLabelInput {
  */
 export interface FractionalSecondsOutput {
   datetime?: Date;
-  httpdate?: Date;
 }
 
 /**
@@ -183,7 +182,7 @@ export interface SimpleInputParamsInput {
   FloatValue?: number;
   Boo?: number;
   Qux?: Uint8Array;
-  FooEnum?: FooEnum | string;
+  FooEnum?: FooEnum;
   HasQueryName?: string;
   HasQueryAndXmlName?: string;
   UsesXmlName?: string;
@@ -235,8 +234,8 @@ export interface XmlListsOutput {
   integerList?: number[];
   booleanList?: boolean[];
   timestampList?: Date[];
-  enumList?: (FooEnum | string)[];
-  intEnumList?: (IntegerEnum | number)[];
+  enumList?: FooEnum[];
+  intEnumList?: IntegerEnum[];
   /**
    * @public
    * A list of lists of strings.
@@ -255,24 +254,24 @@ export interface XmlListsOutput {
  * @public
  */
 export interface XmlEnumsOutput {
-  fooEnum1?: FooEnum | string;
-  fooEnum2?: FooEnum | string;
-  fooEnum3?: FooEnum | string;
-  fooEnumList?: (FooEnum | string)[];
-  fooEnumSet?: (FooEnum | string)[];
-  fooEnumMap?: Record<string, FooEnum | string>;
+  fooEnum1?: FooEnum;
+  fooEnum2?: FooEnum;
+  fooEnum3?: FooEnum;
+  fooEnumList?: FooEnum[];
+  fooEnumSet?: FooEnum[];
+  fooEnumMap?: Record<string, FooEnum>;
 }
 
 /**
  * @public
  */
 export interface XmlIntEnumsOutput {
-  intEnum1?: IntegerEnum | number;
-  intEnum2?: IntegerEnum | number;
-  intEnum3?: IntegerEnum | number;
-  intEnumList?: (IntegerEnum | number)[];
-  intEnumSet?: (IntegerEnum | number)[];
-  intEnumMap?: Record<string, IntegerEnum | number>;
+  intEnum1?: IntegerEnum;
+  intEnum2?: IntegerEnum;
+  intEnum3?: IntegerEnum;
+  intEnumList?: IntegerEnum[];
+  intEnumSet?: IntegerEnum[];
+  intEnumMap?: Record<string, IntegerEnum>;
 }
 
 /**

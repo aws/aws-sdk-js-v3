@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteDatasetRequest, DeleteDatasetResponse } from "../models/models_0";
 import { de_DeleteDatasetCommand, se_DeleteDatasetCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
@@ -36,7 +28,10 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
 
 /**
  * @public
- * <p>Deletes an existing Amazon Rekognition Custom Labels dataset.
+ * <note>
+ *             <p>This operation applies only to Amazon Rekognition Custom Labels.</p>
+ *          </note>
+ *          <p>Deletes an existing Amazon Rekognition Custom Labels dataset.
  *    Deleting a dataset might take while. Use <a>DescribeDataset</a> to check the
  *    current status. The dataset is still deleting if the value of <code>Status</code> is
  *    <code>DELETE_IN_PROGRESS</code>. If you try to access the dataset after it is deleted, you get
@@ -78,9 +73,11 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  *       operation again.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many Amazon Rekognition Video jobs concurrently, calls to start operations
- *             (<code>StartLabelDetection</code>, for example) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until
- *             the number of concurrently running jobs is below the Amazon Rekognition service limit.  </p>
+ *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs
+ *             concurrently, subsequent calls to start operations (ex:
+ *             <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code>
+ *             exception (HTTP status code: 400) until the number of concurrently running jobs is below
+ *             the Amazon Rekognition service limit. </p>
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
  *  <p>The number of requests exceeded your throughput limit. If you want to increase this
@@ -110,77 +107,26 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  * ```
  *
  */
-export class DeleteDatasetCommand extends $Command<
-  DeleteDatasetCommandInput,
-  DeleteDatasetCommandOutput,
-  RekognitionClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeleteDatasetCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RekognitionClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DeleteDatasetCommandInput, DeleteDatasetCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteDatasetCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RekognitionClient";
-    const commandName = "DeleteDatasetCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DeleteDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteDatasetCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteDatasetCommandOutput> {
-    return de_DeleteDatasetCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DeleteDatasetCommand extends $Command
+  .classBuilder<
+    DeleteDatasetCommandInput,
+    DeleteDatasetCommandOutput,
+    RekognitionClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("RekognitionService", "DeleteDataset", {})
+  .n("RekognitionClient", "DeleteDatasetCommand")
+  .f(void 0, void 0)
+  .ser(se_DeleteDatasetCommand)
+  .de(de_DeleteDatasetCommand)
+  .build() {}

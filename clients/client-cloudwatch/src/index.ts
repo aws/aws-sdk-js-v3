@@ -20,9 +20,13 @@
 export * from "./CloudWatchClient";
 export * from "./CloudWatch";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { CloudWatchExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./waiters";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { CloudWatchServiceException } from "./models/CloudWatchServiceException";

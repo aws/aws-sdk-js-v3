@@ -54,6 +54,11 @@ import {
   CreateAssetModelCommandOutput,
 } from "./commands/CreateAssetModelCommand";
 import {
+  CreateAssetModelCompositeModelCommand,
+  CreateAssetModelCompositeModelCommandInput,
+  CreateAssetModelCompositeModelCommandOutput,
+} from "./commands/CreateAssetModelCompositeModelCommand";
+import {
   CreateBulkImportJobCommand,
   CreateBulkImportJobCommandInput,
   CreateBulkImportJobCommandOutput,
@@ -90,6 +95,11 @@ import {
   DeleteAssetModelCommandOutput,
 } from "./commands/DeleteAssetModelCommand";
 import {
+  DeleteAssetModelCompositeModelCommand,
+  DeleteAssetModelCompositeModelCommandInput,
+  DeleteAssetModelCompositeModelCommandOutput,
+} from "./commands/DeleteAssetModelCompositeModelCommand";
+import {
   DeleteDashboardCommand,
   DeleteDashboardCommandInput,
   DeleteDashboardCommandOutput,
@@ -120,15 +130,30 @@ import {
   DescribeAccessPolicyCommandOutput,
 } from "./commands/DescribeAccessPolicyCommand";
 import {
+  DescribeActionCommand,
+  DescribeActionCommandInput,
+  DescribeActionCommandOutput,
+} from "./commands/DescribeActionCommand";
+import {
   DescribeAssetCommand,
   DescribeAssetCommandInput,
   DescribeAssetCommandOutput,
 } from "./commands/DescribeAssetCommand";
 import {
+  DescribeAssetCompositeModelCommand,
+  DescribeAssetCompositeModelCommandInput,
+  DescribeAssetCompositeModelCommandOutput,
+} from "./commands/DescribeAssetCompositeModelCommand";
+import {
   DescribeAssetModelCommand,
   DescribeAssetModelCommandInput,
   DescribeAssetModelCommandOutput,
 } from "./commands/DescribeAssetModelCommand";
+import {
+  DescribeAssetModelCompositeModelCommand,
+  DescribeAssetModelCompositeModelCommandInput,
+  DescribeAssetModelCompositeModelCommandOutput,
+} from "./commands/DescribeAssetModelCompositeModelCommand";
 import {
   DescribeAssetPropertyCommand,
   DescribeAssetPropertyCommandInput,
@@ -195,6 +220,16 @@ import {
   DisassociateTimeSeriesFromAssetPropertyCommandOutput,
 } from "./commands/DisassociateTimeSeriesFromAssetPropertyCommand";
 import {
+  ExecuteActionCommand,
+  ExecuteActionCommandInput,
+  ExecuteActionCommandOutput,
+} from "./commands/ExecuteActionCommand";
+import {
+  ExecuteQueryCommand,
+  ExecuteQueryCommandInput,
+  ExecuteQueryCommandOutput,
+} from "./commands/ExecuteQueryCommand";
+import {
   GetAssetPropertyAggregatesCommand,
   GetAssetPropertyAggregatesCommandInput,
   GetAssetPropertyAggregatesCommandOutput,
@@ -219,6 +254,12 @@ import {
   ListAccessPoliciesCommandInput,
   ListAccessPoliciesCommandOutput,
 } from "./commands/ListAccessPoliciesCommand";
+import { ListActionsCommand, ListActionsCommandInput, ListActionsCommandOutput } from "./commands/ListActionsCommand";
+import {
+  ListAssetModelCompositeModelsCommand,
+  ListAssetModelCompositeModelsCommandInput,
+  ListAssetModelCompositeModelsCommandOutput,
+} from "./commands/ListAssetModelCompositeModelsCommand";
 import {
   ListAssetModelPropertiesCommand,
   ListAssetModelPropertiesCommandInput,
@@ -250,6 +291,11 @@ import {
   ListBulkImportJobsCommandInput,
   ListBulkImportJobsCommandOutput,
 } from "./commands/ListBulkImportJobsCommand";
+import {
+  ListCompositionRelationshipsCommand,
+  ListCompositionRelationshipsCommandInput,
+  ListCompositionRelationshipsCommandOutput,
+} from "./commands/ListCompositionRelationshipsCommand";
 import {
   ListDashboardsCommand,
   ListDashboardsCommandInput,
@@ -314,6 +360,11 @@ import {
   UpdateAssetModelCommandOutput,
 } from "./commands/UpdateAssetModelCommand";
 import {
+  UpdateAssetModelCompositeModelCommand,
+  UpdateAssetModelCompositeModelCommandInput,
+  UpdateAssetModelCompositeModelCommandOutput,
+} from "./commands/UpdateAssetModelCompositeModelCommand";
+import {
   UpdateAssetPropertyCommand,
   UpdateAssetPropertyCommandInput,
   UpdateAssetPropertyCommandOutput,
@@ -357,6 +408,7 @@ const commands = {
   CreateAccessPolicyCommand,
   CreateAssetCommand,
   CreateAssetModelCommand,
+  CreateAssetModelCompositeModelCommand,
   CreateBulkImportJobCommand,
   CreateDashboardCommand,
   CreateGatewayCommand,
@@ -365,14 +417,18 @@ const commands = {
   DeleteAccessPolicyCommand,
   DeleteAssetCommand,
   DeleteAssetModelCommand,
+  DeleteAssetModelCompositeModelCommand,
   DeleteDashboardCommand,
   DeleteGatewayCommand,
   DeletePortalCommand,
   DeleteProjectCommand,
   DeleteTimeSeriesCommand,
   DescribeAccessPolicyCommand,
+  DescribeActionCommand,
   DescribeAssetCommand,
+  DescribeAssetCompositeModelCommand,
   DescribeAssetModelCommand,
+  DescribeAssetModelCompositeModelCommand,
   DescribeAssetPropertyCommand,
   DescribeBulkImportJobCommand,
   DescribeDashboardCommand,
@@ -386,11 +442,15 @@ const commands = {
   DescribeTimeSeriesCommand,
   DisassociateAssetsCommand,
   DisassociateTimeSeriesFromAssetPropertyCommand,
+  ExecuteActionCommand,
+  ExecuteQueryCommand,
   GetAssetPropertyAggregatesCommand,
   GetAssetPropertyValueCommand,
   GetAssetPropertyValueHistoryCommand,
   GetInterpolatedAssetPropertyValuesCommand,
   ListAccessPoliciesCommand,
+  ListActionsCommand,
+  ListAssetModelCompositeModelsCommand,
   ListAssetModelPropertiesCommand,
   ListAssetModelsCommand,
   ListAssetPropertiesCommand,
@@ -398,6 +458,7 @@ const commands = {
   ListAssetsCommand,
   ListAssociatedAssetsCommand,
   ListBulkImportJobsCommand,
+  ListCompositionRelationshipsCommand,
   ListDashboardsCommand,
   ListGatewaysCommand,
   ListPortalsCommand,
@@ -413,6 +474,7 @@ const commands = {
   UpdateAccessPolicyCommand,
   UpdateAssetCommand,
   UpdateAssetModelCommand,
+  UpdateAssetModelCompositeModelCommand,
   UpdateAssetPropertyCommand,
   UpdateDashboardCommand,
   UpdateGatewayCommand,
@@ -601,6 +663,23 @@ export interface IoTSiteWise {
   ): void;
 
   /**
+   * @see {@link CreateAssetModelCompositeModelCommand}
+   */
+  createAssetModelCompositeModel(
+    args: CreateAssetModelCompositeModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAssetModelCompositeModelCommandOutput>;
+  createAssetModelCompositeModel(
+    args: CreateAssetModelCompositeModelCommandInput,
+    cb: (err: any, data?: CreateAssetModelCompositeModelCommandOutput) => void
+  ): void;
+  createAssetModelCompositeModel(
+    args: CreateAssetModelCompositeModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAssetModelCompositeModelCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateBulkImportJobCommand}
    */
   createBulkImportJob(
@@ -710,6 +789,23 @@ export interface IoTSiteWise {
   ): void;
 
   /**
+   * @see {@link DeleteAssetModelCompositeModelCommand}
+   */
+  deleteAssetModelCompositeModel(
+    args: DeleteAssetModelCompositeModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAssetModelCompositeModelCommandOutput>;
+  deleteAssetModelCompositeModel(
+    args: DeleteAssetModelCompositeModelCommandInput,
+    cb: (err: any, data?: DeleteAssetModelCompositeModelCommandOutput) => void
+  ): void;
+  deleteAssetModelCompositeModel(
+    args: DeleteAssetModelCompositeModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAssetModelCompositeModelCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteDashboardCommand}
    */
   deleteDashboard(
@@ -791,6 +887,20 @@ export interface IoTSiteWise {
   ): void;
 
   /**
+   * @see {@link DescribeActionCommand}
+   */
+  describeAction(
+    args: DescribeActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeActionCommandOutput>;
+  describeAction(args: DescribeActionCommandInput, cb: (err: any, data?: DescribeActionCommandOutput) => void): void;
+  describeAction(
+    args: DescribeActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeActionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeAssetCommand}
    */
   describeAsset(args: DescribeAssetCommandInput, options?: __HttpHandlerOptions): Promise<DescribeAssetCommandOutput>;
@@ -799,6 +909,23 @@ export interface IoTSiteWise {
     args: DescribeAssetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeAssetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAssetCompositeModelCommand}
+   */
+  describeAssetCompositeModel(
+    args: DescribeAssetCompositeModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAssetCompositeModelCommandOutput>;
+  describeAssetCompositeModel(
+    args: DescribeAssetCompositeModelCommandInput,
+    cb: (err: any, data?: DescribeAssetCompositeModelCommandOutput) => void
+  ): void;
+  describeAssetCompositeModel(
+    args: DescribeAssetCompositeModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAssetCompositeModelCommandOutput) => void
   ): void;
 
   /**
@@ -816,6 +943,23 @@ export interface IoTSiteWise {
     args: DescribeAssetModelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeAssetModelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeAssetModelCompositeModelCommand}
+   */
+  describeAssetModelCompositeModel(
+    args: DescribeAssetModelCompositeModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAssetModelCompositeModelCommandOutput>;
+  describeAssetModelCompositeModel(
+    args: DescribeAssetModelCompositeModelCommandInput,
+    cb: (err: any, data?: DescribeAssetModelCompositeModelCommandOutput) => void
+  ): void;
+  describeAssetModelCompositeModel(
+    args: DescribeAssetModelCompositeModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAssetModelCompositeModelCommandOutput) => void
   ): void;
 
   /**
@@ -1031,6 +1175,28 @@ export interface IoTSiteWise {
   ): void;
 
   /**
+   * @see {@link ExecuteActionCommand}
+   */
+  executeAction(args: ExecuteActionCommandInput, options?: __HttpHandlerOptions): Promise<ExecuteActionCommandOutput>;
+  executeAction(args: ExecuteActionCommandInput, cb: (err: any, data?: ExecuteActionCommandOutput) => void): void;
+  executeAction(
+    args: ExecuteActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExecuteActionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ExecuteQueryCommand}
+   */
+  executeQuery(args: ExecuteQueryCommandInput, options?: __HttpHandlerOptions): Promise<ExecuteQueryCommandOutput>;
+  executeQuery(args: ExecuteQueryCommandInput, cb: (err: any, data?: ExecuteQueryCommandOutput) => void): void;
+  executeQuery(
+    args: ExecuteQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExecuteQueryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAssetPropertyAggregatesCommand}
    */
   getAssetPropertyAggregates(
@@ -1113,6 +1279,34 @@ export interface IoTSiteWise {
     args: ListAccessPoliciesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAccessPoliciesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListActionsCommand}
+   */
+  listActions(args: ListActionsCommandInput, options?: __HttpHandlerOptions): Promise<ListActionsCommandOutput>;
+  listActions(args: ListActionsCommandInput, cb: (err: any, data?: ListActionsCommandOutput) => void): void;
+  listActions(
+    args: ListActionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListActionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAssetModelCompositeModelsCommand}
+   */
+  listAssetModelCompositeModels(
+    args: ListAssetModelCompositeModelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssetModelCompositeModelsCommandOutput>;
+  listAssetModelCompositeModels(
+    args: ListAssetModelCompositeModelsCommandInput,
+    cb: (err: any, data?: ListAssetModelCompositeModelsCommandOutput) => void
+  ): void;
+  listAssetModelCompositeModels(
+    args: ListAssetModelCompositeModelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssetModelCompositeModelsCommandOutput) => void
   ): void;
 
   /**
@@ -1223,6 +1417,23 @@ export interface IoTSiteWise {
     args: ListBulkImportJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListBulkImportJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCompositionRelationshipsCommand}
+   */
+  listCompositionRelationships(
+    args: ListCompositionRelationshipsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCompositionRelationshipsCommandOutput>;
+  listCompositionRelationships(
+    args: ListCompositionRelationshipsCommandInput,
+    cb: (err: any, data?: ListCompositionRelationshipsCommandOutput) => void
+  ): void;
+  listCompositionRelationships(
+    args: ListCompositionRelationshipsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCompositionRelationshipsCommandOutput) => void
   ): void;
 
   /**
@@ -1436,6 +1647,23 @@ export interface IoTSiteWise {
     args: UpdateAssetModelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateAssetModelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAssetModelCompositeModelCommand}
+   */
+  updateAssetModelCompositeModel(
+    args: UpdateAssetModelCompositeModelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAssetModelCompositeModelCommandOutput>;
+  updateAssetModelCompositeModel(
+    args: UpdateAssetModelCompositeModelCommandInput,
+    cb: (err: any, data?: UpdateAssetModelCompositeModelCommandOutput) => void
+  ): void;
+  updateAssetModelCompositeModel(
+    args: UpdateAssetModelCompositeModelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAssetModelCompositeModelCommandOutput) => void
   ): void;
 
   /**

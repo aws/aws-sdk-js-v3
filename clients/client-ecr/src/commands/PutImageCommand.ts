@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { PutImageRequest, PutImageResponse } from "../models/models_0";
 import { de_PutImageCommand, se_PutImageCommand } from "../protocols/Aws_json1_1";
 
@@ -37,11 +29,10 @@ export interface PutImageCommandOutput extends PutImageResponse, __MetadataBeare
 /**
  * @public
  * <p>Creates or updates the image manifest and tags associated with an image.</p>
- *         <p>When an image is pushed and all new image layers have been uploaded, the PutImage API
+ *          <p>When an image is pushed and all new image layers have been uploaded, the PutImage API
  *             is called once to create or update the image manifest and the tags associated with the
  *             image.</p>
- *
- *         <note>
+ *          <note>
  *             <p>This operation is used by the Amazon ECR proxy and is not generally used by
  *         customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
  *          </note>
@@ -124,73 +115,26 @@ export interface PutImageCommandOutput extends PutImageResponse, __MetadataBeare
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
-export class PutImageCommand extends $Command<PutImageCommandInput, PutImageCommandOutput, ECRClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PutImageCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ECRClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PutImageCommandInput, PutImageCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, PutImageCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ECRClient";
-    const commandName = "PutImageCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: PutImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PutImageCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutImageCommandOutput> {
-    return de_PutImageCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class PutImageCommand extends $Command
+  .classBuilder<
+    PutImageCommandInput,
+    PutImageCommandOutput,
+    ECRClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonEC2ContainerRegistry_V20150921", "PutImage", {})
+  .n("ECRClient", "PutImageCommand")
+  .f(void 0, void 0)
+  .ser(se_PutImageCommand)
+  .de(de_PutImageCommand)
+  .build() {}

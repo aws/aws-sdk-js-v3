@@ -111,16 +111,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `OpsWorksCMClient` and
-the commands you need, for example `AssociateNodeCommand`:
+the commands you need, for example `ListTagsForResourceCommand`:
 
 ```js
 // ES5 example
-const { OpsWorksCMClient, AssociateNodeCommand } = require("@aws-sdk/client-opsworkscm");
+const { OpsWorksCMClient, ListTagsForResourceCommand } = require("@aws-sdk/client-opsworkscm");
 ```
 
 ```ts
 // ES6+ example
-import { OpsWorksCMClient, AssociateNodeCommand } from "@aws-sdk/client-opsworkscm";
+import { OpsWorksCMClient, ListTagsForResourceCommand } from "@aws-sdk/client-opsworkscm";
 ```
 
 ### Usage
@@ -139,7 +139,7 @@ const client = new OpsWorksCMClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateNodeCommand(params);
+const command = new ListTagsForResourceCommand(params);
 ```
 
 #### Async/await
@@ -218,7 +218,7 @@ const client = new AWS.OpsWorksCM({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateNode(params);
+  const data = await client.listTagsForResource(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -226,7 +226,7 @@ try {
 
 // Promises.
 client
-  .associateNode(params)
+  .listTagsForResource(params)
   .then((data) => {
     // process data.
   })
@@ -235,7 +235,7 @@ client
   });
 
 // callbacks.
-client.associateNode(params, (err, data) => {
+client.listTagsForResource(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -250,7 +250,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -296,7 +296,7 @@ see LICENSE for more information.
 AssociateNode
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/classes/associatenodecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/associatenodecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/associatenodecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opsworkscm/command/AssociateNodeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/AssociateNodeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/AssociateNodeCommandOutput/)
 
 </details>
 <details>
@@ -304,7 +304,7 @@ AssociateNode
 CreateBackup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/classes/createbackupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/createbackupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/createbackupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opsworkscm/command/CreateBackupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/CreateBackupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/CreateBackupCommandOutput/)
 
 </details>
 <details>
@@ -312,7 +312,7 @@ CreateBackup
 CreateServer
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/classes/createservercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/createservercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/createservercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opsworkscm/command/CreateServerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/CreateServerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/CreateServerCommandOutput/)
 
 </details>
 <details>
@@ -320,7 +320,7 @@ CreateServer
 DeleteBackup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/classes/deletebackupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/deletebackupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/deletebackupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opsworkscm/command/DeleteBackupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/DeleteBackupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/DeleteBackupCommandOutput/)
 
 </details>
 <details>
@@ -328,7 +328,7 @@ DeleteBackup
 DeleteServer
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/classes/deleteservercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/deleteservercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/deleteservercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opsworkscm/command/DeleteServerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/DeleteServerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/DeleteServerCommandOutput/)
 
 </details>
 <details>
@@ -336,7 +336,7 @@ DeleteServer
 DescribeAccountAttributes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/classes/describeaccountattributescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/describeaccountattributescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/describeaccountattributescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opsworkscm/command/DescribeAccountAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/DescribeAccountAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/DescribeAccountAttributesCommandOutput/)
 
 </details>
 <details>
@@ -344,7 +344,7 @@ DescribeAccountAttributes
 DescribeBackups
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/classes/describebackupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/describebackupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/describebackupscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opsworkscm/command/DescribeBackupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/DescribeBackupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/DescribeBackupsCommandOutput/)
 
 </details>
 <details>
@@ -352,7 +352,7 @@ DescribeBackups
 DescribeEvents
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/classes/describeeventscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/describeeventscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/describeeventscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opsworkscm/command/DescribeEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/DescribeEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/DescribeEventsCommandOutput/)
 
 </details>
 <details>
@@ -360,7 +360,7 @@ DescribeEvents
 DescribeNodeAssociationStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/classes/describenodeassociationstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/describenodeassociationstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/describenodeassociationstatuscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opsworkscm/command/DescribeNodeAssociationStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/DescribeNodeAssociationStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/DescribeNodeAssociationStatusCommandOutput/)
 
 </details>
 <details>
@@ -368,7 +368,7 @@ DescribeNodeAssociationStatus
 DescribeServers
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/classes/describeserverscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/describeserverscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/describeserverscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opsworkscm/command/DescribeServersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/DescribeServersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/DescribeServersCommandOutput/)
 
 </details>
 <details>
@@ -376,7 +376,7 @@ DescribeServers
 DisassociateNode
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/classes/disassociatenodecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/disassociatenodecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/disassociatenodecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opsworkscm/command/DisassociateNodeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/DisassociateNodeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/DisassociateNodeCommandOutput/)
 
 </details>
 <details>
@@ -384,7 +384,7 @@ DisassociateNode
 ExportServerEngineAttribute
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/classes/exportserverengineattributecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/exportserverengineattributecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/exportserverengineattributecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opsworkscm/command/ExportServerEngineAttributeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/ExportServerEngineAttributeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/ExportServerEngineAttributeCommandOutput/)
 
 </details>
 <details>
@@ -392,7 +392,7 @@ ExportServerEngineAttribute
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opsworkscm/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/ListTagsForResourceCommandOutput/)
 
 </details>
 <details>
@@ -400,7 +400,7 @@ ListTagsForResource
 RestoreServer
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/classes/restoreservercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/restoreservercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/restoreservercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opsworkscm/command/RestoreServerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/RestoreServerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/RestoreServerCommandOutput/)
 
 </details>
 <details>
@@ -408,7 +408,7 @@ RestoreServer
 StartMaintenance
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/classes/startmaintenancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/startmaintenancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/startmaintenancecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opsworkscm/command/StartMaintenanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/StartMaintenanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/StartMaintenanceCommandOutput/)
 
 </details>
 <details>
@@ -416,7 +416,7 @@ StartMaintenance
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opsworkscm/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -424,7 +424,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opsworkscm/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -432,7 +432,7 @@ UntagResource
 UpdateServer
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/classes/updateservercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/updateservercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/updateservercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opsworkscm/command/UpdateServerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/UpdateServerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/UpdateServerCommandOutput/)
 
 </details>
 <details>
@@ -440,6 +440,6 @@ UpdateServer
 UpdateServerEngineAttributes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/classes/updateserverengineattributescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/updateserverengineattributescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-opsworkscm/interfaces/updateserverengineattributescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opsworkscm/command/UpdateServerEngineAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/UpdateServerEngineAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opsworkscm/Interface/UpdateServerEngineAttributesCommandOutput/)
 
 </details>

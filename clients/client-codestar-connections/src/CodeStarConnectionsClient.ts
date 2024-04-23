@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -52,12 +50,57 @@ import {
 
 import { CreateConnectionCommandInput, CreateConnectionCommandOutput } from "./commands/CreateConnectionCommand";
 import { CreateHostCommandInput, CreateHostCommandOutput } from "./commands/CreateHostCommand";
+import {
+  CreateRepositoryLinkCommandInput,
+  CreateRepositoryLinkCommandOutput,
+} from "./commands/CreateRepositoryLinkCommand";
+import {
+  CreateSyncConfigurationCommandInput,
+  CreateSyncConfigurationCommandOutput,
+} from "./commands/CreateSyncConfigurationCommand";
 import { DeleteConnectionCommandInput, DeleteConnectionCommandOutput } from "./commands/DeleteConnectionCommand";
 import { DeleteHostCommandInput, DeleteHostCommandOutput } from "./commands/DeleteHostCommand";
+import {
+  DeleteRepositoryLinkCommandInput,
+  DeleteRepositoryLinkCommandOutput,
+} from "./commands/DeleteRepositoryLinkCommand";
+import {
+  DeleteSyncConfigurationCommandInput,
+  DeleteSyncConfigurationCommandOutput,
+} from "./commands/DeleteSyncConfigurationCommand";
 import { GetConnectionCommandInput, GetConnectionCommandOutput } from "./commands/GetConnectionCommand";
 import { GetHostCommandInput, GetHostCommandOutput } from "./commands/GetHostCommand";
+import { GetRepositoryLinkCommandInput, GetRepositoryLinkCommandOutput } from "./commands/GetRepositoryLinkCommand";
+import {
+  GetRepositorySyncStatusCommandInput,
+  GetRepositorySyncStatusCommandOutput,
+} from "./commands/GetRepositorySyncStatusCommand";
+import {
+  GetResourceSyncStatusCommandInput,
+  GetResourceSyncStatusCommandOutput,
+} from "./commands/GetResourceSyncStatusCommand";
+import {
+  GetSyncBlockerSummaryCommandInput,
+  GetSyncBlockerSummaryCommandOutput,
+} from "./commands/GetSyncBlockerSummaryCommand";
+import {
+  GetSyncConfigurationCommandInput,
+  GetSyncConfigurationCommandOutput,
+} from "./commands/GetSyncConfigurationCommand";
 import { ListConnectionsCommandInput, ListConnectionsCommandOutput } from "./commands/ListConnectionsCommand";
 import { ListHostsCommandInput, ListHostsCommandOutput } from "./commands/ListHostsCommand";
+import {
+  ListRepositoryLinksCommandInput,
+  ListRepositoryLinksCommandOutput,
+} from "./commands/ListRepositoryLinksCommand";
+import {
+  ListRepositorySyncDefinitionsCommandInput,
+  ListRepositorySyncDefinitionsCommandOutput,
+} from "./commands/ListRepositorySyncDefinitionsCommand";
+import {
+  ListSyncConfigurationsCommandInput,
+  ListSyncConfigurationsCommandOutput,
+} from "./commands/ListSyncConfigurationsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -65,6 +108,15 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateHostCommandInput, UpdateHostCommandOutput } from "./commands/UpdateHostCommand";
+import {
+  UpdateRepositoryLinkCommandInput,
+  UpdateRepositoryLinkCommandOutput,
+} from "./commands/UpdateRepositoryLinkCommand";
+import { UpdateSyncBlockerCommandInput, UpdateSyncBlockerCommandOutput } from "./commands/UpdateSyncBlockerCommand";
+import {
+  UpdateSyncConfigurationCommandInput,
+  UpdateSyncConfigurationCommandOutput,
+} from "./commands/UpdateSyncConfigurationCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -82,16 +134,31 @@ export { __Client };
 export type ServiceInputTypes =
   | CreateConnectionCommandInput
   | CreateHostCommandInput
+  | CreateRepositoryLinkCommandInput
+  | CreateSyncConfigurationCommandInput
   | DeleteConnectionCommandInput
   | DeleteHostCommandInput
+  | DeleteRepositoryLinkCommandInput
+  | DeleteSyncConfigurationCommandInput
   | GetConnectionCommandInput
   | GetHostCommandInput
+  | GetRepositoryLinkCommandInput
+  | GetRepositorySyncStatusCommandInput
+  | GetResourceSyncStatusCommandInput
+  | GetSyncBlockerSummaryCommandInput
+  | GetSyncConfigurationCommandInput
   | ListConnectionsCommandInput
   | ListHostsCommandInput
+  | ListRepositoryLinksCommandInput
+  | ListRepositorySyncDefinitionsCommandInput
+  | ListSyncConfigurationsCommandInput
   | ListTagsForResourceCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
-  | UpdateHostCommandInput;
+  | UpdateHostCommandInput
+  | UpdateRepositoryLinkCommandInput
+  | UpdateSyncBlockerCommandInput
+  | UpdateSyncConfigurationCommandInput;
 
 /**
  * @public
@@ -99,16 +166,31 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | CreateConnectionCommandOutput
   | CreateHostCommandOutput
+  | CreateRepositoryLinkCommandOutput
+  | CreateSyncConfigurationCommandOutput
   | DeleteConnectionCommandOutput
   | DeleteHostCommandOutput
+  | DeleteRepositoryLinkCommandOutput
+  | DeleteSyncConfigurationCommandOutput
   | GetConnectionCommandOutput
   | GetHostCommandOutput
+  | GetRepositoryLinkCommandOutput
+  | GetRepositorySyncStatusCommandOutput
+  | GetResourceSyncStatusCommandOutput
+  | GetSyncBlockerSummaryCommandOutput
+  | GetSyncConfigurationCommandOutput
   | ListConnectionsCommandOutput
   | ListHostsCommandOutput
+  | ListRepositoryLinksCommandOutput
+  | ListRepositorySyncDefinitionsCommandOutput
+  | ListSyncConfigurationsCommandOutput
   | ListTagsForResourceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
-  | UpdateHostCommandOutput;
+  | UpdateHostCommandOutput
+  | UpdateRepositoryLinkCommandOutput
+  | UpdateSyncBlockerCommandOutput
+  | UpdateSyncConfigurationCommandOutput;
 
 /**
  * @public
@@ -220,6 +302,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

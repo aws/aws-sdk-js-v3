@@ -1,23 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   DatabaseMigrationServiceClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeEndpointsMessage,
   DescribeEndpointsResponse,
@@ -278,6 +270,7 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * //         Username: "STRING_VALUE",
  * //         SecretsManagerAccessRoleArn: "STRING_VALUE",
  * //         SecretsManagerSecretId: "STRING_VALUE",
+ * //         ExecuteTimeout: Number("int"),
  * //       },
  * //       OracleSettings: { // OracleSettings
  * //         AddSupplementalLogging: true || false,
@@ -365,6 +358,10 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * //         Username: "STRING_VALUE",
  * //         SecretsManagerAccessRoleArn: "STRING_VALUE",
  * //         SecretsManagerSecretId: "STRING_VALUE",
+ * //         LoadTimeout: Number("int"),
+ * //         WriteBufferSize: Number("int"),
+ * //         MaxFileSize: Number("int"),
+ * //         KeepCsvFiles: true || false,
  * //       },
  * //       DocDbSettings: { // DocDbSettings
  * //         Username: "STRING_VALUE",
@@ -459,79 +456,26 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * ```
  *
  */
-export class DescribeEndpointsCommand extends $Command<
-  DescribeEndpointsCommandInput,
-  DescribeEndpointsCommandOutput,
-  DatabaseMigrationServiceClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeEndpointsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: DatabaseMigrationServiceClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeEndpointsCommandInput, DescribeEndpointsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeEndpointsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "DatabaseMigrationServiceClient";
-    const commandName = "DescribeEndpointsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: DescribeEndpointsResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeEndpointsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeEndpointsCommandOutput> {
-    return de_DescribeEndpointsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeEndpointsCommand extends $Command
+  .classBuilder<
+    DescribeEndpointsCommandInput,
+    DescribeEndpointsCommandOutput,
+    DatabaseMigrationServiceClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonDMSv20160101", "DescribeEndpoints", {})
+  .n("DatabaseMigrationServiceClient", "DescribeEndpointsCommand")
+  .f(void 0, DescribeEndpointsResponseFilterSensitiveLog)
+  .ser(se_DescribeEndpointsCommand)
+  .de(de_DescribeEndpointsCommand)
+  .build() {}

@@ -22,12 +22,22 @@
               "Effect": "Allow",
               "Principal": {
                 "Federated": "cognito-identity.amazonaws.com"
+              },
+              "Condition": {
+                "StringEquals": {
+                  "cognito-identity.amazonaws.com:aud": {
+                    "Ref": "IntegTestIdentityPool"
+                  }
+                },
+                "ForAnyValue:StringLike": {
+                  "cognito-identity.amazonaws.com:amr": "unauthenticated"
+                }
               }
             }
           ],
           "Version": "2012-10-17"
         },
-        "ManagedPolicyArns": ["arn:aws:iam::aws:policy/AdministratorAccess"]
+        "ManagedPolicyArns": ["arn:aws:iam::aws:policy/AmazonCognitoReadOnly"]
       },
       "Metadata": {
         "aws:cdk:path": "IntegTestResourcesStack/IntegTestIdentityPoolUnauthRole/Resource"

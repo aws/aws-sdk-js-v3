@@ -18,7 +18,11 @@
 export * from "./WAFClient";
 export * from "./WAF";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { WAFExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { WAFServiceException } from "./models/WAFServiceException";

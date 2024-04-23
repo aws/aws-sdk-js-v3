@@ -1,16 +1,20 @@
 // smithy-typescript generated code
+import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  limitedParseFloat32 as __limitedParseFloat32,
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
   resolvedPath as __resolvedPath,
@@ -37,6 +41,10 @@ import {
   CreateCollaborationCommandOutput,
 } from "../commands/CreateCollaborationCommand";
 import {
+  CreateConfiguredAudienceModelAssociationCommandInput,
+  CreateConfiguredAudienceModelAssociationCommandOutput,
+} from "../commands/CreateConfiguredAudienceModelAssociationCommand";
+import {
   CreateConfiguredTableAnalysisRuleCommandInput,
   CreateConfiguredTableAnalysisRuleCommandOutput,
 } from "../commands/CreateConfiguredTableAnalysisRuleCommand";
@@ -50,6 +58,10 @@ import {
 } from "../commands/CreateConfiguredTableCommand";
 import { CreateMembershipCommandInput, CreateMembershipCommandOutput } from "../commands/CreateMembershipCommand";
 import {
+  CreatePrivacyBudgetTemplateCommandInput,
+  CreatePrivacyBudgetTemplateCommandOutput,
+} from "../commands/CreatePrivacyBudgetTemplateCommand";
+import {
   DeleteAnalysisTemplateCommandInput,
   DeleteAnalysisTemplateCommandOutput,
 } from "../commands/DeleteAnalysisTemplateCommand";
@@ -57,6 +69,10 @@ import {
   DeleteCollaborationCommandInput,
   DeleteCollaborationCommandOutput,
 } from "../commands/DeleteCollaborationCommand";
+import {
+  DeleteConfiguredAudienceModelAssociationCommandInput,
+  DeleteConfiguredAudienceModelAssociationCommandOutput,
+} from "../commands/DeleteConfiguredAudienceModelAssociationCommand";
 import {
   DeleteConfiguredTableAnalysisRuleCommandInput,
   DeleteConfiguredTableAnalysisRuleCommandOutput,
@@ -72,6 +88,10 @@ import {
 import { DeleteMemberCommandInput, DeleteMemberCommandOutput } from "../commands/DeleteMemberCommand";
 import { DeleteMembershipCommandInput, DeleteMembershipCommandOutput } from "../commands/DeleteMembershipCommand";
 import {
+  DeletePrivacyBudgetTemplateCommandInput,
+  DeletePrivacyBudgetTemplateCommandOutput,
+} from "../commands/DeletePrivacyBudgetTemplateCommand";
+import {
   GetAnalysisTemplateCommandInput,
   GetAnalysisTemplateCommandOutput,
 } from "../commands/GetAnalysisTemplateCommand";
@@ -80,6 +100,18 @@ import {
   GetCollaborationAnalysisTemplateCommandOutput,
 } from "../commands/GetCollaborationAnalysisTemplateCommand";
 import { GetCollaborationCommandInput, GetCollaborationCommandOutput } from "../commands/GetCollaborationCommand";
+import {
+  GetCollaborationConfiguredAudienceModelAssociationCommandInput,
+  GetCollaborationConfiguredAudienceModelAssociationCommandOutput,
+} from "../commands/GetCollaborationConfiguredAudienceModelAssociationCommand";
+import {
+  GetCollaborationPrivacyBudgetTemplateCommandInput,
+  GetCollaborationPrivacyBudgetTemplateCommandOutput,
+} from "../commands/GetCollaborationPrivacyBudgetTemplateCommand";
+import {
+  GetConfiguredAudienceModelAssociationCommandInput,
+  GetConfiguredAudienceModelAssociationCommandOutput,
+} from "../commands/GetConfiguredAudienceModelAssociationCommand";
 import {
   GetConfiguredTableAnalysisRuleCommandInput,
   GetConfiguredTableAnalysisRuleCommandOutput,
@@ -90,6 +122,10 @@ import {
 } from "../commands/GetConfiguredTableAssociationCommand";
 import { GetConfiguredTableCommandInput, GetConfiguredTableCommandOutput } from "../commands/GetConfiguredTableCommand";
 import { GetMembershipCommandInput, GetMembershipCommandOutput } from "../commands/GetMembershipCommand";
+import {
+  GetPrivacyBudgetTemplateCommandInput,
+  GetPrivacyBudgetTemplateCommandOutput,
+} from "../commands/GetPrivacyBudgetTemplateCommand";
 import { GetProtectedQueryCommandInput, GetProtectedQueryCommandOutput } from "../commands/GetProtectedQueryCommand";
 import {
   GetSchemaAnalysisRuleCommandInput,
@@ -104,7 +140,23 @@ import {
   ListCollaborationAnalysisTemplatesCommandInput,
   ListCollaborationAnalysisTemplatesCommandOutput,
 } from "../commands/ListCollaborationAnalysisTemplatesCommand";
+import {
+  ListCollaborationConfiguredAudienceModelAssociationsCommandInput,
+  ListCollaborationConfiguredAudienceModelAssociationsCommandOutput,
+} from "../commands/ListCollaborationConfiguredAudienceModelAssociationsCommand";
+import {
+  ListCollaborationPrivacyBudgetsCommandInput,
+  ListCollaborationPrivacyBudgetsCommandOutput,
+} from "../commands/ListCollaborationPrivacyBudgetsCommand";
+import {
+  ListCollaborationPrivacyBudgetTemplatesCommandInput,
+  ListCollaborationPrivacyBudgetTemplatesCommandOutput,
+} from "../commands/ListCollaborationPrivacyBudgetTemplatesCommand";
 import { ListCollaborationsCommandInput, ListCollaborationsCommandOutput } from "../commands/ListCollaborationsCommand";
+import {
+  ListConfiguredAudienceModelAssociationsCommandInput,
+  ListConfiguredAudienceModelAssociationsCommandOutput,
+} from "../commands/ListConfiguredAudienceModelAssociationsCommand";
 import {
   ListConfiguredTableAssociationsCommandInput,
   ListConfiguredTableAssociationsCommandOutput,
@@ -115,6 +167,11 @@ import {
 } from "../commands/ListConfiguredTablesCommand";
 import { ListMembersCommandInput, ListMembersCommandOutput } from "../commands/ListMembersCommand";
 import { ListMembershipsCommandInput, ListMembershipsCommandOutput } from "../commands/ListMembershipsCommand";
+import { ListPrivacyBudgetsCommandInput, ListPrivacyBudgetsCommandOutput } from "../commands/ListPrivacyBudgetsCommand";
+import {
+  ListPrivacyBudgetTemplatesCommandInput,
+  ListPrivacyBudgetTemplatesCommandOutput,
+} from "../commands/ListPrivacyBudgetTemplatesCommand";
 import {
   ListProtectedQueriesCommandInput,
   ListProtectedQueriesCommandOutput,
@@ -124,6 +181,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  PreviewPrivacyImpactCommandInput,
+  PreviewPrivacyImpactCommandOutput,
+} from "../commands/PreviewPrivacyImpactCommand";
 import {
   StartProtectedQueryCommandInput,
   StartProtectedQueryCommandOutput,
@@ -139,6 +200,10 @@ import {
   UpdateCollaborationCommandOutput,
 } from "../commands/UpdateCollaborationCommand";
 import {
+  UpdateConfiguredAudienceModelAssociationCommandInput,
+  UpdateConfiguredAudienceModelAssociationCommandOutput,
+} from "../commands/UpdateConfiguredAudienceModelAssociationCommand";
+import {
   UpdateConfiguredTableAnalysisRuleCommandInput,
   UpdateConfiguredTableAnalysisRuleCommandOutput,
 } from "../commands/UpdateConfiguredTableAnalysisRuleCommand";
@@ -151,6 +216,10 @@ import {
   UpdateConfiguredTableCommandOutput,
 } from "../commands/UpdateConfiguredTableCommand";
 import { UpdateMembershipCommandInput, UpdateMembershipCommandOutput } from "../commands/UpdateMembershipCommand";
+import {
+  UpdatePrivacyBudgetTemplateCommandInput,
+  UpdatePrivacyBudgetTemplateCommandOutput,
+} from "../commands/UpdatePrivacyBudgetTemplateCommand";
 import {
   UpdateProtectedQueryCommandInput,
   UpdateProtectedQueryCommandOutput,
@@ -171,7 +240,14 @@ import {
   Collaboration,
   CollaborationAnalysisTemplate,
   CollaborationAnalysisTemplateSummary,
+  CollaborationConfiguredAudienceModelAssociation,
+  CollaborationConfiguredAudienceModelAssociationSummary,
+  CollaborationPrivacyBudgetSummary,
+  CollaborationPrivacyBudgetTemplate,
+  CollaborationPrivacyBudgetTemplateSummary,
   CollaborationSummary,
+  ConfiguredAudienceModelAssociation,
+  ConfiguredAudienceModelAssociationSummary,
   ConfiguredTable,
   ConfiguredTableAnalysisRule,
   ConfiguredTableAnalysisRulePolicy,
@@ -181,20 +257,39 @@ import {
   ConfiguredTableSummary,
   ConflictException,
   DataEncryptionMetadata,
+  DifferentialPrivacyColumn,
+  DifferentialPrivacyConfiguration,
+  DifferentialPrivacyParameters,
+  DifferentialPrivacyPreviewParametersInput,
+  DifferentialPrivacySensitivityParameters,
+  DifferentialPrivacyTemplateParametersInput,
+  DifferentialPrivacyTemplateUpdateParameters,
   GlueTableReference,
   InternalServerException,
   JoinOperator,
   MemberAbility,
   Membership,
+  MembershipPaymentConfiguration,
+  MembershipProtectedQueryOutputConfiguration,
+  MembershipProtectedQueryResultConfiguration,
+  MembershipQueryComputePaymentConfig,
   MembershipSummary,
   MemberSpecification,
   MemberSummary,
+  PaymentConfiguration,
+  PreviewPrivacyImpactParametersInput,
+  PrivacyBudgetSummary,
+  PrivacyBudgetTemplate,
+  PrivacyBudgetTemplateParametersInput,
+  PrivacyBudgetTemplateSummary,
+  PrivacyBudgetTemplateUpdateParameters,
   ProtectedQuery,
   ProtectedQueryOutputConfiguration,
   ProtectedQueryResultConfiguration,
   ProtectedQueryS3OutputConfiguration,
   ProtectedQuerySQLParameters,
   ProtectedQuerySummary,
+  QueryComputePaymentConfig,
   ResourceNotFoundException,
   ScalarFunctions,
   Schema,
@@ -212,36 +307,20 @@ export const se_BatchGetCollaborationAnalysisTemplateCommand = async (
   input: BatchGetCollaborationAnalysisTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/collaborations/{collaborationIdentifier}/batch-analysistemplates";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "collaborationIdentifier",
-    () => input.collaborationIdentifier!,
-    "{collaborationIdentifier}",
-    false
-  );
+  b.bp("/collaborations/{collaborationIdentifier}/batch-analysistemplates");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       analysisTemplateArns: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -251,36 +330,20 @@ export const se_BatchGetSchemaCommand = async (
   input: BatchGetSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/collaborations/{collaborationIdentifier}/batch-schema";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "collaborationIdentifier",
-    () => input.collaborationIdentifier!,
-    "{collaborationIdentifier}",
-    false
-  );
+  b.bp("/collaborations/{collaborationIdentifier}/batch-schema");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       names: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -290,21 +353,12 @@ export const se_CreateAnalysisTemplateCommand = async (
   input: CreateAnalysisTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/analysistemplates";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}/analysistemplates");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -316,15 +370,8 @@ export const se_CreateAnalysisTemplateCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -334,16 +381,17 @@ export const se_CreateCollaborationCommand = async (
   input: CreateCollaborationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/collaborations";
+  b.bp("/collaborations");
   let body: any;
   body = JSON.stringify(
     take(input, {
       creatorDisplayName: [],
       creatorMemberAbilities: (_) => _json(_),
+      creatorPaymentConfiguration: (_) => _json(_),
       dataEncryptionMetadata: (_) => _json(_),
       description: [],
       members: (_) => _json(_),
@@ -352,15 +400,35 @@ export const se_CreateCollaborationCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateConfiguredAudienceModelAssociationCommand
+ */
+export const se_CreateConfiguredAudienceModelAssociationCommand = async (
+  input: CreateConfiguredAudienceModelAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/memberships/{membershipIdentifier}/configuredaudiencemodelassociations");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      configuredAudienceModelArn: [],
+      configuredAudienceModelAssociationName: [],
+      description: [],
+      manageResourcePolicies: [],
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -370,11 +438,11 @@ export const se_CreateConfiguredTableCommand = async (
   input: CreateConfiguredTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configuredTables";
+  b.bp("/configuredTables");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -386,15 +454,8 @@ export const se_CreateConfiguredTableCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -404,21 +465,12 @@ export const se_CreateConfiguredTableAnalysisRuleCommand = async (
   input: CreateConfiguredTableAnalysisRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/configuredTables/{configuredTableIdentifier}/analysisRule";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "configuredTableIdentifier",
-    () => input.configuredTableIdentifier!,
-    "{configuredTableIdentifier}",
-    false
-  );
+  b.bp("/configuredTables/{configuredTableIdentifier}/analysisRule");
+  b.p("configuredTableIdentifier", () => input.configuredTableIdentifier!, "{configuredTableIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -426,15 +478,8 @@ export const se_CreateConfiguredTableAnalysisRuleCommand = async (
       analysisRuleType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -444,21 +489,12 @@ export const se_CreateConfiguredTableAssociationCommand = async (
   input: CreateConfiguredTableAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/configuredTableAssociations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}/configuredTableAssociations");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -469,15 +505,8 @@ export const se_CreateConfiguredTableAssociationCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -487,28 +516,49 @@ export const se_CreateMembershipCommand = async (
   input: CreateMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/memberships";
+  b.bp("/memberships");
   let body: any;
   body = JSON.stringify(
     take(input, {
       collaborationIdentifier: [],
+      defaultResultConfiguration: (_) => _json(_),
+      paymentConfiguration: (_) => _json(_),
       queryLogStatus: [],
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreatePrivacyBudgetTemplateCommand
+ */
+export const se_CreatePrivacyBudgetTemplateCommand = async (
+  input: CreatePrivacyBudgetTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/memberships/{membershipIdentifier}/privacybudgettemplates");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      autoRefresh: [],
+      parameters: (_) => _json(_),
+      privacyBudgetType: [],
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -518,37 +568,14 @@ export const se_DeleteAnalysisTemplateCommand = async (
   input: DeleteAnalysisTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/analysistemplates/{analysisTemplateIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "analysisTemplateIdentifier",
-    () => input.analysisTemplateIdentifier!,
-    "{analysisTemplateIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}/analysistemplates/{analysisTemplateIdentifier}");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  b.p("analysisTemplateIdentifier", () => input.analysisTemplateIdentifier!, "{analysisTemplateIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -558,28 +585,37 @@ export const se_DeleteCollaborationCommand = async (
   input: DeleteCollaborationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/collaborations/{collaborationIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "collaborationIdentifier",
-    () => input.collaborationIdentifier!,
-    "{collaborationIdentifier}",
+  b.bp("/collaborations/{collaborationIdentifier}");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteConfiguredAudienceModelAssociationCommand
+ */
+export const se_DeleteConfiguredAudienceModelAssociationCommand = async (
+  input: DeleteConfiguredAudienceModelAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp(
+    "/memberships/{membershipIdentifier}/configuredaudiencemodelassociations/{configuredAudienceModelAssociationIdentifier}"
+  );
+  b.p(
+    "configuredAudienceModelAssociationIdentifier",
+    () => input.configuredAudienceModelAssociationIdentifier!,
+    "{configuredAudienceModelAssociationIdentifier}",
     false
   );
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -589,29 +625,13 @@ export const se_DeleteConfiguredTableCommand = async (
   input: DeleteConfiguredTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/configuredTables/{configuredTableIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "configuredTableIdentifier",
-    () => input.configuredTableIdentifier!,
-    "{configuredTableIdentifier}",
-    false
-  );
+  b.bp("/configuredTables/{configuredTableIdentifier}");
+  b.p("configuredTableIdentifier", () => input.configuredTableIdentifier!, "{configuredTableIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -621,37 +641,14 @@ export const se_DeleteConfiguredTableAnalysisRuleCommand = async (
   input: DeleteConfiguredTableAnalysisRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/configuredTables/{configuredTableIdentifier}/analysisRule/{analysisRuleType}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "configuredTableIdentifier",
-    () => input.configuredTableIdentifier!,
-    "{configuredTableIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "analysisRuleType",
-    () => input.analysisRuleType!,
-    "{analysisRuleType}",
-    false
-  );
+  b.bp("/configuredTables/{configuredTableIdentifier}/analysisRule/{analysisRuleType}");
+  b.p("configuredTableIdentifier", () => input.configuredTableIdentifier!, "{configuredTableIdentifier}", false);
+  b.p("analysisRuleType", () => input.analysisRuleType!, "{analysisRuleType}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -661,37 +658,19 @@ export const se_DeleteConfiguredTableAssociationCommand = async (
   input: DeleteConfiguredTableAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/configuredTableAssociations/{configuredTableAssociationIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp("/memberships/{membershipIdentifier}/configuredTableAssociations/{configuredTableAssociationIdentifier}");
+  b.p(
     "configuredTableAssociationIdentifier",
     () => input.configuredTableAssociationIdentifier!,
     "{configuredTableAssociationIdentifier}",
     false
   );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -701,30 +680,14 @@ export const se_DeleteMemberCommand = async (
   input: DeleteMemberCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/collaborations/{collaborationIdentifier}/member/{accountId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "collaborationIdentifier",
-    () => input.collaborationIdentifier!,
-    "{collaborationIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "accountId", () => input.accountId!, "{accountId}", false);
+  b.bp("/collaborations/{collaborationIdentifier}/member/{accountId}");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -734,28 +697,35 @@ export const se_DeleteMembershipCommand = async (
   input: DeleteMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/memberships/{membershipIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
+  b.bp("/memberships/{membershipIdentifier}");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeletePrivacyBudgetTemplateCommand
+ */
+export const se_DeletePrivacyBudgetTemplateCommand = async (
+  input: DeletePrivacyBudgetTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/memberships/{membershipIdentifier}/privacybudgettemplates/{privacyBudgetTemplateIdentifier}");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  b.p(
+    "privacyBudgetTemplateIdentifier",
+    () => input.privacyBudgetTemplateIdentifier!,
+    "{privacyBudgetTemplateIdentifier}",
     false
   );
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -765,37 +735,14 @@ export const se_GetAnalysisTemplateCommand = async (
   input: GetAnalysisTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/analysistemplates/{analysisTemplateIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "analysisTemplateIdentifier",
-    () => input.analysisTemplateIdentifier!,
-    "{analysisTemplateIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}/analysistemplates/{analysisTemplateIdentifier}");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  b.p("analysisTemplateIdentifier", () => input.analysisTemplateIdentifier!, "{analysisTemplateIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -805,28 +752,13 @@ export const se_GetCollaborationCommand = async (
   input: GetCollaborationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/collaborations/{collaborationIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "collaborationIdentifier",
-    () => input.collaborationIdentifier!,
-    "{collaborationIdentifier}",
-    false
-  );
+  b.bp("/collaborations/{collaborationIdentifier}");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -836,37 +768,84 @@ export const se_GetCollaborationAnalysisTemplateCommand = async (
   input: GetCollaborationAnalysisTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/collaborations/{collaborationIdentifier}/analysistemplates/{analysisTemplateArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "collaborationIdentifier",
-    () => input.collaborationIdentifier!,
-    "{collaborationIdentifier}",
-    false
+  b.bp("/collaborations/{collaborationIdentifier}/analysistemplates/{analysisTemplateArn}");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  b.p("analysisTemplateArn", () => input.analysisTemplateArn!, "{analysisTemplateArn}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetCollaborationConfiguredAudienceModelAssociationCommand
+ */
+export const se_GetCollaborationConfiguredAudienceModelAssociationCommand = async (
+  input: GetCollaborationConfiguredAudienceModelAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp(
+    "/collaborations/{collaborationIdentifier}/configuredaudiencemodelassociations/{configuredAudienceModelAssociationIdentifier}"
   );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "analysisTemplateArn",
-    () => input.analysisTemplateArn!,
-    "{analysisTemplateArn}",
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  b.p(
+    "configuredAudienceModelAssociationIdentifier",
+    () => input.configuredAudienceModelAssociationIdentifier!,
+    "{configuredAudienceModelAssociationIdentifier}",
     false
   );
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetCollaborationPrivacyBudgetTemplateCommand
+ */
+export const se_GetCollaborationPrivacyBudgetTemplateCommand = async (
+  input: GetCollaborationPrivacyBudgetTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/collaborations/{collaborationIdentifier}/privacybudgettemplates/{privacyBudgetTemplateIdentifier}");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  b.p(
+    "privacyBudgetTemplateIdentifier",
+    () => input.privacyBudgetTemplateIdentifier!,
+    "{privacyBudgetTemplateIdentifier}",
+    false
+  );
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetConfiguredAudienceModelAssociationCommand
+ */
+export const se_GetConfiguredAudienceModelAssociationCommand = async (
+  input: GetConfiguredAudienceModelAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp(
+    "/memberships/{membershipIdentifier}/configuredaudiencemodelassociations/{configuredAudienceModelAssociationIdentifier}"
+  );
+  b.p(
+    "configuredAudienceModelAssociationIdentifier",
+    () => input.configuredAudienceModelAssociationIdentifier!,
+    "{configuredAudienceModelAssociationIdentifier}",
+    false
+  );
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -876,29 +855,13 @@ export const se_GetConfiguredTableCommand = async (
   input: GetConfiguredTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/configuredTables/{configuredTableIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "configuredTableIdentifier",
-    () => input.configuredTableIdentifier!,
-    "{configuredTableIdentifier}",
-    false
-  );
+  b.bp("/configuredTables/{configuredTableIdentifier}");
+  b.p("configuredTableIdentifier", () => input.configuredTableIdentifier!, "{configuredTableIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -908,37 +871,14 @@ export const se_GetConfiguredTableAnalysisRuleCommand = async (
   input: GetConfiguredTableAnalysisRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/configuredTables/{configuredTableIdentifier}/analysisRule/{analysisRuleType}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "configuredTableIdentifier",
-    () => input.configuredTableIdentifier!,
-    "{configuredTableIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "analysisRuleType",
-    () => input.analysisRuleType!,
-    "{analysisRuleType}",
-    false
-  );
+  b.bp("/configuredTables/{configuredTableIdentifier}/analysisRule/{analysisRuleType}");
+  b.p("configuredTableIdentifier", () => input.configuredTableIdentifier!, "{configuredTableIdentifier}", false);
+  b.p("analysisRuleType", () => input.analysisRuleType!, "{analysisRuleType}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -948,37 +888,19 @@ export const se_GetConfiguredTableAssociationCommand = async (
   input: GetConfiguredTableAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/configuredTableAssociations/{configuredTableAssociationIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp("/memberships/{membershipIdentifier}/configuredTableAssociations/{configuredTableAssociationIdentifier}");
+  b.p(
     "configuredTableAssociationIdentifier",
     () => input.configuredTableAssociationIdentifier!,
     "{configuredTableAssociationIdentifier}",
     false
   );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -988,28 +910,35 @@ export const se_GetMembershipCommand = async (
   input: GetMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/memberships/{membershipIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
+  b.bp("/memberships/{membershipIdentifier}");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetPrivacyBudgetTemplateCommand
+ */
+export const se_GetPrivacyBudgetTemplateCommand = async (
+  input: GetPrivacyBudgetTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/memberships/{membershipIdentifier}/privacybudgettemplates/{privacyBudgetTemplateIdentifier}");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  b.p(
+    "privacyBudgetTemplateIdentifier",
+    () => input.privacyBudgetTemplateIdentifier!,
+    "{privacyBudgetTemplateIdentifier}",
     false
   );
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1019,37 +948,14 @@ export const se_GetProtectedQueryCommand = async (
   input: GetProtectedQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/protectedQueries/{protectedQueryIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "protectedQueryIdentifier",
-    () => input.protectedQueryIdentifier!,
-    "{protectedQueryIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}/protectedQueries/{protectedQueryIdentifier}");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  b.p("protectedQueryIdentifier", () => input.protectedQueryIdentifier!, "{protectedQueryIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1059,30 +965,14 @@ export const se_GetSchemaCommand = async (
   input: GetSchemaCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/collaborations/{collaborationIdentifier}/schemas/{name}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "collaborationIdentifier",
-    () => input.collaborationIdentifier!,
-    "{collaborationIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  b.bp("/collaborations/{collaborationIdentifier}/schemas/{name}");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  b.p("name", () => input.name!, "{name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1092,31 +982,15 @@ export const se_GetSchemaAnalysisRuleCommand = async (
   input: GetSchemaAnalysisRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/collaborations/{collaborationIdentifier}/schemas/{name}/analysisRule/{type}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "collaborationIdentifier",
-    () => input.collaborationIdentifier!,
-    "{collaborationIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "type", () => input.type!, "{type}", false);
+  b.bp("/collaborations/{collaborationIdentifier}/schemas/{name}/analysisRule/{type}");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  b.p("name", () => input.name!, "{name}", false);
+  b.p("type", () => input.type!, "{type}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1126,34 +1000,17 @@ export const se_ListAnalysisTemplatesCommand = async (
   input: ListAnalysisTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/analysistemplates";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}/analysistemplates");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1163,34 +1020,78 @@ export const se_ListCollaborationAnalysisTemplatesCommand = async (
   input: ListCollaborationAnalysisTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/collaborations/{collaborationIdentifier}/analysistemplates";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "collaborationIdentifier",
-    () => input.collaborationIdentifier!,
-    "{collaborationIdentifier}",
-    false
-  );
+  b.bp("/collaborations/{collaborationIdentifier}/analysistemplates");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListCollaborationConfiguredAudienceModelAssociationsCommand
+ */
+export const se_ListCollaborationConfiguredAudienceModelAssociationsCommand = async (
+  input: ListCollaborationConfiguredAudienceModelAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/collaborations/{collaborationIdentifier}/configuredaudiencemodelassociations");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListCollaborationPrivacyBudgetsCommand
+ */
+export const se_ListCollaborationPrivacyBudgetsCommand = async (
+  input: ListCollaborationPrivacyBudgetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/collaborations/{collaborationIdentifier}/privacybudgets");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  const query: any = map({
+    [_pBT]: [, __expectNonNull(input[_pBT]!, `privacyBudgetType`)],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListCollaborationPrivacyBudgetTemplatesCommand
+ */
+export const se_ListCollaborationPrivacyBudgetTemplatesCommand = async (
+  input: ListCollaborationPrivacyBudgetTemplatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/collaborations/{collaborationIdentifier}/privacybudgettemplates");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1200,25 +1101,37 @@ export const se_ListCollaborationsCommand = async (
   input: ListCollaborationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/collaborations";
+  b.bp("/collaborations");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    memberStatus: [, input.memberStatus!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_mS]: [, input[_mS]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListConfiguredAudienceModelAssociationsCommand
+ */
+export const se_ListConfiguredAudienceModelAssociationsCommand = async (
+  input: ListConfiguredAudienceModelAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/memberships/{membershipIdentifier}/configuredaudiencemodelassociations");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1228,34 +1141,17 @@ export const se_ListConfiguredTableAssociationsCommand = async (
   input: ListConfiguredTableAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/configuredTableAssociations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}/configuredTableAssociations");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1265,24 +1161,16 @@ export const se_ListConfiguredTablesCommand = async (
   input: ListConfiguredTablesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configuredTables";
+  b.bp("/configuredTables");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1292,34 +1180,17 @@ export const se_ListMembersCommand = async (
   input: ListMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/collaborations/{collaborationIdentifier}/members";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "collaborationIdentifier",
-    () => input.collaborationIdentifier!,
-    "{collaborationIdentifier}",
-    false
-  );
+  b.bp("/collaborations/{collaborationIdentifier}/members");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1329,25 +1200,58 @@ export const se_ListMembershipsCommand = async (
   input: ListMembershipsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/memberships";
+  b.bp("/memberships");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    status: [, input.status!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_s]: [, input[_s]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListPrivacyBudgetsCommand
+ */
+export const se_ListPrivacyBudgetsCommand = async (
+  input: ListPrivacyBudgetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/memberships/{membershipIdentifier}/privacybudgets");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  const query: any = map({
+    [_pBT]: [, __expectNonNull(input[_pBT]!, `privacyBudgetType`)],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListPrivacyBudgetTemplatesCommand
+ */
+export const se_ListPrivacyBudgetTemplatesCommand = async (
+  input: ListPrivacyBudgetTemplatesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/memberships/{membershipIdentifier}/privacybudgettemplates");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1357,35 +1261,18 @@ export const se_ListProtectedQueriesCommand = async (
   input: ListProtectedQueriesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/protectedQueries";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}/protectedQueries");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   const query: any = map({
-    status: [, input.status!],
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_s]: [, input[_s]!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1395,35 +1282,18 @@ export const se_ListSchemasCommand = async (
   input: ListSchemasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/collaborations/{collaborationIdentifier}/schemas";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "collaborationIdentifier",
-    () => input.collaborationIdentifier!,
-    "{collaborationIdentifier}",
-    false
-  );
+  b.bp("/collaborations/{collaborationIdentifier}/schemas");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
   const query: any = map({
-    schemaType: [, input.schemaType!],
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_sT]: [, input[_sT]!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1433,20 +1303,36 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1PreviewPrivacyImpactCommand
+ */
+export const se_PreviewPrivacyImpactCommand = async (
+  input: PreviewPrivacyImpactCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/memberships/{membershipIdentifier}/previewprivacyimpact");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      parameters: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1456,21 +1342,12 @@ export const se_StartProtectedQueryCommand = async (
   input: StartProtectedQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/protectedQueries";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}/protectedQueries");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1479,15 +1356,8 @@ export const se_StartProtectedQueryCommand = async (
       type: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1497,27 +1367,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1527,27 +1390,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1557,44 +1412,21 @@ export const se_UpdateAnalysisTemplateCommand = async (
   input: UpdateAnalysisTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/analysistemplates/{analysisTemplateIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "analysisTemplateIdentifier",
-    () => input.analysisTemplateIdentifier!,
-    "{analysisTemplateIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}/analysistemplates/{analysisTemplateIdentifier}");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  b.p("analysisTemplateIdentifier", () => input.analysisTemplateIdentifier!, "{analysisTemplateIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       description: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1604,20 +1436,12 @@ export const se_UpdateCollaborationCommand = async (
   input: UpdateCollaborationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/collaborations/{collaborationIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "collaborationIdentifier",
-    () => input.collaborationIdentifier!,
-    "{collaborationIdentifier}",
-    false
-  );
+  b.bp("/collaborations/{collaborationIdentifier}");
+  b.p("collaborationIdentifier", () => input.collaborationIdentifier!, "{collaborationIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1625,15 +1449,40 @@ export const se_UpdateCollaborationCommand = async (
       name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateConfiguredAudienceModelAssociationCommand
+ */
+export const se_UpdateConfiguredAudienceModelAssociationCommand = async (
+  input: UpdateConfiguredAudienceModelAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp(
+    "/memberships/{membershipIdentifier}/configuredaudiencemodelassociations/{configuredAudienceModelAssociationIdentifier}"
+  );
+  b.p(
+    "configuredAudienceModelAssociationIdentifier",
+    () => input.configuredAudienceModelAssociationIdentifier!,
+    "{configuredAudienceModelAssociationIdentifier}",
+    false
+  );
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      name: [],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1643,21 +1492,12 @@ export const se_UpdateConfiguredTableCommand = async (
   input: UpdateConfiguredTableCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/configuredTables/{configuredTableIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "configuredTableIdentifier",
-    () => input.configuredTableIdentifier!,
-    "{configuredTableIdentifier}",
-    false
-  );
+  b.bp("/configuredTables/{configuredTableIdentifier}");
+  b.p("configuredTableIdentifier", () => input.configuredTableIdentifier!, "{configuredTableIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1665,15 +1505,8 @@ export const se_UpdateConfiguredTableCommand = async (
       name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1683,44 +1516,21 @@ export const se_UpdateConfiguredTableAnalysisRuleCommand = async (
   input: UpdateConfiguredTableAnalysisRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/configuredTables/{configuredTableIdentifier}/analysisRule/{analysisRuleType}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "configuredTableIdentifier",
-    () => input.configuredTableIdentifier!,
-    "{configuredTableIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "analysisRuleType",
-    () => input.analysisRuleType!,
-    "{analysisRuleType}",
-    false
-  );
+  b.bp("/configuredTables/{configuredTableIdentifier}/analysisRule/{analysisRuleType}");
+  b.p("configuredTableIdentifier", () => input.configuredTableIdentifier!, "{configuredTableIdentifier}", false);
+  b.p("analysisRuleType", () => input.analysisRuleType!, "{analysisRuleType}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       analysisRulePolicy: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1730,29 +1540,18 @@ export const se_UpdateConfiguredTableAssociationCommand = async (
   input: UpdateConfiguredTableAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/configuredTableAssociations/{configuredTableAssociationIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
+  b.bp("/memberships/{membershipIdentifier}/configuredTableAssociations/{configuredTableAssociationIdentifier}");
+  b.p(
     "configuredTableAssociationIdentifier",
     () => input.configuredTableAssociationIdentifier!,
     "{configuredTableAssociationIdentifier}",
     false
   );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1760,15 +1559,8 @@ export const se_UpdateConfiguredTableAssociationCommand = async (
       roleArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1778,35 +1570,51 @@ export const se_UpdateMembershipCommand = async (
   input: UpdateMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/memberships/{membershipIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
+  b.bp("/memberships/{membershipIdentifier}");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      defaultResultConfiguration: (_) => _json(_),
+      queryLogStatus: [],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdatePrivacyBudgetTemplateCommand
+ */
+export const se_UpdatePrivacyBudgetTemplateCommand = async (
+  input: UpdatePrivacyBudgetTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/memberships/{membershipIdentifier}/privacybudgettemplates/{privacyBudgetTemplateIdentifier}");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  b.p(
+    "privacyBudgetTemplateIdentifier",
+    () => input.privacyBudgetTemplateIdentifier!,
+    "{privacyBudgetTemplateIdentifier}",
     false
   );
   let body: any;
   body = JSON.stringify(
     take(input, {
-      queryLogStatus: [],
+      parameters: (_) => _json(_),
+      privacyBudgetType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1816,44 +1624,21 @@ export const se_UpdateProtectedQueryCommand = async (
   input: UpdateProtectedQueryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/memberships/{membershipIdentifier}/protectedQueries/{protectedQueryIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "membershipIdentifier",
-    () => input.membershipIdentifier!,
-    "{membershipIdentifier}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "protectedQueryIdentifier",
-    () => input.protectedQueryIdentifier!,
-    "{protectedQueryIdentifier}",
-    false
-  );
+  b.bp("/memberships/{membershipIdentifier}/protectedQueries/{protectedQueryIdentifier}");
+  b.p("membershipIdentifier", () => input.membershipIdentifier!, "{membershipIdentifier}", false);
+  b.p("protectedQueryIdentifier", () => input.protectedQueryIdentifier!, "{protectedQueryIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       targetStatus: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2081,6 +1866,71 @@ const de_CreateCollaborationCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.cleanrooms#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.cleanrooms#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateConfiguredAudienceModelAssociationCommand
+ */
+export const de_CreateConfiguredAudienceModelAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateConfiguredAudienceModelAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateConfiguredAudienceModelAssociationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    configuredAudienceModelAssociation: (_) => de_ConfiguredAudienceModelAssociation(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateConfiguredAudienceModelAssociationCommandError
+ */
+const de_CreateConfiguredAudienceModelAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateConfiguredAudienceModelAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.cleanrooms#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.cleanrooms#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
@@ -2358,6 +2208,68 @@ const de_CreateMembershipCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreatePrivacyBudgetTemplateCommand
+ */
+export const de_CreatePrivacyBudgetTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePrivacyBudgetTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreatePrivacyBudgetTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    privacyBudgetTemplate: (_) => de_PrivacyBudgetTemplate(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreatePrivacyBudgetTemplateCommandError
+ */
+const de_CreatePrivacyBudgetTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePrivacyBudgetTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.cleanrooms#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DeleteAnalysisTemplateCommand
  */
 export const de_DeleteAnalysisTemplateCommand = async (
@@ -2448,6 +2360,61 @@ const de_DeleteCollaborationCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.cleanrooms#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteConfiguredAudienceModelAssociationCommand
+ */
+export const de_DeleteConfiguredAudienceModelAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConfiguredAudienceModelAssociationCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_DeleteConfiguredAudienceModelAssociationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteConfiguredAudienceModelAssociationCommandError
+ */
+const de_DeleteConfiguredAudienceModelAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConfiguredAudienceModelAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.cleanrooms#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -2755,6 +2722,61 @@ const de_DeleteMembershipCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DeletePrivacyBudgetTemplateCommand
+ */
+export const de_DeletePrivacyBudgetTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePrivacyBudgetTemplateCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_DeletePrivacyBudgetTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeletePrivacyBudgetTemplateCommandError
+ */
+const de_DeletePrivacyBudgetTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePrivacyBudgetTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1GetAnalysisTemplateCommand
  */
 export const de_GetAnalysisTemplateCommand = async (
@@ -2897,6 +2919,184 @@ const de_GetCollaborationAnalysisTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCollaborationAnalysisTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetCollaborationConfiguredAudienceModelAssociationCommand
+ */
+export const de_GetCollaborationConfiguredAudienceModelAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCollaborationConfiguredAudienceModelAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetCollaborationConfiguredAudienceModelAssociationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    collaborationConfiguredAudienceModelAssociation: (_) =>
+      de_CollaborationConfiguredAudienceModelAssociation(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetCollaborationConfiguredAudienceModelAssociationCommandError
+ */
+const de_GetCollaborationConfiguredAudienceModelAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCollaborationConfiguredAudienceModelAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetCollaborationPrivacyBudgetTemplateCommand
+ */
+export const de_GetCollaborationPrivacyBudgetTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCollaborationPrivacyBudgetTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetCollaborationPrivacyBudgetTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    collaborationPrivacyBudgetTemplate: (_) => de_CollaborationPrivacyBudgetTemplate(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetCollaborationPrivacyBudgetTemplateCommandError
+ */
+const de_GetCollaborationPrivacyBudgetTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCollaborationPrivacyBudgetTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetConfiguredAudienceModelAssociationCommand
+ */
+export const de_GetConfiguredAudienceModelAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConfiguredAudienceModelAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetConfiguredAudienceModelAssociationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    configuredAudienceModelAssociation: (_) => de_ConfiguredAudienceModelAssociation(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetConfiguredAudienceModelAssociationCommandError
+ */
+const de_GetConfiguredAudienceModelAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConfiguredAudienceModelAssociationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3133,6 +3333,65 @@ const de_GetMembershipCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMembershipCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetPrivacyBudgetTemplateCommand
+ */
+export const de_GetPrivacyBudgetTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPrivacyBudgetTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetPrivacyBudgetTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    privacyBudgetTemplate: (_) => de_PrivacyBudgetTemplate(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetPrivacyBudgetTemplateCommandError
+ */
+const de_GetPrivacyBudgetTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPrivacyBudgetTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3462,6 +3721,187 @@ const de_ListCollaborationAnalysisTemplatesCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListCollaborationConfiguredAudienceModelAssociationsCommand
+ */
+export const de_ListCollaborationConfiguredAudienceModelAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCollaborationConfiguredAudienceModelAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListCollaborationConfiguredAudienceModelAssociationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    collaborationConfiguredAudienceModelAssociationSummaries: (_) =>
+      de_CollaborationConfiguredAudienceModelAssociationSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCollaborationConfiguredAudienceModelAssociationsCommandError
+ */
+const de_ListCollaborationConfiguredAudienceModelAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCollaborationConfiguredAudienceModelAssociationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListCollaborationPrivacyBudgetsCommand
+ */
+export const de_ListCollaborationPrivacyBudgetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCollaborationPrivacyBudgetsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListCollaborationPrivacyBudgetsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    collaborationPrivacyBudgetSummaries: (_) => de_CollaborationPrivacyBudgetSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCollaborationPrivacyBudgetsCommandError
+ */
+const de_ListCollaborationPrivacyBudgetsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCollaborationPrivacyBudgetsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListCollaborationPrivacyBudgetTemplatesCommand
+ */
+export const de_ListCollaborationPrivacyBudgetTemplatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCollaborationPrivacyBudgetTemplatesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListCollaborationPrivacyBudgetTemplatesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    collaborationPrivacyBudgetTemplateSummaries: (_) => de_CollaborationPrivacyBudgetTemplateSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCollaborationPrivacyBudgetTemplatesCommandError
+ */
+const de_ListCollaborationPrivacyBudgetTemplatesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCollaborationPrivacyBudgetTemplatesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListCollaborationsCommand
  */
 export const de_ListCollaborationsCommand = async (
@@ -3502,6 +3942,66 @@ const de_ListCollaborationsCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.cleanrooms#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListConfiguredAudienceModelAssociationsCommand
+ */
+export const de_ListConfiguredAudienceModelAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConfiguredAudienceModelAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListConfiguredAudienceModelAssociationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    configuredAudienceModelAssociationSummaries: (_) => de_ConfiguredAudienceModelAssociationSummaryList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListConfiguredAudienceModelAssociationsCommandError
+ */
+const de_ListConfiguredAudienceModelAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConfiguredAudienceModelAssociationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.cleanrooms#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -3753,6 +4253,126 @@ const de_ListMembershipsCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListPrivacyBudgetsCommand
+ */
+export const de_ListPrivacyBudgetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPrivacyBudgetsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListPrivacyBudgetsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    privacyBudgetSummaries: (_) => de_PrivacyBudgetSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListPrivacyBudgetsCommandError
+ */
+const de_ListPrivacyBudgetsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPrivacyBudgetsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListPrivacyBudgetTemplatesCommand
+ */
+export const de_ListPrivacyBudgetTemplatesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPrivacyBudgetTemplatesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListPrivacyBudgetTemplatesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    privacyBudgetTemplateSummaries: (_) => de_PrivacyBudgetTemplateSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListPrivacyBudgetTemplatesCommandError
+ */
+const de_ListPrivacyBudgetTemplatesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPrivacyBudgetTemplatesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListProtectedQueriesCommand
  */
 export const de_ListProtectedQueriesCommand = async (
@@ -3909,6 +4529,65 @@ const de_ListTagsForResourceCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.cleanrooms#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1PreviewPrivacyImpactCommand
+ */
+export const de_PreviewPrivacyImpactCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PreviewPrivacyImpactCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_PreviewPrivacyImpactCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    privacyImpact: (_) => _json(__expectUnion(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PreviewPrivacyImpactCommandError
+ */
+const de_PreviewPrivacyImpactCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PreviewPrivacyImpactCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.cleanrooms#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -4192,6 +4871,65 @@ const de_UpdateCollaborationCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateConfiguredAudienceModelAssociationCommand
+ */
+export const de_UpdateConfiguredAudienceModelAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConfiguredAudienceModelAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateConfiguredAudienceModelAssociationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    configuredAudienceModelAssociation: (_) => de_ConfiguredAudienceModelAssociation(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateConfiguredAudienceModelAssociationCommandError
+ */
+const de_UpdateConfiguredAudienceModelAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConfiguredAudienceModelAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateConfiguredTableCommand
  */
 export const de_UpdateConfiguredTableCommand = async (
@@ -4405,6 +5143,68 @@ const de_UpdateMembershipCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMembershipCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.cleanrooms#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.cleanrooms#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.cleanrooms#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.cleanrooms#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.cleanrooms#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.cleanrooms#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdatePrivacyBudgetTemplateCommand
+ */
+export const de_UpdatePrivacyBudgetTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePrivacyBudgetTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdatePrivacyBudgetTemplateCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    privacyBudgetTemplate: (_) => de_PrivacyBudgetTemplate(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdatePrivacyBudgetTemplateCommandError
+ */
+const de_UpdatePrivacyBudgetTemplateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePrivacyBudgetTemplateCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4681,6 +5481,18 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DataEncryptionMetadata omitted.
 
+// se_DifferentialPrivacyColumn omitted.
+
+// se_DifferentialPrivacyColumnList omitted.
+
+// se_DifferentialPrivacyConfiguration omitted.
+
+// se_DifferentialPrivacyPreviewParametersInput omitted.
+
+// se_DifferentialPrivacyTemplateParametersInput omitted.
+
+// se_DifferentialPrivacyTemplateUpdateParameters omitted.
+
 // se_GlueTableReference omitted.
 
 // se_JoinOperatorsList omitted.
@@ -4689,9 +5501,25 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_MemberList omitted.
 
+// se_MembershipPaymentConfiguration omitted.
+
+// se_MembershipProtectedQueryOutputConfiguration omitted.
+
+// se_MembershipProtectedQueryResultConfiguration omitted.
+
+// se_MembershipQueryComputePaymentConfig omitted.
+
 // se_MemberSpecification omitted.
 
 // se_ParameterMap omitted.
+
+// se_PaymentConfiguration omitted.
+
+// se_PreviewPrivacyImpactParametersInput omitted.
+
+// se_PrivacyBudgetTemplateParametersInput omitted.
+
+// se_PrivacyBudgetTemplateUpdateParameters omitted.
 
 // se_ProtectedQueryOutputConfiguration omitted.
 
@@ -4700,6 +5528,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_ProtectedQueryS3OutputConfiguration omitted.
 
 // se_ProtectedQuerySQLParameters omitted.
+
+// se_QueryComputePaymentConfig omitted.
 
 // se_ScalarFunctionsList omitted.
 
@@ -4914,6 +5744,153 @@ const de_CollaborationAnalysisTemplateSummaryList = (
 };
 
 /**
+ * deserializeAws_restJson1CollaborationConfiguredAudienceModelAssociation
+ */
+const de_CollaborationConfiguredAudienceModelAssociation = (
+  output: any,
+  context: __SerdeContext
+): CollaborationConfiguredAudienceModelAssociation => {
+  return take(output, {
+    arn: __expectString,
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    configuredAudienceModelArn: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    creatorAccountId: __expectString,
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationConfiguredAudienceModelAssociationSummary
+ */
+const de_CollaborationConfiguredAudienceModelAssociationSummary = (
+  output: any,
+  context: __SerdeContext
+): CollaborationConfiguredAudienceModelAssociationSummary => {
+  return take(output, {
+    arn: __expectString,
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    creatorAccountId: __expectString,
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationConfiguredAudienceModelAssociationSummaryList
+ */
+const de_CollaborationConfiguredAudienceModelAssociationSummaryList = (
+  output: any,
+  context: __SerdeContext
+): CollaborationConfiguredAudienceModelAssociationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CollaborationConfiguredAudienceModelAssociationSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationPrivacyBudgetSummary
+ */
+const de_CollaborationPrivacyBudgetSummary = (
+  output: any,
+  context: __SerdeContext
+): CollaborationPrivacyBudgetSummary => {
+  return take(output, {
+    budget: (_: any) => _json(__expectUnion(_)),
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    creatorAccountId: __expectString,
+    id: __expectString,
+    privacyBudgetTemplateArn: __expectString,
+    privacyBudgetTemplateId: __expectString,
+    type: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationPrivacyBudgetSummaryList
+ */
+const de_CollaborationPrivacyBudgetSummaryList = (
+  output: any,
+  context: __SerdeContext
+): CollaborationPrivacyBudgetSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CollaborationPrivacyBudgetSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationPrivacyBudgetTemplate
+ */
+const de_CollaborationPrivacyBudgetTemplate = (
+  output: any,
+  context: __SerdeContext
+): CollaborationPrivacyBudgetTemplate => {
+  return take(output, {
+    arn: __expectString,
+    autoRefresh: __expectString,
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    creatorAccountId: __expectString,
+    id: __expectString,
+    parameters: (_: any) => _json(__expectUnion(_)),
+    privacyBudgetType: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationPrivacyBudgetTemplateSummary
+ */
+const de_CollaborationPrivacyBudgetTemplateSummary = (
+  output: any,
+  context: __SerdeContext
+): CollaborationPrivacyBudgetTemplateSummary => {
+  return take(output, {
+    arn: __expectString,
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    creatorAccountId: __expectString,
+    id: __expectString,
+    privacyBudgetType: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CollaborationPrivacyBudgetTemplateSummaryList
+ */
+const de_CollaborationPrivacyBudgetTemplateSummaryList = (
+  output: any,
+  context: __SerdeContext
+): CollaborationPrivacyBudgetTemplateSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CollaborationPrivacyBudgetTemplateSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1CollaborationSummary
  */
 const de_CollaborationSummary = (output: any, context: __SerdeContext): CollaborationSummary => {
@@ -4946,6 +5923,66 @@ const de_CollaborationSummaryList = (output: any, context: __SerdeContext): Coll
 // de_Column omitted.
 
 // de_ColumnList omitted.
+
+/**
+ * deserializeAws_restJson1ConfiguredAudienceModelAssociation
+ */
+const de_ConfiguredAudienceModelAssociation = (
+  output: any,
+  context: __SerdeContext
+): ConfiguredAudienceModelAssociation => {
+  return take(output, {
+    arn: __expectString,
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    configuredAudienceModelArn: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    manageResourcePolicies: __expectBoolean,
+    membershipArn: __expectString,
+    membershipId: __expectString,
+    name: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ConfiguredAudienceModelAssociationSummary
+ */
+const de_ConfiguredAudienceModelAssociationSummary = (
+  output: any,
+  context: __SerdeContext
+): ConfiguredAudienceModelAssociationSummary => {
+  return take(output, {
+    arn: __expectString,
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    configuredAudienceModelArn: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    id: __expectString,
+    membershipArn: __expectString,
+    membershipId: __expectString,
+    name: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ConfiguredAudienceModelAssociationSummaryList
+ */
+const de_ConfiguredAudienceModelAssociationSummaryList = (
+  output: any,
+  context: __SerdeContext
+): ConfiguredAudienceModelAssociationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ConfiguredAudienceModelAssociationSummary(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1ConfiguredTable
@@ -5067,6 +6104,66 @@ const de_ConfiguredTableSummaryList = (output: any, context: __SerdeContext): Co
 
 // de_DataEncryptionMetadata omitted.
 
+// de_DifferentialPrivacyColumn omitted.
+
+// de_DifferentialPrivacyColumnList omitted.
+
+// de_DifferentialPrivacyConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1DifferentialPrivacyParameters
+ */
+const de_DifferentialPrivacyParameters = (output: any, context: __SerdeContext): DifferentialPrivacyParameters => {
+  return take(output, {
+    sensitivityParameters: (_: any) => de_DifferentialPrivacySensitivityParametersList(_, context),
+  }) as any;
+};
+
+// de_DifferentialPrivacyPreviewAggregation omitted.
+
+// de_DifferentialPrivacyPreviewAggregationList omitted.
+
+// de_DifferentialPrivacyPrivacyBudget omitted.
+
+// de_DifferentialPrivacyPrivacyBudgetAggregation omitted.
+
+// de_DifferentialPrivacyPrivacyBudgetAggregationList omitted.
+
+// de_DifferentialPrivacyPrivacyImpact omitted.
+
+/**
+ * deserializeAws_restJson1DifferentialPrivacySensitivityParameters
+ */
+const de_DifferentialPrivacySensitivityParameters = (
+  output: any,
+  context: __SerdeContext
+): DifferentialPrivacySensitivityParameters => {
+  return take(output, {
+    aggregationExpression: __expectString,
+    aggregationType: __expectString,
+    maxColumnValue: __limitedParseFloat32,
+    minColumnValue: __limitedParseFloat32,
+    userContributionLimit: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DifferentialPrivacySensitivityParametersList
+ */
+const de_DifferentialPrivacySensitivityParametersList = (
+  output: any,
+  context: __SerdeContext
+): DifferentialPrivacySensitivityParameters[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DifferentialPrivacySensitivityParameters(entry, context);
+    });
+  return retVal;
+};
+
+// de_DifferentialPrivacyTemplateParametersOutput omitted.
+
 // de_GlueTableReference omitted.
 
 // de_JoinOperatorsList omitted.
@@ -5085,13 +6182,23 @@ const de_Membership = (output: any, context: __SerdeContext): Membership => {
     collaborationId: __expectString,
     collaborationName: __expectString,
     createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    defaultResultConfiguration: _json,
     id: __expectString,
     memberAbilities: _json,
+    paymentConfiguration: _json,
     queryLogStatus: __expectString,
     status: __expectString,
     updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+// de_MembershipPaymentConfiguration omitted.
+
+// de_MembershipProtectedQueryOutputConfiguration omitted.
+
+// de_MembershipProtectedQueryResultConfiguration omitted.
+
+// de_MembershipQueryComputePaymentConfig omitted.
 
 /**
  * deserializeAws_restJson1MembershipSummary
@@ -5107,6 +6214,7 @@ const de_MembershipSummary = (output: any, context: __SerdeContext): MembershipS
     createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     id: __expectString,
     memberAbilities: _json,
+    paymentConfiguration: _json,
     status: __expectString,
     updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
@@ -5135,6 +6243,7 @@ const de_MemberSummary = (output: any, context: __SerdeContext): MemberSummary =
     displayName: __expectString,
     membershipArn: __expectString,
     membershipId: __expectString,
+    paymentConfiguration: _json,
     status: __expectString,
     updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
@@ -5154,12 +6263,100 @@ const de_MemberSummaryList = (output: any, context: __SerdeContext): MemberSumma
 
 // de_ParameterMap omitted.
 
+// de_PaymentConfiguration omitted.
+
+// de_PrivacyBudget omitted.
+
+/**
+ * deserializeAws_restJson1PrivacyBudgetSummary
+ */
+const de_PrivacyBudgetSummary = (output: any, context: __SerdeContext): PrivacyBudgetSummary => {
+  return take(output, {
+    budget: (_: any) => _json(__expectUnion(_)),
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    membershipArn: __expectString,
+    membershipId: __expectString,
+    privacyBudgetTemplateArn: __expectString,
+    privacyBudgetTemplateId: __expectString,
+    type: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1PrivacyBudgetSummaryList
+ */
+const de_PrivacyBudgetSummaryList = (output: any, context: __SerdeContext): PrivacyBudgetSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_PrivacyBudgetSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1PrivacyBudgetTemplate
+ */
+const de_PrivacyBudgetTemplate = (output: any, context: __SerdeContext): PrivacyBudgetTemplate => {
+  return take(output, {
+    arn: __expectString,
+    autoRefresh: __expectString,
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    membershipArn: __expectString,
+    membershipId: __expectString,
+    parameters: (_: any) => _json(__expectUnion(_)),
+    privacyBudgetType: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+// de_PrivacyBudgetTemplateParametersOutput omitted.
+
+/**
+ * deserializeAws_restJson1PrivacyBudgetTemplateSummary
+ */
+const de_PrivacyBudgetTemplateSummary = (output: any, context: __SerdeContext): PrivacyBudgetTemplateSummary => {
+  return take(output, {
+    arn: __expectString,
+    collaborationArn: __expectString,
+    collaborationId: __expectString,
+    createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    id: __expectString,
+    membershipArn: __expectString,
+    membershipId: __expectString,
+    privacyBudgetType: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1PrivacyBudgetTemplateSummaryList
+ */
+const de_PrivacyBudgetTemplateSummaryList = (output: any, context: __SerdeContext): PrivacyBudgetTemplateSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_PrivacyBudgetTemplateSummary(entry, context);
+    });
+  return retVal;
+};
+
+// de_PrivacyImpact omitted.
+
 /**
  * deserializeAws_restJson1ProtectedQuery
  */
 const de_ProtectedQuery = (output: any, context: __SerdeContext): ProtectedQuery => {
   return take(output, {
     createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    differentialPrivacy: (_: any) => de_DifferentialPrivacyParameters(_, context),
     error: _json,
     id: __expectString,
     membershipArn: __expectString,
@@ -5174,6 +6371,8 @@ const de_ProtectedQuery = (output: any, context: __SerdeContext): ProtectedQuery
 
 // de_ProtectedQueryError omitted.
 
+// de_ProtectedQueryMemberOutputList omitted.
+
 // de_ProtectedQueryOutput omitted.
 
 // de_ProtectedQueryOutputConfiguration omitted.
@@ -5185,6 +6384,8 @@ const de_ProtectedQuery = (output: any, context: __SerdeContext): ProtectedQuery
 // de_ProtectedQueryS3Output omitted.
 
 // de_ProtectedQueryS3OutputConfiguration omitted.
+
+// de_ProtectedQuerySingleMemberOutput omitted.
 
 // de_ProtectedQuerySQLParameters omitted.
 
@@ -5214,6 +6415,8 @@ const de_ProtectedQuerySummaryList = (output: any, context: __SerdeContext): Pro
     });
   return retVal;
 };
+
+// de_QueryComputePaymentConfig omitted.
 
 // de_QueryTables omitted.
 
@@ -5306,6 +6509,14 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _mR = "maxResults";
+const _mS = "memberStatus";
+const _nT = "nextToken";
+const _pBT = "privacyBudgetType";
+const _s = "status";
+const _sT = "schemaType";
+const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

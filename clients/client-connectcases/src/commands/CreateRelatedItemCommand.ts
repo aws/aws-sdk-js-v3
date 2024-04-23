@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateRelatedItemRequest, CreateRelatedItemResponse } from "../models/models_0";
 import { de_CreateRelatedItemCommand, se_CreateRelatedItemCommand } from "../protocols/Aws_restJson1";
 
@@ -39,11 +31,20 @@ export interface CreateRelatedItemCommandOutput extends CreateRelatedItemRespons
  * <p>Creates a related item (comments, tasks, and contacts) and associates it with a
  *       case.</p>
  *          <note>
- *             <p>A Related Item is a resource that is associated with a case. It may or may not have an
- *         external identifier linking it to an external resource (for example, a
- *           <code>contactArn</code>). All Related Items have their own internal identifier, the
- *           <code>relatedItemArn</code>. Examples of related items include <code>comments</code> and
- *           <code>contacts</code>.</p>
+ *             <ul>
+ *                <li>
+ *                   <p>A Related Item is a resource that is associated with a case. It may or may not have
+ *             an external identifier linking it to an external resource (for example, a
+ *               <code>contactArn</code>). All Related Items have their own internal identifier, the
+ *               <code>relatedItemArn</code>. Examples of related items include <code>comments</code>
+ *             and <code>contacts</code>.</p>
+ *                </li>
+ *                <li>
+ *                   <p>If you provide a value for <code>performedBy.userArn</code> you must also have
+ *               <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">DescribeUser</a> permission on the ARN of the user that you provide.</p>
+ *                </li>
+ *             </ul>
+ *
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -63,6 +64,9 @@ export interface CreateRelatedItemCommandOutput extends CreateRelatedItemRespons
  *       body: "STRING_VALUE", // required
  *       contentType: "STRING_VALUE", // required
  *     },
+ *   },
+ *   performedBy: { // UserUnion Union: only one key present
+ *     userArn: "STRING_VALUE",
  *   },
  * };
  * const command = new CreateRelatedItemCommand(input);
@@ -105,79 +109,26 @@ export interface CreateRelatedItemCommandOutput extends CreateRelatedItemRespons
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
  */
-export class CreateRelatedItemCommand extends $Command<
-  CreateRelatedItemCommandInput,
-  CreateRelatedItemCommandOutput,
-  ConnectCasesClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateRelatedItemCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ConnectCasesClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateRelatedItemCommandInput, CreateRelatedItemCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateRelatedItemCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ConnectCasesClient";
-    const commandName = "CreateRelatedItemCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateRelatedItemCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateRelatedItemCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRelatedItemCommandOutput> {
-    return de_CreateRelatedItemCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateRelatedItemCommand extends $Command
+  .classBuilder<
+    CreateRelatedItemCommandInput,
+    CreateRelatedItemCommandOutput,
+    ConnectCasesClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonConnectCases", "CreateRelatedItem", {})
+  .n("ConnectCasesClient", "CreateRelatedItemCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateRelatedItemCommand)
+  .de(de_CreateRelatedItemCommand)
+  .build() {}

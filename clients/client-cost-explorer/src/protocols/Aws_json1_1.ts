@@ -3738,6 +3738,8 @@ const de_Impact = (output: any, context: __SerdeContext): Impact => {
 
 // de_MatchOptions omitted.
 
+// de_MemoryDBInstanceDetails omitted.
+
 // de_Metrics omitted.
 
 // de_MetricsOverLookbackPeriod omitted.

@@ -102,6 +102,7 @@
         "suiteDefinitionConfiguration": {
           "target": "com.amazonaws.iotdeviceadvisor#SuiteDefinitionConfiguration",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>Creates a Device Advisor test suite with suite definition configuration.</p>",
             "smithy.api#required": {}
           }
@@ -666,10 +667,7 @@
       }
     },
     "com.amazonaws.iotdeviceadvisor#IntendedForQualificationBoolean": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#default": false
-      }
+      "type": "boolean"
     },
     "com.amazonaws.iotdeviceadvisor#InternalServerException": {
       "type": "structure",
@@ -790,7 +788,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -808,9 +805,187 @@
                   "type": "error"
                 },
                 {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
                   "conditions": [],
-                  "type": "tree",
+                  "endpoint": {
+                    "url": {
+                      "ref": "Endpoint"
+                    },
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ],
+              "type": "tree"
+            },
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ]
+                }
+              ],
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "aws.partition",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ],
+                      "assign": "PartitionResult"
+                    }
+                  ],
                   "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://api.iotdeviceadvisor-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://api.iotdeviceadvisor-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
                     {
                       "conditions": [
                         {
@@ -823,278 +998,65 @@
                           ]
                         }
                       ],
-                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                      "type": "error"
-                    },
-                    {
-                      "conditions": [],
-                      "endpoint": {
-                        "url": {
-                          "ref": "Endpoint"
-                        },
-                        "properties": {},
-                        "headers": {}
-                      },
-                      "type": "endpoint"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "conditions": [],
-              "type": "tree",
-              "rules": [
-                {
-                  "conditions": [
-                    {
-                      "fn": "isSet",
-                      "argv": [
-                        {
-                          "ref": "Region"
-                        }
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "aws.partition",
-                          "argv": [
-                            {
-                              "ref": "Region"
-                            }
-                          ],
-                          "assign": "PartitionResult"
-                        }
-                      ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
                             {
                               "fn": "booleanEquals",
                               "argv": [
+                                true,
                                 {
-                                  "ref": "UseFIPS"
-                                },
-                                true
-                              ]
-                            },
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseDualStack"
-                                },
-                                true
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
                               ]
                             }
                           ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsFIPS"
-                                      ]
-                                    }
-                                  ]
-                                },
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsDualStack"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://api.iotdeviceadvisor-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseFIPS"
-                                },
-                                true
-                              ]
-                            }
-                          ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsFIPS"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://api.iotdeviceadvisor-fips.{Region}.{PartitionResult#dnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "FIPS is enabled but this partition does not support FIPS",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseDualStack"
-                                },
-                                true
-                              ]
-                            }
-                          ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsDualStack"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://api.iotdeviceadvisor.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "DualStack is enabled but this partition does not support DualStack",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
                               "endpoint": {
-                                "url": "https://api.iotdeviceadvisor.{Region}.{PartitionResult#dnsSuffix}",
+                                "url": "https://api.iotdeviceadvisor.{Region}.{PartitionResult#dualStackDnsSuffix}",
                                 "properties": {},
                                 "headers": {}
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://api.iotdeviceadvisor.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
                     }
-                  ]
-                },
-                {
-                  "conditions": [],
-                  "error": "Invalid Configuration: Missing Region",
-                  "type": "error"
+                  ],
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
+            },
+            {
+              "conditions": [],
+              "error": "Invalid Configuration: Missing Region",
+              "type": "error"
             }
           ]
         },
@@ -1454,10 +1416,7 @@
       }
     },
     "com.amazonaws.iotdeviceadvisor#IsLongDurationTestBoolean": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#default": false
-      }
+      "type": "boolean"
     },
     "com.amazonaws.iotdeviceadvisor#ListSuiteDefinitions": {
       "type": "operation",
@@ -1495,7 +1454,6 @@
         "maxResults": {
           "target": "com.amazonaws.iotdeviceadvisor#MaxResults",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of results to return at once.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -1582,7 +1540,6 @@
         "maxResults": {
           "target": "com.amazonaws.iotdeviceadvisor#MaxResults",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The maximum number of results to return at once.</p>",
             "smithy.api#httpQuery": "maxResults"
           }
@@ -1683,7 +1640,6 @@
     "com.amazonaws.iotdeviceadvisor#MaxResults": {
       "type": "integer",
       "traits": {
-        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 1,
           "max": 50
@@ -1700,10 +1656,7 @@
       }
     },
     "com.amazonaws.iotdeviceadvisor#ParallelRun": {
-      "type": "boolean",
-      "traits": {
-        "smithy.api#default": false
-      }
+      "type": "boolean"
     },
     "com.amazonaws.iotdeviceadvisor#Protocol": {
       "type": "enum",
@@ -1822,6 +1775,7 @@
         "suiteRunConfiguration": {
           "target": "com.amazonaws.iotdeviceadvisor#SuiteRunConfiguration",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>Suite run configuration.</p>",
             "smithy.api#required": {}
           }
@@ -2011,6 +1965,7 @@
         "suiteDefinitionName": {
           "target": "com.amazonaws.iotdeviceadvisor#SuiteDefinitionName",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>Gets the suite definition name. This is a required parameter.</p>",
             "smithy.api#required": {}
           }
@@ -2024,20 +1979,19 @@
         "intendedForQualification": {
           "target": "com.amazonaws.iotdeviceadvisor#IntendedForQualificationBoolean",
           "traits": {
-            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Gets the tests intended for qualification in a suite.</p>"
           }
         },
         "isLongDurationTest": {
           "target": "com.amazonaws.iotdeviceadvisor#IsLongDurationTestBoolean",
           "traits": {
-            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Verifies if the test suite is a long duration test.</p>"
           }
         },
         "rootGroup": {
           "target": "com.amazonaws.iotdeviceadvisor#RootGroup",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>Gets the test suite root group. This is a required parameter.\n            For updating or creating the latest qualification suite, \n            if <code>intendedForQualification</code> is set to true, \n            <code>rootGroup</code> can be an empty string. If <code>intendedForQualification</code> is false, \n            <code>rootGroup</code> cannot be an empty string.\n            If <code>rootGroup</code> is empty, and \n            <code>intendedForQualification</code> is set to true, \n            all the qualification tests are included, and the configuration is default.</p>\n         <p>\n            For a qualification suite, the minimum length is 0, and the maximum is 2048.  For a \n            non-qualification suite, the minimum length is 1, and the maximum is 2048.\n        </p>",
             "smithy.api#required": {}
           }
@@ -2045,6 +1999,7 @@
         "devicePermissionRoleArn": {
           "target": "com.amazonaws.iotdeviceadvisor#AmazonResourceName",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>Gets the device permission ARN. This is a required parameter.</p>",
             "smithy.api#required": {}
           }
@@ -2084,14 +2039,12 @@
         "intendedForQualification": {
           "target": "com.amazonaws.iotdeviceadvisor#IntendedForQualificationBoolean",
           "traits": {
-            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Specifies if the test suite is intended for qualification.</p>"
           }
         },
         "isLongDurationTest": {
           "target": "com.amazonaws.iotdeviceadvisor#IsLongDurationTestBoolean",
           "traits": {
-            "smithy.api#default": false,
             "smithy.api#documentation": "<p>Verifies if the test suite is a long duration test.</p>"
           }
         },
@@ -2142,6 +2095,7 @@
         "primaryDevice": {
           "target": "com.amazonaws.iotdeviceadvisor#DeviceUnderTest",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>Sets the primary device for the test suite run. This requires a thing ARN or a\n            certificate ARN.</p>",
             "smithy.api#required": {}
           }
@@ -2155,7 +2109,6 @@
         "parallelRun": {
           "target": "com.amazonaws.iotdeviceadvisor#ParallelRun",
           "traits": {
-            "smithy.api#default": false,
             "smithy.api#documentation": "<p>TRUE if multiple test suites run in parallel.</p>"
           }
         }
@@ -2218,14 +2171,12 @@
         "passed": {
           "target": "com.amazonaws.iotdeviceadvisor#SuiteRunResultCount",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Number of test cases that passed in the suite run.</p>"
           }
         },
         "failed": {
           "target": "com.amazonaws.iotdeviceadvisor#SuiteRunResultCount",
           "traits": {
-            "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Number of test cases that failed in the suite run.</p>"
           }
         }
@@ -2237,7 +2188,6 @@
     "com.amazonaws.iotdeviceadvisor#SuiteRunResultCount": {
       "type": "integer",
       "traits": {
-        "smithy.api#default": 0,
         "smithy.api#range": {
           "min": 0,
           "max": 500
@@ -2381,6 +2331,7 @@
         "tags": {
           "target": "com.amazonaws.iotdeviceadvisor#TagMap",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The tags to be attached to the IoT Device Advisor resource.</p>",
             "smithy.api#required": {}
           }
@@ -2677,6 +2628,7 @@
         "tagKeys": {
           "target": "com.amazonaws.iotdeviceadvisor#TagKeyList",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>List of tag keys to remove from the IoT Device Advisor resource.</p>",
             "smithy.api#httpQuery": "tagKeys",
             "smithy.api#required": {}
@@ -2733,6 +2685,7 @@
         "suiteDefinitionConfiguration": {
           "target": "com.amazonaws.iotdeviceadvisor#SuiteDefinitionConfiguration",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>Updates a Device Advisor test suite with suite definition configuration.</p>",
             "smithy.api#required": {}
           }

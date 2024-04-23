@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient";
 import { PutEventsRequest, PutEventsResponse } from "../models/models_0";
 import { de_PutEventsCommand, se_PutEventsCommand } from "../protocols/Aws_json1_1";
@@ -37,6 +29,13 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
 /**
  * @public
  * <p>Sends custom events to Amazon EventBridge so that they can be matched to rules.</p>
+ *          <p>The maximum size for a PutEvents event entry is 256 KB. Entry size is calculated including the event and any necessary characters and keys of the JSON representation of the event.
+ *       To learn more, see
+ *       <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-putevent-size.html">Calculating PutEvents event entry size</a> in the <i>Amazon EventBridge User Guide</i>
+ *          </p>
+ *          <p>PutEvents accepts the data in JSON format. For the JSON number
+ *       (integer) data type, the constraints are: a minimum value of
+ *       -9,223,372,036,854,775,808 and a maximum value of 9,223,372,036,854,775,807.</p>
  *          <note>
  *             <p>PutEvents will only process nested JSON up to 1100 levels deep.</p>
  *          </note>
@@ -90,78 +89,27 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
  */
-export class PutEventsCommand extends $Command<
-  PutEventsCommandInput,
-  PutEventsCommandOutput,
-  EventBridgeClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      EndpointId: { type: "contextParams", name: "EndpointId" },
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PutEventsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: EventBridgeClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PutEventsCommandInput, PutEventsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, PutEventsCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "EventBridgeClient";
-    const commandName = "PutEventsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: PutEventsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PutEventsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutEventsCommandOutput> {
-    return de_PutEventsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class PutEventsCommand extends $Command
+  .classBuilder<
+    PutEventsCommandInput,
+    PutEventsCommandOutput,
+    EventBridgeClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+    EndpointId: { type: "contextParams", name: "EndpointId" },
+  })
+  .m(function (this: any, Command: any, cs: any, config: EventBridgeClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSEvents", "PutEvents", {})
+  .n("EventBridgeClient", "PutEventsCommand")
+  .f(void 0, void 0)
+  .ser(se_PutEventsCommand)
+  .de(de_PutEventsCommand)
+  .build() {}

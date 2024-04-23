@@ -8,6 +8,11 @@ import {
   CreateHomeRegionControlCommandOutput,
 } from "./commands/CreateHomeRegionControlCommand";
 import {
+  DeleteHomeRegionControlCommand,
+  DeleteHomeRegionControlCommandInput,
+  DeleteHomeRegionControlCommandOutput,
+} from "./commands/DeleteHomeRegionControlCommand";
+import {
   DescribeHomeRegionControlsCommand,
   DescribeHomeRegionControlsCommandInput,
   DescribeHomeRegionControlsCommandOutput,
@@ -21,6 +26,7 @@ import { MigrationHubConfigClient, MigrationHubConfigClientConfig } from "./Migr
 
 const commands = {
   CreateHomeRegionControlCommand,
+  DeleteHomeRegionControlCommand,
   DescribeHomeRegionControlsCommand,
   GetHomeRegionCommand,
 };
@@ -41,6 +47,23 @@ export interface MigrationHubConfig {
     args: CreateHomeRegionControlCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateHomeRegionControlCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteHomeRegionControlCommand}
+   */
+  deleteHomeRegionControl(
+    args: DeleteHomeRegionControlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteHomeRegionControlCommandOutput>;
+  deleteHomeRegionControl(
+    args: DeleteHomeRegionControlCommandInput,
+    cb: (err: any, data?: DeleteHomeRegionControlCommandOutput) => void
+  ): void;
+  deleteHomeRegionControl(
+    args: DeleteHomeRegionControlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteHomeRegionControlCommandOutput) => void
   ): void;
 
   /**
@@ -77,7 +100,6 @@ export interface MigrationHubConfig {
  * <p>The AWS Migration Hub home region APIs are available specifically for working with your
  *       Migration Hub home region. You can use these APIs to determine a home region, as well as to
  *       create and work with controls that describe the home region.</p>
- *
  *          <ul>
  *             <li>
  *                <p>You must make API calls for write actions (create, notify, associate, disassociate,
@@ -97,7 +119,6 @@ export interface MigrationHubConfig {
  *           home region.</p>
  *             </li>
  *          </ul>
- *
  *          <p>For specific API usage, see the sections that follow in this AWS Migration Hub Home Region
  *       API reference. </p>
  */

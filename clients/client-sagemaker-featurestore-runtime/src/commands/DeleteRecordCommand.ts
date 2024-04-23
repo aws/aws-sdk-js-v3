@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DeleteRecordRequest } from "../models/models_0";
 import { de_DeleteRecordCommand, se_DeleteRecordCommand } from "../protocols/Aws_restJson1";
 import {
@@ -46,16 +38,18 @@ export interface DeleteRecordCommandOutput extends __MetadataBearer {}
  *          to <code>null</code> and the record is no longer retrievable by <code>GetRecord</code> or
  *             <code>BatchGetRecord</code>. For <code>HardDelete</code>, the complete
  *             <code>Record</code> is removed from the <code>OnlineStore</code>. In both cases, Feature
- *          Store appends the deleted record marker to the <code>OfflineStore</code> with feature
- *          values set to <code>null</code>, <code>is_deleted</code> value set to <code>True</code>,
- *          and <code>EventTime</code> set to the delete input <code>EventTime</code>.</p>
+ *          Store appends the deleted record marker to the <code>OfflineStore</code>. The deleted
+ *          record marker is a record with the same <code>RecordIdentifer</code> as the original, but
+ *          with <code>is_deleted</code> value set to <code>True</code>, <code>EventTime</code> set to
+ *          the delete input <code>EventTime</code>, and other feature values set to
+ *          <code>null</code>.</p>
  *          <p>Note that the <code>EventTime</code> specified in <code>DeleteRecord</code> should be
  *          set later than the <code>EventTime</code> of the existing record in the
  *             <code>OnlineStore</code> for that <code>RecordIdentifer</code>. If it is not, the
  *          deletion does not occur:</p>
  *          <ul>
  *             <li>
- *                <p>For <code>SoftDelete</code>, the existing (undeleted) record remains in the
+ *                <p>For <code>SoftDelete</code>, the existing (not deleted) record remains in the
  *                   <code>OnlineStore</code>, though the delete record marker is still written to the
  *                   <code>OfflineStore</code>.</p>
  *             </li>
@@ -66,6 +60,12 @@ export interface DeleteRecordCommandOutput extends __MetadataBearer {}
  *                record marker is written to the <code>OfflineStore</code>.</p>
  *             </li>
  *          </ul>
+ *          <p>When a record is deleted from the <code>OnlineStore</code>, the deleted record marker is
+ *          appended to the <code>OfflineStore</code>. If you have the Iceberg table format enabled for
+ *          your <code>OfflineStore</code>, you can remove all history of a record from the
+ *             <code>OfflineStore</code> using Amazon Athena or Apache Spark. For information on how to
+ *          hard delete a record from the <code>OfflineStore</code> with the Iceberg table format
+ *          enabled, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/feature-store-delete-records-offline-store.html#feature-store-delete-records-offline-store">Delete records from the offline store</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -110,77 +110,26 @@ export interface DeleteRecordCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from SageMakerFeatureStoreRuntime service.</p>
  *
  */
-export class DeleteRecordCommand extends $Command<
-  DeleteRecordCommandInput,
-  DeleteRecordCommandOutput,
-  SageMakerFeatureStoreRuntimeClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeleteRecordCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SageMakerFeatureStoreRuntimeClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DeleteRecordCommandInput, DeleteRecordCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, DeleteRecordCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SageMakerFeatureStoreRuntimeClient";
-    const commandName = "DeleteRecordCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DeleteRecordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteRecordCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteRecordCommandOutput> {
-    return de_DeleteRecordCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DeleteRecordCommand extends $Command
+  .classBuilder<
+    DeleteRecordCommandInput,
+    DeleteRecordCommandOutput,
+    SageMakerFeatureStoreRuntimeClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SageMakerFeatureStoreRuntimeClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonSageMakerFeatureStoreRuntime", "DeleteRecord", {})
+  .n("SageMakerFeatureStoreRuntimeClient", "DeleteRecordCommand")
+  .f(void 0, void 0)
+  .ser(se_DeleteRecordCommand)
+  .de(de_DeleteRecordCommand)
+  .build() {}

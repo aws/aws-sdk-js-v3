@@ -40,12 +40,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -118,6 +116,10 @@ import {
   CreateCertificateFromCsrCommandInput,
   CreateCertificateFromCsrCommandOutput,
 } from "./commands/CreateCertificateFromCsrCommand";
+import {
+  CreateCertificateProviderCommandInput,
+  CreateCertificateProviderCommandOutput,
+} from "./commands/CreateCertificateProviderCommand";
 import { CreateCustomMetricCommandInput, CreateCustomMetricCommandOutput } from "./commands/CreateCustomMetricCommand";
 import { CreateDimensionCommandInput, CreateDimensionCommandOutput } from "./commands/CreateDimensionCommand";
 import {
@@ -195,6 +197,10 @@ import {
   DeleteCACertificateCommandOutput,
 } from "./commands/DeleteCACertificateCommand";
 import { DeleteCertificateCommandInput, DeleteCertificateCommandOutput } from "./commands/DeleteCertificateCommand";
+import {
+  DeleteCertificateProviderCommandInput,
+  DeleteCertificateProviderCommandOutput,
+} from "./commands/DeleteCertificateProviderCommand";
 import { DeleteCustomMetricCommandInput, DeleteCustomMetricCommandOutput } from "./commands/DeleteCustomMetricCommand";
 import { DeleteDimensionCommandInput, DeleteDimensionCommandOutput } from "./commands/DeleteDimensionCommand";
 import {
@@ -289,6 +295,10 @@ import {
   DescribeCertificateCommandInput,
   DescribeCertificateCommandOutput,
 } from "./commands/DescribeCertificateCommand";
+import {
+  DescribeCertificateProviderCommandInput,
+  DescribeCertificateProviderCommandOutput,
+} from "./commands/DescribeCertificateProviderCommand";
 import {
   DescribeCustomMetricCommandInput,
   DescribeCustomMetricCommandOutput,
@@ -441,6 +451,10 @@ import { ListAuditTasksCommandInput, ListAuditTasksCommandOutput } from "./comma
 import { ListAuthorizersCommandInput, ListAuthorizersCommandOutput } from "./commands/ListAuthorizersCommand";
 import { ListBillingGroupsCommandInput, ListBillingGroupsCommandOutput } from "./commands/ListBillingGroupsCommand";
 import { ListCACertificatesCommandInput, ListCACertificatesCommandOutput } from "./commands/ListCACertificatesCommand";
+import {
+  ListCertificateProvidersCommandInput,
+  ListCertificateProvidersCommandOutput,
+} from "./commands/ListCertificateProvidersCommand";
 import {
   ListCertificatesByCACommandInput,
   ListCertificatesByCACommandOutput,
@@ -674,6 +688,10 @@ import {
   UpdateCACertificateCommandOutput,
 } from "./commands/UpdateCACertificateCommand";
 import { UpdateCertificateCommandInput, UpdateCertificateCommandOutput } from "./commands/UpdateCertificateCommand";
+import {
+  UpdateCertificateProviderCommandInput,
+  UpdateCertificateProviderCommandOutput,
+} from "./commands/UpdateCertificateProviderCommand";
 import { UpdateCustomMetricCommandInput, UpdateCustomMetricCommandOutput } from "./commands/UpdateCustomMetricCommand";
 import { UpdateDimensionCommandInput, UpdateDimensionCommandOutput } from "./commands/UpdateDimensionCommand";
 import {
@@ -770,6 +788,7 @@ export type ServiceInputTypes =
   | CreateAuthorizerCommandInput
   | CreateBillingGroupCommandInput
   | CreateCertificateFromCsrCommandInput
+  | CreateCertificateProviderCommandInput
   | CreateCustomMetricCommandInput
   | CreateDimensionCommandInput
   | CreateDomainConfigurationCommandInput
@@ -802,6 +821,7 @@ export type ServiceInputTypes =
   | DeleteBillingGroupCommandInput
   | DeleteCACertificateCommandInput
   | DeleteCertificateCommandInput
+  | DeleteCertificateProviderCommandInput
   | DeleteCustomMetricCommandInput
   | DeleteDimensionCommandInput
   | DeleteDomainConfigurationCommandInput
@@ -839,6 +859,7 @@ export type ServiceInputTypes =
   | DescribeBillingGroupCommandInput
   | DescribeCACertificateCommandInput
   | DescribeCertificateCommandInput
+  | DescribeCertificateProviderCommandInput
   | DescribeCustomMetricCommandInput
   | DescribeDefaultAuthorizerCommandInput
   | DescribeDetectMitigationActionsTaskCommandInput
@@ -898,6 +919,7 @@ export type ServiceInputTypes =
   | ListAuthorizersCommandInput
   | ListBillingGroupsCommandInput
   | ListCACertificatesCommandInput
+  | ListCertificateProvidersCommandInput
   | ListCertificatesByCACommandInput
   | ListCertificatesCommandInput
   | ListCustomMetricsCommandInput
@@ -978,6 +1000,7 @@ export type ServiceInputTypes =
   | UpdateBillingGroupCommandInput
   | UpdateCACertificateCommandInput
   | UpdateCertificateCommandInput
+  | UpdateCertificateProviderCommandInput
   | UpdateCustomMetricCommandInput
   | UpdateDimensionCommandInput
   | UpdateDomainConfigurationCommandInput
@@ -1025,6 +1048,7 @@ export type ServiceOutputTypes =
   | CreateAuthorizerCommandOutput
   | CreateBillingGroupCommandOutput
   | CreateCertificateFromCsrCommandOutput
+  | CreateCertificateProviderCommandOutput
   | CreateCustomMetricCommandOutput
   | CreateDimensionCommandOutput
   | CreateDomainConfigurationCommandOutput
@@ -1057,6 +1081,7 @@ export type ServiceOutputTypes =
   | DeleteBillingGroupCommandOutput
   | DeleteCACertificateCommandOutput
   | DeleteCertificateCommandOutput
+  | DeleteCertificateProviderCommandOutput
   | DeleteCustomMetricCommandOutput
   | DeleteDimensionCommandOutput
   | DeleteDomainConfigurationCommandOutput
@@ -1094,6 +1119,7 @@ export type ServiceOutputTypes =
   | DescribeBillingGroupCommandOutput
   | DescribeCACertificateCommandOutput
   | DescribeCertificateCommandOutput
+  | DescribeCertificateProviderCommandOutput
   | DescribeCustomMetricCommandOutput
   | DescribeDefaultAuthorizerCommandOutput
   | DescribeDetectMitigationActionsTaskCommandOutput
@@ -1153,6 +1179,7 @@ export type ServiceOutputTypes =
   | ListAuthorizersCommandOutput
   | ListBillingGroupsCommandOutput
   | ListCACertificatesCommandOutput
+  | ListCertificateProvidersCommandOutput
   | ListCertificatesByCACommandOutput
   | ListCertificatesCommandOutput
   | ListCustomMetricsCommandOutput
@@ -1233,6 +1260,7 @@ export type ServiceOutputTypes =
   | UpdateBillingGroupCommandOutput
   | UpdateCACertificateCommandOutput
   | UpdateCertificateCommandOutput
+  | UpdateCertificateProviderCommandOutput
   | UpdateCustomMetricCommandOutput
   | UpdateDimensionCommandOutput
   | UpdateDomainConfigurationCommandOutput
@@ -1366,6 +1394,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

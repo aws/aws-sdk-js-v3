@@ -32,15 +32,9 @@ available for an attribute. With the service code and an attribute name and valu
 use <code>GetProducts</code> to find specific products that you're interested in, such as
 an <code>AmazonEC2</code> instance, with a <code>Provisioned IOPS</code>
 <code>volumeType</code>.</p>
-<p>You can use the following endpoints for the Amazon Web Services Price List API:</p>
-<ul>
-<li>
-<p>https://api.pricing.us-east-1.amazonaws.com</p>
-</li>
-<li>
-<p>https://api.pricing.ap-south-1.amazonaws.com</p>
-</li>
-</ul>
+<p>For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html">Using the
+Amazon Web Services Price List API</a> in the <i>Billing User
+Guide</i>.</p>
 
 ## Installing
 
@@ -57,16 +51,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `PricingClient` and
-the commands you need, for example `DescribeServicesCommand`:
+the commands you need, for example `ListPriceListsCommand`:
 
 ```js
 // ES5 example
-const { PricingClient, DescribeServicesCommand } = require("@aws-sdk/client-pricing");
+const { PricingClient, ListPriceListsCommand } = require("@aws-sdk/client-pricing");
 ```
 
 ```ts
 // ES6+ example
-import { PricingClient, DescribeServicesCommand } from "@aws-sdk/client-pricing";
+import { PricingClient, ListPriceListsCommand } from "@aws-sdk/client-pricing";
 ```
 
 ### Usage
@@ -85,7 +79,7 @@ const client = new PricingClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DescribeServicesCommand(params);
+const command = new ListPriceListsCommand(params);
 ```
 
 #### Async/await
@@ -164,7 +158,7 @@ const client = new AWS.Pricing({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.describeServices(params);
+  const data = await client.listPriceLists(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -172,7 +166,7 @@ try {
 
 // Promises.
 client
-  .describeServices(params)
+  .listPriceLists(params)
   .then((data) => {
     // process data.
   })
@@ -181,7 +175,7 @@ client
   });
 
 // callbacks.
-client.describeServices(params, (err, data) => {
+client.listPriceLists(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -196,7 +190,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -242,7 +236,7 @@ see LICENSE for more information.
 DescribeServices
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/classes/describeservicescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/interfaces/describeservicescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/interfaces/describeservicescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pricing/command/DescribeServicesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pricing/Interface/DescribeServicesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pricing/Interface/DescribeServicesCommandOutput/)
 
 </details>
 <details>
@@ -250,7 +244,7 @@ DescribeServices
 GetAttributeValues
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/classes/getattributevaluescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/interfaces/getattributevaluescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/interfaces/getattributevaluescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pricing/command/GetAttributeValuesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pricing/Interface/GetAttributeValuesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pricing/Interface/GetAttributeValuesCommandOutput/)
 
 </details>
 <details>
@@ -258,7 +252,7 @@ GetAttributeValues
 GetPriceListFileUrl
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/classes/getpricelistfileurlcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/interfaces/getpricelistfileurlcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/interfaces/getpricelistfileurlcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pricing/command/GetPriceListFileUrlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pricing/Interface/GetPriceListFileUrlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pricing/Interface/GetPriceListFileUrlCommandOutput/)
 
 </details>
 <details>
@@ -266,7 +260,7 @@ GetPriceListFileUrl
 GetProducts
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/classes/getproductscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/interfaces/getproductscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/interfaces/getproductscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pricing/command/GetProductsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pricing/Interface/GetProductsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pricing/Interface/GetProductsCommandOutput/)
 
 </details>
 <details>
@@ -274,6 +268,6 @@ GetProducts
 ListPriceLists
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/classes/listpricelistscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/interfaces/listpricelistscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-pricing/interfaces/listpricelistscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pricing/command/ListPriceListsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pricing/Interface/ListPriceListsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pricing/Interface/ListPriceListsCommandOutput/)
 
 </details>

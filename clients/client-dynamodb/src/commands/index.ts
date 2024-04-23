@@ -49,6 +49,7 @@ export * from "./UpdateContributorInsightsCommand";
 export * from "./UpdateGlobalTableCommand";
 export * from "./UpdateGlobalTableSettingsCommand";
 export * from "./UpdateItemCommand";
+export * from "./UpdateKinesisStreamingDestinationCommand";
 export * from "./UpdateTableCommand";
 export * from "./UpdateTableReplicaAutoScalingCommand";
 export * from "./UpdateTimeToLiveCommand";

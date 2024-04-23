@@ -1,19 +1,11 @@
 // smithy-typescript generated code
 import { getEndpointDiscoveryPlugin } from "@aws-sdk/middleware-endpoint-discovery";
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreateScheduledQueryRequest,
   CreateScheduledQueryRequestFilterSensitiveLog,
@@ -71,7 +63,7 @@ export interface CreateScheduledQueryCommandOutput extends CreateScheduledQueryR
  *       DimensionMappings: [ // DimensionMappingList // required
  *         { // DimensionMapping
  *           Name: "STRING_VALUE", // required
- *           DimensionValueType: "STRING_VALUE", // required
+ *           DimensionValueType: "VARCHAR", // required
  *         },
  *       ],
  *       MultiMeasureMappings: { // MultiMeasureMappings
@@ -80,7 +72,7 @@ export interface CreateScheduledQueryCommandOutput extends CreateScheduledQueryR
  *           { // MultiMeasureAttributeMapping
  *             SourceColumn: "STRING_VALUE", // required
  *             TargetMultiMeasureAttributeName: "STRING_VALUE",
- *             MeasureValueType: "STRING_VALUE", // required
+ *             MeasureValueType: "BIGINT" || "BOOLEAN" || "DOUBLE" || "VARCHAR" || "TIMESTAMP", // required
  *           },
  *         ],
  *       },
@@ -89,12 +81,12 @@ export interface CreateScheduledQueryCommandOutput extends CreateScheduledQueryR
  *           MeasureName: "STRING_VALUE",
  *           SourceColumn: "STRING_VALUE",
  *           TargetMeasureName: "STRING_VALUE",
- *           MeasureValueType: "STRING_VALUE", // required
+ *           MeasureValueType: "BIGINT" || "BOOLEAN" || "DOUBLE" || "VARCHAR" || "MULTI", // required
  *           MultiMeasureAttributeMappings: [
  *             {
  *               SourceColumn: "STRING_VALUE", // required
  *               TargetMultiMeasureAttributeName: "STRING_VALUE",
- *               MeasureValueType: "STRING_VALUE", // required
+ *               MeasureValueType: "BIGINT" || "BOOLEAN" || "DOUBLE" || "VARCHAR" || "TIMESTAMP", // required
  *             },
  *           ],
  *         },
@@ -115,7 +107,7 @@ export interface CreateScheduledQueryCommandOutput extends CreateScheduledQueryR
  *     S3Configuration: { // S3Configuration
  *       BucketName: "STRING_VALUE", // required
  *       ObjectKeyPrefix: "STRING_VALUE",
- *       EncryptionOption: "STRING_VALUE",
+ *       EncryptionOption: "SSE_S3" || "SSE_KMS",
  *     },
  *   },
  * };
@@ -160,82 +152,27 @@ export interface CreateScheduledQueryCommandOutput extends CreateScheduledQueryR
  * <p>Base exception class for all service exceptions from TimestreamQuery service.</p>
  *
  */
-export class CreateScheduledQueryCommand extends $Command<
-  CreateScheduledQueryCommandInput,
-  CreateScheduledQueryCommandOutput,
-  TimestreamQueryClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateScheduledQueryCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: TimestreamQueryClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateScheduledQueryCommandInput, CreateScheduledQueryCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateScheduledQueryCommand.getEndpointParameterInstructions())
-    );
-    this.middlewareStack.use(
-      getEndpointDiscoveryPlugin(configuration, { clientStack, options, isDiscoveredEndpointRequired: true })
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "TimestreamQueryClient";
-    const commandName = "CreateScheduledQueryCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: CreateScheduledQueryRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateScheduledQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateScheduledQueryCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateScheduledQueryCommandOutput> {
-    return de_CreateScheduledQueryCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateScheduledQueryCommand extends $Command
+  .classBuilder<
+    CreateScheduledQueryCommandInput,
+    CreateScheduledQueryCommandOutput,
+    TimestreamQueryClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: TimestreamQueryClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getEndpointDiscoveryPlugin(config, { clientStack: cs, isDiscoveredEndpointRequired: true, options: o }),
+    ];
+  })
+  .s("Timestream_20181101", "CreateScheduledQuery", {})
+  .n("TimestreamQueryClient", "CreateScheduledQueryCommand")
+  .f(CreateScheduledQueryRequestFilterSensitiveLog, void 0)
+  .ser(se_CreateScheduledQueryCommand)
+  .de(de_CreateScheduledQueryCommand)
+  .build() {}

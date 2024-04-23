@@ -23,42 +23,230 @@ export interface ReplicaRegionType {
 
 /**
  * @public
+ * <p>The error Secrets Manager encountered while retrieving an individual secret as part of <a>BatchGetSecretValue</a>.</p>
  */
-export interface CancelRotateSecretRequest {
+export interface APIErrorType {
   /**
    * @public
    * <p>The ARN or name of the secret.</p>
-   *          <p>For an ARN, we recommend that you specify a complete ARN rather
-   *       than a partial ARN. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen">Finding a secret from a partial ARN</a>.</p>
    */
-  SecretId: string | undefined;
+  SecretId?: string;
+
+  /**
+   * @public
+   * <p>The error Secrets Manager encountered while retrieving an individual secret as part of <a>BatchGetSecretValue</a>, for example <code>ResourceNotFoundException</code>,<code>InvalidParameterException</code>, <code>InvalidRequestException</code>, <code>DecryptionFailure</code>, or <code>AccessDeniedException</code>.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * @public
+   * <p>A message describing the error.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FilterNameStringType = {
+  all: "all",
+  description: "description",
+  name: "name",
+  owning_service: "owning-service",
+  primary_region: "primary-region",
+  tag_key: "tag-key",
+  tag_value: "tag-value",
+} as const;
+
+/**
+ * @public
+ */
+export type FilterNameStringType = (typeof FilterNameStringType)[keyof typeof FilterNameStringType];
+
+/**
+ * @public
+ * <p>Allows you to add filters when you use the search function in Secrets Manager. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_search-secret.html">Find secrets in Secrets Manager</a>.</p>
+ */
+export interface Filter {
+  /**
+   * @public
+   * <p>The following are keys you can use:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>description</b>: Prefix match, not case-sensitive.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>name</b>: Prefix match, case-sensitive.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>tag-key</b>: Prefix match, case-sensitive.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>tag-value</b>: Prefix match, case-sensitive.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>primary-region</b>: Prefix match, case-sensitive.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>owning-service</b>: Prefix match, case-sensitive.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>all</b>: Breaks the filter value string into words and then searches all attributes for matches. Not case-sensitive.</p>
+   *             </li>
+   *          </ul>
+   */
+  Key?: FilterNameStringType;
+
+  /**
+   * @public
+   * <p>The keyword to filter for.</p>
+   *          <p>You can prefix your search value with an exclamation mark (<code>!</code>) in order to perform negation filters. </p>
+   */
+  Values?: string[];
 }
 
 /**
  * @public
  */
-export interface CancelRotateSecretResponse {
+export interface BatchGetSecretValueRequest {
   /**
    * @public
-   * <p>The ARN of the secret.</p>
+   * <p>The ARN or names of the secrets to retrieve. You must include <code>Filters</code> or <code>SecretIdList</code>, but not both.</p>
+   */
+  SecretIdList?: string[];
+
+  /**
+   * @public
+   * <p>The filters to choose which secrets to retrieve. You must include <code>Filters</code> or <code>SecretIdList</code>, but not both.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * @public
+   * <p>The number of results to include in the response.</p>
+   *          <p>If there are more results available, in the response, Secrets Manager includes <code>NextToken</code>.
+   *     To get the next results, call <code>BatchGetSecretValue</code> again with the value from
+   *     <code>NextToken</code>.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>A token that indicates where the output should continue from, if a
+   *     previous call did not show all results. To get the next results, call <code>BatchGetSecretValue</code> again
+   *     with this value.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * <p>A structure that contains the secret value and other details for a secret.</p>
+ */
+export interface SecretValueEntry {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the secret.</p>
    */
   ARN?: string;
 
   /**
    * @public
-   * <p>The name of the secret.</p>
+   * <p>The friendly name of the secret.  </p>
    */
   Name?: string;
 
   /**
    * @public
-   * <p>The unique identifier of the version of the secret created during the rotation. This
-   *       version might not be complete, and should be evaluated for possible deletion. We recommend
-   *       that you remove the <code>VersionStage</code> value <code>AWSPENDING</code> from this version so that
-   *       Secrets Manager can delete it. Failing to clean up a cancelled rotation can block you from
-   *       starting future rotations.</p>
+   * <p>The unique version identifier of this version of the secret.</p>
    */
   VersionId?: string;
+
+  /**
+   * @public
+   * <p>The decrypted secret value, if the secret value was originally provided as
+   *       binary data in the form of a byte array. The parameter represents the binary data as
+   *       a <a href="https://tools.ietf.org/html/rfc4648#section-4">base64-encoded</a>
+   *       string.</p>
+   */
+  SecretBinary?: Uint8Array;
+
+  /**
+   * @public
+   * <p>The decrypted secret value, if the secret value was originally provided as a string or
+   *       through the Secrets Manager console.</p>
+   */
+  SecretString?: string;
+
+  /**
+   * @public
+   * <p>A list of all of the staging labels currently attached to this version of the
+   *       secret.</p>
+   */
+  VersionStages?: string[];
+
+  /**
+   * @public
+   * <p>The date the secret was created.</p>
+   */
+  CreatedDate?: Date;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetSecretValueResponse {
+  /**
+   * @public
+   * <p>A list of secret values.</p>
+   */
+  SecretValues?: SecretValueEntry[];
+
+  /**
+   * @public
+   * <p>Secrets Manager includes this value if
+   *     there's more output available than what is included in the current response. This can
+   *     occur even when the response includes no values at all, such as when you ask for a filtered view
+   *     of a long list. To get the next results, call <code>BatchGetSecretValue</code> again
+   *     with this value.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>A list of errors Secrets Manager encountered while attempting to retrieve individual secrets.</p>
+   */
+  Errors?: APIErrorType[];
+}
+
+/**
+ * @public
+ * <p>Secrets Manager can't decrypt the protected secret text using the provided KMS key. </p>
+ */
+export class DecryptionFailure extends __BaseException {
+  readonly name: "DecryptionFailure" = "DecryptionFailure";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DecryptionFailure, __BaseException>) {
+    super({
+      name: "DecryptionFailure",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DecryptionFailure.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -79,6 +267,28 @@ export class InternalServiceError extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InternalServiceError.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>The <code>NextToken</code> value is invalid.</p>
+ */
+export class InvalidNextTokenException extends __BaseException {
+  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
+    super({
+      name: "InvalidNextTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -166,6 +376,46 @@ export class ResourceNotFoundException extends __BaseException {
 
 /**
  * @public
+ */
+export interface CancelRotateSecretRequest {
+  /**
+   * @public
+   * <p>The ARN or name of the secret.</p>
+   *          <p>For an ARN, we recommend that you specify a complete ARN rather
+   *       than a partial ARN. See <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot.html#ARN_secretnamehyphen">Finding a secret from a partial ARN</a>.</p>
+   */
+  SecretId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelRotateSecretResponse {
+  /**
+   * @public
+   * <p>The ARN of the secret.</p>
+   */
+  ARN?: string;
+
+  /**
+   * @public
+   * <p>The name of the secret.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The unique identifier of the version of the secret created during the rotation. This
+   *       version might not be complete, and should be evaluated for possible deletion. We recommend
+   *       that you remove the <code>VersionStage</code> value <code>AWSPENDING</code> from this version so that
+   *       Secrets Manager can delete it. Failing to clean up a cancelled rotation can block you from
+   *       starting future rotations.</p>
+   */
+  VersionId?: string;
+}
+
+/**
+ * @public
  * <p>A structure that contains information about a tag.</p>
  */
 export interface Tag {
@@ -203,17 +453,10 @@ export interface CreateSecretRequest {
    *       Secrets Manager creates an initial version for the secret, and this parameter specifies the unique
    *       identifier for the new version. </p>
    *          <note>
-   *             <p>If you use the Amazon Web Services CLI or one of the Amazon Web Services SDKs to call this operation, then you can
-   *         leave this parameter empty. The CLI or SDK generates a random UUID for you and includes it
-   *         as the value for this parameter in the request. If you don't use the SDK and instead
-   *         generate a raw HTTP request to the Secrets Manager service endpoint, then you must generate a
-   *         <code>ClientRequestToken</code> yourself for the new version and include the value in the
-   *         request.</p>
+   *             <p>If you use the Amazon Web Services CLI or one of the Amazon Web Services SDKs to call this operation, then you can leave this parameter empty. The CLI or SDK generates a random UUID for you and includes it as the value for this parameter in the request. </p>
    *          </note>
-   *          <p>This value helps ensure idempotency. Secrets Manager uses this value to prevent the accidental
-   *       creation of duplicate versions if there are failures and retries during a rotation. We
-   *       recommend that you generate a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a> value to
-   *       ensure uniqueness of your versions within the specified secret. </p>
+   *          <p>If you generate a raw HTTP request to the Secrets Manager service endpoint, then you must generate a <code>ClientRequestToken</code> and include it in the request.</p>
+   *          <p>This value helps ensure idempotency. Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during a rotation. We recommend that you generate a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a> value to ensure uniqueness of your versions within the specified secret. </p>
    *          <ul>
    *             <li>
    *                <p>If the <code>ClientRequestToken</code> value isn't already associated with a version
@@ -298,32 +541,8 @@ export interface CreateSecretRequest {
    *       JSON parameter for the various command line tool environments, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for
    *         Parameters</a>. If your command-line tool or SDK requires quotation marks around the parameter, you should
    *       use single quotes to avoid confusion with the double quotes required in the JSON text.</p>
-   *          <p>The following restrictions apply to tags:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Maximum number of tags per secret: 50</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum key length: 127 Unicode characters in UTF-8</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum value length: 255 Unicode characters in UTF-8</p>
-   *             </li>
-   *             <li>
-   *                <p>Tag keys and values are case sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>Do not use the <code>aws:</code> prefix in your tag names or values because Amazon Web Services reserves it
-   *             for Amazon Web Services use. You can't edit or delete tag names or values with this
-   *               prefix. Tags with this prefix do not count against your tags per secret limit.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you use your tagging schema across multiple services and resources,
-   *               other services might have restrictions on allowed characters. Generally
-   *               allowed characters: letters, spaces, and numbers representable in UTF-8, plus the
-   *               following special characters: + - = . _ : / @.</p>
-   *             </li>
-   *          </ul>
+   *          <p>For tag quotas and naming restrictions, see <a href="https://docs.aws.amazon.com/general/latest/gr/arg.html#taged-reference-quotas">Service quotas for Tagging</a> in the <i>Amazon Web Services General
+   *       Reference guide</i>.</p>
    */
   Tags?: Tag[];
 
@@ -377,7 +596,7 @@ export interface ReplicationStatusType {
    * @public
    * <p>The status can be <code>InProgress</code>, <code>Failed</code>, or <code>InSync</code>.</p>
    */
-  Status?: StatusType | string;
+  Status?: StatusType;
 
   /**
    * @public
@@ -437,28 +656,6 @@ export interface CreateSecretResponse {
    *          </ul>
    */
   ReplicationStatus?: ReplicationStatusType[];
-}
-
-/**
- * @public
- * <p>Secrets Manager can't decrypt the protected secret text using the provided KMS key. </p>
- */
-export class DecryptionFailure extends __BaseException {
-  readonly name: "DecryptionFailure" = "DecryptionFailure";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DecryptionFailure, __BaseException>) {
-    super({
-      name: "DecryptionFailure",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DecryptionFailure.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -794,7 +991,7 @@ export interface DescribeSecretResponse {
   /**
    * @public
    * <p>The last date and time that Secrets Manager rotated the secret.
-   *       If the secret isn't configured for rotation, Secrets Manager returns null.</p>
+   *       If the secret isn't configured for rotation or rotation has been disabled, Secrets Manager returns null.</p>
    */
   LastRotatedDate?: Date;
 
@@ -823,7 +1020,7 @@ export interface DescribeSecretResponse {
 
   /**
    * @public
-   * <p>The next rotation is scheduled to occur on or before this date. If the secret isn't configured for rotation, Secrets Manager returns null.</p>
+   * <p>The next rotation is scheduled to occur on or before this date. If the secret isn't configured for rotation or rotation has been disabled, Secrets Manager returns null.</p>
    */
   NextRotationDate?: Date;
 
@@ -901,74 +1098,6 @@ export interface DescribeSecretResponse {
    *          </ul>
    */
   ReplicationStatus?: ReplicationStatusType[];
-}
-
-/**
- * @public
- * @enum
- */
-export const FilterNameStringType = {
-  all: "all",
-  description: "description",
-  name: "name",
-  owning_service: "owning-service",
-  primary_region: "primary-region",
-  tag_key: "tag-key",
-  tag_value: "tag-value",
-} as const;
-
-/**
- * @public
- */
-export type FilterNameStringType = (typeof FilterNameStringType)[keyof typeof FilterNameStringType];
-
-/**
- * @public
- * <p>Allows you to add filters when you use the search function in Secrets Manager. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_search-secret.html">Find secrets in Secrets Manager</a>.</p>
- */
-export interface Filter {
-  /**
-   * @public
-   * <p>The following are keys you can use:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>description</b>: Prefix match, not case-sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>name</b>: Prefix match, case-sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>tag-key</b>: Prefix match, case-sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>tag-value</b>: Prefix match, case-sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>primary-region</b>: Prefix match, case-sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>owning-service</b>: Prefix match, case-sensitive.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>all</b>: Breaks the filter value string into words and then searches all attributes for matches. Not case-sensitive.</p>
-   *             </li>
-   *          </ul>
-   */
-  Key?: FilterNameStringType | string;
-
-  /**
-   * @public
-   * <p>The keyword to filter for.</p>
-   *          <p>You can prefix your search value with an exclamation mark (<code>!</code>) in order to perform negation filters. </p>
-   */
-  Values?: string[];
 }
 
 /**
@@ -1140,9 +1269,7 @@ export interface GetSecretValueResponse {
   /**
    * @public
    * <p>The decrypted secret value, if the secret value was originally provided as
-   *       binary data in the form of a byte array. The response parameter represents the binary data as
-   *       a <a href="https://tools.ietf.org/html/rfc4648#section-4">base64-encoded</a>
-   *       string.</p>
+   *       binary data in the form of a byte array. When you retrieve a <code>SecretBinary</code> using the HTTP API, the Python SDK, or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not encoded.</p>
    *          <p>If the secret was created by using the Secrets Manager console, or if the secret value was
    *       originally provided as a string, then this field is omitted. The secret value appears in
    *       <code>SecretString</code> instead.</p>
@@ -1172,28 +1299,6 @@ export interface GetSecretValueResponse {
    *       <code>AWSCURRENT</code> version.</p>
    */
   CreatedDate?: Date;
-}
-
-/**
- * @public
- * <p>The <code>NextToken</code> value is invalid.</p>
- */
-export class InvalidNextTokenException extends __BaseException {
-  readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidNextTokenException, __BaseException>) {
-    super({
-      name: "InvalidNextTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidNextTokenException.prototype);
-    this.Message = opts.Message;
-  }
 }
 
 /**
@@ -1247,7 +1352,7 @@ export interface ListSecretsRequest {
    * @public
    * <p>Secrets are listed by <code>CreatedDate</code>. </p>
    */
-  SortOrder?: SortOrderType | string;
+  SortOrder?: SortOrderType;
 }
 
 /**
@@ -1266,10 +1371,7 @@ export interface SecretListEntry {
 
   /**
    * @public
-   * <p>The friendly name of the secret. You can use forward slashes in the name to represent a
-   *       path hierarchy. For example, <code>/prod/databases/dbserver1</code> could represent the secret
-   *       for a server named <code>dbserver1</code> in the folder <code>databases</code> in the folder
-   *       <code>prod</code>. </p>
+   * <p>The friendly name of the secret.  </p>
    */
   Name?: string;
 
@@ -1337,7 +1439,7 @@ export interface SecretListEntry {
 
   /**
    * @public
-   * <p>The next rotation is scheduled to occur on or before this date. If the secret isn't configured for rotation, Secrets Manager returns null.</p>
+   * <p>The next rotation is scheduled to occur on or before this date. If the secret isn't configured for rotation or rotation has been disabled, Secrets Manager returns null.</p>
    */
   NextRotationDate?: Date;
 
@@ -1595,16 +1697,10 @@ export interface PutSecretValueRequest {
    * @public
    * <p>A unique identifier for the new version of the secret. </p>
    *          <note>
-   *             <p>If you use the Amazon Web Services CLI or one of the Amazon Web Services SDKs to call this operation, then you can
-   *         leave this parameter empty because they generate a random UUID for you. If you don't
-   *         use the SDK and instead generate a raw HTTP request to the
-   *         Secrets Manager service endpoint, then you must generate a <code>ClientRequestToken</code> yourself
-   *         for new versions and include that value in the request. </p>
+   *             <p>If you use the Amazon Web Services CLI or one of the Amazon Web Services SDKs to call this operation, then you can leave this parameter empty. The CLI or SDK generates a random UUID for you and includes it as the value for this parameter in the request. </p>
    *          </note>
-   *          <p>This value helps ensure idempotency. Secrets Manager uses this value to prevent the accidental
-   *       creation of duplicate versions if there are failures and retries during the Lambda rotation
-   *       function processing. We recommend that you generate a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a> value to
-   *       ensure uniqueness within the specified secret. </p>
+   *          <p>If you generate a raw HTTP request to the Secrets Manager service endpoint, then you must generate a <code>ClientRequestToken</code> and include it in the request.</p>
+   *          <p>This value helps ensure idempotency. Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during a rotation. We recommend that you generate a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a> value to ensure uniqueness of your versions within the specified secret. </p>
    *          <ul>
    *             <li>
    *                <p>If the <code>ClientRequestToken</code> value isn't already associated with a version
@@ -1810,19 +1906,13 @@ export interface RotateSecretRequest {
 
   /**
    * @public
-   * <p>A unique identifier for the new version of the secret that helps
-   *     ensure idempotency. Secrets Manager uses this value to prevent the accidental creation of duplicate versions if
-   *     there are failures and retries during rotation. This value becomes the
-   *     <code>VersionId</code> of the new version.</p>
-   *          <p>If you use the Amazon Web Services CLI or one of the Amazon Web Services SDK to call this operation, then you can
-   *     leave this parameter empty. The CLI or SDK generates a random UUID for you and includes that
-   *     in the request for this parameter. If you don't use the SDK and instead generate a raw HTTP
-   *     request to the Secrets Manager service endpoint, then you must generate a
-   *     <code>ClientRequestToken</code> yourself for new versions and include that value in the
-   *     request.</p>
-   *          <p>You only need to specify this value if you implement your own retry logic and you want to
-   *     ensure that Secrets Manager doesn't attempt to create a secret version twice. We recommend that you generate a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a> value to
-   *     ensure uniqueness within the specified secret. </p>
+   * <p>A unique identifier for the new version of the secret. You only need to specify this value if you implement your own retry logic and you want to
+   *     ensure that Secrets Manager doesn't attempt to create a secret version twice.</p>
+   *          <note>
+   *             <p>If you use the Amazon Web Services CLI or one of the Amazon Web Services SDKs to call this operation, then you can leave this parameter empty. The CLI or SDK generates a random UUID for you and includes it as the value for this parameter in the request. </p>
+   *          </note>
+   *          <p>If you generate a raw HTTP request to the Secrets Manager service endpoint, then you must generate a <code>ClientRequestToken</code> and include it in the request.</p>
+   *          <p>This value helps ensure idempotency. Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during a rotation. We recommend that you generate a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a> value to ensure uniqueness of your versions within the specified secret. </p>
    */
   ClientRequestToken?: string;
 
@@ -1963,14 +2053,10 @@ export interface UpdateSecretRequest {
    *     a new version for the secret, and this parameter specifies the unique identifier for the new
    *     version.</p>
    *          <note>
-   *             <p>If you use the Amazon Web Services CLI or one of the Amazon Web Services SDKs to call this operation, then you can
-   *         leave this parameter empty. The CLI or SDK generates a random UUID for you and includes it
-   *         as the value for this parameter in the request. If you don't use the SDK and instead
-   *         generate a raw HTTP request to the Secrets Manager service endpoint, then you must generate a
-   *         <code>ClientRequestToken</code> yourself for the new version and include the value in the
-   *         request.</p>
+   *             <p>If you use the Amazon Web Services CLI or one of the Amazon Web Services SDKs to call this operation, then you can leave this parameter empty. The CLI or SDK generates a random UUID for you and includes it as the value for this parameter in the request. </p>
    *          </note>
-   *          <p>This value becomes the <code>VersionId</code> of the new version.</p>
+   *          <p>If you generate a raw HTTP request to the Secrets Manager service endpoint, then you must generate a <code>ClientRequestToken</code> and include it in the request.</p>
+   *          <p>This value helps ensure idempotency. Secrets Manager uses this value to prevent the accidental creation of duplicate versions if there are failures and retries during a rotation. We recommend that you generate a <a href="https://wikipedia.org/wiki/Universally_unique_identifier">UUID-type</a> value to ensure uniqueness of your versions within the specified secret. </p>
    */
   ClientRequestToken?: string;
 
@@ -2156,6 +2242,23 @@ export interface ValidateResourcePolicyResponse {
    */
   ValidationErrors?: ValidationErrorsEntry[];
 }
+
+/**
+ * @internal
+ */
+export const SecretValueEntryFilterSensitiveLog = (obj: SecretValueEntry): any => ({
+  ...obj,
+  ...(obj.SecretBinary && { SecretBinary: SENSITIVE_STRING }),
+  ...(obj.SecretString && { SecretString: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const BatchGetSecretValueResponseFilterSensitiveLog = (obj: BatchGetSecretValueResponse): any => ({
+  ...obj,
+  ...(obj.SecretValues && { SecretValues: obj.SecretValues.map((item) => SecretValueEntryFilterSensitiveLog(item)) }),
+});
 
 /**
  * @internal

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { CloudWatchEventsServiceException as __BaseException } from "./CloudWatchEventsServiceException";
 
@@ -168,7 +168,7 @@ export interface ApiDestination {
    * @public
    * <p>The state of the API destination.</p>
    */
-  ApiDestinationState?: ApiDestinationState | string;
+  ApiDestinationState?: ApiDestinationState;
 
   /**
    * @public
@@ -186,7 +186,7 @@ export interface ApiDestination {
    * @public
    * <p>The method to use to connect to the HTTP endpoint.</p>
    */
-  HttpMethod?: ApiDestinationHttpMethod | string;
+  HttpMethod?: ApiDestinationHttpMethod;
 
   /**
    * @public
@@ -247,7 +247,7 @@ export interface Archive {
    * @public
    * <p>The current state of the archive.</p>
    */
-  State?: ArchiveState | string;
+  State?: ArchiveState;
 
   /**
    * @public
@@ -337,7 +337,7 @@ export interface CancelReplayResponse {
    * @public
    * <p>The current state of the replay.</p>
    */
-  State?: ReplayState | string;
+  State?: ReplayState;
 
   /**
    * @public
@@ -400,7 +400,7 @@ export interface CreateApiDestinationRequest {
    * @public
    * <p>The method to use for the request to the HTTP invocation endpoint.</p>
    */
-  HttpMethod: ApiDestinationHttpMethod | string | undefined;
+  HttpMethod: ApiDestinationHttpMethod | undefined;
 
   /**
    * @public
@@ -423,7 +423,7 @@ export interface CreateApiDestinationResponse {
    * @public
    * <p>The state of the API destination that was created by the request.</p>
    */
-  ApiDestinationState?: ApiDestinationState | string;
+  ApiDestinationState?: ApiDestinationState;
 
   /**
    * @public
@@ -529,7 +529,7 @@ export interface CreateArchiveResponse {
    * @public
    * <p>The state of the archive that was created.</p>
    */
-  State?: ArchiveState | string;
+  State?: ArchiveState;
 
   /**
    * @public
@@ -773,7 +773,7 @@ export interface CreateConnectionOAuthRequestParameters {
    * @public
    * <p>The method to use for the authorization request.</p>
    */
-  HttpMethod: ConnectionOAuthHttpMethod | string | undefined;
+  HttpMethod: ConnectionOAuthHttpMethod | undefined;
 
   /**
    * @public
@@ -839,7 +839,7 @@ export interface CreateConnectionRequest {
    * @public
    * <p>The type of authorization to use for the connection.</p>
    */
-  AuthorizationType: ConnectionAuthorizationType | string | undefined;
+  AuthorizationType: ConnectionAuthorizationType | undefined;
 
   /**
    * @public
@@ -882,7 +882,7 @@ export interface CreateConnectionResponse {
    * @public
    * <p>The state of the connection that was created by the request.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: ConnectionState;
 
   /**
    * @public
@@ -1027,7 +1027,7 @@ export interface DeauthorizeConnectionResponse {
    * @public
    * <p>The state of the connection.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: ConnectionState;
 
   /**
    * @public
@@ -1105,7 +1105,7 @@ export interface DeleteConnectionResponse {
    * @public
    * <p>The state of the connection before it was deleted.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: ConnectionState;
 
   /**
    * @public
@@ -1246,7 +1246,7 @@ export interface DescribeApiDestinationResponse {
    * @public
    * <p>The state of the API destination retrieved.</p>
    */
-  ApiDestinationState?: ApiDestinationState | string;
+  ApiDestinationState?: ApiDestinationState;
 
   /**
    * @public
@@ -1264,7 +1264,7 @@ export interface DescribeApiDestinationResponse {
    * @public
    * <p>The method to use to connect to the HTTP endpoint.</p>
    */
-  HttpMethod?: ApiDestinationHttpMethod | string;
+  HttpMethod?: ApiDestinationHttpMethod;
 
   /**
    * @public
@@ -1339,7 +1339,7 @@ export interface DescribeArchiveResponse {
    * @public
    * <p>The state of the archive.</p>
    */
-  State?: ArchiveState | string;
+  State?: ArchiveState;
 
   /**
    * @public
@@ -1445,7 +1445,7 @@ export interface ConnectionOAuthResponseParameters {
    * @public
    * <p>The method used to connect to the HTTP endpoint.</p>
    */
-  HttpMethod?: ConnectionOAuthHttpMethod | string;
+  HttpMethod?: ConnectionOAuthHttpMethod;
 
   /**
    * @public
@@ -1511,7 +1511,7 @@ export interface DescribeConnectionResponse {
    * @public
    * <p>The state of the connection retrieved.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: ConnectionState;
 
   /**
    * @public
@@ -1523,7 +1523,7 @@ export interface DescribeConnectionResponse {
    * @public
    * <p>The type of authorization specified for the connection.</p>
    */
-  AuthorizationType?: ConnectionAuthorizationType | string;
+  AuthorizationType?: ConnectionAuthorizationType;
 
   /**
    * @public
@@ -1661,7 +1661,7 @@ export interface DescribeEventSourceResponse {
    *       yet created a matching event bus, or that event bus is deactivated. If it is DELETED, you have
    *       created a matching event bus, but the event source has since been deleted.</p>
    */
-  State?: EventSourceState | string;
+  State?: EventSourceState;
 }
 
 /**
@@ -1748,7 +1748,7 @@ export interface DescribeReplayResponse {
    * @public
    * <p>The current state of the replay.</p>
    */
-  State?: ReplayState | string;
+  State?: ReplayState;
 
   /**
    * @public
@@ -1864,7 +1864,7 @@ export interface DescribeRuleResponse {
    * @public
    * <p>Specifies whether the rule is enabled or disabled.</p>
    */
-  State?: RuleState | string;
+  State?: RuleState;
 
   /**
    * @public
@@ -2007,7 +2007,7 @@ export interface ListArchivesRequest {
    * @public
    * <p>The state of the archive.</p>
    */
-  State?: ArchiveState | string;
+  State?: ArchiveState;
 
   /**
    * @public
@@ -2054,7 +2054,7 @@ export interface ListConnectionsRequest {
    * @public
    * <p>The state of the connection.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: ConnectionState;
 
   /**
    * @public
@@ -2090,7 +2090,7 @@ export interface Connection {
    * @public
    * <p>The state of the connection.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: ConnectionState;
 
   /**
    * @public
@@ -2102,7 +2102,7 @@ export interface Connection {
    * @public
    * <p>The authorization type specified for the connection.</p>
    */
-  AuthorizationType?: ConnectionAuthorizationType | string;
+  AuthorizationType?: ConnectionAuthorizationType;
 
   /**
    * @public
@@ -2283,7 +2283,7 @@ export interface EventSource {
    *       yet created a matching event bus, or that event bus is deactivated. If it is DELETED, you have
    *       created a matching event bus, but the event source has since been deleted.</p>
    */
-  State?: EventSourceState | string;
+  State?: EventSourceState;
 }
 
 /**
@@ -2360,7 +2360,7 @@ export interface PartnerEventSourceAccount {
    *       yet created a matching event bus, or that event bus is deactivated. If it is DELETED, you have
    *       created a matching event bus, but the event source has since been deleted.</p>
    */
-  State?: EventSourceState | string;
+  State?: EventSourceState;
 }
 
 /**
@@ -2459,7 +2459,7 @@ export interface ListReplaysRequest {
    * @public
    * <p>The state of the replay.</p>
    */
-  State?: ReplayState | string;
+  State?: ReplayState;
 
   /**
    * @public
@@ -2501,7 +2501,7 @@ export interface Replay {
    * @public
    * <p>The current state of the replay.</p>
    */
-  State?: ReplayState | string;
+  State?: ReplayState;
 
   /**
    * @public
@@ -2665,7 +2665,7 @@ export interface Rule {
    * @public
    * <p>The state of the rule.</p>
    */
-  State?: RuleState | string;
+  State?: RuleState;
 
   /**
    * @public
@@ -2923,7 +2923,7 @@ export interface AwsVpcConfiguration {
    *       can specify <code>ENABLED</code> only when <code>LaunchType</code> in
    *         <code>EcsParameters</code> is set to <code>FARGATE</code>.</p>
    */
-  AssignPublicIp?: AssignPublicIp | string;
+  AssignPublicIp?: AssignPublicIp;
 }
 
 /**
@@ -2966,7 +2966,7 @@ export interface PlacementConstraint {
    *       group is running on a different container instance. Use memberOf to restrict the selection to
    *       a group of valid candidates. </p>
    */
-  type?: PlacementConstraintType | string;
+  type?: PlacementConstraintType;
 
   /**
    * @public
@@ -3007,7 +3007,7 @@ export interface PlacementStrategy {
    *       field parameter. For example, if you binpack on memory, a task is placed on the instance with
    *       the least amount of remaining memory (but still enough to run the task). </p>
    */
-  type?: PlacementStrategyType | string;
+  type?: PlacementStrategyType;
 
   /**
    * @public
@@ -3059,7 +3059,7 @@ export interface EcsParameters {
    *      is supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS-Fargate.html">Fargate on Amazon ECS</a> in
    *       the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
-  LaunchType?: LaunchType | string;
+  LaunchType?: LaunchType;
 
   /**
    * @public
@@ -3136,7 +3136,7 @@ export interface EcsParameters {
    *       is specified, the tags are not propagated. Tags can only be propagated to the task during task
    *       creation. To add tags to a task after task creation, use the TagResource API action. </p>
    */
-  PropagateTags?: PropagateTags | string;
+  PropagateTags?: PropagateTags;
 
   /**
    * @public
@@ -3207,7 +3207,6 @@ export interface InputTransformer {
    *       keys from <code>InputPathsMap</code> to customize the data sent to the target. Enclose each
    *         <code>InputPathsMaps</code> value in brackets: <<i>value</i>> The
    *       InputTemplate must be valid JSON.</p>
-   *
    *          <p>If <code>InputTemplate</code> is a JSON object (surrounded by curly braces), the following
    *       restrictions apply:</p>
    *          <ul>
@@ -3446,7 +3445,6 @@ export interface SqsParameters {
  * @public
  * <p>Targets are the resources to be invoked when a rule is triggered. For a complete list of
  *       services and resources that can be set as a target, see <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutTargets.html">PutTargets</a>.</p>
- *
  *          <p>If you are setting the event bus of another account as the target, and that account
  *       granted permission to your account through an organization instead of directly by the account
  *       ID, then you must specify a <code>RoleArn</code> with proper permissions in the
@@ -3879,7 +3877,6 @@ export interface PutPermissionRequest {
    * @public
    * <p>The 12-digit Amazon Web Services account ID that you are permitting to put events to your default event
    *       bus. Specify "*" to permit any account to put events to your default event bus.</p>
-   *
    *          <p>If you specify "*" without specifying <code>Condition</code>, avoid creating rules that
    *       may match undesirable events. To create more secure rules, make sure that the event pattern
    *       for each rule contains an <code>account</code> field with a specific account ID from which to
@@ -3905,7 +3902,6 @@ export interface PutPermissionRequest {
    *          <p>If you specify <code>Condition</code> with an Amazon Web Services organization ID, and specify "*" as the
    *       value for <code>Principal</code>, you grant permission to all the accounts in the named
    *       organization.</p>
-   *
    *          <p>The <code>Condition</code> is a JSON string which must contain <code>Type</code>,
    *         <code>Key</code>, and <code>Value</code> fields.</p>
    */
@@ -3947,7 +3943,7 @@ export interface PutRuleRequest {
    * @public
    * <p>Indicates whether the rule is enabled or disabled.</p>
    */
-  State?: RuleState | string;
+  State?: RuleState;
 
   /**
    * @public
@@ -4217,7 +4213,7 @@ export interface StartReplayResponse {
    * @public
    * <p>The state of the replay.</p>
    */
-  State?: ReplayState | string;
+  State?: ReplayState;
 
   /**
    * @public
@@ -4376,7 +4372,7 @@ export interface UpdateApiDestinationRequest {
    * @public
    * <p>The method to use for the API destination.</p>
    */
-  HttpMethod?: ApiDestinationHttpMethod | string;
+  HttpMethod?: ApiDestinationHttpMethod;
 
   /**
    * @public
@@ -4399,7 +4395,7 @@ export interface UpdateApiDestinationResponse {
    * @public
    * <p>The state of the API destination that was updated.</p>
    */
-  ApiDestinationState?: ApiDestinationState | string;
+  ApiDestinationState?: ApiDestinationState;
 
   /**
    * @public
@@ -4457,7 +4453,7 @@ export interface UpdateArchiveResponse {
    * @public
    * <p>The state of the archive.</p>
    */
-  State?: ArchiveState | string;
+  State?: ArchiveState;
 
   /**
    * @public
@@ -4550,7 +4546,7 @@ export interface UpdateConnectionOAuthRequestParameters {
    * @public
    * <p>The method used to connect to the HTTP endpoint.</p>
    */
-  HttpMethod?: ConnectionOAuthHttpMethod | string;
+  HttpMethod?: ConnectionOAuthHttpMethod;
 
   /**
    * @public
@@ -4613,7 +4609,7 @@ export interface UpdateConnectionRequest {
    * @public
    * <p>The type of authorization to use for the connection.</p>
    */
-  AuthorizationType?: ConnectionAuthorizationType | string;
+  AuthorizationType?: ConnectionAuthorizationType;
 
   /**
    * @public
@@ -4636,7 +4632,7 @@ export interface UpdateConnectionResponse {
    * @public
    * <p>The state of the connection that was updated.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: ConnectionState;
 
   /**
    * @public
@@ -4656,3 +4652,228 @@ export interface UpdateConnectionResponse {
    */
   LastAuthorizedTime?: Date;
 }
+
+/**
+ * @internal
+ */
+export const CreateConnectionApiKeyAuthRequestParametersFilterSensitiveLog = (
+  obj: CreateConnectionApiKeyAuthRequestParameters
+): any => ({
+  ...obj,
+  ...(obj.ApiKeyValue && { ApiKeyValue: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionBasicAuthRequestParametersFilterSensitiveLog = (
+  obj: CreateConnectionBasicAuthRequestParameters
+): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ConnectionBodyParameterFilterSensitiveLog = (obj: ConnectionBodyParameter): any => ({
+  ...obj,
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ConnectionHeaderParameterFilterSensitiveLog = (obj: ConnectionHeaderParameter): any => ({
+  ...obj,
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ConnectionQueryStringParameterFilterSensitiveLog = (obj: ConnectionQueryStringParameter): any => ({
+  ...obj,
+  ...(obj.Value && { Value: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ConnectionHttpParametersFilterSensitiveLog = (obj: ConnectionHttpParameters): any => ({
+  ...obj,
+  ...(obj.HeaderParameters && {
+    HeaderParameters: obj.HeaderParameters.map((item) => ConnectionHeaderParameterFilterSensitiveLog(item)),
+  }),
+  ...(obj.QueryStringParameters && {
+    QueryStringParameters: obj.QueryStringParameters.map((item) =>
+      ConnectionQueryStringParameterFilterSensitiveLog(item)
+    ),
+  }),
+  ...(obj.BodyParameters && {
+    BodyParameters: obj.BodyParameters.map((item) => ConnectionBodyParameterFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionOAuthClientRequestParametersFilterSensitiveLog = (
+  obj: CreateConnectionOAuthClientRequestParameters
+): any => ({
+  ...obj,
+  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionOAuthRequestParametersFilterSensitiveLog = (
+  obj: CreateConnectionOAuthRequestParameters
+): any => ({
+  ...obj,
+  ...(obj.ClientParameters && {
+    ClientParameters: CreateConnectionOAuthClientRequestParametersFilterSensitiveLog(obj.ClientParameters),
+  }),
+  ...(obj.OAuthHttpParameters && {
+    OAuthHttpParameters: ConnectionHttpParametersFilterSensitiveLog(obj.OAuthHttpParameters),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionAuthRequestParametersFilterSensitiveLog = (
+  obj: CreateConnectionAuthRequestParameters
+): any => ({
+  ...obj,
+  ...(obj.BasicAuthParameters && {
+    BasicAuthParameters: CreateConnectionBasicAuthRequestParametersFilterSensitiveLog(obj.BasicAuthParameters),
+  }),
+  ...(obj.OAuthParameters && {
+    OAuthParameters: CreateConnectionOAuthRequestParametersFilterSensitiveLog(obj.OAuthParameters),
+  }),
+  ...(obj.ApiKeyAuthParameters && {
+    ApiKeyAuthParameters: CreateConnectionApiKeyAuthRequestParametersFilterSensitiveLog(obj.ApiKeyAuthParameters),
+  }),
+  ...(obj.InvocationHttpParameters && {
+    InvocationHttpParameters: ConnectionHttpParametersFilterSensitiveLog(obj.InvocationHttpParameters),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectionRequestFilterSensitiveLog = (obj: CreateConnectionRequest): any => ({
+  ...obj,
+  ...(obj.AuthParameters && {
+    AuthParameters: CreateConnectionAuthRequestParametersFilterSensitiveLog(obj.AuthParameters),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ConnectionOAuthResponseParametersFilterSensitiveLog = (obj: ConnectionOAuthResponseParameters): any => ({
+  ...obj,
+  ...(obj.OAuthHttpParameters && {
+    OAuthHttpParameters: ConnectionHttpParametersFilterSensitiveLog(obj.OAuthHttpParameters),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ConnectionAuthResponseParametersFilterSensitiveLog = (obj: ConnectionAuthResponseParameters): any => ({
+  ...obj,
+  ...(obj.OAuthParameters && {
+    OAuthParameters: ConnectionOAuthResponseParametersFilterSensitiveLog(obj.OAuthParameters),
+  }),
+  ...(obj.InvocationHttpParameters && {
+    InvocationHttpParameters: ConnectionHttpParametersFilterSensitiveLog(obj.InvocationHttpParameters),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeConnectionResponseFilterSensitiveLog = (obj: DescribeConnectionResponse): any => ({
+  ...obj,
+  ...(obj.AuthParameters && { AuthParameters: ConnectionAuthResponseParametersFilterSensitiveLog(obj.AuthParameters) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectionApiKeyAuthRequestParametersFilterSensitiveLog = (
+  obj: UpdateConnectionApiKeyAuthRequestParameters
+): any => ({
+  ...obj,
+  ...(obj.ApiKeyValue && { ApiKeyValue: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectionBasicAuthRequestParametersFilterSensitiveLog = (
+  obj: UpdateConnectionBasicAuthRequestParameters
+): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectionOAuthClientRequestParametersFilterSensitiveLog = (
+  obj: UpdateConnectionOAuthClientRequestParameters
+): any => ({
+  ...obj,
+  ...(obj.ClientSecret && { ClientSecret: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectionOAuthRequestParametersFilterSensitiveLog = (
+  obj: UpdateConnectionOAuthRequestParameters
+): any => ({
+  ...obj,
+  ...(obj.ClientParameters && {
+    ClientParameters: UpdateConnectionOAuthClientRequestParametersFilterSensitiveLog(obj.ClientParameters),
+  }),
+  ...(obj.OAuthHttpParameters && {
+    OAuthHttpParameters: ConnectionHttpParametersFilterSensitiveLog(obj.OAuthHttpParameters),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectionAuthRequestParametersFilterSensitiveLog = (
+  obj: UpdateConnectionAuthRequestParameters
+): any => ({
+  ...obj,
+  ...(obj.BasicAuthParameters && {
+    BasicAuthParameters: UpdateConnectionBasicAuthRequestParametersFilterSensitiveLog(obj.BasicAuthParameters),
+  }),
+  ...(obj.OAuthParameters && {
+    OAuthParameters: UpdateConnectionOAuthRequestParametersFilterSensitiveLog(obj.OAuthParameters),
+  }),
+  ...(obj.ApiKeyAuthParameters && {
+    ApiKeyAuthParameters: UpdateConnectionApiKeyAuthRequestParametersFilterSensitiveLog(obj.ApiKeyAuthParameters),
+  }),
+  ...(obj.InvocationHttpParameters && {
+    InvocationHttpParameters: ConnectionHttpParametersFilterSensitiveLog(obj.InvocationHttpParameters),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectionRequestFilterSensitiveLog = (obj: UpdateConnectionRequest): any => ({
+  ...obj,
+  ...(obj.AuthParameters && {
+    AuthParameters: UpdateConnectionAuthRequestParametersFilterSensitiveLog(obj.AuthParameters),
+  }),
+});

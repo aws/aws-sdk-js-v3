@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -52,29 +53,18 @@ export const se_CompleteSnapshotCommand = async (
   input: CompleteSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-changedblockscount": [
-      () => isSerializableHeaderValue(input.ChangedBlocksCount),
-      () => input.ChangedBlocksCount!.toString(),
-    ],
-    "x-amz-checksum": input.Checksum!,
-    "x-amz-checksum-algorithm": input.ChecksumAlgorithm!,
-    "x-amz-checksum-aggregation-method": input.ChecksumAggregationMethod!,
+    [_xac]: [() => isSerializableHeaderValue(input[_CBC]), () => input[_CBC]!.toString()],
+    [_xac_]: input[_C]!,
+    [_xaca]: input[_CA]!,
+    [_xacam]: input[_CAM]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/snapshots/completion/{SnapshotId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "SnapshotId", () => input.SnapshotId!, "{SnapshotId}", false);
+  b.bp("/snapshots/completion/{SnapshotId}");
+  b.p("SnapshotId", () => input.SnapshotId!, "{SnapshotId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -84,34 +74,17 @@ export const se_GetSnapshotBlockCommand = async (
   input: GetSnapshotBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/snapshots/{SnapshotId}/blocks/{BlockIndex}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "SnapshotId", () => input.SnapshotId!, "{SnapshotId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BlockIndex",
-    () => input.BlockIndex!.toString(),
-    "{BlockIndex}",
-    false
-  );
+  b.bp("/snapshots/{SnapshotId}/blocks/{BlockIndex}");
+  b.p("SnapshotId", () => input.SnapshotId!, "{SnapshotId}", false);
+  b.p("BlockIndex", () => input.BlockIndex!.toString(), "{BlockIndex}", false);
   const query: any = map({
-    blockToken: [, __expectNonNull(input.BlockToken!, `BlockToken`)],
+    [_bT]: [, __expectNonNull(input[_BT]!, `BlockToken`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -121,36 +94,19 @@ export const se_ListChangedBlocksCommand = async (
   input: ListChangedBlocksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/snapshots/{SecondSnapshotId}/changedblocks";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SecondSnapshotId",
-    () => input.SecondSnapshotId!,
-    "{SecondSnapshotId}",
-    false
-  );
+  b.bp("/snapshots/{SecondSnapshotId}/changedblocks");
+  b.p("SecondSnapshotId", () => input.SecondSnapshotId!, "{SecondSnapshotId}", false);
   const query: any = map({
-    firstSnapshotId: [, input.FirstSnapshotId!],
-    pageToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    startingBlockIndex: [() => input.StartingBlockIndex !== void 0, () => input.StartingBlockIndex!.toString()],
+    [_fSI]: [, input[_FSI]!],
+    [_pT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_sBI]: [() => input.StartingBlockIndex !== void 0, () => input[_SBI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -160,27 +116,18 @@ export const se_ListSnapshotBlocksCommand = async (
   input: ListSnapshotBlocksCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/snapshots/{SnapshotId}/blocks";
-  resolvedPath = __resolvedPath(resolvedPath, input, "SnapshotId", () => input.SnapshotId!, "{SnapshotId}", false);
+  b.bp("/snapshots/{SnapshotId}/blocks");
+  b.p("SnapshotId", () => input.SnapshotId!, "{SnapshotId}", false);
   const query: any = map({
-    pageToken: [, input.NextToken!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    startingBlockIndex: [() => input.StartingBlockIndex !== void 0, () => input.StartingBlockIndex!.toString()],
+    [_pT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_sBI]: [() => input.StartingBlockIndex !== void 0, () => input[_SBI]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -190,40 +137,24 @@ export const se_PutSnapshotBlockCommand = async (
   input: PutSnapshotBlockCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
     "content-type": "application/octet-stream",
-    "x-amz-data-length": [() => isSerializableHeaderValue(input.DataLength), () => input.DataLength!.toString()],
-    "x-amz-progress": [() => isSerializableHeaderValue(input.Progress), () => input.Progress!.toString()],
-    "x-amz-checksum": input.Checksum!,
-    "x-amz-checksum-algorithm": input.ChecksumAlgorithm!,
+    [_xadl]: [() => isSerializableHeaderValue(input[_DL]), () => input[_DL]!.toString()],
+    [_xap]: [() => isSerializableHeaderValue(input[_P]), () => input[_P]!.toString()],
+    [_xac_]: input[_C]!,
+    [_xaca]: input[_CA]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/snapshots/{SnapshotId}/blocks/{BlockIndex}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "SnapshotId", () => input.SnapshotId!, "{SnapshotId}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "BlockIndex",
-    () => input.BlockIndex!.toString(),
-    "{BlockIndex}",
-    false
-  );
+  b.bp("/snapshots/{SnapshotId}/blocks/{BlockIndex}");
+  b.p("SnapshotId", () => input.SnapshotId!, "{SnapshotId}", false);
+  b.p("BlockIndex", () => input.BlockIndex!.toString(), "{BlockIndex}", false);
   let body: any;
   if (input.BlockData !== undefined) {
     body = input.BlockData;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -233,11 +164,11 @@ export const se_StartSnapshotCommand = async (
   input: StartSnapshotCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/snapshots";
+  b.bp("/snapshots");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -251,15 +182,8 @@ export const se_StartSnapshotCommand = async (
       VolumeSize: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -336,12 +260,9 @@ export const de_GetSnapshotBlockCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    DataLength: [
-      () => void 0 !== output.headers["x-amz-data-length"],
-      () => __strictParseInt32(output.headers["x-amz-data-length"]),
-    ],
-    Checksum: [, output.headers["x-amz-checksum"]],
-    ChecksumAlgorithm: [, output.headers["x-amz-checksum-algorithm"]],
+    [_DL]: [() => void 0 !== output.headers[_xadl], () => __strictParseInt32(output.headers[_xadl])],
+    [_C]: [, output.headers[_xac_]],
+    [_CA]: [, output.headers[_xaca]],
   });
   const data: any = output.body;
   context.sdkStreamMixin(data);
@@ -534,8 +455,8 @@ export const de_PutSnapshotBlockCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    Checksum: [, output.headers["x-amz-checksum"]],
-    ChecksumAlgorithm: [, output.headers["x-amz-checksum-algorithm"]],
+    [_C]: [, output.headers[_xac_]],
+    [_CA]: [, output.headers[_xaca]],
   });
   await collectBody(output.body, context);
   return contents;
@@ -854,6 +775,29 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _BT = "BlockToken";
+const _C = "Checksum";
+const _CA = "ChecksumAlgorithm";
+const _CAM = "ChecksumAggregationMethod";
+const _CBC = "ChangedBlocksCount";
+const _DL = "DataLength";
+const _FSI = "FirstSnapshotId";
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _P = "Progress";
+const _SBI = "StartingBlockIndex";
+const _bT = "blockToken";
+const _fSI = "firstSnapshotId";
+const _mR = "maxResults";
+const _pT = "pageToken";
+const _sBI = "startingBlockIndex";
+const _xac = "x-amz-changedblockscount";
+const _xac_ = "x-amz-checksum";
+const _xaca = "x-amz-checksum-algorithm";
+const _xacam = "x-amz-checksum-aggregation-method";
+const _xadl = "x-amz-data-length";
+const _xap = "x-amz-progress";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

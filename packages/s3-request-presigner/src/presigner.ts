@@ -1,5 +1,5 @@
 import { SignatureV4MultiRegion, SignatureV4MultiRegionInit } from "@aws-sdk/signature-v4-multi-region";
-import { RequestPresigner, RequestPresigningArguments } from "@smithy/types";
+import { AwsCredentialIdentity, RequestPresigner, RequestPresigningArguments } from "@smithy/types";
 import { HttpRequest as IHttpRequest } from "@smithy/types";
 
 import { SHA256_HEADER, UNSIGNED_PAYLOAD } from "./constants";
@@ -28,9 +28,40 @@ export class S3RequestPresigner implements RequestPresigner {
     requestToSign: IHttpRequest,
     { unsignableHeaders = new Set(), unhoistableHeaders = new Set(), ...options }: RequestPresigningArguments = {}
   ): Promise<IHttpRequest> {
+    this.prepareRequest(requestToSign, {
+      unsignableHeaders,
+      unhoistableHeaders,
+    });
+    return this.signer.presign(requestToSign, {
+      expiresIn: 900,
+      unsignableHeaders,
+      unhoistableHeaders,
+      ...options,
+    });
+  }
+
+  public presignWithCredentials(
+    requestToSign: IHttpRequest,
+    credentials: AwsCredentialIdentity,
+    { unsignableHeaders = new Set(), unhoistableHeaders = new Set(), ...options }: RequestPresigningArguments = {}
+  ): Promise<IHttpRequest> {
+    this.prepareRequest(requestToSign, {
+      unsignableHeaders,
+      unhoistableHeaders,
+    });
+    return this.signer.presignWithCredentials(requestToSign, credentials, {
+      expiresIn: 900,
+      unsignableHeaders,
+      unhoistableHeaders,
+      ...options,
+    });
+  }
+
+  private prepareRequest(
+    requestToSign: IHttpRequest,
+    { unsignableHeaders = new Set(), unhoistableHeaders = new Set() }: RequestPresigningArguments = {}
+  ) {
     unsignableHeaders.add("content-type");
-    // S3 requires SSE headers to be signed in headers instead of query
-    // See: https://github.com/aws/aws-sdk-js-v3/issues/1576
     Object.keys(requestToSign.headers)
       .map((header) => header.toLowerCase())
       .filter((header) => header.startsWith("x-amz-server-side-encryption"))
@@ -45,11 +76,5 @@ export class S3RequestPresigner implements RequestPresigner {
     if (!currentHostHeader || (currentHostHeader === requestToSign.hostname && requestToSign.port != null)) {
       requestToSign.headers.host = expectedHostHeader;
     }
-    return this.signer.presign(requestToSign, {
-      expiresIn: 900,
-      unsignableHeaders,
-      unhoistableHeaders,
-      ...options,
-    });
   }
 }

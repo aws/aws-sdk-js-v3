@@ -36,6 +36,7 @@ export class ConflictException extends __BaseException {
  * @enum
  */
 export const ResourceType = {
+  AWS_APPLICATIONINSIGHTS_APPLICATION: "AWS::ApplicationInsights::Application",
   AWS_CLOUDWATCH_METRIC: "AWS::CloudWatch::Metric",
   AWS_LOGS_LOGGROUP: "AWS::Logs::LogGroup",
   AWS_XRAY_TRACE: "AWS::XRay::Trace",
@@ -54,8 +55,8 @@ export interface CreateLinkInput {
    * @public
    * <p>Specify a friendly human-readable name to use to identify this source account when you are viewing data from it in the monitoring
    *             account.</p>
-   *         <p>You can use a custom label or use the following variables:</p>
-   *         <ul>
+   *          <p>You can use a custom label or use the following variables:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>$AccountName</code> is the name of the account</p>
@@ -77,12 +78,12 @@ export interface CreateLinkInput {
    * <p>An array of strings that define which types of data that the source account shares with the monitoring
    *             account.</p>
    */
-  ResourceTypes: (ResourceType | string)[] | undefined;
+  ResourceTypes: ResourceType[] | undefined;
 
   /**
    * @public
    * <p>The ARN of the sink to use to create this link. You can use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html">ListSinks</a> to find the ARNs of sinks.</p>
-   *         <p>For more information about sinks, see
+   *          <p>For more information about sinks, see
    *             <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_CreateSink.html">CreateSink</a>.</p>
    */
   SinkIdentifier: string | undefined;
@@ -90,10 +91,10 @@ export interface CreateLinkInput {
   /**
    * @public
    * <p>Assigns one or more tags (key-value pairs) to the link. </p>
-   *         <p>Tags can help you organize and categorize your resources. You can also use them to scope user
+   *          <p>Tags can help you organize and categorize your resources. You can also use them to scope user
    *             permissions by granting a user
    *             permission to access or change only resources with certain tag values.</p>
-   *         <p>For more information about using tags to control access, see
+   *          <p>For more information about using tags to control access, see
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling access to Amazon Web Services resources using tags</a>.</p>
    */
   Tags?: Record<string, string>;
@@ -270,10 +271,10 @@ export interface CreateSinkInput {
   /**
    * @public
    * <p>Assigns one or more tags (key-value pairs) to the link. </p>
-   *         <p>Tags can help you organize and categorize your resources. You can also use them to scope user
+   *          <p>Tags can help you organize and categorize your resources. You can also use them to scope user
    *             permissions by granting a user
    *             permission to access or change only resources with certain tag values.</p>
-   *         <p>For more information about using tags to control access, see
+   *          <p>For more information about using tags to control access, see
    *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Controlling access to Amazon Web Services resources using tags</a>.</p>
    */
   Tags?: Record<string, string>;
@@ -700,17 +701,17 @@ export interface ListTagsForResourceInput {
   /**
    * @public
    * <p>The ARN of the  resource that you want to view tags for.</p>
-   *         <p>The ARN format of a sink is
+   *          <p>The ARN format of a sink is
    *             <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:sink/<i>sink-id</i>
    *             </code>
    *          </p>
-   *         <p>The ARN format of a link is
+   *          <p>The ARN format of a link is
    *             <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:link/<i>link-id</i>
    *             </code>
    *          </p>
-   *         <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch Logs
+   *          <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch Logs
    *             resources and operations</a>.</p>
-   *         <important>
+   *          <important>
    *             <p>Unlike tagging permissions in other Amazon Web Services services, to retrieve the list of tags
    *             for links or sinks you must have the <code>oam:RequestTag</code> permission. The
    *             <code>aws:ReguestTag</code> permission does not allow you to tag and untag links and
@@ -767,8 +768,8 @@ export interface PutSinkPolicyInput {
    * @public
    * <p>The JSON policy to use. If you are updating an existing policy, the entire existing policy is
    *             replaced by what you specify here.</p>
-   *         <p>The policy must be in JSON string format with quotation marks escaped and no newlines.</p>
-   *         <p>For examples of different types of policies, see the <b>Examples</b> section on this page.</p>
+   *          <p>The policy must be in JSON string format with quotation marks escaped and no newlines.</p>
+   *          <p>For examples of different types of policies, see the <b>Examples</b> section on this page.</p>
    */
   Policy: string | undefined;
 }
@@ -803,15 +804,15 @@ export interface TagResourceInput {
   /**
    * @public
    * <p>The ARN of the  resource that you're adding tags to.</p>
-   *         <p>The ARN format of a sink is
+   *          <p>The ARN format of a sink is
    *             <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:sink/<i>sink-id</i>
    *             </code>
    *          </p>
-   *         <p>The ARN format of a link is
+   *          <p>The ARN format of a link is
    *             <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:link/<i>link-id</i>
    *             </code>
    *          </p>
-   *         <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch Logs
+   *          <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch Logs
    *             resources and operations</a>.</p>
    */
   ResourceArn: string | undefined;
@@ -857,15 +858,15 @@ export interface UntagResourceInput {
   /**
    * @public
    * <p>The ARN of the resource that you're removing tags from.</p>
-   *         <p>The ARN format of a sink is
+   *          <p>The ARN format of a sink is
    *             <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:sink/<i>sink-id</i>
    *             </code>
    *          </p>
-   *         <p>The ARN format of a link is
+   *          <p>The ARN format of a link is
    *             <code>arn:aws:oam:<i>Region</i>:<i>account-id</i>:link/<i>link-id</i>
    *             </code>
    *          </p>
-   *         <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch Logs
+   *          <p>For more information about ARN format, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/iam-access-control-overview-cwl.html">CloudWatch Logs
    *             resources and operations</a>.</p>
    */
   ResourceArn: string | undefined;
@@ -896,9 +897,9 @@ export interface UpdateLinkInput {
    * @public
    * <p>An array of strings that define which types of data that the source account will send to the monitoring
    *             account.</p>
-   *         <p>Your input here replaces the current set of data types that are shared.</p>
+   *          <p>Your input here replaces the current set of data types that are shared.</p>
    */
-  ResourceTypes: (ResourceType | string)[] | undefined;
+  ResourceTypes: ResourceType[] | undefined;
 }
 
 /**

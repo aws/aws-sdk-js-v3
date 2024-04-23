@@ -13,6 +13,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
 
 import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
+import { ALL_VALUES } from "../commands/utils";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
 /**
@@ -81,34 +82,41 @@ export class BatchWriteCommand extends DynamoDBDocumentClientCommand<
   __BatchWriteItemCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
-  protected readonly inputKeyNodes = [
-    {
-      key: "RequestItems",
-      children: {
-        children: [
-          { key: "PutRequest", children: [{ key: "Item" }] },
-          { key: "DeleteRequest", children: [{ key: "Key" }] },
-        ],
+  protected readonly inputKeyNodes = {
+    RequestItems: {
+      "*": {
+        "*": {
+          PutRequest: {
+            Item: ALL_VALUES, // map with AttributeValue
+          },
+          DeleteRequest: {
+            Key: ALL_VALUES, // map with AttributeValue
+          },
+        },
       },
     },
-  ];
-  protected readonly outputKeyNodes = [
-    {
-      key: "UnprocessedItems",
-      children: {
-        children: [
-          { key: "PutRequest", children: [{ key: "Item" }] },
-          { key: "DeleteRequest", children: [{ key: "Key" }] },
-        ],
+  };
+  protected readonly outputKeyNodes = {
+    UnprocessedItems: {
+      "*": {
+        "*": {
+          PutRequest: {
+            Item: ALL_VALUES, // map with AttributeValue
+          },
+          DeleteRequest: {
+            Key: ALL_VALUES, // map with AttributeValue
+          },
+        },
       },
     },
-    {
-      key: "ItemCollectionMetrics",
-      children: {
-        children: [{ key: "ItemCollectionKey" }],
+    ItemCollectionMetrics: {
+      "*": {
+        "*": {
+          ItemCollectionKey: ALL_VALUES, // map with AttributeValue
+        },
       },
     },
-  ];
+  };
 
   protected readonly clientCommand: __BatchWriteItemCommand;
   public readonly middlewareStack: MiddlewareStack<

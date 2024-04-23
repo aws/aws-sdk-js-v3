@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ListAccountsForProvisionedPermissionSetRequest,
   ListAccountsForProvisionedPermissionSetResponse,
@@ -45,7 +37,7 @@ export interface ListAccountsForProvisionedPermissionSetCommandOutput
 
 /**
  * @public
- * <p>Lists all the AWS accounts where the specified permission set is provisioned.</p>
+ * <p>Lists all the Amazon Web Services accounts where the specified permission set is provisioned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,15 +72,15 @@ export interface ListAccountsForProvisionedPermissionSetCommandOutput
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The request processing has failed because of an unknown error, exception, or failure with
- *       an internal server.</p>
+ *  <p>The request processing has failed because of an unknown error, exception, or failure
+ *             with an internal server.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Indicates that a requested resource is not found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Indicates that the principal has crossed the throttling limits of the API
- *       operations.</p>
+ *             operations.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request failed because it contains a syntax error.</p>
@@ -97,91 +89,26 @@ export interface ListAccountsForProvisionedPermissionSetCommandOutput
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
  */
-export class ListAccountsForProvisionedPermissionSetCommand extends $Command<
-  ListAccountsForProvisionedPermissionSetCommandInput,
-  ListAccountsForProvisionedPermissionSetCommandOutput,
-  SSOAdminClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListAccountsForProvisionedPermissionSetCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SSOAdminClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<
+export class ListAccountsForProvisionedPermissionSetCommand extends $Command
+  .classBuilder<
     ListAccountsForProvisionedPermissionSetCommandInput,
-    ListAccountsForProvisionedPermissionSetCommandOutput
-  > {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(
-        configuration,
-        ListAccountsForProvisionedPermissionSetCommand.getEndpointParameterInstructions()
-      )
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SSOAdminClient";
-    const commandName = "ListAccountsForProvisionedPermissionSetCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: ListAccountsForProvisionedPermissionSetCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_ListAccountsForProvisionedPermissionSetCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListAccountsForProvisionedPermissionSetCommandOutput> {
-    return de_ListAccountsForProvisionedPermissionSetCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+    ListAccountsForProvisionedPermissionSetCommandOutput,
+    SSOAdminClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("SWBExternalService", "ListAccountsForProvisionedPermissionSet", {})
+  .n("SSOAdminClient", "ListAccountsForProvisionedPermissionSetCommand")
+  .f(void 0, void 0)
+  .ser(se_ListAccountsForProvisionedPermissionSetCommand)
+  .de(de_ListAccountsForProvisionedPermissionSetCommand)
+  .build() {}

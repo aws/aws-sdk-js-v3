@@ -15,14 +15,15 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import software.amazon.smithy.aws.typescript.codegen.visitor.MemberDeserVisitor;
 import software.amazon.smithy.codegen.core.CodegenException;
 import software.amazon.smithy.model.shapes.BigDecimalShape;
 import software.amazon.smithy.model.shapes.BigIntegerShape;
 import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.UnionShape;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
-import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
@@ -31,9 +32,10 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  * deserialization to throw when encountered in AWS REST JSON based protocols.
  */
 @SmithyInternalApi
-final class JsonMemberDeserVisitor extends DocumentMemberDeserVisitor {
+final class JsonMemberDeserVisitor extends MemberDeserVisitor {
 
     private final MemberShape memberShape;
+    private final String dataSource;
 
     /**
      * @inheritDoc
@@ -43,6 +45,8 @@ final class JsonMemberDeserVisitor extends DocumentMemberDeserVisitor {
                            String dataSource,
                            Format defaultTimestampFormat) {
         super(context, dataSource, defaultTimestampFormat);
+        this.dataSource = dataSource;
+        this.context = context;
         this.memberShape = memberShape;
         context.getWriter().addImport("_json", null, TypeScriptDependency.AWS_SMITHY_CLIENT);
         this.serdeElisionEnabled = !context.getSettings().generateServerSdk();
@@ -55,16 +59,6 @@ final class JsonMemberDeserVisitor extends DocumentMemberDeserVisitor {
     }
 
     @Override
-    protected MemberShape getMemberShape() {
-        return memberShape;
-    }
-
-    @Override
-    protected boolean requiresNumericEpochSecondsInPayload() {
-        return true;
-    }
-
-    @Override
     public String bigDecimalShape(BigDecimalShape shape) {
         // Fail instead of losing precision through Number.
         return unsupportedShape(shape);
@@ -74,6 +68,23 @@ final class JsonMemberDeserVisitor extends DocumentMemberDeserVisitor {
     public String bigIntegerShape(BigIntegerShape shape) {
         // Fail instead of losing precision through Number.
         return unsupportedShape(shape);
+    }
+
+    @Override
+    public String unionShape(UnionShape shape) {
+        context.getWriter().addDependency(AwsDependency.AWS_SDK_CORE);
+        context.getWriter().addImport("awsExpectUnion", "__expectUnion", AwsDependency.AWS_SDK_CORE);
+        return getDelegateDeserializer(shape, "__expectUnion(" + dataSource + ")");
+    }
+
+    @Override
+    protected MemberShape getMemberShape() {
+        return memberShape;
+    }
+
+    @Override
+    protected boolean requiresNumericEpochSecondsInPayload() {
+        return true;
     }
 
     private String unsupportedShape(Shape shape) {

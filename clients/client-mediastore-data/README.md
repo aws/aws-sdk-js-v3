@@ -25,16 +25,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MediaStoreDataClient` and
-the commands you need, for example `DeleteObjectCommand`:
+the commands you need, for example `ListItemsCommand`:
 
 ```js
 // ES5 example
-const { MediaStoreDataClient, DeleteObjectCommand } = require("@aws-sdk/client-mediastore-data");
+const { MediaStoreDataClient, ListItemsCommand } = require("@aws-sdk/client-mediastore-data");
 ```
 
 ```ts
 // ES6+ example
-import { MediaStoreDataClient, DeleteObjectCommand } from "@aws-sdk/client-mediastore-data";
+import { MediaStoreDataClient, ListItemsCommand } from "@aws-sdk/client-mediastore-data";
 ```
 
 ### Usage
@@ -53,7 +53,7 @@ const client = new MediaStoreDataClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DeleteObjectCommand(params);
+const command = new ListItemsCommand(params);
 ```
 
 #### Async/await
@@ -132,7 +132,7 @@ const client = new AWS.MediaStoreData({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.deleteObject(params);
+  const data = await client.listItems(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -140,7 +140,7 @@ try {
 
 // Promises.
 client
-  .deleteObject(params)
+  .listItems(params)
   .then((data) => {
     // process data.
   })
@@ -149,7 +149,7 @@ client
   });
 
 // callbacks.
-client.deleteObject(params, (err, data) => {
+client.listItems(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -164,7 +164,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -210,7 +210,7 @@ see LICENSE for more information.
 DeleteObject
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediastore-data/classes/deleteobjectcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediastore-data/interfaces/deleteobjectcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediastore-data/interfaces/deleteobjectcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediastore-data/command/DeleteObjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediastore-data/Interface/DeleteObjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediastore-data/Interface/DeleteObjectCommandOutput/)
 
 </details>
 <details>
@@ -218,7 +218,7 @@ DeleteObject
 DescribeObject
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediastore-data/classes/describeobjectcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediastore-data/interfaces/describeobjectcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediastore-data/interfaces/describeobjectcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediastore-data/command/DescribeObjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediastore-data/Interface/DescribeObjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediastore-data/Interface/DescribeObjectCommandOutput/)
 
 </details>
 <details>
@@ -226,7 +226,7 @@ DescribeObject
 GetObject
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediastore-data/classes/getobjectcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediastore-data/interfaces/getobjectcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediastore-data/interfaces/getobjectcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediastore-data/command/GetObjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediastore-data/Interface/GetObjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediastore-data/Interface/GetObjectCommandOutput/)
 
 </details>
 <details>
@@ -234,7 +234,7 @@ GetObject
 ListItems
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediastore-data/classes/listitemscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediastore-data/interfaces/listitemscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediastore-data/interfaces/listitemscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediastore-data/command/ListItemsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediastore-data/Interface/ListItemsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediastore-data/Interface/ListItemsCommandOutput/)
 
 </details>
 <details>
@@ -242,6 +242,6 @@ ListItems
 PutObject
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediastore-data/classes/putobjectcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediastore-data/interfaces/putobjectcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-mediastore-data/interfaces/putobjectcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediastore-data/command/PutObjectCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediastore-data/Interface/PutObjectCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediastore-data/Interface/PutObjectCommandOutput/)
 
 </details>

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -26,6 +27,7 @@ import {
 } from "@smithy/types";
 
 import { BatchGetMetricDataCommandInput, BatchGetMetricDataCommandOutput } from "../commands/BatchGetMetricDataCommand";
+import { CancelExportJobCommandInput, CancelExportJobCommandOutput } from "../commands/CancelExportJobCommand";
 import {
   CreateConfigurationSetCommandInput,
   CreateConfigurationSetCommandOutput,
@@ -60,6 +62,7 @@ import {
   CreateEmailTemplateCommandInput,
   CreateEmailTemplateCommandOutput,
 } from "../commands/CreateEmailTemplateCommand";
+import { CreateExportJobCommandInput, CreateExportJobCommandOutput } from "../commands/CreateExportJobCommand";
 import { CreateImportJobCommandInput, CreateImportJobCommandOutput } from "../commands/CreateImportJobCommand";
 import {
   DeleteConfigurationSetCommandInput,
@@ -139,7 +142,9 @@ import {
   GetEmailIdentityPoliciesCommandOutput,
 } from "../commands/GetEmailIdentityPoliciesCommand";
 import { GetEmailTemplateCommandInput, GetEmailTemplateCommandOutput } from "../commands/GetEmailTemplateCommand";
+import { GetExportJobCommandInput, GetExportJobCommandOutput } from "../commands/GetExportJobCommand";
 import { GetImportJobCommandInput, GetImportJobCommandOutput } from "../commands/GetImportJobCommand";
+import { GetMessageInsightsCommandInput, GetMessageInsightsCommandOutput } from "../commands/GetMessageInsightsCommand";
 import {
   GetSuppressedDestinationCommandInput,
   GetSuppressedDestinationCommandOutput,
@@ -171,6 +176,7 @@ import {
   ListEmailIdentitiesCommandOutput,
 } from "../commands/ListEmailIdentitiesCommand";
 import { ListEmailTemplatesCommandInput, ListEmailTemplatesCommandOutput } from "../commands/ListEmailTemplatesCommand";
+import { ListExportJobsCommandInput, ListExportJobsCommandOutput } from "../commands/ListExportJobsCommand";
 import { ListImportJobsCommandInput, ListImportJobsCommandOutput } from "../commands/ListImportJobsCommand";
 import {
   ListRecommendationsCommandInput,
@@ -316,6 +322,7 @@ import {
   DashboardAttributes,
   DashboardOptions,
   DeliverabilityTestReport,
+  DeliveryEventType,
   DeliveryOptions,
   Destination,
   DkimAttributes,
@@ -324,16 +331,23 @@ import {
   DomainDeliverabilityTrackingOption,
   DomainIspPlacement,
   EmailContent,
+  EmailInsights,
   EmailTemplateContent,
   EmailTemplateMetadata,
+  EngagementEventType,
   EventDestinationDefinition,
   EventType,
+  ExportDataSource,
+  ExportDestination,
+  ExportJobSummary,
+  ExportMetric,
   GuardianAttributes,
   GuardianOptions,
   ImportDataSource,
   ImportDestination,
   ImportJobSummary,
   InboxPlacementTrackingOption,
+  InsightsEvent,
   InternalServiceErrorException,
   InvalidNextTokenException,
   IspPlacement,
@@ -341,11 +355,16 @@ import {
   LimitExceededException,
   ListContactsFilter,
   ListManagementOptions,
+  ListRecommendationsFilterKey,
   MailFromDomainNotVerifiedException,
   Message,
+  MessageInsightsDataSource,
+  MessageInsightsFilters,
   MessageRejected,
   MessageTag,
   MetricDataResult,
+  MetricDimensionName,
+  MetricsDataSource,
   NotFoundException,
   OverallVolume,
   PinpointDestination,
@@ -373,6 +392,7 @@ import {
   TrackingOptions,
   VdmAttributes,
   VdmOptions,
+  VerificationInfo,
 } from "../models/models_0";
 import { SESv2ServiceException as __BaseException } from "../models/SESv2ServiceException";
 
@@ -383,27 +403,35 @@ export const se_BatchGetMetricDataCommand = async (
   input: BatchGetMetricDataCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/metrics/batch";
+  b.bp("/v2/email/metrics/batch");
   let body: any;
   body = JSON.stringify(
     take(input, {
       Queries: (_) => se_BatchGetMetricDataQueries(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CancelExportJobCommand
+ */
+export const se_CancelExportJobCommand = async (
+  input: CancelExportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/email/export-jobs/{JobId}/cancel");
+  b.p("JobId", () => input.JobId!, "{JobId}", false);
+  let body: any;
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -413,12 +441,11 @@ export const se_CreateConfigurationSetCommand = async (
   input: CreateConfigurationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/configuration-sets";
+  b.bp("/v2/email/configuration-sets");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -432,15 +459,8 @@ export const se_CreateConfigurationSetCommand = async (
       VdmOptions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -450,21 +470,12 @@ export const se_CreateConfigurationSetEventDestinationCommand = async (
   input: CreateConfigurationSetEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConfigurationSetName",
-    () => input.ConfigurationSetName!,
-    "{ConfigurationSetName}",
-    false
-  );
+  b.bp("/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations");
+  b.p("ConfigurationSetName", () => input.ConfigurationSetName!, "{ConfigurationSetName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -472,15 +483,8 @@ export const se_CreateConfigurationSetEventDestinationCommand = async (
       EventDestinationName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -490,21 +494,12 @@ export const se_CreateContactCommand = async (
   input: CreateContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/contact-lists/{ContactListName}/contacts";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ContactListName",
-    () => input.ContactListName!,
-    "{ContactListName}",
-    false
-  );
+  b.bp("/v2/email/contact-lists/{ContactListName}/contacts");
+  b.p("ContactListName", () => input.ContactListName!, "{ContactListName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -514,15 +509,8 @@ export const se_CreateContactCommand = async (
       UnsubscribeAll: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -532,12 +520,11 @@ export const se_CreateContactListCommand = async (
   input: CreateContactListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/contact-lists";
+  b.bp("/v2/email/contact-lists");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -547,15 +534,8 @@ export const se_CreateContactListCommand = async (
       Topics: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -565,13 +545,11 @@ export const se_CreateCustomVerificationEmailTemplateCommand = async (
   input: CreateCustomVerificationEmailTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/custom-verification-email-templates";
+  b.bp("/v2/email/custom-verification-email-templates");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -583,15 +561,8 @@ export const se_CreateCustomVerificationEmailTemplateCommand = async (
       TemplateSubject: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -601,12 +572,11 @@ export const se_CreateDedicatedIpPoolCommand = async (
   input: CreateDedicatedIpPoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/dedicated-ip-pools";
+  b.bp("/v2/email/dedicated-ip-pools");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -615,15 +585,8 @@ export const se_CreateDedicatedIpPoolCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -633,12 +596,11 @@ export const se_CreateDeliverabilityTestReportCommand = async (
   input: CreateDeliverabilityTestReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/deliverability-dashboard/test";
+  b.bp("/v2/email/deliverability-dashboard/test");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -648,15 +610,8 @@ export const se_CreateDeliverabilityTestReportCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -666,11 +621,11 @@ export const se_CreateEmailIdentityCommand = async (
   input: CreateEmailIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/identities";
+  b.bp("/v2/email/identities");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -680,15 +635,8 @@ export const se_CreateEmailIdentityCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -698,37 +646,21 @@ export const se_CreateEmailIdentityPolicyCommand = async (
   input: CreateEmailIdentityPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/identities/{EmailIdentity}/policies/{PolicyName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EmailIdentity",
-    () => input.EmailIdentity!,
-    "{EmailIdentity}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "PolicyName", () => input.PolicyName!, "{PolicyName}", false);
+  b.bp("/v2/email/identities/{EmailIdentity}/policies/{PolicyName}");
+  b.p("EmailIdentity", () => input.EmailIdentity!, "{EmailIdentity}", false);
+  b.p("PolicyName", () => input.PolicyName!, "{PolicyName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Policy: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -738,11 +670,11 @@ export const se_CreateEmailTemplateCommand = async (
   input: CreateEmailTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/templates";
+  b.bp("/v2/email/templates");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -750,15 +682,31 @@ export const se_CreateEmailTemplateCommand = async (
       TemplateName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateExportJobCommand
+ */
+export const se_CreateExportJobCommand = async (
+  input: CreateExportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/email/export-jobs");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ExportDataSource: (_) => se_ExportDataSource(_, context),
+      ExportDestination: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -768,11 +716,11 @@ export const se_CreateImportJobCommand = async (
   input: CreateImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/import-jobs";
+  b.bp("/v2/email/import-jobs");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -780,15 +728,8 @@ export const se_CreateImportJobCommand = async (
       ImportDestination: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -798,29 +739,13 @@ export const se_DeleteConfigurationSetCommand = async (
   input: DeleteConfigurationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/configuration-sets/{ConfigurationSetName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConfigurationSetName",
-    () => input.ConfigurationSetName!,
-    "{ConfigurationSetName}",
-    false
-  );
+  b.bp("/v2/email/configuration-sets/{ConfigurationSetName}");
+  b.p("ConfigurationSetName", () => input.ConfigurationSetName!, "{ConfigurationSetName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -830,37 +755,14 @@ export const se_DeleteConfigurationSetEventDestinationCommand = async (
   input: DeleteConfigurationSetEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConfigurationSetName",
-    () => input.ConfigurationSetName!,
-    "{ConfigurationSetName}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EventDestinationName",
-    () => input.EventDestinationName!,
-    "{EventDestinationName}",
-    false
-  );
+  b.bp("/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}");
+  b.p("ConfigurationSetName", () => input.ConfigurationSetName!, "{ConfigurationSetName}", false);
+  b.p("EventDestinationName", () => input.EventDestinationName!, "{EventDestinationName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -870,37 +772,14 @@ export const se_DeleteContactCommand = async (
   input: DeleteContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/contact-lists/{ContactListName}/contacts/{EmailAddress}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ContactListName",
-    () => input.ContactListName!,
-    "{ContactListName}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EmailAddress",
-    () => input.EmailAddress!,
-    "{EmailAddress}",
-    false
-  );
+  b.bp("/v2/email/contact-lists/{ContactListName}/contacts/{EmailAddress}");
+  b.p("ContactListName", () => input.ContactListName!, "{ContactListName}", false);
+  b.p("EmailAddress", () => input.EmailAddress!, "{EmailAddress}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -910,28 +789,13 @@ export const se_DeleteContactListCommand = async (
   input: DeleteContactListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/contact-lists/{ContactListName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ContactListName",
-    () => input.ContactListName!,
-    "{ContactListName}",
-    false
-  );
+  b.bp("/v2/email/contact-lists/{ContactListName}");
+  b.p("ContactListName", () => input.ContactListName!, "{ContactListName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -941,29 +805,13 @@ export const se_DeleteCustomVerificationEmailTemplateCommand = async (
   input: DeleteCustomVerificationEmailTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/custom-verification-email-templates/{TemplateName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "TemplateName",
-    () => input.TemplateName!,
-    "{TemplateName}",
-    false
-  );
+  b.bp("/v2/email/custom-verification-email-templates/{TemplateName}");
+  b.p("TemplateName", () => input.TemplateName!, "{TemplateName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -973,21 +821,13 @@ export const se_DeleteDedicatedIpPoolCommand = async (
   input: DeleteDedicatedIpPoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/dedicated-ip-pools/{PoolName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "PoolName", () => input.PoolName!, "{PoolName}", false);
+  b.bp("/v2/email/dedicated-ip-pools/{PoolName}");
+  b.p("PoolName", () => input.PoolName!, "{PoolName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -997,28 +837,13 @@ export const se_DeleteEmailIdentityCommand = async (
   input: DeleteEmailIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/identities/{EmailIdentity}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EmailIdentity",
-    () => input.EmailIdentity!,
-    "{EmailIdentity}",
-    false
-  );
+  b.bp("/v2/email/identities/{EmailIdentity}");
+  b.p("EmailIdentity", () => input.EmailIdentity!, "{EmailIdentity}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1028,30 +853,14 @@ export const se_DeleteEmailIdentityPolicyCommand = async (
   input: DeleteEmailIdentityPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/identities/{EmailIdentity}/policies/{PolicyName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EmailIdentity",
-    () => input.EmailIdentity!,
-    "{EmailIdentity}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "PolicyName", () => input.PolicyName!, "{PolicyName}", false);
+  b.bp("/v2/email/identities/{EmailIdentity}/policies/{PolicyName}");
+  b.p("EmailIdentity", () => input.EmailIdentity!, "{EmailIdentity}", false);
+  b.p("PolicyName", () => input.PolicyName!, "{PolicyName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1061,28 +870,13 @@ export const se_DeleteEmailTemplateCommand = async (
   input: DeleteEmailTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/templates/{TemplateName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "TemplateName",
-    () => input.TemplateName!,
-    "{TemplateName}",
-    false
-  );
+  b.bp("/v2/email/templates/{TemplateName}");
+  b.p("TemplateName", () => input.TemplateName!, "{TemplateName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1092,29 +886,13 @@ export const se_DeleteSuppressedDestinationCommand = async (
   input: DeleteSuppressedDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/suppression/addresses/{EmailAddress}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EmailAddress",
-    () => input.EmailAddress!,
-    "{EmailAddress}",
-    false
-  );
+  b.bp("/v2/email/suppression/addresses/{EmailAddress}");
+  b.p("EmailAddress", () => input.EmailAddress!, "{EmailAddress}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1124,22 +902,15 @@ export const se_GetAccountCommand = async (
   input: GetAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/account";
+  b.bp("/v2/email/account");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1149,28 +920,18 @@ export const se_GetBlacklistReportsCommand = async (
   input: GetBlacklistReportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/deliverability-dashboard/blacklist-report";
+  b.bp("/v2/email/deliverability-dashboard/blacklist-report");
   const query: any = map({
-    BlacklistItemNames: [
+    [_BIN]: [
       __expectNonNull(input.BlacklistItemNames, `BlacklistItemNames`) != null,
-      () => (input.BlacklistItemNames! || []).map((_entry) => _entry as any),
+      () => (input[_BIN]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1180,29 +941,13 @@ export const se_GetConfigurationSetCommand = async (
   input: GetConfigurationSetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/configuration-sets/{ConfigurationSetName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConfigurationSetName",
-    () => input.ConfigurationSetName!,
-    "{ConfigurationSetName}",
-    false
-  );
+  b.bp("/v2/email/configuration-sets/{ConfigurationSetName}");
+  b.p("ConfigurationSetName", () => input.ConfigurationSetName!, "{ConfigurationSetName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1212,29 +957,13 @@ export const se_GetConfigurationSetEventDestinationsCommand = async (
   input: GetConfigurationSetEventDestinationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConfigurationSetName",
-    () => input.ConfigurationSetName!,
-    "{ConfigurationSetName}",
-    false
-  );
+  b.bp("/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations");
+  b.p("ConfigurationSetName", () => input.ConfigurationSetName!, "{ConfigurationSetName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1244,37 +973,14 @@ export const se_GetContactCommand = async (
   input: GetContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/contact-lists/{ContactListName}/contacts/{EmailAddress}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ContactListName",
-    () => input.ContactListName!,
-    "{ContactListName}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EmailAddress",
-    () => input.EmailAddress!,
-    "{EmailAddress}",
-    false
-  );
+  b.bp("/v2/email/contact-lists/{ContactListName}/contacts/{EmailAddress}");
+  b.p("ContactListName", () => input.ContactListName!, "{ContactListName}", false);
+  b.p("EmailAddress", () => input.EmailAddress!, "{EmailAddress}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1284,28 +990,13 @@ export const se_GetContactListCommand = async (
   input: GetContactListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/contact-lists/{ContactListName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ContactListName",
-    () => input.ContactListName!,
-    "{ContactListName}",
-    false
-  );
+  b.bp("/v2/email/contact-lists/{ContactListName}");
+  b.p("ContactListName", () => input.ContactListName!, "{ContactListName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1315,29 +1006,13 @@ export const se_GetCustomVerificationEmailTemplateCommand = async (
   input: GetCustomVerificationEmailTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/custom-verification-email-templates/{TemplateName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "TemplateName",
-    () => input.TemplateName!,
-    "{TemplateName}",
-    false
-  );
+  b.bp("/v2/email/custom-verification-email-templates/{TemplateName}");
+  b.p("TemplateName", () => input.TemplateName!, "{TemplateName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1347,21 +1022,13 @@ export const se_GetDedicatedIpCommand = async (
   input: GetDedicatedIpCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/dedicated-ips/{Ip}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Ip", () => input.Ip!, "{Ip}", false);
+  b.bp("/v2/email/dedicated-ips/{Ip}");
+  b.p("Ip", () => input.Ip!, "{Ip}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1371,21 +1038,13 @@ export const se_GetDedicatedIpPoolCommand = async (
   input: GetDedicatedIpPoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/dedicated-ip-pools/{PoolName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "PoolName", () => input.PoolName!, "{PoolName}", false);
+  b.bp("/v2/email/dedicated-ip-pools/{PoolName}");
+  b.p("PoolName", () => input.PoolName!, "{PoolName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1395,26 +1054,17 @@ export const se_GetDedicatedIpsCommand = async (
   input: GetDedicatedIpsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/dedicated-ips";
+  b.bp("/v2/email/dedicated-ips");
   const query: any = map({
-    PoolName: [, input.PoolName!],
-    NextToken: [, input.NextToken!],
-    PageSize: [() => input.PageSize !== void 0, () => input.PageSize!.toString()],
+    [_PN]: [, input[_PN]!],
+    [_NT]: [, input[_NT]!],
+    [_PS]: [() => input.PageSize !== void 0, () => input[_PS]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1424,23 +1074,15 @@ export const se_GetDeliverabilityDashboardOptionsCommand = async (
   input: GetDeliverabilityDashboardOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/deliverability-dashboard";
+  b.bp("/v2/email/deliverability-dashboard");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1450,22 +1092,13 @@ export const se_GetDeliverabilityTestReportCommand = async (
   input: GetDeliverabilityTestReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/deliverability-dashboard/test-reports/{ReportId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ReportId", () => input.ReportId!, "{ReportId}", false);
+  b.bp("/v2/email/deliverability-dashboard/test-reports/{ReportId}");
+  b.p("ReportId", () => input.ReportId!, "{ReportId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1475,22 +1108,13 @@ export const se_GetDomainDeliverabilityCampaignCommand = async (
   input: GetDomainDeliverabilityCampaignCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/deliverability-dashboard/campaigns/{CampaignId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "CampaignId", () => input.CampaignId!, "{CampaignId}", false);
+  b.bp("/v2/email/deliverability-dashboard/campaigns/{CampaignId}");
+  b.p("CampaignId", () => input.CampaignId!, "{CampaignId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1500,33 +1124,23 @@ export const se_GetDomainStatisticsReportCommand = async (
   input: GetDomainStatisticsReportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/deliverability-dashboard/statistics-report/{Domain}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Domain", () => input.Domain!, "{Domain}", false);
+  b.bp("/v2/email/deliverability-dashboard/statistics-report/{Domain}");
+  b.p("Domain", () => input.Domain!, "{Domain}", false);
   const query: any = map({
-    StartDate: [
+    [_SD]: [
       __expectNonNull(input.StartDate, `StartDate`) != null,
-      () => (input.StartDate!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_SD]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    EndDate: [
+    [_ED]: [
       __expectNonNull(input.EndDate, `EndDate`) != null,
-      () => (input.EndDate!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_ED]!.toISOString().split(".")[0] + "Z").toString(),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1536,28 +1150,13 @@ export const se_GetEmailIdentityCommand = async (
   input: GetEmailIdentityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/identities/{EmailIdentity}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EmailIdentity",
-    () => input.EmailIdentity!,
-    "{EmailIdentity}",
-    false
-  );
+  b.bp("/v2/email/identities/{EmailIdentity}");
+  b.p("EmailIdentity", () => input.EmailIdentity!, "{EmailIdentity}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1567,29 +1166,13 @@ export const se_GetEmailIdentityPoliciesCommand = async (
   input: GetEmailIdentityPoliciesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/identities/{EmailIdentity}/policies";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EmailIdentity",
-    () => input.EmailIdentity!,
-    "{EmailIdentity}",
-    false
-  );
+  b.bp("/v2/email/identities/{EmailIdentity}/policies");
+  b.p("EmailIdentity", () => input.EmailIdentity!, "{EmailIdentity}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1599,28 +1182,29 @@ export const se_GetEmailTemplateCommand = async (
   input: GetEmailTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/templates/{TemplateName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "TemplateName",
-    () => input.TemplateName!,
-    "{TemplateName}",
-    false
-  );
+  b.bp("/v2/email/templates/{TemplateName}");
+  b.p("TemplateName", () => input.TemplateName!, "{TemplateName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetExportJobCommand
+ */
+export const se_GetExportJobCommand = async (
+  input: GetExportJobCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/email/export-jobs/{JobId}");
+  b.p("JobId", () => input.JobId!, "{JobId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1630,21 +1214,29 @@ export const se_GetImportJobCommand = async (
   input: GetImportJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/import-jobs/{JobId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "JobId", () => input.JobId!, "{JobId}", false);
+  b.bp("/v2/email/import-jobs/{JobId}");
+  b.p("JobId", () => input.JobId!, "{JobId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetMessageInsightsCommand
+ */
+export const se_GetMessageInsightsCommand = async (
+  input: GetMessageInsightsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v2/email/insights/{MessageId}");
+  b.p("MessageId", () => input.MessageId!, "{MessageId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1654,29 +1246,13 @@ export const se_GetSuppressedDestinationCommand = async (
   input: GetSuppressedDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/suppression/addresses/{EmailAddress}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EmailAddress",
-    () => input.EmailAddress!,
-    "{EmailAddress}",
-    false
-  );
+  b.bp("/v2/email/suppression/addresses/{EmailAddress}");
+  b.p("EmailAddress", () => input.EmailAddress!, "{EmailAddress}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1686,25 +1262,16 @@ export const se_ListConfigurationSetsCommand = async (
   input: ListConfigurationSetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/configuration-sets";
+  b.bp("/v2/email/configuration-sets");
   const query: any = map({
-    NextToken: [, input.NextToken!],
-    PageSize: [() => input.PageSize !== void 0, () => input.PageSize!.toString()],
+    [_NT]: [, input[_NT]!],
+    [_PS]: [() => input.PageSize !== void 0, () => input[_PS]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1714,25 +1281,16 @@ export const se_ListContactListsCommand = async (
   input: ListContactListsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/contact-lists";
+  b.bp("/v2/email/contact-lists");
   const query: any = map({
-    PageSize: [() => input.PageSize !== void 0, () => input.PageSize!.toString()],
-    NextToken: [, input.NextToken!],
+    [_PS]: [() => input.PageSize !== void 0, () => input[_PS]!.toString()],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1742,24 +1300,15 @@ export const se_ListContactsCommand = async (
   input: ListContactsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/contact-lists/{ContactListName}/contacts";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ContactListName",
-    () => input.ContactListName!,
-    "{ContactListName}",
-    false
-  );
+  b.bp("/v2/email/contact-lists/{ContactListName}/contacts");
+  b.p("ContactListName", () => input.ContactListName!, "{ContactListName}", false);
   const query: any = map({
-    PageSize: [() => input.PageSize !== void 0, () => input.PageSize!.toString()],
-    NextToken: [, input.NextToken!],
+    [_PS]: [() => input.PageSize !== void 0, () => input[_PS]!.toString()],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -1767,16 +1316,8 @@ export const se_ListContactsCommand = async (
       Filter: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1786,26 +1327,16 @@ export const se_ListCustomVerificationEmailTemplatesCommand = async (
   input: ListCustomVerificationEmailTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/custom-verification-email-templates";
+  b.bp("/v2/email/custom-verification-email-templates");
   const query: any = map({
-    NextToken: [, input.NextToken!],
-    PageSize: [() => input.PageSize !== void 0, () => input.PageSize!.toString()],
+    [_NT]: [, input[_NT]!],
+    [_PS]: [() => input.PageSize !== void 0, () => input[_PS]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1815,25 +1346,16 @@ export const se_ListDedicatedIpPoolsCommand = async (
   input: ListDedicatedIpPoolsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/dedicated-ip-pools";
+  b.bp("/v2/email/dedicated-ip-pools");
   const query: any = map({
-    NextToken: [, input.NextToken!],
-    PageSize: [() => input.PageSize !== void 0, () => input.PageSize!.toString()],
+    [_NT]: [, input[_NT]!],
+    [_PS]: [() => input.PageSize !== void 0, () => input[_PS]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1843,26 +1365,16 @@ export const se_ListDeliverabilityTestReportsCommand = async (
   input: ListDeliverabilityTestReportsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/deliverability-dashboard/test-reports";
+  b.bp("/v2/email/deliverability-dashboard/test-reports");
   const query: any = map({
-    NextToken: [, input.NextToken!],
-    PageSize: [() => input.PageSize !== void 0, () => input.PageSize!.toString()],
+    [_NT]: [, input[_NT]!],
+    [_PS]: [() => input.PageSize !== void 0, () => input[_PS]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1872,42 +1384,25 @@ export const se_ListDomainDeliverabilityCampaignsCommand = async (
   input: ListDomainDeliverabilityCampaignsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/deliverability-dashboard/domains/{SubscribedDomain}/campaigns";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SubscribedDomain",
-    () => input.SubscribedDomain!,
-    "{SubscribedDomain}",
-    false
-  );
+  b.bp("/v2/email/deliverability-dashboard/domains/{SubscribedDomain}/campaigns");
+  b.p("SubscribedDomain", () => input.SubscribedDomain!, "{SubscribedDomain}", false);
   const query: any = map({
-    StartDate: [
+    [_SD]: [
       __expectNonNull(input.StartDate, `StartDate`) != null,
-      () => (input.StartDate!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_SD]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    EndDate: [
+    [_ED]: [
       __expectNonNull(input.EndDate, `EndDate`) != null,
-      () => (input.EndDate!.toISOString().split(".")[0] + "Z").toString(),
+      () => (input[_ED]!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    NextToken: [, input.NextToken!],
-    PageSize: [() => input.PageSize !== void 0, () => input.PageSize!.toString()],
+    [_NT]: [, input[_NT]!],
+    [_PS]: [() => input.PageSize !== void 0, () => input[_PS]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1917,24 +1412,16 @@ export const se_ListEmailIdentitiesCommand = async (
   input: ListEmailIdentitiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/identities";
+  b.bp("/v2/email/identities");
   const query: any = map({
-    NextToken: [, input.NextToken!],
-    PageSize: [() => input.PageSize !== void 0, () => input.PageSize!.toString()],
+    [_NT]: [, input[_NT]!],
+    [_PS]: [() => input.PageSize !== void 0, () => input[_PS]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1944,24 +1431,41 @@ export const se_ListEmailTemplatesCommand = async (
   input: ListEmailTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/templates";
+  b.bp("/v2/email/templates");
   const query: any = map({
-    NextToken: [, input.NextToken!],
-    PageSize: [() => input.PageSize !== void 0, () => input.PageSize!.toString()],
+    [_NT]: [, input[_NT]!],
+    [_PS]: [() => input.PageSize !== void 0, () => input[_PS]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListExportJobsCommand
+ */
+export const se_ListExportJobsCommand = async (
+  input: ListExportJobsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v2/email/list-export-jobs");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ExportSourceType: [],
+      JobStatus: [],
+      NextToken: [],
+      PageSize: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1971,14 +1475,14 @@ export const se_ListImportJobsCommand = async (
   input: ListImportJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/import-jobs";
+  b.bp("/v2/email/import-jobs");
   const query: any = map({
-    NextToken: [, input.NextToken!],
-    PageSize: [() => input.PageSize !== void 0, () => input.PageSize!.toString()],
+    [_NT]: [, input[_NT]!],
+    [_PS]: [() => input.PageSize !== void 0, () => input[_PS]!.toString()],
   });
   let body: any;
   body = JSON.stringify(
@@ -1986,16 +1490,8 @@ export const se_ListImportJobsCommand = async (
       ImportDestinationType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2005,12 +1501,11 @@ export const se_ListRecommendationsCommand = async (
   input: ListRecommendationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/vdm/recommendations";
+  b.bp("/v2/email/vdm/recommendations");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2019,15 +1514,8 @@ export const se_ListRecommendationsCommand = async (
       PageSize: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2037,31 +1525,19 @@ export const se_ListSuppressedDestinationsCommand = async (
   input: ListSuppressedDestinationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/suppression/addresses";
+  b.bp("/v2/email/suppression/addresses");
   const query: any = map({
-    Reason: [() => input.Reasons !== void 0, () => (input.Reasons! || []).map((_entry) => _entry as any)],
-    StartDate: [
-      () => input.StartDate !== void 0,
-      () => (input.StartDate!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    EndDate: [() => input.EndDate !== void 0, () => (input.EndDate!.toISOString().split(".")[0] + "Z").toString()],
-    NextToken: [, input.NextToken!],
-    PageSize: [() => input.PageSize !== void 0, () => input.PageSize!.toString()],
+    [_Re]: [() => input.Reasons !== void 0, () => (input[_R]! || []).map((_entry) => _entry as any)],
+    [_SD]: [() => input.StartDate !== void 0, () => (input[_SD]!.toISOString().split(".")[0] + "Z").toString()],
+    [_ED]: [() => input.EndDate !== void 0, () => (input[_ED]!.toISOString().split(".")[0] + "Z").toString()],
+    [_NT]: [, input[_NT]!],
+    [_PS]: [() => input.PageSize !== void 0, () => input[_PS]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2071,23 +1547,15 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/tags";
+  b.bp("/v2/email/tags");
   const query: any = map({
-    ResourceArn: [, __expectNonNull(input.ResourceArn!, `ResourceArn`)],
+    [_RA]: [, __expectNonNull(input[_RA]!, `ResourceArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2097,27 +1565,19 @@ export const se_PutAccountDedicatedIpWarmupAttributesCommand = async (
   input: PutAccountDedicatedIpWarmupAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/account/dedicated-ips/warmup";
+  b.bp("/v2/email/account/dedicated-ips/warmup");
   let body: any;
   body = JSON.stringify(
     take(input, {
       AutoWarmupEnabled: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2127,12 +1587,11 @@ export const se_PutAccountDetailsCommand = async (
   input: PutAccountDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/account/details";
+  b.bp("/v2/email/account/details");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2144,15 +1603,8 @@ export const se_PutAccountDetailsCommand = async (
       WebsiteURL: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2162,27 +1614,19 @@ export const se_PutAccountSendingAttributesCommand = async (
   input: PutAccountSendingAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/account/sending";
+  b.bp("/v2/email/account/sending");
   let body: any;
   body = JSON.stringify(
     take(input, {
       SendingEnabled: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2192,27 +1636,19 @@ export const se_PutAccountSuppressionAttributesCommand = async (
   input: PutAccountSuppressionAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/account/suppression";
+  b.bp("/v2/email/account/suppression");
   let body: any;
   body = JSON.stringify(
     take(input, {
       SuppressedReasons: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2222,26 +1658,19 @@ export const se_PutAccountVdmAttributesCommand = async (
   input: PutAccountVdmAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/account/vdm";
+  b.bp("/v2/email/account/vdm");
   let body: any;
   body = JSON.stringify(
     take(input, {
       VdmAttributes: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2251,21 +1680,12 @@ export const se_PutConfigurationSetDeliveryOptionsCommand = async (
   input: PutConfigurationSetDeliveryOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/configuration-sets/{ConfigurationSetName}/delivery-options";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConfigurationSetName",
-    () => input.ConfigurationSetName!,
-    "{ConfigurationSetName}",
-    false
-  );
+  b.bp("/v2/email/configuration-sets/{ConfigurationSetName}/delivery-options");
+  b.p("ConfigurationSetName", () => input.ConfigurationSetName!, "{ConfigurationSetName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2273,15 +1693,8 @@ export const se_PutConfigurationSetDeliveryOptionsCommand = async (
       TlsPolicy: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2291,36 +1704,20 @@ export const se_PutConfigurationSetReputationOptionsCommand = async (
   input: PutConfigurationSetReputationOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/configuration-sets/{ConfigurationSetName}/reputation-options";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConfigurationSetName",
-    () => input.ConfigurationSetName!,
-    "{ConfigurationSetName}",
-    false
-  );
+  b.bp("/v2/email/configuration-sets/{ConfigurationSetName}/reputation-options");
+  b.p("ConfigurationSetName", () => input.ConfigurationSetName!, "{ConfigurationSetName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       ReputationMetricsEnabled: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2330,36 +1727,20 @@ export const se_PutConfigurationSetSendingOptionsCommand = async (
   input: PutConfigurationSetSendingOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/configuration-sets/{ConfigurationSetName}/sending";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConfigurationSetName",
-    () => input.ConfigurationSetName!,
-    "{ConfigurationSetName}",
-    false
-  );
+  b.bp("/v2/email/configuration-sets/{ConfigurationSetName}/sending");
+  b.p("ConfigurationSetName", () => input.ConfigurationSetName!, "{ConfigurationSetName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       SendingEnabled: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2369,36 +1750,20 @@ export const se_PutConfigurationSetSuppressionOptionsCommand = async (
   input: PutConfigurationSetSuppressionOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/configuration-sets/{ConfigurationSetName}/suppression-options";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConfigurationSetName",
-    () => input.ConfigurationSetName!,
-    "{ConfigurationSetName}",
-    false
-  );
+  b.bp("/v2/email/configuration-sets/{ConfigurationSetName}/suppression-options");
+  b.p("ConfigurationSetName", () => input.ConfigurationSetName!, "{ConfigurationSetName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       SuppressedReasons: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2408,36 +1773,20 @@ export const se_PutConfigurationSetTrackingOptionsCommand = async (
   input: PutConfigurationSetTrackingOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/configuration-sets/{ConfigurationSetName}/tracking-options";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConfigurationSetName",
-    () => input.ConfigurationSetName!,
-    "{ConfigurationSetName}",
-    false
-  );
+  b.bp("/v2/email/configuration-sets/{ConfigurationSetName}/tracking-options");
+  b.p("ConfigurationSetName", () => input.ConfigurationSetName!, "{ConfigurationSetName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       CustomRedirectDomain: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2447,36 +1796,20 @@ export const se_PutConfigurationSetVdmOptionsCommand = async (
   input: PutConfigurationSetVdmOptionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/configuration-sets/{ConfigurationSetName}/vdm-options";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConfigurationSetName",
-    () => input.ConfigurationSetName!,
-    "{ConfigurationSetName}",
-    false
-  );
+  b.bp("/v2/email/configuration-sets/{ConfigurationSetName}/vdm-options");
+  b.p("ConfigurationSetName", () => input.ConfigurationSetName!, "{ConfigurationSetName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       VdmOptions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2486,28 +1819,20 @@ export const se_PutDedicatedIpInPoolCommand = async (
   input: PutDedicatedIpInPoolCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/dedicated-ips/{Ip}/pool";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Ip", () => input.Ip!, "{Ip}", false);
+  b.bp("/v2/email/dedicated-ips/{Ip}/pool");
+  b.p("Ip", () => input.Ip!, "{Ip}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       DestinationPoolName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2517,29 +1842,20 @@ export const se_PutDedicatedIpPoolScalingAttributesCommand = async (
   input: PutDedicatedIpPoolScalingAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/dedicated-ip-pools/{PoolName}/scaling";
-  resolvedPath = __resolvedPath(resolvedPath, input, "PoolName", () => input.PoolName!, "{PoolName}", false);
+  b.bp("/v2/email/dedicated-ip-pools/{PoolName}/scaling");
+  b.p("PoolName", () => input.PoolName!, "{PoolName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       ScalingMode: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2549,28 +1865,20 @@ export const se_PutDedicatedIpWarmupAttributesCommand = async (
   input: PutDedicatedIpWarmupAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/dedicated-ips/{Ip}/warmup";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Ip", () => input.Ip!, "{Ip}", false);
+  b.bp("/v2/email/dedicated-ips/{Ip}/warmup");
+  b.p("Ip", () => input.Ip!, "{Ip}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       WarmupPercentage: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2580,12 +1888,11 @@ export const se_PutDeliverabilityDashboardOptionCommand = async (
   input: PutDeliverabilityDashboardOptionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/deliverability-dashboard";
+  b.bp("/v2/email/deliverability-dashboard");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2593,15 +1900,8 @@ export const se_PutDeliverabilityDashboardOptionCommand = async (
       SubscribedDomains: (_) => se_DomainDeliverabilityTrackingOptions(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2611,36 +1911,20 @@ export const se_PutEmailIdentityConfigurationSetAttributesCommand = async (
   input: PutEmailIdentityConfigurationSetAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/identities/{EmailIdentity}/configuration-set";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EmailIdentity",
-    () => input.EmailIdentity!,
-    "{EmailIdentity}",
-    false
-  );
+  b.bp("/v2/email/identities/{EmailIdentity}/configuration-set");
+  b.p("EmailIdentity", () => input.EmailIdentity!, "{EmailIdentity}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       ConfigurationSetName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2650,35 +1934,20 @@ export const se_PutEmailIdentityDkimAttributesCommand = async (
   input: PutEmailIdentityDkimAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/identities/{EmailIdentity}/dkim";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EmailIdentity",
-    () => input.EmailIdentity!,
-    "{EmailIdentity}",
-    false
-  );
+  b.bp("/v2/email/identities/{EmailIdentity}/dkim");
+  b.p("EmailIdentity", () => input.EmailIdentity!, "{EmailIdentity}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       SigningEnabled: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2688,21 +1957,12 @@ export const se_PutEmailIdentityDkimSigningAttributesCommand = async (
   input: PutEmailIdentityDkimSigningAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/email/identities/{EmailIdentity}/dkim/signing";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EmailIdentity",
-    () => input.EmailIdentity!,
-    "{EmailIdentity}",
-    false
-  );
+  b.bp("/v1/email/identities/{EmailIdentity}/dkim/signing");
+  b.p("EmailIdentity", () => input.EmailIdentity!, "{EmailIdentity}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2710,15 +1970,8 @@ export const se_PutEmailIdentityDkimSigningAttributesCommand = async (
       SigningAttributesOrigin: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2728,36 +1981,20 @@ export const se_PutEmailIdentityFeedbackAttributesCommand = async (
   input: PutEmailIdentityFeedbackAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/identities/{EmailIdentity}/feedback";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EmailIdentity",
-    () => input.EmailIdentity!,
-    "{EmailIdentity}",
-    false
-  );
+  b.bp("/v2/email/identities/{EmailIdentity}/feedback");
+  b.p("EmailIdentity", () => input.EmailIdentity!, "{EmailIdentity}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       EmailForwardingEnabled: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2767,21 +2004,12 @@ export const se_PutEmailIdentityMailFromAttributesCommand = async (
   input: PutEmailIdentityMailFromAttributesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/identities/{EmailIdentity}/mail-from";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EmailIdentity",
-    () => input.EmailIdentity!,
-    "{EmailIdentity}",
-    false
-  );
+  b.bp("/v2/email/identities/{EmailIdentity}/mail-from");
+  b.p("EmailIdentity", () => input.EmailIdentity!, "{EmailIdentity}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2789,15 +2017,8 @@ export const se_PutEmailIdentityMailFromAttributesCommand = async (
       MailFromDomain: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2807,12 +2028,11 @@ export const se_PutSuppressedDestinationCommand = async (
   input: PutSuppressedDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/suppression/addresses";
+  b.bp("/v2/email/suppression/addresses");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2820,15 +2040,8 @@ export const se_PutSuppressedDestinationCommand = async (
       Reason: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2838,12 +2051,11 @@ export const se_SendBulkEmailCommand = async (
   input: SendBulkEmailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/outbound-bulk-emails";
+  b.bp("/v2/email/outbound-bulk-emails");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2858,15 +2070,8 @@ export const se_SendBulkEmailCommand = async (
       ReplyToAddresses: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2876,13 +2081,11 @@ export const se_SendCustomVerificationEmailCommand = async (
   input: SendCustomVerificationEmailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/outbound-custom-verification-emails";
+  b.bp("/v2/email/outbound-custom-verification-emails");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2891,15 +2094,8 @@ export const se_SendCustomVerificationEmailCommand = async (
       TemplateName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2909,12 +2105,11 @@ export const se_SendEmailCommand = async (
   input: SendEmailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/outbound-emails";
+  b.bp("/v2/email/outbound-emails");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2930,15 +2125,8 @@ export const se_SendEmailCommand = async (
       ReplyToAddresses: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2948,11 +2136,11 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/tags";
+  b.bp("/v2/email/tags");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2960,15 +2148,8 @@ export const se_TagResourceCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2978,35 +2159,20 @@ export const se_TestRenderEmailTemplateCommand = async (
   input: TestRenderEmailTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/templates/{TemplateName}/render";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "TemplateName",
-    () => input.TemplateName!,
-    "{TemplateName}",
-    false
-  );
+  b.bp("/v2/email/templates/{TemplateName}/render");
+  b.p("TemplateName", () => input.TemplateName!, "{TemplateName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       TemplateData: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3016,27 +2182,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/tags";
+  b.bp("/v2/email/tags");
   const query: any = map({
-    ResourceArn: [, __expectNonNull(input.ResourceArn!, `ResourceArn`)],
-    TagKeys: [
+    [_RA]: [, __expectNonNull(input[_RA]!, `ResourceArn`)],
+    [_TK]: [
       __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -3046,44 +2204,21 @@ export const se_UpdateConfigurationSetEventDestinationCommand = async (
   input: UpdateConfigurationSetEventDestinationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConfigurationSetName",
-    () => input.ConfigurationSetName!,
-    "{ConfigurationSetName}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EventDestinationName",
-    () => input.EventDestinationName!,
-    "{EventDestinationName}",
-    false
-  );
+  b.bp("/v2/email/configuration-sets/{ConfigurationSetName}/event-destinations/{EventDestinationName}");
+  b.p("ConfigurationSetName", () => input.ConfigurationSetName!, "{ConfigurationSetName}", false);
+  b.p("EventDestinationName", () => input.EventDestinationName!, "{EventDestinationName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       EventDestination: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3093,29 +2228,13 @@ export const se_UpdateContactCommand = async (
   input: UpdateContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/contact-lists/{ContactListName}/contacts/{EmailAddress}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ContactListName",
-    () => input.ContactListName!,
-    "{ContactListName}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EmailAddress",
-    () => input.EmailAddress!,
-    "{EmailAddress}",
-    false
-  );
+  b.bp("/v2/email/contact-lists/{ContactListName}/contacts/{EmailAddress}");
+  b.p("ContactListName", () => input.ContactListName!, "{ContactListName}", false);
+  b.p("EmailAddress", () => input.EmailAddress!, "{EmailAddress}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3124,15 +2243,8 @@ export const se_UpdateContactCommand = async (
       UnsubscribeAll: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3142,20 +2254,12 @@ export const se_UpdateContactListCommand = async (
   input: UpdateContactListCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/contact-lists/{ContactListName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ContactListName",
-    () => input.ContactListName!,
-    "{ContactListName}",
-    false
-  );
+  b.bp("/v2/email/contact-lists/{ContactListName}");
+  b.p("ContactListName", () => input.ContactListName!, "{ContactListName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3163,15 +2267,8 @@ export const se_UpdateContactListCommand = async (
       Topics: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3181,21 +2278,12 @@ export const se_UpdateCustomVerificationEmailTemplateCommand = async (
   input: UpdateCustomVerificationEmailTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/custom-verification-email-templates/{TemplateName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "TemplateName",
-    () => input.TemplateName!,
-    "{TemplateName}",
-    false
-  );
+  b.bp("/v2/email/custom-verification-email-templates/{TemplateName}");
+  b.p("TemplateName", () => input.TemplateName!, "{TemplateName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -3206,15 +2294,8 @@ export const se_UpdateCustomVerificationEmailTemplateCommand = async (
       TemplateSubject: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3224,37 +2305,21 @@ export const se_UpdateEmailIdentityPolicyCommand = async (
   input: UpdateEmailIdentityPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v2/email/identities/{EmailIdentity}/policies/{PolicyName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EmailIdentity",
-    () => input.EmailIdentity!,
-    "{EmailIdentity}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "PolicyName", () => input.PolicyName!, "{PolicyName}", false);
+  b.bp("/v2/email/identities/{EmailIdentity}/policies/{PolicyName}");
+  b.p("EmailIdentity", () => input.EmailIdentity!, "{EmailIdentity}", false);
+  b.p("PolicyName", () => input.PolicyName!, "{PolicyName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Policy: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3264,35 +2329,20 @@ export const se_UpdateEmailTemplateCommand = async (
   input: UpdateEmailTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/templates/{TemplateName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "TemplateName",
-    () => input.TemplateName!,
-    "{TemplateName}",
-    false
-  );
+  b.bp("/v2/email/templates/{TemplateName}");
+  b.p("TemplateName", () => input.TemplateName!, "{TemplateName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       TemplateContent: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3336,6 +2386,55 @@ const de_BatchGetMetricDataCommandError = async (
     case "InternalServiceErrorException":
     case "com.amazonaws.sesv2#InternalServiceErrorException":
       throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.sesv2#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.sesv2#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CancelExportJobCommand
+ */
+export const de_CancelExportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelExportJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CancelExportJobCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CancelExportJobCommandError
+ */
+const de_CancelExportJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelExportJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.sesv2#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
     case "NotFoundException":
     case "com.amazonaws.sesv2#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
@@ -3909,6 +3008,62 @@ const de_CreateEmailTemplateCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.sesv2#LimitExceededException":
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.sesv2#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateExportJobCommand
+ */
+export const de_CreateExportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateExportJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateExportJobCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    JobId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateExportJobCommandError
+ */
+const de_CreateExportJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateExportJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.sesv2#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.sesv2#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.sesv2#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
     case "TooManyRequestsException":
     case "com.amazonaws.sesv2#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
@@ -5279,6 +4434,7 @@ export const de_GetEmailIdentityCommand = async (
     MailFromAttributes: _json,
     Policies: _json,
     Tags: _json,
+    VerificationInfo: (_) => de_VerificationInfo(_, context),
     VerificationStatus: __expectString,
     VerifiedForSendingStatus: __expectBoolean,
   });
@@ -5426,6 +4582,67 @@ const de_GetEmailTemplateCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1GetExportJobCommand
+ */
+export const de_GetExportJobCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetExportJobCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetExportJobCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CompletedTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ExportDataSource: (_) => de_ExportDataSource(_, context),
+    ExportDestination: _json,
+    ExportSourceType: __expectString,
+    FailureInfo: _json,
+    JobId: __expectString,
+    JobStatus: __expectString,
+    Statistics: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetExportJobCommandError
+ */
+const de_GetExportJobCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetExportJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.sesv2#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.sesv2#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.sesv2#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1GetImportJobCommand
  */
 export const de_GetImportJobCommand = async (
@@ -5461,6 +4678,63 @@ const de_GetImportJobCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetImportJobCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.sesv2#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.sesv2#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.sesv2#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetMessageInsightsCommand
+ */
+export const de_GetMessageInsightsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMessageInsightsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetMessageInsightsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    EmailTags: _json,
+    FromEmailAddress: __expectString,
+    Insights: (_) => de_EmailInsightsList(_, context),
+    MessageId: __expectString,
+    Subject: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetMessageInsightsCommandError
+ */
+const de_GetMessageInsightsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMessageInsightsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5985,6 +5259,57 @@ const de_ListEmailTemplatesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEmailTemplatesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.sesv2#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.sesv2#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListExportJobsCommand
+ */
+export const de_ListExportJobsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListExportJobsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListExportJobsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ExportJobs: (_) => de_ExportJobSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListExportJobsCommandError
+ */
+const de_ListExportJobsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListExportJobsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -8239,6 +7564,8 @@ const se_DomainDeliverabilityTrackingOptions = (
     });
 };
 
+// se_EmailAddressFilterList omitted.
+
 // se_EmailAddressList omitted.
 
 /**
@@ -8252,11 +7579,33 @@ const se_EmailContent = (input: EmailContent, context: __SerdeContext): any => {
   });
 };
 
+// se_EmailSubjectFilterList omitted.
+
 // se_EmailTemplateContent omitted.
 
 // se_EventDestinationDefinition omitted.
 
 // se_EventTypes omitted.
+
+/**
+ * serializeAws_restJson1ExportDataSource
+ */
+const se_ExportDataSource = (input: ExportDataSource, context: __SerdeContext): any => {
+  return take(input, {
+    MessageInsightsDataSource: (_) => se_MessageInsightsDataSource(_, context),
+    MetricsDataSource: (_) => se_MetricsDataSource(_, context),
+  });
+};
+
+// se_ExportDestination omitted.
+
+// se_ExportDimensions omitted.
+
+// se_ExportDimensionValue omitted.
+
+// se_ExportMetric omitted.
+
+// se_ExportMetrics omitted.
 
 // se_GuardianAttributes omitted.
 
@@ -8268,9 +7617,15 @@ const se_EmailContent = (input: EmailContent, context: __SerdeContext): any => {
 
 // se_InboxPlacementTrackingOption omitted.
 
+// se_IspFilterList omitted.
+
 // se_IspNameList omitted.
 
 // se_KinesisFirehoseDestination omitted.
+
+// se_LastDeliveryEventList omitted.
+
+// se_LastEngagementEventList omitted.
 
 // se_ListContactsFilter omitted.
 
@@ -8280,9 +7635,37 @@ const se_EmailContent = (input: EmailContent, context: __SerdeContext): any => {
 
 // se_Message omitted.
 
+/**
+ * serializeAws_restJson1MessageInsightsDataSource
+ */
+const se_MessageInsightsDataSource = (input: MessageInsightsDataSource, context: __SerdeContext): any => {
+  return take(input, {
+    EndDate: (_) => Math.round(_.getTime() / 1000),
+    Exclude: _json,
+    Include: _json,
+    MaxResults: [],
+    StartDate: (_) => Math.round(_.getTime() / 1000),
+  });
+};
+
+// se_MessageInsightsFilters omitted.
+
 // se_MessageTag omitted.
 
 // se_MessageTagList omitted.
+
+/**
+ * serializeAws_restJson1MetricsDataSource
+ */
+const se_MetricsDataSource = (input: MetricsDataSource, context: __SerdeContext): any => {
+  return take(input, {
+    Dimensions: _json,
+    EndDate: (_) => Math.round(_.getTime() / 1000),
+    Metrics: _json,
+    Namespace: [],
+    StartDate: (_) => Math.round(_.getTime() / 1000),
+  });
+};
 
 // se_PinpointDestination omitted.
 
@@ -8376,10 +7759,12 @@ const de_BlacklistReport = (output: any, context: __SerdeContext): Record<string
     if (value === null) {
       return acc;
     }
-    acc[key] = de_BlacklistEntries(value, context);
+    acc[key as string] = de_BlacklistEntries(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, BlacklistEntry[]>);
 };
+
+// de_Bounce omitted.
 
 // de_BulkEmailEntryResult omitted.
 
@@ -8390,6 +7775,8 @@ const de_BlacklistReport = (output: any, context: __SerdeContext): Record<string
 // de_CloudWatchDimensionConfiguration omitted.
 
 // de_CloudWatchDimensionConfigurations omitted.
+
+// de_Complaint omitted.
 
 // de_ConfigurationSetNameList omitted.
 
@@ -8588,6 +7975,33 @@ const de_DomainIspPlacements = (output: any, context: __SerdeContext): DomainIsp
   return retVal;
 };
 
+// de_EmailAddressFilterList omitted.
+
+/**
+ * deserializeAws_restJson1EmailInsights
+ */
+const de_EmailInsights = (output: any, context: __SerdeContext): EmailInsights => {
+  return take(output, {
+    Destination: __expectString,
+    Events: (_: any) => de_InsightsEvents(_, context),
+    Isp: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EmailInsightsList
+ */
+const de_EmailInsightsList = (output: any, context: __SerdeContext): EmailInsights[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_EmailInsights(entry, context);
+    });
+  return retVal;
+};
+
+// de_EmailSubjectFilterList omitted.
+
 // de_EmailTemplateContent omitted.
 
 /**
@@ -8618,7 +8032,56 @@ const de_EmailTemplateMetadataList = (output: any, context: __SerdeContext): Ema
 
 // de_EventDestinations omitted.
 
+// de_EventDetails omitted.
+
 // de_EventTypes omitted.
+
+/**
+ * deserializeAws_restJson1ExportDataSource
+ */
+const de_ExportDataSource = (output: any, context: __SerdeContext): ExportDataSource => {
+  return take(output, {
+    MessageInsightsDataSource: (_: any) => de_MessageInsightsDataSource(_, context),
+    MetricsDataSource: (_: any) => de_MetricsDataSource(_, context),
+  }) as any;
+};
+
+// de_ExportDestination omitted.
+
+// de_ExportDimensions omitted.
+
+// de_ExportDimensionValue omitted.
+
+/**
+ * deserializeAws_restJson1ExportJobSummary
+ */
+const de_ExportJobSummary = (output: any, context: __SerdeContext): ExportJobSummary => {
+  return take(output, {
+    CompletedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ExportSourceType: __expectString,
+    JobId: __expectString,
+    JobStatus: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ExportJobSummaryList
+ */
+const de_ExportJobSummaryList = (output: any, context: __SerdeContext): ExportJobSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ExportJobSummary(entry, context);
+    });
+  return retVal;
+};
+
+// de_ExportMetric omitted.
+
+// de_ExportMetrics omitted.
+
+// de_ExportStatistics omitted.
 
 // de_FailureInfo omitted.
 
@@ -8662,7 +8125,32 @@ const de_ImportJobSummaryList = (output: any, context: __SerdeContext): ImportJo
 
 // de_InboxPlacementTrackingOption omitted.
 
+/**
+ * deserializeAws_restJson1InsightsEvent
+ */
+const de_InsightsEvent = (output: any, context: __SerdeContext): InsightsEvent => {
+  return take(output, {
+    Details: _json,
+    Timestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Type: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1InsightsEvents
+ */
+const de_InsightsEvents = (output: any, context: __SerdeContext): InsightsEvent[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_InsightsEvent(entry, context);
+    });
+  return retVal;
+};
+
 // de_IpList omitted.
+
+// de_IspFilterList omitted.
 
 // de_IspNameList omitted.
 
@@ -8689,6 +8177,10 @@ const de_IspPlacements = (output: any, context: __SerdeContext): IspPlacement[] 
 };
 
 // de_KinesisFirehoseDestination omitted.
+
+// de_LastDeliveryEventList omitted.
+
+// de_LastEngagementEventList omitted.
 
 /**
  * deserializeAws_restJson1ListOfContactLists
@@ -8718,6 +8210,25 @@ const de_ListOfContacts = (output: any, context: __SerdeContext): Contact[] => {
 
 // de_MailFromAttributes omitted.
 
+/**
+ * deserializeAws_restJson1MessageInsightsDataSource
+ */
+const de_MessageInsightsDataSource = (output: any, context: __SerdeContext): MessageInsightsDataSource => {
+  return take(output, {
+    EndDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Exclude: _json,
+    Include: _json,
+    MaxResults: __expectInt32,
+    StartDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+// de_MessageInsightsFilters omitted.
+
+// de_MessageTag omitted.
+
+// de_MessageTagList omitted.
+
 // de_MetricDataError omitted.
 
 // de_MetricDataErrorList omitted.
@@ -8743,6 +8254,19 @@ const de_MetricDataResultList = (output: any, context: __SerdeContext): MetricDa
       return de_MetricDataResult(entry, context);
     });
   return retVal;
+};
+
+/**
+ * deserializeAws_restJson1MetricsDataSource
+ */
+const de_MetricsDataSource = (output: any, context: __SerdeContext): MetricsDataSource => {
+  return take(output, {
+    Dimensions: _json,
+    EndDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Metrics: _json,
+    Namespace: __expectString,
+    StartDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
 };
 
 // de_MetricValueList omitted.
@@ -8829,6 +8353,8 @@ const de_SendQuota = (output: any, context: __SerdeContext): SendQuota => {
 
 // de_SnsDestination omitted.
 
+// de_SOARecord omitted.
+
 /**
  * deserializeAws_restJson1SuppressedDestination
  */
@@ -8904,6 +8430,18 @@ const de_TimestampList = (output: any, context: __SerdeContext): Date[] => {
 
 // de_VdmOptions omitted.
 
+/**
+ * deserializeAws_restJson1VerificationInfo
+ */
+const de_VerificationInfo = (output: any, context: __SerdeContext): VerificationInfo => {
+  return take(output, {
+    ErrorType: __expectString,
+    LastCheckedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastSuccessTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SOARecord: _json,
+  }) as any;
+};
+
 // de_VolumeStatistics omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -8924,6 +8462,17 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _BIN = "BlacklistItemNames";
+const _ED = "EndDate";
+const _NT = "NextToken";
+const _PN = "PoolName";
+const _PS = "PageSize";
+const _R = "Reasons";
+const _RA = "ResourceArn";
+const _Re = "Reason";
+const _SD = "StartDate";
+const _TK = "TagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

@@ -338,6 +338,7 @@ import {
   InvalidTrafficRoutingConfigurationException,
   InvalidTriggerConfigException,
   InvalidUpdateOutdatedInstancesOnlyValueException,
+  InvalidZonalDeploymentConfigurationException,
   LambdaFunctionInfo,
   LambdaTarget,
   LastDeploymentInfo,
@@ -356,6 +357,7 @@ import {
   ListTagsForResourceInput,
   LoadBalancerInfo,
   MinimumHealthyHosts,
+  MinimumHealthyHostsPerZone,
   MultipleIamArnsProvidedException,
   OnPremisesTagSet,
   OperationNotSupportedException,
@@ -380,6 +382,7 @@ import {
   TagRequiredException,
   TagResourceInput,
   TagSetListLimitExceededException,
+  TargetFilterName,
   TargetGroupInfo,
   TargetGroupPairInfo,
   TargetInstances,
@@ -396,6 +399,7 @@ import {
   UntagResourceInput,
   UpdateApplicationInput,
   UpdateDeploymentGroupInput,
+  ZonalConfig,
 } from "../models/models_0";
 
 /**
@@ -1788,6 +1792,9 @@ const de_CreateDeploymentConfigCommandError = async (
     case "InvalidTrafficRoutingConfigurationException":
     case "com.amazonaws.codedeploy#InvalidTrafficRoutingConfigurationException":
       throw await de_InvalidTrafficRoutingConfigurationExceptionRes(parsedOutput, context);
+    case "InvalidZonalDeploymentConfigurationException":
+    case "com.amazonaws.codedeploy#InvalidZonalDeploymentConfigurationException":
+      throw await de_InvalidZonalDeploymentConfigurationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -3136,6 +3143,9 @@ const de_ListDeploymentTargetsCommandError = async (
     case "InvalidNextTokenException":
     case "com.amazonaws.codedeploy#InvalidNextTokenException":
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    case "InvalidTargetFilterNameException":
+    case "com.amazonaws.codedeploy#InvalidTargetFilterNameException":
+      throw await de_InvalidTargetFilterNameExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -5495,6 +5505,22 @@ const de_InvalidUpdateOutdatedInstancesOnlyValueExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1InvalidZonalDeploymentConfigurationExceptionRes
+ */
+const de_InvalidZonalDeploymentConfigurationExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidZonalDeploymentConfigurationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new InvalidZonalDeploymentConfigurationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1LifecycleEventAlreadyCompletedExceptionRes
  */
 const de_LifecycleEventAlreadyCompletedExceptionRes = async (
@@ -5883,6 +5909,8 @@ const se_ListDeploymentsInput = (input: ListDeploymentsInput, context: __SerdeCo
 
 // se_MinimumHealthyHosts omitted.
 
+// se_MinimumHealthyHostsPerZone omitted.
+
 // se_OnPremisesTagSet omitted.
 
 // se_OnPremisesTagSetList omitted.
@@ -5962,6 +5990,8 @@ const se_TimeRange = (input: TimeRange, context: __SerdeContext): any => {
 // se_UpdateApplicationInput omitted.
 
 // se_UpdateDeploymentGroupInput omitted.
+
+// se_ZonalConfig omitted.
 
 // de_Alarm omitted.
 
@@ -6151,6 +6181,7 @@ const de_DeploymentConfigInfo = (output: any, context: __SerdeContext): Deployme
     deploymentConfigName: __expectString,
     minimumHealthyHosts: _json,
     trafficRoutingConfig: _json,
+    zonalConfig: _json,
   }) as any;
 };
 
@@ -6194,6 +6225,7 @@ const de_DeploymentGroupInfo = (output: any, context: __SerdeContext): Deploymen
     outdatedInstancesStrategy: __expectString,
     serviceRoleArn: __expectString,
     targetRevision: _json,
+    terminationHookEnabled: __expectBoolean,
     triggerConfigurations: _json,
   }) as any;
 };
@@ -6679,6 +6711,8 @@ const de_InstanceTarget = (output: any, context: __SerdeContext): InstanceTarget
 
 // de_InvalidUpdateOutdatedInstancesOnlyValueException omitted.
 
+// de_InvalidZonalDeploymentConfigurationException omitted.
+
 /**
  * deserializeAws_json1_1LambdaFunctionInfo
  */
@@ -6773,6 +6807,8 @@ const de_LifecycleEventList = (output: any, context: __SerdeContext): LifecycleE
 // de_LoadBalancerInfo omitted.
 
 // de_MinimumHealthyHosts omitted.
+
+// de_MinimumHealthyHostsPerZone omitted.
 
 // de_MultipleIamArnsProvidedException omitted.
 
@@ -6881,6 +6917,8 @@ const de_RevisionInfoList = (output: any, context: __SerdeContext): RevisionInfo
 // de_UntagResourceOutput omitted.
 
 // de_UpdateDeploymentGroupOutput omitted.
+
+// de_ZonalConfig omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

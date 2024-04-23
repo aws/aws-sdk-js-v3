@@ -8,19 +8,17 @@ import {
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
-  AwsAuthInputConfig,
-  AwsAuthResolvedConfig,
-  getAwsAuthPlugin,
-  resolveAwsAuthConfig,
-} from "@aws-sdk/middleware-signing";
-import {
   getUserAgentPlugin,
   resolveUserAgentConfig,
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { Credentials as __Credentials } from "@aws-sdk/types";
 import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import {
+  DefaultIdentityProviderConfig,
+  getHttpAuthSchemeEndpointRuleSetPlugin,
+  getHttpSigningPlugin,
+} from "@smithy/core";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
 import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
 import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
@@ -32,6 +30,7 @@ import {
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@smithy/smithy-client";
 import {
+  AwsCredentialIdentityProvider,
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
   Checksum as __Checksum,
@@ -50,6 +49,12 @@ import {
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
+import {
+  defaultSQSHttpAuthSchemeParametersProvider,
+  HttpAuthSchemeInputConfig,
+  HttpAuthSchemeResolvedConfig,
+  resolveHttpAuthSchemeConfig,
+} from "./auth/httpAuthSchemeProvider";
 import { AddPermissionCommandInput, AddPermissionCommandOutput } from "./commands/AddPermissionCommand";
 import {
   CancelMessageMoveTaskCommandInput,
@@ -245,17 +250,6 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   useFipsEndpoint?: boolean | __Provider<boolean>;
 
   /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
-   * Default credentials provider; Not available in browser runtime.
-   * @internal
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
    * A constructor for a class implementing the {@link __Checksum} interface
    * that computes MD5 hashes.
    * @internal
@@ -269,12 +263,26 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @deprecated
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => AwsCredentialIdentityProvider;
+
+  /**
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 
@@ -303,8 +311,8 @@ export type SQSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOpt
   EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
-  AwsAuthInputConfig &
   UserAgentInputConfig &
+  HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
  * @public
@@ -323,8 +331,8 @@ export type SQSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
   EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
-  AwsAuthResolvedConfig &
   UserAgentResolvedConfig &
+  HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
  * @public
@@ -336,15 +344,15 @@ export interface SQSClientResolvedConfig extends SQSClientResolvedConfigType {}
 /**
  * @public
  * <p>Welcome to the <i>Amazon SQS API Reference</i>.</p>
- *          <p>Amazon SQS is a reliable, highly-scalable hosted queue for storing messages as they travel
- *             between applications or microservices. Amazon SQS moves data between distributed application
- *             components and helps you decouple these components.</p>
+ *          <p>Amazon SQS is a reliable, highly-scalable hosted queue for storing messages as they
+ *             travel between applications or microservices. Amazon SQS moves data between distributed
+ *             application components and helps you decouple these components.</p>
  *          <p>For information on the permissions you need to use this API, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-authentication-and-access-control.html">Identity and access management</a> in the <i>Amazon SQS Developer
  *                 Guide.</i>
  *          </p>
- *          <p>You can use <a href="http://aws.amazon.com/tools/#sdk">Amazon Web Services SDKs</a> to access
- *             Amazon SQS using your favorite programming language. The SDKs perform tasks such as the
- *             following automatically:</p>
+ *          <p>You can use <a href="http://aws.amazon.com/tools/#sdk">Amazon Web Services
+ *                 SDKs</a> to access Amazon SQS using your favorite programming language. The SDKs
+ *             perform tasks such as the following automatically:</p>
  *          <ul>
  *             <li>
  *                <p>Cryptographically sign your service requests</p>
@@ -389,7 +397,8 @@ export interface SQSClientResolvedConfig extends SQSClientResolvedConfigType {}
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="http://docs.aws.amazon.com/cli/latest/reference/sqs/index.html">Amazon SQS in the <i>Command Line Interface</i>
+ *                   <a href="http://docs.aws.amazon.com/cli/latest/reference/sqs/index.html">Amazon SQS in the <i>Command Line
+ *                             Interface</i>
  *                   </a>
  *                </p>
  *             </li>
@@ -426,8 +435,8 @@ export class SQSClient extends __Client<
     const _config_3 = resolveEndpointConfig(_config_2);
     const _config_4 = resolveRetryConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveAwsAuthConfig(_config_5);
-    const _config_7 = resolveUserAgentConfig(_config_6);
+    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
     super(_config_8);
     this.config = _config_8;
@@ -436,8 +445,14 @@ export class SQSClient extends __Client<
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
+    this.middlewareStack.use(
+      getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
+        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
+        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+      })
+    );
+    this.middlewareStack.use(getHttpSigningPlugin(this.config));
   }
 
   /**
@@ -447,5 +462,14 @@ export class SQSClient extends __Client<
    */
   destroy(): void {
     super.destroy();
+  }
+  private getDefaultHttpAuthSchemeParametersProvider() {
+    return defaultSQSHttpAuthSchemeParametersProvider;
+  }
+  private getIdentityProviderConfigProvider() {
+    return async (config: SQSClientResolvedConfig) =>
+      new DefaultIdentityProviderConfig({
+        "aws.auth#sigv4": config.credentials,
+      });
   }
 }

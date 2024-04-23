@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GetComponentInput, GetComponentOutput } from "../models/models_0";
 import { de_GetComponentCommand, se_GetComponentCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } from "../SsmSapClient";
@@ -53,14 +45,17 @@ export interface GetComponentCommandOutput extends GetComponentOutput, __Metadat
  * // { // GetComponentOutput
  * //   Component: { // Component
  * //     ComponentId: "STRING_VALUE",
+ * //     Sid: "STRING_VALUE",
+ * //     SystemNumber: "STRING_VALUE",
  * //     ParentComponent: "STRING_VALUE",
  * //     ChildComponents: [ // ComponentIdList
  * //       "STRING_VALUE",
  * //     ],
  * //     ApplicationId: "STRING_VALUE",
- * //     ComponentType: "HANA" || "HANA_NODE",
+ * //     ComponentType: "HANA" || "HANA_NODE" || "ABAP" || "ASCS" || "DIALOG" || "WEBDISP" || "WD" || "ERS",
  * //     Status: "ACTIVATED" || "STARTING" || "STOPPED" || "STOPPING" || "RUNNING" || "RUNNING_WITH_ERROR" || "UNDEFINED",
  * //     SapHostname: "STRING_VALUE",
+ * //     SapFeature: "STRING_VALUE",
  * //     SapKernelVersion: "STRING_VALUE",
  * //     HdbVersion: "STRING_VALUE",
  * //     Resilience: { // Resilience
@@ -68,10 +63,18 @@ export interface GetComponentCommandOutput extends GetComponentOutput, __Metadat
  * //       HsrReplicationMode: "PRIMARY" || "NONE" || "SYNC" || "SYNCMEM" || "ASYNC",
  * //       HsrOperationMode: "PRIMARY" || "LOGREPLAY" || "DELTA_DATASHIPPING" || "LOGREPLAY_READACCESS" || "NONE",
  * //       ClusterStatus: "ONLINE" || "STANDBY" || "MAINTENANCE" || "OFFLINE" || "NONE",
+ * //       EnqueueReplication: true || false,
  * //     },
  * //     AssociatedHost: { // AssociatedHost
  * //       Hostname: "STRING_VALUE",
  * //       Ec2InstanceId: "STRING_VALUE",
+ * //       IpAddresses: [ // IpAddressList
+ * //         { // IpAddressMember
+ * //           IpAddress: "STRING_VALUE",
+ * //           Primary: true || false,
+ * //           AllocationType: "VPC_SUBNET" || "ELASTIC_IP" || "OVERLAY" || "UNKNOWN",
+ * //         },
+ * //       ],
  * //       OsVersion: "STRING_VALUE",
  * //     },
  * //     Databases: [ // DatabaseIdList
@@ -88,6 +91,11 @@ export interface GetComponentCommandOutput extends GetComponentOutput, __Metadat
  * //       },
  * //     ],
  * //     PrimaryHost: "STRING_VALUE",
+ * //     DatabaseConnection: { // DatabaseConnection
+ * //       DatabaseConnectionMethod: "DIRECT" || "OVERLAY",
+ * //       DatabaseArn: "STRING_VALUE",
+ * //       ConnectionIp: "STRING_VALUE",
+ * //     },
  * //     LastUpdated: new Date("TIMESTAMP"),
  * //     Arn: "STRING_VALUE",
  * //   },
@@ -107,6 +115,9 @@ export interface GetComponentCommandOutput extends GetComponentOutput, __Metadat
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal error has occurred.</p>
  *
+ * @throws {@link UnauthorizedException} (client fault)
+ *  <p>The request is not authorized.</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input fails to satisfy the constraints specified by an AWS service. </p>
  *
@@ -114,77 +125,26 @@ export interface GetComponentCommandOutput extends GetComponentOutput, __Metadat
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
  */
-export class GetComponentCommand extends $Command<
-  GetComponentCommandInput,
-  GetComponentCommandOutput,
-  SsmSapClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetComponentCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SsmSapClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetComponentCommandInput, GetComponentCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GetComponentCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SsmSapClient";
-    const commandName = "GetComponentCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetComponentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetComponentCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetComponentCommandOutput> {
-    return de_GetComponentCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetComponentCommand extends $Command
+  .classBuilder<
+    GetComponentCommandInput,
+    GetComponentCommandOutput,
+    SsmSapClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SsmSapClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("SsmSap", "GetComponent", {})
+  .n("SsmSapClient", "GetComponentCommand")
+  .f(void 0, void 0)
+  .ser(se_GetComponentCommand)
+  .de(de_GetComponentCommand)
+  .build() {}

@@ -523,13 +523,13 @@ export interface Variable {
    * @public
    * <p>The data type of the variable. For more information see <a href="https://docs.aws.amazon.com/frauddetector/latest/ug/create-a-variable.html#variable-types">Variable types</a>.</p>
    */
-  dataType?: DataType | string;
+  dataType?: DataType;
 
   /**
    * @public
    * <p>The data source of the variable.</p>
    */
-  dataSource?: DataSource | string;
+  dataSource?: DataSource;
 
   /**
    * @public
@@ -780,7 +780,7 @@ export interface ModelVersion {
    * @public
    * <p>The model type.</p>
    */
-  modelType: ModelTypeEnum | string | undefined;
+  modelType: ModelTypeEnum | undefined;
 
   /**
    * @public
@@ -875,7 +875,7 @@ export interface CreateDetectorVersionRequest {
    *          <p>If you specifiy <code>ALL_MATCHED</code>, Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. </p>
    *          <p>The default behavior is <code>FIRST_MATCHED</code>.</p>
    */
-  ruleExecutionMode?: RuleExecutionMode | string;
+  ruleExecutionMode?: RuleExecutionMode;
 
   /**
    * @public
@@ -919,7 +919,7 @@ export interface CreateDetectorVersionResult {
    * @public
    * <p>The status of the detector version.</p>
    */
-  status?: DetectorVersionStatus | string;
+  status?: DetectorVersionStatus;
 }
 
 /**
@@ -987,7 +987,7 @@ export interface CreateModelRequest {
    * @public
    * <p>The model type. </p>
    */
-  modelType: ModelTypeEnum | string | undefined;
+  modelType: ModelTypeEnum | undefined;
 
   /**
    * @public
@@ -1108,7 +1108,7 @@ export interface LabelSchema {
    *          </ul>
    *          <p>By default, Amazon Fraud Detector ignores the unlabeled data.</p>
    */
-  unlabeledEventsTreatment?: UnlabeledEventsTreatment | string;
+  unlabeledEventsTreatment?: UnlabeledEventsTreatment;
 }
 
 /**
@@ -1157,13 +1157,13 @@ export interface CreateModelVersionRequest {
    * @public
    * <p>The model type.</p>
    */
-  modelType: ModelTypeEnum | string | undefined;
+  modelType: ModelTypeEnum | undefined;
 
   /**
    * @public
    * <p>The training data source location in Amazon S3. </p>
    */
-  trainingDataSource: TrainingDataSourceEnum | string | undefined;
+  trainingDataSource: TrainingDataSourceEnum | undefined;
 
   /**
    * @public
@@ -1204,7 +1204,7 @@ export interface CreateModelVersionResult {
    * @public
    * <p>The model type.</p>
    */
-  modelType?: ModelTypeEnum | string;
+  modelType?: ModelTypeEnum;
 
   /**
    * @public
@@ -1264,7 +1264,7 @@ export interface CreateRuleRequest {
    * @public
    * <p>The language of the rule.</p>
    */
-  language: Language | string | undefined;
+  language: Language | undefined;
 
   /**
    * @public
@@ -1304,13 +1304,13 @@ export interface CreateVariableRequest {
    * @public
    * <p>The data type of the variable.</p>
    */
-  dataType: DataType | string | undefined;
+  dataType: DataType | undefined;
 
   /**
    * @public
    * <p>The source of the data.</p>
    */
-  dataSource: DataSource | string | undefined;
+  dataSource: DataSource | undefined;
 
   /**
    * @public
@@ -1587,7 +1587,7 @@ export interface DeleteModelRequest {
    * @public
    * <p>The model type of the model to delete.</p>
    */
-  modelType: ModelTypeEnum | string | undefined;
+  modelType: ModelTypeEnum | undefined;
 }
 
 /**
@@ -1609,7 +1609,7 @@ export interface DeleteModelVersionRequest {
    * @public
    * <p>The model type of the model version to delete.</p>
    */
-  modelType: ModelTypeEnum | string | undefined;
+  modelType: ModelTypeEnum | undefined;
 
   /**
    * @public
@@ -1709,7 +1709,7 @@ export interface DetectorVersionSummary {
    * @public
    * <p>The detector version status. </p>
    */
-  status?: DetectorVersionStatus | string;
+  status?: DetectorVersionStatus;
 
   /**
    * @public
@@ -1773,7 +1773,7 @@ export interface DescribeModelVersionsRequest {
    * @public
    * <p>The model type.</p>
    */
-  modelType?: ModelTypeEnum | string;
+  modelType?: ModelTypeEnum;
 
   /**
    * @public
@@ -2262,7 +2262,7 @@ export interface ModelVersionDetail {
    * @public
    * <p>The model type.</p>
    */
-  modelType?: ModelTypeEnum | string;
+  modelType?: ModelTypeEnum;
 
   /**
    * @public
@@ -2280,7 +2280,7 @@ export interface ModelVersionDetail {
    * @public
    * <p>The model version training data source.</p>
    */
-  trainingDataSource?: TrainingDataSourceEnum | string;
+  trainingDataSource?: TrainingDataSourceEnum;
 
   /**
    * @public
@@ -2388,7 +2388,7 @@ export interface BatchImport {
    * @public
    * <p>The status of the batch import job.</p>
    */
-  status?: AsyncJobStatus | string;
+  status?: AsyncJobStatus;
 
   /**
    * @public
@@ -2512,7 +2512,7 @@ export interface BatchPrediction {
    * @public
    * <p>The batch prediction status.</p>
    */
-  status?: AsyncJobStatus | string;
+  status?: AsyncJobStatus;
 
   /**
    * @public
@@ -2635,7 +2635,7 @@ export interface GetDeleteEventsByEventTypeStatusResult {
    * @public
    * <p>The deletion status.</p>
    */
-  eventsDeletionStatus?: AsyncJobStatus | string;
+  eventsDeletionStatus?: AsyncJobStatus;
 }
 
 /**
@@ -2781,7 +2781,7 @@ export interface GetDetectorVersionResult {
    * @public
    * <p>The status of the detector version.</p>
    */
-  status?: DetectorVersionStatus | string;
+  status?: DetectorVersionStatus;
 
   /**
    * @public
@@ -2804,7 +2804,7 @@ export interface GetDetectorVersionResult {
    *          <p>
    *             <code>ALL_MATCHED</code> indicates that Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. You can define and edit the rule mode at the detector version level, when it is in draft status.</p>
    */
-  ruleExecutionMode?: RuleExecutionMode | string;
+  ruleExecutionMode?: RuleExecutionMode;
 
   /**
    * @public
@@ -3097,7 +3097,7 @@ export interface ExternalModelSummary {
    * @public
    * <p>The source of the model.</p>
    */
-  modelSource?: ModelSource | string;
+  modelSource?: ModelSource;
 }
 
 /**
@@ -3608,7 +3608,7 @@ export interface GetEventPredictionMetadataResult {
    * The execution mode of the rule used for evaluating variable values.
    * </p>
    */
-  ruleExecutionMode?: RuleExecutionMode | string;
+  ruleExecutionMode?: RuleExecutionMode;
 
   /**
    * @public
@@ -3768,7 +3768,7 @@ export interface EventType {
    * @public
    * <p>If <code>Enabled</code>, Amazon Fraud Detector stores event data when you generate a prediction and uses that data to update calculated variables in near real-time. Amazon Fraud Detector uses this data, known as <code>INGESTED_EVENTS</code>, to train your model and  improve fraud predictions.</p>
    */
-  eventIngestion?: EventIngestion | string;
+  eventIngestion?: EventIngestion;
 
   /**
    * @public
@@ -3871,7 +3871,7 @@ export interface ModelInputConfiguration {
    * <p> The format of the model input configuration. The format differs depending on if it is
    *             passed through to SageMaker or constructed by Amazon Fraud Detector.</p>
    */
-  format?: ModelInputDataFormat | string;
+  format?: ModelInputDataFormat;
 
   /**
    * @public
@@ -3933,7 +3933,7 @@ export interface ModelOutputConfiguration {
    * @public
    * <p>The format of the model output configuration.</p>
    */
-  format: ModelOutputDataFormat | string | undefined;
+  format: ModelOutputDataFormat | undefined;
 
   /**
    * @public
@@ -3963,7 +3963,7 @@ export interface ExternalModel {
    * @public
    * <p>The source of the model.</p>
    */
-  modelSource?: ModelSource | string;
+  modelSource?: ModelSource;
 
   /**
    * @public
@@ -3987,7 +3987,7 @@ export interface ExternalModel {
    * @public
    * <p>The Amazon Fraud Detector status for the external model endpoint</p>
    */
-  modelEndpointStatus?: ModelEndpointStatus | string;
+  modelEndpointStatus?: ModelEndpointStatus;
 
   /**
    * @public
@@ -4238,7 +4238,7 @@ export interface GetModelsRequest {
    * @public
    * <p>The model type.</p>
    */
-  modelType?: ModelTypeEnum | string;
+  modelType?: ModelTypeEnum;
 
   /**
    * @public
@@ -4268,7 +4268,7 @@ export interface Model {
    * @public
    * <p>The model type.</p>
    */
-  modelType?: ModelTypeEnum | string;
+  modelType?: ModelTypeEnum;
 
   /**
    * @public
@@ -4332,7 +4332,7 @@ export interface GetModelVersionRequest {
    * @public
    * <p>The model type.</p>
    */
-  modelType: ModelTypeEnum | string | undefined;
+  modelType: ModelTypeEnum | undefined;
 
   /**
    * @public
@@ -4355,7 +4355,7 @@ export interface GetModelVersionResult {
    * @public
    * <p>The model type.</p>
    */
-  modelType?: ModelTypeEnum | string;
+  modelType?: ModelTypeEnum;
 
   /**
    * @public
@@ -4367,7 +4367,7 @@ export interface GetModelVersionResult {
    * @public
    * <p>The training data source.</p>
    */
-  trainingDataSource?: TrainingDataSourceEnum | string;
+  trainingDataSource?: TrainingDataSourceEnum;
 
   /**
    * @public
@@ -4601,7 +4601,7 @@ export interface RuleDetail {
    * @public
    * <p>The rule language.</p>
    */
-  language?: Language | string;
+  language?: Language;
 
   /**
    * @public
@@ -5003,7 +5003,7 @@ export interface PutEventTypeRequest {
    * @public
    * <p>Specifies if ingestion is enabled or disabled.</p>
    */
-  eventIngestion?: EventIngestion | string;
+  eventIngestion?: EventIngestion;
 
   /**
    * @public
@@ -5037,7 +5037,7 @@ export interface PutExternalModelRequest {
    * @public
    * <p>The source of the model.</p>
    */
-  modelSource: ModelSource | string | undefined;
+  modelSource: ModelSource | undefined;
 
   /**
    * @public
@@ -5061,7 +5061,7 @@ export interface PutExternalModelRequest {
    * @public
    * <p>The model endpoint’s status in Amazon Fraud Detector.</p>
    */
-  modelEndpointStatus: ModelEndpointStatus | string | undefined;
+  modelEndpointStatus: ModelEndpointStatus | undefined;
 
   /**
    * @public
@@ -5291,7 +5291,7 @@ export interface UpdateDetectorVersionRequest {
    *          <p>If you specifiy <code>ALL_MATCHED</code>, Amazon Fraud Detector evaluates all rules and returns the outcomes for all matched rules. You can define and edit the rule mode at the detector version level, when it is in draft status.</p>
    *          <p>The default behavior is <code>FIRST_MATCHED</code>.</p>
    */
-  ruleExecutionMode?: RuleExecutionMode | string;
+  ruleExecutionMode?: RuleExecutionMode;
 }
 
 /**
@@ -5349,7 +5349,7 @@ export interface UpdateDetectorVersionStatusRequest {
    *          <p>The only supported values are <code>ACTIVE</code> and <code>INACTIVE</code>
    *          </p>
    */
-  status: DetectorVersionStatus | string | undefined;
+  status: DetectorVersionStatus | undefined;
 }
 
 /**
@@ -5452,7 +5452,7 @@ export interface UpdateListRequest {
    *             </li>
    *          </ul>
    */
-  updateMode?: ListUpdateMode | string;
+  updateMode?: ListUpdateMode;
 
   /**
    * @public
@@ -5485,7 +5485,7 @@ export interface UpdateModelRequest {
    * @public
    * <p>The model type.</p>
    */
-  modelType: ModelTypeEnum | string | undefined;
+  modelType: ModelTypeEnum | undefined;
 
   /**
    * @public
@@ -5513,7 +5513,7 @@ export interface UpdateModelVersionRequest {
    * @public
    * <p>The model type.</p>
    */
-  modelType: ModelTypeEnum | string | undefined;
+  modelType: ModelTypeEnum | undefined;
 
   /**
    * @public
@@ -5554,7 +5554,7 @@ export interface UpdateModelVersionResult {
    * @public
    * <p>The model type.</p>
    */
-  modelType?: ModelTypeEnum | string;
+  modelType?: ModelTypeEnum;
 
   /**
    * @public
@@ -5598,7 +5598,7 @@ export interface UpdateModelVersionStatusRequest {
    * @public
    * <p>The model type.</p>
    */
-  modelType: ModelTypeEnum | string | undefined;
+  modelType: ModelTypeEnum | undefined;
 
   /**
    * @public
@@ -5610,7 +5610,7 @@ export interface UpdateModelVersionStatusRequest {
    * @public
    * <p>The model version status.</p>
    */
-  status: ModelVersionStatus | string | undefined;
+  status: ModelVersionStatus | undefined;
 }
 
 /**
@@ -5666,7 +5666,7 @@ export interface UpdateRuleVersionRequest {
    * @public
    * <p>The language.</p>
    */
-  language: Language | string | undefined;
+  language: Language | undefined;
 
   /**
    * @public

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { S3ControlServiceException as __BaseException } from "./S3ControlServiceException";
 
@@ -41,7 +41,222 @@ export interface AccessControlTranslation {
    * @public
    * <p>Specifies the replica ownership.</p>
    */
-  Owner: OwnerOverride | string | undefined;
+  Owner: OwnerOverride | undefined;
+}
+
+/**
+ * @public
+ * <p>Information about the S3 Access Grants instance.</p>
+ */
+export interface ListAccessGrantsInstanceEntry {
+  /**
+   * @public
+   * <p>The ID of the S3 Access Grants instance. The ID is <code>default</code>. You can have one S3 Access Grants instance per Region per account. </p>
+   */
+  AccessGrantsInstanceId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the S3 Access Grants instance. </p>
+   */
+  AccessGrantsInstanceArn?: string;
+
+  /**
+   * @public
+   * <p>The date and time when you created the S3 Access Grants instance. </p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * @public
+   * <p>If you associated your S3 Access Grants instance with an Amazon Web Services IAM Identity Center instance, this field returns the Amazon Resource Name (ARN) of the IAM Identity Center instance application; a subresource of the original Identity Center instance. S3 Access Grants creates this Identity Center application for the specific S3 Access Grants instance. </p>
+   */
+  IdentityCenterArn?: string;
+}
+
+/**
+ * @public
+ * <p>The configuration options of the S3 Access Grants location. It contains the <code>S3SubPrefix</code> field. The grant scope, the data to which you are granting access, is the result of appending the <code>Subprefix</code> field to the scope of the registered location.</p>
+ */
+export interface AccessGrantsLocationConfiguration {
+  /**
+   * @public
+   * <p>The <code>S3SubPrefix</code> is appended to the location scope creating the grant scope. Use this field to narrow the scope of the grant to a subset of the location scope. This field is required if the location scope is the default location <code>s3://</code> because you cannot create a grant for all of your S3 data in the Region and must narrow the scope. For example, if the location scope is the default location <code>s3://</code>, the <code>S3SubPrefx</code> can be a <bucket-name>/*, so the full grant scope path would be <code>s3://<bucket-name>/*</code>. Or the <code>S3SubPrefx</code> can be <code><bucket-name>/<prefix-name>*</code>, so the full grant scope path would be or <code>s3://<bucket-name>/<prefix-name>*</code>.</p>
+   *          <p>If the <code>S3SubPrefix</code> includes a prefix, append the wildcard character <code>*</code> after the prefix to indicate that you want to include all object key names in the bucket that start with that prefix. </p>
+   */
+  S3SubPrefix?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GranteeType = {
+  DIRECTORY_GROUP: "DIRECTORY_GROUP",
+  DIRECTORY_USER: "DIRECTORY_USER",
+  IAM: "IAM",
+} as const;
+
+/**
+ * @public
+ */
+export type GranteeType = (typeof GranteeType)[keyof typeof GranteeType];
+
+/**
+ * @public
+ * <p>The user, group, or role to which you are granting access. You can grant access to an IAM user or role. If you have added your corporate directory to Amazon Web Services IAM Identity Center and associated your Identity Center instance with your S3 Access Grants instance, the grantee can also be a corporate directory user or group.</p>
+ */
+export interface Grantee {
+  /**
+   * @public
+   * <p>The type of the grantee to which access has been granted. It can be one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>IAM</code> - An IAM user or role.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECTORY_USER</code> - Your corporate directory user. You can use this option if you have added your corporate identity directory to IAM Identity Center and associated the IAM Identity Center instance with your S3 Access Grants instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECTORY_GROUP</code> - Your corporate directory group. You can use this option if you have added your corporate identity directory to IAM Identity Center and associated the IAM Identity Center instance with your S3 Access Grants instance.</p>
+   *             </li>
+   *          </ul>
+   */
+  GranteeType?: GranteeType;
+
+  /**
+   * @public
+   * <p>The unique identifier of the <code>Grantee</code>. If the grantee type is <code>IAM</code>, the identifier is the IAM Amazon Resource Name (ARN) of the user or role. If the grantee type is a directory user or group, the identifier is 128-bit universally unique identifier (UUID) in the format <code>a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code>. You can obtain this UUID from your Amazon Web Services IAM Identity Center instance.</p>
+   */
+  GranteeIdentifier?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Permission = {
+  READ: "READ",
+  READWRITE: "READWRITE",
+  WRITE: "WRITE",
+} as const;
+
+/**
+ * @public
+ */
+export type Permission = (typeof Permission)[keyof typeof Permission];
+
+/**
+ * @public
+ * <p>Information about the access grant.</p>
+ */
+export interface ListAccessGrantEntry {
+  /**
+   * @public
+   * <p>The date and time when you created the S3 Access Grants instance. </p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * @public
+   * <p>The ID of the access grant. S3 Access Grants auto-generates this ID when you create the access grant.</p>
+   */
+  AccessGrantId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the access grant. </p>
+   */
+  AccessGrantArn?: string;
+
+  /**
+   * @public
+   * <p>The user, group, or role to which you are granting access. You can grant access to an IAM user or role. If you have added your corporate directory to Amazon Web Services IAM Identity Center and associated your Identity Center instance with your S3 Access Grants instance, the grantee can also be a corporate directory user or group.</p>
+   */
+  Grantee?: Grantee;
+
+  /**
+   * @public
+   * <p>The type of access granted to your S3 data, which can be set to one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>READ</code> – Grant read-only access to the S3 data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>WRITE</code> – Grant write-only access to the S3 data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>READWRITE</code> – Grant both read and write access to the S3 data.</p>
+   *             </li>
+   *          </ul>
+   */
+  Permission?: Permission;
+
+  /**
+   * @public
+   * <p>The ID of the registered location to which you are granting access. S3 Access Grants assigns this ID when you register the location. S3 Access Grants assigns the ID <code>default</code> to the default location <code>s3://</code> and assigns an auto-generated ID to other locations that you register.  </p>
+   */
+  AccessGrantsLocationId?: string;
+
+  /**
+   * @public
+   * <p>The configuration options of the grant location. The grant location is the S3 path to the data to which you are granting access. </p>
+   */
+  AccessGrantsLocationConfiguration?: AccessGrantsLocationConfiguration;
+
+  /**
+   * @public
+   * <p>The S3 path of the data to which you are granting access. It is the result of appending the <code>Subprefix</code> to the location scope.</p>
+   */
+  GrantScope?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of an Amazon Web Services IAM Identity Center application associated with your Identity Center instance. If the grant includes an application ARN, the grantee can only access the S3 data through this application. </p>
+   */
+  ApplicationArn?: string;
+}
+
+/**
+ * @public
+ * <p>A container for information about the registered location.</p>
+ */
+export interface ListAccessGrantsLocationsEntry {
+  /**
+   * @public
+   * <p>The date and time when you registered the location. </p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * @public
+   * <p>The ID of the registered location to which you are granting access. S3 Access Grants assigns this ID when you register the location. S3 Access Grants assigns the ID <code>default</code> to the default location <code>s3://</code> and assigns an auto-generated ID to other locations that you register.  </p>
+   */
+  AccessGrantsLocationId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the registered location. </p>
+   */
+  AccessGrantsLocationArn?: string;
+
+  /**
+   * @public
+   * <p>The S3 path to the location that you are registering. The location scope can be the default S3 location <code>s3://</code>, the S3 path to a bucket <code>s3://<bucket></code>, or the S3 path to a bucket and prefix <code>s3://<bucket>/<prefix></code>. A prefix in S3 is a string of characters at the beginning of an object key name used to organize the objects that you store in your S3 buckets. For example, object key names that start with the <code>engineering/</code> prefix or object key names that start with the <code>marketing/campaigns/</code> prefix.</p>
+   */
+  LocationScope?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the IAM role for the registered location. S3 Access Grants assumes this role to manage access to the registered location. </p>
+   */
+  IAMRoleArn?: string;
 }
 
 /**
@@ -91,7 +306,7 @@ export interface AccessPoint {
    *          the access point allows access from the public internet, subject to the access point and bucket access
    *          policies.</p>
    */
-  NetworkOrigin: NetworkOrigin | string | undefined;
+  NetworkOrigin: NetworkOrigin | undefined;
 
   /**
    * @public
@@ -286,39 +501,101 @@ export interface BucketLevel {
 
 /**
  * @public
- * <p>A container for the account-level Amazon S3 Storage Lens configuration.</p>
+ * <p> Indicates which Storage Lens group ARNs to include or exclude in the Storage Lens group
+ *          aggregation. You can only attach Storage Lens groups to your Storage Lens dashboard if
+ *          they're included in your Storage Lens group aggregation. If this value is left null, then
+ *          all Storage Lens groups are selected. </p>
+ */
+export interface StorageLensGroupLevelSelectionCriteria {
+  /**
+   * @public
+   * <p> Indicates which Storage Lens group ARNs to include in the Storage Lens group
+   *          aggregation. </p>
+   */
+  Include?: string[];
+
+  /**
+   * @public
+   * <p> Indicates which Storage Lens group ARNs to exclude from the Storage Lens group
+   *          aggregation. </p>
+   */
+  Exclude?: string[];
+}
+
+/**
+ * @public
+ * <p> Specifies the Storage Lens groups to include in the Storage Lens group aggregation.
+ *       </p>
+ */
+export interface StorageLensGroupLevel {
+  /**
+   * @public
+   * <p> Indicates which Storage Lens group ARNs to include or exclude in the Storage Lens group
+   *          aggregation. If this value is left null, then all Storage Lens groups are selected. </p>
+   */
+  SelectionCriteria?: StorageLensGroupLevelSelectionCriteria;
+}
+
+/**
+ * @public
+ * <p>A container element for the account-level Amazon S3 Storage Lens configuration.</p>
  *          <p>For more information about S3 Storage Lens, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html">Assessing your storage activity and usage with S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>. For a complete list of S3 Storage Lens metrics, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html">S3 Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.</p>
  */
 export interface AccountLevel {
   /**
    * @public
-   * <p>A container for S3 Storage Lens activity metrics.</p>
+   * <p>A container element for S3 Storage Lens activity metrics.</p>
    */
   ActivityMetrics?: ActivityMetrics;
 
   /**
    * @public
-   * <p>A container for the S3 Storage Lens bucket-level configuration.</p>
+   * <p>A container element for the S3 Storage Lens bucket-level configuration.</p>
    */
   BucketLevel: BucketLevel | undefined;
 
   /**
    * @public
-   * <p>A container for S3 Storage Lens advanced cost-optimization metrics.</p>
+   * <p>A container element for S3 Storage Lens advanced cost-optimization metrics.</p>
    */
   AdvancedCostOptimizationMetrics?: AdvancedCostOptimizationMetrics;
 
   /**
    * @public
-   * <p>A container for S3 Storage Lens advanced data-protection metrics.</p>
+   * <p>A container element for S3 Storage Lens advanced data-protection metrics.</p>
    */
   AdvancedDataProtectionMetrics?: AdvancedDataProtectionMetrics;
 
   /**
    * @public
-   * <p>A container for detailed status code metrics. </p>
+   * <p>A container element for detailed status code metrics. </p>
    */
   DetailedStatusCodesMetrics?: DetailedStatusCodesMetrics;
+
+  /**
+   * @public
+   * <p>
+   * A container element for S3 Storage Lens groups metrics.
+   * </p>
+   */
+  StorageLensGroupLevel?: StorageLensGroupLevel;
+}
+
+/**
+ * @public
+ */
+export interface AssociateAccessGrantsIdentityCenterRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services IAM Identity Center instance that you are associating with your S3 Access Grants instance. An IAM Identity Center instance is your corporate identity directory that you added to the IAM Identity Center. You can use the <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ListInstances.html">ListInstances</a> API operation to retrieve a list of your Identity Center instances and their ARNs.</p>
+   */
+  IdentityCenterArn: string | undefined;
 }
 
 /**
@@ -597,7 +874,7 @@ export interface AsyncOperation {
    * @public
    * <p>The specific operation for the asynchronous request.</p>
    */
-  Operation?: AsyncOperationName | string;
+  Operation?: AsyncOperationName;
 
   /**
    * @public
@@ -641,6 +918,302 @@ export interface AwsLambdaTransformation {
    *          objects.</p>
    */
   FunctionPayload?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const S3PrefixType = {
+  Object: "Object",
+} as const;
+
+/**
+ * @public
+ */
+export type S3PrefixType = (typeof S3PrefixType)[keyof typeof S3PrefixType];
+
+/**
+ * @public
+ * <p>
+ *    An Amazon Web Services resource tag that's associated with your S3 resource. You can add tags to new objects when you upload them, or you can add object tags to existing objects.
+ * </p>
+ *          <note>
+ *             <p>This operation is only supported for <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-lens-groups.html">S3 Storage Lens groups</a> and for <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-grants-tagging.html">S3 Access Grants</a>. The tagged resource can be an S3 Storage Lens group or S3 Access Grants instance, registered location, or grant. </p>
+ *          </note>
+ */
+export interface Tag {
+  /**
+   * @public
+   * <p>The key of the key-value pair of a tag added to your Amazon Web Services resource. A tag key can be up to 128 Unicode characters in length and is case-sensitive. System created tags that begin with <code>aws:</code> aren’t supported.
+   *       </p>
+   */
+  Key: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *    The value of the key-value pair of a tag added to your Amazon Web Services resource. A tag value can be up to 256 Unicode characters in length and is case-sensitive.
+   * </p>
+   */
+  Value: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAccessGrantRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>The ID of the registered location to which you are granting access. S3 Access Grants assigns this ID when you register the location. S3 Access Grants assigns the ID <code>default</code> to the default location <code>s3://</code> and assigns an auto-generated ID to other locations that you register. </p>
+   *          <p>If you are passing the <code>default</code> location, you cannot create an access grant for the entire default location. You must also specify a bucket or a bucket and prefix in the <code>Subprefix</code> field. </p>
+   */
+  AccessGrantsLocationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The configuration options of the grant location. The grant location is the S3 path to the data to which you are granting access. It contains the <code>S3SubPrefix</code> field. The grant scope is the result of appending the subprefix to the location scope of the registered location.</p>
+   */
+  AccessGrantsLocationConfiguration?: AccessGrantsLocationConfiguration;
+
+  /**
+   * @public
+   * <p>The user, group, or role to which you are granting access. You can grant access to an IAM user or role. If you have added your corporate directory to Amazon Web Services IAM Identity Center and associated your Identity Center instance with your S3 Access Grants instance, the grantee can also be a corporate directory user or group.</p>
+   */
+  Grantee: Grantee | undefined;
+
+  /**
+   * @public
+   * <p>The type of access that you are granting to your S3 data, which can be set to one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>READ</code> – Grant read-only access to the S3 data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>WRITE</code> – Grant write-only access to the S3 data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>READWRITE</code> – Grant both read and write access to the S3 data.</p>
+   *             </li>
+   *          </ul>
+   */
+  Permission: Permission | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of an Amazon Web Services IAM Identity Center application associated with your Identity Center instance. If an application ARN is included in the request to create an access grant, the grantee can only access the S3 data through this application. </p>
+   */
+  ApplicationArn?: string;
+
+  /**
+   * @public
+   * <p>The type of <code>S3SubPrefix</code>. The only possible value is <code>Object</code>. Pass this value if the access grant scope is an object. Do not pass this value if the access grant scope is a bucket or a bucket and a prefix. </p>
+   */
+  S3PrefixType?: S3PrefixType;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services resource tags that you are adding to the access grant. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources. </p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface CreateAccessGrantResult {
+  /**
+   * @public
+   * <p>The date and time when you created the access grant. </p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * @public
+   * <p>The ID of the access grant. S3 Access Grants auto-generates this ID when you create the access grant.</p>
+   */
+  AccessGrantId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the access grant. </p>
+   */
+  AccessGrantArn?: string;
+
+  /**
+   * @public
+   * <p>The user, group, or role to which you are granting access. You can grant access to an IAM user or role. If you have added your corporate directory to Amazon Web Services IAM Identity Center and associated your Identity Center instance with your S3 Access Grants instance, the grantee can also be a corporate directory user or group.</p>
+   */
+  Grantee?: Grantee;
+
+  /**
+   * @public
+   * <p>The ID of the registered location to which you are granting access. S3 Access Grants assigns this ID when you register the location. S3 Access Grants assigns the ID <code>default</code> to the default location <code>s3://</code> and assigns an auto-generated ID to other locations that you register. </p>
+   */
+  AccessGrantsLocationId?: string;
+
+  /**
+   * @public
+   * <p>The configuration options of the grant location. The grant location is the S3 path to the data to which you are granting access. </p>
+   */
+  AccessGrantsLocationConfiguration?: AccessGrantsLocationConfiguration;
+
+  /**
+   * @public
+   * <p>The type of access that you are granting to your S3 data, which can be set to one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>READ</code> – Grant read-only access to the S3 data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>WRITE</code> – Grant write-only access to the S3 data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>READWRITE</code> – Grant both read and write access to the S3 data.</p>
+   *             </li>
+   *          </ul>
+   */
+  Permission?: Permission;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of an Amazon Web Services IAM Identity Center application associated with your Identity Center instance. If the grant includes an application ARN, the grantee can only access the S3 data through this application. </p>
+   */
+  ApplicationArn?: string;
+
+  /**
+   * @public
+   * <p>The S3 path of the data to which you are granting access. It is the result of appending the <code>Subprefix</code> to the location scope. </p>
+   */
+  GrantScope?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateAccessGrantsInstanceRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>If you would like to associate your S3 Access Grants instance with an Amazon Web Services IAM Identity Center instance, use this field to pass the Amazon Resource Name (ARN) of the Amazon Web Services IAM Identity Center instance that you are associating with your S3 Access Grants instance. An IAM Identity Center instance is your corporate identity directory that you added to the IAM Identity Center. You can use the <a href="https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ListInstances.html">ListInstances</a> API operation to retrieve a list of your Identity Center instances and their ARNs. </p>
+   */
+  IdentityCenterArn?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services resource tags that you are adding to the S3 Access Grants instance. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources. </p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface CreateAccessGrantsInstanceResult {
+  /**
+   * @public
+   * <p>The date and time when you created the S3 Access Grants instance. </p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * @public
+   * <p>The ID of the S3 Access Grants instance. The ID is <code>default</code>. You can have one S3 Access Grants instance per Region per account. </p>
+   */
+  AccessGrantsInstanceId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the S3 Access Grants instance. </p>
+   */
+  AccessGrantsInstanceArn?: string;
+
+  /**
+   * @public
+   * <p>If you associated your S3 Access Grants instance with an Amazon Web Services IAM Identity Center instance, this field returns the Amazon Resource Name (ARN) of the IAM Identity Center instance application; a subresource of the original Identity Center instance passed in the request. S3 Access Grants creates this Identity Center application for this specific S3 Access Grants instance.  </p>
+   */
+  IdentityCenterArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateAccessGrantsLocationRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>The S3 path to the location that you are registering. The location scope can be the default S3 location <code>s3://</code>, the S3 path to a bucket <code>s3://<bucket></code>, or the S3 path to a bucket and prefix <code>s3://<bucket>/<prefix></code>. A prefix in S3 is a string of characters at the beginning of an object key name used to organize the objects that you store in your S3 buckets. For example, object key names that start with the <code>engineering/</code> prefix or object key names that start with the <code>marketing/campaigns/</code> prefix.</p>
+   */
+  LocationScope: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the IAM role for the registered location. S3 Access Grants assumes this role to manage access to the registered location. </p>
+   */
+  IAMRoleArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services resource tags that you are adding to the S3 Access Grants location. Each tag is a label consisting of a user-defined key and value. Tags can help you manage, identify, organize, search for, and filter resources.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface CreateAccessGrantsLocationResult {
+  /**
+   * @public
+   * <p>The date and time when you registered the location. </p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * @public
+   * <p>The ID of the registered location to which you are granting access. S3 Access Grants assigns this ID when you register the location. S3 Access Grants assigns the ID <code>default</code> to the default location <code>s3://</code> and assigns an auto-generated ID to other locations that you register.  </p>
+   */
+  AccessGrantsLocationId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the location you are registering.</p>
+   */
+  AccessGrantsLocationArn?: string;
+
+  /**
+   * @public
+   * <p>The S3 URI path to the location that you are registering. The location scope can be the default S3 location <code>s3://</code>, the S3 path to a bucket, or the S3 path to a bucket and prefix. A prefix in S3 is a string of characters at the beginning of an object key name used to organize the objects that you store in your S3 buckets. For example, object key names that start with the <code>engineering/</code> prefix or object key names that start with the <code>marketing/campaigns/</code> prefix.</p>
+   */
+  LocationScope?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the IAM role for the registered location. S3 Access Grants assumes this role to manage access to the registered location. </p>
+   */
+  IAMRoleArn?: string;
 }
 
 /**
@@ -795,7 +1368,7 @@ export interface ObjectLambdaTransformationConfiguration {
    *             <code>GetObject</code>, <code>ListObjects</code>, <code>HeadObject</code>, and
    *             <code>ListObjectsV2</code>.</p>
    */
-  Actions: (ObjectLambdaTransformationConfigurationAction | string)[] | undefined;
+  Actions: ObjectLambdaTransformationConfigurationAction[] | undefined;
 
   /**
    * @public
@@ -827,7 +1400,7 @@ export interface ObjectLambdaConfiguration {
    *             <code>GetObject-PartNumber</code>, <code>HeadObject-Range</code>, and
    *             <code>HeadObject-PartNumber</code>.</p>
    */
-  AllowedFeatures?: (ObjectLambdaAllowedFeature | string)[];
+  AllowedFeatures?: ObjectLambdaAllowedFeature[];
 
   /**
    * @public
@@ -876,8 +1449,8 @@ export type ObjectLambdaAccessPointAliasStatus =
 
 /**
  * @public
- * <p>The alias of an Object Lambda Access Point. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-use.html#ol-access-points-alias">How to use a bucket-style alias for your S3 bucket
- *          Object Lambda Access Point</a>.</p>
+ * <p>The alias of an Object Lambda Access Point. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/olap-use.html#ol-access-points-alias">How to use a
+ *             bucket-style alias for your S3 bucket Object Lambda Access Point</a>.</p>
  */
 export interface ObjectLambdaAccessPointAlias {
   /**
@@ -888,10 +1461,12 @@ export interface ObjectLambdaAccessPointAlias {
 
   /**
    * @public
-   * <p>The status of the Object Lambda Access Point alias. If the status is <code>PROVISIONING</code>, the Object Lambda Access Point is provisioning the alias and the alias is not ready for use yet. If
-   *          the status is <code>READY</code>, the Object Lambda Access Point alias is successfully provisioned and ready for use.</p>
+   * <p>The status of the Object Lambda Access Point alias. If the status is <code>PROVISIONING</code>, the Object Lambda Access Point
+   *          is provisioning the alias and the alias is not ready for use yet. If the status is
+   *             <code>READY</code>, the Object Lambda Access Point alias is successfully provisioned and ready for
+   *          use.</p>
    */
-  Status?: ObjectLambdaAccessPointAliasStatus | string;
+  Status?: ObjectLambdaAccessPointAliasStatus;
 }
 
 /**
@@ -1008,7 +1583,7 @@ export interface CreateBucketConfiguration {
    *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
    *          </note>
    */
-  LocationConstraint?: BucketLocationConstraint | string;
+  LocationConstraint?: BucketLocationConstraint;
 }
 
 /**
@@ -1022,7 +1597,7 @@ export interface CreateBucketRequest {
    *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
    *          </note>
    */
-  ACL?: BucketCannedACL | string;
+  ACL?: BucketCannedACL;
 
   /**
    * @public
@@ -1147,7 +1722,9 @@ export class BadRequestException extends __BaseException {
 
 /**
  * @public
- * <p>Contains the information required to locate a manifest object.</p>
+ * <p>Contains the information required to locate a manifest object. Manifests can't be
+ *          imported from directory buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html">Directory
+ *             buckets</a>.</p>
  */
 export interface JobManifestLocation {
   /**
@@ -1215,14 +1792,14 @@ export interface JobManifestSpec {
    * @public
    * <p>Indicates which of the available formats the specified manifest uses.</p>
    */
-  Format: JobManifestFormat | string | undefined;
+  Format: JobManifestFormat | undefined;
 
   /**
    * @public
    * <p>If the specified manifest object is in the <code>S3BatchOperations_CSV_20180820</code>
    *          format, this element describes which columns contain the required data.</p>
    */
-  Fields?: (JobManifestFieldName | string)[];
+  Fields?: JobManifestFieldName[];
 }
 
 /**
@@ -1239,10 +1816,59 @@ export interface JobManifest {
 
   /**
    * @public
-   * <p>Contains the information required to locate the specified job's manifest.</p>
+   * <p>Contains the information required to locate the specified job's manifest. Manifests
+   *          can't be imported from directory buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html">Directory buckets</a>.</p>
    */
   Location: JobManifestLocation | undefined;
 }
+
+/**
+ * @public
+ * <p>If provided, the generated manifest includes only source bucket objects whose object
+ *          keys match the string constraints specified for <code>MatchAnyPrefix</code>,
+ *             <code>MatchAnySuffix</code>, and <code>MatchAnySubstring</code>.</p>
+ */
+export interface KeyNameConstraint {
+  /**
+   * @public
+   * <p>If provided, the generated manifest includes objects where the specified string appears
+   *          at the start of the object key string.</p>
+   */
+  MatchAnyPrefix?: string[];
+
+  /**
+   * @public
+   * <p>If provided, the generated manifest includes objects where the specified string appears
+   *          at the end of the object key string.</p>
+   */
+  MatchAnySuffix?: string[];
+
+  /**
+   * @public
+   * <p>If provided, the generated manifest includes objects where the specified string appears
+   *          anywhere within the object key string.</p>
+   */
+  MatchAnySubstring?: string[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const S3StorageClass = {
+  DEEP_ARCHIVE: "DEEP_ARCHIVE",
+  GLACIER: "GLACIER",
+  GLACIER_IR: "GLACIER_IR",
+  INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
+  ONEZONE_IA: "ONEZONE_IA",
+  STANDARD: "STANDARD",
+  STANDARD_IA: "STANDARD_IA",
+} as const;
+
+/**
+ * @public
+ */
+export type S3StorageClass = (typeof S3StorageClass)[keyof typeof S3StorageClass];
 
 /**
  * @public
@@ -1274,24 +1900,53 @@ export interface JobManifestGeneratorFilter {
 
   /**
    * @public
-   * <p>If provided, the generated manifest should include only source bucket objects that were
+   * <p>If provided, the generated manifest includes only source bucket objects that were
    *          created after this time.</p>
    */
   CreatedAfter?: Date;
 
   /**
    * @public
-   * <p>If provided, the generated manifest should include only source bucket objects that were
+   * <p>If provided, the generated manifest includes only source bucket objects that were
    *          created before this time.</p>
    */
   CreatedBefore?: Date;
 
   /**
    * @public
-   * <p>If provided, the generated manifest should include only source bucket objects that have
-   *          one of the specified Replication statuses.</p>
+   * <p>If provided, the generated manifest includes only source bucket objects that have one of
+   *          the specified Replication statuses.</p>
    */
-  ObjectReplicationStatuses?: (ReplicationStatus | string)[];
+  ObjectReplicationStatuses?: ReplicationStatus[];
+
+  /**
+   * @public
+   * <p>If provided, the generated manifest includes only source bucket objects whose object
+   *          keys match the string constraints specified for <code>MatchAnyPrefix</code>,
+   *             <code>MatchAnySuffix</code>, and <code>MatchAnySubstring</code>.</p>
+   */
+  KeyNameConstraint?: KeyNameConstraint;
+
+  /**
+   * @public
+   * <p>If provided, the generated manifest includes only source bucket objects whose file size
+   *          is greater than the specified number of bytes.</p>
+   */
+  ObjectSizeGreaterThanBytes?: number;
+
+  /**
+   * @public
+   * <p>If provided, the generated manifest includes only source bucket objects whose file size
+   *          is less than the specified number of bytes.</p>
+   */
+  ObjectSizeLessThanBytes?: number;
+
+  /**
+   * @public
+   * <p>If provided, the generated manifest includes only source bucket objects that are stored
+   *          with the specified storage class.</p>
+   */
+  MatchAnyStorageClass?: S3StorageClass[];
 }
 
 /**
@@ -1359,6 +2014,11 @@ export interface S3ManifestOutputLocation {
   /**
    * @public
    * <p>The bucket ARN the generated manifest should be written to.</p>
+   *          <note>
+   *             <p>
+   *                <b>Directory buckets</b> - Directory buckets aren't supported
+   *          as the buckets to store the generated manifest.</p>
+   *          </note>
    */
   Bucket: string | undefined;
 
@@ -1379,7 +2039,7 @@ export interface S3ManifestOutputLocation {
    * @public
    * <p>The format of the generated manifest.</p>
    */
-  ManifestFormat: GeneratedManifestFormat | string | undefined;
+  ManifestFormat: GeneratedManifestFormat | undefined;
 }
 
 /**
@@ -1398,18 +2058,25 @@ export interface S3JobManifestGenerator {
   /**
    * @public
    * <p>The source bucket used by the ManifestGenerator.</p>
+   *          <note>
+   *             <p>
+   *                <b>Directory buckets</b> - Directory buckets aren't supported
+   *          as the source buckets used by <code>S3JobManifestGenerator</code> to generate the job manifest.</p>
+   *          </note>
    */
   SourceBucket: string | undefined;
 
   /**
    * @public
-   * <p>Specifies the location the generated manifest will be written to.</p>
+   * <p>Specifies the location the generated manifest will be written to. Manifests can't be
+   *          written to directory buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html">Directory
+   *             buckets</a>.</p>
    */
   ManifestOutputLocation?: S3ManifestOutputLocation;
 
   /**
    * @public
-   * <p>Specifies rules the S3JobManifestGenerator should use to use to decide whether an object
+   * <p>Specifies rules the S3JobManifestGenerator should use to decide whether an object
    *          in the source bucket should or should not be included in the generated job manifest.</p>
    */
   Filter?: JobManifestGeneratorFilter;
@@ -1472,6 +2139,37 @@ export interface LambdaInvokeOperation {
    *          invoke on every object in the manifest.</p>
    */
   FunctionArn?: string;
+
+  /**
+   * @public
+   * <p>Specifies the schema version for the payload that Batch Operations sends when invoking
+   *          an Lambda function. Version <code>1.0</code> is the default. Version
+   *             <code>2.0</code> is required when you use Batch Operations to invoke Lambda functions that act on directory buckets, or if you need to specify
+   *             <code>UserArguments</code>. For more information, see <a href="https://aws.amazon.com/blogs/storage/using-lambda-with-s3-batch-operations-and-s3-express-one-zone/">Using Lambda with Amazon S3 Batch Operations and Amazon S3 Express One Zone</a> in the <i>Amazon Web Services Storage
+   *             Blog</i>.</p>
+   *          <important>
+   *             <p>Ensure that your Lambda function code expects
+   *                <code>InvocationSchemaVersion</code>
+   *                <b>2.0</b> and uses bucket name rather than bucket ARN. If the
+   *                <code>InvocationSchemaVersion</code> does not match what your Lambda
+   *             function expects, your function might not work as expected.</p>
+   *          </important>
+   *          <note>
+   *             <p>
+   *                <b>Directory buckets</b> - To initiate Amazon Web Services Lambda function to perform custom actions on objects in directory buckets, you must specify <code>2.0</code>.</p>
+   *          </note>
+   */
+  InvocationSchemaVersion?: string;
+
+  /**
+   * @public
+   * <p>Key-value pairs that are passed in the payload that Batch Operations sends when invoking
+   *          an Lambda function. You must specify <code>InvocationSchemaVersion</code>
+   *             <b>2.0</b> for <code>LambdaInvoke</code> operations that include
+   *             <code>UserArguments</code>. For more information, see <a href="https://aws.amazon.com/blogs/storage/using-lambda-with-s3-batch-operations-and-s3-express-one-zone/">Using Lambda with Amazon S3 Batch Operations and Amazon S3 Express One Zone</a> in the <i>Amazon Web Services Storage
+   *             Blog</i>.</p>
+   */
+  UserArguments?: Record<string, string>;
 }
 
 /**
@@ -1535,7 +2233,7 @@ export interface S3InitiateRestoreObjectOperation {
    * <p>S3 Batch Operations supports <code>STANDARD</code> and <code>BULK</code> retrieval tiers, but
    *          not the <code>EXPEDITED</code> retrieval tier.</p>
    */
-  GlacierJobTier?: S3GlacierJobTier | string;
+  GlacierJobTier?: S3GlacierJobTier;
 }
 
 /**
@@ -1562,7 +2260,7 @@ export interface S3Grantee {
    * @public
    * <p></p>
    */
-  TypeIdentifier?: S3GranteeTypeIdentifier | string;
+  TypeIdentifier?: S3GranteeTypeIdentifier;
 
   /**
    * @public
@@ -1609,7 +2307,7 @@ export interface S3Grant {
    * @public
    * <p></p>
    */
-  Permission?: S3Permission | string;
+  Permission?: S3Permission;
 }
 
 /**
@@ -1682,7 +2380,7 @@ export interface S3AccessControlPolicy {
    * @public
    * <p></p>
    */
-  CannedAccessControlList?: S3CannedAccessControlList | string;
+  CannedAccessControlList?: S3CannedAccessControlList;
 }
 
 /**
@@ -1784,13 +2482,19 @@ export interface S3ObjectMetadata {
 
   /**
    * @public
-   * <p></p>
+   * <p>
+   *             <i>This member has been deprecated.</i>
+   *          </p>
+   *          <p></p>
    */
   ContentLength?: number;
 
   /**
    * @public
-   * <p></p>
+   * <p>
+   *             <i>This member has been deprecated.</i>
+   *          </p>
+   *          <p></p>
    */
   ContentMD5?: string;
 
@@ -1808,15 +2512,21 @@ export interface S3ObjectMetadata {
 
   /**
    * @public
-   * <p></p>
+   * <p>
+   *             <i>This member has been deprecated.</i>
+   *          </p>
+   *          <p></p>
    */
   RequesterCharged?: boolean;
 
   /**
    * @public
    * <p></p>
+   *          <note>
+   *             <p>For directory buckets, only the server-side encryption with Amazon S3 managed keys (SSE-S3) (<code>AES256</code>) is supported.</p>
+   *          </note>
    */
-  SSEAlgorithm?: S3SSEAlgorithm | string;
+  SSEAlgorithm?: S3SSEAlgorithm;
 }
 
 /**
@@ -1868,25 +2578,6 @@ export type S3ObjectLockMode = (typeof S3ObjectLockMode)[keyof typeof S3ObjectLo
 
 /**
  * @public
- * @enum
- */
-export const S3StorageClass = {
-  DEEP_ARCHIVE: "DEEP_ARCHIVE",
-  GLACIER: "GLACIER",
-  GLACIER_IR: "GLACIER_IR",
-  INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
-  ONEZONE_IA: "ONEZONE_IA",
-  STANDARD: "STANDARD",
-  STANDARD_IA: "STANDARD_IA",
-} as const;
-
-/**
- * @public
- */
-export type S3StorageClass = (typeof S3StorageClass)[keyof typeof S3StorageClass];
-
-/**
- * @public
  * <p>Contains
  *          the configuration parameters for a PUT Copy object operation. S3 Batch Operations passes every
  *          object to the underlying
@@ -1901,21 +2592,39 @@ export interface S3CopyObjectOperation {
    * <p>Specifies the destination bucket
    *          Amazon Resource Name
    *          (ARN)
-   *          for the batch copy operation. For example, to copy objects to a bucket named
-   *             <code>destinationBucket</code>, set the <code>TargetResource</code> property to
-   *             <code>arn:aws:s3:::destinationBucket</code>.</p>
+   *          for the batch copy operation.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>General purpose buckets</b> - For example, to copy objects to a general purpose bucket named
+   *                <code>destinationBucket</code>, set the <code>TargetResource</code> property to
+   *                <code>arn:aws:s3:::destinationBucket</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Directory buckets</b> - For example, to copy objects to a directory bucket named
+   *                <code>destinationBucket</code> in the Availability Zone; identified by the AZ ID <code>usw2-az2</code>, set the <code>TargetResource</code> property to
+   *                <code>arn:aws:s3express:<i>region</i>:<i>account_id</i>:/bucket/<i>destination_bucket_base_name</i>--<i>usw2-az2</i>--x-s3</code>.</p>
+   *             </li>
+   *          </ul>
    */
   TargetResource?: string;
 
   /**
    * @public
    * <p></p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
-  CannedAccessControlList?: S3CannedAccessControlList | string;
+  CannedAccessControlList?: S3CannedAccessControlList;
 
   /**
    * @public
    * <p></p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
   AccessControlGrants?: S3Grant[];
 
@@ -1923,7 +2632,7 @@ export interface S3CopyObjectOperation {
    * @public
    * <p></p>
    */
-  MetadataDirective?: S3MetadataDirective | string;
+  MetadataDirective?: S3MetadataDirective;
 
   /**
    * @public
@@ -1941,29 +2650,46 @@ export interface S3CopyObjectOperation {
 
   /**
    * @public
-   * <p></p>
+   * <p>Specifies a list of tags to add to the destination objects after they are copied.
+   *          If <code>NewObjectTagging</code> is not specified, the tags of the source objects are copied to destination objects by default.</p>
+   *          <note>
+   *             <p>
+   *                <b>Directory buckets</b> - Tags aren't supported by directory buckets.
+   *          If your source objects have tags and your destination bucket is a directory bucket, specify an empty tag set in the <code>NewObjectTagging</code> field
+   *          to prevent copying the source object tags to the directory bucket.</p>
+   *          </note>
    */
   NewObjectTagging?: S3Tag[];
 
   /**
    * @public
-   * <p>Specifies an optional metadata property for website redirects,
-   *             <code>x-amz-website-redirect-location</code>. Allows webpage redirects if the object is
+   * <p>If the destination bucket is configured as a website, specifies an optional metadata property for website redirects,
+   *             <code>x-amz-website-redirect-location</code>. Allows webpage redirects if the object copy is
    *          accessed through a website endpoint.</p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
   RedirectLocation?: string;
 
   /**
    * @public
    * <p></p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
   RequesterPays?: boolean;
 
   /**
    * @public
-   * <p></p>
+   * <p>Specify the storage class for the destination objects in a <code>Copy</code> operation.</p>
+   *          <note>
+   *             <p>
+   *                <b>Directory buckets </b> - This functionality is not supported by directory buckets. </p>
+   *          </note>
    */
-  StorageClass?: S3StorageClass | string;
+  StorageClass?: S3StorageClass;
 
   /**
    * @public
@@ -1974,6 +2700,9 @@ export interface S3CopyObjectOperation {
   /**
    * @public
    * <p></p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
   SSEAwsKmsKeyId?: string;
 
@@ -1996,19 +2725,28 @@ export interface S3CopyObjectOperation {
   /**
    * @public
    * <p>The legal hold status to be applied to all objects in the Batch Operations job.</p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
-  ObjectLockLegalHoldStatus?: S3ObjectLockLegalHoldStatus | string;
+  ObjectLockLegalHoldStatus?: S3ObjectLockLegalHoldStatus;
 
   /**
    * @public
    * <p>The retention mode to be applied to all objects in the Batch Operations job.</p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
-  ObjectLockMode?: S3ObjectLockMode | string;
+  ObjectLockMode?: S3ObjectLockMode;
 
   /**
    * @public
    * <p>The date when the applied object retention configuration expires on all objects in the
    *          Batch Operations job.</p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
   ObjectLockRetainUntilDate?: Date;
 
@@ -2019,6 +2757,9 @@ export interface S3CopyObjectOperation {
    *          causes Amazon S3 to use an S3 Bucket Key for object encryption with SSE-KMS.</p>
    *          <p>Specifying this header with an <i>object</i> action doesn’t affect
    *             <i>bucket-level</i> settings for S3 Bucket Key.</p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
   BucketKeyEnabled?: boolean;
 
@@ -2028,9 +2769,10 @@ export interface S3CopyObjectOperation {
    *          that
    *          you want Amazon S3 to use to create the checksum. For more
    *          information,
-   *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CheckingObjectIntegrity.xml"> Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html"> Checking object
+   *             integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
-  ChecksumAlgorithm?: S3ChecksumAlgorithm | string;
+  ChecksumAlgorithm?: S3ChecksumAlgorithm;
 }
 
 /**
@@ -2044,7 +2786,7 @@ export interface S3ObjectLockLegalHold {
    * <p>The Object Lock legal hold status to be applied to all objects in the Batch Operations
    *          job.</p>
    */
-  Status: S3ObjectLockLegalHoldStatus | string | undefined;
+  Status: S3ObjectLockLegalHoldStatus | undefined;
 }
 
 /**
@@ -2057,6 +2799,9 @@ export interface S3ObjectLockLegalHold {
  *          API
  *          operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-legal-hold.html">Using S3 Object Lock legal hold
  *             with S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          <note>
+ *             <p>This functionality is not supported by directory buckets.</p>
+ *          </note>
  */
 export interface S3SetObjectLegalHoldOperation {
   /**
@@ -2102,7 +2847,7 @@ export interface S3Retention {
    * <p>The Object Lock retention mode to be applied to all objects in the Batch Operations
    *          job.</p>
    */
-  Mode?: S3ObjectLockRetentionMode | string;
+  Mode?: S3ObjectLockRetentionMode;
 }
 
 /**
@@ -2113,6 +2858,9 @@ export interface S3Retention {
  *          API
  *          operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-retention-date.html">Using S3 Object Lock retention
  *             with S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          <note>
+ *             <p>This functionality is not supported by directory buckets.</p>
+ *          </note>
  */
 export interface S3SetObjectRetentionOperation {
   /**
@@ -2181,6 +2929,9 @@ export interface JobOperation {
    * @public
    * <p>Directs the specified job to run a <code>PutObjectAcl</code> call on every object in the
    *          manifest.</p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
   S3PutObjectAcl?: S3SetObjectAclOperation;
 
@@ -2188,6 +2939,9 @@ export interface JobOperation {
    * @public
    * <p>Directs the specified job to run a PUT Object tagging call on every object in the
    *          manifest.</p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
   S3PutObjectTagging?: S3SetObjectTaggingOperation;
 
@@ -2195,6 +2949,9 @@ export interface JobOperation {
    * @public
    * <p>Directs the specified job to execute a DELETE Object tagging call on every object in the
    *          manifest.</p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
   S3DeleteObjectTagging?: S3DeleteObjectTaggingOperation;
 
@@ -2202,6 +2959,9 @@ export interface JobOperation {
    * @public
    * <p>Directs the specified job to initiate restore requests for every archived object in the
    *          manifest.</p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
   S3InitiateRestoreObject?: S3InitiateRestoreObjectOperation;
 
@@ -2215,6 +2975,9 @@ export interface JobOperation {
    *          API
    *          operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-legal-hold.html">Using S3 Object Lock legal hold
    *             with S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
   S3PutObjectLegalHold?: S3SetObjectLegalHoldOperation;
 
@@ -2226,6 +2989,9 @@ export interface JobOperation {
    *          API
    *          operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/batch-ops-retention-date.html">Using S3 Object Lock retention
    *             with S3 Batch Operations</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
   S3PutObjectRetention?: S3SetObjectRetentionOperation;
 
@@ -2233,6 +2999,9 @@ export interface JobOperation {
    * @public
    * <p>Directs the specified job to invoke <code>ReplicateObject</code> on every object in the
    *          job's manifest.</p>
+   *          <note>
+   *             <p>This functionality is not supported by directory buckets.</p>
+   *          </note>
    */
   S3ReplicateObject?: S3ReplicateObjectOperation;
 }
@@ -2273,6 +3042,11 @@ export interface JobReport {
    * @public
    * <p>The Amazon Resource Name (ARN) for the bucket where specified job-completion report will
    *          be stored.</p>
+   *          <note>
+   *             <p>
+   *                <b>Directory buckets</b> - Directory buckets aren't supported
+   *          as a location for Batch Operations to store job completion reports.</p>
+   *          </note>
    */
   Bucket?: string;
 
@@ -2280,7 +3054,7 @@ export interface JobReport {
    * @public
    * <p>The format of the specified job-completion report.</p>
    */
-  Format?: JobReportFormat | string;
+  Format?: JobReportFormat;
 
   /**
    * @public
@@ -2301,7 +3075,7 @@ export interface JobReport {
    * <p>Indicates whether the job-completion report will include details of all tasks or only
    *          failed tasks.</p>
    */
-  ReportScope?: JobReportScope | string;
+  ReportScope?: JobReportScope;
 }
 
 /**
@@ -2496,6 +3270,317 @@ export interface CreateMultiRegionAccessPointResult {
    *          requests.</p>
    */
   RequestTokenARN?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *    A filter condition that specifies the object age range of included objects in days. Only integers are supported.
+ * </p>
+ */
+export interface MatchObjectAge {
+  /**
+   * @public
+   * <p>
+   * Specifies the maximum object age in days. Must be a positive whole number, greater than the minimum object age and less than or equal to 2,147,483,647.
+   * </p>
+   */
+  DaysGreaterThan?: number;
+
+  /**
+   * @public
+   * <p>
+   * Specifies the minimum object age in days. The value must be a positive whole number, greater than 0 and less than or equal to 2,147,483,647.
+   * </p>
+   */
+  DaysLessThan?: number;
+}
+
+/**
+ * @public
+ * <p>
+ * A filter condition that specifies the object size range of included objects in bytes. Only integers are supported.
+ * </p>
+ */
+export interface MatchObjectSize {
+  /**
+   * @public
+   * <p>
+   * Specifies the minimum object size in Bytes. The value must be a positive number, greater than 0 and less than 5 TB.
+   * </p>
+   */
+  BytesGreaterThan?: number;
+
+  /**
+   * @public
+   * <p>
+   * Specifies the maximum object size in Bytes. The value must be a positive number, greater than the minimum object size and less than 5 TB.
+   * </p>
+   */
+  BytesLessThan?: number;
+}
+
+/**
+ * @public
+ * <p> A logical operator that allows multiple filter conditions to be joined for more complex
+ *          comparisons of Storage Lens group data. </p>
+ */
+export interface StorageLensGroupAndOperator {
+  /**
+   * @public
+   * <p> Contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes
+   *          are allowed. </p>
+   */
+  MatchAnyPrefix?: string[];
+
+  /**
+   * @public
+   * <p> Contains a list of suffixes. At least one suffix must be specified. Up to 10 suffixes
+   *          are allowed. </p>
+   */
+  MatchAnySuffix?: string[];
+
+  /**
+   * @public
+   * <p> Contains the list of object tags. At least one object tag must be specified. Up to 10
+   *          object tags are allowed. </p>
+   */
+  MatchAnyTag?: S3Tag[];
+
+  /**
+   * @public
+   * <p> Contains <code>DaysGreaterThan</code> and <code>DaysLessThan</code> to define the
+   *          object age range (minimum and maximum number of days). </p>
+   */
+  MatchObjectAge?: MatchObjectAge;
+
+  /**
+   * @public
+   * <p> Contains <code>BytesGreaterThan</code> and <code>BytesLessThan</code> to define the
+   *          object size range (minimum and maximum number of Bytes). </p>
+   */
+  MatchObjectSize?: MatchObjectSize;
+}
+
+/**
+ * @public
+ * <p>A container element for specifying <code>Or</code> rule conditions. The rule conditions
+ *          determine the subset of objects to which the <code>Or</code> rule applies. Objects can
+ *          match any of the listed filter conditions, which are joined by the <code>Or</code> logical
+ *          operator. Only one of each filter condition is allowed.</p>
+ */
+export interface StorageLensGroupOrOperator {
+  /**
+   * @public
+   * <p> Filters objects that match any of the specified prefixes. </p>
+   */
+  MatchAnyPrefix?: string[];
+
+  /**
+   * @public
+   * <p>
+   * Filters objects that match any of the specified suffixes.
+   * </p>
+   */
+  MatchAnySuffix?: string[];
+
+  /**
+   * @public
+   * <p>
+   * Filters objects that match any of the specified S3 object tags.
+   * </p>
+   */
+  MatchAnyTag?: S3Tag[];
+
+  /**
+   * @public
+   * <p>
+   * Filters objects that match the specified object age range.
+   * </p>
+   */
+  MatchObjectAge?: MatchObjectAge;
+
+  /**
+   * @public
+   * <p>
+   * Filters objects that match the specified object size range.
+   * </p>
+   */
+  MatchObjectSize?: MatchObjectSize;
+}
+
+/**
+ * @public
+ * <p>The filter element sets the criteria for the Storage Lens group data that is displayed.
+ *          For multiple filter conditions, the <code>AND</code> or <code>OR</code> logical operator is
+ *          used.</p>
+ */
+export interface StorageLensGroupFilter {
+  /**
+   * @public
+   * <p> Contains a list of prefixes. At least one prefix must be specified. Up to 10 prefixes
+   *          are allowed. </p>
+   */
+  MatchAnyPrefix?: string[];
+
+  /**
+   * @public
+   * <p> Contains a list of suffixes. At least one suffix must be specified. Up to 10 suffixes
+   *          are allowed. </p>
+   */
+  MatchAnySuffix?: string[];
+
+  /**
+   * @public
+   * <p> Contains the list of S3 object tags. At least one object tag must be specified. Up to
+   *          10 object tags are allowed. </p>
+   */
+  MatchAnyTag?: S3Tag[];
+
+  /**
+   * @public
+   * <p> Contains <code>DaysGreaterThan</code> and <code>DaysLessThan</code> to define the
+   *          object age range (minimum and maximum number of days). </p>
+   */
+  MatchObjectAge?: MatchObjectAge;
+
+  /**
+   * @public
+   * <p> Contains <code>BytesGreaterThan</code> and <code>BytesLessThan</code> to define the
+   *          object size range (minimum and maximum number of Bytes). </p>
+   */
+  MatchObjectSize?: MatchObjectSize;
+
+  /**
+   * @public
+   * <p>A logical operator that allows multiple filter conditions to be joined for more complex
+   *          comparisons of Storage Lens group data. Objects must match all of the listed filter
+   *          conditions that are joined by the <code>And</code> logical operator. Only one of each
+   *          filter condition is allowed.</p>
+   */
+  And?: StorageLensGroupAndOperator;
+
+  /**
+   * @public
+   * <p>A single logical operator that allows multiple filter conditions to be joined. Objects
+   *          can match any of the listed filter conditions, which are joined by the <code>Or</code>
+   *          logical operator. Only one of each filter condition is allowed. </p>
+   */
+  Or?: StorageLensGroupOrOperator;
+}
+
+/**
+ * @public
+ * <p>A custom grouping of objects that include filters for prefixes, suffixes, object tags,
+ *          object size, or object age. You can create an S3 Storage Lens group that includes a single
+ *          filter or multiple filter conditions. To specify multiple filter conditions, you use
+ *             <code>AND</code> or <code>OR</code> logical operators. </p>
+ */
+export interface StorageLensGroup {
+  /**
+   * @public
+   * <p> Contains the name of the Storage Lens group. </p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>Sets the criteria for the Storage Lens group data that is displayed. For multiple filter
+   *          conditions, the <code>AND</code> or <code>OR</code> logical operator is used.</p>
+   */
+  Filter: StorageLensGroupFilter | undefined;
+
+  /**
+   * @public
+   * <p> Contains the Amazon Resource Name (ARN) of the Storage Lens group. This property is
+   *          read-only. </p>
+   */
+  StorageLensGroupArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateStorageLensGroupRequest {
+  /**
+   * @public
+   * <p>
+   * The Amazon Web Services account ID that the Storage Lens group is created from and associated with.
+   * </p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>
+   * The Storage Lens group configuration.
+   * </p>
+   */
+  StorageLensGroup: StorageLensGroup | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The Amazon Web Services resource tags that you're adding to your Storage Lens group. This parameter is optional.
+   * </p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface DeleteAccessGrantRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>The ID of the access grant. S3 Access Grants auto-generates this ID when you create the access grant.</p>
+   */
+  AccessGrantId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAccessGrantsInstanceRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   */
+  AccountId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAccessGrantsInstanceResourcePolicyRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   */
+  AccountId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteAccessGrantsLocationRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>The ID of the registered location that you are deregistering from your S3 Access Grants instance. S3 Access Grants assigned this ID when you registered the location. S3 Access Grants assigns the ID <code>default</code> to the default location <code>s3://</code> and assigns an auto-generated ID to other locations that you register.  </p>
+   */
+  AccessGrantsLocationId: string | undefined;
 }
 
 /**
@@ -2800,6 +3885,27 @@ export interface DeleteStorageLensConfigurationTaggingResult {}
 /**
  * @public
  */
+export interface DeleteStorageLensGroupRequest {
+  /**
+   * @public
+   * <p>
+   * The name of the Storage Lens group that you're trying to delete.
+   * </p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The Amazon Web Services account ID used to create the Storage Lens group that you're trying to delete.
+   * </p>
+   */
+  AccountId?: string;
+}
+
+/**
+ * @public
+ */
 export interface DescribeJobRequest {
   /**
    * @public
@@ -2843,11 +3949,13 @@ export interface S3GeneratedManifestDescriptor {
    * @public
    * <p>The format of the generated manifest.</p>
    */
-  Format?: GeneratedManifestFormat | string;
+  Format?: GeneratedManifestFormat;
 
   /**
    * @public
-   * <p>Contains the information required to locate a manifest object.</p>
+   * <p>Contains the information required to locate a manifest object. Manifests can't be
+   *          imported from directory buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html">Directory
+   *             buckets</a>.</p>
    */
   Location?: JobManifestLocation;
 }
@@ -2956,7 +4064,7 @@ export interface JobDescriptor {
    * @public
    * <p>The current status of the specified job.</p>
    */
-  Status?: JobStatus | string;
+  Status?: JobStatus;
 
   /**
    * @public
@@ -3098,6 +4206,267 @@ export interface DescribeMultiRegionAccessPointOperationResult {
 /**
  * @public
  */
+export interface DissociateAccessGrantsIdentityCenterRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   */
+  AccountId?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetAccessGrantRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>The ID of the access grant. S3 Access Grants auto-generates this ID when you create the access grant.</p>
+   */
+  AccessGrantId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAccessGrantResult {
+  /**
+   * @public
+   * <p>The date and time when you created the access grant. </p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * @public
+   * <p>The ID of the access grant. S3 Access Grants auto-generates this ID when you create the access grant.</p>
+   */
+  AccessGrantId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the access grant. </p>
+   */
+  AccessGrantArn?: string;
+
+  /**
+   * @public
+   * <p>The user, group, or role to which you are granting access. You can grant access to an IAM user or role. If you have added a corporate directory to Amazon Web Services IAM Identity Center and associated this Identity Center instance with the S3 Access Grants instance, the grantee can also be a corporate directory user or group.</p>
+   */
+  Grantee?: Grantee;
+
+  /**
+   * @public
+   * <p>The type of permission that was granted in the access grant. Can be one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>READ</code> – Grant read-only access to the S3 data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>WRITE</code> – Grant write-only access to the S3 data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>READWRITE</code> – Grant both read and write access to the S3 data.</p>
+   *             </li>
+   *          </ul>
+   */
+  Permission?: Permission;
+
+  /**
+   * @public
+   * <p>The ID of the registered location to which you are granting access. S3 Access Grants assigns this ID when you register the location. S3 Access Grants assigns the ID <code>default</code> to the default location <code>s3://</code> and assigns an auto-generated ID to other locations that you register. </p>
+   */
+  AccessGrantsLocationId?: string;
+
+  /**
+   * @public
+   * <p>The configuration options of the grant location. The grant location is the S3 path to the data to which you are granting access. </p>
+   */
+  AccessGrantsLocationConfiguration?: AccessGrantsLocationConfiguration;
+
+  /**
+   * @public
+   * <p>The S3 path of the data to which you are granting access. It is the result of appending the <code>Subprefix</code> to the location scope.</p>
+   */
+  GrantScope?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of an Amazon Web Services IAM Identity Center application associated with your Identity Center instance. If the grant includes an application ARN, the grantee can only access the S3 data through this application.  </p>
+   */
+  ApplicationArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetAccessGrantsInstanceRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   */
+  AccountId?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetAccessGrantsInstanceResult {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the S3 Access Grants instance. </p>
+   */
+  AccessGrantsInstanceArn?: string;
+
+  /**
+   * @public
+   * <p>The ID of the S3 Access Grants instance. The ID is <code>default</code>. You can have one S3 Access Grants instance per Region per account. </p>
+   */
+  AccessGrantsInstanceId?: string;
+
+  /**
+   * @public
+   * <p>If you associated your S3 Access Grants instance with an Amazon Web Services IAM Identity Center instance, this field returns the Amazon Resource Name (ARN) of the Amazon Web Services IAM Identity Center instance application; a subresource of the original Identity Center instance. S3 Access Grants creates this Identity Center application for the specific S3 Access Grants instance. </p>
+   */
+  IdentityCenterArn?: string;
+
+  /**
+   * @public
+   * <p>The date and time when you created the S3 Access Grants instance. </p>
+   */
+  CreatedAt?: Date;
+}
+
+/**
+ * @public
+ */
+export interface GetAccessGrantsInstanceForPrefixRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>The S3 prefix of the access grants that you would like to retrieve.</p>
+   */
+  S3Prefix: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAccessGrantsInstanceForPrefixResult {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the S3 Access Grants instance. </p>
+   */
+  AccessGrantsInstanceArn?: string;
+
+  /**
+   * @public
+   * <p>The ID of the S3 Access Grants instance. The ID is <code>default</code>. You can have one S3 Access Grants instance per Region per account. </p>
+   */
+  AccessGrantsInstanceId?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetAccessGrantsInstanceResourcePolicyRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   */
+  AccountId?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetAccessGrantsInstanceResourcePolicyResult {
+  /**
+   * @public
+   * <p>The resource policy of the S3 Access Grants instance.</p>
+   */
+  Policy?: string;
+
+  /**
+   * @public
+   * <p>The Organization of the resource policy of the S3 Access Grants instance.</p>
+   */
+  Organization?: string;
+
+  /**
+   * @public
+   * <p>The date and time when you created the S3 Access Grants instance resource policy. </p>
+   */
+  CreatedAt?: Date;
+}
+
+/**
+ * @public
+ */
+export interface GetAccessGrantsLocationRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>The ID of the registered location that you are retrieving. S3 Access Grants assigns this ID when you register the location. S3 Access Grants assigns the ID <code>default</code> to the default location <code>s3://</code> and assigns an auto-generated ID to other locations that you register.  </p>
+   */
+  AccessGrantsLocationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAccessGrantsLocationResult {
+  /**
+   * @public
+   * <p>The date and time when you registered the location. </p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * @public
+   * <p>The ID of the registered location to which you are granting access. S3 Access Grants assigns this ID when you register the location. S3 Access Grants assigns the ID <code>default</code> to the default location <code>s3://</code> and assigns an auto-generated ID to other locations that you register.  </p>
+   */
+  AccessGrantsLocationId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the registered location. </p>
+   */
+  AccessGrantsLocationArn?: string;
+
+  /**
+   * @public
+   * <p>The S3 URI path to the registered location. The location scope can be the default S3 location <code>s3://</code>, the S3 path to a bucket, or the S3 path to a bucket and prefix. A prefix in S3 is a string of characters at the beginning of an object key name used to organize the objects that you store in your S3 buckets. For example, object key names that start with the <code>engineering/</code> prefix or object key names that start with the <code>marketing/campaigns/</code> prefix.</p>
+   */
+  LocationScope?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the IAM role for the registered location. S3 Access Grants assumes this role to manage access to the registered location. </p>
+   */
+  IAMRoleArn?: string;
+}
+
+/**
+ * @public
+ */
 export interface GetAccessPointRequest {
   /**
    * @public
@@ -3140,7 +4509,7 @@ export interface GetAccessPointResult {
    *          policies.</p>
    *          <p>This will always be true for an Amazon S3 on Outposts access point</p>
    */
-  NetworkOrigin?: NetworkOrigin | string;
+  NetworkOrigin?: NetworkOrigin;
 
   /**
    * @public
@@ -3616,7 +4985,7 @@ export interface NoncurrentVersionTransition {
    * @public
    * <p>The class of storage used to store the object.</p>
    */
-  StorageClass?: TransitionStorageClass | string;
+  StorageClass?: TransitionStorageClass;
 }
 
 /**
@@ -3659,7 +5028,7 @@ export interface Transition {
    * @public
    * <p>The storage class to which you want the object to transition.</p>
    */
-  StorageClass?: TransitionStorageClass | string;
+  StorageClass?: TransitionStorageClass;
 }
 
 /**
@@ -3691,7 +5060,7 @@ export interface LifecycleRule {
    * <p>If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not
    *          currently being applied.</p>
    */
-  Status: ExpirationStatus | string | undefined;
+  Status: ExpirationStatus | undefined;
 
   /**
    * @public
@@ -3725,8 +5094,8 @@ export interface LifecycleRule {
    * @public
    * <p>Specifies the days since the initiation of an incomplete multipart upload that Amazon S3
    *          waits before permanently removing all parts of the upload. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">
-   *             Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration</a> in the
-   *             <i>Amazon S3 User Guide</i>.</p>
+   *             Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration</a> in
+   *          the <i>Amazon S3 User Guide</i>.</p>
    */
   AbortIncompleteMultipartUpload?: AbortIncompleteMultipartUpload;
 }
@@ -3814,14 +5183,15 @@ export type DeleteMarkerReplicationStatus =
  *             <code>Tag</code> element, the <code>DeleteMarkerReplication</code> element's
  *             <code>Status</code> child element must be set to <code>Disabled</code>, because
  *          S3 on Outposts does not support replicating delete markers for tag-based rules.</p>
- *          <p>For more information about delete marker replication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsReplication.html#outposts-replication-what-is-replicated">How delete operations affect replication</a> in the <i>Amazon S3 User Guide</i>. </p>
+ *          <p>For more information about delete marker replication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsReplication.html#outposts-replication-what-is-replicated">How delete operations affect replication</a> in the
+ *             <i>Amazon S3 User Guide</i>. </p>
  */
 export interface DeleteMarkerReplication {
   /**
    * @public
    * <p>Indicates whether to replicate delete markers.</p>
    */
-  Status: DeleteMarkerReplicationStatus | string | undefined;
+  Status: DeleteMarkerReplicationStatus | undefined;
 }
 
 /**
@@ -3886,7 +5256,7 @@ export interface Metrics {
    * @public
    * <p>Specifies whether replication metrics are enabled. </p>
    */
-  Status: MetricsStatus | string | undefined;
+  Status: MetricsStatus | undefined;
 
   /**
    * @public
@@ -3927,7 +5297,7 @@ export interface ReplicationTime {
    * @public
    * <p>Specifies whether S3 Replication Time Control (S3 RTC) is enabled. </p>
    */
-  Status: ReplicationTimeStatus | string | undefined;
+  Status: ReplicationTimeStatus | undefined;
 
   /**
    * @public
@@ -4023,10 +5393,10 @@ export interface Destination {
    *          are stored in the <code>OUTPOSTS</code> storage class. S3 on Outposts uses the
    *             <code>OUTPOSTS</code> storage class to create the object replicas. </p>
    *          <note>
-   *             <p>Values other than <code>OUTPOSTS</code> are not supported by Amazon S3 on Outposts. </p>
+   *             <p>Values other than <code>OUTPOSTS</code> aren't supported by Amazon S3 on Outposts. </p>
    *          </note>
    */
-  StorageClass?: ReplicationStorageClass | string;
+  StorageClass?: ReplicationStorageClass;
 }
 
 /**
@@ -4056,7 +5426,7 @@ export interface ExistingObjectReplication {
    * @public
    * <p>Specifies whether Amazon S3 replicates existing source bucket objects. </p>
    */
-  Status: ExistingObjectReplicationStatus | string | undefined;
+  Status: ExistingObjectReplicationStatus | undefined;
 }
 
 /**
@@ -4170,7 +5540,7 @@ export interface ReplicaModifications {
    * <p>Specifies whether S3 on Outposts replicates modifications to object metadata on
    *          replicas.</p>
    */
-  Status: ReplicaModificationsStatus | string | undefined;
+  Status: ReplicaModificationsStatus | undefined;
 }
 
 /**
@@ -4202,7 +5572,7 @@ export interface SseKmsEncryptedObjects {
    * <p>Specifies whether Amazon S3 replicates objects that are created with server-side encryption
    *          by using an KMS key stored in Key Management Service.</p>
    */
-  Status: SseKmsEncryptedObjectsStatus | string | undefined;
+  Status: SseKmsEncryptedObjectsStatus | undefined;
 }
 
 /**
@@ -4258,7 +5628,8 @@ export type ReplicationRuleStatus = (typeof ReplicationRuleStatus)[keyof typeof 
 
 /**
  * @public
- * <p>Specifies which S3 on Outposts objects to replicate and where to store the replicas.</p>
+ * <p>Specifies which S3 on Outposts objects to replicate and where to store the
+ *          replicas.</p>
  */
 export interface ReplicationRule {
   /**
@@ -4271,11 +5642,11 @@ export interface ReplicationRule {
    * @public
    * <p>The priority indicates which rule has precedence whenever two or more replication rules
    *          conflict. S3 on Outposts attempts to replicate objects according to all replication rules.
-   *          However, if there are two or more rules with the same destination Outposts bucket, then objects will
-   *          be replicated according to the rule with the highest priority. The higher the number, the
-   *          higher the priority. </p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-between-outposts.html">Creating replication rules on Outposts</a> in the
-   *             <i>Amazon S3 User Guide</i>.</p>
+   *          However, if there are two or more rules with the same destination Outposts bucket, then
+   *          objects will be replicated according to the rule with the highest priority. The higher the
+   *          number, the higher the priority. </p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-between-outposts.html">Creating replication
+   *             rules on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   Priority?: number;
 
@@ -4307,13 +5678,13 @@ export interface ReplicationRule {
    * @public
    * <p>Specifies whether the rule is enabled.</p>
    */
-  Status: ReplicationRuleStatus | string | undefined;
+  Status: ReplicationRuleStatus | undefined;
 
   /**
    * @public
-   * <p>A container that describes additional filters for identifying the source Outposts objects that
-   *          you want to replicate. You can choose to enable or disable the replication of these
-   *          objects.</p>
+   * <p>A container that describes additional filters for identifying the source Outposts
+   *          objects that you want to replicate. You can choose to enable or disable the replication of
+   *          these objects.</p>
    */
   SourceSelectionCriteria?: SourceSelectionCriteria;
 
@@ -4328,7 +5699,8 @@ export interface ReplicationRule {
 
   /**
    * @public
-   * <p>A container for information about the replication destination and its configurations.</p>
+   * <p>A container for information about the replication destination and its
+   *          configurations.</p>
    */
   Destination: Destination | undefined;
 
@@ -4340,7 +5712,8 @@ export interface ReplicationRule {
    *             <code>Tag</code> element, the <code>DeleteMarkerReplication</code> element's
    *             <code>Status</code> child element must be set to <code>Disabled</code>, because
    *          S3 on Outposts doesn't support replicating delete markers for tag-based rules.</p>
-   *          <p>For more information about delete marker replication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsReplication.html#outposts-replication-what-is-replicated">How delete operations affect replication</a> in the <i>Amazon S3 User Guide</i>. </p>
+   *          <p>For more information about delete marker replication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsReplication.html#outposts-replication-what-is-replicated">How delete operations affect replication</a> in the
+   *             <i>Amazon S3 User Guide</i>. </p>
    */
   DeleteMarkerReplication?: DeleteMarkerReplication;
 
@@ -4354,8 +5727,9 @@ export interface ReplicationRule {
 
 /**
  * @public
- * <p>A container for one or more replication rules. A replication configuration must have at least one rule and you can add up to 100 rules. The maximum size of a
- *          replication configuration is 128 KB.</p>
+ * <p>A container for one or more replication rules. A replication configuration must have at
+ *          least one rule and you can add up to 100 rules. The maximum size of a replication
+ *          configuration is 128 KB.</p>
  */
 export interface ReplicationConfiguration {
   /**
@@ -4381,8 +5755,9 @@ export interface ReplicationConfiguration {
 export interface GetBucketReplicationResult {
   /**
    * @public
-   * <p>A container for one or more replication rules. A replication configuration must have at least one rule and you can add up to 100 rules. The maximum size of a
-   *          replication configuration is 128 KB.</p>
+   * <p>A container for one or more replication rules. A replication configuration must have at
+   *          least one rule and you can add up to 100 rules. The maximum size of a replication
+   *          configuration is 128 KB.</p>
    */
   ReplicationConfiguration?: ReplicationConfiguration;
 }
@@ -4470,7 +5845,7 @@ export interface GetBucketVersioningResult {
    * @public
    * <p>The versioning state of the S3 on Outposts bucket.</p>
    */
-  Status?: BucketVersioningStatus | string;
+  Status?: BucketVersioningStatus;
 
   /**
    * @public
@@ -4478,7 +5853,133 @@ export interface GetBucketVersioningResult {
    *          element is returned only if the bucket has been configured with MFA delete. If MFA delete
    *          has never been configured for the bucket, this element is not returned.</p>
    */
-  MFADelete?: MFADeleteStatus | string;
+  MFADelete?: MFADeleteStatus;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Privilege = {
+  Default: "Default",
+  Minimal: "Minimal",
+} as const;
+
+/**
+ * @public
+ */
+export type Privilege = (typeof Privilege)[keyof typeof Privilege];
+
+/**
+ * @public
+ */
+export interface GetDataAccessRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>The S3 URI path of the data to which you are requesting temporary access credentials. If the requesting account has an access grant for this data, S3 Access Grants vends temporary access credentials in the response.</p>
+   */
+  Target: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of permission granted to your S3 data, which can be set to one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>READ</code> – Grant read-only access to the S3 data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>WRITE</code> – Grant write-only access to the S3 data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>READWRITE</code> – Grant both read and write access to the S3 data.</p>
+   *             </li>
+   *          </ul>
+   */
+  Permission: Permission | undefined;
+
+  /**
+   * @public
+   * <p>The session duration, in seconds, of the temporary access credential that S3 Access Grants vends to the grantee or client application. The default value is 1 hour, but the grantee can specify a range from 900 seconds (15 minutes) up to 43200 seconds (12 hours). If the grantee requests a value higher than this maximum, the operation fails. </p>
+   */
+  DurationSeconds?: number;
+
+  /**
+   * @public
+   * <p>The scope of the temporary access credential that S3 Access Grants vends to the grantee or client application. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Default</code> – The scope of the returned temporary access token is the scope of the grant that is closest to the target scope.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Minimal</code> – The scope of the returned temporary access token is the same as the requested target scope as long as the requested scope is the same as or a subset of the grant scope. </p>
+   *             </li>
+   *          </ul>
+   */
+  Privilege?: Privilege;
+
+  /**
+   * @public
+   * <p>The type of <code>Target</code>. The only possible value is <code>Object</code>. Pass this value if the target data that you would like to access is a path to an object. Do not pass this value if the target data is a bucket or a bucket and a prefix. </p>
+   */
+  TargetType?: S3PrefixType;
+}
+
+/**
+ * @public
+ * <p>The Amazon Web Services Security Token Service temporary credential that S3 Access Grants vends to grantees and client applications. </p>
+ */
+export interface Credentials {
+  /**
+   * @public
+   * <p>The unique access key ID of the Amazon Web Services STS temporary credential that S3 Access Grants vends to grantees and client applications. </p>
+   */
+  AccessKeyId?: string;
+
+  /**
+   * @public
+   * <p>The secret access key of the Amazon Web Services STS temporary credential that S3 Access Grants vends to grantees and client applications. </p>
+   */
+  SecretAccessKey?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services STS temporary credential that S3 Access Grants vends to grantees and client applications. </p>
+   */
+  SessionToken?: string;
+
+  /**
+   * @public
+   * <p>The expiration date and time of the temporary credential that S3 Access Grants vends to grantees and client applications. </p>
+   */
+  Expiration?: Date;
+}
+
+/**
+ * @public
+ */
+export interface GetDataAccessResult {
+  /**
+   * @public
+   * <p>The temporary credential token that S3 Access Grants vends.</p>
+   */
+  Credentials?: Credentials;
+
+  /**
+   * @public
+   * <p>The S3 URI path of the data to which you are being granted temporary access credentials. </p>
+   */
+  MatchedGrantTarget?: string;
 }
 
 /**
@@ -4616,7 +6117,7 @@ export interface MultiRegionAccessPointReport {
    *          Multi-Region Access Point. If a Multi-Region Access Point has a status of <code>PARTIALLY_DELETED</code>, you can retry a delete
    *          request to finish the deletion of the Multi-Region Access Point.</p>
    */
-  Status?: MultiRegionAccessPointStatus | string;
+  Status?: MultiRegionAccessPointStatus;
 
   /**
    * @public
@@ -5003,13 +6504,13 @@ export interface S3BucketDestination {
    * @public
    * <p></p>
    */
-  Format: Format | string | undefined;
+  Format: Format | undefined;
 
   /**
    * @public
    * <p>The schema version of the export file.</p>
    */
-  OutputSchemaVersion: OutputSchemaVersion | string | undefined;
+  OutputSchemaVersion: OutputSchemaVersion | undefined;
 
   /**
    * @public
@@ -5221,6 +6722,224 @@ export interface GetStorageLensConfigurationTaggingResult {
 /**
  * @public
  */
+export interface GetStorageLensGroupRequest {
+  /**
+   * @public
+   * <p>
+   * The name of the Storage Lens group that you're trying to retrieve the configuration details for.
+   * </p>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * The Amazon Web Services account ID associated with the Storage Lens group that you're trying to retrieve the details for.
+   * </p>
+   */
+  AccountId?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetStorageLensGroupResult {
+  /**
+   * @public
+   * <p>
+   * The name of the Storage Lens group that you're trying to retrieve the configuration details for.
+   * </p>
+   */
+  StorageLensGroup?: StorageLensGroup;
+}
+
+/**
+ * @public
+ */
+export interface ListAccessGrantsRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>A pagination token to request the next page of results. Pass this value into a subsequent <code>List Access Grants</code> request in order to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of access grants that you would like returned in the <code>List Access Grants</code> response. If the results include the pagination token <code>NextToken</code>, make another call using the <code>NextToken</code> to determine if there are more results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The type of the grantee to which access has been granted. It can be one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>IAM</code> - An IAM user or role.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECTORY_USER</code> - Your corporate directory user. You can use this option if you have added your corporate identity directory to IAM Identity Center and associated the IAM Identity Center instance with your S3 Access Grants instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECTORY_GROUP</code> - Your corporate directory group. You can use this option if you have added your corporate identity directory to IAM Identity Center and associated the IAM Identity Center instance with your S3 Access Grants instance.</p>
+   *             </li>
+   *          </ul>
+   */
+  GranteeType?: GranteeType;
+
+  /**
+   * @public
+   * <p>The unique identifer of the <code>Grantee</code>. If the grantee type is <code>IAM</code>, the identifier is the IAM Amazon Resource Name (ARN) of the user or role. If the grantee type is a directory user or group, the identifier is 128-bit universally unique identifier (UUID) in the format <code>a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code>. You can obtain this UUID from your Amazon Web Services IAM Identity Center instance.</p>
+   */
+  GranteeIdentifier?: string;
+
+  /**
+   * @public
+   * <p>The type of permission granted to your S3 data, which can be set to one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>READ</code> – Grant read-only access to the S3 data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>WRITE</code> – Grant write-only access to the S3 data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>READWRITE</code> – Grant both read and write access to the S3 data.</p>
+   *             </li>
+   *          </ul>
+   */
+  Permission?: Permission;
+
+  /**
+   * @public
+   * <p>The S3 path of the data to which you are granting access. It is the result of appending the <code>Subprefix</code> to the location scope.</p>
+   */
+  GrantScope?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of an Amazon Web Services IAM Identity Center application associated with your Identity Center instance. If the grant includes an application ARN, the grantee can only access the S3 data through this application. </p>
+   */
+  ApplicationArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListAccessGrantsResult {
+  /**
+   * @public
+   * <p>A pagination token to request the next page of results. Pass this value into a subsequent <code>List Access Grants</code> request in order to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>A container for a list of grants in an S3 Access Grants instance.</p>
+   */
+  AccessGrantsList?: ListAccessGrantEntry[];
+}
+
+/**
+ * @public
+ */
+export interface ListAccessGrantsInstancesRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>A pagination token to request the next page of results. Pass this value into a subsequent <code>List Access Grants Instances</code> request in order to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of access grants that you would like returned in the <code>List Access Grants</code> response. If the results include the pagination token <code>NextToken</code>, make another call using the <code>NextToken</code> to determine if there are more results.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListAccessGrantsInstancesResult {
+  /**
+   * @public
+   * <p>A pagination token to request the next page of results. Pass this value into a subsequent <code>List Access Grants Instances</code> request in order to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>A container for a list of S3 Access Grants instances.</p>
+   */
+  AccessGrantsInstancesList?: ListAccessGrantsInstanceEntry[];
+}
+
+/**
+ * @public
+ */
+export interface ListAccessGrantsLocationsRequest {
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * @public
+   * <p>A pagination token to request the next page of results. Pass this value into a subsequent <code>List Access Grants Locations</code> request in order to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of access grants that you would like returned in the <code>List Access Grants</code> response. If the results include the pagination token <code>NextToken</code>, make another call using the <code>NextToken</code> to determine if there are more results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The S3 path to the location that you are registering. The location scope can be the default S3 location <code>s3://</code>, the S3 path to a bucket <code>s3://<bucket></code>, or the S3 path to a bucket and prefix <code>s3://<bucket>/<prefix></code>. A prefix in S3 is a string of characters at the beginning of an object key name used to organize the objects that you store in your S3 buckets. For example, object key names that start with the <code>engineering/</code> prefix or object key names that start with the <code>marketing/campaigns/</code> prefix.</p>
+   */
+  LocationScope?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListAccessGrantsLocationsResult {
+  /**
+   * @public
+   * <p>A pagination token to request the next page of results. Pass this value into a subsequent <code>List Access Grants Locations</code> request in order to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>A container for a list of registered locations in an S3 Access Grants instance.</p>
+   */
+  AccessGrantsLocationsList?: ListAccessGrantsLocationsEntry[];
+}
+
+/**
+ * @public
+ */
 export interface ListAccessPointsRequest {
   /**
    * @public
@@ -5405,7 +7124,7 @@ export interface ListJobsRequest {
    * <p>The <code>List Jobs</code> request returns jobs that match the statuses listed in this
    *          element.</p>
    */
-  JobStatuses?: (JobStatus | string)[];
+  JobStatuses?: JobStatus[];
 
   /**
    * @public
@@ -5470,7 +7189,7 @@ export interface JobListDescriptor {
    * <p>The operation that the specified job is configured to run on every object listed in the
    *          manifest.</p>
    */
-  Operation?: OperationName | string;
+  Operation?: OperationName;
 
   /**
    * @public
@@ -5482,7 +7201,7 @@ export interface JobListDescriptor {
    * @public
    * <p>The specified job's current status.</p>
    */
-  Status?: JobStatus | string;
+  Status?: JobStatus;
 
   /**
    * @public
@@ -5728,594 +7447,37 @@ export interface ListStorageLensConfigurationsResult {
 /**
  * @public
  */
-export interface PutAccessPointConfigurationForObjectLambdaRequest {
+export interface ListStorageLensGroupsRequest {
   /**
    * @public
-   * <p>The account ID for the account that owns the specified Object Lambda Access Point.</p>
+   * <p>
+   *    The Amazon Web Services account ID that owns the Storage Lens groups.
+   * </p>
    */
   AccountId?: string;
 
   /**
    * @public
-   * <p>The name of the Object Lambda Access Point.</p>
+   * <p>The token for the next set of results, or <code>null</code> if there are no more results.
+   *    </p>
    */
-  Name: string | undefined;
-
-  /**
-   * @public
-   * <p>Object Lambda Access Point configuration document.</p>
-   */
-  Configuration: ObjectLambdaConfiguration | undefined;
+  NextToken?: string;
 }
 
 /**
- * @public
+ * @internal
  */
-export interface PutAccessPointPolicyRequest {
-  /**
-   * @public
-   * <p>The Amazon Web Services account ID for owner of the bucket associated with the specified access point.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * @public
-   * <p>The name of the access point that you want to associate with the specified policy.</p>
-   *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the access point accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/accesspoint/<my-accesspoint-name></code>. For example, to access the access point <code>reports-ap</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/accesspoint/reports-ap</code>. The value must be URL encoded. </p>
-   */
-  Name: string | undefined;
-
-  /**
-   * @public
-   * <p>The policy that you want to apply to the specified access point. For more information about access point
-   *          policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing data access with Amazon S3
-   *             access points</a> in the <i>Amazon S3 User Guide</i>.</p>
-   */
-  Policy: string | undefined;
-}
+export const CredentialsFilterSensitiveLog = (obj: Credentials): any => ({
+  ...obj,
+  ...(obj.AccessKeyId && { AccessKeyId: SENSITIVE_STRING }),
+  ...(obj.SecretAccessKey && { SecretAccessKey: SENSITIVE_STRING }),
+  ...(obj.SessionToken && { SessionToken: SENSITIVE_STRING }),
+});
 
 /**
- * @public
+ * @internal
  */
-export interface PutAccessPointPolicyForObjectLambdaRequest {
-  /**
-   * @public
-   * <p>The account ID for the account that owns the specified Object Lambda Access Point.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * @public
-   * <p>The name of the Object Lambda Access Point.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * @public
-   * <p>Object Lambda Access Point resource policy document.</p>
-   */
-  Policy: string | undefined;
-}
-
-/**
- * @public
- * <p>The container for the Outposts bucket lifecycle configuration.</p>
- */
-export interface LifecycleConfiguration {
-  /**
-   * @public
-   * <p>A lifecycle rule for individual objects in an Outposts bucket. </p>
-   */
-  Rules?: LifecycleRule[];
-}
-
-/**
- * @public
- */
-export interface PutBucketLifecycleConfigurationRequest {
-  /**
-   * @public
-   * <p>The Amazon Web Services account ID of the Outposts bucket.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * @public
-   * <p>The name of the bucket for which to set the configuration.</p>
-   */
-  Bucket: string | undefined;
-
-  /**
-   * @public
-   * <p>Container for lifecycle rules. You can add as many as 1,000 rules.</p>
-   */
-  LifecycleConfiguration?: LifecycleConfiguration;
-}
-
-/**
- * @public
- */
-export interface PutBucketPolicyRequest {
-  /**
-   * @public
-   * <p>The Amazon Web Services account ID of the Outposts bucket.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * @public
-   * <p>Specifies the bucket.</p>
-   *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
-   */
-  Bucket: string | undefined;
-
-  /**
-   * @public
-   * <p>Set this parameter to true to confirm that you want to remove your permissions to change
-   *          this bucket policy in the future.</p>
-   *          <note>
-   *             <p>This is not supported by Amazon S3 on Outposts buckets.</p>
-   *          </note>
-   */
-  ConfirmRemoveSelfBucketAccess?: boolean;
-
-  /**
-   * @public
-   * <p>The bucket policy as a JSON document.</p>
-   */
-  Policy: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutBucketReplicationRequest {
-  /**
-   * @public
-   * <p>The Amazon Web Services account ID of the Outposts bucket.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * @public
-   * <p>Specifies the S3 on Outposts bucket to set the configuration for.</p>
-   *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
-   */
-  Bucket: string | undefined;
-
-  /**
-   * @public
-   * <p></p>
-   */
-  ReplicationConfiguration: ReplicationConfiguration | undefined;
-}
-
-/**
- * @public
- * <p></p>
- */
-export interface Tagging {
-  /**
-   * @public
-   * <p>A collection for a set of tags.</p>
-   */
-  TagSet: S3Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface PutBucketTaggingRequest {
-  /**
-   * @public
-   * <p>The Amazon Web Services account ID of the Outposts bucket.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the bucket.</p>
-   *          <p>For using this parameter with Amazon S3 on Outposts with the REST API, you must specify the name and the x-amz-outpost-id as well.</p>
-   *          <p>For using this parameter with S3 on Outposts with the Amazon Web Services SDK and CLI, you must  specify the ARN of the bucket accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/bucket/<my-bucket-name></code>. For example, to access the bucket <code>reports</code> through Outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/bucket/reports</code>. The value must be URL encoded.  </p>
-   */
-  Bucket: string | undefined;
-
-  /**
-   * @public
-   * <p></p>
-   */
-  Tagging: Tagging | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const MFADelete = {
-  Disabled: "Disabled",
-  Enabled: "Enabled",
-} as const;
-
-/**
- * @public
- */
-export type MFADelete = (typeof MFADelete)[keyof typeof MFADelete];
-
-/**
- * @public
- * <p>Describes the versioning state of an Amazon S3 on Outposts bucket. For more information, see
- *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketVersioning.html">PutBucketVersioning</a>.</p>
- */
-export interface VersioningConfiguration {
-  /**
-   * @public
-   * <p>Specifies whether MFA delete is enabled or disabled in the bucket versioning
-   *          configuration for the S3 on Outposts bucket.</p>
-   */
-  MFADelete?: MFADelete | string;
-
-  /**
-   * @public
-   * <p>Sets the versioning state of the S3 on Outposts bucket.</p>
-   */
-  Status?: BucketVersioningStatus | string;
-}
-
-/**
- * @public
- */
-export interface PutBucketVersioningRequest {
-  /**
-   * @public
-   * <p>The Amazon Web Services account ID of the S3 on Outposts bucket.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * @public
-   * <p>The S3 on Outposts bucket to set the versioning state for.</p>
-   */
-  Bucket: string | undefined;
-
-  /**
-   * @public
-   * <p>The concatenation of the authentication device's serial number, a space, and the value
-   *          that is displayed on your authentication device.</p>
-   */
-  MFA?: string;
-
-  /**
-   * @public
-   * <p>The root-level tag for the <code>VersioningConfiguration</code> parameters.</p>
-   */
-  VersioningConfiguration: VersioningConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface PutJobTaggingRequest {
-  /**
-   * @public
-   * <p>The Amazon Web Services account ID associated with the S3 Batch Operations job.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * @public
-   * <p>The ID for the S3 Batch Operations job whose tags you want to replace.</p>
-   */
-  JobId: string | undefined;
-
-  /**
-   * @public
-   * <p>The set of tags to associate with the S3 Batch Operations job.</p>
-   */
-  Tags: S3Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface PutJobTaggingResult {}
-
-/**
- * @public
- * <p>Amazon S3 throws this exception if you have too many tags in your tag set.</p>
- */
-export class TooManyTagsException extends __BaseException {
-  readonly name: "TooManyTagsException" = "TooManyTagsException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
-    super({
-      name: "TooManyTagsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyTagsException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- */
-export interface PutMultiRegionAccessPointPolicyRequest {
-  /**
-   * @public
-   * <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * @public
-   * <p>An idempotency token used to identify the request and guarantee that requests are
-   *          unique.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * @public
-   * <p>A container element containing the details of the policy for the Multi-Region Access Point.</p>
-   */
-  Details: PutMultiRegionAccessPointPolicyInput | undefined;
-}
-
-/**
- * @public
- */
-export interface PutMultiRegionAccessPointPolicyResult {
-  /**
-   * @public
-   * <p>The request token associated with the request. You can use this token with <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_DescribeMultiRegionAccessPointOperation.html">DescribeMultiRegionAccessPointOperation</a> to determine the status of asynchronous
-   *          requests.</p>
-   */
-  RequestTokenARN?: string;
-}
-
-/**
- * @public
- */
-export interface PutPublicAccessBlockRequest {
-  /**
-   * @public
-   * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to the specified
-   *          Amazon Web Services account.</p>
-   */
-  PublicAccessBlockConfiguration: PublicAccessBlockConfiguration | undefined;
-
-  /**
-   * @public
-   * <p>The account ID for the Amazon Web Services account whose <code>PublicAccessBlock</code> configuration
-   *          you want to set.</p>
-   */
-  AccountId?: string;
-}
-
-/**
- * @public
- */
-export interface PutStorageLensConfigurationRequest {
-  /**
-   * @public
-   * <p>The ID of the S3 Storage Lens configuration.</p>
-   */
-  ConfigId: string | undefined;
-
-  /**
-   * @public
-   * <p>The account ID of the requester.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * @public
-   * <p>The S3 Storage Lens configuration.</p>
-   */
-  StorageLensConfiguration: StorageLensConfiguration | undefined;
-
-  /**
-   * @public
-   * <p>The tag set of the S3 Storage Lens configuration.</p>
-   *          <note>
-   *             <p>You can set up to a maximum of 50 tags.</p>
-   *          </note>
-   */
-  Tags?: StorageLensTag[];
-}
-
-/**
- * @public
- */
-export interface PutStorageLensConfigurationTaggingRequest {
-  /**
-   * @public
-   * <p>The ID of the S3 Storage Lens configuration.</p>
-   */
-  ConfigId: string | undefined;
-
-  /**
-   * @public
-   * <p>The account ID of the requester.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * @public
-   * <p>The tag set of the S3 Storage Lens configuration.</p>
-   *          <note>
-   *             <p>You can set up to a maximum of 50 tags.</p>
-   *          </note>
-   */
-  Tags: StorageLensTag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface PutStorageLensConfigurationTaggingResult {}
-
-/**
- * @public
- */
-export interface SubmitMultiRegionAccessPointRoutesRequest {
-  /**
-   * @public
-   * <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * @public
-   * <p>The Multi-Region Access Point ARN.</p>
-   */
-  Mrap: string | undefined;
-
-  /**
-   * @public
-   * <p>The different routes that make up the new route configuration. Active routes return a
-   *          value of <code>100</code>, and passive routes return a value of <code>0</code>.</p>
-   */
-  RouteUpdates: MultiRegionAccessPointRoute[] | undefined;
-}
-
-/**
- * @public
- */
-export interface SubmitMultiRegionAccessPointRoutesResult {}
-
-/**
- * @public
- */
-export interface UpdateJobPriorityRequest {
-  /**
-   * @public
-   * <p>The Amazon Web Services account ID associated with the S3 Batch Operations job.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * @public
-   * <p>The ID for the job whose priority you want to update.</p>
-   */
-  JobId: string | undefined;
-
-  /**
-   * @public
-   * <p>The priority you want to assign to this job.</p>
-   */
-  Priority: number | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateJobPriorityResult {
-  /**
-   * @public
-   * <p>The ID for the job whose priority Amazon S3 updated.</p>
-   */
-  JobId: string | undefined;
-
-  /**
-   * @public
-   * <p>The new priority assigned to the specified job.</p>
-   */
-  Priority: number | undefined;
-}
-
-/**
- * @public
- * <p></p>
- */
-export class JobStatusException extends __BaseException {
-  readonly name: "JobStatusException" = "JobStatusException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<JobStatusException, __BaseException>) {
-    super({
-      name: "JobStatusException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, JobStatusException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
- * @enum
- */
-export const RequestedJobStatus = {
-  Cancelled: "Cancelled",
-  Ready: "Ready",
-} as const;
-
-/**
- * @public
- */
-export type RequestedJobStatus = (typeof RequestedJobStatus)[keyof typeof RequestedJobStatus];
-
-/**
- * @public
- */
-export interface UpdateJobStatusRequest {
-  /**
-   * @public
-   * <p>The Amazon Web Services account ID associated with the S3 Batch Operations job.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * @public
-   * <p>The ID of the job whose status you want to update.</p>
-   */
-  JobId: string | undefined;
-
-  /**
-   * @public
-   * <p>The status that you want to move the specified job to.</p>
-   */
-  RequestedJobStatus: RequestedJobStatus | string | undefined;
-
-  /**
-   * @public
-   * <p>A description of the reason why you want to change the specified job's status. This
-   *          field can be any string up to the maximum length.</p>
-   */
-  StatusUpdateReason?: string;
-}
-
-/**
- * @public
- */
-export interface UpdateJobStatusResult {
-  /**
-   * @public
-   * <p>The ID for the job whose status was updated.</p>
-   */
-  JobId?: string;
-
-  /**
-   * @public
-   * <p>The current status for the specified job.</p>
-   */
-  Status?: JobStatus | string;
-
-  /**
-   * @public
-   * <p>The reason that the specified job's status was updated.</p>
-   */
-  StatusUpdateReason?: string;
-}
+export const GetDataAccessResultFilterSensitiveLog = (obj: GetDataAccessResult): any => ({
+  ...obj,
+  ...(obj.Credentials && { Credentials: SENSITIVE_STRING }),
+});

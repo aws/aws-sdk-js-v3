@@ -6,6 +6,8 @@ export * from "./DescribeAwsNetworkPerformanceMetricSubscriptionsPaginator";
 
 export * from "./DescribeByoipCidrsPaginator";
 
+export * from "./DescribeCapacityBlockOfferingsPaginator";
+
 export * from "./DescribeCapacityReservationFleetsPaginator";
 
 export * from "./DescribeCapacityReservationsPaginator";
@@ -15,10 +17,9 @@ export * from "./DescribeCarrierGatewaysPaginator";
 export * from "./DescribeClassicLinkInstancesPaginator";
 
 export * from "./DescribeClientVpnAuthorizationRulesPaginator";
-
-export * from "./DescribeClientVpnConnectionsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./DescribeClientVpnConnectionsPaginator";
 export * from "./DescribeClientVpnEndpointsPaginator";
 export * from "./DescribeClientVpnRoutesPaginator";
 export * from "./DescribeClientVpnTargetNetworksPaginator";
@@ -42,6 +43,7 @@ export * from "./DescribeInstanceConnectEndpointsPaginator";
 export * from "./DescribeInstanceCreditSpecificationsPaginator";
 export * from "./DescribeInstanceEventWindowsPaginator";
 export * from "./DescribeInstanceStatusPaginator";
+export * from "./DescribeInstanceTopologyPaginator";
 export * from "./DescribeInstanceTypeOfferingsPaginator";
 export * from "./DescribeInstanceTypesPaginator";
 export * from "./DescribeInstancesPaginator";
@@ -133,6 +135,7 @@ export * from "./GetIpamResourceCidrsPaginator";
 export * from "./GetManagedPrefixListAssociationsPaginator";
 export * from "./GetManagedPrefixListEntriesPaginator";
 export * from "./GetNetworkInsightsAccessScopeAnalysisFindingsPaginator";
+export * from "./GetSecurityGroupsForVpcPaginator";
 export * from "./GetSpotPlacementScoresPaginator";
 export * from "./GetTransitGatewayAttachmentPropagationsPaginator";
 export * from "./GetTransitGatewayMulticastDomainAssociationsPaginator";

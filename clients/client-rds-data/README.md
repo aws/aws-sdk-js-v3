@@ -6,15 +6,21 @@
 
 AWS SDK for JavaScript RDSData Client for Node.js, Browser and React Native.
 
-<fullname>Amazon RDS Data Service</fullname>
+<fullname>RDS Data API</fullname>
 
-<p>Amazon RDS provides an HTTP endpoint to run SQL statements on an Amazon Aurora Serverless v1 DB cluster. To run these
-statements, you work with the Data Service API.</p>
-<note>
-<p>The Data Service API isn't supported on Amazon Aurora Serverless v2 DB clusters.</p>
-</note>
-<p>For more information about the Data Service API, see
-<a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using the Data API</a>
+<p>Amazon RDS provides an HTTP endpoint to run SQL statements on an Amazon Aurora DB cluster. To run these
+statements, you use the RDS Data API (Data API).</p>
+<p>Data API is available with the following types of Aurora databases:</p>
+<ul>
+<li>
+<p>Aurora PostgreSQL - Serverless v2, Serverless v1, and provisioned</p>
+</li>
+<li>
+<p>Aurora MySQL - Serverless v1 only</p>
+</li>
+</ul>
+<p>For more information about the Data API, see
+<a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using RDS Data API</a>
 in the <i>Amazon Aurora User Guide</i>.</p>
 
 ## Installing
@@ -32,16 +38,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `RDSDataClient` and
-the commands you need, for example `BatchExecuteStatementCommand`:
+the commands you need, for example `BeginTransactionCommand`:
 
 ```js
 // ES5 example
-const { RDSDataClient, BatchExecuteStatementCommand } = require("@aws-sdk/client-rds-data");
+const { RDSDataClient, BeginTransactionCommand } = require("@aws-sdk/client-rds-data");
 ```
 
 ```ts
 // ES6+ example
-import { RDSDataClient, BatchExecuteStatementCommand } from "@aws-sdk/client-rds-data";
+import { RDSDataClient, BeginTransactionCommand } from "@aws-sdk/client-rds-data";
 ```
 
 ### Usage
@@ -60,7 +66,7 @@ const client = new RDSDataClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchExecuteStatementCommand(params);
+const command = new BeginTransactionCommand(params);
 ```
 
 #### Async/await
@@ -139,7 +145,7 @@ const client = new AWS.RDSData({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchExecuteStatement(params);
+  const data = await client.beginTransaction(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -147,7 +153,7 @@ try {
 
 // Promises.
 client
-  .batchExecuteStatement(params)
+  .beginTransaction(params)
   .then((data) => {
     // process data.
   })
@@ -156,7 +162,7 @@ client
   });
 
 // callbacks.
-client.batchExecuteStatement(params, (err, data) => {
+client.beginTransaction(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -171,7 +177,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -217,7 +223,7 @@ see LICENSE for more information.
 BatchExecuteStatement
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/classes/batchexecutestatementcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/interfaces/batchexecutestatementcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/interfaces/batchexecutestatementcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rds-data/command/BatchExecuteStatementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rds-data/Interface/BatchExecuteStatementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rds-data/Interface/BatchExecuteStatementCommandOutput/)
 
 </details>
 <details>
@@ -225,7 +231,7 @@ BatchExecuteStatement
 BeginTransaction
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/classes/begintransactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/interfaces/begintransactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/interfaces/begintransactioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rds-data/command/BeginTransactionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rds-data/Interface/BeginTransactionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rds-data/Interface/BeginTransactionCommandOutput/)
 
 </details>
 <details>
@@ -233,7 +239,7 @@ BeginTransaction
 CommitTransaction
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/classes/committransactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/interfaces/committransactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/interfaces/committransactioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rds-data/command/CommitTransactionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rds-data/Interface/CommitTransactionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rds-data/Interface/CommitTransactionCommandOutput/)
 
 </details>
 <details>
@@ -241,7 +247,7 @@ CommitTransaction
 ExecuteSql
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/classes/executesqlcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/interfaces/executesqlcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/interfaces/executesqlcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rds-data/command/ExecuteSqlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rds-data/Interface/ExecuteSqlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rds-data/Interface/ExecuteSqlCommandOutput/)
 
 </details>
 <details>
@@ -249,7 +255,7 @@ ExecuteSql
 ExecuteStatement
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/classes/executestatementcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/interfaces/executestatementcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/interfaces/executestatementcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rds-data/command/ExecuteStatementCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rds-data/Interface/ExecuteStatementCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rds-data/Interface/ExecuteStatementCommandOutput/)
 
 </details>
 <details>
@@ -257,6 +263,6 @@ ExecuteStatement
 RollbackTransaction
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/classes/rollbacktransactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/interfaces/rollbacktransactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-rds-data/interfaces/rollbacktransactioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rds-data/command/RollbackTransactionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rds-data/Interface/RollbackTransactionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rds-data/Interface/RollbackTransactionCommandOutput/)
 
 </details>

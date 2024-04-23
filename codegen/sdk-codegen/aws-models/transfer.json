@@ -1,33 +1,5 @@
 {
   "smithy": "2.0",
-  "metadata": {
-    "suppressions": [
-      {
-        "id": "HttpMethodSemantics",
-        "namespace": "*"
-      },
-      {
-        "id": "HttpResponseCodeSemantics",
-        "namespace": "*"
-      },
-      {
-        "id": "PaginatedTrait",
-        "namespace": "*"
-      },
-      {
-        "id": "HttpHeaderTrait",
-        "namespace": "*"
-      },
-      {
-        "id": "HttpUriConflict",
-        "namespace": "*"
-      },
-      {
-        "id": "Service",
-        "namespace": "*"
-      }
-    ]
-  },
   "shapes": {
     "com.amazonaws.transfer#AccessDeniedException": {
       "type": "structure",
@@ -89,7 +61,7 @@
           "min": 20,
           "max": 1600
         },
-        "smithy.api#pattern": "^arn:"
+        "smithy.api#pattern": "^arn:\\S+$"
       }
     },
     "com.amazonaws.transfer#As2ConnectorConfig": {
@@ -433,13 +405,13 @@
         "HomeDirectory": {
           "target": "com.amazonaws.transfer#HomeDirectory",
           "traits": {
-            "smithy.api#documentation": "<p>The landing directory (folder) for a user when they log in to the server using the client.</p>\n         <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>"
+            "smithy.api#documentation": "<p>The landing directory (folder) for a user when they log in to the server using the client.</p>\n         <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>\n         <note>\n            <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>PATH</code>.</p>\n         </note>"
           }
         },
         "HomeDirectoryType": {
           "target": "com.amazonaws.transfer#HomeDirectoryType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of landing directory (folder) that you want your users' home directory to be when they log in to the server.\n    If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer \n    protocol clients. If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for \n    how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>"
+            "smithy.api#documentation": "<p>The type of landing directory (folder) that you want your users' home directory to be when they log in to the server.\n    If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or Amazon EFS path as is in their file transfer \n    protocol clients. If you set it to <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for \n    how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>\n         <note>\n            <p>If <code>HomeDirectoryType</code> is <code>LOGICAL</code>, you must provide mappings,\n            using the <code>HomeDirectoryMappings</code> parameter. If, on the other hand,\n               <code>HomeDirectoryType</code> is <code>PATH</code>, you provide an absolute path\n            using the <code>HomeDirectory</code> parameter. You cannot have both\n               <code>HomeDirectory</code> and <code>HomeDirectoryMappings</code> in your\n            template.</p>\n         </note>"
           }
         },
         "HomeDirectoryMappings": {
@@ -865,7 +837,7 @@
           }
         },
         "LoggingRole": {
-          "target": "com.amazonaws.transfer#Role",
+          "target": "com.amazonaws.transfer#NullableRole",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that allows a server to turn\n      on Amazon CloudWatch logging for Amazon S3 or Amazon EFSevents. When set, you can view user activity in\n      your CloudWatch logs.</p>"
           }
@@ -916,6 +888,12 @@
           "target": "com.amazonaws.transfer#StructuredLogDestinations",
           "traits": {
             "smithy.api#documentation": "<p>Specifies the log groups to which your server logs are sent.</p>\n         <p>To specify a log group, you must provide the ARN for an existing log group. In this case, the format of the log group is as follows:</p>\n         <p>\n            <code>arn:aws:logs:region-name:amazon-account-id:log-group:log-group-name:*</code>\n         </p>\n         <p>For example, <code>arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*</code>\n         </p>\n         <p>If you have previously specified a log group for a server, you can clear it, and in effect turn off structured logging, by providing an empty\n        value for this parameter in an <code>update-server</code> call. For example:</p>\n         <p>\n            <code>update-server --server-id s-1234567890abcdef0 --structured-log-destinations</code>\n         </p>"
+          }
+        },
+        "S3StorageOptions": {
+          "target": "com.amazonaws.transfer#S3StorageOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.</p>\n         <p>By default, home directory mappings have a <code>TYPE</code> of <code>DIRECTORY</code>. If you enable this option, you would then need to explicitly set the <code>HomeDirectoryMapEntry</code>\n            <code>Type</code> to <code>FILE</code> if you want a mapping to have a file target.</p>"
           }
         }
       },
@@ -973,13 +951,13 @@
         "HomeDirectory": {
           "target": "com.amazonaws.transfer#HomeDirectory",
           "traits": {
-            "smithy.api#documentation": "<p>The landing directory (folder) for a user when they log in to the server using the client.</p>\n         <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>"
+            "smithy.api#documentation": "<p>The landing directory (folder) for a user when they log in to the server using the client.</p>\n         <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>\n         <note>\n            <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>PATH</code>.</p>\n         </note>"
           }
         },
         "HomeDirectoryType": {
           "target": "com.amazonaws.transfer#HomeDirectoryType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of landing directory (folder) that you want your users' home directory to be when they log in to the server.\n    If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer \n    protocol clients. If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for \n    how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>"
+            "smithy.api#documentation": "<p>The type of landing directory (folder) that you want your users' home directory to be when they log in to the server.\n    If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or Amazon EFS path as is in their file transfer \n    protocol clients. If you set it to <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for \n    how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>\n         <note>\n            <p>If <code>HomeDirectoryType</code> is <code>LOGICAL</code>, you must provide mappings,\n            using the <code>HomeDirectoryMappings</code> parameter. If, on the other hand,\n               <code>HomeDirectoryType</code> is <code>PATH</code>, you provide an absolute path\n            using the <code>HomeDirectory</code> parameter. You cannot have both\n               <code>HomeDirectory</code> and <code>HomeDirectoryMappings</code> in your\n            template.</p>\n         </note>"
           }
         },
         "HomeDirectoryMappings": {
@@ -1017,7 +995,7 @@
         "SshPublicKeyBody": {
           "target": "com.amazonaws.transfer#SshPublicKeyBody",
           "traits": {
-            "smithy.api#documentation": "<p>The public portion of the Secure Shell (SSH) key used to authenticate the user to the\n      server.</p>\n         <p>The three standard SSH public key format elements are <code><key type></code>,\n        <code><body base64></code>, and  an optional <code><comment></code>, with spaces\n      between each element.</p>\n         <p>Transfer Family accepts RSA, ECDSA, and ED25519 keys.</p>\n         <ul>\n            <li>\n               <p>For RSA keys, the key type  is <code>ssh-rsa</code>.</p>\n            </li>\n            <li>\n               <p>For ED25519 keys, the key type is <code>ssh-ed25519</code>.</p>\n            </li>\n            <li>\n               <p>For ECDSA keys, the key type is either <code>ecdsa-sha2-nistp256</code>,\n            <code>ecdsa-sha2-nistp384</code>, or <code>ecdsa-sha2-nistp521</code>, depending on the\n          size of the key you generated.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The public portion of the Secure Shell (SSH) key used to authenticate the user to the\n      server.</p>\n         <p>The three standard SSH public key format elements are <code>&lt;key type&gt;</code>,\n        <code>&lt;body base64&gt;</code>, and  an optional <code>&lt;comment&gt;</code>, with spaces\n      between each element.</p>\n         <p>Transfer Family accepts RSA, ECDSA, and ED25519 keys.</p>\n         <ul>\n            <li>\n               <p>For RSA keys, the key type  is <code>ssh-rsa</code>.</p>\n            </li>\n            <li>\n               <p>For ED25519 keys, the key type is <code>ssh-ed25519</code>.</p>\n            </li>\n            <li>\n               <p>For ECDSA keys, the key type is either <code>ecdsa-sha2-nistp256</code>,\n            <code>ecdsa-sha2-nistp384</code>, or <code>ecdsa-sha2-nistp521</code>, depending on the\n          size of the key you generated.</p>\n            </li>\n         </ul>"
           }
         },
         "Tags": {
@@ -1758,7 +1736,8 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Describes the access that is assigned to the specific file transfer protocol-enabled\n      server, as identified by its <code>ServerId</code> property and its\n      <code>ExternalId</code>.</p>\n         <p>The response from this call returns the properties of the access that is associated with\n      the <code>ServerId</code> value that was specified.</p>"
+        "smithy.api#documentation": "<p>Describes the access that is assigned to the specific file transfer protocol-enabled\n      server, as identified by its <code>ServerId</code> property and its\n      <code>ExternalId</code>.</p>\n         <p>The response from this call returns the properties of the access that is associated with\n      the <code>ServerId</code> value that was specified.</p>",
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.transfer#DescribeAccessRequest": {
@@ -1828,7 +1807,8 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Describes the agreement that's identified by the <code>AgreementId</code>.</p>"
+        "smithy.api#documentation": "<p>Describes the agreement that's identified by the <code>AgreementId</code>.</p>",
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.transfer#DescribeAgreementRequest": {
@@ -1891,7 +1871,8 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Describes the certificate that's identified by the <code>CertificateId</code>.</p>"
+        "smithy.api#documentation": "<p>Describes the certificate that's identified by the <code>CertificateId</code>.</p>",
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.transfer#DescribeCertificateRequest": {
@@ -1947,7 +1928,8 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Describes the connector that's identified by the <code>ConnectorId.</code>\n         </p>"
+        "smithy.api#documentation": "<p>Describes the connector that's identified by the <code>ConnectorId.</code>\n         </p>",
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.transfer#DescribeConnectorRequest": {
@@ -2003,7 +1985,8 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>You can use <code>DescribeExecution</code> to check the details of the execution of the specified workflow.</p>\n         <note>\n            <p>This API call only returns details for in-progress workflows.</p>\n            <p>\n        If you provide an ID for an execution that is not in progress, or if the execution doesn't match the specified workflow ID, you receive a\n        <code>ResourceNotFound</code> exception.</p>\n         </note>"
+        "smithy.api#documentation": "<p>You can use <code>DescribeExecution</code> to check the details of the execution of the specified workflow.</p>\n         <note>\n            <p>This API call only returns details for in-progress workflows.</p>\n            <p>\n        If you provide an ID for an execution that is not in progress, or if the execution doesn't match the specified workflow ID, you receive a\n        <code>ResourceNotFound</code> exception.</p>\n         </note>",
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.transfer#DescribeExecutionRequest": {
@@ -2073,7 +2056,8 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns the details of the host key that's specified by the <code>HostKeyId</code> and <code>ServerId</code>.</p>"
+        "smithy.api#documentation": "<p>Returns the details of the host key that's specified by the <code>HostKeyId</code> and <code>ServerId</code>.</p>",
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.transfer#DescribeHostKeyRequest": {
@@ -2136,7 +2120,8 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns the details of the profile that's specified by the <code>ProfileId</code>.</p>"
+        "smithy.api#documentation": "<p>Returns the details of the profile that's specified by the <code>ProfileId</code>.</p>",
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.transfer#DescribeProfileRequest": {
@@ -2192,7 +2177,8 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Describes the security policy that is attached to your file transfer protocol-enabled\n      server. The response contains a description of the security policy's properties. For more\n      information about security policies, see <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html\">Working with security\n        policies</a>.</p>"
+        "smithy.api#documentation": "<p>Describes the security policy that is attached to your file transfer protocol-enabled\n      server. The response contains a description of the security policy's properties. For more\n      information about security policies, see <a href=\"https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html\">Working with security\n        policies</a>.</p>",
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.transfer#DescribeSecurityPolicyRequest": {
@@ -2249,6 +2235,7 @@
       ],
       "traits": {
         "smithy.api#documentation": "<p>Describes a file transfer protocol-enabled server that you specify by passing the\n        <code>ServerId</code> parameter.</p>\n         <p>The response contains a description of a server's properties. When you set\n        <code>EndpointType</code> to VPC, the response will contain the\n      <code>EndpointDetails</code>.</p>",
+        "smithy.api#readonly": {},
         "smithy.waiters#waitable": {
           "ServerOffline": {
             "acceptors": [
@@ -2273,6 +2260,7 @@
                 }
               }
             ],
+            "maxDelay": 3600,
             "minDelay": 30
           },
           "ServerOnline": {
@@ -2298,6 +2286,7 @@
                 }
               }
             ],
+            "maxDelay": 3600,
             "minDelay": 30
           }
         }
@@ -2356,7 +2345,8 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Describes the user assigned to the specific file transfer protocol-enabled server, as\n      identified by its <code>ServerId</code> property.</p>\n         <p>The response from this call returns the properties of the user associated with the\n        <code>ServerId</code> value that was specified.</p>"
+        "smithy.api#documentation": "<p>Describes the user assigned to the specific file transfer protocol-enabled server, as\n      identified by its <code>ServerId</code> property.</p>\n         <p>The response from this call returns the properties of the user associated with the\n        <code>ServerId</code> value that was specified.</p>",
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.transfer#DescribeUserRequest": {
@@ -2426,7 +2416,8 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Describes the specified workflow.</p>"
+        "smithy.api#documentation": "<p>Describes the specified workflow.</p>",
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.transfer#DescribeWorkflowRequest": {
@@ -2465,7 +2456,7 @@
         "HomeDirectory": {
           "target": "com.amazonaws.transfer#HomeDirectory",
           "traits": {
-            "smithy.api#documentation": "<p>The landing directory (folder) for a user when they log in to the server using the client.</p>\n         <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>"
+            "smithy.api#documentation": "<p>The landing directory (folder) for a user when they log in to the server using the client.</p>\n         <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>\n         <note>\n            <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>PATH</code>.</p>\n         </note>"
           }
         },
         "HomeDirectoryMappings": {
@@ -2477,7 +2468,7 @@
         "HomeDirectoryType": {
           "target": "com.amazonaws.transfer#HomeDirectoryType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of landing directory (folder) that you want your users' home directory to be when they log in to the server.\n    If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer \n    protocol clients. If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for \n    how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>"
+            "smithy.api#documentation": "<p>The type of landing directory (folder) that you want your users' home directory to be when they log in to the server.\n    If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or Amazon EFS path as is in their file transfer \n    protocol clients. If you set it to <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for \n    how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>\n         <note>\n            <p>If <code>HomeDirectoryType</code> is <code>LOGICAL</code>, you must provide mappings,\n            using the <code>HomeDirectoryMappings</code> parameter. If, on the other hand,\n               <code>HomeDirectoryType</code> is <code>PATH</code>, you provide an absolute path\n            using the <code>HomeDirectory</code> parameter. You cannot have both\n               <code>HomeDirectory</code> and <code>HomeDirectoryMappings</code> in your\n            template.</p>\n         </note>"
           }
         },
         "Policy": {
@@ -2718,6 +2709,12 @@
           "target": "com.amazonaws.transfer#SftpConnectorConfig",
           "traits": {
             "smithy.api#documentation": "<p>A structure that contains the parameters for an SFTP connector object.</p>"
+          }
+        },
+        "ServiceManagedEgressIpAddresses": {
+          "target": "com.amazonaws.transfer#ServiceManagedEgressIpAddresses",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of egress IP addresses of this connector. These IP addresses are assigned automatically when you create the connector.</p>"
           }
         }
       },
@@ -2978,7 +2975,7 @@
           }
         },
         "LoggingRole": {
-          "target": "com.amazonaws.transfer#Role",
+          "target": "com.amazonaws.transfer#NullableRole",
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that allows a server to turn\n      on Amazon CloudWatch logging for Amazon S3 or Amazon EFSevents. When set, you can view user activity in\n      your CloudWatch logs.</p>"
           }
@@ -3042,6 +3039,18 @@
           "traits": {
             "smithy.api#documentation": "<p>Specifies the log groups to which your server logs are sent.</p>\n         <p>To specify a log group, you must provide the ARN for an existing log group. In this case, the format of the log group is as follows:</p>\n         <p>\n            <code>arn:aws:logs:region-name:amazon-account-id:log-group:log-group-name:*</code>\n         </p>\n         <p>For example, <code>arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*</code>\n         </p>\n         <p>If you have previously specified a log group for a server, you can clear it, and in effect turn off structured logging, by providing an empty\n        value for this parameter in an <code>update-server</code> call. For example:</p>\n         <p>\n            <code>update-server --server-id s-1234567890abcdef0 --structured-log-destinations</code>\n         </p>"
           }
+        },
+        "S3StorageOptions": {
+          "target": "com.amazonaws.transfer#S3StorageOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.</p>\n         <p>By default, home directory mappings have a <code>TYPE</code> of <code>DIRECTORY</code>. If you enable this option, you would then need to explicitly set the <code>HomeDirectoryMapEntry</code>\n            <code>Type</code> to <code>FILE</code> if you want a mapping to have a file target.</p>"
+          }
+        },
+        "As2ServiceManagedEgressIpAddresses": {
+          "target": "com.amazonaws.transfer#ServiceManagedEgressIpAddresses",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of egress IP addresses of this server. These IP addresses are only relevant\n    for servers that use the AS2 protocol. They are used for sending asynchronous MDNs.</p>\n         <p>These IP addresses are assigned automatically when you create an AS2 server. Additionally,\n    if you update an existing server and add the AS2 protocol, static IP addresses are assigned as well.</p>"
+          }
         }
       },
       "traits": {
@@ -3061,7 +3070,7 @@
         "HomeDirectory": {
           "target": "com.amazonaws.transfer#HomeDirectory",
           "traits": {
-            "smithy.api#documentation": "<p>The landing directory (folder) for a user when they log in to the server using the client.</p>\n         <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>"
+            "smithy.api#documentation": "<p>The landing directory (folder) for a user when they log in to the server using the client.</p>\n         <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>\n         <note>\n            <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>PATH</code>.</p>\n         </note>"
           }
         },
         "HomeDirectoryMappings": {
@@ -3073,7 +3082,7 @@
         "HomeDirectoryType": {
           "target": "com.amazonaws.transfer#HomeDirectoryType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of landing directory (folder) that you want your users' home directory to be when they log in to the server.\n    If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer \n    protocol clients. If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for \n    how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>"
+            "smithy.api#documentation": "<p>The type of landing directory (folder) that you want your users' home directory to be when they log in to the server.\n    If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or Amazon EFS path as is in their file transfer \n    protocol clients. If you set it to <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for \n    how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>\n         <note>\n            <p>If <code>HomeDirectoryType</code> is <code>LOGICAL</code>, you must provide mappings,\n            using the <code>HomeDirectoryMappings</code> parameter. If, on the other hand,\n               <code>HomeDirectoryType</code> is <code>PATH</code>, you provide an absolute path\n            using the <code>HomeDirectory</code> parameter. You cannot have both\n               <code>HomeDirectory</code> and <code>HomeDirectoryMappings</code> in your\n            template.</p>\n         </note>"
           }
         },
         "Policy": {
@@ -3180,6 +3189,26 @@
           "max": 12
         },
         "smithy.api#pattern": "^d-[0-9a-f]{10}$"
+      }
+    },
+    "com.amazonaws.transfer#DirectoryListingOptimization": {
+      "type": "enum",
+      "members": {
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED"
+          }
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "Indicates whether optimization to directory listing on S3 servers is used. Disabled by default for compatibility."
       }
     },
     "com.amazonaws.transfer#Domain": {
@@ -3587,7 +3616,7 @@
           "min": 0,
           "max": 1024
         },
-        "smithy.api#pattern": "^$|/"
+        "smithy.api#pattern": "^(|/.*)$"
       }
     },
     "com.amazonaws.transfer#HomeDirectoryMapEntry": {
@@ -3603,8 +3632,14 @@
         "Target": {
           "target": "com.amazonaws.transfer#MapTarget",
           "traits": {
-            "smithy.api#documentation": "<p>Represents the map target that is used in a <code>HomeDirectorymapEntry</code>.</p>",
+            "smithy.api#documentation": "<p>Represents the map target that is used in a <code>HomeDirectoryMapEntry</code>.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "Type": {
+          "target": "com.amazonaws.transfer#MapType",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the type of mapping. Set the type to <code>FILE</code> if you want the mapping to point to a file, or <code>DIRECTORY</code> for the directory to point to a directory.</p>\n         <note>\n            <p>By default, home directory mappings have a <code>Type</code> of <code>DIRECTORY</code> when you create a Transfer Family server. You would need to explicitly\n        set <code>Type</code> to <code>FILE</code> if you want a mapping to have a file\n        target.</p>\n         </note>"
           }
         }
       },
@@ -3620,7 +3655,7 @@
       "traits": {
         "smithy.api#length": {
           "min": 1,
-          "max": 50
+          "max": 50000
         }
       }
     },
@@ -3695,7 +3730,7 @@
         "DirectoryId": {
           "target": "com.amazonaws.transfer#DirectoryId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the Directory Service directory that you want to stop sharing.</p>"
+            "smithy.api#documentation": "<p>The identifier of the Directory Service directory that you want to use as your identity provider.</p>"
           }
         },
         "Function": {
@@ -4056,7 +4091,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>This exception is thrown when an error occurs in the Amazon Web ServicesTransfer Family service.</p>",
+        "smithy.api#documentation": "<p>This exception is thrown when an error occurs in the Transfer Family service.</p>",
         "smithy.api#error": "server",
         "smithy.api#httpError": 503
       }
@@ -4125,7 +4160,8 @@
           "outputToken": "NextToken",
           "items": "Accesses",
           "pageSize": "MaxResults"
-        }
+        },
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.transfer#ListAccessesRequest": {
@@ -4215,7 +4251,8 @@
           "outputToken": "NextToken",
           "items": "Agreements",
           "pageSize": "MaxResults"
-        }
+        },
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.transfer#ListAgreementsRequest": {
@@ -4298,7 +4335,8 @@
           "outputToken": "NextToken",
           "items": "Certificates",
           "pageSize": "MaxResults"
-        }
+        },
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.transfer#ListCertificatesRequest": {
@@ -4374,7 +4412,8 @@
           "outputToken": "NextToken",
           "items": "Connectors",
           "pageSize": "MaxResults"
-        }
+        },
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.transfer#ListConnectorsRequest": {
@@ -4450,7 +4489,8 @@
           "outputToken": "NextToken",
           "items": "Executions",
           "pageSize": "MaxResults"
-        }
+        },
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.transfer#ListExecutionsRequest": {
@@ -4534,7 +4574,8 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns a list of host keys for the server that's specified by the <code>ServerId</code>\n      parameter.</p>"
+        "smithy.api#documentation": "<p>Returns a list of host keys for the server that's specified by the <code>ServerId</code>\n      parameter.</p>",
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.transfer#ListHostKeysRequest": {
@@ -4624,7 +4665,8 @@
           "outputToken": "NextToken",
           "items": "Profiles",
           "pageSize": "MaxResults"
-        }
+        },
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.transfer#ListProfilesRequest": {
@@ -4703,7 +4745,8 @@
           "outputToken": "NextToken",
           "items": "SecurityPolicyNames",
           "pageSize": "MaxResults"
-        }
+        },
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.transfer#ListSecurityPoliciesRequest": {
@@ -4776,7 +4819,8 @@
           "outputToken": "NextToken",
           "items": "Servers",
           "pageSize": "MaxResults"
-        }
+        },
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.transfer#ListServersRequest": {
@@ -4849,7 +4893,8 @@
           "outputToken": "NextToken",
           "items": "Tags",
           "pageSize": "MaxResults"
-        }
+        },
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.transfer#ListTagsForResourceRequest": {
@@ -4937,7 +4982,8 @@
           "outputToken": "NextToken",
           "items": "Users",
           "pageSize": "MaxResults"
-        }
+        },
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.transfer#ListUsersRequest": {
@@ -4952,7 +4998,7 @@
         "NextToken": {
           "target": "com.amazonaws.transfer#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>When you can get additional results from the <code>ListUsers</code> call, a\n        <code>NextToken</code> parameter is returned in the output. You can then pass in a\n      subsequent command to the <code>NextToken</code> parameter to continue listing additional\n      users.</p>"
+            "smithy.api#documentation": "<p>If there are additional results from the <code>ListUsers</code> call, a\n        <code>NextToken</code> parameter is returned in the output. You can then pass \n      the <code>NextToken</code> to a subsequent <code>ListUsers</code> command, to continue listing additional\n      users.</p>"
           }
         },
         "ServerId": {
@@ -5024,7 +5070,8 @@
           "outputToken": "NextToken",
           "items": "Workflows",
           "pageSize": "MaxResults"
-        }
+        },
+        "smithy.api#readonly": {}
       }
     },
     "com.amazonaws.transfer#ListWorkflowsRequest": {
@@ -5074,13 +5121,13 @@
         "HomeDirectory": {
           "target": "com.amazonaws.transfer#HomeDirectory",
           "traits": {
-            "smithy.api#documentation": "<p>The landing directory (folder) for a user when they log in to the server using the client.</p>\n         <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>"
+            "smithy.api#documentation": "<p>The landing directory (folder) for a user when they log in to the server using the client.</p>\n         <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>\n         <note>\n            <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>PATH</code>.</p>\n         </note>"
           }
         },
         "HomeDirectoryType": {
           "target": "com.amazonaws.transfer#HomeDirectoryType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of landing directory (folder) that you want your users' home directory to be when they log in to the server.\n    If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer \n    protocol clients. If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for \n    how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>"
+            "smithy.api#documentation": "<p>The type of landing directory (folder) that you want your users' home directory to be when they log in to the server.\n    If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or Amazon EFS path as is in their file transfer \n    protocol clients. If you set it to <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for \n    how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>\n         <note>\n            <p>If <code>HomeDirectoryType</code> is <code>LOGICAL</code>, you must provide mappings,\n            using the <code>HomeDirectoryMappings</code> parameter. If, on the other hand,\n               <code>HomeDirectoryType</code> is <code>PATH</code>, you provide an absolute path\n            using the <code>HomeDirectory</code> parameter. You cannot have both\n               <code>HomeDirectory</code> and <code>HomeDirectoryMappings</code> in your\n            template.</p>\n         </note>"
           }
         },
         "Role": {
@@ -5459,13 +5506,13 @@
         "HomeDirectory": {
           "target": "com.amazonaws.transfer#HomeDirectory",
           "traits": {
-            "smithy.api#documentation": "<p>The landing directory (folder) for a user when they log in to the server using the client.</p>\n         <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>"
+            "smithy.api#documentation": "<p>The landing directory (folder) for a user when they log in to the server using the client.</p>\n         <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>\n         <note>\n            <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>PATH</code>.</p>\n         </note>"
           }
         },
         "HomeDirectoryType": {
           "target": "com.amazonaws.transfer#HomeDirectoryType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of landing directory (folder) that you want your users' home directory to be when they log in to the server.\n    If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer \n    protocol clients. If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for \n    how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>"
+            "smithy.api#documentation": "<p>The type of landing directory (folder) that you want your users' home directory to be when they log in to the server.\n    If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or Amazon EFS path as is in their file transfer \n    protocol clients. If you set it to <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for \n    how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>\n         <note>\n            <p>If <code>HomeDirectoryType</code> is <code>LOGICAL</code>, you must provide mappings,\n            using the <code>HomeDirectoryMappings</code> parameter. If, on the other hand,\n               <code>HomeDirectoryType</code> is <code>PATH</code>, you provide an absolute path\n            using the <code>HomeDirectory</code> parameter. You cannot have both\n               <code>HomeDirectory</code> and <code>HomeDirectoryMappings</code> in your\n            template.</p>\n         </note>"
           }
         },
         "Role": {
@@ -5566,7 +5613,7 @@
           "min": 0,
           "max": 1024
         },
-        "smithy.api#pattern": "^/"
+        "smithy.api#pattern": "^/.*$"
       }
     },
     "com.amazonaws.transfer#MapTarget": {
@@ -5576,7 +5623,24 @@
           "min": 0,
           "max": 1024
         },
-        "smithy.api#pattern": "^/"
+        "smithy.api#pattern": "^/.*$"
+      }
+    },
+    "com.amazonaws.transfer#MapType": {
+      "type": "enum",
+      "members": {
+        "FILE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FILE"
+          }
+        },
+        "DIRECTORY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DIRECTORY"
+          }
+        }
       }
     },
     "com.amazonaws.transfer#MaxResults": {
@@ -5675,7 +5739,7 @@
           "min": 0,
           "max": 2048
         },
-        "smithy.api#pattern": "^$|arn:.*role/"
+        "smithy.api#pattern": "^(|arn:.*role/\\S+)$"
       }
     },
     "com.amazonaws.transfer#OnPartialUploadWorkflowDetails": {
@@ -5779,7 +5843,7 @@
       "traits": {
         "smithy.api#length": {
           "min": 0,
-          "max": 512
+          "max": 4096
         },
         "smithy.api#pattern": "^[\\x09-\\x0D\\x20-\\x7E]*$"
       }
@@ -5789,7 +5853,7 @@
       "traits": {
         "smithy.api#length": {
           "min": 0,
-          "max": 512
+          "max": 4096
         },
         "smithy.api#pattern": "^[\\x09-\\x0D\\x20-\\x7E]*$"
       }
@@ -5931,7 +5995,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The requested resource does not exist.</p>",
+        "smithy.api#documentation": "<p>The requested resource does not exist, or exists in a region other than the one specified for the command.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 409
       }
@@ -5980,7 +6044,7 @@
           "min": 20,
           "max": 2048
         },
-        "smithy.api#pattern": "^arn:.*role/"
+        "smithy.api#pattern": "^arn:.*role/\\S+$"
       }
     },
     "com.amazonaws.transfer#S3Bucket": {
@@ -6063,6 +6127,20 @@
           "max": 1024
         },
         "smithy.api#pattern": "^[\\P{M}\\p{M}]*$"
+      }
+    },
+    "com.amazonaws.transfer#S3StorageOptions": {
+      "type": "structure",
+      "members": {
+        "DirectoryListingOptimization": {
+          "target": "com.amazonaws.transfer#DirectoryListingOptimization",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.</p>\n         <p>By default, home directory mappings have a <code>TYPE</code> of <code>DIRECTORY</code>. If you enable this option, you would then need to explicitly set the <code>HomeDirectoryMapEntry</code>\n            <code>Type</code> to <code>FILE</code> if you want a mapping to have a file target.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The Amazon S3 storage options that are configured for your server.</p>"
       }
     },
     "com.amazonaws.transfer#S3Tag": {
@@ -6285,6 +6363,18 @@
     "com.amazonaws.transfer#ServiceErrorMessage": {
       "type": "string"
     },
+    "com.amazonaws.transfer#ServiceManagedEgressIpAddress": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$"
+      }
+    },
+    "com.amazonaws.transfer#ServiceManagedEgressIpAddresses": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.transfer#ServiceManagedEgressIpAddress"
+      }
+    },
     "com.amazonaws.transfer#ServiceMetadata": {
       "type": "structure",
       "members": {
@@ -6379,13 +6469,13 @@
         "UserSecretId": {
           "target": "com.amazonaws.transfer#SecretId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier for the secret (in Amazon Web Services Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.</p>"
+            "smithy.api#documentation": "<p>The identifier for the secret (in Amazon Web Services Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier must be the Amazon Resource Name (ARN) of the secret.</p>"
           }
         },
         "TrustedHostKeys": {
           "target": "com.amazonaws.transfer#SftpConnectorTrustedHostKeyList",
           "traits": {
-            "smithy.api#documentation": "<p>The public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting. You can use the <code>ssh-keyscan</code> command against the SFTP server to retrieve the necessary key.</p>\n         <p>The three standard SSH public key format elements are <code><key type></code>,\n      <code><body base64></code>, and  an optional <code><comment></code>, with spaces\n      between each element.</p>\n         <p>For the trusted host key, Transfer Family accepts RSA and ECDSA keys.</p>\n         <ul>\n            <li>\n               <p>For RSA keys, the key type  is <code>ssh-rsa</code>.</p>\n            </li>\n            <li>\n               <p>For ECDSA keys, the key type is either <code>ecdsa-sha2-nistp256</code>,\n          <code>ecdsa-sha2-nistp384</code>, or <code>ecdsa-sha2-nistp521</code>, depending on the\n          size of the key you generated.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The public portion of the host key, or keys, that are used to identify the external server to which you are connecting.\n      You can use the <code>ssh-keyscan</code> command against the SFTP server to retrieve the necessary key.</p>\n         <p>The three standard SSH public key format elements are <code>&lt;key type&gt;</code>,\n        <code>&lt;body base64&gt;</code>, and an optional <code>&lt;comment&gt;</code>, with spaces\n      between each element. Specify only the  <code>&lt;key type&gt;</code> and <code>&lt;body\n        base64&gt;</code>: do not enter the <code>&lt;comment&gt;</code> portion of the key.</p>\n         <p>For the trusted host key, Transfer Family accepts RSA and ECDSA keys.</p>\n         <ul>\n            <li>\n               <p>For RSA keys, the <code>&lt;key type&gt;</code> string is <code>ssh-rsa</code>.</p>\n            </li>\n            <li>\n               <p>For ECDSA keys, the <code>&lt;key type&gt;</code> string is either\n            <code>ecdsa-sha2-nistp256</code>, <code>ecdsa-sha2-nistp384</code>, or\n            <code>ecdsa-sha2-nistp521</code>, depending on the size of the key you generated.</p>\n            </li>\n         </ul>"
           }
         }
       },
@@ -6947,7 +7037,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Tests whether your SFTP connector is set up successfully. We highly recommend that you call this\n    operation to test your ability to transfer files between a Transfer Family server and a trading partner's\n    SFTP server.</p>"
+        "smithy.api#documentation": "<p>Tests whether your SFTP connector is set up successfully. We highly recommend that you call this\n    operation to test your ability to transfer files between local Amazon Web Services storage and a trading partner's\n    SFTP server.</p>"
       }
     },
     "com.amazonaws.transfer#TestConnectionRequest": {
@@ -6983,7 +7073,7 @@
         "StatusMessage": {
           "target": "com.amazonaws.transfer#Message",
           "traits": {
-            "smithy.api#documentation": "<p>Returns <code>Connection succeeded</code> if the test is successful. Or, returns a descriptive error message \n    if the test fails. The following list provides the details for some error messages and troubleshooting steps for each.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Unable to access secrets manager</b>: Verify that your secret name aligns with the one in\n          Transfer Role permissions.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Unknown Host/Connection failed</b>: Verify the server URL in the connector\n          configuration , and\n          verify that the login credentials work successfully outside of the connector.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Private key not found</b>: Verify that the secret exists and is formatted correctly.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Invalid trusted host keys</b>: Verify that the trusted host key in the connector\n          configuration matches the <code>ssh-keyscan</code> output.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>Returns <code>Connection succeeded</code> if the test is successful. Or, returns a descriptive error message \n    if the test fails. The following list provides troubleshooting details, depending on the error message that you receive.</p>\n         <ul>\n            <li>\n               <p>Verify that your secret name aligns with the one in\n          Transfer Role permissions.</p>\n            </li>\n            <li>\n               <p>Verify the server URL in the connector\n          configuration , and verify that the login credentials work successfully outside of the connector.</p>\n            </li>\n            <li>\n               <p>Verify that the secret exists and is formatted correctly.</p>\n            </li>\n            <li>\n               <p>Verify that the trusted host key in the connector\n          configuration matches the <code>ssh-keyscan</code> output.</p>\n            </li>\n         </ul>"
           }
         }
       },
@@ -7379,7 +7469,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -7422,7 +7511,8 @@
                   },
                   "type": "endpoint"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [
@@ -7435,7 +7525,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -7449,7 +7538,6 @@
                       "assign": "PartitionResult"
                     }
                   ],
-                  "type": "tree",
                   "rules": [
                     {
                       "conditions": [
@@ -7472,7 +7560,6 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -7507,7 +7594,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -7518,14 +7604,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [
@@ -7539,14 +7627,12 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
                             {
                               "fn": "booleanEquals",
                               "argv": [
-                                true,
                                 {
                                   "fn": "getAttr",
                                   "argv": [
@@ -7555,11 +7641,11 @@
                                     },
                                     "supportsFIPS"
                                   ]
-                                }
+                                },
+                                true
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -7570,14 +7656,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "FIPS is enabled but this partition does not support FIPS",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [
@@ -7591,7 +7679,6 @@
                           ]
                         }
                       ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
@@ -7611,7 +7698,6 @@
                               ]
                             }
                           ],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
@@ -7622,14 +7708,16 @@
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
                         },
                         {
                           "conditions": [],
                           "error": "DualStack is enabled but this partition does not support DualStack",
                           "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [],
@@ -7640,9 +7728,11 @@
                       },
                       "type": "endpoint"
                     }
-                  ]
+                  ],
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
             },
             {
               "conditions": [],
@@ -8404,13 +8494,13 @@
         "HomeDirectory": {
           "target": "com.amazonaws.transfer#HomeDirectory",
           "traits": {
-            "smithy.api#documentation": "<p>The landing directory (folder) for a user when they log in to the server using the client.</p>\n         <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>"
+            "smithy.api#documentation": "<p>The landing directory (folder) for a user when they log in to the server using the client.</p>\n         <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>\n         <note>\n            <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>PATH</code>.</p>\n         </note>"
           }
         },
         "HomeDirectoryType": {
           "target": "com.amazonaws.transfer#HomeDirectoryType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of landing directory (folder) that you want your users' home directory to be when they log in to the server.\n    If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer \n    protocol clients. If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for \n    how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>"
+            "smithy.api#documentation": "<p>The type of landing directory (folder) that you want your users' home directory to be when they log in to the server.\n    If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or Amazon EFS path as is in their file transfer \n    protocol clients. If you set it to <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for \n    how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>\n         <note>\n            <p>If <code>HomeDirectoryType</code> is <code>LOGICAL</code>, you must provide mappings,\n            using the <code>HomeDirectoryMappings</code> parameter. If, on the other hand,\n               <code>HomeDirectoryType</code> is <code>PATH</code>, you provide an absolute path\n            using the <code>HomeDirectory</code> parameter. You cannot have both\n               <code>HomeDirectory</code> and <code>HomeDirectoryMappings</code> in your\n            template.</p>\n         </note>"
           }
         },
         "HomeDirectoryMappings": {
@@ -9019,6 +9109,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Specifies the log groups to which your server logs are sent.</p>\n         <p>To specify a log group, you must provide the ARN for an existing log group. In this case, the format of the log group is as follows:</p>\n         <p>\n            <code>arn:aws:logs:region-name:amazon-account-id:log-group:log-group-name:*</code>\n         </p>\n         <p>For example, <code>arn:aws:logs:us-east-1:111122223333:log-group:mytestgroup:*</code>\n         </p>\n         <p>If you have previously specified a log group for a server, you can clear it, and in effect turn off structured logging, by providing an empty\n        value for this parameter in an <code>update-server</code> call. For example:</p>\n         <p>\n            <code>update-server --server-id s-1234567890abcdef0 --structured-log-destinations</code>\n         </p>"
           }
+        },
+        "S3StorageOptions": {
+          "target": "com.amazonaws.transfer#S3StorageOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether or not performance for your Amazon S3 directories is optimized. This is disabled by default.</p>\n         <p>By default, home directory mappings have a <code>TYPE</code> of <code>DIRECTORY</code>. If you enable this option, you would then need to explicitly set the <code>HomeDirectoryMapEntry</code>\n            <code>Type</code> to <code>FILE</code> if you want a mapping to have a file target.</p>"
+          }
         }
       },
       "traits": {
@@ -9075,13 +9171,13 @@
         "HomeDirectory": {
           "target": "com.amazonaws.transfer#HomeDirectory",
           "traits": {
-            "smithy.api#documentation": "<p>The landing directory (folder) for a user when they log in to the server using the client.</p>\n         <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>"
+            "smithy.api#documentation": "<p>The landing directory (folder) for a user when they log in to the server using the client.</p>\n         <p>A <code>HomeDirectory</code> example is <code>/bucket_name/home/mydirectory</code>.</p>\n         <note>\n            <p>The <code>HomeDirectory</code> parameter is only used if <code>HomeDirectoryType</code> is set to <code>PATH</code>.</p>\n         </note>"
           }
         },
         "HomeDirectoryType": {
           "target": "com.amazonaws.transfer#HomeDirectoryType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of landing directory (folder) that you want your users' home directory to be when they log in to the server.\n    If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or EFS paths as is in their file transfer \n    protocol clients. If you set it <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for \n    how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>"
+            "smithy.api#documentation": "<p>The type of landing directory (folder) that you want your users' home directory to be when they log in to the server.\n    If you set it to <code>PATH</code>, the user will see the absolute Amazon S3 bucket or Amazon EFS path as is in their file transfer \n    protocol clients. If you set it to <code>LOGICAL</code>, you need to provide mappings in the <code>HomeDirectoryMappings</code> for \n    how you want to make Amazon S3 or Amazon EFS paths visible to your users.</p>\n         <note>\n            <p>If <code>HomeDirectoryType</code> is <code>LOGICAL</code>, you must provide mappings,\n            using the <code>HomeDirectoryMappings</code> parameter. If, on the other hand,\n               <code>HomeDirectoryType</code> is <code>PATH</code>, you provide an absolute path\n            using the <code>HomeDirectory</code> parameter. You cannot have both\n               <code>HomeDirectory</code> and <code>HomeDirectoryMappings</code> in your\n            template.</p>\n         </note>"
           }
         },
         "HomeDirectoryMappings": {

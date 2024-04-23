@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient";
 import { ListClustersV2Request, ListClustersV2Response } from "../models/models_0";
 import { de_ListClustersV2Command, se_ListClustersV2Command } from "../protocols/Aws_restJson1";
@@ -176,6 +168,7 @@ export interface ListClustersV2CommandOutput extends ListClustersV2Response, __M
  * //         ZookeeperConnectString: "STRING_VALUE",
  * //         ZookeeperConnectStringTls: "STRING_VALUE",
  * //         StorageMode: "LOCAL" || "TIERED",
+ * //         CustomerActionStatus: "CRITICAL_ACTION_REQUIRED" || "ACTION_RECOMMENDED" || "NONE",
  * //       },
  * //       Serverless: { // Serverless
  * //         VpcConfigs: [ // __listOfVpcConfig // required
@@ -223,79 +216,26 @@ export interface ListClustersV2CommandOutput extends ListClustersV2Response, __M
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
  */
-export class ListClustersV2Command extends $Command<
-  ListClustersV2CommandInput,
-  ListClustersV2CommandOutput,
-  KafkaClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListClustersV2CommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: KafkaClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListClustersV2CommandInput, ListClustersV2CommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListClustersV2Command.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "KafkaClient";
-    const commandName = "ListClustersV2Command";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListClustersV2CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListClustersV2Command(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListClustersV2CommandOutput> {
-    return de_ListClustersV2Command(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListClustersV2Command extends $Command
+  .classBuilder<
+    ListClustersV2CommandInput,
+    ListClustersV2CommandOutput,
+    KafkaClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: KafkaClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("Kafka", "ListClustersV2", {})
+  .n("KafkaClient", "ListClustersV2Command")
+  .f(void 0, void 0)
+  .ser(se_ListClustersV2Command)
+  .de(de_ListClustersV2Command)
+  .build() {}

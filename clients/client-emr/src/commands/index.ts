@@ -46,6 +46,7 @@ export * from "./RemoveAutoTerminationPolicyCommand";
 export * from "./RemoveManagedScalingPolicyCommand";
 export * from "./RemoveTagsCommand";
 export * from "./RunJobFlowCommand";
+export * from "./SetKeepJobFlowAliveWhenNoStepsCommand";
 export * from "./SetTerminationProtectionCommand";
 export * from "./SetVisibleToAllUsersCommand";
 export * from "./StartNotebookExecutionCommand";

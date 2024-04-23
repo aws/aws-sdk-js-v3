@@ -11,8 +11,12 @@
 export * from "./DataBrewClient";
 export * from "./DataBrew";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { DataBrewExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { DataBrewServiceException } from "./models/DataBrewServiceException";

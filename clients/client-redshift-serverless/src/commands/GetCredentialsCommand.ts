@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetCredentialsRequest,
   GetCredentialsResponse,
@@ -62,9 +54,10 @@ export interface GetCredentialsCommandOutput extends GetCredentialsResponse, __M
  * // const { RedshiftServerlessClient, GetCredentialsCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
  * const input = { // GetCredentialsRequest
- *   workgroupName: "STRING_VALUE", // required
  *   dbName: "STRING_VALUE",
  *   durationSeconds: Number("int"),
+ *   workgroupName: "STRING_VALUE",
+ *   customDomainName: "STRING_VALUE",
  * };
  * const command = new GetCredentialsCommand(input);
  * const response = await client.send(command);
@@ -96,79 +89,26 @@ export interface GetCredentialsCommandOutput extends GetCredentialsResponse, __M
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
-export class GetCredentialsCommand extends $Command<
-  GetCredentialsCommandInput,
-  GetCredentialsCommandOutput,
-  RedshiftServerlessClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetCredentialsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RedshiftServerlessClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetCredentialsCommandInput, GetCredentialsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetCredentialsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RedshiftServerlessClient";
-    const commandName = "GetCredentialsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: GetCredentialsResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetCredentialsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCredentialsCommandOutput> {
-    return de_GetCredentialsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetCredentialsCommand extends $Command
+  .classBuilder<
+    GetCredentialsCommandInput,
+    GetCredentialsCommandOutput,
+    RedshiftServerlessClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("RedshiftServerless", "GetCredentials", {})
+  .n("RedshiftServerlessClient", "GetCredentialsCommand")
+  .f(void 0, GetCredentialsResponseFilterSensitiveLog)
+  .ser(se_GetCredentialsCommand)
+  .de(de_GetCredentialsCommand)
+  .build() {}

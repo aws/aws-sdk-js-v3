@@ -14,7 +14,11 @@ const {
 } = require("./code-gen-dir");
 const { prettifyCode } = require("./code-prettify");
 const { eslintFixCode } = require("./code-eslint-fix");
+const { buildSmithyTypeScript } = require("./build-smithy-typescript");
+const { SMITHY_TS_COMMIT } = require("./config");
+const s3Hack = require("./s3-hack");
 
+const SMITHY_TS_DIR = path.normalize(path.join(__dirname, "..", "..", "..", "smithy-typescript"));
 const SDK_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "clients"));
 const PRIVATE_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "private"));
 
@@ -26,6 +30,10 @@ const {
   s: serverOnly,
   batchSize,
   keepFiles,
+  repo,
+  commit,
+  d: noSmithyCheckout,
+  p: protocolTestsOnly,
 } = yargs(process.argv.slice(2))
   .alias("m", "models")
   .string("m")
@@ -41,6 +49,12 @@ const {
   .alias("n", "noPrivateClients")
   .boolean("n")
   .describe("n", "Disable generating private clients")
+  .alias("d", "noSmithyCheckout")
+  .boolean("d")
+  .describe("d", "use existing Smithy version instead of target hash")
+  .alias("p", "protocolTestsOnly")
+  .boolean("p")
+  .describe("p", "Generate protocol tests only")
   .alias("s", "server-artifacts")
   .boolean("s")
   .describe("s", "Generate server artifacts instead of client ones")
@@ -51,11 +65,22 @@ const {
   .number("b")
   .alias("b", "batch-size")
   .default("b", 50)
+  .describe("r", "The location where smithy-typescript is cloned.")
+  .string("r")
+  .alias("r", "repo")
+  .default("r", SMITHY_TS_DIR)
+  .describe("c", "The smithy-typescript commit to be used for codegen.")
+  .string("c")
+  .alias("c", "commit")
+  .default("c", SMITHY_TS_COMMIT)
   .help().argv;
 
 (async () => {
   try {
-    require('../runtime-dependency-version-check/runtime-dep-version-check');
+    require("../runtime-dependency-version-check/runtime-dep-version-check");
+    if (!noSmithyCheckout) {
+      await buildSmithyTypeScript(repo, commit);
+    }
 
     if (serverOnly === true) {
       await generateProtocolTests();
@@ -71,24 +96,36 @@ const {
       return;
     }
 
-    await generateClients(models || globs || DEFAULT_CODE_GEN_INPUT_DIR, batchSize);
+    if (!protocolTestsOnly) {
+      const undoS3 = s3Hack();
+      try {
+        await generateClients(models || globs || DEFAULT_CODE_GEN_INPUT_DIR, batchSize);
+        undoS3();
+      } catch (e) {
+        undoS3();
+        throw e;
+      }
+    }
 
     if (!noPrivateClients) {
       await generateGenericClient();
       await generateProtocolTests();
     }
 
-    await codeOrdering(CODE_GEN_SDK_OUTPUT_DIR);
     await eslintFixCode();
-    await prettifyCode(CODE_GEN_SDK_OUTPUT_DIR);
-
+    if (!protocolTestsOnly) {
+      await codeOrdering(CODE_GEN_SDK_OUTPUT_DIR);
+      await prettifyCode(CODE_GEN_SDK_OUTPUT_DIR);
+    }
     if (!noPrivateClients) {
       await codeOrdering(CODE_GEN_GENERIC_CLIENT_OUTPUT_DIR);
       await prettifyCode(CODE_GEN_GENERIC_CLIENT_OUTPUT_DIR);
       await prettifyCode(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR);
     }
 
-    await copyToClients(CODE_GEN_SDK_OUTPUT_DIR, clientsDir);
+    if (!protocolTestsOnly) {
+      await copyToClients(CODE_GEN_SDK_OUTPUT_DIR, clientsDir);
+    }
     if (!noPrivateClients) {
       await copyToClients(CODE_GEN_GENERIC_CLIENT_OUTPUT_DIR, PRIVATE_CLIENTS_DIR);
       await copyToClients(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PRIVATE_CLIENTS_DIR);
@@ -109,6 +146,8 @@ const {
       emptyDirSync(TEMP_CODE_GEN_INPUT_DIR);
       rmdirSync(TEMP_CODE_GEN_INPUT_DIR);
     }
+
+    require("./customizations/workspaces-thin-client")();
   } catch (e) {
     console.log(e);
     process.exit(1);

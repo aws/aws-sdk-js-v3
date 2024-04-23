@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListEndpointAccessRequest, ListEndpointAccessResponse } from "../models/models_0";
 import { de_ListEndpointAccessCommand, se_ListEndpointAccessCommand } from "../protocols/Aws_json1_1";
 import {
@@ -52,6 +44,7 @@ export interface ListEndpointAccessCommandOutput extends ListEndpointAccessRespo
  *   maxResults: Number("int"),
  *   workgroupName: "STRING_VALUE",
  *   vpcId: "STRING_VALUE",
+ *   ownerAccount: "STRING_VALUE",
  * };
  * const command = new ListEndpointAccessCommand(input);
  * const response = await client.send(command);
@@ -115,79 +108,26 @@ export interface ListEndpointAccessCommandOutput extends ListEndpointAccessRespo
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
  */
-export class ListEndpointAccessCommand extends $Command<
-  ListEndpointAccessCommandInput,
-  ListEndpointAccessCommandOutput,
-  RedshiftServerlessClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListEndpointAccessCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RedshiftServerlessClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListEndpointAccessCommandInput, ListEndpointAccessCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListEndpointAccessCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RedshiftServerlessClient";
-    const commandName = "ListEndpointAccessCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListEndpointAccessCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListEndpointAccessCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListEndpointAccessCommandOutput> {
-    return de_ListEndpointAccessCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListEndpointAccessCommand extends $Command
+  .classBuilder<
+    ListEndpointAccessCommandInput,
+    ListEndpointAccessCommandOutput,
+    RedshiftServerlessClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("RedshiftServerless", "ListEndpointAccess", {})
+  .n("RedshiftServerlessClient", "ListEndpointAccessCommand")
+  .f(void 0, void 0)
+  .ser(se_ListEndpointAccessCommand)
+  .de(de_ListEndpointAccessCommand)
+  .build() {}

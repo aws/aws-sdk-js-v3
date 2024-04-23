@@ -92,13 +92,13 @@ export interface ApplicationAggregatedStatus {
    * @public
    * <p>Application aggregated status health status.</p>
    */
-  healthStatus?: ApplicationHealthStatus | string;
+  healthStatus?: ApplicationHealthStatus;
 
   /**
    * @public
    * <p>Application aggregated status progress status.</p>
    */
-  progressStatus?: ApplicationProgressStatus | string;
+  progressStatus?: ApplicationProgressStatus;
 
   /**
    * @public
@@ -602,6 +602,262 @@ export interface UpdateApplicationRequest {
 
 /**
  * @public
+ * <p>Connector SSM command config.</p>
+ */
+export interface ConnectorSsmCommandConfig {
+  /**
+   * @public
+   * <p>Connector SSM command config S3 output enabled.</p>
+   */
+  s3OutputEnabled: boolean | undefined;
+
+  /**
+   * @public
+   * <p>Connector SSM command config output S3 bucket name.</p>
+   */
+  outputS3BucketName?: string;
+
+  /**
+   * @public
+   * <p>Connector SSM command config CloudWatch output enabled.</p>
+   */
+  cloudWatchOutputEnabled: boolean | undefined;
+
+  /**
+   * @public
+   * <p>Connector SSM command config CloudWatch log group name.</p>
+   */
+  cloudWatchLogGroupName?: string;
+}
+
+/**
+ * @public
+ */
+export interface Connector {
+  /**
+   * @public
+   * <p>Connector ID.</p>
+   */
+  connectorID?: string;
+
+  /**
+   * @public
+   * <p>Connector name.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>Connector SSM instance ID.</p>
+   */
+  ssmInstanceID?: string;
+
+  /**
+   * @public
+   * <p>Connector arn.</p>
+   */
+  arn?: string;
+
+  /**
+   * @public
+   * <p>Connector tags.</p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Connector SSM command config.</p>
+   */
+  ssmCommandConfig?: ConnectorSsmCommandConfig;
+}
+
+/**
+ * @public
+ */
+export interface CreateConnectorRequest {
+  /**
+   * @public
+   * <p>Create Connector request name.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>Create Connector request SSM instance ID.</p>
+   */
+  ssmInstanceID: string | undefined;
+
+  /**
+   * @public
+   * <p>Create Connector request tags.</p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Create Connector request SSM command config.</p>
+   */
+  ssmCommandConfig?: ConnectorSsmCommandConfig;
+}
+
+/**
+ * @public
+ * <p>Validate exception field.</p>
+ */
+export interface ValidationExceptionField {
+  /**
+   * @public
+   * <p>Validate exception field name.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>Validate exception field message.</p>
+   */
+  message?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "cannotParse",
+  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
+  OTHER: "other",
+  UNKNOWN_OPERATION: "unknownOperation",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
+ * <p>Validate exception.</p>
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  code?: string;
+  /**
+   * @public
+   * <p>Validate exception reason.</p>
+   */
+  reason?: ValidationExceptionReason;
+
+  /**
+   * @public
+   * <p>Validate exception field list.</p>
+   */
+  fieldList?: ValidationExceptionField[];
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.code = opts.code;
+    this.reason = opts.reason;
+    this.fieldList = opts.fieldList;
+  }
+}
+
+/**
+ * @public
+ */
+export interface DeleteConnectorRequest {
+  /**
+   * @public
+   * <p>Delete Connector request connector ID.</p>
+   */
+  connectorID: string | undefined;
+}
+
+/**
+ * @public
+ * <p>List Connectors Request Filters.</p>
+ */
+export interface ListConnectorsRequestFilters {
+  /**
+   * @public
+   * <p>List Connectors Request Filters connector IDs.</p>
+   */
+  connectorIDs?: string[];
+}
+
+/**
+ * @public
+ */
+export interface ListConnectorsRequest {
+  /**
+   * @public
+   * <p>List Connectors Request filters.</p>
+   */
+  filters?: ListConnectorsRequestFilters;
+
+  /**
+   * @public
+   * <p>List Connectors Request max results.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>List Connectors Request next token.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListConnectorsResponse {
+  /**
+   * @public
+   * <p>List connectors response items.</p>
+   */
+  items?: Connector[];
+
+  /**
+   * @public
+   * <p>List connectors response next token.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateConnectorRequest {
+  /**
+   * @public
+   * <p>Update Connector request connector ID.</p>
+   */
+  connectorID: string | undefined;
+
+  /**
+   * @public
+   * <p>Update Connector request name.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>Update Connector request SSM command config.</p>
+   */
+  ssmCommandConfig?: ConnectorSsmCommandConfig;
+}
+
+/**
+ * @public
  * <p>List export errors request.</p>
  */
 export interface ListExportErrorsRequest {
@@ -670,76 +926,6 @@ export interface ListExportErrorsResponse {
    * <p>List export errors response next token.</p>
    */
   nextToken?: string;
-}
-
-/**
- * @public
- * <p>Validate exception field.</p>
- */
-export interface ValidationExceptionField {
-  /**
-   * @public
-   * <p>Validate exception field name.</p>
-   */
-  name?: string;
-
-  /**
-   * @public
-   * <p>Validate exception field message.</p>
-   */
-  message?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const ValidationExceptionReason = {
-  CANNOT_PARSE: "cannotParse",
-  FIELD_VALIDATION_FAILED: "fieldValidationFailed",
-  OTHER: "other",
-  UNKNOWN_OPERATION: "unknownOperation",
-} as const;
-
-/**
- * @public
- */
-export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
-
-/**
- * @public
- * <p>Validate exception.</p>
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  code?: string;
-  /**
-   * @public
-   * <p>Validate exception reason.</p>
-   */
-  reason?: ValidationExceptionReason | string;
-
-  /**
-   * @public
-   * <p>Validate exception field list.</p>
-   */
-  fieldList?: ValidationExceptionField[];
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.code = opts.code;
-    this.reason = opts.reason;
-    this.fieldList = opts.fieldList;
-  }
 }
 
 /**
@@ -863,7 +1049,7 @@ export interface ExportTask {
    * @public
    * <p>Export task status.</p>
    */
-  status?: ExportStatus | string;
+  status?: ExportStatus;
 
   /**
    * @public
@@ -1033,7 +1219,7 @@ export interface ImportTaskError {
    * @public
    * <p>Import task error type.</p>
    */
-  errorType?: ImportErrorType | string;
+  errorType?: ImportErrorType;
 
   /**
    * @public
@@ -1247,7 +1433,7 @@ export interface ImportTask {
    * @public
    * <p>Import task status.</p>
    */
-  status?: ImportStatus | string;
+  status?: ImportStatus;
 
   /**
    * @public
@@ -1444,7 +1630,7 @@ export interface JobLog {
    * @public
    * <p>Job log event.</p>
    */
-  event?: JobLogEvent | string;
+  event?: JobLogEvent;
 
   /**
    * @public
@@ -1633,7 +1819,7 @@ export interface SsmParameterStoreParameter {
    * @public
    * <p>AWS Systems Manager Parameter Store parameter type.</p>
    */
-  parameterType: SsmParameterStoreParameterType | string | undefined;
+  parameterType: SsmParameterStoreParameterType | undefined;
 
   /**
    * @public
@@ -1713,7 +1899,7 @@ export interface JobPostLaunchActionsLaunchStatus {
    * @public
    * <p>AWS Systems Manager Document type.</p>
    */
-  ssmDocumentType?: SsmDocumentType | string;
+  ssmDocumentType?: SsmDocumentType;
 
   /**
    * @public
@@ -1725,7 +1911,7 @@ export interface JobPostLaunchActionsLaunchStatus {
    * @public
    * <p>AWS Systems Manager Document's execution status.</p>
    */
-  executionStatus?: PostLaunchActionExecutionStatus | string;
+  executionStatus?: PostLaunchActionExecutionStatus;
 
   /**
    * @public
@@ -1767,7 +1953,7 @@ export interface ParticipatingServer {
    * @public
    * <p>Participating server launch status.</p>
    */
-  launchStatus?: LaunchStatus | string;
+  launchStatus?: LaunchStatus;
 
   /**
    * @public
@@ -1832,13 +2018,13 @@ export interface Job {
    * @public
    * <p>Job type.</p>
    */
-  type?: JobType | string;
+  type?: JobType;
 
   /**
    * @public
    * <p>Job initiated by field.</p>
    */
-  initiatedBy?: InitiatedBy | string;
+  initiatedBy?: InitiatedBy;
 
   /**
    * @public
@@ -1856,7 +2042,7 @@ export interface Job {
    * @public
    * <p>Job status.</p>
    */
-  status?: JobStatus | string;
+  status?: JobStatus;
 
   /**
    * @public
@@ -1930,7 +2116,7 @@ export interface LaunchTemplateDiskConf {
    * @public
    * <p>Launch template disk volume type configuration.</p>
    */
-  volumeType?: VolumeType | string;
+  volumeType?: VolumeType;
 
   /**
    * @public
@@ -1996,7 +2182,7 @@ export interface PostLaunchActions {
    * @public
    * <p>Deployment type in which AWS Systems Manager Documents will be executed.</p>
    */
-  deployment?: PostLaunchActionsDeploymentType | string;
+  deployment?: PostLaunchActionsDeploymentType;
 
   /**
    * @public
@@ -2070,13 +2256,13 @@ export interface CreateLaunchConfigurationTemplateRequest {
    * @public
    * <p>Launch disposition.</p>
    */
-  launchDisposition?: LaunchDisposition | string;
+  launchDisposition?: LaunchDisposition;
 
   /**
    * @public
    * <p>Target instance type right-sizing method.</p>
    */
-  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod;
 
   /**
    * @public
@@ -2106,7 +2292,7 @@ export interface CreateLaunchConfigurationTemplateRequest {
    * @public
    * <p>Launch configuration template boot mode.</p>
    */
-  bootMode?: BootMode | string;
+  bootMode?: BootMode;
 
   /**
    * @public
@@ -2177,13 +2363,13 @@ export interface LaunchConfigurationTemplate {
    * @public
    * <p>Launch disposition.</p>
    */
-  launchDisposition?: LaunchDisposition | string;
+  launchDisposition?: LaunchDisposition;
 
   /**
    * @public
    * <p>Target instance type right-sizing method.</p>
    */
-  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod;
 
   /**
    * @public
@@ -2213,7 +2399,7 @@ export interface LaunchConfigurationTemplate {
    * @public
    * <p>Launch configuration template boot mode.</p>
    */
-  bootMode?: BootMode | string;
+  bootMode?: BootMode;
 
   /**
    * @public
@@ -2411,7 +2597,7 @@ export interface TemplateActionDocument {
    * @public
    * <p>Template post migration custom action category.</p>
    */
-  category?: ActionCategory | string;
+  category?: ActionCategory;
 }
 
 /**
@@ -2517,7 +2703,7 @@ export interface PutTemplateActionRequest {
    * @public
    * <p>Template post migration custom action category.</p>
    */
-  category?: ActionCategory | string;
+  category?: ActionCategory;
 }
 
 /**
@@ -2574,13 +2760,13 @@ export interface UpdateLaunchConfigurationTemplateRequest {
    * @public
    * <p>Launch disposition.</p>
    */
-  launchDisposition?: LaunchDisposition | string;
+  launchDisposition?: LaunchDisposition;
 
   /**
    * @public
    * <p>Target instance type right-sizing method.</p>
    */
-  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod;
 
   /**
    * @public
@@ -2610,7 +2796,7 @@ export interface UpdateLaunchConfigurationTemplateRequest {
    * @public
    * <p>Launch configuration template boot mode.</p>
    */
-  bootMode?: BootMode | string;
+  bootMode?: BootMode;
 
   /**
    * @public
@@ -2853,13 +3039,13 @@ export interface CreateReplicationConfigurationTemplateRequest {
    * @public
    * <p>Request to configure the default large staging disk EBS volume type during Replication Settings template creation.</p>
    */
-  defaultLargeStagingDiskType: ReplicationConfigurationDefaultLargeStagingDiskType | string | undefined;
+  defaultLargeStagingDiskType: ReplicationConfigurationDefaultLargeStagingDiskType | undefined;
 
   /**
    * @public
    * <p>Request to configure EBS encryption during Replication Settings template creation.</p>
    */
-  ebsEncryption: ReplicationConfigurationEbsEncryption | string | undefined;
+  ebsEncryption: ReplicationConfigurationEbsEncryption | undefined;
 
   /**
    * @public
@@ -2877,7 +3063,7 @@ export interface CreateReplicationConfigurationTemplateRequest {
    * @public
    * <p>Request to configure  data plane routing during Replication Settings template creation.</p>
    */
-  dataPlaneRouting: ReplicationConfigurationDataPlaneRouting | string | undefined;
+  dataPlaneRouting: ReplicationConfigurationDataPlaneRouting | undefined;
 
   /**
    * @public
@@ -2954,13 +3140,13 @@ export interface ReplicationConfigurationTemplate {
    * @public
    * <p>Replication Configuration template use default large Staging Disk type.</p>
    */
-  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | string;
+  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType;
 
   /**
    * @public
    * <p>Replication Configuration template EBS encryption.</p>
    */
-  ebsEncryption?: ReplicationConfigurationEbsEncryption | string;
+  ebsEncryption?: ReplicationConfigurationEbsEncryption;
 
   /**
    * @public
@@ -2978,7 +3164,7 @@ export interface ReplicationConfigurationTemplate {
    * @public
    * <p>Replication Configuration template data plane routing.</p>
    */
-  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | string;
+  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting;
 
   /**
    * @public
@@ -3111,13 +3297,13 @@ export interface UpdateReplicationConfigurationTemplateRequest {
    * @public
    * <p>Update replication configuration template use default large Staging Disk type request.</p>
    */
-  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | string;
+  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType;
 
   /**
    * @public
    * <p>Update replication configuration template EBS encryption request.</p>
    */
-  ebsEncryption?: ReplicationConfigurationEbsEncryption | string;
+  ebsEncryption?: ReplicationConfigurationEbsEncryption;
 
   /**
    * @public
@@ -3135,7 +3321,7 @@ export interface UpdateReplicationConfigurationTemplateRequest {
    * @public
    * <p>Update replication configuration template data plane routing request.</p>
    */
-  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | string;
+  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting;
 
   /**
    * @public
@@ -3181,7 +3367,7 @@ export interface ChangeServerLifeCycleStateSourceServerLifecycle {
    * @public
    * <p>The request to change the source server migration lifecycle state.</p>
    */
-  state: ChangeServerLifeCycleStateSourceServerLifecycleState | string | undefined;
+  state: ChangeServerLifeCycleStateSourceServerLifecycleState | undefined;
 }
 
 /**
@@ -3205,6 +3391,24 @@ export interface ChangeServerLifeCycleStateRequest {
    * <p>The request to change the source server migration account ID.</p>
    */
   accountID?: string;
+}
+
+/**
+ * @public
+ * <p>Source Server connector action.</p>
+ */
+export interface SourceServerConnectorAction {
+  /**
+   * @public
+   * <p>Source Server connector action credentials secret arn.</p>
+   */
+  credentialsSecretArn?: string;
+
+  /**
+   * @public
+   * <p>Source Server connector action connector arn.</p>
+   */
+  connectorArn?: string;
 }
 
 /**
@@ -3244,7 +3448,7 @@ export interface DataReplicationError {
    * @public
    * <p>Error in data replication.</p>
    */
-  error?: DataReplicationErrorString | string;
+  error?: DataReplicationErrorString;
 
   /**
    * @public
@@ -3304,13 +3508,13 @@ export interface DataReplicationInitiationStep {
    * @public
    * <p>Request to query data initiation step name.</p>
    */
-  name?: DataReplicationInitiationStepName | string;
+  name?: DataReplicationInitiationStepName;
 
   /**
    * @public
    * <p>Request to query data initiation status.</p>
    */
-  status?: DataReplicationInitiationStepStatus | string;
+  status?: DataReplicationInitiationStepStatus;
 }
 
 /**
@@ -3424,7 +3628,7 @@ export interface DataReplicationInfo {
    * @public
    * <p>Request to query the data replication state.</p>
    */
-  dataReplicationState?: DataReplicationState | string;
+  dataReplicationState?: DataReplicationState;
 
   /**
    * @public
@@ -3482,7 +3686,7 @@ export interface LaunchedInstance {
    * @public
    * <p>Launched instance first boot.</p>
    */
-  firstBoot?: FirstBoot | string;
+  firstBoot?: FirstBoot;
 }
 
 /**
@@ -3684,7 +3888,7 @@ export interface LifeCycle {
    * @public
    * <p>Lifecycle state.</p>
    */
-  state?: LifeCycleState | string;
+  state?: LifeCycleState;
 }
 
 /**
@@ -3919,7 +4123,7 @@ export interface SourceServer {
    * @public
    * <p>Source server replication type.</p>
    */
-  replicationType?: ReplicationType | string;
+  replicationType?: ReplicationType;
 
   /**
    * @public
@@ -3944,6 +4148,12 @@ export interface SourceServer {
    * <p>Source server fqdn for action framework.</p>
    */
   fqdnForActionFramework?: string;
+
+  /**
+   * @public
+   * <p>Source Server connector action.</p>
+   */
+  connectorAction?: SourceServerConnectorAction;
 }
 
 /**
@@ -3989,13 +4199,13 @@ export interface DescribeSourceServersRequestFilters {
    * @public
    * <p>Request to filter Source Servers list by replication type.</p>
    */
-  replicationTypes?: (ReplicationType | string)[];
+  replicationTypes?: ReplicationType[];
 
   /**
    * @public
    * <p>Request to filter Source Servers list by life cycle states.</p>
    */
-  lifeCycleStates?: (LifeCycleState | string)[];
+  lifeCycleStates?: LifeCycleState[];
 
   /**
    * @public
@@ -4127,13 +4337,13 @@ export interface LaunchConfiguration {
    * @public
    * <p>Launch disposition for launch configuration.</p>
    */
-  launchDisposition?: LaunchDisposition | string;
+  launchDisposition?: LaunchDisposition;
 
   /**
    * @public
    * <p>Launch configuration Target instance type right sizing method.</p>
    */
-  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod;
 
   /**
    * @public
@@ -4157,7 +4367,7 @@ export interface LaunchConfiguration {
    * @public
    * <p>Launch configuration boot mode.</p>
    */
-  bootMode?: BootMode | string;
+  bootMode?: BootMode;
 
   /**
    * @public
@@ -4237,7 +4447,7 @@ export interface ReplicationConfigurationReplicatedDisk {
    * @public
    * <p>Replication Configuration replicated disk staging disk type.</p>
    */
-  stagingDiskType?: ReplicationConfigurationReplicatedDiskStagingDiskType | string;
+  stagingDiskType?: ReplicationConfigurationReplicatedDiskStagingDiskType;
 
   /**
    * @public
@@ -4302,7 +4512,7 @@ export interface ReplicationConfiguration {
    * @public
    * <p>Replication Configuration use default large Staging Disks.</p>
    */
-  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | string;
+  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType;
 
   /**
    * @public
@@ -4314,7 +4524,7 @@ export interface ReplicationConfiguration {
    * @public
    * <p>Replication Configuration EBS encryption.</p>
    */
-  ebsEncryption?: ReplicationConfigurationEbsEncryption | string;
+  ebsEncryption?: ReplicationConfigurationEbsEncryption;
 
   /**
    * @public
@@ -4332,7 +4542,7 @@ export interface ReplicationConfiguration {
    * @public
    * <p>Replication Configuration data plane routing.</p>
    */
-  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | string;
+  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting;
 
   /**
    * @public
@@ -4474,7 +4684,7 @@ export interface SourceServerActionDocument {
    * @public
    * <p>Source server post migration custom action category.</p>
    */
-  category?: ActionCategory | string;
+  category?: ActionCategory;
 }
 
 /**
@@ -4608,7 +4818,7 @@ export interface PutSourceServerActionRequest {
    * @public
    * <p>Source server post migration custom action category.</p>
    */
-  category?: ActionCategory | string;
+  category?: ActionCategory;
 
   /**
    * @public
@@ -4835,13 +5045,13 @@ export interface UpdateLaunchConfigurationRequest {
    * @public
    * <p>Update Launch configuration launch disposition request.</p>
    */
-  launchDisposition?: LaunchDisposition | string;
+  launchDisposition?: LaunchDisposition;
 
   /**
    * @public
    * <p>Update Launch configuration Target instance right sizing request.</p>
    */
-  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod;
 
   /**
    * @public
@@ -4865,7 +5075,7 @@ export interface UpdateLaunchConfigurationRequest {
    * @public
    * <p>Update Launch configuration boot mode request.</p>
    */
-  bootMode?: BootMode | string;
+  bootMode?: BootMode;
 
   /**
    * @public
@@ -4942,7 +5152,7 @@ export interface UpdateReplicationConfigurationRequest {
    * @public
    * <p>Update replication configuration use default large Staging Disk type request.</p>
    */
-  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType | string;
+  defaultLargeStagingDiskType?: ReplicationConfigurationDefaultLargeStagingDiskType;
 
   /**
    * @public
@@ -4954,7 +5164,7 @@ export interface UpdateReplicationConfigurationRequest {
    * @public
    * <p>Update replication configuration EBS encryption request.</p>
    */
-  ebsEncryption?: ReplicationConfigurationEbsEncryption | string;
+  ebsEncryption?: ReplicationConfigurationEbsEncryption;
 
   /**
    * @public
@@ -4972,7 +5182,7 @@ export interface UpdateReplicationConfigurationRequest {
    * @public
    * <p>Update replication configuration data plane routing request.</p>
    */
-  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting | string;
+  dataPlaneRouting?: ReplicationConfigurationDataPlaneRouting;
 
   /**
    * @public
@@ -5002,6 +5212,29 @@ export interface UpdateReplicationConfigurationRequest {
 /**
  * @public
  */
+export interface UpdateSourceServerRequest {
+  /**
+   * @public
+   * <p>Update Source Server request account ID.</p>
+   */
+  accountID?: string;
+
+  /**
+   * @public
+   * <p>Update Source Server request source server ID.</p>
+   */
+  sourceServerID: string | undefined;
+
+  /**
+   * @public
+   * <p>Update Source Server request connector action.</p>
+   */
+  connectorAction?: SourceServerConnectorAction;
+}
+
+/**
+ * @public
+ */
 export interface UpdateSourceServerReplicationTypeRequest {
   /**
    * @public
@@ -5013,7 +5246,7 @@ export interface UpdateSourceServerReplicationTypeRequest {
    * @public
    * <p>Replication type to which to update source server.</p>
    */
-  replicationType: ReplicationType | string | undefined;
+  replicationType: ReplicationType | undefined;
 
   /**
    * @public
@@ -5223,13 +5456,13 @@ export interface WaveAggregatedStatus {
    * @public
    * <p>Wave aggregated status health status.</p>
    */
-  healthStatus?: WaveHealthStatus | string;
+  healthStatus?: WaveHealthStatus;
 
   /**
    * @public
    * <p>Wave aggregated status progress status.</p>
    */
-  progressStatus?: WaveProgressStatus | string;
+  progressStatus?: WaveProgressStatus;
 
   /**
    * @public
@@ -5536,6 +5769,30 @@ export const CreateApplicationRequestFilterSensitiveLog = (obj: CreateApplicatio
 export const ListApplicationsResponseFilterSensitiveLog = (obj: ListApplicationsResponse): any => ({
   ...obj,
   ...(obj.items && { items: obj.items.map((item) => ApplicationFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ConnectorFilterSensitiveLog = (obj: Connector): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateConnectorRequestFilterSensitiveLog = (obj: CreateConnectorRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListConnectorsResponseFilterSensitiveLog = (obj: ListConnectorsResponse): any => ({
+  ...obj,
+  ...(obj.items && { items: obj.items.map((item) => ConnectorFilterSensitiveLog(item)) }),
 });
 
 /**

@@ -8,8 +8,12 @@
 export * from "./TranslateClient";
 export * from "./Translate";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { TranslateExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { TranslateServiceException } from "./models/TranslateServiceException";

@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeGuruReviewerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruReviewerClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { AssociateRepositoryRequest, AssociateRepositoryResponse } from "../models/models_0";
 import { de_AssociateRepositoryCommand, se_AssociateRepositoryCommand } from "../protocols/Aws_restJson1";
 
@@ -43,15 +35,12 @@ export interface AssociateRepositoryCommandOutput extends AssociateRepositoryRes
  *          information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/recommendations.html">Recommendations in
  *             Amazon CodeGuru Reviewer</a> in the <i>Amazon CodeGuru Reviewer User Guide.</i>
  *          </p>
- *
  *          <p>If you associate a CodeCommit or S3 repository, it must be in the same Amazon Web Services Region and
  *          Amazon Web Services account where its CodeGuru Reviewer code reviews are configured.</p>
- *
  *          <p>Bitbucket and GitHub Enterprise Server repositories are managed by Amazon Web Services CodeStar
  *          Connections to connect to CodeGuru Reviewer. For more information, see <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-ug/getting-started-associate-repository.html">Associate a
  *             repository</a> in the <i>Amazon CodeGuru Reviewer User Guide.</i>
  *          </p>
- *
  *          <note>
  *             <p>You cannot use the CodeGuru Reviewer SDK or the Amazon Web Services CLI to associate a GitHub repository with
  *             Amazon CodeGuru Reviewer. To associate a GitHub repository, use the console. For more information, see
@@ -154,79 +143,26 @@ export interface AssociateRepositoryCommandOutput extends AssociateRepositoryRes
  * <p>Base exception class for all service exceptions from CodeGuruReviewer service.</p>
  *
  */
-export class AssociateRepositoryCommand extends $Command<
-  AssociateRepositoryCommandInput,
-  AssociateRepositoryCommandOutput,
-  CodeGuruReviewerClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: AssociateRepositoryCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CodeGuruReviewerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<AssociateRepositoryCommandInput, AssociateRepositoryCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, AssociateRepositoryCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CodeGuruReviewerClient";
-    const commandName = "AssociateRepositoryCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: AssociateRepositoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_AssociateRepositoryCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateRepositoryCommandOutput> {
-    return de_AssociateRepositoryCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class AssociateRepositoryCommand extends $Command
+  .classBuilder<
+    AssociateRepositoryCommandInput,
+    AssociateRepositoryCommandOutput,
+    CodeGuruReviewerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CodeGuruReviewerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSGuruFrontendService", "AssociateRepository", {})
+  .n("CodeGuruReviewerClient", "AssociateRepositoryCommand")
+  .f(void 0, void 0)
+  .ser(se_AssociateRepositoryCommand)
+  .de(de_AssociateRepositoryCommand)
+  .build() {}

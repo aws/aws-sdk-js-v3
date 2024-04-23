@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-node",
-  "version": "3.395.0",
+  "version": "3.501.0",
   "description": "AWS credential provider that sources credentials from a Node.JS environment. ",
   "engines": {
     "node": ">=14.0.0"
@@ -9,7 +9,7 @@
   "module": "./dist-es/index.js",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
-    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:cjs": "node ../../scripts/compilation/inline credential-provider-node",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",
@@ -33,10 +33,10 @@
     "@aws-sdk/credential-provider-sso": "*",
     "@aws-sdk/credential-provider-web-identity": "*",
     "@aws-sdk/types": "*",
-    "@smithy/credential-provider-imds": "^2.0.0",
-    "@smithy/property-provider": "^2.0.0",
-    "@smithy/shared-ini-file-loader": "^2.0.0",
-    "@smithy/types": "^2.2.0",
+    "@smithy/credential-provider-imds": "^2.2.1",
+    "@smithy/property-provider": "^2.1.1",
+    "@smithy/shared-ini-file-loader": "^2.3.1",
+    "@smithy/types": "^2.9.1",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
@@ -45,7 +45,6 @@
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typedoc": "0.23.23",
     "typescript": "~4.9.5"
   },
   "types": "./dist-types/index.d.ts",
@@ -64,8 +63,5 @@
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/credential-provider-node"
-  },
-  "typedoc": {
-    "entryPoint": "src/index.ts"
   }
 }

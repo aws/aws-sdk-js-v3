@@ -9,6 +9,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
 
 import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
+import { ALL_MEMBERS, ALL_VALUES } from "../commands/utils";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
 /**
@@ -47,8 +48,15 @@ export class ExecuteStatementCommand extends DynamoDBDocumentClientCommand<
   __ExecuteStatementCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
-  protected readonly inputKeyNodes = [{ key: "Parameters" }];
-  protected readonly outputKeyNodes = [{ key: "Items" }, { key: "LastEvaluatedKey" }];
+  protected readonly inputKeyNodes = {
+    Parameters: ALL_MEMBERS, // set/list of AttributeValue
+  };
+  protected readonly outputKeyNodes = {
+    Items: {
+      "*": ALL_VALUES, // map with AttributeValue
+    },
+    LastEvaluatedKey: ALL_VALUES, // map with AttributeValue
+  };
 
   protected readonly clientCommand: __ExecuteStatementCommand;
   public readonly middlewareStack: MiddlewareStack<

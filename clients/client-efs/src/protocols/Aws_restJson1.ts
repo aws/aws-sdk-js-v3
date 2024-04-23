@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -108,6 +109,10 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateFileSystemCommandInput, UpdateFileSystemCommandOutput } from "../commands/UpdateFileSystemCommand";
+import {
+  UpdateFileSystemProtectionCommandInput,
+  UpdateFileSystemProtectionCommandOutput,
+} from "../commands/UpdateFileSystemProtectionCommand";
 import { EFSServiceException as __BaseException } from "../models/EFSServiceException";
 import {
   AccessPointAlreadyExists,
@@ -116,6 +121,7 @@ import {
   AvailabilityZonesMismatch,
   BackupPolicy,
   BadRequest,
+  ConflictException,
   CreationInfo,
   DependencyTimeout,
   Destination,
@@ -139,6 +145,7 @@ import {
   NoFreeAddressesInSubnet,
   PolicyNotFound,
   PosixUser,
+  ReplicationAlreadyExists,
   ReplicationConfigurationDescription,
   ReplicationNotFound,
   RootDirectory,
@@ -160,12 +167,11 @@ export const se_CreateAccessPointCommand = async (
   input: CreateAccessPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/access-points";
+  b.bp("/2015-02-01/access-points");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -176,15 +182,8 @@ export const se_CreateAccessPointCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -194,12 +193,11 @@ export const se_CreateFileSystemCommand = async (
   input: CreateFileSystemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/file-systems";
+  b.bp("/2015-02-01/file-systems");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -214,15 +212,8 @@ export const se_CreateFileSystemCommand = async (
       ThroughputMode: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -232,12 +223,11 @@ export const se_CreateMountTargetCommand = async (
   input: CreateMountTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/mount-targets";
+  b.bp("/2015-02-01/mount-targets");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -247,15 +237,8 @@ export const se_CreateMountTargetCommand = async (
       SubnetId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -265,36 +248,20 @@ export const se_CreateReplicationConfigurationCommand = async (
   input: CreateReplicationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-02-01/file-systems/{SourceFileSystemId}/replication-configuration";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SourceFileSystemId",
-    () => input.SourceFileSystemId!,
-    "{SourceFileSystemId}",
-    false
-  );
+  b.bp("/2015-02-01/file-systems/{SourceFileSystemId}/replication-configuration");
+  b.p("SourceFileSystemId", () => input.SourceFileSystemId!, "{SourceFileSystemId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Destinations: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -304,35 +271,20 @@ export const se_CreateTagsCommand = async (
   input: CreateTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/create-tags/{FileSystemId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FileSystemId",
-    () => input.FileSystemId!,
-    "{FileSystemId}",
-    false
-  );
+  b.bp("/2015-02-01/create-tags/{FileSystemId}");
+  b.p("FileSystemId", () => input.FileSystemId!, "{FileSystemId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -342,28 +294,13 @@ export const se_DeleteAccessPointCommand = async (
   input: DeleteAccessPointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/access-points/{AccessPointId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AccessPointId",
-    () => input.AccessPointId!,
-    "{AccessPointId}",
-    false
-  );
+  b.bp("/2015-02-01/access-points/{AccessPointId}");
+  b.p("AccessPointId", () => input.AccessPointId!, "{AccessPointId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -373,28 +310,13 @@ export const se_DeleteFileSystemCommand = async (
   input: DeleteFileSystemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/file-systems/{FileSystemId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FileSystemId",
-    () => input.FileSystemId!,
-    "{FileSystemId}",
-    false
-  );
+  b.bp("/2015-02-01/file-systems/{FileSystemId}");
+  b.p("FileSystemId", () => input.FileSystemId!, "{FileSystemId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -404,29 +326,13 @@ export const se_DeleteFileSystemPolicyCommand = async (
   input: DeleteFileSystemPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-02-01/file-systems/{FileSystemId}/policy";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FileSystemId",
-    () => input.FileSystemId!,
-    "{FileSystemId}",
-    false
-  );
+  b.bp("/2015-02-01/file-systems/{FileSystemId}/policy");
+  b.p("FileSystemId", () => input.FileSystemId!, "{FileSystemId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -436,28 +342,13 @@ export const se_DeleteMountTargetCommand = async (
   input: DeleteMountTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/mount-targets/{MountTargetId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "MountTargetId",
-    () => input.MountTargetId!,
-    "{MountTargetId}",
-    false
-  );
+  b.bp("/2015-02-01/mount-targets/{MountTargetId}");
+  b.p("MountTargetId", () => input.MountTargetId!, "{MountTargetId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -467,29 +358,13 @@ export const se_DeleteReplicationConfigurationCommand = async (
   input: DeleteReplicationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-02-01/file-systems/{SourceFileSystemId}/replication-configuration";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "SourceFileSystemId",
-    () => input.SourceFileSystemId!,
-    "{SourceFileSystemId}",
-    false
-  );
+  b.bp("/2015-02-01/file-systems/{SourceFileSystemId}/replication-configuration");
+  b.p("SourceFileSystemId", () => input.SourceFileSystemId!, "{SourceFileSystemId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -499,35 +374,20 @@ export const se_DeleteTagsCommand = async (
   input: DeleteTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/delete-tags/{FileSystemId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FileSystemId",
-    () => input.FileSystemId!,
-    "{FileSystemId}",
-    false
-  );
+  b.bp("/2015-02-01/delete-tags/{FileSystemId}");
+  b.p("FileSystemId", () => input.FileSystemId!, "{FileSystemId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       TagKeys: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -537,27 +397,18 @@ export const se_DescribeAccessPointsCommand = async (
   input: DescribeAccessPointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/access-points";
+  b.bp("/2015-02-01/access-points");
   const query: any = map({
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    NextToken: [, input.NextToken!],
-    AccessPointId: [, input.AccessPointId!],
-    FileSystemId: [, input.FileSystemId!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
+    [_API]: [, input[_API]!],
+    [_FSI]: [, input[_FSI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -567,12 +418,11 @@ export const se_DescribeAccountPreferencesCommand = async (
   input: DescribeAccountPreferencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/account-preferences";
+  b.bp("/2015-02-01/account-preferences");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -580,15 +430,8 @@ export const se_DescribeAccountPreferencesCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -598,29 +441,13 @@ export const se_DescribeBackupPolicyCommand = async (
   input: DescribeBackupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-02-01/file-systems/{FileSystemId}/backup-policy";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FileSystemId",
-    () => input.FileSystemId!,
-    "{FileSystemId}",
-    false
-  );
+  b.bp("/2015-02-01/file-systems/{FileSystemId}/backup-policy");
+  b.p("FileSystemId", () => input.FileSystemId!, "{FileSystemId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -630,29 +457,13 @@ export const se_DescribeFileSystemPolicyCommand = async (
   input: DescribeFileSystemPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-02-01/file-systems/{FileSystemId}/policy";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FileSystemId",
-    () => input.FileSystemId!,
-    "{FileSystemId}",
-    false
-  );
+  b.bp("/2015-02-01/file-systems/{FileSystemId}/policy");
+  b.p("FileSystemId", () => input.FileSystemId!, "{FileSystemId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -662,27 +473,18 @@ export const se_DescribeFileSystemsCommand = async (
   input: DescribeFileSystemsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/file-systems";
+  b.bp("/2015-02-01/file-systems");
   const query: any = map({
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
-    Marker: [, input.Marker!],
-    CreationToken: [, input.CreationToken!],
-    FileSystemId: [, input.FileSystemId!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
+    [_M]: [, input[_M]!],
+    [_CT]: [, input[_CT]!],
+    [_FSI]: [, input[_FSI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -692,29 +494,13 @@ export const se_DescribeLifecycleConfigurationCommand = async (
   input: DescribeLifecycleConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FileSystemId",
-    () => input.FileSystemId!,
-    "{FileSystemId}",
-    false
-  );
+  b.bp("/2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration");
+  b.p("FileSystemId", () => input.FileSystemId!, "{FileSystemId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -724,28 +510,19 @@ export const se_DescribeMountTargetsCommand = async (
   input: DescribeMountTargetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/mount-targets";
+  b.bp("/2015-02-01/mount-targets");
   const query: any = map({
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
-    Marker: [, input.Marker!],
-    FileSystemId: [, input.FileSystemId!],
-    MountTargetId: [, input.MountTargetId!],
-    AccessPointId: [, input.AccessPointId!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
+    [_M]: [, input[_M]!],
+    [_FSI]: [, input[_FSI]!],
+    [_MTI]: [, input[_MTI]!],
+    [_API]: [, input[_API]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -755,29 +532,13 @@ export const se_DescribeMountTargetSecurityGroupsCommand = async (
   input: DescribeMountTargetSecurityGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-02-01/mount-targets/{MountTargetId}/security-groups";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "MountTargetId",
-    () => input.MountTargetId!,
-    "{MountTargetId}",
-    false
-  );
+  b.bp("/2015-02-01/mount-targets/{MountTargetId}/security-groups");
+  b.p("MountTargetId", () => input.MountTargetId!, "{MountTargetId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -787,27 +548,17 @@ export const se_DescribeReplicationConfigurationsCommand = async (
   input: DescribeReplicationConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-02-01/file-systems/replication-configurations";
+  b.bp("/2015-02-01/file-systems/replication-configurations");
   const query: any = map({
-    FileSystemId: [, input.FileSystemId!],
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_FSI]: [, input[_FSI]!],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -817,33 +568,17 @@ export const se_DescribeTagsCommand = async (
   input: DescribeTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/tags/{FileSystemId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FileSystemId",
-    () => input.FileSystemId!,
-    "{FileSystemId}",
-    false
-  );
+  b.bp("/2015-02-01/tags/{FileSystemId}");
+  b.p("FileSystemId", () => input.FileSystemId!, "{FileSystemId}", false);
   const query: any = map({
-    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
-    Marker: [, input.Marker!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
+    [_M]: [, input[_M]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -853,26 +588,17 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/resource-tags/{ResourceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceId", () => input.ResourceId!, "{ResourceId}", false);
+  b.bp("/2015-02-01/resource-tags/{ResourceId}");
+  b.p("ResourceId", () => input.ResourceId!, "{ResourceId}", false);
   const query: any = map({
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    NextToken: [, input.NextToken!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -882,36 +608,20 @@ export const se_ModifyMountTargetSecurityGroupsCommand = async (
   input: ModifyMountTargetSecurityGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-02-01/mount-targets/{MountTargetId}/security-groups";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "MountTargetId",
-    () => input.MountTargetId!,
-    "{MountTargetId}",
-    false
-  );
+  b.bp("/2015-02-01/mount-targets/{MountTargetId}/security-groups");
+  b.p("MountTargetId", () => input.MountTargetId!, "{MountTargetId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       SecurityGroups: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -921,27 +631,19 @@ export const se_PutAccountPreferencesCommand = async (
   input: PutAccountPreferencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/account-preferences";
+  b.bp("/2015-02-01/account-preferences");
   let body: any;
   body = JSON.stringify(
     take(input, {
       ResourceIdType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -951,36 +653,20 @@ export const se_PutBackupPolicyCommand = async (
   input: PutBackupPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-02-01/file-systems/{FileSystemId}/backup-policy";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FileSystemId",
-    () => input.FileSystemId!,
-    "{FileSystemId}",
-    false
-  );
+  b.bp("/2015-02-01/file-systems/{FileSystemId}/backup-policy");
+  b.p("FileSystemId", () => input.FileSystemId!, "{FileSystemId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       BackupPolicy: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -990,21 +676,12 @@ export const se_PutFileSystemPolicyCommand = async (
   input: PutFileSystemPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-02-01/file-systems/{FileSystemId}/policy";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FileSystemId",
-    () => input.FileSystemId!,
-    "{FileSystemId}",
-    false
-  );
+  b.bp("/2015-02-01/file-systems/{FileSystemId}/policy");
+  b.p("FileSystemId", () => input.FileSystemId!, "{FileSystemId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1012,15 +689,8 @@ export const se_PutFileSystemPolicyCommand = async (
       Policy: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1030,36 +700,20 @@ export const se_PutLifecycleConfigurationCommand = async (
   input: PutLifecycleConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FileSystemId",
-    () => input.FileSystemId!,
-    "{FileSystemId}",
-    false
-  );
+  b.bp("/2015-02-01/file-systems/{FileSystemId}/lifecycle-configuration");
+  b.p("FileSystemId", () => input.FileSystemId!, "{FileSystemId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       LifecyclePolicies: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1069,28 +723,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/resource-tags/{ResourceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceId", () => input.ResourceId!, "{ResourceId}", false);
+  b.bp("/2015-02-01/resource-tags/{ResourceId}");
+  b.p("ResourceId", () => input.ResourceId!, "{ResourceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1100,28 +746,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/resource-tags/{ResourceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceId", () => input.ResourceId!, "{ResourceId}", false);
+  b.bp("/2015-02-01/resource-tags/{ResourceId}");
+  b.p("ResourceId", () => input.ResourceId!, "{ResourceId}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1131,20 +768,12 @@ export const se_UpdateFileSystemCommand = async (
   input: UpdateFileSystemCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2015-02-01/file-systems/{FileSystemId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FileSystemId",
-    () => input.FileSystemId!,
-    "{FileSystemId}",
-    false
-  );
+  b.bp("/2015-02-01/file-systems/{FileSystemId}");
+  b.p("FileSystemId", () => input.FileSystemId!, "{FileSystemId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1152,15 +781,31 @@ export const se_UpdateFileSystemCommand = async (
       ThroughputMode: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateFileSystemProtectionCommand
+ */
+export const se_UpdateFileSystemProtectionCommand = async (
+  input: UpdateFileSystemProtectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/2015-02-01/file-systems/{FileSystemId}/protection");
+  b.p("FileSystemId", () => input.FileSystemId!, "{FileSystemId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ReplicationOverwriteProtection: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1259,6 +904,7 @@ export const de_CreateFileSystemCommand = async (
     Encrypted: __expectBoolean,
     FileSystemArn: __expectString,
     FileSystemId: __expectString,
+    FileSystemProtection: _json,
     KmsKeyId: __expectString,
     LifeCycleState: __expectString,
     Name: __expectString,
@@ -1452,6 +1098,9 @@ const de_CreateReplicationConfigurationCommandError = async (
     case "BadRequest":
     case "com.amazonaws.efs#BadRequest":
       throw await de_BadRequestRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.efs#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "FileSystemLimitExceeded":
     case "com.amazonaws.efs#FileSystemLimitExceeded":
       throw await de_FileSystemLimitExceededRes(parsedOutput, context);
@@ -2871,6 +2520,7 @@ export const de_UpdateFileSystemCommand = async (
     Encrypted: __expectBoolean,
     FileSystemArn: __expectString,
     FileSystemId: __expectString,
+    FileSystemProtection: _json,
     KmsKeyId: __expectString,
     LifeCycleState: __expectString,
     Name: __expectString,
@@ -2914,6 +2564,74 @@ const de_UpdateFileSystemCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.efs#InternalServerError":
       throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "ThroughputLimitExceeded":
+    case "com.amazonaws.efs#ThroughputLimitExceeded":
+      throw await de_ThroughputLimitExceededRes(parsedOutput, context);
+    case "TooManyRequests":
+    case "com.amazonaws.efs#TooManyRequests":
+      throw await de_TooManyRequestsRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateFileSystemProtectionCommand
+ */
+export const de_UpdateFileSystemProtectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFileSystemProtectionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateFileSystemProtectionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ReplicationOverwriteProtection: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateFileSystemProtectionCommandError
+ */
+const de_UpdateFileSystemProtectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateFileSystemProtectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequest":
+    case "com.amazonaws.efs#BadRequest":
+      throw await de_BadRequestRes(parsedOutput, context);
+    case "FileSystemNotFound":
+    case "com.amazonaws.efs#FileSystemNotFound":
+      throw await de_FileSystemNotFoundRes(parsedOutput, context);
+    case "IncorrectFileSystemLifeCycleState":
+    case "com.amazonaws.efs#IncorrectFileSystemLifeCycleState":
+      throw await de_IncorrectFileSystemLifeCycleStateRes(parsedOutput, context);
+    case "InsufficientThroughputCapacity":
+    case "com.amazonaws.efs#InsufficientThroughputCapacity":
+      throw await de_InsufficientThroughputCapacityRes(parsedOutput, context);
+    case "InternalServerError":
+    case "com.amazonaws.efs#InternalServerError":
+      throw await de_InternalServerErrorRes(parsedOutput, context);
+    case "ReplicationAlreadyExists":
+    case "com.amazonaws.efs#ReplicationAlreadyExists":
+      throw await de_ReplicationAlreadyExistsRes(parsedOutput, context);
     case "ThroughputLimitExceeded":
     case "com.amazonaws.efs#ThroughputLimitExceeded":
       throw await de_ThroughputLimitExceededRes(parsedOutput, context);
@@ -3025,6 +2743,24 @@ const de_BadRequestRes = async (parsedOutput: any, context: __SerdeContext): Pro
   });
   Object.assign(contents, doc);
   const exception = new BadRequest({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -3345,6 +3081,27 @@ const de_PolicyNotFoundRes = async (parsedOutput: any, context: __SerdeContext):
 };
 
 /**
+ * deserializeAws_restJson1ReplicationAlreadyExistsRes
+ */
+const de_ReplicationAlreadyExistsRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ReplicationAlreadyExists> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    ErrorCode: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ReplicationAlreadyExists({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1ReplicationNotFoundRes
  */
 const de_ReplicationNotFoundRes = async (parsedOutput: any, context: __SerdeContext): Promise<ReplicationNotFound> => {
@@ -3588,6 +3345,7 @@ const de_FileSystemDescription = (output: any, context: __SerdeContext): FileSys
     Encrypted: __expectBoolean,
     FileSystemArn: __expectString,
     FileSystemId: __expectString,
+    FileSystemProtection: _json,
     KmsKeyId: __expectString,
     LifeCycleState: __expectString,
     Name: __expectString,
@@ -3613,6 +3371,8 @@ const de_FileSystemDescriptions = (output: any, context: __SerdeContext): FileSy
   return retVal;
 };
 
+// de_FileSystemProtectionDescription omitted.
+
 /**
  * deserializeAws_restJson1FileSystemSize
  */
@@ -3620,6 +3380,7 @@ const de_FileSystemSize = (output: any, context: __SerdeContext): FileSystemSize
   return take(output, {
     Timestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Value: __expectLong,
+    ValueInArchive: __expectLong,
     ValueInIA: __expectLong,
     ValueInStandard: __expectLong,
   }) as any;
@@ -3699,6 +3460,17 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _API = "AccessPointId";
+const _CT = "CreationToken";
+const _FSI = "FileSystemId";
+const _M = "Marker";
+const _MI = "MaxItems";
+const _MR = "MaxResults";
+const _MTI = "MountTargetId";
+const _NT = "NextToken";
+const _TK = "TagKeys";
+const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

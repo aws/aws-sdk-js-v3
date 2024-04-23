@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -58,6 +56,10 @@ import {
 import { CreateLabelCommandInput, CreateLabelCommandOutput } from "./commands/CreateLabelCommand";
 import { CreateLabelGroupCommandInput, CreateLabelGroupCommandOutput } from "./commands/CreateLabelGroupCommand";
 import { CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand";
+import {
+  CreateRetrainingSchedulerCommandInput,
+  CreateRetrainingSchedulerCommandOutput,
+} from "./commands/CreateRetrainingSchedulerCommand";
 import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
 import {
   DeleteInferenceSchedulerCommandInput,
@@ -70,6 +72,10 @@ import {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
+import {
+  DeleteRetrainingSchedulerCommandInput,
+  DeleteRetrainingSchedulerCommandOutput,
+} from "./commands/DeleteRetrainingSchedulerCommand";
 import {
   DescribeDataIngestionJobCommandInput,
   DescribeDataIngestionJobCommandOutput,
@@ -90,6 +96,10 @@ import {
   DescribeResourcePolicyCommandInput,
   DescribeResourcePolicyCommandOutput,
 } from "./commands/DescribeResourcePolicyCommand";
+import {
+  DescribeRetrainingSchedulerCommandInput,
+  DescribeRetrainingSchedulerCommandOutput,
+} from "./commands/DescribeRetrainingSchedulerCommand";
 import { ImportDatasetCommandInput, ImportDatasetCommandOutput } from "./commands/ImportDatasetCommand";
 import { ImportModelVersionCommandInput, ImportModelVersionCommandOutput } from "./commands/ImportModelVersionCommand";
 import {
@@ -114,6 +124,10 @@ import { ListLabelsCommandInput, ListLabelsCommandOutput } from "./commands/List
 import { ListModelsCommandInput, ListModelsCommandOutput } from "./commands/ListModelsCommand";
 import { ListModelVersionsCommandInput, ListModelVersionsCommandOutput } from "./commands/ListModelVersionsCommand";
 import {
+  ListRetrainingSchedulersCommandInput,
+  ListRetrainingSchedulersCommandOutput,
+} from "./commands/ListRetrainingSchedulersCommand";
+import {
   ListSensorStatisticsCommandInput,
   ListSensorStatisticsCommandOutput,
 } from "./commands/ListSensorStatisticsCommand";
@@ -131,9 +145,17 @@ import {
   StartInferenceSchedulerCommandOutput,
 } from "./commands/StartInferenceSchedulerCommand";
 import {
+  StartRetrainingSchedulerCommandInput,
+  StartRetrainingSchedulerCommandOutput,
+} from "./commands/StartRetrainingSchedulerCommand";
+import {
   StopInferenceSchedulerCommandInput,
   StopInferenceSchedulerCommandOutput,
 } from "./commands/StopInferenceSchedulerCommand";
+import {
+  StopRetrainingSchedulerCommandInput,
+  StopRetrainingSchedulerCommandOutput,
+} from "./commands/StopRetrainingSchedulerCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -145,6 +167,11 @@ import {
   UpdateInferenceSchedulerCommandOutput,
 } from "./commands/UpdateInferenceSchedulerCommand";
 import { UpdateLabelGroupCommandInput, UpdateLabelGroupCommandOutput } from "./commands/UpdateLabelGroupCommand";
+import { UpdateModelCommandInput, UpdateModelCommandOutput } from "./commands/UpdateModelCommand";
+import {
+  UpdateRetrainingSchedulerCommandInput,
+  UpdateRetrainingSchedulerCommandOutput,
+} from "./commands/UpdateRetrainingSchedulerCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -165,12 +192,14 @@ export type ServiceInputTypes =
   | CreateLabelCommandInput
   | CreateLabelGroupCommandInput
   | CreateModelCommandInput
+  | CreateRetrainingSchedulerCommandInput
   | DeleteDatasetCommandInput
   | DeleteInferenceSchedulerCommandInput
   | DeleteLabelCommandInput
   | DeleteLabelGroupCommandInput
   | DeleteModelCommandInput
   | DeleteResourcePolicyCommandInput
+  | DeleteRetrainingSchedulerCommandInput
   | DescribeDataIngestionJobCommandInput
   | DescribeDatasetCommandInput
   | DescribeInferenceSchedulerCommandInput
@@ -179,6 +208,7 @@ export type ServiceInputTypes =
   | DescribeModelCommandInput
   | DescribeModelVersionCommandInput
   | DescribeResourcePolicyCommandInput
+  | DescribeRetrainingSchedulerCommandInput
   | ImportDatasetCommandInput
   | ImportModelVersionCommandInput
   | ListDataIngestionJobsCommandInput
@@ -190,17 +220,22 @@ export type ServiceInputTypes =
   | ListLabelsCommandInput
   | ListModelVersionsCommandInput
   | ListModelsCommandInput
+  | ListRetrainingSchedulersCommandInput
   | ListSensorStatisticsCommandInput
   | ListTagsForResourceCommandInput
   | PutResourcePolicyCommandInput
   | StartDataIngestionJobCommandInput
   | StartInferenceSchedulerCommandInput
+  | StartRetrainingSchedulerCommandInput
   | StopInferenceSchedulerCommandInput
+  | StopRetrainingSchedulerCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateActiveModelVersionCommandInput
   | UpdateInferenceSchedulerCommandInput
-  | UpdateLabelGroupCommandInput;
+  | UpdateLabelGroupCommandInput
+  | UpdateModelCommandInput
+  | UpdateRetrainingSchedulerCommandInput;
 
 /**
  * @public
@@ -211,12 +246,14 @@ export type ServiceOutputTypes =
   | CreateLabelCommandOutput
   | CreateLabelGroupCommandOutput
   | CreateModelCommandOutput
+  | CreateRetrainingSchedulerCommandOutput
   | DeleteDatasetCommandOutput
   | DeleteInferenceSchedulerCommandOutput
   | DeleteLabelCommandOutput
   | DeleteLabelGroupCommandOutput
   | DeleteModelCommandOutput
   | DeleteResourcePolicyCommandOutput
+  | DeleteRetrainingSchedulerCommandOutput
   | DescribeDataIngestionJobCommandOutput
   | DescribeDatasetCommandOutput
   | DescribeInferenceSchedulerCommandOutput
@@ -225,6 +262,7 @@ export type ServiceOutputTypes =
   | DescribeModelCommandOutput
   | DescribeModelVersionCommandOutput
   | DescribeResourcePolicyCommandOutput
+  | DescribeRetrainingSchedulerCommandOutput
   | ImportDatasetCommandOutput
   | ImportModelVersionCommandOutput
   | ListDataIngestionJobsCommandOutput
@@ -236,17 +274,22 @@ export type ServiceOutputTypes =
   | ListLabelsCommandOutput
   | ListModelVersionsCommandOutput
   | ListModelsCommandOutput
+  | ListRetrainingSchedulersCommandOutput
   | ListSensorStatisticsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutResourcePolicyCommandOutput
   | StartDataIngestionJobCommandOutput
   | StartInferenceSchedulerCommandOutput
+  | StartRetrainingSchedulerCommandOutput
   | StopInferenceSchedulerCommandOutput
+  | StopRetrainingSchedulerCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateActiveModelVersionCommandOutput
   | UpdateInferenceSchedulerCommandOutput
-  | UpdateLabelGroupCommandOutput;
+  | UpdateLabelGroupCommandOutput
+  | UpdateModelCommandOutput
+  | UpdateRetrainingSchedulerCommandOutput;
 
 /**
  * @public
@@ -358,6 +401,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

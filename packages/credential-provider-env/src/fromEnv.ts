@@ -17,6 +17,10 @@ export const ENV_SESSION = "AWS_SESSION_TOKEN";
  * @internal
  */
 export const ENV_EXPIRATION = "AWS_CREDENTIAL_EXPIRATION";
+/**
+ * @internal
+ */
+export const ENV_CREDENTIAL_SCOPE = "AWS_CREDENTIAL_SCOPE";
 
 /**
  * @internal
@@ -30,6 +34,7 @@ export const fromEnv = (): AwsCredentialIdentityProvider => async () => {
   const secretAccessKey: string | undefined = process.env[ENV_SECRET];
   const sessionToken: string | undefined = process.env[ENV_SESSION];
   const expiry: string | undefined = process.env[ENV_EXPIRATION];
+  const credentialScope: string | undefined = process.env[ENV_CREDENTIAL_SCOPE];
 
   if (accessKeyId && secretAccessKey) {
     return {
@@ -37,6 +42,7 @@ export const fromEnv = (): AwsCredentialIdentityProvider => async () => {
       secretAccessKey,
       ...(sessionToken && { sessionToken }),
       ...(expiry && { expiration: new Date(expiry) }),
+      ...(credentialScope && { credentialScope }),
     };
   }
 

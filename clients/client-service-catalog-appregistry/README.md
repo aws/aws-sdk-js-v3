@@ -23,22 +23,19 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ServiceCatalogAppRegistryClient` and
-the commands you need, for example `AssociateAttributeGroupCommand`:
+the commands you need, for example `ListApplicationsCommand`:
 
 ```js
 // ES5 example
 const {
   ServiceCatalogAppRegistryClient,
-  AssociateAttributeGroupCommand,
+  ListApplicationsCommand,
 } = require("@aws-sdk/client-service-catalog-appregistry");
 ```
 
 ```ts
 // ES6+ example
-import {
-  ServiceCatalogAppRegistryClient,
-  AssociateAttributeGroupCommand,
-} from "@aws-sdk/client-service-catalog-appregistry";
+import { ServiceCatalogAppRegistryClient, ListApplicationsCommand } from "@aws-sdk/client-service-catalog-appregistry";
 ```
 
 ### Usage
@@ -57,7 +54,7 @@ const client = new ServiceCatalogAppRegistryClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateAttributeGroupCommand(params);
+const command = new ListApplicationsCommand(params);
 ```
 
 #### Async/await
@@ -136,7 +133,7 @@ const client = new AWS.ServiceCatalogAppRegistry({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateAttributeGroup(params);
+  const data = await client.listApplications(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -144,7 +141,7 @@ try {
 
 // Promises.
 client
-  .associateAttributeGroup(params)
+  .listApplications(params)
   .then((data) => {
     // process data.
   })
@@ -153,7 +150,7 @@ client
   });
 
 // callbacks.
-client.associateAttributeGroup(params, (err, data) => {
+client.listApplications(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -168,7 +165,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -214,7 +211,7 @@ see LICENSE for more information.
 AssociateAttributeGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/classes/associateattributegroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/associateattributegroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/associateattributegroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog-appregistry/command/AssociateAttributeGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/AssociateAttributeGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/AssociateAttributeGroupCommandOutput/)
 
 </details>
 <details>
@@ -222,7 +219,7 @@ AssociateAttributeGroup
 AssociateResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/classes/associateresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/associateresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/associateresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog-appregistry/command/AssociateResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/AssociateResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/AssociateResourceCommandOutput/)
 
 </details>
 <details>
@@ -230,7 +227,7 @@ AssociateResource
 CreateApplication
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/classes/createapplicationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/createapplicationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/createapplicationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog-appregistry/command/CreateApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/CreateApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/CreateApplicationCommandOutput/)
 
 </details>
 <details>
@@ -238,7 +235,7 @@ CreateApplication
 CreateAttributeGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/classes/createattributegroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/createattributegroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/createattributegroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog-appregistry/command/CreateAttributeGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/CreateAttributeGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/CreateAttributeGroupCommandOutput/)
 
 </details>
 <details>
@@ -246,7 +243,7 @@ CreateAttributeGroup
 DeleteApplication
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/classes/deleteapplicationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/deleteapplicationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/deleteapplicationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog-appregistry/command/DeleteApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/DeleteApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/DeleteApplicationCommandOutput/)
 
 </details>
 <details>
@@ -254,7 +251,7 @@ DeleteApplication
 DeleteAttributeGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/classes/deleteattributegroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/deleteattributegroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/deleteattributegroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog-appregistry/command/DeleteAttributeGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/DeleteAttributeGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/DeleteAttributeGroupCommandOutput/)
 
 </details>
 <details>
@@ -262,7 +259,7 @@ DeleteAttributeGroup
 DisassociateAttributeGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/classes/disassociateattributegroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/disassociateattributegroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/disassociateattributegroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog-appregistry/command/DisassociateAttributeGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/DisassociateAttributeGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/DisassociateAttributeGroupCommandOutput/)
 
 </details>
 <details>
@@ -270,7 +267,7 @@ DisassociateAttributeGroup
 DisassociateResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/classes/disassociateresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/disassociateresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/disassociateresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog-appregistry/command/DisassociateResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/DisassociateResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/DisassociateResourceCommandOutput/)
 
 </details>
 <details>
@@ -278,7 +275,7 @@ DisassociateResource
 GetApplication
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/classes/getapplicationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/getapplicationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/getapplicationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog-appregistry/command/GetApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/GetApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/GetApplicationCommandOutput/)
 
 </details>
 <details>
@@ -286,7 +283,7 @@ GetApplication
 GetAssociatedResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/classes/getassociatedresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/getassociatedresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/getassociatedresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog-appregistry/command/GetAssociatedResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/GetAssociatedResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/GetAssociatedResourceCommandOutput/)
 
 </details>
 <details>
@@ -294,7 +291,7 @@ GetAssociatedResource
 GetAttributeGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/classes/getattributegroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/getattributegroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/getattributegroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog-appregistry/command/GetAttributeGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/GetAttributeGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/GetAttributeGroupCommandOutput/)
 
 </details>
 <details>
@@ -302,7 +299,7 @@ GetAttributeGroup
 GetConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/classes/getconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/getconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/getconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog-appregistry/command/GetConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/GetConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/GetConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -310,7 +307,7 @@ GetConfiguration
 ListApplications
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/classes/listapplicationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/listapplicationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/listapplicationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog-appregistry/command/ListApplicationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/ListApplicationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/ListApplicationsCommandOutput/)
 
 </details>
 <details>
@@ -318,7 +315,7 @@ ListApplications
 ListAssociatedAttributeGroups
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/classes/listassociatedattributegroupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/listassociatedattributegroupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/listassociatedattributegroupscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog-appregistry/command/ListAssociatedAttributeGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/ListAssociatedAttributeGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/ListAssociatedAttributeGroupsCommandOutput/)
 
 </details>
 <details>
@@ -326,7 +323,7 @@ ListAssociatedAttributeGroups
 ListAssociatedResources
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/classes/listassociatedresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/listassociatedresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/listassociatedresourcescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog-appregistry/command/ListAssociatedResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/ListAssociatedResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/ListAssociatedResourcesCommandOutput/)
 
 </details>
 <details>
@@ -334,7 +331,7 @@ ListAssociatedResources
 ListAttributeGroups
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/classes/listattributegroupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/listattributegroupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/listattributegroupscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog-appregistry/command/ListAttributeGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/ListAttributeGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/ListAttributeGroupsCommandOutput/)
 
 </details>
 <details>
@@ -342,7 +339,7 @@ ListAttributeGroups
 ListAttributeGroupsForApplication
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/classes/listattributegroupsforapplicationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/listattributegroupsforapplicationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/listattributegroupsforapplicationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog-appregistry/command/ListAttributeGroupsForApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/ListAttributeGroupsForApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/ListAttributeGroupsForApplicationCommandOutput/)
 
 </details>
 <details>
@@ -350,7 +347,7 @@ ListAttributeGroupsForApplication
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog-appregistry/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/ListTagsForResourceCommandOutput/)
 
 </details>
 <details>
@@ -358,7 +355,7 @@ ListTagsForResource
 PutConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/classes/putconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/putconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/putconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog-appregistry/command/PutConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/PutConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/PutConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -366,7 +363,7 @@ PutConfiguration
 SyncResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/classes/syncresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/syncresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/syncresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog-appregistry/command/SyncResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/SyncResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/SyncResourceCommandOutput/)
 
 </details>
 <details>
@@ -374,7 +371,7 @@ SyncResource
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog-appregistry/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -382,7 +379,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog-appregistry/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -390,7 +387,7 @@ UntagResource
 UpdateApplication
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/classes/updateapplicationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/updateapplicationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/updateapplicationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog-appregistry/command/UpdateApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/UpdateApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/UpdateApplicationCommandOutput/)
 
 </details>
 <details>
@@ -398,6 +395,6 @@ UpdateApplication
 UpdateAttributeGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/classes/updateattributegroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/updateattributegroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-service-catalog-appregistry/interfaces/updateattributegroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-catalog-appregistry/command/UpdateAttributeGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/UpdateAttributeGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-catalog-appregistry/Interface/UpdateAttributeGroupCommandOutput/)
 
 </details>

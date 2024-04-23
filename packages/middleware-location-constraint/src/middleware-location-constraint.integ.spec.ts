@@ -22,11 +22,36 @@ describe("middleware-location-constraint", () => {
       const client = new S3({ region: "us-east-1" });
 
       requireRequestsFrom(client).toMatch({
-        body: /undefined/,
+        body(body = "") {
+          expect(body).not.toContain("LocationConstraint");
+        },
       });
 
       await client.createBucket({
         Bucket: "b",
+      });
+
+      expect.hasAssertions();
+    });
+
+    it("also not for S3 Express buckets", async () => {
+      const client = new S3({ region: "us-west-2" });
+
+      requireRequestsFrom(client).toMatch({
+        hostname: /-control.us-west-2.amazonaws.com$/,
+        body(body = "") {
+          expect(body).not.toContain("LocationConstraint");
+        },
+      });
+
+      await client.createBucket({
+        Bucket: "s3-express-1234--usw2-az2--x-s3",
+        CreateBucketConfiguration: {
+          Location: {
+            Type: "AvailabilityZone",
+            Name: "usw2-az2",
+          },
+        },
       });
 
       expect.hasAssertions();

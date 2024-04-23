@@ -22,11 +22,20 @@ including errors.
 <p>A <i>participant token</i> is a token that authenticates a participant when they join a stage.</p>
 </li>
 <li>
-<p>A <i>participant object</i> represents participants
-(people) in the stage and contains information about them. When a token is created, it
-includes a participant ID; when a participant uses that token to join a stage, the
-participant is associated with that participant ID There is a 1:1 mapping between
-participant tokens and participants.</p>
+<p>A <i>participant object</i> represents participants (people) in the stage and
+contains information about them. When a token is created, it includes a participant ID;
+when a participant uses that token to join a stage, the participant is associated with
+that participant ID. There is a 1:1 mapping between participant tokens and
+participants.</p>
+</li>
+<li>
+<p>Server-side composition: The <i>composition</i> process composites participants
+of a stage into a single video and forwards it to a set of outputs (e.g., IVS channels).
+Composition endpoints support this process.</p>
+</li>
+<li>
+<p>Server-side composition: A <i>composition</i> controls the look of the outputs,
+including how participants are positioned in the video.</p>
 </li>
 </ul>
 <p>
@@ -112,6 +121,80 @@ session.</p>
 </li>
 </ul>
 <p>
+<b>Composition Endpoints</b>
+</p>
+<ul>
+<li>
+<p>
+<a>GetComposition</a> — Gets information about the specified
+Composition resource.</p>
+</li>
+<li>
+<p>
+<a>ListCompositions</a> — Gets summary information about all
+Compositions in your account, in the AWS region where the API request is processed.</p>
+</li>
+<li>
+<p>
+<a>StartComposition</a> — Starts a Composition from a stage based on
+the configuration provided in the request.</p>
+</li>
+<li>
+<p>
+<a>StopComposition</a> — Stops and deletes a Composition resource.
+Any broadcast from the Composition resource is stopped.</p>
+</li>
+</ul>
+<p>
+<b>EncoderConfiguration Endpoints</b>
+</p>
+<ul>
+<li>
+<p>
+<a>CreateEncoderConfiguration</a> — Creates an EncoderConfiguration object.</p>
+</li>
+<li>
+<p>
+<a>DeleteEncoderConfiguration</a> — Deletes an EncoderConfiguration
+resource. Ensures that no Compositions are using this template; otherwise, returns an
+error.</p>
+</li>
+<li>
+<p>
+<a>GetEncoderConfiguration</a> — Gets information about the specified
+EncoderConfiguration resource.</p>
+</li>
+<li>
+<p>
+<a>ListEncoderConfigurations</a> — Gets summary information about all
+EncoderConfigurations in your account, in the AWS region where the API request is
+processed.</p>
+</li>
+</ul>
+<p>
+<b>StorageConfiguration Endpoints</b>
+</p>
+<ul>
+<li>
+<p>
+<a>CreateStorageConfiguration</a> — Creates a new storage configuration, used to enable
+recording to Amazon S3.</p>
+</li>
+<li>
+<p>
+<a>DeleteStorageConfiguration</a> — Deletes the storage configuration for the specified ARN.</p>
+</li>
+<li>
+<p>
+<a>GetStorageConfiguration</a> — Gets the storage configuration for the specified ARN.</p>
+</li>
+<li>
+<p>
+<a>ListStorageConfigurations</a> — Gets summary information about all storage configurations in your
+account, in the AWS region where the API request is processed.</p>
+</li>
+</ul>
+<p>
 <b>Tags Endpoints</b>
 </p>
 <ul>
@@ -147,16 +230,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `IVSRealTimeClient` and
-the commands you need, for example `CreateParticipantTokenCommand`:
+the commands you need, for example `ListStagesCommand`:
 
 ```js
 // ES5 example
-const { IVSRealTimeClient, CreateParticipantTokenCommand } = require("@aws-sdk/client-ivs-realtime");
+const { IVSRealTimeClient, ListStagesCommand } = require("@aws-sdk/client-ivs-realtime");
 ```
 
 ```ts
 // ES6+ example
-import { IVSRealTimeClient, CreateParticipantTokenCommand } from "@aws-sdk/client-ivs-realtime";
+import { IVSRealTimeClient, ListStagesCommand } from "@aws-sdk/client-ivs-realtime";
 ```
 
 ### Usage
@@ -175,7 +258,7 @@ const client = new IVSRealTimeClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateParticipantTokenCommand(params);
+const command = new ListStagesCommand(params);
 ```
 
 #### Async/await
@@ -254,7 +337,7 @@ const client = new AWS.IVSRealTime({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createParticipantToken(params);
+  const data = await client.listStages(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -262,7 +345,7 @@ try {
 
 // Promises.
 client
-  .createParticipantToken(params)
+  .listStages(params)
   .then((data) => {
     // process data.
   })
@@ -271,7 +354,7 @@ client
   });
 
 // callbacks.
-client.createParticipantToken(params, (err, data) => {
+client.listStages(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -286,7 +369,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -329,10 +412,18 @@ see LICENSE for more information.
 
 <details>
 <summary>
+CreateEncoderConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/CreateEncoderConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/CreateEncoderConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/CreateEncoderConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateParticipantToken
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/classes/createparticipanttokencommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/createparticipanttokencommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/createparticipanttokencommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/CreateParticipantTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/CreateParticipantTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/CreateParticipantTokenCommandOutput/)
 
 </details>
 <details>
@@ -340,7 +431,23 @@ CreateParticipantToken
 CreateStage
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/classes/createstagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/createstagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/createstagecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/CreateStageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/CreateStageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/CreateStageCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateStorageConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/CreateStorageConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/CreateStorageConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/CreateStorageConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteEncoderConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/DeleteEncoderConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/DeleteEncoderConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/DeleteEncoderConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -348,7 +455,15 @@ CreateStage
 DeleteStage
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/classes/deletestagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/deletestagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/deletestagecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/DeleteStageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/DeleteStageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/DeleteStageCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteStorageConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/DeleteStorageConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/DeleteStorageConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/DeleteStorageConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -356,7 +471,23 @@ DeleteStage
 DisconnectParticipant
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/classes/disconnectparticipantcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/disconnectparticipantcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/disconnectparticipantcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/DisconnectParticipantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/DisconnectParticipantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/DisconnectParticipantCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetComposition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/GetCompositionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/GetCompositionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/GetCompositionCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetEncoderConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/GetEncoderConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/GetEncoderConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/GetEncoderConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -364,7 +495,7 @@ DisconnectParticipant
 GetParticipant
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/classes/getparticipantcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/getparticipantcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/getparticipantcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/GetParticipantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/GetParticipantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/GetParticipantCommandOutput/)
 
 </details>
 <details>
@@ -372,7 +503,7 @@ GetParticipant
 GetStage
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/classes/getstagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/getstagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/getstagecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/GetStageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/GetStageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/GetStageCommandOutput/)
 
 </details>
 <details>
@@ -380,7 +511,31 @@ GetStage
 GetStageSession
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/classes/getstagesessioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/getstagesessioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/getstagesessioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/GetStageSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/GetStageSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/GetStageSessionCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetStorageConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/GetStorageConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/GetStorageConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/GetStorageConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListCompositions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/ListCompositionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/ListCompositionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/ListCompositionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListEncoderConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/ListEncoderConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/ListEncoderConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/ListEncoderConfigurationsCommandOutput/)
 
 </details>
 <details>
@@ -388,7 +543,7 @@ GetStageSession
 ListParticipantEvents
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/classes/listparticipanteventscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/listparticipanteventscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/listparticipanteventscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/ListParticipantEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/ListParticipantEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/ListParticipantEventsCommandOutput/)
 
 </details>
 <details>
@@ -396,7 +551,7 @@ ListParticipantEvents
 ListParticipants
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/classes/listparticipantscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/listparticipantscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/listparticipantscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/ListParticipantsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/ListParticipantsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/ListParticipantsCommandOutput/)
 
 </details>
 <details>
@@ -404,7 +559,7 @@ ListParticipants
 ListStages
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/classes/liststagescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/liststagescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/liststagescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/ListStagesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/ListStagesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/ListStagesCommandOutput/)
 
 </details>
 <details>
@@ -412,7 +567,15 @@ ListStages
 ListStageSessions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/classes/liststagesessionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/liststagesessionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/liststagesessionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/ListStageSessionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/ListStageSessionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/ListStageSessionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListStorageConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/ListStorageConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/ListStorageConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/ListStorageConfigurationsCommandOutput/)
 
 </details>
 <details>
@@ -420,7 +583,23 @@ ListStageSessions
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/ListTagsForResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartComposition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/StartCompositionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/StartCompositionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/StartCompositionCommandOutput/)
+
+</details>
+<details>
+<summary>
+StopComposition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/StopCompositionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/StopCompositionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/StopCompositionCommandOutput/)
 
 </details>
 <details>
@@ -428,7 +607,7 @@ ListTagsForResource
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -436,7 +615,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -444,6 +623,6 @@ UntagResource
 UpdateStage
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/classes/updatestagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/updatestagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ivs-realtime/interfaces/updatestagecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/UpdateStageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/UpdateStageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/UpdateStageCommandOutput/)
 
 </details>

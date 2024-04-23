@@ -34,7 +34,11 @@
 export * from "./SageMakerFeatureStoreRuntimeClient";
 export * from "./SageMakerFeatureStoreRuntime";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { SageMakerFeatureStoreRuntimeExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { SageMakerFeatureStoreRuntimeServiceException } from "./models/SageMakerFeatureStoreRuntimeServiceException";

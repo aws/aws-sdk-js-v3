@@ -27,7 +27,7 @@ export interface Tag {
 /**
  * @public
  * <p>Usage allocations allow you to split usage into buckets by tags.</p>
- *         <p>Each <code>UsageAllocation</code> indicates the usage quantity for a specific set of
+ *          <p>Each <code>UsageAllocation</code> indicates the usage quantity for a specific set of
  *             tags.</p>
  */
 export interface UsageAllocation {
@@ -49,14 +49,14 @@ export interface UsageAllocation {
  * @public
  * <p>A <code>UsageRecord</code> indicates a quantity of usage for a given product,
  *             customer, dimension and time.</p>
- *         <p>Multiple requests with the same <code>UsageRecords</code> as input will be
+ *          <p>Multiple requests with the same <code>UsageRecords</code> as input will be
  *             de-duplicated to prevent double charges.</p>
  */
 export interface UsageRecord {
   /**
    * @public
    * <p>Timestamp, in UTC, for which the usage is being reported.</p>
-   *         <p>Your application can meter usage for up to one hour in the past. Make sure the
+   *          <p>Your application can meter usage for up to one hour in the past. Make sure the
    *                 <code>timestamp</code> value is not before the start of the software usage.</p>
    */
   Timestamp: Date | undefined;
@@ -153,42 +153,42 @@ export interface UsageRecordResult {
    * <p>The <code>UsageRecordResult</code>
    *             <code>Status</code> indicates the status of an individual <code>UsageRecord</code>
    *             processed by <code>BatchMeterUsage</code>.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <i>Success</i>- The <code>UsageRecord</code> was accepted and
+   *                <p>
+   *                   <i>Success</i>- The <code>UsageRecord</code> was accepted and
    *                     honored by <code>BatchMeterUsage</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <i>CustomerNotSubscribed</i>- The <code>CustomerIdentifier</code>
+   *                <p>
+   *                   <i>CustomerNotSubscribed</i>- The <code>CustomerIdentifier</code>
    *                     specified is not able to use your product. The <code>UsageRecord</code> was not
    *                     honored. There are three causes for this result:</p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
-   *                         <p>The customer identifier is invalid.</p>
-   *                     </li>
+   *                      <p>The customer identifier is invalid.</p>
+   *                   </li>
    *                   <li>
-   *                         <p>The customer identifier provided in the metering record does not have
+   *                      <p>The customer identifier provided in the metering record does not have
    *                             an active agreement or subscription with this product. Future
    *                                 <code>UsageRecords</code> for this customer will fail until the
    *                             customer subscribes to your product.</p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>The customer's AWS account was suspended.</p>
-   *                     </li>
+   *                      <p>The customer's AWS account was suspended.</p>
+   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <i>DuplicateRecord</i>- Indicates that the
+   *                <p>
+   *                   <i>DuplicateRecord</i>- Indicates that the
    *                         <code>UsageRecord</code> was invalid and not honored. A previously metered
    *                         <code>UsageRecord</code> had the same customer, dimension, and time, but a
    *                     different quantity.</p>
    *             </li>
    *          </ul>
    */
-  Status?: UsageRecordResultStatus | string;
+  Status?: UsageRecordResultStatus;
 }
 
 /**
@@ -384,7 +384,7 @@ export class ThrottlingException extends __BaseException {
  * @public
  * <p>The <code>timestamp</code> value passed in the <code>UsageRecord</code> is out of
  *             allowed range.</p>
- *         <p>For <code>BatchMeterUsage</code>, if any of the records are outside of the allowed
+ *          <p>For <code>BatchMeterUsage</code>, if any of the records are outside of the allowed
  *             range, the entire batch is not processed. You must remove invalid records and try
  *             again.</p>
  */
@@ -513,7 +513,7 @@ export interface MeterUsageRequest {
   /**
    * @public
    * <p>The set of <code>UsageAllocations</code> to submit.</p>
-   *         <p>The sum of all <code>UsageAllocation</code> quantities must equal the
+   *          <p>The sum of all <code>UsageAllocation</code> quantities must equal the
    *                 <code>UsageQuantity</code> of the <code>MeterUsage</code> request, and each
    *                 <code>UsageAllocation</code> must have a unique set of tags (include no
    *             tags).</p>

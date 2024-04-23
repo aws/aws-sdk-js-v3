@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+
 import { DocumentType as __DocumentType } from "@smithy/types";
 
 import { OpenSearchServerlessServiceException as __BaseException } from "./OpenSearchServerlessServiceException";
@@ -50,7 +51,7 @@ export interface CreateAccessPolicyRequest {
    * @public
    * <p>The type of policy.</p>
    */
-  type: AccessPolicyType | string | undefined;
+  type: AccessPolicyType | undefined;
 
   /**
    * @public
@@ -87,7 +88,7 @@ export interface AccessPolicyDetail {
    * @public
    * <p>The type of access policy.</p>
    */
-  type?: AccessPolicyType | string;
+  type?: AccessPolicyType;
 
   /**
    * @public
@@ -234,7 +235,7 @@ export interface DeleteAccessPolicyRequest {
    * @public
    * <p>The type of policy.</p>
    */
-  type: AccessPolicyType | string | undefined;
+  type: AccessPolicyType | undefined;
 
   /**
    * @public
@@ -280,9 +281,9 @@ export class ResourceNotFoundException extends __BaseException {
 export interface GetAccessPolicyRequest {
   /**
    * @public
-   * <p>Tye type of policy. Currently the only supported value is <code>data</code>.</p>
+   * <p>Tye type of policy. Currently, the only supported value is <code>data</code>.</p>
    */
-  type: AccessPolicyType | string | undefined;
+  type: AccessPolicyType | undefined;
 
   /**
    * @public
@@ -310,7 +311,7 @@ export interface ListAccessPoliciesRequest {
    * @public
    * <p>The type of access policy.</p>
    */
-  type: AccessPolicyType | string | undefined;
+  type: AccessPolicyType | undefined;
 
   /**
    * @public
@@ -342,9 +343,9 @@ export interface ListAccessPoliciesRequest {
 export interface AccessPolicySummary {
   /**
    * @public
-   * <p>The type of access policy. Currently the only available type is <code>data</code>.</p>
+   * <p>The type of access policy. Currently, the only available type is <code>data</code>.</p>
    */
-  type?: AccessPolicyType | string;
+  type?: AccessPolicyType;
 
   /**
    * @public
@@ -404,7 +405,7 @@ export interface UpdateAccessPolicyRequest {
    * @public
    * <p>The type of policy.</p>
    */
-  type: AccessPolicyType | string | undefined;
+  type: AccessPolicyType | undefined;
 
   /**
    * @public
@@ -519,6 +520,26 @@ export interface BatchGetCollectionRequest {
  * @public
  * @enum
  */
+export const StandbyReplicas = {
+  /**
+   * Standby replicas disabled
+   */
+  DISABLED: "DISABLED",
+  /**
+   * Standby replicas enabled
+   */
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type StandbyReplicas = (typeof StandbyReplicas)[keyof typeof StandbyReplicas];
+
+/**
+ * @public
+ * @enum
+ */
 export const CollectionStatus = {
   /**
    * Collection resource is ready to use
@@ -589,13 +610,13 @@ export interface CollectionDetail {
    * @public
    * <p>The current status of the collection.</p>
    */
-  status?: CollectionStatus | string;
+  status?: CollectionStatus;
 
   /**
    * @public
    * <p>The type of collection.</p>
    */
-  type?: CollectionType | string;
+  type?: CollectionType;
 
   /**
    * @public
@@ -614,6 +635,12 @@ export interface CollectionDetail {
    * <p>The ARN of the Amazon Web Services KMS key used to encrypt the collection.</p>
    */
   kmsKeyArn?: string;
+
+  /**
+   * @public
+   * <p>Details about an OpenSearch Serverless collection.</p>
+   */
+  standbyReplicas?: StandbyReplicas;
 
   /**
    * @public
@@ -690,6 +717,281 @@ export interface BatchGetCollectionResponse {
    * <p>Error information for the request.</p>
    */
   collectionErrorDetails?: CollectionErrorDetail[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LifecyclePolicyType = {
+  /**
+   * retention policy type
+   */
+  retention: "retention",
+} as const;
+
+/**
+ * @public
+ */
+export type LifecyclePolicyType = (typeof LifecyclePolicyType)[keyof typeof LifecyclePolicyType];
+
+/**
+ * @public
+ * <p>The unique identifiers of policy types and resource names.</p>
+ */
+export interface LifecyclePolicyResourceIdentifier {
+  /**
+   * @public
+   * <p>The type of lifecycle policy.</p>
+   */
+  type: LifecyclePolicyType | undefined;
+
+  /**
+   * @public
+   * <p>The name of the OpenSearch Serverless ilndex resource.</p>
+   */
+  resource: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetEffectiveLifecyclePolicyRequest {
+  /**
+   * @public
+   * <p>The unique identifiers of policy types and resource names.</p>
+   */
+  resourceIdentifiers: LifecyclePolicyResourceIdentifier[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  /**
+   * index resource type
+   */
+  index: "index",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
+ * <p>Error information for an OpenSearch Serverless request.</p>
+ */
+export interface EffectiveLifecyclePolicyDetail {
+  /**
+   * @public
+   * <p>The type of lifecycle policy.</p>
+   */
+  type?: LifecyclePolicyType;
+
+  /**
+   * @public
+   * <p>The name of the OpenSearch Serverless index resource.</p>
+   */
+  resource?: string;
+
+  /**
+   * @public
+   * <p>The name of the lifecycle policy.</p>
+   */
+  policyName?: string;
+
+  /**
+   * @public
+   * <p>The type of OpenSearch Serverless resource. Currently, the only supported resource is <code>index</code>.</p>
+   */
+  resourceType?: ResourceType;
+
+  /**
+   * @public
+   * <p>The minimum number of index retention in days or hours. This is an optional parameter that will return only if it’s set.</p>
+   */
+  retentionPeriod?: string;
+
+  /**
+   * @public
+   * <p>The minimum number of index retention days set. That is an optional param that will return as <code>true</code> if the minimum number of days or
+   *             hours is not set to a index resource.</p>
+   */
+  noMinRetentionPeriod?: boolean;
+}
+
+/**
+ * @public
+ * <p>Error information for an OpenSearch Serverless request.</p>
+ */
+export interface EffectiveLifecyclePolicyErrorDetail {
+  /**
+   * @public
+   * <p>The type of lifecycle policy.</p>
+   */
+  type?: LifecyclePolicyType;
+
+  /**
+   * @public
+   * <p>The name of OpenSearch Serverless index resource.</p>
+   */
+  resource?: string;
+
+  /**
+   * @public
+   * <p>A description of the error. For example, <code>The specified Index resource is not found</code>.</p>
+   */
+  errorMessage?: string;
+
+  /**
+   * @public
+   * <p>The error code for the request.</p>
+   */
+  errorCode?: string;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetEffectiveLifecyclePolicyResponse {
+  /**
+   * @public
+   * <p>A list of lifecycle policies applied to the OpenSearch Serverless indexes.</p>
+   */
+  effectiveLifecyclePolicyDetails?: EffectiveLifecyclePolicyDetail[];
+
+  /**
+   * @public
+   * <p>A list of resources for which retrieval failed.</p>
+   */
+  effectiveLifecyclePolicyErrorDetails?: EffectiveLifecyclePolicyErrorDetail[];
+}
+
+/**
+ * @public
+ * <p>The unique identifiers of policy types and policy names.</p>
+ */
+export interface LifecyclePolicyIdentifier {
+  /**
+   * @public
+   * <p>The type of lifecycle policy.</p>
+   */
+  type: LifecyclePolicyType | undefined;
+
+  /**
+   * @public
+   * <p>The name of the lifecycle policy.</p>
+   */
+  name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetLifecyclePolicyRequest {
+  /**
+   * @public
+   * <p>The unique identifiers of policy types and policy names.</p>
+   */
+  identifiers: LifecyclePolicyIdentifier[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Details about an OpenSearch Serverless lifecycle policy.</p>
+ */
+export interface LifecyclePolicyDetail {
+  /**
+   * @public
+   * <p>The type of lifecycle policy.</p>
+   */
+  type?: LifecyclePolicyType;
+
+  /**
+   * @public
+   * <p>The name of the lifecycle policy.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>The version of the lifecycle policy.</p>
+   */
+  policyVersion?: string;
+
+  /**
+   * @public
+   * <p>The description of the lifecycle policy.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>The JSON policy document without any whitespaces.</p>
+   */
+  policy?: __DocumentType;
+
+  /**
+   * @public
+   * <p>The date the lifecycle policy was created.</p>
+   */
+  createdDate?: number;
+
+  /**
+   * @public
+   * <p>The timestamp of when the lifecycle policy was last modified.</p>
+   */
+  lastModifiedDate?: number;
+}
+
+/**
+ * @public
+ * <p>Error information for an OpenSearch Serverless request.</p>
+ */
+export interface LifecyclePolicyErrorDetail {
+  /**
+   * @public
+   * <p>The type of lifecycle policy.</p>
+   */
+  type?: LifecyclePolicyType;
+
+  /**
+   * @public
+   * <p>The name of the lifecycle policy.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>A description of the error. For example, <code>The specified Lifecycle Policy is not found</code>.</p>
+   */
+  errorMessage?: string;
+
+  /**
+   * @public
+   * <p>The error code for the request. For example, <code>NOT_FOUND</code>.</p>
+   */
+  errorCode?: string;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetLifecyclePolicyResponse {
+  /**
+   * @public
+   * <p>A list of lifecycle policies matched to the input policy name and policy type.</p>
+   */
+  lifecyclePolicyDetails?: LifecyclePolicyDetail[];
+
+  /**
+   * @public
+   * <p>A list of lifecycle policy names and policy types for which retrieval failed.</p>
+   */
+  lifecyclePolicyErrorDetails?: LifecyclePolicyErrorDetail[];
 }
 
 /**
@@ -771,7 +1073,7 @@ export interface VpcEndpointDetail {
    * @public
    * <p>The current status of the endpoint.</p>
    */
-  status?: VpcEndpointStatus | string;
+  status?: VpcEndpointStatus;
 
   /**
    * @public
@@ -853,7 +1155,7 @@ export interface CreateCollectionRequest {
    * @public
    * <p>The type of collection.</p>
    */
-  type?: CollectionType | string;
+  type?: CollectionType;
 
   /**
    * @public
@@ -866,6 +1168,12 @@ export interface CreateCollectionRequest {
    * <p>An arbitrary set of tags (key–value pairs) to associate with the OpenSearch Serverless collection.</p>
    */
   tags?: Tag[];
+
+  /**
+   * @public
+   * <p>Indicates whether standby replicas should be used for a collection.</p>
+   */
+  standbyReplicas?: StandbyReplicas;
 
   /**
    * @public
@@ -895,13 +1203,13 @@ export interface CreateCollectionDetail {
    * @public
    * <p>The current status of the collection.</p>
    */
-  status?: CollectionStatus | string;
+  status?: CollectionStatus;
 
   /**
    * @public
    * <p>The type of collection.</p>
    */
-  type?: CollectionType | string;
+  type?: CollectionType;
 
   /**
    * @public
@@ -920,6 +1228,12 @@ export interface CreateCollectionDetail {
    * <p>The Amazon Resource Name (ARN) of the KMS key with which to encrypt the collection.</p>
    */
   kmsKeyArn?: string;
+
+  /**
+   * @public
+   * <p>Creates details about an OpenSearch Serverless collection.</p>
+   */
+  standbyReplicas?: StandbyReplicas;
 
   /**
    * @public
@@ -1004,7 +1318,7 @@ export interface DeleteCollectionDetail {
    * @public
    * <p>The current status of the collection.</p>
    */
-  status?: CollectionStatus | string;
+  status?: CollectionStatus;
 }
 
 /**
@@ -1020,7 +1334,7 @@ export interface DeleteCollectionResponse {
 
 /**
  * @public
- * <p>List of filter keys that you can use for LIST, UPDATE, and DELETE requests to OpenSearch Serverless
+ * <p>A list of filter keys that you can use for LIST, UPDATE, and DELETE requests to OpenSearch Serverless
  *             collections.</p>
  */
 export interface CollectionFilters {
@@ -1034,7 +1348,7 @@ export interface CollectionFilters {
    * @public
    * <p>The current status of the collection.</p>
    */
-  status?: CollectionStatus | string;
+  status?: CollectionStatus;
 }
 
 /**
@@ -1043,7 +1357,7 @@ export interface CollectionFilters {
 export interface ListCollectionsRequest {
   /**
    * @public
-   * <p>List of filter names and values that you can use for requests.</p>
+   * <p> A list of filter names and values that you can use for requests.</p>
    */
   collectionFilters?: CollectionFilters;
 
@@ -1084,7 +1398,7 @@ export interface CollectionSummary {
    * @public
    * <p>The current status of the collection.</p>
    */
-  status?: CollectionStatus | string;
+  status?: CollectionStatus;
 
   /**
    * @public
@@ -1156,13 +1470,13 @@ export interface UpdateCollectionDetail {
    * @public
    * <p>The current status of the collection.</p>
    */
-  status?: CollectionStatus | string;
+  status?: CollectionStatus;
 
   /**
    * @public
    * <p>The collection type.</p>
    */
-  type?: CollectionType | string;
+  type?: CollectionType;
 
   /**
    * @public
@@ -1198,6 +1512,52 @@ export interface UpdateCollectionResponse {
    * <p>Details about the updated collection.</p>
    */
   updateCollectionDetail?: UpdateCollectionDetail;
+}
+
+/**
+ * @public
+ */
+export interface CreateLifecyclePolicyRequest {
+  /**
+   * @public
+   * <p>The type of lifecycle policy.</p>
+   */
+  type: LifecyclePolicyType | undefined;
+
+  /**
+   * @public
+   * <p>The name of the lifecycle policy.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>A description of the lifecycle policy.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>The JSON policy document to use as the content for the lifecycle policy.</p>
+   */
+  policy: string | undefined;
+
+  /**
+   * @public
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateLifecyclePolicyResponse {
+  /**
+   * @public
+   * <p>Details about the created lifecycle policy.</p>
+   */
+  lifecyclePolicyDetail?: LifecyclePolicyDetail;
 }
 
 /**
@@ -1255,7 +1615,7 @@ export interface CreateSecurityConfigRequest {
    * @public
    * <p>The type of security configuration.</p>
    */
-  type: SecurityConfigType | string | undefined;
+  type: SecurityConfigType | undefined;
 
   /**
    * @public
@@ -1298,7 +1658,7 @@ export interface SecurityConfigDetail {
    * @public
    * <p>The type of security configuration.</p>
    */
-  type?: SecurityConfigType | string;
+  type?: SecurityConfigType;
 
   /**
    * @public
@@ -1370,7 +1730,7 @@ export interface CreateSecurityPolicyRequest {
    * @public
    * <p>The type of security policy.</p>
    */
-  type: SecurityPolicyType | string | undefined;
+  type: SecurityPolicyType | undefined;
 
   /**
    * @public
@@ -1407,7 +1767,7 @@ export interface SecurityPolicyDetail {
    * @public
    * <p>The type of security policy.</p>
    */
-  type?: SecurityPolicyType | string;
+  type?: SecurityPolicyType;
 
   /**
    * @public
@@ -1515,7 +1875,7 @@ export interface CreateVpcEndpointDetail {
    * @public
    * <p>The current status in the endpoint creation process.</p>
    */
-  status?: VpcEndpointStatus | string;
+  status?: VpcEndpointStatus;
 }
 
 /**
@@ -1528,6 +1888,34 @@ export interface CreateVpcEndpointResponse {
    */
   createVpcEndpointDetail?: CreateVpcEndpointDetail;
 }
+
+/**
+ * @public
+ */
+export interface DeleteLifecyclePolicyRequest {
+  /**
+   * @public
+   * <p>The type of lifecycle policy.</p>
+   */
+  type: LifecyclePolicyType | undefined;
+
+  /**
+   * @public
+   * <p>The name of the policy to delete.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLifecyclePolicyResponse {}
 
 /**
  * @public
@@ -1561,7 +1949,7 @@ export interface DeleteSecurityPolicyRequest {
    * @public
    * <p>The type of policy.</p>
    */
-  type: SecurityPolicyType | string | undefined;
+  type: SecurityPolicyType | undefined;
 
   /**
    * @public
@@ -1619,7 +2007,7 @@ export interface DeleteVpcEndpointDetail {
    * @public
    * <p>The current status of the endpoint deletion process.</p>
    */
-  status?: VpcEndpointStatus | string;
+  status?: VpcEndpointStatus;
 }
 
 /**
@@ -1653,6 +2041,18 @@ export interface GetAccountSettingsResponse {
  * @public
  */
 export interface GetPoliciesStatsRequest {}
+
+/**
+ * @public
+ * <p>Statistics for an OpenSearch Serverless lifecycle policy.</p>
+ */
+export interface LifecyclePolicyStats {
+  /**
+   * @public
+   * <p>The number of retention lifecycle policies in the current account.</p>
+   */
+  RetentionPolicyCount?: number;
+}
 
 /**
  * @public
@@ -1708,6 +2108,12 @@ export interface GetPoliciesStatsResponse {
 
   /**
    * @public
+   * <p>Information about the lifecycle policies in your account.</p>
+   */
+  LifecyclePolicyStats?: LifecyclePolicyStats;
+
+  /**
+   * @public
    * <p>The total number of OpenSearch Serverless security policies and configurations in your
    *             account.</p>
    */
@@ -1744,7 +2150,7 @@ export interface GetSecurityPolicyRequest {
    * @public
    * <p>The type of security policy.</p>
    */
-  type: SecurityPolicyType | string | undefined;
+  type: SecurityPolicyType | undefined;
 
   /**
    * @public
@@ -1767,12 +2173,152 @@ export interface GetSecurityPolicyResponse {
 /**
  * @public
  */
+export interface ListLifecyclePoliciesRequest {
+  /**
+   * @public
+   * <p>The type of lifecycle policy.</p>
+   */
+  type: LifecyclePolicyType | undefined;
+
+  /**
+   * @public
+   * <p>Resource filters that policies can apply to. Currently, the only supported resource type is <code>index</code>.</p>
+   */
+  resources?: string[];
+
+  /**
+   * @public
+   * <p>If your initial <code>ListLifecyclePolicies</code> operation returns a <code>nextToken</code>, you can include the returned <code>nextToken</code> in subsequent <code>ListLifecyclePolicies</code> operations, which returns results in the next page.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>An optional parameter that specifies the maximum number of results to return. You can use use <code>nextToken</code> to get the next page of results. The default is 10.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ * <p>A summary of the lifecycle policy.</p>
+ */
+export interface LifecyclePolicySummary {
+  /**
+   * @public
+   * <p>The type of lifecycle policy.</p>
+   */
+  type?: LifecyclePolicyType;
+
+  /**
+   * @public
+   * <p>The name of the lifecycle policy.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>The version of the lifecycle policy.</p>
+   */
+  policyVersion?: string;
+
+  /**
+   * @public
+   * <p>The description of the lifecycle policy.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>The Epoch time when the lifecycle policy was created.</p>
+   */
+  createdDate?: number;
+
+  /**
+   * @public
+   * <p>The date and time when the lifecycle policy was last modified.</p>
+   */
+  lastModifiedDate?: number;
+}
+
+/**
+ * @public
+ */
+export interface ListLifecyclePoliciesResponse {
+  /**
+   * @public
+   * <p>Details about the requested lifecycle policies.</p>
+   */
+  lifecyclePolicySummaries?: LifecyclePolicySummary[];
+
+  /**
+   * @public
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLifecyclePolicyRequest {
+  /**
+   * @public
+   * <p> The type of lifecycle policy.</p>
+   */
+  type: LifecyclePolicyType | undefined;
+
+  /**
+   * @public
+   * <p>The name of the policy.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>The version of the policy being updated.</p>
+   */
+  policyVersion: string | undefined;
+
+  /**
+   * @public
+   * <p>A description of the lifecycle policy.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>The JSON policy document to use as the content for the lifecycle policy.</p>
+   */
+  policy?: string;
+
+  /**
+   * @public
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLifecyclePolicyResponse {
+  /**
+   * @public
+   * <p>Details about the updated lifecycle policy.</p>
+   */
+  lifecyclePolicyDetail?: LifecyclePolicyDetail;
+}
+
+/**
+ * @public
+ */
 export interface ListSecurityConfigsRequest {
   /**
    * @public
    * <p>The type of security configuration.</p>
    */
-  type: SecurityConfigType | string | undefined;
+  type: SecurityConfigType | undefined;
 
   /**
    * @public
@@ -1806,7 +2352,7 @@ export interface SecurityConfigSummary {
    * @public
    * <p>The type of security configuration.</p>
    */
-  type?: SecurityConfigType | string;
+  type?: SecurityConfigType;
 
   /**
    * @public
@@ -1860,7 +2406,7 @@ export interface ListSecurityPoliciesRequest {
    * @public
    * <p>The type of policy.</p>
    */
-  type: SecurityPolicyType | string | undefined;
+  type: SecurityPolicyType | undefined;
 
   /**
    * @public
@@ -1894,7 +2440,7 @@ export interface SecurityPolicySummary {
    * @public
    * <p>The type of security policy.</p>
    */
-  type?: SecurityPolicyType | string;
+  type?: SecurityPolicyType;
 
   /**
    * @public
@@ -1979,7 +2525,7 @@ export interface VpcEndpointFilters {
    * @public
    * <p>The current status of the endpoint.</p>
    */
-  status?: VpcEndpointStatus | string;
+  status?: VpcEndpointStatus;
 }
 
 /**
@@ -2032,7 +2578,7 @@ export interface VpcEndpointSummary {
    * @public
    * <p>The current status of the endpoint.</p>
    */
-  status?: VpcEndpointStatus | string;
+  status?: VpcEndpointStatus;
 }
 
 /**
@@ -2112,7 +2658,7 @@ export interface UpdateSecurityPolicyRequest {
    * @public
    * <p>The type of access policy.</p>
    */
-  type: SecurityPolicyType | string | undefined;
+  type: SecurityPolicyType | undefined;
 
   /**
    * @public
@@ -2296,7 +2842,7 @@ export interface UpdateVpcEndpointDetail {
    * @public
    * <p>The current status of the endpoint update process.</p>
    */
-  status?: VpcEndpointStatus | string;
+  status?: VpcEndpointStatus;
 
   /**
    * @public

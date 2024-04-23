@@ -74,8 +74,12 @@
 export * from "./Cloud9Client";
 export * from "./Cloud9";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { Cloud9ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { Cloud9ServiceException } from "./models/Cloud9ServiceException";

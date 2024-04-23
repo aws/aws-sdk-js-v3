@@ -2,7 +2,96 @@
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
 import { ComprehendServiceException as __BaseException } from "./ComprehendServiceException";
+
 import { FlywheelProperties, JobStatus, Tag, VpcConfig } from "./models_0";
+
+/**
+ * @public
+ */
+export interface StopEntitiesDetectionJobRequest {
+  /**
+   * @public
+   * <p>The identifier of the entities detection job to stop.</p>
+   */
+  JobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopEntitiesDetectionJobResponse {
+  /**
+   * @public
+   * <p>The identifier of the entities detection job to stop.</p>
+   */
+  JobId?: string;
+
+  /**
+   * @public
+   * <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or
+   *         <code>STOPPED</code> if the job was previously stopped with the
+   *         <code>StopEntitiesDetectionJob</code> operation.</p>
+   */
+  JobStatus?: JobStatus;
+}
+
+/**
+ * @public
+ */
+export interface StopEventsDetectionJobRequest {
+  /**
+   * @public
+   * <p>The identifier of the events detection job to stop.</p>
+   */
+  JobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopEventsDetectionJobResponse {
+  /**
+   * @public
+   * <p>The identifier of the events detection job to stop.</p>
+   */
+  JobId?: string;
+
+  /**
+   * @public
+   * <p>The status of the events detection job.</p>
+   */
+  JobStatus?: JobStatus;
+}
+
+/**
+ * @public
+ */
+export interface StopKeyPhrasesDetectionJobRequest {
+  /**
+   * @public
+   * <p>The identifier of the key phrases detection job to stop.</p>
+   */
+  JobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopKeyPhrasesDetectionJobResponse {
+  /**
+   * @public
+   * <p>The identifier of the key phrases detection job to stop.</p>
+   */
+  JobId?: string;
+
+  /**
+   * @public
+   * <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or
+   *         <code>STOPPED</code> if the job was previously stopped with the
+   *         <code>StopKeyPhrasesDetectionJob</code> operation.</p>
+   */
+  JobStatus?: JobStatus;
+}
 
 /**
  * @public
@@ -29,7 +118,7 @@ export interface StopPiiEntitiesDetectionJobResponse {
    * @public
    * <p>The status of the PII entities detection job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 }
 
 /**
@@ -59,7 +148,7 @@ export interface StopSentimentDetectionJobResponse {
    *         <code>STOPPED</code> if the job was previously stopped with the
    *         <code>StopSentimentDetectionJob</code> operation.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 }
 
 /**
@@ -89,7 +178,7 @@ export interface StopTargetedSentimentDetectionJobResponse {
    *       <code>STOPPED</code> if the job was previously stopped with the
    *       <code>StopSentimentDetectionJob</code> operation.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 }
 
 /**

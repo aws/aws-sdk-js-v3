@@ -35,6 +35,10 @@ import {
 } from "../commands/AllowCustomRoutingTrafficCommand";
 import { CreateAcceleratorCommandInput, CreateAcceleratorCommandOutput } from "../commands/CreateAcceleratorCommand";
 import {
+  CreateCrossAccountAttachmentCommandInput,
+  CreateCrossAccountAttachmentCommandOutput,
+} from "../commands/CreateCrossAccountAttachmentCommand";
+import {
   CreateCustomRoutingAcceleratorCommandInput,
   CreateCustomRoutingAcceleratorCommandOutput,
 } from "../commands/CreateCustomRoutingAcceleratorCommand";
@@ -52,6 +56,10 @@ import {
 } from "../commands/CreateEndpointGroupCommand";
 import { CreateListenerCommandInput, CreateListenerCommandOutput } from "../commands/CreateListenerCommand";
 import { DeleteAcceleratorCommandInput, DeleteAcceleratorCommandOutput } from "../commands/DeleteAcceleratorCommand";
+import {
+  DeleteCrossAccountAttachmentCommandInput,
+  DeleteCrossAccountAttachmentCommandOutput,
+} from "../commands/DeleteCrossAccountAttachmentCommand";
 import {
   DeleteCustomRoutingAcceleratorCommandInput,
   DeleteCustomRoutingAcceleratorCommandOutput,
@@ -86,6 +94,10 @@ import {
   DescribeAcceleratorCommandOutput,
 } from "../commands/DescribeAcceleratorCommand";
 import {
+  DescribeCrossAccountAttachmentCommandInput,
+  DescribeCrossAccountAttachmentCommandOutput,
+} from "../commands/DescribeCrossAccountAttachmentCommand";
+import {
   DescribeCustomRoutingAcceleratorAttributesCommandInput,
   DescribeCustomRoutingAcceleratorAttributesCommandOutput,
 } from "../commands/DescribeCustomRoutingAcceleratorAttributesCommand";
@@ -108,6 +120,18 @@ import {
 import { DescribeListenerCommandInput, DescribeListenerCommandOutput } from "../commands/DescribeListenerCommand";
 import { ListAcceleratorsCommandInput, ListAcceleratorsCommandOutput } from "../commands/ListAcceleratorsCommand";
 import { ListByoipCidrsCommandInput, ListByoipCidrsCommandOutput } from "../commands/ListByoipCidrsCommand";
+import {
+  ListCrossAccountAttachmentsCommandInput,
+  ListCrossAccountAttachmentsCommandOutput,
+} from "../commands/ListCrossAccountAttachmentsCommand";
+import {
+  ListCrossAccountResourceAccountsCommandInput,
+  ListCrossAccountResourceAccountsCommandOutput,
+} from "../commands/ListCrossAccountResourceAccountsCommand";
+import {
+  ListCrossAccountResourcesCommandInput,
+  ListCrossAccountResourcesCommandOutput,
+} from "../commands/ListCrossAccountResourcesCommand";
 import {
   ListCustomRoutingAcceleratorsCommandInput,
   ListCustomRoutingAcceleratorsCommandOutput,
@@ -148,6 +172,10 @@ import {
 } from "../commands/UpdateAcceleratorAttributesCommand";
 import { UpdateAcceleratorCommandInput, UpdateAcceleratorCommandOutput } from "../commands/UpdateAcceleratorCommand";
 import {
+  UpdateCrossAccountAttachmentCommandInput,
+  UpdateCrossAccountAttachmentCommandOutput,
+} from "../commands/UpdateCrossAccountAttachmentCommand";
+import {
   UpdateCustomRoutingAcceleratorAttributesCommandInput,
   UpdateCustomRoutingAcceleratorAttributesCommandOutput,
 } from "../commands/UpdateCustomRoutingAcceleratorAttributesCommand";
@@ -179,6 +207,8 @@ import {
   AllowCustomRoutingTrafficRequest,
   AssociatedEndpointGroupFoundException,
   AssociatedListenerFoundException,
+  Attachment,
+  AttachmentNotFoundException,
   ByoipCidr,
   ByoipCidrEvent,
   ByoipCidrNotFoundException,
@@ -186,6 +216,8 @@ import {
   ConflictException,
   CreateAcceleratorRequest,
   CreateAcceleratorResponse,
+  CreateCrossAccountAttachmentRequest,
+  CreateCrossAccountAttachmentResponse,
   CreateCustomRoutingAcceleratorRequest,
   CreateCustomRoutingAcceleratorResponse,
   CreateCustomRoutingEndpointGroupRequest,
@@ -198,6 +230,7 @@ import {
   CustomRoutingEndpointConfiguration,
   CustomRoutingProtocol,
   DeleteAcceleratorRequest,
+  DeleteCrossAccountAttachmentRequest,
   DeleteCustomRoutingAcceleratorRequest,
   DeleteCustomRoutingEndpointGroupRequest,
   DeleteCustomRoutingListenerRequest,
@@ -209,6 +242,8 @@ import {
   DescribeAcceleratorAttributesRequest,
   DescribeAcceleratorRequest,
   DescribeAcceleratorResponse,
+  DescribeCrossAccountAttachmentRequest,
+  DescribeCrossAccountAttachmentResponse,
   DescribeCustomRoutingAcceleratorAttributesRequest,
   DescribeCustomRoutingAcceleratorRequest,
   DescribeCustomRoutingAcceleratorResponse,
@@ -234,6 +269,10 @@ import {
   ListAcceleratorsResponse,
   ListByoipCidrsRequest,
   ListByoipCidrsResponse,
+  ListCrossAccountAttachmentsRequest,
+  ListCrossAccountAttachmentsResponse,
+  ListCrossAccountResourceAccountsRequest,
+  ListCrossAccountResourcesRequest,
   ListCustomRoutingAcceleratorsRequest,
   ListCustomRoutingAcceleratorsResponse,
   ListCustomRoutingEndpointGroupsRequest,
@@ -251,6 +290,7 @@ import {
   ProvisionByoipCidrResponse,
   RemoveCustomRoutingEndpointsRequest,
   RemoveEndpointsRequest,
+  Resource,
   Tag,
   TagResourceRequest,
   TransactionInProgressException,
@@ -258,6 +298,8 @@ import {
   UpdateAcceleratorAttributesRequest,
   UpdateAcceleratorRequest,
   UpdateAcceleratorResponse,
+  UpdateCrossAccountAttachmentRequest,
+  UpdateCrossAccountAttachmentResponse,
   UpdateCustomRoutingAcceleratorAttributesRequest,
   UpdateCustomRoutingAcceleratorRequest,
   UpdateCustomRoutingAcceleratorResponse,
@@ -335,6 +377,19 @@ export const se_CreateAcceleratorCommand = async (
 };
 
 /**
+ * serializeAws_json1_1CreateCrossAccountAttachmentCommand
+ */
+export const se_CreateCrossAccountAttachmentCommand = async (
+  input: CreateCrossAccountAttachmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateCrossAccountAttachment");
+  let body: any;
+  body = JSON.stringify(se_CreateCrossAccountAttachmentRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1CreateCustomRoutingAcceleratorCommand
  */
 export const se_CreateCustomRoutingAcceleratorCommand = async (
@@ -407,6 +462,19 @@ export const se_DeleteAcceleratorCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteAccelerator");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteCrossAccountAttachmentCommand
+ */
+export const se_DeleteCrossAccountAttachmentCommand = async (
+  input: DeleteCrossAccountAttachmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteCrossAccountAttachment");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -530,6 +598,19 @@ export const se_DescribeAcceleratorAttributesCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DescribeCrossAccountAttachmentCommand
+ */
+export const se_DescribeCrossAccountAttachmentCommand = async (
+  input: DescribeCrossAccountAttachmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeCrossAccountAttachment");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DescribeCustomRoutingAcceleratorCommand
  */
 export const se_DescribeCustomRoutingAcceleratorCommand = async (
@@ -628,6 +709,45 @@ export const se_ListByoipCidrsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListByoipCidrs");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListCrossAccountAttachmentsCommand
+ */
+export const se_ListCrossAccountAttachmentsCommand = async (
+  input: ListCrossAccountAttachmentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListCrossAccountAttachments");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListCrossAccountResourceAccountsCommand
+ */
+export const se_ListCrossAccountResourceAccountsCommand = async (
+  input: ListCrossAccountResourceAccountsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListCrossAccountResourceAccounts");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListCrossAccountResourcesCommand
+ */
+export const se_ListCrossAccountResourcesCommand = async (
+  input: ListCrossAccountResourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListCrossAccountResources");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -823,6 +943,19 @@ export const se_UpdateAcceleratorAttributesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateAcceleratorAttributes");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateCrossAccountAttachmentCommand
+ */
+export const se_UpdateCrossAccountAttachmentCommand = async (
+  input: UpdateCrossAccountAttachmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateCrossAccountAttachment");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1191,6 +1324,64 @@ const de_CreateAcceleratorCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1CreateCrossAccountAttachmentCommand
+ */
+export const de_CreateCrossAccountAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCrossAccountAttachmentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CreateCrossAccountAttachmentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_CreateCrossAccountAttachmentResponse(data, context);
+  const response: CreateCrossAccountAttachmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateCrossAccountAttachmentCommandError
+ */
+const de_CreateCrossAccountAttachmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCrossAccountAttachmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.globalaccelerator#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.globalaccelerator#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "TransactionInProgressException":
+    case "com.amazonaws.globalaccelerator#TransactionInProgressException":
+      throw await de_TransactionInProgressExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1CreateCustomRoutingAcceleratorCommand
  */
 export const de_CreateCustomRoutingAcceleratorCommand = async (
@@ -1537,6 +1728,61 @@ const de_DeleteAcceleratorCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.globalaccelerator#InvalidArgumentException":
       throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DeleteCrossAccountAttachmentCommand
+ */
+export const de_DeleteCrossAccountAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCrossAccountAttachmentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DeleteCrossAccountAttachmentCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteCrossAccountAttachmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteCrossAccountAttachmentCommandError
+ */
+const de_DeleteCrossAccountAttachmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCrossAccountAttachmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.globalaccelerator#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "AttachmentNotFoundException":
+    case "com.amazonaws.globalaccelerator#AttachmentNotFoundException":
+      throw await de_AttachmentNotFoundExceptionRes(parsedOutput, context);
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "TransactionInProgressException":
+    case "com.amazonaws.globalaccelerator#TransactionInProgressException":
+      throw await de_TransactionInProgressExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2016,6 +2262,61 @@ const de_DescribeAcceleratorAttributesCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1DescribeCrossAccountAttachmentCommand
+ */
+export const de_DescribeCrossAccountAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCrossAccountAttachmentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DescribeCrossAccountAttachmentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeCrossAccountAttachmentResponse(data, context);
+  const response: DescribeCrossAccountAttachmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeCrossAccountAttachmentCommandError
+ */
+const de_DescribeCrossAccountAttachmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCrossAccountAttachmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.globalaccelerator#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "AttachmentNotFoundException":
+    case "com.amazonaws.globalaccelerator#AttachmentNotFoundException":
+      throw await de_AttachmentNotFoundExceptionRes(parsedOutput, context);
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1DescribeCustomRoutingAcceleratorCommand
  */
 export const de_DescribeCustomRoutingAcceleratorCommand = async (
@@ -2412,6 +2713,168 @@ const de_ListByoipCidrsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.globalaccelerator#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.globalaccelerator#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListCrossAccountAttachmentsCommand
+ */
+export const de_ListCrossAccountAttachmentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCrossAccountAttachmentsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListCrossAccountAttachmentsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListCrossAccountAttachmentsResponse(data, context);
+  const response: ListCrossAccountAttachmentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListCrossAccountAttachmentsCommandError
+ */
+const de_ListCrossAccountAttachmentsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCrossAccountAttachmentsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.globalaccelerator#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.globalaccelerator#InvalidNextTokenException":
+      throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListCrossAccountResourceAccountsCommand
+ */
+export const de_ListCrossAccountResourceAccountsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCrossAccountResourceAccountsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListCrossAccountResourceAccountsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListCrossAccountResourceAccountsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListCrossAccountResourceAccountsCommandError
+ */
+const de_ListCrossAccountResourceAccountsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCrossAccountResourceAccountsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.globalaccelerator#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1ListCrossAccountResourcesCommand
+ */
+export const de_ListCrossAccountResourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCrossAccountResourcesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListCrossAccountResourcesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListCrossAccountResourcesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListCrossAccountResourcesCommandError
+ */
+const de_ListCrossAccountResourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCrossAccountResourcesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AcceleratorNotFoundException":
+    case "com.amazonaws.globalaccelerator#AcceleratorNotFoundException":
+      throw await de_AcceleratorNotFoundExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.globalaccelerator#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
@@ -3257,6 +3720,67 @@ const de_UpdateAcceleratorAttributesCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateCrossAccountAttachmentCommand
+ */
+export const de_UpdateCrossAccountAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCrossAccountAttachmentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateCrossAccountAttachmentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateCrossAccountAttachmentResponse(data, context);
+  const response: UpdateCrossAccountAttachmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UpdateCrossAccountAttachmentCommandError
+ */
+const de_UpdateCrossAccountAttachmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCrossAccountAttachmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.globalaccelerator#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "AttachmentNotFoundException":
+    case "com.amazonaws.globalaccelerator#AttachmentNotFoundException":
+      throw await de_AttachmentNotFoundExceptionRes(parsedOutput, context);
+    case "InternalServiceErrorException":
+    case "com.amazonaws.globalaccelerator#InternalServiceErrorException":
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.globalaccelerator#InvalidArgumentException":
+      throw await de_InvalidArgumentExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.globalaccelerator#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "TransactionInProgressException":
+    case "com.amazonaws.globalaccelerator#TransactionInProgressException":
+      throw await de_TransactionInProgressExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_1UpdateCustomRoutingAcceleratorCommand
  */
 export const de_UpdateCustomRoutingAcceleratorCommand = async (
@@ -3676,6 +4200,22 @@ const de_AssociatedListenerFoundExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1AttachmentNotFoundExceptionRes
+ */
+const de_AttachmentNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AttachmentNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new AttachmentNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1ByoipCidrNotFoundExceptionRes
  */
 const de_ByoipCidrNotFoundExceptionRes = async (
@@ -3921,6 +4461,22 @@ const se_CreateAcceleratorRequest = (input: CreateAcceleratorRequest, context: _
 };
 
 /**
+ * serializeAws_json1_1CreateCrossAccountAttachmentRequest
+ */
+const se_CreateCrossAccountAttachmentRequest = (
+  input: CreateCrossAccountAttachmentRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    IdempotencyToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    Name: [],
+    Principals: _json,
+    Resources: _json,
+    Tags: _json,
+  });
+};
+
+/**
  * serializeAws_json1_1CreateCustomRoutingAcceleratorRequest
  */
 const se_CreateCustomRoutingAcceleratorRequest = (
@@ -4010,6 +4566,8 @@ const se_CreateListenerRequest = (input: CreateListenerRequest, context: __Serde
 
 // se_DeleteAcceleratorRequest omitted.
 
+// se_DeleteCrossAccountAttachmentRequest omitted.
+
 // se_DeleteCustomRoutingAcceleratorRequest omitted.
 
 // se_DeleteCustomRoutingEndpointGroupRequest omitted.
@@ -4027,6 +4585,8 @@ const se_CreateListenerRequest = (input: CreateListenerRequest, context: __Serde
 // se_DescribeAcceleratorAttributesRequest omitted.
 
 // se_DescribeAcceleratorRequest omitted.
+
+// se_DescribeCrossAccountAttachmentRequest omitted.
 
 // se_DescribeCustomRoutingAcceleratorAttributesRequest omitted.
 
@@ -4060,6 +4620,12 @@ const se_CreateListenerRequest = (input: CreateListenerRequest, context: __Serde
 
 // se_ListByoipCidrsRequest omitted.
 
+// se_ListCrossAccountAttachmentsRequest omitted.
+
+// se_ListCrossAccountResourceAccountsRequest omitted.
+
+// se_ListCrossAccountResourcesRequest omitted.
+
 // se_ListCustomRoutingAcceleratorsRequest omitted.
 
 // se_ListCustomRoutingEndpointGroupsRequest omitted.
@@ -4084,11 +4650,17 @@ const se_CreateListenerRequest = (input: CreateListenerRequest, context: __Serde
 
 // se_PortRanges omitted.
 
+// se_Principals omitted.
+
 // se_ProvisionByoipCidrRequest omitted.
 
 // se_RemoveCustomRoutingEndpointsRequest omitted.
 
 // se_RemoveEndpointsRequest omitted.
+
+// se_Resource omitted.
+
+// se_Resources omitted.
 
 // se_Tag omitted.
 
@@ -4103,6 +4675,8 @@ const se_CreateListenerRequest = (input: CreateListenerRequest, context: __Serde
 // se_UpdateAcceleratorAttributesRequest omitted.
 
 // se_UpdateAcceleratorRequest omitted.
+
+// se_UpdateCrossAccountAttachmentRequest omitted.
 
 // se_UpdateCustomRoutingAcceleratorAttributesRequest omitted.
 
@@ -4210,6 +4784,36 @@ const de_AdvertiseByoipCidrResponse = (output: any, context: __SerdeContext): Ad
 // de_AssociatedListenerFoundException omitted.
 
 /**
+ * deserializeAws_json1_1Attachment
+ */
+const de_Attachment = (output: any, context: __SerdeContext): Attachment => {
+  return take(output, {
+    AttachmentArn: __expectString,
+    CreatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Principals: _json,
+    Resources: _json,
+  }) as any;
+};
+
+// de_AttachmentNotFoundException omitted.
+
+/**
+ * deserializeAws_json1_1Attachments
+ */
+const de_Attachments = (output: any, context: __SerdeContext): Attachment[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Attachment(entry, context);
+    });
+  return retVal;
+};
+
+// de_AwsAccountIds omitted.
+
+/**
  * deserializeAws_json1_1ByoipCidr
  */
 const de_ByoipCidr = (output: any, context: __SerdeContext): ByoipCidr => {
@@ -4268,6 +4872,18 @@ const de_CreateAcceleratorResponse = (output: any, context: __SerdeContext): Cre
 };
 
 /**
+ * deserializeAws_json1_1CreateCrossAccountAttachmentResponse
+ */
+const de_CreateCrossAccountAttachmentResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateCrossAccountAttachmentResponse => {
+  return take(output, {
+    CrossAccountAttachment: (_: any) => de_Attachment(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1CreateCustomRoutingAcceleratorResponse
  */
 const de_CreateCustomRoutingAcceleratorResponse = (
@@ -4293,6 +4909,10 @@ const de_CreateEndpointGroupResponse = (output: any, context: __SerdeContext): C
 };
 
 // de_CreateListenerResponse omitted.
+
+// de_CrossAccountResource omitted.
+
+// de_CrossAccountResources omitted.
 
 /**
  * deserializeAws_json1_1CustomRoutingAccelerator
@@ -4360,6 +4980,18 @@ const de_DeprovisionByoipCidrResponse = (output: any, context: __SerdeContext): 
 const de_DescribeAcceleratorResponse = (output: any, context: __SerdeContext): DescribeAcceleratorResponse => {
   return take(output, {
     Accelerator: (_: any) => de_Accelerator(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DescribeCrossAccountAttachmentResponse
+ */
+const de_DescribeCrossAccountAttachmentResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeCrossAccountAttachmentResponse => {
+  return take(output, {
+    CrossAccountAttachment: (_: any) => de_Attachment(_, context),
   }) as any;
 };
 
@@ -4477,6 +5109,23 @@ const de_ListByoipCidrsResponse = (output: any, context: __SerdeContext): ListBy
 };
 
 /**
+ * deserializeAws_json1_1ListCrossAccountAttachmentsResponse
+ */
+const de_ListCrossAccountAttachmentsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListCrossAccountAttachmentsResponse => {
+  return take(output, {
+    CrossAccountAttachments: (_: any) => de_Attachments(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+// de_ListCrossAccountResourceAccountsResponse omitted.
+
+// de_ListCrossAccountResourcesResponse omitted.
+
+/**
  * deserializeAws_json1_1ListCustomRoutingAcceleratorsResponse
  */
 const de_ListCustomRoutingAcceleratorsResponse = (
@@ -4529,6 +5178,8 @@ const de_ListEndpointGroupsResponse = (output: any, context: __SerdeContext): Li
 
 // de_PortRanges omitted.
 
+// de_Principals omitted.
+
 // de_Protocols omitted.
 
 /**
@@ -4539,6 +5190,10 @@ const de_ProvisionByoipCidrResponse = (output: any, context: __SerdeContext): Pr
     ByoipCidr: (_: any) => de_ByoipCidr(_, context),
   }) as any;
 };
+
+// de_Resource omitted.
+
+// de_Resources omitted.
 
 // de_SocketAddress omitted.
 
@@ -4562,6 +5217,18 @@ const de_ProvisionByoipCidrResponse = (output: any, context: __SerdeContext): Pr
 const de_UpdateAcceleratorResponse = (output: any, context: __SerdeContext): UpdateAcceleratorResponse => {
   return take(output, {
     Accelerator: (_: any) => de_Accelerator(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1UpdateCrossAccountAttachmentResponse
+ */
+const de_UpdateCrossAccountAttachmentResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateCrossAccountAttachmentResponse => {
+  return take(output, {
+    CrossAccountAttachment: (_: any) => de_Attachment(_, context),
   }) as any;
 };
 

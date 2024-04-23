@@ -2,14 +2,17 @@
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { CognitoIdentityProviderServiceException as __BaseException } from "./CognitoIdentityProviderServiceException";
+
 import {
   AccountRecoverySettingType,
+  AccountTakeoverRiskConfigurationType,
   AdminCreateUserConfigType,
   AnalyticsConfigurationType,
   AnalyticsMetadataType,
   AttributeType,
   AttributeTypeFilterSensitiveLog,
   CodeDeliveryDetailsType,
+  CompromisedCredentialsRiskConfigurationType,
   CustomDomainConfigType,
   DeletionProtectionType,
   DeviceConfigurationType,
@@ -20,6 +23,7 @@ import {
   GroupType,
   IdentityProviderType,
   LambdaConfigType,
+  LogDeliveryConfigurationType,
   MFAOptionType,
   OAuthFlowType,
   PreventUserExistenceErrorTypes,
@@ -27,6 +31,7 @@ import {
   ResourceServerType,
   RiskConfigurationType,
   RiskConfigurationTypeFilterSensitiveLog,
+  RiskExceptionConfigurationType,
   SmsConfigurationType,
   SmsMfaConfigType,
   SMSMfaSettingsType,
@@ -46,6 +51,58 @@ import {
   VerificationMessageTemplateType,
   VerifiedAttributeType,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface SetLogDeliveryConfigurationResponse {
+  /**
+   * @public
+   * <p>The detailed activity logging configuration that you applied to the requested user
+   *             pool.</p>
+   */
+  LogDeliveryConfiguration?: LogDeliveryConfigurationType;
+}
+
+/**
+ * @public
+ */
+export interface SetRiskConfigurationRequest {
+  /**
+   * @public
+   * <p>The user pool ID. </p>
+   */
+  UserPoolId: string | undefined;
+
+  /**
+   * @public
+   * <p>The app client ID. If <code>ClientId</code> is null, then the risk configuration is
+   *             mapped to <code>userPoolId</code>. When the client ID is null, the same risk
+   *             configuration is applied to all the clients in the userPool.</p>
+   *          <p>Otherwise, <code>ClientId</code> is mapped to the client. When the client ID isn't
+   *             null, the user pool configuration is overridden and the risk configuration for the
+   *             client is used instead.</p>
+   */
+  ClientId?: string;
+
+  /**
+   * @public
+   * <p>The compromised credentials risk configuration.</p>
+   */
+  CompromisedCredentialsRiskConfiguration?: CompromisedCredentialsRiskConfigurationType;
+
+  /**
+   * @public
+   * <p>The account takeover risk configuration.</p>
+   */
+  AccountTakeoverRiskConfiguration?: AccountTakeoverRiskConfigurationType;
+
+  /**
+   * @public
+   * <p>The configuration to override the risk decision.</p>
+   */
+  RiskExceptionConfiguration?: RiskExceptionConfigurationType;
+}
 
 /**
  * @public
@@ -170,7 +227,7 @@ export interface SetUserPoolMfaConfigRequest {
    *             </li>
    *          </ul>
    */
-  MfaConfiguration?: UserPoolMfaType | string;
+  MfaConfiguration?: UserPoolMfaType;
 }
 
 /**
@@ -208,7 +265,7 @@ export interface SetUserPoolMfaConfigResponse {
    *             </li>
    *          </ul>
    */
-  MfaConfiguration?: UserPoolMfaType | string;
+  MfaConfiguration?: UserPoolMfaType;
 }
 
 /**
@@ -257,7 +314,8 @@ export interface SignUpRequest {
 
   /**
    * @public
-   * <p>The user name of the user you want to register.</p>
+   * <p>The username of the user that you want to sign up. The value of this parameter is
+   *             typically a username, but can be any alias attribute in your user pool.</p>
    */
   Username: string | undefined;
 
@@ -277,7 +335,15 @@ export interface SignUpRequest {
 
   /**
    * @public
-   * <p>The validation data in the request to register a user.</p>
+   * <p>Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda
+   *             trigger. This set of key-value pairs are for custom validation of information that you
+   *             collect from your users but don't need to retain.</p>
+   *          <p>Your Lambda function can analyze this additional data and act on it. Your function
+   *             might perform external API operations like logging user attributes and validation data
+   *             to Amazon CloudWatch Logs. Validation data might also affect the response that your function returns
+   *             to Amazon Cognito, like automatically confirming the user if they sign up from within your
+   *             network.</p>
+   *          <p>For more information about the pre sign-up Lambda trigger, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html">Pre sign-up Lambda trigger</a>.</p>
    */
   ValidationData?: AttributeType[];
 
@@ -479,7 +545,9 @@ export interface UpdateAuthEventFeedbackRequest {
 
   /**
    * @public
-   * <p>The user pool username.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
+   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
+   * your user pool, you can also use their <code>sub</code> in this request.</p>
    */
   Username: string | undefined;
 
@@ -503,7 +571,7 @@ export interface UpdateAuthEventFeedbackRequest {
    *             <code>invalid</code>, you tell Amazon Cognito that you don't trust a user session, or you
    *             don't believe that Amazon Cognito evaluated a high-enough risk level.</p>
    */
-  FeedbackValue: FeedbackValueType | string | undefined;
+  FeedbackValue: FeedbackValueType | undefined;
 }
 
 /**
@@ -533,7 +601,7 @@ export interface UpdateDeviceStatusRequest {
    * @public
    * <p>The status of whether a device is remembered.</p>
    */
-  DeviceRememberedStatus?: DeviceRememberedStatusType | string;
+  DeviceRememberedStatus?: DeviceRememberedStatusType;
 }
 
 /**
@@ -781,7 +849,7 @@ export interface UpdateUserPoolRequest {
    *         send a new <code>DeleteUserPool</code> request after you deactivate deletion protection in an
    *         <code>UpdateUserPool</code> API request.</p>
    */
-  DeletionProtection?: DeletionProtectionType | string;
+  DeletionProtection?: DeletionProtectionType;
 
   /**
    * @public
@@ -794,7 +862,7 @@ export interface UpdateUserPoolRequest {
    * <p>The attributes that are automatically verified when Amazon Cognito requests to update user
    *             pools.</p>
    */
-  AutoVerifiedAttributes?: (VerifiedAttributeType | string)[];
+  AutoVerifiedAttributes?: VerifiedAttributeType[];
 
   /**
    * @public
@@ -858,7 +926,7 @@ export interface UpdateUserPoolRequest {
    *             </li>
    *          </ul>
    */
-  MfaConfiguration?: UserPoolMfaType | string;
+  MfaConfiguration?: UserPoolMfaType;
 
   /**
    * @public
@@ -1015,13 +1083,42 @@ export interface UpdateUserPoolClientRequest {
 
   /**
    * @public
-   * <p>The read-only attributes of the user pool.</p>
+   * <p>The list of user attributes that you want your app client to have read-only access to.
+   *             After your user authenticates in your app, their access token authorizes them to read
+   *             their own attribute value for any attribute in this list. An example of this kind of
+   *             activity is when your user selects a link to view their profile information. Your app
+   *             makes a <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetUser.html">GetUser</a> API request to retrieve and display your user's profile
+   *             data.</p>
+   *          <p>When you don't specify the <code>ReadAttributes</code> for your app client, your
+   *             app can read the values of <code>email_verified</code>,
+   *                 <code>phone_number_verified</code>, and the Standard attributes of your user pool.
+   *             When your user pool has read access to these default attributes,
+   *                 <code>ReadAttributes</code> doesn't return any information. Amazon Cognito only
+   *             populates <code>ReadAttributes</code> in the API response if you have specified your own
+   *             custom set of read attributes.</p>
    */
   ReadAttributes?: string[];
 
   /**
    * @public
-   * <p>The writeable attributes of the user pool.</p>
+   * <p>The list of user attributes that you want your app client to have write access to.
+   *             After your user authenticates in your app, their access token authorizes them to set or
+   *             modify their own attribute value for any attribute in this list. An example of this kind
+   *             of activity is when you present your user with a form to update their profile
+   *             information and they change their last name. Your app then makes an <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserAttributes.html">UpdateUserAttributes</a> API request and sets <code>family_name</code> to the
+   *             new value. </p>
+   *          <p>When you don't specify the <code>WriteAttributes</code> for your app client, your
+   *             app can write the values of the Standard attributes of your user pool. When your user
+   *             pool has write access to these default attributes, <code>WriteAttributes</code>
+   *             doesn't return any information. Amazon Cognito only populates
+   *                 <code>WriteAttributes</code> in the API response if you have specified your own
+   *             custom set of write attributes.</p>
+   *          <p>If your app client allows users to sign in through an IdP, this array must include all
+   *             attributes that you have mapped to IdP attributes. Amazon Cognito updates mapped attributes when
+   *             users sign in to your application through an IdP. If your app client does not have write
+   *             access to a mapped attribute, Amazon Cognito throws an error when it tries to update the
+   *             attribute. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-specifying-attribute-mapping.html">Specifying IdP Attribute Mappings for Your user
+   *             pool</a>.</p>
    */
   WriteAttributes?: string[];
 
@@ -1068,7 +1165,7 @@ export interface UpdateUserPoolClientRequest {
    * You can't assign these legacy <code>ExplicitAuthFlows</code> values to user pool clients at the same time as values that begin with <code>ALLOW_</code>,
    * like <code>ALLOW_USER_SRP_AUTH</code>.</p>
    */
-  ExplicitAuthFlows?: (ExplicitAuthFlowsType | string)[];
+  ExplicitAuthFlows?: ExplicitAuthFlowsType[];
 
   /**
    * @public
@@ -1154,7 +1251,7 @@ export interface UpdateUserPoolClientRequest {
    *             </dd>
    *          </dl>
    */
-  AllowedOAuthFlows?: (OAuthFlowType | string)[];
+  AllowedOAuthFlows?: OAuthFlowType[];
 
   /**
    * @public
@@ -1232,7 +1329,7 @@ export interface UpdateUserPoolClientRequest {
    *             </li>
    *          </ul>
    */
-  PreventUserExistenceErrors?: PreventUserExistenceErrorTypes | string;
+  PreventUserExistenceErrors?: PreventUserExistenceErrorTypes;
 
   /**
    * @public
@@ -1392,7 +1489,7 @@ export interface VerifySoftwareTokenResponse {
    * @public
    * <p>The status of the verify software token.</p>
    */
-  Status?: VerifySoftwareTokenResponseType | string;
+  Status?: VerifySoftwareTokenResponseType;
 
   /**
    * @public
@@ -1433,6 +1530,14 @@ export interface VerifyUserAttributeRequest {
  *             attributes.</p>
  */
 export interface VerifyUserAttributeResponse {}
+
+/**
+ * @internal
+ */
+export const SetRiskConfigurationRequestFilterSensitiveLog = (obj: SetRiskConfigurationRequest): any => ({
+  ...obj,
+  ...(obj.ClientId && { ClientId: SENSITIVE_STRING }),
+});
 
 /**
  * @internal
@@ -1489,6 +1594,7 @@ export const SignUpRequestFilterSensitiveLog = (obj: SignUpRequest): any => ({
   ...(obj.ValidationData && {
     ValidationData: obj.ValidationData.map((item) => AttributeTypeFilterSensitiveLog(item)),
   }),
+  ...(obj.UserContextData && { UserContextData: SENSITIVE_STRING }),
 });
 
 /**
@@ -1541,6 +1647,16 @@ export const UpdateUserPoolClientResponseFilterSensitiveLog = (obj: UpdateUserPo
 export const VerifySoftwareTokenRequestFilterSensitiveLog = (obj: VerifySoftwareTokenRequest): any => ({
   ...obj,
   ...(obj.AccessToken && { AccessToken: SENSITIVE_STRING }),
+  ...(obj.Session && { Session: SENSITIVE_STRING }),
+  ...(obj.UserCode && { UserCode: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const VerifySoftwareTokenResponseFilterSensitiveLog = (obj: VerifySoftwareTokenResponse): any => ({
+  ...obj,
+  ...(obj.Session && { Session: SENSITIVE_STRING }),
 });
 
 /**

@@ -1,9 +1,11 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
@@ -30,19 +32,31 @@ import { CreateEnvironmentCommandInput, CreateEnvironmentCommandOutput } from ".
 import { CreateKxChangesetCommandInput, CreateKxChangesetCommandOutput } from "../commands/CreateKxChangesetCommand";
 import { CreateKxClusterCommandInput, CreateKxClusterCommandOutput } from "../commands/CreateKxClusterCommand";
 import { CreateKxDatabaseCommandInput, CreateKxDatabaseCommandOutput } from "../commands/CreateKxDatabaseCommand";
+import { CreateKxDataviewCommandInput, CreateKxDataviewCommandOutput } from "../commands/CreateKxDataviewCommand";
 import {
   CreateKxEnvironmentCommandInput,
   CreateKxEnvironmentCommandOutput,
 } from "../commands/CreateKxEnvironmentCommand";
+import {
+  CreateKxScalingGroupCommandInput,
+  CreateKxScalingGroupCommandOutput,
+} from "../commands/CreateKxScalingGroupCommand";
 import { CreateKxUserCommandInput, CreateKxUserCommandOutput } from "../commands/CreateKxUserCommand";
+import { CreateKxVolumeCommandInput, CreateKxVolumeCommandOutput } from "../commands/CreateKxVolumeCommand";
 import { DeleteEnvironmentCommandInput, DeleteEnvironmentCommandOutput } from "../commands/DeleteEnvironmentCommand";
 import { DeleteKxClusterCommandInput, DeleteKxClusterCommandOutput } from "../commands/DeleteKxClusterCommand";
 import { DeleteKxDatabaseCommandInput, DeleteKxDatabaseCommandOutput } from "../commands/DeleteKxDatabaseCommand";
+import { DeleteKxDataviewCommandInput, DeleteKxDataviewCommandOutput } from "../commands/DeleteKxDataviewCommand";
 import {
   DeleteKxEnvironmentCommandInput,
   DeleteKxEnvironmentCommandOutput,
 } from "../commands/DeleteKxEnvironmentCommand";
+import {
+  DeleteKxScalingGroupCommandInput,
+  DeleteKxScalingGroupCommandOutput,
+} from "../commands/DeleteKxScalingGroupCommand";
 import { DeleteKxUserCommandInput, DeleteKxUserCommandOutput } from "../commands/DeleteKxUserCommand";
+import { DeleteKxVolumeCommandInput, DeleteKxVolumeCommandOutput } from "../commands/DeleteKxVolumeCommand";
 import { GetEnvironmentCommandInput, GetEnvironmentCommandOutput } from "../commands/GetEnvironmentCommand";
 import { GetKxChangesetCommandInput, GetKxChangesetCommandOutput } from "../commands/GetKxChangesetCommand";
 import { GetKxClusterCommandInput, GetKxClusterCommandOutput } from "../commands/GetKxClusterCommand";
@@ -51,15 +65,24 @@ import {
   GetKxConnectionStringCommandOutput,
 } from "../commands/GetKxConnectionStringCommand";
 import { GetKxDatabaseCommandInput, GetKxDatabaseCommandOutput } from "../commands/GetKxDatabaseCommand";
+import { GetKxDataviewCommandInput, GetKxDataviewCommandOutput } from "../commands/GetKxDataviewCommand";
 import { GetKxEnvironmentCommandInput, GetKxEnvironmentCommandOutput } from "../commands/GetKxEnvironmentCommand";
+import { GetKxScalingGroupCommandInput, GetKxScalingGroupCommandOutput } from "../commands/GetKxScalingGroupCommand";
 import { GetKxUserCommandInput, GetKxUserCommandOutput } from "../commands/GetKxUserCommand";
+import { GetKxVolumeCommandInput, GetKxVolumeCommandOutput } from "../commands/GetKxVolumeCommand";
 import { ListEnvironmentsCommandInput, ListEnvironmentsCommandOutput } from "../commands/ListEnvironmentsCommand";
 import { ListKxChangesetsCommandInput, ListKxChangesetsCommandOutput } from "../commands/ListKxChangesetsCommand";
 import { ListKxClusterNodesCommandInput, ListKxClusterNodesCommandOutput } from "../commands/ListKxClusterNodesCommand";
 import { ListKxClustersCommandInput, ListKxClustersCommandOutput } from "../commands/ListKxClustersCommand";
 import { ListKxDatabasesCommandInput, ListKxDatabasesCommandOutput } from "../commands/ListKxDatabasesCommand";
+import { ListKxDataviewsCommandInput, ListKxDataviewsCommandOutput } from "../commands/ListKxDataviewsCommand";
 import { ListKxEnvironmentsCommandInput, ListKxEnvironmentsCommandOutput } from "../commands/ListKxEnvironmentsCommand";
+import {
+  ListKxScalingGroupsCommandInput,
+  ListKxScalingGroupsCommandOutput,
+} from "../commands/ListKxScalingGroupsCommand";
 import { ListKxUsersCommandInput, ListKxUsersCommandOutput } from "../commands/ListKxUsersCommand";
+import { ListKxVolumesCommandInput, ListKxVolumesCommandOutput } from "../commands/ListKxVolumesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -68,10 +91,15 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateEnvironmentCommandInput, UpdateEnvironmentCommandOutput } from "../commands/UpdateEnvironmentCommand";
 import {
+  UpdateKxClusterCodeConfigurationCommandInput,
+  UpdateKxClusterCodeConfigurationCommandOutput,
+} from "../commands/UpdateKxClusterCodeConfigurationCommand";
+import {
   UpdateKxClusterDatabasesCommandInput,
   UpdateKxClusterDatabasesCommandOutput,
 } from "../commands/UpdateKxClusterDatabasesCommand";
 import { UpdateKxDatabaseCommandInput, UpdateKxDatabaseCommandOutput } from "../commands/UpdateKxDatabaseCommand";
+import { UpdateKxDataviewCommandInput, UpdateKxDataviewCommandOutput } from "../commands/UpdateKxDataviewCommand";
 import {
   UpdateKxEnvironmentCommandInput,
   UpdateKxEnvironmentCommandOutput,
@@ -81,6 +109,7 @@ import {
   UpdateKxEnvironmentNetworkCommandOutput,
 } from "../commands/UpdateKxEnvironmentNetworkCommand";
 import { UpdateKxUserCommandInput, UpdateKxUserCommandOutput } from "../commands/UpdateKxUserCommand";
+import { UpdateKxVolumeCommandInput, UpdateKxVolumeCommandOutput } from "../commands/UpdateKxVolumeCommand";
 import { FinspaceServiceException as __BaseException } from "../models/FinspaceServiceException";
 import {
   AccessDeniedException,
@@ -97,15 +126,24 @@ import {
   KxCacheStorageConfiguration,
   KxChangesetListEntry,
   KxCluster,
+  KxClusterCodeDeploymentConfiguration,
   KxCommandLineArgument,
   KxDatabaseCacheConfiguration,
   KxDatabaseConfiguration,
   KxDatabaseListEntry,
+  KxDataviewActiveVersion,
+  KxDataviewConfiguration,
+  KxDataviewListEntry,
+  KxDataviewSegmentConfiguration,
   KxDeploymentConfiguration,
   KxEnvironment,
+  KxNAS1Configuration,
   KxNode,
   KxSavedownStorageConfiguration,
+  KxScalingGroup,
+  KxScalingGroupConfiguration,
   KxUser,
+  KxVolume,
   LimitExceededException,
   NetworkACLEntry,
   PortRange,
@@ -114,6 +152,7 @@ import {
   ServiceQuotaExceededException,
   SuperuserParameters,
   ThrottlingException,
+  TickerplantLogConfiguration,
   TransitGatewayConfiguration,
   ValidationException,
   VpcConfiguration,
@@ -126,11 +165,11 @@ export const se_CreateEnvironmentCommand = async (
   input: CreateEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/environment";
+  b.bp("/environment");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -144,15 +183,8 @@ export const se_CreateEnvironmentCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -162,29 +194,13 @@ export const se_CreateKxChangesetCommand = async (
   input: CreateKxChangesetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/databases/{databaseName}/changesets";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "databaseName",
-    () => input.databaseName!,
-    "{databaseName}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/databases/{databaseName}/changesets");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("databaseName", () => input.databaseName!, "{databaseName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -192,15 +208,8 @@ export const se_CreateKxChangesetCommand = async (
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -210,20 +219,12 @@ export const se_CreateKxClusterCommand = async (
   input: CreateKxClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/kx/environments/{environmentId}/clusters";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/clusters");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -243,19 +244,14 @@ export const se_CreateKxClusterCommand = async (
       initializationScript: [],
       releaseLabel: [],
       savedownStorageConfiguration: (_) => _json(_),
+      scalingGroupConfiguration: (_) => se_KxScalingGroupConfiguration(_, context),
       tags: (_) => _json(_),
+      tickerplantLogConfiguration: (_) => _json(_),
       vpcConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -265,21 +261,12 @@ export const se_CreateKxDatabaseCommand = async (
   input: CreateKxDatabaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/databases";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/databases");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -289,15 +276,40 @@ export const se_CreateKxDatabaseCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateKxDataviewCommand
+ */
+export const se_CreateKxDataviewCommand = async (
+  input: CreateKxDataviewCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/kx/environments/{environmentId}/databases/{databaseName}/dataviews");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("databaseName", () => input.databaseName!, "{databaseName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      autoUpdate: [],
+      availabilityZoneId: [],
+      azMode: [],
+      changesetId: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      dataviewName: [],
+      description: [],
+      segmentConfigurations: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -307,30 +319,50 @@ export const se_CreateKxEnvironmentCommand = async (
   input: CreateKxEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/kx/environments";
+  b.bp("/kx/environments");
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       kmsKeyId: [],
       name: [],
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateKxScalingGroupCommand
+ */
+export const se_CreateKxScalingGroupCommand = async (
+  input: CreateKxScalingGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/kx/environments/{environmentId}/scalingGroups");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      availabilityZoneId: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      hostType: [],
+      scalingGroupName: [],
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -340,38 +372,53 @@ export const se_CreateKxUserCommand = async (
   input: CreateKxUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/kx/environments/{environmentId}/users";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/users");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       iamRole: [],
       tags: (_) => _json(_),
       userName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateKxVolumeCommand
+ */
+export const se_CreateKxVolumeCommand = async (
+  input: CreateKxVolumeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/kx/environments/{environmentId}/kxvolumes");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      availabilityZoneIds: (_) => _json(_),
+      azMode: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      description: [],
+      nas1Configuration: (_) => _json(_),
+      tags: (_) => _json(_),
+      volumeName: [],
+      volumeType: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -381,28 +428,13 @@ export const se_DeleteEnvironmentCommand = async (
   input: DeleteEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/environment/{environmentId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/environment/{environmentId}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -412,34 +444,17 @@ export const se_DeleteKxClusterCommand = async (
   input: DeleteKxClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/clusters/{clusterName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.bp("/kx/environments/{environmentId}/clusters/{clusterName}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
   const query: any = map({
-    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -449,41 +464,38 @@ export const se_DeleteKxDatabaseCommand = async (
   input: DeleteKxDatabaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/databases/{databaseName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "databaseName",
-    () => input.databaseName!,
-    "{databaseName}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/databases/{databaseName}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("databaseName", () => input.databaseName!, "{databaseName}", false);
   const query: any = map({
-    clientToken: [, __expectNonNull(input.clientToken!, `clientToken`)],
+    [_cT]: [, __expectNonNull(input[_cT]!, `clientToken`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteKxDataviewCommand
+ */
+export const se_DeleteKxDataviewCommand = async (
+  input: DeleteKxDataviewCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/kx/environments/{environmentId}/databases/{databaseName}/dataviews/{dataviewName}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("databaseName", () => input.databaseName!, "{databaseName}", false);
+  b.p("dataviewName", () => input.dataviewName!, "{dataviewName}", false);
+  const query: any = map({
+    [_cT]: [, __expectNonNull(input[_cT]!, `clientToken`)],
   });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -493,28 +505,36 @@ export const se_DeleteKxEnvironmentCommand = async (
   input: DeleteKxEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/kx/environments/{environmentId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
+  b.bp("/kx/environments/{environmentId}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  const query: any = map({
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
   });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteKxScalingGroupCommand
+ */
+export const se_DeleteKxScalingGroupCommand = async (
+  input: DeleteKxScalingGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/kx/environments/{environmentId}/scalingGroups/{scalingGroupName}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("scalingGroupName", () => input.scalingGroupName!, "{scalingGroupName}", false);
+  const query: any = map({
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -524,30 +544,37 @@ export const se_DeleteKxUserCommand = async (
   input: DeleteKxUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/users/{userName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "userName", () => input.userName!, "{userName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
+  b.bp("/kx/environments/{environmentId}/users/{userName}");
+  b.p("userName", () => input.userName!, "{userName}", false);
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  const query: any = map({
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
   });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteKxVolumeCommand
+ */
+export const se_DeleteKxVolumeCommand = async (
+  input: DeleteKxVolumeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/kx/environments/{environmentId}/kxvolumes/{volumeName}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("volumeName", () => input.volumeName!, "{volumeName}", false);
+  const query: any = map({
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -557,28 +584,13 @@ export const se_GetEnvironmentCommand = async (
   input: GetEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/environment/{environmentId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/environment/{environmentId}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -588,38 +600,15 @@ export const se_GetKxChangesetCommand = async (
   input: GetKxChangesetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/databases/{databaseName}/changesets/{changesetId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "databaseName",
-    () => input.databaseName!,
-    "{databaseName}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "changesetId", () => input.changesetId!, "{changesetId}", false);
+  b.bp("/kx/environments/{environmentId}/databases/{databaseName}/changesets/{changesetId}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("databaseName", () => input.databaseName!, "{databaseName}", false);
+  b.p("changesetId", () => input.changesetId!, "{changesetId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -629,30 +618,14 @@ export const se_GetKxClusterCommand = async (
   input: GetKxClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/clusters/{clusterName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.bp("/kx/environments/{environmentId}/clusters/{clusterName}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -662,34 +635,17 @@ export const se_GetKxConnectionStringCommand = async (
   input: GetKxConnectionStringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/connectionString";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/connectionString");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   const query: any = map({
-    userArn: [, __expectNonNull(input.userArn!, `userArn`)],
-    clusterName: [, __expectNonNull(input.clusterName!, `clusterName`)],
+    [_uA]: [, __expectNonNull(input[_uA]!, `userArn`)],
+    [_cN]: [, __expectNonNull(input[_cN]!, `clusterName`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -699,37 +655,32 @@ export const se_GetKxDatabaseCommand = async (
   input: GetKxDatabaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/databases/{databaseName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "databaseName",
-    () => input.databaseName!,
-    "{databaseName}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/databases/{databaseName}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("databaseName", () => input.databaseName!, "{databaseName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetKxDataviewCommand
+ */
+export const se_GetKxDataviewCommand = async (
+  input: GetKxDataviewCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/kx/environments/{environmentId}/databases/{databaseName}/dataviews/{dataviewName}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("databaseName", () => input.databaseName!, "{databaseName}", false);
+  b.p("dataviewName", () => input.dataviewName!, "{dataviewName}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -739,28 +690,30 @@ export const se_GetKxEnvironmentCommand = async (
   input: GetKxEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/kx/environments/{environmentId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetKxScalingGroupCommand
+ */
+export const se_GetKxScalingGroupCommand = async (
+  input: GetKxScalingGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/kx/environments/{environmentId}/scalingGroups/{scalingGroupName}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("scalingGroupName", () => input.scalingGroupName!, "{scalingGroupName}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -770,30 +723,31 @@ export const se_GetKxUserCommand = async (
   input: GetKxUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/users/{userName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "userName", () => input.userName!, "{userName}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/users/{userName}");
+  b.p("userName", () => input.userName!, "{userName}", false);
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetKxVolumeCommand
+ */
+export const se_GetKxVolumeCommand = async (
+  input: GetKxVolumeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/kx/environments/{environmentId}/kxvolumes/{volumeName}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("volumeName", () => input.volumeName!, "{volumeName}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -803,24 +757,16 @@ export const se_ListEnvironmentsCommand = async (
   input: ListEnvironmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/environment";
+  b.bp("/environment");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -830,42 +776,18 @@ export const se_ListKxChangesetsCommand = async (
   input: ListKxChangesetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/databases/{databaseName}/changesets";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "databaseName",
-    () => input.databaseName!,
-    "{databaseName}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/databases/{databaseName}/changesets");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("databaseName", () => input.databaseName!, "{databaseName}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -875,35 +797,18 @@ export const se_ListKxClusterNodesCommand = async (
   input: ListKxClusterNodesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/clusters/{clusterName}/nodes";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.bp("/kx/environments/{environmentId}/clusters/{clusterName}/nodes");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -913,34 +818,18 @@ export const se_ListKxClustersCommand = async (
   input: ListKxClustersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/kx/environments/{environmentId}/clusters";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/clusters");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   const query: any = map({
-    clusterType: [, input.clusterType!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_cTl]: [, input[_cTl]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -950,34 +839,38 @@ export const se_ListKxDatabasesCommand = async (
   input: ListKxDatabasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/databases";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/databases");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListKxDataviewsCommand
+ */
+export const se_ListKxDataviewsCommand = async (
+  input: ListKxDataviewsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/kx/environments/{environmentId}/databases/{databaseName}/dataviews");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("databaseName", () => input.databaseName!, "{databaseName}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -987,24 +880,36 @@ export const se_ListKxEnvironmentsCommand = async (
   input: ListKxEnvironmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/kx/environments";
+  b.bp("/kx/environments");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListKxScalingGroupsCommand
+ */
+export const se_ListKxScalingGroupsCommand = async (
+  input: ListKxScalingGroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/kx/environments/{environmentId}/scalingGroups");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  const query: any = map({
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1014,33 +919,38 @@ export const se_ListKxUsersCommand = async (
   input: ListKxUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/kx/environments/{environmentId}/users";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/users");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListKxVolumesCommand
+ */
+export const se_ListKxVolumesCommand = async (
+  input: ListKxVolumesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/kx/environments/{environmentId}/kxvolumes");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  const query: any = map({
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_vT]: [, input[_vT]!],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1050,20 +960,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1073,27 +976,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1103,27 +999,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1133,20 +1021,12 @@ export const se_UpdateEnvironmentCommand = async (
   input: UpdateEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/environment/{environmentId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/environment/{environmentId}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1156,15 +1036,36 @@ export const se_UpdateEnvironmentCommand = async (
       name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateKxClusterCodeConfigurationCommand
+ */
+export const se_UpdateKxClusterCodeConfigurationCommand = async (
+  input: UpdateKxClusterCodeConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/kx/environments/{environmentId}/clusters/{clusterName}/configuration/code");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      code: (_) => _json(_),
+      commandLineArguments: (_) => _json(_),
+      deploymentConfiguration: (_) => _json(_),
+      initializationScript: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1174,22 +1075,13 @@ export const se_UpdateKxClusterDatabasesCommand = async (
   input: UpdateKxClusterDatabasesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/clusters/{clusterName}/configuration/databases";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "clusterName", () => input.clusterName!, "{clusterName}", false);
+  b.bp("/kx/environments/{environmentId}/clusters/{clusterName}/configuration/databases");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("clusterName", () => input.clusterName!, "{clusterName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1198,15 +1090,8 @@ export const se_UpdateKxClusterDatabasesCommand = async (
       deploymentConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1216,29 +1101,13 @@ export const se_UpdateKxDatabaseCommand = async (
   input: UpdateKxDatabaseCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/databases/{databaseName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "databaseName",
-    () => input.databaseName!,
-    "{databaseName}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/databases/{databaseName}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("databaseName", () => input.databaseName!, "{databaseName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1246,15 +1115,36 @@ export const se_UpdateKxDatabaseCommand = async (
       description: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateKxDataviewCommand
+ */
+export const se_UpdateKxDataviewCommand = async (
+  input: UpdateKxDataviewCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/kx/environments/{environmentId}/databases/{databaseName}/dataviews/{dataviewName}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("databaseName", () => input.databaseName!, "{databaseName}", false);
+  b.p("dataviewName", () => input.dataviewName!, "{dataviewName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      changesetId: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      description: [],
+      segmentConfigurations: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1264,37 +1154,22 @@ export const se_UpdateKxEnvironmentCommand = async (
   input: UpdateKxEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/kx/environments/{environmentId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1304,37 +1179,22 @@ export const se_UpdateKxEnvironmentNetworkCommand = async (
   input: UpdateKxEnvironmentNetworkCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/kx/environments/{environmentId}/network";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
+  b.bp("/kx/environments/{environmentId}/network");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       customDNSConfiguration: (_) => _json(_),
       transitGatewayConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1344,38 +1204,48 @@ export const se_UpdateKxUserCommand = async (
   input: UpdateKxUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/kx/environments/{environmentId}/users/{userName}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "environmentId",
-    () => input.environmentId!,
-    "{environmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "userName", () => input.userName!, "{userName}", false);
+  b.bp("/kx/environments/{environmentId}/users/{userName}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("userName", () => input.userName!, "{userName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       iamRole: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateKxVolumeCommand
+ */
+export const se_UpdateKxVolumeCommand = async (
+  input: UpdateKxVolumeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/kx/environments/{environmentId}/kxvolumes/{volumeName}");
+  b.p("environmentId", () => input.environmentId!, "{environmentId}", false);
+  b.p("volumeName", () => input.volumeName!, "{volumeName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      description: [],
+      nas1Configuration: (_) => _json(_),
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1547,8 +1417,11 @@ export const de_CreateKxClusterCommand = async (
     lastModifiedTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     releaseLabel: __expectString,
     savedownStorageConfiguration: _json,
+    scalingGroupConfiguration: (_) => de_KxScalingGroupConfiguration(_, context),
     status: __expectString,
     statusReason: __expectString,
+    tickerplantLogConfiguration: _json,
+    volumes: _json,
     vpcConfiguration: _json,
   });
   Object.assign(contents, doc);
@@ -1673,6 +1546,85 @@ const de_CreateKxDatabaseCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateKxDataviewCommand
+ */
+export const de_CreateKxDataviewCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateKxDataviewCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateKxDataviewCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    autoUpdate: __expectBoolean,
+    availabilityZoneId: __expectString,
+    azMode: __expectString,
+    changesetId: __expectString,
+    createdTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    databaseName: __expectString,
+    dataviewName: __expectString,
+    description: __expectString,
+    environmentId: __expectString,
+    lastModifiedTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    segmentConfigurations: _json,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateKxDataviewCommandError
+ */
+const de_CreateKxDataviewCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateKxDataviewCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.finspace#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.finspace#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.finspace#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.finspace#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.finspace#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.finspace#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.finspace#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.finspace#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1CreateKxEnvironmentCommand
  */
 export const de_CreateKxEnvironmentCommand = async (
@@ -1744,6 +1696,77 @@ const de_CreateKxEnvironmentCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateKxScalingGroupCommand
+ */
+export const de_CreateKxScalingGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateKxScalingGroupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateKxScalingGroupCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    availabilityZoneId: __expectString,
+    createdTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    environmentId: __expectString,
+    hostType: __expectString,
+    lastModifiedTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    scalingGroupName: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateKxScalingGroupCommandError
+ */
+const de_CreateKxScalingGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateKxScalingGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.finspace#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.finspace#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.finspace#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.finspace#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.finspace#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.finspace#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.finspace#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1CreateKxUserCommand
  */
 export const de_CreateKxUserCommand = async (
@@ -1774,6 +1797,84 @@ const de_CreateKxUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateKxUserCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.finspace#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.finspace#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.finspace#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.finspace#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.finspace#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.finspace#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.finspace#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.finspace#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateKxVolumeCommand
+ */
+export const de_CreateKxVolumeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateKxVolumeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateKxVolumeCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    availabilityZoneIds: _json,
+    azMode: __expectString,
+    createdTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    environmentId: __expectString,
+    nas1Configuration: _json,
+    status: __expectString,
+    statusReason: __expectString,
+    volumeArn: __expectString,
+    volumeName: __expectString,
+    volumeType: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateKxVolumeCommandError
+ */
+const de_CreateKxVolumeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateKxVolumeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1989,6 +2090,64 @@ const de_DeleteKxDatabaseCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteKxDataviewCommand
+ */
+export const de_DeleteKxDataviewCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteKxDataviewCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteKxDataviewCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteKxDataviewCommandError
+ */
+const de_DeleteKxDataviewCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteKxDataviewCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.finspace#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.finspace#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.finspace#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.finspace#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.finspace#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.finspace#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DeleteKxEnvironmentCommand
  */
 export const de_DeleteKxEnvironmentCommand = async (
@@ -2021,9 +2180,73 @@ const de_DeleteKxEnvironmentCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.finspace#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.finspace#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.finspace#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.finspace#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.finspace#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.finspace#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteKxScalingGroupCommand
+ */
+export const de_DeleteKxScalingGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteKxScalingGroupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteKxScalingGroupCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteKxScalingGroupCommandError
+ */
+const de_DeleteKxScalingGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteKxScalingGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.finspace#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.finspace#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.finspace#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.finspace#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.finspace#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -2076,9 +2299,73 @@ const de_DeleteKxUserCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.finspace#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.finspace#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.finspace#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.finspace#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.finspace#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.finspace#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteKxVolumeCommand
+ */
+export const de_DeleteKxVolumeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteKxVolumeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteKxVolumeCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteKxVolumeCommandError
+ */
+const de_DeleteKxVolumeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteKxVolumeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.finspace#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.finspace#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.finspace#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.finspace#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.finspace#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -2253,8 +2540,11 @@ export const de_GetKxClusterCommand = async (
     lastModifiedTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     releaseLabel: __expectString,
     savedownStorageConfiguration: _json,
+    scalingGroupConfiguration: (_) => de_KxScalingGroupConfiguration(_, context),
     status: __expectString,
     statusReason: __expectString,
+    tickerplantLogConfiguration: _json,
+    volumes: _json,
     vpcConfiguration: _json,
   });
   Object.assign(contents, doc);
@@ -2433,6 +2723,78 @@ const de_GetKxDatabaseCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1GetKxDataviewCommand
+ */
+export const de_GetKxDataviewCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetKxDataviewCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetKxDataviewCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    activeVersions: (_) => de_KxDataviewActiveVersionList(_, context),
+    autoUpdate: __expectBoolean,
+    availabilityZoneId: __expectString,
+    azMode: __expectString,
+    changesetId: __expectString,
+    createdTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    databaseName: __expectString,
+    dataviewName: __expectString,
+    description: __expectString,
+    environmentId: __expectString,
+    lastModifiedTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    segmentConfigurations: _json,
+    status: __expectString,
+    statusReason: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetKxDataviewCommandError
+ */
+const de_GetKxDataviewCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetKxDataviewCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.finspace#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.finspace#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.finspace#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.finspace#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.finspace#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1GetKxEnvironmentCommand
  */
 export const de_GetKxEnvironmentCommand = async (
@@ -2485,12 +2847,88 @@ const de_GetKxEnvironmentCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.finspace#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.finspace#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.finspace#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.finspace#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.finspace#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetKxScalingGroupCommand
+ */
+export const de_GetKxScalingGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetKxScalingGroupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetKxScalingGroupCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    availabilityZoneId: __expectString,
+    clusters: _json,
+    createdTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    hostType: __expectString,
+    lastModifiedTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    scalingGroupArn: __expectString,
+    scalingGroupName: __expectString,
+    status: __expectString,
+    statusReason: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetKxScalingGroupCommandError
+ */
+const de_GetKxScalingGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetKxScalingGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.finspace#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.finspace#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.finspace#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.finspace#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.finspace#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.finspace#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.finspace#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -2567,6 +3005,83 @@ const de_GetKxUserCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1GetKxVolumeCommand
+ */
+export const de_GetKxVolumeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetKxVolumeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetKxVolumeCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    attachedClusters: _json,
+    availabilityZoneIds: _json,
+    azMode: __expectString,
+    createdTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    environmentId: __expectString,
+    lastModifiedTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    nas1Configuration: _json,
+    status: __expectString,
+    statusReason: __expectString,
+    volumeArn: __expectString,
+    volumeName: __expectString,
+    volumeType: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetKxVolumeCommandError
+ */
+const de_GetKxVolumeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetKxVolumeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.finspace#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.finspace#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.finspace#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.finspace#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.finspace#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.finspace#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.finspace#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListEnvironmentsCommand
  */
 export const de_ListEnvironmentsCommand = async (
@@ -2601,6 +3116,9 @@ const de_ListEnvironmentsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.finspace#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.finspace#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -2867,6 +3385,66 @@ const de_ListKxDatabasesCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListKxDataviewsCommand
+ */
+export const de_ListKxDataviewsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListKxDataviewsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListKxDataviewsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    kxDataviews: (_) => de_KxDataviews(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListKxDataviewsCommandError
+ */
+const de_ListKxDataviewsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListKxDataviewsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.finspace#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.finspace#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.finspace#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.finspace#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.finspace#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListKxEnvironmentsCommand
  */
 export const de_ListKxEnvironmentsCommand = async (
@@ -2901,9 +3479,78 @@ const de_ListKxEnvironmentsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.finspace#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.finspace#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.finspace#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListKxScalingGroupsCommand
+ */
+export const de_ListKxScalingGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListKxScalingGroupsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListKxScalingGroupsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    scalingGroups: (_) => de_KxScalingGroupList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListKxScalingGroupsCommandError
+ */
+const de_ListKxScalingGroupsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListKxScalingGroupsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.finspace#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.finspace#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.finspace#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.finspace#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.finspace#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.finspace#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.finspace#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -2958,6 +3605,72 @@ const de_ListKxUsersCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.finspace#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.finspace#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.finspace#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.finspace#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListKxVolumesCommand
+ */
+export const de_ListKxVolumesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListKxVolumesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListKxVolumesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    kxVolumeSummaries: (_) => de_KxVolumes(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListKxVolumesCommandError
+ */
+const de_ListKxVolumesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListKxVolumesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.finspace#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.finspace#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.finspace#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.finspace#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.finspace#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -3188,6 +3901,67 @@ const de_UpdateEnvironmentCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateKxClusterCodeConfigurationCommand
+ */
+export const de_UpdateKxClusterCodeConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateKxClusterCodeConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateKxClusterCodeConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateKxClusterCodeConfigurationCommandError
+ */
+const de_UpdateKxClusterCodeConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateKxClusterCodeConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.finspace#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.finspace#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.finspace#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.finspace#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.finspace#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.finspace#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.finspace#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateKxClusterDatabasesCommand
  */
 export const de_UpdateKxClusterDatabasesCommand = async (
@@ -3294,6 +4068,83 @@ const de_UpdateKxDatabaseCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.finspace#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.finspace#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.finspace#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.finspace#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateKxDataviewCommand
+ */
+export const de_UpdateKxDataviewCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateKxDataviewCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateKxDataviewCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    activeVersions: (_) => de_KxDataviewActiveVersionList(_, context),
+    autoUpdate: __expectBoolean,
+    availabilityZoneId: __expectString,
+    azMode: __expectString,
+    changesetId: __expectString,
+    createdTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    databaseName: __expectString,
+    dataviewName: __expectString,
+    description: __expectString,
+    environmentId: __expectString,
+    lastModifiedTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    segmentConfigurations: _json,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateKxDataviewCommandError
+ */
+const de_UpdateKxDataviewCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateKxDataviewCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.finspace#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.finspace#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.finspace#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.finspace#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.finspace#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -3498,6 +4349,83 @@ const de_UpdateKxUserCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateKxUserCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.finspace#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.finspace#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.finspace#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.finspace#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.finspace#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.finspace#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.finspace#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateKxVolumeCommand
+ */
+export const de_UpdateKxVolumeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateKxVolumeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateKxVolumeCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    attachedClusters: _json,
+    availabilityZoneIds: _json,
+    azMode: __expectString,
+    createdTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    environmentId: __expectString,
+    lastModifiedTimestamp: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    nas1Configuration: _json,
+    status: __expectString,
+    statusReason: __expectString,
+    volumeArn: __expectString,
+    volumeName: __expectString,
+    volumeType: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateKxVolumeCommandError
+ */
+const de_UpdateKxVolumeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateKxVolumeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3744,6 +4672,8 @@ const se_AutoScalingConfiguration = (input: AutoScalingConfiguration, context: _
   });
 };
 
+// se_AvailabilityZoneIds omitted.
+
 // se_CapacityConfiguration omitted.
 
 // se_ChangeRequest omitted.
@@ -3768,6 +4698,8 @@ const se_AutoScalingConfiguration = (input: AutoScalingConfiguration, context: _
 
 // se_KxCacheStorageConfigurations omitted.
 
+// se_KxClusterCodeDeploymentConfiguration omitted.
+
 // se_KxCommandLineArgument omitted.
 
 // se_KxCommandLineArguments omitted.
@@ -3780,9 +4712,30 @@ const se_AutoScalingConfiguration = (input: AutoScalingConfiguration, context: _
 
 // se_KxDatabaseConfigurations omitted.
 
+// se_KxDataviewConfiguration omitted.
+
+// se_KxDataviewSegmentConfiguration omitted.
+
+// se_KxDataviewSegmentConfigurationList omitted.
+
 // se_KxDeploymentConfiguration omitted.
 
+// se_KxNAS1Configuration omitted.
+
 // se_KxSavedownStorageConfiguration omitted.
+
+/**
+ * serializeAws_restJson1KxScalingGroupConfiguration
+ */
+const se_KxScalingGroupConfiguration = (input: KxScalingGroupConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    cpu: __serializeFloat,
+    memoryLimit: [],
+    memoryReservation: [],
+    nodeCount: [],
+    scalingGroupName: [],
+  });
+};
 
 // se_NetworkACLConfiguration omitted.
 
@@ -3792,15 +4745,23 @@ const se_AutoScalingConfiguration = (input: AutoScalingConfiguration, context: _
 
 // se_SecurityGroupIdList omitted.
 
+// se_SegmentConfigurationDbPathList omitted.
+
 // se_SubnetIdList omitted.
 
 // se_SuperuserParameters omitted.
 
 // se_TagMap omitted.
 
+// se_TickerplantLogConfiguration omitted.
+
+// se_TickerplantLogVolumes omitted.
+
 // se_TransitGatewayConfiguration omitted.
 
 // se_VpcConfiguration omitted.
+
+// de_AttachedClusterList omitted.
 
 // de_AttributeMap omitted.
 
@@ -3843,6 +4804,10 @@ const de_AutoScalingConfiguration = (output: any, context: __SerdeContext): Auto
 // de_FederationParameters omitted.
 
 // de_IcmpTypeCode omitted.
+
+// de_KxAttachedCluster omitted.
+
+// de_KxAttachedClusters omitted.
 
 // de_KxCacheStorageConfiguration omitted.
 
@@ -3890,8 +4855,11 @@ const de_KxCluster = (output: any, context: __SerdeContext): KxCluster => {
     releaseLabel: __expectString,
     status: __expectString,
     statusReason: __expectString,
+    volumes: _json,
   }) as any;
 };
+
+// de_KxClusterNameList omitted.
 
 /**
  * deserializeAws_restJson1KxClusters
@@ -3941,6 +4909,71 @@ const de_KxDatabases = (output: any, context: __SerdeContext): KxDatabaseListEnt
 };
 
 /**
+ * deserializeAws_restJson1KxDataviewActiveVersion
+ */
+const de_KxDataviewActiveVersion = (output: any, context: __SerdeContext): KxDataviewActiveVersion => {
+  return take(output, {
+    attachedClusters: _json,
+    changesetId: __expectString,
+    createdTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    segmentConfigurations: _json,
+    versionId: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1KxDataviewActiveVersionList
+ */
+const de_KxDataviewActiveVersionList = (output: any, context: __SerdeContext): KxDataviewActiveVersion[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_KxDataviewActiveVersion(entry, context);
+    });
+  return retVal;
+};
+
+// de_KxDataviewConfiguration omitted.
+
+/**
+ * deserializeAws_restJson1KxDataviewListEntry
+ */
+const de_KxDataviewListEntry = (output: any, context: __SerdeContext): KxDataviewListEntry => {
+  return take(output, {
+    activeVersions: (_: any) => de_KxDataviewActiveVersionList(_, context),
+    autoUpdate: __expectBoolean,
+    availabilityZoneId: __expectString,
+    azMode: __expectString,
+    changesetId: __expectString,
+    createdTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    databaseName: __expectString,
+    dataviewName: __expectString,
+    description: __expectString,
+    environmentId: __expectString,
+    lastModifiedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    segmentConfigurations: _json,
+    status: __expectString,
+    statusReason: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1KxDataviews
+ */
+const de_KxDataviews = (output: any, context: __SerdeContext): KxDataviewListEntry[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_KxDataviewListEntry(entry, context);
+    });
+  return retVal;
+};
+
+// de_KxDataviewSegmentConfiguration omitted.
+
+// de_KxDataviewSegmentConfigurationList omitted.
+
+/**
  * deserializeAws_restJson1KxEnvironment
  */
 const de_KxEnvironment = (output: any, context: __SerdeContext): KxEnvironment => {
@@ -3977,6 +5010,8 @@ const de_KxEnvironmentList = (output: any, context: __SerdeContext): KxEnvironme
   return retVal;
 };
 
+// de_KxNAS1Configuration omitted.
+
 /**
  * deserializeAws_restJson1KxNode
  */
@@ -4003,6 +5038,47 @@ const de_KxNodeSummaries = (output: any, context: __SerdeContext): KxNode[] => {
 // de_KxSavedownStorageConfiguration omitted.
 
 /**
+ * deserializeAws_restJson1KxScalingGroup
+ */
+const de_KxScalingGroup = (output: any, context: __SerdeContext): KxScalingGroup => {
+  return take(output, {
+    availabilityZoneId: __expectString,
+    clusters: _json,
+    createdTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    hostType: __expectString,
+    lastModifiedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    scalingGroupName: __expectString,
+    status: __expectString,
+    statusReason: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1KxScalingGroupConfiguration
+ */
+const de_KxScalingGroupConfiguration = (output: any, context: __SerdeContext): KxScalingGroupConfiguration => {
+  return take(output, {
+    cpu: __limitedParseDouble,
+    memoryLimit: __expectInt32,
+    memoryReservation: __expectInt32,
+    nodeCount: __expectInt32,
+    scalingGroupName: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1KxScalingGroupList
+ */
+const de_KxScalingGroupList = (output: any, context: __SerdeContext): KxScalingGroup[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_KxScalingGroup(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1KxUser
  */
 const de_KxUser = (output: any, context: __SerdeContext): KxUser => {
@@ -4027,6 +5103,35 @@ const de_KxUserList = (output: any, context: __SerdeContext): KxUser[] => {
   return retVal;
 };
 
+/**
+ * deserializeAws_restJson1KxVolume
+ */
+const de_KxVolume = (output: any, context: __SerdeContext): KxVolume => {
+  return take(output, {
+    availabilityZoneIds: _json,
+    azMode: __expectString,
+    createdTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    description: __expectString,
+    lastModifiedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    statusReason: __expectString,
+    volumeName: __expectString,
+    volumeType: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1KxVolumes
+ */
+const de_KxVolumes = (output: any, context: __SerdeContext): KxVolume[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_KxVolume(entry, context);
+    });
+  return retVal;
+};
+
 // de_NetworkACLConfiguration omitted.
 
 // de_NetworkACLEntry omitted.
@@ -4035,11 +5140,21 @@ const de_KxUserList = (output: any, context: __SerdeContext): KxUser[] => {
 
 // de_SecurityGroupIdList omitted.
 
+// de_SegmentConfigurationDbPathList omitted.
+
 // de_SubnetIdList omitted.
 
 // de_TagMap omitted.
 
+// de_TickerplantLogConfiguration omitted.
+
+// de_TickerplantLogVolumes omitted.
+
 // de_TransitGatewayConfiguration omitted.
+
+// de_Volume omitted.
+
+// de_Volumes omitted.
 
 // de_VpcConfiguration omitted.
 
@@ -4061,6 +5176,15 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _cN = "clusterName";
+const _cT = "clientToken";
+const _cTl = "clusterType";
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _tK = "tagKeys";
+const _uA = "userArn";
+const _vT = "volumeType";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

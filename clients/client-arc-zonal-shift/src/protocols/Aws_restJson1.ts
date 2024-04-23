@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -23,19 +24,40 @@ import {
 } from "@smithy/types";
 
 import { CancelZonalShiftCommandInput, CancelZonalShiftCommandOutput } from "../commands/CancelZonalShiftCommand";
+import {
+  CreatePracticeRunConfigurationCommandInput,
+  CreatePracticeRunConfigurationCommandOutput,
+} from "../commands/CreatePracticeRunConfigurationCommand";
+import {
+  DeletePracticeRunConfigurationCommandInput,
+  DeletePracticeRunConfigurationCommandOutput,
+} from "../commands/DeletePracticeRunConfigurationCommand";
 import { GetManagedResourceCommandInput, GetManagedResourceCommandOutput } from "../commands/GetManagedResourceCommand";
+import { ListAutoshiftsCommandInput, ListAutoshiftsCommandOutput } from "../commands/ListAutoshiftsCommand";
 import {
   ListManagedResourcesCommandInput,
   ListManagedResourcesCommandOutput,
 } from "../commands/ListManagedResourcesCommand";
 import { ListZonalShiftsCommandInput, ListZonalShiftsCommandOutput } from "../commands/ListZonalShiftsCommand";
 import { StartZonalShiftCommandInput, StartZonalShiftCommandOutput } from "../commands/StartZonalShiftCommand";
+import {
+  UpdatePracticeRunConfigurationCommandInput,
+  UpdatePracticeRunConfigurationCommandOutput,
+} from "../commands/UpdatePracticeRunConfigurationCommand";
+import {
+  UpdateZonalAutoshiftConfigurationCommandInput,
+  UpdateZonalAutoshiftConfigurationCommandOutput,
+} from "../commands/UpdateZonalAutoshiftConfigurationCommand";
 import { UpdateZonalShiftCommandInput, UpdateZonalShiftCommandOutput } from "../commands/UpdateZonalShiftCommand";
 import { ARCZonalShiftServiceException as __BaseException } from "../models/ARCZonalShiftServiceException";
 import {
   AccessDeniedException,
+  AutoshiftInResource,
+  AutoshiftSummary,
   ConflictException,
+  ControlCondition,
   InternalServerException,
+  ManagedResourceSummary,
   ResourceNotFoundException,
   ThrottlingException,
   ValidationException,
@@ -50,28 +72,55 @@ export const se_CancelZonalShiftCommand = async (
   input: CancelZonalShiftCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/zonalshifts/{zonalShiftId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "zonalShiftId",
-    () => input.zonalShiftId!,
-    "{zonalShiftId}",
-    false
-  );
+  b.bp("/zonalshifts/{zonalShiftId}");
+  b.p("zonalShiftId", () => input.zonalShiftId!, "{zonalShiftId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreatePracticeRunConfigurationCommand
+ */
+export const se_CreatePracticeRunConfigurationCommand = async (
+  input: CreatePracticeRunConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/configuration");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      blockedDates: (_) => _json(_),
+      blockedWindows: (_) => _json(_),
+      blockingAlarms: (_) => _json(_),
+      outcomeAlarms: (_) => _json(_),
+      resourceIdentifier: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeletePracticeRunConfigurationCommand
+ */
+export const se_DeletePracticeRunConfigurationCommand = async (
+  input: DeletePracticeRunConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/configuration/{resourceIdentifier}");
+  b.p("resourceIdentifier", () => input.resourceIdentifier!, "{resourceIdentifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -81,28 +130,33 @@ export const se_GetManagedResourceCommand = async (
   input: GetManagedResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/managedresources/{resourceIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "resourceIdentifier",
-    () => input.resourceIdentifier!,
-    "{resourceIdentifier}",
-    false
-  );
+  b.bp("/managedresources/{resourceIdentifier}");
+  b.p("resourceIdentifier", () => input.resourceIdentifier!, "{resourceIdentifier}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListAutoshiftsCommand
+ */
+export const se_ListAutoshiftsCommand = async (
+  input: ListAutoshiftsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/autoshifts");
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_s]: [, input[_s]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -112,24 +166,16 @@ export const se_ListManagedResourcesCommand = async (
   input: ListManagedResourcesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/managedresources";
+  b.bp("/managedresources");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -139,25 +185,18 @@ export const se_ListZonalShiftsCommand = async (
   input: ListZonalShiftsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/zonalshifts";
+  b.bp("/zonalshifts");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    status: [, input.status!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_s]: [, input[_s]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_rI]: [, input[_rI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -167,11 +206,11 @@ export const se_StartZonalShiftCommand = async (
   input: StartZonalShiftCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/zonalshifts";
+  b.bp("/zonalshifts");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -181,15 +220,57 @@ export const se_StartZonalShiftCommand = async (
       resourceIdentifier: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdatePracticeRunConfigurationCommand
+ */
+export const se_UpdatePracticeRunConfigurationCommand = async (
+  input: UpdatePracticeRunConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/configuration/{resourceIdentifier}");
+  b.p("resourceIdentifier", () => input.resourceIdentifier!, "{resourceIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      blockedDates: (_) => _json(_),
+      blockedWindows: (_) => _json(_),
+      blockingAlarms: (_) => _json(_),
+      outcomeAlarms: (_) => _json(_),
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateZonalAutoshiftConfigurationCommand
+ */
+export const se_UpdateZonalAutoshiftConfigurationCommand = async (
+  input: UpdateZonalAutoshiftConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/managedresources/{resourceIdentifier}");
+  b.p("resourceIdentifier", () => input.resourceIdentifier!, "{resourceIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      zonalAutoshiftStatus: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -199,20 +280,12 @@ export const se_UpdateZonalShiftCommand = async (
   input: UpdateZonalShiftCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/zonalshifts/{zonalShiftId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "zonalShiftId",
-    () => input.zonalShiftId!,
-    "{zonalShiftId}",
-    false
-  );
+  b.bp("/zonalshifts/{zonalShiftId}");
+  b.p("zonalShiftId", () => input.zonalShiftId!, "{zonalShiftId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -220,15 +293,8 @@ export const se_UpdateZonalShiftCommand = async (
       expiresIn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -300,6 +366,135 @@ const de_CancelZonalShiftCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreatePracticeRunConfigurationCommand
+ */
+export const de_CreatePracticeRunConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePracticeRunConfigurationCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CreatePracticeRunConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    name: __expectString,
+    practiceRunConfiguration: _json,
+    zonalAutoshiftStatus: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreatePracticeRunConfigurationCommandError
+ */
+const de_CreatePracticeRunConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePracticeRunConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.arczonalshift#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.arczonalshift#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.arczonalshift#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.arczonalshift#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.arczonalshift#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.arczonalshift#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeletePracticeRunConfigurationCommand
+ */
+export const de_DeletePracticeRunConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePracticeRunConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeletePracticeRunConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    name: __expectString,
+    zonalAutoshiftStatus: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeletePracticeRunConfigurationCommandError
+ */
+const de_DeletePracticeRunConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePracticeRunConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.arczonalshift#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.arczonalshift#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.arczonalshift#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.arczonalshift#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.arczonalshift#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.arczonalshift#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1GetManagedResourceCommand
  */
 export const de_GetManagedResourceCommand = async (
@@ -316,7 +511,10 @@ export const de_GetManagedResourceCommand = async (
   const doc = take(data, {
     appliedWeights: (_) => de_AppliedWeights(_, context),
     arn: __expectString,
+    autoshifts: (_) => de_AutoshiftsInResource(_, context),
     name: __expectString,
+    practiceRunConfiguration: _json,
+    zonalAutoshiftStatus: __expectString,
     zonalShifts: (_) => de_ZonalShiftsInResource(_, context),
   });
   Object.assign(contents, doc);
@@ -362,6 +560,63 @@ const de_GetManagedResourceCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListAutoshiftsCommand
+ */
+export const de_ListAutoshiftsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAutoshiftsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListAutoshiftsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: (_) => de_AutoshiftSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAutoshiftsCommandError
+ */
+const de_ListAutoshiftsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAutoshiftsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.arczonalshift#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.arczonalshift#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.arczonalshift#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.arczonalshift#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListManagedResourcesCommand
  */
 export const de_ListManagedResourcesCommand = async (
@@ -376,7 +631,7 @@ export const de_ListManagedResourcesCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    items: _json,
+    items: (_) => de_ManagedResourceSummaries(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -509,6 +764,134 @@ const de_StartZonalShiftCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartZonalShiftCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.arczonalshift#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.arczonalshift#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.arczonalshift#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.arczonalshift#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.arczonalshift#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.arczonalshift#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdatePracticeRunConfigurationCommand
+ */
+export const de_UpdatePracticeRunConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePracticeRunConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdatePracticeRunConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    name: __expectString,
+    practiceRunConfiguration: _json,
+    zonalAutoshiftStatus: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdatePracticeRunConfigurationCommandError
+ */
+const de_UpdatePracticeRunConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePracticeRunConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.arczonalshift#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.arczonalshift#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.arczonalshift#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.arczonalshift#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.arczonalshift#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.arczonalshift#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateZonalAutoshiftConfigurationCommand
+ */
+export const de_UpdateZonalAutoshiftConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateZonalAutoshiftConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateZonalAutoshiftConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    resourceIdentifier: __expectString,
+    zonalAutoshiftStatus: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateZonalAutoshiftConfigurationCommandError
+ */
+const de_UpdateZonalAutoshiftConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateZonalAutoshiftConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -726,6 +1109,14 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_BlockedDates omitted.
+
+// se_BlockedWindows omitted.
+
+// se_ControlCondition omitted.
+
+// se_ControlConditions omitted.
+
 /**
  * deserializeAws_restJson1AppliedWeights
  */
@@ -734,16 +1125,97 @@ const de_AppliedWeights = (output: any, context: __SerdeContext): Record<string,
     if (value === null) {
       return acc;
     }
-    acc[key] = __limitedParseFloat32(value) as any;
+    acc[key as string] = __limitedParseFloat32(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, number>);
+};
+
+/**
+ * deserializeAws_restJson1AutoshiftInResource
+ */
+const de_AutoshiftInResource = (output: any, context: __SerdeContext): AutoshiftInResource => {
+  return take(output, {
+    appliedStatus: __expectString,
+    awayFrom: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AutoshiftsInResource
+ */
+const de_AutoshiftsInResource = (output: any, context: __SerdeContext): AutoshiftInResource[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AutoshiftInResource(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1AutoshiftSummaries
+ */
+const de_AutoshiftSummaries = (output: any, context: __SerdeContext): AutoshiftSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AutoshiftSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1AutoshiftSummary
+ */
+const de_AutoshiftSummary = (output: any, context: __SerdeContext): AutoshiftSummary => {
+  return take(output, {
+    awayFrom: __expectString,
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+  }) as any;
 };
 
 // de_AvailabilityZones omitted.
 
-// de_ManagedResourceSummaries omitted.
+// de_BlockedDates omitted.
 
-// de_ManagedResourceSummary omitted.
+// de_BlockedWindows omitted.
+
+// de_ControlCondition omitted.
+
+// de_ControlConditions omitted.
+
+/**
+ * deserializeAws_restJson1ManagedResourceSummaries
+ */
+const de_ManagedResourceSummaries = (output: any, context: __SerdeContext): ManagedResourceSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ManagedResourceSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ManagedResourceSummary
+ */
+const de_ManagedResourceSummary = (output: any, context: __SerdeContext): ManagedResourceSummary => {
+  return take(output, {
+    appliedWeights: (_: any) => de_AppliedWeights(_, context),
+    arn: __expectString,
+    autoshifts: (_: any) => de_AutoshiftsInResource(_, context),
+    availabilityZones: _json,
+    name: __expectString,
+    practiceRunStatus: __expectString,
+    zonalAutoshiftStatus: __expectString,
+    zonalShifts: (_: any) => de_ZonalShiftsInResource(_, context),
+  }) as any;
+};
+
+// de_PracticeRunConfiguration omitted.
 
 /**
  * deserializeAws_restJson1ZonalShiftInResource
@@ -754,6 +1226,7 @@ const de_ZonalShiftInResource = (output: any, context: __SerdeContext): ZonalShi
     awayFrom: __expectString,
     comment: __expectString,
     expiryTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    practiceRunOutcome: __expectString,
     resourceIdentifier: __expectString,
     startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     zonalShiftId: __expectString,
@@ -792,6 +1265,7 @@ const de_ZonalShiftSummary = (output: any, context: __SerdeContext): ZonalShiftS
     awayFrom: __expectString,
     comment: __expectString,
     expiryTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    practiceRunOutcome: __expectString,
     resourceIdentifier: __expectString,
     startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     status: __expectString,
@@ -817,6 +1291,11 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _rI = "resourceIdentifier";
+const _s = "status";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

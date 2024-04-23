@@ -148,7 +148,7 @@ export interface StreamSelection {
    * @public
    * A directive that determines the order of streams in the output.
    */
-  StreamOrder?: StreamOrder | string;
+  StreamOrder?: StreamOrder;
 }
 
 /**
@@ -160,7 +160,7 @@ export interface DashManifest {
    * @public
    * Determines the position of some tags in the Media Presentation Description (MPD).  When set to FULL, elements like SegmentTemplate and ContentProtection are included in each Representation.  When set to COMPACT, duplicate elements are combined and presented at the AdaptationSet level.
    */
-  ManifestLayout?: ManifestLayout | string;
+  ManifestLayout?: ManifestLayout;
 
   /**
    * @public
@@ -178,13 +178,13 @@ export interface DashManifest {
    * @public
    * The Dynamic Adaptive Streaming over HTTP (DASH) profile type.  When set to "HBBTV_1_5", HbbTV 1.5 compliant output is enabled.
    */
-  Profile?: Profile | string;
+  Profile?: Profile;
 
   /**
    * @public
    * The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
    */
-  ScteMarkersSource?: ScteMarkersSource | string;
+  ScteMarkersSource?: ScteMarkersSource;
 
   /**
    * @public
@@ -246,7 +246,7 @@ export interface HlsManifest {
    * "SCTE35_ENHANCED" generates ad markers and blackout tags based on SCTE-35
    * messages in the input source.
    */
-  AdMarkers?: AdMarkers | string;
+  AdMarkers?: AdMarkers;
 
   /**
    * @public
@@ -358,13 +358,13 @@ export interface EncryptionContractConfiguration {
    * @public
    * A collection of audio encryption presets.
    */
-  PresetSpeke20Audio: PresetSpeke20Audio | string | undefined;
+  PresetSpeke20Audio: PresetSpeke20Audio | undefined;
 
   /**
    * @public
    * A collection of video encryption presets.
    */
-  PresetSpeke20Video: PresetSpeke20Video | string | undefined;
+  PresetSpeke20Video: PresetSpeke20Video | undefined;
 }
 
 /**
@@ -515,7 +515,7 @@ export interface DashPackage {
    * be partitioned into more than one period. If the list contains "ADS", new periods will be created where
    * the Asset contains SCTE-35 ad markers.
    */
-  PeriodTriggers?: (__PeriodTriggersElement | string)[];
+  PeriodTriggers?: __PeriodTriggersElement[];
 
   /**
    * @public
@@ -528,7 +528,7 @@ export interface DashPackage {
    * @public
    * Determines the type of SegmentTemplate included in the Media Presentation Description (MPD).  When set to NUMBER_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Number$ media URLs.  When set to TIME_WITH_TIMELINE, a full timeline is presented in each SegmentTemplate, with $Time$ media URLs. When set to NUMBER_WITH_DURATION, only a duration is included in each SegmentTemplate, with $Number$ media URLs.
    */
-  SegmentTemplateFormat?: SegmentTemplateFormat | string;
+  SegmentTemplateFormat?: SegmentTemplateFormat;
 }
 
 /**
@@ -561,7 +561,7 @@ export interface HlsEncryption {
    * @public
    * The encryption method to use.
    */
-  EncryptionMethod?: EncryptionMethod | string;
+  EncryptionMethod?: EncryptionMethod;
 
   /**
    * @public

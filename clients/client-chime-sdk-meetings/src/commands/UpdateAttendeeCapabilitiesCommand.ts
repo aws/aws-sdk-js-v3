@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeSDKMeetingsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeSDKMeetingsClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateAttendeeCapabilitiesRequest,
   UpdateAttendeeCapabilitiesResponse,
@@ -47,6 +39,14 @@ export interface UpdateAttendeeCapabilitiesCommandOutput extends UpdateAttendeeC
  *          </note>
  *          <p>When using capabilities, be aware of these corner cases:</p>
  *          <ul>
+ *             <li>
+ *                <p>If you specify <code>MeetingFeatures:Video:MaxResolution:None</code> when you create a meeting, all API requests
+ *                     that include <code>SendReceive</code>, <code>Send</code>, or <code>Receive</code> for <code>AttendeeCapabilities:Video</code> will be rejected with <code>ValidationError 400</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>If you specify <code>MeetingFeatures:Content:MaxResolution:None</code> when you create a meeting, all API requests that include <code>SendReceive</code>, <code>Send</code>, or
+ *                     <code>Receive</code> for <code>AttendeeCapabilities:Content</code> will be rejected with <code>ValidationError 400</code>.</p>
+ *             </li>
  *             <li>
  *                <p>You can't set <code>content</code> capabilities to <code>SendReceive</code> or <code>Receive</code> unless you also set <code>video</code> capabilities to <code>SendReceive</code>
  *                     or <code>Receive</code>. If you don't set the <code>video</code> capability to receive, the response will contain an HTTP 400 Bad Request status code. However, you can set your <code>video</code> capability
@@ -127,82 +127,26 @@ export interface UpdateAttendeeCapabilitiesCommandOutput extends UpdateAttendeeC
  * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
  */
-export class UpdateAttendeeCapabilitiesCommand extends $Command<
-  UpdateAttendeeCapabilitiesCommandInput,
-  UpdateAttendeeCapabilitiesCommandOutput,
-  ChimeSDKMeetingsClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateAttendeeCapabilitiesCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ChimeSDKMeetingsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateAttendeeCapabilitiesCommandInput, UpdateAttendeeCapabilitiesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateAttendeeCapabilitiesCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ChimeSDKMeetingsClient";
-    const commandName = "UpdateAttendeeCapabilitiesCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: UpdateAttendeeCapabilitiesResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateAttendeeCapabilitiesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateAttendeeCapabilitiesCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateAttendeeCapabilitiesCommandOutput> {
-    return de_UpdateAttendeeCapabilitiesCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateAttendeeCapabilitiesCommand extends $Command
+  .classBuilder<
+    UpdateAttendeeCapabilitiesCommandInput,
+    UpdateAttendeeCapabilitiesCommandOutput,
+    ChimeSDKMeetingsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ChimeSDKMeetingsClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ChimeMeetingsSDKService", "UpdateAttendeeCapabilities", {})
+  .n("ChimeSDKMeetingsClient", "UpdateAttendeeCapabilitiesCommand")
+  .f(void 0, UpdateAttendeeCapabilitiesResponseFilterSensitiveLog)
+  .ser(se_UpdateAttendeeCapabilitiesCommand)
+  .de(de_UpdateAttendeeCapabilitiesCommand)
+  .build() {}

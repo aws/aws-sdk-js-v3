@@ -142,6 +142,7 @@ import {
   DetectTargetedSentimentCommandInput,
   DetectTargetedSentimentCommandOutput,
 } from "../commands/DetectTargetedSentimentCommand";
+import { DetectToxicContentCommandInput, DetectToxicContentCommandOutput } from "../commands/DetectToxicContentCommand";
 import { ImportModelCommandInput, ImportModelCommandOutput } from "../commands/ImportModelCommand";
 import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "../commands/ListDatasetsCommand";
 import {
@@ -383,6 +384,8 @@ import {
   DetectSyntaxResponse,
   DetectTargetedSentimentRequest,
   DetectTargetedSentimentResponse,
+  DetectToxicContentRequest,
+  DetectToxicContentResponse,
   DocumentClass,
   DocumentClassificationConfig,
   DocumentClassificationJobFilter,
@@ -500,9 +503,6 @@ import {
   StartTargetedSentimentDetectionJobRequest,
   StartTopicsDetectionJobRequest,
   StopDominantLanguageDetectionJobRequest,
-  StopEntitiesDetectionJobRequest,
-  StopEventsDetectionJobRequest,
-  StopKeyPhrasesDetectionJobRequest,
   SyntaxToken,
   Tag,
   TargetedSentimentDetectionJobFilter,
@@ -510,16 +510,22 @@ import {
   TargetedSentimentEntity,
   TargetedSentimentMention,
   TaskConfig,
+  TextSegment,
   TextSizeLimitExceededException,
   TooManyRequestsException,
   TooManyTagsException,
   TopicsDetectionJobFilter,
   TopicsDetectionJobProperties,
+  ToxicContent,
+  ToxicLabels,
   UnsupportedLanguageException,
   VpcConfig,
 } from "../models/models_0";
 import {
   ConcurrentModificationException,
+  StopEntitiesDetectionJobRequest,
+  StopEventsDetectionJobRequest,
+  StopKeyPhrasesDetectionJobRequest,
   StopPiiEntitiesDetectionJobRequest,
   StopSentimentDetectionJobRequest,
   StopTargetedSentimentDetectionJobRequest,
@@ -1062,6 +1068,19 @@ export const se_DetectTargetedSentimentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DetectTargetedSentiment");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DetectToxicContentCommand
+ */
+export const se_DetectToxicContentCommand = async (
+  input: DetectToxicContentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DetectToxicContent");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3946,6 +3965,61 @@ const de_DetectTargetedSentimentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetectTargetedSentimentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.comprehend#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.comprehend#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "TextSizeLimitExceededException":
+    case "com.amazonaws.comprehend#TextSizeLimitExceededException":
+      throw await de_TextSizeLimitExceededExceptionRes(parsedOutput, context);
+    case "UnsupportedLanguageException":
+    case "com.amazonaws.comprehend#UnsupportedLanguageException":
+      throw await de_UnsupportedLanguageExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DetectToxicContentCommand
+ */
+export const de_DetectToxicContentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetectToxicContentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DetectToxicContentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DetectToxicContentResponse(data, context);
+  const response: DetectToxicContentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DetectToxicContentCommandError
+ */
+const de_DetectToxicContentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetectToxicContentCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -6883,6 +6957,8 @@ const se_DetectEntitiesRequest = (input: DetectEntitiesRequest, context: __Serde
 
 // se_DetectTargetedSentimentRequest omitted.
 
+// se_DetectToxicContentRequest omitted.
+
 // se_DocumentClassificationConfig omitted.
 
 /**
@@ -7179,6 +7255,8 @@ const se_ListKeyPhrasesDetectionJobsRequest = (
 // se_ListOfDocumentReadFeatureTypes omitted.
 
 // se_ListOfPiiEntityTypes omitted.
+
+// se_ListOfTextSegments omitted.
 
 /**
  * serializeAws_json1_1ListPiiEntitiesDetectionJobsRequest
@@ -7487,6 +7565,8 @@ const se_TargetedSentimentDetectionJobFilter = (
 // se_TargetEventTypes omitted.
 
 // se_TaskConfig omitted.
+
+// se_TextSegment omitted.
 
 /**
  * serializeAws_json1_1TopicsDetectionJobFilter
@@ -8036,6 +8116,15 @@ const de_DetectSyntaxResponse = (output: any, context: __SerdeContext): DetectSy
 const de_DetectTargetedSentimentResponse = (output: any, context: __SerdeContext): DetectTargetedSentimentResponse => {
   return take(output, {
     Entities: (_: any) => de_ListOfTargetedSentimentEntities(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DetectToxicContentResponse
+ */
+const de_DetectToxicContentResponse = (output: any, context: __SerdeContext): DetectToxicContentResponse => {
+  return take(output, {
+    ResultList: (_: any) => de_ListOfToxicLabels(_, context),
   }) as any;
 };
 
@@ -9056,6 +9145,30 @@ const de_ListOfTargetedSentimentEntities = (output: any, context: __SerdeContext
   return retVal;
 };
 
+/**
+ * deserializeAws_json1_1ListOfToxicContent
+ */
+const de_ListOfToxicContent = (output: any, context: __SerdeContext): ToxicContent[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ToxicContent(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1ListOfToxicLabels
+ */
+const de_ListOfToxicLabels = (output: any, context: __SerdeContext): ToxicLabels[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ToxicLabels(entry, context);
+    });
+  return retVal;
+};
+
 // de_ListOfWarnings omitted.
 
 /**
@@ -9438,6 +9551,26 @@ const de_TopicsDetectionJobPropertiesList = (output: any, context: __SerdeContex
       return de_TopicsDetectionJobProperties(entry, context);
     });
   return retVal;
+};
+
+/**
+ * deserializeAws_json1_1ToxicContent
+ */
+const de_ToxicContent = (output: any, context: __SerdeContext): ToxicContent => {
+  return take(output, {
+    Name: __expectString,
+    Score: __limitedParseFloat32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ToxicLabels
+ */
+const de_ToxicLabels = (output: any, context: __SerdeContext): ToxicLabels => {
+  return take(output, {
+    Labels: (_: any) => de_ListOfToxicContent(_, context),
+    Toxicity: __limitedParseFloat32,
+  }) as any;
 };
 
 // de_UnsupportedLanguageException omitted.

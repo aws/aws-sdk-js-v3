@@ -66,16 +66,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `HealthClient` and
-the commands you need, for example `DescribeAffectedAccountsForOrganizationCommand`:
+the commands you need, for example `DescribeEventsCommand`:
 
 ```js
 // ES5 example
-const { HealthClient, DescribeAffectedAccountsForOrganizationCommand } = require("@aws-sdk/client-health");
+const { HealthClient, DescribeEventsCommand } = require("@aws-sdk/client-health");
 ```
 
 ```ts
 // ES6+ example
-import { HealthClient, DescribeAffectedAccountsForOrganizationCommand } from "@aws-sdk/client-health";
+import { HealthClient, DescribeEventsCommand } from "@aws-sdk/client-health";
 ```
 
 ### Usage
@@ -94,7 +94,7 @@ const client = new HealthClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DescribeAffectedAccountsForOrganizationCommand(params);
+const command = new DescribeEventsCommand(params);
 ```
 
 #### Async/await
@@ -173,7 +173,7 @@ const client = new AWS.Health({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.describeAffectedAccountsForOrganization(params);
+  const data = await client.describeEvents(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -181,7 +181,7 @@ try {
 
 // Promises.
 client
-  .describeAffectedAccountsForOrganization(params)
+  .describeEvents(params)
   .then((data) => {
     // process data.
   })
@@ -190,7 +190,7 @@ client
   });
 
 // callbacks.
-client.describeAffectedAccountsForOrganization(params, (err, data) => {
+client.describeEvents(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -205,7 +205,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -251,7 +251,7 @@ see LICENSE for more information.
 DescribeAffectedAccountsForOrganization
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/classes/describeaffectedaccountsfororganizationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/interfaces/describeaffectedaccountsfororganizationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/interfaces/describeaffectedaccountsfororganizationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/health/command/DescribeAffectedAccountsForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeAffectedAccountsForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeAffectedAccountsForOrganizationCommandOutput/)
 
 </details>
 <details>
@@ -259,7 +259,7 @@ DescribeAffectedAccountsForOrganization
 DescribeAffectedEntities
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/classes/describeaffectedentitiescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/interfaces/describeaffectedentitiescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/interfaces/describeaffectedentitiescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/health/command/DescribeAffectedEntitiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeAffectedEntitiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeAffectedEntitiesCommandOutput/)
 
 </details>
 <details>
@@ -267,7 +267,7 @@ DescribeAffectedEntities
 DescribeAffectedEntitiesForOrganization
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/classes/describeaffectedentitiesfororganizationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/interfaces/describeaffectedentitiesfororganizationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/interfaces/describeaffectedentitiesfororganizationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/health/command/DescribeAffectedEntitiesForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeAffectedEntitiesForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeAffectedEntitiesForOrganizationCommandOutput/)
 
 </details>
 <details>
@@ -275,7 +275,15 @@ DescribeAffectedEntitiesForOrganization
 DescribeEntityAggregates
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/classes/describeentityaggregatescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/interfaces/describeentityaggregatescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/interfaces/describeentityaggregatescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/health/command/DescribeEntityAggregatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeEntityAggregatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeEntityAggregatesCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeEntityAggregatesForOrganization
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/health/command/DescribeEntityAggregatesForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeEntityAggregatesForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeEntityAggregatesForOrganizationCommandOutput/)
 
 </details>
 <details>
@@ -283,7 +291,7 @@ DescribeEntityAggregates
 DescribeEventAggregates
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/classes/describeeventaggregatescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/interfaces/describeeventaggregatescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/interfaces/describeeventaggregatescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/health/command/DescribeEventAggregatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeEventAggregatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeEventAggregatesCommandOutput/)
 
 </details>
 <details>
@@ -291,7 +299,7 @@ DescribeEventAggregates
 DescribeEventDetails
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/classes/describeeventdetailscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/interfaces/describeeventdetailscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/interfaces/describeeventdetailscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/health/command/DescribeEventDetailsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeEventDetailsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeEventDetailsCommandOutput/)
 
 </details>
 <details>
@@ -299,7 +307,7 @@ DescribeEventDetails
 DescribeEventDetailsForOrganization
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/classes/describeeventdetailsfororganizationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/interfaces/describeeventdetailsfororganizationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/interfaces/describeeventdetailsfororganizationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/health/command/DescribeEventDetailsForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeEventDetailsForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeEventDetailsForOrganizationCommandOutput/)
 
 </details>
 <details>
@@ -307,7 +315,7 @@ DescribeEventDetailsForOrganization
 DescribeEvents
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/classes/describeeventscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/interfaces/describeeventscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/interfaces/describeeventscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/health/command/DescribeEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeEventsCommandOutput/)
 
 </details>
 <details>
@@ -315,7 +323,7 @@ DescribeEvents
 DescribeEventsForOrganization
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/classes/describeeventsfororganizationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/interfaces/describeeventsfororganizationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/interfaces/describeeventsfororganizationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/health/command/DescribeEventsForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeEventsForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeEventsForOrganizationCommandOutput/)
 
 </details>
 <details>
@@ -323,7 +331,7 @@ DescribeEventsForOrganization
 DescribeEventTypes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/classes/describeeventtypescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/interfaces/describeeventtypescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/interfaces/describeeventtypescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/health/command/DescribeEventTypesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeEventTypesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeEventTypesCommandOutput/)
 
 </details>
 <details>
@@ -331,7 +339,7 @@ DescribeEventTypes
 DescribeHealthServiceStatusForOrganization
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/classes/describehealthservicestatusfororganizationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/interfaces/describehealthservicestatusfororganizationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/interfaces/describehealthservicestatusfororganizationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/health/command/DescribeHealthServiceStatusForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeHealthServiceStatusForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DescribeHealthServiceStatusForOrganizationCommandOutput/)
 
 </details>
 <details>
@@ -339,7 +347,7 @@ DescribeHealthServiceStatusForOrganization
 DisableHealthServiceAccessForOrganization
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/classes/disablehealthserviceaccessfororganizationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/interfaces/disablehealthserviceaccessfororganizationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/interfaces/disablehealthserviceaccessfororganizationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/health/command/DisableHealthServiceAccessForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DisableHealthServiceAccessForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/DisableHealthServiceAccessForOrganizationCommandOutput/)
 
 </details>
 <details>
@@ -347,6 +355,6 @@ DisableHealthServiceAccessForOrganization
 EnableHealthServiceAccessForOrganization
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/classes/enablehealthserviceaccessfororganizationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/interfaces/enablehealthserviceaccessfororganizationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-health/interfaces/enablehealthserviceaccessfororganizationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/health/command/EnableHealthServiceAccessForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/EnableHealthServiceAccessForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-health/Interface/EnableHealthServiceAccessForOrganizationCommandOutput/)
 
 </details>

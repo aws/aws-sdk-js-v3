@@ -22,6 +22,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
   CreateCapacityProviderCommandInput,
@@ -188,6 +189,7 @@ import {
   ClusterServiceConnectDefaultsRequest,
   ClusterSetting,
   Compatibility,
+  ConflictException,
   Container,
   ContainerDefinition,
   ContainerDependency,
@@ -237,6 +239,7 @@ import {
   DeviceCgroupPermission,
   DiscoverPollEndpointRequest,
   DockerVolumeConfiguration,
+  EBSTagSpecification,
   EFSAuthorizationConfig,
   EFSVolumeConfiguration,
   EnvironmentFile,
@@ -312,11 +315,15 @@ import {
   ServiceConnectClientAlias,
   ServiceConnectConfiguration,
   ServiceConnectService,
+  ServiceConnectTlsCertificateAuthority,
+  ServiceConnectTlsConfiguration,
   ServiceEvent,
   ServiceField,
+  ServiceManagedEBSVolumeConfiguration,
   ServiceNotActiveException,
   ServiceNotFoundException,
   ServiceRegistry,
+  ServiceVolumeConfiguration,
   StartTaskRequest,
   StartTaskResponse,
   StopTaskRequest,
@@ -334,10 +341,14 @@ import {
   TaskDefinitionField,
   TaskDefinitionPlacementConstraint,
   TaskField,
+  TaskManagedEBSVolumeConfiguration,
+  TaskManagedEBSVolumeTerminationPolicy,
   TaskOverride,
   TaskSet,
   TaskSetField,
   TaskSetNotFoundException,
+  TaskVolumeConfiguration,
+  TimeoutConfiguration,
   Tmpfs,
   Ulimit,
   UnsupportedFeatureException,
@@ -879,7 +890,7 @@ export const se_RunTaskCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RunTask");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_RunTaskRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3329,6 +3340,9 @@ const de_RunTaskCommandError = async (
     case "ClusterNotFoundException":
     case "com.amazonaws.ecs#ClusterNotFoundException":
       throw await de_ClusterNotFoundExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.ecs#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InvalidParameterException":
     case "com.amazonaws.ecs#InvalidParameterException":
       throw await de_InvalidParameterExceptionRes(parsedOutput, context);
@@ -3399,6 +3413,9 @@ const de_StartTaskCommandError = async (
     case "ServerException":
     case "com.amazonaws.ecs#ServerException":
       throw await de_ServerExceptionRes(parsedOutput, context);
+    case "UnsupportedFeatureException":
+    case "com.amazonaws.ecs#UnsupportedFeatureException":
+      throw await de_UnsupportedFeatureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -4089,6 +4106,9 @@ const de_UpdateServiceCommandError = async (
     case "ServiceNotFoundException":
     case "com.amazonaws.ecs#ServiceNotFoundException":
       throw await de_ServiceNotFoundExceptionRes(parsedOutput, context);
+    case "UnsupportedFeatureException":
+    case "com.amazonaws.ecs#UnsupportedFeatureException":
+      throw await de_UnsupportedFeatureExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -4419,6 +4439,19 @@ const de_ClusterNotFoundExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new ClusterNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -4823,6 +4856,10 @@ const se_CreateTaskSetRequest = (input: CreateTaskSetRequest, context: __SerdeCo
 
 // se_DockerVolumeConfiguration omitted.
 
+// se_EBSTagSpecification omitted.
+
+// se_EBSTagSpecifications omitted.
+
 // se_EFSAuthorizationConfig omitted.
 
 // se_EFSVolumeConfiguration omitted.
@@ -4995,7 +5032,32 @@ const se_Resources = (input: Resource[], context: __SerdeContext): any => {
     });
 };
 
-// se_RunTaskRequest omitted.
+/**
+ * serializeAws_json1_1RunTaskRequest
+ */
+const se_RunTaskRequest = (input: RunTaskRequest, context: __SerdeContext): any => {
+  return take(input, {
+    capacityProviderStrategy: _json,
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    cluster: [],
+    count: [],
+    enableECSManagedTags: [],
+    enableExecuteCommand: [],
+    group: [],
+    launchType: [],
+    networkConfiguration: _json,
+    overrides: _json,
+    placementConstraints: _json,
+    placementStrategy: _json,
+    platformVersion: [],
+    propagateTags: [],
+    referenceId: [],
+    startedBy: [],
+    tags: _json,
+    taskDefinition: [],
+    volumeConfigurations: _json,
+  });
+};
 
 // se_RuntimePlatform omitted.
 
@@ -5023,11 +5085,21 @@ const se_Scale = (input: Scale, context: __SerdeContext): any => {
 
 // se_ServiceConnectServiceList omitted.
 
+// se_ServiceConnectTlsCertificateAuthority omitted.
+
+// se_ServiceConnectTlsConfiguration omitted.
+
 // se_ServiceFieldList omitted.
+
+// se_ServiceManagedEBSVolumeConfiguration omitted.
 
 // se_ServiceRegistries omitted.
 
 // se_ServiceRegistry omitted.
+
+// se_ServiceVolumeConfiguration omitted.
+
+// se_ServiceVolumeConfigurations omitted.
 
 // se_StartTaskRequest omitted.
 
@@ -5079,9 +5151,19 @@ const se_SubmitTaskStateChangeRequest = (input: SubmitTaskStateChangeRequest, co
 
 // se_TaskFieldList omitted.
 
+// se_TaskManagedEBSVolumeConfiguration omitted.
+
+// se_TaskManagedEBSVolumeTerminationPolicy omitted.
+
 // se_TaskOverride omitted.
 
 // se_TaskSetFieldList omitted.
+
+// se_TaskVolumeConfiguration omitted.
+
+// se_TaskVolumeConfigurations omitted.
+
+// se_TimeoutConfiguration omitted.
 
 // se_Tmpfs omitted.
 
@@ -5182,6 +5264,8 @@ const se_UpdateTaskSetRequest = (input: UpdateTaskSetRequest, context: __SerdeCo
 // de_ClusterSettings omitted.
 
 // de_CompatibilityList omitted.
+
+// de_ConflictException omitted.
 
 /**
  * deserializeAws_json1_1Container
@@ -5361,6 +5445,7 @@ const de_Deployment = (output: any, context: __SerdeContext): Deployment => {
     status: __expectString,
     taskDefinition: __expectString,
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    volumeConfigurations: _json,
   }) as any;
 };
 
@@ -5476,6 +5561,10 @@ const de_DescribeTasksResponse = (output: any, context: __SerdeContext): Describ
 // de_DockerLabelsMap omitted.
 
 // de_DockerVolumeConfiguration omitted.
+
+// de_EBSTagSpecification omitted.
+
+// de_EBSTagSpecifications omitted.
 
 // de_EFSAuthorizationConfig omitted.
 
@@ -5734,6 +5823,8 @@ const de_Resource = (output: any, context: __SerdeContext): Resource => {
   }) as any;
 };
 
+// de_ResourceIds omitted.
+
 // de_ResourceInUseException omitted.
 
 // de_ResourceNotFoundException omitted.
@@ -5835,6 +5926,10 @@ const de_Service = (output: any, context: __SerdeContext): Service => {
 
 // de_ServiceConnectServiceResourceList omitted.
 
+// de_ServiceConnectTlsCertificateAuthority omitted.
+
+// de_ServiceConnectTlsConfiguration omitted.
+
 /**
  * deserializeAws_json1_1ServiceEvent
  */
@@ -5858,6 +5953,8 @@ const de_ServiceEvents = (output: any, context: __SerdeContext): ServiceEvent[] 
   return retVal;
 };
 
+// de_ServiceManagedEBSVolumeConfiguration omitted.
+
 // de_ServiceNotActiveException omitted.
 
 // de_ServiceNotFoundException omitted.
@@ -5877,6 +5974,10 @@ const de_Services = (output: any, context: __SerdeContext): Service[] => {
     });
   return retVal;
 };
+
+// de_ServiceVolumeConfiguration omitted.
+
+// de_ServiceVolumeConfigurations omitted.
 
 // de_Session omitted.
 
@@ -6080,6 +6181,8 @@ const de_TaskSets = (output: any, context: __SerdeContext): TaskSet[] => {
     });
   return retVal;
 };
+
+// de_TimeoutConfiguration omitted.
 
 // de_Tmpfs omitted.
 

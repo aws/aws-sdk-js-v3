@@ -270,7 +270,7 @@ export interface TimestreamQuery {
  * @public
  * <fullname>Amazon Timestream Query
  *         </fullname>
- *         <p></p>
+ *          <p></p>
  */
 export class TimestreamQuery extends TimestreamQueryClient implements TimestreamQuery {}
 createAggregatedClient(commands, TimestreamQuery);

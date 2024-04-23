@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
 import {
   acceptMatches as __acceptMatches,
   NotAcceptableException as __NotAcceptableException,
@@ -21,7 +22,6 @@ import {
   expectObject as __expectObject,
   expectShort as __expectShort,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   limitedParseFloat32 as __limitedParseFloat32,
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
@@ -399,7 +399,7 @@ export const deserializeMalformedRequiredRequest = async (
     }
   }
   const contents: any = map({
-    stringInHeader: [, output.headers["string-in-headers"]],
+    [_sIH]: [, output.headers[_sih]],
   });
   const query = output.query;
   if (query != null) {
@@ -1078,7 +1078,7 @@ const se_ValidationExceptionFieldList = (input: ValidationExceptionField[], cont
 /**
  * deserializeAws_restJson1EnumList
  */
-const de_EnumList = (output: any, context: __SerdeContext): (EnumString | string)[] => {
+const de_EnumList = (output: any, context: __SerdeContext): EnumString[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError(
@@ -1093,17 +1093,14 @@ const de_EnumList = (output: any, context: __SerdeContext): (EnumString | string
 /**
  * deserializeAws_restJson1EnumMap
  */
-const de_EnumMap = (output: any, context: __SerdeContext): Record<string, EnumString | string> => {
-  return Object.entries(output).reduce(
-    (acc: Record<string, EnumString | string>, [key, value]: [EnumString | string, any]) => {
-      if (value === null) {
-        return acc;
-      }
-      acc[key] = __expectString(value) as any;
+const de_EnumMap = (output: any, context: __SerdeContext): Partial<Record<EnumString, EnumString>> => {
+  return Object.entries(output).reduce((acc: Partial<Record<EnumString, EnumString>>, [key, value]: [string, any]) => {
+    if (value === null) {
       return acc;
-    },
-    {}
-  );
+    }
+    acc[key as EnumString] = __expectString(value) as any;
+    return acc;
+  }, {} as Partial<Record<EnumString, EnumString>>);
 };
 
 /**
@@ -1142,9 +1139,9 @@ const de_LengthMap = (output: any, context: __SerdeContext): Record<string, stri
     if (value === null) {
       return acc;
     }
-    acc[key] = de_LengthList(value, context);
+    acc[key as string] = de_LengthList(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, string[]>);
 };
 
 /**
@@ -1194,9 +1191,9 @@ const de_PatternMap = (output: any, context: __SerdeContext): Record<string, str
     if (value === null) {
       return acc;
     }
-    acc[key] = __expectString(value) as any;
+    acc[key as string] = __expectString(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, string>);
 };
 
 /**
@@ -1207,9 +1204,9 @@ const de_PatternMapOverride = (output: any, context: __SerdeContext): Record<str
     if (value === null) {
       return acc;
     }
-    acc[key] = __expectString(value) as any;
+    acc[key as string] = __expectString(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, string>);
 };
 
 /**
@@ -1342,7 +1339,7 @@ const de_DateTimeSet = (output: any, context: __SerdeContext): Date[] => {
 /**
  * deserializeAws_restJson1FooEnumSet
  */
-const de_FooEnumSet = (output: any, context: __SerdeContext): (FooEnum | string)[] => {
+const de_FooEnumSet = (output: any, context: __SerdeContext): FooEnum[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError(
@@ -1394,7 +1391,7 @@ const de_HttpDateSet = (output: any, context: __SerdeContext): Date[] => {
 /**
  * deserializeAws_restJson1IntegerEnumSet
  */
-const de_IntegerEnumSet = (output: any, context: __SerdeContext): (IntegerEnum | number)[] => {
+const de_IntegerEnumSet = (output: any, context: __SerdeContext): IntegerEnum[] => {
   const retVal = (output || []).map((entry: any) => {
     if (entry === null) {
       throw new TypeError(
@@ -1549,6 +1546,9 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _sIH = "stringInHeader";
+const _sih = "string-in-headers";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

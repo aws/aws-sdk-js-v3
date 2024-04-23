@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { RegisterOnPremisesInstanceInput } from "../models/models_0";
 import { de_RegisterOnPremisesInstanceCommand, se_RegisterOnPremisesInstanceCommand } from "../protocols/Aws_json1_1";
 
@@ -37,9 +29,9 @@ export interface RegisterOnPremisesInstanceCommandOutput extends __MetadataBeare
 /**
  * @public
  * <p>Registers an on-premises instance.</p>
- *         <note>
+ *          <note>
  *             <p>Only one IAM ARN (an IAM session ARN or IAM user ARN) is supported in the request. You cannot use both.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,18 +56,17 @@ export interface RegisterOnPremisesInstanceCommandOutput extends __MetadataBeare
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link IamArnRequiredException} (client fault)
- *  <p>No IAM ARN was included in the request. You must use an IAM session ARN or IAM user ARN in the request.</p>
+ *  <p>No IAM ARN was included in the request. You must use an IAM session ARN or user ARN in the request.</p>
  *
  * @throws {@link IamSessionArnAlreadyRegisteredException} (client fault)
  *  <p>The request included an IAM session ARN that has already been used to
  *             register a different instance.</p>
  *
  * @throws {@link IamUserArnAlreadyRegisteredException} (client fault)
- *  <p>The specified IAM user ARN is already registered with an on-premises
- *             instance.</p>
+ *  <p>The specified user ARN is already registered with an on-premises instance.</p>
  *
  * @throws {@link IamUserArnRequiredException} (client fault)
- *  <p>An IAM user ARN was not specified.</p>
+ *  <p>An user ARN was not specified.</p>
  *
  * @throws {@link InstanceNameAlreadyRegisteredException} (client fault)
  *  <p>The specified on-premises instance name is already registered.</p>
@@ -87,95 +78,39 @@ export interface RegisterOnPremisesInstanceCommandOutput extends __MetadataBeare
  *  <p>The IAM session ARN was specified in an invalid format.</p>
  *
  * @throws {@link InvalidIamUserArnException} (client fault)
- *  <p>The IAM user ARN was specified in an invalid format.</p>
+ *  <p>The user ARN was specified in an invalid format.</p>
  *
  * @throws {@link InvalidInstanceNameException} (client fault)
  *  <p>The on-premises instance name was specified in an invalid format.</p>
  *
  * @throws {@link MultipleIamArnsProvidedException} (client fault)
- *  <p>Both an IAM user ARN and an IAM session ARN were
- *             included in the request. Use only one ARN type.</p>
+ *  <p>Both an user ARN and an IAM session ARN were included in the request.
+ *             Use only one ARN type.</p>
  *
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
-export class RegisterOnPremisesInstanceCommand extends $Command<
-  RegisterOnPremisesInstanceCommandInput,
-  RegisterOnPremisesInstanceCommandOutput,
-  CodeDeployClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: RegisterOnPremisesInstanceCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CodeDeployClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<RegisterOnPremisesInstanceCommandInput, RegisterOnPremisesInstanceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, RegisterOnPremisesInstanceCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CodeDeployClient";
-    const commandName = "RegisterOnPremisesInstanceCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: RegisterOnPremisesInstanceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_RegisterOnPremisesInstanceCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RegisterOnPremisesInstanceCommandOutput> {
-    return de_RegisterOnPremisesInstanceCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class RegisterOnPremisesInstanceCommand extends $Command
+  .classBuilder<
+    RegisterOnPremisesInstanceCommandInput,
+    RegisterOnPremisesInstanceCommandOutput,
+    CodeDeployClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CodeDeployClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CodeDeploy_20141006", "RegisterOnPremisesInstance", {})
+  .n("CodeDeployClient", "RegisterOnPremisesInstanceCommand")
+  .f(void 0, void 0)
+  .ser(se_RegisterOnPremisesInstanceCommand)
+  .de(de_RegisterOnPremisesInstanceCommand)
+  .build() {}

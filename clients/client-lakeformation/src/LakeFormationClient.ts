@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -73,17 +71,37 @@ import {
   CreateDataCellsFilterCommandInput,
   CreateDataCellsFilterCommandOutput,
 } from "./commands/CreateDataCellsFilterCommand";
+import {
+  CreateLakeFormationIdentityCenterConfigurationCommandInput,
+  CreateLakeFormationIdentityCenterConfigurationCommandOutput,
+} from "./commands/CreateLakeFormationIdentityCenterConfigurationCommand";
+import {
+  CreateLakeFormationOptInCommandInput,
+  CreateLakeFormationOptInCommandOutput,
+} from "./commands/CreateLakeFormationOptInCommand";
 import { CreateLFTagCommandInput, CreateLFTagCommandOutput } from "./commands/CreateLFTagCommand";
 import {
   DeleteDataCellsFilterCommandInput,
   DeleteDataCellsFilterCommandOutput,
 } from "./commands/DeleteDataCellsFilterCommand";
+import {
+  DeleteLakeFormationIdentityCenterConfigurationCommandInput,
+  DeleteLakeFormationIdentityCenterConfigurationCommandOutput,
+} from "./commands/DeleteLakeFormationIdentityCenterConfigurationCommand";
+import {
+  DeleteLakeFormationOptInCommandInput,
+  DeleteLakeFormationOptInCommandOutput,
+} from "./commands/DeleteLakeFormationOptInCommand";
 import { DeleteLFTagCommandInput, DeleteLFTagCommandOutput } from "./commands/DeleteLFTagCommand";
 import {
   DeleteObjectsOnCancelCommandInput,
   DeleteObjectsOnCancelCommandOutput,
 } from "./commands/DeleteObjectsOnCancelCommand";
 import { DeregisterResourceCommandInput, DeregisterResourceCommandOutput } from "./commands/DeregisterResourceCommand";
+import {
+  DescribeLakeFormationIdentityCenterConfigurationCommandInput,
+  DescribeLakeFormationIdentityCenterConfigurationCommandOutput,
+} from "./commands/DescribeLakeFormationIdentityCenterConfigurationCommand";
 import { DescribeResourceCommandInput, DescribeResourceCommandOutput } from "./commands/DescribeResourceCommand";
 import {
   DescribeTransactionCommandInput,
@@ -119,6 +137,10 @@ import {
   ListDataCellsFilterCommandInput,
   ListDataCellsFilterCommandOutput,
 } from "./commands/ListDataCellsFilterCommand";
+import {
+  ListLakeFormationOptInsCommandInput,
+  ListLakeFormationOptInsCommandOutput,
+} from "./commands/ListLakeFormationOptInsCommand";
 import { ListLFTagsCommandInput, ListLFTagsCommandOutput } from "./commands/ListLFTagsCommand";
 import { ListPermissionsCommandInput, ListPermissionsCommandOutput } from "./commands/ListPermissionsCommand";
 import { ListResourcesCommandInput, ListResourcesCommandOutput } from "./commands/ListResourcesCommand";
@@ -151,6 +173,10 @@ import {
   UpdateDataCellsFilterCommandInput,
   UpdateDataCellsFilterCommandOutput,
 } from "./commands/UpdateDataCellsFilterCommand";
+import {
+  UpdateLakeFormationIdentityCenterConfigurationCommandInput,
+  UpdateLakeFormationIdentityCenterConfigurationCommandOutput,
+} from "./commands/UpdateLakeFormationIdentityCenterConfigurationCommand";
 import { UpdateLFTagCommandInput, UpdateLFTagCommandOutput } from "./commands/UpdateLFTagCommand";
 import { UpdateResourceCommandInput, UpdateResourceCommandOutput } from "./commands/UpdateResourceCommand";
 import { UpdateTableObjectsCommandInput, UpdateTableObjectsCommandOutput } from "./commands/UpdateTableObjectsCommand";
@@ -181,10 +207,15 @@ export type ServiceInputTypes =
   | CommitTransactionCommandInput
   | CreateDataCellsFilterCommandInput
   | CreateLFTagCommandInput
+  | CreateLakeFormationIdentityCenterConfigurationCommandInput
+  | CreateLakeFormationOptInCommandInput
   | DeleteDataCellsFilterCommandInput
   | DeleteLFTagCommandInput
+  | DeleteLakeFormationIdentityCenterConfigurationCommandInput
+  | DeleteLakeFormationOptInCommandInput
   | DeleteObjectsOnCancelCommandInput
   | DeregisterResourceCommandInput
+  | DescribeLakeFormationIdentityCenterConfigurationCommandInput
   | DescribeResourceCommandInput
   | DescribeTransactionCommandInput
   | ExtendTransactionCommandInput
@@ -203,6 +234,7 @@ export type ServiceInputTypes =
   | GrantPermissionsCommandInput
   | ListDataCellsFilterCommandInput
   | ListLFTagsCommandInput
+  | ListLakeFormationOptInsCommandInput
   | ListPermissionsCommandInput
   | ListResourcesCommandInput
   | ListTableStorageOptimizersCommandInput
@@ -217,6 +249,7 @@ export type ServiceInputTypes =
   | StartTransactionCommandInput
   | UpdateDataCellsFilterCommandInput
   | UpdateLFTagCommandInput
+  | UpdateLakeFormationIdentityCenterConfigurationCommandInput
   | UpdateResourceCommandInput
   | UpdateTableObjectsCommandInput
   | UpdateTableStorageOptimizerCommandInput;
@@ -233,10 +266,15 @@ export type ServiceOutputTypes =
   | CommitTransactionCommandOutput
   | CreateDataCellsFilterCommandOutput
   | CreateLFTagCommandOutput
+  | CreateLakeFormationIdentityCenterConfigurationCommandOutput
+  | CreateLakeFormationOptInCommandOutput
   | DeleteDataCellsFilterCommandOutput
   | DeleteLFTagCommandOutput
+  | DeleteLakeFormationIdentityCenterConfigurationCommandOutput
+  | DeleteLakeFormationOptInCommandOutput
   | DeleteObjectsOnCancelCommandOutput
   | DeregisterResourceCommandOutput
+  | DescribeLakeFormationIdentityCenterConfigurationCommandOutput
   | DescribeResourceCommandOutput
   | DescribeTransactionCommandOutput
   | ExtendTransactionCommandOutput
@@ -255,6 +293,7 @@ export type ServiceOutputTypes =
   | GrantPermissionsCommandOutput
   | ListDataCellsFilterCommandOutput
   | ListLFTagsCommandOutput
+  | ListLakeFormationOptInsCommandOutput
   | ListPermissionsCommandOutput
   | ListResourcesCommandOutput
   | ListTableStorageOptimizersCommandOutput
@@ -269,6 +308,7 @@ export type ServiceOutputTypes =
   | StartTransactionCommandOutput
   | UpdateDataCellsFilterCommandOutput
   | UpdateLFTagCommandOutput
+  | UpdateLakeFormationIdentityCenterConfigurationCommandOutput
   | UpdateResourceCommandOutput
   | UpdateTableObjectsCommandOutput
   | UpdateTableStorageOptimizerCommandOutput;
@@ -383,6 +423,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

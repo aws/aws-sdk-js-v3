@@ -23,7 +23,7 @@ export type EncryptionMode = (typeof EncryptionMode)[keyof typeof EncryptionMode
  *          uploads to Amazon S3. </p>
  *          <p>For more information, see
  *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_artifact_encryption.html">Encrypting canary artifacts</a>
- *             </p>
+ *          </p>
  */
 export interface S3EncryptionConfig {
   /**
@@ -35,7 +35,7 @@ export interface S3EncryptionConfig {
    *             Amazon Web Services-managed KMS key is used.
    *         </p>
    */
-  EncryptionMode?: EncryptionMode | string;
+  EncryptionMode?: EncryptionMode;
 
   /**
    * @public
@@ -388,7 +388,7 @@ export interface CanaryStatus {
    * @public
    * <p>The current state of the canary.</p>
    */
-  State?: CanaryState | string;
+  State?: CanaryState;
 
   /**
    * @public
@@ -400,7 +400,7 @@ export interface CanaryStatus {
    * @public
    * <p>If the canary cannot run or has failed, this field displays the reason.</p>
    */
-  StateReasonCode?: CanaryStateReasonCode | string;
+  StateReasonCode?: CanaryStateReasonCode;
 }
 
 /**
@@ -640,7 +640,7 @@ export interface CanaryRunStatus {
    * @public
    * <p>The current state of the run.</p>
    */
-  State?: CanaryRunState | string;
+  State?: CanaryRunState;
 
   /**
    * @public
@@ -654,7 +654,7 @@ export interface CanaryRunStatus {
    *          canary code. If this value is <code>EXECUTION_FAILURE</code>, an exception occurred in
    *          CloudWatch Synthetics.</p>
    */
-  StateReasonCode?: CanaryRunStateReasonCode | string;
+  StateReasonCode?: CanaryRunStateReasonCode;
 }
 
 /**
@@ -1831,7 +1831,6 @@ export interface UntagResourceResponse {}
  * @public
  * <p>An object that specifies what screenshots to use as a baseline for visual monitoring by this canary. It can
  *          optionally also specify parts of the screenshots to ignore during the visual monitoring comparison.</p>
- *
  *          <p>Visual monitoring is supported only on canaries running the <b>syn-puppeteer-node-3.2</b>
  *          runtime or later. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Library_SyntheticsLogger_VisualTesting.html">
  *             Visual monitoring</a> and <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Blueprints_VisualTesting.html">

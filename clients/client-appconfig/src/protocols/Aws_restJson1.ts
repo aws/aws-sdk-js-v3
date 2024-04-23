@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -8,7 +10,6 @@ import {
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseFloat32 as __limitedParseFloat32,
   map,
@@ -134,6 +135,7 @@ import {
 import { AppConfigServiceException as __BaseException } from "../models/AppConfigServiceException";
 import {
   Action,
+  ActionPoint,
   BadRequestException,
   ConflictException,
   DeploymentEvent,
@@ -155,11 +157,11 @@ export const se_CreateApplicationCommand = async (
   input: CreateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications";
+  b.bp("/applications");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -168,15 +170,8 @@ export const se_CreateApplicationCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -186,25 +181,17 @@ export const se_CreateConfigurationProfileCommand = async (
   input: CreateConfigurationProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/applications/{ApplicationId}/configurationprofiles";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ApplicationId",
-    () => input.ApplicationId!,
-    "{ApplicationId}",
-    false
-  );
+  b.bp("/applications/{ApplicationId}/configurationprofiles");
+  b.p("ApplicationId", () => input.ApplicationId!, "{ApplicationId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Description: [],
+      KmsKeyIdentifier: [],
       LocationUri: [],
       Name: [],
       RetrievalRoleArn: [],
@@ -213,15 +200,8 @@ export const se_CreateConfigurationProfileCommand = async (
       Validators: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -231,11 +211,11 @@ export const se_CreateDeploymentStrategyCommand = async (
   input: CreateDeploymentStrategyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deploymentstrategies";
+  b.bp("/deploymentstrategies");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -249,15 +229,8 @@ export const se_CreateDeploymentStrategyCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -267,21 +240,12 @@ export const se_CreateEnvironmentCommand = async (
   input: CreateEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/applications/{ApplicationId}/environments";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ApplicationId",
-    () => input.ApplicationId!,
-    "{ApplicationId}",
-    false
-  );
+  b.bp("/applications/{ApplicationId}/environments");
+  b.p("ApplicationId", () => input.ApplicationId!, "{ApplicationId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -291,15 +255,8 @@ export const se_CreateEnvironmentCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -309,15 +266,12 @@ export const se_CreateExtensionCommand = async (
   input: CreateExtensionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "latest-version-number": [
-      () => isSerializableHeaderValue(input.LatestVersionNumber),
-      () => input.LatestVersionNumber!.toString(),
-    ],
+    [_lvn]: [() => isSerializableHeaderValue(input[_LVN]), () => input[_LVN]!.toString()],
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/extensions";
+  b.bp("/extensions");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -328,15 +282,8 @@ export const se_CreateExtensionCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -346,11 +293,11 @@ export const se_CreateExtensionAssociationCommand = async (
   input: CreateExtensionAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/extensionassociations";
+  b.bp("/extensionassociations");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -361,15 +308,8 @@ export const se_CreateExtensionAssociationCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -379,48 +319,22 @@ export const se_CreateHostedConfigurationVersionCommand = async (
   input: CreateHostedConfigurationVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "content-type": input.ContentType! || "application/octet-stream",
-    description: input.Description!,
-    "latest-version-number": [
-      () => isSerializableHeaderValue(input.LatestVersionNumber),
-      () => input.LatestVersionNumber!.toString(),
-    ],
-    versionlabel: input.VersionLabel!,
+    [_ct]: input[_CT]! || "application/octet-stream",
+    [_d]: input[_D]!,
+    [_lvn]: [() => isSerializableHeaderValue(input[_LVN]), () => input[_LVN]!.toString()],
+    [_v]: input[_VL]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ApplicationId",
-    () => input.ApplicationId!,
-    "{ApplicationId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConfigurationProfileId",
-    () => input.ConfigurationProfileId!,
-    "{ConfigurationProfileId}",
-    false
-  );
+  b.bp("/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions");
+  b.p("ApplicationId", () => input.ApplicationId!, "{ApplicationId}", false);
+  b.p("ConfigurationProfileId", () => input.ConfigurationProfileId!, "{ConfigurationProfileId}", false);
   let body: any;
   if (input.Content !== undefined) {
     body = input.Content;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -430,28 +344,13 @@ export const se_DeleteApplicationCommand = async (
   input: DeleteApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications/{ApplicationId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ApplicationId",
-    () => input.ApplicationId!,
-    "{ApplicationId}",
-    false
-  );
+  b.bp("/applications/{ApplicationId}");
+  b.p("ApplicationId", () => input.ApplicationId!, "{ApplicationId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -461,37 +360,14 @@ export const se_DeleteConfigurationProfileCommand = async (
   input: DeleteConfigurationProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ApplicationId",
-    () => input.ApplicationId!,
-    "{ApplicationId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConfigurationProfileId",
-    () => input.ConfigurationProfileId!,
-    "{ConfigurationProfileId}",
-    false
-  );
+  b.bp("/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}");
+  b.p("ApplicationId", () => input.ApplicationId!, "{ApplicationId}", false);
+  b.p("ConfigurationProfileId", () => input.ConfigurationProfileId!, "{ConfigurationProfileId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -501,29 +377,13 @@ export const se_DeleteDeploymentStrategyCommand = async (
   input: DeleteDeploymentStrategyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/deployementstrategies/{DeploymentStrategyId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DeploymentStrategyId",
-    () => input.DeploymentStrategyId!,
-    "{DeploymentStrategyId}",
-    false
-  );
+  b.bp("/deployementstrategies/{DeploymentStrategyId}");
+  b.p("DeploymentStrategyId", () => input.DeploymentStrategyId!, "{DeploymentStrategyId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -533,37 +393,14 @@ export const se_DeleteEnvironmentCommand = async (
   input: DeleteEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/applications/{ApplicationId}/environments/{EnvironmentId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ApplicationId",
-    () => input.ApplicationId!,
-    "{ApplicationId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EnvironmentId",
-    () => input.EnvironmentId!,
-    "{EnvironmentId}",
-    false
-  );
+  b.bp("/applications/{ApplicationId}/environments/{EnvironmentId}");
+  b.p("ApplicationId", () => input.ApplicationId!, "{ApplicationId}", false);
+  b.p("EnvironmentId", () => input.EnvironmentId!, "{EnvironmentId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -573,32 +410,16 @@ export const se_DeleteExtensionCommand = async (
   input: DeleteExtensionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/extensions/{ExtensionIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ExtensionIdentifier",
-    () => input.ExtensionIdentifier!,
-    "{ExtensionIdentifier}",
-    false
-  );
+  b.bp("/extensions/{ExtensionIdentifier}");
+  b.p("ExtensionIdentifier", () => input.ExtensionIdentifier!, "{ExtensionIdentifier}", false);
   const query: any = map({
-    version: [() => input.VersionNumber !== void 0, () => input.VersionNumber!.toString()],
+    [_ve]: [() => input.VersionNumber !== void 0, () => input[_VN]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -608,29 +429,13 @@ export const se_DeleteExtensionAssociationCommand = async (
   input: DeleteExtensionAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/extensionassociations/{ExtensionAssociationId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ExtensionAssociationId",
-    () => input.ExtensionAssociationId!,
-    "{ExtensionAssociationId}",
-    false
-  );
+  b.bp("/extensionassociations/{ExtensionAssociationId}");
+  b.p("ExtensionAssociationId", () => input.ExtensionAssociationId!, "{ExtensionAssociationId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -640,45 +445,17 @@ export const se_DeleteHostedConfigurationVersionCommand = async (
   input: DeleteHostedConfigurationVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions/{VersionNumber}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ApplicationId",
-    () => input.ApplicationId!,
-    "{ApplicationId}",
-    false
+  b.bp(
+    "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions/{VersionNumber}"
   );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConfigurationProfileId",
-    () => input.ConfigurationProfileId!,
-    "{ConfigurationProfileId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VersionNumber",
-    () => input.VersionNumber!.toString(),
-    "{VersionNumber}",
-    false
-  );
+  b.p("ApplicationId", () => input.ApplicationId!, "{ApplicationId}", false);
+  b.p("ConfigurationProfileId", () => input.ConfigurationProfileId!, "{ConfigurationProfileId}", false);
+  b.p("VersionNumber", () => input.VersionNumber!.toString(), "{VersionNumber}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -688,28 +465,13 @@ export const se_GetApplicationCommand = async (
   input: GetApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications/{ApplicationId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ApplicationId",
-    () => input.ApplicationId!,
-    "{ApplicationId}",
-    false
-  );
+  b.bp("/applications/{ApplicationId}");
+  b.p("ApplicationId", () => input.ApplicationId!, "{ApplicationId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -719,36 +481,19 @@ export const se_GetConfigurationCommand = async (
   input: GetConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/applications/{Application}/environments/{Environment}/configurations/{Configuration}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Application", () => input.Application!, "{Application}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Environment", () => input.Environment!, "{Environment}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "Configuration",
-    () => input.Configuration!,
-    "{Configuration}",
-    false
-  );
+  b.bp("/applications/{Application}/environments/{Environment}/configurations/{Configuration}");
+  b.p("Application", () => input.Application!, "{Application}", false);
+  b.p("Environment", () => input.Environment!, "{Environment}", false);
+  b.p("Configuration", () => input.Configuration!, "{Configuration}", false);
   const query: any = map({
-    client_id: [, __expectNonNull(input.ClientId!, `ClientId`)],
-    client_configuration_version: [, input.ClientConfigurationVersion!],
+    [_ci]: [, __expectNonNull(input[_CI]!, `ClientId`)],
+    [_ccv]: [, input[_CCV]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -758,37 +503,14 @@ export const se_GetConfigurationProfileCommand = async (
   input: GetConfigurationProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ApplicationId",
-    () => input.ApplicationId!,
-    "{ApplicationId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConfigurationProfileId",
-    () => input.ConfigurationProfileId!,
-    "{ConfigurationProfileId}",
-    false
-  );
+  b.bp("/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}");
+  b.p("ApplicationId", () => input.ApplicationId!, "{ApplicationId}", false);
+  b.p("ConfigurationProfileId", () => input.ConfigurationProfileId!, "{ConfigurationProfileId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -798,45 +520,15 @@ export const se_GetDeploymentCommand = async (
   input: GetDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments/{DeploymentNumber}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ApplicationId",
-    () => input.ApplicationId!,
-    "{ApplicationId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EnvironmentId",
-    () => input.EnvironmentId!,
-    "{EnvironmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DeploymentNumber",
-    () => input.DeploymentNumber!.toString(),
-    "{DeploymentNumber}",
-    false
-  );
+  b.bp("/applications/{ApplicationId}/environments/{EnvironmentId}/deployments/{DeploymentNumber}");
+  b.p("ApplicationId", () => input.ApplicationId!, "{ApplicationId}", false);
+  b.p("EnvironmentId", () => input.EnvironmentId!, "{EnvironmentId}", false);
+  b.p("DeploymentNumber", () => input.DeploymentNumber!.toString(), "{DeploymentNumber}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -846,29 +538,13 @@ export const se_GetDeploymentStrategyCommand = async (
   input: GetDeploymentStrategyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/deploymentstrategies/{DeploymentStrategyId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DeploymentStrategyId",
-    () => input.DeploymentStrategyId!,
-    "{DeploymentStrategyId}",
-    false
-  );
+  b.bp("/deploymentstrategies/{DeploymentStrategyId}");
+  b.p("DeploymentStrategyId", () => input.DeploymentStrategyId!, "{DeploymentStrategyId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -878,37 +554,14 @@ export const se_GetEnvironmentCommand = async (
   input: GetEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/applications/{ApplicationId}/environments/{EnvironmentId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ApplicationId",
-    () => input.ApplicationId!,
-    "{ApplicationId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EnvironmentId",
-    () => input.EnvironmentId!,
-    "{EnvironmentId}",
-    false
-  );
+  b.bp("/applications/{ApplicationId}/environments/{EnvironmentId}");
+  b.p("ApplicationId", () => input.ApplicationId!, "{ApplicationId}", false);
+  b.p("EnvironmentId", () => input.EnvironmentId!, "{EnvironmentId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -918,32 +571,16 @@ export const se_GetExtensionCommand = async (
   input: GetExtensionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/extensions/{ExtensionIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ExtensionIdentifier",
-    () => input.ExtensionIdentifier!,
-    "{ExtensionIdentifier}",
-    false
-  );
+  b.bp("/extensions/{ExtensionIdentifier}");
+  b.p("ExtensionIdentifier", () => input.ExtensionIdentifier!, "{ExtensionIdentifier}", false);
   const query: any = map({
-    version_number: [() => input.VersionNumber !== void 0, () => input.VersionNumber!.toString()],
+    [_vn]: [() => input.VersionNumber !== void 0, () => input[_VN]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -953,29 +590,13 @@ export const se_GetExtensionAssociationCommand = async (
   input: GetExtensionAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/extensionassociations/{ExtensionAssociationId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ExtensionAssociationId",
-    () => input.ExtensionAssociationId!,
-    "{ExtensionAssociationId}",
-    false
-  );
+  b.bp("/extensionassociations/{ExtensionAssociationId}");
+  b.p("ExtensionAssociationId", () => input.ExtensionAssociationId!, "{ExtensionAssociationId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -985,45 +606,17 @@ export const se_GetHostedConfigurationVersionCommand = async (
   input: GetHostedConfigurationVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions/{VersionNumber}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ApplicationId",
-    () => input.ApplicationId!,
-    "{ApplicationId}",
-    false
+  b.bp(
+    "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions/{VersionNumber}"
   );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConfigurationProfileId",
-    () => input.ConfigurationProfileId!,
-    "{ConfigurationProfileId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "VersionNumber",
-    () => input.VersionNumber!.toString(),
-    "{VersionNumber}",
-    false
-  );
+  b.p("ApplicationId", () => input.ApplicationId!, "{ApplicationId}", false);
+  b.p("ConfigurationProfileId", () => input.ConfigurationProfileId!, "{ConfigurationProfileId}", false);
+  b.p("VersionNumber", () => input.VersionNumber!.toString(), "{VersionNumber}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1033,24 +626,16 @@ export const se_ListApplicationsCommand = async (
   input: ListApplicationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications";
+  b.bp("/applications");
   const query: any = map({
-    max_results: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    next_token: [, input.NextToken!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1060,35 +645,18 @@ export const se_ListConfigurationProfilesCommand = async (
   input: ListConfigurationProfilesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/applications/{ApplicationId}/configurationprofiles";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ApplicationId",
-    () => input.ApplicationId!,
-    "{ApplicationId}",
-    false
-  );
+  b.bp("/applications/{ApplicationId}/configurationprofiles");
+  b.p("ApplicationId", () => input.ApplicationId!, "{ApplicationId}", false);
   const query: any = map({
-    max_results: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    next_token: [, input.NextToken!],
-    type: [, input.Type!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_t]: [, input[_T]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1098,42 +666,18 @@ export const se_ListDeploymentsCommand = async (
   input: ListDeploymentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ApplicationId",
-    () => input.ApplicationId!,
-    "{ApplicationId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EnvironmentId",
-    () => input.EnvironmentId!,
-    "{EnvironmentId}",
-    false
-  );
+  b.bp("/applications/{ApplicationId}/environments/{EnvironmentId}/deployments");
+  b.p("ApplicationId", () => input.ApplicationId!, "{ApplicationId}", false);
+  b.p("EnvironmentId", () => input.EnvironmentId!, "{EnvironmentId}", false);
   const query: any = map({
-    max_results: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    next_token: [, input.NextToken!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1143,24 +687,16 @@ export const se_ListDeploymentStrategiesCommand = async (
   input: ListDeploymentStrategiesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deploymentstrategies";
+  b.bp("/deploymentstrategies");
   const query: any = map({
-    max_results: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    next_token: [, input.NextToken!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1170,34 +706,17 @@ export const se_ListEnvironmentsCommand = async (
   input: ListEnvironmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/applications/{ApplicationId}/environments";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ApplicationId",
-    () => input.ApplicationId!,
-    "{ApplicationId}",
-    false
-  );
+  b.bp("/applications/{ApplicationId}/environments");
+  b.p("ApplicationId", () => input.ApplicationId!, "{ApplicationId}", false);
   const query: any = map({
-    max_results: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    next_token: [, input.NextToken!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1207,30 +726,19 @@ export const se_ListExtensionAssociationsCommand = async (
   input: ListExtensionAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/extensionassociations";
+  b.bp("/extensionassociations");
   const query: any = map({
-    resource_identifier: [, input.ResourceIdentifier!],
-    extension_identifier: [, input.ExtensionIdentifier!],
-    extension_version_number: [
-      () => input.ExtensionVersionNumber !== void 0,
-      () => input.ExtensionVersionNumber!.toString(),
-    ],
-    max_results: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    next_token: [, input.NextToken!],
+    [_ri]: [, input[_RI]!],
+    [_ei]: [, input[_EI]!],
+    [_evn]: [() => input.ExtensionVersionNumber !== void 0, () => input[_EVN]!.toString()],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1240,25 +748,17 @@ export const se_ListExtensionsCommand = async (
   input: ListExtensionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/extensions";
+  b.bp("/extensions");
   const query: any = map({
-    max_results: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    next_token: [, input.NextToken!],
-    name: [, input.Name!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_n]: [, input[_N]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1268,43 +768,19 @@ export const se_ListHostedConfigurationVersionsCommand = async (
   input: ListHostedConfigurationVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ApplicationId",
-    () => input.ApplicationId!,
-    "{ApplicationId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConfigurationProfileId",
-    () => input.ConfigurationProfileId!,
-    "{ConfigurationProfileId}",
-    false
-  );
+  b.bp("/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions");
+  b.p("ApplicationId", () => input.ApplicationId!, "{ApplicationId}", false);
+  b.p("ConfigurationProfileId", () => input.ConfigurationProfileId!, "{ConfigurationProfileId}", false);
   const query: any = map({
-    max_results: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    next_token: [, input.NextToken!],
-    version_label: [, input.VersionLabel!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_vl]: [, input[_VL]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1314,20 +790,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1337,29 +806,13 @@ export const se_StartDeploymentCommand = async (
   input: StartDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ApplicationId",
-    () => input.ApplicationId!,
-    "{ApplicationId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EnvironmentId",
-    () => input.EnvironmentId!,
-    "{EnvironmentId}",
-    false
-  );
+  b.bp("/applications/{ApplicationId}/environments/{EnvironmentId}/deployments");
+  b.p("ApplicationId", () => input.ApplicationId!, "{ApplicationId}", false);
+  b.p("EnvironmentId", () => input.EnvironmentId!, "{EnvironmentId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1371,15 +824,8 @@ export const se_StartDeploymentCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1389,45 +835,15 @@ export const se_StopDeploymentCommand = async (
   input: StopDeploymentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments/{DeploymentNumber}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ApplicationId",
-    () => input.ApplicationId!,
-    "{ApplicationId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EnvironmentId",
-    () => input.EnvironmentId!,
-    "{EnvironmentId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DeploymentNumber",
-    () => input.DeploymentNumber!.toString(),
-    "{DeploymentNumber}",
-    false
-  );
+  b.bp("/applications/{ApplicationId}/environments/{EnvironmentId}/deployments/{DeploymentNumber}");
+  b.p("ApplicationId", () => input.ApplicationId!, "{ApplicationId}", false);
+  b.p("EnvironmentId", () => input.EnvironmentId!, "{EnvironmentId}", false);
+  b.p("DeploymentNumber", () => input.DeploymentNumber!.toString(), "{DeploymentNumber}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1437,27 +853,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1467,27 +876,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1497,20 +898,12 @@ export const se_UpdateApplicationCommand = async (
   input: UpdateApplicationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications/{ApplicationId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ApplicationId",
-    () => input.ApplicationId!,
-    "{ApplicationId}",
-    false
-  );
+  b.bp("/applications/{ApplicationId}");
+  b.p("ApplicationId", () => input.ApplicationId!, "{ApplicationId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1518,15 +911,8 @@ export const se_UpdateApplicationCommand = async (
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1536,47 +922,25 @@ export const se_UpdateConfigurationProfileCommand = async (
   input: UpdateConfigurationProfileCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ApplicationId",
-    () => input.ApplicationId!,
-    "{ApplicationId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConfigurationProfileId",
-    () => input.ConfigurationProfileId!,
-    "{ConfigurationProfileId}",
-    false
-  );
+  b.bp("/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}");
+  b.p("ApplicationId", () => input.ApplicationId!, "{ApplicationId}", false);
+  b.p("ConfigurationProfileId", () => input.ConfigurationProfileId!, "{ConfigurationProfileId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Description: [],
+      KmsKeyIdentifier: [],
       Name: [],
       RetrievalRoleArn: [],
       Validators: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1586,21 +950,12 @@ export const se_UpdateDeploymentStrategyCommand = async (
   input: UpdateDeploymentStrategyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/deploymentstrategies/{DeploymentStrategyId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "DeploymentStrategyId",
-    () => input.DeploymentStrategyId!,
-    "{DeploymentStrategyId}",
-    false
-  );
+  b.bp("/deploymentstrategies/{DeploymentStrategyId}");
+  b.p("DeploymentStrategyId", () => input.DeploymentStrategyId!, "{DeploymentStrategyId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1611,15 +966,8 @@ export const se_UpdateDeploymentStrategyCommand = async (
       GrowthType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1629,29 +977,13 @@ export const se_UpdateEnvironmentCommand = async (
   input: UpdateEnvironmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/applications/{ApplicationId}/environments/{EnvironmentId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ApplicationId",
-    () => input.ApplicationId!,
-    "{ApplicationId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "EnvironmentId",
-    () => input.EnvironmentId!,
-    "{EnvironmentId}",
-    false
-  );
+  b.bp("/applications/{ApplicationId}/environments/{EnvironmentId}");
+  b.p("ApplicationId", () => input.ApplicationId!, "{ApplicationId}", false);
+  b.p("EnvironmentId", () => input.EnvironmentId!, "{EnvironmentId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1660,15 +992,8 @@ export const se_UpdateEnvironmentCommand = async (
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1678,20 +1003,12 @@ export const se_UpdateExtensionCommand = async (
   input: UpdateExtensionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/extensions/{ExtensionIdentifier}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ExtensionIdentifier",
-    () => input.ExtensionIdentifier!,
-    "{ExtensionIdentifier}",
-    false
-  );
+  b.bp("/extensions/{ExtensionIdentifier}");
+  b.p("ExtensionIdentifier", () => input.ExtensionIdentifier!, "{ExtensionIdentifier}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1701,15 +1018,8 @@ export const se_UpdateExtensionCommand = async (
       VersionNumber: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1719,36 +1029,20 @@ export const se_UpdateExtensionAssociationCommand = async (
   input: UpdateExtensionAssociationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/extensionassociations/{ExtensionAssociationId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ExtensionAssociationId",
-    () => input.ExtensionAssociationId!,
-    "{ExtensionAssociationId}",
-    false
-  );
+  b.bp("/extensionassociations/{ExtensionAssociationId}");
+  b.p("ExtensionAssociationId", () => input.ExtensionAssociationId!, "{ExtensionAssociationId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Parameters: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1758,41 +1052,17 @@ export const se_ValidateConfigurationCommand = async (
   input: ValidateConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/validators";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ApplicationId",
-    () => input.ApplicationId!,
-    "{ApplicationId}",
-    false
-  );
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ConfigurationProfileId",
-    () => input.ConfigurationProfileId!,
-    "{ConfigurationProfileId}",
-    false
-  );
+  b.bp("/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/validators");
+  b.p("ApplicationId", () => input.ApplicationId!, "{ApplicationId}", false);
+  b.p("ConfigurationProfileId", () => input.ConfigurationProfileId!, "{ConfigurationProfileId}", false);
   const query: any = map({
-    configuration_version: [, __expectNonNull(input.ConfigurationVersion!, `ConfigurationVersion`)],
+    [_cv]: [, __expectNonNull(input[_CV]!, `ConfigurationVersion`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1837,6 +1107,9 @@ const de_CreateApplicationCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.appconfig#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1865,6 +1138,8 @@ export const de_CreateConfigurationProfileCommand = async (
     ApplicationId: __expectString,
     Description: __expectString,
     Id: __expectString,
+    KmsKeyArn: __expectString,
+    KmsKeyIdentifier: __expectString,
     LocationUri: __expectString,
     Name: __expectString,
     RetrievalRoleArn: __expectString,
@@ -1897,6 +1172,9 @@ const de_CreateConfigurationProfileCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.appconfig#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1954,6 +1232,9 @@ const de_CreateDeploymentStrategyCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.appconfig#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.appconfig#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2012,6 +1293,9 @@ const de_CreateEnvironmentCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.appconfig#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.appconfig#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2157,15 +1441,13 @@ export const de_CreateHostedConfigurationVersionCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ApplicationId: [, output.headers["application-id"]],
-    ConfigurationProfileId: [, output.headers["configuration-profile-id"]],
-    VersionNumber: [
-      () => void 0 !== output.headers["version-number"],
-      () => __strictParseInt32(output.headers["version-number"]),
-    ],
-    Description: [, output.headers["description"]],
-    ContentType: [, output.headers["content-type"]],
-    VersionLabel: [, output.headers["versionlabel"]],
+    [_AI]: [, output.headers[_ai]],
+    [_CPI]: [, output.headers[_cpi]],
+    [_VN]: [() => void 0 !== output.headers[_vn_], () => __strictParseInt32(output.headers[_vn_])],
+    [_D]: [, output.headers[_d]],
+    [_CT]: [, output.headers[_ct]],
+    [_VL]: [, output.headers[_v]],
+    [_KKA]: [, output.headers[_k]],
   });
   const data: any = await collectBody(output.body, context);
   contents.Content = data;
@@ -2629,8 +1911,8 @@ export const de_GetConfigurationCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ConfigurationVersion: [, output.headers["configuration-version"]],
-    ContentType: [, output.headers["content-type"]],
+    [_CV]: [, output.headers[_cv_]],
+    [_CT]: [, output.headers[_ct]],
   });
   const data: any = await collectBody(output.body, context);
   contents.Content = data;
@@ -2687,6 +1969,8 @@ export const de_GetConfigurationProfileCommand = async (
     ApplicationId: __expectString,
     Description: __expectString,
     Id: __expectString,
+    KmsKeyArn: __expectString,
+    KmsKeyIdentifier: __expectString,
     LocationUri: __expectString,
     Name: __expectString,
     RetrievalRoleArn: __expectString,
@@ -2765,6 +2049,7 @@ export const de_GetDeploymentCommand = async (
     PercentageComplete: __limitedParseFloat32,
     StartedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     State: __expectString,
+    VersionLabel: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3049,15 +2334,13 @@ export const de_GetHostedConfigurationVersionCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ApplicationId: [, output.headers["application-id"]],
-    ConfigurationProfileId: [, output.headers["configuration-profile-id"]],
-    VersionNumber: [
-      () => void 0 !== output.headers["version-number"],
-      () => __strictParseInt32(output.headers["version-number"]),
-    ],
-    Description: [, output.headers["description"]],
-    ContentType: [, output.headers["content-type"]],
-    VersionLabel: [, output.headers["versionlabel"]],
+    [_AI]: [, output.headers[_ai]],
+    [_CPI]: [, output.headers[_cpi]],
+    [_VN]: [() => void 0 !== output.headers[_vn_], () => __strictParseInt32(output.headers[_vn_])],
+    [_D]: [, output.headers[_d]],
+    [_CT]: [, output.headers[_ct]],
+    [_VL]: [, output.headers[_v]],
+    [_KKA]: [, output.headers[_k]],
   });
   const data: any = await collectBody(output.body, context);
   contents.Content = data;
@@ -3605,6 +2888,7 @@ export const de_StartDeploymentCommand = async (
     PercentageComplete: __limitedParseFloat32,
     StartedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     State: __expectString,
+    VersionLabel: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3681,6 +2965,7 @@ export const de_StopDeploymentCommand = async (
     PercentageComplete: __limitedParseFloat32,
     StartedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     State: __expectString,
+    VersionLabel: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3889,6 +3174,8 @@ export const de_UpdateConfigurationProfileCommand = async (
     ApplicationId: __expectString,
     Description: __expectString,
     Id: __expectString,
+    KmsKeyArn: __expectString,
+    KmsKeyIdentifier: __expectString,
     LocationUri: __expectString,
     Name: __expectString,
     RetrievalRoleArn: __expectString,
@@ -4466,6 +3753,7 @@ const de_DeploymentSummary = (output: any, context: __SerdeContext): DeploymentS
     PercentageComplete: __limitedParseFloat32,
     StartedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     State: __expectString,
+    VersionLabel: __expectString,
   }) as any;
 };
 
@@ -4525,6 +3813,49 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _AI = "ApplicationId";
+const _CCV = "ClientConfigurationVersion";
+const _CI = "ClientId";
+const _CPI = "ConfigurationProfileId";
+const _CT = "ContentType";
+const _CV = "ConfigurationVersion";
+const _D = "Description";
+const _EI = "ExtensionIdentifier";
+const _EVN = "ExtensionVersionNumber";
+const _KKA = "KmsKeyArn";
+const _LVN = "LatestVersionNumber";
+const _MR = "MaxResults";
+const _N = "Name";
+const _NT = "NextToken";
+const _RI = "ResourceIdentifier";
+const _T = "Type";
+const _TK = "TagKeys";
+const _VL = "VersionLabel";
+const _VN = "VersionNumber";
+const _ai = "application-id";
+const _ccv = "client_configuration_version";
+const _ci = "client_id";
+const _cpi = "configuration-profile-id";
+const _ct = "content-type";
+const _cv = "configuration_version";
+const _cv_ = "configuration-version";
+const _d = "description";
+const _ei = "extension_identifier";
+const _evn = "extension_version_number";
+const _k = "kmskeyarn";
+const _lvn = "latest-version-number";
+const _mr = "max_results";
+const _n = "name";
+const _nt = "next_token";
+const _ri = "resource_identifier";
+const _t = "type";
+const _tK = "tagKeys";
+const _v = "versionlabel";
+const _ve = "version";
+const _vl = "version_label";
+const _vn = "version_number";
+const _vn_ = "version-number";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

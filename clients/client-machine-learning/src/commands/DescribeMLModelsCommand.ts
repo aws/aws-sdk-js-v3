@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient";
 import { DescribeMLModelsInput, DescribeMLModelsOutput } from "../models/models_0";
 import { de_DescribeMLModelsCommand, se_DescribeMLModelsCommand } from "../protocols/Aws_json1_1";
@@ -44,7 +36,7 @@ export interface DescribeMLModelsCommandOutput extends DescribeMLModelsOutput, _
  * // const { MachineLearningClient, DescribeMLModelsCommand } = require("@aws-sdk/client-machine-learning"); // CommonJS import
  * const client = new MachineLearningClient(config);
  * const input = { // DescribeMLModelsInput
- *   FilterVariable: "STRING_VALUE",
+ *   FilterVariable: "CreatedAt" || "LastUpdatedAt" || "Status" || "Name" || "IAMUser" || "TrainingDataSourceId" || "RealtimeEndpointStatus" || "MLModelType" || "Algorithm" || "TrainingDataURI",
  *   EQ: "STRING_VALUE",
  *   GT: "STRING_VALUE",
  *   LT: "STRING_VALUE",
@@ -52,7 +44,7 @@ export interface DescribeMLModelsCommandOutput extends DescribeMLModelsOutput, _
  *   LE: "STRING_VALUE",
  *   NE: "STRING_VALUE",
  *   Prefix: "STRING_VALUE",
- *   SortOrder: "STRING_VALUE",
+ *   SortOrder: "asc" || "dsc",
  *   NextToken: "STRING_VALUE",
  *   Limit: Number("int"),
  * };
@@ -67,20 +59,20 @@ export interface DescribeMLModelsCommandOutput extends DescribeMLModelsOutput, _
  * //       CreatedAt: new Date("TIMESTAMP"),
  * //       LastUpdatedAt: new Date("TIMESTAMP"),
  * //       Name: "STRING_VALUE",
- * //       Status: "STRING_VALUE",
+ * //       Status: "PENDING" || "INPROGRESS" || "FAILED" || "COMPLETED" || "DELETED",
  * //       SizeInBytes: Number("long"),
  * //       EndpointInfo: { // RealtimeEndpointInfo
  * //         PeakRequestsPerSecond: Number("int"),
  * //         CreatedAt: new Date("TIMESTAMP"),
  * //         EndpointUrl: "STRING_VALUE",
- * //         EndpointStatus: "STRING_VALUE",
+ * //         EndpointStatus: "NONE" || "READY" || "UPDATING" || "FAILED",
  * //       },
  * //       TrainingParameters: { // TrainingParameters
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //       InputDataLocationS3: "STRING_VALUE",
- * //       Algorithm: "STRING_VALUE",
- * //       MLModelType: "STRING_VALUE",
+ * //       Algorithm: "sgd",
+ * //       MLModelType: "REGRESSION" || "BINARY" || "MULTICLASS",
  * //       ScoreThreshold: Number("float"),
  * //       ScoreThresholdLastUpdatedAt: new Date("TIMESTAMP"),
  * //       Message: "STRING_VALUE",
@@ -110,79 +102,26 @@ export interface DescribeMLModelsCommandOutput extends DescribeMLModelsOutput, _
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
  */
-export class DescribeMLModelsCommand extends $Command<
-  DescribeMLModelsCommandInput,
-  DescribeMLModelsCommandOutput,
-  MachineLearningClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeMLModelsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: MachineLearningClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeMLModelsCommandInput, DescribeMLModelsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeMLModelsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "MachineLearningClient";
-    const commandName = "DescribeMLModelsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeMLModelsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeMLModelsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeMLModelsCommandOutput> {
-    return de_DescribeMLModelsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeMLModelsCommand extends $Command
+  .classBuilder<
+    DescribeMLModelsCommandInput,
+    DescribeMLModelsCommandOutput,
+    MachineLearningClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: MachineLearningClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonML_20141212", "DescribeMLModels", {})
+  .n("MachineLearningClient", "DescribeMLModelsCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeMLModelsCommand)
+  .de(de_DescribeMLModelsCommand)
+  .build() {}

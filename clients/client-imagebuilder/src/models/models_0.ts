@@ -122,6 +122,7 @@ export const ImageStatus = {
   CREATING: "CREATING",
   DELETED: "DELETED",
   DEPRECATED: "DEPRECATED",
+  DISABLED: "DISABLED",
   DISTRIBUTING: "DISTRIBUTING",
   FAILED: "FAILED",
   INTEGRATING: "INTEGRATING",
@@ -143,7 +144,7 @@ export interface ImageState {
    * @public
    * <p>The status of the image.</p>
    */
-  status?: ImageStatus | string;
+  status?: ImageStatus;
 
   /**
    * @public
@@ -345,7 +346,7 @@ export interface CancelImageCreationResponse {
 
   /**
    * @public
-   * <p>The idempotency token that was used for this request.</p>
+   * <p>The client token that uniquely identifies the request.</p>
    */
   clientToken?: string;
 
@@ -503,6 +504,36 @@ export class ServiceUnavailableException extends __BaseException {
 
 /**
  * @public
+ */
+export interface CancelLifecycleExecutionRequest {
+  /**
+   * @public
+   * <p>Identifies the specific runtime instance of the image lifecycle to cancel.</p>
+   */
+  lifecycleExecutionId: string | undefined;
+
+  /**
+   * @public
+   * <p>Unique, case-sensitive identifier you provide to ensure
+   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        in the <i>Amazon EC2 API Reference</i>.</p>
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface CancelLifecycleExecutionResponse {
+  /**
+   * @public
+   * <p>The unique identifier for the image lifecycle runtime instance that was canceled.</p>
+   */
+  lifecycleExecutionId?: string;
+}
+
+/**
+ * @public
  * <p>Defines a parameter that is used to provide configuration details for the
  * 			component.</p>
  */
@@ -562,15 +593,14 @@ export type ComponentStatus = (typeof ComponentStatus)[keyof typeof ComponentSta
 
 /**
  * @public
- * <p>A group of fields that describe the current status of components that are no longer
- * 			active.</p>
+ * <p>A group of fields that describe the current status of components.</p>
  */
 export interface ComponentState {
   /**
    * @public
    * <p>The current state of the component.</p>
    */
-  status?: ComponentStatus | string;
+  status?: ComponentStatus;
 
   /**
    * @public
@@ -624,7 +654,8 @@ export interface Component {
 
   /**
    * @public
-   * <p>The change description of the component.</p>
+   * <p>Describes what change has been made in this version of the component,
+   * 			or what makes this version different from other versions of the component.</p>
    */
   changeDescription?: string;
 
@@ -633,13 +664,13 @@ export interface Component {
    * <p>The component type specifies whether Image Builder uses the component to build the image or
    * 			only to test it.</p>
    */
-  type?: ComponentType | string;
+  type?: ComponentType;
 
   /**
    * @public
    * <p>The operating system platform of the component.</p>
    */
-  platform?: Platform | string;
+  platform?: Platform;
 
   /**
    * @public
@@ -791,7 +822,7 @@ export interface ComponentSummary {
    * @public
    * <p>The operating system platform of the component.</p>
    */
-  platform?: Platform | string;
+  platform?: Platform;
 
   /**
    * @public
@@ -812,7 +843,7 @@ export interface ComponentSummary {
    * <p>The component type specifies whether Image Builder uses the component to build the image or
    * 			only to test it.</p>
    */
-  type?: ComponentType | string;
+  type?: ComponentType;
 
   /**
    * @public
@@ -925,7 +956,7 @@ export interface ComponentVersion {
    * @public
    * <p>The platform of the component.</p>
    */
-  platform?: Platform | string;
+  platform?: Platform;
 
   /**
    * @public
@@ -940,7 +971,7 @@ export interface ComponentVersion {
    * <p>The type of the component denotes whether the component is used to build the image or
    * 			only to test it.</p>
    */
-  type?: ComponentType | string;
+  type?: ComponentType;
 
   /**
    * @public
@@ -996,7 +1027,7 @@ export interface TargetContainerRepository {
    * @public
    * <p>Specifies the service in which this image was registered.</p>
    */
-  service: ContainerRepositoryService | string | undefined;
+  service: ContainerRepositoryService | undefined;
 
   /**
    * @public
@@ -1108,7 +1139,7 @@ export interface EbsInstanceBlockDeviceSpecification {
    * @public
    * <p>Use to override the device's volume type.</p>
    */
-  volumeType?: EbsVolumeType | string;
+  volumeType?: EbsVolumeType;
 
   /**
    * @public
@@ -1201,7 +1232,7 @@ export interface ContainerRecipe {
    * @public
    * <p>Specifies the type of container, such as Docker.</p>
    */
-  containerType?: ContainerType | string;
+  containerType?: ContainerType;
 
   /**
    * @public
@@ -1219,7 +1250,7 @@ export interface ContainerRecipe {
    * @public
    * <p>The system platform for the container, such as Windows or Linux.</p>
    */
-  platform?: Platform | string;
+  platform?: Platform;
 
   /**
    * @public
@@ -1333,7 +1364,7 @@ export interface ContainerRecipeSummary {
    * @public
    * <p>Specifies the type of container, such as "Docker".</p>
    */
-  containerType?: ContainerType | string;
+  containerType?: ContainerType;
 
   /**
    * @public
@@ -1345,7 +1376,7 @@ export interface ContainerRecipeSummary {
    * @public
    * <p>The system platform for the container, such as Windows or Linux.</p>
    */
-  platform?: Platform | string;
+  platform?: Platform;
 
   /**
    * @public
@@ -1410,7 +1441,7 @@ export interface CreateComponentRequest {
   /**
    * @public
    * <p>The change description of the component. Describes what change has been made in this
-   * 			version, or what makes this version different from other versions of this
+   * 			version, or what makes this version different from other versions of the
    * 			component.</p>
    */
   changeDescription?: string;
@@ -1419,7 +1450,7 @@ export interface CreateComponentRequest {
    * @public
    * <p>The operating system platform of the component.</p>
    */
-  platform: Platform | string | undefined;
+  platform: Platform | undefined;
 
   /**
    * @public
@@ -1462,7 +1493,9 @@ export interface CreateComponentRequest {
 
   /**
    * @public
-   * <p>The idempotency token of the component.</p>
+   * <p>Unique, case-sensitive identifier you provide to ensure
+   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        in the <i>Amazon EC2 API Reference</i>.</p>
    */
   clientToken?: string;
 }
@@ -1479,13 +1512,13 @@ export interface CreateComponentResponse {
 
   /**
    * @public
-   * <p>The idempotency token used to make this request idempotent.</p>
+   * <p>The client token that uniquely identifies the request.</p>
    */
   clientToken?: string;
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the component that this request created.</p>
+   * <p>The Amazon Resource Name (ARN) of the component that the request created.</p>
    */
   componentBuildVersionArn?: string;
 }
@@ -1561,7 +1594,7 @@ export interface CreateContainerRecipeRequest {
    * @public
    * <p>The type of container to create.</p>
    */
-  containerType: ContainerType | string | undefined;
+  containerType: ContainerType | undefined;
 
   /**
    * @public
@@ -1626,7 +1659,7 @@ export interface CreateContainerRecipeRequest {
    * @public
    * <p>Specifies the operating system platform when you use a custom base image.</p>
    */
-  platformOverride?: Platform | string;
+  platformOverride?: Platform;
 
   /**
    * @public
@@ -1666,7 +1699,9 @@ export interface CreateContainerRecipeRequest {
 
   /**
    * @public
-   * <p>The client token used to make this request idempotent.</p>
+   * <p>Unique, case-sensitive identifier you provide to ensure
+   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        in the <i>Amazon EC2 API Reference</i>.</p>
    */
   clientToken?: string;
 }
@@ -1683,7 +1718,7 @@ export interface CreateContainerRecipeResponse {
 
   /**
    * @public
-   * <p>The client token used to make this request idempotent.</p>
+   * <p>The client token that uniquely identifies the request.</p>
    */
   clientToken?: string;
 
@@ -1874,7 +1909,7 @@ export interface S3ExportConfiguration {
    *             </li>
    *          </ul>
    */
-  diskImageFormat: DiskImageFormat | string | undefined;
+  diskImageFormat: DiskImageFormat | undefined;
 
   /**
    * @public
@@ -1972,7 +2007,9 @@ export interface CreateDistributionConfigurationRequest {
 
   /**
    * @public
-   * <p>The idempotency token of the distribution configuration.</p>
+   * <p>Unique, case-sensitive identifier you provide to ensure
+   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        in the <i>Amazon EC2 API Reference</i>.</p>
    */
   clientToken?: string;
 }
@@ -1989,7 +2026,7 @@ export interface CreateDistributionConfigurationResponse {
 
   /**
    * @public
-   * <p>The idempotency token used to make this request idempotent.</p>
+   * <p>The client token that uniquely identifies the request.</p>
    */
   clientToken?: string;
 
@@ -2070,6 +2107,75 @@ export interface ImageTestsConfiguration {
 
 /**
  * @public
+ * @enum
+ */
+export const OnWorkflowFailure = {
+  ABORT: "ABORT",
+  CONTINUE: "CONTINUE",
+} as const;
+
+/**
+ * @public
+ */
+export type OnWorkflowFailure = (typeof OnWorkflowFailure)[keyof typeof OnWorkflowFailure];
+
+/**
+ * @public
+ * <p>Contains a key/value pair that sets the named workflow parameter.</p>
+ */
+export interface WorkflowParameter {
+  /**
+   * @public
+   * <p>The name of the workflow parameter to set.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>Sets the value for the named workflow parameter.</p>
+   */
+  value: string[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains control settings and configurable inputs for a workflow
+ * 			resource.</p>
+ */
+export interface WorkflowConfiguration {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the workflow resource.</p>
+   */
+  workflowArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Contains parameter values for each of the parameters that the workflow
+   * 			document defined for the workflow resource.</p>
+   */
+  parameters?: WorkflowParameter[];
+
+  /**
+   * @public
+   * <p>Test workflows are defined within named runtime groups called parallel groups.
+   * 			The parallel group is the named group that contains this test workflow. Test
+   * 			workflows within a parallel group can run at the same time. Image Builder starts up to five
+   * 			test workflows in the group at the same time, and starts additional workflows as
+   * 			others complete, until all workflows in the group have completed. This field only
+   * 			applies for test workflows.</p>
+   */
+  parallelGroup?: string;
+
+  /**
+   * @public
+   * <p>The action to take if the workflow fails.</p>
+   */
+  onFailure?: OnWorkflowFailure;
+}
+
+/**
+ * @public
  */
 export interface CreateImageRequest {
   /**
@@ -2122,7 +2228,9 @@ export interface CreateImageRequest {
 
   /**
    * @public
-   * <p>The idempotency token used to make this request idempotent.</p>
+   * <p>Unique, case-sensitive identifier you provide to ensure
+   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        in the <i>Amazon EC2 API Reference</i>.</p>
    */
   clientToken?: string;
 
@@ -2131,6 +2239,19 @@ export interface CreateImageRequest {
    * <p>Contains settings for vulnerability scans.</p>
    */
   imageScanningConfiguration?: ImageScanningConfiguration;
+
+  /**
+   * @public
+   * <p>Contains an array of workflow configuration objects.</p>
+   */
+  workflows?: WorkflowConfiguration[];
+
+  /**
+   * @public
+   * <p>The name or Amazon Resource Name (ARN) for the IAM role you create that grants
+   * 			Image Builder access to perform workflow actions.</p>
+   */
+  executionRole?: string;
 }
 
 /**
@@ -2145,13 +2266,13 @@ export interface CreateImageResponse {
 
   /**
    * @public
-   * <p>The idempotency token used to make this request idempotent.</p>
+   * <p>The client token that uniquely identifies the request.</p>
    */
   clientToken?: string;
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the image that this request created.</p>
+   * <p>The Amazon Resource Name (ARN) of the image that the request created.</p>
    */
   imageBuildVersionArn?: string;
 }
@@ -2173,7 +2294,7 @@ export type PipelineExecutionStartCondition =
 
 /**
  * @public
- * <p>A schedule configures how often and when a pipeline will automatically create a new
+ * <p>A schedule configures when and how often a pipeline will automatically create a new
  * 			image.</p>
  */
 export interface Schedule {
@@ -2204,7 +2325,7 @@ export interface Schedule {
    * 				<code>EXPRESSION_MATCH_ONLY</code>, it will build a new image every time the CRON
    * 			expression matches the current time. For semantic version syntax, see <a href="https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_CreateComponent.html">CreateComponent</a> in the <i> EC2 Image Builder API Reference</i>.</p>
    */
-  pipelineExecutionStartCondition?: PipelineExecutionStartCondition | string;
+  pipelineExecutionStartCondition?: PipelineExecutionStartCondition;
 }
 
 /**
@@ -2289,7 +2410,7 @@ export interface CreateImagePipelineRequest {
    * @public
    * <p>The status of the image pipeline.</p>
    */
-  status?: PipelineStatus | string;
+  status?: PipelineStatus;
 
   /**
    * @public
@@ -2299,7 +2420,9 @@ export interface CreateImagePipelineRequest {
 
   /**
    * @public
-   * <p>The idempotency token used to make this request idempotent.</p>
+   * <p>Unique, case-sensitive identifier you provide to ensure
+   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        in the <i>Amazon EC2 API Reference</i>.</p>
    */
   clientToken?: string;
 
@@ -2308,6 +2431,19 @@ export interface CreateImagePipelineRequest {
    * <p>Contains settings for vulnerability scans.</p>
    */
   imageScanningConfiguration?: ImageScanningConfiguration;
+
+  /**
+   * @public
+   * <p>Contains an array of workflow configuration objects.</p>
+   */
+  workflows?: WorkflowConfiguration[];
+
+  /**
+   * @public
+   * <p>The name or Amazon Resource Name (ARN) for the IAM role you create that grants
+   * 			Image Builder access to perform workflow actions.</p>
+   */
+  executionRole?: string;
 }
 
 /**
@@ -2322,7 +2458,7 @@ export interface CreateImagePipelineResponse {
 
   /**
    * @public
-   * <p>The idempotency token used to make this request idempotent.</p>
+   * <p>The client token that uniquely identifies the request.</p>
    */
   clientToken?: string;
 
@@ -2412,7 +2548,9 @@ export interface CreateImageRecipeRequest {
 
   /**
    * @public
-   * <p>The idempotency token used to make this request idempotent.</p>
+   * <p>Unique, case-sensitive identifier you provide to ensure
+   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        in the <i>Amazon EC2 API Reference</i>.</p>
    */
   clientToken?: string;
 }
@@ -2429,7 +2567,7 @@ export interface CreateImageRecipeResponse {
 
   /**
    * @public
-   * <p>The idempotency token used to make this request idempotent.</p>
+   * <p>The client token that uniquely identifies the request.</p>
    */
   clientToken?: string;
 
@@ -2613,7 +2751,9 @@ export interface CreateInfrastructureConfigurationRequest {
 
   /**
    * @public
-   * <p>The idempotency token used to make this request idempotent.</p>
+   * <p>Unique, case-sensitive identifier you provide to ensure
+   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        in the <i>Amazon EC2 API Reference</i>.</p>
    */
   clientToken?: string;
 }
@@ -2630,7 +2770,7 @@ export interface CreateInfrastructureConfigurationResponse {
 
   /**
    * @public
-   * <p>The idempotency token used to make this request idempotent.</p>
+   * <p>The client token that uniquely identifies the request.</p>
    */
   clientToken?: string;
 
@@ -2640,6 +2780,502 @@ export interface CreateInfrastructureConfigurationResponse {
    * 			this request.</p>
    */
   infrastructureConfigurationArn?: string;
+}
+
+/**
+ * @public
+ * <p>Specifies how the lifecycle policy should apply actions to selected resources.</p>
+ */
+export interface LifecyclePolicyDetailActionIncludeResources {
+  /**
+   * @public
+   * <p>Specifies whether the lifecycle action should apply to distributed AMIs.</p>
+   */
+  amis?: boolean;
+
+  /**
+   * @public
+   * <p>Specifies whether the lifecycle action should apply to snapshots associated with distributed AMIs.</p>
+   */
+  snapshots?: boolean;
+
+  /**
+   * @public
+   * <p>Specifies whether the lifecycle action should apply to distributed containers.</p>
+   */
+  containers?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LifecyclePolicyDetailActionType = {
+  DELETE: "DELETE",
+  DEPRECATE: "DEPRECATE",
+  DISABLE: "DISABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type LifecyclePolicyDetailActionType =
+  (typeof LifecyclePolicyDetailActionType)[keyof typeof LifecyclePolicyDetailActionType];
+
+/**
+ * @public
+ * <p>Contains selection criteria for the lifecycle policy.</p>
+ */
+export interface LifecyclePolicyDetailAction {
+  /**
+   * @public
+   * <p>Specifies the lifecycle action to take.</p>
+   */
+  type: LifecyclePolicyDetailActionType | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the resources that the lifecycle policy applies to.</p>
+   */
+  includeResources?: LifecyclePolicyDetailActionIncludeResources;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LifecyclePolicyTimeUnit = {
+  DAYS: "DAYS",
+  MONTHS: "MONTHS",
+  WEEKS: "WEEKS",
+  YEARS: "YEARS",
+} as const;
+
+/**
+ * @public
+ */
+export type LifecyclePolicyTimeUnit = (typeof LifecyclePolicyTimeUnit)[keyof typeof LifecyclePolicyTimeUnit];
+
+/**
+ * @public
+ * <p>Defines criteria to exclude AMIs from lifecycle actions based on the last
+ * 			time they were used to launch an instance.</p>
+ */
+export interface LifecyclePolicyDetailExclusionRulesAmisLastLaunched {
+  /**
+   * @public
+   * <p>The integer number of units for the time period. For example <code>6</code> (months).</p>
+   */
+  value: number | undefined;
+
+  /**
+   * @public
+   * <p>Defines the unit of time that the lifecycle policy uses to calculate elapsed time
+   * 			since the last instance launched from the AMI. For example: days, weeks, months, or years.</p>
+   */
+  unit: LifecyclePolicyTimeUnit | undefined;
+}
+
+/**
+ * @public
+ * <p>Defines criteria for AMIs that are excluded from lifecycle actions.</p>
+ */
+export interface LifecyclePolicyDetailExclusionRulesAmis {
+  /**
+   * @public
+   * <p>Configures whether public AMIs are excluded from the lifecycle action.</p>
+   */
+  isPublic?: boolean;
+
+  /**
+   * @public
+   * <p>Configures Amazon Web Services Regions that are excluded from the lifecycle action.</p>
+   */
+  regions?: string[];
+
+  /**
+   * @public
+   * <p>Specifies Amazon Web Services accounts whose resources are excluded from the lifecycle action.</p>
+   */
+  sharedAccounts?: string[];
+
+  /**
+   * @public
+   * <p>Specifies configuration details for Image Builder to exclude the most recent resources
+   * 			from lifecycle actions.</p>
+   */
+  lastLaunched?: LifecyclePolicyDetailExclusionRulesAmisLastLaunched;
+
+  /**
+   * @public
+   * <p>Lists tags that should be excluded from lifecycle actions for the AMIs that have them.</p>
+   */
+  tagMap?: Record<string, string>;
+}
+
+/**
+ * @public
+ * <p>Specifies resources that lifecycle policy actions should not apply to.</p>
+ */
+export interface LifecyclePolicyDetailExclusionRules {
+  /**
+   * @public
+   * <p>Contains a list of tags that Image Builder uses to skip lifecycle actions for resources that have them.</p>
+   */
+  tagMap?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Lists configuration values that apply to AMIs that Image Builder should exclude
+   * 			from the lifecycle action.</p>
+   */
+  amis?: LifecyclePolicyDetailExclusionRulesAmis;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LifecyclePolicyDetailFilterType = {
+  AGE: "AGE",
+  COUNT: "COUNT",
+} as const;
+
+/**
+ * @public
+ */
+export type LifecyclePolicyDetailFilterType =
+  (typeof LifecyclePolicyDetailFilterType)[keyof typeof LifecyclePolicyDetailFilterType];
+
+/**
+ * @public
+ * <p>Defines filters that the lifecycle policy uses to determine impacted resource.</p>
+ */
+export interface LifecyclePolicyDetailFilter {
+  /**
+   * @public
+   * <p>Filter resources based on either <code>age</code> or <code>count</code>.</p>
+   */
+  type: LifecyclePolicyDetailFilterType | undefined;
+
+  /**
+   * @public
+   * <p>The number of units for the time period or for the count. For example, a value of
+   * 			<code>6</code> might refer to six months or six AMIs.</p>
+   *          <note>
+   *             <p>For count-based filters, this value represents the minimum number of resources
+   * 				to keep on hand. If you have fewer resources than this number, the resource is
+   * 				excluded from lifecycle actions.</p>
+   *          </note>
+   */
+  value: number | undefined;
+
+  /**
+   * @public
+   * <p>Defines the unit of time that the lifecycle policy uses to determine impacted
+   * 			resources. This is required for age-based rules.</p>
+   */
+  unit?: LifecyclePolicyTimeUnit;
+
+  /**
+   * @public
+   * <p>For age-based filters, this is the number of resources to keep on hand after the lifecycle
+   * 			<code>DELETE</code> action is applied. Impacted resources are only deleted if you have more than
+   * 			this number of resources. If you have fewer resources than this number, the impacted resource
+   * 			is not deleted.</p>
+   */
+  retainAtLeast?: number;
+}
+
+/**
+ * @public
+ * <p>The configuration details for a lifecycle policy resource.</p>
+ */
+export interface LifecyclePolicyDetail {
+  /**
+   * @public
+   * <p>Configuration details for the policy action.</p>
+   */
+  action: LifecyclePolicyDetailAction | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the resources that the lifecycle policy applies to.</p>
+   */
+  filter: LifecyclePolicyDetailFilter | undefined;
+
+  /**
+   * @public
+   * <p>Additional rules to specify resources that should be exempt from policy actions.</p>
+   */
+  exclusionRules?: LifecyclePolicyDetailExclusionRules;
+}
+
+/**
+ * @public
+ * <p>Specifies an Image Builder recipe that the lifecycle policy uses for resource selection.</p>
+ */
+export interface LifecyclePolicyResourceSelectionRecipe {
+  /**
+   * @public
+   * <p>The name of an Image Builder recipe that the lifecycle policy uses for resource selection.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>The version of the Image Builder recipe specified by the <code>name</code> field.</p>
+   */
+  semanticVersion: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Resource selection criteria for the lifecycle policy.</p>
+ */
+export interface LifecyclePolicyResourceSelection {
+  /**
+   * @public
+   * <p>A list of recipes that are used as selection criteria for the output
+   * 			images that the lifecycle policy applies to.</p>
+   */
+  recipes?: LifecyclePolicyResourceSelectionRecipe[];
+
+  /**
+   * @public
+   * <p>A list of tags that are used as selection criteria for the resources
+   * 			that the lifecycle policy applies to.</p>
+   */
+  tagMap?: Record<string, string>;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LifecyclePolicyResourceType = {
+  AMI_IMAGE: "AMI_IMAGE",
+  CONTAINER_IMAGE: "CONTAINER_IMAGE",
+} as const;
+
+/**
+ * @public
+ */
+export type LifecyclePolicyResourceType =
+  (typeof LifecyclePolicyResourceType)[keyof typeof LifecyclePolicyResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const LifecyclePolicyStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type LifecyclePolicyStatus = (typeof LifecyclePolicyStatus)[keyof typeof LifecyclePolicyStatus];
+
+/**
+ * @public
+ */
+export interface CreateLifecyclePolicyRequest {
+  /**
+   * @public
+   * <p>The name of the  lifecycle policy to create.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>Optional description for the lifecycle policy.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether the lifecycle policy resource is enabled.</p>
+   */
+  status?: LifecyclePolicyStatus;
+
+  /**
+   * @public
+   * <p>The name or Amazon Resource Name (ARN) for the IAM role you create that grants
+   * 			Image Builder access to run lifecycle actions.</p>
+   */
+  executionRole: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of Image Builder resource that the lifecycle policy applies to.</p>
+   */
+  resourceType: LifecyclePolicyResourceType | undefined;
+
+  /**
+   * @public
+   * <p>Configuration details for the lifecycle policy rules.</p>
+   */
+  policyDetails: LifecyclePolicyDetail[] | undefined;
+
+  /**
+   * @public
+   * <p>Selection criteria for the resources that the lifecycle policy applies to. </p>
+   */
+  resourceSelection: LifecyclePolicyResourceSelection | undefined;
+
+  /**
+   * @public
+   * <p>Tags to apply to the lifecycle policy resource.</p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Unique, case-sensitive identifier you provide to ensure
+   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        in the <i>Amazon EC2 API Reference</i>.</p>
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateLifecyclePolicyResponse {
+  /**
+   * @public
+   * <p>The client token that uniquely identifies the request.</p>
+   */
+  clientToken?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the lifecycle policy that the request created.</p>
+   */
+  lifecyclePolicyArn?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const WorkflowType = {
+  BUILD: "BUILD",
+  DISTRIBUTION: "DISTRIBUTION",
+  TEST: "TEST",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkflowType = (typeof WorkflowType)[keyof typeof WorkflowType];
+
+/**
+ * @public
+ */
+export interface CreateWorkflowRequest {
+  /**
+   * @public
+   * <p>The name of the workflow to create.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>The semantic version of this workflow resource. The semantic version syntax
+   * 			adheres to the following rules.</p>
+   *          <note>
+   *             <p>The semantic version has four nodes: <major>.<minor>.<patch>/<build>.
+   * 	You can assign values for the first three, and can filter on all of them.</p>
+   *             <p>
+   *                <b>Assignment:</b> For the first three nodes you can assign any positive integer value, including
+   * 	zero, with an upper limit of 2^30-1, or 1073741823 for each node. Image Builder automatically assigns the
+   * 	build number to the fourth node.</p>
+   *             <p>
+   *                <b>Patterns:</b> You can use any numeric pattern that adheres to the assignment requirements for
+   * 	the nodes that you can assign. For example, you might choose a software version pattern, such as 1.0.0, or
+   * 	a date, such as 2021.01.01.</p>
+   *          </note>
+   */
+  semanticVersion: string | undefined;
+
+  /**
+   * @public
+   * <p>Describes the workflow.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>Describes what change has been made in this version of the workflow, or
+   * 			what makes this version different from other versions of the workflow.</p>
+   */
+  changeDescription?: string;
+
+  /**
+   * @public
+   * <p>Contains the UTF-8 encoded YAML document content for the workflow.
+   * 			Alternatively, you can specify the <code>uri</code> of a YAML document file stored in
+   * 			Amazon S3. However, you cannot specify both properties.</p>
+   */
+  data?: string;
+
+  /**
+   * @public
+   * <p>The <code>uri</code> of a YAML component document file. This must be an S3 URL
+   * 			(<code>s3://bucket/key</code>), and the requester must have permission to access the
+   * 			S3 bucket it points to. If you use Amazon S3, you can specify component content up to your
+   * 			service quota.</p>
+   *          <p>Alternatively, you can specify the YAML document inline, using the component
+   * 			<code>data</code> property. You cannot specify both properties.</p>
+   */
+  uri?: string;
+
+  /**
+   * @public
+   * <p>The ID of the KMS key that is used to encrypt this workflow resource.</p>
+   */
+  kmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>Tags that apply to the workflow resource.</p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Unique, case-sensitive identifier you provide to ensure
+   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        in the <i>Amazon EC2 API Reference</i>.</p>
+   */
+  clientToken?: string;
+
+  /**
+   * @public
+   * <p>The phase in the image build process for which the workflow resource
+   * 			is responsible.</p>
+   */
+  type: WorkflowType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateWorkflowResponse {
+  /**
+   * @public
+   * <p>The client token that uniquely identifies the request.</p>
+   */
+  clientToken?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the workflow resource that the request created.</p>
+   */
+  workflowBuildVersionArn?: string;
 }
 
 /**
@@ -2960,6 +3596,50 @@ export interface DeleteInfrastructureConfigurationResponse {
 
 /**
  * @public
+ */
+export interface DeleteLifecyclePolicyRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the lifecycle policy resource to delete.</p>
+   */
+  lifecyclePolicyArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLifecyclePolicyResponse {
+  /**
+   * @public
+   * <p>The ARN of the lifecycle policy that was deleted.</p>
+   */
+  lifecyclePolicyArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface DeleteWorkflowRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the workflow resource to delete.</p>
+   */
+  workflowBuildVersionArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteWorkflowResponse {
+  /**
+   * @public
+   * <p>The ARN of the workflow resource that this request deleted.</p>
+   */
+  workflowBuildVersionArn?: string;
+}
+
+/**
+ * @public
  * <p>A distribution configuration.</p>
  */
 export interface DistributionConfiguration {
@@ -3105,7 +3785,7 @@ export interface GetComponentResponse {
 
   /**
    * @public
-   * <p>The component object associated with the specified ARN.</p>
+   * <p>The component object specified in the request.</p>
    */
   component?: Component;
 }
@@ -3286,7 +3966,7 @@ export interface ImageRecipe {
    * <p>Specifies which type of image is created by the recipe - an AMI or a container
    * 			image.</p>
    */
-  type?: ImageType | string;
+  type?: ImageType;
 
   /**
    * @public
@@ -3304,7 +3984,7 @@ export interface ImageRecipe {
    * @public
    * <p>The platform of the image recipe.</p>
    */
-  platform?: Platform | string;
+  platform?: Platform;
 
   /**
    * @public
@@ -3538,7 +4218,7 @@ export interface ImageScanState {
    * @public
    * <p>The current state of vulnerability scans for the image.</p>
    */
-  status?: ImageScanStatus | string;
+  status?: ImageScanStatus;
 
   /**
    * @public
@@ -3580,7 +4260,7 @@ export interface Image {
    * @public
    * <p>Specifies whether this image produces an AMI or a container image.</p>
    */
-  type?: ImageType | string;
+  type?: ImageType;
 
   /**
    * @public
@@ -3615,7 +4295,7 @@ export interface Image {
    * @public
    * <p>The image operating system platform, such as Linux or Windows.</p>
    */
-  platform?: Platform | string;
+  platform?: Platform;
 
   /**
    * @public
@@ -3721,13 +4401,13 @@ export interface Image {
    *             </li>
    *          </ul>
    */
-  buildType?: BuildType | string;
+  buildType?: BuildType;
 
   /**
    * @public
    * <p>The origin of the base image that Image Builder used to build this image.</p>
    */
-  imageSource?: ImageSource | string;
+  imageSource?: ImageSource;
 
   /**
    * @public
@@ -3740,6 +4420,31 @@ export interface Image {
    * <p>Contains settings for vulnerability scans.</p>
    */
   imageScanningConfiguration?: ImageScanningConfiguration;
+
+  /**
+   * @public
+   * <p>The time when deprecation occurs for an image resource. This can be a past or future date.</p>
+   */
+  deprecationTime?: Date;
+
+  /**
+   * @public
+   * <p>Identifies the last runtime instance of the lifecycle policy to take action on the image.</p>
+   */
+  lifecycleExecutionId?: string;
+
+  /**
+   * @public
+   * <p>The name or Amazon Resource Name (ARN) for the IAM role you create that grants
+   * 			Image Builder access to perform workflow actions.</p>
+   */
+  executionRole?: string;
+
+  /**
+   * @public
+   * <p>Contains the build and test workflows that are associated with the image.</p>
+   */
+  workflows?: WorkflowConfiguration[];
 }
 
 /**
@@ -3797,7 +4502,7 @@ export interface ImagePipeline {
    * @public
    * <p>The platform of the image pipeline.</p>
    */
-  platform?: Platform | string;
+  platform?: Platform;
 
   /**
    * @public
@@ -3851,7 +4556,7 @@ export interface ImagePipeline {
    * @public
    * <p>The status of the image pipeline.</p>
    */
-  status?: PipelineStatus | string;
+  status?: PipelineStatus;
 
   /**
    * @public
@@ -3888,6 +4593,19 @@ export interface ImagePipeline {
    * <p>Contains settings for vulnerability scans.</p>
    */
   imageScanningConfiguration?: ImageScanningConfiguration;
+
+  /**
+   * @public
+   * <p>The name or Amazon Resource Name (ARN) for the IAM role you create that grants
+   * 			Image Builder access to perform workflow actions.</p>
+   */
+  executionRole?: string;
+
+  /**
+   * @public
+   * <p>Contains the workflows that run for the image pipeline.</p>
+   */
+  workflows?: WorkflowConfiguration[];
 }
 
 /**
@@ -4026,6 +4744,398 @@ export interface GetInfrastructureConfigurationResponse {
 /**
  * @public
  */
+export interface GetLifecycleExecutionRequest {
+  /**
+   * @public
+   * <p>Use the unique identifier for a runtime instance of the lifecycle policy to get runtime details.</p>
+   */
+  lifecycleExecutionId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains details for an image resource that was identified for a lifecycle action.</p>
+ */
+export interface LifecycleExecutionResourcesImpactedSummary {
+  /**
+   * @public
+   * <p>Indicates whether an image resource that was identified for a lifecycle action has
+   * 			associated resources that are also impacted.</p>
+   */
+  hasImpactedResources?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LifecycleExecutionStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type LifecycleExecutionStatus = (typeof LifecycleExecutionStatus)[keyof typeof LifecycleExecutionStatus];
+
+/**
+ * @public
+ * <p>The current state of the runtime instance of the lifecycle policy.</p>
+ */
+export interface LifecycleExecutionState {
+  /**
+   * @public
+   * <p>The runtime status of the lifecycle execution.</p>
+   */
+  status?: LifecycleExecutionStatus;
+
+  /**
+   * @public
+   * <p>The reason for the current status.</p>
+   */
+  reason?: string;
+}
+
+/**
+ * @public
+ * <p>Contains metadata from a runtime instance of a lifecycle policy.</p>
+ */
+export interface LifecycleExecution {
+  /**
+   * @public
+   * <p>Identifies the lifecycle policy runtime instance.</p>
+   */
+  lifecycleExecutionId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the lifecycle policy that ran.</p>
+   */
+  lifecyclePolicyArn?: string;
+
+  /**
+   * @public
+   * <p>Contains information about associated resources that are identified for action by
+   * 			the runtime instance of the lifecycle policy.</p>
+   */
+  resourcesImpactedSummary?: LifecycleExecutionResourcesImpactedSummary;
+
+  /**
+   * @public
+   * <p>Runtime state that reports if the policy action ran successfully,
+   * 			failed, or was skipped.</p>
+   */
+  state?: LifecycleExecutionState;
+
+  /**
+   * @public
+   * <p>The timestamp when the lifecycle runtime instance started.</p>
+   */
+  startTime?: Date;
+
+  /**
+   * @public
+   * <p>The timestamp when the lifecycle runtime instance completed.</p>
+   */
+  endTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface GetLifecycleExecutionResponse {
+  /**
+   * @public
+   * <p>Runtime details for the specified runtime instance of the lifecycle policy.</p>
+   */
+  lifecycleExecution?: LifecycleExecution;
+}
+
+/**
+ * @public
+ */
+export interface GetLifecyclePolicyRequest {
+  /**
+   * @public
+   * <p>Specifies the Amazon Resource Name (ARN) of the image lifecycle policy resource to get.</p>
+   */
+  lifecyclePolicyArn: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The configuration details for a lifecycle policy resource.</p>
+ */
+export interface LifecyclePolicy {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the lifecycle policy resource.</p>
+   */
+  arn?: string;
+
+  /**
+   * @public
+   * <p>The name of the lifecycle policy.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>Optional description for the lifecycle policy.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether the lifecycle policy resource is enabled.</p>
+   */
+  status?: LifecyclePolicyStatus;
+
+  /**
+   * @public
+   * <p>The name or Amazon Resource Name (ARN) of the IAM role that Image Builder uses to run the lifecycle policy.
+   * 			This is a custom role that you create.</p>
+   */
+  executionRole?: string;
+
+  /**
+   * @public
+   * <p>The type of resources the lifecycle policy targets.</p>
+   */
+  resourceType?: LifecyclePolicyResourceType;
+
+  /**
+   * @public
+   * <p>The configuration details for a lifecycle policy resource.</p>
+   */
+  policyDetails?: LifecyclePolicyDetail[];
+
+  /**
+   * @public
+   * <p>Resource selection criteria used to run the lifecycle policy.</p>
+   */
+  resourceSelection?: LifecyclePolicyResourceSelection;
+
+  /**
+   * @public
+   * <p>The timestamp when Image Builder created the lifecycle policy resource.</p>
+   */
+  dateCreated?: Date;
+
+  /**
+   * @public
+   * <p>The timestamp when Image Builder updated the lifecycle policy resource.</p>
+   */
+  dateUpdated?: Date;
+
+  /**
+   * @public
+   * <p>The timestamp for the last time Image Builder ran the lifecycle policy.</p>
+   */
+  dateLastRun?: Date;
+
+  /**
+   * @public
+   * <p>To help manage your lifecycle policy resources, you can assign your own
+   * 			metadata to each resource in the form of tags. Each tag consists of a key and
+   * 			an optional value, both of which you define.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface GetLifecyclePolicyResponse {
+  /**
+   * @public
+   * <p>The ARN of the image lifecycle policy resource that was returned.</p>
+   */
+  lifecyclePolicy?: LifecyclePolicy;
+}
+
+/**
+ * @public
+ */
+export interface GetWorkflowRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the workflow resource that you want to get.</p>
+   */
+  workflowBuildVersionArn: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Defines a parameter that's used to provide configuration details for the
+ * 			workflow.</p>
+ */
+export interface WorkflowParameterDetail {
+  /**
+   * @public
+   * <p>The name of this input parameter.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of input this parameter provides. The currently supported value is
+   * 			"string".</p>
+   */
+  type: string | undefined;
+
+  /**
+   * @public
+   * <p>The default value of this parameter if no input is provided.</p>
+   */
+  defaultValue?: string[];
+
+  /**
+   * @public
+   * <p>Describes this parameter.</p>
+   */
+  description?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const WorkflowStatus = {
+  DEPRECATED: "DEPRECATED",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkflowStatus = (typeof WorkflowStatus)[keyof typeof WorkflowStatus];
+
+/**
+ * @public
+ * <p>A group of fields that describe the current status of workflow.</p>
+ */
+export interface WorkflowState {
+  /**
+   * @public
+   * <p>The current state of the workflow.</p>
+   */
+  status?: WorkflowStatus;
+
+  /**
+   * @public
+   * <p>Describes how or why the workflow changed state.</p>
+   */
+  reason?: string;
+}
+
+/**
+ * @public
+ * <p>Defines a process that Image Builder uses to build and test images during
+ * 			the image creation process.</p>
+ */
+export interface Workflow {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the workflow resource.</p>
+   */
+  arn?: string;
+
+  /**
+   * @public
+   * <p>The name of the workflow resource.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>The workflow resource version. Workflow resources are immutable.
+   * 			To make a change, you can clone a workflow or create a new version.</p>
+   */
+  version?: string;
+
+  /**
+   * @public
+   * <p>The description of the workflow.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>Describes what change has been made in this version of the workflow, or
+   * 			what makes this version different from other versions of the workflow.</p>
+   */
+  changeDescription?: string;
+
+  /**
+   * @public
+   * <p>Specifies the image creation stage that the workflow applies to. Image Builder
+   * 			currently supports build and test workflows.</p>
+   */
+  type?: WorkflowType;
+
+  /**
+   * @public
+   * <p>Describes the current status of the workflow and the reason for
+   * 			that status.</p>
+   */
+  state?: WorkflowState;
+
+  /**
+   * @public
+   * <p>The owner of the workflow resource.</p>
+   */
+  owner?: string;
+
+  /**
+   * @public
+   * <p>Contains the YAML document content for the workflow.</p>
+   */
+  data?: string;
+
+  /**
+   * @public
+   * <p>The KMS key identifier used to encrypt the workflow resource.</p>
+   */
+  kmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>The timestamp when Image Builder created the workflow resource.</p>
+   */
+  dateCreated?: string;
+
+  /**
+   * @public
+   * <p>The tags that apply to the workflow resource</p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>An array of input parameters that that the image workflow uses
+   * 			to control actions or configure settings.</p>
+   */
+  parameters?: WorkflowParameterDetail[];
+}
+
+/**
+ * @public
+ */
+export interface GetWorkflowResponse {
+  /**
+   * @public
+   * <p>The workflow resource specified in the request.</p>
+   */
+  workflow?: Workflow;
+}
+
+/**
+ * @public
+ */
 export interface GetWorkflowExecutionRequest {
   /**
    * @public
@@ -4040,6 +5150,7 @@ export interface GetWorkflowExecutionRequest {
  * @enum
  */
 export const WorkflowExecutionStatus = {
+  CANCELLED: "CANCELLED",
   COMPLETED: "COMPLETED",
   FAILED: "FAILED",
   PENDING: "PENDING",
@@ -4053,21 +5164,6 @@ export const WorkflowExecutionStatus = {
  * @public
  */
 export type WorkflowExecutionStatus = (typeof WorkflowExecutionStatus)[keyof typeof WorkflowExecutionStatus];
-
-/**
- * @public
- * @enum
- */
-export const WorkflowType = {
-  BUILD: "BUILD",
-  DISTRIBUTION: "DISTRIBUTION",
-  TEST: "TEST",
-} as const;
-
-/**
- * @public
- */
-export type WorkflowType = (typeof WorkflowType)[keyof typeof WorkflowType];
 
 /**
  * @public
@@ -4104,13 +5200,13 @@ export interface GetWorkflowExecutionResponse {
    * @public
    * <p>The type of workflow that Image Builder ran for the specified runtime instance of the workflow.</p>
    */
-  type?: WorkflowType | string;
+  type?: WorkflowType;
 
   /**
    * @public
    * <p>The current runtime status for the specified runtime instance of the workflow.</p>
    */
-  status?: WorkflowExecutionStatus | string;
+  status?: WorkflowExecutionStatus;
 
   /**
    * @public
@@ -4158,6 +5254,13 @@ export interface GetWorkflowExecutionResponse {
    * <p>The timestamp when the specified runtime instance of the workflow finished.</p>
    */
   endTime?: string;
+
+  /**
+   * @public
+   * <p>Test workflows are defined within named runtime groups. The parallel group
+   * 			is a named group that contains one or more test workflows.</p>
+   */
+  parallelGroup?: string;
 }
 
 /**
@@ -4194,6 +5297,7 @@ export type WorkflowStepExecutionRollbackStatus =
  * @enum
  */
 export const WorkflowStepExecutionStatus = {
+  CANCELLED: "CANCELLED",
   COMPLETED: "COMPLETED",
   FAILED: "FAILED",
   PENDING: "PENDING",
@@ -4267,14 +5371,14 @@ export interface GetWorkflowStepExecutionResponse {
    * @public
    * <p>The current status for the specified runtime version of the workflow step.</p>
    */
-  status?: WorkflowStepExecutionStatus | string;
+  status?: WorkflowStepExecutionStatus;
 
   /**
    * @public
    * <p>Reports on the rollback status of the specified runtime version of the workflow step,
    * 			if applicable.</p>
    */
-  rollbackStatus?: WorkflowStepExecutionRollbackStatus | string;
+  rollbackStatus?: WorkflowStepExecutionRollbackStatus;
 
   /**
    * @public
@@ -4375,7 +5479,7 @@ export interface ImportComponentRequest {
    * @public
    * <p>The change description of the component. This description indicates the change that
    * 			has been made in this version, or what makes this version different from other versions
-   * 			of this component.</p>
+   * 			of the component.</p>
    */
   changeDescription?: string;
 
@@ -4384,19 +5488,19 @@ export interface ImportComponentRequest {
    * <p>The type of the component denotes whether the component is used to build the image, or
    * 			only to test it.</p>
    */
-  type: ComponentType | string | undefined;
+  type: ComponentType | undefined;
 
   /**
    * @public
    * <p>The format of the resource that you want to import as a component.</p>
    */
-  format: ComponentFormat | string | undefined;
+  format: ComponentFormat | undefined;
 
   /**
    * @public
    * <p>The platform of the component.</p>
    */
-  platform: Platform | string | undefined;
+  platform: Platform | undefined;
 
   /**
    * @public
@@ -4428,7 +5532,9 @@ export interface ImportComponentRequest {
 
   /**
    * @public
-   * <p>The idempotency token of the component.</p>
+   * <p>Unique, case-sensitive identifier you provide to ensure
+   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        in the <i>Amazon EC2 API Reference</i>.</p>
    */
   clientToken?: string;
 }
@@ -4445,7 +5551,7 @@ export interface ImportComponentResponse {
 
   /**
    * @public
-   * <p>The idempotency token used to make this request idempotent.</p>
+   * <p>The client token that uniquely identifies the request.</p>
    */
   clientToken?: string;
 
@@ -4495,7 +5601,7 @@ export interface ImportVmImageRequest {
    * @public
    * <p>The operating system platform for the imported VM.</p>
    */
-  platform: Platform | string | undefined;
+  platform: Platform | undefined;
 
   /**
    * @public
@@ -4545,7 +5651,7 @@ export interface ImportVmImageResponse {
 
   /**
    * @public
-   * <p>The idempotency token that was used for this request.</p>
+   * <p>The client token that uniquely identifies the request.</p>
    */
   clientToken?: string;
 }
@@ -4589,7 +5695,7 @@ export interface ListComponentBuildVersionsRequest {
 
   /**
    * @public
-   * <p>A token to specify where to start paginating. This is the NextToken
+   * <p>A token to specify where to start paginating. This is the nextToken
    * 	from a previously truncated response.</p>
    */
   nextToken?: string;
@@ -4614,7 +5720,7 @@ export interface ListComponentBuildVersionsResponse {
   /**
    * @public
    * <p>The next token used for paginated responses. When this field isn't empty,
-   * 	there are additional elements that the service has'ot included in this request. Use this token
+   * 	there are additional elements that the service hasn't included in this request. Use this token
    * 		with the next request to retrieve additional objects.</p>
    */
   nextToken?: string;
@@ -4647,7 +5753,7 @@ export interface ListComponentsRequest {
    * 			owners, you can specify components that Amazon manages, third party components, or
    * 			components that other accounts have shared with you.</p>
    */
-  owner?: Ownership | string;
+  owner?: Ownership;
 
   /**
    * @public
@@ -4701,7 +5807,7 @@ export interface ListComponentsRequest {
 
   /**
    * @public
-   * <p>A token to specify where to start paginating. This is the NextToken
+   * <p>A token to specify where to start paginating. This is the nextToken
    * 	from a previously truncated response.</p>
    */
   nextToken?: string;
@@ -4730,7 +5836,7 @@ export interface ListComponentsResponse {
   /**
    * @public
    * <p>The next token used for paginated responses. When this field isn't empty,
-   * 	there are additional elements that the service has'ot included in this request. Use this token
+   * 	there are additional elements that the service hasn't included in this request. Use this token
    * 		with the next request to retrieve additional objects.</p>
    */
   nextToken?: string;
@@ -4746,7 +5852,7 @@ export interface ListContainerRecipesRequest {
    * 			you. You can omit this field to return container recipes belonging to your
    * 			account.</p>
    */
-  owner?: Ownership | string;
+  owner?: Ownership;
 
   /**
    * @public
@@ -4784,7 +5890,7 @@ export interface ListContainerRecipesRequest {
 
   /**
    * @public
-   * <p>A token to specify where to start paginating. This is the NextToken
+   * <p>A token to specify where to start paginating. This is the nextToken
    * 	from a previously truncated response.</p>
    */
   nextToken?: string;
@@ -4809,7 +5915,7 @@ export interface ListContainerRecipesResponse {
   /**
    * @public
    * <p>The next token used for paginated responses. When this field isn't empty,
-   * 	there are additional elements that the service has'ot included in this request. Use this token
+   * 	there are additional elements that the service hasn't included in this request. Use this token
    * 		with the next request to retrieve additional objects.</p>
    */
   nextToken?: string;
@@ -4833,7 +5939,7 @@ export interface ListDistributionConfigurationsRequest {
 
   /**
    * @public
-   * <p>A token to specify where to start paginating. This is the NextToken
+   * <p>A token to specify where to start paginating. This is the nextToken
    * 	from a previously truncated response.</p>
    */
   nextToken?: string;
@@ -4858,7 +5964,7 @@ export interface ListDistributionConfigurationsResponse {
   /**
    * @public
    * <p>The next token used for paginated responses. When this field isn't empty,
-   * 	there are additional elements that the service has'ot included in this request. Use this token
+   * 	there are additional elements that the service hasn't included in this request. Use this token
    * 		with the next request to retrieve additional objects.</p>
    */
   nextToken?: string;
@@ -4916,7 +6022,7 @@ export interface ListImageBuildVersionsRequest {
 
   /**
    * @public
-   * <p>A token to specify where to start paginating. This is the NextToken
+   * <p>A token to specify where to start paginating. This is the nextToken
    * 	from a previously truncated response.</p>
    */
   nextToken?: string;
@@ -4943,7 +6049,7 @@ export interface ImageSummary {
    * @public
    * <p>Specifies whether this image produces an AMI or a container image.</p>
    */
-  type?: ImageType | string;
+  type?: ImageType;
 
   /**
    * @public
@@ -4955,7 +6061,7 @@ export interface ImageSummary {
    * @public
    * <p>The image operating system platform, such as Linux or Windows.</p>
    */
-  platform?: Platform | string;
+  platform?: Platform;
 
   /**
    * @public
@@ -5016,13 +6122,25 @@ export interface ImageSummary {
    *             </li>
    *          </ul>
    */
-  buildType?: BuildType | string;
+  buildType?: BuildType;
 
   /**
    * @public
    * <p>The origin of the base image that Image Builder used to build this image.</p>
    */
-  imageSource?: ImageSource | string;
+  imageSource?: ImageSource;
+
+  /**
+   * @public
+   * <p>The time when deprecation occurs for an image resource. This can be a past or future date.</p>
+   */
+  deprecationTime?: Date;
+
+  /**
+   * @public
+   * <p>Identifies the last runtime instance of the lifecycle policy to take action on the image.</p>
+   */
+  lifecycleExecutionId?: string;
 }
 
 /**
@@ -5044,7 +6162,7 @@ export interface ListImageBuildVersionsResponse {
   /**
    * @public
    * <p>The next token used for paginated responses. When this field isn't empty,
-   * 	there are additional elements that the service has'ot included in this request. Use this token
+   * 	there are additional elements that the service hasn't included in this request. Use this token
    * 		with the next request to retrieve additional objects.</p>
    */
   nextToken?: string;
@@ -5068,7 +6186,7 @@ export interface ListImagePackagesRequest {
 
   /**
    * @public
-   * <p>A token to specify where to start paginating. This is the NextToken
+   * <p>A token to specify where to start paginating. This is the nextToken
    * 	from a previously truncated response.</p>
    */
   nextToken?: string;
@@ -5111,7 +6229,7 @@ export interface ListImagePackagesResponse {
   /**
    * @public
    * <p>The next token used for paginated responses. When this field isn't empty,
-   * 	there are additional elements that the service has'ot included in this request. Use this token
+   * 	there are additional elements that the service hasn't included in this request. Use this token
    * 		with the next request to retrieve additional objects.</p>
    */
   nextToken?: string;
@@ -5154,7 +6272,7 @@ export interface ListImagePipelineImagesRequest {
 
   /**
    * @public
-   * <p>A token to specify where to start paginating. This is the NextToken
+   * <p>A token to specify where to start paginating. This is the nextToken
    * 	from a previously truncated response.</p>
    */
   nextToken?: string;
@@ -5179,7 +6297,7 @@ export interface ListImagePipelineImagesResponse {
   /**
    * @public
    * <p>The next token used for paginated responses. When this field isn't empty,
-   * 	there are additional elements that the service has'ot included in this request. Use this token
+   * 	there are additional elements that the service hasn't included in this request. Use this token
    * 		with the next request to retrieve additional objects.</p>
    */
   nextToken?: string;
@@ -5235,7 +6353,7 @@ export interface ListImagePipelinesRequest {
 
   /**
    * @public
-   * <p>A token to specify where to start paginating. This is the NextToken
+   * <p>A token to specify where to start paginating. This is the nextToken
    * 	from a previously truncated response.</p>
    */
   nextToken?: string;
@@ -5260,7 +6378,7 @@ export interface ListImagePipelinesResponse {
   /**
    * @public
    * <p>The next token used for paginated responses. When this field isn't empty,
-   * 	there are additional elements that the service has'ot included in this request. Use this token
+   * 	there are additional elements that the service hasn't included in this request. Use this token
    * 		with the next request to retrieve additional objects.</p>
    */
   nextToken?: string;
@@ -5277,7 +6395,7 @@ export interface ListImageRecipesRequest {
    * 			want to view image recipes owned by yourself, by Amazon, or those image recipes that
    * 			have been shared with you by other customers.</p>
    */
-  owner?: Ownership | string;
+  owner?: Ownership;
 
   /**
    * @public
@@ -5310,7 +6428,7 @@ export interface ListImageRecipesRequest {
 
   /**
    * @public
-   * <p>A token to specify where to start paginating. This is the NextToken
+   * <p>A token to specify where to start paginating. This is the nextToken
    * 	from a previously truncated response.</p>
    */
   nextToken?: string;
@@ -5337,7 +6455,7 @@ export interface ImageRecipeSummary {
    * @public
    * <p>The platform of the image recipe.</p>
    */
-  platform?: Platform | string;
+  platform?: Platform;
 
   /**
    * @public
@@ -5383,7 +6501,7 @@ export interface ListImageRecipesResponse {
   /**
    * @public
    * <p>The next token used for paginated responses. When this field isn't empty,
-   * 	there are additional elements that the service has'ot included in this request. Use this token
+   * 	there are additional elements that the service hasn't included in this request. Use this token
    * 		with the next request to retrieve additional objects.</p>
    */
   nextToken?: string;
@@ -5400,7 +6518,7 @@ export interface ListImagesRequest {
    * 			images owned by yourself, by Amazon, or those images that have been shared with you by
    * 			other customers.</p>
    */
-  owner?: Ownership | string;
+  owner?: Ownership;
 
   /**
    * @public
@@ -5449,7 +6567,7 @@ export interface ListImagesRequest {
 
   /**
    * @public
-   * <p>A token to specify where to start paginating. This is the NextToken
+   * <p>A token to specify where to start paginating. This is the nextToken
    * 	from a previously truncated response.</p>
    */
   nextToken?: string;
@@ -5498,7 +6616,7 @@ export interface ImageVersion {
    * @public
    * <p>Specifies whether this image produces an AMI or a container image.</p>
    */
-  type?: ImageType | string;
+  type?: ImageType;
 
   /**
    * @public
@@ -5529,7 +6647,7 @@ export interface ImageVersion {
    * <p>The operating system platform of the image version, for example "Windows" or
    * 			"Linux".</p>
    */
-  platform?: Platform | string;
+  platform?: Platform;
 
   /**
    * @public
@@ -5572,13 +6690,13 @@ export interface ImageVersion {
    *             </li>
    *          </ul>
    */
-  buildType?: BuildType | string;
+  buildType?: BuildType;
 
   /**
    * @public
    * <p>The origin of the base image that Image Builder used to build this image.</p>
    */
-  imageSource?: ImageSource | string;
+  imageSource?: ImageSource;
 }
 
 /**
@@ -5609,7 +6727,7 @@ export interface ListImagesResponse {
   /**
    * @public
    * <p>The next token used for paginated responses. When this field isn't empty,
-   * 	there are additional elements that the service has'ot included in this request. Use this token
+   * 	there are additional elements that the service hasn't included in this request. Use this token
    * 		with the next request to retrieve additional objects.</p>
    */
   nextToken?: string;
@@ -5629,7 +6747,7 @@ export interface ListImageScanFindingAggregationsRequest {
 
   /**
    * @public
-   * <p>A token to specify where to start paginating. This is the NextToken
+   * <p>A token to specify where to start paginating. This is the nextToken
    * 	from a previously truncated response.</p>
    */
   nextToken?: string;
@@ -5752,7 +6870,7 @@ export interface ListImageScanFindingAggregationsResponse {
   /**
    * @public
    * <p>The next token used for paginated responses. When this field isn't empty,
-   * 	there are additional elements that the service has'ot included in this request. Use this token
+   * 	there are additional elements that the service hasn't included in this request. Use this token
    * 		with the next request to retrieve additional objects.</p>
    */
   nextToken?: string;
@@ -5819,7 +6937,7 @@ export interface ListImageScanFindingsRequest {
 
   /**
    * @public
-   * <p>A token to specify where to start paginating. This is the NextToken
+   * <p>A token to specify where to start paginating. This is the nextToken
    * 	from a previously truncated response.</p>
    */
   nextToken?: string;
@@ -6122,7 +7240,7 @@ export interface ListImageScanFindingsResponse {
   /**
    * @public
    * <p>The next token used for paginated responses. When this field isn't empty,
-   * 	there are additional elements that the service has'ot included in this request. Use this token
+   * 	there are additional elements that the service hasn't included in this request. Use this token
    * 		with the next request to retrieve additional objects.</p>
    */
   nextToken?: string;
@@ -6146,7 +7264,7 @@ export interface ListInfrastructureConfigurationsRequest {
 
   /**
    * @public
-   * <p>A token to specify where to start paginating. This is the NextToken
+   * <p>A token to specify where to start paginating. This is the nextToken
    * 	from a previously truncated response.</p>
    */
   nextToken?: string;
@@ -6231,7 +7349,381 @@ export interface ListInfrastructureConfigurationsResponse {
   /**
    * @public
    * <p>The next token used for paginated responses. When this field isn't empty,
-   * 	there are additional elements that the service has'ot included in this request. Use this token
+   * 	there are additional elements that the service hasn't included in this request. Use this token
+   * 		with the next request to retrieve additional objects.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListLifecycleExecutionResourcesRequest {
+  /**
+   * @public
+   * <p>Use the unique identifier for a runtime instance of the lifecycle policy to get runtime details.</p>
+   */
+  lifecycleExecutionId: string | undefined;
+
+  /**
+   * @public
+   * <p>You can  leave this empty to get a list of Image Builder resources that were identified for lifecycle actions.</p>
+   *          <p>To get a list of associated resources that are impacted for an individual resource (the parent), specify
+   * 			its Amazon Resource Name (ARN). Associated resources are produced from your image and distributed when you run a build, such as
+   * 			AMIs or container images stored in ECR repositories.</p>
+   */
+  parentResourceId?: string;
+
+  /**
+   * @public
+   * <p>The maximum items to return in a request.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>A token to specify where to start paginating. This is the nextToken
+   * 	from a previously truncated response.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LifecycleExecutionResourceActionName = {
+  AVAILABLE: "AVAILABLE",
+  DELETE: "DELETE",
+  DEPRECATE: "DEPRECATE",
+  DISABLE: "DISABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type LifecycleExecutionResourceActionName =
+  (typeof LifecycleExecutionResourceActionName)[keyof typeof LifecycleExecutionResourceActionName];
+
+/**
+ * @public
+ * <p>The lifecycle policy action that was identified for the impacted resource.</p>
+ */
+export interface LifecycleExecutionResourceAction {
+  /**
+   * @public
+   * <p>The name of the resource that was identified for a lifecycle policy action.</p>
+   */
+  name?: LifecycleExecutionResourceActionName;
+
+  /**
+   * @public
+   * <p>The reason why the lifecycle policy action is taken.</p>
+   */
+  reason?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LifecycleExecutionResourceStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SKIPPED: "SKIPPED",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type LifecycleExecutionResourceStatus =
+  (typeof LifecycleExecutionResourceStatus)[keyof typeof LifecycleExecutionResourceStatus];
+
+/**
+ * @public
+ * <p>Contains the state of an impacted resource that the runtime instance
+ * 			of the lifecycle policy identified for action.</p>
+ */
+export interface LifecycleExecutionResourceState {
+  /**
+   * @public
+   * <p>The runtime status of the lifecycle action taken for the
+   * 			impacted resource.</p>
+   */
+  status?: LifecycleExecutionResourceStatus;
+
+  /**
+   * @public
+   * <p>Messaging that clarifies the reason for the assigned status.</p>
+   */
+  reason?: string;
+}
+
+/**
+ * @public
+ * <p>Contains the state of an impacted snapshot resource that the runtime
+ * 			instance of the lifecycle policy identified for action.</p>
+ */
+export interface LifecycleExecutionSnapshotResource {
+  /**
+   * @public
+   * <p>Identifies the impacted snapshot resource.</p>
+   */
+  snapshotId?: string;
+
+  /**
+   * @public
+   * <p>The runtime status of the lifecycle action taken for the snapshot.</p>
+   */
+  state?: LifecycleExecutionResourceState;
+}
+
+/**
+ * @public
+ * <p>Contains details for a resource that the runtime instance of the
+ * 			lifecycle policy identified for action.</p>
+ */
+export interface LifecycleExecutionResource {
+  /**
+   * @public
+   * <p>The account that owns the impacted resource.</p>
+   */
+  accountId?: string;
+
+  /**
+   * @public
+   * <p>Identifies the impacted resource. The resource ID depends on the type of
+   * 			resource, as follows.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Image Builder image resources: Amazon Resource Name (ARN)</p>
+   *             </li>
+   *             <li>
+   *                <p>Distributed AMIs: AMI ID</p>
+   *             </li>
+   *             <li>
+   *                <p>Container images distributed to an ECR repository: image URI or SHA Digest</p>
+   *             </li>
+   *          </ul>
+   */
+  resourceId?: string;
+
+  /**
+   * @public
+   * <p>The runtime state for the lifecycle execution.</p>
+   */
+  state?: LifecycleExecutionResourceState;
+
+  /**
+   * @public
+   * <p>The action to take for the identified resource.</p>
+   */
+  action?: LifecycleExecutionResourceAction;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Region where the lifecycle execution resource is stored.</p>
+   */
+  region?: string;
+
+  /**
+   * @public
+   * <p>A list of associated resource snapshots for the impacted resource if
+   * 			it’s an AMI.</p>
+   */
+  snapshots?: LifecycleExecutionSnapshotResource[];
+
+  /**
+   * @public
+   * <p>For an impacted container image, this identifies a list of URIs for associated
+   * 			container images distributed to ECR repositories.</p>
+   */
+  imageUris?: string[];
+}
+
+/**
+ * @public
+ */
+export interface ListLifecycleExecutionResourcesResponse {
+  /**
+   * @public
+   * <p>Runtime details for the specified runtime instance of the lifecycle policy.</p>
+   */
+  lifecycleExecutionId?: string;
+
+  /**
+   * @public
+   * <p>The current state of the lifecycle runtime instance.</p>
+   */
+  lifecycleExecutionState?: LifecycleExecutionState;
+
+  /**
+   * @public
+   * <p>A list of resources that were identified for lifecycle actions.</p>
+   */
+  resources?: LifecycleExecutionResource[];
+
+  /**
+   * @public
+   * <p>The next token used for paginated responses. When this field isn't empty,
+   * 	there are additional elements that the service hasn't included in this request. Use this token
+   * 		with the next request to retrieve additional objects.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListLifecycleExecutionsRequest {
+  /**
+   * @public
+   * <p>The maximum items to return in a request.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>A token to specify where to start paginating. This is the nextToken
+   * 	from a previously truncated response.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the resource for which to get a list of lifecycle runtime instances.</p>
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListLifecycleExecutionsResponse {
+  /**
+   * @public
+   * <p>A list of lifecycle runtime instances for the specified resource.</p>
+   */
+  lifecycleExecutions?: LifecycleExecution[];
+
+  /**
+   * @public
+   * <p>The next token used for paginated responses. When this field isn't empty,
+   * 	there are additional elements that the service hasn't included in this request. Use this token
+   * 		with the next request to retrieve additional objects.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListLifecyclePoliciesRequest {
+  /**
+   * @public
+   * <p>Streamline results based on one of the following values: <code>Name</code>,
+   * 			<code>Status</code>.</p>
+   */
+  filters?: Filter[];
+
+  /**
+   * @public
+   * <p>The maximum items to return in a request.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>A token to specify where to start paginating. This is the nextToken
+   * 	from a previously truncated response.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>Contains a summary of lifecycle policy resources.</p>
+ */
+export interface LifecyclePolicySummary {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the lifecycle policy summary resource.</p>
+   */
+  arn?: string;
+
+  /**
+   * @public
+   * <p>The name of the lifecycle policy.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>Optional description for the lifecycle policy.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>The lifecycle policy resource status.</p>
+   */
+  status?: LifecyclePolicyStatus;
+
+  /**
+   * @public
+   * <p>The name or Amazon Resource Name (ARN) of the IAM role that Image Builder uses to run the lifecycle policy.</p>
+   */
+  executionRole?: string;
+
+  /**
+   * @public
+   * <p>The type of resources the lifecycle policy targets.</p>
+   */
+  resourceType?: LifecyclePolicyResourceType;
+
+  /**
+   * @public
+   * <p>The timestamp when Image Builder created the lifecycle policy resource.</p>
+   */
+  dateCreated?: Date;
+
+  /**
+   * @public
+   * <p>The timestamp when Image Builder updated the lifecycle policy resource.</p>
+   */
+  dateUpdated?: Date;
+
+  /**
+   * @public
+   * <p>The timestamp for the last time Image Builder ran the lifecycle policy.</p>
+   */
+  dateLastRun?: Date;
+
+  /**
+   * @public
+   * <p>To help manage your lifecycle policy resources, you can assign your own
+   * 			metadata to each resource in the form of tags. Each tag consists of a key and
+   * 			an optional value, both of which you define.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface ListLifecyclePoliciesResponse {
+  /**
+   * @public
+   * <p>A list of lifecycle policies in your Amazon Web Services account that meet the criteria
+   * 			specified in the request.</p>
+   */
+  lifecyclePolicySummaryList?: LifecyclePolicySummary[];
+
+  /**
+   * @public
+   * <p>The next token used for paginated responses. When this field isn't empty,
+   * 	there are additional elements that the service hasn't included in this request. Use this token
    * 		with the next request to retrieve additional objects.</p>
    */
   nextToken?: string;
@@ -6283,6 +7775,206 @@ export interface ListTagsForResourceResponse {
 /**
  * @public
  */
+export interface ListWaitingWorkflowStepsRequest {
+  /**
+   * @public
+   * <p>The maximum items to return in a request.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>A token to specify where to start paginating. This is the nextToken
+   * 	from a previously truncated response.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>Contains runtime details for an instance of a workflow that ran for the
+ * 			associated image build version.</p>
+ */
+export interface WorkflowStepExecution {
+  /**
+   * @public
+   * <p>Uniquely identifies the workflow step that ran for the associated
+   * 			image build version.</p>
+   */
+  stepExecutionId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the image build version that ran the workflow.</p>
+   */
+  imageBuildVersionArn?: string;
+
+  /**
+   * @public
+   * <p>Uniquely identifies the runtime instance of the workflow that contains
+   * 			the workflow step that ran for the associated image build version.</p>
+   */
+  workflowExecutionId?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the workflow resource that ran.</p>
+   */
+  workflowBuildVersionArn?: string;
+
+  /**
+   * @public
+   * <p>The name of the workflow step.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>The name of the step action.</p>
+   */
+  action?: string;
+
+  /**
+   * @public
+   * <p>The timestamp when the workflow step started.</p>
+   */
+  startTime?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListWaitingWorkflowStepsResponse {
+  /**
+   * @public
+   * <p>An array of the workflow steps that are waiting for action in your
+   * 			Amazon Web Services account.</p>
+   */
+  steps?: WorkflowStepExecution[];
+
+  /**
+   * @public
+   * <p>The next token used for paginated responses. When this field isn't empty,
+   * 	there are additional elements that the service hasn't included in this request. Use this token
+   * 		with the next request to retrieve additional objects.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListWorkflowBuildVersionsRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the workflow resource for which to get a list of build versions.</p>
+   */
+  workflowVersionArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The maximum items to return in a request.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>A token to specify where to start paginating. This is the nextToken
+   * 	from a previously truncated response.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>Contains metadata about the workflow resource.</p>
+ */
+export interface WorkflowSummary {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the workflow resource.</p>
+   */
+  arn?: string;
+
+  /**
+   * @public
+   * <p>The name of the workflow.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>The version of the workflow.</p>
+   */
+  version?: string;
+
+  /**
+   * @public
+   * <p>Describes the workflow.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>The change description for the current version of the workflow resource.</p>
+   */
+  changeDescription?: string;
+
+  /**
+   * @public
+   * <p>The image creation stage that this workflow applies to. Image Builder currently
+   * 			supports build and test stage workflows.</p>
+   */
+  type?: WorkflowType;
+
+  /**
+   * @public
+   * <p>The owner of the workflow resource.</p>
+   */
+  owner?: string;
+
+  /**
+   * @public
+   * <p>Describes the current state of the workflow resource.</p>
+   */
+  state?: WorkflowState;
+
+  /**
+   * @public
+   * <p>The original creation date of the workflow resource.</p>
+   */
+  dateCreated?: string;
+
+  /**
+   * @public
+   * <p>Contains a list of tags that are defined for the workflow.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface ListWorkflowBuildVersionsResponse {
+  /**
+   * @public
+   * <p>A list that contains metadata for the workflow builds that have run for
+   * 			the workflow resource specified in the request.</p>
+   */
+  workflowSummaryList?: WorkflowSummary[];
+
+  /**
+   * @public
+   * <p>The next token used for paginated responses. When this field isn't empty,
+   * 	there are additional elements that the service hasn't included in this request. Use this token
+   * 		with the next request to retrieve additional objects.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
 export interface ListWorkflowExecutionsRequest {
   /**
    * @public
@@ -6292,7 +7984,7 @@ export interface ListWorkflowExecutionsRequest {
 
   /**
    * @public
-   * <p>A token to specify where to start paginating. This is the NextToken
+   * <p>A token to specify where to start paginating. This is the nextToken
    * 	from a previously truncated response.</p>
    */
   nextToken?: string;
@@ -6327,13 +8019,13 @@ export interface WorkflowExecutionMetadata {
    * @public
    * <p>Indicates what type of workflow that Image Builder ran for this runtime instance of the workflow.</p>
    */
-  type?: WorkflowType | string;
+  type?: WorkflowType;
 
   /**
    * @public
    * <p>The current runtime status for this workflow.</p>
    */
-  status?: WorkflowExecutionStatus | string;
+  status?: WorkflowExecutionStatus;
 
   /**
    * @public
@@ -6377,6 +8069,12 @@ export interface WorkflowExecutionMetadata {
    * <p>The timestamp when this runtime instance of the workflow finished.</p>
    */
   endTime?: string;
+
+  /**
+   * @public
+   * <p>The name of the test group that included the test workflow resource at runtime.</p>
+   */
+  parallelGroup?: string;
 }
 
 /**
@@ -6412,7 +8110,111 @@ export interface ListWorkflowExecutionsResponse {
   /**
    * @public
    * <p>The next token used for paginated responses. When this field isn't empty,
-   * 	there are additional elements that the service has'ot included in this request. Use this token
+   * 	there are additional elements that the service hasn't included in this request. Use this token
+   * 		with the next request to retrieve additional objects.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListWorkflowsRequest {
+  /**
+   * @public
+   * <p>Used to get a list of workflow build version filtered by the identity of the creator.</p>
+   */
+  owner?: Ownership;
+
+  /**
+   * @public
+   * <p>Used to streamline search results.</p>
+   */
+  filters?: Filter[];
+
+  /**
+   * @public
+   * <p>Specify all or part of the workflow name to streamline results.</p>
+   */
+  byName?: boolean;
+
+  /**
+   * @public
+   * <p>The maximum items to return in a request.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>A token to specify where to start paginating. This is the nextToken
+   * 	from a previously truncated response.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>Contains details about this version of the workflow.</p>
+ */
+export interface WorkflowVersion {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the workflow resource.</p>
+   */
+  arn?: string;
+
+  /**
+   * @public
+   * <p>The name of the workflow.</p>
+   */
+  name?: string;
+
+  /**
+   * @public
+   * <p>The semantic version of the workflow resource. The format includes three nodes: <major>.<minor>.<patch>.</p>
+   */
+  version?: string;
+
+  /**
+   * @public
+   * <p>Describes the workflow.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>The image creation stage that this workflow applies to. Image Builder currently
+   * 			supports build and test stage workflows.</p>
+   */
+  type?: WorkflowType;
+
+  /**
+   * @public
+   * <p>The owner of the workflow resource.</p>
+   */
+  owner?: string;
+
+  /**
+   * @public
+   * <p>The timestamp when Image Builder created the workflow version.</p>
+   */
+  dateCreated?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListWorkflowsResponse {
+  /**
+   * @public
+   * <p>A list of workflow build versions that match the request criteria.</p>
+   */
+  workflowVersionList?: WorkflowVersion[];
+
+  /**
+   * @public
+   * <p>The next token used for paginated responses. When this field isn't empty,
+   * 	there are additional elements that the service hasn't included in this request. Use this token
    * 		with the next request to retrieve additional objects.</p>
    */
   nextToken?: string;
@@ -6430,7 +8232,7 @@ export interface ListWorkflowStepExecutionsRequest {
 
   /**
    * @public
-   * <p>A token to specify where to start paginating. This is the NextToken
+   * <p>A token to specify where to start paginating. This is the nextToken
    * 	from a previously truncated response.</p>
    */
   nextToken?: string;
@@ -6476,13 +8278,13 @@ export interface WorkflowStepMetadata {
    * @public
    * <p>Runtime status for the workflow step.</p>
    */
-  status?: WorkflowStepExecutionStatus | string;
+  status?: WorkflowStepExecutionStatus;
 
   /**
    * @public
    * <p>Reports on the rollback status of the step, if applicable.</p>
    */
-  rollbackStatus?: WorkflowStepExecutionRollbackStatus | string;
+  rollbackStatus?: WorkflowStepExecutionRollbackStatus;
 
   /**
    * @public
@@ -6562,7 +8364,7 @@ export interface ListWorkflowStepExecutionsResponse {
   /**
    * @public
    * <p>The next token used for paginated responses. When this field isn't empty,
-   * 	there are additional elements that the service has'ot included in this request. Use this token
+   * 	there are additional elements that the service hasn't included in this request. Use this token
    * 		with the next request to retrieve additional objects.</p>
    */
   nextToken?: string;
@@ -6733,6 +8535,82 @@ export interface PutImageRecipePolicyResponse {
 
 /**
  * @public
+ * @enum
+ */
+export const WorkflowStepActionType = {
+  RESUME: "RESUME",
+  STOP: "STOP",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkflowStepActionType = (typeof WorkflowStepActionType)[keyof typeof WorkflowStepActionType];
+
+/**
+ * @public
+ */
+export interface SendWorkflowStepActionRequest {
+  /**
+   * @public
+   * <p>Uniquely identifies the workflow step that sent the step action.</p>
+   */
+  stepExecutionId: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the image build version to send action for.</p>
+   */
+  imageBuildVersionArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The action for the image creation process to take while a workflow
+   * 			<code>WaitForAction</code> step waits for an asynchronous action to complete.</p>
+   */
+  action: WorkflowStepActionType | undefined;
+
+  /**
+   * @public
+   * <p>The reason why this action is sent.</p>
+   */
+  reason?: string;
+
+  /**
+   * @public
+   * <p>Unique, case-sensitive identifier you provide to ensure
+   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        in the <i>Amazon EC2 API Reference</i>.</p>
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface SendWorkflowStepActionResponse {
+  /**
+   * @public
+   * <p>The workflow step that sent the step action.</p>
+   */
+  stepExecutionId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the image build version that received the action
+   * 			request.</p>
+   */
+  imageBuildVersionArn?: string;
+
+  /**
+   * @public
+   * <p>The client token that uniquely identifies the request.</p>
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
  */
 export interface StartImagePipelineExecutionRequest {
   /**
@@ -6744,7 +8622,9 @@ export interface StartImagePipelineExecutionRequest {
 
   /**
    * @public
-   * <p>The idempotency token used to make this request idempotent.</p>
+   * <p>Unique, case-sensitive identifier you provide to ensure
+   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        in the <i>Amazon EC2 API Reference</i>.</p>
    */
   clientToken?: string;
 }
@@ -6761,15 +8641,148 @@ export interface StartImagePipelineExecutionResponse {
 
   /**
    * @public
-   * <p>The idempotency token used to make this request idempotent.</p>
+   * <p>The client token that uniquely identifies the request.</p>
    */
   clientToken?: string;
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the image that was created by this request.</p>
+   * <p>The Amazon Resource Name (ARN) of the image that the request created.</p>
    */
   imageBuildVersionArn?: string;
+}
+
+/**
+ * @public
+ * <p>Additional rules to specify resources that should be exempt from ad-hoc lifecycle actions.</p>
+ */
+export interface ResourceStateUpdateExclusionRules {
+  /**
+   * @public
+   * <p>Defines criteria for AMIs that are excluded from lifecycle actions.</p>
+   */
+  amis?: LifecyclePolicyDetailExclusionRulesAmis;
+}
+
+/**
+ * @public
+ * <p>Specifies if the lifecycle policy should apply actions to selected resources.</p>
+ */
+export interface ResourceStateUpdateIncludeResources {
+  /**
+   * @public
+   * <p>Specifies whether the lifecycle action should apply to distributed AMIs</p>
+   */
+  amis?: boolean;
+
+  /**
+   * @public
+   * <p>Specifies whether the lifecycle action should apply to snapshots associated with distributed AMIs.</p>
+   */
+  snapshots?: boolean;
+
+  /**
+   * @public
+   * <p>Specifies whether the lifecycle action should apply to distributed containers.</p>
+   */
+  containers?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceStatus = {
+  AVAILABLE: "AVAILABLE",
+  DELETED: "DELETED",
+  DEPRECATED: "DEPRECATED",
+  DISABLED: "DISABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceStatus = (typeof ResourceStatus)[keyof typeof ResourceStatus];
+
+/**
+ * @public
+ * <p>The current state of an impacted resource.</p>
+ */
+export interface ResourceState {
+  /**
+   * @public
+   * <p>Shows the current lifecycle policy action that was applied to an impacted resource.</p>
+   */
+  status?: ResourceStatus;
+}
+
+/**
+ * @public
+ */
+export interface StartResourceStateUpdateRequest {
+  /**
+   * @public
+   * <p>The ARN of the Image Builder resource that is updated. The state update might also
+   * 			impact associated resources.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Indicates the lifecycle action to take for this request.</p>
+   */
+  state: ResourceState | undefined;
+
+  /**
+   * @public
+   * <p>The name or Amazon Resource Name (ARN) of the IAM role that’s used to update image state.</p>
+   */
+  executionRole?: string;
+
+  /**
+   * @public
+   * <p>A list of image resources to update state for.</p>
+   */
+  includeResources?: ResourceStateUpdateIncludeResources;
+
+  /**
+   * @public
+   * <p>Skip action on the image resource and associated resources if specified
+   * 			exclusion rules are met.</p>
+   */
+  exclusionRules?: ResourceStateUpdateExclusionRules;
+
+  /**
+   * @public
+   * <p>The timestamp that indicates when resources are updated by a lifecycle action.</p>
+   */
+  updateAt?: Date;
+
+  /**
+   * @public
+   * <p>Unique, case-sensitive identifier you provide to ensure
+   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        in the <i>Amazon EC2 API Reference</i>.</p>
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface StartResourceStateUpdateResponse {
+  /**
+   * @public
+   * <p>Identifies the lifecycle runtime instance that started the resource
+   * 			state update.</p>
+   */
+  lifecycleExecutionId?: string;
+
+  /**
+   * @public
+   * <p>The requested ARN of the Image Builder resource for the asynchronous update.</p>
+   */
+  resourceArn?: string;
 }
 
 /**
@@ -6841,7 +8854,9 @@ export interface UpdateDistributionConfigurationRequest {
 
   /**
    * @public
-   * <p>The idempotency token of the distribution configuration.</p>
+   * <p>Unique, case-sensitive identifier you provide to ensure
+   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        in the <i>Amazon EC2 API Reference</i>.</p>
    */
   clientToken?: string;
 }
@@ -6858,7 +8873,7 @@ export interface UpdateDistributionConfigurationResponse {
 
   /**
    * @public
-   * <p>The idempotency token used to make this request idempotent.</p>
+   * <p>The client token that uniquely identifies the request.</p>
    */
   clientToken?: string;
 
@@ -6937,11 +8952,13 @@ export interface UpdateImagePipelineRequest {
    * @public
    * <p>The status of the image pipeline.</p>
    */
-  status?: PipelineStatus | string;
+  status?: PipelineStatus;
 
   /**
    * @public
-   * <p>The idempotency token used to make this request idempotent.</p>
+   * <p>Unique, case-sensitive identifier you provide to ensure
+   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        in the <i>Amazon EC2 API Reference</i>.</p>
    */
   clientToken?: string;
 
@@ -6950,6 +8967,19 @@ export interface UpdateImagePipelineRequest {
    * <p>Contains settings for vulnerability scans.</p>
    */
   imageScanningConfiguration?: ImageScanningConfiguration;
+
+  /**
+   * @public
+   * <p>Contains the workflows to run for the pipeline.</p>
+   */
+  workflows?: WorkflowConfiguration[];
+
+  /**
+   * @public
+   * <p>The name or Amazon Resource Name (ARN) for the IAM role you create that grants
+   * 			Image Builder access to perform workflow actions.</p>
+   */
+  executionRole?: string;
 }
 
 /**
@@ -6964,7 +8994,7 @@ export interface UpdateImagePipelineResponse {
 
   /**
    * @public
-   * <p>The idempotency token used to make this request idempotent.</p>
+   * <p>The client token that uniquely identifies the request.</p>
    */
   clientToken?: string;
 
@@ -7056,7 +9086,9 @@ export interface UpdateInfrastructureConfigurationRequest {
 
   /**
    * @public
-   * <p>The idempotency token used to make this request idempotent.</p>
+   * <p>Unique, case-sensitive identifier you provide to ensure
+   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        in the <i>Amazon EC2 API Reference</i>.</p>
    */
   clientToken?: string;
 
@@ -7103,7 +9135,7 @@ export interface UpdateInfrastructureConfigurationResponse {
 
   /**
    * @public
-   * <p>The idempotency token used to make this request idempotent.</p>
+   * <p>The client token that uniquely identifies the request.</p>
    */
   clientToken?: string;
 
@@ -7113,4 +9145,71 @@ export interface UpdateInfrastructureConfigurationResponse {
    * 			this request.</p>
    */
   infrastructureConfigurationArn?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLifecyclePolicyRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the lifecycle policy resource.</p>
+   */
+  lifecyclePolicyArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Optional description for the lifecycle policy.</p>
+   */
+  description?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether the lifecycle policy resource is enabled.</p>
+   */
+  status?: LifecyclePolicyStatus;
+
+  /**
+   * @public
+   * <p>The name or Amazon Resource Name (ARN) of the IAM role that Image Builder uses to update the
+   * 			lifecycle policy.</p>
+   */
+  executionRole: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of image resource that the lifecycle policy applies to.</p>
+   */
+  resourceType: LifecyclePolicyResourceType | undefined;
+
+  /**
+   * @public
+   * <p>The configuration details for a lifecycle policy resource.</p>
+   */
+  policyDetails: LifecyclePolicyDetail[] | undefined;
+
+  /**
+   * @public
+   * <p>Selection criteria for resources that the lifecycle policy applies to.</p>
+   */
+  resourceSelection: LifecyclePolicyResourceSelection | undefined;
+
+  /**
+   * @public
+   * <p>Unique, case-sensitive identifier you provide to ensure
+   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        in the <i>Amazon EC2 API Reference</i>.</p>
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLifecyclePolicyResponse {
+  /**
+   * @public
+   * <p>The ARN of the image lifecycle policy resource that was updated.</p>
+   */
+  lifecyclePolicyArn?: string;
 }

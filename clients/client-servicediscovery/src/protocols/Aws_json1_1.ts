@@ -41,6 +41,10 @@ import { DeleteNamespaceCommandInput, DeleteNamespaceCommandOutput } from "../co
 import { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "../commands/DeleteServiceCommand";
 import { DeregisterInstanceCommandInput, DeregisterInstanceCommandOutput } from "../commands/DeregisterInstanceCommand";
 import { DiscoverInstancesCommandInput, DiscoverInstancesCommandOutput } from "../commands/DiscoverInstancesCommand";
+import {
+  DiscoverInstancesRevisionCommandInput,
+  DiscoverInstancesRevisionCommandOutput,
+} from "../commands/DiscoverInstancesRevisionCommand";
 import { GetInstanceCommandInput, GetInstanceCommandOutput } from "../commands/GetInstanceCommand";
 import {
   GetInstancesHealthStatusCommandInput,
@@ -88,6 +92,7 @@ import {
   DeleteServiceRequest,
   DeregisterInstanceRequest,
   DiscoverInstancesRequest,
+  DiscoverInstancesRevisionRequest,
   DnsConfig,
   DnsConfigChange,
   DnsRecord,
@@ -254,6 +259,26 @@ export const se_DiscoverInstancesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DiscoverInstances");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "data-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
+};
+
+/**
+ * serializeAws_json1_1DiscoverInstancesRevisionCommand
+ */
+export const se_DiscoverInstancesRevisionCommand = async (
+  input: DiscoverInstancesRevisionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DiscoverInstancesRevision");
   let body: any;
   body = JSON.stringify(_json(input));
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -924,6 +949,61 @@ const de_DiscoverInstancesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DiscoverInstancesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInput":
+    case "com.amazonaws.servicediscovery#InvalidInput":
+      throw await de_InvalidInputRes(parsedOutput, context);
+    case "NamespaceNotFound":
+    case "com.amazonaws.servicediscovery#NamespaceNotFound":
+      throw await de_NamespaceNotFoundRes(parsedOutput, context);
+    case "RequestLimitExceeded":
+    case "com.amazonaws.servicediscovery#RequestLimitExceeded":
+      throw await de_RequestLimitExceededRes(parsedOutput, context);
+    case "ServiceNotFound":
+    case "com.amazonaws.servicediscovery#ServiceNotFound":
+      throw await de_ServiceNotFoundRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_1DiscoverInstancesRevisionCommand
+ */
+export const de_DiscoverInstancesRevisionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DiscoverInstancesRevisionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_DiscoverInstancesRevisionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DiscoverInstancesRevisionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DiscoverInstancesRevisionCommandError
+ */
+const de_DiscoverInstancesRevisionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DiscoverInstancesRevisionCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2136,6 +2216,8 @@ const se_CreateServiceRequest = (input: CreateServiceRequest, context: __SerdeCo
 
 // se_DiscoverInstancesRequest omitted.
 
+// se_DiscoverInstancesRevisionRequest omitted.
+
 // se_DnsConfig omitted.
 
 // se_DnsConfigChange omitted.
@@ -2297,6 +2379,8 @@ const de_CreateServiceResponse = (output: any, context: __SerdeContext): CreateS
 // de_DeregisterInstanceResponse omitted.
 
 // de_DiscoverInstancesResponse omitted.
+
+// de_DiscoverInstancesRevisionResponse omitted.
 
 // de_DnsConfig omitted.
 

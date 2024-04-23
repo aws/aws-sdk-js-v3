@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  StreamingBlobPayloadInputTypes,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   PublishPackageVersionRequest,
   PublishPackageVersionRequestFilterSensitiveLog,
@@ -64,7 +55,7 @@ export interface PublishPackageVersionCommandOutput extends PublishPackageVersio
  *   domain: "STRING_VALUE", // required
  *   domainOwner: "STRING_VALUE",
  *   repository: "STRING_VALUE", // required
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "swift", // required
  *   namespace: "STRING_VALUE",
  *   package: "STRING_VALUE", // required
  *   packageVersion: "STRING_VALUE", // required
@@ -76,7 +67,7 @@ export interface PublishPackageVersionCommandOutput extends PublishPackageVersio
  * const command = new PublishPackageVersionCommand(input);
  * const response = await client.send(command);
  * // { // PublishPackageVersionResult
- * //   format: "npm" || "pypi" || "maven" || "nuget" || "generic",
+ * //   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "swift",
  * //   namespace: "STRING_VALUE",
  * //   package: "STRING_VALUE",
  * //   version: "STRING_VALUE",
@@ -136,79 +127,26 @@ export interface PublishPackageVersionCommandOutput extends PublishPackageVersio
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
  */
-export class PublishPackageVersionCommand extends $Command<
-  PublishPackageVersionCommandInput,
-  PublishPackageVersionCommandOutput,
-  CodeartifactClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PublishPackageVersionCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CodeartifactClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PublishPackageVersionCommandInput, PublishPackageVersionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, PublishPackageVersionCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CodeartifactClient";
-    const commandName = "PublishPackageVersionCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: PublishPackageVersionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: PublishPackageVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PublishPackageVersionCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PublishPackageVersionCommandOutput> {
-    return de_PublishPackageVersionCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class PublishPackageVersionCommand extends $Command
+  .classBuilder<
+    PublishPackageVersionCommandInput,
+    PublishPackageVersionCommandOutput,
+    CodeartifactClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CodeArtifactControlPlaneService", "PublishPackageVersion", {})
+  .n("CodeartifactClient", "PublishPackageVersionCommand")
+  .f(PublishPackageVersionRequestFilterSensitiveLog, void 0)
+  .ser(se_PublishPackageVersionCommand)
+  .de(de_PublishPackageVersionCommand)
+  .build() {}

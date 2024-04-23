@@ -14,9 +14,18 @@ export * from "./DescribePhoneNumbersPaginator";
 
 export * from "./DescribePoolsPaginator";
 
-export * from "./DescribeSenderIdsPaginator";
+export * from "./DescribeRegistrationAttachmentsPaginator";
 
-export * from "./DescribeSpendLimitsPaginator";
+export * from "./DescribeRegistrationFieldDefinitionsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./DescribeRegistrationFieldValuesPaginator";
+export * from "./DescribeRegistrationSectionDefinitionsPaginator";
+export * from "./DescribeRegistrationTypeDefinitionsPaginator";
+export * from "./DescribeRegistrationVersionsPaginator";
+export * from "./DescribeRegistrationsPaginator";
+export * from "./DescribeSenderIdsPaginator";
+export * from "./DescribeSpendLimitsPaginator";
+export * from "./DescribeVerifiedDestinationNumbersPaginator";
 export * from "./ListPoolOriginationIdentitiesPaginator";
+export * from "./ListRegistrationAssociationsPaginator";

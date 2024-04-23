@@ -23,16 +23,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `PersonalizeRuntimeClient` and
-the commands you need, for example `GetPersonalizedRankingCommand`:
+the commands you need, for example `GetRecommendationsCommand`:
 
 ```js
 // ES5 example
-const { PersonalizeRuntimeClient, GetPersonalizedRankingCommand } = require("@aws-sdk/client-personalize-runtime");
+const { PersonalizeRuntimeClient, GetRecommendationsCommand } = require("@aws-sdk/client-personalize-runtime");
 ```
 
 ```ts
 // ES6+ example
-import { PersonalizeRuntimeClient, GetPersonalizedRankingCommand } from "@aws-sdk/client-personalize-runtime";
+import { PersonalizeRuntimeClient, GetRecommendationsCommand } from "@aws-sdk/client-personalize-runtime";
 ```
 
 ### Usage
@@ -51,7 +51,7 @@ const client = new PersonalizeRuntimeClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new GetPersonalizedRankingCommand(params);
+const command = new GetRecommendationsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +130,7 @@ const client = new AWS.PersonalizeRuntime({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.getPersonalizedRanking(params);
+  const data = await client.getRecommendations(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +138,7 @@ try {
 
 // Promises.
 client
-  .getPersonalizedRanking(params)
+  .getRecommendations(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +147,7 @@ client
   });
 
 // callbacks.
-client.getPersonalizedRanking(params, (err, data) => {
+client.getRecommendations(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -162,7 +162,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -205,10 +205,18 @@ see LICENSE for more information.
 
 <details>
 <summary>
+GetActionRecommendations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/personalize-runtime/command/GetActionRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-runtime/Interface/GetActionRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-runtime/Interface/GetActionRecommendationsCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetPersonalizedRanking
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-personalize-runtime/classes/getpersonalizedrankingcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-personalize-runtime/interfaces/getpersonalizedrankingcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-personalize-runtime/interfaces/getpersonalizedrankingcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/personalize-runtime/command/GetPersonalizedRankingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-runtime/Interface/GetPersonalizedRankingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-runtime/Interface/GetPersonalizedRankingCommandOutput/)
 
 </details>
 <details>
@@ -216,6 +224,6 @@ GetPersonalizedRanking
 GetRecommendations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-personalize-runtime/classes/getrecommendationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-personalize-runtime/interfaces/getrecommendationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-personalize-runtime/interfaces/getrecommendationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/personalize-runtime/command/GetRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-runtime/Interface/GetRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize-runtime/Interface/GetRecommendationsCommandOutput/)
 
 </details>

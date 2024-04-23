@@ -1,19 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { RegisterClientRequest, RegisterClientResponse } from "../models/models_0";
+import { commonParams } from "../endpoint/EndpointParameters";
+import {
+  RegisterClientRequest,
+  RegisterClientResponse,
+  RegisterClientResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_RegisterClientCommand, se_RegisterClientCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SSOOIDCClientResolvedConfig } from "../SSOOIDCClient";
 
@@ -88,80 +84,51 @@ export interface RegisterClientCommandOutput extends RegisterClientResponse, __M
  * @throws {@link SSOOIDCServiceException}
  * <p>Base exception class for all service exceptions from SSOOIDC service.</p>
  *
+ * @example Call OAuth/OIDC /register-client endpoint
+ * ```javascript
+ * //
+ * const input = {
+ *   "clientName": "My IDE Plugin",
+ *   "clientType": "public",
+ *   "scopes": [
+ *     "sso:account:access",
+ *     "codewhisperer:completions"
+ *   ]
+ * };
+ * const command = new RegisterClientCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "clientId": "_yzkThXVzLWVhc3QtMQEXAMPLECLIENTID",
+ *   "clientIdIssuedAt": 1579725929,
+ *   "clientSecret": "VERYLONGSECRETeyJraWQiOiJrZXktMTU2NDAyODA5OSIsImFsZyI6IkhTMzg0In0",
+ *   "clientSecretExpiresAt": 1587584729
+ * }
+ * *\/
+ * // example id: register-client
+ * ```
+ *
  */
-export class RegisterClientCommand extends $Command<
-  RegisterClientCommandInput,
-  RegisterClientCommandOutput,
-  SSOOIDCClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: RegisterClientCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SSOOIDCClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<RegisterClientCommandInput, RegisterClientCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, RegisterClientCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SSOOIDCClient";
-    const commandName = "RegisterClientCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: RegisterClientCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_RegisterClientCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterClientCommandOutput> {
-    return de_RegisterClientCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class RegisterClientCommand extends $Command
+  .classBuilder<
+    RegisterClientCommandInput,
+    RegisterClientCommandOutput,
+    SSOOIDCClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SSOOIDCClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSSSOOIDCService", "RegisterClient", {})
+  .n("SSOOIDCClient", "RegisterClientCommand")
+  .f(void 0, RegisterClientResponseFilterSensitiveLog)
+  .ser(se_RegisterClientCommand)
+  .de(de_RegisterClientCommand)
+  .build() {}

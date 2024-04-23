@@ -1,21 +1,13 @@
 // smithy-typescript generated code
 import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getApplyMd5BodyChecksumPlugin } from "@smithy/middleware-apply-body-checksum";
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { PutBucketReplicationRequest } from "../models/models_0";
+import { commonParams } from "../endpoint/EndpointParameters";
+import { PutBucketReplicationRequest } from "../models/models_1";
 import { de_PutBucketReplicationCommand, se_PutBucketReplicationCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
@@ -44,8 +36,8 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  *             in the <i>Amazon S3 API Reference</i>. </p>
  *          </note>
  *          <p>Creates a replication configuration or replaces an existing one. For information about
- *          S3 replication on Outposts configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsReplication.html">Replicating objects for S3 on Outposts</a> in the
- *             <i>Amazon S3 User Guide</i>.</p>
+ *          S3 replication on Outposts configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsReplication.html">Replicating objects for
+ *             S3 on Outposts</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <note>
  *             <p>It can take a while to propagate <code>PUT</code> or <code>DELETE</code> requests for
  *             a replication configuration to all S3 on Outposts systems. Therefore, the replication
@@ -70,9 +62,9 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  *             </li>
  *          </ul>
  *          <p>A replication configuration must include at least one rule and can contain a maximum of
- *          100. Each rule identifies a subset of objects to replicate by filtering the objects in
- *          the source Outposts bucket. To choose additional subsets of objects to replicate, add a
- *          rule for each subset.</p>
+ *          100. Each rule identifies a subset of objects to replicate by filtering the objects in the
+ *          source Outposts bucket. To choose additional subsets of objects to replicate, add a rule
+ *          for each subset.</p>
  *          <p>To specify a subset of the objects in the source Outposts bucket to apply a replication
  *          rule to, add the <code>Filter</code> element as a child of the <code>Rule</code> element.
  *          You can filter objects based on an object key prefix, one or more object tags, or both.
@@ -101,9 +93,10 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  *             S3 on Outposts</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3OutpostsBucketPolicy.html">Managing access to
  *             S3 on Outposts buckets</a>. </p>
  *          <note>
- *             <p>To perform this operation, the user or role must also have the <code>iam:CreateRole</code> and <code>iam:PassRole</code> permissions.
- *             For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">Granting a user
- *                permissions to pass a role to an Amazon Web Services service</a>.</p>
+ *             <p>To perform this operation, the user or role must also have the
+ *                <code>iam:CreateRole</code> and <code>iam:PassRole</code> permissions. For more
+ *             information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">Granting a user permissions to
+ *                pass a role to an Amazon Web Services service</a>.</p>
  *          </note>
  *          <p>All Amazon S3 on Outposts REST API requests for this action require an additional parameter of <code>x-amz-outpost-id</code> to be passed with the request. In addition, you must use an S3 on Outposts endpoint hostname prefix instead of <code>s3-control</code>. For an example of the request syntax for Amazon S3 on Outposts that uses the S3 on Outposts endpoint hostname prefix and the <code>x-amz-outpost-id</code> derived by using the access point ARN, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_control_PutBucketReplication.html#API_control_PutBucketReplication_Examples">Examples</a> section.</p>
  *          <p>The following operations are related to <code>PutBucketReplication</code>:</p>
@@ -210,85 +203,31 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
  */
-export class PutBucketReplicationCommand extends $Command<
-  PutBucketReplicationCommandInput,
-  PutBucketReplicationCommandOutput,
-  S3ControlClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      RequiresAccountId: { type: "staticContextParams", value: true },
-      AccountId: { type: "contextParams", name: "AccountId" },
-      Bucket: { type: "contextParams", name: "Bucket" },
-      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PutBucketReplicationCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: S3ControlClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PutBucketReplicationCommandInput, PutBucketReplicationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, PutBucketReplicationCommand.getEndpointParameterInstructions())
-    );
-    this.middlewareStack.use(getProcessArnablesPlugin(configuration));
-    this.middlewareStack.use(getApplyMd5BodyChecksumPlugin(configuration));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "S3ControlClient";
-    const commandName = "PutBucketReplicationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: PutBucketReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PutBucketReplicationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketReplicationCommandOutput> {
-    return de_PutBucketReplicationCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class PutBucketReplicationCommand extends $Command
+  .classBuilder<
+    PutBucketReplicationCommandInput,
+    PutBucketReplicationCommandOutput,
+    S3ControlClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+    RequiresAccountId: { type: "staticContextParams", value: true },
+    AccountId: { type: "contextParams", name: "AccountId" },
+    Bucket: { type: "contextParams", name: "Bucket" },
+  })
+  .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getProcessArnablesPlugin(config),
+      getApplyMd5BodyChecksumPlugin(config),
+    ];
+  })
+  .s("AWSS3ControlServiceV20180820", "PutBucketReplication", {})
+  .n("S3ControlClient", "PutBucketReplicationCommand")
+  .f(void 0, void 0)
+  .ser(se_PutBucketReplicationCommand)
+  .de(de_PutBucketReplicationCommand)
+  .build() {}

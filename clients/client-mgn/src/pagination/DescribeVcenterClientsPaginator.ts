@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import {
@@ -10,41 +11,14 @@ import { MgnClient } from "../MgnClient";
 import { MgnPaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: MgnClient,
-  input: DescribeVcenterClientsCommandInput,
-  ...args: any
-): Promise<DescribeVcenterClientsCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new DescribeVcenterClientsCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateDescribeVcenterClients(
+export const paginateDescribeVcenterClients: (
   config: MgnPaginationConfiguration,
   input: DescribeVcenterClientsCommandInput,
-  ...additionalArguments: any
-): Paginator<DescribeVcenterClientsCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.nextToken
-  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: DescribeVcenterClientsCommandOutput;
-  while (hasNext) {
-    input.nextToken = token;
-    input["maxResults"] = config.pageSize;
-    if (config.client instanceof MgnClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected Mgn | MgnClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.nextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<DescribeVcenterClientsCommandOutput> = createPaginator<
+  MgnPaginationConfiguration,
+  DescribeVcenterClientsCommandInput,
+  DescribeVcenterClientsCommandOutput
+>(MgnClient, DescribeVcenterClientsCommand, "nextToken", "nextToken", "maxResults");

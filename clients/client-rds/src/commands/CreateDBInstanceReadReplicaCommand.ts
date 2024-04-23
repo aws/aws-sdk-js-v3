@@ -1,19 +1,11 @@
 // smithy-typescript generated code
 import { getCrossRegionPresignedUrlPlugin } from "@aws-sdk/middleware-sdk-rds";
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateDBInstanceReadReplicaMessage, CreateDBInstanceReadReplicaResult } from "../models/models_0";
 import { de_CreateDBInstanceReadReplicaCommand, se_CreateDBInstanceReadReplicaCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
@@ -39,11 +31,11 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * @public
  * <p>Creates a new DB instance that acts as a read replica for an existing source DB
  *             instance or Multi-AZ DB cluster. You can create a read replica for a DB instance running
- *             MySQL, MariaDB, Oracle, PostgreSQL, or SQL Server. You can create a read replica for a
+ *             Db2, MariaDB, MySQL, Oracle, PostgreSQL, or SQL Server. You can create a read replica for a
  *             Multi-AZ DB cluster running MySQL or PostgreSQL. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working
  *                 with read replicas</a> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html#multi-az-db-clusters-migrating-to-instance-with-read-replica">Migrating from a Multi-AZ DB cluster to a DB instance using a read replica</a> in the <i>Amazon RDS User Guide</i>.</p>
- *          <p>Amazon Aurora doesn't support this operation. Call the <code>CreateDBInstance</code>
- *             operation to create a DB instance for an Aurora DB cluster.</p>
+ *          <p>Amazon Aurora doesn't support this operation. To create a DB instance for an Aurora DB cluster, use the <code>CreateDBInstance</code>
+ *             operation.</p>
  *          <p>All read replica DB instances are created with backups disabled. All other attributes
  *             (including DB security groups and DB parameter groups) are inherited from the source DB
  *             instance or cluster, except as specified.</p>
@@ -115,6 +107,8 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  *   EnableCustomerOwnedIp: true || false,
  *   AllocatedStorage: Number("int"),
  *   SourceDBClusterIdentifier: "STRING_VALUE",
+ *   DedicatedLogVolume: true || false,
+ *   UpgradeStorageConfig: true || false,
  * };
  * const command = new CreateDBInstanceReadReplicaCommand(input);
  * const response = await client.send(command);
@@ -211,6 +205,8 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * //       ResumeFullAutomationModeTime: new Date("TIMESTAMP"),
  * //       StorageThroughput: Number("int"),
  * //       Engine: "STRING_VALUE",
+ * //       DedicatedLogVolume: true || false,
+ * //       MultiTenant: true || false,
  * //     },
  * //     LatestRestorableTime: new Date("TIMESTAMP"),
  * //     MultiAZ: true || false,
@@ -336,6 +332,9 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * //     },
  * //     ReadReplicaSourceDBClusterIdentifier: "STRING_VALUE",
  * //     PercentProgress: "STRING_VALUE",
+ * //     DedicatedLogVolume: true || false,
+ * //     IsStorageConfigUpgradeAvailable: true || false,
+ * //     MultiTenant: true || false,
  * //   },
  * // };
  *
@@ -426,6 +425,10 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * @throws {@link StorageTypeNotSupportedFault} (client fault)
  *  <p>The specified <code>StorageType</code> can't be associated with the DB instance.</p>
  *
+ * @throws {@link TenantDatabaseQuotaExceededFault} (client fault)
+ *  <p>You attempted to create more tenant databases than are permitted in your Amazon Web Services
+ *             account.</p>
+ *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
@@ -453,83 +456,27 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * ```
  *
  */
-export class CreateDBInstanceReadReplicaCommand extends $Command<
-  CreateDBInstanceReadReplicaCommandInput,
-  CreateDBInstanceReadReplicaCommandOutput,
-  RDSClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateDBInstanceReadReplicaCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RDSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateDBInstanceReadReplicaCommandInput, CreateDBInstanceReadReplicaCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateDBInstanceReadReplicaCommand.getEndpointParameterInstructions())
-    );
-    this.middlewareStack.use(getCrossRegionPresignedUrlPlugin(configuration));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RDSClient";
-    const commandName = "CreateDBInstanceReadReplicaCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateDBInstanceReadReplicaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateDBInstanceReadReplicaCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateDBInstanceReadReplicaCommandOutput> {
-    return de_CreateDBInstanceReadReplicaCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateDBInstanceReadReplicaCommand extends $Command
+  .classBuilder<
+    CreateDBInstanceReadReplicaCommandInput,
+    CreateDBInstanceReadReplicaCommandOutput,
+    RDSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getCrossRegionPresignedUrlPlugin(config),
+    ];
+  })
+  .s("AmazonRDSv19", "CreateDBInstanceReadReplica", {})
+  .n("RDSClient", "CreateDBInstanceReadReplicaCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateDBInstanceReadReplicaCommand)
+  .de(de_CreateDBInstanceReadReplicaCommand)
+  .build() {}

@@ -1,5 +1,4 @@
 import {
-  AbortMultipartUploadCommandOutput,
   CompletedPart,
   CompleteMultipartUploadCommand,
   CompleteMultipartUploadCommandOutput,
@@ -94,7 +93,7 @@ export class Upload extends EventEmitter {
     this.abortController.abort();
   }
 
-  public async done(): Promise<CompleteMultipartUploadCommandOutput | AbortMultipartUploadCommandOutput> {
+  public async done(): Promise<CompleteMultipartUploadCommandOutput> {
     return await Promise.race([this.__doMultipartUpload(), this.__abortTimeout(this.abortController.signal)]);
   }
 
@@ -335,6 +334,9 @@ export class Upload extends EventEmitter {
         },
       };
       result = await this.client.send(new CompleteMultipartUploadCommand(uploadCompleteParams));
+      if (typeof result?.Location === "string" && result.Location.includes("%2F")) {
+        result.Location = result.Location.replace(/%2F/g, "/");
+      }
     } else {
       result = this.singleUploadResult!;
     }
@@ -360,7 +362,7 @@ export class Upload extends EventEmitter {
     }
   }
 
-  private async __abortTimeout(abortSignal: AbortSignal): Promise<AbortMultipartUploadCommandOutput> {
+  private async __abortTimeout(abortSignal: AbortSignal): Promise<never> {
     return new Promise((resolve, reject) => {
       abortSignal.onabort = () => {
         const abortError = new Error("Upload aborted.");

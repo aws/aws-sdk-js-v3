@@ -13,7 +13,6 @@
  *          information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ServiceLens.html">Using ServiceLens to Monitor
  *             the Health of Your Applications</a> in the <i>Amazon CloudWatch User
  *             Guide</i>.</p>
- *
  *          <p>Before you create and manage canaries, be aware of the security considerations. For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/servicelens_canaries_security.html">Security
  *             Considerations for Synthetics Canaries</a>.</p>
@@ -23,8 +22,12 @@
 export * from "./SyntheticsClient";
 export * from "./Synthetics";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { SyntheticsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { SyntheticsServiceException } from "./models/SyntheticsServiceException";

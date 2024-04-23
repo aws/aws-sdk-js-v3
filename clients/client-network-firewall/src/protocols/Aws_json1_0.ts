@@ -129,6 +129,7 @@ import {
   Address,
   AssociateFirewallPolicyRequest,
   AssociateSubnetsRequest,
+  CheckCertificateRevocationStatusActions,
   CreateFirewallPolicyRequest,
   CreateFirewallPolicyResponse,
   CreateFirewallRequest,
@@ -1036,12 +1037,18 @@ const de_CreateTLSInspectionConfigurationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InsufficientCapacityException":
+    case "com.amazonaws.networkfirewall#InsufficientCapacityException":
+      throw await de_InsufficientCapacityExceptionRes(parsedOutput, context);
     case "InternalServerError":
     case "com.amazonaws.networkfirewall#InternalServerError":
       throw await de_InternalServerErrorRes(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.networkfirewall#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.networkfirewall#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.networkfirewall#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -2966,6 +2973,8 @@ const de_UnsupportedOperationExceptionRes = async (
 
 // se_AzSubnets omitted.
 
+// se_CheckCertificateRevocationStatusActions omitted.
+
 // se_CreateFirewallPolicyRequest omitted.
 
 // se_CreateFirewallRequest omitted.
@@ -2975,6 +2984,7 @@ const de_UnsupportedOperationExceptionRes = async (
  */
 const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __SerdeContext): any => {
   return take(input, {
+    AnalyzeRuleGroup: [],
     Capacity: [],
     Description: [],
     DryRun: [],
@@ -3177,6 +3187,7 @@ const se_CreateRuleGroupRequest = (input: CreateRuleGroupRequest, context: __Ser
  */
 const se_UpdateRuleGroupRequest = (input: UpdateRuleGroupRequest, context: __SerdeContext): any => {
   return take(input, {
+    AnalyzeRuleGroup: [],
     Description: [],
     DryRun: [],
     EncryptionConfiguration: _json,
@@ -3204,6 +3215,10 @@ const se_UpdateRuleGroupRequest = (input: UpdateRuleGroupRequest, context: __Ser
 
 // de_Addresses omitted.
 
+// de_AnalysisResult omitted.
+
+// de_AnalysisResultList omitted.
+
 // de_AssociateFirewallPolicyResponse omitted.
 
 // de_AssociateSubnetsResponse omitted.
@@ -3213,6 +3228,8 @@ const se_UpdateRuleGroupRequest = (input: UpdateRuleGroupRequest, context: __Ser
 // de_CapacityUsageSummary omitted.
 
 // de_Certificates omitted.
+
+// de_CheckCertificateRevocationStatusActions omitted.
 
 // de_CIDRSummary omitted.
 
@@ -3477,6 +3494,7 @@ const de_FirewallPolicyResponse = (output: any, context: __SerdeContext): Firewa
  */
 const de_RuleGroupResponse = (output: any, context: __SerdeContext): RuleGroupResponse => {
   return take(output, {
+    AnalysisResults: _json,
     Capacity: __expectInt32,
     ConsumedCapacity: __expectInt32,
     Description: __expectString,
@@ -3495,6 +3513,8 @@ const de_RuleGroupResponse = (output: any, context: __SerdeContext): RuleGroupRe
 };
 
 // de_RuleGroups omitted.
+
+// de_RuleIdList omitted.
 
 // de_RuleOption omitted.
 
@@ -3590,6 +3610,7 @@ const de_TLSInspectionConfigurationResponse = (
   context: __SerdeContext
 ): TLSInspectionConfigurationResponse => {
   return take(output, {
+    CertificateAuthority: _json,
     Certificates: _json,
     Description: __expectString,
     EncryptionConfiguration: _json,

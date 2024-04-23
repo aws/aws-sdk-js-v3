@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateDomainEndpointOptionsRequest, UpdateDomainEndpointOptionsResponse } from "../models/models_0";
 import { de_UpdateDomainEndpointOptionsCommand, se_UpdateDomainEndpointOptionsCommand } from "../protocols/Aws_query";
 
@@ -49,7 +41,7 @@ export interface UpdateDomainEndpointOptionsCommandOutput
  *   DomainName: "STRING_VALUE", // required
  *   DomainEndpointOptions: { // DomainEndpointOptions
  *     EnforceHTTPS: true || false,
- *     TLSSecurityPolicy: "STRING_VALUE",
+ *     TLSSecurityPolicy: "Policy-Min-TLS-1-0-2019-07" || "Policy-Min-TLS-1-2-2019-07",
  *   },
  * };
  * const command = new UpdateDomainEndpointOptionsCommand(input);
@@ -58,13 +50,13 @@ export interface UpdateDomainEndpointOptionsCommandOutput
  * //   DomainEndpointOptions: { // DomainEndpointOptionsStatus
  * //     Options: { // DomainEndpointOptions
  * //       EnforceHTTPS: true || false,
- * //       TLSSecurityPolicy: "STRING_VALUE",
+ * //       TLSSecurityPolicy: "Policy-Min-TLS-1-0-2019-07" || "Policy-Min-TLS-1-2-2019-07",
  * //     },
  * //     Status: { // OptionStatus
  * //       CreationDate: new Date("TIMESTAMP"), // required
  * //       UpdateDate: new Date("TIMESTAMP"), // required
  * //       UpdateVersion: Number("int"),
- * //       State: "STRING_VALUE", // required
+ * //       State: "RequiresIndexDocuments" || "Processing" || "Active" || "FailedToValidate", // required
  * //       PendingDeletion: true || false,
  * //     },
  * //   },
@@ -104,82 +96,26 @@ export interface UpdateDomainEndpointOptionsCommandOutput
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
  */
-export class UpdateDomainEndpointOptionsCommand extends $Command<
-  UpdateDomainEndpointOptionsCommandInput,
-  UpdateDomainEndpointOptionsCommandOutput,
-  CloudSearchClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateDomainEndpointOptionsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CloudSearchClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateDomainEndpointOptionsCommandInput, UpdateDomainEndpointOptionsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateDomainEndpointOptionsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CloudSearchClient";
-    const commandName = "UpdateDomainEndpointOptionsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateDomainEndpointOptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateDomainEndpointOptionsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateDomainEndpointOptionsCommandOutput> {
-    return de_UpdateDomainEndpointOptionsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateDomainEndpointOptionsCommand extends $Command
+  .classBuilder<
+    UpdateDomainEndpointOptionsCommandInput,
+    UpdateDomainEndpointOptionsCommandOutput,
+    CloudSearchClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CloudSearchClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("A9SearchCloudConfigService2013", "UpdateDomainEndpointOptions", {})
+  .n("CloudSearchClient", "UpdateDomainEndpointOptionsCommand")
+  .f(void 0, void 0)
+  .ser(se_UpdateDomainEndpointOptionsCommand)
+  .de(de_UpdateDomainEndpointOptionsCommand)
+  .build() {}

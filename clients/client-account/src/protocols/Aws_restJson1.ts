@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -60,12 +61,11 @@ export const se_DeleteAlternateContactCommand = async (
   input: DeleteAlternateContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteAlternateContact";
+  b.bp("/deleteAlternateContact");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -73,15 +73,8 @@ export const se_DeleteAlternateContactCommand = async (
       AlternateContactType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -91,11 +84,11 @@ export const se_DisableRegionCommand = async (
   input: DisableRegionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/disableRegion";
+  b.bp("/disableRegion");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -103,15 +96,8 @@ export const se_DisableRegionCommand = async (
       RegionName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -121,11 +107,11 @@ export const se_EnableRegionCommand = async (
   input: EnableRegionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/enableRegion";
+  b.bp("/enableRegion");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -133,15 +119,8 @@ export const se_EnableRegionCommand = async (
       RegionName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -151,11 +130,11 @@ export const se_GetAlternateContactCommand = async (
   input: GetAlternateContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getAlternateContact";
+  b.bp("/getAlternateContact");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -163,15 +142,8 @@ export const se_GetAlternateContactCommand = async (
       AlternateContactType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -181,26 +153,19 @@ export const se_GetContactInformationCommand = async (
   input: GetContactInformationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getContactInformation";
+  b.bp("/getContactInformation");
   let body: any;
   body = JSON.stringify(
     take(input, {
       AccountId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -210,11 +175,11 @@ export const se_GetRegionOptStatusCommand = async (
   input: GetRegionOptStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getRegionOptStatus";
+  b.bp("/getRegionOptStatus");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -222,15 +187,8 @@ export const se_GetRegionOptStatusCommand = async (
       RegionName: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -240,11 +198,11 @@ export const se_ListRegionsCommand = async (
   input: ListRegionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listRegions";
+  b.bp("/listRegions");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -254,15 +212,8 @@ export const se_ListRegionsCommand = async (
       RegionOptStatusContains: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -272,11 +223,11 @@ export const se_PutAlternateContactCommand = async (
   input: PutAlternateContactCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/putAlternateContact";
+  b.bp("/putAlternateContact");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -288,15 +239,8 @@ export const se_PutAlternateContactCommand = async (
       Title: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -306,11 +250,11 @@ export const se_PutContactInformationCommand = async (
   input: PutContactInformationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/putContactInformation";
+  b.bp("/putContactInformation");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -318,15 +262,8 @@ export const se_PutContactInformationCommand = async (
       ContactInformation: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**

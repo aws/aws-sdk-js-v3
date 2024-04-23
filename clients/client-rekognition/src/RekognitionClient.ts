@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -130,6 +128,10 @@ import {
 } from "./commands/GetFaceLivenessSessionResultsCommand";
 import { GetFaceSearchCommandInput, GetFaceSearchCommandOutput } from "./commands/GetFaceSearchCommand";
 import { GetLabelDetectionCommandInput, GetLabelDetectionCommandOutput } from "./commands/GetLabelDetectionCommand";
+import {
+  GetMediaAnalysisJobCommandInput,
+  GetMediaAnalysisJobCommandOutput,
+} from "./commands/GetMediaAnalysisJobCommand";
 import { GetPersonTrackingCommandInput, GetPersonTrackingCommandOutput } from "./commands/GetPersonTrackingCommand";
 import {
   GetSegmentDetectionCommandInput,
@@ -141,6 +143,10 @@ import { ListCollectionsCommandInput, ListCollectionsCommandOutput } from "./com
 import { ListDatasetEntriesCommandInput, ListDatasetEntriesCommandOutput } from "./commands/ListDatasetEntriesCommand";
 import { ListDatasetLabelsCommandInput, ListDatasetLabelsCommandOutput } from "./commands/ListDatasetLabelsCommand";
 import { ListFacesCommandInput, ListFacesCommandOutput } from "./commands/ListFacesCommand";
+import {
+  ListMediaAnalysisJobsCommandInput,
+  ListMediaAnalysisJobsCommandOutput,
+} from "./commands/ListMediaAnalysisJobsCommand";
 import {
   ListProjectPoliciesCommandInput,
   ListProjectPoliciesCommandOutput,
@@ -177,6 +183,10 @@ import {
   StartLabelDetectionCommandInput,
   StartLabelDetectionCommandOutput,
 } from "./commands/StartLabelDetectionCommand";
+import {
+  StartMediaAnalysisJobCommandInput,
+  StartMediaAnalysisJobCommandOutput,
+} from "./commands/StartMediaAnalysisJobCommand";
 import {
   StartPersonTrackingCommandInput,
   StartPersonTrackingCommandOutput,
@@ -262,6 +272,7 @@ export type ServiceInputTypes =
   | GetFaceLivenessSessionResultsCommandInput
   | GetFaceSearchCommandInput
   | GetLabelDetectionCommandInput
+  | GetMediaAnalysisJobCommandInput
   | GetPersonTrackingCommandInput
   | GetSegmentDetectionCommandInput
   | GetTextDetectionCommandInput
@@ -270,6 +281,7 @@ export type ServiceInputTypes =
   | ListDatasetEntriesCommandInput
   | ListDatasetLabelsCommandInput
   | ListFacesCommandInput
+  | ListMediaAnalysisJobsCommandInput
   | ListProjectPoliciesCommandInput
   | ListStreamProcessorsCommandInput
   | ListTagsForResourceCommandInput
@@ -285,6 +297,7 @@ export type ServiceInputTypes =
   | StartFaceDetectionCommandInput
   | StartFaceSearchCommandInput
   | StartLabelDetectionCommandInput
+  | StartMediaAnalysisJobCommandInput
   | StartPersonTrackingCommandInput
   | StartProjectVersionCommandInput
   | StartSegmentDetectionCommandInput
@@ -339,6 +352,7 @@ export type ServiceOutputTypes =
   | GetFaceLivenessSessionResultsCommandOutput
   | GetFaceSearchCommandOutput
   | GetLabelDetectionCommandOutput
+  | GetMediaAnalysisJobCommandOutput
   | GetPersonTrackingCommandOutput
   | GetSegmentDetectionCommandOutput
   | GetTextDetectionCommandOutput
@@ -347,6 +361,7 @@ export type ServiceOutputTypes =
   | ListDatasetEntriesCommandOutput
   | ListDatasetLabelsCommandOutput
   | ListFacesCommandOutput
+  | ListMediaAnalysisJobsCommandOutput
   | ListProjectPoliciesCommandOutput
   | ListStreamProcessorsCommandOutput
   | ListTagsForResourceCommandOutput
@@ -362,6 +377,7 @@ export type ServiceOutputTypes =
   | StartFaceDetectionCommandOutput
   | StartFaceSearchCommandOutput
   | StartLabelDetectionCommandOutput
+  | StartMediaAnalysisJobCommandOutput
   | StartPersonTrackingCommandOutput
   | StartProjectVersionCommandOutput
   | StartSegmentDetectionCommandOutput
@@ -484,6 +500,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 
@@ -629,12 +647,22 @@ export interface RekognitionClientResolvedConfig extends RekognitionClientResolv
  *             </li>
  *             <li>
  *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetMediaAnalysisJob.html">GetMediaAnalysisJob</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_IndexFaces.html">IndexFaces</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListCollections.html">ListCollections</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListMediaAnalysisJob.html">ListMediaAnalysisJob</a>
  *                </p>
  *             </li>
  *             <li>
@@ -670,6 +698,11 @@ export interface RekognitionClientResolvedConfig extends RekognitionClientResolv
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchUsersByImage.html">SearchUsersByImage</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartMediaAnalysisJob.html">StartMediaAnalysisJob</a>
  *                </p>
  *             </li>
  *          </ul>

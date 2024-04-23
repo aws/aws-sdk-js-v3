@@ -42,6 +42,11 @@ import {
   DiscoverInstancesCommandInput,
   DiscoverInstancesCommandOutput,
 } from "./commands/DiscoverInstancesCommand";
+import {
+  DiscoverInstancesRevisionCommand,
+  DiscoverInstancesRevisionCommandInput,
+  DiscoverInstancesRevisionCommandOutput,
+} from "./commands/DiscoverInstancesRevisionCommand";
 import { GetInstanceCommand, GetInstanceCommandInput, GetInstanceCommandOutput } from "./commands/GetInstanceCommand";
 import {
   GetInstancesHealthStatusCommand,
@@ -131,6 +136,7 @@ const commands = {
   DeleteServiceCommand,
   DeregisterInstanceCommand,
   DiscoverInstancesCommand,
+  DiscoverInstancesRevisionCommand,
   GetInstanceCommand,
   GetInstancesHealthStatusCommand,
   GetNamespaceCommand,
@@ -271,6 +277,23 @@ export interface ServiceDiscovery {
     args: DiscoverInstancesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DiscoverInstancesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DiscoverInstancesRevisionCommand}
+   */
+  discoverInstancesRevision(
+    args: DiscoverInstancesRevisionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DiscoverInstancesRevisionCommandOutput>;
+  discoverInstancesRevision(
+    args: DiscoverInstancesRevisionCommandInput,
+    cb: (err: any, data?: DiscoverInstancesRevisionCommandOutput) => void
+  ): void;
+  discoverInstancesRevision(
+    args: DiscoverInstancesRevisionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DiscoverInstancesRevisionCommandOutput) => void
   ): void;
 
   /**

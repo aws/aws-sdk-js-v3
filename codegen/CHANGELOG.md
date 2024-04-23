@@ -1,5 +1,32 @@
 # Smithy AWS Typescript Codegen Changelog
 
+## 0.19.0 (2023-11-03)
+
+### Features 
+* Created coercing serializers for awsQueryCompat ([#5440](https://github.com/aws/aws-sdk-js-v3/pull/5440))
+* Migrated the `@aws-sdk/util-endpoints` package to use the newly added `@smithy/util-endpoints` package ([#5390](https://github.com/aws/aws-sdk-js-v3/pull/5390))
+* Added Node.js 14.x version deprecation warning ([#5413](https://github.com/aws/aws-sdk-js-v3/pull/5413))
+* Deprecated gamesparks ([#5386](https://github.com/aws/aws-sdk-js-v3/pull/5386))
+* Changed codegen for JSON protocols to use `awsExpectUnion`, which ignores the `__type` field ([#5376](https://github.com/aws/aws-sdk-js-v3/pull/5376))
+* Updated shapes with members targeting string and number enums (TypeScript unions) to be closed ([#5356](https://github.com/aws/aws-sdk-js-v3/pull/5356))
+* Added e2e suite for lib-dynamodb ([#5306](https://github.com/aws/aws-sdk-js-v3/pull/5306))
+* Added middleware for following region redirects ([#5185](https://github.com/aws/aws-sdk-js-v3/pull/5185))
+
+### Bug Fixes 
+* Updated to use partial record for enum keyed types ([#5391](https://github.com/aws/aws-sdk-js-v3/pull/5391))
+
+## 0.18.0 (2023-10-04)
+
+### Features
+* Refactor addImport usage ([#4986](https://github.com/aws/aws-sdk-js-v3/pull/4986))
+* Remove defaults mode provider codegen ([#4993](https://github.com/aws/aws-sdk-js-v3/pull/4993))
+* Temporarily disable unused codegen ([#4996](https://github.com/aws/aws-sdk-js-v3/pull/4996))
+* Customize @aws.auth#sigv4 identity providers for the AWS SDK ([#5179](https://github.com/aws/aws-sdk-js-v3/pull/5179))
+* Customize @httpBearerAuth identity providers for the AWS SDK ([#5169](https://github.com/aws/aws-sdk-js-v3/pull/5169))
+* Add aws region runtime extension codegen ([#5157](https://github.com/aws/aws-sdk-js-v3/pull/5157))
+* Add smithy-aws-endpoints dependency ([#5311](https://github.com/aws/aws-sdk-js-v3/pull/5311))
+* Upgrade to Smithy 1.39.0 ([#5311](https://github.com/aws/aws-sdk-js-v3/pull/5311))
+
 ## 0.17.1 (2023-07-07)
 
 ## 0.17.0 (2023-07-06)

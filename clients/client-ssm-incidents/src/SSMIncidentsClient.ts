@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -50,6 +48,10 @@ import {
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
+import {
+  BatchGetIncidentFindingsCommandInput,
+  BatchGetIncidentFindingsCommandOutput,
+} from "./commands/BatchGetIncidentFindingsCommand";
 import {
   CreateReplicationSetCommandInput,
   CreateReplicationSetCommandOutput,
@@ -84,6 +86,10 @@ import {
 } from "./commands/GetResourcePoliciesCommand";
 import { GetResponsePlanCommandInput, GetResponsePlanCommandOutput } from "./commands/GetResponsePlanCommand";
 import { GetTimelineEventCommandInput, GetTimelineEventCommandOutput } from "./commands/GetTimelineEventCommand";
+import {
+  ListIncidentFindingsCommandInput,
+  ListIncidentFindingsCommandOutput,
+} from "./commands/ListIncidentFindingsCommand";
 import {
   ListIncidentRecordsCommandInput,
   ListIncidentRecordsCommandOutput,
@@ -136,6 +142,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | BatchGetIncidentFindingsCommandInput
   | CreateReplicationSetCommandInput
   | CreateResponsePlanCommandInput
   | CreateTimelineEventCommandInput
@@ -149,6 +156,7 @@ export type ServiceInputTypes =
   | GetResourcePoliciesCommandInput
   | GetResponsePlanCommandInput
   | GetTimelineEventCommandInput
+  | ListIncidentFindingsCommandInput
   | ListIncidentRecordsCommandInput
   | ListRelatedItemsCommandInput
   | ListReplicationSetsCommandInput
@@ -170,6 +178,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | BatchGetIncidentFindingsCommandOutput
   | CreateReplicationSetCommandOutput
   | CreateResponsePlanCommandOutput
   | CreateTimelineEventCommandOutput
@@ -183,6 +192,7 @@ export type ServiceOutputTypes =
   | GetResourcePoliciesCommandOutput
   | GetResponsePlanCommandOutput
   | GetTimelineEventCommandOutput
+  | ListIncidentFindingsCommandOutput
   | ListIncidentRecordsCommandOutput
   | ListRelatedItemsCommandOutput
   | ListReplicationSetsCommandOutput
@@ -310,6 +320,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

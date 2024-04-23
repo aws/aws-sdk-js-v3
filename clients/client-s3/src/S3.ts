@@ -24,6 +24,11 @@ import {
   CreateMultipartUploadCommandOutput,
 } from "./commands/CreateMultipartUploadCommand";
 import {
+  CreateSessionCommand,
+  CreateSessionCommandInput,
+  CreateSessionCommandOutput,
+} from "./commands/CreateSessionCommand";
+import {
   DeleteBucketAnalyticsConfigurationCommand,
   DeleteBucketAnalyticsConfigurationCommandInput,
   DeleteBucketAnalyticsConfigurationCommandOutput,
@@ -273,6 +278,11 @@ import {
 } from "./commands/ListBucketMetricsConfigurationsCommand";
 import { ListBucketsCommand, ListBucketsCommandInput, ListBucketsCommandOutput } from "./commands/ListBucketsCommand";
 import {
+  ListDirectoryBucketsCommand,
+  ListDirectoryBucketsCommandInput,
+  ListDirectoryBucketsCommandOutput,
+} from "./commands/ListDirectoryBucketsCommand";
+import {
   ListMultipartUploadsCommand,
   ListMultipartUploadsCommandInput,
   ListMultipartUploadsCommandOutput,
@@ -439,6 +449,7 @@ const commands = {
   CopyObjectCommand,
   CreateBucketCommand,
   CreateMultipartUploadCommand,
+  CreateSessionCommand,
   DeleteBucketCommand,
   DeleteBucketAnalyticsConfigurationCommand,
   DeleteBucketCorsCommand,
@@ -492,6 +503,7 @@ const commands = {
   ListBucketInventoryConfigurationsCommand,
   ListBucketMetricsConfigurationsCommand,
   ListBucketsCommand,
+  ListDirectoryBucketsCommand,
   ListMultipartUploadsCommand,
   ListObjectsCommand,
   ListObjectsV2Command,
@@ -601,6 +613,17 @@ export interface S3 {
     args: CreateMultipartUploadCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateMultipartUploadCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateSessionCommand}
+   */
+  createSession(args: CreateSessionCommandInput, options?: __HttpHandlerOptions): Promise<CreateSessionCommandOutput>;
+  createSession(args: CreateSessionCommandInput, cb: (err: any, data?: CreateSessionCommandOutput) => void): void;
+  createSession(
+    args: CreateSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSessionCommandOutput) => void
   ): void;
 
   /**
@@ -1439,6 +1462,23 @@ export interface S3 {
     args: ListBucketsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListBucketsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDirectoryBucketsCommand}
+   */
+  listDirectoryBuckets(
+    args: ListDirectoryBucketsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDirectoryBucketsCommandOutput>;
+  listDirectoryBuckets(
+    args: ListDirectoryBucketsCommandInput,
+    cb: (err: any, data?: ListDirectoryBucketsCommandOutput) => void
+  ): void;
+  listDirectoryBuckets(
+    args: ListDirectoryBucketsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDirectoryBucketsCommandOutput) => void
   ): void;
 
   /**

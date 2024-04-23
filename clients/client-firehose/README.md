@@ -28,16 +28,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `FirehoseClient` and
-the commands you need, for example `CreateDeliveryStreamCommand`:
+the commands you need, for example `ListDeliveryStreamsCommand`:
 
 ```js
 // ES5 example
-const { FirehoseClient, CreateDeliveryStreamCommand } = require("@aws-sdk/client-firehose");
+const { FirehoseClient, ListDeliveryStreamsCommand } = require("@aws-sdk/client-firehose");
 ```
 
 ```ts
 // ES6+ example
-import { FirehoseClient, CreateDeliveryStreamCommand } from "@aws-sdk/client-firehose";
+import { FirehoseClient, ListDeliveryStreamsCommand } from "@aws-sdk/client-firehose";
 ```
 
 ### Usage
@@ -56,7 +56,7 @@ const client = new FirehoseClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateDeliveryStreamCommand(params);
+const command = new ListDeliveryStreamsCommand(params);
 ```
 
 #### Async/await
@@ -135,7 +135,7 @@ const client = new AWS.Firehose({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createDeliveryStream(params);
+  const data = await client.listDeliveryStreams(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -143,7 +143,7 @@ try {
 
 // Promises.
 client
-  .createDeliveryStream(params)
+  .listDeliveryStreams(params)
   .then((data) => {
     // process data.
   })
@@ -152,7 +152,7 @@ client
   });
 
 // callbacks.
-client.createDeliveryStream(params, (err, data) => {
+client.listDeliveryStreams(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -167,7 +167,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -213,7 +213,7 @@ see LICENSE for more information.
 CreateDeliveryStream
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/classes/createdeliverystreamcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/interfaces/createdeliverystreamcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/interfaces/createdeliverystreamcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/firehose/command/CreateDeliveryStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-firehose/Interface/CreateDeliveryStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-firehose/Interface/CreateDeliveryStreamCommandOutput/)
 
 </details>
 <details>
@@ -221,7 +221,7 @@ CreateDeliveryStream
 DeleteDeliveryStream
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/classes/deletedeliverystreamcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/interfaces/deletedeliverystreamcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/interfaces/deletedeliverystreamcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/firehose/command/DeleteDeliveryStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-firehose/Interface/DeleteDeliveryStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-firehose/Interface/DeleteDeliveryStreamCommandOutput/)
 
 </details>
 <details>
@@ -229,7 +229,7 @@ DeleteDeliveryStream
 DescribeDeliveryStream
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/classes/describedeliverystreamcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/interfaces/describedeliverystreamcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/interfaces/describedeliverystreamcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/firehose/command/DescribeDeliveryStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-firehose/Interface/DescribeDeliveryStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-firehose/Interface/DescribeDeliveryStreamCommandOutput/)
 
 </details>
 <details>
@@ -237,7 +237,7 @@ DescribeDeliveryStream
 ListDeliveryStreams
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/classes/listdeliverystreamscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/interfaces/listdeliverystreamscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/interfaces/listdeliverystreamscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/firehose/command/ListDeliveryStreamsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-firehose/Interface/ListDeliveryStreamsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-firehose/Interface/ListDeliveryStreamsCommandOutput/)
 
 </details>
 <details>
@@ -245,7 +245,7 @@ ListDeliveryStreams
 ListTagsForDeliveryStream
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/classes/listtagsfordeliverystreamcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/interfaces/listtagsfordeliverystreamcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/interfaces/listtagsfordeliverystreamcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/firehose/command/ListTagsForDeliveryStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-firehose/Interface/ListTagsForDeliveryStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-firehose/Interface/ListTagsForDeliveryStreamCommandOutput/)
 
 </details>
 <details>
@@ -253,7 +253,7 @@ ListTagsForDeliveryStream
 PutRecord
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/classes/putrecordcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/interfaces/putrecordcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/interfaces/putrecordcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/firehose/command/PutRecordCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-firehose/Interface/PutRecordCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-firehose/Interface/PutRecordCommandOutput/)
 
 </details>
 <details>
@@ -261,7 +261,7 @@ PutRecord
 PutRecordBatch
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/classes/putrecordbatchcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/interfaces/putrecordbatchcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/interfaces/putrecordbatchcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/firehose/command/PutRecordBatchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-firehose/Interface/PutRecordBatchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-firehose/Interface/PutRecordBatchCommandOutput/)
 
 </details>
 <details>
@@ -269,7 +269,7 @@ PutRecordBatch
 StartDeliveryStreamEncryption
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/classes/startdeliverystreamencryptioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/interfaces/startdeliverystreamencryptioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/interfaces/startdeliverystreamencryptioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/firehose/command/StartDeliveryStreamEncryptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-firehose/Interface/StartDeliveryStreamEncryptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-firehose/Interface/StartDeliveryStreamEncryptionCommandOutput/)
 
 </details>
 <details>
@@ -277,7 +277,7 @@ StartDeliveryStreamEncryption
 StopDeliveryStreamEncryption
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/classes/stopdeliverystreamencryptioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/interfaces/stopdeliverystreamencryptioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/interfaces/stopdeliverystreamencryptioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/firehose/command/StopDeliveryStreamEncryptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-firehose/Interface/StopDeliveryStreamEncryptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-firehose/Interface/StopDeliveryStreamEncryptionCommandOutput/)
 
 </details>
 <details>
@@ -285,7 +285,7 @@ StopDeliveryStreamEncryption
 TagDeliveryStream
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/classes/tagdeliverystreamcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/interfaces/tagdeliverystreamcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/interfaces/tagdeliverystreamcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/firehose/command/TagDeliveryStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-firehose/Interface/TagDeliveryStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-firehose/Interface/TagDeliveryStreamCommandOutput/)
 
 </details>
 <details>
@@ -293,7 +293,7 @@ TagDeliveryStream
 UntagDeliveryStream
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/classes/untagdeliverystreamcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/interfaces/untagdeliverystreamcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/interfaces/untagdeliverystreamcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/firehose/command/UntagDeliveryStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-firehose/Interface/UntagDeliveryStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-firehose/Interface/UntagDeliveryStreamCommandOutput/)
 
 </details>
 <details>
@@ -301,6 +301,6 @@ UntagDeliveryStream
 UpdateDestination
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/classes/updatedestinationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/interfaces/updatedestinationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-firehose/interfaces/updatedestinationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/firehose/command/UpdateDestinationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-firehose/Interface/UpdateDestinationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-firehose/Interface/UpdateDestinationCommandOutput/)
 
 </details>

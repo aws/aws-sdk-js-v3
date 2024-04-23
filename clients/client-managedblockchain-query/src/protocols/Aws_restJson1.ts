@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -26,8 +27,10 @@ import {
   BatchGetTokenBalanceCommandInput,
   BatchGetTokenBalanceCommandOutput,
 } from "../commands/BatchGetTokenBalanceCommand";
+import { GetAssetContractCommandInput, GetAssetContractCommandOutput } from "../commands/GetAssetContractCommand";
 import { GetTokenBalanceCommandInput, GetTokenBalanceCommandOutput } from "../commands/GetTokenBalanceCommand";
 import { GetTransactionCommandInput, GetTransactionCommandOutput } from "../commands/GetTransactionCommand";
+import { ListAssetContractsCommandInput, ListAssetContractsCommandOutput } from "../commands/ListAssetContractsCommand";
 import { ListTokenBalancesCommandInput, ListTokenBalancesCommandOutput } from "../commands/ListTokenBalancesCommand";
 import {
   ListTransactionEventsCommandInput,
@@ -41,6 +44,8 @@ import {
   BatchGetTokenBalanceInputItem,
   BatchGetTokenBalanceOutputItem,
   BlockchainInstant,
+  ContractFilter,
+  ContractIdentifier,
   InternalServerException,
   ListTransactionsSort,
   OwnerFilter,
@@ -63,27 +68,41 @@ export const se_BatchGetTokenBalanceCommand = async (
   input: BatchGetTokenBalanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/batch-get-token-balance";
+  b.bp("/batch-get-token-balance");
   let body: any;
   body = JSON.stringify(
     take(input, {
       getTokenBalanceInputs: (_) => se_GetTokenBalanceInputList(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetAssetContractCommand
+ */
+export const se_GetAssetContractCommand = async (
+  input: GetAssetContractCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/get-asset-contract");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      contractIdentifier: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -93,11 +112,11 @@ export const se_GetTokenBalanceCommand = async (
   input: GetTokenBalanceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/get-token-balance";
+  b.bp("/get-token-balance");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -106,15 +125,8 @@ export const se_GetTokenBalanceCommand = async (
       tokenIdentifier: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -124,11 +136,11 @@ export const se_GetTransactionCommand = async (
   input: GetTransactionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/get-transaction";
+  b.bp("/get-transaction");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -136,15 +148,32 @@ export const se_GetTransactionCommand = async (
       transactionHash: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListAssetContractsCommand
+ */
+export const se_ListAssetContractsCommand = async (
+  input: ListAssetContractsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/list-asset-contracts");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      contractFilter: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -154,11 +183,11 @@ export const se_ListTokenBalancesCommand = async (
   input: ListTokenBalancesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-token-balances";
+  b.bp("/list-token-balances");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -168,15 +197,8 @@ export const se_ListTokenBalancesCommand = async (
       tokenFilter: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -186,12 +208,11 @@ export const se_ListTransactionEventsCommand = async (
   input: ListTransactionEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-transaction-events";
+  b.bp("/list-transaction-events");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -201,15 +222,8 @@ export const se_ListTransactionEventsCommand = async (
       transactionHash: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -219,11 +233,11 @@ export const se_ListTransactionsCommand = async (
   input: ListTransactionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/list-transactions";
+  b.bp("/list-transactions");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -236,15 +250,8 @@ export const se_ListTransactionsCommand = async (
       toBlockchainInstant: (_) => se_BlockchainInstant(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -276,6 +283,71 @@ const de_BatchGetTokenBalanceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetTokenBalanceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.managedblockchainquery#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.managedblockchainquery#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.managedblockchainquery#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.managedblockchainquery#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.managedblockchainquery#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.managedblockchainquery#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetAssetContractCommand
+ */
+export const de_GetAssetContractCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAssetContractCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetAssetContractCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    contractIdentifier: _json,
+    deployerAddress: __expectString,
+    metadata: _json,
+    tokenStandard: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetAssetContractCommandError
+ */
+const de_GetAssetContractCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAssetContractCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -419,6 +491,66 @@ const de_GetTransactionCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.managedblockchainquery#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.managedblockchainquery#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.managedblockchainquery#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.managedblockchainquery#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListAssetContractsCommand
+ */
+export const de_ListAssetContractsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssetContractsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListAssetContractsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    contracts: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAssetContractsCommandError
+ */
+const de_ListAssetContractsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAssetContractsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.managedblockchainquery#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.managedblockchainquery#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.managedblockchainquery#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
@@ -647,10 +779,7 @@ const de_InternalServerExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const contents: any = map({
-    retryAfterSeconds: [
-      () => void 0 !== parsedOutput.headers["retry-after"],
-      () => __strictParseInt32(parsedOutput.headers["retry-after"]),
-    ],
+    [_rAS]: [() => void 0 !== parsedOutput.headers[_ra], () => __strictParseInt32(parsedOutput.headers[_ra])],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -715,10 +844,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({
-    retryAfterSeconds: [
-      () => void 0 !== parsedOutput.headers["retry-after"],
-      () => __strictParseInt32(parsedOutput.headers["retry-after"]),
-    ],
+    [_rAS]: [() => void 0 !== parsedOutput.headers[_ra], () => __strictParseInt32(parsedOutput.headers[_ra])],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -773,6 +899,10 @@ const se_BlockchainInstant = (input: BlockchainInstant, context: __SerdeContext)
   });
 };
 
+// se_ContractFilter omitted.
+
+// se_ContractIdentifier omitted.
+
 /**
  * serializeAws_restJson1GetTokenBalanceInputList
  */
@@ -793,6 +923,10 @@ const se_GetTokenBalanceInputList = (input: BatchGetTokenBalanceInputItem[], con
 // se_TokenFilter omitted.
 
 // se_TokenIdentifier omitted.
+
+// de_AssetContract omitted.
+
+// de_AssetContractList omitted.
 
 /**
  * deserializeAws_restJson1BatchGetTokenBalanceErrorItem
@@ -854,6 +988,10 @@ const de_BlockchainInstant = (output: any, context: __SerdeContext): BlockchainI
   }) as any;
 };
 
+// de_ContractIdentifier omitted.
+
+// de_ContractMetadata omitted.
+
 // de_OwnerIdentifier omitted.
 
 /**
@@ -890,9 +1028,11 @@ const de_Transaction = (output: any, context: __SerdeContext): Transaction => {
   return take(output, {
     blockHash: __expectString,
     blockNumber: __expectString,
+    confirmationStatus: __expectString,
     contractAddress: __expectString,
     cumulativeGasUsed: __expectString,
     effectiveGasPrice: __expectString,
+    executionStatus: __expectString,
     from: __expectString,
     gasUsed: __expectString,
     network: __expectString,
@@ -959,6 +1099,9 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _rAS = "retryAfterSeconds";
+const _ra = "retry-after";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

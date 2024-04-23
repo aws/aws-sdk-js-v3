@@ -25,16 +25,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `LakeFormationClient` and
-the commands you need, for example `AddLFTagsToResourceCommand`:
+the commands you need, for example `ListLFTagsCommand`:
 
 ```js
 // ES5 example
-const { LakeFormationClient, AddLFTagsToResourceCommand } = require("@aws-sdk/client-lakeformation");
+const { LakeFormationClient, ListLFTagsCommand } = require("@aws-sdk/client-lakeformation");
 ```
 
 ```ts
 // ES6+ example
-import { LakeFormationClient, AddLFTagsToResourceCommand } from "@aws-sdk/client-lakeformation";
+import { LakeFormationClient, ListLFTagsCommand } from "@aws-sdk/client-lakeformation";
 ```
 
 ### Usage
@@ -53,7 +53,7 @@ const client = new LakeFormationClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AddLFTagsToResourceCommand(params);
+const command = new ListLFTagsCommand(params);
 ```
 
 #### Async/await
@@ -132,7 +132,7 @@ const client = new AWS.LakeFormation({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.addLFTagsToResource(params);
+  const data = await client.listLFTags(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -140,7 +140,7 @@ try {
 
 // Promises.
 client
-  .addLFTagsToResource(params)
+  .listLFTags(params)
   .then((data) => {
     // process data.
   })
@@ -149,7 +149,7 @@ client
   });
 
 // callbacks.
-client.addLFTagsToResource(params, (err, data) => {
+client.listLFTags(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -164,7 +164,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -210,7 +210,7 @@ see LICENSE for more information.
 AddLFTagsToResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/addlftagstoresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/addlftagstoresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/addlftagstoresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/AddLFTagsToResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/AddLFTagsToResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/AddLFTagsToResourceCommandOutput/)
 
 </details>
 <details>
@@ -218,7 +218,7 @@ AddLFTagsToResource
 AssumeDecoratedRoleWithSAML
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/assumedecoratedrolewithsamlcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/assumedecoratedrolewithsamlcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/assumedecoratedrolewithsamlcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/AssumeDecoratedRoleWithSAMLCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/AssumeDecoratedRoleWithSAMLCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/AssumeDecoratedRoleWithSAMLCommandOutput/)
 
 </details>
 <details>
@@ -226,7 +226,7 @@ AssumeDecoratedRoleWithSAML
 BatchGrantPermissions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/batchgrantpermissionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/batchgrantpermissionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/batchgrantpermissionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/BatchGrantPermissionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/BatchGrantPermissionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/BatchGrantPermissionsCommandOutput/)
 
 </details>
 <details>
@@ -234,7 +234,7 @@ BatchGrantPermissions
 BatchRevokePermissions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/batchrevokepermissionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/batchrevokepermissionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/batchrevokepermissionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/BatchRevokePermissionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/BatchRevokePermissionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/BatchRevokePermissionsCommandOutput/)
 
 </details>
 <details>
@@ -242,7 +242,7 @@ BatchRevokePermissions
 CancelTransaction
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/canceltransactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/canceltransactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/canceltransactioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/CancelTransactionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/CancelTransactionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/CancelTransactionCommandOutput/)
 
 </details>
 <details>
@@ -250,7 +250,7 @@ CancelTransaction
 CommitTransaction
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/committransactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/committransactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/committransactioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/CommitTransactionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/CommitTransactionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/CommitTransactionCommandOutput/)
 
 </details>
 <details>
@@ -258,7 +258,23 @@ CommitTransaction
 CreateDataCellsFilter
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/createdatacellsfiltercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/createdatacellsfiltercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/createdatacellsfiltercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/CreateDataCellsFilterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/CreateDataCellsFilterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/CreateDataCellsFilterCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateLakeFormationIdentityCenterConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/CreateLakeFormationIdentityCenterConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/CreateLakeFormationIdentityCenterConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/CreateLakeFormationIdentityCenterConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateLakeFormationOptIn
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/CreateLakeFormationOptInCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/CreateLakeFormationOptInCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/CreateLakeFormationOptInCommandOutput/)
 
 </details>
 <details>
@@ -266,7 +282,7 @@ CreateDataCellsFilter
 CreateLFTag
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/createlftagcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/createlftagcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/createlftagcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/CreateLFTagCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/CreateLFTagCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/CreateLFTagCommandOutput/)
 
 </details>
 <details>
@@ -274,7 +290,23 @@ CreateLFTag
 DeleteDataCellsFilter
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/deletedatacellsfiltercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/deletedatacellsfiltercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/deletedatacellsfiltercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/DeleteDataCellsFilterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DeleteDataCellsFilterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DeleteDataCellsFilterCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteLakeFormationIdentityCenterConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/DeleteLakeFormationIdentityCenterConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DeleteLakeFormationIdentityCenterConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DeleteLakeFormationIdentityCenterConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteLakeFormationOptIn
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/DeleteLakeFormationOptInCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DeleteLakeFormationOptInCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DeleteLakeFormationOptInCommandOutput/)
 
 </details>
 <details>
@@ -282,7 +314,7 @@ DeleteDataCellsFilter
 DeleteLFTag
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/deletelftagcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/deletelftagcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/deletelftagcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/DeleteLFTagCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DeleteLFTagCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DeleteLFTagCommandOutput/)
 
 </details>
 <details>
@@ -290,7 +322,7 @@ DeleteLFTag
 DeleteObjectsOnCancel
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/deleteobjectsoncancelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/deleteobjectsoncancelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/deleteobjectsoncancelcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/DeleteObjectsOnCancelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DeleteObjectsOnCancelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DeleteObjectsOnCancelCommandOutput/)
 
 </details>
 <details>
@@ -298,7 +330,15 @@ DeleteObjectsOnCancel
 DeregisterResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/deregisterresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/deregisterresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/deregisterresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/DeregisterResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DeregisterResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DeregisterResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeLakeFormationIdentityCenterConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/DescribeLakeFormationIdentityCenterConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DescribeLakeFormationIdentityCenterConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DescribeLakeFormationIdentityCenterConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -306,7 +346,7 @@ DeregisterResource
 DescribeResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/describeresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/describeresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/describeresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/DescribeResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DescribeResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DescribeResourceCommandOutput/)
 
 </details>
 <details>
@@ -314,7 +354,7 @@ DescribeResource
 DescribeTransaction
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/describetransactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/describetransactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/describetransactioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/DescribeTransactionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DescribeTransactionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/DescribeTransactionCommandOutput/)
 
 </details>
 <details>
@@ -322,7 +362,7 @@ DescribeTransaction
 ExtendTransaction
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/extendtransactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/extendtransactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/extendtransactioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/ExtendTransactionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/ExtendTransactionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/ExtendTransactionCommandOutput/)
 
 </details>
 <details>
@@ -330,7 +370,7 @@ ExtendTransaction
 GetDataCellsFilter
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/getdatacellsfiltercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/getdatacellsfiltercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/getdatacellsfiltercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/GetDataCellsFilterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetDataCellsFilterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetDataCellsFilterCommandOutput/)
 
 </details>
 <details>
@@ -338,7 +378,7 @@ GetDataCellsFilter
 GetDataLakeSettings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/getdatalakesettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/getdatalakesettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/getdatalakesettingscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/GetDataLakeSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetDataLakeSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetDataLakeSettingsCommandOutput/)
 
 </details>
 <details>
@@ -346,7 +386,7 @@ GetDataLakeSettings
 GetEffectivePermissionsForPath
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/geteffectivepermissionsforpathcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/geteffectivepermissionsforpathcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/geteffectivepermissionsforpathcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/GetEffectivePermissionsForPathCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetEffectivePermissionsForPathCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetEffectivePermissionsForPathCommandOutput/)
 
 </details>
 <details>
@@ -354,7 +394,7 @@ GetEffectivePermissionsForPath
 GetLFTag
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/getlftagcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/getlftagcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/getlftagcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/GetLFTagCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetLFTagCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetLFTagCommandOutput/)
 
 </details>
 <details>
@@ -362,7 +402,7 @@ GetLFTag
 GetQueryState
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/getquerystatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/getquerystatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/getquerystatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/GetQueryStateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetQueryStateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetQueryStateCommandOutput/)
 
 </details>
 <details>
@@ -370,7 +410,7 @@ GetQueryState
 GetQueryStatistics
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/getquerystatisticscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/getquerystatisticscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/getquerystatisticscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/GetQueryStatisticsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetQueryStatisticsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetQueryStatisticsCommandOutput/)
 
 </details>
 <details>
@@ -378,7 +418,7 @@ GetQueryStatistics
 GetResourceLFTags
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/getresourcelftagscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/getresourcelftagscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/getresourcelftagscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/GetResourceLFTagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetResourceLFTagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetResourceLFTagsCommandOutput/)
 
 </details>
 <details>
@@ -386,7 +426,7 @@ GetResourceLFTags
 GetTableObjects
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/gettableobjectscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/gettableobjectscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/gettableobjectscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/GetTableObjectsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetTableObjectsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetTableObjectsCommandOutput/)
 
 </details>
 <details>
@@ -394,7 +434,7 @@ GetTableObjects
 GetTemporaryGluePartitionCredentials
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/gettemporarygluepartitioncredentialscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/gettemporarygluepartitioncredentialscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/gettemporarygluepartitioncredentialscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/GetTemporaryGluePartitionCredentialsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetTemporaryGluePartitionCredentialsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetTemporaryGluePartitionCredentialsCommandOutput/)
 
 </details>
 <details>
@@ -402,7 +442,7 @@ GetTemporaryGluePartitionCredentials
 GetTemporaryGlueTableCredentials
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/gettemporarygluetablecredentialscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/gettemporarygluetablecredentialscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/gettemporarygluetablecredentialscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/GetTemporaryGlueTableCredentialsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetTemporaryGlueTableCredentialsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetTemporaryGlueTableCredentialsCommandOutput/)
 
 </details>
 <details>
@@ -410,7 +450,7 @@ GetTemporaryGlueTableCredentials
 GetWorkUnitResults
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/getworkunitresultscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/getworkunitresultscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/getworkunitresultscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/GetWorkUnitResultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetWorkUnitResultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetWorkUnitResultsCommandOutput/)
 
 </details>
 <details>
@@ -418,7 +458,7 @@ GetWorkUnitResults
 GetWorkUnits
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/getworkunitscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/getworkunitscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/getworkunitscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/GetWorkUnitsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetWorkUnitsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GetWorkUnitsCommandOutput/)
 
 </details>
 <details>
@@ -426,7 +466,7 @@ GetWorkUnits
 GrantPermissions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/grantpermissionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/grantpermissionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/grantpermissionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/GrantPermissionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GrantPermissionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/GrantPermissionsCommandOutput/)
 
 </details>
 <details>
@@ -434,7 +474,15 @@ GrantPermissions
 ListDataCellsFilter
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/listdatacellsfiltercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/listdatacellsfiltercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/listdatacellsfiltercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/ListDataCellsFilterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/ListDataCellsFilterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/ListDataCellsFilterCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListLakeFormationOptIns
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/ListLakeFormationOptInsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/ListLakeFormationOptInsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/ListLakeFormationOptInsCommandOutput/)
 
 </details>
 <details>
@@ -442,7 +490,7 @@ ListDataCellsFilter
 ListLFTags
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/listlftagscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/listlftagscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/listlftagscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/ListLFTagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/ListLFTagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/ListLFTagsCommandOutput/)
 
 </details>
 <details>
@@ -450,7 +498,7 @@ ListLFTags
 ListPermissions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/listpermissionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/listpermissionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/listpermissionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/ListPermissionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/ListPermissionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/ListPermissionsCommandOutput/)
 
 </details>
 <details>
@@ -458,7 +506,7 @@ ListPermissions
 ListResources
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/listresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/listresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/listresourcescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/ListResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/ListResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/ListResourcesCommandOutput/)
 
 </details>
 <details>
@@ -466,7 +514,7 @@ ListResources
 ListTableStorageOptimizers
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/listtablestorageoptimizerscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/listtablestorageoptimizerscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/listtablestorageoptimizerscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/ListTableStorageOptimizersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/ListTableStorageOptimizersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/ListTableStorageOptimizersCommandOutput/)
 
 </details>
 <details>
@@ -474,7 +522,7 @@ ListTableStorageOptimizers
 ListTransactions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/listtransactionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/listtransactionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/listtransactionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/ListTransactionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/ListTransactionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/ListTransactionsCommandOutput/)
 
 </details>
 <details>
@@ -482,7 +530,7 @@ ListTransactions
 PutDataLakeSettings
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/putdatalakesettingscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/putdatalakesettingscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/putdatalakesettingscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/PutDataLakeSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/PutDataLakeSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/PutDataLakeSettingsCommandOutput/)
 
 </details>
 <details>
@@ -490,7 +538,7 @@ PutDataLakeSettings
 RegisterResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/registerresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/registerresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/registerresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/RegisterResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/RegisterResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/RegisterResourceCommandOutput/)
 
 </details>
 <details>
@@ -498,7 +546,7 @@ RegisterResource
 RemoveLFTagsFromResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/removelftagsfromresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/removelftagsfromresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/removelftagsfromresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/RemoveLFTagsFromResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/RemoveLFTagsFromResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/RemoveLFTagsFromResourceCommandOutput/)
 
 </details>
 <details>
@@ -506,7 +554,7 @@ RemoveLFTagsFromResource
 RevokePermissions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/revokepermissionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/revokepermissionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/revokepermissionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/RevokePermissionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/RevokePermissionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/RevokePermissionsCommandOutput/)
 
 </details>
 <details>
@@ -514,7 +562,7 @@ RevokePermissions
 SearchDatabasesByLFTags
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/searchdatabasesbylftagscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/searchdatabasesbylftagscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/searchdatabasesbylftagscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/SearchDatabasesByLFTagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/SearchDatabasesByLFTagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/SearchDatabasesByLFTagsCommandOutput/)
 
 </details>
 <details>
@@ -522,7 +570,7 @@ SearchDatabasesByLFTags
 SearchTablesByLFTags
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/searchtablesbylftagscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/searchtablesbylftagscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/searchtablesbylftagscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/SearchTablesByLFTagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/SearchTablesByLFTagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/SearchTablesByLFTagsCommandOutput/)
 
 </details>
 <details>
@@ -530,7 +578,7 @@ SearchTablesByLFTags
 StartQueryPlanning
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/startqueryplanningcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/startqueryplanningcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/startqueryplanningcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/StartQueryPlanningCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/StartQueryPlanningCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/StartQueryPlanningCommandOutput/)
 
 </details>
 <details>
@@ -538,7 +586,7 @@ StartQueryPlanning
 StartTransaction
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/starttransactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/starttransactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/starttransactioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/StartTransactionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/StartTransactionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/StartTransactionCommandOutput/)
 
 </details>
 <details>
@@ -546,7 +594,15 @@ StartTransaction
 UpdateDataCellsFilter
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/updatedatacellsfiltercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/updatedatacellsfiltercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/updatedatacellsfiltercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/UpdateDataCellsFilterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/UpdateDataCellsFilterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/UpdateDataCellsFilterCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateLakeFormationIdentityCenterConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/UpdateLakeFormationIdentityCenterConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/UpdateLakeFormationIdentityCenterConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/UpdateLakeFormationIdentityCenterConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -554,7 +610,7 @@ UpdateDataCellsFilter
 UpdateLFTag
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/updatelftagcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/updatelftagcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/updatelftagcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/UpdateLFTagCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/UpdateLFTagCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/UpdateLFTagCommandOutput/)
 
 </details>
 <details>
@@ -562,7 +618,7 @@ UpdateLFTag
 UpdateResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/updateresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/updateresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/updateresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/UpdateResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/UpdateResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/UpdateResourceCommandOutput/)
 
 </details>
 <details>
@@ -570,7 +626,7 @@ UpdateResource
 UpdateTableObjects
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/updatetableobjectscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/updatetableobjectscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/updatetableobjectscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/UpdateTableObjectsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/UpdateTableObjectsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/UpdateTableObjectsCommandOutput/)
 
 </details>
 <details>
@@ -578,6 +634,6 @@ UpdateTableObjects
 UpdateTableStorageOptimizer
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/classes/updatetablestorageoptimizercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/updatetablestorageoptimizercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lakeformation/interfaces/updatetablestorageoptimizercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lakeformation/command/UpdateTableStorageOptimizerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/UpdateTableStorageOptimizerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lakeformation/Interface/UpdateTableStorageOptimizerCommandOutput/)
 
 </details>

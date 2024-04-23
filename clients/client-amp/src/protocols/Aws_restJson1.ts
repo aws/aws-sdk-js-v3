@@ -1,8 +1,11 @@
 // smithy-typescript generated code
+import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
   collectBody,
+  convertMap,
   decorateServiceException as __decorateServiceException,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
@@ -35,6 +38,7 @@ import {
   CreateRuleGroupsNamespaceCommandInput,
   CreateRuleGroupsNamespaceCommandOutput,
 } from "../commands/CreateRuleGroupsNamespaceCommand";
+import { CreateScraperCommandInput, CreateScraperCommandOutput } from "../commands/CreateScraperCommand";
 import { CreateWorkspaceCommandInput, CreateWorkspaceCommandOutput } from "../commands/CreateWorkspaceCommand";
 import {
   DeleteAlertManagerDefinitionCommandInput,
@@ -48,6 +52,7 @@ import {
   DeleteRuleGroupsNamespaceCommandInput,
   DeleteRuleGroupsNamespaceCommandOutput,
 } from "../commands/DeleteRuleGroupsNamespaceCommand";
+import { DeleteScraperCommandInput, DeleteScraperCommandOutput } from "../commands/DeleteScraperCommand";
 import { DeleteWorkspaceCommandInput, DeleteWorkspaceCommandOutput } from "../commands/DeleteWorkspaceCommand";
 import {
   DescribeAlertManagerDefinitionCommandInput,
@@ -61,11 +66,17 @@ import {
   DescribeRuleGroupsNamespaceCommandInput,
   DescribeRuleGroupsNamespaceCommandOutput,
 } from "../commands/DescribeRuleGroupsNamespaceCommand";
+import { DescribeScraperCommandInput, DescribeScraperCommandOutput } from "../commands/DescribeScraperCommand";
 import { DescribeWorkspaceCommandInput, DescribeWorkspaceCommandOutput } from "../commands/DescribeWorkspaceCommand";
+import {
+  GetDefaultScraperConfigurationCommandInput,
+  GetDefaultScraperConfigurationCommandOutput,
+} from "../commands/GetDefaultScraperConfigurationCommand";
 import {
   ListRuleGroupsNamespacesCommandInput,
   ListRuleGroupsNamespacesCommandOutput,
 } from "../commands/ListRuleGroupsNamespacesCommand";
+import { ListScrapersCommandInput, ListScrapersCommandOutput } from "../commands/ListScrapersCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -93,13 +104,20 @@ import { AmpServiceException as __BaseException } from "../models/AmpServiceExce
 import {
   AccessDeniedException,
   AlertManagerDefinitionDescription,
+  AmpConfiguration,
   ConflictException,
+  Destination,
+  EksConfiguration,
   InternalServerException,
   LoggingConfigurationMetadata,
   ResourceNotFoundException,
   RuleGroupsNamespaceDescription,
   RuleGroupsNamespaceSummary,
+  ScrapeConfiguration,
+  ScraperDescription,
+  ScraperSummary,
   ServiceQuotaExceededException,
+  Source,
   ThrottlingException,
   ValidationException,
   WorkspaceDescription,
@@ -113,14 +131,12 @@ export const se_CreateAlertManagerDefinitionCommand = async (
   input: CreateAlertManagerDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workspaces/{workspaceId}/alertmanager/definition";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.bp("/workspaces/{workspaceId}/alertmanager/definition");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -128,15 +144,8 @@ export const se_CreateAlertManagerDefinitionCommand = async (
       data: (_) => context.base64Encoder(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -146,13 +155,12 @@ export const se_CreateLoggingConfigurationCommand = async (
   input: CreateLoggingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}/logging";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.bp("/workspaces/{workspaceId}/logging");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -160,15 +168,8 @@ export const se_CreateLoggingConfigurationCommand = async (
       logGroupArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -178,14 +179,12 @@ export const se_CreateRuleGroupsNamespaceCommand = async (
   input: CreateRuleGroupsNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workspaces/{workspaceId}/rulegroupsnamespaces";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.bp("/workspaces/{workspaceId}/rulegroupsnamespaces");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -195,15 +194,35 @@ export const se_CreateRuleGroupsNamespaceCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateScraperCommand
+ */
+export const se_CreateScraperCommand = async (
+  input: CreateScraperCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/scrapers");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      alias: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      destination: (_) => _json(_),
+      scrapeConfiguration: (_) => se_ScrapeConfiguration(_, context),
+      source: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -213,28 +232,22 @@ export const se_CreateWorkspaceCommand = async (
   input: CreateWorkspaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces";
+  b.bp("/workspaces");
   let body: any;
   body = JSON.stringify(
     take(input, {
       alias: [],
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      kmsKeyArn: [],
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -244,26 +257,16 @@ export const se_DeleteAlertManagerDefinitionCommand = async (
   input: DeleteAlertManagerDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workspaces/{workspaceId}/alertmanager/definition";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.bp("/workspaces/{workspaceId}/alertmanager/definition");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   const query: any = map({
-    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -273,25 +276,16 @@ export const se_DeleteLoggingConfigurationCommand = async (
   input: DeleteLoggingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}/logging";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.bp("/workspaces/{workspaceId}/logging");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   const query: any = map({
-    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -301,27 +295,36 @@ export const se_DeleteRuleGroupsNamespaceCommand = async (
   input: DeleteRuleGroupsNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workspaces/{workspaceId}/rulegroupsnamespaces/{name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  b.bp("/workspaces/{workspaceId}/rulegroupsnamespaces/{name}");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.p("name", () => input.name!, "{name}", false);
   const query: any = map({
-    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteScraperCommand
+ */
+export const se_DeleteScraperCommand = async (
+  input: DeleteScraperCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/scrapers/{scraperId}");
+  b.p("scraperId", () => input.scraperId!, "{scraperId}", false);
+  const query: any = map({
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
   });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -331,25 +334,16 @@ export const se_DeleteWorkspaceCommand = async (
   input: DeleteWorkspaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.bp("/workspaces/{workspaceId}");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   const query: any = map({
-    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -359,22 +353,13 @@ export const se_DescribeAlertManagerDefinitionCommand = async (
   input: DescribeAlertManagerDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workspaces/{workspaceId}/alertmanager/definition";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.bp("/workspaces/{workspaceId}/alertmanager/definition");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -384,21 +369,13 @@ export const se_DescribeLoggingConfigurationCommand = async (
   input: DescribeLoggingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}/logging";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.bp("/workspaces/{workspaceId}/logging");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -408,23 +385,30 @@ export const se_DescribeRuleGroupsNamespaceCommand = async (
   input: DescribeRuleGroupsNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workspaces/{workspaceId}/rulegroupsnamespaces/{name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  b.bp("/workspaces/{workspaceId}/rulegroupsnamespaces/{name}");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.p("name", () => input.name!, "{name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeScraperCommand
+ */
+export const se_DescribeScraperCommand = async (
+  input: DescribeScraperCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/scrapers/{scraperId}");
+  b.p("scraperId", () => input.scraperId!, "{scraperId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -434,21 +418,31 @@ export const se_DescribeWorkspaceCommand = async (
   input: DescribeWorkspaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.bp("/workspaces/{workspaceId}");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetDefaultScraperConfigurationCommand
+ */
+export const se_GetDefaultScraperConfigurationCommand = async (
+  input: GetDefaultScraperConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/scraperconfiguration");
+  let body: any;
+  body = "";
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -458,28 +452,38 @@ export const se_ListRuleGroupsNamespacesCommand = async (
   input: ListRuleGroupsNamespacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workspaces/{workspaceId}/rulegroupsnamespaces";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.bp("/workspaces/{workspaceId}/rulegroupsnamespaces");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   const query: any = map({
-    name: [, input.name!],
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_n]: [, input[_n]!],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListScrapersCommand
+ */
+export const se_ListScrapersCommand = async (
+  input: ListScrapersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/scrapers");
+  const query: any = map({
+    ...convertMap(input.filters),
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -489,20 +493,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -512,25 +509,17 @@ export const se_ListWorkspacesCommand = async (
   input: ListWorkspacesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces";
+  b.bp("/workspaces");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    alias: [, input.alias!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_a]: [, input[_a]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -540,14 +529,12 @@ export const se_PutAlertManagerDefinitionCommand = async (
   input: PutAlertManagerDefinitionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workspaces/{workspaceId}/alertmanager/definition";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.bp("/workspaces/{workspaceId}/alertmanager/definition");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -555,15 +542,8 @@ export const se_PutAlertManagerDefinitionCommand = async (
       data: (_) => context.base64Encoder(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -573,15 +553,13 @@ export const se_PutRuleGroupsNamespaceCommand = async (
   input: PutRuleGroupsNamespaceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/workspaces/{workspaceId}/rulegroupsnamespaces/{name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
+  b.bp("/workspaces/{workspaceId}/rulegroupsnamespaces/{name}");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.p("name", () => input.name!, "{name}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -589,15 +567,8 @@ export const se_PutRuleGroupsNamespaceCommand = async (
       data: (_) => context.base64Encoder(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -607,27 +578,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -637,27 +601,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -667,13 +623,12 @@ export const se_UpdateLoggingConfigurationCommand = async (
   input: UpdateLoggingConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}/logging";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.bp("/workspaces/{workspaceId}/logging");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -681,15 +636,8 @@ export const se_UpdateLoggingConfigurationCommand = async (
       logGroupArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -699,13 +647,12 @@ export const se_UpdateWorkspaceAliasCommand = async (
   input: UpdateWorkspaceAliasCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}/alias";
-  resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  b.bp("/workspaces/{workspaceId}/alias");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -713,15 +660,8 @@ export const se_UpdateWorkspaceAliasCommand = async (
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -914,6 +854,74 @@ const de_CreateRuleGroupsNamespaceCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateScraperCommand
+ */
+export const de_CreateScraperCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateScraperCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CreateScraperCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    scraperId: __expectString,
+    status: _json,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateScraperCommandError
+ */
+const de_CreateScraperCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateScraperCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.amp#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.amp#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.amp#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.amp#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.amp#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.amp#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.amp#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1CreateWorkspaceCommand
  */
 export const de_CreateWorkspaceCommand = async (
@@ -929,6 +937,7 @@ export const de_CreateWorkspaceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     arn: __expectString,
+    kmsKeyArn: __expectString,
     status: _json,
     tags: _json,
     workspaceId: __expectString,
@@ -1115,6 +1124,69 @@ const de_DeleteRuleGroupsNamespaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRuleGroupsNamespaceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.amp#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.amp#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.amp#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.amp#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.amp#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.amp#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteScraperCommand
+ */
+export const de_DeleteScraperCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteScraperCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_DeleteScraperCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    scraperId: __expectString,
+    status: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteScraperCommandError
+ */
+const de_DeleteScraperCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteScraperCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1382,6 +1454,65 @@ const de_DescribeRuleGroupsNamespaceCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribeScraperCommand
+ */
+export const de_DescribeScraperCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeScraperCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeScraperCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    scraper: (_) => de_ScraperDescription(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeScraperCommandError
+ */
+const de_DescribeScraperCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeScraperCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.amp#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.amp#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.amp#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.amp#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.amp#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DescribeWorkspaceCommand
  */
 export const de_DescribeWorkspaceCommand = async (
@@ -1441,6 +1572,59 @@ const de_DescribeWorkspaceCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1GetDefaultScraperConfigurationCommand
+ */
+export const de_GetDefaultScraperConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDefaultScraperConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetDefaultScraperConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    configuration: context.base64Decoder,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetDefaultScraperConfigurationCommandError
+ */
+const de_GetDefaultScraperConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDefaultScraperConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.amp#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.amp#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.amp#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListRuleGroupsNamespacesCommand
  */
 export const de_ListRuleGroupsNamespacesCommand = async (
@@ -1484,6 +1668,63 @@ const de_ListRuleGroupsNamespacesCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.amp#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.amp#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.amp#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListScrapersCommand
+ */
+export const de_ListScrapersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListScrapersCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListScrapersCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    scrapers: (_) => de_ScraperSummaryList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListScrapersCommandError
+ */
+const de_ListScrapersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListScrapersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.amp#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.amp#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.amp#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -2027,10 +2268,7 @@ const de_InternalServerExceptionRes = async (
   context: __SerdeContext
 ): Promise<InternalServerException> => {
   const contents: any = map({
-    retryAfterSeconds: [
-      () => void 0 !== parsedOutput.headers["retry-after"],
-      () => __strictParseInt32(parsedOutput.headers["retry-after"]),
-    ],
+    [_rAS]: [() => void 0 !== parsedOutput.headers[_ra], () => __strictParseInt32(parsedOutput.headers[_ra])],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -2095,10 +2333,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({
-    retryAfterSeconds: [
-      () => void 0 !== parsedOutput.headers["retry-after"],
-      () => __strictParseInt32(parsedOutput.headers["retry-after"]),
-    ],
+    [_rAS]: [() => void 0 !== parsedOutput.headers[_ra], () => __strictParseInt32(parsedOutput.headers[_ra])],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -2133,6 +2368,28 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_AmpConfiguration omitted.
+
+// se_Destination omitted.
+
+// se_EksConfiguration omitted.
+
+/**
+ * serializeAws_restJson1ScrapeConfiguration
+ */
+const se_ScrapeConfiguration = (input: ScrapeConfiguration, context: __SerdeContext): any => {
+  return ScrapeConfiguration.visit(input, {
+    configurationBlob: (value) => ({ configurationBlob: context.base64Encoder(value) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+// se_SecurityGroupIds omitted.
+
+// se_Source omitted.
+
+// se_SubnetIds omitted.
+
 // se_TagMap omitted.
 
 /**
@@ -2151,6 +2408,12 @@ const de_AlertManagerDefinitionDescription = (
 };
 
 // de_AlertManagerDefinitionStatus omitted.
+
+// de_AmpConfiguration omitted.
+
+// de_Destination omitted.
+
+// de_EksConfiguration omitted.
 
 /**
  * deserializeAws_restJson1LoggingConfigurationMetadata
@@ -2210,6 +2473,77 @@ const de_RuleGroupsNamespaceSummaryList = (output: any, context: __SerdeContext)
   return retVal;
 };
 
+/**
+ * deserializeAws_restJson1ScrapeConfiguration
+ */
+const de_ScrapeConfiguration = (output: any, context: __SerdeContext): ScrapeConfiguration => {
+  if (output.configurationBlob != null) {
+    return {
+      configurationBlob: context.base64Decoder(output.configurationBlob),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_restJson1ScraperDescription
+ */
+const de_ScraperDescription = (output: any, context: __SerdeContext): ScraperDescription => {
+  return take(output, {
+    alias: __expectString,
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    destination: (_: any) => _json(__expectUnion(_)),
+    lastModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    roleArn: __expectString,
+    scrapeConfiguration: (_: any) => de_ScrapeConfiguration(__expectUnion(_), context),
+    scraperId: __expectString,
+    source: (_: any) => _json(__expectUnion(_)),
+    status: _json,
+    statusReason: __expectString,
+    tags: _json,
+  }) as any;
+};
+
+// de_ScraperStatus omitted.
+
+/**
+ * deserializeAws_restJson1ScraperSummary
+ */
+const de_ScraperSummary = (output: any, context: __SerdeContext): ScraperSummary => {
+  return take(output, {
+    alias: __expectString,
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    destination: (_: any) => _json(__expectUnion(_)),
+    lastModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    roleArn: __expectString,
+    scraperId: __expectString,
+    source: (_: any) => _json(__expectUnion(_)),
+    status: _json,
+    statusReason: __expectString,
+    tags: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ScraperSummaryList
+ */
+const de_ScraperSummaryList = (output: any, context: __SerdeContext): ScraperSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ScraperSummary(entry, context);
+    });
+  return retVal;
+};
+
+// de_SecurityGroupIds omitted.
+
+// de_Source omitted.
+
+// de_SubnetIds omitted.
+
 // de_TagMap omitted.
 
 // de_ValidationExceptionField omitted.
@@ -2224,6 +2558,7 @@ const de_WorkspaceDescription = (output: any, context: __SerdeContext): Workspac
     alias: __expectString,
     arn: __expectString,
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    kmsKeyArn: __expectString,
     prometheusEndpoint: __expectString,
     status: _json,
     tags: _json,
@@ -2241,6 +2576,7 @@ const de_WorkspaceSummary = (output: any, context: __SerdeContext): WorkspaceSum
     alias: __expectString,
     arn: __expectString,
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    kmsKeyArn: __expectString,
     status: _json,
     tags: _json,
     workspaceId: __expectString,
@@ -2277,6 +2613,15 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _a = "alias";
+const _cT = "clientToken";
+const _mR = "maxResults";
+const _n = "name";
+const _nT = "nextToken";
+const _rAS = "retryAfterSeconds";
+const _ra = "retry-after";
+const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient";
 import { ListAlarmsRequest, ListAlarmsResponse } from "../models/models_0";
 import { de_ListAlarmsCommand, se_ListAlarmsCommand } from "../protocols/Aws_restJson1";
@@ -57,7 +49,7 @@ export interface ListAlarmsCommandOutput extends ListAlarmsResponse, __MetadataB
  * //       alarmModelName: "STRING_VALUE",
  * //       alarmModelVersion: "STRING_VALUE",
  * //       keyValue: "STRING_VALUE",
- * //       stateName: "STRING_VALUE",
+ * //       stateName: "DISABLED" || "NORMAL" || "ACTIVE" || "ACKNOWLEDGED" || "SNOOZE_DISABLED" || "LATCHED",
  * //       creationTime: new Date("TIMESTAMP"),
  * //       lastUpdateTime: new Date("TIMESTAMP"),
  * //     },
@@ -92,77 +84,26 @@ export interface ListAlarmsCommandOutput extends ListAlarmsResponse, __MetadataB
  * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
  */
-export class ListAlarmsCommand extends $Command<
-  ListAlarmsCommandInput,
-  ListAlarmsCommandOutput,
-  IoTEventsDataClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListAlarmsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: IoTEventsDataClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListAlarmsCommandInput, ListAlarmsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListAlarmsCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "IoTEventsDataClient";
-    const commandName = "ListAlarmsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListAlarmsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListAlarmsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAlarmsCommandOutput> {
-    return de_ListAlarmsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListAlarmsCommand extends $Command
+  .classBuilder<
+    ListAlarmsCommandInput,
+    ListAlarmsCommandOutput,
+    IoTEventsDataClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: IoTEventsDataClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("IotColumboDataService", "ListAlarms", {})
+  .n("IoTEventsDataClient", "ListAlarmsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListAlarmsCommand)
+  .de(de_ListAlarmsCommand)
+  .build() {}

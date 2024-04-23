@@ -7,6 +7,8 @@
  */
 export * from "./QueryProtocolClient";
 export * from "./QueryProtocol";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { QueryProtocolExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

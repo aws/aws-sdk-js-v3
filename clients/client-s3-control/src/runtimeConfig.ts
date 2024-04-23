@@ -3,6 +3,7 @@
 import packageInfo from "../package.json"; // eslint-disable-line
 
 import { decorateDefaultCredentialProvider } from "@aws-sdk/client-sts";
+import { emitWarningIfUnsupportedVersion as awsCheckVersion } from "@aws-sdk/core";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
 import {
@@ -16,7 +17,6 @@ import { fileStreamHasher as streamHasher } from "@smithy/hash-stream-node";
 import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS } from "@smithy/middleware-retry";
 import { loadConfig as loadNodeConfig } from "@smithy/node-config-provider";
 import { NodeHttpHandler as RequestHandler, streamCollector } from "@smithy/node-http-handler";
-import { ChecksumConstructor as __ChecksumConstructor, HashConstructor as __HashConstructor } from "@smithy/types";
 import { calculateBodyLength } from "@smithy/util-body-length-node";
 import { DEFAULT_RETRY_MODE } from "@smithy/util-retry";
 import { S3ControlClientConfig } from "./S3ControlClient";
@@ -33,6 +33,7 @@ export const getRuntimeConfig = (config: S3ControlClientConfig) => {
   const defaultsMode = resolveDefaultsModeConfig(config);
   const defaultConfigProvider = () => defaultsMode().then(loadConfigsForDefaultMode);
   const clientSharedValues = getSharedRuntimeConfig(config);
+  awsCheckVersion(process.version);
   return {
     ...clientSharedValues,
     ...config,

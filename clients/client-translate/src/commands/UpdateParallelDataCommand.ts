@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateParallelDataRequest, UpdateParallelDataResponse } from "../models/models_0";
 import { de_UpdateParallelDataCommand, se_UpdateParallelDataCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient";
@@ -48,8 +40,8 @@ export interface UpdateParallelDataCommandOutput extends UpdateParallelDataRespo
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   ParallelDataConfig: { // ParallelDataConfig
- *     S3Uri: "STRING_VALUE", // required
- *     Format: "TSV" || "CSV" || "TMX", // required
+ *     S3Uri: "STRING_VALUE",
+ *     Format: "TSV" || "CSV" || "TMX",
  *   },
  *   ClientToken: "STRING_VALUE", // required
  * };
@@ -105,79 +97,26 @@ export interface UpdateParallelDataCommandOutput extends UpdateParallelDataRespo
  * <p>Base exception class for all service exceptions from Translate service.</p>
  *
  */
-export class UpdateParallelDataCommand extends $Command<
-  UpdateParallelDataCommandInput,
-  UpdateParallelDataCommandOutput,
-  TranslateClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateParallelDataCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: TranslateClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateParallelDataCommandInput, UpdateParallelDataCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateParallelDataCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "TranslateClient";
-    const commandName = "UpdateParallelDataCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateParallelDataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateParallelDataCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateParallelDataCommandOutput> {
-    return de_UpdateParallelDataCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateParallelDataCommand extends $Command
+  .classBuilder<
+    UpdateParallelDataCommandInput,
+    UpdateParallelDataCommandOutput,
+    TranslateClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: TranslateClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSShineFrontendService_20170701", "UpdateParallelData", {})
+  .n("TranslateClient", "UpdateParallelDataCommand")
+  .f(void 0, void 0)
+  .ser(se_UpdateParallelDataCommand)
+  .de(de_UpdateParallelDataCommand)
+  .build() {}

@@ -21,10 +21,12 @@ import { FlattenedXmlMapWithXmlNameCommand } from "../../src/commands/FlattenedX
 import { FlattenedXmlMapWithXmlNamespaceCommand } from "../../src/commands/FlattenedXmlMapWithXmlNamespaceCommand";
 import { FractionalSecondsCommand } from "../../src/commands/FractionalSecondsCommand";
 import { GreetingWithErrorsCommand } from "../../src/commands/GreetingWithErrorsCommand";
+import { HttpEnumPayloadCommand } from "../../src/commands/HttpEnumPayloadCommand";
 import { HttpPayloadTraitsCommand } from "../../src/commands/HttpPayloadTraitsCommand";
 import { HttpPayloadTraitsWithMediaTypeCommand } from "../../src/commands/HttpPayloadTraitsWithMediaTypeCommand";
 import { HttpPayloadWithMemberXmlNameCommand } from "../../src/commands/HttpPayloadWithMemberXmlNameCommand";
 import { HttpPayloadWithStructureCommand } from "../../src/commands/HttpPayloadWithStructureCommand";
+import { HttpPayloadWithUnionCommand } from "../../src/commands/HttpPayloadWithUnionCommand";
 import { HttpPayloadWithXmlNameCommand } from "../../src/commands/HttpPayloadWithXmlNameCommand";
 import { HttpPayloadWithXmlNamespaceAndPrefixCommand } from "../../src/commands/HttpPayloadWithXmlNamespaceAndPrefixCommand";
 import { HttpPayloadWithXmlNamespaceCommand } from "../../src/commands/HttpPayloadWithXmlNamespaceCommand";
@@ -34,6 +36,7 @@ import { HttpRequestWithGreedyLabelInPathCommand } from "../../src/commands/Http
 import { HttpRequestWithLabelsAndTimestampFormatCommand } from "../../src/commands/HttpRequestWithLabelsAndTimestampFormatCommand";
 import { HttpRequestWithLabelsCommand } from "../../src/commands/HttpRequestWithLabelsCommand";
 import { HttpResponseCodeCommand } from "../../src/commands/HttpResponseCodeCommand";
+import { HttpStringPayloadCommand } from "../../src/commands/HttpStringPayloadCommand";
 import { IgnoreQueryParamsInResponseCommand } from "../../src/commands/IgnoreQueryParamsInResponseCommand";
 import { InputAndOutputWithHeadersCommand } from "../../src/commands/InputAndOutputWithHeadersCommand";
 import { NestedXmlMapsCommand } from "../../src/commands/NestedXmlMapsCommand";
@@ -60,6 +63,7 @@ import { XmlIntEnumsCommand } from "../../src/commands/XmlIntEnumsCommand";
 import { XmlListsCommand } from "../../src/commands/XmlListsCommand";
 import { XmlMapsCommand } from "../../src/commands/XmlMapsCommand";
 import { XmlMapsXmlNameCommand } from "../../src/commands/XmlMapsXmlNameCommand";
+import { XmlMapWithXmlNamespaceCommand } from "../../src/commands/XmlMapWithXmlNamespaceCommand";
 import { XmlNamespacesCommand } from "../../src/commands/XmlNamespacesCommand";
 import { XmlTimestampsCommand } from "../../src/commands/XmlTimestampsCommand";
 import { XmlUnionsCommand } from "../../src/commands/XmlUnionsCommand";
@@ -81,6 +85,10 @@ class EXPECTED_REQUEST_SERIALIZATION_ERROR extends Error {
 class RequestSerializationTestHandler implements HttpHandler {
   handle(request: HttpRequest, options?: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
     return Promise.reject(new EXPECTED_REQUEST_SERIALIZATION_ERROR(request));
+  }
+  updateHttpClientConfig(key: never, value: never): void {}
+  httpHandlerConfigs() {
+    return {};
   }
 }
 
@@ -115,6 +123,10 @@ class ResponseDeserializationTestHandler implements HttpHandler {
         body: Readable.from([this.body]),
       }),
     });
+  }
+  updateHttpClientConfig(key: never, value: never): void {}
+  httpHandlerConfigs() {
+    return {};
   }
 }
 
@@ -717,7 +729,7 @@ it("RestXmlDateTimeWithNegativeOffset:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      datetime: new Date(1576540098000),
+      datetime: new Date(1576540098 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -758,7 +770,7 @@ it("RestXmlDateTimeWithPositiveOffset:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      datetime: new Date(1576540098000),
+      datetime: new Date(1576540098 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -1204,48 +1216,7 @@ it("RestXmlDateTimeWithFractionalSeconds:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      datetime: new Date(9.46845296123e8000),
-    },
-  ][0];
-  Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
-  });
-});
-
-/**
- * Ensures that clients can correctly parse http-date timestamps with fractional seconds
- */
-it("RestXmlHttpDateWithFractionalSeconds:Response", async () => {
-  const client = new RestXmlProtocolClient({
-    ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      {
-        "content-type": "application/xml",
-      },
-      `<FractionalSecondsOutput>
-          <httpdate>Sun, 02 Jan 2000 20:34:56.456 GMT</httpdate>
-      </FractionalSecondsOutput>
-      `
-    ),
-  });
-
-  const params: any = {};
-  const command = new FractionalSecondsCommand(params);
-
-  let r: any;
-  try {
-    r = await client.send(command);
-  } catch (err) {
-    fail("Expected a valid response to be returned, got " + err);
-    return;
-  }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
-  const paramsToValidate: any = [
-    {
-      httpdate: new Date(9.46845296456e8000),
+      datetime: new Date(9.46845296123e8 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -1401,6 +1372,64 @@ it("ComplexError:Error:GreetingWithErrors", async () => {
     return;
   }
   fail("Expected an exception to be thrown from response");
+});
+
+it("RestXmlEnumPayloadRequest:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new HttpEnumPayloadCommand({
+    payload: "enumvalue",
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/EnumPayload");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `enumvalue`;
+    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+it("RestXmlEnumPayloadResponse:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `enumvalue`),
+  });
+
+  const params: any = {};
+  const command = new HttpEnumPayloadCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      payload: "enumvalue",
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
 });
 
 /**
@@ -1802,6 +1831,148 @@ it("HttpPayloadWithStructure:Response", async () => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
+});
+
+/**
+ * Serializes a union in the payload.
+ */
+it("RestXmlHttpPayloadWithUnion:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new HttpPayloadWithUnionCommand({
+    nested: {
+      greeting: "hello",
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/HttpPayloadWithUnion");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/xml");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `<UnionPayload>
+        <greeting>hello</greeting>
+    </UnionPayload>`;
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * No payload is sent if the union has no value.
+ */
+it.skip("RestXmlHttpPayloadWithUnsetUnion:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new HttpPayloadWithUnionCommand({} as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/HttpPayloadWithUnion");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/xml");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Serializes a union in the payload.
+ */
+it("RestXmlHttpPayloadWithUnion:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/xml",
+      },
+      `<UnionPayload>
+          <greeting>hello</greeting>
+      </UnionPayload>`
+    ),
+  });
+
+  const params: any = {};
+  const command = new HttpPayloadWithUnionCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      nested: {
+        greeting: "hello",
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * No payload is sent if the union has no value.
+ */
+it.skip("RestXmlHttpPayloadWithUnsetUnion:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-length": "0",
+      },
+      ``
+    ),
+  });
+
+  const params: any = {};
+  const command = new HttpPayloadWithUnionCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
 });
 
 /**
@@ -2504,6 +2675,64 @@ it("RestXmlHttpResponseCode:Response", async () => {
   });
 });
 
+it("RestXmlStringPayloadRequest:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new HttpStringPayloadCommand({
+    payload: "rawstring",
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/StringPayload");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `rawstring`;
+    const unequalParts: any = compareEquivalentUnknownTypeBodies(utf8Encoder, bodyString, r.body);
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+it("RestXmlStringPayloadResponse:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `rawstring`),
+  });
+
+  const params: any = {};
+  const command = new HttpStringPayloadCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      payload: "rawstring",
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
 /**
  * Query parameters must be ignored when serializing the output of an operation
  */
@@ -3039,7 +3268,7 @@ it("InputAndOutputWithTimestampHeaders:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      headerTimestampList: [new Date(1576540098000), new Date(1576540098000)],
+      headerTimestampList: [new Date(1576540098 * 1000), new Date(1576540098 * 1000)],
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -4798,19 +5027,19 @@ it("TimestampFormatHeaders:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      memberEpochSeconds: new Date(1576540098000),
+      memberEpochSeconds: new Date(1576540098 * 1000),
 
-      memberHttpDate: new Date(1576540098000),
+      memberHttpDate: new Date(1576540098 * 1000),
 
-      memberDateTime: new Date(1576540098000),
+      memberDateTime: new Date(1576540098 * 1000),
 
-      defaultFormat: new Date(1576540098000),
+      defaultFormat: new Date(1576540098 * 1000),
 
-      targetEpochSeconds: new Date(1576540098000),
+      targetEpochSeconds: new Date(1576540098 * 1000),
 
-      targetHttpDate: new Date(1576540098000),
+      targetHttpDate: new Date(1576540098 * 1000),
 
-      targetDateTime: new Date(1576540098000),
+      targetDateTime: new Date(1576540098 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -6107,7 +6336,7 @@ it("XmlLists:Response", async () => {
 
       booleanList: [true, false],
 
-      timestampList: [new Date(1398796238000), new Date(1398796238000)],
+      timestampList: [new Date(1398796238 * 1000), new Date(1398796238 * 1000)],
 
       enumList: ["Foo", "0"],
 
@@ -6403,6 +6632,110 @@ it("XmlMapsXmlName:Response", async () => {
         baz: {
           hi: "bye",
         },
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Serializes XML maps in requests that have xmlNamespace and xmlName on members
+ */
+it("RestXmlXmlMapWithXmlNamespace:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new XmlMapWithXmlNamespaceCommand({
+    myMap: {
+      a: "A",
+
+      b: "B",
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/XmlMapWithXmlNamespace");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/xml");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `<XmlMapWithXmlNamespaceInputOutput>
+        <KVP xmlns=\"https://the-member.example.com\">
+            <entry>
+                <K xmlns=\"https://the-key.example.com\">a</K>
+                <V xmlns=\"https://the-value.example.com\">A</V>
+            </entry>
+            <entry>
+                <K xmlns=\"https://the-key.example.com\">b</K>
+                <V xmlns=\"https://the-value.example.com\">B</V>
+            </entry>
+        </KVP>
+    </XmlMapWithXmlNamespaceInputOutput>`;
+    const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes XML maps in responses that have xmlNamespace and xmlName on members
+ */
+it("RestXmlXmlMapWithXmlNamespace:Response", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/xml",
+      },
+      `<XmlMapWithXmlNamespaceInputOutput>
+          <KVP xmlns="https://the-member.example.com">
+              <entry>
+                  <K xmlns="https://the-key.example.com">a</K>
+                  <V xmlns="https://the-value.example.com">A</V>
+              </entry>
+              <entry>
+                  <K xmlns="https://the-key.example.com">b</K>
+                  <V xmlns="https://the-value.example.com">B</V>
+              </entry>
+          </KVP>
+      </XmlMapWithXmlNamespaceInputOutput>`
+    ),
+  });
+
+  const params: any = {};
+  const command = new XmlMapWithXmlNamespaceCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      myMap: {
+        a: "A",
+
+        b: "B",
       },
     },
   ][0];
@@ -6817,7 +7150,7 @@ it("XmlTimestamps:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      normal: new Date(1398796238000),
+      normal: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -6858,7 +7191,7 @@ it("XmlTimestampsWithDateTimeFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      dateTime: new Date(1398796238000),
+      dateTime: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -6899,7 +7232,7 @@ it("XmlTimestampsWithDateTimeOnTargetFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      dateTimeOnTarget: new Date(1398796238000),
+      dateTimeOnTarget: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -6940,7 +7273,7 @@ it("XmlTimestampsWithEpochSecondsFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      epochSeconds: new Date(1398796238000),
+      epochSeconds: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -6981,7 +7314,7 @@ it("XmlTimestampsWithEpochSecondsOnTargetFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      epochSecondsOnTarget: new Date(1398796238000),
+      epochSecondsOnTarget: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -7022,7 +7355,7 @@ it("XmlTimestampsWithHttpDateFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      httpDate: new Date(1398796238000),
+      httpDate: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -7063,7 +7396,7 @@ it("XmlTimestampsWithHttpDateOnTargetFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      httpDateOnTarget: new Date(1398796238000),
+      httpDateOnTarget: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {

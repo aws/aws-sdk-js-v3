@@ -28,19 +28,19 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ApplicationCostProfilerClient` and
-the commands you need, for example `DeleteReportDefinitionCommand`:
+the commands you need, for example `ListReportDefinitionsCommand`:
 
 ```js
 // ES5 example
 const {
   ApplicationCostProfilerClient,
-  DeleteReportDefinitionCommand,
+  ListReportDefinitionsCommand,
 } = require("@aws-sdk/client-applicationcostprofiler");
 ```
 
 ```ts
 // ES6+ example
-import { ApplicationCostProfilerClient, DeleteReportDefinitionCommand } from "@aws-sdk/client-applicationcostprofiler";
+import { ApplicationCostProfilerClient, ListReportDefinitionsCommand } from "@aws-sdk/client-applicationcostprofiler";
 ```
 
 ### Usage
@@ -59,7 +59,7 @@ const client = new ApplicationCostProfilerClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DeleteReportDefinitionCommand(params);
+const command = new ListReportDefinitionsCommand(params);
 ```
 
 #### Async/await
@@ -138,7 +138,7 @@ const client = new AWS.ApplicationCostProfiler({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.deleteReportDefinition(params);
+  const data = await client.listReportDefinitions(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -146,7 +146,7 @@ try {
 
 // Promises.
 client
-  .deleteReportDefinition(params)
+  .listReportDefinitions(params)
   .then((data) => {
     // process data.
   })
@@ -155,7 +155,7 @@ client
   });
 
 // callbacks.
-client.deleteReportDefinition(params, (err, data) => {
+client.listReportDefinitions(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -170,7 +170,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -216,7 +216,7 @@ see LICENSE for more information.
 DeleteReportDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-applicationcostprofiler/classes/deletereportdefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-applicationcostprofiler/interfaces/deletereportdefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-applicationcostprofiler/interfaces/deletereportdefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/applicationcostprofiler/command/DeleteReportDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-applicationcostprofiler/Interface/DeleteReportDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-applicationcostprofiler/Interface/DeleteReportDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -224,7 +224,7 @@ DeleteReportDefinition
 GetReportDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-applicationcostprofiler/classes/getreportdefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-applicationcostprofiler/interfaces/getreportdefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-applicationcostprofiler/interfaces/getreportdefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/applicationcostprofiler/command/GetReportDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-applicationcostprofiler/Interface/GetReportDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-applicationcostprofiler/Interface/GetReportDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -232,7 +232,7 @@ GetReportDefinition
 ImportApplicationUsage
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-applicationcostprofiler/classes/importapplicationusagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-applicationcostprofiler/interfaces/importapplicationusagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-applicationcostprofiler/interfaces/importapplicationusagecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/applicationcostprofiler/command/ImportApplicationUsageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-applicationcostprofiler/Interface/ImportApplicationUsageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-applicationcostprofiler/Interface/ImportApplicationUsageCommandOutput/)
 
 </details>
 <details>
@@ -240,7 +240,7 @@ ImportApplicationUsage
 ListReportDefinitions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-applicationcostprofiler/classes/listreportdefinitionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-applicationcostprofiler/interfaces/listreportdefinitionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-applicationcostprofiler/interfaces/listreportdefinitionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/applicationcostprofiler/command/ListReportDefinitionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-applicationcostprofiler/Interface/ListReportDefinitionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-applicationcostprofiler/Interface/ListReportDefinitionsCommandOutput/)
 
 </details>
 <details>
@@ -248,7 +248,7 @@ ListReportDefinitions
 PutReportDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-applicationcostprofiler/classes/putreportdefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-applicationcostprofiler/interfaces/putreportdefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-applicationcostprofiler/interfaces/putreportdefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/applicationcostprofiler/command/PutReportDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-applicationcostprofiler/Interface/PutReportDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-applicationcostprofiler/Interface/PutReportDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -256,6 +256,6 @@ PutReportDefinition
 UpdateReportDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-applicationcostprofiler/classes/updatereportdefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-applicationcostprofiler/interfaces/updatereportdefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-applicationcostprofiler/interfaces/updatereportdefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/applicationcostprofiler/command/UpdateReportDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-applicationcostprofiler/Interface/UpdateReportDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-applicationcostprofiler/Interface/UpdateReportDefinitionCommandOutput/)
 
 </details>

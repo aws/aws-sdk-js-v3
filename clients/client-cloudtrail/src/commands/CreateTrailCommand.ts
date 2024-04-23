@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateTrailRequest, CreateTrailResponse } from "../models/models_0";
 import { de_CreateTrailCommand, se_CreateTrailCommand } from "../protocols/Aws_json1_1";
 
@@ -216,6 +208,11 @@ export interface CreateTrailCommandOutput extends CreateTrailResponse, __Metadat
  *  <p>The number of tags per trail, event data store, or channel has exceeded the permitted amount. Currently, the limit is
  *          50.</p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>
+ *          This exception is thrown when the request rate exceeds the limit.
+ *       </p>
+ *
  * @throws {@link TrailAlreadyExistsException} (client fault)
  *  <p>This exception is thrown when the specified trail already exists.</p>
  *
@@ -229,77 +226,26 @@ export interface CreateTrailCommandOutput extends CreateTrailResponse, __Metadat
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
-export class CreateTrailCommand extends $Command<
-  CreateTrailCommandInput,
-  CreateTrailCommandOutput,
-  CloudTrailClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateTrailCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CloudTrailClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateTrailCommandInput, CreateTrailCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, CreateTrailCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CloudTrailClient";
-    const commandName = "CreateTrailCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateTrailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateTrailCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTrailCommandOutput> {
-    return de_CreateTrailCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateTrailCommand extends $Command
+  .classBuilder<
+    CreateTrailCommandInput,
+    CreateTrailCommandOutput,
+    CloudTrailClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CloudTrail_20131101", "CreateTrail", {})
+  .n("CloudTrailClient", "CreateTrailCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateTrailCommand)
+  .de(de_CreateTrailCommand)
+  .build() {}

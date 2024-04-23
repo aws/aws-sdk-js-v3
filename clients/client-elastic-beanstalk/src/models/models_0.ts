@@ -476,7 +476,7 @@ export interface SourceBuildInformation {
    *             </li>
    *          </ul>
    */
-  SourceType: SourceType | string | undefined;
+  SourceType: SourceType | undefined;
 
   /**
    * @public
@@ -494,7 +494,7 @@ export interface SourceBuildInformation {
    *             </li>
    *          </ul>
    */
-  SourceRepository: SourceRepository | string | undefined;
+  SourceRepository: SourceRepository | undefined;
 
   /**
    * @public
@@ -646,7 +646,7 @@ export interface ApplicationVersionDescription {
    *             </li>
    *          </ul>
    */
-  Status?: ApplicationVersionStatus | string;
+  Status?: ApplicationVersionStatus;
 }
 
 /**
@@ -727,7 +727,7 @@ export interface ApplyEnvironmentManagedActionResult {
    * @public
    * <p>The type of managed action.</p>
    */
-  ActionType?: ActionType | string;
+  ActionType?: ActionType;
 
   /**
    * @public
@@ -1187,7 +1187,7 @@ export interface EnvironmentDescription {
    *             </li>
    *          </ul>
    */
-  Status?: EnvironmentStatus | string;
+  Status?: EnvironmentStatus;
 
   /**
    * @public
@@ -1229,7 +1229,7 @@ export interface EnvironmentDescription {
    *          <p> Default: <code>Grey</code>
    *          </p>
    */
-  Health?: EnvironmentHealth | string;
+  Health?: EnvironmentHealth;
 
   /**
    * @public
@@ -1237,7 +1237,7 @@ export interface EnvironmentDescription {
    *       information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html">Health Colors and
    *         Statuses</a>.</p>
    */
-  HealthStatus?: EnvironmentHealthStatus | string;
+  HealthStatus?: EnvironmentHealthStatus;
 
   /**
    * @public
@@ -1459,7 +1459,7 @@ export interface BuildConfiguration {
    *             </li>
    *          </ul>
    */
-  ComputeType?: ComputeType | string;
+  ComputeType?: ComputeType;
 
   /**
    * @public
@@ -1734,7 +1734,7 @@ export interface ConfigurationSettingsDescription {
    *             </li>
    *          </ul>
    */
-  DeploymentStatus?: ConfigurationDeploymentStatus | string;
+  DeploymentStatus?: ConfigurationDeploymentStatus;
 
   /**
    * @public
@@ -2156,7 +2156,7 @@ export interface PlatformSummary {
    * <p>The status of the platform version. You can create an environment from the platform
    *       version once it is ready.</p>
    */
-  PlatformStatus?: PlatformStatus | string;
+  PlatformStatus?: PlatformStatus;
 
   /**
    * @public
@@ -2697,7 +2697,7 @@ export interface ConfigurationOptionDescription {
    *             </li>
    *          </ul>
    */
-  ValueType?: ConfigurationOptionValueType | string;
+  ValueType?: ConfigurationOptionValueType;
 
   /**
    * @public
@@ -2896,7 +2896,7 @@ export interface DescribeEnvironmentHealthRequest {
    *         <code>All</code>. If no attribute names are specified, returns the name of the
    *       environment.</p>
    */
-  AttributeNames?: (EnvironmentHealthAttribute | string)[];
+  AttributeNames?: EnvironmentHealthAttribute[];
 }
 
 /**
@@ -2992,7 +2992,7 @@ export interface DescribeEnvironmentHealthResult {
    * <p>The environment's operational status. <code>Ready</code>, <code>Launching</code>,
    *         <code>Updating</code>, <code>Terminating</code>, or <code>Terminated</code>.</p>
    */
-  Status?: EnvironmentHealth | string;
+  Status?: EnvironmentHealth;
 
   /**
    * @public
@@ -3112,7 +3112,7 @@ export interface ManagedActionHistoryItem {
    * @public
    * <p>The type of the managed action.</p>
    */
-  ActionType?: ActionType | string;
+  ActionType?: ActionType;
 
   /**
    * @public
@@ -3124,13 +3124,13 @@ export interface ManagedActionHistoryItem {
    * @public
    * <p>If the action failed, the type of failure.</p>
    */
-  FailureType?: FailureType | string;
+  FailureType?: FailureType;
 
   /**
    * @public
    * <p>The status of the action.</p>
    */
-  Status?: ActionHistoryStatus | string;
+  Status?: ActionHistoryStatus;
 
   /**
    * @public
@@ -3191,7 +3191,7 @@ export interface DescribeEnvironmentManagedActionsRequest {
    * @public
    * <p>To show only actions with a particular status, specify a status.</p>
    */
-  Status?: ActionStatus | string;
+  Status?: ActionStatus;
 }
 
 /**
@@ -3215,14 +3215,14 @@ export interface ManagedAction {
    * @public
    * <p>The type of managed action.</p>
    */
-  ActionType?: ActionType | string;
+  ActionType?: ActionType;
 
   /**
    * @public
    * <p>The status of the managed action. If the action is <code>Scheduled</code>, you can
    *       apply it immediately with <a>ApplyEnvironmentManagedAction</a>.</p>
    */
-  Status?: ActionStatus | string;
+  Status?: ActionStatus;
 
   /**
    * @public
@@ -3558,7 +3558,7 @@ export interface DescribeEventsMessage {
    * <p>If specified, limits the events returned from this call to include only those with the
    *       specified severity or higher.</p>
    */
-  Severity?: EventSeverity | string;
+  Severity?: EventSeverity;
 
   /**
    * @public
@@ -3645,7 +3645,7 @@ export interface EventDescription {
    * @public
    * <p>The severity level of this event.</p>
    */
-  Severity?: EventSeverity | string;
+  Severity?: EventSeverity;
 }
 
 /**
@@ -3713,7 +3713,7 @@ export interface DescribeInstancesHealthRequest {
    *         <code>All</code>. If no attribute names are specified, returns a list of
    *       instances.</p>
    */
-  AttributeNames?: (InstancesHealthAttribute | string)[];
+  AttributeNames?: InstancesHealthAttribute[];
 
   /**
    * @public
@@ -4058,7 +4058,7 @@ export interface PlatformDescription {
    * @public
    * <p>The status of the platform version.</p>
    */
-  PlatformStatus?: PlatformStatus | string;
+  PlatformStatus?: PlatformStatus;
 
   /**
    * @public
@@ -4647,7 +4647,7 @@ export interface RequestEnvironmentInfoMessage {
    * @public
    * <p>The type of information to request.</p>
    */
-  InfoType: EnvironmentInfoType | string | undefined;
+  InfoType: EnvironmentInfoType | undefined;
 }
 
 /**
@@ -4704,7 +4704,7 @@ export interface RetrieveEnvironmentInfoMessage {
    * @public
    * <p>The type of information to retrieve.</p>
    */
-  InfoType: EnvironmentInfoType | string | undefined;
+  InfoType: EnvironmentInfoType | undefined;
 }
 
 /**
@@ -4716,7 +4716,7 @@ export interface EnvironmentInfoDescription {
    * @public
    * <p>The type of information retrieved.</p>
    */
-  InfoType?: EnvironmentInfoType | string;
+  InfoType?: EnvironmentInfoType;
 
   /**
    * @public
@@ -5159,7 +5159,7 @@ export interface ValidationMessage {
    *             </li>
    *          </ul>
    */
-  Severity?: ValidationSeverity | string;
+  Severity?: ValidationSeverity;
 
   /**
    * @public

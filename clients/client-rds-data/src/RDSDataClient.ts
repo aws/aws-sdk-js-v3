@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -205,6 +203,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 
@@ -265,14 +265,20 @@ export interface RDSDataClientResolvedConfig extends RDSDataClientResolvedConfig
 
 /**
  * @public
- * <fullname>Amazon RDS Data Service</fullname>
- *         <p>Amazon RDS provides an HTTP endpoint to run SQL statements on an Amazon Aurora Serverless v1 DB cluster. To run these
- *             statements, you work with the Data Service API.</p>
- *         <note>
- *             <p>The Data Service API isn't supported on Amazon Aurora Serverless v2 DB clusters.</p>
- *         </note>
- *         <p>For more information about the Data Service API, see
- *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using the Data API</a>
+ * <fullname>RDS Data API</fullname>
+ *          <p>Amazon RDS provides an HTTP endpoint to run SQL statements on an Amazon Aurora DB cluster. To run these
+ *             statements, you use the RDS Data API (Data API).</p>
+ *          <p>Data API is available with the following types of Aurora databases:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Aurora PostgreSQL - Serverless v2, Serverless v1, and provisioned</p>
+ *             </li>
+ *             <li>
+ *                <p>Aurora MySQL - Serverless v1 only</p>
+ *             </li>
+ *          </ul>
+ *          <p>For more information about the Data API, see
+ *           <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html">Using RDS Data API</a>
  *           in the <i>Amazon Aurora User Guide</i>.</p>
  */
 export class RDSDataClient extends __Client<

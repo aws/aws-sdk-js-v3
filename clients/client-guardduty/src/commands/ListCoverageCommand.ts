@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { ListCoverageRequest, ListCoverageResponse } from "../models/models_0";
 import { de_ListCoverageCommand, se_ListCoverageCommand } from "../protocols/Aws_restJson1";
@@ -38,8 +30,8 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  * @public
  * <p>Lists coverage details for your GuardDuty account. If you're a GuardDuty administrator, you can
  *       retrieve all resources associated with the active member accounts in your organization.</p>
- *          <p>Make sure the accounts have EKS Runtime Monitoring enabled and GuardDuty agent running on
- *       their EKS nodes.</p>
+ *          <p>Make sure the accounts have Runtime Monitoring enabled and GuardDuty agent running on
+ *       their resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,7 +45,7 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  *   FilterCriteria: { // CoverageFilterCriteria
  *     FilterCriterion: [ // CoverageFilterCriterionList
  *       { // CoverageFilterCriterion
- *         CriterionKey: "ACCOUNT_ID" || "CLUSTER_NAME" || "RESOURCE_TYPE" || "COVERAGE_STATUS" || "ADDON_VERSION",
+ *         CriterionKey: "ACCOUNT_ID" || "CLUSTER_NAME" || "RESOURCE_TYPE" || "COVERAGE_STATUS" || "ADDON_VERSION" || "MANAGEMENT_TYPE" || "EKS_CLUSTER_NAME" || "ECS_CLUSTER_NAME" || "AGENT_VERSION" || "INSTANCE_ID" || "CLUSTER_ARN",
  *         FilterCondition: { // CoverageFilterCondition
  *           Equals: [ // Equals
  *             "STRING_VALUE",
@@ -66,7 +58,7 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  *     ],
  *   },
  *   SortCriteria: { // CoverageSortCriteria
- *     AttributeName: "ACCOUNT_ID" || "CLUSTER_NAME" || "COVERAGE_STATUS" || "ISSUE" || "ADDON_VERSION" || "UPDATED_AT",
+ *     AttributeName: "ACCOUNT_ID" || "CLUSTER_NAME" || "COVERAGE_STATUS" || "ISSUE" || "ADDON_VERSION" || "UPDATED_AT" || "EKS_CLUSTER_NAME" || "ECS_CLUSTER_NAME" || "INSTANCE_ID",
  *     OrderBy: "ASC" || "DESC",
  *   },
  * };
@@ -87,8 +79,31 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  * //             AddonVersion: "STRING_VALUE",
  * //             AddonStatus: "STRING_VALUE",
  * //           },
+ * //           ManagementType: "AUTO_MANAGED" || "MANUAL" || "DISABLED",
  * //         },
- * //         ResourceType: "EKS",
+ * //         ResourceType: "EKS" || "ECS" || "EC2",
+ * //         EcsClusterDetails: { // CoverageEcsClusterDetails
+ * //           ClusterName: "STRING_VALUE",
+ * //           FargateDetails: { // FargateDetails
+ * //             Issues: [ // Issues
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             ManagementType: "AUTO_MANAGED" || "MANUAL" || "DISABLED",
+ * //           },
+ * //           ContainerInstanceDetails: { // ContainerInstanceDetails
+ * //             CoveredContainerInstances: Number("long"),
+ * //             CompatibleContainerInstances: Number("long"),
+ * //           },
+ * //         },
+ * //         Ec2InstanceDetails: { // CoverageEc2InstanceDetails
+ * //           InstanceId: "STRING_VALUE",
+ * //           InstanceType: "STRING_VALUE",
+ * //           ClusterArn: "STRING_VALUE",
+ * //           AgentDetails: { // AgentDetails
+ * //             Version: "STRING_VALUE",
+ * //           },
+ * //           ManagementType: "AUTO_MANAGED" || "MANUAL" || "DISABLED",
+ * //         },
  * //       },
  * //       CoverageStatus: "HEALTHY" || "UNHEALTHY",
  * //       Issue: "STRING_VALUE",
@@ -116,77 +131,26 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
-export class ListCoverageCommand extends $Command<
-  ListCoverageCommandInput,
-  ListCoverageCommandOutput,
-  GuardDutyClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListCoverageCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: GuardDutyClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListCoverageCommandInput, ListCoverageCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListCoverageCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "GuardDutyClient";
-    const commandName = "ListCoverageCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListCoverageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListCoverageCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCoverageCommandOutput> {
-    return de_ListCoverageCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListCoverageCommand extends $Command
+  .classBuilder<
+    ListCoverageCommandInput,
+    ListCoverageCommandOutput,
+    GuardDutyClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("GuardDutyAPIService", "ListCoverage", {})
+  .n("GuardDutyClient", "ListCoverageCommand")
+  .f(void 0, void 0)
+  .ser(se_ListCoverageCommand)
+  .de(de_ListCoverageCommand)
+  .build() {}

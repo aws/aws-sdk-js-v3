@@ -22,6 +22,7 @@ import { HttpEnumPayloadCommand } from "../../src/commands/HttpEnumPayloadComman
 import { HttpPayloadTraitsCommand } from "../../src/commands/HttpPayloadTraitsCommand";
 import { HttpPayloadTraitsWithMediaTypeCommand } from "../../src/commands/HttpPayloadTraitsWithMediaTypeCommand";
 import { HttpPayloadWithStructureCommand } from "../../src/commands/HttpPayloadWithStructureCommand";
+import { HttpPayloadWithUnionCommand } from "../../src/commands/HttpPayloadWithUnionCommand";
 import { HttpPrefixHeadersCommand } from "../../src/commands/HttpPrefixHeadersCommand";
 import { HttpPrefixHeadersInResponseCommand } from "../../src/commands/HttpPrefixHeadersInResponseCommand";
 import { HttpRequestWithFloatLabelsCommand } from "../../src/commands/HttpRequestWithFloatLabelsCommand";
@@ -82,6 +83,10 @@ class RequestSerializationTestHandler implements HttpHandler {
   handle(request: HttpRequest, options?: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
     return Promise.reject(new EXPECTED_REQUEST_SERIALIZATION_ERROR(request));
   }
+  updateHttpClientConfig(key: never, value: never): void {}
+  httpHandlerConfigs() {
+    return {};
+  }
 }
 
 /**
@@ -115,6 +120,10 @@ class ResponseDeserializationTestHandler implements HttpHandler {
         body: Readable.from([this.body]),
       }),
     });
+  }
+  updateHttpClientConfig(key: never, value: never): void {}
+  httpHandlerConfigs() {
+    return {};
   }
 }
 
@@ -703,7 +712,7 @@ it("RestJsonDateTimeWithNegativeOffset:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      datetime: new Date(1576540098000),
+      datetime: new Date(1576540098 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -742,7 +751,7 @@ it("RestJsonDateTimeWithPositiveOffset:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      datetime: new Date(1576540098000),
+      datetime: new Date(1576540098 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -1547,46 +1556,7 @@ it("RestJsonDateTimeWithFractionalSeconds:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      datetime: new Date(9.46845296123e8000),
-    },
-  ][0];
-  Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
-  });
-});
-
-/**
- * Ensures that clients can correctly parse http-date timestamps with fractional seconds
- */
-it("RestJsonHttpDateWithFractionalSeconds:Response", async () => {
-  const client = new RestJsonProtocolClient({
-    ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      undefined,
-      `      {
-                "httpdate": "Sun, 02 Jan 2000 20:34:56.456 GMT"
-            }
-      `
-    ),
-  });
-
-  const params: any = {};
-  const command = new FractionalSecondsCommand(params);
-
-  let r: any;
-  try {
-    r = await client.send(command);
-  } catch (err) {
-    fail("Expected a valid response to be returned, got " + err);
-    return;
-  }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
-  const paramsToValidate: any = [
-    {
-      httpdate: new Date(9.46845296456e8000),
+      datetime: new Date(9.46845296123e8 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -2189,7 +2159,7 @@ it("RestJsonHttpChecksumRequired:Request", async () => {
   }
 });
 
-it("EnumPayloadRequest:Request", async () => {
+it("RestJsonEnumPayloadRequest:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -2219,7 +2189,7 @@ it("EnumPayloadRequest:Request", async () => {
   }
 });
 
-it("EnumPayloadResponse:Response", async () => {
+it("RestJsonEnumPayloadResponse:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `enumvalue`),
@@ -2567,6 +2537,145 @@ it("RestJsonHttpPayloadWithStructure:Response", async () => {
     expect(r[param]).toBeDefined();
     expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
   });
+});
+
+/**
+ * Serializes a union in the payload.
+ */
+it("RestJsonHttpPayloadWithUnion:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new HttpPayloadWithUnionCommand({
+    nested: {
+      greeting: "hello",
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/HttpPayloadWithUnion");
+    expect(r.headers["content-length"]).toBeDefined();
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"greeting\": \"hello\"
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * No payload is sent if the union has no value.
+ */
+it.skip("RestJsonHttpPayloadWithUnsetUnion:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new HttpPayloadWithUnionCommand({} as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/HttpPayloadWithUnion");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Serializes a union in the payload.
+ */
+it("RestJsonHttpPayloadWithUnion:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "greeting": "hello"
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new HttpPayloadWithUnionCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      nested: {
+        greeting: "hello",
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * No payload is sent if the union has no value.
+ */
+it.skip("RestJsonHttpPayloadWithUnsetUnion:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-length": "0",
+      },
+      ``
+    ),
+  });
+
+  const params: any = {};
+  const command = new HttpPayloadWithUnionCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
 });
 
 /**
@@ -3083,7 +3192,7 @@ it("RestJsonHttpResponseCodeWithNoPayload:Response", async () => {
   });
 });
 
-it("StringPayloadRequest:Request", async () => {
+it("RestJsonStringPayloadRequest:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -3113,7 +3222,7 @@ it("StringPayloadRequest:Request", async () => {
   }
 });
 
-it("StringPayloadResponse:Response", async () => {
+it("RestJsonStringPayloadResponse:Response", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `rawstring`),
@@ -3781,7 +3890,7 @@ it("RestJsonInputAndOutputWithTimestampHeaders:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      headerTimestampList: [new Date(1576540098000), new Date(1576540098000)],
+      headerTimestampList: [new Date(1576540098 * 1000), new Date(1576540098 * 1000)],
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -4638,7 +4747,7 @@ it("RestJsonLists:Response", async () => {
 
       booleanList: [true, false],
 
-      timestampList: [new Date(1398796238000), new Date(1398796238000)],
+      timestampList: [new Date(1398796238 * 1000), new Date(1398796238 * 1000)],
 
       enumList: ["Foo", "0"],
 
@@ -5786,7 +5895,7 @@ it("RestJsonJsonTimestamps:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      normal: new Date(1398796238000),
+      normal: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -5826,7 +5935,7 @@ it("RestJsonJsonTimestampsWithDateTimeFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      dateTime: new Date(1398796238000),
+      dateTime: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -5866,7 +5975,7 @@ it("RestJsonJsonTimestampsWithDateTimeOnTargetFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      dateTimeOnTarget: new Date(1398796238000),
+      dateTimeOnTarget: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -5906,7 +6015,7 @@ it("RestJsonJsonTimestampsWithEpochSecondsFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      epochSeconds: new Date(1398796238000),
+      epochSeconds: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -5946,7 +6055,7 @@ it("RestJsonJsonTimestampsWithEpochSecondsOnTargetFormat:Response", async () => 
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      epochSecondsOnTarget: new Date(1398796238000),
+      epochSecondsOnTarget: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -5986,7 +6095,7 @@ it("RestJsonJsonTimestampsWithHttpDateFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      httpDate: new Date(1398796238000),
+      httpDate: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -6026,7 +6135,7 @@ it("RestJsonJsonTimestampsWithHttpDateOnTargetFormat:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      httpDateOnTarget: new Date(1398796238000),
+      httpDateOnTarget: new Date(1398796238 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -6680,7 +6789,7 @@ it("RestJsonDeserializeTimestampUnionValue:Response", async () => {
   const paramsToValidate: any = [
     {
       contents: {
-        timestampValue: new Date(1398796238000),
+        timestampValue: new Date(1398796238 * 1000),
       },
     },
   ][0];
@@ -6843,6 +6952,55 @@ it("RestJsonDeserializeStructureUnionValue:Response", async () => {
       },
       `{
           "contents": {
+              "structureValue": {
+                  "hi": "hello"
+              }
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonUnionsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      contents: {
+        structureValue: {
+          hi: "hello",
+        },
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Ignores an unrecognized __type property
+ */
+it("RestJsonDeserializeIgnoreType:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "contents": {
+              "__type": "aws.protocoltests.json10#MyUnion",
               "structureValue": {
                   "hi": "hello"
               }
@@ -8915,7 +9073,7 @@ it("RestJsonHttpWithEmptyStructurePayload:Request", async () => {
 /**
  * Serializes a payload targeting a structure
  */
-it.skip("RestJsonTestPayloadStructure:Request", async () => {
+it("RestJsonTestPayloadStructure:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -8955,7 +9113,7 @@ it.skip("RestJsonTestPayloadStructure:Request", async () => {
 /**
  * Serializes an request with header members but no payload
  */
-it.skip("RestJsonHttpWithHeadersButNoPayload:Request", async () => {
+it("RestJsonHttpWithHeadersButNoPayload:Request", async () => {
   const client = new RestJsonProtocolClient({
     ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
@@ -9077,19 +9235,19 @@ it("RestJsonTimestampFormatHeaders:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      memberEpochSeconds: new Date(1576540098000),
+      memberEpochSeconds: new Date(1576540098 * 1000),
 
-      memberHttpDate: new Date(1576540098000),
+      memberHttpDate: new Date(1576540098 * 1000),
 
-      memberDateTime: new Date(1576540098000),
+      memberDateTime: new Date(1576540098 * 1000),
 
-      defaultFormat: new Date(1576540098000),
+      defaultFormat: new Date(1576540098 * 1000),
 
-      targetEpochSeconds: new Date(1576540098000),
+      targetEpochSeconds: new Date(1576540098 * 1000),
 
-      targetHttpDate: new Date(1576540098000),
+      targetHttpDate: new Date(1576540098 * 1000),
 
-      targetDateTime: new Date(1576540098000),
+      targetDateTime: new Date(1576540098 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {

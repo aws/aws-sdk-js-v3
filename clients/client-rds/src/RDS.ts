@@ -128,6 +128,11 @@ import {
   CreateDBSecurityGroupCommandOutput,
 } from "./commands/CreateDBSecurityGroupCommand";
 import {
+  CreateDBShardGroupCommand,
+  CreateDBShardGroupCommandInput,
+  CreateDBShardGroupCommandOutput,
+} from "./commands/CreateDBShardGroupCommand";
+import {
   CreateDBSnapshotCommand,
   CreateDBSnapshotCommandInput,
   CreateDBSnapshotCommandOutput,
@@ -148,10 +153,20 @@ import {
   CreateGlobalClusterCommandOutput,
 } from "./commands/CreateGlobalClusterCommand";
 import {
+  CreateIntegrationCommand,
+  CreateIntegrationCommandInput,
+  CreateIntegrationCommandOutput,
+} from "./commands/CreateIntegrationCommand";
+import {
   CreateOptionGroupCommand,
   CreateOptionGroupCommandInput,
   CreateOptionGroupCommandOutput,
 } from "./commands/CreateOptionGroupCommand";
+import {
+  CreateTenantDatabaseCommand,
+  CreateTenantDatabaseCommandInput,
+  CreateTenantDatabaseCommandOutput,
+} from "./commands/CreateTenantDatabaseCommand";
 import {
   DeleteBlueGreenDeploymentCommand,
   DeleteBlueGreenDeploymentCommandInput,
@@ -218,6 +233,11 @@ import {
   DeleteDBSecurityGroupCommandOutput,
 } from "./commands/DeleteDBSecurityGroupCommand";
 import {
+  DeleteDBShardGroupCommand,
+  DeleteDBShardGroupCommandInput,
+  DeleteDBShardGroupCommandOutput,
+} from "./commands/DeleteDBShardGroupCommand";
+import {
   DeleteDBSnapshotCommand,
   DeleteDBSnapshotCommandInput,
   DeleteDBSnapshotCommandOutput,
@@ -238,10 +258,20 @@ import {
   DeleteGlobalClusterCommandOutput,
 } from "./commands/DeleteGlobalClusterCommand";
 import {
+  DeleteIntegrationCommand,
+  DeleteIntegrationCommandInput,
+  DeleteIntegrationCommandOutput,
+} from "./commands/DeleteIntegrationCommand";
+import {
   DeleteOptionGroupCommand,
   DeleteOptionGroupCommandInput,
   DeleteOptionGroupCommandOutput,
 } from "./commands/DeleteOptionGroupCommand";
+import {
+  DeleteTenantDatabaseCommand,
+  DeleteTenantDatabaseCommandInput,
+  DeleteTenantDatabaseCommandOutput,
+} from "./commands/DeleteTenantDatabaseCommand";
 import {
   DeregisterDBProxyTargetsCommand,
   DeregisterDBProxyTargetsCommandInput,
@@ -353,10 +383,20 @@ import {
   DescribeDBProxyTargetsCommandOutput,
 } from "./commands/DescribeDBProxyTargetsCommand";
 import {
+  DescribeDBRecommendationsCommand,
+  DescribeDBRecommendationsCommandInput,
+  DescribeDBRecommendationsCommandOutput,
+} from "./commands/DescribeDBRecommendationsCommand";
+import {
   DescribeDBSecurityGroupsCommand,
   DescribeDBSecurityGroupsCommandInput,
   DescribeDBSecurityGroupsCommandOutput,
 } from "./commands/DescribeDBSecurityGroupsCommand";
+import {
+  DescribeDBShardGroupsCommand,
+  DescribeDBShardGroupsCommandInput,
+  DescribeDBShardGroupsCommandOutput,
+} from "./commands/DescribeDBShardGroupsCommand";
 import {
   DescribeDBSnapshotAttributesCommand,
   DescribeDBSnapshotAttributesCommandInput,
@@ -367,6 +407,11 @@ import {
   DescribeDBSnapshotsCommandInput,
   DescribeDBSnapshotsCommandOutput,
 } from "./commands/DescribeDBSnapshotsCommand";
+import {
+  DescribeDBSnapshotTenantDatabasesCommand,
+  DescribeDBSnapshotTenantDatabasesCommandInput,
+  DescribeDBSnapshotTenantDatabasesCommandOutput,
+} from "./commands/DescribeDBSnapshotTenantDatabasesCommand";
 import {
   DescribeDBSubnetGroupsCommand,
   DescribeDBSubnetGroupsCommandInput,
@@ -408,6 +453,11 @@ import {
   DescribeGlobalClustersCommandOutput,
 } from "./commands/DescribeGlobalClustersCommand";
 import {
+  DescribeIntegrationsCommand,
+  DescribeIntegrationsCommandInput,
+  DescribeIntegrationsCommandOutput,
+} from "./commands/DescribeIntegrationsCommand";
+import {
   DescribeOptionGroupOptionsCommand,
   DescribeOptionGroupOptionsCommandInput,
   DescribeOptionGroupOptionsCommandOutput,
@@ -443,15 +493,30 @@ import {
   DescribeSourceRegionsCommandOutput,
 } from "./commands/DescribeSourceRegionsCommand";
 import {
+  DescribeTenantDatabasesCommand,
+  DescribeTenantDatabasesCommandInput,
+  DescribeTenantDatabasesCommandOutput,
+} from "./commands/DescribeTenantDatabasesCommand";
+import {
   DescribeValidDBInstanceModificationsCommand,
   DescribeValidDBInstanceModificationsCommandInput,
   DescribeValidDBInstanceModificationsCommandOutput,
 } from "./commands/DescribeValidDBInstanceModificationsCommand";
 import {
+  DisableHttpEndpointCommand,
+  DisableHttpEndpointCommandInput,
+  DisableHttpEndpointCommandOutput,
+} from "./commands/DisableHttpEndpointCommand";
+import {
   DownloadDBLogFilePortionCommand,
   DownloadDBLogFilePortionCommandInput,
   DownloadDBLogFilePortionCommandOutput,
 } from "./commands/DownloadDBLogFilePortionCommand";
+import {
+  EnableHttpEndpointCommand,
+  EnableHttpEndpointCommandInput,
+  EnableHttpEndpointCommandOutput,
+} from "./commands/EnableHttpEndpointCommand";
 import {
   FailoverDBClusterCommand,
   FailoverDBClusterCommandInput,
@@ -533,6 +598,16 @@ import {
   ModifyDBProxyTargetGroupCommandOutput,
 } from "./commands/ModifyDBProxyTargetGroupCommand";
 import {
+  ModifyDBRecommendationCommand,
+  ModifyDBRecommendationCommandInput,
+  ModifyDBRecommendationCommandOutput,
+} from "./commands/ModifyDBRecommendationCommand";
+import {
+  ModifyDBShardGroupCommand,
+  ModifyDBShardGroupCommandInput,
+  ModifyDBShardGroupCommandOutput,
+} from "./commands/ModifyDBShardGroupCommand";
+import {
   ModifyDBSnapshotAttributeCommand,
   ModifyDBSnapshotAttributeCommandInput,
   ModifyDBSnapshotAttributeCommandOutput,
@@ -563,6 +638,11 @@ import {
   ModifyOptionGroupCommandOutput,
 } from "./commands/ModifyOptionGroupCommand";
 import {
+  ModifyTenantDatabaseCommand,
+  ModifyTenantDatabaseCommandInput,
+  ModifyTenantDatabaseCommandOutput,
+} from "./commands/ModifyTenantDatabaseCommand";
+import {
   PromoteReadReplicaCommand,
   PromoteReadReplicaCommandInput,
   PromoteReadReplicaCommandOutput,
@@ -587,6 +667,11 @@ import {
   RebootDBInstanceCommandInput,
   RebootDBInstanceCommandOutput,
 } from "./commands/RebootDBInstanceCommand";
+import {
+  RebootDBShardGroupCommand,
+  RebootDBShardGroupCommandInput,
+  RebootDBShardGroupCommandOutput,
+} from "./commands/RebootDBShardGroupCommand";
 import {
   RegisterDBProxyTargetsCommand,
   RegisterDBProxyTargetsCommandInput,
@@ -750,11 +835,14 @@ const commands = {
   CreateDBProxyCommand,
   CreateDBProxyEndpointCommand,
   CreateDBSecurityGroupCommand,
+  CreateDBShardGroupCommand,
   CreateDBSnapshotCommand,
   CreateDBSubnetGroupCommand,
   CreateEventSubscriptionCommand,
   CreateGlobalClusterCommand,
+  CreateIntegrationCommand,
   CreateOptionGroupCommand,
+  CreateTenantDatabaseCommand,
   DeleteBlueGreenDeploymentCommand,
   DeleteCustomDBEngineVersionCommand,
   DeleteDBClusterCommand,
@@ -768,11 +856,14 @@ const commands = {
   DeleteDBProxyCommand,
   DeleteDBProxyEndpointCommand,
   DeleteDBSecurityGroupCommand,
+  DeleteDBShardGroupCommand,
   DeleteDBSnapshotCommand,
   DeleteDBSubnetGroupCommand,
   DeleteEventSubscriptionCommand,
   DeleteGlobalClusterCommand,
+  DeleteIntegrationCommand,
   DeleteOptionGroupCommand,
+  DeleteTenantDatabaseCommand,
   DeregisterDBProxyTargetsCommand,
   DescribeAccountAttributesCommand,
   DescribeBlueGreenDeploymentsCommand,
@@ -795,9 +886,12 @@ const commands = {
   DescribeDBProxyEndpointsCommand,
   DescribeDBProxyTargetGroupsCommand,
   DescribeDBProxyTargetsCommand,
+  DescribeDBRecommendationsCommand,
   DescribeDBSecurityGroupsCommand,
+  DescribeDBShardGroupsCommand,
   DescribeDBSnapshotAttributesCommand,
   DescribeDBSnapshotsCommand,
+  DescribeDBSnapshotTenantDatabasesCommand,
   DescribeDBSubnetGroupsCommand,
   DescribeEngineDefaultClusterParametersCommand,
   DescribeEngineDefaultParametersCommand,
@@ -806,6 +900,7 @@ const commands = {
   DescribeEventSubscriptionsCommand,
   DescribeExportTasksCommand,
   DescribeGlobalClustersCommand,
+  DescribeIntegrationsCommand,
   DescribeOptionGroupOptionsCommand,
   DescribeOptionGroupsCommand,
   DescribeOrderableDBInstanceOptionsCommand,
@@ -813,8 +908,11 @@ const commands = {
   DescribeReservedDBInstancesCommand,
   DescribeReservedDBInstancesOfferingsCommand,
   DescribeSourceRegionsCommand,
+  DescribeTenantDatabasesCommand,
   DescribeValidDBInstanceModificationsCommand,
+  DisableHttpEndpointCommand,
   DownloadDBLogFilePortionCommand,
+  EnableHttpEndpointCommand,
   FailoverDBClusterCommand,
   FailoverGlobalClusterCommand,
   ListTagsForResourceCommand,
@@ -831,17 +929,21 @@ const commands = {
   ModifyDBProxyCommand,
   ModifyDBProxyEndpointCommand,
   ModifyDBProxyTargetGroupCommand,
+  ModifyDBRecommendationCommand,
+  ModifyDBShardGroupCommand,
   ModifyDBSnapshotCommand,
   ModifyDBSnapshotAttributeCommand,
   ModifyDBSubnetGroupCommand,
   ModifyEventSubscriptionCommand,
   ModifyGlobalClusterCommand,
   ModifyOptionGroupCommand,
+  ModifyTenantDatabaseCommand,
   PromoteReadReplicaCommand,
   PromoteReadReplicaDBClusterCommand,
   PurchaseReservedDBInstancesOfferingCommand,
   RebootDBClusterCommand,
   RebootDBInstanceCommand,
+  RebootDBShardGroupCommand,
   RegisterDBProxyTargetsCommand,
   RemoveFromGlobalClusterCommand,
   RemoveRoleFromDBClusterCommand,
@@ -1283,6 +1385,23 @@ export interface RDS {
   ): void;
 
   /**
+   * @see {@link CreateDBShardGroupCommand}
+   */
+  createDBShardGroup(
+    args: CreateDBShardGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDBShardGroupCommandOutput>;
+  createDBShardGroup(
+    args: CreateDBShardGroupCommandInput,
+    cb: (err: any, data?: CreateDBShardGroupCommandOutput) => void
+  ): void;
+  createDBShardGroup(
+    args: CreateDBShardGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDBShardGroupCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateDBSnapshotCommand}
    */
   createDBSnapshot(
@@ -1351,6 +1470,23 @@ export interface RDS {
   ): void;
 
   /**
+   * @see {@link CreateIntegrationCommand}
+   */
+  createIntegration(
+    args: CreateIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIntegrationCommandOutput>;
+  createIntegration(
+    args: CreateIntegrationCommandInput,
+    cb: (err: any, data?: CreateIntegrationCommandOutput) => void
+  ): void;
+  createIntegration(
+    args: CreateIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateIntegrationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateOptionGroupCommand}
    */
   createOptionGroup(
@@ -1365,6 +1501,23 @@ export interface RDS {
     args: CreateOptionGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateOptionGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateTenantDatabaseCommand}
+   */
+  createTenantDatabase(
+    args: CreateTenantDatabaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTenantDatabaseCommandOutput>;
+  createTenantDatabase(
+    args: CreateTenantDatabaseCommandInput,
+    cb: (err: any, data?: CreateTenantDatabaseCommandOutput) => void
+  ): void;
+  createTenantDatabase(
+    args: CreateTenantDatabaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTenantDatabaseCommandOutput) => void
   ): void;
 
   /**
@@ -1580,6 +1733,23 @@ export interface RDS {
   ): void;
 
   /**
+   * @see {@link DeleteDBShardGroupCommand}
+   */
+  deleteDBShardGroup(
+    args: DeleteDBShardGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDBShardGroupCommandOutput>;
+  deleteDBShardGroup(
+    args: DeleteDBShardGroupCommandInput,
+    cb: (err: any, data?: DeleteDBShardGroupCommandOutput) => void
+  ): void;
+  deleteDBShardGroup(
+    args: DeleteDBShardGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDBShardGroupCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteDBSnapshotCommand}
    */
   deleteDBSnapshot(
@@ -1648,6 +1818,23 @@ export interface RDS {
   ): void;
 
   /**
+   * @see {@link DeleteIntegrationCommand}
+   */
+  deleteIntegration(
+    args: DeleteIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIntegrationCommandOutput>;
+  deleteIntegration(
+    args: DeleteIntegrationCommandInput,
+    cb: (err: any, data?: DeleteIntegrationCommandOutput) => void
+  ): void;
+  deleteIntegration(
+    args: DeleteIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIntegrationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteOptionGroupCommand}
    */
   deleteOptionGroup(
@@ -1662,6 +1849,23 @@ export interface RDS {
     args: DeleteOptionGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteOptionGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTenantDatabaseCommand}
+   */
+  deleteTenantDatabase(
+    args: DeleteTenantDatabaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTenantDatabaseCommandOutput>;
+  deleteTenantDatabase(
+    args: DeleteTenantDatabaseCommandInput,
+    cb: (err: any, data?: DeleteTenantDatabaseCommandOutput) => void
+  ): void;
+  deleteTenantDatabase(
+    args: DeleteTenantDatabaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTenantDatabaseCommandOutput) => void
   ): void;
 
   /**
@@ -2039,6 +2243,23 @@ export interface RDS {
   ): void;
 
   /**
+   * @see {@link DescribeDBRecommendationsCommand}
+   */
+  describeDBRecommendations(
+    args: DescribeDBRecommendationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDBRecommendationsCommandOutput>;
+  describeDBRecommendations(
+    args: DescribeDBRecommendationsCommandInput,
+    cb: (err: any, data?: DescribeDBRecommendationsCommandOutput) => void
+  ): void;
+  describeDBRecommendations(
+    args: DescribeDBRecommendationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDBRecommendationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeDBSecurityGroupsCommand}
    */
   describeDBSecurityGroups(
@@ -2053,6 +2274,23 @@ export interface RDS {
     args: DescribeDBSecurityGroupsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeDBSecurityGroupsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDBShardGroupsCommand}
+   */
+  describeDBShardGroups(
+    args: DescribeDBShardGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDBShardGroupsCommandOutput>;
+  describeDBShardGroups(
+    args: DescribeDBShardGroupsCommandInput,
+    cb: (err: any, data?: DescribeDBShardGroupsCommandOutput) => void
+  ): void;
+  describeDBShardGroups(
+    args: DescribeDBShardGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDBShardGroupsCommandOutput) => void
   ): void;
 
   /**
@@ -2087,6 +2325,23 @@ export interface RDS {
     args: DescribeDBSnapshotsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeDBSnapshotsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDBSnapshotTenantDatabasesCommand}
+   */
+  describeDBSnapshotTenantDatabases(
+    args: DescribeDBSnapshotTenantDatabasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDBSnapshotTenantDatabasesCommandOutput>;
+  describeDBSnapshotTenantDatabases(
+    args: DescribeDBSnapshotTenantDatabasesCommandInput,
+    cb: (err: any, data?: DescribeDBSnapshotTenantDatabasesCommandOutput) => void
+  ): void;
+  describeDBSnapshotTenantDatabases(
+    args: DescribeDBSnapshotTenantDatabasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDBSnapshotTenantDatabasesCommandOutput) => void
   ): void;
 
   /**
@@ -2223,6 +2478,23 @@ export interface RDS {
   ): void;
 
   /**
+   * @see {@link DescribeIntegrationsCommand}
+   */
+  describeIntegrations(
+    args: DescribeIntegrationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIntegrationsCommandOutput>;
+  describeIntegrations(
+    args: DescribeIntegrationsCommandInput,
+    cb: (err: any, data?: DescribeIntegrationsCommandOutput) => void
+  ): void;
+  describeIntegrations(
+    args: DescribeIntegrationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeIntegrationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeOptionGroupOptionsCommand}
    */
   describeOptionGroupOptions(
@@ -2342,6 +2614,23 @@ export interface RDS {
   ): void;
 
   /**
+   * @see {@link DescribeTenantDatabasesCommand}
+   */
+  describeTenantDatabases(
+    args: DescribeTenantDatabasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTenantDatabasesCommandOutput>;
+  describeTenantDatabases(
+    args: DescribeTenantDatabasesCommandInput,
+    cb: (err: any, data?: DescribeTenantDatabasesCommandOutput) => void
+  ): void;
+  describeTenantDatabases(
+    args: DescribeTenantDatabasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTenantDatabasesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeValidDBInstanceModificationsCommand}
    */
   describeValidDBInstanceModifications(
@@ -2359,6 +2648,23 @@ export interface RDS {
   ): void;
 
   /**
+   * @see {@link DisableHttpEndpointCommand}
+   */
+  disableHttpEndpoint(
+    args: DisableHttpEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableHttpEndpointCommandOutput>;
+  disableHttpEndpoint(
+    args: DisableHttpEndpointCommandInput,
+    cb: (err: any, data?: DisableHttpEndpointCommandOutput) => void
+  ): void;
+  disableHttpEndpoint(
+    args: DisableHttpEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableHttpEndpointCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DownloadDBLogFilePortionCommand}
    */
   downloadDBLogFilePortion(
@@ -2373,6 +2679,23 @@ export interface RDS {
     args: DownloadDBLogFilePortionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DownloadDBLogFilePortionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link EnableHttpEndpointCommand}
+   */
+  enableHttpEndpoint(
+    args: EnableHttpEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableHttpEndpointCommandOutput>;
+  enableHttpEndpoint(
+    args: EnableHttpEndpointCommandInput,
+    cb: (err: any, data?: EnableHttpEndpointCommandOutput) => void
+  ): void;
+  enableHttpEndpoint(
+    args: EnableHttpEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableHttpEndpointCommandOutput) => void
   ): void;
 
   /**
@@ -2639,6 +2962,40 @@ export interface RDS {
   ): void;
 
   /**
+   * @see {@link ModifyDBRecommendationCommand}
+   */
+  modifyDBRecommendation(
+    args: ModifyDBRecommendationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyDBRecommendationCommandOutput>;
+  modifyDBRecommendation(
+    args: ModifyDBRecommendationCommandInput,
+    cb: (err: any, data?: ModifyDBRecommendationCommandOutput) => void
+  ): void;
+  modifyDBRecommendation(
+    args: ModifyDBRecommendationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyDBRecommendationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyDBShardGroupCommand}
+   */
+  modifyDBShardGroup(
+    args: ModifyDBShardGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyDBShardGroupCommandOutput>;
+  modifyDBShardGroup(
+    args: ModifyDBShardGroupCommandInput,
+    cb: (err: any, data?: ModifyDBShardGroupCommandOutput) => void
+  ): void;
+  modifyDBShardGroup(
+    args: ModifyDBShardGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyDBShardGroupCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ModifyDBSnapshotCommand}
    */
   modifyDBSnapshot(
@@ -2741,6 +3098,23 @@ export interface RDS {
   ): void;
 
   /**
+   * @see {@link ModifyTenantDatabaseCommand}
+   */
+  modifyTenantDatabase(
+    args: ModifyTenantDatabaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyTenantDatabaseCommandOutput>;
+  modifyTenantDatabase(
+    args: ModifyTenantDatabaseCommandInput,
+    cb: (err: any, data?: ModifyTenantDatabaseCommandOutput) => void
+  ): void;
+  modifyTenantDatabase(
+    args: ModifyTenantDatabaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyTenantDatabaseCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PromoteReadReplicaCommand}
    */
   promoteReadReplica(
@@ -2820,6 +3194,23 @@ export interface RDS {
     args: RebootDBInstanceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RebootDBInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RebootDBShardGroupCommand}
+   */
+  rebootDBShardGroup(
+    args: RebootDBShardGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RebootDBShardGroupCommandOutput>;
+  rebootDBShardGroup(
+    args: RebootDBShardGroupCommandInput,
+    cb: (err: any, data?: RebootDBShardGroupCommandOutput) => void
+  ): void;
+  rebootDBShardGroup(
+    args: RebootDBShardGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RebootDBShardGroupCommandOutput) => void
   ): void;
 
   /**
@@ -3273,7 +3664,7 @@ export interface RDS {
  *           database and manages common database administration tasks, freeing up developers to focus on what makes their applications
  *           and businesses unique.</p>
  *          <p>Amazon RDS gives you access to the capabilities of a MySQL, MariaDB, PostgreSQL, Microsoft SQL Server,
- *           Oracle, or Amazon Aurora database server. These capabilities mean that the code, applications, and tools
+ *           Oracle, Db2, or Amazon Aurora database server. These capabilities mean that the code, applications, and tools
  *           you already use today with your existing databases work with Amazon RDS without modification. Amazon RDS
  *           automatically backs up your database and maintains the database software that powers your DB instance. Amazon RDS
  *           is flexible: you can scale your DB instance's compute resources and storage capacity to meet your

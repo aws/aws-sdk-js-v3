@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -93,6 +91,10 @@ import { FlushApiCacheCommandInput, FlushApiCacheCommandOutput } from "./command
 import { GetApiAssociationCommandInput, GetApiAssociationCommandOutput } from "./commands/GetApiAssociationCommand";
 import { GetApiCacheCommandInput, GetApiCacheCommandOutput } from "./commands/GetApiCacheCommand";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
+import {
+  GetDataSourceIntrospectionCommandInput,
+  GetDataSourceIntrospectionCommandOutput,
+} from "./commands/GetDataSourceIntrospectionCommand";
 import { GetDomainNameCommandInput, GetDomainNameCommandOutput } from "./commands/GetDomainNameCommand";
 import { GetFunctionCommandInput, GetFunctionCommandOutput } from "./commands/GetFunctionCommand";
 import { GetGraphqlApiCommandInput, GetGraphqlApiCommandOutput } from "./commands/GetGraphqlApiCommand";
@@ -133,6 +135,10 @@ import {
   ListTypesByAssociationCommandOutput,
 } from "./commands/ListTypesByAssociationCommand";
 import { ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTypesCommand";
+import {
+  StartDataSourceIntrospectionCommandInput,
+  StartDataSourceIntrospectionCommandOutput,
+} from "./commands/StartDataSourceIntrospectionCommand";
 import {
   StartSchemaCreationCommandInput,
   StartSchemaCreationCommandOutput,
@@ -195,6 +201,7 @@ export type ServiceInputTypes =
   | GetApiAssociationCommandInput
   | GetApiCacheCommandInput
   | GetDataSourceCommandInput
+  | GetDataSourceIntrospectionCommandInput
   | GetDomainNameCommandInput
   | GetFunctionCommandInput
   | GetGraphqlApiCommandInput
@@ -214,6 +221,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ListTypesByAssociationCommandInput
   | ListTypesCommandInput
+  | StartDataSourceIntrospectionCommandInput
   | StartSchemaCreationCommandInput
   | StartSchemaMergeCommandInput
   | TagResourceCommandInput
@@ -260,6 +268,7 @@ export type ServiceOutputTypes =
   | GetApiAssociationCommandOutput
   | GetApiCacheCommandOutput
   | GetDataSourceCommandOutput
+  | GetDataSourceIntrospectionCommandOutput
   | GetDomainNameCommandOutput
   | GetFunctionCommandOutput
   | GetGraphqlApiCommandOutput
@@ -279,6 +288,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ListTypesByAssociationCommandOutput
   | ListTypesCommandOutput
+  | StartDataSourceIntrospectionCommandOutput
   | StartSchemaCreationCommandOutput
   | StartSchemaMergeCommandOutput
   | TagResourceCommandOutput
@@ -403,6 +413,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 
@@ -463,8 +475,8 @@ export interface AppSyncClientResolvedConfig extends AppSyncClientResolvedConfig
 
 /**
  * @public
- * <p>AppSync provides API actions for creating and interacting with data
- *          sources using GraphQL from your application.</p>
+ * <p>AppSync provides API actions for creating and interacting with data sources using GraphQL
+ *          from your application.</p>
  */
 export class AppSyncClient extends __Client<
   __HttpHandlerOptions,

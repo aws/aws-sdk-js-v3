@@ -83,6 +83,7 @@ export const ScalableDimension = {
   LambdaFunctionProvisionedConcurrency: "lambda:function:ProvisionedConcurrency",
   NeptuneClusterReadReplicaCount: "neptune:cluster:ReadReplicaCount",
   RDSClusterReadReplicaCount: "rds:cluster:ReadReplicaCount",
+  SageMakerInferenceComponentDesiredCopyCount: "sagemaker:inference-component:DesiredCopyCount",
   SageMakerVariantDesiredInstanceCount: "sagemaker:variant:DesiredInstanceCount",
   SageMakerVariantDesiredProvisionedConcurrency: "sagemaker:variant:DesiredProvisionedConcurrency",
 } as const;
@@ -133,7 +134,7 @@ export interface DeleteScalingPolicyRequest {
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -205,6 +206,10 @@ export interface DeleteScalingPolicyRequest {
    *             <li>
    *                <p>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>SageMaker inference component - The resource type is <code>inference-component</code> and the unique identifier is the resource ID.
+   *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -298,9 +303,13 @@ export interface DeleteScalingPolicyRequest {
    *                <p>
    *                   <code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency for a SageMaker Serverless endpoint.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sagemaker:inference-component:DesiredCopyCount</code> - The number of copies across an endpoint for a SageMaker inference component.</p>
+   *             </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: ScalableDimension | undefined;
 }
 
 /**
@@ -388,7 +397,7 @@ export interface DeleteScheduledActionRequest {
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -466,6 +475,10 @@ export interface DeleteScheduledActionRequest {
    *             <li>
    *                <p>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>SageMaker inference component - The resource type is <code>inference-component</code> and the unique identifier is the resource ID.
+   *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -559,9 +572,13 @@ export interface DeleteScheduledActionRequest {
    *                <p>
    *                   <code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency for a SageMaker Serverless endpoint.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sagemaker:inference-component:DesiredCopyCount</code> - The number of copies across an endpoint for a SageMaker inference component.</p>
+   *             </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: ScalableDimension | undefined;
 }
 
 /**
@@ -578,7 +595,7 @@ export interface DeregisterScalableTargetRequest {
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -650,6 +667,10 @@ export interface DeregisterScalableTargetRequest {
    *             <li>
    *                <p>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>SageMaker inference component - The resource type is <code>inference-component</code> and the unique identifier is the resource ID.
+   *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -744,9 +765,13 @@ export interface DeregisterScalableTargetRequest {
    *                <p>
    *                   <code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency for a SageMaker Serverless endpoint.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sagemaker:inference-component:DesiredCopyCount</code> - The number of copies across an endpoint for a SageMaker inference component.</p>
+   *             </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: ScalableDimension | undefined;
 }
 
 /**
@@ -763,7 +788,7 @@ export interface DescribeScalableTargetsRequest {
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -835,6 +860,10 @@ export interface DescribeScalableTargetsRequest {
    *             <li>
    *                <p>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>SageMaker inference component - The resource type is <code>inference-component</code> and the unique identifier is the resource ID.
+   *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -929,9 +958,13 @@ export interface DescribeScalableTargetsRequest {
    *                <p>
    *                   <code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency for a SageMaker Serverless endpoint.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sagemaker:inference-component:DesiredCopyCount</code> - The number of copies across an endpoint for a SageMaker inference component.</p>
+   *             </li>
    *          </ul>
    */
-  ScalableDimension?: ScalableDimension | string;
+  ScalableDimension?: ScalableDimension;
 
   /**
    * @public
@@ -993,7 +1026,7 @@ export interface ScalableTarget {
    * <p>The namespace of the Amazon Web Services service that provides the resource, or a
    *             <code>custom-resource</code>.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -1065,6 +1098,10 @@ export interface ScalableTarget {
    *             <li>
    *                <p>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>SageMaker inference component - The resource type is <code>inference-component</code> and the unique identifier is the resource ID.
+   *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -1159,9 +1196,13 @@ export interface ScalableTarget {
    *                <p>
    *                   <code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency for a SageMaker Serverless endpoint.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sagemaker:inference-component:DesiredCopyCount</code> - The number of copies across an endpoint for a SageMaker inference component.</p>
+   *             </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: ScalableDimension | undefined;
 
   /**
    * @public
@@ -1251,7 +1292,7 @@ export interface DescribeScalingActivitiesRequest {
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -1323,6 +1364,10 @@ export interface DescribeScalingActivitiesRequest {
    *             <li>
    *                <p>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>SageMaker inference component - The resource type is <code>inference-component</code> and the unique identifier is the resource ID.
+   *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -1417,9 +1462,13 @@ export interface DescribeScalingActivitiesRequest {
    *                <p>
    *                   <code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency for a SageMaker Serverless endpoint.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sagemaker:inference-component:DesiredCopyCount</code> - The number of copies across an endpoint for a SageMaker inference component.</p>
+   *             </li>
    *          </ul>
    */
-  ScalableDimension?: ScalableDimension | string;
+  ScalableDimension?: ScalableDimension;
 
   /**
    * @public
@@ -1533,7 +1582,7 @@ export interface ScalingActivity {
    * <p>The namespace of the Amazon Web Services service that provides the resource, or a
    *             <code>custom-resource</code>.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -1605,6 +1654,10 @@ export interface ScalingActivity {
    *             <li>
    *                <p>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>SageMaker inference component - The resource type is <code>inference-component</code> and the unique identifier is the resource ID.
+   *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -1698,9 +1751,13 @@ export interface ScalingActivity {
    *                <p>
    *                   <code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency for a SageMaker Serverless endpoint.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sagemaker:inference-component:DesiredCopyCount</code> - The number of copies across an endpoint for a SageMaker inference component.</p>
+   *             </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: ScalableDimension | undefined;
 
   /**
    * @public
@@ -1730,7 +1787,7 @@ export interface ScalingActivity {
    * @public
    * <p>Indicates the status of the scaling activity.</p>
    */
-  StatusCode: ScalingActivityStatusCode | string | undefined;
+  StatusCode: ScalingActivityStatusCode | undefined;
 
   /**
    * @public
@@ -1785,7 +1842,7 @@ export interface DescribeScalingPoliciesRequest {
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -1857,6 +1914,10 @@ export interface DescribeScalingPoliciesRequest {
    *             <li>
    *                <p>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>SageMaker inference component - The resource type is <code>inference-component</code> and the unique identifier is the resource ID.
+   *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -1951,9 +2012,13 @@ export interface DescribeScalingPoliciesRequest {
    *                <p>
    *                   <code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency for a SageMaker Serverless endpoint.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sagemaker:inference-component:DesiredCopyCount</code> - The number of copies across an endpoint for a SageMaker inference component.</p>
+   *             </li>
    *          </ul>
    */
-  ScalableDimension?: ScalableDimension | string;
+  ScalableDimension?: ScalableDimension;
 
   /**
    * @public
@@ -2088,7 +2153,7 @@ export interface StepScalingPolicyConfiguration {
    *             <code>AdjustmentType</code> is required if you are adding a new step scaling policy
    *          configuration.</p>
    */
-  AdjustmentType?: AdjustmentType | string;
+  AdjustmentType?: AdjustmentType;
 
   /**
    * @public
@@ -2114,7 +2179,7 @@ export interface StepScalingPolicyConfiguration {
   /**
    * @public
    * <p>The amount of time, in seconds, to wait for a previous scaling activity to take effect. If
-   *       not specified, the default value is 300. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html#step-scaling-cooldown">Cooldown period</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+   *       not specified, the default value is 300. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/step-scaling-policy-overview.html#step-scaling-cooldown">Cooldown period</a> in the <i>Application Auto Scaling User Guide</i>.</p>
    */
   Cooldown?: number;
 
@@ -2124,7 +2189,7 @@ export interface StepScalingPolicyConfiguration {
    *             <code>Maximum</code>, and <code>Average</code>. If the aggregation type is null, the
    *          value is treated as <code>Average</code>.</p>
    */
-  MetricAggregationType?: MetricAggregationType | string;
+  MetricAggregationType?: MetricAggregationType;
 }
 
 /**
@@ -2357,7 +2422,7 @@ export interface CustomizedMetricSpecification {
    * @public
    * <p>The statistic of the metric.</p>
    */
-  Statistic?: MetricStatistic | string;
+  Statistic?: MetricStatistic;
 
   /**
    * @public
@@ -2402,6 +2467,7 @@ export const MetricType = {
   NeptuneReaderAverageCPUUtilization: "NeptuneReaderAverageCPUUtilization",
   RDSReaderAverageCPUUtilization: "RDSReaderAverageCPUUtilization",
   RDSReaderAverageDatabaseConnections: "RDSReaderAverageDatabaseConnections",
+  SageMakerInferenceComponentInvocationsPerCopy: "SageMakerInferenceComponentInvocationsPerCopy",
   SageMakerVariantInvocationsPerInstance: "SageMakerVariantInvocationsPerInstance",
   SageMakerVariantProvisionedConcurrencyUtilization: "SageMakerVariantProvisionedConcurrencyUtilization",
 } as const;
@@ -2417,8 +2483,8 @@ export type MetricType = (typeof MetricType)[keyof typeof MetricType];
  *          Application Auto Scaling.</p>
  *          <p>Only the Amazon Web Services that you're using send metrics to Amazon CloudWatch. To determine whether a
  *          desired metric already exists by looking up its namespace and dimension using the CloudWatch
- *          metrics dashboard in the console, follow the procedure in <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/monitoring-cloudwatch.html">Building dashboards
- *             with CloudWatch</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+ *          metrics dashboard in the console, follow the procedure in <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/monitoring-cloudwatch.html">Monitor your
+ *             resources using CloudWatch</a> in the <i>Application Auto Scaling User Guide</i>.</p>
  */
 export interface PredefinedMetricSpecification {
   /**
@@ -2426,7 +2492,7 @@ export interface PredefinedMetricSpecification {
    * <p>The metric type. The <code>ALBRequestCountPerTarget</code> metric type applies only to
    *          Spot Fleets and ECS services.</p>
    */
-  PredefinedMetricType: MetricType | string | undefined;
+  PredefinedMetricType: MetricType | undefined;
 
   /**
    * @public
@@ -2494,14 +2560,14 @@ export interface TargetTrackingScalingPolicyConfiguration {
   /**
    * @public
    * <p>The amount of time, in seconds, to wait for a previous scale-out activity to take effect.
-   *       For more information and for default values, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html#target-tracking-cooldown">Define cooldown periods</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+   *       For more information and for default values, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/target-tracking-scaling-policy-overview.html#target-tracking-cooldown">Define cooldown periods</a> in the <i>Application Auto Scaling User Guide</i>.</p>
    */
   ScaleOutCooldown?: number;
 
   /**
    * @public
    * <p>The amount of time, in seconds, after a scale-in activity completes before another
-   *       scale-in activity can start. For more information and for default values, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html#target-tracking-cooldown">Define cooldown periods</a> in the <i>Application Auto Scaling User Guide</i>.</p>
+   *       scale-in activity can start. For more information and for default values, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/target-tracking-scaling-policy-overview.html#target-tracking-cooldown">Define cooldown periods</a> in the <i>Application Auto Scaling User Guide</i>.</p>
    */
   ScaleInCooldown?: number;
 
@@ -2542,7 +2608,7 @@ export interface ScalingPolicy {
    * <p>The namespace of the Amazon Web Services service that provides the resource, or a
    *             <code>custom-resource</code>.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -2614,6 +2680,10 @@ export interface ScalingPolicy {
    *             <li>
    *                <p>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>SageMaker inference component - The resource type is <code>inference-component</code> and the unique identifier is the resource ID.
+   *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -2707,9 +2777,13 @@ export interface ScalingPolicy {
    *                <p>
    *                   <code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency for a SageMaker Serverless endpoint.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sagemaker:inference-component:DesiredCopyCount</code> - The number of copies across an endpoint for a SageMaker inference component.</p>
+   *             </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: ScalableDimension | undefined;
 
   /**
    * @public
@@ -2721,7 +2795,7 @@ export interface ScalingPolicy {
    *             <code>StepScaling</code>—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or
    *       Neptune.</p>
    */
-  PolicyType: PolicyType | string | undefined;
+  PolicyType: PolicyType | undefined;
 
   /**
    * @public
@@ -2806,7 +2880,7 @@ export interface DescribeScheduledActionsRequest {
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -2878,6 +2952,10 @@ export interface DescribeScheduledActionsRequest {
    *             <li>
    *                <p>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>SageMaker inference component - The resource type is <code>inference-component</code> and the unique identifier is the resource ID.
+   *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -2972,9 +3050,13 @@ export interface DescribeScheduledActionsRequest {
    *                <p>
    *                   <code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency for a SageMaker Serverless endpoint.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sagemaker:inference-component:DesiredCopyCount</code> - The number of copies across an endpoint for a SageMaker inference component.</p>
+   *             </li>
    *          </ul>
    */
-  ScalableDimension?: ScalableDimension | string;
+  ScalableDimension?: ScalableDimension;
 
   /**
    * @public
@@ -3044,7 +3126,7 @@ export interface ScheduledAction {
    * <p>The namespace of the Amazon Web Services service that provides the resource, or a
    *             <code>custom-resource</code>.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -3151,6 +3233,10 @@ export interface ScheduledAction {
    *                <p>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
    *             </li>
+   *             <li>
+   *                <p>SageMaker inference component - The resource type is <code>inference-component</code> and the unique identifier is the resource ID.
+   *                Example: <code>inference-component/my-inference-component</code>.</p>
+   *             </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -3243,9 +3329,13 @@ export interface ScheduledAction {
    *                <p>
    *                   <code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency for a SageMaker Serverless endpoint.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sagemaker:inference-component:DesiredCopyCount</code> - The number of copies across an endpoint for a SageMaker inference component.</p>
+   *             </li>
    *          </ul>
    */
-  ScalableDimension?: ScalableDimension | string;
+  ScalableDimension?: ScalableDimension;
 
   /**
    * @public
@@ -3386,7 +3476,7 @@ export interface PutScalingPolicyRequest {
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -3458,6 +3548,10 @@ export interface PutScalingPolicyRequest {
    *             <li>
    *                <p>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>SageMaker inference component - The resource type is <code>inference-component</code> and the unique identifier is the resource ID.
+   *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -3551,9 +3645,13 @@ export interface PutScalingPolicyRequest {
    *                <p>
    *                   <code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency for a SageMaker Serverless endpoint.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sagemaker:inference-component:DesiredCopyCount</code> - The number of copies across an endpoint for a SageMaker inference component.</p>
+   *             </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: ScalableDimension | undefined;
 
   /**
    * @public
@@ -3561,14 +3659,14 @@ export interface PutScalingPolicyRequest {
    *       policy.</p>
    *          <p>The following policy types are supported: </p>
    *          <p>
-   *             <code>TargetTrackingScaling</code>—Not supported for Amazon EMR</p>
+   *             <code>TargetTrackingScaling</code>—Not supported for Amazon EMR.</p>
    *          <p>
    *             <code>StepScaling</code>—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or
    *       Neptune.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-target-tracking.html">Target
    *         tracking scaling policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-step-scaling-policies.html">Step scaling policies</a> in the <i>Application Auto Scaling User Guide</i>.</p>
    */
-  PolicyType?: PolicyType | string;
+  PolicyType?: PolicyType;
 
   /**
    * @public
@@ -3614,7 +3712,7 @@ export interface PutScheduledActionRequest {
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -3730,6 +3828,10 @@ export interface PutScheduledActionRequest {
    *                <p>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
    *             </li>
+   *             <li>
+   *                <p>SageMaker inference component - The resource type is <code>inference-component</code> and the unique identifier is the resource ID.
+   *                Example: <code>inference-component/my-inference-component</code>.</p>
+   *             </li>
    *          </ul>
    */
   ResourceId: string | undefined;
@@ -3822,9 +3924,13 @@ export interface PutScheduledActionRequest {
    *                <p>
    *                   <code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency for a SageMaker Serverless endpoint.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sagemaker:inference-component:DesiredCopyCount</code> - The number of copies across an endpoint for a SageMaker inference component.</p>
+   *             </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: ScalableDimension | undefined;
 
   /**
    * @public
@@ -3862,7 +3968,7 @@ export interface RegisterScalableTargetRequest {
    * <p>The namespace of the Amazon Web Services service that provides the resource. For a resource provided
    *          by your own application or service, use <code>custom-resource</code> instead.</p>
    */
-  ServiceNamespace: ServiceNamespace | string | undefined;
+  ServiceNamespace: ServiceNamespace | undefined;
 
   /**
    * @public
@@ -3934,6 +4040,10 @@ export interface RegisterScalableTargetRequest {
    *             <li>
    *                <p>SageMaker Serverless endpoint - The resource type is <code>variant</code> and the unique identifier is the resource ID.
    *                Example: <code>endpoint/my-end-point/variant/KMeansClustering</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>SageMaker inference component - The resource type is <code>inference-component</code> and the unique identifier is the resource ID.
+   *                Example: <code>inference-component/my-inference-component</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -4028,9 +4138,13 @@ export interface RegisterScalableTargetRequest {
    *                <p>
    *                   <code>sagemaker:variant:DesiredProvisionedConcurrency</code> - The provisioned concurrency for a SageMaker Serverless endpoint.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sagemaker:inference-component:DesiredCopyCount</code> - The number of copies across an endpoint for a SageMaker inference component.</p>
+   *             </li>
    *          </ul>
    */
-  ScalableDimension: ScalableDimension | string | undefined;
+  ScalableDimension: ScalableDimension | undefined;
 
   /**
    * @public

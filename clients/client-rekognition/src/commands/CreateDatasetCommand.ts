@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateDatasetRequest, CreateDatasetResponse } from "../models/models_0";
 import { de_CreateDatasetCommand, se_CreateDatasetCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
@@ -36,7 +28,10 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
 
 /**
  * @public
- * <p>Creates a new Amazon Rekognition Custom Labels dataset. You can create a dataset by using
+ * <note>
+ *             <p>This operation applies only to Amazon Rekognition Custom Labels.</p>
+ *          </note>
+ *          <p>Creates a new Amazon Rekognition Custom Labels dataset. You can create a dataset by using
  *    an Amazon Sagemaker format manifest file or by copying an existing Amazon Rekognition Custom Labels dataset.</p>
  *          <p>To create a training dataset for a project, specify <code>TRAIN</code> for the value of
  *       <code>DatasetType</code>. To create the test dataset for a project,
@@ -103,9 +98,11 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  *  <p>Amazon Rekognition is unable to access the S3 object specified in the request.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many Amazon Rekognition Video jobs concurrently, calls to start operations
- *             (<code>StartLabelDetection</code>, for example) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until
- *             the number of concurrently running jobs is below the Amazon Rekognition service limit.  </p>
+ *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs
+ *             concurrently, subsequent calls to start operations (ex:
+ *             <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code>
+ *             exception (HTTP status code: 400) until the number of concurrently running jobs is below
+ *             the Amazon Rekognition service limit. </p>
  *
  * @throws {@link ProvisionedThroughputExceededException} (client fault)
  *  <p>The number of requests exceeded your throughput limit. If you want to increase this
@@ -149,77 +146,26 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * ```
  *
  */
-export class CreateDatasetCommand extends $Command<
-  CreateDatasetCommandInput,
-  CreateDatasetCommandOutput,
-  RekognitionClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateDatasetCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RekognitionClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateDatasetCommandInput, CreateDatasetCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, CreateDatasetCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RekognitionClient";
-    const commandName = "CreateDatasetCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateDatasetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateDatasetCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDatasetCommandOutput> {
-    return de_CreateDatasetCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateDatasetCommand extends $Command
+  .classBuilder<
+    CreateDatasetCommandInput,
+    CreateDatasetCommandOutput,
+    RekognitionClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("RekognitionService", "CreateDataset", {})
+  .n("RekognitionClient", "CreateDatasetCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateDatasetCommand)
+  .de(de_CreateDatasetCommand)
+  .build() {}

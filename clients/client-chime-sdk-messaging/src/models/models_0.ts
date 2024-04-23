@@ -41,7 +41,7 @@ export interface AppInstanceUserMembershipSummary {
    * @public
    * <p>The type of <code>ChannelMembership</code>.</p>
    */
-  Type?: ChannelMembershipType | string;
+  Type?: ChannelMembershipType;
 
   /**
    * @public
@@ -113,7 +113,7 @@ export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -138,7 +138,7 @@ export class BadRequestException extends __BaseException {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -162,7 +162,7 @@ export class ConflictException extends __BaseException {
 export class ForbiddenException extends __BaseException {
   readonly name: "ForbiddenException" = "ForbiddenException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -186,7 +186,7 @@ export class ForbiddenException extends __BaseException {
 export class NotFoundException extends __BaseException {
   readonly name: "NotFoundException" = "NotFoundException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -210,7 +210,7 @@ export class NotFoundException extends __BaseException {
 export class ServiceFailureException extends __BaseException {
   readonly name: "ServiceFailureException" = "ServiceFailureException";
   readonly $fault: "server" = "server";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -234,7 +234,7 @@ export class ServiceFailureException extends __BaseException {
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
   readonly $fault: "server" = "server";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -258,7 +258,7 @@ export class ServiceUnavailableException extends __BaseException {
 export class ThrottledClientException extends __BaseException {
   readonly name: "ThrottledClientException" = "ThrottledClientException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -282,7 +282,7 @@ export class ThrottledClientException extends __BaseException {
 export class UnauthorizedClientException extends __BaseException {
   readonly name: "UnauthorizedClientException" = "UnauthorizedClientException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -333,7 +333,7 @@ export interface BatchChannelMemberships {
    * @public
    * <p>The membership types set for the channel members.</p>
    */
-  Type?: ChannelMembershipType | string;
+  Type?: ChannelMembershipType;
 
   /**
    * @public
@@ -372,7 +372,7 @@ export interface BatchCreateChannelMembershipRequest {
    *             <code>HIDDEN</code>. Otherwise hidden members are not returned. This is only supported
    *          by moderators.</p>
    */
-  Type?: ChannelMembershipType | string;
+  Type?: ChannelMembershipType;
 
   /**
    * @public
@@ -413,7 +413,7 @@ export interface BatchCreateChannelMembershipError {
    * @public
    * <p>The error code.</p>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: ErrorCode;
 
   /**
    * @public
@@ -447,7 +447,7 @@ export interface BatchCreateChannelMembershipResponse {
 export class ResourceLimitExceededException extends __BaseException {
   readonly name: "ResourceLimitExceededException" = "ResourceLimitExceededException";
   readonly $fault: "client" = "client";
-  Code?: ErrorCode | string;
+  Code?: ErrorCode;
   Message?: string;
   /**
    * @internal
@@ -517,7 +517,7 @@ export interface ExpirationSettings {
    * @public
    * <p>The conditions that must be met for a channel to expire.</p>
    */
-  ExpirationCriterion: ExpirationCriterion | string | undefined;
+  ExpirationCriterion: ExpirationCriterion | undefined;
 }
 
 /**
@@ -569,13 +569,13 @@ export interface Channel {
    * @public
    * <p>The mode of the channel.</p>
    */
-  Mode?: ChannelMode | string;
+  Mode?: ChannelMode;
 
   /**
    * @public
    * <p>The channel's privacy setting.</p>
    */
-  Privacy?: ChannelPrivacy | string;
+  Privacy?: ChannelPrivacy;
 
   /**
    * @public
@@ -647,13 +647,13 @@ export interface ChannelAssociatedWithFlowSummary {
    * @public
    * <p>The mode of the channel.</p>
    */
-  Mode?: ChannelMode | string;
+  Mode?: ChannelMode;
 
   /**
    * @public
    * <p>The channel's privacy setting.</p>
    */
-  Privacy?: ChannelPrivacy | string;
+  Privacy?: ChannelPrivacy;
 
   /**
    * @public
@@ -732,7 +732,7 @@ export interface LambdaConfiguration {
    * @public
    * <p>Controls how the Lambda function is invoked.</p>
    */
-  InvocationType: InvocationType | string | undefined;
+  InvocationType: InvocationType | undefined;
 }
 
 /**
@@ -791,7 +791,7 @@ export interface Processor {
    *          communication with it fails, the processor sets the message status to <code>FAILED</code> and does not send the message to any recipients. Note that if the last processor in the channel flow sequence
    *          has a fallback action of <code>CONTINUE</code> and communication with the processor fails, then the message is considered processed and sent to recipients of the channel.</p>
    */
-  FallbackAction: FallbackAction | string | undefined;
+  FallbackAction: FallbackAction | undefined;
 }
 
 /**
@@ -879,7 +879,7 @@ export interface PushNotificationConfiguration {
    *          <code>DEFAULT</code>: Normal mobile push notification.
    *          <code>VOIP</code>: VOIP mobile push notification.</p>
    */
-  Type?: PushNotificationType | string;
+  Type?: PushNotificationType;
 }
 
 /**
@@ -1022,7 +1022,7 @@ export interface ChannelMembership {
    * @public
    * <p>The membership type set for the channel member.</p>
    */
-  Type?: ChannelMembershipType | string;
+  Type?: ChannelMembershipType;
 
   /**
    * @public
@@ -1076,13 +1076,13 @@ export interface ChannelSummary {
    * @public
    * <p>The mode of the channel.</p>
    */
-  Mode?: ChannelMode | string;
+  Mode?: ChannelMode;
 
   /**
    * @public
    * <p>The privacy setting of the channel.</p>
    */
-  Privacy?: ChannelPrivacy | string;
+  Privacy?: ChannelPrivacy;
 
   /**
    * @public
@@ -1126,7 +1126,7 @@ export interface PushNotificationPreferences {
    *          <code>ALL</code> sends all push notifications, <code>NONE</code> sends no push notifications, <code>FILTERED</code> sends only filtered push notifications.
    *       </p>
    */
-  AllowNotifications: AllowNotifications | string | undefined;
+  AllowNotifications: AllowNotifications | undefined;
 
   /**
    * @public
@@ -1199,7 +1199,7 @@ export interface ChannelMessageStatusStructure {
    * @public
    * <p>The message status value.</p>
    */
-  Value?: ChannelMessageStatus | string;
+  Value?: ChannelMessageStatus;
 
   /**
    * @public
@@ -1270,7 +1270,7 @@ export interface ChannelMessage {
    * @public
    * <p>The message type.</p>
    */
-  Type?: ChannelMessageType | string;
+  Type?: ChannelMessageType;
 
   /**
    * @public
@@ -1306,7 +1306,7 @@ export interface ChannelMessage {
    * @public
    * <p>The persistence setting for a channel message.</p>
    */
-  Persistence?: ChannelMessagePersistenceType | string;
+  Persistence?: ChannelMessagePersistenceType;
 
   /**
    * @public
@@ -1374,7 +1374,7 @@ export interface ChannelMessageSummary {
    * @public
    * <p>The type of message.</p>
    */
-  Type?: ChannelMessageType | string;
+  Type?: ChannelMessageType;
 
   /**
    * @public
@@ -1532,7 +1532,7 @@ export interface CreateChannelRequest {
    *          moderators, and channel members can add themselves and other members to unrestricted
    *          channels. Only administrators and moderators can add members to restricted channels.</p>
    */
-  Mode?: ChannelMode | string;
+  Mode?: ChannelMode;
 
   /**
    * @public
@@ -1540,7 +1540,7 @@ export interface CreateChannelRequest {
    *          channels aren't discoverable by users outside the channel. Public channels are discoverable
    *          by anyone in the <code>AppInstance</code>.</p>
    */
-  Privacy?: ChannelPrivacy | string;
+  Privacy?: ChannelPrivacy;
 
   /**
    * @public
@@ -1719,7 +1719,7 @@ export interface CreateChannelMembershipRequest {
    *             <code>HIDDEN</code>. Otherwise hidden members are not returned. This is only supported
    *          by moderators.</p>
    */
-  Type: ChannelMembershipType | string | undefined;
+  Type: ChannelMembershipType | undefined;
 
   /**
    * @public
@@ -2409,7 +2409,7 @@ export interface StreamingConfiguration {
    * @public
    * <p>The data type of the configuration.</p>
    */
-  DataType: MessagingDataType | string | undefined;
+  DataType: MessagingDataType | undefined;
 
   /**
    * @public
@@ -2539,7 +2539,7 @@ export interface ListChannelMembershipsRequest {
    *          are only returned if the type filter in <code>ListChannelMemberships</code> equals
    *             <code>HIDDEN</code>.</p>
    */
-  Type?: ChannelMembershipType | string;
+  Type?: ChannelMembershipType;
 
   /**
    * @public
@@ -2672,7 +2672,7 @@ export interface ListChannelMessagesRequest {
    * <p>The order in which you want messages sorted. Default is Descending, based on time
    *          created.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 
   /**
    * @public
@@ -2815,7 +2815,7 @@ export interface ListChannelsRequest {
    *             <code>PRIVATE</code> retrieves private channels. Only an <code>AppInstanceAdmin</code>
    *          can retrieve private channels. </p>
    */
-  Privacy?: ChannelPrivacy | string;
+  Privacy?: ChannelPrivacy;
 
   /**
    * @public
@@ -3249,7 +3249,7 @@ export interface SearchField {
    * <p>An <code>enum</code> value that indicates the key to search the channel on. <code>MEMBERS</code> allows you to search channels based on memberships. You can use it with the <code>EQUALS</code>
    *          operator to get channels whose memberships are equal to the specified values, and with the <code>INCLUDES</code>  operator to get channels whose memberships include the specified values.</p>
    */
-  Key: SearchFieldKey | string | undefined;
+  Key: SearchFieldKey | undefined;
 
   /**
    * @public
@@ -3265,7 +3265,7 @@ export interface SearchField {
    * <p>The operator used to compare field values, currently <code>EQUALS</code> or <code>INCLUDES</code>.  Use the <code>EQUALS</code> operator to find channels whose memberships equal the specified values.
    *          Use the <code>INCLUDES</code> operator to find channels whose memberships include the specified values.</p>
    */
-  Operator: SearchFieldOperator | string | undefined;
+  Operator: SearchFieldOperator | undefined;
 }
 
 /**
@@ -3339,13 +3339,13 @@ export interface SendChannelMessageRequest {
    *          <p>
    *             <code>CONTROL</code> messages are limited to 30 bytes and do not contain metadata.</p>
    */
-  Type: ChannelMessageType | string | undefined;
+  Type: ChannelMessageType | undefined;
 
   /**
    * @public
    * <p>Boolean that controls whether the message is persisted on the back end. Required.</p>
    */
-  Persistence: ChannelMessagePersistenceType | string | undefined;
+  Persistence: ChannelMessagePersistenceType | undefined;
 
   /**
    * @public
@@ -3482,7 +3482,7 @@ export interface UpdateChannelRequest {
    * @public
    * <p>The mode of the update request.</p>
    */
-  Mode?: ChannelMode | string;
+  Mode?: ChannelMode;
 
   /**
    * @public

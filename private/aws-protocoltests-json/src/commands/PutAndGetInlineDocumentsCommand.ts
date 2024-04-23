@@ -1,16 +1,7 @@
 // smithy-typescript generated code
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import { PutAndGetInlineDocumentsInputOutput } from "../models/models_0";
@@ -63,67 +54,20 @@ export interface PutAndGetInlineDocumentsCommandOutput extends PutAndGetInlineDo
  * <p>Base exception class for all service exceptions from JsonProtocol service.</p>
  *
  */
-export class PutAndGetInlineDocumentsCommand extends $Command<
-  PutAndGetInlineDocumentsCommandInput,
-  PutAndGetInlineDocumentsCommandOutput,
-  JsonProtocolClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PutAndGetInlineDocumentsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: JsonProtocolClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PutAndGetInlineDocumentsCommandInput, PutAndGetInlineDocumentsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "JsonProtocolClient";
-    const commandName = "PutAndGetInlineDocumentsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: PutAndGetInlineDocumentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PutAndGetInlineDocumentsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutAndGetInlineDocumentsCommandOutput> {
-    return de_PutAndGetInlineDocumentsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class PutAndGetInlineDocumentsCommand extends $Command
+  .classBuilder<
+    PutAndGetInlineDocumentsCommandInput,
+    PutAndGetInlineDocumentsCommandOutput,
+    JsonProtocolClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .m(function (this: any, Command: any, cs: any, config: JsonProtocolClientResolvedConfig, o: any) {
+    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+  })
+  .s("JsonProtocol", "PutAndGetInlineDocuments", {})
+  .n("JsonProtocolClient", "PutAndGetInlineDocumentsCommand")
+  .f(void 0, void 0)
+  .ser(se_PutAndGetInlineDocumentsCommand)
+  .de(de_PutAndGetInlineDocumentsCommand)
+  .build() {}

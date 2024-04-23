@@ -81,7 +81,7 @@ export interface KMSKeyDetails {
    *          Management Service (KMS) (<code>AWS_OWNED_CMK</code>) or customer managed
    *             (<code>CUSTOMER_MANAGED_CMK</code>).</p>
    */
-  EncryptionOption?: EncryptionOption | string;
+  EncryptionOption?: EncryptionOption;
 }
 
 /**
@@ -196,18 +196,18 @@ export interface AssociateRepositoryRequest {
   /**
    * @public
    * <p>An array of key-value pairs used to tag an associated repository. A tag is a custom attribute label with two parts:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>A <i>tag key</i> (for example, <code>CostCenter</code>,
+   *                <p>A <i>tag key</i> (for example, <code>CostCenter</code>,
    * 					<code>Environment</code>, <code>Project</code>, or <code>Secret</code>). Tag
    * 					keys are case sensitive.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>An optional field known as a <i>tag value</i> (for example,
+   *                <p>An optional field known as a <i>tag value</i> (for example,
    * 					<code>111122223333</code>, <code>Production</code>, or a team name).
    * 					Omitting the tag value is the same as using an empty string. Like tag keys, tag
    * 					values are case sensitive.</p>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   Tags?: Record<string, string>;
@@ -361,7 +361,7 @@ export interface RepositoryAssociation {
    * @public
    * <p>The provider type of the repository association.</p>
    */
-  ProviderType?: ProviderType | string;
+  ProviderType?: ProviderType;
 
   /**
    * @public
@@ -402,7 +402,7 @@ export interface RepositoryAssociation {
    *             </li>
    *          </ul>
    */
-  State?: RepositoryAssociationState | string;
+  State?: RepositoryAssociationState;
 
   /**
    * @public
@@ -463,18 +463,18 @@ export interface AssociateRepositoryResponse {
   /**
    * @public
    * <p>An array of key-value pairs used to tag an associated repository. A tag is a custom attribute label with two parts:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>A <i>tag key</i> (for example, <code>CostCenter</code>,
+   *                <p>A <i>tag key</i> (for example, <code>CostCenter</code>,
    * 					<code>Environment</code>, <code>Project</code>, or <code>Secret</code>). Tag
    * 					keys are case sensitive.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>An optional field known as a <i>tag value</i> (for example,
+   *                <p>An optional field known as a <i>tag value</i> (for example,
    * 					<code>111122223333</code>, <code>Production</code>, or a team name).
    * 					Omitting the tag value is the same as using an empty string. Like tag keys, tag
    * 					values are case sensitive.</p>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   Tags?: Record<string, string>;
@@ -703,7 +703,7 @@ export interface RequestMetadata {
    *             <code>ProviderType</code> is <code>S3Bucket</code> and the CI/CD repository vendor name
    *          is GitHub. For more information, see the definition for <code>ProviderType</code> in <a href="https://docs.aws.amazon.com/codeguru/latest/reviewer-api/API_RepositoryAssociation.html">RepositoryAssociation</a>.</p>
    */
-  VendorName?: VendorName | string;
+  VendorName?: VendorName;
 }
 
 /**
@@ -820,7 +820,7 @@ export interface CodeReviewType {
    * <p>They types of analysis performed during a repository analysis or a pull request review.
    *          You can specify either <code>Security</code>, <code>CodeQuality</code>, or both.</p>
    */
-  AnalysisTypes?: (AnalysisType | string)[];
+  AnalysisTypes?: AnalysisType[];
 }
 
 /**
@@ -972,7 +972,7 @@ export interface CodeReview {
    * <p>The type of repository that contains the reviewed code (for example, GitHub or
    *          Bitbucket).</p>
    */
-  ProviderType?: ProviderType | string;
+  ProviderType?: ProviderType;
 
   /**
    * @public
@@ -996,7 +996,7 @@ export interface CodeReview {
    *             </li>
    *          </ul>
    */
-  State?: JobState | string;
+  State?: JobState;
 
   /**
    * @public
@@ -1020,7 +1020,7 @@ export interface CodeReview {
    * @public
    * <p>The type of code review.</p>
    */
-  Type?: Type | string;
+  Type?: Type;
 
   /**
    * @public
@@ -1052,7 +1052,7 @@ export interface CodeReview {
    * <p>The types of analysis performed during a repository analysis or a pull request review.
    *          You can specify either <code>Security</code>, <code>CodeQuality</code>, or both.</p>
    */
-  AnalysisTypes?: (AnalysisType | string)[];
+  AnalysisTypes?: AnalysisType[];
 
   /**
    * @public
@@ -1060,7 +1060,7 @@ export interface CodeReview {
    *          the configuration of the CodeGuru Reviewer analysis. The file either exists, doesn't exist, or exists
    *          with errors at the root directory of your repository.</p>
    */
-  ConfigFileState?: ConfigFileState | string;
+  ConfigFileState?: ConfigFileState;
 }
 
 /**
@@ -1188,7 +1188,7 @@ export interface RecommendationFeedback {
    * <p>List for storing reactions. Reactions are utf-8 text code for emojis. You can send an
    *          empty list to clear off all your feedback.</p>
    */
-  Reactions?: (Reaction | string)[];
+  Reactions?: Reaction[];
 
   /**
    * @public
@@ -1248,18 +1248,18 @@ export interface DescribeRepositoryAssociationResponse {
   /**
    * @public
    * <p>An array of key-value pairs used to tag an associated repository. A tag is a custom attribute label with two parts:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>A <i>tag key</i> (for example, <code>CostCenter</code>,
+   *                <p>A <i>tag key</i> (for example, <code>CostCenter</code>,
    * 					<code>Environment</code>, <code>Project</code>, or <code>Secret</code>). Tag
    * 					keys are case sensitive.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>An optional field known as a <i>tag value</i> (for example,
+   *                <p>An optional field known as a <i>tag value</i> (for example,
    * 					<code>111122223333</code>, <code>Production</code>, or a team name).
    * 					Omitting the tag value is the same as using an empty string. Like tag keys, tag
    * 					values are case sensitive.</p>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   Tags?: Record<string, string>;
@@ -1311,18 +1311,18 @@ export interface DisassociateRepositoryResponse {
   /**
    * @public
    * <p>An array of key-value pairs used to tag an associated repository. A tag is a custom attribute label with two parts:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>A <i>tag key</i> (for example, <code>CostCenter</code>,
+   *                <p>A <i>tag key</i> (for example, <code>CostCenter</code>,
    * 					<code>Environment</code>, <code>Project</code>, or <code>Secret</code>). Tag
    * 					keys are case sensitive.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>An optional field known as a <i>tag value</i> (for example,
+   *                <p>An optional field known as a <i>tag value</i> (for example,
    * 					<code>111122223333</code>, <code>Production</code>, or a team name).
    * 					Omitting the tag value is the same as using an empty string. Like tag keys, tag
    * 					values are case sensitive.</p>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   Tags?: Record<string, string>;
@@ -1338,7 +1338,7 @@ export interface ListCodeReviewsRequest {
    *          result. For example, <code>providerTypes=[GitHub]</code> lists code reviews from
    *          GitHub.</p>
    */
-  ProviderTypes?: (ProviderType | string)[];
+  ProviderTypes?: ProviderType[];
 
   /**
    * @public
@@ -1364,7 +1364,7 @@ export interface ListCodeReviewsRequest {
    *             </li>
    *          </ul>
    */
-  States?: (JobState | string)[];
+  States?: JobState[];
 
   /**
    * @public
@@ -1377,7 +1377,7 @@ export interface ListCodeReviewsRequest {
    * @public
    * <p>The type of code reviews to list in the response.</p>
    */
-  Type: Type | string | undefined;
+  Type: Type | undefined;
 
   /**
    * @public
@@ -1477,7 +1477,7 @@ export interface CodeReviewSummary {
    * @public
    * <p>The provider type of the repository association.</p>
    */
-  ProviderType?: ProviderType | string;
+  ProviderType?: ProviderType;
 
   /**
    * @public
@@ -1502,7 +1502,7 @@ export interface CodeReviewSummary {
    *             </li>
    *          </ul>
    */
-  State?: JobState | string;
+  State?: JobState;
 
   /**
    * @public
@@ -1520,7 +1520,7 @@ export interface CodeReviewSummary {
    * @public
    * <p>The type of the code review.</p>
    */
-  Type?: Type | string;
+  Type?: Type;
 
   /**
    * @public
@@ -1618,7 +1618,7 @@ export interface RecommendationFeedbackSummary {
    * @public
    * <p>List for storing reactions. Reactions are utf-8 text code for emojis.</p>
    */
-  Reactions?: (Reaction | string)[];
+  Reactions?: Reaction[];
 
   /**
    * @public
@@ -1794,7 +1794,7 @@ export interface RecommendationSummary {
    * @public
    * <p>The type of a recommendation.</p>
    */
-  RecommendationCategory?: RecommendationCategory | string;
+  RecommendationCategory?: RecommendationCategory;
 
   /**
    * @public
@@ -1806,7 +1806,7 @@ export interface RecommendationSummary {
    * @public
    * <p>The severity of the issue in the code that generated this recommendation.</p>
    */
-  Severity?: Severity | string;
+  Severity?: Severity;
 }
 
 /**
@@ -1834,7 +1834,7 @@ export interface ListRepositoryAssociationsRequest {
    * @public
    * <p>List of provider types to use as a filter.</p>
    */
-  ProviderTypes?: (ProviderType | string)[];
+  ProviderTypes?: ProviderType[];
 
   /**
    * @public
@@ -1875,7 +1875,7 @@ export interface ListRepositoryAssociationsRequest {
    *             </li>
    *          </ul>
    */
-  States?: (RepositoryAssociationState | string)[];
+  States?: RepositoryAssociationState[];
 
   /**
    * @public
@@ -1968,7 +1968,7 @@ export interface RepositoryAssociationSummary {
    * @public
    * <p>The provider type of the repository association.</p>
    */
-  ProviderType?: ProviderType | string;
+  ProviderType?: ProviderType;
 
   /**
    * @public
@@ -2009,7 +2009,7 @@ export interface RepositoryAssociationSummary {
    *             </li>
    *          </ul>
    */
-  State?: RepositoryAssociationState | string;
+  State?: RepositoryAssociationState;
 }
 
 /**
@@ -2050,18 +2050,18 @@ export interface ListTagsForResourceResponse {
   /**
    * @public
    * <p>An array of key-value pairs used to tag an associated repository. A tag is a custom attribute label with two parts:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>A <i>tag key</i> (for example, <code>CostCenter</code>,
+   *                <p>A <i>tag key</i> (for example, <code>CostCenter</code>,
    * 					<code>Environment</code>, <code>Project</code>, or <code>Secret</code>). Tag
    * 					keys are case sensitive.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>An optional field known as a <i>tag value</i> (for example,
+   *                <p>An optional field known as a <i>tag value</i> (for example,
    * 					<code>111122223333</code>, <code>Production</code>, or a team name).
    * 					Omitting the tag value is the same as using an empty string. Like tag keys, tag
    * 					values are case sensitive.</p>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   Tags?: Record<string, string>;
@@ -2090,7 +2090,7 @@ export interface PutRecommendationFeedbackRequest {
    * <p>List for storing reactions. Reactions are utf-8 text code for emojis. If you send an
    *          empty list it clears all your feedback.</p>
    */
-  Reactions: (Reaction | string)[] | undefined;
+  Reactions: Reaction[] | undefined;
 }
 
 /**
@@ -2111,18 +2111,18 @@ export interface TagResourceRequest {
   /**
    * @public
    * <p>An array of key-value pairs used to tag an associated repository. A tag is a custom attribute label with two parts:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>A <i>tag key</i> (for example, <code>CostCenter</code>,
+   *                <p>A <i>tag key</i> (for example, <code>CostCenter</code>,
    * 					<code>Environment</code>, <code>Project</code>, or <code>Secret</code>). Tag
    * 					keys are case sensitive.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>An optional field known as a <i>tag value</i> (for example,
+   *                <p>An optional field known as a <i>tag value</i> (for example,
    * 					<code>111122223333</code>, <code>Production</code>, or a team name).
    * 					Omitting the tag value is the same as using an empty string. Like tag keys, tag
    * 					values are case sensitive.</p>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   Tags: Record<string, string> | undefined;

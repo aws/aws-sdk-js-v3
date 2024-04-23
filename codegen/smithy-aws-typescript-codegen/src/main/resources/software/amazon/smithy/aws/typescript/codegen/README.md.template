@@ -10,7 +10,7 @@ ${documentation}
 
 ## Installing
 To install the this package, simply type add or install ${packageName}
-using your favorite package manager: 
+using your favorite package manager:
 - `npm install ${packageName}`
 - `yarn add ${packageName}`
 - `pnpm add ${packageName}`
@@ -158,7 +158,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.

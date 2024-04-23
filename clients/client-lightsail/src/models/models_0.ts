@@ -124,7 +124,7 @@ export interface AccessKey {
    *          <p>A status of <code>Active</code> means that the key is valid, while <code>Inactive</code>
    *       means it is not.</p>
    */
-  status?: StatusType | string;
+  status?: StatusType;
 
   /**
    * @public
@@ -210,7 +210,7 @@ export interface AccessRules {
    *             </li>
    *          </ul>
    */
-  getObject?: AccessType | string;
+  getObject?: AccessType;
 
   /**
    * @public
@@ -303,7 +303,7 @@ export interface AccountLevelBpaSync {
    *         those statuses.</p>
    *          </note>
    */
-  status?: AccountLevelBpaSyncStatus | string;
+  status?: AccountLevelBpaSyncStatus;
 
   /**
    * @public
@@ -352,7 +352,7 @@ export interface AccountLevelBpaSync {
    *             </li>
    *          </ul>
    */
-  message?: BPAStatusMessage | string;
+  message?: BPAStatusMessage;
 
   /**
    * @public
@@ -437,7 +437,8 @@ export interface AddOn {
 
   /**
    * @public
-   * <p>The amount of idle time in minutes after which your virtual computer will automatically stop.</p>
+   * <p>The amount of idle time in minutes after which your virtual computer will automatically
+   *       stop.</p>
    *          <important>
    *             <p>This add-on only applies to Lightsail for Research resources.</p>
    *          </important>
@@ -532,7 +533,8 @@ export interface StopInstanceOnIdleRequest {
 
   /**
    * @public
-   * <p>The amount of idle time in minutes after which your virtual computer will automatically stop.</p>
+   * <p>The amount of idle time in minutes after which your virtual computer will automatically
+   *       stop.</p>
    */
   duration?: string;
 }
@@ -552,7 +554,7 @@ export interface AddOnRequest {
    * @public
    * <p>The add-on type.</p>
    */
-  addOnType: AddOnType | string | undefined;
+  addOnType: AddOnType | undefined;
 
   /**
    * @public
@@ -644,7 +646,7 @@ export interface ResourceLocation {
    * @public
    * <p>The Amazon Web Services Region name.</p>
    */
-  regionName?: RegionName | string;
+  regionName?: RegionName;
 }
 
 /**
@@ -742,7 +744,7 @@ export interface MonitoredResourceInfo {
    *          <p>Instances, load balancers, and relational databases are the only Lightsail resources
    *       that can currently be monitored by alarms.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 }
 
 /**
@@ -865,9 +867,9 @@ export interface Alarm {
 
   /**
    * @public
-   * <p>The Lightsail resource type (e.g., <code>Alarm</code>).</p>
+   * <p>The Lightsail resource type of the alarm.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -887,7 +889,7 @@ export interface Alarm {
    * @public
    * <p>The arithmetic operation used when comparing the specified statistic and threshold.</p>
    */
-  comparisonOperator?: ComparisonOperator | string;
+  comparisonOperator?: ComparisonOperator;
 
   /**
    * @public
@@ -941,7 +943,7 @@ export interface Alarm {
    *             </li>
    *          </ul>
    */
-  treatMissingData?: TreatMissingData | string;
+  treatMissingData?: TreatMissingData;
 
   /**
    * @public
@@ -977,13 +979,13 @@ export interface Alarm {
    *             </li>
    *          </ul>
    */
-  statistic?: MetricStatistic | string;
+  statistic?: MetricStatistic;
 
   /**
    * @public
    * <p>The name of the metric associated with the alarm.</p>
    */
-  metricName?: MetricName | string;
+  metricName?: MetricName;
 
   /**
    * @public
@@ -1006,26 +1008,26 @@ export interface Alarm {
    *             </li>
    *          </ul>
    */
-  state?: AlarmState | string;
+  state?: AlarmState;
 
   /**
    * @public
    * <p>The unit of the metric associated with the alarm.</p>
    */
-  unit?: MetricUnit | string;
+  unit?: MetricUnit;
 
   /**
    * @public
    * <p>The contact protocols for the alarm, such as <code>Email</code>, <code>SMS</code> (text
    *       messaging), or both.</p>
    */
-  contactProtocols?: (ContactProtocol | string)[];
+  contactProtocols?: ContactProtocol[];
 
   /**
    * @public
    * <p>The alarm states that trigger a notification.</p>
    */
-  notificationTriggers?: (AlarmState | string)[];
+  notificationTriggers?: AlarmState[];
 
   /**
    * @public
@@ -1115,6 +1117,7 @@ export const OperationType = {
   SendContactMethodVerification: "SendContactMethodVerification",
   SetIpAddressType: "SetIpAddressType",
   SetResourceAccessForBucket: "SetResourceAccessForBucket",
+  SetupInstanceHttps: "SetupInstanceHttps",
   StartGUISession: "StartGUISession",
   StartInstance: "StartInstance",
   StartRelationalDatabase: "StartRelationalDatabase",
@@ -1177,12 +1180,11 @@ export interface Operation {
    * @public
    * <p>The resource type. </p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
-   * <p>The timestamp when the operation was initialized (e.g.,
-   *       <code>1479816991.349</code>).</p>
+   * <p>The timestamp when the operation was initialized (<code>1479816991.349</code>).</p>
    */
   createdAt?: Date;
 
@@ -1200,7 +1202,7 @@ export interface Operation {
 
   /**
    * @public
-   * <p>Details about the operation (e.g., <code>Debian-1GB-Ohio-1</code>).</p>
+   * <p>Details about the operation (<code>Debian-1GB-Ohio-1</code>).</p>
    */
   operationDetails?: string;
 
@@ -1208,17 +1210,17 @@ export interface Operation {
    * @public
    * <p>The type of operation. </p>
    */
-  operationType?: OperationType | string;
+  operationType?: OperationType;
 
   /**
    * @public
    * <p>The status of the operation. </p>
    */
-  status?: OperationStatus | string;
+  status?: OperationStatus;
 
   /**
    * @public
-   * <p>The timestamp when the status was changed (e.g., <code>1479816991.349</code>).</p>
+   * <p>The timestamp when the status was changed (<code>1479816991.349</code>).</p>
    */
   statusChangedAt?: Date;
 
@@ -1445,7 +1447,7 @@ export interface AttachCertificateToDistributionResult {
 export interface AttachDiskRequest {
   /**
    * @public
-   * <p>The unique Lightsail disk name (e.g., <code>my-disk</code>).</p>
+   * <p>The unique Lightsail disk name (<code>my-disk</code>).</p>
    */
   diskName: string | undefined;
 
@@ -1457,7 +1459,7 @@ export interface AttachDiskRequest {
 
   /**
    * @public
-   * <p>The disk path to expose to the instance (e.g., <code>/dev/xvdf</code>).</p>
+   * <p>The disk path to expose to the instance (<code>/dev/xvdf</code>).</p>
    */
   diskPath: string | undefined;
 
@@ -1492,7 +1494,7 @@ export interface AttachDiskResult {
 export interface AttachedDisk {
   /**
    * @public
-   * <p>The path of the disk (e.g., <code>/dev/xvdf</code>).</p>
+   * <p>The path of the disk (<code>/dev/xvdf</code>).</p>
    */
   path?: string;
 
@@ -1517,7 +1519,7 @@ export interface DiskMap {
 
   /**
    * @public
-   * <p>The new disk name (e.g., <code>my-new-disk</code>).</p>
+   * <p>The new disk name (<code>my-new-disk</code>).</p>
    */
   newDiskName?: string;
 }
@@ -1671,7 +1673,7 @@ export interface AutoSnapshotDetails {
    * @public
    * <p>The status of the automatic snapshot.</p>
    */
-  status?: AutoSnapshotStatus | string;
+  status?: AutoSnapshotStatus;
 
   /**
    * @public
@@ -1750,28 +1752,28 @@ export type BlueprintType = (typeof BlueprintType)[keyof typeof BlueprintType];
 export interface Blueprint {
   /**
    * @public
-   * <p>The ID for the virtual private server image (e.g., <code>app_wordpress_4_4</code> or
+   * <p>The ID for the virtual private server image (<code>app_wordpress_4_4</code> or
    *         <code>app_lamp_7_0</code>).</p>
    */
   blueprintId?: string;
 
   /**
    * @public
-   * <p>The friendly name of the blueprint (e.g., <code>Amazon Linux</code>).</p>
+   * <p>The friendly name of the blueprint (<code>Amazon Linux</code>).</p>
    */
   name?: string;
 
   /**
    * @public
-   * <p>The group name of the blueprint (e.g., <code>amazon-linux</code>).</p>
+   * <p>The group name of the blueprint (<code>amazon-linux</code>).</p>
    */
   group?: string;
 
   /**
    * @public
-   * <p>The type of the blueprint (e.g., <code>os</code> or <code>app</code>).</p>
+   * <p>The type of the blueprint (<code>os</code> or <code>app</code>).</p>
    */
-  type?: BlueprintType | string;
+  type?: BlueprintType;
 
   /**
    * @public
@@ -1799,7 +1801,7 @@ export interface Blueprint {
 
   /**
    * @public
-   * <p>The version number of the operating system, application, or stack (e.g.,
+   * <p>The version number of the operating system, application, or stack (
    *         <code>2016.03.0</code>).</p>
    */
   version?: string;
@@ -1827,7 +1829,7 @@ export interface Blueprint {
    * <p>The operating system platform (either Linux/Unix-based or Windows Server-based) of the
    *       blueprint.</p>
    */
-  platform?: InstancePlatform | string;
+  platform?: InstancePlatform;
 
   /**
    * @public
@@ -1836,7 +1838,7 @@ export interface Blueprint {
    *             <p>This parameter only applies to Lightsail for Research resources.</p>
    *          </important>
    */
-  appCategory?: AppCategory | string;
+  appCategory?: AppCategory;
 }
 
 /**
@@ -1941,7 +1943,7 @@ export interface Tag {
 export interface Bucket {
   /**
    * @public
-   * <p>The Lightsail resource type of the bucket (for example, <code>Bucket</code>).</p>
+   * <p>The Lightsail resource type of the bucket.</p>
    */
   resourceType?: string;
 
@@ -2136,31 +2138,31 @@ export type BucketMetricName = (typeof BucketMetricName)[keyof typeof BucketMetr
 export interface Bundle {
   /**
    * @public
-   * <p>The price in US dollars (e.g., <code>5.0</code>) of the bundle.</p>
+   * <p>The price in US dollars (<code>5.0</code>) of the bundle.</p>
    */
   price?: number;
 
   /**
    * @public
-   * <p>The number of vCPUs included in the bundle (e.g., <code>2</code>).</p>
+   * <p>The number of vCPUs included in the bundle (<code>2</code>).</p>
    */
   cpuCount?: number;
 
   /**
    * @public
-   * <p>The size of the SSD (e.g., <code>30</code>).</p>
+   * <p>The size of the SSD (<code>30</code>).</p>
    */
   diskSizeInGb?: number;
 
   /**
    * @public
-   * <p>The bundle ID (e.g., <code>micro_1_0</code>).</p>
+   * <p>The bundle ID (<code>micro_1_0</code>).</p>
    */
   bundleId?: string;
 
   /**
    * @public
-   * <p>The Amazon EC2 instance type (e.g., <code>t2.micro</code>).</p>
+   * <p>The Amazon EC2 instance type (<code>t2.micro</code>).</p>
    */
   instanceType?: string;
 
@@ -2172,13 +2174,13 @@ export interface Bundle {
 
   /**
    * @public
-   * <p>A friendly name for the bundle (e.g., <code>Micro</code>).</p>
+   * <p>A friendly name for the bundle (<code>Micro</code>).</p>
    */
   name?: string;
 
   /**
    * @public
-   * <p>A numeric value that represents the power of the bundle (e.g., <code>500</code>). You can
+   * <p>A numeric value that represents the power of the bundle (<code>500</code>). You can
    *       use the bundle's power value in conjunction with a blueprint's minimum power value to
    *       determine whether the blueprint will run on the bundle. For example, you need a bundle with a
    *       power value of 500 or more to create an instance that uses a blueprint with a minimum power
@@ -2188,13 +2190,13 @@ export interface Bundle {
 
   /**
    * @public
-   * <p>The amount of RAM in GB (e.g., <code>2.0</code>).</p>
+   * <p>The amount of RAM in GB (<code>2.0</code>).</p>
    */
   ramSizeInGb?: number;
 
   /**
    * @public
-   * <p>The data transfer rate per month in GB (e.g., <code>2000</code>).</p>
+   * <p>The data transfer rate per month in GB (<code>2000</code>).</p>
    */
   transferPerMonthInGb?: number;
 
@@ -2205,7 +2207,7 @@ export interface Bundle {
    *         <code>WINDOWS</code> platform. <code>LINUX_UNIX</code> blueprints require a
    *         <code>LINUX_UNIX</code> bundle.</p>
    */
-  supportedPlatforms?: (InstancePlatform | string)[];
+  supportedPlatforms?: InstancePlatform[];
 
   /**
    * @public
@@ -2214,7 +2216,13 @@ export interface Bundle {
    *             <p>This parameter only applies to Lightsail for Research resources.</p>
    *          </important>
    */
-  supportedAppCategories?: (AppCategory | string)[];
+  supportedAppCategories?: AppCategory[];
+
+  /**
+   * @public
+   * <p>An integer that indicates the public ipv4 address count included in the bundle, the value is either 0 or 1.</p>
+   */
+  publicIpv4AddressCount?: number;
 }
 
 /**
@@ -2251,7 +2259,7 @@ export interface CacheBehavior {
    *             </li>
    *          </ul>
    */
-  behavior?: BehaviorEnum | string;
+  behavior?: BehaviorEnum;
 }
 
 /**
@@ -2337,7 +2345,7 @@ export interface CacheBehaviorPerPath {
    *             </li>
    *          </ul>
    */
-  behavior?: BehaviorEnum | string;
+  behavior?: BehaviorEnum;
 }
 
 /**
@@ -2370,7 +2378,7 @@ export interface CookieObject {
    *         <code>all</code>, <code>none</code>, or <code>allow-list</code> to forward only the cookies
    *       specified in the <code>cookiesAllowList</code> parameter.</p>
    */
-  option?: ForwardValues | string;
+  option?: ForwardValues;
 
   /**
    * @public
@@ -2448,13 +2456,13 @@ export interface HeaderObject {
    *             </li>
    *          </ul>
    */
-  option?: ForwardValues | string;
+  option?: ForwardValues;
 
   /**
    * @public
    * <p>The specific headers to forward to your distribution's origin.</p>
    */
-  headersAllowList?: (HeaderEnum | string)[];
+  headersAllowList?: HeaderEnum[];
 }
 
 /**
@@ -2645,7 +2653,7 @@ export interface DnsRecordCreationState {
    *             </li>
    *          </ul>
    */
-  code?: DnsRecordCreationStateCode | string;
+  code?: DnsRecordCreationStateCode;
 
   /**
    * @public
@@ -2727,7 +2735,7 @@ export interface DomainValidationRecord {
    * @public
    * <p>The validation status of the record.</p>
    */
-  validationStatus?: CertificateDomainValidationStatus | string;
+  validationStatus?: CertificateDomainValidationStatus;
 }
 
 /**
@@ -2799,7 +2807,7 @@ export interface RenewalSummary {
    *             </li>
    *          </ul>
    */
-  renewalStatus?: RenewalStatus | string;
+  renewalStatus?: RenewalStatus;
 
   /**
    * @public
@@ -2851,7 +2859,7 @@ export interface Certificate {
 
   /**
    * @public
-   * <p>The name of the certificate (e.g., <code>my-certificate</code>).</p>
+   * <p>The name of the certificate (<code>my-certificate</code>).</p>
    */
   name?: string;
 
@@ -2865,7 +2873,7 @@ export interface Certificate {
    * @public
    * <p>The validation status of the certificate.</p>
    */
-  status?: CertificateStatus | string;
+  status?: CertificateStatus;
 
   /**
    * @public
@@ -2875,8 +2883,8 @@ export interface Certificate {
 
   /**
    * @public
-   * <p>An array of strings that specify the alternate domains (e.g., <code>example2.com</code>)
-   *       and subdomains (e.g., <code>blog.example.com</code>) of the certificate.</p>
+   * <p>An array of strings that specify the alternate domains (<code>example2.com</code>)
+   *       and subdomains (<code>blog.example.com</code>) of the certificate.</p>
    */
   subjectAlternativeNames?: string[];
 
@@ -3042,6 +3050,19 @@ export interface Certificate {
 
 /**
  * @public
+ * @enum
+ */
+export const CertificateProvider = {
+  LetsEncrypt: "LetsEncrypt",
+} as const;
+
+/**
+ * @public
+ */
+export type CertificateProvider = (typeof CertificateProvider)[keyof typeof CertificateProvider];
+
+/**
+ * @public
  * <p>Describes an Amazon Lightsail SSL/TLS certificate.</p>
  */
 export interface CertificateSummary {
@@ -3185,7 +3206,7 @@ export interface PortInfo {
    *             </li>
    *          </ul>
    */
-  protocol?: NetworkProtocol | string;
+  protocol?: NetworkProtocol;
 
   /**
    * @public
@@ -3304,9 +3325,9 @@ export type CloudFormationStackRecordSourceType =
 export interface CloudFormationStackRecordSourceInfo {
   /**
    * @public
-   * <p>The Lightsail resource type (e.g., <code>ExportSnapshotRecord</code>).</p>
+   * <p>The Lightsail resource type (<code>ExportSnapshotRecord</code>).</p>
    */
-  resourceType?: CloudFormationStackRecordSourceType | string;
+  resourceType?: CloudFormationStackRecordSourceType;
 
   /**
    * @public
@@ -3372,15 +3393,15 @@ export interface CloudFormationStackRecord {
 
   /**
    * @public
-   * <p>The Lightsail resource type (e.g., <code>CloudFormationStackRecord</code>).</p>
+   * <p>The Lightsail resource type (<code>CloudFormationStackRecord</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
    * <p>The current state of the CloudFormation stack record.</p>
    */
-  state?: RecordState | string;
+  state?: RecordState;
 
   /**
    * @public
@@ -3445,13 +3466,13 @@ export interface ContactMethod {
    *             </li>
    *          </ul>
    */
-  status?: ContactMethodStatus | string;
+  status?: ContactMethodStatus;
 
   /**
    * @public
    * <p>The protocol of the contact method, such as email or SMS (text messaging).</p>
    */
-  protocol?: ContactProtocol | string;
+  protocol?: ContactProtocol;
 
   /**
    * @public
@@ -3479,9 +3500,9 @@ export interface ContactMethod {
 
   /**
    * @public
-   * <p>The Lightsail resource type (e.g., <code>ContactMethod</code>).</p>
+   * <p>The Lightsail resource type of the contact method.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -3561,7 +3582,7 @@ export interface Container {
    * @public
    * <p>The open firewall ports of the container.</p>
    */
-  ports?: Record<string, ContainerServiceProtocol | string>;
+  ports?: Record<string, ContainerServiceProtocol>;
 }
 
 /**
@@ -3703,28 +3724,28 @@ export interface ContainerServiceDeployment {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>Activating</code> - The deployment is being created.</p>
+   *                   <code>ACTIVATING</code> - The deployment is being created.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Active</code> - The deployment was successfully created, and it's currently
+   *                   <code>ACTIVE</code> - The deployment was successfully created, and it's currently
    *           running on the container service. The container service can have only one deployment in an
    *           active state at a time.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Inactive</code> - The deployment was previously successfully created, but it is
+   *                   <code>INACTIVE</code> - The deployment was previously successfully created, but it is
    *           not currently running on the container service.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Failed</code> - The deployment failed. Use the <code>GetContainerLog</code>
+   *                   <code>FAILED</code> - The deployment failed. Use the <code>GetContainerLog</code>
    *           action to view the log events for the containers in the deployment to try to determine the
    *           reason for the failure.</p>
    *             </li>
    *          </ul>
    */
-  state?: ContainerServiceDeploymentState | string;
+  state?: ContainerServiceDeploymentState;
 
   /**
    * @public
@@ -3914,7 +3935,7 @@ export interface ContainerServiceStateDetail {
    *             </li>
    *          </ul>
    */
-  code?: ContainerServiceStateDetailCode | string;
+  code?: ContainerServiceStateDetailCode;
 
   /**
    * @public
@@ -3958,10 +3979,9 @@ export interface ContainerService {
 
   /**
    * @public
-   * <p>The Lightsail resource type of the container service (i.e.,
-   *         <code>ContainerService</code>).</p>
+   * <p>The Lightsail resource type of the container service.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -3976,7 +3996,7 @@ export interface ContainerService {
    *          <p>The power specifies the amount of RAM, the number of vCPUs, and the base price of the
    *       container service.</p>
    */
-  power?: ContainerServicePowerName | string;
+  power?: ContainerServicePowerName;
 
   /**
    * @public
@@ -4024,7 +4044,7 @@ export interface ContainerService {
    *             </li>
    *          </ul>
    */
-  state?: ContainerServiceState | string;
+  state?: ContainerServiceState;
 
   /**
    * @public
@@ -4223,7 +4243,7 @@ export type ContainerServiceMetricName = (typeof ContainerServiceMetricName)[key
 export interface ContainerServicePower {
   /**
    * @public
-   * <p>The ID of the power (e.g., <code>nano-1</code>).</p>
+   * <p>The ID of the power (<code>nano-1</code>).</p>
    */
   powerId?: string;
 
@@ -4247,7 +4267,7 @@ export interface ContainerServicePower {
 
   /**
    * @public
-   * <p>The friendly name of the power (e.g., <code>nano</code>).</p>
+   * <p>The friendly name of the power (<code>nano</code>).</p>
    */
   name?: string;
 
@@ -4390,7 +4410,7 @@ export interface CopySnapshotRequest {
    * <p>The Amazon Web Services Region where the source manual or automatic snapshot is
    *       located.</p>
    */
-  sourceRegion: RegionName | string | undefined;
+  sourceRegion: RegionName | undefined;
 }
 
 /**
@@ -4437,18 +4457,27 @@ export type PricingUnit = (typeof PricingUnit)[keyof typeof PricingUnit];
 
 /**
  * @public
- * <p>Sets the start date and end date for retrieving a cost estimate. The start date is inclusive, but the end date is exclusive. For example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code> is <code>2017-05-01</code>, then the cost and usage data is retrieved from <code>2017-01-01</code> up to and including <code>2017-04-30</code> but not including <code>2017-05-01</code>.</p>
+ * <p>Sets the start date and end date for retrieving a cost estimate. The start date is
+ *       inclusive, but the end date is exclusive. For example, if <code>start</code> is
+ *         <code>2017-01-01</code> and <code>end</code> is <code>2017-05-01</code>, then the cost and
+ *       usage data is retrieved from <code>2017-01-01</code> up to and including
+ *         <code>2017-04-30</code> but not including <code>2017-05-01</code>.</p>
  */
 export interface TimePeriod {
   /**
    * @public
-   * <p>The beginning of the time period. The start date is inclusive. For example, if <code>start</code> is <code>2017-01-01</code>, Lightsail for Research retrieves cost and usage data starting at <code>2017-01-01</code> up to the end date. The start date must be equal to or no later than the current date to avoid a validation error.</p>
+   * <p>The beginning of the time period. The start date is inclusive. For example, if
+   *         <code>start</code> is <code>2017-01-01</code>, Lightsail for Research retrieves cost and usage data starting
+   *       at <code>2017-01-01</code> up to the end date. The start date must be equal to or no later
+   *       than the current date to avoid a validation error.</p>
    */
   start?: Date;
 
   /**
    * @public
-   * <p>The end of the time period. The end date is exclusive. For example, if <code>end</code> is <code>2017-05-01</code>, Lightsail for Research retrieves cost and usage data from the start date up to, but not including, <code>2017-05-01</code>.</p>
+   * <p>The end of the time period. The end date is exclusive. For example, if <code>end</code> is
+   *         <code>2017-05-01</code>, Lightsail for Research retrieves cost and usage data from the start date up to, but
+   *       not including, <code>2017-05-01</code>.</p>
    */
   end?: Date;
 }
@@ -4468,7 +4497,7 @@ export interface EstimateByTime {
    * @public
    * <p>The unit of measurement that's used for the cost estimate.</p>
    */
-  pricingUnit?: PricingUnit | string;
+  pricingUnit?: PricingUnit;
 
   /**
    * @public
@@ -4481,11 +4510,12 @@ export interface EstimateByTime {
    * @public
    * <p>The currency of the estimate in USD.</p>
    */
-  currency?: Currency | string;
+  currency?: Currency;
 
   /**
    * @public
-   * <p>The period of time, in days, that an estimate covers. The period has a start date and an end date. The start date must come before the end date.</p>
+   * <p>The period of time, in days, that an estimate covers. The period has a start date and an
+   *       end date. The start date must come before the end date.</p>
    */
   timePeriod?: TimePeriod;
 }
@@ -4610,17 +4640,17 @@ export interface CreateCertificateRequest {
 
   /**
    * @public
-   * <p>The domain name (e.g., <code>example.com</code>) for the certificate.</p>
+   * <p>The domain name (<code>example.com</code>) for the certificate.</p>
    */
   domainName: string | undefined;
 
   /**
    * @public
-   * <p>An array of strings that specify the alternate domains (e.g., <code>example2.com</code>)
-   *       and subdomains (e.g., <code>blog.example.com</code>) for the certificate.</p>
+   * <p>An array of strings that specify the alternate domains (<code>example2.com</code>)
+   *       and subdomains (<code>blog.example.com</code>) for the certificate.</p>
    *          <p>You can specify a maximum of nine alternate domains (in addition to the primary domain
    *       name).</p>
-   *          <p>Wildcard domain entries (e.g., <code>*.example.com</code>) are not supported.</p>
+   *          <p>Wildcard domain entries (<code>*.example.com</code>) are not supported.</p>
    */
   subjectAlternativeNames?: string[];
 
@@ -4683,7 +4713,7 @@ export interface InstanceEntry {
 
   /**
    * @public
-   * <p>The instance type (e.g., <code>t2.micro</code>) to use for the new Amazon EC2 instance.</p>
+   * <p>The instance type (<code>t2.micro</code>) to use for the new Amazon EC2 instance.</p>
    */
   instanceType: string | undefined;
 
@@ -4726,7 +4756,7 @@ export interface InstanceEntry {
    *         instance.</p>
    *          </note>
    */
-  portInfoSource: PortInfoSourceType | string | undefined;
+  portInfoSource: PortInfoSourceType | undefined;
 
   /**
    * @public
@@ -4807,7 +4837,7 @@ export interface CreateContactMethodRequest {
    *         Guide</i>.</p>
    *          <p>For more information about notifications in Amazon Lightsail, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-notifications">Notifications in Amazon Lightsail</a>.</p>
    */
-  protocol: ContactProtocol | string | undefined;
+  protocol: ContactProtocol | undefined;
 
   /**
    * @public
@@ -4895,7 +4925,7 @@ export interface CreateContainerServiceRequest {
    *          <p>Use the <code>GetContainerServicePowers</code> action to get a list of power options that
    *       you can specify using this parameter, and their base monthly cost.</p>
    */
-  power: ContainerServicePowerName | string | undefined;
+  power: ContainerServicePowerName | undefined;
 
   /**
    * @public
@@ -5026,13 +5056,13 @@ export interface CreateContainerServiceRegistryLoginResult {
 export interface CreateDiskRequest {
   /**
    * @public
-   * <p>The unique Lightsail disk name (e.g., <code>my-disk</code>).</p>
+   * <p>The unique Lightsail disk name (<code>my-disk</code>).</p>
    */
   diskName: string | undefined;
 
   /**
    * @public
-   * <p>The Availability Zone where you want to create the disk (e.g., <code>us-east-2a</code>).
+   * <p>The Availability Zone where you want to create the disk (<code>us-east-2a</code>).
    *       Use the same Availability Zone as the Lightsail instance to which you want to attach the
    *       disk.</p>
    *          <p>Use the <code>get regions</code> operation to list the Availability Zones where
@@ -5042,7 +5072,7 @@ export interface CreateDiskRequest {
 
   /**
    * @public
-   * <p>The size of the disk in GB (e.g., <code>32</code>).</p>
+   * <p>The size of the disk in GB (<code>32</code>).</p>
    */
   sizeInGb: number | undefined;
 
@@ -5078,13 +5108,13 @@ export interface CreateDiskResult {
 export interface CreateDiskFromSnapshotRequest {
   /**
    * @public
-   * <p>The unique Lightsail disk name (e.g., <code>my-disk</code>).</p>
+   * <p>The unique Lightsail disk name (<code>my-disk</code>).</p>
    */
   diskName: string | undefined;
 
   /**
    * @public
-   * <p>The name of the disk snapshot (e.g., <code>my-snapshot</code>) from which to create the
+   * <p>The name of the disk snapshot (<code>my-snapshot</code>) from which to create the
    *       new storage disk.</p>
    *          <p>Constraint:</p>
    *          <ul>
@@ -5099,7 +5129,7 @@ export interface CreateDiskFromSnapshotRequest {
 
   /**
    * @public
-   * <p>The Availability Zone where you want to create the disk (e.g., <code>us-east-2a</code>).
+   * <p>The Availability Zone where you want to create the disk (<code>us-east-2a</code>).
    *       Choose the same Availability Zone as the Lightsail instance where you want to create the
    *       disk.</p>
    *          <p>Use the GetRegions operation to list the Availability Zones where Lightsail is currently
@@ -5109,7 +5139,7 @@ export interface CreateDiskFromSnapshotRequest {
 
   /**
    * @public
-   * <p>The size of the disk in GB (e.g., <code>32</code>).</p>
+   * <p>The size of the disk in GB (<code>32</code>).</p>
    */
   sizeInGb: number | undefined;
 
@@ -5204,7 +5234,7 @@ export interface CreateDiskFromSnapshotResult {
 export interface CreateDiskSnapshotRequest {
   /**
    * @public
-   * <p>The unique name of the source disk (e.g., <code>Disk-Virginia-1</code>).</p>
+   * <p>The unique name of the source disk (<code>Disk-Virginia-1</code>).</p>
    *          <note>
    *             <p>This parameter cannot be defined together with the <code>instance name</code> parameter.
    *         The <code>disk name</code> and <code>instance name</code> parameters are mutually
@@ -5215,14 +5245,14 @@ export interface CreateDiskSnapshotRequest {
 
   /**
    * @public
-   * <p>The name of the destination disk snapshot (e.g., <code>my-disk-snapshot</code>) based on
+   * <p>The name of the destination disk snapshot (<code>my-disk-snapshot</code>) based on
    *       the source disk.</p>
    */
   diskSnapshotName: string | undefined;
 
   /**
    * @public
-   * <p>The unique name of the source instance (e.g., <code>Amazon_Linux-512MB-Virginia-1</code>).
+   * <p>The unique name of the source instance (<code>Amazon_Linux-512MB-Virginia-1</code>).
    *       When this is defined, a snapshot of the instance's system volume is created.</p>
    *          <note>
    *             <p>This parameter cannot be defined together with the <code>disk name</code> parameter. The
@@ -5284,7 +5314,7 @@ export type OriginProtocolPolicyEnum = (typeof OriginProtocolPolicyEnum)[keyof t
  * @public
  * <p>Describes the origin resource of an Amazon Lightsail content delivery network (CDN)
  *       distribution.</p>
- *          <p>An origin can be a Lightsail instance, bucket, or load balancer. A distribution pulls
+ *          <p>An origin can be a Lightsail instance, bucket, container service, or load balancer. A distribution pulls
  *       content from an origin, caches it, and serves it to viewers via a worldwide network of edge
  *       servers.</p>
  */
@@ -5299,14 +5329,14 @@ export interface InputOrigin {
    * @public
    * <p>The AWS Region name of the origin resource.</p>
    */
-  regionName?: RegionName | string;
+  regionName?: RegionName;
 
   /**
    * @public
    * <p>The protocol that your Amazon Lightsail distribution uses when establishing a connection
    *       with your origin to pull content.</p>
    */
-  protocolPolicy?: OriginProtocolPolicyEnum | string;
+  protocolPolicy?: OriginProtocolPolicyEnum;
 }
 
 /**
@@ -5362,7 +5392,7 @@ export interface CreateDistributionRequest {
    *       IPv4 and IPv6.</p>
    *          <p>The default value is <code>dualstack</code>.</p>
    */
-  ipAddressType?: IpAddressType | string;
+  ipAddressType?: IpAddressType;
 
   /**
    * @public
@@ -5389,22 +5419,22 @@ export interface Origin {
 
   /**
    * @public
-   * <p>The resource type of the origin resource (e.g., <i>Instance</i>).</p>
+   * <p>The resource type of the origin resource (<i>Instance</i>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
    * <p>The AWS Region name of the origin resource.</p>
    */
-  regionName?: RegionName | string;
+  regionName?: RegionName;
 
   /**
    * @public
    * <p>The protocol that your Amazon Lightsail distribution uses when establishing a connection
    *       with your origin to pull content.</p>
    */
-  protocolPolicy?: OriginProtocolPolicyEnum | string;
+  protocolPolicy?: OriginProtocolPolicyEnum;
 }
 
 /**
@@ -5452,9 +5482,9 @@ export interface LightsailDistribution {
 
   /**
    * @public
-   * <p>The Lightsail resource type (e.g., <code>Distribution</code>).</p>
+   * <p>The Lightsail resource type (<code>Distribution</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -5539,7 +5569,7 @@ export interface LightsailDistribution {
    *          <p>The possible values are <code>ipv4</code> for IPv4 only, and <code>dualstack</code> for
    *       IPv4 and IPv6.</p>
    */
-  ipAddressType?: IpAddressType | string;
+  ipAddressType?: IpAddressType;
 
   /**
    * @public
@@ -5573,7 +5603,7 @@ export interface CreateDistributionResult {
 export interface CreateDomainRequest {
   /**
    * @public
-   * <p>The domain name to manage (e.g., <code>example.com</code>).</p>
+   * <p>The domain name to manage (<code>example.com</code>).</p>
    */
   domainName: string | undefined;
 
@@ -5616,8 +5646,7 @@ export interface DomainEntry {
 
   /**
    * @public
-   * <p>The target IP address (e.g., <code>192.0.2.0</code>), or AWS name server (e.g.,
-   *         <code>ns-111.awsdns-22.com.</code>).</p>
+   * <p>The target IP address (<code>192.0.2.0</code>), or AWS name server (<code>ns-111.awsdns-22.com.</code>).</p>
    *          <p>For Lightsail load balancers, the value looks like
    *         <code>ab1234c56789c6b86aba6fb203d443bc-123456789.us-east-2.elb.amazonaws.com</code>. For
    *       Lightsail distributions, the value looks like <code>exampled1182ne.cloudfront.net</code>.
@@ -5692,10 +5721,10 @@ export interface DomainEntry {
    * @public
    * @deprecated
    *
-   * <p>(Deprecated) The options for the domain entry.</p>
+   * <p>(Discontinued) The options for the domain entry.</p>
    *          <note>
    *             <p>In releases prior to November 29, 2017, this parameter was not included in the API
-   *         response. It is now deprecated.</p>
+   *         response. It is now discontinued.</p>
    *          </note>
    */
   options?: Record<string, string>;
@@ -5707,7 +5736,7 @@ export interface DomainEntry {
 export interface CreateDomainEntryRequest {
   /**
    * @public
-   * <p>The domain name (e.g., <code>example.com</code>) for which you want to create the domain
+   * <p>The domain name (<code>example.com</code>) for which you want to create the domain
    *       entry.</p>
    */
   domainName: string | undefined;
@@ -5744,8 +5773,8 @@ export interface CreateGUISessionAccessDetailsRequest {
 
 /**
  * @public
- * <p>Describes a web-based, remote graphical user interface (GUI), NICE DCV session. The session is used to access a virtual
- *       computer’s operating system or application.</p>
+ * <p>Describes a web-based, remote graphical user interface (GUI), NICE DCV session. The
+ *       session is used to access a virtual computer’s operating system or application.</p>
  */
 export interface Session {
   /**
@@ -5804,7 +5833,7 @@ export interface CreateGUISessionAccessDetailsResult {
    * @public
    * <p>The status of the operation.</p>
    */
-  status?: Status | string;
+  status?: Status;
 
   /**
    * @public
@@ -5852,17 +5881,17 @@ export interface CreateInstancesRequest {
    * @public
    * @deprecated
    *
-   * <p>(Deprecated) The name for your custom image.</p>
+   * <p>(Discontinued) The name for your custom image.</p>
    *          <note>
    *             <p>In releases prior to June 12, 2017, this parameter was ignored by the API. It is now
-   *         deprecated.</p>
+   *         discontinued.</p>
    *          </note>
    */
   customImageName?: string;
 
   /**
    * @public
-   * <p>The ID for a virtual private server image (e.g., <code>app_wordpress_4_4</code> or
+   * <p>The ID for a virtual private server image (<code>app_wordpress_4_4</code> or
    *         <code>app_lamp_7_0</code>). Use the <code>get blueprints</code> operation to return a list
    *       of available images (or <i>blueprints</i>).</p>
    *          <note>
@@ -5877,8 +5906,7 @@ export interface CreateInstancesRequest {
   /**
    * @public
    * <p>The bundle of specification information for your virtual private server (or
-   *         <i>instance</i>), including the pricing plan (e.g.,
-   *       <code>micro_1_0</code>).</p>
+   *         <i>instance</i>), including the pricing plan (<code>micro_1_0</code>).</p>
    */
   bundleId: string | undefined;
 
@@ -5921,7 +5949,7 @@ export interface CreateInstancesRequest {
    *       IPv4 and IPv6.</p>
    *          <p>The default value is <code>dualstack</code>.</p>
    */
-  ipAddressType?: IpAddressType | string;
+  ipAddressType?: IpAddressType;
 }
 
 /**
@@ -5980,8 +6008,7 @@ export interface CreateInstancesFromSnapshotRequest {
   /**
    * @public
    * <p>The bundle of specification information for your virtual private server (or
-   *         <i>instance</i>), including the pricing plan (e.g.,
-   *       <code>micro_1_0</code>).</p>
+   *         <i>instance</i>), including the pricing plan (<code>micro_1_0</code>).</p>
    */
   bundleId: string | undefined;
 
@@ -6024,7 +6051,7 @@ export interface CreateInstancesFromSnapshotRequest {
    *       IPv4 and IPv6.</p>
    *          <p>The default value is <code>dualstack</code>.</p>
    */
-  ipAddressType?: IpAddressType | string;
+  ipAddressType?: IpAddressType;
 
   /**
    * @public
@@ -6166,8 +6193,7 @@ export interface KeyPair {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the key pair (e.g.,
-   *         <code>arn:aws:lightsail:us-east-2:123456789101:KeyPair/05859e3d-331d-48ba-9034-12345EXAMPLE</code>).</p>
+   * <p>The Amazon Resource Name (ARN) of the key pair (<code>arn:aws:lightsail:us-east-2:123456789101:KeyPair/05859e3d-331d-48ba-9034-12345EXAMPLE</code>).</p>
    */
   arn?: string;
 
@@ -6181,7 +6207,7 @@ export interface KeyPair {
 
   /**
    * @public
-   * <p>The timestamp when the key pair was created (e.g., <code>1479816991.349</code>).</p>
+   * <p>The timestamp when the key pair was created (<code>1479816991.349</code>).</p>
    */
   createdAt?: Date;
 
@@ -6195,7 +6221,7 @@ export interface KeyPair {
    * @public
    * <p>The resource type (usually <code>KeyPair</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -6261,8 +6287,7 @@ export interface CreateLoadBalancerRequest {
   /**
    * @public
    * <p>The path you provided to perform the load balancer health check. If you didn't specify a
-   *       health check path, Lightsail uses the root path of your website (e.g.,
-   *       <code>"/"</code>).</p>
+   *       health check path, Lightsail uses the root path of your website (<code>"/"</code>).</p>
    *          <p>You may want to specify a custom health check path other than the root of your application
    *       if your home page loads slowly or has a lot of media or scripting on it.</p>
    */
@@ -6278,8 +6303,7 @@ export interface CreateLoadBalancerRequest {
 
   /**
    * @public
-   * <p>The domain name with which your certificate is associated (e.g.,
-   *       <code>example.com</code>).</p>
+   * <p>The domain name with which your certificate is associated (<code>example.com</code>).</p>
    *          <p>If you specify <code>certificateDomainName</code>, then <code>certificateName</code> is
    *       required (and vice-versa).</p>
    */
@@ -6288,7 +6312,7 @@ export interface CreateLoadBalancerRequest {
   /**
    * @public
    * <p>The optional alternative domains and subdomains to use with your SSL/TLS certificate
-   *       (e.g., <code>www.example.com</code>, <code>example.com</code>, <code>m.example.com</code>,
+   *       (<code>www.example.com</code>, <code>example.com</code>, <code>m.example.com</code>,
    *         <code>blog.example.com</code>).</p>
    */
   certificateAlternativeNames?: string[];
@@ -6307,7 +6331,7 @@ export interface CreateLoadBalancerRequest {
    *       IPv4 and IPv6.</p>
    *          <p>The default value is <code>dualstack</code>.</p>
    */
-  ipAddressType?: IpAddressType | string;
+  ipAddressType?: IpAddressType;
 
   /**
    * @public
@@ -6354,7 +6378,7 @@ export interface CreateLoadBalancerTlsCertificateRequest {
 
   /**
    * @public
-   * <p>The domain name (e.g., <code>example.com</code>) for your SSL/TLS certificate.</p>
+   * <p>The domain name (<code>example.com</code>) for your SSL/TLS certificate.</p>
    */
   certificateDomainName: string | undefined;
 
@@ -6362,8 +6386,7 @@ export interface CreateLoadBalancerTlsCertificateRequest {
    * @public
    * <p>An array of strings listing alternative domains and subdomains for your SSL/TLS
    *       certificate. Lightsail will de-dupe the names for you. You can have a maximum of 9
-   *       alternative names (in addition to the 1 primary domain). We do not support wildcards (e.g.,
-   *         <code>*.example.com</code>).</p>
+   *       alternative names (in addition to the 1 primary domain). We do not support wildcards (<code>*.example.com</code>).</p>
    */
   certificateAlternativeNames?: string[];
 
@@ -6967,7 +6990,7 @@ export interface DeleteContactMethodRequest {
    *         protocol.</p>
    *          </note>
    */
-  protocol: ContactProtocol | string | undefined;
+  protocol: ContactProtocol | undefined;
 }
 
 /**
@@ -7035,7 +7058,7 @@ export interface DeleteContainerServiceResult {}
 export interface DeleteDiskRequest {
   /**
    * @public
-   * <p>The unique name of the disk you want to delete (e.g., <code>my-disk</code>).</p>
+   * <p>The unique name of the disk you want to delete (<code>my-disk</code>).</p>
    */
   diskName: string | undefined;
 
@@ -7064,8 +7087,7 @@ export interface DeleteDiskResult {
 export interface DeleteDiskSnapshotRequest {
   /**
    * @public
-   * <p>The name of the disk snapshot you want to delete (e.g.,
-   *       <code>my-disk-snapshot</code>).</p>
+   * <p>The name of the disk snapshot you want to delete (<code>my-disk-snapshot</code>).</p>
    */
   diskSnapshotName: string | undefined;
 }
@@ -7437,8 +7459,7 @@ export interface DetachCertificateFromDistributionResult {
 export interface DetachDiskRequest {
   /**
    * @public
-   * <p>The unique name of the disk you want to detach from your instance (e.g.,
-   *         <code>my-disk</code>).</p>
+   * <p>The unique name of the disk you want to detach from your instance (<code>my-disk</code>).</p>
    */
   diskName: string | undefined;
 }
@@ -7516,7 +7537,7 @@ export interface DisableAddOnRequest {
    * @public
    * <p>The add-on type to disable.</p>
    */
-  addOnType: AddOnType | string | undefined;
+  addOnType: AddOnType | undefined;
 
   /**
    * @public
@@ -7593,9 +7614,9 @@ export interface Disk {
 
   /**
    * @public
-   * <p>The Lightsail resource type (e.g., <code>Disk</code>).</p>
+   * <p>The Lightsail resource type (<code>Disk</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -7639,7 +7660,7 @@ export interface Disk {
    * @public
    * <p>Describes the status of the disk.</p>
    */
-  state?: DiskState | string;
+  state?: DiskState;
 
   /**
    * @public
@@ -7657,10 +7678,10 @@ export interface Disk {
    * @public
    * @deprecated
    *
-   * <p>(Deprecated) The attachment state of the disk.</p>
+   * <p>(Discontinued) The attachment state of the disk.</p>
    *          <note>
    *             <p>In releases prior to November 14, 2017, this parameter returned <code>attached</code>
-   *         for system disks in the API response. It is now deprecated, but still included in the
+   *         for system disks in the API response. It is now discontinued, but still included in the
    *         response. Use <code>isAttached</code> instead.</p>
    *          </note>
    */
@@ -7670,10 +7691,10 @@ export interface Disk {
    * @public
    * @deprecated
    *
-   * <p>(Deprecated) The number of GB in use by the disk.</p>
+   * <p>(Discontinued) The number of GB in use by the disk.</p>
    *          <note>
    *             <p>In releases prior to November 14, 2017, this parameter was not included in the API
-   *         response. It is now deprecated.</p>
+   *         response. It is now discontinued.</p>
    *          </note>
    */
   gbInUse?: number;
@@ -7685,7 +7706,7 @@ export interface Disk {
    *             <p>This parameter only applies to Lightsail for Research resources.</p>
    *          </important>
    */
-  autoMountStatus?: AutoMountStatus | string;
+  autoMountStatus?: AutoMountStatus;
 }
 
 /**
@@ -7707,7 +7728,7 @@ export interface DiskInfo {
 
   /**
    * @public
-   * <p>The size of the disk in GB (e.g., <code>32</code>).</p>
+   * <p>The size of the disk in GB (<code>32</code>).</p>
    */
   sizeInGb?: number;
 
@@ -7742,7 +7763,7 @@ export type DiskSnapshotState = (typeof DiskSnapshotState)[keyof typeof DiskSnap
 export interface DiskSnapshot {
   /**
    * @public
-   * <p>The name of the disk snapshot (e.g., <code>my-disk-snapshot</code>).</p>
+   * <p>The name of the disk snapshot (<code>my-disk-snapshot</code>).</p>
    */
   name?: string;
 
@@ -7774,9 +7795,9 @@ export interface DiskSnapshot {
 
   /**
    * @public
-   * <p>The Lightsail resource type (e.g., <code>DiskSnapshot</code>).</p>
+   * <p>The Lightsail resource type (<code>DiskSnapshot</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -7795,7 +7816,7 @@ export interface DiskSnapshot {
    * @public
    * <p>The status of the disk snapshot operation.</p>
    */
-  state?: DiskSnapshotState | string;
+  state?: DiskSnapshotState;
 
   /**
    * @public
@@ -7845,7 +7866,7 @@ export interface DiskSnapshot {
 export interface DiskSnapshotInfo {
   /**
    * @public
-   * <p>The size of the disk in GB (e.g., <code>32</code>).</p>
+   * <p>The size of the disk in GB (<code>32</code>).</p>
    */
   sizeInGb?: number;
 }
@@ -7952,7 +7973,7 @@ export interface NameServersUpdateState {
    *             </li>
    *          </ul>
    */
-  code?: NameServersUpdateStateCode | string;
+  code?: NameServersUpdateStateCode;
 
   /**
    * @public
@@ -8007,7 +8028,7 @@ export interface R53HostedZoneDeletionState {
    *             </li>
    *          </ul>
    */
-  code?: R53HostedZoneDeletionStateCode | string;
+  code?: R53HostedZoneDeletionStateCode;
 
   /**
    * @public
@@ -8073,8 +8094,7 @@ export interface Domain {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the domain recordset (e.g.,
-   *         <code>arn:aws:lightsail:global:123456789101:Domain/824cede0-abc7-4f84-8dbc-12345EXAMPLE</code>).</p>
+   * <p>The Amazon Resource Name (ARN) of the domain recordset (<code>arn:aws:lightsail:global:123456789101:Domain/824cede0-abc7-4f84-8dbc-12345EXAMPLE</code>).</p>
    */
   arn?: string;
 
@@ -8102,7 +8122,7 @@ export interface Domain {
    * @public
    * <p>The resource type. </p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -8212,14 +8232,13 @@ export interface ExportSnapshotResult {
 export interface InstanceSnapshotInfo {
   /**
    * @public
-   * <p>The bundle ID from which the source instance was created (e.g.,
-   *       <code>micro_1_0</code>).</p>
+   * <p>The bundle ID from which the source instance was created (<code>micro_1_0</code>).</p>
    */
   fromBundleId?: string;
 
   /**
    * @public
-   * <p>The blueprint ID from which the source instance (e.g., <code>os_debian_8_3</code>).</p>
+   * <p>The blueprint ID from which the source instance (<code>os_debian_8_3</code>).</p>
    */
   fromBlueprintId?: string;
 
@@ -8252,10 +8271,10 @@ export type ExportSnapshotRecordSourceType =
 export interface ExportSnapshotRecordSourceInfo {
   /**
    * @public
-   * <p>The Lightsail resource type (e.g., <code>InstanceSnapshot</code> or
+   * <p>The Lightsail resource type (<code>InstanceSnapshot</code> or
    *         <code>DiskSnapshot</code>).</p>
    */
-  resourceType?: ExportSnapshotRecordSourceType | string;
+  resourceType?: ExportSnapshotRecordSourceType;
 
   /**
    * @public
@@ -8331,15 +8350,15 @@ export interface ExportSnapshotRecord {
 
   /**
    * @public
-   * <p>The Lightsail resource type (e.g., <code>ExportSnapshotRecord</code>).</p>
+   * <p>The Lightsail resource type (<code>ExportSnapshotRecord</code>).</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
    * <p>The state of the export snapshot record.</p>
    */
-  state?: RecordState | string;
+  state?: RecordState;
 
   /**
    * @public
@@ -8461,9 +8480,9 @@ export interface GetAutoSnapshotsResult {
 
   /**
    * @public
-   * <p>The resource type (e.g., <code>Instance</code> or <code>Disk</code>).</p>
+   * <p>The resource type of the automatic snapshot. The possible values are <code>Instance</code>, and <code>Disk</code>.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -8500,7 +8519,7 @@ export interface GetBlueprintsRequest {
    *             <p>You must use this parameter to view Lightsail for Research blueprints.</p>
    *          </important>
    */
-  appCategory?: AppCategory | string;
+  appCategory?: AppCategory;
 }
 
 /**
@@ -8612,7 +8631,7 @@ export interface GetBucketMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  metricName: BucketMetricName | string | undefined;
+  metricName: BucketMetricName | undefined;
 
   /**
    * @public
@@ -8671,7 +8690,7 @@ export interface GetBucketMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  statistics: (MetricStatistic | string)[] | undefined;
+  statistics: MetricStatistic[] | undefined;
 
   /**
    * @public
@@ -8679,7 +8698,7 @@ export interface GetBucketMetricDataRequest {
    *          <p>Valid units depend on the metric data being requested. For the valid units with each
    *       available metric, see the <code>metricName</code> parameter.</p>
    */
-  unit: MetricUnit | string | undefined;
+  unit: MetricUnit | undefined;
 }
 
 /**
@@ -8719,7 +8738,7 @@ export interface MetricDatapoint {
 
   /**
    * @public
-   * <p>The timestamp (e.g., <code>1479816991.349</code>).</p>
+   * <p>The timestamp (<code>1479816991.349</code>).</p>
    */
   timestamp?: Date;
 
@@ -8727,7 +8746,7 @@ export interface MetricDatapoint {
    * @public
    * <p>The unit. </p>
    */
-  unit?: MetricUnit | string;
+  unit?: MetricUnit;
 }
 
 /**
@@ -8738,7 +8757,7 @@ export interface GetBucketMetricDataResult {
    * @public
    * <p>The name of the metric returned.</p>
    */
-  metricName?: BucketMetricName | string;
+  metricName?: BucketMetricName;
 
   /**
    * @public
@@ -8832,7 +8851,7 @@ export interface GetBundlesRequest {
    *             <p>You must use this parameter to view Lightsail for Research bundles.</p>
    *          </important>
    */
-  appCategory?: AppCategory | string;
+  appCategory?: AppCategory;
 }
 
 /**
@@ -8867,7 +8886,7 @@ export interface GetCertificatesRequest {
    *          <p>When omitted, the response includes all of your certificates in the Amazon Web Services
    *       Region where the request is made, regardless of their current status.</p>
    */
-  certificateStatuses?: (CertificateStatus | string)[];
+  certificateStatuses?: CertificateStatus[];
 
   /**
    * @public
@@ -8889,7 +8908,9 @@ export interface GetCertificatesRequest {
   /**
    * @public
    * <p>The token to advance to the next page of results from your request.</p>
-   *          <p>To get a page token, perform an initial <code>GetCertificates</code> request. If your results are paginated, the response will return a next page token that you can specify as the page token in a subsequent request.</p>
+   *          <p>To get a page token, perform an initial <code>GetCertificates</code> request. If your
+   *       results are paginated, the response will return a next page token that you can specify as the
+   *       page token in a subsequent request.</p>
    */
   pageToken?: string;
 }
@@ -8906,7 +8927,9 @@ export interface GetCertificatesResult {
 
   /**
    * @public
-   * <p>If <code>NextPageToken</code> is returned there are more results available. The value of <code>NextPageToken</code> is a unique pagination token for each page. Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged.</p>
+   * <p>If <code>NextPageToken</code> is returned there are more results available. The value of
+   *         <code>NextPageToken</code> is a unique pagination token for each page. Make the call again
+   *       using the returned token to retrieve the next page. Keep all other arguments unchanged.</p>
    */
   nextPageToken?: string;
 }
@@ -8957,7 +8980,7 @@ export interface GetContactMethodsRequest {
    *          <p>Specify a protocol in your request to return information about a specific contact method
    *       protocol.</p>
    */
-  protocols?: (ContactProtocol | string)[];
+  protocols?: ContactProtocol[];
 }
 
 /**
@@ -9182,7 +9205,7 @@ export interface GetContainerServiceMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  metricName: ContainerServiceMetricName | string | undefined;
+  metricName: ContainerServiceMetricName | undefined;
 
   /**
    * @public
@@ -9239,7 +9262,7 @@ export interface GetContainerServiceMetricDataRequest {
    *             </li>
    *          </ul>
    */
-  statistics: (MetricStatistic | string)[] | undefined;
+  statistics: MetricStatistic[] | undefined;
 }
 
 /**
@@ -9250,7 +9273,7 @@ export interface GetContainerServiceMetricDataResult {
    * @public
    * <p>The name of the metric returned. </p>
    */
-  metricName?: ContainerServiceMetricName | string;
+  metricName?: ContainerServiceMetricName;
 
   /**
    * @public
@@ -9274,18 +9297,6 @@ export interface GetContainerServicePowersResult {
    *       service.</p>
    */
   powers?: ContainerServicePower[];
-}
-
-/**
- * @public
- */
-export interface GetContainerServicesRequest {
-  /**
-   * @public
-   * <p>The name of the container service for which to return information.</p>
-   *          <p>When omitted, the response includes all of your container services in the Amazon Web Services Region where the request is made.</p>
-   */
-  serviceName?: string;
 }
 
 /**

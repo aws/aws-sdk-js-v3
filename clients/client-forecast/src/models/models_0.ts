@@ -52,7 +52,7 @@ export interface Action {
    *             </li>
    *          </ul>
    */
-  Operation: Operation | string | undefined;
+  Operation: Operation | undefined;
 
   /**
    * @public
@@ -593,7 +593,7 @@ export interface TimeAlignmentBoundary {
    * @public
    * <p>The month to use for time alignment during aggregation. The month must be in uppercase.</p>
    */
-  Month?: Month | string;
+  Month?: Month;
 
   /**
    * @public
@@ -605,7 +605,7 @@ export interface TimeAlignmentBoundary {
    * @public
    * <p>The day of week to use for time alignment during aggregation. The day must be in uppercase.</p>
    */
-  DayOfWeek?: DayOfWeek | string;
+  DayOfWeek?: DayOfWeek;
 
   /**
    * @public
@@ -718,7 +718,7 @@ export interface CreateAutoPredictorRequest {
    * @public
    * <p>The accuracy metric used to optimize the predictor.</p>
    */
-  OptimizationMetric?: OptimizationMetric | string;
+  OptimizationMetric?: OptimizationMetric;
 
   /**
    * @public
@@ -973,7 +973,7 @@ export interface SchemaAttribute {
    * <p>The data type of the field.</p>
    *          <p>For a related time series dataset, other than date, item_id, and forecast dimensions attributes, all attributes should be of numerical type (integer/float).</p>
    */
-  AttributeType?: AttributeType | string;
+  AttributeType?: AttributeType;
 }
 
 /**
@@ -1009,13 +1009,13 @@ export interface CreateDatasetRequest {
    *       and <code>demand</code> fields to be present in your data. For more information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html">Importing
    *         datasets</a>.</p>
    */
-  Domain: Domain | string | undefined;
+  Domain: Domain | undefined;
 
   /**
    * @public
    * <p>The dataset type. Valid values depend on the chosen <code>Domain</code>.</p>
    */
-  DatasetType: DatasetType | string | undefined;
+  DatasetType: DatasetType | undefined;
 
   /**
    * @public
@@ -1138,7 +1138,7 @@ export interface CreateDatasetGroupRequest {
    *         <code>timestamp</code>, and <code>demand</code> fields are present in your data. For more
    *       information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/howitworks-datasets-groups.html">Dataset groups</a>.</p>
    */
-  Domain: Domain | string | undefined;
+  Domain: Domain | undefined;
 
   /**
    * @public
@@ -1395,7 +1395,7 @@ export interface CreateDatasetImportJobRequest {
    * @public
    * <p>Specifies whether the dataset import job is a <code>FULL</code> or <code>INCREMENTAL</code> import. A <code>FULL</code> dataset import replaces all of the existing data with the newly imported data. An <code>INCREMENTAL</code> import appends the imported data to the existing data.</p>
    */
-  ImportMode?: ImportMode | string;
+  ImportMode?: ImportMode;
 }
 
 /**
@@ -1458,7 +1458,7 @@ export interface ExplainabilityConfig {
    *          <p>Specify time series by uploading a CSV or Parquet file to an Amazon S3 bucket and set the location
    *             within the <a>DataDestination</a> data type.</p>
    */
-  TimeSeriesGranularity: TimeSeriesGranularity | string | undefined;
+  TimeSeriesGranularity: TimeSeriesGranularity | undefined;
 
   /**
    * @public
@@ -1468,7 +1468,7 @@ export interface ExplainabilityConfig {
    *          <p>Specify time points with the <code>StartDateTime</code> and <code>EndDateTime</code>
    *             parameters within the <a>CreateExplainability</a> operation.</p>
    */
-  TimePointGranularity: TimePointGranularity | string | undefined;
+  TimePointGranularity: TimePointGranularity | undefined;
 }
 
 /**
@@ -2033,7 +2033,7 @@ export interface FeaturizationMethod {
    * @public
    * <p>The name of the method. The "filling" method is the only supported method.</p>
    */
-  FeaturizationMethodName: FeaturizationMethodName | string | undefined;
+  FeaturizationMethodName: FeaturizationMethodName | undefined;
 
   /**
    * @public
@@ -2316,7 +2316,7 @@ export interface ContinuousParameterRange {
    *       <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-ranges.html#scaling-type">Hyperparameter Scaling</a>.
    *       One of the following values:</p>
    */
-  ScalingType?: ScalingType | string;
+  ScalingType?: ScalingType;
 }
 
 /**
@@ -2374,7 +2374,7 @@ export interface IntegerParameterRange {
    *       <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-ranges.html#scaling-type">Hyperparameter Scaling</a>.
    *       One of the following values:</p>
    */
-  ScalingType?: ScalingType | string;
+  ScalingType?: ScalingType;
 }
 
 /**
@@ -2794,7 +2794,7 @@ export interface CreatePredictorRequest {
    *                 <code>LatencyOptimized</code>.</p>
    *          <p>This parameter is only valid for predictors trained using AutoML.</p>
    */
-  AutoMLOverrideStrategy?: AutoMLOverrideStrategy | string;
+  AutoMLOverrideStrategy?: AutoMLOverrideStrategy;
 
   /**
    * @public
@@ -2909,7 +2909,7 @@ export interface CreatePredictorRequest {
    * @public
    * <p>The accuracy metric used to optimize the predictor.</p>
    */
-  OptimizationMetric?: OptimizationMetric | string;
+  OptimizationMetric?: OptimizationMetric;
 }
 
 /**
@@ -3135,7 +3135,7 @@ export interface TimeSeriesCondition {
    * <p>The condition to apply. Valid values are <code>EQUALS</code>, <code>NOT_EQUALS</code>, <code>LESS_THAN</code> and
    *       <code>GREATER_THAN</code>.</p>
    */
-  Condition: Condition | string | undefined;
+  Condition: Condition | undefined;
 }
 
 /**
@@ -3543,7 +3543,7 @@ export interface ReferencePredictorSummary {
    * @public
    * <p>Whether the reference predictor is <code>Active</code> or <code>Deleted</code>.</p>
    */
-  State?: State | string;
+  State?: State;
 }
 
 /**
@@ -3703,7 +3703,7 @@ export interface DescribeAutoPredictorResponse {
    * @public
    * <p>The accuracy metric used to optimize the predictor.</p>
    */
-  OptimizationMetric?: OptimizationMetric | string;
+  OptimizationMetric?: OptimizationMetric;
 
   /**
    * @public
@@ -3755,13 +3755,13 @@ export interface DescribeDatasetResponse {
    * @public
    * <p>The domain associated with the dataset.</p>
    */
-  Domain?: Domain | string;
+  Domain?: Domain;
 
   /**
    * @public
    * <p>The dataset type.</p>
    */
-  DatasetType?: DatasetType | string;
+  DatasetType?: DatasetType;
 
   /**
    * @public
@@ -3881,7 +3881,7 @@ export interface DescribeDatasetGroupResponse {
    * @public
    * <p>The domain associated with the dataset group.</p>
    */
-  Domain?: Domain | string;
+  Domain?: Domain;
 
   /**
    * @public
@@ -4203,7 +4203,7 @@ export interface DescribeDatasetImportJobResponse {
    * @public
    * <p>The import mode of the dataset import job, FULL or INCREMENTAL.</p>
    */
-  ImportMode?: ImportMode | string;
+  ImportMode?: ImportMode;
 }
 
 /**
@@ -5014,7 +5014,7 @@ export interface DescribePredictorResponse {
    *             is specified, the AutoML strategy optimizes predictor accuracy.</p>
    *          <p>This parameter is only valid for predictors trained using AutoML.</p>
    */
-  AutoMLOverrideStrategy?: AutoMLOverrideStrategy | string;
+  AutoMLOverrideStrategy?: AutoMLOverrideStrategy;
 
   /**
    * @public
@@ -5169,7 +5169,7 @@ export interface DescribePredictorResponse {
    * @public
    * <p>The accuracy metric used to optimize the predictor.</p>
    */
-  OptimizationMetric?: OptimizationMetric | string;
+  OptimizationMetric?: OptimizationMetric;
 }
 
 /**
@@ -5853,7 +5853,7 @@ export interface WindowSummary {
    *             </li>
    *          </ul>
    */
-  EvaluationType?: EvaluationType | string;
+  EvaluationType?: EvaluationType;
 
   /**
    * @public
@@ -5909,13 +5909,13 @@ export interface GetAccuracyMetricsResponse {
    *             is specified, the AutoML strategy optimizes predictor accuracy.</p>
    *          <p>This parameter is only valid for predictors trained using AutoML.</p>
    */
-  AutoMLOverrideStrategy?: AutoMLOverrideStrategy | string;
+  AutoMLOverrideStrategy?: AutoMLOverrideStrategy;
 
   /**
    * @public
    * <p>The accuracy metric used to optimize the predictor.</p>
    */
-  OptimizationMetric?: OptimizationMetric | string;
+  OptimizationMetric?: OptimizationMetric;
 }
 
 /**
@@ -6051,7 +6051,7 @@ export interface Filter {
    * <p>The condition to apply. To include the objects that match the statement, specify
    *       <code>IS</code>. To exclude matching objects, specify <code>IS_NOT</code>.</p>
    */
-  Condition: FilterConditionString | string | undefined;
+  Condition: FilterConditionString | undefined;
 }
 
 /**
@@ -6210,7 +6210,7 @@ export interface DatasetImportJobSummary {
    * @public
    * <p>The import mode of the dataset import job, FULL or INCREMENTAL.</p>
    */
-  ImportMode?: ImportMode | string;
+  ImportMode?: ImportMode;
 }
 
 /**
@@ -6273,13 +6273,13 @@ export interface DatasetSummary {
    * @public
    * <p>The dataset type.</p>
    */
-  DatasetType?: DatasetType | string;
+  DatasetType?: DatasetType;
 
   /**
    * @public
    * <p>The domain associated with the dataset.</p>
    */
-  Domain?: Domain | string;
+  Domain?: Domain;
 
   /**
    * @public

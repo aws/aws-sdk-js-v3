@@ -139,7 +139,6 @@ export class FooError extends __BaseException {
  */
 export interface FractionalSecondsOutput {
   datetime?: Date;
-  httpdate?: Date;
 }
 
 /**
@@ -175,12 +174,12 @@ export class InvalidGreeting extends __BaseException {
  * @public
  */
 export interface JsonEnumsInputOutput {
-  fooEnum1?: FooEnum | string;
-  fooEnum2?: FooEnum | string;
-  fooEnum3?: FooEnum | string;
-  fooEnumList?: (FooEnum | string)[];
-  fooEnumSet?: (FooEnum | string)[];
-  fooEnumMap?: Record<string, FooEnum | string>;
+  fooEnum1?: FooEnum;
+  fooEnum2?: FooEnum;
+  fooEnum3?: FooEnum;
+  fooEnumList?: FooEnum[];
+  fooEnumSet?: FooEnum[];
+  fooEnumMap?: Record<string, FooEnum>;
 }
 
 /**
@@ -274,7 +273,7 @@ export namespace MyUnion {
     numberValue?: never;
     blobValue?: never;
     timestampValue?: never;
-    enumValue: FooEnum | string;
+    enumValue: FooEnum;
     listValue?: never;
     mapValue?: never;
     structureValue?: never;
@@ -342,7 +341,7 @@ export namespace MyUnion {
     numberValue: (value: number) => T;
     blobValue: (value: Uint8Array) => T;
     timestampValue: (value: Date) => T;
-    enumValue: (value: FooEnum | string) => T;
+    enumValue: (value: FooEnum) => T;
     listValue: (value: string[]) => T;
     mapValue: (value: Record<string, string>) => T;
     structureValue: (value: GreetingStruct) => T;

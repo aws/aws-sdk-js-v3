@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateBackupRequest, CreateBackupResponse } from "../models/models_0";
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient";
 import { de_CreateBackupCommand, se_CreateBackupCommand } from "../protocols/Aws_json1_1";
@@ -76,7 +68,7 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  * //   Backup: { // Backup
  * //     BackupArn: "STRING_VALUE",
  * //     BackupId: "STRING_VALUE",
- * //     BackupType: "STRING_VALUE",
+ * //     BackupType: "AUTOMATED" || "MANUAL",
  * //     CreatedAt: new Date("TIMESTAMP"),
  * //     Description: "STRING_VALUE",
  * //     Engine: "STRING_VALUE",
@@ -95,7 +87,7 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  * //     ],
  * //     ServerName: "STRING_VALUE",
  * //     ServiceRoleArn: "STRING_VALUE",
- * //     Status: "STRING_VALUE",
+ * //     Status: "IN_PROGRESS" || "OK" || "FAILED" || "DELETING",
  * //     StatusDescription: "STRING_VALUE",
  * //     SubnetIds: [
  * //       "STRING_VALUE",
@@ -133,77 +125,26 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
  */
-export class CreateBackupCommand extends $Command<
-  CreateBackupCommandInput,
-  CreateBackupCommandOutput,
-  OpsWorksCMClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateBackupCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: OpsWorksCMClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateBackupCommandInput, CreateBackupCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, CreateBackupCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "OpsWorksCMClient";
-    const commandName = "CreateBackupCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateBackupCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateBackupCommandOutput> {
-    return de_CreateBackupCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateBackupCommand extends $Command
+  .classBuilder<
+    CreateBackupCommandInput,
+    CreateBackupCommandOutput,
+    OpsWorksCMClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: OpsWorksCMClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("OpsWorksCM_V2016_11_01", "CreateBackup", {})
+  .n("OpsWorksCMClient", "CreateBackupCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateBackupCommand)
+  .de(de_CreateBackupCommand)
+  .build() {}

@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
 import { DescribeAssetModelRequest, DescribeAssetModelResponse } from "../models/models_0";
 import { de_DescribeAssetModelCommand, se_DescribeAssetModelCommand } from "../protocols/Aws_restJson1";
@@ -78,8 +70,14 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  * //             { // ExpressionVariable
  * //               name: "STRING_VALUE", // required
  * //               value: { // VariableValue
- * //                 propertyId: "STRING_VALUE", // required
+ * //                 propertyId: "STRING_VALUE",
  * //                 hierarchyId: "STRING_VALUE",
+ * //                 propertyPath: [ // AssetModelPropertyPath
+ * //                   { // AssetModelPropertyPathSegment
+ * //                     id: "STRING_VALUE",
+ * //                     name: "STRING_VALUE",
+ * //                   },
+ * //                 ],
  * //               },
  * //             },
  * //           ],
@@ -96,8 +94,14 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  * //             {
  * //               name: "STRING_VALUE", // required
  * //               value: {
- * //                 propertyId: "STRING_VALUE", // required
+ * //                 propertyId: "STRING_VALUE",
  * //                 hierarchyId: "STRING_VALUE",
+ * //                 propertyPath: [
+ * //                   {
+ * //                     id: "STRING_VALUE",
+ * //                     name: "STRING_VALUE",
+ * //                   },
+ * //                 ],
  * //               },
  * //             },
  * //           ],
@@ -112,6 +116,13 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  * //           },
  * //         },
  * //       },
+ * //       path: [
+ * //         {
+ * //           id: "STRING_VALUE",
+ * //           name: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       externalId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   assetModelHierarchies: [ // AssetModelHierarchies // required
@@ -119,6 +130,7 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  * //       id: "STRING_VALUE",
  * //       name: "STRING_VALUE", // required
  * //       childAssetModelId: "STRING_VALUE", // required
+ * //       externalId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   assetModelCompositeModels: [ // AssetModelCompositeModels
@@ -150,8 +162,9 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  * //                 {
  * //                   name: "STRING_VALUE", // required
  * //                   value: {
- * //                     propertyId: "STRING_VALUE", // required
+ * //                     propertyId: "STRING_VALUE",
  * //                     hierarchyId: "STRING_VALUE",
+ * //                     propertyPath: "<AssetModelPropertyPath>",
  * //                   },
  * //                 },
  * //               ],
@@ -168,8 +181,9 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  * //                 {
  * //                   name: "STRING_VALUE", // required
  * //                   value: {
- * //                     propertyId: "STRING_VALUE", // required
+ * //                     propertyId: "STRING_VALUE",
  * //                     hierarchyId: "STRING_VALUE",
+ * //                     propertyPath: "<AssetModelPropertyPath>",
  * //                   },
  * //                 },
  * //               ],
@@ -184,9 +198,12 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  * //               },
  * //             },
  * //           },
+ * //           path: "<AssetModelPropertyPath>",
+ * //           externalId: "STRING_VALUE",
  * //         },
  * //       ],
  * //       id: "STRING_VALUE",
+ * //       externalId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   assetModelCreationDate: new Date("TIMESTAMP"), // required
@@ -204,6 +221,23 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  * //       ],
  * //     },
  * //   },
+ * //   assetModelType: "ASSET_MODEL" || "COMPONENT_MODEL",
+ * //   assetModelCompositeModelSummaries: [ // AssetModelCompositeModelSummaries
+ * //     { // AssetModelCompositeModelSummary
+ * //       id: "STRING_VALUE", // required
+ * //       externalId: "STRING_VALUE",
+ * //       name: "STRING_VALUE", // required
+ * //       type: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE",
+ * //       path: [ // AssetModelCompositeModelPath
+ * //         { // AssetModelCompositeModelPathSegment
+ * //           id: "STRING_VALUE",
+ * //           name: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
+ * //   assetModelExternalId: "STRING_VALUE",
  * // };
  *
  * ```
@@ -234,79 +268,26 @@ export interface DescribeAssetModelCommandOutput extends DescribeAssetModelRespo
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
  */
-export class DescribeAssetModelCommand extends $Command<
-  DescribeAssetModelCommandInput,
-  DescribeAssetModelCommandOutput,
-  IoTSiteWiseClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeAssetModelCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: IoTSiteWiseClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeAssetModelCommandInput, DescribeAssetModelCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeAssetModelCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "IoTSiteWiseClient";
-    const commandName = "DescribeAssetModelCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeAssetModelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeAssetModelCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAssetModelCommandOutput> {
-    return de_DescribeAssetModelCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeAssetModelCommand extends $Command
+  .classBuilder<
+    DescribeAssetModelCommandInput,
+    DescribeAssetModelCommandOutput,
+    IoTSiteWiseClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSIoTSiteWise", "DescribeAssetModel", {})
+  .n("IoTSiteWiseClient", "DescribeAssetModelCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeAssetModelCommand)
+  .de(de_DescribeAssetModelCommand)
+  .build() {}

@@ -127,29 +127,29 @@ export interface CustomerAction {
    * <p>The name of the action. The action name can be one of the following values:</p>
    *          <ul>
    *             <li>
-   * 			            <p>
+   *                <p>
    *                   <code>SNOOZE</code> - When you snooze the alarm, the alarm state changes to <code>SNOOZE_DISABLED</code>.</p>
-   * 		          </li>
+   *             </li>
    *             <li>
-   * 			            <p>
+   *                <p>
    *                   <code>ENABLE</code> - When you enable the alarm, the alarm state changes to <code>NORMAL</code>.</p>
-   * 		          </li>
+   *             </li>
    *             <li>
-   * 			            <p>
+   *                <p>
    *                   <code>DISABLE</code> - When you disable the alarm, the alarm state changes to <code>DISABLED</code>.</p>
-   * 		          </li>
+   *             </li>
    *             <li>
-   * 			            <p>
+   *                <p>
    *                   <code>ACKNOWLEDGE</code> - When you acknowledge the alarm, the alarm state changes to <code>ACKNOWLEDGED</code>.</p>
-   * 		          </li>
+   *             </li>
    *             <li>
-   * 			            <p>
+   *                <p>
    *                   <code>RESET</code> - When you reset the alarm, the alarm state changes to <code>NORMAL</code>.</p>
-   * 		          </li>
+   *             </li>
    *          </ul>
    *          <p>For more information, see the <a href="https://docs.aws.amazon.com/iotevents/latest/apireference/API_iotevents-data_AlarmState.html">AlarmState</a> API.</p>
    */
-  actionName?: CustomerActionName | string;
+  actionName?: CustomerActionName;
 
   /**
    * @public
@@ -215,7 +215,7 @@ export interface SimpleRuleEvaluation {
    * @public
    * <p>The comparison operator.</p>
    */
-  operator?: ComparisonOperator | string;
+  operator?: ComparisonOperator;
 
   /**
    * @public
@@ -290,7 +290,7 @@ export interface StateChangeConfiguration {
    * <p>The trigger type. If the value is <code>SNOOZE_TIMEOUT</code>, the snooze duration ends
    *       and the alarm automatically changes to the <code>NORMAL</code> state.</p>
    */
-  triggerType?: TriggerType | string;
+  triggerType?: TriggerType;
 }
 
 /**
@@ -303,7 +303,7 @@ export interface SystemEvent {
    * <p>The event type. If the value is <code>STATE_CHANGE</code>, the event contains information
    *       about alarm state changes.</p>
    */
-  eventType?: EventType | string;
+  eventType?: EventType;
 
   /**
    * @public
@@ -322,41 +322,41 @@ export interface AlarmState {
    * <p>The name of the alarm state. The state name can be one of the following values:</p>
    *          <ul>
    *             <li>
-   * 		             <p>
+   *                <p>
    *                   <code>DISABLED</code> - When the alarm is in the <code>DISABLED</code> state,
    * 		it isn't ready to evaluate data. To enable the alarm,
    * 		you must change the alarm to the <code>NORMAL</code> state.</p>
-   * 	           </li>
+   *             </li>
    *             <li>
-   * 		             <p>
+   *                <p>
    *                   <code>NORMAL</code> - When the alarm is in the <code>NORMAL</code> state,
    * 		it's ready to evaluate data.</p>
-   * 	           </li>
+   *             </li>
    *             <li>
-   * 		             <p>
+   *                <p>
    *                   <code>ACTIVE</code> - If the alarm is in the <code>ACTIVE</code> state,
    * 		the alarm is invoked.</p>
-   * 	           </li>
+   *             </li>
    *             <li>
-   * 		             <p>
+   *                <p>
    *                   <code>ACKNOWLEDGED</code> - When the alarm is in the <code>ACKNOWLEDGED</code> state,
    * 		the alarm was invoked and you acknowledged the alarm.</p>
-   * 	           </li>
+   *             </li>
    *             <li>
-   * 		             <p>
+   *                <p>
    *                   <code>SNOOZE_DISABLED</code> - When the alarm is in the <code>SNOOZE_DISABLED</code> state,
    * 		the alarm is disabled for a specified period of time. After the snooze time,
    * 		the alarm automatically changes to the <code>NORMAL</code> state. </p>
-   * 	           </li>
+   *             </li>
    *             <li>
-   * 		             <p>
+   *                <p>
    *                   <code>LATCHED</code> - When the alarm is in the <code>LATCHED</code> state,
    * 		the alarm was invoked. However, the data that the alarm is currently evaluating is within the specified range.
    * 		To change the alarm to the <code>NORMAL</code> state, you must acknowledge the alarm.</p>
-   * 	           </li>
+   *             </li>
    *          </ul>
    */
-  stateName?: AlarmStateName | string;
+  stateName?: AlarmStateName;
 
   /**
    * @public
@@ -455,41 +455,41 @@ export interface AlarmSummary {
    * <p>The name of the alarm state. The state name can be one of the following values:</p>
    *          <ul>
    *             <li>
-   * 		             <p>
+   *                <p>
    *                   <code>DISABLED</code> - When the alarm is in the <code>DISABLED</code> state,
    * 		it isn't ready to evaluate data. To enable the alarm,
    * 		you must change the alarm to the <code>NORMAL</code> state.</p>
-   * 	           </li>
+   *             </li>
    *             <li>
-   * 		             <p>
+   *                <p>
    *                   <code>NORMAL</code> - When the alarm is in the <code>NORMAL</code> state,
    * 		it's ready to evaluate data.</p>
-   * 	           </li>
+   *             </li>
    *             <li>
-   * 		             <p>
+   *                <p>
    *                   <code>ACTIVE</code> - If the alarm is in the <code>ACTIVE</code> state,
    * 		the alarm is invoked.</p>
-   * 	           </li>
+   *             </li>
    *             <li>
-   * 		             <p>
+   *                <p>
    *                   <code>ACKNOWLEDGED</code> - When the alarm is in the <code>ACKNOWLEDGED</code> state,
    * 		the alarm was invoked and you acknowledged the alarm.</p>
-   * 	           </li>
+   *             </li>
    *             <li>
-   * 		             <p>
+   *                <p>
    *                   <code>SNOOZE_DISABLED</code> - When the alarm is in the <code>SNOOZE_DISABLED</code> state,
    * 		the alarm is disabled for a specified period of time. After the snooze time,
    * 		the alarm automatically changes to the <code>NORMAL</code> state. </p>
-   * 	           </li>
+   *             </li>
    *             <li>
-   * 		             <p>
+   *                <p>
    *                   <code>LATCHED</code> - When the alarm is in the <code>LATCHED</code> state,
    * 		the alarm was invoked. However, the data that the alarm is currently evaluating is within the specified range.
    * 		To change the alarm to the <code>NORMAL</code> state, you must acknowledge the alarm.</p>
-   * 	           </li>
+   *             </li>
    *          </ul>
    */
-  stateName?: AlarmStateName | string;
+  stateName?: AlarmStateName;
 
   /**
    * @public
@@ -574,7 +574,7 @@ export interface BatchAlarmActionErrorEntry {
    * @public
    * <p>The error code.</p>
    */
-  errorCode?: ErrorCode | string;
+  errorCode?: ErrorCode;
 
   /**
    * @public
@@ -725,7 +725,7 @@ export interface BatchDeleteDetectorErrorEntry {
    * @public
    * <p>The error code.</p>
    */
-  errorCode?: ErrorCode | string;
+  errorCode?: ErrorCode;
 
   /**
    * @public
@@ -926,7 +926,7 @@ export interface BatchPutMessageErrorEntry {
    * @public
    * <p>The error code.</p>
    */
-  errorCode?: ErrorCode | string;
+  errorCode?: ErrorCode;
 
   /**
    * @public
@@ -1181,7 +1181,7 @@ export interface BatchUpdateDetectorErrorEntry {
    * @public
    * <p>The error code.</p>
    */
-  errorCode?: ErrorCode | string;
+  errorCode?: ErrorCode;
 
   /**
    * @public

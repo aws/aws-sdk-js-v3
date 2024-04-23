@@ -16,8 +16,12 @@
 export * from "./DataSyncClient";
 export * from "./DataSync";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { DataSyncExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { DataSyncServiceException } from "./models/DataSyncServiceException";

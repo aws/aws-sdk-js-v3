@@ -102,6 +102,7 @@ describe(resolveAssumeRoleCredentials.name, () => {
     role_arn: "mock_role_arn",
     role_session_name: "mock_role_session_name",
     external_id: "mock_external_id",
+    duration_seconds: "2000",
   });
 
   const getMockProfilesWithCredSource = (additionalData) => ({
@@ -176,6 +177,7 @@ describe(resolveAssumeRoleCredentials.name, () => {
       RoleArn: mockRoleAssumeParams.role_arn,
       RoleSessionName: mockRoleAssumeParams.role_session_name,
       ExternalId: mockRoleAssumeParams.external_id,
+      DurationSeconds: parseInt(mockRoleAssumeParams.duration_seconds),
     });
   });
 
@@ -191,6 +193,7 @@ describe(resolveAssumeRoleCredentials.name, () => {
       RoleArn: mockRoleAssumeParams.role_arn,
       RoleSessionName: mockRoleAssumeParams.role_session_name,
       ExternalId: mockRoleAssumeParams.external_id,
+      DurationSeconds: parseInt(mockRoleAssumeParams.duration_seconds),
     });
   });
 
@@ -207,6 +210,7 @@ describe(resolveAssumeRoleCredentials.name, () => {
       RoleArn: mockRoleAssumeParams.role_arn,
       RoleSessionName: `aws-sdk-js-${mockDateNow}`,
       ExternalId: mockRoleAssumeParams.external_id,
+      DurationSeconds: parseInt(mockRoleAssumeParams.duration_seconds),
     });
   });
 
@@ -253,6 +257,7 @@ describe(resolveAssumeRoleCredentials.name, () => {
       ExternalId: mockRoleAssumeParams.external_id,
       SerialNumber: mockMfaSerial,
       TokenCode: mockTokenCode,
+      DurationSeconds: parseInt(mockRoleAssumeParams.duration_seconds),
     });
   });
 });

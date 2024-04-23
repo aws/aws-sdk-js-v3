@@ -1,12 +1,12 @@
 {
   "name": "@aws-sdk/util-arn-parser",
-  "version": "3.310.0",
+  "version": "3.495.0",
   "description": "A parser to Amazon Resource Names",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
-    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:cjs": "node ../../scripts/compilation/inline util-arn-parser",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",
@@ -28,7 +28,6 @@
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typedoc": "0.23.23",
     "typescript": "~4.9.5"
   },
   "types": "./dist-types/index.d.ts",
@@ -50,8 +49,5 @@
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/util-arn-parser"
-  },
-  "typedoc": {
-    "entryPoint": "src/index.ts"
   }
 }

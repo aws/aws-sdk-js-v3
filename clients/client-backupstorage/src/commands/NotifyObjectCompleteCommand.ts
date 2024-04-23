@@ -1,20 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  StreamingBlobPayloadInputTypes,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
 import { BackupStorageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupStorageClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   NotifyObjectCompleteInput,
   NotifyObjectCompleteInputFilterSensitiveLog,
@@ -55,18 +46,18 @@ export interface NotifyObjectCompleteCommandOutput extends NotifyObjectCompleteO
  *   BackupJobId: "STRING_VALUE", // required
  *   UploadId: "STRING_VALUE", // required
  *   ObjectChecksum: "STRING_VALUE", // required
- *   ObjectChecksumAlgorithm: "STRING_VALUE", // required
+ *   ObjectChecksumAlgorithm: "SUMMARY", // required
  *   MetadataString: "STRING_VALUE",
  *   MetadataBlob: "STREAMING_BLOB_VALUE",
  *   MetadataBlobLength: Number("long"),
  *   MetadataBlobChecksum: "STRING_VALUE",
- *   MetadataBlobChecksumAlgorithm: "STRING_VALUE",
+ *   MetadataBlobChecksumAlgorithm: "SHA256",
  * };
  * const command = new NotifyObjectCompleteCommand(input);
  * const response = await client.send(command);
  * // { // NotifyObjectCompleteOutput
  * //   ObjectChecksum: "STRING_VALUE", // required
- * //   ObjectChecksumAlgorithm: "STRING_VALUE", // required
+ * //   ObjectChecksumAlgorithm: "SUMMARY", // required
  * // };
  *
  * ```
@@ -105,79 +96,26 @@ export interface NotifyObjectCompleteCommandOutput extends NotifyObjectCompleteO
  * <p>Base exception class for all service exceptions from BackupStorage service.</p>
  *
  */
-export class NotifyObjectCompleteCommand extends $Command<
-  NotifyObjectCompleteCommandInput,
-  NotifyObjectCompleteCommandOutput,
-  BackupStorageClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: NotifyObjectCompleteCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: BackupStorageClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<NotifyObjectCompleteCommandInput, NotifyObjectCompleteCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, NotifyObjectCompleteCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "BackupStorageClient";
-    const commandName = "NotifyObjectCompleteCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: NotifyObjectCompleteInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: NotifyObjectCompleteCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_NotifyObjectCompleteCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NotifyObjectCompleteCommandOutput> {
-    return de_NotifyObjectCompleteCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class NotifyObjectCompleteCommand extends $Command
+  .classBuilder<
+    NotifyObjectCompleteCommandInput,
+    NotifyObjectCompleteCommandOutput,
+    BackupStorageClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: BackupStorageClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CryoStorageFrontendService", "NotifyObjectComplete", {})
+  .n("BackupStorageClient", "NotifyObjectCompleteCommand")
+  .f(NotifyObjectCompleteInputFilterSensitiveLog, void 0)
+  .ser(se_NotifyObjectCompleteCommand)
+  .de(de_NotifyObjectCompleteCommand)
+  .build() {}

@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
 import { UpdateEntityRequest, UpdateEntityResponse } from "../models/models_0";
 import { de_UpdateEntityCommand, se_UpdateEntityCommand } from "../protocols/Aws_restJson1";
@@ -134,6 +126,39 @@ export interface UpdateEntityCommandOutput extends UpdateEntityResponse, __Metad
  *       },
  *     },
  *   },
+ *   compositeComponentUpdates: { // CompositeComponentUpdatesMapRequest
+ *     "<keys>": { // CompositeComponentUpdateRequest
+ *       updateType: "STRING_VALUE",
+ *       description: "STRING_VALUE",
+ *       propertyUpdates: {
+ *         "<keys>": {
+ *           definition: {
+ *             dataType: "<DataType>",
+ *             isRequiredInEntity: true || false,
+ *             isExternalId: true || false,
+ *             isStoredExternally: true || false,
+ *             isTimeSeries: true || false,
+ *             defaultValue: "<DataValue>",
+ *             configuration: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             displayName: "STRING_VALUE",
+ *           },
+ *           value: "<DataValue>",
+ *           updateType: "STRING_VALUE",
+ *         },
+ *       },
+ *       propertyGroupUpdates: {
+ *         "<keys>": {
+ *           groupType: "STRING_VALUE",
+ *           propertyNames: [
+ *             "STRING_VALUE",
+ *           ],
+ *           updateType: "STRING_VALUE",
+ *         },
+ *       },
+ *     },
+ *   },
  *   parentEntityUpdate: { // ParentEntityUpdateRequest
  *     updateType: "STRING_VALUE", // required
  *     parentEntityId: "STRING_VALUE",
@@ -179,77 +204,26 @@ export interface UpdateEntityCommandOutput extends UpdateEntityResponse, __Metad
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
-export class UpdateEntityCommand extends $Command<
-  UpdateEntityCommandInput,
-  UpdateEntityCommandOutput,
-  IoTTwinMakerClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateEntityCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: IoTTwinMakerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateEntityCommandInput, UpdateEntityCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateEntityCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "IoTTwinMakerClient";
-    const commandName = "UpdateEntityCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateEntityCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateEntityCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateEntityCommandOutput> {
-    return de_UpdateEntityCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateEntityCommand extends $Command
+  .classBuilder<
+    UpdateEntityCommandInput,
+    UpdateEntityCommandOutput,
+    IoTTwinMakerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: IoTTwinMakerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSIoTTwinMaker", "UpdateEntity", {})
+  .n("IoTTwinMakerClient", "UpdateEntityCommand")
+  .f(void 0, void 0)
+  .ser(se_UpdateEntityCommand)
+  .de(de_UpdateEntityCommand)
+  .build() {}

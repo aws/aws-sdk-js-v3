@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -38,6 +39,7 @@ import {
   CreateConfigurationCommandInput,
   CreateConfigurationCommandOutput,
 } from "../commands/CreateConfigurationCommand";
+import { CreateReplicatorCommandInput, CreateReplicatorCommandOutput } from "../commands/CreateReplicatorCommand";
 import {
   CreateVpcConnectionCommandInput,
   CreateVpcConnectionCommandOutput,
@@ -51,6 +53,7 @@ import {
   DeleteConfigurationCommandInput,
   DeleteConfigurationCommandOutput,
 } from "../commands/DeleteConfigurationCommand";
+import { DeleteReplicatorCommandInput, DeleteReplicatorCommandOutput } from "../commands/DeleteReplicatorCommand";
 import {
   DeleteVpcConnectionCommandInput,
   DeleteVpcConnectionCommandOutput,
@@ -73,6 +76,7 @@ import {
   DescribeConfigurationRevisionCommandInput,
   DescribeConfigurationRevisionCommandOutput,
 } from "../commands/DescribeConfigurationRevisionCommand";
+import { DescribeReplicatorCommandInput, DescribeReplicatorCommandOutput } from "../commands/DescribeReplicatorCommand";
 import {
   DescribeVpcConnectionCommandInput,
   DescribeVpcConnectionCommandOutput,
@@ -107,6 +111,7 @@ import {
 import { ListConfigurationsCommandInput, ListConfigurationsCommandOutput } from "../commands/ListConfigurationsCommand";
 import { ListKafkaVersionsCommandInput, ListKafkaVersionsCommandOutput } from "../commands/ListKafkaVersionsCommand";
 import { ListNodesCommandInput, ListNodesCommandOutput } from "../commands/ListNodesCommand";
+import { ListReplicatorsCommandInput, ListReplicatorsCommandOutput } from "../commands/ListReplicatorsCommand";
 import { ListScramSecretsCommandInput, ListScramSecretsCommandOutput } from "../commands/ListScramSecretsCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -141,10 +146,15 @@ import {
 } from "../commands/UpdateConfigurationCommand";
 import { UpdateConnectivityCommandInput, UpdateConnectivityCommandOutput } from "../commands/UpdateConnectivityCommand";
 import { UpdateMonitoringCommandInput, UpdateMonitoringCommandOutput } from "../commands/UpdateMonitoringCommand";
+import {
+  UpdateReplicationInfoCommandInput,
+  UpdateReplicationInfoCommandOutput,
+} from "../commands/UpdateReplicationInfoCommand";
 import { UpdateSecurityCommandInput, UpdateSecurityCommandOutput } from "../commands/UpdateSecurityCommand";
 import { UpdateStorageCommandInput, UpdateStorageCommandOutput } from "../commands/UpdateStorageCommand";
 import { KafkaServiceException as __BaseException } from "../models/KafkaServiceException";
 import {
+  AmazonMskCluster,
   BadRequestException,
   BrokerEBSVolumeInfo,
   BrokerLogs,
@@ -169,6 +179,8 @@ import {
   ConfigurationRevision,
   ConflictException,
   ConnectivityInfo,
+  ConsumerGroupReplication,
+  ConsumerGroupReplicationUpdate,
   EBSStorageInfo,
   EncryptionAtRest,
   EncryptionInfo,
@@ -180,6 +192,10 @@ import {
   InternalServerErrorException,
   JmxExporter,
   JmxExporterInfo,
+  KafkaCluster,
+  KafkaClusterClientVpcConfig,
+  KafkaClusterDescription,
+  KafkaClusterSummary,
   KafkaVersion,
   LoggingInfo,
   MutableClusterInfo,
@@ -195,6 +211,11 @@ import {
   ProvisionedRequest,
   ProvisionedThroughput,
   PublicAccess,
+  ReplicationInfo,
+  ReplicationInfoDescription,
+  ReplicationInfoSummary,
+  ReplicationStateInfo,
+  ReplicatorSummary,
   S3,
   Sasl,
   Scram,
@@ -207,6 +228,8 @@ import {
   StorageInfo,
   Tls,
   TooManyRequestsException,
+  TopicReplication,
+  TopicReplicationUpdate,
   Unauthenticated,
   UnauthorizedException,
   UnprocessedScramSecret,
@@ -231,28 +254,20 @@ export const se_BatchAssociateScramSecretCommand = async (
   input: BatchAssociateScramSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/scram-secrets";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/scram-secrets");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       secretArnList: [, (_) => _json(_), `SecretArnList`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -262,28 +277,20 @@ export const se_BatchDisassociateScramSecretCommand = async (
   input: BatchDisassociateScramSecretCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/scram-secrets";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/scram-secrets");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       secretArnList: [, (_) => _json(_), `SecretArnList`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -293,11 +300,11 @@ export const se_CreateClusterCommand = async (
   input: CreateClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters";
+  b.bp("/v1/clusters");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -315,15 +322,8 @@ export const se_CreateClusterCommand = async (
       tags: [, (_) => _json(_), `Tags`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -333,11 +333,11 @@ export const se_CreateClusterV2Command = async (
   input: CreateClusterV2CommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v2/clusters";
+  b.bp("/api/v2/clusters");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -347,15 +347,8 @@ export const se_CreateClusterV2Command = async (
       tags: [, (_) => _json(_), `Tags`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -365,11 +358,11 @@ export const se_CreateConfigurationCommand = async (
   input: CreateConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/configurations";
+  b.bp("/v1/configurations");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -379,15 +372,35 @@ export const se_CreateConfigurationCommand = async (
       serverProperties: [, (_) => context.base64Encoder(_), `ServerProperties`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateReplicatorCommand
+ */
+export const se_CreateReplicatorCommand = async (
+  input: CreateReplicatorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/replication/v1/replicators");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [, , `Description`],
+      kafkaClusters: [, (_) => se___listOfKafkaCluster(_, context), `KafkaClusters`],
+      replicationInfoList: [, (_) => se___listOfReplicationInfo(_, context), `ReplicationInfoList`],
+      replicatorName: [, , `ReplicatorName`],
+      serviceExecutionRoleArn: [, , `ServiceExecutionRoleArn`],
+      tags: [, (_) => _json(_), `Tags`],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -397,11 +410,11 @@ export const se_CreateVpcConnectionCommand = async (
   input: CreateVpcConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/vpc-connection";
+  b.bp("/v1/vpc-connection");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -413,15 +426,8 @@ export const se_CreateVpcConnectionCommand = async (
       vpcId: [, , `VpcId`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -431,25 +437,16 @@ export const se_DeleteClusterCommand = async (
   input: DeleteClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   const query: any = map({
-    currentVersion: [, input.CurrentVersion!],
+    [_cV]: [, input[_CV]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -459,21 +456,13 @@ export const se_DeleteClusterPolicyCommand = async (
   input: DeleteClusterPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/policy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/policy");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -483,20 +472,32 @@ export const se_DeleteConfigurationCommand = async (
   input: DeleteConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/configurations/{Arn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
+  b.bp("/v1/configurations/{Arn}");
+  b.p("Arn", () => input.Arn!, "{Arn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteReplicatorCommand
+ */
+export const se_DeleteReplicatorCommand = async (
+  input: DeleteReplicatorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/replication/v1/replicators/{ReplicatorArn}");
+  b.p("ReplicatorArn", () => input.ReplicatorArn!, "{ReplicatorArn}", false);
+  const query: any = map({
+    [_cV]: [, input[_CV]!],
   });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -506,20 +507,13 @@ export const se_DeleteVpcConnectionCommand = async (
   input: DeleteVpcConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/vpc-connection/{Arn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
+  b.bp("/v1/vpc-connection/{Arn}");
+  b.p("Arn", () => input.Arn!, "{Arn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -529,21 +523,13 @@ export const se_DescribeClusterCommand = async (
   input: DescribeClusterCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -553,28 +539,13 @@ export const se_DescribeClusterOperationCommand = async (
   input: DescribeClusterOperationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/operations/{ClusterOperationArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ClusterOperationArn",
-    () => input.ClusterOperationArn!,
-    "{ClusterOperationArn}",
-    false
-  );
+  b.bp("/v1/operations/{ClusterOperationArn}");
+  b.p("ClusterOperationArn", () => input.ClusterOperationArn!, "{ClusterOperationArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -584,28 +555,13 @@ export const se_DescribeClusterOperationV2Command = async (
   input: DescribeClusterOperationV2CommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v2/operations/{ClusterOperationArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ClusterOperationArn",
-    () => input.ClusterOperationArn!,
-    "{ClusterOperationArn}",
-    false
-  );
+  b.bp("/api/v2/operations/{ClusterOperationArn}");
+  b.p("ClusterOperationArn", () => input.ClusterOperationArn!, "{ClusterOperationArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -615,21 +571,13 @@ export const se_DescribeClusterV2Command = async (
   input: DescribeClusterV2CommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v2/clusters/{ClusterArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/api/v2/clusters/{ClusterArn}");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -639,20 +587,13 @@ export const se_DescribeConfigurationCommand = async (
   input: DescribeConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/configurations/{Arn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
+  b.bp("/v1/configurations/{Arn}");
+  b.p("Arn", () => input.Arn!, "{Arn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -662,23 +603,30 @@ export const se_DescribeConfigurationRevisionCommand = async (
   input: DescribeConfigurationRevisionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/configurations/{Arn}/revisions/{Revision}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "Revision", () => input.Revision!.toString(), "{Revision}", false);
+  b.bp("/v1/configurations/{Arn}/revisions/{Revision}");
+  b.p("Arn", () => input.Arn!, "{Arn}", false);
+  b.p("Revision", () => input.Revision!.toString(), "{Revision}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeReplicatorCommand
+ */
+export const se_DescribeReplicatorCommand = async (
+  input: DescribeReplicatorCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/replication/v1/replicators/{ReplicatorArn}");
+  b.p("ReplicatorArn", () => input.ReplicatorArn!, "{ReplicatorArn}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -688,20 +636,13 @@ export const se_DescribeVpcConnectionCommand = async (
   input: DescribeVpcConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/vpc-connection/{Arn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
+  b.bp("/v1/vpc-connection/{Arn}");
+  b.p("Arn", () => input.Arn!, "{Arn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -711,22 +652,13 @@ export const se_GetBootstrapBrokersCommand = async (
   input: GetBootstrapBrokersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/clusters/{ClusterArn}/bootstrap-brokers";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/bootstrap-brokers");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -736,21 +668,13 @@ export const se_GetClusterPolicyCommand = async (
   input: GetClusterPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/policy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/policy");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -760,24 +684,15 @@ export const se_GetCompatibleKafkaVersionsCommand = async (
   input: GetCompatibleKafkaVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/compatible-kafka-versions";
+  b.bp("/v1/compatible-kafka-versions");
   const query: any = map({
-    clusterArn: [, input.ClusterArn!],
+    [_cA]: [, input[_CA]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -787,27 +702,17 @@ export const se_ListClientVpcConnectionsCommand = async (
   input: ListClientVpcConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/clusters/{ClusterArn}/client-vpc-connections";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/client-vpc-connections");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -817,26 +722,17 @@ export const se_ListClusterOperationsCommand = async (
   input: ListClusterOperationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/operations";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/operations");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -846,26 +742,17 @@ export const se_ListClusterOperationsV2Command = async (
   input: ListClusterOperationsV2CommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v2/clusters/{ClusterArn}/operations";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/api/v2/clusters/{ClusterArn}/operations");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -875,25 +762,17 @@ export const se_ListClustersCommand = async (
   input: ListClustersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters";
+  b.bp("/v1/clusters");
   const query: any = map({
-    clusterNameFilter: [, input.ClusterNameFilter!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_cNF]: [, input[_CNF]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -903,26 +782,18 @@ export const se_ListClustersV2Command = async (
   input: ListClustersV2CommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v2/clusters";
+  b.bp("/api/v2/clusters");
   const query: any = map({
-    clusterNameFilter: [, input.ClusterNameFilter!],
-    clusterTypeFilter: [, input.ClusterTypeFilter!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_cNF]: [, input[_CNF]!],
+    [_cTF]: [, input[_CTF]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -932,26 +803,17 @@ export const se_ListConfigurationRevisionsCommand = async (
   input: ListConfigurationRevisionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/configurations/{Arn}/revisions";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
+  b.bp("/v1/configurations/{Arn}/revisions");
+  b.p("Arn", () => input.Arn!, "{Arn}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -961,24 +823,16 @@ export const se_ListConfigurationsCommand = async (
   input: ListConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/configurations";
+  b.bp("/v1/configurations");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -988,24 +842,16 @@ export const se_ListKafkaVersionsCommand = async (
   input: ListKafkaVersionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/kafka-versions";
+  b.bp("/v1/kafka-versions");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1015,26 +861,37 @@ export const se_ListNodesCommand = async (
   input: ListNodesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/nodes";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/nodes");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListReplicatorsCommand
+ */
+export const se_ListReplicatorsCommand = async (
+  input: ListReplicatorsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/replication/v1/replicators");
+  const query: any = map({
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_rNF]: [, input[_RNF]!],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1044,26 +901,17 @@ export const se_ListScramSecretsCommand = async (
   input: ListScramSecretsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/scram-secrets";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/scram-secrets");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1073,20 +921,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/v1/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1096,24 +937,16 @@ export const se_ListVpcConnectionsCommand = async (
   input: ListVpcConnectionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/vpc-connections";
+  b.bp("/v1/vpc-connections");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1123,13 +956,12 @@ export const se_PutClusterPolicyCommand = async (
   input: PutClusterPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/policy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/policy");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1137,15 +969,8 @@ export const se_PutClusterPolicyCommand = async (
       policy: [, , `Policy`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1155,28 +980,20 @@ export const se_RebootBrokerCommand = async (
   input: RebootBrokerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/reboot-broker";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/reboot-broker");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       brokerIds: [, (_) => _json(_), `BrokerIds`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1186,29 +1003,20 @@ export const se_RejectClientVpcConnectionCommand = async (
   input: RejectClientVpcConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v1/clusters/{ClusterArn}/client-vpc-connection";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/client-vpc-connection");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       vpcConnectionArn: [, , `VpcConnectionArn`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1218,27 +1026,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/v1/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: [, (_) => _json(_), `Tags`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1248,27 +1049,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/v1/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1278,13 +1071,12 @@ export const se_UpdateBrokerCountCommand = async (
   input: UpdateBrokerCountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/nodes/count";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/nodes/count");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1292,15 +1084,8 @@ export const se_UpdateBrokerCountCommand = async (
       targetNumberOfBrokerNodes: [, , `TargetNumberOfBrokerNodes`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1310,13 +1095,12 @@ export const se_UpdateBrokerStorageCommand = async (
   input: UpdateBrokerStorageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/nodes/storage";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/nodes/storage");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1324,15 +1108,8 @@ export const se_UpdateBrokerStorageCommand = async (
       targetBrokerEBSVolumeInfo: [, (_) => se___listOfBrokerEBSVolumeInfo(_, context), `TargetBrokerEBSVolumeInfo`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1342,13 +1119,12 @@ export const se_UpdateBrokerTypeCommand = async (
   input: UpdateBrokerTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/nodes/type";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/nodes/type");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1356,15 +1132,8 @@ export const se_UpdateBrokerTypeCommand = async (
       targetInstanceType: [, , `TargetInstanceType`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1374,13 +1143,12 @@ export const se_UpdateClusterConfigurationCommand = async (
   input: UpdateClusterConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/configuration";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/configuration");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1388,15 +1156,8 @@ export const se_UpdateClusterConfigurationCommand = async (
       currentVersion: [, , `CurrentVersion`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1406,13 +1167,12 @@ export const se_UpdateClusterKafkaVersionCommand = async (
   input: UpdateClusterKafkaVersionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/version";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/version");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1421,15 +1181,8 @@ export const se_UpdateClusterKafkaVersionCommand = async (
       targetKafkaVersion: [, , `TargetKafkaVersion`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1439,12 +1192,12 @@ export const se_UpdateConfigurationCommand = async (
   input: UpdateConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/configurations/{Arn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
+  b.bp("/v1/configurations/{Arn}");
+  b.p("Arn", () => input.Arn!, "{Arn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1452,15 +1205,8 @@ export const se_UpdateConfigurationCommand = async (
       serverProperties: [, (_) => context.base64Encoder(_), `ServerProperties`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1470,13 +1216,12 @@ export const se_UpdateConnectivityCommand = async (
   input: UpdateConnectivityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/connectivity";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/connectivity");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1484,15 +1229,8 @@ export const se_UpdateConnectivityCommand = async (
       currentVersion: [, , `CurrentVersion`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1502,13 +1240,12 @@ export const se_UpdateMonitoringCommand = async (
   input: UpdateMonitoringCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/monitoring";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/monitoring");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1518,15 +1255,35 @@ export const se_UpdateMonitoringCommand = async (
       openMonitoring: [, (_) => se_OpenMonitoringInfo(_, context), `OpenMonitoring`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateReplicationInfoCommand
+ */
+export const se_UpdateReplicationInfoCommand = async (
+  input: UpdateReplicationInfoCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/replication/v1/replicators/{ReplicatorArn}/replication-info");
+  b.p("ReplicatorArn", () => input.ReplicatorArn!, "{ReplicatorArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      consumerGroupReplication: [, (_) => se_ConsumerGroupReplicationUpdate(_, context), `ConsumerGroupReplication`],
+      currentVersion: [, , `CurrentVersion`],
+      sourceKafkaClusterArn: [, , `SourceKafkaClusterArn`],
+      targetKafkaClusterArn: [, , `TargetKafkaClusterArn`],
+      topicReplication: [, (_) => se_TopicReplicationUpdate(_, context), `TopicReplication`],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1536,13 +1293,12 @@ export const se_UpdateSecurityCommand = async (
   input: UpdateSecurityCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/security";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/security");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1551,15 +1307,8 @@ export const se_UpdateSecurityCommand = async (
       encryptionInfo: [, (_) => se_EncryptionInfo(_, context), `EncryptionInfo`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1569,13 +1318,12 @@ export const se_UpdateStorageCommand = async (
   input: UpdateStorageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/clusters/{ClusterArn}/storage";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
+  b.bp("/v1/clusters/{ClusterArn}/storage");
+  b.p("ClusterArn", () => input.ClusterArn!, "{ClusterArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1585,15 +1333,8 @@ export const se_UpdateStorageCommand = async (
       volumeSizeGB: [, , `VolumeSizeGB`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1933,6 +1674,76 @@ const de_CreateConfigurationCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateReplicatorCommand
+ */
+export const de_CreateReplicatorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateReplicatorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateReplicatorCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ReplicatorArn: [, __expectString, `replicatorArn`],
+    ReplicatorName: [, __expectString, `replicatorName`],
+    ReplicatorState: [, __expectString, `replicatorState`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateReplicatorCommandError
+ */
+const de_CreateReplicatorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateReplicatorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafka#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.kafka#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.kafka#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafka#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.kafka#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.kafka#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.kafka#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.kafka#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1CreateVpcConnectionCommand
  */
 export const de_CreateVpcConnectionCommand = async (
@@ -2157,6 +1968,72 @@ const de_DeleteConfigurationCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.kafka#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteReplicatorCommand
+ */
+export const de_DeleteReplicatorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteReplicatorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteReplicatorCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ReplicatorArn: [, __expectString, `replicatorArn`],
+    ReplicatorState: [, __expectString, `replicatorState`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteReplicatorCommandError
+ */
+const de_DeleteReplicatorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteReplicatorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafka#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.kafka#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafka#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.kafka#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.kafka#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.kafka#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.kafka#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2587,6 +2464,83 @@ const de_DescribeConfigurationRevisionCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.kafka#ServiceUnavailableException":
       throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.kafka#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeReplicatorCommand
+ */
+export const de_DescribeReplicatorCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReplicatorCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeReplicatorCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CreationTime: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `creationTime`],
+    CurrentVersion: [, __expectString, `currentVersion`],
+    IsReplicatorReference: [, __expectBoolean, `isReplicatorReference`],
+    KafkaClusters: [, (_) => de___listOfKafkaClusterDescription(_, context), `kafkaClusters`],
+    ReplicationInfoList: [, (_) => de___listOfReplicationInfoDescription(_, context), `replicationInfoList`],
+    ReplicatorArn: [, __expectString, `replicatorArn`],
+    ReplicatorDescription: [, __expectString, `replicatorDescription`],
+    ReplicatorName: [, __expectString, `replicatorName`],
+    ReplicatorResourceArn: [, __expectString, `replicatorResourceArn`],
+    ReplicatorState: [, __expectString, `replicatorState`],
+    ServiceExecutionRoleArn: [, __expectString, `serviceExecutionRoleArn`],
+    StateInfo: [, (_) => de_ReplicationStateInfo(_, context), `stateInfo`],
+    Tags: [, _json, `tags`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeReplicatorCommandError
+ */
+const de_DescribeReplicatorCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReplicatorCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafka#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.kafka#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafka#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.kafka#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.kafka#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.kafka#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.kafka#UnauthorizedException":
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
@@ -3384,6 +3338,72 @@ const de_ListNodesCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.kafka#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListReplicatorsCommand
+ */
+export const de_ListReplicatorsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReplicatorsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListReplicatorsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: [, __expectString, `nextToken`],
+    Replicators: [, (_) => de___listOfReplicatorSummary(_, context), `replicators`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListReplicatorsCommandError
+ */
+const de_ListReplicatorsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReplicatorsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafka#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.kafka#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafka#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.kafka#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.kafka#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.kafka#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.kafka#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -4347,6 +4367,72 @@ const de_UpdateMonitoringCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateReplicationInfoCommand
+ */
+export const de_UpdateReplicationInfoCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateReplicationInfoCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateReplicationInfoCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ReplicatorArn: [, __expectString, `replicatorArn`],
+    ReplicatorState: [, __expectString, `replicatorState`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateReplicationInfoCommandError
+ */
+const de_UpdateReplicationInfoCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateReplicationInfoCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafka#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.kafka#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafka#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.kafka#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.kafka#ServiceUnavailableException":
+      throw await de_ServiceUnavailableExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.kafka#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.kafka#UnauthorizedException":
+      throw await de_UnauthorizedExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1UpdateSecurityCommand
  */
 export const de_UpdateSecurityCommand = async (
@@ -4637,6 +4723,10 @@ const de_UnauthorizedExceptionRes = async (
 
 // se___listOf__string omitted.
 
+// se___listOf__stringMax249 omitted.
+
+// se___listOf__stringMax256 omitted.
+
 /**
  * serializeAws_restJson1__listOfBrokerEBSVolumeInfo
  */
@@ -4645,6 +4735,28 @@ const se___listOfBrokerEBSVolumeInfo = (input: BrokerEBSVolumeInfo[], context: _
     .filter((e: any) => e != null)
     .map((entry) => {
       return se_BrokerEBSVolumeInfo(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1__listOfKafkaCluster
+ */
+const se___listOfKafkaCluster = (input: KafkaCluster[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_KafkaCluster(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1__listOfReplicationInfo
+ */
+const se___listOfReplicationInfo = (input: ReplicationInfo[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ReplicationInfo(entry, context);
     });
 };
 
@@ -4660,6 +4772,15 @@ const se___listOfVpcConfig = (input: VpcConfig[], context: __SerdeContext): any 
 };
 
 // se___mapOf__string omitted.
+
+/**
+ * serializeAws_restJson1AmazonMskCluster
+ */
+const se_AmazonMskCluster = (input: AmazonMskCluster, context: __SerdeContext): any => {
+  return take(input, {
+    mskClusterArn: [, , `MskClusterArn`],
+  });
+};
 
 /**
  * serializeAws_restJson1BrokerEBSVolumeInfo
@@ -4740,6 +4861,30 @@ const se_ConnectivityInfo = (input: ConnectivityInfo, context: __SerdeContext): 
 };
 
 /**
+ * serializeAws_restJson1ConsumerGroupReplication
+ */
+const se_ConsumerGroupReplication = (input: ConsumerGroupReplication, context: __SerdeContext): any => {
+  return take(input, {
+    consumerGroupsToExclude: [, _json, `ConsumerGroupsToExclude`],
+    consumerGroupsToReplicate: [, _json, `ConsumerGroupsToReplicate`],
+    detectAndCopyNewConsumerGroups: [, , `DetectAndCopyNewConsumerGroups`],
+    synchroniseConsumerGroupOffsets: [, , `SynchroniseConsumerGroupOffsets`],
+  });
+};
+
+/**
+ * serializeAws_restJson1ConsumerGroupReplicationUpdate
+ */
+const se_ConsumerGroupReplicationUpdate = (input: ConsumerGroupReplicationUpdate, context: __SerdeContext): any => {
+  return take(input, {
+    consumerGroupsToExclude: [, _json, `ConsumerGroupsToExclude`],
+    consumerGroupsToReplicate: [, _json, `ConsumerGroupsToReplicate`],
+    detectAndCopyNewConsumerGroups: [, , `DetectAndCopyNewConsumerGroups`],
+    synchroniseConsumerGroupOffsets: [, , `SynchroniseConsumerGroupOffsets`],
+  });
+};
+
+/**
  * serializeAws_restJson1EBSStorageInfo
  */
 const se_EBSStorageInfo = (input: EBSStorageInfo, context: __SerdeContext): any => {
@@ -4803,6 +4948,26 @@ const se_Iam = (input: Iam, context: __SerdeContext): any => {
 const se_JmxExporterInfo = (input: JmxExporterInfo, context: __SerdeContext): any => {
   return take(input, {
     enabledInBroker: [, , `EnabledInBroker`],
+  });
+};
+
+/**
+ * serializeAws_restJson1KafkaCluster
+ */
+const se_KafkaCluster = (input: KafkaCluster, context: __SerdeContext): any => {
+  return take(input, {
+    amazonMskCluster: [, (_) => se_AmazonMskCluster(_, context), `AmazonMskCluster`],
+    vpcConfig: [, (_) => se_KafkaClusterClientVpcConfig(_, context), `VpcConfig`],
+  });
+};
+
+/**
+ * serializeAws_restJson1KafkaClusterClientVpcConfig
+ */
+const se_KafkaClusterClientVpcConfig = (input: KafkaClusterClientVpcConfig, context: __SerdeContext): any => {
+  return take(input, {
+    securityGroupIds: [, _json, `SecurityGroupIds`],
+    subnetIds: [, _json, `SubnetIds`],
   });
 };
 
@@ -4881,6 +5046,19 @@ const se_PublicAccess = (input: PublicAccess, context: __SerdeContext): any => {
 };
 
 /**
+ * serializeAws_restJson1ReplicationInfo
+ */
+const se_ReplicationInfo = (input: ReplicationInfo, context: __SerdeContext): any => {
+  return take(input, {
+    consumerGroupReplication: [, (_) => se_ConsumerGroupReplication(_, context), `ConsumerGroupReplication`],
+    sourceKafkaClusterArn: [, , `SourceKafkaClusterArn`],
+    targetCompressionType: [, , `TargetCompressionType`],
+    targetKafkaClusterArn: [, , `TargetKafkaClusterArn`],
+    topicReplication: [, (_) => se_TopicReplication(_, context), `TopicReplication`],
+  });
+};
+
+/**
  * serializeAws_restJson1S3
  */
 const se_S3 = (input: S3, context: __SerdeContext): any => {
@@ -4954,6 +5132,32 @@ const se_Tls = (input: Tls, context: __SerdeContext): any => {
   return take(input, {
     certificateAuthorityArnList: [, _json, `CertificateAuthorityArnList`],
     enabled: [, , `Enabled`],
+  });
+};
+
+/**
+ * serializeAws_restJson1TopicReplication
+ */
+const se_TopicReplication = (input: TopicReplication, context: __SerdeContext): any => {
+  return take(input, {
+    copyAccessControlListsForTopics: [, , `CopyAccessControlListsForTopics`],
+    copyTopicConfigurations: [, , `CopyTopicConfigurations`],
+    detectAndCopyNewTopics: [, , `DetectAndCopyNewTopics`],
+    topicsToExclude: [, _json, `TopicsToExclude`],
+    topicsToReplicate: [, _json, `TopicsToReplicate`],
+  });
+};
+
+/**
+ * serializeAws_restJson1TopicReplicationUpdate
+ */
+const se_TopicReplicationUpdate = (input: TopicReplicationUpdate, context: __SerdeContext): any => {
+  return take(input, {
+    copyAccessControlListsForTopics: [, , `CopyAccessControlListsForTopics`],
+    copyTopicConfigurations: [, , `CopyTopicConfigurations`],
+    detectAndCopyNewTopics: [, , `DetectAndCopyNewTopics`],
+    topicsToExclude: [, _json, `TopicsToExclude`],
+    topicsToReplicate: [, _json, `TopicsToReplicate`],
   });
 };
 
@@ -5036,6 +5240,10 @@ const se_VpcConnectivityTls = (input: VpcConnectivityTls, context: __SerdeContex
 };
 
 // de___listOf__string omitted.
+
+// de___listOf__stringMax249 omitted.
+
+// de___listOf__stringMax256 omitted.
 
 /**
  * deserializeAws_restJson1__listOfBrokerEBSVolumeInfo
@@ -5158,6 +5366,30 @@ const de___listOfConfigurationRevision = (output: any, context: __SerdeContext):
 };
 
 /**
+ * deserializeAws_restJson1__listOfKafkaClusterDescription
+ */
+const de___listOfKafkaClusterDescription = (output: any, context: __SerdeContext): KafkaClusterDescription[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_KafkaClusterDescription(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfKafkaClusterSummary
+ */
+const de___listOfKafkaClusterSummary = (output: any, context: __SerdeContext): KafkaClusterSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_KafkaClusterSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1__listOfKafkaVersion
  */
 const de___listOfKafkaVersion = (output: any, context: __SerdeContext): KafkaVersion[] => {
@@ -5177,6 +5409,42 @@ const de___listOfNodeInfo = (output: any, context: __SerdeContext): NodeInfo[] =
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_NodeInfo(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfReplicationInfoDescription
+ */
+const de___listOfReplicationInfoDescription = (output: any, context: __SerdeContext): ReplicationInfoDescription[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ReplicationInfoDescription(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfReplicationInfoSummary
+ */
+const de___listOfReplicationInfoSummary = (output: any, context: __SerdeContext): ReplicationInfoSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ReplicationInfoSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfReplicatorSummary
+ */
+const de___listOfReplicatorSummary = (output: any, context: __SerdeContext): ReplicatorSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ReplicatorSummary(entry, context);
     });
   return retVal;
 };
@@ -5218,6 +5486,15 @@ const de___listOfVpcConnection = (output: any, context: __SerdeContext): VpcConn
 };
 
 // de___mapOf__string omitted.
+
+/**
+ * deserializeAws_restJson1AmazonMskCluster
+ */
+const de_AmazonMskCluster = (output: any, context: __SerdeContext): AmazonMskCluster => {
+  return take(output, {
+    MskClusterArn: [, __expectString, `mskClusterArn`],
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1BrokerEBSVolumeInfo
@@ -5347,6 +5624,7 @@ const de_ClusterInfo = (output: any, context: __SerdeContext): ClusterInfo => {
     CreationTime: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `creationTime`],
     CurrentBrokerSoftwareInfo: [, (_: any) => de_BrokerSoftwareInfo(_, context), `currentBrokerSoftwareInfo`],
     CurrentVersion: [, __expectString, `currentVersion`],
+    CustomerActionStatus: [, __expectString, `customerActionStatus`],
     EncryptionInfo: [, (_: any) => de_EncryptionInfo(_, context), `encryptionInfo`],
     EnhancedMonitoring: [, __expectString, `enhancedMonitoring`],
     LoggingInfo: [, (_: any) => de_LoggingInfo(_, context), `loggingInfo`],
@@ -5511,6 +5789,18 @@ const de_ConnectivityInfo = (output: any, context: __SerdeContext): Connectivity
 };
 
 /**
+ * deserializeAws_restJson1ConsumerGroupReplication
+ */
+const de_ConsumerGroupReplication = (output: any, context: __SerdeContext): ConsumerGroupReplication => {
+  return take(output, {
+    ConsumerGroupsToExclude: [, _json, `consumerGroupsToExclude`],
+    ConsumerGroupsToReplicate: [, _json, `consumerGroupsToReplicate`],
+    DetectAndCopyNewConsumerGroups: [, __expectBoolean, `detectAndCopyNewConsumerGroups`],
+    SynchroniseConsumerGroupOffsets: [, __expectBoolean, `synchroniseConsumerGroupOffsets`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1EBSStorageInfo
  */
 const de_EBSStorageInfo = (output: any, context: __SerdeContext): EBSStorageInfo => {
@@ -5593,6 +5883,37 @@ const de_JmxExporter = (output: any, context: __SerdeContext): JmxExporter => {
 const de_JmxExporterInfo = (output: any, context: __SerdeContext): JmxExporterInfo => {
   return take(output, {
     EnabledInBroker: [, __expectBoolean, `enabledInBroker`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1KafkaClusterClientVpcConfig
+ */
+const de_KafkaClusterClientVpcConfig = (output: any, context: __SerdeContext): KafkaClusterClientVpcConfig => {
+  return take(output, {
+    SecurityGroupIds: [, _json, `securityGroupIds`],
+    SubnetIds: [, _json, `subnetIds`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1KafkaClusterDescription
+ */
+const de_KafkaClusterDescription = (output: any, context: __SerdeContext): KafkaClusterDescription => {
+  return take(output, {
+    AmazonMskCluster: [, (_: any) => de_AmazonMskCluster(_, context), `amazonMskCluster`],
+    KafkaClusterAlias: [, __expectString, `kafkaClusterAlias`],
+    VpcConfig: [, (_: any) => de_KafkaClusterClientVpcConfig(_, context), `vpcConfig`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1KafkaClusterSummary
+ */
+const de_KafkaClusterSummary = (output: any, context: __SerdeContext): KafkaClusterSummary => {
+  return take(output, {
+    AmazonMskCluster: [, (_: any) => de_AmazonMskCluster(_, context), `amazonMskCluster`],
+    KafkaClusterAlias: [, __expectString, `kafkaClusterAlias`],
   }) as any;
 };
 
@@ -5713,6 +6034,7 @@ const de_Provisioned = (output: any, context: __SerdeContext): Provisioned => {
     BrokerNodeGroupInfo: [, (_: any) => de_BrokerNodeGroupInfo(_, context), `brokerNodeGroupInfo`],
     ClientAuthentication: [, (_: any) => de_ClientAuthentication(_, context), `clientAuthentication`],
     CurrentBrokerSoftwareInfo: [, (_: any) => de_BrokerSoftwareInfo(_, context), `currentBrokerSoftwareInfo`],
+    CustomerActionStatus: [, __expectString, `customerActionStatus`],
     EncryptionInfo: [, (_: any) => de_EncryptionInfo(_, context), `encryptionInfo`],
     EnhancedMonitoring: [, __expectString, `enhancedMonitoring`],
     LoggingInfo: [, (_: any) => de_LoggingInfo(_, context), `loggingInfo`],
@@ -5740,6 +6062,60 @@ const de_ProvisionedThroughput = (output: any, context: __SerdeContext): Provisi
 const de_PublicAccess = (output: any, context: __SerdeContext): PublicAccess => {
   return take(output, {
     Type: [, __expectString, `type`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ReplicationInfoDescription
+ */
+const de_ReplicationInfoDescription = (output: any, context: __SerdeContext): ReplicationInfoDescription => {
+  return take(output, {
+    ConsumerGroupReplication: [, (_: any) => de_ConsumerGroupReplication(_, context), `consumerGroupReplication`],
+    SourceKafkaClusterAlias: [, __expectString, `sourceKafkaClusterAlias`],
+    TargetCompressionType: [, __expectString, `targetCompressionType`],
+    TargetKafkaClusterAlias: [, __expectString, `targetKafkaClusterAlias`],
+    TopicReplication: [, (_: any) => de_TopicReplication(_, context), `topicReplication`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ReplicationInfoSummary
+ */
+const de_ReplicationInfoSummary = (output: any, context: __SerdeContext): ReplicationInfoSummary => {
+  return take(output, {
+    SourceKafkaClusterAlias: [, __expectString, `sourceKafkaClusterAlias`],
+    TargetKafkaClusterAlias: [, __expectString, `targetKafkaClusterAlias`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ReplicationStateInfo
+ */
+const de_ReplicationStateInfo = (output: any, context: __SerdeContext): ReplicationStateInfo => {
+  return take(output, {
+    Code: [, __expectString, `code`],
+    Message: [, __expectString, `message`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ReplicatorSummary
+ */
+const de_ReplicatorSummary = (output: any, context: __SerdeContext): ReplicatorSummary => {
+  return take(output, {
+    CreationTime: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `creationTime`],
+    CurrentVersion: [, __expectString, `currentVersion`],
+    IsReplicatorReference: [, __expectBoolean, `isReplicatorReference`],
+    KafkaClustersSummary: [, (_: any) => de___listOfKafkaClusterSummary(_, context), `kafkaClustersSummary`],
+    ReplicationInfoSummaryList: [
+      ,
+      (_: any) => de___listOfReplicationInfoSummary(_, context),
+      `replicationInfoSummaryList`,
+    ],
+    ReplicatorArn: [, __expectString, `replicatorArn`],
+    ReplicatorName: [, __expectString, `replicatorName`],
+    ReplicatorResourceArn: [, __expectString, `replicatorResourceArn`],
+    ReplicatorState: [, __expectString, `replicatorState`],
   }) as any;
 };
 
@@ -5827,6 +6203,19 @@ const de_Tls = (output: any, context: __SerdeContext): Tls => {
   return take(output, {
     CertificateAuthorityArnList: [, _json, `certificateAuthorityArnList`],
     Enabled: [, __expectBoolean, `enabled`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1TopicReplication
+ */
+const de_TopicReplication = (output: any, context: __SerdeContext): TopicReplication => {
+  return take(output, {
+    CopyAccessControlListsForTopics: [, __expectBoolean, `copyAccessControlListsForTopics`],
+    CopyTopicConfigurations: [, __expectBoolean, `copyTopicConfigurations`],
+    DetectAndCopyNewTopics: [, __expectBoolean, `detectAndCopyNewTopics`],
+    TopicsToExclude: [, _json, `topicsToExclude`],
+    TopicsToReplicate: [, _json, `topicsToReplicate`],
   }) as any;
 };
 
@@ -5998,6 +6387,23 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _CA = "ClusterArn";
+const _CNF = "ClusterNameFilter";
+const _CTF = "ClusterTypeFilter";
+const _CV = "CurrentVersion";
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _RNF = "ReplicatorNameFilter";
+const _TK = "TagKeys";
+const _cA = "clusterArn";
+const _cNF = "clusterNameFilter";
+const _cTF = "clusterTypeFilter";
+const _cV = "currentVersion";
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _rNF = "replicatorNameFilter";
+const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

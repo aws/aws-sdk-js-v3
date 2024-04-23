@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListRoutingControlsRequest, ListRoutingControlsResponse } from "../models/models_0";
 import { de_ListRoutingControlsCommand, se_ListRoutingControlsCommand } from "../protocols/Aws_json1_0";
 import {
@@ -44,21 +36,21 @@ export interface ListRoutingControlsCommandOutput extends ListRoutingControlsRes
  * 			state for each routing control, along with the control panel name and control panel ARN for the routing controls.
  * 			If you specify a control panel ARN, this call lists the routing controls in the control panel. Otherwise, it lists
  * 			all the routing controls in the cluster.</p>
- * 		       <p>A routing control is a simple on/off switch in Route 53 ARC that you
- * 			can use to route traffic to cells. When a routing control state is On, traffic flows to a cell. When
- * 			the state is Off, traffic does not flow.</p>
- * 		       <p>Before you can create a routing control, you must first create a cluster, and then host the control
+ *          <p>A routing control is a simple on/off switch in Route 53 ARC that you
+ * 			can use to route traffic to cells. When a routing control state is set to ON, traffic flows to a cell. When
+ * 			the state is set to OFF, traffic does not flow.</p>
+ *          <p>Before you can create a routing control, you must first create a cluster, and then host the control
  * 			in a control panel on the cluster. For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.create.html">
  * 				Create routing control structures</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.
  * 			You access one of the endpoints for the cluster to get or update the routing control state to
  * 			redirect traffic for your application. </p>
- * 		       <p>
+ *          <p>
  *             <i>You must specify Regional endpoints when you work with API cluster operations
  * 			to use this API operation to list routing controls in Route 53 ARC.</i>
  *          </p>
- * 		       <p>Learn more about working with routing controls in the following topics in the
+ *          <p>Learn more about working with routing controls in the following topics in the
  * 			Amazon Route 53 Application Recovery Controller Developer Guide:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.update.html">
@@ -92,7 +84,8 @@ export interface ListRoutingControlsCommandOutput extends ListRoutingControlsRes
  * //       ControlPanelName: "STRING_VALUE",
  * //       RoutingControlArn: "STRING_VALUE",
  * //       RoutingControlName: "STRING_VALUE",
- * //       RoutingControlState: "STRING_VALUE",
+ * //       RoutingControlState: "On" || "Off",
+ * //       Owner: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -128,79 +121,26 @@ export interface ListRoutingControlsCommandOutput extends ListRoutingControlsRes
  * <p>Base exception class for all service exceptions from Route53RecoveryCluster service.</p>
  *
  */
-export class ListRoutingControlsCommand extends $Command<
-  ListRoutingControlsCommandInput,
-  ListRoutingControlsCommandOutput,
-  Route53RecoveryClusterClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListRoutingControlsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: Route53RecoveryClusterClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListRoutingControlsCommandInput, ListRoutingControlsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListRoutingControlsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "Route53RecoveryClusterClient";
-    const commandName = "ListRoutingControlsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListRoutingControlsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListRoutingControlsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListRoutingControlsCommandOutput> {
-    return de_ListRoutingControlsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListRoutingControlsCommand extends $Command
+  .classBuilder<
+    ListRoutingControlsCommandInput,
+    ListRoutingControlsCommandOutput,
+    Route53RecoveryClusterClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: Route53RecoveryClusterClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ToggleCustomerAPI", "ListRoutingControls", {})
+  .n("Route53RecoveryClusterClient", "ListRoutingControlsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListRoutingControlsCommand)
+  .de(de_ListRoutingControlsCommand)
+  .build() {}

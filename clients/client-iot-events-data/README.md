@@ -27,16 +27,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `IoTEventsDataClient` and
-the commands you need, for example `BatchAcknowledgeAlarmCommand`:
+the commands you need, for example `ListAlarmsCommand`:
 
 ```js
 // ES5 example
-const { IoTEventsDataClient, BatchAcknowledgeAlarmCommand } = require("@aws-sdk/client-iot-events-data");
+const { IoTEventsDataClient, ListAlarmsCommand } = require("@aws-sdk/client-iot-events-data");
 ```
 
 ```ts
 // ES6+ example
-import { IoTEventsDataClient, BatchAcknowledgeAlarmCommand } from "@aws-sdk/client-iot-events-data";
+import { IoTEventsDataClient, ListAlarmsCommand } from "@aws-sdk/client-iot-events-data";
 ```
 
 ### Usage
@@ -55,7 +55,7 @@ const client = new IoTEventsDataClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchAcknowledgeAlarmCommand(params);
+const command = new ListAlarmsCommand(params);
 ```
 
 #### Async/await
@@ -134,7 +134,7 @@ const client = new AWS.IoTEventsData({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchAcknowledgeAlarm(params);
+  const data = await client.listAlarms(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -142,7 +142,7 @@ try {
 
 // Promises.
 client
-  .batchAcknowledgeAlarm(params)
+  .listAlarms(params)
   .then((data) => {
     // process data.
   })
@@ -151,7 +151,7 @@ client
   });
 
 // callbacks.
-client.batchAcknowledgeAlarm(params, (err, data) => {
+client.listAlarms(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -166,7 +166,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -212,7 +212,7 @@ see LICENSE for more information.
 BatchAcknowledgeAlarm
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/classes/batchacknowledgealarmcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/interfaces/batchacknowledgealarmcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/interfaces/batchacknowledgealarmcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events-data/command/BatchAcknowledgeAlarmCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events-data/Interface/BatchAcknowledgeAlarmCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events-data/Interface/BatchAcknowledgeAlarmCommandOutput/)
 
 </details>
 <details>
@@ -220,7 +220,7 @@ BatchAcknowledgeAlarm
 BatchDeleteDetector
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/classes/batchdeletedetectorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/interfaces/batchdeletedetectorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/interfaces/batchdeletedetectorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events-data/command/BatchDeleteDetectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events-data/Interface/BatchDeleteDetectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events-data/Interface/BatchDeleteDetectorCommandOutput/)
 
 </details>
 <details>
@@ -228,7 +228,7 @@ BatchDeleteDetector
 BatchDisableAlarm
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/classes/batchdisablealarmcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/interfaces/batchdisablealarmcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/interfaces/batchdisablealarmcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events-data/command/BatchDisableAlarmCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events-data/Interface/BatchDisableAlarmCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events-data/Interface/BatchDisableAlarmCommandOutput/)
 
 </details>
 <details>
@@ -236,7 +236,7 @@ BatchDisableAlarm
 BatchEnableAlarm
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/classes/batchenablealarmcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/interfaces/batchenablealarmcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/interfaces/batchenablealarmcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events-data/command/BatchEnableAlarmCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events-data/Interface/BatchEnableAlarmCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events-data/Interface/BatchEnableAlarmCommandOutput/)
 
 </details>
 <details>
@@ -244,7 +244,7 @@ BatchEnableAlarm
 BatchPutMessage
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/classes/batchputmessagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/interfaces/batchputmessagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/interfaces/batchputmessagecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events-data/command/BatchPutMessageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events-data/Interface/BatchPutMessageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events-data/Interface/BatchPutMessageCommandOutput/)
 
 </details>
 <details>
@@ -252,7 +252,7 @@ BatchPutMessage
 BatchResetAlarm
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/classes/batchresetalarmcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/interfaces/batchresetalarmcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/interfaces/batchresetalarmcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events-data/command/BatchResetAlarmCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events-data/Interface/BatchResetAlarmCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events-data/Interface/BatchResetAlarmCommandOutput/)
 
 </details>
 <details>
@@ -260,7 +260,7 @@ BatchResetAlarm
 BatchSnoozeAlarm
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/classes/batchsnoozealarmcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/interfaces/batchsnoozealarmcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/interfaces/batchsnoozealarmcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events-data/command/BatchSnoozeAlarmCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events-data/Interface/BatchSnoozeAlarmCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events-data/Interface/BatchSnoozeAlarmCommandOutput/)
 
 </details>
 <details>
@@ -268,7 +268,7 @@ BatchSnoozeAlarm
 BatchUpdateDetector
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/classes/batchupdatedetectorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/interfaces/batchupdatedetectorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/interfaces/batchupdatedetectorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events-data/command/BatchUpdateDetectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events-data/Interface/BatchUpdateDetectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events-data/Interface/BatchUpdateDetectorCommandOutput/)
 
 </details>
 <details>
@@ -276,7 +276,7 @@ BatchUpdateDetector
 DescribeAlarm
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/classes/describealarmcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/interfaces/describealarmcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/interfaces/describealarmcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events-data/command/DescribeAlarmCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events-data/Interface/DescribeAlarmCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events-data/Interface/DescribeAlarmCommandOutput/)
 
 </details>
 <details>
@@ -284,7 +284,7 @@ DescribeAlarm
 DescribeDetector
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/classes/describedetectorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/interfaces/describedetectorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/interfaces/describedetectorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events-data/command/DescribeDetectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events-data/Interface/DescribeDetectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events-data/Interface/DescribeDetectorCommandOutput/)
 
 </details>
 <details>
@@ -292,7 +292,7 @@ DescribeDetector
 ListAlarms
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/classes/listalarmscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/interfaces/listalarmscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/interfaces/listalarmscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events-data/command/ListAlarmsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events-data/Interface/ListAlarmsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events-data/Interface/ListAlarmsCommandOutput/)
 
 </details>
 <details>
@@ -300,6 +300,6 @@ ListAlarms
 ListDetectors
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/classes/listdetectorscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/interfaces/listdetectorscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iot-events-data/interfaces/listdetectorscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iot-events-data/command/ListDetectorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events-data/Interface/ListDetectorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iot-events-data/Interface/ListDetectorsCommandOutput/)
 
 </details>

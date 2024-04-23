@@ -24,7 +24,7 @@
  *             </li>
  *             <li>
  *                <p>
- *                   <a>UpdateSpace</a>, which hanges one or more values for a space.</p>
+ *                   <a>UpdateSpace</a>, which changes one or more values for a space.</p>
  *             </li>
  *          </ul>
  *          <p>Projects, by calling the following:</p>
@@ -125,6 +125,29 @@
  *                   <a>UpdateDevEnvironment</a>, which changes one or more values for a Dev Environment.</p>
  *             </li>
  *          </ul>
+ *          <p>Workflows, by calling the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a>GetWorkflow</a>, which returns information about a workflow.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetWorkflowRun</a>, which returns information about a specified run of a workflow.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListWorkflowRuns</a>, which retrieves a list of runs of a specified workflow.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>ListWorkflows</a>, which retrieves a list of workflows in a specified project.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>StartWorkflowRun</a>, which starts a run of a specified workflow.</p>
+ *             </li>
+ *          </ul>
  *          <p>Security, activity, and resource management in Amazon CodeCatalyst, by calling the following:</p>
  *          <ul>
  *             <li>
@@ -159,8 +182,12 @@
 export * from "./CodeCatalystClient";
 export * from "./CodeCatalyst";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { CodeCatalystExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { CodeCatalystServiceException } from "./models/CodeCatalystServiceException";

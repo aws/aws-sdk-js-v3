@@ -24,6 +24,11 @@ import {
   CreateCollaborationCommandOutput,
 } from "./commands/CreateCollaborationCommand";
 import {
+  CreateConfiguredAudienceModelAssociationCommand,
+  CreateConfiguredAudienceModelAssociationCommandInput,
+  CreateConfiguredAudienceModelAssociationCommandOutput,
+} from "./commands/CreateConfiguredAudienceModelAssociationCommand";
+import {
   CreateConfiguredTableAnalysisRuleCommand,
   CreateConfiguredTableAnalysisRuleCommandInput,
   CreateConfiguredTableAnalysisRuleCommandOutput,
@@ -44,6 +49,11 @@ import {
   CreateMembershipCommandOutput,
 } from "./commands/CreateMembershipCommand";
 import {
+  CreatePrivacyBudgetTemplateCommand,
+  CreatePrivacyBudgetTemplateCommandInput,
+  CreatePrivacyBudgetTemplateCommandOutput,
+} from "./commands/CreatePrivacyBudgetTemplateCommand";
+import {
   DeleteAnalysisTemplateCommand,
   DeleteAnalysisTemplateCommandInput,
   DeleteAnalysisTemplateCommandOutput,
@@ -53,6 +63,11 @@ import {
   DeleteCollaborationCommandInput,
   DeleteCollaborationCommandOutput,
 } from "./commands/DeleteCollaborationCommand";
+import {
+  DeleteConfiguredAudienceModelAssociationCommand,
+  DeleteConfiguredAudienceModelAssociationCommandInput,
+  DeleteConfiguredAudienceModelAssociationCommandOutput,
+} from "./commands/DeleteConfiguredAudienceModelAssociationCommand";
 import {
   DeleteConfiguredTableAnalysisRuleCommand,
   DeleteConfiguredTableAnalysisRuleCommandInput,
@@ -79,6 +94,11 @@ import {
   DeleteMembershipCommandOutput,
 } from "./commands/DeleteMembershipCommand";
 import {
+  DeletePrivacyBudgetTemplateCommand,
+  DeletePrivacyBudgetTemplateCommandInput,
+  DeletePrivacyBudgetTemplateCommandOutput,
+} from "./commands/DeletePrivacyBudgetTemplateCommand";
+import {
   GetAnalysisTemplateCommand,
   GetAnalysisTemplateCommandInput,
   GetAnalysisTemplateCommandOutput,
@@ -93,6 +113,21 @@ import {
   GetCollaborationCommandInput,
   GetCollaborationCommandOutput,
 } from "./commands/GetCollaborationCommand";
+import {
+  GetCollaborationConfiguredAudienceModelAssociationCommand,
+  GetCollaborationConfiguredAudienceModelAssociationCommandInput,
+  GetCollaborationConfiguredAudienceModelAssociationCommandOutput,
+} from "./commands/GetCollaborationConfiguredAudienceModelAssociationCommand";
+import {
+  GetCollaborationPrivacyBudgetTemplateCommand,
+  GetCollaborationPrivacyBudgetTemplateCommandInput,
+  GetCollaborationPrivacyBudgetTemplateCommandOutput,
+} from "./commands/GetCollaborationPrivacyBudgetTemplateCommand";
+import {
+  GetConfiguredAudienceModelAssociationCommand,
+  GetConfiguredAudienceModelAssociationCommandInput,
+  GetConfiguredAudienceModelAssociationCommandOutput,
+} from "./commands/GetConfiguredAudienceModelAssociationCommand";
 import {
   GetConfiguredTableAnalysisRuleCommand,
   GetConfiguredTableAnalysisRuleCommandInput,
@@ -113,6 +148,11 @@ import {
   GetMembershipCommandInput,
   GetMembershipCommandOutput,
 } from "./commands/GetMembershipCommand";
+import {
+  GetPrivacyBudgetTemplateCommand,
+  GetPrivacyBudgetTemplateCommandInput,
+  GetPrivacyBudgetTemplateCommandOutput,
+} from "./commands/GetPrivacyBudgetTemplateCommand";
 import {
   GetProtectedQueryCommand,
   GetProtectedQueryCommandInput,
@@ -135,10 +175,30 @@ import {
   ListCollaborationAnalysisTemplatesCommandOutput,
 } from "./commands/ListCollaborationAnalysisTemplatesCommand";
 import {
+  ListCollaborationConfiguredAudienceModelAssociationsCommand,
+  ListCollaborationConfiguredAudienceModelAssociationsCommandInput,
+  ListCollaborationConfiguredAudienceModelAssociationsCommandOutput,
+} from "./commands/ListCollaborationConfiguredAudienceModelAssociationsCommand";
+import {
+  ListCollaborationPrivacyBudgetsCommand,
+  ListCollaborationPrivacyBudgetsCommandInput,
+  ListCollaborationPrivacyBudgetsCommandOutput,
+} from "./commands/ListCollaborationPrivacyBudgetsCommand";
+import {
+  ListCollaborationPrivacyBudgetTemplatesCommand,
+  ListCollaborationPrivacyBudgetTemplatesCommandInput,
+  ListCollaborationPrivacyBudgetTemplatesCommandOutput,
+} from "./commands/ListCollaborationPrivacyBudgetTemplatesCommand";
+import {
   ListCollaborationsCommand,
   ListCollaborationsCommandInput,
   ListCollaborationsCommandOutput,
 } from "./commands/ListCollaborationsCommand";
+import {
+  ListConfiguredAudienceModelAssociationsCommand,
+  ListConfiguredAudienceModelAssociationsCommandInput,
+  ListConfiguredAudienceModelAssociationsCommandOutput,
+} from "./commands/ListConfiguredAudienceModelAssociationsCommand";
 import {
   ListConfiguredTableAssociationsCommand,
   ListConfiguredTableAssociationsCommandInput,
@@ -156,6 +216,16 @@ import {
   ListMembershipsCommandOutput,
 } from "./commands/ListMembershipsCommand";
 import {
+  ListPrivacyBudgetsCommand,
+  ListPrivacyBudgetsCommandInput,
+  ListPrivacyBudgetsCommandOutput,
+} from "./commands/ListPrivacyBudgetsCommand";
+import {
+  ListPrivacyBudgetTemplatesCommand,
+  ListPrivacyBudgetTemplatesCommandInput,
+  ListPrivacyBudgetTemplatesCommandOutput,
+} from "./commands/ListPrivacyBudgetTemplatesCommand";
+import {
   ListProtectedQueriesCommand,
   ListProtectedQueriesCommandInput,
   ListProtectedQueriesCommandOutput,
@@ -166,6 +236,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  PreviewPrivacyImpactCommand,
+  PreviewPrivacyImpactCommandInput,
+  PreviewPrivacyImpactCommandOutput,
+} from "./commands/PreviewPrivacyImpactCommand";
 import {
   StartProtectedQueryCommand,
   StartProtectedQueryCommandInput,
@@ -188,6 +263,11 @@ import {
   UpdateCollaborationCommandOutput,
 } from "./commands/UpdateCollaborationCommand";
 import {
+  UpdateConfiguredAudienceModelAssociationCommand,
+  UpdateConfiguredAudienceModelAssociationCommandInput,
+  UpdateConfiguredAudienceModelAssociationCommandOutput,
+} from "./commands/UpdateConfiguredAudienceModelAssociationCommand";
+import {
   UpdateConfiguredTableAnalysisRuleCommand,
   UpdateConfiguredTableAnalysisRuleCommandInput,
   UpdateConfiguredTableAnalysisRuleCommandOutput,
@@ -208,6 +288,11 @@ import {
   UpdateMembershipCommandOutput,
 } from "./commands/UpdateMembershipCommand";
 import {
+  UpdatePrivacyBudgetTemplateCommand,
+  UpdatePrivacyBudgetTemplateCommandInput,
+  UpdatePrivacyBudgetTemplateCommandOutput,
+} from "./commands/UpdatePrivacyBudgetTemplateCommand";
+import {
   UpdateProtectedQueryCommand,
   UpdateProtectedQueryCommandInput,
   UpdateProtectedQueryCommandOutput,
@@ -218,46 +303,63 @@ const commands = {
   BatchGetSchemaCommand,
   CreateAnalysisTemplateCommand,
   CreateCollaborationCommand,
+  CreateConfiguredAudienceModelAssociationCommand,
   CreateConfiguredTableCommand,
   CreateConfiguredTableAnalysisRuleCommand,
   CreateConfiguredTableAssociationCommand,
   CreateMembershipCommand,
+  CreatePrivacyBudgetTemplateCommand,
   DeleteAnalysisTemplateCommand,
   DeleteCollaborationCommand,
+  DeleteConfiguredAudienceModelAssociationCommand,
   DeleteConfiguredTableCommand,
   DeleteConfiguredTableAnalysisRuleCommand,
   DeleteConfiguredTableAssociationCommand,
   DeleteMemberCommand,
   DeleteMembershipCommand,
+  DeletePrivacyBudgetTemplateCommand,
   GetAnalysisTemplateCommand,
   GetCollaborationCommand,
   GetCollaborationAnalysisTemplateCommand,
+  GetCollaborationConfiguredAudienceModelAssociationCommand,
+  GetCollaborationPrivacyBudgetTemplateCommand,
+  GetConfiguredAudienceModelAssociationCommand,
   GetConfiguredTableCommand,
   GetConfiguredTableAnalysisRuleCommand,
   GetConfiguredTableAssociationCommand,
   GetMembershipCommand,
+  GetPrivacyBudgetTemplateCommand,
   GetProtectedQueryCommand,
   GetSchemaCommand,
   GetSchemaAnalysisRuleCommand,
   ListAnalysisTemplatesCommand,
   ListCollaborationAnalysisTemplatesCommand,
+  ListCollaborationConfiguredAudienceModelAssociationsCommand,
+  ListCollaborationPrivacyBudgetsCommand,
+  ListCollaborationPrivacyBudgetTemplatesCommand,
   ListCollaborationsCommand,
+  ListConfiguredAudienceModelAssociationsCommand,
   ListConfiguredTableAssociationsCommand,
   ListConfiguredTablesCommand,
   ListMembersCommand,
   ListMembershipsCommand,
+  ListPrivacyBudgetsCommand,
+  ListPrivacyBudgetTemplatesCommand,
   ListProtectedQueriesCommand,
   ListSchemasCommand,
   ListTagsForResourceCommand,
+  PreviewPrivacyImpactCommand,
   StartProtectedQueryCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAnalysisTemplateCommand,
   UpdateCollaborationCommand,
+  UpdateConfiguredAudienceModelAssociationCommand,
   UpdateConfiguredTableCommand,
   UpdateConfiguredTableAnalysisRuleCommand,
   UpdateConfiguredTableAssociationCommand,
   UpdateMembershipCommand,
+  UpdatePrivacyBudgetTemplateCommand,
   UpdateProtectedQueryCommand,
 };
 
@@ -325,6 +427,23 @@ export interface CleanRooms {
     args: CreateCollaborationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateCollaborationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateConfiguredAudienceModelAssociationCommand}
+   */
+  createConfiguredAudienceModelAssociation(
+    args: CreateConfiguredAudienceModelAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateConfiguredAudienceModelAssociationCommandOutput>;
+  createConfiguredAudienceModelAssociation(
+    args: CreateConfiguredAudienceModelAssociationCommandInput,
+    cb: (err: any, data?: CreateConfiguredAudienceModelAssociationCommandOutput) => void
+  ): void;
+  createConfiguredAudienceModelAssociation(
+    args: CreateConfiguredAudienceModelAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateConfiguredAudienceModelAssociationCommandOutput) => void
   ): void;
 
   /**
@@ -396,6 +515,23 @@ export interface CleanRooms {
   ): void;
 
   /**
+   * @see {@link CreatePrivacyBudgetTemplateCommand}
+   */
+  createPrivacyBudgetTemplate(
+    args: CreatePrivacyBudgetTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePrivacyBudgetTemplateCommandOutput>;
+  createPrivacyBudgetTemplate(
+    args: CreatePrivacyBudgetTemplateCommandInput,
+    cb: (err: any, data?: CreatePrivacyBudgetTemplateCommandOutput) => void
+  ): void;
+  createPrivacyBudgetTemplate(
+    args: CreatePrivacyBudgetTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePrivacyBudgetTemplateCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteAnalysisTemplateCommand}
    */
   deleteAnalysisTemplate(
@@ -427,6 +563,23 @@ export interface CleanRooms {
     args: DeleteCollaborationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteCollaborationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteConfiguredAudienceModelAssociationCommand}
+   */
+  deleteConfiguredAudienceModelAssociation(
+    args: DeleteConfiguredAudienceModelAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteConfiguredAudienceModelAssociationCommandOutput>;
+  deleteConfiguredAudienceModelAssociation(
+    args: DeleteConfiguredAudienceModelAssociationCommandInput,
+    cb: (err: any, data?: DeleteConfiguredAudienceModelAssociationCommandOutput) => void
+  ): void;
+  deleteConfiguredAudienceModelAssociation(
+    args: DeleteConfiguredAudienceModelAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteConfiguredAudienceModelAssociationCommandOutput) => void
   ): void;
 
   /**
@@ -509,6 +662,23 @@ export interface CleanRooms {
   ): void;
 
   /**
+   * @see {@link DeletePrivacyBudgetTemplateCommand}
+   */
+  deletePrivacyBudgetTemplate(
+    args: DeletePrivacyBudgetTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePrivacyBudgetTemplateCommandOutput>;
+  deletePrivacyBudgetTemplate(
+    args: DeletePrivacyBudgetTemplateCommandInput,
+    cb: (err: any, data?: DeletePrivacyBudgetTemplateCommandOutput) => void
+  ): void;
+  deletePrivacyBudgetTemplate(
+    args: DeletePrivacyBudgetTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePrivacyBudgetTemplateCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAnalysisTemplateCommand}
    */
   getAnalysisTemplate(
@@ -557,6 +727,57 @@ export interface CleanRooms {
     args: GetCollaborationAnalysisTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetCollaborationAnalysisTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCollaborationConfiguredAudienceModelAssociationCommand}
+   */
+  getCollaborationConfiguredAudienceModelAssociation(
+    args: GetCollaborationConfiguredAudienceModelAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCollaborationConfiguredAudienceModelAssociationCommandOutput>;
+  getCollaborationConfiguredAudienceModelAssociation(
+    args: GetCollaborationConfiguredAudienceModelAssociationCommandInput,
+    cb: (err: any, data?: GetCollaborationConfiguredAudienceModelAssociationCommandOutput) => void
+  ): void;
+  getCollaborationConfiguredAudienceModelAssociation(
+    args: GetCollaborationConfiguredAudienceModelAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCollaborationConfiguredAudienceModelAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCollaborationPrivacyBudgetTemplateCommand}
+   */
+  getCollaborationPrivacyBudgetTemplate(
+    args: GetCollaborationPrivacyBudgetTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCollaborationPrivacyBudgetTemplateCommandOutput>;
+  getCollaborationPrivacyBudgetTemplate(
+    args: GetCollaborationPrivacyBudgetTemplateCommandInput,
+    cb: (err: any, data?: GetCollaborationPrivacyBudgetTemplateCommandOutput) => void
+  ): void;
+  getCollaborationPrivacyBudgetTemplate(
+    args: GetCollaborationPrivacyBudgetTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCollaborationPrivacyBudgetTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetConfiguredAudienceModelAssociationCommand}
+   */
+  getConfiguredAudienceModelAssociation(
+    args: GetConfiguredAudienceModelAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConfiguredAudienceModelAssociationCommandOutput>;
+  getConfiguredAudienceModelAssociation(
+    args: GetConfiguredAudienceModelAssociationCommandInput,
+    cb: (err: any, data?: GetConfiguredAudienceModelAssociationCommandOutput) => void
+  ): void;
+  getConfiguredAudienceModelAssociation(
+    args: GetConfiguredAudienceModelAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConfiguredAudienceModelAssociationCommandOutput) => void
   ): void;
 
   /**
@@ -619,6 +840,23 @@ export interface CleanRooms {
     args: GetMembershipCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetMembershipCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPrivacyBudgetTemplateCommand}
+   */
+  getPrivacyBudgetTemplate(
+    args: GetPrivacyBudgetTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPrivacyBudgetTemplateCommandOutput>;
+  getPrivacyBudgetTemplate(
+    args: GetPrivacyBudgetTemplateCommandInput,
+    cb: (err: any, data?: GetPrivacyBudgetTemplateCommandOutput) => void
+  ): void;
+  getPrivacyBudgetTemplate(
+    args: GetPrivacyBudgetTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPrivacyBudgetTemplateCommandOutput) => void
   ): void;
 
   /**
@@ -701,6 +939,57 @@ export interface CleanRooms {
   ): void;
 
   /**
+   * @see {@link ListCollaborationConfiguredAudienceModelAssociationsCommand}
+   */
+  listCollaborationConfiguredAudienceModelAssociations(
+    args: ListCollaborationConfiguredAudienceModelAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCollaborationConfiguredAudienceModelAssociationsCommandOutput>;
+  listCollaborationConfiguredAudienceModelAssociations(
+    args: ListCollaborationConfiguredAudienceModelAssociationsCommandInput,
+    cb: (err: any, data?: ListCollaborationConfiguredAudienceModelAssociationsCommandOutput) => void
+  ): void;
+  listCollaborationConfiguredAudienceModelAssociations(
+    args: ListCollaborationConfiguredAudienceModelAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCollaborationConfiguredAudienceModelAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCollaborationPrivacyBudgetsCommand}
+   */
+  listCollaborationPrivacyBudgets(
+    args: ListCollaborationPrivacyBudgetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCollaborationPrivacyBudgetsCommandOutput>;
+  listCollaborationPrivacyBudgets(
+    args: ListCollaborationPrivacyBudgetsCommandInput,
+    cb: (err: any, data?: ListCollaborationPrivacyBudgetsCommandOutput) => void
+  ): void;
+  listCollaborationPrivacyBudgets(
+    args: ListCollaborationPrivacyBudgetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCollaborationPrivacyBudgetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCollaborationPrivacyBudgetTemplatesCommand}
+   */
+  listCollaborationPrivacyBudgetTemplates(
+    args: ListCollaborationPrivacyBudgetTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCollaborationPrivacyBudgetTemplatesCommandOutput>;
+  listCollaborationPrivacyBudgetTemplates(
+    args: ListCollaborationPrivacyBudgetTemplatesCommandInput,
+    cb: (err: any, data?: ListCollaborationPrivacyBudgetTemplatesCommandOutput) => void
+  ): void;
+  listCollaborationPrivacyBudgetTemplates(
+    args: ListCollaborationPrivacyBudgetTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCollaborationPrivacyBudgetTemplatesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListCollaborationsCommand}
    */
   listCollaborations(
@@ -715,6 +1004,23 @@ export interface CleanRooms {
     args: ListCollaborationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListCollaborationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListConfiguredAudienceModelAssociationsCommand}
+   */
+  listConfiguredAudienceModelAssociations(
+    args: ListConfiguredAudienceModelAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConfiguredAudienceModelAssociationsCommandOutput>;
+  listConfiguredAudienceModelAssociations(
+    args: ListConfiguredAudienceModelAssociationsCommandInput,
+    cb: (err: any, data?: ListConfiguredAudienceModelAssociationsCommandOutput) => void
+  ): void;
+  listConfiguredAudienceModelAssociations(
+    args: ListConfiguredAudienceModelAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConfiguredAudienceModelAssociationsCommandOutput) => void
   ): void;
 
   /**
@@ -777,6 +1083,40 @@ export interface CleanRooms {
   ): void;
 
   /**
+   * @see {@link ListPrivacyBudgetsCommand}
+   */
+  listPrivacyBudgets(
+    args: ListPrivacyBudgetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPrivacyBudgetsCommandOutput>;
+  listPrivacyBudgets(
+    args: ListPrivacyBudgetsCommandInput,
+    cb: (err: any, data?: ListPrivacyBudgetsCommandOutput) => void
+  ): void;
+  listPrivacyBudgets(
+    args: ListPrivacyBudgetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPrivacyBudgetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPrivacyBudgetTemplatesCommand}
+   */
+  listPrivacyBudgetTemplates(
+    args: ListPrivacyBudgetTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPrivacyBudgetTemplatesCommandOutput>;
+  listPrivacyBudgetTemplates(
+    args: ListPrivacyBudgetTemplatesCommandInput,
+    cb: (err: any, data?: ListPrivacyBudgetTemplatesCommandOutput) => void
+  ): void;
+  listPrivacyBudgetTemplates(
+    args: ListPrivacyBudgetTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPrivacyBudgetTemplatesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListProtectedQueriesCommand}
    */
   listProtectedQueries(
@@ -819,6 +1159,23 @@ export interface CleanRooms {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PreviewPrivacyImpactCommand}
+   */
+  previewPrivacyImpact(
+    args: PreviewPrivacyImpactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PreviewPrivacyImpactCommandOutput>;
+  previewPrivacyImpact(
+    args: PreviewPrivacyImpactCommandInput,
+    cb: (err: any, data?: PreviewPrivacyImpactCommandOutput) => void
+  ): void;
+  previewPrivacyImpact(
+    args: PreviewPrivacyImpactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PreviewPrivacyImpactCommandOutput) => void
   ): void;
 
   /**
@@ -895,6 +1252,23 @@ export interface CleanRooms {
   ): void;
 
   /**
+   * @see {@link UpdateConfiguredAudienceModelAssociationCommand}
+   */
+  updateConfiguredAudienceModelAssociation(
+    args: UpdateConfiguredAudienceModelAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateConfiguredAudienceModelAssociationCommandOutput>;
+  updateConfiguredAudienceModelAssociation(
+    args: UpdateConfiguredAudienceModelAssociationCommandInput,
+    cb: (err: any, data?: UpdateConfiguredAudienceModelAssociationCommandOutput) => void
+  ): void;
+  updateConfiguredAudienceModelAssociation(
+    args: UpdateConfiguredAudienceModelAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateConfiguredAudienceModelAssociationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateConfiguredTableCommand}
    */
   updateConfiguredTable(
@@ -963,6 +1337,23 @@ export interface CleanRooms {
   ): void;
 
   /**
+   * @see {@link UpdatePrivacyBudgetTemplateCommand}
+   */
+  updatePrivacyBudgetTemplate(
+    args: UpdatePrivacyBudgetTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePrivacyBudgetTemplateCommandOutput>;
+  updatePrivacyBudgetTemplate(
+    args: UpdatePrivacyBudgetTemplateCommandInput,
+    cb: (err: any, data?: UpdatePrivacyBudgetTemplateCommandOutput) => void
+  ): void;
+  updatePrivacyBudgetTemplate(
+    args: UpdatePrivacyBudgetTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePrivacyBudgetTemplateCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateProtectedQueryCommand}
    */
   updateProtectedQuery(
@@ -983,12 +1374,14 @@ export interface CleanRooms {
 /**
  * @public
  * <p>Welcome to the <i>Clean Rooms API Reference</i>.</p>
- *          <p>Clean Rooms  is an Amazon Web Services service that helps multiple parties to join their data
- *          together in a secure collaboration workspace. In the collaboration, members who can query
- *          and receive results can get insights into the collective datasets without either party getting
- *          access to the other party's raw data.</p>
- *          <p>To learn more about Clean Rooms  concepts, procedures, and best practices, see the
- *          <a href="https://docs.aws.amazon.com/clean-rooms/latest/userguide/what-is.html">Clean Rooms User Guide</a>.</p>
+ *          <p>Clean Rooms is an Amazon Web Services service that helps multiple parties to join
+ *          their data together in a secure collaboration workspace. In the collaboration, members who
+ *          can query and receive results can get insights into the collective datasets without either
+ *          party getting access to the other party's raw data.</p>
+ *          <p>To learn more about Clean Rooms concepts, procedures, and best practices, see the
+ *             <a href="https://docs.aws.amazon.com/clean-rooms/latest/userguide/what-is.html">Clean Rooms User Guide</a>.</p>
+ *          <p>To learn more about SQL commands, functions, and conditions supported in Clean Rooms, see the
+ *             <a href="https://docs.aws.amazon.com/clean-rooms/latest/sql-reference/sql-reference.html">Clean Rooms SQL Reference</a>.</p>
  */
 export class CleanRooms extends CleanRoomsClient implements CleanRooms {}
 createAggregatedClient(commands, CleanRooms);

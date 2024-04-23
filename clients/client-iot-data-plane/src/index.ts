@@ -18,8 +18,12 @@
 export * from "./IoTDataPlaneClient";
 export * from "./IoTDataPlane";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { IoTDataPlaneExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { IoTDataPlaneServiceException } from "./models/IoTDataPlaneServiceException";

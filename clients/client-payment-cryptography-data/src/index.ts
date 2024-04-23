@@ -9,7 +9,11 @@
 export * from "./PaymentCryptographyDataClient";
 export * from "./PaymentCryptographyData";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { PaymentCryptographyDataExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { PaymentCryptographyDataServiceException } from "./models/PaymentCryptographyDataServiceException";

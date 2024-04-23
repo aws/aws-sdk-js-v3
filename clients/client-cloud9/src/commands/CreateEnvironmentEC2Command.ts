@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreateEnvironmentEC2Request,
   CreateEnvironmentEC2RequestFilterSensitiveLog,
@@ -54,7 +46,7 @@ export interface CreateEnvironmentEC2CommandOutput extends CreateEnvironmentEC2R
  *   clientRequestToken: "STRING_VALUE",
  *   instanceType: "STRING_VALUE", // required
  *   subnetId: "STRING_VALUE",
- *   imageId: "STRING_VALUE",
+ *   imageId: "STRING_VALUE", // required
  *   automaticStopTimeMinutes: Number("int"),
  *   ownerArn: "STRING_VALUE",
  *   tags: [ // TagList
@@ -111,6 +103,7 @@ export interface CreateEnvironmentEC2CommandOutput extends CreateEnvironmentEC2R
  *   "name": "my-demo-environment",
  *   "automaticStopTimeMinutes": 60,
  *   "description": "This is my demonstration environment.",
+ *   "imageId": "amazonlinux-2023-x86_64",
  *   "instanceType": "t2.micro",
  *   "ownerArn": "arn:aws:iam::123456789012:user/MyDemoUser",
  *   "subnetId": "subnet-6300cd1b"
@@ -126,79 +119,26 @@ export interface CreateEnvironmentEC2CommandOutput extends CreateEnvironmentEC2R
  * ```
  *
  */
-export class CreateEnvironmentEC2Command extends $Command<
-  CreateEnvironmentEC2CommandInput,
-  CreateEnvironmentEC2CommandOutput,
-  Cloud9ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateEnvironmentEC2CommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: Cloud9ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateEnvironmentEC2CommandInput, CreateEnvironmentEC2CommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateEnvironmentEC2Command.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "Cloud9Client";
-    const commandName = "CreateEnvironmentEC2Command";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: CreateEnvironmentEC2RequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateEnvironmentEC2CommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateEnvironmentEC2Command(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateEnvironmentEC2CommandOutput> {
-    return de_CreateEnvironmentEC2Command(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateEnvironmentEC2Command extends $Command
+  .classBuilder<
+    CreateEnvironmentEC2CommandInput,
+    CreateEnvironmentEC2CommandOutput,
+    Cloud9ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: Cloud9ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSCloud9WorkspaceManagementService", "CreateEnvironmentEC2", {})
+  .n("Cloud9Client", "CreateEnvironmentEC2Command")
+  .f(CreateEnvironmentEC2RequestFilterSensitiveLog, void 0)
+  .ser(se_CreateEnvironmentEC2Command)
+  .de(de_CreateEnvironmentEC2Command)
+  .build() {}

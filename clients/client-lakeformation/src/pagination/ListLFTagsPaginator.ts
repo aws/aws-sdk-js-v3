@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import { ListLFTagsCommand, ListLFTagsCommandInput, ListLFTagsCommandOutput } from "../commands/ListLFTagsCommand";
@@ -6,41 +7,14 @@ import { LakeFormationClient } from "../LakeFormationClient";
 import { LakeFormationPaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: LakeFormationClient,
-  input: ListLFTagsCommandInput,
-  ...args: any
-): Promise<ListLFTagsCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new ListLFTagsCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateListLFTags(
+export const paginateListLFTags: (
   config: LakeFormationPaginationConfiguration,
   input: ListLFTagsCommandInput,
-  ...additionalArguments: any
-): Paginator<ListLFTagsCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.NextToken
-  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: ListLFTagsCommandOutput;
-  while (hasNext) {
-    input.NextToken = token;
-    input["MaxResults"] = config.pageSize;
-    if (config.client instanceof LakeFormationClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected LakeFormation | LakeFormationClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.NextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<ListLFTagsCommandOutput> = createPaginator<
+  LakeFormationPaginationConfiguration,
+  ListLFTagsCommandInput,
+  ListLFTagsCommandOutput
+>(LakeFormationClient, ListLFTagsCommand, "NextToken", "NextToken", "MaxResults");

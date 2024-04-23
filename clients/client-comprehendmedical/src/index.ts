@@ -8,7 +8,11 @@
 export * from "./ComprehendMedicalClient";
 export * from "./ComprehendMedical";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { ComprehendMedicalExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { ComprehendMedicalServiceException } from "./models/ComprehendMedicalServiceException";

@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -268,6 +266,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 
@@ -328,11 +328,11 @@ export interface OutpostsClientResolvedConfig extends OutpostsClientResolvedConf
 
 /**
  * @public
- * <p>Amazon Web Services Outposts is a fully managed service that extends Amazon Web Services infrastructure, APIs, and tools
- *       to customer premises. By providing local access to Amazon Web Services managed infrastructure, Amazon Web Services Outposts
- *       enables customers to build and run applications on premises using the same programming
- *       interfaces as in Amazon Web Services Regions, while using local compute and storage resources for lower
- *       latency and local data processing needs.</p>
+ * <p>Amazon Web Services Outposts is a fully managed service that extends Amazon Web Services infrastructure, APIs, and tools to
+ *       customer premises. By providing local access to Amazon Web Services managed infrastructure, Amazon Web Services Outposts enables
+ *       customers to build and run applications on premises using the same programming interfaces as
+ *       in Amazon Web Services Regions, while using local compute and storage resources for lower latency and local
+ *       data processing needs.</p>
  */
 export class OutpostsClient extends __Client<
   __HttpHandlerOptions,

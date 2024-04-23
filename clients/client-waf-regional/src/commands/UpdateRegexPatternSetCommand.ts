@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateRegexPatternSetRequest, UpdateRegexPatternSetResponse } from "../models/models_0";
 import { de_UpdateRegexPatternSetCommand, se_UpdateRegexPatternSetCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient";
@@ -94,7 +86,7 @@ export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSe
  *   RegexPatternSetId: "STRING_VALUE", // required
  *   Updates: [ // RegexPatternSetUpdates // required
  *     { // RegexPatternSetUpdate
- *       Action: "STRING_VALUE", // required
+ *       Action: "INSERT" || "DELETE", // required
  *       RegexPatternString: "STRING_VALUE", // required
  *     },
  *   ],
@@ -179,79 +171,26 @@ export interface UpdateRegexPatternSetCommandOutput extends UpdateRegexPatternSe
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
  */
-export class UpdateRegexPatternSetCommand extends $Command<
-  UpdateRegexPatternSetCommandInput,
-  UpdateRegexPatternSetCommandOutput,
-  WAFRegionalClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateRegexPatternSetCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: WAFRegionalClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateRegexPatternSetCommandInput, UpdateRegexPatternSetCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateRegexPatternSetCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "WAFRegionalClient";
-    const commandName = "UpdateRegexPatternSetCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateRegexPatternSetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateRegexPatternSetCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateRegexPatternSetCommandOutput> {
-    return de_UpdateRegexPatternSetCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateRegexPatternSetCommand extends $Command
+  .classBuilder<
+    UpdateRegexPatternSetCommandInput,
+    UpdateRegexPatternSetCommandOutput,
+    WAFRegionalClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSWAF_Regional_20161128", "UpdateRegexPatternSet", {})
+  .n("WAFRegionalClient", "UpdateRegexPatternSetCommand")
+  .f(void 0, void 0)
+  .ser(se_UpdateRegexPatternSetCommand)
+  .de(de_UpdateRegexPatternSetCommand)
+  .build() {}

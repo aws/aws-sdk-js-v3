@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { LookoutMetricsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutMetricsClient";
 import { ListAnomalyGroupRelatedMetricsRequest, ListAnomalyGroupRelatedMetricsResponse } from "../models/models_0";
 import {
@@ -52,7 +44,7 @@ export interface ListAnomalyGroupRelatedMetricsCommandOutput
  * const input = { // ListAnomalyGroupRelatedMetricsRequest
  *   AnomalyDetectorArn: "STRING_VALUE", // required
  *   AnomalyGroupId: "STRING_VALUE", // required
- *   RelationshipTypeFilter: "STRING_VALUE",
+ *   RelationshipTypeFilter: "CAUSE_OF_INPUT_ANOMALY_GROUP" || "EFFECT_OF_INPUT_ANOMALY_GROUP",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };
@@ -63,7 +55,7 @@ export interface ListAnomalyGroupRelatedMetricsCommandOutput
  * //     { // InterMetricImpactDetails
  * //       MetricName: "STRING_VALUE",
  * //       AnomalyGroupId: "STRING_VALUE",
- * //       RelationshipType: "STRING_VALUE",
+ * //       RelationshipType: "CAUSE_OF_INPUT_ANOMALY_GROUP" || "EFFECT_OF_INPUT_ANOMALY_GROUP",
  * //       ContributionPercentage: Number("double"),
  * //     },
  * //   ],
@@ -98,85 +90,26 @@ export interface ListAnomalyGroupRelatedMetricsCommandOutput
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
  */
-export class ListAnomalyGroupRelatedMetricsCommand extends $Command<
-  ListAnomalyGroupRelatedMetricsCommandInput,
-  ListAnomalyGroupRelatedMetricsCommandOutput,
-  LookoutMetricsClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListAnomalyGroupRelatedMetricsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: LookoutMetricsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListAnomalyGroupRelatedMetricsCommandInput, ListAnomalyGroupRelatedMetricsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListAnomalyGroupRelatedMetricsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "LookoutMetricsClient";
-    const commandName = "ListAnomalyGroupRelatedMetricsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: ListAnomalyGroupRelatedMetricsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_ListAnomalyGroupRelatedMetricsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListAnomalyGroupRelatedMetricsCommandOutput> {
-    return de_ListAnomalyGroupRelatedMetricsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListAnomalyGroupRelatedMetricsCommand extends $Command
+  .classBuilder<
+    ListAnomalyGroupRelatedMetricsCommandInput,
+    ListAnomalyGroupRelatedMetricsCommandOutput,
+    LookoutMetricsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: LookoutMetricsClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("LookoutMetrics", "ListAnomalyGroupRelatedMetrics", {})
+  .n("LookoutMetricsClient", "ListAnomalyGroupRelatedMetricsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListAnomalyGroupRelatedMetricsCommand)
+  .de(de_ListAnomalyGroupRelatedMetricsCommand)
+  .build() {}

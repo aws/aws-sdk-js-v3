@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ExecuteSqlRequest, ExecuteSqlResponse } from "../models/models_0";
 import { de_ExecuteSqlCommand, se_ExecuteSqlCommand } from "../protocols/Aws_restJson1";
 import { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient";
@@ -39,10 +31,10 @@ export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataB
  * @deprecated
  *
  * <p>Runs one or more SQL statements.</p>
- *         <note>
- *             <p>This operation is deprecated. Use the <code>BatchExecuteStatement</code> or
- *                     <code>ExecuteStatement</code> operation.</p>
- *         </note>
+ *          <note>
+ *             <p>This operation isn't supported for Aurora PostgreSQL Serverless v2 and provisioned DB clusters, and for Aurora Serverless v1 DB clusters,
+ *             the operation is deprecated. Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -135,10 +127,10 @@ export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataB
  * @see {@link RDSDataClientResolvedConfig | config} for RDSDataClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action.</p>
+ *  <p>You don't have sufficient access to perform this action.</p>
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>There is an error in the call or in a SQL statement.</p>
+ *  <p>There is an error in the call or in a SQL statement. (This error only appears in calls from Aurora Serverless v1 databases.)</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>There are insufficient privileges to make the call.</p>
@@ -147,84 +139,33 @@ export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataB
  *  <p>An internal error occurred.</p>
  *
  * @throws {@link ServiceUnavailableError} (server fault)
- *  <p>The service specified by the <code>resourceArn</code> parameter is not
+ *  <p>The service specified by the <code>resourceArn</code> parameter isn't
  *             available.</p>
  *
  * @throws {@link RDSDataServiceException}
  * <p>Base exception class for all service exceptions from RDSData service.</p>
  *
  */
-export class ExecuteSqlCommand extends $Command<
-  ExecuteSqlCommandInput,
-  ExecuteSqlCommandOutput,
-  RDSDataClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ExecuteSqlCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RDSDataClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ExecuteSqlCommandInput, ExecuteSqlCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ExecuteSqlCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RDSDataClient";
-    const commandName = "ExecuteSqlCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ExecuteSqlCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ExecuteSqlCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecuteSqlCommandOutput> {
-    return de_ExecuteSqlCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ExecuteSqlCommand extends $Command
+  .classBuilder<
+    ExecuteSqlCommandInput,
+    ExecuteSqlCommandOutput,
+    RDSDataClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: RDSDataClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("RdsDataService", "ExecuteSql", {})
+  .n("RDSDataClient", "ExecuteSqlCommand")
+  .f(void 0, void 0)
+  .ser(se_ExecuteSqlCommand)
+  .de(de_ExecuteSqlCommand)
+  .build() {}

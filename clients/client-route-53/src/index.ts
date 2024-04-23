@@ -24,9 +24,13 @@
 export * from "./Route53Client";
 export * from "./Route53";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { Route53ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./waiters";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { Route53ServiceException } from "./models/Route53ServiceException";

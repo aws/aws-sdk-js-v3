@@ -36,7 +36,7 @@ export interface InvalidParameterDetail {
    * @public
    * <p>The reason the parameter is invalid.</p>
    */
-  Problem?: InvalidParameterProblem | string;
+  Problem?: InvalidParameterProblem;
 }
 
 /**
@@ -107,7 +107,7 @@ export class BadRequestException extends __BaseException {
    * @public
    * <p>Code indicating the reason the request was invalid.</p>
    */
-  Reason?: BadRequestReason | string;
+  Reason?: BadRequestReason;
 
   /**
    * @public
@@ -196,7 +196,7 @@ export class ResourceNotFoundException extends __BaseException {
    * @public
    * <p>The type of resource that was not found.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public

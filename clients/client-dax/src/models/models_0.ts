@@ -278,7 +278,7 @@ export interface CreateClusterRequest {
    *             </li>
    *          </ul>
    */
-  ClusterEndpointEncryptionType?: ClusterEndpointEncryptionType | string;
+  ClusterEndpointEncryptionType?: ClusterEndpointEncryptionType;
 }
 
 /**
@@ -419,8 +419,19 @@ export interface SecurityGroupMembership {
 
 /**
  * @public
+ * @enum
  */
-export type SSEStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING";
+export const SSEStatus = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+} as const;
+
+/**
+ * @public
+ */
+export type SSEStatus = (typeof SSEStatus)[keyof typeof SSEStatus];
 
 /**
  * @public
@@ -449,7 +460,7 @@ export interface SSEDescription {
    *             </li>
    *          </ul>
    */
-  Status?: SSEStatus | string;
+  Status?: SSEStatus;
 }
 
 /**
@@ -582,7 +593,7 @@ export interface Cluster {
    *             </li>
    *          </ul>
    */
-  ClusterEndpointEncryptionType?: ClusterEndpointEncryptionType | string;
+  ClusterEndpointEncryptionType?: ClusterEndpointEncryptionType;
 }
 
 /**
@@ -1372,13 +1383,32 @@ export interface DescribeDefaultParametersRequest {
 
 /**
  * @public
+ * @enum
  */
-export type ChangeType = "IMMEDIATE" | "REQUIRES_REBOOT";
+export const ChangeType = {
+  IMMEDIATE: "IMMEDIATE",
+  REQUIRES_REBOOT: "REQUIRES_REBOOT",
+} as const;
 
 /**
  * @public
  */
-export type IsModifiable = "CONDITIONAL" | "FALSE" | "TRUE";
+export type ChangeType = (typeof ChangeType)[keyof typeof ChangeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const IsModifiable = {
+  CONDITIONAL: "CONDITIONAL",
+  FALSE: "FALSE",
+  TRUE: "TRUE",
+} as const;
+
+/**
+ * @public
+ */
+export type IsModifiable = (typeof IsModifiable)[keyof typeof IsModifiable];
 
 /**
  * @public
@@ -1401,8 +1431,17 @@ export interface NodeTypeSpecificValue {
 
 /**
  * @public
+ * @enum
  */
-export type ParameterType = "DEFAULT" | "NODE_TYPE_SPECIFIC";
+export const ParameterType = {
+  DEFAULT: "DEFAULT",
+  NODE_TYPE_SPECIFIC: "NODE_TYPE_SPECIFIC",
+} as const;
+
+/**
+ * @public
+ */
+export type ParameterType = (typeof ParameterType)[keyof typeof ParameterType];
 
 /**
  * @public
@@ -1421,7 +1460,7 @@ export interface Parameter {
    * <p>Determines whether the parameter can be applied to any nodes, or only nodes of a
    *             particular type.</p>
    */
-  ParameterType?: ParameterType | string;
+  ParameterType?: ParameterType;
 
   /**
    * @public
@@ -1464,7 +1503,7 @@ export interface Parameter {
    * @public
    * <p>Whether the customer is allowed to modify the parameter.</p>
    */
-  IsModifiable?: IsModifiable | string;
+  IsModifiable?: IsModifiable;
 
   /**
    * @public
@@ -1472,7 +1511,7 @@ export interface Parameter {
    *                 <code>requires-reboot</code> indicates that a new value for this parameter will only
    *             take effect if a node is rebooted.</p>
    */
-  ChangeType?: ChangeType | string;
+  ChangeType?: ChangeType;
 }
 
 /**
@@ -1494,8 +1533,18 @@ export interface DescribeDefaultParametersResponse {
 
 /**
  * @public
+ * @enum
  */
-export type SourceType = "CLUSTER" | "PARAMETER_GROUP" | "SUBNET_GROUP";
+export const SourceType = {
+  CLUSTER: "CLUSTER",
+  PARAMETER_GROUP: "PARAMETER_GROUP",
+  SUBNET_GROUP: "SUBNET_GROUP",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
 
 /**
  * @public
@@ -1513,7 +1562,7 @@ export interface DescribeEventsRequest {
    * <p>The event source to retrieve events for. If no value is specified, all events are
    *             returned.</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: SourceType;
 
   /**
    * @public
@@ -1573,7 +1622,7 @@ export interface Event {
    * <p>Specifies the origin of this event - a cluster, a parameter group, a node ID,
    *             etc.</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: SourceType;
 
   /**
    * @public

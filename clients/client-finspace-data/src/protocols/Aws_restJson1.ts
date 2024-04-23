@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -109,37 +110,21 @@ export const se_AssociateUserToPermissionGroupCommand = async (
   input: AssociateUserToPermissionGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/permission-group/{permissionGroupId}/users/{userId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "permissionGroupId",
-    () => input.permissionGroupId!,
-    "{permissionGroupId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);
+  b.bp("/permission-group/{permissionGroupId}/users/{userId}");
+  b.p("permissionGroupId", () => input.permissionGroupId!, "{permissionGroupId}", false);
+  b.p("userId", () => input.userId!, "{userId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -149,13 +134,12 @@ export const se_CreateChangesetCommand = async (
   input: CreateChangesetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datasets/{datasetId}/changesetsv2";
-  resolvedPath = __resolvedPath(resolvedPath, input, "datasetId", () => input.datasetId!, "{datasetId}", false);
+  b.bp("/datasets/{datasetId}/changesetsv2");
+  b.p("datasetId", () => input.datasetId!, "{datasetId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -165,15 +149,8 @@ export const se_CreateChangesetCommand = async (
       sourceParams: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -183,11 +160,11 @@ export const se_CreateDatasetCommand = async (
   input: CreateDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datasetsv2";
+  b.bp("/datasetsv2");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -201,15 +178,8 @@ export const se_CreateDatasetCommand = async (
       schemaDefinition: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -219,13 +189,12 @@ export const se_CreateDataViewCommand = async (
   input: CreateDataViewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datasets/{datasetId}/dataviewsv2";
-  resolvedPath = __resolvedPath(resolvedPath, input, "datasetId", () => input.datasetId!, "{datasetId}", false);
+  b.bp("/datasets/{datasetId}/dataviewsv2");
+  b.p("datasetId", () => input.datasetId!, "{datasetId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -237,15 +206,8 @@ export const se_CreateDataViewCommand = async (
       sortColumns: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -255,11 +217,11 @@ export const se_CreatePermissionGroupCommand = async (
   input: CreatePermissionGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/permission-group";
+  b.bp("/permission-group");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -269,15 +231,8 @@ export const se_CreatePermissionGroupCommand = async (
       name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -287,15 +242,15 @@ export const se_CreateUserCommand = async (
   input: CreateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user";
+  b.bp("/user");
   let body: any;
   body = JSON.stringify(
     take(input, {
-      ApiAccess: [],
+      apiAccess: [],
       apiAccessPrincipalArn: [],
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       emailAddress: [],
@@ -304,15 +259,8 @@ export const se_CreateUserCommand = async (
       type: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -322,24 +270,16 @@ export const se_DeleteDatasetCommand = async (
   input: DeleteDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datasetsv2/{datasetId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "datasetId", () => input.datasetId!, "{datasetId}", false);
+  b.bp("/datasetsv2/{datasetId}");
+  b.p("datasetId", () => input.datasetId!, "{datasetId}", false);
   const query: any = map({
-    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -349,32 +289,16 @@ export const se_DeletePermissionGroupCommand = async (
   input: DeletePermissionGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/permission-group/{permissionGroupId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "permissionGroupId",
-    () => input.permissionGroupId!,
-    "{permissionGroupId}",
-    false
-  );
+  b.bp("/permission-group/{permissionGroupId}");
+  b.p("permissionGroupId", () => input.permissionGroupId!, "{permissionGroupId}", false);
   const query: any = map({
-    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -384,27 +308,20 @@ export const se_DisableUserCommand = async (
   input: DisableUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user/{userId}/disable";
-  resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);
+  b.bp("/user/{userId}/disable");
+  b.p("userId", () => input.userId!, "{userId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -414,34 +331,17 @@ export const se_DisassociateUserFromPermissionGroupCommand = async (
   input: DisassociateUserFromPermissionGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/permission-group/{permissionGroupId}/users/{userId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "permissionGroupId",
-    () => input.permissionGroupId!,
-    "{permissionGroupId}",
-    false
-  );
-  resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);
+  b.bp("/permission-group/{permissionGroupId}/users/{userId}");
+  b.p("permissionGroupId", () => input.permissionGroupId!, "{permissionGroupId}", false);
+  b.p("userId", () => input.userId!, "{userId}", false);
   const query: any = map({
-    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -451,27 +351,20 @@ export const se_EnableUserCommand = async (
   input: EnableUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user/{userId}/enable";
-  resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);
+  b.bp("/user/{userId}/enable");
+  b.p("userId", () => input.userId!, "{userId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -481,23 +374,14 @@ export const se_GetChangesetCommand = async (
   input: GetChangesetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/datasets/{datasetId}/changesetsv2/{changesetId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "datasetId", () => input.datasetId!, "{datasetId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "changesetId", () => input.changesetId!, "{changesetId}", false);
+  b.bp("/datasets/{datasetId}/changesetsv2/{changesetId}");
+  b.p("datasetId", () => input.datasetId!, "{datasetId}", false);
+  b.p("changesetId", () => input.changesetId!, "{changesetId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -507,20 +391,13 @@ export const se_GetDatasetCommand = async (
   input: GetDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datasetsv2/{datasetId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "datasetId", () => input.datasetId!, "{datasetId}", false);
+  b.bp("/datasetsv2/{datasetId}");
+  b.p("datasetId", () => input.datasetId!, "{datasetId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -530,23 +407,14 @@ export const se_GetDataViewCommand = async (
   input: GetDataViewCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/datasets/{datasetId}/dataviewsv2/{dataViewId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "dataViewId", () => input.dataViewId!, "{dataViewId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "datasetId", () => input.datasetId!, "{datasetId}", false);
+  b.bp("/datasets/{datasetId}/dataviewsv2/{dataViewId}");
+  b.p("dataViewId", () => input.dataViewId!, "{dataViewId}", false);
+  b.p("datasetId", () => input.datasetId!, "{datasetId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -556,23 +424,14 @@ export const se_GetExternalDataViewAccessDetailsCommand = async (
   input: GetExternalDataViewAccessDetailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/datasets/{datasetId}/dataviewsv2/{dataViewId}/external-access-details";
-  resolvedPath = __resolvedPath(resolvedPath, input, "dataViewId", () => input.dataViewId!, "{dataViewId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "datasetId", () => input.datasetId!, "{datasetId}", false);
+  b.bp("/datasets/{datasetId}/dataviewsv2/{dataViewId}/external-access-details");
+  b.p("dataViewId", () => input.dataViewId!, "{dataViewId}", false);
+  b.p("datasetId", () => input.datasetId!, "{datasetId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -582,28 +441,13 @@ export const se_GetPermissionGroupCommand = async (
   input: GetPermissionGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/permission-group/{permissionGroupId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "permissionGroupId",
-    () => input.permissionGroupId!,
-    "{permissionGroupId}",
-    false
-  );
+  b.bp("/permission-group/{permissionGroupId}");
+  b.p("permissionGroupId", () => input.permissionGroupId!, "{permissionGroupId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -613,25 +457,16 @@ export const se_GetProgrammaticAccessCredentialsCommand = async (
   input: GetProgrammaticAccessCredentialsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/credentials/programmatic";
+  b.bp("/credentials/programmatic");
   const query: any = map({
-    durationInMinutes: [() => input.durationInMinutes !== void 0, () => input.durationInMinutes!.toString()],
-    environmentId: [, __expectNonNull(input.environmentId!, `environmentId`)],
+    [_dIM]: [() => input.durationInMinutes !== void 0, () => input[_dIM]!.toString()],
+    [_eI]: [, __expectNonNull(input[_eI]!, `environmentId`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -641,20 +476,13 @@ export const se_GetUserCommand = async (
   input: GetUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user/{userId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);
+  b.bp("/user/{userId}");
+  b.p("userId", () => input.userId!, "{userId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -664,26 +492,19 @@ export const se_GetWorkingLocationCommand = async (
   input: GetWorkingLocationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workingLocationV1";
+  b.bp("/workingLocationV1");
   let body: any;
   body = JSON.stringify(
     take(input, {
       locationType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -693,26 +514,17 @@ export const se_ListChangesetsCommand = async (
   input: ListChangesetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datasets/{datasetId}/changesetsv2";
-  resolvedPath = __resolvedPath(resolvedPath, input, "datasetId", () => input.datasetId!, "{datasetId}", false);
+  b.bp("/datasets/{datasetId}/changesetsv2");
+  b.p("datasetId", () => input.datasetId!, "{datasetId}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -722,24 +534,16 @@ export const se_ListDatasetsCommand = async (
   input: ListDatasetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datasetsv2";
+  b.bp("/datasetsv2");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -749,26 +553,17 @@ export const se_ListDataViewsCommand = async (
   input: ListDataViewsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datasets/{datasetId}/dataviewsv2";
-  resolvedPath = __resolvedPath(resolvedPath, input, "datasetId", () => input.datasetId!, "{datasetId}", false);
+  b.bp("/datasets/{datasetId}/dataviewsv2");
+  b.p("datasetId", () => input.datasetId!, "{datasetId}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -778,24 +573,16 @@ export const se_ListPermissionGroupsCommand = async (
   input: ListPermissionGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/permission-group";
+  b.bp("/permission-group");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [__expectNonNull(input.maxResults, `maxResults`) != null, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [__expectNonNull(input.maxResults, `maxResults`) != null, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -805,26 +592,17 @@ export const se_ListPermissionGroupsByUserCommand = async (
   input: ListPermissionGroupsByUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user/{userId}/permission-groups";
-  resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);
+  b.bp("/user/{userId}/permission-groups");
+  b.p("userId", () => input.userId!, "{userId}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [__expectNonNull(input.maxResults, `maxResults`) != null, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [__expectNonNull(input.maxResults, `maxResults`) != null, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -834,24 +612,16 @@ export const se_ListUsersCommand = async (
   input: ListUsersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user";
+  b.bp("/user");
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [__expectNonNull(input.maxResults, `maxResults`) != null, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [__expectNonNull(input.maxResults, `maxResults`) != null, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -861,34 +631,17 @@ export const se_ListUsersByPermissionGroupCommand = async (
   input: ListUsersByPermissionGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/permission-group/{permissionGroupId}/users";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "permissionGroupId",
-    () => input.permissionGroupId!,
-    "{permissionGroupId}",
-    false
-  );
+  b.bp("/permission-group/{permissionGroupId}/users");
+  b.p("permissionGroupId", () => input.permissionGroupId!, "{permissionGroupId}", false);
   const query: any = map({
-    nextToken: [, input.nextToken!],
-    maxResults: [__expectNonNull(input.maxResults, `maxResults`) != null, () => input.maxResults!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_mR]: [__expectNonNull(input.maxResults, `maxResults`) != null, () => input[_mR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -898,27 +651,20 @@ export const se_ResetUserPasswordCommand = async (
   input: ResetUserPasswordCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user/{userId}/password";
-  resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);
+  b.bp("/user/{userId}/password");
+  b.p("userId", () => input.userId!, "{userId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -928,15 +674,13 @@ export const se_UpdateChangesetCommand = async (
   input: UpdateChangesetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/datasets/{datasetId}/changesetsv2/{changesetId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "datasetId", () => input.datasetId!, "{datasetId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "changesetId", () => input.changesetId!, "{changesetId}", false);
+  b.bp("/datasets/{datasetId}/changesetsv2/{changesetId}");
+  b.p("datasetId", () => input.datasetId!, "{datasetId}", false);
+  b.p("changesetId", () => input.changesetId!, "{changesetId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -945,15 +689,8 @@ export const se_UpdateChangesetCommand = async (
       sourceParams: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -963,12 +700,12 @@ export const se_UpdateDatasetCommand = async (
   input: UpdateDatasetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datasetsv2/{datasetId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "datasetId", () => input.datasetId!, "{datasetId}", false);
+  b.bp("/datasetsv2/{datasetId}");
+  b.p("datasetId", () => input.datasetId!, "{datasetId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -980,15 +717,8 @@ export const se_UpdateDatasetCommand = async (
       schemaDefinition: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -998,20 +728,12 @@ export const se_UpdatePermissionGroupCommand = async (
   input: UpdatePermissionGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/permission-group/{permissionGroupId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "permissionGroupId",
-    () => input.permissionGroupId!,
-    "{permissionGroupId}",
-    false
-  );
+  b.bp("/permission-group/{permissionGroupId}");
+  b.p("permissionGroupId", () => input.permissionGroupId!, "{permissionGroupId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1021,15 +743,8 @@ export const se_UpdatePermissionGroupCommand = async (
       name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1039,12 +754,12 @@ export const se_UpdateUserCommand = async (
   input: UpdateUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user/{userId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);
+  b.bp("/user/{userId}");
+  b.p("userId", () => input.userId!, "{userId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1056,15 +771,8 @@ export const se_UpdateUserCommand = async (
       type: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -3260,6 +2968,12 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _cT = "clientToken";
+const _dIM = "durationInMinutes";
+const _eI = "environmentId";
+const _mR = "maxResults";
+const _nT = "nextToken";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

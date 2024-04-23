@@ -17,8 +17,12 @@
 export * from "./FraudDetectorClient";
 export * from "./FraudDetector";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { FraudDetectorExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { FraudDetectorServiceException } from "./models/FraudDetectorServiceException";

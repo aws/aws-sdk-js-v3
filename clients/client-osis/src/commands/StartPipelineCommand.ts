@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { StartPipelineRequest, StartPipelineResponse } from "../models/models_0";
 import { OSISClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OSISClient";
 import { de_StartPipelineCommand, se_StartPipelineCommand } from "../protocols/Aws_restJson1";
@@ -84,6 +76,24 @@ export interface StartPipelineCommandOutput extends StartPipelineResponse, __Met
  * //         },
  * //       },
  * //     ],
+ * //     BufferOptions: { // BufferOptions
+ * //       PersistentBufferEnabled: true || false, // required
+ * //     },
+ * //     EncryptionAtRestOptions: { // EncryptionAtRestOptions
+ * //       KmsKeyArn: "STRING_VALUE", // required
+ * //     },
+ * //     ServiceVpcEndpoints: [ // ServiceVpcEndpointsList
+ * //       { // ServiceVpcEndpoint
+ * //         ServiceName: "OPENSEARCH_SERVERLESS",
+ * //         VpcEndpointId: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     Tags: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE", // required
+ * //         Value: "STRING_VALUE", // required
+ * //       },
+ * //     ],
  * //   },
  * // };
  *
@@ -115,77 +125,26 @@ export interface StartPipelineCommandOutput extends StartPipelineResponse, __Met
  * <p>Base exception class for all service exceptions from OSIS service.</p>
  *
  */
-export class StartPipelineCommand extends $Command<
-  StartPipelineCommandInput,
-  StartPipelineCommandOutput,
-  OSISClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StartPipelineCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: OSISClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StartPipelineCommandInput, StartPipelineCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, StartPipelineCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "OSISClient";
-    const commandName = "StartPipelineCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StartPipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartPipelineCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartPipelineCommandOutput> {
-    return de_StartPipelineCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class StartPipelineCommand extends $Command
+  .classBuilder<
+    StartPipelineCommandInput,
+    StartPipelineCommandOutput,
+    OSISClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: OSISClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonOpenSearchIngestionService", "StartPipeline", {})
+  .n("OSISClient", "StartPipelineCommand")
+  .f(void 0, void 0)
+  .ser(se_StartPipelineCommand)
+  .de(de_StartPipelineCommand)
+  .build() {}

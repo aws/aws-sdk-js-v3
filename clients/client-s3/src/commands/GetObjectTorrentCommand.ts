@@ -1,20 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SdkStreamSerdeContext as __SdkStreamSerdeContext,
-  SerdeContext as __SerdeContext,
-  StreamingBlobPayloadOutputTypes,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetObjectTorrentOutput,
   GetObjectTorrentOutputFilterSensitiveLog,
@@ -44,7 +34,10 @@ export interface GetObjectTorrentCommandOutput extends Omit<GetObjectTorrentOutp
 
 /**
  * @public
- * <p>Returns torrent files from a bucket. BitTorrent can save you bandwidth when you're
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Returns torrent files from a bucket. BitTorrent can save you bandwidth when you're
  *          distributing large files.</p>
  *          <note>
  *             <p>You can get torrent only for objects that are less than 5 GB in size, and that are
@@ -52,7 +45,7 @@ export interface GetObjectTorrentCommandOutput extends Omit<GetObjectTorrentOutp
  *             key.</p>
  *          </note>
  *          <p>To use GET, you must have READ access to the object.</p>
- *          <p>This action is not supported by Amazon S3 on Outposts.</p>
+ *          <p>This functionality is not supported for Amazon S3 on Outposts.</p>
  *          <p>The following action is related to <code>GetObjectTorrent</code>:</p>
  *          <ul>
  *             <li>
@@ -104,88 +97,27 @@ export interface GetObjectTorrentCommandOutput extends Omit<GetObjectTorrentOutp
  * ```
  *
  */
-export class GetObjectTorrentCommand extends $Command<
-  GetObjectTorrentCommandInput,
-  GetObjectTorrentCommandOutput,
-  S3ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      Bucket: { type: "contextParams", name: "Bucket" },
-      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
-      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
-      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
-      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
-      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetObjectTorrentCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: S3ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetObjectTorrentCommandInput, GetObjectTorrentCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetObjectTorrentCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "S3Client";
-    const commandName = "GetObjectTorrentCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: GetObjectTorrentOutputFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetObjectTorrentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetObjectTorrentCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext & __SdkStreamSerdeContext
-  ): Promise<GetObjectTorrentCommandOutput> {
-    return de_GetObjectTorrentCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetObjectTorrentCommand extends $Command
+  .classBuilder<
+    GetObjectTorrentCommandInput,
+    GetObjectTorrentCommandOutput,
+    S3ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+    Bucket: { type: "contextParams", name: "Bucket" },
+  })
+  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonS3", "GetObjectTorrent", {})
+  .n("S3Client", "GetObjectTorrentCommand")
+  .f(void 0, GetObjectTorrentOutputFilterSensitiveLog)
+  .ser(se_GetObjectTorrentCommand)
+  .de(de_GetObjectTorrentCommand)
+  .build() {}

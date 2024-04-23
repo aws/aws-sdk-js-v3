@@ -95,6 +95,7 @@ import {
   CreateCertificateAuthorityRequest,
   CreatePermissionRequest,
   CrlConfiguration,
+  CrlDistributionPointExtensionConfiguration,
   CsrExtensions,
   CustomAttribute,
   CustomExtension,
@@ -2062,6 +2063,8 @@ const de_TooManyTagsExceptionRes = async (
 
 // se_CrlConfiguration omitted.
 
+// se_CrlDistributionPointExtensionConfiguration omitted.
+
 // se_CsrExtensions omitted.
 
 // se_CustomAttribute omitted.
@@ -2228,6 +2231,8 @@ const de_CertificateAuthority = (output: any, context: __SerdeContext): Certific
 // de_CreateCertificateAuthorityResponse omitted.
 
 // de_CrlConfiguration omitted.
+
+// de_CrlDistributionPointExtensionConfiguration omitted.
 
 // de_CsrExtensions omitted.
 

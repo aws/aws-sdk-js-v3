@@ -27,9 +27,7 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
- * <p>
- *       Information about an address.
- *     </p>
+ * <p> Information about an address. </p>
  */
 export interface Address {
   /**
@@ -115,16 +113,12 @@ export type AddressType = (typeof AddressType)[keyof typeof AddressType];
 
 /**
  * @public
- * <p>
- *       Information about the position of the asset in a rack.
- *     </p>
+ * <p> Information about the position of the asset in a rack. </p>
  */
 export interface AssetLocation {
   /**
    * @public
-   * <p>
-   *       The position of an asset in a rack measured in rack units.
-   *     </p>
+   * <p> The position of an asset in a rack measured in rack units. </p>
    */
   RackElevation?: number;
 }
@@ -159,16 +153,12 @@ export type ComputeAssetState = (typeof ComputeAssetState)[keyof typeof ComputeA
 
 /**
  * @public
- * <p>
- *       Information about compute hardware assets.
- *     </p>
+ * <p> Information about compute hardware assets. </p>
  */
 export interface ComputeAttributes {
   /**
    * @public
-   * <p>
-   *       The host ID of the Dedicated Host on the asset.
-   *     </p>
+   * <p> The host ID of the Dedicated Host on the asset. </p>
    */
   HostId?: string;
 
@@ -177,65 +167,62 @@ export interface ComputeAttributes {
    * <p>The state.</p>
    *          <ul>
    *             <li>
-   *                <p>ACTIVE - The asset is available and can provide capacity for new compute resources.</p>
+   *                <p>ACTIVE - The asset is available and can provide capacity for new compute
+   *           resources.</p>
    *             </li>
    *             <li>
-   *                <p>ISOLATED - The asset is undergoing maintenance and can't provide capacity for new compute resources.
-   *             Existing compute resources on the asset are not affected.</p>
+   *                <p>ISOLATED - The asset is undergoing maintenance and can't provide capacity for new
+   *           compute resources. Existing compute resources on the asset are not affected.</p>
    *             </li>
    *             <li>
-   *                <p>RETIRING - The underlying hardware for the asset is degraded. Capacity for new compute resources is reduced.
-   *             Amazon Web Services sends notifications for resources that must be stopped before the asset can be replaced.</p>
+   *                <p>RETIRING - The underlying hardware for the asset is degraded. Capacity for new compute
+   *           resources is reduced. Amazon Web Services sends notifications for resources that must be stopped before
+   *           the asset can be replaced.</p>
    *             </li>
    *          </ul>
    */
-  State?: ComputeAssetState | string;
+  State?: ComputeAssetState;
+
+  /**
+   * @public
+   * <p>A list of the names of instance families that are currently associated with a given
+   *       asset.</p>
+   */
+  InstanceFamilies?: string[];
 }
 
 /**
  * @public
- * <p>
- *       Information about hardware assets.
- *     </p>
+ * <p> Information about hardware assets. </p>
  */
 export interface AssetInfo {
   /**
    * @public
-   * <p>
-   *       The ID of the asset.
-   *     </p>
+   * <p> The ID of the asset. </p>
    */
   AssetId?: string;
 
   /**
    * @public
-   * <p>
-   *       The rack ID of the asset.
-   *     </p>
+   * <p> The rack ID of the asset. </p>
    */
   RackId?: string;
 
   /**
    * @public
-   * <p>
-   *       The type of the asset.
-   *     </p>
+   * <p> The type of the asset. </p>
    */
-  AssetType?: AssetType | string;
+  AssetType?: AssetType;
 
   /**
    * @public
-   * <p>
-   *       Information about compute hardware assets.
-   *     </p>
+   * <p> Information about compute hardware assets. </p>
    */
   ComputeAttributes?: ComputeAttributes;
 
   /**
    * @public
-   * <p>
-   *       The position of an asset in a rack.
-   *     </p>
+   * <p> The position of an asset in a rack. </p>
    */
   AssetLocation?: AssetLocation;
 }
@@ -261,9 +248,7 @@ export type AssetState = (typeof AssetState)[keyof typeof AssetState];
 export interface CancelOrderInput {
   /**
    * @public
-   * <p>
-   *       The ID of the order.
-   *     </p>
+   * <p> The ID of the order. </p>
    */
   OrderId: string | undefined;
 }
@@ -305,7 +290,7 @@ export class ConflictException extends __BaseException {
    * @public
    * <p>The type of the resource causing the conflict.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
   /**
    * @internal
    */
@@ -395,25 +380,19 @@ export class ValidationException extends __BaseException {
 export interface EC2Capacity {
   /**
    * @public
-   * <p>
-   *       The family of the EC2 capacity.
-   *     </p>
+   * <p> The family of the EC2 capacity. </p>
    */
   Family?: string;
 
   /**
    * @public
-   * <p>
-   *       The maximum size of the EC2 capacity.
-   *     </p>
+   * <p> The maximum size of the EC2 capacity. </p>
    */
   MaxSize?: string;
 
   /**
    * @public
-   * <p>
-   *       The quantity of the EC2 capacity.
-   *     </p>
+   * <p> The quantity of the EC2 capacity. </p>
    */
   Quantity?: string;
 }
@@ -453,33 +432,25 @@ export type SupportedStorageEnum = (typeof SupportedStorageEnum)[keyof typeof Su
 export interface CatalogItem {
   /**
    * @public
-   * <p>
-   *       The ID of the catalog item.
-   *     </p>
+   * <p> The ID of the catalog item. </p>
    */
   CatalogItemId?: string;
 
   /**
    * @public
-   * <p>
-   *       The status of a catalog item.
-   *     </p>
+   * <p> The status of a catalog item. </p>
    */
-  ItemStatus?: CatalogItemStatus | string;
+  ItemStatus?: CatalogItemStatus;
 
   /**
    * @public
-   * <p>
-   *       Information about the EC2 capacity of an item.
-   *     </p>
+   * <p> Information about the EC2 capacity of an item. </p>
    */
   EC2Capacities?: EC2Capacity[];
 
   /**
    * @public
-   * <p>
-   *       Information about the power draw of an item.
-   *     </p>
+   * <p> Information about the power draw of an item. </p>
    */
   PowerKva?: number;
 
@@ -491,20 +462,15 @@ export interface CatalogItem {
 
   /**
    * @public
-   * <p>
-   *       The uplink speed this catalog item requires for the
-   *       connection to the Region.
-   *     </p>
+   * <p> The uplink speed this catalog item requires for the connection to the Region. </p>
    */
   SupportedUplinkGbps?: number[];
 
   /**
    * @public
-   * <p>
-   *       The supported storage options for the catalog item.
-   *     </p>
+   * <p> The supported storage options for the catalog item. </p>
    */
-  SupportedStorage?: (SupportedStorageEnum | string)[];
+  SupportedStorage?: SupportedStorageEnum[];
 }
 
 /**
@@ -523,56 +489,42 @@ export type CatalogItemClass = (typeof CatalogItemClass)[keyof typeof CatalogIte
 
 /**
  * @public
- * <p>
- *     Information about a connection.
- *     </p>
+ * <p> Information about a connection. </p>
  */
 export interface ConnectionDetails {
   /**
    * @public
-   * <p>
-   *       The public key of the client.
-   *     </p>
+   * <p> The public key of the client. </p>
    */
   ClientPublicKey?: string;
 
   /**
    * @public
-   * <p>
-   *       The public key of the server.
-   *     </p>
+   * <p> The public key of the server. </p>
    */
   ServerPublicKey?: string;
 
   /**
    * @public
-   * <p>
-   *       The endpoint for the server.
-   *     </p>
+   * <p> The endpoint for the server. </p>
    */
   ServerEndpoint?: string;
 
   /**
    * @public
-   * <p>
-   *       The client tunnel address.
-   *     </p>
+   * <p> The client tunnel address. </p>
    */
   ClientTunnelAddress?: string;
 
   /**
    * @public
-   * <p>
-   *       The server tunnel address.
-   *     </p>
+   * <p> The server tunnel address. </p>
    */
   ServerTunnelAddress?: string;
 
   /**
    * @public
-   * <p>
-   *       The allowed IP addresses.
-   *     </p>
+   * <p> The allowed IP addresses. </p>
    */
   AllowedIps?: string[];
 }
@@ -630,9 +582,7 @@ export type PaymentTerm = (typeof PaymentTerm)[keyof typeof PaymentTerm];
 export interface CreateOrderInput {
   /**
    * @public
-   * <p>
-   *       The ID or the Amazon Resource Name (ARN) of the Outpost.
-   *     </p>
+   * <p> The ID or the Amazon Resource Name (ARN) of the Outpost. </p>
    */
   OutpostIdentifier: string | undefined;
 
@@ -646,35 +596,29 @@ export interface CreateOrderInput {
    * @public
    * <p>The payment option.</p>
    */
-  PaymentOption: PaymentOption | string | undefined;
+  PaymentOption: PaymentOption | undefined;
 
   /**
    * @public
    * <p>The payment terms.</p>
    */
-  PaymentTerm?: PaymentTerm | string;
+  PaymentTerm?: PaymentTerm;
 }
 
 /**
  * @public
- * <p>
- *       Information about a line item asset.
- *     </p>
+ * <p> Information about a line item asset. </p>
  */
 export interface LineItemAssetInformation {
   /**
    * @public
-   * <p>
-   *       The ID of the asset.
-   *     </p>
+   * <p> The ID of the asset. </p>
    */
   AssetId?: string;
 
   /**
    * @public
-   * <p>
-   *       The MAC addresses of the asset.
-   *     </p>
+   * <p> The MAC addresses of the asset. </p>
    */
   MacAddressList?: string[];
 }
@@ -697,26 +641,20 @@ export type ShipmentCarrier = (typeof ShipmentCarrier)[keyof typeof ShipmentCarr
 
 /**
  * @public
- * <p>
- *       Information about a line item shipment.
- *     </p>
+ * <p> Information about a line item shipment. </p>
  */
 export interface ShipmentInformation {
   /**
    * @public
-   * <p>
-   *       The tracking number of the shipment.
-   *     </p>
+   * <p> The tracking number of the shipment. </p>
    */
   ShipmentTrackingNumber?: string;
 
   /**
    * @public
-   * <p>
-   *       The carrier of the shipment.
-   *     </p>
+   * <p> The carrier of the shipment. </p>
    */
-  ShipmentCarrier?: ShipmentCarrier | string;
+  ShipmentCarrier?: ShipmentCarrier;
 }
 
 /**
@@ -747,9 +685,7 @@ export type LineItemStatus = (typeof LineItemStatus)[keyof typeof LineItemStatus
 export interface LineItem {
   /**
    * @public
-   * <p>
-   *       The ID of the catalog item.
-   *     </p>
+   * <p> The ID of the catalog item.</p>
    */
   CatalogItemId?: string;
 
@@ -769,21 +705,17 @@ export interface LineItem {
    * @public
    * <p>The status of the line item.</p>
    */
-  Status?: LineItemStatus | string;
+  Status?: LineItemStatus;
 
   /**
    * @public
-   * <p>
-   *       Information about a line item shipment.
-   *     </p>
+   * <p> Information about a line item shipment. </p>
    */
   ShipmentInformation?: ShipmentInformation;
 
   /**
    * @public
-   * <p>
-   *       Information about assets.
-   *     </p>
+   * <p> Information about assets. </p>
    */
   AssetInformationList?: LineItemAssetInformation[];
 
@@ -795,7 +727,7 @@ export interface LineItem {
 
   /**
    * @public
-   * <p>The ID of the previous order item.</p>
+   * <p>The ID of the previous order.</p>
    */
   PreviousOrderId?: string;
 }
@@ -843,9 +775,7 @@ export type OrderStatus = (typeof OrderStatus)[keyof typeof OrderStatus];
 export interface Order {
   /**
    * @public
-   * <p>
-   *       The ID of the Outpost in the order.
-   *     </p>
+   * <p> The ID of the Outpost in the order. </p>
    */
   OutpostId?: string;
 
@@ -865,8 +795,8 @@ export interface Order {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>IN_PROGRESS</code> - Order is either being built, shipped, or installed. To get more
-   *           details, see the line item status.</p>
+   *                   <code>IN_PROGRESS</code> - Order is either being built, shipped, or installed. To get
+   *           more details, see the line item status.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -886,7 +816,7 @@ export interface Order {
    *           <code>PROCESSING</code>, <code>INSTALLING</code>, and <code>FULFILLED</code>. </p>
    *          </note>
    */
-  Status?: OrderStatus | string;
+  Status?: OrderStatus;
 
   /**
    * @public
@@ -898,7 +828,7 @@ export interface Order {
    * @public
    * <p>The payment option for the order.</p>
    */
-  PaymentOption?: PaymentOption | string;
+  PaymentOption?: PaymentOption;
 
   /**
    * @public
@@ -916,13 +846,13 @@ export interface Order {
    * @public
    * <p>The payment term.</p>
    */
-  PaymentTerm?: PaymentTerm | string;
+  PaymentTerm?: PaymentTerm;
 
   /**
    * @public
-   * <p>Type of order.</p>
+   * <p>The type of order.</p>
    */
-  OrderType?: OrderType | string;
+  OrderType?: OrderType;
 }
 
 /**
@@ -990,9 +920,7 @@ export interface CreateOutpostInput {
 
   /**
    * @public
-   * <p>
-   *       The ID or the Amazon Resource Name (ARN) of the site.
-   *     </p>
+   * <p> The ID or the Amazon Resource Name (ARN) of the site. </p>
    */
   SiteId: string | undefined;
 
@@ -1016,11 +944,9 @@ export interface CreateOutpostInput {
 
   /**
    * @public
-   * <p>
-   *       The type of hardware for this Outpost.
-   *     </p>
+   * <p> The type of hardware for this Outpost. </p>
    */
-  SupportedHardwareType?: SupportedHardwareType | string;
+  SupportedHardwareType?: SupportedHardwareType;
 }
 
 /**
@@ -1030,9 +956,7 @@ export interface CreateOutpostInput {
 export interface Outpost {
   /**
    * @public
-   * <p>
-   *       The ID of the Outpost.
-   *     </p>
+   * <p> The ID of the Outpost. </p>
    */
   OutpostId?: string;
 
@@ -1098,11 +1022,9 @@ export interface Outpost {
 
   /**
    * @public
-   * <p>
-   *       The hardware type.
-   *     </p>
+   * <p> The hardware type. </p>
    */
-  SupportedHardwareType?: SupportedHardwareType | string;
+  SupportedHardwareType?: SupportedHardwareType;
 }
 
 /**
@@ -1283,60 +1205,61 @@ export interface RackPhysicalProperties {
    * @public
    * <p>The power draw available at the hardware placement position for the rack. </p>
    */
-  PowerDrawKva?: PowerDrawKva | string;
+  PowerDrawKva?: PowerDrawKva;
 
   /**
    * @public
    * <p>The power option that you can provide for hardware.</p>
    */
-  PowerPhase?: PowerPhase | string;
+  PowerPhase?: PowerPhase;
 
   /**
    * @public
    * <p>The power connector for the hardware. </p>
    */
-  PowerConnector?: PowerConnector | string;
+  PowerConnector?: PowerConnector;
 
   /**
    * @public
    * <p>The position of the power feed.</p>
    */
-  PowerFeedDrop?: PowerFeedDrop | string;
+  PowerFeedDrop?: PowerFeedDrop;
 
   /**
    * @public
    * <p>The uplink speed the rack supports for the connection to the Region. </p>
    */
-  UplinkGbps?: UplinkGbps | string;
+  UplinkGbps?: UplinkGbps;
 
   /**
    * @public
    * <p>The number of uplinks each Outpost network device.</p>
    */
-  UplinkCount?: UplinkCount | string;
+  UplinkCount?: UplinkCount;
 
   /**
    * @public
    * <p>The type of fiber used to attach the Outpost to the network. </p>
    */
-  FiberOpticCableType?: FiberOpticCableType | string;
+  FiberOpticCableType?: FiberOpticCableType;
 
   /**
    * @public
    * <p>The type of optical standard used to attach the Outpost to the network. This field is
-   *       dependent on uplink speed, fiber type, and distance to the upstream device. For more information
+   *       dependent on uplink speed, fiber type, and distance to the upstream device.
+   *       For more information
    *       about networking requirements for racks, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#facility-networking">Network</a>
    *         in the Amazon Web Services Outposts User Guide.
    *         </p>
    */
-  OpticalStandard?: OpticalStandard | string;
+  OpticalStandard?: OpticalStandard;
 
   /**
    * @public
    * <p>The maximum rack weight that this site can support. <code>NO_LIMIT</code> is over 2000 lbs
    *       (907 kg). </p>
    */
-  MaximumSupportedWeightLbs?: MaximumSupportedWeightLbs | string;
+  MaximumSupportedWeightLbs?: MaximumSupportedWeightLbs;
 }
 
 /**
@@ -1365,27 +1288,21 @@ export interface CreateSiteInput {
 
   /**
    * @public
-   * <p>
-   *       The tags to apply to a site.
-   *     </p>
+   * <p> The tags to apply to a site. </p>
    */
   Tags?: Record<string, string>;
 
   /**
    * @public
-   * <p>
-   *       The location to install and power on the hardware. This address might be
-   *       different from the shipping address.
-   *     </p>
+   * <p> The location to install and power on the hardware. This address might be different from
+   *       the shipping address. </p>
    */
   OperatingAddress?: Address;
 
   /**
    * @public
-   * <p>
-   *       The location to ship the hardware. This address might be different
-   *       from the operating address.
-   *     </p>
+   * <p> The location to ship the hardware. This address might be different from the operating
+   *       address. </p>
    */
   ShippingAddress?: Address;
 
@@ -1443,16 +1360,13 @@ export interface Site {
 
   /**
    * @public
-   * <p>
-   *       Notes about a site.
-   *     </p>
+   * <p> Notes about a site. </p>
    */
   Notes?: string;
 
   /**
    * @public
-   * <p>
-   *       The ISO-3166 two-letter country code where the hardware is installed and powered on.
+   * <p> The ISO-3166 two-letter country code where the hardware is installed and powered on.
    *     </p>
    */
   OperatingAddressCountryCode?: string;
@@ -1465,17 +1379,13 @@ export interface Site {
 
   /**
    * @public
-   * <p>
-   *       City where the hardware is installed and powered on.
-   *     </p>
+   * <p> City where the hardware is installed and powered on. </p>
    */
   OperatingAddressCity?: string;
 
   /**
    * @public
-   * <p>
-   *       Information about the physical and logistical details for a rack at the site.
-   *     </p>
+   * <p> Information about the physical and logistical details for a rack at the site. </p>
    */
   RackPhysicalProperties?: RackPhysicalProperties;
 }
@@ -1497,9 +1407,7 @@ export interface CreateSiteOutput {
 export interface DeleteOutpostInput {
   /**
    * @public
-   * <p>
-   *       The ID or the Amazon Resource Name (ARN) of the Outpost.
-   *     </p>
+   * <p> The ID or the Amazon Resource Name (ARN) of the Outpost. </p>
    */
   OutpostId: string | undefined;
 }
@@ -1515,9 +1423,7 @@ export interface DeleteOutpostOutput {}
 export interface DeleteSiteInput {
   /**
    * @public
-   * <p>
-   *       The ID or the Amazon Resource Name (ARN) of the site.
-   *     </p>
+   * <p> The ID or the Amazon Resource Name (ARN) of the site. </p>
    */
   SiteId: string | undefined;
 }
@@ -1555,9 +1461,7 @@ export interface GetCatalogItemOutput {
 export interface GetConnectionRequest {
   /**
    * @public
-   * <p>
-   *       The ID of the connection.
-   *     </p>
+   * <p> The ID of the connection. </p>
    */
   ConnectionId: string | undefined;
 }
@@ -1568,17 +1472,13 @@ export interface GetConnectionRequest {
 export interface GetConnectionResponse {
   /**
    * @public
-   * <p>
-   *       The ID of the connection.
-   *     </p>
+   * <p> The ID of the connection. </p>
    */
   ConnectionId?: string;
 
   /**
    * @public
-   * <p>
-   *      Information about the connection.
-   *     </p>
+   * <p> Information about the connection. </p>
    */
   ConnectionDetails?: ConnectionDetails;
 }
@@ -1611,9 +1511,7 @@ export interface GetOrderOutput {
 export interface GetOutpostInput {
   /**
    * @public
-   * <p>
-   *       The ID or the Amazon Resource Name (ARN) of the Outpost.
-   *     </p>
+   * <p> The ID or the Amazon Resource Name (ARN) of the Outpost. </p>
    */
   OutpostId: string | undefined;
 }
@@ -1635,9 +1533,7 @@ export interface GetOutpostOutput {
 export interface GetOutpostInstanceTypesInput {
   /**
    * @public
-   * <p>
-   *       The ID or the Amazon Resource Name (ARN) of the Outpost.
-   *     </p>
+   * <p> The ID or the Amazon Resource Name (ARN) of the Outpost. </p>
    */
   OutpostId: string | undefined;
 
@@ -1684,9 +1580,7 @@ export interface GetOutpostInstanceTypesOutput {
 
   /**
    * @public
-   * <p>
-   *       The ID of the Outpost.
-   *     </p>
+   * <p> The ID of the Outpost. </p>
    */
   OutpostId?: string;
 
@@ -1703,9 +1597,7 @@ export interface GetOutpostInstanceTypesOutput {
 export interface GetSiteInput {
   /**
    * @public
-   * <p>
-   *       The ID or the Amazon Resource Name (ARN) of the site.
-   *     </p>
+   * <p> The ID or the Amazon Resource Name (ARN) of the site. </p>
    */
   SiteId: string | undefined;
 }
@@ -1727,9 +1619,7 @@ export interface GetSiteOutput {
 export interface GetSiteAddressInput {
   /**
    * @public
-   * <p>
-   *       The ID or the Amazon Resource Name (ARN) of the site.
-   *     </p>
+   * <p> The ID or the Amazon Resource Name (ARN) of the site. </p>
    */
   SiteId: string | undefined;
 
@@ -1737,7 +1627,7 @@ export interface GetSiteAddressInput {
    * @public
    * <p>The type of the address you request. </p>
    */
-  AddressType: AddressType | string | undefined;
+  AddressType: AddressType | undefined;
 }
 
 /**
@@ -1754,13 +1644,11 @@ export interface GetSiteAddressOutput {
    * @public
    * <p>The type of the address you receive. </p>
    */
-  AddressType?: AddressType | string;
+  AddressType?: AddressType;
 
   /**
    * @public
-   * <p>
-   *       Information about the address.
-   *     </p>
+   * <p> Information about the address. </p>
    */
   Address?: Address;
 }
@@ -1771,9 +1659,7 @@ export interface GetSiteAddressOutput {
 export interface ListAssetsInput {
   /**
    * @public
-   * <p>
-   *       The ID or the Amazon Resource Name (ARN) of the Outpost.
-   *     </p>
+   * <p> The ID or the Amazon Resource Name (ARN) of the Outpost. </p>
    */
   OutpostIdentifier: string | undefined;
 
@@ -1799,7 +1685,7 @@ export interface ListAssetsInput {
    * @public
    * <p>Filters the results by state.</p>
    */
-  StatusFilter?: (AssetState | string)[];
+  StatusFilter?: AssetState[];
 }
 
 /**
@@ -1839,13 +1725,13 @@ export interface ListCatalogItemsInput {
    * @public
    * <p>Filters the results by item class.</p>
    */
-  ItemClassFilter?: (CatalogItemClass | string)[];
+  ItemClassFilter?: CatalogItemClass[];
 
   /**
    * @public
    * <p>Filters the results by storage option.</p>
    */
-  SupportedStorageFilter?: (SupportedStorageEnum | string)[];
+  SupportedStorageFilter?: SupportedStorageEnum[];
 
   /**
    * @public
@@ -1877,9 +1763,7 @@ export interface ListCatalogItemsOutput {
 export interface ListOrdersInput {
   /**
    * @public
-   * <p>
-   *       The ID or the Amazon Resource Name (ARN) of the Outpost.
-   *     </p>
+   * <p> The ID or the Amazon Resource Name (ARN) of the Outpost. </p>
    */
   OutpostIdentifierFilter?: string;
 
@@ -1898,34 +1782,26 @@ export interface ListOrdersInput {
 
 /**
  * @public
- * <p>
- *       A summary of line items in your order.
- *     </p>
+ * <p> A summary of line items in your order. </p>
  */
 export interface OrderSummary {
   /**
    * @public
-   * <p>
-   *       The ID of the Outpost.
-   *     </p>
+   * <p> The ID of the Outpost. </p>
    */
   OutpostId?: string;
 
   /**
    * @public
-   * <p>
-   *       The ID of the order.
-   *     </p>
+   * <p> The ID of the order. </p>
    */
   OrderId?: string;
 
   /**
    * @public
-   * <p>
-   *       The type of order.
-   *     </p>
+   * <p>The type of order.</p>
    */
-  OrderType?: OrderType | string;
+  OrderType?: OrderType;
 
   /**
    * @public
@@ -1937,8 +1813,8 @@ export interface OrderSummary {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>IN_PROGRESS</code> - Order is either being built, shipped, or installed. For more
-   *           information, see the <code>LineItem</code> status.</p>
+   *                   <code>IN_PROGRESS</code> - Order is either being built, shipped, or installed. For
+   *           more information, see the <code>LineItem</code> status.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1958,29 +1834,23 @@ export interface OrderSummary {
    *           <code>PROCESSING</code>, <code>INSTALLING</code>, and <code>FULFILLED</code>. </p>
    *          </note>
    */
-  Status?: OrderStatus | string;
+  Status?: OrderStatus;
 
   /**
    * @public
-   * <p>
-   *       The status of all line items in the order.
-   *     </p>
+   * <p> The status of all line items in the order. </p>
    */
-  LineItemCountsByStatus?: Record<string, number>;
+  LineItemCountsByStatus?: Partial<Record<LineItemStatus, number>>;
 
   /**
    * @public
-   * <p>
-   *       The submission date for the order.
-   *     </p>
+   * <p> The submission date for the order. </p>
    */
   OrderSubmissionDate?: Date;
 
   /**
    * @public
-   * <p>
-   *       The fulfilment date for the order.
-   *     </p>
+   * <p> The fulfilment date for the order. </p>
    */
   OrderFulfilledDate?: Date;
 }
@@ -1991,9 +1861,7 @@ export interface OrderSummary {
 export interface ListOrdersOutput {
   /**
    * @public
-   * <p>
-   *       Information about the orders.
-   *     </p>
+   * <p> Information about the orders. </p>
    */
   Orders?: OrderSummary[];
 
@@ -2136,33 +2004,25 @@ export interface ListTagsForResourceResponse {
 export interface StartConnectionRequest {
   /**
    * @public
-   * <p>
-   *       The serial number of the dongle.
-   *     </p>
+   * <p> The serial number of the dongle. </p>
    */
-  DeviceSerialNumber: string | undefined;
+  DeviceSerialNumber?: string;
 
   /**
    * @public
-   * <p>
-   *       The ID of the Outpost server.
-   *     </p>
+   * <p> The ID of the Outpost server. </p>
    */
   AssetId: string | undefined;
 
   /**
    * @public
-   * <p>
-   *       The public key of the client.
-   *     </p>
+   * <p> The public key of the client. </p>
    */
   ClientPublicKey: string | undefined;
 
   /**
    * @public
-   * <p>
-   *       The device index of the network interface on the Outpost server.
-   *     </p>
+   * <p> The device index of the network interface on the Outpost server. </p>
    */
   NetworkInterfaceDeviceIndex: number | undefined;
 }
@@ -2173,17 +2033,13 @@ export interface StartConnectionRequest {
 export interface StartConnectionResponse {
   /**
    * @public
-   * <p>
-   *       The ID of the connection.
-   *     </p>
+   * <p> The ID of the connection. </p>
    */
   ConnectionId?: string;
 
   /**
    * @public
-   * <p>
-   *       The underlay IP address.
-   *     </p>
+   * <p> The underlay IP address. </p>
    */
   UnderlayIpAddress?: string;
 }
@@ -2238,9 +2094,7 @@ export interface UntagResourceResponse {}
 export interface UpdateOutpostInput {
   /**
    * @public
-   * <p>
-   *       The ID or the Amazon Resource Name (ARN) of the Outpost.
-   *     </p>
+   * <p> The ID or the Amazon Resource Name (ARN) of the Outpost. </p>
    */
   OutpostId: string | undefined;
 
@@ -2258,11 +2112,9 @@ export interface UpdateOutpostInput {
 
   /**
    * @public
-   * <p>
-   *       The type of hardware for this Outpost.
-   *     </p>
+   * <p> The type of hardware for this Outpost. </p>
    */
-  SupportedHardwareType?: SupportedHardwareType | string;
+  SupportedHardwareType?: SupportedHardwareType;
 }
 
 /**
@@ -2282,9 +2134,7 @@ export interface UpdateOutpostOutput {
 export interface UpdateSiteInput {
   /**
    * @public
-   * <p>
-   *       The ID or the Amazon Resource Name (ARN) of the site.
-   *     </p>
+   * <p> The ID or the Amazon Resource Name (ARN) of the site. </p>
    */
   SiteId: string | undefined;
 
@@ -2324,25 +2174,19 @@ export interface UpdateSiteOutput {
 export interface UpdateSiteAddressInput {
   /**
    * @public
-   * <p>
-   *       The ID or the Amazon Resource Name (ARN) of the site.
-   *     </p>
+   * <p> The ID or the Amazon Resource Name (ARN) of the site. </p>
    */
   SiteId: string | undefined;
 
   /**
    * @public
-   * <p>
-   *       The type of the address.
-   *     </p>
+   * <p> The type of the address. </p>
    */
-  AddressType: AddressType | string | undefined;
+  AddressType: AddressType | undefined;
 
   /**
    * @public
-   * <p>
-   *       The address for the site.
-   *     </p>
+   * <p> The address for the site. </p>
    */
   Address: Address | undefined;
 }
@@ -2353,17 +2197,13 @@ export interface UpdateSiteAddressInput {
 export interface UpdateSiteAddressOutput {
   /**
    * @public
-   * <p>
-   *       The type of the address.
-   *     </p>
+   * <p> The type of the address. </p>
    */
-  AddressType?: AddressType | string;
+  AddressType?: AddressType;
 
   /**
    * @public
-   * <p>
-   *       Information about an address.
-   *     </p>
+   * <p> Information about an address. </p>
    */
   Address?: Address;
 }
@@ -2374,18 +2214,15 @@ export interface UpdateSiteAddressOutput {
 export interface UpdateSiteRackPhysicalPropertiesInput {
   /**
    * @public
-   * <p>
-   *       The ID or the Amazon Resource Name (ARN) of the site.
-   *     </p>
+   * <p> The ID or the Amazon Resource Name (ARN) of the site. </p>
    */
   SiteId: string | undefined;
 
   /**
    * @public
-   * <p>The power draw, in kVA, available at the hardware placement position for the
-   *       rack.</p>
+   * <p>The power draw, in kVA, available at the hardware placement position for the rack.</p>
    */
-  PowerDrawKva?: PowerDrawKva | string;
+  PowerDrawKva?: PowerDrawKva;
 
   /**
    * @public
@@ -2399,13 +2236,12 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
    *             </li>
    *          </ul>
    */
-  PowerPhase?: PowerPhase | string;
+  PowerPhase?: PowerPhase;
 
   /**
    * @public
-   * <p>The power connector that Amazon Web Services should plan to provide for connections to the
-   *       hardware. Note the correlation between <code>PowerPhase</code> and
-   *       <code>PowerConnector</code>. </p>
+   * <p>The power connector that Amazon Web Services should plan to provide for connections to the hardware.
+   *       Note the correlation between <code>PowerPhase</code> and <code>PowerConnector</code>. </p>
    *          <ul>
    *             <li>
    *                <p>Single-phase AC feed</p>
@@ -2438,20 +2274,19 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
    *             </li>
    *          </ul>
    */
-  PowerConnector?: PowerConnector | string;
+  PowerConnector?: PowerConnector;
 
   /**
    * @public
    * <p>Indicates whether the power feed comes above or below the rack. </p>
    */
-  PowerFeedDrop?: PowerFeedDrop | string;
+  PowerFeedDrop?: PowerFeedDrop;
 
   /**
    * @public
-   * <p>The uplink speed the rack should support for the connection to the Region.
-   *     </p>
+   * <p>The uplink speed the rack should support for the connection to the Region. </p>
    */
-  UplinkGbps?: UplinkGbps | string;
+  UplinkGbps?: UplinkGbps;
 
   /**
    * @public
@@ -2471,20 +2306,19 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
    *             </li>
    *          </ul>
    */
-  UplinkCount?: UplinkCount | string;
+  UplinkCount?: UplinkCount;
 
   /**
    * @public
-   * <p>The type of fiber that you will use to attach the Outpost to your network.
-   *     </p>
+   * <p>The type of fiber that you will use to attach the Outpost to your network. </p>
    */
-  FiberOpticCableType?: FiberOpticCableType | string;
+  FiberOpticCableType?: FiberOpticCableType;
 
   /**
    * @public
-   * <p>The type of optical standard that you will use to attach the Outpost to your
-   *       network. This field is dependent on uplink speed, fiber type, and distance to the upstream
-   *       device. For more information
+   * <p>The type of optical standard that you will use to attach the Outpost to your network. This
+   *       field is dependent on uplink speed, fiber type, and distance to the upstream device.
+   *       For more information
    *       about networking requirements for racks, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-requirements.html#facility-networking">Network</a>
    *         in the Amazon Web Services Outposts User Guide.
    *         </p>
@@ -2543,14 +2377,14 @@ export interface UpdateSiteRackPhysicalPropertiesInput {
    *             </li>
    *          </ul>
    */
-  OpticalStandard?: OpticalStandard | string;
+  OpticalStandard?: OpticalStandard;
 
   /**
    * @public
-   * <p>The maximum rack weight that this site can support. <code>NO_LIMIT</code> is over
-   *       2000lbs. </p>
+   * <p>The maximum rack weight that this site can support. <code>NO_LIMIT</code> is over 2000lbs.
+   *     </p>
    */
-  MaximumSupportedWeightLbs?: MaximumSupportedWeightLbs | string;
+  MaximumSupportedWeightLbs?: MaximumSupportedWeightLbs;
 }
 
 /**

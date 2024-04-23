@@ -1,20 +1,12 @@
 // smithy-typescript generated code
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { PutBucketReplicationRequest } from "../models/models_0";
+import { commonParams } from "../endpoint/EndpointParameters";
+import { PutBucketReplicationRequest } from "../models/models_1";
 import { de_PutBucketReplicationCommand, se_PutBucketReplicationCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
@@ -37,12 +29,19 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p> Creates a replication configuration or replaces an existing one. For more information,
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p> Creates a replication configuration or replaces an existing one. For more information,
  *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html">Replication</a> in the <i>Amazon S3 User Guide</i>. </p>
  *          <p>Specify the replication configuration in the request body. In the replication
  *          configuration, you provide the name of the destination bucket or buckets where you want
  *          Amazon S3 to replicate objects, the IAM role that Amazon S3 can assume to replicate objects on your
- *          behalf, and other relevant information.</p>
+ *          behalf, and other relevant information. You can invoke this request for a specific
+ *          Amazon Web Services Region by using the
+ *          <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requestedregion">
+ *                <code>aws:RequestedRegion</code>
+ *             </a> condition key.</p>
  *          <p>A replication configuration must include at least one rule, and can contain a maximum of
  *          1,000. Each rule identifies a subset of objects to replicate by filtering the objects in
  *          the source bucket. To choose additional subsets of objects to replicate, add a rule for
@@ -61,31 +60,33 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  *          <dl>
  *             <dt>Handling Replication of Encrypted Objects</dt>
  *             <dd>
- *                <p>By default, Amazon S3 doesn't replicate objects that are stored at rest using server-side
- *                   encryption with KMS keys. To replicate Amazon Web Services KMS-encrypted objects, add the following:
- *                   <code>SourceSelectionCriteria</code>, <code>SseKmsEncryptedObjects</code>,
- *                   <code>Status</code>, <code>EncryptionConfiguration</code>, and
- *                   <code>ReplicaKmsKeyID</code>. For information about replication configuration, see
- *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-config-for-kms-objects.html">Replicating Objects
- *                      Created with SSE Using KMS keys</a>.</p>
+ *                <p>By default, Amazon S3 doesn't replicate objects that are stored at rest using
+ *                   server-side encryption with KMS keys. To replicate Amazon Web Services KMS-encrypted objects,
+ *                   add the following: <code>SourceSelectionCriteria</code>,
+ *                      <code>SseKmsEncryptedObjects</code>, <code>Status</code>,
+ *                      <code>EncryptionConfiguration</code>, and <code>ReplicaKmsKeyID</code>. For
+ *                   information about replication configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-config-for-kms-objects.html">Replicating
+ *                      Objects Created with SSE Using KMS keys</a>.</p>
  *                <p>For information on <code>PutBucketReplication</code> errors, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ReplicationErrorCodeList">List of
- *                   replication-related error codes</a>
+ *                      replication-related error codes</a>
  *                </p>
  *             </dd>
  *             <dt>Permissions</dt>
  *             <dd>
  *                <p>To create a <code>PutBucketReplication</code> request, you must have
- *                   <code>s3:PutReplicationConfiguration</code> permissions for the bucket.
+ *                      <code>s3:PutReplicationConfiguration</code> permissions for the bucket.
  *
  *                </p>
- *                <p>By default, a resource owner, in this case the Amazon Web Services account that created the bucket,
- *                   can perform this operation. The resource owner can also grant others permissions to perform
- *                   the operation. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in a
- *                      Policy</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access Permissions to
- *                         Your Amazon S3 Resources</a>.</p>
+ *                <p>By default, a resource owner, in this case the Amazon Web Services account that created the
+ *                   bucket, can perform this operation. The resource owner can also grant others
+ *                   permissions to perform the operation. For more information about permissions, see
+ *                      <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in
+ *                      a Policy</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access
+ *                      Permissions to Your Amazon S3 Resources</a>.</p>
  *                <note>
- *                   <p>To perform this operation, the user or role performing the action must have the
- *                      <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">iam:PassRole</a> permission.</p>
+ *                   <p>To perform this operation, the user or role performing the action must have
+ *                      the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">iam:PassRole</a>
+ *                      permission.</p>
  *                </note>
  *             </dd>
  *          </dl>
@@ -150,7 +151,7 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  *         Destination: { // Destination
  *           Bucket: "STRING_VALUE", // required
  *           Account: "STRING_VALUE",
- *           StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW",
+ *           StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE",
  *           AccessControlTranslation: { // AccessControlTranslation
  *             Owner: "Destination", // required
  *           },
@@ -219,92 +220,33 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  * ```
  *
  */
-export class PutBucketReplicationCommand extends $Command<
-  PutBucketReplicationCommandInput,
-  PutBucketReplicationCommandOutput,
-  S3ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      Bucket: { type: "contextParams", name: "Bucket" },
-      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
-      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
-      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
-      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
-      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PutBucketReplicationCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: S3ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PutBucketReplicationCommandInput, PutBucketReplicationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, PutBucketReplicationCommand.getEndpointParameterInstructions())
-    );
-    this.middlewareStack.use(
-      getFlexibleChecksumsPlugin(configuration, {
+export class PutBucketReplicationCommand extends $Command
+  .classBuilder<
+    PutBucketReplicationCommandInput,
+    PutBucketReplicationCommandOutput,
+    S3ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+    UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
+    Bucket: { type: "contextParams", name: "Bucket" },
+  })
+  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getFlexibleChecksumsPlugin(config, {
         input: this.input,
         requestAlgorithmMember: "ChecksumAlgorithm",
         requestChecksumRequired: true,
-      })
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "S3Client";
-    const commandName = "PutBucketReplicationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: PutBucketReplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PutBucketReplicationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketReplicationCommandOutput> {
-    return de_PutBucketReplicationCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+      }),
+    ];
+  })
+  .s("AmazonS3", "PutBucketReplication", {})
+  .n("S3Client", "PutBucketReplicationCommand")
+  .f(void 0, void 0)
+  .ser(se_PutBucketReplicationCommand)
+  .de(de_PutBucketReplicationCommand)
+  .build() {}

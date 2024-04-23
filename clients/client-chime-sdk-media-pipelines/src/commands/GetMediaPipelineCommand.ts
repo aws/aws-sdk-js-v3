@@ -1,23 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   ChimeSDKMediaPipelinesClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMediaPipelinesClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetMediaPipelineRequest,
   GetMediaPipelineResponse,
@@ -63,7 +55,7 @@ export interface GetMediaPipelineCommandOutput extends GetMediaPipelineResponse,
  * //       MediaPipelineArn: "STRING_VALUE",
  * //       SourceType: "ChimeSdkMeeting",
  * //       SourceArn: "STRING_VALUE",
- * //       Status: "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped" || "Paused",
+ * //       Status: "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped" || "Paused" || "NotStarted",
  * //       SinkType: "S3Bucket",
  * //       SinkArn: "STRING_VALUE",
  * //       CreatedTimestamp: new Date("TIMESTAMP"),
@@ -190,7 +182,7 @@ export interface GetMediaPipelineCommandOutput extends GetMediaPipelineResponse,
  * //       ],
  * //       MediaPipelineId: "STRING_VALUE",
  * //       MediaPipelineArn: "STRING_VALUE",
- * //       Status: "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped" || "Paused",
+ * //       Status: "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped" || "Paused" || "NotStarted",
  * //       CreatedTimestamp: new Date("TIMESTAMP"),
  * //       UpdatedTimestamp: new Date("TIMESTAMP"),
  * //     },
@@ -238,7 +230,7 @@ export interface GetMediaPipelineCommandOutput extends GetMediaPipelineResponse,
  * //           },
  * //         },
  * //       ],
- * //       Status: "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped" || "Paused",
+ * //       Status: "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped" || "Paused" || "NotStarted",
  * //       CreatedTimestamp: new Date("TIMESTAMP"),
  * //       UpdatedTimestamp: new Date("TIMESTAMP"),
  * //     },
@@ -246,7 +238,7 @@ export interface GetMediaPipelineCommandOutput extends GetMediaPipelineResponse,
  * //       MediaPipelineId: "STRING_VALUE",
  * //       MediaPipelineArn: "STRING_VALUE",
  * //       MediaInsightsPipelineConfigurationArn: "STRING_VALUE",
- * //       Status: "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped" || "Paused",
+ * //       Status: "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped" || "Paused" || "NotStarted",
  * //       KinesisVideoStreamSourceRuntimeConfiguration: { // KinesisVideoStreamSourceRuntimeConfiguration
  * //         Streams: [ // Streams // required
  * //           { // StreamConfiguration
@@ -288,6 +280,33 @@ export interface GetMediaPipelineCommandOutput extends GetMediaPipelineResponse,
  * //         RecordingFileFormat: "Wav" || "Opus", // required
  * //       },
  * //       CreatedTimestamp: new Date("TIMESTAMP"),
+ * //       ElementStatuses: [ // MediaInsightsPipelineElementStatuses
+ * //         { // MediaInsightsPipelineElementStatus
+ * //           Type: "AmazonTranscribeCallAnalyticsProcessor" || "VoiceAnalyticsProcessor" || "AmazonTranscribeProcessor" || "KinesisDataStreamSink" || "LambdaFunctionSink" || "SqsQueueSink" || "SnsTopicSink" || "S3RecordingSink" || "VoiceEnhancementSink",
+ * //           Status: "NotStarted" || "NotSupported" || "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped" || "Paused",
+ * //         },
+ * //       ],
+ * //     },
+ * //     MediaStreamPipeline: { // MediaStreamPipeline
+ * //       MediaPipelineId: "STRING_VALUE",
+ * //       MediaPipelineArn: "STRING_VALUE",
+ * //       CreatedTimestamp: new Date("TIMESTAMP"),
+ * //       UpdatedTimestamp: new Date("TIMESTAMP"),
+ * //       Status: "Initializing" || "InProgress" || "Failed" || "Stopping" || "Stopped" || "Paused" || "NotStarted",
+ * //       Sources: [ // MediaStreamSourceList
+ * //         { // MediaStreamSource
+ * //           SourceType: "ChimeSdkMeeting", // required
+ * //           SourceArn: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       Sinks: [ // MediaStreamSinkList
+ * //         { // MediaStreamSink
+ * //           SinkArn: "STRING_VALUE", // required
+ * //           SinkType: "KinesisVideoStreamPool", // required
+ * //           ReservedStreamCapacity: Number("int"), // required
+ * //           MediaStreamType: "MixedAudio" || "IndividualAudio", // required
+ * //         },
+ * //       ],
  * //     },
  * //   },
  * // };
@@ -325,79 +344,26 @@ export interface GetMediaPipelineCommandOutput extends GetMediaPipelineResponse,
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
  */
-export class GetMediaPipelineCommand extends $Command<
-  GetMediaPipelineCommandInput,
-  GetMediaPipelineCommandOutput,
-  ChimeSDKMediaPipelinesClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetMediaPipelineCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ChimeSDKMediaPipelinesClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetMediaPipelineCommandInput, GetMediaPipelineCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetMediaPipelineCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ChimeSDKMediaPipelinesClient";
-    const commandName = "GetMediaPipelineCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: GetMediaPipelineResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetMediaPipelineCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetMediaPipelineCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetMediaPipelineCommandOutput> {
-    return de_GetMediaPipelineCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetMediaPipelineCommand extends $Command
+  .classBuilder<
+    GetMediaPipelineCommandInput,
+    GetMediaPipelineCommandOutput,
+    ChimeSDKMediaPipelinesClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ChimeSDKMediaPipelinesService", "GetMediaPipeline", {})
+  .n("ChimeSDKMediaPipelinesClient", "GetMediaPipelineCommand")
+  .f(void 0, GetMediaPipelineResponseFilterSensitiveLog)
+  .ser(se_GetMediaPipelineCommand)
+  .de(de_GetMediaPipelineCommand)
+  .build() {}

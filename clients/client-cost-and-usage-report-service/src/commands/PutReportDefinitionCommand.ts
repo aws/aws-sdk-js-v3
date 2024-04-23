@@ -1,23 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   CostAndUsageReportServiceClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CostAndUsageReportServiceClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { PutReportDefinitionRequest, PutReportDefinitionResponse } from "../models/models_0";
 import { de_PutReportDefinitionCommand, se_PutReportDefinitionCommand } from "../protocols/Aws_json1_1";
 
@@ -54,7 +46,7 @@ export interface PutReportDefinitionCommandOutput extends PutReportDefinitionRes
  *     Format: "textORcsv" || "Parquet", // required
  *     Compression: "ZIP" || "GZIP" || "Parquet", // required
  *     AdditionalSchemaElements: [ // SchemaElementList // required
- *       "RESOURCES" || "SPLIT_COST_ALLOCATION_DATA",
+ *       "RESOURCES" || "SPLIT_COST_ALLOCATION_DATA" || "MANUAL_DISCOUNT_COMPATIBILITY",
  *     ],
  *     S3Bucket: "STRING_VALUE", // required
  *     S3Prefix: "STRING_VALUE", // required
@@ -65,7 +57,17 @@ export interface PutReportDefinitionCommandOutput extends PutReportDefinitionRes
  *     RefreshClosedReports: true || false,
  *     ReportVersioning: "CREATE_NEW_REPORT" || "OVERWRITE_REPORT",
  *     BillingViewArn: "STRING_VALUE",
+ *     ReportStatus: { // ReportStatus
+ *       lastDelivery: "STRING_VALUE",
+ *       lastStatus: "SUCCESS" || "ERROR_PERMISSIONS" || "ERROR_NO_BUCKET",
+ *     },
  *   },
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE", // required
+ *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new PutReportDefinitionCommand(input);
  * const response = await client.send(command);
@@ -88,8 +90,11 @@ export interface PutReportDefinitionCommandOutput extends PutReportDefinitionRes
  * @throws {@link ReportLimitReachedException} (client fault)
  *  <p>This account already has five reports defined. To define a new report, you must delete an existing report.</p>
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified report (<code>ReportName</code>) in the request doesn't exist.</p>
+ *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link CostAndUsageReportServiceServiceException}
  * <p>Base exception class for all service exceptions from CostAndUsageReportService service.</p>
@@ -121,79 +126,26 @@ export interface PutReportDefinitionCommandOutput extends PutReportDefinitionRes
  * ```
  *
  */
-export class PutReportDefinitionCommand extends $Command<
-  PutReportDefinitionCommandInput,
-  PutReportDefinitionCommandOutput,
-  CostAndUsageReportServiceClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PutReportDefinitionCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CostAndUsageReportServiceClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PutReportDefinitionCommandInput, PutReportDefinitionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, PutReportDefinitionCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CostAndUsageReportServiceClient";
-    const commandName = "PutReportDefinitionCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: PutReportDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PutReportDefinitionCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutReportDefinitionCommandOutput> {
-    return de_PutReportDefinitionCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class PutReportDefinitionCommand extends $Command
+  .classBuilder<
+    PutReportDefinitionCommandInput,
+    PutReportDefinitionCommandOutput,
+    CostAndUsageReportServiceClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CostAndUsageReportServiceClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSOrigamiServiceGatewayService", "PutReportDefinition", {})
+  .n("CostAndUsageReportServiceClient", "PutReportDefinitionCommand")
+  .f(void 0, void 0)
+  .ser(se_PutReportDefinitionCommand)
+  .de(de_PutReportDefinitionCommand)
+  .build() {}

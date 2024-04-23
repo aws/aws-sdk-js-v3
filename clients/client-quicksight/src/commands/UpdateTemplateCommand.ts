@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateTemplateRequest,
   UpdateTemplateRequestFilterSensitiveLog,
@@ -844,7 +836,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                 },
  *                 TotalOptions: { // TotalOptions
  *                   TotalsVisibility: "HIDDEN" || "VISIBLE",
- *                   Placement: "START" || "END",
+ *                   Placement: "START" || "END" || "AUTO",
  *                   ScrollStatus: "PINNED" || "SCROLLED",
  *                   CustomLabel: "STRING_VALUE",
  *                   TotalCellStyle: {
@@ -867,6 +859,14 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                       },
  *                     },
  *                   },
+ *                   TotalAggregationOptions: [ // TotalAggregationOptionList
+ *                     { // TotalAggregationOption
+ *                       FieldId: "STRING_VALUE", // required
+ *                       TotalAggregationFunction: { // TotalAggregationFunction
+ *                         SimpleTotalAggregationFunction: "DEFAULT" || "SUM" || "AVERAGE" || "MIN" || "MAX" || "NONE",
+ *                       },
+ *                     },
+ *                   ],
  *                 },
  *                 FieldOptions: { // TableFieldOptions
  *                   SelectedFieldOptions: [ // TableFieldOptionList
@@ -899,6 +899,11 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                   Order: [ // FieldOrderList
  *                     "STRING_VALUE",
  *                   ],
+ *                   PinnedFieldOptions: { // TablePinnedFieldOptions
+ *                     PinnedLeftFields: [ // TableFieldOrderList
+ *                       "STRING_VALUE",
+ *                     ],
+ *                   },
  *                 },
  *                 PaginatedReportOptions: { // TablePaginatedReportOptions
  *                   VerticalOverflowVisibility: "HIDDEN" || "VISIBLE",
@@ -1234,8 +1239,11 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                           Direction: "ASC" || "DESC", // required
  *                           SortPaths: [ // DataPathValueList // required
  *                             { // DataPathValue
- *                               FieldId: "STRING_VALUE", // required
- *                               FieldValue: "STRING_VALUE", // required
+ *                               FieldId: "STRING_VALUE",
+ *                               FieldValue: "STRING_VALUE",
+ *                               DataPathType: { // DataPathType
+ *                                 PivotTableDataPathType: "HIERARCHY_ROWS_LAYOUT_COLUMN" || "MULTIPLE_ROW_METRICS_COLUMN" || "EMPTY_COLUMN_HEADER" || "COUNT_METRIC_COLUMN",
+ *                               },
  *                             },
  *                           ],
  *                         },
@@ -1344,21 +1352,37 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                   },
  *                   RowTotalOptions: { // PivotTotalOptions
  *                     TotalsVisibility: "HIDDEN" || "VISIBLE",
- *                     Placement: "START" || "END",
+ *                     Placement: "START" || "END" || "AUTO",
  *                     ScrollStatus: "PINNED" || "SCROLLED",
  *                     CustomLabel: "STRING_VALUE",
  *                     TotalCellStyle: "<TableCellStyle>",
  *                     ValueCellStyle: "<TableCellStyle>",
  *                     MetricHeaderCellStyle: "<TableCellStyle>",
+ *                     TotalAggregationOptions: [
+ *                       {
+ *                         FieldId: "STRING_VALUE", // required
+ *                         TotalAggregationFunction: {
+ *                           SimpleTotalAggregationFunction: "DEFAULT" || "SUM" || "AVERAGE" || "MIN" || "MAX" || "NONE",
+ *                         },
+ *                       },
+ *                     ],
  *                   },
  *                   ColumnTotalOptions: {
  *                     TotalsVisibility: "HIDDEN" || "VISIBLE",
- *                     Placement: "START" || "END",
+ *                     Placement: "START" || "END" || "AUTO",
  *                     ScrollStatus: "PINNED" || "SCROLLED",
  *                     CustomLabel: "STRING_VALUE",
  *                     TotalCellStyle: "<TableCellStyle>",
  *                     ValueCellStyle: "<TableCellStyle>",
  *                     MetricHeaderCellStyle: "<TableCellStyle>",
+ *                     TotalAggregationOptions: [
+ *                       {
+ *                         FieldId: "STRING_VALUE", // required
+ *                         TotalAggregationFunction: {
+ *                           SimpleTotalAggregationFunction: "DEFAULT" || "SUM" || "AVERAGE" || "MIN" || "MAX" || "NONE",
+ *                         },
+ *                       },
+ *                     ],
  *                   },
  *                 },
  *                 FieldOptions: { // PivotTableFieldOptions
@@ -1373,8 +1397,11 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                     { // PivotTableDataPathOption
  *                       DataPathList: [ // required
  *                         {
- *                           FieldId: "STRING_VALUE", // required
- *                           FieldValue: "STRING_VALUE", // required
+ *                           FieldId: "STRING_VALUE",
+ *                           FieldValue: "STRING_VALUE",
+ *                           DataPathType: {
+ *                             PivotTableDataPathType: "HIERARCHY_ROWS_LAYOUT_COLUMN" || "MULTIPLE_ROW_METRICS_COLUMN" || "EMPTY_COLUMN_HEADER" || "COUNT_METRIC_COLUMN",
+ *                           },
  *                         },
  *                       ],
  *                       Width: "STRING_VALUE",
@@ -1938,6 +1965,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                         Calculation: "<NumericalAggregationFunction>", // required
  *                       },
  *                       AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
+ *                       SeriesType: "BAR" || "LINE",
  *                     },
  *                     StyleConfiguration: { // ReferenceLineStyleConfiguration
  *                       Pattern: "SOLID" || "DASHED" || "DOTTED",
@@ -2219,6 +2247,17 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                   PrimaryValueDisplayType: "HIDDEN" || "COMPARISON" || "ACTUAL",
  *                   PrimaryValueFontConfiguration: "<FontConfiguration>",
  *                   SecondaryValueFontConfiguration: "<FontConfiguration>",
+ *                   Sparkline: { // KPISparklineOptions
+ *                     Visibility: "HIDDEN" || "VISIBLE",
+ *                     Type: "LINE" || "AREA", // required
+ *                     Color: "STRING_VALUE",
+ *                     TooltipVisibility: "HIDDEN" || "VISIBLE",
+ *                   },
+ *                   VisualLayoutOptions: { // KPIVisualLayoutOptions
+ *                     StandardLayout: { // KPIVisualStandardLayout
+ *                       Type: "CLASSIC" || "VERTICAL", // required
+ *                     },
+ *                   },
  *                 },
  *               },
  *               ConditionalFormatting: { // KPIConditionalFormatting
@@ -2246,6 +2285,46 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                     },
  *                     ProgressBar: { // KPIProgressBarConditionalFormatting
  *                       ForegroundColor: "<ConditionalFormattingColor>",
+ *                     },
+ *                     ActualValue: { // KPIActualValueConditionalFormatting
+ *                       TextColor: "<ConditionalFormattingColor>",
+ *                       Icon: {
+ *                         IconSet: {
+ *                           Expression: "STRING_VALUE", // required
+ *                           IconSetType: "PLUS_MINUS" || "CHECK_X" || "THREE_COLOR_ARROW" || "THREE_GRAY_ARROW" || "CARET_UP_MINUS_DOWN" || "THREE_SHAPE" || "THREE_CIRCLE" || "FLAGS" || "BARS" || "FOUR_COLOR_ARROW" || "FOUR_GRAY_ARROW",
+ *                         },
+ *                         CustomCondition: {
+ *                           Expression: "STRING_VALUE", // required
+ *                           IconOptions: {
+ *                             Icon: "CARET_UP" || "CARET_DOWN" || "PLUS" || "MINUS" || "ARROW_UP" || "ARROW_DOWN" || "ARROW_LEFT" || "ARROW_UP_LEFT" || "ARROW_DOWN_LEFT" || "ARROW_RIGHT" || "ARROW_UP_RIGHT" || "ARROW_DOWN_RIGHT" || "FACE_UP" || "FACE_DOWN" || "FACE_FLAT" || "ONE_BAR" || "TWO_BAR" || "THREE_BAR" || "CIRCLE" || "TRIANGLE" || "SQUARE" || "FLAG" || "THUMBS_UP" || "THUMBS_DOWN" || "CHECKMARK" || "X",
+ *                             UnicodeIcon: "STRING_VALUE",
+ *                           },
+ *                           Color: "STRING_VALUE",
+ *                           DisplayConfiguration: {
+ *                             IconDisplayOption: "ICON_ONLY",
+ *                           },
+ *                         },
+ *                       },
+ *                     },
+ *                     ComparisonValue: { // KPIComparisonValueConditionalFormatting
+ *                       TextColor: "<ConditionalFormattingColor>",
+ *                       Icon: {
+ *                         IconSet: {
+ *                           Expression: "STRING_VALUE", // required
+ *                           IconSetType: "PLUS_MINUS" || "CHECK_X" || "THREE_COLOR_ARROW" || "THREE_GRAY_ARROW" || "CARET_UP_MINUS_DOWN" || "THREE_SHAPE" || "THREE_CIRCLE" || "FLAGS" || "BARS" || "FOUR_COLOR_ARROW" || "FOUR_GRAY_ARROW",
+ *                         },
+ *                         CustomCondition: {
+ *                           Expression: "STRING_VALUE", // required
+ *                           IconOptions: {
+ *                             Icon: "CARET_UP" || "CARET_DOWN" || "PLUS" || "MINUS" || "ARROW_UP" || "ARROW_DOWN" || "ARROW_LEFT" || "ARROW_UP_LEFT" || "ARROW_DOWN_LEFT" || "ARROW_RIGHT" || "ARROW_UP_RIGHT" || "ARROW_DOWN_RIGHT" || "FACE_UP" || "FACE_DOWN" || "FACE_FLAT" || "ONE_BAR" || "TWO_BAR" || "THREE_BAR" || "CIRCLE" || "TRIANGLE" || "SQUARE" || "FLAG" || "THUMBS_UP" || "THUMBS_DOWN" || "CHECKMARK" || "X",
+ *                             UnicodeIcon: "STRING_VALUE",
+ *                           },
+ *                           Color: "STRING_VALUE",
+ *                           DisplayConfiguration: {
+ *                             IconDisplayOption: "ICON_ONLY",
+ *                           },
+ *                         },
+ *                       },
  *                     },
  *                   },
  *                 ],
@@ -2766,23 +2845,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                   { // GaugeChartConditionalFormattingOption
  *                     PrimaryValue: { // GaugeChartPrimaryValueConditionalFormatting
  *                       TextColor: "<ConditionalFormattingColor>",
- *                       Icon: {
- *                         IconSet: {
- *                           Expression: "STRING_VALUE", // required
- *                           IconSetType: "PLUS_MINUS" || "CHECK_X" || "THREE_COLOR_ARROW" || "THREE_GRAY_ARROW" || "CARET_UP_MINUS_DOWN" || "THREE_SHAPE" || "THREE_CIRCLE" || "FLAGS" || "BARS" || "FOUR_COLOR_ARROW" || "FOUR_GRAY_ARROW",
- *                         },
- *                         CustomCondition: {
- *                           Expression: "STRING_VALUE", // required
- *                           IconOptions: {
- *                             Icon: "CARET_UP" || "CARET_DOWN" || "PLUS" || "MINUS" || "ARROW_UP" || "ARROW_DOWN" || "ARROW_LEFT" || "ARROW_UP_LEFT" || "ARROW_DOWN_LEFT" || "ARROW_RIGHT" || "ARROW_UP_RIGHT" || "ARROW_DOWN_RIGHT" || "FACE_UP" || "FACE_DOWN" || "FACE_FLAT" || "ONE_BAR" || "TWO_BAR" || "THREE_BAR" || "CIRCLE" || "TRIANGLE" || "SQUARE" || "FLAG" || "THUMBS_UP" || "THUMBS_DOWN" || "CHECKMARK" || "X",
- *                             UnicodeIcon: "STRING_VALUE",
- *                           },
- *                           Color: "STRING_VALUE",
- *                           DisplayConfiguration: {
- *                             IconDisplayOption: "ICON_ONLY",
- *                           },
- *                         },
- *                       },
+ *                       Icon: "<ConditionalFormattingIcon>",
  *                     },
  *                     Arc: { // GaugeChartArcConditionalFormatting
  *                       ForegroundColor: "<ConditionalFormattingColor>",
@@ -3002,6 +3065,11 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                   ],
  *                 },
  *                 SecondaryYAxisLabelOptions: "<ChartAxisLabelOptions>",
+ *                 SingleAxisOptions: { // SingleAxisOptions
+ *                   YAxisOptions: { // YAxisOptions
+ *                     YAxis: "PRIMARY_Y_AXIS", // required
+ *                   },
+ *                 },
  *                 DefaultSeriesSettings: { // LineChartDefaultSeriesSettings
  *                   AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
  *                   LineStyleSettings: { // LineChartLineStyleSettings
@@ -3111,6 +3179,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                         Calculation: "<NumericalAggregationFunction>", // required
  *                       },
  *                       AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
+ *                       SeriesType: "BAR" || "LINE",
  *                     },
  *                     StyleConfiguration: {
  *                       Pattern: "SOLID" || "DASHED" || "DOTTED",
@@ -3539,6 +3608,9 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                     Label: "<DimensionFieldList>",
  *                   },
  *                 },
+ *                 SortConfiguration: { // ScatterPlotSortConfiguration
+ *                   ScatterPlotLimitConfiguration: "<ItemsLimitConfiguration>",
+ *                 },
  *                 XAxisLabelOptions: "<ChartAxisLabelOptions>",
  *                 XAxisDisplayOptions: "<AxisDisplayOptions>",
  *                 YAxisLabelOptions: "<ChartAxisLabelOptions>",
@@ -3577,6 +3649,11 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                 PrimaryYAxisLabelOptions: "<ChartAxisLabelOptions>",
  *                 SecondaryYAxisDisplayOptions: "<AxisDisplayOptions>",
  *                 SecondaryYAxisLabelOptions: "<ChartAxisLabelOptions>",
+ *                 SingleAxisOptions: {
+ *                   YAxisOptions: {
+ *                     YAxis: "PRIMARY_Y_AXIS", // required
+ *                   },
+ *                 },
  *                 ColorLabelOptions: "<ChartAxisLabelOptions>",
  *                 Legend: "<LegendOptions>",
  *                 BarDataLabels: "<DataLabelOptions>",
@@ -3595,6 +3672,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                         Calculation: "<NumericalAggregationFunction>", // required
  *                       },
  *                       AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
+ *                       SeriesType: "BAR" || "LINE",
  *                     },
  *                     StyleConfiguration: {
  *                       Pattern: "SOLID" || "DASHED" || "DOTTED",
@@ -3668,6 +3746,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                         Calculation: "<NumericalAggregationFunction>", // required
  *                       },
  *                       AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
+ *                       SeriesType: "BAR" || "LINE",
  *                     },
  *                     StyleConfiguration: {
  *                       Pattern: "SOLID" || "DASHED" || "DOTTED",
@@ -3797,7 +3876,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                     TopBottomRanked: { // TopBottomRankedComputation
  *                       ComputationId: "STRING_VALUE", // required
  *                       Name: "STRING_VALUE",
- *                       Category: "<DimensionField>", // required
+ *                       Category: "<DimensionField>",
  *                       Value: "<MeasureField>",
  *                       ResultSize: Number("int"),
  *                       Type: "TOP" || "BOTTOM", // required
@@ -3805,8 +3884,8 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                     TopBottomMovers: { // TopBottomMoversComputation
  *                       ComputationId: "STRING_VALUE", // required
  *                       Name: "STRING_VALUE",
- *                       Time: "<DimensionField>", // required
- *                       Category: "<DimensionField>", // required
+ *                       Time: "<DimensionField>",
+ *                       Category: "<DimensionField>",
  *                       Value: "<MeasureField>",
  *                       MoverSize: Number("int"),
  *                       SortOrder: "PERCENT_DIFFERENCE" || "ABSOLUTE_DIFFERENCE",
@@ -3815,51 +3894,51 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                     TotalAggregation: { // TotalAggregationComputation
  *                       ComputationId: "STRING_VALUE", // required
  *                       Name: "STRING_VALUE",
- *                       Value: "<MeasureField>", // required
+ *                       Value: "<MeasureField>",
  *                     },
  *                     MaximumMinimum: { // MaximumMinimumComputation
  *                       ComputationId: "STRING_VALUE", // required
  *                       Name: "STRING_VALUE",
- *                       Time: "<DimensionField>", // required
+ *                       Time: "<DimensionField>",
  *                       Value: "<MeasureField>",
  *                       Type: "MAXIMUM" || "MINIMUM", // required
  *                     },
  *                     MetricComparison: { // MetricComparisonComputation
  *                       ComputationId: "STRING_VALUE", // required
  *                       Name: "STRING_VALUE",
- *                       Time: "<DimensionField>", // required
- *                       FromValue: "<MeasureField>", // required
- *                       TargetValue: "<MeasureField>", // required
+ *                       Time: "<DimensionField>",
+ *                       FromValue: "<MeasureField>",
+ *                       TargetValue: "<MeasureField>",
  *                     },
  *                     PeriodOverPeriod: { // PeriodOverPeriodComputation
  *                       ComputationId: "STRING_VALUE", // required
  *                       Name: "STRING_VALUE",
- *                       Time: "<DimensionField>", // required
+ *                       Time: "<DimensionField>",
  *                       Value: "<MeasureField>",
  *                     },
  *                     PeriodToDate: { // PeriodToDateComputation
  *                       ComputationId: "STRING_VALUE", // required
  *                       Name: "STRING_VALUE",
- *                       Time: "<DimensionField>", // required
+ *                       Time: "<DimensionField>",
  *                       Value: "<MeasureField>",
  *                       PeriodTimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
  *                     },
  *                     GrowthRate: { // GrowthRateComputation
  *                       ComputationId: "STRING_VALUE", // required
  *                       Name: "STRING_VALUE",
- *                       Time: "<DimensionField>", // required
+ *                       Time: "<DimensionField>",
  *                       Value: "<MeasureField>",
  *                       PeriodSize: Number("int"),
  *                     },
  *                     UniqueValues: { // UniqueValuesComputation
  *                       ComputationId: "STRING_VALUE", // required
  *                       Name: "STRING_VALUE",
- *                       Category: "<DimensionField>", // required
+ *                       Category: "<DimensionField>",
  *                     },
  *                     Forecast: { // ForecastComputation
  *                       ComputationId: "STRING_VALUE", // required
  *                       Name: "STRING_VALUE",
- *                       Time: "<DimensionField>", // required
+ *                       Time: "<DimensionField>",
  *                       Value: "<MeasureField>",
  *                       PeriodsForward: Number("int"),
  *                       PeriodsBackward: Number("int"),
@@ -4288,6 +4367,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                   MatchOperator: "EQUALS" || "DOES_NOT_EQUAL" || "CONTAINS" || "DOES_NOT_CONTAIN" || "STARTS_WITH" || "ENDS_WITH", // required
  *                   CategoryValues: "<CategoryValueList>",
  *                   SelectAllOptions: "FILTER_ALL_VALUES",
+ *                   NullOption: "ALL_VALUES" || "NULLS_ONLY" || "NON_NULLS_ONLY",
  *                 },
  *                 CustomFilterListConfiguration: { // CustomFilterListConfiguration
  *                   MatchOperator: "EQUALS" || "DOES_NOT_EQUAL" || "CONTAINS" || "DOES_NOT_CONTAIN" || "STARTS_WITH" || "ENDS_WITH", // required
@@ -4337,6 +4417,10 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *               Value: new Date("TIMESTAMP"),
  *               ParameterName: "STRING_VALUE",
  *               TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
+ *               RollingDate: {
+ *                 DataSetIdentifier: "STRING_VALUE",
+ *                 Expression: "STRING_VALUE", // required
+ *               },
  *             },
  *             TimeRangeFilter: { // TimeRangeFilter
  *               FilterId: "STRING_VALUE", // required
@@ -4345,18 +4429,12 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *               IncludeMaximum: true || false,
  *               RangeMinimumValue: { // TimeRangeFilterValue
  *                 StaticValue: new Date("TIMESTAMP"),
- *                 RollingDate: {
- *                   DataSetIdentifier: "STRING_VALUE",
- *                   Expression: "STRING_VALUE", // required
- *                 },
+ *                 RollingDate: "<RollingDateConfiguration>",
  *                 Parameter: "STRING_VALUE",
  *               },
  *               RangeMaximumValue: {
  *                 StaticValue: new Date("TIMESTAMP"),
- *                 RollingDate: {
- *                   DataSetIdentifier: "STRING_VALUE",
- *                   Expression: "STRING_VALUE", // required
- *                 },
+ *                 RollingDate: "<RollingDateConfiguration>",
  *                 Parameter: "STRING_VALUE",
  *               },
  *               NullOption: "ALL_VALUES" || "NULLS_ONLY" || "NON_NULLS_ONLY", // required
@@ -4414,6 +4492,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *               },
  *             ],
  *           },
+ *           AllSheets: {},
  *         },
  *         Status: "ENABLED" || "DISABLED",
  *         CrossDataset: "ALL_DATASETS" || "SINGLE_DATASET", // required
@@ -4472,6 +4551,13 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *         SheetContentType: "PAGINATED" || "INTERACTIVE",
  *       },
  *     },
+ *     Options: { // AssetOptions
+ *       Timezone: "STRING_VALUE",
+ *       WeekStart: "SUNDAY" || "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY",
+ *     },
+ *   },
+ *   ValidationStrategy: { // ValidationStrategy
+ *     Mode: "STRICT" || "LENIENT", // required
  *   },
  * };
  * const command = new UpdateTemplateCommand(input);
@@ -4524,79 +4610,26 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
-export class UpdateTemplateCommand extends $Command<
-  UpdateTemplateCommandInput,
-  UpdateTemplateCommandOutput,
-  QuickSightClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateTemplateCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: QuickSightClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateTemplateCommandInput, UpdateTemplateCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateTemplateCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "QuickSightClient";
-    const commandName = "UpdateTemplateCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: UpdateTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateTemplateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateTemplateCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTemplateCommandOutput> {
-    return de_UpdateTemplateCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateTemplateCommand extends $Command
+  .classBuilder<
+    UpdateTemplateCommandInput,
+    UpdateTemplateCommandOutput,
+    QuickSightClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("QuickSight_20180401", "UpdateTemplate", {})
+  .n("QuickSightClient", "UpdateTemplateCommand")
+  .f(UpdateTemplateRequestFilterSensitiveLog, void 0)
+  .ser(se_UpdateTemplateCommand)
+  .de(de_UpdateTemplateCommand)
+  .build() {}

@@ -1,16 +1,7 @@
 // smithy-typescript generated code
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { StringPayloadInput } from "../models/models_0";
 import { de_HttpStringPayloadCommand, se_HttpStringPayloadCommand } from "../protocols/Aws_restJson1";
@@ -33,67 +24,50 @@ export interface HttpStringPayloadCommandInput extends StringPayloadInput {}
  */
 export interface HttpStringPayloadCommandOutput extends StringPayloadInput, __MetadataBearer {}
 
-export class HttpStringPayloadCommand extends $Command<
-  HttpStringPayloadCommandInput,
-  HttpStringPayloadCommandOutput,
-  RestJsonProtocolClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  /**
-   * @public
-   */
-  constructor(readonly input: HttpStringPayloadCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RestJsonProtocolClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<HttpStringPayloadCommandInput, HttpStringPayloadCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RestJsonProtocolClient";
-    const commandName = "HttpStringPayloadCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: HttpStringPayloadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_HttpStringPayloadCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<HttpStringPayloadCommandOutput> {
-    return de_HttpStringPayloadCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+/**
+ * @public
+ *
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { RestJsonProtocolClient, HttpStringPayloadCommand } from "@aws-sdk/aws-protocoltests-restjson"; // ES Modules import
+ * // const { RestJsonProtocolClient, HttpStringPayloadCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
+ * const client = new RestJsonProtocolClient(config);
+ * const input = { // StringPayloadInput
+ *   payload: "STRING_VALUE",
+ * };
+ * const command = new HttpStringPayloadCommand(input);
+ * const response = await client.send(command);
+ * // { // StringPayloadInput
+ * //   payload: "STRING_VALUE",
+ * // };
+ *
+ * ```
+ *
+ * @param HttpStringPayloadCommandInput - {@link HttpStringPayloadCommandInput}
+ * @returns {@link HttpStringPayloadCommandOutput}
+ * @see {@link HttpStringPayloadCommandInput} for command's `input` shape.
+ * @see {@link HttpStringPayloadCommandOutput} for command's `response` shape.
+ * @see {@link RestJsonProtocolClientResolvedConfig | config} for RestJsonProtocolClient's `config` shape.
+ *
+ * @throws {@link RestJsonProtocolServiceException}
+ * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
+ *
+ */
+export class HttpStringPayloadCommand extends $Command
+  .classBuilder<
+    HttpStringPayloadCommandInput,
+    HttpStringPayloadCommandOutput,
+    RestJsonProtocolClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
+    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+  })
+  .s("RestJson", "HttpStringPayload", {})
+  .n("RestJsonProtocolClient", "HttpStringPayloadCommand")
+  .f(void 0, void 0)
+  .ser(se_HttpStringPayloadCommand)
+  .de(de_HttpStringPayloadCommand)
+  .build() {}

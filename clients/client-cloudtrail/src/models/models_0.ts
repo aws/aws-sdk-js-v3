@@ -5,6 +5,34 @@ import { CloudTrailServiceException as __BaseException } from "./CloudTrailServi
 
 /**
  * @public
+ * <p>
+ *          You do not have sufficient access to perform this action.
+ *       </p>
+ */
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  * <p> This exception is thrown when you start a new import and a previous import is still in
  *          progress. </p>
  */
@@ -220,12 +248,9 @@ export class ChannelNotFoundException extends __BaseException {
 
 /**
  * @public
- * <p>This exception is thrown when an operation is called with a trail ARN that is not valid.
- *          The following is the format of a trail ARN.</p>
- *          <p>
- *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
+ * <p>This exception is thrown when an operation is called with an ARN that is not valid.</p>
+ *          <p>The following is the format of a trail ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
  *          </p>
- *          <p>This exception is also thrown when you call <code>AddTags</code> or <code>RemoveTags</code> on a trail, event data store, or channel with a resource ARN that is not valid.</p>
  *          <p>The following is the format of an event data store ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
  *          </p>
@@ -630,12 +655,13 @@ export interface AdvancedFieldSelector {
   /**
    * @public
    * <p> A field in a CloudTrail event record on which to filter events to be logged. For
-   *          event data stores for Config configuration items, Audit Manager evidence, or non-Amazon Web Services events, the field is used only for
-   *          selecting events as filtering is not supported. </p>
-   *          <p> For CloudTrail event records, supported fields include <code>readOnly</code>,
-   *             <code>eventCategory</code>, <code>eventSource</code> (for management events),
-   *             <code>eventName</code>, <code>resources.type</code>, and <code>resources.ARN</code>. </p>
-   *          <p> For event data stores for Config configuration items, Audit Manager evidence, or non-Amazon Web Services events, the only supported field is
+   *          event data stores for CloudTrail Insights events, Config configuration items, Audit Manager evidence, or events outside of Amazon Web Services, the field is used only for
+   *          selecting events as filtering is not supported.</p>
+   *          <p>For CloudTrail management events, supported fields include <code>readOnly</code>,
+   *             <code>eventCategory</code>, and <code>eventSource</code>.</p>
+   *          <p>For CloudTrail data events, supported fields include <code>readOnly</code>,
+   *          <code>eventCategory</code>, <code>eventName</code>, <code>resources.type</code>, and <code>resources.ARN</code>.</p>
+   *          <p> For event data stores for CloudTrail Insights events, Config configuration items, Audit Manager evidence, or events outside of Amazon Web Services, the only supported field is
    *             <code>eventCategory</code>. </p>
    *          <ul>
    *             <li>
@@ -654,8 +680,9 @@ export interface AdvancedFieldSelector {
    *                   <b>
    *                      <code>eventSource</code>
    *                   </b> - For filtering
-   *                management events only. This can be set only to <code>NotEquals</code>
-   *                   <code>kms.amazonaws.com</code>.</p>
+   *                management events only. This can be set to <code>NotEquals</code>
+   *                   <code>kms.amazonaws.com</code> or <code>NotEquals</code>
+   *                   <code>rdsdata.amazonaws.com</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -676,8 +703,23 @@ export interface AdvancedFieldSelector {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                      For CloudTrail event records, the value
-   *                      must be <code>Management</code> or <code>Data</code>.
+   *                      For CloudTrail management events, the value
+   *                      must be <code>Management</code>.
+   *                   </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                      For CloudTrail data events, the value
+   *                      must be <code>Data</code>.
+   *                   </p>
+   *                   </li>
+   *                </ul>
+   *                <p>The following are used only for event data stores:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                      For CloudTrail Insights events, the value
+   *                      must be <code>Insight</code>.
    *                   </p>
    *                   </li>
    *                   <li>
@@ -724,7 +766,37 @@ export interface AdvancedFieldSelector {
    *                   </li>
    *                   <li>
    *                      <p>
+   *                         <code>AWS::B2BI::Transformer</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::Bedrock::AgentAlias</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::Bedrock::KnowledgeBase</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::Cassandra::Table</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::CloudFront::KeyValueStore</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
    *                         <code>AWS::CloudTrail::Channel</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::CodeWhisperer::Customization</code>
    *                      </p>
    *                   </li>
    *                   <li>
@@ -769,7 +841,22 @@ export interface AdvancedFieldSelector {
    *                   </li>
    *                   <li>
    *                      <p>
+   *                         <code>AWS::IoTTwinMaker::Entity</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::IoTTwinMaker::Workspace</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
    *                         <code>AWS::KendraRanking::ExecutionPlan</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::KinesisVideo::Stream</code>
    *                      </p>
    *                   </li>
    *                   <li>
@@ -789,12 +876,82 @@ export interface AdvancedFieldSelector {
    *                   </li>
    *                   <li>
    *                      <p>
+   *                         <code>AWS::NeptuneGraph::Graph</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::PCAConnectorAD::Connector</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::QBusiness::Application</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::QBusiness::DataSource</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::QBusiness::Index</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::QBusiness::WebExperience</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::RDS::DBCluster</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::SageMaker::Endpoint</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
    *                         <code>AWS::SageMaker::ExperimentTrialComponent</code>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
    *                         <code>AWS::SageMaker::FeatureGroup</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::ServiceDiscovery::Namespace </code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::ServiceDiscovery::Service</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::SCN::Instance</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::SNS::PlatformEndpoint</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::SNS::Topic</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::SQS::Queue</code>
    *                      </p>
    *                   </li>
    *                   <li>
@@ -815,6 +972,26 @@ export interface AdvancedFieldSelector {
    *                   <li>
    *                      <p>
    *                         <code>AWS::SSMMessages::ControlChannel</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::ThinClient::Device</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::ThinClient::Environment</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::Timestream::Database</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::Timestream::Table</code>
    *                      </p>
    *                   </li>
    *                   <li>
@@ -872,6 +1049,56 @@ export interface AdvancedFieldSelector {
    *                      </p>
    *                   </li>
    *                </ul>
+   *                <p>When resources.type equals <code>AWS::B2BI::Transformer</code>, and the operator is
+   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
+   *                following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:b2bi:<region>:<account_ID>:transformer/<transformer_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When resources.type equals <code>AWS::Bedrock::AgentAlias</code>, and the operator is
+   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
+   *                following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:bedrock:<region>:<account_ID>:agent-alias/<agent_ID>/<alias_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When resources.type equals <code>AWS::Bedrock::KnowledgeBase</code>, and the operator is
+   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
+   *                following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:bedrock:<region>:<account_ID>:knowledge-base/<knowledge_base_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When resources.type equals <code>AWS::Cassandra::Table</code>, and the operator is
+   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
+   *                following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:cassandra:<region>:<account_ID>:/keyspace/<keyspace_name>/table/<table_name></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When resources.type equals <code>AWS::CloudFront::KeyValueStore</code>, and the operator is
+   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
+   *                following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:cloudfront:<region>:<account_ID>:key-value-store/<KVS_name></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
    *                <p>When resources.type equals <code>AWS::CloudTrail::Channel</code>, and the operator is
    *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
    *                following format:</p>
@@ -879,6 +1106,16 @@ export interface AdvancedFieldSelector {
    *                   <li>
    *                      <p>
    *                         <code>arn:<partition>:cloudtrail:<region>:<account_ID>:channel/<channel_UUID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When resources.type equals <code>AWS::CodeWhisperer::Customization</code>, and the operator is
+   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
+   *                following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:codewhisperer:<region>:<account_ID>:customization/<customization_ID></code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -928,7 +1165,7 @@ export interface AdvancedFieldSelector {
    *                <ul>
    *                   <li>
    *                      <p>
-   *                         <code>arn:<partition>:emrwal:<region>::workspace/<workspace_name></code>
+   *                         <code>arn:<partition>:emrwal:<region>:<account_ID>:workspace/<workspace_name></code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -962,6 +1199,26 @@ export interface AdvancedFieldSelector {
    *                      </p>
    *                   </li>
    *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::IoTTwinMaker::Entity</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:iottwinmaker:<region>:<account_ID>:workspace/<workspace_ID>/entity/<entity_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::IoTTwinMaker::Workspace</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:iottwinmaker:<region>:<account_ID>:workspace/<workspace_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
    *                <p>When <code>resources.type</code> equals <code>AWS::KendraRanking::ExecutionPlan</code>, and the
    *                operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in
    *                the following format:</p>
@@ -969,6 +1226,16 @@ export interface AdvancedFieldSelector {
    *                   <li>
    *                      <p>
    *                         <code>arn:<partition>:kendra-ranking:<region>:<account_ID>:rescore-execution-plan/<rescore_execution_plan_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::KinesisVideo::Stream</code>, and the
+   *                operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in
+   *                the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:kinesisvideo:<region>:<account_ID>:stream/<stream_name>/<creation_time></code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -1002,6 +1269,85 @@ export interface AdvancedFieldSelector {
    *                      </p>
    *                   </li>
    *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::NeptuneGraph::Graph</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:neptune-graph:<region>:<account_ID>:graph/<graph_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::PCAConnectorAD::Connector</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:pca-connector-ad:<region>:<account_ID>:connector/<connector_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::QBusiness::Application</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:qbusiness:<region>:<account_ID>:application/<application_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::QBusiness::DataSource</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:qbusiness:<region>:<account_ID>:application/<application_ID>/index/<index_ID>/data-source/<datasource_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::QBusiness::Index</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:qbusiness:<region>:<account_ID>:application/<application_ID>/index/<index_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::QBusiness::WebExperience</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:qbusiness:<region>:<account_ID>:application/<application_ID>/web-experience/<web_experience_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::RDS::DBCluster</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:rds:<region>:<account_ID>:cluster/<cluster_name></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::SageMaker::Endpoint</code>, and the operator is set to
+   *                <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:sagemaker:<region>:<account_ID>:endpoint/<endpoint_name></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
    *                <p>When <code>resources.type</code> equals <code>AWS::SageMaker::ExperimentTrialComponent</code>, and the operator is set to
    *                <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p>
    *                <ul>
@@ -1017,6 +1363,63 @@ export interface AdvancedFieldSelector {
    *                   <li>
    *                      <p>
    *                         <code>arn:<partition>:sagemaker:<region>:<account_ID>:feature-group/<feature_group_name></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::SCN::Instance</code>, and the operator is set to
+   *                <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:scn:<region>:<account_ID>:instance/<instance_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::ServiceDiscovery::Namespace</code>, and the operator is set to
+   *                <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:servicediscovery:<region>:<account_ID>:namespace/<namespace_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::ServiceDiscovery::Service</code>, and the operator is set to
+   *                <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:servicediscovery:<region>:<account_ID>:service/<service_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::SNS::PlatformEndpoint</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:sns:<region>:<account_ID>:endpoint/<endpoint_type>/<endpoint_name>/<endpoint_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::SNS::Topic</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:sns:<region>:<account_ID>:<topic_name></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::SQS::Queue</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:sqs:<region>:<account_ID>:<queue_name></code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -1065,6 +1468,46 @@ export interface AdvancedFieldSelector {
    *                   <li>
    *                      <p>
    *                         <code>arn:<partition>:ssmmessages:<region>:<account_ID>:control-channel/<channel_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::ThinClient::Device</code>, and
+   *                the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be
+   *                in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:thinclient:<region>:<account_ID>:device/<device_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::ThinClient::Environment</code>, and
+   *                the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be
+   *                in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:thinclient:<region>:<account_ID>:environment/<environment_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::Timestream::Database</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:timestream:<region>:<account_ID>:database/<database_name></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::Timestream::Table</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:timestream:<region>:<account_ID>:database/<database_name>/table/<table_name></code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -1184,6 +1627,20 @@ export interface AdvancedEventSelector {
 
 /**
  * @public
+ * @enum
+ */
+export const BillingMode = {
+  EXTENDABLE_RETENTION_PRICING: "EXTENDABLE_RETENTION_PRICING",
+  FIXED_RETENTION_PRICING: "FIXED_RETENTION_PRICING",
+} as const;
+
+/**
+ * @public
+ */
+export type BillingMode = (typeof BillingMode)[keyof typeof BillingMode];
+
+/**
+ * @public
  */
 export interface CancelQueryRequest {
   /**
@@ -1236,7 +1693,7 @@ export interface CancelQueryResponse {
    * <p>Shows the status of a query after a <code>CancelQuery</code> request. Typically, the
    *          values shown are either <code>RUNNING</code> or <code>CANCELLED</code>.</p>
    */
-  QueryStatus: QueryStatus | string | undefined;
+  QueryStatus: QueryStatus | undefined;
 }
 
 /**
@@ -1471,10 +1928,10 @@ export type DestinationType = (typeof DestinationType)[keyof typeof DestinationT
 export interface Destination {
   /**
    * @public
-   * <p>The type of destination for events arriving from a channel. For channels used for a CloudTrail Lake integration, the value is <code>EventDataStore</code>. For service-linked channels,
+   * <p>The type of destination for events arriving from a channel. For channels used for a CloudTrail Lake integration, the value is <code>EVENT_DATA_STORE</code>. For service-linked channels,
    *          the value is <code>AWS_SERVICE</code>. </p>
    */
-  Type: DestinationType | string | undefined;
+  Type: DestinationType | undefined;
 
   /**
    * @public
@@ -1670,8 +2127,10 @@ export interface CreateEventDataStoreRequest {
 
   /**
    * @public
-   * <p>The retention period of the event data store, in days. You can set a retention period of
-   *          up to 2557 days, the equivalent of seven years. CloudTrail  Lake determines whether to retain an event by checking if the <code>eventTime</code>
+   * <p>The retention period of the event data store, in days. If <code>BillingMode</code> is set to <code>EXTENDABLE_RETENTION_PRICING</code>, you can set a retention period of
+   *          up to 3653 days, the equivalent of 10 years. If <code>BillingMode</code> is set to <code>FIXED_RETENTION_PRICING</code>, you can set a retention period of
+   *          up to 2557 days, the equivalent of seven years.</p>
+   *          <p>CloudTrail  Lake determines whether to retain an event by checking if the <code>eventTime</code>
    *          of the event is within the specified retention period. For example, if you set a retention period of 90 days, CloudTrail will remove events
    *       when the <code>eventTime</code> is older than 90 days.</p>
    *          <note>
@@ -1747,6 +2206,29 @@ export interface CreateEventDataStoreRequest {
    * <p>Specifies whether the event data store should start ingesting live events. The default is true.</p>
    */
   StartIngestion?: boolean;
+
+  /**
+   * @public
+   * <p>The billing mode for the event data store determines the cost for ingesting events and the default and maximum retention period for the event data store.</p>
+   *          <p>The following are the possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>EXTENDABLE_RETENTION_PRICING</code> - This billing mode is generally recommended if you want a flexible retention period of up to 3653 days (about 10 years).
+   *                 The default retention period for this billing mode is 366 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FIXED_RETENTION_PRICING</code> - This billing mode is recommended if you expect to ingest more than 25 TB of event data per month and need a retention period of up to 2557 days (about 7 years).
+   *                 The default retention period for this billing mode is 2557 days.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The default value is <code>EXTENDABLE_RETENTION_PRICING</code>.</p>
+   *          <p>For more information about CloudTrail pricing,
+   *          see <a href="http://aws.amazon.com/cloudtrail/pricing/">CloudTrail Pricing</a> and
+   *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.html">Managing CloudTrail Lake costs</a>.</p>
+   */
+  BillingMode?: BillingMode;
 }
 
 /**
@@ -1787,7 +2269,7 @@ export interface CreateEventDataStoreResponse {
    * @public
    * <p>The status of event data store creation.</p>
    */
-  Status?: EventDataStoreStatus | string;
+  Status?: EventDataStoreStatus;
 
   /**
    * @public
@@ -1851,6 +2333,12 @@ export interface CreateEventDataStoreResponse {
    *          </p>
    */
   KmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>The billing mode for the event data store.</p>
+   */
+  BillingMode?: BillingMode;
 }
 
 /**
@@ -2749,6 +3237,34 @@ export class S3BucketDoesNotExistException extends __BaseException {
 
 /**
  * @public
+ * <p>
+ *          This exception is thrown when the request rate exceeds the limit.
+ *       </p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  * <p>This exception is thrown when the specified trail already exists.</p>
  */
 export class TrailAlreadyExistsException extends __BaseException {
@@ -2830,6 +3346,35 @@ export interface DeleteEventDataStoreRequest {
  * @public
  */
 export interface DeleteEventDataStoreResponse {}
+
+/**
+ * @public
+ * <p>
+ *         You cannot delete the event data store because Lake query federation is enabled. To delete the event data store, run the <code>DisableFederation</code> operation to
+ *          disable Lake query federation on the event data store.
+ *       </p>
+ */
+export class EventDataStoreFederationEnabledException extends __BaseException {
+  readonly name: "EventDataStoreFederationEnabledException" = "EventDataStoreFederationEnabledException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EventDataStoreFederationEnabledException, __BaseException>) {
+    super({
+      name: "EventDataStoreFederationEnabledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EventDataStoreFederationEnabledException.prototype);
+    this.Message = opts.Message;
+  }
+}
 
 /**
  * @public
@@ -3197,7 +3742,7 @@ export interface DescribeQueryResponse {
    *          <code>TIMED_OUT</code>, or <code>CANCELLED</code>
    *          </p>
    */
-  QueryStatus?: QueryStatus | string;
+  QueryStatus?: QueryStatus;
 
   /**
    * @public
@@ -3224,7 +3769,7 @@ export interface DescribeQueryResponse {
    * @public
    * <p>The delivery status.</p>
    */
-  DeliveryStatus?: DeliveryStatus | string;
+  DeliveryStatus?: DeliveryStatus;
 }
 
 /**
@@ -3417,6 +3962,133 @@ export interface DescribeTrailsResponse {
 
 /**
  * @public
+ * <p>
+ *          You are trying to update a resource when another request is in progress. Allow sufficient wait time for the previous request to complete, then retry your request.
+ *       </p>
+ */
+export class ConcurrentModificationException extends __BaseException {
+  readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentModificationException, __BaseException>) {
+    super({
+      name: "ConcurrentModificationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentModificationException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface DisableFederationRequest {
+  /**
+   * @public
+   * <p>
+   *          The ARN (or ID suffix of the ARN) of the event data store for which you want to disable Lake query federation.
+   *       </p>
+   */
+  EventDataStore: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const FederationStatus = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+} as const;
+
+/**
+ * @public
+ */
+export type FederationStatus = (typeof FederationStatus)[keyof typeof FederationStatus];
+
+/**
+ * @public
+ */
+export interface DisableFederationResponse {
+  /**
+   * @public
+   * <p>
+   *          The ARN of the event data store for which you disabled Lake query federation.
+   *       </p>
+   */
+  EventDataStoreArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *          The federation status.
+   *       </p>
+   */
+  FederationStatus?: FederationStatus;
+}
+
+/**
+ * @public
+ */
+export interface EnableFederationRequest {
+  /**
+   * @public
+   * <p>The ARN (or ID suffix of the ARN) of the event data store for which you want to enable Lake query federation.</p>
+   */
+  EventDataStore: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   *          The ARN of the federation role to use for the event data store. Amazon Web Services services like Lake Formation use this federation role to access data for the federated event
+   *          data store. The federation role must exist in your account and provide the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-federation.html#query-federation-permissions-role">required minimum permissions</a>.
+   *       </p>
+   */
+  FederationRoleArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableFederationResponse {
+  /**
+   * @public
+   * <p>
+   *          The ARN of the event data store for which you enabled Lake query federation.
+   *       </p>
+   */
+  EventDataStoreArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *          The federation status.
+   *       </p>
+   */
+  FederationStatus?: FederationStatus;
+
+  /**
+   * @public
+   * <p>
+   *          The ARN of the federation role.
+   *       </p>
+   */
+  FederationRoleArn?: string;
+}
+
+/**
+ * @public
  */
 export interface GetChannelRequest {
   /**
@@ -3562,7 +4234,7 @@ export interface GetEventDataStoreResponse {
    * @public
    * <p>The status of an event data store.</p>
    */
-  Status?: EventDataStoreStatus | string;
+  Status?: EventDataStoreStatus;
 
   /**
    * @public
@@ -3619,6 +4291,29 @@ export interface GetEventDataStoreResponse {
    *          </p>
    */
   KmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>The billing mode for the event data store.</p>
+   */
+  BillingMode?: BillingMode;
+
+  /**
+   * @public
+   * <p>
+   *          Indicates the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-federation.html">Lake query federation</a> status. The status is
+   *          <code>ENABLED</code> if Lake query federation is enabled, or <code>DISABLED</code> if Lake query federation is disabled. You cannot delete an event data store if the <code>FederationStatus</code> is <code>ENABLED</code>.
+   *       </p>
+   */
+  FederationStatus?: FederationStatus;
+
+  /**
+   * @public
+   * <p>
+   *          If Lake query federation is enabled, provides the ARN of the federation role used to access the resources for the federated event data store.
+   *       </p>
+   */
+  FederationRoleArn?: string;
 }
 
 /**
@@ -3740,112 +4435,9 @@ export interface DataResource {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>The following resource types are also available through <i>advanced</i>
-   *          event selectors. Basic event selector resource types are valid in advanced event selectors,
-   *          but advanced event selector resource types are not valid in basic event selectors. For more
-   *          information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html">AdvancedFieldSelector</a>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::CloudTrail::Channel</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::CodeWhisperer::Profile</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::Cognito::IdentityPool</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::DynamoDB::Stream</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::EC2::Snapshot</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::EMRWAL::Workspace</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::FinSpace::Environment</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::Glue::Table</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::GuardDuty::Detector</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::KendraRanking::ExecutionPlan</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::ManagedBlockchain::Network</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::ManagedBlockchain::Node</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::MedicalImaging::Datastore</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::SageMaker::ExperimentTrialComponent</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::SageMaker::FeatureGroup</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::S3::AccessPoint</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::S3ObjectLambda::AccessPoint</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::S3Outposts::Object</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::SSMMessages::ControlChannel</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AWS::VerifiedPermissions::PolicyStore</code>
-   *                </p>
-   *             </li>
-   *          </ul>
+   *          <p>Additional resource types are available through <i>advanced</i>
+   *          event selectors. For more
+   *          information about these additional resource types, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html">AdvancedFieldSelector</a>.</p>
    */
   Type?: string;
 
@@ -3935,7 +4527,7 @@ export interface EventSelector {
    *             <code>RunInstances</code> is a write-only API operation.</p>
    *          <p> By default, the value is <code>All</code>.</p>
    */
-  ReadWriteType?: ReadWriteType | string;
+  ReadWriteType?: ReadWriteType;
 
   /**
    * @public
@@ -4142,7 +4734,7 @@ export interface GetImportResponse {
    * @public
    * <p> The status of the import. </p>
    */
-  ImportStatus?: ImportStatus | string;
+  ImportStatus?: ImportStatus;
 
   /**
    * @public
@@ -4223,8 +4815,19 @@ export interface GetInsightSelectorsRequest {
    *          <p>
    *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
    *          </p>
+   *          <p>You cannot use this parameter with the <code>EventDataStore</code> parameter.</p>
    */
-  TrailName: string | undefined;
+  TrailName?: string;
+
+  /**
+   * @public
+   * <p>
+   *          Specifies the ARN (or ID suffix of the ARN) of the event data store for which you want to get Insights
+   *          selectors.
+   *       </p>
+   *          <p>You cannot use this parameter with the <code>TrailName</code> parameter.</p>
+   */
+  EventDataStore?: string;
 }
 
 /**
@@ -4243,12 +4846,12 @@ export type InsightType = (typeof InsightType)[keyof typeof InsightType];
 
 /**
  * @public
- * <p>A JSON string that contains a list of Insights types that are logged on a trail.</p>
+ * <p>A JSON string that contains a list of Insights types that are logged on a trail or event data store.</p>
  */
 export interface InsightSelector {
   /**
    * @public
-   * <p>The type of Insights events to log on a trail. <code>ApiCallRateInsight</code> and
+   * <p>The type of Insights events to log on a trail or event data store. <code>ApiCallRateInsight</code> and
    *             <code>ApiErrorRateInsight</code> are valid Insight types.</p>
    *          <p>The <code>ApiCallRateInsight</code> Insights type analyzes write-only
    *          management API calls that are aggregated per minute against a baseline API call volume.</p>
@@ -4256,7 +4859,7 @@ export interface InsightSelector {
    *          API calls that result in error codes. The error is shown if the API call is
    *          unsuccessful.</p>
    */
-  InsightType?: InsightType | string;
+  InsightType?: InsightType;
 }
 
 /**
@@ -4272,16 +4875,31 @@ export interface GetInsightSelectorsResponse {
 
   /**
    * @public
-   * <p>A JSON string that contains the insight types you want to log on a trail. In this
-   *          release, <code>ApiErrorRateInsight</code> and <code>ApiCallRateInsight</code> are supported
-   *          as insight types.</p>
+   * <p>A JSON string that contains the Insight types you want to log on a trail or event data store. <code>ApiErrorRateInsight</code> and <code>ApiCallRateInsight</code> are supported
+   *          as Insights types.</p>
    */
   InsightSelectors?: InsightSelector[];
+
+  /**
+   * @public
+   * <p>
+   *          The ARN of the source event data store that enabled Insights events.
+   *       </p>
+   */
+  EventDataStoreArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *          The ARN of the destination event data store that logs Insights events.
+   *       </p>
+   */
+  InsightsDestination?: string;
 }
 
 /**
  * @public
- * <p>If you run <code>GetInsightSelectors</code> on a trail that does not have Insights
+ * <p>If you run <code>GetInsightSelectors</code> on a trail or event data store that does not have Insights
  *          events enabled, the operation throws the exception
  *          <code>InsightNotEnabledException</code>.</p>
  */
@@ -4375,7 +4993,7 @@ export interface GetQueryResultsResponse {
    *             <code>FINISHED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or
    *             <code>CANCELLED</code>.</p>
    */
-  QueryStatus?: QueryStatus | string;
+  QueryStatus?: QueryStatus;
 
   /**
    * @public
@@ -4725,8 +5343,7 @@ export interface ListEventDataStoresRequest {
 /**
  * @public
  * <p>A storage lake of event data against which you can run complex SQL-based queries. An
- *          event data store can include events that you have logged on your account from the last 90
- *          to 2557 days (about three months to up to seven years). To select events for an event data
+ *          event data store can include events that you have logged on your account. To select events for an event data
  *          store, use <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html#creating-data-event-selectors-advanced">advanced event selectors</a>.</p>
  */
 export interface EventDataStore {
@@ -4757,7 +5374,7 @@ export interface EventDataStore {
    *
    * <p>The status of an event data store.</p>
    */
-  Status?: EventDataStoreStatus | string;
+  Status?: EventDataStoreStatus;
 
   /**
    * @public
@@ -4884,7 +5501,7 @@ export interface ImportFailureListItem {
    * @public
    * <p> The status of the import. </p>
    */
-  Status?: ImportFailureStatus | string;
+  Status?: ImportFailureStatus;
 
   /**
    * @public
@@ -4942,7 +5559,7 @@ export interface ListImportsRequest {
    * @public
    * <p> The status of the import. </p>
    */
-  ImportStatus?: ImportStatus | string;
+  ImportStatus?: ImportStatus;
 
   /**
    * @public
@@ -4966,7 +5583,7 @@ export interface ImportsListItem {
    * @public
    * <p> The status of the import. </p>
    */
-  ImportStatus?: ImportStatus | string;
+  ImportStatus?: ImportStatus;
 
   /**
    * @public
@@ -5000,6 +5617,146 @@ export interface ListImportsResponse {
   /**
    * @public
    * <p> A token you can use to get the next page of import results. </p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InsightsMetricDataType = {
+  FILL_WITH_ZEROS: "FillWithZeros",
+  NON_ZERO_DATA: "NonZeroData",
+} as const;
+
+/**
+ * @public
+ */
+export type InsightsMetricDataType = (typeof InsightsMetricDataType)[keyof typeof InsightsMetricDataType];
+
+/**
+ * @public
+ */
+export interface ListInsightsMetricDataRequest {
+  /**
+   * @public
+   * <p>The Amazon Web Services service to which the request was made, such as <code>iam.amazonaws.com</code> or <code>s3.amazonaws.com</code>.</p>
+   */
+  EventSource: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the event, typically the Amazon Web Services API on which unusual levels of activity were recorded.</p>
+   */
+  EventName: string | undefined;
+
+  /**
+   * @public
+   * <p>The type of CloudTrail Insights event, which is either <code>ApiCallRateInsight</code> or <code>ApiErrorRateInsight</code>.
+   *          The <code>ApiCallRateInsight</code> Insights type analyzes write-only management API calls that are aggregated per minute against a baseline API call volume.
+   *          The <code>ApiErrorRateInsight</code> Insights type analyzes management API calls that result in error codes.</p>
+   */
+  InsightType: InsightType | undefined;
+
+  /**
+   * @public
+   * <p>Conditionally required if the <code>InsightType</code> parameter is set to <code>ApiErrorRateInsight</code>.</p>
+   *          <p>If returning metrics for the <code>ApiErrorRateInsight</code> Insights type, this is the error to retrieve data for. For example, <code>AccessDenied</code>.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * @public
+   * <p>Specifies, in UTC, the start time for time-series data. The value specified is inclusive; results include data points with the specified time stamp.</p>
+   *          <p>The default is 90 days before the time of request.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * @public
+   * <p>Specifies, in UTC, the end time for time-series data. The value specified is exclusive;
+   *          results include data points up to the specified time stamp.</p>
+   *          <p>The default is the time of request.</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * @public
+   * <p>Granularity of data to retrieve, in seconds. Valid values are <code>60</code>, <code>300</code>, and <code>3600</code>.
+   *          If you specify any other value, you will get an error. The default is 3600 seconds.</p>
+   */
+  Period?: number;
+
+  /**
+   * @public
+   * <p>Type of datapoints to return. Valid values are <code>NonZeroData</code> and
+   *          <code>FillWithZeros</code>. The default is <code>NonZeroData</code>.</p>
+   */
+  DataType?: InsightsMetricDataType;
+
+  /**
+   * @public
+   * <p>The maximum number of datapoints to return. Valid values are integers from 1 to 21600.
+   *          The default value is 21600.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>Returned if all datapoints can't be returned in a single call. For example, due to reaching <code>MaxResults</code>.</p>
+   *          <p>Add this parameter to the request to continue retrieving results starting from the last evaluated point.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListInsightsMetricDataResponse {
+  /**
+   * @public
+   * <p>The Amazon Web Services service to which the request was made, such as <code>iam.amazonaws.com</code> or <code>s3.amazonaws.com</code>.</p>
+   */
+  EventSource?: string;
+
+  /**
+   * @public
+   * <p>The name of the event, typically the Amazon Web Services API on which unusual levels of activity were recorded.</p>
+   */
+  EventName?: string;
+
+  /**
+   * @public
+   * <p>The type of CloudTrail Insights event, which is either <code>ApiCallRateInsight</code> or <code>ApiErrorRateInsight</code>.
+   *          The <code>ApiCallRateInsight</code> Insights type analyzes write-only management API calls that are aggregated per minute against a baseline API call volume.
+   *          The <code>ApiErrorRateInsight</code> Insights type analyzes management API calls that result in error codes.</p>
+   */
+  InsightType?: InsightType;
+
+  /**
+   * @public
+   * <p>Only returned if <code>InsightType</code> parameter was set to <code>ApiErrorRateInsight</code>.</p>
+   *          <p>If returning metrics for the <code>ApiErrorRateInsight</code> Insights type, this is the error to retrieve data for. For example, <code>AccessDenied</code>.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * @public
+   * <p>List of timestamps at intervals corresponding to the specified time period.</p>
+   */
+  Timestamps?: Date[];
+
+  /**
+   * @public
+   * <p>List of values representing the API call rate or error rate at each timestamp. The number of values is equal to the number of timestamps.</p>
+   */
+  Values?: number[];
+
+  /**
+   * @public
+   * <p>Only returned if the full results could not be returned in a single query. You can set the <code>NextToken</code> parameter
+   *          in the next request to this value to continue retrieval.</p>
    */
   NextToken?: string;
 }
@@ -5234,7 +5991,7 @@ export interface ListQueriesRequest {
    *             <code>FINISHED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or
    *             <code>CANCELLED</code>.</p>
    */
-  QueryStatus?: QueryStatus | string;
+  QueryStatus?: QueryStatus;
 }
 
 /**
@@ -5255,7 +6012,7 @@ export interface Query {
    *             <code>FINISHED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or
    *             <code>CANCELLED</code>.</p>
    */
-  QueryStatus?: QueryStatus | string;
+  QueryStatus?: QueryStatus;
 
   /**
    * @public
@@ -5502,7 +6259,7 @@ export interface LookupAttribute {
    * @public
    * <p>Specifies an attribute on which to filter the events returned.</p>
    */
-  AttributeKey: LookupAttributeKey | string | undefined;
+  AttributeKey: LookupAttributeKey | undefined;
 
   /**
    * @public
@@ -5544,7 +6301,7 @@ export interface LookupEventsRequest {
    *             <code>insight</code> as the value of <code>EventCategory</code>, no Insights events are
    *          returned.</p>
    */
-  EventCategory?: EventCategory | string;
+  EventCategory?: EventCategory;
 
   /**
    * @public
@@ -5759,10 +6516,15 @@ export interface PutEventSelectorsResponse {
 
 /**
  * @public
- * <p>The formatting or syntax of the <code>InsightSelectors</code> JSON statement in your
- *             <code>PutInsightSelectors</code> or <code>GetInsightSelectors</code> request is not
- *          valid, or the specified insight type in the <code>InsightSelectors</code> statement is not
- *          a valid insight type.</p>
+ * <p>For <code>PutInsightSelectors</code>, this exception is thrown when the formatting or syntax of the <code>InsightSelectors</code> JSON statement is not
+ *          valid, or the specified <code>InsightType</code> in the <code>InsightSelectors</code> statement is not
+ *          valid. Valid values for <code>InsightType</code> are <code>ApiCallRateInsight</code> and <code>ApiErrorRateInsight</code>. To enable Insights on an event data store, the destination event data store specified by the
+ *          <code>InsightsDestination</code> parameter must log Insights events and the source event data
+ *          store specified by the <code>EventDataStore</code> parameter must log management events.</p>
+ *          <p>For <code>UpdateEventDataStore</code>, this exception is thrown if Insights are enabled on the event data store and the updated
+ *          advanced event selectors are not compatible with the configured <code>InsightSelectors</code>.
+ *          If the <code>InsightSelectors</code> includes an <code>InsightType</code> of <code>ApiCallRateInsight</code>, the source event data store must log <code>write</code> management events.
+ *          If the <code>InsightSelectors</code> includes an <code>InsightType</code> of <code>ApiErrorRateInsight</code>, the source event data store must log management events.</p>
  */
 export class InvalidInsightSelectorsException extends __BaseException {
   readonly name: "InvalidInsightSelectorsException" = "InvalidInsightSelectorsException";
@@ -5794,12 +6556,13 @@ export interface PutInsightSelectorsRequest {
    * @public
    * <p>The name of the CloudTrail trail for which you want to change or add Insights
    *          selectors.</p>
+   *          <p>You cannot use this parameter with the <code>EventDataStore</code> and <code>InsightsDestination</code> parameters.</p>
    */
-  TrailName: string | undefined;
+  TrailName?: string;
 
   /**
    * @public
-   * <p>A JSON string that contains the insight types you want to log on a trail.
+   * <p>A JSON string that contains the Insights types you want to log on a trail or event data store.
    *             <code>ApiCallRateInsight</code> and <code>ApiErrorRateInsight</code> are valid Insight
    *          types.</p>
    *          <p>The <code>ApiCallRateInsight</code> Insights type analyzes write-only
@@ -5809,6 +6572,25 @@ export interface PutInsightSelectorsRequest {
    *          unsuccessful.</p>
    */
   InsightSelectors: InsightSelector[] | undefined;
+
+  /**
+   * @public
+   * <p>The ARN (or ID suffix of the ARN) of the source event data store for which you want to change or add Insights
+   *          selectors. To enable Insights on an event data store, you must provide both the
+   *          <code>EventDataStore</code> and <code>InsightsDestination</code> parameters.</p>
+   *          <p>You cannot use this parameter with the <code>TrailName</code> parameter.</p>
+   */
+  EventDataStore?: string;
+
+  /**
+   * @public
+   * <p>
+   *          The ARN (or ID suffix of the ARN) of the destination event data store that logs Insights events. To enable Insights on an event data store, you must provide both the
+   *          <code>EventDataStore</code> and <code>InsightsDestination</code> parameters.
+   *       </p>
+   *          <p>You cannot use this parameter with the <code>TrailName</code> parameter.</p>
+   */
+  InsightsDestination?: string;
 }
 
 /**
@@ -5824,11 +6606,26 @@ export interface PutInsightSelectorsResponse {
 
   /**
    * @public
-   * <p>A JSON string that contains the Insights event types that you want to log on a trail.
-   *          The valid Insights types in this release are <code>ApiErrorRateInsight</code> and
+   * <p>A JSON string that contains the Insights event types that you want to log on a trail or event data store.
+   *          The valid Insights types are <code>ApiErrorRateInsight</code> and
    *             <code>ApiCallRateInsight</code>.</p>
    */
   InsightSelectors?: InsightSelector[];
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the source event data store for which you want to change or add Insights
+   *          selectors.</p>
+   */
+  EventDataStoreArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The ARN of the destination event data store that logs Insights events.
+   *       </p>
+   */
+  InsightsDestination?: string;
 }
 
 /**
@@ -6079,7 +6876,7 @@ export interface RestoreEventDataStoreResponse {
    * @public
    * <p>The status of the event data store.</p>
    */
-  Status?: EventDataStoreStatus | string;
+  Status?: EventDataStoreStatus;
 
   /**
    * @public
@@ -6137,6 +6934,12 @@ export interface RestoreEventDataStoreResponse {
    *          </p>
    */
   KmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>The billing mode for the event data store.</p>
+   */
+  BillingMode?: BillingMode;
 }
 
 /**
@@ -6270,7 +7073,7 @@ export interface StartImportResponse {
    *          finishes with a status of <code>COMPLETED</code> if there were no failures, or
    *             <code>FAILED</code> if there were failures. </p>
    */
-  ImportStatus?: ImportStatus | string;
+  ImportStatus?: ImportStatus;
 
   /**
    * @public
@@ -6461,7 +7264,7 @@ export interface StopImportResponse {
    * @public
    * <p> The status of the import. </p>
    */
-  ImportStatus?: ImportStatus | string;
+  ImportStatus?: ImportStatus;
 
   /**
    * @public
@@ -6612,13 +7415,19 @@ export interface UpdateEventDataStoreRequest {
    * @public
    * <p>Specifies whether an event data store collects events logged for an organization in
    *             Organizations.</p>
+   *          <note>
+   *             <p>Only the management account for the organization can convert an organization event data store to a non-organization event data store, or convert a non-organization event data store to
+   *          an organization event data store.</p>
+   *          </note>
    */
   OrganizationEnabled?: boolean;
 
   /**
    * @public
-   * <p>The retention period of the event data store, in days. You can set a retention period of
-   *          up to 2557 days, the equivalent of seven years. CloudTrail  Lake determines whether to retain an event by checking if the <code>eventTime</code>
+   * <p>The retention period of the event data store, in days. If <code>BillingMode</code> is set to <code>EXTENDABLE_RETENTION_PRICING</code>, you can set a retention period of
+   *          up to 3653 days, the equivalent of 10 years. If <code>BillingMode</code> is set to <code>FIXED_RETENTION_PRICING</code>, you can set a retention period of
+   *          up to 2557 days, the equivalent of seven years.</p>
+   *          <p>CloudTrail  Lake determines whether to retain an event by checking if the <code>eventTime</code>
    *          of the event is within the specified retention period. For example, if you set a retention period of 90 days, CloudTrail will remove events
    *          when the <code>eventTime</code> is older than 90 days.</p>
    *          <note>
@@ -6677,6 +7486,33 @@ export interface UpdateEventDataStoreRequest {
    *          </ul>
    */
   KmsKeyId?: string;
+
+  /**
+   * @public
+   * <note>
+   *             <p>You can't change the billing mode from <code>EXTENDABLE_RETENTION_PRICING</code> to <code>FIXED_RETENTION_PRICING</code>. If <code>BillingMode</code> is set to
+   *             <code>EXTENDABLE_RETENTION_PRICING</code> and you want to use <code>FIXED_RETENTION_PRICING</code> instead, you'll need to stop ingestion on the event data store and create a new event data store that uses <code>FIXED_RETENTION_PRICING</code>.</p>
+   *          </note>
+   *          <p>The billing mode for the event data store determines the cost
+   *          for ingesting events and the default and maximum retention period for the event data store.</p>
+   *          <p>The following are the possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>EXTENDABLE_RETENTION_PRICING</code> - This billing mode is generally recommended if you want a flexible retention period of up to 3653 days (about 10 years). The default retention period for this billing mode is
+   *                366 days.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FIXED_RETENTION_PRICING</code> - This billing mode is recommended if you expect to ingest more than 25 TB of event data per month and need a retention period of up to 2557 days (about 7 years).
+   *                The default retention period for this billing mode is 2557 days.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information about CloudTrail pricing,
+   *          see <a href="http://aws.amazon.com/cloudtrail/pricing/">CloudTrail Pricing</a> and
+   *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.html">Managing CloudTrail Lake costs</a>.</p>
+   */
+  BillingMode?: BillingMode;
 }
 
 /**
@@ -6699,7 +7535,7 @@ export interface UpdateEventDataStoreResponse {
    * @public
    * <p>The status of an event data store.</p>
    */
-  Status?: EventDataStoreStatus | string;
+  Status?: EventDataStoreStatus;
 
   /**
    * @public
@@ -6756,6 +7592,29 @@ export interface UpdateEventDataStoreResponse {
    *          </p>
    */
   KmsKeyId?: string;
+
+  /**
+   * @public
+   * <p>The billing mode for the event data store.</p>
+   */
+  BillingMode?: BillingMode;
+
+  /**
+   * @public
+   * <p>
+   *          Indicates the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-federation.html">Lake query federation</a> status. The status is
+   *          <code>ENABLED</code> if Lake query federation is enabled, or <code>DISABLED</code> if Lake query federation is disabled. You cannot delete an event data store if the <code>FederationStatus</code> is <code>ENABLED</code>.
+   *       </p>
+   */
+  FederationStatus?: FederationStatus;
+
+  /**
+   * @public
+   * <p>
+   *          If Lake query federation is enabled, provides the ARN of the federation role used to access the resources for the federated event data store.
+   *       </p>
+   */
+  FederationRoleArn?: string;
 }
 
 /**
@@ -6893,11 +7752,15 @@ export interface UpdateTrailRequest {
    * @public
    * <p>Specifies whether the trail is applied to all accounts in an organization in Organizations, or only for the current Amazon Web Services account. The default is false,
    *          and cannot be true unless the call is made on behalf of an Amazon Web Services account that
-   *          is the management account or delegated administrator account for an organization in Organizations. If the trail is not an organization trail and this is set to
+   *          is the management account for an organization in Organizations. If the trail is not an organization trail and this is set to
    *             <code>true</code>, the trail will be created in all Amazon Web Services accounts that
    *          belong to the organization. If the trail is an organization trail and this is set to
    *             <code>false</code>, the trail will remain in the current Amazon Web Services account but
    *          be deleted from all member accounts in the organization.</p>
+   *          <note>
+   *             <p>Only the management account for the organization can convert an organization trail to a non-organization trail, or convert a non-organization trail to
+   *             an organization trail.</p>
+   *          </note>
    */
   IsOrganizationTrail?: boolean;
 }

@@ -115,7 +115,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -133,9 +132,187 @@
                   "type": "error"
                 },
                 {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
                   "conditions": [],
-                  "type": "tree",
+                  "endpoint": {
+                    "url": {
+                      "ref": "Endpoint"
+                    },
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ],
+              "type": "tree"
+            },
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ]
+                }
+              ],
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "aws.partition",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ],
+                      "assign": "PartitionResult"
+                    }
+                  ],
                   "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://featurestore-runtime.sagemaker-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://featurestore-runtime.sagemaker-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
                     {
                       "conditions": [
                         {
@@ -148,278 +325,65 @@
                           ]
                         }
                       ],
-                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                      "type": "error"
-                    },
-                    {
-                      "conditions": [],
-                      "endpoint": {
-                        "url": {
-                          "ref": "Endpoint"
-                        },
-                        "properties": {},
-                        "headers": {}
-                      },
-                      "type": "endpoint"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "conditions": [],
-              "type": "tree",
-              "rules": [
-                {
-                  "conditions": [
-                    {
-                      "fn": "isSet",
-                      "argv": [
-                        {
-                          "ref": "Region"
-                        }
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "aws.partition",
-                          "argv": [
-                            {
-                              "ref": "Region"
-                            }
-                          ],
-                          "assign": "PartitionResult"
-                        }
-                      ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
                             {
                               "fn": "booleanEquals",
                               "argv": [
+                                true,
                                 {
-                                  "ref": "UseFIPS"
-                                },
-                                true
-                              ]
-                            },
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseDualStack"
-                                },
-                                true
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
                               ]
                             }
                           ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsFIPS"
-                                      ]
-                                    }
-                                  ]
-                                },
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsDualStack"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://featurestore-runtime.sagemaker-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseFIPS"
-                                },
-                                true
-                              ]
-                            }
-                          ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsFIPS"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://featurestore-runtime.sagemaker-fips.{Region}.{PartitionResult#dnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "FIPS is enabled but this partition does not support FIPS",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseDualStack"
-                                },
-                                true
-                              ]
-                            }
-                          ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsDualStack"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://featurestore-runtime.sagemaker.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "DualStack is enabled but this partition does not support DualStack",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
                               "endpoint": {
-                                "url": "https://featurestore-runtime.sagemaker.{Region}.{PartitionResult#dnsSuffix}",
+                                "url": "https://featurestore-runtime.sagemaker.{Region}.{PartitionResult#dualStackDnsSuffix}",
                                 "properties": {},
                                 "headers": {}
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://featurestore-runtime.sagemaker.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
                     }
-                  ]
-                },
-                {
-                  "conditions": [],
-                  "error": "Invalid Configuration: Missing Region",
-                  "type": "error"
+                  ],
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
+            },
+            {
+              "conditions": [],
+              "error": "Invalid Configuration: Missing Region",
+              "type": "error"
             }
           ]
         },
@@ -776,6 +740,7 @@
         "FeatureGroupName": {
           "target": "com.amazonaws.sagemakerfeaturestoreruntime#ValueAsString",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The name of the feature group that the record belongs to.</p>",
             "smithy.api#required": {}
           }
@@ -783,6 +748,7 @@
         "RecordIdentifierValueAsString": {
           "target": "com.amazonaws.sagemakerfeaturestoreruntime#ValueAsString",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The value for the <code>RecordIdentifier</code> in string format of a Record from a\n            <code>FeatureGroup</code> that is causing an error when attempting to be\n         retrieved.</p>",
             "smithy.api#required": {}
           }
@@ -790,6 +756,7 @@
         "ErrorCode": {
           "target": "com.amazonaws.sagemakerfeaturestoreruntime#ValueAsString",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The error code of an error that has occurred when attempting to retrieve a batch of\n         Records. For more information on errors, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_GetRecord.html#API_feature_store_GetRecord_Errors\">Errors</a>.</p>",
             "smithy.api#required": {}
           }
@@ -797,6 +764,7 @@
         "ErrorMessage": {
           "target": "com.amazonaws.sagemakerfeaturestoreruntime#Message",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The error message of an error that has occurred when attempting to retrieve a record in\n         the batch.</p>",
             "smithy.api#required": {}
           }
@@ -823,6 +791,7 @@
         "FeatureGroupName": {
           "target": "com.amazonaws.sagemakerfeaturestoreruntime#FeatureGroupNameOrArn",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The name or Amazon Resource Name (ARN) of the <code>FeatureGroup</code> containing the\n         records you are retrieving in a batch.</p>",
             "smithy.api#required": {}
           }
@@ -830,6 +799,7 @@
         "RecordIdentifiersValueAsString": {
           "target": "com.amazonaws.sagemakerfeaturestoreruntime#RecordIdentifiers",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The value for a list of record identifiers in string format.</p>",
             "smithy.api#required": {}
           }
@@ -853,7 +823,7 @@
       "traits": {
         "smithy.api#length": {
           "min": 1,
-          "max": 10
+          "max": 100
         }
       }
     },
@@ -863,6 +833,7 @@
         "Identifiers": {
           "target": "com.amazonaws.sagemakerfeaturestoreruntime#BatchGetRecordIdentifiers",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>A list containing the name or Amazon Resource Name (ARN) of the\n            <code>FeatureGroup</code>, the list of names of <code>Feature</code>s to be retrieved,\n         and the corresponding <code>RecordIdentifier</code> values as strings.</p>",
             "smithy.api#required": {}
           }
@@ -884,6 +855,7 @@
         "Records": {
           "target": "com.amazonaws.sagemakerfeaturestoreruntime#BatchGetRecordResultDetails",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>A list of Records you requested to be retrieved in batch.</p>",
             "smithy.api#required": {}
           }
@@ -891,6 +863,7 @@
         "Errors": {
           "target": "com.amazonaws.sagemakerfeaturestoreruntime#BatchGetRecordErrors",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>A list of errors that have occurred when retrieving a batch of Records.</p>",
             "smithy.api#required": {}
           }
@@ -898,6 +871,7 @@
         "UnprocessedIdentifiers": {
           "target": "com.amazonaws.sagemakerfeaturestoreruntime#UnprocessedIdentifiers",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>A unprocessed list of <code>FeatureGroup</code> names, with their corresponding\n            <code>RecordIdentifier</code> value, and Feature name.</p>",
             "smithy.api#required": {}
           }
@@ -913,6 +887,7 @@
         "FeatureGroupName": {
           "target": "com.amazonaws.sagemakerfeaturestoreruntime#ValueAsString",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The <code>FeatureGroupName</code> containing Records you retrieved in a batch.</p>",
             "smithy.api#required": {}
           }
@@ -920,6 +895,7 @@
         "RecordIdentifierValueAsString": {
           "target": "com.amazonaws.sagemakerfeaturestoreruntime#ValueAsString",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The value of the record identifier in string format.</p>",
             "smithy.api#required": {}
           }
@@ -927,6 +903,7 @@
         "Record": {
           "target": "com.amazonaws.sagemakerfeaturestoreruntime#Record",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The <code>Record</code> retrieved.</p>",
             "smithy.api#required": {}
           }
@@ -976,7 +953,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes a <code>Record</code> from a <code>FeatureGroup</code> in the\n            <code>OnlineStore</code>. Feature Store supports both <code>SoftDelete</code> and\n            <code>HardDelete</code>. For <code>SoftDelete</code> (default), feature columns are set\n         to <code>null</code> and the record is no longer retrievable by <code>GetRecord</code> or\n            <code>BatchGetRecord</code>. For <code>HardDelete</code>, the complete\n            <code>Record</code> is removed from the <code>OnlineStore</code>. In both cases, Feature\n         Store appends the deleted record marker to the <code>OfflineStore</code> with feature\n         values set to <code>null</code>, <code>is_deleted</code> value set to <code>True</code>,\n         and <code>EventTime</code> set to the delete input <code>EventTime</code>.</p>\n         <p>Note that the <code>EventTime</code> specified in <code>DeleteRecord</code> should be\n         set later than the <code>EventTime</code> of the existing record in the\n            <code>OnlineStore</code> for that <code>RecordIdentifer</code>. If it is not, the\n         deletion does not occur:</p>\n         <ul>\n            <li>\n               <p>For <code>SoftDelete</code>, the existing (undeleted) record remains in the\n                  <code>OnlineStore</code>, though the delete record marker is still written to the\n                  <code>OfflineStore</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>HardDelete</code> returns <code>EventTime</code>: <code>400\n                  ValidationException</code> to indicate that the delete operation failed. No delete\n               record marker is written to the <code>OfflineStore</code>.</p>\n            </li>\n         </ul>",
+        "smithy.api#documentation": "<p>Deletes a <code>Record</code> from a <code>FeatureGroup</code> in the\n            <code>OnlineStore</code>. Feature Store supports both <code>SoftDelete</code> and\n            <code>HardDelete</code>. For <code>SoftDelete</code> (default), feature columns are set\n         to <code>null</code> and the record is no longer retrievable by <code>GetRecord</code> or\n            <code>BatchGetRecord</code>. For <code>HardDelete</code>, the complete\n            <code>Record</code> is removed from the <code>OnlineStore</code>. In both cases, Feature\n         Store appends the deleted record marker to the <code>OfflineStore</code>. The deleted\n         record marker is a record with the same <code>RecordIdentifer</code> as the original, but\n         with <code>is_deleted</code> value set to <code>True</code>, <code>EventTime</code> set to\n         the delete input <code>EventTime</code>, and other feature values set to\n         <code>null</code>.</p>\n         <p>Note that the <code>EventTime</code> specified in <code>DeleteRecord</code> should be\n         set later than the <code>EventTime</code> of the existing record in the\n            <code>OnlineStore</code> for that <code>RecordIdentifer</code>. If it is not, the\n         deletion does not occur:</p>\n         <ul>\n            <li>\n               <p>For <code>SoftDelete</code>, the existing (not deleted) record remains in the\n                  <code>OnlineStore</code>, though the delete record marker is still written to the\n                  <code>OfflineStore</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>HardDelete</code> returns <code>EventTime</code>: <code>400\n                  ValidationException</code> to indicate that the delete operation failed. No delete\n               record marker is written to the <code>OfflineStore</code>.</p>\n            </li>\n         </ul>\n         <p>When a record is deleted from the <code>OnlineStore</code>, the deleted record marker is\n         appended to the <code>OfflineStore</code>. If you have the Iceberg table format enabled for\n         your <code>OfflineStore</code>, you can remove all history of a record from the\n            <code>OfflineStore</code> using Amazon Athena or Apache Spark. For information on how to\n         hard delete a record from the <code>OfflineStore</code> with the Iceberg table format\n         enabled, see <a href=\"https://docs.aws.amazon.com/sagemaker/latest/dg/feature-store-delete-records-offline-store.html#feature-store-delete-records-offline-store\">Delete records from the offline store</a>.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/FeatureGroup/{FeatureGroupName}",
@@ -998,6 +975,7 @@
         "RecordIdentifierValueAsString": {
           "target": "com.amazonaws.sagemakerfeaturestoreruntime#ValueAsString",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The value for the <code>RecordIdentifier</code> that uniquely identifies the record, in\n         string format. </p>",
             "smithy.api#httpQuery": "RecordIdentifierValueAsString",
             "smithy.api#required": {}
@@ -1006,6 +984,7 @@
         "EventTime": {
           "target": "com.amazonaws.sagemakerfeaturestoreruntime#ValueAsString",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>Timestamp indicating when the deletion event occurred. <code>EventTime</code> can be\n         used to query data at a certain point in time.</p>",
             "smithy.api#httpQuery": "EventTime",
             "smithy.api#required": {}
@@ -1104,6 +1083,7 @@
         "FeatureName": {
           "target": "com.amazonaws.sagemakerfeaturestoreruntime#FeatureName",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The name of a feature that a feature value corresponds to.</p>",
             "smithy.api#required": {}
           }
@@ -1111,8 +1091,13 @@
         "ValueAsString": {
           "target": "com.amazonaws.sagemakerfeaturestoreruntime#ValueAsString",
           "traits": {
-            "smithy.api#documentation": "<p>The value associated with a feature, in string format. Note that features types can be\n         String, Integral, or Fractional. This value represents all three types as a string.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The value in string format associated with a feature. Used when your\n            <code>CollectionType</code> is <code>None</code>. Note that features types can be\n            <code>String</code>, <code>Integral</code>, or <code>Fractional</code>. This value\n         represents all three types as a string.</p>"
+          }
+        },
+        "ValueAsStringList": {
+          "target": "com.amazonaws.sagemakerfeaturestoreruntime#ValueAsStringList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of values in string format associated with a feature. Used when your\n            <code>CollectionType</code> is a <code>List</code>, <code>Set</code>, or\n            <code>Vector</code>. Note that features types can be <code>String</code>,\n            <code>Integral</code>, or <code>Fractional</code>. These values represents all three\n         types as a string.</p>"
           }
         }
       },
@@ -1168,6 +1153,7 @@
         "RecordIdentifierValueAsString": {
           "target": "com.amazonaws.sagemakerfeaturestoreruntime#ValueAsString",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>The value that corresponds to <code>RecordIdentifier</code> type and uniquely identifies\n         the record in the <code>FeatureGroup</code>. </p>",
             "smithy.api#httpQuery": "RecordIdentifierValueAsString",
             "smithy.api#required": {}
@@ -1279,6 +1265,7 @@
         "Record": {
           "target": "com.amazonaws.sagemakerfeaturestoreruntime#Record",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>List of FeatureValues to be inserted. This will be a full over-write. If you only want\n         to update few of the feature values, do the following:</p>\n         <ul>\n            <li>\n               <p>Use <code>GetRecord</code> to retrieve the latest record.</p>\n            </li>\n            <li>\n               <p>Update the record returned from <code>GetRecord</code>. </p>\n            </li>\n            <li>\n               <p>Use <code>PutRecord</code> to update feature values.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
@@ -1384,6 +1371,7 @@
         "Unit": {
           "target": "com.amazonaws.sagemakerfeaturestoreruntime#TtlDurationUnit",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>\n            <code>TtlDuration</code> time unit.</p>",
             "smithy.api#required": {}
           }
@@ -1391,6 +1379,7 @@
         "Value": {
           "target": "com.amazonaws.sagemakerfeaturestoreruntime#TtlDurationValue",
           "traits": {
+            "smithy.api#clientOptional": {},
             "smithy.api#documentation": "<p>\n            <code>TtlDuration</code> time value.</p>",
             "smithy.api#required": {}
           }
@@ -1475,6 +1464,18 @@
           "max": 358400
         },
         "smithy.api#pattern": ".*"
+      }
+    },
+    "com.amazonaws.sagemakerfeaturestoreruntime#ValueAsStringList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sagemakerfeaturestoreruntime#ValueAsString"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 358400
+        }
       }
     }
   }

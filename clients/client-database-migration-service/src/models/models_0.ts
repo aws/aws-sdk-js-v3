@@ -583,6 +583,74 @@ export type DmsSslModeValue = (typeof DmsSslModeValue)[keyof typeof DmsSslModeVa
 
 /**
  * @public
+ * <p>Provides information that defines a DocumentDB data provider.</p>
+ */
+export interface DocDbDataProviderSettings {
+  /**
+   * @public
+   * <p>The name of the source DocumentDB server.</p>
+   */
+  ServerName?: string;
+
+  /**
+   * @public
+   * <p>The port value for the DocumentDB data provider.</p>
+   */
+  Port?: number;
+
+  /**
+   * @public
+   * <p>The database name on the DocumentDB data provider.</p>
+   */
+  DatabaseName?: string;
+
+  /**
+   * @public
+   * <p>The SSL mode used to connect to the DocumentDB data provider.
+   *          The default value is <code>none</code>.</p>
+   */
+  SslMode?: DmsSslModeValue;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the certificate used for SSL connection.</p>
+   */
+  CertificateArn?: string;
+}
+
+/**
+ * @public
+ * <p>Provides information that defines a MariaDB data provider.</p>
+ */
+export interface MariaDbDataProviderSettings {
+  /**
+   * @public
+   * <p>The name of the MariaDB server.</p>
+   */
+  ServerName?: string;
+
+  /**
+   * @public
+   * <p>The port value for the MariaDB data provider</p>
+   */
+  Port?: number;
+
+  /**
+   * @public
+   * <p>The SSL mode used to connect to the MariaDB data provider.
+   *          The default value is <code>none</code>.</p>
+   */
+  SslMode?: DmsSslModeValue;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the certificate used for SSL connection.</p>
+   */
+  CertificateArn?: string;
+}
+
+/**
+ * @public
  * <p>Provides information that defines a Microsoft SQL Server data provider.</p>
  */
 export interface MicrosoftSqlServerDataProviderSettings {
@@ -609,13 +677,99 @@ export interface MicrosoftSqlServerDataProviderSettings {
    * <p>The SSL mode used to connect to the Microsoft SQL Server data provider.
    *          The default value is <code>none</code>.</p>
    */
-  SslMode?: DmsSslModeValue | string;
+  SslMode?: DmsSslModeValue;
 
   /**
    * @public
    * <p>The Amazon Resource Name (ARN) of the certificate used for SSL connection.</p>
    */
   CertificateArn?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AuthMechanismValue = {
+  DEFAULT: "default",
+  MONGODB_CR: "mongodb_cr",
+  SCRAM_SHA_1: "scram_sha_1",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthMechanismValue = (typeof AuthMechanismValue)[keyof typeof AuthMechanismValue];
+
+/**
+ * @public
+ * @enum
+ */
+export const AuthTypeValue = {
+  NO: "no",
+  PASSWORD: "password",
+} as const;
+
+/**
+ * @public
+ */
+export type AuthTypeValue = (typeof AuthTypeValue)[keyof typeof AuthTypeValue];
+
+/**
+ * @public
+ * <p>Provides information that defines a MongoDB data provider.</p>
+ */
+export interface MongoDbDataProviderSettings {
+  /**
+   * @public
+   * <p>The name of the MongoDB server.</p>
+   */
+  ServerName?: string;
+
+  /**
+   * @public
+   * <p>The port value for the MongoDB data provider.</p>
+   */
+  Port?: number;
+
+  /**
+   * @public
+   * <p>The database name on the MongoDB data provider.</p>
+   */
+  DatabaseName?: string;
+
+  /**
+   * @public
+   * <p>The SSL mode used to connect to the MongoDB data provider.
+   *          The default value is <code>none</code>.</p>
+   */
+  SslMode?: DmsSslModeValue;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the certificate used for SSL connection.</p>
+   */
+  CertificateArn?: string;
+
+  /**
+   * @public
+   * <p>The authentication type for the database connection. Valid values are PASSWORD or NO.</p>
+   */
+  AuthType?: AuthTypeValue;
+
+  /**
+   * @public
+   * <p> The MongoDB database name. This setting isn't used when <code>AuthType</code> is
+   *          set to <code>"no"</code>. </p>
+   *          <p>The default is <code>"admin"</code>.</p>
+   */
+  AuthSource?: string;
+
+  /**
+   * @public
+   * <p>The authentication method for connecting to the data provider. Valid values are DEFAULT, MONGODB_CR, or SCRAM_SHA_1.</p>
+   */
+  AuthMechanism?: AuthMechanismValue;
 }
 
 /**
@@ -640,7 +794,7 @@ export interface MySqlDataProviderSettings {
    * <p>The SSL mode used to connect to the MySQL data provider.
    *          The default value is <code>none</code>.</p>
    */
-  SslMode?: DmsSslModeValue | string;
+  SslMode?: DmsSslModeValue;
 
   /**
    * @public
@@ -677,7 +831,7 @@ export interface OracleDataProviderSettings {
    * <p>The SSL mode used to connect to the Oracle data provider.
    *          The default value is <code>none</code>.</p>
    */
-  SslMode?: DmsSslModeValue | string;
+  SslMode?: DmsSslModeValue;
 
   /**
    * @public
@@ -752,7 +906,7 @@ export interface PostgreSqlDataProviderSettings {
    * <p>The SSL mode used to connect to the PostgreSQL data provider.
    *          The default value is <code>none</code>.</p>
    */
-  SslMode?: DmsSslModeValue | string;
+  SslMode?: DmsSslModeValue;
 
   /**
    * @public
@@ -763,13 +917,41 @@ export interface PostgreSqlDataProviderSettings {
 
 /**
  * @public
+ * <p>Provides information that defines an Amazon Redshift data provider.</p>
+ */
+export interface RedshiftDataProviderSettings {
+  /**
+   * @public
+   * <p>The name of the Amazon Redshift server.</p>
+   */
+  ServerName?: string;
+
+  /**
+   * @public
+   * <p>The port value for the Amazon Redshift data provider.</p>
+   */
+  Port?: number;
+
+  /**
+   * @public
+   * <p>The database name on the Amazon Redshift data provider.</p>
+   */
+  DatabaseName?: string;
+}
+
+/**
+ * @public
  * <p>Provides information that defines a data provider.</p>
  */
 export type DataProviderSettings =
+  | DataProviderSettings.DocDbSettingsMember
+  | DataProviderSettings.MariaDbSettingsMember
   | DataProviderSettings.MicrosoftSqlServerSettingsMember
+  | DataProviderSettings.MongoDbSettingsMember
   | DataProviderSettings.MySqlSettingsMember
   | DataProviderSettings.OracleSettingsMember
   | DataProviderSettings.PostgreSqlSettingsMember
+  | DataProviderSettings.RedshiftSettingsMember
   | DataProviderSettings.$UnknownMember;
 
 /**
@@ -778,13 +960,33 @@ export type DataProviderSettings =
 export namespace DataProviderSettings {
   /**
    * @public
+   * <p>Provides information that defines an Amazon Redshift data provider.</p>
+   */
+  export interface RedshiftSettingsMember {
+    RedshiftSettings: RedshiftDataProviderSettings;
+    PostgreSqlSettings?: never;
+    MySqlSettings?: never;
+    OracleSettings?: never;
+    MicrosoftSqlServerSettings?: never;
+    DocDbSettings?: never;
+    MariaDbSettings?: never;
+    MongoDbSettings?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
    * <p>Provides information that defines a PostgreSQL data provider.</p>
    */
   export interface PostgreSqlSettingsMember {
+    RedshiftSettings?: never;
     PostgreSqlSettings: PostgreSqlDataProviderSettings;
     MySqlSettings?: never;
     OracleSettings?: never;
     MicrosoftSqlServerSettings?: never;
+    DocDbSettings?: never;
+    MariaDbSettings?: never;
+    MongoDbSettings?: never;
     $unknown?: never;
   }
 
@@ -793,10 +995,14 @@ export namespace DataProviderSettings {
    * <p>Provides information that defines a MySQL data provider.</p>
    */
   export interface MySqlSettingsMember {
+    RedshiftSettings?: never;
     PostgreSqlSettings?: never;
     MySqlSettings: MySqlDataProviderSettings;
     OracleSettings?: never;
     MicrosoftSqlServerSettings?: never;
+    DocDbSettings?: never;
+    MariaDbSettings?: never;
+    MongoDbSettings?: never;
     $unknown?: never;
   }
 
@@ -805,10 +1011,14 @@ export namespace DataProviderSettings {
    * <p>Provides information that defines an Oracle data provider.</p>
    */
   export interface OracleSettingsMember {
+    RedshiftSettings?: never;
     PostgreSqlSettings?: never;
     MySqlSettings?: never;
     OracleSettings: OracleDataProviderSettings;
     MicrosoftSqlServerSettings?: never;
+    DocDbSettings?: never;
+    MariaDbSettings?: never;
+    MongoDbSettings?: never;
     $unknown?: never;
   }
 
@@ -817,10 +1027,62 @@ export namespace DataProviderSettings {
    * <p>Provides information that defines a Microsoft SQL Server data provider.</p>
    */
   export interface MicrosoftSqlServerSettingsMember {
+    RedshiftSettings?: never;
     PostgreSqlSettings?: never;
     MySqlSettings?: never;
     OracleSettings?: never;
     MicrosoftSqlServerSettings: MicrosoftSqlServerDataProviderSettings;
+    DocDbSettings?: never;
+    MariaDbSettings?: never;
+    MongoDbSettings?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>Provides information that defines a DocumentDB data provider.</p>
+   */
+  export interface DocDbSettingsMember {
+    RedshiftSettings?: never;
+    PostgreSqlSettings?: never;
+    MySqlSettings?: never;
+    OracleSettings?: never;
+    MicrosoftSqlServerSettings?: never;
+    DocDbSettings: DocDbDataProviderSettings;
+    MariaDbSettings?: never;
+    MongoDbSettings?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>Provides information that defines a MariaDB data provider.</p>
+   */
+  export interface MariaDbSettingsMember {
+    RedshiftSettings?: never;
+    PostgreSqlSettings?: never;
+    MySqlSettings?: never;
+    OracleSettings?: never;
+    MicrosoftSqlServerSettings?: never;
+    DocDbSettings?: never;
+    MariaDbSettings: MariaDbDataProviderSettings;
+    MongoDbSettings?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>Provides information that defines a MongoDB data provider.</p>
+   */
+  export interface MongoDbSettingsMember {
+    RedshiftSettings?: never;
+    PostgreSqlSettings?: never;
+    MySqlSettings?: never;
+    OracleSettings?: never;
+    MicrosoftSqlServerSettings?: never;
+    DocDbSettings?: never;
+    MariaDbSettings?: never;
+    MongoDbSettings: MongoDbDataProviderSettings;
     $unknown?: never;
   }
 
@@ -828,27 +1090,39 @@ export namespace DataProviderSettings {
    * @public
    */
   export interface $UnknownMember {
+    RedshiftSettings?: never;
     PostgreSqlSettings?: never;
     MySqlSettings?: never;
     OracleSettings?: never;
     MicrosoftSqlServerSettings?: never;
+    DocDbSettings?: never;
+    MariaDbSettings?: never;
+    MongoDbSettings?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
+    RedshiftSettings: (value: RedshiftDataProviderSettings) => T;
     PostgreSqlSettings: (value: PostgreSqlDataProviderSettings) => T;
     MySqlSettings: (value: MySqlDataProviderSettings) => T;
     OracleSettings: (value: OracleDataProviderSettings) => T;
     MicrosoftSqlServerSettings: (value: MicrosoftSqlServerDataProviderSettings) => T;
+    DocDbSettings: (value: DocDbDataProviderSettings) => T;
+    MariaDbSettings: (value: MariaDbDataProviderSettings) => T;
+    MongoDbSettings: (value: MongoDbDataProviderSettings) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: DataProviderSettings, visitor: Visitor<T>): T => {
+    if (value.RedshiftSettings !== undefined) return visitor.RedshiftSettings(value.RedshiftSettings);
     if (value.PostgreSqlSettings !== undefined) return visitor.PostgreSqlSettings(value.PostgreSqlSettings);
     if (value.MySqlSettings !== undefined) return visitor.MySqlSettings(value.MySqlSettings);
     if (value.OracleSettings !== undefined) return visitor.OracleSettings(value.OracleSettings);
     if (value.MicrosoftSqlServerSettings !== undefined)
       return visitor.MicrosoftSqlServerSettings(value.MicrosoftSqlServerSettings);
+    if (value.DocDbSettings !== undefined) return visitor.DocDbSettings(value.DocDbSettings);
+    if (value.MariaDbSettings !== undefined) return visitor.MariaDbSettings(value.MariaDbSettings);
+    if (value.MongoDbSettings !== undefined) return visitor.MongoDbSettings(value.MongoDbSettings);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -872,8 +1146,8 @@ export interface CreateDataProviderMessage {
   /**
    * @public
    * <p>The type of database engine for the data provider. Valid values include <code>"aurora"</code>,
-   *          <code>"aurora_postgresql"</code>, <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
-   *          and <code>"sqlserver"</code>. A value of <code>"aurora"</code> represents Amazon Aurora MySQL-Compatible Edition.</p>
+   *          <code>"aurora-postgresql"</code>, <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
+   *          <code>"sqlserver"</code>, <code>redshift</code>, <code>mariadb</code>, <code>mongodb</code>, and <code>docdb</code>. A value of <code>"aurora"</code> represents Amazon Aurora MySQL-Compatible Edition.</p>
    */
   Engine: string | undefined;
 
@@ -924,8 +1198,8 @@ export interface DataProvider {
   /**
    * @public
    * <p>The type of database engine for the data provider. Valid values include <code>"aurora"</code>,
-   *          <code>"aurora_postgresql"</code>, <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
-   *          and <code>"sqlserver"</code>. A value of <code>"aurora"</code> represents Amazon Aurora MySQL-Compatible Edition.</p>
+   *          <code>"aurora-postgresql"</code>, <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
+   *          <code>"sqlserver"</code>, <code>redshift</code>, <code>mariadb</code>, <code>mongodb</code>, and <code>docdb</code>. A value of <code>"aurora"</code> represents Amazon Aurora MySQL-Compatible Edition.</p>
    */
   Engine?: string;
 
@@ -1068,7 +1342,7 @@ export interface DocDbSettings {
    *          <p>Default value is <code>"none"</code>. Specify <code>"none"</code> to use document mode.
    *          Specify <code>"one"</code> to use table mode.</p>
    */
-  NestingLevel?: NestingLevelValue | string;
+  NestingLevel?: NestingLevelValue;
 
   /**
    * @public
@@ -1282,7 +1556,7 @@ export interface GcpMySQLSettings {
    *          <p>Example: <code>targetDbType=MULTIPLE_DATABASES</code>
    *          </p>
    */
-  TargetDbType?: TargetDbType | string;
+  TargetDbType?: TargetDbType;
 
   /**
    * @public
@@ -1448,6 +1722,34 @@ export interface IBMDb2Settings {
    * <p>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code> that contains the Db2 LUW endpoint connection details.</p>
    */
   SecretsManagerSecretId?: string;
+
+  /**
+   * @public
+   * <p>The amount of time (in milliseconds) before DMS times out operations performed by DMS on the Db2 target.
+   *          The default value is 1200 (20 minutes).</p>
+   */
+  LoadTimeout?: number;
+
+  /**
+   * @public
+   * <p>The size (in KB) of the in-memory file write buffer used when generating .csv files on the local disk
+   *          on the DMS replication instance. The default value is 1024 (1 MB).</p>
+   */
+  WriteBufferSize?: number;
+
+  /**
+   * @public
+   * <p>Specifies the maximum size (in KB) of .csv files used to transfer data to Db2 LUW.</p>
+   */
+  MaxFileSize?: number;
+
+  /**
+   * @public
+   * <p>If true, DMS saves any .csv files to the Db2 LUW target that were used to replicate data. DMS uses these
+   *          files for analysis and troubleshooting.</p>
+   *          <p>The default value is false. </p>
+   */
+  KeepCsvFiles?: boolean;
 }
 
 /**
@@ -1542,7 +1844,7 @@ export interface KafkaSettings {
    *             <code>JSON</code> (default) or <code>JSON_UNFORMATTED</code> (a single line with no
    *          tab).</p>
    */
-  MessageFormat?: MessageFormatValue | string;
+  MessageFormat?: MessageFormatValue;
 
   /**
    * @public
@@ -1605,7 +1907,7 @@ export interface KafkaSettings {
    *          <code>ssl-encryption</code>, <code>ssl-authentication</code>, and <code>sasl-ssl</code>.
    *          <code>sasl-ssl</code> requires <code>SaslUsername</code> and <code>SaslPassword</code>.</p>
    */
-  SecurityProtocol?: KafkaSecurityProtocol | string;
+  SecurityProtocol?: KafkaSecurityProtocol;
 
   /**
    * @public
@@ -1664,14 +1966,14 @@ export interface KafkaSettings {
    *          parameter to <code>PLAIN.</code>
    *          </p>
    */
-  SaslMechanism?: KafkaSaslMechanism | string;
+  SaslMechanism?: KafkaSaslMechanism;
 
   /**
    * @public
    * <p>Sets hostname verification
    *          for the certificate. This setting is supported in DMS version 3.5.1 and later. </p>
    */
-  SslEndpointIdentificationAlgorithm?: KafkaSslEndpointIdentificationAlgorithm | string;
+  SslEndpointIdentificationAlgorithm?: KafkaSslEndpointIdentificationAlgorithm;
 }
 
 /**
@@ -1692,7 +1994,7 @@ export interface KinesisSettings {
    * <p>The output format for the records created on the endpoint. The message format is
    *          <code>JSON</code> (default) or <code>JSON_UNFORMATTED</code> (a single line with no tab).</p>
    */
-  MessageFormat?: MessageFormatValue | string;
+  MessageFormat?: MessageFormatValue;
 
   /**
    * @public
@@ -1875,7 +2177,7 @@ export interface MicrosoftSQLServerSettings {
    *          time. Therefore, if you need to run parallel DMS tasks
    *          against the same database, use the default method.</p>
    */
-  SafeguardPolicy?: SafeguardPolicy | string;
+  SafeguardPolicy?: SafeguardPolicy;
 
   /**
    * @public
@@ -1937,8 +2239,9 @@ export interface MicrosoftSQLServerSettings {
 
   /**
    * @public
-   * <p>Use the <code>TrimSpaceInChar</code> source endpoint setting to trim data
-   *          on CHAR and NCHAR data types during migration. The default value is <code>true</code>.</p>
+   * <p>Use the <code>TrimSpaceInChar</code> source endpoint setting to right-trim data
+   *          on CHAR and NCHAR data types during migration. Setting <code>TrimSpaceInChar</code>
+   *          does not left-trim data. The default value is <code>true</code>.</p>
    */
   TrimSpaceInChar?: boolean;
 
@@ -1946,7 +2249,7 @@ export interface MicrosoftSQLServerSettings {
    * @public
    * <p>Indicates the mode used to fetch CDC data.</p>
    */
-  TlogAccessMode?: TlogAccessMode | string;
+  TlogAccessMode?: TlogAccessMode;
 
   /**
    * @public
@@ -1954,35 +2257,6 @@ export interface MicrosoftSQLServerSettings {
    */
   ForceLobLookup?: boolean;
 }
-
-/**
- * @public
- * @enum
- */
-export const AuthMechanismValue = {
-  DEFAULT: "default",
-  MONGODB_CR: "mongodb_cr",
-  SCRAM_SHA_1: "scram_sha_1",
-} as const;
-
-/**
- * @public
- */
-export type AuthMechanismValue = (typeof AuthMechanismValue)[keyof typeof AuthMechanismValue];
-
-/**
- * @public
- * @enum
- */
-export const AuthTypeValue = {
-  NO: "no",
-  PASSWORD: "password",
-} as const;
-
-/**
- * @public
- */
-export type AuthTypeValue = (typeof AuthTypeValue)[keyof typeof AuthTypeValue];
 
 /**
  * @public
@@ -2004,7 +2278,8 @@ export interface MongoDbSettings {
 
   /**
    * @public
-   * <p> The name of the server on the MongoDB source endpoint. </p>
+   * <p> The name of the server on the MongoDB source endpoint. For MongoDB Atlas, provide the
+   *       server name for any of the servers in the replication set.</p>
    */
   ServerName?: string;
 
@@ -2026,7 +2301,7 @@ export interface MongoDbSettings {
    *          <p>When when set to <code>"no"</code>, user name and password parameters are not used and
    *          can be empty. </p>
    */
-  AuthType?: AuthTypeValue | string;
+  AuthType?: AuthTypeValue;
 
   /**
    * @public
@@ -2036,7 +2311,7 @@ export interface MongoDbSettings {
    *             <code>"scram_sha_1"</code>. This setting isn't used when <code>AuthType</code> is
    *          set to <code>"no"</code>.</p>
    */
-  AuthMechanism?: AuthMechanismValue | string;
+  AuthMechanism?: AuthMechanismValue;
 
   /**
    * @public
@@ -2044,7 +2319,7 @@ export interface MongoDbSettings {
    *          <p>Default value is <code>"none"</code>. Specify <code>"none"</code> to use document mode.
    *          Specify <code>"one"</code> to use table mode.</p>
    */
-  NestingLevel?: NestingLevelValue | string;
+  NestingLevel?: NestingLevelValue;
 
   /**
    * @public
@@ -2186,7 +2461,7 @@ export interface MySQLSettings {
    *          <p>Example: <code>targetDbType=MULTIPLE_DATABASES</code>
    *          </p>
    */
-  TargetDbType?: TargetDbType | string;
+  TargetDbType?: TargetDbType;
 
   /**
    * @public
@@ -2274,6 +2549,12 @@ export interface MySQLSettings {
    * <p>The full ARN, partial ARN, or friendly name of the <code>SecretsManagerSecret</code> that contains the MySQL endpoint connection details.</p>
    */
   SecretsManagerSecretId?: string;
+
+  /**
+   * @public
+   * <p>Sets the client statement timeout (in seconds) for a MySQL source endpoint.</p>
+   */
+  ExecuteTimeout?: number;
 }
 
 /**
@@ -2564,7 +2845,7 @@ export interface OracleSettings {
    *          <p>Example: <code>charLengthSemantics=CHAR;</code>
    *          </p>
    */
-  CharLengthSemantics?: CharLengthSemantics | string;
+  CharLengthSemantics?: CharLengthSemantics;
 
   /**
    * @public
@@ -2759,7 +3040,7 @@ export interface OracleSettings {
    *          <note>
    *             <p>You can specify one of two sets of values for these permissions. You can specify the
    *             values for this setting and <code>SecretsManagerOracleAsmSecretId</code>. Or you can
-   *             specify clear-text values for <code>AsmUserName</code>, <code>AsmPassword</code>, and
+   *             specify clear-text values for <code>AsmUser</code>, <code>AsmPassword</code>, and
    *                <code>AsmServerName</code>. You can't specify both. For more information on
    *             creating this <code>SecretsManagerOracleAsmSecret</code> and the
    *                <code>SecretsManagerOracleAsmAccessRoleArn</code> and
@@ -2992,7 +3273,7 @@ export interface PostgreSQLSettings {
    * @public
    * <p>Specifies the plugin to use to create a replication slot.</p>
    */
-  PluginName?: PluginNameValue | string;
+  PluginName?: PluginNameValue;
 
   /**
    * @public
@@ -3031,7 +3312,7 @@ export interface PostgreSQLSettings {
   /**
    * @public
    * <p>When true, lets PostgreSQL migrate the boolean type as boolean. By default, PostgreSQL migrates booleans as
-   *          <code>varchar(5)</code>.</p>
+   *          <code>varchar(5)</code>. You must set this setting on both the source and target endpoints for it to take effect.</p>
    */
   MapBooleanAsBoolean?: boolean;
 
@@ -3045,13 +3326,13 @@ export interface PostgreSQLSettings {
    * @public
    * <p>When true, DMS migrates LONG values as VARCHAR.</p>
    */
-  MapLongVarcharAs?: LongVarcharMappingType | string;
+  MapLongVarcharAs?: LongVarcharMappingType;
 
   /**
    * @public
    * <p>Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.</p>
    */
-  DatabaseMode?: DatabaseMode | string;
+  DatabaseMode?: DatabaseMode;
 
   /**
    * @public
@@ -3117,7 +3398,7 @@ export interface RedisSettings {
    *          <p>The <code>plaintext</code> option doesn't provide Transport Layer Security (TLS)
    *          encryption for traffic between endpoint and database.</p>
    */
-  SslSecurityProtocol?: SslSecurityProtocolValue | string;
+  SslSecurityProtocol?: SslSecurityProtocolValue;
 
   /**
    * @public
@@ -3127,7 +3408,7 @@ export interface RedisSettings {
    *          <code>auth-role</code> option requires <code>AuthUserName</code> and <code>AuthPassword</code> values
    *          to be provided.</p>
    */
-  AuthType?: RedisAuthTypeValue | string;
+  AuthType?: RedisAuthTypeValue;
 
   /**
    * @public
@@ -3276,7 +3557,7 @@ export interface RedshiftSettings {
    *             <code>"s3:PutObject", "s3:ListBucket"</code>
    *          </p>
    */
-  EncryptionMode?: EncryptionModeValue | string;
+  EncryptionMode?: EncryptionModeValue;
 
   /**
    * @public
@@ -3443,7 +3724,7 @@ export interface RedshiftSettings {
   /**
    * @public
    * <p>When true, lets Redshift migrate the boolean type as boolean. By default, Redshift migrates booleans as
-   *          <code>varchar(1)</code>.</p>
+   *          <code>varchar(1)</code>. You must set this setting on both the source and target endpoints for it to take effect.</p>
    */
   MapBooleanAsBoolean?: boolean;
 }
@@ -3616,7 +3897,7 @@ export interface S3Settings {
    *          the target files. Either set this parameter to NONE (the default) or don't use it to leave the files uncompressed.
    *          This parameter applies to both .csv and .parquet file formats. </p>
    */
-  CompressionType?: CompressionTypeValue | string;
+  CompressionType?: CompressionTypeValue;
 
   /**
    * @public
@@ -3690,7 +3971,7 @@ export interface S3Settings {
    *             </li>
    *          </ul>
    */
-  EncryptionMode?: EncryptionModeValue | string;
+  EncryptionMode?: EncryptionModeValue;
 
   /**
    * @public
@@ -3722,7 +4003,7 @@ export interface S3Settings {
    *             </li>
    *          </ul>
    */
-  DataFormat?: DataFormatValue | string;
+  DataFormat?: DataFormatValue;
 
   /**
    * @public
@@ -3746,7 +4027,7 @@ export interface S3Settings {
    *             </li>
    *          </ul>
    */
-  EncodingType?: EncodingTypeValue | string;
+  EncodingType?: EncodingTypeValue;
 
   /**
    * @public
@@ -3780,7 +4061,7 @@ export interface S3Settings {
    * <p>The version of the Apache Parquet format that you want to use: <code>parquet_1_0</code>
    *          (the default) or <code>parquet_2_0</code>.</p>
    */
-  ParquetVersion?: ParquetVersionValue | string;
+  ParquetVersion?: ParquetVersionValue;
 
   /**
    * @public
@@ -3943,14 +4224,14 @@ export interface S3Settings {
    * <p>Identifies the sequence of the date format to use during folder partitioning. The default value is
    *          <code>YYYYMMDD</code>. Use this parameter when <code>DatePartitionedEnabled</code> is set to <code>true</code>.</p>
    */
-  DatePartitionSequence?: DatePartitionSequenceValue | string;
+  DatePartitionSequence?: DatePartitionSequenceValue;
 
   /**
    * @public
    * <p>Specifies a date separating delimiter to use during folder partitioning. The default value is
    *          <code>SLASH</code>. Use this parameter when <code>DatePartitionedEnabled</code> is set to <code>true</code>.</p>
    */
-  DatePartitionDelimiter?: DatePartitionDelimiterValue | string;
+  DatePartitionDelimiter?: DatePartitionDelimiterValue;
 
   /**
    * @public
@@ -4048,7 +4329,7 @@ export interface S3Settings {
    *          AWS_EXEC_READ, BUCKET_OWNER_READ, and
    *          BUCKET_OWNER_FULL_CONTROL.</p>
    */
-  CannedAclForObjects?: CannedAclForObjectsValue | string;
+  CannedAclForObjects?: CannedAclForObjectsValue;
 
   /**
    * @public
@@ -4084,7 +4365,7 @@ export interface S3Settings {
    * <p>An optional parameter that specifies how DMS treats null
    *          values. While handling the null value, you can use this
    *          parameter to pass a user-defined string as null when writing to
-   *          the target. For example, when target columns are not nullable,
+   *          the target. For example, when target columns are nullable,
    *          you can use this option to differentiate between the empty
    *          string value and the null value. So, if you set this parameter
    *          value to the empty string ("" or ''), DMS treats the empty
@@ -4303,7 +4584,7 @@ export interface CreateEndpointMessage {
    * @public
    * <p>The type of endpoint.  Valid values are <code>source</code> and <code>target</code>.</p>
    */
-  EndpointType: ReplicationEndpointTypeValue | string | undefined;
+  EndpointType: ReplicationEndpointTypeValue | undefined;
 
   /**
    * @public
@@ -4387,7 +4668,7 @@ export interface CreateEndpointMessage {
    * <p>The Secure Sockets Layer (SSL) mode to use for the SSL connection. The default is <code>none</code>
    *          </p>
    */
-  SslMode?: DmsSslModeValue | string;
+  SslMode?: DmsSslModeValue;
 
   /**
    * @public
@@ -4638,14 +4919,14 @@ export interface Endpoint {
    * @public
    * <p>The type of endpoint.  Valid values are <code>source</code> and <code>target</code>.</p>
    */
-  EndpointType?: ReplicationEndpointTypeValue | string;
+  EndpointType?: ReplicationEndpointTypeValue;
 
   /**
    * @public
    * <p>The database engine name. Valid values, depending on the EndpointType, include
    *          <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
    *          <code>"mariadb"</code>, <code>"aurora"</code>, <code>"aurora-postgresql"</code>,
-   *          <code>"redshift"</code>, <code>"s3"</code>, <code>"db2"</code>, <code>"db2-zos"</code>,
+   *          <code>"redshift"</code>, <code>"redshift-serverless"</code>, <code>"s3"</code>, <code>"db2"</code>, <code>"db2-zos"</code>,
    *          <code>"azuredb"</code>, <code>"sybase"</code>, <code>"dynamodb"</code>,
    *          <code>"mongodb"</code>, <code>"kinesis"</code>, <code>"kafka"</code>,
    *          <code>"elasticsearch"</code>, <code>"documentdb"</code>, <code>"sqlserver"</code>,
@@ -4722,7 +5003,7 @@ export interface Endpoint {
    * @public
    * <p>The SSL mode used to connect to the endpoint. The default value is <code>none</code>.</p>
    */
-  SslMode?: DmsSslModeValue | string;
+  SslMode?: DmsSslModeValue;
 
   /**
    * @public
@@ -5713,8 +5994,8 @@ export interface ComputeConfig {
   /**
    * @public
    * <p>Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless
-   *          replication can be provisioned. A single DCU is 2GB of RAM, with 2 DCUs as the minimum value allowed.
-   *          The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. So, the maximum value
+   *          replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCU as the minimum value allowed.
+   *          The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. So, the maximum value
    *          that you can specify for DMS Serverless is 384. The <code>MaxCapacityUnits</code> parameter is the only
    *          DCU parameter you are required to specify.</p>
    */
@@ -5723,13 +6004,13 @@ export interface ComputeConfig {
   /**
    * @public
    * <p>Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS
-   *          Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 2 DCUs as the minimum value
-   *          allowed. The list of valid DCU values includes 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. So, the minimum DCU
-   *          value that you can specify for DMS Serverless is 2. You don't have to specify a value for the
+   *          Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCU as the minimum value
+   *          allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. So, the minimum DCU
+   *          value that you can specify for DMS Serverless is 1. You don't have to specify a value for the
    *          <code>MinCapacityUnits</code> parameter. If you don't set this value, DMS scans the current activity
    *          of available source tables to identify an optimum setting for this parameter. If there is no current
    *          source activity or DMS can't otherwise identify a more appropriate value, it sets this parameter to
-   *          the minimum DCU value allowed, 2.</p>
+   *          the minimum DCU value allowed, 1.</p>
    */
   MinCapacityUnits?: number;
 
@@ -5841,7 +6122,7 @@ export interface CreateReplicationConfigMessage {
    *             </li>
    *          </ul>
    */
-  ReplicationType: MigrationTypeValue | string | undefined;
+  ReplicationType: MigrationTypeValue | undefined;
 
   /**
    * @public
@@ -5923,7 +6204,7 @@ export interface ReplicationConfig {
    * @public
    * <p>The type of the replication.</p>
    */
-  ReplicationType?: MigrationTypeValue | string;
+  ReplicationType?: MigrationTypeValue;
 
   /**
    * @public
@@ -6116,13 +6397,6 @@ export interface CreateReplicationInstanceMessage {
    *             <code>true</code>.</p>
    *          <p>Default: <code>true</code>
    *          </p>
-   *          <p>When <code>AutoMinorVersionUpgrade</code> is enabled, DMS uses the current default
-   *          engine version when you create a replication instance. For example, if you set
-   *             <code>EngineVersion</code> to a lower version number than the current default version,
-   *          DMS uses the default version.</p>
-   *          <p>If <code>AutoMinorVersionUpgrade</code>
-   *             <i>isn’t</i> enabled when you create a replication instance, DMS uses the
-   *          engine version specified by the <code>EngineVersion</code> parameter. </p>
    */
   AutoMinorVersionUpgrade?: boolean;
 
@@ -6689,7 +6963,7 @@ export interface CreateReplicationSubnetGroupMessage {
 
   /**
    * @public
-   * <p>One or more subnet IDs to be assigned to the subnet group.</p>
+   * <p>Two or more subnet IDs to be assigned to the subnet group.</p>
    */
   SubnetIds: string[] | undefined;
 
@@ -6758,7 +7032,7 @@ export interface CreateReplicationTaskMessage {
    * <p>The migration type. Valid values: <code>full-load</code> | <code>cdc</code> | <code>full-load-and-cdc</code>
    *          </p>
    */
-  MigrationType: MigrationTypeValue | string | undefined;
+  MigrationType: MigrationTypeValue | undefined;
 
   /**
    * @public
@@ -6811,7 +7085,7 @@ export interface CreateReplicationTaskMessage {
    * <p>Indicates when you want a change data capture (CDC) operation to stop. The value can be
    *          either server time or commit time.</p>
    *          <p>Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”</p>
-   *          <p>Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12“</p>
+   *          <p>Commit time example: --cdc-stop-position “commit_time:2018-02-09T12:12:12“</p>
    */
   CdcStopPosition?: string;
 
@@ -6965,7 +7239,7 @@ export interface ReplicationTask {
    * @public
    * <p>The type of migration.</p>
    */
-  MigrationType?: MigrationTypeValue | string;
+  MigrationType?: MigrationTypeValue;
 
   /**
    * @public
@@ -7204,7 +7478,7 @@ export interface ReplicationTask {
    * <p>Indicates when you want a change data capture (CDC) operation to stop. The value can be
    *          either server time or commit time.</p>
    *          <p>Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”</p>
-   *          <p>Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12“</p>
+   *          <p>Commit time example: --cdc-stop-position “commit_time:2018-02-09T12:12:12“</p>
    */
   CdcStopPosition?: string;
 
@@ -7823,7 +8097,7 @@ export interface DescribeApplicableIndividualAssessmentsMessage {
    * @public
    * <p>Name of the migration type that each provided individual assessment must support.</p>
    */
-  MigrationType?: MigrationTypeValue | string;
+  MigrationType?: MigrationTypeValue;
 
   /**
    * @public
@@ -8023,6 +8297,7 @@ export interface DescribeDataProvidersMessage {
   /**
    * @public
    * <p>Filters applied to the data providers described in the form of key-value pairs.</p>
+   *          <p>Valid filter names: data-provider-identifier</p>
    */
   Filters?: Filter[];
 
@@ -8176,7 +8451,7 @@ export interface EndpointSetting {
    * @public
    * <p>The type of endpoint.  Valid values are <code>source</code> and <code>target</code>.</p>
    */
-  Type?: EndpointSettingTypeValue | string;
+  Type?: EndpointSettingTypeValue;
 
   /**
    * @public
@@ -8301,7 +8576,7 @@ export interface SupportedEndpointType {
    * @public
    * <p>The type of endpoint.  Valid values are <code>source</code> and <code>target</code>.</p>
    */
-  EndpointType?: ReplicationEndpointTypeValue | string;
+  EndpointType?: ReplicationEndpointTypeValue;
 
   /**
    * @public
@@ -8393,7 +8668,7 @@ export interface EngineVersion {
    * @public
    * <p>The release status of the replication instance version.</p>
    */
-  ReleaseStatus?: ReleaseStatusValues | string;
+  ReleaseStatus?: ReleaseStatusValues;
 
   /**
    * @public
@@ -8530,7 +8805,7 @@ export interface DescribeEventsMessage {
    * <p>The type of DMS resource that generates events.</p>
    *          <p>Valid values: replication-instance | replication-task</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: SourceType;
 
   /**
    * @public
@@ -8599,7 +8874,7 @@ export interface Event {
    * <p> The type of DMS resource that generates events. </p>
    *          <p>Valid values: replication-instance | endpoint | replication-task</p>
    */
-  SourceType?: SourceType | string;
+  SourceType?: SourceType;
 
   /**
    * @public
@@ -8923,7 +9198,7 @@ export interface CollectorHealthCheck {
    * @public
    * <p>The status of the Fleet Advisor collector.</p>
    */
-  CollectorStatus?: CollectorStatus | string;
+  CollectorStatus?: CollectorStatus;
 
   /**
    * @public
@@ -9007,7 +9282,7 @@ export interface CollectorResponse {
    * @public
    * <p>Whether the collector version is up to date.</p>
    */
-  VersionStatus?: VersionStatus | string;
+  VersionStatus?: VersionStatus;
 
   /**
    * @public
@@ -10199,7 +10474,7 @@ export interface OrderableReplicationInstance {
    *             <p>DMS supports the <code>ReleaseStatus</code> parameter in versions 3.1.4 and later.</p>
    *          </note>
    */
-  ReleaseStatus?: ReleaseStatusValues | string;
+  ReleaseStatus?: ReleaseStatusValues;
 }
 
 /**
@@ -10707,7 +10982,7 @@ export interface RefreshSchemasStatus {
    * @public
    * <p>The status of the schema.</p>
    */
-  Status?: RefreshSchemasStatusTypeValue | string;
+  Status?: RefreshSchemasStatusTypeValue;
 
   /**
    * @public
@@ -11085,7 +11360,7 @@ export interface Replication {
    * @public
    * <p>The type of the serverless replication.</p>
    */
-  ReplicationType?: MigrationTypeValue | string;
+  ReplicationType?: MigrationTypeValue;
 
   /**
    * @public
@@ -11239,6 +11514,12 @@ export interface Replication {
    * <p>The timestamp when replication was last stopped.</p>
    */
   ReplicationLastStopTime?: Date;
+
+  /**
+   * @public
+   * <p>The timestamp when DMS will deprovision the replication.</p>
+   */
+  ReplicationDeprovisionTime?: Date;
 }
 
 /**
@@ -12065,7 +12346,7 @@ export interface ExportMetadataModelAssessmentMessage {
    * @public
    * <p>The file format of the assessment file.</p>
    */
-  AssessmentReportTypes?: (AssessmentReportType | string)[];
+  AssessmentReportTypes?: AssessmentReportType[];
 }
 
 /**
@@ -12229,399 +12510,6 @@ export interface ModifyConversionConfigurationResponse {
    * <p>The name or Amazon Resource Name (ARN) of  the modified configuration.</p>
    */
   MigrationProjectIdentifier?: string;
-}
-
-/**
- * @public
- */
-export interface ModifyDataProviderMessage {
-  /**
-   * @public
-   * <p>The identifier of the data provider. Identifiers must begin with a letter
-   *          and must contain only ASCII letters, digits, and hyphens. They can't end with
-   *          a hyphen, or contain two consecutive hyphens.</p>
-   */
-  DataProviderIdentifier: string | undefined;
-
-  /**
-   * @public
-   * <p>The name of the data provider.</p>
-   */
-  DataProviderName?: string;
-
-  /**
-   * @public
-   * <p>A user-friendly description of the data provider.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>The type of database engine for the data provider. Valid values include <code>"aurora"</code>,
-   *          <code>"aurora_postgresql"</code>, <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
-   *          and <code>"sqlserver"</code>. A value of <code>"aurora"</code> represents Amazon Aurora MySQL-Compatible Edition.</p>
-   */
-  Engine?: string;
-
-  /**
-   * @public
-   * <p>If this attribute is Y, the current call to <code>ModifyDataProvider</code> replaces all
-   *          existing data provider settings with the exact settings that you specify in this call. If this
-   *          attribute is N, the current call to <code>ModifyDataProvider</code> does two things: </p>
-   *          <ul>
-   *             <li>
-   *                <p>It replaces any data provider settings that already exist with new values,
-   *             for settings with the same names.</p>
-   *             </li>
-   *             <li>
-   *                <p>It creates new data provider settings that you specify in the call,
-   *             for settings with different names. </p>
-   *             </li>
-   *          </ul>
-   */
-  ExactSettings?: boolean;
-
-  /**
-   * @public
-   * <p>The settings in JSON format for a data provider.</p>
-   */
-  Settings?: DataProviderSettings;
-}
-
-/**
- * @public
- */
-export interface ModifyDataProviderResponse {
-  /**
-   * @public
-   * <p>The data provider that was modified.</p>
-   */
-  DataProvider?: DataProvider;
-}
-
-/**
- * @public
- * <p></p>
- */
-export interface ModifyEndpointMessage {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.</p>
-   */
-  EndpointArn: string | undefined;
-
-  /**
-   * @public
-   * <p>The database endpoint identifier. Identifiers must begin with a letter and must contain
-   *          only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two
-   *          consecutive hyphens.</p>
-   */
-  EndpointIdentifier?: string;
-
-  /**
-   * @public
-   * <p>The type of endpoint.  Valid values are <code>source</code> and <code>target</code>.</p>
-   */
-  EndpointType?: ReplicationEndpointTypeValue | string;
-
-  /**
-   * @public
-   * <p>The database engine name. Valid values, depending on the EndpointType, include
-   *          <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
-   *          <code>"mariadb"</code>, <code>"aurora"</code>, <code>"aurora-postgresql"</code>,
-   *          <code>"redshift"</code>, <code>"s3"</code>, <code>"db2"</code>, <code>"db2-zos"</code>,
-   *          <code>"azuredb"</code>, <code>"sybase"</code>, <code>"dynamodb"</code>,
-   *          <code>"mongodb"</code>, <code>"kinesis"</code>, <code>"kafka"</code>,
-   *          <code>"elasticsearch"</code>, <code>"documentdb"</code>, <code>"sqlserver"</code>,
-   *          <code>"neptune"</code>, and <code>"babelfish"</code>.</p>
-   */
-  EngineName?: string;
-
-  /**
-   * @public
-   * <p>The user name to be used to login to the endpoint database.</p>
-   */
-  Username?: string;
-
-  /**
-   * @public
-   * <p>The password to be used to login to the endpoint database.</p>
-   */
-  Password?: string;
-
-  /**
-   * @public
-   * <p>The name of the server where the endpoint database resides.</p>
-   */
-  ServerName?: string;
-
-  /**
-   * @public
-   * <p>The port used by the endpoint database.</p>
-   */
-  Port?: number;
-
-  /**
-   * @public
-   * <p>The name of the endpoint database. For a MySQL source or target endpoint, do not specify DatabaseName.</p>
-   */
-  DatabaseName?: string;
-
-  /**
-   * @public
-   * <p>Additional attributes associated with the connection. To reset this parameter, pass the
-   *          empty string ("") as an argument.</p>
-   */
-  ExtraConnectionAttributes?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the certificate used for SSL connection.</p>
-   */
-  CertificateArn?: string;
-
-  /**
-   * @public
-   * <p>The SSL mode used to connect to the endpoint.  The default value is <code>none</code>.</p>
-   */
-  SslMode?: DmsSslModeValue | string;
-
-  /**
-   * @public
-   * <p> The Amazon Resource Name (ARN) for the IAM role you want to use to modify
-   *          the endpoint. The role must allow the <code>iam:PassRole</code> action.</p>
-   */
-  ServiceAccessRoleArn?: string;
-
-  /**
-   * @public
-   * <p>The external table definition.</p>
-   */
-  ExternalTableDefinition?: string;
-
-  /**
-   * @public
-   * <p>Settings in JSON format for the target Amazon DynamoDB endpoint. For information about other
-   *             available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html#CHAP_Target.DynamoDB.ObjectMapping">Using Object Mapping to Migrate
-   *             Data to DynamoDB</a> in the <i>Database Migration Service User
-   *             Guide.</i>
-   *          </p>
-   */
-  DynamoDbSettings?: DynamoDbSettings;
-
-  /**
-   * @public
-   * <p>Settings in JSON format for the target Amazon S3 endpoint. For more information about
-   *             the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring">Extra
-   *             Connection Attributes When Using Amazon S3 as a Target for DMS</a> in the
-   *             <i>Database Migration Service User Guide.</i>
-   *          </p>
-   */
-  S3Settings?: S3Settings;
-
-  /**
-   * @public
-   * <p>The settings in JSON format for the DMS transfer type of source endpoint. </p>
-   *          <p>Attributes include the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>serviceAccessRoleArn - The Amazon Resource Name (ARN) used by the service access IAM role. The role must allow the <code>iam:PassRole</code> action.</p>
-   *             </li>
-   *             <li>
-   *                <p>BucketName - The name of the S3 bucket to use.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Shorthand syntax for these settings is as follows: <code>ServiceAccessRoleArn=string
-   *             ,BucketName=string</code>
-   *          </p>
-   *          <p>JSON syntax for these settings is as follows: <code>\{ "ServiceAccessRoleArn": "string",
-   *             "BucketName": "string"\} </code>
-   *          </p>
-   */
-  DmsTransferSettings?: DmsTransferSettings;
-
-  /**
-   * @public
-   * <p>Settings in JSON format for the source MongoDB endpoint. For more information about the
-   *          available settings, see the configuration properties section in <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html#CHAP_Source.MongoDB.Configuration">Endpoint configuration settings
-   *             when using MongoDB as a source for Database Migration Service</a> in the
-   *          <i>Database Migration Service User Guide.</i>
-   *          </p>
-   */
-  MongoDbSettings?: MongoDbSettings;
-
-  /**
-   * @public
-   * <p>Settings in JSON format for the target endpoint for Amazon Kinesis Data Streams. For
-   *          more information about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html#CHAP_Target.Kinesis.ObjectMapping">Using object mapping to
-   *             migrate data to a Kinesis data stream</a> in the <i>Database Migration Service User Guide.</i>
-   *          </p>
-   */
-  KinesisSettings?: KinesisSettings;
-
-  /**
-   * @public
-   * <p>Settings in JSON format for the target Apache Kafka endpoint. For more information about
-   *          the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kafka.html#CHAP_Target.Kafka.ObjectMapping">Using object mapping
-   *             to migrate data to a Kafka topic</a> in the <i>Database Migration Service User Guide.</i>
-   *          </p>
-   */
-  KafkaSettings?: KafkaSettings;
-
-  /**
-   * @public
-   * <p>Settings in JSON format for the target OpenSearch endpoint. For more information
-   *          about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration">Extra Connection Attributes When Using OpenSearch as a Target for DMS</a> in
-   *          the <i>Database Migration Service User Guide.</i>
-   *          </p>
-   */
-  ElasticsearchSettings?: ElasticsearchSettings;
-
-  /**
-   * @public
-   * <p>Settings in JSON format for the target Amazon Neptune endpoint. For more information
-   *          about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.EndpointSettings">Specifying graph-mapping rules using Gremlin and R2RML for Amazon Neptune as a target</a>
-   *          in the <i>Database Migration Service User Guide.</i>
-   *          </p>
-   */
-  NeptuneSettings?: NeptuneSettings;
-
-  /**
-   * @public
-   * <p>Provides information that defines an Amazon Redshift endpoint.</p>
-   */
-  RedshiftSettings?: RedshiftSettings;
-
-  /**
-   * @public
-   * <p>Settings in JSON format for the source and target PostgreSQL endpoint. For information
-   *          about other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib">Extra connection
-   *             attributes when using PostgreSQL as a source for DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.PostgreSQL.html#CHAP_Target.PostgreSQL.ConnectionAttrib">
-   *             Extra connection attributes when using PostgreSQL as a target for DMS</a> in the
-   *             <i>Database Migration Service User Guide.</i>
-   *          </p>
-   */
-  PostgreSQLSettings?: PostgreSQLSettings;
-
-  /**
-   * @public
-   * <p>Settings in JSON format for the source and target MySQL endpoint. For information about
-   *          other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MySQL.html#CHAP_Source.MySQL.ConnectionAttrib">Extra connection
-   *             attributes when using MySQL as a source for DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.MySQL.html#CHAP_Target.MySQL.ConnectionAttrib">Extra
-   *             connection attributes when using a MySQL-compatible database as a target for DMS</a> in the <i>Database Migration Service User
-   *          Guide.</i>
-   *          </p>
-   */
-  MySQLSettings?: MySQLSettings;
-
-  /**
-   * @public
-   * <p>Settings in JSON format for the source and target Oracle endpoint. For information about
-   *          other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.ConnectionAttrib">Extra connection
-   *             attributes when using Oracle as a source for DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Oracle.html#CHAP_Target.Oracle.ConnectionAttrib">
-   *             Extra connection attributes when using Oracle as a target for DMS</a> in the
-   *             <i>Database Migration Service User Guide.</i>
-   *          </p>
-   */
-  OracleSettings?: OracleSettings;
-
-  /**
-   * @public
-   * <p>Settings in JSON format for the source and target SAP ASE endpoint. For information
-   *          about other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SAP.html#CHAP_Source.SAP.ConnectionAttrib">Extra connection attributes
-   *             when using SAP ASE as a source for DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.SAP.html#CHAP_Target.SAP.ConnectionAttrib">Extra connection attributes
-   *             when using SAP ASE as a target for DMS</a> in the <i>Database Migration Service
-   *                 User Guide.</i>
-   *          </p>
-   */
-  SybaseSettings?: SybaseSettings;
-
-  /**
-   * @public
-   * <p>Settings in JSON format for the source and target Microsoft SQL Server endpoint. For
-   *          information about other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SQLServer.html#CHAP_Source.SQLServer.ConnectionAttrib">Extra connection
-   *             attributes when using SQL Server as a source for DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.SQLServer.html#CHAP_Target.SQLServer.ConnectionAttrib">
-   *             Extra connection attributes when using SQL Server as a target for DMS</a> in the
-   *             <i>Database Migration Service User Guide.</i>
-   *          </p>
-   */
-  MicrosoftSQLServerSettings?: MicrosoftSQLServerSettings;
-
-  /**
-   * @public
-   * <p>Settings in JSON format for the source IBM Db2 LUW endpoint. For information about other
-   *          available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.DB2.html#CHAP_Source.DB2.ConnectionAttrib">Extra connection attributes
-   *             when using Db2 LUW as a source for DMS</a> in the <i>Database Migration Service
-   *                 User Guide.</i>
-   *          </p>
-   */
-  IBMDb2Settings?: IBMDb2Settings;
-
-  /**
-   * @public
-   * <p>Settings in JSON format for the source DocumentDB endpoint. For more information about the
-   *          available settings, see the configuration properties section in <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.DocumentDB.html"> Using DocumentDB as a Target for Database Migration Service
-   *              </a> in the <i>Database Migration Service User
-   *                Guide.</i>
-   *          </p>
-   */
-  DocDbSettings?: DocDbSettings;
-
-  /**
-   * @public
-   * <p>Settings in JSON format for the Redis target endpoint.</p>
-   */
-  RedisSettings?: RedisSettings;
-
-  /**
-   * @public
-   * <p>If this attribute is Y, the current call to <code>ModifyEndpoint</code> replaces all
-   *          existing endpoint settings with the exact settings that you specify in this call. If this
-   *          attribute is N, the current call to <code>ModifyEndpoint</code> does two things: </p>
-   *          <ul>
-   *             <li>
-   *                <p>It replaces any endpoint settings that already exist with new values, for settings with the
-   *                same names.</p>
-   *             </li>
-   *             <li>
-   *                <p>It creates new endpoint settings that you specify in the call, for settings with different
-   *                names. </p>
-   *             </li>
-   *          </ul>
-   *          <p>For example, if you call <code>create-endpoint ... --endpoint-settings '\{"a":1\}'
-   *             ...</code>, the endpoint has the following endpoint settings: <code>'\{"a":1\}'</code>. If
-   *          you then call <code>modify-endpoint ... --endpoint-settings '\{"b":2\}' ...</code> for the
-   *          same endpoint, the endpoint has the following settings: <code>'\{"a":1,"b":2\}'</code>. </p>
-   *          <p>However, suppose that you follow this with a call to <code>modify-endpoint ...
-   *             --endpoint-settings '\{"b":2\}' --exact-settings ...</code> for that same endpoint again.
-   *          Then the endpoint has the following settings: <code>'\{"b":2\}'</code>. All existing settings
-   *          are replaced with the exact settings that you specify. </p>
-   */
-  ExactSettings?: boolean;
-
-  /**
-   * @public
-   * <p>Settings in JSON format for the source GCP MySQL endpoint.</p>
-   */
-  GcpMySQLSettings?: GcpMySQLSettings;
-
-  /**
-   * @public
-   * <p>Settings in JSON format for the target Amazon Timestream endpoint.</p>
-   */
-  TimestreamSettings?: TimestreamSettings;
-}
-
-/**
- * @public
- * <p></p>
- */
-export interface ModifyEndpointResponse {
-  /**
-   * @public
-   * <p>The modified endpoint.</p>
-   */
-  Endpoint?: Endpoint;
 }
 
 /**
@@ -12796,34 +12684,4 @@ export const DescribeEndpointsResponseFilterSensitiveLog = (obj: DescribeEndpoin
 export const ImportCertificateMessageFilterSensitiveLog = (obj: ImportCertificateMessage): any => ({
   ...obj,
   ...(obj.CertificatePem && { CertificatePem: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const ModifyEndpointMessageFilterSensitiveLog = (obj: ModifyEndpointMessage): any => ({
-  ...obj,
-  ...(obj.Password && { Password: SENSITIVE_STRING }),
-  ...(obj.MongoDbSettings && { MongoDbSettings: MongoDbSettingsFilterSensitiveLog(obj.MongoDbSettings) }),
-  ...(obj.KafkaSettings && { KafkaSettings: KafkaSettingsFilterSensitiveLog(obj.KafkaSettings) }),
-  ...(obj.RedshiftSettings && { RedshiftSettings: RedshiftSettingsFilterSensitiveLog(obj.RedshiftSettings) }),
-  ...(obj.PostgreSQLSettings && { PostgreSQLSettings: PostgreSQLSettingsFilterSensitiveLog(obj.PostgreSQLSettings) }),
-  ...(obj.MySQLSettings && { MySQLSettings: MySQLSettingsFilterSensitiveLog(obj.MySQLSettings) }),
-  ...(obj.OracleSettings && { OracleSettings: OracleSettingsFilterSensitiveLog(obj.OracleSettings) }),
-  ...(obj.SybaseSettings && { SybaseSettings: SybaseSettingsFilterSensitiveLog(obj.SybaseSettings) }),
-  ...(obj.MicrosoftSQLServerSettings && {
-    MicrosoftSQLServerSettings: MicrosoftSQLServerSettingsFilterSensitiveLog(obj.MicrosoftSQLServerSettings),
-  }),
-  ...(obj.IBMDb2Settings && { IBMDb2Settings: IBMDb2SettingsFilterSensitiveLog(obj.IBMDb2Settings) }),
-  ...(obj.DocDbSettings && { DocDbSettings: DocDbSettingsFilterSensitiveLog(obj.DocDbSettings) }),
-  ...(obj.RedisSettings && { RedisSettings: RedisSettingsFilterSensitiveLog(obj.RedisSettings) }),
-  ...(obj.GcpMySQLSettings && { GcpMySQLSettings: GcpMySQLSettingsFilterSensitiveLog(obj.GcpMySQLSettings) }),
-});
-
-/**
- * @internal
- */
-export const ModifyEndpointResponseFilterSensitiveLog = (obj: ModifyEndpointResponse): any => ({
-  ...obj,
-  ...(obj.Endpoint && { Endpoint: EndpointFilterSensitiveLog(obj.Endpoint) }),
 });

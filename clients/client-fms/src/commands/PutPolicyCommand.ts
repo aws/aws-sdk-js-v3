@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient";
 import { PutPolicyRequest, PutPolicyResponse } from "../models/models_0";
 import { de_PutPolicyCommand, se_PutPolicyCommand } from "../protocols/Aws_json1_1";
@@ -37,38 +29,51 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
 /**
  * @public
  * <p>Creates an Firewall Manager policy.</p>
+ *          <p>A Firewall Manager policy is specific to the individual policy type. If you want to enforce multiple
+ * 		policy types across accounts, you can create multiple policies. You can create more than one
+ * 		policy for each type. </p>
+ *          <p>If you add a new account to an organization that you created with Organizations, Firewall Manager
+ * 		automatically applies the policy to the resources in that account that are within scope of
+ * 		the policy. </p>
  *          <p>Firewall Manager provides the following types of policies: </p>
  *          <ul>
  *             <li>
- *                <p>An WAF policy (type WAFV2), which defines rule groups to run first in the
- *               corresponding WAF web ACL and rule groups to run last in the web ACL.</p>
+ *                <p>
+ *                   <b>Shield Advanced policy</b> - This policy applies Shield Advanced
+ * 				protection to specified accounts and resources. </p>
  *             </li>
  *             <li>
- *                <p>An WAF Classic policy (type WAF), which defines a rule group. </p>
+ *                <p>
+ *                   <b>Security Groups policy</b> - This type of policy gives you
+ * 				control over security groups that are in use throughout your organization in
+ * 				Organizations and lets you enforce a baseline set of rules across your organization. </p>
  *             </li>
  *             <li>
- *                <p>A Shield Advanced policy, which applies Shield Advanced protection to specified
- *           accounts and resources.</p>
+ *                <p>
+ *                   <b>Network Firewall policy</b> - This policy applies
+ * 				Network Firewall protection to your organization's VPCs. </p>
  *             </li>
  *             <li>
- *                <p>A security group policy, which manages VPC security groups across your Amazon Web Services
- *           organization. </p>
+ *                <p>
+ *                   <b>DNS Firewall policy</b> - This policy applies
+ * 				Amazon Route 53 Resolver DNS Firewall protections to your organization's VPCs. </p>
  *             </li>
  *             <li>
- *                <p>An Network Firewall policy, which provides firewall rules to filter network traffic in specified
- *           Amazon VPCs.</p>
- *             </li>
- *             <li>
- *                <p>A DNS Firewall policy, which provides Route 53 Resolver DNS Firewall rules to filter DNS queries for
- *             specified VPCs.</p>
+ *                <p>
+ *                   <b>Third-party firewall policy</b> - This policy applies third-party firewall protections. Third-party firewalls are available by subscription through the Amazon Web Services Marketplace console at <a href="https://aws.amazon.com/marketplace">Amazon Web Services Marketplace</a>.</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <b>Palo Alto Networks Cloud NGFW policy</b> - This policy applies Palo Alto Networks Cloud Next Generation Firewall (NGFW) protections and Palo Alto Networks Cloud NGFW rulestacks to your organization's VPCs.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <b>Fortigate CNF policy</b> - This policy applies
+ * 						Fortigate Cloud Native Firewall (CNF) protections. Fortigate CNF is a cloud-centered solution that blocks Zero-Day threats and secures cloud infrastructures with industry-leading advanced threat prevention, smart web application firewalls (WAF), and API protection.</p>
+ *                   </li>
+ *                </ul>
  *             </li>
  *          </ul>
- *          <p>Each policy is specific to one of the types. If you want to enforce more than one
- *       policy type across accounts, create multiple policies. You can create multiple
- *       policies for each type.</p>
- *          <p>You must be subscribed to Shield Advanced to create a Shield Advanced policy. For more
- *         information about subscribing to Shield Advanced, see
- *     <a href="https://docs.aws.amazon.com/waf/latest/DDOSAPIReference/API_CreateSubscription.html">CreateSubscription</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -217,73 +222,26 @@ export interface PutPolicyCommandOutput extends PutPolicyResponse, __MetadataBea
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
  */
-export class PutPolicyCommand extends $Command<PutPolicyCommandInput, PutPolicyCommandOutput, FMSClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PutPolicyCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: FMSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PutPolicyCommandInput, PutPolicyCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, PutPolicyCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "FMSClient";
-    const commandName = "PutPolicyCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: PutPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PutPolicyCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutPolicyCommandOutput> {
-    return de_PutPolicyCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class PutPolicyCommand extends $Command
+  .classBuilder<
+    PutPolicyCommandInput,
+    PutPolicyCommandOutput,
+    FMSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: FMSClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSFMS_20180101", "PutPolicy", {})
+  .n("FMSClient", "PutPolicyCommand")
+  .f(void 0, void 0)
+  .ser(se_PutPolicyCommand)
+  .de(de_PutPolicyCommand)
+  .build() {}

@@ -281,8 +281,12 @@
 export * from "./CodeartifactClient";
 export * from "./Codeartifact";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { CodeartifactExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { CodeartifactServiceException } from "./models/CodeartifactServiceException";

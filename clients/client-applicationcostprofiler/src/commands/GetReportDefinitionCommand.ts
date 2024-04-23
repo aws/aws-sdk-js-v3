@@ -1,23 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   ApplicationCostProfilerClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationCostProfilerClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GetReportDefinitionRequest, GetReportDefinitionResult } from "../models/models_0";
 import { de_GetReportDefinitionCommand, se_GetReportDefinitionCommand } from "../protocols/Aws_restJson1";
 
@@ -55,8 +47,8 @@ export interface GetReportDefinitionCommandOutput extends GetReportDefinitionRes
  * // { // GetReportDefinitionResult
  * //   reportId: "STRING_VALUE", // required
  * //   reportDescription: "STRING_VALUE", // required
- * //   reportFrequency: "STRING_VALUE", // required
- * //   format: "STRING_VALUE", // required
+ * //   reportFrequency: "MONTHLY" || "DAILY" || "ALL", // required
+ * //   format: "CSV" || "PARQUET", // required
  * //   destinationS3Location: { // S3Location
  * //     bucket: "STRING_VALUE", // required
  * //     prefix: "STRING_VALUE", // required
@@ -89,79 +81,26 @@ export interface GetReportDefinitionCommandOutput extends GetReportDefinitionRes
  * <p>Base exception class for all service exceptions from ApplicationCostProfiler service.</p>
  *
  */
-export class GetReportDefinitionCommand extends $Command<
-  GetReportDefinitionCommandInput,
-  GetReportDefinitionCommandOutput,
-  ApplicationCostProfilerClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetReportDefinitionCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ApplicationCostProfilerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetReportDefinitionCommandInput, GetReportDefinitionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetReportDefinitionCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ApplicationCostProfilerClient";
-    const commandName = "GetReportDefinitionCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetReportDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetReportDefinitionCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetReportDefinitionCommandOutput> {
-    return de_GetReportDefinitionCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetReportDefinitionCommand extends $Command
+  .classBuilder<
+    GetReportDefinitionCommandInput,
+    GetReportDefinitionCommandOutput,
+    ApplicationCostProfilerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ApplicationCostProfilerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSApplicationCostProfiler", "GetReportDefinition", {})
+  .n("ApplicationCostProfilerClient", "GetReportDefinitionCommand")
+  .f(void 0, void 0)
+  .ser(se_GetReportDefinitionCommand)
+  .de(de_GetReportDefinitionCommand)
+  .build() {}

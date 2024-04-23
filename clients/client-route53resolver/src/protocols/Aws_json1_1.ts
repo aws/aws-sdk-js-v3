@@ -312,6 +312,7 @@ import {
   ListResolverRuleAssociationsRequest,
   ListResolverRulesRequest,
   ListTagsForResourceRequest,
+  Protocol,
   PutFirewallRuleGroupPolicyRequest,
   PutResolverQueryLogConfigPolicyRequest,
   PutResolverRulePolicyRequest,
@@ -1758,6 +1759,9 @@ const de_CreateResolverEndpointCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.route53resolver#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
       throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
@@ -1889,6 +1893,9 @@ const de_CreateResolverRuleCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.route53resolver#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
       throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
@@ -5203,6 +5210,9 @@ const de_UpdateResolverEndpointCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.route53resolver#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
       throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
@@ -5261,6 +5271,9 @@ const de_UpdateResolverRuleCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.route53resolver#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalServiceErrorException":
     case "com.amazonaws.route53resolver#InternalServiceErrorException":
       throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
@@ -5613,6 +5626,7 @@ const se_CreateFirewallRuleRequest = (input: CreateFirewallRuleRequest, context:
     FirewallRuleGroupId: [],
     Name: [],
     Priority: [],
+    Qtype: [],
   });
 };
 
@@ -5736,6 +5750,8 @@ const se_CreateResolverQueryLogConfigRequest = (
 // se_ListResolverRulesRequest omitted.
 
 // se_ListTagsForResourceRequest omitted.
+
+// se_ProtocolList omitted.
 
 // se_PutFirewallRuleGroupPolicyRequest omitted.
 
@@ -5942,6 +5958,8 @@ const se_CreateResolverQueryLogConfigRequest = (
 // de_OutpostResolver omitted.
 
 // de_OutpostResolverList omitted.
+
+// de_ProtocolList omitted.
 
 // de_PutFirewallRuleGroupPolicyResponse omitted.
 

@@ -29,16 +29,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `IoTFleetWiseClient` and
-the commands you need, for example `AssociateVehicleFleetCommand`:
+the commands you need, for example `ListFleetsCommand`:
 
 ```js
 // ES5 example
-const { IoTFleetWiseClient, AssociateVehicleFleetCommand } = require("@aws-sdk/client-iotfleetwise");
+const { IoTFleetWiseClient, ListFleetsCommand } = require("@aws-sdk/client-iotfleetwise");
 ```
 
 ```ts
 // ES6+ example
-import { IoTFleetWiseClient, AssociateVehicleFleetCommand } from "@aws-sdk/client-iotfleetwise";
+import { IoTFleetWiseClient, ListFleetsCommand } from "@aws-sdk/client-iotfleetwise";
 ```
 
 ### Usage
@@ -57,7 +57,7 @@ const client = new IoTFleetWiseClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateVehicleFleetCommand(params);
+const command = new ListFleetsCommand(params);
 ```
 
 #### Async/await
@@ -136,7 +136,7 @@ const client = new AWS.IoTFleetWise({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateVehicleFleet(params);
+  const data = await client.listFleets(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -144,7 +144,7 @@ try {
 
 // Promises.
 client
-  .associateVehicleFleet(params)
+  .listFleets(params)
   .then((data) => {
     // process data.
   })
@@ -153,7 +153,7 @@ client
   });
 
 // callbacks.
-client.associateVehicleFleet(params, (err, data) => {
+client.listFleets(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -168,7 +168,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -214,7 +214,7 @@ see LICENSE for more information.
 AssociateVehicleFleet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/associatevehiclefleetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/associatevehiclefleetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/associatevehiclefleetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/AssociateVehicleFleetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/AssociateVehicleFleetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/AssociateVehicleFleetCommandOutput/)
 
 </details>
 <details>
@@ -222,7 +222,7 @@ AssociateVehicleFleet
 BatchCreateVehicle
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/batchcreatevehiclecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/batchcreatevehiclecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/batchcreatevehiclecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/BatchCreateVehicleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/BatchCreateVehicleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/BatchCreateVehicleCommandOutput/)
 
 </details>
 <details>
@@ -230,7 +230,7 @@ BatchCreateVehicle
 BatchUpdateVehicle
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/batchupdatevehiclecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/batchupdatevehiclecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/batchupdatevehiclecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/BatchUpdateVehicleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/BatchUpdateVehicleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/BatchUpdateVehicleCommandOutput/)
 
 </details>
 <details>
@@ -238,7 +238,7 @@ BatchUpdateVehicle
 CreateCampaign
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/createcampaigncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/createcampaigncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/createcampaigncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/CreateCampaignCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/CreateCampaignCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/CreateCampaignCommandOutput/)
 
 </details>
 <details>
@@ -246,7 +246,7 @@ CreateCampaign
 CreateDecoderManifest
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/createdecodermanifestcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/createdecodermanifestcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/createdecodermanifestcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/CreateDecoderManifestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/CreateDecoderManifestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/CreateDecoderManifestCommandOutput/)
 
 </details>
 <details>
@@ -254,7 +254,7 @@ CreateDecoderManifest
 CreateFleet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/createfleetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/createfleetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/createfleetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/CreateFleetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/CreateFleetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/CreateFleetCommandOutput/)
 
 </details>
 <details>
@@ -262,7 +262,7 @@ CreateFleet
 CreateModelManifest
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/createmodelmanifestcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/createmodelmanifestcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/createmodelmanifestcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/CreateModelManifestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/CreateModelManifestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/CreateModelManifestCommandOutput/)
 
 </details>
 <details>
@@ -270,7 +270,7 @@ CreateModelManifest
 CreateSignalCatalog
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/createsignalcatalogcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/createsignalcatalogcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/createsignalcatalogcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/CreateSignalCatalogCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/CreateSignalCatalogCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/CreateSignalCatalogCommandOutput/)
 
 </details>
 <details>
@@ -278,7 +278,7 @@ CreateSignalCatalog
 CreateVehicle
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/createvehiclecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/createvehiclecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/createvehiclecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/CreateVehicleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/CreateVehicleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/CreateVehicleCommandOutput/)
 
 </details>
 <details>
@@ -286,7 +286,7 @@ CreateVehicle
 DeleteCampaign
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/deletecampaigncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/deletecampaigncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/deletecampaigncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/DeleteCampaignCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/DeleteCampaignCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/DeleteCampaignCommandOutput/)
 
 </details>
 <details>
@@ -294,7 +294,7 @@ DeleteCampaign
 DeleteDecoderManifest
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/deletedecodermanifestcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/deletedecodermanifestcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/deletedecodermanifestcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/DeleteDecoderManifestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/DeleteDecoderManifestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/DeleteDecoderManifestCommandOutput/)
 
 </details>
 <details>
@@ -302,7 +302,7 @@ DeleteDecoderManifest
 DeleteFleet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/deletefleetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/deletefleetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/deletefleetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/DeleteFleetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/DeleteFleetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/DeleteFleetCommandOutput/)
 
 </details>
 <details>
@@ -310,7 +310,7 @@ DeleteFleet
 DeleteModelManifest
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/deletemodelmanifestcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/deletemodelmanifestcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/deletemodelmanifestcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/DeleteModelManifestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/DeleteModelManifestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/DeleteModelManifestCommandOutput/)
 
 </details>
 <details>
@@ -318,7 +318,7 @@ DeleteModelManifest
 DeleteSignalCatalog
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/deletesignalcatalogcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/deletesignalcatalogcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/deletesignalcatalogcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/DeleteSignalCatalogCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/DeleteSignalCatalogCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/DeleteSignalCatalogCommandOutput/)
 
 </details>
 <details>
@@ -326,7 +326,7 @@ DeleteSignalCatalog
 DeleteVehicle
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/deletevehiclecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/deletevehiclecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/deletevehiclecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/DeleteVehicleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/DeleteVehicleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/DeleteVehicleCommandOutput/)
 
 </details>
 <details>
@@ -334,7 +334,7 @@ DeleteVehicle
 DisassociateVehicleFleet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/disassociatevehiclefleetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/disassociatevehiclefleetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/disassociatevehiclefleetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/DisassociateVehicleFleetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/DisassociateVehicleFleetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/DisassociateVehicleFleetCommandOutput/)
 
 </details>
 <details>
@@ -342,7 +342,7 @@ DisassociateVehicleFleet
 GetCampaign
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/getcampaigncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/getcampaigncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/getcampaigncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/GetCampaignCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/GetCampaignCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/GetCampaignCommandOutput/)
 
 </details>
 <details>
@@ -350,7 +350,15 @@ GetCampaign
 GetDecoderManifest
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/getdecodermanifestcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/getdecodermanifestcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/getdecodermanifestcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/GetDecoderManifestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/GetDecoderManifestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/GetDecoderManifestCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetEncryptionConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/GetEncryptionConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/GetEncryptionConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/GetEncryptionConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -358,7 +366,7 @@ GetDecoderManifest
 GetFleet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/getfleetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/getfleetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/getfleetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/GetFleetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/GetFleetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/GetFleetCommandOutput/)
 
 </details>
 <details>
@@ -366,7 +374,7 @@ GetFleet
 GetLoggingOptions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/getloggingoptionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/getloggingoptionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/getloggingoptionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/GetLoggingOptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/GetLoggingOptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/GetLoggingOptionsCommandOutput/)
 
 </details>
 <details>
@@ -374,7 +382,7 @@ GetLoggingOptions
 GetModelManifest
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/getmodelmanifestcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/getmodelmanifestcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/getmodelmanifestcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/GetModelManifestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/GetModelManifestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/GetModelManifestCommandOutput/)
 
 </details>
 <details>
@@ -382,7 +390,7 @@ GetModelManifest
 GetRegisterAccountStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/getregisteraccountstatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/getregisteraccountstatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/getregisteraccountstatuscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/GetRegisterAccountStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/GetRegisterAccountStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/GetRegisterAccountStatusCommandOutput/)
 
 </details>
 <details>
@@ -390,7 +398,7 @@ GetRegisterAccountStatus
 GetSignalCatalog
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/getsignalcatalogcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/getsignalcatalogcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/getsignalcatalogcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/GetSignalCatalogCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/GetSignalCatalogCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/GetSignalCatalogCommandOutput/)
 
 </details>
 <details>
@@ -398,7 +406,7 @@ GetSignalCatalog
 GetVehicle
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/getvehiclecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/getvehiclecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/getvehiclecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/GetVehicleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/GetVehicleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/GetVehicleCommandOutput/)
 
 </details>
 <details>
@@ -406,7 +414,7 @@ GetVehicle
 GetVehicleStatus
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/getvehiclestatuscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/getvehiclestatuscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/getvehiclestatuscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/GetVehicleStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/GetVehicleStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/GetVehicleStatusCommandOutput/)
 
 </details>
 <details>
@@ -414,7 +422,7 @@ GetVehicleStatus
 ImportDecoderManifest
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/importdecodermanifestcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/importdecodermanifestcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/importdecodermanifestcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/ImportDecoderManifestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ImportDecoderManifestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ImportDecoderManifestCommandOutput/)
 
 </details>
 <details>
@@ -422,7 +430,7 @@ ImportDecoderManifest
 ImportSignalCatalog
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/importsignalcatalogcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/importsignalcatalogcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/importsignalcatalogcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/ImportSignalCatalogCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ImportSignalCatalogCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ImportSignalCatalogCommandOutput/)
 
 </details>
 <details>
@@ -430,7 +438,7 @@ ImportSignalCatalog
 ListCampaigns
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/listcampaignscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/listcampaignscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/listcampaignscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/ListCampaignsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ListCampaignsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ListCampaignsCommandOutput/)
 
 </details>
 <details>
@@ -438,7 +446,7 @@ ListCampaigns
 ListDecoderManifestNetworkInterfaces
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/listdecodermanifestnetworkinterfacescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/listdecodermanifestnetworkinterfacescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/listdecodermanifestnetworkinterfacescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/ListDecoderManifestNetworkInterfacesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ListDecoderManifestNetworkInterfacesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ListDecoderManifestNetworkInterfacesCommandOutput/)
 
 </details>
 <details>
@@ -446,7 +454,7 @@ ListDecoderManifestNetworkInterfaces
 ListDecoderManifests
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/listdecodermanifestscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/listdecodermanifestscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/listdecodermanifestscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/ListDecoderManifestsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ListDecoderManifestsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ListDecoderManifestsCommandOutput/)
 
 </details>
 <details>
@@ -454,7 +462,7 @@ ListDecoderManifests
 ListDecoderManifestSignals
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/listdecodermanifestsignalscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/listdecodermanifestsignalscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/listdecodermanifestsignalscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/ListDecoderManifestSignalsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ListDecoderManifestSignalsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ListDecoderManifestSignalsCommandOutput/)
 
 </details>
 <details>
@@ -462,7 +470,7 @@ ListDecoderManifestSignals
 ListFleets
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/listfleetscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/listfleetscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/listfleetscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/ListFleetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ListFleetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ListFleetsCommandOutput/)
 
 </details>
 <details>
@@ -470,7 +478,7 @@ ListFleets
 ListFleetsForVehicle
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/listfleetsforvehiclecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/listfleetsforvehiclecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/listfleetsforvehiclecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/ListFleetsForVehicleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ListFleetsForVehicleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ListFleetsForVehicleCommandOutput/)
 
 </details>
 <details>
@@ -478,7 +486,7 @@ ListFleetsForVehicle
 ListModelManifestNodes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/listmodelmanifestnodescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/listmodelmanifestnodescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/listmodelmanifestnodescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/ListModelManifestNodesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ListModelManifestNodesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ListModelManifestNodesCommandOutput/)
 
 </details>
 <details>
@@ -486,7 +494,7 @@ ListModelManifestNodes
 ListModelManifests
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/listmodelmanifestscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/listmodelmanifestscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/listmodelmanifestscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/ListModelManifestsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ListModelManifestsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ListModelManifestsCommandOutput/)
 
 </details>
 <details>
@@ -494,7 +502,7 @@ ListModelManifests
 ListSignalCatalogNodes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/listsignalcatalognodescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/listsignalcatalognodescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/listsignalcatalognodescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/ListSignalCatalogNodesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ListSignalCatalogNodesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ListSignalCatalogNodesCommandOutput/)
 
 </details>
 <details>
@@ -502,7 +510,7 @@ ListSignalCatalogNodes
 ListSignalCatalogs
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/listsignalcatalogscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/listsignalcatalogscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/listsignalcatalogscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/ListSignalCatalogsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ListSignalCatalogsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ListSignalCatalogsCommandOutput/)
 
 </details>
 <details>
@@ -510,7 +518,7 @@ ListSignalCatalogs
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ListTagsForResourceCommandOutput/)
 
 </details>
 <details>
@@ -518,7 +526,7 @@ ListTagsForResource
 ListVehicles
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/listvehiclescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/listvehiclescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/listvehiclescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/ListVehiclesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ListVehiclesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ListVehiclesCommandOutput/)
 
 </details>
 <details>
@@ -526,7 +534,15 @@ ListVehicles
 ListVehiclesInFleet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/listvehiclesinfleetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/listvehiclesinfleetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/listvehiclesinfleetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/ListVehiclesInFleetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ListVehiclesInFleetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/ListVehiclesInFleetCommandOutput/)
+
+</details>
+<details>
+<summary>
+PutEncryptionConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/PutEncryptionConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/PutEncryptionConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/PutEncryptionConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -534,7 +550,7 @@ ListVehiclesInFleet
 PutLoggingOptions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/putloggingoptionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/putloggingoptionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/putloggingoptionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/PutLoggingOptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/PutLoggingOptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/PutLoggingOptionsCommandOutput/)
 
 </details>
 <details>
@@ -542,7 +558,7 @@ PutLoggingOptions
 RegisterAccount
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/registeraccountcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/registeraccountcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/registeraccountcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/RegisterAccountCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/RegisterAccountCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/RegisterAccountCommandOutput/)
 
 </details>
 <details>
@@ -550,7 +566,7 @@ RegisterAccount
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -558,7 +574,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -566,7 +582,7 @@ UntagResource
 UpdateCampaign
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/updatecampaigncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/updatecampaigncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/updatecampaigncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/UpdateCampaignCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/UpdateCampaignCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/UpdateCampaignCommandOutput/)
 
 </details>
 <details>
@@ -574,7 +590,7 @@ UpdateCampaign
 UpdateDecoderManifest
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/updatedecodermanifestcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/updatedecodermanifestcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/updatedecodermanifestcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/UpdateDecoderManifestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/UpdateDecoderManifestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/UpdateDecoderManifestCommandOutput/)
 
 </details>
 <details>
@@ -582,7 +598,7 @@ UpdateDecoderManifest
 UpdateFleet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/updatefleetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/updatefleetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/updatefleetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/UpdateFleetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/UpdateFleetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/UpdateFleetCommandOutput/)
 
 </details>
 <details>
@@ -590,7 +606,7 @@ UpdateFleet
 UpdateModelManifest
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/updatemodelmanifestcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/updatemodelmanifestcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/updatemodelmanifestcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/UpdateModelManifestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/UpdateModelManifestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/UpdateModelManifestCommandOutput/)
 
 </details>
 <details>
@@ -598,7 +614,7 @@ UpdateModelManifest
 UpdateSignalCatalog
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/updatesignalcatalogcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/updatesignalcatalogcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/updatesignalcatalogcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/UpdateSignalCatalogCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/UpdateSignalCatalogCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/UpdateSignalCatalogCommandOutput/)
 
 </details>
 <details>
@@ -606,6 +622,6 @@ UpdateSignalCatalog
 UpdateVehicle
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/classes/updatevehiclecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/updatevehiclecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotfleetwise/interfaces/updatevehiclecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotfleetwise/command/UpdateVehicleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/UpdateVehicleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotfleetwise/Interface/UpdateVehicleCommandOutput/)
 
 </details>

@@ -153,7 +153,7 @@ export interface GenerateDataSetRequest {
    *             </ul>
    *         </p>
    */
-  dataSetType: DataSetType | string | undefined;
+  dataSetType: DataSetType | undefined;
 
   /**
    * @public
@@ -239,18 +239,29 @@ export class MarketplaceCommerceAnalyticsException extends __BaseException {
 
 /**
  * @public
+ * @enum
  */
-export type SupportDataSetType = "customer_support_contacts_data" | "test_customer_support_contacts_data";
+export const SupportDataSetType = {
+  customer_support_contacts_data: "customer_support_contacts_data",
+  test_customer_support_contacts_data: "test_customer_support_contacts_data",
+} as const;
 
 /**
  * @public
- * Container for the parameters to the StartSupportDataExport operation.
+ */
+export type SupportDataSetType = (typeof SupportDataSetType)[keyof typeof SupportDataSetType];
+
+/**
+ * @public
+ * @deprecated
+ *
+ * <i>This target has been deprecated.</i> Container for the parameters to the StartSupportDataExport operation.
  */
 export interface StartSupportDataExportRequest {
   /**
    * @public
    * <p>
-   *            Specifies the data set type to be written to the output csv file. The data set types customer_support_contacts_data and
+   *             <i>This target has been deprecated.</i> Specifies the data set type to be written to the output csv file. The data set types customer_support_contacts_data and
    *            test_customer_support_contacts_data both result in a csv file containing the following fields: Product Id, Product Code, Customer Guid,
    *            Subscription Guid, Subscription Start Date, Organization, AWS Account Id, Given Name, Surname, Telephone Number, Email, Title,
    *            Country Code, ZIP Code, Operation Type, and Operation Time.
@@ -262,30 +273,30 @@ export interface StartSupportDataExportRequest {
    *             </ul>
    *         </p>
    */
-  dataSetType: SupportDataSetType | string | undefined;
+  dataSetType: SupportDataSetType | undefined;
 
   /**
    * @public
-   * The start date from which to retrieve the data set in UTC.  This parameter only affects the customer_support_contacts_data data set type.
+   * <i>This target has been deprecated.</i> The start date from which to retrieve the data set in UTC.  This parameter only affects the customer_support_contacts_data data set type.
    */
   fromDate: Date | undefined;
 
   /**
    * @public
-   * The Amazon Resource Name (ARN) of the Role with an attached permissions policy to interact with the provided
+   * <i>This target has been deprecated.</i> The Amazon Resource Name (ARN) of the Role with an attached permissions policy to interact with the provided
    *         AWS services.
    */
   roleNameArn: string | undefined;
 
   /**
    * @public
-   * The name (friendly name, not ARN) of the destination S3 bucket.
+   * <i>This target has been deprecated.</i> The name (friendly name, not ARN) of the destination S3 bucket.
    */
   destinationS3BucketName: string | undefined;
 
   /**
    * @public
-   * (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems.
+   * <i>This target has been deprecated.</i> (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems.
    *         For example, if given the bucket name "mybucket" and the prefix "myprefix/mydatasets", the output file
    *         "outputfile" would be published to "s3://mybucket/myprefix/mydatasets/outputfile".
    *         If the prefix directory structure does not exist, it will be created.
@@ -295,14 +306,14 @@ export interface StartSupportDataExportRequest {
 
   /**
    * @public
-   * Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an
+   * <i>This target has been deprecated.</i> Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an
    *         error has occurred.
    */
   snsTopicArn: string | undefined;
 
   /**
    * @public
-   * (Optional) Key-value pairs which will be returned, unmodified, in the
+   * <i>This target has been deprecated.</i> (Optional) Key-value pairs which will be returned, unmodified, in the
    *         Amazon SNS notification message and the data set metadata file.
    */
   customerDefinedValues?: Record<string, string>;
@@ -310,12 +321,14 @@ export interface StartSupportDataExportRequest {
 
 /**
  * @public
- * Container for the result of the StartSupportDataExport operation.
+ * @deprecated
+ *
+ * <i>This target has been deprecated.</i> Container for the result of the StartSupportDataExport operation.
  */
 export interface StartSupportDataExportResult {
   /**
    * @public
-   * A unique identifier representing a specific request to the StartSupportDataExport operation. This identifier can be
+   * <i>This target has been deprecated.</i> A unique identifier representing a specific request to the StartSupportDataExport operation. This identifier can be
    *         used to correlate a request with notifications from the SNS topic.
    */
   dataSetRequestId?: string;

@@ -8,9 +8,13 @@
 export * from "./MediaLiveClient";
 export * from "./MediaLive";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { MediaLiveExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./waiters";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { MediaLiveServiceException } from "./models/MediaLiveServiceException";

@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -70,6 +68,7 @@ import {
 import { CreateArtifactCommandInput, CreateArtifactCommandOutput } from "./commands/CreateArtifactCommand";
 import { CreateAutoMLJobCommandInput, CreateAutoMLJobCommandOutput } from "./commands/CreateAutoMLJobCommand";
 import { CreateAutoMLJobV2CommandInput, CreateAutoMLJobV2CommandOutput } from "./commands/CreateAutoMLJobV2Command";
+import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
 import {
   CreateCodeRepositoryCommandInput,
   CreateCodeRepositoryCommandOutput,
@@ -116,6 +115,10 @@ import {
 } from "./commands/CreateHyperParameterTuningJobCommand";
 import { CreateImageCommandInput, CreateImageCommandOutput } from "./commands/CreateImageCommand";
 import { CreateImageVersionCommandInput, CreateImageVersionCommandOutput } from "./commands/CreateImageVersionCommand";
+import {
+  CreateInferenceComponentCommandInput,
+  CreateInferenceComponentCommandOutput,
+} from "./commands/CreateInferenceComponentCommand";
 import {
   CreateInferenceExperimentCommandInput,
   CreateInferenceExperimentCommandOutput,
@@ -198,10 +201,15 @@ import {
 } from "./commands/DeleteAppImageConfigCommand";
 import { DeleteArtifactCommandInput, DeleteArtifactCommandOutput } from "./commands/DeleteArtifactCommand";
 import { DeleteAssociationCommandInput, DeleteAssociationCommandOutput } from "./commands/DeleteAssociationCommand";
+import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
 import {
   DeleteCodeRepositoryCommandInput,
   DeleteCodeRepositoryCommandOutput,
 } from "./commands/DeleteCodeRepositoryCommand";
+import {
+  DeleteCompilationJobCommandInput,
+  DeleteCompilationJobCommandOutput,
+} from "./commands/DeleteCompilationJobCommand";
 import { DeleteContextCommandInput, DeleteContextCommandOutput } from "./commands/DeleteContextCommand";
 import {
   DeleteDataQualityJobDefinitionCommandInput,
@@ -231,8 +239,16 @@ import {
 import { DeleteHubCommandInput, DeleteHubCommandOutput } from "./commands/DeleteHubCommand";
 import { DeleteHubContentCommandInput, DeleteHubContentCommandOutput } from "./commands/DeleteHubContentCommand";
 import { DeleteHumanTaskUiCommandInput, DeleteHumanTaskUiCommandOutput } from "./commands/DeleteHumanTaskUiCommand";
+import {
+  DeleteHyperParameterTuningJobCommandInput,
+  DeleteHyperParameterTuningJobCommandOutput,
+} from "./commands/DeleteHyperParameterTuningJobCommand";
 import { DeleteImageCommandInput, DeleteImageCommandOutput } from "./commands/DeleteImageCommand";
 import { DeleteImageVersionCommandInput, DeleteImageVersionCommandOutput } from "./commands/DeleteImageVersionCommand";
+import {
+  DeleteInferenceComponentCommandInput,
+  DeleteInferenceComponentCommandOutput,
+} from "./commands/DeleteInferenceComponentCommand";
 import {
   DeleteInferenceExperimentCommandInput,
   DeleteInferenceExperimentCommandOutput,
@@ -302,6 +318,11 @@ import {
   DescribeAutoMLJobV2CommandInput,
   DescribeAutoMLJobV2CommandOutput,
 } from "./commands/DescribeAutoMLJobV2Command";
+import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
+import {
+  DescribeClusterNodeCommandInput,
+  DescribeClusterNodeCommandOutput,
+} from "./commands/DescribeClusterNodeCommand";
 import {
   DescribeCodeRepositoryCommandInput,
   DescribeCodeRepositoryCommandOutput,
@@ -362,6 +383,10 @@ import {
   DescribeImageVersionCommandInput,
   DescribeImageVersionCommandOutput,
 } from "./commands/DescribeImageVersionCommand";
+import {
+  DescribeInferenceComponentCommandInput,
+  DescribeInferenceComponentCommandOutput,
+} from "./commands/DescribeInferenceComponentCommand";
 import {
   DescribeInferenceExperimentCommandInput,
   DescribeInferenceExperimentCommandOutput,
@@ -510,6 +535,8 @@ import {
   ListCandidatesForAutoMLJobCommandInput,
   ListCandidatesForAutoMLJobCommandOutput,
 } from "./commands/ListCandidatesForAutoMLJobCommand";
+import { ListClusterNodesCommandInput, ListClusterNodesCommandOutput } from "./commands/ListClusterNodesCommand";
+import { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
 import {
   ListCodeRepositoriesCommandInput,
   ListCodeRepositoriesCommandOutput,
@@ -558,6 +585,10 @@ import {
 } from "./commands/ListHyperParameterTuningJobsCommand";
 import { ListImagesCommandInput, ListImagesCommandOutput } from "./commands/ListImagesCommand";
 import { ListImageVersionsCommandInput, ListImageVersionsCommandOutput } from "./commands/ListImageVersionsCommand";
+import {
+  ListInferenceComponentsCommandInput,
+  ListInferenceComponentsCommandOutput,
+} from "./commands/ListInferenceComponentsCommand";
 import {
   ListInferenceExperimentsCommandInput,
   ListInferenceExperimentsCommandOutput,
@@ -756,6 +787,7 @@ import {
   UpdateAppImageConfigCommandOutput,
 } from "./commands/UpdateAppImageConfigCommand";
 import { UpdateArtifactCommandInput, UpdateArtifactCommandOutput } from "./commands/UpdateArtifactCommand";
+import { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "./commands/UpdateClusterCommand";
 import {
   UpdateCodeRepositoryCommandInput,
   UpdateCodeRepositoryCommandOutput,
@@ -778,6 +810,14 @@ import {
 import { UpdateHubCommandInput, UpdateHubCommandOutput } from "./commands/UpdateHubCommand";
 import { UpdateImageCommandInput, UpdateImageCommandOutput } from "./commands/UpdateImageCommand";
 import { UpdateImageVersionCommandInput, UpdateImageVersionCommandOutput } from "./commands/UpdateImageVersionCommand";
+import {
+  UpdateInferenceComponentCommandInput,
+  UpdateInferenceComponentCommandOutput,
+} from "./commands/UpdateInferenceComponentCommand";
+import {
+  UpdateInferenceComponentRuntimeConfigCommandInput,
+  UpdateInferenceComponentRuntimeConfigCommandOutput,
+} from "./commands/UpdateInferenceComponentRuntimeConfigCommand";
 import {
   UpdateInferenceExperimentCommandInput,
   UpdateInferenceExperimentCommandOutput,
@@ -842,6 +882,7 @@ export type ServiceInputTypes =
   | CreateArtifactCommandInput
   | CreateAutoMLJobCommandInput
   | CreateAutoMLJobV2CommandInput
+  | CreateClusterCommandInput
   | CreateCodeRepositoryCommandInput
   | CreateCompilationJobCommandInput
   | CreateContextCommandInput
@@ -861,6 +902,7 @@ export type ServiceInputTypes =
   | CreateHyperParameterTuningJobCommandInput
   | CreateImageCommandInput
   | CreateImageVersionCommandInput
+  | CreateInferenceComponentCommandInput
   | CreateInferenceExperimentCommandInput
   | CreateInferenceRecommendationsJobCommandInput
   | CreateLabelingJobCommandInput
@@ -895,7 +937,9 @@ export type ServiceInputTypes =
   | DeleteAppImageConfigCommandInput
   | DeleteArtifactCommandInput
   | DeleteAssociationCommandInput
+  | DeleteClusterCommandInput
   | DeleteCodeRepositoryCommandInput
+  | DeleteCompilationJobCommandInput
   | DeleteContextCommandInput
   | DeleteDataQualityJobDefinitionCommandInput
   | DeleteDeviceFleetCommandInput
@@ -910,8 +954,10 @@ export type ServiceInputTypes =
   | DeleteHubCommandInput
   | DeleteHubContentCommandInput
   | DeleteHumanTaskUiCommandInput
+  | DeleteHyperParameterTuningJobCommandInput
   | DeleteImageCommandInput
   | DeleteImageVersionCommandInput
+  | DeleteInferenceComponentCommandInput
   | DeleteInferenceExperimentCommandInput
   | DeleteModelBiasJobDefinitionCommandInput
   | DeleteModelCardCommandInput
@@ -942,6 +988,8 @@ export type ServiceInputTypes =
   | DescribeArtifactCommandInput
   | DescribeAutoMLJobCommandInput
   | DescribeAutoMLJobV2CommandInput
+  | DescribeClusterCommandInput
+  | DescribeClusterNodeCommandInput
   | DescribeCodeRepositoryCommandInput
   | DescribeCompilationJobCommandInput
   | DescribeContextCommandInput
@@ -963,6 +1011,7 @@ export type ServiceInputTypes =
   | DescribeHyperParameterTuningJobCommandInput
   | DescribeImageCommandInput
   | DescribeImageVersionCommandInput
+  | DescribeInferenceComponentCommandInput
   | DescribeInferenceExperimentCommandInput
   | DescribeInferenceRecommendationsJobCommandInput
   | DescribeLabelingJobCommandInput
@@ -1012,6 +1061,8 @@ export type ServiceInputTypes =
   | ListAssociationsCommandInput
   | ListAutoMLJobsCommandInput
   | ListCandidatesForAutoMLJobCommandInput
+  | ListClusterNodesCommandInput
+  | ListClustersCommandInput
   | ListCodeRepositoriesCommandInput
   | ListCompilationJobsCommandInput
   | ListContextsCommandInput
@@ -1033,6 +1084,7 @@ export type ServiceInputTypes =
   | ListHyperParameterTuningJobsCommandInput
   | ListImageVersionsCommandInput
   | ListImagesCommandInput
+  | ListInferenceComponentsCommandInput
   | ListInferenceExperimentsCommandInput
   | ListInferenceRecommendationsJobStepsCommandInput
   | ListInferenceRecommendationsJobsCommandInput
@@ -1105,6 +1157,7 @@ export type ServiceInputTypes =
   | UpdateActionCommandInput
   | UpdateAppImageConfigCommandInput
   | UpdateArtifactCommandInput
+  | UpdateClusterCommandInput
   | UpdateCodeRepositoryCommandInput
   | UpdateContextCommandInput
   | UpdateDeviceFleetCommandInput
@@ -1118,6 +1171,8 @@ export type ServiceInputTypes =
   | UpdateHubCommandInput
   | UpdateImageCommandInput
   | UpdateImageVersionCommandInput
+  | UpdateInferenceComponentCommandInput
+  | UpdateInferenceComponentRuntimeConfigCommandInput
   | UpdateInferenceExperimentCommandInput
   | UpdateModelCardCommandInput
   | UpdateModelPackageCommandInput
@@ -1151,6 +1206,7 @@ export type ServiceOutputTypes =
   | CreateArtifactCommandOutput
   | CreateAutoMLJobCommandOutput
   | CreateAutoMLJobV2CommandOutput
+  | CreateClusterCommandOutput
   | CreateCodeRepositoryCommandOutput
   | CreateCompilationJobCommandOutput
   | CreateContextCommandOutput
@@ -1170,6 +1226,7 @@ export type ServiceOutputTypes =
   | CreateHyperParameterTuningJobCommandOutput
   | CreateImageCommandOutput
   | CreateImageVersionCommandOutput
+  | CreateInferenceComponentCommandOutput
   | CreateInferenceExperimentCommandOutput
   | CreateInferenceRecommendationsJobCommandOutput
   | CreateLabelingJobCommandOutput
@@ -1204,7 +1261,9 @@ export type ServiceOutputTypes =
   | DeleteAppImageConfigCommandOutput
   | DeleteArtifactCommandOutput
   | DeleteAssociationCommandOutput
+  | DeleteClusterCommandOutput
   | DeleteCodeRepositoryCommandOutput
+  | DeleteCompilationJobCommandOutput
   | DeleteContextCommandOutput
   | DeleteDataQualityJobDefinitionCommandOutput
   | DeleteDeviceFleetCommandOutput
@@ -1219,8 +1278,10 @@ export type ServiceOutputTypes =
   | DeleteHubCommandOutput
   | DeleteHubContentCommandOutput
   | DeleteHumanTaskUiCommandOutput
+  | DeleteHyperParameterTuningJobCommandOutput
   | DeleteImageCommandOutput
   | DeleteImageVersionCommandOutput
+  | DeleteInferenceComponentCommandOutput
   | DeleteInferenceExperimentCommandOutput
   | DeleteModelBiasJobDefinitionCommandOutput
   | DeleteModelCardCommandOutput
@@ -1251,6 +1312,8 @@ export type ServiceOutputTypes =
   | DescribeArtifactCommandOutput
   | DescribeAutoMLJobCommandOutput
   | DescribeAutoMLJobV2CommandOutput
+  | DescribeClusterCommandOutput
+  | DescribeClusterNodeCommandOutput
   | DescribeCodeRepositoryCommandOutput
   | DescribeCompilationJobCommandOutput
   | DescribeContextCommandOutput
@@ -1272,6 +1335,7 @@ export type ServiceOutputTypes =
   | DescribeHyperParameterTuningJobCommandOutput
   | DescribeImageCommandOutput
   | DescribeImageVersionCommandOutput
+  | DescribeInferenceComponentCommandOutput
   | DescribeInferenceExperimentCommandOutput
   | DescribeInferenceRecommendationsJobCommandOutput
   | DescribeLabelingJobCommandOutput
@@ -1321,6 +1385,8 @@ export type ServiceOutputTypes =
   | ListAssociationsCommandOutput
   | ListAutoMLJobsCommandOutput
   | ListCandidatesForAutoMLJobCommandOutput
+  | ListClusterNodesCommandOutput
+  | ListClustersCommandOutput
   | ListCodeRepositoriesCommandOutput
   | ListCompilationJobsCommandOutput
   | ListContextsCommandOutput
@@ -1342,6 +1408,7 @@ export type ServiceOutputTypes =
   | ListHyperParameterTuningJobsCommandOutput
   | ListImageVersionsCommandOutput
   | ListImagesCommandOutput
+  | ListInferenceComponentsCommandOutput
   | ListInferenceExperimentsCommandOutput
   | ListInferenceRecommendationsJobStepsCommandOutput
   | ListInferenceRecommendationsJobsCommandOutput
@@ -1414,6 +1481,7 @@ export type ServiceOutputTypes =
   | UpdateActionCommandOutput
   | UpdateAppImageConfigCommandOutput
   | UpdateArtifactCommandOutput
+  | UpdateClusterCommandOutput
   | UpdateCodeRepositoryCommandOutput
   | UpdateContextCommandOutput
   | UpdateDeviceFleetCommandOutput
@@ -1427,6 +1495,8 @@ export type ServiceOutputTypes =
   | UpdateHubCommandOutput
   | UpdateImageCommandOutput
   | UpdateImageVersionCommandOutput
+  | UpdateInferenceComponentCommandOutput
+  | UpdateInferenceComponentRuntimeConfigCommandOutput
   | UpdateInferenceExperimentCommandOutput
   | UpdateModelCardCommandOutput
   | UpdateModelPackageCommandOutput
@@ -1555,6 +1625,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

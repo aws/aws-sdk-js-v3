@@ -1,19 +1,11 @@
 // smithy-typescript generated code
 import { getCrossRegionPresignedUrlPlugin } from "@aws-sdk/middleware-sdk-rds";
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateDBClusterMessage, CreateDBClusterResult } from "../models/models_0";
 import { de_CreateDBClusterCommand, se_CreateDBClusterCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
@@ -102,6 +94,11 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *     TimeoutAction: "STRING_VALUE",
  *     SecondsBeforeTimeout: Number("int"),
  *   },
+ *   RdsCustomClusterConfiguration: { // RdsCustomClusterConfiguration
+ *     InterconnectSubnetId: "STRING_VALUE",
+ *     TransitGatewayMulticastDomainId: "STRING_VALUE",
+ *     ReplicaMode: "open-read-only" || "mounted",
+ *   },
  *   DeletionProtection: true || false,
  *   GlobalClusterIdentifier: "STRING_VALUE",
  *   EnableHttpEndpoint: true || false,
@@ -120,6 +117,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *   EnablePerformanceInsights: true || false,
  *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
  *   PerformanceInsightsRetentionPeriod: Number("int"),
+ *   EnableLimitlessDatabase: true || false,
  *   ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfiguration
  *     MinCapacity: Number("double"),
  *     MaxCapacity: Number("double"),
@@ -171,6 +169,14 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * //     ReadReplicaIdentifiers: [ // ReadReplicaIdentifierList
  * //       "STRING_VALUE",
  * //     ],
+ * //     StatusInfos: [ // DBClusterStatusInfoList
+ * //       { // DBClusterStatusInfo
+ * //         StatusType: "STRING_VALUE",
+ * //         Normal: true || false,
+ * //         Status: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     DBClusterMembers: [ // DBClusterMemberList
  * //       { // DBClusterMember
  * //         DBInstanceIdentifier: "STRING_VALUE",
@@ -216,6 +222,11 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * //       TimeoutAction: "STRING_VALUE",
  * //       SecondsBeforeTimeout: Number("int"),
  * //     },
+ * //     RdsCustomClusterConfiguration: { // RdsCustomClusterConfiguration
+ * //       InterconnectSubnetId: "STRING_VALUE",
+ * //       TransitGatewayMulticastDomainId: "STRING_VALUE",
+ * //       ReplicaMode: "open-read-only" || "mounted",
+ * //     },
  * //     DeletionProtection: true || false,
  * //     HttpEndpointEnabled: true || false,
  * //     ActivityStreamMode: "sync" || "async",
@@ -260,6 +271,11 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * //       EngineVersion: "STRING_VALUE",
  * //       BackupRetentionPeriod: Number("int"),
  * //       AllocatedStorage: Number("int"),
+ * //       RdsCustomClusterConfiguration: {
+ * //         InterconnectSubnetId: "STRING_VALUE",
+ * //         TransitGatewayMulticastDomainId: "STRING_VALUE",
+ * //         ReplicaMode: "open-read-only" || "mounted",
+ * //       },
  * //       Iops: Number("int"),
  * //       StorageType: "STRING_VALUE",
  * //     },
@@ -286,6 +302,11 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * //     },
  * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
  * //     LocalWriteForwardingStatus: "enabled" || "disabled" || "enabling" || "disabling" || "requested",
+ * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
+ * //     LimitlessDatabase: { // LimitlessDatabase
+ * //       Status: "active" || "not-in-use" || "enabled" || "disabled" || "enabling" || "disabling" || "modifying-max-capacity" || "error",
+ * //       MinRequiredACU: Number("double"),
+ * //     },
  * //   },
  * // };
  *
@@ -331,6 +352,10 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * @throws {@link GlobalClusterNotFoundFault} (client fault)
  *  <p>The <code>GlobalClusterIdentifier</code> doesn't refer to an existing global database cluster.</p>
  *
+ * @throws {@link InsufficientDBInstanceCapacityFault} (client fault)
+ *  <p>The specified DB instance class isn't available in the specified Availability
+ *             Zone.</p>
+ *
  * @throws {@link InsufficientStorageClusterCapacityFault} (client fault)
  *  <p>There is insufficient storage available for the current action. You might be able to
  *             resolve this error by updating your subnet group to use different Availability Zones
@@ -341,6 +366,10 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The DB instance isn't in a valid state.</p>
+ *
+ * @throws {@link InvalidDBSubnetGroupFault} (client fault)
+ *  <p>The DBSubnetGroup doesn't belong to the same VPC as that of an existing
+ *             cross-region read replica of the same source instance.</p>
  *
  * @throws {@link InvalidDBSubnetGroupStateFault} (client fault)
  *  <p>The DB subnet group cannot be deleted because it's in use.</p>
@@ -357,6 +386,9 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *
  * @throws {@link KMSKeyNotAccessibleFault} (client fault)
  *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+ *
+ * @throws {@link OptionGroupNotFoundFault} (client fault)
+ *  <p>The specified option group could not be found.</p>
  *
  * @throws {@link StorageQuotaExceededFault} (client fault)
  *  <p>The request would result in the user exceeding the allowed amount of storage
@@ -493,80 +525,27 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * ```
  *
  */
-export class CreateDBClusterCommand extends $Command<
-  CreateDBClusterCommandInput,
-  CreateDBClusterCommandOutput,
-  RDSClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateDBClusterCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RDSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateDBClusterCommandInput, CreateDBClusterCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateDBClusterCommand.getEndpointParameterInstructions())
-    );
-    this.middlewareStack.use(getCrossRegionPresignedUrlPlugin(configuration));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RDSClient";
-    const commandName = "CreateDBClusterCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateDBClusterCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDBClusterCommandOutput> {
-    return de_CreateDBClusterCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateDBClusterCommand extends $Command
+  .classBuilder<
+    CreateDBClusterCommandInput,
+    CreateDBClusterCommandOutput,
+    RDSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getCrossRegionPresignedUrlPlugin(config),
+    ];
+  })
+  .s("AmazonRDSv19", "CreateDBCluster", {})
+  .n("RDSClient", "CreateDBClusterCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateDBClusterCommand)
+  .de(de_CreateDBClusterCommand)
+  .build() {}

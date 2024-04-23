@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateNFSFileShareInput, UpdateNFSFileShareOutput } from "../models/models_0";
 import { de_UpdateNFSFileShareCommand, se_UpdateNFSFileShareCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
@@ -38,14 +30,11 @@ export interface UpdateNFSFileShareCommandOutput extends UpdateNFSFileShareOutpu
  * @public
  * <p>Updates a Network File System (NFS) file share. This operation is only supported in S3
  *          File Gateways.</p>
- *
  *          <note>
  *             <p>To leave a file share field unchanged, set the corresponding input field to
  *             null.</p>
  *          </note>
- *
  *          <p>Updates the following file share settings:</p>
- *
  *          <ul>
  *             <li>
  *                <p>Default storage class for your S3 bucket</p>
@@ -80,7 +69,7 @@ export interface UpdateNFSFileShareCommandOutput extends UpdateNFSFileShareOutpu
  *     OwnerId: Number("long"),
  *   },
  *   DefaultStorageClass: "STRING_VALUE",
- *   ObjectACL: "STRING_VALUE",
+ *   ObjectACL: "private" || "public-read" || "public-read-write" || "authenticated-read" || "bucket-owner-read" || "bucket-owner-full-control" || "aws-exec-read",
  *   ClientList: [ // FileShareClientList
  *     "STRING_VALUE",
  *   ],
@@ -121,79 +110,26 @@ export interface UpdateNFSFileShareCommandOutput extends UpdateNFSFileShareOutpu
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
-export class UpdateNFSFileShareCommand extends $Command<
-  UpdateNFSFileShareCommandInput,
-  UpdateNFSFileShareCommandOutput,
-  StorageGatewayClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateNFSFileShareCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: StorageGatewayClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateNFSFileShareCommandInput, UpdateNFSFileShareCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateNFSFileShareCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "StorageGatewayClient";
-    const commandName = "UpdateNFSFileShareCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateNFSFileShareCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateNFSFileShareCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateNFSFileShareCommandOutput> {
-    return de_UpdateNFSFileShareCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateNFSFileShareCommand extends $Command
+  .classBuilder<
+    UpdateNFSFileShareCommandInput,
+    UpdateNFSFileShareCommandOutput,
+    StorageGatewayClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("StorageGateway_20130630", "UpdateNFSFileShare", {})
+  .n("StorageGatewayClient", "UpdateNFSFileShareCommand")
+  .f(void 0, void 0)
+  .ser(se_UpdateNFSFileShareCommand)
+  .de(de_UpdateNFSFileShareCommand)
+  .build() {}

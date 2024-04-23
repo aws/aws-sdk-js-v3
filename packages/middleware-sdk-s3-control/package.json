@@ -1,9 +1,9 @@
 {
   "name": "@aws-sdk/middleware-sdk-s3-control",
-  "version": "3.391.0",
+  "version": "3.496.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
-    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:cjs": "node ../../scripts/compilation/inline middleware-sdk-s3-control",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",
@@ -26,17 +26,17 @@
     "@aws-sdk/types": "*",
     "@aws-sdk/util-arn-parser": "*",
     "@aws-sdk/util-endpoints": "*",
-    "@smithy/protocol-http": "^2.0.3",
-    "@smithy/types": "^2.2.0",
+    "@smithy/protocol-http": "^3.1.1",
+    "@smithy/types": "^2.9.1",
+    "@smithy/util-endpoints": "^1.1.1",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
-    "@smithy/middleware-stack": "^2.0.0",
+    "@smithy/middleware-stack": "^2.1.1",
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typedoc": "0.23.23",
     "typescript": "~4.9.5"
   },
   "engines": {
@@ -57,8 +57,5 @@
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/middleware-sdk-s3-control"
-  },
-  "typedoc": {
-    "entryPoint": "src/index.ts"
   }
 }

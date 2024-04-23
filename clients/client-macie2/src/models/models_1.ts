@@ -9,6 +9,7 @@ import {
   FindingCriteria,
   FindingPublishingFrequency,
   FindingsFilterAction,
+  FindingsFilterListItem,
   Invitation,
   JobStatus,
   MacieStatus,
@@ -17,6 +18,8 @@ import {
   Member,
   OrderBy,
   ResourceProfileArtifact,
+  RetrievalConfiguration,
+  RetrievalMode,
   RevealConfiguration,
   SearchResourcesCriteria,
   SecurityHubConfiguration,
@@ -25,6 +28,40 @@ import {
   SensitivityInspectionTemplatesEntry,
   SuppressDataIdentifier,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListFindingsFiltersRequest {
+  /**
+   * @public
+   * <p>The maximum number of items to include in each page of a paginated response.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListFindingsFiltersResponse {
+  /**
+   * @public
+   * <p>An array of objects, one for each filter that's associated with the account.</p>
+   */
+  findingsFilterListItems?: FindingsFilterListItem[];
+
+  /**
+   * @public
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   */
+  nextToken?: string;
+}
 
 /**
  * @public
@@ -392,13 +429,13 @@ export interface SearchResourcesSortCriteria {
    * @public
    * <p>The property to sort the results by.</p>
    */
-  attributeName?: SearchResourcesSortAttributeName | string;
+  attributeName?: SearchResourcesSortAttributeName;
 
   /**
    * @public
    * <p>The sort order to apply to the results, based on the value for the property specified by the attributeName property. Valid values are: ASC, sort the results in ascending order; and, DESC, sort the results in descending order.</p>
    */
-  orderBy?: OrderBy | string;
+  orderBy?: OrderBy;
 }
 
 /**
@@ -591,7 +628,7 @@ export interface UpdateAutomatedDiscoveryConfigurationRequest {
    * @public
    * <p>The new status of automated sensitive data discovery for the account. Valid values are: ENABLED, start or resume automated sensitive data discovery activities for the account; and, DISABLED, stop performing automated sensitive data discovery activities for the account.</p> <p>When you enable automated sensitive data discovery for the first time, Amazon Macie uses default configuration settings to determine which data sources to analyze and which managed data identifiers to use. To change these settings, use the UpdateClassificationScope and UpdateSensitivityInspectionTemplate operations, respectively. If you change the settings and subsequently disable the configuration, Amazon Macie retains your changes.</p>
    */
-  status: AutomatedDiscoveryStatus | string | undefined;
+  status: AutomatedDiscoveryStatus | undefined;
 }
 
 /**
@@ -613,7 +650,7 @@ export interface UpdateClassificationJobRequest {
    * @public
    * <p>The new status for the job. Valid values are:</p> <ul><li><p>CANCELLED - Stops the job permanently and cancels it. This value is valid only if the job's current status is IDLE, PAUSED, RUNNING, or USER_PAUSED.</p> <p>If you specify this value and the job's current status is RUNNING, Amazon Macie immediately begins to stop all processing tasks for the job. You can't resume or restart a job after you cancel it.</p></li> <li><p>RUNNING - Resumes the job. This value is valid only if the job's current status is USER_PAUSED.</p> <p>If you paused the job while it was actively running and you specify this value less than 30 days after you paused the job, Macie immediately resumes processing from the point where you paused the job. Otherwise, Macie resumes the job according to the schedule and other settings for the job.</p></li> <li><p>USER_PAUSED - Pauses the job temporarily. This value is valid only if the job's current status is IDLE, PAUSED, or RUNNING. If you specify this value and the job's current status is RUNNING, Macie immediately begins to pause all processing tasks for the job.</p> <p>If you pause a one-time job and you don't resume it within 30 days, the job expires and Macie cancels the job. If you pause a recurring job when its status is RUNNING and you don't resume it within 30 days, the job run expires and Macie cancels the run. To check the expiration date, refer to the UserPausedDetails.jobExpiresAt property.</p></li></ul>
    */
-  jobStatus: JobStatus | string | undefined;
+  jobStatus: JobStatus | undefined;
 }
 
 /**
@@ -636,7 +673,7 @@ export interface S3ClassificationScopeExclusionUpdate {
    * @public
    * <p>Specifies how to apply the changes to the exclusion list. Valid values are:</p> <ul><li><p>ADD - Append the specified bucket names to the current list.</p></li> <li><p>REMOVE - Remove the specified bucket names from the current list.</p></li> <li><p>REPLACE - Overwrite the current list with the specified list of bucket names. If you specify this value, Amazon Macie removes all existing names from the list and adds all the specified names to the list.</p></li></ul>
    */
-  operation: ClassificationScopeUpdateOperation | string | undefined;
+  operation: ClassificationScopeUpdateOperation | undefined;
 }
 
 /**
@@ -681,7 +718,7 @@ export interface UpdateFindingsFilterRequest {
    * @public
    * <p>The action to perform on findings that match the filter criteria (findingCriteria). Valid values are: ARCHIVE, suppress (automatically archive) the findings; and, NOOP, don't perform any action on the findings.</p>
    */
-  action?: FindingsFilterAction | string;
+  action?: FindingsFilterAction;
 
   /**
    * @public
@@ -745,13 +782,13 @@ export interface UpdateMacieSessionRequest {
    * @public
    * <p>Specifies how often to publish updates to policy findings for the account. This includes publishing updates to Security Hub and Amazon EventBridge (formerly Amazon CloudWatch Events).</p>
    */
-  findingPublishingFrequency?: FindingPublishingFrequency | string;
+  findingPublishingFrequency?: FindingPublishingFrequency;
 
   /**
    * @public
    * <p>Specifies a new status for the account. Valid values are: ENABLED, resume all Amazon Macie activities for the account; and, PAUSED, suspend all Macie activities for the account.</p>
    */
-  status?: MacieStatus | string;
+  status?: MacieStatus;
 }
 
 /**
@@ -773,7 +810,7 @@ export interface UpdateMemberSessionRequest {
    * @public
    * <p>Specifies the new status for the account. Valid values are: ENABLED, resume all Amazon Macie activities for the account; and, PAUSED, suspend all Macie activities for the account.</p>
    */
-  status: MacieStatus | string | undefined;
+  status: MacieStatus | undefined;
 }
 
 /**
@@ -843,13 +880,37 @@ export interface UpdateResourceProfileDetectionsResponse {}
 
 /**
  * @public
+ * <p>Specifies the access method and settings to use when retrieving occurrences of sensitive data reported by findings. If your request specifies an Identity and Access Management (IAM) role to assume, Amazon Macie verifies that the role exists and the attached policies are configured correctly. If there's an issue, Macie returns an error. For information about addressing the issue, see <a href="https://docs.aws.amazon.com/macie/latest/user/findings-retrieve-sd-options.html">Configuration options and requirements for retrieving sensitive data samples</a> in the <i>Amazon Macie User Guide</i>.</p>
+ */
+export interface UpdateRetrievalConfiguration {
+  /**
+   * @public
+   * <p>The access method to use when retrieving sensitive data from affected S3 objects. Valid values are: ASSUME_ROLE, assume an IAM role that is in the affected Amazon Web Services account and delegates access to Amazon Macie; and, CALLER_CREDENTIALS, use the credentials of the IAM user who requests the sensitive data. If you specify ASSUME_ROLE, also specify the name of an existing IAM role for Macie to assume (roleName).</p> <important><p>If you change this value from ASSUME_ROLE to CALLER_CREDENTIALS for an existing configuration, Macie permanently deletes the external ID and role name currently specified for the configuration. These settings can't be recovered after they're deleted.</p></important>
+   */
+  retrievalMode: RetrievalMode | undefined;
+
+  /**
+   * @public
+   * <p>The name of the IAM role that is in the affected Amazon Web Services account and Amazon Macie is allowed to assume when retrieving sensitive data from affected S3 objects for the account. The trust and permissions policies for the role must meet all requirements for Macie to assume the role.</p>
+   */
+  roleName?: string;
+}
+
+/**
+ * @public
  */
 export interface UpdateRevealConfigurationRequest {
   /**
    * @public
-   * <p>The new configuration settings and the status of the configuration for the account.</p>
+   * <p>The KMS key to use to encrypt the sensitive data, and the status of the configuration for the Amazon Macie account.</p>
    */
   configuration: RevealConfiguration | undefined;
+
+  /**
+   * @public
+   * <p>The access method and settings to use when retrieving the sensitive data.</p>
+   */
+  retrievalConfiguration?: UpdateRetrievalConfiguration;
 }
 
 /**
@@ -858,9 +919,15 @@ export interface UpdateRevealConfigurationRequest {
 export interface UpdateRevealConfigurationResponse {
   /**
    * @public
-   * <p>The new configuration settings and the status of the configuration for the account.</p>
+   * <p>The KMS key to use to encrypt the sensitive data, and the status of the configuration for the Amazon Macie account.</p>
    */
   configuration?: RevealConfiguration;
+
+  /**
+   * @public
+   * <p>The access method and settings to use when retrieving the sensitive data.</p>
+   */
+  retrievalConfiguration?: RetrievalConfiguration;
 }
 
 /**
@@ -887,7 +954,7 @@ export interface UpdateSensitivityInspectionTemplateRequest {
 
   /**
    * @public
-   * <p>The allow lists, custom data identifiers, and managed data identifiers to include (use) when analyzing data.</p>
+   * <p>The allow lists, custom data identifiers, and managed data identifiers to explicitly include (use) when analyzing data.</p>
    */
   includes?: SensitivityInspectionTemplateIncludes;
 }

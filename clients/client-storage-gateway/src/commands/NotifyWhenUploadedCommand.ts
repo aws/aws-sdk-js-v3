@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { NotifyWhenUploadedInput, NotifyWhenUploadedOutput } from "../models/models_0";
 import { de_NotifyWhenUploadedCommand, se_NotifyWhenUploadedCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient";
@@ -37,17 +29,14 @@ export interface NotifyWhenUploadedCommandOutput extends NotifyWhenUploadedOutpu
 /**
  * @public
  * <p>Sends you notification through CloudWatch Events when all files written to your file
- *          share have been uploaded to S3. Amazon S3.</p>
- *
+ *          share have been uploaded to Amazon S3.</p>
  *          <p>Storage Gateway can send a notification through Amazon CloudWatch Events when all
  *          files written to your file share up to that point in time have been uploaded to Amazon S3. These files include files written to the file share up to the time that you
  *          make a request for notification. When the upload is done, Storage Gateway sends you
  *          notification through an Amazon CloudWatch Event. You can configure CloudWatch Events to
  *          send the notification through event targets such as Amazon SNS or Lambda function. This operation is only supported for S3 File Gateways.</p>
- *
- *
- *
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/monitoring-file-gateway.html#get-upload-notification">Getting file upload notification</a> in the <i>Storage Gateway User
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/filegateway/latest/files3/monitoring-file-gateway.html#get-notification">Getting
+ *             file upload notification</a> in the <i>Amazon S3 File Gateway User
  *             Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,79 +74,26 @@ export interface NotifyWhenUploadedCommandOutput extends NotifyWhenUploadedOutpu
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
  */
-export class NotifyWhenUploadedCommand extends $Command<
-  NotifyWhenUploadedCommandInput,
-  NotifyWhenUploadedCommandOutput,
-  StorageGatewayClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: NotifyWhenUploadedCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: StorageGatewayClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<NotifyWhenUploadedCommandInput, NotifyWhenUploadedCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, NotifyWhenUploadedCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "StorageGatewayClient";
-    const commandName = "NotifyWhenUploadedCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: NotifyWhenUploadedCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_NotifyWhenUploadedCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<NotifyWhenUploadedCommandOutput> {
-    return de_NotifyWhenUploadedCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class NotifyWhenUploadedCommand extends $Command
+  .classBuilder<
+    NotifyWhenUploadedCommandInput,
+    NotifyWhenUploadedCommandOutput,
+    StorageGatewayClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("StorageGateway_20130630", "NotifyWhenUploaded", {})
+  .n("StorageGatewayClient", "NotifyWhenUploadedCommand")
+  .f(void 0, void 0)
+  .ser(se_NotifyWhenUploadedCommand)
+  .de(de_NotifyWhenUploadedCommand)
+  .build() {}

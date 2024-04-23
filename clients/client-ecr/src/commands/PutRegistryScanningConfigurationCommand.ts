@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { PutRegistryScanningConfigurationRequest, PutRegistryScanningConfigurationResponse } from "../models/models_0";
 import {
   de_PutRegistryScanningConfigurationCommand,
@@ -49,14 +41,14 @@ export interface PutRegistryScanningConfigurationCommandOutput
  * // const { ECRClient, PutRegistryScanningConfigurationCommand } = require("@aws-sdk/client-ecr"); // CommonJS import
  * const client = new ECRClient(config);
  * const input = { // PutRegistryScanningConfigurationRequest
- *   scanType: "STRING_VALUE",
+ *   scanType: "BASIC" || "ENHANCED",
  *   rules: [ // RegistryScanningRuleList
  *     { // RegistryScanningRule
- *       scanFrequency: "STRING_VALUE", // required
+ *       scanFrequency: "SCAN_ON_PUSH" || "CONTINUOUS_SCAN" || "MANUAL", // required
  *       repositoryFilters: [ // ScanningRepositoryFilterList // required
  *         { // ScanningRepositoryFilter
  *           filter: "STRING_VALUE", // required
- *           filterType: "STRING_VALUE", // required
+ *           filterType: "WILDCARD", // required
  *         },
  *       ],
  *     },
@@ -66,14 +58,14 @@ export interface PutRegistryScanningConfigurationCommandOutput
  * const response = await client.send(command);
  * // { // PutRegistryScanningConfigurationResponse
  * //   registryScanningConfiguration: { // RegistryScanningConfiguration
- * //     scanType: "STRING_VALUE",
+ * //     scanType: "BASIC" || "ENHANCED",
  * //     rules: [ // RegistryScanningRuleList
  * //       { // RegistryScanningRule
- * //         scanFrequency: "STRING_VALUE", // required
+ * //         scanFrequency: "SCAN_ON_PUSH" || "CONTINUOUS_SCAN" || "MANUAL", // required
  * //         repositoryFilters: [ // ScanningRepositoryFilterList // required
  * //           { // ScanningRepositoryFilter
  * //             filter: "STRING_VALUE", // required
- * //             filterType: "STRING_VALUE", // required
+ * //             filterType: "WILDCARD", // required
  * //           },
  * //         ],
  * //       },
@@ -103,85 +95,26 @@ export interface PutRegistryScanningConfigurationCommandOutput
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
-export class PutRegistryScanningConfigurationCommand extends $Command<
-  PutRegistryScanningConfigurationCommandInput,
-  PutRegistryScanningConfigurationCommandOutput,
-  ECRClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PutRegistryScanningConfigurationCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ECRClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PutRegistryScanningConfigurationCommandInput, PutRegistryScanningConfigurationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, PutRegistryScanningConfigurationCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ECRClient";
-    const commandName = "PutRegistryScanningConfigurationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: PutRegistryScanningConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_PutRegistryScanningConfigurationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PutRegistryScanningConfigurationCommandOutput> {
-    return de_PutRegistryScanningConfigurationCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class PutRegistryScanningConfigurationCommand extends $Command
+  .classBuilder<
+    PutRegistryScanningConfigurationCommandInput,
+    PutRegistryScanningConfigurationCommandOutput,
+    ECRClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonEC2ContainerRegistry_V20150921", "PutRegistryScanningConfiguration", {})
+  .n("ECRClient", "PutRegistryScanningConfigurationCommand")
+  .f(void 0, void 0)
+  .ser(se_PutRegistryScanningConfigurationCommand)
+  .de(de_PutRegistryScanningConfigurationCommand)
+  .build() {}

@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateMountTargetRequest, MountTargetDescription } from "../models/models_0";
 import { de_CreateMountTargetCommand, se_CreateMountTargetCommand } from "../protocols/Aws_restJson1";
 
@@ -43,12 +35,12 @@ export interface CreateMountTargetCommandOutput extends MountTargetDescription, 
  *       file system. If you have multiple subnets in an Availability Zone, you create a mount target
  *       in one of the subnets. EC2 instances do not need to be in the same subnet as the mount target
  *       in order to access their file system.</p>
- *          <p>You can create only one mount target for an EFS file system using One Zone storage
- *       classes. You must create that mount target in the same Availability Zone in which the file
- *       system is located. Use the <code>AvailabilityZoneName</code> and
- *         <code>AvailabiltyZoneId</code> properties in the <a>DescribeFileSystems</a>
- *       response object to get this information. Use the <code>subnetId</code> associated with the
- *       file system's Availability Zone when creating the mount target.</p>
+ *          <p>You can create only one mount target for a One Zone file system.
+ *       You must create that mount target in the same Availability Zone in which the file system is
+ *       located. Use the <code>AvailabilityZoneName</code> and <code>AvailabiltyZoneId</code>
+ *       properties in the <a>DescribeFileSystems</a> response object to get this
+ *       information. Use the <code>subnetId</code> associated with the file system's Availability Zone
+ *       when creating the mount target.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html">Amazon EFS: How it Works</a>. </p>
  *          <p>To create a mount target for a file system, the file system's lifecycle state must be
  *         <code>available</code>. For more information, see <a>DescribeFileSystems</a>.</p>
@@ -294,79 +286,26 @@ export interface CreateMountTargetCommandOutput extends MountTargetDescription, 
  * ```
  *
  */
-export class CreateMountTargetCommand extends $Command<
-  CreateMountTargetCommandInput,
-  CreateMountTargetCommandOutput,
-  EFSClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateMountTargetCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: EFSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateMountTargetCommandInput, CreateMountTargetCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateMountTargetCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "EFSClient";
-    const commandName = "CreateMountTargetCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateMountTargetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateMountTargetCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateMountTargetCommandOutput> {
-    return de_CreateMountTargetCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateMountTargetCommand extends $Command
+  .classBuilder<
+    CreateMountTargetCommandInput,
+    CreateMountTargetCommandOutput,
+    EFSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("MagnolioAPIService_v20150201", "CreateMountTarget", {})
+  .n("EFSClient", "CreateMountTargetCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateMountTargetCommand)
+  .de(de_CreateMountTargetCommand)
+  .build() {}

@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -232,6 +230,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 
@@ -292,10 +292,9 @@ export interface SimSpaceWeaverClientResolvedConfig extends SimSpaceWeaverClient
 
 /**
  * @public
- * <p>SimSpace Weaver (SimSpace Weaver) is a managed service that you can use to build and operate large-scale
- *          spatial simulations in the Amazon Web Services Cloud. For example, you can create a digital twin of a city,
- *          crowd simulations with millions of people and objects, and massively multiplayer games with
- *          hundreds of thousands of connected players.
+ * <p>SimSpace Weaver (SimSpace Weaver)  is a service that you can use to build and run
+ *          large-scale spatial simulations in the Amazon Web Services Cloud. For example, you can create
+ *          crowd simulations, large real-world environments, and immersive and interactive experiences.
  *          For more information about SimSpace Weaver, see the <i>
  *                <a href="https://docs.aws.amazon.com/simspaceweaver/latest/userguide/">SimSpace Weaver User Guide</a>
  *             </i>.</p>

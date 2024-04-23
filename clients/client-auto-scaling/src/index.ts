@@ -11,9 +11,13 @@
 export * from "./AutoScalingClient";
 export * from "./AutoScaling";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { AutoScalingExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./waiters";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { AutoScalingServiceException } from "./models/AutoScalingServiceException";

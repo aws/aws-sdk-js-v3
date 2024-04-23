@@ -21,6 +21,11 @@ import {
   resolveEndpointsConfig,
   resolveRegionConfig,
 } from "@smithy/config-resolver";
+import {
+  CompressionInputConfig,
+  CompressionResolvedConfig,
+  resolveCompressionConfig,
+} from "@smithy/middleware-compression";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
 import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
 import { HttpHandler as __HttpHandler } from "@smithy/protocol-http";
@@ -33,11 +38,9 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -87,6 +90,7 @@ import {
 } from "./commands/FlattenedXmlMapWithXmlNamespaceCommand";
 import { FractionalSecondsCommandInput, FractionalSecondsCommandOutput } from "./commands/FractionalSecondsCommand";
 import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "./commands/GreetingWithErrorsCommand";
+import { HttpEnumPayloadCommandInput, HttpEnumPayloadCommandOutput } from "./commands/HttpEnumPayloadCommand";
 import { HttpPayloadTraitsCommandInput, HttpPayloadTraitsCommandOutput } from "./commands/HttpPayloadTraitsCommand";
 import {
   HttpPayloadTraitsWithMediaTypeCommandInput,
@@ -100,6 +104,10 @@ import {
   HttpPayloadWithStructureCommandInput,
   HttpPayloadWithStructureCommandOutput,
 } from "./commands/HttpPayloadWithStructureCommand";
+import {
+  HttpPayloadWithUnionCommandInput,
+  HttpPayloadWithUnionCommandOutput,
+} from "./commands/HttpPayloadWithUnionCommand";
 import {
   HttpPayloadWithXmlNameCommandInput,
   HttpPayloadWithXmlNameCommandOutput,
@@ -130,6 +138,7 @@ import {
   HttpRequestWithLabelsCommandOutput,
 } from "./commands/HttpRequestWithLabelsCommand";
 import { HttpResponseCodeCommandInput, HttpResponseCodeCommandOutput } from "./commands/HttpResponseCodeCommand";
+import { HttpStringPayloadCommandInput, HttpStringPayloadCommandOutput } from "./commands/HttpStringPayloadCommand";
 import {
   IgnoreQueryParamsInResponseCommandInput,
   IgnoreQueryParamsInResponseCommandOutput,
@@ -190,6 +199,10 @@ import { XmlIntEnumsCommandInput, XmlIntEnumsCommandOutput } from "./commands/Xm
 import { XmlListsCommandInput, XmlListsCommandOutput } from "./commands/XmlListsCommand";
 import { XmlMapsCommandInput, XmlMapsCommandOutput } from "./commands/XmlMapsCommand";
 import { XmlMapsXmlNameCommandInput, XmlMapsXmlNameCommandOutput } from "./commands/XmlMapsXmlNameCommand";
+import {
+  XmlMapWithXmlNamespaceCommandInput,
+  XmlMapWithXmlNamespaceCommandOutput,
+} from "./commands/XmlMapWithXmlNamespaceCommand";
 import { XmlNamespacesCommandInput, XmlNamespacesCommandOutput } from "./commands/XmlNamespacesCommand";
 import { XmlTimestampsCommandInput, XmlTimestampsCommandOutput } from "./commands/XmlTimestampsCommand";
 import { XmlUnionsCommandInput, XmlUnionsCommandOutput } from "./commands/XmlUnionsCommand";
@@ -216,10 +229,12 @@ export type ServiceInputTypes =
   | FlattenedXmlMapWithXmlNamespaceCommandInput
   | FractionalSecondsCommandInput
   | GreetingWithErrorsCommandInput
+  | HttpEnumPayloadCommandInput
   | HttpPayloadTraitsCommandInput
   | HttpPayloadTraitsWithMediaTypeCommandInput
   | HttpPayloadWithMemberXmlNameCommandInput
   | HttpPayloadWithStructureCommandInput
+  | HttpPayloadWithUnionCommandInput
   | HttpPayloadWithXmlNameCommandInput
   | HttpPayloadWithXmlNamespaceAndPrefixCommandInput
   | HttpPayloadWithXmlNamespaceCommandInput
@@ -229,6 +244,7 @@ export type ServiceInputTypes =
   | HttpRequestWithLabelsAndTimestampFormatCommandInput
   | HttpRequestWithLabelsCommandInput
   | HttpResponseCodeCommandInput
+  | HttpStringPayloadCommandInput
   | IgnoreQueryParamsInResponseCommandInput
   | InputAndOutputWithHeadersCommandInput
   | NestedXmlMapsCommandInput
@@ -254,6 +270,7 @@ export type ServiceInputTypes =
   | XmlEnumsCommandInput
   | XmlIntEnumsCommandInput
   | XmlListsCommandInput
+  | XmlMapWithXmlNamespaceCommandInput
   | XmlMapsCommandInput
   | XmlMapsXmlNameCommandInput
   | XmlNamespacesCommandInput
@@ -278,10 +295,12 @@ export type ServiceOutputTypes =
   | FlattenedXmlMapWithXmlNamespaceCommandOutput
   | FractionalSecondsCommandOutput
   | GreetingWithErrorsCommandOutput
+  | HttpEnumPayloadCommandOutput
   | HttpPayloadTraitsCommandOutput
   | HttpPayloadTraitsWithMediaTypeCommandOutput
   | HttpPayloadWithMemberXmlNameCommandOutput
   | HttpPayloadWithStructureCommandOutput
+  | HttpPayloadWithUnionCommandOutput
   | HttpPayloadWithXmlNameCommandOutput
   | HttpPayloadWithXmlNamespaceAndPrefixCommandOutput
   | HttpPayloadWithXmlNamespaceCommandOutput
@@ -291,6 +310,7 @@ export type ServiceOutputTypes =
   | HttpRequestWithLabelsAndTimestampFormatCommandOutput
   | HttpRequestWithLabelsCommandOutput
   | HttpResponseCodeCommandOutput
+  | HttpStringPayloadCommandOutput
   | IgnoreQueryParamsInResponseCommandOutput
   | InputAndOutputWithHeadersCommandOutput
   | NestedXmlMapsCommandOutput
@@ -316,6 +336,7 @@ export type ServiceOutputTypes =
   | XmlEnumsCommandOutput
   | XmlIntEnumsCommandOutput
   | XmlListsCommandOutput
+  | XmlMapWithXmlNamespaceCommandOutput
   | XmlMapsCommandOutput
   | XmlMapsXmlNameCommandOutput
   | XmlNamespacesCommandOutput
@@ -427,6 +448,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 
@@ -455,7 +478,8 @@ export type RestXmlProtocolClientConfigType = Partial<__SmithyConfiguration<__Ht
   EndpointsInputConfig &
   RetryInputConfig &
   HostHeaderInputConfig &
-  UserAgentInputConfig;
+  UserAgentInputConfig &
+  CompressionInputConfig;
 /**
  * @public
  *
@@ -473,7 +497,8 @@ export type RestXmlProtocolClientResolvedConfigType = __SmithyResolvedConfigurat
   EndpointsResolvedConfig &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
-  UserAgentResolvedConfig;
+  UserAgentResolvedConfig &
+  CompressionResolvedConfig;
 /**
  * @public
  *
@@ -503,9 +528,10 @@ export class RestXmlProtocolClient extends __Client<
     const _config_3 = resolveRetryConfig(_config_2);
     const _config_4 = resolveHostHeaderConfig(_config_3);
     const _config_5 = resolveUserAgentConfig(_config_4);
-    const _config_6 = resolveRuntimeExtensions(_config_5, configuration?.extensions || []);
-    super(_config_6);
-    this.config = _config_6;
+    const _config_6 = resolveCompressionConfig(_config_5);
+    const _config_7 = resolveRuntimeExtensions(_config_6, configuration?.extensions || []);
+    super(_config_7);
+    this.config = _config_7;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));

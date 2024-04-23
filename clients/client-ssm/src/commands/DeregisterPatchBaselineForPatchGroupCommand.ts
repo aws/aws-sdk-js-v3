@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DeregisterPatchBaselineForPatchGroupRequest,
   DeregisterPatchBaselineForPatchGroupResult,
@@ -80,85 +72,26 @@ export interface DeregisterPatchBaselineForPatchGroupCommandOutput
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
  */
-export class DeregisterPatchBaselineForPatchGroupCommand extends $Command<
-  DeregisterPatchBaselineForPatchGroupCommandInput,
-  DeregisterPatchBaselineForPatchGroupCommandOutput,
-  SSMClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeregisterPatchBaselineForPatchGroupCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SSMClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DeregisterPatchBaselineForPatchGroupCommandInput, DeregisterPatchBaselineForPatchGroupCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeregisterPatchBaselineForPatchGroupCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SSMClient";
-    const commandName = "DeregisterPatchBaselineForPatchGroupCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: DeregisterPatchBaselineForPatchGroupCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_DeregisterPatchBaselineForPatchGroupCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeregisterPatchBaselineForPatchGroupCommandOutput> {
-    return de_DeregisterPatchBaselineForPatchGroupCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DeregisterPatchBaselineForPatchGroupCommand extends $Command
+  .classBuilder<
+    DeregisterPatchBaselineForPatchGroupCommandInput,
+    DeregisterPatchBaselineForPatchGroupCommandOutput,
+    SSMClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonSSM", "DeregisterPatchBaselineForPatchGroup", {})
+  .n("SSMClient", "DeregisterPatchBaselineForPatchGroupCommand")
+  .f(void 0, void 0)
+  .ser(se_DeregisterPatchBaselineForPatchGroupCommand)
+  .de(de_DeregisterPatchBaselineForPatchGroupCommand)
+  .build() {}

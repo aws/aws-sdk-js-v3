@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ModifyReplicationGroupMessage, ModifyReplicationGroupResult } from "../models/models_0";
 import { de_ModifyReplicationGroupCommand, se_ModifyReplicationGroupCommand } from "../protocols/Aws_query";
 
@@ -36,7 +28,7 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
 
 /**
  * @public
- * <p>Modifies the settings for a replication group.</p>
+ * <p>Modifies the settings for a replication group. This is limited to Redis 7 and newer.</p>
  *          <ul>
  *             <li>
  *                <p>
@@ -376,79 +368,26 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
  * ```
  *
  */
-export class ModifyReplicationGroupCommand extends $Command<
-  ModifyReplicationGroupCommandInput,
-  ModifyReplicationGroupCommandOutput,
-  ElastiCacheClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ModifyReplicationGroupCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ElastiCacheClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ModifyReplicationGroupCommandInput, ModifyReplicationGroupCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ModifyReplicationGroupCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ElastiCacheClient";
-    const commandName = "ModifyReplicationGroupCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ModifyReplicationGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ModifyReplicationGroupCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ModifyReplicationGroupCommandOutput> {
-    return de_ModifyReplicationGroupCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ModifyReplicationGroupCommand extends $Command
+  .classBuilder<
+    ModifyReplicationGroupCommandInput,
+    ModifyReplicationGroupCommandOutput,
+    ElastiCacheClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonElastiCacheV9", "ModifyReplicationGroup", {})
+  .n("ElastiCacheClient", "ModifyReplicationGroupCommand")
+  .f(void 0, void 0)
+  .ser(se_ModifyReplicationGroupCommand)
+  .de(de_ModifyReplicationGroupCommand)
+  .build() {}

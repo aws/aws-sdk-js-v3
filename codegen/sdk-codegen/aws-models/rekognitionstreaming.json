@@ -152,6 +152,12 @@
           "traits": {
             "smithy.api#documentation": "<p> Threshold for height during face IOU (Intersection over Union) match.</p>"
           }
+        },
+        "OvalFitTimeout": {
+          "target": "com.amazonaws.rekognitionstreaming#TimeoutInMs",
+          "traits": {
+            "smithy.api#documentation": "<p>Timeout limit in which the end-users need to fit in the oval, in miliseconds.</p>"
+          }
         }
       },
       "traits": {
@@ -970,158 +976,6 @@
         "smithy.rules#endpointTests": {
           "testCases": [
             {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://streaming-rekognition-fips.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "Region": "us-gov-east-1",
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://streaming-rekognition-fips.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "Region": "us-gov-east-1",
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://streaming-rekognition.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "Region": "us-gov-east-1",
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://streaming-rekognition.us-gov-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "Region": "us-gov-east-1",
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://streaming-rekognition-fips.cn-north-1.api.amazonwebservices.com.cn"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "Region": "cn-north-1",
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://streaming-rekognition-fips.cn-north-1.amazonaws.com.cn"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "Region": "cn-north-1",
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://streaming-rekognition.cn-north-1.api.amazonwebservices.com.cn"
-                }
-              },
-              "params": {
-                "UseDualStack": true,
-                "Region": "cn-north-1",
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://streaming-rekognition.cn-north-1.amazonaws.com.cn"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "Region": "cn-north-1",
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
-              },
-              "params": {
-                "UseDualStack": true,
-                "Region": "us-iso-east-1",
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://streaming-rekognition-fips.us-iso-east-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "Region": "us-iso-east-1",
-                "UseFIPS": true
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "error": "DualStack is enabled but this partition does not support DualStack"
-              },
-              "params": {
-                "UseDualStack": true,
-                "Region": "us-iso-east-1",
-                "UseFIPS": false
-              }
-            },
-            {
-              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://streaming-rekognition.us-iso-east-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "UseDualStack": false,
-                "Region": "us-iso-east-1",
-                "UseFIPS": false
-              }
-            },
-            {
               "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
               "expect": {
                 "endpoint": {
@@ -1129,9 +983,9 @@
                 }
               },
               "params": {
-                "UseDualStack": true,
                 "Region": "us-east-1",
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1142,9 +996,9 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "Region": "us-east-1",
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1155,9 +1009,9 @@
                 }
               },
               "params": {
-                "UseDualStack": true,
                 "Region": "us-east-1",
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1168,9 +1022,161 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "Region": "us-east-1",
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://streaming-rekognition-fips.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://streaming-rekognition-fips.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://streaming-rekognition.cn-north-1.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://streaming-rekognition.cn-north-1.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://streaming-rekognition-fips.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://streaming-rekognition-fips.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://streaming-rekognition.us-gov-east-1.api.aws"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://streaming-rekognition.us-gov-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-gov-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://streaming-rekognition-fips.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://streaming-rekognition.us-iso-east-1.c2s.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1179,9 +1185,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
-                "UseDualStack": true,
                 "Region": "us-isob-east-1",
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1192,9 +1198,9 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "Region": "us-isob-east-1",
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1203,9 +1209,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "UseDualStack": true,
                 "Region": "us-isob-east-1",
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1216,22 +1222,35 @@
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "Region": "us-isob-east-1",
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
-              "documentation": "For custom endpoint with fips disabled and dualstack disabled",
+              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
               "expect": {
                 "endpoint": {
                   "url": "https://example.com"
                 }
               },
               "params": {
-                "UseDualStack": false,
                 "Region": "us-east-1",
                 "UseFIPS": false,
+                "UseDualStack": false,
+                "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://example.com"
+                }
+              },
+              "params": {
+                "UseFIPS": false,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -1241,9 +1260,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "UseDualStack": false,
                 "Region": "us-east-1",
                 "UseFIPS": true,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -1253,10 +1272,16 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "UseDualStack": true,
                 "Region": "us-east-1",
                 "UseFIPS": false,
+                "UseDualStack": true,
                 "Endpoint": "https://example.com"
+              }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
               }
             }
           ],
@@ -1388,7 +1413,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Starts a Face Liveness video stream and liveness detection process for a given\n      session.</p>\n         <p>Requires <code>sessionId</code>, <code>ChallengeVersions</code>, <code>VideoWidth</code>,\n        <code>VideoHeight</code> and a <code>RequestEventStream</code> as input. The event stream\n      contains information about different events for the session, including the challenge\n      information used for verification. </p>\n         <p>The maximum video size for Face Liveness is 10 MB. Face Liveness throws a\n        <code>ValidationException</code> if the video does not match the necessary formatting and\n      size parameters. </p>",
+        "smithy.api#documentation": "<p>Starts a Face Liveness video stream and liveness detection process for a given\n      session.</p>\n         <p>Requires <code>sessionId</code>, <code>ChallengeVersions</code>, <code>VideoWidth</code>,\n        <code>VideoHeight</code> and a <code>RequestEventStream</code> as input. The event stream\n      contains information about different events for the session, including the challenge\n      information used for verification. </p>\n         <p>The maximum video size for Face Liveness is 10 MB. Face Liveness throws a\n        <code>ValidationException</code> if the video does not match the necessary formatting and\n      size parameters. </p>\n         <p>StartFaceLivenessSession supports the websockets and <a href=\"https://aws.amazon.com/sdk-for-javascript/\">the AWS SDK \n       for JavaScript</a>.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/start-face-liveness-session",
@@ -1521,6 +1546,15 @@
         "smithy.api#documentation": "<p>A request was denied due to request throttling. Occurs when too many requests were made by a user \n       (exceeding their service quota), the service isn't able to scale, or a service-wide throttling was done to recover from an operational event.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 429
+      }
+    },
+    "com.amazonaws.rekognitionstreaming#TimeoutInMs": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0,
+          "max": 10000
+        }
       }
     },
     "com.amazonaws.rekognitionstreaming#UUID": {

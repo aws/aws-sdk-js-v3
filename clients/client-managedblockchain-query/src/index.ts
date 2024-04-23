@@ -14,8 +14,12 @@
 export * from "./ManagedBlockchainQueryClient";
 export * from "./ManagedBlockchainQuery";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { ManagedBlockchainQueryExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { ManagedBlockchainQueryServiceException } from "./models/ManagedBlockchainQueryServiceException";

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import { AutoScalingClient } from "../AutoScalingClient";
@@ -10,41 +11,14 @@ import {
 import { AutoScalingPaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: AutoScalingClient,
-  input: DescribeNotificationConfigurationsCommandInput,
-  ...args: any
-): Promise<DescribeNotificationConfigurationsCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new DescribeNotificationConfigurationsCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateDescribeNotificationConfigurations(
+export const paginateDescribeNotificationConfigurations: (
   config: AutoScalingPaginationConfiguration,
   input: DescribeNotificationConfigurationsCommandInput,
-  ...additionalArguments: any
-): Paginator<DescribeNotificationConfigurationsCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.NextToken
-  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: DescribeNotificationConfigurationsCommandOutput;
-  while (hasNext) {
-    input.NextToken = token;
-    input["MaxRecords"] = config.pageSize;
-    if (config.client instanceof AutoScalingClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected AutoScaling | AutoScalingClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.NextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<DescribeNotificationConfigurationsCommandOutput> = createPaginator<
+  AutoScalingPaginationConfiguration,
+  DescribeNotificationConfigurationsCommandInput,
+  DescribeNotificationConfigurationsCommandOutput
+>(AutoScalingClient, DescribeNotificationConfigurationsCommand, "NextToken", "NextToken", "MaxRecords");

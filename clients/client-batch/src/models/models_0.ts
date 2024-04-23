@@ -450,7 +450,7 @@ export interface ComputeResource {
    *     <code>spotIamFleetRole</code> parameter. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html">Amazon EC2 spot fleet role</a> in the
    *     <i>Batch User Guide</i>.</p>
    */
-  type: CRType | string | undefined;
+  type: CRType | undefined;
 
   /**
    * @public
@@ -502,7 +502,7 @@ export interface ComputeResource {
    *    Instances, Batch might need to exceed <code>maxvCpus</code> to meet your capacity requirements.
    *    In this event, Batch never exceeds <code>maxvCpus</code> by more than a single instance.</p>
    */
-  allocationStrategy?: CRAllocationStrategy | string;
+  allocationStrategy?: CRAllocationStrategy;
 
   /**
    * @public
@@ -806,7 +806,7 @@ export interface CreateComputeEnvironmentRequest {
    *     <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute Environments</a> in the
    *     <i>Batch User Guide</i>.</p>
    */
-  type: CEType | string | undefined;
+  type: CEType | undefined;
 
   /**
    * @public
@@ -832,7 +832,7 @@ export interface CreateComputeEnvironmentRequest {
    *       value of <code>36</code>. This instance doesn't scale down to a <code>c5.large</code>
    *       instance.</p>
    */
-  state?: CEState | string;
+  state?: CEState;
 
   /**
    * @public
@@ -974,7 +974,7 @@ export interface CreateJobQueueRequest {
    *    job queue state is <code>DISABLED</code>, new jobs can't be added to the queue, but jobs already in the queue can
    *    finish.</p>
    */
-  state?: JQState | string;
+  state?: JQState;
 
   /**
    * @public
@@ -1362,7 +1362,7 @@ export interface ComputeEnvironmentDetail {
    * <p>The type of the compute environment: <code>MANAGED</code> or <code>UNMANAGED</code>. For
    *    more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute environments</a> in the <i>Batch User Guide</i>.</p>
    */
-  type?: CEType | string;
+  type?: CEType;
 
   /**
    * @public
@@ -1387,14 +1387,14 @@ export interface ComputeEnvironmentDetail {
    *    value of <code>36</code>. This instance doesn't scale down to a <code>c5.large</code>
    *    instance.</p>
    */
-  state?: CEState | string;
+  state?: CEState;
 
   /**
    * @public
    * <p>The current status of the compute environment (for example, <code>CREATING</code> or
    *     <code>VALID</code>).</p>
    */
-  status?: CEStatus | string;
+  status?: CEStatus;
 
   /**
    * @public
@@ -1438,7 +1438,7 @@ export interface ComputeEnvironmentDetail {
    * <p>The orchestration type of the compute environment. The valid values are <code>ECS</code>
    *    (default) or <code>EKS</code>.</p>
    */
-  containerOrchestrationType?: OrchestrationType | string;
+  containerOrchestrationType?: OrchestrationType;
 
   /**
    * @public
@@ -1613,7 +1613,7 @@ export interface Device {
    *    container has permissions for <code>read</code>, <code>write</code>, and <code>mknod</code> for
    *    the device.</p>
    */
-  permissions?: (DeviceCgroupPermission | string)[];
+  permissions?: DeviceCgroupPermission[];
 }
 
 /**
@@ -1897,7 +1897,7 @@ export interface LogConfiguration {
    *  container instance and run the following command: <code>sudo docker version | grep "Server API version"</code>
    *          </p>
    */
-  logDriver: LogDriver | string | undefined;
+  logDriver: LogDriver | undefined;
 
   /**
    * @public
@@ -1957,7 +1957,7 @@ export interface NetworkConfiguration {
    *    internet. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Amazon ECS task networking</a> in the
    *     <i>Amazon Elastic Container Service Developer Guide</i>. The default value is "<code>DISABLED</code>".</p>
    */
-  assignPublicIp?: AssignPublicIp | string;
+  assignPublicIp?: AssignPublicIp;
 }
 
 /**
@@ -2151,7 +2151,7 @@ export interface ResourceRequirement {
    * <p>The type of resource to assign to a container. The supported resources include
    *     <code>GPU</code>, <code>MEMORY</code>, and <code>VCPU</code>.</p>
    */
-  type: ResourceType | string | undefined;
+  type: ResourceType | undefined;
 }
 
 /**
@@ -2269,7 +2269,7 @@ export interface EFSAuthorizationConfig {
    *     <code>TransitEncryption</code> be <code>ENABLED</code> and that a <code>JobRoleArn</code> is
    *    specified.</p>
    */
-  iam?: EFSAuthorizationConfigIAM | string;
+  iam?: EFSAuthorizationConfigIAM;
 }
 
 /**
@@ -2320,7 +2320,7 @@ export interface EFSVolumeConfiguration {
    *    this parameter is omitted, the default value of <code>DISABLED</code> is used. For more
    *    information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/encryption-in-transit.html">Encrypting data in transit</a> in the <i>Amazon Elastic File System User Guide</i>.</p>
    */
-  transitEncryption?: EFSTransitEncryption | string;
+  transitEncryption?: EFSTransitEncryption;
 
   /**
    * @public
@@ -3284,7 +3284,7 @@ export interface EvaluateOnExit {
    *    (<code>onStatusReason</code>, <code>onReason</code>, and <code>onExitCode</code>) are met. The
    *    values aren't case sensitive.</p>
    */
-  action: RetryAction | string | undefined;
+  action: RetryAction | undefined;
 }
 
 /**
@@ -3439,7 +3439,7 @@ export interface JobDefinition {
    *    defaults to <code>EC2</code>. Jobs run on Fargate resources specify
    *    <code>FARGATE</code>.</p>
    */
-  platformCapabilities?: (PlatformCapability | string)[];
+  platformCapabilities?: PlatformCapability[];
 
   /**
    * @public
@@ -3454,7 +3454,7 @@ export interface JobDefinition {
    * <p>The orchestration type of the compute environment. The valid values are <code>ECS</code>
    *    (default) or <code>EKS</code>.</p>
    */
-  containerOrchestrationType?: OrchestrationType | string;
+  containerOrchestrationType?: OrchestrationType;
 }
 
 /**
@@ -3553,7 +3553,7 @@ export interface JobQueueDetail {
    *     <code>ENABLED</code>, it can accept jobs. If the job queue state is <code>DISABLED</code>, new
    *    jobs can't be added to the queue, but jobs already in the queue can finish.</p>
    */
-  state: JQState | string | undefined;
+  state: JQState | undefined;
 
   /**
    * @public
@@ -3570,7 +3570,7 @@ export interface JobQueueDetail {
    * <p>The status of the job queue (for example, <code>CREATING</code> or
    *    <code>VALID</code>).</p>
    */
-  status?: JQStatus | string;
+  status?: JQStatus;
 
   /**
    * @public
@@ -3907,7 +3907,7 @@ export interface JobDependency {
    * @public
    * <p>The type of the job dependency.</p>
    */
-  type?: ArrayJobDependency | string;
+  type?: ArrayJobDependency;
 }
 
 /**
@@ -4242,7 +4242,7 @@ export interface JobDetail {
    *     <i>Batch User Guide</i>.</p>
    *          </note>
    */
-  status: JobStatus | string | undefined;
+  status: JobStatus | undefined;
 
   /**
    * @public
@@ -4378,7 +4378,7 @@ export interface JobDetail {
    *    defaults to <code>EC2</code>. Jobs run on Fargate resources specify
    *    <code>FARGATE</code>.</p>
    */
-  platformCapabilities?: (PlatformCapability | string)[];
+  platformCapabilities?: PlatformCapability[];
 
   /**
    * @public
@@ -4525,7 +4525,7 @@ export interface ListJobsRequest {
    *    the <code>jobStatus</code> parameter is ignored and jobs with any status are returned. If you don't specify a status,
    *    only <code>RUNNING</code> jobs are returned.</p>
    */
-  jobStatus?: JobStatus | string;
+  jobStatus?: JobStatus;
 
   /**
    * @public
@@ -4676,7 +4676,7 @@ export interface JobSummary {
    * @public
    * <p>The current status for the job.</p>
    */
-  status?: JobStatus | string;
+  status?: JobStatus;
 
   /**
    * @public
@@ -4870,7 +4870,7 @@ export interface RegisterJobDefinitionRequest {
    *             <p>If the job is run on Fargate resources, then <code>multinode</code> isn't supported.</p>
    *          </note>
    */
-  type: JobDefinitionType | string | undefined;
+  type: JobDefinitionType | undefined;
 
   /**
    * @public
@@ -4962,7 +4962,7 @@ export interface RegisterJobDefinitionRequest {
    *             <p>If the job runs on Amazon EKS resources, then you must not specify <code>platformCapabilities</code>.</p>
    *          </note>
    */
-  platformCapabilities?: (PlatformCapability | string)[];
+  platformCapabilities?: PlatformCapability[];
 
   /**
    * @public
@@ -5603,7 +5603,7 @@ export interface ComputeResourceUpdate {
    *    Instances, Batch might need to exceed <code>maxvCpus</code> to meet your capacity requirements.
    *    In this event, Batch never exceeds <code>maxvCpus</code> by more than a single instance.</p>
    */
-  allocationStrategy?: CRUpdateAllocationStrategy | string;
+  allocationStrategy?: CRUpdateAllocationStrategy;
 
   /**
    * @public
@@ -5782,7 +5782,7 @@ export interface ComputeResourceUpdate {
    *    infrastructure update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute
    *     environments</a> in the <i>Batch User Guide</i>.</p>
    */
-  type?: CRType | string;
+  type?: CRType;
 
   /**
    * @public
@@ -5843,7 +5843,7 @@ export interface UpdateComputeEnvironmentRequest {
    *       value of <code>36</code>. This instance doesn't scale down to a <code>c5.large</code>
    *       instance.</p>
    */
-  state?: CEState | string;
+  state?: CEState;
 
   /**
    * @public
@@ -5929,7 +5929,7 @@ export interface UpdateJobQueueRequest {
    *    jobs. If the job queue state is <code>DISABLED</code>, new jobs can't be added to the queue, but jobs already in the
    *    queue can finish.</p>
    */
-  state?: JQState | string;
+  state?: JQState;
 
   /**
    * @public

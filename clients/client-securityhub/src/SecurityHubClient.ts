@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -72,6 +70,10 @@ import {
   BatchGetAutomationRulesCommandOutput,
 } from "./commands/BatchGetAutomationRulesCommand";
 import {
+  BatchGetConfigurationPolicyAssociationsCommandInput,
+  BatchGetConfigurationPolicyAssociationsCommandOutput,
+} from "./commands/BatchGetConfigurationPolicyAssociationsCommand";
+import {
   BatchGetSecurityControlsCommandInput,
   BatchGetSecurityControlsCommandOutput,
 } from "./commands/BatchGetSecurityControlsCommand";
@@ -101,6 +103,10 @@ import {
   CreateAutomationRuleCommandOutput,
 } from "./commands/CreateAutomationRuleCommand";
 import {
+  CreateConfigurationPolicyCommandInput,
+  CreateConfigurationPolicyCommandOutput,
+} from "./commands/CreateConfigurationPolicyCommand";
+import {
   CreateFindingAggregatorCommandInput,
   CreateFindingAggregatorCommandOutput,
 } from "./commands/CreateFindingAggregatorCommand";
@@ -108,6 +114,10 @@ import { CreateInsightCommandInput, CreateInsightCommandOutput } from "./command
 import { CreateMembersCommandInput, CreateMembersCommandOutput } from "./commands/CreateMembersCommand";
 import { DeclineInvitationsCommandInput, DeclineInvitationsCommandOutput } from "./commands/DeclineInvitationsCommand";
 import { DeleteActionTargetCommandInput, DeleteActionTargetCommandOutput } from "./commands/DeleteActionTargetCommand";
+import {
+  DeleteConfigurationPolicyCommandInput,
+  DeleteConfigurationPolicyCommandOutput,
+} from "./commands/DeleteConfigurationPolicyCommand";
 import {
   DeleteFindingAggregatorCommandInput,
   DeleteFindingAggregatorCommandOutput,
@@ -165,6 +175,14 @@ import {
   GetAdministratorAccountCommandOutput,
 } from "./commands/GetAdministratorAccountCommand";
 import {
+  GetConfigurationPolicyAssociationCommandInput,
+  GetConfigurationPolicyAssociationCommandOutput,
+} from "./commands/GetConfigurationPolicyAssociationCommand";
+import {
+  GetConfigurationPolicyCommandInput,
+  GetConfigurationPolicyCommandOutput,
+} from "./commands/GetConfigurationPolicyCommand";
+import {
   GetEnabledStandardsCommandInput,
   GetEnabledStandardsCommandOutput,
 } from "./commands/GetEnabledStandardsCommand";
@@ -182,11 +200,23 @@ import {
 } from "./commands/GetInvitationsCountCommand";
 import { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "./commands/GetMasterAccountCommand";
 import { GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
+import {
+  GetSecurityControlDefinitionCommandInput,
+  GetSecurityControlDefinitionCommandOutput,
+} from "./commands/GetSecurityControlDefinitionCommand";
 import { InviteMembersCommandInput, InviteMembersCommandOutput } from "./commands/InviteMembersCommand";
 import {
   ListAutomationRulesCommandInput,
   ListAutomationRulesCommandOutput,
 } from "./commands/ListAutomationRulesCommand";
+import {
+  ListConfigurationPoliciesCommandInput,
+  ListConfigurationPoliciesCommandOutput,
+} from "./commands/ListConfigurationPoliciesCommand";
+import {
+  ListConfigurationPolicyAssociationsCommandInput,
+  ListConfigurationPolicyAssociationsCommandOutput,
+} from "./commands/ListConfigurationPolicyAssociationsCommand";
 import {
   ListEnabledProductsForImportCommandInput,
   ListEnabledProductsForImportCommandOutput,
@@ -213,9 +243,21 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  StartConfigurationPolicyAssociationCommandInput,
+  StartConfigurationPolicyAssociationCommandOutput,
+} from "./commands/StartConfigurationPolicyAssociationCommand";
+import {
+  StartConfigurationPolicyDisassociationCommandInput,
+  StartConfigurationPolicyDisassociationCommandOutput,
+} from "./commands/StartConfigurationPolicyDisassociationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateActionTargetCommandInput, UpdateActionTargetCommandOutput } from "./commands/UpdateActionTargetCommand";
+import {
+  UpdateConfigurationPolicyCommandInput,
+  UpdateConfigurationPolicyCommandOutput,
+} from "./commands/UpdateConfigurationPolicyCommand";
 import {
   UpdateFindingAggregatorCommandInput,
   UpdateFindingAggregatorCommandOutput,
@@ -226,6 +268,10 @@ import {
   UpdateOrganizationConfigurationCommandInput,
   UpdateOrganizationConfigurationCommandOutput,
 } from "./commands/UpdateOrganizationConfigurationCommand";
+import {
+  UpdateSecurityControlCommandInput,
+  UpdateSecurityControlCommandOutput,
+} from "./commands/UpdateSecurityControlCommand";
 import {
   UpdateSecurityHubConfigurationCommandInput,
   UpdateSecurityHubConfigurationCommandOutput,
@@ -255,6 +301,7 @@ export type ServiceInputTypes =
   | BatchDisableStandardsCommandInput
   | BatchEnableStandardsCommandInput
   | BatchGetAutomationRulesCommandInput
+  | BatchGetConfigurationPolicyAssociationsCommandInput
   | BatchGetSecurityControlsCommandInput
   | BatchGetStandardsControlAssociationsCommandInput
   | BatchImportFindingsCommandInput
@@ -263,11 +310,13 @@ export type ServiceInputTypes =
   | BatchUpdateStandardsControlAssociationsCommandInput
   | CreateActionTargetCommandInput
   | CreateAutomationRuleCommandInput
+  | CreateConfigurationPolicyCommandInput
   | CreateFindingAggregatorCommandInput
   | CreateInsightCommandInput
   | CreateMembersCommandInput
   | DeclineInvitationsCommandInput
   | DeleteActionTargetCommandInput
+  | DeleteConfigurationPolicyCommandInput
   | DeleteFindingAggregatorCommandInput
   | DeleteInsightCommandInput
   | DeleteInvitationsCommandInput
@@ -288,6 +337,8 @@ export type ServiceInputTypes =
   | EnableOrganizationAdminAccountCommandInput
   | EnableSecurityHubCommandInput
   | GetAdministratorAccountCommandInput
+  | GetConfigurationPolicyAssociationCommandInput
+  | GetConfigurationPolicyCommandInput
   | GetEnabledStandardsCommandInput
   | GetFindingAggregatorCommandInput
   | GetFindingHistoryCommandInput
@@ -297,8 +348,11 @@ export type ServiceInputTypes =
   | GetInvitationsCountCommandInput
   | GetMasterAccountCommandInput
   | GetMembersCommandInput
+  | GetSecurityControlDefinitionCommandInput
   | InviteMembersCommandInput
   | ListAutomationRulesCommandInput
+  | ListConfigurationPoliciesCommandInput
+  | ListConfigurationPolicyAssociationsCommandInput
   | ListEnabledProductsForImportCommandInput
   | ListFindingAggregatorsCommandInput
   | ListInvitationsCommandInput
@@ -307,13 +361,17 @@ export type ServiceInputTypes =
   | ListSecurityControlDefinitionsCommandInput
   | ListStandardsControlAssociationsCommandInput
   | ListTagsForResourceCommandInput
+  | StartConfigurationPolicyAssociationCommandInput
+  | StartConfigurationPolicyDisassociationCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateActionTargetCommandInput
+  | UpdateConfigurationPolicyCommandInput
   | UpdateFindingAggregatorCommandInput
   | UpdateFindingsCommandInput
   | UpdateInsightCommandInput
   | UpdateOrganizationConfigurationCommandInput
+  | UpdateSecurityControlCommandInput
   | UpdateSecurityHubConfigurationCommandInput
   | UpdateStandardsControlCommandInput;
 
@@ -327,6 +385,7 @@ export type ServiceOutputTypes =
   | BatchDisableStandardsCommandOutput
   | BatchEnableStandardsCommandOutput
   | BatchGetAutomationRulesCommandOutput
+  | BatchGetConfigurationPolicyAssociationsCommandOutput
   | BatchGetSecurityControlsCommandOutput
   | BatchGetStandardsControlAssociationsCommandOutput
   | BatchImportFindingsCommandOutput
@@ -335,11 +394,13 @@ export type ServiceOutputTypes =
   | BatchUpdateStandardsControlAssociationsCommandOutput
   | CreateActionTargetCommandOutput
   | CreateAutomationRuleCommandOutput
+  | CreateConfigurationPolicyCommandOutput
   | CreateFindingAggregatorCommandOutput
   | CreateInsightCommandOutput
   | CreateMembersCommandOutput
   | DeclineInvitationsCommandOutput
   | DeleteActionTargetCommandOutput
+  | DeleteConfigurationPolicyCommandOutput
   | DeleteFindingAggregatorCommandOutput
   | DeleteInsightCommandOutput
   | DeleteInvitationsCommandOutput
@@ -360,6 +421,8 @@ export type ServiceOutputTypes =
   | EnableOrganizationAdminAccountCommandOutput
   | EnableSecurityHubCommandOutput
   | GetAdministratorAccountCommandOutput
+  | GetConfigurationPolicyAssociationCommandOutput
+  | GetConfigurationPolicyCommandOutput
   | GetEnabledStandardsCommandOutput
   | GetFindingAggregatorCommandOutput
   | GetFindingHistoryCommandOutput
@@ -369,8 +432,11 @@ export type ServiceOutputTypes =
   | GetInvitationsCountCommandOutput
   | GetMasterAccountCommandOutput
   | GetMembersCommandOutput
+  | GetSecurityControlDefinitionCommandOutput
   | InviteMembersCommandOutput
   | ListAutomationRulesCommandOutput
+  | ListConfigurationPoliciesCommandOutput
+  | ListConfigurationPolicyAssociationsCommandOutput
   | ListEnabledProductsForImportCommandOutput
   | ListFindingAggregatorsCommandOutput
   | ListInvitationsCommandOutput
@@ -379,13 +445,17 @@ export type ServiceOutputTypes =
   | ListSecurityControlDefinitionsCommandOutput
   | ListStandardsControlAssociationsCommandOutput
   | ListTagsForResourceCommandOutput
+  | StartConfigurationPolicyAssociationCommandOutput
+  | StartConfigurationPolicyDisassociationCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateActionTargetCommandOutput
+  | UpdateConfigurationPolicyCommandOutput
   | UpdateFindingAggregatorCommandOutput
   | UpdateFindingsCommandOutput
   | UpdateInsightCommandOutput
   | UpdateOrganizationConfigurationCommandOutput
+  | UpdateSecurityControlCommandOutput
   | UpdateSecurityHubConfigurationCommandOutput
   | UpdateStandardsControlCommandOutput;
 
@@ -499,6 +569,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 
@@ -559,23 +631,47 @@ export interface SecurityHubClientResolvedConfig extends SecurityHubClientResolv
 
 /**
  * @public
- * <p>Security Hub provides you with a comprehensive view of the security state of
- *          your Amazon Web Services environment and resources. It also provides you with the readiness
- *          status of your environment based on controls from supported security standards. Security Hub collects security data from Amazon Web Services accounts, services, and
- *          integrated third-party products and helps you analyze security trends in your environment
- *          to identify the highest priority security issues. For more information about Security Hub, see the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html">
- *                <i>Security Hub User
- * Guide</i>
- *             </a>.</p>
- *          <p>When you use operations in the Security Hub API, the requests are executed only in
+ * <p>Security Hub provides you with a comprehensive view of your security state in Amazon Web Services and helps
+ *            you assess your Amazon Web Services environment against security industry standards and best practices.</p>
+ *          <p>Security Hub collects security data across Amazon Web Services accounts, Amazon Web Services, and
+ *             supported third-party products and helps you analyze your security trends and identify the highest priority security
+ *             issues.</p>
+ *          <p>To help you manage the security state of your organization, Security Hub supports multiple security standards.
+ *            These include the Amazon Web Services Foundational Security Best Practices (FSBP) standard developed by Amazon Web Services,
+ *             and external compliance frameworks such as the Center for Internet Security (CIS), the Payment Card Industry Data
+ *             Security Standard (PCI DSS), and the National Institute of Standards and Technology (NIST). Each standard includes
+ *             several security controls, each of which represents a security best practice. Security Hub runs checks against
+ *             security controls and generates control findings to help you assess your compliance against security best practices.</p>
+ *          <p>In addition to generating control findings, Security Hub also receives findings from other Amazon Web Services,
+ *             such as Amazon GuardDuty and Amazon Inspector, and
+ *             supported third-party products. This gives you a single pane of glass into a variety of security-related issues. You
+ *             can also send Security Hub findings to other Amazon Web Services and supported third-party products.</p>
+ *          <p>Security Hub offers automation features that help you triage and remediate security issues. For example,
+ *            you can use automation rules to automatically update critical findings when a security check fails. You can also leverage the integration with
+ *            Amazon EventBridge  to trigger automatic responses to specific findings.</p>
+ *          <p>This guide, the <i>Security Hub API Reference</i>, provides
+ *            information about the Security Hub API. This includes supported resources, HTTP methods, parameters,
+ *            and schemas. If you're new to Security Hub, you might find it helpful to also review the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html">
+ *                <i>Security Hub User Guide</i>
+ *             </a>. The
+ *            user guide explains key concepts and provides procedures
+ *            that demonstrate how to use Security Hub features. It also provides information about topics such as
+ *            integrating Security Hub with other Amazon Web Services.</p>
+ *          <p>In addition to interacting with Security Hub  by making calls to the Security Hub API, you can
+ *            use a current version of an Amazon Web Services command line tool or SDK. Amazon Web Services provides tools
+ *             and SDKs that consist of libraries and sample code for various languages and platforms, such as PowerShell,
+ *            Java, Go, Python, C++, and .NET. These tools and SDKs provide convenient, programmatic access to
+ *            Security Hub  and other Amazon Web Services . They also handle tasks such as signing requests,
+ *            managing errors, and retrying requests automatically. For information about installing and using the Amazon Web Services  tools
+ *            and SDKs, see <a href="http://aws.amazon.com/developer/tools/">Tools to Build on Amazon Web Services</a>.</p>
+ *          <p>With the exception of operations that are related to central configuration, Security Hub API requests are executed only in
  *          the Amazon Web Services Region that is currently active or in the specific Amazon Web Services Region that you specify in your request. Any configuration or settings change
  *          that results from the operation is applied only to that Region. To make the same change in
- *          other Regions, run the same command for each Region in which you want to apply the change.</p>
- *          <p>For example, if your Region is set to <code>us-west-2</code>, when you use <code>CreateMembers</code> to add a member account to Security Hub, the association of
- *          the member account with the administrator account is created only in the <code>us-west-2</code>
- *          Region. Security Hub must be enabled for the member account in the same Region that the invitation
- *          was sent from.</p>
- *          <p>The following throttling limits apply to using Security Hub API operations.</p>
+ *          other Regions, call the same API operation in each Region in which you want to apply the change. When you use central configuration,
+ * API requests for enabling Security Hub, standards, and controls are executed in the home Region and all linked Regions. For a list of
+ * central configuration operations, see the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html#central-configuration-concepts">Central configuration
+ * terms and concepts</a> section of the <i>Security Hub User Guide</i>.</p>
+ *          <p>The following throttling limits apply to Security Hub API operations.</p>
  *          <ul>
  *             <li>
  *                <p>

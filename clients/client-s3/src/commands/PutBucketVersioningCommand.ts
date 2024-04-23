@@ -1,20 +1,12 @@
 // smithy-typescript generated code
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { PutBucketVersioningRequest } from "../models/models_0";
+import { commonParams } from "../endpoint/EndpointParameters";
+import { PutBucketVersioningRequest } from "../models/models_1";
 import { de_PutBucketVersioningCommand, se_PutBucketVersioningCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
@@ -37,7 +29,10 @@ export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Sets the versioning state of an existing bucket.</p>
+ * <note>
+ *             <p>This operation is not supported by directory buckets.</p>
+ *          </note>
+ *          <p>Sets the versioning state of an existing bucket.</p>
  *          <p>You can set the versioning state with one of the following values:</p>
  *          <p>
  *             <b>Enabled</b>—Enables versioning for the objects in the
@@ -53,12 +48,12 @@ export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
  *             <code>MfaDelete</code> request elements in a request to set the versioning state of the
  *          bucket.</p>
  *          <important>
- *             <p>If you have an object expiration lifecycle configuration in your non-versioned bucket and
- *             you want to maintain the same permanent delete behavior when you enable versioning, you
- *             must add a noncurrent expiration policy. The noncurrent expiration lifecycle configuration will
- *             manage the deletes of the noncurrent object versions in the version-enabled bucket. (A
- *             version-enabled bucket maintains one current and zero or more noncurrent object
- *             versions.) For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html#lifecycle-and-other-bucket-config">Lifecycle and Versioning</a>.</p>
+ *             <p>If you have an object expiration lifecycle configuration in your non-versioned bucket
+ *             and you want to maintain the same permanent delete behavior when you enable versioning,
+ *             you must add a noncurrent expiration policy. The noncurrent expiration lifecycle
+ *             configuration will manage the deletes of the noncurrent object versions in the
+ *             version-enabled bucket. (A version-enabled bucket maintains one current and zero or more
+ *             noncurrent object versions.) For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html#lifecycle-and-other-bucket-config">Lifecycle and Versioning</a>.</p>
  *          </important>
  *          <p>The following operations are related to <code>PutBucketVersioning</code>:</p>
  *          <ul>
@@ -126,92 +121,33 @@ export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
  * ```
  *
  */
-export class PutBucketVersioningCommand extends $Command<
-  PutBucketVersioningCommandInput,
-  PutBucketVersioningCommandOutput,
-  S3ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      Bucket: { type: "contextParams", name: "Bucket" },
-      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
-      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
-      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
-      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
-      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PutBucketVersioningCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: S3ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PutBucketVersioningCommandInput, PutBucketVersioningCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, PutBucketVersioningCommand.getEndpointParameterInstructions())
-    );
-    this.middlewareStack.use(
-      getFlexibleChecksumsPlugin(configuration, {
+export class PutBucketVersioningCommand extends $Command
+  .classBuilder<
+    PutBucketVersioningCommandInput,
+    PutBucketVersioningCommandOutput,
+    S3ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+    UseS3ExpressControlEndpoint: { type: "staticContextParams", value: true },
+    Bucket: { type: "contextParams", name: "Bucket" },
+  })
+  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getFlexibleChecksumsPlugin(config, {
         input: this.input,
         requestAlgorithmMember: "ChecksumAlgorithm",
         requestChecksumRequired: true,
-      })
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "S3Client";
-    const commandName = "PutBucketVersioningCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: PutBucketVersioningCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PutBucketVersioningCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutBucketVersioningCommandOutput> {
-    return de_PutBucketVersioningCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+      }),
+    ];
+  })
+  .s("AmazonS3", "PutBucketVersioning", {})
+  .n("S3Client", "PutBucketVersioningCommand")
+  .f(void 0, void 0)
+  .ser(se_PutBucketVersioningCommand)
+  .de(de_PutBucketVersioningCommand)
+  .build() {}

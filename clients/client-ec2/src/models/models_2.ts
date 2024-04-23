@@ -3,15 +3,16 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
   ApplianceModeSupportValue,
-  CarrierGateway,
   CurrencyCodeValues,
   DeviceTrustProviderType,
   DnsSupportValue,
   DynamicRoutingValue,
   InstanceEventWindowState,
+  Ipv4PrefixSpecification,
   Ipv6SupportValue,
   ReservedInstancesListing,
   RouteTableAssociationState,
+  SecurityGroupReferencingSupportValue,
   Tag,
   TagSpecification,
   TransitGatewayAttachmentResourceType,
@@ -22,19 +23,24 @@ import {
   UnsuccessfulItem,
   UserTrustProviderType,
   VerifiedAccessInstance,
+  VerifiedAccessSseSpecificationResponse,
   VerifiedAccessTrustProvider,
   VerifiedAccessTrustProviderFilterSensitiveLog,
   VolumeAttachment,
   VpcAttachment,
   VpcPeeringConnection,
 } from "./models_0";
+
 import {
+  CarrierGateway,
   ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
   CoipCidr,
   CoipPool,
+  ConnectionTrackingConfiguration,
   Ec2InstanceConnectEndpoint,
   GatewayType,
+  GroupIdentifier,
   Ipam,
   IpamPool,
   IpamResourceDiscovery,
@@ -45,11 +51,588 @@ import {
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
+  NetworkInterfaceAssociation,
+  NetworkInterfaceAttachment,
+  NetworkInterfaceType,
   Subnet,
   Tenancy,
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * @public
+ * <p>Describes an IPv6 address associated with a network interface.</p>
+ */
+export interface NetworkInterfaceIpv6Address {
+  /**
+   * @public
+   * <p>The IPv6 address.</p>
+   */
+  Ipv6Address?: string;
+
+  /**
+   * @public
+   * <p>Determines if an IPv6 address associated with a network interface is the primary IPv6 address. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyNetworkInterfaceAttribute.html">ModifyNetworkInterfaceAttribute</a>.</p>
+   */
+  IsPrimaryIpv6?: boolean;
+}
+
+/**
+ * @public
+ * <p>Describes the IPv6 prefix.</p>
+ */
+export interface Ipv6PrefixSpecification {
+  /**
+   * @public
+   * <p>The IPv6 prefix.</p>
+   */
+  Ipv6Prefix?: string;
+}
+
+/**
+ * @public
+ * <p>Describes the private IPv4 address of a network interface.</p>
+ */
+export interface NetworkInterfacePrivateIpAddress {
+  /**
+   * @public
+   * <p>The association information for an Elastic IP address (IPv4) associated with the network interface.</p>
+   */
+  Association?: NetworkInterfaceAssociation;
+
+  /**
+   * @public
+   * <p>Indicates whether this IPv4 address is the primary private IPv4 address of the network interface.</p>
+   */
+  Primary?: boolean;
+
+  /**
+   * @public
+   * <p>The private DNS name.</p>
+   */
+  PrivateDnsName?: string;
+
+  /**
+   * @public
+   * <p>The private IPv4 address.</p>
+   */
+  PrivateIpAddress?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NetworkInterfaceStatus = {
+  associated: "associated",
+  attaching: "attaching",
+  available: "available",
+  detaching: "detaching",
+  in_use: "in-use",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkInterfaceStatus = (typeof NetworkInterfaceStatus)[keyof typeof NetworkInterfaceStatus];
+
+/**
+ * @public
+ * <p>Describes a network interface.</p>
+ */
+export interface NetworkInterface {
+  /**
+   * @public
+   * <p>The association information for an Elastic IP address (IPv4) associated with the network interface.</p>
+   */
+  Association?: NetworkInterfaceAssociation;
+
+  /**
+   * @public
+   * <p>The network interface attachment.</p>
+   */
+  Attachment?: NetworkInterfaceAttachment;
+
+  /**
+   * @public
+   * <p>The Availability Zone.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * @public
+   * <p>A security group connection tracking configuration that enables you to set the timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  ConnectionTrackingConfiguration?: ConnectionTrackingConfiguration;
+
+  /**
+   * @public
+   * <p>A description.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>Any security groups for the network interface.</p>
+   */
+  Groups?: GroupIdentifier[];
+
+  /**
+   * @public
+   * <p>The type of network interface.</p>
+   */
+  InterfaceType?: NetworkInterfaceType;
+
+  /**
+   * @public
+   * <p>The IPv6 addresses associated with the network interface.</p>
+   */
+  Ipv6Addresses?: NetworkInterfaceIpv6Address[];
+
+  /**
+   * @public
+   * <p>The MAC address.</p>
+   */
+  MacAddress?: string;
+
+  /**
+   * @public
+   * <p>The ID of the network interface.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   */
+  OutpostArn?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services account ID of the owner of the network interface.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * @public
+   * <p>The private DNS name.</p>
+   */
+  PrivateDnsName?: string;
+
+  /**
+   * @public
+   * <p>The IPv4 address of the network interface within the subnet.</p>
+   */
+  PrivateIpAddress?: string;
+
+  /**
+   * @public
+   * <p>The private IPv4 addresses associated with the network interface.</p>
+   */
+  PrivateIpAddresses?: NetworkInterfacePrivateIpAddress[];
+
+  /**
+   * @public
+   * <p>The IPv4 prefixes that are assigned to the network interface.</p>
+   */
+  Ipv4Prefixes?: Ipv4PrefixSpecification[];
+
+  /**
+   * @public
+   * <p>The IPv6 prefixes that are assigned to the network interface.</p>
+   */
+  Ipv6Prefixes?: Ipv6PrefixSpecification[];
+
+  /**
+   * @public
+   * <p>The alias or Amazon Web Services account ID of the principal or service that created the network interface.</p>
+   */
+  RequesterId?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether the network interface is being managed by Amazon Web Services.</p>
+   */
+  RequesterManaged?: boolean;
+
+  /**
+   * @public
+   * <p>Indicates whether source/destination checking is enabled.</p>
+   */
+  SourceDestCheck?: boolean;
+
+  /**
+   * @public
+   * <p>The status of the network interface.</p>
+   */
+  Status?: NetworkInterfaceStatus;
+
+  /**
+   * @public
+   * <p>The ID of the subnet.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * @public
+   * <p>Any tags assigned to the network interface.</p>
+   */
+  TagSet?: Tag[];
+
+  /**
+   * @public
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether a network interface with an IPv6 address is unreachable from the
+   *             public internet. If the value is <code>true</code>, inbound traffic from the internet
+   *             is dropped and you cannot assign an elastic IP address to the network interface. The
+   *             network interface is reachable from peered VPCs and resources connected through a
+   *             transit gateway, including on-premises networks.</p>
+   */
+  DenyAllIgwTraffic?: boolean;
+
+  /**
+   * @public
+   * <p>Indicates whether this is an IPv6 only network interface.</p>
+   */
+  Ipv6Native?: boolean;
+
+  /**
+   * @public
+   * <p>The IPv6 globally unique address associated with the network interface.</p>
+   */
+  Ipv6Address?: string;
+}
+
+/**
+ * @public
+ */
+export interface CreateNetworkInterfaceResult {
+  /**
+   * @public
+   * <p>Information about the network interface.</p>
+   */
+  NetworkInterface?: NetworkInterface;
+
+  /**
+   * @public
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  ClientToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InterfacePermissionType = {
+  EIP_ASSOCIATE: "EIP-ASSOCIATE",
+  INSTANCE_ATTACH: "INSTANCE-ATTACH",
+} as const;
+
+/**
+ * @public
+ */
+export type InterfacePermissionType = (typeof InterfacePermissionType)[keyof typeof InterfacePermissionType];
+
+/**
+ * @public
+ * <p>Contains the parameters for CreateNetworkInterfacePermission.</p>
+ */
+export interface CreateNetworkInterfacePermissionRequest {
+  /**
+   * @public
+   * <p>The ID of the network interface.</p>
+   */
+  NetworkInterfaceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AwsAccountId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Web Service. Currently not supported.</p>
+   */
+  AwsService?: string;
+
+  /**
+   * @public
+   * <p>The type of permission to grant.</p>
+   */
+  Permission: InterfacePermissionType | undefined;
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   * 			Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NetworkInterfacePermissionStateCode = {
+  granted: "granted",
+  pending: "pending",
+  revoked: "revoked",
+  revoking: "revoking",
+} as const;
+
+/**
+ * @public
+ */
+export type NetworkInterfacePermissionStateCode =
+  (typeof NetworkInterfacePermissionStateCode)[keyof typeof NetworkInterfacePermissionStateCode];
+
+/**
+ * @public
+ * <p>Describes the state of a network interface permission.</p>
+ */
+export interface NetworkInterfacePermissionState {
+  /**
+   * @public
+   * <p>The state of the permission.</p>
+   */
+  State?: NetworkInterfacePermissionStateCode;
+
+  /**
+   * @public
+   * <p>A status message, if applicable.</p>
+   */
+  StatusMessage?: string;
+}
+
+/**
+ * @public
+ * <p>Describes a permission for a network interface.</p>
+ */
+export interface NetworkInterfacePermission {
+  /**
+   * @public
+   * <p>The ID of the network interface permission.</p>
+   */
+  NetworkInterfacePermissionId?: string;
+
+  /**
+   * @public
+   * <p>The ID of the network interface.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AwsAccountId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Web Service.</p>
+   */
+  AwsService?: string;
+
+  /**
+   * @public
+   * <p>The type of permission.</p>
+   */
+  Permission?: InterfacePermissionType;
+
+  /**
+   * @public
+   * <p>Information about the state of the permission.</p>
+   */
+  PermissionState?: NetworkInterfacePermissionState;
+}
+
+/**
+ * @public
+ * <p>Contains the output of CreateNetworkInterfacePermission.</p>
+ */
+export interface CreateNetworkInterfacePermissionResult {
+  /**
+   * @public
+   * <p>Information about the permission for the network interface.</p>
+   */
+  InterfacePermission?: NetworkInterfacePermission;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SpreadLevel = {
+  host: "host",
+  rack: "rack",
+} as const;
+
+/**
+ * @public
+ */
+export type SpreadLevel = (typeof SpreadLevel)[keyof typeof SpreadLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const PlacementStrategy = {
+  cluster: "cluster",
+  partition: "partition",
+  spread: "spread",
+} as const;
+
+/**
+ * @public
+ */
+export type PlacementStrategy = (typeof PlacementStrategy)[keyof typeof PlacementStrategy];
+
+/**
+ * @public
+ */
+export interface CreatePlacementGroupRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>A name for the placement group. Must be unique within the scope of your account for
+   *             the Region.</p>
+   *          <p>Constraints: Up to 255 ASCII characters</p>
+   */
+  GroupName?: string;
+
+  /**
+   * @public
+   * <p>The placement strategy.</p>
+   */
+  Strategy?: PlacementStrategy;
+
+  /**
+   * @public
+   * <p>The number of partitions. Valid only when <b>Strategy</b> is
+   *             set to <code>partition</code>.</p>
+   */
+  PartitionCount?: number;
+
+  /**
+   * @public
+   * <p>The tags to apply to the new placement group.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * @public
+   * <p>Determines how placement groups spread instances. </p>
+   *          <ul>
+   *             <li>
+   *                <p>Host – You can use <code>host</code> only with Outpost placement
+   *                     groups.</p>
+   *             </li>
+   *             <li>
+   *                <p>Rack – No usage restrictions.</p>
+   *             </li>
+   *          </ul>
+   */
+  SpreadLevel?: SpreadLevel;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PlacementGroupState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type PlacementGroupState = (typeof PlacementGroupState)[keyof typeof PlacementGroupState];
+
+/**
+ * @public
+ * <p>Describes a placement group.</p>
+ */
+export interface PlacementGroup {
+  /**
+   * @public
+   * <p>The name of the placement group.</p>
+   */
+  GroupName?: string;
+
+  /**
+   * @public
+   * <p>The state of the placement group.</p>
+   */
+  State?: PlacementGroupState;
+
+  /**
+   * @public
+   * <p>The placement strategy.</p>
+   */
+  Strategy?: PlacementStrategy;
+
+  /**
+   * @public
+   * <p>The number of partitions. Valid only if <b>strategy</b> is
+   *             set to <code>partition</code>.</p>
+   */
+  PartitionCount?: number;
+
+  /**
+   * @public
+   * <p>The ID of the placement group.</p>
+   */
+  GroupId?: string;
+
+  /**
+   * @public
+   * <p>Any tags applied to the placement group.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the placement group.</p>
+   */
+  GroupArn?: string;
+
+  /**
+   * @public
+   * <p>The spread level for the placement group. <i>Only</i> Outpost placement
+   *             groups can be spread across hosts.</p>
+   */
+  SpreadLevel?: SpreadLevel;
+}
+
+/**
+ * @public
+ */
+export interface CreatePlacementGroupResult {
+  /**
+   * @public
+   * <p>Information about the placement group.</p>
+   */
+  PlacementGroup?: PlacementGroup;
+}
 
 /**
  * @public
@@ -219,7 +802,7 @@ export interface ReplaceRootVolumeTask {
    *             </li>
    *          </ul>
    */
-  TaskState?: ReplaceRootVolumeTaskState | string;
+  TaskState?: ReplaceRootVolumeTaskState;
 
   /**
    * @public
@@ -280,7 +863,7 @@ export interface PriceScheduleSpecification {
    * <p>The currency for transacting the Reserved Instance resale.
    * 				At this time, the only supported currency is <code>USD</code>.</p>
    */
-  CurrencyCode?: CurrencyCodeValues | string;
+  CurrencyCode?: CurrencyCodeValues;
 
   /**
    * @public
@@ -539,6 +1122,13 @@ export interface CreateRouteTableRequest {
    * <p>The tags to assign to the route table.</p>
    */
   TagSpecifications?: TagSpecification[];
+
+  /**
+   * @public
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   */
+  ClientToken?: string;
 }
 
 /**
@@ -719,7 +1309,7 @@ export interface Route {
    *             </li>
    *          </ul>
    */
-  Origin?: RouteOrigin | string;
+  Origin?: RouteOrigin;
 
   /**
    * @public
@@ -727,7 +1317,7 @@ export interface Route {
    * 				route's target isn't available (for example, the specified gateway isn't attached to the
    * 				VPC, or the specified NAT instance has been terminated).</p>
    */
-  State?: RouteState | string;
+  State?: RouteState;
 
   /**
    * @public
@@ -799,6 +1389,12 @@ export interface CreateRouteTableResult {
    * <p>Information about the route table.</p>
    */
   RouteTable?: RouteTable;
+
+  /**
+   * @public
+   * <p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>
+   */
+  ClientToken?: string;
 }
 
 /**
@@ -1023,7 +1619,7 @@ export interface Snapshot {
    * @public
    * <p>The snapshot state.</p>
    */
-  State?: SnapshotState | string;
+  State?: SnapshotState;
 
   /**
    * @public
@@ -1074,7 +1670,7 @@ export interface Snapshot {
    *       for use. <code>archive</code> indicates that the snapshot is currently archived and that
    *       it must be restored before it can be used.</p>
    */
-  StorageTier?: StorageTier | string;
+  StorageTier?: StorageTier;
 
   /**
    * @public
@@ -1087,7 +1683,7 @@ export interface Snapshot {
    * @public
    * <p>Reserved for future use.</p>
    */
-  SseType?: SSEType | string;
+  SseType?: SSEType;
 }
 
 /**
@@ -1190,7 +1786,7 @@ export interface CreateSnapshotsRequest {
    * @public
    * <p>Copies the tags from the specified volume to corresponding snapshot.</p>
    */
-  CopyTagsFromSource?: CopyTagsFromSource | string;
+  CopyTagsFromSource?: CopyTagsFromSource;
 }
 
 /**
@@ -1227,7 +1823,7 @@ export interface SnapshotInfo {
    * @public
    * <p>Current state of the snapshot.</p>
    */
-  State?: SnapshotState | string;
+  State?: SnapshotState;
 
   /**
    * @public
@@ -1271,7 +1867,7 @@ export interface SnapshotInfo {
    * @public
    * <p>Reserved for future use.</p>
    */
-  SseType?: SSEType | string;
+  SseType?: SSEType;
 }
 
 /**
@@ -1379,7 +1975,7 @@ export interface SpotDatafeedSubscription {
    * @public
    * <p>The state of the Spot Instance data feed subscription.</p>
    */
-  State?: DatafeedSubscriptionState | string;
+  State?: DatafeedSubscriptionState;
 }
 
 /**
@@ -1502,9 +2098,8 @@ export interface CreateSubnetRequest {
 
   /**
    * @public
-   * <p>The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a
-   *             /64 prefix length.</p>
-   *          <p>This parameter is required for an IPv6 only subnet.</p>
+   * <p>The IPv6 network range for the subnet, in CIDR notation. This parameter is required
+   *             for an IPv6 only subnet.</p>
    */
   Ipv6CidrBlock?: string;
 
@@ -1534,6 +2129,30 @@ export interface CreateSubnetRequest {
    * <p>Indicates whether to create an IPv6 only subnet.</p>
    */
   Ipv6Native?: boolean;
+
+  /**
+   * @public
+   * <p>An IPv4 IPAM pool ID for the subnet.</p>
+   */
+  Ipv4IpamPoolId?: string;
+
+  /**
+   * @public
+   * <p>An IPv4 netmask length for the subnet.</p>
+   */
+  Ipv4NetmaskLength?: number;
+
+  /**
+   * @public
+   * <p>An IPv6 IPAM pool ID for the subnet.</p>
+   */
+  Ipv6IpamPoolId?: string;
+
+  /**
+   * @public
+   * <p>An IPv6 netmask length for the subnet.</p>
+   */
+  Ipv6NetmaskLength?: number;
 }
 
 /**
@@ -1593,7 +2212,7 @@ export interface CreateSubnetCidrReservationRequest {
    *             </li>
    *          </ul>
    */
-  ReservationType: SubnetCidrReservationType | string | undefined;
+  ReservationType: SubnetCidrReservationType | undefined;
 
   /**
    * @public
@@ -1643,7 +2262,7 @@ export interface SubnetCidrReservation {
    * @public
    * <p>The type of reservation. </p>
    */
-  ReservationType?: SubnetCidrReservationType | string;
+  ReservationType?: SubnetCidrReservationType;
 
   /**
    * @public
@@ -1800,7 +2419,7 @@ export interface TrafficMirrorFilterRule {
    * @public
    * <p>The traffic direction assigned to the Traffic Mirror rule.</p>
    */
-  TrafficDirection?: TrafficDirection | string;
+  TrafficDirection?: TrafficDirection;
 
   /**
    * @public
@@ -1812,7 +2431,7 @@ export interface TrafficMirrorFilterRule {
    * @public
    * <p>The action assigned to the Traffic Mirror rule.</p>
    */
-  RuleAction?: TrafficMirrorRuleAction | string;
+  RuleAction?: TrafficMirrorRuleAction;
 
   /**
    * @public
@@ -1892,7 +2511,7 @@ export interface TrafficMirrorFilter {
    * @public
    * <p>The network service traffic that is associated with the Traffic Mirror filter.</p>
    */
-  NetworkServices?: (TrafficMirrorNetworkService | string)[];
+  NetworkServices?: TrafficMirrorNetworkService[];
 
   /**
    * @public
@@ -1956,7 +2575,7 @@ export interface CreateTrafficMirrorFilterRuleRequest {
    * @public
    * <p>The type of traffic.</p>
    */
-  TrafficDirection: TrafficDirection | string | undefined;
+  TrafficDirection: TrafficDirection | undefined;
 
   /**
    * @public
@@ -1969,7 +2588,7 @@ export interface CreateTrafficMirrorFilterRuleRequest {
    * @public
    * <p>The action to take on the filtered traffic.</p>
    */
-  RuleAction: TrafficMirrorRuleAction | string | undefined;
+  RuleAction: TrafficMirrorRuleAction | undefined;
 
   /**
    * @public
@@ -2292,7 +2911,7 @@ export interface TrafficMirrorTarget {
    * @public
    * <p>The type of Traffic Mirror target.</p>
    */
-  Type?: TrafficMirrorTargetType | string;
+  Type?: TrafficMirrorTargetType;
 
   /**
    * @public
@@ -2425,37 +3044,44 @@ export interface TransitGatewayRequestOptions {
    * @public
    * <p>Enable or disable automatic acceptance of attachment requests. Disabled by default.</p>
    */
-  AutoAcceptSharedAttachments?: AutoAcceptSharedAttachmentsValue | string;
+  AutoAcceptSharedAttachments?: AutoAcceptSharedAttachmentsValue;
 
   /**
    * @public
    * <p>Enable or disable automatic association with the default association route table. Enabled by default.</p>
    */
-  DefaultRouteTableAssociation?: DefaultRouteTableAssociationValue | string;
+  DefaultRouteTableAssociation?: DefaultRouteTableAssociationValue;
 
   /**
    * @public
    * <p>Enable or disable automatic propagation of routes to the default propagation route table. Enabled by default.</p>
    */
-  DefaultRouteTablePropagation?: DefaultRouteTablePropagationValue | string;
+  DefaultRouteTablePropagation?: DefaultRouteTablePropagationValue;
 
   /**
    * @public
    * <p>Enable or disable Equal Cost Multipath Protocol support. Enabled by default.</p>
    */
-  VpnEcmpSupport?: VpnEcmpSupportValue | string;
+  VpnEcmpSupport?: VpnEcmpSupportValue;
 
   /**
    * @public
    * <p>Enable or disable DNS support. Enabled by default.</p>
    */
-  DnsSupport?: DnsSupportValue | string;
+  DnsSupport?: DnsSupportValue;
+
+  /**
+   * @public
+   * <p>Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
+   *          <p>For important information about this feature, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw">Create a transit gateway</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p>
+   */
+  SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
 
   /**
    * @public
    * <p>Indicates whether multicast is enabled on the transit gateway</p>
    */
-  MulticastSupport?: MulticastSupportValue | string;
+  MulticastSupport?: MulticastSupportValue;
 
   /**
    * @public
@@ -2517,13 +3143,13 @@ export interface TransitGatewayOptions {
    * @public
    * <p>Indicates whether attachment requests are automatically accepted.</p>
    */
-  AutoAcceptSharedAttachments?: AutoAcceptSharedAttachmentsValue | string;
+  AutoAcceptSharedAttachments?: AutoAcceptSharedAttachmentsValue;
 
   /**
    * @public
    * <p>Indicates whether resource attachments are automatically associated with the default association route table.</p>
    */
-  DefaultRouteTableAssociation?: DefaultRouteTableAssociationValue | string;
+  DefaultRouteTableAssociation?: DefaultRouteTableAssociationValue;
 
   /**
    * @public
@@ -2535,7 +3161,7 @@ export interface TransitGatewayOptions {
    * @public
    * <p>Indicates whether resource attachments automatically propagate routes to the default propagation route table.</p>
    */
-  DefaultRouteTablePropagation?: DefaultRouteTablePropagationValue | string;
+  DefaultRouteTablePropagation?: DefaultRouteTablePropagationValue;
 
   /**
    * @public
@@ -2547,19 +3173,26 @@ export interface TransitGatewayOptions {
    * @public
    * <p>Indicates whether Equal Cost Multipath Protocol support is enabled.</p>
    */
-  VpnEcmpSupport?: VpnEcmpSupportValue | string;
+  VpnEcmpSupport?: VpnEcmpSupportValue;
 
   /**
    * @public
    * <p>Indicates whether DNS support is enabled.</p>
    */
-  DnsSupport?: DnsSupportValue | string;
+  DnsSupport?: DnsSupportValue;
+
+  /**
+   * @public
+   * <p>Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
+   *          <p>For important information about this feature, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw">Create a transit gateway</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p>
+   */
+  SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
 
   /**
    * @public
    * <p>Indicates whether multicast is enabled on the transit gateway</p>
    */
-  MulticastSupport?: MulticastSupportValue | string;
+  MulticastSupport?: MulticastSupportValue;
 }
 
 /**
@@ -2600,7 +3233,7 @@ export interface TransitGateway {
    * @public
    * <p>The state of the transit gateway.</p>
    */
-  State?: TransitGatewayState | string;
+  State?: TransitGatewayState;
 
   /**
    * @public
@@ -2666,7 +3299,7 @@ export interface CreateTransitGatewayConnectRequestOptions {
    * @public
    * <p>The tunnel protocol.</p>
    */
-  Protocol: ProtocolValue | string | undefined;
+  Protocol: ProtocolValue | undefined;
 }
 
 /**
@@ -2709,7 +3342,7 @@ export interface TransitGatewayConnectOptions {
    * @public
    * <p>The tunnel protocol.</p>
    */
-  Protocol?: ProtocolValue | string;
+  Protocol?: ProtocolValue;
 }
 
 /**
@@ -2739,7 +3372,7 @@ export interface TransitGatewayConnect {
    * @public
    * <p>The state of the attachment.</p>
    */
-  State?: TransitGatewayAttachmentState | string;
+  State?: TransitGatewayAttachmentState;
 
   /**
    * @public
@@ -2885,7 +3518,7 @@ export interface TransitGatewayAttachmentBgpConfiguration {
    * @public
    * <p>The BGP status.</p>
    */
-  BgpStatus?: BgpStatus | string;
+  BgpStatus?: BgpStatus;
 }
 
 /**
@@ -2915,7 +3548,7 @@ export interface TransitGatewayConnectPeerConfiguration {
    * @public
    * <p>The tunnel protocol.</p>
    */
-  Protocol?: ProtocolValue | string;
+  Protocol?: ProtocolValue;
 
   /**
    * @public
@@ -2962,7 +3595,7 @@ export interface TransitGatewayConnectPeer {
    * @public
    * <p>The state of the Connect peer.</p>
    */
-  State?: TransitGatewayConnectPeerState | string;
+  State?: TransitGatewayConnectPeerState;
 
   /**
    * @public
@@ -3046,19 +3679,19 @@ export interface CreateTransitGatewayMulticastDomainRequestOptions {
    * @public
    * <p>Specify whether to enable Internet Group Management Protocol (IGMP) version 2 for the transit gateway multicast domain.</p>
    */
-  Igmpv2Support?: Igmpv2SupportValue | string;
+  Igmpv2Support?: Igmpv2SupportValue;
 
   /**
    * @public
    * <p>Specify whether to enable support for statically configuring multicast group sources for a domain.</p>
    */
-  StaticSourcesSupport?: StaticSourcesSupportValue | string;
+  StaticSourcesSupport?: StaticSourcesSupportValue;
 
   /**
    * @public
    * <p>Indicates whether to automatically accept cross-account subnet associations that are associated with the transit gateway multicast domain.</p>
    */
-  AutoAcceptSharedAssociations?: AutoAcceptSharedAssociationsValue | string;
+  AutoAcceptSharedAssociations?: AutoAcceptSharedAssociationsValue;
 }
 
 /**
@@ -3101,19 +3734,19 @@ export interface TransitGatewayMulticastDomainOptions {
    * @public
    * <p>Indicates whether Internet Group Management Protocol (IGMP) version 2 is turned on for the transit gateway multicast domain.</p>
    */
-  Igmpv2Support?: Igmpv2SupportValue | string;
+  Igmpv2Support?: Igmpv2SupportValue;
 
   /**
    * @public
    * <p>Indicates whether support for statically configuring transit gateway multicast group sources is turned on.</p>
    */
-  StaticSourcesSupport?: StaticSourcesSupportValue | string;
+  StaticSourcesSupport?: StaticSourcesSupportValue;
 
   /**
    * @public
    * <p>Indicates whether to automatically cross-account subnet associations that are associated with the transit gateway multicast domain.</p>
    */
-  AutoAcceptSharedAssociations?: AutoAcceptSharedAssociationsValue | string;
+  AutoAcceptSharedAssociations?: AutoAcceptSharedAssociationsValue;
 }
 
 /**
@@ -3172,7 +3805,7 @@ export interface TransitGatewayMulticastDomain {
    * @public
    * <p>The state of the transit gateway multicast domain.</p>
    */
-  State?: TransitGatewayMulticastDomainState | string;
+  State?: TransitGatewayMulticastDomainState;
 
   /**
    * @public
@@ -3207,7 +3840,7 @@ export interface CreateTransitGatewayPeeringAttachmentRequestOptions {
    * @public
    * <p>Indicates whether dynamic routing is enabled or disabled.</p>
    */
-  DynamicRouting?: DynamicRoutingValue | string;
+  DynamicRouting?: DynamicRoutingValue;
 }
 
 /**
@@ -3333,7 +3966,7 @@ export interface TransitGatewayPolicyTable {
    * @public
    * <p>The state of the transit gateway policy table</p>
    */
-  State?: TransitGatewayPolicyTableState | string;
+  State?: TransitGatewayPolicyTableState;
 
   /**
    * @public
@@ -3428,7 +4061,7 @@ export interface TransitGatewayPrefixListAttachment {
    * @public
    * <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
    */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
+  ResourceType?: TransitGatewayAttachmentResourceType;
 
   /**
    * @public
@@ -3464,7 +4097,7 @@ export interface TransitGatewayPrefixListReference {
    * @public
    * <p>The state of the prefix list reference.</p>
    */
-  State?: TransitGatewayPrefixListReferenceState | string;
+  State?: TransitGatewayPrefixListReferenceState;
 
   /**
    * @public
@@ -3566,7 +4199,7 @@ export interface TransitGatewayRouteAttachment {
    * @public
    * <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated. </p>
    */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
+  ResourceType?: TransitGatewayAttachmentResourceType;
 }
 
 /**
@@ -3616,13 +4249,13 @@ export interface TransitGatewayRoute {
    * @public
    * <p>The route type.</p>
    */
-  Type?: TransitGatewayRouteType | string;
+  Type?: TransitGatewayRouteType;
 
   /**
    * @public
    * <p>The state of the route.</p>
    */
-  State?: TransitGatewayRouteState | string;
+  State?: TransitGatewayRouteState;
 }
 
 /**
@@ -3699,7 +4332,7 @@ export interface TransitGatewayRouteTable {
    * @public
    * <p>The state of the transit gateway route table.</p>
    */
-  State?: TransitGatewayRouteTableState | string;
+  State?: TransitGatewayRouteTableState;
 
   /**
    * @public
@@ -3847,7 +4480,7 @@ export interface TransitGatewayRouteTableAnnouncement {
    * @public
    * <p>The direction for the route table announcement.</p>
    */
-  AnnouncementDirection?: TransitGatewayRouteTableAnnouncementDirection | string;
+  AnnouncementDirection?: TransitGatewayRouteTableAnnouncementDirection;
 
   /**
    * @public
@@ -3859,7 +4492,7 @@ export interface TransitGatewayRouteTableAnnouncement {
    * @public
    * <p>The state of the transit gateway announcement.</p>
    */
-  State?: TransitGatewayRouteTableAnnouncementState | string;
+  State?: TransitGatewayRouteTableAnnouncementState;
 
   /**
    * @public
@@ -3894,19 +4527,29 @@ export interface CreateTransitGatewayVpcAttachmentRequestOptions {
    * @public
    * <p>Enable or disable DNS support. The default is <code>enable</code>.</p>
    */
-  DnsSupport?: DnsSupportValue | string;
+  DnsSupport?: DnsSupportValue;
+
+  /**
+   * @public
+   * <p>Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
+   *          <p>If you don't enable or disable SecurityGroupReferencingSupport in the request, the
+   *          attachment will inherit the security group referencing support setting on the transit
+   *          gateway.</p>
+   *          <p>For important information about this feature, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#create-vpc-attachment">Create a transit gateway attachment to a VPC</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p>
+   */
+  SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
 
   /**
    * @public
    * <p>Enable or disable IPv6 support.  The default is <code>disable</code>.</p>
    */
-  Ipv6Support?: Ipv6SupportValue | string;
+  Ipv6Support?: Ipv6SupportValue;
 
   /**
    * @public
    * <p>Enable or disable support for appliance mode. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. The default is <code>disable</code>.</p>
    */
-  ApplianceModeSupport?: ApplianceModeSupportValue | string;
+  ApplianceModeSupport?: ApplianceModeSupportValue;
 }
 
 /**
@@ -4018,7 +4661,7 @@ export interface CreateVerifiedAccessEndpointLoadBalancerOptions {
    * @public
    * <p>The IP protocol.</p>
    */
-  Protocol?: VerifiedAccessEndpointProtocol | string;
+  Protocol?: VerifiedAccessEndpointProtocol;
 
   /**
    * @public
@@ -4055,13 +4698,39 @@ export interface CreateVerifiedAccessEndpointEniOptions {
    * @public
    * <p>The IP protocol.</p>
    */
-  Protocol?: VerifiedAccessEndpointProtocol | string;
+  Protocol?: VerifiedAccessEndpointProtocol;
 
   /**
    * @public
    * <p>The IP port number.</p>
    */
   Port?: number;
+}
+
+/**
+ * @public
+ * <p>
+ *          Verified Access provides server side encryption by default to data at rest using Amazon Web Services-owned KMS keys. You also have the option of using customer managed KMS keys, which can be specified using the options below.
+ *       </p>
+ */
+export interface VerifiedAccessSseSpecificationRequest {
+  /**
+   * @public
+   * <p>
+   *          Enable or disable the use of customer managed KMS keys for server side encryption.
+   *       </p>
+   *          <p>Valid values: <code>True</code> | <code>False</code>
+   *          </p>
+   */
+  CustomerManagedKeyEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>
+   *          The ARN of the KMS key.
+   *       </p>
+   */
+  KmsKeyArn?: string;
 }
 
 /**
@@ -4078,13 +4747,13 @@ export interface CreateVerifiedAccessEndpointRequest {
    * @public
    * <p>The type of Verified Access endpoint to create.</p>
    */
-  EndpointType: VerifiedAccessEndpointType | string | undefined;
+  EndpointType: VerifiedAccessEndpointType | undefined;
 
   /**
    * @public
    * <p>The type of attachment.</p>
    */
-  AttachmentType: VerifiedAccessEndpointAttachmentType | string | undefined;
+  AttachmentType: VerifiedAccessEndpointAttachmentType | undefined;
 
   /**
    * @public
@@ -4109,7 +4778,7 @@ export interface CreateVerifiedAccessEndpointRequest {
 
   /**
    * @public
-   * <p>The IDs of the security groups to associate with the Verified Access endpoint.</p>
+   * <p>The IDs of the security groups to associate with the Verified Access endpoint. Required if <code>AttachmentType</code> is set to <code>vpc</code>.</p>
    */
   SecurityGroupIds?: string[];
 
@@ -4159,6 +4828,12 @@ export interface CreateVerifiedAccessEndpointRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The options for server side encryption.</p>
+   */
+  SseSpecification?: VerifiedAccessSseSpecificationRequest;
 }
 
 /**
@@ -4171,7 +4846,7 @@ export interface VerifiedAccessEndpointLoadBalancerOptions {
    * @public
    * <p>The IP protocol.</p>
    */
-  Protocol?: VerifiedAccessEndpointProtocol | string;
+  Protocol?: VerifiedAccessEndpointProtocol;
 
   /**
    * @public
@@ -4207,7 +4882,7 @@ export interface VerifiedAccessEndpointEniOptions {
    * @public
    * <p>The IP protocol.</p>
    */
-  Protocol?: VerifiedAccessEndpointProtocol | string;
+  Protocol?: VerifiedAccessEndpointProtocol;
 
   /**
    * @public
@@ -4243,7 +4918,7 @@ export interface VerifiedAccessEndpointStatus {
    * @public
    * <p>The status code of the Verified Access endpoint.</p>
    */
-  Code?: VerifiedAccessEndpointStatusCode | string;
+  Code?: VerifiedAccessEndpointStatusCode;
 
   /**
    * @public
@@ -4289,14 +4964,14 @@ export interface VerifiedAccessEndpoint {
    *          address, load balancer or a network interface depending on the endpoint type
    *          specified.</p>
    */
-  EndpointType?: VerifiedAccessEndpointType | string;
+  EndpointType?: VerifiedAccessEndpointType;
 
   /**
    * @public
    * <p>The type of attachment used to provide connectivity between the Amazon Web Services Verified Access endpoint and the
    *          application.</p>
    */
-  AttachmentType?: VerifiedAccessEndpointAttachmentType | string;
+  AttachmentType?: VerifiedAccessEndpointAttachmentType;
 
   /**
    * @public
@@ -4370,6 +5045,12 @@ export interface VerifiedAccessEndpoint {
    * <p>The tags.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>The options in use for server side encryption.</p>
+   */
+  SseSpecification?: VerifiedAccessSseSpecificationResponse;
 }
 
 /**
@@ -4378,7 +5059,7 @@ export interface VerifiedAccessEndpoint {
 export interface CreateVerifiedAccessEndpointResult {
   /**
    * @public
-   * <p>The ID of the Verified Access endpoint.</p>
+   * <p>Details about the Verified Access endpoint.</p>
    */
   VerifiedAccessEndpoint?: VerifiedAccessEndpoint;
 }
@@ -4425,6 +5106,12 @@ export interface CreateVerifiedAccessGroupRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The options for server side encryption.</p>
+   */
+  SseSpecification?: VerifiedAccessSseSpecificationRequest;
 }
 
 /**
@@ -4485,6 +5172,12 @@ export interface VerifiedAccessGroup {
    * <p>The tags.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>The options in use for server side encryption.</p>
+   */
+  SseSpecification?: VerifiedAccessSseSpecificationResponse;
 }
 
 /**
@@ -4493,7 +5186,7 @@ export interface VerifiedAccessGroup {
 export interface CreateVerifiedAccessGroupResult {
   /**
    * @public
-   * <p>The ID of the Verified Access group.</p>
+   * <p>Details about the Verified Access group.</p>
    */
   VerifiedAccessGroup?: VerifiedAccessGroup;
 }
@@ -4528,6 +5221,12 @@ export interface CreateVerifiedAccessInstanceRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>Enable or disable support for Federal Information Processing Standards (FIPS) on the instance.</p>
+   */
+  FIPSEnabled?: boolean;
 }
 
 /**
@@ -4536,7 +5235,7 @@ export interface CreateVerifiedAccessInstanceRequest {
 export interface CreateVerifiedAccessInstanceResult {
   /**
    * @public
-   * <p>The ID of the Verified Access instance.</p>
+   * <p>Details about the Verified Access instance.</p>
    */
   VerifiedAccessInstance?: VerifiedAccessInstance;
 }
@@ -4552,6 +5251,14 @@ export interface CreateVerifiedAccessTrustProviderDeviceOptions {
    * <p>The ID of the tenant application with the device-identity provider.</p>
    */
   TenantId?: string;
+
+  /**
+   * @public
+   * <p>
+   *          The URL Amazon Web Services Verified Access will use to verify the authenticity of the device tokens.
+   *       </p>
+   */
+  PublicSigningKeyUrl?: string;
 }
 
 /**
@@ -4611,21 +5318,21 @@ export interface CreateVerifiedAccessTrustProviderRequest {
    * @public
    * <p>The type of trust provider.</p>
    */
-  TrustProviderType: TrustProviderType | string | undefined;
+  TrustProviderType: TrustProviderType | undefined;
 
   /**
    * @public
    * <p>The type of user-based trust provider. This parameter is required when the provider type
    *          is <code>user</code>.</p>
    */
-  UserTrustProviderType?: UserTrustProviderType | string;
+  UserTrustProviderType?: UserTrustProviderType;
 
   /**
    * @public
    * <p>The type of device-based trust provider. This parameter is required when the provider
    *          type is <code>device</code>.</p>
    */
-  DeviceTrustProviderType?: DeviceTrustProviderType | string;
+  DeviceTrustProviderType?: DeviceTrustProviderType;
 
   /**
    * @public
@@ -4673,6 +5380,12 @@ export interface CreateVerifiedAccessTrustProviderRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The options for server side encryption.</p>
+   */
+  SseSpecification?: VerifiedAccessSseSpecificationRequest;
 }
 
 /**
@@ -4681,7 +5394,7 @@ export interface CreateVerifiedAccessTrustProviderRequest {
 export interface CreateVerifiedAccessTrustProviderResult {
   /**
    * @public
-   * <p>The ID of the Verified Access trust provider.</p>
+   * <p>Details about the Verified Access trust provider.</p>
    */
   VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
 }
@@ -4718,23 +5431,21 @@ export interface CreateVolumeRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>gp3</code>: 3,000-16,000 IOPS</p>
+   *                   <code>gp3</code>: 3,000 - 16,000 IOPS</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>io1</code>: 100-64,000 IOPS</p>
+   *                   <code>io1</code>: 100 - 64,000 IOPS</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>io2</code>: 100-64,000 IOPS</p>
+   *                   <code>io2</code>: 100 - 256,000 IOPS</p>
    *             </li>
    *          </ul>
-   *          <p>
-   *             <code>io1</code> and <code>io2</code> volumes support up to 64,000 IOPS only on
-   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Instances built on the Nitro System</a>. Other instance families support performance
-   *       up to 32,000 IOPS.</p>
-   *          <p>This parameter is required for <code>io1</code> and <code>io2</code> volumes.
-   *       The default for <code>gp3</code> volumes is 3,000 IOPS.
+   *          <p>For <code>io2</code> volumes, you can achieve up to 256,000 IOPS on
+   * <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">instances
+   * built on the Nitro System</a>. On other instances, you can achieve performance up to 32,000 IOPS.</p>
+   *          <p>This parameter is required for <code>io1</code> and <code>io2</code> volumes. The default for <code>gp3</code> volumes is 3,000 IOPS.
    *       This parameter is not supported for <code>gp2</code>, <code>st1</code>, <code>sc1</code>, or <code>standard</code> volumes.</p>
    */
   Iops?: number;
@@ -4779,19 +5490,23 @@ export interface CreateVolumeRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>gp2</code> and <code>gp3</code>: 1-16,384</p>
+   *                   <code>gp2</code> and <code>gp3</code>: 1 - 16,384 GiB</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>io1</code> and <code>io2</code>: 4-16,384</p>
+   *                   <code>io1</code>: 4 - 16,384 GiB</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>st1</code> and <code>sc1</code>: 125-16,384</p>
+   *                   <code>io2</code>: 4 - 65,536 GiB</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>standard</code>: 1-1,024</p>
+   *                   <code>st1</code> and <code>sc1</code>: 125 - 16,384 GiB</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>standard</code>: 1 - 1024 GiB</p>
    *             </li>
    *          </ul>
    */
@@ -4836,7 +5551,7 @@ export interface CreateVolumeRequest {
    *          <p>Default: <code>gp2</code>
    *          </p>
    */
-  VolumeType?: VolumeType | string;
+  VolumeType?: VolumeType;
 
   /**
    * @public
@@ -4955,7 +5670,7 @@ export interface Volume {
    * @public
    * <p>The volume state.</p>
    */
-  State?: VolumeState | string;
+  State?: VolumeState;
 
   /**
    * @public
@@ -4981,7 +5696,7 @@ export interface Volume {
    * @public
    * <p>The volume type.</p>
    */
-  VolumeType?: VolumeType | string;
+  VolumeType?: VolumeType;
 
   /**
    * @public
@@ -5005,7 +5720,7 @@ export interface Volume {
    * @public
    * <p>Reserved for future use.</p>
    */
-  SseType?: SSEType | string;
+  SseType?: SSEType;
 }
 
 /**
@@ -5085,7 +5800,7 @@ export interface CreateVpcRequest {
    *          <p>Default: <code>default</code>
    *          </p>
    */
-  InstanceTenancy?: Tenancy | string;
+  InstanceTenancy?: Tenancy;
 
   /**
    * @public
@@ -5137,7 +5852,7 @@ export interface DnsOptionsSpecification {
    * @public
    * <p>The DNS records created for the endpoint.</p>
    */
-  DnsRecordIpType?: DnsRecordIpType | string;
+  DnsRecordIpType?: DnsRecordIpType;
 
   /**
    * @public
@@ -5228,7 +5943,7 @@ export interface CreateVpcEndpointRequest {
    * <p>The type of endpoint.</p>
    *          <p>Default: Gateway</p>
    */
-  VpcEndpointType?: VpcEndpointType | string;
+  VpcEndpointType?: VpcEndpointType;
 
   /**
    * @public
@@ -5275,7 +5990,7 @@ export interface CreateVpcEndpointRequest {
    * @public
    * <p>The IP address type for the endpoint.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: IpAddressType;
 
   /**
    * @public
@@ -5349,7 +6064,7 @@ export interface DnsOptions {
    * @public
    * <p>The DNS records created for the endpoint.</p>
    */
-  DnsRecordIpType?: DnsRecordIpType | string;
+  DnsRecordIpType?: DnsRecordIpType;
 
   /**
    * @public
@@ -5429,7 +6144,7 @@ export interface VpcEndpoint {
    * @public
    * <p>The type of endpoint.</p>
    */
-  VpcEndpointType?: VpcEndpointType | string;
+  VpcEndpointType?: VpcEndpointType;
 
   /**
    * @public
@@ -5447,7 +6162,7 @@ export interface VpcEndpoint {
    * @public
    * <p>The state of the endpoint.</p>
    */
-  State?: State | string;
+  State?: State;
 
   /**
    * @public
@@ -5478,7 +6193,7 @@ export interface VpcEndpoint {
    * @public
    * <p>The IP address type for the endpoint.</p>
    */
-  IpAddressType?: IpAddressType | string;
+  IpAddressType?: IpAddressType;
 
   /**
    * @public
@@ -5656,7 +6371,7 @@ export interface ConnectionNotification {
    * @public
    * <p>The type of notification.</p>
    */
-  ConnectionNotificationType?: ConnectionNotificationType | string;
+  ConnectionNotificationType?: ConnectionNotificationType;
 
   /**
    * @public
@@ -5675,7 +6390,7 @@ export interface ConnectionNotification {
    * @public
    * <p>The state of the notification.</p>
    */
-  ConnectionNotificationState?: ConnectionNotificationState | string;
+  ConnectionNotificationState?: ConnectionNotificationState;
 }
 
 /**
@@ -5794,7 +6509,7 @@ export interface PrivateDnsNameConfiguration {
    *             of the endpoint service can use the private name only when the state is
    *                 <code>verified</code>.</p>
    */
-  State?: DnsNameState | string;
+  State?: DnsNameState;
 
   /**
    * @public
@@ -5856,7 +6571,7 @@ export interface ServiceTypeDetail {
    * @public
    * <p>The type of service.</p>
    */
-  ServiceType?: ServiceType | string;
+  ServiceType?: ServiceType;
 }
 
 /**
@@ -5900,7 +6615,7 @@ export interface ServiceConfiguration {
    * @public
    * <p>The service state.</p>
    */
-  ServiceState?: ServiceState | string;
+  ServiceState?: ServiceState;
 
   /**
    * @public
@@ -5937,7 +6652,7 @@ export interface ServiceConfiguration {
    * @public
    * <p>The supported IP address types.</p>
    */
-  SupportedIpAddressTypes?: (ServiceConnectivityType | string)[];
+  SupportedIpAddressTypes?: ServiceConnectivityType[];
 
   /**
    * @public
@@ -5961,7 +6676,7 @@ export interface ServiceConfiguration {
    * @public
    * <p>The payer responsibility.</p>
    */
-  PayerResponsibility?: PayerResponsibility | string;
+  PayerResponsibility?: PayerResponsibility;
 
   /**
    * @public
@@ -6286,7 +7001,7 @@ export interface VpnTunnelOptionsSpecification {
    *             of the rekey is randomly selected based on the value for
    *                 <code>RekeyFuzzPercentage</code>.</p>
    *          <p>Constraints: A value between 60 and half of <code>Phase2LifetimeSeconds</code>.</p>
-   *          <p>Default: <code>540</code>
+   *          <p>Default: <code>270</code>
    *          </p>
    */
   RekeyMarginTimeSeconds?: number;
@@ -6456,7 +7171,7 @@ export interface VpnConnectionOptionsSpecification {
    *          <p>Default: <code>ipv4</code>
    *          </p>
    */
-  TunnelInsideIpVersion?: TunnelInsideIpVersion | string;
+  TunnelInsideIpVersion?: TunnelInsideIpVersion;
 
   /**
    * @public
@@ -6910,7 +7625,7 @@ export interface VpnConnectionOptions {
    * @public
    * <p>Indicates whether the VPN tunnels process IPv4 or IPv6 traffic.</p>
    */
-  TunnelInsideIpVersion?: TunnelInsideIpVersion | string;
+  TunnelInsideIpVersion?: TunnelInsideIpVersion;
 
   /**
    * @public
@@ -6963,13 +7678,13 @@ export interface VpnStaticRoute {
    * @public
    * <p>Indicates how the routes were provided.</p>
    */
-  Source?: VpnStaticRouteSource | string;
+  Source?: VpnStaticRouteSource;
 
   /**
    * @public
    * <p>The current state of the static route.</p>
    */
-  State?: VpnState | string;
+  State?: VpnState;
 }
 
 /**
@@ -6999,7 +7714,7 @@ export interface VgwTelemetry {
 
   /**
    * @public
-   * <p>The date and time of the last change in status.</p>
+   * <p>The date and time of the last change in status. This field is updated when changes in IKE (Phase 1), IPSec (Phase 2), or BGP status are detected.</p>
    */
   LastStatusChange?: Date;
 
@@ -7014,7 +7729,7 @@ export interface VgwTelemetry {
    * @public
    * <p>The status of the VPN tunnel.</p>
    */
-  Status?: TelemetryStatus | string;
+  Status?: TelemetryStatus;
 
   /**
    * @public
@@ -7060,13 +7775,13 @@ export interface VpnConnection {
    * @public
    * <p>The current state of the VPN connection.</p>
    */
-  State?: VpnState | string;
+  State?: VpnState;
 
   /**
    * @public
    * <p>The type of VPN connection.</p>
    */
-  Type?: GatewayType | string;
+  Type?: GatewayType;
 
   /**
    * @public
@@ -7103,7 +7818,7 @@ export interface VpnConnection {
    * @public
    * <p>The current state of the gateway association.</p>
    */
-  GatewayAssociationState?: GatewayAssociationState | string;
+  GatewayAssociationState?: GatewayAssociationState;
 
   /**
    * @public
@@ -7175,7 +7890,7 @@ export interface CreateVpnGatewayRequest {
    * @public
    * <p>The type of VPN connection this virtual private gateway supports.</p>
    */
-  Type: GatewayType | string | undefined;
+  Type: GatewayType | undefined;
 
   /**
    * @public
@@ -7218,13 +7933,13 @@ export interface VpnGateway {
    * @public
    * <p>The current state of the virtual private gateway.</p>
    */
-  State?: VpnState | string;
+  State?: VpnState;
 
   /**
    * @public
    * <p>The type of VPN connection the virtual private gateway supports.</p>
    */
-  Type?: GatewayType | string;
+  Type?: GatewayType;
 
   /**
    * @public
@@ -7561,13 +8276,13 @@ export interface DeleteFleetSuccessItem {
    * @public
    * <p>The current state of the EC2 Fleet.</p>
    */
-  CurrentFleetState?: FleetStateCode | string;
+  CurrentFleetState?: FleetStateCode;
 
   /**
    * @public
    * <p>The previous state of the EC2 Fleet.</p>
    */
-  PreviousFleetState?: FleetStateCode | string;
+  PreviousFleetState?: FleetStateCode;
 
   /**
    * @public
@@ -7601,7 +8316,7 @@ export interface DeleteFleetError {
    * @public
    * <p>The error code.</p>
    */
-  Code?: DeleteFleetErrorCode | string;
+  Code?: DeleteFleetErrorCode;
 
   /**
    * @public
@@ -7777,7 +8492,7 @@ export interface InstanceEventWindowStateChange {
    * @public
    * <p>The current state of the event window.</p>
    */
-  State?: InstanceEventWindowState | string;
+  State?: InstanceEventWindowState;
 }
 
 /**
@@ -7884,6 +8599,16 @@ export interface DeleteIpamPoolRequest {
    * <p>The ID of the pool to delete.</p>
    */
   IpamPoolId: string | undefined;
+
+  /**
+   * @public
+   * <p>Enables you to quickly delete an IPAM pool and all resources within that pool, including
+   *          provisioned CIDRs, allocations, and other pools.</p>
+   *          <important>
+   *             <p>You can only use this option to delete pools in the private scope or pools in the public scope with a source resource. A source resource is a resource used to provision CIDRs to a resource planning pool.</p>
+   *          </important>
+   */
+  Cascade?: boolean;
 }
 
 /**
@@ -8129,7 +8854,7 @@ export interface ResponseError {
    * @public
    * <p>The error code.</p>
    */
-  Code?: LaunchTemplateErrorCode | string;
+  Code?: LaunchTemplateErrorCode;
 
   /**
    * @public
@@ -8352,333 +9077,6 @@ export interface DeleteManagedPrefixListResult {
    * <p>Information about the prefix list.</p>
    */
   PrefixList?: ManagedPrefixList;
-}
-
-/**
- * @public
- */
-export interface DeleteNatGatewayRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The ID of the NAT gateway.</p>
-   */
-  NatGatewayId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNatGatewayResult {
-  /**
-   * @public
-   * <p>The ID of the NAT gateway.</p>
-   */
-  NatGatewayId?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteNetworkAclRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The ID of the network ACL.</p>
-   */
-  NetworkAclId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNetworkAclEntryRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>Indicates whether the rule is an egress rule.</p>
-   */
-  Egress: boolean | undefined;
-
-  /**
-   * @public
-   * <p>The ID of the network ACL.</p>
-   */
-  NetworkAclId: string | undefined;
-
-  /**
-   * @public
-   * <p>The rule number of the entry to delete.</p>
-   */
-  RuleNumber: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNetworkInsightsAccessScopeRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The ID of the Network Access Scope.</p>
-   */
-  NetworkInsightsAccessScopeId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNetworkInsightsAccessScopeResult {
-  /**
-   * @public
-   * <p>The ID of the Network Access Scope.</p>
-   */
-  NetworkInsightsAccessScopeId?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteNetworkInsightsAccessScopeAnalysisRequest {
-  /**
-   * @public
-   * <p>The ID of the Network Access Scope analysis.</p>
-   */
-  NetworkInsightsAccessScopeAnalysisId: string | undefined;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- */
-export interface DeleteNetworkInsightsAccessScopeAnalysisResult {
-  /**
-   * @public
-   * <p>The ID of the Network Access Scope analysis.</p>
-   */
-  NetworkInsightsAccessScopeAnalysisId?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteNetworkInsightsAnalysisRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The ID of the network insights analysis.</p>
-   */
-  NetworkInsightsAnalysisId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNetworkInsightsAnalysisResult {
-  /**
-   * @public
-   * <p>The ID of the network insights analysis.</p>
-   */
-  NetworkInsightsAnalysisId?: string;
-}
-
-/**
- * @public
- */
-export interface DeleteNetworkInsightsPathRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The ID of the path.</p>
-   */
-  NetworkInsightsPathId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNetworkInsightsPathResult {
-  /**
-   * @public
-   * <p>The ID of the path.</p>
-   */
-  NetworkInsightsPathId?: string;
-}
-
-/**
- * @public
- * <p>Contains the parameters for DeleteNetworkInterface.</p>
- */
-export interface DeleteNetworkInterfaceRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The ID of the network interface.</p>
-   */
-  NetworkInterfaceId: string | undefined;
-}
-
-/**
- * @public
- * <p>Contains the parameters for DeleteNetworkInterfacePermission.</p>
- */
-export interface DeleteNetworkInterfacePermissionRequest {
-  /**
-   * @public
-   * <p>The ID of the network interface permission.</p>
-   */
-  NetworkInterfacePermissionId: string | undefined;
-
-  /**
-   * @public
-   * <p>Specify <code>true</code> to remove the permission even if the network interface is
-   * 			attached to an instance.</p>
-   */
-  Force?: boolean;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   * 			Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- * <p>Contains the output for DeleteNetworkInterfacePermission.</p>
- */
-export interface DeleteNetworkInterfacePermissionResult {
-  /**
-   * @public
-   * <p>Returns <code>true</code> if the request succeeds, otherwise returns an error.</p>
-   */
-  Return?: boolean;
-}
-
-/**
- * @public
- */
-export interface DeletePlacementGroupRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The name of the placement group.</p>
-   */
-  GroupName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeletePublicIpv4PoolRequest {
-  /**
-   * @public
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The ID of the public IPv4 pool you want to delete.</p>
-   */
-  PoolId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeletePublicIpv4PoolResult {
-  /**
-   * @public
-   * <p>Information about the result of deleting the public IPv4 pool.</p>
-   */
-  ReturnValue?: boolean;
-}
-
-/**
- * @public
- */
-export interface DeleteQueuedReservedInstancesRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *       Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>The IDs of the Reserved Instances.</p>
-   */
-  ReservedInstancesIds: string[] | undefined;
 }
 
 /**

@@ -13,8 +13,12 @@
 export * from "./WellArchitectedClient";
 export * from "./WellArchitected";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { WellArchitectedExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { WellArchitectedServiceException } from "./models/WellArchitectedServiceException";

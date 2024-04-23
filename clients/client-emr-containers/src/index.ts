@@ -31,8 +31,12 @@
 export * from "./EMRContainersClient";
 export * from "./EMRContainers";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { EMRContainersExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { EMRContainersServiceException } from "./models/EMRContainersServiceException";

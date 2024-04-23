@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { RestoreDBClusterToPointInTimeMessage, RestoreDBClusterToPointInTimeResult } from "../models/models_1";
 import {
   de_RestoreDBClusterToPointInTimeCommand,
@@ -47,11 +39,11 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  *             source DB cluster with the same configuration as the original DB cluster, except that
  *             the new DB cluster is created with the default DB security group.</p>
  *          <note>
- *             <p>For Aurora, this action only restores the DB cluster, not the DB instances for that DB
- *                 cluster. You must invoke the <code>CreateDBInstance</code> action to create DB
+ *             <p>For Aurora, this operation only restores the DB cluster, not the DB instances for that DB
+ *                 cluster. You must invoke the <code>CreateDBInstance</code> operation to create DB
  *                 instances for the restored DB cluster, specifying the identifier of the restored DB
  *                 cluster in <code>DBClusterIdentifier</code>. You can create DB instances only after
- *                 the <code>RestoreDBClusterToPointInTime</code> action has completed and the DB
+ *                 the <code>RestoreDBClusterToPointInTime</code> operation has completed and the DB
  *                 cluster is available.</p>
  *          </note>
  *          <p>For more information on Amazon Aurora DB clusters, see
@@ -115,6 +107,11 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  *   },
  *   NetworkType: "STRING_VALUE",
  *   SourceDbClusterResourceId: "STRING_VALUE",
+ *   RdsCustomClusterConfiguration: { // RdsCustomClusterConfiguration
+ *     InterconnectSubnetId: "STRING_VALUE",
+ *     TransitGatewayMulticastDomainId: "STRING_VALUE",
+ *     ReplicaMode: "open-read-only" || "mounted",
+ *   },
  * };
  * const command = new RestoreDBClusterToPointInTimeCommand(input);
  * const response = await client.send(command);
@@ -156,6 +153,14 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * //     ReplicationSourceIdentifier: "STRING_VALUE",
  * //     ReadReplicaIdentifiers: [ // ReadReplicaIdentifierList
  * //       "STRING_VALUE",
+ * //     ],
+ * //     StatusInfos: [ // DBClusterStatusInfoList
+ * //       { // DBClusterStatusInfo
+ * //         StatusType: "STRING_VALUE",
+ * //         Normal: true || false,
+ * //         Status: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
  * //     ],
  * //     DBClusterMembers: [ // DBClusterMemberList
  * //       { // DBClusterMember
@@ -202,6 +207,11 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * //       TimeoutAction: "STRING_VALUE",
  * //       SecondsBeforeTimeout: Number("int"),
  * //     },
+ * //     RdsCustomClusterConfiguration: { // RdsCustomClusterConfiguration
+ * //       InterconnectSubnetId: "STRING_VALUE",
+ * //       TransitGatewayMulticastDomainId: "STRING_VALUE",
+ * //       ReplicaMode: "open-read-only" || "mounted",
+ * //     },
  * //     DeletionProtection: true || false,
  * //     HttpEndpointEnabled: true || false,
  * //     ActivityStreamMode: "sync" || "async",
@@ -246,6 +256,11 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * //       EngineVersion: "STRING_VALUE",
  * //       BackupRetentionPeriod: Number("int"),
  * //       AllocatedStorage: Number("int"),
+ * //       RdsCustomClusterConfiguration: {
+ * //         InterconnectSubnetId: "STRING_VALUE",
+ * //         TransitGatewayMulticastDomainId: "STRING_VALUE",
+ * //         ReplicaMode: "open-read-only" || "mounted",
+ * //       },
  * //       Iops: Number("int"),
  * //       StorageType: "STRING_VALUE",
  * //     },
@@ -272,6 +287,11 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * //     },
  * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
  * //     LocalWriteForwardingStatus: "enabled" || "disabled" || "enabling" || "disabling" || "requested",
+ * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
+ * //     LimitlessDatabase: { // LimitlessDatabase
+ * //       Status: "active" || "not-in-use" || "enabled" || "disabled" || "enabling" || "disabling" || "modifying-max-capacity" || "error",
+ * //       MinRequiredACU: Number("double"),
+ * //     },
  * //   },
  * // };
  *
@@ -418,82 +438,26 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * ```
  *
  */
-export class RestoreDBClusterToPointInTimeCommand extends $Command<
-  RestoreDBClusterToPointInTimeCommandInput,
-  RestoreDBClusterToPointInTimeCommandOutput,
-  RDSClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: RestoreDBClusterToPointInTimeCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RDSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<RestoreDBClusterToPointInTimeCommandInput, RestoreDBClusterToPointInTimeCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, RestoreDBClusterToPointInTimeCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RDSClient";
-    const commandName = "RestoreDBClusterToPointInTimeCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: RestoreDBClusterToPointInTimeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_RestoreDBClusterToPointInTimeCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RestoreDBClusterToPointInTimeCommandOutput> {
-    return de_RestoreDBClusterToPointInTimeCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class RestoreDBClusterToPointInTimeCommand extends $Command
+  .classBuilder<
+    RestoreDBClusterToPointInTimeCommandInput,
+    RestoreDBClusterToPointInTimeCommandOutput,
+    RDSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonRDSv19", "RestoreDBClusterToPointInTime", {})
+  .n("RDSClient", "RestoreDBClusterToPointInTimeCommand")
+  .f(void 0, void 0)
+  .ser(se_RestoreDBClusterToPointInTimeCommand)
+  .de(de_RestoreDBClusterToPointInTimeCommand)
+  .build() {}

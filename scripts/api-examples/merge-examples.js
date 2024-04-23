@@ -43,7 +43,7 @@ module.exports = {
         console.error(`${folder} does not have a Smithy model.`);
         continue;
       }
-      const modelFolders = readdirSync(join(location, folder)).filter(name => !name.startsWith("."));
+      const modelFolders = readdirSync(join(location, folder)).filter((name) => !name.startsWith("."));
       for (const c2jFolder of modelFolders.filter((name) => name !== "smithy")) {
         const c2jFiles = readdirSync(join(location, folder, c2jFolder));
         for (const examples of c2jFiles.filter((file) => file.includes("examples"))) {
@@ -126,6 +126,7 @@ module.exports = {
 
       for (const [operation, examples] of Object.entries(examplesFile.examples)) {
         const commandFile = join(commandsFolder, operation + "Command.ts");
+
         if (existsSync(commandFile)) {
           for (const example of examples) {
             let buffer = [];
@@ -136,13 +137,13 @@ ${(example.description || "")
   .split("\n")
   .map((line) => `// ${line}`)
   .join("\n")}
-const input = ${JSON.stringify(example.input, null, 2)};
+const input = ${JSON.stringify(example.input || {}, null, 2)};
 const command = new ${operation}Command(input);
 ${
   Object.keys(example.output || {}).length > 0
     ? `const response = await client.send(command);
 /* response ==
-${JSON.stringify(example.output, null, 2)} 
+${JSON.stringify(example.output, null, 2)}
 *\\/`
     : `await client.send(command);`
 }

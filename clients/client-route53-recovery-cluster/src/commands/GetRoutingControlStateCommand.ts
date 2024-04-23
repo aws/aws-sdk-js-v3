@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GetRoutingControlStateRequest, GetRoutingControlStateResponse } from "../models/models_0";
 import { de_GetRoutingControlStateCommand, se_GetRoutingControlStateCommand } from "../protocols/Aws_json1_0";
 import {
@@ -41,23 +33,23 @@ export interface GetRoutingControlStateCommandOutput extends GetRoutingControlSt
 /**
  * @public
  * <p>Get the state for a routing control. A routing control is a simple on/off switch that you
- * 				can use to route traffic to cells. When a routing control state is On, traffic flows to a cell. When
- * 				the state is Off, traffic does not flow. </p>
- * 			      <p>Before you can create a routing control, you must first create a cluster, and then host the control
+ * 				can use to route traffic to cells. When a routing control state is set to ON, traffic flows to a cell. When
+ * 				the state is set to OFF, traffic does not flow. </p>
+ *          <p>Before you can create a routing control, you must first create a cluster, and then host the control
  * 				in a control panel on the cluster. For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.create.html">
  * 					Create routing control structures</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.
  * 				You access one of the endpoints for the cluster to get or update the routing control state to
  * 				redirect traffic for your application. </p>
- * 			      <p>
+ *          <p>
  *             <i>You must specify Regional endpoints when you work with API cluster operations
  * 				to get or update routing control states in Route 53 ARC.</i>
  *          </p>
- * 			      <p>To see a code example for getting a routing control state, including accessing Regional cluster endpoints
+ *          <p>To see a code example for getting a routing control state, including accessing Regional cluster endpoints
  * 				in sequence, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/service_code_examples_actions.html">API examples</a>
  * 				in the Amazon Route 53 Application Recovery Controller Developer Guide.</p>
- * 			      <p>Learn more about working with routing controls in the following topics in the
+ *          <p>Learn more about working with routing controls in the following topics in the
  * 				Amazon Route 53 Application Recovery Controller Developer Guide:</p>
- * 			      <ul>
+ *          <ul>
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.update.html">
@@ -84,7 +76,7 @@ export interface GetRoutingControlStateCommandOutput extends GetRoutingControlSt
  * const response = await client.send(command);
  * // { // GetRoutingControlStateResponse
  * //   RoutingControlArn: "STRING_VALUE", // required
- * //   RoutingControlState: "STRING_VALUE", // required
+ * //   RoutingControlState: "On" || "Off", // required
  * //   RoutingControlName: "STRING_VALUE",
  * // };
  *
@@ -118,79 +110,26 @@ export interface GetRoutingControlStateCommandOutput extends GetRoutingControlSt
  * <p>Base exception class for all service exceptions from Route53RecoveryCluster service.</p>
  *
  */
-export class GetRoutingControlStateCommand extends $Command<
-  GetRoutingControlStateCommandInput,
-  GetRoutingControlStateCommandOutput,
-  Route53RecoveryClusterClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetRoutingControlStateCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: Route53RecoveryClusterClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetRoutingControlStateCommandInput, GetRoutingControlStateCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetRoutingControlStateCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "Route53RecoveryClusterClient";
-    const commandName = "GetRoutingControlStateCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetRoutingControlStateCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetRoutingControlStateCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetRoutingControlStateCommandOutput> {
-    return de_GetRoutingControlStateCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetRoutingControlStateCommand extends $Command
+  .classBuilder<
+    GetRoutingControlStateCommandInput,
+    GetRoutingControlStateCommandOutput,
+    Route53RecoveryClusterClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: Route53RecoveryClusterClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ToggleCustomerAPI", "GetRoutingControlState", {})
+  .n("Route53RecoveryClusterClient", "GetRoutingControlStateCommand")
+  .f(void 0, void 0)
+  .ser(se_GetRoutingControlStateCommand)
+  .de(de_GetRoutingControlStateCommand)
+  .build() {}

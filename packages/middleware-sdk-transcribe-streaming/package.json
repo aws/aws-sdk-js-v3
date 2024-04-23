@@ -1,12 +1,12 @@
 {
   "name": "@aws-sdk/middleware-sdk-transcribe-streaming",
-  "version": "3.391.0",
+  "version": "3.496.0",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
-    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:cjs": "node ../../scripts/compilation/inline middleware-sdk-transcribe-streaming",
     "build:es": "tsc -p tsconfig.es.json",
     "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
     "build:types": "tsc -p tsconfig.types.json",
@@ -23,10 +23,10 @@
   "dependencies": {
     "@aws-sdk/types": "*",
     "@aws-sdk/util-format-url": "*",
-    "@smithy/eventstream-serde-browser": "^2.0.3",
-    "@smithy/protocol-http": "^2.0.3",
-    "@smithy/signature-v4": "^2.0.0",
-    "@smithy/types": "^2.2.0",
+    "@smithy/eventstream-serde-browser": "^2.1.1",
+    "@smithy/protocol-http": "^3.1.1",
+    "@smithy/signature-v4": "^2.1.1",
+    "@smithy/types": "^2.9.1",
     "tslib": "^2.5.0",
     "uuid": "^8.3.2"
   },
@@ -38,7 +38,6 @@
     "jest-websocket-mock": "^2.0.2",
     "mock-socket": "9.1.5",
     "rimraf": "3.0.2",
-    "typedoc": "0.23.23",
     "typescript": "~4.9.5"
   },
   "engines": {
@@ -59,8 +58,5 @@
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
     "directory": "packages/middleware-sdk-transcribe-streaming"
-  },
-  "typedoc": {
-    "entryPoint": "src/index.ts"
   }
 }

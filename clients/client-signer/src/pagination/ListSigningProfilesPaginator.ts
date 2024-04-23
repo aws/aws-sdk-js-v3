@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import {
@@ -10,41 +11,14 @@ import { SignerClient } from "../SignerClient";
 import { SignerPaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: SignerClient,
-  input: ListSigningProfilesCommandInput,
-  ...args: any
-): Promise<ListSigningProfilesCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new ListSigningProfilesCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateListSigningProfiles(
+export const paginateListSigningProfiles: (
   config: SignerPaginationConfiguration,
   input: ListSigningProfilesCommandInput,
-  ...additionalArguments: any
-): Paginator<ListSigningProfilesCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.nextToken
-  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: ListSigningProfilesCommandOutput;
-  while (hasNext) {
-    input.nextToken = token;
-    input["maxResults"] = config.pageSize;
-    if (config.client instanceof SignerClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected Signer | SignerClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.nextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<ListSigningProfilesCommandOutput> = createPaginator<
+  SignerPaginationConfiguration,
+  ListSigningProfilesCommandInput,
+  ListSigningProfilesCommandOutput
+>(SignerClient, ListSigningProfilesCommand, "nextToken", "nextToken", "maxResults");

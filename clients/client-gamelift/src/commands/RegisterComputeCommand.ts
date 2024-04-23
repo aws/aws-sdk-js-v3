@@ -1,20 +1,17 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { RegisterComputeInput, RegisterComputeOutput } from "../models/models_0";
+import {
+  RegisterComputeInput,
+  RegisterComputeInputFilterSensitiveLog,
+  RegisterComputeOutput,
+  RegisterComputeOutputFilterSensitiveLog,
+} from "../models/models_0";
 import { de_RegisterComputeCommand, se_RegisterComputeCommand } from "../protocols/Aws_json1_1";
 
 /**
@@ -123,6 +120,10 @@ export interface RegisterComputeCommandOutput extends RegisterComputeOutput, __M
  *  <p>One or more parameter values in the request are invalid. Correct the invalid parameter
  *             values before retrying.</p>
  *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The requested operation would cause the resource to exceed the allowed service limit.
+ *             Resolve the issue before retrying.</p>
+ *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
@@ -130,79 +131,26 @@ export interface RegisterComputeCommandOutput extends RegisterComputeOutput, __M
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
  */
-export class RegisterComputeCommand extends $Command<
-  RegisterComputeCommandInput,
-  RegisterComputeCommandOutput,
-  GameLiftClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: RegisterComputeCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: GameLiftClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<RegisterComputeCommandInput, RegisterComputeCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, RegisterComputeCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "GameLiftClient";
-    const commandName = "RegisterComputeCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: RegisterComputeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_RegisterComputeCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterComputeCommandOutput> {
-    return de_RegisterComputeCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class RegisterComputeCommand extends $Command
+  .classBuilder<
+    RegisterComputeCommandInput,
+    RegisterComputeCommandOutput,
+    GameLiftClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("GameLift", "RegisterCompute", {})
+  .n("GameLiftClient", "RegisterComputeCommand")
+  .f(RegisterComputeInputFilterSensitiveLog, RegisterComputeOutputFilterSensitiveLog)
+  .ser(se_RegisterComputeCommand)
+  .de(de_RegisterComputeCommand)
+  .build() {}

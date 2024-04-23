@@ -54,7 +54,7 @@ export interface AccountEnrollmentStatus {
    * @public
    * <p>The account enrollment status.</p>
    */
-  status?: Status | string;
+  status?: Status;
 
   /**
    * @public
@@ -116,6 +116,85 @@ export interface AutoScalingGroupConfiguration {
    * <p>The instance type for the Auto Scaling group.</p>
    */
   instanceType?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Currency = {
+  CNY: "CNY",
+  USD: "USD",
+} as const;
+
+/**
+ * @public
+ */
+export type Currency = (typeof Currency)[keyof typeof Currency];
+
+/**
+ * @public
+ * <p>
+ *             An object that describes the estimated monthly savings  possible by adopting Compute Optimizer’s Auto Scaling group recommendations. This is based on the
+ *             Savings Plans and Reserved Instances discounts.
+ *         </p>
+ */
+export interface AutoScalingGroupEstimatedMonthlySavings {
+  /**
+   * @public
+   * <p>
+   *             The currency of the estimated monthly savings.
+   *         </p>
+   */
+  currency?: Currency;
+
+  /**
+   * @public
+   * <p>
+   *             The value of the estimated monthly savings.
+   *         </p>
+   */
+  value?: number;
+}
+
+/**
+ * @public
+ * <p>
+ *             Describes the GPU accelerators for the instance type.
+ *         </p>
+ */
+export interface Gpu {
+  /**
+   * @public
+   * <p>
+   *             The number of GPUs for the instance type.
+   *         </p>
+   */
+  gpuCount?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The total size of the memory for the GPU accelerators for the instance type, in MiB.
+   *         </p>
+   */
+  gpuMemorySizeInMiB?: number;
+}
+
+/**
+ * @public
+ * <p>
+ *             Describes the GPU accelerator settings for the instance type.
+ *         </p>
+ */
+export interface GpuInfo {
+  /**
+   * @public
+   * <p>
+   *             Describes the GPU accelerators for the instance type.
+   *         </p>
+   */
+  gpus?: Gpu[];
 }
 
 /**
@@ -189,7 +268,7 @@ export interface ExternalMetricsPreference {
    * @public
    * <p> Contains the source options for external metrics preferences. </p>
    */
-  source?: ExternalMetricsSource | string;
+  source?: ExternalMetricsSource;
 }
 
 /**
@@ -206,6 +285,207 @@ export const InferredWorkloadTypesPreference = {
  */
 export type InferredWorkloadTypesPreference =
   (typeof InferredWorkloadTypesPreference)[keyof typeof InferredWorkloadTypesPreference];
+
+/**
+ * @public
+ * @enum
+ */
+export const LookBackPeriodPreference = {
+  DAYS_14: "DAYS_14",
+  DAYS_32: "DAYS_32",
+  DAYS_93: "DAYS_93",
+} as const;
+
+/**
+ * @public
+ */
+export type LookBackPeriodPreference = (typeof LookBackPeriodPreference)[keyof typeof LookBackPeriodPreference];
+
+/**
+ * @public
+ * @enum
+ */
+export const PreferredResourceName = {
+  EC2_INSTANCE_TYPES: "Ec2InstanceTypes",
+} as const;
+
+/**
+ * @public
+ */
+export type PreferredResourceName = (typeof PreferredResourceName)[keyof typeof PreferredResourceName];
+
+/**
+ * @public
+ * <p>
+ *             Describes the effective preferred resources that Compute Optimizer considers as rightsizing recommendation candidates.
+ *         </p>
+ *          <note>
+ *             <p>Compute Optimizer only supports Amazon EC2 instance types.</p>
+ *          </note>
+ */
+export interface EffectivePreferredResource {
+  /**
+   * @public
+   * <p>
+   *             The name of the preferred resource list.
+   *         </p>
+   */
+  name?: PreferredResourceName;
+
+  /**
+   * @public
+   * <p>
+   *             The list of preferred resource values that you want considered as rightsizing recommendation candidates.
+   *         </p>
+   */
+  includeList?: string[];
+
+  /**
+   * @public
+   * <p>
+   *             The expanded version of your preferred resource's include list.
+   *         </p>
+   */
+  effectiveIncludeList?: string[];
+
+  /**
+   * @public
+   * <p>
+   *             The list of preferred resources values that you want excluded from rightsizing recommendation candidates.
+   *         </p>
+   */
+  excludeList?: string[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceSavingsEstimationModeSource = {
+  COST_EXPLORER_RIGHTSIZING: "CostExplorerRightsizing",
+  COST_OPTIMIZATION_HUB: "CostOptimizationHub",
+  PUBLIC_PRICING: "PublicPricing",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceSavingsEstimationModeSource =
+  (typeof InstanceSavingsEstimationModeSource)[keyof typeof InstanceSavingsEstimationModeSource];
+
+/**
+ * @public
+ * <p>
+ *             Describes the savings estimation mode used for calculating savings opportunity for Amazon EC2 instances.
+ *         </p>
+ */
+export interface InstanceSavingsEstimationMode {
+  /**
+   * @public
+   * <p>
+   *             Describes the source for calculating the savings opportunity for Amazon EC2 instances.
+   *         </p>
+   */
+  source?: InstanceSavingsEstimationModeSource;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CustomizableMetricName = {
+  CPU_UTILIZATION: "CpuUtilization",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomizableMetricName = (typeof CustomizableMetricName)[keyof typeof CustomizableMetricName];
+
+/**
+ * @public
+ * @enum
+ */
+export const CustomizableMetricHeadroom = {
+  PERCENT_0: "PERCENT_0",
+  PERCENT_20: "PERCENT_20",
+  PERCENT_30: "PERCENT_30",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomizableMetricHeadroom = (typeof CustomizableMetricHeadroom)[keyof typeof CustomizableMetricHeadroom];
+
+/**
+ * @public
+ * @enum
+ */
+export const CustomizableMetricThreshold = {
+  P90: "P90",
+  P95: "P95",
+  P99_5: "P99_5",
+} as const;
+
+/**
+ * @public
+ */
+export type CustomizableMetricThreshold =
+  (typeof CustomizableMetricThreshold)[keyof typeof CustomizableMetricThreshold];
+
+/**
+ * @public
+ * <p>
+ *             Defines the various metric parameters that can be customized, such as threshold and headroom.
+ *         </p>
+ */
+export interface CustomizableMetricParameters {
+  /**
+   * @public
+   * <p>
+   *             The threshold value used for the specified metric parameter.
+   *         </p>
+   */
+  threshold?: CustomizableMetricThreshold;
+
+  /**
+   * @public
+   * <p>
+   *             The headroom threshold value in percentage used for the specified metric parameter.
+   *         </p>
+   */
+  headroom?: CustomizableMetricHeadroom;
+}
+
+/**
+ * @public
+ * <p>
+ *             The preference to control the resource’s CPU utilization thresholds - threshold and headroom.
+ *         </p>
+ *          <note>
+ *             <p>This preference is only available for the Amazon EC2 instance resource type.</p>
+ *          </note>
+ */
+export interface UtilizationPreference {
+  /**
+   * @public
+   * <p>
+   *             The name of the resource utilization metric name to customize.
+   *         </p>
+   *          <note>
+   *             <p>Compute Optimizer only supports <code>CpuUtilization</code>.</p>
+   *          </note>
+   */
+  metricName?: CustomizableMetricName;
+
+  /**
+   * @public
+   * <p>
+   *             The parameters to set when customizing the resource utilization thresholds.
+   *         </p>
+   */
+  metricParameters?: CustomizableMetricParameters;
+}
 
 /**
  * @public
@@ -232,7 +512,7 @@ export interface EffectiveRecommendationPreferences {
    *             </li>
    *          </ul>
    */
-  cpuVendorArchitectures?: (CpuVendorArchitecture | string)[];
+  cpuVendorArchitectures?: CpuVendorArchitecture[];
 
   /**
    * @public
@@ -245,7 +525,7 @@ export interface EffectiveRecommendationPreferences {
    *                 infrastructure metrics</a> in the <i>Compute Optimizer User
    *                 Guide</i>.</p>
    */
-  enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics | string;
+  enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics;
 
   /**
    * @public
@@ -254,7 +534,7 @@ export interface EffectiveRecommendationPreferences {
    *             recommendation refresh. A status of <code>Inactive</code> confirms that it's not yet
    *             applied to recommendations.</p>
    */
-  inferredWorkloadTypes?: InferredWorkloadTypesPreference | string;
+  inferredWorkloadTypes?: InferredWorkloadTypesPreference;
 
   /**
    * @public
@@ -264,6 +544,42 @@ export interface EffectiveRecommendationPreferences {
    *             to the recommendations already, then this object doesn't appear in the response. </p>
    */
   externalMetricsPreference?: ExternalMetricsPreference;
+
+  /**
+   * @public
+   * <p>
+   *             The number of days the utilization metrics of the Amazon Web Services resource are analyzed.
+   *         </p>
+   */
+  lookBackPeriod?: LookBackPeriodPreference;
+
+  /**
+   * @public
+   * <p>
+   *             The resource’s CPU utilization threshold preferences, such as threshold and headroom, that
+   *             are used to generate rightsizing recommendations.
+   *         </p>
+   *          <note>
+   *             <p>This preference is only available for the Amazon EC2 instance resource type.</p>
+   *          </note>
+   */
+  utilizationPreferences?: UtilizationPreference[];
+
+  /**
+   * @public
+   * <p>
+   *             The resource type values that are considered as candidates when generating rightsizing recommendations.
+   *         </p>
+   */
+  preferredResources?: EffectivePreferredResource[];
+
+  /**
+   * @public
+   * <p>
+   *             Describes the savings estimation mode applied for calculating savings opportunity for a resource.
+   *         </p>
+   */
+  savingsEstimationMode?: InstanceSavingsEstimationMode;
 }
 
 /**
@@ -333,6 +649,8 @@ export const MetricName = {
   EBS_READ_OPS_PER_SECOND: "EBS_READ_OPS_PER_SECOND",
   EBS_WRITE_BYTES_PER_SECOND: "EBS_WRITE_BYTES_PER_SECOND",
   EBS_WRITE_OPS_PER_SECOND: "EBS_WRITE_OPS_PER_SECOND",
+  GPU_MEMORY_PERCENTAGE: "GPU_MEMORY_PERCENTAGE",
+  GPU_PERCENTAGE: "GPU_PERCENTAGE",
   MEMORY: "Memory",
   NETWORK_IN_BYTES_PER_SECOND: "NETWORK_IN_BYTES_PER_SECOND",
   NETWORK_OUT_BYTES_PER_SECOND: "NETWORK_OUT_BYTES_PER_SECOND",
@@ -394,6 +712,22 @@ export interface UtilizationMetric {
    *                         the unified CloudWatch agent installed on them. For more information,
    *                         see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent">Enabling Memory
    *                             Utilization with the CloudWatch Agent</a>.</p>
+   *                </note>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GPU</code> - The percentage of allocated GPUs that currently run on
+   *                     the instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GPU_MEMORY</code> - The percentage of total GPU memory that currently runs on
+   *                     the instance.</p>
+   *                <note>
+   *                   <p>The <code>GPU</code> and <code>GPU_MEMORY</code> metrics are only returned for resources
+   *                         with the unified CloudWatch Agent installed on them. For more information, see
+   *                         <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#nvidia-cw-agent">Enabling NVIDIA GPU
+   *                             utilization with the CloudWatch Agent</a>.</p>
    *                </note>
    *             </li>
    *             <li>
@@ -480,7 +814,7 @@ export interface UtilizationMetric {
    *             </li>
    *          </ul>
    */
-  name?: MetricName | string;
+  name?: MetricName;
 
   /**
    * @public
@@ -497,7 +831,7 @@ export interface UtilizationMetric {
    *             using Amazon CloudWatch. For more information, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html">Amazon CloudWatch
    *                 User Guide</a>.</p>
    */
-  statistic?: MetricStatistic | string;
+  statistic?: MetricStatistic;
 
   /**
    * @public
@@ -505,20 +839,6 @@ export interface UtilizationMetric {
    */
   value?: number;
 }
-
-/**
- * @public
- * @enum
- */
-export const Currency = {
-  CNY: "CNY",
-  USD: "USD",
-} as const;
-
-/**
- * @public
- */
-export type Currency = (typeof Currency)[keyof typeof Currency];
 
 /**
  * @public
@@ -533,7 +853,7 @@ export interface EstimatedMonthlySavings {
    * <p>The currency of the estimated monthly
    *             savings.</p>
    */
-  currency?: Currency | string;
+  currency?: Currency;
 
   /**
    * @public
@@ -575,6 +895,33 @@ export interface SavingsOpportunity {
    *             resource. This is based on the On-Demand instance pricing..</p>
    */
   estimatedMonthlySavings?: EstimatedMonthlySavings;
+}
+
+/**
+ * @public
+ * <p>
+ *             Describes the savings opportunity for Auto Scaling group recommendations after applying the Savings Plans and Reserved Instances discounts.
+ *         </p>
+ *          <p>Savings opportunity represents the estimated monthly savings you can achieve by implementing Compute Optimizer recommendations.</p>
+ */
+export interface AutoScalingGroupSavingsOpportunityAfterDiscounts {
+  /**
+   * @public
+   * <p>
+   *             The estimated monthly savings possible as a percentage of monthly cost after applying the Savings Plans and Reserved Instances discounts. This saving can be
+   *             achieved by adopting Compute Optimizer’s Auto Scaling group recommendations.
+   *         </p>
+   */
+  savingsOpportunityPercentage?: number;
+
+  /**
+   * @public
+   * <p>
+   *             An object that describes the estimated monthly savings possible by adopting Compute Optimizer’s Auto Scaling group recommendations. This is based on the
+   *             Savings Plans and Reserved Instances pricing discounts.
+   *         </p>
+   */
+  estimatedMonthlySavings?: AutoScalingGroupEstimatedMonthlySavings;
 }
 
 /**
@@ -647,7 +994,24 @@ export interface AutoScalingGroupRecommendationOption {
    *                 <code>VeryLow</code> if both the current and recommended instance types are of the
    *             same CPU architecture.</p>
    */
-  migrationEffort?: MigrationEffort | string;
+  migrationEffort?: MigrationEffort;
+
+  /**
+   * @public
+   * <p>
+   *             Describes the GPU accelerator settings for the recommended instance type of the Auto Scaling group.
+   *         </p>
+   */
+  instanceGpuInfo?: GpuInfo;
+
+  /**
+   * @public
+   * <p>
+   *             An object that describes the savings opportunity for the Auto Scaling group recommendation option that includes Savings Plans and Reserved Instances discounts.
+   *             Savings opportunity includes the estimated monthly savings and percentage.
+   *         </p>
+   */
+  savingsOpportunityAfterDiscounts?: AutoScalingGroupSavingsOpportunityAfterDiscounts;
 }
 
 /**
@@ -697,7 +1061,7 @@ export interface AutoScalingGroupRecommendation {
    *             </li>
    *          </ul>
    */
-  finding?: Finding | string;
+  finding?: Finding;
 
   /**
    * @public
@@ -739,7 +1103,7 @@ export interface AutoScalingGroupRecommendation {
    *             its workloads. The higher the risk, the more likely the current Auto Scaling group
    *             configuration has insufficient capacity and cannot meet workload requirements.</p>
    */
-  currentPerformanceRisk?: CurrentPerformanceRisk | string;
+  currentPerformanceRisk?: CurrentPerformanceRisk;
 
   /**
    * @public
@@ -801,7 +1165,15 @@ export interface AutoScalingGroupRecommendation {
    *             </li>
    *          </ul>
    */
-  inferredWorkloadTypes?: (InferredWorkloadType | string)[];
+  inferredWorkloadTypes?: InferredWorkloadType[];
+
+  /**
+   * @public
+   * <p>
+   *             Describes the GPU accelerator settings for the current instance type of the Auto Scaling group.
+   *         </p>
+   */
+  currentInstanceGpuInfo?: GpuInfo;
 }
 
 /**
@@ -812,6 +1184,9 @@ export const RecommendationPreferenceName = {
   ENHANCED_INFRASTRUCTURE_METRICS: "EnhancedInfrastructureMetrics",
   EXTERNAL_METRICS_PREFERENCE: "ExternalMetricsPreference",
   INFERRED_WORKLOAD_TYPES: "InferredWorkloadTypes",
+  LOOKBACK_PERIOD_PREFERENCE: "LookBackPeriodPreference",
+  PREFERRED_RESOURCES: "PreferredResources",
+  UTILIZATION_PREFERENCES: "UtilizationPreferences",
 } as const;
 
 /**
@@ -830,6 +1205,7 @@ export const ResourceType = {
   EC2_INSTANCE: "Ec2Instance",
   ECS_SERVICE: "EcsService",
   LAMBDA_FUNCTION: "LambdaFunction",
+  LICENSE: "License",
   NOT_APPLICABLE: "NotApplicable",
 } as const;
 
@@ -897,7 +1273,7 @@ export interface Scope {
    *             </li>
    *          </ul>
    */
-  name?: ScopeName | string;
+  name?: ScopeName;
 
   /**
    * @public
@@ -939,7 +1315,7 @@ export interface DeleteRecommendationPreferencesRequest {
    *                     <code>AutoScalingGroup</code>.</p>
    *          </note>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -956,7 +1332,7 @@ export interface DeleteRecommendationPreferencesRequest {
    * @public
    * <p>The name of the recommendation preference to delete.</p>
    */
-  recommendationPreferenceNames: (RecommendationPreferenceName | string)[] | undefined;
+  recommendationPreferenceNames: RecommendationPreferenceName[] | undefined;
 }
 
 /**
@@ -1137,7 +1513,7 @@ export interface JobFilter {
    *          <p>Specify <code>JobStatus</code> to return export jobs with a specific status (e.g,
    *                 <code>Complete</code>).</p>
    */
-  name?: JobFilterName | string;
+  name?: JobFilterName;
 
   /**
    * @public
@@ -1279,13 +1655,13 @@ export interface RecommendationExportJob {
    * @public
    * <p>The resource type of the exported recommendations.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
    * <p>The status of the export job.</p>
    */
-  status?: JobStatus | string;
+  status?: JobStatus;
 
   /**
    * @public
@@ -1336,6 +1712,7 @@ export const ExportableAutoScalingGroupField = {
   CURRENT_CONFIGURATION_INSTANCE_TYPE: "CurrentConfigurationInstanceType",
   CURRENT_CONFIGURATION_MAX_SIZE: "CurrentConfigurationMaxSize",
   CURRENT_CONFIGURATION_MIN_SIZE: "CurrentConfigurationMinSize",
+  CURRENT_INSTANCE_GPU_INFO: "CurrentInstanceGpuInfo",
   CURRENT_MEMORY: "CurrentMemory",
   CURRENT_NETWORK: "CurrentNetwork",
   CURRENT_ON_DEMAND_PRICE: "CurrentOnDemandPrice",
@@ -1350,6 +1727,10 @@ export const ExportableAutoScalingGroupField = {
     "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics",
   EFFECTIVE_RECOMMENDATION_PREFERENCES_INFERRED_WORKLOAD_TYPES:
     "EffectiveRecommendationPreferencesInferredWorkloadTypes",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_LOOKBACK_PERIOD: "EffectiveRecommendationPreferencesLookBackPeriod",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_PREFERRED_RESOURCES: "EffectiveRecommendationPreferencesPreferredResources",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_SAVINGS_ESTIMATION_MODE:
+    "EffectiveRecommendationPreferencesSavingsEstimationMode",
   FINDING: "Finding",
   INFERRED_WORKLOAD_TYPES: "InferredWorkloadTypes",
   LAST_REFRESH_TIMESTAMP: "LastRefreshTimestamp",
@@ -1359,7 +1740,12 @@ export const ExportableAutoScalingGroupField = {
   RECOMMENDATION_OPTIONS_CONFIGURATION_MAX_SIZE: "RecommendationOptionsConfigurationMaxSize",
   RECOMMENDATION_OPTIONS_CONFIGURATION_MIN_SIZE: "RecommendationOptionsConfigurationMinSize",
   RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY: "RecommendationOptionsEstimatedMonthlySavingsCurrency",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS:
+    "RecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts",
   RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE: "RecommendationOptionsEstimatedMonthlySavingsValue",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS:
+    "RecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts",
+  RECOMMENDATION_OPTIONS_INSTANCE_GPU_INFO: "RecommendationOptionsInstanceGpuInfo",
   RECOMMENDATION_OPTIONS_MEMORY: "RecommendationOptionsMemory",
   RECOMMENDATION_OPTIONS_MIGRATION_EFFORT: "RecommendationOptionsMigrationEffort",
   RECOMMENDATION_OPTIONS_NETWORK: "RecommendationOptionsNetwork",
@@ -1367,8 +1753,14 @@ export const ExportableAutoScalingGroupField = {
   RECOMMENDATION_OPTIONS_PERFORMANCE_RISK: "RecommendationOptionsPerformanceRisk",
   RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM:
     "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
+  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_GPU_MAXIMUM:
+    "RecommendationOptionsProjectedUtilizationMetricsGpuPercentageMaximum",
+  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_GPU_MEMORY_MAXIMUM:
+    "RecommendationOptionsProjectedUtilizationMetricsGpuMemoryPercentageMaximum",
   RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM:
     "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
+  RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE:
+    "RecommendationOptionsSavingsOpportunityAfterDiscountsPercentage",
   RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE: "RecommendationOptionsSavingsOpportunityPercentage",
   RECOMMENDATION_OPTIONS_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE:
     "RecommendationOptionsStandardOneYearNoUpfrontReservedPrice",
@@ -1385,6 +1777,8 @@ export const ExportableAutoScalingGroupField = {
   UTILIZATION_METRICS_EBS_READ_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsEbsReadOpsPerSecondMaximum",
   UTILIZATION_METRICS_EBS_WRITE_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsEbsWriteBytesPerSecondMaximum",
   UTILIZATION_METRICS_EBS_WRITE_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsEbsWriteOpsPerSecondMaximum",
+  UTILIZATION_METRICS_GPU_MEMORY_PERCENTAGE_MAXIMUM: "UtilizationMetricsGpuMemoryPercentageMaximum",
+  UTILIZATION_METRICS_GPU_PERCENTAGE_MAXIMUM: "UtilizationMetricsGpuPercentageMaximum",
   UTILIZATION_METRICS_MEMORY_MAXIMUM: "UtilizationMetricsMemoryMaximum",
   UTILIZATION_METRICS_NETWORK_IN_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsNetworkInBytesPerSecondMaximum",
   UTILIZATION_METRICS_NETWORK_OUT_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsNetworkOutBytesPerSecondMaximum",
@@ -1459,7 +1853,7 @@ export interface Filter {
    *             your recommendations with a tag key value of <code>Owner</code> or without any tag
    *             keys assigned.</p>
    */
-  name?: FilterName | string;
+  name?: FilterName;
 
   /**
    * @public
@@ -1657,7 +2051,7 @@ export interface RecommendationPreferences {
    *             </li>
    *          </ul>
    */
-  cpuVendorArchitectures?: (CpuVendorArchitecture | string)[];
+  cpuVendorArchitectures?: CpuVendorArchitecture[];
 }
 
 /**
@@ -1717,7 +2111,7 @@ export interface ExportAutoScalingGroupRecommendationsRequest {
    *             fields that can be exported, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files">Exported files</a> in the <i>Compute Optimizer User
    *             Guide</i>.</p>
    */
-  fieldsToExport?: (ExportableAutoScalingGroupField | string)[];
+  fieldsToExport?: ExportableAutoScalingGroupField[];
 
   /**
    * @public
@@ -1738,7 +2132,7 @@ export interface ExportAutoScalingGroupRecommendationsRequest {
    * <p>The format of the export file.</p>
    *          <p>The only export file format currently supported is <code>Csv</code>.</p>
    */
-  fileFormat?: FileFormat | string;
+  fileFormat?: FileFormat;
 
   /**
    * @public
@@ -1811,6 +2205,7 @@ export class LimitExceededException extends __BaseException {
  */
 export const ExportableVolumeField = {
   ACCOUNT_ID: "AccountId",
+  CURRENT_CONFIGURATION_ROOT_VOLUME: "CurrentConfigurationRootVolume",
   CURRENT_CONFIGURATION_VOLUME_BASELINE_IOPS: "CurrentConfigurationVolumeBaselineIOPS",
   CURRENT_CONFIGURATION_VOLUME_BASELINE_THROUGHPUT: "CurrentConfigurationVolumeBaselineThroughput",
   CURRENT_CONFIGURATION_VOLUME_BURST_IOPS: "CurrentConfigurationVolumeBurstIOPS",
@@ -1819,6 +2214,8 @@ export const ExportableVolumeField = {
   CURRENT_CONFIGURATION_VOLUME_TYPE: "CurrentConfigurationVolumeType",
   CURRENT_MONTHLY_PRICE: "CurrentMonthlyPrice",
   CURRENT_PERFORMANCE_RISK: "CurrentPerformanceRisk",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_SAVINGS_ESTIMATION_MODE:
+    "EffectiveRecommendationPreferencesSavingsEstimationMode",
   FINDING: "Finding",
   LAST_REFRESH_TIMESTAMP: "LastRefreshTimestamp",
   LOOKBACK_PERIOD_IN_DAYS: "LookbackPeriodInDays",
@@ -1831,9 +2228,15 @@ export const ExportableVolumeField = {
   RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_SIZE: "RecommendationOptionsConfigurationVolumeSize",
   RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_TYPE: "RecommendationOptionsConfigurationVolumeType",
   RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY: "RecommendationOptionsEstimatedMonthlySavingsCurrency",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS:
+    "RecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts",
   RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE: "RecommendationOptionsEstimatedMonthlySavingsValue",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS:
+    "RecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts",
   RECOMMENDATION_OPTIONS_MONTHLY_PRICE: "RecommendationOptionsMonthlyPrice",
   RECOMMENDATION_OPTIONS_PERFORMANCE_RISK: "RecommendationOptionsPerformanceRisk",
+  RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE:
+    "RecommendationOptionsSavingsOpportunityAfterDiscountsPercentage",
   RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE: "RecommendationOptionsSavingsOpportunityPercentage",
   ROOT_VOLUME: "RootVolume",
   TAGS: "Tags",
@@ -1889,7 +2292,7 @@ export interface EBSFilter {
    *             your Amazon EBS volume recommendations with a tag key value of <code>Owner</code> or without any tag
    *             keys assigned.</p>
    */
-  name?: EBSFilterName | string;
+  name?: EBSFilterName;
 
   /**
    * @public
@@ -1929,7 +2332,7 @@ export interface ExportEBSVolumeRecommendationsRequest {
    *             fields that can be exported, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files">Exported files</a> in the <i>Compute Optimizer User
    *             Guide</i>.</p>
    */
-  fieldsToExport?: (ExportableVolumeField | string)[];
+  fieldsToExport?: ExportableVolumeField[];
 
   /**
    * @public
@@ -1950,7 +2353,7 @@ export interface ExportEBSVolumeRecommendationsRequest {
    * <p>The format of the export file.</p>
    *          <p>The only export file format currently supported is <code>Csv</code>.</p>
    */
-  fileFormat?: FileFormat | string;
+  fileFormat?: FileFormat;
 
   /**
    * @public
@@ -1996,6 +2399,7 @@ export interface ExportEBSVolumeRecommendationsResponse {
  */
 export const ExportableInstanceField = {
   ACCOUNT_ID: "AccountId",
+  CURRENT_INSTANCE_GPU_INFO: "CurrentInstanceGpuInfo",
   CURRENT_INSTANCE_TYPE: "CurrentInstanceType",
   CURRENT_MEMORY: "CurrentMemory",
   CURRENT_NETWORK: "CurrentNetwork",
@@ -2013,10 +2417,17 @@ export const ExportableInstanceField = {
     "EffectiveRecommendationPreferencesExternalMetricsSource",
   EFFECTIVE_RECOMMENDATION_PREFERENCES_INFERRED_WORKLOAD_TYPES:
     "EffectiveRecommendationPreferencesInferredWorkloadTypes",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_LOOKBACK_PERIOD: "EffectiveRecommendationPreferencesLookBackPeriod",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_PREFERRED_RESOURCES: "EffectiveRecommendationPreferencesPreferredResources",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_SAVINGS_ESTIMATION_MODE:
+    "EffectiveRecommendationPreferencesSavingsEstimationMode",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_UTILIZATION_PREFERENCES:
+    "EffectiveRecommendationPreferencesUtilizationPreferences",
   EXTERNAL_METRIC_STATUS_CODE: "ExternalMetricStatusCode",
   EXTERNAL_METRIC_STATUS_REASON: "ExternalMetricStatusReason",
   FINDING: "Finding",
   Finding_Reason_Codes: "FindingReasonCodes",
+  IDLE: "Idle",
   INFERRED_WORKLOAD_TYPES: "InferredWorkloadTypes",
   INSTANCE_ARN: "InstanceArn",
   INSTANCE_NAME: "InstanceName",
@@ -2026,7 +2437,12 @@ export const ExportableInstanceField = {
   RECOMMENDATIONS_SOURCES_RECOMMENDATION_SOURCE_ARN: "RecommendationsSourcesRecommendationSourceArn",
   RECOMMENDATIONS_SOURCES_RECOMMENDATION_SOURCE_TYPE: "RecommendationsSourcesRecommendationSourceType",
   RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY: "RecommendationOptionsEstimatedMonthlySavingsCurrency",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS:
+    "RecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts",
   RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE: "RecommendationOptionsEstimatedMonthlySavingsValue",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS:
+    "RecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts",
+  RECOMMENDATION_OPTIONS_INSTANCE_GPU_INFO: "RecommendationOptionsInstanceGpuInfo",
   RECOMMENDATION_OPTIONS_INSTANCE_TYPE: "RecommendationOptionsInstanceType",
   RECOMMENDATION_OPTIONS_MEMORY: "RecommendationOptionsMemory",
   RECOMMENDATION_OPTIONS_MIGRATION_EFFORT: "RecommendationOptionsMigrationEffort",
@@ -2036,8 +2452,14 @@ export const ExportableInstanceField = {
   RECOMMENDATION_OPTIONS_PLATFORM_DIFFERENCES: "RecommendationOptionsPlatformDifferences",
   RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM:
     "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
+  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_GPU_MEMORY_PERCENTAGE_MAXIMUM:
+    "RecommendationOptionsProjectedUtilizationMetricsGpuMemoryPercentageMaximum",
+  RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_GPU_PERCENTAGE_MAXIMUM:
+    "RecommendationOptionsProjectedUtilizationMetricsGpuPercentageMaximum",
   RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM:
     "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
+  RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE:
+    "RecommendationOptionsSavingsOpportunityAfterDiscountsPercentage",
   RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE: "RecommendationOptionsSavingsOpportunityPercentage",
   RECOMMENDATION_OPTIONS_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE:
     "RecommendationOptionsStandardOneYearNoUpfrontReservedPrice",
@@ -2055,6 +2477,8 @@ export const ExportableInstanceField = {
   UTILIZATION_METRICS_EBS_READ_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsEbsReadOpsPerSecondMaximum",
   UTILIZATION_METRICS_EBS_WRITE_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsEbsWriteBytesPerSecondMaximum",
   UTILIZATION_METRICS_EBS_WRITE_OPS_PER_SECOND_MAXIMUM: "UtilizationMetricsEbsWriteOpsPerSecondMaximum",
+  UTILIZATION_METRICS_GPU_MEMORY_PERCENTAGE_MAXIMUM: "UtilizationMetricsGpuMemoryPercentageMaximum",
+  UTILIZATION_METRICS_GPU_PERCENTAGE_MAXIMUM: "UtilizationMetricsGpuPercentageMaximum",
   UTILIZATION_METRICS_MEMORY_MAXIMUM: "UtilizationMetricsMemoryMaximum",
   UTILIZATION_METRICS_NETWORK_IN_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsNetworkInBytesPerSecondMaximum",
   UTILIZATION_METRICS_NETWORK_OUT_BYTES_PER_SECOND_MAXIMUM: "UtilizationMetricsNetworkOutBytesPerSecondMaximum",
@@ -2098,7 +2522,7 @@ export interface ExportEC2InstanceRecommendationsRequest {
    *             fields that can be exported, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files">Exported files</a> in the <i>Compute Optimizer User
    *             Guide</i>.</p>
    */
-  fieldsToExport?: (ExportableInstanceField | string)[];
+  fieldsToExport?: ExportableInstanceField[];
 
   /**
    * @public
@@ -2120,7 +2544,7 @@ export interface ExportEC2InstanceRecommendationsRequest {
    * <p>The format of the export file.</p>
    *          <p>The only export file format currently supported is <code>Csv</code>.</p>
    */
-  fileFormat?: FileFormat | string;
+  fileFormat?: FileFormat;
 
   /**
    * @public
@@ -2177,6 +2601,8 @@ export const ExportableECSServiceField = {
   CURRENT_SERVICE_CONFIGURATION_MEMORY: "CurrentServiceConfigurationMemory",
   CURRENT_SERVICE_CONFIGURATION_TASK_DEFINITION_ARN: "CurrentServiceConfigurationTaskDefinitionArn",
   CURRENT_SERVICE_CONTAINER_CONFIGURATIONS: "CurrentServiceContainerConfigurations",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_SAVINGS_ESTIMATION_MODE:
+    "EffectiveRecommendationPreferencesSavingsEstimationMode",
   FINDING: "Finding",
   FINDING_REASON_CODES: "FindingReasonCodes",
   LAST_REFRESH_TIMESTAMP: "LastRefreshTimestamp",
@@ -2185,12 +2611,18 @@ export const ExportableECSServiceField = {
   RECOMMENDATION_OPTIONS_CONTAINER_RECOMMENDATIONS: "RecommendationOptionsContainerRecommendations",
   RECOMMENDATION_OPTIONS_CPU: "RecommendationOptionsCpu",
   RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY: "RecommendationOptionsEstimatedMonthlySavingsCurrency",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS:
+    "RecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts",
   RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE: "RecommendationOptionsEstimatedMonthlySavingsValue",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS:
+    "RecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts",
   RECOMMENDATION_OPTIONS_MEMORY: "RecommendationOptionsMemory",
   RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM:
     "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
   RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM:
     "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
+  RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE:
+    "RecommendationOptionsSavingsOpportunityAfterDiscountsPercentage",
   RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE: "RecommendationOptionsSavingsOpportunityPercentage",
   SERVICE_ARN: "ServiceArn",
   TAGS: "Tags",
@@ -2250,7 +2682,7 @@ export interface ECSServiceRecommendationFilter {
    *             your Amazon ECS service recommendations with a tag key value of <code>Owner</code> or without any tag
    *             keys assigned.</p>
    */
-  name?: ECSServiceRecommendationFilterName | string;
+  name?: ECSServiceRecommendationFilterName;
 
   /**
    * @public
@@ -2308,7 +2740,7 @@ export interface ExportECSServiceRecommendationsRequest {
    *             fields that can be exported, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files">Exported files</a> in the <i>Compute Optimizer User
    *                     Guide</i>.</p>
    */
-  fieldsToExport?: (ExportableECSServiceField | string)[];
+  fieldsToExport?: ExportableECSServiceField[];
 
   /**
    * @public
@@ -2331,7 +2763,7 @@ export interface ExportECSServiceRecommendationsRequest {
    *         </p>
    *          <p>The CSV file is the only export file format currently supported.</p>
    */
-  fileFormat?: FileFormat | string;
+  fileFormat?: FileFormat;
 
   /**
    * @public
@@ -2384,6 +2816,8 @@ export const ExportableLambdaFunctionField = {
   CURRENT_COST_AVERAGE: "CurrentCostAverage",
   CURRENT_COST_TOTAL: "CurrentCostTotal",
   CURRENT_PERFORMANCE_RISK: "CurrentPerformanceRisk",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_SAVINGS_ESTIMATION_MODE:
+    "EffectiveRecommendationPreferencesSavingsEstimationMode",
   FINDING: "Finding",
   FINDING_REASON_CODES: "FindingReasonCodes",
   FUNCTION_ARN: "FunctionArn",
@@ -2395,13 +2829,19 @@ export const ExportableLambdaFunctionField = {
   RECOMMENDATION_OPTIONS_COST_HIGH: "RecommendationOptionsCostHigh",
   RECOMMENDATION_OPTIONS_COST_LOW: "RecommendationOptionsCostLow",
   RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY: "RecommendationOptionsEstimatedMonthlySavingsCurrency",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY_AFTER_DISCOUNTS:
+    "RecommendationOptionsEstimatedMonthlySavingsCurrencyAfterDiscounts",
   RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE: "RecommendationOptionsEstimatedMonthlySavingsValue",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE_AFTER_DISCOUNTS:
+    "RecommendationOptionsEstimatedMonthlySavingsValueAfterDiscounts",
   RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_EXPECTED:
     "RecommendationOptionsProjectedUtilizationMetricsDurationExpected",
   RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_LOWER_BOUND:
     "RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound",
   RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_UPPER_BOUND:
     "RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound",
+  RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_AFTER_DISCOUNTS_PERCENTAGE:
+    "RecommendationOptionsSavingsOpportunityAfterDiscountsPercentage",
   RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE: "RecommendationOptionsSavingsOpportunityPercentage",
   TAGS: "Tags",
   UTILIZATION_METRICS_DURATION_AVERAGE: "UtilizationMetricsDurationAverage",
@@ -2460,7 +2900,7 @@ export interface LambdaFunctionRecommendationFilter {
    *             your Lambda function recommendations with a tag key value of <code>Owner</code> or without any tag
    *             keys assigned.</p>
    */
-  name?: LambdaFunctionRecommendationFilterName | string;
+  name?: LambdaFunctionRecommendationFilterName;
 
   /**
    * @public
@@ -2514,7 +2954,7 @@ export interface ExportLambdaFunctionRecommendationsRequest {
    *             fields that can be exported, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files">Exported files</a> in the <i>Compute Optimizer User
    *             Guide</i>.</p>
    */
-  fieldsToExport?: (ExportableLambdaFunctionField | string)[];
+  fieldsToExport?: ExportableLambdaFunctionField[];
 
   /**
    * @public
@@ -2535,7 +2975,7 @@ export interface ExportLambdaFunctionRecommendationsRequest {
    * <p>The format of the export file.</p>
    *          <p>The only export file format currently supported is <code>Csv</code>.</p>
    */
-  fileFormat?: FileFormat | string;
+  fileFormat?: FileFormat;
 
   /**
    * @public
@@ -2564,6 +3004,200 @@ export interface ExportLambdaFunctionRecommendationsResponse {
    * <p>The identification number of the export job.</p>
    *          <p>Use the <a>DescribeRecommendationExportJobs</a> action, and specify the job
    *             ID to view the status of an export job.</p>
+   */
+  jobId?: string;
+
+  /**
+   * @public
+   * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and
+   *             object keys of a recommendations export file, and its associated metadata file.</p>
+   */
+  s3Destination?: S3Destination;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ExportableLicenseField = {
+  ACCOUNT_ID: "AccountId",
+  CURRENT_LICENSE_CONFIGURATION_INSTANCE_TYPE: "CurrentLicenseConfigurationInstanceType",
+  CURRENT_LICENSE_CONFIGURATION_LICENSE_EDITION: "CurrentLicenseConfigurationLicenseEdition",
+  CURRENT_LICENSE_CONFIGURATION_LICENSE_MODEL: "CurrentLicenseConfigurationLicenseModel",
+  CURRENT_LICENSE_CONFIGURATION_LICENSE_NAME: "CurrentLicenseConfigurationLicenseName",
+  CURRENT_LICENSE_CONFIGURATION_LICENSE_VERSION: "CurrentLicenseConfigurationLicenseVersion",
+  CURRENT_LICENSE_CONFIGURATION_METRICS_SOURCE: "CurrentLicenseConfigurationMetricsSource",
+  CURRENT_LICENSE_CONFIGURATION_NUMBER_OF_CORES: "CurrentLicenseConfigurationNumberOfCores",
+  CURRENT_LICENSE_CONFIGURATION_OPERATING_SYSTEM: "CurrentLicenseConfigurationOperatingSystem",
+  LAST_REFRESH_TIMESTAMP: "LastRefreshTimestamp",
+  LICENSE_FINDING: "Finding",
+  LICENSE_FINDING_REASON_CODES: "FindingReasonCodes",
+  LOOKBACK_PERIOD_IN_DAYS: "LookbackPeriodInDays",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY: "RecommendationOptionsEstimatedMonthlySavingsCurrency",
+  RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE: "RecommendationOptionsEstimatedMonthlySavingsValue",
+  RECOMMENDATION_OPTIONS_LICENSE_EDITION: "RecommendationOptionsLicenseEdition",
+  RECOMMENDATION_OPTIONS_LICENSE_MODEL: "RecommendationOptionsLicenseModel",
+  RECOMMENDATION_OPTIONS_OPERATING_SYSTEM: "RecommendationOptionsOperatingSystem",
+  RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE: "RecommendationOptionsSavingsOpportunityPercentage",
+  RESOURCE_ARN: "ResourceArn",
+  TAGS: "Tags",
+} as const;
+
+/**
+ * @public
+ */
+export type ExportableLicenseField = (typeof ExportableLicenseField)[keyof typeof ExportableLicenseField];
+
+/**
+ * @public
+ * @enum
+ */
+export const LicenseRecommendationFilterName = {
+  LICENSE_FINDING: "Finding",
+  LICENSE_FINDING_REASON_CODE: "FindingReasonCode",
+  LICENSE_NAME: "LicenseName",
+} as const;
+
+/**
+ * @public
+ */
+export type LicenseRecommendationFilterName =
+  (typeof LicenseRecommendationFilterName)[keyof typeof LicenseRecommendationFilterName];
+
+/**
+ * @public
+ * <p>
+ *             Describes a filter that returns a more specific list of license recommendations. Use this filter
+ *             with the <code>GetLicenseRecommendation</code> action.
+ *         </p>
+ */
+export interface LicenseRecommendationFilter {
+  /**
+   * @public
+   * <p>The name of the filter.</p>
+   *          <p>Specify <code>Finding</code> to return recommendations with a specific finding
+   *             classification.</p>
+   *          <p>Specify <code>FindingReasonCode</code> to return recommendations with a specific
+   *             finding reason code.</p>
+   *          <p>You can filter your license recommendations by <code>tag:key</code>
+   *             and <code>tag-key</code> tags.</p>
+   *          <p>A <code>tag:key</code> is a key and value combination of a tag assigned to your
+   *             license recommendations. Use the tag key in the filter name and the tag value
+   *             as the filter value. For example, to find all license recommendations that have
+   *             a tag with the key of <code>Owner</code> and the value of <code>TeamA</code>,
+   *             specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *          <p>A <code>tag-key</code> is the key of a tag assigned to your license recommendations. Use
+   *             this filter to find all of your license recommendations that have a tag with a
+   *             specific key. This doesn’t consider the tag value. For example, you can find
+   *             your license recommendations with a tag key value of <code>Owner</code> or without any tag
+   *             keys assigned.</p>
+   */
+  name?: LicenseRecommendationFilterName;
+
+  /**
+   * @public
+   * <p>The value of the filter.</p>
+   *          <p>The valid values for this parameter are as follows, depending on what you specify for
+   *             the <code>name</code> parameter:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you specify the <code>name</code> parameter as
+   *                     <code>Finding</code>, then specify <code>Optimized</code>, <code>NotOptimized</code>, or
+   *                     <code>InsufficentMetrics</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you specify the <code>name</code> parameter as
+   *                     <code>FindingReasonCode</code>, then specify <code>Optimized</code>,
+   *                     <code>LicenseOverprovisioned</code>, <code>InvalidCloudwatchApplicationInsights</code>, or
+   *                     <code>CloudwatchApplicationInsightsError</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  values?: string[];
+}
+
+/**
+ * @public
+ */
+export interface ExportLicenseRecommendationsRequest {
+  /**
+   * @public
+   * <p>The IDs of the Amazon Web Services accounts for which to export license
+   *             recommendations.</p>
+   *          <p>If your account is the management account of an organization, use this parameter to
+   *             specify the member account for which you want to export recommendations.</p>
+   *          <p>This parameter can't be specified together with the include member accounts
+   *             parameter. The parameters are mutually exclusive.</p>
+   *          <p>If this parameter is omitted, recommendations
+   *             for member accounts aren't included in the export.</p>
+   *          <p>You can specify multiple account IDs per request.</p>
+   */
+  accountIds?: string[];
+
+  /**
+   * @public
+   * <p>
+   *             An array of objects to specify a filter that exports a more specific set of license recommendations.
+   *         </p>
+   */
+  filters?: LicenseRecommendationFilter[];
+
+  /**
+   * @public
+   * <p>The recommendations data to include in the export file. For more information about the
+   *             fields that can be exported, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/exporting-recommendations.html#exported-files">Exported files</a> in the <i>Compute Optimizer User
+   *                     Guide</i>.</p>
+   */
+  fieldsToExport?: ExportableLicenseField[];
+
+  /**
+   * @public
+   * <p>Describes the destination Amazon Simple Storage Service (Amazon S3) bucket name and
+   *             key prefix for a recommendations export job.</p>
+   *          <p>You must create the destination Amazon S3 bucket for your recommendations
+   *             export before you create the export job. Compute Optimizer does not create the S3 bucket
+   *             for you. After you create the S3 bucket, ensure that it has the required permission
+   *             policy to allow Compute Optimizer to write the export file to it. If you plan to specify
+   *             an object prefix when you create the export job, you must include the object prefix in
+   *             the policy that you add to the S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/create-s3-bucket-policy-for-compute-optimizer.html">Amazon S3 Bucket Policy for Compute Optimizer</a> in the
+   *                     <i>Compute Optimizer User Guide</i>.</p>
+   */
+  s3DestinationConfig: S3DestinationConfig | undefined;
+
+  /**
+   * @public
+   * <p>The format of the export file.</p>
+   *          <p>A CSV file is the only export format currently supported.</p>
+   */
+  fileFormat?: FileFormat;
+
+  /**
+   * @public
+   * <p>Indicates whether to include recommendations for resources in all member accounts of
+   *             the organization if your account is the management account of an organization.</p>
+   *          <p>The member accounts must also be opted in to Compute Optimizer, and trusted access for
+   *             Compute Optimizer must be enabled in the organization account. For more information,
+   *             see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/security-iam.html#trusted-service-access">Compute Optimizer and Amazon Web Services Organizations trusted access</a> in the
+   *             <i>Compute Optimizer User Guide</i>.</p>
+   *          <p>If this parameter is omitted, recommendations for member accounts of the organization
+   *             aren't included in the export file .</p>
+   *          <p>This parameter cannot be specified together with the account IDs parameter. The
+   *             parameters are mutually exclusive.</p>
+   */
+  includeMemberAccounts?: boolean;
+}
+
+/**
+ * @public
+ */
+export interface ExportLicenseRecommendationsResponse {
+  /**
+   * @public
+   * <p>
+   *             The identification number of the export job.
+   *         </p>
+   *          <p>To view the status of an export job, use the <a>DescribeRecommendationExportJobs</a>
+   *             action and specify the job ID.</p>
    */
   jobId?: string;
 
@@ -2784,6 +3418,54 @@ export interface VolumeConfiguration {
  * @public
  * @enum
  */
+export const EBSSavingsEstimationModeSource = {
+  COST_EXPLORER_RIGHTSIZING: "CostExplorerRightsizing",
+  COST_OPTIMIZATION_HUB: "CostOptimizationHub",
+  PUBLIC_PRICING: "PublicPricing",
+} as const;
+
+/**
+ * @public
+ */
+export type EBSSavingsEstimationModeSource =
+  (typeof EBSSavingsEstimationModeSource)[keyof typeof EBSSavingsEstimationModeSource];
+
+/**
+ * @public
+ * <p>
+ *             Describes the savings estimation mode used for calculating savings opportunity for Amazon EBS volumes.
+ *         </p>
+ */
+export interface EBSSavingsEstimationMode {
+  /**
+   * @public
+   * <p>
+   *             Describes the source for calculating the savings opportunity for Amazon EBS volumes.
+   *         </p>
+   */
+  source?: EBSSavingsEstimationModeSource;
+}
+
+/**
+ * @public
+ * <p>
+ *             Describes the effective recommendation preferences for Amazon EBS volumes.
+ *         </p>
+ */
+export interface EBSEffectiveRecommendationPreferences {
+  /**
+   * @public
+   * <p>
+   *             Describes the savings estimation mode preference applied for calculating savings opportunity for Amazon EBS volumes.
+   *         </p>
+   */
+  savingsEstimationMode?: EBSSavingsEstimationMode;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const EBSFinding = {
   NOT_OPTIMIZED: "NotOptimized",
   OPTIMIZED: "Optimized",
@@ -2876,7 +3558,7 @@ export interface EBSUtilizationMetric {
    *             </li>
    *          </ul>
    */
-  name?: EBSMetricName | string;
+  name?: EBSMetricName;
 
   /**
    * @public
@@ -2893,13 +3575,64 @@ export interface EBSUtilizationMetric {
    *             using Amazon CloudWatch. For more information, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html">Amazon CloudWatch
    *                 User Guide</a>.</p>
    */
-  statistic?: MetricStatistic | string;
+  statistic?: MetricStatistic;
 
   /**
    * @public
    * <p>The value of the utilization metric.</p>
    */
   value?: number;
+}
+
+/**
+ * @public
+ * <p>
+ *             An object that describes the estimated monthly savings possible by adopting Compute Optimizer’s Amazon EBS volume
+ *             recommendations. This includes any applicable discounts.
+ *         </p>
+ */
+export interface EBSEstimatedMonthlySavings {
+  /**
+   * @public
+   * <p>
+   *             The currency of the estimated monthly savings.
+   *         </p>
+   */
+  currency?: Currency;
+
+  /**
+   * @public
+   * <p>
+   *             The value of the estimated monthly savings.
+   *         </p>
+   */
+  value?: number;
+}
+
+/**
+ * @public
+ * <p>
+ *             Describes the savings opportunity for Amazon EBS volume recommendations after applying specific discounts.
+ *         </p>
+ */
+export interface EBSSavingsOpportunityAfterDiscounts {
+  /**
+   * @public
+   * <p>
+   *             The estimated monthly savings possible as a percentage of monthly cost after applying the specific discounts.
+   *             This saving can be achieved by adopting Compute Optimizer’s Amazon EBS volume recommendations.
+   *         </p>
+   */
+  savingsOpportunityPercentage?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The estimated monthly savings possible as a percentage of monthly cost by adopting Compute Optimizer’s Amazon EBS volume
+   *             recommendations. This saving includes any applicable discounts.
+   *         </p>
+   */
+  estimatedMonthlySavings?: EBSEstimatedMonthlySavings;
 }
 
 /**
@@ -2941,6 +3674,15 @@ export interface VolumeRecommendationOption {
    *             percentage.</p>
    */
   savingsOpportunity?: SavingsOpportunity;
+
+  /**
+   * @public
+   * <p>
+   *             An object that describes the savings opportunity for the Amazon EBS volume recommendation option with specific discounts. Savings
+   *             opportunity includes the estimated monthly savings  and percentage.
+   *         </p>
+   */
+  savingsOpportunityAfterDiscounts?: EBSSavingsOpportunityAfterDiscounts;
 }
 
 /**
@@ -2991,7 +3733,7 @@ export interface VolumeRecommendation {
    *             </li>
    *          </ul>
    */
-  finding?: EBSFinding | string;
+  finding?: EBSFinding;
 
   /**
    * @public
@@ -3023,7 +3765,7 @@ export interface VolumeRecommendation {
    *             The higher the risk, the more likely the current EBS volume doesn't have sufficient
    *             capacity.</p>
    */
-  currentPerformanceRisk?: CurrentPerformanceRisk | string;
+  currentPerformanceRisk?: CurrentPerformanceRisk;
 
   /**
    * @public
@@ -3032,6 +3774,14 @@ export interface VolumeRecommendation {
    *         </p>
    */
   tags?: Tag[];
+
+  /**
+   * @public
+   * <p>
+   *             Describes the effective recommendation preferences for Amazon EBS volume.
+   *         </p>
+   */
+  effectiveRecommendationPreferences?: EBSEffectiveRecommendationPreferences;
 }
 
 /**
@@ -3146,7 +3896,7 @@ export interface ExternalMetricStatus {
    *             The status code for Compute Optimizer's integration with an external metrics provider.
    *         </p>
    */
-  statusCode?: ExternalMetricStatusCode | string;
+  statusCode?: ExternalMetricStatusCode;
 
   /**
    * @public
@@ -3172,6 +3922,10 @@ export const InstanceRecommendationFindingReasonCode = {
   EBS_IOPS_UNDER_PROVISIONED: "EBSIOPSUnderprovisioned",
   EBS_THROUGHPUT_OVER_PROVISIONED: "EBSThroughputOverprovisioned",
   EBS_THROUGHPUT_UNDER_PROVISIONED: "EBSThroughputUnderprovisioned",
+  GPU_MEMORY_OVER_PROVISIONED: "GPUMemoryOverprovisioned",
+  GPU_MEMORY_UNDER_PROVISIONED: "GPUMemoryUnderprovisioned",
+  GPU_OVER_PROVISIONED: "GPUOverprovisioned",
+  GPU_UNDER_PROVISIONED: "GPUUnderprovisioned",
   MEMORY_OVER_PROVISIONED: "MemoryOverprovisioned",
   MEMORY_UNDER_PROVISIONED: "MemoryUnderprovisioned",
   NETWORK_BANDWIDTH_OVER_PROVISIONED: "NetworkBandwidthOverprovisioned",
@@ -3185,6 +3939,20 @@ export const InstanceRecommendationFindingReasonCode = {
  */
 export type InstanceRecommendationFindingReasonCode =
   (typeof InstanceRecommendationFindingReasonCode)[keyof typeof InstanceRecommendationFindingReasonCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const InstanceIdle = {
+  FALSE: "False",
+  TRUE: "True",
+} as const;
+
+/**
+ * @public
+ */
+export type InstanceIdle = (typeof InstanceIdle)[keyof typeof InstanceIdle];
 
 /**
  * @public
@@ -3221,6 +3989,59 @@ export const PlatformDifference = {
  * @public
  */
 export type PlatformDifference = (typeof PlatformDifference)[keyof typeof PlatformDifference];
+
+/**
+ * @public
+ * <p>
+ *             An object that describes the estimated monthly savings possible by adopting Compute Optimizer’s Amazon EC2 instance
+ *             recommendations. This is based on the Savings Plans and Reserved Instances pricing discounts.
+ *         </p>
+ */
+export interface InstanceEstimatedMonthlySavings {
+  /**
+   * @public
+   * <p>
+   *             The currency of the estimated monthly savings.
+   *         </p>
+   */
+  currency?: Currency;
+
+  /**
+   * @public
+   * <p>
+   *             The value of the estimated monthly savings.
+   *         </p>
+   */
+  value?: number;
+}
+
+/**
+ * @public
+ * <p>
+ *             Describes the savings opportunity for instance recommendations after applying the Savings Plans and Reserved Instances discounts.
+ *         </p>
+ *          <p>Savings opportunity after discounts represents the estimated monthly savings you can achieve by
+ *             implementing Compute Optimizer recommendations.</p>
+ */
+export interface InstanceSavingsOpportunityAfterDiscounts {
+  /**
+   * @public
+   * <p>
+   *             The estimated monthly savings possible as a percentage of monthly cost after applying the Savings Plans and Reserved Instances discounts.
+   *             This saving can be achieved by adopting Compute Optimizer’s EC2 instance recommendations.
+   *         </p>
+   */
+  savingsOpportunityPercentage?: number;
+
+  /**
+   * @public
+   * <p>
+   *             An object that describes the estimated monthly savings possible by adopting Compute Optimizer’s Amazon EC2 instance recommendations. This is
+   *             based on pricing after applying the Savings Plans and Reserved Instances discounts.
+   *         </p>
+   */
+  estimatedMonthlySavings?: InstanceEstimatedMonthlySavings;
+}
 
 /**
  * @public
@@ -3346,7 +4167,7 @@ export interface InstanceRecommendationOption {
    *             </li>
    *          </ul>
    */
-  platformDifferences?: (PlatformDifference | string)[];
+  platformDifferences?: PlatformDifference[];
 
   /**
    * @public
@@ -3393,7 +4214,24 @@ export interface InstanceRecommendationOption {
    *                 <code>VeryLow</code> if both the current and recommended instance types are of the
    *             same CPU architecture.</p>
    */
-  migrationEffort?: MigrationEffort | string;
+  migrationEffort?: MigrationEffort;
+
+  /**
+   * @public
+   * <p>
+   *             Describes the GPU accelerator settings for the recommended instance type.
+   *         </p>
+   */
+  instanceGpuInfo?: GpuInfo;
+
+  /**
+   * @public
+   * <p>
+   *             An object that describes the savings opportunity for the instance recommendation option that includes Savings Plans and Reserved Instances
+   *             discounts. Savings opportunity includes the estimated monthly savings and percentage.
+   *         </p>
+   */
+  savingsOpportunityAfterDiscounts?: InstanceSavingsOpportunityAfterDiscounts;
 }
 
 /**
@@ -3406,6 +4244,7 @@ export const RecommendationSourceType = {
   EC2_INSTANCE: "Ec2Instance",
   ECS_SERVICE: "EcsService",
   LAMBDA_FUNCTION: "LambdaFunction",
+  LICENSE: "License",
 } as const;
 
 /**
@@ -3429,7 +4268,7 @@ export interface RecommendationSource {
    * @public
    * <p>The resource type of the recommendation source.</p>
    */
-  recommendationSourceType?: RecommendationSourceType | string;
+  recommendationSourceType?: RecommendationSourceType;
 }
 
 /**
@@ -3499,7 +4338,7 @@ export interface InstanceRecommendation {
    *             </li>
    *          </ul>
    */
-  finding?: Finding | string;
+  finding?: Finding;
 
   /**
    * @public
@@ -3699,7 +4538,7 @@ export interface InstanceRecommendation {
    *                     User Guide</i>.</p>
    *          </note>
    */
-  findingReasonCodes?: (InstanceRecommendationFindingReasonCode | string)[];
+  findingReasonCodes?: InstanceRecommendationFindingReasonCode[];
 
   /**
    * @public
@@ -3738,7 +4577,7 @@ export interface InstanceRecommendation {
    *             The higher the risk, the more likely the current instance cannot meet the performance
    *             requirements of its workload.</p>
    */
-  currentPerformanceRisk?: CurrentPerformanceRisk | string;
+  currentPerformanceRisk?: CurrentPerformanceRisk;
 
   /**
    * @public
@@ -3800,7 +4639,7 @@ export interface InstanceRecommendation {
    *             </li>
    *          </ul>
    */
-  inferredWorkloadTypes?: (InferredWorkloadType | string)[];
+  inferredWorkloadTypes?: InferredWorkloadType[];
 
   /**
    * @public
@@ -3808,7 +4647,7 @@ export interface InstanceRecommendation {
    *             The state of the instance when the recommendation was generated.
    *         </p>
    */
-  instanceState?: InstanceState | string;
+  instanceState?: InstanceState;
 
   /**
    * @public
@@ -3825,6 +4664,22 @@ export interface InstanceRecommendation {
    *         </p>
    */
   externalMetricStatus?: ExternalMetricStatus;
+
+  /**
+   * @public
+   * <p>
+   *             Describes the GPU accelerator settings for the current instance type.
+   *         </p>
+   */
+  currentInstanceGpuInfo?: GpuInfo;
+
+  /**
+   * @public
+   * <p>
+   *             Describes if an Amazon EC2 instance is idle.
+   *         </p>
+   */
+  idle?: InstanceIdle;
 }
 
 /**
@@ -3869,7 +4724,7 @@ export interface GetEC2RecommendationProjectedMetricsRequest {
    * @public
    * <p>The statistic of the projected metrics.</p>
    */
-  stat: MetricStatistic | string | undefined;
+  stat: MetricStatistic | undefined;
 
   /**
    * @public
@@ -3906,10 +4761,12 @@ export interface GetEC2RecommendationProjectedMetricsRequest {
  *             metric data to determine the performance difference between your current resource and
  *             the recommended option.</p>
  *          <note>
- *             <p>The <code>Cpu</code> and <code>Memory</code> metrics are the only projected
- *                 utilization metrics returned when you run the <a>GetEC2RecommendationProjectedMetrics</a> action. Additionally, the
- *                     <code>Memory</code> metric is returned only for resources that have the unified
- *                     CloudWatch agent installed on them. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent">Enabling Memory Utilization with the CloudWatch Agent</a>.</p>
+ *             <p>The <code>Cpu</code>, <code>Memory</code>, <code>GPU</code>, and <code>GPU_MEMORY</code> metrics
+ *                 are the only projected utilization metrics returned when you run the <a>GetEC2RecommendationProjectedMetrics</a> action. Additionally, these
+ *                     metrics are only returned for resources with the unified
+ *                     CloudWatch agent installed on them. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent">Enabling Memory Utilization with the CloudWatch Agent</a> and
+ *                     <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#nvidia-cw-agent">Enabling NVIDIA GPU
+ *                         utilization with the CloudWatch Agent</a>.</p>
  *          </note>
  */
 export interface ProjectedMetric {
@@ -3927,7 +4784,6 @@ export interface ProjectedMetric {
    *                <p>Depending on the instance type, tools in your operating system can show a
    *                     lower percentage than CloudWatch when the instance is not allocated a full
    *                     processor core.</p>
-   *                <p>Units: Percent</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3937,15 +4793,31 @@ export interface ProjectedMetric {
    *                     the recommendation option.</p>
    *                <p>Units: Percent</p>
    *                <note>
-   *                   <p>The <code>Memory</code> metric is returned only for resources that have
+   *                   <p>The <code>Memory</code> metric is only returned for resources with
    *                         the unified CloudWatch agent installed on them. For more information,
    *                         see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#cw-agent">Enabling Memory
    *                             Utilization with the CloudWatch Agent</a>.</p>
    *                </note>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GPU</code> - The projected percentage of allocated GPUs if you adjust your
+   *                     configurations to Compute Optimizer's recommendation option.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GPU_MEMORY</code> - The projected percentage of total GPU memory if you adjust your
+   *                     configurations to Compute Optimizer's recommendation option.</p>
+   *                <note>
+   *                   <p>The <code>GPU</code> and <code>GPU_MEMORY</code> metrics are only returned for resources
+   *                         with the unified CloudWatch Agent installed on them. For more information, see
+   *                         <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/metrics.html#nvidia-cw-agent">Enabling NVIDIA GPU
+   *                             utilization with the CloudWatch Agent</a>.</p>
+   *                </note>
+   *             </li>
    *          </ul>
    */
-  name?: MetricName | string;
+  name?: MetricName;
 
   /**
    * @public
@@ -4029,7 +4901,7 @@ export interface GetECSServiceRecommendationProjectedMetricsRequest {
    *             The statistic of the projected metrics.
    *         </p>
    */
-  stat: MetricStatistic | string | undefined;
+  stat: MetricStatistic | undefined;
 
   /**
    * @public
@@ -4098,7 +4970,7 @@ export interface ECSServiceProjectedMetric {
    *             </li>
    *          </ul>
    */
-  name?: ECSServiceMetricName | string;
+  name?: ECSServiceMetricName;
 
   /**
    * @public
@@ -4343,7 +5215,7 @@ export interface ServiceConfiguration {
    *                 Target tracking scaling policies for Application Auto Scaling</a> in the
    *             <i>Application Auto Scaling User Guide</i>.</p>
    */
-  autoScalingConfiguration?: AutoScalingConfiguration | string;
+  autoScalingConfiguration?: AutoScalingConfiguration;
 
   /**
    * @public
@@ -4352,6 +5224,54 @@ export interface ServiceConfiguration {
    *         </p>
    */
   taskDefinitionArn?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ECSSavingsEstimationModeSource = {
+  COST_EXPLORER_RIGHTSIZING: "CostExplorerRightsizing",
+  COST_OPTIMIZATION_HUB: "CostOptimizationHub",
+  PUBLIC_PRICING: "PublicPricing",
+} as const;
+
+/**
+ * @public
+ */
+export type ECSSavingsEstimationModeSource =
+  (typeof ECSSavingsEstimationModeSource)[keyof typeof ECSSavingsEstimationModeSource];
+
+/**
+ * @public
+ * <p>
+ *             Describes the savings estimation mode used for calculating savings opportunity for Amazon ECS services.
+ *         </p>
+ */
+export interface ECSSavingsEstimationMode {
+  /**
+   * @public
+   * <p>
+   *             Describes the source for calculating the savings opportunity for Amazon ECS services.
+   *         </p>
+   */
+  source?: ECSSavingsEstimationModeSource;
+}
+
+/**
+ * @public
+ * <p>
+ *             Describes the effective recommendation preferences for Amazon ECS services.
+ *         </p>
+ */
+export interface ECSEffectiveRecommendationPreferences {
+  /**
+   * @public
+   * <p>
+   *             Describes the savings estimation mode preference applied for calculating savings opportunity for Amazon ECS services.
+   *         </p>
+   */
+  savingsEstimationMode?: ECSSavingsEstimationMode;
 }
 
 /**
@@ -4475,7 +5395,7 @@ export interface ECSServiceProjectedUtilizationMetric {
    *             </li>
    *          </ul>
    */
-  name?: ECSServiceMetricName | string;
+  name?: ECSServiceMetricName;
 
   /**
    * @public
@@ -4492,7 +5412,7 @@ export interface ECSServiceProjectedUtilizationMetric {
    *             using Amazon CloudWatch. For more information, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html">Amazon CloudWatch
    *                 User Guide</a>.</p>
    */
-  statistic?: ECSServiceMetricStatistic | string;
+  statistic?: ECSServiceMetricStatistic;
 
   /**
    * @public
@@ -4509,6 +5429,59 @@ export interface ECSServiceProjectedUtilizationMetric {
    *         </p>
    */
   upperBoundValue?: number;
+}
+
+/**
+ * @public
+ * <p>
+ *             Describes the estimated monthly savings possible for Amazon ECS services by adopting Compute Optimizer recommendations.
+ *             This is based on Amazon ECS service pricing after applying Savings Plans discounts.
+ *         </p>
+ */
+export interface ECSEstimatedMonthlySavings {
+  /**
+   * @public
+   * <p>
+   *             The currency of the estimated monthly savings.
+   *         </p>
+   */
+  currency?: Currency;
+
+  /**
+   * @public
+   * <p>
+   *             The value of the estimated monthly savings for Amazon ECS services.
+   *         </p>
+   */
+  value?: number;
+}
+
+/**
+ * @public
+ * <p>
+ *             Describes the savings opportunity for Amazon ECS service recommendations after applying Savings Plans discounts.
+ *         </p>
+ *          <p>Savings opportunity represents the estimated monthly savings after applying Savings Plans discounts.
+ *             You can achieve this by implementing a given Compute Optimizer recommendation.</p>
+ */
+export interface ECSSavingsOpportunityAfterDiscounts {
+  /**
+   * @public
+   * <p>
+   *             The estimated monthly savings possible as a percentage of monthly cost by adopting Compute Optimizer’s
+   *             Amazon ECS service recommendations. This includes any applicable Savings Plans discounts.
+   *         </p>
+   */
+  savingsOpportunityPercentage?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The estimated monthly savings possible by adopting Compute Optimizer’s Amazon ECS service recommendations.
+   *             This includes any applicable Savings Plans discounts.
+   *         </p>
+   */
+  estimatedMonthlySavings?: ECSEstimatedMonthlySavings;
 }
 
 /**
@@ -4570,6 +5543,16 @@ export interface ECSServiceRecommendationOption {
    *         </p>
    */
   containerRecommendations?: ContainerRecommendation[];
+
+  /**
+   * @public
+   * <p>
+   *             Describes the savings opportunity for Amazon ECS service recommendations or for the recommendation option.
+   *         </p>
+   *          <p>Savings opportunity represents the estimated monthly savings after applying Savings Plans discounts.
+   *             You can achieve this by implementing a given Compute Optimizer recommendation.</p>
+   */
+  savingsOpportunityAfterDiscounts?: ECSSavingsOpportunityAfterDiscounts;
 }
 
 /**
@@ -4598,7 +5581,7 @@ export interface ECSServiceUtilizationMetric {
    *             </li>
    *          </ul>
    */
-  name?: ECSServiceMetricName | string;
+  name?: ECSServiceMetricName;
 
   /**
    * @public
@@ -4615,7 +5598,7 @@ export interface ECSServiceUtilizationMetric {
    *             using Amazon CloudWatch. For more information, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html">Amazon CloudWatch
    *                 User Guide</a>.</p>
    */
-  statistic?: ECSServiceMetricStatistic | string;
+  statistic?: ECSServiceMetricStatistic;
 
   /**
    * @public
@@ -4688,7 +5671,7 @@ export interface ECSServiceRecommendation {
    *             <p>Compute Optimizer only supports the Fargate launch type.</p>
    *          </note>
    */
-  launchType?: ECSServiceLaunchType | string;
+  launchType?: ECSServiceLaunchType;
 
   /**
    * @public
@@ -4733,7 +5716,7 @@ export interface ECSServiceRecommendation {
    *             </li>
    *          </ul>
    */
-  finding?: ECSServiceRecommendationFinding | string;
+  finding?: ECSServiceRecommendationFinding;
 
   /**
    * @public
@@ -4780,7 +5763,7 @@ export interface ECSServiceRecommendation {
    *             </li>
    *          </ul>
    */
-  findingReasonCodes?: (ECSServiceRecommendationFindingReasonCode | string)[];
+  findingReasonCodes?: ECSServiceRecommendationFindingReasonCode[];
 
   /**
    * @public
@@ -4798,7 +5781,7 @@ export interface ECSServiceRecommendation {
    *             requirements of its workload.
    *         </p>
    */
-  currentPerformanceRisk?: CurrentPerformanceRisk | string;
+  currentPerformanceRisk?: CurrentPerformanceRisk;
 
   /**
    * @public
@@ -4807,6 +5790,14 @@ export interface ECSServiceRecommendation {
    *         </p>
    */
   tags?: Tag[];
+
+  /**
+   * @public
+   * <p>
+   *             Describes the effective recommendation preferences for Amazon ECS services.
+   *         </p>
+   */
+  effectiveRecommendationPreferences?: ECSEffectiveRecommendationPreferences;
 }
 
 /**
@@ -4870,7 +5861,7 @@ export interface GetEffectiveRecommendationPreferencesResponse {
    *                 infrastructure metrics</a> in the <i>Compute Optimizer User
    *                 Guide</i>.</p>
    */
-  enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics | string;
+  enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics;
 
   /**
    * @public
@@ -4888,6 +5879,44 @@ export interface GetEffectiveRecommendationPreferencesResponse {
    *                 Guide</i>.</p>
    */
   externalMetricsPreference?: ExternalMetricsPreference;
+
+  /**
+   * @public
+   * <p>
+   *             The number of days the utilization metrics of the Amazon Web Services resource are analyzed.
+   *         </p>
+   *          <p>To validate that the preference is applied to your last generated set of recommendations, review
+   *             the <code>effectiveRecommendationPreferences</code> value in the response of the
+   *             GetAutoScalingGroupRecommendations or GetEC2InstanceRecommendations actions.</p>
+   */
+  lookBackPeriod?: LookBackPeriodPreference;
+
+  /**
+   * @public
+   * <p>
+   *             The resource’s CPU utilization threshold preferences, such as threshold and headroom,
+   *             that were used to generate rightsizing recommendations. It considers all applicable preferences
+   *             that you set at the resource, account, and organization level.
+   *         </p>
+   *          <p>To validate that the preference is applied to your last generated set of recommendations, review the
+   *             <code>effectiveRecommendationPreferences</code> value in the response of the
+   *             GetAutoScalingGroupRecommendations or GetEC2InstanceRecommendations actions.</p>
+   */
+  utilizationPreferences?: UtilizationPreference[];
+
+  /**
+   * @public
+   * <p>
+   *             The resource type values that are considered as candidates when generating rightsizing recommendations.
+   *             This object resolves any wildcard expressions and returns the effective list of candidate resource type
+   *             values. It also considers all applicable preferences that you set at the resource, account, and
+   *             organization level.
+   *         </p>
+   *          <p>To validate that the preference is applied to your last generated set of recommendations, review the
+   *             <code>effectiveRecommendationPreferences</code> value in the response of the GetAutoScalingGroupRecommendations
+   *             or GetEC2InstanceRecommendations actions.</p>
+   */
+  preferredResources?: EffectivePreferredResource[];
 }
 
 /**
@@ -4903,7 +5932,7 @@ export interface GetEnrollmentStatusResponse {
    * @public
    * <p>The enrollment status of the account.</p>
    */
-  status?: Status | string;
+  status?: Status;
 
   /**
    * @public
@@ -4961,7 +5990,7 @@ export interface EnrollmentFilter {
    *          <p>Specify <code>Status</code> to return accounts with a specific enrollment status (for
    *             example, <code>Active</code>).</p>
    */
-  name?: EnrollmentFilterName | string;
+  name?: EnrollmentFilterName;
 
   /**
    * @public
@@ -5073,6 +6102,54 @@ export interface GetLambdaFunctionRecommendationsRequest {
  * @public
  * @enum
  */
+export const LambdaSavingsEstimationModeSource = {
+  COST_EXPLORER_RIGHTSIZING: "CostExplorerRightsizing",
+  COST_OPTIMIZATION_HUB: "CostOptimizationHub",
+  PUBLIC_PRICING: "PublicPricing",
+} as const;
+
+/**
+ * @public
+ */
+export type LambdaSavingsEstimationModeSource =
+  (typeof LambdaSavingsEstimationModeSource)[keyof typeof LambdaSavingsEstimationModeSource];
+
+/**
+ * @public
+ * <p>
+ *             Describes the savings estimation used for calculating savings opportunity for Lambda functions.
+ *         </p>
+ */
+export interface LambdaSavingsEstimationMode {
+  /**
+   * @public
+   * <p>
+   *             Describes the source for calculation of savings opportunity for Lambda functions.
+   *         </p>
+   */
+  source?: LambdaSavingsEstimationModeSource;
+}
+
+/**
+ * @public
+ * <p>
+ *             Describes the effective recommendation preferences for Lambda functions.
+ *         </p>
+ */
+export interface LambdaEffectiveRecommendationPreferences {
+  /**
+   * @public
+   * <p>
+   *             Describes the savings estimation mode applied for calculating savings opportunity for Lambda functions.
+   *         </p>
+   */
+  savingsEstimationMode?: LambdaSavingsEstimationMode;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const LambdaFunctionRecommendationFinding = {
   NOT_OPTIMIZED: "NotOptimized",
   OPTIMIZED: "Optimized",
@@ -5142,19 +6219,72 @@ export interface LambdaFunctionMemoryProjectedMetric {
    * @public
    * <p>The name of the projected utilization metric.</p>
    */
-  name?: LambdaFunctionMemoryMetricName | string;
+  name?: LambdaFunctionMemoryMetricName;
 
   /**
    * @public
    * <p>The statistic of the projected utilization metric.</p>
    */
-  statistic?: LambdaFunctionMemoryMetricStatistic | string;
+  statistic?: LambdaFunctionMemoryMetricStatistic;
 
   /**
    * @public
    * <p>The values of the projected utilization metrics.</p>
    */
   value?: number;
+}
+
+/**
+ * @public
+ * <p>
+ *             Describes the estimated monthly savings possible for Lambda functions by adopting Compute Optimizer recommendations. This is based
+ *             on Lambda functions pricing after applying Savings Plans discounts.
+ *         </p>
+ */
+export interface LambdaEstimatedMonthlySavings {
+  /**
+   * @public
+   * <p>
+   *             The currency of the estimated monthly savings.
+   *         </p>
+   */
+  currency?: Currency;
+
+  /**
+   * @public
+   * <p>
+   *             The value of the estimated monthly savings.
+   *         </p>
+   */
+  value?: number;
+}
+
+/**
+ * @public
+ * <p>
+ *             Describes the savings opportunity for Lambda functions recommendations after applying Savings Plans discounts.
+ *         </p>
+ *          <p>Savings opportunity represents the estimated monthly savings after applying Savings Plans discounts.
+ *             You can achieve this by implementing a given Compute Optimizer recommendation.</p>
+ */
+export interface LambdaSavingsOpportunityAfterDiscounts {
+  /**
+   * @public
+   * <p>
+   *             The estimated monthly savings possible as a percentage of monthly cost by adopting Compute Optimizer’s Lambda
+   *             function recommendations. This includes any applicable Savings Plans discounts.
+   *         </p>
+   */
+  savingsOpportunityPercentage?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The estimated monthly savings possible by adopting Compute Optimizer’s Lambda function recommendations. This
+   *             includes any applicable Savings Plans discounts.
+   *         </p>
+   */
+  estimatedMonthlySavings?: LambdaEstimatedMonthlySavings;
 }
 
 /**
@@ -5189,6 +6319,15 @@ export interface LambdaFunctionMemoryRecommendationOption {
    *             and percentage.</p>
    */
   savingsOpportunity?: SavingsOpportunity;
+
+  /**
+   * @public
+   * <p>
+   *             An object that describes the savings opportunity for the Lambda recommendation option which includes Saving Plans
+   *             discounts. Savings opportunity includes the estimated monthly savings and percentage.
+   *         </p>
+   */
+  savingsOpportunityAfterDiscounts?: LambdaSavingsOpportunityAfterDiscounts;
 }
 
 /**
@@ -5241,7 +6380,7 @@ export interface LambdaFunctionUtilizationMetric {
    *             </li>
    *          </ul>
    */
-  name?: LambdaFunctionMetricName | string;
+  name?: LambdaFunctionMetricName;
 
   /**
    * @public
@@ -5258,7 +6397,7 @@ export interface LambdaFunctionUtilizationMetric {
    *             using Amazon CloudWatch. For more information, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html">Amazon CloudWatch
    *                 User Guide</a>.</p>
    */
-  statistic?: LambdaFunctionMetricStatistic | string;
+  statistic?: LambdaFunctionMetricStatistic;
 
   /**
    * @public
@@ -5367,7 +6506,7 @@ export interface LambdaFunctionRecommendation {
    *             </li>
    *          </ul>
    */
-  finding?: LambdaFunctionRecommendationFinding | string;
+  finding?: LambdaFunctionRecommendationFinding;
 
   /**
    * @public
@@ -5421,7 +6560,7 @@ export interface LambdaFunctionRecommendation {
    *             </li>
    *          </ul>
    */
-  findingReasonCodes?: (LambdaFunctionRecommendationFindingReasonCode | string)[];
+  findingReasonCodes?: LambdaFunctionRecommendationFindingReasonCode[];
 
   /**
    * @public
@@ -5436,7 +6575,7 @@ export interface LambdaFunctionRecommendation {
    *             of its workloads. The higher the risk, the more likely the current Lambda
    *             function requires more memory.</p>
    */
-  currentPerformanceRisk?: CurrentPerformanceRisk | string;
+  currentPerformanceRisk?: CurrentPerformanceRisk;
 
   /**
    * @public
@@ -5445,6 +6584,14 @@ export interface LambdaFunctionRecommendation {
    *         </p>
    */
   tags?: Tag[];
+
+  /**
+   * @public
+   * <p>
+   *             Describes the effective recommendation preferences for Lambda functions.
+   *         </p>
+   */
+  effectiveRecommendationPreferences?: LambdaEffectiveRecommendationPreferences;
 }
 
 /**
@@ -5469,6 +6616,460 @@ export interface GetLambdaFunctionRecommendationsResponse {
 /**
  * @public
  */
+export interface GetLicenseRecommendationsRequest {
+  /**
+   * @public
+   * <p>
+   *             The ARN that identifies the Amazon EC2 instance.
+   *         </p>
+   *          <p>
+   *             The following is the format of the ARN:
+   *         </p>
+   *          <p>
+   *             <code>arn:aws:ec2:region:aws_account_id:instance/instance-id</code>
+   *          </p>
+   */
+  resourceArns?: string[];
+
+  /**
+   * @public
+   * <p>
+   *             The token to advance to the next page of license recommendations.
+   *         </p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The maximum number of license recommendations to return with a single request.
+   *         </p>
+   *          <p>
+   *             To retrieve the remaining results, make another request with the returned
+   *             <code>nextToken</code> value.
+   *         </p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>
+   *             An array of objects to specify a filter that returns a more specific list of license recommendations.
+   *         </p>
+   */
+  filters?: LicenseRecommendationFilter[];
+
+  /**
+   * @public
+   * <p>The ID of the Amazon Web Services account for which to return license recommendations.</p>
+   *          <p>If your account is the management account of an organization, use this parameter to
+   *             specify the member account for which you want to return license recommendations.</p>
+   *          <p>Only one account ID can be specified per request.</p>
+   */
+  accountIds?: string[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LicenseEdition = {
+  ENTERPRISE: "Enterprise",
+  FREE: "Free",
+  NO_LICENSE_EDITION_FOUND: "NoLicenseEditionFound",
+  STANDARD: "Standard",
+} as const;
+
+/**
+ * @public
+ */
+export type LicenseEdition = (typeof LicenseEdition)[keyof typeof LicenseEdition];
+
+/**
+ * @public
+ * @enum
+ */
+export const LicenseModel = {
+  BRING_YOUR_OWN_LICENSE: "BringYourOwnLicense",
+  LICENSE_INCLUDED: "LicenseIncluded",
+} as const;
+
+/**
+ * @public
+ */
+export type LicenseModel = (typeof LicenseModel)[keyof typeof LicenseModel];
+
+/**
+ * @public
+ * @enum
+ */
+export const LicenseName = {
+  SQLSERVER: "SQLServer",
+} as const;
+
+/**
+ * @public
+ */
+export type LicenseName = (typeof LicenseName)[keyof typeof LicenseName];
+
+/**
+ * @public
+ * @enum
+ */
+export const MetricSourceProvider = {
+  CloudWatchAppInsights: "CloudWatchApplicationInsights",
+} as const;
+
+/**
+ * @public
+ */
+export type MetricSourceProvider = (typeof MetricSourceProvider)[keyof typeof MetricSourceProvider];
+
+/**
+ * @public
+ * <p>
+ *             The list of metric sources required to generate recommendations for commercial software licenses.
+ *         </p>
+ */
+export interface MetricSource {
+  /**
+   * @public
+   * <p>
+   *             The name of the metric source provider.
+   *         </p>
+   */
+  provider?: MetricSourceProvider;
+
+  /**
+   * @public
+   * <p>
+   *             The ARN of the metric source provider.
+   *         </p>
+   */
+  providerArn?: string;
+}
+
+/**
+ * @public
+ * <p>
+ *             Describes the configuration of a license for an Amazon EC2 instance.
+ *         </p>
+ */
+export interface LicenseConfiguration {
+  /**
+   * @public
+   * <p>
+   *             The current number of cores associated with the instance.
+   *         </p>
+   */
+  numberOfCores?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The instance type used in the license.
+   *         </p>
+   */
+  instanceType?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The operating system of the instance.
+   *         </p>
+   */
+  operatingSystem?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The edition of the license for the application that runs on the instance.
+   *         </p>
+   */
+  licenseEdition?: LicenseEdition;
+
+  /**
+   * @public
+   * <p>
+   *             The name of the license for the application that runs on the instance.
+   *         </p>
+   */
+  licenseName?: LicenseName;
+
+  /**
+   * @public
+   * <p>
+   *             The license type associated with the instance.
+   *         </p>
+   */
+  licenseModel?: LicenseModel;
+
+  /**
+   * @public
+   * <p>
+   *             The version of the license for the application that runs on the instance.
+   *         </p>
+   */
+  licenseVersion?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The list of metric sources required to generate recommendations for commercial software licenses.
+   *         </p>
+   */
+  metricsSource?: MetricSource[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const LicenseFinding = {
+  INSUFFICIENT_METRICS: "InsufficientMetrics",
+  NOT_OPTIMIZED: "NotOptimized",
+  OPTIMIZED: "Optimized",
+} as const;
+
+/**
+ * @public
+ */
+export type LicenseFinding = (typeof LicenseFinding)[keyof typeof LicenseFinding];
+
+/**
+ * @public
+ * @enum
+ */
+export const LicenseFindingReasonCode = {
+  CW_APP_INSIGHTS_DISABLED: "InvalidCloudWatchApplicationInsightsSetup",
+  CW_APP_INSIGHTS_ERROR: "CloudWatchApplicationInsightsError",
+  LICENSE_OVER_PROVISIONED: "LicenseOverprovisioned",
+  OPTIMIZED: "Optimized",
+} as const;
+
+/**
+ * @public
+ */
+export type LicenseFindingReasonCode = (typeof LicenseFindingReasonCode)[keyof typeof LicenseFindingReasonCode];
+
+/**
+ * @public
+ * <p>
+ *             Describes the recommendation options for licenses.
+ *         </p>
+ */
+export interface LicenseRecommendationOption {
+  /**
+   * @public
+   * <p>
+   *             The rank of the license recommendation option.
+   *         </p>
+   *          <p>
+   *             The top recommendation option is ranked as <code>1</code>.
+   *         </p>
+   */
+  rank?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The operating system of a license recommendation option.
+   *         </p>
+   */
+  operatingSystem?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The recommended edition of the license for the application that runs on the instance.
+   *         </p>
+   */
+  licenseEdition?: LicenseEdition;
+
+  /**
+   * @public
+   * <p>
+   *             The recommended license type associated with the instance.
+   *         </p>
+   */
+  licenseModel?: LicenseModel;
+
+  /**
+   * @public
+   * <p>Describes the savings opportunity for recommendations of a given resource type or for
+   *             the recommendation option of an individual resource.</p>
+   *          <p>Savings opportunity represents the estimated monthly savings you can achieve by
+   *             implementing a given Compute Optimizer recommendation.</p>
+   *          <important>
+   *             <p>Savings opportunity data requires that you opt in to Cost Explorer, as well as
+   *                 activate <b>Receive Amazon EC2 resource
+   *                     recommendations</b> in the Cost Explorer preferences page. That
+   *                 creates a connection between Cost Explorer and Compute Optimizer. With this
+   *                 connection, Cost Explorer generates savings estimates considering the price of
+   *                 existing resources, the price of recommended resources, and historical usage data.
+   *                 Estimated monthly savings reflects the projected dollar savings associated with each
+   *                 of the recommendations generated. For more information, see <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/ce-enable.html">Enabling Cost Explorer</a> and <a href="https://docs.aws.amazon.com/cost-management/latest/userguide/ce-rightsizing.html">Optimizing your cost
+   *                     with Rightsizing Recommendations</a> in the <i>Cost Management User
+   *                     Guide</i>.</p>
+   *          </important>
+   */
+  savingsOpportunity?: SavingsOpportunity;
+}
+
+/**
+ * @public
+ * <p>
+ *             Describes a license recommendation for an EC2 instance.
+ *         </p>
+ */
+export interface LicenseRecommendation {
+  /**
+   * @public
+   * <p>
+   *             The ARN that identifies the Amazon EC2 instance.
+   *         </p>
+   */
+  resourceArn?: string;
+
+  /**
+   * @public
+   * <p>
+   *             The Amazon Web Services account ID of the license.
+   *         </p>
+   */
+  accountId?: string;
+
+  /**
+   * @public
+   * <p>
+   *             An object that describes the current configuration of an instance that runs on a license.
+   *         </p>
+   */
+  currentLicenseConfiguration?: LicenseConfiguration;
+
+  /**
+   * @public
+   * <p>
+   *             The number of days for which utilization metrics were analyzed for an instance that runs on a license.
+   *         </p>
+   */
+  lookbackPeriodInDays?: number;
+
+  /**
+   * @public
+   * <p>
+   *             The timestamp of when the license recommendation was last generated.
+   *         </p>
+   */
+  lastRefreshTimestamp?: Date;
+
+  /**
+   * @public
+   * <p>
+   *             The finding classification for an instance that runs on a license.
+   *         </p>
+   *          <p>Findings include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>InsufficentMetrics</code> — When Compute Optimizer detects that your CloudWatch
+   *                         Application Insights isn't enabled or is enabled with insufficient permissions. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NotOptimized</code> — When Compute Optimizer detects that your EC2 infrastructure
+   *                         isn't using any of the SQL server license features you're paying for, a license is considered
+   *                         not optimized.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Optimized</code> — When Compute Optimizer detects that all specifications of your
+   *                         license meet the performance requirements of your workload. </p>
+   *             </li>
+   *          </ul>
+   */
+  finding?: LicenseFinding;
+
+  /**
+   * @public
+   * <p>
+   *             The reason for the finding classification for an instance that runs on a license.
+   *         </p>
+   *          <p>Finding reason codes include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Optimized</code> — All specifications of your
+   *                         license meet the performance requirements of your workload. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LicenseOverprovisioned</code> — A license is considered over-provisioned when your license can be
+   *                         downgraded while still meeting the performance requirements of your workload.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>InvalidCloudwatchApplicationInsights</code> — CloudWatch
+   *                         Application Insights isn't configured properly.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CloudwatchApplicationInsightsError</code> — There is a CloudWatch
+   *                         Application Insights error. </p>
+   *             </li>
+   *          </ul>
+   */
+  findingReasonCodes?: LicenseFindingReasonCode[];
+
+  /**
+   * @public
+   * <p>
+   *             An array of objects that describe the license recommendation options.
+   *         </p>
+   */
+  licenseRecommendationOptions?: LicenseRecommendationOption[];
+
+  /**
+   * @public
+   * <p>
+   *             A list of tags assigned to an EC2 instance.
+   *         </p>
+   */
+  tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface GetLicenseRecommendationsResponse {
+  /**
+   * @public
+   * <p>
+   *             The token to use to advance to the next page of license recommendations.
+   *         </p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>
+   *             An array of objects that describe license recommendations.
+   *         </p>
+   */
+  licenseRecommendations?: LicenseRecommendation[];
+
+  /**
+   * @public
+   * <p>
+   *             An array of objects that describe errors of the request.
+   *         </p>
+   */
+  errors?: GetRecommendationError[];
+}
+
+/**
+ * @public
+ */
 export interface GetRecommendationPreferencesRequest {
   /**
    * @public
@@ -5482,7 +7083,7 @@ export interface GetRecommendationPreferencesRequest {
    *                     <code>AutoScalingGroup</code>.</p>
    *          </note>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -5513,6 +7114,20 @@ export interface GetRecommendationPreferencesRequest {
 
 /**
  * @public
+ * @enum
+ */
+export const SavingsEstimationMode = {
+  AFTER_DISCOUNTS: "AfterDiscounts",
+  BEFORE_DISCOUNTS: "BeforeDiscounts",
+} as const;
+
+/**
+ * @public
+ */
+export type SavingsEstimationMode = (typeof SavingsEstimationMode)[keyof typeof SavingsEstimationMode];
+
+/**
+ * @public
  * <p>Describes a recommendation preference.</p>
  */
 export interface RecommendationPreferencesDetail {
@@ -5534,7 +7149,7 @@ export interface RecommendationPreferencesDetail {
    *             that are part of Auto Scaling groups. The <code>AutoScalingGroup</code> option
    *             encompasses only instances that are part of an Auto Scaling group.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -5547,7 +7162,7 @@ export interface RecommendationPreferencesDetail {
    *                 infrastructure metrics</a> in the <i>Compute Optimizer User
    *                 Guide</i>.</p>
    */
-  enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics | string;
+  enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics;
 
   /**
    * @public
@@ -5557,7 +7172,7 @@ export interface RecommendationPreferencesDetail {
    *                 <code>Inactive</code> confirms that the preference isn't yet applied to
    *             recommendations.</p>
    */
-  inferredWorkloadTypes?: InferredWorkloadTypesPreference | string;
+  inferredWorkloadTypes?: InferredWorkloadTypesPreference;
 
   /**
    * @public
@@ -5567,6 +7182,46 @@ export interface RecommendationPreferencesDetail {
    *             to the recommendations already, then this object doesn't appear in the response. </p>
    */
   externalMetricsPreference?: ExternalMetricsPreference;
+
+  /**
+   * @public
+   * <p>
+   *             The preference to control the number of days the utilization metrics of the Amazon Web Services resource are analyzed.
+   *             If the preference isn’t set, this object is null.
+   *         </p>
+   */
+  lookBackPeriod?: LookBackPeriodPreference;
+
+  /**
+   * @public
+   * <p>
+   *             The preference to control the resource’s CPU utilization thresholds - threshold and headroom.
+   *             If the preference isn’t set, this object is null.
+   *         </p>
+   *          <note>
+   *             <p>This preference is only available for the Amazon EC2 instance resource type.</p>
+   *          </note>
+   */
+  utilizationPreferences?: UtilizationPreference[];
+
+  /**
+   * @public
+   * <p>
+   *             The preference to control which resource type values are considered when generating rightsizing recommendations.
+   *             This object resolves any wildcard expressions and returns the effective list of candidate resource type values.
+   *             If the preference isn’t set, this object is null.
+   *         </p>
+   */
+  preferredResources?: EffectivePreferredResource[];
+
+  /**
+   * @public
+   * <p>
+   *             Describes the savings estimation mode used for calculating savings opportunity.
+   *         </p>
+   *          <p>Only the account manager or delegated administrator of your organization can activate this preference.</p>
+   */
+  savingsEstimationMode?: SavingsEstimationMode;
 }
 
 /**
@@ -5714,7 +7369,7 @@ export interface InferredWorkloadSaving {
    *             </li>
    *          </ul>
    */
-  inferredWorkloadTypes?: (InferredWorkloadType | string)[];
+  inferredWorkloadTypes?: InferredWorkloadType[];
 
   /**
    * @public
@@ -5747,7 +7402,7 @@ export interface ReasonCodeSummary {
    * @public
    * <p>The name of the finding reason code.</p>
    */
-  name?: FindingReasonCode | string;
+  name?: FindingReasonCode;
 
   /**
    * @public
@@ -5765,7 +7420,7 @@ export interface Summary {
    * @public
    * <p>The finding classification of the recommendation.</p>
    */
-  name?: Finding | string;
+  name?: Finding;
 
   /**
    * @public
@@ -5795,7 +7450,7 @@ export interface RecommendationSummary {
    * @public
    * <p>The resource type that the recommendation summary applies to.</p>
    */
-  recommendationResourceType?: RecommendationSourceType | string;
+  recommendationResourceType?: RecommendationSourceType;
 
   /**
    * @public
@@ -5821,7 +7476,7 @@ export interface RecommendationSummary {
    * @public
    * <p>
    *             An array of objects that describes the estimated monthly saving amounts for the instances running on the specified
-   *             <code>inferredWorkloadTypes</code>. The array contains the top three savings opportunites for the instances running
+   *             <code>inferredWorkloadTypes</code>. The array contains the top five savings opportunites for the instances that run
    *             inferred workload types.
    *         </p>
    */
@@ -5849,6 +7504,59 @@ export interface GetRecommendationSummariesResponse {
 
 /**
  * @public
+ * <p>
+ *             The preference to control which resource type values are considered when generating rightsizing recommendations.
+ *             You can specify this preference as a combination of include and exclude lists. You must specify either an
+ *             <code>includeList</code> or <code>excludeList</code>. If the preference is an empty set of resource type values,
+ *             an error occurs. For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/rightsizing-preferences.html">
+ *                 Rightsizing recommendation preferences</a> in the <i>Compute Optimizer User
+ *                     Guide</i>.
+ *         </p>
+ *          <note>
+ *             <ul>
+ *                <li>
+ *                   <p>This preference is only available for the Amazon EC2 instance and Auto Scaling group resource types.</p>
+ *                </li>
+ *                <li>
+ *                   <p>Compute Optimizer only supports the customization of <code>Ec2InstanceTypes</code>.</p>
+ *                </li>
+ *             </ul>
+ *          </note>
+ */
+export interface PreferredResource {
+  /**
+   * @public
+   * <p>
+   *             The type of preferred resource to customize.
+   *         </p>
+   *          <note>
+   *             <p>Compute Optimizer only supports the customization of <code>Ec2InstanceTypes</code>.</p>
+   *          </note>
+   */
+  name?: PreferredResourceName;
+
+  /**
+   * @public
+   * <p>
+   *             The preferred resource type values to include in the recommendation candidates. You can specify the exact resource type value,
+   *             such as m5.large, or use wild card expressions, such as m5. If this isn’t specified, all supported resources are included by default.
+   *             You can specify up to 1000 values in this list.
+   *         </p>
+   */
+  includeList?: string[];
+
+  /**
+   * @public
+   * <p>
+   *             The preferred resource type values to exclude from the recommendation candidates. If this isn’t specified, all supported
+   *             resources are included by default. You can specify up to 1000 values in this list.
+   *         </p>
+   */
+  excludeList?: string[];
+}
+
+/**
+ * @public
  */
 export interface PutRecommendationPreferencesRequest {
   /**
@@ -5862,7 +7570,7 @@ export interface PutRecommendationPreferencesRequest {
    *                     <code>AutoScalingGroup</code>.</p>
    *          </note>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -5895,7 +7603,7 @@ export interface PutRecommendationPreferencesRequest {
    *                 infrastructure metrics</a> in the <i>Compute Optimizer User
    *                 Guide</i>.</p>
    */
-  enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics | string;
+  enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics;
 
   /**
    * @public
@@ -5910,7 +7618,7 @@ export interface PutRecommendationPreferencesRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/inferred-workload-types.html">Inferred workload
    *                 types</a> in the <i>Compute Optimizer User Guide</i>.</p>
    */
-  inferredWorkloadTypes?: InferredWorkloadTypesPreference | string;
+  inferredWorkloadTypes?: InferredWorkloadTypesPreference;
 
   /**
    * @public
@@ -5925,6 +7633,66 @@ export interface PutRecommendationPreferencesRequest {
    *             Guide</i>.</p>
    */
   externalMetricsPreference?: ExternalMetricsPreference;
+
+  /**
+   * @public
+   * <p>
+   *             The preference to control the number of days the utilization metrics of the Amazon Web Services resource are analyzed.
+   *             When this preference isn't specified, we use the default value <code>DAYS_14</code>.
+   *         </p>
+   *          <note>
+   *             <p>You can only set this preference for the Amazon EC2 instance and Auto Scaling group resource types.</p>
+   *          </note>
+   */
+  lookBackPeriod?: LookBackPeriodPreference;
+
+  /**
+   * @public
+   * <p>
+   *             The preference to control the resource’s CPU utilization thresholds - threshold and headroom. When this
+   *             preference isn't specified, we use the following default values:
+   *         </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>P99_5</code> for threshold</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PERCENT_17</code> for headroom</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>You can only set this preference for the Amazon EC2 instance resource type.</p>
+   *          </note>
+   */
+  utilizationPreferences?: UtilizationPreference[];
+
+  /**
+   * @public
+   * <p>
+   *             The preference to control which resource type values are considered when generating rightsizing recommendations.
+   *             You can specify this preference as a combination of include and exclude lists. You must specify either an
+   *             <code>includeList</code> or <code>excludeList</code>. If the preference is an empty set of resource type values,
+   *             an error occurs.
+   *         </p>
+   *          <note>
+   *             <p>You can only set this preference for the Amazon EC2 instance and Auto Scaling group resource types.</p>
+   *          </note>
+   */
+  preferredResources?: PreferredResource[];
+
+  /**
+   * @public
+   * <p>
+   *             The status of the savings estimation mode preference to create or update.
+   *         </p>
+   *          <p>Specify the <code>AfterDiscounts</code> status to activate the preference, or specify <code>BeforeDiscounts</code> to deactivate the preference.</p>
+   *          <p>Only the account manager or delegated administrator of your organization can activate this preference.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/savings-estimation-mode.html">
+   *             Savings estimation mode</a> in the <i>Compute Optimizer User Guide</i>.</p>
+   */
+  savingsEstimationMode?: SavingsEstimationMode;
 }
 
 /**
@@ -5961,7 +7729,7 @@ export interface UpdateEnrollmentStatusRequest {
    *                 to update the enrollment status of an account.</p>
    *          </note>
    */
-  status: Status | string | undefined;
+  status: Status | undefined;
 
   /**
    * @public
@@ -5979,7 +7747,7 @@ export interface UpdateEnrollmentStatusResponse {
    * @public
    * <p>The enrollment status of the account.</p>
    */
-  status?: Status | string;
+  status?: Status;
 
   /**
    * @public

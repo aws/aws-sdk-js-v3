@@ -5,7 +5,7 @@ const path = require("node:path");
 const root = path.join(__dirname, "..", "..");
 const packages = path.join(root, "packages");
 
-const excluded = ["@aws-sdk/karma-credential-loader"];
+const excluded = [];
 
 for (const folder of fs.readdirSync(packages)) {
   const pkgJson = require(path.join(packages, folder, "package.json"));
@@ -24,7 +24,7 @@ for (const folder of fs.readdirSync(deprecatedPackages)) {
   if (excluded.includes(pkgJson.name)) {
     continue;
   }
-  
+
   if (pkgJson.private !== true) {
     throw new Error("package in deprecated folder is not marked private:", folder);
   } else {

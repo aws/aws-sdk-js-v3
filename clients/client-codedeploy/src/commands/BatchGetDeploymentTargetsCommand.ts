@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { BatchGetDeploymentTargetsInput, BatchGetDeploymentTargetsOutput } from "../models/models_0";
 import { de_BatchGetDeploymentTargetsCommand, se_BatchGetDeploymentTargetsCommand } from "../protocols/Aws_json1_1";
 
@@ -40,24 +32,24 @@ export interface BatchGetDeploymentTargetsCommandOutput extends BatchGetDeployme
  *             works with all compute types and should be used instead of the deprecated
  *                 <code>BatchGetDeploymentInstances</code>. The maximum number of targets that can be
  *             returned is 25.</p>
- *         <p> The type of targets returned depends on the deployment's compute platform or
+ *          <p> The type of targets returned depends on the deployment's compute platform or
  *             deployment method: </p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
- *                     <b>EC2/On-premises</b>: Information about Amazon EC2 instance targets. </p>
+ *                <p>
+ *                   <b>EC2/On-premises</b>: Information about Amazon EC2 instance targets. </p>
  *             </li>
  *             <li>
- *                 <p>
- *                     <b>Lambda</b>: Information about
+ *                <p>
+ *                   <b>Lambda</b>: Information about
  *                         Lambda functions targets. </p>
  *             </li>
  *             <li>
- *                 <p>
- *                     <b>Amazon ECS</b>: Information about Amazon ECS service targets. </p>
+ *                <p>
+ *                   <b>Amazon ECS</b>: Information about Amazon ECS service targets. </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>CloudFormation</b>: Information about
  *                     targets of blue/green deployments initiated by a CloudFormation stack
  *                     update.</p>
@@ -70,8 +62,8 @@ export interface BatchGetDeploymentTargetsCommandOutput extends BatchGetDeployme
  * // const { CodeDeployClient, BatchGetDeploymentTargetsCommand } = require("@aws-sdk/client-codedeploy"); // CommonJS import
  * const client = new CodeDeployClient(config);
  * const input = { // BatchGetDeploymentTargetsInput
- *   deploymentId: "STRING_VALUE",
- *   targetIds: [ // TargetIdList
+ *   deploymentId: "STRING_VALUE", // required
+ *   targetIds: [ // TargetIdList // required
  *     "STRING_VALUE",
  *   ],
  * };
@@ -201,8 +193,7 @@ export interface BatchGetDeploymentTargetsCommandOutput extends BatchGetDeployme
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
  * @throws {@link DeploymentDoesNotExistException} (client fault)
- *  <p>The deployment with the IAM user or Amazon Web Services account does not
- *             exist.</p>
+ *  <p>The deployment with the user or Amazon Web Services account does not exist.</p>
  *
  * @throws {@link DeploymentIdRequiredException} (client fault)
  *  <p>At least one deployment ID must be specified.</p>
@@ -235,82 +226,26 @@ export interface BatchGetDeploymentTargetsCommandOutput extends BatchGetDeployme
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
-export class BatchGetDeploymentTargetsCommand extends $Command<
-  BatchGetDeploymentTargetsCommandInput,
-  BatchGetDeploymentTargetsCommandOutput,
-  CodeDeployClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: BatchGetDeploymentTargetsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CodeDeployClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<BatchGetDeploymentTargetsCommandInput, BatchGetDeploymentTargetsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, BatchGetDeploymentTargetsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CodeDeployClient";
-    const commandName = "BatchGetDeploymentTargetsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: BatchGetDeploymentTargetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_BatchGetDeploymentTargetsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<BatchGetDeploymentTargetsCommandOutput> {
-    return de_BatchGetDeploymentTargetsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class BatchGetDeploymentTargetsCommand extends $Command
+  .classBuilder<
+    BatchGetDeploymentTargetsCommandInput,
+    BatchGetDeploymentTargetsCommandOutput,
+    CodeDeployClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CodeDeployClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CodeDeploy_20141006", "BatchGetDeploymentTargets", {})
+  .n("CodeDeployClient", "BatchGetDeploymentTargetsCommand")
+  .f(void 0, void 0)
+  .ser(se_BatchGetDeploymentTargetsCommand)
+  .de(de_BatchGetDeploymentTargetsCommand)
+  .build() {}

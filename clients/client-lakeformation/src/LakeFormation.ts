@@ -37,12 +37,32 @@ import {
   CreateDataCellsFilterCommandInput,
   CreateDataCellsFilterCommandOutput,
 } from "./commands/CreateDataCellsFilterCommand";
+import {
+  CreateLakeFormationIdentityCenterConfigurationCommand,
+  CreateLakeFormationIdentityCenterConfigurationCommandInput,
+  CreateLakeFormationIdentityCenterConfigurationCommandOutput,
+} from "./commands/CreateLakeFormationIdentityCenterConfigurationCommand";
+import {
+  CreateLakeFormationOptInCommand,
+  CreateLakeFormationOptInCommandInput,
+  CreateLakeFormationOptInCommandOutput,
+} from "./commands/CreateLakeFormationOptInCommand";
 import { CreateLFTagCommand, CreateLFTagCommandInput, CreateLFTagCommandOutput } from "./commands/CreateLFTagCommand";
 import {
   DeleteDataCellsFilterCommand,
   DeleteDataCellsFilterCommandInput,
   DeleteDataCellsFilterCommandOutput,
 } from "./commands/DeleteDataCellsFilterCommand";
+import {
+  DeleteLakeFormationIdentityCenterConfigurationCommand,
+  DeleteLakeFormationIdentityCenterConfigurationCommandInput,
+  DeleteLakeFormationIdentityCenterConfigurationCommandOutput,
+} from "./commands/DeleteLakeFormationIdentityCenterConfigurationCommand";
+import {
+  DeleteLakeFormationOptInCommand,
+  DeleteLakeFormationOptInCommandInput,
+  DeleteLakeFormationOptInCommandOutput,
+} from "./commands/DeleteLakeFormationOptInCommand";
 import { DeleteLFTagCommand, DeleteLFTagCommandInput, DeleteLFTagCommandOutput } from "./commands/DeleteLFTagCommand";
 import {
   DeleteObjectsOnCancelCommand,
@@ -54,6 +74,11 @@ import {
   DeregisterResourceCommandInput,
   DeregisterResourceCommandOutput,
 } from "./commands/DeregisterResourceCommand";
+import {
+  DescribeLakeFormationIdentityCenterConfigurationCommand,
+  DescribeLakeFormationIdentityCenterConfigurationCommandInput,
+  DescribeLakeFormationIdentityCenterConfigurationCommandOutput,
+} from "./commands/DescribeLakeFormationIdentityCenterConfigurationCommand";
 import {
   DescribeResourceCommand,
   DescribeResourceCommandInput,
@@ -135,6 +160,11 @@ import {
   ListDataCellsFilterCommandInput,
   ListDataCellsFilterCommandOutput,
 } from "./commands/ListDataCellsFilterCommand";
+import {
+  ListLakeFormationOptInsCommand,
+  ListLakeFormationOptInsCommandInput,
+  ListLakeFormationOptInsCommandOutput,
+} from "./commands/ListLakeFormationOptInsCommand";
 import { ListLFTagsCommand, ListLFTagsCommandInput, ListLFTagsCommandOutput } from "./commands/ListLFTagsCommand";
 import {
   ListPermissionsCommand,
@@ -201,6 +231,11 @@ import {
   UpdateDataCellsFilterCommandInput,
   UpdateDataCellsFilterCommandOutput,
 } from "./commands/UpdateDataCellsFilterCommand";
+import {
+  UpdateLakeFormationIdentityCenterConfigurationCommand,
+  UpdateLakeFormationIdentityCenterConfigurationCommandInput,
+  UpdateLakeFormationIdentityCenterConfigurationCommandOutput,
+} from "./commands/UpdateLakeFormationIdentityCenterConfigurationCommand";
 import { UpdateLFTagCommand, UpdateLFTagCommandInput, UpdateLFTagCommandOutput } from "./commands/UpdateLFTagCommand";
 import {
   UpdateResourceCommand,
@@ -227,11 +262,16 @@ const commands = {
   CancelTransactionCommand,
   CommitTransactionCommand,
   CreateDataCellsFilterCommand,
+  CreateLakeFormationIdentityCenterConfigurationCommand,
+  CreateLakeFormationOptInCommand,
   CreateLFTagCommand,
   DeleteDataCellsFilterCommand,
+  DeleteLakeFormationIdentityCenterConfigurationCommand,
+  DeleteLakeFormationOptInCommand,
   DeleteLFTagCommand,
   DeleteObjectsOnCancelCommand,
   DeregisterResourceCommand,
+  DescribeLakeFormationIdentityCenterConfigurationCommand,
   DescribeResourceCommand,
   DescribeTransactionCommand,
   ExtendTransactionCommand,
@@ -249,6 +289,7 @@ const commands = {
   GetWorkUnitsCommand,
   GrantPermissionsCommand,
   ListDataCellsFilterCommand,
+  ListLakeFormationOptInsCommand,
   ListLFTagsCommand,
   ListPermissionsCommand,
   ListResourcesCommand,
@@ -263,6 +304,7 @@ const commands = {
   StartQueryPlanningCommand,
   StartTransactionCommand,
   UpdateDataCellsFilterCommand,
+  UpdateLakeFormationIdentityCenterConfigurationCommand,
   UpdateLFTagCommand,
   UpdateResourceCommand,
   UpdateTableObjectsCommand,
@@ -390,6 +432,40 @@ export interface LakeFormation {
   ): void;
 
   /**
+   * @see {@link CreateLakeFormationIdentityCenterConfigurationCommand}
+   */
+  createLakeFormationIdentityCenterConfiguration(
+    args: CreateLakeFormationIdentityCenterConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLakeFormationIdentityCenterConfigurationCommandOutput>;
+  createLakeFormationIdentityCenterConfiguration(
+    args: CreateLakeFormationIdentityCenterConfigurationCommandInput,
+    cb: (err: any, data?: CreateLakeFormationIdentityCenterConfigurationCommandOutput) => void
+  ): void;
+  createLakeFormationIdentityCenterConfiguration(
+    args: CreateLakeFormationIdentityCenterConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLakeFormationIdentityCenterConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateLakeFormationOptInCommand}
+   */
+  createLakeFormationOptIn(
+    args: CreateLakeFormationOptInCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLakeFormationOptInCommandOutput>;
+  createLakeFormationOptIn(
+    args: CreateLakeFormationOptInCommandInput,
+    cb: (err: any, data?: CreateLakeFormationOptInCommandOutput) => void
+  ): void;
+  createLakeFormationOptIn(
+    args: CreateLakeFormationOptInCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLakeFormationOptInCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateLFTagCommand}
    */
   createLFTag(args: CreateLFTagCommandInput, options?: __HttpHandlerOptions): Promise<CreateLFTagCommandOutput>;
@@ -415,6 +491,40 @@ export interface LakeFormation {
     args: DeleteDataCellsFilterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDataCellsFilterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteLakeFormationIdentityCenterConfigurationCommand}
+   */
+  deleteLakeFormationIdentityCenterConfiguration(
+    args: DeleteLakeFormationIdentityCenterConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLakeFormationIdentityCenterConfigurationCommandOutput>;
+  deleteLakeFormationIdentityCenterConfiguration(
+    args: DeleteLakeFormationIdentityCenterConfigurationCommandInput,
+    cb: (err: any, data?: DeleteLakeFormationIdentityCenterConfigurationCommandOutput) => void
+  ): void;
+  deleteLakeFormationIdentityCenterConfiguration(
+    args: DeleteLakeFormationIdentityCenterConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLakeFormationIdentityCenterConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteLakeFormationOptInCommand}
+   */
+  deleteLakeFormationOptIn(
+    args: DeleteLakeFormationOptInCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLakeFormationOptInCommandOutput>;
+  deleteLakeFormationOptIn(
+    args: DeleteLakeFormationOptInCommandInput,
+    cb: (err: any, data?: DeleteLakeFormationOptInCommandOutput) => void
+  ): void;
+  deleteLakeFormationOptIn(
+    args: DeleteLakeFormationOptInCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLakeFormationOptInCommandOutput) => void
   ): void;
 
   /**
@@ -460,6 +570,23 @@ export interface LakeFormation {
     args: DeregisterResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeregisterResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeLakeFormationIdentityCenterConfigurationCommand}
+   */
+  describeLakeFormationIdentityCenterConfiguration(
+    args: DescribeLakeFormationIdentityCenterConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLakeFormationIdentityCenterConfigurationCommandOutput>;
+  describeLakeFormationIdentityCenterConfiguration(
+    args: DescribeLakeFormationIdentityCenterConfigurationCommandInput,
+    cb: (err: any, data?: DescribeLakeFormationIdentityCenterConfigurationCommandOutput) => void
+  ): void;
+  describeLakeFormationIdentityCenterConfiguration(
+    args: DescribeLakeFormationIdentityCenterConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLakeFormationIdentityCenterConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -731,6 +858,23 @@ export interface LakeFormation {
   ): void;
 
   /**
+   * @see {@link ListLakeFormationOptInsCommand}
+   */
+  listLakeFormationOptIns(
+    args: ListLakeFormationOptInsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLakeFormationOptInsCommandOutput>;
+  listLakeFormationOptIns(
+    args: ListLakeFormationOptInsCommandInput,
+    cb: (err: any, data?: ListLakeFormationOptInsCommandOutput) => void
+  ): void;
+  listLakeFormationOptIns(
+    args: ListLakeFormationOptInsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLakeFormationOptInsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListLFTagsCommand}
    */
   listLFTags(args: ListLFTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListLFTagsCommandOutput>;
@@ -951,6 +1095,23 @@ export interface LakeFormation {
     args: UpdateDataCellsFilterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDataCellsFilterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateLakeFormationIdentityCenterConfigurationCommand}
+   */
+  updateLakeFormationIdentityCenterConfiguration(
+    args: UpdateLakeFormationIdentityCenterConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLakeFormationIdentityCenterConfigurationCommandOutput>;
+  updateLakeFormationIdentityCenterConfiguration(
+    args: UpdateLakeFormationIdentityCenterConfigurationCommandInput,
+    cb: (err: any, data?: UpdateLakeFormationIdentityCenterConfigurationCommandOutput) => void
+  ): void;
+  updateLakeFormationIdentityCenterConfiguration(
+    args: UpdateLakeFormationIdentityCenterConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLakeFormationIdentityCenterConfigurationCommandOutput) => void
   ): void;
 
   /**

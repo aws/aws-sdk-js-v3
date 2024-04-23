@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListSigningPlatformsRequest, ListSigningPlatformsResponse } from "../models/models_0";
 import { de_ListSigningPlatformsCommand, se_ListSigningPlatformsCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient";
@@ -36,11 +28,11 @@ export interface ListSigningPlatformsCommandOutput extends ListSigningPlatformsR
 
 /**
  * @public
- * <p>Lists all signing platforms available in code signing that match the request parameters. If
- * 			additional jobs remain to be listed, code signing returns a <code>nextToken</code> value. Use
- * 			this value in subsequent calls to <code>ListSigningJobs</code> to fetch the remaining
- * 			values. You can continue calling <code>ListSigningJobs</code> with your
- * 				<code>maxResults</code> parameter and with new values that code signing returns in the
+ * <p>Lists all signing platforms available in AWS Signer that match the request parameters. If
+ * 			additional jobs remain to be listed, Signer returns a <code>nextToken</code> value.
+ * 			Use this value in subsequent calls to <code>ListSigningJobs</code> to fetch the
+ * 			remaining values. You can continue calling <code>ListSigningJobs</code> with your
+ * 				<code>maxResults</code> parameter and with new values that Signer returns in the
  * 				<code>nextToken</code> parameter until all of your signing jobs have been
  * 			returned.</p>
  * @example
@@ -118,79 +110,26 @@ export interface ListSigningPlatformsCommandOutput extends ListSigningPlatformsR
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
  */
-export class ListSigningPlatformsCommand extends $Command<
-  ListSigningPlatformsCommandInput,
-  ListSigningPlatformsCommandOutput,
-  SignerClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListSigningPlatformsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SignerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListSigningPlatformsCommandInput, ListSigningPlatformsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListSigningPlatformsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SignerClient";
-    const commandName = "ListSigningPlatformsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListSigningPlatformsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListSigningPlatformsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListSigningPlatformsCommandOutput> {
-    return de_ListSigningPlatformsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListSigningPlatformsCommand extends $Command
+  .classBuilder<
+    ListSigningPlatformsCommandInput,
+    ListSigningPlatformsCommandOutput,
+    SignerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SignerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("WallabyService", "ListSigningPlatforms", {})
+  .n("SignerClient", "ListSigningPlatformsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListSigningPlatformsCommand)
+  .de(de_ListSigningPlatformsCommand)
+  .build() {}

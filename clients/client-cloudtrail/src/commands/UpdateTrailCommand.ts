@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateTrailRequest, UpdateTrailResponse } from "../models/models_0";
 import { de_UpdateTrailCommand, se_UpdateTrailCommand } from "../protocols/Aws_json1_1";
 
@@ -91,12 +83,9 @@ export interface UpdateTrailCommandOutput extends UpdateTrailResponse, __Metadat
  *  <p>This exception is thrown when trusted access has not been enabled between CloudTrail and Organizations. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Enabling Trusted Access with Other Amazon Web Services Services</a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a>. </p>
  *
  * @throws {@link CloudTrailARNInvalidException} (client fault)
- *  <p>This exception is thrown when an operation is called with a trail ARN that is not valid.
- *          The following is the format of a trail ARN.</p>
- *          <p>
- *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
+ *  <p>This exception is thrown when an operation is called with an ARN that is not valid.</p>
+ *          <p>The following is the format of a trail ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
  *          </p>
- *          <p>This exception is also thrown when you call <code>AddTags</code> or <code>RemoveTags</code> on a trail, event data store, or channel with a resource ARN that is not valid.</p>
  *          <p>The following is the format of an event data store ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
  *          </p>
@@ -254,6 +243,11 @@ export interface UpdateTrailCommandOutput extends UpdateTrailResponse, __Metadat
  * @throws {@link S3BucketDoesNotExistException} (client fault)
  *  <p>This exception is thrown when the specified S3 bucket does not exist.</p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>
+ *          This exception is thrown when the request rate exceeds the limit.
+ *       </p>
+ *
  * @throws {@link TrailNotFoundException} (client fault)
  *  <p>This exception is thrown when the trail with the given name is not found.</p>
  *
@@ -267,77 +261,26 @@ export interface UpdateTrailCommandOutput extends UpdateTrailResponse, __Metadat
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
  */
-export class UpdateTrailCommand extends $Command<
-  UpdateTrailCommandInput,
-  UpdateTrailCommandOutput,
-  CloudTrailClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateTrailCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CloudTrailClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateTrailCommandInput, UpdateTrailCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateTrailCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CloudTrailClient";
-    const commandName = "UpdateTrailCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateTrailCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateTrailCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateTrailCommandOutput> {
-    return de_UpdateTrailCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateTrailCommand extends $Command
+  .classBuilder<
+    UpdateTrailCommandInput,
+    UpdateTrailCommandOutput,
+    CloudTrailClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CloudTrail_20131101", "UpdateTrail", {})
+  .n("CloudTrailClient", "UpdateTrailCommand")
+  .f(void 0, void 0)
+  .ser(se_UpdateTrailCommand)
+  .de(de_UpdateTrailCommand)
+  .build() {}

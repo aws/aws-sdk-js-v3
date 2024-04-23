@@ -13,8 +13,12 @@
 export * from "./ApplicationCostProfilerClient";
 export * from "./ApplicationCostProfiler";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { ApplicationCostProfilerExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { ApplicationCostProfilerServiceException } from "./models/ApplicationCostProfilerServiceException";

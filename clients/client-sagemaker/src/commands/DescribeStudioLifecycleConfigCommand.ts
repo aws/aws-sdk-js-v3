@@ -1,19 +1,12 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { DescribeStudioLifecycleConfigRequest, DescribeStudioLifecycleConfigResponse } from "../models/models_2";
+import { commonParams } from "../endpoint/EndpointParameters";
+import { DescribeStudioLifecycleConfigRequest } from "../models/models_2";
+import { DescribeStudioLifecycleConfigResponse } from "../models/models_3";
 import {
   de_DescribeStudioLifecycleConfigCommand,
   se_DescribeStudioLifecycleConfigCommand,
@@ -41,7 +34,7 @@ export interface DescribeStudioLifecycleConfigCommandOutput
 
 /**
  * @public
- * <p>Describes the Studio Lifecycle Configuration.</p>
+ * <p>Describes the Amazon SageMaker Studio Lifecycle Configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,7 +52,7 @@ export interface DescribeStudioLifecycleConfigCommandOutput
  * //   CreationTime: new Date("TIMESTAMP"),
  * //   LastModifiedTime: new Date("TIMESTAMP"),
  * //   StudioLifecycleConfigContent: "STRING_VALUE",
- * //   StudioLifecycleConfigAppType: "JupyterServer" || "KernelGateway",
+ * //   StudioLifecycleConfigAppType: "JupyterServer" || "KernelGateway" || "CodeEditor" || "JupyterLab",
  * // };
  *
  * ```
@@ -77,82 +70,26 @@ export interface DescribeStudioLifecycleConfigCommandOutput
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
-export class DescribeStudioLifecycleConfigCommand extends $Command<
-  DescribeStudioLifecycleConfigCommandInput,
-  DescribeStudioLifecycleConfigCommandOutput,
-  SageMakerClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeStudioLifecycleConfigCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SageMakerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeStudioLifecycleConfigCommandInput, DescribeStudioLifecycleConfigCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeStudioLifecycleConfigCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SageMakerClient";
-    const commandName = "DescribeStudioLifecycleConfigCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeStudioLifecycleConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeStudioLifecycleConfigCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeStudioLifecycleConfigCommandOutput> {
-    return de_DescribeStudioLifecycleConfigCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeStudioLifecycleConfigCommand extends $Command
+  .classBuilder<
+    DescribeStudioLifecycleConfigCommandInput,
+    DescribeStudioLifecycleConfigCommandOutput,
+    SageMakerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("SageMaker", "DescribeStudioLifecycleConfig", {})
+  .n("SageMakerClient", "DescribeStudioLifecycleConfigCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeStudioLifecycleConfigCommand)
+  .de(de_DescribeStudioLifecycleConfigCommand)
+  .build() {}

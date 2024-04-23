@@ -42,7 +42,11 @@
 export * from "./AutoScalingPlansClient";
 export * from "./AutoScalingPlans";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { AutoScalingPlansExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { AutoScalingPlansServiceException } from "./models/AutoScalingPlansServiceException";

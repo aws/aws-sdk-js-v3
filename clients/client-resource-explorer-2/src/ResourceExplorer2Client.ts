@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -63,10 +61,18 @@ import {
   DisassociateDefaultViewCommandInput,
   DisassociateDefaultViewCommandOutput,
 } from "./commands/DisassociateDefaultViewCommand";
+import {
+  GetAccountLevelServiceConfigurationCommandInput,
+  GetAccountLevelServiceConfigurationCommandOutput,
+} from "./commands/GetAccountLevelServiceConfigurationCommand";
 import { GetDefaultViewCommandInput, GetDefaultViewCommandOutput } from "./commands/GetDefaultViewCommand";
 import { GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
 import { GetViewCommandInput, GetViewCommandOutput } from "./commands/GetViewCommand";
 import { ListIndexesCommandInput, ListIndexesCommandOutput } from "./commands/ListIndexesCommand";
+import {
+  ListIndexesForMembersCommandInput,
+  ListIndexesForMembersCommandOutput,
+} from "./commands/ListIndexesForMembersCommand";
 import {
   ListSupportedResourceTypesCommandInput,
   ListSupportedResourceTypesCommandOutput,
@@ -103,10 +109,12 @@ export type ServiceInputTypes =
   | DeleteIndexCommandInput
   | DeleteViewCommandInput
   | DisassociateDefaultViewCommandInput
+  | GetAccountLevelServiceConfigurationCommandInput
   | GetDefaultViewCommandInput
   | GetIndexCommandInput
   | GetViewCommandInput
   | ListIndexesCommandInput
+  | ListIndexesForMembersCommandInput
   | ListSupportedResourceTypesCommandInput
   | ListTagsForResourceCommandInput
   | ListViewsCommandInput
@@ -127,10 +135,12 @@ export type ServiceOutputTypes =
   | DeleteIndexCommandOutput
   | DeleteViewCommandOutput
   | DisassociateDefaultViewCommandOutput
+  | GetAccountLevelServiceConfigurationCommandOutput
   | GetDefaultViewCommandOutput
   | GetIndexCommandOutput
   | GetViewCommandOutput
   | ListIndexesCommandOutput
+  | ListIndexesForMembersCommandOutput
   | ListSupportedResourceTypesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListViewsCommandOutput
@@ -250,6 +260,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

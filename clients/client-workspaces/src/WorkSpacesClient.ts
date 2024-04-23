@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -55,6 +53,10 @@ import {
   AssociateConnectionAliasCommandOutput,
 } from "./commands/AssociateConnectionAliasCommand";
 import { AssociateIpGroupsCommandInput, AssociateIpGroupsCommandOutput } from "./commands/AssociateIpGroupsCommand";
+import {
+  AssociateWorkspaceApplicationCommandInput,
+  AssociateWorkspaceApplicationCommandOutput,
+} from "./commands/AssociateWorkspaceApplicationCommand";
 import { AuthorizeIpRulesCommandInput, AuthorizeIpRulesCommandOutput } from "./commands/AuthorizeIpRulesCommand";
 import { CopyWorkspaceImageCommandInput, CopyWorkspaceImageCommandOutput } from "./commands/CopyWorkspaceImageCommand";
 import {
@@ -107,6 +109,10 @@ import {
   DeleteWorkspaceImageCommandOutput,
 } from "./commands/DeleteWorkspaceImageCommand";
 import {
+  DeployWorkspaceApplicationsCommandInput,
+  DeployWorkspaceApplicationsCommandOutput,
+} from "./commands/DeployWorkspaceApplicationsCommand";
+import {
   DeregisterWorkspaceDirectoryCommandInput,
   DeregisterWorkspaceDirectoryCommandOutput,
 } from "./commands/DeregisterWorkspaceDirectoryCommand";
@@ -115,6 +121,18 @@ import {
   DescribeAccountModificationsCommandInput,
   DescribeAccountModificationsCommandOutput,
 } from "./commands/DescribeAccountModificationsCommand";
+import {
+  DescribeApplicationAssociationsCommandInput,
+  DescribeApplicationAssociationsCommandOutput,
+} from "./commands/DescribeApplicationAssociationsCommand";
+import {
+  DescribeApplicationsCommandInput,
+  DescribeApplicationsCommandOutput,
+} from "./commands/DescribeApplicationsCommand";
+import {
+  DescribeBundleAssociationsCommandInput,
+  DescribeBundleAssociationsCommandOutput,
+} from "./commands/DescribeBundleAssociationsCommand";
 import {
   DescribeClientBrandingCommandInput,
   DescribeClientBrandingCommandOutput,
@@ -135,8 +153,16 @@ import {
   DescribeConnectionAliasPermissionsCommandInput,
   DescribeConnectionAliasPermissionsCommandOutput,
 } from "./commands/DescribeConnectionAliasPermissionsCommand";
+import {
+  DescribeImageAssociationsCommandInput,
+  DescribeImageAssociationsCommandOutput,
+} from "./commands/DescribeImageAssociationsCommand";
 import { DescribeIpGroupsCommandInput, DescribeIpGroupsCommandOutput } from "./commands/DescribeIpGroupsCommand";
 import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "./commands/DescribeTagsCommand";
+import {
+  DescribeWorkspaceAssociationsCommandInput,
+  DescribeWorkspaceAssociationsCommandOutput,
+} from "./commands/DescribeWorkspaceAssociationsCommand";
 import {
   DescribeWorkspaceBundlesCommandInput,
   DescribeWorkspaceBundlesCommandOutput,
@@ -170,6 +196,10 @@ import {
   DisassociateIpGroupsCommandInput,
   DisassociateIpGroupsCommandOutput,
 } from "./commands/DisassociateIpGroupsCommand";
+import {
+  DisassociateWorkspaceApplicationCommandInput,
+  DisassociateWorkspaceApplicationCommandOutput,
+} from "./commands/DisassociateWorkspaceApplicationCommand";
 import {
   ImportClientBrandingCommandInput,
   ImportClientBrandingCommandOutput,
@@ -267,6 +297,7 @@ export { __Client };
 export type ServiceInputTypes =
   | AssociateConnectionAliasCommandInput
   | AssociateIpGroupsCommandInput
+  | AssociateWorkspaceApplicationCommandInput
   | AuthorizeIpRulesCommandInput
   | CopyWorkspaceImageCommandInput
   | CreateConnectClientAddInCommandInput
@@ -285,16 +316,22 @@ export type ServiceInputTypes =
   | DeleteTagsCommandInput
   | DeleteWorkspaceBundleCommandInput
   | DeleteWorkspaceImageCommandInput
+  | DeployWorkspaceApplicationsCommandInput
   | DeregisterWorkspaceDirectoryCommandInput
   | DescribeAccountCommandInput
   | DescribeAccountModificationsCommandInput
+  | DescribeApplicationAssociationsCommandInput
+  | DescribeApplicationsCommandInput
+  | DescribeBundleAssociationsCommandInput
   | DescribeClientBrandingCommandInput
   | DescribeClientPropertiesCommandInput
   | DescribeConnectClientAddInsCommandInput
   | DescribeConnectionAliasPermissionsCommandInput
   | DescribeConnectionAliasesCommandInput
+  | DescribeImageAssociationsCommandInput
   | DescribeIpGroupsCommandInput
   | DescribeTagsCommandInput
+  | DescribeWorkspaceAssociationsCommandInput
   | DescribeWorkspaceBundlesCommandInput
   | DescribeWorkspaceDirectoriesCommandInput
   | DescribeWorkspaceImagePermissionsCommandInput
@@ -304,6 +341,7 @@ export type ServiceInputTypes =
   | DescribeWorkspacesConnectionStatusCommandInput
   | DisassociateConnectionAliasCommandInput
   | DisassociateIpGroupsCommandInput
+  | DisassociateWorkspaceApplicationCommandInput
   | ImportClientBrandingCommandInput
   | ImportWorkspaceImageCommandInput
   | ListAvailableManagementCidrRangesCommandInput
@@ -337,6 +375,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AssociateConnectionAliasCommandOutput
   | AssociateIpGroupsCommandOutput
+  | AssociateWorkspaceApplicationCommandOutput
   | AuthorizeIpRulesCommandOutput
   | CopyWorkspaceImageCommandOutput
   | CreateConnectClientAddInCommandOutput
@@ -355,16 +394,22 @@ export type ServiceOutputTypes =
   | DeleteTagsCommandOutput
   | DeleteWorkspaceBundleCommandOutput
   | DeleteWorkspaceImageCommandOutput
+  | DeployWorkspaceApplicationsCommandOutput
   | DeregisterWorkspaceDirectoryCommandOutput
   | DescribeAccountCommandOutput
   | DescribeAccountModificationsCommandOutput
+  | DescribeApplicationAssociationsCommandOutput
+  | DescribeApplicationsCommandOutput
+  | DescribeBundleAssociationsCommandOutput
   | DescribeClientBrandingCommandOutput
   | DescribeClientPropertiesCommandOutput
   | DescribeConnectClientAddInsCommandOutput
   | DescribeConnectionAliasPermissionsCommandOutput
   | DescribeConnectionAliasesCommandOutput
+  | DescribeImageAssociationsCommandOutput
   | DescribeIpGroupsCommandOutput
   | DescribeTagsCommandOutput
+  | DescribeWorkspaceAssociationsCommandOutput
   | DescribeWorkspaceBundlesCommandOutput
   | DescribeWorkspaceDirectoriesCommandOutput
   | DescribeWorkspaceImagePermissionsCommandOutput
@@ -374,6 +419,7 @@ export type ServiceOutputTypes =
   | DescribeWorkspacesConnectionStatusCommandOutput
   | DisassociateConnectionAliasCommandOutput
   | DisassociateIpGroupsCommandOutput
+  | DisassociateWorkspaceApplicationCommandOutput
   | ImportClientBrandingCommandOutput
   | ImportWorkspaceImageCommandOutput
   | ListAvailableManagementCidrRangesCommandOutput
@@ -511,6 +557,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

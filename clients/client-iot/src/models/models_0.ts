@@ -41,13 +41,13 @@ export interface AbortCriteria {
    * @public
    * <p>The type of job execution failures that can initiate a job abort.</p>
    */
-  failureType: JobExecutionFailureType | string | undefined;
+  failureType: JobExecutionFailureType | undefined;
 
   /**
    * @public
    * <p>The type of job action to take to initiate the job abort.</p>
    */
-  action: AbortAction | string | undefined;
+  action: AbortAction | undefined;
 
   /**
    * @public
@@ -405,7 +405,7 @@ export interface DynamoDBAction {
    * @public
    * <p>The hash key type. Valid values are "STRING" or "NUMBER"</p>
    */
-  hashKeyType?: DynamoKeyType | string;
+  hashKeyType?: DynamoKeyType;
 
   /**
    * @public
@@ -423,7 +423,7 @@ export interface DynamoDBAction {
    * @public
    * <p>The range key type. Valid values are "STRING" or "NUMBER"</p>
    */
-  rangeKeyType?: DynamoKeyType | string;
+  rangeKeyType?: DynamoKeyType;
 
   /**
    * @public
@@ -934,6 +934,28 @@ export interface IotSiteWiseAction {
 
 /**
  * @public
+ * <p>Specifies a Kafka header using key-value pairs when you create a Rule’s Kafka Action.
+ *          You can use these headers to route data from IoT clients to downstream Kafka clusters
+ *          without modifying your message payload.</p>
+ *          <p>For more information about Rule's Kafka action, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html">Apache Kafka</a>.
+ *       </p>
+ */
+export interface KafkaActionHeader {
+  /**
+   * @public
+   * <p>The key of the Kafka header.</p>
+   */
+  key: string | undefined;
+
+  /**
+   * @public
+   * <p>The value of the Kafka header.</p>
+   */
+  value: string | undefined;
+}
+
+/**
+ * @public
  * <p>Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.</p>
  */
 export interface KafkaAction {
@@ -966,6 +988,12 @@ export interface KafkaAction {
    * <p>Properties of the Apache Kafka producer client.</p>
    */
   clientProperties: Record<string, string> | undefined;
+
+  /**
+   * @public
+   * <p>The list of Kafka headers that you specify.</p>
+   */
+  headers?: KafkaActionHeader[];
 }
 
 /**
@@ -1285,7 +1313,7 @@ export interface S3Action {
    * <p>The Amazon S3 canned ACL that controls access to the object identified by the object
    *          key. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">S3 canned ACLs</a>.</p>
    */
-  cannedAcl?: CannedAccessControlList | string;
+  cannedAcl?: CannedAccessControlList;
 }
 
 /**
@@ -1348,7 +1376,7 @@ export interface SnsAction {
    *          if the payload should be parsed and relevant platform-specific bits of the payload should
    *          be extracted. To read more about SNS message formats, see <a href="https://docs.aws.amazon.com/sns/latest/dg/json-formats.html">https://docs.aws.amazon.com/sns/latest/dg/json-formats.html</a> refer to their official documentation.</p>
    */
-  messageFormat?: MessageFormat | string;
+  messageFormat?: MessageFormat;
 }
 
 /**
@@ -1717,7 +1745,7 @@ export interface MachineLearningDetectionConfig {
    *             The sensitivity of anomalous behavior evaluation. Can be <code>Low</code>, <code>Medium</code>, or <code>High</code>.
    *         </p>
    */
-  confidenceLevel: ConfidenceLevel | string | undefined;
+  confidenceLevel: ConfidenceLevel | undefined;
 }
 
 /**
@@ -1824,7 +1852,7 @@ export interface BehaviorCriteria {
    *             </li>
    *          </ul>
    */
-  comparisonOperator?: ComparisonOperator | string;
+  comparisonOperator?: ComparisonOperator;
 
   /**
    * @public
@@ -1904,7 +1932,7 @@ export interface MetricDimension {
    * @public
    * <p>Defines how the <code>dimensionValues</code> of a dimension are interpreted. For example, for dimension type TOPIC_FILTER, the <code>IN</code> operator, a message will be counted only if its topic matches one of the topic filters. With <code>NOT_IN</code> operator, a message will be counted only if it doesn't match any of the topic filters. The operator is optional: if it's not provided (is <code>null</code>), it will be interpreted as <code>IN</code>.</p>
    */
-  operator?: DimensionValueOperator | string;
+  operator?: DimensionValueOperator;
 }
 
 /**
@@ -1934,8 +1962,10 @@ export interface Behavior {
 
   /**
    * @public
-   * <p>The criteria that determine if a device is behaving normally in regard to
-   *           the <code>metric</code>.</p>
+   * <p>The criteria that determine if a device is behaving normally in regard to the <code>metric</code>.</p>
+   *          <note>
+   *             <p>In the IoT console, you can choose to be sent an alert through Amazon SNS when IoT Device Defender detects that a device is behaving anomalously.</p>
+   *          </note>
    */
   criteria?: BehaviorCriteria;
 
@@ -1946,6 +1976,12 @@ export interface Behavior {
    *         </p>
    */
   suppressAlerts?: boolean;
+
+  /**
+   * @public
+   * <p>Value indicates exporting metrics related to the behavior when it is true.</p>
+   */
+  exportMetric?: boolean;
 }
 
 /**
@@ -1977,7 +2013,7 @@ export interface ViolationEventAdditionalInfo {
    *             The sensitivity of anomalous behavior evaluation. Can be <code>Low</code>, <code>Medium</code>, or <code>High</code>.
    *         </p>
    */
-  confidenceLevel?: ConfidenceLevel | string;
+  confidenceLevel?: ConfidenceLevel;
 }
 
 /**
@@ -2027,7 +2063,7 @@ export interface ActiveViolation {
    * @public
    * <p>The verification state of the violation (detect alarm).</p>
    */
-  verificationState?: VerificationState | string;
+  verificationState?: VerificationState;
 
   /**
    * @public
@@ -2064,6 +2100,12 @@ export interface MetricToRetain {
    * <p>The dimension of a metric. This can't be used with custom metrics.</p>
    */
   metricDimension?: MetricDimension;
+
+  /**
+   * @public
+   * <p>The value indicates exporting metrics related to the <code>MetricToRetain </code> when it's true.</p>
+   */
+  exportMetric?: boolean;
 }
 
 /**
@@ -2188,7 +2230,7 @@ export interface AggregationType {
    * @public
    * <p>The name of the aggregation type.</p>
    */
-  name: AggregationTypeName | string | undefined;
+  name: AggregationTypeName | undefined;
 
   /**
    * @public
@@ -2510,7 +2552,7 @@ export interface AuditCheckDetails {
    * <p>The completion status of this check. One of "IN_PROGRESS", "WAITING_FOR_DATA_COLLECTION",
    *         "CANCELED", "COMPLETED_COMPLIANT", "COMPLETED_NON_COMPLIANT", or "FAILED".</p>
    */
-  checkRunStatus?: AuditCheckRunStatus | string;
+  checkRunStatus?: AuditCheckRunStatus;
 
   /**
    * @public
@@ -2690,7 +2732,7 @@ export interface NonCompliantResource {
    * @public
    * <p>The type of the noncompliant resource.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -2714,7 +2756,7 @@ export interface RelatedResource {
    * @public
    * <p>The type of resource.</p>
    */
-  resourceType?: ResourceType | string;
+  resourceType?: ResourceType;
 
   /**
    * @public
@@ -2785,7 +2827,7 @@ export interface AuditFinding {
    * @public
    * <p>The severity of the result (finding).</p>
    */
-  severity?: AuditFindingSeverity | string;
+  severity?: AuditFindingSeverity;
 
   /**
    * @public
@@ -2889,7 +2931,7 @@ export interface AuditMitigationActionExecutionMetadata {
    * @public
    * <p>The current status of the task being executed.</p>
    */
-  status?: AuditMitigationActionsExecutionStatus | string;
+  status?: AuditMitigationActionsExecutionStatus;
 
   /**
    * @public
@@ -2954,7 +2996,7 @@ export interface AuditMitigationActionsTaskMetadata {
    * @public
    * <p>The current state of the audit mitigation actions task.</p>
    */
-  taskStatus?: AuditMitigationActionsTaskStatus | string;
+  taskStatus?: AuditMitigationActionsTaskStatus;
 }
 
 /**
@@ -3145,13 +3187,13 @@ export interface AuditTaskMetadata {
    * <p>The status of this audit. One of "IN_PROGRESS", "COMPLETED",
    *         "FAILED", or "CANCELED".</p>
    */
-  taskStatus?: AuditTaskStatus | string;
+  taskStatus?: AuditTaskStatus;
 
   /**
    * @public
    * <p>The type of this audit. One of "ON_DEMAND_AUDIT_TASK" or "SCHEDULED_AUDIT_TASK".</p>
    */
-  taskType?: AuditTaskType | string;
+  taskType?: AuditTaskType;
 }
 
 /**
@@ -3178,7 +3220,7 @@ export interface AuthInfo {
    * @public
    * <p>The type of action for which the principal is being authorized.</p>
    */
-  actionType?: ActionType | string;
+  actionType?: ActionType;
 
   /**
    * @public
@@ -3260,7 +3302,7 @@ export interface AuthorizerDescription {
    * @public
    * <p>The status of the authorizer.</p>
    */
-  status?: AuthorizerStatus | string;
+  status?: AuthorizerStatus;
 
   /**
    * @public
@@ -3382,7 +3424,7 @@ export interface AuthResult {
    *          account when determining the authorization decision. An explicit deny statement can
    *          override multiple allow statements.</p>
    */
-  authDecision?: AuthDecision | string;
+  authDecision?: AuthDecision;
 
   /**
    * @public
@@ -3806,7 +3848,7 @@ export interface CreateAuthorizerRequest {
    * @public
    * <p>The status of the create authorizer request.</p>
    */
-  status?: AuthorizerStatus | string;
+  status?: AuthorizerStatus;
 
   /**
    * @public
@@ -3961,6 +4003,74 @@ export interface CreateCertificateFromCsrResponse {
  * @public
  * @enum
  */
+export const CertificateProviderOperation = {
+  CreateCertificateFromCsr: "CreateCertificateFromCsr",
+} as const;
+
+/**
+ * @public
+ */
+export type CertificateProviderOperation =
+  (typeof CertificateProviderOperation)[keyof typeof CertificateProviderOperation];
+
+/**
+ * @public
+ */
+export interface CreateCertificateProviderRequest {
+  /**
+   * @public
+   * <p>The name of the certificate provider.</p>
+   */
+  certificateProviderName: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the Lambda function that defines the authentication logic.</p>
+   */
+  lambdaFunctionArn: string | undefined;
+
+  /**
+   * @public
+   * <p>A list of the operations that the certificate provider will use to generate certificates.
+   *          Valid value: <code>CreateCertificateFromCsr</code>.</p>
+   */
+  accountDefaultForOperations: CertificateProviderOperation[] | undefined;
+
+  /**
+   * @public
+   * <p>A string that you can optionally pass in the <code>CreateCertificateProvider</code> request to make sure
+   *          the request is idempotent.</p>
+   */
+  clientToken?: string;
+
+  /**
+   * @public
+   * <p>Metadata which can be used to manage the certificate provider.</p>
+   */
+  tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface CreateCertificateProviderResponse {
+  /**
+   * @public
+   * <p>The name of the certificate provider.</p>
+   */
+  certificateProviderName?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the certificate provider.</p>
+   */
+  certificateProviderArn?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const CustomMetricType = {
   IP_ADDRESS_LIST: "ip-address-list",
   NUMBER: "number",
@@ -4002,7 +4112,7 @@ export interface CreateCustomMetricRequest {
    *         single value.</p>
    *          </important>
    */
-  metricType: CustomMetricType | string | undefined;
+  metricType: CustomMetricType | undefined;
 
   /**
    * @public
@@ -4073,7 +4183,7 @@ export interface CreateDimensionRequest {
    * <p>Specifies the type of dimension. Supported types: <code>TOPIC_FILTER.</code>
    *          </p>
    */
-  type: DimensionType | string | undefined;
+  type: DimensionType | undefined;
 
   /**
    * @public
@@ -4207,7 +4317,7 @@ export interface CreateDomainConfigurationRequest {
    *             <p>Amazon Web Services IoT Core currently supports only the <code>DATA</code> service type.</p>
    *          </note>
    */
-  serviceType?: ServiceType | string;
+  serviceType?: ServiceType;
 
   /**
    * @public
@@ -4470,7 +4580,7 @@ export interface CreateFleetMetricRequest {
    * <p>Used to support unit transformation such as milliseconds to seconds. The unit must be
    *       supported by <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">CW metric</a>. Default to null.</p>
    */
-  unit?: FleetMetricUnit | string;
+  unit?: FleetMetricUnit;
 
   /**
    * @public
@@ -4561,7 +4671,7 @@ export interface RetryCriteria {
    * @public
    * <p>The type of job execution failures that can initiate a job retry.</p>
    */
-  failureType: RetryableFailureType | string | undefined;
+  failureType: RetryableFailureType | undefined;
 
   /**
    * @public
@@ -4718,6 +4828,8 @@ export interface SchedulingConfig {
    *             must be scheduled a minimum of thirty minutes from the current time. The date and time
    *             format for the <code>startTime</code> is YYYY-MM-DD for the date and HH:MM for the
    *             time.</p>
+   *          <p>For more information on the syntax for <code>startTime</code> when using an API
+   *                 command or the Command Line Interface, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a>.</p>
    */
   startTime?: string;
 
@@ -4730,6 +4842,8 @@ export interface SchedulingConfig {
    *             minutes. The maximum duration between <code>startTime</code> and <code>endTime</code> is
    *             two years. The date and time format for the <code>endTime</code> is YYYY-MM-DD for the
    *             date and HH:MM for the time.</p>
+   *          <p>For more information on the syntax for <code>endTime</code> when using an API command
+   *             or the Command Line Interface, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">Timestamp</a>.</p>
    */
   endTime?: string;
 
@@ -4739,7 +4853,7 @@ export interface SchedulingConfig {
    *                 <code>endTime</code>. If <code>endTime</code> is not selected when creating the job,
    *             then <code>endBehavior</code> does not apply.</p>
    */
-  endBehavior?: JobEndBehavior | string;
+  endBehavior?: JobEndBehavior;
 
   /**
    * @public
@@ -4837,7 +4951,7 @@ export interface CreateJobRequest {
    *                 been created.</p>
    *          </note>
    */
-  targetSelection?: TargetSelection | string;
+  targetSelection?: TargetSelection;
 
   /**
    * @public
@@ -4914,10 +5028,10 @@ export interface CreateJobRequest {
   /**
    * @public
    * <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the
-   *         job successfully completes. </p>
+   *             job successfully completes. The package version must be in either the Published or Deprecated state when the job deploys. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>. </p>
    *          <p>
-   *             <b>Note:</b>The following Length Constraints relates to a single string.
-   *         Up to five strings are allowed.</p>
+   *             <b>Note:</b>The following Length Constraints relates to a single ARN.
+   *         Up to 25  package version ARNs are allowed.</p>
    */
   destinationPackageVersions?: string[];
 }
@@ -4991,15 +5105,10 @@ export interface CreateJobTemplateRequest {
 
   /**
    * @public
-   * <p>An S3 link to the job document to use in the template. Required if you don't specify a value for <code>document</code>.</p>
-   *          <note>
-   *             <p>If the job document resides in an S3 bucket, you must use a placeholder link when specifying the document.</p>
-   *             <p>The placeholder link is of the following form:</p>
-   *             <p>
-   *                <code>$\{aws:iot:s3-presigned-url:https://s3.amazonaws.com/<i>bucket</i>/<i>key</i>\}</code>
-   *             </p>
-   *             <p>where <i>bucket</i> is your bucket name and <i>key</i> is the object in the bucket to which you are linking.</p>
-   *          </note>
+   * <p>An S3 link, or S3 object URL, to the job document. The link is an Amazon S3 object URL and is required if you don't specify a value for <code>document</code>.</p>
+   *          <p>For example, <code>--document-source https://s3.<i>region-code</i>.amazonaws.com/example-firmware/device-firmware.1.0</code>
+   *          </p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-bucket-intro.html">Methods for accessing a bucket</a>.</p>
    */
   documentSource?: string;
 
@@ -5062,10 +5171,11 @@ export interface CreateJobTemplateRequest {
 
   /**
    * @public
-   * <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the job successfully completes. </p>
+   * <p>The package version Amazon Resource Names (ARNs) that are installed on the device when the
+   *             job successfully completes. The package version must be in either the Published or Deprecated state when the job deploys. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p>
    *          <p>
-   *             <b>Note:</b>The following Length Constraints relates to a single string.
-   *         Up to five strings are allowed.</p>
+   *             <b>Note:</b>The following Length Constraints relates to a single ARN.
+   *             Up to 25  package version ARNs are allowed.</p>
    */
   destinationPackageVersions?: string[];
 }
@@ -5181,7 +5291,7 @@ export interface EnableIoTLoggingParams {
    * @public
    * <p>Specifies the type of information to be logged.</p>
    */
-  logLevel: LogLevel | string | undefined;
+  logLevel: LogLevel | undefined;
 }
 
 /**
@@ -5218,7 +5328,7 @@ export interface ReplaceDefaultPolicyVersionParams {
    * @public
    * <p>The name of the template to be applied. The only supported value is <code>BLANK_POLICY</code>.</p>
    */
-  templateName: PolicyTemplateName | string | undefined;
+  templateName: PolicyTemplateName | undefined;
 }
 
 /**
@@ -5243,7 +5353,7 @@ export interface UpdateCACertificateParams {
    * @public
    * <p>The action that you want to apply to the CA certificate. The only supported value is <code>DEACTIVATE</code>.</p>
    */
-  action: CACertificateUpdateAction | string | undefined;
+  action: CACertificateUpdateAction | undefined;
 }
 
 /**
@@ -5269,7 +5379,7 @@ export interface UpdateDeviceCertificateParams {
    * @public
    * <p>The action that you want to apply to the device certificate. The only supported value is <code>DEACTIVATE</code>.</p>
    */
-  action: DeviceCertificateUpdateAction | string | undefined;
+  action: DeviceCertificateUpdateAction | undefined;
 }
 
 /**
@@ -5400,13 +5510,13 @@ export interface AwsJobAbortCriteria {
    * @public
    * <p>The type of job execution failures that can initiate a job abort.</p>
    */
-  failureType: AwsJobAbortCriteriaFailureType | string | undefined;
+  failureType: AwsJobAbortCriteriaFailureType | undefined;
 
   /**
    * @public
    * <p>The type of job action to take to initiate the job abort.</p>
    */
-  action: AwsJobAbortCriteriaAbortAction | string | undefined;
+  action: AwsJobAbortCriteriaAbortAction | undefined;
 
   /**
    * @public
@@ -5795,7 +5905,7 @@ export interface OTAUpdateFile {
 
   /**
    * @public
-   * <p>A list of name/attribute pairs.</p>
+   * <p>A list of name-attribute pairs. They won't be sent to devices as a part of the Job document.</p>
    */
   attributes?: Record<string, string>;
 }
@@ -5841,7 +5951,7 @@ export interface CreateOTAUpdateRequest {
    * <p>The protocol used to transfer the OTA update image. Valid values are [HTTP], [MQTT], [HTTP, MQTT]. When both
    *            HTTP and MQTT are specified, the target device can choose the protocol.</p>
    */
-  protocols?: (Protocol | string)[];
+  protocols?: Protocol[];
 
   /**
    * @public
@@ -5851,7 +5961,7 @@ export interface CreateOTAUpdateRequest {
    *             added to a target group, even after the update was completed by all things originally in the group. Valid
    *             values: CONTINUOUS | SNAPSHOT.</p>
    */
-  targetSelection?: TargetSelection | string;
+  targetSelection?: TargetSelection;
 
   /**
    * @public
@@ -5895,7 +6005,8 @@ export interface CreateOTAUpdateRequest {
 
   /**
    * @public
-   * <p>A list of additional OTA update parameters which are name-value pairs.</p>
+   * <p>A list of additional OTA update parameters, which are name-value pairs.
+   *             They won't be sent to devices as a part of the Job document.</p>
    */
   additionalParameters?: Record<string, string>;
 
@@ -5956,7 +6067,7 @@ export interface CreateOTAUpdateResponse {
    * @public
    * <p>The OTA update status.</p>
    */
-  otaUpdateStatus?: OTAUpdateStatus | string;
+  otaUpdateStatus?: OTAUpdateStatus;
 }
 
 /**
@@ -5965,7 +6076,7 @@ export interface CreateOTAUpdateResponse {
 export interface CreatePackageRequest {
   /**
    * @public
-   * <p>The name of the new package.</p>
+   * <p>The name of the new software package.</p>
    */
   packageName: string | undefined;
 
@@ -5995,7 +6106,7 @@ export interface CreatePackageRequest {
 export interface CreatePackageResponse {
   /**
    * @public
-   * <p>The name of the package.</p>
+   * <p>The name of the software package.</p>
    */
   packageName?: string;
 
@@ -6079,7 +6190,7 @@ export class ValidationException extends __BaseException {
 export interface CreatePackageVersionRequest {
   /**
    * @public
-   * <p>The name of the associated package.</p>
+   * <p>The name of the associated software package.</p>
    */
   packageName: string | undefined;
 
@@ -6143,7 +6254,7 @@ export interface CreatePackageVersionResponse {
 
   /**
    * @public
-   * <p>The name of the associated package.</p>
+   * <p>The name of the associated software package.</p>
    */
   packageName?: string;
 
@@ -6169,7 +6280,7 @@ export interface CreatePackageVersionResponse {
    * @public
    * <p>The status of the package version. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p>
    */
-  status?: PackageVersionStatus | string;
+  status?: PackageVersionStatus;
 
   /**
    * @public
@@ -6477,7 +6588,7 @@ export interface CreateProvisioningTemplateRequest {
    *          For more information about provisioning template, see: <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning template</a>.
    *       </p>
    */
-  type?: TemplateType | string;
+  type?: TemplateType;
 }
 
 /**
@@ -6643,7 +6754,7 @@ export interface CreateScheduledAuditRequest {
    *       <code>WEEKLY</code>, <code>BIWEEKLY</code> or <code>MONTHLY</code>. The start time of each audit is
    *       determined by the system.</p>
    */
-  frequency: AuditFrequency | string | undefined;
+  frequency: AuditFrequency | undefined;
 
   /**
    * @public
@@ -6667,7 +6778,7 @@ export interface CreateScheduledAuditRequest {
    *       <code>MON</code>, <code>TUE</code>, <code>WED</code>, <code>THU</code>, <code>FRI</code>, or <code>SAT</code>. This field is required if the <code>frequency</code>
    *       parameter is set to <code>WEEKLY</code> or <code>BIWEEKLY</code>.</p>
    */
-  dayOfWeek?: DayOfWeek | string;
+  dayOfWeek?: DayOfWeek;
 
   /**
    * @public
@@ -6704,6 +6815,26 @@ export interface CreateScheduledAuditResponse {
 
 /**
  * @public
+ * <p>Set configurations for metrics export.</p>
+ */
+export interface MetricsExportConfig {
+  /**
+   * @public
+   * <p>The MQTT topic that Device Defender Detect should publish messages to for metrics
+   *       export.</p>
+   */
+  mqttTopic: string | undefined;
+
+  /**
+   * @public
+   * <p>This role ARN has permission to publish MQTT messages, after which Device Defender Detect
+   *       can assume the role and publish messages on your behalf.</p>
+   */
+  roleArn: string | undefined;
+}
+
+/**
+ * @public
  */
 export interface CreateSecurityProfileRequest {
   /**
@@ -6729,7 +6860,7 @@ export interface CreateSecurityProfileRequest {
    * <p>Specifies the destinations to which alerts are sent. (Alerts are always sent to the
    *         console.) Alerts are generated when a device (thing) violates a behavior.</p>
    */
-  alertTargets?: Record<string, AlertTarget>;
+  alertTargets?: Partial<Record<AlertTargetType, AlertTarget>>;
 
   /**
    * @public
@@ -6755,6 +6886,12 @@ export interface CreateSecurityProfileRequest {
    * <p>Metadata that can be used to manage the security profile.</p>
    */
   tags?: Tag[];
+
+  /**
+   * @public
+   * <p>Specifies the MQTT topic and role ARN required for metric export.</p>
+   */
+  metricsExportConfig?: MetricsExportConfig;
 }
 
 /**
@@ -7308,7 +7445,7 @@ export interface TopicRuleDestination {
    *             </dd>
    *          </dl>
    */
-  status?: TopicRuleDestinationStatus | string;
+  status?: TopicRuleDestinationStatus;
 
   /**
    * @public
@@ -7518,6 +7655,22 @@ export interface DeleteCertificateRequest {
 /**
  * @public
  */
+export interface DeleteCertificateProviderRequest {
+  /**
+   * @public
+   * <p>The name of the certificate provider.</p>
+   */
+  certificateProviderName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCertificateProviderResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteCustomMetricRequest {
   /**
    * @public
@@ -7527,65 +7680,6 @@ export interface DeleteCustomMetricRequest {
    */
   metricName: string | undefined;
 }
-
-/**
- * @public
- */
-export interface DeleteCustomMetricResponse {}
-
-/**
- * @public
- */
-export interface DeleteDimensionRequest {
-  /**
-   * @public
-   * <p>The unique identifier for the dimension that you want to delete.</p>
-   */
-  name: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteDimensionResponse {}
-
-/**
- * @public
- */
-export interface DeleteDomainConfigurationRequest {
-  /**
-   * @public
-   * <p>The name of the domain configuration to be deleted.</p>
-   */
-  domainConfigurationName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteDomainConfigurationResponse {}
-
-/**
- * @public
- */
-export interface DeleteDynamicThingGroupRequest {
-  /**
-   * @public
-   * <p>The name of the dynamic thing group to delete.</p>
-   */
-  thingGroupName: string | undefined;
-
-  /**
-   * @public
-   * <p>The expected version of the dynamic thing group to delete.</p>
-   */
-  expectedVersion?: number;
-}
-
-/**
- * @public
- */
-export interface DeleteDynamicThingGroupResponse {}
 
 /**
  * @internal

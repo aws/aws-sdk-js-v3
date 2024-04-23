@@ -41,8 +41,12 @@
 export * from "./ResourceGroupsClient";
 export * from "./ResourceGroups";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { ResourceGroupsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { ResourceGroupsServiceException } from "./models/ResourceGroupsServiceException";

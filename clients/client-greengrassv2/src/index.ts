@@ -18,8 +18,12 @@
 export * from "./GreengrassV2Client";
 export * from "./GreengrassV2";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { GreengrassV2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { GreengrassV2ServiceException } from "./models/GreengrassV2ServiceException";

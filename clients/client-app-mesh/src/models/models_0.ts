@@ -85,7 +85,6 @@ export interface FileAccessLog {
    *             <code>awslogs</code>, to export the access logs to a log storage service such as Amazon
    *          CloudWatch Logs. You can also specify a path in the Envoy container's file system to write
    *          the files to disk.</p>
-   *
    *          <note>
    *             <p>The Envoy process must have write permissions to the path that you specify here.
    *             Otherwise, Envoy fails to bootstrap properly.</p>
@@ -393,7 +392,7 @@ export interface EgressFilter {
    *          egress filter type to <code>ALLOW_ALL</code> to allow egress to any endpoint inside or
    *          outside of the service mesh.</p>
    */
-  type: EgressFilterType | string | undefined;
+  type: EgressFilterType | undefined;
 }
 
 /**
@@ -421,7 +420,7 @@ export interface MeshServiceDiscovery {
    * @public
    * <p>The IP version to use to control traffic within the mesh.</p>
    */
-  ipPreference?: IpPreference | string;
+  ipPreference?: IpPreference;
 }
 
 /**
@@ -550,7 +549,7 @@ export interface MeshStatus {
    * @public
    * <p>The current mesh status.</p>
    */
-  status?: MeshStatusCode | string;
+  status?: MeshStatusCode;
 }
 
 /**
@@ -706,7 +705,7 @@ export interface ListMeshesInput {
    *          <note>
    *             <p>This token should be treated as an opaque identifier that is used only to
    *                 retrieve the next items in a list and not for other programmatic purposes.</p>
-   *         </note>
+   *          </note>
    */
   nextToken?: string;
 
@@ -1308,7 +1307,7 @@ export interface VirtualGatewayHealthCheckPolicy {
    *          service must conform to the <a href="https://github.com/grpc/grpc/blob/master/doc/health-checking.md">GRPC Health
    *             Checking Protocol</a>.</p>
    */
-  protocol: VirtualGatewayPortProtocol | string | undefined;
+  protocol: VirtualGatewayPortProtocol | undefined;
 
   /**
    * @public
@@ -1354,7 +1353,7 @@ export interface VirtualGatewayPortMapping {
    * @public
    * <p>The protocol used for the port mapping.</p>
    */
-  protocol: VirtualGatewayPortProtocol | string | undefined;
+  protocol: VirtualGatewayPortProtocol | undefined;
 }
 
 /**
@@ -1562,7 +1561,7 @@ export interface VirtualGatewayListenerTls {
    *             </li>
    *          </ul>
    */
-  mode: VirtualGatewayListenerTlsMode | string | undefined;
+  mode: VirtualGatewayListenerTlsMode | undefined;
 
   /**
    * @public
@@ -1777,7 +1776,7 @@ export interface VirtualGatewayStatus {
    * @public
    * <p>The current status.</p>
    */
-  status: VirtualGatewayStatusCode | string | undefined;
+  status: VirtualGatewayStatusCode | undefined;
 }
 
 /**
@@ -1920,7 +1919,7 @@ export interface GatewayRouteHostnameRewrite {
    * @public
    * <p>The default target host name to write to.</p>
    */
-  defaultTargetHostname?: DefaultGatewayRouteRewrite | string;
+  defaultTargetHostname?: DefaultGatewayRouteRewrite;
 }
 
 /**
@@ -2181,7 +2180,7 @@ export interface GrpcGatewayRouteMatch {
 
   /**
    * @public
-   * <p>The port number to match from the request.</p>
+   * <p>The gateway route port to be matched on.</p>
    */
   port?: number;
 }
@@ -2225,7 +2224,7 @@ export interface HttpGatewayRoutePrefixRewrite {
    * @public
    * <p>The default prefix used to replace the incoming route prefix when rewritten.</p>
    */
-  defaultPrefix?: DefaultGatewayRouteRewrite | string;
+  defaultPrefix?: DefaultGatewayRouteRewrite;
 
   /**
    * @public
@@ -2516,7 +2515,7 @@ export interface HttpGatewayRouteMatch {
    * @public
    * <p>The method to match on.</p>
    */
-  method?: HttpMethod | string;
+  method?: HttpMethod;
 
   /**
    * @public
@@ -2665,7 +2664,7 @@ export interface GatewayRouteStatus {
    * @public
    * <p>The current status for the gateway route.</p>
    */
-  status: GatewayRouteStatusCode | string | undefined;
+  status: GatewayRouteStatusCode | undefined;
 }
 
 /**
@@ -3693,7 +3692,7 @@ export interface HealthCheckPolicy {
    *          service must conform to the <a href="https://github.com/grpc/grpc/blob/master/doc/health-checking.md">GRPC Health
    *             Checking Protocol</a>.</p>
    */
-  protocol: PortProtocol | string | undefined;
+  protocol: PortProtocol | undefined;
 
   /**
    * @public
@@ -3753,7 +3752,7 @@ export interface Duration {
    * @public
    * <p>A unit of time.</p>
    */
-  unit?: DurationUnit | string;
+  unit?: DurationUnit;
 }
 
 /**
@@ -3802,7 +3801,7 @@ export interface PortMapping {
    * @public
    * <p>The protocol used for the port mapping. Specify one protocol.</p>
    */
-  protocol: PortProtocol | string | undefined;
+  protocol: PortProtocol | undefined;
 }
 
 /**
@@ -4150,7 +4149,7 @@ export interface ListenerTls {
    *             </li>
    *          </ul>
    */
-  mode: ListenerTlsMode | string | undefined;
+  mode: ListenerTlsMode | undefined;
 
   /**
    * @public
@@ -4278,7 +4277,7 @@ export interface AwsCloudMapServiceDiscovery {
    *          virtual node only overrides the IP preference set for the mesh on this specific
    *          node.</p>
    */
-  ipPreference?: IpPreference | string;
+  ipPreference?: IpPreference;
 }
 
 /**
@@ -4311,7 +4310,7 @@ export interface DnsServiceDiscovery {
    * @public
    * <p>Specifies the DNS response type for the virtual node.</p>
    */
-  responseType?: DnsResponseType | string;
+  responseType?: DnsResponseType;
 
   /**
    * @public
@@ -4319,7 +4318,7 @@ export interface DnsServiceDiscovery {
    *          virtual node only overrides the IP preference set for the mesh on this specific
    *          node.</p>
    */
-  ipPreference?: IpPreference | string;
+  ipPreference?: IpPreference;
 }
 
 /**
@@ -4488,7 +4487,7 @@ export interface VirtualNodeStatus {
    * @public
    * <p>The current status of the virtual node.</p>
    */
-  status: VirtualNodeStatusCode | string | undefined;
+  status: VirtualNodeStatusCode | undefined;
 }
 
 /**
@@ -4878,7 +4877,7 @@ export interface VirtualRouterStatus {
    * @public
    * <p>The current status of the virtual router.</p>
    */
-  status: VirtualRouterStatusCode | string | undefined;
+  status: VirtualRouterStatusCode | undefined;
 }
 
 /**
@@ -5407,13 +5406,13 @@ export interface GrpcRetryPolicy {
    * @public
    * <p>Specify a valid value. The event occurs before any processing of a request has started and is encountered when the upstream is temporarily or permanently unavailable.</p>
    */
-  tcpRetryEvents?: (TcpRetryPolicyEvent | string)[];
+  tcpRetryEvents?: TcpRetryPolicyEvent[];
 
   /**
    * @public
    * <p>Specify at least one of the valid values.</p>
    */
-  grpcRetryEvents?: (GrpcRetryPolicyEvent | string)[];
+  grpcRetryEvents?: GrpcRetryPolicyEvent[];
 }
 
 /**
@@ -5529,14 +5528,14 @@ export interface HttpRouteMatch {
    * @public
    * <p>The client request method to match on. Specify only one.</p>
    */
-  method?: HttpMethod | string;
+  method?: HttpMethod;
 
   /**
    * @public
    * <p>The client request scheme to match on. Specify only one. Applicable only for HTTP2
    *          routes.</p>
    */
-  scheme?: HttpScheme | string;
+  scheme?: HttpScheme;
 
   /**
    * @public
@@ -5601,7 +5600,7 @@ export interface HttpRetryPolicy {
    * @public
    * <p>Specify a valid value. The event occurs before any processing of a request has started and is encountered when the upstream is temporarily or permanently unavailable.</p>
    */
-  tcpRetryEvents?: (TcpRetryPolicyEvent | string)[];
+  tcpRetryEvents?: TcpRetryPolicyEvent[];
 }
 
 /**
@@ -5798,7 +5797,7 @@ export interface RouteStatus {
    * @public
    * <p>The current status for the route.</p>
    */
-  status: RouteStatusCode | string | undefined;
+  status: RouteStatusCode | undefined;
 }
 
 /**
@@ -6341,7 +6340,7 @@ export interface VirtualServiceStatus {
    * @public
    * <p>The current status of the virtual service.</p>
    */
-  status: VirtualServiceStatusCode | string | undefined;
+  status: VirtualServiceStatusCode | undefined;
 }
 
 /**

@@ -18,8 +18,12 @@
 export * from "./BatchClient";
 export * from "./Batch";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { BatchExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { BatchServiceException } from "./models/BatchServiceException";

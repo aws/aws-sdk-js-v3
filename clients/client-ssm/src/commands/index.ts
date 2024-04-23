@@ -17,6 +17,7 @@ export * from "./DeleteAssociationCommand";
 export * from "./DeleteDocumentCommand";
 export * from "./DeleteInventoryCommand";
 export * from "./DeleteMaintenanceWindowCommand";
+export * from "./DeleteOpsItemCommand";
 export * from "./DeleteOpsMetadataCommand";
 export * from "./DeleteParameterCommand";
 export * from "./DeleteParametersCommand";

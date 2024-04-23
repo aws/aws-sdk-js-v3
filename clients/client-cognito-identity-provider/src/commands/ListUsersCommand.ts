@@ -1,24 +1,16 @@
 // smithy-typescript generated code
 import { getAwsAuthPlugin } from "@aws-sdk/middleware-signing";
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   CognitoIdentityProviderClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListUsersRequest, ListUsersResponse, ListUsersResponseFilterSensitiveLog } from "../models/models_0";
 import { de_ListUsersCommand, se_ListUsersCommand } from "../protocols/Aws_json1_1";
 
@@ -133,79 +125,104 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @example A ListUsers request for the next 3 users whose email address starts with "testuser."
+ * ```javascript
+ * // This request submits a value for all possible parameters for ListUsers. By iterating the PaginationToken, you can page through and collect all users in a user pool.
+ * const input = {
+ *   "AttributesToGet": [
+ *     "email",
+ *     "sub"
+ *   ],
+ *   "Filter": "\"email\"^=\"testuser\"",
+ *   "Limit": 3,
+ *   "PaginationToken": "abcd1234EXAMPLE",
+ *   "UserPoolId": "us-east-1_EXAMPLE"
+ * };
+ * const command = new ListUsersCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "PaginationToken": "efgh5678EXAMPLE",
+ *   "Users": [
+ *     {
+ *       "Attributes": [
+ *         {
+ *           "Name": "sub",
+ *           "Value": "eaad0219-2117-439f-8d46-4db20e59268f"
+ *         },
+ *         {
+ *           "Name": "email",
+ *           "Value": "testuser@example.com"
+ *         }
+ *       ],
+ *       "Enabled": true,
+ *       "UserCreateDate": 1682955829.578,
+ *       "UserLastModifiedDate": 1689030181.63,
+ *       "UserStatus": "CONFIRMED",
+ *       "Username": "testuser"
+ *     },
+ *     {
+ *       "Attributes": [
+ *         {
+ *           "Name": "sub",
+ *           "Value": "3b994cfd-0b07-4581-be46-3c82f9a70c90"
+ *         },
+ *         {
+ *           "Name": "email",
+ *           "Value": "testuser2@example.com"
+ *         }
+ *       ],
+ *       "Enabled": true,
+ *       "UserCreateDate": 1684427979.201,
+ *       "UserLastModifiedDate": 1684427979.201,
+ *       "UserStatus": "UNCONFIRMED",
+ *       "Username": "testuser2"
+ *     },
+ *     {
+ *       "Attributes": [
+ *         {
+ *           "Name": "sub",
+ *           "Value": "5929e0d1-4c34-42d1-9b79-a5ecacfe66f7"
+ *         },
+ *         {
+ *           "Name": "email",
+ *           "Value": "testuser3@example.com"
+ *         }
+ *       ],
+ *       "Enabled": true,
+ *       "UserCreateDate": 1684427823.641,
+ *       "UserLastModifiedDate": 1684427823.641,
+ *       "UserStatus": "UNCONFIRMED",
+ *       "Username": "testuser3@example.com"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * // example id: a-listusers-request-for-the-next-3-users-whose-email-address-starts-with-testuser-1689977648246
+ * ```
+ *
  */
-export class ListUsersCommand extends $Command<
-  ListUsersCommandInput,
-  ListUsersCommandOutput,
-  CognitoIdentityProviderClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListUsersCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CognitoIdentityProviderClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListUsersCommandInput, ListUsersCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListUsersCommand.getEndpointParameterInstructions()));
-    this.middlewareStack.use(getAwsAuthPlugin(configuration));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CognitoIdentityProviderClient";
-    const commandName = "ListUsersCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: ListUsersResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListUsersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListUsersCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListUsersCommandOutput> {
-    return de_ListUsersCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListUsersCommand extends $Command
+  .classBuilder<
+    ListUsersCommandInput,
+    ListUsersCommandOutput,
+    CognitoIdentityProviderClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getAwsAuthPlugin(config),
+    ];
+  })
+  .s("AWSCognitoIdentityProviderService", "ListUsers", {})
+  .n("CognitoIdentityProviderClient", "ListUsersCommand")
+  .f(void 0, ListUsersResponseFilterSensitiveLog)
+  .ser(se_ListUsersCommand)
+  .de(de_ListUsersCommand)
+  .build() {}

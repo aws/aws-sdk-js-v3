@@ -40,6 +40,7 @@ codegen/sdk-codegen/smithy-build-*.json
 */out/
 */*/out/
 workspace
+./scripts/compilation/tmp/*.mjs
 
 .turbo
 coverage

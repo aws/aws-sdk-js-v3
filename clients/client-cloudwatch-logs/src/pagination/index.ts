@@ -1,3 +1,9 @@
+export * from "./DescribeDeliveriesPaginator";
+
+export * from "./DescribeDeliveryDestinationsPaginator";
+
+export * from "./DescribeDeliverySourcesPaginator";
+
 export * from "./DescribeDestinationsPaginator";
 
 export * from "./DescribeLogGroupsPaginator";
@@ -13,3 +19,5 @@ export * from "./FilterLogEventsPaginator";
 export * from "./GetLogEventsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./ListAnomaliesPaginator";
+export * from "./ListLogAnomalyDetectorsPaginator";

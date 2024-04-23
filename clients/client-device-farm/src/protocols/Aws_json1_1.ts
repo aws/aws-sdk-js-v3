@@ -6682,9 +6682,9 @@ const de_OfferingStatusMap = (output: any, context: __SerdeContext): Record<stri
     if (value === null) {
       return acc;
     }
-    acc[key] = de_OfferingStatus(value, context);
+    acc[key as string] = de_OfferingStatus(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, OfferingStatus>);
 };
 
 /**
@@ -7152,16 +7152,16 @@ const de_UniqueProblems = (output: any, context: __SerdeContext): UniqueProblem[
 const de_UniqueProblemsByExecutionResultMap = (
   output: any,
   context: __SerdeContext
-): Record<string, UniqueProblem[]> => {
+): Partial<Record<ExecutionResult, UniqueProblem[]>> => {
   return Object.entries(output).reduce(
-    (acc: Record<string, UniqueProblem[]>, [key, value]: [ExecutionResult | string, any]) => {
+    (acc: Partial<Record<ExecutionResult, UniqueProblem[]>>, [key, value]: [string, any]) => {
       if (value === null) {
         return acc;
       }
-      acc[key] = de_UniqueProblems(value, context);
+      acc[key as ExecutionResult] = de_UniqueProblems(value, context);
       return acc;
     },
-    {}
+    {} as Partial<Record<ExecutionResult, UniqueProblem[]>>
   );
 };
 

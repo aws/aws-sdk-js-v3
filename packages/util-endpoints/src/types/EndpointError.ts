@@ -1,6 +1,1 @@
-export class EndpointError extends Error {
-  constructor(message: string) {
-    super(message);
-    this.name = "EndpointError";
-  }
-}
+export { EndpointError } from "@smithy/util-endpoints";

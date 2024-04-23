@@ -1,9 +1,11 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectObject as __expectObject,
@@ -27,21 +29,45 @@ import {
   CreateExperimentTemplateCommandOutput,
 } from "../commands/CreateExperimentTemplateCommand";
 import {
+  CreateTargetAccountConfigurationCommandInput,
+  CreateTargetAccountConfigurationCommandOutput,
+} from "../commands/CreateTargetAccountConfigurationCommand";
+import {
   DeleteExperimentTemplateCommandInput,
   DeleteExperimentTemplateCommandOutput,
 } from "../commands/DeleteExperimentTemplateCommand";
+import {
+  DeleteTargetAccountConfigurationCommandInput,
+  DeleteTargetAccountConfigurationCommandOutput,
+} from "../commands/DeleteTargetAccountConfigurationCommand";
 import { GetActionCommandInput, GetActionCommandOutput } from "../commands/GetActionCommand";
 import { GetExperimentCommandInput, GetExperimentCommandOutput } from "../commands/GetExperimentCommand";
+import {
+  GetExperimentTargetAccountConfigurationCommandInput,
+  GetExperimentTargetAccountConfigurationCommandOutput,
+} from "../commands/GetExperimentTargetAccountConfigurationCommand";
 import {
   GetExperimentTemplateCommandInput,
   GetExperimentTemplateCommandOutput,
 } from "../commands/GetExperimentTemplateCommand";
 import {
+  GetTargetAccountConfigurationCommandInput,
+  GetTargetAccountConfigurationCommandOutput,
+} from "../commands/GetTargetAccountConfigurationCommand";
+import {
   GetTargetResourceTypeCommandInput,
   GetTargetResourceTypeCommandOutput,
 } from "../commands/GetTargetResourceTypeCommand";
 import { ListActionsCommandInput, ListActionsCommandOutput } from "../commands/ListActionsCommand";
+import {
+  ListExperimentResolvedTargetsCommandInput,
+  ListExperimentResolvedTargetsCommandOutput,
+} from "../commands/ListExperimentResolvedTargetsCommand";
 import { ListExperimentsCommandInput, ListExperimentsCommandOutput } from "../commands/ListExperimentsCommand";
+import {
+  ListExperimentTargetAccountConfigurationsCommandInput,
+  ListExperimentTargetAccountConfigurationsCommandOutput,
+} from "../commands/ListExperimentTargetAccountConfigurationsCommand";
 import {
   ListExperimentTemplatesCommandInput,
   ListExperimentTemplatesCommandOutput,
@@ -50,6 +76,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  ListTargetAccountConfigurationsCommandInput,
+  ListTargetAccountConfigurationsCommandOutput,
+} from "../commands/ListTargetAccountConfigurationsCommand";
 import {
   ListTargetResourceTypesCommandInput,
   ListTargetResourceTypesCommandOutput,
@@ -62,10 +92,15 @@ import {
   UpdateExperimentTemplateCommandInput,
   UpdateExperimentTemplateCommandOutput,
 } from "../commands/UpdateExperimentTemplateCommand";
+import {
+  UpdateTargetAccountConfigurationCommandInput,
+  UpdateTargetAccountConfigurationCommandOutput,
+} from "../commands/UpdateTargetAccountConfigurationCommand";
 import { FisServiceException as __BaseException } from "../models/FisServiceException";
 import {
   ConflictException,
   CreateExperimentTemplateActionInput,
+  CreateExperimentTemplateExperimentOptionsInput,
   CreateExperimentTemplateLogConfigurationInput,
   CreateExperimentTemplateStopConditionInput,
   CreateExperimentTemplateTargetInput,
@@ -80,6 +115,7 @@ import {
   ResourceNotFoundException,
   ServiceQuotaExceededException,
   UpdateExperimentTemplateActionInputItem,
+  UpdateExperimentTemplateExperimentOptionsInput,
   UpdateExperimentTemplateLogConfigurationInput,
   UpdateExperimentTemplateStopConditionInput,
   UpdateExperimentTemplateTargetInput,
@@ -93,17 +129,18 @@ export const se_CreateExperimentTemplateCommand = async (
   input: CreateExperimentTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/experimentTemplates";
+  b.bp("/experimentTemplates");
   let body: any;
   body = JSON.stringify(
     take(input, {
       actions: (_) => _json(_),
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
+      experimentOptions: (_) => _json(_),
       logConfiguration: (_) => _json(_),
       roleArn: [],
       stopConditions: (_) => _json(_),
@@ -111,15 +148,34 @@ export const se_CreateExperimentTemplateCommand = async (
       targets: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateTargetAccountConfigurationCommand
+ */
+export const se_CreateTargetAccountConfigurationCommand = async (
+  input: CreateTargetAccountConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/experimentTemplates/{experimentTemplateId}/targetAccountConfigurations/{accountId}");
+  b.p("experimentTemplateId", () => input.experimentTemplateId!, "{experimentTemplateId}", false);
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      description: [],
+      roleArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -129,21 +185,30 @@ export const se_DeleteExperimentTemplateCommand = async (
   input: DeleteExperimentTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/experimentTemplates/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/experimentTemplates/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteTargetAccountConfigurationCommand
+ */
+export const se_DeleteTargetAccountConfigurationCommand = async (
+  input: DeleteTargetAccountConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/experimentTemplates/{experimentTemplateId}/targetAccountConfigurations/{accountId}");
+  b.p("experimentTemplateId", () => input.experimentTemplateId!, "{experimentTemplateId}", false);
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -153,20 +218,13 @@ export const se_GetActionCommand = async (
   input: GetActionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/actions/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/actions/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -176,20 +234,30 @@ export const se_GetExperimentCommand = async (
   input: GetExperimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/experiments/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/experiments/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetExperimentTargetAccountConfigurationCommand
+ */
+export const se_GetExperimentTargetAccountConfigurationCommand = async (
+  input: GetExperimentTargetAccountConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/experiments/{experimentId}/targetAccountConfigurations/{accountId}");
+  b.p("experimentId", () => input.experimentId!, "{experimentId}", false);
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -199,21 +267,30 @@ export const se_GetExperimentTemplateCommand = async (
   input: GetExperimentTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/experimentTemplates/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/experimentTemplates/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetTargetAccountConfigurationCommand
+ */
+export const se_GetTargetAccountConfigurationCommand = async (
+  input: GetTargetAccountConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/experimentTemplates/{experimentTemplateId}/targetAccountConfigurations/{accountId}");
+  b.p("experimentTemplateId", () => input.experimentTemplateId!, "{experimentTemplateId}", false);
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -223,28 +300,13 @@ export const se_GetTargetResourceTypeCommand = async (
   input: GetTargetResourceTypeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/targetResourceTypes/{resourceType}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "resourceType",
-    () => input.resourceType!,
-    "{resourceType}",
-    false
-  );
+  b.bp("/targetResourceTypes/{resourceType}");
+  b.p("resourceType", () => input.resourceType!, "{resourceType}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -254,24 +316,37 @@ export const se_ListActionsCommand = async (
   input: ListActionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/actions";
+  b.bp("/actions");
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListExperimentResolvedTargetsCommand
+ */
+export const se_ListExperimentResolvedTargetsCommand = async (
+  input: ListExperimentResolvedTargetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/experiments/{experimentId}/resolvedTargets");
+  b.p("experimentId", () => input.experimentId!, "{experimentId}", false);
+  const query: any = map({
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_tN]: [, input[_tN]!],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -281,24 +356,35 @@ export const se_ListExperimentsCommand = async (
   input: ListExperimentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/experiments";
+  b.bp("/experiments");
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListExperimentTargetAccountConfigurationsCommand
+ */
+export const se_ListExperimentTargetAccountConfigurationsCommand = async (
+  input: ListExperimentTargetAccountConfigurationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/experiments/{experimentId}/targetAccountConfigurations");
+  b.p("experimentId", () => input.experimentId!, "{experimentId}", false);
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -308,24 +394,16 @@ export const se_ListExperimentTemplatesCommand = async (
   input: ListExperimentTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/experimentTemplates";
+  b.bp("/experimentTemplates");
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -335,20 +413,33 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListTargetAccountConfigurationsCommand
+ */
+export const se_ListTargetAccountConfigurationsCommand = async (
+  input: ListTargetAccountConfigurationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/experimentTemplates/{experimentTemplateId}/targetAccountConfigurations");
+  b.p("experimentTemplateId", () => input.experimentTemplateId!, "{experimentTemplateId}", false);
+  const query: any = map({
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -358,24 +449,16 @@ export const se_ListTargetResourceTypesCommand = async (
   input: ListTargetResourceTypesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/targetResourceTypes";
+  b.bp("/targetResourceTypes");
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -385,11 +468,11 @@ export const se_StartExperimentCommand = async (
   input: StartExperimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/experiments";
+  b.bp("/experiments");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -398,15 +481,8 @@ export const se_StartExperimentCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -416,20 +492,13 @@ export const se_StopExperimentCommand = async (
   input: StopExperimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/experiments/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/experiments/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -439,27 +508,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -469,24 +531,16 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    [_tK]: [() => input.tagKeys !== void 0, () => (input[_tK]! || []).map((_entry) => _entry as any)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -496,33 +550,51 @@ export const se_UpdateExperimentTemplateCommand = async (
   input: UpdateExperimentTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/experimentTemplates/{id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
+  b.bp("/experimentTemplates/{id}");
+  b.p("id", () => input.id!, "{id}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       actions: (_) => _json(_),
       description: [],
+      experimentOptions: (_) => _json(_),
       logConfiguration: (_) => _json(_),
       roleArn: [],
       stopConditions: (_) => _json(_),
       targets: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateTargetAccountConfigurationCommand
+ */
+export const se_UpdateTargetAccountConfigurationCommand = async (
+  input: UpdateTargetAccountConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/experimentTemplates/{experimentTemplateId}/targetAccountConfigurations/{accountId}");
+  b.p("experimentTemplateId", () => input.experimentTemplateId!, "{experimentTemplateId}", false);
+  b.p("accountId", () => input.accountId!, "{accountId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      roleArn: [],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -582,6 +654,62 @@ const de_CreateExperimentTemplateCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateTargetAccountConfigurationCommand
+ */
+export const de_CreateTargetAccountConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTargetAccountConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateTargetAccountConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    targetAccountConfiguration: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateTargetAccountConfigurationCommandError
+ */
+const de_CreateTargetAccountConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTargetAccountConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.fis#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.fis#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.fis#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.fis#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1DeleteExperimentTemplateCommand
  */
 export const de_DeleteExperimentTemplateCommand = async (
@@ -609,6 +737,56 @@ const de_DeleteExperimentTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteExperimentTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.fis#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.fis#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteTargetAccountConfigurationCommand
+ */
+export const de_DeleteTargetAccountConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTargetAccountConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteTargetAccountConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    targetAccountConfiguration: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteTargetAccountConfigurationCommandError
+ */
+const de_DeleteTargetAccountConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTargetAccountConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -732,6 +910,56 @@ const de_GetExperimentCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1GetExperimentTargetAccountConfigurationCommand
+ */
+export const de_GetExperimentTargetAccountConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetExperimentTargetAccountConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetExperimentTargetAccountConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    targetAccountConfiguration: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetExperimentTargetAccountConfigurationCommandError
+ */
+const de_GetExperimentTargetAccountConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetExperimentTargetAccountConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.fis#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.fis#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1GetExperimentTemplateCommand
  */
 export const de_GetExperimentTemplateCommand = async (
@@ -759,6 +987,56 @@ const de_GetExperimentTemplateCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetExperimentTemplateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.fis#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.fis#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetTargetAccountConfigurationCommand
+ */
+export const de_GetTargetAccountConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTargetAccountConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetTargetAccountConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    targetAccountConfiguration: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetTargetAccountConfigurationCommandError
+ */
+const de_GetTargetAccountConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTargetAccountConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -880,6 +1158,57 @@ const de_ListActionsCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1ListExperimentResolvedTargetsCommand
+ */
+export const de_ListExperimentResolvedTargetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListExperimentResolvedTargetsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListExperimentResolvedTargetsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    resolvedTargets: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListExperimentResolvedTargetsCommandError
+ */
+const de_ListExperimentResolvedTargetsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListExperimentResolvedTargetsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.fis#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.fis#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1ListExperimentsCommand
  */
 export const de_ListExperimentsCommand = async (
@@ -914,6 +1243,57 @@ const de_ListExperimentsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ValidationException":
+    case "com.amazonaws.fis#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListExperimentTargetAccountConfigurationsCommand
+ */
+export const de_ListExperimentTargetAccountConfigurationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListExperimentTargetAccountConfigurationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListExperimentTargetAccountConfigurationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    targetAccountConfigurations: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListExperimentTargetAccountConfigurationsCommandError
+ */
+const de_ListExperimentTargetAccountConfigurationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListExperimentTargetAccountConfigurationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.fis#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.fis#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -1014,6 +1394,57 @@ const de_ListTagsForResourceCommandError = async (
     parsedBody,
     errorCode,
   });
+};
+
+/**
+ * deserializeAws_restJson1ListTargetAccountConfigurationsCommand
+ */
+export const de_ListTargetAccountConfigurationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTargetAccountConfigurationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListTargetAccountConfigurationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    nextToken: __expectString,
+    targetAccountConfigurations: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListTargetAccountConfigurationsCommandError
+ */
+const de_ListTargetAccountConfigurationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTargetAccountConfigurationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.fis#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.fis#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
 };
 
 /**
@@ -1297,6 +1728,56 @@ const de_UpdateExperimentTemplateCommandError = async (
   }
 };
 
+/**
+ * deserializeAws_restJson1UpdateTargetAccountConfigurationCommand
+ */
+export const de_UpdateTargetAccountConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTargetAccountConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateTargetAccountConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    targetAccountConfiguration: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateTargetAccountConfigurationCommandError
+ */
+const de_UpdateTargetAccountConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTargetAccountConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.fis#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.fis#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
 const throwDefaultError = withBaseException(__BaseException);
 /**
  * deserializeAws_restJson1ConflictExceptionRes
@@ -1376,6 +1857,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_CreateExperimentTemplateActionInputMap omitted.
 
+// se_CreateExperimentTemplateExperimentOptionsInput omitted.
+
 // se_CreateExperimentTemplateLogConfigurationInput omitted.
 
 // se_CreateExperimentTemplateStopConditionInput omitted.
@@ -1412,6 +1895,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_UpdateExperimentTemplateActionInputMap omitted.
 
+// se_UpdateExperimentTemplateExperimentOptionsInput omitted.
+
 // se_UpdateExperimentTemplateLogConfigurationInput omitted.
 
 // se_UpdateExperimentTemplateStopConditionInput omitted.
@@ -1444,6 +1929,7 @@ const de_Experiment = (output: any, context: __SerdeContext): Experiment => {
     actions: (_: any) => de_ExperimentActionMap(_, context),
     creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    experimentOptions: _json,
     experimentTemplateId: __expectString,
     id: __expectString,
     logConfiguration: _json,
@@ -1452,6 +1938,7 @@ const de_Experiment = (output: any, context: __SerdeContext): Experiment => {
     state: _json,
     stopConditions: _json,
     tags: _json,
+    targetAccountConfigurationsCount: __expectLong,
     targets: _json,
   }) as any;
 };
@@ -1480,9 +1967,9 @@ const de_ExperimentActionMap = (output: any, context: __SerdeContext): Record<st
     if (value === null) {
       return acc;
     }
-    acc[key] = de_ExperimentAction(value, context);
+    acc[key as string] = de_ExperimentAction(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, ExperimentAction>);
 };
 
 // de_ExperimentActionParameterMap omitted.
@@ -1496,6 +1983,8 @@ const de_ExperimentActionMap = (output: any, context: __SerdeContext): Record<st
 // de_ExperimentCloudWatchLogsLogConfiguration omitted.
 
 // de_ExperimentLogConfiguration omitted.
+
+// de_ExperimentOptions omitted.
 
 // de_ExperimentS3LogConfiguration omitted.
 
@@ -1532,6 +2021,12 @@ const de_ExperimentSummaryList = (output: any, context: __SerdeContext): Experim
 
 // de_ExperimentTarget omitted.
 
+// de_ExperimentTargetAccountConfiguration omitted.
+
+// de_ExperimentTargetAccountConfigurationList omitted.
+
+// de_ExperimentTargetAccountConfigurationSummary omitted.
+
 // de_ExperimentTargetFilter omitted.
 
 // de_ExperimentTargetFilterList omitted.
@@ -1550,12 +2045,14 @@ const de_ExperimentTemplate = (output: any, context: __SerdeContext): Experiment
     actions: _json,
     creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
+    experimentOptions: _json,
     id: __expectString,
     lastUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     logConfiguration: _json,
     roleArn: __expectString,
     stopConditions: _json,
     tags: _json,
+    targetAccountConfigurationsCount: __expectLong,
     targets: _json,
   }) as any;
 };
@@ -1571,6 +2068,8 @@ const de_ExperimentTemplate = (output: any, context: __SerdeContext): Experiment
 // de_ExperimentTemplateActionTargetMap omitted.
 
 // de_ExperimentTemplateCloudWatchLogsLogConfiguration omitted.
+
+// de_ExperimentTemplateExperimentOptions omitted.
 
 // de_ExperimentTemplateLogConfiguration omitted.
 
@@ -1617,9 +2116,21 @@ const de_ExperimentTemplateSummaryList = (output: any, context: __SerdeContext):
 
 // de_ExperimentTemplateTargetParameterMap omitted.
 
+// de_ResolvedTarget omitted.
+
+// de_ResolvedTargetList omitted.
+
 // de_ResourceArnList omitted.
 
 // de_TagMap omitted.
+
+// de_TargetAccountConfiguration omitted.
+
+// de_TargetAccountConfigurationList omitted.
+
+// de_TargetAccountConfigurationSummary omitted.
+
+// de_TargetInformationMap omitted.
 
 // de_TargetResourceType omitted.
 
@@ -1649,6 +2160,11 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _tK = "tagKeys";
+const _tN = "targetName";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

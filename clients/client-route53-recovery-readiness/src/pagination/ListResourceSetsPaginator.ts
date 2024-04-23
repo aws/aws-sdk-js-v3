@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import {
@@ -10,41 +11,14 @@ import { Route53RecoveryReadinessClient } from "../Route53RecoveryReadinessClien
 import { Route53RecoveryReadinessPaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: Route53RecoveryReadinessClient,
-  input: ListResourceSetsCommandInput,
-  ...args: any
-): Promise<ListResourceSetsCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new ListResourceSetsCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateListResourceSets(
+export const paginateListResourceSets: (
   config: Route53RecoveryReadinessPaginationConfiguration,
   input: ListResourceSetsCommandInput,
-  ...additionalArguments: any
-): Paginator<ListResourceSetsCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.NextToken
-  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: ListResourceSetsCommandOutput;
-  while (hasNext) {
-    input.NextToken = token;
-    input["MaxResults"] = config.pageSize;
-    if (config.client instanceof Route53RecoveryReadinessClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected Route53RecoveryReadiness | Route53RecoveryReadinessClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.NextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<ListResourceSetsCommandOutput> = createPaginator<
+  Route53RecoveryReadinessPaginationConfiguration,
+  ListResourceSetsCommandInput,
+  ListResourceSetsCommandOutput
+>(Route53RecoveryReadinessClient, ListResourceSetsCommand, "NextToken", "NextToken", "MaxResults");

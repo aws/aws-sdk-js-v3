@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateCampaignRequest, CreateCampaignResponse } from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { de_CreateCampaignCommand, se_CreateCampaignCommand } from "../protocols/Aws_json1_1";
@@ -45,27 +37,26 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  *             <b>Minimum Provisioned TPS and Auto-Scaling</b>
  *          </p>
  *          <important>
- *             <p> A high <code>minProvisionedTPS</code> will increase your bill. We recommend starting with 1 for <code>minProvisionedTPS</code> (the default). Track
+ *             <p> A high <code>minProvisionedTPS</code> will increase your cost. We recommend starting with 1 for <code>minProvisionedTPS</code> (the default). Track
  *         your usage using Amazon CloudWatch metrics, and increase the <code>minProvisionedTPS</code>
  *         as necessary.</p>
  *          </important>
- *          <p>A transaction is a single <code>GetRecommendations</code> or
- *        <code>GetPersonalizedRanking</code> call. Transactions per second (TPS) is the throughput
- *        and unit of billing for Amazon Personalize. The minimum provisioned TPS
- *        (<code>minProvisionedTPS</code>) specifies the baseline throughput provisioned by
- *        Amazon Personalize, and thus, the minimum billing charge.
- *     </p>
  *          <p>
- *        If your TPS increases beyond
- *        <code>minProvisionedTPS</code>, Amazon Personalize auto-scales the provisioned capacity up and down,
- *        but never below <code>minProvisionedTPS</code>.
- *        There's a short time delay while the capacity is increased that might cause loss of
- *        transactions.</p>
- *          <p>The actual TPS used is calculated as the average requests/second within a 5-minute window.
- *       You pay for maximum of either the minimum provisioned TPS or the actual TPS.
+ *       When you create an Amazon Personalize campaign, you can specify the minimum provisioned transactions per second
+ *       (<code>minProvisionedTPS</code>) for the campaign. This is the baseline transaction throughput for the campaign provisioned by
+ *       Amazon Personalize. It sets the minimum billing charge for the campaign while it is active. A transaction is a single <code>GetRecommendations</code> or
+ *       <code>GetPersonalizedRanking</code> request. The default <code>minProvisionedTPS</code> is 1.</p>
+ *          <p> If your TPS increases beyond the <code>minProvisionedTPS</code>, Amazon Personalize auto-scales the provisioned capacity up
+ *       and down, but never below <code>minProvisionedTPS</code>.
+ *       There's a short time delay while the capacity is increased
+ *       that might cause loss of transactions. When your traffic reduces, capacity returns to the <code>minProvisionedTPS</code>.
+ *     </p>
+ *          <p>You are charged for the
+ *       the minimum provisioned TPS or, if your requests exceed the <code>minProvisionedTPS</code>, the actual TPS.
+ *       The actual TPS is the total number of recommendation requests you make.
  *       We recommend starting with a low <code>minProvisionedTPS</code>, track
- *        your usage using Amazon CloudWatch metrics, and then increase the <code>minProvisionedTPS</code>
- *        as necessary.</p>
+ *       your usage using Amazon CloudWatch metrics, and then increase the <code>minProvisionedTPS</code> as necessary.</p>
+ *          <p>For more information about campaign costs, see <a href="https://aws.amazon.com/personalize/pricing/">Amazon Personalize pricing</a>.</p>
  *          <p>
  *             <b>Status</b>
  *          </p>
@@ -122,6 +113,7 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  *     itemExplorationConfig: { // HyperParameters
  *       "<keys>": "STRING_VALUE",
  *     },
+ *     enableMetadataWithRecommendations: true || false,
  *   },
  *   tags: [ // Tags
  *     { // Tag
@@ -166,79 +158,26 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
  */
-export class CreateCampaignCommand extends $Command<
-  CreateCampaignCommandInput,
-  CreateCampaignCommandOutput,
-  PersonalizeClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateCampaignCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: PersonalizeClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateCampaignCommandInput, CreateCampaignCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateCampaignCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "PersonalizeClient";
-    const commandName = "CreateCampaignCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateCampaignCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateCampaignCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateCampaignCommandOutput> {
-    return de_CreateCampaignCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateCampaignCommand extends $Command
+  .classBuilder<
+    CreateCampaignCommandInput,
+    CreateCampaignCommandOutput,
+    PersonalizeClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonPersonalize", "CreateCampaign", {})
+  .n("PersonalizeClient", "CreateCampaignCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateCampaignCommand)
+  .de(de_CreateCampaignCommand)
+  .build() {}

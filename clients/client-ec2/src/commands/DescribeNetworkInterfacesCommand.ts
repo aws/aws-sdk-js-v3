@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeNetworkInterfacesRequest, DescribeNetworkInterfacesResult } from "../models/models_4";
 import { de_DescribeNetworkInterfacesCommand, se_DescribeNetworkInterfacesCommand } from "../protocols/Aws_ec2";
 
@@ -37,6 +29,10 @@ export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkI
 /**
  * @public
  * <p>Describes one or more of your network interfaces.</p>
+ *          <p>If you have a large number of network interfaces, the operation fails unless
+ *            you use pagination or one of the following filters: <code>group-id</code>,
+ *            <code>mac-address</code>, <code>private-dns-name</code>, <code>private-ip-address</code>,
+ *            <code>private-dns-name</code>, <code>subnet-id</code>, or <code>vpc-id</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,6 +86,11 @@ export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkI
  * //         },
  * //       },
  * //       AvailabilityZone: "STRING_VALUE",
+ * //       ConnectionTrackingConfiguration: { // ConnectionTrackingConfiguration
+ * //         TcpEstablishedTimeout: Number("int"),
+ * //         UdpStreamTimeout: Number("int"),
+ * //         UdpTimeout: Number("int"),
+ * //       },
  * //       Description: "STRING_VALUE",
  * //       Groups: [ // GroupIdentifierList
  * //         { // GroupIdentifier
@@ -236,82 +237,26 @@ export interface DescribeNetworkInterfacesCommandOutput extends DescribeNetworkI
  * ```
  *
  */
-export class DescribeNetworkInterfacesCommand extends $Command<
-  DescribeNetworkInterfacesCommandInput,
-  DescribeNetworkInterfacesCommandOutput,
-  EC2ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeNetworkInterfacesCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: EC2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeNetworkInterfacesCommandInput, DescribeNetworkInterfacesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeNetworkInterfacesCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "EC2Client";
-    const commandName = "DescribeNetworkInterfacesCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeNetworkInterfacesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeNetworkInterfacesCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeNetworkInterfacesCommandOutput> {
-    return de_DescribeNetworkInterfacesCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeNetworkInterfacesCommand extends $Command
+  .classBuilder<
+    DescribeNetworkInterfacesCommandInput,
+    DescribeNetworkInterfacesCommandOutput,
+    EC2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonEC2", "DescribeNetworkInterfaces", {})
+  .n("EC2Client", "DescribeNetworkInterfacesCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeNetworkInterfacesCommand)
+  .de(de_DescribeNetworkInterfacesCommand)
+  .build() {}

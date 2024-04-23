@@ -509,10 +509,10 @@ import {
   UpdateBuildInput,
   UpdateBuildOutput,
   UpdateFleetAttributesInput,
-  UpdateFleetCapacityInput,
   VpcPeeringAuthorization,
 } from "../models/models_0";
 import {
+  UpdateFleetCapacityInput,
   UpdateFleetPortSettingsInput,
   UpdateGameServerGroupInput,
   UpdateGameServerGroupOutput,
@@ -6162,6 +6162,9 @@ const de_RegisterComputeCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.gamelift#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.gamelift#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.gamelift#UnauthorizedException":
       throw await de_UnauthorizedExceptionRes(parsedOutput, context);
@@ -8316,6 +8319,8 @@ const se_PlayerAttributeStringDoubleMap = (input: Record<string, number>, contex
 
 // se_PlayerIdList omitted.
 
+// se_PlayerIdsForAcceptMatch omitted.
+
 /**
  * serializeAws_json1_1PlayerLatency
  */
@@ -9039,6 +9044,7 @@ const de_FleetAttributes = (output: any, context: __SerdeContext): FleetAttribut
     FleetId: __expectString,
     FleetType: __expectString,
     InstanceRoleArn: __expectString,
+    InstanceRoleCredentialsProvider: __expectString,
     InstanceType: __expectString,
     LogPaths: _json,
     MetricGroups: _json,
@@ -9534,9 +9540,9 @@ const de_PlayerAttributeMap = (output: any, context: __SerdeContext): Record<str
     if (value === null) {
       return acc;
     }
-    acc[key] = de_AttributeValue(value, context);
+    acc[key as string] = de_AttributeValue(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, AttributeValue>);
 };
 
 /**
@@ -9547,9 +9553,9 @@ const de_PlayerAttributeStringDoubleMap = (output: any, context: __SerdeContext)
     if (value === null) {
       return acc;
     }
-    acc[key] = __limitedParseDouble(value) as any;
+    acc[key as string] = __limitedParseDouble(value) as any;
     return acc;
-  }, {});
+  }, {} as Record<string, number>);
 };
 
 // de_PlayerAttributeStringList omitted.

@@ -33,6 +33,11 @@ import {
   BatchGetAutomationRulesCommandOutput,
 } from "./commands/BatchGetAutomationRulesCommand";
 import {
+  BatchGetConfigurationPolicyAssociationsCommand,
+  BatchGetConfigurationPolicyAssociationsCommandInput,
+  BatchGetConfigurationPolicyAssociationsCommandOutput,
+} from "./commands/BatchGetConfigurationPolicyAssociationsCommand";
+import {
   BatchGetSecurityControlsCommand,
   BatchGetSecurityControlsCommandInput,
   BatchGetSecurityControlsCommandOutput,
@@ -73,6 +78,11 @@ import {
   CreateAutomationRuleCommandOutput,
 } from "./commands/CreateAutomationRuleCommand";
 import {
+  CreateConfigurationPolicyCommand,
+  CreateConfigurationPolicyCommandInput,
+  CreateConfigurationPolicyCommandOutput,
+} from "./commands/CreateConfigurationPolicyCommand";
+import {
   CreateFindingAggregatorCommand,
   CreateFindingAggregatorCommandInput,
   CreateFindingAggregatorCommandOutput,
@@ -97,6 +107,11 @@ import {
   DeleteActionTargetCommandInput,
   DeleteActionTargetCommandOutput,
 } from "./commands/DeleteActionTargetCommand";
+import {
+  DeleteConfigurationPolicyCommand,
+  DeleteConfigurationPolicyCommandInput,
+  DeleteConfigurationPolicyCommandOutput,
+} from "./commands/DeleteConfigurationPolicyCommand";
 import {
   DeleteFindingAggregatorCommand,
   DeleteFindingAggregatorCommandInput,
@@ -194,6 +209,16 @@ import {
   GetAdministratorAccountCommandOutput,
 } from "./commands/GetAdministratorAccountCommand";
 import {
+  GetConfigurationPolicyAssociationCommand,
+  GetConfigurationPolicyAssociationCommandInput,
+  GetConfigurationPolicyAssociationCommandOutput,
+} from "./commands/GetConfigurationPolicyAssociationCommand";
+import {
+  GetConfigurationPolicyCommand,
+  GetConfigurationPolicyCommandInput,
+  GetConfigurationPolicyCommandOutput,
+} from "./commands/GetConfigurationPolicyCommand";
+import {
   GetEnabledStandardsCommand,
   GetEnabledStandardsCommandInput,
   GetEnabledStandardsCommandOutput,
@@ -227,6 +252,11 @@ import {
 } from "./commands/GetMasterAccountCommand";
 import { GetMembersCommand, GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
 import {
+  GetSecurityControlDefinitionCommand,
+  GetSecurityControlDefinitionCommandInput,
+  GetSecurityControlDefinitionCommandOutput,
+} from "./commands/GetSecurityControlDefinitionCommand";
+import {
   InviteMembersCommand,
   InviteMembersCommandInput,
   InviteMembersCommandOutput,
@@ -236,6 +266,16 @@ import {
   ListAutomationRulesCommandInput,
   ListAutomationRulesCommandOutput,
 } from "./commands/ListAutomationRulesCommand";
+import {
+  ListConfigurationPoliciesCommand,
+  ListConfigurationPoliciesCommandInput,
+  ListConfigurationPoliciesCommandOutput,
+} from "./commands/ListConfigurationPoliciesCommand";
+import {
+  ListConfigurationPolicyAssociationsCommand,
+  ListConfigurationPolicyAssociationsCommandInput,
+  ListConfigurationPolicyAssociationsCommandOutput,
+} from "./commands/ListConfigurationPolicyAssociationsCommand";
 import {
   ListEnabledProductsForImportCommand,
   ListEnabledProductsForImportCommandInput,
@@ -272,6 +312,16 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  StartConfigurationPolicyAssociationCommand,
+  StartConfigurationPolicyAssociationCommandInput,
+  StartConfigurationPolicyAssociationCommandOutput,
+} from "./commands/StartConfigurationPolicyAssociationCommand";
+import {
+  StartConfigurationPolicyDisassociationCommand,
+  StartConfigurationPolicyDisassociationCommandInput,
+  StartConfigurationPolicyDisassociationCommandOutput,
+} from "./commands/StartConfigurationPolicyDisassociationCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -283,6 +333,11 @@ import {
   UpdateActionTargetCommandInput,
   UpdateActionTargetCommandOutput,
 } from "./commands/UpdateActionTargetCommand";
+import {
+  UpdateConfigurationPolicyCommand,
+  UpdateConfigurationPolicyCommandInput,
+  UpdateConfigurationPolicyCommandOutput,
+} from "./commands/UpdateConfigurationPolicyCommand";
 import {
   UpdateFindingAggregatorCommand,
   UpdateFindingAggregatorCommandInput,
@@ -304,6 +359,11 @@ import {
   UpdateOrganizationConfigurationCommandOutput,
 } from "./commands/UpdateOrganizationConfigurationCommand";
 import {
+  UpdateSecurityControlCommand,
+  UpdateSecurityControlCommandInput,
+  UpdateSecurityControlCommandOutput,
+} from "./commands/UpdateSecurityControlCommand";
+import {
   UpdateSecurityHubConfigurationCommand,
   UpdateSecurityHubConfigurationCommandInput,
   UpdateSecurityHubConfigurationCommandOutput,
@@ -322,6 +382,7 @@ const commands = {
   BatchDisableStandardsCommand,
   BatchEnableStandardsCommand,
   BatchGetAutomationRulesCommand,
+  BatchGetConfigurationPolicyAssociationsCommand,
   BatchGetSecurityControlsCommand,
   BatchGetStandardsControlAssociationsCommand,
   BatchImportFindingsCommand,
@@ -330,11 +391,13 @@ const commands = {
   BatchUpdateStandardsControlAssociationsCommand,
   CreateActionTargetCommand,
   CreateAutomationRuleCommand,
+  CreateConfigurationPolicyCommand,
   CreateFindingAggregatorCommand,
   CreateInsightCommand,
   CreateMembersCommand,
   DeclineInvitationsCommand,
   DeleteActionTargetCommand,
+  DeleteConfigurationPolicyCommand,
   DeleteFindingAggregatorCommand,
   DeleteInsightCommand,
   DeleteInvitationsCommand,
@@ -355,6 +418,8 @@ const commands = {
   EnableOrganizationAdminAccountCommand,
   EnableSecurityHubCommand,
   GetAdministratorAccountCommand,
+  GetConfigurationPolicyCommand,
+  GetConfigurationPolicyAssociationCommand,
   GetEnabledStandardsCommand,
   GetFindingAggregatorCommand,
   GetFindingHistoryCommand,
@@ -364,8 +429,11 @@ const commands = {
   GetInvitationsCountCommand,
   GetMasterAccountCommand,
   GetMembersCommand,
+  GetSecurityControlDefinitionCommand,
   InviteMembersCommand,
   ListAutomationRulesCommand,
+  ListConfigurationPoliciesCommand,
+  ListConfigurationPolicyAssociationsCommand,
   ListEnabledProductsForImportCommand,
   ListFindingAggregatorsCommand,
   ListInvitationsCommand,
@@ -374,13 +442,17 @@ const commands = {
   ListSecurityControlDefinitionsCommand,
   ListStandardsControlAssociationsCommand,
   ListTagsForResourceCommand,
+  StartConfigurationPolicyAssociationCommand,
+  StartConfigurationPolicyDisassociationCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateActionTargetCommand,
+  UpdateConfigurationPolicyCommand,
   UpdateFindingAggregatorCommand,
   UpdateFindingsCommand,
   UpdateInsightCommand,
   UpdateOrganizationConfigurationCommand,
+  UpdateSecurityControlCommand,
   UpdateSecurityHubConfigurationCommand,
   UpdateStandardsControlCommand,
 };
@@ -486,6 +558,23 @@ export interface SecurityHub {
     args: BatchGetAutomationRulesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetAutomationRulesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetConfigurationPolicyAssociationsCommand}
+   */
+  batchGetConfigurationPolicyAssociations(
+    args: BatchGetConfigurationPolicyAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetConfigurationPolicyAssociationsCommandOutput>;
+  batchGetConfigurationPolicyAssociations(
+    args: BatchGetConfigurationPolicyAssociationsCommandInput,
+    cb: (err: any, data?: BatchGetConfigurationPolicyAssociationsCommandOutput) => void
+  ): void;
+  batchGetConfigurationPolicyAssociations(
+    args: BatchGetConfigurationPolicyAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetConfigurationPolicyAssociationsCommandOutput) => void
   ): void;
 
   /**
@@ -625,6 +714,23 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link CreateConfigurationPolicyCommand}
+   */
+  createConfigurationPolicy(
+    args: CreateConfigurationPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateConfigurationPolicyCommandOutput>;
+  createConfigurationPolicy(
+    args: CreateConfigurationPolicyCommandInput,
+    cb: (err: any, data?: CreateConfigurationPolicyCommandOutput) => void
+  ): void;
+  createConfigurationPolicy(
+    args: CreateConfigurationPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateConfigurationPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateFindingAggregatorCommand}
    */
   createFindingAggregator(
@@ -695,6 +801,23 @@ export interface SecurityHub {
     args: DeleteActionTargetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteActionTargetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteConfigurationPolicyCommand}
+   */
+  deleteConfigurationPolicy(
+    args: DeleteConfigurationPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteConfigurationPolicyCommandOutput>;
+  deleteConfigurationPolicy(
+    args: DeleteConfigurationPolicyCommandInput,
+    cb: (err: any, data?: DeleteConfigurationPolicyCommandOutput) => void
+  ): void;
+  deleteConfigurationPolicy(
+    args: DeleteConfigurationPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteConfigurationPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -1020,6 +1143,40 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link GetConfigurationPolicyCommand}
+   */
+  getConfigurationPolicy(
+    args: GetConfigurationPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConfigurationPolicyCommandOutput>;
+  getConfigurationPolicy(
+    args: GetConfigurationPolicyCommandInput,
+    cb: (err: any, data?: GetConfigurationPolicyCommandOutput) => void
+  ): void;
+  getConfigurationPolicy(
+    args: GetConfigurationPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConfigurationPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetConfigurationPolicyAssociationCommand}
+   */
+  getConfigurationPolicyAssociation(
+    args: GetConfigurationPolicyAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConfigurationPolicyAssociationCommandOutput>;
+  getConfigurationPolicyAssociation(
+    args: GetConfigurationPolicyAssociationCommandInput,
+    cb: (err: any, data?: GetConfigurationPolicyAssociationCommandOutput) => void
+  ): void;
+  getConfigurationPolicyAssociation(
+    args: GetConfigurationPolicyAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConfigurationPolicyAssociationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetEnabledStandardsCommand}
    */
   getEnabledStandards(
@@ -1155,6 +1312,23 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link GetSecurityControlDefinitionCommand}
+   */
+  getSecurityControlDefinition(
+    args: GetSecurityControlDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSecurityControlDefinitionCommandOutput>;
+  getSecurityControlDefinition(
+    args: GetSecurityControlDefinitionCommandInput,
+    cb: (err: any, data?: GetSecurityControlDefinitionCommandOutput) => void
+  ): void;
+  getSecurityControlDefinition(
+    args: GetSecurityControlDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSecurityControlDefinitionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link InviteMembersCommand}
    */
   inviteMembers(args: InviteMembersCommandInput, options?: __HttpHandlerOptions): Promise<InviteMembersCommandOutput>;
@@ -1180,6 +1354,40 @@ export interface SecurityHub {
     args: ListAutomationRulesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAutomationRulesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListConfigurationPoliciesCommand}
+   */
+  listConfigurationPolicies(
+    args: ListConfigurationPoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConfigurationPoliciesCommandOutput>;
+  listConfigurationPolicies(
+    args: ListConfigurationPoliciesCommandInput,
+    cb: (err: any, data?: ListConfigurationPoliciesCommandOutput) => void
+  ): void;
+  listConfigurationPolicies(
+    args: ListConfigurationPoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConfigurationPoliciesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListConfigurationPolicyAssociationsCommand}
+   */
+  listConfigurationPolicyAssociations(
+    args: ListConfigurationPolicyAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConfigurationPolicyAssociationsCommandOutput>;
+  listConfigurationPolicyAssociations(
+    args: ListConfigurationPolicyAssociationsCommandInput,
+    cb: (err: any, data?: ListConfigurationPolicyAssociationsCommandOutput) => void
+  ): void;
+  listConfigurationPolicyAssociations(
+    args: ListConfigurationPolicyAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConfigurationPolicyAssociationsCommandOutput) => void
   ): void;
 
   /**
@@ -1310,6 +1518,40 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link StartConfigurationPolicyAssociationCommand}
+   */
+  startConfigurationPolicyAssociation(
+    args: StartConfigurationPolicyAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartConfigurationPolicyAssociationCommandOutput>;
+  startConfigurationPolicyAssociation(
+    args: StartConfigurationPolicyAssociationCommandInput,
+    cb: (err: any, data?: StartConfigurationPolicyAssociationCommandOutput) => void
+  ): void;
+  startConfigurationPolicyAssociation(
+    args: StartConfigurationPolicyAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartConfigurationPolicyAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartConfigurationPolicyDisassociationCommand}
+   */
+  startConfigurationPolicyDisassociation(
+    args: StartConfigurationPolicyDisassociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartConfigurationPolicyDisassociationCommandOutput>;
+  startConfigurationPolicyDisassociation(
+    args: StartConfigurationPolicyDisassociationCommandInput,
+    cb: (err: any, data?: StartConfigurationPolicyDisassociationCommandOutput) => void
+  ): void;
+  startConfigurationPolicyDisassociation(
+    args: StartConfigurationPolicyDisassociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartConfigurationPolicyDisassociationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link TagResourceCommand}
    */
   tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1346,6 +1588,23 @@ export interface SecurityHub {
     args: UpdateActionTargetCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateActionTargetCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateConfigurationPolicyCommand}
+   */
+  updateConfigurationPolicy(
+    args: UpdateConfigurationPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateConfigurationPolicyCommandOutput>;
+  updateConfigurationPolicy(
+    args: UpdateConfigurationPolicyCommandInput,
+    cb: (err: any, data?: UpdateConfigurationPolicyCommandOutput) => void
+  ): void;
+  updateConfigurationPolicy(
+    args: UpdateConfigurationPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateConfigurationPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -1408,6 +1667,23 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link UpdateSecurityControlCommand}
+   */
+  updateSecurityControl(
+    args: UpdateSecurityControlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSecurityControlCommandOutput>;
+  updateSecurityControl(
+    args: UpdateSecurityControlCommandInput,
+    cb: (err: any, data?: UpdateSecurityControlCommandOutput) => void
+  ): void;
+  updateSecurityControl(
+    args: UpdateSecurityControlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSecurityControlCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateSecurityHubConfigurationCommand}
    */
   updateSecurityHubConfiguration(
@@ -1444,23 +1720,47 @@ export interface SecurityHub {
 
 /**
  * @public
- * <p>Security Hub provides you with a comprehensive view of the security state of
- *          your Amazon Web Services environment and resources. It also provides you with the readiness
- *          status of your environment based on controls from supported security standards. Security Hub collects security data from Amazon Web Services accounts, services, and
- *          integrated third-party products and helps you analyze security trends in your environment
- *          to identify the highest priority security issues. For more information about Security Hub, see the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html">
- *                <i>Security Hub User
- * Guide</i>
- *             </a>.</p>
- *          <p>When you use operations in the Security Hub API, the requests are executed only in
+ * <p>Security Hub provides you with a comprehensive view of your security state in Amazon Web Services and helps
+ *            you assess your Amazon Web Services environment against security industry standards and best practices.</p>
+ *          <p>Security Hub collects security data across Amazon Web Services accounts, Amazon Web Services, and
+ *             supported third-party products and helps you analyze your security trends and identify the highest priority security
+ *             issues.</p>
+ *          <p>To help you manage the security state of your organization, Security Hub supports multiple security standards.
+ *            These include the Amazon Web Services Foundational Security Best Practices (FSBP) standard developed by Amazon Web Services,
+ *             and external compliance frameworks such as the Center for Internet Security (CIS), the Payment Card Industry Data
+ *             Security Standard (PCI DSS), and the National Institute of Standards and Technology (NIST). Each standard includes
+ *             several security controls, each of which represents a security best practice. Security Hub runs checks against
+ *             security controls and generates control findings to help you assess your compliance against security best practices.</p>
+ *          <p>In addition to generating control findings, Security Hub also receives findings from other Amazon Web Services,
+ *             such as Amazon GuardDuty and Amazon Inspector, and
+ *             supported third-party products. This gives you a single pane of glass into a variety of security-related issues. You
+ *             can also send Security Hub findings to other Amazon Web Services and supported third-party products.</p>
+ *          <p>Security Hub offers automation features that help you triage and remediate security issues. For example,
+ *            you can use automation rules to automatically update critical findings when a security check fails. You can also leverage the integration with
+ *            Amazon EventBridge  to trigger automatic responses to specific findings.</p>
+ *          <p>This guide, the <i>Security Hub API Reference</i>, provides
+ *            information about the Security Hub API. This includes supported resources, HTTP methods, parameters,
+ *            and schemas. If you're new to Security Hub, you might find it helpful to also review the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html">
+ *                <i>Security Hub User Guide</i>
+ *             </a>. The
+ *            user guide explains key concepts and provides procedures
+ *            that demonstrate how to use Security Hub features. It also provides information about topics such as
+ *            integrating Security Hub with other Amazon Web Services.</p>
+ *          <p>In addition to interacting with Security Hub  by making calls to the Security Hub API, you can
+ *            use a current version of an Amazon Web Services command line tool or SDK. Amazon Web Services provides tools
+ *             and SDKs that consist of libraries and sample code for various languages and platforms, such as PowerShell,
+ *            Java, Go, Python, C++, and .NET. These tools and SDKs provide convenient, programmatic access to
+ *            Security Hub  and other Amazon Web Services . They also handle tasks such as signing requests,
+ *            managing errors, and retrying requests automatically. For information about installing and using the Amazon Web Services  tools
+ *            and SDKs, see <a href="http://aws.amazon.com/developer/tools/">Tools to Build on Amazon Web Services</a>.</p>
+ *          <p>With the exception of operations that are related to central configuration, Security Hub API requests are executed only in
  *          the Amazon Web Services Region that is currently active or in the specific Amazon Web Services Region that you specify in your request. Any configuration or settings change
  *          that results from the operation is applied only to that Region. To make the same change in
- *          other Regions, run the same command for each Region in which you want to apply the change.</p>
- *          <p>For example, if your Region is set to <code>us-west-2</code>, when you use <code>CreateMembers</code> to add a member account to Security Hub, the association of
- *          the member account with the administrator account is created only in the <code>us-west-2</code>
- *          Region. Security Hub must be enabled for the member account in the same Region that the invitation
- *          was sent from.</p>
- *          <p>The following throttling limits apply to using Security Hub API operations.</p>
+ *          other Regions, call the same API operation in each Region in which you want to apply the change. When you use central configuration,
+ * API requests for enabling Security Hub, standards, and controls are executed in the home Region and all linked Regions. For a list of
+ * central configuration operations, see the <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html#central-configuration-concepts">Central configuration
+ * terms and concepts</a> section of the <i>Security Hub User Guide</i>.</p>
+ *          <p>The following throttling limits apply to Security Hub API operations.</p>
  *          <ul>
  *             <li>
  *                <p>

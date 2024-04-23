@@ -64,7 +64,7 @@ export class ActiveDirectoryError extends __BaseException {
    * @public
    * <p>The type of Active Directory error.</p>
    */
-  Type?: ActiveDirectoryErrorType | string;
+  Type?: ActiveDirectoryErrorType;
 
   /**
    * @public
@@ -96,13 +96,16 @@ export const AdministrativeActionType = {
   FILE_SYSTEM_ALIAS_DISASSOCIATION: "FILE_SYSTEM_ALIAS_DISASSOCIATION",
   FILE_SYSTEM_UPDATE: "FILE_SYSTEM_UPDATE",
   IOPS_OPTIMIZATION: "IOPS_OPTIMIZATION",
+  MISCONFIGURED_STATE_RECOVERY: "MISCONFIGURED_STATE_RECOVERY",
   RELEASE_NFS_V3_LOCKS: "RELEASE_NFS_V3_LOCKS",
   SNAPSHOT_UPDATE: "SNAPSHOT_UPDATE",
   STORAGE_OPTIMIZATION: "STORAGE_OPTIMIZATION",
   STORAGE_TYPE_OPTIMIZATION: "STORAGE_TYPE_OPTIMIZATION",
   THROUGHPUT_OPTIMIZATION: "THROUGHPUT_OPTIMIZATION",
+  VOLUME_INITIALIZE_WITH_SNAPSHOT: "VOLUME_INITIALIZE_WITH_SNAPSHOT",
   VOLUME_RESTORE: "VOLUME_RESTORE",
   VOLUME_UPDATE: "VOLUME_UPDATE",
+  VOLUME_UPDATE_WITH_SNAPSHOT: "VOLUME_UPDATE_WITH_SNAPSHOT",
 } as const;
 
 /**
@@ -290,7 +293,7 @@ export interface DataRepositoryConfiguration {
    *             </li>
    *          </ul>
    */
-  Lifecycle?: DataRepositoryLifecycle | string;
+  Lifecycle?: DataRepositoryLifecycle;
 
   /**
    * @public
@@ -354,7 +357,7 @@ export interface DataRepositoryConfiguration {
    *             </li>
    *          </ul>
    */
-  AutoImportPolicy?: AutoImportPolicyType | string;
+  AutoImportPolicy?: AutoImportPolicyType;
 
   /**
    * @public
@@ -443,7 +446,7 @@ export interface LustreLogConfiguration {
    *          <p>Note that Amazon File Cache uses a default setting of <code>WARN_ERROR</code>,
    *             which can't be changed.</p>
    */
-  Level: LustreAccessAuditLogLevel | string | undefined;
+  Level: LustreAccessAuditLogLevel | undefined;
 
   /**
    * @public
@@ -543,13 +546,13 @@ export interface LustreFileSystemConfiguration {
    *             throughput capacity than <code>SCRATCH_1</code>.</p>
    *          <p>The <code>PERSISTENT_1</code> and <code>PERSISTENT_2</code> deployment type is used
    *             for longer-term storage and workloads and encryption of data in transit.
-   *                 <code>PERSISTENT_2</code> is built on Lustre v2.12 and offers higher
-   *                 <code>PerUnitStorageThroughput</code> (up to 1000 MB/s/TiB) along with a lower
-   *             minimum storage capacity requirement (600 GiB). To learn more about FSx for Lustre deployment types, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/lustre-deployment-types.html">
+   *                 <code>PERSISTENT_2</code> offers higher <code>PerUnitStorageThroughput</code>
+   *             (up to 1000 MB/s/TiB) along with a lower minimum storage capacity requirement (600 GiB).
+   *             To learn more about FSx for Lustre deployment types, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/lustre-deployment-types.html">
    *                 FSx for Lustre deployment options</a>.</p>
    *          <p>The default is <code>SCRATCH_1</code>.</p>
    */
-  DeploymentType?: LustreDeploymentType | string;
+  DeploymentType?: LustreDeploymentType;
 
   /**
    * @public
@@ -620,7 +623,7 @@ export interface LustreFileSystemConfiguration {
    *             of the total storage capacity.</p>
    *          <p>This parameter is required when <code>StorageType</code> is set to HDD.</p>
    */
-  DriveCacheType?: DriveCacheType | string;
+  DriveCacheType?: DriveCacheType;
 
   /**
    * @public
@@ -640,7 +643,7 @@ export interface LustreFileSystemConfiguration {
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-compression.html">Lustre data compression</a>.</p>
    */
-  DataCompressionType?: DataCompressionType | string;
+  DataCompressionType?: DataCompressionType;
 
   /**
    * @public
@@ -665,6 +668,7 @@ export interface LustreFileSystemConfiguration {
 export const OntapDeploymentType = {
   MULTI_AZ_1: "MULTI_AZ_1",
   SINGLE_AZ_1: "SINGLE_AZ_1",
+  SINGLE_AZ_2: "SINGLE_AZ_2",
 } as const;
 
 /**
@@ -700,11 +704,13 @@ export interface DiskIopsConfiguration {
    *             using the <code>AUTOMATIC</code> setting of SSD IOPS of 3 IOPS per GB of storage capacity, , or
    *             if it using a <code>USER_PROVISIONED</code> value.</p>
    */
-  Mode?: DiskIopsConfigurationMode | string;
+  Mode?: DiskIopsConfigurationMode;
 
   /**
    * @public
    * <p>The total number of SSD IOPS provisioned for the file system.</p>
+   *          <p>The minimum and maximum values for this property depend on the value of <code>HAPairs</code> and <code>StorageCapacity</code>. The minimum value is calculated as <code>StorageCapacity</code> * 3 * <code>HAPairs</code> (3 IOPS per GB of <code>StorageCapacity</code>). The maximum value is calculated as 200,000 * <code>HAPairs</code>.</p>
+   *          <p>Amazon FSx responds with an HTTP status code 400 (Bad Request) if the value of <code>Iops</code> is outside of the minimum or maximum values.</p>
    */
   Iops?: number;
 }
@@ -790,12 +796,16 @@ export interface OntapFileSystemConfiguration {
    *                   <code>SINGLE_AZ_1</code> - A file system configured for Single-AZ
    *                     redundancy.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SINGLE_AZ_2</code> - A file system configured with multiple high-availability (HA) pairs for Single-AZ redundancy.</p>
+   *             </li>
    *          </ul>
    *          <p>For information about the use cases for Multi-AZ and Single-AZ deployments, refer to
    *                 <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/high-availability-multiAZ.html">Choosing Multi-AZ or
    *                 Single-AZ file system deployment</a>. </p>
    */
-  DeploymentType?: OntapDeploymentType | string;
+  DeploymentType?: OntapDeploymentType;
 
   /**
    * @public
@@ -865,6 +875,49 @@ export interface OntapFileSystemConfiguration {
    *         REST API. The password value is always redacted in the response.</p>
    */
   FsxAdminPassword?: string;
+
+  /**
+   * @public
+   * <p>Specifies how many high-availability (HA) file server pairs the file system will have. The default value is 1. The value of this property affects the values of <code>StorageCapacity</code>, <code>Iops</code>, and <code>ThroughputCapacity</code>. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/HA-pairs.html">High-availability (HA) pairs</a> in the FSx for ONTAP user guide.</p>
+   *          <p>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The value of <code>HAPairs</code> is less than 1 or greater than 6.</p>
+   *             </li>
+   *             <li>
+   *                <p>The value of <code>HAPairs</code> is greater than 1 and the value of <code>DeploymentType</code> is <code>SINGLE_AZ_1</code> or <code>MULTI_AZ_1</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  HAPairs?: number;
+
+  /**
+   * @public
+   * <p>Use to choose the throughput capacity per HA pair. When the value of <code>HAPairs</code> is equal to 1, the value of <code>ThroughputCapacityPerHAPair</code> is the total throughput for the file system.</p>
+   *          <p>This field and <code>ThroughputCapacity</code> cannot be defined in the same API call, but one is required.</p>
+   *          <p>This field and <code>ThroughputCapacity</code> are the same for file systems with one HA pair.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For <code>SINGLE_AZ_1</code> and <code>MULTI_AZ_1</code>, valid values are 128, 256, 512, 1024, 2048, or 4096 MBps.</p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>SINGLE_AZ_2</code>, valid values are 3072 or 6144 MBps.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The value of <code>ThroughputCapacity</code> and <code>ThroughputCapacityPerHAPair</code> are not the same value.</p>
+   *             </li>
+   *             <li>
+   *                <p>The value of deployment type is <code>SINGLE_AZ_2</code> and <code>ThroughputCapacity</code> / <code>ThroughputCapacityPerHAPair</code> is a valid HA pair (a value between 2 and 6).</p>
+   *             </li>
+   *             <li>
+   *                <p>The value of <code>ThroughputCapacityPerHAPair</code> is not a valid value.</p>
+   *             </li>
+   *          </ul>
+   */
+  ThroughputCapacityPerHAPair?: number;
 }
 
 /**
@@ -931,7 +984,7 @@ export interface OpenZFSFileSystemConfiguration {
    * @public
    * <p>Specifies the file-system deployment type. Amazon FSx for OpenZFS supports  <code>MULTI_AZ_1</code>, <code>SINGLE_AZ_1</code>, and <code>SINGLE_AZ_2</code>.</p>
    */
-  DeploymentType?: OpenZFSDeploymentType | string;
+  DeploymentType?: OpenZFSDeploymentType;
 
   /**
    * @public
@@ -1104,7 +1157,7 @@ export interface Alias {
    *             </li>
    *          </ul>
    */
-  Lifecycle?: AliasLifecycle | string;
+  Lifecycle?: AliasLifecycle;
 }
 
 /**
@@ -1157,7 +1210,7 @@ export interface WindowsAuditLogConfiguration {
    *             </li>
    *          </ul>
    */
-  FileAccessAuditLogLevel: WindowsAccessAuditLogLevel | string | undefined;
+  FileAccessAuditLogLevel: WindowsAccessAuditLogLevel | undefined;
 
   /**
    * @public
@@ -1184,7 +1237,7 @@ export interface WindowsAuditLogConfiguration {
    *             </li>
    *          </ul>
    */
-  FileShareAccessAuditLogLevel: WindowsAccessAuditLogLevel | string | undefined;
+  FileShareAccessAuditLogLevel: WindowsAccessAuditLogLevel | undefined;
 
   /**
    * @public
@@ -1313,7 +1366,7 @@ export interface WindowsFileSystemConfiguration {
    *          <p>For more information, see
    *          <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html">Single-AZ and Multi-AZ File Systems</a>.</p>
    */
-  DeploymentType?: WindowsDeploymentType | string;
+  DeploymentType?: WindowsDeploymentType;
 
   /**
    * @public
@@ -1360,7 +1413,7 @@ export interface WindowsFileSystemConfiguration {
    * @public
    * <p>The list of maintenance operations in progress for this file system.</p>
    */
-  MaintenanceOperationsInProgress?: (FileSystemMaintenanceOperation | string)[];
+  MaintenanceOperationsInProgress?: FileSystemMaintenanceOperation[];
 
   /**
    * @public
@@ -1472,6 +1525,36 @@ export type VolumeLifecycle = (typeof VolumeLifecycle)[keyof typeof VolumeLifecy
 
 /**
  * @public
+ * <p>Used to specify configuration options for a volume’s storage aggregate or aggregates.</p>
+ */
+export interface AggregateConfiguration {
+  /**
+   * @public
+   * <p>The list of aggregates that this volume resides on. Aggregates are storage pools which make up your primary storage tier. Each high-availability (HA) pair has one aggregate. The names of the aggregates map to the names of the aggregates in the ONTAP CLI and REST API. For FlexVols, there will always be a single entry.</p>
+   *          <p>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The strings in the value of <code>Aggregates</code> are not are not formatted as <code>aggrX</code>, where X is a number between 1 and 6.</p>
+   *             </li>
+   *             <li>
+   *                <p>The value of <code>Aggregates</code> contains aggregates that are not present.</p>
+   *             </li>
+   *             <li>
+   *                <p>One or more of the aggregates supplied are too close to the volume limit to support adding more volumes.</p>
+   *             </li>
+   *          </ul>
+   */
+  Aggregates?: string[];
+
+  /**
+   * @public
+   * <p>The total number of constituents this FlexGroup volume has. Not applicable for FlexVols.</p>
+   */
+  TotalConstituents?: number;
+}
+
+/**
+ * @public
  * @enum
  */
 export const FlexCacheEndpointType = {
@@ -1548,7 +1631,7 @@ export interface AutocommitPeriod {
    * <p>Defines the type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
    *         Setting this value to <code>NONE</code> disables autocommit. The default value is <code>NONE</code>. </p>
    */
-  Type: AutocommitPeriodType | string | undefined;
+  Type: AutocommitPeriodType | undefined;
 
   /**
    * @public
@@ -1632,7 +1715,7 @@ export interface RetentionPeriod {
    *             one of the valid types. If you set it to <code>INFINITE</code>, the files are retained forever. If you set it to
    *             <code>UNSPECIFIED</code>, the files are retained until you set an explicit retention period. </p>
    */
-  Type: RetentionPeriodType | string | undefined;
+  Type: RetentionPeriodType | undefined;
 
   /**
    * @public
@@ -1745,7 +1828,7 @@ export interface SnaplockConfiguration {
    *             value is <code>DISABLED</code>. </p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-enterprise.html#privileged-delete">Privileged delete</a>. </p>
    */
-  PrivilegedDelete?: PrivilegedDelete | string;
+  PrivilegedDelete?: PrivilegedDelete;
 
   /**
    * @public
@@ -1774,7 +1857,7 @@ export interface SnaplockConfiguration {
    *             </li>
    *          </ul>
    */
-  SnaplockType?: SnaplockType | string;
+  SnaplockType?: SnaplockType;
 
   /**
    * @public
@@ -1869,8 +1952,22 @@ export interface TieringPolicy {
    *             </li>
    *          </ul>
    */
-  Name?: TieringPolicyName | string;
+  Name?: TieringPolicyName;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const VolumeStyle = {
+  FLEXGROUP: "FLEXGROUP",
+  FLEXVOL: "FLEXVOL",
+} as const;
+
+/**
+ * @public
+ */
+export type VolumeStyle = (typeof VolumeStyle)[keyof typeof VolumeStyle];
 
 /**
  * @public
@@ -1897,7 +1994,7 @@ export interface OntapVolumeConfiguration {
    *             </li>
    *          </ul>
    */
-  FlexCacheEndpointType?: FlexCacheEndpointType | string;
+  FlexCacheEndpointType?: FlexCacheEndpointType;
 
   /**
    * @public
@@ -1916,7 +2013,7 @@ export interface OntapVolumeConfiguration {
    *             or
    *                 <code>MIXED</code>.</p>
    */
-  SecurityStyle?: SecurityStyle | string;
+  SecurityStyle?: SecurityStyle;
 
   /**
    * @public
@@ -1982,7 +2079,7 @@ export interface OntapVolumeConfiguration {
    *             </li>
    *          </ul>
    */
-  OntapVolumeType?: OntapVolumeType | string;
+  OntapVolumeType?: OntapVolumeType;
 
   /**
    * @public
@@ -2007,7 +2104,7 @@ export interface OntapVolumeConfiguration {
    *          </ul>
    *          <p>You can also provide the name of a custom policy that you created with the ONTAP CLI or REST API.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies">Snapshot policies</a>
-   *             in the <i>Amazon FSx for NetApp ONTAP User Guide</i>.</p>
+   *             in the Amazon FSx for NetApp ONTAP User Guide.</p>
    */
   SnapshotPolicy?: string;
 
@@ -2026,7 +2123,40 @@ export interface OntapVolumeConfiguration {
    * <p>The SnapLock configuration object for an FSx for ONTAP SnapLock volume. </p>
    */
   SnaplockConfiguration?: SnaplockConfiguration;
+
+  /**
+   * @public
+   * <p>Use to specify the style of an ONTAP volume. For more information about FlexVols and FlexGroups, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-types.html">Volume types</a> in Amazon FSx for NetApp ONTAP User Guide.</p>
+   */
+  VolumeStyle?: VolumeStyle;
+
+  /**
+   * @public
+   * <p>This structure specifies configuration options for a volume’s storage aggregate or aggregates.</p>
+   */
+  AggregateConfiguration?: AggregateConfiguration;
+
+  /**
+   * @public
+   * <p>The configured size of the volume, in bytes.</p>
+   */
+  SizeInBytes?: number;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const OpenZFSCopyStrategy = {
+  CLONE: "CLONE",
+  FULL_COPY: "FULL_COPY",
+  INCREMENTAL_COPY: "INCREMENTAL_COPY",
+} as const;
+
+/**
+ * @public
+ */
+export type OpenZFSCopyStrategy = (typeof OpenZFSCopyStrategy)[keyof typeof OpenZFSCopyStrategy];
 
 /**
  * @public
@@ -2098,22 +2228,8 @@ export interface OpenZFSNfsExport {
 
 /**
  * @public
- * @enum
- */
-export const OpenZFSCopyStrategy = {
-  CLONE: "CLONE",
-  FULL_COPY: "FULL_COPY",
-} as const;
-
-/**
- * @public
- */
-export type OpenZFSCopyStrategy = (typeof OpenZFSCopyStrategy)[keyof typeof OpenZFSCopyStrategy];
-
-/**
- * @public
- * <p>The snapshot configuration to use when creating an OpenZFS volume from a
- *             snapshot.</p>
+ * <p>The snapshot configuration used when creating an Amazon FSx for OpenZFS volume
+ *             from a snapshot.</p>
  */
 export interface OpenZFSOriginSnapshotConfiguration {
   /**
@@ -2138,12 +2254,17 @@ export interface OpenZFSOriginSnapshotConfiguration {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FULL_COPY</code> - Copies all data from the snapshot to the new volume.
-   *                 </p>
+   *                   <code>FULL_COPY</code> - Copies all data from the snapshot to the new
+   *                     volume.</p>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>The <code>INCREMENTAL_COPY</code> option is only for updating an existing volume
+   *                 by using a snapshot from another FSx for OpenZFS file system. For more
+   *                 information, see <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_CopySnapshotAndUpdateVolume.html">CopySnapshotAndUpdateVolume</a>.</p>
+   *          </note>
    */
-  CopyStrategy?: OpenZFSCopyStrategy | string;
+  CopyStrategy?: OpenZFSCopyStrategy;
 }
 
 /**
@@ -2169,7 +2290,7 @@ export interface OpenZFSUserOrGroupQuota {
    * @public
    * <p>A value that specifies whether the quota applies to a user or group.</p>
    */
-  Type: OpenZFSQuotaType | string | undefined;
+  Type: OpenZFSQuotaType | undefined;
 
   /**
    * @public
@@ -2250,7 +2371,7 @@ export interface OpenZFSVolumeConfiguration {
    *             </li>
    *          </ul>
    */
-  DataCompressionType?: OpenZFSDataCompressionType | string;
+  DataCompressionType?: OpenZFSDataCompressionType;
 
   /**
    * @public
@@ -2310,6 +2431,54 @@ export interface OpenZFSVolumeConfiguration {
    *             a volume is restored from snapshot.</p>
    */
   DeleteClonedVolumes?: boolean;
+
+  /**
+   * @public
+   * <p>A Boolean value indicating whether snapshot data that differs between the current state and the specified snapshot should be overwritten when a volume is restored from a snapshot.</p>
+   */
+  DeleteIntermediateData?: boolean;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify Amazon Web Services
+   *             resources. We require an ARN when you need to specify a resource unambiguously across
+   *             all of Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in
+   *             the <i>Amazon Web Services General Reference</i>.</p>
+   */
+  SourceSnapshotARN?: string;
+
+  /**
+   * @public
+   * <p>The ID of the snapshot that's being copied or was most recently copied to the
+   *             destination volume.</p>
+   */
+  DestinationSnapshot?: string;
+
+  /**
+   * @public
+   * <p>Specifies the strategy used when copying data from the snapshot to the new volume. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CLONE</code> - The new volume references the data in the origin
+   *                     snapshot. Cloning a snapshot is faster than copying data from the snapshot to a
+   *                     new volume and doesn't consume disk throughput. However, the origin snapshot
+   *                     can't be deleted if there is a volume using its copied data.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FULL_COPY</code> - Copies all data from the snapshot to the new
+   *                     volume.</p>
+   *                <p>Specify this option to create the volume from a snapshot on another FSx for OpenZFS file system.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>The <code>INCREMENTAL_COPY</code> option is only for updating an existing volume
+   *                 by using a snapshot from another FSx for OpenZFS file system. For more
+   *                 information, see <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_CopySnapshotAndUpdateVolume.html">CopySnapshotAndUpdateVolume</a>.</p>
+   *          </note>
+   */
+  CopyStrategy?: OpenZFSCopyStrategy;
 }
 
 /**
@@ -2516,7 +2685,7 @@ export interface AutoExportPolicy {
    *          </ul>
    *          <p>You can define any combination of event types for your <code>AutoExportPolicy</code>.</p>
    */
-  Events?: (EventType | string)[];
+  Events?: EventType[];
 }
 
 /**
@@ -2553,7 +2722,7 @@ export interface AutoImportPolicy {
    *          </ul>
    *          <p>You can define any combination of event types for your <code>AutoImportPolicy</code>.</p>
    */
-  Events?: (EventType | string)[];
+  Events?: EventType[];
 }
 
 /**
@@ -2622,7 +2791,7 @@ export interface CancelDataRepositoryTaskResponse {
    *             </li>
    *          </ul>
    */
-  Lifecycle?: DataRepositoryTaskLifecycle | string;
+  Lifecycle?: DataRepositoryTaskLifecycle;
 
   /**
    * @public
@@ -3047,7 +3216,7 @@ export class ServiceLimitExceeded extends __BaseException {
    * @public
    * <p>Enumeration of the service limit that was exceeded. </p>
    */
-  Limit: ServiceLimit | string | undefined;
+  Limit: ServiceLimit | undefined;
 
   /**
    * @public
@@ -3101,6 +3270,101 @@ export class SourceBackupUnavailable extends __BaseException {
     this.Message = opts.Message;
     this.BackupId = opts.BackupId;
   }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const UpdateOpenZFSVolumeOption = {
+  DELETE_CLONED_VOLUMES: "DELETE_CLONED_VOLUMES",
+  DELETE_INTERMEDIATE_DATA: "DELETE_INTERMEDIATE_DATA",
+  DELETE_INTERMEDIATE_SNAPSHOTS: "DELETE_INTERMEDIATE_SNAPSHOTS",
+} as const;
+
+/**
+ * @public
+ */
+export type UpdateOpenZFSVolumeOption = (typeof UpdateOpenZFSVolumeOption)[keyof typeof UpdateOpenZFSVolumeOption];
+
+/**
+ * @public
+ */
+export interface CopySnapshotAndUpdateVolumeRequest {
+  /**
+   * @public
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * @public
+   * <p>Specifies the ID of the volume that you are copying the snapshot to.</p>
+   */
+  VolumeId: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for a given resource. ARNs uniquely identify Amazon Web Services
+   *             resources. We require an ARN when you need to specify a resource unambiguously across
+   *             all of Amazon Web Services. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in
+   *             the <i>Amazon Web Services General Reference</i>.</p>
+   */
+  SourceSnapshotARN: string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the strategy to use when copying data from a snapshot to the volume. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>FULL_COPY</code> - Copies all data from the snapshot to the volume.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INCREMENTAL_COPY</code> - Copies only the snapshot data that's changed
+   *                     since the previous replication.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>
+   *                <code>CLONE</code> isn't a valid copy strategy option for the
+   *                     <code>CopySnapshotAndUpdateVolume</code> operation.</p>
+   *          </note>
+   */
+  CopyStrategy?: OpenZFSCopyStrategy;
+
+  /**
+   * @public
+   * <p>Confirms that you want to delete data on the destination volume that wasn’t there
+   *             during the previous snapshot replication.</p>
+   *          <p>Your replication will fail if you don’t include an option for a specific type of data
+   *             and that data is on your destination. For example, if you don’t include
+   *                 <code>DELETE_INTERMEDIATE_SNAPSHOTS</code> and there are intermediate snapshots on
+   *             the destination, you can’t copy the snapshot.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE_INTERMEDIATE_SNAPSHOTS</code> - Deletes snapshots on the
+   *                     destination volume that aren’t on the source volume.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE_CLONED_VOLUMES</code> - Deletes snapshot clones on the
+   *                     destination volume that aren't on the source volume.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE_INTERMEDIATE_DATA</code> - Overwrites snapshots on the
+   *                     destination volume that don’t match the source snapshot that you’re
+   *                     copying.</p>
+   *             </li>
+   *          </ul>
+   */
+  Options?: UpdateOpenZFSVolumeOption[];
 }
 
 /**
@@ -3337,7 +3601,7 @@ export interface NFSDataRepositoryConfiguration {
    *             <code>NFS3</code>, which indicates that the data repository must
    *             support the NFSv3 protocol.</p>
    */
-  Version: NfsVersion | string | undefined;
+  Version: NfsVersion | undefined;
 
   /**
    * @public
@@ -3381,7 +3645,7 @@ export interface NFSDataRepositoryConfiguration {
  *             </li>
  *          </ul>
  *          <p>Data repository associations are supported on Amazon File Cache resources and
- *             all FSx for Lustre 2.12 and newer file systems, excluding
+ *             all FSx for Lustre 2.12 and 2.15 file systems, excluding
  *             <code>scratch_1</code> deployment type.</p>
  */
 export interface DataRepositoryAssociation {
@@ -3445,7 +3709,7 @@ export interface DataRepositoryAssociation {
    *             </li>
    *          </ul>
    */
-  Lifecycle?: DataRepositoryLifecycle | string;
+  Lifecycle?: DataRepositoryLifecycle;
 
   /**
    * @public
@@ -3631,9 +3895,10 @@ export type Unit = (typeof Unit)[keyof typeof Unit];
 /**
  * @public
  * <p>Defines the minimum amount of time since last access for a
- *             file to be eligible for release. Only archived files that were
- *             last accessed or modified before this point-in-time are eligible
- *             to be released from the Amazon FSx for Lustre file system.</p>
+ *             file to be eligible for release. Only files that have been
+ *             exported to S3 and that were last accessed or modified before
+ *             this point-in-time are eligible to be released from the
+ *             Amazon FSx for Lustre file system.</p>
  */
 export interface DurationSinceLastAccess {
   /**
@@ -3643,18 +3908,18 @@ export interface DurationSinceLastAccess {
    *             accessed. <code>DAYS</code> is the only supported value. This
    *             is a required parameter.</p>
    */
-  Unit?: Unit | string;
+  Unit?: Unit;
 
   /**
    * @public
    * <p>An integer that represents the minimum amount of time (in days)
-   *             since a file was last accessed in the file system. Only archived files
+   *             since a file was last accessed in the file system. Only exported files
    *             with a <code>MAX(atime, ctime, mtime)</code> timestamp that is more than
    *             this amount of time in the past (relative to the task create time)
    *             will be released. The default of <code>Value</code> is <code>0</code>.
    *             This is a required parameter.</p>
    *          <note>
-   *             <p>If an archived file meets the last accessed time criteria,
+   *             <p>If an exported file meets the last accessed time criteria,
    *             its file or directory path must also be specified in the <code>Paths</code>
    *             parameter of the  operation
    *             in order for the file to be released.</p>
@@ -3666,15 +3931,15 @@ export interface DurationSinceLastAccess {
 /**
  * @public
  * <p>The configuration that specifies a minimum amount of time since
- *             last access for an archived file to be eligible for release from an
+ *             last access for an exported file to be eligible for release from an
  *             Amazon FSx for Lustre file system. Only files that were last
  *             accessed before this point-in-time can be released. For example, if
  *             you specify a last accessed time criteria of 9 days, only files that
  *             were last accessed 9.00001 or more days ago can be released.</p>
- *          <p>Only file data that has been archived can be released. Files that
- *             have not yet been archived, such as new or changed files that have
- *             not been exported, are not eligible for release. When files are
- *             released, their metadata stays on the file system, so they
+ *          <p>Only file data that has been exported to S3 can be released. Files
+ *             that have not yet been exported to S3, such as new or changed files
+ *             that have not been exported, are not eligible for release. When files
+ *             are released, their metadata stays on the file system, so they
  *             can still be accessed later. Users and applications can access a
  *             released file by reading the file again, which restores data from
  *             Amazon S3 to the FSx for Lustre file system.</p>
@@ -3689,7 +3954,7 @@ export interface DurationSinceLastAccess {
 export interface ReleaseConfiguration {
   /**
    * @public
-   * <p>Defines the point-in-time since an archived file was last accessed,
+   * <p>Defines the point-in-time since an exported file was last accessed,
    *             in order for that file to be eligible for release. Only files that were
    *             last accessed before this point-in-time are eligible to be released from
    *             the file system.</p>
@@ -3755,14 +4020,14 @@ export interface CompletionReport {
    *             <code>\{path\}/task-\{id\}/failures.csv</code>.
    *         </p>
    */
-  Format?: ReportFormat | string;
+  Format?: ReportFormat;
 
   /**
    * @public
    * <p>Required if <code>Enabled</code> is set to <code>true</code>. Specifies the scope of the <code>CompletionReport</code>; <code>FAILED_FILES_ONLY</code> is the only scope currently supported.
    *             When <code>Scope</code> is set to <code>FAILED_FILES_ONLY</code>, the <code>CompletionReport</code> only contains information about files that the data repository task failed to process.</p>
    */
-  Scope?: ReportScope | string;
+  Scope?: ReportScope;
 }
 
 /**
@@ -3802,8 +4067,8 @@ export interface CreateDataRepositoryTaskRequest {
    *             <li>
    *                <p>
    *                   <code>RELEASE_DATA_FROM_FILESYSTEM</code> tasks release files in
-   *                 your Amazon FSx for Lustre file system that are archived and that meet
-   *                 your specified release criteria.</p>
+   *                 your Amazon FSx for Lustre file system that have been exported to a linked
+   *                 S3 bucket and that meet your specified release criteria.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3812,14 +4077,14 @@ export interface CreateDataRepositoryTaskRequest {
    *             </li>
    *          </ul>
    */
-  Type: DataRepositoryTaskType | string | undefined;
+  Type: DataRepositoryTaskType | undefined;
 
   /**
    * @public
    * <p>A list of paths for the data repository task to use when the task is processed.
    *             If a path that you provide isn't valid, the task fails. If you don't provide
    *             paths, the default behavior is to export all files to S3 (for export tasks), import
-   *             all files from S3 (for import tasks), or release all archived files that meet the
+   *             all files from S3 (for import tasks), or release all exported files that meet the
    *             last accessed time criteria (for release tasks).</p>
    *          <ul>
    *             <li>
@@ -3839,9 +4104,9 @@ export interface CreateDataRepositoryTaskRequest {
    *             </li>
    *             <li>
    *                <p>For release tasks, the list contains directory or file paths on the
-   *                 FSx for Lustre file system from which to release archived files. If a directory is
+   *                 FSx for Lustre file system from which to release exported files. If a directory is
    *                 specified, files within the directory are released. If a file path is specified,
-   *                 only that file is released. To release all archived files in the file system,
+   *                 only that file is released. To release all exported files in the file system,
    *                 specify a forward slash (/) as the path.</p>
    *                <note>
    *                   <p>A file must also meet the last accessed time criteria
@@ -3959,8 +4224,8 @@ export interface DataRepositoryTaskStatus {
  *                 and a linked data repository.</p>
  *             </li>
  *             <li>
- *                <p>You use release data repository tasks to release archived files
- *                 from your Amazon FSx for Lustre file system.</p>
+ *                <p>You use release data repository tasks to release files that have been exported
+ *                 to a linked S3 bucket from your Amazon FSx for Lustre file system.</p>
  *             </li>
  *             <li>
  *                <p>An Amazon File Cache resource uses a task to automatically
@@ -4015,7 +4280,7 @@ export interface DataRepositoryTask {
    *                 You can use the DescribeDataRepositoryTask action to monitor the task status. Contact the FSx team if you need to delete your file system immediately.</p>
    *          </note>
    */
-  Lifecycle: DataRepositoryTaskLifecycle | string | undefined;
+  Lifecycle: DataRepositoryTaskLifecycle | undefined;
 
   /**
    * @public
@@ -4034,8 +4299,8 @@ export interface DataRepositoryTask {
    *             <li>
    *                <p>
    *                   <code>RELEASE_DATA_FROM_FILESYSTEM</code> tasks release files in
-   *                 your Amazon FSx for Lustre file system that are archived and that meet
-   *                 your specified release criteria.</p>
+   *                 your Amazon FSx for Lustre file system that have been exported to a
+   *                 linked S3 bucket and that meet your specified release criteria.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4044,7 +4309,7 @@ export interface DataRepositoryTask {
    *             </li>
    *          </ul>
    */
-  Type: DataRepositoryTaskType | string | undefined;
+  Type: DataRepositoryTaskType | undefined;
 
   /**
    * @public
@@ -4187,7 +4452,7 @@ export interface FileCacheNFSConfiguration {
    *             NFS data repository. The only supported value is <code>NFS3</code>,
    *             which indicates that the data repository must support the NFSv3 protocol.</p>
    */
-  Version: NfsVersion | string | undefined;
+  Version: NfsVersion | undefined;
 
   /**
    * @public
@@ -4343,7 +4608,7 @@ export interface CreateFileCacheLustreConfiguration {
    * @public
    * <p>Specifies the cache deployment type, which must be <code>CACHE_1</code>.</p>
    */
-  DeploymentType: FileCacheLustreDeploymentType | string | undefined;
+  DeploymentType: FileCacheLustreDeploymentType | undefined;
 
   /**
    * @public
@@ -4388,7 +4653,7 @@ export interface CreateFileCacheRequest {
    * <p>The type of cache that you're creating, which
    *             must be <code>LUSTRE</code>.</p>
    */
-  FileCacheType: FileCacheType | string | undefined;
+  FileCacheType: FileCacheType | undefined;
 
   /**
    * @public
@@ -4518,7 +4783,7 @@ export interface FileCacheLustreConfiguration {
    * <p>The deployment type of the Amazon File Cache resource, which must
    *             be <code>CACHE_1</code>.</p>
    */
-  DeploymentType?: FileCacheLustreDeploymentType | string;
+  DeploymentType?: FileCacheLustreDeploymentType;
 
   /**
    * @public
@@ -4585,7 +4850,7 @@ export interface FileCacheCreating {
    * @public
    * <p>The type of cache, which must be <code>LUSTRE</code>.</p>
    */
-  FileCacheType?: FileCacheType | string;
+  FileCacheType?: FileCacheType;
 
   /**
    * @public
@@ -4621,7 +4886,7 @@ export interface FileCacheCreating {
    *             </li>
    *          </ul>
    */
-  Lifecycle?: FileCacheLifecycle | string;
+  Lifecycle?: FileCacheLifecycle;
 
   /**
    * @public
@@ -4850,7 +5115,7 @@ export interface LustreLogCreateConfiguration {
    *             </li>
    *          </ul>
    */
-  Level: LustreAccessAuditLogLevel | string | undefined;
+  Level: LustreAccessAuditLogLevel | undefined;
 
   /**
    * @public
@@ -4905,7 +5170,7 @@ export interface LustreLogCreateConfiguration {
  *                </li>
  *                <li>
  *                   <p>
- *                      <code>ImportedChunkSize</code>
+ *                      <code>ImportedFileChunkSize</code>
  *                   </p>
  *                </li>
  *                <li>
@@ -5006,7 +5271,7 @@ export interface CreateFileSystemLustreConfiguration {
    *                 transit</a> in the <i>Amazon FSx for Lustre User Guide</i>. </p>
    *          <p>(Default = <code>SCRATCH_1</code>)</p>
    */
-  DeploymentType?: LustreDeploymentType | string;
+  DeploymentType?: LustreDeploymentType;
 
   /**
    * @public
@@ -5048,7 +5313,7 @@ export interface CreateFileSystemLustreConfiguration {
    *             <p>This parameter is not supported for file systems with a data repository association.</p>
    *          </note>
    */
-  AutoImportPolicy?: AutoImportPolicyType | string;
+  AutoImportPolicy?: AutoImportPolicyType;
 
   /**
    * @public
@@ -5115,7 +5380,7 @@ export interface CreateFileSystemLustreConfiguration {
    *             of the total storage capacity of the file system.</p>
    *          <p>This parameter is required when <code>StorageType</code> is set to <code>HDD</code>.</p>
    */
-  DriveCacheType?: DriveCacheType | string;
+  DriveCacheType?: DriveCacheType;
 
   /**
    * @public
@@ -5136,7 +5401,7 @@ export interface CreateFileSystemLustreConfiguration {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-compression.html">Lustre data compression</a>
    *             in the <i>Amazon FSx for Lustre User Guide</i>.</p>
    */
-  DataCompressionType?: DataCompressionType | string;
+  DataCompressionType?: DataCompressionType;
 
   /**
    * @public
@@ -5193,11 +5458,15 @@ export interface CreateFileSystemOntapConfiguration {
    *                   <code>SINGLE_AZ_1</code> - A file system configured for Single-AZ
    *                     redundancy.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SINGLE_AZ_2</code> - A file system configured with multiple high-availability (HA) pairs for Single-AZ redundancy.</p>
+   *             </li>
    *          </ul>
    *          <p>For information about the use cases for Multi-AZ and Single-AZ deployments, refer to
    *                 <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/high-availability-AZ.html">Choosing a file system deployment type</a>. </p>
    */
-  DeploymentType: OntapDeploymentType | string | undefined;
+  DeploymentType: OntapDeploymentType | undefined;
 
   /**
    * @public
@@ -5233,19 +5502,29 @@ export interface CreateFileSystemOntapConfiguration {
 
   /**
    * @public
-   * <p>(Multi-AZ only) Specifies the virtual private cloud (VPC) route tables in which your
-   *             file system's endpoints will be created. You should specify all VPC route tables
-   *             associated with the subnets in which your clients are located. By default, Amazon FSx
-   *             selects your VPC's default route table.</p>
+   * <p>(Multi-AZ only) Specifies the route tables in which Amazon FSx  creates the rules
+   *             for routing traffic to the correct file server. You should specify all virtual private cloud
+   *             (VPC) route tables associated with the subnets in which your clients are located. By default,
+   *             Amazon FSx  selects your VPC's default route table.</p>
    */
   RouteTableIds?: string[];
 
   /**
    * @public
-   * <p>Sets the throughput capacity for the file system that you're creating. Valid values
-   *             are 128, 256, 512, 1024, 2048, and 4096 MBps.</p>
+   * <p>Sets the throughput capacity for the file system that you're creating in megabytes per second (MBps). For more information, see
+   *             <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-throughput-capacity.html">Managing throughput capacity</a>
+   *             in the FSx for ONTAP User Guide.</p>
+   *          <p>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The value of <code>ThroughputCapacity</code> and <code>ThroughputCapacityPerHAPair</code> are not the same value.</p>
+   *             </li>
+   *             <li>
+   *                <p>The value of <code>ThroughputCapacity</code> when divided by the value of <code>HAPairs</code> is outside of the valid range for <code>ThroughputCapacity</code>.</p>
+   *             </li>
+   *          </ul>
    */
-  ThroughputCapacity: number | undefined;
+  ThroughputCapacity?: number;
 
   /**
    * @public
@@ -5259,6 +5538,49 @@ export interface CreateFileSystemOntapConfiguration {
    *          <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
    */
   WeeklyMaintenanceStartTime?: string;
+
+  /**
+   * @public
+   * <p>Specifies how many high-availability (HA) pairs the file system will have. The default value is 1. The value of this property affects the values of <code>StorageCapacity</code>, <code>Iops</code>, and <code>ThroughputCapacity</code>. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/HA-pairs.html">High-availability (HA) pairs</a> in the FSx for ONTAP user guide.</p>
+   *          <p>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The value of <code>HAPairs</code> is less than 1 or greater than 6.</p>
+   *             </li>
+   *             <li>
+   *                <p>The value of <code>HAPairs</code> is greater than 1 and the value of <code>DeploymentType</code> is <code>SINGLE_AZ_1</code> or <code>MULTI_AZ_1</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  HAPairs?: number;
+
+  /**
+   * @public
+   * <p>Use to choose the throughput capacity per HA pair, rather than the total throughput for the file system. </p>
+   *          <p>This field and <code>ThroughputCapacity</code> cannot be defined in the same API call, but one is required.</p>
+   *          <p>This field and <code>ThroughputCapacity</code> are the same for file systems with one HA pair.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For <code>SINGLE_AZ_1</code> and <code>MULTI_AZ_1</code>, valid values are 128, 256, 512, 1024, 2048, or 4096 MBps.</p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>SINGLE_AZ_2</code>, valid values are 3072 or 6144 MBps.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The value of <code>ThroughputCapacity</code> and <code>ThroughputCapacityPerHAPair</code> are not the same value for file systems with one HA pair.</p>
+   *             </li>
+   *             <li>
+   *                <p>The value of deployment type is <code>SINGLE_AZ_2</code> and <code>ThroughputCapacity</code> / <code>ThroughputCapacityPerHAPair</code> is a valid HA pair (a value between 2 and 6).</p>
+   *             </li>
+   *             <li>
+   *                <p>The value of <code>ThroughputCapacityPerHAPair</code> is not a valid value.</p>
+   *             </li>
+   *          </ul>
+   */
+  ThroughputCapacityPerHAPair?: number;
 }
 
 /**
@@ -5302,7 +5624,7 @@ export interface OpenZFSCreateRootVolumeConfiguration {
    *             </li>
    *          </ul>
    */
-  DataCompressionType?: OpenZFSDataCompressionType | string;
+  DataCompressionType?: OpenZFSDataCompressionType;
 
   /**
    * @public
@@ -5388,37 +5710,41 @@ export interface CreateFileSystemOpenZFSConfiguration {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>MULTI_AZ_1</code>- Creates file systems with high availability that are configured for Multi-AZ redundancy to tolerate temporary unavailability in Availability Zones (AZs).
-   *                 <code>Multi_AZ_1</code> is available in the following Amazon Web Services Regions: </p>
+   *                   <code>MULTI_AZ_1</code>- Creates file systems with high availability that are configured
+   *                 for Multi-AZ redundancy to tolerate temporary unavailability in Availability Zones (AZs).
+   *                 <code>Multi_AZ_1</code> is available only in the US East (N. Virginia), US East (Ohio), US West (Oregon),
+   *                 Asia Pacific (Singapore), Asia Pacific (Tokyo), and Europe (Ireland) Amazon Web Services Regions.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>SINGLE_AZ_1</code>- (Default) Creates file systems with throughput capacities of 64 - 4,096 MB/s.
+   *                   <code>SINGLE_AZ_1</code>- Creates file systems with throughput capacities of 64 - 4,096 MB/s.
    *                 <code>Single_AZ_1</code> is available in all Amazon Web Services Regions where Amazon FSx
    *                 for OpenZFS is available.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>SINGLE_AZ_2</code>- Creates file systems with throughput capacities of 160 - 10,240 MB/s
-   *                 using an NVMe L2ARC cache. <code>Single_AZ_2</code> is available only in the US East (N. Virginia), US East (Ohio),
-   *                 US West (Oregon), and Europe (Ireland) Amazon Web Services Regions.</p>
+   *                 using an NVMe L2ARC cache. <code>Single_AZ_2</code> is available only in the US East (N. Virginia),
+   *                 US East (Ohio), US West (Oregon), Asia Pacific (Singapore), Asia Pacific (Tokyo), and Europe (Ireland)
+   *                 Amazon Web Services Regions.</p>
    *             </li>
    *          </ul>
-   *          <p>For more information, see: <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/availability-durability.html#available-aws-regions">Deployment type availability</a>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/availability-durability.html#available-aws-regions">Deployment type availability</a>
    *             and <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#zfs-fs-performance">File system performance</a>
    *             in the <i>Amazon FSx for OpenZFS User Guide</i>.</p>
    */
-  DeploymentType: OpenZFSDeploymentType | string | undefined;
+  DeploymentType: OpenZFSDeploymentType | undefined;
 
   /**
    * @public
    * <p>Specifies the throughput of an Amazon FSx for OpenZFS file system, measured in megabytes per second (MBps). Valid values depend on the DeploymentType you choose, as follows:</p>
    *          <ul>
    *             <li>
-   *                <p>For <code>SINGLE_AZ_1</code>, valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MBps.</p>
+   *                <p>For <code>MULTI_AZ_1</code> and <code>SINGLE_AZ_2</code>, valid values are 160, 320, 640,
+   *                 1280, 2560, 3840, 5120, 7680, or 10240 MBps.</p>
    *             </li>
    *             <li>
-   *                <p>For <code>SINGLE_AZ_2</code>, valid values are 160, 320, 640, 1280, 2560, 3840, 5120, 7680, or 10240 MBps.</p>
+   *                <p>For <code>SINGLE_AZ_1</code>, valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MBps.</p>
    *             </li>
    *          </ul>
    *          <p>You pay for additional throughput capacity that you provision.</p>
@@ -5472,10 +5798,10 @@ export interface CreateFileSystemOpenZFSConfiguration {
 
   /**
    * @public
-   * <p>(Multi-AZ only) Specifies the virtual private cloud (VPC) route tables in which your
-   *             file system's endpoints will be created. You should specify all VPC route tables
-   *             associated with the subnets in which your clients are located. By default, Amazon FSx
-   *             selects your VPC's default route table.</p>
+   * <p>(Multi-AZ only) Specifies the route tables in which Amazon FSx  creates the rules
+   *             for routing traffic to the correct file server. You should specify all virtual private cloud
+   *             (VPC) route tables associated with the subnets in which your clients are located. By default,
+   *             Amazon FSx  selects your VPC's default route table.</p>
    */
   RouteTableIds?: string[];
 }
@@ -5511,7 +5837,7 @@ export interface WindowsAuditLogCreateConfiguration {
    *             </li>
    *          </ul>
    */
-  FileAccessAuditLogLevel: WindowsAccessAuditLogLevel | string | undefined;
+  FileAccessAuditLogLevel: WindowsAccessAuditLogLevel | undefined;
 
   /**
    * @public
@@ -5538,7 +5864,7 @@ export interface WindowsAuditLogCreateConfiguration {
    *             </li>
    *          </ul>
    */
-  FileShareAccessAuditLogLevel: WindowsAccessAuditLogLevel | string | undefined;
+  FileShareAccessAuditLogLevel: WindowsAccessAuditLogLevel | undefined;
 
   /**
    * @public
@@ -5692,7 +6018,7 @@ export interface CreateFileSystemWindowsConfiguration {
    *             <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html">
    *                 Availability and Durability: Single-AZ and Multi-AZ File Systems</a>.</p>
    */
-  DeploymentType?: WindowsDeploymentType | string;
+  DeploymentType?: WindowsDeploymentType;
 
   /**
    * @public
@@ -5810,7 +6136,7 @@ export interface CreateFileSystemRequest {
    *                 <code>WINDOWS</code>, <code>LUSTRE</code>, <code>ONTAP</code>, and
    *                 <code>OPENZFS</code>.</p>
    */
-  FileSystemType: FileSystemType | string | undefined;
+  FileSystemType: FileSystemType | undefined;
 
   /**
    * @public
@@ -5836,7 +6162,7 @@ export interface CreateFileSystemRequest {
    *          </ul>
    *          <p>
    *             <b>FSx for ONTAP file systems</b> - The amount of storage capacity
-   *             that you can configure is from 1024 GiB up to 196,608 GiB (192 TiB).</p>
+   *             that you can configure depends on the value of the <code>HAPairs</code> property. The minimum value is calculated as 1,024 * <code>HAPairs</code> and the maxium is calculated as 524,288 * <code>HAPairs</code>..</p>
    *          <p>
    *             <b>FSx for OpenZFS file systems</b> - The amount of storage capacity that
    *             you can configure is from 64 GiB up to 524,288 GiB (512 TiB).</p>
@@ -5877,7 +6203,7 @@ export interface CreateFileSystemRequest {
    *                 options</a> in the <i>FSx for Lustre User
    *             Guide</i>. </p>
    */
-  StorageType?: StorageType | string;
+  StorageType?: StorageType;
 
   /**
    * @public
@@ -5942,7 +6268,7 @@ export interface CreateFileSystemRequest {
 
   /**
    * @public
-   * <p>The Microsoft Windows configuration for the file system that's being created. </p>
+   * <p>The Microsoft Windows configuration for the file system that's being created.</p>
    */
   WindowsConfiguration?: CreateFileSystemWindowsConfiguration;
 
@@ -5966,7 +6292,7 @@ export interface CreateFileSystemRequest {
    *                </li>
    *                <li>
    *                   <p>
-   *                      <code>ImportedChunkSize</code>
+   *                      <code>ImportedFileChunkSize</code>
    *                   </p>
    *                </li>
    *                <li>
@@ -5988,17 +6314,17 @@ export interface CreateFileSystemRequest {
 
   /**
    * @public
-   * <p>(Optional) For FSx for Lustre file systems, sets the Lustre version for the
-   *             file system that you're creating. Valid values are <code>2.10</code> and
-   *                 <code>2.12</code>:</p>
+   * <p>(Optional) For FSx for Lustre file systems, sets the Lustre version
+   *             for the file system that you're creating. Valid values are <code>2.10</code>,
+   *             <code>2.12</code>, and <code>2.15</code>:</p>
    *          <ul>
    *             <li>
    *                <p>2.10 is supported by the Scratch and Persistent_1 Lustre deployment types.</p>
    *             </li>
    *             <li>
-   *                <p>2.12 is supported by all Lustre deployment types. <code>2.12</code> is
-   *                 required when setting FSx for Lustre <code>DeploymentType</code> to
-   *                 <code>PERSISTENT_2</code>.</p>
+   *                <p>2.12 and 2.15 are supported by all Lustre deployment types. <code>2.12</code>
+   *                 or <code>2.15</code> is required when setting FSx for Lustre <code>DeploymentType</code>
+   *                 to <code>PERSISTENT_2</code>.</p>
    *             </li>
    *          </ul>
    *          <p>Default value = <code>2.10</code>, except when <code>DeploymentType</code> is set to
@@ -6170,7 +6496,7 @@ export interface CreateFileSystemFromBackupRequest {
    *                </li>
    *                <li>
    *                   <p>
-   *                      <code>ImportedChunkSize</code>
+   *                      <code>ImportedFileChunkSize</code>
    *                   </p>
    *                </li>
    *                <li>
@@ -6205,7 +6531,7 @@ export interface CreateFileSystemFromBackupRequest {
    *             used SSD storage if the original SSD file system had a storage capacity of at least 2000 GiB.</p>
    *          </note>
    */
-  StorageType?: StorageType | string;
+  StorageType?: StorageType;
 
   /**
    * @public
@@ -6238,7 +6564,8 @@ export interface CreateFileSystemFromBackupRequest {
   /**
    * @public
    * <p>Sets the version for the Amazon FSx for Lustre file system that you're
-   *             creating from a backup. Valid values are <code>2.10</code> and <code>2.12</code>.</p>
+   *             creating from a backup. Valid values are <code>2.10</code>, <code>2.12</code>,
+   *             and <code>2.15</code>.</p>
    *          <p>You don't need to specify <code>FileSystemTypeVersion</code> because it will
    *             be applied using the backup's <code>FileSystemTypeVersion</code> setting.
    *             If you choose to specify <code>FileSystemTypeVersion</code> when creating from backup, the
@@ -6261,7 +6588,7 @@ export interface CreateFileSystemFromBackupRequest {
    *             parameter, the default is the backup's <code>StorageCapacity</code> value.</p>
    *          <p>If used to create a file system other than OpenZFS, you must provide a value
    *             that matches the backup's <code>StorageCapacity</code> value. If you provide any
-   *             other value, Amazon FSx responds with a 400 Bad Request. </p>
+   *             other value, Amazon FSx responds with with an HTTP status code 400 Bad Request. </p>
    */
   StorageCapacity?: number;
 }
@@ -6406,7 +6733,7 @@ export interface CreateStorageVirtualMachineRequest {
    *             </li>
    *          </ul>
    */
-  RootVolumeSecurityStyle?: StorageVirtualMachineRootVolumeSecurityStyle | string;
+  RootVolumeSecurityStyle?: StorageVirtualMachineRootVolumeSecurityStyle;
 }
 
 /**
@@ -6583,7 +6910,7 @@ export interface StorageVirtualMachine {
    *             </li>
    *          </ul>
    */
-  Lifecycle?: StorageVirtualMachineLifecycle | string;
+  Lifecycle?: StorageVirtualMachineLifecycle;
 
   /**
    * @public
@@ -6610,7 +6937,7 @@ export interface StorageVirtualMachine {
    * @public
    * <p>Describes the SVM's subtype.</p>
    */
-  Subtype?: StorageVirtualMachineSubtype | string;
+  Subtype?: StorageVirtualMachineSubtype;
 
   /**
    * @public
@@ -6634,7 +6961,7 @@ export interface StorageVirtualMachine {
    * @public
    * <p>The security style of the root volume of the SVM.</p>
    */
-  RootVolumeSecurityStyle?: StorageVirtualMachineRootVolumeSecurityStyle | string;
+  RootVolumeSecurityStyle?: StorageVirtualMachineRootVolumeSecurityStyle;
 }
 
 /**
@@ -6646,6 +6973,24 @@ export interface CreateStorageVirtualMachineResponse {
    * <p>Returned after a successful <code>CreateStorageVirtualMachine</code> operation; describes the SVM just created.</p>
    */
   StorageVirtualMachine?: StorageVirtualMachine;
+}
+
+/**
+ * @public
+ * <p>Used to specify the configuration options for a volume's storage aggregate or aggregates.</p>
+ */
+export interface CreateAggregateConfiguration {
+  /**
+   * @public
+   * <p>Used to specify the names of aggregates on which the volume will be created.</p>
+   */
+  Aggregates?: string[];
+
+  /**
+   * @public
+   * <p>Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. This field is optional when creating a FlexGroup volume. If unspecified, the default value will be 8. This field cannot be provided when creating a FlexVol volume.</p>
+   */
+  ConstituentsPerAggregate?: number;
 }
 
 /**
@@ -6694,7 +7039,7 @@ export interface CreateSnaplockConfiguration {
    *          <p>For more information, see
    *             <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-enterprise.html#privileged-delete">Privileged delete</a>. </p>
    */
-  PrivilegedDelete?: PrivilegedDelete | string;
+  PrivilegedDelete?: PrivilegedDelete;
 
   /**
    * @public
@@ -6724,7 +7069,7 @@ export interface CreateSnaplockConfiguration {
    *             </li>
    *          </ul>
    */
-  SnaplockType: SnaplockType | string | undefined;
+  SnaplockType: SnaplockType | undefined;
 
   /**
    * @public
@@ -6778,13 +7123,15 @@ export interface CreateOntapVolumeConfiguration {
    *             </li>
    *          </ul>
    */
-  SecurityStyle?: SecurityStyle | string;
+  SecurityStyle?: SecurityStyle;
 
   /**
    * @public
+   * @deprecated
+   *
    * <p>Specifies the size of the volume, in megabytes (MB), that you are creating.</p>
    */
-  SizeInMegabytes: number | undefined;
+  SizeInMegabytes?: number;
 
   /**
    * @public
@@ -6850,7 +7197,7 @@ export interface CreateOntapVolumeConfiguration {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-types">Volume types</a>
    *             in the <i>Amazon FSx for NetApp ONTAP User Guide</i>.</p>
    */
-  OntapVolumeType?: InputOntapVolumeType | string;
+  OntapVolumeType?: InputOntapVolumeType;
 
   /**
    * @public
@@ -6894,11 +7241,30 @@ export interface CreateOntapVolumeConfiguration {
    * <p>Specifies the SnapLock configuration for an FSx for ONTAP volume. </p>
    */
   SnaplockConfiguration?: CreateSnaplockConfiguration;
+
+  /**
+   * @public
+   * <p>Use to specify the style of an ONTAP volume. For more information about FlexVols and FlexGroups, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-types.html">Volume types</a> in Amazon FSx for NetApp ONTAP User Guide.</p>
+   */
+  VolumeStyle?: VolumeStyle;
+
+  /**
+   * @public
+   * <p>Use to specify configuration options for a volume’s storage aggregate or aggregates.</p>
+   */
+  AggregateConfiguration?: CreateAggregateConfiguration;
+
+  /**
+   * @public
+   * <p>The configured size of the volume, in bytes.</p>
+   */
+  SizeInBytes?: number;
 }
 
 /**
  * @public
- * <p>The snapshot configuration to use when creating an OpenZFS volume from a snapshot. </p>
+ * <p>The snapshot configuration to use when creating an Amazon FSx for OpenZFS
+ *             volume from a snapshot. </p>
  */
 export interface CreateOpenZFSOriginSnapshotConfiguration {
   /**
@@ -6912,23 +7278,29 @@ export interface CreateOpenZFSOriginSnapshotConfiguration {
 
   /**
    * @public
-   * <p>The strategy used when copying data from the snapshot to the new volume. </p>
+   * <p>Specifies the strategy used when copying data from the snapshot to the new volume. </p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <code>CLONE</code> - The new volume references the data in the origin
    *                     snapshot. Cloning a snapshot is faster than copying data from the snapshot to a
    *                     new volume and doesn't consume disk throughput. However, the origin snapshot
-   *                     can't be deleted if there is a volume using its copied data. </p>
+   *                     can't be deleted if there is a volume using its copied data.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FULL_COPY</code> - Copies all data from the snapshot to the new volume.
-   *                 </p>
+   *                   <code>FULL_COPY</code> - Copies all data from the snapshot to the new
+   *                     volume.</p>
+   *                <p>Specify this option to create the volume from a snapshot on another FSx for OpenZFS file system.</p>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>The <code>INCREMENTAL_COPY</code> option is only for updating an existing volume
+   *                 by using a snapshot from another FSx for OpenZFS file system. For more
+   *                 information, see <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_CopySnapshotAndUpdateVolume.html">CopySnapshotAndUpdateVolume</a>.</p>
+   *          </note>
    */
-  CopyStrategy: OpenZFSCopyStrategy | string | undefined;
+  CopyStrategy: OpenZFSCopyStrategy | undefined;
 }
 
 /**
@@ -7010,7 +7382,7 @@ export interface CreateOpenZFSVolumeConfiguration {
    *             see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#performance-tips-zfs">
    *                 Tips for maximizing performance</a> File system and volume settings in the <i>Amazon FSx for OpenZFS User Guide</i>.</p>
    */
-  DataCompressionType?: OpenZFSDataCompressionType | string;
+  DataCompressionType?: OpenZFSDataCompressionType;
 
   /**
    * @public
@@ -7066,7 +7438,7 @@ export interface CreateVolumeRequest {
    * <p>Specifies the type of volume to create; <code>ONTAP</code> and <code>OPENZFS</code> are
    *             the only valid volume types.</p>
    */
-  VolumeType: VolumeType | string | undefined;
+  VolumeType: VolumeType | undefined;
 
   /**
    * @public
@@ -7285,7 +7657,7 @@ export interface DeleteBackupResponse {
    * <p>The lifecycle status of the backup. If the <code>DeleteBackup</code> operation is
    *             successful, the status is <code>DELETED</code>.</p>
    */
-  Lifecycle?: BackupLifecycle | string;
+  Lifecycle?: BackupLifecycle;
 }
 
 /**
@@ -7354,7 +7726,7 @@ export interface DeleteDataRepositoryAssociationResponse {
    * @public
    * <p>Describes the lifecycle state of the data repository association being deleted.</p>
    */
-  Lifecycle?: DataRepositoryLifecycle | string;
+  Lifecycle?: DataRepositoryLifecycle;
 
   /**
    * @public
@@ -7399,7 +7771,7 @@ export interface DeleteFileCacheResponse {
    *             <code>DeleteFileCache</code> operation is successful, this status is
    *             <code>DELETING</code>.</p>
    */
-  Lifecycle?: FileCacheLifecycle | string;
+  Lifecycle?: FileCacheLifecycle;
 }
 
 /**
@@ -7496,7 +7868,7 @@ export interface DeleteFileSystemOpenZFSConfiguration {
    *             use the string <code>DELETE_CHILD_VOLUMES_AND_SNAPSHOTS</code>. If your file system
    *             has child volumes and you don't use this option, the delete request will fail.</p>
    */
-  Options?: (DeleteFileSystemOpenZFSOption | string)[];
+  Options?: DeleteFileSystemOpenZFSOption[];
 }
 
 /**
@@ -7636,7 +8008,7 @@ export interface DeleteFileSystemResponse {
    *                 <code>DeleteFileSystem</code> operation is successful, this status is
    *                 <code>DELETING</code>.</p>
    */
-  Lifecycle?: FileSystemLifecycle | string;
+  Lifecycle?: FileSystemLifecycle;
 
   /**
    * @public
@@ -7694,7 +8066,7 @@ export interface DeleteSnapshotResponse {
    * <p>The lifecycle status of the snapshot. If the <code>DeleteSnapshot</code> operation is
    *             successful, this status is <code>DELETING</code>.</p>
    */
-  Lifecycle?: SnapshotLifecycle | string;
+  Lifecycle?: SnapshotLifecycle;
 }
 
 /**
@@ -7756,7 +8128,7 @@ export interface DeleteStorageVirtualMachineResponse {
    * @public
    * <p>Describes the lifecycle state of the SVM being deleted.</p>
    */
-  Lifecycle?: StorageVirtualMachineLifecycle | string;
+  Lifecycle?: StorageVirtualMachineLifecycle;
 }
 
 /**
@@ -7814,7 +8186,7 @@ export interface DeleteVolumeOpenZFSConfiguration {
    * <p>To delete the volume's child volumes, snapshots, and clones, use the string
    *               <code>DELETE_CHILD_VOLUMES_AND_SNAPSHOTS</code>.</p>
    */
-  Options?: (DeleteOpenZFSVolumeOption | string)[];
+  Options?: DeleteOpenZFSVolumeOption[];
 }
 
 /**
@@ -7885,7 +8257,7 @@ export interface DeleteVolumeResponse {
    * <p>The lifecycle state of the volume being deleted. If the <code>DeleteVolume</code>
    *             operation is successful, this value is <code>DELETING</code>.</p>
    */
-  Lifecycle?: VolumeLifecycle | string;
+  Lifecycle?: VolumeLifecycle;
 
   /**
    * @public
@@ -7924,7 +8296,7 @@ export interface Filter {
    * @public
    * <p>The name for this filter.</p>
    */
-  Name?: FilterName | string;
+  Name?: FilterName;
 
   /**
    * @public
@@ -8087,7 +8459,7 @@ export interface DataRepositoryTaskFilter {
    *             </li>
    *          </ul>
    */
-  Name?: DataRepositoryTaskFilterName | string;
+  Name?: DataRepositoryTaskFilterName;
 
   /**
    * @public
@@ -8206,7 +8578,7 @@ export interface FileCache {
    * @public
    * <p>The type of cache, which must be <code>LUSTRE</code>.</p>
    */
-  FileCacheType?: FileCacheType | string;
+  FileCacheType?: FileCacheType;
 
   /**
    * @public
@@ -8242,7 +8614,7 @@ export interface FileCache {
    *             </li>
    *          </ul>
    */
-  Lifecycle?: FileCacheLifecycle | string;
+  Lifecycle?: FileCacheLifecycle;
 
   /**
    * @public
@@ -8423,6 +8795,22 @@ export interface DescribeFileSystemsRequest {
 
 /**
  * @public
+ */
+export interface DescribeSharedVpcConfigurationRequest {}
+
+/**
+ * @public
+ */
+export interface DescribeSharedVpcConfigurationResponse {
+  /**
+   * @public
+   * <p>Indicates whether participant accounts can create FSx for ONTAP Multi-AZ file systems in shared subnets.</p>
+   */
+  EnableFsxRouteTableUpdatesFromParticipantAccounts?: string;
+}
+
+/**
+ * @public
  * @enum
  */
 export const SnapshotFilterName = {
@@ -8446,7 +8834,7 @@ export interface SnapshotFilter {
    * <p>The name of the filter to use. You can filter by the <code>file-system-id</code> or by
    *                 <code>volume-id</code>.</p>
    */
-  Name?: SnapshotFilterName | string;
+  Name?: SnapshotFilterName;
 
   /**
    * @public
@@ -8488,6 +8876,14 @@ export interface DescribeSnapshotsRequest {
    *             the previous <code>NextToken</code> value left off.</p>
    */
   NextToken?: string;
+
+  /**
+   * @public
+   * <p>Set to <code>false</code> (default) if you want to only see the snapshots in your
+   *             Amazon Web Services account. Set to <code>true</code> if you want to see the
+   *             snapshots in your account and the ones shared with you from another account.</p>
+   */
+  IncludeShared?: boolean;
 }
 
 /**
@@ -8515,7 +8911,7 @@ export interface StorageVirtualMachineFilter {
    * @public
    * <p>The name for this filter.</p>
    */
-  Name?: StorageVirtualMachineFilterName | string;
+  Name?: StorageVirtualMachineFilterName;
 
   /**
    * @public
@@ -8601,7 +8997,7 @@ export interface VolumeFilter {
    * @public
    * <p>The name for this filter.</p>
    */
-  Name?: VolumeFilterName | string;
+  Name?: VolumeFilterName;
 
   /**
    * @public
@@ -8909,7 +9305,26 @@ export interface RestoreVolumeFromSnapshotRequest {
    *             </li>
    *          </ul>
    */
-  Options?: (RestoreOpenZFSVolumeOption | string)[];
+  Options?: RestoreOpenZFSVolumeOption[];
+}
+
+/**
+ * @public
+ */
+export interface StartMisconfiguredStateRecoveryRequest {
+  /**
+   * @public
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * @public
+   * <p>The globally unique ID of the file system, assigned by Amazon FSx.</p>
+   */
+  FileSystemId: string | undefined;
 }
 
 /**
@@ -9135,7 +9550,7 @@ export interface UpdateFileSystemLustreConfiguration {
    *          </ul>
    *          <p>This parameter is not supported for file systems with a data repository association.</p>
    */
-  AutoImportPolicy?: AutoImportPolicyType | string;
+  AutoImportPolicy?: AutoImportPolicyType;
 
   /**
    * @public
@@ -9157,7 +9572,7 @@ export interface UpdateFileSystemLustreConfiguration {
    *             its current data compression configuration.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-compression.html">Lustre data compression</a>.</p>
    */
-  DataCompressionType?: DataCompressionType | string;
+  DataCompressionType?: DataCompressionType;
 
   /**
    * @public
@@ -9174,6 +9589,28 @@ export interface UpdateFileSystemLustreConfiguration {
    *             try to access your file system as a root user.</p>
    */
   RootSquashConfiguration?: LustreRootSquashConfiguration;
+
+  /**
+   * @public
+   * <p>The throughput of an Amazon FSx for Lustre Persistent SSD-based file system,
+   *             measured in megabytes per second per tebibyte (MB/s/TiB). You can increase or decrease
+   *             your file system's throughput. Valid values depend on the deployment type of the file
+   *             system, as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For <code>PERSISTENT_1</code> SSD-based deployment types, valid values
+   *                 are 50, 100, and 200 MB/s/TiB.</p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>PERSISTENT_2</code> SSD-based deployment types, valid values
+   *                 are 125, 250, 500, and 1000 MB/s/TiB.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see
+   *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/managing-throughput-capacity.html">
+   *                 Managing throughput capacity</a>.</p>
+   */
+  PerUnitStorageThroughput?: number;
 }
 
 /**
@@ -9232,10 +9669,18 @@ export interface UpdateFileSystemOntapConfiguration {
 
   /**
    * @public
-   * <p>Enter a new value to change the amount of throughput capacity for the file system. Throughput capacity is measured in megabytes per second
-   *             (MBps). Valid values are 128, 256, 512, 1024, 2048, and 4096 MBps. For more information, see
+   * <p>Enter a new value to change the amount of throughput capacity for the file system in megabytes per second (MBps). For more information, see
    *           <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-throughput-capacity.html">Managing throughput capacity</a>
    *           in the FSx for ONTAP User Guide.</p>
+   *          <p>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The value of <code>ThroughputCapacity</code> and <code>ThroughputCapacityPerHAPair</code> are not the same value.</p>
+   *             </li>
+   *             <li>
+   *                <p>The value of <code>ThroughputCapacity</code> when divided by the value of <code>HAPairs</code> is outside of the valid range for <code>ThroughputCapacity</code>.</p>
+   *             </li>
+   *          </ul>
    */
   ThroughputCapacity?: number;
 
@@ -9254,6 +9699,34 @@ export interface UpdateFileSystemOntapConfiguration {
    *             list of VPC route table IDs for a file system.</p>
    */
   RemoveRouteTableIds?: string[];
+
+  /**
+   * @public
+   * <p>Use to choose the throughput capacity per HA pair, rather than the total throughput for the file system. </p>
+   *          <p>This field and <code>ThroughputCapacity</code> cannot be defined in the same API call, but one is required.</p>
+   *          <p>This field and <code>ThroughputCapacity</code> are the same for file systems with one HA pair.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For <code>SINGLE_AZ_1</code> and <code>MULTI_AZ_1</code>, valid values are 128, 256, 512, 1024, 2048, or 4096 MBps.</p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>SINGLE_AZ_2</code>, valid values are 3072 or 6144 MBps.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The value of <code>ThroughputCapacity</code> and <code>ThroughputCapacityPerHAPair</code> are not the same value for file systems with one HA pair.</p>
+   *             </li>
+   *             <li>
+   *                <p>The value of deployment type is <code>SINGLE_AZ_2</code> and <code>ThroughputCapacity</code> / <code>ThroughputCapacityPerHAPair</code> is a valid HA pair (a value between 2 and 6).</p>
+   *             </li>
+   *             <li>
+   *                <p>The value of <code>ThroughputCapacityPerHAPair</code> is not a valid value.</p>
+   *             </li>
+   *          </ul>
+   */
+  ThroughputCapacityPerHAPair?: number;
 }
 
 /**
@@ -9305,10 +9778,11 @@ export interface UpdateFileSystemOpenZFSConfiguration {
    * <p>The throughput of an Amazon FSx for OpenZFS file system, measured in megabytes per second  (MB/s). Valid values depend on the DeploymentType you choose, as follows:</p>
    *          <ul>
    *             <li>
-   *                <p>For <code>SINGLE_AZ_1</code>, valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MB/s.</p>
+   *                <p>For <code>MULTI_AZ_1</code> and <code>SINGLE_AZ_2</code>, valid values are 160, 320, 640,
+   *                 1280, 2560, 3840, 5120, 7680, or 10240 MB/s.</p>
    *             </li>
    *             <li>
-   *                <p>For <code>SINGLE_AZ_2</code>, valid values are 160, 320, 640, 1280, 2560, 3840, 5120, 7680, or 10240 MB/s.</p>
+   *                <p>For <code>SINGLE_AZ_1</code>, valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MB/s.</p>
    *             </li>
    *          </ul>
    */
@@ -9556,7 +10030,39 @@ export interface UpdateFileSystemRequest {
    * @public
    * <p>Specifies the file system's storage type.</p>
    */
-  StorageType?: StorageType | string;
+  StorageType?: StorageType;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSharedVpcConfigurationRequest {
+  /**
+   * @public
+   * <p>Specifies whether participant accounts can create FSx for ONTAP Multi-AZ
+   *             file systems in shared subnets. Set to <code>true</code> to enable or <code>false</code>
+   *             to disable.</p>
+   */
+  EnableFsxRouteTableUpdatesFromParticipantAccounts?: string;
+
+  /**
+   * @public
+   * <p>(Optional) An idempotency token for resource creation, in a string of up to 63
+   *             ASCII characters. This token is automatically filled on your behalf when you use the
+   *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
+   */
+  ClientRequestToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateSharedVpcConfigurationResponse {
+  /**
+   * @public
+   * <p>Indicates whether participant accounts can create FSx for ONTAP Multi-AZ file systems in shared subnets.</p>
+   */
+  EnableFsxRouteTableUpdatesFromParticipantAccounts?: string;
 }
 
 /**
@@ -9680,7 +10186,7 @@ export interface UpdateSnaplockConfiguration {
    *          <p>For more information, see
    *             <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-enterprise.html#privileged-delete">Privileged delete</a>. </p>
    */
-  PrivilegedDelete?: PrivilegedDelete | string;
+  PrivilegedDelete?: PrivilegedDelete;
 
   /**
    * @public
@@ -9715,7 +10221,7 @@ export interface UpdateOntapVolumeConfiguration {
    * <p>The security style for the volume, which can be <code>UNIX</code>,
    *             <code>NTFS</code>, or <code>MIXED</code>.</p>
    */
-  SecurityStyle?: SecurityStyle | string;
+  SecurityStyle?: SecurityStyle;
 
   /**
    * @public
@@ -9778,6 +10284,12 @@ export interface UpdateOntapVolumeConfiguration {
    * <p>The configuration object for updating the SnapLock configuration of an FSx for ONTAP SnapLock volume. </p>
    */
   SnaplockConfiguration?: UpdateSnaplockConfiguration;
+
+  /**
+   * @public
+   * <p>The configured size of the volume, in bytes.</p>
+   */
+  SizeInBytes?: number;
 }
 
 /**
@@ -9838,7 +10350,7 @@ export interface UpdateOpenZFSVolumeConfiguration {
    *             </li>
    *          </ul>
    */
-  DataCompressionType?: OpenZFSDataCompressionType | string;
+  DataCompressionType?: OpenZFSDataCompressionType;
 
   /**
    * @public
@@ -9902,7 +10414,7 @@ export interface UpdateVolumeRequest {
 /**
  * @public
  * <p>Describes a specific Amazon FSx administrative action for the current Windows,
- *             Lustre, or OpenZFS file system.</p>
+ *             Lustre, OpenZFS, or ONTAP file system or volume.</p>
  */
 export interface AdministrativeAction {
   /**
@@ -9951,7 +10463,7 @@ export interface AdministrativeAction {
    *                         <code>COMPLETED</code>. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-storage-capacity.html">Managing
    *                         storage capacity</a> in the <i>Amazon FSx for Windows
    *                         File Server User Guide</i>, <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/managing-storage-capacity.html">Managing storage
-   *                         and throughput capacity</a> in the <i>Amazon FSx for
+   *                         capacity</a> in the <i>Amazon FSx for
    *                             Lustre User Guide</i>, and
    *                     <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-storage-capacity.html">Managing storage capacity and provisioned IOPS</a> in the <i>Amazon FSx for NetApp ONTAP User
    *                             Guide</i>.</p>
@@ -9973,12 +10485,12 @@ export interface AdministrativeAction {
    *                     task to increase a file system's throughput capacity has been completed
    *                     successfully, a <code>IOPS_OPTIMIZATION</code> task starts.</p>
    *                <p>You can track the storage-optimization progress using the
-   *                     <code>ProgressPercent</code> property. When
-   *                     <code>IOPS_OPTIMIZATION</code> has been completed successfully, the
-   *                     parent <code>FILE_SYSTEM_UPDATE</code> action status changes to
-   *                     <code>COMPLETED</code>. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-provisioned-ssd-iops.html">Managing
-   *                         provisioned SSD IOPS</a> in the <i>Amazon FSx for Windows
-   *                             File Server User Guide</i>.</p>
+   *                         <code>ProgressPercent</code> property. When <code>IOPS_OPTIMIZATION</code>
+   *                     has been completed successfully, the parent <code>FILE_SYSTEM_UPDATE</code>
+   *                     action status changes to <code>COMPLETED</code>. For more information, see
+   *                         <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-provisioned-ssd-iops.html">Managing
+   *                         provisioned SSD IOPS</a> in the Amazon FSx for Windows File
+   *                     Server User Guide.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -9993,10 +10505,9 @@ export interface AdministrativeAction {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>VOLUME_UPDATE</code> - A volume update to an Amazon FSx for NetApp ONTAP or
-   *                         Amazon FSx for OpenZFS volume initiated from the Amazon FSx
-   *                     console, API (<code>UpdateVolume</code>), or CLI
-   *                     (<code>update-volume</code>).</p>
+   *                   <code>VOLUME_UPDATE</code> - A volume update to an Amazon FSx for OpenZFS volume
+   *                     initiated from the Amazon FSx console, API (<code>UpdateVolume</code>),
+   *                     or CLI (<code>update-volume</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -10016,14 +10527,30 @@ export interface AdministrativeAction {
    *                   <code>RELEASE_NFS_V3_LOCKS</code> - Tracks the release of Network File System
    *                     (NFS) V3 locks on an Amazon FSx for OpenZFS file system.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VOLUME_INITIALIZE_WITH_SNAPSHOT</code> - A volume is being created from
+   *                     a snapshot on a different FSx for OpenZFS file system. You can
+   *                     initiate this from the Amazon FSx console, API
+   *                     (<code>CreateVolume</code>), or CLI (<code>create-volume</code>) when using
+   *                     the using the <code>FULL_COPY</code> strategy.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VOLUME_UPDATE_WITH_SNAPSHOT</code> - A volume is being updated from a
+   *                     snapshot on a different FSx for OpenZFS file system. You can initiate
+   *                     this from the Amazon FSx console, API
+   *                         (<code>CopySnapshotAndUpdateVolume</code>), or CLI
+   *                         (<code>copy-snapshot-and-update-volume</code>).</p>
+   *             </li>
    *          </ul>
    */
-  AdministrativeActionType?: AdministrativeActionType | string;
+  AdministrativeActionType?: AdministrativeActionType;
 
   /**
    * @public
-   * <p>The percentage-complete status of a <code>STORAGE_OPTIMIZATION</code> administrative
-   *             action. Does not apply to any other administrative action type.</p>
+   * <p>The percentage-complete status of a <code>STORAGE_OPTIMIZATION</code> administrative action. Does not apply to any
+   *             other administrative action type.</p>
    */
   ProgressPercent?: number;
 
@@ -10035,7 +10562,7 @@ export interface AdministrativeAction {
 
   /**
    * @public
-   * <p>Describes the status of the administrative action, as follows:</p>
+   * <p>The status of the administrative action, as follows:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -10060,18 +10587,17 @@ export interface AdministrativeAction {
    *                <p>
    *                   <code>UPDATED_OPTIMIZING</code> - For a storage-capacity increase update, Amazon FSx
    *                     has updated the file system with the new storage capacity, and is now performing
-   *                     the storage-optimization process. </p>
+   *                     the storage-optimization process.</p>
    *             </li>
    *          </ul>
    */
-  Status?: Status | string;
+  Status?: Status;
 
   /**
    * @public
-   * <p>Describes the target value for the administration action,
-   *             provided in the <code>UpdateFileSystem</code> operation.
-   *            Returned for <code>FILE_SYSTEM_UPDATE</code> administrative actions.
-   *          </p>
+   * <p>The target value for the administration action, provided in the
+   *                 <code>UpdateFileSystem</code> operation. Returned for
+   *                 <code>FILE_SYSTEM_UPDATE</code> administrative actions. </p>
    */
   TargetFileSystemValues?: FileSystem;
 
@@ -10083,8 +10609,7 @@ export interface AdministrativeAction {
 
   /**
    * @public
-   * <p>Describes an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS
-   *             volume.</p>
+   * <p>Describes an Amazon FSx volume.</p>
    */
   TargetVolumeValues?: Volume;
 
@@ -10093,6 +10618,20 @@ export interface AdministrativeAction {
    * <p>A snapshot of an Amazon FSx for OpenZFS volume.</p>
    */
   TargetSnapshotValues?: Snapshot;
+
+  /**
+   * @public
+   * <p>The number of bytes that have transferred for the FSx for OpenZFS snapshot
+   *             that you're copying.</p>
+   */
+  TotalTransferBytes?: number;
+
+  /**
+   * @public
+   * <p>The remaining bytes to transfer for the FSx for OpenZFS snapshot that you're
+   *             copying.</p>
+   */
+  RemainingTransferBytes?: number;
 }
 
 /**
@@ -10126,7 +10665,7 @@ export interface FileSystem {
    * <p>The type of Amazon FSx file system, which can be <code>LUSTRE</code>,
    *                 <code>WINDOWS</code>, <code>ONTAP</code>, or <code>OPENZFS</code>.</p>
    */
-  FileSystemType?: FileSystemType | string;
+  FileSystemType?: FileSystemType;
 
   /**
    * @public
@@ -10165,7 +10704,7 @@ export interface FileSystem {
    *             </li>
    *          </ul>
    */
-  Lifecycle?: FileSystemLifecycle | string;
+  Lifecycle?: FileSystemLifecycle;
 
   /**
    * @public
@@ -10176,6 +10715,7 @@ export interface FileSystem {
   /**
    * @public
    * <p>The storage capacity of the file system in gibibytes (GiB).</p>
+   *          <p>Amazon FSx responds with an HTTP status code 400 (Bad Request) if the value of <code>StorageCapacity</code> is outside of the minimum or maximum values.</p>
    */
   StorageCapacity?: number;
 
@@ -10186,7 +10726,7 @@ export interface FileSystem {
    *             If set to <code>HDD</code>, the file system uses hard disk drive storage.
    *         </p>
    */
-  StorageType?: StorageType | string;
+  StorageType?: StorageType;
 
   /**
    * @public
@@ -10293,8 +10833,8 @@ export interface FileSystem {
 
   /**
    * @public
-   * <p>The Lustre version of the Amazon FSx for Lustre file system, either
-   *             <code>2.10</code> or <code>2.12</code>.</p>
+   * <p>The Lustre version of the Amazon FSx for Lustre file system, which
+   *             can be <code>2.10</code>, <code>2.12</code>, or <code>2.15</code>.</p>
    */
   FileSystemTypeVersion?: string;
 
@@ -10367,7 +10907,7 @@ export interface Snapshot {
    *             </li>
    *          </ul>
    */
-  Lifecycle?: SnapshotLifecycle | string;
+  Lifecycle?: SnapshotLifecycle;
 
   /**
    * @public
@@ -10392,8 +10932,7 @@ export interface Snapshot {
 
 /**
  * @public
- * <p>Describes an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS
- *             volume.</p>
+ * <p>Describes an Amazon FSx volume.</p>
  */
 export interface Volume {
   /**
@@ -10448,7 +10987,7 @@ export interface Volume {
    *             </li>
    *          </ul>
    */
-  Lifecycle?: VolumeLifecycle | string;
+  Lifecycle?: VolumeLifecycle;
 
   /**
    * @public
@@ -10487,7 +11026,7 @@ export interface Volume {
    * @public
    * <p>The type of the volume.</p>
    */
-  VolumeType?: VolumeType | string;
+  VolumeType?: VolumeType;
 
   /**
    * @public
@@ -10513,6 +11052,31 @@ export interface Volume {
 /**
  * @public
  */
+export interface CopySnapshotAndUpdateVolumeResponse {
+  /**
+   * @public
+   * <p>The ID of the volume that you copied the snapshot to.</p>
+   */
+  VolumeId?: string;
+
+  /**
+   * @public
+   * <p>The lifecycle state of the destination volume. </p>
+   */
+  Lifecycle?: VolumeLifecycle;
+
+  /**
+   * @public
+   * <p>A list of administrative actions for the file system that are in process or waiting to
+   *             be processed. Administrative actions describe changes to the Amazon FSx
+   *             system.</p>
+   */
+  AdministrativeActions?: AdministrativeAction[];
+}
+
+/**
+ * @public
+ */
 export interface RestoreVolumeFromSnapshotResponse {
   /**
    * @public
@@ -10524,7 +11088,7 @@ export interface RestoreVolumeFromSnapshotResponse {
    * @public
    * <p>The lifecycle state of the volume being restored.</p>
    */
-  Lifecycle?: VolumeLifecycle | string;
+  Lifecycle?: VolumeLifecycle;
 
   /**
    * @public
@@ -10598,6 +11162,17 @@ export interface CreateVolumeResponse {
  * @public
  */
 export interface ReleaseFileSystemNfsV3LocksResponse {
+  /**
+   * @public
+   * <p>A description of a specific Amazon FSx file system.</p>
+   */
+  FileSystem?: FileSystem;
+}
+
+/**
+ * @public
+ */
+export interface StartMisconfiguredStateRecoveryResponse {
   /**
    * @public
    * <p>A description of a specific Amazon FSx file system.</p>
@@ -10747,7 +11322,7 @@ export interface Backup {
    *             </li>
    *          </ul>
    */
-  Lifecycle: BackupLifecycle | string | undefined;
+  Lifecycle: BackupLifecycle | undefined;
 
   /**
    * @public
@@ -10759,7 +11334,7 @@ export interface Backup {
    * @public
    * <p>The type of the file-system backup.</p>
    */
-  Type: BackupType | string | undefined;
+  Type: BackupType | undefined;
 
   /**
    * @public
@@ -10830,12 +11405,11 @@ export interface Backup {
    * @public
    * <p>Specifies the resource type that's backed up.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
-   * <p>Describes an Amazon FSx for NetApp ONTAP or Amazon FSx for OpenZFS
-   *             volume.</p>
+   * <p>Describes an Amazon FSx volume.</p>
    */
   Volume?: Volume;
 }
@@ -11093,6 +11667,18 @@ export const VolumeFilterSensitiveLog = (obj: Volume): any => ({
 /**
  * @internal
  */
+export const CopySnapshotAndUpdateVolumeResponseFilterSensitiveLog = (
+  obj: CopySnapshotAndUpdateVolumeResponse
+): any => ({
+  ...obj,
+  ...(obj.AdministrativeActions && {
+    AdministrativeActions: obj.AdministrativeActions.map((item) => AdministrativeActionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const RestoreVolumeFromSnapshotResponseFilterSensitiveLog = (obj: RestoreVolumeFromSnapshotResponse): any => ({
   ...obj,
   ...(obj.AdministrativeActions && {
@@ -11142,6 +11728,16 @@ export const CreateVolumeResponseFilterSensitiveLog = (obj: CreateVolumeResponse
  */
 export const ReleaseFileSystemNfsV3LocksResponseFilterSensitiveLog = (
   obj: ReleaseFileSystemNfsV3LocksResponse
+): any => ({
+  ...obj,
+  ...(obj.FileSystem && { FileSystem: FileSystemFilterSensitiveLog(obj.FileSystem) }),
+});
+
+/**
+ * @internal
+ */
+export const StartMisconfiguredStateRecoveryResponseFilterSensitiveLog = (
+  obj: StartMisconfiguredStateRecoveryResponse
 ): any => ({
   ...obj,
   ...(obj.FileSystem && { FileSystem: FileSystemFilterSensitiveLog(obj.FileSystem) }),

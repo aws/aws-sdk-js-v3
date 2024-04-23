@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -80,6 +78,10 @@ import {
   DeleteLanguageModelCommandOutput,
 } from "./commands/DeleteLanguageModelCommand";
 import {
+  DeleteMedicalScribeJobCommandInput,
+  DeleteMedicalScribeJobCommandOutput,
+} from "./commands/DeleteMedicalScribeJobCommand";
+import {
   DeleteMedicalTranscriptionJobCommandInput,
   DeleteMedicalTranscriptionJobCommandOutput,
 } from "./commands/DeleteMedicalTranscriptionJobCommand";
@@ -109,6 +111,10 @@ import {
   GetCallAnalyticsJobCommandOutput,
 } from "./commands/GetCallAnalyticsJobCommand";
 import {
+  GetMedicalScribeJobCommandInput,
+  GetMedicalScribeJobCommandOutput,
+} from "./commands/GetMedicalScribeJobCommand";
+import {
   GetMedicalTranscriptionJobCommandInput,
   GetMedicalTranscriptionJobCommandOutput,
 } from "./commands/GetMedicalTranscriptionJobCommand";
@@ -135,6 +141,10 @@ import {
 } from "./commands/ListCallAnalyticsJobsCommand";
 import { ListLanguageModelsCommandInput, ListLanguageModelsCommandOutput } from "./commands/ListLanguageModelsCommand";
 import {
+  ListMedicalScribeJobsCommandInput,
+  ListMedicalScribeJobsCommandOutput,
+} from "./commands/ListMedicalScribeJobsCommand";
+import {
   ListMedicalTranscriptionJobsCommandInput,
   ListMedicalTranscriptionJobsCommandOutput,
 } from "./commands/ListMedicalTranscriptionJobsCommand";
@@ -159,6 +169,10 @@ import {
   StartCallAnalyticsJobCommandInput,
   StartCallAnalyticsJobCommandOutput,
 } from "./commands/StartCallAnalyticsJobCommand";
+import {
+  StartMedicalScribeJobCommandInput,
+  StartMedicalScribeJobCommandOutput,
+} from "./commands/StartMedicalScribeJobCommand";
 import {
   StartMedicalTranscriptionJobCommandInput,
   StartMedicalTranscriptionJobCommandOutput,
@@ -205,6 +219,7 @@ export type ServiceInputTypes =
   | DeleteCallAnalyticsCategoryCommandInput
   | DeleteCallAnalyticsJobCommandInput
   | DeleteLanguageModelCommandInput
+  | DeleteMedicalScribeJobCommandInput
   | DeleteMedicalTranscriptionJobCommandInput
   | DeleteMedicalVocabularyCommandInput
   | DeleteTranscriptionJobCommandInput
@@ -213,6 +228,7 @@ export type ServiceInputTypes =
   | DescribeLanguageModelCommandInput
   | GetCallAnalyticsCategoryCommandInput
   | GetCallAnalyticsJobCommandInput
+  | GetMedicalScribeJobCommandInput
   | GetMedicalTranscriptionJobCommandInput
   | GetMedicalVocabularyCommandInput
   | GetTranscriptionJobCommandInput
@@ -221,6 +237,7 @@ export type ServiceInputTypes =
   | ListCallAnalyticsCategoriesCommandInput
   | ListCallAnalyticsJobsCommandInput
   | ListLanguageModelsCommandInput
+  | ListMedicalScribeJobsCommandInput
   | ListMedicalTranscriptionJobsCommandInput
   | ListMedicalVocabulariesCommandInput
   | ListTagsForResourceCommandInput
@@ -228,6 +245,7 @@ export type ServiceInputTypes =
   | ListVocabulariesCommandInput
   | ListVocabularyFiltersCommandInput
   | StartCallAnalyticsJobCommandInput
+  | StartMedicalScribeJobCommandInput
   | StartMedicalTranscriptionJobCommandInput
   | StartTranscriptionJobCommandInput
   | TagResourceCommandInput
@@ -249,6 +267,7 @@ export type ServiceOutputTypes =
   | DeleteCallAnalyticsCategoryCommandOutput
   | DeleteCallAnalyticsJobCommandOutput
   | DeleteLanguageModelCommandOutput
+  | DeleteMedicalScribeJobCommandOutput
   | DeleteMedicalTranscriptionJobCommandOutput
   | DeleteMedicalVocabularyCommandOutput
   | DeleteTranscriptionJobCommandOutput
@@ -257,6 +276,7 @@ export type ServiceOutputTypes =
   | DescribeLanguageModelCommandOutput
   | GetCallAnalyticsCategoryCommandOutput
   | GetCallAnalyticsJobCommandOutput
+  | GetMedicalScribeJobCommandOutput
   | GetMedicalTranscriptionJobCommandOutput
   | GetMedicalVocabularyCommandOutput
   | GetTranscriptionJobCommandOutput
@@ -265,6 +285,7 @@ export type ServiceOutputTypes =
   | ListCallAnalyticsCategoriesCommandOutput
   | ListCallAnalyticsJobsCommandOutput
   | ListLanguageModelsCommandOutput
+  | ListMedicalScribeJobsCommandOutput
   | ListMedicalTranscriptionJobsCommandOutput
   | ListMedicalVocabulariesCommandOutput
   | ListTagsForResourceCommandOutput
@@ -272,6 +293,7 @@ export type ServiceOutputTypes =
   | ListVocabulariesCommandOutput
   | ListVocabularyFiltersCommandOutput
   | StartCallAnalyticsJobCommandOutput
+  | StartMedicalScribeJobCommandOutput
   | StartMedicalTranscriptionJobCommandOutput
   | StartTranscriptionJobCommandOutput
   | TagResourceCommandOutput
@@ -391,6 +413,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

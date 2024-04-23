@@ -78,6 +78,11 @@ import {
   DeleteWorkflowCommandOutput,
 } from "./commands/DeleteWorkflowCommand";
 import {
+  DetectProfileObjectTypeCommand,
+  DetectProfileObjectTypeCommandInput,
+  DetectProfileObjectTypeCommandOutput,
+} from "./commands/DetectProfileObjectTypeCommand";
+import {
   GetAutoMergingPreviewCommand,
   GetAutoMergingPreviewCommandInput,
   GetAutoMergingPreviewCommandOutput,
@@ -255,6 +260,7 @@ const commands = {
   DeleteProfileObjectCommand,
   DeleteProfileObjectTypeCommand,
   DeleteWorkflowCommand,
+  DetectProfileObjectTypeCommand,
   GetAutoMergingPreviewCommand,
   GetCalculatedAttributeDefinitionCommand,
   GetCalculatedAttributeForProfileCommand,
@@ -514,6 +520,23 @@ export interface CustomerProfiles {
     args: DeleteWorkflowCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteWorkflowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DetectProfileObjectTypeCommand}
+   */
+  detectProfileObjectType(
+    args: DetectProfileObjectTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DetectProfileObjectTypeCommandOutput>;
+  detectProfileObjectType(
+    args: DetectProfileObjectTypeCommandInput,
+    cb: (err: any, data?: DetectProfileObjectTypeCommandOutput) => void
+  ): void;
+  detectProfileObjectType(
+    args: DetectProfileObjectTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DetectProfileObjectTypeCommandOutput) => void
   ): void;
 
   /**

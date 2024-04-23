@@ -1,22 +1,13 @@
 // smithy-typescript generated code
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
+import { getS3ExpiresMiddlewarePlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SdkStreamSerdeContext as __SdkStreamSerdeContext,
-  SerdeContext as __SerdeContext,
-  StreamingBlobPayloadOutputTypes,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetObjectOutput,
   GetObjectOutputFilterSensitiveLog,
@@ -47,130 +38,99 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
 
 /**
  * @public
- * <p>Retrieves objects from Amazon S3. To use <code>GET</code>, you must have <code>READ</code>
- *          access to the object. If you grant <code>READ</code> access to the anonymous user, you can
- *          return the object without using an authorization header.</p>
- *          <p>An Amazon S3 bucket has no directory hierarchy such as you would find in a typical computer
- *          file system. You can, however, create a logical hierarchy by using object key names that
- *          imply a folder structure. For example, instead of naming an object <code>sample.jpg</code>,
- *          you can name it <code>photos/2006/February/sample.jpg</code>.</p>
- *          <p>To get an object from such a logical hierarchy, specify the full key name for the object
- *          in the <code>GET</code> operation. For a virtual hosted-style request example, if you have
- *          the object <code>photos/2006/February/sample.jpg</code>, specify the resource as
+ * <p>Retrieves an object from Amazon S3.</p>
+ *          <p>In the <code>GetObject</code> request, specify the full key name for the object.</p>
+ *          <p>
+ *             <b>General purpose buckets</b> - Both the virtual-hosted-style requests and the path-style requests are supported. For a virtual hosted-style request example, if you have
+ *          the object <code>photos/2006/February/sample.jpg</code>, specify the object key name as
  *             <code>/photos/2006/February/sample.jpg</code>. For a path-style request example, if you
  *          have the object <code>photos/2006/February/sample.jpg</code> in the bucket named
- *             <code>examplebucket</code>, specify the resource as
+ *             <code>examplebucket</code>, specify the object key name as
  *             <code>/examplebucket/photos/2006/February/sample.jpg</code>. For more information about
  *          request types, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#VirtualHostingSpecifyBucket">HTTP Host
- *             Header Bucket Specification</a>.</p>
- *          <p>For more information about returning the ACL of an object, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAcl.html">GetObjectAcl</a>.</p>
- *          <p>If the object you are retrieving is stored in the S3 Glacier Flexible Retrieval or
- *          S3 Glacier Deep Archive storage class, or S3 Intelligent-Tiering Archive or
- *          S3 Intelligent-Tiering Deep Archive tiers, before you can retrieve the object you must first restore a
- *          copy using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html">RestoreObject</a>. Otherwise, this action returns an
- *             <code>InvalidObjectState</code> error. For information about restoring archived objects,
- *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html">Restoring
- *             Archived Objects</a>.</p>
- *          <p>Encryption request headers, like <code>x-amz-server-side-encryption</code>, should not
- *          be sent for GET requests if your object uses server-side encryption with Key Management Service (KMS)
- *          keys (SSE-KMS), dual-layer server-side encryption with Amazon Web Services KMS keys (DSSE-KMS), or
- *          server-side encryption with Amazon S3 managed encryption keys (SSE-S3). If your object does use
- *          these types of keys, you’ll get an HTTP 400 Bad Request error.</p>
- *          <p>If you encrypt an object by using server-side encryption with customer-provided
- *          encryption keys (SSE-C) when you store the object in Amazon S3, then when you GET the object,
- *          you must use the following headers:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>x-amz-server-side-encryption-customer-algorithm</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>x-amz-server-side-encryption-customer-key</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>x-amz-server-side-encryption-customer-key-MD5</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>For more information about SSE-C, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">Server-Side Encryption
- *             (Using Customer-Provided Encryption Keys)</a>.</p>
- *          <p>Assuming you have the relevant permission to read object tags, the response also returns
- *          the <code>x-amz-tagging-count</code> header that provides the count of number of tags
- *          associated with the object. You can use <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html">GetObjectTagging</a> to retrieve
- *          the tag set associated with an object.</p>
+ *             Header Bucket Specification</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *          <p>
+ *             <b>Directory buckets</b> - Only virtual-hosted-style requests are supported. For a virtual hosted-style request example, if you have the object <code>photos/2006/February/sample.jpg</code> in the bucket named <code>examplebucket--use1-az5--x-s3</code>, specify the object key name as <code>/photos/2006/February/sample.jpg</code>. Also, when you make requests to this API operation, your requests are sent to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i>
+ *             </code>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints</a> in the
+ *     <i>Amazon S3 User Guide</i>.</p>
  *          <dl>
  *             <dt>Permissions</dt>
  *             <dd>
- *                <p>You need the relevant read object (or version) permission for this operation. For more
- *                   information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying Permissions in a
- *                      Policy</a>. If the object that you request doesn’t exist, the error that Amazon S3 returns depends
- *                   on whether you also have the <code>s3:ListBucket</code> permission.</p>
- *                <p>If you have the <code>s3:ListBucket</code> permission on the bucket, Amazon S3
- *                         returns an HTTP status code 404 (Not Found) error.</p>
- *                <p>If you don’t have the <code>s3:ListBucket</code> permission, Amazon S3 returns an
- *                         HTTP status code 403 ("access denied") error.</p>
- *             </dd>
- *             <dt>Versioning</dt>
- *             <dd>
- *                <p>By default, the <code>GET</code> action returns the current version of an object. To return a
- *                   different version, use the <code>versionId</code> subresource.</p>
- *                <note>
- *                   <ul>
- *                      <li>
- *                         <p> If you supply a <code>versionId</code>, you need the
- *                            <code>s3:GetObjectVersion</code> permission to access a specific version of an
- *                            object. If you request a specific version, you do not need to have the
- *                            <code>s3:GetObject</code> permission. If you request the current version
- *                            without a specific version ID, only <code>s3:GetObject</code> permission is
- *                            required. <code>s3:GetObjectVersion</code> permission won't be required.</p>
- *                      </li>
- *                      <li>
- *                         <p>If the current version of the object is a delete marker, Amazon S3 behaves as if the
- *                            object was deleted and includes <code>x-amz-delete-marker: true</code> in the
- *                            response.</p>
- *                      </li>
- *                   </ul>
- *                </note>
- *                <p>For more information about versioning, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketVersioning.html">PutBucketVersioning</a>. </p>
- *             </dd>
- *             <dt>Overriding Response Header Values</dt>
- *             <dd>
- *                <p>There are times when you want to override certain response header values in a <code>GET</code>
- *                   response. For example, you might override the <code>Content-Disposition</code> response
- *          header value in your <code>GET</code> request.</p>
- *                <p>You can override values for a set of response headers using the following query
- *                   parameters. These response header values are sent only on a successful request, that is,
- *                   when status code 200 OK is returned. The set of headers you can override using these
- *                   parameters is a subset of the headers that Amazon S3 accepts when you create an object. The
- *                   response headers that you can override for the <code>GET</code> response are <code>Content-Type</code>,
- *                   <code>Content-Language</code>, <code>Expires</code>, <code>Cache-Control</code>,
- *                   <code>Content-Disposition</code>, and <code>Content-Encoding</code>. To override these
- *                   header values in the <code>GET</code> response, you use the following request parameters.</p>
- *                <note>
- *                   <p>You must sign the request, either using an Authorization header or a presigned URL,
- *                      when using these parameters. They cannot be used with an unsigned (anonymous)
- *                      request.</p>
- *                </note>
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <code>response-content-type</code>
+ *                         <b>General purpose bucket permissions</b> - You must have the required permissions in a policy. To use <code>GetObject</code>, you must have the <code>READ</code>
+ *                         access to the object (or version). If you grant <code>READ</code> access to the anonymous user, the <code>GetObject</code> operation
+ *                         returns the object without using an authorization header. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html">Specifying permissions in
+ *                            a policy</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                      <p>If you include a <code>versionId</code> in your request header, you must have the
+ *                         <code>s3:GetObjectVersion</code> permission to access a specific
+ *                         version of an object. The <code>s3:GetObject</code> permission is not required in this scenario.</p>
+ *                      <p>If you request the
+ *                         current version of an object without a specific <code>versionId</code> in the request header, only
+ *                         the <code>s3:GetObject</code> permission is required. The <code>s3:GetObjectVersion</code> permission is not required in this scenario.
  *                      </p>
+ *                      <p>If the object that you request doesn’t exist, the error that
+ *                         Amazon S3 returns depends on whether you also have the <code>s3:ListBucket</code>
+ *                         permission.</p>
+ *                      <ul>
+ *                         <li>
+ *                            <p>If you have the <code>s3:ListBucket</code> permission on the bucket, Amazon S3
+ *                               returns an HTTP status code <code>404 Not Found</code> error.</p>
+ *                         </li>
+ *                         <li>
+ *                            <p>If you don’t have the <code>s3:ListBucket</code> permission, Amazon S3 returns an
+ *                               HTTP status code <code>403 Access Denied</code> error.</p>
+ *                         </li>
+ *                      </ul>
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <code>response-content-language</code>
- *                      </p>
+ *                         <b>Directory bucket permissions</b> - To grant access to this API operation on a directory bucket, we recommend that you use the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html">
+ *                            <code>CreateSession</code>
+ *                         </a> API operation for session-based authorization. Specifically, you grant the <code>s3express:CreateSession</code> permission to the directory bucket in a bucket policy or an IAM identity-based policy. Then, you make the <code>CreateSession</code> API call on the bucket to obtain a session token. With the session token in your request header, you can make API requests to this operation. After the session token expires, you make another <code>CreateSession</code> API call to generate a new session token for use.
+ * Amazon Web Services CLI or SDKs create session and refresh the session token automatically to avoid service interruptions when a session expires. For more information about authorization, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html">
+ *                            <code>CreateSession</code>
+ *                         </a>.</p>
  *                   </li>
- *                   <li>
- *                      <p>
- *                         <code>response-expires</code>
- *                      </p>
- *                   </li>
+ *                </ul>
+ *             </dd>
+ *             <dt>Storage classes</dt>
+ *             <dd>
+ *                <p>If the object you are retrieving is stored in the S3 Glacier Flexible Retrieval storage class, the
+ *                   S3 Glacier Deep Archive storage class, the S3 Intelligent-Tiering Archive Access tier, or the
+ *                   S3 Intelligent-Tiering Deep Archive Access tier, before you can retrieve the object you must first restore a
+ *                   copy using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html">RestoreObject</a>. Otherwise, this operation returns an
+ *                   <code>InvalidObjectState</code> error. For information about restoring archived objects,
+ *                   see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html">Restoring
+ *                      Archived Objects</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                <p>
+ *                   <b>Directory buckets </b> - For directory buckets, only the S3 Express One Zone storage class is supported to store newly created objects.
+ * Unsupported storage class values won't write a destination object and will respond with the HTTP status code <code>400 Bad Request</code>.</p>
+ *             </dd>
+ *             <dt>Encryption</dt>
+ *             <dd>
+ *                <p>Encryption request headers, like <code>x-amz-server-side-encryption</code>, should not
+ *                   be sent for the <code>GetObject</code> requests, if your object uses server-side encryption with Amazon S3 managed encryption keys (SSE-S3), server-side encryption with Key Management Service (KMS)
+ *                   keys (SSE-KMS), or dual-layer server-side encryption with Amazon Web Services KMS keys (DSSE-KMS). If you include the header in your <code>GetObject</code> requests for the object that uses
+ *                   these types of keys, you’ll get an HTTP <code>400 Bad Request</code> error.</p>
+ *             </dd>
+ *             <dt>Overriding response header values through the request</dt>
+ *             <dd>
+ *                <p>There are times when you want to override certain response header values of a
+ *                      <code>GetObject</code> response. For example, you might override the
+ *                      <code>Content-Disposition</code> response header value through your <code>GetObject</code>
+ *                   request.</p>
+ *                <p>You can override values for a set of response headers. These modified response header values are included only in a successful response, that is, when the HTTP status code <code>200 OK</code> is returned.
+ *                   The headers you can override using the following query parameters in the request are a subset of the headers that Amazon S3 accepts when you create an object.
+ *                </p>
+ *                <p>The response headers that you can override for the
+ *                   <code>GetObject</code> response are <code>Cache-Control</code>, <code>Content-Disposition</code>,
+ *                   <code>Content-Encoding</code>, <code>Content-Language</code>, <code>Content-Type</code>, and <code>Expires</code>.</p>
+ *                <p>To override values for a set of response headers in the
+ *                   <code>GetObject</code> response, you can use the following query
+ *                   parameters in the request.</p>
+ *                <ul>
  *                   <li>
  *                      <p>
  *                         <code>response-cache-control</code>
@@ -186,19 +146,33 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
  *                         <code>response-content-encoding</code>
  *                      </p>
  *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>response-content-language</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>response-content-type</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>response-expires</code>
+ *                      </p>
+ *                   </li>
  *                </ul>
+ *                <note>
+ *                   <p>When you use these parameters, you must sign the request by using either an Authorization header or a
+ *                      presigned URL. These parameters cannot be used with an
+ *                      unsigned (anonymous) request.</p>
+ *                </note>
  *             </dd>
- *             <dt>Overriding Response Header Values</dt>
+ *             <dt>HTTP Host header syntax</dt>
  *             <dd>
- *                <p>If both of the <code>If-Match</code> and <code>If-Unmodified-Since</code> headers are
- *                  present in the request as follows: <code>If-Match</code> condition evaluates to
- *                  <code>true</code>, and; <code>If-Unmodified-Since</code> condition evaluates to
- *                  <code>false</code>; then, S3 returns 200 OK and the data requested. </p>
- *                <p>If both of the <code>If-None-Match</code> and <code>If-Modified-Since</code> headers are
- *                  present in the request as follows:<code> If-None-Match</code> condition evaluates to
- *                  <code>false</code>, and; <code>If-Modified-Since</code> condition evaluates to
- *                  <code>true</code>; then, S3 returns 304 Not Modified response code.</p>
- *                <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>.</p>
+ *                <p>
+ *                   <b>Directory buckets </b> - The HTTP Host header syntax is <code>
+ *                      <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>.</p>
  *             </dd>
  *          </dl>
  *          <p>The following operations are related to <code>GetObject</code>:</p>
@@ -267,6 +241,7 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
  * //   ContentRange: "STRING_VALUE",
  * //   ContentType: "STRING_VALUE",
  * //   Expires: new Date("TIMESTAMP"),
+ * //   ExpiresString: "STRING_VALUE",
  * //   WebsiteRedirectLocation: "STRING_VALUE",
  * //   ServerSideEncryption: "AES256" || "aws:kms" || "aws:kms:dsse",
  * //   Metadata: { // Metadata
@@ -276,9 +251,9 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
  * //   SSECustomerKeyMD5: "STRING_VALUE",
  * //   SSEKMSKeyId: "STRING_VALUE",
  * //   BucketKeyEnabled: true || false,
- * //   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW",
+ * //   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE",
  * //   RequestCharged: "requester",
- * //   ReplicationStatus: "COMPLETE" || "PENDING" || "FAILED" || "REPLICA",
+ * //   ReplicationStatus: "COMPLETE" || "PENDING" || "FAILED" || "REPLICA" || "COMPLETED",
  * //   PartsCount: Number("int"),
  * //   TagCount: Number("int"),
  * //   ObjectLockMode: "GOVERNANCE" || "COMPLIANCE",
@@ -296,6 +271,13 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
  *
  * @throws {@link InvalidObjectState} (client fault)
  *  <p>Object is archived and inaccessible until restored.</p>
+ *          <p>If the object you are retrieving is stored in the S3 Glacier Flexible Retrieval storage class, the
+ *          S3 Glacier Deep Archive storage class, the S3 Intelligent-Tiering Archive Access tier, or the
+ *          S3 Intelligent-Tiering Deep Archive Access tier, before you can retrieve the object you must first restore a
+ *          copy using <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html">RestoreObject</a>. Otherwise, this operation returns an
+ *          <code>InvalidObjectState</code> error. For information about restoring archived objects,
+ *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/restoring-objects.html">Restoring
+ *             Archived Objects</a> in the <i>Amazon S3 User Guide</i>.</p>
  *
  * @throws {@link NoSuchKey} (client fault)
  *  <p>The specified key does not exist.</p>
@@ -353,91 +335,36 @@ export interface GetObjectCommandOutput extends Omit<GetObjectOutput, "Body">, _
  * ```
  *
  */
-export class GetObjectCommand extends $Command<GetObjectCommandInput, GetObjectCommandOutput, S3ClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      Bucket: { type: "contextParams", name: "Bucket" },
-      ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
-      UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
-      DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
-      Accelerate: { type: "clientContextParams", name: "useAccelerateEndpoint" },
-      UseGlobalEndpoint: { type: "builtInParams", name: "useGlobalEndpoint" },
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetObjectCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: S3ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetObjectCommandInput, GetObjectCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GetObjectCommand.getEndpointParameterInstructions()));
-    this.middlewareStack.use(getSsecPlugin(configuration));
-    this.middlewareStack.use(
-      getFlexibleChecksumsPlugin(configuration, {
+export class GetObjectCommand extends $Command
+  .classBuilder<
+    GetObjectCommandInput,
+    GetObjectCommandOutput,
+    S3ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+    Bucket: { type: "contextParams", name: "Bucket" },
+    Key: { type: "contextParams", name: "Key" },
+  })
+  .m(function (this: any, Command: any, cs: any, config: S3ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getSsecPlugin(config),
+      getS3ExpiresMiddlewarePlugin(config),
+      getFlexibleChecksumsPlugin(config, {
         input: this.input,
         requestChecksumRequired: false,
         requestValidationModeMember: "ChecksumMode",
         responseAlgorithms: ["CRC32", "CRC32C", "SHA256", "SHA1"],
-      })
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "S3Client";
-    const commandName = "GetObjectCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: GetObjectRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetObjectOutputFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetObjectCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetObjectCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext & __SdkStreamSerdeContext
-  ): Promise<GetObjectCommandOutput> {
-    return de_GetObjectCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+      }),
+    ];
+  })
+  .s("AmazonS3", "GetObject", {})
+  .n("S3Client", "GetObjectCommand")
+  .f(GetObjectRequestFilterSensitiveLog, GetObjectOutputFilterSensitiveLog)
+  .ser(se_GetObjectCommand)
+  .de(de_GetObjectCommand)
+  .build() {}

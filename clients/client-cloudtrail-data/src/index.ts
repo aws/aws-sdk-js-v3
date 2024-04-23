@@ -13,7 +13,11 @@
 export * from "./CloudTrailDataClient";
 export * from "./CloudTrailData";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { CloudTrailDataExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { CloudTrailDataServiceException } from "./models/CloudTrailDataServiceException";

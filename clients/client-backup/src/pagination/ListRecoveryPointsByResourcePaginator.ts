@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import { BackupClient } from "../BackupClient";
@@ -10,41 +11,14 @@ import {
 import { BackupPaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: BackupClient,
-  input: ListRecoveryPointsByResourceCommandInput,
-  ...args: any
-): Promise<ListRecoveryPointsByResourceCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new ListRecoveryPointsByResourceCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateListRecoveryPointsByResource(
+export const paginateListRecoveryPointsByResource: (
   config: BackupPaginationConfiguration,
   input: ListRecoveryPointsByResourceCommandInput,
-  ...additionalArguments: any
-): Paginator<ListRecoveryPointsByResourceCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.NextToken
-  let token: typeof input.NextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: ListRecoveryPointsByResourceCommandOutput;
-  while (hasNext) {
-    input.NextToken = token;
-    input["MaxResults"] = config.pageSize;
-    if (config.client instanceof BackupClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected Backup | BackupClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.NextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<ListRecoveryPointsByResourceCommandOutput> = createPaginator<
+  BackupPaginationConfiguration,
+  ListRecoveryPointsByResourceCommandInput,
+  ListRecoveryPointsByResourceCommandOutput
+>(BackupClient, ListRecoveryPointsByResourceCommand, "NextToken", "NextToken", "MaxResults");

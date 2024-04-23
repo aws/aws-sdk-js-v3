@@ -108,6 +108,11 @@ import {
   AssociateInstanceEventWindowCommandOutput,
 } from "./commands/AssociateInstanceEventWindowCommand";
 import {
+  AssociateIpamByoasnCommand,
+  AssociateIpamByoasnCommandInput,
+  AssociateIpamByoasnCommandOutput,
+} from "./commands/AssociateIpamByoasnCommand";
+import {
   AssociateIpamResourceDiscoveryCommand,
   AssociateIpamResourceDiscoveryCommandInput,
   AssociateIpamResourceDiscoveryCommandOutput,
@@ -1014,6 +1019,11 @@ import {
   DeprovisionByoipCidrCommandOutput,
 } from "./commands/DeprovisionByoipCidrCommand";
 import {
+  DeprovisionIpamByoasnCommand,
+  DeprovisionIpamByoasnCommandInput,
+  DeprovisionIpamByoasnCommandOutput,
+} from "./commands/DeprovisionIpamByoasnCommand";
+import {
   DeprovisionIpamPoolCidrCommand,
   DeprovisionIpamPoolCidrCommandInput,
   DeprovisionIpamPoolCidrCommandOutput,
@@ -1088,6 +1098,11 @@ import {
   DescribeByoipCidrsCommandInput,
   DescribeByoipCidrsCommandOutput,
 } from "./commands/DescribeByoipCidrsCommand";
+import {
+  DescribeCapacityBlockOfferingsCommand,
+  DescribeCapacityBlockOfferingsCommandInput,
+  DescribeCapacityBlockOfferingsCommandOutput,
+} from "./commands/DescribeCapacityBlockOfferingsCommand";
 import {
   DescribeCapacityReservationFleetsCommand,
   DescribeCapacityReservationFleetsCommandInput,
@@ -1299,6 +1314,11 @@ import {
   DescribeInstanceStatusCommandOutput,
 } from "./commands/DescribeInstanceStatusCommand";
 import {
+  DescribeInstanceTopologyCommand,
+  DescribeInstanceTopologyCommandInput,
+  DescribeInstanceTopologyCommandOutput,
+} from "./commands/DescribeInstanceTopologyCommand";
+import {
   DescribeInstanceTypeOfferingsCommand,
   DescribeInstanceTypeOfferingsCommandInput,
   DescribeInstanceTypeOfferingsCommandOutput,
@@ -1313,6 +1333,11 @@ import {
   DescribeInternetGatewaysCommandInput,
   DescribeInternetGatewaysCommandOutput,
 } from "./commands/DescribeInternetGatewaysCommand";
+import {
+  DescribeIpamByoasnCommand,
+  DescribeIpamByoasnCommandInput,
+  DescribeIpamByoasnCommandOutput,
+} from "./commands/DescribeIpamByoasnCommand";
 import {
   DescribeIpamPoolsCommand,
   DescribeIpamPoolsCommandInput,
@@ -1388,6 +1413,11 @@ import {
   DescribeLocalGatewayVirtualInterfacesCommandInput,
   DescribeLocalGatewayVirtualInterfacesCommandOutput,
 } from "./commands/DescribeLocalGatewayVirtualInterfacesCommand";
+import {
+  DescribeLockedSnapshotsCommand,
+  DescribeLockedSnapshotsCommandInput,
+  DescribeLockedSnapshotsCommandOutput,
+} from "./commands/DescribeLockedSnapshotsCommand";
 import {
   DescribeManagedPrefixListsCommand,
   DescribeManagedPrefixListsCommandInput,
@@ -1824,6 +1854,16 @@ import {
   DisableFastSnapshotRestoresCommandOutput,
 } from "./commands/DisableFastSnapshotRestoresCommand";
 import {
+  DisableImageBlockPublicAccessCommand,
+  DisableImageBlockPublicAccessCommandInput,
+  DisableImageBlockPublicAccessCommandOutput,
+} from "./commands/DisableImageBlockPublicAccessCommand";
+import {
+  DisableImageCommand,
+  DisableImageCommandInput,
+  DisableImageCommandOutput,
+} from "./commands/DisableImageCommand";
+import {
   DisableImageDeprecationCommand,
   DisableImageDeprecationCommandInput,
   DisableImageDeprecationCommandOutput,
@@ -1838,6 +1878,11 @@ import {
   DisableSerialConsoleAccessCommandInput,
   DisableSerialConsoleAccessCommandOutput,
 } from "./commands/DisableSerialConsoleAccessCommand";
+import {
+  DisableSnapshotBlockPublicAccessCommand,
+  DisableSnapshotBlockPublicAccessCommandInput,
+  DisableSnapshotBlockPublicAccessCommandOutput,
+} from "./commands/DisableSnapshotBlockPublicAccessCommand";
 import {
   DisableTransitGatewayRouteTablePropagationCommand,
   DisableTransitGatewayRouteTablePropagationCommandInput,
@@ -1883,6 +1928,11 @@ import {
   DisassociateInstanceEventWindowCommandInput,
   DisassociateInstanceEventWindowCommandOutput,
 } from "./commands/DisassociateInstanceEventWindowCommand";
+import {
+  DisassociateIpamByoasnCommand,
+  DisassociateIpamByoasnCommandInput,
+  DisassociateIpamByoasnCommandOutput,
+} from "./commands/DisassociateIpamByoasnCommand";
 import {
   DisassociateIpamResourceDiscoveryCommand,
   DisassociateIpamResourceDiscoveryCommandInput,
@@ -1954,6 +2004,12 @@ import {
   EnableFastSnapshotRestoresCommandOutput,
 } from "./commands/EnableFastSnapshotRestoresCommand";
 import {
+  EnableImageBlockPublicAccessCommand,
+  EnableImageBlockPublicAccessCommandInput,
+  EnableImageBlockPublicAccessCommandOutput,
+} from "./commands/EnableImageBlockPublicAccessCommand";
+import { EnableImageCommand, EnableImageCommandInput, EnableImageCommandOutput } from "./commands/EnableImageCommand";
+import {
   EnableImageDeprecationCommand,
   EnableImageDeprecationCommandInput,
   EnableImageDeprecationCommandOutput,
@@ -1973,6 +2029,11 @@ import {
   EnableSerialConsoleAccessCommandInput,
   EnableSerialConsoleAccessCommandOutput,
 } from "./commands/EnableSerialConsoleAccessCommand";
+import {
+  EnableSnapshotBlockPublicAccessCommand,
+  EnableSnapshotBlockPublicAccessCommandInput,
+  EnableSnapshotBlockPublicAccessCommandOutput,
+} from "./commands/EnableSnapshotBlockPublicAccessCommand";
 import {
   EnableTransitGatewayRouteTablePropagationCommand,
   EnableTransitGatewayRouteTablePropagationCommandInput,
@@ -2080,6 +2141,11 @@ import {
   GetHostReservationPurchasePreviewCommandOutput,
 } from "./commands/GetHostReservationPurchasePreviewCommand";
 import {
+  GetImageBlockPublicAccessStateCommand,
+  GetImageBlockPublicAccessStateCommandInput,
+  GetImageBlockPublicAccessStateCommandOutput,
+} from "./commands/GetImageBlockPublicAccessStateCommand";
+import {
   GetInstanceTypesFromInstanceRequirementsCommand,
   GetInstanceTypesFromInstanceRequirementsCommandInput,
   GetInstanceTypesFromInstanceRequirementsCommandOutput,
@@ -2099,6 +2165,11 @@ import {
   GetIpamDiscoveredAccountsCommandInput,
   GetIpamDiscoveredAccountsCommandOutput,
 } from "./commands/GetIpamDiscoveredAccountsCommand";
+import {
+  GetIpamDiscoveredPublicAddressesCommand,
+  GetIpamDiscoveredPublicAddressesCommandInput,
+  GetIpamDiscoveredPublicAddressesCommandOutput,
+} from "./commands/GetIpamDiscoveredPublicAddressesCommand";
 import {
   GetIpamDiscoveredResourceCidrsCommand,
   GetIpamDiscoveredResourceCidrsCommandInput,
@@ -2155,10 +2226,20 @@ import {
   GetReservedInstancesExchangeQuoteCommandOutput,
 } from "./commands/GetReservedInstancesExchangeQuoteCommand";
 import {
+  GetSecurityGroupsForVpcCommand,
+  GetSecurityGroupsForVpcCommandInput,
+  GetSecurityGroupsForVpcCommandOutput,
+} from "./commands/GetSecurityGroupsForVpcCommand";
+import {
   GetSerialConsoleAccessStatusCommand,
   GetSerialConsoleAccessStatusCommandInput,
   GetSerialConsoleAccessStatusCommandOutput,
 } from "./commands/GetSerialConsoleAccessStatusCommand";
+import {
+  GetSnapshotBlockPublicAccessStateCommand,
+  GetSnapshotBlockPublicAccessStateCommandInput,
+  GetSnapshotBlockPublicAccessStateCommandOutput,
+} from "./commands/GetSnapshotBlockPublicAccessStateCommand";
 import {
   GetSpotPlacementScoresCommand,
   GetSpotPlacementScoresCommandInput,
@@ -2265,6 +2346,11 @@ import {
   ListSnapshotsInRecycleBinCommandInput,
   ListSnapshotsInRecycleBinCommandOutput,
 } from "./commands/ListSnapshotsInRecycleBinCommand";
+import {
+  LockSnapshotCommand,
+  LockSnapshotCommandInput,
+  LockSnapshotCommandOutput,
+} from "./commands/LockSnapshotCommand";
 import {
   ModifyAddressAttributeCommand,
   ModifyAddressAttributeCommandInput,
@@ -2594,6 +2680,11 @@ import {
   ProvisionByoipCidrCommandOutput,
 } from "./commands/ProvisionByoipCidrCommand";
 import {
+  ProvisionIpamByoasnCommand,
+  ProvisionIpamByoasnCommandInput,
+  ProvisionIpamByoasnCommandOutput,
+} from "./commands/ProvisionIpamByoasnCommand";
+import {
   ProvisionIpamPoolCidrCommand,
   ProvisionIpamPoolCidrCommandInput,
   ProvisionIpamPoolCidrCommandOutput,
@@ -2603,6 +2694,11 @@ import {
   ProvisionPublicIpv4PoolCidrCommandInput,
   ProvisionPublicIpv4PoolCidrCommandOutput,
 } from "./commands/ProvisionPublicIpv4PoolCidrCommand";
+import {
+  PurchaseCapacityBlockCommand,
+  PurchaseCapacityBlockCommandInput,
+  PurchaseCapacityBlockCommandOutput,
+} from "./commands/PurchaseCapacityBlockCommand";
 import {
   PurchaseHostReservationCommand,
   PurchaseHostReservationCommandInput,
@@ -2889,6 +2985,11 @@ import {
   UnassignPrivateNatGatewayAddressCommandOutput,
 } from "./commands/UnassignPrivateNatGatewayAddressCommand";
 import {
+  UnlockSnapshotCommand,
+  UnlockSnapshotCommandInput,
+  UnlockSnapshotCommandOutput,
+} from "./commands/UnlockSnapshotCommand";
+import {
   UnmonitorInstancesCommand,
   UnmonitorInstancesCommandInput,
   UnmonitorInstancesCommandOutput,
@@ -2932,6 +3033,7 @@ const commands = {
   AssociateEnclaveCertificateIamRoleCommand,
   AssociateIamInstanceProfileCommand,
   AssociateInstanceEventWindowCommand,
+  AssociateIpamByoasnCommand,
   AssociateIpamResourceDiscoveryCommand,
   AssociateNatGatewayAddressCommand,
   AssociateRouteTableCommand,
@@ -3122,6 +3224,7 @@ const commands = {
   DeleteVpnConnectionRouteCommand,
   DeleteVpnGatewayCommand,
   DeprovisionByoipCidrCommand,
+  DeprovisionIpamByoasnCommand,
   DeprovisionIpamPoolCidrCommand,
   DeprovisionPublicIpv4PoolCidrCommand,
   DeregisterImageCommand,
@@ -3137,6 +3240,7 @@ const commands = {
   DescribeAwsNetworkPerformanceMetricSubscriptionsCommand,
   DescribeBundleTasksCommand,
   DescribeByoipCidrsCommand,
+  DescribeCapacityBlockOfferingsCommand,
   DescribeCapacityReservationFleetsCommand,
   DescribeCapacityReservationsCommand,
   DescribeCarrierGatewaysCommand,
@@ -3179,9 +3283,11 @@ const commands = {
   DescribeInstanceEventWindowsCommand,
   DescribeInstancesCommand,
   DescribeInstanceStatusCommand,
+  DescribeInstanceTopologyCommand,
   DescribeInstanceTypeOfferingsCommand,
   DescribeInstanceTypesCommand,
   DescribeInternetGatewaysCommand,
+  DescribeIpamByoasnCommand,
   DescribeIpamPoolsCommand,
   DescribeIpamResourceDiscoveriesCommand,
   DescribeIpamResourceDiscoveryAssociationsCommand,
@@ -3197,6 +3303,7 @@ const commands = {
   DescribeLocalGatewaysCommand,
   DescribeLocalGatewayVirtualInterfaceGroupsCommand,
   DescribeLocalGatewayVirtualInterfacesCommand,
+  DescribeLockedSnapshotsCommand,
   DescribeManagedPrefixListsCommand,
   DescribeMovingAddressesCommand,
   DescribeNatGatewaysCommand,
@@ -3284,9 +3391,12 @@ const commands = {
   DisableEbsEncryptionByDefaultCommand,
   DisableFastLaunchCommand,
   DisableFastSnapshotRestoresCommand,
+  DisableImageCommand,
+  DisableImageBlockPublicAccessCommand,
   DisableImageDeprecationCommand,
   DisableIpamOrganizationAdminAccountCommand,
   DisableSerialConsoleAccessCommand,
+  DisableSnapshotBlockPublicAccessCommand,
   DisableTransitGatewayRouteTablePropagationCommand,
   DisableVgwRoutePropagationCommand,
   DisableVpcClassicLinkCommand,
@@ -3296,6 +3406,7 @@ const commands = {
   DisassociateEnclaveCertificateIamRoleCommand,
   DisassociateIamInstanceProfileCommand,
   DisassociateInstanceEventWindowCommand,
+  DisassociateIpamByoasnCommand,
   DisassociateIpamResourceDiscoveryCommand,
   DisassociateNatGatewayAddressCommand,
   DisassociateRouteTableCommand,
@@ -3310,10 +3421,13 @@ const commands = {
   EnableEbsEncryptionByDefaultCommand,
   EnableFastLaunchCommand,
   EnableFastSnapshotRestoresCommand,
+  EnableImageCommand,
+  EnableImageBlockPublicAccessCommand,
   EnableImageDeprecationCommand,
   EnableIpamOrganizationAdminAccountCommand,
   EnableReachabilityAnalyzerOrganizationSharingCommand,
   EnableSerialConsoleAccessCommand,
+  EnableSnapshotBlockPublicAccessCommand,
   EnableTransitGatewayRouteTablePropagationCommand,
   EnableVgwRoutePropagationCommand,
   EnableVolumeIOCommand,
@@ -3336,10 +3450,12 @@ const commands = {
   GetFlowLogsIntegrationTemplateCommand,
   GetGroupsForCapacityReservationCommand,
   GetHostReservationPurchasePreviewCommand,
+  GetImageBlockPublicAccessStateCommand,
   GetInstanceTypesFromInstanceRequirementsCommand,
   GetInstanceUefiDataCommand,
   GetIpamAddressHistoryCommand,
   GetIpamDiscoveredAccountsCommand,
+  GetIpamDiscoveredPublicAddressesCommand,
   GetIpamDiscoveredResourceCidrsCommand,
   GetIpamPoolAllocationsCommand,
   GetIpamPoolCidrsCommand,
@@ -3351,7 +3467,9 @@ const commands = {
   GetNetworkInsightsAccessScopeContentCommand,
   GetPasswordDataCommand,
   GetReservedInstancesExchangeQuoteCommand,
+  GetSecurityGroupsForVpcCommand,
   GetSerialConsoleAccessStatusCommand,
+  GetSnapshotBlockPublicAccessStateCommand,
   GetSpotPlacementScoresCommand,
   GetSubnetCidrReservationsCommand,
   GetTransitGatewayAttachmentPropagationsCommand,
@@ -3374,6 +3492,7 @@ const commands = {
   ImportVolumeCommand,
   ListImagesInRecycleBinCommand,
   ListSnapshotsInRecycleBinCommand,
+  LockSnapshotCommand,
   ModifyAddressAttributeCommand,
   ModifyAvailabilityZoneGroupCommand,
   ModifyCapacityReservationCommand,
@@ -3442,8 +3561,10 @@ const commands = {
   MoveAddressToVpcCommand,
   MoveByoipCidrToIpamCommand,
   ProvisionByoipCidrCommand,
+  ProvisionIpamByoasnCommand,
   ProvisionIpamPoolCidrCommand,
   ProvisionPublicIpv4PoolCidrCommand,
+  PurchaseCapacityBlockCommand,
   PurchaseHostReservationCommand,
   PurchaseReservedInstancesOfferingCommand,
   PurchaseScheduledInstancesCommand,
@@ -3501,6 +3622,7 @@ const commands = {
   UnassignIpv6AddressesCommand,
   UnassignPrivateIpAddressesCommand,
   UnassignPrivateNatGatewayAddressCommand,
+  UnlockSnapshotCommand,
   UnmonitorInstancesCommand,
   UpdateSecurityGroupRuleDescriptionsEgressCommand,
   UpdateSecurityGroupRuleDescriptionsIngressCommand,
@@ -3854,6 +3976,23 @@ export interface EC2 {
     args: AssociateInstanceEventWindowCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateInstanceEventWindowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateIpamByoasnCommand}
+   */
+  associateIpamByoasn(
+    args: AssociateIpamByoasnCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateIpamByoasnCommandOutput>;
+  associateIpamByoasn(
+    args: AssociateIpamByoasnCommandInput,
+    cb: (err: any, data?: AssociateIpamByoasnCommandOutput) => void
+  ): void;
+  associateIpamByoasn(
+    args: AssociateIpamByoasnCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateIpamByoasnCommandOutput) => void
   ): void;
 
   /**
@@ -6913,6 +7052,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link DeprovisionIpamByoasnCommand}
+   */
+  deprovisionIpamByoasn(
+    args: DeprovisionIpamByoasnCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeprovisionIpamByoasnCommandOutput>;
+  deprovisionIpamByoasn(
+    args: DeprovisionIpamByoasnCommandInput,
+    cb: (err: any, data?: DeprovisionIpamByoasnCommandOutput) => void
+  ): void;
+  deprovisionIpamByoasn(
+    args: DeprovisionIpamByoasnCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeprovisionIpamByoasnCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeprovisionIpamPoolCidrCommand}
    */
   deprovisionIpamPoolCidr(
@@ -7162,6 +7318,23 @@ export interface EC2 {
     args: DescribeByoipCidrsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeByoipCidrsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeCapacityBlockOfferingsCommand}
+   */
+  describeCapacityBlockOfferings(
+    args: DescribeCapacityBlockOfferingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCapacityBlockOfferingsCommandOutput>;
+  describeCapacityBlockOfferings(
+    args: DescribeCapacityBlockOfferingsCommandInput,
+    cb: (err: any, data?: DescribeCapacityBlockOfferingsCommandOutput) => void
+  ): void;
+  describeCapacityBlockOfferings(
+    args: DescribeCapacityBlockOfferingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCapacityBlockOfferingsCommandOutput) => void
   ): void;
 
   /**
@@ -7867,6 +8040,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link DescribeInstanceTopologyCommand}
+   */
+  describeInstanceTopology(
+    args: DescribeInstanceTopologyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInstanceTopologyCommandOutput>;
+  describeInstanceTopology(
+    args: DescribeInstanceTopologyCommandInput,
+    cb: (err: any, data?: DescribeInstanceTopologyCommandOutput) => void
+  ): void;
+  describeInstanceTopology(
+    args: DescribeInstanceTopologyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInstanceTopologyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeInstanceTypeOfferingsCommand}
    */
   describeInstanceTypeOfferings(
@@ -7915,6 +8105,23 @@ export interface EC2 {
     args: DescribeInternetGatewaysCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeInternetGatewaysCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeIpamByoasnCommand}
+   */
+  describeIpamByoasn(
+    args: DescribeIpamByoasnCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIpamByoasnCommandOutput>;
+  describeIpamByoasn(
+    args: DescribeIpamByoasnCommandInput,
+    cb: (err: any, data?: DescribeIpamByoasnCommandOutput) => void
+  ): void;
+  describeIpamByoasn(
+    args: DescribeIpamByoasnCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeIpamByoasnCommandOutput) => void
   ): void;
 
   /**
@@ -8164,6 +8371,23 @@ export interface EC2 {
     args: DescribeLocalGatewayVirtualInterfacesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeLocalGatewayVirtualInterfacesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeLockedSnapshotsCommand}
+   */
+  describeLockedSnapshots(
+    args: DescribeLockedSnapshotsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLockedSnapshotsCommandOutput>;
+  describeLockedSnapshots(
+    args: DescribeLockedSnapshotsCommandInput,
+    cb: (err: any, data?: DescribeLockedSnapshotsCommandOutput) => void
+  ): void;
+  describeLockedSnapshots(
+    args: DescribeLockedSnapshotsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLockedSnapshotsCommandOutput) => void
   ): void;
 
   /**
@@ -9619,6 +9843,34 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link DisableImageCommand}
+   */
+  disableImage(args: DisableImageCommandInput, options?: __HttpHandlerOptions): Promise<DisableImageCommandOutput>;
+  disableImage(args: DisableImageCommandInput, cb: (err: any, data?: DisableImageCommandOutput) => void): void;
+  disableImage(
+    args: DisableImageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableImageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisableImageBlockPublicAccessCommand}
+   */
+  disableImageBlockPublicAccess(
+    args: DisableImageBlockPublicAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableImageBlockPublicAccessCommandOutput>;
+  disableImageBlockPublicAccess(
+    args: DisableImageBlockPublicAccessCommandInput,
+    cb: (err: any, data?: DisableImageBlockPublicAccessCommandOutput) => void
+  ): void;
+  disableImageBlockPublicAccess(
+    args: DisableImageBlockPublicAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableImageBlockPublicAccessCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisableImageDeprecationCommand}
    */
   disableImageDeprecation(
@@ -9667,6 +9919,23 @@ export interface EC2 {
     args: DisableSerialConsoleAccessCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisableSerialConsoleAccessCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisableSnapshotBlockPublicAccessCommand}
+   */
+  disableSnapshotBlockPublicAccess(
+    args: DisableSnapshotBlockPublicAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableSnapshotBlockPublicAccessCommandOutput>;
+  disableSnapshotBlockPublicAccess(
+    args: DisableSnapshotBlockPublicAccessCommandInput,
+    cb: (err: any, data?: DisableSnapshotBlockPublicAccessCommandOutput) => void
+  ): void;
+  disableSnapshotBlockPublicAccess(
+    args: DisableSnapshotBlockPublicAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableSnapshotBlockPublicAccessCommandOutput) => void
   ): void;
 
   /**
@@ -9820,6 +10089,23 @@ export interface EC2 {
     args: DisassociateInstanceEventWindowCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisassociateInstanceEventWindowCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateIpamByoasnCommand}
+   */
+  disassociateIpamByoasn(
+    args: DisassociateIpamByoasnCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateIpamByoasnCommandOutput>;
+  disassociateIpamByoasn(
+    args: DisassociateIpamByoasnCommandInput,
+    cb: (err: any, data?: DisassociateIpamByoasnCommandOutput) => void
+  ): void;
+  disassociateIpamByoasn(
+    args: DisassociateIpamByoasnCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateIpamByoasnCommandOutput) => void
   ): void;
 
   /**
@@ -10061,6 +10347,34 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link EnableImageCommand}
+   */
+  enableImage(args: EnableImageCommandInput, options?: __HttpHandlerOptions): Promise<EnableImageCommandOutput>;
+  enableImage(args: EnableImageCommandInput, cb: (err: any, data?: EnableImageCommandOutput) => void): void;
+  enableImage(
+    args: EnableImageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableImageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link EnableImageBlockPublicAccessCommand}
+   */
+  enableImageBlockPublicAccess(
+    args: EnableImageBlockPublicAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableImageBlockPublicAccessCommandOutput>;
+  enableImageBlockPublicAccess(
+    args: EnableImageBlockPublicAccessCommandInput,
+    cb: (err: any, data?: EnableImageBlockPublicAccessCommandOutput) => void
+  ): void;
+  enableImageBlockPublicAccess(
+    args: EnableImageBlockPublicAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableImageBlockPublicAccessCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link EnableImageDeprecationCommand}
    */
   enableImageDeprecation(
@@ -10126,6 +10440,23 @@ export interface EC2 {
     args: EnableSerialConsoleAccessCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: EnableSerialConsoleAccessCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link EnableSnapshotBlockPublicAccessCommand}
+   */
+  enableSnapshotBlockPublicAccess(
+    args: EnableSnapshotBlockPublicAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableSnapshotBlockPublicAccessCommandOutput>;
+  enableSnapshotBlockPublicAccess(
+    args: EnableSnapshotBlockPublicAccessCommandInput,
+    cb: (err: any, data?: EnableSnapshotBlockPublicAccessCommandOutput) => void
+  ): void;
+  enableSnapshotBlockPublicAccess(
+    args: EnableSnapshotBlockPublicAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableSnapshotBlockPublicAccessCommandOutput) => void
   ): void;
 
   /**
@@ -10494,6 +10825,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link GetImageBlockPublicAccessStateCommand}
+   */
+  getImageBlockPublicAccessState(
+    args: GetImageBlockPublicAccessStateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetImageBlockPublicAccessStateCommandOutput>;
+  getImageBlockPublicAccessState(
+    args: GetImageBlockPublicAccessStateCommandInput,
+    cb: (err: any, data?: GetImageBlockPublicAccessStateCommandOutput) => void
+  ): void;
+  getImageBlockPublicAccessState(
+    args: GetImageBlockPublicAccessStateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetImageBlockPublicAccessStateCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetInstanceTypesFromInstanceRequirementsCommand}
    */
   getInstanceTypesFromInstanceRequirements(
@@ -10559,6 +10907,23 @@ export interface EC2 {
     args: GetIpamDiscoveredAccountsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetIpamDiscoveredAccountsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetIpamDiscoveredPublicAddressesCommand}
+   */
+  getIpamDiscoveredPublicAddresses(
+    args: GetIpamDiscoveredPublicAddressesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIpamDiscoveredPublicAddressesCommandOutput>;
+  getIpamDiscoveredPublicAddresses(
+    args: GetIpamDiscoveredPublicAddressesCommandInput,
+    cb: (err: any, data?: GetIpamDiscoveredPublicAddressesCommandOutput) => void
+  ): void;
+  getIpamDiscoveredPublicAddresses(
+    args: GetIpamDiscoveredPublicAddressesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIpamDiscoveredPublicAddressesCommandOutput) => void
   ): void;
 
   /**
@@ -10746,6 +11111,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link GetSecurityGroupsForVpcCommand}
+   */
+  getSecurityGroupsForVpc(
+    args: GetSecurityGroupsForVpcCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSecurityGroupsForVpcCommandOutput>;
+  getSecurityGroupsForVpc(
+    args: GetSecurityGroupsForVpcCommandInput,
+    cb: (err: any, data?: GetSecurityGroupsForVpcCommandOutput) => void
+  ): void;
+  getSecurityGroupsForVpc(
+    args: GetSecurityGroupsForVpcCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSecurityGroupsForVpcCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetSerialConsoleAccessStatusCommand}
    */
   getSerialConsoleAccessStatus(
@@ -10760,6 +11142,23 @@ export interface EC2 {
     args: GetSerialConsoleAccessStatusCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSerialConsoleAccessStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSnapshotBlockPublicAccessStateCommand}
+   */
+  getSnapshotBlockPublicAccessState(
+    args: GetSnapshotBlockPublicAccessStateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSnapshotBlockPublicAccessStateCommandOutput>;
+  getSnapshotBlockPublicAccessState(
+    args: GetSnapshotBlockPublicAccessStateCommandInput,
+    cb: (err: any, data?: GetSnapshotBlockPublicAccessStateCommandOutput) => void
+  ): void;
+  getSnapshotBlockPublicAccessState(
+    args: GetSnapshotBlockPublicAccessStateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSnapshotBlockPublicAccessStateCommandOutput) => void
   ): void;
 
   /**
@@ -11110,6 +11509,17 @@ export interface EC2 {
     args: ListSnapshotsInRecycleBinCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListSnapshotsInRecycleBinCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link LockSnapshotCommand}
+   */
+  lockSnapshot(args: LockSnapshotCommandInput, options?: __HttpHandlerOptions): Promise<LockSnapshotCommandOutput>;
+  lockSnapshot(args: LockSnapshotCommandInput, cb: (err: any, data?: LockSnapshotCommandOutput) => void): void;
+  lockSnapshot(
+    args: LockSnapshotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: LockSnapshotCommandOutput) => void
   ): void;
 
   /**
@@ -12236,6 +12646,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link ProvisionIpamByoasnCommand}
+   */
+  provisionIpamByoasn(
+    args: ProvisionIpamByoasnCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ProvisionIpamByoasnCommandOutput>;
+  provisionIpamByoasn(
+    args: ProvisionIpamByoasnCommandInput,
+    cb: (err: any, data?: ProvisionIpamByoasnCommandOutput) => void
+  ): void;
+  provisionIpamByoasn(
+    args: ProvisionIpamByoasnCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ProvisionIpamByoasnCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ProvisionIpamPoolCidrCommand}
    */
   provisionIpamPoolCidr(
@@ -12267,6 +12694,23 @@ export interface EC2 {
     args: ProvisionPublicIpv4PoolCidrCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ProvisionPublicIpv4PoolCidrCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PurchaseCapacityBlockCommand}
+   */
+  purchaseCapacityBlock(
+    args: PurchaseCapacityBlockCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PurchaseCapacityBlockCommandOutput>;
+  purchaseCapacityBlock(
+    args: PurchaseCapacityBlockCommandInput,
+    cb: (err: any, data?: PurchaseCapacityBlockCommandOutput) => void
+  ): void;
+  purchaseCapacityBlock(
+    args: PurchaseCapacityBlockCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PurchaseCapacityBlockCommandOutput) => void
   ): void;
 
   /**
@@ -13197,6 +13641,20 @@ export interface EC2 {
     args: UnassignPrivateNatGatewayAddressCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UnassignPrivateNatGatewayAddressCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UnlockSnapshotCommand}
+   */
+  unlockSnapshot(
+    args: UnlockSnapshotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UnlockSnapshotCommandOutput>;
+  unlockSnapshot(args: UnlockSnapshotCommandInput, cb: (err: any, data?: UnlockSnapshotCommandOutput) => void): void;
+  unlockSnapshot(
+    args: UnlockSnapshotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UnlockSnapshotCommandOutput) => void
   ): void;
 
   /**

@@ -11,8 +11,12 @@
 export * from "./ChimeSDKMessagingClient";
 export * from "./ChimeSDKMessaging";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { ChimeSDKMessagingExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { ChimeSDKMessagingServiceException } from "./models/ChimeSDKMessagingServiceException";

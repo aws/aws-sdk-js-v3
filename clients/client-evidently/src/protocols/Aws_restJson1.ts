@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
 import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,
@@ -15,7 +17,6 @@ import {
   expectNumber as __expectNumber,
   expectObject as __expectObject,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   LazyJsonString as __LazyJsonString,
   limitedParseDouble as __limitedParseDouble,
@@ -142,13 +143,12 @@ export const se_BatchEvaluateFeatureCommand = async (
   input: BatchEvaluateFeatureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/evaluations";
-  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
+  b.bp("/projects/{project}/evaluations");
+  b.p("project", () => input.project!, "{project}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -162,15 +162,9 @@ export const se_BatchEvaluateFeatureCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -180,13 +174,12 @@ export const se_CreateExperimentCommand = async (
   input: CreateExperimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/experiments";
-  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
+  b.bp("/projects/{project}/experiments");
+  b.p("project", () => input.project!, "{project}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -201,15 +194,8 @@ export const se_CreateExperimentCommand = async (
       treatments: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -219,13 +205,12 @@ export const se_CreateFeatureCommand = async (
   input: CreateFeatureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/features";
-  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
+  b.bp("/projects/{project}/features");
+  b.p("project", () => input.project!, "{project}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -238,15 +223,8 @@ export const se_CreateFeatureCommand = async (
       variations: (_) => se_VariationConfigsList(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -256,13 +234,12 @@ export const se_CreateLaunchCommand = async (
   input: CreateLaunchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/launches";
-  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
+  b.bp("/projects/{project}/launches");
+  b.p("project", () => input.project!, "{project}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -275,15 +252,8 @@ export const se_CreateLaunchCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -293,11 +263,11 @@ export const se_CreateProjectCommand = async (
   input: CreateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects";
+  b.bp("/projects");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -308,15 +278,8 @@ export const se_CreateProjectCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -326,11 +289,11 @@ export const se_CreateSegmentCommand = async (
   input: CreateSegmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/segments";
+  b.bp("/segments");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -340,15 +303,8 @@ export const se_CreateSegmentCommand = async (
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -358,23 +314,14 @@ export const se_DeleteExperimentCommand = async (
   input: DeleteExperimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/projects/{project}/experiments/{experiment}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "experiment", () => input.experiment!, "{experiment}", false);
+  b.bp("/projects/{project}/experiments/{experiment}");
+  b.p("project", () => input.project!, "{project}", false);
+  b.p("experiment", () => input.experiment!, "{experiment}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -384,22 +331,14 @@ export const se_DeleteFeatureCommand = async (
   input: DeleteFeatureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/features/{feature}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "feature", () => input.feature!, "{feature}", false);
+  b.bp("/projects/{project}/features/{feature}");
+  b.p("project", () => input.project!, "{project}", false);
+  b.p("feature", () => input.feature!, "{feature}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -409,22 +348,14 @@ export const se_DeleteLaunchCommand = async (
   input: DeleteLaunchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/launches/{launch}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "launch", () => input.launch!, "{launch}", false);
+  b.bp("/projects/{project}/launches/{launch}");
+  b.p("project", () => input.project!, "{project}", false);
+  b.p("launch", () => input.launch!, "{launch}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -434,20 +365,13 @@ export const se_DeleteProjectCommand = async (
   input: DeleteProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
+  b.bp("/projects/{project}");
+  b.p("project", () => input.project!, "{project}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -457,20 +381,13 @@ export const se_DeleteSegmentCommand = async (
   input: DeleteSegmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/segments/{segment}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "segment", () => input.segment!, "{segment}", false);
+  b.bp("/segments/{segment}");
+  b.p("segment", () => input.segment!, "{segment}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -480,14 +397,13 @@ export const se_EvaluateFeatureCommand = async (
   input: EvaluateFeatureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/evaluations/{feature}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "feature", () => input.feature!, "{feature}", false);
+  b.bp("/projects/{project}/evaluations/{feature}");
+  b.p("project", () => input.project!, "{project}", false);
+  b.p("feature", () => input.feature!, "{feature}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -502,15 +418,9 @@ export const se_EvaluateFeatureCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -520,23 +430,14 @@ export const se_GetExperimentCommand = async (
   input: GetExperimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/projects/{project}/experiments/{experiment}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "experiment", () => input.experiment!, "{experiment}", false);
+  b.bp("/projects/{project}/experiments/{experiment}");
+  b.p("project", () => input.project!, "{project}", false);
+  b.p("experiment", () => input.experiment!, "{experiment}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -546,15 +447,13 @@ export const se_GetExperimentResultsCommand = async (
   input: GetExperimentResultsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/projects/{project}/experiments/{experiment}/results";
-  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "experiment", () => input.experiment!, "{experiment}", false);
+  b.bp("/projects/{project}/experiments/{experiment}/results");
+  b.p("project", () => input.project!, "{project}", false);
+  b.p("experiment", () => input.experiment!, "{experiment}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -568,15 +467,8 @@ export const se_GetExperimentResultsCommand = async (
       treatmentNames: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -586,22 +478,14 @@ export const se_GetFeatureCommand = async (
   input: GetFeatureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/features/{feature}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "feature", () => input.feature!, "{feature}", false);
+  b.bp("/projects/{project}/features/{feature}");
+  b.p("project", () => input.project!, "{project}", false);
+  b.p("feature", () => input.feature!, "{feature}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -611,22 +495,14 @@ export const se_GetLaunchCommand = async (
   input: GetLaunchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/launches/{launch}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "launch", () => input.launch!, "{launch}", false);
+  b.bp("/projects/{project}/launches/{launch}");
+  b.p("project", () => input.project!, "{project}", false);
+  b.p("launch", () => input.launch!, "{launch}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -636,20 +512,13 @@ export const se_GetProjectCommand = async (
   input: GetProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
+  b.bp("/projects/{project}");
+  b.p("project", () => input.project!, "{project}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -659,20 +528,13 @@ export const se_GetSegmentCommand = async (
   input: GetSegmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/segments/{segment}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "segment", () => input.segment!, "{segment}", false);
+  b.bp("/segments/{segment}");
+  b.p("segment", () => input.segment!, "{segment}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -682,27 +544,18 @@ export const se_ListExperimentsCommand = async (
   input: ListExperimentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/experiments";
-  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
+  b.bp("/projects/{project}/experiments");
+  b.p("project", () => input.project!, "{project}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
-    status: [, input.status!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_s]: [, input[_s]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -712,26 +565,17 @@ export const se_ListFeaturesCommand = async (
   input: ListFeaturesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/features";
-  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
+  b.bp("/projects/{project}/features");
+  b.p("project", () => input.project!, "{project}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -741,27 +585,18 @@ export const se_ListLaunchesCommand = async (
   input: ListLaunchesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/launches";
-  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
+  b.bp("/projects/{project}/launches");
+  b.p("project", () => input.project!, "{project}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
-    status: [, input.status!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_s]: [, input[_s]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -771,24 +606,16 @@ export const se_ListProjectsCommand = async (
   input: ListProjectsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects";
+  b.bp("/projects");
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -798,27 +625,18 @@ export const se_ListSegmentReferencesCommand = async (
   input: ListSegmentReferencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/segments/{segment}/references";
-  resolvedPath = __resolvedPath(resolvedPath, input, "segment", () => input.segment!, "{segment}", false);
+  b.bp("/segments/{segment}/references");
+  b.p("segment", () => input.segment!, "{segment}", false);
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
-    type: [, __expectNonNull(input.type!, `type`)],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+    [_t]: [, __expectNonNull(input[_t]!, `type`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -828,24 +646,16 @@ export const se_ListSegmentsCommand = async (
   input: ListSegmentsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/segments";
+  b.bp("/segments");
   const query: any = map({
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    nextToken: [, input.nextToken!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -855,20 +665,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -878,13 +681,12 @@ export const se_PutProjectEventsCommand = async (
   input: PutProjectEventsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/events/projects/{project}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
+  b.bp("/events/projects/{project}");
+  b.p("project", () => input.project!, "{project}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -898,15 +700,9 @@ export const se_PutProjectEventsCommand = async (
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
   }
-  return new __HttpRequest({
-    protocol,
-    hostname: resolvedHostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -916,30 +712,21 @@ export const se_StartExperimentCommand = async (
   input: StartExperimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/projects/{project}/experiments/{experiment}/start";
-  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "experiment", () => input.experiment!, "{experiment}", false);
+  b.bp("/projects/{project}/experiments/{experiment}/start");
+  b.p("project", () => input.project!, "{project}", false);
+  b.p("experiment", () => input.experiment!, "{experiment}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       analysisCompleteTime: (_) => Math.round(_.getTime() / 1000),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -949,23 +736,14 @@ export const se_StartLaunchCommand = async (
   input: StartLaunchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/projects/{project}/launches/{launch}/start";
-  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "launch", () => input.launch!, "{launch}", false);
+  b.bp("/projects/{project}/launches/{launch}/start");
+  b.p("project", () => input.project!, "{project}", false);
+  b.p("launch", () => input.launch!, "{launch}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -975,15 +753,13 @@ export const se_StopExperimentCommand = async (
   input: StopExperimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/projects/{project}/experiments/{experiment}/cancel";
-  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "experiment", () => input.experiment!, "{experiment}", false);
+  b.bp("/projects/{project}/experiments/{experiment}/cancel");
+  b.p("project", () => input.project!, "{project}", false);
+  b.p("experiment", () => input.experiment!, "{experiment}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -991,15 +767,8 @@ export const se_StopExperimentCommand = async (
       reason: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1009,15 +778,13 @@ export const se_StopLaunchCommand = async (
   input: StopLaunchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/projects/{project}/launches/{launch}/cancel";
-  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "launch", () => input.launch!, "{launch}", false);
+  b.bp("/projects/{project}/launches/{launch}/cancel");
+  b.p("project", () => input.project!, "{project}", false);
+  b.p("launch", () => input.launch!, "{launch}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1025,15 +792,8 @@ export const se_StopLaunchCommand = async (
       reason: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1043,27 +803,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1073,11 +826,11 @@ export const se_TestSegmentPatternCommand = async (
   input: TestSegmentPatternCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/test-segment-pattern";
+  b.bp("/test-segment-pattern");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1085,15 +838,8 @@ export const se_TestSegmentPatternCommand = async (
       payload: (_) => __LazyJsonString.fromObject(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1103,27 +849,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1133,15 +871,13 @@ export const se_UpdateExperimentCommand = async (
   input: UpdateExperimentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/projects/{project}/experiments/{experiment}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "experiment", () => input.experiment!, "{experiment}", false);
+  b.bp("/projects/{project}/experiments/{experiment}");
+  b.p("project", () => input.project!, "{project}", false);
+  b.p("experiment", () => input.experiment!, "{experiment}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1155,15 +891,8 @@ export const se_UpdateExperimentCommand = async (
       treatments: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1173,14 +902,13 @@ export const se_UpdateFeatureCommand = async (
   input: UpdateFeatureCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/features/{feature}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "feature", () => input.feature!, "{feature}", false);
+  b.bp("/projects/{project}/features/{feature}");
+  b.p("project", () => input.project!, "{project}", false);
+  b.p("feature", () => input.feature!, "{feature}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1192,15 +920,8 @@ export const se_UpdateFeatureCommand = async (
       removeVariations: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1210,14 +931,13 @@ export const se_UpdateLaunchCommand = async (
   input: UpdateLaunchCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/launches/{launch}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "launch", () => input.launch!, "{launch}", false);
+  b.bp("/projects/{project}/launches/{launch}");
+  b.p("project", () => input.project!, "{project}", false);
+  b.p("launch", () => input.launch!, "{launch}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1228,15 +948,8 @@ export const se_UpdateLaunchCommand = async (
       scheduledSplitsConfig: (_) => se_ScheduledSplitsLaunchConfig(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1246,12 +959,12 @@ export const se_UpdateProjectCommand = async (
   input: UpdateProjectCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
+  b.bp("/projects/{project}");
+  b.p("project", () => input.project!, "{project}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1259,15 +972,8 @@ export const se_UpdateProjectCommand = async (
       description: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1277,13 +983,12 @@ export const se_UpdateProjectDataDeliveryCommand = async (
   input: UpdateProjectDataDeliveryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{project}/data-delivery";
-  resolvedPath = __resolvedPath(resolvedPath, input, "project", () => input.project!, "{project}", false);
+  b.bp("/projects/{project}/data-delivery");
+  b.p("project", () => input.project!, "{project}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1291,15 +996,8 @@ export const se_UpdateProjectDataDeliveryCommand = async (
       s3Destination: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4346,6 +4044,12 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _s = "status";
+const _t = "type";
+const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

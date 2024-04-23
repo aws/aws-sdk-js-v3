@@ -91,6 +91,10 @@ import {
 import { ListOperationsCommandInput, ListOperationsCommandOutput } from "../commands/ListOperationsCommand";
 import { ListServicesCommandInput, ListServicesCommandOutput } from "../commands/ListServicesCommand";
 import {
+  ListServicesForAutoScalingConfigurationCommandInput,
+  ListServicesForAutoScalingConfigurationCommandOutput,
+} from "../commands/ListServicesForAutoScalingConfigurationCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
@@ -104,6 +108,10 @@ import { ResumeServiceCommandInput, ResumeServiceCommandOutput } from "../comman
 import { StartDeploymentCommandInput, StartDeploymentCommandOutput } from "../commands/StartDeploymentCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdateDefaultAutoScalingConfigurationCommandInput,
+  UpdateDefaultAutoScalingConfigurationCommandOutput,
+} from "../commands/UpdateDefaultAutoScalingConfigurationCommand";
 import { UpdateServiceCommandInput, UpdateServiceCommandOutput } from "../commands/UpdateServiceCommand";
 import {
   UpdateVpcIngressConnectionCommandInput,
@@ -114,6 +122,7 @@ import {
   AssociateCustomDomainRequest,
   AuthenticationConfiguration,
   AutoScalingConfiguration,
+  AutoScalingConfigurationSummary,
   CodeConfiguration,
   CodeConfigurationValues,
   CodeRepository,
@@ -167,11 +176,13 @@ import {
   InvalidRequestException,
   InvalidStateException,
   ListAutoScalingConfigurationsRequest,
+  ListAutoScalingConfigurationsResponse,
   ListConnectionsRequest,
   ListConnectionsResponse,
   ListObservabilityConfigurationsRequest,
   ListOperationsRequest,
   ListOperationsResponse,
+  ListServicesForAutoScalingConfigurationRequest,
   ListServicesRequest,
   ListServicesResponse,
   ListTagsForResourceRequest,
@@ -198,6 +209,8 @@ import {
   TagResourceRequest,
   TraceConfiguration,
   UntagResourceRequest,
+  UpdateDefaultAutoScalingConfigurationRequest,
+  UpdateDefaultAutoScalingConfigurationResponse,
   UpdateServiceRequest,
   UpdateServiceResponse,
   UpdateVpcIngressConnectionRequest,
@@ -532,6 +545,19 @@ export const se_ListServicesCommand = async (
 };
 
 /**
+ * serializeAws_json1_0ListServicesForAutoScalingConfigurationCommand
+ */
+export const se_ListServicesForAutoScalingConfigurationCommand = async (
+  input: ListServicesForAutoScalingConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListServicesForAutoScalingConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0ListTagsForResourceCommand
  */
 export const se_ListTagsForResourceCommand = async (
@@ -630,6 +656,19 @@ export const se_UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UntagResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0UpdateDefaultAutoScalingConfigurationCommand
+ */
+export const se_UpdateDefaultAutoScalingConfigurationCommand = async (
+  input: UpdateDefaultAutoScalingConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateDefaultAutoScalingConfiguration");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1725,7 +1764,7 @@ export const de_ListAutoScalingConfigurationsCommand = async (
   }
   const data: any = await parseBody(output.body, context);
   let contents: any = {};
-  contents = _json(data);
+  contents = de_ListAutoScalingConfigurationsResponse(data, context);
   const response: ListAutoScalingConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
@@ -1951,6 +1990,58 @@ const de_ListServicesCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.apprunner#InvalidRequestException":
       throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_json1_0ListServicesForAutoScalingConfigurationCommand
+ */
+export const de_ListServicesForAutoScalingConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListServicesForAutoScalingConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_ListServicesForAutoScalingConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListServicesForAutoScalingConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListServicesForAutoScalingConfigurationCommandError
+ */
+const de_ListServicesForAutoScalingConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListServicesForAutoScalingConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceErrorException":
+    case "com.amazonaws.apprunner#InternalServiceErrorException":
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.apprunner#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.apprunner#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -2387,6 +2478,58 @@ const de_UntagResourceCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_0UpdateDefaultAutoScalingConfigurationCommand
+ */
+export const de_UpdateDefaultAutoScalingConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDefaultAutoScalingConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_UpdateDefaultAutoScalingConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateDefaultAutoScalingConfigurationResponse(data, context);
+  const response: UpdateDefaultAutoScalingConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UpdateDefaultAutoScalingConfigurationCommandError
+ */
+const de_UpdateDefaultAutoScalingConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDefaultAutoScalingConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceErrorException":
+    case "com.amazonaws.apprunner#InternalServiceErrorException":
+      throw await de_InternalServiceErrorExceptionRes(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.apprunner#InvalidRequestException":
+      throw await de_InvalidRequestExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.apprunner#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_0UpdateServiceCommand
  */
 export const de_UpdateServiceCommand = async (
@@ -2648,6 +2791,8 @@ const de_ServiceQuotaExceededExceptionRes = async (
 
 // se_ListOperationsRequest omitted.
 
+// se_ListServicesForAutoScalingConfigurationRequest omitted.
+
 // se_ListServicesRequest omitted.
 
 // se_ListTagsForResourceRequest omitted.
@@ -2690,6 +2835,8 @@ const de_ServiceQuotaExceededExceptionRes = async (
 
 // se_UntagResourceRequest omitted.
 
+// se_UpdateDefaultAutoScalingConfigurationRequest omitted.
+
 // se_UpdateServiceRequest omitted.
 
 // se_UpdateVpcIngressConnectionRequest omitted.
@@ -2708,6 +2855,8 @@ const de_AutoScalingConfiguration = (output: any, context: __SerdeContext): Auto
     AutoScalingConfigurationRevision: __expectInt32,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DeletedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    HasAssociatedService: __expectBoolean,
+    IsDefault: __expectBoolean,
     Latest: __expectBoolean,
     MaxConcurrency: __expectInt32,
     MaxSize: __expectInt32,
@@ -2716,9 +2865,35 @@ const de_AutoScalingConfiguration = (output: any, context: __SerdeContext): Auto
   }) as any;
 };
 
-// de_AutoScalingConfigurationSummary omitted.
+/**
+ * deserializeAws_json1_0AutoScalingConfigurationSummary
+ */
+const de_AutoScalingConfigurationSummary = (output: any, context: __SerdeContext): AutoScalingConfigurationSummary => {
+  return take(output, {
+    AutoScalingConfigurationArn: __expectString,
+    AutoScalingConfigurationName: __expectString,
+    AutoScalingConfigurationRevision: __expectInt32,
+    CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    HasAssociatedService: __expectBoolean,
+    IsDefault: __expectBoolean,
+    Status: __expectString,
+  }) as any;
+};
 
-// de_AutoScalingConfigurationSummaryList omitted.
+/**
+ * deserializeAws_json1_0AutoScalingConfigurationSummaryList
+ */
+const de_AutoScalingConfigurationSummaryList = (
+  output: any,
+  context: __SerdeContext
+): AutoScalingConfigurationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AutoScalingConfigurationSummary(entry, context);
+    });
+  return retVal;
+};
 
 // de_CertificateValidationRecord omitted.
 
@@ -2980,7 +3155,18 @@ const de_DescribeVpcIngressConnectionResponse = (
 
 // de_InvalidStateException omitted.
 
-// de_ListAutoScalingConfigurationsResponse omitted.
+/**
+ * deserializeAws_json1_0ListAutoScalingConfigurationsResponse
+ */
+const de_ListAutoScalingConfigurationsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListAutoScalingConfigurationsResponse => {
+  return take(output, {
+    AutoScalingConfigurationSummaryList: (_: any) => de_AutoScalingConfigurationSummaryList(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_0ListConnectionsResponse
@@ -3003,6 +3189,8 @@ const de_ListOperationsResponse = (output: any, context: __SerdeContext): ListOp
     OperationSummaryList: (_: any) => de_OperationSummaryList(_, context),
   }) as any;
 };
+
+// de_ListServicesForAutoScalingConfigurationResponse omitted.
 
 /**
  * deserializeAws_json1_0ListServicesResponse
@@ -3108,7 +3296,7 @@ const de_ResumeServiceResponse = (output: any, context: __SerdeContext): ResumeS
  */
 const de_Service = (output: any, context: __SerdeContext): Service => {
   return take(output, {
-    AutoScalingConfigurationSummary: _json,
+    AutoScalingConfigurationSummary: (_: any) => de_AutoScalingConfigurationSummary(_, context),
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DeletedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     EncryptionConfiguration: _json,
@@ -3125,6 +3313,8 @@ const de_Service = (output: any, context: __SerdeContext): Service => {
     UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+// de_ServiceArnList omitted.
 
 // de_ServiceObservabilityConfiguration omitted.
 
@@ -3174,6 +3364,18 @@ const de_ServiceSummaryList = (output: any, context: __SerdeContext): ServiceSum
 // de_TraceConfiguration omitted.
 
 // de_UntagResourceResponse omitted.
+
+/**
+ * deserializeAws_json1_0UpdateDefaultAutoScalingConfigurationResponse
+ */
+const de_UpdateDefaultAutoScalingConfigurationResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateDefaultAutoScalingConfigurationResponse => {
+  return take(output, {
+    AutoScalingConfiguration: (_: any) => de_AutoScalingConfiguration(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_0UpdateServiceResponse

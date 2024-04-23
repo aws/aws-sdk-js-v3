@@ -163,7 +163,7 @@ export interface AppSummary {
    * @public
    * <p>Status of the application.</p>
    */
-  status?: AppStatus | string;
+  status?: AppStatus;
 
   /**
    * @public
@@ -175,13 +175,13 @@ export interface AppSummary {
    * @public
    * <p>Status of the replication configuration.</p>
    */
-  replicationConfigurationStatus?: AppReplicationConfigurationStatus | string;
+  replicationConfigurationStatus?: AppReplicationConfigurationStatus;
 
   /**
    * @public
    * <p>The replication status of the application.</p>
    */
-  replicationStatus?: AppReplicationStatus | string;
+  replicationStatus?: AppReplicationStatus;
 
   /**
    * @public
@@ -199,13 +199,13 @@ export interface AppSummary {
    * @public
    * <p>Status of the launch configuration.</p>
    */
-  launchConfigurationStatus?: AppLaunchConfigurationStatus | string;
+  launchConfigurationStatus?: AppLaunchConfigurationStatus;
 
   /**
    * @public
    * <p>The launch status of the application.</p>
    */
-  launchStatus?: AppLaunchStatus | string;
+  launchStatus?: AppLaunchStatus;
 
   /**
    * @public
@@ -328,7 +328,7 @@ export interface SSMValidationParameters {
    * @public
    * <p>The type of validation script.</p>
    */
-  scriptType?: ScriptType | string;
+  scriptType?: ScriptType;
 
   /**
    * @public
@@ -370,7 +370,7 @@ export interface AppValidationConfiguration {
    * @public
    * <p>The validation strategy.</p>
    */
-  appValidationStrategy?: AppValidationStrategy | string;
+  appValidationStrategy?: AppValidationStrategy;
 
   /**
    * @public
@@ -476,7 +476,7 @@ export interface VmServer {
    * @public
    * <p>The type of VM management product.</p>
    */
-  vmManagerType?: VmManagerType | string;
+  vmManagerType?: VmManagerType;
 
   /**
    * @public
@@ -500,7 +500,7 @@ export interface Server {
    * @public
    * <p>The type of server.</p>
    */
-  serverType?: ServerType | string;
+  serverType?: ServerType;
 
   /**
    * @public
@@ -776,7 +776,7 @@ export interface CreateReplicationJobRequest {
    * <p>The license type to be used for the AMI created by a successful replication
    *             run.</p>
    */
-  licenseType?: LicenseType | string;
+  licenseType?: LicenseType;
 
   /**
    * @public
@@ -1086,7 +1086,7 @@ export interface GenerateChangeSetRequest {
    * @public
    * <p>The format for the change set.</p>
    */
-  changesetFormat?: OutputFormat | string;
+  changesetFormat?: OutputFormat;
 }
 
 /**
@@ -1114,7 +1114,7 @@ export interface GenerateTemplateRequest {
    * @public
    * <p>The format for generating the CloudFormation template.</p>
    */
-  templateFormat?: OutputFormat | string;
+  templateFormat?: OutputFormat;
 }
 
 /**
@@ -1261,7 +1261,7 @@ export interface ServerLaunchConfiguration {
    * @public
    * <p>The type of configuration script.</p>
    */
-  configureScriptType?: ScriptType | string;
+  configureScriptType?: ScriptType;
 }
 
 /**
@@ -1357,7 +1357,7 @@ export interface ServerReplicationParameters {
    * @public
    * <p>The license type for creating a replication job for the server.</p>
    */
-  licenseType?: LicenseType | string;
+  licenseType?: LicenseType;
 
   /**
    * @public
@@ -1483,7 +1483,7 @@ export interface UserDataValidationParameters {
    * @public
    * <p>The type of validation script.</p>
    */
-  scriptType?: ScriptType | string;
+  scriptType?: ScriptType;
 }
 
 /**
@@ -1513,7 +1513,7 @@ export interface ServerValidationConfiguration {
    * @public
    * <p>The validation strategy.</p>
    */
-  serverValidationStrategy?: ServerValidationStrategy | string;
+  serverValidationStrategy?: ServerValidationStrategy;
 
   /**
    * @public
@@ -1618,7 +1618,7 @@ export interface ValidationOutput {
    * @public
    * <p>The status of the validation.</p>
    */
-  status?: ValidationStatus | string;
+  status?: ValidationStatus;
 
   /**
    * @public
@@ -1727,13 +1727,13 @@ export interface Connector {
    * @public
    * <p>The status of the connector.</p>
    */
-  status?: ConnectorStatus | string;
+  status?: ConnectorStatus;
 
   /**
    * @public
    * <p>The capabilities of the connector.</p>
    */
-  capabilityList?: (ConnectorCapability | string)[];
+  capabilityList?: ConnectorCapability[];
 
   /**
    * @public
@@ -1745,7 +1745,7 @@ export interface Connector {
    * @public
    * <p>The VM management product.</p>
    */
-  vmManagerType?: VmManagerType | string;
+  vmManagerType?: VmManagerType;
 
   /**
    * @public
@@ -1881,13 +1881,13 @@ export interface ReplicationRun {
    * @public
    * <p>The state of the replication run.</p>
    */
-  state?: ReplicationRunState | string;
+  state?: ReplicationRunState;
 
   /**
    * @public
    * <p>The type of replication run.</p>
    */
-  type?: ReplicationRunType | string;
+  type?: ReplicationRunType;
 
   /**
    * @public
@@ -1997,7 +1997,7 @@ export interface ReplicationJob {
    * @public
    * <p>The type of server.</p>
    */
-  serverType?: ServerType | string;
+  serverType?: ServerType;
 
   /**
    * @public
@@ -2034,7 +2034,7 @@ export interface ReplicationJob {
    * <p>The license type to be used for the AMI created by a successful replication
    *             run.</p>
    */
-  licenseType?: LicenseType | string;
+  licenseType?: LicenseType;
 
   /**
    * @public
@@ -2052,7 +2052,7 @@ export interface ReplicationJob {
    * @public
    * <p>The state of the replication job.</p>
    */
-  state?: ReplicationJobState | string;
+  state?: ReplicationJobState;
 
   /**
    * @public
@@ -2232,7 +2232,7 @@ export interface GetServersResponse {
    * @public
    * <p>The status of the server catalog.</p>
    */
-  serverCatalogStatus?: ServerCatalogStatus | string;
+  serverCatalogStatus?: ServerCatalogStatus;
 
   /**
    * @public
@@ -2350,7 +2350,7 @@ export interface NotificationContext {
    * @public
    * <p>The status of the validation.</p>
    */
-  status?: ValidationStatus | string;
+  status?: ValidationStatus;
 
   /**
    * @public
@@ -2697,7 +2697,7 @@ export interface UpdateReplicationJobRequest {
    * <p>The license type to be used for the AMI created by a successful replication
    *             run.</p>
    */
-  licenseType?: LicenseType | string;
+  licenseType?: LicenseType;
 
   /**
    * @public

@@ -25,19 +25,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `EC2InstanceConnectClient` and
-the commands you need, for example `SendSerialConsoleSSHPublicKeyCommand`:
+the commands you need, for example `SendSSHPublicKeyCommand`:
 
 ```js
 // ES5 example
-const {
-  EC2InstanceConnectClient,
-  SendSerialConsoleSSHPublicKeyCommand,
-} = require("@aws-sdk/client-ec2-instance-connect");
+const { EC2InstanceConnectClient, SendSSHPublicKeyCommand } = require("@aws-sdk/client-ec2-instance-connect");
 ```
 
 ```ts
 // ES6+ example
-import { EC2InstanceConnectClient, SendSerialConsoleSSHPublicKeyCommand } from "@aws-sdk/client-ec2-instance-connect";
+import { EC2InstanceConnectClient, SendSSHPublicKeyCommand } from "@aws-sdk/client-ec2-instance-connect";
 ```
 
 ### Usage
@@ -56,7 +53,7 @@ const client = new EC2InstanceConnectClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new SendSerialConsoleSSHPublicKeyCommand(params);
+const command = new SendSSHPublicKeyCommand(params);
 ```
 
 #### Async/await
@@ -135,7 +132,7 @@ const client = new AWS.EC2InstanceConnect({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.sendSerialConsoleSSHPublicKey(params);
+  const data = await client.sendSSHPublicKey(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -143,7 +140,7 @@ try {
 
 // Promises.
 client
-  .sendSerialConsoleSSHPublicKey(params)
+  .sendSSHPublicKey(params)
   .then((data) => {
     // process data.
   })
@@ -152,7 +149,7 @@ client
   });
 
 // callbacks.
-client.sendSerialConsoleSSHPublicKey(params, (err, data) => {
+client.sendSSHPublicKey(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -167,7 +164,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -213,7 +210,7 @@ see LICENSE for more information.
 SendSerialConsoleSSHPublicKey
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-instance-connect/classes/sendserialconsolesshpublickeycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-instance-connect/interfaces/sendserialconsolesshpublickeycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-instance-connect/interfaces/sendserialconsolesshpublickeycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2-instance-connect/command/SendSerialConsoleSSHPublicKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-instance-connect/Interface/SendSerialConsoleSSHPublicKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-instance-connect/Interface/SendSerialConsoleSSHPublicKeyCommandOutput/)
 
 </details>
 <details>
@@ -221,6 +218,6 @@ SendSerialConsoleSSHPublicKey
 SendSSHPublicKey
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-instance-connect/classes/sendsshpublickeycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-instance-connect/interfaces/sendsshpublickeycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-ec2-instance-connect/interfaces/sendsshpublickeycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2-instance-connect/command/SendSSHPublicKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-instance-connect/Interface/SendSSHPublicKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-instance-connect/Interface/SendSSHPublicKeyCommandOutput/)
 
 </details>

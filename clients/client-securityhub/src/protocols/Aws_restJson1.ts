@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -47,6 +49,10 @@ import {
   BatchGetAutomationRulesCommandOutput,
 } from "../commands/BatchGetAutomationRulesCommand";
 import {
+  BatchGetConfigurationPolicyAssociationsCommandInput,
+  BatchGetConfigurationPolicyAssociationsCommandOutput,
+} from "../commands/BatchGetConfigurationPolicyAssociationsCommand";
+import {
   BatchGetSecurityControlsCommandInput,
   BatchGetSecurityControlsCommandOutput,
 } from "../commands/BatchGetSecurityControlsCommand";
@@ -76,6 +82,10 @@ import {
   CreateAutomationRuleCommandOutput,
 } from "../commands/CreateAutomationRuleCommand";
 import {
+  CreateConfigurationPolicyCommandInput,
+  CreateConfigurationPolicyCommandOutput,
+} from "../commands/CreateConfigurationPolicyCommand";
+import {
   CreateFindingAggregatorCommandInput,
   CreateFindingAggregatorCommandOutput,
 } from "../commands/CreateFindingAggregatorCommand";
@@ -83,6 +93,10 @@ import { CreateInsightCommandInput, CreateInsightCommandOutput } from "../comman
 import { CreateMembersCommandInput, CreateMembersCommandOutput } from "../commands/CreateMembersCommand";
 import { DeclineInvitationsCommandInput, DeclineInvitationsCommandOutput } from "../commands/DeclineInvitationsCommand";
 import { DeleteActionTargetCommandInput, DeleteActionTargetCommandOutput } from "../commands/DeleteActionTargetCommand";
+import {
+  DeleteConfigurationPolicyCommandInput,
+  DeleteConfigurationPolicyCommandOutput,
+} from "../commands/DeleteConfigurationPolicyCommand";
 import {
   DeleteFindingAggregatorCommandInput,
   DeleteFindingAggregatorCommandOutput,
@@ -140,6 +154,14 @@ import {
   GetAdministratorAccountCommandOutput,
 } from "../commands/GetAdministratorAccountCommand";
 import {
+  GetConfigurationPolicyAssociationCommandInput,
+  GetConfigurationPolicyAssociationCommandOutput,
+} from "../commands/GetConfigurationPolicyAssociationCommand";
+import {
+  GetConfigurationPolicyCommandInput,
+  GetConfigurationPolicyCommandOutput,
+} from "../commands/GetConfigurationPolicyCommand";
+import {
   GetEnabledStandardsCommandInput,
   GetEnabledStandardsCommandOutput,
 } from "../commands/GetEnabledStandardsCommand";
@@ -157,11 +179,23 @@ import {
 } from "../commands/GetInvitationsCountCommand";
 import { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "../commands/GetMasterAccountCommand";
 import { GetMembersCommandInput, GetMembersCommandOutput } from "../commands/GetMembersCommand";
+import {
+  GetSecurityControlDefinitionCommandInput,
+  GetSecurityControlDefinitionCommandOutput,
+} from "../commands/GetSecurityControlDefinitionCommand";
 import { InviteMembersCommandInput, InviteMembersCommandOutput } from "../commands/InviteMembersCommand";
 import {
   ListAutomationRulesCommandInput,
   ListAutomationRulesCommandOutput,
 } from "../commands/ListAutomationRulesCommand";
+import {
+  ListConfigurationPoliciesCommandInput,
+  ListConfigurationPoliciesCommandOutput,
+} from "../commands/ListConfigurationPoliciesCommand";
+import {
+  ListConfigurationPolicyAssociationsCommandInput,
+  ListConfigurationPolicyAssociationsCommandOutput,
+} from "../commands/ListConfigurationPolicyAssociationsCommand";
 import {
   ListEnabledProductsForImportCommandInput,
   ListEnabledProductsForImportCommandOutput,
@@ -188,9 +222,21 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  StartConfigurationPolicyAssociationCommandInput,
+  StartConfigurationPolicyAssociationCommandOutput,
+} from "../commands/StartConfigurationPolicyAssociationCommand";
+import {
+  StartConfigurationPolicyDisassociationCommandInput,
+  StartConfigurationPolicyDisassociationCommandOutput,
+} from "../commands/StartConfigurationPolicyDisassociationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateActionTargetCommandInput, UpdateActionTargetCommandOutput } from "../commands/UpdateActionTargetCommand";
+import {
+  UpdateConfigurationPolicyCommandInput,
+  UpdateConfigurationPolicyCommandOutput,
+} from "../commands/UpdateConfigurationPolicyCommand";
 import {
   UpdateFindingAggregatorCommandInput,
   UpdateFindingAggregatorCommandOutput,
@@ -201,6 +247,10 @@ import {
   UpdateOrganizationConfigurationCommandInput,
   UpdateOrganizationConfigurationCommandOutput,
 } from "../commands/UpdateOrganizationConfigurationCommand";
+import {
+  UpdateSecurityControlCommandInput,
+  UpdateSecurityControlCommandOutput,
+} from "../commands/UpdateSecurityControlCommand";
 import {
   UpdateSecurityHubConfigurationCommandInput,
   UpdateSecurityHubConfigurationCommandOutput,
@@ -219,6 +269,7 @@ import {
   ActionRemotePortDetails,
   Adjustment,
   AssociatedStandard,
+  AssociationFilters,
   AssociationSetDetails,
   AssociationStateDetails,
   AutomationRulesAction,
@@ -319,6 +370,11 @@ import {
   AwsCodeBuildProjectSource,
   AwsCodeBuildProjectVpcConfig,
   AwsCorsConfiguration,
+  AwsDmsEndpointDetails,
+  AwsDmsReplicationInstanceDetails,
+  AwsDmsReplicationInstanceReplicationSubnetGroupDetails,
+  AwsDmsReplicationInstanceVpcSecurityGroupsDetails,
+  AwsDmsReplicationTaskDetails,
   AwsDynamoDbTableAttributeDefinition,
   AwsDynamoDbTableBillingModeSummary,
   AwsDynamoDbTableDetails,
@@ -333,6 +389,15 @@ import {
   AwsDynamoDbTableRestoreSummary,
   AwsDynamoDbTableSseDescription,
   AwsDynamoDbTableStreamSpecification,
+  AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetails,
+  AwsEc2ClientVpnEndpointAuthenticationOptionsDetails,
+  AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetails,
+  AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetails,
+  AwsEc2ClientVpnEndpointClientConnectOptionsDetails,
+  AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetails,
+  AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetails,
+  AwsEc2ClientVpnEndpointConnectionLogOptionsDetails,
+  AwsEc2ClientVpnEndpointDetails,
   AwsEc2EipDetails,
   AwsEc2InstanceDetails,
   AwsEc2InstanceMetadataOptions,
@@ -426,7 +491,6 @@ import {
   AwsEcsServicePlacementStrategiesDetails,
   AwsEcsServiceServiceRegistriesDetails,
   AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsDetails,
   AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails,
   AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails,
   AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails,
@@ -445,22 +509,6 @@ import {
   AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails,
   AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails,
   AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails,
-  AwsEcsTaskDefinitionDetails,
-  AwsEcsTaskDefinitionInferenceAcceleratorsDetails,
-  AwsEcsTaskDefinitionPlacementConstraintsDetails,
-  AwsEcsTaskDefinitionProxyConfigurationDetails,
-  AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails,
-  AwsEcsTaskDefinitionVolumesDetails,
-  AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails,
-  AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails,
-  AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails,
-  AwsEcsTaskDefinitionVolumesHostDetails,
-  AwsEcsTaskDetails,
-  AwsEcsTaskVolumeDetails,
-  AwsEcsTaskVolumeHostDetails,
-  AwsEfsAccessPointPosixUserDetails,
-  AwsEfsAccessPointRootDirectoryCreationInfoDetails,
   AwsMountPoint,
   CidrBlockAssociation,
   City,
@@ -496,7 +544,24 @@ import {
 } from "../models/models_0";
 import {
   _Record,
+  AwsEcsTaskDefinitionContainerDefinitionsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails,
+  AwsEcsTaskDefinitionDetails,
+  AwsEcsTaskDefinitionInferenceAcceleratorsDetails,
+  AwsEcsTaskDefinitionPlacementConstraintsDetails,
+  AwsEcsTaskDefinitionProxyConfigurationDetails,
+  AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails,
+  AwsEcsTaskDefinitionVolumesDetails,
+  AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails,
+  AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails,
+  AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails,
+  AwsEcsTaskDefinitionVolumesHostDetails,
+  AwsEcsTaskDetails,
+  AwsEcsTaskVolumeDetails,
+  AwsEcsTaskVolumeHostDetails,
   AwsEfsAccessPointDetails,
+  AwsEfsAccessPointPosixUserDetails,
+  AwsEfsAccessPointRootDirectoryCreationInfoDetails,
   AwsEfsAccessPointRootDirectoryDetails,
   AwsEksClusterDetails,
   AwsEksClusterLoggingClusterLoggingDetails,
@@ -535,6 +600,14 @@ import {
   AwsElbv2LoadBalancerAttribute,
   AwsElbv2LoadBalancerDetails,
   AwsEventSchemasRegistryDetails,
+  AwsEventsEndpointDetails,
+  AwsEventsEndpointEventBusesDetails,
+  AwsEventsEndpointReplicationConfigDetails,
+  AwsEventsEndpointRoutingConfigDetails,
+  AwsEventsEndpointRoutingConfigFailoverConfigDetails,
+  AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetails,
+  AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetails,
+  AwsEventsEventbusDetails,
   AwsGuardDutyDetectorDataSourcesCloudTrailDetails,
   AwsGuardDutyDetectorDataSourcesDetails,
   AwsGuardDutyDetectorDataSourcesDnsLogsDetails,
@@ -575,6 +648,17 @@ import {
   AwsLambdaFunctionTracingConfig,
   AwsLambdaFunctionVpcConfig,
   AwsLambdaLayerVersionDetails,
+  AwsMskClusterClusterInfoClientAuthenticationDetails,
+  AwsMskClusterClusterInfoClientAuthenticationSaslDetails,
+  AwsMskClusterClusterInfoClientAuthenticationSaslIamDetails,
+  AwsMskClusterClusterInfoClientAuthenticationSaslScramDetails,
+  AwsMskClusterClusterInfoClientAuthenticationTlsDetails,
+  AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetails,
+  AwsMskClusterClusterInfoDetails,
+  AwsMskClusterClusterInfoEncryptionInfoDetails,
+  AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetails,
+  AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetails,
+  AwsMskClusterDetails,
   AwsNetworkFirewallFirewallDetails,
   AwsNetworkFirewallFirewallPolicyDetails,
   AwsNetworkFirewallFirewallSubnetMappingsDetails,
@@ -632,6 +716,13 @@ import {
   AwsRedshiftClusterResizeInfo,
   AwsRedshiftClusterRestoreStatus,
   AwsRedshiftClusterVpcSecurityGroup,
+  AwsRoute53HostedZoneConfigDetails,
+  AwsRoute53HostedZoneDetails,
+  AwsRoute53HostedZoneObjectDetails,
+  AwsRoute53HostedZoneVpcDetails,
+  AwsRoute53QueryLoggingConfigDetails,
+  AwsS3AccessPointDetails,
+  AwsS3AccessPointVpcConfigurationDetails,
   AwsS3AccountPublicAccessBlockDetails,
   AwsS3BucketBucketLifecycleConfigurationDetails,
   AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails,
@@ -687,10 +778,71 @@ import {
   AwsWafRegionalRuleGroupRulesActionDetails,
   AwsWafRegionalRuleGroupRulesDetails,
   AwsWafRegionalRulePredicateListDetails,
-  AwsWafRegionalWebAclDetails,
   AwsWafRegionalWebAclRulesListActionDetails,
-  AwsWafRegionalWebAclRulesListDetails,
   AwsWafRegionalWebAclRulesListOverrideActionDetails,
+  Cell,
+  ClassificationResult,
+  ClassificationStatus,
+  CloudWatchLogsLogGroupArnConfigDetails,
+  Compliance,
+  CustomDataIdentifiersDetections,
+  CustomDataIdentifiersResult,
+  DataClassificationDetails,
+  FindingProviderFields,
+  FindingProviderSeverity,
+  FirewallPolicyDetails,
+  FirewallPolicyStatefulRuleGroupReferencesDetails,
+  FirewallPolicyStatelessCustomActionsDetails,
+  FirewallPolicyStatelessRuleGroupReferencesDetails,
+  GeneratorDetails,
+  LoadBalancerState,
+  Malware,
+  Network,
+  NetworkHeader,
+  NetworkPathComponent,
+  NetworkPathComponentDetails,
+  Note,
+  Occurrences,
+  Page,
+  PatchSummary,
+  PortRange,
+  ProcessDetails,
+  Range,
+  Recommendation,
+  Remediation,
+  RuleGroupDetails,
+  RuleGroupSource,
+  RuleGroupSourceCustomActionsDetails,
+  RuleGroupSourceListDetails,
+  RuleGroupSourceStatefulRulesDetails,
+  RuleGroupSourceStatefulRulesHeaderDetails,
+  RuleGroupSourceStatefulRulesOptionsDetails,
+  RuleGroupSourceStatelessRuleDefinition,
+  RuleGroupSourceStatelessRuleMatchAttributes,
+  RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts,
+  RuleGroupSourceStatelessRuleMatchAttributesDestinations,
+  RuleGroupSourceStatelessRuleMatchAttributesSourcePorts,
+  RuleGroupSourceStatelessRuleMatchAttributesSources,
+  RuleGroupSourceStatelessRuleMatchAttributesTcpFlags,
+  RuleGroupSourceStatelessRulesAndCustomActionsDetails,
+  RuleGroupSourceStatelessRulesDetails,
+  RuleGroupVariables,
+  RuleGroupVariablesIpSetsDetails,
+  RuleGroupVariablesPortSetsDetails,
+  SecurityControlParameter,
+  SensitiveDataDetections,
+  SensitiveDataResult,
+  StatelessCustomActionDefinition,
+  StatelessCustomPublishMetricAction,
+  StatelessCustomPublishMetricActionDimension,
+  StatusReason,
+} from "../models/models_1";
+import {
+  AwsSecurityFinding,
+  AwsSecurityFindingFilters,
+  AwsSecurityFindingIdentifier,
+  AwsWafRegionalWebAclDetails,
+  AwsWafRegionalWebAclRulesListDetails,
   AwsWafRuleDetails,
   AwsWafRuleGroupDetails,
   AwsWafRuleGroupRulesActionDetails,
@@ -714,88 +866,37 @@ import {
   AwsWafWebAclDetails,
   AwsWafWebAclRule,
   AwsXrayEncryptionConfigDetails,
-  Cell,
-  ClassificationResult,
-  ClassificationStatus,
-  CodeVulnerabilitiesFilePath,
-  Compliance,
-  ContainerDetails,
-  CustomDataIdentifiersDetections,
-  CustomDataIdentifiersResult,
-  Cvss,
-  DataClassificationDetails,
-  FilePaths,
-  FindingProviderFields,
-  FindingProviderSeverity,
-  FirewallPolicyDetails,
-  FirewallPolicyStatefulRuleGroupReferencesDetails,
-  FirewallPolicyStatelessCustomActionsDetails,
-  FirewallPolicyStatelessRuleGroupReferencesDetails,
-  GeneratorDetails,
-  LoadBalancerState,
-  Malware,
-  Network,
-  NetworkHeader,
-  NetworkPathComponent,
-  NetworkPathComponentDetails,
-  Note,
-  Occurrences,
-  Page,
-  PatchSummary,
-  PortRange,
-  ProcessDetails,
-  Range,
-  Recommendation,
-  Remediation,
-  Resource,
-  ResourceDetails,
-  RuleGroupDetails,
-  RuleGroupSource,
-  RuleGroupSourceCustomActionsDetails,
-  RuleGroupSourceListDetails,
-  RuleGroupSourceStatefulRulesDetails,
-  RuleGroupSourceStatefulRulesHeaderDetails,
-  RuleGroupSourceStatefulRulesOptionsDetails,
-  RuleGroupSourceStatelessRuleDefinition,
-  RuleGroupSourceStatelessRuleMatchAttributes,
-  RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts,
-  RuleGroupSourceStatelessRuleMatchAttributesDestinations,
-  RuleGroupSourceStatelessRuleMatchAttributesSourcePorts,
-  RuleGroupSourceStatelessRuleMatchAttributesSources,
-  RuleGroupSourceStatelessRuleMatchAttributesTcpFlags,
-  RuleGroupSourceStatelessRulesAndCustomActionsDetails,
-  RuleGroupSourceStatelessRulesDetails,
-  RuleGroupVariables,
-  RuleGroupVariablesIpSetsDetails,
-  RuleGroupVariablesPortSetsDetails,
-  SensitiveDataDetections,
-  SensitiveDataResult,
-  Severity,
-  StatelessCustomActionDefinition,
-  StatelessCustomPublishMetricAction,
-  StatelessCustomPublishMetricActionDimension,
-  StatusReason,
-  Threat,
-  ThreatIntelIndicator,
-  VolumeMount,
-  VulnerabilityCodeVulnerabilities,
-  VulnerabilityVendor,
-  WafAction,
-  WafExcludedRule,
-  WafOverrideAction,
-} from "../models/models_1";
-import {
-  AwsSecurityFinding,
-  AwsSecurityFindingFilters,
-  AwsSecurityFindingIdentifier,
   BooleanFilter,
+  CodeVulnerabilitiesFilePath,
+  ConfigurationOptions,
+  ConfigurationPolicyAssociation,
+  ConfigurationPolicyAssociationSummary,
+  ConfigurationPolicySummary,
+  ContainerDetails,
+  Cvss,
+  DoubleConfigurationOptions,
+  FilePaths,
   FindingHistoryRecord,
   Insight,
   Invitation,
   IpFilter,
   KeywordFilter,
   Member,
+  OrganizationConfiguration,
+  ParameterConfiguration,
+  ParameterDefinition,
+  ParameterValue,
+  Policy,
+  Resource,
   ResourceConflictException,
+  ResourceDetails,
+  ResourceInUseException,
+  SecurityControl,
+  SecurityControlCustomParameter,
+  SecurityControlDefinition,
+  SecurityControlsConfiguration,
+  SecurityHubPolicy,
+  Severity,
   SoftwarePackage,
   SortCriterion,
   StandardsControl,
@@ -804,8 +905,17 @@ import {
   StandardsControlAssociationSummary,
   StandardsControlAssociationUpdate,
   StandardsSubscriptionRequest,
+  Target,
+  Threat,
+  ThreatIntelIndicator,
   UpdateAutomationRulesRequestItem,
+  VolumeMount,
   Vulnerability,
+  VulnerabilityCodeVulnerabilities,
+  VulnerabilityVendor,
+  WafAction,
+  WafExcludedRule,
+  WafOverrideAction,
   Workflow,
 } from "../models/models_2";
 import { SecurityHubServiceException as __BaseException } from "../models/SecurityHubServiceException";
@@ -817,11 +927,11 @@ export const se_AcceptAdministratorInvitationCommand = async (
   input: AcceptAdministratorInvitationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/administrator";
+  b.bp("/administrator");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -829,15 +939,8 @@ export const se_AcceptAdministratorInvitationCommand = async (
       InvitationId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -847,11 +950,11 @@ export const se_AcceptInvitationCommand = async (
   input: AcceptInvitationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/master";
+  b.bp("/master");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -859,15 +962,8 @@ export const se_AcceptInvitationCommand = async (
       MasterId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -877,27 +973,19 @@ export const se_BatchDeleteAutomationRulesCommand = async (
   input: BatchDeleteAutomationRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/automationrules/delete";
+  b.bp("/automationrules/delete");
   let body: any;
   body = JSON.stringify(
     take(input, {
       AutomationRulesArns: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -907,26 +995,19 @@ export const se_BatchDisableStandardsCommand = async (
   input: BatchDisableStandardsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/standards/deregister";
+  b.bp("/standards/deregister");
   let body: any;
   body = JSON.stringify(
     take(input, {
       StandardsSubscriptionArns: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -936,26 +1017,19 @@ export const se_BatchEnableStandardsCommand = async (
   input: BatchEnableStandardsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/standards/register";
+  b.bp("/standards/register");
   let body: any;
   body = JSON.stringify(
     take(input, {
       StandardsSubscriptionRequests: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -965,26 +1039,41 @@ export const se_BatchGetAutomationRulesCommand = async (
   input: BatchGetAutomationRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/automationrules/get";
+  b.bp("/automationrules/get");
   let body: any;
   body = JSON.stringify(
     take(input, {
       AutomationRulesArns: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1BatchGetConfigurationPolicyAssociationsCommand
+ */
+export const se_BatchGetConfigurationPolicyAssociationsCommand = async (
+  input: BatchGetConfigurationPolicyAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/configurationPolicyAssociation/batchget");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ConfigurationPolicyAssociationIdentifiers: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -994,27 +1083,19 @@ export const se_BatchGetSecurityControlsCommand = async (
   input: BatchGetSecurityControlsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/securityControls/batchGet";
+  b.bp("/securityControls/batchGet");
   let body: any;
   body = JSON.stringify(
     take(input, {
       SecurityControlIds: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1024,26 +1105,19 @@ export const se_BatchGetStandardsControlAssociationsCommand = async (
   input: BatchGetStandardsControlAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associations/batchGet";
+  b.bp("/associations/batchGet");
   let body: any;
   body = JSON.stringify(
     take(input, {
       StandardsControlAssociationIds: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1053,26 +1127,19 @@ export const se_BatchImportFindingsCommand = async (
   input: BatchImportFindingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/findings/import";
+  b.bp("/findings/import");
   let body: any;
   body = JSON.stringify(
     take(input, {
       Findings: (_) => se_BatchImportFindingsRequestFindingList(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1082,27 +1149,19 @@ export const se_BatchUpdateAutomationRulesCommand = async (
   input: BatchUpdateAutomationRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/automationrules/update";
+  b.bp("/automationrules/update");
   let body: any;
   body = JSON.stringify(
     take(input, {
       UpdateAutomationRulesRequestItems: (_) => se_UpdateAutomationRulesRequestItemsList(_, context),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1112,11 +1171,11 @@ export const se_BatchUpdateFindingsCommand = async (
   input: BatchUpdateFindingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/findings/batchupdate";
+  b.bp("/findings/batchupdate");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1132,15 +1191,8 @@ export const se_BatchUpdateFindingsCommand = async (
       Workflow: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1150,26 +1202,19 @@ export const se_BatchUpdateStandardsControlAssociationsCommand = async (
   input: BatchUpdateStandardsControlAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associations";
+  b.bp("/associations");
   let body: any;
   body = JSON.stringify(
     take(input, {
       StandardsControlAssociationUpdates: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1179,11 +1224,11 @@ export const se_CreateActionTargetCommand = async (
   input: CreateActionTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/actionTargets";
+  b.bp("/actionTargets");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1192,15 +1237,8 @@ export const se_CreateActionTargetCommand = async (
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1210,12 +1248,11 @@ export const se_CreateAutomationRuleCommand = async (
   input: CreateAutomationRuleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/automationrules/create";
+  b.bp("/automationrules/create");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1229,15 +1266,33 @@ export const se_CreateAutomationRuleCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateConfigurationPolicyCommand
+ */
+export const se_CreateConfigurationPolicyCommand = async (
+  input: CreateConfigurationPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/configurationPolicy/create");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ConfigurationPolicy: (_) => se_Policy(_, context),
+      Description: [],
+      Name: [],
+      Tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1247,12 +1302,11 @@ export const se_CreateFindingAggregatorCommand = async (
   input: CreateFindingAggregatorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/findingAggregator/create";
+  b.bp("/findingAggregator/create");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1260,15 +1314,8 @@ export const se_CreateFindingAggregatorCommand = async (
       Regions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1278,11 +1325,11 @@ export const se_CreateInsightCommand = async (
   input: CreateInsightCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/insights";
+  b.bp("/insights");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1291,15 +1338,8 @@ export const se_CreateInsightCommand = async (
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1309,26 +1349,19 @@ export const se_CreateMembersCommand = async (
   input: CreateMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/members";
+  b.bp("/members");
   let body: any;
   body = JSON.stringify(
     take(input, {
       AccountDetails: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1338,26 +1371,19 @@ export const se_DeclineInvitationsCommand = async (
   input: DeclineInvitationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/invitations/decline";
+  b.bp("/invitations/decline");
   let body: any;
   body = JSON.stringify(
     take(input, {
       AccountIds: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1367,28 +1393,29 @@ export const se_DeleteActionTargetCommand = async (
   input: DeleteActionTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/actionTargets/{ActionTargetArn+}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ActionTargetArn",
-    () => input.ActionTargetArn!,
-    "{ActionTargetArn+}",
-    true
-  );
+  b.bp("/actionTargets/{ActionTargetArn+}");
+  b.p("ActionTargetArn", () => input.ActionTargetArn!, "{ActionTargetArn+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteConfigurationPolicyCommand
+ */
+export const se_DeleteConfigurationPolicyCommand = async (
+  input: DeleteConfigurationPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/configurationPolicy/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1398,29 +1425,13 @@ export const se_DeleteFindingAggregatorCommand = async (
   input: DeleteFindingAggregatorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/findingAggregator/delete/{FindingAggregatorArn+}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FindingAggregatorArn",
-    () => input.FindingAggregatorArn!,
-    "{FindingAggregatorArn+}",
-    true
-  );
+  b.bp("/findingAggregator/delete/{FindingAggregatorArn+}");
+  b.p("FindingAggregatorArn", () => input.FindingAggregatorArn!, "{FindingAggregatorArn+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1430,20 +1441,13 @@ export const se_DeleteInsightCommand = async (
   input: DeleteInsightCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/insights/{InsightArn+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InsightArn", () => input.InsightArn!, "{InsightArn+}", true);
+  b.bp("/insights/{InsightArn+}");
+  b.p("InsightArn", () => input.InsightArn!, "{InsightArn+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1453,26 +1457,19 @@ export const se_DeleteInvitationsCommand = async (
   input: DeleteInvitationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/invitations/delete";
+  b.bp("/invitations/delete");
   let body: any;
   body = JSON.stringify(
     take(input, {
       AccountIds: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1482,26 +1479,19 @@ export const se_DeleteMembersCommand = async (
   input: DeleteMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/members/delete";
+  b.bp("/members/delete");
   let body: any;
   body = JSON.stringify(
     take(input, {
       AccountIds: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1511,11 +1501,11 @@ export const se_DescribeActionTargetsCommand = async (
   input: DescribeActionTargetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/actionTargets/get";
+  b.bp("/actionTargets/get");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1524,15 +1514,8 @@ export const se_DescribeActionTargetsCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1542,23 +1525,15 @@ export const se_DescribeHubCommand = async (
   input: DescribeHubCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts";
+  b.bp("/accounts");
   const query: any = map({
-    HubArn: [, input.HubArn!],
+    [_HA]: [, input[_HA]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1568,23 +1543,15 @@ export const se_DescribeOrganizationConfigurationCommand = async (
   input: DescribeOrganizationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/organization/configuration";
+  b.bp("/organization/configuration");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1594,25 +1561,17 @@ export const se_DescribeProductsCommand = async (
   input: DescribeProductsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/products";
+  b.bp("/products");
   const query: any = map({
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    ProductArn: [, input.ProductArn!],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_PA]: [, input[_PA]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1622,24 +1581,16 @@ export const se_DescribeStandardsCommand = async (
   input: DescribeStandardsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/standards";
+  b.bp("/standards");
   const query: any = map({
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1649,34 +1600,17 @@ export const se_DescribeStandardsControlsCommand = async (
   input: DescribeStandardsControlsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/standards/controls/{StandardsSubscriptionArn+}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "StandardsSubscriptionArn",
-    () => input.StandardsSubscriptionArn!,
-    "{StandardsSubscriptionArn+}",
-    true
-  );
+  b.bp("/standards/controls/{StandardsSubscriptionArn+}");
+  b.p("StandardsSubscriptionArn", () => input.StandardsSubscriptionArn!, "{StandardsSubscriptionArn+}", true);
   const query: any = map({
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1686,29 +1620,13 @@ export const se_DisableImportFindingsForProductCommand = async (
   input: DisableImportFindingsForProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/productSubscriptions/{ProductSubscriptionArn+}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ProductSubscriptionArn",
-    () => input.ProductSubscriptionArn!,
-    "{ProductSubscriptionArn+}",
-    true
-  );
+  b.bp("/productSubscriptions/{ProductSubscriptionArn+}");
+  b.p("ProductSubscriptionArn", () => input.ProductSubscriptionArn!, "{ProductSubscriptionArn+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1718,27 +1636,19 @@ export const se_DisableOrganizationAdminAccountCommand = async (
   input: DisableOrganizationAdminAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/organization/admin/disable";
+  b.bp("/organization/admin/disable");
   let body: any;
   body = JSON.stringify(
     take(input, {
       AdminAccountId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1748,22 +1658,15 @@ export const se_DisableSecurityHubCommand = async (
   input: DisableSecurityHubCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts";
+  b.bp("/accounts");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1773,23 +1676,15 @@ export const se_DisassociateFromAdministratorAccountCommand = async (
   input: DisassociateFromAdministratorAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/administrator/disassociate";
+  b.bp("/administrator/disassociate");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1799,22 +1694,15 @@ export const se_DisassociateFromMasterAccountCommand = async (
   input: DisassociateFromMasterAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/master/disassociate";
+  b.bp("/master/disassociate");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1824,26 +1712,19 @@ export const se_DisassociateMembersCommand = async (
   input: DisassociateMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/members/disassociate";
+  b.bp("/members/disassociate");
   let body: any;
   body = JSON.stringify(
     take(input, {
       AccountIds: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1853,26 +1734,19 @@ export const se_EnableImportFindingsForProductCommand = async (
   input: EnableImportFindingsForProductCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/productSubscriptions";
+  b.bp("/productSubscriptions");
   let body: any;
   body = JSON.stringify(
     take(input, {
       ProductArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1882,27 +1756,19 @@ export const se_EnableOrganizationAdminAccountCommand = async (
   input: EnableOrganizationAdminAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/organization/admin/enable";
+  b.bp("/organization/admin/enable");
   let body: any;
   body = JSON.stringify(
     take(input, {
       AdminAccountId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1912,11 +1778,11 @@ export const se_EnableSecurityHubCommand = async (
   input: EnableSecurityHubCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts";
+  b.bp("/accounts");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1925,15 +1791,8 @@ export const se_EnableSecurityHubCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1943,22 +1802,53 @@ export const se_GetAdministratorAccountCommand = async (
   input: GetAdministratorAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/administrator";
+  b.bp("/administrator");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetConfigurationPolicyCommand
+ */
+export const se_GetConfigurationPolicyCommand = async (
+  input: GetConfigurationPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/configurationPolicy/get/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetConfigurationPolicyAssociationCommand
+ */
+export const se_GetConfigurationPolicyAssociationCommand = async (
+  input: GetConfigurationPolicyAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/configurationPolicyAssociation/get");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Target: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1968,11 +1858,11 @@ export const se_GetEnabledStandardsCommand = async (
   input: GetEnabledStandardsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/standards/get";
+  b.bp("/standards/get");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1981,15 +1871,8 @@ export const se_GetEnabledStandardsCommand = async (
       StandardsSubscriptionArns: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1999,29 +1882,13 @@ export const se_GetFindingAggregatorCommand = async (
   input: GetFindingAggregatorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/findingAggregator/get/{FindingAggregatorArn+}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "FindingAggregatorArn",
-    () => input.FindingAggregatorArn!,
-    "{FindingAggregatorArn+}",
-    true
-  );
+  b.bp("/findingAggregator/get/{FindingAggregatorArn+}");
+  b.p("FindingAggregatorArn", () => input.FindingAggregatorArn!, "{FindingAggregatorArn+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2031,11 +1898,11 @@ export const se_GetFindingHistoryCommand = async (
   input: GetFindingHistoryCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/findingHistory/get";
+  b.bp("/findingHistory/get");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2046,15 +1913,8 @@ export const se_GetFindingHistoryCommand = async (
       StartTime: (_) => _.toISOString().split(".")[0] + "Z",
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2064,11 +1924,11 @@ export const se_GetFindingsCommand = async (
   input: GetFindingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/findings";
+  b.bp("/findings");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2078,15 +1938,8 @@ export const se_GetFindingsCommand = async (
       SortCriteria: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2096,21 +1949,13 @@ export const se_GetInsightResultsCommand = async (
   input: GetInsightResultsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/insights/results/{InsightArn+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InsightArn", () => input.InsightArn!, "{InsightArn+}", true);
+  b.bp("/insights/results/{InsightArn+}");
+  b.p("InsightArn", () => input.InsightArn!, "{InsightArn+}", true);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2120,11 +1965,11 @@ export const se_GetInsightsCommand = async (
   input: GetInsightsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/insights/get";
+  b.bp("/insights/get");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2133,15 +1978,8 @@ export const se_GetInsightsCommand = async (
       NextToken: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2151,22 +1989,15 @@ export const se_GetInvitationsCountCommand = async (
   input: GetInvitationsCountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/invitations/count";
+  b.bp("/invitations/count");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2176,22 +2007,15 @@ export const se_GetMasterAccountCommand = async (
   input: GetMasterAccountCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/master";
+  b.bp("/master");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2201,26 +2025,37 @@ export const se_GetMembersCommand = async (
   input: GetMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/members/get";
+  b.bp("/members/get");
   let body: any;
   body = JSON.stringify(
     take(input, {
       AccountIds: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetSecurityControlDefinitionCommand
+ */
+export const se_GetSecurityControlDefinitionCommand = async (
+  input: GetSecurityControlDefinitionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/securityControl/definition");
+  const query: any = map({
+    [_SCI]: [, __expectNonNull(input[_SCI]!, `SecurityControlId`)],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2230,26 +2065,19 @@ export const se_InviteMembersCommand = async (
   input: InviteMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/members/invite";
+  b.bp("/members/invite");
   let body: any;
   body = JSON.stringify(
     take(input, {
       AccountIds: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2259,24 +2087,59 @@ export const se_ListAutomationRulesCommand = async (
   input: ListAutomationRulesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/automationrules/list";
+  b.bp("/automationrules/list");
   const query: any = map({
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListConfigurationPoliciesCommand
+ */
+export const se_ListConfigurationPoliciesCommand = async (
+  input: ListConfigurationPoliciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/configurationPolicy/list");
+  const query: any = map({
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListConfigurationPolicyAssociationsCommand
+ */
+export const se_ListConfigurationPolicyAssociationsCommand = async (
+  input: ListConfigurationPolicyAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/configurationPolicyAssociation/list");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Filters: (_) => _json(_),
+      MaxResults: [],
+      NextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2286,24 +2149,16 @@ export const se_ListEnabledProductsForImportCommand = async (
   input: ListEnabledProductsForImportCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/productSubscriptions";
+  b.bp("/productSubscriptions");
   const query: any = map({
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2313,25 +2168,16 @@ export const se_ListFindingAggregatorsCommand = async (
   input: ListFindingAggregatorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/findingAggregator/list";
+  b.bp("/findingAggregator/list");
   const query: any = map({
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2341,24 +2187,16 @@ export const se_ListInvitationsCommand = async (
   input: ListInvitationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/invitations";
+  b.bp("/invitations");
   const query: any = map({
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    NextToken: [, input.NextToken!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2368,25 +2206,17 @@ export const se_ListMembersCommand = async (
   input: ListMembersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/members";
+  b.bp("/members");
   const query: any = map({
-    OnlyAssociated: [() => input.OnlyAssociated !== void 0, () => input.OnlyAssociated!.toString()],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    NextToken: [, input.NextToken!],
+    [_OA]: [() => input.OnlyAssociated !== void 0, () => input[_OA]!.toString()],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2396,24 +2226,16 @@ export const se_ListOrganizationAdminAccountsCommand = async (
   input: ListOrganizationAdminAccountsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/organization/admin";
+  b.bp("/organization/admin");
   const query: any = map({
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    NextToken: [, input.NextToken!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_NT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2423,26 +2245,17 @@ export const se_ListSecurityControlDefinitionsCommand = async (
   input: ListSecurityControlDefinitionsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/securityControls/definitions";
+  b.bp("/securityControls/definitions");
   const query: any = map({
-    StandardsArn: [, input.StandardsArn!],
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_SA]: [, input[_SA]!],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2452,25 +2265,17 @@ export const se_ListStandardsControlAssociationsCommand = async (
   input: ListStandardsControlAssociationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/associations";
+  b.bp("/associations");
   const query: any = map({
-    SecurityControlId: [, __expectNonNull(input.SecurityControlId!, `SecurityControlId`)],
-    NextToken: [, input.NextToken!],
-    MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
+    [_SCI]: [, __expectNonNull(input[_SCI]!, `SecurityControlId`)],
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2480,20 +2285,59 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartConfigurationPolicyAssociationCommand
+ */
+export const se_StartConfigurationPolicyAssociationCommand = async (
+  input: StartConfigurationPolicyAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/configurationPolicyAssociation/associate");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ConfigurationPolicyIdentifier: [],
+      Target: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartConfigurationPolicyDisassociationCommand
+ */
+export const se_StartConfigurationPolicyDisassociationCommand = async (
+  input: StartConfigurationPolicyDisassociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/configurationPolicyAssociation/disassociate");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ConfigurationPolicyIdentifier: [],
+      Target: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2503,27 +2347,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2533,27 +2370,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -2563,20 +2392,12 @@ export const se_UpdateActionTargetCommand = async (
   input: UpdateActionTargetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/actionTargets/{ActionTargetArn+}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ActionTargetArn",
-    () => input.ActionTargetArn!,
-    "{ActionTargetArn+}",
-    true
-  );
+  b.bp("/actionTargets/{ActionTargetArn+}");
+  b.p("ActionTargetArn", () => input.ActionTargetArn!, "{ActionTargetArn+}", true);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2584,15 +2405,34 @@ export const se_UpdateActionTargetCommand = async (
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateConfigurationPolicyCommand
+ */
+export const se_UpdateConfigurationPolicyCommand = async (
+  input: UpdateConfigurationPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/configurationPolicy/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ConfigurationPolicy: (_) => se_Policy(_, context),
+      Description: [],
+      Name: [],
+      UpdatedReason: [],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2602,12 +2442,11 @@ export const se_UpdateFindingAggregatorCommand = async (
   input: UpdateFindingAggregatorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/findingAggregator/update";
+  b.bp("/findingAggregator/update");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2616,15 +2455,8 @@ export const se_UpdateFindingAggregatorCommand = async (
       Regions: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2634,11 +2466,11 @@ export const se_UpdateFindingsCommand = async (
   input: UpdateFindingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/findings";
+  b.bp("/findings");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2647,15 +2479,8 @@ export const se_UpdateFindingsCommand = async (
       RecordState: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2665,12 +2490,12 @@ export const se_UpdateInsightCommand = async (
   input: UpdateInsightCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/insights/{InsightArn+}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InsightArn", () => input.InsightArn!, "{InsightArn+}", true);
+  b.bp("/insights/{InsightArn+}");
+  b.p("InsightArn", () => input.InsightArn!, "{InsightArn+}", true);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2679,15 +2504,8 @@ export const se_UpdateInsightCommand = async (
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2697,28 +2515,45 @@ export const se_UpdateOrganizationConfigurationCommand = async (
   input: UpdateOrganizationConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/organization/configuration";
+  b.bp("/organization/configuration");
   let body: any;
   body = JSON.stringify(
     take(input, {
       AutoEnable: [],
       AutoEnableStandards: [],
+      OrganizationConfiguration: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateSecurityControlCommand
+ */
+export const se_UpdateSecurityControlCommand = async (
+  input: UpdateSecurityControlCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/securityControl/update");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      LastUpdateReason: [],
+      Parameters: (_) => se_Parameters(_, context),
+      SecurityControlId: [],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2728,11 +2563,11 @@ export const se_UpdateSecurityHubConfigurationCommand = async (
   input: UpdateSecurityHubConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts";
+  b.bp("/accounts");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2740,15 +2575,8 @@ export const se_UpdateSecurityHubConfigurationCommand = async (
       ControlFindingGenerator: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2758,20 +2586,12 @@ export const se_UpdateStandardsControlCommand = async (
   input: UpdateStandardsControlCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/standards/control/{StandardsControlArn+}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "StandardsControlArn",
-    () => input.StandardsControlArn!,
-    "{StandardsControlArn+}",
-    true
-  );
+  b.bp("/standards/control/{StandardsControlArn+}");
+  b.p("StandardsControlArn", () => input.StandardsControlArn!, "{StandardsControlArn+}", true);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2779,15 +2599,8 @@ export const se_UpdateStandardsControlCommand = async (
       DisabledReason: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PATCH",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2994,6 +2807,9 @@ const de_BatchDisableStandardsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.securityhub#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       throw await de_InternalExceptionRes(parsedOutput, context);
@@ -3050,6 +2866,9 @@ const de_BatchEnableStandardsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.securityhub#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       throw await de_InternalExceptionRes(parsedOutput, context);
@@ -3136,6 +2955,69 @@ const de_BatchGetAutomationRulesCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1BatchGetConfigurationPolicyAssociationsCommand
+ */
+export const de_BatchGetConfigurationPolicyAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetConfigurationPolicyAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_BatchGetConfigurationPolicyAssociationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ConfigurationPolicyAssociations: (_) => de_ConfigurationPolicyAssociationList(_, context),
+    UnprocessedConfigurationPolicyAssociations: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchGetConfigurationPolicyAssociationsCommandError
+ */
+const de_BatchGetConfigurationPolicyAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetConfigurationPolicyAssociationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.securityhub#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalException":
+    case "com.amazonaws.securityhub#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidAccessException":
+    case "com.amazonaws.securityhub#InvalidAccessException":
+      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.securityhub#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.securityhub#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securityhub#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1BatchGetSecurityControlsCommand
  */
 export const de_BatchGetSecurityControlsCommand = async (
@@ -3150,7 +3032,7 @@ export const de_BatchGetSecurityControlsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    SecurityControls: _json,
+    SecurityControls: (_) => de_SecurityControls(_, context),
     UnprocessedIds: _json,
   });
   Object.assign(contents, doc);
@@ -3458,6 +3340,9 @@ const de_BatchUpdateStandardsControlAssociationsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.securityhub#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       throw await de_InternalExceptionRes(parsedOutput, context);
@@ -3588,6 +3473,74 @@ const de_CreateAutomationRuleCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1CreateConfigurationPolicyCommand
+ */
+export const de_CreateConfigurationPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateConfigurationPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CreateConfigurationPolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    ConfigurationPolicy: (_) => de_Policy(__expectUnion(_), context),
+    CreatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Description: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateConfigurationPolicyCommandError
+ */
+const de_CreateConfigurationPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateConfigurationPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.securityhub#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalException":
+    case "com.amazonaws.securityhub#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidAccessException":
+    case "com.amazonaws.securityhub#InvalidAccessException":
+      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.securityhub#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.securityhub#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceConflictException":
+    case "com.amazonaws.securityhub#ResourceConflictException":
+      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -3753,6 +3706,9 @@ const de_CreateMembersCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.securityhub#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       throw await de_InternalExceptionRes(parsedOutput, context);
@@ -3877,6 +3833,67 @@ const de_DeleteActionTargetCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securityhub#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DeleteConfigurationPolicyCommand
+ */
+export const de_DeleteConfigurationPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConfigurationPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DeleteConfigurationPolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteConfigurationPolicyCommandError
+ */
+const de_DeleteConfigurationPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConfigurationPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.securityhub#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalException":
+    case "com.amazonaws.securityhub#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidAccessException":
+    case "com.amazonaws.securityhub#InvalidAccessException":
+      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.securityhub#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.securityhub#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceConflictException":
+    case "com.amazonaws.securityhub#ResourceConflictException":
+      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.securityhub#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -4262,6 +4279,7 @@ export const de_DescribeOrganizationConfigurationCommand = async (
     AutoEnable: __expectBoolean,
     AutoEnableStandards: __expectString,
     MemberAccountLimitReached: __expectBoolean,
+    OrganizationConfiguration: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -4555,6 +4573,9 @@ const de_DisableOrganizationAdminAccountCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.securityhub#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       throw await de_InternalExceptionRes(parsedOutput, context);
@@ -4607,6 +4628,9 @@ const de_DisableSecurityHubCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.securityhub#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       throw await de_InternalExceptionRes(parsedOutput, context);
@@ -4769,6 +4793,9 @@ const de_DisassociateMembersCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.securityhub#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       throw await de_InternalExceptionRes(parsedOutput, context);
@@ -4883,6 +4910,9 @@ const de_EnableOrganizationAdminAccountCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.securityhub#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       throw await de_InternalExceptionRes(parsedOutput, context);
@@ -4994,6 +5024,142 @@ const de_GetAdministratorAccountCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.securityhub#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidAccessException":
+    case "com.amazonaws.securityhub#InvalidAccessException":
+      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.securityhub#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.securityhub#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securityhub#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetConfigurationPolicyCommand
+ */
+export const de_GetConfigurationPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConfigurationPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetConfigurationPolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    ConfigurationPolicy: (_) => de_Policy(__expectUnion(_), context),
+    CreatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Description: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetConfigurationPolicyCommandError
+ */
+const de_GetConfigurationPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConfigurationPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.securityhub#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalException":
+    case "com.amazonaws.securityhub#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidAccessException":
+    case "com.amazonaws.securityhub#InvalidAccessException":
+      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.securityhub#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.securityhub#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securityhub#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1GetConfigurationPolicyAssociationCommand
+ */
+export const de_GetConfigurationPolicyAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConfigurationPolicyAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetConfigurationPolicyAssociationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AssociationStatus: __expectString,
+    AssociationStatusMessage: __expectString,
+    AssociationType: __expectString,
+    ConfigurationPolicyId: __expectString,
+    TargetId: __expectString,
+    TargetType: __expectString,
+    UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetConfigurationPolicyAssociationCommandError
+ */
+const de_GetConfigurationPolicyAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConfigurationPolicyAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.securityhub#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       throw await de_InternalExceptionRes(parsedOutput, context);
@@ -5550,6 +5716,65 @@ const de_GetMembersCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1GetSecurityControlDefinitionCommand
+ */
+export const de_GetSecurityControlDefinitionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSecurityControlDefinitionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_GetSecurityControlDefinitionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    SecurityControlDefinition: (_) => de_SecurityControlDefinition(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetSecurityControlDefinitionCommandError
+ */
+const de_GetSecurityControlDefinitionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSecurityControlDefinitionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalException":
+    case "com.amazonaws.securityhub#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidAccessException":
+    case "com.amazonaws.securityhub#InvalidAccessException":
+      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.securityhub#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.securityhub#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securityhub#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1InviteMembersCommand
  */
 export const de_InviteMembersCommand = async (
@@ -5637,6 +5862,126 @@ const de_ListAutomationRulesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAutomationRulesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.securityhub#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalException":
+    case "com.amazonaws.securityhub#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidAccessException":
+    case "com.amazonaws.securityhub#InvalidAccessException":
+      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.securityhub#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.securityhub#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListConfigurationPoliciesCommand
+ */
+export const de_ListConfigurationPoliciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConfigurationPoliciesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListConfigurationPoliciesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ConfigurationPolicySummaries: (_) => de_ConfigurationPolicySummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListConfigurationPoliciesCommandError
+ */
+const de_ListConfigurationPoliciesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConfigurationPoliciesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.securityhub#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalException":
+    case "com.amazonaws.securityhub#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidAccessException":
+    case "com.amazonaws.securityhub#InvalidAccessException":
+      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.securityhub#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.securityhub#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1ListConfigurationPolicyAssociationsCommand
+ */
+export const de_ListConfigurationPolicyAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConfigurationPolicyAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_ListConfigurationPolicyAssociationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ConfigurationPolicyAssociationSummaries: (_) => de_ConfigurationPolicyAssociationSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListConfigurationPolicyAssociationsCommandError
+ */
+const de_ListConfigurationPolicyAssociationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConfigurationPolicyAssociationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5969,7 +6314,7 @@ export const de_ListSecurityControlDefinitionsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     NextToken: __expectString,
-    SecurityControlDefinitions: _json,
+    SecurityControlDefinitions: (_) => de_SecurityControlDefinitions(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -6121,6 +6466,132 @@ const de_ListTagsForResourceCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1StartConfigurationPolicyAssociationCommand
+ */
+export const de_StartConfigurationPolicyAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartConfigurationPolicyAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StartConfigurationPolicyAssociationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AssociationStatus: __expectString,
+    AssociationStatusMessage: __expectString,
+    AssociationType: __expectString,
+    ConfigurationPolicyId: __expectString,
+    TargetId: __expectString,
+    TargetType: __expectString,
+    UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartConfigurationPolicyAssociationCommandError
+ */
+const de_StartConfigurationPolicyAssociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartConfigurationPolicyAssociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.securityhub#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalException":
+    case "com.amazonaws.securityhub#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidAccessException":
+    case "com.amazonaws.securityhub#InvalidAccessException":
+      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.securityhub#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.securityhub#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securityhub#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1StartConfigurationPolicyDisassociationCommand
+ */
+export const de_StartConfigurationPolicyDisassociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartConfigurationPolicyDisassociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StartConfigurationPolicyDisassociationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartConfigurationPolicyDisassociationCommandError
+ */
+const de_StartConfigurationPolicyDisassociationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartConfigurationPolicyDisassociationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.securityhub#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalException":
+    case "com.amazonaws.securityhub#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidAccessException":
+    case "com.amazonaws.securityhub#InvalidAccessException":
+      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.securityhub#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.securityhub#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securityhub#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -6257,6 +6728,77 @@ const de_UpdateActionTargetCommandError = async (
     case "InvalidInputException":
     case "com.amazonaws.securityhub#InvalidInputException":
       throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securityhub#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateConfigurationPolicyCommand
+ */
+export const de_UpdateConfigurationPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConfigurationPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateConfigurationPolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: __expectString,
+    ConfigurationPolicy: (_) => de_Policy(__expectUnion(_), context),
+    CreatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Description: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateConfigurationPolicyCommandError
+ */
+const de_UpdateConfigurationPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConfigurationPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.securityhub#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalException":
+    case "com.amazonaws.securityhub#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidAccessException":
+    case "com.amazonaws.securityhub#InvalidAccessException":
+      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.securityhub#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.securityhub#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceConflictException":
+    case "com.amazonaws.securityhub#ResourceConflictException":
+      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.securityhub#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -6475,6 +7017,9 @@ const de_UpdateOrganizationConfigurationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.securityhub#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       throw await de_InternalExceptionRes(parsedOutput, context);
@@ -6487,6 +7032,73 @@ const de_UpdateOrganizationConfigurationCommandError = async (
     case "LimitExceededException":
     case "com.amazonaws.securityhub#LimitExceededException":
       throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceConflictException":
+    case "com.amazonaws.securityhub#ResourceConflictException":
+      throw await de_ResourceConflictExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securityhub#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1UpdateSecurityControlCommand
+ */
+export const de_UpdateSecurityControlCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSecurityControlCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_UpdateSecurityControlCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateSecurityControlCommandError
+ */
+const de_UpdateSecurityControlCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSecurityControlCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.securityhub#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalException":
+    case "com.amazonaws.securityhub#InternalException":
+      throw await de_InternalExceptionRes(parsedOutput, context);
+    case "InvalidAccessException":
+    case "com.amazonaws.securityhub#InvalidAccessException":
+      throw await de_InvalidAccessExceptionRes(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.securityhub#InvalidInputException":
+      throw await de_InvalidInputExceptionRes(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.securityhub#LimitExceededException":
+      throw await de_LimitExceededExceptionRes(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.securityhub#ResourceInUseException":
+      throw await de_ResourceInUseExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.securityhub#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -6527,6 +7139,9 @@ const de_UpdateSecurityHubConfigurationCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.securityhub#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       throw await de_InternalExceptionRes(parsedOutput, context);
@@ -6582,6 +7197,9 @@ const de_UpdateStandardsControlCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.securityhub#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
     case "InternalException":
     case "com.amazonaws.securityhub#InternalException":
       throw await de_InternalExceptionRes(parsedOutput, context);
@@ -6729,6 +7347,27 @@ const de_ResourceConflictExceptionRes = async (
 };
 
 /**
+ * deserializeAws_restJson1ResourceInUseExceptionRes
+ */
+const de_ResourceInUseExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceInUseException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ResourceInUseException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1ResourceNotFoundExceptionRes
  */
 const de_ResourceNotFoundExceptionRes = async (
@@ -6808,6 +7447,8 @@ const se_ActionRemoteIpDetails = (input: ActionRemoteIpDetails, context: __Serde
 
 // se_AssociatedStandardsList omitted.
 
+// se_AssociationFilters omitted.
+
 // se_AssociationSetDetails omitted.
 
 // se_AssociationSetList omitted.
@@ -6852,6 +7493,7 @@ const se_AutomationRulesFindingFieldsUpdate = (
 const se_AutomationRulesFindingFilters = (input: AutomationRulesFindingFilters, context: __SerdeContext): any => {
   return take(input, {
     AwsAccountId: _json,
+    AwsAccountName: _json,
     CompanyName: _json,
     ComplianceAssociatedStandardsId: _json,
     ComplianceSecurityControlId: _json,
@@ -6872,6 +7514,8 @@ const se_AutomationRulesFindingFilters = (input: AutomationRulesFindingFilters, 
     RecordState: _json,
     RelatedFindingsId: _json,
     RelatedFindingsProductArn: _json,
+    ResourceApplicationArn: _json,
+    ResourceApplicationName: _json,
     ResourceDetailsOther: _json,
     ResourceId: _json,
     ResourcePartition: _json,
@@ -7248,6 +7892,18 @@ const se_AwsCloudWatchAlarmDetails = (input: AwsCloudWatchAlarmDetails, context:
 
 // se_AwsCorsConfiguration omitted.
 
+// se_AwsDmsEndpointDetails omitted.
+
+// se_AwsDmsReplicationInstanceDetails omitted.
+
+// se_AwsDmsReplicationInstanceReplicationSubnetGroupDetails omitted.
+
+// se_AwsDmsReplicationInstanceVpcSecurityGroupsDetails omitted.
+
+// se_AwsDmsReplicationInstanceVpcSecurityGroupsList omitted.
+
+// se_AwsDmsReplicationTaskDetails omitted.
+
 // se_AwsDynamoDbTableAttributeDefinition omitted.
 
 // se_AwsDynamoDbTableAttributeDefinitionList omitted.
@@ -7287,6 +7943,26 @@ const se_AwsCloudWatchAlarmDetails = (input: AwsCloudWatchAlarmDetails, context:
 // se_AwsDynamoDbTableSseDescription omitted.
 
 // se_AwsDynamoDbTableStreamSpecification omitted.
+
+// se_AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetails omitted.
+
+// se_AwsEc2ClientVpnEndpointAuthenticationOptionsDetails omitted.
+
+// se_AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetails omitted.
+
+// se_AwsEc2ClientVpnEndpointAuthenticationOptionsList omitted.
+
+// se_AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetails omitted.
+
+// se_AwsEc2ClientVpnEndpointClientConnectOptionsDetails omitted.
+
+// se_AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetails omitted.
+
+// se_AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetails omitted.
+
+// se_AwsEc2ClientVpnEndpointConnectionLogOptionsDetails omitted.
+
+// se_AwsEc2ClientVpnEndpointDetails omitted.
 
 // se_AwsEc2EipDetails omitted.
 
@@ -7847,6 +8523,24 @@ const se_AwsEc2LaunchTemplateDetails = (input: AwsEc2LaunchTemplateDetails, cont
 
 // se_AwsEventSchemasRegistryDetails omitted.
 
+// se_AwsEventsEndpointDetails omitted.
+
+// se_AwsEventsEndpointEventBusesDetails omitted.
+
+// se_AwsEventsEndpointEventBusesList omitted.
+
+// se_AwsEventsEndpointReplicationConfigDetails omitted.
+
+// se_AwsEventsEndpointRoutingConfigDetails omitted.
+
+// se_AwsEventsEndpointRoutingConfigFailoverConfigDetails omitted.
+
+// se_AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetails omitted.
+
+// se_AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetails omitted.
+
+// se_AwsEventsEventbusDetails omitted.
+
 // se_AwsGuardDutyDetectorDataSourcesCloudTrailDetails omitted.
 
 // se_AwsGuardDutyDetectorDataSourcesDetails omitted.
@@ -7962,6 +8656,28 @@ const se_AwsKmsKeyDetails = (input: AwsKmsKeyDetails, context: __SerdeContext): 
 // se_AwsMountPoint omitted.
 
 // se_AwsMountPointList omitted.
+
+// se_AwsMskClusterClusterInfoClientAuthenticationDetails omitted.
+
+// se_AwsMskClusterClusterInfoClientAuthenticationSaslDetails omitted.
+
+// se_AwsMskClusterClusterInfoClientAuthenticationSaslIamDetails omitted.
+
+// se_AwsMskClusterClusterInfoClientAuthenticationSaslScramDetails omitted.
+
+// se_AwsMskClusterClusterInfoClientAuthenticationTlsDetails omitted.
+
+// se_AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetails omitted.
+
+// se_AwsMskClusterClusterInfoDetails omitted.
+
+// se_AwsMskClusterClusterInfoEncryptionInfoDetails omitted.
+
+// se_AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetails omitted.
+
+// se_AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetails omitted.
+
+// se_AwsMskClusterDetails omitted.
 
 // se_AwsNetworkFirewallFirewallDetails omitted.
 
@@ -8199,6 +8915,24 @@ const se_AwsRedshiftClusterRestoreStatus = (input: AwsRedshiftClusterRestoreStat
 
 // se_AwsRedshiftClusterVpcSecurityGroups omitted.
 
+// se_AwsRoute53HostedZoneConfigDetails omitted.
+
+// se_AwsRoute53HostedZoneDetails omitted.
+
+// se_AwsRoute53HostedZoneNameServersList omitted.
+
+// se_AwsRoute53HostedZoneObjectDetails omitted.
+
+// se_AwsRoute53HostedZoneVpcDetails omitted.
+
+// se_AwsRoute53HostedZoneVpcsList omitted.
+
+// se_AwsRoute53QueryLoggingConfigDetails omitted.
+
+// se_AwsS3AccessPointDetails omitted.
+
+// se_AwsS3AccessPointVpcConfigurationDetails omitted.
+
 // se_AwsS3AccountPublicAccessBlockDetails omitted.
 
 // se_AwsS3BucketBucketLifecycleConfigurationDetails omitted.
@@ -8294,6 +9028,7 @@ const se_AwsSecurityFinding = (input: AwsSecurityFinding, context: __SerdeContex
   return take(input, {
     Action: (_) => se_Action(_, context),
     AwsAccountId: [],
+    AwsAccountName: [],
     CompanyName: [],
     Compliance: _json,
     Confidence: [],
@@ -8312,6 +9047,7 @@ const se_AwsSecurityFinding = (input: AwsSecurityFinding, context: __SerdeContex
     Note: _json,
     PatchSummary: _json,
     Process: _json,
+    ProcessedAt: [],
     ProductArn: [],
     ProductFields: _json,
     ProductName: [],
@@ -8343,9 +9079,12 @@ const se_AwsSecurityFinding = (input: AwsSecurityFinding, context: __SerdeContex
 const se_AwsSecurityFindingFilters = (input: AwsSecurityFindingFilters, context: __SerdeContext): any => {
   return take(input, {
     AwsAccountId: _json,
+    AwsAccountName: _json,
     CompanyName: _json,
     ComplianceAssociatedStandardsId: _json,
     ComplianceSecurityControlId: _json,
+    ComplianceSecurityControlParametersName: _json,
+    ComplianceSecurityControlParametersValue: _json,
     ComplianceStatus: _json,
     Confidence: (_) => se_NumberFilterList(_, context),
     CreatedAt: _json,
@@ -8395,6 +9134,8 @@ const se_AwsSecurityFindingFilters = (input: AwsSecurityFindingFilters, context:
     Region: _json,
     RelatedFindingsId: _json,
     RelatedFindingsProductArn: _json,
+    ResourceApplicationArn: _json,
+    ResourceApplicationName: _json,
     ResourceAwsEc2InstanceIamInstanceProfileArn: _json,
     ResourceAwsEc2InstanceImageId: _json,
     ResourceAwsEc2InstanceIpV4Addresses: _json,
@@ -8437,6 +9178,8 @@ const se_AwsSecurityFindingFilters = (input: AwsSecurityFindingFilters, context:
     UpdatedAt: _json,
     UserDefinedFields: _json,
     VerificationState: _json,
+    VulnerabilitiesExploitAvailable: _json,
+    VulnerabilitiesFixAvailable: _json,
     WorkflowState: _json,
     WorkflowStatus: _json,
   });
@@ -8593,9 +9336,15 @@ const se_BatchImportFindingsRequestFindingList = (input: AwsSecurityFinding[], c
 
 // se_ClassificationStatus omitted.
 
+// se_CloudWatchLogsLogGroupArnConfigDetails omitted.
+
 // se_CodeVulnerabilitiesFilePath omitted.
 
 // se_Compliance omitted.
+
+// se_ConfigurationPolicyAssociation omitted.
+
+// se_ConfigurationPolicyAssociationsList omitted.
 
 // se_ContainerDetails omitted.
 
@@ -8639,7 +9388,13 @@ const se_CvssList = (input: Cvss[], context: __SerdeContext): any => {
 
 // se_DateRange omitted.
 
+// se_DisabledSecurityControlIdentifierList omitted.
+
 // se_DnsRequestAction omitted.
+
+// se_EnabledSecurityControlIdentifierList omitted.
+
+// se_EnabledStandardIdentifierList omitted.
 
 // se_FieldMap omitted.
 
@@ -8741,7 +9496,9 @@ const se_NetworkConnectionAction = (input: NetworkConnectionAction, context: __S
 const se_NumberFilter = (input: NumberFilter, context: __SerdeContext): any => {
   return take(input, {
     Eq: __serializeFloat,
+    Gt: __serializeFloat,
     Gte: __serializeFloat,
+    Lt: __serializeFloat,
     Lte: __serializeFloat,
   });
 };
@@ -8759,11 +9516,63 @@ const se_NumberFilterList = (input: NumberFilter[], context: __SerdeContext): an
 
 // se_Occurrences omitted.
 
+// se_OrganizationConfiguration omitted.
+
 // se_Page omitted.
 
 // se_Pages omitted.
 
+/**
+ * serializeAws_restJson1ParameterConfiguration
+ */
+const se_ParameterConfiguration = (input: ParameterConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    Value: (_) => se_ParameterValue(_, context),
+    ValueType: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1Parameters
+ */
+const se_Parameters = (input: Record<string, ParameterConfiguration>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = se_ParameterConfiguration(value, context);
+    return acc;
+  }, {});
+};
+
+/**
+ * serializeAws_restJson1ParameterValue
+ */
+const se_ParameterValue = (input: ParameterValue, context: __SerdeContext): any => {
+  return ParameterValue.visit(input, {
+    Boolean: (value) => ({ Boolean: value }),
+    Double: (value) => ({ Double: __serializeFloat(value) }),
+    Enum: (value) => ({ Enum: value }),
+    EnumList: (value) => ({ EnumList: _json(value) }),
+    Integer: (value) => ({ Integer: value }),
+    IntegerList: (value) => ({ IntegerList: _json(value) }),
+    String: (value) => ({ String: value }),
+    StringList: (value) => ({ StringList: _json(value) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
 // se_PatchSummary omitted.
+
+/**
+ * serializeAws_restJson1Policy
+ */
+const se_Policy = (input: Policy, context: __SerdeContext): any => {
+  return Policy.visit(input, {
+    SecurityHub: (value) => ({ SecurityHub: se_SecurityHubPolicy(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
 
 /**
  * serializeAws_restJson1PortProbeAction
@@ -8832,6 +9641,8 @@ const se_PortProbeDetailList = (input: PortProbeDetail[], context: __SerdeContex
  */
 const se_Resource = (input: Resource, context: __SerdeContext): any => {
   return take(input, {
+    ApplicationArn: [],
+    ApplicationName: [],
     DataClassification: _json,
     Details: (_) => se_ResourceDetails(_, context),
     Id: [],
@@ -8866,7 +9677,11 @@ const se_ResourceDetails = (input: ResourceDetails, context: __SerdeContext): an
     AwsCloudTrailTrail: _json,
     AwsCloudWatchAlarm: (_) => se_AwsCloudWatchAlarmDetails(_, context),
     AwsCodeBuildProject: _json,
+    AwsDmsEndpoint: _json,
+    AwsDmsReplicationInstance: _json,
+    AwsDmsReplicationTask: _json,
     AwsDynamoDbTable: _json,
+    AwsEc2ClientVpnEndpoint: _json,
     AwsEc2Eip: _json,
     AwsEc2Instance: _json,
     AwsEc2LaunchTemplate: (_) => se_AwsEc2LaunchTemplateDetails(_, context),
@@ -8895,6 +9710,8 @@ const se_ResourceDetails = (input: ResourceDetails, context: __SerdeContext): an
     AwsElbLoadBalancer: _json,
     AwsElbv2LoadBalancer: _json,
     AwsEventSchemasRegistry: _json,
+    AwsEventsEndpoint: _json,
+    AwsEventsEventbus: _json,
     AwsGuardDutyDetector: _json,
     AwsIamAccessKey: _json,
     AwsIamGroup: _json,
@@ -8905,6 +9722,7 @@ const se_ResourceDetails = (input: ResourceDetails, context: __SerdeContext): an
     AwsKmsKey: (_) => se_AwsKmsKeyDetails(_, context),
     AwsLambdaFunction: _json,
     AwsLambdaLayerVersion: _json,
+    AwsMskCluster: _json,
     AwsNetworkFirewallFirewall: _json,
     AwsNetworkFirewallFirewallPolicy: _json,
     AwsNetworkFirewallRuleGroup: (_) => se_AwsNetworkFirewallRuleGroupDetails(_, context),
@@ -8916,6 +9734,8 @@ const se_ResourceDetails = (input: ResourceDetails, context: __SerdeContext): an
     AwsRdsDbSnapshot: _json,
     AwsRdsEventSubscription: _json,
     AwsRedshiftCluster: (_) => se_AwsRedshiftClusterDetails(_, context),
+    AwsRoute53HostedZone: _json,
+    AwsS3AccessPoint: _json,
     AwsS3AccountPublicAccessBlock: _json,
     AwsS3Bucket: _json,
     AwsS3Object: _json,
@@ -9016,7 +9836,57 @@ const se_ResourceList = (input: Resource[], context: __SerdeContext): any => {
 
 // se_RuleGroupVariablesPortSetsDetails omitted.
 
+/**
+ * serializeAws_restJson1SecurityControlCustomParameter
+ */
+const se_SecurityControlCustomParameter = (input: SecurityControlCustomParameter, context: __SerdeContext): any => {
+  return take(input, {
+    Parameters: (_) => se_Parameters(_, context),
+    SecurityControlId: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1SecurityControlCustomParametersList
+ */
+const se_SecurityControlCustomParametersList = (
+  input: SecurityControlCustomParameter[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_SecurityControlCustomParameter(entry, context);
+    });
+};
+
+// se_SecurityControlParameter omitted.
+
+// se_SecurityControlParametersList omitted.
+
+/**
+ * serializeAws_restJson1SecurityControlsConfiguration
+ */
+const se_SecurityControlsConfiguration = (input: SecurityControlsConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    DisabledSecurityControlIdentifiers: _json,
+    EnabledSecurityControlIdentifiers: _json,
+    SecurityControlCustomParameters: (_) => se_SecurityControlCustomParametersList(_, context),
+  });
+};
+
 // se_SecurityGroups omitted.
+
+/**
+ * serializeAws_restJson1SecurityHubPolicy
+ */
+const se_SecurityHubPolicy = (input: SecurityHubPolicy, context: __SerdeContext): any => {
+  return take(input, {
+    EnabledStandardIdentifiers: _json,
+    SecurityControlsConfiguration: (_) => se_SecurityControlsConfiguration(_, context),
+    ServiceEnabled: [],
+  });
+};
 
 // se_SensitiveDataDetections omitted.
 
@@ -9092,6 +9962,8 @@ const se_SeverityUpdate = (input: SeverityUpdate, context: __SerdeContext): any 
 // se_StringList omitted.
 
 // se_TagMap omitted.
+
+// se_Target omitted.
 
 // se_Threat omitted.
 
@@ -9329,6 +10201,7 @@ const de_AutomationRulesFindingFieldsUpdate = (
 const de_AutomationRulesFindingFilters = (output: any, context: __SerdeContext): AutomationRulesFindingFilters => {
   return take(output, {
     AwsAccountId: _json,
+    AwsAccountName: _json,
     CompanyName: _json,
     ComplianceAssociatedStandardsId: _json,
     ComplianceSecurityControlId: _json,
@@ -9349,6 +10222,8 @@ const de_AutomationRulesFindingFilters = (output: any, context: __SerdeContext):
     RecordState: _json,
     RelatedFindingsId: _json,
     RelatedFindingsProductArn: _json,
+    ResourceApplicationArn: _json,
+    ResourceApplicationName: _json,
     ResourceDetailsOther: _json,
     ResourceId: _json,
     ResourcePartition: _json,
@@ -9755,6 +10630,18 @@ const de_AwsCloudWatchAlarmDetails = (output: any, context: __SerdeContext): Aws
 
 // de_AwsCorsConfiguration omitted.
 
+// de_AwsDmsEndpointDetails omitted.
+
+// de_AwsDmsReplicationInstanceDetails omitted.
+
+// de_AwsDmsReplicationInstanceReplicationSubnetGroupDetails omitted.
+
+// de_AwsDmsReplicationInstanceVpcSecurityGroupsDetails omitted.
+
+// de_AwsDmsReplicationInstanceVpcSecurityGroupsList omitted.
+
+// de_AwsDmsReplicationTaskDetails omitted.
+
 // de_AwsDynamoDbTableAttributeDefinition omitted.
 
 // de_AwsDynamoDbTableAttributeDefinitionList omitted.
@@ -9794,6 +10681,26 @@ const de_AwsCloudWatchAlarmDetails = (output: any, context: __SerdeContext): Aws
 // de_AwsDynamoDbTableSseDescription omitted.
 
 // de_AwsDynamoDbTableStreamSpecification omitted.
+
+// de_AwsEc2ClientVpnEndpointAuthenticationOptionsActiveDirectoryDetails omitted.
+
+// de_AwsEc2ClientVpnEndpointAuthenticationOptionsDetails omitted.
+
+// de_AwsEc2ClientVpnEndpointAuthenticationOptionsFederatedAuthenticationDetails omitted.
+
+// de_AwsEc2ClientVpnEndpointAuthenticationOptionsList omitted.
+
+// de_AwsEc2ClientVpnEndpointAuthenticationOptionsMutualAuthenticationDetails omitted.
+
+// de_AwsEc2ClientVpnEndpointClientConnectOptionsDetails omitted.
+
+// de_AwsEc2ClientVpnEndpointClientConnectOptionsStatusDetails omitted.
+
+// de_AwsEc2ClientVpnEndpointClientLoginBannerOptionsDetails omitted.
+
+// de_AwsEc2ClientVpnEndpointConnectionLogOptionsDetails omitted.
+
+// de_AwsEc2ClientVpnEndpointDetails omitted.
 
 // de_AwsEc2EipDetails omitted.
 
@@ -10355,6 +11262,24 @@ const de_AwsEc2LaunchTemplateDetails = (output: any, context: __SerdeContext): A
 
 // de_AwsEventSchemasRegistryDetails omitted.
 
+// de_AwsEventsEndpointDetails omitted.
+
+// de_AwsEventsEndpointEventBusesDetails omitted.
+
+// de_AwsEventsEndpointEventBusesList omitted.
+
+// de_AwsEventsEndpointReplicationConfigDetails omitted.
+
+// de_AwsEventsEndpointRoutingConfigDetails omitted.
+
+// de_AwsEventsEndpointRoutingConfigFailoverConfigDetails omitted.
+
+// de_AwsEventsEndpointRoutingConfigFailoverConfigPrimaryDetails omitted.
+
+// de_AwsEventsEndpointRoutingConfigFailoverConfigSecondaryDetails omitted.
+
+// de_AwsEventsEventbusDetails omitted.
+
 // de_AwsGuardDutyDetectorDataSourcesCloudTrailDetails omitted.
 
 // de_AwsGuardDutyDetectorDataSourcesDetails omitted.
@@ -10470,6 +11395,28 @@ const de_AwsKmsKeyDetails = (output: any, context: __SerdeContext): AwsKmsKeyDet
 // de_AwsMountPoint omitted.
 
 // de_AwsMountPointList omitted.
+
+// de_AwsMskClusterClusterInfoClientAuthenticationDetails omitted.
+
+// de_AwsMskClusterClusterInfoClientAuthenticationSaslDetails omitted.
+
+// de_AwsMskClusterClusterInfoClientAuthenticationSaslIamDetails omitted.
+
+// de_AwsMskClusterClusterInfoClientAuthenticationSaslScramDetails omitted.
+
+// de_AwsMskClusterClusterInfoClientAuthenticationTlsDetails omitted.
+
+// de_AwsMskClusterClusterInfoClientAuthenticationUnauthenticatedDetails omitted.
+
+// de_AwsMskClusterClusterInfoDetails omitted.
+
+// de_AwsMskClusterClusterInfoEncryptionInfoDetails omitted.
+
+// de_AwsMskClusterClusterInfoEncryptionInfoEncryptionAtRestDetails omitted.
+
+// de_AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetails omitted.
+
+// de_AwsMskClusterDetails omitted.
 
 // de_AwsNetworkFirewallFirewallDetails omitted.
 
@@ -10707,6 +11654,24 @@ const de_AwsRedshiftClusterRestoreStatus = (output: any, context: __SerdeContext
 
 // de_AwsRedshiftClusterVpcSecurityGroups omitted.
 
+// de_AwsRoute53HostedZoneConfigDetails omitted.
+
+// de_AwsRoute53HostedZoneDetails omitted.
+
+// de_AwsRoute53HostedZoneNameServersList omitted.
+
+// de_AwsRoute53HostedZoneObjectDetails omitted.
+
+// de_AwsRoute53HostedZoneVpcDetails omitted.
+
+// de_AwsRoute53HostedZoneVpcsList omitted.
+
+// de_AwsRoute53QueryLoggingConfigDetails omitted.
+
+// de_AwsS3AccessPointDetails omitted.
+
+// de_AwsS3AccessPointVpcConfigurationDetails omitted.
+
 // de_AwsS3AccountPublicAccessBlockDetails omitted.
 
 // de_AwsS3BucketBucketLifecycleConfigurationDetails omitted.
@@ -10802,6 +11767,7 @@ const de_AwsSecurityFinding = (output: any, context: __SerdeContext): AwsSecurit
   return take(output, {
     Action: (_: any) => de_Action(_, context),
     AwsAccountId: __expectString,
+    AwsAccountName: __expectString,
     CompanyName: __expectString,
     Compliance: _json,
     Confidence: __expectInt32,
@@ -10820,6 +11786,7 @@ const de_AwsSecurityFinding = (output: any, context: __SerdeContext): AwsSecurit
     Note: _json,
     PatchSummary: _json,
     Process: _json,
+    ProcessedAt: __expectString,
     ProductArn: __expectString,
     ProductFields: _json,
     ProductName: __expectString,
@@ -10851,9 +11818,12 @@ const de_AwsSecurityFinding = (output: any, context: __SerdeContext): AwsSecurit
 const de_AwsSecurityFindingFilters = (output: any, context: __SerdeContext): AwsSecurityFindingFilters => {
   return take(output, {
     AwsAccountId: _json,
+    AwsAccountName: _json,
     CompanyName: _json,
     ComplianceAssociatedStandardsId: _json,
     ComplianceSecurityControlId: _json,
+    ComplianceSecurityControlParametersName: _json,
+    ComplianceSecurityControlParametersValue: _json,
     ComplianceStatus: _json,
     Confidence: (_: any) => de_NumberFilterList(_, context),
     CreatedAt: _json,
@@ -10903,6 +11873,8 @@ const de_AwsSecurityFindingFilters = (output: any, context: __SerdeContext): Aws
     Region: _json,
     RelatedFindingsId: _json,
     RelatedFindingsProductArn: _json,
+    ResourceApplicationArn: _json,
+    ResourceApplicationName: _json,
     ResourceAwsEc2InstanceIamInstanceProfileArn: _json,
     ResourceAwsEc2InstanceImageId: _json,
     ResourceAwsEc2InstanceIpV4Addresses: _json,
@@ -10945,6 +11917,8 @@ const de_AwsSecurityFindingFilters = (output: any, context: __SerdeContext): Aws
     UpdatedAt: _json,
     UserDefinedFields: _json,
     VerificationState: _json,
+    VulnerabilitiesExploitAvailable: _json,
+    VulnerabilitiesFixAvailable: _json,
     WorkflowState: _json,
     WorkflowStatus: _json,
   }) as any;
@@ -11088,6 +12062,8 @@ const de_AwsSecurityFindingList = (output: any, context: __SerdeContext): AwsSec
 
 // de_BatchUpdateFindingsUnprocessedFindingsList omitted.
 
+// de_BooleanConfigurationOptions omitted.
+
 // de_BooleanFilter omitted.
 
 // de_BooleanFilterList omitted.
@@ -11108,9 +12084,134 @@ const de_AwsSecurityFindingList = (output: any, context: __SerdeContext): AwsSec
 
 // de_ClassificationStatus omitted.
 
+// de_CloudWatchLogsLogGroupArnConfigDetails omitted.
+
 // de_CodeVulnerabilitiesFilePath omitted.
 
 // de_Compliance omitted.
+
+/**
+ * deserializeAws_restJson1ConfigurationOptions
+ */
+const de_ConfigurationOptions = (output: any, context: __SerdeContext): ConfigurationOptions => {
+  if (output.Boolean != null) {
+    return {
+      Boolean: _json(output.Boolean),
+    };
+  }
+  if (output.Double != null) {
+    return {
+      Double: de_DoubleConfigurationOptions(output.Double, context),
+    };
+  }
+  if (output.Enum != null) {
+    return {
+      Enum: _json(output.Enum),
+    };
+  }
+  if (output.EnumList != null) {
+    return {
+      EnumList: _json(output.EnumList),
+    };
+  }
+  if (output.Integer != null) {
+    return {
+      Integer: _json(output.Integer),
+    };
+  }
+  if (output.IntegerList != null) {
+    return {
+      IntegerList: _json(output.IntegerList),
+    };
+  }
+  if (output.String != null) {
+    return {
+      String: _json(output.String),
+    };
+  }
+  if (output.StringList != null) {
+    return {
+      StringList: _json(output.StringList),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+// de_ConfigurationPolicyAssociation omitted.
+
+/**
+ * deserializeAws_restJson1ConfigurationPolicyAssociationList
+ */
+const de_ConfigurationPolicyAssociationList = (
+  output: any,
+  context: __SerdeContext
+): ConfigurationPolicyAssociationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ConfigurationPolicyAssociationSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ConfigurationPolicyAssociationSummary
+ */
+const de_ConfigurationPolicyAssociationSummary = (
+  output: any,
+  context: __SerdeContext
+): ConfigurationPolicyAssociationSummary => {
+  return take(output, {
+    AssociationStatus: __expectString,
+    AssociationStatusMessage: __expectString,
+    AssociationType: __expectString,
+    ConfigurationPolicyId: __expectString,
+    TargetId: __expectString,
+    TargetType: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ConfigurationPolicyAssociationSummaryList
+ */
+const de_ConfigurationPolicyAssociationSummaryList = (
+  output: any,
+  context: __SerdeContext
+): ConfigurationPolicyAssociationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ConfigurationPolicyAssociationSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ConfigurationPolicySummary
+ */
+const de_ConfigurationPolicySummary = (output: any, context: __SerdeContext): ConfigurationPolicySummary => {
+  return take(output, {
+    Arn: __expectString,
+    Description: __expectString,
+    Id: __expectString,
+    Name: __expectString,
+    ServiceEnabled: __expectBoolean,
+    UpdatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ConfigurationPolicySummaryList
+ */
+const de_ConfigurationPolicySummaryList = (output: any, context: __SerdeContext): ConfigurationPolicySummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ConfigurationPolicySummary(entry, context);
+    });
+  return retVal;
+};
 
 // de_ContainerDetails omitted.
 
@@ -11121,6 +12222,8 @@ const de_AwsSecurityFindingList = (output: any, context: __SerdeContext): AwsSec
 // de_CustomDataIdentifiersDetectionsList omitted.
 
 // de_CustomDataIdentifiersResult omitted.
+
+// de_CustomizableProperties omitted.
 
 /**
  * deserializeAws_restJson1Cvss
@@ -11155,7 +12258,28 @@ const de_CvssList = (output: any, context: __SerdeContext): Cvss[] => {
 
 // de_DateRange omitted.
 
+// de_DisabledSecurityControlIdentifierList omitted.
+
 // de_DnsRequestAction omitted.
+
+/**
+ * deserializeAws_restJson1DoubleConfigurationOptions
+ */
+const de_DoubleConfigurationOptions = (output: any, context: __SerdeContext): DoubleConfigurationOptions => {
+  return take(output, {
+    DefaultValue: __limitedParseDouble,
+    Max: __limitedParseDouble,
+    Min: __limitedParseDouble,
+  }) as any;
+};
+
+// de_EnabledSecurityControlIdentifierList omitted.
+
+// de_EnabledStandardIdentifierList omitted.
+
+// de_EnumConfigurationOptions omitted.
+
+// de_EnumListConfigurationOptions omitted.
 
 // de_FieldMap omitted.
 
@@ -11265,7 +12389,11 @@ const de_InsightList = (output: any, context: __SerdeContext): Insight[] => {
 
 // de_InsightResultValueList omitted.
 
+// de_IntegerConfigurationOptions omitted.
+
 // de_IntegerList omitted.
+
+// de_IntegerListConfigurationOptions omitted.
 
 // de_IntegrationTypeList omitted.
 
@@ -11380,7 +12508,9 @@ const de_NetworkConnectionAction = (output: any, context: __SerdeContext): Netwo
 const de_NumberFilter = (output: any, context: __SerdeContext): NumberFilter => {
   return take(output, {
     Eq: __limitedParseDouble,
+    Gt: __limitedParseDouble,
     Gte: __limitedParseDouble,
+    Lt: __limitedParseDouble,
     Lte: __limitedParseDouble,
   }) as any;
 };
@@ -11399,11 +12529,108 @@ const de_NumberFilterList = (output: any, context: __SerdeContext): NumberFilter
 
 // de_Occurrences omitted.
 
+// de_OrganizationConfiguration omitted.
+
 // de_Page omitted.
 
 // de_Pages omitted.
 
+/**
+ * deserializeAws_restJson1ParameterConfiguration
+ */
+const de_ParameterConfiguration = (output: any, context: __SerdeContext): ParameterConfiguration => {
+  return take(output, {
+    Value: (_: any) => de_ParameterValue(__expectUnion(_), context),
+    ValueType: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ParameterDefinition
+ */
+const de_ParameterDefinition = (output: any, context: __SerdeContext): ParameterDefinition => {
+  return take(output, {
+    ConfigurationOptions: (_: any) => de_ConfigurationOptions(__expectUnion(_), context),
+    Description: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ParameterDefinitions
+ */
+const de_ParameterDefinitions = (output: any, context: __SerdeContext): Record<string, ParameterDefinition> => {
+  return Object.entries(output).reduce((acc: Record<string, ParameterDefinition>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = de_ParameterDefinition(value, context);
+    return acc;
+  }, {} as Record<string, ParameterDefinition>);
+};
+
+/**
+ * deserializeAws_restJson1Parameters
+ */
+const de_Parameters = (output: any, context: __SerdeContext): Record<string, ParameterConfiguration> => {
+  return Object.entries(output).reduce((acc: Record<string, ParameterConfiguration>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = de_ParameterConfiguration(value, context);
+    return acc;
+  }, {} as Record<string, ParameterConfiguration>);
+};
+
+/**
+ * deserializeAws_restJson1ParameterValue
+ */
+const de_ParameterValue = (output: any, context: __SerdeContext): ParameterValue => {
+  if (__expectBoolean(output.Boolean) !== undefined) {
+    return { Boolean: __expectBoolean(output.Boolean) as any };
+  }
+  if (__limitedParseDouble(output.Double) !== undefined) {
+    return { Double: __limitedParseDouble(output.Double) as any };
+  }
+  if (__expectString(output.Enum) !== undefined) {
+    return { Enum: __expectString(output.Enum) as any };
+  }
+  if (output.EnumList != null) {
+    return {
+      EnumList: _json(output.EnumList),
+    };
+  }
+  if (__expectInt32(output.Integer) !== undefined) {
+    return { Integer: __expectInt32(output.Integer) as any };
+  }
+  if (output.IntegerList != null) {
+    return {
+      IntegerList: _json(output.IntegerList),
+    };
+  }
+  if (__expectString(output.String) !== undefined) {
+    return { String: __expectString(output.String) as any };
+  }
+  if (output.StringList != null) {
+    return {
+      StringList: _json(output.StringList),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
 // de_PatchSummary omitted.
+
+/**
+ * deserializeAws_restJson1Policy
+ */
+const de_Policy = (output: any, context: __SerdeContext): Policy => {
+  if (output.SecurityHub != null) {
+    return {
+      SecurityHub: de_SecurityHubPolicy(output.SecurityHub, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
 
 /**
  * deserializeAws_restJson1PortProbeAction
@@ -11479,6 +12706,8 @@ const de_PortProbeDetailList = (output: any, context: __SerdeContext): PortProbe
  */
 const de_Resource = (output: any, context: __SerdeContext): Resource => {
   return take(output, {
+    ApplicationArn: __expectString,
+    ApplicationName: __expectString,
     DataClassification: _json,
     Details: (_: any) => de_ResourceDetails(_, context),
     Id: __expectString,
@@ -11513,7 +12742,11 @@ const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetai
     AwsCloudTrailTrail: _json,
     AwsCloudWatchAlarm: (_: any) => de_AwsCloudWatchAlarmDetails(_, context),
     AwsCodeBuildProject: _json,
+    AwsDmsEndpoint: _json,
+    AwsDmsReplicationInstance: _json,
+    AwsDmsReplicationTask: _json,
     AwsDynamoDbTable: _json,
+    AwsEc2ClientVpnEndpoint: _json,
     AwsEc2Eip: _json,
     AwsEc2Instance: _json,
     AwsEc2LaunchTemplate: (_: any) => de_AwsEc2LaunchTemplateDetails(_, context),
@@ -11542,6 +12775,8 @@ const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetai
     AwsElbLoadBalancer: _json,
     AwsElbv2LoadBalancer: _json,
     AwsEventSchemasRegistry: _json,
+    AwsEventsEndpoint: _json,
+    AwsEventsEventbus: _json,
     AwsGuardDutyDetector: _json,
     AwsIamAccessKey: _json,
     AwsIamGroup: _json,
@@ -11552,6 +12787,7 @@ const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetai
     AwsKmsKey: (_: any) => de_AwsKmsKeyDetails(_, context),
     AwsLambdaFunction: _json,
     AwsLambdaLayerVersion: _json,
+    AwsMskCluster: _json,
     AwsNetworkFirewallFirewall: _json,
     AwsNetworkFirewallFirewallPolicy: _json,
     AwsNetworkFirewallRuleGroup: (_: any) => de_AwsNetworkFirewallRuleGroupDetails(_, context),
@@ -11563,6 +12799,8 @@ const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetai
     AwsRdsDbSnapshot: _json,
     AwsRdsEventSubscription: _json,
     AwsRedshiftCluster: (_: any) => de_AwsRedshiftClusterDetails(_, context),
+    AwsRoute53HostedZone: _json,
+    AwsS3AccessPoint: _json,
     AwsS3AccountPublicAccessBlock: _json,
     AwsS3Bucket: _json,
     AwsS3Object: _json,
@@ -11668,15 +12906,116 @@ const de_ResourceList = (output: any, context: __SerdeContext): Resource[] => {
 
 // de_RuleGroupVariablesPortSetsDetails omitted.
 
-// de_SecurityControl omitted.
+/**
+ * deserializeAws_restJson1SecurityControl
+ */
+const de_SecurityControl = (output: any, context: __SerdeContext): SecurityControl => {
+  return take(output, {
+    Description: __expectString,
+    LastUpdateReason: __expectString,
+    Parameters: (_: any) => de_Parameters(_, context),
+    RemediationUrl: __expectString,
+    SecurityControlArn: __expectString,
+    SecurityControlId: __expectString,
+    SecurityControlStatus: __expectString,
+    SeverityRating: __expectString,
+    Title: __expectString,
+    UpdateStatus: __expectString,
+  }) as any;
+};
 
-// de_SecurityControlDefinition omitted.
+/**
+ * deserializeAws_restJson1SecurityControlCustomParameter
+ */
+const de_SecurityControlCustomParameter = (output: any, context: __SerdeContext): SecurityControlCustomParameter => {
+  return take(output, {
+    Parameters: (_: any) => de_Parameters(_, context),
+    SecurityControlId: __expectString,
+  }) as any;
+};
 
-// de_SecurityControlDefinitions omitted.
+/**
+ * deserializeAws_restJson1SecurityControlCustomParametersList
+ */
+const de_SecurityControlCustomParametersList = (
+  output: any,
+  context: __SerdeContext
+): SecurityControlCustomParameter[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SecurityControlCustomParameter(entry, context);
+    });
+  return retVal;
+};
 
-// de_SecurityControls omitted.
+/**
+ * deserializeAws_restJson1SecurityControlDefinition
+ */
+const de_SecurityControlDefinition = (output: any, context: __SerdeContext): SecurityControlDefinition => {
+  return take(output, {
+    CurrentRegionAvailability: __expectString,
+    CustomizableProperties: _json,
+    Description: __expectString,
+    ParameterDefinitions: (_: any) => de_ParameterDefinitions(_, context),
+    RemediationUrl: __expectString,
+    SecurityControlId: __expectString,
+    SeverityRating: __expectString,
+    Title: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SecurityControlDefinitions
+ */
+const de_SecurityControlDefinitions = (output: any, context: __SerdeContext): SecurityControlDefinition[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SecurityControlDefinition(entry, context);
+    });
+  return retVal;
+};
+
+// de_SecurityControlParameter omitted.
+
+// de_SecurityControlParametersList omitted.
+
+/**
+ * deserializeAws_restJson1SecurityControls
+ */
+const de_SecurityControls = (output: any, context: __SerdeContext): SecurityControl[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SecurityControl(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1SecurityControlsConfiguration
+ */
+const de_SecurityControlsConfiguration = (output: any, context: __SerdeContext): SecurityControlsConfiguration => {
+  return take(output, {
+    DisabledSecurityControlIdentifiers: _json,
+    EnabledSecurityControlIdentifiers: _json,
+    SecurityControlCustomParameters: (_: any) => de_SecurityControlCustomParametersList(_, context),
+  }) as any;
+};
 
 // de_SecurityGroups omitted.
+
+/**
+ * deserializeAws_restJson1SecurityHubPolicy
+ */
+const de_SecurityHubPolicy = (output: any, context: __SerdeContext): SecurityHubPolicy => {
+  return take(output, {
+    EnabledStandardIdentifiers: _json,
+    SecurityControlsConfiguration: (_: any) => de_SecurityControlsConfiguration(_, context),
+    ServiceEnabled: __expectBoolean,
+  }) as any;
+};
 
 // de_SensitiveDataDetections omitted.
 
@@ -11846,13 +13185,19 @@ const de_StandardsControls = (output: any, context: __SerdeContext): StandardsCo
 
 // de_StatusReasonsList omitted.
 
+// de_StringConfigurationOptions omitted.
+
 // de_StringFilter omitted.
 
 // de_StringFilterList omitted.
 
 // de_StringList omitted.
 
+// de_StringListConfigurationOptions omitted.
+
 // de_TagMap omitted.
+
+// de_Target omitted.
 
 // de_Threat omitted.
 
@@ -11867,6 +13212,10 @@ const de_StandardsControls = (output: any, context: __SerdeContext): StandardsCo
 // de_UnprocessedAutomationRule omitted.
 
 // de_UnprocessedAutomationRulesList omitted.
+
+// de_UnprocessedConfigurationPolicyAssociation omitted.
+
+// de_UnprocessedConfigurationPolicyAssociationList omitted.
 
 // de_UnprocessedSecurityControl omitted.
 
@@ -11960,6 +13309,16 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _HA = "HubArn";
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _OA = "OnlyAssociated";
+const _PA = "ProductArn";
+const _SA = "StandardsArn";
+const _SCI = "SecurityControlId";
+const _TK = "TagKeys";
+const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

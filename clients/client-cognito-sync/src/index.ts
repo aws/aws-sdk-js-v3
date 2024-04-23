@@ -20,7 +20,11 @@
 export * from "./CognitoSyncClient";
 export * from "./CognitoSync";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { CognitoSyncExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { CognitoSyncServiceException } from "./models/CognitoSyncServiceException";

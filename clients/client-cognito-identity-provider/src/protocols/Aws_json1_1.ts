@@ -464,6 +464,7 @@ import {
   PasswordPolicyType,
   PasswordResetRequiredException,
   PreconditionNotMetException,
+  PreTokenGenerationVersionConfigType,
   ProviderDescription,
   ProviderUserIdentifierType,
   RecoveryOptionType,
@@ -477,7 +478,6 @@ import {
   SchemaAttributeType,
   ScopeDoesNotExistException,
   SetLogDeliveryConfigurationRequest,
-  SetRiskConfigurationRequest,
   SmsConfigurationType,
   SmsMfaConfigType,
   SMSMfaSettingsType,
@@ -518,6 +518,7 @@ import {
 } from "../models/models_0";
 import {
   EnableSoftwareTokenMFAException,
+  SetRiskConfigurationRequest,
   SetRiskConfigurationResponse,
   SetUICustomizationRequest,
   SetUICustomizationResponse,
@@ -9626,6 +9627,8 @@ const de_UserPoolTaggingExceptionRes = async (
 
 // se_PasswordPolicyType omitted.
 
+// se_PreTokenGenerationVersionConfigType omitted.
+
 // se_ProviderDetailsType omitted.
 
 // se_ProviderUserIdentifierType omitted.
@@ -10346,6 +10349,8 @@ const de_ListUsersResponse = (output: any, context: __SerdeContext): ListUsersRe
 // de_PasswordResetRequiredException omitted.
 
 // de_PreconditionNotMetException omitted.
+
+// de_PreTokenGenerationVersionConfigType omitted.
 
 /**
  * deserializeAws_json1_1ProviderDescription

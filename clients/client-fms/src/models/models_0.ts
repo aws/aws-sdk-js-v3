@@ -117,7 +117,7 @@ export interface AdminAccountSummary {
    *             </li>
    *          </ul>
    */
-  Status?: OrganizationStatus | string;
+  Status?: OrganizationStatus;
 }
 
 /**
@@ -176,7 +176,7 @@ export interface PolicyTypeScope {
    * @public
    * <p>The list of policy types that the specified Firewall Manager administrator can manage.</p>
    */
-  PolicyTypes?: (SecurityServiceType | string)[];
+  PolicyTypes?: SecurityServiceType[];
 
   /**
    * @public
@@ -493,7 +493,7 @@ export interface AssociateThirdPartyFirewallRequest {
    * @public
    * <p>The name of the third-party firewall vendor.</p>
    */
-  ThirdPartyFirewall: ThirdPartyFirewall | string | undefined;
+  ThirdPartyFirewall: ThirdPartyFirewall | undefined;
 }
 
 /**
@@ -544,7 +544,7 @@ export interface AssociateThirdPartyFirewallResponse {
    *             </li>
    *          </ul>
    */
-  ThirdPartyFirewallStatus?: ThirdPartyFirewallAssociationStatus | string;
+  ThirdPartyFirewallStatus?: ThirdPartyFirewallAssociationStatus;
 }
 
 /**
@@ -633,7 +633,7 @@ export interface FailedItem {
    * @public
    * <p>The reason the resource's association could not be updated.</p>
    */
-  Reason?: FailedItemReason | string;
+  Reason?: FailedItemReason;
 }
 
 /**
@@ -741,6 +741,9 @@ export interface DeletePolicyRequest {
    *           no longer associated with any resources through another policy</p>
    *             </li>
    *          </ul>
+   *          <note>
+   *             <p>For security group common policies, even if set to <code>False</code>, Firewall Manager deletes all security groups created by Firewall Manager that aren't associated with any other resources through another policy.</p>
+   *          </note>
    *          <p>After the cleanup, in-scope resources are no longer protected by web ACLs in this policy.
    *       Protection of out-of-scope resources remains unchanged. Scope is determined by tags that you
    *       create and accounts that you associate with the policy. When creating the policy, if you
@@ -787,7 +790,7 @@ export interface DisassociateThirdPartyFirewallRequest {
    * @public
    * <p>The name of the third-party firewall vendor.</p>
    */
-  ThirdPartyFirewall: ThirdPartyFirewall | string | undefined;
+  ThirdPartyFirewall: ThirdPartyFirewall | undefined;
 }
 
 /**
@@ -798,7 +801,7 @@ export interface DisassociateThirdPartyFirewallResponse {
    * @public
    * <p>The current status for the disassociation of a Firewall Manager administrators account with a third-party firewall.</p>
    */
-  ThirdPartyFirewallStatus?: ThirdPartyFirewallAssociationStatus | string;
+  ThirdPartyFirewallStatus?: ThirdPartyFirewallAssociationStatus;
 }
 
 /**
@@ -821,7 +824,7 @@ export interface GetAdminAccountResponse {
    * <p>The status of the account that you set as the Firewall Manager
    *       default administrator.</p>
    */
-  RoleStatus?: AccountRoleStatus | string;
+  RoleStatus?: AccountRoleStatus;
 }
 
 /**
@@ -867,7 +870,7 @@ export interface GetAdminScopeResponse {
    *             </li>
    *          </ul>
    */
-  Status?: OrganizationStatus | string;
+  Status?: OrganizationStatus;
 }
 
 /**
@@ -993,7 +996,7 @@ export interface ComplianceViolator {
    * @public
    * <p>The reason that the resource is not protected by the policy.</p>
    */
-  ViolationReason?: ViolationReason | string;
+  ViolationReason?: ViolationReason;
 
   /**
    * @public
@@ -1062,7 +1065,7 @@ export interface PolicyComplianceDetail {
    * <p>Details about problems with dependent services, such as WAF or Config,
    *       and the error message received that indicates the problem with the service.</p>
    */
-  IssueInfoMap?: Record<string, string>;
+  IssueInfoMap?: Partial<Record<DependentServiceName, string>>;
 }
 
 /**
@@ -1189,7 +1192,7 @@ export interface NetworkFirewallPolicy {
    * <p>Defines the deployment model to use for the firewall policy. To use a distributed model,
    *          set <a href="https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_PolicyOption.html">PolicyOption</a> to <code>NULL</code>.</p>
    */
-  FirewallDeploymentModel?: FirewallDeploymentModel | string;
+  FirewallDeploymentModel?: FirewallDeploymentModel;
 }
 
 /**
@@ -1201,7 +1204,7 @@ export interface ThirdPartyFirewallPolicy {
    * @public
    * <p>Defines the deployment model to use for the third-party firewall policy.</p>
    */
-  FirewallDeploymentModel?: FirewallDeploymentModel | string;
+  FirewallDeploymentModel?: FirewallDeploymentModel;
 }
 
 /**
@@ -1235,7 +1238,7 @@ export interface SecurityServicePolicyData {
    *       each common policy and for each content audit policy. This is an adjustable limit that you can
    *       increase by contacting Amazon Web Services Support.</p>
    */
-  Type: SecurityServiceType | string | undefined;
+  Type: SecurityServiceType | undefined;
 
   /**
    * @public
@@ -1254,6 +1257,8 @@ export interface SecurityServicePolicyData {
    *             </li>
    *             <li>
    *                <p>Example: <code>IMPORT_NETWORK_FIREWALL</code>
+   *                </p>
+   *                <p>
    *                   <code>"\{\"type\":\"IMPORT_NETWORK_FIREWALL\",\"awsNetworkFirewallConfig\":\{\"networkFirewallStatelessRuleGroupReferences\":[\{\"resourceARN\":\"arn:aws:network-firewall:us-west-2:000000000000:stateless-rulegroup\/rg1\",\"priority\":1\}],\"networkFirewallStatelessDefaultActions\":[\"aws:drop\"],\"networkFirewallStatelessFragmentDefaultActions\":[\"aws:pass\"],\"networkFirewallStatelessCustomActions\":[],\"networkFirewallStatefulRuleGroupReferences\":[\{\"resourceARN\":\"arn:aws:network-firewall:us-west-2:aws-managed:stateful-rulegroup\/ThreatSignaturesEmergingEventsStrictOrder\",\"priority\":8\}],\"networkFirewallStatefulEngineOptions\":\{\"ruleOrder\":\"STRICT_ORDER\"\},\"networkFirewallStatefulDefaultActions\":[\"aws:drop_strict\"]\}\}"</code>
    *                </p>
    *                <p>
@@ -1321,36 +1326,6 @@ export interface SecurityServicePolicyData {
    *                  <code>NULL</code>. </p>
    *             </li>
    *             <li>
-   *                <p>Example: <code>THIRD_PARTY_FIREWALL</code>
-   *                </p>
-   *                <p>
-   *                   <code>"\{
-   *               "type":"THIRD_PARTY_FIREWALL",
-   *               "thirdPartyFirewall":"PALO_ALTO_NETWORKS_CLOUD_NGFW",
-   *               "thirdPartyFirewallConfig":\{
-   *                 "thirdPartyFirewallPolicyList":["global-1"]
-   *               \},
-   * 	          "firewallDeploymentModel":\{
-   *                 "distributedFirewallDeploymentModel":\{
-   *                   "distributedFirewallOrchestrationConfig":\{
-   *                     "firewallCreationConfig":\{
-   *                       "endpointLocation":\{
-   *                         "availabilityZoneConfigList":[
-   *                           \{
-   *                             "availabilityZoneName":"$\{AvailabilityZone\}"
-   *                           \}
-   *                         ]
-   *                       \}
-   *                     \},
-   *                     "allowedIPV4CidrList":[
-   *                     ]
-   *                   \}
-   *                 \}
-   *               \}
-   *             \}"</code>
-   *                </p>
-   *             </li>
-   *             <li>
    *                <p>Example: <code>SECURITY_GROUPS_COMMON</code>
    *                </p>
    *                <p>
@@ -1401,12 +1376,18 @@ export interface SecurityServicePolicyData {
    *                </p>
    *             </li>
    *             <li>
+   *                <p>Example: <code>SHIELD_ADVANCED</code> with web ACL management</p>
+   *                <p>
+   *                   <code>"\{\"type\":\"SHIELD_ADVANCED\",\"optimizeUnassociatedWebACL\":true\}"</code>
+   *                </p>
+   *                <p>If you set <code>optimizeUnassociatedWebACL</code> to <code>true</code>, Firewall Manager creates web ACLs in accounts within the policy scope if the web ACLs will be used by at least one resource. Firewall Manager creates web ACLs in the accounts within policy scope only if the web ACLs will be used by at least one resource. If at any time an account comes into policy scope, Firewall Manager automatically creates a web ACL in the account if at least one resource will use the web ACL.</p>
+   *                <p>Upon enablement, Firewall Manager performs a one-time cleanup of unused web ACLs in your account. The cleanup process can take several hours. If a resource leaves policy scope after Firewall Manager creates a web ACL, Firewall Manager doesn't disassociate the resource from the web ACL. If you want Firewall Manager to clean up the web ACL, you must first manually disassociate the resources from the web ACL, and then enable the manage unused web ACLs option in your policy.</p>
+   *                <p>If you set <code>optimizeUnassociatedWebACL</code> to <code>false</code>, and Firewall Manager automatically creates an empty web ACL in each account that's within policy scope.</p>
+   *             </li>
+   *             <li>
    *                <p>Specification for <code>SHIELD_ADVANCED</code> for Amazon CloudFront distributions </p>
    *                <p>
-   *                   <code>"\{\"type\":\"SHIELD_ADVANCED\",\"automaticResponseConfiguration\":
-   *                  \{\"automaticResponseStatus\":\"ENABLED|IGNORED|DISABLED\",
-   *                  \"automaticResponseAction\":\"BLOCK|COUNT\"\},
-   *                  \"overrideCustomerWebaclClassic\":true|false\}"</code>
+   *                   <code>"\{\"type\":\"SHIELD_ADVANCED\",\"automaticResponseConfiguration\": \{\"automaticResponseStatus\":\"ENABLED|IGNORED|DISABLED\", \"automaticResponseAction\":\"BLOCK|COUNT\"\}, \"overrideCustomerWebaclClassic\":true|false, \"optimizeUnassociatedWebACL\":true|false\}"</code>
    *                </p>
    *                <p>For example:
    *                  <code>"\{\"type\":\"SHIELD_ADVANCED\",\"automaticResponseConfiguration\":
@@ -1422,17 +1403,53 @@ export interface SecurityServicePolicyData {
    *                  <code>ManagedServiceData</code> configuration is an empty string.</p>
    *             </li>
    *             <li>
-   *                <p>Example: <code>WAFV2</code> - Account takeover prevention and Bot Control managed rule groups, and rule action override
+   *                <p>Example: <code>THIRD_PARTY_FIREWALL</code>
+   *                </p>
+   *                <p>Replace <code>THIRD_PARTY_FIREWALL_NAME</code> with the name of the third-party firewall.</p>
+   *                <p>
+   *                   <code>"\{
+   *               "type":"THIRD_PARTY_FIREWALL",
+   *               "thirdPartyFirewall":"THIRD_PARTY_FIREWALL_NAME",
+   *               "thirdPartyFirewallConfig":\{
+   *                 "thirdPartyFirewallPolicyList":["global-1"]
+   *               \},
+   * 	          "firewallDeploymentModel":\{
+   *                 "distributedFirewallDeploymentModel":\{
+   *                   "distributedFirewallOrchestrationConfig":\{
+   *                     "firewallCreationConfig":\{
+   *                       "endpointLocation":\{
+   *                         "availabilityZoneConfigList":[
+   *                           \{
+   *                             "availabilityZoneName":"$\{AvailabilityZone\}"
+   *                           \}
+   *                         ]
+   *                       \}
+   *                     \},
+   *                     "allowedIPV4CidrList":[
+   *                     ]
+   *                   \}
+   *                 \}
+   *               \}
+   *             \}"</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Example: <code>WAFV2</code> - Account takeover prevention, Bot Control managed rule groups, optimize unassociated web ACL, and rule action override
    *            </p>
    *                <p>
-   *                   <code>"\{\"type\":\"WAFV2\",\"preProcessRuleGroups\":[\{\"ruleGroupArn\":null,\"overrideAction\":\{\"type\":\"NONE\"\},\"managedRuleGroupIdentifier\":\{\"versionEnabled\":null,\"version\":null,\"vendorName\":\"AWS\",\"managedRuleGroupName\":\"AWSManagedRulesATPRuleSet\",\"managedRuleGroupConfigs\":[\{\"awsmanagedRulesATPRuleSet\":\{\"loginPath\":\"/loginpath\",\"requestInspection\":\{\"payloadType\":\"FORM_ENCODED|JSON\",\"usernameField\":\{\"identifier\":\"/form/username\"\},\"passwordField\":\{\"identifier\":\"/form/password\"\}\}\}\}]\},\"ruleGroupType\":\"ManagedRuleGroup\",\"excludeRules\":[],\"sampledRequestsEnabled\":true\},\{\"ruleGroupArn\":null,\"overrideAction\":\{\"type\":\"NONE\"\},\"managedRuleGroupIdentifier\":\{\"versionEnabled\":null,\"version\":null,\"vendorName\":\"AWS\",\"managedRuleGroupName\":\"AWSManagedRulesBotControlRuleSet\",\"managedRuleGroupConfigs\":[\{\"awsmanagedRulesBotControlRuleSet\":\{\"inspectionLevel\":\"TARGETED|COMMON\"\}\}]\},\"ruleGroupType\":\"ManagedRuleGroup\",\"excludeRules\":[],\"sampledRequestsEnabled\":true,\"ruleActionOverrides\":[\{\"name\":\"Rule1\",\"actionToUse\":\{\"allow|block|count|captcha|challenge\":\{\}\}\},\{\"name\":\"Rule2\",\"actionToUse\":\{\"allow|block|count|captcha|challenge\":\{\}\}\}]\}],\"postProcessRuleGroups\":[],\"defaultAction\":\{\"type\":\"ALLOW\"\},\"customRequestHandling\":null,\"customResponse\":null,\"overrideCustomerWebACLAssociation\":false,\"loggingConfiguration\":null,\"sampledRequestsEnabledForDefaultActions\":true\}"</code>
+   *                   <code>"\{\"type\":\"WAFV2\",\"preProcessRuleGroups\":[\{\"ruleGroupArn\":null,\"overrideAction\":\{\"type\":\"NONE\"\},\"managedRuleGroupIdentifier\":\{\"versionEnabled\":null,\"version\":null,\"vendorName\":\"AWS\",\"managedRuleGroupName\":\"AWSManagedRulesATPRuleSet\",\"managedRuleGroupConfigs\":[\{\"awsmanagedRulesATPRuleSet\":\{\"loginPath\":\"/loginpath\",\"requestInspection\":\{\"payloadType\":\"FORM_ENCODED|JSON\",\"usernameField\":\{\"identifier\":\"/form/username\"\},\"passwordField\":\{\"identifier\":\"/form/password\"\}\}\}\}]\},\"ruleGroupType\":\"ManagedRuleGroup\",\"excludeRules\":[],\"sampledRequestsEnabled\":true\},\{\"ruleGroupArn\":null,\"overrideAction\":\{\"type\":\"NONE\"\},\"managedRuleGroupIdentifier\":\{\"versionEnabled\":null,\"version\":null,\"vendorName\":\"AWS\",\"managedRuleGroupName\":\"AWSManagedRulesBotControlRuleSet\",\"managedRuleGroupConfigs\":[\{\"awsmanagedRulesBotControlRuleSet\":\{\"inspectionLevel\":\"TARGETED|COMMON\"\}\}]\},\"ruleGroupType\":\"ManagedRuleGroup\",\"excludeRules\":[],\"sampledRequestsEnabled\":true,\"ruleActionOverrides\":[\{\"name\":\"Rule1\",\"actionToUse\":\{\"allow|block|count|captcha|challenge\":\{\}\}\},\{\"name\":\"Rule2\",\"actionToUse\":\{\"allow|block|count|captcha|challenge\":\{\}\}\}]\}],\"postProcessRuleGroups\":[],\"defaultAction\":\{\"type\":\"ALLOW\"\},\"customRequestHandling\":null,\"customResponse\":null,\"overrideCustomerWebACLAssociation\":false,\"loggingConfiguration\":null,\"sampledRequestsEnabledForDefaultActions\":true,\"optimizeUnassociatedWebACL\":true\}"</code>
    *                </p>
    *                <ul>
+   *                   <li>
+   *                      <p>Bot Control - For information about <code>AWSManagedRulesBotControlRuleSet</code> managed rule groups, see <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_AWSManagedRulesBotControlRuleSet.html">AWSManagedRulesBotControlRuleSet</a> in the <i>WAF API Reference</i>.</p>
+   *                   </li>
    *                   <li>
    *                      <p>Fraud Control account takeover prevention (ATP) - For information about the properties available for <code>AWSManagedRulesATPRuleSet</code> managed rule groups, see <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_AWSManagedRulesATPRuleSet.html">AWSManagedRulesATPRuleSet</a> in the <i>WAF API Reference</i>.</p>
    *                   </li>
    *                   <li>
-   *                      <p>Bot Control - For information about <code>AWSManagedRulesBotControlRuleSet</code> managed rule groups, see <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_AWSManagedRulesBotControlRuleSet.html">AWSManagedRulesBotControlRuleSet</a> in the <i>WAF API Reference</i>.</p>
+   *                      <p>Optimize unassociated web ACL - If you set <code>optimizeUnassociatedWebACL</code> to <code>true</code>, Firewall Manager creates web ACLs in accounts within the policy scope if the web ACLs will be used by at least one resource. Firewall Manager creates web ACLs in the accounts within policy scope only if the web ACLs will be used by at least one resource. If at any time an account comes into policy scope, Firewall Manager automatically creates a web ACL in the account if at least one resource will use the web ACL.</p>
+   *                      <p>Upon enablement, Firewall Manager performs a one-time cleanup of unused web ACLs in your account. The cleanup process can take several hours. If a resource leaves policy scope after Firewall Manager creates a web ACL, Firewall Manager disassociates the resource from the web ACL, but won't clean up the unused web ACL. Firewall Manager only cleans up unused web ACLs when you first enable management of unused web ACLs in a policy.</p>
+   *                      <p>If you set <code>optimizeUnassociatedWebACL</code> to <code>false</code> Firewall Manager doesn't manage unused web ACLs, and Firewall Manager automatically creates an empty web ACL in each account that's within policy scope.</p>
    *                   </li>
    *                   <li>
    *                      <p>Rule action overrides - Firewall Manager supports rule action overrides only for managed rule groups. To configure a <code>RuleActionOverrides</code> add the <code>Name</code> of the rule to override, and <code>ActionToUse</code>, which is the new action to use for the rule. For information about using rule action override, see <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleActionOverride.html">RuleActionOverride</a> in the <i>WAF API Reference</i>.</p>
@@ -1443,9 +1460,18 @@ export interface SecurityServicePolicyData {
    *                <p>Example: <code>WAFV2</code> -  <code>CAPTCHA</code> and <code>Challenge</code> configs
    *            </p>
    *                <p>
-   *                   <code>"\{\"type\":\"WAFV2\",\"preProcessRuleGroups\":[\{\"ruleGroupArn\":null,\"overrideAction\":\{\"type\":\"NONE\"\},\"managedRuleGroupIdentifier\":\{\"versionEnabled\":null,\"version\":null,\"vendorName\":\"AWS\",\"managedRuleGroupName\":\"AWSManagedRulesAdminProtectionRuleSet\"\},\"ruleGroupType\":\"ManagedRuleGroup\",\"excludeRules\":[],\"sampledRequestsEnabled\":true\}],\"postProcessRuleGroups\":[],\"defaultAction\":\{\"type\":\"ALLOW\"\},\"customRequestHandling\":null,\"customResponse\":null,\"overrideCustomerWebACLAssociation\":false,\"loggingConfiguration\":null,\"sampledRequestsEnabledForDefaultActions\":true,\"captchaConfig\":\{\"immunityTimeProperty\":\{\"immunityTime\":500\}\},\"challengeConfig\":\{\"immunityTimeProperty\":\{\"immunityTime\":800\}\},\"tokenDomains\":[\"google.com\",\"amazon.com\"]\}"</code>
+   *                   <code>"\{\"type\":\"WAFV2\",\"preProcessRuleGroups\":[\{\"ruleGroupArn\":null,\"overrideAction\":\{\"type\":\"NONE\"\},\"managedRuleGroupIdentifier\":\{\"versionEnabled\":null,\"version\":null,\"vendorName\":\"AWS\",\"managedRuleGroupName\":\"AWSManagedRulesAdminProtectionRuleSet\"\},\"ruleGroupType\":\"ManagedRuleGroup\",\"excludeRules\":[],\"sampledRequestsEnabled\":true\}],\"postProcessRuleGroups\":[],\"defaultAction\":\{\"type\":\"ALLOW\"\},\"customRequestHandling\":null,\"customResponse\":null,\"overrideCustomerWebACLAssociation\":false,\"loggingConfiguration\":null,\"sampledRequestsEnabledForDefaultActions\":true,\"captchaConfig\":\{\"immunityTimeProperty\":\{\"immunityTime\":500\}\},\"challengeConfig\":\{\"immunityTimeProperty\":\{\"immunityTime\":800\}\},\"tokenDomains\":[\"google.com\",\"amazon.com\"],\"associationConfig\":\{\"requestBody\":\{\"CLOUDFRONT\":\{\"defaultSizeInspectionLimit\":\"KB_16\"\}\}\}\}"</code>
    *                </p>
-   *                <p>If you update the policy's values for <code>captchaConfig</code>, <code>challengeConfig</code>, or <code>tokenDomains</code>, Firewall Manager will overwrite your local web ACLs to contain the new value(s). However, if you don't update the policy's <code>captchaConfig</code>, <code>challengeConfig</code>, or <code>tokenDomains</code> values, the values in your local web ACLs will remain unchanged. For information about CAPTCHA and Challenge configs, see <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_CaptchaConfig.html">CaptchaConfig</a> and <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_ChallengeConfig.html">ChallengeConfig</a> in the <i>WAF API Reference</i>.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>CAPTCHA</code> and <code>Challenge</code> configs - If you update the policy's values for <code>associationConfig</code>, <code>captchaConfig</code>, <code>challengeConfig</code>, or <code>tokenDomains</code>, Firewall Manager will overwrite your local web ACLs to contain the new value(s). However, if you don't update the policy's <code>associationConfig</code>, <code>captchaConfig</code>, <code>challengeConfig</code>, or <code>tokenDomains</code> values, the values in your local web ACLs will remain unchanged. For information about association configs, see <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_AssociationConfig.html">AssociationConfig</a>. For information about CAPTCHA and Challenge configs, see <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_CaptchaConfig.html">CaptchaConfig</a> and <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_ChallengeConfig.html">ChallengeConfig</a> in the <i>WAF API Reference</i>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>defaultSizeInspectionLimit</code> - Specifies the maximum size of the web request body component that an associated Amazon CloudFront distribution should send to WAF for inspection. For more information, see <a href="https://docs.aws.amazon.com/waf/latest/APIReference/API_RequestBodyAssociatedResourceTypeConfig.html#WAF-Type-RequestBodyAssociatedResourceTypeConfig-DefaultSizeInspectionLimit">DefaultSizeInspectionLimit</a> in the <i>WAF API Reference</i>.</p>
+   *                   </li>
+   *                </ul>
    *             </li>
    *             <li>
    *                <p>Example: <code>WAFV2</code> -  Firewall Manager support for WAF managed rule group versioning
@@ -1530,14 +1556,27 @@ export interface Policy {
    * <p>The type of resource protected by or in scope of the policy. This is in the format shown
    *         in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services Resource Types Reference</a>.
    *                     To apply this policy to multiple resource types, specify a resource type of <code>ResourceTypeList</code> and then specify the resource types in a <code>ResourceTypeList</code>.</p>
-   *          <p>For WAF and Shield Advanced, resource types include
-   *                 <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code>, <code>AWS::ElasticLoadBalancing::LoadBalancer</code>, <code>AWS::EC2::EIP</code>, and
-   *         <code>AWS::CloudFront::Distribution</code>. For a security group common policy, valid values
-   *       are <code>AWS::EC2::NetworkInterface</code> and <code>AWS::EC2::Instance</code>. For a
-   *       security group content audit policy, valid values are <code>AWS::EC2::SecurityGroup</code>,
-   *         <code>AWS::EC2::NetworkInterface</code>, and <code>AWS::EC2::Instance</code>. For a security
-   *             group usage audit policy, the value is <code>AWS::EC2::SecurityGroup</code>. For an Network Firewall policy or DNS Firewall policy,
-   *                 the value is <code>AWS::EC2::VPC</code>.</p>
+   *          <p>The following are valid resource types for each Firewall Manager policy type:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Amazon Web Services WAF Classic - <code>AWS::ApiGateway::Stage</code>, <code>AWS::CloudFront::Distribution</code>, and <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>WAF - <code>AWS::ApiGateway::Stage</code>, <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code>, and <code>AWS::CloudFront::Distribution</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p> DNS Firewall, Network Firewall, and third-party firewall - <code>AWS::EC2::VPC</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Shield Advanced - <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code>, <code>AWS::ElasticLoadBalancing::LoadBalancer</code>, <code>AWS::EC2::EIP</code>, and <code>AWS::CloudFront::Distribution</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Security group content audit - <code>AWS::EC2::SecurityGroup</code>, <code>AWS::EC2::NetworkInterface</code>, and <code>AWS::EC2::Instance</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>Security group usage audit - <code>AWS::EC2::SecurityGroup</code>.</p>
+   *             </li>
+   *          </ul>
    */
   ResourceType: string | undefined;
 
@@ -1602,7 +1641,7 @@ export interface Policy {
    *             </li>
    *          </ul>
    */
-  IncludeMap?: Record<string, string[]>;
+  IncludeMap?: Partial<Record<CustomerPolicyScopeIdType, string[]>>;
 
   /**
    * @public
@@ -1628,7 +1667,7 @@ export interface Policy {
    *             </li>
    *          </ul>
    */
-  ExcludeMap?: Record<string, string[]>;
+  ExcludeMap?: Partial<Record<CustomerPolicyScopeIdType, string[]>>;
 
   /**
    * @public
@@ -1656,7 +1695,7 @@ export interface Policy {
    *             </li>
    *          </ul>
    */
-  PolicyStatus?: CustomerPolicyStatus | string;
+  PolicyStatus?: CustomerPolicyStatus;
 }
 
 /**
@@ -1764,7 +1803,7 @@ export interface GetProtectionStatusResponse {
    * <p>The service type that is protected by the policy. Currently, this is always
    *             <code>SHIELD_ADVANCED</code>.</p>
    */
-  ServiceType?: SecurityServiceType | string;
+  ServiceType?: SecurityServiceType;
 
   /**
    * @public
@@ -1973,7 +2012,7 @@ export interface ResourceSet {
    *             </li>
    *          </ul>
    */
-  ResourceSetStatus?: ResourceSetStatus | string;
+  ResourceSetStatus?: ResourceSetStatus;
 }
 
 /**
@@ -2001,7 +2040,7 @@ export interface GetThirdPartyFirewallAssociationStatusRequest {
    * @public
    * <p>The name of the third-party firewall vendor.</p>
    */
-  ThirdPartyFirewall: ThirdPartyFirewall | string | undefined;
+  ThirdPartyFirewall: ThirdPartyFirewall | undefined;
 }
 
 /**
@@ -2050,7 +2089,7 @@ export interface GetThirdPartyFirewallAssociationStatusResponse {
    *             </li>
    *          </ul>
    */
-  ThirdPartyFirewallStatus?: ThirdPartyFirewallAssociationStatus | string;
+  ThirdPartyFirewallStatus?: ThirdPartyFirewallAssociationStatus;
 
   /**
    * @public
@@ -2070,7 +2109,7 @@ export interface GetThirdPartyFirewallAssociationStatusResponse {
    *             </li>
    *          </ul>
    */
-  MarketplaceOnboardingStatus?: MarketplaceSubscriptionOnboardingStatus | string;
+  MarketplaceOnboardingStatus?: MarketplaceSubscriptionOnboardingStatus;
 }
 
 /**
@@ -2079,7 +2118,24 @@ export interface GetThirdPartyFirewallAssociationStatusResponse {
 export interface GetViolationDetailsRequest {
   /**
    * @public
-   * <p>The ID of the Firewall Manager policy that you want the details for. This currently only supports security group content audit policies.</p>
+   * <p>The ID of the Firewall Manager policy that you want the details for. You can get violation details for the following policy types:</p>
+   *          <ul>
+   *             <li>
+   *                <p>DNS Firewall</p>
+   *             </li>
+   *             <li>
+   *                <p>Imported Network Firewall</p>
+   *             </li>
+   *             <li>
+   *                <p>Network Firewall</p>
+   *             </li>
+   *             <li>
+   *                <p>Security group content audit</p>
+   *             </li>
+   *             <li>
+   *                <p>Third-party firewall</p>
+   *             </li>
+   *          </ul>
    */
   PolicyId: string | undefined;
 
@@ -2210,7 +2266,7 @@ export interface SecurityGroupRemediationAction {
    * @public
    * <p>The remediation action that will be performed.</p>
    */
-  RemediationActionType?: RemediationActionType | string;
+  RemediationActionType?: RemediationActionType;
 
   /**
    * @public
@@ -2455,13 +2511,13 @@ export interface Route {
    * @public
    * <p>The type of destination for the route.</p>
    */
-  DestinationType?: DestinationType | string;
+  DestinationType?: DestinationType;
 
   /**
    * @public
    * <p>The type of target for the route.</p>
    */
-  TargetType?: TargetType | string;
+  TargetType?: TargetType;
 
   /**
    * @public
@@ -2896,7 +2952,7 @@ export interface StatefulEngineOptions {
    * as Suricata compatible strings, and Suricata evaluates them based on certain settings. For more
    * information, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/suricata-rule-evaluation-order.html">Evaluation order for stateful rules</a> in the <i>Network Firewall Developer Guide</i>.</p>
    */
-  RuleOrder?: RuleOrder | string;
+  RuleOrder?: RuleOrder;
 }
 
 /**
@@ -2922,7 +2978,7 @@ export interface NetworkFirewallStatefulRuleGroupOverride {
    * @public
    * <p>The action that changes the rule group from <code>DROP</code> to <code>ALERT</code>. This only applies to managed rule groups.</p>
    */
-  Action?: NetworkFirewallOverrideAction | string;
+  Action?: NetworkFirewallOverrideAction;
 }
 
 /**
@@ -4081,7 +4137,7 @@ export interface EvaluationResult {
    * @public
    * <p>Describes an Amazon Web Services account's compliance with the Firewall Manager policy.</p>
    */
-  ComplianceStatus?: PolicyComplianceStatusType | string;
+  ComplianceStatus?: PolicyComplianceStatusType;
 
   /**
    * @public
@@ -4149,7 +4205,7 @@ export interface PolicyComplianceStatus {
    * <p>Details about problems with dependent services, such as WAF or Config,
    *       and the error message received that indicates the problem with the service.</p>
    */
-  IssueInfoMap?: Record<string, string>;
+  IssueInfoMap?: Partial<Record<DependentServiceName, string>>;
 }
 
 /**
@@ -4372,7 +4428,7 @@ export interface PolicySummary {
    *       policy that is created, either an WAF policy, a Shield Advanced policy, or a security
    *       group policy.</p>
    */
-  SecurityServiceType?: SecurityServiceType | string;
+  SecurityServiceType?: SecurityServiceType;
 
   /**
    * @public
@@ -4404,7 +4460,7 @@ export interface PolicySummary {
    *             </li>
    *          </ul>
    */
-  PolicyStatus?: CustomerPolicyStatus | string;
+  PolicyStatus?: CustomerPolicyStatus;
 }
 
 /**
@@ -4632,7 +4688,7 @@ export interface ResourceSetSummary {
    *             </li>
    *          </ul>
    */
-  ResourceSetStatus?: ResourceSetStatus | string;
+  ResourceSetStatus?: ResourceSetStatus;
 }
 
 /**
@@ -4684,7 +4740,7 @@ export interface ListThirdPartyFirewallFirewallPoliciesRequest {
    * @public
    * <p>The name of the third-party firewall vendor.</p>
    */
-  ThirdPartyFirewall: ThirdPartyFirewall | string | undefined;
+  ThirdPartyFirewall: ThirdPartyFirewall | undefined;
 
   /**
    * @public

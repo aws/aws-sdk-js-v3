@@ -48,16 +48,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SageMakerA2IRuntimeClient` and
-the commands you need, for example `DeleteHumanLoopCommand`:
+the commands you need, for example `ListHumanLoopsCommand`:
 
 ```js
 // ES5 example
-const { SageMakerA2IRuntimeClient, DeleteHumanLoopCommand } = require("@aws-sdk/client-sagemaker-a2i-runtime");
+const { SageMakerA2IRuntimeClient, ListHumanLoopsCommand } = require("@aws-sdk/client-sagemaker-a2i-runtime");
 ```
 
 ```ts
 // ES6+ example
-import { SageMakerA2IRuntimeClient, DeleteHumanLoopCommand } from "@aws-sdk/client-sagemaker-a2i-runtime";
+import { SageMakerA2IRuntimeClient, ListHumanLoopsCommand } from "@aws-sdk/client-sagemaker-a2i-runtime";
 ```
 
 ### Usage
@@ -76,7 +76,7 @@ const client = new SageMakerA2IRuntimeClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DeleteHumanLoopCommand(params);
+const command = new ListHumanLoopsCommand(params);
 ```
 
 #### Async/await
@@ -155,7 +155,7 @@ const client = new AWS.SageMakerA2IRuntime({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.deleteHumanLoop(params);
+  const data = await client.listHumanLoops(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -163,7 +163,7 @@ try {
 
 // Promises.
 client
-  .deleteHumanLoop(params)
+  .listHumanLoops(params)
   .then((data) => {
     // process data.
   })
@@ -172,7 +172,7 @@ client
   });
 
 // callbacks.
-client.deleteHumanLoop(params, (err, data) => {
+client.listHumanLoops(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -187,7 +187,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -233,7 +233,7 @@ see LICENSE for more information.
 DeleteHumanLoop
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-a2i-runtime/classes/deletehumanloopcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-a2i-runtime/interfaces/deletehumanloopcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-a2i-runtime/interfaces/deletehumanloopcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-a2i-runtime/command/DeleteHumanLoopCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-a2i-runtime/Interface/DeleteHumanLoopCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-a2i-runtime/Interface/DeleteHumanLoopCommandOutput/)
 
 </details>
 <details>
@@ -241,7 +241,7 @@ DeleteHumanLoop
 DescribeHumanLoop
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-a2i-runtime/classes/describehumanloopcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-a2i-runtime/interfaces/describehumanloopcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-a2i-runtime/interfaces/describehumanloopcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-a2i-runtime/command/DescribeHumanLoopCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-a2i-runtime/Interface/DescribeHumanLoopCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-a2i-runtime/Interface/DescribeHumanLoopCommandOutput/)
 
 </details>
 <details>
@@ -249,7 +249,7 @@ DescribeHumanLoop
 ListHumanLoops
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-a2i-runtime/classes/listhumanloopscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-a2i-runtime/interfaces/listhumanloopscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-a2i-runtime/interfaces/listhumanloopscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-a2i-runtime/command/ListHumanLoopsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-a2i-runtime/Interface/ListHumanLoopsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-a2i-runtime/Interface/ListHumanLoopsCommandOutput/)
 
 </details>
 <details>
@@ -257,7 +257,7 @@ ListHumanLoops
 StartHumanLoop
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-a2i-runtime/classes/starthumanloopcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-a2i-runtime/interfaces/starthumanloopcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-a2i-runtime/interfaces/starthumanloopcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-a2i-runtime/command/StartHumanLoopCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-a2i-runtime/Interface/StartHumanLoopCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-a2i-runtime/Interface/StartHumanLoopCommandOutput/)
 
 </details>
 <details>
@@ -265,6 +265,6 @@ StartHumanLoop
 StopHumanLoop
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-a2i-runtime/classes/stophumanloopcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-a2i-runtime/interfaces/stophumanloopcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-sagemaker-a2i-runtime/interfaces/stophumanloopcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker-a2i-runtime/command/StopHumanLoopCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-a2i-runtime/Interface/StopHumanLoopCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker-a2i-runtime/Interface/StopHumanLoopCommandOutput/)
 
 </details>

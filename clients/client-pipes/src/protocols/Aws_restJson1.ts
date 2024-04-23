@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -45,6 +46,7 @@ import {
   BatchResourceRequirement,
   BatchRetryStrategy,
   CapacityProviderStrategyItem,
+  CloudwatchLogsLogDestinationParameters,
   ConflictException,
   DeadLetterConfig,
   EcsContainerOverride,
@@ -56,6 +58,8 @@ import {
   EcsTaskOverride,
   Filter,
   FilterCriteria,
+  FirehoseLogDestinationParameters,
+  IncludeExecutionDataOption,
   InternalException,
   MQBrokerAccessCredentials,
   MSKAccessCredentials,
@@ -64,6 +68,7 @@ import {
   Pipe,
   PipeEnrichmentHttpParameters,
   PipeEnrichmentParameters,
+  PipeLogConfigurationParameters,
   PipeSourceActiveMQBrokerParameters,
   PipeSourceDynamoDBStreamParameters,
   PipeSourceKinesisStreamParameters,
@@ -86,6 +91,7 @@ import {
   PipeTargetStateMachineParameters,
   PlacementConstraint,
   PlacementStrategy,
+  S3LogDestinationParameters,
   SageMakerPipelineParameter,
   SelfManagedKafkaAccessConfigurationCredentials,
   SelfManagedKafkaAccessConfigurationVpc,
@@ -111,12 +117,12 @@ export const se_CreatePipeCommand = async (
   input: CreatePipeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/pipes/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/v1/pipes/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -124,6 +130,7 @@ export const se_CreatePipeCommand = async (
       DesiredState: [],
       Enrichment: [],
       EnrichmentParameters: (_) => _json(_),
+      LogConfiguration: (_) => _json(_),
       RoleArn: [],
       Source: [],
       SourceParameters: (_) => se_PipeSourceParameters(_, context),
@@ -132,15 +139,8 @@ export const se_CreatePipeCommand = async (
       TargetParameters: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -150,20 +150,13 @@ export const se_DeletePipeCommand = async (
   input: DeletePipeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/pipes/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/v1/pipes/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -173,20 +166,13 @@ export const se_DescribePipeCommand = async (
   input: DescribePipeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/pipes/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/v1/pipes/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -196,29 +182,21 @@ export const se_ListPipesCommand = async (
   input: ListPipesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/pipes";
+  b.bp("/v1/pipes");
   const query: any = map({
-    NamePrefix: [, input.NamePrefix!],
-    DesiredState: [, input.DesiredState!],
-    CurrentState: [, input.CurrentState!],
-    SourcePrefix: [, input.SourcePrefix!],
-    TargetPrefix: [, input.TargetPrefix!],
-    NextToken: [, input.NextToken!],
-    Limit: [() => input.Limit !== void 0, () => input.Limit!.toString()],
+    [_NP]: [, input[_NP]!],
+    [_DS]: [, input[_DS]!],
+    [_CS]: [, input[_CS]!],
+    [_SP]: [, input[_SP]!],
+    [_TP]: [, input[_TP]!],
+    [_NT]: [, input[_NT]!],
+    [_L]: [() => input.Limit !== void 0, () => input[_L]!.toString()],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -228,20 +206,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -251,20 +222,13 @@ export const se_StartPipeCommand = async (
   input: StartPipeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/pipes/{Name}/start";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/v1/pipes/{Name}/start");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -274,20 +238,13 @@ export const se_StopPipeCommand = async (
   input: StopPipeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/pipes/{Name}/stop";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/v1/pipes/{Name}/stop");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -297,27 +254,20 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -327,27 +277,19 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -357,12 +299,12 @@ export const se_UpdatePipeCommand = async (
   input: UpdatePipeCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/pipes/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/v1/pipes/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -370,21 +312,15 @@ export const se_UpdatePipeCommand = async (
       DesiredState: [],
       Enrichment: [],
       EnrichmentParameters: (_) => _json(_),
+      LogConfiguration: (_) => _json(_),
       RoleArn: [],
       SourceParameters: (_) => _json(_),
       Target: [],
       TargetParameters: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -541,6 +477,7 @@ export const de_DescribePipeCommand = async (
     Enrichment: __expectString,
     EnrichmentParameters: _json,
     LastModifiedTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LogConfiguration: _json,
     Name: __expectString,
     RoleArn: __expectString,
     Source: __expectString,
@@ -1011,10 +948,7 @@ const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContex
  */
 const de_InternalExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<InternalException> => {
   const contents: any = map({
-    retryAfterSeconds: [
-      () => void 0 !== parsedOutput.headers["retry-after"],
-      () => __strictParseInt32(parsedOutput.headers["retry-after"]),
-    ],
+    [_rAS]: [() => void 0 !== parsedOutput.headers[_ra], () => __strictParseInt32(parsedOutput.headers[_ra])],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -1074,10 +1008,7 @@ const de_ServiceQuotaExceededExceptionRes = async (
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
   const contents: any = map({
-    retryAfterSeconds: [
-      () => void 0 !== parsedOutput.headers["retry-after"],
-      () => __strictParseInt32(parsedOutput.headers["retry-after"]),
-    ],
+    [_rAS]: [() => void 0 !== parsedOutput.headers[_ra], () => __strictParseInt32(parsedOutput.headers[_ra])],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -1137,6 +1068,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_CapacityProviderStrategyItem omitted.
 
+// se_CloudwatchLogsLogDestinationParameters omitted.
+
 // se_DeadLetterConfig omitted.
 
 // se_EcsContainerOverride omitted.
@@ -1171,7 +1104,11 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_FilterList omitted.
 
+// se_FirehoseLogDestinationParameters omitted.
+
 // se_HeaderParametersMap omitted.
+
+// se_IncludeExecutionData omitted.
 
 // se_KafkaBootstrapServers omitted.
 
@@ -1186,6 +1123,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_PipeEnrichmentHttpParameters omitted.
 
 // se_PipeEnrichmentParameters omitted.
+
+// se_PipeLogConfigurationParameters omitted.
 
 // se_PipeSourceActiveMQBrokerParameters omitted.
 
@@ -1269,6 +1208,8 @@ const se_PipeSourceParameters = (input: PipeSourceParameters, context: __SerdeCo
 
 // se_QueryStringParametersMap omitted.
 
+// se_S3LogDestinationParameters omitted.
+
 // se_SageMakerPipelineParameter omitted.
 
 // se_SageMakerPipelineParameterList omitted.
@@ -1337,6 +1278,8 @@ const se_PipeSourceParameters = (input: PipeSourceParameters, context: __SerdeCo
 
 // de_CapacityProviderStrategyItem omitted.
 
+// de_CloudwatchLogsLogDestination omitted.
+
 // de_DeadLetterConfig omitted.
 
 // de_EcsContainerOverride omitted.
@@ -1371,7 +1314,11 @@ const se_PipeSourceParameters = (input: PipeSourceParameters, context: __SerdeCo
 
 // de_FilterList omitted.
 
+// de_FirehoseLogDestination omitted.
+
 // de_HeaderParametersMap omitted.
+
+// de_IncludeExecutionData omitted.
 
 // de_KafkaBootstrapServers omitted.
 
@@ -1416,6 +1363,8 @@ const de_PipeList = (output: any, context: __SerdeContext): Pipe[] => {
     });
   return retVal;
 };
+
+// de_PipeLogConfiguration omitted.
 
 // de_PipeSourceActiveMQBrokerParameters omitted.
 
@@ -1499,6 +1448,8 @@ const de_PipeSourceParameters = (output: any, context: __SerdeContext): PipeSour
 
 // de_QueryStringParametersMap omitted.
 
+// de_S3LogDestination omitted.
+
 // de_SageMakerPipelineParameter omitted.
 
 // de_SageMakerPipelineParameterList omitted.
@@ -1547,6 +1498,17 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _CS = "CurrentState";
+const _DS = "DesiredState";
+const _L = "Limit";
+const _NP = "NamePrefix";
+const _NT = "NextToken";
+const _SP = "SourcePrefix";
+const _TP = "TargetPrefix";
+const _rAS = "retryAfterSeconds";
+const _ra = "retry-after";
+const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

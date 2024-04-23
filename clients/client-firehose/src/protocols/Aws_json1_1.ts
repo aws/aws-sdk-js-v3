@@ -69,6 +69,7 @@ import {
   AmazonopensearchserviceDestinationConfiguration,
   AmazonopensearchserviceDestinationUpdate,
   AmazonopensearchserviceRetryOptions,
+  AuthenticationConfiguration,
   BufferingHints,
   CloudWatchLoggingOptions,
   ConcurrentModificationException,
@@ -82,6 +83,7 @@ import {
   DescribeDeliveryStreamOutput,
   Deserializer,
   DestinationDescription,
+  DocumentIdOptions,
   DynamicPartitioningConfiguration,
   ElasticsearchBufferingHints,
   ElasticsearchDestinationConfiguration,
@@ -102,12 +104,15 @@ import {
   InputFormatConfiguration,
   InvalidArgumentException,
   InvalidKMSResourceException,
+  InvalidSourceException,
   KinesisStreamSourceConfiguration,
   KinesisStreamSourceDescription,
   KMSEncryptionConfig,
   LimitExceededException,
   ListDeliveryStreamsInput,
   ListTagsForDeliveryStreamInput,
+  MSKSourceConfiguration,
+  MSKSourceDescription,
   OpenXJsonSerDe,
   OrcSerDe,
   OutputFormatConfiguration,
@@ -128,7 +133,13 @@ import {
   SchemaConfiguration,
   Serializer,
   ServiceUnavailableException,
+  SnowflakeDestinationConfiguration,
+  SnowflakeDestinationUpdate,
+  SnowflakeRetryOptions,
+  SnowflakeRoleConfiguration,
+  SnowflakeVpcConfiguration,
   SourceDescription,
+  SplunkBufferingHints,
   SplunkDestinationConfiguration,
   SplunkDestinationUpdate,
   SplunkRetryOptions,
@@ -578,6 +589,9 @@ const de_PutRecordCommandError = async (
     case "InvalidKMSResourceException":
     case "com.amazonaws.firehose#InvalidKMSResourceException":
       throw await de_InvalidKMSResourceExceptionRes(parsedOutput, context);
+    case "InvalidSourceException":
+    case "com.amazonaws.firehose#InvalidSourceException":
+      throw await de_InvalidSourceExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.firehose#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -633,6 +647,9 @@ const de_PutRecordBatchCommandError = async (
     case "InvalidKMSResourceException":
     case "com.amazonaws.firehose#InvalidKMSResourceException":
       throw await de_InvalidKMSResourceExceptionRes(parsedOutput, context);
+    case "InvalidSourceException":
+    case "com.amazonaws.firehose#InvalidSourceException":
+      throw await de_InvalidSourceExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.firehose#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
@@ -976,6 +993,22 @@ const de_InvalidKMSResourceExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1InvalidSourceExceptionRes
+ */
+const de_InvalidSourceExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidSourceException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new InvalidSourceException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1LimitExceededExceptionRes
  */
 const de_LimitExceededExceptionRes = async (
@@ -1055,6 +1088,8 @@ const de_ServiceUnavailableExceptionRes = async (
 
 // se_AmazonopensearchserviceRetryOptions omitted.
 
+// se_AuthenticationConfiguration omitted.
+
 // se_BufferingHints omitted.
 
 // se_CloudWatchLoggingOptions omitted.
@@ -1077,8 +1112,10 @@ const se_CreateDeliveryStreamInput = (input: CreateDeliveryStreamInput, context:
     ExtendedS3DestinationConfiguration: (_) => se_ExtendedS3DestinationConfiguration(_, context),
     HttpEndpointDestinationConfiguration: _json,
     KinesisStreamSourceConfiguration: _json,
+    MSKSourceConfiguration: _json,
     RedshiftDestinationConfiguration: _json,
     S3DestinationConfiguration: _json,
+    SnowflakeDestinationConfiguration: _json,
     SplunkDestinationConfiguration: _json,
     Tags: _json,
   });
@@ -1106,6 +1143,8 @@ const se_DataFormatConversionConfiguration = (
 // se_DescribeDeliveryStreamInput omitted.
 
 // se_Deserializer omitted.
+
+// se_DocumentIdOptions omitted.
 
 // se_DynamicPartitioningConfiguration omitted.
 
@@ -1195,6 +1234,8 @@ const se_ExtendedS3DestinationUpdate = (input: ExtendedS3DestinationUpdate, cont
 // se_ListOfNonEmptyStringsWithoutWhitespace omitted.
 
 // se_ListTagsForDeliveryStreamInput omitted.
+
+// se_MSKSourceConfiguration omitted.
 
 // se_OpenXJsonSerDe omitted.
 
@@ -1303,6 +1344,18 @@ const se_Serializer = (input: Serializer, context: __SerdeContext): any => {
   });
 };
 
+// se_SnowflakeDestinationConfiguration omitted.
+
+// se_SnowflakeDestinationUpdate omitted.
+
+// se_SnowflakeRetryOptions omitted.
+
+// se_SnowflakeRoleConfiguration omitted.
+
+// se_SnowflakeVpcConfiguration omitted.
+
+// se_SplunkBufferingHints omitted.
+
 // se_SplunkDestinationConfiguration omitted.
 
 // se_SplunkDestinationUpdate omitted.
@@ -1340,6 +1393,7 @@ const se_UpdateDestinationInput = (input: UpdateDestinationInput, context: __Ser
     HttpEndpointDestinationUpdate: _json,
     RedshiftDestinationUpdate: _json,
     S3DestinationUpdate: _json,
+    SnowflakeDestinationUpdate: _json,
     SplunkDestinationUpdate: _json,
   });
 };
@@ -1357,6 +1411,8 @@ const se_UpdateDestinationInput = (input: UpdateDestinationInput, context: __Ser
 // de_AmazonopensearchserviceDestinationDescription omitted.
 
 // de_AmazonopensearchserviceRetryOptions omitted.
+
+// de_AuthenticationConfiguration omitted.
 
 // de_BufferingHints omitted.
 
@@ -1435,6 +1491,7 @@ const de_DestinationDescription = (output: any, context: __SerdeContext): Destin
     HttpEndpointDestinationDescription: _json,
     RedshiftDestinationDescription: _json,
     S3DestinationDescription: _json,
+    SnowflakeDestinationDescription: _json,
     SplunkDestinationDescription: _json,
   }) as any;
 };
@@ -1450,6 +1507,8 @@ const de_DestinationDescriptionList = (output: any, context: __SerdeContext): De
     });
   return retVal;
 };
+
+// de_DocumentIdOptions omitted.
 
 // de_DynamicPartitioningConfiguration omitted.
 
@@ -1509,6 +1568,8 @@ const de_ExtendedS3DestinationDescription = (
 
 // de_InvalidKMSResourceException omitted.
 
+// de_InvalidSourceException omitted.
+
 /**
  * deserializeAws_json1_1KinesisStreamSourceDescription
  */
@@ -1533,6 +1594,18 @@ const de_KinesisStreamSourceDescription = (output: any, context: __SerdeContext)
 // de_ListTagsForDeliveryStreamOutput omitted.
 
 // de_ListTagsForDeliveryStreamOutputTagList omitted.
+
+/**
+ * deserializeAws_json1_1MSKSourceDescription
+ */
+const de_MSKSourceDescription = (output: any, context: __SerdeContext): MSKSourceDescription => {
+  return take(output, {
+    AuthenticationConfiguration: _json,
+    DeliveryStartTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    MSKClusterARN: __expectString,
+    TopicName: __expectString,
+  }) as any;
+};
 
 // de_OpenXJsonSerDe omitted.
 
@@ -1611,14 +1684,25 @@ const de_Serializer = (output: any, context: __SerdeContext): Serializer => {
 
 // de_ServiceUnavailableException omitted.
 
+// de_SnowflakeDestinationDescription omitted.
+
+// de_SnowflakeRetryOptions omitted.
+
+// de_SnowflakeRoleConfiguration omitted.
+
+// de_SnowflakeVpcConfiguration omitted.
+
 /**
  * deserializeAws_json1_1SourceDescription
  */
 const de_SourceDescription = (output: any, context: __SerdeContext): SourceDescription => {
   return take(output, {
     KinesisStreamSourceDescription: (_: any) => de_KinesisStreamSourceDescription(_, context),
+    MSKSourceDescription: (_: any) => de_MSKSourceDescription(_, context),
   }) as any;
 };
+
+// de_SplunkBufferingHints omitted.
 
 // de_SplunkDestinationDescription omitted.
 

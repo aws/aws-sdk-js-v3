@@ -337,6 +337,9 @@ export interface ApplicationAutoScaling {
  *                <p>Amazon SageMaker Serverless endpoint provisioned concurrency</p>
  *             </li>
  *             <li>
+ *                <p>Amazon SageMaker inference components</p>
+ *             </li>
+ *             <li>
  *                <p>Spot Fleets (Amazon EC2)</p>
  *             </li>
  *             <li>

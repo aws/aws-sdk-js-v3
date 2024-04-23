@@ -21,6 +21,11 @@ import {
 } from "@aws-sdk/middleware-user-agent";
 import { Credentials as __Credentials } from "@aws-sdk/types";
 import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import {
+  EventStreamSerdeInputConfig,
+  EventStreamSerdeResolvedConfig,
+  resolveEventStreamSerdeConfig,
+} from "@smithy/eventstream-serde-config-resolver";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
 import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
 import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
@@ -34,12 +39,11 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
+  EventStreamSerdeProvider as __EventStreamSerdeProvider,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -56,6 +60,10 @@ import {
 } from "./commands/InvokeEndpointAsyncCommand";
 import { InvokeEndpointCommandInput, InvokeEndpointCommandOutput } from "./commands/InvokeEndpointCommand";
 import {
+  InvokeEndpointWithResponseStreamCommandInput,
+  InvokeEndpointWithResponseStreamCommandOutput,
+} from "./commands/InvokeEndpointWithResponseStreamCommand";
+import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
   EndpointParameters,
@@ -69,12 +77,18 @@ export { __Client };
 /**
  * @public
  */
-export type ServiceInputTypes = InvokeEndpointAsyncCommandInput | InvokeEndpointCommandInput;
+export type ServiceInputTypes =
+  | InvokeEndpointAsyncCommandInput
+  | InvokeEndpointCommandInput
+  | InvokeEndpointWithResponseStreamCommandInput;
 
 /**
  * @public
  */
-export type ServiceOutputTypes = InvokeEndpointAsyncCommandOutput | InvokeEndpointCommandOutput;
+export type ServiceOutputTypes =
+  | InvokeEndpointAsyncCommandOutput
+  | InvokeEndpointCommandOutput
+  | InvokeEndpointWithResponseStreamCommandOutput;
 
 /**
  * @public
@@ -186,6 +200,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 
@@ -198,6 +214,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Optional extensions
    */
   extensions?: RuntimeExtension[];
+
+  /**
+   * The function that provides necessary utilities for generating and parsing event stream
+   */
+  eventStreamSerdeProvider?: __EventStreamSerdeProvider;
 
   /**
    * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
@@ -216,6 +237,7 @@ export type SageMakerRuntimeClientConfigType = Partial<__SmithyConfiguration<__H
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig &
+  EventStreamSerdeInputConfig &
   ClientInputEndpointParameters;
 /**
  * @public
@@ -236,6 +258,7 @@ export type SageMakerRuntimeClientResolvedConfigType = __SmithyResolvedConfigura
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig &
+  EventStreamSerdeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
  * @public
@@ -268,9 +291,10 @@ export class SageMakerRuntimeClient extends __Client<
     const _config_5 = resolveHostHeaderConfig(_config_4);
     const _config_6 = resolveAwsAuthConfig(_config_5);
     const _config_7 = resolveUserAgentConfig(_config_6);
-    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
-    this.config = _config_8;
+    const _config_8 = resolveEventStreamSerdeConfig(_config_7);
+    const _config_9 = resolveRuntimeExtensions(_config_8, configuration?.extensions || []);
+    super(_config_9);
+    this.config = _config_9;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));

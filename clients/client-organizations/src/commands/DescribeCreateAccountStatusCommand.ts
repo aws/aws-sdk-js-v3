@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeCreateAccountStatusRequest,
   DescribeCreateAccountStatusResponse,
@@ -81,8 +73,7 @@ export interface DescribeCreateAccountStatusCommandOutput
  *  <p>You don't have permissions to perform the requested operation. The user or role that
  *             is making the request must have at least one IAM permissions policy attached that
  *             grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access Management</a> in the
- *                 <i>IAM User Guide.</i>
- *          </p>
+ *                 <i>IAM User Guide</i>.</p>
  *
  * @throws {@link AWSOrganizationsNotInUseException} (client fault)
  *  <p>Your account isn't a member of an organization. To make this request, you must use the
@@ -203,9 +194,8 @@ export interface DescribeCreateAccountStatusCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>You have sent too many requests in too short a period of time. The quota helps protect
  *             against denial-of-service attacks. Try again later.</p>
- *          <p>For information about quotas that affect Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html">Quotas for Organizations</a>in the
- *                 <i>Organizations User Guide.</i>
- *          </p>
+ *          <p>For information about quotas that affect Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html">Quotas for Organizations</a> in the
+ *                 <i>Organizations User Guide</i>.</p>
  *
  * @throws {@link UnsupportedAPIEndpointException} (client fault)
  *  <p>This action isn't available in the current Amazon Web Services Region.</p>
@@ -234,82 +224,26 @@ export interface DescribeCreateAccountStatusCommandOutput
  * ```
  *
  */
-export class DescribeCreateAccountStatusCommand extends $Command<
-  DescribeCreateAccountStatusCommandInput,
-  DescribeCreateAccountStatusCommandOutput,
-  OrganizationsClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeCreateAccountStatusCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: OrganizationsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeCreateAccountStatusCommandInput, DescribeCreateAccountStatusCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeCreateAccountStatusCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "OrganizationsClient";
-    const commandName = "DescribeCreateAccountStatusCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: DescribeCreateAccountStatusResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeCreateAccountStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeCreateAccountStatusCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeCreateAccountStatusCommandOutput> {
-    return de_DescribeCreateAccountStatusCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeCreateAccountStatusCommand extends $Command
+  .classBuilder<
+    DescribeCreateAccountStatusCommandInput,
+    DescribeCreateAccountStatusCommandOutput,
+    OrganizationsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSOrganizationsV20161128", "DescribeCreateAccountStatus", {})
+  .n("OrganizationsClient", "DescribeCreateAccountStatusCommand")
+  .f(void 0, DescribeCreateAccountStatusResponseFilterSensitiveLog)
+  .ser(se_DescribeCreateAccountStatusCommand)
+  .de(de_DescribeCreateAccountStatusCommand)
+  .build() {}

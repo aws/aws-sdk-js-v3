@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeCatalystClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCatalystClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   StartDevEnvironmentSessionRequest,
   StartDevEnvironmentSessionResponse,
@@ -106,81 +98,26 @@ export interface StartDevEnvironmentSessionCommandOutput extends StartDevEnviron
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
  */
-export class StartDevEnvironmentSessionCommand extends $Command<
-  StartDevEnvironmentSessionCommandInput,
-  StartDevEnvironmentSessionCommandOutput,
-  CodeCatalystClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StartDevEnvironmentSessionCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CodeCatalystClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StartDevEnvironmentSessionCommandInput, StartDevEnvironmentSessionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartDevEnvironmentSessionCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CodeCatalystClient";
-    const commandName = "StartDevEnvironmentSessionCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: StartDevEnvironmentSessionResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StartDevEnvironmentSessionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartDevEnvironmentSessionCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<StartDevEnvironmentSessionCommandOutput> {
-    return de_StartDevEnvironmentSessionCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class StartDevEnvironmentSessionCommand extends $Command
+  .classBuilder<
+    StartDevEnvironmentSessionCommandInput,
+    StartDevEnvironmentSessionCommandOutput,
+    CodeCatalystClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CodeCatalystClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CodeCatalyst", "StartDevEnvironmentSession", {})
+  .n("CodeCatalystClient", "StartDevEnvironmentSessionCommand")
+  .f(void 0, StartDevEnvironmentSessionResponseFilterSensitiveLog)
+  .ser(se_StartDevEnvironmentSessionCommand)
+  .de(de_StartDevEnvironmentSessionCommand)
+  .build() {}

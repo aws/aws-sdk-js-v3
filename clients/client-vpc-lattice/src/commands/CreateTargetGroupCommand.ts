@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateTargetGroupRequest, CreateTargetGroupResponse } from "../models/models_0";
 import { de_CreateTargetGroupCommand, se_CreateTargetGroupCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig } from "../VPCLatticeClient";
@@ -50,11 +42,11 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupRespons
  *   name: "STRING_VALUE", // required
  *   type: "STRING_VALUE", // required
  *   config: { // TargetGroupConfig
- *     port: Number("int"), // required
- *     protocol: "STRING_VALUE", // required
+ *     port: Number("int"),
+ *     protocol: "STRING_VALUE",
  *     protocolVersion: "STRING_VALUE",
  *     ipAddressType: "STRING_VALUE",
- *     vpcIdentifier: "STRING_VALUE", // required
+ *     vpcIdentifier: "STRING_VALUE",
  *     healthCheck: { // HealthCheckConfig
  *       enabled: true || false,
  *       protocol: "STRING_VALUE",
@@ -69,6 +61,7 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupRespons
  *         httpCode: "STRING_VALUE",
  *       },
  *     },
+ *     lambdaEventStructureVersion: "STRING_VALUE",
  *   },
  *   clientToken: "STRING_VALUE",
  *   tags: { // TagMap
@@ -83,11 +76,11 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupRespons
  * //   name: "STRING_VALUE",
  * //   type: "STRING_VALUE",
  * //   config: { // TargetGroupConfig
- * //     port: Number("int"), // required
- * //     protocol: "STRING_VALUE", // required
+ * //     port: Number("int"),
+ * //     protocol: "STRING_VALUE",
  * //     protocolVersion: "STRING_VALUE",
  * //     ipAddressType: "STRING_VALUE",
- * //     vpcIdentifier: "STRING_VALUE", // required
+ * //     vpcIdentifier: "STRING_VALUE",
  * //     healthCheck: { // HealthCheckConfig
  * //       enabled: true || false,
  * //       protocol: "STRING_VALUE",
@@ -102,6 +95,7 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupRespons
  * //         httpCode: "STRING_VALUE",
  * //       },
  * //     },
+ * //     lambdaEventStructureVersion: "STRING_VALUE",
  * //   },
  * //   status: "STRING_VALUE",
  * // };
@@ -141,79 +135,26 @@ export interface CreateTargetGroupCommandOutput extends CreateTargetGroupRespons
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
  */
-export class CreateTargetGroupCommand extends $Command<
-  CreateTargetGroupCommandInput,
-  CreateTargetGroupCommandOutput,
-  VPCLatticeClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateTargetGroupCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: VPCLatticeClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateTargetGroupCommandInput, CreateTargetGroupCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateTargetGroupCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "VPCLatticeClient";
-    const commandName = "CreateTargetGroupCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateTargetGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateTargetGroupCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateTargetGroupCommandOutput> {
-    return de_CreateTargetGroupCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateTargetGroupCommand extends $Command
+  .classBuilder<
+    CreateTargetGroupCommandInput,
+    CreateTargetGroupCommandOutput,
+    VPCLatticeClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("MercuryControlPlane", "CreateTargetGroup", {})
+  .n("VPCLatticeClient", "CreateTargetGroupCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateTargetGroupCommand)
+  .de(de_CreateTargetGroupCommand)
+  .build() {}

@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeAnalysisDefinitionRequest,
   DescribeAnalysisDefinitionResponse,
@@ -837,7 +829,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                 },
  * //                 TotalOptions: { // TotalOptions
  * //                   TotalsVisibility: "HIDDEN" || "VISIBLE",
- * //                   Placement: "START" || "END",
+ * //                   Placement: "START" || "END" || "AUTO",
  * //                   ScrollStatus: "PINNED" || "SCROLLED",
  * //                   CustomLabel: "STRING_VALUE",
  * //                   TotalCellStyle: {
@@ -860,6 +852,14 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                       },
  * //                     },
  * //                   },
+ * //                   TotalAggregationOptions: [ // TotalAggregationOptionList
+ * //                     { // TotalAggregationOption
+ * //                       FieldId: "STRING_VALUE", // required
+ * //                       TotalAggregationFunction: { // TotalAggregationFunction
+ * //                         SimpleTotalAggregationFunction: "DEFAULT" || "SUM" || "AVERAGE" || "MIN" || "MAX" || "NONE",
+ * //                       },
+ * //                     },
+ * //                   ],
  * //                 },
  * //                 FieldOptions: { // TableFieldOptions
  * //                   SelectedFieldOptions: [ // TableFieldOptionList
@@ -892,6 +892,11 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   Order: [ // FieldOrderList
  * //                     "STRING_VALUE",
  * //                   ],
+ * //                   PinnedFieldOptions: { // TablePinnedFieldOptions
+ * //                     PinnedLeftFields: [ // TableFieldOrderList
+ * //                       "STRING_VALUE",
+ * //                     ],
+ * //                   },
  * //                 },
  * //                 PaginatedReportOptions: { // TablePaginatedReportOptions
  * //                   VerticalOverflowVisibility: "HIDDEN" || "VISIBLE",
@@ -1227,8 +1232,11 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                           Direction: "ASC" || "DESC", // required
  * //                           SortPaths: [ // DataPathValueList // required
  * //                             { // DataPathValue
- * //                               FieldId: "STRING_VALUE", // required
- * //                               FieldValue: "STRING_VALUE", // required
+ * //                               FieldId: "STRING_VALUE",
+ * //                               FieldValue: "STRING_VALUE",
+ * //                               DataPathType: { // DataPathType
+ * //                                 PivotTableDataPathType: "HIERARCHY_ROWS_LAYOUT_COLUMN" || "MULTIPLE_ROW_METRICS_COLUMN" || "EMPTY_COLUMN_HEADER" || "COUNT_METRIC_COLUMN",
+ * //                               },
  * //                             },
  * //                           ],
  * //                         },
@@ -1337,21 +1345,37 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   },
  * //                   RowTotalOptions: { // PivotTotalOptions
  * //                     TotalsVisibility: "HIDDEN" || "VISIBLE",
- * //                     Placement: "START" || "END",
+ * //                     Placement: "START" || "END" || "AUTO",
  * //                     ScrollStatus: "PINNED" || "SCROLLED",
  * //                     CustomLabel: "STRING_VALUE",
  * //                     TotalCellStyle: "<TableCellStyle>",
  * //                     ValueCellStyle: "<TableCellStyle>",
  * //                     MetricHeaderCellStyle: "<TableCellStyle>",
+ * //                     TotalAggregationOptions: [
+ * //                       {
+ * //                         FieldId: "STRING_VALUE", // required
+ * //                         TotalAggregationFunction: {
+ * //                           SimpleTotalAggregationFunction: "DEFAULT" || "SUM" || "AVERAGE" || "MIN" || "MAX" || "NONE",
+ * //                         },
+ * //                       },
+ * //                     ],
  * //                   },
  * //                   ColumnTotalOptions: {
  * //                     TotalsVisibility: "HIDDEN" || "VISIBLE",
- * //                     Placement: "START" || "END",
+ * //                     Placement: "START" || "END" || "AUTO",
  * //                     ScrollStatus: "PINNED" || "SCROLLED",
  * //                     CustomLabel: "STRING_VALUE",
  * //                     TotalCellStyle: "<TableCellStyle>",
  * //                     ValueCellStyle: "<TableCellStyle>",
  * //                     MetricHeaderCellStyle: "<TableCellStyle>",
+ * //                     TotalAggregationOptions: [
+ * //                       {
+ * //                         FieldId: "STRING_VALUE", // required
+ * //                         TotalAggregationFunction: {
+ * //                           SimpleTotalAggregationFunction: "DEFAULT" || "SUM" || "AVERAGE" || "MIN" || "MAX" || "NONE",
+ * //                         },
+ * //                       },
+ * //                     ],
  * //                   },
  * //                 },
  * //                 FieldOptions: { // PivotTableFieldOptions
@@ -1366,8 +1390,11 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                     { // PivotTableDataPathOption
  * //                       DataPathList: [ // required
  * //                         {
- * //                           FieldId: "STRING_VALUE", // required
- * //                           FieldValue: "STRING_VALUE", // required
+ * //                           FieldId: "STRING_VALUE",
+ * //                           FieldValue: "STRING_VALUE",
+ * //                           DataPathType: {
+ * //                             PivotTableDataPathType: "HIERARCHY_ROWS_LAYOUT_COLUMN" || "MULTIPLE_ROW_METRICS_COLUMN" || "EMPTY_COLUMN_HEADER" || "COUNT_METRIC_COLUMN",
+ * //                           },
  * //                         },
  * //                       ],
  * //                       Width: "STRING_VALUE",
@@ -1931,6 +1958,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                         Calculation: "<NumericalAggregationFunction>", // required
  * //                       },
  * //                       AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
+ * //                       SeriesType: "BAR" || "LINE",
  * //                     },
  * //                     StyleConfiguration: { // ReferenceLineStyleConfiguration
  * //                       Pattern: "SOLID" || "DASHED" || "DOTTED",
@@ -2212,6 +2240,17 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   PrimaryValueDisplayType: "HIDDEN" || "COMPARISON" || "ACTUAL",
  * //                   PrimaryValueFontConfiguration: "<FontConfiguration>",
  * //                   SecondaryValueFontConfiguration: "<FontConfiguration>",
+ * //                   Sparkline: { // KPISparklineOptions
+ * //                     Visibility: "HIDDEN" || "VISIBLE",
+ * //                     Type: "LINE" || "AREA", // required
+ * //                     Color: "STRING_VALUE",
+ * //                     TooltipVisibility: "HIDDEN" || "VISIBLE",
+ * //                   },
+ * //                   VisualLayoutOptions: { // KPIVisualLayoutOptions
+ * //                     StandardLayout: { // KPIVisualStandardLayout
+ * //                       Type: "CLASSIC" || "VERTICAL", // required
+ * //                     },
+ * //                   },
  * //                 },
  * //               },
  * //               ConditionalFormatting: { // KPIConditionalFormatting
@@ -2239,6 +2278,46 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                     },
  * //                     ProgressBar: { // KPIProgressBarConditionalFormatting
  * //                       ForegroundColor: "<ConditionalFormattingColor>",
+ * //                     },
+ * //                     ActualValue: { // KPIActualValueConditionalFormatting
+ * //                       TextColor: "<ConditionalFormattingColor>",
+ * //                       Icon: {
+ * //                         IconSet: {
+ * //                           Expression: "STRING_VALUE", // required
+ * //                           IconSetType: "PLUS_MINUS" || "CHECK_X" || "THREE_COLOR_ARROW" || "THREE_GRAY_ARROW" || "CARET_UP_MINUS_DOWN" || "THREE_SHAPE" || "THREE_CIRCLE" || "FLAGS" || "BARS" || "FOUR_COLOR_ARROW" || "FOUR_GRAY_ARROW",
+ * //                         },
+ * //                         CustomCondition: {
+ * //                           Expression: "STRING_VALUE", // required
+ * //                           IconOptions: {
+ * //                             Icon: "CARET_UP" || "CARET_DOWN" || "PLUS" || "MINUS" || "ARROW_UP" || "ARROW_DOWN" || "ARROW_LEFT" || "ARROW_UP_LEFT" || "ARROW_DOWN_LEFT" || "ARROW_RIGHT" || "ARROW_UP_RIGHT" || "ARROW_DOWN_RIGHT" || "FACE_UP" || "FACE_DOWN" || "FACE_FLAT" || "ONE_BAR" || "TWO_BAR" || "THREE_BAR" || "CIRCLE" || "TRIANGLE" || "SQUARE" || "FLAG" || "THUMBS_UP" || "THUMBS_DOWN" || "CHECKMARK" || "X",
+ * //                             UnicodeIcon: "STRING_VALUE",
+ * //                           },
+ * //                           Color: "STRING_VALUE",
+ * //                           DisplayConfiguration: {
+ * //                             IconDisplayOption: "ICON_ONLY",
+ * //                           },
+ * //                         },
+ * //                       },
+ * //                     },
+ * //                     ComparisonValue: { // KPIComparisonValueConditionalFormatting
+ * //                       TextColor: "<ConditionalFormattingColor>",
+ * //                       Icon: {
+ * //                         IconSet: {
+ * //                           Expression: "STRING_VALUE", // required
+ * //                           IconSetType: "PLUS_MINUS" || "CHECK_X" || "THREE_COLOR_ARROW" || "THREE_GRAY_ARROW" || "CARET_UP_MINUS_DOWN" || "THREE_SHAPE" || "THREE_CIRCLE" || "FLAGS" || "BARS" || "FOUR_COLOR_ARROW" || "FOUR_GRAY_ARROW",
+ * //                         },
+ * //                         CustomCondition: {
+ * //                           Expression: "STRING_VALUE", // required
+ * //                           IconOptions: {
+ * //                             Icon: "CARET_UP" || "CARET_DOWN" || "PLUS" || "MINUS" || "ARROW_UP" || "ARROW_DOWN" || "ARROW_LEFT" || "ARROW_UP_LEFT" || "ARROW_DOWN_LEFT" || "ARROW_RIGHT" || "ARROW_UP_RIGHT" || "ARROW_DOWN_RIGHT" || "FACE_UP" || "FACE_DOWN" || "FACE_FLAT" || "ONE_BAR" || "TWO_BAR" || "THREE_BAR" || "CIRCLE" || "TRIANGLE" || "SQUARE" || "FLAG" || "THUMBS_UP" || "THUMBS_DOWN" || "CHECKMARK" || "X",
+ * //                             UnicodeIcon: "STRING_VALUE",
+ * //                           },
+ * //                           Color: "STRING_VALUE",
+ * //                           DisplayConfiguration: {
+ * //                             IconDisplayOption: "ICON_ONLY",
+ * //                           },
+ * //                         },
+ * //                       },
  * //                     },
  * //                   },
  * //                 ],
@@ -2759,23 +2838,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   { // GaugeChartConditionalFormattingOption
  * //                     PrimaryValue: { // GaugeChartPrimaryValueConditionalFormatting
  * //                       TextColor: "<ConditionalFormattingColor>",
- * //                       Icon: {
- * //                         IconSet: {
- * //                           Expression: "STRING_VALUE", // required
- * //                           IconSetType: "PLUS_MINUS" || "CHECK_X" || "THREE_COLOR_ARROW" || "THREE_GRAY_ARROW" || "CARET_UP_MINUS_DOWN" || "THREE_SHAPE" || "THREE_CIRCLE" || "FLAGS" || "BARS" || "FOUR_COLOR_ARROW" || "FOUR_GRAY_ARROW",
- * //                         },
- * //                         CustomCondition: {
- * //                           Expression: "STRING_VALUE", // required
- * //                           IconOptions: {
- * //                             Icon: "CARET_UP" || "CARET_DOWN" || "PLUS" || "MINUS" || "ARROW_UP" || "ARROW_DOWN" || "ARROW_LEFT" || "ARROW_UP_LEFT" || "ARROW_DOWN_LEFT" || "ARROW_RIGHT" || "ARROW_UP_RIGHT" || "ARROW_DOWN_RIGHT" || "FACE_UP" || "FACE_DOWN" || "FACE_FLAT" || "ONE_BAR" || "TWO_BAR" || "THREE_BAR" || "CIRCLE" || "TRIANGLE" || "SQUARE" || "FLAG" || "THUMBS_UP" || "THUMBS_DOWN" || "CHECKMARK" || "X",
- * //                             UnicodeIcon: "STRING_VALUE",
- * //                           },
- * //                           Color: "STRING_VALUE",
- * //                           DisplayConfiguration: {
- * //                             IconDisplayOption: "ICON_ONLY",
- * //                           },
- * //                         },
- * //                       },
+ * //                       Icon: "<ConditionalFormattingIcon>",
  * //                     },
  * //                     Arc: { // GaugeChartArcConditionalFormatting
  * //                       ForegroundColor: "<ConditionalFormattingColor>",
@@ -2995,6 +3058,11 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   ],
  * //                 },
  * //                 SecondaryYAxisLabelOptions: "<ChartAxisLabelOptions>",
+ * //                 SingleAxisOptions: { // SingleAxisOptions
+ * //                   YAxisOptions: { // YAxisOptions
+ * //                     YAxis: "PRIMARY_Y_AXIS", // required
+ * //                   },
+ * //                 },
  * //                 DefaultSeriesSettings: { // LineChartDefaultSeriesSettings
  * //                   AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
  * //                   LineStyleSettings: { // LineChartLineStyleSettings
@@ -3104,6 +3172,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                         Calculation: "<NumericalAggregationFunction>", // required
  * //                       },
  * //                       AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
+ * //                       SeriesType: "BAR" || "LINE",
  * //                     },
  * //                     StyleConfiguration: {
  * //                       Pattern: "SOLID" || "DASHED" || "DOTTED",
@@ -3532,6 +3601,9 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                     Label: "<DimensionFieldList>",
  * //                   },
  * //                 },
+ * //                 SortConfiguration: { // ScatterPlotSortConfiguration
+ * //                   ScatterPlotLimitConfiguration: "<ItemsLimitConfiguration>",
+ * //                 },
  * //                 XAxisLabelOptions: "<ChartAxisLabelOptions>",
  * //                 XAxisDisplayOptions: "<AxisDisplayOptions>",
  * //                 YAxisLabelOptions: "<ChartAxisLabelOptions>",
@@ -3570,6 +3642,11 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                 PrimaryYAxisLabelOptions: "<ChartAxisLabelOptions>",
  * //                 SecondaryYAxisDisplayOptions: "<AxisDisplayOptions>",
  * //                 SecondaryYAxisLabelOptions: "<ChartAxisLabelOptions>",
+ * //                 SingleAxisOptions: {
+ * //                   YAxisOptions: {
+ * //                     YAxis: "PRIMARY_Y_AXIS", // required
+ * //                   },
+ * //                 },
  * //                 ColorLabelOptions: "<ChartAxisLabelOptions>",
  * //                 Legend: "<LegendOptions>",
  * //                 BarDataLabels: "<DataLabelOptions>",
@@ -3588,6 +3665,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                         Calculation: "<NumericalAggregationFunction>", // required
  * //                       },
  * //                       AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
+ * //                       SeriesType: "BAR" || "LINE",
  * //                     },
  * //                     StyleConfiguration: {
  * //                       Pattern: "SOLID" || "DASHED" || "DOTTED",
@@ -3661,6 +3739,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                         Calculation: "<NumericalAggregationFunction>", // required
  * //                       },
  * //                       AxisBinding: "PRIMARY_YAXIS" || "SECONDARY_YAXIS",
+ * //                       SeriesType: "BAR" || "LINE",
  * //                     },
  * //                     StyleConfiguration: {
  * //                       Pattern: "SOLID" || "DASHED" || "DOTTED",
@@ -3790,7 +3869,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                     TopBottomRanked: { // TopBottomRankedComputation
  * //                       ComputationId: "STRING_VALUE", // required
  * //                       Name: "STRING_VALUE",
- * //                       Category: "<DimensionField>", // required
+ * //                       Category: "<DimensionField>",
  * //                       Value: "<MeasureField>",
  * //                       ResultSize: Number("int"),
  * //                       Type: "TOP" || "BOTTOM", // required
@@ -3798,8 +3877,8 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                     TopBottomMovers: { // TopBottomMoversComputation
  * //                       ComputationId: "STRING_VALUE", // required
  * //                       Name: "STRING_VALUE",
- * //                       Time: "<DimensionField>", // required
- * //                       Category: "<DimensionField>", // required
+ * //                       Time: "<DimensionField>",
+ * //                       Category: "<DimensionField>",
  * //                       Value: "<MeasureField>",
  * //                       MoverSize: Number("int"),
  * //                       SortOrder: "PERCENT_DIFFERENCE" || "ABSOLUTE_DIFFERENCE",
@@ -3808,51 +3887,51 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                     TotalAggregation: { // TotalAggregationComputation
  * //                       ComputationId: "STRING_VALUE", // required
  * //                       Name: "STRING_VALUE",
- * //                       Value: "<MeasureField>", // required
+ * //                       Value: "<MeasureField>",
  * //                     },
  * //                     MaximumMinimum: { // MaximumMinimumComputation
  * //                       ComputationId: "STRING_VALUE", // required
  * //                       Name: "STRING_VALUE",
- * //                       Time: "<DimensionField>", // required
+ * //                       Time: "<DimensionField>",
  * //                       Value: "<MeasureField>",
  * //                       Type: "MAXIMUM" || "MINIMUM", // required
  * //                     },
  * //                     MetricComparison: { // MetricComparisonComputation
  * //                       ComputationId: "STRING_VALUE", // required
  * //                       Name: "STRING_VALUE",
- * //                       Time: "<DimensionField>", // required
- * //                       FromValue: "<MeasureField>", // required
- * //                       TargetValue: "<MeasureField>", // required
+ * //                       Time: "<DimensionField>",
+ * //                       FromValue: "<MeasureField>",
+ * //                       TargetValue: "<MeasureField>",
  * //                     },
  * //                     PeriodOverPeriod: { // PeriodOverPeriodComputation
  * //                       ComputationId: "STRING_VALUE", // required
  * //                       Name: "STRING_VALUE",
- * //                       Time: "<DimensionField>", // required
+ * //                       Time: "<DimensionField>",
  * //                       Value: "<MeasureField>",
  * //                     },
  * //                     PeriodToDate: { // PeriodToDateComputation
  * //                       ComputationId: "STRING_VALUE", // required
  * //                       Name: "STRING_VALUE",
- * //                       Time: "<DimensionField>", // required
+ * //                       Time: "<DimensionField>",
  * //                       Value: "<MeasureField>",
  * //                       PeriodTimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
  * //                     },
  * //                     GrowthRate: { // GrowthRateComputation
  * //                       ComputationId: "STRING_VALUE", // required
  * //                       Name: "STRING_VALUE",
- * //                       Time: "<DimensionField>", // required
+ * //                       Time: "<DimensionField>",
  * //                       Value: "<MeasureField>",
  * //                       PeriodSize: Number("int"),
  * //                     },
  * //                     UniqueValues: { // UniqueValuesComputation
  * //                       ComputationId: "STRING_VALUE", // required
  * //                       Name: "STRING_VALUE",
- * //                       Category: "<DimensionField>", // required
+ * //                       Category: "<DimensionField>",
  * //                     },
  * //                     Forecast: { // ForecastComputation
  * //                       ComputationId: "STRING_VALUE", // required
  * //                       Name: "STRING_VALUE",
- * //                       Time: "<DimensionField>", // required
+ * //                       Time: "<DimensionField>",
  * //                       Value: "<MeasureField>",
  * //                       PeriodsForward: Number("int"),
  * //                       PeriodsBackward: Number("int"),
@@ -4281,6 +4360,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   MatchOperator: "EQUALS" || "DOES_NOT_EQUAL" || "CONTAINS" || "DOES_NOT_CONTAIN" || "STARTS_WITH" || "ENDS_WITH", // required
  * //                   CategoryValues: "<CategoryValueList>",
  * //                   SelectAllOptions: "FILTER_ALL_VALUES",
+ * //                   NullOption: "ALL_VALUES" || "NULLS_ONLY" || "NON_NULLS_ONLY",
  * //                 },
  * //                 CustomFilterListConfiguration: { // CustomFilterListConfiguration
  * //                   MatchOperator: "EQUALS" || "DOES_NOT_EQUAL" || "CONTAINS" || "DOES_NOT_CONTAIN" || "STARTS_WITH" || "ENDS_WITH", // required
@@ -4330,6 +4410,10 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //               Value: new Date("TIMESTAMP"),
  * //               ParameterName: "STRING_VALUE",
  * //               TimeGranularity: "YEAR" || "QUARTER" || "MONTH" || "WEEK" || "DAY" || "HOUR" || "MINUTE" || "SECOND" || "MILLISECOND",
+ * //               RollingDate: {
+ * //                 DataSetIdentifier: "STRING_VALUE",
+ * //                 Expression: "STRING_VALUE", // required
+ * //               },
  * //             },
  * //             TimeRangeFilter: { // TimeRangeFilter
  * //               FilterId: "STRING_VALUE", // required
@@ -4338,18 +4422,12 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //               IncludeMaximum: true || false,
  * //               RangeMinimumValue: { // TimeRangeFilterValue
  * //                 StaticValue: new Date("TIMESTAMP"),
- * //                 RollingDate: {
- * //                   DataSetIdentifier: "STRING_VALUE",
- * //                   Expression: "STRING_VALUE", // required
- * //                 },
+ * //                 RollingDate: "<RollingDateConfiguration>",
  * //                 Parameter: "STRING_VALUE",
  * //               },
  * //               RangeMaximumValue: {
  * //                 StaticValue: new Date("TIMESTAMP"),
- * //                 RollingDate: {
- * //                   DataSetIdentifier: "STRING_VALUE",
- * //                   Expression: "STRING_VALUE", // required
- * //                 },
+ * //                 RollingDate: "<RollingDateConfiguration>",
  * //                 Parameter: "STRING_VALUE",
  * //               },
  * //               NullOption: "ALL_VALUES" || "NULLS_ONLY" || "NON_NULLS_ONLY", // required
@@ -4407,6 +4485,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //               },
  * //             ],
  * //           },
+ * //           AllSheets: {},
  * //         },
  * //         Status: "ENABLED" || "DISABLED",
  * //         CrossDataset: "ALL_DATASETS" || "SINGLE_DATASET", // required
@@ -4465,6 +4544,10 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //         SheetContentType: "PAGINATED" || "INTERACTIVE",
  * //       },
  * //     },
+ * //     Options: { // AssetOptions
+ * //       Timezone: "STRING_VALUE",
+ * //       WeekStart: "SUNDAY" || "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY",
+ * //     },
  * //   },
  * //   Status: Number("int"),
  * //   RequestId: "STRING_VALUE",
@@ -4512,82 +4595,26 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
-export class DescribeAnalysisDefinitionCommand extends $Command<
-  DescribeAnalysisDefinitionCommandInput,
-  DescribeAnalysisDefinitionCommandOutput,
-  QuickSightClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeAnalysisDefinitionCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: QuickSightClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeAnalysisDefinitionCommandInput, DescribeAnalysisDefinitionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeAnalysisDefinitionCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "QuickSightClient";
-    const commandName = "DescribeAnalysisDefinitionCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: DescribeAnalysisDefinitionResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeAnalysisDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeAnalysisDefinitionCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeAnalysisDefinitionCommandOutput> {
-    return de_DescribeAnalysisDefinitionCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeAnalysisDefinitionCommand extends $Command
+  .classBuilder<
+    DescribeAnalysisDefinitionCommandInput,
+    DescribeAnalysisDefinitionCommandOutput,
+    QuickSightClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("QuickSight_20180401", "DescribeAnalysisDefinition", {})
+  .n("QuickSightClient", "DescribeAnalysisDefinitionCommand")
+  .f(void 0, DescribeAnalysisDefinitionResponseFilterSensitiveLog)
+  .ser(se_DescribeAnalysisDefinitionCommand)
+  .de(de_DescribeAnalysisDefinitionCommand)
+  .build() {}

@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeDataSourceRequest, DescribeDataSourceResponse } from "../models/models_3";
 import { de_DescribeDataSourceCommand, se_DescribeDataSourceCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
@@ -54,7 +46,7 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //     Arn: "STRING_VALUE",
  * //     DataSourceId: "STRING_VALUE",
  * //     Name: "STRING_VALUE",
- * //     Type: "ADOBE_ANALYTICS" || "AMAZON_ELASTICSEARCH" || "ATHENA" || "AURORA" || "AURORA_POSTGRESQL" || "AWS_IOT_ANALYTICS" || "GITHUB" || "JIRA" || "MARIADB" || "MYSQL" || "ORACLE" || "POSTGRESQL" || "PRESTO" || "REDSHIFT" || "S3" || "SALESFORCE" || "SERVICENOW" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "TWITTER" || "TIMESTREAM" || "AMAZON_OPENSEARCH" || "EXASOL" || "DATABRICKS",
+ * //     Type: "ADOBE_ANALYTICS" || "AMAZON_ELASTICSEARCH" || "ATHENA" || "AURORA" || "AURORA_POSTGRESQL" || "AWS_IOT_ANALYTICS" || "GITHUB" || "JIRA" || "MARIADB" || "MYSQL" || "ORACLE" || "POSTGRESQL" || "PRESTO" || "REDSHIFT" || "S3" || "SALESFORCE" || "SERVICENOW" || "SNOWFLAKE" || "SPARK" || "SQLSERVER" || "TERADATA" || "TWITTER" || "TIMESTREAM" || "AMAZON_OPENSEARCH" || "EXASOL" || "DATABRICKS" || "STARBURST" || "TRINO" || "BIGQUERY",
  * //     Status: "CREATION_IN_PROGRESS" || "CREATION_SUCCESSFUL" || "CREATION_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_SUCCESSFUL" || "UPDATE_FAILED" || "DELETED",
  * //     CreatedTime: new Date("TIMESTAMP"),
  * //     LastUpdatedTime: new Date("TIMESTAMP"),
@@ -116,6 +108,17 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //         Port: Number("int"),
  * //         Database: "STRING_VALUE", // required
  * //         ClusterId: "STRING_VALUE",
+ * //         IAMParameters: { // RedshiftIAMParameters
+ * //           RoleArn: "STRING_VALUE", // required
+ * //           DatabaseUser: "STRING_VALUE", // required
+ * //           DatabaseGroups: [ // DatabaseGroupList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           AutoCreateDatabaseUser: true || false,
+ * //         },
+ * //         IdentityCenterConfiguration: { // IdentityCenterConfiguration
+ * //           EnableIdentityPropagation: true || false,
+ * //         },
  * //       },
  * //       S3Parameters: { // S3Parameters
  * //         ManifestFileLocation: { // ManifestFileLocation
@@ -161,6 +164,21 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //         Host: "STRING_VALUE", // required
  * //         Port: Number("int"), // required
  * //         SqlEndpointPath: "STRING_VALUE", // required
+ * //       },
+ * //       StarburstParameters: { // StarburstParameters
+ * //         Host: "STRING_VALUE", // required
+ * //         Port: Number("int"), // required
+ * //         Catalog: "STRING_VALUE", // required
+ * //         ProductType: "GALAXY" || "ENTERPRISE",
+ * //       },
+ * //       TrinoParameters: { // TrinoParameters
+ * //         Host: "STRING_VALUE", // required
+ * //         Port: Number("int"), // required
+ * //         Catalog: "STRING_VALUE", // required
+ * //       },
+ * //       BigQueryParameters: { // BigQueryParameters
+ * //         ProjectId: "STRING_VALUE", // required
+ * //         DataSetRegion: "STRING_VALUE",
  * //       },
  * //     },
  * //     AlternateDataSourceParameters: [ // DataSourceParametersList
@@ -222,6 +240,17 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //           Port: Number("int"),
  * //           Database: "STRING_VALUE", // required
  * //           ClusterId: "STRING_VALUE",
+ * //           IAMParameters: {
+ * //             RoleArn: "STRING_VALUE", // required
+ * //             DatabaseUser: "STRING_VALUE", // required
+ * //             DatabaseGroups: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             AutoCreateDatabaseUser: true || false,
+ * //           },
+ * //           IdentityCenterConfiguration: {
+ * //             EnableIdentityPropagation: true || false,
+ * //           },
  * //         },
  * //         S3Parameters: {
  * //           ManifestFileLocation: {
@@ -267,6 +296,21 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * //           Host: "STRING_VALUE", // required
  * //           Port: Number("int"), // required
  * //           SqlEndpointPath: "STRING_VALUE", // required
+ * //         },
+ * //         StarburstParameters: {
+ * //           Host: "STRING_VALUE", // required
+ * //           Port: Number("int"), // required
+ * //           Catalog: "STRING_VALUE", // required
+ * //           ProductType: "GALAXY" || "ENTERPRISE",
+ * //         },
+ * //         TrinoParameters: {
+ * //           Host: "STRING_VALUE", // required
+ * //           Port: Number("int"), // required
+ * //           Catalog: "STRING_VALUE", // required
+ * //         },
+ * //         BigQueryParameters: {
+ * //           ProjectId: "STRING_VALUE", // required
+ * //           DataSetRegion: "STRING_VALUE",
  * //         },
  * //       },
  * //     ],
@@ -316,79 +360,26 @@ export interface DescribeDataSourceCommandOutput extends DescribeDataSourceRespo
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
-export class DescribeDataSourceCommand extends $Command<
-  DescribeDataSourceCommandInput,
-  DescribeDataSourceCommandOutput,
-  QuickSightClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeDataSourceCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: QuickSightClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeDataSourceCommandInput, DescribeDataSourceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeDataSourceCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "QuickSightClient";
-    const commandName = "DescribeDataSourceCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeDataSourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeDataSourceCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeDataSourceCommandOutput> {
-    return de_DescribeDataSourceCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeDataSourceCommand extends $Command
+  .classBuilder<
+    DescribeDataSourceCommandInput,
+    DescribeDataSourceCommandOutput,
+    QuickSightClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("QuickSight_20180401", "DescribeDataSource", {})
+  .n("QuickSightClient", "DescribeDataSourceCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeDataSourceCommand)
+  .de(de_DescribeDataSourceCommand)
+  .build() {}

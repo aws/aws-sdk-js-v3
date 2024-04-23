@@ -11,8 +11,12 @@
 export * from "./WisdomClient";
 export * from "./Wisdom";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { WisdomExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { WisdomServiceException } from "./models/WisdomServiceException";

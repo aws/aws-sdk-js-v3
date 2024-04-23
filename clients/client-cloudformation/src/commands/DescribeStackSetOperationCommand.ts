@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeStackSetOperationInput, DescribeStackSetOperationOutput } from "../models/models_0";
 import { de_DescribeStackSetOperationCommand, se_DescribeStackSetOperationCommand } from "../protocols/Aws_query";
 
@@ -65,6 +57,7 @@ export interface DescribeStackSetOperationCommandOutput extends DescribeStackSet
  * //       FailureTolerancePercentage: Number("int"),
  * //       MaxConcurrentCount: Number("int"),
  * //       MaxConcurrentPercentage: Number("int"),
+ * //       ConcurrencyMode: "STRICT_FAILURE_TOLERANCE" || "SOFT_FAILURE_TOLERANCE",
  * //     },
  * //     RetainStacks: true || false,
  * //     AdministrationRoleARN: "STRING_VALUE",
@@ -116,82 +109,26 @@ export interface DescribeStackSetOperationCommandOutput extends DescribeStackSet
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
  */
-export class DescribeStackSetOperationCommand extends $Command<
-  DescribeStackSetOperationCommandInput,
-  DescribeStackSetOperationCommandOutput,
-  CloudFormationClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeStackSetOperationCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CloudFormationClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeStackSetOperationCommandInput, DescribeStackSetOperationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeStackSetOperationCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CloudFormationClient";
-    const commandName = "DescribeStackSetOperationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeStackSetOperationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeStackSetOperationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeStackSetOperationCommandOutput> {
-    return de_DescribeStackSetOperationCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeStackSetOperationCommand extends $Command
+  .classBuilder<
+    DescribeStackSetOperationCommandInput,
+    DescribeStackSetOperationCommandOutput,
+    CloudFormationClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CloudFormation", "DescribeStackSetOperation", {})
+  .n("CloudFormationClient", "DescribeStackSetOperationCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeStackSetOperationCommand)
+  .de(de_DescribeStackSetOperationCommand)
+  .build() {}

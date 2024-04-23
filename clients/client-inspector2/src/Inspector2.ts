@@ -48,6 +48,11 @@ import {
   CancelSbomExportCommandOutput,
 } from "./commands/CancelSbomExportCommand";
 import {
+  CreateCisScanConfigurationCommand,
+  CreateCisScanConfigurationCommandInput,
+  CreateCisScanConfigurationCommandOutput,
+} from "./commands/CreateCisScanConfigurationCommand";
+import {
   CreateFilterCommand,
   CreateFilterCommandInput,
   CreateFilterCommandOutput,
@@ -62,6 +67,11 @@ import {
   CreateSbomExportCommandInput,
   CreateSbomExportCommandOutput,
 } from "./commands/CreateSbomExportCommand";
+import {
+  DeleteCisScanConfigurationCommand,
+  DeleteCisScanConfigurationCommandInput,
+  DeleteCisScanConfigurationCommandOutput,
+} from "./commands/DeleteCisScanConfigurationCommand";
 import {
   DeleteFilterCommand,
   DeleteFilterCommandInput,
@@ -89,6 +99,16 @@ import {
   EnableDelegatedAdminAccountCommandInput,
   EnableDelegatedAdminAccountCommandOutput,
 } from "./commands/EnableDelegatedAdminAccountCommand";
+import {
+  GetCisScanReportCommand,
+  GetCisScanReportCommandInput,
+  GetCisScanReportCommandOutput,
+} from "./commands/GetCisScanReportCommand";
+import {
+  GetCisScanResultDetailsCommand,
+  GetCisScanResultDetailsCommandInput,
+  GetCisScanResultDetailsCommandOutput,
+} from "./commands/GetCisScanResultDetailsCommand";
 import {
   GetConfigurationCommand,
   GetConfigurationCommandInput,
@@ -125,6 +145,26 @@ import {
   ListAccountPermissionsCommandInput,
   ListAccountPermissionsCommandOutput,
 } from "./commands/ListAccountPermissionsCommand";
+import {
+  ListCisScanConfigurationsCommand,
+  ListCisScanConfigurationsCommandInput,
+  ListCisScanConfigurationsCommandOutput,
+} from "./commands/ListCisScanConfigurationsCommand";
+import {
+  ListCisScanResultsAggregatedByChecksCommand,
+  ListCisScanResultsAggregatedByChecksCommandInput,
+  ListCisScanResultsAggregatedByChecksCommandOutput,
+} from "./commands/ListCisScanResultsAggregatedByChecksCommand";
+import {
+  ListCisScanResultsAggregatedByTargetResourceCommand,
+  ListCisScanResultsAggregatedByTargetResourceCommandInput,
+  ListCisScanResultsAggregatedByTargetResourceCommandOutput,
+} from "./commands/ListCisScanResultsAggregatedByTargetResourceCommand";
+import {
+  ListCisScansCommand,
+  ListCisScansCommandInput,
+  ListCisScansCommandOutput,
+} from "./commands/ListCisScansCommand";
 import {
   ListCoverageCommand,
   ListCoverageCommandInput,
@@ -172,12 +212,37 @@ import {
   SearchVulnerabilitiesCommandInput,
   SearchVulnerabilitiesCommandOutput,
 } from "./commands/SearchVulnerabilitiesCommand";
+import {
+  SendCisSessionHealthCommand,
+  SendCisSessionHealthCommandInput,
+  SendCisSessionHealthCommandOutput,
+} from "./commands/SendCisSessionHealthCommand";
+import {
+  SendCisSessionTelemetryCommand,
+  SendCisSessionTelemetryCommandInput,
+  SendCisSessionTelemetryCommandOutput,
+} from "./commands/SendCisSessionTelemetryCommand";
+import {
+  StartCisSessionCommand,
+  StartCisSessionCommandInput,
+  StartCisSessionCommandOutput,
+} from "./commands/StartCisSessionCommand";
+import {
+  StopCisSessionCommand,
+  StopCisSessionCommandInput,
+  StopCisSessionCommandOutput,
+} from "./commands/StopCisSessionCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateCisScanConfigurationCommand,
+  UpdateCisScanConfigurationCommandInput,
+  UpdateCisScanConfigurationCommandOutput,
+} from "./commands/UpdateCisScanConfigurationCommand";
 import {
   UpdateConfigurationCommand,
   UpdateConfigurationCommandInput,
@@ -220,9 +285,11 @@ const commands = {
   BatchUpdateMemberEc2DeepInspectionStatusCommand,
   CancelFindingsReportCommand,
   CancelSbomExportCommand,
+  CreateCisScanConfigurationCommand,
   CreateFilterCommand,
   CreateFindingsReportCommand,
   CreateSbomExportCommand,
+  DeleteCisScanConfigurationCommand,
   DeleteFilterCommand,
   DescribeOrganizationConfigurationCommand,
   DisableCommand,
@@ -230,6 +297,8 @@ const commands = {
   DisassociateMemberCommand,
   EnableCommand,
   EnableDelegatedAdminAccountCommand,
+  GetCisScanReportCommand,
+  GetCisScanResultDetailsCommand,
   GetConfigurationCommand,
   GetDelegatedAdminAccountCommand,
   GetEc2DeepInspectionConfigurationCommand,
@@ -238,6 +307,10 @@ const commands = {
   GetMemberCommand,
   GetSbomExportCommand,
   ListAccountPermissionsCommand,
+  ListCisScanConfigurationsCommand,
+  ListCisScanResultsAggregatedByChecksCommand,
+  ListCisScanResultsAggregatedByTargetResourceCommand,
+  ListCisScansCommand,
   ListCoverageCommand,
   ListCoverageStatisticsCommand,
   ListDelegatedAdminAccountsCommand,
@@ -249,8 +322,13 @@ const commands = {
   ListUsageTotalsCommand,
   ResetEncryptionKeyCommand,
   SearchVulnerabilitiesCommand,
+  SendCisSessionHealthCommand,
+  SendCisSessionTelemetryCommand,
+  StartCisSessionCommand,
+  StopCisSessionCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateCisScanConfigurationCommand,
   UpdateConfigurationCommand,
   UpdateEc2DeepInspectionConfigurationCommand,
   UpdateEncryptionKeyCommand,
@@ -411,6 +489,23 @@ export interface Inspector2 {
   ): void;
 
   /**
+   * @see {@link CreateCisScanConfigurationCommand}
+   */
+  createCisScanConfiguration(
+    args: CreateCisScanConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCisScanConfigurationCommandOutput>;
+  createCisScanConfiguration(
+    args: CreateCisScanConfigurationCommandInput,
+    cb: (err: any, data?: CreateCisScanConfigurationCommandOutput) => void
+  ): void;
+  createCisScanConfiguration(
+    args: CreateCisScanConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCisScanConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateFilterCommand}
    */
   createFilter(args: CreateFilterCommandInput, options?: __HttpHandlerOptions): Promise<CreateFilterCommandOutput>;
@@ -453,6 +548,23 @@ export interface Inspector2 {
     args: CreateSbomExportCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateSbomExportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCisScanConfigurationCommand}
+   */
+  deleteCisScanConfiguration(
+    args: DeleteCisScanConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCisScanConfigurationCommandOutput>;
+  deleteCisScanConfiguration(
+    args: DeleteCisScanConfigurationCommandInput,
+    cb: (err: any, data?: DeleteCisScanConfigurationCommandOutput) => void
+  ): void;
+  deleteCisScanConfiguration(
+    args: DeleteCisScanConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCisScanConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -554,6 +666,40 @@ export interface Inspector2 {
     args: EnableDelegatedAdminAccountCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: EnableDelegatedAdminAccountCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCisScanReportCommand}
+   */
+  getCisScanReport(
+    args: GetCisScanReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCisScanReportCommandOutput>;
+  getCisScanReport(
+    args: GetCisScanReportCommandInput,
+    cb: (err: any, data?: GetCisScanReportCommandOutput) => void
+  ): void;
+  getCisScanReport(
+    args: GetCisScanReportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCisScanReportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCisScanResultDetailsCommand}
+   */
+  getCisScanResultDetails(
+    args: GetCisScanResultDetailsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCisScanResultDetailsCommandOutput>;
+  getCisScanResultDetails(
+    args: GetCisScanResultDetailsCommandInput,
+    cb: (err: any, data?: GetCisScanResultDetailsCommandOutput) => void
+  ): void;
+  getCisScanResultDetails(
+    args: GetCisScanResultDetailsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCisScanResultDetailsCommandOutput) => void
   ): void;
 
   /**
@@ -678,6 +824,68 @@ export interface Inspector2 {
     args: ListAccountPermissionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAccountPermissionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCisScanConfigurationsCommand}
+   */
+  listCisScanConfigurations(
+    args: ListCisScanConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCisScanConfigurationsCommandOutput>;
+  listCisScanConfigurations(
+    args: ListCisScanConfigurationsCommandInput,
+    cb: (err: any, data?: ListCisScanConfigurationsCommandOutput) => void
+  ): void;
+  listCisScanConfigurations(
+    args: ListCisScanConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCisScanConfigurationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCisScanResultsAggregatedByChecksCommand}
+   */
+  listCisScanResultsAggregatedByChecks(
+    args: ListCisScanResultsAggregatedByChecksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCisScanResultsAggregatedByChecksCommandOutput>;
+  listCisScanResultsAggregatedByChecks(
+    args: ListCisScanResultsAggregatedByChecksCommandInput,
+    cb: (err: any, data?: ListCisScanResultsAggregatedByChecksCommandOutput) => void
+  ): void;
+  listCisScanResultsAggregatedByChecks(
+    args: ListCisScanResultsAggregatedByChecksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCisScanResultsAggregatedByChecksCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCisScanResultsAggregatedByTargetResourceCommand}
+   */
+  listCisScanResultsAggregatedByTargetResource(
+    args: ListCisScanResultsAggregatedByTargetResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCisScanResultsAggregatedByTargetResourceCommandOutput>;
+  listCisScanResultsAggregatedByTargetResource(
+    args: ListCisScanResultsAggregatedByTargetResourceCommandInput,
+    cb: (err: any, data?: ListCisScanResultsAggregatedByTargetResourceCommandOutput) => void
+  ): void;
+  listCisScanResultsAggregatedByTargetResource(
+    args: ListCisScanResultsAggregatedByTargetResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCisScanResultsAggregatedByTargetResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCisScansCommand}
+   */
+  listCisScans(args: ListCisScansCommandInput, options?: __HttpHandlerOptions): Promise<ListCisScansCommandOutput>;
+  listCisScans(args: ListCisScansCommandInput, cb: (err: any, data?: ListCisScansCommandOutput) => void): void;
+  listCisScans(
+    args: ListCisScansCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCisScansCommandOutput) => void
   ): void;
 
   /**
@@ -841,6 +1049,68 @@ export interface Inspector2 {
   ): void;
 
   /**
+   * @see {@link SendCisSessionHealthCommand}
+   */
+  sendCisSessionHealth(
+    args: SendCisSessionHealthCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendCisSessionHealthCommandOutput>;
+  sendCisSessionHealth(
+    args: SendCisSessionHealthCommandInput,
+    cb: (err: any, data?: SendCisSessionHealthCommandOutput) => void
+  ): void;
+  sendCisSessionHealth(
+    args: SendCisSessionHealthCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendCisSessionHealthCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SendCisSessionTelemetryCommand}
+   */
+  sendCisSessionTelemetry(
+    args: SendCisSessionTelemetryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendCisSessionTelemetryCommandOutput>;
+  sendCisSessionTelemetry(
+    args: SendCisSessionTelemetryCommandInput,
+    cb: (err: any, data?: SendCisSessionTelemetryCommandOutput) => void
+  ): void;
+  sendCisSessionTelemetry(
+    args: SendCisSessionTelemetryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendCisSessionTelemetryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartCisSessionCommand}
+   */
+  startCisSession(
+    args: StartCisSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartCisSessionCommandOutput>;
+  startCisSession(args: StartCisSessionCommandInput, cb: (err: any, data?: StartCisSessionCommandOutput) => void): void;
+  startCisSession(
+    args: StartCisSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartCisSessionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopCisSessionCommand}
+   */
+  stopCisSession(
+    args: StopCisSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopCisSessionCommandOutput>;
+  stopCisSession(args: StopCisSessionCommandInput, cb: (err: any, data?: StopCisSessionCommandOutput) => void): void;
+  stopCisSession(
+    args: StopCisSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopCisSessionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link TagResourceCommand}
    */
   tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -860,6 +1130,23 @@ export interface Inspector2 {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCisScanConfigurationCommand}
+   */
+  updateCisScanConfiguration(
+    args: UpdateCisScanConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCisScanConfigurationCommandOutput>;
+  updateCisScanConfiguration(
+    args: UpdateCisScanConfigurationCommandInput,
+    cb: (err: any, data?: UpdateCisScanConfigurationCommandOutput) => void
+  ): void;
+  updateCisScanConfiguration(
+    args: UpdateCisScanConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCisScanConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -962,7 +1249,7 @@ export interface Inspector2 {
 /**
  * @public
  * <p>Amazon Inspector is a vulnerability discovery service that automates continuous scanning for
- *          security vulnerabilities within your Amazon EC2 and Amazon ECR environments.</p>
+ *          security vulnerabilities within your Amazon EC2, Amazon ECR, and Amazon Web Services Lambda environments.</p>
  */
 export class Inspector2 extends Inspector2Client implements Inspector2 {}
 createAggregatedClient(commands, Inspector2);

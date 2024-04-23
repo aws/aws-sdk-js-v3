@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ListChannelMembershipsForAppInstanceUserRequest,
   ListChannelMembershipsForAppInstanceUserRequestFilterSensitiveLog,
@@ -127,91 +119,29 @@ export interface ListChannelMembershipsForAppInstanceUserCommandOutput
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  */
-export class ListChannelMembershipsForAppInstanceUserCommand extends $Command<
-  ListChannelMembershipsForAppInstanceUserCommandInput,
-  ListChannelMembershipsForAppInstanceUserCommandOutput,
-  ChimeClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListChannelMembershipsForAppInstanceUserCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ChimeClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<
+export class ListChannelMembershipsForAppInstanceUserCommand extends $Command
+  .classBuilder<
     ListChannelMembershipsForAppInstanceUserCommandInput,
-    ListChannelMembershipsForAppInstanceUserCommandOutput
-  > {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(
-        configuration,
-        ListChannelMembershipsForAppInstanceUserCommand.getEndpointParameterInstructions()
-      )
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ChimeClient";
-    const commandName = "ListChannelMembershipsForAppInstanceUserCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: ListChannelMembershipsForAppInstanceUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListChannelMembershipsForAppInstanceUserResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: ListChannelMembershipsForAppInstanceUserCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_ListChannelMembershipsForAppInstanceUserCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListChannelMembershipsForAppInstanceUserCommandOutput> {
-    return de_ListChannelMembershipsForAppInstanceUserCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+    ListChannelMembershipsForAppInstanceUserCommandOutput,
+    ChimeClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("UCBuzzConsoleService", "ListChannelMembershipsForAppInstanceUser", {})
+  .n("ChimeClient", "ListChannelMembershipsForAppInstanceUserCommand")
+  .f(
+    ListChannelMembershipsForAppInstanceUserRequestFilterSensitiveLog,
+    ListChannelMembershipsForAppInstanceUserResponseFilterSensitiveLog
+  )
+  .ser(se_ListChannelMembershipsForAppInstanceUserCommand)
+  .de(de_ListChannelMembershipsForAppInstanceUserCommand)
+  .build() {}

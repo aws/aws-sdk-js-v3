@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -215,29 +216,21 @@ export const se_AssociateChannelFlowCommand = async (
   input: AssociateChannelFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}/channel-flow";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.bp("/channels/{ChannelArn}/channel-flow");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       ChannelFlowArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -247,16 +240,15 @@ export const se_BatchCreateChannelMembershipCommand = async (
   input: BatchCreateChannelMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}/memberships";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.bp("/channels/{ChannelArn}/memberships");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   const query: any = map({
-    operation: [, "batch-create"],
+    [_o]: [, "batch-create"],
   });
   let body: any;
   body = JSON.stringify(
@@ -266,16 +258,8 @@ export const se_BatchCreateChannelMembershipCommand = async (
       Type: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -285,14 +269,14 @@ export const se_ChannelFlowCallbackCommand = async (
   input: ChannelFlowCallbackCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.bp("/channels/{ChannelArn}");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   const query: any = map({
-    operation: [, "channel-flow-callback"],
+    [_o]: [, "channel-flow-callback"],
   });
   let body: any;
   body = JSON.stringify(
@@ -302,16 +286,8 @@ export const se_ChannelFlowCallbackCommand = async (
       DeleteResource: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -321,12 +297,12 @@ export const se_CreateChannelCommand = async (
   input: CreateChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels";
+  b.bp("/channels");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -344,15 +320,8 @@ export const se_CreateChannelCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -362,29 +331,21 @@ export const se_CreateChannelBanCommand = async (
   input: CreateChannelBanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}/bans";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.bp("/channels/{ChannelArn}/bans");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       MemberArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -394,11 +355,11 @@ export const se_CreateChannelFlowCommand = async (
   input: CreateChannelFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel-flows";
+  b.bp("/channel-flows");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -409,15 +370,8 @@ export const se_CreateChannelFlowCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -427,14 +381,13 @@ export const se_CreateChannelMembershipCommand = async (
   input: CreateChannelMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}/memberships";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.bp("/channels/{ChannelArn}/memberships");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -443,15 +396,8 @@ export const se_CreateChannelMembershipCommand = async (
       Type: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -461,29 +407,21 @@ export const se_CreateChannelModeratorCommand = async (
   input: CreateChannelModeratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}/moderators";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.bp("/channels/{ChannelArn}/moderators");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       ChannelModeratorArn: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -493,22 +431,15 @@ export const se_DeleteChannelCommand = async (
   input: DeleteChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.bp("/channels/{ChannelArn}");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -518,24 +449,16 @@ export const se_DeleteChannelBanCommand = async (
   input: DeleteChannelBanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}/bans/{MemberArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "MemberArn", () => input.MemberArn!, "{MemberArn}", false);
+  b.bp("/channels/{ChannelArn}/bans/{MemberArn}");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.p("MemberArn", () => input.MemberArn!, "{MemberArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -545,28 +468,13 @@ export const se_DeleteChannelFlowCommand = async (
   input: DeleteChannelFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel-flows/{ChannelFlowArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ChannelFlowArn",
-    () => input.ChannelFlowArn!,
-    "{ChannelFlowArn}",
-    false
-  );
+  b.bp("/channel-flows/{ChannelFlowArn}");
+  b.p("ChannelFlowArn", () => input.ChannelFlowArn!, "{ChannelFlowArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -576,29 +484,19 @@ export const se_DeleteChannelMembershipCommand = async (
   input: DeleteChannelMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channels/{ChannelArn}/memberships/{MemberArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "MemberArn", () => input.MemberArn!, "{MemberArn}", false);
+  b.bp("/channels/{ChannelArn}/memberships/{MemberArn}");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.p("MemberArn", () => input.MemberArn!, "{MemberArn}", false);
   const query: any = map({
-    "sub-channel-id": [, input.SubChannelId!],
+    [_sci]: [, input[_SCI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -608,29 +506,19 @@ export const se_DeleteChannelMessageCommand = async (
   input: DeleteChannelMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channels/{ChannelArn}/messages/{MessageId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "MessageId", () => input.MessageId!, "{MessageId}", false);
+  b.bp("/channels/{ChannelArn}/messages/{MessageId}");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.p("MessageId", () => input.MessageId!, "{MessageId}", false);
   const query: any = map({
-    "sub-channel-id": [, input.SubChannelId!],
+    [_sci]: [, input[_SCI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -640,32 +528,16 @@ export const se_DeleteChannelModeratorCommand = async (
   input: DeleteChannelModeratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channels/{ChannelArn}/moderators/{ChannelModeratorArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ChannelModeratorArn",
-    () => input.ChannelModeratorArn!,
-    "{ChannelModeratorArn}",
-    false
-  );
+  b.bp("/channels/{ChannelArn}/moderators/{ChannelModeratorArn}");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.p("ChannelModeratorArn", () => input.ChannelModeratorArn!, "{ChannelModeratorArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -675,29 +547,13 @@ export const se_DeleteMessagingStreamingConfigurationsCommand = async (
   input: DeleteMessagingStreamingConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app-instances/{AppInstanceArn}/streaming-configurations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AppInstanceArn",
-    () => input.AppInstanceArn!,
-    "{AppInstanceArn}",
-    false
-  );
+  b.bp("/app-instances/{AppInstanceArn}/streaming-configurations");
+  b.p("AppInstanceArn", () => input.AppInstanceArn!, "{AppInstanceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -707,22 +563,15 @@ export const se_DescribeChannelCommand = async (
   input: DescribeChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.bp("/channels/{ChannelArn}");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -732,24 +581,16 @@ export const se_DescribeChannelBanCommand = async (
   input: DescribeChannelBanCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}/bans/{MemberArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "MemberArn", () => input.MemberArn!, "{MemberArn}", false);
+  b.bp("/channels/{ChannelArn}/bans/{MemberArn}");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.p("MemberArn", () => input.MemberArn!, "{MemberArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -759,28 +600,13 @@ export const se_DescribeChannelFlowCommand = async (
   input: DescribeChannelFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel-flows/{ChannelFlowArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ChannelFlowArn",
-    () => input.ChannelFlowArn!,
-    "{ChannelFlowArn}",
-    false
-  );
+  b.bp("/channel-flows/{ChannelFlowArn}");
+  b.p("ChannelFlowArn", () => input.ChannelFlowArn!, "{ChannelFlowArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -790,29 +616,19 @@ export const se_DescribeChannelMembershipCommand = async (
   input: DescribeChannelMembershipCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channels/{ChannelArn}/memberships/{MemberArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "MemberArn", () => input.MemberArn!, "{MemberArn}", false);
+  b.bp("/channels/{ChannelArn}/memberships/{MemberArn}");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.p("MemberArn", () => input.MemberArn!, "{MemberArn}", false);
   const query: any = map({
-    "sub-channel-id": [, input.SubChannelId!],
+    [_sci]: [, input[_SCI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -822,27 +638,19 @@ export const se_DescribeChannelMembershipForAppInstanceUserCommand = async (
   input: DescribeChannelMembershipForAppInstanceUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.bp("/channels/{ChannelArn}");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   const query: any = map({
-    scope: [, "app-instance-user-membership"],
-    "app-instance-user-arn": [, __expectNonNull(input.AppInstanceUserArn!, `AppInstanceUserArn`)],
+    [_s]: [, "app-instance-user-membership"],
+    [_aiua]: [, __expectNonNull(input[_AIUA]!, `AppInstanceUserArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -852,27 +660,19 @@ export const se_DescribeChannelModeratedByAppInstanceUserCommand = async (
   input: DescribeChannelModeratedByAppInstanceUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.bp("/channels/{ChannelArn}");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   const query: any = map({
-    scope: [, "app-instance-user-moderated-channel"],
-    "app-instance-user-arn": [, __expectNonNull(input.AppInstanceUserArn!, `AppInstanceUserArn`)],
+    [_s]: [, "app-instance-user-moderated-channel"],
+    [_aiua]: [, __expectNonNull(input[_AIUA]!, `AppInstanceUserArn`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -882,32 +682,16 @@ export const se_DescribeChannelModeratorCommand = async (
   input: DescribeChannelModeratorCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channels/{ChannelArn}/moderators/{ChannelModeratorArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ChannelModeratorArn",
-    () => input.ChannelModeratorArn!,
-    "{ChannelModeratorArn}",
-    false
-  );
+  b.bp("/channels/{ChannelArn}/moderators/{ChannelModeratorArn}");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.p("ChannelModeratorArn", () => input.ChannelModeratorArn!, "{ChannelModeratorArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -917,32 +701,16 @@ export const se_DisassociateChannelFlowCommand = async (
   input: DisassociateChannelFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channels/{ChannelArn}/channel-flow/{ChannelFlowArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ChannelFlowArn",
-    () => input.ChannelFlowArn!,
-    "{ChannelFlowArn}",
-    false
-  );
+  b.bp("/channels/{ChannelArn}/channel-flow/{ChannelFlowArn}");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.p("ChannelFlowArn", () => input.ChannelFlowArn!, "{ChannelFlowArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -952,25 +720,16 @@ export const se_GetChannelMembershipPreferencesCommand = async (
   input: GetChannelMembershipPreferencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channels/{ChannelArn}/memberships/{MemberArn}/preferences";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "MemberArn", () => input.MemberArn!, "{MemberArn}", false);
+  b.bp("/channels/{ChannelArn}/memberships/{MemberArn}/preferences");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.p("MemberArn", () => input.MemberArn!, "{MemberArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -980,29 +739,19 @@ export const se_GetChannelMessageCommand = async (
   input: GetChannelMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channels/{ChannelArn}/messages/{MessageId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "MessageId", () => input.MessageId!, "{MessageId}", false);
+  b.bp("/channels/{ChannelArn}/messages/{MessageId}");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.p("MessageId", () => input.MessageId!, "{MessageId}", false);
   const query: any = map({
-    "sub-channel-id": [, input.SubChannelId!],
+    [_sci]: [, input[_SCI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1012,30 +761,20 @@ export const se_GetChannelMessageStatusCommand = async (
   input: GetChannelMessageStatusCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channels/{ChannelArn}/messages/{MessageId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "MessageId", () => input.MessageId!, "{MessageId}", false);
+  b.bp("/channels/{ChannelArn}/messages/{MessageId}");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.p("MessageId", () => input.MessageId!, "{MessageId}", false);
   const query: any = map({
-    scope: [, "message-status"],
-    "sub-channel-id": [, input.SubChannelId!],
+    [_s]: [, "message-status"],
+    [_sci]: [, input[_SCI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1045,23 +784,15 @@ export const se_GetMessagingSessionEndpointCommand = async (
   input: GetMessagingSessionEndpointCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/endpoints/messaging-session";
+  b.bp("/endpoints/messaging-session");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1071,29 +802,13 @@ export const se_GetMessagingStreamingConfigurationsCommand = async (
   input: GetMessagingStreamingConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app-instances/{AppInstanceArn}/streaming-configurations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AppInstanceArn",
-    () => input.AppInstanceArn!,
-    "{AppInstanceArn}",
-    false
-  );
+  b.bp("/app-instances/{AppInstanceArn}/streaming-configurations");
+  b.p("AppInstanceArn", () => input.AppInstanceArn!, "{AppInstanceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1103,28 +818,19 @@ export const se_ListChannelBansCommand = async (
   input: ListChannelBansCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}/bans";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.bp("/channels/{ChannelArn}/bans");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   const query: any = map({
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    "next-token": [, input.NextToken!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1134,25 +840,17 @@ export const se_ListChannelFlowsCommand = async (
   input: ListChannelFlowsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel-flows";
+  b.bp("/channel-flows");
   const query: any = map({
-    "app-instance-arn": [, __expectNonNull(input.AppInstanceArn!, `AppInstanceArn`)],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    "next-token": [, input.NextToken!],
+    [_aia]: [, __expectNonNull(input[_AIA]!, `AppInstanceArn`)],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1162,30 +860,21 @@ export const se_ListChannelMembershipsCommand = async (
   input: ListChannelMembershipsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}/memberships";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.bp("/channels/{ChannelArn}/memberships");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   const query: any = map({
-    type: [, input.Type!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    "next-token": [, input.NextToken!],
-    "sub-channel-id": [, input.SubChannelId!],
+    [_t]: [, input[_T]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_sci]: [, input[_SCI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1195,28 +884,20 @@ export const se_ListChannelMembershipsForAppInstanceUserCommand = async (
   input: ListChannelMembershipsForAppInstanceUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels";
+  b.bp("/channels");
   const query: any = map({
-    scope: [, "app-instance-user-memberships"],
-    "app-instance-user-arn": [, input.AppInstanceUserArn!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    "next-token": [, input.NextToken!],
+    [_s]: [, "app-instance-user-memberships"],
+    [_aiua]: [, input[_AIUA]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1226,38 +907,23 @@ export const se_ListChannelMessagesCommand = async (
   input: ListChannelMessagesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}/messages";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.bp("/channels/{ChannelArn}/messages");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   const query: any = map({
-    "sort-order": [, input.SortOrder!],
-    "not-before": [
-      () => input.NotBefore !== void 0,
-      () => (input.NotBefore!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    "not-after": [
-      () => input.NotAfter !== void 0,
-      () => (input.NotAfter!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    "next-token": [, input.NextToken!],
-    "sub-channel-id": [, input.SubChannelId!],
+    [_so]: [, input[_SO]!],
+    [_nb]: [() => input.NotBefore !== void 0, () => (input[_NB]!.toISOString().split(".")[0] + "Z").toString()],
+    [_na]: [() => input.NotAfter !== void 0, () => (input[_NA]!.toISOString().split(".")[0] + "Z").toString()],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
+    [_sci]: [, input[_SCI]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1267,28 +933,19 @@ export const se_ListChannelModeratorsCommand = async (
   input: ListChannelModeratorsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}/moderators";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.bp("/channels/{ChannelArn}/moderators");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   const query: any = map({
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    "next-token": [, input.NextToken!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1298,28 +955,20 @@ export const se_ListChannelsCommand = async (
   input: ListChannelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels";
+  b.bp("/channels");
   const query: any = map({
-    "app-instance-arn": [, __expectNonNull(input.AppInstanceArn!, `AppInstanceArn`)],
-    privacy: [, input.Privacy!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    "next-token": [, input.NextToken!],
+    [_aia]: [, __expectNonNull(input[_AIA]!, `AppInstanceArn`)],
+    [_p]: [, input[_P]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1329,26 +978,18 @@ export const se_ListChannelsAssociatedWithChannelFlowCommand = async (
   input: ListChannelsAssociatedWithChannelFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels";
+  b.bp("/channels");
   const query: any = map({
-    scope: [, "channel-flow-associations"],
-    "channel-flow-arn": [, __expectNonNull(input.ChannelFlowArn!, `ChannelFlowArn`)],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    "next-token": [, input.NextToken!],
+    [_s]: [, "channel-flow-associations"],
+    [_cfa]: [, __expectNonNull(input[_CFA]!, `ChannelFlowArn`)],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1358,28 +999,20 @@ export const se_ListChannelsModeratedByAppInstanceUserCommand = async (
   input: ListChannelsModeratedByAppInstanceUserCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels";
+  b.bp("/channels");
   const query: any = map({
-    scope: [, "app-instance-user-moderated-channels"],
-    "app-instance-user-arn": [, input.AppInstanceUserArn!],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    "next-token": [, input.NextToken!],
+    [_s]: [, "app-instance-user-moderated-channels"],
+    [_aiua]: [, input[_AIUA]!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1389,28 +1022,19 @@ export const se_ListSubChannelsCommand = async (
   input: ListSubChannelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}/subchannels";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.bp("/channels/{ChannelArn}/subchannels");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   const query: any = map({
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    "next-token": [, input.NextToken!],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1420,23 +1044,15 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
+  b.bp("/tags");
   const query: any = map({
-    arn: [, __expectNonNull(input.ResourceARN!, `ResourceARN`)],
+    [_a]: [, __expectNonNull(input[_RARN]!, `ResourceARN`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1446,30 +1062,21 @@ export const se_PutChannelExpirationSettingsCommand = async (
   input: PutChannelExpirationSettingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channels/{ChannelArn}/expiration-settings";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.bp("/channels/{ChannelArn}/expiration-settings");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       ExpirationSettings: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1479,31 +1086,22 @@ export const se_PutChannelMembershipPreferencesCommand = async (
   input: PutChannelMembershipPreferencesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channels/{ChannelArn}/memberships/{MemberArn}/preferences";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "MemberArn", () => input.MemberArn!, "{MemberArn}", false);
+  b.bp("/channels/{ChannelArn}/memberships/{MemberArn}/preferences");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.p("MemberArn", () => input.MemberArn!, "{MemberArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       Preferences: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1513,36 +1111,20 @@ export const se_PutMessagingStreamingConfigurationsCommand = async (
   input: PutMessagingStreamingConfigurationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/app-instances/{AppInstanceArn}/streaming-configurations";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "AppInstanceArn",
-    () => input.AppInstanceArn!,
-    "{AppInstanceArn}",
-    false
-  );
+  b.bp("/app-instances/{AppInstanceArn}/streaming-configurations");
+  b.p("AppInstanceArn", () => input.AppInstanceArn!, "{AppInstanceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       StreamingConfigurations: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1552,18 +1134,16 @@ export const se_RedactChannelMessageCommand = async (
   input: RedactChannelMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channels/{ChannelArn}/messages/{MessageId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "MessageId", () => input.MessageId!, "{MessageId}", false);
+  b.bp("/channels/{ChannelArn}/messages/{MessageId}");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.p("MessageId", () => input.MessageId!, "{MessageId}", false);
   const query: any = map({
-    operation: [, "redact"],
+    [_o]: [, "redact"],
   });
   let body: any;
   body = JSON.stringify(
@@ -1571,16 +1151,8 @@ export const se_RedactChannelMessageCommand = async (
       SubChannelId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1590,16 +1162,16 @@ export const se_SearchChannelsCommand = async (
   input: SearchChannelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels";
+  b.bp("/channels");
   const query: any = map({
-    operation: [, "search"],
-    "max-results": [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    "next-token": [, input.NextToken!],
+    [_o]: [, "search"],
+    [_mr]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nt]: [, input[_NT]!],
   });
   let body: any;
   body = JSON.stringify(
@@ -1607,16 +1179,8 @@ export const se_SearchChannelsCommand = async (
       Fields: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1626,14 +1190,13 @@ export const se_SendChannelMessageCommand = async (
   input: SendChannelMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}/messages";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.bp("/channels/{ChannelArn}/messages");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1649,15 +1212,8 @@ export const se_SendChannelMessageCommand = async (
       Type: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1667,13 +1223,13 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
+  b.bp("/tags");
   const query: any = map({
-    operation: [, "tag-resource"],
+    [_o]: [, "tag-resource"],
   });
   let body: any;
   body = JSON.stringify(
@@ -1682,16 +1238,8 @@ export const se_TagResourceCommand = async (
       Tags: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1701,13 +1249,13 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
+  b.bp("/tags");
   const query: any = map({
-    operation: [, "untag-resource"],
+    [_o]: [, "untag-resource"],
   });
   let body: any;
   body = JSON.stringify(
@@ -1716,16 +1264,8 @@ export const se_UntagResourceCommand = async (
       TagKeys: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1735,13 +1275,13 @@ export const se_UpdateChannelCommand = async (
   input: UpdateChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.bp("/channels/{ChannelArn}");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1750,15 +1290,8 @@ export const se_UpdateChannelCommand = async (
       Name: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1768,20 +1301,12 @@ export const se_UpdateChannelFlowCommand = async (
   input: UpdateChannelFlowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel-flows/{ChannelFlowArn}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ChannelFlowArn",
-    () => input.ChannelFlowArn!,
-    "{ChannelFlowArn}",
-    false
-  );
+  b.bp("/channel-flows/{ChannelFlowArn}");
+  b.p("ChannelFlowArn", () => input.ChannelFlowArn!, "{ChannelFlowArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1789,15 +1314,8 @@ export const se_UpdateChannelFlowCommand = async (
       Processors: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1807,16 +1325,14 @@ export const se_UpdateChannelMessageCommand = async (
   input: UpdateChannelMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/channels/{ChannelArn}/messages/{MessageId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "MessageId", () => input.MessageId!, "{MessageId}", false);
+  b.bp("/channels/{ChannelArn}/messages/{MessageId}");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.p("MessageId", () => input.MessageId!, "{MessageId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1826,15 +1342,8 @@ export const se_UpdateChannelMessageCommand = async (
       SubChannelId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1844,23 +1353,15 @@ export const se_UpdateChannelReadMarkerCommand = async (
   input: UpdateChannelReadMarkerCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    "x-amz-chime-bearer": input.ChimeBearer!,
+    [_xacb]: input[_CB]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}/readMarker";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
+  b.bp("/channels/{ChannelArn}/readMarker");
+  b.p("ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -5669,6 +5170,35 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _AIA = "AppInstanceArn";
+const _AIUA = "AppInstanceUserArn";
+const _CB = "ChimeBearer";
+const _CFA = "ChannelFlowArn";
+const _MR = "MaxResults";
+const _NA = "NotAfter";
+const _NB = "NotBefore";
+const _NT = "NextToken";
+const _P = "Privacy";
+const _RARN = "ResourceARN";
+const _SCI = "SubChannelId";
+const _SO = "SortOrder";
+const _T = "Type";
+const _a = "arn";
+const _aia = "app-instance-arn";
+const _aiua = "app-instance-user-arn";
+const _cfa = "channel-flow-arn";
+const _mr = "max-results";
+const _na = "not-after";
+const _nb = "not-before";
+const _nt = "next-token";
+const _o = "operation";
+const _p = "privacy";
+const _s = "scope";
+const _sci = "sub-channel-id";
+const _so = "sort-order";
+const _t = "type";
+const _xacb = "x-amz-chime-bearer";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

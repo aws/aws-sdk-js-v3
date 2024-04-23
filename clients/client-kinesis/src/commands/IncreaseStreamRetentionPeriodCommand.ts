@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient";
 import { IncreaseStreamRetentionPeriodInput } from "../models/models_0";
 import {
@@ -43,8 +35,9 @@ export interface IncreaseStreamRetentionPeriodCommandOutput extends __MetadataBe
  *             records are accessible after they are added to the stream. The maximum value of a
  *             stream's retention period is 8760 hours (365 days).</p>
  *          <note>
- *             <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input
- *                 parameter rather than the <code>StreamName</code> input parameter.</p>
+ *             <p>When invoking this API, you must use either the <code>StreamARN</code> or the
+ *                     <code>StreamName</code> parameter, or both. It is recommended that you use the
+ *                     <code>StreamARN</code> input parameter when you invoke this API.</p>
  *          </note>
  *          <p>If you choose a longer stream retention period, this operation increases the time
  *             period during which records that have not yet expired are accessible. However, it does
@@ -99,84 +92,28 @@ export interface IncreaseStreamRetentionPeriodCommandOutput extends __MetadataBe
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
  */
-export class IncreaseStreamRetentionPeriodCommand extends $Command<
-  IncreaseStreamRetentionPeriodCommandInput,
-  IncreaseStreamRetentionPeriodCommandOutput,
-  KinesisClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      OperationType: { type: "staticContextParams", value: `control` },
-      StreamARN: { type: "contextParams", name: "StreamARN" },
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: IncreaseStreamRetentionPeriodCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: KinesisClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<IncreaseStreamRetentionPeriodCommandInput, IncreaseStreamRetentionPeriodCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, IncreaseStreamRetentionPeriodCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "KinesisClient";
-    const commandName = "IncreaseStreamRetentionPeriodCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: IncreaseStreamRetentionPeriodCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_IncreaseStreamRetentionPeriodCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<IncreaseStreamRetentionPeriodCommandOutput> {
-    return de_IncreaseStreamRetentionPeriodCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class IncreaseStreamRetentionPeriodCommand extends $Command
+  .classBuilder<
+    IncreaseStreamRetentionPeriodCommandInput,
+    IncreaseStreamRetentionPeriodCommandOutput,
+    KinesisClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+    OperationType: { type: "staticContextParams", value: `control` },
+    StreamARN: { type: "contextParams", name: "StreamARN" },
+  })
+  .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("Kinesis_20131202", "IncreaseStreamRetentionPeriod", {})
+  .n("KinesisClient", "IncreaseStreamRetentionPeriodCommand")
+  .f(void 0, void 0)
+  .ser(se_IncreaseStreamRetentionPeriodCommand)
+  .de(de_IncreaseStreamRetentionPeriodCommand)
+  .build() {}

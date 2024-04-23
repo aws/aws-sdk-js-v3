@@ -1,20 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SdkStreamSerdeContext as __SdkStreamSerdeContext,
-  SerdeContext as __SerdeContext,
-  StreamingBlobPayloadOutputTypes,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadOutputTypes } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   KinesisVideoMediaClientResolvedConfig,
   ServiceInputTypes,
@@ -100,7 +90,7 @@ export interface GetMediaCommandOutput extends Omit<GetMediaOutput, "Payload">, 
  *   StreamName: "STRING_VALUE",
  *   StreamARN: "STRING_VALUE",
  *   StartSelector: { // StartSelector
- *     StartSelectorType: "STRING_VALUE", // required
+ *     StartSelectorType: "FRAGMENT_NUMBER" || "SERVER_TIMESTAMP" || "PRODUCER_TIMESTAMP" || "NOW" || "EARLIEST" || "CONTINUATION_TOKEN", // required
  *     AfterFragmentNumber: "STRING_VALUE",
  *     StartTimestamp: new Date("TIMESTAMP"),
  *     ContinuationToken: "STRING_VALUE",
@@ -149,80 +139,26 @@ export interface GetMediaCommandOutput extends Omit<GetMediaOutput, "Payload">, 
  * <p>Base exception class for all service exceptions from KinesisVideoMedia service.</p>
  *
  */
-export class GetMediaCommand extends $Command<
-  GetMediaCommandInput,
-  GetMediaCommandOutput,
-  KinesisVideoMediaClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetMediaCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: KinesisVideoMediaClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetMediaCommandInput, GetMediaCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GetMediaCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "KinesisVideoMediaClient";
-    const commandName = "GetMediaCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: GetMediaOutputFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetMediaCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetMediaCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext & __SdkStreamSerdeContext
-  ): Promise<GetMediaCommandOutput> {
-    return de_GetMediaCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetMediaCommand extends $Command
+  .classBuilder<
+    GetMediaCommandInput,
+    GetMediaCommandOutput,
+    KinesisVideoMediaClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: KinesisVideoMediaClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSAcuityInletService", "GetMedia", {})
+  .n("KinesisVideoMediaClient", "GetMediaCommand")
+  .f(void 0, GetMediaOutputFilterSensitiveLog)
+  .ser(se_GetMediaCommand)
+  .de(de_GetMediaCommand)
+  .build() {}

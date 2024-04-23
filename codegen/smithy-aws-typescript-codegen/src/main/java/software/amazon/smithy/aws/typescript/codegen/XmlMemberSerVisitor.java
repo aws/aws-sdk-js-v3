@@ -34,6 +34,7 @@ import software.amazon.smithy.model.traits.XmlNameTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberSerVisitor;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
+import software.amazon.smithy.typescript.codegen.util.StringStore;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
@@ -52,10 +53,12 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 @SmithyInternalApi
 final class XmlMemberSerVisitor extends DocumentMemberSerVisitor {
     private final GenerationContext context;
+    private final StringStore stringStore;
 
     XmlMemberSerVisitor(GenerationContext context, String dataSource, Format defaultTimestampFormat) {
         super(context, dataSource, defaultTimestampFormat);
         this.context = context;
+        this.stringStore = context.getStringStore();
     }
 
     @Override
@@ -121,7 +124,7 @@ final class XmlMemberSerVisitor extends DocumentMemberSerVisitor {
         TypeScriptWriter writer = getContext().getWriter();
         writer.addImport("XmlNode", "__XmlNode", "@aws-sdk/xml-builder");
         writer.addImport("XmlText", "__XmlText", "@aws-sdk/xml-builder");
-        return "__XmlNode.of(\"" + nodeName + "\", " + dataSource + ")";
+        return "__XmlNode.of(" + stringStore.var(nodeName) + ", " + dataSource + ")";
     }
 
     @Override

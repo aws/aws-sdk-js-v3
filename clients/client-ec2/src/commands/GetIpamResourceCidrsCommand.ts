@@ -1,20 +1,12 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetIpamResourceCidrsRequest, GetIpamResourceCidrsResult } from "../models/models_5";
+import { commonParams } from "../endpoint/EndpointParameters";
+import { GetIpamResourceCidrsRequest, GetIpamResourceCidrsResult } from "../models/models_6";
 import { de_GetIpamResourceCidrsCommand, se_GetIpamResourceCidrsCommand } from "../protocols/Aws_ec2";
 
 /**
@@ -58,7 +50,7 @@ export interface GetIpamResourceCidrsCommandOutput extends GetIpamResourceCidrsR
  *   IpamScopeId: "STRING_VALUE", // required
  *   IpamPoolId: "STRING_VALUE",
  *   ResourceId: "STRING_VALUE",
- *   ResourceType: "vpc" || "subnet" || "eip" || "public-ipv4-pool" || "ipv6-pool",
+ *   ResourceType: "vpc" || "subnet" || "eip" || "public-ipv4-pool" || "ipv6-pool" || "eni",
  *   ResourceTag: { // RequestIpamResourceTag
  *     Key: "STRING_VALUE",
  *     Value: "STRING_VALUE",
@@ -79,7 +71,7 @@ export interface GetIpamResourceCidrsCommandOutput extends GetIpamResourceCidrsR
  * //       ResourceId: "STRING_VALUE",
  * //       ResourceName: "STRING_VALUE",
  * //       ResourceCidr: "STRING_VALUE",
- * //       ResourceType: "vpc" || "subnet" || "eip" || "public-ipv4-pool" || "ipv6-pool",
+ * //       ResourceType: "vpc" || "subnet" || "eip" || "public-ipv4-pool" || "ipv6-pool" || "eni",
  * //       ResourceTags: [ // IpamResourceTagList
  * //         { // IpamResourceTag
  * //           Key: "STRING_VALUE",
@@ -107,79 +99,26 @@ export interface GetIpamResourceCidrsCommandOutput extends GetIpamResourceCidrsR
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
-export class GetIpamResourceCidrsCommand extends $Command<
-  GetIpamResourceCidrsCommandInput,
-  GetIpamResourceCidrsCommandOutput,
-  EC2ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetIpamResourceCidrsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: EC2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetIpamResourceCidrsCommandInput, GetIpamResourceCidrsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetIpamResourceCidrsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "EC2Client";
-    const commandName = "GetIpamResourceCidrsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetIpamResourceCidrsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetIpamResourceCidrsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIpamResourceCidrsCommandOutput> {
-    return de_GetIpamResourceCidrsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetIpamResourceCidrsCommand extends $Command
+  .classBuilder<
+    GetIpamResourceCidrsCommandInput,
+    GetIpamResourceCidrsCommandOutput,
+    EC2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonEC2", "GetIpamResourceCidrs", {})
+  .n("EC2Client", "GetIpamResourceCidrsCommand")
+  .f(void 0, void 0)
+  .ser(se_GetIpamResourceCidrsCommand)
+  .de(de_GetIpamResourceCidrsCommand)
+  .build() {}

@@ -21,6 +21,11 @@ import {
 } from "@aws-sdk/middleware-user-agent";
 import { Credentials as __Credentials } from "@aws-sdk/types";
 import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import {
+  EventStreamSerdeInputConfig,
+  EventStreamSerdeResolvedConfig,
+  resolveEventStreamSerdeConfig,
+} from "@smithy/eventstream-serde-config-resolver";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
 import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
 import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
@@ -34,12 +39,11 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
+  EventStreamSerdeProvider as __EventStreamSerdeProvider,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -52,7 +56,12 @@ import {
 
 import { AssociateKmsKeyCommandInput, AssociateKmsKeyCommandOutput } from "./commands/AssociateKmsKeyCommand";
 import { CancelExportTaskCommandInput, CancelExportTaskCommandOutput } from "./commands/CancelExportTaskCommand";
+import { CreateDeliveryCommandInput, CreateDeliveryCommandOutput } from "./commands/CreateDeliveryCommand";
 import { CreateExportTaskCommandInput, CreateExportTaskCommandOutput } from "./commands/CreateExportTaskCommand";
+import {
+  CreateLogAnomalyDetectorCommandInput,
+  CreateLogAnomalyDetectorCommandOutput,
+} from "./commands/CreateLogAnomalyDetectorCommand";
 import { CreateLogGroupCommandInput, CreateLogGroupCommandOutput } from "./commands/CreateLogGroupCommand";
 import { CreateLogStreamCommandInput, CreateLogStreamCommandOutput } from "./commands/CreateLogStreamCommand";
 import {
@@ -63,7 +72,24 @@ import {
   DeleteDataProtectionPolicyCommandInput,
   DeleteDataProtectionPolicyCommandOutput,
 } from "./commands/DeleteDataProtectionPolicyCommand";
+import { DeleteDeliveryCommandInput, DeleteDeliveryCommandOutput } from "./commands/DeleteDeliveryCommand";
+import {
+  DeleteDeliveryDestinationCommandInput,
+  DeleteDeliveryDestinationCommandOutput,
+} from "./commands/DeleteDeliveryDestinationCommand";
+import {
+  DeleteDeliveryDestinationPolicyCommandInput,
+  DeleteDeliveryDestinationPolicyCommandOutput,
+} from "./commands/DeleteDeliveryDestinationPolicyCommand";
+import {
+  DeleteDeliverySourceCommandInput,
+  DeleteDeliverySourceCommandOutput,
+} from "./commands/DeleteDeliverySourceCommand";
 import { DeleteDestinationCommandInput, DeleteDestinationCommandOutput } from "./commands/DeleteDestinationCommand";
+import {
+  DeleteLogAnomalyDetectorCommandInput,
+  DeleteLogAnomalyDetectorCommandOutput,
+} from "./commands/DeleteLogAnomalyDetectorCommand";
 import { DeleteLogGroupCommandInput, DeleteLogGroupCommandOutput } from "./commands/DeleteLogGroupCommand";
 import { DeleteLogStreamCommandInput, DeleteLogStreamCommandOutput } from "./commands/DeleteLogStreamCommand";
 import { DeleteMetricFilterCommandInput, DeleteMetricFilterCommandOutput } from "./commands/DeleteMetricFilterCommand";
@@ -87,6 +113,15 @@ import {
   DescribeAccountPoliciesCommandInput,
   DescribeAccountPoliciesCommandOutput,
 } from "./commands/DescribeAccountPoliciesCommand";
+import { DescribeDeliveriesCommandInput, DescribeDeliveriesCommandOutput } from "./commands/DescribeDeliveriesCommand";
+import {
+  DescribeDeliveryDestinationsCommandInput,
+  DescribeDeliveryDestinationsCommandOutput,
+} from "./commands/DescribeDeliveryDestinationsCommand";
+import {
+  DescribeDeliverySourcesCommandInput,
+  DescribeDeliverySourcesCommandOutput,
+} from "./commands/DescribeDeliverySourcesCommand";
 import {
   DescribeDestinationsCommandInput,
   DescribeDestinationsCommandOutput,
@@ -120,10 +155,29 @@ import {
   GetDataProtectionPolicyCommandInput,
   GetDataProtectionPolicyCommandOutput,
 } from "./commands/GetDataProtectionPolicyCommand";
+import { GetDeliveryCommandInput, GetDeliveryCommandOutput } from "./commands/GetDeliveryCommand";
+import {
+  GetDeliveryDestinationCommandInput,
+  GetDeliveryDestinationCommandOutput,
+} from "./commands/GetDeliveryDestinationCommand";
+import {
+  GetDeliveryDestinationPolicyCommandInput,
+  GetDeliveryDestinationPolicyCommandOutput,
+} from "./commands/GetDeliveryDestinationPolicyCommand";
+import { GetDeliverySourceCommandInput, GetDeliverySourceCommandOutput } from "./commands/GetDeliverySourceCommand";
+import {
+  GetLogAnomalyDetectorCommandInput,
+  GetLogAnomalyDetectorCommandOutput,
+} from "./commands/GetLogAnomalyDetectorCommand";
 import { GetLogEventsCommandInput, GetLogEventsCommandOutput } from "./commands/GetLogEventsCommand";
 import { GetLogGroupFieldsCommandInput, GetLogGroupFieldsCommandOutput } from "./commands/GetLogGroupFieldsCommand";
 import { GetLogRecordCommandInput, GetLogRecordCommandOutput } from "./commands/GetLogRecordCommand";
 import { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "./commands/GetQueryResultsCommand";
+import { ListAnomaliesCommandInput, ListAnomaliesCommandOutput } from "./commands/ListAnomaliesCommand";
+import {
+  ListLogAnomalyDetectorsCommandInput,
+  ListLogAnomalyDetectorsCommandOutput,
+} from "./commands/ListLogAnomalyDetectorsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -134,6 +188,15 @@ import {
   PutDataProtectionPolicyCommandInput,
   PutDataProtectionPolicyCommandOutput,
 } from "./commands/PutDataProtectionPolicyCommand";
+import {
+  PutDeliveryDestinationCommandInput,
+  PutDeliveryDestinationCommandOutput,
+} from "./commands/PutDeliveryDestinationCommand";
+import {
+  PutDeliveryDestinationPolicyCommandInput,
+  PutDeliveryDestinationPolicyCommandOutput,
+} from "./commands/PutDeliveryDestinationPolicyCommand";
+import { PutDeliverySourceCommandInput, PutDeliverySourceCommandOutput } from "./commands/PutDeliverySourceCommand";
 import { PutDestinationCommandInput, PutDestinationCommandOutput } from "./commands/PutDestinationCommand";
 import {
   PutDestinationPolicyCommandInput,
@@ -148,6 +211,7 @@ import {
   PutSubscriptionFilterCommandInput,
   PutSubscriptionFilterCommandOutput,
 } from "./commands/PutSubscriptionFilterCommand";
+import { StartLiveTailCommandInput, StartLiveTailCommandOutput } from "./commands/StartLiveTailCommand";
 import { StartQueryCommandInput, StartQueryCommandOutput } from "./commands/StartQueryCommand";
 import { StopQueryCommandInput, StopQueryCommandOutput } from "./commands/StopQueryCommand";
 import { TagLogGroupCommandInput, TagLogGroupCommandOutput } from "./commands/TagLogGroupCommand";
@@ -155,6 +219,11 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/Ta
 import { TestMetricFilterCommandInput, TestMetricFilterCommandOutput } from "./commands/TestMetricFilterCommand";
 import { UntagLogGroupCommandInput, UntagLogGroupCommandOutput } from "./commands/UntagLogGroupCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateAnomalyCommandInput, UpdateAnomalyCommandOutput } from "./commands/UpdateAnomalyCommand";
+import {
+  UpdateLogAnomalyDetectorCommandInput,
+  UpdateLogAnomalyDetectorCommandOutput,
+} from "./commands/UpdateLogAnomalyDetectorCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -172,12 +241,19 @@ export { __Client };
 export type ServiceInputTypes =
   | AssociateKmsKeyCommandInput
   | CancelExportTaskCommandInput
+  | CreateDeliveryCommandInput
   | CreateExportTaskCommandInput
+  | CreateLogAnomalyDetectorCommandInput
   | CreateLogGroupCommandInput
   | CreateLogStreamCommandInput
   | DeleteAccountPolicyCommandInput
   | DeleteDataProtectionPolicyCommandInput
+  | DeleteDeliveryCommandInput
+  | DeleteDeliveryDestinationCommandInput
+  | DeleteDeliveryDestinationPolicyCommandInput
+  | DeleteDeliverySourceCommandInput
   | DeleteDestinationCommandInput
+  | DeleteLogAnomalyDetectorCommandInput
   | DeleteLogGroupCommandInput
   | DeleteLogStreamCommandInput
   | DeleteMetricFilterCommandInput
@@ -186,6 +262,9 @@ export type ServiceInputTypes =
   | DeleteRetentionPolicyCommandInput
   | DeleteSubscriptionFilterCommandInput
   | DescribeAccountPoliciesCommandInput
+  | DescribeDeliveriesCommandInput
+  | DescribeDeliveryDestinationsCommandInput
+  | DescribeDeliverySourcesCommandInput
   | DescribeDestinationsCommandInput
   | DescribeExportTasksCommandInput
   | DescribeLogGroupsCommandInput
@@ -198,14 +277,24 @@ export type ServiceInputTypes =
   | DisassociateKmsKeyCommandInput
   | FilterLogEventsCommandInput
   | GetDataProtectionPolicyCommandInput
+  | GetDeliveryCommandInput
+  | GetDeliveryDestinationCommandInput
+  | GetDeliveryDestinationPolicyCommandInput
+  | GetDeliverySourceCommandInput
+  | GetLogAnomalyDetectorCommandInput
   | GetLogEventsCommandInput
   | GetLogGroupFieldsCommandInput
   | GetLogRecordCommandInput
   | GetQueryResultsCommandInput
+  | ListAnomaliesCommandInput
+  | ListLogAnomalyDetectorsCommandInput
   | ListTagsForResourceCommandInput
   | ListTagsLogGroupCommandInput
   | PutAccountPolicyCommandInput
   | PutDataProtectionPolicyCommandInput
+  | PutDeliveryDestinationCommandInput
+  | PutDeliveryDestinationPolicyCommandInput
+  | PutDeliverySourceCommandInput
   | PutDestinationCommandInput
   | PutDestinationPolicyCommandInput
   | PutLogEventsCommandInput
@@ -214,13 +303,16 @@ export type ServiceInputTypes =
   | PutResourcePolicyCommandInput
   | PutRetentionPolicyCommandInput
   | PutSubscriptionFilterCommandInput
+  | StartLiveTailCommandInput
   | StartQueryCommandInput
   | StopQueryCommandInput
   | TagLogGroupCommandInput
   | TagResourceCommandInput
   | TestMetricFilterCommandInput
   | UntagLogGroupCommandInput
-  | UntagResourceCommandInput;
+  | UntagResourceCommandInput
+  | UpdateAnomalyCommandInput
+  | UpdateLogAnomalyDetectorCommandInput;
 
 /**
  * @public
@@ -228,12 +320,19 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AssociateKmsKeyCommandOutput
   | CancelExportTaskCommandOutput
+  | CreateDeliveryCommandOutput
   | CreateExportTaskCommandOutput
+  | CreateLogAnomalyDetectorCommandOutput
   | CreateLogGroupCommandOutput
   | CreateLogStreamCommandOutput
   | DeleteAccountPolicyCommandOutput
   | DeleteDataProtectionPolicyCommandOutput
+  | DeleteDeliveryCommandOutput
+  | DeleteDeliveryDestinationCommandOutput
+  | DeleteDeliveryDestinationPolicyCommandOutput
+  | DeleteDeliverySourceCommandOutput
   | DeleteDestinationCommandOutput
+  | DeleteLogAnomalyDetectorCommandOutput
   | DeleteLogGroupCommandOutput
   | DeleteLogStreamCommandOutput
   | DeleteMetricFilterCommandOutput
@@ -242,6 +341,9 @@ export type ServiceOutputTypes =
   | DeleteRetentionPolicyCommandOutput
   | DeleteSubscriptionFilterCommandOutput
   | DescribeAccountPoliciesCommandOutput
+  | DescribeDeliveriesCommandOutput
+  | DescribeDeliveryDestinationsCommandOutput
+  | DescribeDeliverySourcesCommandOutput
   | DescribeDestinationsCommandOutput
   | DescribeExportTasksCommandOutput
   | DescribeLogGroupsCommandOutput
@@ -254,14 +356,24 @@ export type ServiceOutputTypes =
   | DisassociateKmsKeyCommandOutput
   | FilterLogEventsCommandOutput
   | GetDataProtectionPolicyCommandOutput
+  | GetDeliveryCommandOutput
+  | GetDeliveryDestinationCommandOutput
+  | GetDeliveryDestinationPolicyCommandOutput
+  | GetDeliverySourceCommandOutput
+  | GetLogAnomalyDetectorCommandOutput
   | GetLogEventsCommandOutput
   | GetLogGroupFieldsCommandOutput
   | GetLogRecordCommandOutput
   | GetQueryResultsCommandOutput
+  | ListAnomaliesCommandOutput
+  | ListLogAnomalyDetectorsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTagsLogGroupCommandOutput
   | PutAccountPolicyCommandOutput
   | PutDataProtectionPolicyCommandOutput
+  | PutDeliveryDestinationCommandOutput
+  | PutDeliveryDestinationPolicyCommandOutput
+  | PutDeliverySourceCommandOutput
   | PutDestinationCommandOutput
   | PutDestinationPolicyCommandOutput
   | PutLogEventsCommandOutput
@@ -270,13 +382,16 @@ export type ServiceOutputTypes =
   | PutResourcePolicyCommandOutput
   | PutRetentionPolicyCommandOutput
   | PutSubscriptionFilterCommandOutput
+  | StartLiveTailCommandOutput
   | StartQueryCommandOutput
   | StopQueryCommandOutput
   | TagLogGroupCommandOutput
   | TagResourceCommandOutput
   | TestMetricFilterCommandOutput
   | UntagLogGroupCommandOutput
-  | UntagResourceCommandOutput;
+  | UntagResourceCommandOutput
+  | UpdateAnomalyCommandOutput
+  | UpdateLogAnomalyDetectorCommandOutput;
 
 /**
  * @public
@@ -388,6 +503,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 
@@ -400,6 +517,11 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * Optional extensions
    */
   extensions?: RuntimeExtension[];
+
+  /**
+   * The function that provides necessary utilities for generating and parsing event stream
+   */
+  eventStreamSerdeProvider?: __EventStreamSerdeProvider;
 
   /**
    * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
@@ -418,6 +540,7 @@ export type CloudWatchLogsClientConfigType = Partial<__SmithyConfiguration<__Htt
   HostHeaderInputConfig &
   AwsAuthInputConfig &
   UserAgentInputConfig &
+  EventStreamSerdeInputConfig &
   ClientInputEndpointParameters;
 /**
  * @public
@@ -438,6 +561,7 @@ export type CloudWatchLogsClientResolvedConfigType = __SmithyResolvedConfigurati
   HostHeaderResolvedConfig &
   AwsAuthResolvedConfig &
   UserAgentResolvedConfig &
+  EventStreamSerdeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
  * @public
@@ -504,9 +628,10 @@ export class CloudWatchLogsClient extends __Client<
     const _config_5 = resolveHostHeaderConfig(_config_4);
     const _config_6 = resolveAwsAuthConfig(_config_5);
     const _config_7 = resolveUserAgentConfig(_config_6);
-    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
-    this.config = _config_8;
+    const _config_8 = resolveEventStreamSerdeConfig(_config_7);
+    const _config_9 = resolveRuntimeExtensions(_config_8, configuration?.extensions || []);
+    super(_config_9);
+    this.config = _config_9;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));

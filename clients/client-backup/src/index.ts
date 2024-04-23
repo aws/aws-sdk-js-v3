@@ -12,8 +12,12 @@
 export * from "./BackupClient";
 export * from "./Backup";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { BackupExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { BackupServiceException } from "./models/BackupServiceException";

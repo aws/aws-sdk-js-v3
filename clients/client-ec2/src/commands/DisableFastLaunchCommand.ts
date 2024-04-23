@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DisableFastLaunchRequest, DisableFastLaunchResult } from "../models/models_5";
 import { de_DisableFastLaunchCommand, se_DisableFastLaunchCommand } from "../protocols/Aws_ec2";
 
@@ -36,11 +28,11 @@ export interface DisableFastLaunchCommandOutput extends DisableFastLaunchResult,
 
 /**
  * @public
- * <p>Discontinue faster launching for a Windows AMI, and clean up existing pre-provisioned snapshots.
- * 			When you disable faster launching, the AMI uses the standard launch process for each
- * 			instance. All pre-provisioned snapshots must be removed before you can enable faster launching again.</p>
+ * <p>Discontinue Windows fast launch for a Windows AMI, and clean up existing pre-provisioned snapshots.
+ * 			After you disable Windows fast launch, the AMI uses the standard launch process for each
+ * 			new instance. Amazon EC2 must remove all pre-provisioned snapshots before you can enable Windows fast launch again.</p>
  *          <note>
- *             <p>To change these settings, you must own the AMI.</p>
+ *             <p>You can only change these settings for Windows AMIs that you own or that have been shared with you.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -85,79 +77,26 @@ export interface DisableFastLaunchCommandOutput extends DisableFastLaunchResult,
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
-export class DisableFastLaunchCommand extends $Command<
-  DisableFastLaunchCommandInput,
-  DisableFastLaunchCommandOutput,
-  EC2ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DisableFastLaunchCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: EC2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DisableFastLaunchCommandInput, DisableFastLaunchCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DisableFastLaunchCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "EC2Client";
-    const commandName = "DisableFastLaunchCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DisableFastLaunchCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DisableFastLaunchCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisableFastLaunchCommandOutput> {
-    return de_DisableFastLaunchCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DisableFastLaunchCommand extends $Command
+  .classBuilder<
+    DisableFastLaunchCommandInput,
+    DisableFastLaunchCommandOutput,
+    EC2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonEC2", "DisableFastLaunch", {})
+  .n("EC2Client", "DisableFastLaunchCommand")
+  .f(void 0, void 0)
+  .ser(se_DisableFastLaunchCommand)
+  .de(de_DisableFastLaunchCommand)
+  .build() {}

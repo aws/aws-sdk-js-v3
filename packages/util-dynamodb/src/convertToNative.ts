@@ -1,13 +1,14 @@
 import { AttributeValue } from "@aws-sdk/client-dynamodb";
 
-import { NativeAttributeValue, NumberValue } from "./models";
+import type { NativeAttributeValue, NumberValue as INumberValue } from "./models";
+import { NumberValue } from "./NumberValue";
 import { unmarshallOptions } from "./unmarshall";
 
 /**
  * Convert a DynamoDB AttributeValue object to its equivalent JavaScript type.
  *
- * @param {AttributeValue} data - The DynamoDB record to convert to JavaScript type.
- * @param {unmarshallOptions} options - An optional configuration object for `convertToNative`.
+ * @param data - The DynamoDB record to convert to JavaScript type.
+ * @param options - An optional configuration object for `convertToNative`.
  */
 export const convertToNative = (data: AttributeValue, options?: unmarshallOptions): NativeAttributeValue => {
   for (const [key, value] of Object.entries(data)) {
@@ -43,12 +44,15 @@ export const convertToNative = (data: AttributeValue, options?: unmarshallOption
 
 const convertNumber = (numString: string, options?: unmarshallOptions): number | bigint | NumberValue => {
   if (options?.wrapNumbers) {
-    return { value: numString };
+    return NumberValue.from(numString);
   }
 
   const num = Number(numString);
   const infinityValues = [Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY];
-  if ((num > Number.MAX_SAFE_INTEGER || num < Number.MIN_SAFE_INTEGER) && !infinityValues.includes(num)) {
+  const isLargeFiniteNumber =
+    (num > Number.MAX_SAFE_INTEGER || num < Number.MIN_SAFE_INTEGER) && !infinityValues.includes(num);
+
+  if (isLargeFiniteNumber) {
     if (typeof BigInt === "function") {
       try {
         return BigInt(numString);

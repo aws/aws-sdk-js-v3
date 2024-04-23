@@ -11,6 +11,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { Handler, HttpHandlerOptions as __HttpHandlerOptions, MiddlewareStack } from "@smithy/types";
 
 import { DynamoDBDocumentClientCommand } from "../baseCommand/DynamoDBDocumentClientCommand";
+import { ALL_MEMBERS, ALL_VALUES, SELF } from "../commands/utils";
 import { DynamoDBDocumentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBDocumentClient";
 
 /**
@@ -59,20 +60,22 @@ export class DeleteCommand extends DynamoDBDocumentClientCommand<
   __DeleteItemCommandOutput,
   DynamoDBDocumentClientResolvedConfig
 > {
-  protected readonly inputKeyNodes = [
-    { key: "Key" },
-    {
-      key: "Expected",
-      children: {
-        children: [{ key: "Value" }, { key: "AttributeValueList" }],
+  protected readonly inputKeyNodes = {
+    Key: ALL_VALUES, // map with AttributeValue
+    Expected: {
+      "*": {
+        Value: SELF,
+        AttributeValueList: ALL_MEMBERS, // set/list of AttributeValue
       },
     },
-    { key: "ExpressionAttributeValues" },
-  ];
-  protected readonly outputKeyNodes = [
-    { key: "Attributes" },
-    { key: "ItemCollectionMetrics", children: [{ key: "ItemCollectionKey" }] },
-  ];
+    ExpressionAttributeValues: ALL_VALUES, // map with AttributeValue
+  };
+  protected readonly outputKeyNodes = {
+    Attributes: ALL_VALUES, // map with AttributeValue
+    ItemCollectionMetrics: {
+      ItemCollectionKey: ALL_VALUES, // map with AttributeValue
+    },
+  };
 
   protected readonly clientCommand: __DeleteItemCommand;
   public readonly middlewareStack: MiddlewareStack<

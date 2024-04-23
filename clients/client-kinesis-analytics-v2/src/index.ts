@@ -10,7 +10,11 @@
 export * from "./KinesisAnalyticsV2Client";
 export * from "./KinesisAnalyticsV2";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { KinesisAnalyticsV2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { KinesisAnalyticsV2ServiceException } from "./models/KinesisAnalyticsV2ServiceException";

@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ListAccountsForParentRequest,
   ListAccountsForParentResponse,
@@ -95,8 +87,7 @@ export interface ListAccountsForParentCommandOutput extends ListAccountsForParen
  *  <p>You don't have permissions to perform the requested operation. The user or role that
  *             is making the request must have at least one IAM permissions policy attached that
  *             grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access Management</a> in the
- *                 <i>IAM User Guide.</i>
- *          </p>
+ *                 <i>IAM User Guide</i>.</p>
  *
  * @throws {@link AWSOrganizationsNotInUseException} (client fault)
  *  <p>Your account isn't a member of an organization. To make this request, you must use the
@@ -216,9 +207,8 @@ export interface ListAccountsForParentCommandOutput extends ListAccountsForParen
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>You have sent too many requests in too short a period of time. The quota helps protect
  *             against denial-of-service attacks. Try again later.</p>
- *          <p>For information about quotas that affect Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html">Quotas for Organizations</a>in the
- *                 <i>Organizations User Guide.</i>
- *          </p>
+ *          <p>For information about quotas that affect Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html">Quotas for Organizations</a> in the
+ *                 <i>Organizations User Guide</i>.</p>
  *
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
@@ -259,79 +249,26 @@ export interface ListAccountsForParentCommandOutput extends ListAccountsForParen
  * ```
  *
  */
-export class ListAccountsForParentCommand extends $Command<
-  ListAccountsForParentCommandInput,
-  ListAccountsForParentCommandOutput,
-  OrganizationsClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListAccountsForParentCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: OrganizationsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListAccountsForParentCommandInput, ListAccountsForParentCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListAccountsForParentCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "OrganizationsClient";
-    const commandName = "ListAccountsForParentCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: ListAccountsForParentResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListAccountsForParentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListAccountsForParentCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAccountsForParentCommandOutput> {
-    return de_ListAccountsForParentCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListAccountsForParentCommand extends $Command
+  .classBuilder<
+    ListAccountsForParentCommandInput,
+    ListAccountsForParentCommandOutput,
+    OrganizationsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSOrganizationsV20161128", "ListAccountsForParent", {})
+  .n("OrganizationsClient", "ListAccountsForParentCommand")
+  .f(void 0, ListAccountsForParentResponseFilterSensitiveLog)
+  .ser(se_ListAccountsForParentCommand)
+  .de(de_ListAccountsForParentCommand)
+  .build() {}

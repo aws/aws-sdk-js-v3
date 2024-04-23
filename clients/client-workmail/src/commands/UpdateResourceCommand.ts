@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateResourceRequest, UpdateResourceResponse } from "../models/models_0";
 import { de_UpdateResourceCommand, se_UpdateResourceCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
@@ -54,6 +46,9 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  *     AutoDeclineRecurringRequests: true || false,
  *     AutoDeclineConflictingRequests: true || false,
  *   },
+ *   Description: "STRING_VALUE",
+ *   Type: "ROOM" || "EQUIPMENT",
+ *   HiddenFromGlobalAddressList: true || false,
  * };
  * const command = new UpdateResourceCommand(input);
  * const response = await client.send(command);
@@ -87,6 +82,9 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  *          auto-respond to requests or have at least one delegate associated that can do so on its
  *          behalf.</p>
  *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
  * @throws {@link MailDomainNotFoundException} (client fault)
  *  <p>The domain specified is not found in your organization.</p>
  *
@@ -105,83 +103,33 @@ export interface UpdateResourceCommandOutput extends UpdateResourceResponse, __M
  *  <p>The organization must have a valid state to perform certain
  *          operations on the organization or its members.</p>
  *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>You can't perform a write operation against a read-only directory.</p>
+ *
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
  */
-export class UpdateResourceCommand extends $Command<
-  UpdateResourceCommandInput,
-  UpdateResourceCommandOutput,
-  WorkMailClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateResourceCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: WorkMailClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateResourceCommandInput, UpdateResourceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateResourceCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "WorkMailClient";
-    const commandName = "UpdateResourceCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateResourceCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateResourceCommandOutput> {
-    return de_UpdateResourceCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateResourceCommand extends $Command
+  .classBuilder<
+    UpdateResourceCommandInput,
+    UpdateResourceCommandOutput,
+    WorkMailClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("WorkMailService", "UpdateResource", {})
+  .n("WorkMailClient", "UpdateResourceCommand")
+  .f(void 0, void 0)
+  .ser(se_UpdateResourceCommand)
+  .de(de_UpdateResourceCommand)
+  .build() {}

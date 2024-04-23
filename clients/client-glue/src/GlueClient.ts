@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -83,6 +81,10 @@ import {
 } from "./commands/BatchGetDevEndpointsCommand";
 import { BatchGetJobsCommandInput, BatchGetJobsCommandOutput } from "./commands/BatchGetJobsCommand";
 import { BatchGetPartitionCommandInput, BatchGetPartitionCommandOutput } from "./commands/BatchGetPartitionCommand";
+import {
+  BatchGetTableOptimizerCommandInput,
+  BatchGetTableOptimizerCommandOutput,
+} from "./commands/BatchGetTableOptimizerCommand";
 import { BatchGetTriggersCommandInput, BatchGetTriggersCommandOutput } from "./commands/BatchGetTriggersCommand";
 import { BatchGetWorkflowsCommandInput, BatchGetWorkflowsCommandOutput } from "./commands/BatchGetWorkflowsCommand";
 import { BatchStopJobRunCommandInput, BatchStopJobRunCommandOutput } from "./commands/BatchStopJobRunCommand";
@@ -134,6 +136,10 @@ import {
 } from "./commands/CreateSecurityConfigurationCommand";
 import { CreateSessionCommandInput, CreateSessionCommandOutput } from "./commands/CreateSessionCommand";
 import { CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand";
+import {
+  CreateTableOptimizerCommandInput,
+  CreateTableOptimizerCommandOutput,
+} from "./commands/CreateTableOptimizerCommand";
 import { CreateTriggerCommandInput, CreateTriggerCommandOutput } from "./commands/CreateTriggerCommand";
 import {
   CreateUserDefinedFunctionCommandInput,
@@ -185,6 +191,10 @@ import {
 } from "./commands/DeleteSecurityConfigurationCommand";
 import { DeleteSessionCommandInput, DeleteSessionCommandOutput } from "./commands/DeleteSessionCommand";
 import { DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
+import {
+  DeleteTableOptimizerCommandInput,
+  DeleteTableOptimizerCommandOutput,
+} from "./commands/DeleteTableOptimizerCommand";
 import { DeleteTableVersionCommandInput, DeleteTableVersionCommandOutput } from "./commands/DeleteTableVersionCommand";
 import { DeleteTriggerCommandInput, DeleteTriggerCommandOutput } from "./commands/DeleteTriggerCommand";
 import {
@@ -209,6 +219,14 @@ import {
   GetColumnStatisticsForTableCommandInput,
   GetColumnStatisticsForTableCommandOutput,
 } from "./commands/GetColumnStatisticsForTableCommand";
+import {
+  GetColumnStatisticsTaskRunCommandInput,
+  GetColumnStatisticsTaskRunCommandOutput,
+} from "./commands/GetColumnStatisticsTaskRunCommand";
+import {
+  GetColumnStatisticsTaskRunsCommandInput,
+  GetColumnStatisticsTaskRunsCommandOutput,
+} from "./commands/GetColumnStatisticsTaskRunsCommand";
 import { GetConnectionCommandInput, GetConnectionCommandOutput } from "./commands/GetConnectionCommand";
 import { GetConnectionsCommandInput, GetConnectionsCommandOutput } from "./commands/GetConnectionsCommand";
 import { GetCrawlerCommandInput, GetCrawlerCommandOutput } from "./commands/GetCrawlerCommand";
@@ -287,6 +305,7 @@ import {
 import { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
 import { GetStatementCommandInput, GetStatementCommandOutput } from "./commands/GetStatementCommand";
 import { GetTableCommandInput, GetTableCommandOutput } from "./commands/GetTableCommand";
+import { GetTableOptimizerCommandInput, GetTableOptimizerCommandOutput } from "./commands/GetTableOptimizerCommand";
 import { GetTablesCommandInput, GetTablesCommandOutput } from "./commands/GetTablesCommand";
 import { GetTableVersionCommandInput, GetTableVersionCommandOutput } from "./commands/GetTableVersionCommand";
 import { GetTableVersionsCommandInput, GetTableVersionsCommandOutput } from "./commands/GetTableVersionsCommand";
@@ -325,6 +344,10 @@ import {
   ImportCatalogToGlueCommandOutput,
 } from "./commands/ImportCatalogToGlueCommand";
 import { ListBlueprintsCommandInput, ListBlueprintsCommandOutput } from "./commands/ListBlueprintsCommand";
+import {
+  ListColumnStatisticsTaskRunsCommandInput,
+  ListColumnStatisticsTaskRunsCommandOutput,
+} from "./commands/ListColumnStatisticsTaskRunsCommand";
 import { ListCrawlersCommandInput, ListCrawlersCommandOutput } from "./commands/ListCrawlersCommand";
 import { ListCrawlsCommandInput, ListCrawlsCommandOutput } from "./commands/ListCrawlsCommand";
 import {
@@ -355,6 +378,10 @@ import { ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/Li
 import { ListSchemaVersionsCommandInput, ListSchemaVersionsCommandOutput } from "./commands/ListSchemaVersionsCommand";
 import { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
 import { ListStatementsCommandInput, ListStatementsCommandOutput } from "./commands/ListStatementsCommand";
+import {
+  ListTableOptimizerRunsCommandInput,
+  ListTableOptimizerRunsCommandOutput,
+} from "./commands/ListTableOptimizerRunsCommand";
 import { ListTriggersCommandInput, ListTriggersCommandOutput } from "./commands/ListTriggersCommand";
 import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "./commands/ListWorkflowsCommand";
 import {
@@ -387,6 +414,10 @@ import { ResumeWorkflowRunCommandInput, ResumeWorkflowRunCommandOutput } from ".
 import { RunStatementCommandInput, RunStatementCommandOutput } from "./commands/RunStatementCommand";
 import { SearchTablesCommandInput, SearchTablesCommandOutput } from "./commands/SearchTablesCommand";
 import { StartBlueprintRunCommandInput, StartBlueprintRunCommandOutput } from "./commands/StartBlueprintRunCommand";
+import {
+  StartColumnStatisticsTaskRunCommandInput,
+  StartColumnStatisticsTaskRunCommandOutput,
+} from "./commands/StartColumnStatisticsTaskRunCommand";
 import { StartCrawlerCommandInput, StartCrawlerCommandOutput } from "./commands/StartCrawlerCommand";
 import {
   StartCrawlerScheduleCommandInput,
@@ -419,6 +450,10 @@ import {
 } from "./commands/StartMLLabelingSetGenerationTaskRunCommand";
 import { StartTriggerCommandInput, StartTriggerCommandOutput } from "./commands/StartTriggerCommand";
 import { StartWorkflowRunCommandInput, StartWorkflowRunCommandOutput } from "./commands/StartWorkflowRunCommand";
+import {
+  StopColumnStatisticsTaskRunCommandInput,
+  StopColumnStatisticsTaskRunCommandOutput,
+} from "./commands/StopColumnStatisticsTaskRunCommand";
 import { StopCrawlerCommandInput, StopCrawlerCommandOutput } from "./commands/StopCrawlerCommand";
 import {
   StopCrawlerScheduleCommandInput,
@@ -465,6 +500,10 @@ import {
   UpdateSourceControlFromJobCommandOutput,
 } from "./commands/UpdateSourceControlFromJobCommand";
 import { UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand";
+import {
+  UpdateTableOptimizerCommandInput,
+  UpdateTableOptimizerCommandOutput,
+} from "./commands/UpdateTableOptimizerCommand";
 import { UpdateTriggerCommandInput, UpdateTriggerCommandOutput } from "./commands/UpdateTriggerCommand";
 import {
   UpdateUserDefinedFunctionCommandInput,
@@ -498,6 +537,7 @@ export type ServiceInputTypes =
   | BatchGetDevEndpointsCommandInput
   | BatchGetJobsCommandInput
   | BatchGetPartitionCommandInput
+  | BatchGetTableOptimizerCommandInput
   | BatchGetTriggersCommandInput
   | BatchGetWorkflowsCommandInput
   | BatchStopJobRunCommandInput
@@ -525,6 +565,7 @@ export type ServiceInputTypes =
   | CreateSecurityConfigurationCommandInput
   | CreateSessionCommandInput
   | CreateTableCommandInput
+  | CreateTableOptimizerCommandInput
   | CreateTriggerCommandInput
   | CreateUserDefinedFunctionCommandInput
   | CreateWorkflowCommandInput
@@ -549,6 +590,7 @@ export type ServiceInputTypes =
   | DeleteSecurityConfigurationCommandInput
   | DeleteSessionCommandInput
   | DeleteTableCommandInput
+  | DeleteTableOptimizerCommandInput
   | DeleteTableVersionCommandInput
   | DeleteTriggerCommandInput
   | DeleteUserDefinedFunctionCommandInput
@@ -561,6 +603,8 @@ export type ServiceInputTypes =
   | GetClassifiersCommandInput
   | GetColumnStatisticsForPartitionCommandInput
   | GetColumnStatisticsForTableCommandInput
+  | GetColumnStatisticsTaskRunCommandInput
+  | GetColumnStatisticsTaskRunsCommandInput
   | GetConnectionCommandInput
   | GetConnectionsCommandInput
   | GetCrawlerCommandInput
@@ -603,6 +647,7 @@ export type ServiceInputTypes =
   | GetSessionCommandInput
   | GetStatementCommandInput
   | GetTableCommandInput
+  | GetTableOptimizerCommandInput
   | GetTableVersionCommandInput
   | GetTableVersionsCommandInput
   | GetTablesCommandInput
@@ -620,6 +665,7 @@ export type ServiceInputTypes =
   | GetWorkflowRunsCommandInput
   | ImportCatalogToGlueCommandInput
   | ListBlueprintsCommandInput
+  | ListColumnStatisticsTaskRunsCommandInput
   | ListCrawlersCommandInput
   | ListCrawlsCommandInput
   | ListCustomEntityTypesCommandInput
@@ -635,6 +681,7 @@ export type ServiceInputTypes =
   | ListSchemasCommandInput
   | ListSessionsCommandInput
   | ListStatementsCommandInput
+  | ListTableOptimizerRunsCommandInput
   | ListTriggersCommandInput
   | ListWorkflowsCommandInput
   | PutDataCatalogEncryptionSettingsCommandInput
@@ -649,6 +696,7 @@ export type ServiceInputTypes =
   | RunStatementCommandInput
   | SearchTablesCommandInput
   | StartBlueprintRunCommandInput
+  | StartColumnStatisticsTaskRunCommandInput
   | StartCrawlerCommandInput
   | StartCrawlerScheduleCommandInput
   | StartDataQualityRuleRecommendationRunCommandInput
@@ -660,6 +708,7 @@ export type ServiceInputTypes =
   | StartMLLabelingSetGenerationTaskRunCommandInput
   | StartTriggerCommandInput
   | StartWorkflowRunCommandInput
+  | StopColumnStatisticsTaskRunCommandInput
   | StopCrawlerCommandInput
   | StopCrawlerScheduleCommandInput
   | StopSessionCommandInput
@@ -685,6 +734,7 @@ export type ServiceInputTypes =
   | UpdateSchemaCommandInput
   | UpdateSourceControlFromJobCommandInput
   | UpdateTableCommandInput
+  | UpdateTableOptimizerCommandInput
   | UpdateTriggerCommandInput
   | UpdateUserDefinedFunctionCommandInput
   | UpdateWorkflowCommandInput;
@@ -705,6 +755,7 @@ export type ServiceOutputTypes =
   | BatchGetDevEndpointsCommandOutput
   | BatchGetJobsCommandOutput
   | BatchGetPartitionCommandOutput
+  | BatchGetTableOptimizerCommandOutput
   | BatchGetTriggersCommandOutput
   | BatchGetWorkflowsCommandOutput
   | BatchStopJobRunCommandOutput
@@ -732,6 +783,7 @@ export type ServiceOutputTypes =
   | CreateSecurityConfigurationCommandOutput
   | CreateSessionCommandOutput
   | CreateTableCommandOutput
+  | CreateTableOptimizerCommandOutput
   | CreateTriggerCommandOutput
   | CreateUserDefinedFunctionCommandOutput
   | CreateWorkflowCommandOutput
@@ -756,6 +808,7 @@ export type ServiceOutputTypes =
   | DeleteSecurityConfigurationCommandOutput
   | DeleteSessionCommandOutput
   | DeleteTableCommandOutput
+  | DeleteTableOptimizerCommandOutput
   | DeleteTableVersionCommandOutput
   | DeleteTriggerCommandOutput
   | DeleteUserDefinedFunctionCommandOutput
@@ -768,6 +821,8 @@ export type ServiceOutputTypes =
   | GetClassifiersCommandOutput
   | GetColumnStatisticsForPartitionCommandOutput
   | GetColumnStatisticsForTableCommandOutput
+  | GetColumnStatisticsTaskRunCommandOutput
+  | GetColumnStatisticsTaskRunsCommandOutput
   | GetConnectionCommandOutput
   | GetConnectionsCommandOutput
   | GetCrawlerCommandOutput
@@ -810,6 +865,7 @@ export type ServiceOutputTypes =
   | GetSessionCommandOutput
   | GetStatementCommandOutput
   | GetTableCommandOutput
+  | GetTableOptimizerCommandOutput
   | GetTableVersionCommandOutput
   | GetTableVersionsCommandOutput
   | GetTablesCommandOutput
@@ -827,6 +883,7 @@ export type ServiceOutputTypes =
   | GetWorkflowRunsCommandOutput
   | ImportCatalogToGlueCommandOutput
   | ListBlueprintsCommandOutput
+  | ListColumnStatisticsTaskRunsCommandOutput
   | ListCrawlersCommandOutput
   | ListCrawlsCommandOutput
   | ListCustomEntityTypesCommandOutput
@@ -842,6 +899,7 @@ export type ServiceOutputTypes =
   | ListSchemasCommandOutput
   | ListSessionsCommandOutput
   | ListStatementsCommandOutput
+  | ListTableOptimizerRunsCommandOutput
   | ListTriggersCommandOutput
   | ListWorkflowsCommandOutput
   | PutDataCatalogEncryptionSettingsCommandOutput
@@ -856,6 +914,7 @@ export type ServiceOutputTypes =
   | RunStatementCommandOutput
   | SearchTablesCommandOutput
   | StartBlueprintRunCommandOutput
+  | StartColumnStatisticsTaskRunCommandOutput
   | StartCrawlerCommandOutput
   | StartCrawlerScheduleCommandOutput
   | StartDataQualityRuleRecommendationRunCommandOutput
@@ -867,6 +926,7 @@ export type ServiceOutputTypes =
   | StartMLLabelingSetGenerationTaskRunCommandOutput
   | StartTriggerCommandOutput
   | StartWorkflowRunCommandOutput
+  | StopColumnStatisticsTaskRunCommandOutput
   | StopCrawlerCommandOutput
   | StopCrawlerScheduleCommandOutput
   | StopSessionCommandOutput
@@ -892,6 +952,7 @@ export type ServiceOutputTypes =
   | UpdateSchemaCommandOutput
   | UpdateSourceControlFromJobCommandOutput
   | UpdateTableCommandOutput
+  | UpdateTableOptimizerCommandOutput
   | UpdateTriggerCommandOutput
   | UpdateUserDefinedFunctionCommandOutput
   | UpdateWorkflowCommandOutput;
@@ -1006,6 +1067,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

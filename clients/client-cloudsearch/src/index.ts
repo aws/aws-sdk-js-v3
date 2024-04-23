@@ -14,7 +14,11 @@
 export * from "./CloudSearchClient";
 export * from "./CloudSearch";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { CloudSearchExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { CloudSearchServiceException } from "./models/CloudSearchServiceException";

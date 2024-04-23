@@ -1,4 +1,5 @@
 import { S3 } from "@aws-sdk/client-s3";
+import * as crypto from "crypto";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 
@@ -27,6 +28,32 @@ describe("middleware-ssec", () => {
         Bucket: "b",
         CopySource: "s",
         Key: "k",
+      });
+    });
+
+    it("verifies headers for PutObject with base64-encoded SSECustomerKey", async () => {
+      const client = new S3({ region: "us-east-1" });
+      requireRequestsFrom(client).toMatch({
+        method: "PUT",
+        hostname: "testbucket.s3.us-east-1.amazonaws.com",
+        query: { "x-id": "PutObject" },
+        headers: {
+          "x-amz-server-side-encryption-customer-algorithm": "AES256",
+          "x-amz-server-side-encryption-customer-key": "UNhY4JhezH9gQYqvDMWrWH9CwlcKiECVqejMrND2VFw=",
+          "x-amz-server-side-encryption-customer-key-md5": "SwoBWUcJBbc/WRhR6hZGCA==",
+          "content-length": "14",
+        },
+        body: "This is a test",
+        protocol: "https:",
+        path: "/foo",
+      });
+      const exampleKey = crypto.createHash("sha256").update("example").digest();
+      await client.putObject({
+        Bucket: "testbucket",
+        Body: "This is a test",
+        Key: "foo",
+        SSECustomerKey: exampleKey.toString("base64"),
+        SSECustomerAlgorithm: "AES256",
       });
     });
   });

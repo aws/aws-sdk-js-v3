@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateWebACLRequest, CreateWebACLResponse } from "../models/models_0";
 import { de_CreateWebACLCommand, se_CreateWebACLCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
@@ -37,7 +29,7 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
 /**
  * @public
  * <p>Creates a <a>WebACL</a> per the specifications provided.</p>
- *          <p> A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has an action defined (allow, block, or count) for requests that match the statement of the rule. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resources can be an Amazon CloudFront distribution, an Amazon API Gateway REST API, an Application Load Balancer, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+ *          <p> A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has a statement that defines what to look for in web requests and an action that WAF applies to requests that match the statement. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resources can be an Amazon CloudFront distribution, an Amazon API Gateway REST API, an Application Load Balancer, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -133,6 +125,9 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *             HeaderOrder: { // HeaderOrder
  *               OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
  *             },
+ *             JA3Fingerprint: { // JA3Fingerprint
+ *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ *             },
  *           },
  *           TextTransformations: [ // TextTransformations // required
  *             { // TextTransformation
@@ -197,6 +192,9 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *             HeaderOrder: {
  *               OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
  *             },
+ *             JA3Fingerprint: {
+ *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ *             },
  *           },
  *           TextTransformations: [ // required
  *             {
@@ -257,6 +255,9 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *             HeaderOrder: {
  *               OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
  *             },
+ *             JA3Fingerprint: {
+ *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ *             },
  *           },
  *           TextTransformations: [ // required
  *             {
@@ -311,6 +312,9 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *             },
  *             HeaderOrder: {
  *               OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
+ *             },
+ *             JA3Fingerprint: {
+ *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
  *             },
  *           },
  *           ComparisonOperator: "EQ" || "NE" || "LE" || "LT" || "GE" || "GT", // required
@@ -443,6 +447,9 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *             },
  *             HeaderOrder: {
  *               OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
+ *             },
+ *             JA3Fingerprint: {
+ *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
  *             },
  *           },
  *           TextTransformations: [ // required
@@ -597,6 +604,7 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *                   },
  *                   AWSManagedRulesBotControlRuleSet: { // AWSManagedRulesBotControlRuleSet
  *                     InspectionLevel: "COMMON" || "TARGETED", // required
+ *                     EnableMachineLearning: true || false,
  *                   },
  *                   AWSManagedRulesATPRuleSet: { // AWSManagedRulesATPRuleSet
  *                     LoginPath: "STRING_VALUE", // required
@@ -805,6 +813,7 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *               PasswordField: "<PasswordField>",
  *               AWSManagedRulesBotControlRuleSet: {
  *                 InspectionLevel: "COMMON" || "TARGETED", // required
+ *                 EnableMachineLearning: true || false,
  *               },
  *               AWSManagedRulesATPRuleSet: {
  *                 LoginPath: "STRING_VALUE", // required
@@ -1119,77 +1128,26 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
-export class CreateWebACLCommand extends $Command<
-  CreateWebACLCommandInput,
-  CreateWebACLCommandOutput,
-  WAFV2ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateWebACLCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: WAFV2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateWebACLCommandInput, CreateWebACLCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, CreateWebACLCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "WAFV2Client";
-    const commandName = "CreateWebACLCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateWebACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateWebACLCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWebACLCommandOutput> {
-    return de_CreateWebACLCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateWebACLCommand extends $Command
+  .classBuilder<
+    CreateWebACLCommandInput,
+    CreateWebACLCommandOutput,
+    WAFV2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSWAF_20190729", "CreateWebACL", {})
+  .n("WAFV2Client", "CreateWebACLCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateWebACLCommand)
+  .de(de_CreateWebACLCommand)
+  .build() {}

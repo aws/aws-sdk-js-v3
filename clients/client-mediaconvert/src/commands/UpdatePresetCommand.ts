@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient";
 import { UpdatePresetRequest, UpdatePresetResponse } from "../models/models_2";
 import { de_UpdatePresetCommand, se_UpdatePresetCommand } from "../protocols/Aws_restJson1";
@@ -51,7 +43,10 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *     AudioDescriptions: [ // __listOfAudioDescription
  *       { // AudioDescription
  *         AudioChannelTaggingSettings: { // AudioChannelTaggingSettings
- *           ChannelTag: "L" || "R" || "C" || "LFE" || "LS" || "RS" || "LC" || "RC" || "CS" || "LSD" || "RSD" || "TCS" || "VHL" || "VHC" || "VHR",
+ *           ChannelTag: "L" || "R" || "C" || "LFE" || "LS" || "RS" || "LC" || "RC" || "CS" || "LSD" || "RSD" || "TCS" || "VHL" || "VHC" || "VHR" || "TBL" || "TBC" || "TBR" || "RSL" || "RSR" || "LW" || "RW" || "LFE2" || "LT" || "RT" || "HI" || "NAR" || "M",
+ *           ChannelTags: [ // __listOfAudioChannelTag
+ *             "L" || "R" || "C" || "LFE" || "LS" || "RS" || "LC" || "RC" || "CS" || "LSD" || "RSD" || "TCS" || "VHL" || "VHC" || "VHR" || "TBL" || "TBC" || "TBR" || "RSL" || "RSR" || "LW" || "RW" || "LFE2" || "LT" || "RT" || "HI" || "NAR" || "M",
+ *           ],
  *         },
  *         AudioNormalizationSettings: { // AudioNormalizationSettings
  *           Algorithm: "ITU_BS_1770_1" || "ITU_BS_1770_2" || "ITU_BS_1770_3" || "ITU_BS_1770_4",
@@ -94,7 +89,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *             Channels: Number("int"),
  *             SampleRate: Number("int"),
  *           },
- *           Codec: "AAC" || "MP2" || "MP3" || "WAV" || "AIFF" || "AC3" || "EAC3" || "EAC3_ATMOS" || "VORBIS" || "OPUS" || "PASSTHROUGH",
+ *           Codec: "AAC" || "MP2" || "MP3" || "WAV" || "AIFF" || "AC3" || "EAC3" || "EAC3_ATMOS" || "VORBIS" || "OPUS" || "PASSTHROUGH" || "FLAC",
  *           Eac3AtmosSettings: { // Eac3AtmosSettings
  *             Bitrate: Number("int"),
  *             BitstreamMode: "COMPLETE_MAIN",
@@ -136,6 +131,11 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *             StereoDownmix: "NOT_INDICATED" || "LO_RO" || "LT_RT" || "DPL2",
  *             SurroundExMode: "NOT_INDICATED" || "ENABLED" || "DISABLED",
  *             SurroundMode: "NOT_INDICATED" || "ENABLED" || "DISABLED",
+ *           },
+ *           FlacSettings: { // FlacSettings
+ *             BitDepth: Number("int"),
+ *             Channels: Number("int"),
+ *             SampleRate: Number("int"),
  *           },
  *           Mp2Settings: { // Mp2Settings
  *             Bitrate: Number("int"),
@@ -282,7 +282,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *         AudioDuration: "DEFAULT_CODEC_DURATION" || "MATCH_VIDEO_DURATION",
  *         AudioGroupId: "STRING_VALUE",
  *         AudioRenditionSets: "STRING_VALUE",
- *         AudioTrackType: "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT" || "ALTERNATE_AUDIO_AUTO_SELECT" || "ALTERNATE_AUDIO_NOT_AUTO_SELECT",
+ *         AudioTrackType: "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT" || "ALTERNATE_AUDIO_AUTO_SELECT" || "ALTERNATE_AUDIO_NOT_AUTO_SELECT" || "AUDIO_ONLY_VARIANT_STREAM",
  *         DescriptiveVideoServiceFlag: "DONT_FLAG" || "FLAG",
  *         IFrameOnlyManifest: "INCLUDE" || "EXCLUDE",
  *         KlvMetadata: "PASSTHROUGH" || "NONE",
@@ -294,7 +294,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *         TimedMetadataSchemeIdUri: "STRING_VALUE",
  *         TimedMetadataValue: "STRING_VALUE",
  *       },
- *       Container: "F4V" || "ISMV" || "M2TS" || "M3U8" || "CMFC" || "MOV" || "MP4" || "MPD" || "MXF" || "WEBM" || "RAW",
+ *       Container: "F4V" || "ISMV" || "M2TS" || "M3U8" || "CMFC" || "MOV" || "MP4" || "MPD" || "MXF" || "WEBM" || "RAW" || "Y4M",
  *       F4vSettings: { // F4vSettings
  *         MoovPlacement: "PROGRESSIVE_DOWNLOAD" || "NORMAL",
  *       },
@@ -343,6 +343,8 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *         PmtPid: Number("int"),
  *         PrivateMetadataPid: Number("int"),
  *         ProgramNumber: Number("int"),
+ *         PtsOffset: Number("int"),
+ *         PtsOffsetMode: "AUTO" || "SECONDS",
  *         RateMode: "VBR" || "CBR",
  *         Scte35Esam: { // M2tsScte35Esam
  *           Scte35EsamPid: Number("int"),
@@ -372,6 +374,8 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *         PmtPid: Number("int"),
  *         PrivateMetadataPid: Number("int"),
  *         ProgramNumber: Number("int"),
+ *         PtsOffset: Number("int"),
+ *         PtsOffsetMode: "AUTO" || "SECONDS",
  *         Scte35Pid: Number("int"),
  *         Scte35Source: "PASSTHROUGH" || "NONE",
  *         TimedMetadata: "PASSTHROUGH" || "NONE",
@@ -423,6 +427,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *         Av1Settings: { // Av1Settings
  *           AdaptiveQuantization: "OFF" || "LOW" || "MEDIUM" || "HIGH" || "HIGHER" || "MAX",
  *           BitDepth: "BIT_8" || "BIT_10",
+ *           FilmGrainSynthesis: "DISABLED" || "ENABLED",
  *           FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  *           FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER",
  *           FramerateDenominator: Number("int"),
@@ -452,7 +457,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *           SlowPal: "DISABLED" || "ENABLED",
  *           Telecine: "NONE" || "HARD",
  *         },
- *         Codec: "AV1" || "AVC_INTRA" || "FRAME_CAPTURE" || "H_264" || "H_265" || "MPEG2" || "PASSTHROUGH" || "PRORES" || "VC3" || "VP8" || "VP9" || "XAVC",
+ *         Codec: "AV1" || "AVC_INTRA" || "FRAME_CAPTURE" || "H_264" || "H_265" || "MPEG2" || "PASSTHROUGH" || "PRORES" || "UNCOMPRESSED" || "VC3" || "VP8" || "VP9" || "XAVC",
  *         FrameCaptureSettings: { // FrameCaptureSettings
  *           FramerateDenominator: Number("int"),
  *           FramerateNumerator: Number("int"),
@@ -469,6 +474,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *           CodecLevel: "AUTO" || "LEVEL_1" || "LEVEL_1_1" || "LEVEL_1_2" || "LEVEL_1_3" || "LEVEL_2" || "LEVEL_2_1" || "LEVEL_2_2" || "LEVEL_3" || "LEVEL_3_1" || "LEVEL_3_2" || "LEVEL_4" || "LEVEL_4_1" || "LEVEL_4_2" || "LEVEL_5" || "LEVEL_5_1" || "LEVEL_5_2",
  *           CodecProfile: "BASELINE" || "HIGH" || "HIGH_10BIT" || "HIGH_422" || "HIGH_422_10BIT" || "MAIN",
  *           DynamicSubGop: "ADAPTIVE" || "STATIC",
+ *           EndOfStreamMarkers: "INCLUDE" || "SUPPRESS",
  *           EntropyEncoding: "CABAC" || "CAVLC",
  *           FieldEncoding: "PAFF" || "FORCE_FIELD" || "MBAFF",
  *           FlickerAdaptiveQuantization: "DISABLED" || "ENABLED",
@@ -521,6 +527,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *           CodecLevel: "AUTO" || "LEVEL_1" || "LEVEL_2" || "LEVEL_2_1" || "LEVEL_3" || "LEVEL_3_1" || "LEVEL_4" || "LEVEL_4_1" || "LEVEL_5" || "LEVEL_5_1" || "LEVEL_5_2" || "LEVEL_6" || "LEVEL_6_1" || "LEVEL_6_2",
  *           CodecProfile: "MAIN_MAIN" || "MAIN_HIGH" || "MAIN10_MAIN" || "MAIN10_HIGH" || "MAIN_422_8BIT_MAIN" || "MAIN_422_8BIT_HIGH" || "MAIN_422_10BIT_MAIN" || "MAIN_422_10BIT_HIGH",
  *           DynamicSubGop: "ADAPTIVE" || "STATIC",
+ *           EndOfStreamMarkers: "INCLUDE" || "SUPPRESS",
  *           FlickerAdaptiveQuantization: "DISABLED" || "ENABLED",
  *           FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  *           FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER",
@@ -607,6 +614,17 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *           ParControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  *           ParDenominator: Number("int"),
  *           ParNumerator: Number("int"),
+ *           ScanTypeConversionMode: "INTERLACED" || "INTERLACED_OPTIMIZE",
+ *           SlowPal: "DISABLED" || "ENABLED",
+ *           Telecine: "NONE" || "HARD",
+ *         },
+ *         UncompressedSettings: { // UncompressedSettings
+ *           Fourcc: "I420" || "I422" || "I444",
+ *           FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
+ *           FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER",
+ *           FramerateDenominator: Number("int"),
+ *           FramerateNumerator: Number("int"),
+ *           InterlaceMode: "INTERLACED" || "PROGRESSIVE",
  *           ScanTypeConversionMode: "INTERLACED" || "INTERLACED_OPTIMIZE",
  *           SlowPal: "DISABLED" || "ENABLED",
  *           Telecine: "NONE" || "HARD",
@@ -713,7 +731,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *         Y: Number("int"),
  *       },
  *       RespondToAfd: "NONE" || "RESPOND" || "PASSTHROUGH",
- *       ScalingBehavior: "DEFAULT" || "STRETCH_TO_OUTPUT",
+ *       ScalingBehavior: "DEFAULT" || "STRETCH_TO_OUTPUT" || "FIT" || "FIT_NO_UPSCALE" || "FILL",
  *       Sharpness: Number("int"),
  *       TimecodeInsertion: "DISABLED" || "PIC_TIMING_SEI",
  *       VideoPreprocessors: { // VideoPreprocessor
@@ -743,6 +761,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *           },
  *           HdrToSdrToneMapper: "PRESERVE_DETAILS" || "VIBRANT",
  *           Hue: Number("int"),
+ *           MaxLuminance: Number("int"),
  *           SampleRangeConversion: "LIMITED_RANGE_SQUEEZE" || "NONE" || "LIMITED_RANGE_CLIP",
  *           Saturation: Number("int"),
  *           SdrReferenceWhiteLevel: Number("int"),
@@ -833,7 +852,10 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * //       AudioDescriptions: [ // __listOfAudioDescription
  * //         { // AudioDescription
  * //           AudioChannelTaggingSettings: { // AudioChannelTaggingSettings
- * //             ChannelTag: "L" || "R" || "C" || "LFE" || "LS" || "RS" || "LC" || "RC" || "CS" || "LSD" || "RSD" || "TCS" || "VHL" || "VHC" || "VHR",
+ * //             ChannelTag: "L" || "R" || "C" || "LFE" || "LS" || "RS" || "LC" || "RC" || "CS" || "LSD" || "RSD" || "TCS" || "VHL" || "VHC" || "VHR" || "TBL" || "TBC" || "TBR" || "RSL" || "RSR" || "LW" || "RW" || "LFE2" || "LT" || "RT" || "HI" || "NAR" || "M",
+ * //             ChannelTags: [ // __listOfAudioChannelTag
+ * //               "L" || "R" || "C" || "LFE" || "LS" || "RS" || "LC" || "RC" || "CS" || "LSD" || "RSD" || "TCS" || "VHL" || "VHC" || "VHR" || "TBL" || "TBC" || "TBR" || "RSL" || "RSR" || "LW" || "RW" || "LFE2" || "LT" || "RT" || "HI" || "NAR" || "M",
+ * //             ],
  * //           },
  * //           AudioNormalizationSettings: { // AudioNormalizationSettings
  * //             Algorithm: "ITU_BS_1770_1" || "ITU_BS_1770_2" || "ITU_BS_1770_3" || "ITU_BS_1770_4",
@@ -876,7 +898,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * //               Channels: Number("int"),
  * //               SampleRate: Number("int"),
  * //             },
- * //             Codec: "AAC" || "MP2" || "MP3" || "WAV" || "AIFF" || "AC3" || "EAC3" || "EAC3_ATMOS" || "VORBIS" || "OPUS" || "PASSTHROUGH",
+ * //             Codec: "AAC" || "MP2" || "MP3" || "WAV" || "AIFF" || "AC3" || "EAC3" || "EAC3_ATMOS" || "VORBIS" || "OPUS" || "PASSTHROUGH" || "FLAC",
  * //             Eac3AtmosSettings: { // Eac3AtmosSettings
  * //               Bitrate: Number("int"),
  * //               BitstreamMode: "COMPLETE_MAIN",
@@ -918,6 +940,11 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * //               StereoDownmix: "NOT_INDICATED" || "LO_RO" || "LT_RT" || "DPL2",
  * //               SurroundExMode: "NOT_INDICATED" || "ENABLED" || "DISABLED",
  * //               SurroundMode: "NOT_INDICATED" || "ENABLED" || "DISABLED",
+ * //             },
+ * //             FlacSettings: { // FlacSettings
+ * //               BitDepth: Number("int"),
+ * //               Channels: Number("int"),
+ * //               SampleRate: Number("int"),
  * //             },
  * //             Mp2Settings: { // Mp2Settings
  * //               Bitrate: Number("int"),
@@ -1064,7 +1091,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * //           AudioDuration: "DEFAULT_CODEC_DURATION" || "MATCH_VIDEO_DURATION",
  * //           AudioGroupId: "STRING_VALUE",
  * //           AudioRenditionSets: "STRING_VALUE",
- * //           AudioTrackType: "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT" || "ALTERNATE_AUDIO_AUTO_SELECT" || "ALTERNATE_AUDIO_NOT_AUTO_SELECT",
+ * //           AudioTrackType: "ALTERNATE_AUDIO_AUTO_SELECT_DEFAULT" || "ALTERNATE_AUDIO_AUTO_SELECT" || "ALTERNATE_AUDIO_NOT_AUTO_SELECT" || "AUDIO_ONLY_VARIANT_STREAM",
  * //           DescriptiveVideoServiceFlag: "DONT_FLAG" || "FLAG",
  * //           IFrameOnlyManifest: "INCLUDE" || "EXCLUDE",
  * //           KlvMetadata: "PASSTHROUGH" || "NONE",
@@ -1076,7 +1103,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * //           TimedMetadataSchemeIdUri: "STRING_VALUE",
  * //           TimedMetadataValue: "STRING_VALUE",
  * //         },
- * //         Container: "F4V" || "ISMV" || "M2TS" || "M3U8" || "CMFC" || "MOV" || "MP4" || "MPD" || "MXF" || "WEBM" || "RAW",
+ * //         Container: "F4V" || "ISMV" || "M2TS" || "M3U8" || "CMFC" || "MOV" || "MP4" || "MPD" || "MXF" || "WEBM" || "RAW" || "Y4M",
  * //         F4vSettings: { // F4vSettings
  * //           MoovPlacement: "PROGRESSIVE_DOWNLOAD" || "NORMAL",
  * //         },
@@ -1125,6 +1152,8 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * //           PmtPid: Number("int"),
  * //           PrivateMetadataPid: Number("int"),
  * //           ProgramNumber: Number("int"),
+ * //           PtsOffset: Number("int"),
+ * //           PtsOffsetMode: "AUTO" || "SECONDS",
  * //           RateMode: "VBR" || "CBR",
  * //           Scte35Esam: { // M2tsScte35Esam
  * //             Scte35EsamPid: Number("int"),
@@ -1154,6 +1183,8 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * //           PmtPid: Number("int"),
  * //           PrivateMetadataPid: Number("int"),
  * //           ProgramNumber: Number("int"),
+ * //           PtsOffset: Number("int"),
+ * //           PtsOffsetMode: "AUTO" || "SECONDS",
  * //           Scte35Pid: Number("int"),
  * //           Scte35Source: "PASSTHROUGH" || "NONE",
  * //           TimedMetadata: "PASSTHROUGH" || "NONE",
@@ -1205,6 +1236,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * //           Av1Settings: { // Av1Settings
  * //             AdaptiveQuantization: "OFF" || "LOW" || "MEDIUM" || "HIGH" || "HIGHER" || "MAX",
  * //             BitDepth: "BIT_8" || "BIT_10",
+ * //             FilmGrainSynthesis: "DISABLED" || "ENABLED",
  * //             FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  * //             FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER",
  * //             FramerateDenominator: Number("int"),
@@ -1234,7 +1266,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * //             SlowPal: "DISABLED" || "ENABLED",
  * //             Telecine: "NONE" || "HARD",
  * //           },
- * //           Codec: "AV1" || "AVC_INTRA" || "FRAME_CAPTURE" || "H_264" || "H_265" || "MPEG2" || "PASSTHROUGH" || "PRORES" || "VC3" || "VP8" || "VP9" || "XAVC",
+ * //           Codec: "AV1" || "AVC_INTRA" || "FRAME_CAPTURE" || "H_264" || "H_265" || "MPEG2" || "PASSTHROUGH" || "PRORES" || "UNCOMPRESSED" || "VC3" || "VP8" || "VP9" || "XAVC",
  * //           FrameCaptureSettings: { // FrameCaptureSettings
  * //             FramerateDenominator: Number("int"),
  * //             FramerateNumerator: Number("int"),
@@ -1251,6 +1283,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * //             CodecLevel: "AUTO" || "LEVEL_1" || "LEVEL_1_1" || "LEVEL_1_2" || "LEVEL_1_3" || "LEVEL_2" || "LEVEL_2_1" || "LEVEL_2_2" || "LEVEL_3" || "LEVEL_3_1" || "LEVEL_3_2" || "LEVEL_4" || "LEVEL_4_1" || "LEVEL_4_2" || "LEVEL_5" || "LEVEL_5_1" || "LEVEL_5_2",
  * //             CodecProfile: "BASELINE" || "HIGH" || "HIGH_10BIT" || "HIGH_422" || "HIGH_422_10BIT" || "MAIN",
  * //             DynamicSubGop: "ADAPTIVE" || "STATIC",
+ * //             EndOfStreamMarkers: "INCLUDE" || "SUPPRESS",
  * //             EntropyEncoding: "CABAC" || "CAVLC",
  * //             FieldEncoding: "PAFF" || "FORCE_FIELD" || "MBAFF",
  * //             FlickerAdaptiveQuantization: "DISABLED" || "ENABLED",
@@ -1303,6 +1336,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * //             CodecLevel: "AUTO" || "LEVEL_1" || "LEVEL_2" || "LEVEL_2_1" || "LEVEL_3" || "LEVEL_3_1" || "LEVEL_4" || "LEVEL_4_1" || "LEVEL_5" || "LEVEL_5_1" || "LEVEL_5_2" || "LEVEL_6" || "LEVEL_6_1" || "LEVEL_6_2",
  * //             CodecProfile: "MAIN_MAIN" || "MAIN_HIGH" || "MAIN10_MAIN" || "MAIN10_HIGH" || "MAIN_422_8BIT_MAIN" || "MAIN_422_8BIT_HIGH" || "MAIN_422_10BIT_MAIN" || "MAIN_422_10BIT_HIGH",
  * //             DynamicSubGop: "ADAPTIVE" || "STATIC",
+ * //             EndOfStreamMarkers: "INCLUDE" || "SUPPRESS",
  * //             FlickerAdaptiveQuantization: "DISABLED" || "ENABLED",
  * //             FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  * //             FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER",
@@ -1389,6 +1423,17 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * //             ParControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  * //             ParDenominator: Number("int"),
  * //             ParNumerator: Number("int"),
+ * //             ScanTypeConversionMode: "INTERLACED" || "INTERLACED_OPTIMIZE",
+ * //             SlowPal: "DISABLED" || "ENABLED",
+ * //             Telecine: "NONE" || "HARD",
+ * //           },
+ * //           UncompressedSettings: { // UncompressedSettings
+ * //             Fourcc: "I420" || "I422" || "I444",
+ * //             FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
+ * //             FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER",
+ * //             FramerateDenominator: Number("int"),
+ * //             FramerateNumerator: Number("int"),
+ * //             InterlaceMode: "INTERLACED" || "PROGRESSIVE",
  * //             ScanTypeConversionMode: "INTERLACED" || "INTERLACED_OPTIMIZE",
  * //             SlowPal: "DISABLED" || "ENABLED",
  * //             Telecine: "NONE" || "HARD",
@@ -1495,7 +1540,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * //           Y: Number("int"),
  * //         },
  * //         RespondToAfd: "NONE" || "RESPOND" || "PASSTHROUGH",
- * //         ScalingBehavior: "DEFAULT" || "STRETCH_TO_OUTPUT",
+ * //         ScalingBehavior: "DEFAULT" || "STRETCH_TO_OUTPUT" || "FIT" || "FIT_NO_UPSCALE" || "FILL",
  * //         Sharpness: Number("int"),
  * //         TimecodeInsertion: "DISABLED" || "PIC_TIMING_SEI",
  * //         VideoPreprocessors: { // VideoPreprocessor
@@ -1525,6 +1570,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * //             },
  * //             HdrToSdrToneMapper: "PRESERVE_DETAILS" || "VIBRANT",
  * //             Hue: Number("int"),
+ * //             MaxLuminance: Number("int"),
  * //             SampleRangeConversion: "LIMITED_RANGE_SQUEEZE" || "NONE" || "LIMITED_RANGE_CLIP",
  * //             Saturation: Number("int"),
  * //             SdrReferenceWhiteLevel: Number("int"),
@@ -1634,77 +1680,26 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
  */
-export class UpdatePresetCommand extends $Command<
-  UpdatePresetCommandInput,
-  UpdatePresetCommandOutput,
-  MediaConvertClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdatePresetCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: MediaConvertClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdatePresetCommandInput, UpdatePresetCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, UpdatePresetCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "MediaConvertClient";
-    const commandName = "UpdatePresetCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdatePresetCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdatePresetCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePresetCommandOutput> {
-    return de_UpdatePresetCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdatePresetCommand extends $Command
+  .classBuilder<
+    UpdatePresetCommandInput,
+    UpdatePresetCommandOutput,
+    MediaConvertClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: MediaConvertClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("MediaConvert", "UpdatePreset", {})
+  .n("MediaConvertClient", "UpdatePresetCommand")
+  .f(void 0, void 0)
+  .ser(se_UpdatePresetCommand)
+  .de(de_UpdatePresetCommand)
+  .build() {}

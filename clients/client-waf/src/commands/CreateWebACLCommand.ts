@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateWebACLRequest, CreateWebACLResponse } from "../models/models_0";
 import { de_CreateWebACLCommand, se_CreateWebACLCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient";
@@ -86,7 +78,7 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *   Name: "STRING_VALUE", // required
  *   MetricName: "STRING_VALUE", // required
  *   DefaultAction: { // WafAction
- *     Type: "STRING_VALUE", // required
+ *     Type: "BLOCK" || "ALLOW" || "COUNT", // required
  *   },
  *   ChangeToken: "STRING_VALUE", // required
  *   Tags: [ // TagList
@@ -104,19 +96,19 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  * //     Name: "STRING_VALUE",
  * //     MetricName: "STRING_VALUE",
  * //     DefaultAction: { // WafAction
- * //       Type: "STRING_VALUE", // required
+ * //       Type: "BLOCK" || "ALLOW" || "COUNT", // required
  * //     },
  * //     Rules: [ // ActivatedRules // required
  * //       { // ActivatedRule
  * //         Priority: Number("int"), // required
  * //         RuleId: "STRING_VALUE", // required
  * //         Action: {
- * //           Type: "STRING_VALUE", // required
+ * //           Type: "BLOCK" || "ALLOW" || "COUNT", // required
  * //         },
  * //         OverrideAction: { // WafOverrideAction
- * //           Type: "STRING_VALUE", // required
+ * //           Type: "NONE" || "COUNT", // required
  * //         },
- * //         Type: "STRING_VALUE",
+ * //         Type: "REGULAR" || "RATE_BASED" || "GROUP",
  * //         ExcludedRules: [ // ExcludedRules
  * //           { // ExcludedRule
  * //             RuleId: "STRING_VALUE", // required
@@ -245,77 +237,26 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  * ```
  *
  */
-export class CreateWebACLCommand extends $Command<
-  CreateWebACLCommandInput,
-  CreateWebACLCommandOutput,
-  WAFClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateWebACLCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: WAFClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateWebACLCommandInput, CreateWebACLCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, CreateWebACLCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "WAFClient";
-    const commandName = "CreateWebACLCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateWebACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateWebACLCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWebACLCommandOutput> {
-    return de_CreateWebACLCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateWebACLCommand extends $Command
+  .classBuilder<
+    CreateWebACLCommandInput,
+    CreateWebACLCommandOutput,
+    WAFClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSWAF_20150824", "CreateWebACL", {})
+  .n("WAFClient", "CreateWebACLCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateWebACLCommand)
+  .de(de_CreateWebACLCommand)
+  .build() {}

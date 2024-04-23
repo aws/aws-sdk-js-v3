@@ -121,7 +121,7 @@ export interface AssociateFirewallRuleGroupRequest {
    * <p>If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections.
    *        When you create the association, the default setting is <code>DISABLED</code>. </p>
    */
-  MutationProtection?: MutationProtectionStatus | string;
+  MutationProtection?: MutationProtectionStatus;
 
   /**
    * @public
@@ -193,7 +193,7 @@ export interface FirewallRuleGroupAssociation {
    * @public
    * <p>If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. </p>
    */
-  MutationProtection?: MutationProtectionStatus | string;
+  MutationProtection?: MutationProtectionStatus;
 
   /**
    * @public
@@ -206,7 +206,7 @@ export interface FirewallRuleGroupAssociation {
    * @public
    * <p>The current status of the association.</p>
    */
-  Status?: FirewallRuleGroupAssociationStatus | string;
+  Status?: FirewallRuleGroupAssociationStatus;
 
   /**
    * @public
@@ -373,7 +373,7 @@ export class ThrottlingException extends __BaseException {
 
 /**
  * @public
- * <p>You have provided an invalid command. Supported values are <code>ADD</code>,
+ * <p>You have provided an invalid command. If you ran the <code>UpdateFirewallDomains</code> request. supported values are <code>ADD</code>,
  * 			<code>REMOVE</code>, or <code>REPLACE</code> a domain.</p>
  */
 export class ValidationException extends __BaseException {
@@ -463,6 +463,21 @@ export const ResolverEndpointDirection = {
  * @public
  */
 export type ResolverEndpointDirection = (typeof ResolverEndpointDirection)[keyof typeof ResolverEndpointDirection];
+
+/**
+ * @public
+ * @enum
+ */
+export const Protocol = {
+  DO53: "Do53",
+  DOH: "DoH",
+  DOHFIPS: "DoH-FIPS",
+} as const;
+
+/**
+ * @public
+ */
+export type Protocol = (typeof Protocol)[keyof typeof Protocol];
 
 /**
  * @public
@@ -559,7 +574,7 @@ export interface ResolverEndpoint {
    *             </li>
    *          </ul>
    */
-  Direction?: ResolverEndpointDirection | string;
+  Direction?: ResolverEndpointDirection;
 
   /**
    * @public
@@ -620,7 +635,7 @@ export interface ResolverEndpoint {
    *             </li>
    *          </ul>
    */
-  Status?: ResolverEndpointStatus | string;
+  Status?: ResolverEndpointStatus;
 
   /**
    * @public
@@ -642,14 +657,6 @@ export interface ResolverEndpoint {
 
   /**
    * @public
-   * <p>
-   * 			The Resolver endpoint IP address type.
-   * 		</p>
-   */
-  ResolverEndpointType?: ResolverEndpointType | string;
-
-  /**
-   * @public
    * <p>The ARN (Amazon Resource Name) for the Outpost.</p>
    */
   OutpostArn?: string;
@@ -661,6 +668,58 @@ export interface ResolverEndpoint {
    * 		</p>
    */
   PreferredInstanceType?: string;
+
+  /**
+   * @public
+   * <p>
+   * 			The Resolver endpoint IP address type.
+   * 		</p>
+   */
+  ResolverEndpointType?: ResolverEndpointType;
+
+  /**
+   * @public
+   * <p>
+   * 			Protocols used for the endpoint. DoH-FIPS is applicable for inbound endpoints only.
+   * 		</p>
+   *          <p>For an inbound endpoint you can apply the protocols as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p> Do53  and DoH in combination.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do53  and DoH-FIPS in combination.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do53 alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>DoH alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>DoH-FIPS alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>None, which is treated as Do53.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For an outbound endpoint you can apply the protocols as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p> Do53  and DoH in combination.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do53 alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>DoH alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>None, which is treated as Do53.</p>
+   *             </li>
+   *          </ul>
+   */
+  Protocols?: Protocol[];
 }
 
 /**
@@ -859,7 +918,7 @@ export interface ResolverQueryLogConfigAssociation {
    *             </li>
    *          </ul>
    */
-  Status?: ResolverQueryLogConfigAssociationStatus | string;
+  Status?: ResolverQueryLogConfigAssociationStatus;
 
   /**
    * @public
@@ -876,7 +935,7 @@ export interface ResolverQueryLogConfigAssociation {
    *          </ul>
    *          <p>If the value of <code>Status</code> is a value other than <code>FAILED</code>, <code>Error</code> is null. </p>
    */
-  Error?: ResolverQueryLogConfigAssociationError | string;
+  Error?: ResolverQueryLogConfigAssociationError;
 
   /**
    * @public
@@ -985,7 +1044,7 @@ export interface ResolverRuleAssociation {
    * @public
    * <p>A code that specifies the current status of the association between a Resolver rule and a VPC.</p>
    */
-  Status?: ResolverRuleAssociationStatus | string;
+  Status?: ResolverRuleAssociationStatus;
 
   /**
    * @public
@@ -1152,7 +1211,7 @@ export interface FirewallDomainList {
    * @public
    * <p>The status of the domain list.  </p>
    */
-  Status?: FirewallDomainListStatus | string;
+  Status?: FirewallDomainListStatus;
 
   /**
    * @public
@@ -1193,8 +1252,7 @@ export interface FirewallDomainList {
 export interface CreateFirewallDomainListResponse {
   /**
    * @public
-   * <p>The
-   * 			domain list that you just created.</p>
+   * <p>The domain list that you just created.</p>
    */
   FirewallDomainList?: FirewallDomainList;
 }
@@ -1251,7 +1309,7 @@ export interface CreateFirewallRuleRequest {
    *             </li>
    *          </ul>
    */
-  Action: Action | string | undefined;
+  Action: Action | undefined;
 
   /**
    * @public
@@ -1273,7 +1331,7 @@ export interface CreateFirewallRuleRequest {
    *          </ul>
    *          <p>This setting is required if the rule action setting is <code>BLOCK</code>.</p>
    */
-  BlockResponse?: BlockResponse | string;
+  BlockResponse?: BlockResponse;
 
   /**
    * @public
@@ -1287,7 +1345,7 @@ export interface CreateFirewallRuleRequest {
    * <p>The DNS record's type. This determines the format of the record value that you provided in <code>BlockOverrideDomain</code>. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
    *          <p>This setting is required if the <code>BlockResponse</code> setting is <code>OVERRIDE</code>.</p>
    */
-  BlockOverrideDnsType?: BlockOverrideDnsType | string;
+  BlockOverrideDnsType?: BlockOverrideDnsType;
 
   /**
    * @public
@@ -1301,6 +1359,56 @@ export interface CreateFirewallRuleRequest {
    * <p>A name that lets you identify the rule in the rule group.</p>
    */
   Name: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * 			The DNS query type you want the rule to evaluate. Allowed values are;
+   * 		</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   * 				A: Returns an IPv4 address.</p>
+   *             </li>
+   *             <li>
+   *                <p>AAAA: Returns an Ipv6 address.</p>
+   *             </li>
+   *             <li>
+   *                <p>CAA: Restricts CAs that can create SSL/TLS certifications for the domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>CNAME: Returns another domain name.</p>
+   *             </li>
+   *             <li>
+   *                <p>DS: Record that identifies the DNSSEC signing key of a delegated zone.</p>
+   *             </li>
+   *             <li>
+   *                <p>MX: Specifies mail servers.</p>
+   *             </li>
+   *             <li>
+   *                <p>NAPTR: Regular-expression-based rewriting of domain names.</p>
+   *             </li>
+   *             <li>
+   *                <p>NS: Authoritative name servers.</p>
+   *             </li>
+   *             <li>
+   *                <p>PTR: Maps an IP address to a domain name.</p>
+   *             </li>
+   *             <li>
+   *                <p>SOA: Start of authority record for the zone.</p>
+   *             </li>
+   *             <li>
+   *                <p>SPF: Lists the servers authorized to send emails from a domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>SRV: Application specific values that identify servers.</p>
+   *             </li>
+   *             <li>
+   *                <p>TXT: Verifies email senders and application-specific values.</p>
+   *             </li>
+   *          </ul>
+   */
+  Qtype?: string;
 }
 
 /**
@@ -1350,7 +1458,7 @@ export interface FirewallRule {
    *             </li>
    *          </ul>
    */
-  Action?: Action | string;
+  Action?: Action;
 
   /**
    * @public
@@ -1370,7 +1478,7 @@ export interface FirewallRule {
    *             </li>
    *          </ul>
    */
-  BlockResponse?: BlockResponse | string;
+  BlockResponse?: BlockResponse;
 
   /**
    * @public
@@ -1382,7 +1490,7 @@ export interface FirewallRule {
    * @public
    * <p>The DNS record's type. This determines the format of the record value that you provided in <code>BlockOverrideDomain</code>. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
    */
-  BlockOverrideDnsType?: BlockOverrideDnsType | string;
+  BlockOverrideDnsType?: BlockOverrideDnsType;
 
   /**
    * @public
@@ -1408,6 +1516,56 @@ export interface FirewallRule {
    * <p>The date and time that the rule was last modified, in Unix time format and Coordinated Universal Time (UTC).</p>
    */
   ModificationTime?: string;
+
+  /**
+   * @public
+   * <p>
+   * 			The DNS query type you want the rule to evaluate. Allowed values are;
+   * 		</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   * 				A: Returns an IPv4 address.</p>
+   *             </li>
+   *             <li>
+   *                <p>AAAA: Returns an Ipv6 address.</p>
+   *             </li>
+   *             <li>
+   *                <p>CAA: Restricts CAs that can create SSL/TLS certifications for the domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>CNAME: Returns another domain name.</p>
+   *             </li>
+   *             <li>
+   *                <p>DS: Record that identifies the DNSSEC signing key of a delegated zone.</p>
+   *             </li>
+   *             <li>
+   *                <p>MX: Specifies mail servers.</p>
+   *             </li>
+   *             <li>
+   *                <p>NAPTR: Regular-expression-based rewriting of domain names.</p>
+   *             </li>
+   *             <li>
+   *                <p>NS: Authoritative name servers.</p>
+   *             </li>
+   *             <li>
+   *                <p>PTR: Maps an IP address to a domain name.</p>
+   *             </li>
+   *             <li>
+   *                <p>SOA: Start of authority record for the zone.</p>
+   *             </li>
+   *             <li>
+   *                <p>SPF: Lists the servers authorized to send emails from a domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>SRV: Application specific values that identify servers.</p>
+   *             </li>
+   *             <li>
+   *                <p>TXT: Verifies email senders and application-specific values.</p>
+   *             </li>
+   *          </ul>
+   */
+  Qtype?: string;
 }
 
 /**
@@ -1510,7 +1668,7 @@ export interface FirewallRuleGroup {
    * @public
    * <p>The status of the domain list.  </p>
    */
-  Status?: FirewallRuleGroupStatus | string;
+  Status?: FirewallRuleGroupStatus;
 
   /**
    * @public
@@ -1538,7 +1696,7 @@ export interface FirewallRuleGroup {
    * <p>Whether the rule group is shared with other Amazon Web Services accounts, or was shared with the current account by another
    *               Amazon Web Services account. Sharing is configured through Resource Access Manager (RAM).</p>
    */
-  ShareStatus?: ShareStatus | string;
+  ShareStatus?: ShareStatus;
 
   /**
    * @public
@@ -1694,7 +1852,7 @@ export interface OutpostResolver {
    * @public
    * <p>Status of the Resolver.</p>
    */
-  Status?: OutpostResolverStatus | string;
+  Status?: OutpostResolverStatus;
 
   /**
    * @public
@@ -1813,14 +1971,30 @@ export interface CreateResolverEndpointRequest {
    *             </li>
    *          </ul>
    */
-  Direction: ResolverEndpointDirection | string | undefined;
+  Direction: ResolverEndpointDirection | undefined;
 
   /**
    * @public
    * <p>The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward
    * 			DNS queries to (for inbound endpoints). The subnet ID uniquely identifies a VPC. </p>
+   *          <note>
+   *             <p>Even though the minimum is 1, Route 53 requires that you create at least two.</p>
+   *          </note>
    */
   IpAddresses: IpAddressRequest[] | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the Outpost. If you specify this, you must also specify a
+   * 			value for the <code>PreferredInstanceType</code>. </p>
+   */
+  OutpostArn?: string;
+
+  /**
+   * @public
+   * <p>The  instance type. If you specify this, you must also specify a value for the <code>OutpostArn</code>.</p>
+   */
+  PreferredInstanceType?: string;
 
   /**
    * @public
@@ -1836,20 +2010,51 @@ export interface CreateResolverEndpointRequest {
    * 			endpoint type is applied to all IP addresses.
    * 		</p>
    */
-  ResolverEndpointType?: ResolverEndpointType | string;
+  ResolverEndpointType?: ResolverEndpointType;
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the Outpost. If you specify this, you must also specify a
-   * 			value for the <code>PreferredInstanceType</code>. </p>
+   * <p>
+   * 			The protocols you want to use for the endpoint. DoH-FIPS is applicable for inbound endpoints only.
+   * 		</p>
+   *          <p>For an inbound endpoint you can apply the protocols as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p> Do53  and DoH in combination.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do53  and DoH-FIPS in combination.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do53 alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>DoH alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>DoH-FIPS alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>None, which is treated as Do53.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For an outbound endpoint you can apply the protocols as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p> Do53  and DoH in combination.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do53 alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>DoH alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>None, which is treated as Do53.</p>
+   *             </li>
+   *          </ul>
    */
-  OutpostArn?: string;
-
-  /**
-   * @public
-   * <p>The  instance type. If you specify this, you must also specify a value for the <code>OutpostArn</code>.</p>
-   */
-  PreferredInstanceType?: string;
+  Protocols?: Protocol[];
 }
 
 /**
@@ -1994,14 +2199,14 @@ export interface ResolverQueryLogConfig {
    *             </li>
    *          </ul>
    */
-  Status?: ResolverQueryLogConfigStatus | string;
+  Status?: ResolverQueryLogConfigStatus;
 
   /**
    * @public
    * <p>An indication of whether the query logging configuration is shared with other Amazon Web Services accounts, or was shared with the current account by another
    * 			Amazon Web Services account. Sharing is configured through Resource Access Manager (RAM).</p>
    */
-  ShareStatus?: ShareStatus | string;
+  ShareStatus?: ShareStatus;
 
   /**
    * @public
@@ -2095,6 +2300,51 @@ export interface TargetAddress {
    * 		</p>
    */
   Ipv6?: string;
+
+  /**
+   * @public
+   * <p>
+   * 			The protocols for the Resolver endpoints. DoH-FIPS is applicable for inbound endpoints only.
+   *
+   * 		</p>
+   *          <p>For an inbound endpoint you can apply the protocols as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p> Do53  and DoH in combination.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do53  and DoH-FIPS in combination.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do53 alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>DoH alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>DoH-FIPS alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>None, which is treated as Do53.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For an outbound endpoint you can apply the protocols as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p> Do53  and DoH in combination.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do53 alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>DoH alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>None, which is treated as Do53.</p>
+   *             </li>
+   *          </ul>
+   */
+  Protocol?: Protocol;
 }
 
 /**
@@ -2125,7 +2375,7 @@ export interface CreateResolverRuleRequest {
    * 			<code>SYSTEM</code> for <code>RuleType</code>.</p>
    *          <p>Currently, only Resolver can create rules that have a value of <code>RECURSIVE</code> for <code>RuleType</code>.</p>
    */
-  RuleType: RuleTypeOption | string | undefined;
+  RuleType: RuleTypeOption | undefined;
 
   /**
    * @public
@@ -2133,7 +2383,7 @@ export interface CreateResolverRuleRequest {
    * 			multiple Resolver rules (example.com and www.example.com), outbound DNS queries are routed using the Resolver rule that contains
    * 			the most specific domain name (www.example.com).</p>
    */
-  DomainName: string | undefined;
+  DomainName?: string;
 
   /**
    * @public
@@ -2217,7 +2467,7 @@ export interface ResolverRule {
    * @public
    * <p>A code that specifies the current status of the Resolver rule.</p>
    */
-  Status?: ResolverRuleStatus | string;
+  Status?: ResolverRuleStatus;
 
   /**
    * @public
@@ -2235,7 +2485,7 @@ export interface ResolverRule {
    * 			<code>SYSTEM</code> for <code>RuleType</code>.</p>
    *          <p>Currently, only Resolver can create rules that have a value of <code>RECURSIVE</code> for <code>RuleType</code>.</p>
    */
-  RuleType?: RuleTypeOption | string;
+  RuleType?: RuleTypeOption;
 
   /**
    * @public
@@ -2267,7 +2517,7 @@ export interface ResolverRule {
    * <p>Whether the rule is shared and, if so, whether the current account is sharing the rule with
    * 			another account, or another account is sharing the rule with the current account.</p>
    */
-  ShareStatus?: ShareStatus | string;
+  ShareStatus?: ShareStatus;
 
   /**
    * @public
@@ -2330,6 +2580,56 @@ export interface DeleteFirewallRuleRequest {
    * <p>The ID of the domain list that's used in the rule.  </p>
    */
   FirewallDomainListId: string | undefined;
+
+  /**
+   * @public
+   * <p>
+   * 			The DNS query type that the rule you are deleting evaluates. Allowed values are;
+   * 		</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   * 				A: Returns an IPv4 address.</p>
+   *             </li>
+   *             <li>
+   *                <p>AAAA: Returns an Ipv6 address.</p>
+   *             </li>
+   *             <li>
+   *                <p>CAA: Restricts CAs that can create SSL/TLS certifications for the domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>CNAME: Returns another domain name.</p>
+   *             </li>
+   *             <li>
+   *                <p>DS: Record that identifies the DNSSEC signing key of a delegated zone.</p>
+   *             </li>
+   *             <li>
+   *                <p>MX: Specifies mail servers.</p>
+   *             </li>
+   *             <li>
+   *                <p>NAPTR: Regular-expression-based rewriting of domain names.</p>
+   *             </li>
+   *             <li>
+   *                <p>NS: Authoritative name servers.</p>
+   *             </li>
+   *             <li>
+   *                <p>PTR: Maps an IP address to a domain name.</p>
+   *             </li>
+   *             <li>
+   *                <p>SOA: Start of authority record for the zone.</p>
+   *             </li>
+   *             <li>
+   *                <p>SPF: Lists the servers authorized to send emails from a domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>SRV: Application specific values that identify servers.</p>
+   *             </li>
+   *             <li>
+   *                <p>TXT: Verifies email senders and application-specific values.</p>
+   *             </li>
+   *          </ul>
+   */
+  Qtype?: string;
 }
 
 /**
@@ -2905,7 +3205,7 @@ export interface FirewallConfig {
    *          </ul>
    *          <p>This behavior is only enforced for VPCs that have at least one DNS Firewall rule group association. </p>
    */
-  FirewallFailOpen?: FirewallFailOpenStatus | string;
+  FirewallFailOpen?: FirewallFailOpenStatus;
 }
 
 /**
@@ -3021,7 +3321,7 @@ export interface FirewallRuleGroupMetadata {
    * <p>Whether the rule group is shared with other Amazon Web Services accounts, or was shared with the current account by another
    *               Amazon Web Services account. Sharing is configured through Resource Access Manager (RAM).</p>
    */
-  ShareStatus?: ShareStatus | string;
+  ShareStatus?: ShareStatus;
 }
 
 /**
@@ -3240,7 +3540,7 @@ export interface ResolverConfig {
    *             </li>
    *          </ul>
    */
-  AutodefinedReverse?: ResolverAutodefinedReverseStatus | string;
+  AutodefinedReverse?: ResolverAutodefinedReverseStatus;
 }
 
 /**
@@ -3330,7 +3630,7 @@ export interface ResolverDnssecConfig {
    *             </li>
    *          </ul>
    */
-  ValidationStatus?: ResolverDNSSECValidationStatus | string;
+  ValidationStatus?: ResolverDNSSECValidationStatus;
 }
 
 /**
@@ -3535,7 +3835,7 @@ export interface ImportFirewallDomainsRequest {
    * @public
    * <p>What you want DNS Firewall to do with the domains that are listed in the file. This must be set to <code>REPLACE</code>, which updates the domain list to exactly match the list in the file. </p>
    */
-  Operation: FirewallDomainImportOperation | string | undefined;
+  Operation: FirewallDomainImportOperation | undefined;
 
   /**
    * @public
@@ -3567,7 +3867,7 @@ export interface ImportFirewallDomainsResponse {
    * @public
    * <p>Status of the import request.</p>
    */
-  Status?: FirewallDomainListStatus | string;
+  Status?: FirewallDomainListStatus;
 
   /**
    * @public
@@ -3703,7 +4003,7 @@ export interface IpAddressResponse {
    * @public
    * <p>A status code that gives the current status of the request.</p>
    */
-  Status?: IpAddressStatus | string;
+  Status?: IpAddressStatus;
 
   /**
    * @public
@@ -3891,7 +4191,7 @@ export interface ListFirewallRuleGroupAssociationsRequest {
    * @public
    * <p>The association <code>Status</code> setting that you want DNS Firewall to filter on for the list. If you don't specify this, then DNS Firewall returns all associations, regardless of status.</p>
    */
-  Status?: FirewallRuleGroupAssociationStatus | string;
+  Status?: FirewallRuleGroupAssociationStatus;
 
   /**
    * @public
@@ -4012,7 +4312,7 @@ export interface ListFirewallRulesRequest {
    *             </li>
    *          </ul>
    */
-  Action?: Action | string;
+  Action?: Action;
 
   /**
    * @public
@@ -4193,7 +4493,8 @@ export interface ListResolverDnssecConfigsResponse {
    * @public
    * <p>An array that contains one
    * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_ResolverDnssecConfig.html">ResolverDnssecConfig</a> element
-   * 			for each configuration for DNSSEC validation that is associated with the current Amazon Web Services account.</p>
+   * 			for each configuration for DNSSEC validation that is associated with the current Amazon Web Services account.
+   * 			 It doesn't contain disabled DNSSEC configurations for the resource.</p>
    */
   ResolverDnssecConfigs?: ResolverDnssecConfig[];
 }
@@ -4435,7 +4736,7 @@ export interface ListResolverQueryLogConfigAssociationsRequest {
    * 				you must use the same value for <code>SortOrder</code>, if any, as in the previous request.</p>
    *          </note>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 }
 
 /**
@@ -4594,7 +4895,7 @@ export interface ListResolverQueryLogConfigsRequest {
    * 				you must use the same value for <code>SortOrder</code>, if any, as in the previous request.</p>
    *          </note>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 }
 
 /**
@@ -5087,7 +5388,7 @@ export interface UpdateFirewallConfigRequest {
    *          </ul>
    *          <p>This behavior is only enforced for VPCs that have at least one DNS Firewall rule group association. </p>
    */
-  FirewallFailOpen: FirewallFailOpenStatus | string | undefined;
+  FirewallFailOpen: FirewallFailOpenStatus | undefined;
 }
 
 /**
@@ -5129,7 +5430,7 @@ export interface UpdateFirewallDomainsRequest {
    *             </li>
    *          </ul>
    */
-  Operation: FirewallDomainUpdateOperation | string | undefined;
+  Operation: FirewallDomainUpdateOperation | undefined;
 
   /**
    * @public
@@ -5176,7 +5477,7 @@ export interface UpdateFirewallDomainsResponse {
    * @public
    * <p>Status of the <code>UpdateFirewallDomains</code> request.</p>
    */
-  Status?: FirewallDomainListStatus | string;
+  Status?: FirewallDomainListStatus;
 
   /**
    * @public
@@ -5229,7 +5530,7 @@ export interface UpdateFirewallRuleRequest {
    *             </li>
    *          </ul>
    */
-  Action?: Action | string;
+  Action?: Action;
 
   /**
    * @public
@@ -5249,7 +5550,7 @@ export interface UpdateFirewallRuleRequest {
    *             </li>
    *          </ul>
    */
-  BlockResponse?: BlockResponse | string;
+  BlockResponse?: BlockResponse;
 
   /**
    * @public
@@ -5261,7 +5562,7 @@ export interface UpdateFirewallRuleRequest {
    * @public
    * <p>The DNS record's type. This determines the format of the record value that you provided in <code>BlockOverrideDomain</code>. Used for the rule action <code>BLOCK</code> with a <code>BlockResponse</code> setting of <code>OVERRIDE</code>.</p>
    */
-  BlockOverrideDnsType?: BlockOverrideDnsType | string;
+  BlockOverrideDnsType?: BlockOverrideDnsType;
 
   /**
    * @public
@@ -5274,6 +5575,56 @@ export interface UpdateFirewallRuleRequest {
    * <p>The name of the rule.</p>
    */
   Name?: string;
+
+  /**
+   * @public
+   * <p>
+   * 			The DNS query type you want the rule to evaluate. Allowed values are;
+   * 		</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   * 				A: Returns an IPv4 address.</p>
+   *             </li>
+   *             <li>
+   *                <p>AAAA: Returns an Ipv6 address.</p>
+   *             </li>
+   *             <li>
+   *                <p>CAA: Restricts CAs that can create SSL/TLS certifications for the domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>CNAME: Returns another domain name.</p>
+   *             </li>
+   *             <li>
+   *                <p>DS: Record that identifies the DNSSEC signing key of a delegated zone.</p>
+   *             </li>
+   *             <li>
+   *                <p>MX: Specifies mail servers.</p>
+   *             </li>
+   *             <li>
+   *                <p>NAPTR: Regular-expression-based rewriting of domain names.</p>
+   *             </li>
+   *             <li>
+   *                <p>NS: Authoritative name servers.</p>
+   *             </li>
+   *             <li>
+   *                <p>PTR: Maps an IP address to a domain name.</p>
+   *             </li>
+   *             <li>
+   *                <p>SOA: Start of authority record for the zone.</p>
+   *             </li>
+   *             <li>
+   *                <p>SPF: Lists the servers authorized to send emails from a domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>SRV: Application specific values that identify servers.</p>
+   *             </li>
+   *             <li>
+   *                <p>TXT: Verifies email senders and application-specific values.</p>
+   *             </li>
+   *          </ul>
+   */
+  Qtype?: string;
 }
 
 /**
@@ -5312,7 +5663,7 @@ export interface UpdateFirewallRuleGroupAssociationRequest {
    * @public
    * <p>If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections. </p>
    */
-  MutationProtection?: MutationProtectionStatus | string;
+  MutationProtection?: MutationProtectionStatus;
 
   /**
    * @public
@@ -5399,7 +5750,7 @@ export interface UpdateResolverConfigRequest {
    *          </note>
    *          <p></p>
    */
-  AutodefinedReverseFlag: AutodefinedReverseFlag | string | undefined;
+  AutodefinedReverseFlag: AutodefinedReverseFlag | undefined;
 }
 
 /**
@@ -5443,7 +5794,7 @@ export interface UpdateResolverDnssecConfigRequest {
    * <p>The new value that you are specifying for DNSSEC validation for the VPC. The value can be <code>ENABLE</code>
    * 			or <code>DISABLE</code>. Be aware that it can take time for a validation status change to be completed.</p>
    */
-  Validation: Validation | string | undefined;
+  Validation: Validation | undefined;
 }
 
 /**
@@ -5502,7 +5853,7 @@ export interface UpdateResolverEndpointRequest {
    * 		</p>
    *          <p>Updating to <code>IPV6</code> type isn't currently supported.</p>
    */
-  ResolverEndpointType?: ResolverEndpointType | string;
+  ResolverEndpointType?: ResolverEndpointType;
 
   /**
    * @public
@@ -5512,6 +5863,58 @@ export interface UpdateResolverEndpointRequest {
    * 		</p>
    */
   UpdateIpAddresses?: UpdateIpAddress[];
+
+  /**
+   * @public
+   * <p>
+   * 			The protocols you want to use for the endpoint. DoH-FIPS is applicable for inbound endpoints only.
+   * 		</p>
+   *          <p>For an inbound endpoint you can apply the protocols as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p> Do53  and DoH in combination.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do53  and DoH-FIPS in combination.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do53 alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>DoH alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>DoH-FIPS alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>None, which is treated as Do53.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For an outbound endpoint you can apply the protocols as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p> Do53  and DoH in combination.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do53 alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>DoH alone.</p>
+   *             </li>
+   *             <li>
+   *                <p>None, which is treated as Do53.</p>
+   *             </li>
+   *          </ul>
+   *          <important>
+   *             <p> You can't change the protocol of an inbound endpoint directly from only Do53 to only DoH, or DoH-FIPS.
+   * 			This is to prevent a sudden disruption to incoming traffic that
+   * 			relies on Do53. To change the protocol from Do53 to DoH, or DoH-FIPS, you must
+   * 			first enable both Do53 and DoH, or Do53 and DoH-FIPS, to make sure that all incoming traffic
+   * 			has transferred to using the DoH protocol, or DoH-FIPS, and then remove the
+   * 			Do53.</p>
+   *          </important>
+   */
+  Protocols?: Protocol[];
 }
 
 /**

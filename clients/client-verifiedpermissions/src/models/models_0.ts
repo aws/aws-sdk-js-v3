@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { VerifiedPermissionsServiceException as __BaseException } from "./VerifiedPermissionsServiceException";
 
@@ -27,7 +27,8 @@ export class AccessDeniedException extends __BaseException {
  * @public
  * <p>Contains information about an action for a request for which an authorization decision
  *             is made.</p>
- *          <p>This data type is used as an request parameter to the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a> and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a> operations.</p>
+ *          <p>This data type is used as a request parameter to the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a>, <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_BatchIsAuthorized.html">BatchIsAuthorized</a>, and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a>
+ *             operations.</p>
  *          <p>Example: <code>\{ "actionId": "&lt;action name&gt;", "actionType": "Action"
  *             \}</code>
  *          </p>
@@ -73,6 +74,287 @@ export interface EntityIdentifier {
    *          </p>
    */
   entityId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Decision = {
+  ALLOW: "ALLOW",
+  DENY: "DENY",
+} as const;
+
+/**
+ * @public
+ */
+export type Decision = (typeof Decision)[keyof typeof Decision];
+
+/**
+ * @public
+ * <p>Contains information about one of the policies that determined an authorization
+ *             decision.</p>
+ *          <p>This data type is used as an element in a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a>, <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_BatchIsAuthorized.html">BatchIsAuthorized</a>, and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a>
+ *             operations.</p>
+ *          <p>Example: <code>"determiningPolicies":[\{"policyId":"SPEXAMPLEabcdefg111111"\}]</code>
+ *          </p>
+ */
+export interface DeterminingPolicyItem {
+  /**
+   * @public
+   * <p>The Id of a policy that determined to an authorization decision.</p>
+   *          <p>Example: <code>"policyId":"SPEXAMPLEabcdefg111111"</code>
+   *          </p>
+   */
+  policyId: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Contains a description of an evaluation error.</p>
+ *          <p>This data type is a response parameter of the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a>, <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_BatchIsAuthorized.html">BatchIsAuthorized</a>, and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a> operations.</p>
+ */
+export interface EvaluationErrorItem {
+  /**
+   * @public
+   * <p>The error description.</p>
+   */
+  errorDescription: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The request failed because of an internal error. Try your request again later</p>
+ */
+export class InternalServerException extends __BaseException {
+  readonly name: "InternalServerException" = "InternalServerException";
+  readonly $fault: "server" = "server";
+  $retryable = {};
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
+    super({
+      name: "InternalServerException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerException.prototype);
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  IDENTITY_SOURCE: "IDENTITY_SOURCE",
+  POLICY: "POLICY",
+  POLICY_STORE: "POLICY_STORE",
+  POLICY_TEMPLATE: "POLICY_TEMPLATE",
+  SCHEMA: "SCHEMA",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
+ * <p>The request failed because it references a resource that doesn't exist.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>The unique ID of the resource referenced in the failed request.</p>
+   */
+  resourceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The resource type of the resource referenced in the failed request.</p>
+   */
+  resourceType: ResourceType | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
+}
+
+/**
+ * @public
+ * <p>The request failed because it exceeded a throttling quota.</p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  $retryable = {
+    throttling: true,
+  };
+  /**
+   * @public
+   * <p>The code for the Amazon Web Service that owns the quota.</p>
+   */
+  serviceCode?: string;
+
+  /**
+   * @public
+   * <p>The quota code recognized by the Amazon Web Services Service Quotas service.</p>
+   */
+  quotaCode?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.serviceCode = opts.serviceCode;
+    this.quotaCode = opts.quotaCode;
+  }
+}
+
+/**
+ * @public
+ * <p>Details about a field that failed policy validation.</p>
+ */
+export interface ValidationExceptionField {
+  /**
+   * @public
+   * <p>The path to the specific element that Verified Permissions found to be not valid.</p>
+   */
+  path: string | undefined;
+
+  /**
+   * @public
+   * <p>Describes the policy validation error.</p>
+   */
+  message: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The request failed because one or more input parameters don't satisfy their constraint
+ *             requirements. The output is provided as a list of fields and a reason for each field that
+ *             isn't valid.</p>
+ *          <p>The possible reasons include the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>UnrecognizedEntityType</b>
+ *                </p>
+ *                <p>The policy includes an entity type that isn't found in the schema.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>UnrecognizedActionId</b>
+ *                </p>
+ *                <p>The policy includes an action id that isn't found in the schema.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>InvalidActionApplication</b>
+ *                </p>
+ *                <p>The policy includes an action that, according to the schema, doesn't support
+ *                     the specified principal and resource.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>UnexpectedType</b>
+ *                </p>
+ *                <p>The policy included an operand that isn't a valid type for the specified
+ *                     operation.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>IncompatibleTypes</b>
+ *                </p>
+ *                <p>The types of elements included in a <code>set</code>, or the types of
+ *                     expressions used in an <code>if...then...else</code> clause aren't compatible in
+ *                     this context.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>MissingAttribute</b>
+ *                </p>
+ *                <p>The policy attempts to access a record or entity attribute that isn't
+ *                     specified in the schema. Test for the existence of the attribute first before
+ *                     attempting to access its value. For more information, see the <a href="https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
+ *                         <i>Cedar Policy Language Guide</i>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>UnsafeOptionalAttributeAccess</b>
+ *                </p>
+ *                <p>The policy attempts to access a record or entity attribute that is optional
+ *                     and isn't guaranteed to be present. Test for the existence of the attribute
+ *                     first before attempting to access its value. For more information, see the
+ *                         <a href="https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
+ *                         <i>Cedar Policy Language Guide</i>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>ImpossiblePolicy</b>
+ *                </p>
+ *                <p>Cedar has determined that a policy condition always evaluates to false. If
+ *                     the policy is always false, it can never apply to any query, and so it can never
+ *                     affect an authorization decision.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>WrongNumberArguments</b>
+ *                </p>
+ *                <p>The policy references an extension type with the wrong number of
+ *                     arguments.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>FunctionArgumentValidationError</b>
+ *                </p>
+ *                <p>Cedar couldn't parse the argument passed to an extension type. For example,
+ *                     a string that is to be parsed as an IPv4 address can contain only digits and the
+ *                     period character.</p>
+ *             </li>
+ *          </ul>
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>The list of fields that aren't valid.</p>
+   */
+  fieldList?: ValidationExceptionField[];
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.fieldList = opts.fieldList;
+  }
 }
 
 /**
@@ -161,23 +443,6 @@ export namespace Configuration {
 
 /**
  * @public
- * @enum
- */
-export const ResourceType = {
-  IDENTITY_SOURCE: "IDENTITY_SOURCE",
-  POLICY: "POLICY",
-  POLICY_STORE: "POLICY_STORE",
-  POLICY_TEMPLATE: "POLICY_TEMPLATE",
-  SCHEMA: "SCHEMA",
-} as const;
-
-/**
- * @public
- */
-export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
-
-/**
- * @public
  * <p>Contains information about a resource conflict.</p>
  */
 export interface ResourceConflict {
@@ -191,7 +456,7 @@ export interface ResourceConflict {
    * @public
    * <p>The type of the resource involved in a conflict.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 }
 
 /**
@@ -302,61 +567,6 @@ export interface CreateIdentitySourceOutput {
 
 /**
  * @public
- * <p>The request failed because of an internal error. Try your request again later</p>
- */
-export class InternalServerException extends __BaseException {
-  readonly name: "InternalServerException" = "InternalServerException";
-  readonly $fault: "server" = "server";
-  $retryable = {};
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerException, __BaseException>) {
-    super({
-      name: "InternalServerException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerException.prototype);
-  }
-}
-
-/**
- * @public
- * <p>The request failed because it references a resource that doesn't exist.</p>
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @public
-   * <p>The unique ID of the resource referenced in the failed request.</p>
-   */
-  resourceId: string | undefined;
-
-  /**
-   * @public
-   * <p>The resource type of the resource referenced in the failed request.</p>
-   */
-  resourceType: ResourceType | string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-  }
-}
-
-/**
- * @public
  * <p>The request failed because it would cause a service quota to be exceeded.</p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -372,7 +582,7 @@ export class ServiceQuotaExceededException extends __BaseException {
    * @public
    * <p>The resource type of the resource referenced in the failed request.</p>
    */
-  resourceType: ResourceType | string | undefined;
+  resourceType: ResourceType | undefined;
 
   /**
    * @public
@@ -400,169 +610,6 @@ export class ServiceQuotaExceededException extends __BaseException {
     this.resourceType = opts.resourceType;
     this.serviceCode = opts.serviceCode;
     this.quotaCode = opts.quotaCode;
-  }
-}
-
-/**
- * @public
- * <p>The request failed because it exceeded a throttling quota.</p>
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  $retryable = {
-    throttling: true,
-  };
-  /**
-   * @public
-   * <p>The code for the Amazon Web Service that owns the quota.</p>
-   */
-  serviceCode?: string;
-
-  /**
-   * @public
-   * <p>The quota code recognized by the Amazon Web Services Service Quotas service.</p>
-   */
-  quotaCode?: string;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-  }
-}
-
-/**
- * @public
- * <p>Details about a field that failed policy validation.</p>
- */
-export interface ValidationExceptionField {
-  /**
-   * @public
-   * <p>The path to the specific element that Verified Permissions found to be not valid.</p>
-   */
-  path: string | undefined;
-
-  /**
-   * @public
-   * <p>Describes the policy validation error.</p>
-   */
-  message: string | undefined;
-}
-
-/**
- * @public
- * <p>The request failed because one or more input parameters don't satisfy their constraint
- *             requirements. The output is provided as a list of fields and a reason for each field that
- *             isn't valid.</p>
- *          <p>The possible reasons include the following:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>UnrecognizedEntityType</b>
- *                </p>
- *                <p>The policy includes an entity type that isn't found in the schema.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>UnrecognizedActionId</b>
- *                </p>
- *                <p>The policy includes an action id that isn't found in the schema.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>InvalidActionApplication</b>
- *                </p>
- *                <p>The policy includes an action that, according to the schema, doesn't support
- *                     the specified principal and resource.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>UnexpectedType</b>
- *                </p>
- *                <p>The policy included an operand that isn't a valid type for the specified
- *                     operation.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>IncompatibleTypes</b>
- *                </p>
- *                <p>The types of elements included in a <code>set</code>, or the types of
- *                     expressions used in an <code>if...then...else</code> clause aren't compatible in
- *                     this context.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>MissingAttribute</b>
- *                </p>
- *                <p>The policy attempts to access a record or entity attribute that isn't
- *                     specified in the schema. Test for the existence of the attribute first before
- *                     attempting to access its value. For more information, see the <a href="https://docs.cedarpolicy.com/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
- *                         <i>Cedar Policy Language Guide</i>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>UnsafeOptionalAttributeAccess</b>
- *                </p>
- *                <p>The policy attempts to access a record or entity attribute that is optional
- *                     and isn't guaranteed to be present. Test for the existence of the attribute
- *                     first before attempting to access its value. For more information, see the
- *                         <a href="https://docs.cedarpolicy.com/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
- *                         <i>Cedar Policy Language Guide</i>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>ImpossiblePolicy</b>
- *                </p>
- *                <p>Cedar has determined that a policy condition always evaluates to false. If
- *                     the policy is always false, it can never apply to any query, and so it can never
- *                     affect an authorization decision.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>WrongNumberArguments</b>
- *                </p>
- *                <p>The policy references an extension type with the wrong number of
- *                     arguments.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>FunctionArgumentValidationError</b>
- *                </p>
- *                <p>Cedar couldn't parse the argument passed to an extension type. For example,
- *                     a string that is to be parsed as an IPv4 address can contain only digits and the
- *                     period character.</p>
- *             </li>
- *          </ul>
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @public
-   * <p>The list of fields that aren't valid.</p>
-   */
-  fieldList?: ValidationExceptionField[];
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.fieldList = opts.fieldList;
   }
 }
 
@@ -748,7 +795,7 @@ export interface CreatePolicyOutput {
    * @public
    * <p>The policy type of the new policy.</p>
    */
-  policyType: PolicyType | string | undefined;
+  policyType: PolicyType | undefined;
 
   /**
    * @public
@@ -823,7 +870,7 @@ export interface ValidationSettings {
    *             <p>To submit a static policy or policy template without a schema, you must turn off validation.</p>
    *          </important>
    */
-  mode: ValidationMode | string | undefined;
+  mode: ValidationMode | undefined;
 }
 
 /**
@@ -858,6 +905,13 @@ export interface CreatePolicyStoreInput {
    *          </important>
    */
   validationSettings: ValidationSettings | undefined;
+
+  /**
+   * @public
+   * <p>Descriptive text that you can provide to help with identification
+   *             of the current policy store.</p>
+   */
+  description?: string;
 }
 
 /**
@@ -960,20 +1014,6 @@ export interface CreatePolicyTemplateOutput {
 
 /**
  * @public
- * @enum
- */
-export const Decision = {
-  ALLOW: "ALLOW",
-  DENY: "DENY",
-} as const;
-
-/**
- * @public
- */
-export type Decision = (typeof Decision)[keyof typeof Decision];
-
-/**
- * @public
  */
 export interface DeleteIdentitySourceInput {
   /**
@@ -1056,25 +1096,6 @@ export interface DeletePolicyTemplateOutput {}
 
 /**
  * @public
- * <p>Contains information about one of the policies that determined an authorization
- *             decision.</p>
- *          <p>This data type is used as an element in a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a>
- *             and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a> operations.</p>
- *          <p>Example: <code>"determiningPolicies":[\{"policyId":"SPEXAMPLEabcdefg111111"\}]</code>
- *          </p>
- */
-export interface DeterminingPolicyItem {
-  /**
-   * @public
-   * <p>The Id of a policy that determined to an authorization decision.</p>
-   *          <p>Example: <code>"policyId":"SPEXAMPLEabcdefg111111"</code>
-   *          </p>
-   */
-  policyId: string | undefined;
-}
-
-/**
- * @public
  * <p>Contains information about a principal or resource that can be referenced in a Cedar
  *             policy.</p>
  *          <p>This data type is used as part of the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_PolicyFilter.html">PolicyFilter</a> structure that is
@@ -1132,19 +1153,6 @@ export namespace EntityReference {
     if (value.identifier !== undefined) return visitor.identifier(value.identifier);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
-}
-
-/**
- * @public
- * <p>Contains a description of an evaluation error.</p>
- *          <p>This data type is used as a request parameter in the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a> and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a> operations.</p>
- */
-export interface EvaluationErrorItem {
-  /**
-   * @public
-   * <p>The error description.</p>
-   */
-  errorDescription: string | undefined;
 }
 
 /**
@@ -1215,7 +1223,7 @@ export interface IdentitySourceDetails {
    * <p>A string that identifies the type of OIDC service represented by this identity source. </p>
    *          <p>At this time, the only valid value is <code>cognito</code>.</p>
    */
-  openIdIssuer?: OpenIdIssuer | string;
+  openIdIssuer?: OpenIdIssuer;
 }
 
 /**
@@ -1407,7 +1415,7 @@ export interface GetPolicyOutput {
    * @public
    * <p>The type of the policy.</p>
    */
-  policyType: PolicyType | string | undefined;
+  policyType: PolicyType | undefined;
 
   /**
    * @public
@@ -1486,6 +1494,13 @@ export interface GetPolicyStoreOutput {
    * <p>The date and time that the policy store was last updated.</p>
    */
   lastUpdatedDate: Date | undefined;
+
+  /**
+   * @public
+   * <p>Descriptive text that you can provide to help with identification
+   *             of the current policy store.</p>
+   */
+  description?: string;
 }
 
 /**
@@ -1585,6 +1600,12 @@ export interface GetSchemaOutput {
    * <p>The date and time that the schema was most recently updated.</p>
    */
   lastUpdatedDate: Date | undefined;
+
+  /**
+   * @public
+   * <p>The namespaces of the entities referenced by this schema.</p>
+   */
+  namespaces?: string[];
 }
 
 /**
@@ -1625,15 +1646,16 @@ export interface ListIdentitySourcesInput {
 
   /**
    * @public
-   * <p>Specifies the total number of results that you want included on each page
-   *              of the response. If you do not include this parameter, it defaults to a value that is
-   *              specific to the operation. If additional items exist beyond the number you specify, the
-   *              <code>NextToken</code> response element is returned with a value (not null).
-   *              Include the specified value as the <code>NextToken</code> request parameter in the next
-   *              call to the operation to get the next part of the results. Note that the service might
-   *              return fewer results than the maximum even when there are more results available. You
-   *              should check <code>NextToken</code> after every operation to ensure that you receive all
-   *              of the results.</p>
+   * <p>Specifies the total number of results that you want included in each
+   *              response. If additional items exist beyond the number you specify, the
+   *              <code>NextToken</code> response element is returned with a value (not null). Include the
+   *              specified value as the <code>NextToken</code> request parameter in the next call to the
+   *              operation to get the next set of results. Note that the service might return fewer
+   *              results than the maximum even when there are more results available. You should check
+   *              <code>NextToken</code> after every operation to ensure that you receive all of the
+   *              results.</p>
+   *          <p>If you do not specify this parameter, the operation defaults to 10 identity sources per response.
+   *             You can specify a maximum of 200 identity sources per response.</p>
    */
   maxResults?: number;
 
@@ -1682,7 +1704,7 @@ export interface IdentitySourceItemDetails {
    * <p>A string that identifies the type of OIDC service represented by this identity source. </p>
    *          <p>At this time, the only valid value is <code>cognito</code>.</p>
    */
-  openIdIssuer?: OpenIdIssuer | string;
+  openIdIssuer?: OpenIdIssuer;
 }
 
 /**
@@ -1894,7 +1916,7 @@ export interface IsAuthorizedOutput {
    * <p>An authorization decision that indicates if the authorization request should be
    *             allowed or denied.</p>
    */
-  decision: Decision | string | undefined;
+  decision: Decision | undefined;
 
   /**
    * @public
@@ -1924,7 +1946,7 @@ export interface IsAuthorizedWithTokenOutput {
    * <p>An authorization decision that indicates if the authorization request should be
    *             allowed or denied.</p>
    */
-  decision: Decision | string | undefined;
+  decision: Decision | undefined;
 
   /**
    * @public
@@ -1967,7 +1989,7 @@ export interface PolicyFilter {
    * @public
    * <p>Filters the output to only policies of the specified type.</p>
    */
-  policyType?: PolicyType | string;
+  policyType?: PolicyType;
 
   /**
    * @public
@@ -1999,15 +2021,16 @@ export interface ListPoliciesInput {
 
   /**
    * @public
-   * <p>Specifies the total number of results that you want included on each page
-   *              of the response. If you do not include this parameter, it defaults to a value that is
-   *              specific to the operation. If additional items exist beyond the number you specify, the
-   *              <code>NextToken</code> response element is returned with a value (not null).
-   *              Include the specified value as the <code>NextToken</code> request parameter in the next
-   *              call to the operation to get the next part of the results. Note that the service might
-   *              return fewer results than the maximum even when there are more results available. You
-   *              should check <code>NextToken</code> after every operation to ensure that you receive all
-   *              of the results.</p>
+   * <p>Specifies the total number of results that you want included in each
+   *              response. If additional items exist beyond the number you specify, the
+   *              <code>NextToken</code> response element is returned with a value (not null). Include the
+   *              specified value as the <code>NextToken</code> request parameter in the next call to the
+   *              operation to get the next set of results. Note that the service might return fewer
+   *              results than the maximum even when there are more results available. You should check
+   *              <code>NextToken</code> after every operation to ensure that you receive all of the
+   *              results.</p>
+   *          <p>If you do not specify this parameter, the operation defaults to 10 policies per
+   *             response. You can specify a maximum of 50 policies per response.</p>
    */
   maxResults?: number;
 
@@ -2158,7 +2181,7 @@ export interface PolicyItem {
    *             </li>
    *          </ul>
    */
-  policyType: PolicyType | string | undefined;
+  policyType: PolicyType | undefined;
 
   /**
    * @public
@@ -2228,15 +2251,16 @@ export interface ListPolicyStoresInput {
 
   /**
    * @public
-   * <p>Specifies the total number of results that you want included on each page
-   *              of the response. If you do not include this parameter, it defaults to a value that is
-   *              specific to the operation. If additional items exist beyond the number you specify, the
-   *              <code>NextToken</code> response element is returned with a value (not null).
-   *              Include the specified value as the <code>NextToken</code> request parameter in the next
-   *              call to the operation to get the next part of the results. Note that the service might
-   *              return fewer results than the maximum even when there are more results available. You
-   *              should check <code>NextToken</code> after every operation to ensure that you receive all
-   *              of the results.</p>
+   * <p>Specifies the total number of results that you want included in each
+   *              response. If additional items exist beyond the number you specify, the
+   *              <code>NextToken</code> response element is returned with a value (not null). Include the
+   *              specified value as the <code>NextToken</code> request parameter in the next call to the
+   *              operation to get the next set of results. Note that the service might return fewer
+   *              results than the maximum even when there are more results available. You should check
+   *              <code>NextToken</code> after every operation to ensure that you receive all of the
+   *              results.</p>
+   *          <p>If you do not specify this parameter, the operation defaults to 10 policy stores per response.
+   *             You can specify a maximum of 50 policy stores per response.</p>
    */
   maxResults?: number;
 }
@@ -2265,6 +2289,19 @@ export interface PolicyStoreItem {
    * <p>The date and time the policy was created.</p>
    */
   createdDate: Date | undefined;
+
+  /**
+   * @public
+   * <p>The date and time the policy store was most recently updated.</p>
+   */
+  lastUpdatedDate?: Date;
+
+  /**
+   * @public
+   * <p>Descriptive text that you can provide to help with identification
+   *             of the current policy store.</p>
+   */
+  description?: string;
 }
 
 /**
@@ -2310,15 +2347,16 @@ export interface ListPolicyTemplatesInput {
 
   /**
    * @public
-   * <p>Specifies the total number of results that you want included on each page
-   *              of the response. If you do not include this parameter, it defaults to a value that is
-   *              specific to the operation. If additional items exist beyond the number you specify, the
-   *              <code>NextToken</code> response element is returned with a value (not null).
-   *              Include the specified value as the <code>NextToken</code> request parameter in the next
-   *              call to the operation to get the next part of the results. Note that the service might
-   *              return fewer results than the maximum even when there are more results available. You
-   *              should check <code>NextToken</code> after every operation to ensure that you receive all
-   *              of the results.</p>
+   * <p>Specifies the total number of results that you want included in each
+   *              response. If additional items exist beyond the number you specify, the
+   *              <code>NextToken</code> response element is returned with a value (not null). Include the
+   *              specified value as the <code>NextToken</code> request parameter in the next call to the
+   *              operation to get the next set of results. Note that the service might return fewer
+   *              results than the maximum even when there are more results available. You should check
+   *              <code>NextToken</code> after every operation to ensure that you receive all of the
+   *              results.</p>
+   *          <p>If you do not specify this parameter, the operation defaults to 10 policy templates per response.
+   *             You can specify a maximum of 50 policy templates per response.</p>
    */
   maxResults?: number;
 }
@@ -2539,7 +2577,7 @@ export interface UpdatePolicyOutput {
    * @public
    * <p>The type of the policy that was updated.</p>
    */
-  policyType: PolicyType | string | undefined;
+  policyType: PolicyType | undefined;
 
   /**
    * @public
@@ -2755,6 +2793,13 @@ export interface UpdatePolicyStoreInput {
    *             policy store.</p>
    */
   validationSettings: ValidationSettings | undefined;
+
+  /**
+   * @public
+   * <p>Descriptive text that you can provide to help with identification
+   *             of the current policy store.</p>
+   */
+  description?: string;
 }
 
 /**
@@ -2792,7 +2837,8 @@ export interface UpdatePolicyStoreOutput {
  *          <p>Contains information about the runtime context for a request for which an
  *             authorization decision is made. </p>
  *          <p>This data type is used as a member of the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ContextDefinition.html">ContextDefinition</a> structure
- *             which is uses as a request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a> and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a> operations.</p>
+ *             which is uses as a request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a>, <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_BatchIsAuthorized.html">BatchIsAuthorized</a>, and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a>
+ *             operations.</p>
  */
 export type AttributeValue =
   | AttributeValue.BooleanMember
@@ -2809,7 +2855,8 @@ export type AttributeValue =
 export namespace AttributeValue {
   /**
    * @public
-   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/syntax-datatypes.html#boolean">Boolean</a> type.</p>
+   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#boolean">Boolean</a>
+   *             type.</p>
    *          <p>Example: <code>\{"boolean": true\}</code>
    *          </p>
    */
@@ -2842,7 +2889,7 @@ export namespace AttributeValue {
 
   /**
    * @public
-   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/syntax-datatypes.html#long">Long</a> type.</p>
+   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#long">Long</a> type.</p>
    *          <p>Example: <code>\{"long": 0\}</code>
    *          </p>
    */
@@ -2858,7 +2905,8 @@ export namespace AttributeValue {
 
   /**
    * @public
-   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/syntax-datatypes.html#string">String</a> type.</p>
+   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#string">String</a>
+   *             type.</p>
    *          <p>Example: <code>\{"string": "abc"\}</code>
    *          </p>
    */
@@ -2874,7 +2922,7 @@ export namespace AttributeValue {
 
   /**
    * @public
-   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/syntax-datatypes.html#set">Set</a> type.</p>
+   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#set">Set</a> type.</p>
    *          <p>Example: <code>\{"set": [ \{\} ] \}</code>
    *          </p>
    */
@@ -2890,7 +2938,8 @@ export namespace AttributeValue {
 
   /**
    * @public
-   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/syntax-datatypes.html#record">Record</a> type.</p>
+   * <p>An attribute value of <a href="https://docs.cedarpolicy.com/policies/syntax-datatypes.html#record">Record</a>
+   *             type.</p>
    *          <p>Example: <code>\{"record": \{ "keyName": \{\} \} \}</code>
    *          </p>
    */
@@ -2943,9 +2992,10 @@ export namespace AttributeValue {
  * <p>Contains additional details about the context of the request. Verified Permissions evaluates this
  *             information in an authorization request as part of the <code>when</code> and
  *                 <code>unless</code> clauses in a policy.</p>
- *          <p>This data type is used as a request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a> and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a> operations.</p>
+ *          <p>This data type is used as a request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorized.html">IsAuthorized</a>, <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_BatchIsAuthorized.html">BatchIsAuthorized</a>, and <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_IsAuthorizedWithToken.html">IsAuthorizedWithToken</a>
+ *             operations.</p>
  *          <p>Example:
- *                 <code>"context":\{"Context":\{"&lt;KeyName1&gt;":\{"boolean":true\},"&lt;KeyName2&gt;":\{"long":1234\}\}\}</code>
+ *                 <code>"context":\{"contextMap":\{"&lt;KeyName1&gt;":\{"boolean":true\},"&lt;KeyName2&gt;":\{"long":1234\}\}\}</code>
  *          </p>
  */
 export type ContextDefinition = ContextDefinition.ContextMapMember | ContextDefinition.$UnknownMember;
@@ -2960,7 +3010,7 @@ export namespace ContextDefinition {
    *             request. Each attribute in this array must include a map of a data type and its
    *             value.</p>
    *          <p>Example:
-   *                 <code>"Context":\{"&lt;KeyName1&gt;":\{"boolean":true\},"&lt;KeyName2&gt;":\{"long":1234\}\}</code>
+   *                 <code>"contextMap":\{"&lt;KeyName1&gt;":\{"boolean":true\},"&lt;KeyName2&gt;":\{"long":1234\}\}</code>
    *          </p>
    */
   export interface ContextMapMember {
@@ -2994,8 +3044,8 @@ export namespace ContextDefinition {
  *          <p>This data type is used as one of the fields in the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_EntitiesDefinition.html">EntitiesDefinition</a>
  *             structure.</p>
  *          <p>
- *             <code>\{ "id": \{ "entityType": "Photo", "entityId": "VacationPhoto94.jpg" \},
- *                 "Attributes": \{\}, "Parents": [ \{ "entityType": "Album", "entityId": "alice_folder" \}
+ *             <code>\{ "identifier": \{ "entityType": "Photo", "entityId": "VacationPhoto94.jpg" \},
+ *                 "attributes": \{\}, "parents": [ \{ "entityType": "Album", "entityId": "alice_folder" \}
  *                 ] \}</code>
  *          </p>
  */
@@ -3017,6 +3067,77 @@ export interface EntityItem {
    * <p>The parents in the hierarchy that contains the entity.</p>
    */
   parents?: EntityIdentifier[];
+}
+
+/**
+ * @public
+ * <p>An authorization request that you include in a <code>BatchIsAuthorized</code> API
+ *             request.</p>
+ */
+export interface BatchIsAuthorizedInputItem {
+  /**
+   * @public
+   * <p>Specifies the principal for which the authorization decision is to be made.</p>
+   */
+  principal?: EntityIdentifier;
+
+  /**
+   * @public
+   * <p>Specifies the requested action to be authorized. For example, is the principal
+   *             authorized to perform this action on the resource?</p>
+   */
+  action?: ActionIdentifier;
+
+  /**
+   * @public
+   * <p>Specifies the resource for which the authorization decision is to be made.</p>
+   */
+  resource?: EntityIdentifier;
+
+  /**
+   * @public
+   * <p>Specifies additional context that can be used to make more granular authorization
+   *             decisions.</p>
+   */
+  context?: ContextDefinition;
+}
+
+/**
+ * @public
+ * <p>The decision, based on policy evaluation, from an individual authorization request in
+ *             a <code>BatchIsAuthorized</code> API request.</p>
+ */
+export interface BatchIsAuthorizedOutputItem {
+  /**
+   * @public
+   * <p>The authorization request that initiated the decision.</p>
+   */
+  request: BatchIsAuthorizedInputItem | undefined;
+
+  /**
+   * @public
+   * <p>An authorization decision that indicates if the authorization request should be
+   *             allowed or denied.</p>
+   */
+  decision: Decision | undefined;
+
+  /**
+   * @public
+   * <p>The list of determining policies used to make the authorization decision. For example,
+   *             if there are two matching policies, where one is a forbid and the other is a permit,
+   *             then the forbid policy will be the determining policy. In the case of multiple matching
+   *             permit policies then there would be multiple determining policies. In the case that no
+   *             policies match, and hence the response is DENY, there would be no determining
+   *             policies.</p>
+   */
+  determiningPolicies: DeterminingPolicyItem[] | undefined;
+
+  /**
+   * @public
+   * <p>Errors that occurred while making an authorization decision, for example, a policy
+   *             references an Entity or entity Attribute that does not exist in the slice.</p>
+   */
+  errors: EvaluationErrorItem[] | undefined;
 }
 
 /**
@@ -3061,6 +3182,18 @@ export namespace EntitiesDefinition {
     if (value.entityList !== undefined) return visitor.entityList(value.entityList);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
+}
+
+/**
+ * @public
+ */
+export interface BatchIsAuthorizedOutput {
+  /**
+   * @public
+   * <p>A series of <code>Allow</code> or <code>Deny</code> decisions for each request, and
+   *             the policies that produced them.</p>
+   */
+  results: BatchIsAuthorizedOutputItem[] | undefined;
 }
 
 /**
@@ -3127,7 +3260,7 @@ export interface IsAuthorizedWithTokenInput {
    * @public
    * <p>Specifies an identity token for the principal to be authorized. This token is provided
    *             to you by the identity provider (IdP) associated with the specified identity source. You must
-   *             specify either an <code>AccessToken</code> or an <code>IdentityToken</code>, but not
+   *             specify either an <code>AccessToken</code> or an <code>IdentityToken</code>, or
    *             both.</p>
    */
   identityToken?: string;
@@ -3136,7 +3269,7 @@ export interface IsAuthorizedWithTokenInput {
    * @public
    * <p>Specifies an access token for the principal to be authorized. This token is provided
    *             to you by the identity provider (IdP) associated with the specified identity source. You must
-   *             specify either an <code>AccessToken</code> or an <code>IdentityToken</code>, but not
+   *             specify either an <code>AccessToken</code>, or an <code>IdentityToken</code>, or
    *             both.</p>
    */
   accessToken?: string;
@@ -3164,6 +3297,43 @@ export interface IsAuthorizedWithTokenInput {
 
   /**
    * @public
+   * <p>Specifies the list of resources and their associated attributes that Verified Permissions can examine
+   *             when evaluating the policies. </p>
+   *          <note>
+   *             <p>You can include only resource and action entities in this parameter; you can't
+   *                 include principals.</p>
+   *             <ul>
+   *                <li>
+   *                   <p>The <code>IsAuthorizedWithToken</code> operation takes principal
+   *                         attributes from <b>
+   *                         <i>only</i>
+   *                      </b>
+   *                         the <code>identityToken</code> or <code>accessToken</code> passed to the
+   *                         operation.</p>
+   *                </li>
+   *                <li>
+   *                   <p>For action entities, you can include only their <code>Identifier</code>
+   *                         and <code>EntityType</code>. </p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   */
+  entities?: EntitiesDefinition;
+}
+
+/**
+ * @public
+ */
+export interface BatchIsAuthorizedInput {
+  /**
+   * @public
+   * <p>Specifies the ID of the policy store. Policies in this policy store will be used to make the
+   *             authorization decisions for the input.</p>
+   */
+  policyStoreId: string | undefined;
+
+  /**
+   * @public
    * <p>Specifies the list of resources and principals and their associated attributes that
    *             Verified Permissions can examine when evaluating the policies. </p>
    *          <note>
@@ -3172,4 +3342,603 @@ export interface IsAuthorizedWithTokenInput {
    *          </note>
    */
   entities?: EntitiesDefinition;
+
+  /**
+   * @public
+   * <p>An array of up to 30 requests that you want Verified Permissions to evaluate.</p>
+   */
+  requests: BatchIsAuthorizedInputItem[] | undefined;
 }
+
+/**
+ * @internal
+ */
+export const ActionIdentifierFilterSensitiveLog = (obj: ActionIdentifier): any => ({
+  ...obj,
+  ...(obj.actionType && { actionType: SENSITIVE_STRING }),
+  ...(obj.actionId && { actionId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const EntityIdentifierFilterSensitiveLog = (obj: EntityIdentifier): any => ({
+  ...obj,
+  ...(obj.entityType && { entityType: SENSITIVE_STRING }),
+  ...(obj.entityId && { entityId: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const EvaluationErrorItemFilterSensitiveLog = (obj: EvaluationErrorItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CognitoUserPoolConfigurationFilterSensitiveLog = (obj: CognitoUserPoolConfiguration): any => ({
+  ...obj,
+  ...(obj.clientIds && { clientIds: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationFilterSensitiveLog = (obj: Configuration): any => {
+  if (obj.cognitoUserPoolConfiguration !== undefined)
+    return {
+      cognitoUserPoolConfiguration: CognitoUserPoolConfigurationFilterSensitiveLog(obj.cognitoUserPoolConfiguration),
+    };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const CreateIdentitySourceInputFilterSensitiveLog = (obj: CreateIdentitySourceInput): any => ({
+  ...obj,
+  ...(obj.configuration && { configuration: ConfigurationFilterSensitiveLog(obj.configuration) }),
+  ...(obj.principalEntityType && { principalEntityType: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StaticPolicyDefinitionFilterSensitiveLog = (obj: StaticPolicyDefinition): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.statement && { statement: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TemplateLinkedPolicyDefinitionFilterSensitiveLog = (obj: TemplateLinkedPolicyDefinition): any => ({
+  ...obj,
+  ...(obj.principal && { principal: EntityIdentifierFilterSensitiveLog(obj.principal) }),
+  ...(obj.resource && { resource: EntityIdentifierFilterSensitiveLog(obj.resource) }),
+});
+
+/**
+ * @internal
+ */
+export const PolicyDefinitionFilterSensitiveLog = (obj: PolicyDefinition): any => {
+  if (obj.static !== undefined) return { static: StaticPolicyDefinitionFilterSensitiveLog(obj.static) };
+  if (obj.templateLinked !== undefined)
+    return { templateLinked: TemplateLinkedPolicyDefinitionFilterSensitiveLog(obj.templateLinked) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const CreatePolicyInputFilterSensitiveLog = (obj: CreatePolicyInput): any => ({
+  ...obj,
+  ...(obj.definition && { definition: PolicyDefinitionFilterSensitiveLog(obj.definition) }),
+});
+
+/**
+ * @internal
+ */
+export const CreatePolicyOutputFilterSensitiveLog = (obj: CreatePolicyOutput): any => ({
+  ...obj,
+  ...(obj.principal && { principal: EntityIdentifierFilterSensitiveLog(obj.principal) }),
+  ...(obj.resource && { resource: EntityIdentifierFilterSensitiveLog(obj.resource) }),
+});
+
+/**
+ * @internal
+ */
+export const CreatePolicyStoreInputFilterSensitiveLog = (obj: CreatePolicyStoreInput): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreatePolicyTemplateInputFilterSensitiveLog = (obj: CreatePolicyTemplateInput): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.statement && { statement: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const EntityReferenceFilterSensitiveLog = (obj: EntityReference): any => {
+  if (obj.unspecified !== undefined) return { unspecified: obj.unspecified };
+  if (obj.identifier !== undefined) return { identifier: EntityIdentifierFilterSensitiveLog(obj.identifier) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const IdentitySourceDetailsFilterSensitiveLog = (obj: IdentitySourceDetails): any => ({
+  ...obj,
+  ...(obj.clientIds && { clientIds: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetIdentitySourceOutputFilterSensitiveLog = (obj: GetIdentitySourceOutput): any => ({
+  ...obj,
+  ...(obj.details && { details: IdentitySourceDetailsFilterSensitiveLog(obj.details) }),
+  ...(obj.principalEntityType && { principalEntityType: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StaticPolicyDefinitionDetailFilterSensitiveLog = (obj: StaticPolicyDefinitionDetail): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.statement && { statement: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TemplateLinkedPolicyDefinitionDetailFilterSensitiveLog = (
+  obj: TemplateLinkedPolicyDefinitionDetail
+): any => ({
+  ...obj,
+  ...(obj.principal && { principal: EntityIdentifierFilterSensitiveLog(obj.principal) }),
+  ...(obj.resource && { resource: EntityIdentifierFilterSensitiveLog(obj.resource) }),
+});
+
+/**
+ * @internal
+ */
+export const PolicyDefinitionDetailFilterSensitiveLog = (obj: PolicyDefinitionDetail): any => {
+  if (obj.static !== undefined) return { static: StaticPolicyDefinitionDetailFilterSensitiveLog(obj.static) };
+  if (obj.templateLinked !== undefined)
+    return { templateLinked: TemplateLinkedPolicyDefinitionDetailFilterSensitiveLog(obj.templateLinked) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const GetPolicyOutputFilterSensitiveLog = (obj: GetPolicyOutput): any => ({
+  ...obj,
+  ...(obj.principal && { principal: EntityIdentifierFilterSensitiveLog(obj.principal) }),
+  ...(obj.resource && { resource: EntityIdentifierFilterSensitiveLog(obj.resource) }),
+  ...(obj.definition && { definition: PolicyDefinitionDetailFilterSensitiveLog(obj.definition) }),
+});
+
+/**
+ * @internal
+ */
+export const GetPolicyStoreOutputFilterSensitiveLog = (obj: GetPolicyStoreOutput): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetPolicyTemplateOutputFilterSensitiveLog = (obj: GetPolicyTemplateOutput): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.statement && { statement: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetSchemaOutputFilterSensitiveLog = (obj: GetSchemaOutput): any => ({
+  ...obj,
+  ...(obj.schema && { schema: SENSITIVE_STRING }),
+  ...(obj.namespaces && { namespaces: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const IdentitySourceFilterFilterSensitiveLog = (obj: IdentitySourceFilter): any => ({
+  ...obj,
+  ...(obj.principalEntityType && { principalEntityType: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListIdentitySourcesInputFilterSensitiveLog = (obj: ListIdentitySourcesInput): any => ({
+  ...obj,
+  ...(obj.filters && { filters: obj.filters.map((item) => IdentitySourceFilterFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const IdentitySourceItemDetailsFilterSensitiveLog = (obj: IdentitySourceItemDetails): any => ({
+  ...obj,
+  ...(obj.clientIds && { clientIds: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const IdentitySourceItemFilterSensitiveLog = (obj: IdentitySourceItem): any => ({
+  ...obj,
+  ...(obj.details && { details: IdentitySourceItemDetailsFilterSensitiveLog(obj.details) }),
+  ...(obj.principalEntityType && { principalEntityType: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListIdentitySourcesOutputFilterSensitiveLog = (obj: ListIdentitySourcesOutput): any => ({
+  ...obj,
+  ...(obj.identitySources && {
+    identitySources: obj.identitySources.map((item) => IdentitySourceItemFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateCognitoUserPoolConfigurationFilterSensitiveLog = (obj: UpdateCognitoUserPoolConfiguration): any => ({
+  ...obj,
+  ...(obj.clientIds && { clientIds: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateConfigurationFilterSensitiveLog = (obj: UpdateConfiguration): any => {
+  if (obj.cognitoUserPoolConfiguration !== undefined)
+    return {
+      cognitoUserPoolConfiguration: UpdateCognitoUserPoolConfigurationFilterSensitiveLog(
+        obj.cognitoUserPoolConfiguration
+      ),
+    };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const UpdateIdentitySourceInputFilterSensitiveLog = (obj: UpdateIdentitySourceInput): any => ({
+  ...obj,
+  ...(obj.updateConfiguration && {
+    updateConfiguration: UpdateConfigurationFilterSensitiveLog(obj.updateConfiguration),
+  }),
+  ...(obj.principalEntityType && { principalEntityType: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const IsAuthorizedOutputFilterSensitiveLog = (obj: IsAuthorizedOutput): any => ({
+  ...obj,
+  ...(obj.errors && { errors: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const IsAuthorizedWithTokenOutputFilterSensitiveLog = (obj: IsAuthorizedWithTokenOutput): any => ({
+  ...obj,
+  ...(obj.errors && { errors: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PolicyFilterFilterSensitiveLog = (obj: PolicyFilter): any => ({
+  ...obj,
+  ...(obj.principal && { principal: EntityReferenceFilterSensitiveLog(obj.principal) }),
+  ...(obj.resource && { resource: EntityReferenceFilterSensitiveLog(obj.resource) }),
+});
+
+/**
+ * @internal
+ */
+export const ListPoliciesInputFilterSensitiveLog = (obj: ListPoliciesInput): any => ({
+  ...obj,
+  ...(obj.filter && { filter: PolicyFilterFilterSensitiveLog(obj.filter) }),
+});
+
+/**
+ * @internal
+ */
+export const StaticPolicyDefinitionItemFilterSensitiveLog = (obj: StaticPolicyDefinitionItem): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TemplateLinkedPolicyDefinitionItemFilterSensitiveLog = (obj: TemplateLinkedPolicyDefinitionItem): any => ({
+  ...obj,
+  ...(obj.principal && { principal: EntityIdentifierFilterSensitiveLog(obj.principal) }),
+  ...(obj.resource && { resource: EntityIdentifierFilterSensitiveLog(obj.resource) }),
+});
+
+/**
+ * @internal
+ */
+export const PolicyDefinitionItemFilterSensitiveLog = (obj: PolicyDefinitionItem): any => {
+  if (obj.static !== undefined) return { static: StaticPolicyDefinitionItemFilterSensitiveLog(obj.static) };
+  if (obj.templateLinked !== undefined)
+    return { templateLinked: TemplateLinkedPolicyDefinitionItemFilterSensitiveLog(obj.templateLinked) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const PolicyItemFilterSensitiveLog = (obj: PolicyItem): any => ({
+  ...obj,
+  ...(obj.principal && { principal: EntityIdentifierFilterSensitiveLog(obj.principal) }),
+  ...(obj.resource && { resource: EntityIdentifierFilterSensitiveLog(obj.resource) }),
+  ...(obj.definition && { definition: PolicyDefinitionItemFilterSensitiveLog(obj.definition) }),
+});
+
+/**
+ * @internal
+ */
+export const ListPoliciesOutputFilterSensitiveLog = (obj: ListPoliciesOutput): any => ({
+  ...obj,
+  ...(obj.policies && { policies: obj.policies.map((item) => PolicyItemFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const PolicyStoreItemFilterSensitiveLog = (obj: PolicyStoreItem): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListPolicyStoresOutputFilterSensitiveLog = (obj: ListPolicyStoresOutput): any => ({
+  ...obj,
+  ...(obj.policyStores && { policyStores: obj.policyStores.map((item) => PolicyStoreItemFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const PolicyTemplateItemFilterSensitiveLog = (obj: PolicyTemplateItem): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListPolicyTemplatesOutputFilterSensitiveLog = (obj: ListPolicyTemplatesOutput): any => ({
+  ...obj,
+  ...(obj.policyTemplates && {
+    policyTemplates: obj.policyTemplates.map((item) => PolicyTemplateItemFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateStaticPolicyDefinitionFilterSensitiveLog = (obj: UpdateStaticPolicyDefinition): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.statement && { statement: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdatePolicyDefinitionFilterSensitiveLog = (obj: UpdatePolicyDefinition): any => {
+  if (obj.static !== undefined) return { static: UpdateStaticPolicyDefinitionFilterSensitiveLog(obj.static) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const UpdatePolicyInputFilterSensitiveLog = (obj: UpdatePolicyInput): any => ({
+  ...obj,
+  ...(obj.definition && { definition: UpdatePolicyDefinitionFilterSensitiveLog(obj.definition) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdatePolicyOutputFilterSensitiveLog = (obj: UpdatePolicyOutput): any => ({
+  ...obj,
+  ...(obj.principal && { principal: EntityIdentifierFilterSensitiveLog(obj.principal) }),
+  ...(obj.resource && { resource: EntityIdentifierFilterSensitiveLog(obj.resource) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdatePolicyTemplateInputFilterSensitiveLog = (obj: UpdatePolicyTemplateInput): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.statement && { statement: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SchemaDefinitionFilterSensitiveLog = (obj: SchemaDefinition): any => {
+  if (obj.cedarJson !== undefined) return { cedarJson: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const PutSchemaInputFilterSensitiveLog = (obj: PutSchemaInput): any => ({
+  ...obj,
+  ...(obj.definition && { definition: SchemaDefinitionFilterSensitiveLog(obj.definition) }),
+});
+
+/**
+ * @internal
+ */
+export const PutSchemaOutputFilterSensitiveLog = (obj: PutSchemaOutput): any => ({
+  ...obj,
+  ...(obj.namespaces && { namespaces: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdatePolicyStoreInputFilterSensitiveLog = (obj: UpdatePolicyStoreInput): any => ({
+  ...obj,
+  ...(obj.description && { description: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AttributeValueFilterSensitiveLog = (obj: AttributeValue): any => {
+  if (obj.boolean !== undefined) return { boolean: SENSITIVE_STRING };
+  if (obj.entityIdentifier !== undefined)
+    return { entityIdentifier: EntityIdentifierFilterSensitiveLog(obj.entityIdentifier) };
+  if (obj.long !== undefined) return { long: SENSITIVE_STRING };
+  if (obj.string !== undefined) return { string: SENSITIVE_STRING };
+  if (obj.set !== undefined) return { set: obj.set.map((item) => AttributeValueFilterSensitiveLog(item)) };
+  if (obj.record !== undefined)
+    return {
+      record: Object.entries(obj.record).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => (
+          (acc[key] = AttributeValueFilterSensitiveLog(value)), acc
+        ),
+        {}
+      ),
+    };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ContextDefinitionFilterSensitiveLog = (obj: ContextDefinition): any => {
+  if (obj.contextMap !== undefined)
+    return {
+      contextMap: Object.entries(obj.contextMap).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => (
+          (acc[key] = AttributeValueFilterSensitiveLog(value)), acc
+        ),
+        {}
+      ),
+    };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const EntityItemFilterSensitiveLog = (obj: EntityItem): any => ({
+  ...obj,
+  ...(obj.identifier && { identifier: EntityIdentifierFilterSensitiveLog(obj.identifier) }),
+  ...(obj.attributes && {
+    attributes: Object.entries(obj.attributes).reduce(
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
+      {}
+    ),
+  }),
+  ...(obj.parents && { parents: obj.parents.map((item) => EntityIdentifierFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchIsAuthorizedInputItemFilterSensitiveLog = (obj: BatchIsAuthorizedInputItem): any => ({
+  ...obj,
+  ...(obj.principal && { principal: EntityIdentifierFilterSensitiveLog(obj.principal) }),
+  ...(obj.action && { action: ActionIdentifierFilterSensitiveLog(obj.action) }),
+  ...(obj.resource && { resource: EntityIdentifierFilterSensitiveLog(obj.resource) }),
+  ...(obj.context && { context: ContextDefinitionFilterSensitiveLog(obj.context) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchIsAuthorizedOutputItemFilterSensitiveLog = (obj: BatchIsAuthorizedOutputItem): any => ({
+  ...obj,
+  ...(obj.request && { request: BatchIsAuthorizedInputItemFilterSensitiveLog(obj.request) }),
+  ...(obj.errors && { errors: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const EntitiesDefinitionFilterSensitiveLog = (obj: EntitiesDefinition): any => {
+  if (obj.entityList !== undefined)
+    return { entityList: obj.entityList.map((item) => EntityItemFilterSensitiveLog(item)) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const BatchIsAuthorizedOutputFilterSensitiveLog = (obj: BatchIsAuthorizedOutput): any => ({
+  ...obj,
+  ...(obj.results && { results: obj.results.map((item) => BatchIsAuthorizedOutputItemFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const IsAuthorizedInputFilterSensitiveLog = (obj: IsAuthorizedInput): any => ({
+  ...obj,
+  ...(obj.principal && { principal: EntityIdentifierFilterSensitiveLog(obj.principal) }),
+  ...(obj.action && { action: ActionIdentifierFilterSensitiveLog(obj.action) }),
+  ...(obj.resource && { resource: EntityIdentifierFilterSensitiveLog(obj.resource) }),
+  ...(obj.context && { context: ContextDefinitionFilterSensitiveLog(obj.context) }),
+  ...(obj.entities && { entities: EntitiesDefinitionFilterSensitiveLog(obj.entities) }),
+});
+
+/**
+ * @internal
+ */
+export const IsAuthorizedWithTokenInputFilterSensitiveLog = (obj: IsAuthorizedWithTokenInput): any => ({
+  ...obj,
+  ...(obj.identityToken && { identityToken: SENSITIVE_STRING }),
+  ...(obj.accessToken && { accessToken: SENSITIVE_STRING }),
+  ...(obj.action && { action: ActionIdentifierFilterSensitiveLog(obj.action) }),
+  ...(obj.resource && { resource: EntityIdentifierFilterSensitiveLog(obj.resource) }),
+  ...(obj.context && { context: ContextDefinitionFilterSensitiveLog(obj.context) }),
+  ...(obj.entities && { entities: EntitiesDefinitionFilterSensitiveLog(obj.entities) }),
+});
+
+/**
+ * @internal
+ */
+export const BatchIsAuthorizedInputFilterSensitiveLog = (obj: BatchIsAuthorizedInput): any => ({
+  ...obj,
+  ...(obj.entities && { entities: EntitiesDefinitionFilterSensitiveLog(obj.entities) }),
+  ...(obj.requests && { requests: obj.requests.map((item) => BatchIsAuthorizedInputItemFilterSensitiveLog(item)) }),
+});

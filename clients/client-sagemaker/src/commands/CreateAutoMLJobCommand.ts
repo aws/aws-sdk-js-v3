@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateAutoMLJobRequest, CreateAutoMLJobResponse } from "../models/models_0";
 import { de_CreateAutoMLJobCommand, se_CreateAutoMLJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
@@ -41,10 +33,11 @@ export interface CreateAutoMLJobCommandOutput extends CreateAutoMLJobResponse, _
  *             <p>We recommend using the new versions <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html">CreateAutoMLJobV2</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html">DescribeAutoMLJobV2</a>, which offer backward compatibility.</p>
  *             <p>
  *                <code>CreateAutoMLJobV2</code> can manage tabular problem types identical to those of
- *             its previous version <code>CreateAutoMLJob</code>, as well as non-tabular problem types
- *             such as image or text classification.</p>
+ *             its previous version <code>CreateAutoMLJob</code>, as well as time-series forecasting,
+ *             non-tabular problem types such as image or text classification, and text generation
+ *             (LLMs fine-tuning).</p>
  *             <p>Find guidelines about how to migrate a <code>CreateAutoMLJob</code> to
- *                <code>CreateAutoMLJobV2</code> in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment-api.html#autopilot-create-experiment-api-migrate-v1-v2">Migrate a CreateAutoMLJob to CreateAutoMLJobV2</a>.</p>
+ *                <code>CreateAutoMLJobV2</code> in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-automate-model-development-create-experiment.html#autopilot-create-experiment-api-migrate-v1-v2">Migrate a CreateAutoMLJob to CreateAutoMLJobV2</a>.</p>
  *          </note>
  *          <p>You can find the best-performing model after you run an AutoML job by calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJobV2.html">DescribeAutoMLJobV2</a> (recommended) or <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeAutoMLJob.html">DescribeAutoMLJob</a>.</p>
  * @example
@@ -76,7 +69,7 @@ export interface CreateAutoMLJobCommandOutput extends CreateAutoMLJobResponse, _
  *   },
  *   ProblemType: "BinaryClassification" || "MulticlassClassification" || "Regression",
  *   AutoMLJobObjective: { // AutoMLJobObjective
- *     MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "MAE" || "R2" || "BalancedAccuracy" || "Precision" || "PrecisionMacro" || "Recall" || "RecallMacro" || "MAPE" || "MASE" || "WAPE" || "AverageWeightedQuantileLoss", // required
+ *     MetricName: "Accuracy" || "MSE" || "F1" || "F1macro" || "AUC" || "RMSE" || "BalancedAccuracy" || "R2" || "Recall" || "RecallMacro" || "Precision" || "PrecisionMacro" || "MAE" || "MAPE" || "MASE" || "WAPE" || "AverageWeightedQuantileLoss", // required
  *   },
  *   AutoMLJobConfig: { // AutoMLJobConfig
  *     CompletionCriteria: { // AutoMLJobCompletionCriteria
@@ -96,9 +89,6 @@ export interface CreateAutoMLJobCommandOutput extends CreateAutoMLJobResponse, _
  *         ],
  *       },
  *     },
- *     DataSplitConfig: { // AutoMLDataSplitConfig
- *       ValidationFraction: Number("float"),
- *     },
  *     CandidateGenerationConfig: { // AutoMLCandidateGenerationConfig
  *       FeatureSpecificationS3Uri: "STRING_VALUE",
  *       AlgorithmsConfig: [ // AutoMLAlgorithmsConfig
@@ -108,6 +98,9 @@ export interface CreateAutoMLJobCommandOutput extends CreateAutoMLJobResponse, _
  *           ],
  *         },
  *       ],
+ *     },
+ *     DataSplitConfig: { // AutoMLDataSplitConfig
+ *       ValidationFraction: Number("float"),
  *     },
  *     Mode: "AUTO" || "ENSEMBLING" || "HYPERPARAMETER_TUNING",
  *   },
@@ -149,79 +142,26 @@ export interface CreateAutoMLJobCommandOutput extends CreateAutoMLJobResponse, _
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
  */
-export class CreateAutoMLJobCommand extends $Command<
-  CreateAutoMLJobCommandInput,
-  CreateAutoMLJobCommandOutput,
-  SageMakerClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateAutoMLJobCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SageMakerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateAutoMLJobCommandInput, CreateAutoMLJobCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateAutoMLJobCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SageMakerClient";
-    const commandName = "CreateAutoMLJobCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateAutoMLJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateAutoMLJobCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateAutoMLJobCommandOutput> {
-    return de_CreateAutoMLJobCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateAutoMLJobCommand extends $Command
+  .classBuilder<
+    CreateAutoMLJobCommandInput,
+    CreateAutoMLJobCommandOutput,
+    SageMakerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("SageMaker", "CreateAutoMLJob", {})
+  .n("SageMakerClient", "CreateAutoMLJobCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateAutoMLJobCommand)
+  .de(de_CreateAutoMLJobCommand)
+  .build() {}

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { awsExpectUnion as __expectUnion } from "@aws-sdk/core";
 import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,
@@ -9,11 +10,13 @@ import {
   collectBody,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
+  expectByte as __expectByte,
   expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
+  expectShort as __expectShort,
   expectString as __expectString,
-  expectUnion as __expectUnion,
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
   parseEpochTimestamp as __parseEpochTimestamp,
@@ -22,6 +25,7 @@ import {
   withBaseException,
 } from "@smithy/smithy-client";
 import {
+  DocumentType as __DocumentType,
   Endpoint as __Endpoint,
   HeaderBag as __HeaderBag,
   ResponseMetadata as __ResponseMetadata,
@@ -47,6 +51,18 @@ import { JsonUnionsCommandInput, JsonUnionsCommandOutput } from "../commands/Jso
 import { NoInputAndNoOutputCommandInput, NoInputAndNoOutputCommandOutput } from "../commands/NoInputAndNoOutputCommand";
 import { NoInputAndOutputCommandInput, NoInputAndOutputCommandOutput } from "../commands/NoInputAndOutputCommand";
 import {
+  OperationWithDefaultsCommandInput,
+  OperationWithDefaultsCommandOutput,
+} from "../commands/OperationWithDefaultsCommand";
+import {
+  OperationWithNestedStructureCommandInput,
+  OperationWithNestedStructureCommandOutput,
+} from "../commands/OperationWithNestedStructureCommand";
+import {
+  OperationWithRequiredMembersCommandInput,
+  OperationWithRequiredMembersCommandOutput,
+} from "../commands/OperationWithRequiredMembersCommand";
+import {
   PutWithContentEncodingCommandInput,
   PutWithContentEncodingCommandOutput,
 } from "../commands/PutWithContentEncodingCommand";
@@ -58,8 +74,11 @@ import { JSONRPC10ServiceException as __BaseException } from "../models/JSONRPC1
 import {
   ComplexError,
   ComplexNestedErrorData,
+  Defaults,
+  Dialog,
   EmptyInputAndEmptyOutputInput,
   EndpointWithHostLabelOperationInput,
+  Farewell,
   FooError,
   GreetingStruct,
   GreetingWithErrorsInput,
@@ -67,9 +86,14 @@ import {
   JsonUnionsInput,
   JsonUnionsOutput,
   MyUnion,
+  OperationWithDefaultsInput,
+  OperationWithDefaultsOutput,
+  OperationWithNestedStructureInput,
+  OperationWithRequiredMembersOutput,
   PutWithContentEncodingInput,
   SimpleScalarPropertiesInput,
   SimpleScalarPropertiesOutput,
+  TopLevel,
 } from "../models/models_0";
 
 /**
@@ -186,6 +210,44 @@ export const se_NoInputAndOutputCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("NoInputAndOutput");
+  const body = "{}";
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0OperationWithDefaultsCommand
+ */
+export const se_OperationWithDefaultsCommand = async (
+  input: OperationWithDefaultsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("OperationWithDefaults");
+  let body: any;
+  body = JSON.stringify(se_OperationWithDefaultsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0OperationWithNestedStructureCommand
+ */
+export const se_OperationWithNestedStructureCommand = async (
+  input: OperationWithNestedStructureCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("OperationWithNestedStructure");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0OperationWithRequiredMembersCommand
+ */
+export const se_OperationWithRequiredMembersCommand = async (
+  input: OperationWithRequiredMembersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("OperationWithRequiredMembers");
   const body = "{}";
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -537,6 +599,126 @@ const de_NoInputAndOutputCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_0OperationWithDefaultsCommand
+ */
+export const de_OperationWithDefaultsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<OperationWithDefaultsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_OperationWithDefaultsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_OperationWithDefaultsOutput(data, context);
+  const response: OperationWithDefaultsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0OperationWithDefaultsCommandError
+ */
+const de_OperationWithDefaultsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<OperationWithDefaultsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_json1_0OperationWithNestedStructureCommand
+ */
+export const de_OperationWithNestedStructureCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<OperationWithNestedStructureCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_OperationWithNestedStructureCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: OperationWithNestedStructureCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0OperationWithNestedStructureCommandError
+ */
+const de_OperationWithNestedStructureCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<OperationWithNestedStructureCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
+ * deserializeAws_json1_0OperationWithRequiredMembersCommand
+ */
+export const de_OperationWithRequiredMembersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<OperationWithRequiredMembersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_OperationWithRequiredMembersCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_OperationWithRequiredMembersOutput(data, context);
+  const response: OperationWithRequiredMembersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0OperationWithRequiredMembersCommandError
+ */
+const de_OperationWithRequiredMembersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<OperationWithRequiredMembersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  return throwDefaultError({
+    output,
+    parsedBody,
+    errorCode,
+  });
+};
+
+/**
  * deserializeAws_json1_0PutWithContentEncodingCommand
  */
 export const de_PutWithContentEncodingCommand = async (
@@ -652,9 +834,44 @@ const de_InvalidGreetingRes = async (parsedOutput: any, context: __SerdeContext)
   return __decorateServiceException(exception, body);
 };
 
+/**
+ * serializeAws_json1_0Defaults
+ */
+const se_Defaults = (input: Defaults, context: __SerdeContext): any => {
+  return take(input, {
+    defaultBlob: context.base64Encoder,
+    defaultBoolean: [],
+    defaultByte: [],
+    defaultDocumentBoolean: (_) => se_Document(_, context),
+    defaultDocumentList: (_) => se_Document(_, context),
+    defaultDocumentMap: (_) => se_Document(_, context),
+    defaultDocumentString: (_) => se_Document(_, context),
+    defaultDouble: __serializeFloat,
+    defaultEnum: [],
+    defaultFloat: __serializeFloat,
+    defaultIntEnum: [],
+    defaultInteger: [],
+    defaultList: _json,
+    defaultLong: [],
+    defaultMap: _json,
+    defaultNullDocument: (_) => se_Document(_, context),
+    defaultShort: [],
+    defaultString: [],
+    defaultTimestamp: (_) => Math.round(_.getTime() / 1000),
+  });
+};
+
+// se_Dialog omitted.
+
+// se_DialogList omitted.
+
+// se_DialogMap omitted.
+
 // se_EmptyInputAndEmptyOutputInput omitted.
 
 // se_EndpointWithHostLabelOperationInput omitted.
+
+// se_Farewell omitted.
 
 // se_GreetingWithErrorsInput omitted.
 
@@ -686,6 +903,18 @@ const se_MyUnion = (input: MyUnion, context: __SerdeContext): any => {
   });
 };
 
+/**
+ * serializeAws_json1_0OperationWithDefaultsInput
+ */
+const se_OperationWithDefaultsInput = (input: OperationWithDefaultsInput, context: __SerdeContext): any => {
+  return take(input, {
+    defaults: (_) => se_Defaults(_, context),
+    topLevelDefault: [],
+  });
+};
+
+// se_OperationWithNestedStructureInput omitted.
+
 // se_PutWithContentEncodingInput omitted.
 
 /**
@@ -698,11 +927,24 @@ const se_SimpleScalarPropertiesInput = (input: SimpleScalarPropertiesInput, cont
   });
 };
 
+// se_TestStringList omitted.
+
+// se_TestStringMap omitted.
+
+// se_TopLevel omitted.
+
 // se_GreetingStruct omitted.
 
 // se_StringList omitted.
 
 // se_StringMap omitted.
+
+/**
+ * serializeAws_json1_0Document
+ */
+const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
+  return input;
+};
 
 /**
  * deserializeAws_json1_0ComplexError
@@ -723,7 +965,15 @@ const de_ComplexNestedErrorData = (output: any, context: __SerdeContext): Comple
   }) as any;
 };
 
+// de_Dialog omitted.
+
+// de_DialogList omitted.
+
+// de_DialogMap omitted.
+
 // de_EmptyInputAndEmptyOutputOutput omitted.
+
+// de_Farewell omitted.
 
 // de_FooError omitted.
 
@@ -790,6 +1040,62 @@ const de_MyUnion = (output: any, context: __SerdeContext): MyUnion => {
 // de_NoInputAndOutputOutput omitted.
 
 /**
+ * deserializeAws_json1_0OperationWithDefaultsOutput
+ */
+const de_OperationWithDefaultsOutput = (output: any, context: __SerdeContext): OperationWithDefaultsOutput => {
+  return take(output, {
+    defaultBlob: context.base64Decoder,
+    defaultBoolean: __expectBoolean,
+    defaultByte: __expectByte,
+    defaultDocumentBoolean: (_: any) => de_Document(_, context),
+    defaultDocumentList: (_: any) => de_Document(_, context),
+    defaultDocumentMap: (_: any) => de_Document(_, context),
+    defaultDocumentString: (_: any) => de_Document(_, context),
+    defaultDouble: __limitedParseDouble,
+    defaultEnum: __expectString,
+    defaultFloat: __limitedParseFloat32,
+    defaultIntEnum: __expectInt32,
+    defaultInteger: __expectInt32,
+    defaultList: _json,
+    defaultLong: __expectLong,
+    defaultMap: _json,
+    defaultNullDocument: (_: any) => de_Document(_, context),
+    defaultShort: __expectShort,
+    defaultString: __expectString,
+    defaultTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+// de_OperationWithNestedStructureOutput omitted.
+
+/**
+ * deserializeAws_json1_0OperationWithRequiredMembersOutput
+ */
+const de_OperationWithRequiredMembersOutput = (
+  output: any,
+  context: __SerdeContext
+): OperationWithRequiredMembersOutput => {
+  return take(output, {
+    requiredBlob: context.base64Decoder,
+    requiredBoolean: __expectBoolean,
+    requiredByte: __expectByte,
+    requiredDouble: __limitedParseDouble,
+    requiredFloat: __limitedParseFloat32,
+    requiredInteger: __expectInt32,
+    requiredList: _json,
+    requiredLong: __expectLong,
+    requiredMap: _json,
+    requiredShort: __expectShort,
+    requiredString: __expectString,
+    requiredTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+// de_RequiredStringList omitted.
+
+// de_RequiredStringMap omitted.
+
+/**
  * deserializeAws_json1_0SimpleScalarPropertiesOutput
  */
 const de_SimpleScalarPropertiesOutput = (output: any, context: __SerdeContext): SimpleScalarPropertiesOutput => {
@@ -799,11 +1105,22 @@ const de_SimpleScalarPropertiesOutput = (output: any, context: __SerdeContext): 
   }) as any;
 };
 
+// de_TestStringList omitted.
+
+// de_TestStringMap omitted.
+
 // de_GreetingStruct omitted.
 
 // de_StringList omitted.
 
 // de_StringMap omitted.
+
+/**
+ * deserializeAws_json1_0Document
+ */
+const de_Document = (output: any, context: __SerdeContext): __DocumentType => {
+  return output;
+};
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

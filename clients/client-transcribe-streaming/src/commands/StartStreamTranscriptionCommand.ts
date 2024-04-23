@@ -1,21 +1,12 @@
 // smithy-typescript generated code
 import { getEventStreamPlugin } from "@aws-sdk/middleware-eventstream";
 import { getWebSocketPlugin } from "@aws-sdk/middleware-websocket";
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  EventStreamSerdeContext as __EventStreamSerdeContext,
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   StartStreamTranscriptionRequest,
   StartStreamTranscriptionRequestFilterSensitiveLog,
@@ -54,7 +45,7 @@ export interface StartStreamTranscriptionCommandOutput extends StartStreamTransc
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>language-code</code> or <code>identify-language</code>
+ *                   <code>language-code</code> or <code>identify-language</code> or <code>identify-multiple-language</code>
  *                </p>
  *             </li>
  *             <li>
@@ -114,6 +105,7 @@ export interface StartStreamTranscriptionCommandOutput extends StartStreamTransc
  *   IdentifyLanguage: true || false,
  *   LanguageOptions: "STRING_VALUE",
  *   PreferredLanguage: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN" || "hi-IN" || "th-TH",
+ *   IdentifyMultipleLanguages: true || false,
  *   VocabularyNames: "STRING_VALUE",
  *   VocabularyFilterNames: "STRING_VALUE",
  * };
@@ -204,6 +196,7 @@ export interface StartStreamTranscriptionCommandOutput extends StartStreamTransc
  * //   IdentifyLanguage: true || false,
  * //   LanguageOptions: "STRING_VALUE",
  * //   PreferredLanguage: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN" || "hi-IN" || "th-TH",
+ * //   IdentifyMultipleLanguages: true || false,
  * //   VocabularyNames: "STRING_VALUE",
  * //   VocabularyFilterNames: "STRING_VALUE",
  * // };
@@ -240,87 +233,36 @@ export interface StartStreamTranscriptionCommandOutput extends StartStreamTransc
  * <p>Base exception class for all service exceptions from TranscribeStreaming service.</p>
  *
  */
-export class StartStreamTranscriptionCommand extends $Command<
-  StartStreamTranscriptionCommandInput,
-  StartStreamTranscriptionCommandOutput,
-  TranscribeStreamingClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StartStreamTranscriptionCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: TranscribeStreamingClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StartStreamTranscriptionCommandInput, StartStreamTranscriptionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartStreamTranscriptionCommand.getEndpointParameterInstructions())
-    );
-    this.middlewareStack.use(getEventStreamPlugin(configuration));
-    this.middlewareStack.use(getWebSocketPlugin(configuration, { headerPrefix: "x-amzn-transcribe-" }));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "TranscribeStreamingClient";
-    const commandName = "StartStreamTranscriptionCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: StartStreamTranscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartStreamTranscriptionResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: StartStreamTranscriptionCommandInput,
-    context: __SerdeContext & __EventStreamSerdeContext
-  ): Promise<__HttpRequest> {
-    return se_StartStreamTranscriptionCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext & __EventStreamSerdeContext
-  ): Promise<StartStreamTranscriptionCommandOutput> {
-    return de_StartStreamTranscriptionCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class StartStreamTranscriptionCommand extends $Command
+  .classBuilder<
+    StartStreamTranscriptionCommandInput,
+    StartStreamTranscriptionCommandOutput,
+    TranscribeStreamingClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: TranscribeStreamingClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getEventStreamPlugin(config),
+      getWebSocketPlugin(config, { headerPrefix: "x-amzn-transcribe-" }),
+    ];
+  })
+  .s("Transcribe", "StartStreamTranscription", {
+    /**
+     * @internal
+     */
+    eventStream: {
+      input: true,
+      output: true,
+    },
+  })
+  .n("TranscribeStreamingClient", "StartStreamTranscriptionCommand")
+  .f(StartStreamTranscriptionRequestFilterSensitiveLog, StartStreamTranscriptionResponseFilterSensitiveLog)
+  .ser(se_StartStreamTranscriptionCommand)
+  .de(de_StartStreamTranscriptionCommand)
+  .build() {}

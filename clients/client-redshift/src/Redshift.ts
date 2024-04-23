@@ -109,6 +109,11 @@ import {
   CreateHsmConfigurationCommandOutput,
 } from "./commands/CreateHsmConfigurationCommand";
 import {
+  CreateRedshiftIdcApplicationCommand,
+  CreateRedshiftIdcApplicationCommandInput,
+  CreateRedshiftIdcApplicationCommandOutput,
+} from "./commands/CreateRedshiftIdcApplicationCommand";
+import {
   CreateScheduledActionCommand,
   CreateScheduledActionCommandInput,
   CreateScheduledActionCommandOutput,
@@ -194,6 +199,16 @@ import {
   DeletePartnerCommandInput,
   DeletePartnerCommandOutput,
 } from "./commands/DeletePartnerCommand";
+import {
+  DeleteRedshiftIdcApplicationCommand,
+  DeleteRedshiftIdcApplicationCommandInput,
+  DeleteRedshiftIdcApplicationCommandOutput,
+} from "./commands/DeleteRedshiftIdcApplicationCommand";
+import {
+  DeleteResourcePolicyCommand,
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
 import {
   DeleteScheduledActionCommand,
   DeleteScheduledActionCommandInput,
@@ -331,6 +346,11 @@ import {
   DescribeHsmConfigurationsCommandOutput,
 } from "./commands/DescribeHsmConfigurationsCommand";
 import {
+  DescribeInboundIntegrationsCommand,
+  DescribeInboundIntegrationsCommandInput,
+  DescribeInboundIntegrationsCommandOutput,
+} from "./commands/DescribeInboundIntegrationsCommand";
+import {
   DescribeLoggingStatusCommand,
   DescribeLoggingStatusCommandInput,
   DescribeLoggingStatusCommandOutput,
@@ -350,6 +370,11 @@ import {
   DescribePartnersCommandInput,
   DescribePartnersCommandOutput,
 } from "./commands/DescribePartnersCommand";
+import {
+  DescribeRedshiftIdcApplicationsCommand,
+  DescribeRedshiftIdcApplicationsCommandInput,
+  DescribeRedshiftIdcApplicationsCommandOutput,
+} from "./commands/DescribeRedshiftIdcApplicationsCommand";
 import {
   DescribeReservedNodeExchangeStatusCommand,
   DescribeReservedNodeExchangeStatusCommandInput,
@@ -431,6 +456,11 @@ import {
   EnableSnapshotCopyCommandOutput,
 } from "./commands/EnableSnapshotCopyCommand";
 import {
+  FailoverPrimaryComputeCommand,
+  FailoverPrimaryComputeCommandInput,
+  FailoverPrimaryComputeCommandOutput,
+} from "./commands/FailoverPrimaryComputeCommand";
+import {
   GetClusterCredentialsCommand,
   GetClusterCredentialsCommandInput,
   GetClusterCredentialsCommandOutput,
@@ -450,6 +480,11 @@ import {
   GetReservedNodeExchangeOfferingsCommandInput,
   GetReservedNodeExchangeOfferingsCommandOutput,
 } from "./commands/GetReservedNodeExchangeOfferingsCommand";
+import {
+  GetResourcePolicyCommand,
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
 import {
   ModifyAquaConfigurationCommand,
   ModifyAquaConfigurationCommandInput,
@@ -516,6 +551,11 @@ import {
   ModifyEventSubscriptionCommandOutput,
 } from "./commands/ModifyEventSubscriptionCommand";
 import {
+  ModifyRedshiftIdcApplicationCommand,
+  ModifyRedshiftIdcApplicationCommandInput,
+  ModifyRedshiftIdcApplicationCommandOutput,
+} from "./commands/ModifyRedshiftIdcApplicationCommand";
+import {
   ModifyScheduledActionCommand,
   ModifyScheduledActionCommandInput,
   ModifyScheduledActionCommandOutput,
@@ -545,6 +585,11 @@ import {
   PurchaseReservedNodeOfferingCommandInput,
   PurchaseReservedNodeOfferingCommandOutput,
 } from "./commands/PurchaseReservedNodeOfferingCommand";
+import {
+  PutResourcePolicyCommand,
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
 import {
   RebootClusterCommand,
   RebootClusterCommandInput,
@@ -630,6 +675,7 @@ const commands = {
   CreateEventSubscriptionCommand,
   CreateHsmClientCertificateCommand,
   CreateHsmConfigurationCommand,
+  CreateRedshiftIdcApplicationCommand,
   CreateScheduledActionCommand,
   CreateSnapshotCopyGrantCommand,
   CreateSnapshotScheduleCommand,
@@ -648,6 +694,8 @@ const commands = {
   DeleteHsmClientCertificateCommand,
   DeleteHsmConfigurationCommand,
   DeletePartnerCommand,
+  DeleteRedshiftIdcApplicationCommand,
+  DeleteResourcePolicyCommand,
   DeleteScheduledActionCommand,
   DeleteSnapshotCopyGrantCommand,
   DeleteSnapshotScheduleCommand,
@@ -676,10 +724,12 @@ const commands = {
   DescribeEventSubscriptionsCommand,
   DescribeHsmClientCertificatesCommand,
   DescribeHsmConfigurationsCommand,
+  DescribeInboundIntegrationsCommand,
   DescribeLoggingStatusCommand,
   DescribeNodeConfigurationOptionsCommand,
   DescribeOrderableClusterOptionsCommand,
   DescribePartnersCommand,
+  DescribeRedshiftIdcApplicationsCommand,
   DescribeReservedNodeExchangeStatusCommand,
   DescribeReservedNodeOfferingsCommand,
   DescribeReservedNodesCommand,
@@ -696,10 +746,12 @@ const commands = {
   DisassociateDataShareConsumerCommand,
   EnableLoggingCommand,
   EnableSnapshotCopyCommand,
+  FailoverPrimaryComputeCommand,
   GetClusterCredentialsCommand,
   GetClusterCredentialsWithIAMCommand,
   GetReservedNodeExchangeConfigurationOptionsCommand,
   GetReservedNodeExchangeOfferingsCommand,
+  GetResourcePolicyCommand,
   ModifyAquaConfigurationCommand,
   ModifyAuthenticationProfileCommand,
   ModifyClusterCommand,
@@ -713,12 +765,14 @@ const commands = {
   ModifyCustomDomainAssociationCommand,
   ModifyEndpointAccessCommand,
   ModifyEventSubscriptionCommand,
+  ModifyRedshiftIdcApplicationCommand,
   ModifyScheduledActionCommand,
   ModifySnapshotCopyRetentionPeriodCommand,
   ModifySnapshotScheduleCommand,
   ModifyUsageLimitCommand,
   PauseClusterCommand,
   PurchaseReservedNodeOfferingCommand,
+  PutResourcePolicyCommand,
   RebootClusterCommand,
   RejectDataShareCommand,
   ResetClusterParameterGroupCommand,
@@ -1091,6 +1145,23 @@ export interface Redshift {
   ): void;
 
   /**
+   * @see {@link CreateRedshiftIdcApplicationCommand}
+   */
+  createRedshiftIdcApplication(
+    args: CreateRedshiftIdcApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRedshiftIdcApplicationCommandOutput>;
+  createRedshiftIdcApplication(
+    args: CreateRedshiftIdcApplicationCommandInput,
+    cb: (err: any, data?: CreateRedshiftIdcApplicationCommandOutput) => void
+  ): void;
+  createRedshiftIdcApplication(
+    args: CreateRedshiftIdcApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRedshiftIdcApplicationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateScheduledActionCommand}
    */
   createScheduledAction(
@@ -1376,6 +1447,40 @@ export interface Redshift {
     args: DeletePartnerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeletePartnerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRedshiftIdcApplicationCommand}
+   */
+  deleteRedshiftIdcApplication(
+    args: DeleteRedshiftIdcApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRedshiftIdcApplicationCommandOutput>;
+  deleteRedshiftIdcApplication(
+    args: DeleteRedshiftIdcApplicationCommandInput,
+    cb: (err: any, data?: DeleteRedshiftIdcApplicationCommandOutput) => void
+  ): void;
+  deleteRedshiftIdcApplication(
+    args: DeleteRedshiftIdcApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRedshiftIdcApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteResourcePolicyCommand}
+   */
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyCommandOutput>;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
   ): void;
 
   /**
@@ -1846,6 +1951,23 @@ export interface Redshift {
   ): void;
 
   /**
+   * @see {@link DescribeInboundIntegrationsCommand}
+   */
+  describeInboundIntegrations(
+    args: DescribeInboundIntegrationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeInboundIntegrationsCommandOutput>;
+  describeInboundIntegrations(
+    args: DescribeInboundIntegrationsCommandInput,
+    cb: (err: any, data?: DescribeInboundIntegrationsCommandOutput) => void
+  ): void;
+  describeInboundIntegrations(
+    args: DescribeInboundIntegrationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeInboundIntegrationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeLoggingStatusCommand}
    */
   describeLoggingStatus(
@@ -1911,6 +2033,23 @@ export interface Redshift {
     args: DescribePartnersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribePartnersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeRedshiftIdcApplicationsCommand}
+   */
+  describeRedshiftIdcApplications(
+    args: DescribeRedshiftIdcApplicationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRedshiftIdcApplicationsCommandOutput>;
+  describeRedshiftIdcApplications(
+    args: DescribeRedshiftIdcApplicationsCommandInput,
+    cb: (err: any, data?: DescribeRedshiftIdcApplicationsCommandOutput) => void
+  ): void;
+  describeRedshiftIdcApplications(
+    args: DescribeRedshiftIdcApplicationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRedshiftIdcApplicationsCommandOutput) => void
   ): void;
 
   /**
@@ -2165,6 +2304,23 @@ export interface Redshift {
   ): void;
 
   /**
+   * @see {@link FailoverPrimaryComputeCommand}
+   */
+  failoverPrimaryCompute(
+    args: FailoverPrimaryComputeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<FailoverPrimaryComputeCommandOutput>;
+  failoverPrimaryCompute(
+    args: FailoverPrimaryComputeCommandInput,
+    cb: (err: any, data?: FailoverPrimaryComputeCommandOutput) => void
+  ): void;
+  failoverPrimaryCompute(
+    args: FailoverPrimaryComputeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: FailoverPrimaryComputeCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetClusterCredentialsCommand}
    */
   getClusterCredentials(
@@ -2230,6 +2386,23 @@ export interface Redshift {
     args: GetReservedNodeExchangeOfferingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetReservedNodeExchangeOfferingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResourcePolicyCommand}
+   */
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePolicyCommandOutput>;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): void;
 
   /**
@@ -2448,6 +2621,23 @@ export interface Redshift {
   ): void;
 
   /**
+   * @see {@link ModifyRedshiftIdcApplicationCommand}
+   */
+  modifyRedshiftIdcApplication(
+    args: ModifyRedshiftIdcApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyRedshiftIdcApplicationCommandOutput>;
+  modifyRedshiftIdcApplication(
+    args: ModifyRedshiftIdcApplicationCommandInput,
+    cb: (err: any, data?: ModifyRedshiftIdcApplicationCommandOutput) => void
+  ): void;
+  modifyRedshiftIdcApplication(
+    args: ModifyRedshiftIdcApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyRedshiftIdcApplicationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ModifyScheduledActionCommand}
    */
   modifyScheduledAction(
@@ -2541,6 +2731,23 @@ export interface Redshift {
     args: PurchaseReservedNodeOfferingCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PurchaseReservedNodeOfferingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutResourcePolicyCommand}
+   */
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourcePolicyCommandOutput>;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
   /**

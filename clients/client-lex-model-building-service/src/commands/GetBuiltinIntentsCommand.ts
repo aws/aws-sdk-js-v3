@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   LexModelBuildingServiceClientResolvedConfig,
   ServiceInputTypes,
@@ -51,7 +43,7 @@ export interface GetBuiltinIntentsCommandOutput extends GetBuiltinIntentsRespons
  * // const { LexModelBuildingServiceClient, GetBuiltinIntentsCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
  * const input = { // GetBuiltinIntentsRequest
- *   locale: "STRING_VALUE",
+ *   locale: "de-DE" || "en-AU" || "en-GB" || "en-IN" || "en-US" || "es-419" || "es-ES" || "es-US" || "fr-FR" || "fr-CA" || "it-IT" || "ja-JP" || "ko-KR",
  *   signatureContains: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
@@ -63,7 +55,7 @@ export interface GetBuiltinIntentsCommandOutput extends GetBuiltinIntentsRespons
  * //     { // BuiltinIntentMetadata
  * //       signature: "STRING_VALUE",
  * //       supportedLocales: [ // LocaleList
- * //         "STRING_VALUE",
+ * //         "de-DE" || "en-AU" || "en-GB" || "en-IN" || "en-US" || "es-419" || "es-ES" || "es-US" || "fr-FR" || "fr-CA" || "it-IT" || "ja-JP" || "ko-KR",
  * //       ],
  * //     },
  * //   ],
@@ -93,79 +85,26 @@ export interface GetBuiltinIntentsCommandOutput extends GetBuiltinIntentsRespons
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
-export class GetBuiltinIntentsCommand extends $Command<
-  GetBuiltinIntentsCommandInput,
-  GetBuiltinIntentsCommandOutput,
-  LexModelBuildingServiceClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetBuiltinIntentsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: LexModelBuildingServiceClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetBuiltinIntentsCommandInput, GetBuiltinIntentsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetBuiltinIntentsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "LexModelBuildingServiceClient";
-    const commandName = "GetBuiltinIntentsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetBuiltinIntentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetBuiltinIntentsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBuiltinIntentsCommandOutput> {
-    return de_GetBuiltinIntentsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetBuiltinIntentsCommand extends $Command
+  .classBuilder<
+    GetBuiltinIntentsCommandInput,
+    GetBuiltinIntentsCommandOutput,
+    LexModelBuildingServiceClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSDeepSenseModelBuildingService", "GetBuiltinIntents", {})
+  .n("LexModelBuildingServiceClient", "GetBuiltinIntentsCommand")
+  .f(void 0, void 0)
+  .ser(se_GetBuiltinIntentsCommand)
+  .de(de_GetBuiltinIntentsCommand)
+  .build() {}

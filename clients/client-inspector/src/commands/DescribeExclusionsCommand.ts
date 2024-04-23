@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient";
 import { DescribeExclusionsRequest, DescribeExclusionsResponse } from "../models/models_0";
 import { de_DescribeExclusionsCommand, se_DescribeExclusionsCommand } from "../protocols/Aws_json1_1";
@@ -47,7 +39,7 @@ export interface DescribeExclusionsCommandOutput extends DescribeExclusionsRespo
  *   exclusionArns: [ // BatchDescribeExclusionsArnList // required
  *     "STRING_VALUE",
  *   ],
- *   locale: "STRING_VALUE",
+ *   locale: "EN_US",
  * };
  * const command = new DescribeExclusionsCommand(input);
  * const response = await client.send(command);
@@ -60,7 +52,7 @@ export interface DescribeExclusionsCommandOutput extends DescribeExclusionsRespo
  * //       recommendation: "STRING_VALUE", // required
  * //       scopes: [ // ScopeList // required
  * //         { // Scope
- * //           key: "STRING_VALUE",
+ * //           key: "INSTANCE_ID" || "RULES_PACKAGE_ARN",
  * //           value: "STRING_VALUE",
  * //         },
  * //       ],
@@ -74,7 +66,7 @@ export interface DescribeExclusionsCommandOutput extends DescribeExclusionsRespo
  * //   },
  * //   failedItems: { // FailedItems // required
  * //     "<keys>": { // FailedItemDetails
- * //       failureCode: "STRING_VALUE", // required
+ * //       failureCode: "INVALID_ARN" || "DUPLICATE_ARN" || "ITEM_DOES_NOT_EXIST" || "ACCESS_DENIED" || "LIMIT_EXCEEDED" || "INTERNAL_ERROR", // required
  * //       retryable: true || false, // required
  * //     },
  * //   },
@@ -99,79 +91,26 @@ export interface DescribeExclusionsCommandOutput extends DescribeExclusionsRespo
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
  */
-export class DescribeExclusionsCommand extends $Command<
-  DescribeExclusionsCommandInput,
-  DescribeExclusionsCommandOutput,
-  InspectorClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeExclusionsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: InspectorClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeExclusionsCommandInput, DescribeExclusionsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeExclusionsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "InspectorClient";
-    const commandName = "DescribeExclusionsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeExclusionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeExclusionsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeExclusionsCommandOutput> {
-    return de_DescribeExclusionsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeExclusionsCommand extends $Command
+  .classBuilder<
+    DescribeExclusionsCommandInput,
+    DescribeExclusionsCommandOutput,
+    InspectorClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("InspectorService", "DescribeExclusions", {})
+  .n("InspectorClient", "DescribeExclusionsCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeExclusionsCommand)
+  .de(de_DescribeExclusionsCommand)
+  .build() {}

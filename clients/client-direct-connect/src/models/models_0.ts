@@ -75,7 +75,7 @@ export interface AssociatedGateway {
    * @public
    * <p>The type of associated gateway.</p>
    */
-  type?: GatewayType | string;
+  type?: GatewayType;
 
   /**
    * @public
@@ -152,7 +152,7 @@ export interface DirectConnectGatewayAssociation {
    *             </li>
    *          </ul>
    */
-  associationState?: DirectConnectGatewayAssociationState | string;
+  associationState?: DirectConnectGatewayAssociationState;
 
   /**
    * @public
@@ -489,7 +489,7 @@ export interface Connection {
    *             </li>
    *          </ul>
    */
-  connectionState?: ConnectionState | string;
+  connectionState?: ConnectionState;
 
   /**
    * @public
@@ -564,7 +564,7 @@ export interface Connection {
    * @public
    * <p>Indicates whether the connection supports a secondary BGP peer in the same address family (IPv4/IPv6).</p>
    */
-  hasLogicalRedundancy?: HasLogicalRedundancy | string;
+  hasLogicalRedundancy?: HasLogicalRedundancy;
 
   /**
    * @public
@@ -732,7 +732,7 @@ export interface NewPrivateVirtualInterfaceAllocation {
    * @public
    * <p>The address family for the BGP peer.</p>
    */
-  addressFamily?: AddressFamily | string;
+  addressFamily?: AddressFamily;
 
   /**
    * @public
@@ -829,7 +829,7 @@ export interface BGPPeer {
    * @public
    * <p>The address family for the BGP peer.</p>
    */
-  addressFamily?: AddressFamily | string;
+  addressFamily?: AddressFamily;
 
   /**
    * @public
@@ -869,7 +869,7 @@ export interface BGPPeer {
    *             </li>
    *          </ul>
    */
-  bgpPeerState?: BGPPeerState | string;
+  bgpPeerState?: BGPPeerState;
 
   /**
    * @public
@@ -890,7 +890,7 @@ export interface BGPPeer {
    *             </li>
    *          </ul>
    */
-  bgpStatus?: BGPStatus | string;
+  bgpStatus?: BGPStatus;
 
   /**
    * @public
@@ -1009,7 +1009,7 @@ export interface VirtualInterface {
    * @public
    * <p>The address family for the BGP peer.</p>
    */
-  addressFamily?: AddressFamily | string;
+  addressFamily?: AddressFamily;
 
   /**
    * @public
@@ -1053,7 +1053,7 @@ export interface VirtualInterface {
    *             </li>
    *          </ul>
    */
-  virtualInterfaceState?: VirtualInterfaceState | string;
+  virtualInterfaceState?: VirtualInterfaceState;
 
   /**
    * @public
@@ -1175,7 +1175,7 @@ export interface NewPublicVirtualInterfaceAllocation {
    * @public
    * <p>The address family for the BGP peer.</p>
    */
-  addressFamily?: AddressFamily | string;
+  addressFamily?: AddressFamily;
 
   /**
    * @public
@@ -1265,7 +1265,7 @@ export interface NewTransitVirtualInterfaceAllocation {
    * @public
    * <p>The address family for the BGP peer.</p>
    */
-  addressFamily?: AddressFamily | string;
+  addressFamily?: AddressFamily;
 
   /**
    * @public
@@ -1471,7 +1471,7 @@ export interface ConfirmConnectionResponse {
    *             </li>
    *          </ul>
    */
-  connectionState?: ConnectionState | string;
+  connectionState?: ConnectionState;
 }
 
 /**
@@ -1571,7 +1571,7 @@ export interface ConfirmPrivateVirtualInterfaceResponse {
    *             </li>
    *          </ul>
    */
-  virtualInterfaceState?: VirtualInterfaceState | string;
+  virtualInterfaceState?: VirtualInterfaceState;
 }
 
 /**
@@ -1631,7 +1631,7 @@ export interface ConfirmPublicVirtualInterfaceResponse {
    *             </li>
    *          </ul>
    */
-  virtualInterfaceState?: VirtualInterfaceState | string;
+  virtualInterfaceState?: VirtualInterfaceState;
 }
 
 /**
@@ -1697,7 +1697,7 @@ export interface ConfirmTransitVirtualInterfaceResponse {
    *             </li>
    *          </ul>
    */
-  virtualInterfaceState?: VirtualInterfaceState | string;
+  virtualInterfaceState?: VirtualInterfaceState;
 }
 
 /**
@@ -1732,7 +1732,7 @@ export interface NewBGPPeer {
    * @public
    * <p>The address family for the BGP peer.</p>
    */
-  addressFamily?: AddressFamily | string;
+  addressFamily?: AddressFamily;
 
   /**
    * @public
@@ -1909,7 +1909,7 @@ export interface DirectConnectGateway {
    *             </li>
    *          </ul>
    */
-  directConnectGatewayState?: DirectConnectGatewayState | string;
+  directConnectGatewayState?: DirectConnectGatewayState;
 
   /**
    * @public
@@ -2063,7 +2063,7 @@ export interface DirectConnectGatewayAssociationProposal {
    *             </li>
    *          </ul>
    */
-  proposalState?: DirectConnectGatewayAssociationProposalState | string;
+  proposalState?: DirectConnectGatewayAssociationProposalState;
 
   /**
    * @public
@@ -2207,7 +2207,7 @@ export interface Interconnect {
    *             </li>
    *          </ul>
    */
-  interconnectState?: InterconnectState | string;
+  interconnectState?: InterconnectState;
 
   /**
    * @public
@@ -2270,7 +2270,7 @@ export interface Interconnect {
    * @public
    * <p>Indicates whether the interconnect supports a secondary BGP in the same address family (IPv4/IPv6).</p>
    */
-  hasLogicalRedundancy?: HasLogicalRedundancy | string;
+  hasLogicalRedundancy?: HasLogicalRedundancy;
 
   /**
    * @public
@@ -2439,7 +2439,7 @@ export interface Lag {
    *             </li>
    *          </ul>
    */
-  lagState?: LagState | string;
+  lagState?: LagState;
 
   /**
    * @public
@@ -2502,7 +2502,7 @@ export interface Lag {
    * @public
    * <p>Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).</p>
    */
-  hasLogicalRedundancy?: HasLogicalRedundancy | string;
+  hasLogicalRedundancy?: HasLogicalRedundancy;
 
   /**
    * @public
@@ -2588,7 +2588,7 @@ export interface NewPrivateVirtualInterface {
    * @public
    * <p>The address family for the BGP peer.</p>
    */
-  addressFamily?: AddressFamily | string;
+  addressFamily?: AddressFamily;
 
   /**
    * @public
@@ -2678,7 +2678,7 @@ export interface NewPublicVirtualInterface {
    * @public
    * <p>The address family for the BGP peer.</p>
    */
-  addressFamily?: AddressFamily | string;
+  addressFamily?: AddressFamily;
 
   /**
    * @public
@@ -2762,7 +2762,7 @@ export interface NewTransitVirtualInterface {
    * @public
    * <p>The address family for the BGP peer.</p>
    */
-  addressFamily?: AddressFamily | string;
+  addressFamily?: AddressFamily;
 
   /**
    * @public
@@ -2990,7 +2990,7 @@ export interface DeleteInterconnectResponse {
    *             </li>
    *          </ul>
    */
-  interconnectState?: InterconnectState | string;
+  interconnectState?: InterconnectState;
 }
 
 /**
@@ -3061,7 +3061,7 @@ export interface DeleteVirtualInterfaceResponse {
    *             </li>
    *          </ul>
    */
-  virtualInterfaceState?: VirtualInterfaceState | string;
+  virtualInterfaceState?: VirtualInterfaceState;
 }
 
 /**
@@ -3098,7 +3098,7 @@ export interface DescribeConnectionLoaRequest {
    * @public
    * <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
    */
-  loaContentType?: LoaContentType | string;
+  loaContentType?: LoaContentType;
 }
 
 /**
@@ -3116,7 +3116,7 @@ export interface Loa {
    * @public
    * <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
    */
-  loaContentType?: LoaContentType | string;
+  loaContentType?: LoaContentType;
 }
 
 /**
@@ -3192,7 +3192,7 @@ export interface DescribeCustomerMetadataResponse {
    *             </li>
    *          </ul>
    */
-  nniPartnerType?: NniPartnerType | string;
+  nniPartnerType?: NniPartnerType;
 }
 
 /**
@@ -3426,13 +3426,13 @@ export interface DirectConnectGatewayAttachment {
    *             </li>
    *          </ul>
    */
-  attachmentState?: DirectConnectGatewayAttachmentState | string;
+  attachmentState?: DirectConnectGatewayAttachmentState;
 
   /**
    * @public
    * <p>The type of attachment.</p>
    */
-  attachmentType?: DirectConnectGatewayAttachmentType | string;
+  attachmentType?: DirectConnectGatewayAttachmentType;
 
   /**
    * @public
@@ -3532,7 +3532,7 @@ export interface DescribeInterconnectLoaRequest {
    * @public
    * <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
    */
-  loaContentType?: LoaContentType | string;
+  loaContentType?: LoaContentType;
 }
 
 /**
@@ -3611,7 +3611,7 @@ export interface DescribeLoaRequest {
    * @public
    * <p>The standard media type for the LOA-CFA document. The only supported value is application/pdf.</p>
    */
-  loaContentType?: LoaContentType | string;
+  loaContentType?: LoaContentType;
 }
 
 /**

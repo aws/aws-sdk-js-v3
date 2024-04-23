@@ -3,11 +3,11 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import {
   AnalysisDefaults,
+  AssetOptions,
   AxisBinding,
   AxisDisplayOptions,
-  BarChartVisual,
+  BarChartConfiguration,
   BarsArrangement,
-  BoxPlotOptions,
   CalculatedField,
   CalculatedFieldFilterSensitiveLog,
   ChartAxisLabelOptions,
@@ -60,9 +60,159 @@ import {
   VisualPalette,
   VisualPaletteFilterSensitiveLog,
   VisualSubtitleLabelOptions,
-  VisualTitleLabelOptions,
   WidgetStatus,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>The text format for the title.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ */
+export interface ShortFormatText {
+  /**
+   * @public
+   * <p>Plain text format.</p>
+   */
+  PlainText?: string;
+
+  /**
+   * @public
+   * <p>Rich text. Examples of rich text include bold, underline, and italics.</p>
+   */
+  RichText?: string;
+}
+
+/**
+ * @public
+ * <p>The title label options for a visual.</p>
+ */
+export interface VisualTitleLabelOptions {
+  /**
+   * @public
+   * <p>The visibility of the title label.</p>
+   */
+  Visibility?: Visibility;
+
+  /**
+   * @public
+   * <p>The short text format of the title label, such as plain text or rich text.</p>
+   */
+  FormatText?: ShortFormatText;
+}
+
+/**
+ * @public
+ * <p>A bar chart.</p>
+ *          <p>The <code>BarChartVisual</code> structure describes a visual that is a member of the bar chart family. The following charts can be described using this structure:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Horizontal bar chart</p>
+ *             </li>
+ *             <li>
+ *                <p>Vertical bar chart</p>
+ *             </li>
+ *             <li>
+ *                <p>Horizontal stacked bar chart</p>
+ *             </li>
+ *             <li>
+ *                <p>Vertical stacked bar chart</p>
+ *             </li>
+ *             <li>
+ *                <p>Horizontal stacked 100% bar chart</p>
+ *             </li>
+ *             <li>
+ *                <p>Vertical stacked 100% bar chart</p>
+ *             </li>
+ *          </ul>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/bar-charts.html">Using bar charts</a> in the <i>Amazon QuickSight User Guide</i>.</p>
+ */
+export interface BarChartVisual {
+  /**
+   * @public
+   * <p>The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.</p>
+   */
+  VisualId: string | undefined;
+
+  /**
+   * @public
+   * <p>The title that is displayed on the visual.</p>
+   */
+  Title?: VisualTitleLabelOptions;
+
+  /**
+   * @public
+   * <p>The subtitle that is displayed on the visual.</p>
+   */
+  Subtitle?: VisualSubtitleLabelOptions;
+
+  /**
+   * @public
+   * <p>The configuration settings of the visual.</p>
+   */
+  ChartConfiguration?: BarChartConfiguration;
+
+  /**
+   * @public
+   * <p>The list of custom actions that are configured for a visual.</p>
+   */
+  Actions?: VisualCustomAction[];
+
+  /**
+   * @public
+   * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
+   */
+  ColumnHierarchies?: ColumnHierarchy[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const BoxPlotFillStyle = {
+  SOLID: "SOLID",
+  TRANSPARENT: "TRANSPARENT",
+} as const;
+
+/**
+ * @public
+ */
+export type BoxPlotFillStyle = (typeof BoxPlotFillStyle)[keyof typeof BoxPlotFillStyle];
+
+/**
+ * @public
+ * <p>The style options of the box plot.</p>
+ */
+export interface BoxPlotStyleOptions {
+  /**
+   * @public
+   * <p>The fill styles (solid, transparent) of the box plot.</p>
+   */
+  FillStyle?: BoxPlotFillStyle;
+}
+
+/**
+ * @public
+ * <p>The options of a box plot visual.</p>
+ */
+export interface BoxPlotOptions {
+  /**
+   * @public
+   * <p>The style options of the box plot.</p>
+   */
+  StyleOptions?: BoxPlotStyleOptions;
+
+  /**
+   * @public
+   * <p>Determines the visibility of the outlier in a box plot.</p>
+   */
+  OutlierVisibility?: Visibility;
+
+  /**
+   * @public
+   * <p>Determines the visibility of all data points of the box plot.</p>
+   */
+  AllDataPointsVisibility?: Visibility;
+}
 
 /**
  * @public
@@ -291,6 +441,44 @@ export interface ComboChartFieldWells {
 
 /**
  * @public
+ * @enum
+ */
+export const SingleYAxisOption = {
+  PRIMARY_Y_AXIS: "PRIMARY_Y_AXIS",
+} as const;
+
+/**
+ * @public
+ */
+export type SingleYAxisOption = (typeof SingleYAxisOption)[keyof typeof SingleYAxisOption];
+
+/**
+ * @public
+ * <p>The options that are available for a single Y axis in a chart.</p>
+ */
+export interface YAxisOptions {
+  /**
+   * @public
+   * <p>The Y axis type to be used in the chart.</p>
+   *          <p>If you choose <code>PRIMARY_Y_AXIS</code>, the primary Y Axis is located on the leftmost vertical axis of the chart.</p>
+   */
+  YAxis: SingleYAxisOption | undefined;
+}
+
+/**
+ * @public
+ * <p>The settings of a chart's single axis configuration.</p>
+ */
+export interface SingleAxisOptions {
+  /**
+   * @public
+   * <p>The Y axis options of a single axis configuration.</p>
+   */
+  YAxisOptions?: YAxisOptions;
+}
+
+/**
+ * @public
  * <p>The sort configuration of a <code>ComboChartVisual</code>.</p>
  */
 export interface ComboChartSortConfiguration {
@@ -354,7 +542,7 @@ export interface ComboChartConfiguration {
    *             </li>
    *          </ul>
    */
-  BarsArrangement?: BarsArrangement | string;
+  BarsArrangement?: BarsArrangement;
 
   /**
    * @public
@@ -391,6 +579,12 @@ export interface ComboChartConfiguration {
    * <p>The label options (label text, label visibility, and sort icon visibility) of a combo chart's secondary y-axis(line) field well.</p>
    */
   SecondaryYAxisLabelOptions?: ChartAxisLabelOptions;
+
+  /**
+   * @public
+   * <p>The settings of a chart's single axis configuration.</p>
+   */
+  SingleAxisOptions?: SingleAxisOptions;
 
   /**
    * @public
@@ -527,13 +721,13 @@ export interface CustomContentConfiguration {
    * @public
    * <p>The content type of the custom content visual. You can use this to have the visual render as an image.</p>
    */
-  ContentType?: CustomContentType | string;
+  ContentType?: CustomContentType;
 
   /**
    * @public
    * <p>The sizing options for the size of the custom content visual. This structure is required when the <code>ContentType</code> of the visual is <code>'IMAGE'</code>.</p>
    */
-  ImageScaling?: CustomContentImageScalingConfiguration | string;
+  ImageScaling?: CustomContentImageScalingConfiguration;
 }
 
 /**
@@ -660,7 +854,7 @@ export interface GeospatialMapStyleOptions {
    * @public
    * <p>The base map style of the geospatial map.</p>
    */
-  BaseMapStyle?: BaseMapStyleType | string;
+  BaseMapStyle?: BaseMapStyleType;
 }
 
 /**
@@ -735,7 +929,7 @@ export interface GeospatialWindowOptions {
    * @public
    * <p>The map zoom modes (manual, auto) of the geospatial window options.</p>
    */
-  MapZoomMode?: MapZoomMode | string;
+  MapZoomMode?: MapZoomMode;
 }
 
 /**
@@ -1000,25 +1194,25 @@ export interface FunnelChartDataLabelOptions {
    * @public
    * <p>The visibility option that determines if data labels are displayed.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 
   /**
    * @public
    * <p>The visibility of the category labels within the data labels.</p>
    */
-  CategoryLabelVisibility?: Visibility | string;
+  CategoryLabelVisibility?: Visibility;
 
   /**
    * @public
    * <p>The visibility of the measure labels within the data labels.</p>
    */
-  MeasureLabelVisibility?: Visibility | string;
+  MeasureLabelVisibility?: Visibility;
 
   /**
    * @public
    * <p>Determines the positioning of the data label relative to a section of the funnel.</p>
    */
-  Position?: DataLabelPosition | string;
+  Position?: DataLabelPosition;
 
   /**
    * @public
@@ -1037,7 +1231,7 @@ export interface FunnelChartDataLabelOptions {
    * @public
    * <p>Determines the style of the metric labels.</p>
    */
-  MeasureDataLabelStyle?: FunnelChartMeasureDataLabelStyle | string;
+  MeasureDataLabelStyle?: FunnelChartMeasureDataLabelStyle;
 }
 
 /**
@@ -1228,7 +1422,7 @@ export interface ArcConfiguration {
    * @public
    * <p>The options that determine the arc thickness of a <code>GaugeChartVisual</code>.</p>
    */
-  ArcThickness?: ArcThicknessOptions | string;
+  ArcThickness?: ArcThicknessOptions;
 }
 
 /**
@@ -1327,7 +1521,7 @@ export interface ComparisonConfiguration {
    *             </li>
    *          </ul>
    */
-  ComparisonMethod?: ComparisonMethod | string;
+  ComparisonMethod?: ComparisonMethod;
 
   /**
    * @public
@@ -1360,7 +1554,7 @@ export interface GaugeChartOptions {
    * @public
    * <p>The options that determine the primary value display type.</p>
    */
-  PrimaryValueDisplayType?: PrimaryValueDisplayType | string;
+  PrimaryValueDisplayType?: PrimaryValueDisplayType;
 
   /**
    * @public
@@ -1458,7 +1652,7 @@ export interface ConditionalFormattingIconDisplayConfiguration {
    * @public
    * <p>Determines the icon display configuration.</p>
    */
-  IconDisplayOption?: ConditionalFormattingIconDisplayOption | string;
+  IconDisplayOption?: ConditionalFormattingIconDisplayOption;
 }
 
 /**
@@ -1508,7 +1702,7 @@ export interface ConditionalFormattingCustomIconOptions {
    * @public
    * <p>Determines the type of icon.</p>
    */
-  Icon?: Icon | string;
+  Icon?: Icon;
 
   /**
    * @public
@@ -1586,7 +1780,7 @@ export interface ConditionalFormattingIconSet {
    * @public
    * <p>Determines the icon set type.</p>
    */
-  IconSetType?: ConditionalFormattingIconSetType | string;
+  IconSetType?: ConditionalFormattingIconSetType;
 }
 
 /**
@@ -1833,7 +2027,7 @@ export interface GeospatialPointStyleOptions {
    * @public
    * <p>The selected point styles (point, cluster) of the geospatial map.</p>
    */
-  SelectedPointStyle?: GeospatialSelectedPointStyle | string;
+  SelectedPointStyle?: GeospatialSelectedPointStyle;
 
   /**
    * @public
@@ -1986,7 +2180,7 @@ export interface ColorScale {
    * @public
    * <p>Determines the color fill type.</p>
    */
-  ColorFillType: ColorFillType | string | undefined;
+  ColorFillType: ColorFillType | undefined;
 
   /**
    * @public
@@ -2212,7 +2406,7 @@ export interface HistogramBinOptions {
    * @public
    * <p>The options that determine the selected bin type.</p>
    */
-  SelectedBinType?: HistogramBinType | string;
+  SelectedBinType?: HistogramBinType;
 
   /**
    * @public
@@ -2384,7 +2578,7 @@ export interface ForecastComputation {
    * @public
    * <p>The time field that is used in a computation.</p>
    */
-  Time: DimensionField | undefined;
+  Time?: DimensionField;
 
   /**
    * @public
@@ -2437,7 +2631,7 @@ export interface ForecastComputation {
    *             </li>
    *          </ul>
    */
-  Seasonality?: ForecastComputationSeasonality | string;
+  Seasonality?: ForecastComputationSeasonality;
 
   /**
    * @public
@@ -2467,7 +2661,7 @@ export interface GrowthRateComputation {
    * @public
    * <p>The time field that is used in a computation.</p>
    */
-  Time: DimensionField | undefined;
+  Time?: DimensionField;
 
   /**
    * @public
@@ -2518,7 +2712,7 @@ export interface MaximumMinimumComputation {
    * @public
    * <p>The time field that is used in a computation.</p>
    */
-  Time: DimensionField | undefined;
+  Time?: DimensionField;
 
   /**
    * @public
@@ -2538,7 +2732,7 @@ export interface MaximumMinimumComputation {
    *             </li>
    *          </ul>
    */
-  Type: MaximumMinimumComputationType | string | undefined;
+  Type: MaximumMinimumComputationType | undefined;
 }
 
 /**
@@ -2562,19 +2756,19 @@ export interface MetricComparisonComputation {
    * @public
    * <p>The time field that is used in a computation.</p>
    */
-  Time: DimensionField | undefined;
+  Time?: DimensionField;
 
   /**
    * @public
    * <p>The field that is used in a metric comparison from value setup.</p>
    */
-  FromValue: MeasureField | undefined;
+  FromValue?: MeasureField;
 
   /**
    * @public
    * <p>The field that is used in a metric comparison to value setup.</p>
    */
-  TargetValue: MeasureField | undefined;
+  TargetValue?: MeasureField;
 }
 
 /**
@@ -2598,7 +2792,7 @@ export interface PeriodOverPeriodComputation {
    * @public
    * <p>The time field that is used in a computation.</p>
    */
-  Time: DimensionField | undefined;
+  Time?: DimensionField;
 
   /**
    * @public
@@ -2628,7 +2822,7 @@ export interface PeriodToDateComputation {
    * @public
    * <p>The time field that is used in a computation.</p>
    */
-  Time: DimensionField | undefined;
+  Time?: DimensionField;
 
   /**
    * @public
@@ -2648,7 +2842,7 @@ export interface PeriodToDateComputation {
    *             </li>
    *          </ul>
    */
-  PeriodTimeGranularity?: TimeGranularity | string;
+  PeriodTimeGranularity?: TimeGranularity;
 }
 
 /**
@@ -2700,13 +2894,13 @@ export interface TopBottomMoversComputation {
    * @public
    * <p>The time field that is used in a computation.</p>
    */
-  Time: DimensionField | undefined;
+  Time?: DimensionField;
 
   /**
    * @public
    * <p>The category field that is used in a computation.</p>
    */
-  Category: DimensionField | undefined;
+  Category?: DimensionField;
 
   /**
    * @public
@@ -2724,7 +2918,7 @@ export interface TopBottomMoversComputation {
    * @public
    * <p>The sort order setup of the top and bottom movers computation.</p>
    */
-  SortOrder?: TopBottomSortOrder | string;
+  SortOrder?: TopBottomSortOrder;
 
   /**
    * @public
@@ -2738,7 +2932,7 @@ export interface TopBottomMoversComputation {
    *             </li>
    *          </ul>
    */
-  Type: TopBottomComputationType | string | undefined;
+  Type: TopBottomComputationType | undefined;
 }
 
 /**
@@ -2762,7 +2956,7 @@ export interface TopBottomRankedComputation {
    * @public
    * <p>The category field that is used in a computation.</p>
    */
-  Category: DimensionField | undefined;
+  Category?: DimensionField;
 
   /**
    * @public
@@ -2788,7 +2982,7 @@ export interface TopBottomRankedComputation {
    *             </li>
    *          </ul>
    */
-  Type: TopBottomComputationType | string | undefined;
+  Type: TopBottomComputationType | undefined;
 }
 
 /**
@@ -2812,7 +3006,7 @@ export interface TotalAggregationComputation {
    * @public
    * <p>The value field that is used in a computation.</p>
    */
-  Value: MeasureField | undefined;
+  Value?: MeasureField;
 }
 
 /**
@@ -2836,7 +3030,7 @@ export interface UniqueValuesComputation {
    * @public
    * <p>The category field that is used in a computation.</p>
    */
-  Category: DimensionField | undefined;
+  Category?: DimensionField;
 }
 
 /**
@@ -3012,7 +3206,7 @@ export interface ProgressBarOptions {
    * @public
    * <p>The visibility of the progress bar.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 }
 
 /**
@@ -3024,7 +3218,51 @@ export interface SecondaryValueOptions {
    * @public
    * <p>Determines the visibility of the secondary value.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const KPISparklineType = {
+  AREA: "AREA",
+  LINE: "LINE",
+} as const;
+
+/**
+ * @public
+ */
+export type KPISparklineType = (typeof KPISparklineType)[keyof typeof KPISparklineType];
+
+/**
+ * @public
+ * <p>The options that determine the visibility, color, type, and tooltip visibility of the sparkline of a KPI visual.</p>
+ */
+export interface KPISparklineOptions {
+  /**
+   * @public
+   * <p>The visibility of the sparkline.</p>
+   */
+  Visibility?: Visibility;
+
+  /**
+   * @public
+   * <p>The type of the sparkline.</p>
+   */
+  Type: KPISparklineType | undefined;
+
+  /**
+   * @public
+   * <p>The color of the sparkline.</p>
+   */
+  Color?: string;
+
+  /**
+   * @public
+   * <p>The tooltip visibility of the sparkline.</p>
+   */
+  TooltipVisibility?: Visibility;
 }
 
 /**
@@ -3036,7 +3274,46 @@ export interface TrendArrowOptions {
    * @public
    * <p>The visibility of the trend arrows.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const KPIVisualStandardLayoutType = {
+  CLASSIC: "CLASSIC",
+  VERTICAL: "VERTICAL",
+} as const;
+
+/**
+ * @public
+ */
+export type KPIVisualStandardLayoutType =
+  (typeof KPIVisualStandardLayoutType)[keyof typeof KPIVisualStandardLayoutType];
+
+/**
+ * @public
+ * <p>The standard layout of the KPI visual.</p>
+ */
+export interface KPIVisualStandardLayout {
+  /**
+   * @public
+   * <p>The standard layout type.</p>
+   */
+  Type: KPIVisualStandardLayoutType | undefined;
+}
+
+/**
+ * @public
+ * <p>The options that determine the layout a KPI visual.</p>
+ */
+export interface KPIVisualLayoutOptions {
+  /**
+   * @public
+   * <p>The standard layout of the KPI visual.</p>
+   */
+  StandardLayout?: KPIVisualStandardLayout;
 }
 
 /**
@@ -3072,7 +3349,7 @@ export interface KPIOptions {
    * @public
    * <p>The options that determine the primary value display type.</p>
    */
-  PrimaryValueDisplayType?: PrimaryValueDisplayType | string;
+  PrimaryValueDisplayType?: PrimaryValueDisplayType;
 
   /**
    * @public
@@ -3085,6 +3362,18 @@ export interface KPIOptions {
    * <p>The options that determine the secondary value font configuration.</p>
    */
   SecondaryValueFontConfiguration?: FontConfiguration;
+
+  /**
+   * @public
+   * <p>The options that determine the visibility, color, type, and tooltip visibility of the sparkline of a KPI visual.</p>
+   */
+  Sparkline?: KPISparklineOptions;
+
+  /**
+   * @public
+   * <p>The options that determine the layout a KPI visual.</p>
+   */
+  VisualLayoutOptions?: KPIVisualLayoutOptions;
 }
 
 /**
@@ -3121,6 +3410,42 @@ export interface KPIConfiguration {
    * <p>The options that determine the presentation of a KPI visual.</p>
    */
   KPIOptions?: KPIOptions;
+}
+
+/**
+ * @public
+ * <p>The conditional formatting for the actual value of a KPI visual.</p>
+ */
+export interface KPIActualValueConditionalFormatting {
+  /**
+   * @public
+   * <p>The conditional formatting of the actual value's text color.</p>
+   */
+  TextColor?: ConditionalFormattingColor;
+
+  /**
+   * @public
+   * <p>The conditional formatting of the actual value's icon.</p>
+   */
+  Icon?: ConditionalFormattingIcon;
+}
+
+/**
+ * @public
+ * <p>The conditional formatting for the comparison value of a KPI visual.</p>
+ */
+export interface KPIComparisonValueConditionalFormatting {
+  /**
+   * @public
+   * <p>The conditional formatting of the comparison value's text color.</p>
+   */
+  TextColor?: ConditionalFormattingColor;
+
+  /**
+   * @public
+   * <p>The conditional formatting of the comparison value's icon.</p>
+   */
+  Icon?: ConditionalFormattingIcon;
 }
 
 /**
@@ -3169,6 +3494,18 @@ export interface KPIConditionalFormattingOption {
    * <p>The conditional formatting for the progress bar of a KPI visual.</p>
    */
   ProgressBar?: KPIProgressBarConditionalFormatting;
+
+  /**
+   * @public
+   * <p>The conditional formatting for the actual value of a KPI visual.</p>
+   */
+  ActualValue?: KPIActualValueConditionalFormatting;
+
+  /**
+   * @public
+   * <p>The conditional formatting for the comparison value of a KPI visual.</p>
+   */
+  ComparisonValue?: KPIComparisonValueConditionalFormatting;
 }
 
 /**
@@ -3271,7 +3608,7 @@ export interface LineChartLineStyleSettings {
    * @public
    * <p>Configuration option that determines whether to show the line for the series.</p>
    */
-  LineVisibility?: Visibility | string;
+  LineVisibility?: Visibility;
 
   /**
    * @public
@@ -3291,7 +3628,7 @@ export interface LineChartLineStyleSettings {
    *             </li>
    *          </ul>
    */
-  LineInterpolation?: LineInterpolation | string;
+  LineInterpolation?: LineInterpolation;
 
   /**
    * @public
@@ -3311,7 +3648,7 @@ export interface LineChartLineStyleSettings {
    *             </li>
    *          </ul>
    */
-  LineStyle?: LineChartLineStyle | string;
+  LineStyle?: LineChartLineStyle;
 
   /**
    * @public
@@ -3346,7 +3683,7 @@ export interface LineChartMarkerStyleSettings {
    * @public
    * <p>Configuration option that determines whether to show the markers in the series.</p>
    */
-  MarkerVisibility?: Visibility | string;
+  MarkerVisibility?: Visibility;
 
   /**
    * @public
@@ -3374,7 +3711,7 @@ export interface LineChartMarkerStyleSettings {
    *             </li>
    *          </ul>
    */
-  MarkerShape?: LineChartMarkerShape | string;
+  MarkerShape?: LineChartMarkerShape;
 
   /**
    * @public
@@ -3398,7 +3735,7 @@ export interface LineChartDefaultSeriesSettings {
    * @public
    * <p>The axis to which you are binding all line series to.</p>
    */
-  AxisBinding?: AxisBinding | string;
+  AxisBinding?: AxisBinding;
 
   /**
    * @public
@@ -3625,7 +3962,7 @@ export interface MissingDataConfiguration {
    *             </li>
    *          </ul>
    */
-  TreatmentOption?: MissingDataTreatmentOption | string;
+  TreatmentOption?: MissingDataTreatmentOption;
 }
 
 /**
@@ -3685,7 +4022,7 @@ export interface DataFieldSeriesItem {
    * @public
    * <p>The axis that you are binding the field to.</p>
    */
-  AxisBinding: AxisBinding | string | undefined;
+  AxisBinding: AxisBinding | undefined;
 
   /**
    * @public
@@ -3709,7 +4046,7 @@ export interface FieldSeriesItem {
    * @public
    * <p>The axis that you are binding the field to.</p>
    */
-  AxisBinding: AxisBinding | string | undefined;
+  AxisBinding: AxisBinding | undefined;
 
   /**
    * @public
@@ -3815,7 +4152,7 @@ export interface LineChartConfiguration {
    * @public
    * <p>Determines the type of the line chart.</p>
    */
-  Type?: LineChartType | string;
+  Type?: LineChartType;
 
   /**
    * @public
@@ -3858,6 +4195,12 @@ export interface LineChartConfiguration {
    * <p>The options that determine the presentation of the secondary y-axis label.</p>
    */
   SecondaryYAxisLabelOptions?: ChartAxisLabelOptions;
+
+  /**
+   * @public
+   * <p>The settings of a chart's single axis configuration.</p>
+   */
+  SingleAxisOptions?: SingleAxisOptions;
 
   /**
    * @public
@@ -3976,7 +4319,7 @@ export interface ArcOptions {
    * @public
    * <p>The arc thickness of a <code>GaugeChartVisual</code>.</p>
    */
-  ArcThickness?: ArcThickness | string;
+  ArcThickness?: ArcThickness;
 }
 
 /**
@@ -3988,7 +4331,7 @@ export interface DonutCenterOptions {
    * @public
    * <p>Determines the visibility of the label in a donut chart. In the Amazon QuickSight console, this option is called <code>'Show total'</code>.</p>
    */
-  LabelVisibility?: Visibility | string;
+  LabelVisibility?: Visibility;
 }
 
 /**
@@ -4280,7 +4623,7 @@ export interface PivotTableFieldCollapseStateOption {
    *             </li>
    *          </ul>
    */
-  State?: PivotTableFieldCollapseState | string;
+  State?: PivotTableFieldCollapseState;
 }
 
 /**
@@ -4322,7 +4665,7 @@ export interface PivotTableFieldOption {
    * @public
    * <p>The visibility of the pivot table field.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 }
 
 /**
@@ -4395,13 +4738,13 @@ export interface PivotTablePaginatedReportOptions {
    * @public
    * <p>The visibility of the printing table overflow across pages.</p>
    */
-  VerticalOverflowVisibility?: Visibility | string;
+  VerticalOverflowVisibility?: Visibility;
 
   /**
    * @public
    * <p>The visibility of the repeating header rows on each page.</p>
    */
-  OverflowColumnHeaderVisibility?: Visibility | string;
+  OverflowColumnHeaderVisibility?: Visibility;
 }
 
 /**
@@ -4413,7 +4756,7 @@ export interface DataPathSort {
    * @public
    * <p>Determines the sort direction.</p>
    */
-  Direction: SortDirection | string | undefined;
+  Direction: SortDirection | undefined;
 
   /**
    * @public
@@ -4511,7 +4854,7 @@ export interface TableBorderOptions {
    * @public
    * <p>The style (none, solid) of a table border.</p>
    */
-  Style?: TableBorderStyle | string;
+  Style?: TableBorderStyle;
 }
 
 /**
@@ -4613,7 +4956,7 @@ export interface TableCellStyle {
    * @public
    * <p>The visibility of the table cells.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 
   /**
    * @public
@@ -4625,19 +4968,19 @@ export interface TableCellStyle {
    * @public
    * <p>The text wrap (none, wrap) for the table cells.</p>
    */
-  TextWrap?: TextWrap | string;
+  TextWrap?: TextWrap;
 
   /**
    * @public
    * <p>The horizontal text alignment (left, center, right, auto) for the table cells.</p>
    */
-  HorizontalTextAlignment?: HorizontalTextAlignment | string;
+  HorizontalTextAlignment?: HorizontalTextAlignment;
 
   /**
    * @public
    * <p>The vertical text alignment (top, middle, bottom) for the table cells.</p>
    */
-  VerticalTextAlignment?: VerticalTextAlignment | string;
+  VerticalTextAlignment?: VerticalTextAlignment;
 
   /**
    * @public
@@ -4681,7 +5024,7 @@ export interface RowAlternateColorOptions {
    * @public
    * <p>Determines the widget status.</p>
    */
-  Status?: WidgetStatus | string;
+  Status?: WidgetStatus;
 
   /**
    * @public
@@ -4693,7 +5036,7 @@ export interface RowAlternateColorOptions {
    * @public
    * <p>The primary background color options for alternate rows.</p>
    */
-  UsePrimaryBackgroundColor?: WidgetStatus | string;
+  UsePrimaryBackgroundColor?: WidgetStatus;
 }
 
 /**
@@ -4705,7 +5048,7 @@ export interface PivotTableRowsLabelOptions {
    * @public
    * <p>The visibility of the rows label.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 
   /**
    * @public
@@ -4737,25 +5080,25 @@ export interface PivotTableOptions {
    * @public
    * <p>The metric placement (row, column) options.</p>
    */
-  MetricPlacement?: PivotTableMetricPlacement | string;
+  MetricPlacement?: PivotTableMetricPlacement;
 
   /**
    * @public
    * <p>The visibility of the single metric options.</p>
    */
-  SingleMetricVisibility?: Visibility | string;
+  SingleMetricVisibility?: Visibility;
 
   /**
    * @public
    * <p>The visibility of the column names.</p>
    */
-  ColumnNamesVisibility?: Visibility | string;
+  ColumnNamesVisibility?: Visibility;
 
   /**
    * @public
    * <p>Determines the visibility of the pivot table.</p>
    */
-  ToggleButtonsVisibility?: Visibility | string;
+  ToggleButtonsVisibility?: Visibility;
 
   /**
    * @public
@@ -4791,7 +5134,7 @@ export interface PivotTableOptions {
    * @public
    * <p>The visibility setting of a pivot table's collapsed row dimension fields. If the value of this structure is <code>HIDDEN</code>, all collapsed columns in a pivot table are automatically hidden. The default value is <code>VISIBLE</code>.</p>
    */
-  CollapsedRowDimensionsVisibility?: Visibility | string;
+  CollapsedRowDimensionsVisibility?: Visibility;
 
   /**
    * @public
@@ -4807,7 +5150,7 @@ export interface PivotTableOptions {
    *             </li>
    *          </ul>
    */
-  RowsLayout?: PivotTableRowsLayout | string;
+  RowsLayout?: PivotTableRowsLayout;
 
   /**
    * @public
@@ -4873,7 +5216,7 @@ export interface TableStyleTarget {
    * @public
    * <p>The cell type of the table style target.</p>
    */
-  CellType: StyledCellType | string | undefined;
+  CellType: StyledCellType | undefined;
 }
 
 /**
@@ -4885,7 +5228,7 @@ export interface SubtotalOptions {
    * @public
    * <p>The visibility configuration for the subtotal cells.</p>
    */
-  TotalsVisibility?: Visibility | string;
+  TotalsVisibility?: Visibility;
 
   /**
    * @public
@@ -4897,7 +5240,7 @@ export interface SubtotalOptions {
    * @public
    * <p>The field level (all, custom, last) for the subtotal cells.</p>
    */
-  FieldLevel?: PivotTableSubtotalLevel | string;
+  FieldLevel?: PivotTableSubtotalLevel;
 
   /**
    * @public
@@ -4935,6 +5278,7 @@ export interface SubtotalOptions {
  * @enum
  */
 export const TableTotalsPlacement = {
+  AUTO: "AUTO",
   END: "END",
   START: "START",
 } as const;
@@ -4960,6 +5304,55 @@ export type TableTotalsScrollStatus = (typeof TableTotalsScrollStatus)[keyof typ
 
 /**
  * @public
+ * @enum
+ */
+export const SimpleTotalAggregationFunction = {
+  AVERAGE: "AVERAGE",
+  DEFAULT: "DEFAULT",
+  MAX: "MAX",
+  MIN: "MIN",
+  NONE: "NONE",
+  SUM: "SUM",
+} as const;
+
+/**
+ * @public
+ */
+export type SimpleTotalAggregationFunction =
+  (typeof SimpleTotalAggregationFunction)[keyof typeof SimpleTotalAggregationFunction];
+
+/**
+ * @public
+ * <p>An aggregation function that aggregates the total values of a measure.</p>
+ */
+export interface TotalAggregationFunction {
+  /**
+   * @public
+   * <p>A built in aggregation function for total values.</p>
+   */
+  SimpleTotalAggregationFunction?: SimpleTotalAggregationFunction;
+}
+
+/**
+ * @public
+ * <p>The total aggregation settings map of a field id.</p>
+ */
+export interface TotalAggregationOption {
+  /**
+   * @public
+   * <p>The field id that's associated with the total aggregation option.</p>
+   */
+  FieldId: string | undefined;
+
+  /**
+   * @public
+   * <p>The total aggregation function that you want to set for a specified field id.</p>
+   */
+  TotalAggregationFunction: TotalAggregationFunction | undefined;
+}
+
+/**
+ * @public
  * <p>The optional configuration of totals cells in a <code>PivotTableVisual</code>.</p>
  */
 export interface PivotTotalOptions {
@@ -4967,19 +5360,19 @@ export interface PivotTotalOptions {
    * @public
    * <p>The visibility configuration for the total cells.</p>
    */
-  TotalsVisibility?: Visibility | string;
+  TotalsVisibility?: Visibility;
 
   /**
    * @public
    * <p>The placement (start, end) for the total cells.</p>
    */
-  Placement?: TableTotalsPlacement | string;
+  Placement?: TableTotalsPlacement;
 
   /**
    * @public
    * <p>The scroll status (pinned, scrolled) for the total cells.</p>
    */
-  ScrollStatus?: TableTotalsScrollStatus | string;
+  ScrollStatus?: TableTotalsScrollStatus;
 
   /**
    * @public
@@ -5004,6 +5397,12 @@ export interface PivotTotalOptions {
    * <p>The cell styling options for the total of header cells.</p>
    */
   MetricHeaderCellStyle?: TableCellStyle;
+
+  /**
+   * @public
+   * <p>The total aggregation options for each value field.</p>
+   */
+  TotalAggregationOptions?: TotalAggregationOption[];
 }
 
 /**
@@ -5103,7 +5502,7 @@ export interface PivotTableConditionalFormattingScope {
    * @public
    * <p>The role (field, field total, grand total) of the cell for conditional formatting.</p>
    */
-  Role?: PivotTableConditionalFormattingScopeRole | string;
+  Role?: PivotTableConditionalFormattingScopeRole;
 }
 
 /**
@@ -5251,7 +5650,7 @@ export interface RadarChartAreaStyleSettings {
    * @public
    * <p>The visibility settings of a radar chart.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 }
 
 /**
@@ -5367,7 +5766,7 @@ export interface RadarChartConfiguration {
    * @public
    * <p>The shape of the radar chart.</p>
    */
-  Shape?: RadarChartShape | string;
+  Shape?: RadarChartShape;
 
   /**
    * @public
@@ -5391,7 +5790,7 @@ export interface RadarChartConfiguration {
    * @public
    * <p>Determines the visibility of the colors of alternatign bands in a radar chart.</p>
    */
-  AlternateBandColorsVisibility?: Visibility | string;
+  AlternateBandColorsVisibility?: Visibility;
 
   /**
    * @public
@@ -5439,7 +5838,7 @@ export interface RadarChartConfiguration {
    * @public
    * <p>The axis behavior options of a radar chart.</p>
    */
-  AxesRangeScale?: RadarChartAxesRangeScale | string;
+  AxesRangeScale?: RadarChartAxesRangeScale;
 }
 
 /**
@@ -5703,6 +6102,18 @@ export interface ScatterPlotFieldWells {
 
 /**
  * @public
+ * <p>The sort configuration of a scatter plot.</p>
+ */
+export interface ScatterPlotSortConfiguration {
+  /**
+   * @public
+   * <p>The limit configuration of the visual display for an axis.</p>
+   */
+  ScatterPlotLimitConfiguration?: ItemsLimitConfiguration;
+}
+
+/**
+ * @public
  * <p>The configuration of a scatter plot.</p>
  */
 export interface ScatterPlotConfiguration {
@@ -5711,6 +6122,12 @@ export interface ScatterPlotConfiguration {
    * <p>The field wells of the visual.</p>
    */
   FieldWells?: ScatterPlotFieldWells;
+
+  /**
+   * @public
+   * <p>The sort configuration of a scatter plot.</p>
+   */
+  SortConfiguration?: ScatterPlotSortConfiguration;
 
   /**
    * @public
@@ -5806,6 +6223,18 @@ export interface ScatterPlotVisual {
 
 /**
  * @public
+ * <p>The settings for the pinned columns of a table visual.</p>
+ */
+export interface TablePinnedFieldOptions {
+  /**
+   * @public
+   * <p>A list of columns to be pinned to the left of a table visual.</p>
+   */
+  PinnedLeftFields?: string[];
+}
+
+/**
+ * @public
  * @enum
  */
 export const TableCellImageScalingConfiguration = {
@@ -5829,7 +6258,7 @@ export interface TableCellImageSizingConfiguration {
    * @public
    * <p>The cell scaling configuration of the sizing options for the table image configuration.</p>
    */
-  TableCellImageScalingConfiguration?: TableCellImageScalingConfiguration | string;
+  TableCellImageScalingConfiguration?: TableCellImageScalingConfiguration;
 }
 
 /**
@@ -5866,7 +6295,7 @@ export interface TableFieldCustomIconContent {
    * @public
    * <p>The icon set type (link) of the custom icon content for table URL link content.</p>
    */
-  Icon?: TableFieldIconSetType | string;
+  Icon?: TableFieldIconSetType;
 }
 
 /**
@@ -5914,7 +6343,7 @@ export interface TableFieldLinkConfiguration {
    * @public
    * <p>The URL target (new tab, new window, same tab) for the table link configuration.</p>
    */
-  Target: URLTargetConfiguration | string | undefined;
+  Target: URLTargetConfiguration | undefined;
 
   /**
    * @public
@@ -5968,7 +6397,7 @@ export interface TableFieldOption {
    * @public
    * <p>The visibility of a table field.</p>
    */
-  Visibility?: Visibility | string;
+  Visibility?: Visibility;
 
   /**
    * @public
@@ -5979,20 +6408,26 @@ export interface TableFieldOption {
 
 /**
  * @public
- * <p>The field options for a table visual.</p>
+ * <p>The field options of a table visual.</p>
  */
 export interface TableFieldOptions {
   /**
    * @public
-   * <p>The selected field options for the table field options.</p>
+   * <p>The field options to be configured to a table.</p>
    */
   SelectedFieldOptions?: TableFieldOption[];
 
   /**
    * @public
-   * <p>The order of field IDs of the field options for a table visual.</p>
+   * <p>The order of the field IDs that are configured as field options for a table visual.</p>
    */
   Order?: string[];
+
+  /**
+   * @public
+   * <p>The settings for the pinned columns of a table visual.</p>
+   */
+  PinnedFieldOptions?: TablePinnedFieldOptions;
 }
 
 /**
@@ -6077,13 +6512,13 @@ export interface TablePaginatedReportOptions {
    * @public
    * <p>The visibility of printing table overflow across pages.</p>
    */
-  VerticalOverflowVisibility?: Visibility | string;
+  VerticalOverflowVisibility?: Visibility;
 
   /**
    * @public
    * <p>The visibility of repeating header rows on each page.</p>
    */
-  OverflowColumnHeaderVisibility?: Visibility | string;
+  OverflowColumnHeaderVisibility?: Visibility;
 }
 
 /**
@@ -6163,7 +6598,7 @@ export interface TableOptions {
    * @public
    * <p>The orientation (vertical, horizontal) for a table.</p>
    */
-  Orientation?: TableOrientation | string;
+  Orientation?: TableOrientation;
 
   /**
    * @public
@@ -6193,19 +6628,19 @@ export interface TotalOptions {
    * @public
    * <p>The visibility configuration for the total cells.</p>
    */
-  TotalsVisibility?: Visibility | string;
+  TotalsVisibility?: Visibility;
 
   /**
    * @public
    * <p>The placement (start, end) for the total cells.</p>
    */
-  Placement?: TableTotalsPlacement | string;
+  Placement?: TableTotalsPlacement;
 
   /**
    * @public
    * <p>The scroll status (pinned, scrolled) for the total cells.</p>
    */
-  ScrollStatus?: TableTotalsScrollStatus | string;
+  ScrollStatus?: TableTotalsScrollStatus;
 
   /**
    * @public
@@ -6218,6 +6653,12 @@ export interface TotalOptions {
    * <p>Cell styling options for the total cells.</p>
    */
   TotalCellStyle?: TableCellStyle;
+
+  /**
+   * @public
+   * <p>The total aggregation settings for each value field.</p>
+   */
+  TotalAggregationOptions?: TotalAggregationOption[];
 }
 
 /**
@@ -6840,31 +7281,31 @@ export interface WordCloudOptions {
    * @public
    * <p>The word orientation options (horizontal, horizontal_and_vertical) for the words in a word cloud.</p>
    */
-  WordOrientation?: WordCloudWordOrientation | string;
+  WordOrientation?: WordCloudWordOrientation;
 
   /**
    * @public
    * <p>The word scaling options (emphasize, normal) for the words in a word cloud.</p>
    */
-  WordScaling?: WordCloudWordScaling | string;
+  WordScaling?: WordCloudWordScaling;
 
   /**
    * @public
    * <p>The cloud layout options (fluid, normal) of a word cloud.</p>
    */
-  CloudLayout?: WordCloudCloudLayout | string;
+  CloudLayout?: WordCloudCloudLayout;
 
   /**
    * @public
    * <p>The word casing options (lower_case, existing_case) for the words in a word cloud.</p>
    */
-  WordCasing?: WordCloudWordCasing | string;
+  WordCasing?: WordCloudWordCasing;
 
   /**
    * @public
    * <p>The word padding options (none, small, medium, large) for the words in a word cloud.</p>
    */
-  WordPadding?: WordCloudWordPadding | string;
+  WordPadding?: WordCloudWordPadding;
 
   /**
    * @public
@@ -7197,7 +7638,7 @@ export interface SheetDefinition {
    *             </li>
    *          </ul>
    */
-  ContentType?: SheetContentType | string;
+  ContentType?: SheetContentType;
 }
 
 /**
@@ -7254,6 +7695,12 @@ export interface AnalysisDefinition {
    * <p>The configuration for default analysis settings.</p>
    */
   AnalysisDefaults?: AnalysisDefaults;
+
+  /**
+   * @public
+   * <p>An array of option definitions for an analysis.</p>
+   */
+  Options?: AssetOptions;
 }
 
 /**
@@ -7300,7 +7747,7 @@ export interface AnalysisSearchFilter {
    *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose folders you want to search in the <code>"Value"</code> field. For example,  <code>"Name":"DIRECT_QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
    *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the folders you are searching for. For example, <code>"Name":"ANALYSIS_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>ANALYSIS_NAME</code>.</p>
    */
-  Operator?: FilterOperator | string;
+  Operator?: FilterOperator;
 
   /**
    * @public
@@ -7334,7 +7781,7 @@ export interface AnalysisSearchFilter {
    *             </li>
    *          </ul>
    */
-  Name?: AnalysisFilterAttribute | string;
+  Name?: AnalysisFilterAttribute;
 
   /**
    * @public
@@ -7421,7 +7868,7 @@ export interface AnalysisSummary {
    * @public
    * <p>The last known status for the analysis.</p>
    */
-  Status?: ResourceStatus | string;
+  Status?: ResourceStatus;
 
   /**
    * @public
@@ -7450,409 +7897,11 @@ export interface AnonymousUserDashboardEmbeddingConfiguration {
 }
 
 /**
- * @public
- * <p>A structure that contains the following elements:</p>
- *          <ul>
- *             <li>
- *                <p>The <code>DashboardId</code> of the dashboard that has the visual that you want to embed.</p>
- *             </li>
- *             <li>
- *                <p>The <code>SheetId</code> of the sheet that has the visual that you want to embed.</p>
- *             </li>
- *             <li>
- *                <p>The <code>VisualId</code> of the visual that you want to embed.</p>
- *             </li>
- *          </ul>
- *          <p>The <code>DashboardId</code>, <code>SheetId</code>, and <code>VisualId</code> can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the visual's on-visual menu of the Amazon QuickSight console. You can also get the <code>DashboardId</code> with a <code>ListDashboards</code> API operation.</p>
+ * @internal
  */
-export interface DashboardVisualId {
-  /**
-   * @public
-   * <p>The ID of the dashboard that has the visual that you want to embed. The <code>DashboardId</code> can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the visual's on-visual menu of the Amazon QuickSight console. You can also get the <code>DashboardId</code> with a <code>ListDashboards</code> API operation.</p>
-   */
-  DashboardId: string | undefined;
-
-  /**
-   * @public
-   * <p>The ID of the sheet that the has visual that you want to embed. The <code>SheetId</code> can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the visual's on-visual menu of the Amazon QuickSight console.</p>
-   */
-  SheetId: string | undefined;
-
-  /**
-   * @public
-   * <p>The ID of the visual that you want to embed. The <code>VisualID</code> can be found in the <code>IDs for developers</code> section of the <code>Embed visual</code> pane of the visual's on-visual menu of the Amazon QuickSight console.</p>
-   */
-  VisualId: string | undefined;
-}
-
-/**
- * @public
- * <p>The experience that you are embedding. You can use this object to generate a url that embeds a visual into your application.</p>
- */
-export interface AnonymousUserDashboardVisualEmbeddingConfiguration {
-  /**
-   * @public
-   * <p>The visual ID for the visual that you want the user to see. This ID is included in the output URL. When the URL in response is accessed, Amazon QuickSight renders this visual.</p>
-   *          <p>The Amazon Resource Name (ARN) of the dashboard that the visual belongs to must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request will fail with <code>InvalidParameterValueException</code>.</p>
-   */
-  InitialDashboardVisualId: DashboardVisualId | undefined;
-}
-
-/**
- * @public
- * <p>The settings that you want to use with the Q search bar.</p>
- */
-export interface AnonymousUserQSearchBarEmbeddingConfiguration {
-  /**
-   * @public
-   * <p>The QuickSight Q topic ID of the topic that you want the anonymous user to see first. This ID is included in the output URL. When the URL in response is accessed, Amazon QuickSight renders the Q search bar with this topic pre-selected.</p>
-   *          <p>The Amazon Resource Name (ARN) of this Q topic must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request will fail with <code>InvalidParameterValueException</code>.</p>
-   */
-  InitialTopicId: string | undefined;
-}
-
-/**
- * @public
- * <p>The type of experience you want to embed. For anonymous users, you can embed Amazon QuickSight dashboards.</p>
- */
-export interface AnonymousUserEmbeddingExperienceConfiguration {
-  /**
-   * @public
-   * <p>The type of embedding experience. In this case, Amazon QuickSight dashboards.</p>
-   */
-  Dashboard?: AnonymousUserDashboardEmbeddingConfiguration;
-
-  /**
-   * @public
-   * <p>The type of embedding experience. In this case, Amazon QuickSight visuals.</p>
-   */
-  DashboardVisual?: AnonymousUserDashboardVisualEmbeddingConfiguration;
-
-  /**
-   * @public
-   * <p>The Q search bar that you want to use for anonymous user embedding.</p>
-   */
-  QSearchBar?: AnonymousUserQSearchBarEmbeddingConfiguration;
-}
-
-/**
- * @public
- * @enum
- */
-export const SnapshotFileFormatType = {
-  CSV: "CSV",
-  PDF: "PDF",
-} as const;
-
-/**
- * @public
- */
-export type SnapshotFileFormatType = (typeof SnapshotFileFormatType)[keyof typeof SnapshotFileFormatType];
-
-/**
- * @public
- * @enum
- */
-export const SnapshotFileSheetSelectionScope = {
-  ALL_VISUALS: "ALL_VISUALS",
-  SELECTED_VISUALS: "SELECTED_VISUALS",
-} as const;
-
-/**
- * @public
- */
-export type SnapshotFileSheetSelectionScope =
-  (typeof SnapshotFileSheetSelectionScope)[keyof typeof SnapshotFileSheetSelectionScope];
-
-/**
- * @public
- * <p>A structure that contains information that identifies the snapshot that needs to be generated.</p>
- */
-export interface SnapshotFileSheetSelection {
-  /**
-   * @public
-   * <p>The sheet ID of the dashboard to generate the snapshot artifact from. This value is required for CSV and PDF format types.</p>
-   */
-  SheetId: string | undefined;
-
-  /**
-   * @public
-   * <p>The selection scope of the visuals on a sheet of a dashboard that you are generating a snapthot of. You can choose one of the following options.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ALL_VISUALS</code> - Selects all visuals that are on the sheet. This value is required if the snapshot is a PDF.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SELECTED_VISUALS</code> - Select the visual that you want to add to the snapshot. This value is required if the snapshot is a CSV.</p>
-   *             </li>
-   *          </ul>
-   */
-  SelectionScope: SnapshotFileSheetSelectionScope | string | undefined;
-
-  /**
-   * @public
-   * <p>
-   *             A list of visual IDs that are located in the selected sheet. This structure supports tables and pivot tables. This structure is required if you are generating a CSV. You can add a maximum of 1 visual ID to this structure.
-   *         </p>
-   */
-  VisualIds?: string[];
-}
-
-/**
- * @public
- * <p>A structure that contains the information for the snapshot that you want to generate. This information is provided by you when you start a new snapshot job.</p>
- */
-export interface SnapshotFile {
-  /**
-   * @public
-   * <p>A list of <code>SnapshotFileSheetSelection</code> objects that contain information on the dashboard sheet that is exported. These objects provide information about the snapshot artifacts that are generated during the job. This structure can hold a maximum of 5 CSV configurations or 1 configuration for PDF.</p>
-   */
-  SheetSelections: SnapshotFileSheetSelection[] | undefined;
-
-  /**
-   * @public
-   * <p>The format of the snapshot file to be generated. You can choose between <code>CSV</code> or <code>PDF</code>.</p>
-   */
-  FormatType: SnapshotFileFormatType | string | undefined;
-}
-
-/**
- * @public
- * <p>Information on the error that caused the snapshot job to fail.</p>
- */
-export interface SnapshotJobResultErrorInfo {
-  /**
-   * @public
-   * <p>The error message.</p>
-   */
-  ErrorMessage?: string;
-
-  /**
-   * @public
-   * <p>The error type.</p>
-   */
-  ErrorType?: string;
-}
-
-/**
- * @public
- * <p>An optional structure that contains the Amazon S3 bucket configuration that the generated snapshots are stored in. If you don't provide this information, generated snapshots are stored in the default Amazon QuickSight bucket.</p>
- */
-export interface S3BucketConfiguration {
-  /**
-   * @public
-   * <p>The name of an existing Amazon S3 bucket where the generated snapshot artifacts are sent.</p>
-   */
-  BucketName: string | undefined;
-
-  /**
-   * @public
-   * <p>The prefix of the Amazon S3 bucket that the generated snapshots are stored in.</p>
-   */
-  BucketPrefix: string | undefined;
-
-  /**
-   * @public
-   * <p>The region that the Amazon S3 bucket is located in. The bucket must be located in the same region that the <code>StartDashboardSnapshotJob</code> API call is made.</p>
-   */
-  BucketRegion: string | undefined;
-}
-
-/**
- * @public
- * <p>A structure that describes the Amazon S3 settings to use to save the generated dashboard snapshot.</p>
- */
-export interface SnapshotS3DestinationConfiguration {
-  /**
-   * @public
-   * <p>A structure that contains details about the Amazon S3 bucket that the generated dashboard snapshot is saved in.</p>
-   */
-  BucketConfiguration?: S3BucketConfiguration;
-}
-
-/**
- * @public
- * <p>The Amazon S3 result from the snapshot job. The result includes the <code>DestinationConfiguration</code> and the Amazon S3 Uri. If an error occured during the job, the result returns information on the error.</p>
- */
-export interface SnapshotJobS3Result {
-  /**
-   * @public
-   * <p>A list of Amazon S3 bucket configurations that are provided when you make a <code>StartDashboardSnapshotJob</code> API call.
-   *         </p>
-   */
-  S3DestinationConfiguration?: SnapshotS3DestinationConfiguration;
-
-  /**
-   * @public
-   * <p>The Amazon S3 Uri.</p>
-   */
-  S3Uri?: string;
-
-  /**
-   * @public
-   * <p>An array of error records that describe any failures that occur while the dashboard snapshot job runs.</p>
-   */
-  ErrorInfo?: SnapshotJobResultErrorInfo[];
-}
-
-/**
- * @public
- * <p>A structure that contains information on the generated snapshot file groups.</p>
- */
-export interface SnapshotJobResultFileGroup {
-  /**
-   * @public
-   * <p> A list of <code>SnapshotFile</code> objects.</p>
-   */
-  Files?: SnapshotFile[];
-
-  /**
-   * @public
-   * <p> A list of <code>SnapshotJobS3Result</code> objects.</p>
-   */
-  S3Results?: SnapshotJobS3Result[];
-}
-
-/**
- * @public
- * <p>A structure that contains the file groups that are requested for the artifact generation in a <code>StartDashboardSnapshotJob</code> API call.
- *         </p>
- */
-export interface AnonymousUserSnapshotJobResult {
-  /**
-   * @public
-   * <p>A list of <code>SnapshotJobResultFileGroup</code> objects that contain information on the files that are requested during a <code>StartDashboardSnapshotJob</code> API call. If the job succeeds, these objects contain the location where the snapshot artifacts are stored. If the job fails, the objects contain information about the error that caused the job to fail.</p>
-   */
-  FileGroups?: SnapshotJobResultFileGroup[];
-}
-
-/**
- * @public
- * @enum
- */
-export const AssetBundleExportJobAnalysisPropertyToOverride = {
-  NAME: "Name",
-} as const;
-
-/**
- * @public
- */
-export type AssetBundleExportJobAnalysisPropertyToOverride =
-  (typeof AssetBundleExportJobAnalysisPropertyToOverride)[keyof typeof AssetBundleExportJobAnalysisPropertyToOverride];
-
-/**
- * @public
- * <p>Controls how a specific <code>Analysis</code> resource is parameterized in the returned CloudFormation template.</p>
- */
-export interface AssetBundleExportJobAnalysisOverrideProperties {
-  /**
-   * @public
-   * <p>The ARN of the specific <code>Analysis</code> resource whose override properties are configured in this structure.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>A list of <code>Analysis</code> resource properties to generate variables for in the returned CloudFormation template.</p>
-   */
-  Properties: (AssetBundleExportJobAnalysisPropertyToOverride | string)[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const AssetBundleExportJobDashboardPropertyToOverride = {
-  NAME: "Name",
-} as const;
-
-/**
- * @public
- */
-export type AssetBundleExportJobDashboardPropertyToOverride =
-  (typeof AssetBundleExportJobDashboardPropertyToOverride)[keyof typeof AssetBundleExportJobDashboardPropertyToOverride];
-
-/**
- * @public
- * <p>Controls how a specific <code>Dashboard</code> resource is parameterized in the returned CloudFormation template.</p>
- */
-export interface AssetBundleExportJobDashboardOverrideProperties {
-  /**
-   * @public
-   * <p>The ARN of the specific <code>Dashboard</code> resource whose override properties are configured in this structure.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>A list of <code>Dashboard</code> resource properties to generate variables for in the returned CloudFormation template.</p>
-   */
-  Properties: (AssetBundleExportJobDashboardPropertyToOverride | string)[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const AssetBundleExportJobDataSetPropertyToOverride = {
-  NAME: "Name",
-} as const;
-
-/**
- * @public
- */
-export type AssetBundleExportJobDataSetPropertyToOverride =
-  (typeof AssetBundleExportJobDataSetPropertyToOverride)[keyof typeof AssetBundleExportJobDataSetPropertyToOverride];
-
-/**
- * @public
- * <p>Controls how a specific <code>DataSet</code> resource is parameterized in the returned CloudFormation template.</p>
- */
-export interface AssetBundleExportJobDataSetOverrideProperties {
-  /**
-   * @public
-   * <p>The ARN of the specific <code>DataSet</code> resource whose override properties are configured in this structure.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>A list of <code>DataSet</code> resource properties to generate variables for in the returned CloudFormation template.</p>
-   */
-  Properties: (AssetBundleExportJobDataSetPropertyToOverride | string)[] | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const AssetBundleExportJobDataSourcePropertyToOverride = {
-  CATALOG: "Catalog",
-  CLUSTER_ID: "ClusterId",
-  DATABASE: "Database",
-  DATA_SET_NAME: "DataSetName",
-  DISABLE_SSL: "DisableSsl",
-  DOMAIN: "Domain",
-  HOST: "Host",
-  INSTANCE_ID: "InstanceId",
-  MANIFEST_FILE_LOCATION: "ManifestFileLocation",
-  NAME: "Name",
-  PASSWORD: "Password",
-  PORT: "Port",
-  ROLE_ARN: "RoleArn",
-  SECRET_ARN: "SecretArn",
-  USERNAME: "Username",
-  WAREHOUSE: "Warehouse",
-  WORK_GROUP: "WorkGroup",
-} as const;
-
-/**
- * @public
- */
-export type AssetBundleExportJobDataSourcePropertyToOverride =
-  (typeof AssetBundleExportJobDataSourcePropertyToOverride)[keyof typeof AssetBundleExportJobDataSourcePropertyToOverride];
+export const BarChartVisualFilterSensitiveLog = (obj: BarChartVisual): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -8452,6 +8501,28 @@ export const KPIConfigurationFilterSensitiveLog = (obj: KPIConfiguration): any =
 /**
  * @internal
  */
+export const KPIActualValueConditionalFormattingFilterSensitiveLog = (
+  obj: KPIActualValueConditionalFormatting
+): any => ({
+  ...obj,
+  ...(obj.TextColor && { TextColor: ConditionalFormattingColorFilterSensitiveLog(obj.TextColor) }),
+  ...(obj.Icon && { Icon: ConditionalFormattingIconFilterSensitiveLog(obj.Icon) }),
+});
+
+/**
+ * @internal
+ */
+export const KPIComparisonValueConditionalFormattingFilterSensitiveLog = (
+  obj: KPIComparisonValueConditionalFormatting
+): any => ({
+  ...obj,
+  ...(obj.TextColor && { TextColor: ConditionalFormattingColorFilterSensitiveLog(obj.TextColor) }),
+  ...(obj.Icon && { Icon: ConditionalFormattingIconFilterSensitiveLog(obj.Icon) }),
+});
+
+/**
+ * @internal
+ */
 export const KPIPrimaryValueConditionalFormattingFilterSensitiveLog = (
   obj: KPIPrimaryValueConditionalFormatting
 ): any => ({
@@ -8477,6 +8548,10 @@ export const KPIConditionalFormattingOptionFilterSensitiveLog = (obj: KPIConditi
   ...obj,
   ...(obj.PrimaryValue && { PrimaryValue: KPIPrimaryValueConditionalFormattingFilterSensitiveLog(obj.PrimaryValue) }),
   ...(obj.ProgressBar && { ProgressBar: KPIProgressBarConditionalFormattingFilterSensitiveLog(obj.ProgressBar) }),
+  ...(obj.ActualValue && { ActualValue: KPIActualValueConditionalFormattingFilterSensitiveLog(obj.ActualValue) }),
+  ...(obj.ComparisonValue && {
+    ComparisonValue: KPIComparisonValueConditionalFormattingFilterSensitiveLog(obj.ComparisonValue),
+  }),
 });
 
 /**
@@ -9051,27 +9126,4 @@ export const AnalysisDefinitionFilterSensitiveLog = (obj: AnalysisDefinition): a
   ...(obj.ColumnConfigurations && {
     ColumnConfigurations: obj.ColumnConfigurations.map((item) => ColumnConfigurationFilterSensitiveLog(item)),
   }),
-});
-
-/**
- * @internal
- */
-export const SnapshotJobS3ResultFilterSensitiveLog = (obj: SnapshotJobS3Result): any => ({
-  ...obj,
-  ...(obj.S3Uri && { S3Uri: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const SnapshotJobResultFileGroupFilterSensitiveLog = (obj: SnapshotJobResultFileGroup): any => ({
-  ...obj,
-  ...(obj.S3Results && { S3Results: obj.S3Results.map((item) => SnapshotJobS3ResultFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const AnonymousUserSnapshotJobResultFilterSensitiveLog = (obj: AnonymousUserSnapshotJobResult): any => ({
-  ...obj,
 });

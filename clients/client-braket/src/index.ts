@@ -17,8 +17,12 @@
 export * from "./BraketClient";
 export * from "./Braket";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { BraketExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { BraketServiceException } from "./models/BraketServiceException";

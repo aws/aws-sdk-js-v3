@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+
 import { StreamingBlobTypes } from "@smithy/types";
 
 import { LexRuntimeV2ServiceException as __BaseException } from "./LexRuntimeV2ServiceException";
@@ -376,29 +377,24 @@ export type Shape = (typeof Shape)[keyof typeof Shape];
 
 /**
  * @public
- * <p>The value of a slot.</p>
+ * <p>Information about the value provided for a slot and Amazon Lex V2's interpretation.</p>
  */
 export interface Value {
   /**
    * @public
-   * <p>The text of the utterance from the user that was entered for the
-   *          slot.</p>
+   * <p>The part of the user's response to the slot elicitation that Amazon Lex V2 determines is relevant to the slot value.</p>
    */
   originalValue?: string;
 
   /**
    * @public
-   * <p>The value that Amazon Lex V2 determines for the slot. The actual value
-   *          depends on the setting of the value selection strategy for the bot. You
-   *          can choose to use the value entered by the user, or you can have Amazon Lex V2
-   *          choose the first value in the <code>resolvedValues</code> list.</p>
+   * <p>The value that Amazon Lex V2 determines for the slot, given the user input. The actual value depends on the setting of the value selection strategy for the bot. You can choose to use the value entered by the user, or you can have Amazon Lex V2 choose the first value in the <code>resolvedValues</code> list.</p>
    */
   interpretedValue: string | undefined;
 
   /**
    * @public
-   * <p>A list of additional values that have been recognized for the
-   *          slot.</p>
+   * <p>A list of values that Amazon Lex V2 determines are possible resolutions for the user input. The first value matches the <code>interpretedValue</code>.</p>
    */
   resolvedValues?: string[];
 }
@@ -420,6 +416,20 @@ export const IntentState = {
  * @public
  */
 export type IntentState = (typeof IntentState)[keyof typeof IntentState];
+
+/**
+ * @public
+ * @enum
+ */
+export const InterpretationSource = {
+  BEDROCK: "Bedrock",
+  LEX: "Lex",
+} as const;
+
+/**
+ * @public
+ */
+export type InterpretationSource = (typeof InterpretationSource)[keyof typeof InterpretationSource];
 
 /**
  * @public
@@ -503,7 +513,7 @@ export interface SentimentResponse {
    *          sentiment most likely expressed by the user based on the analysis by
    *          Amazon Comprehend.</p>
    */
-  sentiment?: SentimentType | string;
+  sentiment?: SentimentType;
 
   /**
    * @public
@@ -549,39 +559,39 @@ export interface Button {
 /**
  * @public
  * <p>A card that is shown to the user by a messaging platform. You define
- *          the contents of the card, the card is displayed by the platform. </p>
+ *             the contents of the card, the card is displayed by the platform. </p>
  *          <p>When you use a response card, the response from the user is
- *          constrained to the text associated with a button on the card.</p>
+ *             constrained to the text associated with a button on the card.</p>
  */
 export interface ImageResponseCard {
   /**
    * @public
    * <p>The title to display on the response card. The format of the title
-   *          is determined by the platform displaying the response card.</p>
+   *             is determined by the platform displaying the response card.</p>
    */
   title: string | undefined;
 
   /**
    * @public
    * <p>The subtitle to display on the response card. The format of the
-   *          subtitle is determined by the platform displaying the response
-   *          card.</p>
+   *             subtitle is determined by the platform displaying the response
+   *             card.</p>
    */
   subtitle?: string;
 
   /**
    * @public
    * <p>The URL of an image to display on the response card. The image URL
-   *          must be publicly available so that the platform displaying the response
-   *          card has access to the image.</p>
+   *             must be publicly available so that the platform displaying the response
+   *             card has access to the image.</p>
    */
   imageUrl?: string;
 
   /**
    * @public
    * <p>A list of buttons that should be displayed on the response card. The
-   *          arrangement of the buttons is determined by the platform that displays
-   *          the button.</p>
+   *             arrangement of the buttons is determined by the platform that displays
+   *             the button.</p>
    */
   buttons?: Button[];
 }
@@ -601,14 +611,14 @@ export interface Message {
    * @public
    * <p>Indicates the type of response.</p>
    */
-  contentType: MessageContentType | string | undefined;
+  contentType: MessageContentType | undefined;
 
   /**
    * @public
    * <p>A card that is shown to the user by a messaging platform. You define
-   *          the contents of the card, the card is displayed by the platform. </p>
+   *             the contents of the card, the card is displayed by the platform. </p>
    *          <p>When you use a response card, the response from the user is
-   *          constrained to the text associated with a button on the card.</p>
+   *             constrained to the text associated with a button on the card.</p>
    */
   imageResponseCard?: ImageResponseCard;
 }
@@ -721,18 +731,18 @@ export interface PutSessionResponse {
 
   /**
    * @public
-   * <p>Represents the current state of the dialog between the user and the
-   *          bot.</p>
-   *          <p>Use this to determine the progress of the conversation and what the
-   *          next action may be.</p>
+   * <p>A base-64-encoded gzipped field that represents the current state of
+   *          the dialog between the user and the bot. Use this to determine the progress
+   *          of the conversation and what the next action may be.</p>
    */
   sessionState?: string;
 
   /**
    * @public
-   * <p>Request-specific information passed between the client application
-   *          and Amazon Lex V2. These are the same as the <code>requestAttribute</code>
-   *          parameter in the call to the <code>PutSession</code> operation.</p>
+   * <p>A base-64-encoded gzipped field that provides request-specific information
+   *          passed between the client application and Amazon Lex V2. These are the same as the
+   *          <code>requestAttribute</code> parameter in the call to the
+   *          <code>PutSession</code> operation.</p>
    */
   requestAttributes?: string;
 
@@ -921,8 +931,7 @@ export interface RecognizeUtteranceRequest {
 export interface RecognizeUtteranceResponse {
   /**
    * @public
-   * <p>Indicates whether the input mode to the operation was text or
-   *          speech.
+   * <p>Indicates whether the input mode to the operation was text, speech, or from a touch-tone keypad.
    *       </p>
    */
   inputMode?: string;
@@ -1202,7 +1211,7 @@ export interface PlaybackInterruptionEvent {
    * @public
    * <p>Indicates the type of user input that Amazon Lex V2 detected.</p>
    */
-  eventReason?: PlaybackInterruptionReason | string;
+  eventReason?: PlaybackInterruptionReason;
 
   /**
    * @public
@@ -1293,38 +1302,38 @@ export interface DialogAction {
   /**
    * @public
    * <p>The next action that the bot should take in its interaction with the
-   *          user. The possible values are:</p>
+   *          user. The following values are possible:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>Close</code> - Indicates that there will not be a
+   *                   <code>Close</code> – Indicates that there will not be a
    *                response from the user. For example, the statement "Your order
    *                has been placed" does not require a response.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ConfirmIntent</code> - The next action is asking the
+   *                   <code>ConfirmIntent</code> – The next action is asking the
    *                user if the intent is complete and ready to be fulfilled. This is
    *                a yes/no question such as "Place the order?"</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>Delegate</code> - The next action is determined by
+   *                   <code>Delegate</code> – The next action is determined by
    *                Amazon Lex V2.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ElicitIntent</code> - The next action is to elicit an
+   *                   <code>ElicitIntent</code> – The next action is to elicit an
    *                intent from the user.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ElicitSlot</code> - The next action is to elicit a slot
+   *                   <code>ElicitSlot</code> – The next action is to elicit a slot
    *                value from the user.</p>
    *             </li>
    *          </ul>
    */
-  type: DialogActionType | string | undefined;
+  type: DialogActionType | undefined;
 
   /**
    * @public
@@ -1346,10 +1355,10 @@ export interface DialogAction {
    *                boy"</p>
    *             </li>
    *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/using-spelling.html">
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/spelling-styles.html">
    *             Using spelling to enter slot values </a>.</p>
    */
-  slotElicitationStyle?: StyleType | string;
+  slotElicitationStyle?: StyleType;
 
   /**
    * @public
@@ -1427,7 +1436,7 @@ export interface Slot {
    *          the value is <code>Scalar</code>, it indicates that the
    *             <code>value</code> field contains a single value.</p>
    */
-  shape?: Shape | string;
+  shape?: Shape;
 
   /**
    * @public
@@ -1465,21 +1474,46 @@ export interface Intent {
 
   /**
    * @public
-   * <p>Contains fulfillment information for the intent. </p>
+   * <p>Indicates the fulfillment state for the intent. The meanings of each value are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Failed</code> – The bot failed to fulfill the intent.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Fulfilled</code> – The bot has completed fulfillment of the intent.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FulfillmentInProgress</code> – The bot is in the middle of fulfilling the intent.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>InProgress</code> – The bot is in the middle of eliciting the slot values that are necessary to fulfill the intent.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ReadyForFulfillment</code> – The bot has elicited all the slot values for the intent and is ready to fulfill the intent.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Waiting</code> – The bot is waiting for a response from the user (limited to streaming conversations).</p>
+   *             </li>
+   *          </ul>
    */
-  state?: IntentState | string;
+  state?: IntentState;
 
   /**
    * @public
-   * <p>Contains information about whether fulfillment of the intent has
-   *          been confirmed.</p>
+   * <p>Indicates whether the intent has been <code>Confirmed</code>, <code>Denied</code>, or <code>None</code> if the confirmation stage has not yet been reached.</p>
    */
-  confirmationState?: ConfirmationState | string;
+  confirmationState?: ConfirmationState;
 }
 
 /**
  * @public
- * <p>An intent that Amazon Lex V2 determined might satisfy the user's utterance.
+ * <p>An object containing information about an intent that Amazon Lex V2 determined might satisfy the user's utterance.
  *          The intents are ordered by the confidence score. </p>
  */
 export interface Interpretation {
@@ -1509,6 +1543,12 @@ export interface Interpretation {
    *          intents are ordered by the confidence score.</p>
    */
   intent?: Intent;
+
+  /**
+   * @public
+   * <p>Specifies the service that interpreted the input.</p>
+   */
+  interpretationSource?: InterpretationSource;
 }
 
 /**
@@ -1986,7 +2026,7 @@ export interface StartConversationRequest {
    *          DTMF information. If the mode is <code>TEXT</code> you can only send
    *          text.</p>
    */
-  conversationMode?: ConversationMode | string;
+  conversationMode?: ConversationMode;
 
   /**
    * @public
@@ -2044,10 +2084,9 @@ export interface GetSessionResponse {
 export interface IntentResultEvent {
   /**
    * @public
-   * <p>Indicates whether the input to the operation was text or
-   *          speech.</p>
+   * <p>Indicates whether the input to the operation was text, speech, or from a touch-tone keypad.</p>
    */
-  inputMode?: InputMode | string;
+  inputMode?: InputMode;
 
   /**
    * @public

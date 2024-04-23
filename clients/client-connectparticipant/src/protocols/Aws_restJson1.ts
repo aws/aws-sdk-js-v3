@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -8,6 +9,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   map,
+  resolvedPath as __resolvedPath,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -26,6 +28,7 @@ import {
   CreateParticipantConnectionCommandInput,
   CreateParticipantConnectionCommandOutput,
 } from "../commands/CreateParticipantConnectionCommand";
+import { DescribeViewCommandInput, DescribeViewCommandOutput } from "../commands/DescribeViewCommand";
 import {
   DisconnectParticipantCommandInput,
   DisconnectParticipantCommandOutput,
@@ -44,6 +47,7 @@ import {
   ConflictException,
   ConnectionType,
   InternalServerException,
+  ResourceNotFoundException,
   ServiceQuotaExceededException,
   StartPosition,
   ThrottlingException,
@@ -57,13 +61,12 @@ export const se_CompleteAttachmentUploadCommand = async (
   input: CompleteAttachmentUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-bearer": input.ConnectionToken!,
+    [_xab]: input[_CT]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/complete-attachment-upload";
+  b.bp("/participant/complete-attachment-upload");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -71,15 +74,8 @@ export const se_CompleteAttachmentUploadCommand = async (
       ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -89,13 +85,12 @@ export const se_CreateParticipantConnectionCommand = async (
   input: CreateParticipantConnectionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-bearer": input.ParticipantToken!,
+    [_xab]: input[_PT]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/connection";
+  b.bp("/participant/connection");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -103,15 +98,26 @@ export const se_CreateParticipantConnectionCommand = async (
       Type: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeViewCommand
+ */
+export const se_DescribeViewCommand = async (
+  input: DescribeViewCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_xab]: input[_CT]!,
   });
+  b.bp("/participant/views/{ViewToken}");
+  b.p("ViewToken", () => input.ViewToken!, "{ViewToken}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -121,28 +127,20 @@ export const se_DisconnectParticipantCommand = async (
   input: DisconnectParticipantCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-bearer": input.ConnectionToken!,
+    [_xab]: input[_CT]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/disconnect";
+  b.bp("/participant/disconnect");
   let body: any;
   body = JSON.stringify(
     take(input, {
       ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -152,28 +150,20 @@ export const se_GetAttachmentCommand = async (
   input: GetAttachmentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-bearer": input.ConnectionToken!,
+    [_xab]: input[_CT]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/attachment";
+  b.bp("/participant/attachment");
   let body: any;
   body = JSON.stringify(
     take(input, {
       AttachmentId: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -183,13 +173,12 @@ export const se_GetTranscriptCommand = async (
   input: GetTranscriptCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-bearer": input.ConnectionToken!,
+    [_xab]: input[_CT]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/transcript";
+  b.bp("/participant/transcript");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -201,15 +190,8 @@ export const se_GetTranscriptCommand = async (
       StartPosition: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -219,12 +201,12 @@ export const se_SendEventCommand = async (
   input: SendEventCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-bearer": input.ConnectionToken!,
+    [_xab]: input[_CT]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/event";
+  b.bp("/participant/event");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -233,15 +215,8 @@ export const se_SendEventCommand = async (
       ContentType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -251,12 +226,12 @@ export const se_SendMessageCommand = async (
   input: SendMessageCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-bearer": input.ConnectionToken!,
+    [_xab]: input[_CT]!,
   });
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/message";
+  b.bp("/participant/message");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -265,15 +240,8 @@ export const se_SendMessageCommand = async (
       ContentType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -283,13 +251,12 @@ export const se_StartAttachmentUploadCommand = async (
   input: StartAttachmentUploadCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    "x-amz-bearer": input.ConnectionToken!,
+    [_xab]: input[_CT]!,
   });
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/participant/start-attachment-upload";
+  b.bp("/participant/start-attachment-upload");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -299,15 +266,8 @@ export const se_StartAttachmentUploadCommand = async (
       ContentType: [],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -409,6 +369,65 @@ const de_CreateParticipantConnectionCommandError = async (
     case "InternalServerException":
     case "com.amazonaws.connectparticipant#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connectparticipant#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.connectparticipant#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1DescribeViewCommand
+ */
+export const de_DescribeViewCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeViewCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_DescribeViewCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    View: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeViewCommandError
+ */
+const de_DescribeViewCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeViewCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connectparticipant#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.connectparticipant#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connectparticipant#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connectparticipant#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -630,6 +649,9 @@ const de_SendEventCommandError = async (
     case "AccessDeniedException":
     case "com.amazonaws.connectparticipant#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.connectparticipant#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.connectparticipant#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -825,6 +847,28 @@ const de_InternalServerExceptionRes = async (
 };
 
 /**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceNotFoundException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: __expectString,
+    ResourceId: __expectString,
+    ResourceType: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ResourceNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1ServiceQuotaExceededExceptionRes
  */
 const de_ServiceQuotaExceededExceptionRes = async (
@@ -904,6 +948,12 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // de_UploadMetadataSignedHeaders omitted.
 
+// de_View omitted.
+
+// de_ViewActions omitted.
+
+// de_ViewContent omitted.
+
 // de_Websocket omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -924,6 +974,10 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _CT = "ConnectionToken";
+const _PT = "ParticipantToken";
+const _xab = "x-amz-bearer";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateFunctionRequest,
   UpdateFunctionRequestFilterSensitiveLog,
@@ -58,6 +50,14 @@ export interface UpdateFunctionCommandOutput extends UpdateFunctionResult, __Met
  *   FunctionConfig: { // FunctionConfig
  *     Comment: "STRING_VALUE", // required
  *     Runtime: "cloudfront-js-1.0" || "cloudfront-js-2.0", // required
+ *     KeyValueStoreAssociations: { // KeyValueStoreAssociations
+ *       Quantity: Number("int"), // required
+ *       Items: [ // KeyValueStoreAssociationList
+ *         { // KeyValueStoreAssociation
+ *           KeyValueStoreARN: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
  *   },
  *   FunctionCode: "BLOB_VALUE", // required
  * };
@@ -70,6 +70,14 @@ export interface UpdateFunctionCommandOutput extends UpdateFunctionResult, __Met
  * //     FunctionConfig: { // FunctionConfig
  * //       Comment: "STRING_VALUE", // required
  * //       Runtime: "cloudfront-js-1.0" || "cloudfront-js-2.0", // required
+ * //       KeyValueStoreAssociations: { // KeyValueStoreAssociations
+ * //         Quantity: Number("int"), // required
+ * //         Items: [ // KeyValueStoreAssociationList
+ * //           { // KeyValueStoreAssociation
+ * //             KeyValueStoreARN: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //     FunctionMetadata: { // FunctionMetadata
  * //       FunctionARN: "STRING_VALUE", // required
@@ -112,80 +120,79 @@ export interface UpdateFunctionCommandOutput extends UpdateFunctionResult, __Met
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @example To update a function
+ * ```javascript
+ * // Use the following command to update a function.
+ * const input = {
+ *   "FunctionCode": "function-code-changed.js",
+ *   "FunctionConfig": {
+ *     "Comment": "my-changed-comment",
+ *     "KeyValueStoreAssociations": {
+ *       "Items": [
+ *         {
+ *           "KeyValueStoreARN": "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889"
+ *         }
+ *       ],
+ *       "Quantity": 1
+ *     },
+ *     "Runtime": "cloudfront-js-2.0"
+ *   },
+ *   "IfMatch": "ETVPDKIKX0DER",
+ *   "Name": "my-function-name"
+ * };
+ * const command = new UpdateFunctionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ETag": "E3UN6WX5RRO2AG",
+ *   "FunctionSummary": {
+ *     "FunctionConfig": {
+ *       "Comment": "my-changed-comment",
+ *       "KeyValueStoreAssociations": {
+ *         "Items": [
+ *           {
+ *             "KeyValueStoreARN": "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889"
+ *           }
+ *         ],
+ *         "Quantity": 1
+ *       },
+ *       "Runtime": "cloudfront-js-2.0"
+ *     },
+ *     "FunctionMetadata": {
+ *       "CreatedTime": "2023-11-07T19:53:50.334Z",
+ *       "FunctionARN": "arn:aws:cloudfront::123456789012:function/my-function-name",
+ *       "LastModifiedTime": "2023-11-07T20:01:37.174Z",
+ *       "Stage": "DEVELOPMENT"
+ *     },
+ *     "Name": "my-function-name",
+ *     "Status": "UNPUBLISHED"
+ *   }
+ * }
+ * *\/
+ * // example id: to-update-a-function-1699751865053
+ * ```
+ *
  */
-export class UpdateFunctionCommand extends $Command<
-  UpdateFunctionCommandInput,
-  UpdateFunctionCommandOutput,
-  CloudFrontClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateFunctionCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CloudFrontClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateFunctionCommandInput, UpdateFunctionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateFunctionCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CloudFrontClient";
-    const commandName = "UpdateFunctionCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: UpdateFunctionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateFunctionCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateFunctionCommandOutput> {
-    return de_UpdateFunctionCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateFunctionCommand extends $Command
+  .classBuilder<
+    UpdateFunctionCommandInput,
+    UpdateFunctionCommandOutput,
+    CloudFrontClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("Cloudfront2020_05_31", "UpdateFunction", {})
+  .n("CloudFrontClient", "UpdateFunctionCommand")
+  .f(UpdateFunctionRequestFilterSensitiveLog, void 0)
+  .ser(se_UpdateFunctionCommand)
+  .de(de_UpdateFunctionCommand)
+  .build() {}

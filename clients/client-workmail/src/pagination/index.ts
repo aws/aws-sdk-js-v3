@@ -3,6 +3,7 @@ export * from "./Interfaces";
 export * from "./ListAliasesPaginator";
 export * from "./ListAvailabilityConfigurationsPaginator";
 export * from "./ListGroupMembersPaginator";
+export * from "./ListGroupsForEntityPaginator";
 export * from "./ListGroupsPaginator";
 export * from "./ListImpersonationRolesPaginator";
 export * from "./ListMailDomainsPaginator";

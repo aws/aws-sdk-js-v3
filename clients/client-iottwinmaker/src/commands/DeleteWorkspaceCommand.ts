@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTTwinMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTTwinMakerClient";
 import { DeleteWorkspaceRequest, DeleteWorkspaceResponse } from "../models/models_0";
 import { de_DeleteWorkspaceCommand, se_DeleteWorkspaceCommand } from "../protocols/Aws_restJson1";
@@ -48,7 +40,9 @@ export interface DeleteWorkspaceCommandOutput extends DeleteWorkspaceResponse, _
  * };
  * const command = new DeleteWorkspaceCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // DeleteWorkspaceResponse
+ * //   message: "STRING_VALUE",
+ * // };
  *
  * ```
  *
@@ -77,79 +71,26 @@ export interface DeleteWorkspaceCommandOutput extends DeleteWorkspaceResponse, _
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
  */
-export class DeleteWorkspaceCommand extends $Command<
-  DeleteWorkspaceCommandInput,
-  DeleteWorkspaceCommandOutput,
-  IoTTwinMakerClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DeleteWorkspaceCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: IoTTwinMakerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DeleteWorkspaceCommandInput, DeleteWorkspaceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteWorkspaceCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "IoTTwinMakerClient";
-    const commandName = "DeleteWorkspaceCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DeleteWorkspaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DeleteWorkspaceCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkspaceCommandOutput> {
-    return de_DeleteWorkspaceCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DeleteWorkspaceCommand extends $Command
+  .classBuilder<
+    DeleteWorkspaceCommandInput,
+    DeleteWorkspaceCommandOutput,
+    IoTTwinMakerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: IoTTwinMakerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSIoTTwinMaker", "DeleteWorkspace", {})
+  .n("IoTTwinMakerClient", "DeleteWorkspaceCommand")
+  .f(void 0, void 0)
+  .ser(se_DeleteWorkspaceCommand)
+  .de(de_DeleteWorkspaceCommand)
+  .build() {}

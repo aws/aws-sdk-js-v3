@@ -1,61 +1,107 @@
-// smithy-typescript generated code
 import { marshall, marshallOptions, unmarshall, unmarshallOptions } from "@aws-sdk/util-dynamodb";
 
-export type KeyNode = {
-  key: string;
-  children?: KeyNode[] | AllNodes;
-};
+/**
+ * @internal
+ */
+export type KeyNodeSelf = null;
+/**
+ * @internal
+ */
+export const SELF: KeyNodeSelf = null;
 
-export type AllNodes = {
-  children?: KeyNode[] | AllNodes;
-};
+/**
+ * @internal
+ */
+export type KeyNodeChildren = Record<string, any>;
+/**
+ * @internal
+ */
+export const ALL_VALUES: KeyNodeChildren = {};
+/**
+ * @internal
+ */
+export const ALL_MEMBERS: KeyNodeChildren = [];
+/**
+ * @internal
+ */
+const NEXT_LEVEL = "*";
 
-const processObj = (obj: any, processFunc: Function, children?: KeyNode[] | AllNodes): any => {
+/**
+ * @internal
+ */
+export type KeyNodes = KeyNodeSelf | KeyNodeChildren;
+
+const processObj = (obj: any, processFunc: Function, keyNodes?: KeyNodes): any => {
   if (obj !== undefined) {
-    if (!children || (Array.isArray(children) && children.length === 0)) {
+    if (keyNodes == null) {
       // Leaf of KeyNode, process the object.
       return processFunc(obj);
     } else {
+      const keys = Object.keys(keyNodes);
+
+      const goToNextLevel = keys.length === 1 && keys[0] === NEXT_LEVEL;
+      const someChildren = keys.length >= 1 && !goToNextLevel;
+      const allChildren = keys.length === 0;
+
       // Not leaf node, process the children.
-      if (Array.isArray(children)) {
-        // Specific keys of children need to be processed.
-        return processKeysInObj(obj, processFunc, children);
-      } else {
-        // All children require processing.
-        return processAllKeysInObj(obj, processFunc, children.children);
+      if (someChildren) {
+        return processKeysInObj(obj, processFunc, keyNodes as KeyNodeChildren);
+      } else if (allChildren) {
+        return processAllKeysInObj(obj, processFunc, SELF);
+      } else if (goToNextLevel) {
+        return Object.entries(obj ?? {}).reduce((acc, [k, v]) => {
+          acc[k] = processObj(v, processFunc, keyNodes[NEXT_LEVEL]);
+          return acc;
+        }, (Array.isArray(obj) ? [] : {}) as any);
       }
     }
   }
   return undefined;
 };
 
-const processKeyInObj = (obj: any, processFunc: Function, children?: KeyNode[] | AllNodes): any => {
+const processKeysInObj = (obj: any, processFunc: Function, keyNodes: KeyNodeChildren) => {
+  let accumulator: any;
   if (Array.isArray(obj)) {
-    return obj.map((item: any) => processObj(item, processFunc, children));
+    accumulator = [...obj];
+  } else {
+    accumulator = { ...obj };
   }
-  return processObj(obj, processFunc, children);
+
+  for (const [nodeKey, nodes] of Object.entries(keyNodes)) {
+    const processedValue = processObj(obj[nodeKey], processFunc, nodes);
+    if (processedValue !== undefined) {
+      accumulator[nodeKey] = processedValue;
+    }
+  }
+
+  return accumulator;
 };
 
-const processKeysInObj = (obj: any, processFunc: Function, keyNodes: KeyNode[]) => {
-  const accumulator = { ...obj };
-  return keyNodes.reduce((acc, { key, children }) => {
-    acc[key] = processKeyInObj(acc[key], processFunc, children);
-    return acc;
-  }, accumulator);
-};
-
-const processAllKeysInObj = (obj: any, processFunc: Function, children?: KeyNode[] | AllNodes): any =>
-  Object.entries(obj).reduce((acc, [key, value]) => {
-    acc[key] = processKeyInObj(value, processFunc, children);
+const processAllKeysInObj = (obj: any, processFunc: Function, keyNodes: KeyNodes): any => {
+  if (Array.isArray(obj)) {
+    return obj.map((item) => processObj(item, processFunc, keyNodes));
+  }
+  return Object.entries(obj).reduce((acc, [key, value]) => {
+    const processedValue = processObj(value, processFunc, keyNodes);
+    if (processedValue !== undefined) {
+      acc[key] = processedValue;
+    }
     return acc;
   }, {} as any);
+};
 
-export const marshallInput = (obj: any, keyNodes: KeyNode[], options?: marshallOptions) => {
+/**
+ * @internal
+ */
+export const marshallInput = (obj: any, keyNodes: KeyNodeChildren, options?: marshallOptions) => {
   const marshallFunc = (toMarshall: any) => marshall(toMarshall, options);
   return processKeysInObj(obj, marshallFunc, keyNodes);
 };
 
-export const unmarshallOutput = (obj: any, keyNodes: KeyNode[], options?: unmarshallOptions) => {
+/**
+ * @internal
+ */
+export const unmarshallOutput = (obj: any, keyNodes: KeyNodeChildren, options?: unmarshallOptions) => {
   const unmarshallFunc = (toMarshall: any) => unmarshall(toMarshall, options);
   return processKeysInObj(obj, unmarshallFunc, keyNodes);
 };

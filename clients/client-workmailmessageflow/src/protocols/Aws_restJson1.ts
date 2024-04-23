@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -42,20 +43,13 @@ export const se_GetRawMessageContentCommand = async (
   input: GetRawMessageContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/messages/{messageId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "messageId", () => input.messageId!, "{messageId}", false);
+  b.bp("/messages/{messageId}");
+  b.p("messageId", () => input.messageId!, "{messageId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -65,27 +59,20 @@ export const se_PutRawMessageContentCommand = async (
   input: PutRawMessageContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/messages/{messageId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "messageId", () => input.messageId!, "{messageId}", false);
+  b.bp("/messages/{messageId}");
+  b.p("messageId", () => input.messageId!, "{messageId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       content: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**

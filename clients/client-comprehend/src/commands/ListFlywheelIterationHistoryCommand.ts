@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListFlywheelIterationHistoryRequest, ListFlywheelIterationHistoryResponse } from "../models/models_0";
 import {
   de_ListFlywheelIterationHistoryCommand,
@@ -118,82 +110,26 @@ export interface ListFlywheelIterationHistoryCommandOutput
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
  */
-export class ListFlywheelIterationHistoryCommand extends $Command<
-  ListFlywheelIterationHistoryCommandInput,
-  ListFlywheelIterationHistoryCommandOutput,
-  ComprehendClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListFlywheelIterationHistoryCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ComprehendClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListFlywheelIterationHistoryCommandInput, ListFlywheelIterationHistoryCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListFlywheelIterationHistoryCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ComprehendClient";
-    const commandName = "ListFlywheelIterationHistoryCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListFlywheelIterationHistoryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListFlywheelIterationHistoryCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListFlywheelIterationHistoryCommandOutput> {
-    return de_ListFlywheelIterationHistoryCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListFlywheelIterationHistoryCommand extends $Command
+  .classBuilder<
+    ListFlywheelIterationHistoryCommandInput,
+    ListFlywheelIterationHistoryCommandOutput,
+    ComprehendClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("Comprehend_20171127", "ListFlywheelIterationHistory", {})
+  .n("ComprehendClient", "ListFlywheelIterationHistoryCommand")
+  .f(void 0, void 0)
+  .ser(se_ListFlywheelIterationHistoryCommand)
+  .de(de_ListFlywheelIterationHistoryCommand)
+  .build() {}

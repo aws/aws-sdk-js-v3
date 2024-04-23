@@ -29,3 +29,4 @@ export * from "./PutLifecycleConfigurationCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateFileSystemCommand";
+export * from "./UpdateFileSystemProtectionCommand";

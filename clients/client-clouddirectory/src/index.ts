@@ -13,8 +13,12 @@
 export * from "./CloudDirectoryClient";
 export * from "./CloudDirectory";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { CloudDirectoryExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { CloudDirectoryServiceException } from "./models/CloudDirectoryServiceException";

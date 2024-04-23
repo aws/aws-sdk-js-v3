@@ -1,25 +1,456 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { DatabaseMigrationServiceServiceException as __BaseException } from "./DatabaseMigrationServiceServiceException";
+
 import {
   ComputeConfig,
   Connection,
+  DataProvider,
   DataProviderDescriptorDefinition,
+  DataProviderSettings,
+  DmsSslModeValue,
+  DmsTransferSettings,
+  DocDbSettings,
+  DocDbSettingsFilterSensitiveLog,
+  DynamoDbSettings,
+  ElasticsearchSettings,
+  Endpoint,
+  EndpointFilterSensitiveLog,
   EventSubscription,
+  GcpMySQLSettings,
+  GcpMySQLSettingsFilterSensitiveLog,
+  IBMDb2Settings,
+  IBMDb2SettingsFilterSensitiveLog,
   InstanceProfile,
+  KafkaSettings,
+  KafkaSettingsFilterSensitiveLog,
+  KinesisSettings,
+  MicrosoftSQLServerSettings,
+  MicrosoftSQLServerSettingsFilterSensitiveLog,
   MigrationProject,
   MigrationTypeValue,
+  MongoDbSettings,
+  MongoDbSettingsFilterSensitiveLog,
+  MySQLSettings,
+  MySQLSettingsFilterSensitiveLog,
+  NeptuneSettings,
+  OracleSettings,
+  OracleSettingsFilterSensitiveLog,
+  PostgreSQLSettings,
+  PostgreSQLSettingsFilterSensitiveLog,
   RecommendationSettings,
+  RedisSettings,
+  RedisSettingsFilterSensitiveLog,
+  RedshiftSettings,
+  RedshiftSettingsFilterSensitiveLog,
   RefreshSchemasStatus,
   Replication,
   ReplicationConfig,
+  ReplicationEndpointTypeValue,
   ReplicationInstance,
   ReplicationSubnetGroup,
   ReplicationTask,
   ReplicationTaskAssessmentRun,
+  S3Settings,
   SCApplicationAttributes,
+  SybaseSettings,
+  SybaseSettingsFilterSensitiveLog,
+  TimestreamSettings,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ModifyDataProviderMessage {
+  /**
+   * @public
+   * <p>The identifier of the data provider. Identifiers must begin with a letter
+   *          and must contain only ASCII letters, digits, and hyphens. They can't end with
+   *          a hyphen, or contain two consecutive hyphens.</p>
+   */
+  DataProviderIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the data provider.</p>
+   */
+  DataProviderName?: string;
+
+  /**
+   * @public
+   * <p>A user-friendly description of the data provider.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>The type of database engine for the data provider. Valid values include <code>"aurora"</code>,
+   *          <code>"aurora-postgresql"</code>, <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
+   *          <code>"sqlserver"</code>, <code>redshift</code>, <code>mariadb</code>, <code>mongodb</code>, and <code>docdb</code>. A value of <code>"aurora"</code> represents Amazon Aurora MySQL-Compatible Edition.</p>
+   */
+  Engine?: string;
+
+  /**
+   * @public
+   * <p>If this attribute is Y, the current call to <code>ModifyDataProvider</code> replaces all
+   *          existing data provider settings with the exact settings that you specify in this call. If this
+   *          attribute is N, the current call to <code>ModifyDataProvider</code> does two things: </p>
+   *          <ul>
+   *             <li>
+   *                <p>It replaces any data provider settings that already exist with new values,
+   *             for settings with the same names.</p>
+   *             </li>
+   *             <li>
+   *                <p>It creates new data provider settings that you specify in the call,
+   *             for settings with different names. </p>
+   *             </li>
+   *          </ul>
+   */
+  ExactSettings?: boolean;
+
+  /**
+   * @public
+   * <p>The settings in JSON format for a data provider.</p>
+   */
+  Settings?: DataProviderSettings;
+}
+
+/**
+ * @public
+ */
+export interface ModifyDataProviderResponse {
+  /**
+   * @public
+   * <p>The data provider that was modified.</p>
+   */
+  DataProvider?: DataProvider;
+}
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface ModifyEndpointMessage {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) string that uniquely identifies the endpoint.</p>
+   */
+  EndpointArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The database endpoint identifier. Identifiers must begin with a letter and must contain
+   *          only ASCII letters, digits, and hyphens. They can't end with a hyphen or contain two
+   *          consecutive hyphens.</p>
+   */
+  EndpointIdentifier?: string;
+
+  /**
+   * @public
+   * <p>The type of endpoint.  Valid values are <code>source</code> and <code>target</code>.</p>
+   */
+  EndpointType?: ReplicationEndpointTypeValue;
+
+  /**
+   * @public
+   * <p>The database engine name. Valid values, depending on the EndpointType, include
+   *          <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
+   *          <code>"mariadb"</code>, <code>"aurora"</code>, <code>"aurora-postgresql"</code>,
+   *          <code>"redshift"</code>, <code>"s3"</code>, <code>"db2"</code>, <code>"db2-zos"</code>,
+   *          <code>"azuredb"</code>, <code>"sybase"</code>, <code>"dynamodb"</code>,
+   *          <code>"mongodb"</code>, <code>"kinesis"</code>, <code>"kafka"</code>,
+   *          <code>"elasticsearch"</code>, <code>"documentdb"</code>, <code>"sqlserver"</code>,
+   *          <code>"neptune"</code>, and <code>"babelfish"</code>.</p>
+   */
+  EngineName?: string;
+
+  /**
+   * @public
+   * <p>The user name to be used to login to the endpoint database.</p>
+   */
+  Username?: string;
+
+  /**
+   * @public
+   * <p>The password to be used to login to the endpoint database.</p>
+   */
+  Password?: string;
+
+  /**
+   * @public
+   * <p>The name of the server where the endpoint database resides.</p>
+   */
+  ServerName?: string;
+
+  /**
+   * @public
+   * <p>The port used by the endpoint database.</p>
+   */
+  Port?: number;
+
+  /**
+   * @public
+   * <p>The name of the endpoint database. For a MySQL source or target endpoint, do not specify DatabaseName.</p>
+   */
+  DatabaseName?: string;
+
+  /**
+   * @public
+   * <p>Additional attributes associated with the connection. To reset this parameter, pass the
+   *          empty string ("") as an argument.</p>
+   */
+  ExtraConnectionAttributes?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the certificate used for SSL connection.</p>
+   */
+  CertificateArn?: string;
+
+  /**
+   * @public
+   * <p>The SSL mode used to connect to the endpoint.  The default value is <code>none</code>.</p>
+   */
+  SslMode?: DmsSslModeValue;
+
+  /**
+   * @public
+   * <p> The Amazon Resource Name (ARN) for the IAM role you want to use to modify
+   *          the endpoint. The role must allow the <code>iam:PassRole</code> action.</p>
+   */
+  ServiceAccessRoleArn?: string;
+
+  /**
+   * @public
+   * <p>The external table definition.</p>
+   */
+  ExternalTableDefinition?: string;
+
+  /**
+   * @public
+   * <p>Settings in JSON format for the target Amazon DynamoDB endpoint. For information about other
+   *             available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.DynamoDB.html#CHAP_Target.DynamoDB.ObjectMapping">Using Object Mapping to Migrate
+   *             Data to DynamoDB</a> in the <i>Database Migration Service User
+   *             Guide.</i>
+   *          </p>
+   */
+  DynamoDbSettings?: DynamoDbSettings;
+
+  /**
+   * @public
+   * <p>Settings in JSON format for the target Amazon S3 endpoint. For more information about
+   *             the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.S3.html#CHAP_Target.S3.Configuring">Extra
+   *             Connection Attributes When Using Amazon S3 as a Target for DMS</a> in the
+   *             <i>Database Migration Service User Guide.</i>
+   *          </p>
+   */
+  S3Settings?: S3Settings;
+
+  /**
+   * @public
+   * <p>The settings in JSON format for the DMS transfer type of source endpoint. </p>
+   *          <p>Attributes include the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>serviceAccessRoleArn - The Amazon Resource Name (ARN) used by the service access IAM role. The role must allow the <code>iam:PassRole</code> action.</p>
+   *             </li>
+   *             <li>
+   *                <p>BucketName - The name of the S3 bucket to use.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Shorthand syntax for these settings is as follows: <code>ServiceAccessRoleArn=string
+   *             ,BucketName=string</code>
+   *          </p>
+   *          <p>JSON syntax for these settings is as follows: <code>\{ "ServiceAccessRoleArn": "string",
+   *             "BucketName": "string"\} </code>
+   *          </p>
+   */
+  DmsTransferSettings?: DmsTransferSettings;
+
+  /**
+   * @public
+   * <p>Settings in JSON format for the source MongoDB endpoint. For more information about the
+   *          available settings, see the configuration properties section in <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MongoDB.html#CHAP_Source.MongoDB.Configuration">Endpoint configuration settings
+   *             when using MongoDB as a source for Database Migration Service</a> in the
+   *          <i>Database Migration Service User Guide.</i>
+   *          </p>
+   */
+  MongoDbSettings?: MongoDbSettings;
+
+  /**
+   * @public
+   * <p>Settings in JSON format for the target endpoint for Amazon Kinesis Data Streams. For
+   *          more information about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kinesis.html#CHAP_Target.Kinesis.ObjectMapping">Using object mapping to
+   *             migrate data to a Kinesis data stream</a> in the <i>Database Migration Service User Guide.</i>
+   *          </p>
+   */
+  KinesisSettings?: KinesisSettings;
+
+  /**
+   * @public
+   * <p>Settings in JSON format for the target Apache Kafka endpoint. For more information about
+   *          the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Kafka.html#CHAP_Target.Kafka.ObjectMapping">Using object mapping
+   *             to migrate data to a Kafka topic</a> in the <i>Database Migration Service User Guide.</i>
+   *          </p>
+   */
+  KafkaSettings?: KafkaSettings;
+
+  /**
+   * @public
+   * <p>Settings in JSON format for the target OpenSearch endpoint. For more information
+   *          about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Elasticsearch.html#CHAP_Target.Elasticsearch.Configuration">Extra Connection Attributes When Using OpenSearch as a Target for DMS</a> in
+   *          the <i>Database Migration Service User Guide.</i>
+   *          </p>
+   */
+  ElasticsearchSettings?: ElasticsearchSettings;
+
+  /**
+   * @public
+   * <p>Settings in JSON format for the target Amazon Neptune endpoint. For more information
+   *          about the available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Neptune.html#CHAP_Target.Neptune.EndpointSettings">Specifying graph-mapping rules using Gremlin and R2RML for Amazon Neptune as a target</a>
+   *          in the <i>Database Migration Service User Guide.</i>
+   *          </p>
+   */
+  NeptuneSettings?: NeptuneSettings;
+
+  /**
+   * @public
+   * <p>Provides information that defines an Amazon Redshift endpoint.</p>
+   */
+  RedshiftSettings?: RedshiftSettings;
+
+  /**
+   * @public
+   * <p>Settings in JSON format for the source and target PostgreSQL endpoint. For information
+   *          about other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib">Extra connection
+   *             attributes when using PostgreSQL as a source for DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.PostgreSQL.html#CHAP_Target.PostgreSQL.ConnectionAttrib">
+   *             Extra connection attributes when using PostgreSQL as a target for DMS</a> in the
+   *             <i>Database Migration Service User Guide.</i>
+   *          </p>
+   */
+  PostgreSQLSettings?: PostgreSQLSettings;
+
+  /**
+   * @public
+   * <p>Settings in JSON format for the source and target MySQL endpoint. For information about
+   *          other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.MySQL.html#CHAP_Source.MySQL.ConnectionAttrib">Extra connection
+   *             attributes when using MySQL as a source for DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.MySQL.html#CHAP_Target.MySQL.ConnectionAttrib">Extra
+   *             connection attributes when using a MySQL-compatible database as a target for DMS</a> in the <i>Database Migration Service User
+   *          Guide.</i>
+   *          </p>
+   */
+  MySQLSettings?: MySQLSettings;
+
+  /**
+   * @public
+   * <p>Settings in JSON format for the source and target Oracle endpoint. For information about
+   *          other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.ConnectionAttrib">Extra connection
+   *             attributes when using Oracle as a source for DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.Oracle.html#CHAP_Target.Oracle.ConnectionAttrib">
+   *             Extra connection attributes when using Oracle as a target for DMS</a> in the
+   *             <i>Database Migration Service User Guide.</i>
+   *          </p>
+   */
+  OracleSettings?: OracleSettings;
+
+  /**
+   * @public
+   * <p>Settings in JSON format for the source and target SAP ASE endpoint. For information
+   *          about other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SAP.html#CHAP_Source.SAP.ConnectionAttrib">Extra connection attributes
+   *             when using SAP ASE as a source for DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.SAP.html#CHAP_Target.SAP.ConnectionAttrib">Extra connection attributes
+   *             when using SAP ASE as a target for DMS</a> in the <i>Database Migration Service
+   *                 User Guide.</i>
+   *          </p>
+   */
+  SybaseSettings?: SybaseSettings;
+
+  /**
+   * @public
+   * <p>Settings in JSON format for the source and target Microsoft SQL Server endpoint. For
+   *          information about other available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.SQLServer.html#CHAP_Source.SQLServer.ConnectionAttrib">Extra connection
+   *             attributes when using SQL Server as a source for DMS</a> and <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Target.SQLServer.html#CHAP_Target.SQLServer.ConnectionAttrib">
+   *             Extra connection attributes when using SQL Server as a target for DMS</a> in the
+   *             <i>Database Migration Service User Guide.</i>
+   *          </p>
+   */
+  MicrosoftSQLServerSettings?: MicrosoftSQLServerSettings;
+
+  /**
+   * @public
+   * <p>Settings in JSON format for the source IBM Db2 LUW endpoint. For information about other
+   *          available settings, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.DB2.html#CHAP_Source.DB2.ConnectionAttrib">Extra connection attributes
+   *             when using Db2 LUW as a source for DMS</a> in the <i>Database Migration Service
+   *                 User Guide.</i>
+   *          </p>
+   */
+  IBMDb2Settings?: IBMDb2Settings;
+
+  /**
+   * @public
+   * <p>Settings in JSON format for the source DocumentDB endpoint. For more information about the
+   *          available settings, see the configuration properties section in <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.DocumentDB.html"> Using DocumentDB as a Target for Database Migration Service
+   *              </a> in the <i>Database Migration Service User
+   *                Guide.</i>
+   *          </p>
+   */
+  DocDbSettings?: DocDbSettings;
+
+  /**
+   * @public
+   * <p>Settings in JSON format for the Redis target endpoint.</p>
+   */
+  RedisSettings?: RedisSettings;
+
+  /**
+   * @public
+   * <p>If this attribute is Y, the current call to <code>ModifyEndpoint</code> replaces all
+   *          existing endpoint settings with the exact settings that you specify in this call. If this
+   *          attribute is N, the current call to <code>ModifyEndpoint</code> does two things: </p>
+   *          <ul>
+   *             <li>
+   *                <p>It replaces any endpoint settings that already exist with new values, for settings with the
+   *                same names.</p>
+   *             </li>
+   *             <li>
+   *                <p>It creates new endpoint settings that you specify in the call, for settings with different
+   *                names. </p>
+   *             </li>
+   *          </ul>
+   *          <p>For example, if you call <code>create-endpoint ... --endpoint-settings '\{"a":1\}'
+   *             ...</code>, the endpoint has the following endpoint settings: <code>'\{"a":1\}'</code>. If
+   *          you then call <code>modify-endpoint ... --endpoint-settings '\{"b":2\}' ...</code> for the
+   *          same endpoint, the endpoint has the following settings: <code>'\{"a":1,"b":2\}'</code>. </p>
+   *          <p>However, suppose that you follow this with a call to <code>modify-endpoint ...
+   *             --endpoint-settings '\{"b":2\}' --exact-settings ...</code> for that same endpoint again.
+   *          Then the endpoint has the following settings: <code>'\{"b":2\}'</code>. All existing settings
+   *          are replaced with the exact settings that you specify. </p>
+   */
+  ExactSettings?: boolean;
+
+  /**
+   * @public
+   * <p>Settings in JSON format for the source GCP MySQL endpoint.</p>
+   */
+  GcpMySQLSettings?: GcpMySQLSettings;
+
+  /**
+   * @public
+   * <p>Settings in JSON format for the target Amazon Timestream endpoint.</p>
+   */
+  TimestreamSettings?: TimestreamSettings;
+}
+
+/**
+ * @public
+ * <p></p>
+ */
+export interface ModifyEndpointResponse {
+  /**
+   * @public
+   * <p>The modified endpoint.</p>
+   */
+  Endpoint?: Endpoint;
+}
 
 /**
  * @public
@@ -247,7 +678,7 @@ export interface ModifyReplicationConfigMessage {
    * @public
    * <p>The type of replication.</p>
    */
-  ReplicationType?: MigrationTypeValue | string;
+  ReplicationType?: MigrationTypeValue;
 
   /**
    * @public
@@ -400,13 +831,6 @@ export interface ModifyReplicationInstanceMessage {
    *                <p>DMS has enabled automatic patching for the given engine version. </p>
    *             </li>
    *          </ul>
-   *          <p>When <code>AutoMinorVersionUpgrade</code> is enabled, DMS uses the current default
-   *          engine version when you modify a replication instance. For example, if you set
-   *          <code>EngineVersion</code> to a lower version number than the current default version,
-   *          DMS uses the default version.</p>
-   *          <p>If <code>AutoMinorVersionUpgrade</code>
-   *             <i>isn’t</i> enabled when you modify a replication instance, DMS uses the
-   *          engine version specified by the <code>EngineVersion</code> parameter.</p>
    */
   AutoMinorVersionUpgrade?: boolean;
 
@@ -548,7 +972,7 @@ export interface ModifyReplicationTaskMessage {
    * <p>The migration type. Valid values: <code>full-load</code> | <code>cdc</code> | <code>full-load-and-cdc</code>
    *          </p>
    */
-  MigrationType?: MigrationTypeValue | string;
+  MigrationType?: MigrationTypeValue;
 
   /**
    * @public
@@ -600,7 +1024,7 @@ export interface ModifyReplicationTaskMessage {
    * <p>Indicates when you want a change data capture (CDC) operation to stop. The value can be
    *          either server time or commit time.</p>
    *          <p>Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”</p>
-   *          <p>Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12“</p>
+   *          <p>Commit time example: --cdc-stop-position “commit_time:2018-02-09T12:12:12“</p>
    */
   CdcStopPosition?: string;
 
@@ -780,7 +1204,7 @@ export interface ReloadReplicationTablesMessage {
    *          it if validation is enabled. Specify <code>validate-only</code> to re-validate the table.
    *          This option applies only when validation is enabled for the replication. </p>
    */
-  ReloadOption?: ReloadOptionValue | string;
+  ReloadOption?: ReloadOptionValue;
 }
 
 /**
@@ -819,7 +1243,7 @@ export interface ReloadTablesMessage {
    *          <p>Valid values: data-reload, validate-only</p>
    *          <p>Default value is data-reload.</p>
    */
-  ReloadOption?: ReloadOptionValue | string;
+  ReloadOption?: ReloadOptionValue;
 }
 
 /**
@@ -986,7 +1410,7 @@ export interface StartMetadataModelExportAsScriptMessage {
    * @public
    * <p>Whether to export the metadata model from the source or the target.</p>
    */
-  Origin: OriginTypeValue | string | undefined;
+  Origin: OriginTypeValue | undefined;
 
   /**
    * @public
@@ -1062,7 +1486,7 @@ export interface StartMetadataModelImportMessage {
    * @public
    * <p>Whether to load metadata to the source or target database.</p>
    */
-  Origin: OriginTypeValue | string | undefined;
+  Origin: OriginTypeValue | undefined;
 
   /**
    * @public
@@ -1199,7 +1623,7 @@ export interface StartReplicationTaskMessage {
    *          use <code>reload-target</code>. Otherwise use <code>resume-processing</code>, to replicate the
    *          changes from the last stop position.</p>
    */
-  StartReplicationTaskType: StartReplicationTaskTypeValue | string | undefined;
+  StartReplicationTaskType: StartReplicationTaskTypeValue | undefined;
 
   /**
    * @public
@@ -1235,7 +1659,7 @@ export interface StartReplicationTaskMessage {
    * <p>Indicates when you want a change data capture (CDC) operation to stop. The value can be
    *          either server time or commit time.</p>
    *          <p>Server time example: --cdc-stop-position “server_time:2018-02-09T12:12:12”</p>
-   *          <p>Commit time example: --cdc-stop-position “commit_time: 2018-02-09T12:12:12“</p>
+   *          <p>Commit time example: --cdc-stop-position “commit_time:2018-02-09T12:12:12“</p>
    */
   CdcStopPosition?: string;
 }
@@ -1496,7 +1920,7 @@ export interface UpdateSubscriptionsToEventBridgeMessage {
    * <p>When set to true, this operation migrates DMS subscriptions for Amazon SNS
    *          notifications no matter what your replication instance version is. If not set or set to
    *          false, this operation runs only when all your replication instances are from DMS
-   *          version 3.4.6 or higher.
+   *          version 3.4.5 or higher.
    *       </p>
    */
   ForceMove?: boolean;
@@ -1513,3 +1937,33 @@ export interface UpdateSubscriptionsToEventBridgeResponse {
    */
   Result?: string;
 }
+
+/**
+ * @internal
+ */
+export const ModifyEndpointMessageFilterSensitiveLog = (obj: ModifyEndpointMessage): any => ({
+  ...obj,
+  ...(obj.Password && { Password: SENSITIVE_STRING }),
+  ...(obj.MongoDbSettings && { MongoDbSettings: MongoDbSettingsFilterSensitiveLog(obj.MongoDbSettings) }),
+  ...(obj.KafkaSettings && { KafkaSettings: KafkaSettingsFilterSensitiveLog(obj.KafkaSettings) }),
+  ...(obj.RedshiftSettings && { RedshiftSettings: RedshiftSettingsFilterSensitiveLog(obj.RedshiftSettings) }),
+  ...(obj.PostgreSQLSettings && { PostgreSQLSettings: PostgreSQLSettingsFilterSensitiveLog(obj.PostgreSQLSettings) }),
+  ...(obj.MySQLSettings && { MySQLSettings: MySQLSettingsFilterSensitiveLog(obj.MySQLSettings) }),
+  ...(obj.OracleSettings && { OracleSettings: OracleSettingsFilterSensitiveLog(obj.OracleSettings) }),
+  ...(obj.SybaseSettings && { SybaseSettings: SybaseSettingsFilterSensitiveLog(obj.SybaseSettings) }),
+  ...(obj.MicrosoftSQLServerSettings && {
+    MicrosoftSQLServerSettings: MicrosoftSQLServerSettingsFilterSensitiveLog(obj.MicrosoftSQLServerSettings),
+  }),
+  ...(obj.IBMDb2Settings && { IBMDb2Settings: IBMDb2SettingsFilterSensitiveLog(obj.IBMDb2Settings) }),
+  ...(obj.DocDbSettings && { DocDbSettings: DocDbSettingsFilterSensitiveLog(obj.DocDbSettings) }),
+  ...(obj.RedisSettings && { RedisSettings: RedisSettingsFilterSensitiveLog(obj.RedisSettings) }),
+  ...(obj.GcpMySQLSettings && { GcpMySQLSettings: GcpMySQLSettingsFilterSensitiveLog(obj.GcpMySQLSettings) }),
+});
+
+/**
+ * @internal
+ */
+export const ModifyEndpointResponseFilterSensitiveLog = (obj: ModifyEndpointResponse): any => ({
+  ...obj,
+  ...(obj.Endpoint && { Endpoint: EndpointFilterSensitiveLog(obj.Endpoint) }),
+});

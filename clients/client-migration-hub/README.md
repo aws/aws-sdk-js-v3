@@ -28,16 +28,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MigrationHubClient` and
-the commands you need, for example `AssociateCreatedArtifactCommand`:
+the commands you need, for example `ListApplicationStatesCommand`:
 
 ```js
 // ES5 example
-const { MigrationHubClient, AssociateCreatedArtifactCommand } = require("@aws-sdk/client-migration-hub");
+const { MigrationHubClient, ListApplicationStatesCommand } = require("@aws-sdk/client-migration-hub");
 ```
 
 ```ts
 // ES6+ example
-import { MigrationHubClient, AssociateCreatedArtifactCommand } from "@aws-sdk/client-migration-hub";
+import { MigrationHubClient, ListApplicationStatesCommand } from "@aws-sdk/client-migration-hub";
 ```
 
 ### Usage
@@ -56,7 +56,7 @@ const client = new MigrationHubClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new AssociateCreatedArtifactCommand(params);
+const command = new ListApplicationStatesCommand(params);
 ```
 
 #### Async/await
@@ -135,7 +135,7 @@ const client = new AWS.MigrationHub({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.associateCreatedArtifact(params);
+  const data = await client.listApplicationStates(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -143,7 +143,7 @@ try {
 
 // Promises.
 client
-  .associateCreatedArtifact(params)
+  .listApplicationStates(params)
   .then((data) => {
     // process data.
   })
@@ -152,7 +152,7 @@ client
   });
 
 // callbacks.
-client.associateCreatedArtifact(params, (err, data) => {
+client.listApplicationStates(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -167,7 +167,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -213,7 +213,7 @@ see LICENSE for more information.
 AssociateCreatedArtifact
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/classes/associatecreatedartifactcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/associatecreatedartifactcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/associatecreatedartifactcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub/command/AssociateCreatedArtifactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/AssociateCreatedArtifactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/AssociateCreatedArtifactCommandOutput/)
 
 </details>
 <details>
@@ -221,7 +221,7 @@ AssociateCreatedArtifact
 AssociateDiscoveredResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/classes/associatediscoveredresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/associatediscoveredresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/associatediscoveredresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub/command/AssociateDiscoveredResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/AssociateDiscoveredResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/AssociateDiscoveredResourceCommandOutput/)
 
 </details>
 <details>
@@ -229,7 +229,7 @@ AssociateDiscoveredResource
 CreateProgressUpdateStream
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/classes/createprogressupdatestreamcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/createprogressupdatestreamcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/createprogressupdatestreamcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub/command/CreateProgressUpdateStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/CreateProgressUpdateStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/CreateProgressUpdateStreamCommandOutput/)
 
 </details>
 <details>
@@ -237,7 +237,7 @@ CreateProgressUpdateStream
 DeleteProgressUpdateStream
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/classes/deleteprogressupdatestreamcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/deleteprogressupdatestreamcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/deleteprogressupdatestreamcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub/command/DeleteProgressUpdateStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/DeleteProgressUpdateStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/DeleteProgressUpdateStreamCommandOutput/)
 
 </details>
 <details>
@@ -245,7 +245,7 @@ DeleteProgressUpdateStream
 DescribeApplicationState
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/classes/describeapplicationstatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/describeapplicationstatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/describeapplicationstatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub/command/DescribeApplicationStateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/DescribeApplicationStateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/DescribeApplicationStateCommandOutput/)
 
 </details>
 <details>
@@ -253,7 +253,7 @@ DescribeApplicationState
 DescribeMigrationTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/classes/describemigrationtaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/describemigrationtaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/describemigrationtaskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub/command/DescribeMigrationTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/DescribeMigrationTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/DescribeMigrationTaskCommandOutput/)
 
 </details>
 <details>
@@ -261,7 +261,7 @@ DescribeMigrationTask
 DisassociateCreatedArtifact
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/classes/disassociatecreatedartifactcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/disassociatecreatedartifactcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/disassociatecreatedartifactcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub/command/DisassociateCreatedArtifactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/DisassociateCreatedArtifactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/DisassociateCreatedArtifactCommandOutput/)
 
 </details>
 <details>
@@ -269,7 +269,7 @@ DisassociateCreatedArtifact
 DisassociateDiscoveredResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/classes/disassociatediscoveredresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/disassociatediscoveredresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/disassociatediscoveredresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub/command/DisassociateDiscoveredResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/DisassociateDiscoveredResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/DisassociateDiscoveredResourceCommandOutput/)
 
 </details>
 <details>
@@ -277,7 +277,7 @@ DisassociateDiscoveredResource
 ImportMigrationTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/classes/importmigrationtaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/importmigrationtaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/importmigrationtaskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub/command/ImportMigrationTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/ImportMigrationTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/ImportMigrationTaskCommandOutput/)
 
 </details>
 <details>
@@ -285,7 +285,7 @@ ImportMigrationTask
 ListApplicationStates
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/classes/listapplicationstatescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/listapplicationstatescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/listapplicationstatescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub/command/ListApplicationStatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/ListApplicationStatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/ListApplicationStatesCommandOutput/)
 
 </details>
 <details>
@@ -293,7 +293,7 @@ ListApplicationStates
 ListCreatedArtifacts
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/classes/listcreatedartifactscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/listcreatedartifactscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/listcreatedartifactscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub/command/ListCreatedArtifactsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/ListCreatedArtifactsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/ListCreatedArtifactsCommandOutput/)
 
 </details>
 <details>
@@ -301,7 +301,7 @@ ListCreatedArtifacts
 ListDiscoveredResources
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/classes/listdiscoveredresourcescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/listdiscoveredresourcescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/listdiscoveredresourcescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub/command/ListDiscoveredResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/ListDiscoveredResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/ListDiscoveredResourcesCommandOutput/)
 
 </details>
 <details>
@@ -309,7 +309,7 @@ ListDiscoveredResources
 ListMigrationTasks
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/classes/listmigrationtaskscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/listmigrationtaskscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/listmigrationtaskscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub/command/ListMigrationTasksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/ListMigrationTasksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/ListMigrationTasksCommandOutput/)
 
 </details>
 <details>
@@ -317,7 +317,7 @@ ListMigrationTasks
 ListProgressUpdateStreams
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/classes/listprogressupdatestreamscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/listprogressupdatestreamscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/listprogressupdatestreamscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub/command/ListProgressUpdateStreamsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/ListProgressUpdateStreamsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/ListProgressUpdateStreamsCommandOutput/)
 
 </details>
 <details>
@@ -325,7 +325,7 @@ ListProgressUpdateStreams
 NotifyApplicationState
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/classes/notifyapplicationstatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/notifyapplicationstatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/notifyapplicationstatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub/command/NotifyApplicationStateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/NotifyApplicationStateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/NotifyApplicationStateCommandOutput/)
 
 </details>
 <details>
@@ -333,7 +333,7 @@ NotifyApplicationState
 NotifyMigrationTaskState
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/classes/notifymigrationtaskstatecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/notifymigrationtaskstatecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/notifymigrationtaskstatecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub/command/NotifyMigrationTaskStateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/NotifyMigrationTaskStateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/NotifyMigrationTaskStateCommandOutput/)
 
 </details>
 <details>
@@ -341,6 +341,6 @@ NotifyMigrationTaskState
 PutResourceAttributes
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/classes/putresourceattributescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/putresourceattributescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-migration-hub/interfaces/putresourceattributescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migration-hub/command/PutResourceAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/PutResourceAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migration-hub/Interface/PutResourceAttributesCommandOutput/)
 
 </details>

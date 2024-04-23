@@ -181,6 +181,7 @@ import {
   InvalidParameterException,
   InvalidParameterValueException,
   InvalidSecurityException,
+  InvalidStateException,
   KMSAccessDeniedException,
   KMSDisabledException,
   KMSInvalidStateException,
@@ -222,6 +223,7 @@ import {
   PublishResponse,
   PutDataProtectionPolicyInput,
   RemovePermissionInput,
+  ReplayLimitExceededException,
   ResourceNotFoundException,
   SetEndpointAttributesInput,
   SetPlatformApplicationAttributesInput,
@@ -266,8 +268,8 @@ export const se_AddPermissionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_AddPermissionInput(input, context),
-    Action: "AddPermission",
-    Version: "2010-03-31",
+    [_A]: _AP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -283,8 +285,8 @@ export const se_CheckIfPhoneNumberIsOptedOutCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CheckIfPhoneNumberIsOptedOutInput(input, context),
-    Action: "CheckIfPhoneNumberIsOptedOut",
-    Version: "2010-03-31",
+    [_A]: _CIPNIOO,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -300,8 +302,8 @@ export const se_ConfirmSubscriptionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ConfirmSubscriptionInput(input, context),
-    Action: "ConfirmSubscription",
-    Version: "2010-03-31",
+    [_A]: _CS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -317,8 +319,8 @@ export const se_CreatePlatformApplicationCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreatePlatformApplicationInput(input, context),
-    Action: "CreatePlatformApplication",
-    Version: "2010-03-31",
+    [_A]: _CPA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -334,8 +336,8 @@ export const se_CreatePlatformEndpointCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreatePlatformEndpointInput(input, context),
-    Action: "CreatePlatformEndpoint",
-    Version: "2010-03-31",
+    [_A]: _CPE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -351,8 +353,8 @@ export const se_CreateSMSSandboxPhoneNumberCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateSMSSandboxPhoneNumberInput(input, context),
-    Action: "CreateSMSSandboxPhoneNumber",
-    Version: "2010-03-31",
+    [_A]: _CSMSSPN,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -368,8 +370,8 @@ export const se_CreateTopicCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_CreateTopicInput(input, context),
-    Action: "CreateTopic",
-    Version: "2010-03-31",
+    [_A]: _CT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -385,8 +387,8 @@ export const se_DeleteEndpointCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteEndpointInput(input, context),
-    Action: "DeleteEndpoint",
-    Version: "2010-03-31",
+    [_A]: _DE,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -402,8 +404,8 @@ export const se_DeletePlatformApplicationCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeletePlatformApplicationInput(input, context),
-    Action: "DeletePlatformApplication",
-    Version: "2010-03-31",
+    [_A]: _DPA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -419,8 +421,8 @@ export const se_DeleteSMSSandboxPhoneNumberCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteSMSSandboxPhoneNumberInput(input, context),
-    Action: "DeleteSMSSandboxPhoneNumber",
-    Version: "2010-03-31",
+    [_A]: _DSMSSPN,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -436,8 +438,8 @@ export const se_DeleteTopicCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_DeleteTopicInput(input, context),
-    Action: "DeleteTopic",
-    Version: "2010-03-31",
+    [_A]: _DT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -453,8 +455,8 @@ export const se_GetDataProtectionPolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetDataProtectionPolicyInput(input, context),
-    Action: "GetDataProtectionPolicy",
-    Version: "2010-03-31",
+    [_A]: _GDPP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -470,8 +472,8 @@ export const se_GetEndpointAttributesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetEndpointAttributesInput(input, context),
-    Action: "GetEndpointAttributes",
-    Version: "2010-03-31",
+    [_A]: _GEA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -487,8 +489,8 @@ export const se_GetPlatformApplicationAttributesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetPlatformApplicationAttributesInput(input, context),
-    Action: "GetPlatformApplicationAttributes",
-    Version: "2010-03-31",
+    [_A]: _GPAA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -504,8 +506,8 @@ export const se_GetSMSAttributesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetSMSAttributesInput(input, context),
-    Action: "GetSMSAttributes",
-    Version: "2010-03-31",
+    [_A]: _GSMSA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -521,8 +523,8 @@ export const se_GetSMSSandboxAccountStatusCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetSMSSandboxAccountStatusInput(input, context),
-    Action: "GetSMSSandboxAccountStatus",
-    Version: "2010-03-31",
+    [_A]: _GSMSSAS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -538,8 +540,8 @@ export const se_GetSubscriptionAttributesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetSubscriptionAttributesInput(input, context),
-    Action: "GetSubscriptionAttributes",
-    Version: "2010-03-31",
+    [_A]: _GSA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -555,8 +557,8 @@ export const se_GetTopicAttributesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_GetTopicAttributesInput(input, context),
-    Action: "GetTopicAttributes",
-    Version: "2010-03-31",
+    [_A]: _GTA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -572,8 +574,8 @@ export const se_ListEndpointsByPlatformApplicationCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListEndpointsByPlatformApplicationInput(input, context),
-    Action: "ListEndpointsByPlatformApplication",
-    Version: "2010-03-31",
+    [_A]: _LEBPA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -589,8 +591,8 @@ export const se_ListOriginationNumbersCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListOriginationNumbersRequest(input, context),
-    Action: "ListOriginationNumbers",
-    Version: "2010-03-31",
+    [_A]: _LON,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -606,8 +608,8 @@ export const se_ListPhoneNumbersOptedOutCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListPhoneNumbersOptedOutInput(input, context),
-    Action: "ListPhoneNumbersOptedOut",
-    Version: "2010-03-31",
+    [_A]: _LPNOO,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -623,8 +625,8 @@ export const se_ListPlatformApplicationsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListPlatformApplicationsInput(input, context),
-    Action: "ListPlatformApplications",
-    Version: "2010-03-31",
+    [_A]: _LPA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -640,8 +642,8 @@ export const se_ListSMSSandboxPhoneNumbersCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListSMSSandboxPhoneNumbersInput(input, context),
-    Action: "ListSMSSandboxPhoneNumbers",
-    Version: "2010-03-31",
+    [_A]: _LSMSSPN,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -657,8 +659,8 @@ export const se_ListSubscriptionsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListSubscriptionsInput(input, context),
-    Action: "ListSubscriptions",
-    Version: "2010-03-31",
+    [_A]: _LS,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -674,8 +676,8 @@ export const se_ListSubscriptionsByTopicCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListSubscriptionsByTopicInput(input, context),
-    Action: "ListSubscriptionsByTopic",
-    Version: "2010-03-31",
+    [_A]: _LSBT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -691,8 +693,8 @@ export const se_ListTagsForResourceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListTagsForResourceRequest(input, context),
-    Action: "ListTagsForResource",
-    Version: "2010-03-31",
+    [_A]: _LTFR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -708,8 +710,8 @@ export const se_ListTopicsCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_ListTopicsInput(input, context),
-    Action: "ListTopics",
-    Version: "2010-03-31",
+    [_A]: _LT,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -725,8 +727,8 @@ export const se_OptInPhoneNumberCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_OptInPhoneNumberInput(input, context),
-    Action: "OptInPhoneNumber",
-    Version: "2010-03-31",
+    [_A]: _OIPN,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -742,8 +744,8 @@ export const se_PublishCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PublishInput(input, context),
-    Action: "Publish",
-    Version: "2010-03-31",
+    [_A]: _P,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -759,8 +761,8 @@ export const se_PublishBatchCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PublishBatchInput(input, context),
-    Action: "PublishBatch",
-    Version: "2010-03-31",
+    [_A]: _PB,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -776,8 +778,8 @@ export const se_PutDataProtectionPolicyCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_PutDataProtectionPolicyInput(input, context),
-    Action: "PutDataProtectionPolicy",
-    Version: "2010-03-31",
+    [_A]: _PDPP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -793,8 +795,8 @@ export const se_RemovePermissionCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_RemovePermissionInput(input, context),
-    Action: "RemovePermission",
-    Version: "2010-03-31",
+    [_A]: _RP,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -810,8 +812,8 @@ export const se_SetEndpointAttributesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetEndpointAttributesInput(input, context),
-    Action: "SetEndpointAttributes",
-    Version: "2010-03-31",
+    [_A]: _SEA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -827,8 +829,8 @@ export const se_SetPlatformApplicationAttributesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetPlatformApplicationAttributesInput(input, context),
-    Action: "SetPlatformApplicationAttributes",
-    Version: "2010-03-31",
+    [_A]: _SPAA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -844,8 +846,8 @@ export const se_SetSMSAttributesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetSMSAttributesInput(input, context),
-    Action: "SetSMSAttributes",
-    Version: "2010-03-31",
+    [_A]: _SSMSA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -861,8 +863,8 @@ export const se_SetSubscriptionAttributesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetSubscriptionAttributesInput(input, context),
-    Action: "SetSubscriptionAttributes",
-    Version: "2010-03-31",
+    [_A]: _SSA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -878,8 +880,8 @@ export const se_SetTopicAttributesCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SetTopicAttributesInput(input, context),
-    Action: "SetTopicAttributes",
-    Version: "2010-03-31",
+    [_A]: _STA,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -895,8 +897,8 @@ export const se_SubscribeCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_SubscribeInput(input, context),
-    Action: "Subscribe",
-    Version: "2010-03-31",
+    [_A]: _S,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -912,8 +914,8 @@ export const se_TagResourceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_TagResourceRequest(input, context),
-    Action: "TagResource",
-    Version: "2010-03-31",
+    [_A]: _TR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -929,8 +931,8 @@ export const se_UnsubscribeCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UnsubscribeInput(input, context),
-    Action: "Unsubscribe",
-    Version: "2010-03-31",
+    [_A]: _U,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -946,8 +948,8 @@ export const se_UntagResourceCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_UntagResourceRequest(input, context),
-    Action: "UntagResource",
-    Version: "2010-03-31",
+    [_A]: _UR,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -963,8 +965,8 @@ export const se_VerifySMSSandboxPhoneNumberCommand = async (
   let body: any;
   body = buildFormUrlencodedString({
     ...se_VerifySMSSandboxPhoneNumberInput(input, context),
-    Action: "VerifySMSSandboxPhoneNumber",
-    Version: "2010-03-31",
+    [_A]: _VSMSSPN,
+    [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
@@ -1124,6 +1126,9 @@ const de_ConfirmSubscriptionCommandError = async (
     case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ReplayLimitExceeded":
+    case "com.amazonaws.sns#ReplayLimitExceededException":
+      throw await de_ReplayLimitExceededExceptionRes(parsedOutput, context);
     case "SubscriptionLimitExceeded":
     case "com.amazonaws.sns#SubscriptionLimitExceededException":
       throw await de_SubscriptionLimitExceededExceptionRes(parsedOutput, context);
@@ -1576,6 +1581,9 @@ const de_DeleteTopicCommandError = async (
     case "InvalidParameter":
     case "com.amazonaws.sns#InvalidParameterException":
       throw await de_InvalidParameterExceptionRes(parsedOutput, context);
+    case "InvalidState":
+    case "com.amazonaws.sns#InvalidStateException":
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
     case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
@@ -3035,6 +3043,9 @@ const de_SetSubscriptionAttributesCommandError = async (
     case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ReplayLimitExceeded":
+    case "com.amazonaws.sns#ReplayLimitExceededException":
+      throw await de_ReplayLimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -3151,6 +3162,9 @@ const de_SubscribeCommandError = async (
     case "NotFound":
     case "com.amazonaws.sns#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ReplayLimitExceeded":
+    case "com.amazonaws.sns#ReplayLimitExceededException":
+      throw await de_ReplayLimitExceededExceptionRes(parsedOutput, context);
     case "SubscriptionLimitExceeded":
     case "com.amazonaws.sns#SubscriptionLimitExceededException":
       throw await de_SubscriptionLimitExceededExceptionRes(parsedOutput, context);
@@ -3601,6 +3615,22 @@ const de_InvalidSecurityExceptionRes = async (
 };
 
 /**
+ * deserializeAws_queryInvalidStateExceptionRes
+ */
+const de_InvalidStateExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidStateException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_InvalidStateException(body.Error, context);
+  const exception = new InvalidStateException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_queryKMSAccessDeniedExceptionRes
  */
 const de_KMSAccessDeniedExceptionRes = async (
@@ -3729,6 +3759,22 @@ const de_PlatformApplicationDisabledExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_PlatformApplicationDisabledException(body.Error, context);
   const exception = new PlatformApplicationDisabledException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryReplayLimitExceededExceptionRes
+ */
+const de_ReplayLimitExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ReplayLimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_ReplayLimitExceededException(body.Error, context);
+  const exception = new ReplayLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -3917,15 +3963,15 @@ const se_ActionsList = (input: string[], context: __SerdeContext): any => {
  */
 const se_AddPermissionInput = (input: AddPermissionInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TopicArn != null) {
-    entries["TopicArn"] = input.TopicArn;
+  if (input[_TA] != null) {
+    entries[_TA] = input[_TA];
   }
-  if (input.Label != null) {
-    entries["Label"] = input.Label;
+  if (input[_L] != null) {
+    entries[_L] = input[_L];
   }
-  if (input.AWSAccountId != null) {
-    const memberEntries = se_DelegatesList(input.AWSAccountId, context);
-    if (input.AWSAccountId?.length === 0) {
+  if (input[_AWSAI] != null) {
+    const memberEntries = se_DelegatesList(input[_AWSAI], context);
+    if (input[_AWSAI]?.length === 0) {
       entries.AWSAccountId = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3933,9 +3979,9 @@ const se_AddPermissionInput = (input: AddPermissionInput, context: __SerdeContex
       entries[loc] = value;
     });
   }
-  if (input.ActionName != null) {
-    const memberEntries = se_ActionsList(input.ActionName, context);
-    if (input.ActionName?.length === 0) {
+  if (input[_AN] != null) {
+    const memberEntries = se_ActionsList(input[_AN], context);
+    if (input[_AN]?.length === 0) {
       entries.ActionName = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3954,8 +4000,8 @@ const se_CheckIfPhoneNumberIsOptedOutInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.phoneNumber != null) {
-    entries["phoneNumber"] = input.phoneNumber;
+  if (input[_pN] != null) {
+    entries[_pN] = input[_pN];
   }
   return entries;
 };
@@ -3965,14 +4011,14 @@ const se_CheckIfPhoneNumberIsOptedOutInput = (
  */
 const se_ConfirmSubscriptionInput = (input: ConfirmSubscriptionInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TopicArn != null) {
-    entries["TopicArn"] = input.TopicArn;
+  if (input[_TA] != null) {
+    entries[_TA] = input[_TA];
   }
-  if (input.Token != null) {
-    entries["Token"] = input.Token;
+  if (input[_T] != null) {
+    entries[_T] = input[_T];
   }
-  if (input.AuthenticateOnUnsubscribe != null) {
-    entries["AuthenticateOnUnsubscribe"] = input.AuthenticateOnUnsubscribe;
+  if (input[_AOU] != null) {
+    entries[_AOU] = input[_AOU];
   }
   return entries;
 };
@@ -3982,14 +4028,14 @@ const se_ConfirmSubscriptionInput = (input: ConfirmSubscriptionInput, context: _
  */
 const se_CreatePlatformApplicationInput = (input: CreatePlatformApplicationInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name != null) {
-    entries["Name"] = input.Name;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.Platform != null) {
-    entries["Platform"] = input.Platform;
+  if (input[_Pl] != null) {
+    entries[_Pl] = input[_Pl];
   }
-  if (input.Attributes != null) {
-    const memberEntries = se_MapStringToString(input.Attributes, context);
+  if (input[_At] != null) {
+    const memberEntries = se_MapStringToString(input[_At], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
       entries[loc] = value;
@@ -4003,17 +4049,17 @@ const se_CreatePlatformApplicationInput = (input: CreatePlatformApplicationInput
  */
 const se_CreatePlatformEndpointInput = (input: CreatePlatformEndpointInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PlatformApplicationArn != null) {
-    entries["PlatformApplicationArn"] = input.PlatformApplicationArn;
+  if (input[_PAA] != null) {
+    entries[_PAA] = input[_PAA];
   }
-  if (input.Token != null) {
-    entries["Token"] = input.Token;
+  if (input[_T] != null) {
+    entries[_T] = input[_T];
   }
-  if (input.CustomUserData != null) {
-    entries["CustomUserData"] = input.CustomUserData;
+  if (input[_CUD] != null) {
+    entries[_CUD] = input[_CUD];
   }
-  if (input.Attributes != null) {
-    const memberEntries = se_MapStringToString(input.Attributes, context);
+  if (input[_At] != null) {
+    const memberEntries = se_MapStringToString(input[_At], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
       entries[loc] = value;
@@ -4027,11 +4073,11 @@ const se_CreatePlatformEndpointInput = (input: CreatePlatformEndpointInput, cont
  */
 const se_CreateSMSSandboxPhoneNumberInput = (input: CreateSMSSandboxPhoneNumberInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PhoneNumber != null) {
-    entries["PhoneNumber"] = input.PhoneNumber;
+  if (input[_PN] != null) {
+    entries[_PN] = input[_PN];
   }
-  if (input.LanguageCode != null) {
-    entries["LanguageCode"] = input.LanguageCode;
+  if (input[_LC] != null) {
+    entries[_LC] = input[_LC];
   }
   return entries;
 };
@@ -4041,19 +4087,19 @@ const se_CreateSMSSandboxPhoneNumberInput = (input: CreateSMSSandboxPhoneNumberI
  */
 const se_CreateTopicInput = (input: CreateTopicInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Name != null) {
-    entries["Name"] = input.Name;
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
   }
-  if (input.Attributes != null) {
-    const memberEntries = se_TopicAttributesMap(input.Attributes, context);
+  if (input[_At] != null) {
+    const memberEntries = se_TopicAttributesMap(input[_At], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_Ta] != null) {
+    const memberEntries = se_TagList(input[_Ta], context);
+    if (input[_Ta]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4061,8 +4107,8 @@ const se_CreateTopicInput = (input: CreateTopicInput, context: __SerdeContext): 
       entries[loc] = value;
     });
   }
-  if (input.DataProtectionPolicy != null) {
-    entries["DataProtectionPolicy"] = input.DataProtectionPolicy;
+  if (input[_DPP] != null) {
+    entries[_DPP] = input[_DPP];
   }
   return entries;
 };
@@ -4088,8 +4134,8 @@ const se_DelegatesList = (input: string[], context: __SerdeContext): any => {
  */
 const se_DeleteEndpointInput = (input: DeleteEndpointInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.EndpointArn != null) {
-    entries["EndpointArn"] = input.EndpointArn;
+  if (input[_EA] != null) {
+    entries[_EA] = input[_EA];
   }
   return entries;
 };
@@ -4099,8 +4145,8 @@ const se_DeleteEndpointInput = (input: DeleteEndpointInput, context: __SerdeCont
  */
 const se_DeletePlatformApplicationInput = (input: DeletePlatformApplicationInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PlatformApplicationArn != null) {
-    entries["PlatformApplicationArn"] = input.PlatformApplicationArn;
+  if (input[_PAA] != null) {
+    entries[_PAA] = input[_PAA];
   }
   return entries;
 };
@@ -4110,8 +4156,8 @@ const se_DeletePlatformApplicationInput = (input: DeletePlatformApplicationInput
  */
 const se_DeleteSMSSandboxPhoneNumberInput = (input: DeleteSMSSandboxPhoneNumberInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PhoneNumber != null) {
-    entries["PhoneNumber"] = input.PhoneNumber;
+  if (input[_PN] != null) {
+    entries[_PN] = input[_PN];
   }
   return entries;
 };
@@ -4121,8 +4167,8 @@ const se_DeleteSMSSandboxPhoneNumberInput = (input: DeleteSMSSandboxPhoneNumberI
  */
 const se_DeleteTopicInput = (input: DeleteTopicInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TopicArn != null) {
-    entries["TopicArn"] = input.TopicArn;
+  if (input[_TA] != null) {
+    entries[_TA] = input[_TA];
   }
   return entries;
 };
@@ -4132,8 +4178,8 @@ const se_DeleteTopicInput = (input: DeleteTopicInput, context: __SerdeContext): 
  */
 const se_GetDataProtectionPolicyInput = (input: GetDataProtectionPolicyInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceArn != null) {
-    entries["ResourceArn"] = input.ResourceArn;
+  if (input[_RA] != null) {
+    entries[_RA] = input[_RA];
   }
   return entries;
 };
@@ -4143,8 +4189,8 @@ const se_GetDataProtectionPolicyInput = (input: GetDataProtectionPolicyInput, co
  */
 const se_GetEndpointAttributesInput = (input: GetEndpointAttributesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.EndpointArn != null) {
-    entries["EndpointArn"] = input.EndpointArn;
+  if (input[_EA] != null) {
+    entries[_EA] = input[_EA];
   }
   return entries;
 };
@@ -4157,8 +4203,8 @@ const se_GetPlatformApplicationAttributesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PlatformApplicationArn != null) {
-    entries["PlatformApplicationArn"] = input.PlatformApplicationArn;
+  if (input[_PAA] != null) {
+    entries[_PAA] = input[_PAA];
   }
   return entries;
 };
@@ -4168,9 +4214,9 @@ const se_GetPlatformApplicationAttributesInput = (
  */
 const se_GetSMSAttributesInput = (input: GetSMSAttributesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.attributes != null) {
-    const memberEntries = se_ListString(input.attributes, context);
-    if (input.attributes?.length === 0) {
+  if (input[_a] != null) {
+    const memberEntries = se_ListString(input[_a], context);
+    if (input[_a]?.length === 0) {
       entries.attributes = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4194,8 +4240,8 @@ const se_GetSMSSandboxAccountStatusInput = (input: GetSMSSandboxAccountStatusInp
  */
 const se_GetSubscriptionAttributesInput = (input: GetSubscriptionAttributesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SubscriptionArn != null) {
-    entries["SubscriptionArn"] = input.SubscriptionArn;
+  if (input[_SA] != null) {
+    entries[_SA] = input[_SA];
   }
   return entries;
 };
@@ -4205,8 +4251,8 @@ const se_GetSubscriptionAttributesInput = (input: GetSubscriptionAttributesInput
  */
 const se_GetTopicAttributesInput = (input: GetTopicAttributesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TopicArn != null) {
-    entries["TopicArn"] = input.TopicArn;
+  if (input[_TA] != null) {
+    entries[_TA] = input[_TA];
   }
   return entries;
 };
@@ -4219,11 +4265,11 @@ const se_ListEndpointsByPlatformApplicationInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PlatformApplicationArn != null) {
-    entries["PlatformApplicationArn"] = input.PlatformApplicationArn;
+  if (input[_PAA] != null) {
+    entries[_PAA] = input[_PAA];
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
   return entries;
 };
@@ -4233,11 +4279,11 @@ const se_ListEndpointsByPlatformApplicationInput = (
  */
 const se_ListOriginationNumbersRequest = (input: ListOriginationNumbersRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.MaxResults != null) {
-    entries["MaxResults"] = input.MaxResults;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
   return entries;
 };
@@ -4247,8 +4293,8 @@ const se_ListOriginationNumbersRequest = (input: ListOriginationNumbersRequest, 
  */
 const se_ListPhoneNumbersOptedOutInput = (input: ListPhoneNumbersOptedOutInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.nextToken != null) {
-    entries["nextToken"] = input.nextToken;
+  if (input[_nT] != null) {
+    entries[_nT] = input[_nT];
   }
   return entries;
 };
@@ -4258,8 +4304,8 @@ const se_ListPhoneNumbersOptedOutInput = (input: ListPhoneNumbersOptedOutInput, 
  */
 const se_ListPlatformApplicationsInput = (input: ListPlatformApplicationsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
   return entries;
 };
@@ -4269,11 +4315,11 @@ const se_ListPlatformApplicationsInput = (input: ListPlatformApplicationsInput, 
  */
 const se_ListSMSSandboxPhoneNumbersInput = (input: ListSMSSandboxPhoneNumbersInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
-  if (input.MaxResults != null) {
-    entries["MaxResults"] = input.MaxResults;
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
   }
   return entries;
 };
@@ -4299,11 +4345,11 @@ const se_ListString = (input: string[], context: __SerdeContext): any => {
  */
 const se_ListSubscriptionsByTopicInput = (input: ListSubscriptionsByTopicInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TopicArn != null) {
-    entries["TopicArn"] = input.TopicArn;
+  if (input[_TA] != null) {
+    entries[_TA] = input[_TA];
   }
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
   return entries;
 };
@@ -4313,8 +4359,8 @@ const se_ListSubscriptionsByTopicInput = (input: ListSubscriptionsByTopicInput, 
  */
 const se_ListSubscriptionsInput = (input: ListSubscriptionsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
   return entries;
 };
@@ -4324,8 +4370,8 @@ const se_ListSubscriptionsInput = (input: ListSubscriptionsInput, context: __Ser
  */
 const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceArn != null) {
-    entries["ResourceArn"] = input.ResourceArn;
+  if (input[_RA] != null) {
+    entries[_RA] = input[_RA];
   }
   return entries;
 };
@@ -4335,8 +4381,8 @@ const se_ListTagsForResourceRequest = (input: ListTagsForResourceRequest, contex
  */
 const se_ListTopicsInput = (input: ListTopicsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NextToken != null) {
-    entries["NextToken"] = input.NextToken;
+  if (input[_NT] != null) {
+    entries[_NT] = input[_NT];
   }
   return entries;
 };
@@ -4348,10 +4394,10 @@ const se_MapStringToString = (input: Record<string, string>, context: __SerdeCon
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .forEach((key) => {
       entries[`entry.${counter}.key`] = key;
-      entries[`entry.${counter}.value`] = input[key];
+      entries[`entry.${counter}.value`] = input[key as keyof typeof input]!;
       counter++;
     });
   return entries;
@@ -4364,10 +4410,10 @@ const se_MessageAttributeMap = (input: Record<string, MessageAttributeValue>, co
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .forEach((key) => {
       entries[`entry.${counter}.Name`] = key;
-      const memberEntries = se_MessageAttributeValue(input[key], context);
+      const memberEntries = se_MessageAttributeValue(input[key as keyof typeof input]!, context);
       Object.entries(memberEntries).forEach(([key, value]) => {
         entries[`entry.${counter}.Value.${key}`] = value;
       });
@@ -4381,14 +4427,14 @@ const se_MessageAttributeMap = (input: Record<string, MessageAttributeValue>, co
  */
 const se_MessageAttributeValue = (input: MessageAttributeValue, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.DataType != null) {
-    entries["DataType"] = input.DataType;
+  if (input[_DTa] != null) {
+    entries[_DTa] = input[_DTa];
   }
-  if (input.StringValue != null) {
-    entries["StringValue"] = input.StringValue;
+  if (input[_SV] != null) {
+    entries[_SV] = input[_SV];
   }
-  if (input.BinaryValue != null) {
-    entries["BinaryValue"] = context.base64Encoder(input.BinaryValue);
+  if (input[_BV] != null) {
+    entries[_BV] = context.base64Encoder(input[_BV]);
   }
   return entries;
 };
@@ -4398,8 +4444,8 @@ const se_MessageAttributeValue = (input: MessageAttributeValue, context: __Serde
  */
 const se_OptInPhoneNumberInput = (input: OptInPhoneNumberInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.phoneNumber != null) {
-    entries["phoneNumber"] = input.phoneNumber;
+  if (input[_pN] != null) {
+    entries[_pN] = input[_pN];
   }
   return entries;
 };
@@ -4409,12 +4455,12 @@ const se_OptInPhoneNumberInput = (input: OptInPhoneNumberInput, context: __Serde
  */
 const se_PublishBatchInput = (input: PublishBatchInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TopicArn != null) {
-    entries["TopicArn"] = input.TopicArn;
+  if (input[_TA] != null) {
+    entries[_TA] = input[_TA];
   }
-  if (input.PublishBatchRequestEntries != null) {
-    const memberEntries = se_PublishBatchRequestEntryList(input.PublishBatchRequestEntries, context);
-    if (input.PublishBatchRequestEntries?.length === 0) {
+  if (input[_PBRE] != null) {
+    const memberEntries = se_PublishBatchRequestEntryList(input[_PBRE], context);
+    if (input[_PBRE]?.length === 0) {
       entries.PublishBatchRequestEntries = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4430,30 +4476,30 @@ const se_PublishBatchInput = (input: PublishBatchInput, context: __SerdeContext)
  */
 const se_PublishBatchRequestEntry = (input: PublishBatchRequestEntry, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Id != null) {
-    entries["Id"] = input.Id;
+  if (input[_I] != null) {
+    entries[_I] = input[_I];
   }
-  if (input.Message != null) {
-    entries["Message"] = input.Message;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.Subject != null) {
-    entries["Subject"] = input.Subject;
+  if (input[_Su] != null) {
+    entries[_Su] = input[_Su];
   }
-  if (input.MessageStructure != null) {
-    entries["MessageStructure"] = input.MessageStructure;
+  if (input[_MS] != null) {
+    entries[_MS] = input[_MS];
   }
-  if (input.MessageAttributes != null) {
-    const memberEntries = se_MessageAttributeMap(input.MessageAttributes, context);
+  if (input[_MA] != null) {
+    const memberEntries = se_MessageAttributeMap(input[_MA], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MessageAttributes.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.MessageDeduplicationId != null) {
-    entries["MessageDeduplicationId"] = input.MessageDeduplicationId;
+  if (input[_MDI] != null) {
+    entries[_MDI] = input[_MDI];
   }
-  if (input.MessageGroupId != null) {
-    entries["MessageGroupId"] = input.MessageGroupId;
+  if (input[_MGI] != null) {
+    entries[_MGI] = input[_MGI];
   }
   return entries;
 };
@@ -4482,36 +4528,36 @@ const se_PublishBatchRequestEntryList = (input: PublishBatchRequestEntry[], cont
  */
 const se_PublishInput = (input: PublishInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TopicArn != null) {
-    entries["TopicArn"] = input.TopicArn;
+  if (input[_TA] != null) {
+    entries[_TA] = input[_TA];
   }
-  if (input.TargetArn != null) {
-    entries["TargetArn"] = input.TargetArn;
+  if (input[_TAa] != null) {
+    entries[_TAa] = input[_TAa];
   }
-  if (input.PhoneNumber != null) {
-    entries["PhoneNumber"] = input.PhoneNumber;
+  if (input[_PN] != null) {
+    entries[_PN] = input[_PN];
   }
-  if (input.Message != null) {
-    entries["Message"] = input.Message;
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
   }
-  if (input.Subject != null) {
-    entries["Subject"] = input.Subject;
+  if (input[_Su] != null) {
+    entries[_Su] = input[_Su];
   }
-  if (input.MessageStructure != null) {
-    entries["MessageStructure"] = input.MessageStructure;
+  if (input[_MS] != null) {
+    entries[_MS] = input[_MS];
   }
-  if (input.MessageAttributes != null) {
-    const memberEntries = se_MessageAttributeMap(input.MessageAttributes, context);
+  if (input[_MA] != null) {
+    const memberEntries = se_MessageAttributeMap(input[_MA], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `MessageAttributes.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.MessageDeduplicationId != null) {
-    entries["MessageDeduplicationId"] = input.MessageDeduplicationId;
+  if (input[_MDI] != null) {
+    entries[_MDI] = input[_MDI];
   }
-  if (input.MessageGroupId != null) {
-    entries["MessageGroupId"] = input.MessageGroupId;
+  if (input[_MGI] != null) {
+    entries[_MGI] = input[_MGI];
   }
   return entries;
 };
@@ -4521,11 +4567,11 @@ const se_PublishInput = (input: PublishInput, context: __SerdeContext): any => {
  */
 const se_PutDataProtectionPolicyInput = (input: PutDataProtectionPolicyInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceArn != null) {
-    entries["ResourceArn"] = input.ResourceArn;
+  if (input[_RA] != null) {
+    entries[_RA] = input[_RA];
   }
-  if (input.DataProtectionPolicy != null) {
-    entries["DataProtectionPolicy"] = input.DataProtectionPolicy;
+  if (input[_DPP] != null) {
+    entries[_DPP] = input[_DPP];
   }
   return entries;
 };
@@ -4535,11 +4581,11 @@ const se_PutDataProtectionPolicyInput = (input: PutDataProtectionPolicyInput, co
  */
 const se_RemovePermissionInput = (input: RemovePermissionInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TopicArn != null) {
-    entries["TopicArn"] = input.TopicArn;
+  if (input[_TA] != null) {
+    entries[_TA] = input[_TA];
   }
-  if (input.Label != null) {
-    entries["Label"] = input.Label;
+  if (input[_L] != null) {
+    entries[_L] = input[_L];
   }
   return entries;
 };
@@ -4549,11 +4595,11 @@ const se_RemovePermissionInput = (input: RemovePermissionInput, context: __Serde
  */
 const se_SetEndpointAttributesInput = (input: SetEndpointAttributesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.EndpointArn != null) {
-    entries["EndpointArn"] = input.EndpointArn;
+  if (input[_EA] != null) {
+    entries[_EA] = input[_EA];
   }
-  if (input.Attributes != null) {
-    const memberEntries = se_MapStringToString(input.Attributes, context);
+  if (input[_At] != null) {
+    const memberEntries = se_MapStringToString(input[_At], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
       entries[loc] = value;
@@ -4570,11 +4616,11 @@ const se_SetPlatformApplicationAttributesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PlatformApplicationArn != null) {
-    entries["PlatformApplicationArn"] = input.PlatformApplicationArn;
+  if (input[_PAA] != null) {
+    entries[_PAA] = input[_PAA];
   }
-  if (input.Attributes != null) {
-    const memberEntries = se_MapStringToString(input.Attributes, context);
+  if (input[_At] != null) {
+    const memberEntries = se_MapStringToString(input[_At], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
       entries[loc] = value;
@@ -4588,8 +4634,8 @@ const se_SetPlatformApplicationAttributesInput = (
  */
 const se_SetSMSAttributesInput = (input: SetSMSAttributesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.attributes != null) {
-    const memberEntries = se_MapStringToString(input.attributes, context);
+  if (input[_a] != null) {
+    const memberEntries = se_MapStringToString(input[_a], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `attributes.${key}`;
       entries[loc] = value;
@@ -4603,14 +4649,14 @@ const se_SetSMSAttributesInput = (input: SetSMSAttributesInput, context: __Serde
  */
 const se_SetSubscriptionAttributesInput = (input: SetSubscriptionAttributesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SubscriptionArn != null) {
-    entries["SubscriptionArn"] = input.SubscriptionArn;
+  if (input[_SA] != null) {
+    entries[_SA] = input[_SA];
   }
-  if (input.AttributeName != null) {
-    entries["AttributeName"] = input.AttributeName;
+  if (input[_ANt] != null) {
+    entries[_ANt] = input[_ANt];
   }
-  if (input.AttributeValue != null) {
-    entries["AttributeValue"] = input.AttributeValue;
+  if (input[_AV] != null) {
+    entries[_AV] = input[_AV];
   }
   return entries;
 };
@@ -4620,14 +4666,14 @@ const se_SetSubscriptionAttributesInput = (input: SetSubscriptionAttributesInput
  */
 const se_SetTopicAttributesInput = (input: SetTopicAttributesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TopicArn != null) {
-    entries["TopicArn"] = input.TopicArn;
+  if (input[_TA] != null) {
+    entries[_TA] = input[_TA];
   }
-  if (input.AttributeName != null) {
-    entries["AttributeName"] = input.AttributeName;
+  if (input[_ANt] != null) {
+    entries[_ANt] = input[_ANt];
   }
-  if (input.AttributeValue != null) {
-    entries["AttributeValue"] = input.AttributeValue;
+  if (input[_AV] != null) {
+    entries[_AV] = input[_AV];
   }
   return entries;
 };
@@ -4637,24 +4683,24 @@ const se_SetTopicAttributesInput = (input: SetTopicAttributesInput, context: __S
  */
 const se_SubscribeInput = (input: SubscribeInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TopicArn != null) {
-    entries["TopicArn"] = input.TopicArn;
+  if (input[_TA] != null) {
+    entries[_TA] = input[_TA];
   }
-  if (input.Protocol != null) {
-    entries["Protocol"] = input.Protocol;
+  if (input[_Pr] != null) {
+    entries[_Pr] = input[_Pr];
   }
-  if (input.Endpoint != null) {
-    entries["Endpoint"] = input.Endpoint;
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
-  if (input.Attributes != null) {
-    const memberEntries = se_SubscriptionAttributesMap(input.Attributes, context);
+  if (input[_At] != null) {
+    const memberEntries = se_SubscriptionAttributesMap(input[_At], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
       entries[loc] = value;
     });
   }
-  if (input.ReturnSubscriptionArn != null) {
-    entries["ReturnSubscriptionArn"] = input.ReturnSubscriptionArn;
+  if (input[_RSA] != null) {
+    entries[_RSA] = input[_RSA];
   }
   return entries;
 };
@@ -4666,10 +4712,10 @@ const se_SubscriptionAttributesMap = (input: Record<string, string>, context: __
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .forEach((key) => {
       entries[`entry.${counter}.key`] = key;
-      entries[`entry.${counter}.value`] = input[key];
+      entries[`entry.${counter}.value`] = input[key as keyof typeof input]!;
       counter++;
     });
   return entries;
@@ -4680,11 +4726,11 @@ const se_SubscriptionAttributesMap = (input: Record<string, string>, context: __
  */
 const se_Tag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key != null) {
-    entries["Key"] = input.Key;
+  if (input[_K] != null) {
+    entries[_K] = input[_K];
   }
-  if (input.Value != null) {
-    entries["Value"] = input.Value;
+  if (input[_Va] != null) {
+    entries[_Va] = input[_Va];
   }
   return entries;
 };
@@ -4729,12 +4775,12 @@ const se_TagList = (input: Tag[], context: __SerdeContext): any => {
  */
 const se_TagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceArn != null) {
-    entries["ResourceArn"] = input.ResourceArn;
+  if (input[_RA] != null) {
+    entries[_RA] = input[_RA];
   }
-  if (input.Tags != null) {
-    const memberEntries = se_TagList(input.Tags, context);
-    if (input.Tags?.length === 0) {
+  if (input[_Ta] != null) {
+    const memberEntries = se_TagList(input[_Ta], context);
+    if (input[_Ta]?.length === 0) {
       entries.Tags = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4752,10 +4798,10 @@ const se_TopicAttributesMap = (input: Record<string, string>, context: __SerdeCo
   const entries: any = {};
   let counter = 1;
   Object.keys(input)
-    .filter((key) => input[key] != null)
+    .filter((key) => input[key as keyof typeof input] != null)
     .forEach((key) => {
       entries[`entry.${counter}.key`] = key;
-      entries[`entry.${counter}.value`] = input[key];
+      entries[`entry.${counter}.value`] = input[key as keyof typeof input]!;
       counter++;
     });
   return entries;
@@ -4766,8 +4812,8 @@ const se_TopicAttributesMap = (input: Record<string, string>, context: __SerdeCo
  */
 const se_UnsubscribeInput = (input: UnsubscribeInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.SubscriptionArn != null) {
-    entries["SubscriptionArn"] = input.SubscriptionArn;
+  if (input[_SA] != null) {
+    entries[_SA] = input[_SA];
   }
   return entries;
 };
@@ -4777,12 +4823,12 @@ const se_UnsubscribeInput = (input: UnsubscribeInput, context: __SerdeContext): 
  */
 const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ResourceArn != null) {
-    entries["ResourceArn"] = input.ResourceArn;
+  if (input[_RA] != null) {
+    entries[_RA] = input[_RA];
   }
-  if (input.TagKeys != null) {
-    const memberEntries = se_TagKeyList(input.TagKeys, context);
-    if (input.TagKeys?.length === 0) {
+  if (input[_TK] != null) {
+    const memberEntries = se_TagKeyList(input[_TK], context);
+    if (input[_TK]?.length === 0) {
       entries.TagKeys = [];
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4798,11 +4844,11 @@ const se_UntagResourceRequest = (input: UntagResourceRequest, context: __SerdeCo
  */
 const se_VerifySMSSandboxPhoneNumberInput = (input: VerifySMSSandboxPhoneNumberInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PhoneNumber != null) {
-    entries["PhoneNumber"] = input.PhoneNumber;
+  if (input[_PN] != null) {
+    entries[_PN] = input[_PN];
   }
-  if (input.OneTimePassword != null) {
-    entries["OneTimePassword"] = input.OneTimePassword;
+  if (input[_OTP] != null) {
+    entries[_OTP] = input[_OTP];
   }
   return entries;
 };
@@ -4812,8 +4858,8 @@ const se_VerifySMSSandboxPhoneNumberInput = (input: VerifySMSSandboxPhoneNumberI
  */
 const de_AuthorizationErrorException = (output: any, context: __SerdeContext): AuthorizationErrorException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -4826,8 +4872,8 @@ const de_BatchEntryIdsNotDistinctException = (
   context: __SerdeContext
 ): BatchEntryIdsNotDistinctException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -4837,8 +4883,8 @@ const de_BatchEntryIdsNotDistinctException = (
  */
 const de_BatchRequestTooLongException = (output: any, context: __SerdeContext): BatchRequestTooLongException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -4848,17 +4894,17 @@ const de_BatchRequestTooLongException = (output: any, context: __SerdeContext): 
  */
 const de_BatchResultErrorEntry = (output: any, context: __SerdeContext): BatchResultErrorEntry => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_I] != null) {
+    contents[_I] = __expectString(output[_I]);
   }
-  if (output["Code"] !== undefined) {
-    contents.Code = __expectString(output["Code"]);
+  if (output[_C] != null) {
+    contents[_C] = __expectString(output[_C]);
   }
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
-  if (output["SenderFault"] !== undefined) {
-    contents.SenderFault = __parseBoolean(output["SenderFault"]);
+  if (output[_SF] != null) {
+    contents[_SF] = __parseBoolean(output[_SF]);
   }
   return contents;
 };
@@ -4882,8 +4928,8 @@ const de_CheckIfPhoneNumberIsOptedOutResponse = (
   context: __SerdeContext
 ): CheckIfPhoneNumberIsOptedOutResponse => {
   const contents: any = {};
-  if (output["isOptedOut"] !== undefined) {
-    contents.isOptedOut = __parseBoolean(output["isOptedOut"]);
+  if (output[_iOO] != null) {
+    contents[_iOO] = __parseBoolean(output[_iOO]);
   }
   return contents;
 };
@@ -4893,8 +4939,8 @@ const de_CheckIfPhoneNumberIsOptedOutResponse = (
  */
 const de_ConcurrentAccessException = (output: any, context: __SerdeContext): ConcurrentAccessException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -4904,8 +4950,8 @@ const de_ConcurrentAccessException = (output: any, context: __SerdeContext): Con
  */
 const de_ConfirmSubscriptionResponse = (output: any, context: __SerdeContext): ConfirmSubscriptionResponse => {
   const contents: any = {};
-  if (output["SubscriptionArn"] !== undefined) {
-    contents.SubscriptionArn = __expectString(output["SubscriptionArn"]);
+  if (output[_SA] != null) {
+    contents[_SA] = __expectString(output[_SA]);
   }
   return contents;
 };
@@ -4915,8 +4961,8 @@ const de_ConfirmSubscriptionResponse = (output: any, context: __SerdeContext): C
  */
 const de_CreateEndpointResponse = (output: any, context: __SerdeContext): CreateEndpointResponse => {
   const contents: any = {};
-  if (output["EndpointArn"] !== undefined) {
-    contents.EndpointArn = __expectString(output["EndpointArn"]);
+  if (output[_EA] != null) {
+    contents[_EA] = __expectString(output[_EA]);
   }
   return contents;
 };
@@ -4929,8 +4975,8 @@ const de_CreatePlatformApplicationResponse = (
   context: __SerdeContext
 ): CreatePlatformApplicationResponse => {
   const contents: any = {};
-  if (output["PlatformApplicationArn"] !== undefined) {
-    contents.PlatformApplicationArn = __expectString(output["PlatformApplicationArn"]);
+  if (output[_PAA] != null) {
+    contents[_PAA] = __expectString(output[_PAA]);
   }
   return contents;
 };
@@ -4951,8 +4997,8 @@ const de_CreateSMSSandboxPhoneNumberResult = (
  */
 const de_CreateTopicResponse = (output: any, context: __SerdeContext): CreateTopicResponse => {
   const contents: any = {};
-  if (output["TopicArn"] !== undefined) {
-    contents.TopicArn = __expectString(output["TopicArn"]);
+  if (output[_TA] != null) {
+    contents[_TA] = __expectString(output[_TA]);
   }
   return contents;
 };
@@ -4973,8 +5019,8 @@ const de_DeleteSMSSandboxPhoneNumberResult = (
  */
 const de_EmptyBatchRequestException = (output: any, context: __SerdeContext): EmptyBatchRequestException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -4984,13 +5030,13 @@ const de_EmptyBatchRequestException = (output: any, context: __SerdeContext): Em
  */
 const de_Endpoint = (output: any, context: __SerdeContext): Endpoint => {
   const contents: any = {};
-  if (output["EndpointArn"] !== undefined) {
-    contents.EndpointArn = __expectString(output["EndpointArn"]);
+  if (output[_EA] != null) {
+    contents[_EA] = __expectString(output[_EA]);
   }
   if (output.Attributes === "") {
-    contents.Attributes = {};
-  } else if (output["Attributes"] !== undefined && output["Attributes"]["entry"] !== undefined) {
-    contents.Attributes = de_MapStringToString(__getArrayIfSingleItem(output["Attributes"]["entry"]), context);
+    contents[_At] = {};
+  } else if (output[_At] != null && output[_At][_e] != null) {
+    contents[_At] = de_MapStringToString(__getArrayIfSingleItem(output[_At][_e]), context);
   }
   return contents;
 };
@@ -5000,8 +5046,8 @@ const de_Endpoint = (output: any, context: __SerdeContext): Endpoint => {
  */
 const de_EndpointDisabledException = (output: any, context: __SerdeContext): EndpointDisabledException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -5014,8 +5060,8 @@ const de_FilterPolicyLimitExceededException = (
   context: __SerdeContext
 ): FilterPolicyLimitExceededException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -5025,8 +5071,8 @@ const de_FilterPolicyLimitExceededException = (
  */
 const de_GetDataProtectionPolicyResponse = (output: any, context: __SerdeContext): GetDataProtectionPolicyResponse => {
   const contents: any = {};
-  if (output["DataProtectionPolicy"] !== undefined) {
-    contents.DataProtectionPolicy = __expectString(output["DataProtectionPolicy"]);
+  if (output[_DPP] != null) {
+    contents[_DPP] = __expectString(output[_DPP]);
   }
   return contents;
 };
@@ -5037,9 +5083,9 @@ const de_GetDataProtectionPolicyResponse = (output: any, context: __SerdeContext
 const de_GetEndpointAttributesResponse = (output: any, context: __SerdeContext): GetEndpointAttributesResponse => {
   const contents: any = {};
   if (output.Attributes === "") {
-    contents.Attributes = {};
-  } else if (output["Attributes"] !== undefined && output["Attributes"]["entry"] !== undefined) {
-    contents.Attributes = de_MapStringToString(__getArrayIfSingleItem(output["Attributes"]["entry"]), context);
+    contents[_At] = {};
+  } else if (output[_At] != null && output[_At][_e] != null) {
+    contents[_At] = de_MapStringToString(__getArrayIfSingleItem(output[_At][_e]), context);
   }
   return contents;
 };
@@ -5053,9 +5099,9 @@ const de_GetPlatformApplicationAttributesResponse = (
 ): GetPlatformApplicationAttributesResponse => {
   const contents: any = {};
   if (output.Attributes === "") {
-    contents.Attributes = {};
-  } else if (output["Attributes"] !== undefined && output["Attributes"]["entry"] !== undefined) {
-    contents.Attributes = de_MapStringToString(__getArrayIfSingleItem(output["Attributes"]["entry"]), context);
+    contents[_At] = {};
+  } else if (output[_At] != null && output[_At][_e] != null) {
+    contents[_At] = de_MapStringToString(__getArrayIfSingleItem(output[_At][_e]), context);
   }
   return contents;
 };
@@ -5066,9 +5112,9 @@ const de_GetPlatformApplicationAttributesResponse = (
 const de_GetSMSAttributesResponse = (output: any, context: __SerdeContext): GetSMSAttributesResponse => {
   const contents: any = {};
   if (output.attributes === "") {
-    contents.attributes = {};
-  } else if (output["attributes"] !== undefined && output["attributes"]["entry"] !== undefined) {
-    contents.attributes = de_MapStringToString(__getArrayIfSingleItem(output["attributes"]["entry"]), context);
+    contents[_a] = {};
+  } else if (output[_a] != null && output[_a][_e] != null) {
+    contents[_a] = de_MapStringToString(__getArrayIfSingleItem(output[_a][_e]), context);
   }
   return contents;
 };
@@ -5081,8 +5127,8 @@ const de_GetSMSSandboxAccountStatusResult = (
   context: __SerdeContext
 ): GetSMSSandboxAccountStatusResult => {
   const contents: any = {};
-  if (output["IsInSandbox"] !== undefined) {
-    contents.IsInSandbox = __parseBoolean(output["IsInSandbox"]);
+  if (output[_IIS] != null) {
+    contents[_IIS] = __parseBoolean(output[_IIS]);
   }
   return contents;
 };
@@ -5096,9 +5142,9 @@ const de_GetSubscriptionAttributesResponse = (
 ): GetSubscriptionAttributesResponse => {
   const contents: any = {};
   if (output.Attributes === "") {
-    contents.Attributes = {};
-  } else if (output["Attributes"] !== undefined && output["Attributes"]["entry"] !== undefined) {
-    contents.Attributes = de_SubscriptionAttributesMap(__getArrayIfSingleItem(output["Attributes"]["entry"]), context);
+    contents[_At] = {};
+  } else if (output[_At] != null && output[_At][_e] != null) {
+    contents[_At] = de_SubscriptionAttributesMap(__getArrayIfSingleItem(output[_At][_e]), context);
   }
   return contents;
 };
@@ -5109,9 +5155,9 @@ const de_GetSubscriptionAttributesResponse = (
 const de_GetTopicAttributesResponse = (output: any, context: __SerdeContext): GetTopicAttributesResponse => {
   const contents: any = {};
   if (output.Attributes === "") {
-    contents.Attributes = {};
-  } else if (output["Attributes"] !== undefined && output["Attributes"]["entry"] !== undefined) {
-    contents.Attributes = de_TopicAttributesMap(__getArrayIfSingleItem(output["Attributes"]["entry"]), context);
+    contents[_At] = {};
+  } else if (output[_At] != null && output[_At][_e] != null) {
+    contents[_At] = de_TopicAttributesMap(__getArrayIfSingleItem(output[_At][_e]), context);
   }
   return contents;
 };
@@ -5121,8 +5167,8 @@ const de_GetTopicAttributesResponse = (output: any, context: __SerdeContext): Ge
  */
 const de_InternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -5132,8 +5178,8 @@ const de_InternalErrorException = (output: any, context: __SerdeContext): Intern
  */
 const de_InvalidBatchEntryIdException = (output: any, context: __SerdeContext): InvalidBatchEntryIdException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -5143,8 +5189,8 @@ const de_InvalidBatchEntryIdException = (output: any, context: __SerdeContext): 
  */
 const de_InvalidParameterException = (output: any, context: __SerdeContext): InvalidParameterException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -5154,8 +5200,8 @@ const de_InvalidParameterException = (output: any, context: __SerdeContext): Inv
  */
 const de_InvalidParameterValueException = (output: any, context: __SerdeContext): InvalidParameterValueException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -5165,8 +5211,19 @@ const de_InvalidParameterValueException = (output: any, context: __SerdeContext)
  */
 const de_InvalidSecurityException = (output: any, context: __SerdeContext): InvalidSecurityException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryInvalidStateException
+ */
+const de_InvalidStateException = (output: any, context: __SerdeContext): InvalidStateException => {
+  const contents: any = {};
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -5176,8 +5233,8 @@ const de_InvalidSecurityException = (output: any, context: __SerdeContext): Inva
  */
 const de_KMSAccessDeniedException = (output: any, context: __SerdeContext): KMSAccessDeniedException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -5187,8 +5244,8 @@ const de_KMSAccessDeniedException = (output: any, context: __SerdeContext): KMSA
  */
 const de_KMSDisabledException = (output: any, context: __SerdeContext): KMSDisabledException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -5198,8 +5255,8 @@ const de_KMSDisabledException = (output: any, context: __SerdeContext): KMSDisab
  */
 const de_KMSInvalidStateException = (output: any, context: __SerdeContext): KMSInvalidStateException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -5209,8 +5266,8 @@ const de_KMSInvalidStateException = (output: any, context: __SerdeContext): KMSI
  */
 const de_KMSNotFoundException = (output: any, context: __SerdeContext): KMSNotFoundException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -5220,8 +5277,8 @@ const de_KMSNotFoundException = (output: any, context: __SerdeContext): KMSNotFo
  */
 const de_KMSOptInRequired = (output: any, context: __SerdeContext): KMSOptInRequired => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -5231,8 +5288,8 @@ const de_KMSOptInRequired = (output: any, context: __SerdeContext): KMSOptInRequ
  */
 const de_KMSThrottlingException = (output: any, context: __SerdeContext): KMSThrottlingException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -5246,12 +5303,12 @@ const de_ListEndpointsByPlatformApplicationResponse = (
 ): ListEndpointsByPlatformApplicationResponse => {
   const contents: any = {};
   if (output.Endpoints === "") {
-    contents.Endpoints = [];
-  } else if (output["Endpoints"] !== undefined && output["Endpoints"]["member"] !== undefined) {
-    contents.Endpoints = de_ListOfEndpoints(__getArrayIfSingleItem(output["Endpoints"]["member"]), context);
+    contents[_En] = [];
+  } else if (output[_En] != null && output[_En][_me] != null) {
+    contents[_En] = de_ListOfEndpoints(__getArrayIfSingleItem(output[_En][_me]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -5283,16 +5340,13 @@ const de_ListOfPlatformApplications = (output: any, context: __SerdeContext): Pl
  */
 const de_ListOriginationNumbersResult = (output: any, context: __SerdeContext): ListOriginationNumbersResult => {
   const contents: any = {};
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   if (output.PhoneNumbers === "") {
-    contents.PhoneNumbers = [];
-  } else if (output["PhoneNumbers"] !== undefined && output["PhoneNumbers"]["member"] !== undefined) {
-    contents.PhoneNumbers = de_PhoneNumberInformationList(
-      __getArrayIfSingleItem(output["PhoneNumbers"]["member"]),
-      context
-    );
+    contents[_PNh] = [];
+  } else if (output[_PNh] != null && output[_PNh][_me] != null) {
+    contents[_PNh] = de_PhoneNumberInformationList(__getArrayIfSingleItem(output[_PNh][_me]), context);
   }
   return contents;
 };
@@ -5306,12 +5360,12 @@ const de_ListPhoneNumbersOptedOutResponse = (
 ): ListPhoneNumbersOptedOutResponse => {
   const contents: any = {};
   if (output.phoneNumbers === "") {
-    contents.phoneNumbers = [];
-  } else if (output["phoneNumbers"] !== undefined && output["phoneNumbers"]["member"] !== undefined) {
-    contents.phoneNumbers = de_PhoneNumberList(__getArrayIfSingleItem(output["phoneNumbers"]["member"]), context);
+    contents[_pNh] = [];
+  } else if (output[_pNh] != null && output[_pNh][_me] != null) {
+    contents[_pNh] = de_PhoneNumberList(__getArrayIfSingleItem(output[_pNh][_me]), context);
   }
-  if (output["nextToken"] !== undefined) {
-    contents.nextToken = __expectString(output["nextToken"]);
+  if (output[_nT] != null) {
+    contents[_nT] = __expectString(output[_nT]);
   }
   return contents;
 };
@@ -5325,15 +5379,12 @@ const de_ListPlatformApplicationsResponse = (
 ): ListPlatformApplicationsResponse => {
   const contents: any = {};
   if (output.PlatformApplications === "") {
-    contents.PlatformApplications = [];
-  } else if (output["PlatformApplications"] !== undefined && output["PlatformApplications"]["member"] !== undefined) {
-    contents.PlatformApplications = de_ListOfPlatformApplications(
-      __getArrayIfSingleItem(output["PlatformApplications"]["member"]),
-      context
-    );
+    contents[_PA] = [];
+  } else if (output[_PA] != null && output[_PA][_me] != null) {
+    contents[_PA] = de_ListOfPlatformApplications(__getArrayIfSingleItem(output[_PA][_me]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -5347,15 +5398,12 @@ const de_ListSMSSandboxPhoneNumbersResult = (
 ): ListSMSSandboxPhoneNumbersResult => {
   const contents: any = {};
   if (output.PhoneNumbers === "") {
-    contents.PhoneNumbers = [];
-  } else if (output["PhoneNumbers"] !== undefined && output["PhoneNumbers"]["member"] !== undefined) {
-    contents.PhoneNumbers = de_SMSSandboxPhoneNumberList(
-      __getArrayIfSingleItem(output["PhoneNumbers"]["member"]),
-      context
-    );
+    contents[_PNh] = [];
+  } else if (output[_PNh] != null && output[_PNh][_me] != null) {
+    contents[_PNh] = de_SMSSandboxPhoneNumberList(__getArrayIfSingleItem(output[_PNh][_me]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -5369,12 +5417,12 @@ const de_ListSubscriptionsByTopicResponse = (
 ): ListSubscriptionsByTopicResponse => {
   const contents: any = {};
   if (output.Subscriptions === "") {
-    contents.Subscriptions = [];
-  } else if (output["Subscriptions"] !== undefined && output["Subscriptions"]["member"] !== undefined) {
-    contents.Subscriptions = de_SubscriptionsList(__getArrayIfSingleItem(output["Subscriptions"]["member"]), context);
+    contents[_Sub] = [];
+  } else if (output[_Sub] != null && output[_Sub][_me] != null) {
+    contents[_Sub] = de_SubscriptionsList(__getArrayIfSingleItem(output[_Sub][_me]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -5385,12 +5433,12 @@ const de_ListSubscriptionsByTopicResponse = (
 const de_ListSubscriptionsResponse = (output: any, context: __SerdeContext): ListSubscriptionsResponse => {
   const contents: any = {};
   if (output.Subscriptions === "") {
-    contents.Subscriptions = [];
-  } else if (output["Subscriptions"] !== undefined && output["Subscriptions"]["member"] !== undefined) {
-    contents.Subscriptions = de_SubscriptionsList(__getArrayIfSingleItem(output["Subscriptions"]["member"]), context);
+    contents[_Sub] = [];
+  } else if (output[_Sub] != null && output[_Sub][_me] != null) {
+    contents[_Sub] = de_SubscriptionsList(__getArrayIfSingleItem(output[_Sub][_me]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -5401,9 +5449,9 @@ const de_ListSubscriptionsResponse = (output: any, context: __SerdeContext): Lis
 const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): ListTagsForResourceResponse => {
   const contents: any = {};
   if (output.Tags === "") {
-    contents.Tags = [];
-  } else if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = de_TagList(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+    contents[_Ta] = [];
+  } else if (output[_Ta] != null && output[_Ta][_me] != null) {
+    contents[_Ta] = de_TagList(__getArrayIfSingleItem(output[_Ta][_me]), context);
   }
   return contents;
 };
@@ -5414,12 +5462,12 @@ const de_ListTagsForResourceResponse = (output: any, context: __SerdeContext): L
 const de_ListTopicsResponse = (output: any, context: __SerdeContext): ListTopicsResponse => {
   const contents: any = {};
   if (output.Topics === "") {
-    contents.Topics = [];
-  } else if (output["Topics"] !== undefined && output["Topics"]["member"] !== undefined) {
-    contents.Topics = de_TopicsList(__getArrayIfSingleItem(output["Topics"]["member"]), context);
+    contents[_To] = [];
+  } else if (output[_To] != null && output[_To][_me] != null) {
+    contents[_To] = de_TopicsList(__getArrayIfSingleItem(output[_To][_me]), context);
   }
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = __expectString(output["NextToken"]);
+  if (output[_NT] != null) {
+    contents[_NT] = __expectString(output[_NT]);
   }
   return contents;
 };
@@ -5442,8 +5490,8 @@ const de_MapStringToString = (output: any, context: __SerdeContext): Record<stri
  */
 const de_NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -5451,7 +5499,7 @@ const de_NotFoundException = (output: any, context: __SerdeContext): NotFoundExc
 /**
  * deserializeAws_queryNumberCapabilityList
  */
-const de_NumberCapabilityList = (output: any, context: __SerdeContext): (NumberCapability | string)[] => {
+const de_NumberCapabilityList = (output: any, context: __SerdeContext): NumberCapability[] => {
   return (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -5464,8 +5512,8 @@ const de_NumberCapabilityList = (output: any, context: __SerdeContext): (NumberC
  */
 const de_OptedOutException = (output: any, context: __SerdeContext): OptedOutException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -5483,28 +5531,25 @@ const de_OptInPhoneNumberResponse = (output: any, context: __SerdeContext): OptI
  */
 const de_PhoneNumberInformation = (output: any, context: __SerdeContext): PhoneNumberInformation => {
   const contents: any = {};
-  if (output["CreatedAt"] !== undefined) {
-    contents.CreatedAt = __expectNonNull(__parseRfc3339DateTimeWithOffset(output["CreatedAt"]));
+  if (output[_CA] != null) {
+    contents[_CA] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CA]));
   }
-  if (output["PhoneNumber"] !== undefined) {
-    contents.PhoneNumber = __expectString(output["PhoneNumber"]);
+  if (output[_PN] != null) {
+    contents[_PN] = __expectString(output[_PN]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
-  if (output["Iso2CountryCode"] !== undefined) {
-    contents.Iso2CountryCode = __expectString(output["Iso2CountryCode"]);
+  if (output[_ICC] != null) {
+    contents[_ICC] = __expectString(output[_ICC]);
   }
-  if (output["RouteType"] !== undefined) {
-    contents.RouteType = __expectString(output["RouteType"]);
+  if (output[_RT] != null) {
+    contents[_RT] = __expectString(output[_RT]);
   }
   if (output.NumberCapabilities === "") {
-    contents.NumberCapabilities = [];
-  } else if (output["NumberCapabilities"] !== undefined && output["NumberCapabilities"]["member"] !== undefined) {
-    contents.NumberCapabilities = de_NumberCapabilityList(
-      __getArrayIfSingleItem(output["NumberCapabilities"]["member"]),
-      context
-    );
+    contents[_NC] = [];
+  } else if (output[_NC] != null && output[_NC][_me] != null) {
+    contents[_NC] = de_NumberCapabilityList(__getArrayIfSingleItem(output[_NC][_me]), context);
   }
   return contents;
 };
@@ -5536,13 +5581,13 @@ const de_PhoneNumberList = (output: any, context: __SerdeContext): string[] => {
  */
 const de_PlatformApplication = (output: any, context: __SerdeContext): PlatformApplication => {
   const contents: any = {};
-  if (output["PlatformApplicationArn"] !== undefined) {
-    contents.PlatformApplicationArn = __expectString(output["PlatformApplicationArn"]);
+  if (output[_PAA] != null) {
+    contents[_PAA] = __expectString(output[_PAA]);
   }
   if (output.Attributes === "") {
-    contents.Attributes = {};
-  } else if (output["Attributes"] !== undefined && output["Attributes"]["entry"] !== undefined) {
-    contents.Attributes = de_MapStringToString(__getArrayIfSingleItem(output["Attributes"]["entry"]), context);
+    contents[_At] = {};
+  } else if (output[_At] != null && output[_At][_e] != null) {
+    contents[_At] = de_MapStringToString(__getArrayIfSingleItem(output[_At][_e]), context);
   }
   return contents;
 };
@@ -5555,8 +5600,8 @@ const de_PlatformApplicationDisabledException = (
   context: __SerdeContext
 ): PlatformApplicationDisabledException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -5567,17 +5612,14 @@ const de_PlatformApplicationDisabledException = (
 const de_PublishBatchResponse = (output: any, context: __SerdeContext): PublishBatchResponse => {
   const contents: any = {};
   if (output.Successful === "") {
-    contents.Successful = [];
-  } else if (output["Successful"] !== undefined && output["Successful"]["member"] !== undefined) {
-    contents.Successful = de_PublishBatchResultEntryList(
-      __getArrayIfSingleItem(output["Successful"]["member"]),
-      context
-    );
+    contents[_Suc] = [];
+  } else if (output[_Suc] != null && output[_Suc][_me] != null) {
+    contents[_Suc] = de_PublishBatchResultEntryList(__getArrayIfSingleItem(output[_Suc][_me]), context);
   }
   if (output.Failed === "") {
-    contents.Failed = [];
-  } else if (output["Failed"] !== undefined && output["Failed"]["member"] !== undefined) {
-    contents.Failed = de_BatchResultErrorEntryList(__getArrayIfSingleItem(output["Failed"]["member"]), context);
+    contents[_F] = [];
+  } else if (output[_F] != null && output[_F][_me] != null) {
+    contents[_F] = de_BatchResultErrorEntryList(__getArrayIfSingleItem(output[_F][_me]), context);
   }
   return contents;
 };
@@ -5587,14 +5629,14 @@ const de_PublishBatchResponse = (output: any, context: __SerdeContext): PublishB
  */
 const de_PublishBatchResultEntry = (output: any, context: __SerdeContext): PublishBatchResultEntry => {
   const contents: any = {};
-  if (output["Id"] !== undefined) {
-    contents.Id = __expectString(output["Id"]);
+  if (output[_I] != null) {
+    contents[_I] = __expectString(output[_I]);
   }
-  if (output["MessageId"] !== undefined) {
-    contents.MessageId = __expectString(output["MessageId"]);
+  if (output[_MI] != null) {
+    contents[_MI] = __expectString(output[_MI]);
   }
-  if (output["SequenceNumber"] !== undefined) {
-    contents.SequenceNumber = __expectString(output["SequenceNumber"]);
+  if (output[_SN] != null) {
+    contents[_SN] = __expectString(output[_SN]);
   }
   return contents;
 };
@@ -5615,11 +5657,22 @@ const de_PublishBatchResultEntryList = (output: any, context: __SerdeContext): P
  */
 const de_PublishResponse = (output: any, context: __SerdeContext): PublishResponse => {
   const contents: any = {};
-  if (output["MessageId"] !== undefined) {
-    contents.MessageId = __expectString(output["MessageId"]);
+  if (output[_MI] != null) {
+    contents[_MI] = __expectString(output[_MI]);
   }
-  if (output["SequenceNumber"] !== undefined) {
-    contents.SequenceNumber = __expectString(output["SequenceNumber"]);
+  if (output[_SN] != null) {
+    contents[_SN] = __expectString(output[_SN]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryReplayLimitExceededException
+ */
+const de_ReplayLimitExceededException = (output: any, context: __SerdeContext): ReplayLimitExceededException => {
+  const contents: any = {};
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -5629,8 +5682,8 @@ const de_PublishResponse = (output: any, context: __SerdeContext): PublishRespon
  */
 const de_ResourceNotFoundException = (output: any, context: __SerdeContext): ResourceNotFoundException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -5648,11 +5701,11 @@ const de_SetSMSAttributesResponse = (output: any, context: __SerdeContext): SetS
  */
 const de_SMSSandboxPhoneNumber = (output: any, context: __SerdeContext): SMSSandboxPhoneNumber => {
   const contents: any = {};
-  if (output["PhoneNumber"] !== undefined) {
-    contents.PhoneNumber = __expectString(output["PhoneNumber"]);
+  if (output[_PN] != null) {
+    contents[_PN] = __expectString(output[_PN]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
   return contents;
 };
@@ -5673,8 +5726,8 @@ const de_SMSSandboxPhoneNumberList = (output: any, context: __SerdeContext): SMS
  */
 const de_StaleTagException = (output: any, context: __SerdeContext): StaleTagException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -5684,8 +5737,8 @@ const de_StaleTagException = (output: any, context: __SerdeContext): StaleTagExc
  */
 const de_SubscribeResponse = (output: any, context: __SerdeContext): SubscribeResponse => {
   const contents: any = {};
-  if (output["SubscriptionArn"] !== undefined) {
-    contents.SubscriptionArn = __expectString(output["SubscriptionArn"]);
+  if (output[_SA] != null) {
+    contents[_SA] = __expectString(output[_SA]);
   }
   return contents;
 };
@@ -5695,20 +5748,20 @@ const de_SubscribeResponse = (output: any, context: __SerdeContext): SubscribeRe
  */
 const de_Subscription = (output: any, context: __SerdeContext): Subscription => {
   const contents: any = {};
-  if (output["SubscriptionArn"] !== undefined) {
-    contents.SubscriptionArn = __expectString(output["SubscriptionArn"]);
+  if (output[_SA] != null) {
+    contents[_SA] = __expectString(output[_SA]);
   }
-  if (output["Owner"] !== undefined) {
-    contents.Owner = __expectString(output["Owner"]);
+  if (output[_O] != null) {
+    contents[_O] = __expectString(output[_O]);
   }
-  if (output["Protocol"] !== undefined) {
-    contents.Protocol = __expectString(output["Protocol"]);
+  if (output[_Pr] != null) {
+    contents[_Pr] = __expectString(output[_Pr]);
   }
-  if (output["Endpoint"] !== undefined) {
-    contents.Endpoint = __expectString(output["Endpoint"]);
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
-  if (output["TopicArn"] !== undefined) {
-    contents.TopicArn = __expectString(output["TopicArn"]);
+  if (output[_TA] != null) {
+    contents[_TA] = __expectString(output[_TA]);
   }
   return contents;
 };
@@ -5734,8 +5787,8 @@ const de_SubscriptionLimitExceededException = (
   context: __SerdeContext
 ): SubscriptionLimitExceededException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -5756,11 +5809,11 @@ const de_SubscriptionsList = (output: any, context: __SerdeContext): Subscriptio
  */
 const de_Tag = (output: any, context: __SerdeContext): Tag => {
   const contents: any = {};
-  if (output["Key"] !== undefined) {
-    contents.Key = __expectString(output["Key"]);
+  if (output[_K] != null) {
+    contents[_K] = __expectString(output[_K]);
   }
-  if (output["Value"] !== undefined) {
-    contents.Value = __expectString(output["Value"]);
+  if (output[_Va] != null) {
+    contents[_Va] = __expectString(output[_Va]);
   }
   return contents;
 };
@@ -5770,8 +5823,8 @@ const de_Tag = (output: any, context: __SerdeContext): Tag => {
  */
 const de_TagLimitExceededException = (output: any, context: __SerdeContext): TagLimitExceededException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -5792,8 +5845,8 @@ const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
  */
 const de_TagPolicyException = (output: any, context: __SerdeContext): TagPolicyException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -5811,8 +5864,8 @@ const de_TagResourceResponse = (output: any, context: __SerdeContext): TagResour
  */
 const de_ThrottledException = (output: any, context: __SerdeContext): ThrottledException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -5825,8 +5878,8 @@ const de_TooManyEntriesInBatchRequestException = (
   context: __SerdeContext
 ): TooManyEntriesInBatchRequestException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -5836,8 +5889,8 @@ const de_TooManyEntriesInBatchRequestException = (
  */
 const de_Topic = (output: any, context: __SerdeContext): Topic => {
   const contents: any = {};
-  if (output["TopicArn"] !== undefined) {
-    contents.TopicArn = __expectString(output["TopicArn"]);
+  if (output[_TA] != null) {
+    contents[_TA] = __expectString(output[_TA]);
   }
   return contents;
 };
@@ -5860,8 +5913,8 @@ const de_TopicAttributesMap = (output: any, context: __SerdeContext): Record<str
  */
 const de_TopicLimitExceededException = (output: any, context: __SerdeContext): TopicLimitExceededException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -5890,8 +5943,8 @@ const de_UntagResourceResponse = (output: any, context: __SerdeContext): UntagRe
  */
 const de_UserErrorException = (output: any, context: __SerdeContext): UserErrorException => {
   const contents: any = {};
-  if (output["message"] !== undefined) {
-    contents.message = __expectString(output["message"]);
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
   }
   return contents;
 };
@@ -5901,8 +5954,8 @@ const de_UserErrorException = (output: any, context: __SerdeContext): UserErrorE
  */
 const de_ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
   return contents;
 };
@@ -5912,11 +5965,11 @@ const de_ValidationException = (output: any, context: __SerdeContext): Validatio
  */
 const de_VerificationException = (output: any, context: __SerdeContext): VerificationException => {
   const contents: any = {};
-  if (output["Message"] !== undefined) {
-    contents.Message = __expectString(output["Message"]);
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = __expectString(output["Status"]);
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
   return contents;
 };
@@ -5972,6 +6025,119 @@ const buildHttpRpcRequest = async (
 const SHARED_HEADERS: __HeaderBag = {
   "content-type": "application/x-www-form-urlencoded",
 };
+
+const _ = "2010-03-31";
+const _A = "Action";
+const _AN = "ActionName";
+const _ANt = "AttributeName";
+const _AOU = "AuthenticateOnUnsubscribe";
+const _AP = "AddPermission";
+const _AV = "AttributeValue";
+const _AWSAI = "AWSAccountId";
+const _At = "Attributes";
+const _BV = "BinaryValue";
+const _C = "Code";
+const _CA = "CreatedAt";
+const _CIPNIOO = "CheckIfPhoneNumberIsOptedOut";
+const _CPA = "CreatePlatformApplication";
+const _CPE = "CreatePlatformEndpoint";
+const _CS = "ConfirmSubscription";
+const _CSMSSPN = "CreateSMSSandboxPhoneNumber";
+const _CT = "CreateTopic";
+const _CUD = "CustomUserData";
+const _DE = "DeleteEndpoint";
+const _DPA = "DeletePlatformApplication";
+const _DPP = "DataProtectionPolicy";
+const _DSMSSPN = "DeleteSMSSandboxPhoneNumber";
+const _DT = "DeleteTopic";
+const _DTa = "DataType";
+const _E = "Endpoint";
+const _EA = "EndpointArn";
+const _En = "Endpoints";
+const _F = "Failed";
+const _GDPP = "GetDataProtectionPolicy";
+const _GEA = "GetEndpointAttributes";
+const _GPAA = "GetPlatformApplicationAttributes";
+const _GSA = "GetSubscriptionAttributes";
+const _GSMSA = "GetSMSAttributes";
+const _GSMSSAS = "GetSMSSandboxAccountStatus";
+const _GTA = "GetTopicAttributes";
+const _I = "Id";
+const _ICC = "Iso2CountryCode";
+const _IIS = "IsInSandbox";
+const _K = "Key";
+const _L = "Label";
+const _LC = "LanguageCode";
+const _LEBPA = "ListEndpointsByPlatformApplication";
+const _LON = "ListOriginationNumbers";
+const _LPA = "ListPlatformApplications";
+const _LPNOO = "ListPhoneNumbersOptedOut";
+const _LS = "ListSubscriptions";
+const _LSBT = "ListSubscriptionsByTopic";
+const _LSMSSPN = "ListSMSSandboxPhoneNumbers";
+const _LT = "ListTopics";
+const _LTFR = "ListTagsForResource";
+const _M = "Message";
+const _MA = "MessageAttributes";
+const _MDI = "MessageDeduplicationId";
+const _MGI = "MessageGroupId";
+const _MI = "MessageId";
+const _MR = "MaxResults";
+const _MS = "MessageStructure";
+const _N = "Name";
+const _NC = "NumberCapabilities";
+const _NT = "NextToken";
+const _O = "Owner";
+const _OIPN = "OptInPhoneNumber";
+const _OTP = "OneTimePassword";
+const _P = "Publish";
+const _PA = "PlatformApplications";
+const _PAA = "PlatformApplicationArn";
+const _PB = "PublishBatch";
+const _PBRE = "PublishBatchRequestEntries";
+const _PDPP = "PutDataProtectionPolicy";
+const _PN = "PhoneNumber";
+const _PNh = "PhoneNumbers";
+const _Pl = "Platform";
+const _Pr = "Protocol";
+const _RA = "ResourceArn";
+const _RP = "RemovePermission";
+const _RSA = "ReturnSubscriptionArn";
+const _RT = "RouteType";
+const _S = "Subscribe";
+const _SA = "SubscriptionArn";
+const _SEA = "SetEndpointAttributes";
+const _SF = "SenderFault";
+const _SN = "SequenceNumber";
+const _SPAA = "SetPlatformApplicationAttributes";
+const _SSA = "SetSubscriptionAttributes";
+const _SSMSA = "SetSMSAttributes";
+const _STA = "SetTopicAttributes";
+const _SV = "StringValue";
+const _St = "Status";
+const _Su = "Subject";
+const _Sub = "Subscriptions";
+const _Suc = "Successful";
+const _T = "Token";
+const _TA = "TopicArn";
+const _TAa = "TargetArn";
+const _TK = "TagKeys";
+const _TR = "TagResource";
+const _Ta = "Tags";
+const _To = "Topics";
+const _U = "Unsubscribe";
+const _UR = "UntagResource";
+const _V = "Version";
+const _VSMSSPN = "VerifySMSSandboxPhoneNumber";
+const _Va = "Value";
+const _a = "attributes";
+const _e = "entry";
+const _iOO = "isOptedOut";
+const _m = "message";
+const _me = "member";
+const _nT = "nextToken";
+const _pN = "phoneNumber";
+const _pNh = "phoneNumbers";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

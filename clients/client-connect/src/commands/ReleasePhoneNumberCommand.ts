@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ReleasePhoneNumberRequest } from "../models/models_1";
 import { de_ReleasePhoneNumberCommand, se_ReleasePhoneNumberCommand } from "../protocols/Aws_restJson1";
 
@@ -40,7 +32,7 @@ export interface ReleasePhoneNumberCommandOutput extends __MetadataBearer {}
  *    can call this API only in the Amazon Web Services Region where the number was claimed.</p>
  *          <important>
  *             <p>To release phone numbers from a traffic distribution group, use the <code>ReleasePhoneNumber</code> API, not the
- *      Amazon Connect console.</p>
+ *     Amazon Connect admin website.</p>
  *             <p>After releasing a phone number, the phone number enters into a cooldown period of 30 days.
  *     It cannot be searched for or claimed again until the period has ended. If you accidentally
  *     release a phone number, contact Amazon Web Services Support.</p>
@@ -105,79 +97,26 @@ export interface ReleasePhoneNumberCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
-export class ReleasePhoneNumberCommand extends $Command<
-  ReleasePhoneNumberCommandInput,
-  ReleasePhoneNumberCommandOutput,
-  ConnectClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ReleasePhoneNumberCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ConnectClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ReleasePhoneNumberCommandInput, ReleasePhoneNumberCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ReleasePhoneNumberCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ConnectClient";
-    const commandName = "ReleasePhoneNumberCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ReleasePhoneNumberCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ReleasePhoneNumberCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ReleasePhoneNumberCommandOutput> {
-    return de_ReleasePhoneNumberCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ReleasePhoneNumberCommand extends $Command
+  .classBuilder<
+    ReleasePhoneNumberCommandInput,
+    ReleasePhoneNumberCommandOutput,
+    ConnectClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonConnectService", "ReleasePhoneNumber", {})
+  .n("ConnectClient", "ReleasePhoneNumberCommand")
+  .f(void 0, void 0)
+  .ser(se_ReleasePhoneNumberCommand)
+  .de(de_ReleasePhoneNumberCommand)
+  .build() {}

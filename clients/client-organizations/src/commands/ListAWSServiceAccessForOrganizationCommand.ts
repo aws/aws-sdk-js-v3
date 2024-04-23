@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ListAWSServiceAccessForOrganizationRequest,
   ListAWSServiceAccessForOrganizationResponse,
@@ -48,9 +40,8 @@ export interface ListAWSServiceAccessForOrganizationCommandOutput
  *             organization. After a service on this list creates the resources that it requires for
  *             the integration, it can perform operations on your organization and its accounts.</p>
  *          <p>For more information about integrating other services with Organizations, including the
- *             list of services that currently work with Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Integrating Organizations with Other
- *                 Amazon Web Services Services</a> in the <i>Organizations User Guide.</i>
- *          </p>
+ *             list of services that currently work with Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html">Using Organizations with other Amazon Web Services
+ *                 services</a> in the <i>Organizations User Guide</i>.</p>
  *          <p>This operation can be called only from the organization's
  * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
  * @example
@@ -87,8 +78,7 @@ export interface ListAWSServiceAccessForOrganizationCommandOutput
  *  <p>You don't have permissions to perform the requested operation. The user or role that
  *             is making the request must have at least one IAM permissions policy attached that
  *             grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access Management</a> in the
- *                 <i>IAM User Guide.</i>
- *          </p>
+ *                 <i>IAM User Guide</i>.</p>
  *
  * @throws {@link AWSOrganizationsNotInUseException} (client fault)
  *  <p>Your account isn't a member of an organization. To make this request, you must use the
@@ -115,19 +105,20 @@ export interface ListAWSServiceAccessForOrganizationCommandOutput
  *                     account from the organization that doesn't yet have enough information to exist
  *                     as a standalone account. This account requires you to first complete phone
  *                     verification. Follow the steps at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#orgs_manage_accounts_remove-from-master">Removing a member account from your organization</a> in the
- *                         <i>Organizations User Guide.</i>
- *                </p>
+ *                         <i>Organizations User Guide</i>.</p>
  *             </li>
  *             <li>
  *                <p>ACCOUNT_CREATION_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of
  *                     accounts that you can create in one day.</p>
  *             </li>
  *             <li>
- *                <p>ACCOUNT_CREATION_NOT_COMPLETE: Your account setup isn't complete or your account isn't fully active. You must complete the account setup before you create an organization.</p>
+ *                <p>ACCOUNT_CREATION_NOT_COMPLETE: Your account setup isn't complete or your
+ *                     account isn't fully active. You must complete the account setup before you
+ *                     create an organization.</p>
  *             </li>
  *             <li>
  *                <p>ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number
- *                     of accounts in an organization. If you need more accounts, contact <a href="https://docs.aws.amazon.com/support/home#/">Amazon Web Services Support</a> to
+ *                     of accounts in an organization. If you need more accounts, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services Support</a> to
  *                     request an increase in your limit. </p>
  *                <p>Or the number of invitations that you tried to send would cause you to exceed
  *                     the limit of accounts in your organization. Send fewer invitations or contact
@@ -138,9 +129,12 @@ export interface ListAWSServiceAccessForOrganizationCommandOutput
  *                <important>
  *                   <p>If you get this exception when running a command immediately after
  *                         creating the organization, wait one hour and try again. After an hour, if
- *                         the command continues to fail with this error, contact <a href="https://docs.aws.amazon.com/support/home#/">Amazon Web Services
- *                         Support</a>.</p>
+ *                         the command continues to fail with this error, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services Support</a>.</p>
  *                </important>
+ *             </li>
+ *             <li>
+ *                <p>CANNOT_REGISTER_SUSPENDED_ACCOUNT_AS_DELEGATED_ADMINISTRATOR: You cannot
+ *                     register a suspended account as a delegated administrator.</p>
  *             </li>
  *             <li>
  *                <p>CANNOT_REGISTER_MASTER_AS_DELEGATED_ADMINISTRATOR: You attempted to register
@@ -203,7 +197,7 @@ export interface ListAWSServiceAccessForOrganizationCommandOutput
  *                     marketplace.</p>
  *             </li>
  *             <li>
- *                <p>MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE: Applies only to the Amazon Web Services /> Regions
+ *                <p>MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE: Applies only to the Amazon Web Services Regions
  *                     in China. To create an organization, the master must have a valid business
  *                     license. For more information, contact customer support.</p>
  *             </li>
@@ -217,15 +211,13 @@ export interface ListAWSServiceAccessForOrganizationCommandOutput
  *                     management account must have an associated account in the Amazon Web Services GovCloud
  *                     (US-West) Region. For more information, see <a href="https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/govcloud-organizations.html">Organizations</a>
  *                     in the
- *                     <i>Amazon Web Services GovCloud User Guide.</i>
- *                </p>
+ *                     <i>Amazon Web Services GovCloud User Guide</i>.</p>
  *             </li>
  *             <li>
  *                <p>MASTER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To create an organization with
  *                     this management account, you first must associate a valid payment instrument,
- *                     such as a credit card, with the account. Follow the steps at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To leave an organization when all required account information has not yet
- *                         been provided</a> in the <i>Organizations User Guide.</i>
- *                </p>
+ *                     such as a credit card, with the account. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_account-before-remove.html">Considerations before removing an account from an organization</a> in
+ *                     the <i>Organizations User Guide</i>.</p>
  *             </li>
  *             <li>
  *                <p>MAX_DELEGATED_ADMINISTRATORS_FOR_SERVICE_LIMIT_EXCEEDED: You attempted to
@@ -244,9 +236,8 @@ export interface ListAWSServiceAccessForOrganizationCommandOutput
  *             <li>
  *                <p>MEMBER_ACCOUNT_PAYMENT_INSTRUMENT_REQUIRED: To complete this operation with
  *                     this member account, you first must associate a valid payment instrument, such
- *                     as a credit card, with the account. Follow the steps at <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">To leave an organization when all required account information has not yet
- *                         been provided</a> in the <i>Organizations User Guide.</i>
- *                </p>
+ *                     as a credit card, with the account. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_account-before-remove.html">Considerations before removing an account from an organization</a> in
+ *                     the <i>Organizations User Guide</i>.</p>
  *             </li>
  *             <li>
  *                <p>MIN_POLICY_TYPE_ATTACHMENT_LIMIT_EXCEEDED: You attempted to detach a policy
@@ -402,9 +393,8 @@ export interface ListAWSServiceAccessForOrganizationCommandOutput
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>You have sent too many requests in too short a period of time. The quota helps protect
  *             against denial-of-service attacks. Try again later.</p>
- *          <p>For information about quotas that affect Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html">Quotas for Organizations</a>in the
- *                 <i>Organizations User Guide.</i>
- *          </p>
+ *          <p>For information about quotas that affect Organizations, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html">Quotas for Organizations</a> in the
+ *                 <i>Organizations User Guide</i>.</p>
  *
  * @throws {@link UnsupportedAPIEndpointException} (client fault)
  *  <p>This action isn't available in the current Amazon Web Services Region.</p>
@@ -413,85 +403,26 @@ export interface ListAWSServiceAccessForOrganizationCommandOutput
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
  */
-export class ListAWSServiceAccessForOrganizationCommand extends $Command<
-  ListAWSServiceAccessForOrganizationCommandInput,
-  ListAWSServiceAccessForOrganizationCommandOutput,
-  OrganizationsClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListAWSServiceAccessForOrganizationCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: OrganizationsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListAWSServiceAccessForOrganizationCommandInput, ListAWSServiceAccessForOrganizationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListAWSServiceAccessForOrganizationCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "OrganizationsClient";
-    const commandName = "ListAWSServiceAccessForOrganizationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: ListAWSServiceAccessForOrganizationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_ListAWSServiceAccessForOrganizationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListAWSServiceAccessForOrganizationCommandOutput> {
-    return de_ListAWSServiceAccessForOrganizationCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListAWSServiceAccessForOrganizationCommand extends $Command
+  .classBuilder<
+    ListAWSServiceAccessForOrganizationCommandInput,
+    ListAWSServiceAccessForOrganizationCommandOutput,
+    OrganizationsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSOrganizationsV20161128", "ListAWSServiceAccessForOrganization", {})
+  .n("OrganizationsClient", "ListAWSServiceAccessForOrganizationCommand")
+  .f(void 0, void 0)
+  .ser(se_ListAWSServiceAccessForOrganizationCommand)
+  .de(de_ListAWSServiceAccessForOrganizationCommand)
+  .build() {}

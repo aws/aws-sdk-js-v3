@@ -65,7 +65,11 @@
 export * from "./WAFV2Client";
 export * from "./WAFV2";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { WAFV2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { WAFV2ServiceException } from "./models/WAFV2ServiceException";

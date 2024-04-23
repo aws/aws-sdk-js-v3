@@ -87,7 +87,7 @@ export interface KeySchemaElement {
    *                 by the sort key value.</p>
    *          </note>
    */
-  KeyType: KeyType | string | undefined;
+  KeyType: KeyType | undefined;
 }
 
 /**
@@ -218,7 +218,7 @@ export interface StreamDescription {
    *             </li>
    *          </ul>
    */
-  StreamStatus?: StreamStatus | string;
+  StreamStatus?: StreamStatus;
 
   /**
    * @public
@@ -242,7 +242,7 @@ export interface StreamDescription {
    *             </li>
    *          </ul>
    */
-  StreamViewType?: StreamViewType | string;
+  StreamViewType?: StreamViewType;
 
   /**
    * @public
@@ -533,7 +533,7 @@ export interface GetShardIteratorInput {
    *             </li>
    *          </ul>
    */
-  ShardIteratorType: ShardIteratorType | string | undefined;
+  ShardIteratorType: ShardIteratorType | undefined;
 
   /**
    * @public
@@ -987,7 +987,7 @@ export interface StreamRecord {
    *             </li>
    *          </ul>
    */
-  StreamViewType?: StreamViewType | string;
+  StreamViewType?: StreamViewType;
 }
 
 /**
@@ -1019,7 +1019,7 @@ export interface _Record {
    *             </li>
    *          </ul>
    */
-  eventName?: OperationType | string;
+  eventName?: OperationType;
 
   /**
    * @public

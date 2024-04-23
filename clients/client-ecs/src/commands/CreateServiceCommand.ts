@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateServiceRequest, CreateServiceResponse } from "../models/models_0";
 import { de_CreateServiceCommand, se_CreateServiceCommand } from "../protocols/Aws_json1_1";
 
@@ -47,6 +39,9 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * 			optionally run your service behind one or more load balancers. The load balancers
  * 			distribute traffic across the tasks that are associated with the service. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service load balancing</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ *          <p>You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when creating or
+ * 			updating a service. <code>volumeConfigurations</code> is only supported for REPLICA
+ * 			service and not DAEMON service. For more infomation, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  *          <p>Tasks for services that don't use a load balancer are considered healthy if they're in
  * 			the <code>RUNNING</code> state. Tasks for services that use a load balancer are
  * 			considered healthy if they're in the <code>RUNNING</code> state and are reported as
@@ -220,6 +215,17 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *           },
  *         ],
  *         ingressPortOverride: Number("int"),
+ *         timeout: { // TimeoutConfiguration
+ *           idleTimeoutSeconds: Number("int"),
+ *           perRequestTimeoutSeconds: Number("int"),
+ *         },
+ *         tls: { // ServiceConnectTlsConfiguration
+ *           issuerCertificateAuthority: { // ServiceConnectTlsCertificateAuthority
+ *             awsPcaAuthorityArn: "STRING_VALUE",
+ *           },
+ *           kmsKey: "STRING_VALUE",
+ *           roleArn: "STRING_VALUE",
+ *         },
  *       },
  *     ],
  *     logConfiguration: { // LogConfiguration
@@ -235,6 +241,34 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *       ],
  *     },
  *   },
+ *   volumeConfigurations: [ // ServiceVolumeConfigurations
+ *     { // ServiceVolumeConfiguration
+ *       name: "STRING_VALUE", // required
+ *       managedEBSVolume: { // ServiceManagedEBSVolumeConfiguration
+ *         encrypted: true || false,
+ *         kmsKeyId: "STRING_VALUE",
+ *         volumeType: "STRING_VALUE",
+ *         sizeInGiB: Number("int"),
+ *         snapshotId: "STRING_VALUE",
+ *         iops: Number("int"),
+ *         throughput: Number("int"),
+ *         tagSpecifications: [ // EBSTagSpecifications
+ *           { // EBSTagSpecification
+ *             resourceType: "volume", // required
+ *             tags: [
+ *               {
+ *                 key: "STRING_VALUE",
+ *                 value: "STRING_VALUE",
+ *               },
+ *             ],
+ *             propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
+ *           },
+ *         ],
+ *         roleArn: "STRING_VALUE", // required
+ *         filesystemType: "ext3" || "ext4" || "xfs",
+ *       },
+ *     },
+ *   ],
  * };
  * const command = new CreateServiceCommand(input);
  * const response = await client.send(command);
@@ -403,6 +437,17 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * //                 },
  * //               ],
  * //               ingressPortOverride: Number("int"),
+ * //               timeout: { // TimeoutConfiguration
+ * //                 idleTimeoutSeconds: Number("int"),
+ * //                 perRequestTimeoutSeconds: Number("int"),
+ * //               },
+ * //               tls: { // ServiceConnectTlsConfiguration
+ * //                 issuerCertificateAuthority: { // ServiceConnectTlsCertificateAuthority
+ * //                   awsPcaAuthorityArn: "STRING_VALUE",
+ * //                 },
+ * //                 kmsKey: "STRING_VALUE",
+ * //                 roleArn: "STRING_VALUE",
+ * //               },
  * //             },
  * //           ],
  * //           logConfiguration: { // LogConfiguration
@@ -422,6 +467,34 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * //           { // ServiceConnectServiceResource
  * //             discoveryName: "STRING_VALUE",
  * //             discoveryArn: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         volumeConfigurations: [ // ServiceVolumeConfigurations
+ * //           { // ServiceVolumeConfiguration
+ * //             name: "STRING_VALUE", // required
+ * //             managedEBSVolume: { // ServiceManagedEBSVolumeConfiguration
+ * //               encrypted: true || false,
+ * //               kmsKeyId: "STRING_VALUE",
+ * //               volumeType: "STRING_VALUE",
+ * //               sizeInGiB: Number("int"),
+ * //               snapshotId: "STRING_VALUE",
+ * //               iops: Number("int"),
+ * //               throughput: Number("int"),
+ * //               tagSpecifications: [ // EBSTagSpecifications
+ * //                 { // EBSTagSpecification
+ * //                   resourceType: "volume", // required
+ * //                   tags: [
+ * //                     {
+ * //                       key: "STRING_VALUE",
+ * //                       value: "STRING_VALUE",
+ * //                     },
+ * //                   ],
+ * //                   propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
+ * //                 },
+ * //               ],
+ * //               roleArn: "STRING_VALUE", // required
+ * //               filesystemType: "ext3" || "ext4" || "xfs",
+ * //             },
  * //           },
  * //         ],
  * //       },
@@ -459,12 +532,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * //     deploymentController: { // DeploymentController
  * //       type: "ECS" || "CODE_DEPLOY" || "EXTERNAL", // required
  * //     },
- * //     tags: [
- * //       {
- * //         key: "STRING_VALUE",
- * //         value: "STRING_VALUE",
- * //       },
- * //     ],
+ * //     tags: "<Tags>",
  * //     createdBy: "STRING_VALUE",
  * //     enableECSManagedTags: true || false,
  * //     propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
@@ -486,7 +554,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * @throws {@link ClientException} (client fault)
  *  <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
- * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
+ * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
  *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
@@ -560,10 +628,10 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *     "loadBalancers": [],
  *     "pendingCount": 0,
  *     "runningCount": 0,
- *     "serviceArn": "arn:aws:ecs:us-east-1:012345678910:service/ecs-simple-service",
+ *     "serviceArn": "arn:aws:ecs:us-east-1:012345678910:service/default/ecs-simple-service",
  *     "serviceName": "ecs-simple-service",
  *     "status": "ACTIVE",
- *     "taskDefinition": "arn:aws:ecs:us-east-1:012345678910:task-definition/hello_world:6"
+ *     "taskDefinition": "arn:aws:ecs:us-east-1:012345678910:task-definition/default/hello_world:6"
  *   }
  * }
  * *\/
@@ -621,10 +689,10 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *     "pendingCount": 0,
  *     "roleArn": "arn:aws:iam::012345678910:role/ecsServiceRole",
  *     "runningCount": 0,
- *     "serviceArn": "arn:aws:ecs:us-east-1:012345678910:service/ecs-simple-service-elb",
+ *     "serviceArn": "arn:aws:ecs:us-east-1:012345678910:service/default/ecs-simple-service-elb",
  *     "serviceName": "ecs-simple-service-elb",
  *     "status": "ACTIVE",
- *     "taskDefinition": "arn:aws:ecs:us-east-1:012345678910:task-definition/console-sample-app-static:6"
+ *     "taskDefinition": "arn:aws:ecs:us-east-1:012345678910:task-definition/default/console-sample-app-static:6"
  *   }
  * }
  * *\/
@@ -632,77 +700,26 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * ```
  *
  */
-export class CreateServiceCommand extends $Command<
-  CreateServiceCommandInput,
-  CreateServiceCommandOutput,
-  ECSClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateServiceCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ECSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateServiceCommandInput, CreateServiceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, CreateServiceCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ECSClient";
-    const commandName = "CreateServiceCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateServiceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateServiceCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateServiceCommandOutput> {
-    return de_CreateServiceCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateServiceCommand extends $Command
+  .classBuilder<
+    CreateServiceCommandInput,
+    CreateServiceCommandOutput,
+    ECSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonEC2ContainerServiceV20141113", "CreateService", {})
+  .n("ECSClient", "CreateServiceCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateServiceCommand)
+  .de(de_CreateServiceCommand)
+  .build() {}

@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   PromoteResourceShareCreatedFromPolicyRequest,
   PromoteResourceShareCreatedFromPolicyResponse,
@@ -122,85 +114,26 @@ export interface PromoteResourceShareCreatedFromPolicyCommandOutput
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
  */
-export class PromoteResourceShareCreatedFromPolicyCommand extends $Command<
-  PromoteResourceShareCreatedFromPolicyCommandInput,
-  PromoteResourceShareCreatedFromPolicyCommandOutput,
-  RAMClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PromoteResourceShareCreatedFromPolicyCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RAMClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PromoteResourceShareCreatedFromPolicyCommandInput, PromoteResourceShareCreatedFromPolicyCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, PromoteResourceShareCreatedFromPolicyCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RAMClient";
-    const commandName = "PromoteResourceShareCreatedFromPolicyCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: PromoteResourceShareCreatedFromPolicyCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_PromoteResourceShareCreatedFromPolicyCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<PromoteResourceShareCreatedFromPolicyCommandOutput> {
-    return de_PromoteResourceShareCreatedFromPolicyCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class PromoteResourceShareCreatedFromPolicyCommand extends $Command
+  .classBuilder<
+    PromoteResourceShareCreatedFromPolicyCommandInput,
+    PromoteResourceShareCreatedFromPolicyCommandOutput,
+    RAMClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: RAMClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonResourceSharing", "PromoteResourceShareCreatedFromPolicy", {})
+  .n("RAMClient", "PromoteResourceShareCreatedFromPolicyCommand")
+  .f(void 0, void 0)
+  .ser(se_PromoteResourceShareCreatedFromPolicyCommand)
+  .de(de_PromoteResourceShareCreatedFromPolicyCommand)
+  .build() {}

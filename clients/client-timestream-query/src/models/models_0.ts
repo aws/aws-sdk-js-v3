@@ -221,7 +221,7 @@ export interface S3Configuration {
    * <p> Encryption at rest options for the error reports. If no encryption option is
    *             specified, Timestream will choose SSE_S3 as default. </p>
    */
-  EncryptionOption?: S3EncryptionOption | string;
+  EncryptionOption?: S3EncryptionOption;
 }
 
 /**
@@ -324,7 +324,7 @@ export interface DimensionMapping {
    * @public
    * <p>Type for the dimension. </p>
    */
-  DimensionValueType: DimensionValueType | string | undefined;
+  DimensionValueType: DimensionValueType | undefined;
 }
 
 /**
@@ -383,7 +383,7 @@ export interface MultiMeasureAttributeMapping {
    * @public
    * <p>Type of the attribute to be read from the source column.</p>
    */
-  MeasureValueType: ScalarMeasureValueType | string | undefined;
+  MeasureValueType: ScalarMeasureValueType | undefined;
 }
 
 /**
@@ -418,7 +418,7 @@ export interface MixedMeasureMapping {
    * <p>Type of the value that is to be read from sourceColumn. If the mapping is for MULTI,
    *             use MeasureValueType.MULTI.</p>
    */
-  MeasureValueType: MeasureValueType | string | undefined;
+  MeasureValueType: MeasureValueType | undefined;
 
   /**
    * @public
@@ -531,7 +531,7 @@ export interface CreateScheduledQueryRequest {
    * <p>The query string to run. Parameter
    *             names can be specified in the query string <code>@</code> character followed by an
    *             identifier. The named Parameter <code>@scheduled_runtime</code> is reserved and can be used in the query to get the time at which the query is scheduled to run.</p>
-   *             <p>The timestamp calculated according to the ScheduleConfiguration parameter, will be the value of <code>@scheduled_runtime</code> paramater for each query run.
+   *          <p>The timestamp calculated according to the ScheduleConfiguration parameter, will be the value of <code>@scheduled_runtime</code> paramater for each query run.
    *             For example, consider an instance of a scheduled query executing on 2021-12-01 00:00:00. For this instance, the <code>@scheduled_runtime</code> parameter is
    *             initialized to the timestamp 2021-12-01 00:00:00 when invoking the query.</p>
    */
@@ -564,11 +564,11 @@ export interface CreateScheduledQueryRequest {
    *  </p>
    *          <ul>
    *             <li>
-   *                 <p> If CreateScheduledQuery is called without a <code>ClientToken</code>, the
+   *                <p> If CreateScheduledQuery is called without a <code>ClientToken</code>, the
    *                     Query SDK generates a <code>ClientToken</code> on your behalf.</p>
    *             </li>
    *             <li>
-   *                 <p> After 8 hours, any request with the same <code>ClientToken</code> is treated
+   *                <p> After 8 hours, any request with the same <code>ClientToken</code> is treated
    *                     as a new request. </p>
    *             </li>
    *          </ul>
@@ -594,7 +594,7 @@ export interface CreateScheduledQueryRequest {
    *             owned Amazon KMS key. To specify a KMS key, use the key ID, key ARN, alias name, or alias
    *             ARN. When using an alias name, prefix the name with <i>alias/</i>
    *          </p>
-   *             <p>If ErrorReportConfiguration uses <code>SSE_KMS</code> as encryption type, the same KmsKeyId is used to encrypt the error report at rest.</p>
+   *          <p>If ErrorReportConfiguration uses <code>SSE_KMS</code> as encryption type, the same KmsKeyId is used to encrypt the error report at rest.</p>
    */
   KmsKeyId?: string;
 
@@ -830,7 +830,7 @@ export interface ScheduledQueryRunSummary {
    * @public
    * <p>The status of a scheduled query run.</p>
    */
-  RunStatus?: ScheduledQueryRunStatus | string;
+  RunStatus?: ScheduledQueryRunStatus;
 
   /**
    * @public
@@ -899,7 +899,7 @@ export interface ScheduledQueryDescription {
    * @public
    * <p>State of the scheduled query. </p>
    */
-  State: ScheduledQueryState | string | undefined;
+  State: ScheduledQueryState | undefined;
 
   /**
    * @public
@@ -1074,7 +1074,7 @@ export interface ScheduledQuery {
    * @public
    * <p>State of scheduled query. </p>
    */
-  State: ScheduledQueryState | string | undefined;
+  State: ScheduledQueryState | undefined;
 
   /**
    * @public
@@ -1104,7 +1104,7 @@ export interface ScheduledQuery {
    * @public
    * <p>Status of the last scheduled query run.</p>
    */
-  LastRunStatus?: ScheduledQueryRunStatus | string;
+  LastRunStatus?: ScheduledQueryRunStatus;
 }
 
 /**
@@ -1230,23 +1230,23 @@ export interface QueryRequest {
    *             produce the same result. In other words, making multiple identical <code>Query</code>
    *             requests has the same effect as making a single request. When using
    *                 <code>ClientToken</code> in a query, note the following: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p> If the Query API is instantiated without a <code>ClientToken</code>, the
+   *                <p> If the Query API is instantiated without a <code>ClientToken</code>, the
    *                     Query SDK generates a <code>ClientToken</code> on your behalf.</p>
    *             </li>
    *             <li>
-   *                 <p>If the <code>Query</code> invocation only contains the
+   *                <p>If the <code>Query</code> invocation only contains the
    *                         <code>ClientToken</code> but does not include a <code>NextToken</code>, that
    *                     invocation of <code>Query</code> is assumed to be a new query run.</p>
    *             </li>
    *             <li>
-   *                 <p>If the invocation contains <code>NextToken</code>, that particular invocation
+   *                <p>If the invocation contains <code>NextToken</code>, that particular invocation
    *                     is assumed to be a subsequent invocation of a prior call to the Query API, and a
    *                     result set is returned.</p>
    *             </li>
    *             <li>
-   *                 <p> After 4 hours, any request with the same <code>ClientToken</code> is treated
+   *                <p> After 4 hours, any request with the same <code>ClientToken</code> is treated
    *                     as a new request. </p>
    *             </li>
    *          </ul>
@@ -1261,34 +1261,34 @@ export interface QueryRequest {
    *             returned. However, if the <code>Query</code> invocation only contains the
    *                 <code>ClientToken</code>, that invocation of <code>Query</code> is assumed to be a
    *             new query run. </p>
-   *         <p>Note the following when using NextToken in a query:</p>
-   *         <ul>
+   *          <p>Note the following when using NextToken in a query:</p>
+   *          <ul>
    *             <li>
-   *                 <p>A pagination token can be used for up to five <code>Query</code> invocations,
+   *                <p>A pagination token can be used for up to five <code>Query</code> invocations,
    *                     OR for a duration of up to 1 hour – whichever comes first.</p>
    *             </li>
    *             <li>
-   *                 <p>Using the same <code>NextToken</code> will return the same set of records. To
+   *                <p>Using the same <code>NextToken</code> will return the same set of records. To
    *                     keep paginating through the result set, you must to use the most recent
    *                         <code>nextToken</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>Suppose a <code>Query</code> invocation returns two <code>NextToken</code>
+   *                <p>Suppose a <code>Query</code> invocation returns two <code>NextToken</code>
    *                     values, <code>TokenA</code> and <code>TokenB</code>. If <code>TokenB</code> is
    *                     used in a subsequent <code>Query</code> invocation, then <code>TokenA</code> is
    *                     invalidated and cannot be reused.</p>
    *             </li>
    *             <li>
-   *                 <p>To request a previous result set from a query after pagination has begun, you
+   *                <p>To request a previous result set from a query after pagination has begun, you
    *                     must re-invoke the Query API.</p>
    *             </li>
    *             <li>
-   *                 <p>The latest <code>NextToken</code> should be used to paginate until
+   *                <p>The latest <code>NextToken</code> should be used to paginate until
    *                         <code>null</code> is returned, at which point a new <code>NextToken</code>
    *                     should be used.</p>
    *             </li>
    *             <li>
-   *                 <p> If the IAM principal of the query initiator and the result reader are not the
+   *                <p> If the IAM principal of the query initiator and the result reader are not the
    *                     same and/or the query initiator and the result reader do not have the same query
    *                     string in the query requests, the query will fail with an <code>Invalid
    *                         pagination token</code> error. </p>
@@ -1302,20 +1302,20 @@ export interface QueryRequest {
    * <p> The total number of rows to be returned in the <code>Query</code> output. The initial
    *             run of <code>Query</code> with a <code>MaxRows</code> value specified will return the
    *             result set of the query in two cases: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>The size of the result is less than <code>1MB</code>.</p>
+   *                <p>The size of the result is less than <code>1MB</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>The number of rows in the result set is less than the value of
+   *                <p>The number of rows in the result set is less than the value of
    *                         <code>maxRows</code>.</p>
    *             </li>
    *          </ul>
-   *         <p>Otherwise, the initial invocation of <code>Query</code> only returns a
+   *          <p>Otherwise, the initial invocation of <code>Query</code> only returns a
    *                 <code>NextToken</code>, which can then be used in subsequent calls to fetch the
    *             result set. To resume pagination, provide the <code>NextToken</code> value in the
    *             subsequent command.</p>
-   *         <p>If the row size is large (e.g. a row has many columns), Timestream may return
+   *          <p>If the row size is large (e.g. a row has many columns), Timestream may return
    *             fewer rows to keep the response size from exceeding the 1 MB limit. If
    *                 <code>MaxRows</code> is not provided, Timestream will send the necessary
    *             number of rows to meet the 1 MB limit.</p>
@@ -1413,7 +1413,7 @@ export interface UpdateScheduledQueryRequest {
    * @public
    * <p>State of the scheduled query. </p>
    */
-  State: ScheduledQueryState | string | undefined;
+  State: ScheduledQueryState | undefined;
 }
 
 /**
@@ -1451,7 +1451,7 @@ export interface Type {
    * <p>Indicates if the column is of type string, integer, Boolean, double, timestamp, date,
    *             time. </p>
    */
-  ScalarType?: ScalarType | string;
+  ScalarType?: ScalarType;
 
   /**
    * @public

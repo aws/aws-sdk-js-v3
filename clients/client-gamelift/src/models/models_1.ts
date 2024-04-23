@@ -10,10 +10,12 @@ import {
   GameServerProtectionPolicy,
   GameServerUtilizationStatus,
   GameSession,
+  GameSessionFilterSensitiveLog,
   GameSessionQueue,
   GameSessionQueueDestination,
   InstanceDefinition,
   IpPermission,
+  IpPermissionFilterSensitiveLog,
   MatchmakingConfiguration,
   PlayerLatencyPolicy,
   PlayerSessionCreationPolicy,
@@ -23,6 +25,48 @@ import {
   S3Location,
   Script,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface UpdateFleetCapacityInput {
+  /**
+   * @public
+   * <p>A unique identifier for the fleet to update capacity settings for. You can use either the fleet ID or ARN
+   *             value.</p>
+   */
+  FleetId: string | undefined;
+
+  /**
+   * @public
+   * <p>The number of Amazon EC2 instances you want to maintain in the specified fleet location.
+   *             This value must fall between the minimum and maximum size limits. Changes in desired
+   *             instance value can take up to 1 minute to be reflected when viewing the fleet's capacity
+   *             settings.</p>
+   */
+  DesiredInstances?: number;
+
+  /**
+   * @public
+   * <p>The minimum number of instances that are allowed in the specified fleet location. If
+   *             this parameter is not set, the default is 0.</p>
+   */
+  MinSize?: number;
+
+  /**
+   * @public
+   * <p>The maximum number of instances that are allowed in the specified fleet location. If
+   *             this parameter is not set, the default is 1.</p>
+   */
+  MaxSize?: number;
+
+  /**
+   * @public
+   * <p>The name of a remote location to update fleet capacity settings for, in the form of an
+   *             Amazon Web Services Region code such as <code>us-west-2</code>.</p>
+   */
+  Location?: string;
+}
 
 /**
  * @public
@@ -132,14 +176,14 @@ export interface UpdateGameServerInput {
    *             you can't change a the status from <code>UTILIZED</code> to
    *             <code>AVAILABLE</code>.</p>
    */
-  UtilizationStatus?: GameServerUtilizationStatus | string;
+  UtilizationStatus?: GameServerUtilizationStatus;
 
   /**
    * @public
    * <p>Indicates health status of the game server. A request that includes this parameter
    *             updates the game server's <i>LastHealthCheckTime</i> timestamp. </p>
    */
-  HealthCheck?: GameServerHealthCheck | string;
+  HealthCheck?: GameServerHealthCheck;
 }
 
 /**
@@ -193,7 +237,7 @@ export interface UpdateGameServerGroupInput {
    *             in the event of a forced game server group deletion (see ). An exception to this is with Spot
    *             Instances, which can be terminated by Amazon Web Services regardless of protection status. This property is set to <code>NO_PROTECTION</code> by default.</p>
    */
-  GameServerProtectionPolicy?: GameServerProtectionPolicy | string;
+  GameServerProtectionPolicy?: GameServerProtectionPolicy;
 
   /**
    * @public
@@ -224,7 +268,7 @@ export interface UpdateGameServerGroupInput {
    *             </li>
    *          </ul>
    */
-  BalancingStrategy?: BalancingStrategy | string;
+  BalancingStrategy?: BalancingStrategy;
 }
 
 /**
@@ -265,7 +309,7 @@ export interface UpdateGameSessionInput {
    * @public
    * <p>A policy that determines whether the game session is accepting new players.</p>
    */
-  PlayerSessionCreationPolicy?: PlayerSessionCreationPolicy | string;
+  PlayerSessionCreationPolicy?: PlayerSessionCreationPolicy;
 
   /**
    * @public
@@ -284,7 +328,19 @@ export interface UpdateGameSessionInput {
    *             </li>
    *          </ul>
    */
-  ProtectionPolicy?: ProtectionPolicy | string;
+  ProtectionPolicy?: ProtectionPolicy;
+
+  /**
+   * @public
+   * <p>A set of key-value pairs that can store custom data in a game session.
+   *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>.
+   *         You can use this parameter to modify game properties in an active game session.
+   *         This action adds new properties and modifies existing properties.
+   *         There is no way to delete properties.
+   *         For an example, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-client-api.html#game-properties-update">Update the value of a game property</a>.
+   *       </p>
+   */
+  GameProperties?: GameProperty[];
 }
 
 /**
@@ -454,7 +510,8 @@ export interface UpdateMatchmakingConfigurationInput {
 
   /**
    * @public
-   * <p>A set of custom properties for a game session, formatted as key:value pairs. These properties are passed to a game server process with a request to start a new game session (see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start a Game Session</a>). This information is added to the new <code>GameSession</code> object that is
+   * <p>A set of key-value pairs that can store custom data in a game session.
+   *   For example: <code>\{"Key": "difficulty", "Value": "novice"\}</code>. This information is added to the new <code>GameSession</code> object that is
    *             created for a successful match. This parameter is not used if <code>FlexMatchMode</code>
    *             is set to <code>STANDALONE</code>.</p>
    */
@@ -478,7 +535,7 @@ export interface UpdateMatchmakingConfigurationInput {
    *                 with FlexMatch</a>. Automatic backfill is not available when
    *                 <code>FlexMatchMode</code> is set to <code>STANDALONE</code>.</p>
    */
-  BackfillMode?: BackfillMode | string;
+  BackfillMode?: BackfillMode;
 
   /**
    * @public
@@ -497,7 +554,7 @@ export interface UpdateMatchmakingConfigurationInput {
    *             </li>
    *          </ul>
    */
-  FlexMatchMode?: FlexMatchMode | string;
+  FlexMatchMode?: FlexMatchMode;
 }
 
 /**
@@ -627,3 +684,26 @@ export interface ValidateMatchmakingRuleSetOutput {
    */
   Valid?: boolean;
 }
+
+/**
+ * @internal
+ */
+export const UpdateFleetPortSettingsInputFilterSensitiveLog = (obj: UpdateFleetPortSettingsInput): any => ({
+  ...obj,
+  ...(obj.InboundPermissionAuthorizations && {
+    InboundPermissionAuthorizations: obj.InboundPermissionAuthorizations.map((item) =>
+      IpPermissionFilterSensitiveLog(item)
+    ),
+  }),
+  ...(obj.InboundPermissionRevocations && {
+    InboundPermissionRevocations: obj.InboundPermissionRevocations.map((item) => IpPermissionFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateGameSessionOutputFilterSensitiveLog = (obj: UpdateGameSessionOutput): any => ({
+  ...obj,
+  ...(obj.GameSession && { GameSession: GameSessionFilterSensitiveLog(obj.GameSession) }),
+});

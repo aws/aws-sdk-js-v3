@@ -23,8 +23,12 @@
 export * from "./CostExplorerClient";
 export * from "./CostExplorer";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { CostExplorerExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { CostExplorerServiceException } from "./models/CostExplorerServiceException";

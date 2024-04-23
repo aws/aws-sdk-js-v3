@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateTLSInspectionConfigurationRequest, UpdateTLSInspectionConfigurationResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
 import {
@@ -42,7 +34,7 @@ export interface UpdateTLSInspectionConfigurationCommandOutput
 /**
  * @public
  * <p>Updates the TLS inspection configuration settings for the specified TLS inspection configuration. You use a TLS inspection configuration by
- *         reference in one or more firewall policies. When you modify a TLS inspection configuration, you modify all
+ *         referencing it in one or more firewall policies. When you modify a TLS inspection configuration, you modify all
  *         firewall policies that use the TLS inspection configuration. </p>
  *          <p>To update a TLS inspection configuration, first call <a>DescribeTLSInspectionConfiguration</a> to retrieve the
  *         current <a>TLSInspectionConfiguration</a> object, update the object as needed, and then provide
@@ -93,6 +85,11 @@ export interface UpdateTLSInspectionConfigurationCommandOutput
  *             ],
  *           },
  *         ],
+ *         CertificateAuthorityArn: "STRING_VALUE",
+ *         CheckCertificateRevocationStatus: { // CheckCertificateRevocationStatusActions
+ *           RevokedStatusAction: "PASS" || "DROP" || "REJECT",
+ *           UnknownStatusAction: "PASS" || "DROP" || "REJECT",
+ *         },
  *       },
  *     ],
  *   },
@@ -111,7 +108,7 @@ export interface UpdateTLSInspectionConfigurationCommandOutput
  * //     TLSInspectionConfigurationArn: "STRING_VALUE", // required
  * //     TLSInspectionConfigurationName: "STRING_VALUE", // required
  * //     TLSInspectionConfigurationId: "STRING_VALUE", // required
- * //     TLSInspectionConfigurationStatus: "ACTIVE" || "DELETING",
+ * //     TLSInspectionConfigurationStatus: "ACTIVE" || "DELETING" || "ERROR",
  * //     Description: "STRING_VALUE",
  * //     Tags: [ // TagList
  * //       { // Tag
@@ -133,6 +130,12 @@ export interface UpdateTLSInspectionConfigurationCommandOutput
  * //         StatusMessage: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     CertificateAuthority: {
+ * //       CertificateArn: "STRING_VALUE",
+ * //       CertificateSerial: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       StatusMessage: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -145,7 +148,7 @@ export interface UpdateTLSInspectionConfigurationCommandOutput
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
  *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Your request is valid, but Network Firewall couldn’t perform the operation because of a
+ *  <p>Your request is valid, but Network Firewall couldn't perform the operation because of a
  *          system problem. Retry your request. </p>
  *
  * @throws {@link InvalidRequestException} (client fault)
@@ -177,85 +180,26 @@ export interface UpdateTLSInspectionConfigurationCommandOutput
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
-export class UpdateTLSInspectionConfigurationCommand extends $Command<
-  UpdateTLSInspectionConfigurationCommandInput,
-  UpdateTLSInspectionConfigurationCommandOutput,
-  NetworkFirewallClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateTLSInspectionConfigurationCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: NetworkFirewallClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateTLSInspectionConfigurationCommandInput, UpdateTLSInspectionConfigurationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateTLSInspectionConfigurationCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "NetworkFirewallClient";
-    const commandName = "UpdateTLSInspectionConfigurationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: UpdateTLSInspectionConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_UpdateTLSInspectionConfigurationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<UpdateTLSInspectionConfigurationCommandOutput> {
-    return de_UpdateTLSInspectionConfigurationCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateTLSInspectionConfigurationCommand extends $Command
+  .classBuilder<
+    UpdateTLSInspectionConfigurationCommandInput,
+    UpdateTLSInspectionConfigurationCommandOutput,
+    NetworkFirewallClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("NetworkFirewall_20201112", "UpdateTLSInspectionConfiguration", {})
+  .n("NetworkFirewallClient", "UpdateTLSInspectionConfigurationCommand")
+  .f(void 0, void 0)
+  .ser(se_UpdateTLSInspectionConfigurationCommand)
+  .de(de_UpdateTLSInspectionConfigurationCommand)
+  .build() {}

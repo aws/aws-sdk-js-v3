@@ -28,16 +28,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `PollyClient` and
-the commands you need, for example `DeleteLexiconCommand`:
+the commands you need, for example `ListLexiconsCommand`:
 
 ```js
 // ES5 example
-const { PollyClient, DeleteLexiconCommand } = require("@aws-sdk/client-polly");
+const { PollyClient, ListLexiconsCommand } = require("@aws-sdk/client-polly");
 ```
 
 ```ts
 // ES6+ example
-import { PollyClient, DeleteLexiconCommand } from "@aws-sdk/client-polly";
+import { PollyClient, ListLexiconsCommand } from "@aws-sdk/client-polly";
 ```
 
 ### Usage
@@ -56,7 +56,7 @@ const client = new PollyClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DeleteLexiconCommand(params);
+const command = new ListLexiconsCommand(params);
 ```
 
 #### Async/await
@@ -135,7 +135,7 @@ const client = new AWS.Polly({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.deleteLexicon(params);
+  const data = await client.listLexicons(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -143,7 +143,7 @@ try {
 
 // Promises.
 client
-  .deleteLexicon(params)
+  .listLexicons(params)
   .then((data) => {
     // process data.
   })
@@ -152,7 +152,7 @@ client
   });
 
 // callbacks.
-client.deleteLexicon(params, (err, data) => {
+client.listLexicons(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -167,7 +167,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -213,7 +213,7 @@ see LICENSE for more information.
 DeleteLexicon
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-polly/classes/deletelexiconcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-polly/interfaces/deletelexiconcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-polly/interfaces/deletelexiconcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/polly/command/DeleteLexiconCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-polly/Interface/DeleteLexiconCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-polly/Interface/DeleteLexiconCommandOutput/)
 
 </details>
 <details>
@@ -221,7 +221,7 @@ DeleteLexicon
 DescribeVoices
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-polly/classes/describevoicescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-polly/interfaces/describevoicescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-polly/interfaces/describevoicescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/polly/command/DescribeVoicesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-polly/Interface/DescribeVoicesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-polly/Interface/DescribeVoicesCommandOutput/)
 
 </details>
 <details>
@@ -229,7 +229,7 @@ DescribeVoices
 GetLexicon
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-polly/classes/getlexiconcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-polly/interfaces/getlexiconcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-polly/interfaces/getlexiconcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/polly/command/GetLexiconCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-polly/Interface/GetLexiconCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-polly/Interface/GetLexiconCommandOutput/)
 
 </details>
 <details>
@@ -237,7 +237,7 @@ GetLexicon
 GetSpeechSynthesisTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-polly/classes/getspeechsynthesistaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-polly/interfaces/getspeechsynthesistaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-polly/interfaces/getspeechsynthesistaskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/polly/command/GetSpeechSynthesisTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-polly/Interface/GetSpeechSynthesisTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-polly/Interface/GetSpeechSynthesisTaskCommandOutput/)
 
 </details>
 <details>
@@ -245,7 +245,7 @@ GetSpeechSynthesisTask
 ListLexicons
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-polly/classes/listlexiconscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-polly/interfaces/listlexiconscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-polly/interfaces/listlexiconscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/polly/command/ListLexiconsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-polly/Interface/ListLexiconsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-polly/Interface/ListLexiconsCommandOutput/)
 
 </details>
 <details>
@@ -253,7 +253,7 @@ ListLexicons
 ListSpeechSynthesisTasks
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-polly/classes/listspeechsynthesistaskscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-polly/interfaces/listspeechsynthesistaskscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-polly/interfaces/listspeechsynthesistaskscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/polly/command/ListSpeechSynthesisTasksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-polly/Interface/ListSpeechSynthesisTasksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-polly/Interface/ListSpeechSynthesisTasksCommandOutput/)
 
 </details>
 <details>
@@ -261,7 +261,7 @@ ListSpeechSynthesisTasks
 PutLexicon
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-polly/classes/putlexiconcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-polly/interfaces/putlexiconcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-polly/interfaces/putlexiconcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/polly/command/PutLexiconCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-polly/Interface/PutLexiconCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-polly/Interface/PutLexiconCommandOutput/)
 
 </details>
 <details>
@@ -269,7 +269,7 @@ PutLexicon
 StartSpeechSynthesisTask
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-polly/classes/startspeechsynthesistaskcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-polly/interfaces/startspeechsynthesistaskcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-polly/interfaces/startspeechsynthesistaskcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/polly/command/StartSpeechSynthesisTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-polly/Interface/StartSpeechSynthesisTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-polly/Interface/StartSpeechSynthesisTaskCommandOutput/)
 
 </details>
 <details>
@@ -277,6 +277,6 @@ StartSpeechSynthesisTask
 SynthesizeSpeech
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-polly/classes/synthesizespeechcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-polly/interfaces/synthesizespeechcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-polly/interfaces/synthesizespeechcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/polly/command/SynthesizeSpeechCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-polly/Interface/SynthesizeSpeechCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-polly/Interface/SynthesizeSpeechCommandOutput/)
 
 </details>

@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisAnalyticsClient";
 import { StartApplicationRequest, StartApplicationResponse } from "../models/models_0";
 import { de_StartApplicationCommand, se_StartApplicationCommand } from "../protocols/Aws_json1_1";
@@ -60,7 +52,7 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  *     { // InputConfiguration
  *       Id: "STRING_VALUE", // required
  *       InputStartingPositionConfiguration: { // InputStartingPositionConfiguration
- *         InputStartingPosition: "STRING_VALUE",
+ *         InputStartingPosition: "NOW" || "TRIM_HORIZON" || "LAST_STOPPED_POINT",
  *       },
  *     },
  *   ],
@@ -96,79 +88,26 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
  */
-export class StartApplicationCommand extends $Command<
-  StartApplicationCommandInput,
-  StartApplicationCommandOutput,
-  KinesisAnalyticsClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StartApplicationCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: KinesisAnalyticsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StartApplicationCommandInput, StartApplicationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartApplicationCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "KinesisAnalyticsClient";
-    const commandName = "StartApplicationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StartApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartApplicationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartApplicationCommandOutput> {
-    return de_StartApplicationCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class StartApplicationCommand extends $Command
+  .classBuilder<
+    StartApplicationCommandInput,
+    StartApplicationCommandOutput,
+    KinesisAnalyticsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: KinesisAnalyticsClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("KinesisAnalytics_20150814", "StartApplication", {})
+  .n("KinesisAnalyticsClient", "StartApplicationCommand")
+  .f(void 0, void 0)
+  .ser(se_StartApplicationCommand)
+  .de(de_StartApplicationCommand)
+  .build() {}

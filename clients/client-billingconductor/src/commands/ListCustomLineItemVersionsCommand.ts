@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ListCustomLineItemVersionsInput,
   ListCustomLineItemVersionsOutput,
@@ -72,6 +64,15 @@ export interface ListCustomLineItemVersionsCommandOutput extends ListCustomLineI
  * //           PercentageValue: Number("double"), // required
  * //         },
  * //         Type: "STRING_VALUE", // required
+ * //         LineItemFilters: [ // LineItemFiltersList
+ * //           { // LineItemFilter
+ * //             Attribute: "STRING_VALUE", // required
+ * //             MatchOption: "STRING_VALUE", // required
+ * //             Values: [ // LineItemFilterValuesList // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
  * //       },
  * //       CurrencyCode: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
@@ -84,6 +85,7 @@ export interface ListCustomLineItemVersionsCommandOutput extends ListCustomLineI
  * //       EndBillingPeriod: "STRING_VALUE",
  * //       Arn: "STRING_VALUE",
  * //       StartTime: Number("long"),
+ * //       AccountId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -116,82 +118,26 @@ export interface ListCustomLineItemVersionsCommandOutput extends ListCustomLineI
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
  */
-export class ListCustomLineItemVersionsCommand extends $Command<
-  ListCustomLineItemVersionsCommandInput,
-  ListCustomLineItemVersionsCommandOutput,
-  BillingconductorClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListCustomLineItemVersionsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: BillingconductorClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListCustomLineItemVersionsCommandInput, ListCustomLineItemVersionsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListCustomLineItemVersionsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "BillingconductorClient";
-    const commandName = "ListCustomLineItemVersionsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: ListCustomLineItemVersionsOutputFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListCustomLineItemVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListCustomLineItemVersionsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListCustomLineItemVersionsCommandOutput> {
-    return de_ListCustomLineItemVersionsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListCustomLineItemVersionsCommand extends $Command
+  .classBuilder<
+    ListCustomLineItemVersionsCommandInput,
+    ListCustomLineItemVersionsCommandOutput,
+    BillingconductorClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: BillingconductorClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSBillingConductor", "ListCustomLineItemVersions", {})
+  .n("BillingconductorClient", "ListCustomLineItemVersionsCommand")
+  .f(void 0, ListCustomLineItemVersionsOutputFilterSensitiveLog)
+  .ser(se_ListCustomLineItemVersionsCommand)
+  .de(de_ListCustomLineItemVersionsCommand)
+  .build() {}

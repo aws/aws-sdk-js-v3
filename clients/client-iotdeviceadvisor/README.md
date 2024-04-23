@@ -31,16 +31,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `IotDeviceAdvisorClient` and
-the commands you need, for example `CreateSuiteDefinitionCommand`:
+the commands you need, for example `ListSuiteRunsCommand`:
 
 ```js
 // ES5 example
-const { IotDeviceAdvisorClient, CreateSuiteDefinitionCommand } = require("@aws-sdk/client-iotdeviceadvisor");
+const { IotDeviceAdvisorClient, ListSuiteRunsCommand } = require("@aws-sdk/client-iotdeviceadvisor");
 ```
 
 ```ts
 // ES6+ example
-import { IotDeviceAdvisorClient, CreateSuiteDefinitionCommand } from "@aws-sdk/client-iotdeviceadvisor";
+import { IotDeviceAdvisorClient, ListSuiteRunsCommand } from "@aws-sdk/client-iotdeviceadvisor";
 ```
 
 ### Usage
@@ -59,7 +59,7 @@ const client = new IotDeviceAdvisorClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateSuiteDefinitionCommand(params);
+const command = new ListSuiteRunsCommand(params);
 ```
 
 #### Async/await
@@ -138,7 +138,7 @@ const client = new AWS.IotDeviceAdvisor({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createSuiteDefinition(params);
+  const data = await client.listSuiteRuns(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -146,7 +146,7 @@ try {
 
 // Promises.
 client
-  .createSuiteDefinition(params)
+  .listSuiteRuns(params)
   .then((data) => {
     // process data.
   })
@@ -155,7 +155,7 @@ client
   });
 
 // callbacks.
-client.createSuiteDefinition(params, (err, data) => {
+client.listSuiteRuns(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -170,7 +170,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -216,7 +216,7 @@ see LICENSE for more information.
 CreateSuiteDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/classes/createsuitedefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/interfaces/createsuitedefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/interfaces/createsuitedefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotdeviceadvisor/command/CreateSuiteDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotdeviceadvisor/Interface/CreateSuiteDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotdeviceadvisor/Interface/CreateSuiteDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -224,7 +224,7 @@ CreateSuiteDefinition
 DeleteSuiteDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/classes/deletesuitedefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/interfaces/deletesuitedefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/interfaces/deletesuitedefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotdeviceadvisor/command/DeleteSuiteDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotdeviceadvisor/Interface/DeleteSuiteDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotdeviceadvisor/Interface/DeleteSuiteDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -232,7 +232,7 @@ DeleteSuiteDefinition
 GetEndpoint
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/classes/getendpointcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/interfaces/getendpointcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/interfaces/getendpointcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotdeviceadvisor/command/GetEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotdeviceadvisor/Interface/GetEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotdeviceadvisor/Interface/GetEndpointCommandOutput/)
 
 </details>
 <details>
@@ -240,7 +240,7 @@ GetEndpoint
 GetSuiteDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/classes/getsuitedefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/interfaces/getsuitedefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/interfaces/getsuitedefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotdeviceadvisor/command/GetSuiteDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotdeviceadvisor/Interface/GetSuiteDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotdeviceadvisor/Interface/GetSuiteDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -248,7 +248,7 @@ GetSuiteDefinition
 GetSuiteRun
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/classes/getsuiteruncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/interfaces/getsuiteruncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/interfaces/getsuiteruncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotdeviceadvisor/command/GetSuiteRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotdeviceadvisor/Interface/GetSuiteRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotdeviceadvisor/Interface/GetSuiteRunCommandOutput/)
 
 </details>
 <details>
@@ -256,7 +256,7 @@ GetSuiteRun
 GetSuiteRunReport
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/classes/getsuiterunreportcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/interfaces/getsuiterunreportcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/interfaces/getsuiterunreportcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotdeviceadvisor/command/GetSuiteRunReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotdeviceadvisor/Interface/GetSuiteRunReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotdeviceadvisor/Interface/GetSuiteRunReportCommandOutput/)
 
 </details>
 <details>
@@ -264,7 +264,7 @@ GetSuiteRunReport
 ListSuiteDefinitions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/classes/listsuitedefinitionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/interfaces/listsuitedefinitionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/interfaces/listsuitedefinitionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotdeviceadvisor/command/ListSuiteDefinitionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotdeviceadvisor/Interface/ListSuiteDefinitionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotdeviceadvisor/Interface/ListSuiteDefinitionsCommandOutput/)
 
 </details>
 <details>
@@ -272,7 +272,7 @@ ListSuiteDefinitions
 ListSuiteRuns
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/classes/listsuiterunscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/interfaces/listsuiterunscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/interfaces/listsuiterunscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotdeviceadvisor/command/ListSuiteRunsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotdeviceadvisor/Interface/ListSuiteRunsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotdeviceadvisor/Interface/ListSuiteRunsCommandOutput/)
 
 </details>
 <details>
@@ -280,7 +280,7 @@ ListSuiteRuns
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotdeviceadvisor/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotdeviceadvisor/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotdeviceadvisor/Interface/ListTagsForResourceCommandOutput/)
 
 </details>
 <details>
@@ -288,7 +288,7 @@ ListTagsForResource
 StartSuiteRun
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/classes/startsuiteruncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/interfaces/startsuiteruncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/interfaces/startsuiteruncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotdeviceadvisor/command/StartSuiteRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotdeviceadvisor/Interface/StartSuiteRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotdeviceadvisor/Interface/StartSuiteRunCommandOutput/)
 
 </details>
 <details>
@@ -296,7 +296,7 @@ StartSuiteRun
 StopSuiteRun
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/classes/stopsuiteruncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/interfaces/stopsuiteruncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/interfaces/stopsuiteruncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotdeviceadvisor/command/StopSuiteRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotdeviceadvisor/Interface/StopSuiteRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotdeviceadvisor/Interface/StopSuiteRunCommandOutput/)
 
 </details>
 <details>
@@ -304,7 +304,7 @@ StopSuiteRun
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotdeviceadvisor/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotdeviceadvisor/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotdeviceadvisor/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -312,7 +312,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotdeviceadvisor/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotdeviceadvisor/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotdeviceadvisor/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -320,6 +320,6 @@ UntagResource
 UpdateSuiteDefinition
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/classes/updatesuitedefinitioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/interfaces/updatesuitedefinitioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-iotdeviceadvisor/interfaces/updatesuitedefinitioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotdeviceadvisor/command/UpdateSuiteDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotdeviceadvisor/Interface/UpdateSuiteDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotdeviceadvisor/Interface/UpdateSuiteDefinitionCommandOutput/)
 
 </details>

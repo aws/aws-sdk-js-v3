@@ -11,8 +11,12 @@
 export * from "./InspectorClient";
 export * from "./Inspector";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { InspectorExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { InspectorServiceException } from "./models/InspectorServiceException";

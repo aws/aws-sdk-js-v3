@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   StartProtectedQueryInput,
   StartProtectedQueryInputFilterSensitiveLog,
@@ -41,7 +33,7 @@ export interface StartProtectedQueryCommandOutput extends StartProtectedQueryOut
 
 /**
  * @public
- * <p>Creates a protected query that is started by Clean Rooms .</p>
+ * <p>Creates a protected query that is started by Clean Rooms.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,11 +93,27 @@ export interface StartProtectedQueryCommandOutput extends StartProtectedQueryOut
  * //         s3: { // ProtectedQueryS3Output
  * //           location: "STRING_VALUE", // required
  * //         },
+ * //         memberList: [ // ProtectedQueryMemberOutputList
+ * //           { // ProtectedQuerySingleMemberOutput
+ * //             accountId: "STRING_VALUE", // required
+ * //           },
+ * //         ],
  * //       },
  * //     },
  * //     error: { // ProtectedQueryError
  * //       message: "STRING_VALUE", // required
  * //       code: "STRING_VALUE", // required
+ * //     },
+ * //     differentialPrivacy: { // DifferentialPrivacyParameters
+ * //       sensitivityParameters: [ // DifferentialPrivacySensitivityParametersList // required
+ * //         { // DifferentialPrivacySensitivityParameters
+ * //           aggregationType: "AVG" || "COUNT" || "COUNT_DISTINCT" || "SUM" || "STDDEV", // required
+ * //           aggregationExpression: "STRING_VALUE", // required
+ * //           userContributionLimit: Number("int"), // required
+ * //           minColumnValue: Number("float"),
+ * //           maxColumnValue: Number("float"),
+ * //         },
+ * //       ],
  * //     },
  * //   },
  * // };
@@ -140,79 +148,26 @@ export interface StartProtectedQueryCommandOutput extends StartProtectedQueryOut
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
  */
-export class StartProtectedQueryCommand extends $Command<
-  StartProtectedQueryCommandInput,
-  StartProtectedQueryCommandOutput,
-  CleanRoomsClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StartProtectedQueryCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CleanRoomsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StartProtectedQueryCommandInput, StartProtectedQueryCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartProtectedQueryCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CleanRoomsClient";
-    const commandName = "StartProtectedQueryCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: StartProtectedQueryInputFilterSensitiveLog,
-      outputFilterSensitiveLog: StartProtectedQueryOutputFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StartProtectedQueryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StartProtectedQueryCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartProtectedQueryCommandOutput> {
-    return de_StartProtectedQueryCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class StartProtectedQueryCommand extends $Command
+  .classBuilder<
+    StartProtectedQueryCommandInput,
+    StartProtectedQueryCommandOutput,
+    CleanRoomsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSBastionControlPlaneServiceLambda", "StartProtectedQuery", {})
+  .n("CleanRoomsClient", "StartProtectedQueryCommand")
+  .f(StartProtectedQueryInputFilterSensitiveLog, StartProtectedQueryOutputFilterSensitiveLog)
+  .ser(se_StartProtectedQueryCommand)
+  .de(de_StartProtectedQueryCommand)
+  .build() {}

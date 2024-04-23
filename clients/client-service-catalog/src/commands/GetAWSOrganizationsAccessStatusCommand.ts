@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GetAWSOrganizationsAccessStatusInput, GetAWSOrganizationsAccessStatusOutput } from "../models/models_0";
 import {
   de_GetAWSOrganizationsAccessStatusCommand,
@@ -74,85 +66,26 @@ export interface GetAWSOrganizationsAccessStatusCommandOutput
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
-export class GetAWSOrganizationsAccessStatusCommand extends $Command<
-  GetAWSOrganizationsAccessStatusCommandInput,
-  GetAWSOrganizationsAccessStatusCommandOutput,
-  ServiceCatalogClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetAWSOrganizationsAccessStatusCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ServiceCatalogClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetAWSOrganizationsAccessStatusCommandInput, GetAWSOrganizationsAccessStatusCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetAWSOrganizationsAccessStatusCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ServiceCatalogClient";
-    const commandName = "GetAWSOrganizationsAccessStatusCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: GetAWSOrganizationsAccessStatusCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_GetAWSOrganizationsAccessStatusCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetAWSOrganizationsAccessStatusCommandOutput> {
-    return de_GetAWSOrganizationsAccessStatusCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetAWSOrganizationsAccessStatusCommand extends $Command
+  .classBuilder<
+    GetAWSOrganizationsAccessStatusCommandInput,
+    GetAWSOrganizationsAccessStatusCommandOutput,
+    ServiceCatalogClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWS242ServiceCatalogService", "GetAWSOrganizationsAccessStatus", {})
+  .n("ServiceCatalogClient", "GetAWSOrganizationsAccessStatusCommand")
+  .f(void 0, void 0)
+  .ser(se_GetAWSOrganizationsAccessStatusCommand)
+  .de(de_GetAWSOrganizationsAccessStatusCommand)
+  .build() {}

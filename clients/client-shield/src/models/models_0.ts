@@ -46,7 +46,7 @@ export class AccessDeniedForDependencyException extends __BaseException {
 /**
  * @public
  * <p>Specifies that Shield Advanced should configure its WAF rules with the WAF <code>Block</code> action. </p>
- *             <p>This is only used in the context of the <code>ResponseAction</code> setting. </p>
+ *          <p>This is only used in the context of the <code>ResponseAction</code> setting. </p>
  *          <p>JSON specification: <code>"Block": \{\}</code>
  *          </p>
  */
@@ -55,7 +55,7 @@ export interface BlockAction {}
 /**
  * @public
  * <p>Specifies that Shield Advanced should configure its WAF rules with the WAF <code>Count</code> action. </p>
- *             <p>This is only used in the context of the <code>ResponseAction</code> setting. </p>
+ *          <p>This is only used in the context of the <code>ResponseAction</code> setting. </p>
  *          <p>JSON specification: <code>"Count": \{\}</code>
  *          </p>
  */
@@ -109,7 +109,7 @@ export interface ApplicationLayerAutomaticResponseConfiguration {
    * @public
    * <p>Indicates whether automatic application layer DDoS mitigation is enabled for the protection. </p>
    */
-  Status: ApplicationLayerAutomaticResponseStatus | string | undefined;
+  Status: ApplicationLayerAutomaticResponseStatus | undefined;
 
   /**
    * @public
@@ -219,7 +219,7 @@ export class InvalidParameterException extends __BaseException {
    * @public
    * <p>Additional information about the exception.</p>
    */
-  reason?: ValidationExceptionReason | string;
+  reason?: ValidationExceptionReason;
 
   /**
    * @public
@@ -351,7 +351,7 @@ export interface AssociateDRTRoleRequest {
   /**
    * @public
    * <p>The Amazon Resource Name (ARN) of the role the SRT will use to access your Amazon Web Services account.</p>
-   * 	        <p>Prior to making the <code>AssociateDRTRole</code> request, you must attach the <a href="https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy">AWSShieldDRTAccessPolicy</a> managed policy to this role.  For more information see <a href=" https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html">Attaching and Detaching IAM Policies</a>.</p>
+   *          <p>Prior to making the <code>AssociateDRTRole</code> request, you must attach the <a href="https://console.aws.amazon.com/iam/home?#/policies/arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy">AWSShieldDRTAccessPolicy</a> managed policy to this role.  For more information see <a href=" https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html">Attaching and Detaching IAM Policies</a>.</p>
    */
   RoleArn: string | undefined;
 }
@@ -571,7 +571,7 @@ export interface AttackProperty {
    *            For more information, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#set-ddos-alarms">Shield metrics and alarms</a>
    *                in the <i>WAF Developer Guide</i>. </p>
    */
-  AttackLayer?: AttackLayer | string;
+  AttackLayer?: AttackLayer;
 
   /**
    * @public
@@ -579,7 +579,7 @@ export interface AttackProperty {
    *             <code>WORDPRESS_PINGBACK_REFLECTOR</code> and <code>WORDPRESS_PINGBACK_SOURCE</code>
    *          values are valid only for WordPress reflective pingback events.</p>
    */
-  AttackPropertyIdentifier?: AttackPropertyIdentifier | string;
+  AttackPropertyIdentifier?: AttackPropertyIdentifier;
 
   /**
    * @public
@@ -592,7 +592,7 @@ export interface AttackProperty {
    * <p>The unit used for the <code>Contributor</code>
    *             <code>Value</code> property. </p>
    */
-  Unit?: Unit | string;
+  Unit?: Unit;
 
   /**
    * @public
@@ -654,7 +654,7 @@ export interface SubResourceSummary {
    * @public
    * <p>The <code>SubResource</code> type.</p>
    */
-  Type?: SubResourceType | string;
+  Type?: SubResourceType;
 
   /**
    * @public
@@ -795,7 +795,7 @@ export interface AttackVectorDescription {
   /**
    * @public
    * <p>The attack type. Valid values:</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>UDP_TRAFFIC</p>
    *             </li>
@@ -1090,20 +1090,20 @@ export interface CreateProtectionGroupRequest {
    *             </li>
    *          </ul>
    */
-  Aggregation: ProtectionGroupAggregation | string | undefined;
+  Aggregation: ProtectionGroupAggregation | undefined;
 
   /**
    * @public
    * <p>The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource Amazon Resource Names (ARNs), or include all resources of a specified resource type. </p>
    */
-  Pattern: ProtectionGroupPattern | string | undefined;
+  Pattern: ProtectionGroupPattern | undefined;
 
   /**
    * @public
    * <p>The resource type to include in the protection group. All protected resources of this type are included in the protection group. Newly protected resources of this type are automatically added to the group.
    *            You must set this when you set <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code> setting. </p>
    */
-  ResourceType?: ProtectedResourceType | string;
+  ResourceType?: ProtectedResourceType;
 
   /**
    * @public
@@ -1407,20 +1407,20 @@ export interface ProtectionGroup {
    *             </li>
    *          </ul>
    */
-  Aggregation: ProtectionGroupAggregation | string | undefined;
+  Aggregation: ProtectionGroupAggregation | undefined;
 
   /**
    * @public
    * <p>The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource ARNs (Amazon Resource Names), or include all resources of a specified resource type.</p>
    */
-  Pattern: ProtectionGroupPattern | string | undefined;
+  Pattern: ProtectionGroupPattern | undefined;
 
   /**
    * @public
    * <p>The resource type to include in the protection group. All protected resources of this type are included in the protection group.
    *            You must set this when you set <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code> setting. </p>
    */
-  ResourceType?: ProtectedResourceType | string;
+  ResourceType?: ProtectedResourceType;
 
   /**
    * @public
@@ -1584,7 +1584,7 @@ export interface Subscription {
    * <p>If <code>ENABLED</code>, the subscription will be automatically renewed at the end of the existing subscription period.</p>
    *          <p>When you initally create a subscription, <code>AutoRenew</code> is set to <code>ENABLED</code>. You can change this by submitting an <code>UpdateSubscription</code> request. If the <code>UpdateSubscription</code> request does not included a value for <code>AutoRenew</code>, the existing value for <code>AutoRenew</code> remains unchanged.</p>
    */
-  AutoRenew?: AutoRenew | string;
+  AutoRenew?: AutoRenew;
 
   /**
    * @public
@@ -1598,7 +1598,7 @@ export interface Subscription {
    *          <p>If <code>PENDING</code>, you have requested proactive engagement and the request is pending. The status changes to <code>ENABLED</code> when your request is fully processed.</p>
    *          <p>If <code>DISABLED</code>, the SRT will not proactively notify contacts about escalations or to initiate proactive customer support. </p>
    */
-  ProactiveEngagementStatus?: ProactiveEngagementStatus | string;
+  ProactiveEngagementStatus?: ProactiveEngagementStatus;
 
   /**
    * @public
@@ -1759,7 +1759,7 @@ export interface GetSubscriptionStateResponse {
    * @public
    * <p>The status of the subscription.</p>
    */
-  SubscriptionState: SubscriptionState | string | undefined;
+  SubscriptionState: SubscriptionState | undefined;
 }
 
 /**
@@ -1792,9 +1792,9 @@ export interface ListAttacksRequest {
    * <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,
    *            Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and
    *            providing the token that was returned by the prior call in your request. </p>
-   *            <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
+   *          <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
    *            setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>
-   *            <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
+   *          <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
    *          <p>On your first call to a list operation, leave this setting empty.</p>
    */
   NextToken?: string;
@@ -1824,9 +1824,9 @@ export interface ListAttacksResponse {
    * <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,
    *            Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and
    *            providing the token that was returned by the prior call in your request. </p>
-   *            <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
+   *          <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
    *            setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>
-   *            <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
+   *          <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
    */
   NextToken?: string;
 }
@@ -1866,19 +1866,19 @@ export interface InclusionProtectionGroupFilters {
    * @public
    * <p>The pattern specification of the protection groups that you want to retrieve.  </p>
    */
-  Patterns?: (ProtectionGroupPattern | string)[];
+  Patterns?: ProtectionGroupPattern[];
 
   /**
    * @public
    * <p>The resource type configuration of the protection groups that you want to retrieve. In the protection group configuration, you specify the resource type when you set the group's <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code>. </p>
    */
-  ResourceTypes?: (ProtectedResourceType | string)[];
+  ResourceTypes?: ProtectedResourceType[];
 
   /**
    * @public
    * <p>The aggregation setting of the protection groups that you want to retrieve.  </p>
    */
-  Aggregations?: (ProtectionGroupAggregation | string)[];
+  Aggregations?: ProtectionGroupAggregation[];
 }
 
 /**
@@ -1890,9 +1890,9 @@ export interface ListProtectionGroupsRequest {
    * <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,
    *            Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and
    *            providing the token that was returned by the prior call in your request. </p>
-   *            <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
+   *          <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
    *            setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>
-   *            <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
+   *          <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
    *          <p>On your first call to a list operation, leave this setting empty.</p>
    */
   NextToken?: string;
@@ -1928,9 +1928,9 @@ export interface ListProtectionGroupsResponse {
    * <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,
    *            Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and
    *            providing the token that was returned by the prior call in your request. </p>
-   *            <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
+   *          <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
    *            setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>
-   *            <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
+   *          <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
    */
   NextToken?: string;
 }
@@ -1956,7 +1956,7 @@ export interface InclusionProtectionFilters {
    * @public
    * <p>The type of protected resource whose protections you want to retrieve.  </p>
    */
-  ResourceTypes?: (ProtectedResourceType | string)[];
+  ResourceTypes?: ProtectedResourceType[];
 }
 
 /**
@@ -1968,9 +1968,9 @@ export interface ListProtectionsRequest {
    * <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,
    *            Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and
    *            providing the token that was returned by the prior call in your request. </p>
-   *            <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
+   *          <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
    *            setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>
-   *            <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
+   *          <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
    *          <p>On your first call to a list operation, leave this setting empty.</p>
    */
   NextToken?: string;
@@ -2006,9 +2006,9 @@ export interface ListProtectionsResponse {
    * <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,
    *            Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and
    *            providing the token that was returned by the prior call in your request. </p>
-   *            <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
+   *          <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
    *            setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>
-   *            <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
+   *          <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
    */
   NextToken?: string;
 }
@@ -2028,9 +2028,9 @@ export interface ListResourcesInProtectionGroupRequest {
    * <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,
    *            Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and
    *            providing the token that was returned by the prior call in your request. </p>
-   *            <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
+   *          <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
    *            setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>
-   *            <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
+   *          <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
    *          <p>On your first call to a list operation, leave this setting empty.</p>
    */
   NextToken?: string;
@@ -2060,9 +2060,9 @@ export interface ListResourcesInProtectionGroupResponse {
    * <p>When you request a list of objects from Shield Advanced, if the response does not include all of the remaining available objects,
    *            Shield Advanced includes a <code>NextToken</code> value in the response. You can retrieve the next batch of objects by requesting the list again and
    *            providing the token that was returned by the prior call in your request. </p>
-   *            <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
+   *          <p>You can indicate the maximum number of objects that you want Shield Advanced to return for a single call with the <code>MaxResults</code>
    *            setting. Shield Advanced will not return more than <code>MaxResults</code> objects, but may return fewer, even if more objects are still available.</p>
-   *            <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
+   *          <p>Whenever more objects remain that Shield Advanced has not yet returned to you, the response will include a <code>NextToken</code> value.</p>
    */
   NextToken?: string;
 }
@@ -2199,20 +2199,20 @@ export interface UpdateProtectionGroupRequest {
    *             </li>
    *          </ul>
    */
-  Aggregation: ProtectionGroupAggregation | string | undefined;
+  Aggregation: ProtectionGroupAggregation | undefined;
 
   /**
    * @public
    * <p>The criteria to use to choose the protected resources for inclusion in the group. You can include all resources that have protections, provide a list of resource Amazon Resource Names (ARNs), or include all resources of a specified resource type.</p>
    */
-  Pattern: ProtectionGroupPattern | string | undefined;
+  Pattern: ProtectionGroupPattern | undefined;
 
   /**
    * @public
    * <p>The resource type to include in the protection group. All protected resources of this type are included in the protection group.
    *            You must set this when you set <code>Pattern</code> to <code>BY_RESOURCE_TYPE</code> and you must not set it for any other <code>Pattern</code> setting. </p>
    */
-  ResourceType?: ProtectedResourceType | string;
+  ResourceType?: ProtectedResourceType;
 
   /**
    * @public
@@ -2234,7 +2234,7 @@ export interface UpdateSubscriptionRequest {
    * @public
    * <p>When you initally create a subscription, <code>AutoRenew</code> is set to <code>ENABLED</code>. If <code>ENABLED</code>, the subscription will be automatically renewed at the end of the existing subscription period. You can change this by submitting an <code>UpdateSubscription</code> request. If the <code>UpdateSubscription</code> request does not included a value for <code>AutoRenew</code>, the existing value for <code>AutoRenew</code> remains unchanged.</p>
    */
-  AutoRenew?: AutoRenew | string;
+  AutoRenew?: AutoRenew;
 }
 
 /**

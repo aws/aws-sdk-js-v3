@@ -1,16 +1,7 @@
 // smithy-typescript generated code
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { QueryIdempotencyTokenAutoFillInput } from "../models/models_0";
 import {
@@ -64,70 +55,20 @@ export interface QueryIdempotencyTokenAutoFillCommandOutput extends __MetadataBe
  * <p>Base exception class for all service exceptions from QueryProtocol service.</p>
  *
  */
-export class QueryIdempotencyTokenAutoFillCommand extends $Command<
-  QueryIdempotencyTokenAutoFillCommandInput,
-  QueryIdempotencyTokenAutoFillCommandOutput,
-  QueryProtocolClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  /**
-   * @public
-   */
-  constructor(readonly input: QueryIdempotencyTokenAutoFillCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: QueryProtocolClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<QueryIdempotencyTokenAutoFillCommandInput, QueryIdempotencyTokenAutoFillCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "QueryProtocolClient";
-    const commandName = "QueryIdempotencyTokenAutoFillCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: QueryIdempotencyTokenAutoFillCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_QueryIdempotencyTokenAutoFillCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<QueryIdempotencyTokenAutoFillCommandOutput> {
-    return de_QueryIdempotencyTokenAutoFillCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class QueryIdempotencyTokenAutoFillCommand extends $Command
+  .classBuilder<
+    QueryIdempotencyTokenAutoFillCommandInput,
+    QueryIdempotencyTokenAutoFillCommandOutput,
+    QueryProtocolClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .m(function (this: any, Command: any, cs: any, config: QueryProtocolClientResolvedConfig, o: any) {
+    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+  })
+  .s("AwsQuery", "QueryIdempotencyTokenAutoFill", {})
+  .n("QueryProtocolClient", "QueryIdempotencyTokenAutoFillCommand")
+  .f(void 0, void 0)
+  .ser(se_QueryIdempotencyTokenAutoFillCommand)
+  .de(de_QueryIdempotencyTokenAutoFillCommand)
+  .build() {}

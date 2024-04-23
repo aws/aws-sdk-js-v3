@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeOptedOutNumbersRequest, DescribeOptedOutNumbersResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
@@ -42,12 +34,12 @@ export interface DescribeOptedOutNumbersCommandOutput extends DescribeOptedOutNu
  * @public
  * <p>Describes the specified opted out destination numbers or all opted out destination
  *             numbers in an opt-out list.</p>
- *         <p>If you specify opted out numbers, the output includes information for only the
+ *          <p>If you specify opted out numbers, the output includes information for only the
  *             specified opted out numbers. If you specify filters, the output includes information for
  *             only those opted out numbers that meet the filter criteria. If you don't specify opted
  *             out numbers or filters, the output includes information for all opted out destination
  *             numbers in your opt-out list.</p>
- *         <p>If you specify an opted out number that isn't valid, an Error is returned.</p>
+ *          <p>If you specify an opted out number that isn't valid, an error is returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -115,79 +107,26 @@ export interface DescribeOptedOutNumbersCommandOutput extends DescribeOptedOutNu
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
-export class DescribeOptedOutNumbersCommand extends $Command<
-  DescribeOptedOutNumbersCommandInput,
-  DescribeOptedOutNumbersCommandOutput,
-  PinpointSMSVoiceV2ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeOptedOutNumbersCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: PinpointSMSVoiceV2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeOptedOutNumbersCommandInput, DescribeOptedOutNumbersCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeOptedOutNumbersCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "PinpointSMSVoiceV2Client";
-    const commandName = "DescribeOptedOutNumbersCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeOptedOutNumbersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeOptedOutNumbersCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeOptedOutNumbersCommandOutput> {
-    return de_DescribeOptedOutNumbersCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeOptedOutNumbersCommand extends $Command
+  .classBuilder<
+    DescribeOptedOutNumbersCommandInput,
+    DescribeOptedOutNumbersCommandOutput,
+    PinpointSMSVoiceV2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("PinpointSMSVoiceV2", "DescribeOptedOutNumbers", {})
+  .n("PinpointSMSVoiceV2Client", "DescribeOptedOutNumbersCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeOptedOutNumbersCommand)
+  .de(de_DescribeOptedOutNumbersCommand)
+  .build() {}

@@ -1,0 +1,110 @@
+// smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getSerdePlugin } from "@smithy/middleware-serde";
+import { Command as $Command } from "@smithy/smithy-client";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
+
+import { commonParams } from "../endpoint/EndpointParameters";
+import { CreateBillOfMaterialsImportJobRequest, CreateBillOfMaterialsImportJobResponse } from "../models/models_0";
+import {
+  de_CreateBillOfMaterialsImportJobCommand,
+  se_CreateBillOfMaterialsImportJobCommand,
+} from "../protocols/Aws_restJson1";
+import { ServiceInputTypes, ServiceOutputTypes, SupplyChainClientResolvedConfig } from "../SupplyChainClient";
+
+/**
+ * @public
+ */
+export { __MetadataBearer, $Command };
+/**
+ * @public
+ *
+ * The input for {@link CreateBillOfMaterialsImportJobCommand}.
+ */
+export interface CreateBillOfMaterialsImportJobCommandInput extends CreateBillOfMaterialsImportJobRequest {}
+/**
+ * @public
+ *
+ * The output of {@link CreateBillOfMaterialsImportJobCommand}.
+ */
+export interface CreateBillOfMaterialsImportJobCommandOutput
+  extends CreateBillOfMaterialsImportJobResponse,
+    __MetadataBearer {}
+
+/**
+ * @public
+ * <p>CreateBillOfMaterialsImportJob creates an import job for the Product Bill Of Materials (BOM) entity. For information on the product_bom entity, see the AWS Supply Chain User Guide.</p>
+ *          <p>The CSV file must be located in an Amazon S3 location accessible to AWS Supply Chain. It is recommended to use the same Amazon S3 bucket created during your AWS Supply Chain instance creation.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { SupplyChainClient, CreateBillOfMaterialsImportJobCommand } from "@aws-sdk/client-supplychain"; // ES Modules import
+ * // const { SupplyChainClient, CreateBillOfMaterialsImportJobCommand } = require("@aws-sdk/client-supplychain"); // CommonJS import
+ * const client = new SupplyChainClient(config);
+ * const input = { // CreateBillOfMaterialsImportJobRequest
+ *   instanceId: "STRING_VALUE", // required
+ *   s3uri: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ * };
+ * const command = new CreateBillOfMaterialsImportJobCommand(input);
+ * const response = await client.send(command);
+ * // { // CreateBillOfMaterialsImportJobResponse
+ * //   jobId: "STRING_VALUE", // required
+ * // };
+ *
+ * ```
+ *
+ * @param CreateBillOfMaterialsImportJobCommandInput - {@link CreateBillOfMaterialsImportJobCommandInput}
+ * @returns {@link CreateBillOfMaterialsImportJobCommandOutput}
+ * @see {@link CreateBillOfMaterialsImportJobCommandInput} for command's `input` shape.
+ * @see {@link CreateBillOfMaterialsImportJobCommandOutput} for command's `response` shape.
+ * @see {@link SupplyChainClientResolvedConfig | config} for SupplyChainClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have the required privileges to perform this action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>Unexpected error during processing of request.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Request would cause a service quota to be exceeded.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>Request was denied due to request throttling.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input does not satisfy the constraints specified by an AWS service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>Request references a resource which does not exist.</p>
+ *
+ * @throws {@link SupplyChainServiceException}
+ * <p>Base exception class for all service exceptions from SupplyChain service.</p>
+ *
+ */
+export class CreateBillOfMaterialsImportJobCommand extends $Command
+  .classBuilder<
+    CreateBillOfMaterialsImportJobCommandInput,
+    CreateBillOfMaterialsImportJobCommandOutput,
+    SupplyChainClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SupplyChainClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("GalaxyPublicAPIGateway", "CreateBillOfMaterialsImportJob", {})
+  .n("SupplyChainClient", "CreateBillOfMaterialsImportJobCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateBillOfMaterialsImportJobCommand)
+  .de(de_CreateBillOfMaterialsImportJobCommand)
+  .build() {}

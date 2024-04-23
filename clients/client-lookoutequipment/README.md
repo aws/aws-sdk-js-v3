@@ -24,16 +24,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `LookoutEquipmentClient` and
-the commands you need, for example `CreateDatasetCommand`:
+the commands you need, for example `ListModelsCommand`:
 
 ```js
 // ES5 example
-const { LookoutEquipmentClient, CreateDatasetCommand } = require("@aws-sdk/client-lookoutequipment");
+const { LookoutEquipmentClient, ListModelsCommand } = require("@aws-sdk/client-lookoutequipment");
 ```
 
 ```ts
 // ES6+ example
-import { LookoutEquipmentClient, CreateDatasetCommand } from "@aws-sdk/client-lookoutequipment";
+import { LookoutEquipmentClient, ListModelsCommand } from "@aws-sdk/client-lookoutequipment";
 ```
 
 ### Usage
@@ -52,7 +52,7 @@ const client = new LookoutEquipmentClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateDatasetCommand(params);
+const command = new ListModelsCommand(params);
 ```
 
 #### Async/await
@@ -131,7 +131,7 @@ const client = new AWS.LookoutEquipment({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createDataset(params);
+  const data = await client.listModels(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -139,7 +139,7 @@ try {
 
 // Promises.
 client
-  .createDataset(params)
+  .listModels(params)
   .then((data) => {
     // process data.
   })
@@ -148,7 +148,7 @@ client
   });
 
 // callbacks.
-client.createDataset(params, (err, data) => {
+client.listModels(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -163,7 +163,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -209,7 +209,7 @@ see LICENSE for more information.
 CreateDataset
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/createdatasetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/createdatasetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/createdatasetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/CreateDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/CreateDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/CreateDatasetCommandOutput/)
 
 </details>
 <details>
@@ -217,7 +217,7 @@ CreateDataset
 CreateInferenceScheduler
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/createinferenceschedulercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/createinferenceschedulercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/createinferenceschedulercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/CreateInferenceSchedulerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/CreateInferenceSchedulerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/CreateInferenceSchedulerCommandOutput/)
 
 </details>
 <details>
@@ -225,7 +225,7 @@ CreateInferenceScheduler
 CreateLabel
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/createlabelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/createlabelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/createlabelcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/CreateLabelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/CreateLabelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/CreateLabelCommandOutput/)
 
 </details>
 <details>
@@ -233,7 +233,7 @@ CreateLabel
 CreateLabelGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/createlabelgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/createlabelgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/createlabelgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/CreateLabelGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/CreateLabelGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/CreateLabelGroupCommandOutput/)
 
 </details>
 <details>
@@ -241,7 +241,15 @@ CreateLabelGroup
 CreateModel
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/createmodelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/createmodelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/createmodelcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/CreateModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/CreateModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/CreateModelCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateRetrainingScheduler
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/CreateRetrainingSchedulerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/CreateRetrainingSchedulerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/CreateRetrainingSchedulerCommandOutput/)
 
 </details>
 <details>
@@ -249,7 +257,7 @@ CreateModel
 DeleteDataset
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/deletedatasetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/deletedatasetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/deletedatasetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/DeleteDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DeleteDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DeleteDatasetCommandOutput/)
 
 </details>
 <details>
@@ -257,7 +265,7 @@ DeleteDataset
 DeleteInferenceScheduler
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/deleteinferenceschedulercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/deleteinferenceschedulercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/deleteinferenceschedulercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/DeleteInferenceSchedulerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DeleteInferenceSchedulerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DeleteInferenceSchedulerCommandOutput/)
 
 </details>
 <details>
@@ -265,7 +273,7 @@ DeleteInferenceScheduler
 DeleteLabel
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/deletelabelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/deletelabelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/deletelabelcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/DeleteLabelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DeleteLabelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DeleteLabelCommandOutput/)
 
 </details>
 <details>
@@ -273,7 +281,7 @@ DeleteLabel
 DeleteLabelGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/deletelabelgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/deletelabelgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/deletelabelgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/DeleteLabelGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DeleteLabelGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DeleteLabelGroupCommandOutput/)
 
 </details>
 <details>
@@ -281,7 +289,7 @@ DeleteLabelGroup
 DeleteModel
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/deletemodelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/deletemodelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/deletemodelcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/DeleteModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DeleteModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DeleteModelCommandOutput/)
 
 </details>
 <details>
@@ -289,7 +297,15 @@ DeleteModel
 DeleteResourcePolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/deleteresourcepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/deleteresourcepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/deleteresourcepolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/DeleteResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DeleteResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DeleteResourcePolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteRetrainingScheduler
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/DeleteRetrainingSchedulerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DeleteRetrainingSchedulerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DeleteRetrainingSchedulerCommandOutput/)
 
 </details>
 <details>
@@ -297,7 +313,7 @@ DeleteResourcePolicy
 DescribeDataIngestionJob
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/describedataingestionjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/describedataingestionjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/describedataingestionjobcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/DescribeDataIngestionJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DescribeDataIngestionJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DescribeDataIngestionJobCommandOutput/)
 
 </details>
 <details>
@@ -305,7 +321,7 @@ DescribeDataIngestionJob
 DescribeDataset
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/describedatasetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/describedatasetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/describedatasetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/DescribeDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DescribeDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DescribeDatasetCommandOutput/)
 
 </details>
 <details>
@@ -313,7 +329,7 @@ DescribeDataset
 DescribeInferenceScheduler
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/describeinferenceschedulercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/describeinferenceschedulercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/describeinferenceschedulercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/DescribeInferenceSchedulerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DescribeInferenceSchedulerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DescribeInferenceSchedulerCommandOutput/)
 
 </details>
 <details>
@@ -321,7 +337,7 @@ DescribeInferenceScheduler
 DescribeLabel
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/describelabelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/describelabelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/describelabelcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/DescribeLabelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DescribeLabelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DescribeLabelCommandOutput/)
 
 </details>
 <details>
@@ -329,7 +345,7 @@ DescribeLabel
 DescribeLabelGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/describelabelgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/describelabelgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/describelabelgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/DescribeLabelGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DescribeLabelGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DescribeLabelGroupCommandOutput/)
 
 </details>
 <details>
@@ -337,7 +353,7 @@ DescribeLabelGroup
 DescribeModel
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/describemodelcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/describemodelcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/describemodelcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/DescribeModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DescribeModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DescribeModelCommandOutput/)
 
 </details>
 <details>
@@ -345,7 +361,7 @@ DescribeModel
 DescribeModelVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/describemodelversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/describemodelversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/describemodelversioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/DescribeModelVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DescribeModelVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DescribeModelVersionCommandOutput/)
 
 </details>
 <details>
@@ -353,7 +369,15 @@ DescribeModelVersion
 DescribeResourcePolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/describeresourcepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/describeresourcepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/describeresourcepolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/DescribeResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DescribeResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DescribeResourcePolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeRetrainingScheduler
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/DescribeRetrainingSchedulerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DescribeRetrainingSchedulerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/DescribeRetrainingSchedulerCommandOutput/)
 
 </details>
 <details>
@@ -361,7 +385,7 @@ DescribeResourcePolicy
 ImportDataset
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/importdatasetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/importdatasetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/importdatasetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/ImportDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/ImportDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/ImportDatasetCommandOutput/)
 
 </details>
 <details>
@@ -369,7 +393,7 @@ ImportDataset
 ImportModelVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/importmodelversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/importmodelversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/importmodelversioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/ImportModelVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/ImportModelVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/ImportModelVersionCommandOutput/)
 
 </details>
 <details>
@@ -377,7 +401,7 @@ ImportModelVersion
 ListDataIngestionJobs
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/listdataingestionjobscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listdataingestionjobscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listdataingestionjobscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/ListDataIngestionJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/ListDataIngestionJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/ListDataIngestionJobsCommandOutput/)
 
 </details>
 <details>
@@ -385,7 +409,7 @@ ListDataIngestionJobs
 ListDatasets
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/listdatasetscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listdatasetscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listdatasetscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/ListDatasetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/ListDatasetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/ListDatasetsCommandOutput/)
 
 </details>
 <details>
@@ -393,7 +417,7 @@ ListDatasets
 ListInferenceEvents
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/listinferenceeventscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listinferenceeventscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listinferenceeventscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/ListInferenceEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/ListInferenceEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/ListInferenceEventsCommandOutput/)
 
 </details>
 <details>
@@ -401,7 +425,7 @@ ListInferenceEvents
 ListInferenceExecutions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/listinferenceexecutionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listinferenceexecutionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listinferenceexecutionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/ListInferenceExecutionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/ListInferenceExecutionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/ListInferenceExecutionsCommandOutput/)
 
 </details>
 <details>
@@ -409,7 +433,7 @@ ListInferenceExecutions
 ListInferenceSchedulers
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/listinferenceschedulerscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listinferenceschedulerscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listinferenceschedulerscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/ListInferenceSchedulersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/ListInferenceSchedulersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/ListInferenceSchedulersCommandOutput/)
 
 </details>
 <details>
@@ -417,7 +441,7 @@ ListInferenceSchedulers
 ListLabelGroups
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/listlabelgroupscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listlabelgroupscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listlabelgroupscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/ListLabelGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/ListLabelGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/ListLabelGroupsCommandOutput/)
 
 </details>
 <details>
@@ -425,7 +449,7 @@ ListLabelGroups
 ListLabels
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/listlabelscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listlabelscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listlabelscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/ListLabelsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/ListLabelsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/ListLabelsCommandOutput/)
 
 </details>
 <details>
@@ -433,7 +457,7 @@ ListLabels
 ListModels
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/listmodelscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listmodelscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listmodelscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/ListModelsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/ListModelsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/ListModelsCommandOutput/)
 
 </details>
 <details>
@@ -441,7 +465,15 @@ ListModels
 ListModelVersions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/listmodelversionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listmodelversionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listmodelversionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/ListModelVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/ListModelVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/ListModelVersionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListRetrainingSchedulers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/ListRetrainingSchedulersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/ListRetrainingSchedulersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/ListRetrainingSchedulersCommandOutput/)
 
 </details>
 <details>
@@ -449,7 +481,7 @@ ListModelVersions
 ListSensorStatistics
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/listsensorstatisticscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listsensorstatisticscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listsensorstatisticscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/ListSensorStatisticsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/ListSensorStatisticsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/ListSensorStatisticsCommandOutput/)
 
 </details>
 <details>
@@ -457,7 +489,7 @@ ListSensorStatistics
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/ListTagsForResourceCommandOutput/)
 
 </details>
 <details>
@@ -465,7 +497,7 @@ ListTagsForResource
 PutResourcePolicy
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/putresourcepolicycommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/putresourcepolicycommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/putresourcepolicycommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/PutResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/PutResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/PutResourcePolicyCommandOutput/)
 
 </details>
 <details>
@@ -473,7 +505,7 @@ PutResourcePolicy
 StartDataIngestionJob
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/startdataingestionjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/startdataingestionjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/startdataingestionjobcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/StartDataIngestionJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/StartDataIngestionJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/StartDataIngestionJobCommandOutput/)
 
 </details>
 <details>
@@ -481,7 +513,15 @@ StartDataIngestionJob
 StartInferenceScheduler
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/startinferenceschedulercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/startinferenceschedulercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/startinferenceschedulercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/StartInferenceSchedulerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/StartInferenceSchedulerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/StartInferenceSchedulerCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartRetrainingScheduler
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/StartRetrainingSchedulerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/StartRetrainingSchedulerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/StartRetrainingSchedulerCommandOutput/)
 
 </details>
 <details>
@@ -489,7 +529,15 @@ StartInferenceScheduler
 StopInferenceScheduler
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/stopinferenceschedulercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/stopinferenceschedulercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/stopinferenceschedulercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/StopInferenceSchedulerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/StopInferenceSchedulerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/StopInferenceSchedulerCommandOutput/)
+
+</details>
+<details>
+<summary>
+StopRetrainingScheduler
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/StopRetrainingSchedulerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/StopRetrainingSchedulerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/StopRetrainingSchedulerCommandOutput/)
 
 </details>
 <details>
@@ -497,7 +545,7 @@ StopInferenceScheduler
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -505,7 +553,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -513,7 +561,7 @@ UntagResource
 UpdateActiveModelVersion
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/updateactivemodelversioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/updateactivemodelversioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/updateactivemodelversioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/UpdateActiveModelVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/UpdateActiveModelVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/UpdateActiveModelVersionCommandOutput/)
 
 </details>
 <details>
@@ -521,7 +569,7 @@ UpdateActiveModelVersion
 UpdateInferenceScheduler
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/updateinferenceschedulercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/updateinferenceschedulercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/updateinferenceschedulercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/UpdateInferenceSchedulerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/UpdateInferenceSchedulerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/UpdateInferenceSchedulerCommandOutput/)
 
 </details>
 <details>
@@ -529,6 +577,22 @@ UpdateInferenceScheduler
 UpdateLabelGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/classes/updatelabelgroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/updatelabelgroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutequipment/interfaces/updatelabelgroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/UpdateLabelGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/UpdateLabelGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/UpdateLabelGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateModel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/UpdateModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/UpdateModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/UpdateModelCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateRetrainingScheduler
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutequipment/command/UpdateRetrainingSchedulerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/UpdateRetrainingSchedulerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutequipment/Interface/UpdateRetrainingSchedulerCommandOutput/)
 
 </details>

@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { DescribeScheduleRequest, DescribeScheduleResponse } from "../models/models_1";
 import { de_DescribeScheduleCommand, se_DescribeScheduleCommand } from "../protocols/Aws_restJson1";
@@ -166,6 +158,32 @@ export interface DescribeScheduleCommandOutput extends DescribeScheduleResponse,
  * //           FadeOut: Number("int"),
  * //           Layer: Number("int"),
  * //         },
+ * //         StaticImageOutputActivateSettings: { // StaticImageOutputActivateScheduleActionSettings
+ * //           Duration: Number("int"),
+ * //           FadeIn: Number("int"),
+ * //           FadeOut: Number("int"),
+ * //           Height: Number("int"),
+ * //           Image: {
+ * //             PasswordParam: "STRING_VALUE",
+ * //             Uri: "STRING_VALUE", // required
+ * //             Username: "STRING_VALUE",
+ * //           },
+ * //           ImageX: Number("int"),
+ * //           ImageY: Number("int"),
+ * //           Layer: Number("int"),
+ * //           Opacity: Number("int"),
+ * //           OutputNames: [ // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           Width: Number("int"),
+ * //         },
+ * //         StaticImageOutputDeactivateSettings: { // StaticImageOutputDeactivateScheduleActionSettings
+ * //           FadeOut: Number("int"),
+ * //           Layer: Number("int"),
+ * //           OutputNames: [ // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
  * //       },
  * //       ScheduleActionStartSettings: { // ScheduleActionStartSettings
  * //         FixedModeScheduleActionStartSettings: { // FixedModeScheduleActionStartSettings
@@ -214,79 +232,26 @@ export interface DescribeScheduleCommandOutput extends DescribeScheduleResponse,
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
-export class DescribeScheduleCommand extends $Command<
-  DescribeScheduleCommandInput,
-  DescribeScheduleCommandOutput,
-  MediaLiveClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeScheduleCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: MediaLiveClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeScheduleCommandInput, DescribeScheduleCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeScheduleCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "MediaLiveClient";
-    const commandName = "DescribeScheduleCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeScheduleCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeScheduleCommandOutput> {
-    return de_DescribeScheduleCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeScheduleCommand extends $Command
+  .classBuilder<
+    DescribeScheduleCommandInput,
+    DescribeScheduleCommandOutput,
+    MediaLiveClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("MediaLive", "DescribeSchedule", {})
+  .n("MediaLiveClient", "DescribeScheduleCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeScheduleCommand)
+  .de(de_DescribeScheduleCommand)
+  .build() {}

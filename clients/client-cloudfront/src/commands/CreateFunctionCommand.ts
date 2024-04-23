@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreateFunctionRequest,
   CreateFunctionRequestFilterSensitiveLog,
@@ -62,6 +54,14 @@ export interface CreateFunctionCommandOutput extends CreateFunctionResult, __Met
  *   FunctionConfig: { // FunctionConfig
  *     Comment: "STRING_VALUE", // required
  *     Runtime: "cloudfront-js-1.0" || "cloudfront-js-2.0", // required
+ *     KeyValueStoreAssociations: { // KeyValueStoreAssociations
+ *       Quantity: Number("int"), // required
+ *       Items: [ // KeyValueStoreAssociationList
+ *         { // KeyValueStoreAssociation
+ *           KeyValueStoreARN: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
  *   },
  *   FunctionCode: "BLOB_VALUE", // required
  * };
@@ -74,6 +74,14 @@ export interface CreateFunctionCommandOutput extends CreateFunctionResult, __Met
  * //     FunctionConfig: { // FunctionConfig
  * //       Comment: "STRING_VALUE", // required
  * //       Runtime: "cloudfront-js-1.0" || "cloudfront-js-2.0", // required
+ * //       KeyValueStoreAssociations: { // KeyValueStoreAssociations
+ * //         Quantity: Number("int"), // required
+ * //         Items: [ // KeyValueStoreAssociationList
+ * //           { // KeyValueStoreAssociation
+ * //             KeyValueStoreARN: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //     FunctionMetadata: { // FunctionMetadata
  * //       FunctionARN: "STRING_VALUE", // required
@@ -117,80 +125,79 @@ export interface CreateFunctionCommandOutput extends CreateFunctionResult, __Met
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ * @example To create a function
+ * ```javascript
+ * // Use the following command to create a function.
+ * const input = {
+ *   "FunctionCode": "function-code.js",
+ *   "FunctionConfig": {
+ *     "Comment": "my-function-comment",
+ *     "KeyValueStoreAssociations": {
+ *       "Items": [
+ *         {
+ *           "KeyValueStoreARN": "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889"
+ *         }
+ *       ],
+ *       "Quantity": 1
+ *     },
+ *     "Runtime": "cloudfront-js-2.0"
+ *   },
+ *   "Name": "my-function-name"
+ * };
+ * const command = new CreateFunctionCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "ETag": "ETVPDKIKX0DER",
+ *   "FunctionSummary": {
+ *     "FunctionConfig": {
+ *       "Comment": "my-function-comment",
+ *       "KeyValueStoreAssociations": {
+ *         "Items": [
+ *           {
+ *             "KeyValueStoreARN": "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889"
+ *           }
+ *         ],
+ *         "Quantity": 1
+ *       },
+ *       "Runtime": "cloudfront-js-2.0"
+ *     },
+ *     "FunctionMetadata": {
+ *       "CreatedTime": "2023-11-07T19:53:50.334Z",
+ *       "FunctionARN": "arn:aws:cloudfront::123456789012:function/my-function-name",
+ *       "LastModifiedTime": "2023-11-07T19:53:50.334Z",
+ *       "Stage": "DEVELOPMENT"
+ *     },
+ *     "Name": "my-function-name",
+ *     "Status": "UNPUBLISHED"
+ *   },
+ *   "Location": "https://cloudfront.amazonaws.com/2020-05-31/function/arn:aws:cloudfront::123456789012:function/my-function-name"
+ * }
+ * *\/
+ * // example id: to-create-a-function-1699737558249
+ * ```
+ *
  */
-export class CreateFunctionCommand extends $Command<
-  CreateFunctionCommandInput,
-  CreateFunctionCommandOutput,
-  CloudFrontClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateFunctionCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CloudFrontClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateFunctionCommandInput, CreateFunctionCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateFunctionCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CloudFrontClient";
-    const commandName = "CreateFunctionCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: CreateFunctionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateFunctionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateFunctionCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFunctionCommandOutput> {
-    return de_CreateFunctionCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateFunctionCommand extends $Command
+  .classBuilder<
+    CreateFunctionCommandInput,
+    CreateFunctionCommandOutput,
+    CloudFrontClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("Cloudfront2020_05_31", "CreateFunction", {})
+  .n("CloudFrontClient", "CreateFunctionCommand")
+  .f(CreateFunctionRequestFilterSensitiveLog, void 0)
+  .ser(se_CreateFunctionCommand)
+  .de(de_CreateFunctionCommand)
+  .build() {}

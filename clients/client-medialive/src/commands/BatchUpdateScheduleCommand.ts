@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
 import { BatchUpdateScheduleRequest, BatchUpdateScheduleResponse } from "../models/models_1";
 import { de_BatchUpdateScheduleCommand, se_BatchUpdateScheduleCommand } from "../protocols/Aws_restJson1";
@@ -160,6 +152,32 @@ export interface BatchUpdateScheduleCommandOutput extends BatchUpdateScheduleRes
  *             FadeOut: Number("int"),
  *             Layer: Number("int"),
  *           },
+ *           StaticImageOutputActivateSettings: { // StaticImageOutputActivateScheduleActionSettings
+ *             Duration: Number("int"),
+ *             FadeIn: Number("int"),
+ *             FadeOut: Number("int"),
+ *             Height: Number("int"),
+ *             Image: {
+ *               PasswordParam: "STRING_VALUE",
+ *               Uri: "STRING_VALUE", // required
+ *               Username: "STRING_VALUE",
+ *             },
+ *             ImageX: Number("int"),
+ *             ImageY: Number("int"),
+ *             Layer: Number("int"),
+ *             Opacity: Number("int"),
+ *             OutputNames: [ // required
+ *               "STRING_VALUE",
+ *             ],
+ *             Width: Number("int"),
+ *           },
+ *           StaticImageOutputDeactivateSettings: { // StaticImageOutputDeactivateScheduleActionSettings
+ *             FadeOut: Number("int"),
+ *             Layer: Number("int"),
+ *             OutputNames: [ // required
+ *               "STRING_VALUE",
+ *             ],
+ *           },
  *         },
  *         ScheduleActionStartSettings: { // ScheduleActionStartSettings
  *           FixedModeScheduleActionStartSettings: { // FixedModeScheduleActionStartSettings
@@ -298,6 +316,32 @@ export interface BatchUpdateScheduleCommandOutput extends BatchUpdateScheduleRes
  * //             FadeOut: Number("int"),
  * //             Layer: Number("int"),
  * //           },
+ * //           StaticImageOutputActivateSettings: { // StaticImageOutputActivateScheduleActionSettings
+ * //             Duration: Number("int"),
+ * //             FadeIn: Number("int"),
+ * //             FadeOut: Number("int"),
+ * //             Height: Number("int"),
+ * //             Image: {
+ * //               PasswordParam: "STRING_VALUE",
+ * //               Uri: "STRING_VALUE", // required
+ * //               Username: "STRING_VALUE",
+ * //             },
+ * //             ImageX: Number("int"),
+ * //             ImageY: Number("int"),
+ * //             Layer: Number("int"),
+ * //             Opacity: Number("int"),
+ * //             OutputNames: [ // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             Width: Number("int"),
+ * //           },
+ * //           StaticImageOutputDeactivateSettings: { // StaticImageOutputDeactivateScheduleActionSettings
+ * //             FadeOut: Number("int"),
+ * //             Layer: Number("int"),
+ * //             OutputNames: [ // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
  * //         },
  * //         ScheduleActionStartSettings: { // ScheduleActionStartSettings
  * //           FixedModeScheduleActionStartSettings: { // FixedModeScheduleActionStartSettings
@@ -352,9 +396,7 @@ export interface BatchUpdateScheduleCommandOutput extends BatchUpdateScheduleRes
  * //                 Timecode: "STRING_VALUE",
  * //               },
  * //             },
- * //             UrlPath: [
- * //               "STRING_VALUE",
- * //             ],
+ * //             UrlPath: "<__listOf__string>",
  * //           },
  * //           MotionGraphicsImageActivateSettings: {
  * //             Duration: Number("long"),
@@ -427,6 +469,28 @@ export interface BatchUpdateScheduleCommandOutput extends BatchUpdateScheduleRes
  * //             FadeOut: Number("int"),
  * //             Layer: Number("int"),
  * //           },
+ * //           StaticImageOutputActivateSettings: {
+ * //             Duration: Number("int"),
+ * //             FadeIn: Number("int"),
+ * //             FadeOut: Number("int"),
+ * //             Height: Number("int"),
+ * //             Image: {
+ * //               PasswordParam: "STRING_VALUE",
+ * //               Uri: "STRING_VALUE", // required
+ * //               Username: "STRING_VALUE",
+ * //             },
+ * //             ImageX: Number("int"),
+ * //             ImageY: Number("int"),
+ * //             Layer: Number("int"),
+ * //             Opacity: Number("int"),
+ * //             OutputNames: "<__listOf__string>", // required
+ * //             Width: Number("int"),
+ * //           },
+ * //           StaticImageOutputDeactivateSettings: {
+ * //             FadeOut: Number("int"),
+ * //             Layer: Number("int"),
+ * //             OutputNames: "<__listOf__string>", // required
+ * //           },
  * //         },
  * //         ScheduleActionStartSettings: {
  * //           FixedModeScheduleActionStartSettings: {
@@ -479,79 +543,26 @@ export interface BatchUpdateScheduleCommandOutput extends BatchUpdateScheduleRes
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
  */
-export class BatchUpdateScheduleCommand extends $Command<
-  BatchUpdateScheduleCommandInput,
-  BatchUpdateScheduleCommandOutput,
-  MediaLiveClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: BatchUpdateScheduleCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: MediaLiveClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<BatchUpdateScheduleCommandInput, BatchUpdateScheduleCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, BatchUpdateScheduleCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "MediaLiveClient";
-    const commandName = "BatchUpdateScheduleCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: BatchUpdateScheduleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_BatchUpdateScheduleCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchUpdateScheduleCommandOutput> {
-    return de_BatchUpdateScheduleCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class BatchUpdateScheduleCommand extends $Command
+  .classBuilder<
+    BatchUpdateScheduleCommandInput,
+    BatchUpdateScheduleCommandOutput,
+    MediaLiveClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("MediaLive", "BatchUpdateSchedule", {})
+  .n("MediaLiveClient", "BatchUpdateScheduleCommand")
+  .f(void 0, void 0)
+  .ser(se_BatchUpdateScheduleCommand)
+  .de(de_BatchUpdateScheduleCommand)
+  .build() {}

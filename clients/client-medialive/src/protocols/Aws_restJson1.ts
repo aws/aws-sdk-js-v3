@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -130,12 +131,14 @@ import {
   RejectInputDeviceTransferCommandOutput,
 } from "../commands/RejectInputDeviceTransferCommand";
 import { StartChannelCommandInput, StartChannelCommandOutput } from "../commands/StartChannelCommand";
+import { StartInputDeviceCommandInput, StartInputDeviceCommandOutput } from "../commands/StartInputDeviceCommand";
 import {
   StartInputDeviceMaintenanceWindowCommandInput,
   StartInputDeviceMaintenanceWindowCommandOutput,
 } from "../commands/StartInputDeviceMaintenanceWindowCommand";
 import { StartMultiplexCommandInput, StartMultiplexCommandOutput } from "../commands/StartMultiplexCommand";
 import { StopChannelCommandInput, StopChannelCommandOutput } from "../commands/StopChannelCommand";
+import { StopInputDeviceCommandInput, StopInputDeviceCommandOutput } from "../commands/StopInputDeviceCommand";
 import { StopMultiplexCommandInput, StopMultiplexCommandOutput } from "../commands/StopMultiplexCommand";
 import {
   TransferInputDeviceCommandInput,
@@ -199,6 +202,7 @@ import {
   CdiInputSpecification,
   ChannelEgressEndpoint,
   ChannelSummary,
+  ColorCorrection,
   DvbNitSettings,
   DvbSdtSettings,
   DvbSubDestinationSettings,
@@ -223,7 +227,6 @@ import {
   HlsAdMarkers,
   HlsAkamaiSettings,
   HlsBasicPutSettings,
-  HlsCdnSettings,
   HlsInputSettings,
   HlsMediaStoreSettings,
   HlsOutputSettings,
@@ -236,11 +239,14 @@ import {
   InputDestination,
   InputDestinationRequest,
   InputDestinationVpc,
+  InputDeviceConfigurableAudioChannelPairConfig,
   InputDeviceHdSettings,
+  InputDeviceMediaConnectSettings,
   InputDeviceNetworkSettings,
   InputDeviceRequest,
   InputDeviceSettings,
   InputDeviceSummary,
+  InputDeviceUhdAudioChannelPairConfig,
   InputDeviceUhdSettings,
   InputLocation,
   InputLossFailoverSettings,
@@ -251,7 +257,6 @@ import {
   InputSpecification,
   InputWhitelistRule,
   InputWhitelistRuleCidr,
-  KeyProviderSettings,
   M2tsSettings,
   M3u8Settings,
   MaintenanceStatus,
@@ -291,7 +296,6 @@ import {
   Scte27SourceSettings,
   SmpteTtDestinationSettings,
   StandardHlsSettings,
-  StaticKeySettings,
   TeletextDestinationSettings,
   TeletextSourceSettings,
   TtmlDestinationSettings,
@@ -320,10 +324,12 @@ import {
   BatchScheduleActionDeleteResult,
   BlackoutSlate,
   Channel,
+  ColorCorrectionSettings,
   ColorSpacePassthroughSettings,
   ConflictException,
   DolbyVision81Settings,
   EncoderSettings,
+  EpochLockingSettings,
   Esam,
   FeatureActivations,
   FixedModeScheduleActionStartSettings,
@@ -338,6 +344,7 @@ import {
   H265ColorSpaceSettings,
   H265FilterSettings,
   H265Settings,
+  HlsCdnSettings,
   HlsGroupSettings,
   HlsId3SegmentTaggingScheduleActionSettings,
   HlsTimedMetadataScheduleActionSettings,
@@ -345,13 +352,14 @@ import {
   ImmediateModeScheduleActionStartSettings,
   InputClippingSettings,
   InputDeviceConfigurableSettings,
+  InputDeviceMediaConnectConfigurableSettings,
   InputLossBehavior,
   InputPrepareScheduleActionSettings,
   InputSwitchScheduleActionSettings,
   InputVpcRequest,
   InternalServerErrorException,
+  KeyProviderSettings,
   MaintenanceCreateSettings,
-  MaintenanceUpdateSettings,
   MediaPackageGroupSettings,
   MotionGraphicsActivateScheduleActionSettings,
   MotionGraphicsConfiguration,
@@ -373,8 +381,10 @@ import {
   NotFoundException,
   OutputGroup,
   OutputGroupSettings,
+  OutputLockingSettings,
   PauseStateScheduleActionSettings,
   PipelineDetail,
+  PipelineLockingSettings,
   PipelinePauseStateSettings,
   Rec601Settings,
   Rec709Settings,
@@ -398,6 +408,9 @@ import {
   StartTimecode,
   StaticImageActivateScheduleActionSettings,
   StaticImageDeactivateScheduleActionSettings,
+  StaticImageOutputActivateScheduleActionSettings,
+  StaticImageOutputDeactivateScheduleActionSettings,
+  StaticKeySettings,
   StopTimecode,
   TemporalFilterSettings,
   Thumbnail,
@@ -414,6 +427,7 @@ import {
   VideoDescription,
   VpcOutputSettings,
 } from "../models/models_1";
+import { MaintenanceUpdateSettings } from "../models/models_2";
 
 /**
  * serializeAws_restJson1AcceptInputDeviceTransferCommand
@@ -422,28 +436,13 @@ export const se_AcceptInputDeviceTransferCommand = async (
   input: AcceptInputDeviceTransferCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/inputDevices/{InputDeviceId}/accept";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "InputDeviceId",
-    () => input.InputDeviceId!,
-    "{InputDeviceId}",
-    false
-  );
+  b.bp("/prod/inputDevices/{InputDeviceId}/accept");
+  b.p("InputDeviceId", () => input.InputDeviceId!, "{InputDeviceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -453,11 +452,11 @@ export const se_BatchDeleteCommand = async (
   input: BatchDeleteCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/batch/delete";
+  b.bp("/prod/batch/delete");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -467,15 +466,8 @@ export const se_BatchDeleteCommand = async (
       multiplexIds: [, (_) => _json(_), `MultiplexIds`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -485,11 +477,11 @@ export const se_BatchStartCommand = async (
   input: BatchStartCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/batch/start";
+  b.bp("/prod/batch/start");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -497,15 +489,8 @@ export const se_BatchStartCommand = async (
       multiplexIds: [, (_) => _json(_), `MultiplexIds`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -515,11 +500,11 @@ export const se_BatchStopCommand = async (
   input: BatchStopCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/batch/stop";
+  b.bp("/prod/batch/stop");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -527,15 +512,8 @@ export const se_BatchStopCommand = async (
       multiplexIds: [, (_) => _json(_), `MultiplexIds`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -545,13 +523,12 @@ export const se_BatchUpdateScheduleCommand = async (
   input: BatchUpdateScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/channels/{ChannelId}/schedule";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelId", () => input.ChannelId!, "{ChannelId}", false);
+  b.bp("/prod/channels/{ChannelId}/schedule");
+  b.p("ChannelId", () => input.ChannelId!, "{ChannelId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -559,15 +536,8 @@ export const se_BatchUpdateScheduleCommand = async (
       deletes: [, (_) => se_BatchScheduleActionDeleteRequest(_, context), `Deletes`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -577,28 +547,13 @@ export const se_CancelInputDeviceTransferCommand = async (
   input: CancelInputDeviceTransferCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/inputDevices/{InputDeviceId}/cancel";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "InputDeviceId",
-    () => input.InputDeviceId!,
-    "{InputDeviceId}",
-    false
-  );
+  b.bp("/prod/inputDevices/{InputDeviceId}/cancel");
+  b.p("InputDeviceId", () => input.InputDeviceId!, "{InputDeviceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -608,26 +563,19 @@ export const se_ClaimDeviceCommand = async (
   input: ClaimDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/claimDevice";
+  b.bp("/prod/claimDevice");
   let body: any;
   body = JSON.stringify(
     take(input, {
       id: [, , `Id`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -637,11 +585,11 @@ export const se_CreateChannelCommand = async (
   input: CreateChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/channels";
+  b.bp("/prod/channels");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -661,15 +609,8 @@ export const se_CreateChannelCommand = async (
       vpc: [, (_) => se_VpcOutputSettings(_, context), `Vpc`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -679,11 +620,11 @@ export const se_CreateInputCommand = async (
   input: CreateInputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/inputs";
+  b.bp("/prod/inputs");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -700,15 +641,8 @@ export const se_CreateInputCommand = async (
       vpc: [, (_) => se_InputVpcRequest(_, context), `Vpc`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -718,12 +652,11 @@ export const se_CreateInputSecurityGroupCommand = async (
   input: CreateInputSecurityGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/inputSecurityGroups";
+  b.bp("/prod/inputSecurityGroups");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -731,15 +664,8 @@ export const se_CreateInputSecurityGroupCommand = async (
       whitelistRules: [, (_) => se___listOfInputWhitelistRuleCidr(_, context), `WhitelistRules`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -749,11 +675,11 @@ export const se_CreateMultiplexCommand = async (
   input: CreateMultiplexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/multiplexes";
+  b.bp("/prod/multiplexes");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -764,15 +690,8 @@ export const se_CreateMultiplexCommand = async (
       tags: [, (_) => _json(_), `Tags`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -782,13 +701,12 @@ export const se_CreateMultiplexProgramCommand = async (
   input: CreateMultiplexProgramCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/multiplexes/{MultiplexId}/programs";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MultiplexId", () => input.MultiplexId!, "{MultiplexId}", false);
+  b.bp("/prod/multiplexes/{MultiplexId}/programs");
+  b.p("MultiplexId", () => input.MultiplexId!, "{MultiplexId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -797,15 +715,8 @@ export const se_CreateMultiplexProgramCommand = async (
       requestId: [true, (_) => _ ?? generateIdempotencyToken(), `RequestId`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -815,13 +726,12 @@ export const se_CreatePartnerInputCommand = async (
   input: CreatePartnerInputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/inputs/{InputId}/partners";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InputId", () => input.InputId!, "{InputId}", false);
+  b.bp("/prod/inputs/{InputId}/partners");
+  b.p("InputId", () => input.InputId!, "{InputId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -829,15 +739,8 @@ export const se_CreatePartnerInputCommand = async (
       tags: [, (_) => _json(_), `Tags`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -847,27 +750,20 @@ export const se_CreateTagsCommand = async (
   input: CreateTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/prod/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tags: [, (_) => _json(_), `Tags`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -877,21 +773,13 @@ export const se_DeleteChannelCommand = async (
   input: DeleteChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/channels/{ChannelId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelId", () => input.ChannelId!, "{ChannelId}", false);
+  b.bp("/prod/channels/{ChannelId}");
+  b.p("ChannelId", () => input.ChannelId!, "{ChannelId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -901,20 +789,13 @@ export const se_DeleteInputCommand = async (
   input: DeleteInputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/inputs/{InputId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InputId", () => input.InputId!, "{InputId}", false);
+  b.bp("/prod/inputs/{InputId}");
+  b.p("InputId", () => input.InputId!, "{InputId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -924,29 +805,13 @@ export const se_DeleteInputSecurityGroupCommand = async (
   input: DeleteInputSecurityGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/prod/inputSecurityGroups/{InputSecurityGroupId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "InputSecurityGroupId",
-    () => input.InputSecurityGroupId!,
-    "{InputSecurityGroupId}",
-    false
-  );
+  b.bp("/prod/inputSecurityGroups/{InputSecurityGroupId}");
+  b.p("InputSecurityGroupId", () => input.InputSecurityGroupId!, "{InputSecurityGroupId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -956,21 +821,13 @@ export const se_DeleteMultiplexCommand = async (
   input: DeleteMultiplexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/multiplexes/{MultiplexId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MultiplexId", () => input.MultiplexId!, "{MultiplexId}", false);
+  b.bp("/prod/multiplexes/{MultiplexId}");
+  b.p("MultiplexId", () => input.MultiplexId!, "{MultiplexId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -980,23 +837,14 @@ export const se_DeleteMultiplexProgramCommand = async (
   input: DeleteMultiplexProgramCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/prod/multiplexes/{MultiplexId}/programs/{ProgramName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MultiplexId", () => input.MultiplexId!, "{MultiplexId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "ProgramName", () => input.ProgramName!, "{ProgramName}", false);
+  b.bp("/prod/multiplexes/{MultiplexId}/programs/{ProgramName}");
+  b.p("MultiplexId", () => input.MultiplexId!, "{MultiplexId}", false);
+  b.p("ProgramName", () => input.ProgramName!, "{ProgramName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1006,28 +854,13 @@ export const se_DeleteReservationCommand = async (
   input: DeleteReservationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/reservations/{ReservationId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ReservationId",
-    () => input.ReservationId!,
-    "{ReservationId}",
-    false
-  );
+  b.bp("/prod/reservations/{ReservationId}");
+  b.p("ReservationId", () => input.ReservationId!, "{ReservationId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1037,21 +870,13 @@ export const se_DeleteScheduleCommand = async (
   input: DeleteScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/channels/{ChannelId}/schedule";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelId", () => input.ChannelId!, "{ChannelId}", false);
+  b.bp("/prod/channels/{ChannelId}/schedule");
+  b.p("ChannelId", () => input.ChannelId!, "{ChannelId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1061,27 +886,19 @@ export const se_DeleteTagsCommand = async (
   input: DeleteTagsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/prod/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [
+    [_tK]: [
       __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => (input[_TK]! || []).map((_entry) => _entry as any),
     ],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1091,23 +908,15 @@ export const se_DescribeAccountConfigurationCommand = async (
   input: DescribeAccountConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/accountConfiguration";
+  b.bp("/prod/accountConfiguration");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1117,21 +926,13 @@ export const se_DescribeChannelCommand = async (
   input: DescribeChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/channels/{ChannelId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelId", () => input.ChannelId!, "{ChannelId}", false);
+  b.bp("/prod/channels/{ChannelId}");
+  b.p("ChannelId", () => input.ChannelId!, "{ChannelId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1141,20 +942,13 @@ export const se_DescribeInputCommand = async (
   input: DescribeInputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/inputs/{InputId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InputId", () => input.InputId!, "{InputId}", false);
+  b.bp("/prod/inputs/{InputId}");
+  b.p("InputId", () => input.InputId!, "{InputId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1164,28 +958,13 @@ export const se_DescribeInputDeviceCommand = async (
   input: DescribeInputDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/inputDevices/{InputDeviceId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "InputDeviceId",
-    () => input.InputDeviceId!,
-    "{InputDeviceId}",
-    false
-  );
+  b.bp("/prod/inputDevices/{InputDeviceId}");
+  b.p("InputDeviceId", () => input.InputDeviceId!, "{InputDeviceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1195,31 +974,15 @@ export const se_DescribeInputDeviceThumbnailCommand = async (
   input: DescribeInputDeviceThumbnailCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    accept: input.Accept!,
+    [_a]: input[_A]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/prod/inputDevices/{InputDeviceId}/thumbnailData";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "InputDeviceId",
-    () => input.InputDeviceId!,
-    "{InputDeviceId}",
-    false
-  );
+  b.bp("/prod/inputDevices/{InputDeviceId}/thumbnailData");
+  b.p("InputDeviceId", () => input.InputDeviceId!, "{InputDeviceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1229,29 +992,13 @@ export const se_DescribeInputSecurityGroupCommand = async (
   input: DescribeInputSecurityGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/prod/inputSecurityGroups/{InputSecurityGroupId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "InputSecurityGroupId",
-    () => input.InputSecurityGroupId!,
-    "{InputSecurityGroupId}",
-    false
-  );
+  b.bp("/prod/inputSecurityGroups/{InputSecurityGroupId}");
+  b.p("InputSecurityGroupId", () => input.InputSecurityGroupId!, "{InputSecurityGroupId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1261,21 +1008,13 @@ export const se_DescribeMultiplexCommand = async (
   input: DescribeMultiplexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/multiplexes/{MultiplexId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MultiplexId", () => input.MultiplexId!, "{MultiplexId}", false);
+  b.bp("/prod/multiplexes/{MultiplexId}");
+  b.p("MultiplexId", () => input.MultiplexId!, "{MultiplexId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1285,23 +1024,14 @@ export const se_DescribeMultiplexProgramCommand = async (
   input: DescribeMultiplexProgramCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/prod/multiplexes/{MultiplexId}/programs/{ProgramName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MultiplexId", () => input.MultiplexId!, "{MultiplexId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "ProgramName", () => input.ProgramName!, "{ProgramName}", false);
+  b.bp("/prod/multiplexes/{MultiplexId}/programs/{ProgramName}");
+  b.p("MultiplexId", () => input.MultiplexId!, "{MultiplexId}", false);
+  b.p("ProgramName", () => input.ProgramName!, "{ProgramName}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1311,21 +1041,13 @@ export const se_DescribeOfferingCommand = async (
   input: DescribeOfferingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/offerings/{OfferingId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "OfferingId", () => input.OfferingId!, "{OfferingId}", false);
+  b.bp("/prod/offerings/{OfferingId}");
+  b.p("OfferingId", () => input.OfferingId!, "{OfferingId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1335,28 +1057,13 @@ export const se_DescribeReservationCommand = async (
   input: DescribeReservationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/reservations/{ReservationId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ReservationId",
-    () => input.ReservationId!,
-    "{ReservationId}",
-    false
-  );
+  b.bp("/prod/reservations/{ReservationId}");
+  b.p("ReservationId", () => input.ReservationId!, "{ReservationId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1366,26 +1073,17 @@ export const se_DescribeScheduleCommand = async (
   input: DescribeScheduleCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/channels/{ChannelId}/schedule";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelId", () => input.ChannelId!, "{ChannelId}", false);
+  b.bp("/prod/channels/{ChannelId}/schedule");
+  b.p("ChannelId", () => input.ChannelId!, "{ChannelId}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1395,26 +1093,17 @@ export const se_DescribeThumbnailsCommand = async (
   input: DescribeThumbnailsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/channels/{ChannelId}/thumbnails";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelId", () => input.ChannelId!, "{ChannelId}", false);
+  b.bp("/prod/channels/{ChannelId}/thumbnails");
+  b.p("ChannelId", () => input.ChannelId!, "{ChannelId}", false);
   const query: any = map({
-    pipelineId: [, __expectNonNull(input.PipelineId!, `PipelineId`)],
-    thumbnailType: [, __expectNonNull(input.ThumbnailType!, `ThumbnailType`)],
+    [_pI]: [, __expectNonNull(input[_PI]!, `PipelineId`)],
+    [_tT]: [, __expectNonNull(input[_TT]!, `ThumbnailType`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1424,24 +1113,16 @@ export const se_ListChannelsCommand = async (
   input: ListChannelsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/channels";
+  b.bp("/prod/channels");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1451,24 +1132,16 @@ export const se_ListInputDevicesCommand = async (
   input: ListInputDevicesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/inputDevices";
+  b.bp("/prod/inputDevices");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1478,26 +1151,17 @@ export const se_ListInputDeviceTransfersCommand = async (
   input: ListInputDeviceTransfersCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/inputDeviceTransfers";
+  b.bp("/prod/inputDeviceTransfers");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
-    transferType: [, __expectNonNull(input.TransferType!, `TransferType`)],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_tTr]: [, __expectNonNull(input[_TTr]!, `TransferType`)],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1507,24 +1171,16 @@ export const se_ListInputsCommand = async (
   input: ListInputsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/inputs";
+  b.bp("/prod/inputs");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1534,25 +1190,16 @@ export const se_ListInputSecurityGroupsCommand = async (
   input: ListInputSecurityGroupsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/inputSecurityGroups";
+  b.bp("/prod/inputSecurityGroups");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1562,24 +1209,16 @@ export const se_ListMultiplexesCommand = async (
   input: ListMultiplexesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/multiplexes";
+  b.bp("/prod/multiplexes");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1589,26 +1228,17 @@ export const se_ListMultiplexProgramsCommand = async (
   input: ListMultiplexProgramsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/multiplexes/{MultiplexId}/programs";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MultiplexId", () => input.MultiplexId!, "{MultiplexId}", false);
+  b.bp("/prod/multiplexes/{MultiplexId}/programs");
+  b.p("MultiplexId", () => input.MultiplexId!, "{MultiplexId}", false);
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1618,34 +1248,26 @@ export const se_ListOfferingsCommand = async (
   input: ListOfferingsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/offerings";
+  b.bp("/prod/offerings");
   const query: any = map({
-    channelClass: [, input.ChannelClass!],
-    channelConfiguration: [, input.ChannelConfiguration!],
-    codec: [, input.Codec!],
-    duration: [, input.Duration!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    maximumBitrate: [, input.MaximumBitrate!],
-    maximumFramerate: [, input.MaximumFramerate!],
-    nextToken: [, input.NextToken!],
-    resolution: [, input.Resolution!],
-    resourceType: [, input.ResourceType!],
-    specialFeature: [, input.SpecialFeature!],
-    videoQuality: [, input.VideoQuality!],
+    [_cC]: [, input[_CC]!],
+    [_cCh]: [, input[_CCh]!],
+    [_c]: [, input[_C]!],
+    [_d]: [, input[_D]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_mB]: [, input[_MB]!],
+    [_mF]: [, input[_MF]!],
+    [_nT]: [, input[_NT]!],
+    [_r]: [, input[_R]!],
+    [_rT]: [, input[_RT]!],
+    [_sF]: [, input[_SF]!],
+    [_vQ]: [, input[_VQ]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1655,32 +1277,24 @@ export const se_ListReservationsCommand = async (
   input: ListReservationsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/reservations";
+  b.bp("/prod/reservations");
   const query: any = map({
-    channelClass: [, input.ChannelClass!],
-    codec: [, input.Codec!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    maximumBitrate: [, input.MaximumBitrate!],
-    maximumFramerate: [, input.MaximumFramerate!],
-    nextToken: [, input.NextToken!],
-    resolution: [, input.Resolution!],
-    resourceType: [, input.ResourceType!],
-    specialFeature: [, input.SpecialFeature!],
-    videoQuality: [, input.VideoQuality!],
+    [_cC]: [, input[_CC]!],
+    [_c]: [, input[_C]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_mB]: [, input[_MB]!],
+    [_mF]: [, input[_MF]!],
+    [_nT]: [, input[_NT]!],
+    [_r]: [, input[_R]!],
+    [_rT]: [, input[_RT]!],
+    [_sF]: [, input[_SF]!],
+    [_vQ]: [, input[_VQ]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -1690,20 +1304,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/tags/{ResourceArn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
+  b.bp("/prod/tags/{ResourceArn}");
+  b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1713,13 +1320,12 @@ export const se_PurchaseOfferingCommand = async (
   input: PurchaseOfferingCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/offerings/{OfferingId}/purchase";
-  resolvedPath = __resolvedPath(resolvedPath, input, "OfferingId", () => input.OfferingId!, "{OfferingId}", false);
+  b.bp("/prod/offerings/{OfferingId}/purchase");
+  b.p("OfferingId", () => input.OfferingId!, "{OfferingId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1731,15 +1337,8 @@ export const se_PurchaseOfferingCommand = async (
       tags: [, (_) => _json(_), `Tags`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1749,35 +1348,20 @@ export const se_RebootInputDeviceCommand = async (
   input: RebootInputDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/inputDevices/{InputDeviceId}/reboot";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "InputDeviceId",
-    () => input.InputDeviceId!,
-    "{InputDeviceId}",
-    false
-  );
+  b.bp("/prod/inputDevices/{InputDeviceId}/reboot");
+  b.p("InputDeviceId", () => input.InputDeviceId!, "{InputDeviceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       force: [, , `Force`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1787,28 +1371,13 @@ export const se_RejectInputDeviceTransferCommand = async (
   input: RejectInputDeviceTransferCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/inputDevices/{InputDeviceId}/reject";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "InputDeviceId",
-    () => input.InputDeviceId!,
-    "{InputDeviceId}",
-    false
-  );
+  b.bp("/prod/inputDevices/{InputDeviceId}/reject");
+  b.p("InputDeviceId", () => input.InputDeviceId!, "{InputDeviceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1818,21 +1387,29 @@ export const se_StartChannelCommand = async (
   input: StartChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/channels/{ChannelId}/start";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelId", () => input.ChannelId!, "{ChannelId}", false);
+  b.bp("/prod/channels/{ChannelId}/start");
+  b.p("ChannelId", () => input.ChannelId!, "{ChannelId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartInputDeviceCommand
+ */
+export const se_StartInputDeviceCommand = async (
+  input: StartInputDeviceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/inputDevices/{InputDeviceId}/start");
+  b.p("InputDeviceId", () => input.InputDeviceId!, "{InputDeviceId}", false);
+  let body: any;
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1842,29 +1419,13 @@ export const se_StartInputDeviceMaintenanceWindowCommand = async (
   input: StartInputDeviceMaintenanceWindowCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/prod/inputDevices/{InputDeviceId}/startInputDeviceMaintenanceWindow";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "InputDeviceId",
-    () => input.InputDeviceId!,
-    "{InputDeviceId}",
-    false
-  );
+  b.bp("/prod/inputDevices/{InputDeviceId}/startInputDeviceMaintenanceWindow");
+  b.p("InputDeviceId", () => input.InputDeviceId!, "{InputDeviceId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1874,21 +1435,13 @@ export const se_StartMultiplexCommand = async (
   input: StartMultiplexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/multiplexes/{MultiplexId}/start";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MultiplexId", () => input.MultiplexId!, "{MultiplexId}", false);
+  b.bp("/prod/multiplexes/{MultiplexId}/start");
+  b.p("MultiplexId", () => input.MultiplexId!, "{MultiplexId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1898,21 +1451,29 @@ export const se_StopChannelCommand = async (
   input: StopChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/channels/{ChannelId}/stop";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelId", () => input.ChannelId!, "{ChannelId}", false);
+  b.bp("/prod/channels/{ChannelId}/stop");
+  b.p("ChannelId", () => input.ChannelId!, "{ChannelId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StopInputDeviceCommand
+ */
+export const se_StopInputDeviceCommand = async (
+  input: StopInputDeviceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/prod/inputDevices/{InputDeviceId}/stop");
+  b.p("InputDeviceId", () => input.InputDeviceId!, "{InputDeviceId}", false);
+  let body: any;
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1922,21 +1483,13 @@ export const se_StopMultiplexCommand = async (
   input: StopMultiplexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/multiplexes/{MultiplexId}/stop";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MultiplexId", () => input.MultiplexId!, "{MultiplexId}", false);
+  b.bp("/prod/multiplexes/{MultiplexId}/stop");
+  b.p("MultiplexId", () => input.MultiplexId!, "{MultiplexId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1946,21 +1499,12 @@ export const se_TransferInputDeviceCommand = async (
   input: TransferInputDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/prod/inputDevices/{InputDeviceId}/transfer";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "InputDeviceId",
-    () => input.InputDeviceId!,
-    "{InputDeviceId}",
-    false
-  );
+  b.bp("/prod/inputDevices/{InputDeviceId}/transfer");
+  b.p("InputDeviceId", () => input.InputDeviceId!, "{InputDeviceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1969,15 +1513,8 @@ export const se_TransferInputDeviceCommand = async (
       transferMessage: [, , `TransferMessage`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1987,27 +1524,19 @@ export const se_UpdateAccountConfigurationCommand = async (
   input: UpdateAccountConfigurationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/accountConfiguration";
+  b.bp("/prod/accountConfiguration");
   let body: any;
   body = JSON.stringify(
     take(input, {
       accountConfiguration: [, (_) => se_AccountConfiguration(_, context), `AccountConfiguration`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2017,13 +1546,12 @@ export const se_UpdateChannelCommand = async (
   input: UpdateChannelCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/channels/{ChannelId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelId", () => input.ChannelId!, "{ChannelId}", false);
+  b.bp("/prod/channels/{ChannelId}");
+  b.p("ChannelId", () => input.ChannelId!, "{ChannelId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2038,15 +1566,8 @@ export const se_UpdateChannelCommand = async (
       roleArn: [, , `RoleArn`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2056,13 +1577,12 @@ export const se_UpdateChannelClassCommand = async (
   input: UpdateChannelClassCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/channels/{ChannelId}/channelClass";
-  resolvedPath = __resolvedPath(resolvedPath, input, "ChannelId", () => input.ChannelId!, "{ChannelId}", false);
+  b.bp("/prod/channels/{ChannelId}/channelClass");
+  b.p("ChannelId", () => input.ChannelId!, "{ChannelId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2070,15 +1590,8 @@ export const se_UpdateChannelClassCommand = async (
       destinations: [, (_) => se___listOfOutputDestination(_, context), `Destinations`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2088,12 +1601,12 @@ export const se_UpdateInputCommand = async (
   input: UpdateInputCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/inputs/{InputId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "InputId", () => input.InputId!, "{InputId}", false);
+  b.bp("/prod/inputs/{InputId}");
+  b.p("InputId", () => input.InputId!, "{InputId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2106,15 +1619,8 @@ export const se_UpdateInputCommand = async (
       sources: [, (_) => se___listOfInputSourceRequest(_, context), `Sources`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2124,20 +1630,12 @@ export const se_UpdateInputDeviceCommand = async (
   input: UpdateInputDeviceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/inputDevices/{InputDeviceId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "InputDeviceId",
-    () => input.InputDeviceId!,
-    "{InputDeviceId}",
-    false
-  );
+  b.bp("/prod/inputDevices/{InputDeviceId}");
+  b.p("InputDeviceId", () => input.InputDeviceId!, "{InputDeviceId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2147,15 +1645,8 @@ export const se_UpdateInputDeviceCommand = async (
       uhdDeviceSettings: [, (_) => se_InputDeviceConfigurableSettings(_, context), `UhdDeviceSettings`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2165,21 +1656,12 @@ export const se_UpdateInputSecurityGroupCommand = async (
   input: UpdateInputSecurityGroupCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/prod/inputSecurityGroups/{InputSecurityGroupId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "InputSecurityGroupId",
-    () => input.InputSecurityGroupId!,
-    "{InputSecurityGroupId}",
-    false
-  );
+  b.bp("/prod/inputSecurityGroups/{InputSecurityGroupId}");
+  b.p("InputSecurityGroupId", () => input.InputSecurityGroupId!, "{InputSecurityGroupId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2187,15 +1669,8 @@ export const se_UpdateInputSecurityGroupCommand = async (
       whitelistRules: [, (_) => se___listOfInputWhitelistRuleCidr(_, context), `WhitelistRules`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2205,13 +1680,12 @@ export const se_UpdateMultiplexCommand = async (
   input: UpdateMultiplexCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/multiplexes/{MultiplexId}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MultiplexId", () => input.MultiplexId!, "{MultiplexId}", false);
+  b.bp("/prod/multiplexes/{MultiplexId}");
+  b.p("MultiplexId", () => input.MultiplexId!, "{MultiplexId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2219,15 +1693,8 @@ export const se_UpdateMultiplexCommand = async (
       name: [, , `Name`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2237,30 +1704,21 @@ export const se_UpdateMultiplexProgramCommand = async (
   input: UpdateMultiplexProgramCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/prod/multiplexes/{MultiplexId}/programs/{ProgramName}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "MultiplexId", () => input.MultiplexId!, "{MultiplexId}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "ProgramName", () => input.ProgramName!, "{ProgramName}", false);
+  b.bp("/prod/multiplexes/{MultiplexId}/programs/{ProgramName}");
+  b.p("MultiplexId", () => input.MultiplexId!, "{MultiplexId}", false);
+  b.p("ProgramName", () => input.ProgramName!, "{ProgramName}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       multiplexProgramSettings: [, (_) => se_MultiplexProgramSettings(_, context), `MultiplexProgramSettings`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2270,20 +1728,12 @@ export const se_UpdateReservationCommand = async (
   input: UpdateReservationCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/reservations/{ReservationId}";
-  resolvedPath = __resolvedPath(
-    resolvedPath,
-    input,
-    "ReservationId",
-    () => input.ReservationId!,
-    "{ReservationId}",
-    false
-  );
+  b.bp("/prod/reservations/{ReservationId}");
+  b.p("ReservationId", () => input.ReservationId!, "{ReservationId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -2291,15 +1741,8 @@ export const se_UpdateReservationCommand = async (
       renewalSettings: [, (_) => se_RenewalSettings(_, context), `RenewalSettings`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -4023,8 +3466,10 @@ export const de_DescribeInputDeviceCommand = async (
     HdDeviceSettings: [, (_) => de_InputDeviceHdSettings(_, context), `hdDeviceSettings`],
     Id: [, __expectString, `id`],
     MacAddress: [, __expectString, `macAddress`],
+    MedialiveInputArns: [, _json, `medialiveInputArns`],
     Name: [, __expectString, `name`],
     NetworkSettings: [, (_) => de_InputDeviceNetworkSettings(_, context), `networkSettings`],
+    OutputType: [, __expectString, `outputType`],
     SerialNumber: [, __expectString, `serialNumber`],
     Tags: [, _json, `tags`],
     Type: [, __expectString, `type`],
@@ -4090,16 +3535,10 @@ export const de_DescribeInputDeviceThumbnailCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    ContentType: [, output.headers["content-type"]],
-    ContentLength: [
-      () => void 0 !== output.headers["content-length"],
-      () => __strictParseLong(output.headers["content-length"]),
-    ],
-    ETag: [, output.headers["etag"]],
-    LastModified: [
-      () => void 0 !== output.headers["last-modified"],
-      () => __expectNonNull(__parseRfc7231DateTime(output.headers["last-modified"])),
-    ],
+    [_CT]: [, output.headers[_ct]],
+    [_CL]: [() => void 0 !== output.headers[_cl], () => __strictParseLong(output.headers[_cl])],
+    [_ET]: [, output.headers[_e]],
+    [_LM]: [() => void 0 !== output.headers[_lm], () => __expectNonNull(__parseRfc7231DateTime(output.headers[_lm]))],
   });
   const data: any = output.body;
   context.sdkStreamMixin(data);
@@ -5570,6 +5009,70 @@ const de_StartChannelCommandError = async (
 };
 
 /**
+ * deserializeAws_restJson1StartInputDeviceCommand
+ */
+export const de_StartInputDeviceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartInputDeviceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StartInputDeviceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StartInputDeviceCommandError
+ */
+const de_StartInputDeviceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartInputDeviceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadGatewayException":
+    case "com.amazonaws.medialive#BadGatewayException":
+      throw await de_BadGatewayExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.medialive#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.medialive#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "GatewayTimeoutException":
+    case "com.amazonaws.medialive#GatewayTimeoutException":
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.medialive#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.medialive#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.medialive#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "UnprocessableEntityException":
+    case "com.amazonaws.medialive#UnprocessableEntityException":
+      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_restJson1StartInputDeviceMaintenanceWindowCommand
  */
 export const de_StartInputDeviceMaintenanceWindowCommand = async (
@@ -5785,6 +5288,70 @@ const de_StopChannelCommandError = async (
     case "TooManyRequestsException":
     case "com.amazonaws.medialive#TooManyRequestsException":
       throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
+ * deserializeAws_restJson1StopInputDeviceCommand
+ */
+export const de_StopInputDeviceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopInputDeviceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_StopInputDeviceCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StopInputDeviceCommandError
+ */
+const de_StopInputDeviceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopInputDeviceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadGatewayException":
+    case "com.amazonaws.medialive#BadGatewayException":
+      throw await de_BadGatewayExceptionRes(parsedOutput, context);
+    case "BadRequestException":
+    case "com.amazonaws.medialive#BadRequestException":
+      throw await de_BadRequestExceptionRes(parsedOutput, context);
+    case "ForbiddenException":
+    case "com.amazonaws.medialive#ForbiddenException":
+      throw await de_ForbiddenExceptionRes(parsedOutput, context);
+    case "GatewayTimeoutException":
+    case "com.amazonaws.medialive#GatewayTimeoutException":
+      throw await de_GatewayTimeoutExceptionRes(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.medialive#InternalServerErrorException":
+      throw await de_InternalServerErrorExceptionRes(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.medialive#NotFoundException":
+      throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.medialive#TooManyRequestsException":
+      throw await de_TooManyRequestsExceptionRes(parsedOutput, context);
+    case "UnprocessableEntityException":
+    case "com.amazonaws.medialive#UnprocessableEntityException":
+      throw await de_UnprocessableEntityExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -6228,8 +5795,10 @@ export const de_UpdateInputDeviceCommand = async (
     HdDeviceSettings: [, (_) => de_InputDeviceHdSettings(_, context), `hdDeviceSettings`],
     Id: [, __expectString, `id`],
     MacAddress: [, __expectString, `macAddress`],
+    MedialiveInputArns: [, _json, `medialiveInputArns`],
     Name: [, __expectString, `name`],
     NetworkSettings: [, (_) => de_InputDeviceNetworkSettings(_, context), `networkSettings`],
+    OutputType: [, __expectString, `outputType`],
     SerialNumber: [, __expectString, `serialNumber`],
     Tags: [, _json, `tags`],
     Type: [, __expectString, `type`],
@@ -6802,6 +6371,17 @@ const se___listOfCaptionSelector = (input: CaptionSelector[], context: __SerdeCo
 };
 
 /**
+ * serializeAws_restJson1__listOfColorCorrection
+ */
+const se___listOfColorCorrection = (input: ColorCorrection[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ColorCorrection(entry, context);
+    });
+};
+
+/**
  * serializeAws_restJson1__listOfFailoverCondition
  */
 const se___listOfFailoverCondition = (input: FailoverCondition[], context: __SerdeContext): any => {
@@ -6844,6 +6424,20 @@ const se___listOfInputDestinationRequest = (input: InputDestinationRequest[], co
     .filter((e: any) => e != null)
     .map((entry) => {
       return se_InputDestinationRequest(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1__listOfInputDeviceConfigurableAudioChannelPairConfig
+ */
+const se___listOfInputDeviceConfigurableAudioChannelPairConfig = (
+  input: InputDeviceConfigurableAudioChannelPairConfig[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_InputDeviceConfigurableAudioChannelPairConfig(entry, context);
     });
 };
 
@@ -7028,6 +6622,7 @@ const se_AacSettings = (input: AacSettings, context: __SerdeContext): any => {
  */
 const se_Ac3Settings = (input: Ac3Settings, context: __SerdeContext): any => {
   return take(input, {
+    attenuationControl: [, , `AttenuationControl`],
     bitrate: [, __serializeFloat, `Bitrate`],
     bitstreamMode: [, , `BitstreamMode`],
     codingMode: [, , `CodingMode`],
@@ -7466,6 +7061,26 @@ const se_CdiInputSpecification = (input: CdiInputSpecification, context: __Serde
   });
 };
 
+/**
+ * serializeAws_restJson1ColorCorrection
+ */
+const se_ColorCorrection = (input: ColorCorrection, context: __SerdeContext): any => {
+  return take(input, {
+    inputColorSpace: [, , `InputColorSpace`],
+    outputColorSpace: [, , `OutputColorSpace`],
+    uri: [, , `Uri`],
+  });
+};
+
+/**
+ * serializeAws_restJson1ColorCorrectionSettings
+ */
+const se_ColorCorrectionSettings = (input: ColorCorrectionSettings, context: __SerdeContext): any => {
+  return take(input, {
+    globalColorCorrections: [, (_) => se___listOfColorCorrection(_, context), `GlobalColorCorrections`],
+  });
+};
+
 // se_ColorSpacePassthroughSettings omitted.
 
 // se_DolbyVision81Settings omitted.
@@ -7618,6 +7233,7 @@ const se_EncoderSettings = (input: EncoderSettings, context: __SerdeContext): an
     availConfiguration: [, (_) => se_AvailConfiguration(_, context), `AvailConfiguration`],
     blackoutSlate: [, (_) => se_BlackoutSlate(_, context), `BlackoutSlate`],
     captionDescriptions: [, (_) => se___listOfCaptionDescription(_, context), `CaptionDescriptions`],
+    colorCorrectionSettings: [, (_) => se_ColorCorrectionSettings(_, context), `ColorCorrectionSettings`],
     featureActivations: [, (_) => se_FeatureActivations(_, context), `FeatureActivations`],
     globalConfiguration: [, (_) => se_GlobalConfiguration(_, context), `GlobalConfiguration`],
     motionGraphicsConfiguration: [, (_) => se_MotionGraphicsConfiguration(_, context), `MotionGraphicsConfiguration`],
@@ -7626,6 +7242,16 @@ const se_EncoderSettings = (input: EncoderSettings, context: __SerdeContext): an
     thumbnailConfiguration: [, (_) => se_ThumbnailConfiguration(_, context), `ThumbnailConfiguration`],
     timecodeConfig: [, (_) => se_TimecodeConfig(_, context), `TimecodeConfig`],
     videoDescriptions: [, (_) => se___listOfVideoDescription(_, context), `VideoDescriptions`],
+  });
+};
+
+/**
+ * serializeAws_restJson1EpochLockingSettings
+ */
+const se_EpochLockingSettings = (input: EpochLockingSettings, context: __SerdeContext): any => {
+  return take(input, {
+    customEpoch: [, , `CustomEpoch`],
+    jamSyncTime: [, , `JamSyncTime`],
   });
 };
 
@@ -7669,6 +7295,7 @@ const se_FailoverConditionSettings = (input: FailoverConditionSettings, context:
 const se_FeatureActivations = (input: FeatureActivations, context: __SerdeContext): any => {
   return take(input, {
     inputPrepareScheduleActions: [, , `InputPrepareScheduleActions`],
+    outputStaticImageOverlayScheduleActions: [, , `OutputStaticImageOverlayScheduleActions`],
   });
 };
 
@@ -7778,6 +7405,7 @@ const se_GlobalConfiguration = (input: GlobalConfiguration, context: __SerdeCont
     inputEndAction: [, , `InputEndAction`],
     inputLossBehavior: [, (_) => se_InputLossBehavior(_, context), `InputLossBehavior`],
     outputLockingMode: [, , `OutputLockingMode`],
+    outputLockingSettings: [, (_) => se_OutputLockingSettings(_, context), `OutputLockingSettings`],
     outputTimingSource: [, , `OutputTimingSource`],
     supportLowFramerateInputs: [, , `SupportLowFramerateInputs`],
   });
@@ -8162,13 +7790,48 @@ const se_InputDestinationRequest = (input: InputDestinationRequest, context: __S
 };
 
 /**
+ * serializeAws_restJson1InputDeviceConfigurableAudioChannelPairConfig
+ */
+const se_InputDeviceConfigurableAudioChannelPairConfig = (
+  input: InputDeviceConfigurableAudioChannelPairConfig,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    id: [, , `Id`],
+    profile: [, , `Profile`],
+  });
+};
+
+/**
  * serializeAws_restJson1InputDeviceConfigurableSettings
  */
 const se_InputDeviceConfigurableSettings = (input: InputDeviceConfigurableSettings, context: __SerdeContext): any => {
   return take(input, {
+    audioChannelPairs: [
+      ,
+      (_) => se___listOfInputDeviceConfigurableAudioChannelPairConfig(_, context),
+      `AudioChannelPairs`,
+    ],
+    codec: [, , `Codec`],
     configuredInput: [, , `ConfiguredInput`],
     latencyMs: [, , `LatencyMs`],
     maxBitrate: [, , `MaxBitrate`],
+    mediaconnectSettings: [, (_) => se_InputDeviceMediaConnectConfigurableSettings(_, context), `MediaconnectSettings`],
+  });
+};
+
+/**
+ * serializeAws_restJson1InputDeviceMediaConnectConfigurableSettings
+ */
+const se_InputDeviceMediaConnectConfigurableSettings = (
+  input: InputDeviceMediaConnectConfigurableSettings,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    flowArn: [, , `FlowArn`],
+    roleArn: [, , `RoleArn`],
+    secretArn: [, , `SecretArn`],
+    sourceName: [, , `SourceName`],
   });
 };
 
@@ -8384,6 +8047,8 @@ const se_M3u8Settings = (input: M3u8Settings, context: __SerdeContext): any => {
     audioFramesPerPes: [, , `AudioFramesPerPes`],
     audioPids: [, , `AudioPids`],
     ecmPid: [, , `EcmPid`],
+    klvBehavior: [, , `KlvBehavior`],
+    klvDataPids: [, , `KlvDataPids`],
     nielsenId3Behavior: [, , `NielsenId3Behavior`],
     patInterval: [, , `PatInterval`],
     pcrControl: [, , `PcrControl`],
@@ -8785,6 +8450,16 @@ const se_OutputLocationRef = (input: OutputLocationRef, context: __SerdeContext)
 };
 
 /**
+ * serializeAws_restJson1OutputLockingSettings
+ */
+const se_OutputLockingSettings = (input: OutputLockingSettings, context: __SerdeContext): any => {
+  return take(input, {
+    epochLockingSettings: [, (_) => se_EpochLockingSettings(_, context), `EpochLockingSettings`],
+    pipelineLockingSettings: [, _json, `PipelineLockingSettings`],
+  });
+};
+
+/**
  * serializeAws_restJson1OutputSettings
  */
 const se_OutputSettings = (input: OutputSettings, context: __SerdeContext): any => {
@@ -8810,6 +8485,8 @@ const se_PauseStateScheduleActionSettings = (input: PauseStateScheduleActionSett
     pipelines: [, (_) => se___listOfPipelinePauseStateSettings(_, context), `Pipelines`],
   });
 };
+
+// se_PipelineLockingSettings omitted.
 
 /**
  * serializeAws_restJson1PipelinePauseStateSettings
@@ -8859,6 +8536,7 @@ const se_RtmpGroupSettings = (input: RtmpGroupSettings, context: __SerdeContext)
     cacheFullBehavior: [, , `CacheFullBehavior`],
     cacheLength: [, , `CacheLength`],
     captionData: [, , `CaptionData`],
+    includeFillerNalUnits: [, , `IncludeFillerNalUnits`],
     inputLossAction: [, , `InputLossAction`],
     restartDelay: [, , `RestartDelay`],
   });
@@ -8936,6 +8614,16 @@ const se_ScheduleActionSettings = (input: ScheduleActionSettings, context: __Ser
       ,
       (_) => se_StaticImageDeactivateScheduleActionSettings(_, context),
       `StaticImageDeactivateSettings`,
+    ],
+    staticImageOutputActivateSettings: [
+      ,
+      (_) => se_StaticImageOutputActivateScheduleActionSettings(_, context),
+      `StaticImageOutputActivateSettings`,
+    ],
+    staticImageOutputDeactivateSettings: [
+      ,
+      (_) => se_StaticImageOutputDeactivateScheduleActionSettings(_, context),
+      `StaticImageOutputDeactivateSettings`,
     ],
   });
 };
@@ -9160,6 +8848,42 @@ const se_StaticImageDeactivateScheduleActionSettings = (
   return take(input, {
     fadeOut: [, , `FadeOut`],
     layer: [, , `Layer`],
+  });
+};
+
+/**
+ * serializeAws_restJson1StaticImageOutputActivateScheduleActionSettings
+ */
+const se_StaticImageOutputActivateScheduleActionSettings = (
+  input: StaticImageOutputActivateScheduleActionSettings,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    duration: [, , `Duration`],
+    fadeIn: [, , `FadeIn`],
+    fadeOut: [, , `FadeOut`],
+    height: [, , `Height`],
+    image: [, (_) => se_InputLocation(_, context), `Image`],
+    imageX: [, , `ImageX`],
+    imageY: [, , `ImageY`],
+    layer: [, , `Layer`],
+    opacity: [, , `Opacity`],
+    outputNames: [, _json, `OutputNames`],
+    width: [, , `Width`],
+  });
+};
+
+/**
+ * serializeAws_restJson1StaticImageOutputDeactivateScheduleActionSettings
+ */
+const se_StaticImageOutputDeactivateScheduleActionSettings = (
+  input: StaticImageOutputDeactivateScheduleActionSettings,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    fadeOut: [, , `FadeOut`],
+    layer: [, , `Layer`],
+    outputNames: [, _json, `OutputNames`],
   });
 };
 
@@ -9532,6 +9256,18 @@ const de___listOfChannelSummary = (output: any, context: __SerdeContext): Channe
 };
 
 /**
+ * deserializeAws_restJson1__listOfColorCorrection
+ */
+const de___listOfColorCorrection = (output: any, context: __SerdeContext): ColorCorrection[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ColorCorrection(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1__listOfFailoverCondition
  */
 const de___listOfFailoverCondition = (output: any, context: __SerdeContext): FailoverCondition[] => {
@@ -9613,6 +9349,21 @@ const de___listOfInputDeviceSummary = (output: any, context: __SerdeContext): In
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return de_InputDeviceSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfInputDeviceUhdAudioChannelPairConfig
+ */
+const de___listOfInputDeviceUhdAudioChannelPairConfig = (
+  output: any,
+  context: __SerdeContext
+): InputDeviceUhdAudioChannelPairConfig[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_InputDeviceUhdAudioChannelPairConfig(entry, context);
     });
   return retVal;
 };
@@ -9938,6 +9689,7 @@ const de_AacSettings = (output: any, context: __SerdeContext): AacSettings => {
  */
 const de_Ac3Settings = (output: any, context: __SerdeContext): Ac3Settings => {
   return take(output, {
+    AttenuationControl: [, __expectString, `attenuationControl`],
     Bitrate: [, __limitedParseDouble, `bitrate`],
     BitstreamMode: [, __expectString, `bitstreamMode`],
     CodingMode: [, __expectString, `codingMode`],
@@ -10458,6 +10210,26 @@ const de_ChannelSummary = (output: any, context: __SerdeContext): ChannelSummary
   }) as any;
 };
 
+/**
+ * deserializeAws_restJson1ColorCorrection
+ */
+const de_ColorCorrection = (output: any, context: __SerdeContext): ColorCorrection => {
+  return take(output, {
+    InputColorSpace: [, __expectString, `inputColorSpace`],
+    OutputColorSpace: [, __expectString, `outputColorSpace`],
+    Uri: [, __expectString, `uri`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ColorCorrectionSettings
+ */
+const de_ColorCorrectionSettings = (output: any, context: __SerdeContext): ColorCorrectionSettings => {
+  return take(output, {
+    GlobalColorCorrections: [, (_: any) => de___listOfColorCorrection(_, context), `globalColorCorrections`],
+  }) as any;
+};
+
 // de_ColorSpacePassthroughSettings omitted.
 
 // de_DolbyVision81Settings omitted.
@@ -10610,6 +10382,7 @@ const de_EncoderSettings = (output: any, context: __SerdeContext): EncoderSettin
     AvailConfiguration: [, (_: any) => de_AvailConfiguration(_, context), `availConfiguration`],
     BlackoutSlate: [, (_: any) => de_BlackoutSlate(_, context), `blackoutSlate`],
     CaptionDescriptions: [, (_: any) => de___listOfCaptionDescription(_, context), `captionDescriptions`],
+    ColorCorrectionSettings: [, (_: any) => de_ColorCorrectionSettings(_, context), `colorCorrectionSettings`],
     FeatureActivations: [, (_: any) => de_FeatureActivations(_, context), `featureActivations`],
     GlobalConfiguration: [, (_: any) => de_GlobalConfiguration(_, context), `globalConfiguration`],
     MotionGraphicsConfiguration: [
@@ -10622,6 +10395,16 @@ const de_EncoderSettings = (output: any, context: __SerdeContext): EncoderSettin
     ThumbnailConfiguration: [, (_: any) => de_ThumbnailConfiguration(_, context), `thumbnailConfiguration`],
     TimecodeConfig: [, (_: any) => de_TimecodeConfig(_, context), `timecodeConfig`],
     VideoDescriptions: [, (_: any) => de___listOfVideoDescription(_, context), `videoDescriptions`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EpochLockingSettings
+ */
+const de_EpochLockingSettings = (output: any, context: __SerdeContext): EpochLockingSettings => {
+  return take(output, {
+    CustomEpoch: [, __expectString, `customEpoch`],
+    JamSyncTime: [, __expectString, `jamSyncTime`],
   }) as any;
 };
 
@@ -10665,6 +10448,7 @@ const de_FailoverConditionSettings = (output: any, context: __SerdeContext): Fai
 const de_FeatureActivations = (output: any, context: __SerdeContext): FeatureActivations => {
   return take(output, {
     InputPrepareScheduleActions: [, __expectString, `inputPrepareScheduleActions`],
+    OutputStaticImageOverlayScheduleActions: [, __expectString, `outputStaticImageOverlayScheduleActions`],
   }) as any;
 };
 
@@ -10774,6 +10558,7 @@ const de_GlobalConfiguration = (output: any, context: __SerdeContext): GlobalCon
     InputEndAction: [, __expectString, `inputEndAction`],
     InputLossBehavior: [, (_: any) => de_InputLossBehavior(_, context), `inputLossBehavior`],
     OutputLockingMode: [, __expectString, `outputLockingMode`],
+    OutputLockingSettings: [, (_: any) => de_OutputLockingSettings(_, context), `outputLockingSettings`],
     OutputTimingSource: [, __expectString, `outputTimingSource`],
     SupportLowFramerateInputs: [, __expectString, `supportLowFramerateInputs`],
   }) as any;
@@ -11212,6 +10997,18 @@ const de_InputDeviceHdSettings = (output: any, context: __SerdeContext): InputDe
 };
 
 /**
+ * deserializeAws_restJson1InputDeviceMediaConnectSettings
+ */
+const de_InputDeviceMediaConnectSettings = (output: any, context: __SerdeContext): InputDeviceMediaConnectSettings => {
+  return take(output, {
+    FlowArn: [, __expectString, `flowArn`],
+    RoleArn: [, __expectString, `roleArn`],
+    SecretArn: [, __expectString, `secretArn`],
+    SourceName: [, __expectString, `sourceName`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1InputDeviceNetworkSettings
  */
 const de_InputDeviceNetworkSettings = (output: any, context: __SerdeContext): InputDeviceNetworkSettings => {
@@ -11246,12 +11043,27 @@ const de_InputDeviceSummary = (output: any, context: __SerdeContext): InputDevic
     HdDeviceSettings: [, (_: any) => de_InputDeviceHdSettings(_, context), `hdDeviceSettings`],
     Id: [, __expectString, `id`],
     MacAddress: [, __expectString, `macAddress`],
+    MedialiveInputArns: [, _json, `medialiveInputArns`],
     Name: [, __expectString, `name`],
     NetworkSettings: [, (_: any) => de_InputDeviceNetworkSettings(_, context), `networkSettings`],
+    OutputType: [, __expectString, `outputType`],
     SerialNumber: [, __expectString, `serialNumber`],
     Tags: [, _json, `tags`],
     Type: [, __expectString, `type`],
     UhdDeviceSettings: [, (_: any) => de_InputDeviceUhdSettings(_, context), `uhdDeviceSettings`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1InputDeviceUhdAudioChannelPairConfig
+ */
+const de_InputDeviceUhdAudioChannelPairConfig = (
+  output: any,
+  context: __SerdeContext
+): InputDeviceUhdAudioChannelPairConfig => {
+  return take(output, {
+    Id: [, __expectInt32, `id`],
+    Profile: [, __expectString, `profile`],
   }) as any;
 };
 
@@ -11261,12 +11073,15 @@ const de_InputDeviceSummary = (output: any, context: __SerdeContext): InputDevic
 const de_InputDeviceUhdSettings = (output: any, context: __SerdeContext): InputDeviceUhdSettings => {
   return take(output, {
     ActiveInput: [, __expectString, `activeInput`],
+    AudioChannelPairs: [, (_: any) => de___listOfInputDeviceUhdAudioChannelPairConfig(_, context), `audioChannelPairs`],
+    Codec: [, __expectString, `codec`],
     ConfiguredInput: [, __expectString, `configuredInput`],
     DeviceState: [, __expectString, `deviceState`],
     Framerate: [, __limitedParseDouble, `framerate`],
     Height: [, __expectInt32, `height`],
     LatencyMs: [, __expectInt32, `latencyMs`],
     MaxBitrate: [, __expectInt32, `maxBitrate`],
+    MediaconnectSettings: [, (_: any) => de_InputDeviceMediaConnectSettings(_, context), `mediaconnectSettings`],
     ScanType: [, __expectString, `scanType`],
     Width: [, __expectInt32, `width`],
   }) as any;
@@ -11470,6 +11285,8 @@ const de_M3u8Settings = (output: any, context: __SerdeContext): M3u8Settings => 
     AudioFramesPerPes: [, __expectInt32, `audioFramesPerPes`],
     AudioPids: [, __expectString, `audioPids`],
     EcmPid: [, __expectString, `ecmPid`],
+    KlvBehavior: [, __expectString, `klvBehavior`],
+    KlvDataPids: [, __expectString, `klvDataPids`],
     NielsenId3Behavior: [, __expectString, `nielsenId3Behavior`],
     PatInterval: [, __expectInt32, `patInterval`],
     PcrControl: [, __expectString, `pcrControl`],
@@ -12007,6 +11824,16 @@ const de_OutputLocationRef = (output: any, context: __SerdeContext): OutputLocat
 };
 
 /**
+ * deserializeAws_restJson1OutputLockingSettings
+ */
+const de_OutputLockingSettings = (output: any, context: __SerdeContext): OutputLockingSettings => {
+  return take(output, {
+    EpochLockingSettings: [, (_: any) => de_EpochLockingSettings(_, context), `epochLockingSettings`],
+    PipelineLockingSettings: [, _json, `pipelineLockingSettings`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1OutputSettings
  */
 const de_OutputSettings = (output: any, context: __SerdeContext): OutputSettings => {
@@ -12048,6 +11875,8 @@ const de_PipelineDetail = (output: any, context: __SerdeContext): PipelineDetail
     PipelineId: [, __expectString, `pipelineId`],
   }) as any;
 };
+
+// de_PipelineLockingSettings omitted.
 
 /**
  * deserializeAws_restJson1PipelinePauseStateSettings
@@ -12143,6 +11972,7 @@ const de_RtmpGroupSettings = (output: any, context: __SerdeContext): RtmpGroupSe
     CacheFullBehavior: [, __expectString, `cacheFullBehavior`],
     CacheLength: [, __expectInt32, `cacheLength`],
     CaptionData: [, __expectString, `captionData`],
+    IncludeFillerNalUnits: [, __expectString, `includeFillerNalUnits`],
     InputLossAction: [, __expectString, `inputLossAction`],
     RestartDelay: [, __expectInt32, `restartDelay`],
   }) as any;
@@ -12224,6 +12054,16 @@ const de_ScheduleActionSettings = (output: any, context: __SerdeContext): Schedu
       ,
       (_: any) => de_StaticImageDeactivateScheduleActionSettings(_, context),
       `staticImageDeactivateSettings`,
+    ],
+    StaticImageOutputActivateSettings: [
+      ,
+      (_: any) => de_StaticImageOutputActivateScheduleActionSettings(_, context),
+      `staticImageOutputActivateSettings`,
+    ],
+    StaticImageOutputDeactivateSettings: [
+      ,
+      (_: any) => de_StaticImageOutputDeactivateScheduleActionSettings(_, context),
+      `staticImageOutputDeactivateSettings`,
     ],
   }) as any;
 };
@@ -12448,6 +12288,42 @@ const de_StaticImageDeactivateScheduleActionSettings = (
   return take(output, {
     FadeOut: [, __expectInt32, `fadeOut`],
     Layer: [, __expectInt32, `layer`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1StaticImageOutputActivateScheduleActionSettings
+ */
+const de_StaticImageOutputActivateScheduleActionSettings = (
+  output: any,
+  context: __SerdeContext
+): StaticImageOutputActivateScheduleActionSettings => {
+  return take(output, {
+    Duration: [, __expectInt32, `duration`],
+    FadeIn: [, __expectInt32, `fadeIn`],
+    FadeOut: [, __expectInt32, `fadeOut`],
+    Height: [, __expectInt32, `height`],
+    Image: [, (_: any) => de_InputLocation(_, context), `image`],
+    ImageX: [, __expectInt32, `imageX`],
+    ImageY: [, __expectInt32, `imageY`],
+    Layer: [, __expectInt32, `layer`],
+    Opacity: [, __expectInt32, `opacity`],
+    OutputNames: [, _json, `outputNames`],
+    Width: [, __expectInt32, `width`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1StaticImageOutputDeactivateScheduleActionSettings
+ */
+const de_StaticImageOutputDeactivateScheduleActionSettings = (
+  output: any,
+  context: __SerdeContext
+): StaticImageOutputDeactivateScheduleActionSettings => {
+  return take(output, {
+    FadeOut: [, __expectInt32, `fadeOut`],
+    Layer: [, __expectInt32, `layer`],
+    OutputNames: [, _json, `outputNames`],
   }) as any;
 };
 
@@ -12746,6 +12622,49 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _A = "Accept";
+const _C = "Codec";
+const _CC = "ChannelClass";
+const _CCh = "ChannelConfiguration";
+const _CL = "ContentLength";
+const _CT = "ContentType";
+const _D = "Duration";
+const _ET = "ETag";
+const _LM = "LastModified";
+const _MB = "MaximumBitrate";
+const _MF = "MaximumFramerate";
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _PI = "PipelineId";
+const _R = "Resolution";
+const _RT = "ResourceType";
+const _SF = "SpecialFeature";
+const _TK = "TagKeys";
+const _TT = "ThumbnailType";
+const _TTr = "TransferType";
+const _VQ = "VideoQuality";
+const _a = "accept";
+const _c = "codec";
+const _cC = "channelClass";
+const _cCh = "channelConfiguration";
+const _cl = "content-length";
+const _ct = "content-type";
+const _d = "duration";
+const _e = "etag";
+const _lm = "last-modified";
+const _mB = "maximumBitrate";
+const _mF = "maximumFramerate";
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _pI = "pipelineId";
+const _r = "resolution";
+const _rT = "resourceType";
+const _sF = "specialFeature";
+const _tK = "tagKeys";
+const _tT = "thumbnailType";
+const _tTr = "transferType";
+const _vQ = "videoQuality";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

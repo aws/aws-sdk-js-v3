@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { RestoreDBClusterFromSnapshotMessage, RestoreDBClusterFromSnapshotResult } from "../models/models_0";
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient";
 import { de_RestoreDBClusterFromSnapshotCommand, se_RestoreDBClusterFromSnapshotCommand } from "../protocols/Aws_query";
@@ -83,6 +75,7 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  *     MinCapacity: Number("double"),
  *     MaxCapacity: Number("double"),
  *   },
+ *   StorageType: "STRING_VALUE",
  * };
  * const command = new RestoreDBClusterFromSnapshotCommand(input);
  * const response = await client.send(command);
@@ -167,6 +160,7 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * //       IAMDatabaseAuthenticationEnabled: true || false,
  * //       EngineVersion: "STRING_VALUE",
  * //       BackupRetentionPeriod: Number("int"),
+ * //       StorageType: "STRING_VALUE",
  * //       AllocatedStorage: Number("int"),
  * //       Iops: Number("int"),
  * //     },
@@ -178,6 +172,8 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * //       MaxCapacity: Number("double"),
  * //     },
  * //     GlobalClusterIdentifier: "STRING_VALUE",
+ * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
+ * //     StorageType: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -252,82 +248,26 @@ export interface RestoreDBClusterFromSnapshotCommandOutput
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
  */
-export class RestoreDBClusterFromSnapshotCommand extends $Command<
-  RestoreDBClusterFromSnapshotCommandInput,
-  RestoreDBClusterFromSnapshotCommandOutput,
-  NeptuneClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: RestoreDBClusterFromSnapshotCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: NeptuneClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<RestoreDBClusterFromSnapshotCommandInput, RestoreDBClusterFromSnapshotCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, RestoreDBClusterFromSnapshotCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "NeptuneClient";
-    const commandName = "RestoreDBClusterFromSnapshotCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: RestoreDBClusterFromSnapshotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_RestoreDBClusterFromSnapshotCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RestoreDBClusterFromSnapshotCommandOutput> {
-    return de_RestoreDBClusterFromSnapshotCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class RestoreDBClusterFromSnapshotCommand extends $Command
+  .classBuilder<
+    RestoreDBClusterFromSnapshotCommandInput,
+    RestoreDBClusterFromSnapshotCommandOutput,
+    NeptuneClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: NeptuneClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonRDSv19", "RestoreDBClusterFromSnapshot", {})
+  .n("NeptuneClient", "RestoreDBClusterFromSnapshotCommand")
+  .f(void 0, void 0)
+  .ser(se_RestoreDBClusterFromSnapshotCommand)
+  .de(de_RestoreDBClusterFromSnapshotCommand)
+  .build() {}

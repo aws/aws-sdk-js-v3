@@ -12,6 +12,17 @@ login:
 sync:
 	make -f Makefile.private.mk sync
 
+link-smithy:
+	rm -rf ./node_modules/\@smithy
+	ln -s ../../smithy-typescript/packages/ ./node_modules/\@smithy
+
+unlink-smithy:
+	rm ./node_modules/\@smithy
+	yarn --check-files
+
+copy-smithy:
+	node ./scripts/copy-smithy-dist-files
+
 # Runs build for all packages using Turborepo
 turbo-build:
 	(cd scripts/remote-cache && yarn)

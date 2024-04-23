@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateClusterRequest, CreateClusterResponse } from "../models/models_0";
 import { de_CreateClusterCommand, se_CreateClusterCommand } from "../protocols/Aws_json1_1";
 
@@ -45,7 +37,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * const client = new CloudHSMV2Client(config);
  * const input = { // CreateClusterRequest
  *   BackupRetentionPolicy: { // BackupRetentionPolicy
- *     Type: "STRING_VALUE",
+ *     Type: "DAYS",
  *     Value: "STRING_VALUE",
  *   },
  *   HsmType: "STRING_VALUE", // required
@@ -64,9 +56,9 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * const response = await client.send(command);
  * // { // CreateClusterResponse
  * //   Cluster: { // Cluster
- * //     BackupPolicy: "STRING_VALUE",
+ * //     BackupPolicy: "DEFAULT",
  * //     BackupRetentionPolicy: { // BackupRetentionPolicy
- * //       Type: "STRING_VALUE",
+ * //       Type: "DAYS",
  * //       Value: "STRING_VALUE",
  * //     },
  * //     ClusterId: "STRING_VALUE",
@@ -79,7 +71,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //         EniId: "STRING_VALUE",
  * //         EniIp: "STRING_VALUE",
  * //         HsmId: "STRING_VALUE", // required
- * //         State: "STRING_VALUE",
+ * //         State: "CREATE_IN_PROGRESS" || "ACTIVE" || "DEGRADED" || "DELETE_IN_PROGRESS" || "DELETED",
  * //         StateMessage: "STRING_VALUE",
  * //       },
  * //     ],
@@ -87,7 +79,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //     PreCoPassword: "STRING_VALUE",
  * //     SecurityGroup: "STRING_VALUE",
  * //     SourceBackupId: "STRING_VALUE",
- * //     State: "STRING_VALUE",
+ * //     State: "CREATE_IN_PROGRESS" || "UNINITIALIZED" || "INITIALIZE_IN_PROGRESS" || "INITIALIZED" || "ACTIVE" || "UPDATE_IN_PROGRESS" || "DELETE_IN_PROGRESS" || "DELETED" || "DEGRADED",
  * //     StateMessage: "STRING_VALUE",
  * //     SubnetMapping: { // ExternalSubnetMapping
  * //       "<keys>": "STRING_VALUE",
@@ -142,77 +134,26 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
  */
-export class CreateClusterCommand extends $Command<
-  CreateClusterCommandInput,
-  CreateClusterCommandOutput,
-  CloudHSMV2ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateClusterCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CloudHSMV2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateClusterCommandInput, CreateClusterCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, CreateClusterCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CloudHSMV2Client";
-    const commandName = "CreateClusterCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateClusterCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateClusterCommandOutput> {
-    return de_CreateClusterCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateClusterCommand extends $Command
+  .classBuilder<
+    CreateClusterCommandInput,
+    CreateClusterCommandOutput,
+    CloudHSMV2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CloudHSMV2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("BaldrApiService", "CreateCluster", {})
+  .n("CloudHSMV2Client", "CreateClusterCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateClusterCommand)
+  .de(de_CreateClusterCommand)
+  .build() {}

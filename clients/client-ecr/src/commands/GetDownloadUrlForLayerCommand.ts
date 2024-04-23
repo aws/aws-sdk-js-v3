@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GetDownloadUrlForLayerRequest, GetDownloadUrlForLayerResponse } from "../models/models_0";
 import { de_GetDownloadUrlForLayerCommand, se_GetDownloadUrlForLayerCommand } from "../protocols/Aws_json1_1";
 
@@ -38,9 +30,9 @@ export interface GetDownloadUrlForLayerCommandOutput extends GetDownloadUrlForLa
  * @public
  * <p>Retrieves the pre-signed Amazon S3 download URL corresponding to an image layer. You can
  *             only get URLs for image layers that are referenced in an image.</p>
- *         <p>When an image is pulled, the GetDownloadUrlForLayer API is called once per image layer
+ *          <p>When an image is pulled, the GetDownloadUrlForLayer API is called once per image layer
  *             that is not already cached.</p>
- *         <note>
+ *          <note>
  *             <p>This operation is used by the Amazon ECR proxy and is not generally used by
  *         customers for pulling and pushing images. In most cases, you should use the <code>docker</code> CLI to pull, tag, and push images.</p>
  *          </note>
@@ -89,83 +81,34 @@ export interface GetDownloadUrlForLayerCommandOutput extends GetDownloadUrlForLa
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link UnableToGetUpstreamLayerException} (client fault)
+ *  <p>There was an issue getting the upstream layer matching the pull through cache
+ *             rule.</p>
+ *
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
  */
-export class GetDownloadUrlForLayerCommand extends $Command<
-  GetDownloadUrlForLayerCommandInput,
-  GetDownloadUrlForLayerCommandOutput,
-  ECRClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetDownloadUrlForLayerCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ECRClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetDownloadUrlForLayerCommandInput, GetDownloadUrlForLayerCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetDownloadUrlForLayerCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ECRClient";
-    const commandName = "GetDownloadUrlForLayerCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetDownloadUrlForLayerCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetDownloadUrlForLayerCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDownloadUrlForLayerCommandOutput> {
-    return de_GetDownloadUrlForLayerCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetDownloadUrlForLayerCommand extends $Command
+  .classBuilder<
+    GetDownloadUrlForLayerCommandInput,
+    GetDownloadUrlForLayerCommandOutput,
+    ECRClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonEC2ContainerRegistry_V20150921", "GetDownloadUrlForLayer", {})
+  .n("ECRClient", "GetDownloadUrlForLayerCommand")
+  .f(void 0, void 0)
+  .ser(se_GetDownloadUrlForLayerCommand)
+  .de(de_GetDownloadUrlForLayerCommand)
+  .build() {}

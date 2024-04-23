@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -71,6 +69,14 @@ import {
   CreateMediaLiveConnectorPipelineCommandOutput,
 } from "./commands/CreateMediaLiveConnectorPipelineCommand";
 import {
+  CreateMediaPipelineKinesisVideoStreamPoolCommandInput,
+  CreateMediaPipelineKinesisVideoStreamPoolCommandOutput,
+} from "./commands/CreateMediaPipelineKinesisVideoStreamPoolCommand";
+import {
+  CreateMediaStreamPipelineCommandInput,
+  CreateMediaStreamPipelineCommandOutput,
+} from "./commands/CreateMediaStreamPipelineCommand";
+import {
   DeleteMediaCapturePipelineCommandInput,
   DeleteMediaCapturePipelineCommandOutput,
 } from "./commands/DeleteMediaCapturePipelineCommand";
@@ -83,6 +89,10 @@ import {
   DeleteMediaPipelineCommandOutput,
 } from "./commands/DeleteMediaPipelineCommand";
 import {
+  DeleteMediaPipelineKinesisVideoStreamPoolCommandInput,
+  DeleteMediaPipelineKinesisVideoStreamPoolCommandOutput,
+} from "./commands/DeleteMediaPipelineKinesisVideoStreamPoolCommand";
+import {
   GetMediaCapturePipelineCommandInput,
   GetMediaCapturePipelineCommandOutput,
 } from "./commands/GetMediaCapturePipelineCommand";
@@ -92,6 +102,18 @@ import {
 } from "./commands/GetMediaInsightsPipelineConfigurationCommand";
 import { GetMediaPipelineCommandInput, GetMediaPipelineCommandOutput } from "./commands/GetMediaPipelineCommand";
 import {
+  GetMediaPipelineKinesisVideoStreamPoolCommandInput,
+  GetMediaPipelineKinesisVideoStreamPoolCommandOutput,
+} from "./commands/GetMediaPipelineKinesisVideoStreamPoolCommand";
+import {
+  GetSpeakerSearchTaskCommandInput,
+  GetSpeakerSearchTaskCommandOutput,
+} from "./commands/GetSpeakerSearchTaskCommand";
+import {
+  GetVoiceToneAnalysisTaskCommandInput,
+  GetVoiceToneAnalysisTaskCommandOutput,
+} from "./commands/GetVoiceToneAnalysisTaskCommand";
+import {
   ListMediaCapturePipelinesCommandInput,
   ListMediaCapturePipelinesCommandOutput,
 } from "./commands/ListMediaCapturePipelinesCommand";
@@ -99,11 +121,31 @@ import {
   ListMediaInsightsPipelineConfigurationsCommandInput,
   ListMediaInsightsPipelineConfigurationsCommandOutput,
 } from "./commands/ListMediaInsightsPipelineConfigurationsCommand";
+import {
+  ListMediaPipelineKinesisVideoStreamPoolsCommandInput,
+  ListMediaPipelineKinesisVideoStreamPoolsCommandOutput,
+} from "./commands/ListMediaPipelineKinesisVideoStreamPoolsCommand";
 import { ListMediaPipelinesCommandInput, ListMediaPipelinesCommandOutput } from "./commands/ListMediaPipelinesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  StartSpeakerSearchTaskCommandInput,
+  StartSpeakerSearchTaskCommandOutput,
+} from "./commands/StartSpeakerSearchTaskCommand";
+import {
+  StartVoiceToneAnalysisTaskCommandInput,
+  StartVoiceToneAnalysisTaskCommandOutput,
+} from "./commands/StartVoiceToneAnalysisTaskCommand";
+import {
+  StopSpeakerSearchTaskCommandInput,
+  StopSpeakerSearchTaskCommandOutput,
+} from "./commands/StopSpeakerSearchTaskCommand";
+import {
+  StopVoiceToneAnalysisTaskCommandInput,
+  StopVoiceToneAnalysisTaskCommandOutput,
+} from "./commands/StopVoiceToneAnalysisTaskCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -114,6 +156,10 @@ import {
   UpdateMediaInsightsPipelineStatusCommandInput,
   UpdateMediaInsightsPipelineStatusCommandOutput,
 } from "./commands/UpdateMediaInsightsPipelineStatusCommand";
+import {
+  UpdateMediaPipelineKinesisVideoStreamPoolCommandInput,
+  UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput,
+} from "./commands/UpdateMediaPipelineKinesisVideoStreamPoolCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -134,20 +180,32 @@ export type ServiceInputTypes =
   | CreateMediaInsightsPipelineCommandInput
   | CreateMediaInsightsPipelineConfigurationCommandInput
   | CreateMediaLiveConnectorPipelineCommandInput
+  | CreateMediaPipelineKinesisVideoStreamPoolCommandInput
+  | CreateMediaStreamPipelineCommandInput
   | DeleteMediaCapturePipelineCommandInput
   | DeleteMediaInsightsPipelineConfigurationCommandInput
   | DeleteMediaPipelineCommandInput
+  | DeleteMediaPipelineKinesisVideoStreamPoolCommandInput
   | GetMediaCapturePipelineCommandInput
   | GetMediaInsightsPipelineConfigurationCommandInput
   | GetMediaPipelineCommandInput
+  | GetMediaPipelineKinesisVideoStreamPoolCommandInput
+  | GetSpeakerSearchTaskCommandInput
+  | GetVoiceToneAnalysisTaskCommandInput
   | ListMediaCapturePipelinesCommandInput
   | ListMediaInsightsPipelineConfigurationsCommandInput
+  | ListMediaPipelineKinesisVideoStreamPoolsCommandInput
   | ListMediaPipelinesCommandInput
   | ListTagsForResourceCommandInput
+  | StartSpeakerSearchTaskCommandInput
+  | StartVoiceToneAnalysisTaskCommandInput
+  | StopSpeakerSearchTaskCommandInput
+  | StopVoiceToneAnalysisTaskCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateMediaInsightsPipelineConfigurationCommandInput
-  | UpdateMediaInsightsPipelineStatusCommandInput;
+  | UpdateMediaInsightsPipelineStatusCommandInput
+  | UpdateMediaPipelineKinesisVideoStreamPoolCommandInput;
 
 /**
  * @public
@@ -158,20 +216,32 @@ export type ServiceOutputTypes =
   | CreateMediaInsightsPipelineCommandOutput
   | CreateMediaInsightsPipelineConfigurationCommandOutput
   | CreateMediaLiveConnectorPipelineCommandOutput
+  | CreateMediaPipelineKinesisVideoStreamPoolCommandOutput
+  | CreateMediaStreamPipelineCommandOutput
   | DeleteMediaCapturePipelineCommandOutput
   | DeleteMediaInsightsPipelineConfigurationCommandOutput
   | DeleteMediaPipelineCommandOutput
+  | DeleteMediaPipelineKinesisVideoStreamPoolCommandOutput
   | GetMediaCapturePipelineCommandOutput
   | GetMediaInsightsPipelineConfigurationCommandOutput
   | GetMediaPipelineCommandOutput
+  | GetMediaPipelineKinesisVideoStreamPoolCommandOutput
+  | GetSpeakerSearchTaskCommandOutput
+  | GetVoiceToneAnalysisTaskCommandOutput
   | ListMediaCapturePipelinesCommandOutput
   | ListMediaInsightsPipelineConfigurationsCommandOutput
+  | ListMediaPipelineKinesisVideoStreamPoolsCommandOutput
   | ListMediaPipelinesCommandOutput
   | ListTagsForResourceCommandOutput
+  | StartSpeakerSearchTaskCommandOutput
+  | StartVoiceToneAnalysisTaskCommandOutput
+  | StopSpeakerSearchTaskCommandOutput
+  | StopVoiceToneAnalysisTaskCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateMediaInsightsPipelineConfigurationCommandOutput
-  | UpdateMediaInsightsPipelineStatusCommandOutput;
+  | UpdateMediaInsightsPipelineStatusCommandOutput
+  | UpdateMediaPipelineKinesisVideoStreamPoolCommandOutput;
 
 /**
  * @public
@@ -283,6 +353,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

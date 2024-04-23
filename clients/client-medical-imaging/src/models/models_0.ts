@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
+
 import { StreamingBlobTypes } from "@smithy/types";
 
 import { MedicalImagingServiceException as __BaseException } from "./MedicalImagingServiceException";
@@ -173,13 +174,13 @@ export interface CopyDestinationImageSetProperties {
    * @public
    * <p>The image set state of the destination image set properties.</p>
    */
-  imageSetState?: ImageSetState | string;
+  imageSetState?: ImageSetState;
 
   /**
    * @public
    * <p>The image set workflow status of the destination image set properties.</p>
    */
-  imageSetWorkflowStatus?: ImageSetWorkflowStatus | string;
+  imageSetWorkflowStatus?: ImageSetWorkflowStatus;
 
   /**
    * @public
@@ -221,13 +222,13 @@ export interface CopySourceImageSetProperties {
    * @public
    * <p>The image set state of the copied source image set.</p>
    */
-  imageSetState?: ImageSetState | string;
+  imageSetState?: ImageSetState;
 
   /**
    * @public
    * <p>The workflow status of the copied source image set.</p>
    */
-  imageSetWorkflowStatus?: ImageSetWorkflowStatus | string;
+  imageSetWorkflowStatus?: ImageSetWorkflowStatus;
 
   /**
    * @public
@@ -353,7 +354,7 @@ export class ThrottlingException extends __BaseException {
 
 /**
  * @public
- * <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ * <p>The input fails to satisfy the constraints set by the service.</p>
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -395,7 +396,7 @@ export interface CreateDatastoreRequest {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) assigned to the AWS Key Management Service (AWS KMS) key for accessing encrypted data.</p>
+   * <p>The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.</p>
    */
   kmsKeyArn?: string;
 }
@@ -431,7 +432,7 @@ export interface CreateDatastoreResponse {
    * @public
    * <p>The data store status.</p>
    */
-  datastoreStatus: DatastoreStatus | string | undefined;
+  datastoreStatus: DatastoreStatus | undefined;
 }
 
 /**
@@ -459,7 +460,7 @@ export interface DeleteDatastoreResponse {
    * @public
    * <p>The data store status.</p>
    */
-  datastoreStatus: DatastoreStatus | string | undefined;
+  datastoreStatus: DatastoreStatus | undefined;
 }
 
 /**
@@ -494,11 +495,11 @@ export interface DatastoreProperties {
    * @public
    * <p>The data store status.</p>
    */
-  datastoreStatus: DatastoreStatus | string | undefined;
+  datastoreStatus: DatastoreStatus | undefined;
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) assigned to the AWS Key Management Service (AWS KMS) key for accessing encrypted data.</p>
+   * <p>The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.</p>
    */
   kmsKeyArn?: string;
 
@@ -540,7 +541,7 @@ export interface ListDatastoresRequest {
    * @public
    * <p>The data store status.</p>
    */
-  datastoreStatus?: DatastoreStatus | string;
+  datastoreStatus?: DatastoreStatus;
 
   /**
    * @public
@@ -576,7 +577,7 @@ export interface DatastoreSummary {
    * @public
    * <p>The data store status.</p>
    */
-  datastoreStatus: DatastoreStatus | string | undefined;
+  datastoreStatus: DatastoreStatus | undefined;
 
   /**
    * @public
@@ -651,13 +652,13 @@ export interface DeleteImageSetResponse {
    * @public
    * <p>The image set state.</p>
    */
-  imageSetState: ImageSetState | string | undefined;
+  imageSetState: ImageSetState | undefined;
 
   /**
    * @public
    * <p>The image set workflow status.</p>
    */
-  imageSetWorkflowStatus: ImageSetWorkflowStatus | string | undefined;
+  imageSetWorkflowStatus: ImageSetWorkflowStatus | undefined;
 }
 
 /**
@@ -714,7 +715,7 @@ export interface DICOMImportJobProperties {
    * @public
    * <p>The filters for listing import jobs based on status.</p>
    */
-  jobStatus: JobStatus | string | undefined;
+  jobStatus: JobStatus | undefined;
 
   /**
    * @public
@@ -872,13 +873,13 @@ export interface GetImageSetResponse {
    * @public
    * <p>The image set state.</p>
    */
-  imageSetState: ImageSetState | string | undefined;
+  imageSetState: ImageSetState | undefined;
 
   /**
    * @public
    * <p>The image set workflow status.</p>
    */
-  imageSetWorkflowStatus?: ImageSetWorkflowStatus | string;
+  imageSetWorkflowStatus?: ImageSetWorkflowStatus;
 
   /**
    * @public
@@ -971,7 +972,7 @@ export interface ListDICOMImportJobsRequest {
    * @public
    * <p>The filters for listing import jobs based on status.</p>
    */
-  jobStatus?: JobStatus | string;
+  jobStatus?: JobStatus;
 
   /**
    * @public
@@ -1007,7 +1008,7 @@ export interface DICOMImportJobSummary {
    * @public
    * <p>The filters for listing import jobs based on status.</p>
    */
-  jobStatus: JobStatus | string | undefined;
+  jobStatus: JobStatus | undefined;
 
   /**
    * @public
@@ -1107,13 +1108,13 @@ export interface ImageSetProperties {
    * @public
    * <p>The image set state.</p>
    */
-  imageSetState: ImageSetState | string | undefined;
+  imageSetState: ImageSetState | undefined;
 
   /**
    * @public
    * <p>The image set workflow status.</p>
    */
-  ImageSetWorkflowStatus?: ImageSetWorkflowStatus | string;
+  ImageSetWorkflowStatus?: ImageSetWorkflowStatus;
 
   /**
    * @public
@@ -1361,7 +1362,7 @@ export interface SearchFilter {
    * @public
    * <p>The search filter operator for <code>imageSetDateTime</code>.</p>
    */
-  operator: Operator | string | undefined;
+  operator: Operator | undefined;
 }
 
 /**
@@ -1504,14 +1505,14 @@ export interface ImageSetsMetadataSummary {
 
   /**
    * @public
-   * <p>The time an image set is created in AWS HealthImaging. Sample creation
+   * <p>The time an image set is created. Sample creation
    *             date is provided in <code>1985-04-12T23:20:50.52Z</code> format.</p>
    */
   createdAt?: Date;
 
   /**
    * @public
-   * <p>The time when an image was last updated in AWS HealthImaging.</p>
+   * <p>The time an image set was last updated.</p>
    */
   updatedAt?: Date;
 
@@ -1600,7 +1601,7 @@ export interface StartDICOMImportJobResponse {
    * @public
    * <p>The import job status.</p>
    */
-  jobStatus: JobStatus | string | undefined;
+  jobStatus: JobStatus | undefined;
 
   /**
    * @public
@@ -1764,13 +1765,13 @@ export interface UpdateImageSetMetadataResponse {
    * @public
    * <p>The image set state.</p>
    */
-  imageSetState: ImageSetState | string | undefined;
+  imageSetState: ImageSetState | undefined;
 
   /**
    * @public
    * <p>The image set workflow status.</p>
    */
-  imageSetWorkflowStatus?: ImageSetWorkflowStatus | string;
+  imageSetWorkflowStatus?: ImageSetWorkflowStatus;
 
   /**
    * @public

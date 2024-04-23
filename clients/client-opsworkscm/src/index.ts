@@ -95,9 +95,13 @@
 export * from "./OpsWorksCMClient";
 export * from "./OpsWorksCM";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { OpsWorksCMExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./waiters";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { OpsWorksCMServiceException } from "./models/OpsWorksCMServiceException";

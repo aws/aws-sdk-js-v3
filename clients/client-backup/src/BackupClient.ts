@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -64,6 +62,14 @@ import {
   CreateLogicallyAirGappedBackupVaultCommandOutput,
 } from "./commands/CreateLogicallyAirGappedBackupVaultCommand";
 import { CreateReportPlanCommandInput, CreateReportPlanCommandOutput } from "./commands/CreateReportPlanCommand";
+import {
+  CreateRestoreTestingPlanCommandInput,
+  CreateRestoreTestingPlanCommandOutput,
+} from "./commands/CreateRestoreTestingPlanCommand";
+import {
+  CreateRestoreTestingSelectionCommandInput,
+  CreateRestoreTestingSelectionCommandOutput,
+} from "./commands/CreateRestoreTestingSelectionCommand";
 import { DeleteBackupPlanCommandInput, DeleteBackupPlanCommandOutput } from "./commands/DeleteBackupPlanCommand";
 import {
   DeleteBackupSelectionCommandInput,
@@ -88,6 +94,14 @@ import {
   DeleteRecoveryPointCommandOutput,
 } from "./commands/DeleteRecoveryPointCommand";
 import { DeleteReportPlanCommandInput, DeleteReportPlanCommandOutput } from "./commands/DeleteReportPlanCommand";
+import {
+  DeleteRestoreTestingPlanCommandInput,
+  DeleteRestoreTestingPlanCommandOutput,
+} from "./commands/DeleteRestoreTestingPlanCommand";
+import {
+  DeleteRestoreTestingSelectionCommandInput,
+  DeleteRestoreTestingSelectionCommandOutput,
+} from "./commands/DeleteRestoreTestingSelectionCommand";
 import { DescribeBackupJobCommandInput, DescribeBackupJobCommandOutput } from "./commands/DescribeBackupJobCommand";
 import {
   DescribeBackupVaultCommandInput,
@@ -150,10 +164,30 @@ import {
   GetRecoveryPointRestoreMetadataCommandOutput,
 } from "./commands/GetRecoveryPointRestoreMetadataCommand";
 import {
+  GetRestoreJobMetadataCommandInput,
+  GetRestoreJobMetadataCommandOutput,
+} from "./commands/GetRestoreJobMetadataCommand";
+import {
+  GetRestoreTestingInferredMetadataCommandInput,
+  GetRestoreTestingInferredMetadataCommandOutput,
+} from "./commands/GetRestoreTestingInferredMetadataCommand";
+import {
+  GetRestoreTestingPlanCommandInput,
+  GetRestoreTestingPlanCommandOutput,
+} from "./commands/GetRestoreTestingPlanCommand";
+import {
+  GetRestoreTestingSelectionCommandInput,
+  GetRestoreTestingSelectionCommandOutput,
+} from "./commands/GetRestoreTestingSelectionCommand";
+import {
   GetSupportedResourceTypesCommandInput,
   GetSupportedResourceTypesCommandOutput,
 } from "./commands/GetSupportedResourceTypesCommand";
 import { ListBackupJobsCommandInput, ListBackupJobsCommandOutput } from "./commands/ListBackupJobsCommand";
+import {
+  ListBackupJobSummariesCommandInput,
+  ListBackupJobSummariesCommandOutput,
+} from "./commands/ListBackupJobSummariesCommand";
 import { ListBackupPlansCommandInput, ListBackupPlansCommandOutput } from "./commands/ListBackupPlansCommand";
 import {
   ListBackupPlanTemplatesCommandInput,
@@ -169,6 +203,10 @@ import {
 } from "./commands/ListBackupSelectionsCommand";
 import { ListBackupVaultsCommandInput, ListBackupVaultsCommandOutput } from "./commands/ListBackupVaultsCommand";
 import { ListCopyJobsCommandInput, ListCopyJobsCommandOutput } from "./commands/ListCopyJobsCommand";
+import {
+  ListCopyJobSummariesCommandInput,
+  ListCopyJobSummariesCommandOutput,
+} from "./commands/ListCopyJobSummariesCommand";
 import { ListFrameworksCommandInput, ListFrameworksCommandOutput } from "./commands/ListFrameworksCommand";
 import { ListLegalHoldsCommandInput, ListLegalHoldsCommandOutput } from "./commands/ListLegalHoldsCommand";
 import {
@@ -193,7 +231,23 @@ import {
 } from "./commands/ListRecoveryPointsByResourceCommand";
 import { ListReportJobsCommandInput, ListReportJobsCommandOutput } from "./commands/ListReportJobsCommand";
 import { ListReportPlansCommandInput, ListReportPlansCommandOutput } from "./commands/ListReportPlansCommand";
+import {
+  ListRestoreJobsByProtectedResourceCommandInput,
+  ListRestoreJobsByProtectedResourceCommandOutput,
+} from "./commands/ListRestoreJobsByProtectedResourceCommand";
 import { ListRestoreJobsCommandInput, ListRestoreJobsCommandOutput } from "./commands/ListRestoreJobsCommand";
+import {
+  ListRestoreJobSummariesCommandInput,
+  ListRestoreJobSummariesCommandOutput,
+} from "./commands/ListRestoreJobSummariesCommand";
+import {
+  ListRestoreTestingPlansCommandInput,
+  ListRestoreTestingPlansCommandOutput,
+} from "./commands/ListRestoreTestingPlansCommand";
+import {
+  ListRestoreTestingSelectionsCommandInput,
+  ListRestoreTestingSelectionsCommandOutput,
+} from "./commands/ListRestoreTestingSelectionsCommand";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import {
   PutBackupVaultAccessPolicyCommandInput,
@@ -207,6 +261,10 @@ import {
   PutBackupVaultNotificationsCommandInput,
   PutBackupVaultNotificationsCommandOutput,
 } from "./commands/PutBackupVaultNotificationsCommand";
+import {
+  PutRestoreValidationResultCommandInput,
+  PutRestoreValidationResultCommandOutput,
+} from "./commands/PutRestoreValidationResultCommand";
 import { StartBackupJobCommandInput, StartBackupJobCommandOutput } from "./commands/StartBackupJobCommand";
 import { StartCopyJobCommandInput, StartCopyJobCommandOutput } from "./commands/StartCopyJobCommand";
 import { StartReportJobCommandInput, StartReportJobCommandOutput } from "./commands/StartReportJobCommand";
@@ -230,6 +288,14 @@ import {
 } from "./commands/UpdateRegionSettingsCommand";
 import { UpdateReportPlanCommandInput, UpdateReportPlanCommandOutput } from "./commands/UpdateReportPlanCommand";
 import {
+  UpdateRestoreTestingPlanCommandInput,
+  UpdateRestoreTestingPlanCommandOutput,
+} from "./commands/UpdateRestoreTestingPlanCommand";
+import {
+  UpdateRestoreTestingSelectionCommandInput,
+  UpdateRestoreTestingSelectionCommandOutput,
+} from "./commands/UpdateRestoreTestingSelectionCommand";
+import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
   EndpointParameters,
@@ -252,6 +318,8 @@ export type ServiceInputTypes =
   | CreateLegalHoldCommandInput
   | CreateLogicallyAirGappedBackupVaultCommandInput
   | CreateReportPlanCommandInput
+  | CreateRestoreTestingPlanCommandInput
+  | CreateRestoreTestingSelectionCommandInput
   | DeleteBackupPlanCommandInput
   | DeleteBackupSelectionCommandInput
   | DeleteBackupVaultAccessPolicyCommandInput
@@ -261,6 +329,8 @@ export type ServiceInputTypes =
   | DeleteFrameworkCommandInput
   | DeleteRecoveryPointCommandInput
   | DeleteReportPlanCommandInput
+  | DeleteRestoreTestingPlanCommandInput
+  | DeleteRestoreTestingSelectionCommandInput
   | DescribeBackupJobCommandInput
   | DescribeBackupVaultCommandInput
   | DescribeCopyJobCommandInput
@@ -283,13 +353,19 @@ export type ServiceInputTypes =
   | GetBackupVaultNotificationsCommandInput
   | GetLegalHoldCommandInput
   | GetRecoveryPointRestoreMetadataCommandInput
+  | GetRestoreJobMetadataCommandInput
+  | GetRestoreTestingInferredMetadataCommandInput
+  | GetRestoreTestingPlanCommandInput
+  | GetRestoreTestingSelectionCommandInput
   | GetSupportedResourceTypesCommandInput
+  | ListBackupJobSummariesCommandInput
   | ListBackupJobsCommandInput
   | ListBackupPlanTemplatesCommandInput
   | ListBackupPlanVersionsCommandInput
   | ListBackupPlansCommandInput
   | ListBackupSelectionsCommandInput
   | ListBackupVaultsCommandInput
+  | ListCopyJobSummariesCommandInput
   | ListCopyJobsCommandInput
   | ListFrameworksCommandInput
   | ListLegalHoldsCommandInput
@@ -300,11 +376,16 @@ export type ServiceInputTypes =
   | ListRecoveryPointsByResourceCommandInput
   | ListReportJobsCommandInput
   | ListReportPlansCommandInput
+  | ListRestoreJobSummariesCommandInput
+  | ListRestoreJobsByProtectedResourceCommandInput
   | ListRestoreJobsCommandInput
+  | ListRestoreTestingPlansCommandInput
+  | ListRestoreTestingSelectionsCommandInput
   | ListTagsCommandInput
   | PutBackupVaultAccessPolicyCommandInput
   | PutBackupVaultLockConfigurationCommandInput
   | PutBackupVaultNotificationsCommandInput
+  | PutRestoreValidationResultCommandInput
   | StartBackupJobCommandInput
   | StartCopyJobCommandInput
   | StartReportJobCommandInput
@@ -317,7 +398,9 @@ export type ServiceInputTypes =
   | UpdateGlobalSettingsCommandInput
   | UpdateRecoveryPointLifecycleCommandInput
   | UpdateRegionSettingsCommandInput
-  | UpdateReportPlanCommandInput;
+  | UpdateReportPlanCommandInput
+  | UpdateRestoreTestingPlanCommandInput
+  | UpdateRestoreTestingSelectionCommandInput;
 
 /**
  * @public
@@ -331,6 +414,8 @@ export type ServiceOutputTypes =
   | CreateLegalHoldCommandOutput
   | CreateLogicallyAirGappedBackupVaultCommandOutput
   | CreateReportPlanCommandOutput
+  | CreateRestoreTestingPlanCommandOutput
+  | CreateRestoreTestingSelectionCommandOutput
   | DeleteBackupPlanCommandOutput
   | DeleteBackupSelectionCommandOutput
   | DeleteBackupVaultAccessPolicyCommandOutput
@@ -340,6 +425,8 @@ export type ServiceOutputTypes =
   | DeleteFrameworkCommandOutput
   | DeleteRecoveryPointCommandOutput
   | DeleteReportPlanCommandOutput
+  | DeleteRestoreTestingPlanCommandOutput
+  | DeleteRestoreTestingSelectionCommandOutput
   | DescribeBackupJobCommandOutput
   | DescribeBackupVaultCommandOutput
   | DescribeCopyJobCommandOutput
@@ -362,13 +449,19 @@ export type ServiceOutputTypes =
   | GetBackupVaultNotificationsCommandOutput
   | GetLegalHoldCommandOutput
   | GetRecoveryPointRestoreMetadataCommandOutput
+  | GetRestoreJobMetadataCommandOutput
+  | GetRestoreTestingInferredMetadataCommandOutput
+  | GetRestoreTestingPlanCommandOutput
+  | GetRestoreTestingSelectionCommandOutput
   | GetSupportedResourceTypesCommandOutput
+  | ListBackupJobSummariesCommandOutput
   | ListBackupJobsCommandOutput
   | ListBackupPlanTemplatesCommandOutput
   | ListBackupPlanVersionsCommandOutput
   | ListBackupPlansCommandOutput
   | ListBackupSelectionsCommandOutput
   | ListBackupVaultsCommandOutput
+  | ListCopyJobSummariesCommandOutput
   | ListCopyJobsCommandOutput
   | ListFrameworksCommandOutput
   | ListLegalHoldsCommandOutput
@@ -379,11 +472,16 @@ export type ServiceOutputTypes =
   | ListRecoveryPointsByResourceCommandOutput
   | ListReportJobsCommandOutput
   | ListReportPlansCommandOutput
+  | ListRestoreJobSummariesCommandOutput
+  | ListRestoreJobsByProtectedResourceCommandOutput
   | ListRestoreJobsCommandOutput
+  | ListRestoreTestingPlansCommandOutput
+  | ListRestoreTestingSelectionsCommandOutput
   | ListTagsCommandOutput
   | PutBackupVaultAccessPolicyCommandOutput
   | PutBackupVaultLockConfigurationCommandOutput
   | PutBackupVaultNotificationsCommandOutput
+  | PutRestoreValidationResultCommandOutput
   | StartBackupJobCommandOutput
   | StartCopyJobCommandOutput
   | StartReportJobCommandOutput
@@ -396,7 +494,9 @@ export type ServiceOutputTypes =
   | UpdateGlobalSettingsCommandOutput
   | UpdateRecoveryPointLifecycleCommandOutput
   | UpdateRegionSettingsCommandOutput
-  | UpdateReportPlanCommandOutput;
+  | UpdateReportPlanCommandOutput
+  | UpdateRestoreTestingPlanCommandOutput
+  | UpdateRestoreTestingSelectionCommandOutput;
 
 /**
  * @public
@@ -508,6 +608,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

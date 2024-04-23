@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeCapacityProvidersRequest, DescribeCapacityProvidersResponse } from "../models/models_0";
 import { de_DescribeCapacityProvidersCommand, se_DescribeCapacityProvidersCommand } from "../protocols/Aws_json1_1";
 
@@ -71,6 +63,7 @@ export interface DescribeCapacityProvidersCommandOutput extends DescribeCapacity
  * //           instanceWarmupPeriod: Number("int"),
  * //         },
  * //         managedTerminationProtection: "ENABLED" || "DISABLED",
+ * //         managedDraining: "ENABLED" || "DISABLED",
  * //       },
  * //       updateStatus: "DELETE_IN_PROGRESS" || "DELETE_COMPLETE" || "DELETE_FAILED" || "UPDATE_IN_PROGRESS" || "UPDATE_COMPLETE" || "UPDATE_FAILED",
  * //       updateStatusReason: "STRING_VALUE",
@@ -103,7 +96,7 @@ export interface DescribeCapacityProvidersCommandOutput extends DescribeCapacity
  * @throws {@link ClientException} (client fault)
  *  <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
- * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
+ * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
@@ -116,82 +109,26 @@ export interface DescribeCapacityProvidersCommandOutput extends DescribeCapacity
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
  */
-export class DescribeCapacityProvidersCommand extends $Command<
-  DescribeCapacityProvidersCommandInput,
-  DescribeCapacityProvidersCommandOutput,
-  ECSClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeCapacityProvidersCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ECSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeCapacityProvidersCommandInput, DescribeCapacityProvidersCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeCapacityProvidersCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ECSClient";
-    const commandName = "DescribeCapacityProvidersCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeCapacityProvidersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeCapacityProvidersCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeCapacityProvidersCommandOutput> {
-    return de_DescribeCapacityProvidersCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeCapacityProvidersCommand extends $Command
+  .classBuilder<
+    DescribeCapacityProvidersCommandInput,
+    DescribeCapacityProvidersCommandOutput,
+    ECSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonEC2ContainerServiceV20141113", "DescribeCapacityProviders", {})
+  .n("ECSClient", "DescribeCapacityProvidersCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeCapacityProvidersCommand)
+  .de(de_DescribeCapacityProvidersCommand)
+  .build() {}

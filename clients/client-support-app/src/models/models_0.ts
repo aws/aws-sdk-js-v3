@@ -185,7 +185,7 @@ export interface CreateSlackChannelConfigurationRequest {
    *           <code>false</code>.</p>
    *          </note>
    */
-  notifyOnCaseSeverity: NotificationSeverityLevel | string | undefined;
+  notifyOnCaseSeverity: NotificationSeverityLevel | undefined;
 
   /**
    * @public
@@ -410,7 +410,7 @@ export interface SlackChannelConfiguration {
    * @public
    * <p>The case severity for a support case that you want to receive notifications.</p>
    */
-  notifyOnCaseSeverity?: NotificationSeverityLevel | string;
+  notifyOnCaseSeverity?: NotificationSeverityLevel;
 
   /**
    * @public
@@ -546,7 +546,7 @@ export interface RegisterSlackWorkspaceForOrganizationResult {
    * <p>Whether the Amazon Web Services account is a management or member account that's part of an organization
    *       in Organizations.</p>
    */
-  accountType?: AccountType | string;
+  accountType?: AccountType;
 }
 
 /**
@@ -636,7 +636,7 @@ export interface UpdateSlackChannelConfigurationRequest {
    *         values by default.</p>
    *          </note>
    */
-  notifyOnCaseSeverity?: NotificationSeverityLevel | string;
+  notifyOnCaseSeverity?: NotificationSeverityLevel;
 
   /**
    * @public
@@ -692,7 +692,7 @@ export interface UpdateSlackChannelConfigurationResult {
    * @public
    * <p>The case severity for a support case that you want to receive notifications.</p>
    */
-  notifyOnCaseSeverity?: NotificationSeverityLevel | string;
+  notifyOnCaseSeverity?: NotificationSeverityLevel;
 
   /**
    * @public

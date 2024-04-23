@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateClusterConfigRequest, UpdateClusterConfigResponse } from "../models/models_0";
 import { de_UpdateClusterConfigCommand, se_UpdateClusterConfigCommand } from "../protocols/Aws_restJson1";
 
@@ -38,11 +30,10 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  * @public
  * <p>Updates an Amazon EKS cluster configuration. Your cluster continues to
  *             function during the update. The response output includes an update ID that you can use
- *             to track the status of your cluster update with the <a>DescribeUpdate</a> API
- *             operation.</p>
- *          <p>You can use this API operation to enable or disable exporting the Kubernetes control
- *             plane logs for your cluster to CloudWatch Logs. By default, cluster control plane
- *             logs aren't exported to CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS Cluster Control Plane Logs</a> in the
+ *             to track the status of your cluster update with <code>DescribeUpdate</code>"/>.</p>
+ *          <p>You can use this API operation to enable or disable exporting the Kubernetes control plane
+ *             logs for your cluster to CloudWatch Logs. By default, cluster control plane logs
+ *             aren't exported to CloudWatch Logs. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html">Amazon EKS Cluster control plane logs</a> in the
  *                 <i>
  *                <i>Amazon EKS User Guide</i>
  *             </i>.</p>
@@ -56,10 +47,14 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  *             private access is disabled. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html">Amazon EKS cluster endpoint access control</a> in the
  *                 <i>
  *                <i>Amazon EKS User Guide</i>
- *             </i>. </p>
- *          <important>
- *             <p>You can't update the subnets or security group IDs for an existing cluster.</p>
- *          </important>
+ *             </i>.</p>
+ *          <p>You can also use this API operation to choose different subnets and security groups
+ *             for the cluster. You must specify at least two subnets that are in different
+ *             Availability Zones. You can't change which VPC the subnets are from, the subnets must be
+ *             in the same VPC as the subnets that the cluster was created with. For more information
+ *             about the VPC requirements, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html">https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html</a> in the <i>
+ *                <i>Amazon EKS User Guide</i>
+ *             </i>.</p>
  *          <p>Cluster updates are asynchronous, and they should finish within a few minutes. During
  *             an update, the cluster status moves to <code>UPDATING</code> (this status transition is
  *             eventually consistent). When the update is complete (either <code>Failed</code> or
@@ -96,6 +91,9 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  *     ],
  *   },
  *   clientRequestToken: "STRING_VALUE",
+ *   accessConfig: { // UpdateAccessConfigRequest
+ *     authenticationMode: "API" || "API_AND_CONFIG_MAP" || "CONFIG_MAP",
+ *   },
  * };
  * const command = new UpdateClusterConfigCommand(input);
  * const response = await client.send(command);
@@ -103,10 +101,10 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  * //   update: { // Update
  * //     id: "STRING_VALUE",
  * //     status: "InProgress" || "Failed" || "Cancelled" || "Successful",
- * //     type: "VersionUpdate" || "EndpointAccessUpdate" || "LoggingUpdate" || "ConfigUpdate" || "AssociateIdentityProviderConfig" || "DisassociateIdentityProviderConfig" || "AssociateEncryptionConfig" || "AddonUpdate",
+ * //     type: "VersionUpdate" || "EndpointAccessUpdate" || "LoggingUpdate" || "ConfigUpdate" || "AssociateIdentityProviderConfig" || "DisassociateIdentityProviderConfig" || "AssociateEncryptionConfig" || "AddonUpdate" || "VpcConfigUpdate" || "AccessConfigUpdate",
  * //     params: [ // UpdateParams
  * //       { // UpdateParam
- * //         type: "Version" || "PlatformVersion" || "EndpointPrivateAccess" || "EndpointPublicAccess" || "ClusterLogging" || "DesiredSize" || "LabelsToAdd" || "LabelsToRemove" || "TaintsToAdd" || "TaintsToRemove" || "MaxSize" || "MinSize" || "ReleaseVersion" || "PublicAccessCidrs" || "LaunchTemplateName" || "LaunchTemplateVersion" || "IdentityProviderConfig" || "EncryptionConfig" || "AddonVersion" || "ServiceAccountRoleArn" || "ResolveConflicts" || "MaxUnavailable" || "MaxUnavailablePercentage",
+ * //         type: "Version" || "PlatformVersion" || "EndpointPrivateAccess" || "EndpointPublicAccess" || "ClusterLogging" || "DesiredSize" || "LabelsToAdd" || "LabelsToRemove" || "TaintsToAdd" || "TaintsToRemove" || "MaxSize" || "MinSize" || "ReleaseVersion" || "PublicAccessCidrs" || "LaunchTemplateName" || "LaunchTemplateVersion" || "IdentityProviderConfig" || "EncryptionConfig" || "AddonVersion" || "ServiceAccountRoleArn" || "ResolveConflicts" || "MaxUnavailable" || "MaxUnavailablePercentage" || "ConfigurationValues" || "SecurityGroups" || "Subnets" || "AuthenticationMode",
  * //         value: "STRING_VALUE",
  * //       },
  * //     ],
@@ -133,8 +131,8 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  *
  * @throws {@link ClientException} (client fault)
  *  <p>These errors are usually caused by a client action. Actions can include using an
- *             action or resource on behalf of a user that doesn't have permissions to use the action
- *             or resource or specifying an identifier that is not valid.</p>
+ *             action or resource on behalf of an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a> that doesn't have permissions to use
+ *             the action or resource or specifying an identifier that is not valid.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter is invalid. Review the available parameters for the API
@@ -149,9 +147,8 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found. You can view your available clusters with
- *                 <a>ListClusters</a>. You can view your available managed node groups with
- *                 <a>ListNodegroups</a>. Amazon EKS clusters and node groups are
- *             Region-specific.</p>
+ *                 <code>ListClusters</code>. You can view your available managed node groups with
+ *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
@@ -160,79 +157,26 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
-export class UpdateClusterConfigCommand extends $Command<
-  UpdateClusterConfigCommandInput,
-  UpdateClusterConfigCommandOutput,
-  EKSClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateClusterConfigCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: EKSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateClusterConfigCommandInput, UpdateClusterConfigCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateClusterConfigCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "EKSClient";
-    const commandName = "UpdateClusterConfigCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateClusterConfigCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateClusterConfigCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateClusterConfigCommandOutput> {
-    return de_UpdateClusterConfigCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateClusterConfigCommand extends $Command
+  .classBuilder<
+    UpdateClusterConfigCommandInput,
+    UpdateClusterConfigCommandOutput,
+    EKSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSWesleyFrontend", "UpdateClusterConfig", {})
+  .n("EKSClient", "UpdateClusterConfigCommand")
+  .f(void 0, void 0)
+  .ser(se_UpdateClusterConfigCommand)
+  .de(de_UpdateClusterConfigCommand)
+  .build() {}

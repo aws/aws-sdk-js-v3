@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   LexModelBuildingServiceClientResolvedConfig,
   ServiceInputTypes,
@@ -67,11 +59,11 @@ export interface GetBotChannelAssociationCommandOutput extends GetBotChannelAsso
  * //   botAlias: "STRING_VALUE",
  * //   botName: "STRING_VALUE",
  * //   createdDate: new Date("TIMESTAMP"),
- * //   type: "STRING_VALUE",
+ * //   type: "Facebook" || "Slack" || "Twilio-Sms" || "Kik",
  * //   botConfiguration: { // ChannelConfigurationMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
- * //   status: "STRING_VALUE",
+ * //   status: "IN_PROGRESS" || "CREATED" || "FAILED",
  * //   failureReason: "STRING_VALUE",
  * // };
  *
@@ -102,79 +94,26 @@ export interface GetBotChannelAssociationCommandOutput extends GetBotChannelAsso
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
-export class GetBotChannelAssociationCommand extends $Command<
-  GetBotChannelAssociationCommandInput,
-  GetBotChannelAssociationCommandOutput,
-  LexModelBuildingServiceClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetBotChannelAssociationCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: LexModelBuildingServiceClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetBotChannelAssociationCommandInput, GetBotChannelAssociationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetBotChannelAssociationCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "LexModelBuildingServiceClient";
-    const commandName = "GetBotChannelAssociationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: GetBotChannelAssociationResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetBotChannelAssociationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetBotChannelAssociationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBotChannelAssociationCommandOutput> {
-    return de_GetBotChannelAssociationCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetBotChannelAssociationCommand extends $Command
+  .classBuilder<
+    GetBotChannelAssociationCommandInput,
+    GetBotChannelAssociationCommandOutput,
+    LexModelBuildingServiceClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSDeepSenseModelBuildingService", "GetBotChannelAssociation", {})
+  .n("LexModelBuildingServiceClient", "GetBotChannelAssociationCommand")
+  .f(void 0, GetBotChannelAssociationResponseFilterSensitiveLog)
+  .ser(se_GetBotChannelAssociationCommand)
+  .de(de_GetBotChannelAssociationCommand)
+  .build() {}

@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetInstanceTypesFromInstanceRequirementsRequest,
   GetInstanceTypesFromInstanceRequirementsResult,
@@ -120,10 +112,10 @@ export interface GetInstanceTypesFromInstanceRequirementsCommandOutput
  *       Max: Number("int"),
  *     },
  *     AcceleratorManufacturers: [ // AcceleratorManufacturerSet
- *       "nvidia" || "amd" || "amazon-web-services" || "xilinx",
+ *       "amazon-web-services" || "amd" || "nvidia" || "xilinx" || "habana",
  *     ],
  *     AcceleratorNames: [ // AcceleratorNameSet
- *       "a100" || "v100" || "k80" || "t4" || "m60" || "radeon-pro-v520" || "vu9p" || "inferentia" || "k520",
+ *       "a100" || "inferentia" || "k520" || "k80" || "m60" || "radeon-pro-v520" || "t4" || "vu9p" || "v100" || "a10g" || "h100" || "t4g",
  *     ],
  *     AcceleratorTotalMemoryMiB: { // AcceleratorTotalMemoryMiBRequest
  *       Min: Number("int"),
@@ -163,91 +155,26 @@ export interface GetInstanceTypesFromInstanceRequirementsCommandOutput
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  */
-export class GetInstanceTypesFromInstanceRequirementsCommand extends $Command<
-  GetInstanceTypesFromInstanceRequirementsCommandInput,
-  GetInstanceTypesFromInstanceRequirementsCommandOutput,
-  EC2ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetInstanceTypesFromInstanceRequirementsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: EC2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<
+export class GetInstanceTypesFromInstanceRequirementsCommand extends $Command
+  .classBuilder<
     GetInstanceTypesFromInstanceRequirementsCommandInput,
-    GetInstanceTypesFromInstanceRequirementsCommandOutput
-  > {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(
-        configuration,
-        GetInstanceTypesFromInstanceRequirementsCommand.getEndpointParameterInstructions()
-      )
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "EC2Client";
-    const commandName = "GetInstanceTypesFromInstanceRequirementsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: GetInstanceTypesFromInstanceRequirementsCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_GetInstanceTypesFromInstanceRequirementsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetInstanceTypesFromInstanceRequirementsCommandOutput> {
-    return de_GetInstanceTypesFromInstanceRequirementsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+    GetInstanceTypesFromInstanceRequirementsCommandOutput,
+    EC2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonEC2", "GetInstanceTypesFromInstanceRequirements", {})
+  .n("EC2Client", "GetInstanceTypesFromInstanceRequirementsCommand")
+  .f(void 0, void 0)
+  .ser(se_GetInstanceTypesFromInstanceRequirementsCommand)
+  .de(de_GetInstanceTypesFromInstanceRequirementsCommand)
+  .build() {}

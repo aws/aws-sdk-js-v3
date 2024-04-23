@@ -28,7 +28,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  * Utility methods related to AWS traits.
  */
 @SmithyInternalApi
-final class AwsTraitsUtils {
+public final class AwsTraitsUtils {
 
     private AwsTraitsUtils() {}
 
@@ -36,7 +36,7 @@ final class AwsTraitsUtils {
         return isAwsService(settings.getService(model));
     }
 
-    static boolean isAwsService(ServiceShape serviceShape) {
+    public static boolean isAwsService(ServiceShape serviceShape) {
         return serviceShape.hasTrait(ServiceTrait.class);
     }
 
@@ -44,7 +44,7 @@ final class AwsTraitsUtils {
         return isSigV4Service(settings.getService(model));
     }
 
-    static boolean isSigV4Service(ServiceShape serviceShape) {
+    public static boolean isSigV4Service(ServiceShape serviceShape) {
         return serviceShape.hasTrait(SigV4Trait.class);
     }
 

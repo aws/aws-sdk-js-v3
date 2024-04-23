@@ -76,7 +76,7 @@ export interface ScriptModeConfig {
    * @public
    * <p>The type of compression used by the Python scripts for an Amazon Braket job.</p>
    */
-  compressionType?: CompressionType | string;
+  compressionType?: CompressionType;
 }
 
 /**
@@ -100,6 +100,37 @@ export interface AlgorithmSpecification {
 
 /**
  * @public
+ * @enum
+ */
+export const AssociationType = {
+  RESERVATION_TIME_WINDOW_ARN: "RESERVATION_TIME_WINDOW_ARN",
+} as const;
+
+/**
+ * @public
+ */
+export type AssociationType = (typeof AssociationType)[keyof typeof AssociationType];
+
+/**
+ * @public
+ * <p>The Amazon Braket resource and the association type.</p>
+ */
+export interface Association {
+  /**
+   * @public
+   * <p>The Amazon Braket resource arn.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * @public
+   * <p>The association type for the specified Amazon Braket resource arn.</p>
+   */
+  type: AssociationType | undefined;
+}
+
+/**
+ * @public
  */
 export interface GetDeviceRequest {
   /**
@@ -107,6 +138,59 @@ export interface GetDeviceRequest {
    * <p>The ARN of the device to retrieve.</p>
    */
   deviceArn: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const QueueName = {
+  JOBS_QUEUE: "JOBS_QUEUE",
+  QUANTUM_TASKS_QUEUE: "QUANTUM_TASKS_QUEUE",
+} as const;
+
+/**
+ * @public
+ */
+export type QueueName = (typeof QueueName)[keyof typeof QueueName];
+
+/**
+ * @public
+ * @enum
+ */
+export const QueuePriority = {
+  NORMAL: "Normal",
+  PRIORITY: "Priority",
+} as const;
+
+/**
+ * @public
+ */
+export type QueuePriority = (typeof QueuePriority)[keyof typeof QueuePriority];
+
+/**
+ * @public
+ * <p>Information about tasks and jobs queued on a device.</p>
+ */
+export interface DeviceQueueInfo {
+  /**
+   * @public
+   * <p>The name of the queue. </p>
+   */
+  queue: QueueName | undefined;
+
+  /**
+   * @public
+   * <p>The number of jobs or tasks in the queue for a given device. </p>
+   */
+  queueSize: string | undefined;
+
+  /**
+   * @public
+   * <p>Optional. Specifies the priority of the queue. Tasks in a priority queue
+   *          are processed before the tasks in a normal queue.</p>
+   */
+  queuePriority?: QueuePriority;
 }
 
 /**
@@ -164,19 +248,25 @@ export interface GetDeviceResponse {
    * @public
    * <p>The type of the device.</p>
    */
-  deviceType: DeviceType | string | undefined;
+  deviceType: DeviceType | undefined;
 
   /**
    * @public
    * <p>The status of the device.</p>
    */
-  deviceStatus: DeviceStatus | string | undefined;
+  deviceStatus: DeviceStatus | undefined;
 
   /**
    * @public
    * <p>Details about the capabilities of the device.</p>
    */
   deviceCapabilities: __LazyJsonString | string | undefined;
+
+  /**
+   * @public
+   * <p>List of information about tasks and jobs queued on a device.</p>
+   */
+  deviceQueueInfo?: DeviceQueueInfo[];
 }
 
 /**
@@ -329,13 +419,13 @@ export interface DeviceSummary {
    * @public
    * <p>The type of the device.</p>
    */
-  deviceType: DeviceType | string | undefined;
+  deviceType: DeviceType | undefined;
 
   /**
    * @public
    * <p>The status of the device.</p>
    */
-  deviceStatus: DeviceStatus | string | undefined;
+  deviceStatus: DeviceStatus | undefined;
 }
 
 /**
@@ -397,7 +487,7 @@ export interface CancelJobResponse {
    * @public
    * <p>The status of the job cancellation request.</p>
    */
-  cancellationStatus: CancellationStatus | string | undefined;
+  cancellationStatus: CancellationStatus | undefined;
 }
 
 /**
@@ -566,7 +656,7 @@ export interface InstanceConfig {
    * <p>Configures the type resource instances to use while running an Amazon Braket hybrid
    *          job.</p>
    */
-  instanceType: _InstanceType | string | undefined;
+  instanceType: _InstanceType | undefined;
 
   /**
    * @public
@@ -700,6 +790,12 @@ export interface CreateJobRequest {
    *          Amazon Braket resources.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The list of Amazon Braket resources associated with the hybrid job.</p>
+   */
+  associations?: Association[];
 }
 
 /**
@@ -755,6 +851,20 @@ export class ServiceQuotaExceededException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const HybridJobAdditionalAttributeName = {
+  QUEUE_INFO: "QueueInfo",
+} as const;
+
+/**
+ * @public
+ */
+export type HybridJobAdditionalAttributeName =
+  (typeof HybridJobAdditionalAttributeName)[keyof typeof HybridJobAdditionalAttributeName];
+
+/**
+ * @public
  */
 export interface GetJobRequest {
   /**
@@ -762,6 +872,12 @@ export interface GetJobRequest {
    * <p>The ARN of the job to retrieve.</p>
    */
   jobArn: string | undefined;
+
+  /**
+   * @public
+   * <p>A list of attributes to return information for.</p>
+   */
+  additionalAttributeNames?: HybridJobAdditionalAttributeName[];
 }
 
 /**
@@ -796,17 +912,43 @@ export interface JobEventDetails {
    * @public
    * <p>The type of event that occurred related to the Amazon Braket job.</p>
    */
-  eventType?: JobEventType | string;
+  eventType?: JobEventType;
 
   /**
    * @public
-   * <p>TThe type of event that occurred related to the Amazon Braket job.</p>
+   * <p>The type of event that occurred related to the Amazon Braket job.</p>
    */
   timeOfEvent?: Date;
 
   /**
    * @public
    * <p>A message describing the event that occurred related to the Amazon Braket job.</p>
+   */
+  message?: string;
+}
+
+/**
+ * @public
+ * <p>Information about the queue for a specified job.</p>
+ */
+export interface HybridJobQueueInfo {
+  /**
+   * @public
+   * <p>The name of the queue.</p>
+   */
+  queue: QueueName | undefined;
+
+  /**
+   * @public
+   * <p>Current position of the job in the jobs queue.</p>
+   */
+  position: string | undefined;
+
+  /**
+   * @public
+   * <p>Optional. Provides more information about the queue position. For example,
+   *          if the job is complete and no longer in the queue, the message field contains
+   *          that information.</p>
    */
   message?: string;
 }
@@ -837,7 +979,7 @@ export interface GetJobResponse {
    * @public
    * <p>The status of the Amazon Braket job.</p>
    */
-  status: JobPrimaryStatus | string | undefined;
+  status: JobPrimaryStatus | undefined;
 
   /**
    * @public
@@ -955,6 +1097,20 @@ export interface GetJobResponse {
    *          Amazon Braket resources.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Queue information for the requested job. Only returned if
+   *          <code>QueueInfo</code> is specified in the <code>additionalAttributeNames"</code>
+   *          field in the <code>GetJob</code> API request.</p>
+   */
+  queueInfo?: HybridJobQueueInfo;
+
+  /**
+   * @public
+   * <p>The list of Amazon Braket resources associated with the hybrid job.</p>
+   */
+  associations?: Association[];
 }
 
 /**
@@ -997,7 +1153,7 @@ export interface SearchJobsFilter {
    * @public
    * <p>An operator to use for the jobs filter.</p>
    */
-  operator: SearchJobsFilterOperator | string | undefined;
+  operator: SearchJobsFilterOperator | undefined;
 }
 
 /**
@@ -1033,7 +1189,7 @@ export interface JobSummary {
    * @public
    * <p>The status of the Amazon Braket job.</p>
    */
-  status: JobPrimaryStatus | string | undefined;
+  status: JobPrimaryStatus | undefined;
 
   /**
    * @public
@@ -1153,7 +1309,7 @@ export interface CancelQuantumTaskResponse {
    * @public
    * <p>The status of the cancellation request.</p>
    */
-  cancellationStatus: CancellationStatus | string | undefined;
+  cancellationStatus: CancellationStatus | undefined;
 }
 
 /**
@@ -1213,6 +1369,12 @@ export interface CreateQuantumTaskRequest {
    * <p>The token for an Amazon Braket job that associates it with the quantum task.</p>
    */
   jobToken?: string;
+
+  /**
+   * @public
+   * <p>The list of Amazon Braket resources associated with the quantum task.</p>
+   */
+  associations?: Association[];
 }
 
 /**
@@ -1248,13 +1410,66 @@ export class DeviceOfflineException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const QuantumTaskAdditionalAttributeName = {
+  QUEUE_INFO: "QueueInfo",
+} as const;
+
+/**
+ * @public
+ */
+export type QuantumTaskAdditionalAttributeName =
+  (typeof QuantumTaskAdditionalAttributeName)[keyof typeof QuantumTaskAdditionalAttributeName];
+
+/**
+ * @public
  */
 export interface GetQuantumTaskRequest {
   /**
    * @public
-   * <p>the ARN of the task to retrieve.</p>
+   * <p>The ARN of the task to retrieve.</p>
    */
   quantumTaskArn: string | undefined;
+
+  /**
+   * @public
+   * <p>A list of attributes to return information for.</p>
+   */
+  additionalAttributeNames?: QuantumTaskAdditionalAttributeName[];
+}
+
+/**
+ * @public
+ * <p>Information about the queue for the specified quantum task.</p>
+ */
+export interface QuantumTaskQueueInfo {
+  /**
+   * @public
+   * <p>The name of the queue. </p>
+   */
+  queue: QueueName | undefined;
+
+  /**
+   * @public
+   * <p>Current position of the task in the quantum tasks queue.</p>
+   */
+  position: string | undefined;
+
+  /**
+   * @public
+   * <p>Optional. Specifies the priority of the queue. Quantum tasks in a priority queue
+   *          are processed before the tasks in a normal queue.</p>
+   */
+  queuePriority?: QueuePriority;
+
+  /**
+   * @public
+   * <p>Optional. Provides more information about the queue position. For example,
+   *          if the task is complete and no longer in the queue, the message field contains
+   *          that information.</p>
+   */
+  message?: string;
 }
 
 /**
@@ -1290,7 +1505,7 @@ export interface GetQuantumTaskResponse {
    * @public
    * <p>The status of the task.</p>
    */
-  status: QuantumTaskStatus | string | undefined;
+  status: QuantumTaskStatus | undefined;
 
   /**
    * @public
@@ -1351,6 +1566,20 @@ export interface GetQuantumTaskResponse {
    * <p>The ARN of the Amazon Braket job associated with the quantum task.</p>
    */
   jobArn?: string;
+
+  /**
+   * @public
+   * <p>Queue information for the requested quantum task. Only returned if
+   *          <code>QueueInfo</code> is specified in the <code>additionalAttributeNames"</code>
+   *          field in the <code>GetQuantumTask</code> API request.</p>
+   */
+  queueInfo?: QuantumTaskQueueInfo;
+
+  /**
+   * @public
+   * <p>The list of Amazon Braket resources associated with the quantum task.</p>
+   */
+  associations?: Association[];
 }
 
 /**
@@ -1393,7 +1622,7 @@ export interface SearchQuantumTasksFilter {
    * @public
    * <p>An operator to use in the filter.</p>
    */
-  operator: SearchQuantumTasksFilterOperator | string | undefined;
+  operator: SearchQuantumTasksFilterOperator | undefined;
 }
 
 /**
@@ -1435,7 +1664,7 @@ export interface QuantumTaskSummary {
    * @public
    * <p>The status of the task.</p>
    */
-  status: QuantumTaskStatus | string | undefined;
+  status: QuantumTaskStatus | undefined;
 
   /**
    * @public

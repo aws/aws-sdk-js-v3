@@ -29,19 +29,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ManagedBlockchainQueryClient` and
-the commands you need, for example `BatchGetTokenBalanceCommand`:
+the commands you need, for example `ListTokenBalancesCommand`:
 
 ```js
 // ES5 example
-const {
-  ManagedBlockchainQueryClient,
-  BatchGetTokenBalanceCommand,
-} = require("@aws-sdk/client-managedblockchain-query");
+const { ManagedBlockchainQueryClient, ListTokenBalancesCommand } = require("@aws-sdk/client-managedblockchain-query");
 ```
 
 ```ts
 // ES6+ example
-import { ManagedBlockchainQueryClient, BatchGetTokenBalanceCommand } from "@aws-sdk/client-managedblockchain-query";
+import { ManagedBlockchainQueryClient, ListTokenBalancesCommand } from "@aws-sdk/client-managedblockchain-query";
 ```
 
 ### Usage
@@ -60,7 +57,7 @@ const client = new ManagedBlockchainQueryClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchGetTokenBalanceCommand(params);
+const command = new ListTokenBalancesCommand(params);
 ```
 
 #### Async/await
@@ -139,7 +136,7 @@ const client = new AWS.ManagedBlockchainQuery({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchGetTokenBalance(params);
+  const data = await client.listTokenBalances(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -147,7 +144,7 @@ try {
 
 // Promises.
 client
-  .batchGetTokenBalance(params)
+  .listTokenBalances(params)
   .then((data) => {
     // process data.
   })
@@ -156,7 +153,7 @@ client
   });
 
 // callbacks.
-client.batchGetTokenBalance(params, (err, data) => {
+client.listTokenBalances(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -171,7 +168,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -217,7 +214,15 @@ see LICENSE for more information.
 BatchGetTokenBalance
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-managedblockchain-query/classes/batchgettokenbalancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-managedblockchain-query/interfaces/batchgettokenbalancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-managedblockchain-query/interfaces/batchgettokenbalancecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/managedblockchain-query/command/BatchGetTokenBalanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-managedblockchain-query/Interface/BatchGetTokenBalanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-managedblockchain-query/Interface/BatchGetTokenBalanceCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetAssetContract
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/managedblockchain-query/command/GetAssetContractCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-managedblockchain-query/Interface/GetAssetContractCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-managedblockchain-query/Interface/GetAssetContractCommandOutput/)
 
 </details>
 <details>
@@ -225,7 +230,7 @@ BatchGetTokenBalance
 GetTokenBalance
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-managedblockchain-query/classes/gettokenbalancecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-managedblockchain-query/interfaces/gettokenbalancecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-managedblockchain-query/interfaces/gettokenbalancecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/managedblockchain-query/command/GetTokenBalanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-managedblockchain-query/Interface/GetTokenBalanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-managedblockchain-query/Interface/GetTokenBalanceCommandOutput/)
 
 </details>
 <details>
@@ -233,7 +238,15 @@ GetTokenBalance
 GetTransaction
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-managedblockchain-query/classes/gettransactioncommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-managedblockchain-query/interfaces/gettransactioncommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-managedblockchain-query/interfaces/gettransactioncommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/managedblockchain-query/command/GetTransactionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-managedblockchain-query/Interface/GetTransactionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-managedblockchain-query/Interface/GetTransactionCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListAssetContracts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/managedblockchain-query/command/ListAssetContractsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-managedblockchain-query/Interface/ListAssetContractsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-managedblockchain-query/Interface/ListAssetContractsCommandOutput/)
 
 </details>
 <details>
@@ -241,7 +254,7 @@ GetTransaction
 ListTokenBalances
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-managedblockchain-query/classes/listtokenbalancescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-managedblockchain-query/interfaces/listtokenbalancescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-managedblockchain-query/interfaces/listtokenbalancescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/managedblockchain-query/command/ListTokenBalancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-managedblockchain-query/Interface/ListTokenBalancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-managedblockchain-query/Interface/ListTokenBalancesCommandOutput/)
 
 </details>
 <details>
@@ -249,7 +262,7 @@ ListTokenBalances
 ListTransactionEvents
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-managedblockchain-query/classes/listtransactioneventscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-managedblockchain-query/interfaces/listtransactioneventscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-managedblockchain-query/interfaces/listtransactioneventscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/managedblockchain-query/command/ListTransactionEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-managedblockchain-query/Interface/ListTransactionEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-managedblockchain-query/Interface/ListTransactionEventsCommandOutput/)
 
 </details>
 <details>
@@ -257,6 +270,6 @@ ListTransactionEvents
 ListTransactions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-managedblockchain-query/classes/listtransactionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-managedblockchain-query/interfaces/listtransactionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-managedblockchain-query/interfaces/listtransactionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/managedblockchain-query/command/ListTransactionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-managedblockchain-query/Interface/ListTransactionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-managedblockchain-query/Interface/ListTransactionsCommandOutput/)
 
 </details>

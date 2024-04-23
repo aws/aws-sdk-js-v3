@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeFolderPermissionsRequest, DescribeFolderPermissionsResponse } from "../models/models_3";
 import { de_DescribeFolderPermissionsCommand, se_DescribeFolderPermissionsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
@@ -46,6 +38,9 @@ export interface DescribeFolderPermissionsCommandOutput extends DescribeFolderPe
  * const input = { // DescribeFolderPermissionsRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   FolderId: "STRING_VALUE", // required
+ *   Namespace: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
  * };
  * const command = new DescribeFolderPermissionsCommand(input);
  * const response = await client.send(command);
@@ -62,6 +57,7 @@ export interface DescribeFolderPermissionsCommandOutput extends DescribeFolderPe
  * //     },
  * //   ],
  * //   RequestId: "STRING_VALUE",
+ * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```
@@ -80,6 +76,9 @@ export interface DescribeFolderPermissionsCommandOutput extends DescribeFolderPe
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal failure occurred.</p>
+ *
+ * @throws {@link InvalidNextTokenException} (client fault)
+ *  <p>The <code>NextToken</code> value isn't valid.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>One or more parameters has a value that isn't valid.</p>
@@ -100,82 +99,26 @@ export interface DescribeFolderPermissionsCommandOutput extends DescribeFolderPe
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
-export class DescribeFolderPermissionsCommand extends $Command<
-  DescribeFolderPermissionsCommandInput,
-  DescribeFolderPermissionsCommandOutput,
-  QuickSightClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeFolderPermissionsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: QuickSightClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeFolderPermissionsCommandInput, DescribeFolderPermissionsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeFolderPermissionsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "QuickSightClient";
-    const commandName = "DescribeFolderPermissionsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeFolderPermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeFolderPermissionsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeFolderPermissionsCommandOutput> {
-    return de_DescribeFolderPermissionsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeFolderPermissionsCommand extends $Command
+  .classBuilder<
+    DescribeFolderPermissionsCommandInput,
+    DescribeFolderPermissionsCommandOutput,
+    QuickSightClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("QuickSight_20180401", "DescribeFolderPermissions", {})
+  .n("QuickSightClient", "DescribeFolderPermissionsCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeFolderPermissionsCommand)
+  .de(de_DescribeFolderPermissionsCommand)
+  .build() {}

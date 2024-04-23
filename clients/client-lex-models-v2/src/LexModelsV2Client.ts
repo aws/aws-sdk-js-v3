@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -114,6 +112,10 @@ import {
   DescribeBotRecommendationCommandInput,
   DescribeBotRecommendationCommandOutput,
 } from "./commands/DescribeBotRecommendationCommand";
+import {
+  DescribeBotResourceGenerationCommandInput,
+  DescribeBotResourceGenerationCommandOutput,
+} from "./commands/DescribeBotResourceGenerationCommand";
 import { DescribeBotVersionCommandInput, DescribeBotVersionCommandOutput } from "./commands/DescribeBotVersionCommand";
 import {
   DescribeCustomVocabularyMetadataCommandInput,
@@ -141,6 +143,7 @@ import {
   DescribeTestSetGenerationCommandInput,
   DescribeTestSetGenerationCommandOutput,
 } from "./commands/DescribeTestSetGenerationCommand";
+import { GenerateBotElementCommandInput, GenerateBotElementCommandOutput } from "./commands/GenerateBotElementCommand";
 import {
   GetTestExecutionArtifactsUrlCommandInput,
   GetTestExecutionArtifactsUrlCommandOutput,
@@ -155,6 +158,10 @@ import {
   ListBotRecommendationsCommandInput,
   ListBotRecommendationsCommandOutput,
 } from "./commands/ListBotRecommendationsCommand";
+import {
+  ListBotResourceGenerationsCommandInput,
+  ListBotResourceGenerationsCommandOutput,
+} from "./commands/ListBotResourceGenerationsCommand";
 import { ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
 import { ListBotVersionsCommandInput, ListBotVersionsCommandOutput } from "./commands/ListBotVersionsCommand";
 import { ListBuiltInIntentsCommandInput, ListBuiltInIntentsCommandOutput } from "./commands/ListBuiltInIntentsCommand";
@@ -213,6 +220,10 @@ import {
   StartBotRecommendationCommandInput,
   StartBotRecommendationCommandOutput,
 } from "./commands/StartBotRecommendationCommand";
+import {
+  StartBotResourceGenerationCommandInput,
+  StartBotResourceGenerationCommandOutput,
+} from "./commands/StartBotResourceGenerationCommand";
 import { StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand";
 import { StartTestExecutionCommandInput, StartTestExecutionCommandOutput } from "./commands/StartTestExecutionCommand";
 import {
@@ -290,6 +301,7 @@ export type ServiceInputTypes =
   | DescribeBotCommandInput
   | DescribeBotLocaleCommandInput
   | DescribeBotRecommendationCommandInput
+  | DescribeBotResourceGenerationCommandInput
   | DescribeBotVersionCommandInput
   | DescribeCustomVocabularyMetadataCommandInput
   | DescribeExportCommandInput
@@ -302,11 +314,13 @@ export type ServiceInputTypes =
   | DescribeTestSetCommandInput
   | DescribeTestSetDiscrepancyReportCommandInput
   | DescribeTestSetGenerationCommandInput
+  | GenerateBotElementCommandInput
   | GetTestExecutionArtifactsUrlCommandInput
   | ListAggregatedUtterancesCommandInput
   | ListBotAliasesCommandInput
   | ListBotLocalesCommandInput
   | ListBotRecommendationsCommandInput
+  | ListBotResourceGenerationsCommandInput
   | ListBotVersionsCommandInput
   | ListBotsCommandInput
   | ListBuiltInIntentsCommandInput
@@ -332,6 +346,7 @@ export type ServiceInputTypes =
   | ListUtteranceMetricsCommandInput
   | SearchAssociatedTranscriptsCommandInput
   | StartBotRecommendationCommandInput
+  | StartBotResourceGenerationCommandInput
   | StartImportCommandInput
   | StartTestExecutionCommandInput
   | StartTestSetGenerationCommandInput
@@ -387,6 +402,7 @@ export type ServiceOutputTypes =
   | DescribeBotCommandOutput
   | DescribeBotLocaleCommandOutput
   | DescribeBotRecommendationCommandOutput
+  | DescribeBotResourceGenerationCommandOutput
   | DescribeBotVersionCommandOutput
   | DescribeCustomVocabularyMetadataCommandOutput
   | DescribeExportCommandOutput
@@ -399,11 +415,13 @@ export type ServiceOutputTypes =
   | DescribeTestSetCommandOutput
   | DescribeTestSetDiscrepancyReportCommandOutput
   | DescribeTestSetGenerationCommandOutput
+  | GenerateBotElementCommandOutput
   | GetTestExecutionArtifactsUrlCommandOutput
   | ListAggregatedUtterancesCommandOutput
   | ListBotAliasesCommandOutput
   | ListBotLocalesCommandOutput
   | ListBotRecommendationsCommandOutput
+  | ListBotResourceGenerationsCommandOutput
   | ListBotVersionsCommandOutput
   | ListBotsCommandOutput
   | ListBuiltInIntentsCommandOutput
@@ -429,6 +447,7 @@ export type ServiceOutputTypes =
   | ListUtteranceMetricsCommandOutput
   | SearchAssociatedTranscriptsCommandOutput
   | StartBotRecommendationCommandOutput
+  | StartBotResourceGenerationCommandOutput
   | StartImportCommandOutput
   | StartTestExecutionCommandOutput
   | StartTestSetGenerationCommandOutput
@@ -556,6 +575,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

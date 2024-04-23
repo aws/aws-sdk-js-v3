@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GetAssociatedResourceRequest, GetAssociatedResourceResponse } from "../models/models_0";
 import { de_GetAssociatedResourceCommand, se_GetAssociatedResourceCommand } from "../protocols/Aws_restJson1";
 import {
@@ -51,6 +43,11 @@ export interface GetAssociatedResourceCommandOutput extends GetAssociatedResourc
  *   application: "STRING_VALUE", // required
  *   resourceType: "CFN_STACK" || "RESOURCE_TAG_VALUE", // required
  *   resource: "STRING_VALUE", // required
+ *   nextToken: "STRING_VALUE",
+ *   resourceTagStatus: [ // GetAssociatedResourceFilter
+ *     "SUCCESS" || "FAILED" || "IN_PROGRESS" || "SKIPPED",
+ *   ],
+ *   maxResults: Number("int"),
  * };
  * const command = new GetAssociatedResourceCommand(input);
  * const response = await client.send(command);
@@ -66,6 +63,22 @@ export interface GetAssociatedResourceCommandOutput extends GetAssociatedResourc
  * //         errorMessage: "STRING_VALUE",
  * //       },
  * //     },
+ * //   },
+ * //   options: [ // Options
+ * //     "APPLY_APPLICATION_TAG" || "SKIP_APPLICATION_TAG",
+ * //   ],
+ * //   applicationTagResult: { // ApplicationTagResult
+ * //     applicationTagStatus: "IN_PROGRESS" || "SUCCESS" || "FAILURE",
+ * //     errorMessage: "STRING_VALUE",
+ * //     resources: [ // ResourcesList
+ * //       { // ResourcesListItem
+ * //         resourceArn: "STRING_VALUE",
+ * //         errorMessage: "STRING_VALUE",
+ * //         status: "STRING_VALUE",
+ * //         resourceType: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     nextToken: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -90,79 +103,26 @@ export interface GetAssociatedResourceCommandOutput extends GetAssociatedResourc
  * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
  */
-export class GetAssociatedResourceCommand extends $Command<
-  GetAssociatedResourceCommandInput,
-  GetAssociatedResourceCommandOutput,
-  ServiceCatalogAppRegistryClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetAssociatedResourceCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ServiceCatalogAppRegistryClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetAssociatedResourceCommandInput, GetAssociatedResourceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetAssociatedResourceCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ServiceCatalogAppRegistryClient";
-    const commandName = "GetAssociatedResourceCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetAssociatedResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetAssociatedResourceCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAssociatedResourceCommandOutput> {
-    return de_GetAssociatedResourceCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetAssociatedResourceCommand extends $Command
+  .classBuilder<
+    GetAssociatedResourceCommandInput,
+    GetAssociatedResourceCommandOutput,
+    ServiceCatalogAppRegistryClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogAppRegistryClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWS242AppRegistry", "GetAssociatedResource", {})
+  .n("ServiceCatalogAppRegistryClient", "GetAssociatedResourceCommand")
+  .f(void 0, void 0)
+  .ser(se_GetAssociatedResourceCommand)
+  .de(de_GetAssociatedResourceCommand)
+  .build() {}

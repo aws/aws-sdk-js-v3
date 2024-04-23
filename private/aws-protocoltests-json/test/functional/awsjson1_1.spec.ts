@@ -38,6 +38,10 @@ class RequestSerializationTestHandler implements HttpHandler {
   handle(request: HttpRequest, options?: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
     return Promise.reject(new EXPECTED_REQUEST_SERIALIZATION_ERROR(request));
   }
+  updateHttpClientConfig(key: never, value: never): void {}
+  httpHandlerConfigs() {
+    return {};
+  }
 }
 
 /**
@@ -71,6 +75,10 @@ class ResponseDeserializationTestHandler implements HttpHandler {
         body: Readable.from([this.body]),
       }),
     });
+  }
+  updateHttpClientConfig(key: never, value: never): void {}
+  httpHandlerConfigs() {
+    return {};
   }
 }
 
@@ -188,7 +196,7 @@ it("AwsJson11DateTimeWithNegativeOffset:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      datetime: new Date(1576540098000),
+      datetime: new Date(1576540098 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -229,7 +237,7 @@ it("AwsJson11DateTimeWithPositiveOffset:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      datetime: new Date(1576540098000),
+      datetime: new Date(1576540098 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -549,48 +557,7 @@ it("AwsJson11DateTimeWithFractionalSeconds:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      datetime: new Date(9.46845296123e8000),
-    },
-  ][0];
-  Object.keys(paramsToValidate).forEach((param) => {
-    expect(r[param]).toBeDefined();
-    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
-  });
-});
-
-/**
- * Ensures that clients can correctly parse http-date timestamps with fractional seconds
- */
-it("AwsJson11HttpDateWithFractionalSeconds:Response", async () => {
-  const client = new JsonProtocolClient({
-    ...clientParams,
-    requestHandler: new ResponseDeserializationTestHandler(
-      true,
-      200,
-      {
-        "content-type": "application/x-amz-json-1.1",
-      },
-      `      {
-                "httpdate": "Sun, 02 Jan 2000 20:34:56.456 GMT"
-            }
-      `
-    ),
-  });
-
-  const params: any = {};
-  const command = new FractionalSecondsCommand(params);
-
-  let r: any;
-  try {
-    r = await client.send(command);
-  } catch (err) {
-    fail("Expected a valid response to be returned, got " + err);
-    return;
-  }
-  expect(r["$metadata"].httpStatusCode).toBe(200);
-  const paramsToValidate: any = [
-    {
-      httpdate: new Date(9.46845296456e8000),
+      datetime: new Date(9.46845296123e8 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -1830,7 +1797,7 @@ it("AwsJson11DeserializeTimestampUnionValue:Response", async () => {
   const paramsToValidate: any = [
     {
       contents: {
-        timestampValue: new Date(1398796238000),
+        timestampValue: new Date(1398796238 * 1000),
       },
     },
   ][0];
@@ -1993,6 +1960,55 @@ it("AwsJson11DeserializeStructureUnionValue:Response", async () => {
       },
       `{
           "contents": {
+              "structureValue": {
+                  "hi": "hello"
+              }
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonUnionsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      contents: {
+        structureValue: {
+          hi: "hello",
+        },
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Ignores an unrecognized __type property
+ */
+it("AwsJson11DeserializeIgnoreType:Response", async () => {
+  const client = new JsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/x-amz-json-1.1",
+      },
+      `{
+          "contents": {
+              "__type": "aws.protocoltests.json10#MyUnion",
               "structureValue": {
                   "hi": "hello"
               }
@@ -3574,7 +3590,7 @@ it("parses_timestamp_shapes:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      Timestamp: new Date(946845296000),
+      Timestamp: new Date(946845296 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -3612,7 +3628,7 @@ it("parses_iso8601_timestamps:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      Iso8601Timestamp: new Date(946845296000),
+      Iso8601Timestamp: new Date(946845296 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -3650,7 +3666,7 @@ it("parses_httpdate_timestamps:Response", async () => {
   expect(r["$metadata"].httpStatusCode).toBe(200);
   const paramsToValidate: any = [
     {
-      HttpdateTimestamp: new Date(946845296000),
+      HttpdateTimestamp: new Date(946845296 * 1000),
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {

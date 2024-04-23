@@ -25,16 +25,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `LookoutMetricsClient` and
-the commands you need, for example `ActivateAnomalyDetectorCommand`:
+the commands you need, for example `ListAlertsCommand`:
 
 ```js
 // ES5 example
-const { LookoutMetricsClient, ActivateAnomalyDetectorCommand } = require("@aws-sdk/client-lookoutmetrics");
+const { LookoutMetricsClient, ListAlertsCommand } = require("@aws-sdk/client-lookoutmetrics");
 ```
 
 ```ts
 // ES6+ example
-import { LookoutMetricsClient, ActivateAnomalyDetectorCommand } from "@aws-sdk/client-lookoutmetrics";
+import { LookoutMetricsClient, ListAlertsCommand } from "@aws-sdk/client-lookoutmetrics";
 ```
 
 ### Usage
@@ -53,7 +53,7 @@ const client = new LookoutMetricsClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ActivateAnomalyDetectorCommand(params);
+const command = new ListAlertsCommand(params);
 ```
 
 #### Async/await
@@ -132,7 +132,7 @@ const client = new AWS.LookoutMetrics({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.activateAnomalyDetector(params);
+  const data = await client.listAlerts(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -140,7 +140,7 @@ try {
 
 // Promises.
 client
-  .activateAnomalyDetector(params)
+  .listAlerts(params)
   .then((data) => {
     // process data.
   })
@@ -149,7 +149,7 @@ client
   });
 
 // callbacks.
-client.activateAnomalyDetector(params, (err, data) => {
+client.listAlerts(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -164,7 +164,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -210,7 +210,7 @@ see LICENSE for more information.
 ActivateAnomalyDetector
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/classes/activateanomalydetectorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/activateanomalydetectorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/activateanomalydetectorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutmetrics/command/ActivateAnomalyDetectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/ActivateAnomalyDetectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/ActivateAnomalyDetectorCommandOutput/)
 
 </details>
 <details>
@@ -218,7 +218,7 @@ ActivateAnomalyDetector
 BackTestAnomalyDetector
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/classes/backtestanomalydetectorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/backtestanomalydetectorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/backtestanomalydetectorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutmetrics/command/BackTestAnomalyDetectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/BackTestAnomalyDetectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/BackTestAnomalyDetectorCommandOutput/)
 
 </details>
 <details>
@@ -226,7 +226,7 @@ BackTestAnomalyDetector
 CreateAlert
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/classes/createalertcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/createalertcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/createalertcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutmetrics/command/CreateAlertCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/CreateAlertCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/CreateAlertCommandOutput/)
 
 </details>
 <details>
@@ -234,7 +234,7 @@ CreateAlert
 CreateAnomalyDetector
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/classes/createanomalydetectorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/createanomalydetectorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/createanomalydetectorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutmetrics/command/CreateAnomalyDetectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/CreateAnomalyDetectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/CreateAnomalyDetectorCommandOutput/)
 
 </details>
 <details>
@@ -242,7 +242,7 @@ CreateAnomalyDetector
 CreateMetricSet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/classes/createmetricsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/createmetricsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/createmetricsetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutmetrics/command/CreateMetricSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/CreateMetricSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/CreateMetricSetCommandOutput/)
 
 </details>
 <details>
@@ -250,7 +250,7 @@ CreateMetricSet
 DeactivateAnomalyDetector
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/classes/deactivateanomalydetectorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/deactivateanomalydetectorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/deactivateanomalydetectorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutmetrics/command/DeactivateAnomalyDetectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/DeactivateAnomalyDetectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/DeactivateAnomalyDetectorCommandOutput/)
 
 </details>
 <details>
@@ -258,7 +258,7 @@ DeactivateAnomalyDetector
 DeleteAlert
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/classes/deletealertcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/deletealertcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/deletealertcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutmetrics/command/DeleteAlertCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/DeleteAlertCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/DeleteAlertCommandOutput/)
 
 </details>
 <details>
@@ -266,7 +266,7 @@ DeleteAlert
 DeleteAnomalyDetector
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/classes/deleteanomalydetectorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/deleteanomalydetectorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/deleteanomalydetectorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutmetrics/command/DeleteAnomalyDetectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/DeleteAnomalyDetectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/DeleteAnomalyDetectorCommandOutput/)
 
 </details>
 <details>
@@ -274,7 +274,7 @@ DeleteAnomalyDetector
 DescribeAlert
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/classes/describealertcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/describealertcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/describealertcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutmetrics/command/DescribeAlertCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/DescribeAlertCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/DescribeAlertCommandOutput/)
 
 </details>
 <details>
@@ -282,7 +282,7 @@ DescribeAlert
 DescribeAnomalyDetectionExecutions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/classes/describeanomalydetectionexecutionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/describeanomalydetectionexecutionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/describeanomalydetectionexecutionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutmetrics/command/DescribeAnomalyDetectionExecutionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/DescribeAnomalyDetectionExecutionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/DescribeAnomalyDetectionExecutionsCommandOutput/)
 
 </details>
 <details>
@@ -290,7 +290,7 @@ DescribeAnomalyDetectionExecutions
 DescribeAnomalyDetector
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/classes/describeanomalydetectorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/describeanomalydetectorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/describeanomalydetectorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutmetrics/command/DescribeAnomalyDetectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/DescribeAnomalyDetectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/DescribeAnomalyDetectorCommandOutput/)
 
 </details>
 <details>
@@ -298,7 +298,7 @@ DescribeAnomalyDetector
 DescribeMetricSet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/classes/describemetricsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/describemetricsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/describemetricsetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutmetrics/command/DescribeMetricSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/DescribeMetricSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/DescribeMetricSetCommandOutput/)
 
 </details>
 <details>
@@ -306,7 +306,7 @@ DescribeMetricSet
 DetectMetricSetConfig
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/classes/detectmetricsetconfigcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/detectmetricsetconfigcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/detectmetricsetconfigcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutmetrics/command/DetectMetricSetConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/DetectMetricSetConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/DetectMetricSetConfigCommandOutput/)
 
 </details>
 <details>
@@ -314,7 +314,7 @@ DetectMetricSetConfig
 GetAnomalyGroup
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/classes/getanomalygroupcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/getanomalygroupcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/getanomalygroupcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutmetrics/command/GetAnomalyGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/GetAnomalyGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/GetAnomalyGroupCommandOutput/)
 
 </details>
 <details>
@@ -322,7 +322,7 @@ GetAnomalyGroup
 GetDataQualityMetrics
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/classes/getdataqualitymetricscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/getdataqualitymetricscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/getdataqualitymetricscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutmetrics/command/GetDataQualityMetricsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/GetDataQualityMetricsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/GetDataQualityMetricsCommandOutput/)
 
 </details>
 <details>
@@ -330,7 +330,7 @@ GetDataQualityMetrics
 GetFeedback
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/classes/getfeedbackcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/getfeedbackcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/getfeedbackcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutmetrics/command/GetFeedbackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/GetFeedbackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/GetFeedbackCommandOutput/)
 
 </details>
 <details>
@@ -338,7 +338,7 @@ GetFeedback
 GetSampleData
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/classes/getsampledatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/getsampledatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/getsampledatacommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutmetrics/command/GetSampleDataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/GetSampleDataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/GetSampleDataCommandOutput/)
 
 </details>
 <details>
@@ -346,7 +346,7 @@ GetSampleData
 ListAlerts
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/classes/listalertscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/listalertscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/listalertscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutmetrics/command/ListAlertsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/ListAlertsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/ListAlertsCommandOutput/)
 
 </details>
 <details>
@@ -354,7 +354,7 @@ ListAlerts
 ListAnomalyDetectors
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/classes/listanomalydetectorscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/listanomalydetectorscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/listanomalydetectorscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutmetrics/command/ListAnomalyDetectorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/ListAnomalyDetectorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/ListAnomalyDetectorsCommandOutput/)
 
 </details>
 <details>
@@ -362,7 +362,7 @@ ListAnomalyDetectors
 ListAnomalyGroupRelatedMetrics
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/classes/listanomalygrouprelatedmetricscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/listanomalygrouprelatedmetricscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/listanomalygrouprelatedmetricscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutmetrics/command/ListAnomalyGroupRelatedMetricsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/ListAnomalyGroupRelatedMetricsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/ListAnomalyGroupRelatedMetricsCommandOutput/)
 
 </details>
 <details>
@@ -370,7 +370,7 @@ ListAnomalyGroupRelatedMetrics
 ListAnomalyGroupSummaries
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/classes/listanomalygroupsummariescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/listanomalygroupsummariescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/listanomalygroupsummariescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutmetrics/command/ListAnomalyGroupSummariesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/ListAnomalyGroupSummariesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/ListAnomalyGroupSummariesCommandOutput/)
 
 </details>
 <details>
@@ -378,7 +378,7 @@ ListAnomalyGroupSummaries
 ListAnomalyGroupTimeSeries
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/classes/listanomalygrouptimeseriescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/listanomalygrouptimeseriescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/listanomalygrouptimeseriescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutmetrics/command/ListAnomalyGroupTimeSeriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/ListAnomalyGroupTimeSeriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/ListAnomalyGroupTimeSeriesCommandOutput/)
 
 </details>
 <details>
@@ -386,7 +386,7 @@ ListAnomalyGroupTimeSeries
 ListMetricSets
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/classes/listmetricsetscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/listmetricsetscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/listmetricsetscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutmetrics/command/ListMetricSetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/ListMetricSetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/ListMetricSetsCommandOutput/)
 
 </details>
 <details>
@@ -394,7 +394,7 @@ ListMetricSets
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutmetrics/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/ListTagsForResourceCommandOutput/)
 
 </details>
 <details>
@@ -402,7 +402,7 @@ ListTagsForResource
 PutFeedback
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/classes/putfeedbackcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/putfeedbackcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/putfeedbackcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutmetrics/command/PutFeedbackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/PutFeedbackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/PutFeedbackCommandOutput/)
 
 </details>
 <details>
@@ -410,7 +410,7 @@ PutFeedback
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutmetrics/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -418,7 +418,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutmetrics/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -426,7 +426,7 @@ UntagResource
 UpdateAlert
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/classes/updatealertcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/updatealertcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/updatealertcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutmetrics/command/UpdateAlertCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/UpdateAlertCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/UpdateAlertCommandOutput/)
 
 </details>
 <details>
@@ -434,7 +434,7 @@ UpdateAlert
 UpdateAnomalyDetector
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/classes/updateanomalydetectorcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/updateanomalydetectorcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/updateanomalydetectorcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutmetrics/command/UpdateAnomalyDetectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/UpdateAnomalyDetectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/UpdateAnomalyDetectorCommandOutput/)
 
 </details>
 <details>
@@ -442,6 +442,6 @@ UpdateAnomalyDetector
 UpdateMetricSet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/classes/updatemetricsetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/updatemetricsetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-lookoutmetrics/interfaces/updatemetricsetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lookoutmetrics/command/UpdateMetricSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/UpdateMetricSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lookoutmetrics/Interface/UpdateMetricSetCommandOutput/)
 
 </details>

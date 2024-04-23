@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { KeyspacesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KeyspacesClient";
 import { GetTableRequest, GetTableResponse } from "../models/models_0";
 import { de_GetTableCommand, se_GetTableCommand } from "../protocols/Aws_json1_0";
@@ -106,6 +98,18 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  * //   clientSideTimestamps: { // ClientSideTimestamps
  * //     status: "STRING_VALUE", // required
  * //   },
+ * //   replicaSpecifications: [ // ReplicaSpecificationSummaryList
+ * //     { // ReplicaSpecificationSummary
+ * //       region: "STRING_VALUE",
+ * //       status: "STRING_VALUE",
+ * //       capacitySpecification: {
+ * //         throughputMode: "STRING_VALUE", // required
+ * //         readCapacityUnits: Number("long"),
+ * //         writeCapacityUnits: Number("long"),
+ * //         lastUpdateToPayPerRequestTimestamp: new Date("TIMESTAMP"),
+ * //       },
+ * //     },
+ * //   ],
  * // };
  *
  * ```
@@ -117,7 +121,7 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  * @see {@link KeyspacesClientResolvedConfig | config} for KeyspacesClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action. </p>
+ *  <p>You don't have sufficient access permissions to perform this action. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
@@ -136,77 +140,26 @@ export interface GetTableCommandOutput extends GetTableResponse, __MetadataBeare
  * <p>Base exception class for all service exceptions from Keyspaces service.</p>
  *
  */
-export class GetTableCommand extends $Command<
-  GetTableCommandInput,
-  GetTableCommandOutput,
-  KeyspacesClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetTableCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: KeyspacesClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetTableCommandInput, GetTableCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GetTableCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "KeyspacesClient";
-    const commandName = "GetTableCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetTableCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetTableCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetTableCommandOutput> {
-    return de_GetTableCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetTableCommand extends $Command
+  .classBuilder<
+    GetTableCommandInput,
+    GetTableCommandOutput,
+    KeyspacesClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: KeyspacesClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("KeyspacesService", "GetTable", {})
+  .n("KeyspacesClient", "GetTableCommand")
+  .f(void 0, void 0)
+  .ser(se_GetTableCommand)
+  .de(de_GetTableCommand)
+  .build() {}

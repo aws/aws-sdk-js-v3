@@ -15,6 +15,7 @@
 
 import software.amazon.smithy.model.Model
 import software.amazon.smithy.model.shapes.ServiceShape
+import software.amazon.smithy.model.shapes.ShapeId
 import software.amazon.smithy.model.node.Node
 import software.amazon.smithy.gradle.tasks.SmithyBuild
 import software.amazon.smithy.aws.traits.ServiceTrait
@@ -42,7 +43,9 @@ plugins {
 }
 
 dependencies {
+    val smithyVersion: String by project
     implementation(project(":smithy-aws-typescript-codegen"))
+    implementation("software.amazon.smithy:smithy-smoke-test-traits:$smithyVersion")
 }
 
 // This project doesn't produce a JAR.
@@ -102,6 +105,20 @@ tasks.register("generate-smithy-build") {
                     File("smithy-aws-typescript-codegen/src/main/resources/software/amazon/smithy/aws/typescript/codegen/package.json.template")
                             .readText()
             ).expectObjectNode()
+            val experimentalIdentityAndAuthServices = setOf(
+                ShapeId.from("com.amazonaws.codecatalyst#CodeCatalyst"),
+                ShapeId.from("com.amazonaws.sts#AWSSecurityTokenServiceV20110615"),
+                ShapeId.from("com.amazonaws.sqs#AmazonSQS"),
+                ShapeId.from("com.amazonaws.dynamodb#DynamoDB_20120810"),
+                ShapeId.from("com.amazonaws.rds#AmazonRDSv19"),
+                ShapeId.from("com.amazonaws.ec2#AmazonEC2"),
+                ShapeId.from("com.amazonaws.polly#Parrot_v1"),
+                ShapeId.from("com.amazonaws.apigateway#BackplaneControlService"),
+                ShapeId.from("com.amazonaws.glacier#Glacier"),
+                ShapeId.from("com.amazonaws.machinelearning#AmazonML_20141212"),
+                ShapeId.from("com.amazonaws.route53#AWSDnsV20130401"),
+                ShapeId.from("com.amazonaws.s3control#AWSS3ControlServiceV20180820"),
+            )
             val projectionContents = Node.objectNodeBuilder()
                     .withMember("imports", Node.fromStrings("${models.getAbsolutePath()}${File.separator}${file.name}"))
                     .withMember("plugins", Node.objectNode()
@@ -112,6 +129,7 @@ tasks.register("generate-smithy-build") {
                                     .withMember("packageJson", manifestOverwrites)
                                     .withMember("packageDescription", "AWS SDK for JavaScript "
                                         + clientName + " Client for Node.js, Browser and React Native")
+                                    .withMember("experimentalIdentityAndAuth", experimentalIdentityAndAuthServices.contains(service.getId()))
                                     .build()))
                     .build()
             projectionsBuilder.withMember(sdkId + "." + version.toLowerCase(), projectionContents)

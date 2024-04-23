@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { BatchGetImageRequest, BatchGetImageResponse } from "../models/models_0";
 import { de_BatchGetImageCommand, se_BatchGetImageCommand } from "../protocols/Aws_json1_1";
 
@@ -38,7 +30,7 @@ export interface BatchGetImageCommandOutput extends BatchGetImageResponse, __Met
  * @public
  * <p>Gets detailed information for an image. Images are specified with either an
  *                 <code>imageTag</code> or <code>imageDigest</code>.</p>
- *         <p>When an image is pulled, the BatchGetImage API is called once to retrieve the image
+ *          <p>When an image is pulled, the BatchGetImage API is called once to retrieve the image
  *             manifest.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,7 +72,7 @@ export interface BatchGetImageCommandOutput extends BatchGetImageResponse, __Met
  * //         imageDigest: "STRING_VALUE",
  * //         imageTag: "STRING_VALUE",
  * //       },
- * //       failureCode: "STRING_VALUE",
+ * //       failureCode: "InvalidImageDigest" || "InvalidImageTag" || "ImageTagDoesNotMatchDigest" || "ImageNotFound" || "MissingDigestAndTag" || "ImageReferencedByManifestList" || "KmsError" || "UpstreamAccessDenied" || "UpstreamTooManyRequests" || "UpstreamUnavailable",
  * //       failureReason: "STRING_VALUE",
  * //     },
  * //   ],
@@ -98,12 +90,22 @@ export interface BatchGetImageCommandOutput extends BatchGetImageResponse, __Met
  *  <p>The specified parameter is invalid. Review the available parameters for the API
  *             request.</p>
  *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>The operation did not succeed because it would have exceeded a service limit for your
+ *             account. For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/service-quotas.html">Amazon ECR service quotas</a> in
+ *             the Amazon Elastic Container Registry User Guide.</p>
+ *
  * @throws {@link RepositoryNotFoundException} (client fault)
  *  <p>The specified repository could not be found. Check the spelling of the specified
  *             repository and ensure that you are performing operations on the correct registry.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
+ *
+ * @throws {@link UnableToGetUpstreamImageException} (client fault)
+ *  <p>The image or images were unable to be pulled using the pull through cache rule. This
+ *             is usually caused because of an issue with the Secrets Manager secret containing the credentials
+ *             for the upstream registry.</p>
  *
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
@@ -141,77 +143,26 @@ export interface BatchGetImageCommandOutput extends BatchGetImageResponse, __Met
  * ```
  *
  */
-export class BatchGetImageCommand extends $Command<
-  BatchGetImageCommandInput,
-  BatchGetImageCommandOutput,
-  ECRClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: BatchGetImageCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ECRClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<BatchGetImageCommandInput, BatchGetImageCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, BatchGetImageCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ECRClient";
-    const commandName = "BatchGetImageCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: BatchGetImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_BatchGetImageCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<BatchGetImageCommandOutput> {
-    return de_BatchGetImageCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class BatchGetImageCommand extends $Command
+  .classBuilder<
+    BatchGetImageCommandInput,
+    BatchGetImageCommandOutput,
+    ECRClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonEC2ContainerRegistry_V20150921", "BatchGetImage", {})
+  .n("ECRClient", "BatchGetImageCommand")
+  .f(void 0, void 0)
+  .ser(se_BatchGetImageCommand)
+  .de(de_BatchGetImageCommand)
+  .build() {}

@@ -78,13 +78,13 @@ export interface AccountModification {
    * @public
    * <p>The state of the modification to the configuration of BYOL.</p>
    */
-  ModificationState?: DedicatedTenancyModificationStateEnum | string;
+  ModificationState?: DedicatedTenancyModificationStateEnum;
 
   /**
    * @public
    * <p>The status of BYOL (whether BYOL is being enabled or disabled).</p>
    */
-  DedicatedTenancySupport?: DedicatedTenancySupportResultEnum | string;
+  DedicatedTenancySupport?: DedicatedTenancySupportResultEnum;
 
   /**
    * @public
@@ -126,6 +126,146 @@ export const Application = {
  * @public
  */
 export type Application = (typeof Application)[keyof typeof Application];
+
+/**
+ * @public
+ * @enum
+ */
+export const ApplicationAssociatedResourceType = {
+  BUNDLE: "BUNDLE",
+  IMAGE: "IMAGE",
+  WORKSPACE: "WORKSPACE",
+} as const;
+
+/**
+ * @public
+ */
+export type ApplicationAssociatedResourceType =
+  (typeof ApplicationAssociatedResourceType)[keyof typeof ApplicationAssociatedResourceType];
+
+/**
+ * @public
+ * <p>The specified application is not supported.</p>
+ */
+export class ApplicationNotSupportedException extends __BaseException {
+  readonly name: "ApplicationNotSupportedException" = "ApplicationNotSupportedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ApplicationNotSupportedException, __BaseException>) {
+    super({
+      name: "ApplicationNotSupportedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ApplicationNotSupportedException.prototype);
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AssociationState = {
+  COMPLETED: "COMPLETED",
+  ERROR: "ERROR",
+  INSTALLING: "INSTALLING",
+  PENDING_INSTALL: "PENDING_INSTALL",
+  PENDING_INSTALL_DEPLOYMENT: "PENDING_INSTALL_DEPLOYMENT",
+  PENDING_UNINSTALL: "PENDING_UNINSTALL",
+  PENDING_UNINSTALL_DEPLOYMENT: "PENDING_UNINSTALL_DEPLOYMENT",
+  REMOVED: "REMOVED",
+  UNINSTALLING: "UNINSTALLING",
+} as const;
+
+/**
+ * @public
+ */
+export type AssociationState = (typeof AssociationState)[keyof typeof AssociationState];
+
+/**
+ * @public
+ * @enum
+ */
+export const AssociationErrorCode = {
+  INSUFFICIENT_DISKSPACE: "ValidationError.InsufficientDiskSpace",
+  INSUFFICIENT_MEMORY: "ValidationError.InsufficientMemory",
+  INTERNAL_SERVER_ERROR: "DeploymentError.InternalServerError",
+  UNSUPPORTED_OPERATING_SYSTEM: "ValidationError.UnsupportedOperatingSystem",
+  WORKSPACE_UNREACHABLE: "DeploymentError.WorkspaceUnreachable",
+} as const;
+
+/**
+ * @public
+ */
+export type AssociationErrorCode = (typeof AssociationErrorCode)[keyof typeof AssociationErrorCode];
+
+/**
+ * @public
+ * <p>Indicates the reason that the association deployment failed, including the error code and error message.</p>
+ */
+export interface AssociationStateReason {
+  /**
+   * @public
+   * <p>The error code of the association deployment failure.</p>
+   */
+  ErrorCode?: AssociationErrorCode;
+
+  /**
+   * @public
+   * <p>The error message of the association deployment failure.</p>
+   */
+  ErrorMessage?: string;
+}
+
+/**
+ * @public
+ * <p>Describes the association between an application and an application resource.</p>
+ */
+export interface ApplicationResourceAssociation {
+  /**
+   * @public
+   * <p>The identifier of the application.</p>
+   */
+  ApplicationId?: string;
+
+  /**
+   * @public
+   * <p>The identifier of the associated resource.</p>
+   */
+  AssociatedResourceId?: string;
+
+  /**
+   * @public
+   * <p>The resource type of the associated resource.</p>
+   */
+  AssociatedResourceType?: ApplicationAssociatedResourceType;
+
+  /**
+   * @public
+   * <p>The time the association was created.</p>
+   */
+  Created?: Date;
+
+  /**
+   * @public
+   * <p>The time the association status was last updated.</p>
+   */
+  LastUpdatedTime?: Date;
+
+  /**
+   * @public
+   * <p>The status of the application resource association.</p>
+   */
+  State?: AssociationState;
+
+  /**
+   * @public
+   * <p>The reason the association deployment failed.</p>
+   */
+  StateReason?: AssociationStateReason;
+}
 
 /**
  * @public
@@ -314,6 +454,203 @@ export class ResourceLimitExceededException extends __BaseException {
 
 /**
  * @public
+ */
+export interface AssociateWorkspaceApplicationRequest {
+  /**
+   * @public
+   * <p>The identifier of the WorkSpace.</p>
+   */
+  WorkspaceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the application.</p>
+   */
+  ApplicationId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const WorkSpaceAssociatedResourceType = {
+  APPLICATION: "APPLICATION",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkSpaceAssociatedResourceType =
+  (typeof WorkSpaceAssociatedResourceType)[keyof typeof WorkSpaceAssociatedResourceType];
+
+/**
+ * @public
+ * <p>Describes the association between an application and a WorkSpace resource.</p>
+ */
+export interface WorkspaceResourceAssociation {
+  /**
+   * @public
+   * <p>The identifier of the associated resource.</p>
+   */
+  AssociatedResourceId?: string;
+
+  /**
+   * @public
+   * <p>The resource types of the associated resource.</p>
+   */
+  AssociatedResourceType?: WorkSpaceAssociatedResourceType;
+
+  /**
+   * @public
+   * <p>The time the association is created.</p>
+   */
+  Created?: Date;
+
+  /**
+   * @public
+   * <p>The time the association status was last updated.</p>
+   */
+  LastUpdatedTime?: Date;
+
+  /**
+   * @public
+   * <p>The status of the WorkSpace resource association.</p>
+   */
+  State?: AssociationState;
+
+  /**
+   * @public
+   * <p>The reason the association deployment failed.</p>
+   */
+  StateReason?: AssociationStateReason;
+
+  /**
+   * @public
+   * <p>The identifier of the WorkSpace.</p>
+   */
+  WorkspaceId?: string;
+}
+
+/**
+ * @public
+ */
+export interface AssociateWorkspaceApplicationResult {
+  /**
+   * @public
+   * <p>Information about the association between the specified WorkSpace and the specified application.</p>
+   */
+  Association?: WorkspaceResourceAssociation;
+}
+
+/**
+ * @public
+ * <p>The compute type of the WorkSpace is not compatible with the application.</p>
+ */
+export class ComputeNotCompatibleException extends __BaseException {
+  readonly name: "ComputeNotCompatibleException" = "ComputeNotCompatibleException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ComputeNotCompatibleException, __BaseException>) {
+    super({
+      name: "ComputeNotCompatibleException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ComputeNotCompatibleException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The specified application is not compatible with the resource.</p>
+ */
+export class IncompatibleApplicationsException extends __BaseException {
+  readonly name: "IncompatibleApplicationsException" = "IncompatibleApplicationsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IncompatibleApplicationsException, __BaseException>) {
+    super({
+      name: "IncompatibleApplicationsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IncompatibleApplicationsException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The operating system of the WorkSpace is not compatible with the application.</p>
+ */
+export class OperatingSystemNotCompatibleException extends __BaseException {
+  readonly name: "OperatingSystemNotCompatibleException" = "OperatingSystemNotCompatibleException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OperatingSystemNotCompatibleException, __BaseException>) {
+    super({
+      name: "OperatingSystemNotCompatibleException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OperatingSystemNotCompatibleException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The specified resource already exists.</p>
+ */
+export class ResourceAlreadyExistsException extends __BaseException {
+  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
+    super({
+      name: "ResourceAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The specified resource is currently in use.</p>
+ */
+export class ResourceInUseException extends __BaseException {
+  readonly name: "ResourceInUseException" = "ResourceInUseException";
+  readonly $fault: "client" = "client";
+  /**
+   * @public
+   * <p>The ID of the resource that is in use.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceInUseException, __BaseException>) {
+    super({
+      name: "ResourceInUseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceInUseException.prototype);
+    this.ResourceId = opts.ResourceId;
+  }
+}
+
+/**
+ * @public
  * @enum
  */
 export const AssociationStatus = {
@@ -373,6 +710,20 @@ export interface AuthorizeIpRulesResult {}
  * @public
  * @enum
  */
+export const BundleAssociatedResourceType = {
+  APPLICATION: "APPLICATION",
+} as const;
+
+/**
+ * @public
+ */
+export type BundleAssociatedResourceType =
+  (typeof BundleAssociatedResourceType)[keyof typeof BundleAssociatedResourceType];
+
+/**
+ * @public
+ * @enum
+ */
 export const BundleType = {
   REGULAR: "REGULAR",
   STANDBY: "STANDBY",
@@ -413,7 +764,7 @@ export interface ComputeType {
    * @public
    * <p>The compute type.</p>
    */
-  Name?: Compute | string;
+  Name?: Compute;
 }
 
 /**
@@ -526,13 +877,61 @@ export interface WorkspaceBundle {
    * @public
    * <p>The state of the WorkSpace bundle.</p>
    */
-  State?: WorkspaceBundleState | string;
+  State?: WorkspaceBundleState;
 
   /**
    * @public
    * <p>The type of WorkSpace bundle.</p>
    */
-  BundleType?: BundleType | string;
+  BundleType?: BundleType;
+}
+
+/**
+ * @public
+ * <p>Describes the association between an application and a bundle resource.</p>
+ */
+export interface BundleResourceAssociation {
+  /**
+   * @public
+   * <p>The identifier of the associated resource.</p>
+   */
+  AssociatedResourceId?: string;
+
+  /**
+   * @public
+   * <p>The resource type of the associated resources.</p>
+   */
+  AssociatedResourceType?: BundleAssociatedResourceType;
+
+  /**
+   * @public
+   * <p>The identifier of the bundle.</p>
+   */
+  BundleId?: string;
+
+  /**
+   * @public
+   * <p>The time the association is created.</p>
+   */
+  Created?: Date;
+
+  /**
+   * @public
+   * <p>The time the association status was last updated.</p>
+   */
+  LastUpdatedTime?: Date;
+
+  /**
+   * @public
+   * <p>The status of the bundle resource association.</p>
+   */
+  State?: AssociationState;
+
+  /**
+   * @public
+   * <p>The reason the association deployment failed.</p>
+   */
+  StateReason?: AssociationStateReason;
 }
 
 /**
@@ -560,7 +959,7 @@ export interface CertificateBasedAuthProperties {
    * @public
    * <p>The status of the certificate-based authentication properties.</p>
    */
-  Status?: CertificateBasedAuthStatusEnum | string;
+  Status?: CertificateBasedAuthStatusEnum;
 
   /**
    * @public
@@ -626,7 +1025,7 @@ export interface ClientProperties {
    *          When enabled, users can choose to reconnect to their WorkSpaces without re-entering their
    *          credentials. </p>
    */
-  ReconnectEnabled?: ReconnectEnum | string;
+  ReconnectEnabled?: ReconnectEnum;
 
   /**
    * @public
@@ -635,7 +1034,7 @@ export interface ClientProperties {
    *          When enabled, the log files will be sent to WorkSpaces automatically and will be applied to all
    *          users in the specified directory.</p>
    */
-  LogUploadEnabled?: LogUploadEnum | string;
+  LogUploadEnabled?: LogUploadEnum;
 }
 
 /**
@@ -697,7 +1096,7 @@ export interface ConnectionAliasAssociation {
    * @public
    * <p>The association status of the connection alias.</p>
    */
-  AssociationStatus?: AssociationStatus | string;
+  AssociationStatus?: AssociationStatus;
 
   /**
    * @public
@@ -760,7 +1159,7 @@ export interface ConnectionAlias {
    * @public
    * <p>The current state of the connection alias.</p>
    */
-  State?: ConnectionAliasState | string;
+  State?: ConnectionAliasState;
 
   /**
    * @public
@@ -874,26 +1273,6 @@ export interface CopyWorkspaceImageResult {
    * <p>The identifier of the image.</p>
    */
   ImageId?: string;
-}
-
-/**
- * @public
- * <p>The specified resource already exists.</p>
- */
-export class ResourceAlreadyExistsException extends __BaseException {
-  readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceAlreadyExistsException, __BaseException>) {
-    super({
-      name: "ResourceAlreadyExistsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceAlreadyExistsException.prototype);
-  }
 }
 
 /**
@@ -1053,6 +1432,20 @@ export interface CreateIpGroupResult {
 
 /**
  * @public
+ * @enum
+ */
+export const DataReplication = {
+  NO_REPLICATION: "NO_REPLICATION",
+  PRIMARY_AS_SOURCE: "PRIMARY_AS_SOURCE",
+} as const;
+
+/**
+ * @public
+ */
+export type DataReplication = (typeof DataReplication)[keyof typeof DataReplication];
+
+/**
+ * @public
  * <p>Describes a standby WorkSpace.</p>
  */
 export interface StandbyWorkspace {
@@ -1079,6 +1472,12 @@ export interface StandbyWorkspace {
    * <p>The tags associated with the standby WorkSpace.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>Indicates whether data replication is enabled, and if enabled, the type of data replication.</p>
+   */
+  DataReplication?: DataReplication;
 }
 
 /**
@@ -1177,7 +1576,7 @@ export interface PendingCreateStandbyWorkspacesRequest {
    * @public
    * <p>The operational state of the standby WorkSpace.</p>
    */
-  State?: WorkspaceState | string;
+  State?: WorkspaceState;
 
   /**
    * @public
@@ -1388,7 +1787,7 @@ export interface OperatingSystem {
    * @public
    * <p>The operating system.</p>
    */
-  Type?: OperatingSystemType | string;
+  Type?: OperatingSystemType;
 }
 
 /**
@@ -1453,7 +1852,7 @@ export interface CreateWorkspaceImageResult {
    * @public
    * <p>The availability status of the image.</p>
    */
-  State?: WorkspaceImageState | string;
+  State?: WorkspaceImageState;
 
   /**
    * @public
@@ -1463,7 +1862,7 @@ export interface CreateWorkspaceImageResult {
    *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.htm">
    *             Bring Your Own Windows Desktop Images.</a>.</p>
    */
-  RequiredTenancy?: WorkspaceImageRequiredTenancy | string;
+  RequiredTenancy?: WorkspaceImageRequiredTenancy;
 
   /**
    * @public
@@ -1477,6 +1876,29 @@ export interface CreateWorkspaceImageResult {
    */
   OwnerAccountId?: string;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const OperatingSystemName = {
+  AMAZON_LINUX_2: "AMAZON_LINUX_2",
+  UBUNTU_18_04: "UBUNTU_18_04",
+  UBUNTU_20_04: "UBUNTU_20_04",
+  UBUNTU_22_04: "UBUNTU_22_04",
+  UNKNOWN: "UNKNOWN",
+  WINDOWS_10: "WINDOWS_10",
+  WINDOWS_11: "WINDOWS_11",
+  WINDOWS_7: "WINDOWS_7",
+  WINDOWS_SERVER_2016: "WINDOWS_SERVER_2016",
+  WINDOWS_SERVER_2019: "WINDOWS_SERVER_2019",
+  WINDOWS_SERVER_2022: "WINDOWS_SERVER_2022",
+} as const;
+
+/**
+ * @public
+ */
+export type OperatingSystemName = (typeof OperatingSystemName)[keyof typeof OperatingSystemName];
 
 /**
  * @public
@@ -1522,7 +1944,7 @@ export interface WorkspaceProperties {
    *             <a href="http://aws.amazon.com/workspaces/core/">Amazon WorkSpaces Core</a>.</p>
    *          </note>
    */
-  RunningMode?: RunningMode | string;
+  RunningMode?: RunningMode;
 
   /**
    * @public
@@ -1552,7 +1974,7 @@ export interface WorkspaceProperties {
    * <p>The compute type. For more information, see <a href="http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles">Amazon WorkSpaces
    *          Bundles</a>.</p>
    */
-  ComputeTypeName?: Compute | string;
+  ComputeTypeName?: Compute;
 
   /**
    * @public
@@ -1574,7 +1996,13 @@ export interface WorkspaceProperties {
    *             </ul>
    *          </note>
    */
-  Protocols?: (Protocol | string)[];
+  Protocols?: Protocol[];
+
+  /**
+   * @public
+   * <p>The name of the operating system.</p>
+   */
+  OperatingSystemName?: OperatingSystemName;
 }
 
 /**
@@ -1670,6 +2098,25 @@ export interface FailedCreateWorkspaceRequest {
 
 /**
  * @public
+ * <p>Describes the data replication settings.</p>
+ */
+export interface DataReplicationSettings {
+  /**
+   * @public
+   * <p>Indicates whether data replication is enabled, and if enabled, the type of data replication.</p>
+   */
+  DataReplication?: DataReplication;
+
+  /**
+   * @public
+   * <p>The date and time at which the last successful snapshot was taken of the
+   *          primary WorkSpace used for replicating data.</p>
+   */
+  RecoverySnapshotTime?: Date;
+}
+
+/**
+ * @public
  * @enum
  */
 export const ModificationResourceEnum = {
@@ -1706,13 +2153,13 @@ export interface ModificationState {
    * @public
    * <p>The resource.</p>
    */
-  Resource?: ModificationResourceEnum | string;
+  Resource?: ModificationResourceEnum;
 
   /**
    * @public
    * <p>The modification state.</p>
    */
-  State?: ModificationStateEnum | string;
+  State?: ModificationStateEnum;
 }
 
 /**
@@ -1752,13 +2199,38 @@ export interface RelatedWorkspaceProperties {
    * @public
    * <p>Indicates the state of the WorkSpace.</p>
    */
-  State?: WorkspaceState | string;
+  State?: WorkspaceState;
 
   /**
    * @public
    * <p>Indicates the type of WorkSpace.</p>
    */
-  Type?: StandbyWorkspaceRelationshipType | string;
+  Type?: StandbyWorkspaceRelationshipType;
+}
+
+/**
+ * @public
+ * <p>Describes the properties of the related standby WorkSpaces. </p>
+ */
+export interface StandbyWorkspacesProperties {
+  /**
+   * @public
+   * <p>The identifier of the standby WorkSpace</p>
+   */
+  StandbyWorkspaceId?: string;
+
+  /**
+   * @public
+   * <p>Indicates whether data replication is enabled, and if enabled, the type of data replication.</p>
+   */
+  DataReplication?: DataReplication;
+
+  /**
+   * @public
+   * <p>The date and time at which the last successful snapshot was taken of the
+   *          primary WorkSpace used for replicating data.</p>
+   */
+  RecoverySnapshotTime?: Date;
 }
 
 /**
@@ -1802,7 +2274,7 @@ export interface Workspace {
    *             has been successfully terminated.</p>
    *          </note>
    */
-  State?: WorkspaceState | string;
+  State?: WorkspaceState;
 
   /**
    * @public
@@ -1873,6 +2345,18 @@ export interface Workspace {
    * <p>The standby WorkSpace or primary WorkSpace related to the specified WorkSpace.</p>
    */
   RelatedWorkspaces?: RelatedWorkspaceProperties[];
+
+  /**
+   * @public
+   * <p>Indicates the settings of the data replication.</p>
+   */
+  DataReplicationSettings?: DataReplicationSettings;
+
+  /**
+   * @public
+   * <p>The properties of the standby WorkSpace</p>
+   */
+  StandbyWorkspacesProperties?: StandbyWorkspacesProperties[];
 }
 
 /**
@@ -2149,7 +2633,7 @@ export interface DeleteClientBrandingRequest {
    * @public
    * <p>The device type for which you want to delete client branding.</p>
    */
-  Platforms: (ClientDeviceType | string)[] | undefined;
+  Platforms: ClientDeviceType[] | undefined;
 }
 
 /**
@@ -2270,6 +2754,47 @@ export interface DeleteWorkspaceImageResult {}
 /**
  * @public
  */
+export interface DeployWorkspaceApplicationsRequest {
+  /**
+   * @public
+   * <p>The identifier of the WorkSpace.</p>
+   */
+  WorkspaceId: string | undefined;
+
+  /**
+   * @public
+   * <p>Indicates whether the force flag is applied for the specified WorkSpace. When the force flag is enabled,
+   *          it allows previously failed deployments to be retried.</p>
+   */
+  Force?: boolean;
+}
+
+/**
+ * @public
+ * <p>Describes the WorkSpace application deployment.</p>
+ */
+export interface WorkSpaceApplicationDeployment {
+  /**
+   * @public
+   * <p>The associations between the applications and the associated resources.</p>
+   */
+  Associations?: WorkspaceResourceAssociation[];
+}
+
+/**
+ * @public
+ */
+export interface DeployWorkspaceApplicationsResult {
+  /**
+   * @public
+   * <p>The list of deployed associations and information about them.</p>
+   */
+  Deployment?: WorkSpaceApplicationDeployment;
+}
+
+/**
+ * @public
+ */
 export interface DeregisterWorkspaceDirectoryRequest {
   /**
    * @public
@@ -2298,7 +2823,7 @@ export interface DescribeAccountResult {
    * @public
    * <p>The status of BYOL (whether BYOL is enabled or disabled).</p>
    */
-  DedicatedTenancySupport?: DedicatedTenancySupportResultEnum | string;
+  DedicatedTenancySupport?: DedicatedTenancySupportResultEnum;
 
   /**
    * @public
@@ -2339,6 +2864,235 @@ export interface DescribeAccountModificationsResult {
    *          no more results to return. </p>
    */
   NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeApplicationAssociationsRequest {
+  /**
+   * @public
+   * <p>The maximum number of associations to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The identifier of the specified application.</p>
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The resource type of the associated resources.</p>
+   */
+  AssociatedResourceTypes: ApplicationAssociatedResourceType[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeApplicationAssociationsResult {
+  /**
+   * @public
+   * <p>List of associations and information about them.</p>
+   */
+  Associations?: ApplicationResourceAssociation[];
+
+  /**
+   * @public
+   * <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const WorkSpaceApplicationLicenseType = {
+  LICENSED: "LICENSED",
+  UNLICENSED: "UNLICENSED",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkSpaceApplicationLicenseType =
+  (typeof WorkSpaceApplicationLicenseType)[keyof typeof WorkSpaceApplicationLicenseType];
+
+/**
+ * @public
+ */
+export interface DescribeApplicationsRequest {
+  /**
+   * @public
+   * <p>The identifiers of one or more applications.</p>
+   */
+  ApplicationIds?: string[];
+
+  /**
+   * @public
+   * <p>The compute types supported by the applications.</p>
+   */
+  ComputeTypeNames?: Compute[];
+
+  /**
+   * @public
+   * <p>The license availability for the applications.</p>
+   */
+  LicenseType?: WorkSpaceApplicationLicenseType;
+
+  /**
+   * @public
+   * <p>The operating systems supported by the applications.</p>
+   */
+  OperatingSystemNames?: OperatingSystemName[];
+
+  /**
+   * @public
+   * <p>The owner of the applications.</p>
+   */
+  Owner?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of applications to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const WorkSpaceApplicationState = {
+  AVAILABLE: "AVAILABLE",
+  ERROR: "ERROR",
+  PENDING: "PENDING",
+  UNINSTALL_ONLY: "UNINSTALL_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkSpaceApplicationState = (typeof WorkSpaceApplicationState)[keyof typeof WorkSpaceApplicationState];
+
+/**
+ * @public
+ * <p>Describes the WorkSpace application.</p>
+ */
+export interface WorkSpaceApplication {
+  /**
+   * @public
+   * <p>The identifier of the application.</p>
+   */
+  ApplicationId?: string;
+
+  /**
+   * @public
+   * <p>The time the application is created.</p>
+   */
+  Created?: Date;
+
+  /**
+   * @public
+   * <p>The description of the WorkSpace application.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>The license availability for the applications.</p>
+   */
+  LicenseType?: WorkSpaceApplicationLicenseType;
+
+  /**
+   * @public
+   * <p>The name of the WorkSpace application.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The owner of the WorkSpace application.</p>
+   */
+  Owner?: string;
+
+  /**
+   * @public
+   * <p>The status of WorkSpace application.</p>
+   */
+  State?: WorkSpaceApplicationState;
+
+  /**
+   * @public
+   * <p>The supported compute types of the WorkSpace application.</p>
+   */
+  SupportedComputeTypeNames?: Compute[];
+
+  /**
+   * @public
+   * <p>The supported operating systems of the WorkSpace application.</p>
+   */
+  SupportedOperatingSystemNames?: OperatingSystemName[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeApplicationsResult {
+  /**
+   * @public
+   * <p>List of information about the specified applications.</p>
+   */
+  Applications?: WorkSpaceApplication[];
+
+  /**
+   * @public
+   * <p>If you received a <code>NextToken</code> from a previous call that was paginated, provide this token to receive the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBundleAssociationsRequest {
+  /**
+   * @public
+   * <p>The identifier of the bundle.</p>
+   */
+  BundleId: string | undefined;
+
+  /**
+   * @public
+   * <p>The resource types of the associated resource.</p>
+   */
+  AssociatedResourceTypes: BundleAssociatedResourceType[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBundleAssociationsResult {
+  /**
+   * @public
+   * <p>List of information about the specified associations.</p>
+   */
+  Associations?: BundleResourceAssociation[];
 }
 
 /**
@@ -2653,6 +3407,96 @@ export interface DescribeConnectionAliasPermissionsResult {
 
 /**
  * @public
+ * @enum
+ */
+export const ImageAssociatedResourceType = {
+  APPLICATION: "APPLICATION",
+} as const;
+
+/**
+ * @public
+ */
+export type ImageAssociatedResourceType =
+  (typeof ImageAssociatedResourceType)[keyof typeof ImageAssociatedResourceType];
+
+/**
+ * @public
+ */
+export interface DescribeImageAssociationsRequest {
+  /**
+   * @public
+   * <p>The identifier of the image.</p>
+   */
+  ImageId: string | undefined;
+
+  /**
+   * @public
+   * <p>The resource types of the associated resource.</p>
+   */
+  AssociatedResourceTypes: ImageAssociatedResourceType[] | undefined;
+}
+
+/**
+ * @public
+ * <p>Describes the association between an application and an image resource.</p>
+ */
+export interface ImageResourceAssociation {
+  /**
+   * @public
+   * <p>The identifier of the associated resource.</p>
+   */
+  AssociatedResourceId?: string;
+
+  /**
+   * @public
+   * <p>The resource type of the associated resources.</p>
+   */
+  AssociatedResourceType?: ImageAssociatedResourceType;
+
+  /**
+   * @public
+   * <p>The time the association is created.</p>
+   */
+  Created?: Date;
+
+  /**
+   * @public
+   * <p>The time the association status was last updated.</p>
+   */
+  LastUpdatedTime?: Date;
+
+  /**
+   * @public
+   * <p>The identifier of the image.</p>
+   */
+  ImageId?: string;
+
+  /**
+   * @public
+   * <p>The status of the image resource association.</p>
+   */
+  State?: AssociationState;
+
+  /**
+   * @public
+   * <p>The reason the association deployment failed.</p>
+   */
+  StateReason?: AssociationStateReason;
+}
+
+/**
+ * @public
+ */
+export interface DescribeImageAssociationsResult {
+  /**
+   * @public
+   * <p>List of information about the specified associations.</p>
+   */
+  Associations?: ImageResourceAssociation[];
+}
+
+/**
+ * @public
  */
 export interface DescribeIpGroupsRequest {
   /**
@@ -2745,6 +3589,34 @@ export interface DescribeTagsResult {
    * <p>The tags.</p>
    */
   TagList?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeWorkspaceAssociationsRequest {
+  /**
+   * @public
+   * <p>The identifier of the WorkSpace.</p>
+   */
+  WorkspaceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The resource types of the associated resources.</p>
+   */
+  AssociatedResourceTypes: WorkSpaceAssociatedResourceType[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeWorkspaceAssociationsResult {
+  /**
+   * @public
+   * <p>List of information about the specified associations.</p>
+   */
+  Associations?: WorkspaceResourceAssociation[];
 }
 
 /**
@@ -2870,7 +3742,7 @@ export interface SamlProperties {
    *             </li>
    *          </ul>
    */
-  Status?: SamlStatusEnum | string;
+  Status?: SamlStatusEnum;
 
   /**
    * @public
@@ -2900,33 +3772,33 @@ export interface SelfservicePermissions {
    * @public
    * <p>Specifies whether users can restart their WorkSpace.</p>
    */
-  RestartWorkspace?: ReconnectEnum | string;
+  RestartWorkspace?: ReconnectEnum;
 
   /**
    * @public
    * <p>Specifies whether users can increase the volume size of the drives on their
    *          WorkSpace.</p>
    */
-  IncreaseVolumeSize?: ReconnectEnum | string;
+  IncreaseVolumeSize?: ReconnectEnum;
 
   /**
    * @public
    * <p>Specifies whether users can change the compute type (bundle) for their WorkSpace.</p>
    */
-  ChangeComputeType?: ReconnectEnum | string;
+  ChangeComputeType?: ReconnectEnum;
 
   /**
    * @public
    * <p>Specifies whether users can switch the running mode of their WorkSpace.</p>
    */
-  SwitchRunningMode?: ReconnectEnum | string;
+  SwitchRunningMode?: ReconnectEnum;
 
   /**
    * @public
    * <p>Specifies whether users can rebuild the operating system of a WorkSpace to its original
    *          state.</p>
    */
-  RebuildWorkspace?: ReconnectEnum | string;
+  RebuildWorkspace?: ReconnectEnum;
 }
 
 /**
@@ -2971,50 +3843,50 @@ export interface WorkspaceAccessProperties {
    * @public
    * <p>Indicates whether users can use Windows clients to access their WorkSpaces.</p>
    */
-  DeviceTypeWindows?: AccessPropertyValue | string;
+  DeviceTypeWindows?: AccessPropertyValue;
 
   /**
    * @public
    * <p>Indicates whether users can use macOS clients to access their WorkSpaces.</p>
    */
-  DeviceTypeOsx?: AccessPropertyValue | string;
+  DeviceTypeOsx?: AccessPropertyValue;
 
   /**
    * @public
    * <p>Indicates whether users can access their WorkSpaces through a web browser.</p>
    */
-  DeviceTypeWeb?: AccessPropertyValue | string;
+  DeviceTypeWeb?: AccessPropertyValue;
 
   /**
    * @public
    * <p>Indicates whether users can use iOS devices to access their WorkSpaces.</p>
    */
-  DeviceTypeIos?: AccessPropertyValue | string;
+  DeviceTypeIos?: AccessPropertyValue;
 
   /**
    * @public
    * <p>Indicates whether users can use Android and Android-compatible Chrome OS devices to
    *          access their WorkSpaces.</p>
    */
-  DeviceTypeAndroid?: AccessPropertyValue | string;
+  DeviceTypeAndroid?: AccessPropertyValue;
 
   /**
    * @public
    * <p>Indicates whether users can use Chromebooks to access their WorkSpaces.</p>
    */
-  DeviceTypeChromeOs?: AccessPropertyValue | string;
+  DeviceTypeChromeOs?: AccessPropertyValue;
 
   /**
    * @public
    * <p>Indicates whether users can use zero client devices to access their WorkSpaces.</p>
    */
-  DeviceTypeZeroClient?: AccessPropertyValue | string;
+  DeviceTypeZeroClient?: AccessPropertyValue;
 
   /**
    * @public
    * <p>Indicates whether users can use Linux clients to access their WorkSpaces.</p>
    */
-  DeviceTypeLinux?: AccessPropertyValue | string;
+  DeviceTypeLinux?: AccessPropertyValue;
 }
 
 /**
@@ -3076,7 +3948,7 @@ export interface WorkspaceDirectory {
    * @public
    * <p>The directory type.</p>
    */
-  DirectoryType?: WorkspaceDirectoryType | string;
+  DirectoryType?: WorkspaceDirectoryType;
 
   /**
    * @public
@@ -3093,7 +3965,7 @@ export interface WorkspaceDirectory {
    *             DescribeWorkspaceDirectories</a>. If the directory ID isn't returned, then the
    *          directory has been successfully deregistered.</p>
    */
-  State?: WorkspaceDirectoryState | string;
+  State?: WorkspaceDirectoryState;
 
   /**
    * @public
@@ -3119,7 +3991,7 @@ export interface WorkspaceDirectory {
    *          (BYOL), this value must be set to <code>DEDICATED</code>. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">Bring
    *             Your Own Windows Desktop Images</a>.</p>
    */
-  Tenancy?: Tenancy | string;
+  Tenancy?: Tenancy;
 
   /**
    * @public
@@ -3252,7 +4124,7 @@ export interface DescribeWorkspaceImagesRequest {
    * @public
    * <p>The type (owned or shared) of the image.</p>
    */
-  ImageType?: ImageType | string;
+  ImageType?: ImageType;
 
   /**
    * @public
@@ -3266,6 +4138,64 @@ export interface DescribeWorkspaceImagesRequest {
    * <p>The maximum number of items to return.</p>
    */
   MaxResults?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const WorkspaceImageErrorDetailCode = {
+  ADDITIONAL_DRIVES_ATTACHED: "AdditionalDrivesAttached",
+  ANTI_VIRUS_INSTALLED: "AntiVirusInstalled",
+  AUTO_LOGON_ENABLED: "AutoLogonEnabled",
+  AUTO_MOUNT_DISABLED: "AutoMountDisabled",
+  AZURE_DOMAIN_JOINED: "AzureDomainJoined",
+  DHCP_DISABLED: "DHCPDisabled",
+  DISK_FREE_SPACE: "DiskFreeSpace",
+  DISK_SIZE_EXCEEDED: "DiskSizeExceeded",
+  DOMAIN_JOINED: "DomainJoined",
+  FIREWALL_ENABLED: "FirewallEnabled",
+  INCOMPATIBLE_PARTITIONING: "IncompatiblePartitioning",
+  IN_PLACE_UPGRADE: "InPlaceUpgrade",
+  MULTIPLE_BOOT_PARTITION: "MultipleBootPartition",
+  OFFICE_INSTALLED: "OfficeInstalled",
+  OS_NOT_SUPPORTED: "OSNotSupported",
+  OUTDATED_POWERSHELL_VERSION: "OutdatedPowershellVersion",
+  PCOIP_AGENT_INSTALLED: "PCoIPAgentInstalled",
+  PENDING_REBOOT: "PendingReboot",
+  REALTIME_UNIVERSAL_DISABLED: "RealTimeUniversalDisabled",
+  SIXTY_FOUR_BIT_OS: "Requires64BitOS",
+  UEFI_NOT_SUPPORTED: "UEFINotSupported",
+  VMWARE_TOOLS_INSTALLED: "VMWareToolsInstalled",
+  WINDOWS_UPDATES_ENABLED: "WindowsUpdatesEnabled",
+  WORKSPACES_BYOL_ACCOUNT_DISABLED: "WorkspacesBYOLAccountDisabled",
+  WORKSPACES_BYOL_ACCOUNT_NOT_FOUND: "WorkspacesBYOLAccountNotFound",
+  ZERO_REARM_COUNT: "ZeroRearmCount",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkspaceImageErrorDetailCode =
+  (typeof WorkspaceImageErrorDetailCode)[keyof typeof WorkspaceImageErrorDetailCode];
+
+/**
+ * @public
+ * <p>Describes in-depth details about the error. These details include the
+ *          possible causes of the error and troubleshooting information.</p>
+ */
+export interface ErrorDetails {
+  /**
+   * @public
+   * <p>Indicates the error code returned.</p>
+   */
+  ErrorCode?: WorkspaceImageErrorDetailCode;
+
+  /**
+   * @public
+   * <p>The text of the error message related the error code.</p>
+   */
+  ErrorMessage?: string;
 }
 
 /**
@@ -3325,7 +4255,7 @@ export interface WorkspaceImage {
    * @public
    * <p>The status of the image.</p>
    */
-  State?: WorkspaceImageState | string;
+  State?: WorkspaceImageState;
 
   /**
    * @public
@@ -3334,7 +4264,7 @@ export interface WorkspaceImage {
    *          information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">Bring Your Own Windows
    *             Desktop Images</a>.</p>
    */
-  RequiredTenancy?: WorkspaceImageRequiredTenancy | string;
+  RequiredTenancy?: WorkspaceImageRequiredTenancy;
 
   /**
    * @public
@@ -3366,6 +4296,13 @@ export interface WorkspaceImage {
    * <p>The updates (if any) that are available for the specified image.</p>
    */
   Updates?: UpdateResult;
+
+  /**
+   * @public
+   * <p>Additional details of the error returned for the image, including the
+   *          possible causes of the errors and troubleshooting information.</p>
+   */
+  ErrorDetails?: ErrorDetails[];
 }
 
 /**
@@ -3489,7 +4426,7 @@ export interface WorkspaceConnectionStatus {
    * <p>The connection state of the WorkSpace. The connection state is unknown if the WorkSpace
    *          is stopped.</p>
    */
-  ConnectionState?: ConnectionState | string;
+  ConnectionState?: ConnectionState;
 
   /**
    * @public
@@ -3601,6 +4538,34 @@ export interface DisassociateIpGroupsRequest {
  * @public
  */
 export interface DisassociateIpGroupsResult {}
+
+/**
+ * @public
+ */
+export interface DisassociateWorkspaceApplicationRequest {
+  /**
+   * @public
+   * <p>The identifier of the WorkSpace.</p>
+   */
+  WorkspaceId: string | undefined;
+
+  /**
+   * @public
+   * <p>The identifier of the application.</p>
+   */
+  ApplicationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateWorkspaceApplicationResult {
+  /**
+   * @public
+   * <p>Information about the targeted association.</p>
+   */
+  Association?: WorkspaceResourceAssociation;
+}
 
 /**
  * @public
@@ -3860,7 +4825,7 @@ export interface ImportWorkspaceImageRequest {
    *             allow-listed to use these values. For more information, see <a href="http://aws.amazon.com/workspaces/core/">Amazon WorkSpaces Core</a>.</p>
    *          </note>
    */
-  IngestionProcess: WorkspaceImageIngestionProcess | string | undefined;
+  IngestionProcess: WorkspaceImageIngestionProcess | undefined;
 
   /**
    * @public
@@ -3896,7 +4861,7 @@ export interface ImportWorkspaceImageRequest {
    *             </ul>
    *          </note>
    */
-  Applications?: (Application | string)[];
+  Applications?: Application[];
 }
 
 /**
@@ -4017,7 +4982,7 @@ export interface ModifyAccountRequest {
    * @public
    * <p>The status of BYOL.</p>
    */
-  DedicatedTenancySupport?: DedicatedTenancySupportEnum | string;
+  DedicatedTenancySupport?: DedicatedTenancySupportEnum;
 
   /**
    * @public
@@ -4055,7 +5020,7 @@ export interface ModifyCertificateBasedAuthPropertiesRequest {
    * @public
    * <p>The properties of the certificate-based authentication you want to delete.</p>
    */
-  PropertiesToDelete?: (DeletableCertificateBasedAuthProperty | string)[];
+  PropertiesToDelete?: DeletableCertificateBasedAuthProperty[];
 }
 
 /**
@@ -4117,7 +5082,7 @@ export interface ModifySamlPropertiesRequest {
    *             </li>
    *          </ul>
    */
-  PropertiesToDelete?: (DeletableSamlProperty | string)[];
+  PropertiesToDelete?: DeletableSamlProperty[];
 }
 
 /**
@@ -4280,7 +5245,13 @@ export interface ModifyWorkspacePropertiesRequest {
    * @public
    * <p>The properties of the WorkSpace.</p>
    */
-  WorkspaceProperties: WorkspaceProperties | undefined;
+  WorkspaceProperties?: WorkspaceProperties;
+
+  /**
+   * @public
+   * <p>Indicates the data replication status.</p>
+   */
+  DataReplication?: DataReplication;
 }
 
 /**
@@ -4338,7 +5309,7 @@ export interface ModifyWorkspaceStateRequest {
    * @public
    * <p>The WorkSpace state.</p>
    */
-  WorkspaceState: TargetWorkspaceState | string | undefined;
+  WorkspaceState: TargetWorkspaceState | undefined;
 }
 
 /**
@@ -4461,7 +5432,7 @@ export interface RegisterWorkspaceDirectoryRequest {
    *          BYOL images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">Bring Your Own Windows
    *             Desktop Images</a>.</p>
    */
-  Tenancy?: Tenancy | string;
+  Tenancy?: Tenancy;
 
   /**
    * @public

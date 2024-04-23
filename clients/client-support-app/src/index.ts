@@ -61,8 +61,12 @@
 export * from "./SupportAppClient";
 export * from "./SupportApp";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { SupportAppExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { SupportAppServiceException } from "./models/SupportAppServiceException";

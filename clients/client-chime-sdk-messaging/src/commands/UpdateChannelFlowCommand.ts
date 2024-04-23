@@ -1,23 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   ChimeSDKMessagingClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ChimeSDKMessagingClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateChannelFlowRequest,
   UpdateChannelFlowRequestFilterSensitiveLog,
@@ -108,79 +100,26 @@ export interface UpdateChannelFlowCommandOutput extends UpdateChannelFlowRespons
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
  */
-export class UpdateChannelFlowCommand extends $Command<
-  UpdateChannelFlowCommandInput,
-  UpdateChannelFlowCommandOutput,
-  ChimeSDKMessagingClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateChannelFlowCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ChimeSDKMessagingClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateChannelFlowCommandInput, UpdateChannelFlowCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateChannelFlowCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ChimeSDKMessagingClient";
-    const commandName = "UpdateChannelFlowCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: UpdateChannelFlowRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateChannelFlowCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateChannelFlowCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateChannelFlowCommandOutput> {
-    return de_UpdateChannelFlowCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateChannelFlowCommand extends $Command
+  .classBuilder<
+    UpdateChannelFlowCommandInput,
+    UpdateChannelFlowCommandOutput,
+    ChimeSDKMessagingClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("ChimeMessagingService", "UpdateChannelFlow", {})
+  .n("ChimeSDKMessagingClient", "UpdateChannelFlowCommand")
+  .f(UpdateChannelFlowRequestFilterSensitiveLog, void 0)
+  .ser(se_UpdateChannelFlowCommand)
+  .de(de_UpdateChannelFlowCommand)
+  .build() {}

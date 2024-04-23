@@ -16,11 +16,7 @@ import {
   AddPrefixListEntry,
   AddressFamily,
   AttachmentStatus,
-  CertificateAuthenticationRequest,
-  DirectoryServiceAuthenticationRequest,
-  FederatedAuthenticationRequest,
   InstanceEventWindow,
-  Ipv4PrefixSpecification,
   NatGatewayAddress,
   PortRange,
   Protocol,
@@ -33,6 +29,145 @@ import {
   VpcIpv6CidrBlockAssociation,
   WeekDay,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface CreateCarrierGatewayRequest {
+  /**
+   * @public
+   * <p>The ID of the VPC to associate with the carrier gateway.</p>
+   */
+  VpcId: string | undefined;
+
+  /**
+   * @public
+   * <p>The tags to associate with the carrier gateway.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
+   *                 idempotency</a>.</p>
+   */
+  ClientToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const CarrierGatewayState = {
+  available: "available",
+  deleted: "deleted",
+  deleting: "deleting",
+  pending: "pending",
+} as const;
+
+/**
+ * @public
+ */
+export type CarrierGatewayState = (typeof CarrierGatewayState)[keyof typeof CarrierGatewayState];
+
+/**
+ * @public
+ * <p>Describes a carrier gateway.</p>
+ */
+export interface CarrierGateway {
+  /**
+   * @public
+   * <p>The ID of the carrier gateway.</p>
+   */
+  CarrierGatewayId?: string;
+
+  /**
+   * @public
+   * <p>The ID of the VPC associated with the carrier gateway.</p>
+   */
+  VpcId?: string;
+
+  /**
+   * @public
+   * <p>The state of the carrier gateway.</p>
+   */
+  State?: CarrierGatewayState;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services account ID of the owner of the carrier gateway.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * @public
+   * <p>The tags assigned to the carrier gateway.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * @public
+ */
+export interface CreateCarrierGatewayResult {
+  /**
+   * @public
+   * <p>Information about the carrier gateway.</p>
+   */
+  CarrierGateway?: CarrierGateway;
+}
+
+/**
+ * @public
+ * <p>Describes the Active Directory to be used for client authentication.</p>
+ */
+export interface DirectoryServiceAuthenticationRequest {
+  /**
+   * @public
+   * <p>The ID of the Active Directory to be used for authentication.</p>
+   */
+  DirectoryId?: string;
+}
+
+/**
+ * @public
+ * <p>The IAM SAML identity provider used for federated authentication.</p>
+ */
+export interface FederatedAuthenticationRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the IAM SAML identity provider.</p>
+   */
+  SAMLProviderArn?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.</p>
+   */
+  SelfServiceSAMLProviderArn?: string;
+}
+
+/**
+ * @public
+ * <p>Information about the client certificate to be used for authentication.</p>
+ */
+export interface CertificateAuthenticationRequest {
+  /**
+   * @public
+   * <p>The ARN of the client certificate. The certificate must be signed by a certificate
+   * 			authority (CA) and it must be provisioned in Certificate Manager (ACM).</p>
+   */
+  ClientRootCertificateChainArn?: string;
+}
 
 /**
  * @public
@@ -60,7 +195,7 @@ export interface ClientVpnAuthenticationRequest {
    * @public
    * <p>The type of client authentication to be used.</p>
    */
-  Type?: ClientVpnAuthenticationType | string;
+  Type?: ClientVpnAuthenticationType;
 
   /**
    * @public
@@ -235,7 +370,7 @@ export interface CreateClientVpnEndpointRequest {
    *          <p>Default value: <code>udp</code>
    *          </p>
    */
-  TransportProtocol?: TransportProtocol | string;
+  TransportProtocol?: TransportProtocol;
 
   /**
    * @public
@@ -298,7 +433,7 @@ export interface CreateClientVpnEndpointRequest {
    *          <p>Default Value: <code>enabled</code>
    *          </p>
    */
-  SelfServicePortal?: SelfServicePortal | string;
+  SelfServicePortal?: SelfServicePortal;
 
   /**
    * @public
@@ -372,7 +507,7 @@ export interface ClientVpnEndpointStatus {
    *             </li>
    *          </ul>
    */
-  Code?: ClientVpnEndpointStatusCode | string;
+  Code?: ClientVpnEndpointStatusCode;
 
   /**
    * @public
@@ -487,7 +622,7 @@ export interface ClientVpnRouteStatus {
    * @public
    * <p>The state of the Client VPN endpoint route.</p>
    */
-  Code?: ClientVpnRouteStatusCode | string;
+  Code?: ClientVpnRouteStatusCode;
 
   /**
    * @public
@@ -701,7 +836,7 @@ export interface CreateCustomerGatewayRequest {
    * <p>The type of VPN connection that this customer gateway supports
    *             (<code>ipsec.1</code>).</p>
    */
-  Type: GatewayType | string | undefined;
+  Type: GatewayType | undefined;
 
   /**
    * @public
@@ -855,7 +990,7 @@ export interface PrivateDnsNameOptionsOnLaunch {
    *             must be based on the instance ID. For dual-stack subnets, you can specify whether DNS
    *             names use the instance IPv4 address or the instance ID.</p>
    */
-  HostnameType?: HostnameType | string;
+  HostnameType?: HostnameType;
 
   /**
    * @public
@@ -879,6 +1014,7 @@ export interface PrivateDnsNameOptionsOnLaunch {
 export const SubnetState = {
   available: "available",
   pending: "pending",
+  unavailable: "unavailable",
 } as const;
 
 /**
@@ -935,6 +1071,8 @@ export interface Subnet {
   /**
    * @public
    * <p>Indicates whether instances launched in this subnet receive a public IPv4 address.</p>
+   *          <p>Starting on February 1, 2024, Amazon Web Services will charge for all public IPv4 addresses, including public IPv4 addresses
+   * associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
    */
   MapPublicIpOnLaunch?: boolean;
 
@@ -955,7 +1093,7 @@ export interface Subnet {
    * @public
    * <p>The current state of the subnet.</p>
    */
-  State?: SubnetState | string;
+  State?: SubnetState;
 
   /**
    * @public
@@ -1101,7 +1239,7 @@ export interface Vpc {
    * @public
    * <p>The current state of the VPC.</p>
    */
-  State?: VpcState | string;
+  State?: VpcState;
 
   /**
    * @public
@@ -1119,7 +1257,7 @@ export interface Vpc {
    * @public
    * <p>The allowed tenancy of instances launched into the VPC.</p>
    */
-  InstanceTenancy?: Tenancy | string;
+  InstanceTenancy?: Tenancy;
 
   /**
    * @public
@@ -1278,8 +1416,7 @@ export interface CreateEgressOnlyInternetGatewayRequest {
   /**
    * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * 			request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
-   * 				idempotency</a>.</p>
+   * 			request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    */
   ClientToken?: string;
 
@@ -1315,7 +1452,7 @@ export interface InternetGatewayAttachment {
    * 				<code>available</code> when attached to a VPC; otherwise, this value is not
    * 			returned.</p>
    */
-  State?: AttachmentStatus | string;
+  State?: AttachmentStatus;
 
   /**
    * @public
@@ -1718,7 +1855,7 @@ export interface InstanceRequirementsRequest {
    *          </note>
    *          <p>Default: Any manufacturer</p>
    */
-  CpuManufacturers?: (CpuManufacturer | string)[];
+  CpuManufacturers?: CpuManufacturer[];
 
   /**
    * @public
@@ -1756,7 +1893,7 @@ export interface InstanceRequirementsRequest {
    *          <p>For previous generation instance types, specify <code>previous</code>.</p>
    *          <p>Default: Current and previous generation instance types</p>
    */
-  InstanceGenerations?: (InstanceGeneration | string)[];
+  InstanceGenerations?: InstanceGeneration[];
 
   /**
    * @public
@@ -1813,7 +1950,7 @@ export interface InstanceRequirementsRequest {
    *          <p>Default: <code>excluded</code>
    *          </p>
    */
-  BareMetal?: BareMetal | string;
+  BareMetal?: BareMetal;
 
   /**
    * @public
@@ -1833,7 +1970,7 @@ export interface InstanceRequirementsRequest {
    *          <p>Default: <code>excluded</code>
    *          </p>
    */
-  BurstablePerformance?: BurstablePerformance | string;
+  BurstablePerformance?: BurstablePerformance;
 
   /**
    * @public
@@ -1873,7 +2010,7 @@ export interface InstanceRequirementsRequest {
    *          <p>Default: <code>included</code>
    *          </p>
    */
-  LocalStorage?: LocalStorage | string;
+  LocalStorage?: LocalStorage;
 
   /**
    * @public
@@ -1890,7 +2027,7 @@ export interface InstanceRequirementsRequest {
    *          <p>Default: <code>hdd</code> and <code>ssd</code>
    *          </p>
    */
-  LocalStorageTypes?: (LocalStorageType | string)[];
+  LocalStorageTypes?: LocalStorageType[];
 
   /**
    * @public
@@ -1924,7 +2061,7 @@ export interface InstanceRequirementsRequest {
    *          </ul>
    *          <p>Default: Any accelerator type</p>
    */
-  AcceleratorTypes?: (AcceleratorType | string)[];
+  AcceleratorTypes?: AcceleratorType[];
 
   /**
    * @public
@@ -1940,13 +2077,16 @@ export interface InstanceRequirementsRequest {
    * <p>Indicates whether instance types must have accelerators by specific manufacturers.</p>
    *          <ul>
    *             <li>
-   *                <p>For instance types with NVIDIA devices, specify <code>nvidia</code>.</p>
+   *                <p>For instance types with Amazon Web Services devices, specify <code>amazon-web-services</code>.</p>
    *             </li>
    *             <li>
    *                <p>For instance types with AMD devices, specify <code>amd</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For instance types with Amazon Web Services devices, specify <code>amazon-web-services</code>.</p>
+   *                <p>For instance types with Habana devices, specify <code>habana</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA devices, specify <code>nvidia</code>.</p>
    *             </li>
    *             <li>
    *                <p>For instance types with Xilinx devices, specify <code>xilinx</code>.</p>
@@ -1954,23 +2094,29 @@ export interface InstanceRequirementsRequest {
    *          </ul>
    *          <p>Default: Any manufacturer</p>
    */
-  AcceleratorManufacturers?: (AcceleratorManufacturer | string)[];
+  AcceleratorManufacturers?: AcceleratorManufacturer[];
 
   /**
    * @public
    * <p>The accelerators that must be on the instance type.</p>
    *          <ul>
    *             <li>
+   *                <p>For instance types with NVIDIA A10G GPUs, specify <code>a10g</code>.</p>
+   *             </li>
+   *             <li>
    *                <p>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</p>
+   *                <p>For instance types with NVIDIA H100 GPUs, specify <code>h100</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Amazon Web Services Inferentia chips, specify <code>inferentia</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA GRID K520 GPUs, specify <code>k520</code>.</p>
    *             </li>
    *             <li>
    *                <p>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</p>
    *             </li>
    *             <li>
    *                <p>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</p>
@@ -1979,18 +2125,21 @@ export interface InstanceRequirementsRequest {
    *                <p>For instance types with AMD Radeon Pro V520 GPUs, specify <code>radeon-pro-v520</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For instance types with Xilinx VU9P FPGAs, specify <code> vu9p</code>.</p>
+   *                <p>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For instance types with Amazon Web Services Inferentia chips, specify <code>inferentia</code>.</p>
+   *                <p>For instance types with NVIDIA T4G GPUs, specify <code>t4g</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For instance types with NVIDIA GRID K520 GPUs, specify <code>k520</code>.</p>
+   *                <p>For instance types with Xilinx VU9P FPGAs, specify <code>vu9p</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</p>
    *             </li>
    *          </ul>
    *          <p>Default: Any accelerator</p>
    */
-  AcceleratorNames?: (AcceleratorName | string)[];
+  AcceleratorNames?: AcceleratorName[];
 
   /**
    * @public
@@ -2079,7 +2228,7 @@ export interface Placement {
    *             for T3 instances that are configured for the <code>unlimited</code> CPU credit
    *             option.</p>
    */
-  Tenancy?: Tenancy | string;
+  Tenancy?: Tenancy;
 
   /**
    * @public
@@ -2118,7 +2267,7 @@ export interface FleetLaunchTemplateOverridesRequest {
    *                <code>InstanceRequirements</code>.</p>
    *          </note>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: _InstanceType;
 
   /**
    * @public
@@ -2268,7 +2417,7 @@ export interface CapacityReservationOptionsRequest {
    *          <p>If you do not specify a value, the fleet fulfils the On-Demand capacity according to the
    *          chosen On-Demand allocation strategy.</p>
    */
-  UsageStrategy?: FleetCapacityReservationUsageStrategy | string;
+  UsageStrategy?: FleetCapacityReservationUsageStrategy;
 }
 
 /**
@@ -2289,7 +2438,7 @@ export interface OnDemandOptionsRequest {
    *          <p>Default: <code>lowest-price</code>
    *          </p>
    */
-  AllocationStrategy?: FleetOnDemandAllocationStrategy | string;
+  AllocationStrategy?: FleetOnDemandAllocationStrategy;
 
   /**
    * @public
@@ -2328,6 +2477,14 @@ export interface OnDemandOptionsRequest {
   /**
    * @public
    * <p>The maximum amount per hour for On-Demand Instances that you're willing to pay.</p>
+   *          <note>
+   *             <p>If your fleet includes T instances that are configured as <code>unlimited</code>,
+   *             and if their average CPU usage exceeds the baseline utilization, you will incur a charge
+   *             for surplus credits. The <code>MaxTotalPrice</code> does not account for surplus
+   *             credits, and, if you use surplus credits, your final cost might be higher than what you
+   *             specified for <code>MaxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus credits can incur charges</a> in the <i>EC2 User
+   *                   Guide</i>.</p>
+   *          </note>
    */
   MaxTotalPrice?: string;
 }
@@ -2402,7 +2559,7 @@ export interface FleetSpotCapacityRebalanceRequest {
    *          then, after a delay that you specify (in <code>TerminationDelay</code>), terminates the
    *          instances that received a rebalance notification.</p>
    */
-  ReplacementStrategy?: FleetReplacementStrategy | string;
+  ReplacementStrategy?: FleetReplacementStrategy;
 
   /**
    * @public
@@ -2481,7 +2638,7 @@ export interface SpotOptionsRequest {
    *          <p>Default: <code>lowest-price</code>
    *          </p>
    */
-  AllocationStrategy?: SpotAllocationStrategy | string;
+  AllocationStrategy?: SpotAllocationStrategy;
 
   /**
    * @public
@@ -2496,7 +2653,7 @@ export interface SpotOptionsRequest {
    *          <p>Default: <code>terminate</code>
    *          </p>
    */
-  InstanceInterruptionBehavior?: SpotInstanceInterruptionBehavior | string;
+  InstanceInterruptionBehavior?: SpotInstanceInterruptionBehavior;
 
   /**
    * @public
@@ -2548,6 +2705,14 @@ export interface SpotOptionsRequest {
    *          <important>
    *             <p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p>
    *          </important>
+   *          <note>
+   *             <p>If your fleet includes T instances that are configured as <code>unlimited</code>,
+   *             and if their average CPU usage exceeds the baseline utilization, you will incur a charge
+   *             for surplus credits. The <code>MaxTotalPrice</code> does not account for surplus
+   *             credits, and, if you use surplus credits, your final cost might be higher than what you
+   *             specified for <code>MaxTotalPrice</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances-unlimited-mode-concepts.html#unlimited-mode-surplus-credits">Surplus credits can incur charges</a> in the <i>EC2 User
+   *                   Guide</i>.</p>
+   *          </note>
    */
   MaxTotalPrice?: string;
 }
@@ -2557,6 +2722,7 @@ export interface SpotOptionsRequest {
  * @enum
  */
 export const DefaultTargetCapacityType = {
+  CAPACITY_BLOCK: "capacity-block",
   ON_DEMAND: "on-demand",
   SPOT: "spot",
 } as const;
@@ -2592,15 +2758,14 @@ export type TargetCapacityUnitType = (typeof TargetCapacityUnitType)[keyof typeo
  *          does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances
  *          in your request, EC2 Fleet will launch instances until it reaches the maximum amount that you're
  *          willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops
- *          launching instances even if it hasn’t met the target capacity. The
+ *          launching instances even if it hasn't met the target capacity. The
  *          <code>MaxTotalPrice</code> parameters are located in <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_OnDemandOptionsRequest">OnDemandOptionsRequest</a>
  *          and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotOptionsRequest">SpotOptionsRequest</a>.</p>
  */
 export interface TargetCapacitySpecificationRequest {
   /**
    * @public
-   * <p>The number of units to request, filled using
-   *          <code>DefaultTargetCapacityType</code>.</p>
+   * <p>The number of units to request, filled using the default target capacity type.</p>
    */
   TotalTargetCapacity: number | undefined;
 
@@ -2618,17 +2783,17 @@ export interface TargetCapacitySpecificationRequest {
 
   /**
    * @public
-   * <p>The default <code>TotalTargetCapacity</code>, which is either <code>Spot</code> or
-   *          <code>On-Demand</code>.</p>
+   * <p>The default target capacity type.</p>
    */
-  DefaultTargetCapacityType?: DefaultTargetCapacityType | string;
+  DefaultTargetCapacityType?: DefaultTargetCapacityType;
 
   /**
    * @public
-   * <p>The unit for the target capacity. <code>TargetCapacityUnitType</code> can only be specified when <code>InstanceRequirements</code> is specified.</p>
-   *          <p>Default: <code>units</code> (translates to number of instances)</p>
+   * <p>The unit for the target capacity. You can specify this parameter only when using
+   *          attributed-based instance type selection.</p>
+   *          <p>Default: <code>units</code> (the number of instances)</p>
    */
-  TargetCapacityUnitType?: TargetCapacityUnitType | string;
+  TargetCapacityUnitType?: TargetCapacityUnitType;
 }
 
 /**
@@ -2684,7 +2849,7 @@ export interface CreateFleetRequest {
    *          the EC2 Fleet is decreased below the current size of the EC2 Fleet.</p>
    *          <p>Supported only for fleets of type <code>maintain</code>.</p>
    */
-  ExcessCapacityTerminationPolicy?: FleetExcessCapacityTerminationPolicy | string;
+  ExcessCapacityTerminationPolicy?: FleetExcessCapacityTerminationPolicy;
 
   /**
    * @public
@@ -2731,7 +2896,7 @@ export interface CreateFleetRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-request-type.html">EC2 Fleet
    *             request types</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
-  Type?: FleetType | string;
+  Type?: FleetType;
 
   /**
    * @public
@@ -2760,7 +2925,7 @@ export interface CreateFleetRequest {
   /**
    * @public
    * <p>The key-value pair for tagging the EC2 Fleet request on creation. For more information, see
-   *          <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging your resources</a>.</p>
+   *          <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tag your resources</a>.</p>
    *          <p>If the fleet type is <code>instant</code>, specify a resource type of <code>fleet</code>
    *          to tag the fleet or <code>instance</code> to tag the instances at launch.</p>
    *          <p>If the fleet type is <code>maintain</code> or <code>request</code>, specify a resource
@@ -2993,8 +3158,9 @@ export interface VCpuCountRange {
  *                wizard</a> or with the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances API</a>, you
  *             can't specify <code>InstanceRequirements</code>.</p>
  *          </note>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for EC2 Fleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot
- *                placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-mixed-instances-group-attribute-based-instance-type-selection.html">Create a mixed instances group using attribute-based instance type selection</a> in
+ *          the <i>Amazon EC2 Auto Scaling User Guide</i>, and also <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for EC2 Fleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot
+ *             placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export interface InstanceRequirements {
   /**
@@ -3030,7 +3196,7 @@ export interface InstanceRequirements {
    *          </note>
    *          <p>Default: Any manufacturer</p>
    */
-  CpuManufacturers?: (CpuManufacturer | string)[];
+  CpuManufacturers?: CpuManufacturer[];
 
   /**
    * @public
@@ -3068,7 +3234,7 @@ export interface InstanceRequirements {
    *          <p>For previous generation instance types, specify <code>previous</code>.</p>
    *          <p>Default: Current and previous generation instance types</p>
    */
-  InstanceGenerations?: (InstanceGeneration | string)[];
+  InstanceGenerations?: InstanceGeneration[];
 
   /**
    * @public
@@ -3125,7 +3291,7 @@ export interface InstanceRequirements {
    *          <p>Default: <code>excluded</code>
    *          </p>
    */
-  BareMetal?: BareMetal | string;
+  BareMetal?: BareMetal;
 
   /**
    * @public
@@ -3145,7 +3311,7 @@ export interface InstanceRequirements {
    *          <p>Default: <code>excluded</code>
    *          </p>
    */
-  BurstablePerformance?: BurstablePerformance | string;
+  BurstablePerformance?: BurstablePerformance;
 
   /**
    * @public
@@ -3186,7 +3352,7 @@ export interface InstanceRequirements {
    *          <p>Default: <code>included</code>
    *          </p>
    */
-  LocalStorage?: LocalStorage | string;
+  LocalStorage?: LocalStorage;
 
   /**
    * @public
@@ -3203,7 +3369,7 @@ export interface InstanceRequirements {
    *          <p>Default: <code>hdd</code> and <code>ssd</code>
    *          </p>
    */
-  LocalStorageTypes?: (LocalStorageType | string)[];
+  LocalStorageTypes?: LocalStorageType[];
 
   /**
    * @public
@@ -3237,7 +3403,7 @@ export interface InstanceRequirements {
    *          </ul>
    *          <p>Default: Any accelerator type</p>
    */
-  AcceleratorTypes?: (AcceleratorType | string)[];
+  AcceleratorTypes?: AcceleratorType[];
 
   /**
    * @public
@@ -3253,13 +3419,16 @@ export interface InstanceRequirements {
    * <p>Indicates whether instance types must have accelerators by specific manufacturers.</p>
    *          <ul>
    *             <li>
-   *                <p>For instance types with NVIDIA devices, specify <code>nvidia</code>.</p>
+   *                <p>For instance types with Amazon Web Services devices, specify <code>amazon-web-services</code>.</p>
    *             </li>
    *             <li>
    *                <p>For instance types with AMD devices, specify <code>amd</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For instance types with Amazon Web Services devices, specify <code>amazon-web-services</code>.</p>
+   *                <p>For instance types with Habana devices, specify <code>habana</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA devices, specify <code>nvidia</code>.</p>
    *             </li>
    *             <li>
    *                <p>For instance types with Xilinx devices, specify <code>xilinx</code>.</p>
@@ -3267,23 +3436,29 @@ export interface InstanceRequirements {
    *          </ul>
    *          <p>Default: Any manufacturer</p>
    */
-  AcceleratorManufacturers?: (AcceleratorManufacturer | string)[];
+  AcceleratorManufacturers?: AcceleratorManufacturer[];
 
   /**
    * @public
    * <p>The accelerators that must be on the instance type.</p>
    *          <ul>
    *             <li>
+   *                <p>For instance types with NVIDIA A10G GPUs, specify <code>a10g</code>.</p>
+   *             </li>
+   *             <li>
    *                <p>For instance types with NVIDIA A100 GPUs, specify <code>a100</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</p>
+   *                <p>For instance types with NVIDIA H100 GPUs, specify <code>h100</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with Amazon Web Services Inferentia chips, specify <code>inferentia</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA GRID K520 GPUs, specify <code>k520</code>.</p>
    *             </li>
    *             <li>
    *                <p>For instance types with NVIDIA K80 GPUs, specify <code>k80</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</p>
    *             </li>
    *             <li>
    *                <p>For instance types with NVIDIA M60 GPUs, specify <code>m60</code>.</p>
@@ -3292,18 +3467,21 @@ export interface InstanceRequirements {
    *                <p>For instance types with AMD Radeon Pro V520 GPUs, specify <code>radeon-pro-v520</code>.</p>
    *             </li>
    *             <li>
+   *                <p>For instance types with NVIDIA T4 GPUs, specify <code>t4</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For instance types with NVIDIA T4G GPUs, specify <code>t4g</code>.</p>
+   *             </li>
+   *             <li>
    *                <p>For instance types with Xilinx VU9P FPGAs, specify <code>vu9p</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For instance types with Amazon Web Services Inferentia chips, specify <code>inferentia</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For instance types with NVIDIA GRID K520 GPUs, specify <code>k520</code>.</p>
+   *                <p>For instance types with NVIDIA V100 GPUs, specify <code>v100</code>.</p>
    *             </li>
    *          </ul>
    *          <p>Default: Any accelerator</p>
    */
-  AcceleratorNames?: (AcceleratorName | string)[];
+  AcceleratorNames?: AcceleratorName[];
 
   /**
    * @public
@@ -3366,7 +3544,7 @@ export interface FleetLaunchTemplateOverrides {
    *                <code>InstanceRequirements</code>.</p>
    *          </note>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: _InstanceType;
 
   /**
    * @public
@@ -3488,7 +3666,7 @@ export interface CreateFleetError {
    * @public
    * <p>Indicates if the instance that could not be launched was a Spot Instance or On-Demand Instance.</p>
    */
-  Lifecycle?: InstanceLifecycle | string;
+  Lifecycle?: InstanceLifecycle;
 
   /**
    * @public
@@ -3534,7 +3712,7 @@ export interface CreateFleetInstance {
    * @public
    * <p>Indicates if the instance that was launched is a Spot Instance or On-Demand Instance.</p>
    */
-  Lifecycle?: InstanceLifecycle | string;
+  Lifecycle?: InstanceLifecycle;
 
   /**
    * @public
@@ -3546,14 +3724,14 @@ export interface CreateFleetInstance {
    * @public
    * <p>The instance type.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: _InstanceType;
 
   /**
    * @public
    * <p>The value is <code>Windows</code> for Windows instances. Otherwise, the value is
    *          blank.</p>
    */
-  Platform?: PlatformValues | string;
+  Platform?: PlatformValues;
 }
 
 /**
@@ -3604,7 +3782,7 @@ export interface DestinationOptionsRequest {
    * @public
    * <p>The format for the flow log. The default is <code>plain-text</code>.</p>
    */
-  FileFormat?: DestinationFileFormat | string;
+  FileFormat?: DestinationFileFormat;
 
   /**
    * @public
@@ -3723,7 +3901,7 @@ export interface CreateFlowLogsRequest {
    * @public
    * <p>The type of resource to monitor.</p>
    */
-  ResourceType: FlowLogsResourceType | string | undefined;
+  ResourceType: FlowLogsResourceType | undefined;
 
   /**
    * @public
@@ -3731,7 +3909,7 @@ export interface CreateFlowLogsRequest {
    *             This parameter is not supported for transit gateway resource types. It is required for
    *             the other resource types.</p>
    */
-  TrafficType?: TrafficType | string;
+  TrafficType?: TrafficType;
 
   /**
    * @public
@@ -3739,7 +3917,7 @@ export interface CreateFlowLogsRequest {
    *          <p>Default: <code>cloud-watch-logs</code>
    *          </p>
    */
-  LogDestinationType?: LogDestinationType | string;
+  LogDestinationType?: LogDestinationType;
 
   /**
    * @public
@@ -3953,24 +4131,22 @@ export interface EbsBlockDevice {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>gp3</code>: 3,000-16,000 IOPS</p>
+   *                   <code>gp3</code>: 3,000 - 16,000 IOPS</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>io1</code>: 100-64,000 IOPS</p>
+   *                   <code>io1</code>: 100 - 64,000 IOPS</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>io2</code>: 100-64,000 IOPS</p>
+   *                   <code>io2</code>: 100 - 256,000 IOPS</p>
    *             </li>
    *          </ul>
-   *          <p>For <code>io1</code> and <code>io2</code> volumes, we guarantee 64,000 IOPS only for
-   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Instances built on the
-   *                 Nitro System</a>. Other instance families guarantee performance up to
-   *             32,000 IOPS.</p>
+   *          <p>For <code>io2</code> volumes, you can achieve up to 256,000 IOPS on
+   * <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">instances
+   * built on the Nitro System</a>. On other instances, you can achieve performance up to 32,000 IOPS.</p>
    *          <p>This parameter is required for <code>io1</code> and <code>io2</code> volumes. The default for <code>gp3</code> volumes
-   *             is 3,000 IOPS. This parameter is not supported for <code>gp2</code>, <code>st1</code>, <code>sc1</code>, or <code>standard</code>
-   *             volumes.</p>
+   *             is 3,000 IOPS.</p>
    */
   Iops?: number;
 
@@ -3985,23 +4161,27 @@ export interface EbsBlockDevice {
    * <p>The size of the volume, in GiBs. You must specify either a snapshot ID or a volume
    *             size. If you specify a snapshot, the default is the snapshot size. You can specify a
    *             volume size that is equal to or larger than the snapshot size.</p>
-   *          <p>The following are the supported volumes sizes for each volume type:</p>
+   *          <p>The following are the supported sizes for each volume type:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>gp2</code> and <code>gp3</code>:1-16,384</p>
+   *                   <code>gp2</code> and <code>gp3</code>: 1 - 16,384 GiB</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>io1</code> and <code>io2</code>: 4-16,384</p>
+   *                   <code>io1</code>: 4 - 16,384 GiB</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>st1</code> and <code>sc1</code>: 125-16,384</p>
+   *                   <code>io2</code>: 4 - 65,536 GiB</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>standard</code>: 1-1,024</p>
+   *                   <code>st1</code> and <code>sc1</code>: 125 - 16,384 GiB</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>standard</code>: 1 - 1024 GiB</p>
    *             </li>
    *          </ul>
    */
@@ -4010,10 +4190,9 @@ export interface EbsBlockDevice {
   /**
    * @public
    * <p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the
-   *                 <i>Amazon EC2 User Guide</i>. If the volume type is <code>io1</code> or
-   *                 <code>io2</code>, you must specify the IOPS that the volume supports.</p>
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    */
-  VolumeType?: VolumeType | string;
+  VolumeType?: VolumeType;
 
   /**
    * @public
@@ -4132,9 +4311,25 @@ export interface BlockDeviceMapping {
 export interface CreateImageRequest {
   /**
    * @public
-   * <p>The block device mappings. This parameter cannot be used to modify the encryption
-   *    		status of existing volumes or snapshots. To create an AMI with encrypted snapshots,
-   *    		use the <a>CopyImage</a> action.</p>
+   * <p>The block device mappings.</p>
+   *          <p>When using the CreateImage action:</p>
+   *          <ul>
+   *             <li>
+   *                <p>You can't change the volume size using the VolumeSize parameter. If you want a
+   *           different volume size, you must first change the volume size of the source
+   *           instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>You can't modify the encryption status of existing volumes or snapshots. To create an
+   *           AMI with volumes or snapshots that have a different encryption status (for example, where
+   *           the source volume and snapshots are unencrypted, and you want to create an AMI with
+   *           encrypted volumes or snapshots), use the <a>CopyImage</a> action.</p>
+   *             </li>
+   *             <li>
+   *                <p>The only option that can be changed for existing mappings or snapshots is
+   *             <code>DeleteOnTermination</code>.</p>
+   *             </li>
+   *          </ul>
    */
   BlockDeviceMappings?: BlockDeviceMapping[];
 
@@ -4322,7 +4517,7 @@ export interface Ec2InstanceConnectEndpoint {
    * @public
    * <p>The current state of the EC2 Instance Connect Endpoint.</p>
    */
-  State?: Ec2InstanceConnectEndpointState | string;
+  State?: Ec2InstanceConnectEndpointState;
 
   /**
    * @public
@@ -4430,7 +4625,7 @@ export interface InstanceEventWindowTimeRangeRequest {
    * @public
    * <p>The day on which the time range begins.</p>
    */
-  StartWeekDay?: WeekDay | string;
+  StartWeekDay?: WeekDay;
 
   /**
    * @public
@@ -4442,7 +4637,7 @@ export interface InstanceEventWindowTimeRangeRequest {
    * @public
    * <p>The day on which the time range ends.</p>
    */
-  EndWeekDay?: WeekDay | string;
+  EndWeekDay?: WeekDay;
 
   /**
    * @public
@@ -4567,13 +4762,13 @@ export interface ExportToS3TaskSpecification {
    * <p>The container format used to combine disk images with metadata (such as OVF). If absent, only the disk image is
    *    exported.</p>
    */
-  ContainerFormat?: ContainerFormat | string;
+  ContainerFormat?: ContainerFormat;
 
   /**
    * @public
    * <p>The format for the exported image.</p>
    */
-  DiskImageFormat?: DiskImageFormat | string;
+  DiskImageFormat?: DiskImageFormat;
 
   /**
    * @public
@@ -4632,7 +4827,7 @@ export interface CreateInstanceExportTaskRequest {
    * @public
    * <p>The target virtualization environment.</p>
    */
-  TargetEnvironment: ExportEnvironment | string | undefined;
+  TargetEnvironment: ExportEnvironment | undefined;
 
   /**
    * @public
@@ -4651,13 +4846,13 @@ export interface ExportToS3Task {
    * <p>The container format used to combine disk images with metadata (such as OVF). If absent, only the disk image is
    *    exported.</p>
    */
-  ContainerFormat?: ContainerFormat | string;
+  ContainerFormat?: ContainerFormat;
 
   /**
    * @public
    * <p>The format for the exported image.</p>
    */
-  DiskImageFormat?: DiskImageFormat | string;
+  DiskImageFormat?: DiskImageFormat;
 
   /**
    * @public
@@ -4689,7 +4884,7 @@ export interface InstanceExportDetails {
    * @public
    * <p>The target virtualization environment.</p>
    */
-  TargetEnvironment?: ExportEnvironment | string;
+  TargetEnvironment?: ExportEnvironment;
 }
 
 /**
@@ -4741,7 +4936,7 @@ export interface ExportTask {
    * @public
    * <p>The state of the export task.</p>
    */
-  State?: ExportTaskState | string;
+  State?: ExportTaskState;
 
   /**
    * @public
@@ -4829,6 +5024,20 @@ export interface CreateInternetGatewayResult {
 
 /**
  * @public
+ * @enum
+ */
+export const IpamTier = {
+  advanced: "advanced",
+  free: "free",
+} as const;
+
+/**
+ * @public
+ */
+export type IpamTier = (typeof IpamTier)[keyof typeof IpamTier];
+
+/**
+ * @public
  */
 export interface CreateIpamRequest {
   /**
@@ -4865,6 +5074,12 @@ export interface CreateIpamRequest {
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
    */
   ClientToken?: string;
+
+  /**
+   * @public
+   * <p>IPAM is offered in a Free Tier and an Advanced Tier. For more information about the features available in each tier and the costs associated with the tiers, see <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing > IPAM tab</a>.</p>
+   */
+  Tier?: IpamTier;
 }
 
 /**
@@ -4969,7 +5184,7 @@ export interface Ipam {
    * @public
    * <p>The state of the IPAM.</p>
    */
-  State?: IpamState | string;
+  State?: IpamState;
 
   /**
    * @public
@@ -4995,6 +5210,18 @@ export interface Ipam {
    * <p>The IPAM's resource discovery association count.</p>
    */
   ResourceDiscoveryAssociationCount?: number;
+
+  /**
+   * @public
+   * <p>The state message.</p>
+   */
+  StateMessage?: string;
+
+  /**
+   * @public
+   * <p>IPAM is offered in a Free Tier and an Advanced Tier. For more information about the features available in each tier and the costs associated with the tiers, see <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing > IPAM tab</a>.</p>
+   */
+  Tier?: IpamTier;
 }
 
 /**
@@ -5055,6 +5282,49 @@ export type IpamPoolPublicIpSource = (typeof IpamPoolPublicIpSource)[keyof typeo
 
 /**
  * @public
+ * @enum
+ */
+export const IpamPoolSourceResourceType = {
+  vpc: "vpc",
+} as const;
+
+/**
+ * @public
+ */
+export type IpamPoolSourceResourceType = (typeof IpamPoolSourceResourceType)[keyof typeof IpamPoolSourceResourceType];
+
+/**
+ * @public
+ * <p>The resource used to provision CIDRs to a resource planning pool.</p>
+ */
+export interface IpamPoolSourceResourceRequest {
+  /**
+   * @public
+   * <p>The source resource ID.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * @public
+   * <p>The source resource type.</p>
+   */
+  ResourceType?: IpamPoolSourceResourceType;
+
+  /**
+   * @public
+   * <p>The source resource Region.</p>
+   */
+  ResourceRegion?: string;
+
+  /**
+   * @public
+   * <p>The source resource owner.</p>
+   */
+  ResourceOwner?: string;
+}
+
+/**
+ * @public
  */
 export interface CreateIpamPoolRequest {
   /**
@@ -5094,7 +5364,7 @@ export interface CreateIpamPoolRequest {
    * @public
    * <p>The IP protocol assigned to this IPAM pool. You must choose either IPv4 or IPv6 protocol for a pool.</p>
    */
-  AddressFamily: AddressFamily | string | undefined;
+  AddressFamily: AddressFamily | undefined;
 
   /**
    * @public
@@ -5159,14 +5429,20 @@ export interface CreateIpamPoolRequest {
    * @public
    * <p>Limits which service in Amazon Web Services that the pool can be used in. "ec2", for example, allows users to use space for Elastic IP addresses and VPCs.</p>
    */
-  AwsService?: IpamPoolAwsService | string;
+  AwsService?: IpamPoolAwsService;
 
   /**
    * @public
    * <p>The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is <code>byoip</code>. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/intro-create-ipv6-pools.html">Create IPv6 pools</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *          By default, you can add only one Amazon-provided IPv6 CIDR block to a top-level IPv6 pool if PublicIpSource is <code>amazon</code>. For information on increasing the default limit, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html"> Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
-  PublicIpSource?: IpamPoolPublicIpSource | string;
+  PublicIpSource?: IpamPoolPublicIpSource;
+
+  /**
+   * @public
+   * <p>The resource used to provision CIDRs to a resource planning pool.</p>
+   */
+  SourceResource?: IpamPoolSourceResourceRequest;
 }
 
 /**
@@ -5201,6 +5477,36 @@ export const IpamScopeType = {
  * @public
  */
 export type IpamScopeType = (typeof IpamScopeType)[keyof typeof IpamScopeType];
+
+/**
+ * @public
+ * <p>The resource used to provision CIDRs to a resource planning pool.</p>
+ */
+export interface IpamPoolSourceResource {
+  /**
+   * @public
+   * <p>The source resource ID.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * @public
+   * <p>The source resource type.</p>
+   */
+  ResourceType?: IpamPoolSourceResourceType;
+
+  /**
+   * @public
+   * <p>The source resource Region.</p>
+   */
+  ResourceRegion?: string;
+
+  /**
+   * @public
+   * <p>The source resource owner.</p>
+   */
+  ResourceOwner?: string;
+}
 
 /**
  * @public
@@ -5265,7 +5571,7 @@ export interface IpamPool {
    * @public
    * <p>In IPAM, a scope is the highest-level container within IPAM. An IPAM contains two default scopes. Each scope represents the IP space for a single network. The private scope is intended for all private IP address space. The public scope is intended for all public IP address space. Scopes enable you to reuse IP addresses across multiple unconnected networks without causing IP address overlap or conflict.</p>
    */
-  IpamScopeType?: IpamScopeType | string;
+  IpamScopeType?: IpamScopeType;
 
   /**
    * @public
@@ -5296,11 +5602,11 @@ export interface IpamPool {
    * @public
    * <p>The state of the IPAM pool.</p>
    */
-  State?: IpamPoolState | string;
+  State?: IpamPoolState;
 
   /**
    * @public
-   * <p>A message related to the failed creation of an IPAM pool.</p>
+   * <p>The state message.</p>
    */
   StateMessage?: string;
 
@@ -5333,7 +5639,7 @@ export interface IpamPool {
    * @public
    * <p>The address family of the pool.</p>
    */
-  AddressFamily?: AddressFamily | string;
+  AddressFamily?: AddressFamily;
 
   /**
    * @public
@@ -5371,14 +5677,20 @@ export interface IpamPool {
    * @public
    * <p>Limits which service in Amazon Web Services that the pool can be used in. "ec2", for example, allows users to use space for Elastic IP addresses and VPCs.</p>
    */
-  AwsService?: IpamPoolAwsService | string;
+  AwsService?: IpamPoolAwsService;
 
   /**
    * @public
    * <p>The IP address source for pools in the public scope. Only used for provisioning IP address CIDRs to pools in the public scope. Default is <code>BYOIP</code>. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/intro-create-ipv6-pools.html">Create IPv6 pools</a> in the <i>Amazon VPC IPAM User Guide</i>.
    *          By default, you can add only one Amazon-provided IPv6 CIDR block to a top-level IPv6 pool. For information on increasing the default limit, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html"> Quotas for your IPAM</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
    */
-  PublicIpSource?: IpamPoolPublicIpSource | string;
+  PublicIpSource?: IpamPoolPublicIpSource;
+
+  /**
+   * @public
+   * <p>The resource used to provision CIDRs to a resource planning pool.</p>
+   */
+  SourceResource?: IpamPoolSourceResource;
 }
 
 /**
@@ -5554,7 +5866,7 @@ export interface IpamResourceDiscovery {
    *             </li>
    *          </ul>
    */
-  State?: IpamResourceDiscoveryState | string;
+  State?: IpamResourceDiscoveryState;
 
   /**
    * @public
@@ -5676,7 +5988,7 @@ export interface IpamScope {
    * @public
    * <p>The type of the scope.</p>
    */
-  IpamScopeType?: IpamScopeType | string;
+  IpamScopeType?: IpamScopeType;
 
   /**
    * @public
@@ -5700,7 +6012,7 @@ export interface IpamScope {
    * @public
    * <p>The state of the IPAM scope.</p>
    */
-  State?: IpamScopeState | string;
+  State?: IpamScopeState;
 
   /**
    * @public
@@ -5774,7 +6086,7 @@ export interface CreateKeyPairRequest {
    *          <p>Default: <code>rsa</code>
    *          </p>
    */
-  KeyType?: KeyType | string;
+  KeyType?: KeyType;
 
   /**
    * @public
@@ -5788,7 +6100,7 @@ export interface CreateKeyPairRequest {
    *          <p>Default: <code>pem</code>
    *          </p>
    */
-  KeyFormat?: KeyFormat | string;
+  KeyFormat?: KeyFormat;
 }
 
 /**
@@ -5864,23 +6176,21 @@ export interface LaunchTemplateEbsBlockDeviceRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>gp3</code>: 3,000-16,000 IOPS</p>
+   *                   <code>gp3</code>: 3,000 - 16,000 IOPS</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>io1</code>: 100-64,000 IOPS</p>
+   *                   <code>io1</code>: 100 - 64,000 IOPS</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>io2</code>: 100-64,000 IOPS</p>
+   *                   <code>io2</code>: 100 - 256,000 IOPS</p>
    *             </li>
    *          </ul>
-   *          <p>For <code>io1</code> and <code>io2</code> volumes, we guarantee
-   *             64,000 IOPS only for <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Instances built on the
-   *                 Nitro System</a>. Other instance families guarantee performance up to
-   *             32,000 IOPS.</p>
-   *          <p>This parameter is supported for <code>io1</code>, <code>io2</code>, and <code>gp3</code> volumes only. This parameter
-   *             is not supported for <code>gp2</code>, <code>st1</code>, <code>sc1</code>, or <code>standard</code> volumes.</p>
+   *          <p>For <code>io2</code> volumes, you can achieve up to 256,000 IOPS on
+   * <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">instances
+   * built on the Nitro System</a>. On other instances, you can achieve performance up to 32,000 IOPS.</p>
+   *          <p>This parameter is supported for <code>io1</code>, <code>io2</code>, and <code>gp3</code> volumes only.</p>
    */
   Iops?: number;
 
@@ -5903,19 +6213,23 @@ export interface LaunchTemplateEbsBlockDeviceRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>gp2</code> and <code>gp3</code>: 1-16,384</p>
+   *                   <code>gp2</code> and <code>gp3</code>: 1 - 16,384 GiB</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>io1</code> and <code>io2</code>: 4-16,384</p>
+   *                   <code>io1</code>: 4 - 16,384 GiB</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>st1</code> and <code>sc1</code>: 125-16,384</p>
+   *                   <code>io2</code>: 4 - 65,536 GiB</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>standard</code>: 1-1,024</p>
+   *                   <code>st1</code> and <code>sc1</code>: 125 - 16,384 GiB</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>standard</code>: 1 - 1024 GiB</p>
    *             </li>
    *          </ul>
    */
@@ -5926,7 +6240,7 @@ export interface LaunchTemplateEbsBlockDeviceRequest {
    * <p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the
    *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
-  VolumeType?: VolumeType | string;
+  VolumeType?: VolumeType;
 
   /**
    * @public
@@ -6032,7 +6346,7 @@ export interface LaunchTemplateCapacityReservationSpecificationRequest {
    *             </li>
    *          </ul>
    */
-  CapacityReservationPreference?: CapacityReservationPreference | string;
+  CapacityReservationPreference?: CapacityReservationPreference;
 
   /**
    * @public
@@ -6082,7 +6396,7 @@ export interface LaunchTemplateCpuOptionsRequest {
    *             with M6a, R6a, and C6a instance types only. For more information, see
    *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html">AMD SEV-SNP</a>.</p>
    */
-  AmdSevSnp?: AmdSevSnpSpecification | string;
+  AmdSevSnp?: AmdSevSnpSpecification;
 }
 
 /**
@@ -6101,7 +6415,12 @@ export interface CreditSpecificationRequest {
 
 /**
  * @public
- * <p>A specification for an Elastic Graphics accelerator.</p>
+ * <note>
+ *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
+ *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
+ *                 G4dn, or G5 instances.</p>
+ *          </note>
+ *          <p>A specification for an Elastic Graphics accelerator.</p>
  */
 export interface ElasticGpuSpecification {
   /**
@@ -6202,6 +6521,7 @@ export type ShutdownBehavior = (typeof ShutdownBehavior)[keyof typeof ShutdownBe
  * @enum
  */
 export const MarketType = {
+  capacity_block: "capacity-block",
   spot: "spot",
 } as const;
 
@@ -6261,7 +6581,7 @@ export interface LaunchTemplateSpotMarketOptionsRequest {
    * @public
    * <p>The Spot Instance request type.</p>
    */
-  SpotInstanceType?: SpotInstanceType | string;
+  SpotInstanceType?: SpotInstanceType;
 
   /**
    * @public
@@ -6294,7 +6614,7 @@ export interface LaunchTemplateSpotMarketOptionsRequest {
    * <p>The behavior when a Spot Instance is interrupted. The default is
    *                 <code>terminate</code>.</p>
    */
-  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
+  InstanceInterruptionBehavior?: InstanceInterruptionBehavior;
 }
 
 /**
@@ -6306,7 +6626,7 @@ export interface LaunchTemplateInstanceMarketOptionsRequest {
    * @public
    * <p>The market type.</p>
    */
-  MarketType?: MarketType | string;
+  MarketType?: MarketType;
 
   /**
    * @public
@@ -6352,7 +6672,7 @@ export interface LaunchTemplateInstanceMaintenanceOptionsRequest {
    * <p>Disables the automatic recovery behavior of your instance or sets it to default. For
    *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html#instance-configuration-recovery">Simplified automatic recovery</a>.</p>
    */
-  AutoRecovery?: LaunchTemplateAutoRecoveryState | string;
+  AutoRecovery?: LaunchTemplateAutoRecoveryState;
 }
 
 /**
@@ -6423,29 +6743,28 @@ export type LaunchTemplateInstanceMetadataTagsState =
 export interface LaunchTemplateInstanceMetadataOptionsRequest {
   /**
    * @public
-   * <p>IMDSv2 uses token-backed sessions. Set the use of HTTP tokens to <code>optional</code>
-   *             (in other words, set the use of IMDSv2 to <code>optional</code>) or
-   *                 <code>required</code> (in other words, set the use of IMDSv2 to
-   *                 <code>required</code>).</p>
+   * <p>Indicates whether IMDSv2 is required.</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>optional</code> - When IMDSv2 is optional, you can choose to retrieve instance metadata with or without
-   *             a session token in your request. If you retrieve the IAM role credentials
-   *             without a token, the IMDSv1 role credentials are returned. If you retrieve the IAM role credentials
-   *             using a valid session token, the IMDSv2 role credentials are returned.</p>
+   *                   <code>optional</code> - IMDSv2 is optional. You can choose whether to send a
+   *                     session token in your instance metadata retrieval requests. If you retrieve
+   *                     IAM role credentials without a session token, you receive the IMDSv1 role
+   *                     credentials. If you retrieve IAM role credentials using a valid session token,
+   *                     you receive the IMDSv2 role credentials.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>required</code> - When IMDSv2 is required, you must send a session token
-   *             with any instance metadata retrieval requests. In this state, retrieving the IAM role
-   *             credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.</p>
+   *                   <code>required</code> - IMDSv2 is required. You must send a session token
+   *                     in your instance metadata retrieval requests. With this option, retrieving the
+   *                     IAM role credentials always returns IMDSv2 credentials; IMDSv1 credentials are
+   *                     not available.</p>
    *             </li>
    *          </ul>
-   *          <p>Default: <code>optional</code>
-   *          </p>
+   *          <p>Default: If the value of <code>ImdsSupport</code> for the Amazon Machine Image (AMI)
+   *             for your instance is <code>v2.0</code>, the default is <code>required</code>.</p>
    */
-  HttpTokens?: LaunchTemplateHttpTokensState | string;
+  HttpTokens?: LaunchTemplateHttpTokensState;
 
   /**
    * @public
@@ -6466,7 +6785,7 @@ export interface LaunchTemplateInstanceMetadataOptionsRequest {
    *                 your instance metadata. </p>
    *          </note>
    */
-  HttpEndpoint?: LaunchTemplateInstanceMetadataEndpointState | string;
+  HttpEndpoint?: LaunchTemplateInstanceMetadataEndpointState;
 
   /**
    * @public
@@ -6474,7 +6793,7 @@ export interface LaunchTemplateInstanceMetadataOptionsRequest {
    *          <p>Default: <code>disabled</code>
    *          </p>
    */
-  HttpProtocolIpv6?: LaunchTemplateInstanceMetadataProtocolIpv6 | string;
+  HttpProtocolIpv6?: LaunchTemplateInstanceMetadataProtocolIpv6;
 
   /**
    * @public
@@ -6485,7 +6804,7 @@ export interface LaunchTemplateInstanceMetadataOptionsRequest {
    *          <p>Default: <code>disabled</code>
    *          </p>
    */
-  InstanceMetadataTags?: LaunchTemplateInstanceMetadataTagsState | string;
+  InstanceMetadataTags?: LaunchTemplateInstanceMetadataTagsState;
 }
 
 /**
@@ -6499,6 +6818,72 @@ export interface LaunchTemplatesMonitoringRequest {
    *             is enabled.</p>
    */
   Enabled?: boolean;
+}
+
+/**
+ * @public
+ * <p>A security group connection tracking specification request that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+export interface ConnectionTrackingSpecificationRequest {
+  /**
+   * @public
+   * <p>Timeout (in seconds) for idle TCP
+   * 						connections in an established state. Min: 60 seconds. Max: 432000 seconds (5
+   * 						days). Default: 432000 seconds. Recommended: Less than 432000 seconds.</p>
+   */
+  TcpEstablishedTimeout?: number;
+
+  /**
+   * @public
+   * <p>Timeout (in seconds) for idle UDP
+   * 						flows classified as streams which have seen more than one request-response
+   * 						transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180
+   * 						seconds.</p>
+   */
+  UdpStreamTimeout?: number;
+
+  /**
+   * @public
+   * <p>Timeout (in seconds) for idle UDP flows that
+   * 						have seen traffic only in a single direction or a single request-response
+   * 						transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.</p>
+   */
+  UdpTimeout?: number;
+}
+
+/**
+ * @public
+ * <p>Configures ENA Express for UDP network traffic from your launch template.</p>
+ */
+export interface EnaSrdUdpSpecificationRequest {
+  /**
+   * @public
+   * <p>Indicates whether UDP traffic uses ENA Express for your instance. To ensure that
+   * 			UDP traffic can use ENA Express when you launch an instance, you must also set
+   * 			<b>EnaSrdEnabled</b> in the <b>EnaSrdSpecificationRequest</b> to <code>true</code> in your
+   * 			launch template.</p>
+   */
+  EnaSrdUdpEnabled?: boolean;
+}
+
+/**
+ * @public
+ * <p>Launch instances with ENA Express settings configured
+ * 			from your launch template.</p>
+ */
+export interface EnaSrdSpecificationRequest {
+  /**
+   * @public
+   * <p>Specifies whether ENA Express is enabled for the network interface when you
+   * 			launch an instance from your launch template.</p>
+   */
+  EnaSrdEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>Contains ENA Express settings for UDP network traffic in your launch template.</p>
+   */
+  EnaSrdUdpSpecification?: EnaSrdUdpSpecificationRequest;
 }
 
 /**
@@ -6576,6 +6961,8 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
   /**
    * @public
    * <p>Associates a public IPv4 address with eth0 for a new network interface.</p>
+   *          <p>Starting on February 1, 2024, Amazon Web Services will charge for all public IPv4 addresses, including public IPv4 addresses
+   * associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
    */
   AssociatePublicIpAddress?: boolean;
 
@@ -6703,6 +7090,18 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
    * <p>The primary IPv6 address of the network interface. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>.</p>
    */
   PrimaryIpv6?: boolean;
+
+  /**
+   * @public
+   * <p>Configure ENA Express settings for your launch template.</p>
+   */
+  EnaSrdSpecification?: EnaSrdSpecificationRequest;
+
+  /**
+   * @public
+   * <p>A security group connection tracking specification that enables you to set the timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  ConnectionTrackingSpecification?: ConnectionTrackingSpecificationRequest;
 }
 
 /**
@@ -6739,7 +7138,7 @@ export interface LaunchTemplatePlacementRequest {
    * <p>The tenancy of the instance. An instance with a
    *             tenancy of dedicated runs on single-tenant hardware.</p>
    */
-  Tenancy?: Tenancy | string;
+  Tenancy?: Tenancy;
 
   /**
    * @public
@@ -6782,7 +7181,7 @@ export interface LaunchTemplatePrivateDnsNameOptionsRequest {
    *             name must be based on the instance ID. For dual-stack subnets, you can specify whether
    *             DNS names use the instance IPv4 address or the instance ID.</p>
    */
-  HostnameType?: HostnameType | string;
+  HostnameType?: HostnameType;
 
   /**
    * @public
@@ -6808,14 +7207,15 @@ export interface LaunchTemplateTagSpecificationRequest {
   /**
    * @public
    * <p>The type of resource to tag.</p>
-   *          <p>The <code>Valid Values</code> are all the resource types that can be tagged. However,
-   *             when creating a launch template, you can specify tags for the following resource types
-   *             only: <code>instance</code> | <code>volume</code> | <code>elastic-gpu</code> |
-   *                 <code>network-interface</code> | <code>spot-instances-request</code>
-   *          </p>
+   *          <p>Valid Values lists all resource types for Amazon EC2 that can be tagged. When
+   *             you create a launch template, you can specify tags for the following resource types
+   *             only: <code>instance</code> | <code>volume</code> |
+   *                 <code>network-interface</code> | <code>spot-instances-request</code>.
+   *             If the instance does not include the resource type that you specify, the instance
+   *             launch fails. For example, not all instance types include a volume.</p>
    *          <p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -6919,7 +7319,7 @@ export interface RequestLaunchTemplateData {
    *          <p>If you specify <code>InstanceType</code>, you can't specify
    *                 <code>InstanceRequirements</code>.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: _InstanceType;
 
   /**
    * @public
@@ -6972,7 +7372,7 @@ export interface RequestLaunchTemplateData {
    *          <p>Default: <code>stop</code>
    *          </p>
    */
-  InstanceInitiatedShutdownBehavior?: ShutdownBehavior | string;
+  InstanceInitiatedShutdownBehavior?: ShutdownBehavior;
 
   /**
    * @public
@@ -6987,56 +7387,50 @@ export interface RequestLaunchTemplateData {
 
   /**
    * @public
-   * <p>The tags to apply to the resources that are created during instance launch.</p>
-   *          <p>You can specify tags for the following resources only:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Instances</p>
-   *             </li>
-   *             <li>
-   *                <p>Volumes</p>
-   *             </li>
-   *             <li>
-   *                <p>Elastic graphics</p>
-   *             </li>
-   *             <li>
-   *                <p>Spot Instance requests</p>
-   *             </li>
-   *             <li>
-   *                <p>Network interfaces</p>
-   *             </li>
-   *          </ul>
-   *          <p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
-   *          <note>
-   *             <p>To tag the launch template itself, you must use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">TagSpecification</a> parameter.</p>
-   *          </note>
+   * <p>The tags to apply to the resources that are created during instance launch. These
+   *           tags are not applied to the launch template.</p>
    */
   TagSpecifications?: LaunchTemplateTagSpecificationRequest[];
 
   /**
    * @public
-   * <p>An elastic GPU to associate with the instance.</p>
+   * <p>Deprecated.</p>
+   *          <note>
+   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
+   *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
+   *                 G4dn, or G5 instances.</p>
+   *          </note>
    */
   ElasticGpuSpecifications?: ElasticGpuSpecification[];
 
   /**
    * @public
-   * <p> The elastic inference accelerator for the instance. </p>
+   * <p>An elastic inference accelerator to associate with the instance. Elastic inference
+   *             accelerators are a resource you can attach to your Amazon EC2 instances to accelerate
+   *             your Deep Learning (DL) inference workloads.</p>
+   *          <p>You cannot specify accelerators from different generations in the same request.</p>
+   *          <note>
+   *             <p>Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon
+   *                 Elastic Inference (EI), and will help current customers migrate their workloads to
+   *                 options that offer better price and performance. After April 15, 2023, new customers
+   *                 will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker,
+   *                 Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during
+   *                 the past 30-day period are considered current customers and will be able to continue
+   *                 using the service.</p>
+   *          </note>
    */
   ElasticInferenceAccelerators?: LaunchTemplateElasticInferenceAccelerator[];
 
   /**
    * @public
-   * <p>One or more security group IDs. You can create a security group using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>. You cannot specify both a security group ID and
-   *             security name in the same request.</p>
+   * <p>One or more security group IDs. You can create a security group using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateSecurityGroup.html">CreateSecurityGroup</a>.</p>
    */
   SecurityGroupIds?: string[];
 
   /**
    * @public
    * <p>One or more security group names. For a nondefault VPC, you must use security group
-   *             IDs instead. You cannot specify both a security group ID and security name in the same
-   *             request.</p>
+   *             IDs instead.</p>
    */
   SecurityGroups?: string[];
 
@@ -7430,7 +7824,7 @@ export interface LaunchTemplateEbsBlockDevice {
    * @public
    * <p>The volume type.</p>
    */
-  VolumeType?: VolumeType | string;
+  VolumeType?: VolumeType;
 
   /**
    * @public
@@ -7510,7 +7904,7 @@ export interface LaunchTemplateCapacityReservationSpecificationResponse {
    *             </li>
    *          </ul>
    */
-  CapacityReservationPreference?: CapacityReservationPreference | string;
+  CapacityReservationPreference?: CapacityReservationPreference;
 
   /**
    * @public
@@ -7542,7 +7936,7 @@ export interface LaunchTemplateCpuOptions {
    * <p>Indicates whether the instance is enabled for AMD SEV-SNP. For more information, see
    *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html">AMD SEV-SNP</a>.</p>
    */
-  AmdSevSnp?: AmdSevSnpSpecification | string;
+  AmdSevSnp?: AmdSevSnpSpecification;
 }
 
 /**
@@ -7561,12 +7955,22 @@ export interface CreditSpecification {
 
 /**
  * @public
- * <p>Describes an elastic GPU.</p>
+ * <p>Deprecated.</p>
+ *          <note>
+ *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
+ *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
+ *                 G4dn, or G5 instances.</p>
+ *          </note>
  */
 export interface ElasticGpuSpecificationResponse {
   /**
    * @public
-   * <p>The elastic GPU type.</p>
+   * <p>Deprecated.</p>
+   *          <note>
+   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
+   *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
+   *                 G4dn, or G5 instances.</p>
+   *          </note>
    */
   Type?: string;
 }
@@ -7656,7 +8060,7 @@ export interface LaunchTemplateSpotMarketOptions {
    * @public
    * <p>The Spot Instance request type.</p>
    */
-  SpotInstanceType?: SpotInstanceType | string;
+  SpotInstanceType?: SpotInstanceType;
 
   /**
    * @public
@@ -7678,7 +8082,7 @@ export interface LaunchTemplateSpotMarketOptions {
    * @public
    * <p>The behavior when a Spot Instance is interrupted.</p>
    */
-  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
+  InstanceInterruptionBehavior?: InstanceInterruptionBehavior;
 }
 
 /**
@@ -7690,7 +8094,7 @@ export interface LaunchTemplateInstanceMarketOptions {
    * @public
    * <p>The market type.</p>
    */
-  MarketType?: MarketType | string;
+  MarketType?: MarketType;
 
   /**
    * @public
@@ -7721,7 +8125,7 @@ export interface LaunchTemplateInstanceMaintenanceOptions {
    * <p>Disables the automatic recovery behavior of your instance or sets it to
    *             default.</p>
    */
-  AutoRecovery?: LaunchTemplateAutoRecoveryState | string;
+  AutoRecovery?: LaunchTemplateAutoRecoveryState;
 }
 
 /**
@@ -7755,24 +8159,30 @@ export interface LaunchTemplateInstanceMetadataOptions {
    *             <code>applied</code> - The metadata options have been successfully applied on the
    *             instance.</p>
    */
-  State?: LaunchTemplateInstanceMetadataOptionsState | string;
+  State?: LaunchTemplateInstanceMetadataOptionsState;
 
   /**
    * @public
-   * <p>Indicates whether IMDSv2 is <code>optional</code> or <code>required</code>.</p>
-   *          <p>
-   *             <code>optional</code> - When IMDSv2 is optional, you can choose to retrieve instance metadata with or without
-   *             a session token in your request. If you retrieve the IAM role credentials
-   *             without a token, the IMDSv1 role credentials are returned. If you retrieve the IAM role credentials
-   *             using a valid session token, the IMDSv2 role credentials are returned.</p>
-   *          <p>
-   *             <code>required</code> - When IMDSv2 is required, you must send a session token
-   *             with any instance metadata retrieval requests. In this state, retrieving the IAM role
-   *             credentials always returns IMDSv2 credentials; IMDSv1 credentials are not available.</p>
-   *          <p>Default: <code>optional</code>
-   *          </p>
+   * <p>Indicates whether IMDSv2 is required.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>optional</code> - IMDSv2 is optional. You can choose whether to send a
+   *                     session token in your instance metadata retrieval requests. If you retrieve
+   *                     IAM role credentials without a session token, you receive the IMDSv1 role
+   *                     credentials. If you retrieve IAM role credentials using a valid session token,
+   *                     you receive the IMDSv2 role credentials.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>required</code> - IMDSv2 is required. You must send a session token
+   *                     in your instance metadata retrieval requests. With this option, retrieving the
+   *                     IAM role credentials always returns IMDSv2 credentials; IMDSv1 credentials are
+   *                     not available.</p>
+   *             </li>
+   *          </ul>
    */
-  HttpTokens?: LaunchTemplateHttpTokensState | string;
+  HttpTokens?: LaunchTemplateHttpTokensState;
 
   /**
    * @public
@@ -7792,7 +8202,7 @@ export interface LaunchTemplateInstanceMetadataOptions {
    *                 your instance metadata. </p>
    *          </note>
    */
-  HttpEndpoint?: LaunchTemplateInstanceMetadataEndpointState | string;
+  HttpEndpoint?: LaunchTemplateInstanceMetadataEndpointState;
 
   /**
    * @public
@@ -7800,7 +8210,7 @@ export interface LaunchTemplateInstanceMetadataOptions {
    *          <p>Default: <code>disabled</code>
    *          </p>
    */
-  HttpProtocolIpv6?: LaunchTemplateInstanceMetadataProtocolIpv6 | string;
+  HttpProtocolIpv6?: LaunchTemplateInstanceMetadataProtocolIpv6;
 
   /**
    * @public
@@ -7811,7 +8221,7 @@ export interface LaunchTemplateInstanceMetadataOptions {
    *          <p>Default: <code>disabled</code>
    *          </p>
    */
-  InstanceMetadataTags?: LaunchTemplateInstanceMetadataTagsState | string;
+  InstanceMetadataTags?: LaunchTemplateInstanceMetadataTagsState;
 }
 
 /**
@@ -7825,6 +8235,79 @@ export interface LaunchTemplatesMonitoring {
    *             enabled.</p>
    */
   Enabled?: boolean;
+}
+
+/**
+ * @public
+ * <p>A security group connection tracking specification that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+export interface ConnectionTrackingSpecification {
+  /**
+   * @public
+   * <p>Timeout (in seconds) for idle TCP
+   * 						connections in an established state. Min: 60 seconds. Max: 432000 seconds (5
+   * 						days). Default: 432000 seconds. Recommended: Less than 432000 seconds.</p>
+   */
+  TcpEstablishedTimeout?: number;
+
+  /**
+   * @public
+   * <p>Timeout (in seconds) for idle UDP flows that
+   * 						have seen traffic only in a single direction or a single request-response
+   * 						transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.</p>
+   */
+  UdpTimeout?: number;
+
+  /**
+   * @public
+   * <p>Timeout (in seconds) for idle UDP
+   * 						flows classified as streams which have seen more than one request-response
+   * 						transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180
+   * 						seconds.</p>
+   */
+  UdpStreamTimeout?: number;
+}
+
+/**
+ * @public
+ * <p>ENA Express is compatible with both TCP and UDP transport protocols. When it's enabled, TCP traffic
+ * 			automatically uses it. However, some UDP-based applications are designed to handle network packets that are
+ * 			out of order, without a need for retransmission, such as live video broadcasting or other near-real-time
+ * 			applications. For UDP traffic, you can specify whether to use ENA Express, based on your application
+ * 			environment needs.</p>
+ */
+export interface LaunchTemplateEnaSrdUdpSpecification {
+  /**
+   * @public
+   * <p>Indicates whether UDP traffic to and from the instance uses ENA Express. To specify this setting,
+   * 			you must first enable ENA Express.</p>
+   */
+  EnaSrdUdpEnabled?: boolean;
+}
+
+/**
+ * @public
+ * <p>ENA Express uses Amazon Web Services Scalable Reliable Datagram (SRD) technology to increase the
+ * 			maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances.
+ * 			With ENA Express, you can communicate between two EC2 instances in the same subnet within the same
+ * 			account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.</p>
+ *          <p>To improve the reliability of network packet delivery, ENA Express reorders network packets on the
+ * 			receiving end by default. However, some UDP-based applications are designed to handle network packets
+ * 			that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express
+ * 			is enabled, you can specify whether UDP network traffic uses it.</p>
+ */
+export interface LaunchTemplateEnaSrdSpecification {
+  /**
+   * @public
+   * <p>Indicates whether ENA Express is enabled for the network interface.</p>
+   */
+  EnaSrdEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>Configures ENA Express for UDP network traffic.</p>
+   */
+  EnaSrdUdpSpecification?: LaunchTemplateEnaSrdUdpSpecification;
 }
 
 /**
@@ -7892,6 +8375,8 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecification {
    * @public
    * <p>Indicates whether to associate a public IPv4 address with eth0 for a new network
    *             interface.</p>
+   *          <p>Starting on February 1, 2024, Amazon Web Services will charge for all public IPv4 addresses, including public IPv4 addresses
+   * associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
    */
   AssociatePublicIpAddress?: boolean;
 
@@ -8005,6 +8490,18 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecification {
    * <p>The primary IPv6 address of the network interface. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information about primary IPv6 addresses, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a>.</p>
    */
   PrimaryIpv6?: boolean;
+
+  /**
+   * @public
+   * <p>Contains the ENA Express settings for instances launched from your launch template.</p>
+   */
+  EnaSrdSpecification?: LaunchTemplateEnaSrdSpecification;
+
+  /**
+   * @public
+   * <p>A security group connection tracking specification that enables you to set the timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  ConnectionTrackingSpecification?: ConnectionTrackingSpecification;
 }
 
 /**
@@ -8041,7 +8538,7 @@ export interface LaunchTemplatePlacement {
    * <p>The tenancy of the instance. An instance with a
    *             tenancy of <code>dedicated</code> runs on single-tenant hardware. </p>
    */
-  Tenancy?: Tenancy | string;
+  Tenancy?: Tenancy;
 
   /**
    * @public
@@ -8079,7 +8576,7 @@ export interface LaunchTemplatePrivateDnsNameOptions {
    * @public
    * <p>The type of hostname to assign to an instance.</p>
    */
-  HostnameType?: HostnameType | string;
+  HostnameType?: HostnameType;
 
   /**
    * @public
@@ -8105,7 +8602,7 @@ export interface LaunchTemplateTagSpecification {
    * @public
    * <p>The type of resource to tag.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -8177,7 +8674,7 @@ export interface ResponseLaunchTemplateData {
    * @public
    * <p>The instance type.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: _InstanceType;
 
   /**
    * @public
@@ -8215,7 +8712,7 @@ export interface ResponseLaunchTemplateData {
    * <p>Indicates whether an instance stops or terminates when you initiate shutdown from the
    *             instance (using the operating system command for system shutdown).</p>
    */
-  InstanceInitiatedShutdownBehavior?: ShutdownBehavior | string;
+  InstanceInitiatedShutdownBehavior?: ShutdownBehavior;
 
   /**
    * @public
@@ -8232,13 +8729,30 @@ export interface ResponseLaunchTemplateData {
 
   /**
    * @public
-   * <p>The elastic GPU specification.</p>
+   * <p>Deprecated.</p>
+   *          <note>
+   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024. For
+   *                 workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad,
+   *                 G4dn, or G5 instances.</p>
+   *          </note>
    */
   ElasticGpuSpecifications?: ElasticGpuSpecificationResponse[];
 
   /**
    * @public
-   * <p> The elastic inference accelerator for the instance. </p>
+   * <p>An elastic inference accelerator to associate with the instance. Elastic inference
+   *             accelerators are a resource you can attach to your Amazon EC2 instances to accelerate
+   *             your Deep Learning (DL) inference workloads.</p>
+   *          <p>You cannot specify accelerators from different generations in the same request.</p>
+   *          <note>
+   *             <p>Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon
+   *                 Elastic Inference (EI), and will help current customers migrate their workloads to
+   *                 options that offer better price and performance. After April 15, 2023, new customers
+   *                 will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker,
+   *                 Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during
+   *                 the past 30-day period are considered current customers and will be able to continue
+   *                 using the service.</p>
+   *          </note>
    */
   ElasticInferenceAccelerators?: LaunchTemplateElasticInferenceAcceleratorResponse[];
 
@@ -8508,13 +9022,13 @@ export interface LocalGatewayRoute {
    * @public
    * <p>The route type.</p>
    */
-  Type?: LocalGatewayRouteType | string;
+  Type?: LocalGatewayRouteType;
 
   /**
    * @public
    * <p>The state of the route.</p>
    */
-  State?: LocalGatewayRouteState | string;
+  State?: LocalGatewayRouteState;
 
   /**
    * @public
@@ -8604,7 +9118,7 @@ export interface CreateLocalGatewayRouteTableRequest {
    *       The mode of the local gateway route table.
    *       </p>
    */
-  Mode?: LocalGatewayRouteTableMode | string;
+  Mode?: LocalGatewayRouteTableMode;
 
   /**
    * @public
@@ -8670,7 +9184,7 @@ export interface StateReason {
    *             <li>
    *                <p>
    *                   <code>Client.InstanceInitiatedShutdown</code>: The instance was shut down
-   *                     using the <code>shutdown -h</code> command from the instance.</p>
+   *                     from the operating system of the instance.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8759,7 +9273,7 @@ export interface LocalGatewayRouteTable {
    * @public
    * <p>The mode of the local gateway route table.</p>
    */
-  Mode?: LocalGatewayRouteTableMode | string;
+  Mode?: LocalGatewayRouteTableMode;
 
   /**
    * @public
@@ -9077,7 +9591,7 @@ export interface ManagedPrefixList {
    * @public
    * <p>The current state of the prefix list.</p>
    */
-  State?: PrefixListState | string;
+  State?: PrefixListState;
 
   /**
    * @public
@@ -9162,8 +9676,7 @@ export interface CreateNatGatewayRequest {
   /**
    * @public
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   * 			request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to ensure
-   * 				idempotency</a>.</p>
+   * 			request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    *          <p>Constraint: Maximum 64 ASCII characters.</p>
    */
   ClientToken?: string;
@@ -9193,7 +9706,7 @@ export interface CreateNatGatewayRequest {
    * <p>Indicates whether the NAT gateway supports public or private connectivity.
    *           The default is public connectivity.</p>
    */
-  ConnectivityType?: ConnectivityType | string;
+  ConnectivityType?: ConnectivityType;
 
   /**
    * @public
@@ -9378,7 +9891,7 @@ export interface NatGateway {
    *             </li>
    *          </ul>
    */
-  State?: NatGatewayState | string;
+  State?: NatGatewayState;
 
   /**
    * @public
@@ -9402,7 +9915,7 @@ export interface NatGateway {
    * @public
    * <p>Indicates whether the NAT gateway supports public or private connectivity.</p>
    */
-  ConnectivityType?: ConnectivityType | string;
+  ConnectivityType?: ConnectivityType;
 }
 
 /**
@@ -9445,6 +9958,13 @@ export interface CreateNetworkAclRequest {
    * <p>The tags to assign to the network ACL.</p>
    */
   TagSpecifications?: TagSpecification[];
+
+  /**
+   * @public
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   */
+  ClientToken?: string;
 }
 
 /**
@@ -9548,7 +10068,7 @@ export interface NetworkAclEntry {
    * @public
    * <p>Indicates whether to allow or deny the traffic that matches the rule.</p>
    */
-  RuleAction?: RuleAction | string;
+  RuleAction?: RuleAction;
 
   /**
    * @public
@@ -9614,6 +10134,12 @@ export interface CreateNetworkAclResult {
    * <p>Information about the network ACL.</p>
    */
   NetworkAcl?: NetworkAcl;
+
+  /**
+   * @public
+   * <p>Unique, case-sensitive identifier to ensure the idempotency of the request. Only returned if a client token was provided in the request.</p>
+   */
+  ClientToken?: string;
 }
 
 /**
@@ -9683,7 +10209,7 @@ export interface CreateNetworkAclEntryRequest {
    * @public
    * <p>Indicates whether to allow or deny the traffic that matches the rule.</p>
    */
-  RuleAction: RuleAction | string | undefined;
+  RuleAction: RuleAction | undefined;
 
   /**
    * @public
@@ -9889,7 +10415,7 @@ export interface CreateNetworkInsightsPathRequest {
    * @public
    * <p>The protocol.</p>
    */
-  Protocol: Protocol | string | undefined;
+  Protocol: Protocol | undefined;
 
   /**
    * @public
@@ -10045,7 +10571,7 @@ export interface NetworkInsightsPath {
    * @public
    * <p>The protocol.</p>
    */
-  Protocol?: Protocol | string;
+  Protocol?: Protocol;
 
   /**
    * @public
@@ -10209,7 +10735,7 @@ export interface CreateNetworkInterfaceRequest {
    * <p>The type of network interface. The default is <code>interface</code>.</p>
    *          <p>The only supported values are <code>interface</code>, <code>efa</code>, and <code>trunk</code>.</p>
    */
-  InterfaceType?: NetworkInterfaceCreationType | string;
+  InterfaceType?: NetworkInterfaceCreationType;
 
   /**
    * @public
@@ -10245,6 +10771,12 @@ export interface CreateNetworkInterfaceRequest {
    *             address.</p>
    */
   EnablePrimaryIpv6?: boolean;
+
+  /**
+   * @public
+   * <p>A connection tracking specification for the network interface.</p>
+   */
+  ConnectionTrackingSpecification?: ConnectionTrackingSpecificationRequest;
 }
 
 /**
@@ -10301,8 +10833,11 @@ export interface NetworkInterfaceAssociation {
 
 /**
  * @public
- * <p>Describes the ENA Express configuration for UDP traffic on the network interface that's attached to
- * 			the instance.</p>
+ * <p>ENA Express is compatible with both TCP and UDP transport protocols. When it's enabled, TCP traffic
+ * 			automatically uses it. However, some UDP-based applications are designed to handle network packets that are
+ * 			out of order, without a need for retransmission, such as live video broadcasting or other near-real-time
+ * 			applications. For UDP traffic, you can specify whether to use ENA Express, based on your application
+ * 			environment needs.</p>
  */
 export interface AttachmentEnaSrdUdpSpecification {
   /**
@@ -10315,19 +10850,25 @@ export interface AttachmentEnaSrdUdpSpecification {
 
 /**
  * @public
- * <p>Describes the ENA Express configuration for the network interface that's attached to the instance.</p>
+ * <p>ENA Express uses Amazon Web Services Scalable Reliable Datagram (SRD) technology to increase the
+ * 			maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances.
+ * 			With ENA Express, you can communicate between two EC2 instances in the same subnet within the same
+ * 			account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.</p>
+ *          <p>To improve the reliability of network packet delivery, ENA Express reorders network packets on the
+ * 			receiving end by default. However, some UDP-based applications are designed to handle network packets
+ * 			that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express
+ * 			is enabled, you can specify whether UDP network traffic uses it.</p>
  */
 export interface AttachmentEnaSrdSpecification {
   /**
    * @public
-   * <p>Indicates whether ENA Express is enabled for the network interface that's attached to the
-   * 			instance.</p>
+   * <p>Indicates whether ENA Express is enabled for the network interface.</p>
    */
   EnaSrdEnabled?: boolean;
 
   /**
    * @public
-   * <p>ENA Express configuration for UDP network traffic.</p>
+   * <p>Configures ENA Express for UDP network traffic.</p>
    */
   EnaSrdUdpSpecification?: AttachmentEnaSrdUdpSpecification;
 }
@@ -10383,13 +10924,44 @@ export interface NetworkInterfaceAttachment {
    * @public
    * <p>The attachment state.</p>
    */
-  Status?: AttachmentStatus | string;
+  Status?: AttachmentStatus;
 
   /**
    * @public
    * <p>Configures ENA Express for the network interface that this action attaches to the instance.</p>
    */
   EnaSrdSpecification?: AttachmentEnaSrdSpecification;
+}
+
+/**
+ * @public
+ * <p>A security group connection tracking configuration that enables you to set the idle timeout for connection tracking on an Elastic network interface. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html#connection-tracking-timeouts">Connection tracking timeouts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+export interface ConnectionTrackingConfiguration {
+  /**
+   * @public
+   * <p>Timeout (in seconds) for idle TCP
+   * 						connections in an established state. Min: 60 seconds. Max: 432000 seconds (5
+   * 						days). Default: 432000 seconds. Recommended: Less than 432000 seconds.</p>
+   */
+  TcpEstablishedTimeout?: number;
+
+  /**
+   * @public
+   * <p>Timeout (in seconds) for idle UDP
+   * 						flows classified as streams which have seen more than one request-response
+   * 						transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180
+   * 						seconds.</p>
+   */
+  UdpStreamTimeout?: number;
+
+  /**
+   * @public
+   * <p>Timeout (in seconds) for idle UDP flows that
+   * 						have seen traffic only in a single direction or a single request-response
+   * 						transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.</p>
+   */
+  UdpTimeout?: number;
 }
 
 /**
@@ -10438,574 +11010,6 @@ export const NetworkInterfaceType = {
  * @public
  */
 export type NetworkInterfaceType = (typeof NetworkInterfaceType)[keyof typeof NetworkInterfaceType];
-
-/**
- * @public
- * <p>Describes an IPv6 address associated with a network interface.</p>
- */
-export interface NetworkInterfaceIpv6Address {
-  /**
-   * @public
-   * <p>The IPv6 address.</p>
-   */
-  Ipv6Address?: string;
-
-  /**
-   * @public
-   * <p>Determines if an IPv6 address associated with a network interface is the primary IPv6 address. When you enable an IPv6 GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6 address until the instance is terminated or the network interface is detached. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyNetworkInterfaceAttribute.html">ModifyNetworkInterfaceAttribute</a>.</p>
-   */
-  IsPrimaryIpv6?: boolean;
-}
-
-/**
- * @public
- * <p>Describes the IPv6 prefix.</p>
- */
-export interface Ipv6PrefixSpecification {
-  /**
-   * @public
-   * <p>The IPv6 prefix.</p>
-   */
-  Ipv6Prefix?: string;
-}
-
-/**
- * @public
- * <p>Describes the private IPv4 address of a network interface.</p>
- */
-export interface NetworkInterfacePrivateIpAddress {
-  /**
-   * @public
-   * <p>The association information for an Elastic IP address (IPv4) associated with the network interface.</p>
-   */
-  Association?: NetworkInterfaceAssociation;
-
-  /**
-   * @public
-   * <p>Indicates whether this IPv4 address is the primary private IPv4 address of the network interface.</p>
-   */
-  Primary?: boolean;
-
-  /**
-   * @public
-   * <p>The private DNS name.</p>
-   */
-  PrivateDnsName?: string;
-
-  /**
-   * @public
-   * <p>The private IPv4 address.</p>
-   */
-  PrivateIpAddress?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const NetworkInterfaceStatus = {
-  associated: "associated",
-  attaching: "attaching",
-  available: "available",
-  detaching: "detaching",
-  in_use: "in-use",
-} as const;
-
-/**
- * @public
- */
-export type NetworkInterfaceStatus = (typeof NetworkInterfaceStatus)[keyof typeof NetworkInterfaceStatus];
-
-/**
- * @public
- * <p>Describes a network interface.</p>
- */
-export interface NetworkInterface {
-  /**
-   * @public
-   * <p>The association information for an Elastic IP address (IPv4) associated with the network interface.</p>
-   */
-  Association?: NetworkInterfaceAssociation;
-
-  /**
-   * @public
-   * <p>The network interface attachment.</p>
-   */
-  Attachment?: NetworkInterfaceAttachment;
-
-  /**
-   * @public
-   * <p>The Availability Zone.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * @public
-   * <p>A description.</p>
-   */
-  Description?: string;
-
-  /**
-   * @public
-   * <p>Any security groups for the network interface.</p>
-   */
-  Groups?: GroupIdentifier[];
-
-  /**
-   * @public
-   * <p>The type of network interface.</p>
-   */
-  InterfaceType?: NetworkInterfaceType | string;
-
-  /**
-   * @public
-   * <p>The IPv6 addresses associated with the network interface.</p>
-   */
-  Ipv6Addresses?: NetworkInterfaceIpv6Address[];
-
-  /**
-   * @public
-   * <p>The MAC address.</p>
-   */
-  MacAddress?: string;
-
-  /**
-   * @public
-   * <p>The ID of the network interface.</p>
-   */
-  NetworkInterfaceId?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
-   */
-  OutpostArn?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services account ID of the owner of the network interface.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * @public
-   * <p>The private DNS name.</p>
-   */
-  PrivateDnsName?: string;
-
-  /**
-   * @public
-   * <p>The IPv4 address of the network interface within the subnet.</p>
-   */
-  PrivateIpAddress?: string;
-
-  /**
-   * @public
-   * <p>The private IPv4 addresses associated with the network interface.</p>
-   */
-  PrivateIpAddresses?: NetworkInterfacePrivateIpAddress[];
-
-  /**
-   * @public
-   * <p>The IPv4 prefixes that are assigned to the network interface.</p>
-   */
-  Ipv4Prefixes?: Ipv4PrefixSpecification[];
-
-  /**
-   * @public
-   * <p>The IPv6 prefixes that are assigned to the network interface.</p>
-   */
-  Ipv6Prefixes?: Ipv6PrefixSpecification[];
-
-  /**
-   * @public
-   * <p>The alias or Amazon Web Services account ID of the principal or service that created the network interface.</p>
-   */
-  RequesterId?: string;
-
-  /**
-   * @public
-   * <p>Indicates whether the network interface is being managed by Amazon Web Services.</p>
-   */
-  RequesterManaged?: boolean;
-
-  /**
-   * @public
-   * <p>Indicates whether source/destination checking is enabled.</p>
-   */
-  SourceDestCheck?: boolean;
-
-  /**
-   * @public
-   * <p>The status of the network interface.</p>
-   */
-  Status?: NetworkInterfaceStatus | string;
-
-  /**
-   * @public
-   * <p>The ID of the subnet.</p>
-   */
-  SubnetId?: string;
-
-  /**
-   * @public
-   * <p>Any tags assigned to the network interface.</p>
-   */
-  TagSet?: Tag[];
-
-  /**
-   * @public
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * @public
-   * <p>Indicates whether a network interface with an IPv6 address is unreachable from the
-   *             public internet. If the value is <code>true</code>, inbound traffic from the internet
-   *             is dropped and you cannot assign an elastic IP address to the network interface. The
-   *             network interface is reachable from peered VPCs and resources connected through a
-   *             transit gateway, including on-premises networks.</p>
-   */
-  DenyAllIgwTraffic?: boolean;
-
-  /**
-   * @public
-   * <p>Indicates whether this is an IPv6 only network interface.</p>
-   */
-  Ipv6Native?: boolean;
-
-  /**
-   * @public
-   * <p>The IPv6 globally unique address associated with the network interface.</p>
-   */
-  Ipv6Address?: string;
-}
-
-/**
- * @public
- */
-export interface CreateNetworkInterfaceResult {
-  /**
-   * @public
-   * <p>Information about the network interface.</p>
-   */
-  NetworkInterface?: NetworkInterface;
-
-  /**
-   * @public
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  ClientToken?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const InterfacePermissionType = {
-  EIP_ASSOCIATE: "EIP-ASSOCIATE",
-  INSTANCE_ATTACH: "INSTANCE-ATTACH",
-} as const;
-
-/**
- * @public
- */
-export type InterfacePermissionType = (typeof InterfacePermissionType)[keyof typeof InterfacePermissionType];
-
-/**
- * @public
- * <p>Contains the parameters for CreateNetworkInterfacePermission.</p>
- */
-export interface CreateNetworkInterfacePermissionRequest {
-  /**
-   * @public
-   * <p>The ID of the network interface.</p>
-   */
-  NetworkInterfaceId: string | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services account ID.</p>
-   */
-  AwsAccountId?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Web Service. Currently not supported.</p>
-   */
-  AwsService?: string;
-
-  /**
-   * @public
-   * <p>The type of permission to grant.</p>
-   */
-  Permission: InterfacePermissionType | string | undefined;
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   * 			Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * @public
- * @enum
- */
-export const NetworkInterfacePermissionStateCode = {
-  granted: "granted",
-  pending: "pending",
-  revoked: "revoked",
-  revoking: "revoking",
-} as const;
-
-/**
- * @public
- */
-export type NetworkInterfacePermissionStateCode =
-  (typeof NetworkInterfacePermissionStateCode)[keyof typeof NetworkInterfacePermissionStateCode];
-
-/**
- * @public
- * <p>Describes the state of a network interface permission.</p>
- */
-export interface NetworkInterfacePermissionState {
-  /**
-   * @public
-   * <p>The state of the permission.</p>
-   */
-  State?: NetworkInterfacePermissionStateCode | string;
-
-  /**
-   * @public
-   * <p>A status message, if applicable.</p>
-   */
-  StatusMessage?: string;
-}
-
-/**
- * @public
- * <p>Describes a permission for a network interface.</p>
- */
-export interface NetworkInterfacePermission {
-  /**
-   * @public
-   * <p>The ID of the network interface permission.</p>
-   */
-  NetworkInterfacePermissionId?: string;
-
-  /**
-   * @public
-   * <p>The ID of the network interface.</p>
-   */
-  NetworkInterfaceId?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services account ID.</p>
-   */
-  AwsAccountId?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Web Service.</p>
-   */
-  AwsService?: string;
-
-  /**
-   * @public
-   * <p>The type of permission.</p>
-   */
-  Permission?: InterfacePermissionType | string;
-
-  /**
-   * @public
-   * <p>Information about the state of the permission.</p>
-   */
-  PermissionState?: NetworkInterfacePermissionState;
-}
-
-/**
- * @public
- * <p>Contains the output of CreateNetworkInterfacePermission.</p>
- */
-export interface CreateNetworkInterfacePermissionResult {
-  /**
-   * @public
-   * <p>Information about the permission for the network interface.</p>
-   */
-  InterfacePermission?: NetworkInterfacePermission;
-}
-
-/**
- * @public
- * @enum
- */
-export const SpreadLevel = {
-  host: "host",
-  rack: "rack",
-} as const;
-
-/**
- * @public
- */
-export type SpreadLevel = (typeof SpreadLevel)[keyof typeof SpreadLevel];
-
-/**
- * @public
- * @enum
- */
-export const PlacementStrategy = {
-  cluster: "cluster",
-  partition: "partition",
-  spread: "spread",
-} as const;
-
-/**
- * @public
- */
-export type PlacementStrategy = (typeof PlacementStrategy)[keyof typeof PlacementStrategy];
-
-/**
- * @public
- */
-export interface CreatePlacementGroupRequest {
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>A name for the placement group. Must be unique within the scope of your account for
-   *             the Region.</p>
-   *          <p>Constraints: Up to 255 ASCII characters</p>
-   */
-  GroupName?: string;
-
-  /**
-   * @public
-   * <p>The placement strategy.</p>
-   */
-  Strategy?: PlacementStrategy | string;
-
-  /**
-   * @public
-   * <p>The number of partitions. Valid only when <b>Strategy</b> is
-   *             set to <code>partition</code>.</p>
-   */
-  PartitionCount?: number;
-
-  /**
-   * @public
-   * <p>The tags to apply to the new placement group.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * @public
-   * <p>Determines how placement groups spread instances. </p>
-   *          <ul>
-   *             <li>
-   *                <p>Host – You can use <code>host</code> only with Outpost placement
-   *                     groups.</p>
-   *             </li>
-   *             <li>
-   *                <p>Rack – No usage restrictions.</p>
-   *             </li>
-   *          </ul>
-   */
-  SpreadLevel?: SpreadLevel | string;
-}
-
-/**
- * @public
- * @enum
- */
-export const PlacementGroupState = {
-  available: "available",
-  deleted: "deleted",
-  deleting: "deleting",
-  pending: "pending",
-} as const;
-
-/**
- * @public
- */
-export type PlacementGroupState = (typeof PlacementGroupState)[keyof typeof PlacementGroupState];
-
-/**
- * @public
- * <p>Describes a placement group.</p>
- */
-export interface PlacementGroup {
-  /**
-   * @public
-   * <p>The name of the placement group.</p>
-   */
-  GroupName?: string;
-
-  /**
-   * @public
-   * <p>The state of the placement group.</p>
-   */
-  State?: PlacementGroupState | string;
-
-  /**
-   * @public
-   * <p>The placement strategy.</p>
-   */
-  Strategy?: PlacementStrategy | string;
-
-  /**
-   * @public
-   * <p>The number of partitions. Valid only if <b>strategy</b> is
-   *             set to <code>partition</code>.</p>
-   */
-  PartitionCount?: number;
-
-  /**
-   * @public
-   * <p>The ID of the placement group.</p>
-   */
-  GroupId?: string;
-
-  /**
-   * @public
-   * <p>Any tags applied to the placement group.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the placement group.</p>
-   */
-  GroupArn?: string;
-
-  /**
-   * @public
-   * <p>The spread level for the placement group. <i>Only</i> Outpost placement
-   *             groups can be spread across hosts.</p>
-   */
-  SpreadLevel?: SpreadLevel | string;
-}
-
-/**
- * @public
- */
-export interface CreatePlacementGroupResult {
-  /**
-   * @public
-   * <p>Information about the placement group.</p>
-   */
-  PlacementGroup?: PlacementGroup;
-}
 
 /**
  * @internal

@@ -2,15 +2,18 @@
 import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { IoTServiceException as __BaseException } from "./IoTServiceException";
+
 import {
   AbortConfig,
   AggregationType,
   AlertTarget,
+  AlertTargetType,
   AttributePayload,
   AuditCheckConfiguration,
   AuditFrequency,
   AuditMitigationActionsTaskTarget,
   AuditNotificationTarget,
+  AuditNotificationType,
   AuthInfo,
   AuthorizerConfig,
   AuthorizerStatus,
@@ -18,6 +21,7 @@ import {
   AutoRegistrationStatus,
   Behavior,
   BillingGroupProperties,
+  CertificateProviderOperation,
   CustomMetricType,
   DayOfWeek,
   DimensionType,
@@ -25,9 +29,11 @@ import {
   JobExecutionsRetryConfig,
   JobExecutionsRolloutConfig,
   LogLevel,
+  MetricsExportConfig,
   MetricToRetain,
   MetricValue,
   MitigationActionParams,
+  PackageVersionStatus,
   Policy,
   PresignedUrlConfig,
   ProvisioningHook,
@@ -45,6 +51,7 @@ import {
   VerificationState,
   ViolationEventAdditionalInfo,
 } from "./models_0";
+
 import {
   BehaviorCriteriaType,
   CACertificateStatus,
@@ -53,9 +60,9 @@ import {
   Configuration,
   DetectMitigationActionsTaskTarget,
   DomainConfigurationStatus,
+  EventType,
   GroupNameAndArn,
   LogTargetType,
-  PolicyVersion,
   RegistrationConfig,
   Status,
   ThingGroupIndexingConfiguration,
@@ -64,6 +71,342 @@ import {
   VersionUpdateByJobsConfig,
   ViolationEventOccurrenceRange,
 } from "./models_1";
+
+/**
+ * @public
+ * <p>A certificate that has been transferred but not yet accepted.</p>
+ */
+export interface OutgoingCertificate {
+  /**
+   * @public
+   * <p>The certificate ARN.</p>
+   */
+  certificateArn?: string;
+
+  /**
+   * @public
+   * <p>The certificate ID.</p>
+   */
+  certificateId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services account to which the transfer was made.</p>
+   */
+  transferredTo?: string;
+
+  /**
+   * @public
+   * <p>The date the transfer was initiated.</p>
+   */
+  transferDate?: Date;
+
+  /**
+   * @public
+   * <p>The transfer message.</p>
+   */
+  transferMessage?: string;
+
+  /**
+   * @public
+   * <p>The certificate creation date.</p>
+   */
+  creationDate?: Date;
+}
+
+/**
+ * @public
+ * <p>The output from the ListOutgoingCertificates operation.</p>
+ */
+export interface ListOutgoingCertificatesResponse {
+  /**
+   * @public
+   * <p>The certificates that are being transferred but not yet accepted.</p>
+   */
+  outgoingCertificates?: OutgoingCertificate[];
+
+  /**
+   * @public
+   * <p>The marker for the next set of results.</p>
+   */
+  nextMarker?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListPackagesRequest {
+  /**
+   * @public
+   * <p>The maximum number of results returned at one time.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>The token for the next set of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>A summary of information about a software package.</p>
+ */
+export interface PackageSummary {
+  /**
+   * @public
+   * <p>The name for the target software package.</p>
+   */
+  packageName?: string;
+
+  /**
+   * @public
+   * <p>The name of the default package version.</p>
+   */
+  defaultVersionName?: string;
+
+  /**
+   * @public
+   * <p>The date that the package was created.</p>
+   */
+  creationDate?: Date;
+
+  /**
+   * @public
+   * <p>The date that the package was last updated.</p>
+   */
+  lastModifiedDate?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListPackagesResponse {
+  /**
+   * @public
+   * <p>The software package summary.</p>
+   */
+  packageSummaries?: PackageSummary[];
+
+  /**
+   * @public
+   * <p>The token for the next set of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListPackageVersionsRequest {
+  /**
+   * @public
+   * <p>The name of the target software package.</p>
+   */
+  packageName: string | undefined;
+
+  /**
+   * @public
+   * <p>The status of the package version. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p>
+   */
+  status?: PackageVersionStatus;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * @public
+   * <p>The token for the next set of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>A summary of information about a package version.</p>
+ */
+export interface PackageVersionSummary {
+  /**
+   * @public
+   * <p>The name of the associated software package.</p>
+   */
+  packageName?: string;
+
+  /**
+   * @public
+   * <p>The name of the target package version.</p>
+   */
+  versionName?: string;
+
+  /**
+   * @public
+   * <p>The status of the package version. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p>
+   */
+  status?: PackageVersionStatus;
+
+  /**
+   * @public
+   * <p>The date that the package version was created.</p>
+   */
+  creationDate?: Date;
+
+  /**
+   * @public
+   * <p>The date that the package version was last updated.</p>
+   */
+  lastModifiedDate?: Date;
+}
+
+/**
+ * @public
+ */
+export interface ListPackageVersionsResponse {
+  /**
+   * @public
+   * <p>Lists the package versions associated to the package.</p>
+   */
+  packageVersionSummaries?: PackageVersionSummary[];
+
+  /**
+   * @public
+   * <p>The token for the next set of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>The input for the ListPolicies operation.</p>
+ */
+export interface ListPoliciesRequest {
+  /**
+   * @public
+   * <p>The marker for the next set of results.</p>
+   */
+  marker?: string;
+
+  /**
+   * @public
+   * <p>The result page size.</p>
+   */
+  pageSize?: number;
+
+  /**
+   * @public
+   * <p>Specifies the order for results. If true, the results are returned in ascending
+   *          creation order.</p>
+   */
+  ascendingOrder?: boolean;
+}
+
+/**
+ * @public
+ * <p>The output from the ListPolicies operation.</p>
+ */
+export interface ListPoliciesResponse {
+  /**
+   * @public
+   * <p>The descriptions of the policies.</p>
+   */
+  policies?: Policy[];
+
+  /**
+   * @public
+   * <p>The marker for the next set of results, or null if there are no additional
+   *          results.</p>
+   */
+  nextMarker?: string;
+}
+
+/**
+ * @public
+ * <p>The input for the ListPolicyPrincipals operation.</p>
+ */
+export interface ListPolicyPrincipalsRequest {
+  /**
+   * @public
+   * <p>The policy name.</p>
+   */
+  policyName: string | undefined;
+
+  /**
+   * @public
+   * <p>The marker for the next set of results.</p>
+   */
+  marker?: string;
+
+  /**
+   * @public
+   * <p>The result page size.</p>
+   */
+  pageSize?: number;
+
+  /**
+   * @public
+   * <p>Specifies the order for results. If true, the results are returned in ascending
+   *          creation order.</p>
+   */
+  ascendingOrder?: boolean;
+}
+
+/**
+ * @public
+ * <p>The output from the ListPolicyPrincipals operation.</p>
+ */
+export interface ListPolicyPrincipalsResponse {
+  /**
+   * @public
+   * <p>The descriptions of the principals.</p>
+   */
+  principals?: string[];
+
+  /**
+   * @public
+   * <p>The marker for the next set of results, or null if there are no additional
+   *          results.</p>
+   */
+  nextMarker?: string;
+}
+
+/**
+ * @public
+ * <p>The input for the ListPolicyVersions operation.</p>
+ */
+export interface ListPolicyVersionsRequest {
+  /**
+   * @public
+   * <p>The policy name.</p>
+   */
+  policyName: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Describes a policy version.</p>
+ */
+export interface PolicyVersion {
+  /**
+   * @public
+   * <p>The policy version ID.</p>
+   */
+  versionId?: string;
+
+  /**
+   * @public
+   * <p>Specifies whether the policy version is the default.</p>
+   */
+  isDefaultVersion?: boolean;
+
+  /**
+   * @public
+   * <p>The date and time the policy was created.</p>
+   */
+  createDate?: Date;
+}
 
 /**
  * @public
@@ -236,7 +579,7 @@ export interface ProvisioningTemplateSummary {
    *          For more information about provisioning template, see: <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-template.html">Provisioning template</a>.
    *       </p>
    */
-  type?: TemplateType | string;
+  type?: TemplateType;
 }
 
 /**
@@ -441,7 +784,7 @@ export interface ScheduledAuditMetadata {
    * @public
    * <p>How often the scheduled audit occurs.</p>
    */
-  frequency?: AuditFrequency | string;
+  frequency?: AuditFrequency;
 
   /**
    * @public
@@ -457,7 +800,7 @@ export interface ScheduledAuditMetadata {
    * <p>The day of the week on which the scheduled audit is run (if the
    *           <code>frequency</code> is "WEEKLY" or "BIWEEKLY").</p>
    */
-  dayOfWeek?: DayOfWeek | string;
+  dayOfWeek?: DayOfWeek;
 }
 
 /**
@@ -979,7 +1322,7 @@ export interface ListThingRegistrationTaskReportsRequest {
    * @public
    * <p>The type of task report.</p>
    */
-  reportType: ReportType | string | undefined;
+  reportType: ReportType | undefined;
 
   /**
    * @public
@@ -1010,7 +1353,7 @@ export interface ListThingRegistrationTaskReportsResponse {
    * @public
    * <p>The type of task report.</p>
    */
-  reportType?: ReportType | string;
+  reportType?: ReportType;
 
   /**
    * @public
@@ -1041,7 +1384,7 @@ export interface ListThingRegistrationTasksRequest {
    * @public
    * <p>The status of the bulk thing provisioning task.</p>
    */
-  status?: Status | string;
+  status?: Status;
 }
 
 /**
@@ -1439,7 +1782,7 @@ export interface TopicRuleDestinationSummary {
    *             </dd>
    *          </dl>
    */
-  status?: TopicRuleDestinationStatus | string;
+  status?: TopicRuleDestinationStatus;
 
   /**
    * @public
@@ -1584,7 +1927,7 @@ export interface ListV2LoggingLevelsRequest {
    * <p>The type of resource for which you are configuring logging. Must be
    *             <code>THING_Group</code>.</p>
    */
-  targetType?: LogTargetType | string;
+  targetType?: LogTargetType;
 
   /**
    * @public
@@ -1610,7 +1953,7 @@ export interface LogTarget {
    * @public
    * <p>The target type.</p>
    */
-  targetType: LogTargetType | string | undefined;
+  targetType: LogTargetType | undefined;
 
   /**
    * @public
@@ -1634,7 +1977,7 @@ export interface LogTargetConfiguration {
    * @public
    * <p>The logging level.</p>
    */
-  logLevel?: LogLevel | string;
+  logLevel?: LogLevel;
 }
 
 /**
@@ -1688,7 +2031,7 @@ export interface ListViolationEventsRequest {
    *       The criteria for a behavior.
    *     </p>
    */
-  behaviorCriteriaType?: BehaviorCriteriaType | string;
+  behaviorCriteriaType?: BehaviorCriteriaType;
 
   /**
    * @public
@@ -1702,7 +2045,7 @@ export interface ListViolationEventsRequest {
    * @public
    * <p>The verification state of the violation (detect alarm).</p>
    */
-  verificationState?: VerificationState | string;
+  verificationState?: VerificationState;
 
   /**
    * @public
@@ -1779,13 +2122,13 @@ export interface ViolationEvent {
    * @public
    * <p>The type of violation event.</p>
    */
-  violationEventType?: ViolationEventType | string;
+  violationEventType?: ViolationEventType;
 
   /**
    * @public
    * <p>The verification state of the violation (detect alarm).</p>
    */
-  verificationState?: VerificationState | string;
+  verificationState?: VerificationState;
 
   /**
    * @public
@@ -1833,7 +2176,7 @@ export interface PutVerificationStateOnViolationRequest {
    * @public
    * <p>The verification state of the violation.</p>
    */
-  verificationState: VerificationState | string | undefined;
+  verificationState: VerificationState | undefined;
 
   /**
    * @public
@@ -1913,7 +2256,7 @@ export interface RegisterCACertificateRequest {
    *             certificate mode</a>.
    *       </p>
    */
-  certificateMode?: CertificateMode | string;
+  certificateMode?: CertificateMode;
 }
 
 /**
@@ -2008,7 +2351,7 @@ export interface RegisterCertificateRequest {
    * <p>The status of the register certificate request. Valid values that you can use include
    *          <code>ACTIVE</code>, <code>INACTIVE</code>, and <code>REVOKED</code>.</p>
    */
-  status?: CertificateStatus | string;
+  status?: CertificateStatus;
 }
 
 /**
@@ -2043,7 +2386,7 @@ export interface RegisterCertificateWithoutCARequest {
    * @public
    * <p>The status of the register certificate request.</p>
    */
-  status?: CertificateStatus | string;
+  status?: CertificateStatus;
 }
 
 /**
@@ -2249,7 +2592,8 @@ export interface SearchIndexRequest {
 
   /**
    * @public
-   * <p>The maximum number of results to return at one time.</p>
+   * <p>The maximum number of results to return per page at one time. The response might
+   *       contain fewer results but will never contain more.</p>
    */
   maxResults?: number;
 
@@ -2464,7 +2808,7 @@ export interface LoggingOptionsPayload {
    * @public
    * <p>The log level.</p>
    */
-  logLevel?: LogLevel | string;
+  logLevel?: LogLevel;
 }
 
 /**
@@ -2493,7 +2837,7 @@ export interface SetV2LoggingLevelRequest {
    * @public
    * <p>The log level.</p>
    */
-  logLevel: LogLevel | string | undefined;
+  logLevel: LogLevel | undefined;
 }
 
 /**
@@ -2510,7 +2854,7 @@ export interface SetV2LoggingOptionsRequest {
    * @public
    * <p>The default logging level.</p>
    */
-  defaultLogLevel?: LogLevel | string;
+  defaultLogLevel?: LogLevel;
 
   /**
    * @public
@@ -3070,7 +3414,7 @@ export interface UpdateAccountAuditConfigurationRequest {
    * @public
    * <p>Information about the targets to which audit notifications are sent.</p>
    */
-  auditNotificationTargetConfigurations?: Record<string, AuditNotificationTarget>;
+  auditNotificationTargetConfigurations?: Partial<Record<AuditNotificationType, AuditNotificationTarget>>;
 
   /**
    * @public
@@ -3177,7 +3521,7 @@ export interface UpdateAuthorizerRequest {
    * @public
    * <p>The status of the update authorizer request.</p>
    */
-  status?: AuthorizerStatus | string;
+  status?: AuthorizerStatus;
 
   /**
    * @public
@@ -3260,14 +3604,14 @@ export interface UpdateCACertificateRequest {
    *             <b>Note:</b> The status value REGISTER_INACTIVE is deprecated and
    *          should not be used.</p>
    */
-  newStatus?: CACertificateStatus | string;
+  newStatus?: CACertificateStatus;
 
   /**
    * @public
    * <p>The new value for the auto registration status. Valid values are: "ENABLE" or
    *          "DISABLE".</p>
    */
-  newAutoRegistrationStatus?: AutoRegistrationStatus | string;
+  newAutoRegistrationStatus?: AutoRegistrationStatus;
 
   /**
    * @public
@@ -3305,7 +3649,48 @@ export interface UpdateCertificateRequest {
    *             <b>Note:</b> The status value REGISTER_INACTIVE is deprecated and
    *          should not be used.</p>
    */
-  newStatus: CertificateStatus | string | undefined;
+  newStatus: CertificateStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCertificateProviderRequest {
+  /**
+   * @public
+   * <p>The name of the certificate provider.</p>
+   */
+  certificateProviderName: string | undefined;
+
+  /**
+   * @public
+   * <p>The Lambda function ARN that's associated with the certificate provider.</p>
+   */
+  lambdaFunctionArn?: string;
+
+  /**
+   * @public
+   * <p>A list of the operations that the certificate provider will use to generate certificates.
+   *          Valid value: <code>CreateCertificateFromCsr</code>.</p>
+   */
+  accountDefaultForOperations?: CertificateProviderOperation[];
+}
+
+/**
+ * @public
+ */
+export interface UpdateCertificateProviderResponse {
+  /**
+   * @public
+   * <p>The name of the certificate provider.</p>
+   */
+  certificateProviderName?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the certificate provider.</p>
+   */
+  certificateProviderArn?: string;
 }
 
 /**
@@ -3360,7 +3745,7 @@ export interface UpdateCustomMetricResponse {
    *             <p>The type <code>number</code> only takes a single metric value as an input, but while submitting the metrics value in the DeviceMetrics report, it must be passed as an array with a single value.</p>
    *          </important>
    */
-  metricType?: CustomMetricType | string;
+  metricType?: CustomMetricType;
 
   /**
    * @public
@@ -3426,7 +3811,7 @@ export interface UpdateDimensionResponse {
    * @public
    * <p>The type of the dimension.</p>
    */
-  type?: DimensionType | string;
+  type?: DimensionType;
 
   /**
    * @public
@@ -3467,7 +3852,7 @@ export interface UpdateDomainConfigurationRequest {
    * @public
    * <p>The status to which the domain configuration should be updated.</p>
    */
-  domainConfigurationStatus?: DomainConfigurationStatus | string;
+  domainConfigurationStatus?: DomainConfigurationStatus;
 
   /**
    * @public
@@ -3566,7 +3951,7 @@ export interface UpdateEventConfigurationsRequest {
    * @public
    * <p>The new event configuration values.</p>
    */
-  eventConfigurations?: Record<string, Configuration>;
+  eventConfigurations?: Partial<Record<EventType, Configuration>>;
 }
 
 /**
@@ -3631,7 +4016,7 @@ export interface UpdateFleetMetricRequest {
    * <p>Used to support unit transformation such as milliseconds to seconds. The unit must be
    *       supported by <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html">CW metric</a>.</p>
    */
-  unit?: FleetMetricUnit | string;
+  unit?: FleetMetricUnit;
 
   /**
    * @public
@@ -3773,7 +4158,7 @@ export interface UpdateMitigationActionResponse {
 export interface UpdatePackageRequest {
   /**
    * @public
-   * <p>The name of the target package.</p>
+   * <p>The name of the target software package.</p>
    */
   packageName: string | undefined;
 
@@ -3876,7 +4261,7 @@ export interface UpdatePackageVersionRequest {
 
   /**
    * @public
-   * <p>Metadata that can be used to define a package version’s configuration. For example, the S3 file location, configuration options that are being sent to the device or fleet. </p>
+   * <p>Metadata that can be used to define a package version’s configuration. For example, the Amazon S3 file location, configuration options that are being sent to the device or fleet. </p>
    *          <p>
    *             <b>Note:</b> Attributes can be updated only when the package version
    *       is in a draft state.</p>
@@ -3888,7 +4273,7 @@ export interface UpdatePackageVersionRequest {
    * @public
    * <p>The status that the package version should be assigned. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/preparing-to-use-software-package-catalog.html#package-version-lifecycle">Package version lifecycle</a>.</p>
    */
-  action?: PackageVersionAction | string;
+  action?: PackageVersionAction;
 
   /**
    * @public
@@ -4012,7 +4397,7 @@ export interface UpdateScheduledAuditRequest {
    *       <code>WEEKLY</code>, <code>BIWEEKLY</code>, or <code>MONTHLY</code>. The start time of each audit is determined by the
    *       system.</p>
    */
-  frequency?: AuditFrequency | string;
+  frequency?: AuditFrequency;
 
   /**
    * @public
@@ -4033,7 +4418,7 @@ export interface UpdateScheduledAuditRequest {
    *       be one of <code>SUN</code>, <code>MON</code>, <code>TUE</code>, <code>WED</code>, <code>THU</code>, <code>FRI</code>, or <code>SAT</code>. This field is required if the
    *             "frequency" parameter is set to <code>WEEKLY</code> or <code>BIWEEKLY</code>.</p>
    */
-  dayOfWeek?: DayOfWeek | string;
+  dayOfWeek?: DayOfWeek;
 
   /**
    * @public
@@ -4088,7 +4473,7 @@ export interface UpdateSecurityProfileRequest {
    * @public
    * <p>Where the alerts are sent. (Alerts are always sent to the console.)</p>
    */
-  alertTargets?: Record<string, AlertTarget>;
+  alertTargets?: Partial<Record<AlertTargetType, AlertTarget>>;
 
   /**
    * @public
@@ -4142,6 +4527,18 @@ export interface UpdateSecurityProfileRequest {
    *         version, a <code>VersionConflictException</code> is thrown.</p>
    */
   expectedVersion?: number;
+
+  /**
+   * @public
+   * <p>Specifies the MQTT topic and role ARN required for metric export.</p>
+   */
+  metricsExportConfig?: MetricsExportConfig;
+
+  /**
+   * @public
+   * <p>Set the value as true to delete metrics export related configurations.</p>
+   */
+  deleteMetricsExportConfig?: boolean;
 }
 
 /**
@@ -4176,7 +4573,7 @@ export interface UpdateSecurityProfileResponse {
    * @public
    * <p>Where the alerts are sent. (Alerts are always sent to the console.)</p>
    */
-  alertTargets?: Record<string, AlertTarget>;
+  alertTargets?: Partial<Record<AlertTargetType, AlertTarget>>;
 
   /**
    * @public
@@ -4218,6 +4615,12 @@ export interface UpdateSecurityProfileResponse {
    * <p>The time the security profile was last modified.</p>
    */
   lastModifiedDate?: Date;
+
+  /**
+   * @public
+   * <p>Specifies the MQTT topic and role ARN required for metric export.</p>
+   */
+  metricsExportConfig?: MetricsExportConfig;
 }
 
 /**
@@ -4448,7 +4851,7 @@ export interface UpdateTopicRuleDestinationRequest {
    *             </dd>
    *          </dl>
    */
-  status: TopicRuleDestinationStatus | string | undefined;
+  status: TopicRuleDestinationStatus | undefined;
 }
 
 /**

@@ -43,7 +43,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Adds the resource mapping for the draft application version. You can also update an\n      existing resource mapping to a new physical resource.</p>",
+        "smithy.api#documentation": "<p>Adds the source of resource-maps to the draft version of an application. During assessment, Resilience Hub will use these resource-maps to resolve the latest physical ID for each resource in the application template. For more information about different types of resources suported by Resilience Hub and how to add them in your application, see <a href=\"https://docs.aws.amazon.com/resilience-hub/latest/userguide/how-app-manage.html\">Step 2: How is your application managed?</a> in the Resilience Hub User Guide.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/add-draft-app-version-resource-mappings",
@@ -57,7 +57,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -76,7 +76,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -180,6 +180,12 @@
           "traits": {
             "smithy.api#documentation": "<p>List of Application Component names for the CloudWatch alarm recommendation.</p>"
           }
+        },
+        "recommendationStatus": {
+          "target": "com.amazonaws.resiliencehub#RecommendationStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Status of the recommended Amazon CloudWatch alarm.</p>"
+          }
         }
       },
       "traits": {
@@ -237,7 +243,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -257,13 +263,13 @@
         "policyArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>"
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>"
           }
         },
         "creationTime": {
           "target": "com.amazonaws.resiliencehub#TimeStamp",
           "traits": {
-            "smithy.api#documentation": "<p>Timestamp\n      for when the app was created.</p>",
+            "smithy.api#documentation": "<p>Date\n      and time when the app was created.</p>",
             "smithy.api#required": {}
           }
         },
@@ -282,7 +288,7 @@
         "lastAppComplianceEvaluationTime": {
           "target": "com.amazonaws.resiliencehub#TimeStamp",
           "traits": {
-            "smithy.api#documentation": "<p>Timestamp\n      for the most recent compliance evaluation.</p>"
+            "smithy.api#documentation": "<p>Date\n      and time the most recent compliance evaluation.</p>"
           }
         },
         "resiliencyScore": {
@@ -295,7 +301,7 @@
         "lastResiliencyScoreEvaluationTime": {
           "target": "com.amazonaws.resiliencehub#TimeStamp",
           "traits": {
-            "smithy.api#documentation": "<p>Timestamp\n      for the most recent resiliency score evaluation.</p>"
+            "smithy.api#documentation": "<p>Date\n      and time the most recent resiliency score evaluation.</p>"
           }
         },
         "tags": {
@@ -333,6 +339,18 @@
           "traits": {
             "smithy.api#documentation": "<p>Indicates the last time\n      that\n      a drift was evaluated.</p>"
           }
+        },
+        "rtoInSecs": {
+          "target": "com.amazonaws.resiliencehub#IntegerOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>Recovery Time Objective (RTO) in seconds.</p>"
+          }
+        },
+        "rpoInSecs": {
+          "target": "com.amazonaws.resiliencehub#IntegerOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>Recovery Point Objective (RPO) in seconds.</p>"
+          }
         }
       },
       "traits": {
@@ -345,7 +363,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>"
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>"
           }
         },
         "appVersion": {
@@ -419,7 +437,7 @@
         "assessmentArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -479,7 +497,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>"
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>"
           }
         },
         "appVersion": {
@@ -528,7 +546,7 @@
         "assessmentArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -725,7 +743,7 @@
         "sourceArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the input source. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the input source. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>"
           }
         },
         "terraformSource": {
@@ -779,7 +797,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -799,7 +817,7 @@
         "creationTime": {
           "target": "com.amazonaws.resiliencehub#TimeStamp",
           "traits": {
-            "smithy.api#documentation": "<p>The timestamp for when the app was created.</p>",
+            "smithy.api#documentation": "<p>Date\n      and time when the app was created.</p>",
             "smithy.api#required": {}
           }
         },
@@ -832,6 +850,24 @@
           "target": "com.amazonaws.resiliencehub#AppDriftStatusType",
           "traits": {
             "smithy.api#documentation": "<p>Indicates if compliance drifts (deviations) were detected while running an assessment for\n      your application.</p>"
+          }
+        },
+        "lastAppComplianceEvaluationTime": {
+          "target": "com.amazonaws.resiliencehub#TimeStamp",
+          "traits": {
+            "smithy.api#documentation": "<p>Date\n      and time of the most recent compliance evaluation.</p>"
+          }
+        },
+        "rtoInSecs": {
+          "target": "com.amazonaws.resiliencehub#IntegerOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>Recovery Time Objective (RTO) in seconds.</p>"
+          }
+        },
+        "rpoInSecs": {
+          "target": "com.amazonaws.resiliencehub#IntegerOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>Recovery Point Objective (RPO) in seconds.</p>"
           }
         }
       },
@@ -1198,7 +1234,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -1216,9 +1251,187 @@
                   "type": "error"
                 },
                 {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
                   "conditions": [],
-                  "type": "tree",
+                  "endpoint": {
+                    "url": {
+                      "ref": "Endpoint"
+                    },
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ],
+              "type": "tree"
+            },
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ]
+                }
+              ],
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "aws.partition",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ],
+                      "assign": "PartitionResult"
+                    }
+                  ],
                   "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://resiliencehub-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://resiliencehub-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
                     {
                       "conditions": [
                         {
@@ -1231,278 +1444,65 @@
                           ]
                         }
                       ],
-                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                      "type": "error"
-                    },
-                    {
-                      "conditions": [],
-                      "endpoint": {
-                        "url": {
-                          "ref": "Endpoint"
-                        },
-                        "properties": {},
-                        "headers": {}
-                      },
-                      "type": "endpoint"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "conditions": [],
-              "type": "tree",
-              "rules": [
-                {
-                  "conditions": [
-                    {
-                      "fn": "isSet",
-                      "argv": [
-                        {
-                          "ref": "Region"
-                        }
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "aws.partition",
-                          "argv": [
-                            {
-                              "ref": "Region"
-                            }
-                          ],
-                          "assign": "PartitionResult"
-                        }
-                      ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
                             {
                               "fn": "booleanEquals",
                               "argv": [
+                                true,
                                 {
-                                  "ref": "UseFIPS"
-                                },
-                                true
-                              ]
-                            },
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseDualStack"
-                                },
-                                true
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
                               ]
                             }
                           ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsFIPS"
-                                      ]
-                                    }
-                                  ]
-                                },
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsDualStack"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://resiliencehub-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseFIPS"
-                                },
-                                true
-                              ]
-                            }
-                          ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsFIPS"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://resiliencehub-fips.{Region}.{PartitionResult#dnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "FIPS is enabled but this partition does not support FIPS",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseDualStack"
-                                },
-                                true
-                              ]
-                            }
-                          ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsDualStack"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://resiliencehub.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "DualStack is enabled but this partition does not support DualStack",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
                               "endpoint": {
-                                "url": "https://resiliencehub.{Region}.{PartitionResult#dnsSuffix}",
+                                "url": "https://resiliencehub.{Region}.{PartitionResult#dualStackDnsSuffix}",
                                 "properties": {},
                                 "headers": {}
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://resiliencehub.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
                     }
-                  ]
-                },
-                {
-                  "conditions": [],
-                  "error": "Invalid Configuration: Missing Region",
-                  "type": "error"
+                  ],
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
+            },
+            {
+              "conditions": [],
+              "error": "Invalid Configuration: Missing Region",
+              "type": "error"
             }
           ]
         },
@@ -2137,7 +2137,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2159,7 +2159,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2618,7 +2618,7 @@
         "policyArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>"
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>"
           }
         },
         "tags": {
@@ -2712,7 +2712,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2757,7 +2757,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2822,7 +2822,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2893,7 +2893,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2976,7 +2976,7 @@
         "assessmentArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3048,7 +3048,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a resiliency policy for an application.</p>",
+        "smithy.api#documentation": "<p>Creates a resiliency policy for an application.</p>\n         <note>\n            <p>Resilience Hub allows you to provide a value of zero for <code>rtoInSecs</code> and\n          <code>rpoInSecs</code> of your resiliency policy. But, while assessing your application, the lowest possible assessment result is near zero. Hence, if you provide value\n        zero for <code>rtoInSecs</code> and <code>rpoInSecs</code>, the estimated workload RTO and estimated workload RPO result will be near zero and the <b>Compliance\n          status</b> for your application will be set to <b>Policy\n          breached</b>.</p>\n         </note>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/create-resiliency-policy",
@@ -3230,7 +3230,7 @@
         "assessmentArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3249,7 +3249,7 @@
         "assessmentArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3305,14 +3305,14 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
         "sourceArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the imported resource you want to remove from the\n      Resilience Hub application. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the imported resource you want to remove from the\n      Resilience Hub application. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>"
           }
         },
         "terraformSource": {
@@ -3342,7 +3342,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>"
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>"
           }
         },
         "appInputSource": {
@@ -3359,7 +3359,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3384,7 +3384,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3433,7 +3433,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3459,7 +3459,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3521,7 +3521,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3570,7 +3570,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3704,7 +3704,7 @@
         "policyArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3723,7 +3723,7 @@
         "policyArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3803,7 +3803,7 @@
         "assessmentArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3827,7 +3827,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         }
@@ -3922,7 +3922,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3948,7 +3948,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3973,7 +3973,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4029,7 +4029,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4078,7 +4078,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4137,7 +4137,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4162,7 +4162,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4201,7 +4201,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4260,7 +4260,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4279,7 +4279,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4339,7 +4339,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         }
@@ -4351,7 +4351,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4372,7 +4372,7 @@
         "statusChangeTime": {
           "target": "com.amazonaws.resiliencehub#TimeStamp",
           "traits": {
-            "smithy.api#documentation": "<p>The timestamp for when the status last changed.</p>",
+            "smithy.api#documentation": "<p>The time when the status last changed.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4410,7 +4410,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Describes a specified resiliency policy for an Resilience Hub application. The returned\n      policy object includes creation time, data location constraints, the Amazon Resource Name\n      (ARN) for the policy, tags, tier, and more.</p>",
+        "smithy.api#documentation": "<p>Describes a specified resiliency policy for an Resilience Hub application. The\n      returned policy object includes creation time, data location constraints, the Amazon Resource\n      Name (ARN) for the policy, tags, tier, and more.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/describe-resiliency-policy",
@@ -4424,7 +4424,7 @@
         "policyArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         }
@@ -4634,7 +4634,7 @@
         "eksClusterArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Amazon Elastic Kubernetes Service cluster. The format for this ARN is: \narn:<code>aws</code>:eks:<code>region</code>:<code>account-id</code>:cluster/<code>cluster-name</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Amazon Elastic Kubernetes Service cluster. The format for this ARN is: \narn:<code>aws</code>:eks:<code>region</code>:<code>account-id</code>:cluster/<code>cluster-name</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4656,7 +4656,7 @@
         "eksClusterArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Amazon Elastic Kubernetes Service cluster. The format for this ARN is: \narn:<code>aws</code>:eks:<code>region</code>:<code>account-id</code>:cluster/<code>cluster-name</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Amazon Elastic Kubernetes Service cluster. The format for this ARN is: \narn:<code>aws</code>:eks:<code>region</code>:<code>account-id</code>:cluster/<code>cluster-name</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4763,7 +4763,7 @@
         "snsTopicArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>.\n      For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>"
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Amazon Simple Notification Service topic. The format for this ARN is: <code>arn:partition:sns:region:account:topic-name</code>. \n      For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>"
           }
         }
       },
@@ -4824,7 +4824,7 @@
           "target": "com.amazonaws.resiliencehub#Seconds",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "<p>The Recovery Time Objective (RTO), in seconds.</p>",
+            "smithy.api#documentation": "<p>Recovery Time Objective (RTO) in seconds.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4832,7 +4832,7 @@
           "target": "com.amazonaws.resiliencehub#Seconds",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "<p>The Recovery Point Objective (RPO), in seconds.</p>",
+            "smithy.api#documentation": "<p>Recovery Point Objective (RPO) in seconds.</p>",
             "smithy.api#required": {}
           }
         }
@@ -4938,7 +4938,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4974,7 +4974,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5017,6 +5017,9 @@
       "traits": {
         "smithy.api#default": 0
       }
+    },
+    "com.amazonaws.resiliencehub#IntegerOptional": {
+      "type": "integer"
     },
     "com.amazonaws.resiliencehub#InternalServerException": {
       "type": "structure",
@@ -5076,7 +5079,7 @@
         "assessmentArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5154,7 +5157,7 @@
         "assessmentArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5242,7 +5245,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#httpQuery": "appArn"
           }
         },
@@ -5372,7 +5375,7 @@
         "assessmentArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         }
@@ -5441,7 +5444,7 @@
         "assessmentArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5522,7 +5525,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5613,7 +5616,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5644,7 +5647,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5714,7 +5717,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5805,7 +5808,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5903,7 +5906,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -6015,8 +6018,29 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#httpQuery": "appArn"
+          }
+        },
+        "fromLastAssessmentTime": {
+          "target": "com.amazonaws.resiliencehub#TimeStamp",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the lower limit of the range that is used to filter applications based on their last assessment times.</p>",
+            "smithy.api#httpQuery": "fromLastAssessmentTime"
+          }
+        },
+        "toLastAssessmentTime": {
+          "target": "com.amazonaws.resiliencehub#TimeStamp",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the upper limit of the range that is used to filter the applications based on their last assessment times.</p>",
+            "smithy.api#httpQuery": "toLastAssessmentTime"
+          }
+        },
+        "reverseOrder": {
+          "target": "com.amazonaws.resiliencehub#BooleanOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>The application list is sorted based on the values of <code>lastAppComplianceEvaluationTime</code> field. By default, application list is sorted in ascending order. To sort the appliation list in descending order, set this field to <code>True</code>.</p>",
+            "smithy.api#httpQuery": "reverseOrder"
           }
         }
       }
@@ -6082,7 +6106,7 @@
         "assessmentArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#httpQuery": "assessmentArn",
             "smithy.api#required": {}
           }
@@ -6292,7 +6316,7 @@
         "assessmentArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         }
@@ -6512,7 +6536,7 @@
         "assessmentArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         }
@@ -6584,7 +6608,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -6679,6 +6703,12 @@
         "smithy.api#documentation": "<p>Defines a logical resource identifier.</p>"
       }
     },
+    "com.amazonaws.resiliencehub#Long": {
+      "type": "long",
+      "traits": {
+        "smithy.api#default": 0
+      }
+    },
     "com.amazonaws.resiliencehub#LongOptional": {
       "type": "long"
     },
@@ -6710,7 +6740,7 @@
         "invokerRoleName": {
           "target": "com.amazonaws.resiliencehub#IamRoleName",
           "traits": {
-            "smithy.api#documentation": "<p>Existing Amazon Web Services\n      IAM role name in the primary Amazon Web Services account that will be assumed by\n        Resilience Hub Service Principle to obtain a read-only access to your application\n      resources while running an assessment.</p>\n         <note>\n            <p>You must have <code>iam:passRole</code> permission for this role while creating or\n        updating the application.</p>\n         </note>"
+            "smithy.api#documentation": "<p>Existing Amazon Web Services\n      IAM role name in the primary Amazon Web Services account that will be assumed by\n        Resilience Hub Service Principle to obtain a read-only access to your application\n      resources while running an assessment.</p>\n         <note>\n            <ul>\n               <li>\n                  <p>You must have <code>iam:passRole</code> permission for this role while creating or updating the application.</p>\n               </li>\n               <li>\n                  <p>Currently, <code>invokerRoleName</code> accepts only <code>[A-Za-z0-9_+=,.@-]</code> characters.</p>\n               </li>\n            </ul>\n         </note>"
           }
         },
         "crossAccountRoleArns": {
@@ -6902,7 +6932,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -6920,7 +6950,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -6987,7 +7017,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -7006,7 +7036,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>"
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>"
           }
         },
         "appVersion": {
@@ -7148,6 +7178,29 @@
         "target": "com.amazonaws.resiliencehub#RecommendationItem"
       }
     },
+    "com.amazonaws.resiliencehub#RecommendationStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "Implemented",
+            "name": "IMPLEMENTED"
+          },
+          {
+            "value": "Inactive",
+            "name": "INACTIVE"
+          },
+          {
+            "value": "NotImplemented",
+            "name": "NOT_IMPLEMENTED"
+          },
+          {
+            "value": "Excluded",
+            "name": "EXCLUDED"
+          }
+        ]
+      }
+    },
     "com.amazonaws.resiliencehub#RecommendationTemplate": {
       "type": "structure",
       "members": {
@@ -7160,14 +7213,14 @@
         "assessmentArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the assessment. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app-assessment/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>"
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>"
           }
         },
         "recommendationIds": {
@@ -7330,7 +7383,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -7378,7 +7431,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>"
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>"
           }
         },
         "appVersion": {
@@ -7432,7 +7485,7 @@
         "policyArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>"
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>"
           }
         },
         "policyName": {
@@ -7474,7 +7527,7 @@
         "creationTime": {
           "target": "com.amazonaws.resiliencehub#TimeStamp",
           "traits": {
-            "smithy.api#documentation": "<p>The timestamp for when the resiliency policy was created.</p>"
+            "smithy.api#documentation": "<p>Date\n      and time when the resiliency policy was created.</p>"
           }
         },
         "tags": {
@@ -7485,7 +7538,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Defines a resiliency policy.</p>"
+        "smithy.api#documentation": "<p>Defines a resiliency policy.</p>\n         <note>\n            <p>Resilience Hub allows you to provide a value of zero for <code>rtoInSecs</code> and <code>rpoInSecs</code> of your resiliency policy. But, while assessing\n        your application, the lowest possible assessment result is near zero. Hence,\n        if you provide value zero for <code>rtoInSecs</code> and <code>rpoInSecs</code>, the estimated workload RTO and estimated\n        workload RPO result will be near zero and the <b>Compliance status</b> for your application will be set to <b>Policy breached</b>.</p>\n         </note>"
       }
     },
     "com.amazonaws.resiliencehub#ResiliencyPolicyTier": {
@@ -7536,10 +7589,39 @@
             "smithy.api#documentation": "<p>The disruption score for a valid key.</p>",
             "smithy.api#required": {}
           }
+        },
+        "componentScore": {
+          "target": "com.amazonaws.resiliencehub#ScoringComponentResiliencyScores",
+          "traits": {
+            "smithy.api#documentation": "<p>The score generated by Resilience Hub for the scoring component after running an assessment.</p>\n         <p>For example, if the <code>score</code> is 25 points, it indicates the overall score of\n      your application generated by Resilience Hub after running an assessment.</p>"
+          }
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>The overall resiliency score, returned as an object that includes the disruption score and\n      outage score.</p>"
+      }
+    },
+    "com.amazonaws.resiliencehub#ResiliencyScoreType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "Compliance",
+            "name": "COMPLIANCE"
+          },
+          {
+            "value": "Test",
+            "name": "TEST"
+          },
+          {
+            "value": "Alarm",
+            "name": "ALARM"
+          },
+          {
+            "value": "Sop",
+            "name": "SOP"
+          }
+        ]
       }
     },
     "com.amazonaws.resiliencehub#ResolveAppVersionResources": {
@@ -7585,7 +7667,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -7604,7 +7686,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -7923,6 +8005,51 @@
         "smithy.api#pattern": "^((https://([^/]+)\\.s3((-|\\.)[^/]+)?\\.amazonaws\\.com(.cn)?)|(s3://([^/]+)))/\\S{1,2000}$"
       }
     },
+    "com.amazonaws.resiliencehub#ScoringComponentResiliencyScore": {
+      "type": "structure",
+      "members": {
+        "score": {
+          "target": "com.amazonaws.resiliencehub#Double",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>Resiliency score of your application.</p>"
+          }
+        },
+        "possibleScore": {
+          "target": "com.amazonaws.resiliencehub#Double",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>Maximum\n      possible score that can be obtained for the scoring component. If the <code>Possible\n        score</code> is 20 points, it indicates the maximum possible score you can achieve for your\n      application when you run a new assessment after implementing all the Resilience Hub\n      recommendations.</p>"
+          }
+        },
+        "outstandingCount": {
+          "target": "com.amazonaws.resiliencehub#Long",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>Number\n      of issues that must be resolved to obtain the maximum possible score for the scoring\n      component. For SOPs, alarms, and FIS experiments, these are the number of\n      recommendations that must be implemented. For compliance, it is the number of Application\n      Components that has breached the resiliency policy.</p>\n         <p>For example, if the <code>Outstanding count</code> for Resilience Hub recommended Amazon CloudWatch\n      alarms is 5, it indicates that 5 Amazon CloudWatch alarms must be fixed to achieve the\n      maximum possible score.</p>"
+          }
+        },
+        "excludedCount": {
+          "target": "com.amazonaws.resiliencehub#Long",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>Number\n      of recommendations that were excluded from the assessment.</p>\n         <p>For example, if the <code>Excluded count</code> for Resilience Hub recommended Amazon CloudWatch alarms\n      is 7, it indicates that 7 Amazon CloudWatch alarms are excluded from the assessment.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Resiliency score of each scoring component. For more information about scoring component,\n      see <a href=\"https://docs.aws.amazon.com/resilience-hub/latest/userguide/calculate-score.html\">Calculating resiliency\n      score</a>.</p>"
+      }
+    },
+    "com.amazonaws.resiliencehub#ScoringComponentResiliencyScores": {
+      "type": "map",
+      "key": {
+        "target": "com.amazonaws.resiliencehub#ResiliencyScoreType"
+      },
+      "value": {
+        "target": "com.amazonaws.resiliencehub#ScoringComponentResiliencyScore"
+      }
+    },
     "com.amazonaws.resiliencehub#Seconds": {
       "type": "integer",
       "traits": {
@@ -7997,6 +8124,12 @@
           "target": "com.amazonaws.resiliencehub#String500",
           "traits": {
             "smithy.api#documentation": "<p>Prerequisite for the SOP recommendation.</p>"
+          }
+        },
+        "recommendationStatus": {
+          "target": "com.amazonaws.resiliencehub#RecommendationStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Status of the recommended standard operating procedure.</p>"
           }
         }
       },
@@ -8076,7 +8209,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -8387,6 +8520,12 @@
           "traits": {
             "smithy.api#documentation": "<p> A list of recommended alarms that are used in the test and must be exported before or\n      with the test. </p>"
           }
+        },
+        "recommendationStatus": {
+          "target": "com.amazonaws.resiliencehub#RecommendationStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Status of the recommended test.</p>"
+          }
         }
       },
       "traits": {
@@ -8606,7 +8745,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -8619,7 +8758,7 @@
         "policyArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>"
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>"
           }
         },
         "clearResiliencyPolicyArn": {
@@ -8740,7 +8879,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -8777,7 +8916,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -8802,7 +8941,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -8860,7 +8999,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -8926,7 +9065,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -8951,7 +9090,7 @@
         "appArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the Resilience Hub application. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:app/<code>app-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },
@@ -9079,7 +9218,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates a resiliency policy.</p>",
+        "smithy.api#documentation": "<p>Updates a resiliency policy.</p>\n         <note>\n            <p>Resilience Hub allows you to provide a value of zero for <code>rtoInSecs</code> and\n          <code>rpoInSecs</code> of your resiliency policy. But, while assessing your application,\n        the lowest possible assessment result is near zero. Hence, if you provide value\n        zero for <code>rtoInSecs</code> and <code>rpoInSecs</code>, the estimated workload RTO and\n        estimated workload RPO result will be near zero and the <b>Compliance\n          status</b> for your application will be set to <b>Policy\n          breached</b>.</p>\n         </note>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/update-resiliency-policy",
@@ -9093,7 +9232,7 @@
         "policyArn": {
           "target": "com.amazonaws.resiliencehub#Arn",
           "traits": {
-            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>AWS General Reference</i> guide.</p>",
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the resiliency policy. The format for this ARN is: \narn:<code>partition</code>:resiliencehub:<code>region</code>:<code>account</code>:resiliency-policy/<code>policy-id</code>. For more information about ARNs, \nsee <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">\n                    Amazon Resource Names (ARNs)</a> in the \n                    <i>Amazon Web Services General Reference</i> guide.</p>",
             "smithy.api#required": {}
           }
         },

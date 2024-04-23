@@ -116,7 +116,7 @@ export interface GetRoutingControlStateResponse {
    * @public
    * <p>The state of the routing control.</p>
    */
-  RoutingControlState: RoutingControlState | string | undefined;
+  RoutingControlState: RoutingControlState | undefined;
 
   /**
    * @public
@@ -258,7 +258,7 @@ export class ValidationException extends __BaseException {
    * @public
    * Reason the request failed validation
    */
-  reason?: ValidationExceptionReason | string;
+  reason?: ValidationExceptionReason;
 
   /**
    * @public
@@ -307,8 +307,8 @@ export interface ListRoutingControlsRequest {
 /**
  * @public
  * <p>A routing control, which is a simple on/off switch that you
- * 			can use to route traffic to cells. When a routing control state is On, traffic flows to a cell. When
- * 			the state is Off, traffic does not flow. </p>
+ * 			can use to route traffic to cells. When a routing control state is set to ON, traffic flows to a cell. When
+ * 			the state is set to OFF, traffic does not flow. </p>
  */
 export interface RoutingControl {
   /**
@@ -319,7 +319,8 @@ export interface RoutingControl {
 
   /**
    * @public
-   * <p>The name of the control panel where the routing control is located.</p>
+   * <p>The name of the control panel where the routing control is located. Only ASCII characters are supported for control
+   * 		panel names.</p>
    */
   ControlPanelName?: string;
 
@@ -337,10 +338,16 @@ export interface RoutingControl {
 
   /**
    * @public
-   * <p>The current state of the routing control. When a routing control state is On, traffic flows to a cell. When
-   * 			the state is Off, traffic does not flow. </p>
+   * <p>The current state of the routing control. When a routing control state is set to ON, traffic flows to a cell. When
+   * 			the state is set to OFF, traffic does not flow. </p>
    */
-  RoutingControlState?: RoutingControlState | string;
+  RoutingControlState?: RoutingControlState;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services account ID of the routing control owner.</p>
+   */
+  Owner?: string;
 }
 
 /**
@@ -420,16 +427,16 @@ export interface UpdateRoutingControlStateRequest {
 
   /**
    * @public
-   * <p>The state of the routing control. You can set the value to be On or Off.</p>
+   * <p>The state of the routing control. You can set the value to ON or OFF.</p>
    */
-  RoutingControlState: RoutingControlState | string | undefined;
+  RoutingControlState: RoutingControlState | undefined;
 
   /**
    * @public
    * <p>The Amazon Resource Names (ARNs) for the safety rules that you want to override when you're updating the state of
    * 			a routing control. You can override one safety rule or multiple safety rules by including one or more ARNs, separated
    * 			by commas.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.override-safety-rule.html">
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.override-safety-rule.html">
    * 			Override safety rules to reroute traffic</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.</p>
    */
   SafetyRulesToOverride?: string[];
@@ -455,7 +462,7 @@ export interface UpdateRoutingControlStateEntry {
    * @public
    * <p>The routing control state in a set of routing control state entries.</p>
    */
-  RoutingControlState: RoutingControlState | string | undefined;
+  RoutingControlState: RoutingControlState | undefined;
 }
 
 /**
@@ -473,7 +480,7 @@ export interface UpdateRoutingControlStatesRequest {
    * <p>The Amazon Resource Names (ARNs) for the safety rules that you want to override when you're updating routing
    * 			control states. You can override one safety rule or multiple safety rules by including one or more ARNs, separated
    * 			by commas.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.override-safety-rule.html">
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/r53recovery/latest/dg/routing-control.override-safety-rule.html">
    * 			Override safety rules to reroute traffic</a> in the Amazon Route 53 Application Recovery Controller Developer Guide.</p>
    */
   SafetyRulesToOverride?: string[];

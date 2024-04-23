@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribePipeRequest, DescribePipeResponse, DescribePipeResponseFilterSensitiveLog } from "../models/models_0";
 import { PipesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PipesClient";
 import { de_DescribePipeCommand, se_DescribePipeCommand } from "../protocols/Aws_restJson1";
@@ -355,6 +347,24 @@ export interface DescribePipeCommandOutput extends DescribePipeResponse, __Metad
  * //   },
  * //   CreationTime: new Date("TIMESTAMP"),
  * //   LastModifiedTime: new Date("TIMESTAMP"),
+ * //   LogConfiguration: { // PipeLogConfiguration
+ * //     S3LogDestination: { // S3LogDestination
+ * //       BucketName: "STRING_VALUE",
+ * //       Prefix: "STRING_VALUE",
+ * //       BucketOwner: "STRING_VALUE",
+ * //       OutputFormat: "STRING_VALUE",
+ * //     },
+ * //     FirehoseLogDestination: { // FirehoseLogDestination
+ * //       DeliveryStreamArn: "STRING_VALUE",
+ * //     },
+ * //     CloudwatchLogsLogDestination: { // CloudwatchLogsLogDestination
+ * //       LogGroupArn: "STRING_VALUE",
+ * //     },
+ * //     Level: "STRING_VALUE",
+ * //     IncludeExecutionData: [ // IncludeExecutionData
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
  * // };
  *
  * ```
@@ -381,77 +391,26 @@ export interface DescribePipeCommandOutput extends DescribePipeResponse, __Metad
  * <p>Base exception class for all service exceptions from Pipes service.</p>
  *
  */
-export class DescribePipeCommand extends $Command<
-  DescribePipeCommandInput,
-  DescribePipeCommandOutput,
-  PipesClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribePipeCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: PipesClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribePipeCommandInput, DescribePipeCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, DescribePipeCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "PipesClient";
-    const commandName = "DescribePipeCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: DescribePipeResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribePipeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribePipeCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribePipeCommandOutput> {
-    return de_DescribePipeCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribePipeCommand extends $Command
+  .classBuilder<
+    DescribePipeCommandInput,
+    DescribePipeCommandOutput,
+    PipesClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: PipesClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("Pipes", "DescribePipe", {})
+  .n("PipesClient", "DescribePipeCommand")
+  .f(void 0, DescribePipeResponseFilterSensitiveLog)
+  .ser(se_DescribePipeCommand)
+  .de(de_DescribePipeCommand)
+  .build() {}

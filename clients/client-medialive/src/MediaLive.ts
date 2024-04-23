@@ -207,6 +207,11 @@ import {
   StartChannelCommandOutput,
 } from "./commands/StartChannelCommand";
 import {
+  StartInputDeviceCommand,
+  StartInputDeviceCommandInput,
+  StartInputDeviceCommandOutput,
+} from "./commands/StartInputDeviceCommand";
+import {
   StartInputDeviceMaintenanceWindowCommand,
   StartInputDeviceMaintenanceWindowCommandInput,
   StartInputDeviceMaintenanceWindowCommandOutput,
@@ -217,6 +222,11 @@ import {
   StartMultiplexCommandOutput,
 } from "./commands/StartMultiplexCommand";
 import { StopChannelCommand, StopChannelCommandInput, StopChannelCommandOutput } from "./commands/StopChannelCommand";
+import {
+  StopInputDeviceCommand,
+  StopInputDeviceCommandInput,
+  StopInputDeviceCommandOutput,
+} from "./commands/StopInputDeviceCommand";
 import {
   StopMultiplexCommand,
   StopMultiplexCommandInput,
@@ -319,9 +329,11 @@ const commands = {
   RebootInputDeviceCommand,
   RejectInputDeviceTransferCommand,
   StartChannelCommand,
+  StartInputDeviceCommand,
   StartInputDeviceMaintenanceWindowCommand,
   StartMultiplexCommand,
   StopChannelCommand,
+  StopInputDeviceCommand,
   StopMultiplexCommand,
   TransferInputDeviceCommand,
   UpdateAccountConfigurationCommand,
@@ -1048,6 +1060,23 @@ export interface MediaLive {
   ): void;
 
   /**
+   * @see {@link StartInputDeviceCommand}
+   */
+  startInputDevice(
+    args: StartInputDeviceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartInputDeviceCommandOutput>;
+  startInputDevice(
+    args: StartInputDeviceCommandInput,
+    cb: (err: any, data?: StartInputDeviceCommandOutput) => void
+  ): void;
+  startInputDevice(
+    args: StartInputDeviceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartInputDeviceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartInputDeviceMaintenanceWindowCommand}
    */
   startInputDeviceMaintenanceWindow(
@@ -1087,6 +1116,20 @@ export interface MediaLive {
     args: StopChannelCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopChannelCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopInputDeviceCommand}
+   */
+  stopInputDevice(
+    args: StopInputDeviceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopInputDeviceCommandOutput>;
+  stopInputDevice(args: StopInputDeviceCommandInput, cb: (err: any, data?: StopInputDeviceCommandOutput) => void): void;
+  stopInputDevice(
+    args: StopInputDeviceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopInputDeviceCommandOutput) => void
   ): void;
 
   /**

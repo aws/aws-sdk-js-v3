@@ -9,4 +9,5 @@ export * from "./ListLabelGroupsPaginator";
 export * from "./ListLabelsPaginator";
 export * from "./ListModelVersionsPaginator";
 export * from "./ListModelsPaginator";
+export * from "./ListRetrainingSchedulersPaginator";
 export * from "./ListSensorStatisticsPaginator";

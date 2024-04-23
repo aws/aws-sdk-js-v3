@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { TagResourceRequest } from "../models/models_0";
 import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_json1_1";
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient";
@@ -38,32 +30,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @public
  * <p>Attaches tags to a secret. Tags consist of a key name and a value. Tags are part of the
  *       secret's metadata. They are not associated with specific versions of the secret. This operation appends tags to the existing list of tags.</p>
- *          <p>The following restrictions apply to tags:</p>
- *          <ul>
- *             <li>
- *                <p>Maximum number of tags per secret: 50</p>
- *             </li>
- *             <li>
- *                <p>Maximum key length: 127 Unicode characters in UTF-8</p>
- *             </li>
- *             <li>
- *                <p>Maximum value length: 255 Unicode characters in UTF-8</p>
- *             </li>
- *             <li>
- *                <p>Tag keys and values are case sensitive.</p>
- *             </li>
- *             <li>
- *                <p>Do not use the <code>aws:</code> prefix in your tag names or values because Amazon Web Services reserves it
- *             for Amazon Web Services use. You can't edit or delete tag names or values with this
- *               prefix. Tags with this prefix do not count against your tags per secret limit.</p>
- *             </li>
- *             <li>
- *                <p>If you use your tagging schema across multiple services and resources,
- *               other services might have restrictions on allowed characters. Generally
- *               allowed characters: letters, spaces, and numbers representable in UTF-8, plus the
- *               following special characters: + - = . _ : / @.</p>
- *             </li>
- *          </ul>
+ *          <p>For tag quotas and naming restrictions, see <a href="https://docs.aws.amazon.com/general/latest/gr/arg.html#taged-reference-quotas">Service quotas for Tagging</a> in the <i>Amazon Web Services General
+ *       Reference guide</i>.</p>
  *          <important>
  *             <p>If you use tags as part of your security strategy, then adding or removing a tag can
  *         change permissions. If successfully completing this operation would result in you losing
@@ -156,77 +124,26 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * ```
  *
  */
-export class TagResourceCommand extends $Command<
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-  SecretsManagerClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: TagResourceCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: SecretsManagerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<TagResourceCommandInput, TagResourceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, TagResourceCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "SecretsManagerClient";
-    const commandName = "TagResourceCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: TagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_TagResourceCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<TagResourceCommandOutput> {
-    return de_TagResourceCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class TagResourceCommand extends $Command
+  .classBuilder<
+    TagResourceCommandInput,
+    TagResourceCommandOutput,
+    SecretsManagerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: SecretsManagerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("secretsmanager", "TagResource", {})
+  .n("SecretsManagerClient", "TagResourceCommand")
+  .f(void 0, void 0)
+  .ser(se_TagResourceCommand)
+  .de(de_TagResourceCommand)
+  .build() {}

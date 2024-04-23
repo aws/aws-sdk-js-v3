@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   BatchDisassociateUserStackRequest,
   BatchDisassociateUserStackRequestFilterSensitiveLog,
@@ -93,82 +85,26 @@ export interface BatchDisassociateUserStackCommandOutput extends BatchDisassocia
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
  */
-export class BatchDisassociateUserStackCommand extends $Command<
-  BatchDisassociateUserStackCommandInput,
-  BatchDisassociateUserStackCommandOutput,
-  AppStreamClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: BatchDisassociateUserStackCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: AppStreamClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<BatchDisassociateUserStackCommandInput, BatchDisassociateUserStackCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, BatchDisassociateUserStackCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "AppStreamClient";
-    const commandName = "BatchDisassociateUserStackCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: BatchDisassociateUserStackRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: BatchDisassociateUserStackResultFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: BatchDisassociateUserStackCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_BatchDisassociateUserStackCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<BatchDisassociateUserStackCommandOutput> {
-    return de_BatchDisassociateUserStackCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class BatchDisassociateUserStackCommand extends $Command
+  .classBuilder<
+    BatchDisassociateUserStackCommandInput,
+    BatchDisassociateUserStackCommandOutput,
+    AppStreamClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("PhotonAdminProxyService", "BatchDisassociateUserStack", {})
+  .n("AppStreamClient", "BatchDisassociateUserStackCommand")
+  .f(BatchDisassociateUserStackRequestFilterSensitiveLog, BatchDisassociateUserStackResultFilterSensitiveLog)
+  .ser(se_BatchDisassociateUserStackCommand)
+  .de(de_BatchDisassociateUserStackCommand)
+  .build() {}

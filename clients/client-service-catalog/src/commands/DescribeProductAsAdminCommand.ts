@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeProductAsAdminInput, DescribeProductAsAdminOutput } from "../models/models_0";
 import { de_DescribeProductAsAdminCommand, se_DescribeProductAsAdminCommand } from "../protocols/Aws_json1_1";
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient";
@@ -59,7 +51,7 @@ export interface DescribeProductAsAdminCommandOutput extends DescribeProductAsAd
  * //       Name: "STRING_VALUE",
  * //       Owner: "STRING_VALUE",
  * //       ShortDescription: "STRING_VALUE",
- * //       Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE" || "TERRAFORM_OPEN_SOURCE" || "TERRAFORM_CLOUD",
+ * //       Type: "CLOUD_FORMATION_TEMPLATE" || "MARKETPLACE" || "TERRAFORM_OPEN_SOURCE" || "TERRAFORM_CLOUD" || "EXTERNAL",
  * //       Distributor: "STRING_VALUE",
  * //       HasDefaultPath: true || false,
  * //       SupportEmail: "STRING_VALUE",
@@ -139,79 +131,26 @@ export interface DescribeProductAsAdminCommandOutput extends DescribeProductAsAd
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
  */
-export class DescribeProductAsAdminCommand extends $Command<
-  DescribeProductAsAdminCommandInput,
-  DescribeProductAsAdminCommandOutput,
-  ServiceCatalogClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeProductAsAdminCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ServiceCatalogClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeProductAsAdminCommandInput, DescribeProductAsAdminCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeProductAsAdminCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ServiceCatalogClient";
-    const commandName = "DescribeProductAsAdminCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeProductAsAdminCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeProductAsAdminCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeProductAsAdminCommandOutput> {
-    return de_DescribeProductAsAdminCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeProductAsAdminCommand extends $Command
+  .classBuilder<
+    DescribeProductAsAdminCommandInput,
+    DescribeProductAsAdminCommandOutput,
+    ServiceCatalogClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWS242ServiceCatalogService", "DescribeProductAsAdmin", {})
+  .n("ServiceCatalogClient", "DescribeProductAsAdminCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeProductAsAdminCommand)
+  .de(de_DescribeProductAsAdminCommand)
+  .build() {}

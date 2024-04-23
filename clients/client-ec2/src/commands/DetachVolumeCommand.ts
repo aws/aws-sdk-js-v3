@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { VolumeAttachment } from "../models/models_0";
 import { DetachVolumeRequest } from "../models/models_5";
 import { de_DetachVolumeCommand, se_DetachVolumeCommand } from "../protocols/Aws_ec2";
@@ -46,6 +38,9 @@ export interface DetachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  *       first.</p>
  *          <p>When a volume with an Amazon Web Services Marketplace product code is detached from an instance, the
  *       product code is no longer associated with the instance.</p>
+ *          <p>You can't detach or force detach volumes that are attached to Amazon ECS or
+ *       Fargate tasks. Attempting to do this results in the <code>UnsupportedOperationException</code>
+ *       exception with the <code>Unable to detach volume attached to ECS tasks</code> error message.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-detaching-volume.html">Detach an Amazon EBS volume</a> in the
  *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
@@ -70,6 +65,8 @@ export interface DetachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  * //   State: "attaching" || "attached" || "detaching" || "detached" || "busy",
  * //   VolumeId: "STRING_VALUE",
  * //   DeleteOnTermination: true || false,
+ * //   AssociatedResource: "STRING_VALUE",
+ * //   InstanceOwningService: "STRING_VALUE",
  * // };
  *
  * ```
@@ -104,77 +101,26 @@ export interface DetachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  * ```
  *
  */
-export class DetachVolumeCommand extends $Command<
-  DetachVolumeCommandInput,
-  DetachVolumeCommandOutput,
-  EC2ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DetachVolumeCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: EC2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DetachVolumeCommandInput, DetachVolumeCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, DetachVolumeCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "EC2Client";
-    const commandName = "DetachVolumeCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DetachVolumeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DetachVolumeCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachVolumeCommandOutput> {
-    return de_DetachVolumeCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DetachVolumeCommand extends $Command
+  .classBuilder<
+    DetachVolumeCommandInput,
+    DetachVolumeCommandOutput,
+    EC2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonEC2", "DetachVolume", {})
+  .n("EC2Client", "DetachVolumeCommand")
+  .f(void 0, void 0)
+  .ser(se_DetachVolumeCommand)
+  .de(de_DetachVolumeCommand)
+  .build() {}

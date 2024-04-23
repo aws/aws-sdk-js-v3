@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient";
 import { PutRecordInput, PutRecordOutput } from "../models/models_0";
 import { de_PutRecordCommand, se_PutRecordCommand } from "../protocols/Aws_json1_1";
@@ -45,6 +37,7 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  *          operations for each delivery stream. For more information about limits and how to request
  *          an increase, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/limits.html">Amazon
  *             Kinesis Data Firehose Limits</a>. </p>
+ *          <p>Kinesis Data Firehose accumulates and publishes a particular metric for a customer account in one minute intervals. It is possible that the bursts of incoming bytes/records ingested to a delivery stream last only for a few seconds. Due to this, the actual spikes in the traffic might not be fully visible in the customer's 1 minute CloudWatch metrics.</p>
  *          <p>You must specify the name of the delivery stream and the data record when using <a>PutRecord</a>. The data record consists of a data blob that can be up to 1,000
  *          KiB in size, and any kind of data. For example, it can be a segment from a log file,
  *          geographic location data, website clickstream data, and so on.</p>
@@ -57,13 +50,16 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  *          unique string assigned to each record. Producer applications can use this ID for purposes
  *          such as auditability and investigation.</p>
  *          <p>If the <code>PutRecord</code> operation throws a
- *             <code>ServiceUnavailableException</code>, back off and retry. If the exception persists,
- *          it is possible that the throughput limits have been exceeded for the delivery stream. </p>
+ *             <code>ServiceUnavailableException</code>, the API is automatically reinvoked (retried) 3
+ *          times. If the exception persists, it is possible that the throughput limits have been
+ *          exceeded for the delivery stream. </p>
+ *          <p>Re-invoking the Put API operations (for example, PutRecord and PutRecordBatch) can
+ *          result in data duplicates. For larger data assets, allow for a longer time out before
+ *          retrying Put API operations.</p>
  *          <p>Data records sent to Kinesis Data Firehose are stored for 24 hours from the time they
  *          are added to a delivery stream as it tries to send the records to the destination. If the
  *          destination is unreachable for more than 24 hours, the data is no longer
  *          available.</p>
- *
  *          <important>
  *             <p>Don't concatenate two or more base64 strings to form the data fields of your records.
  *             Instead, concatenate the raw data, then perform base64 encoding.</p>
@@ -105,6 +101,9 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  *             <code>InvalidStateException</code>, <code>DisabledException</code>, or
  *             <code>NotFoundException</code>.</p>
  *
+ * @throws {@link InvalidSourceException} (client fault)
+ *  <p>Only requests from CloudWatch Logs are supported when CloudWatch Logs decompression is enabled.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found.</p>
  *
@@ -118,77 +117,26 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
  */
-export class PutRecordCommand extends $Command<
-  PutRecordCommandInput,
-  PutRecordCommandOutput,
-  FirehoseClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PutRecordCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: FirehoseClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PutRecordCommandInput, PutRecordCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, PutRecordCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "FirehoseClient";
-    const commandName = "PutRecordCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: PutRecordCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PutRecordCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRecordCommandOutput> {
-    return de_PutRecordCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class PutRecordCommand extends $Command
+  .classBuilder<
+    PutRecordCommandInput,
+    PutRecordCommandOutput,
+    FirehoseClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: FirehoseClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("Firehose_20150804", "PutRecord", {})
+  .n("FirehoseClient", "PutRecordCommand")
+  .f(void 0, void 0)
+  .ser(se_PutRecordCommand)
+  .de(de_PutRecordCommand)
+  .build() {}

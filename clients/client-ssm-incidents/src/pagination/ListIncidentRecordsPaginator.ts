@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import {
@@ -10,41 +11,14 @@ import { SSMIncidentsClient } from "../SSMIncidentsClient";
 import { SSMIncidentsPaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: SSMIncidentsClient,
-  input: ListIncidentRecordsCommandInput,
-  ...args: any
-): Promise<ListIncidentRecordsCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new ListIncidentRecordsCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateListIncidentRecords(
+export const paginateListIncidentRecords: (
   config: SSMIncidentsPaginationConfiguration,
   input: ListIncidentRecordsCommandInput,
-  ...additionalArguments: any
-): Paginator<ListIncidentRecordsCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.nextToken
-  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: ListIncidentRecordsCommandOutput;
-  while (hasNext) {
-    input.nextToken = token;
-    input["maxResults"] = config.pageSize;
-    if (config.client instanceof SSMIncidentsClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected SSMIncidents | SSMIncidentsClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.nextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<ListIncidentRecordsCommandOutput> = createPaginator<
+  SSMIncidentsPaginationConfiguration,
+  ListIncidentRecordsCommandInput,
+  ListIncidentRecordsCommandOutput
+>(SSMIncidentsClient, ListIncidentRecordsCommand, "nextToken", "nextToken", "maxResults");

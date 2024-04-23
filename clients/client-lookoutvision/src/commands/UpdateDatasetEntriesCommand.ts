@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { LookoutVisionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutVisionClient";
 import { UpdateDatasetEntriesRequest, UpdateDatasetEntriesResponse } from "../models/models_0";
 import { de_UpdateDatasetEntriesCommand, se_UpdateDatasetEntriesCommand } from "../protocols/Aws_restJson1";
@@ -41,16 +33,12 @@ export interface UpdateDatasetEntriesCommandOutput extends UpdateDatasetEntriesR
  *          <p>To update an existing JSON Line, use the <code>source-ref</code> field to identify the JSON Line. The JSON line
  *          that you supply replaces the existing JSON line. Any existing annotations that are not in the new JSON line are removed from the dataset.
  *       </p>
- *
- *
  *          <p>For more information, see
  *          <i>Defining JSON lines for anomaly classification</i> in the  Amazon Lookout for Vision Developer Guide. </p>
- *
  *          <note>
  *             <p>The images you reference in the <code>source-ref</code> field of a JSON line, must be
  *       in the same S3 bucket as the existing images in the dataset. </p>
  *          </note>
- *
  *          <p>Updating a dataset might take a while to complete. To check the current status, call <a>DescribeDataset</a> and
  *          check the <code>Status</code> field in the response.</p>
  *          <p>This operation requires permissions to perform the
@@ -104,79 +92,26 @@ export interface UpdateDatasetEntriesCommandOutput extends UpdateDatasetEntriesR
  * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
  */
-export class UpdateDatasetEntriesCommand extends $Command<
-  UpdateDatasetEntriesCommandInput,
-  UpdateDatasetEntriesCommandOutput,
-  LookoutVisionClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateDatasetEntriesCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: LookoutVisionClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateDatasetEntriesCommandInput, UpdateDatasetEntriesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateDatasetEntriesCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "LookoutVisionClient";
-    const commandName = "UpdateDatasetEntriesCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateDatasetEntriesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateDatasetEntriesCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDatasetEntriesCommandOutput> {
-    return de_UpdateDatasetEntriesCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateDatasetEntriesCommand extends $Command
+  .classBuilder<
+    UpdateDatasetEntriesCommandInput,
+    UpdateDatasetEntriesCommandOutput,
+    LookoutVisionClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: LookoutVisionClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("LookoutVisionService", "UpdateDatasetEntries", {})
+  .n("LookoutVisionClient", "UpdateDatasetEntriesCommand")
+  .f(void 0, void 0)
+  .ser(se_UpdateDatasetEntriesCommand)
+  .de(de_UpdateDatasetEntriesCommand)
+  .build() {}

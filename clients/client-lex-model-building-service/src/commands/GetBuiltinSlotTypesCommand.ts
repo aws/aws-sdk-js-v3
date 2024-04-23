@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   LexModelBuildingServiceClientResolvedConfig,
   ServiceInputTypes,
@@ -44,7 +36,6 @@ export interface GetBuiltinSlotTypesCommandOutput extends GetBuiltinSlotTypesRes
  *       criteria.</p>
  *          <p>For a list of built-in slot types, see <a href="https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/docs/built-in-intent-ref/slot-type-reference">Slot Type Reference</a> in the <i>Alexa Skills
  *         Kit</i>.</p>
- *
  *          <p>This operation requires permission for the
  *         <code>lex:GetBuiltInSlotTypes</code> action.</p>
  * @example
@@ -54,7 +45,7 @@ export interface GetBuiltinSlotTypesCommandOutput extends GetBuiltinSlotTypesRes
  * // const { LexModelBuildingServiceClient, GetBuiltinSlotTypesCommand } = require("@aws-sdk/client-lex-model-building-service"); // CommonJS import
  * const client = new LexModelBuildingServiceClient(config);
  * const input = { // GetBuiltinSlotTypesRequest
- *   locale: "STRING_VALUE",
+ *   locale: "de-DE" || "en-AU" || "en-GB" || "en-IN" || "en-US" || "es-419" || "es-ES" || "es-US" || "fr-FR" || "fr-CA" || "it-IT" || "ja-JP" || "ko-KR",
  *   signatureContains: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
@@ -66,7 +57,7 @@ export interface GetBuiltinSlotTypesCommandOutput extends GetBuiltinSlotTypesRes
  * //     { // BuiltinSlotTypeMetadata
  * //       signature: "STRING_VALUE",
  * //       supportedLocales: [ // LocaleList
- * //         "STRING_VALUE",
+ * //         "de-DE" || "en-AU" || "en-GB" || "en-IN" || "en-US" || "es-419" || "es-ES" || "es-US" || "fr-FR" || "fr-CA" || "it-IT" || "ja-JP" || "ko-KR",
  * //       ],
  * //     },
  * //   ],
@@ -96,79 +87,26 @@ export interface GetBuiltinSlotTypesCommandOutput extends GetBuiltinSlotTypesRes
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
  */
-export class GetBuiltinSlotTypesCommand extends $Command<
-  GetBuiltinSlotTypesCommandInput,
-  GetBuiltinSlotTypesCommandOutput,
-  LexModelBuildingServiceClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetBuiltinSlotTypesCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: LexModelBuildingServiceClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetBuiltinSlotTypesCommandInput, GetBuiltinSlotTypesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetBuiltinSlotTypesCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "LexModelBuildingServiceClient";
-    const commandName = "GetBuiltinSlotTypesCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetBuiltinSlotTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetBuiltinSlotTypesCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetBuiltinSlotTypesCommandOutput> {
-    return de_GetBuiltinSlotTypesCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetBuiltinSlotTypesCommand extends $Command
+  .classBuilder<
+    GetBuiltinSlotTypesCommandInput,
+    GetBuiltinSlotTypesCommandOutput,
+    LexModelBuildingServiceClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSDeepSenseModelBuildingService", "GetBuiltinSlotTypes", {})
+  .n("LexModelBuildingServiceClient", "GetBuiltinSlotTypesCommand")
+  .f(void 0, void 0)
+  .ser(se_GetBuiltinSlotTypesCommand)
+  .de(de_GetBuiltinSlotTypesCommand)
+  .build() {}

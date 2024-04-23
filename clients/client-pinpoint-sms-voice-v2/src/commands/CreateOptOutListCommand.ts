@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateOptOutListRequest, CreateOptOutListResult } from "../models/models_0";
 import {
   PinpointSMSVoiceV2ClientResolvedConfig,
@@ -41,8 +33,8 @@ export interface CreateOptOutListCommandOutput extends CreateOptOutListResult, _
 /**
  * @public
  * <p>Creates a new opt-out list.</p>
- *         <p>If the opt-out list name already exists, an Error is returned.</p>
- *         <p>An opt-out list is a list of phone numbers that are opted out, meaning you can't send
+ *          <p>If the opt-out list name already exists, an error is returned.</p>
+ *          <p>An opt-out list is a list of phone numbers that are opted out, meaning you can't send
  *             SMS or voice messages to them. If end user replies with the keyword "STOP," an entry for
  *             the phone number is added to the opt-out list. In addition to STOP, your recipients can
  *             use any supported opt-out keyword, such as CANCEL or OPTOUT. For a list of supported
@@ -115,79 +107,26 @@ export interface CreateOptOutListCommandOutput extends CreateOptOutListResult, _
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
  *
  */
-export class CreateOptOutListCommand extends $Command<
-  CreateOptOutListCommandInput,
-  CreateOptOutListCommandOutput,
-  PinpointSMSVoiceV2ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateOptOutListCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: PinpointSMSVoiceV2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateOptOutListCommandInput, CreateOptOutListCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateOptOutListCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "PinpointSMSVoiceV2Client";
-    const commandName = "CreateOptOutListCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateOptOutListCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateOptOutListCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOptOutListCommandOutput> {
-    return de_CreateOptOutListCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateOptOutListCommand extends $Command
+  .classBuilder<
+    CreateOptOutListCommandInput,
+    CreateOptOutListCommandOutput,
+    PinpointSMSVoiceV2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("PinpointSMSVoiceV2", "CreateOptOutList", {})
+  .n("PinpointSMSVoiceV2Client", "CreateOptOutListCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateOptOutListCommand)
+  .de(de_CreateOptOutListCommand)
+  .build() {}

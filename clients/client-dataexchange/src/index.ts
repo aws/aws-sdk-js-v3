@@ -23,8 +23,12 @@
 export * from "./DataExchangeClient";
 export * from "./DataExchange";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { DataExchangeExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { DataExchangeServiceException } from "./models/DataExchangeServiceException";

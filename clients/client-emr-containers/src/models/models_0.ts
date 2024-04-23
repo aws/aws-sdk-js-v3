@@ -220,7 +220,7 @@ export interface TemplateParameterConfiguration {
    * @public
    * <p>The type of the job template parameter. Allowed values are: ‘STRING’, ‘NUMBER’.</p>
    */
-  type?: TemplateParameterDataType | string;
+  type?: TemplateParameterDataType;
 
   /**
    * @public
@@ -351,7 +351,7 @@ export interface MonitoringConfiguration {
    * @public
    * <p>Monitoring configurations for the persistent application UI. </p>
    */
-  persistentAppUI?: PersistentAppUI | string;
+  persistentAppUI?: PersistentAppUI;
 
   /**
    * @public
@@ -474,7 +474,7 @@ export interface ContainerProvider {
    * <p>The type of the container provider. Amazon EKS is the only supported type as of
    *          now.</p>
    */
-  type: ContainerProviderType | string | undefined;
+  type: ContainerProviderType | undefined;
 
   /**
    * @public
@@ -817,7 +817,7 @@ export interface VirtualCluster {
    * @public
    * <p>The state of the virtual cluster.</p>
    */
-  state?: VirtualClusterState | string;
+  state?: VirtualClusterState;
 
   /**
    * @public
@@ -1011,7 +1011,7 @@ export interface ListJobRunsRequest {
    * @public
    * <p>The states of the job run.</p>
    */
-  states?: (JobRunState | string)[];
+  states?: JobRunState[];
 
   /**
    * @public
@@ -1087,7 +1087,7 @@ export interface ListManagedEndpointsRequest {
    * @public
    * <p>The states of the managed endpoints.</p>
    */
-  states?: (EndpointState | string)[];
+  states?: EndpointState[];
 
   /**
    * @public
@@ -1139,7 +1139,7 @@ export interface ListVirtualClustersRequest {
    * <p>The container provider type of the virtual cluster. Amazon EKS is the only
    *          supported type as of now.</p>
    */
-  containerProviderType?: ContainerProviderType | string;
+  containerProviderType?: ContainerProviderType;
 
   /**
    * @public
@@ -1157,7 +1157,7 @@ export interface ListVirtualClustersRequest {
    * @public
    * <p>The states of the requested virtual clusters.</p>
    */
-  states?: (VirtualClusterState | string)[];
+  states?: VirtualClusterState[];
 
   /**
    * @public
@@ -1428,7 +1428,7 @@ export interface Endpoint {
    * @public
    * <p>The state of the endpoint.</p>
    */
-  state?: EndpointState | string;
+  state?: EndpointState;
 
   /**
    * @public
@@ -1499,7 +1499,7 @@ export interface Endpoint {
    * @public
    * <p> The reasons why the endpoint has failed. </p>
    */
-  failureReason?: FailureReason | string;
+  failureReason?: FailureReason;
 
   /**
    * @public
@@ -1542,7 +1542,7 @@ export interface JobRun {
    * @public
    * <p>The state of the job run. </p>
    */
-  state?: JobRunState | string;
+  state?: JobRunState;
 
   /**
    * @public
@@ -1602,7 +1602,7 @@ export interface JobRun {
    * @public
    * <p>The reasons why the job run has failed.</p>
    */
-  failureReason?: FailureReason | string;
+  failureReason?: FailureReason;
 
   /**
    * @public

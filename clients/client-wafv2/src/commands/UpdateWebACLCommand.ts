@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateWebACLRequest, UpdateWebACLResponse } from "../models/models_0";
 import { de_UpdateWebACLCommand, se_UpdateWebACLCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client";
@@ -54,8 +46,26 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  *                </li>
  *             </ol>
  *          </note>
- *          <p>When you make changes to web ACLs or web ACL components, like rules and rule groups, WAF propagates the changes everywhere that the web ACL and its components are stored and used. Your changes are applied within seconds, but there might be a brief period of inconsistency when the changes have arrived in some places and not in others. So, for example, if you change a rule action setting, the action might be the old action in one area and the new action in another area. Or if you add an IP address to an IP set used in a blocking rule, the new address might briefly be blocked in one area while still allowed in another. This temporary inconsistency can occur when you first associate a web ACL with an Amazon Web Services resource and when you change a web ACL that is already associated with a resource. Generally, any inconsistencies of this type last only a few seconds.</p>
- *          <p> A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has an action defined (allow, block, or count) for requests that match the statement of the rule. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resources can be an Amazon CloudFront distribution, an Amazon API Gateway REST API, an Application Load Balancer, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+ *          <p> A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has a statement that defines what to look for in web requests and an action that WAF applies to requests that match the statement. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resources can be an Amazon CloudFront distribution, an Amazon API Gateway REST API, an Application Load Balancer, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance.  </p>
+ *          <p>
+ *             <b>Temporary inconsistencies during updates</b>
+ *          </p>
+ *          <p>When you create or change a web ACL or other WAF resources, the changes take a small amount of time to propagate to all areas where the resources are stored. The propagation time can be from a few seconds to a number of minutes. </p>
+ *          <p>The following are examples of the temporary inconsistencies that you might notice during change propagation: </p>
+ *          <ul>
+ *             <li>
+ *                <p>After you create a web ACL, if you try to associate it with a resource, you might get an exception indicating that the web ACL is unavailable. </p>
+ *             </li>
+ *             <li>
+ *                <p>After you add a rule group to a web ACL, the new rule group rules might be in effect in one area where the web ACL is used and not in another.</p>
+ *             </li>
+ *             <li>
+ *                <p>After you change a rule action setting, you might see the old action in some places and the new action in others. </p>
+ *             </li>
+ *             <li>
+ *                <p>After you add an IP address to an IP set that is in use in a blocking rule, the new address might be blocked in one area while still allowed in another.</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -152,6 +162,9 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  *             HeaderOrder: { // HeaderOrder
  *               OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
  *             },
+ *             JA3Fingerprint: { // JA3Fingerprint
+ *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ *             },
  *           },
  *           TextTransformations: [ // TextTransformations // required
  *             { // TextTransformation
@@ -216,6 +229,9 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  *             HeaderOrder: {
  *               OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
  *             },
+ *             JA3Fingerprint: {
+ *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ *             },
  *           },
  *           TextTransformations: [ // required
  *             {
@@ -276,6 +292,9 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  *             HeaderOrder: {
  *               OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
  *             },
+ *             JA3Fingerprint: {
+ *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ *             },
  *           },
  *           TextTransformations: [ // required
  *             {
@@ -330,6 +349,9 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  *             },
  *             HeaderOrder: {
  *               OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
+ *             },
+ *             JA3Fingerprint: {
+ *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
  *             },
  *           },
  *           ComparisonOperator: "EQ" || "NE" || "LE" || "LT" || "GE" || "GT", // required
@@ -462,6 +484,9 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  *             },
  *             HeaderOrder: {
  *               OversizeHandling: "CONTINUE" || "MATCH" || "NO_MATCH", // required
+ *             },
+ *             JA3Fingerprint: {
+ *               FallbackBehavior: "MATCH" || "NO_MATCH", // required
  *             },
  *           },
  *           TextTransformations: [ // required
@@ -616,6 +641,7 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  *                   },
  *                   AWSManagedRulesBotControlRuleSet: { // AWSManagedRulesBotControlRuleSet
  *                     InspectionLevel: "COMMON" || "TARGETED", // required
+ *                     EnableMachineLearning: true || false,
  *                   },
  *                   AWSManagedRulesATPRuleSet: { // AWSManagedRulesATPRuleSet
  *                     LoginPath: "STRING_VALUE", // required
@@ -824,6 +850,7 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  *               PasswordField: "<PasswordField>",
  *               AWSManagedRulesBotControlRuleSet: {
  *                 InspectionLevel: "COMMON" || "TARGETED", // required
+ *                 EnableMachineLearning: true || false,
  *               },
  *               AWSManagedRulesATPRuleSet: {
  *                 LoginPath: "STRING_VALUE", // required
@@ -1120,77 +1147,26 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
  */
-export class UpdateWebACLCommand extends $Command<
-  UpdateWebACLCommandInput,
-  UpdateWebACLCommandOutput,
-  WAFV2ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateWebACLCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: WAFV2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateWebACLCommandInput, UpdateWebACLCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateWebACLCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "WAFV2Client";
-    const commandName = "UpdateWebACLCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateWebACLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateWebACLCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateWebACLCommandOutput> {
-    return de_UpdateWebACLCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateWebACLCommand extends $Command
+  .classBuilder<
+    UpdateWebACLCommandInput,
+    UpdateWebACLCommandOutput,
+    WAFV2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSWAF_20190729", "UpdateWebACL", {})
+  .n("WAFV2Client", "UpdateWebACLCommand")
+  .f(void 0, void 0)
+  .ser(se_UpdateWebACLCommand)
+  .de(de_UpdateWebACLCommand)
+  .build() {}

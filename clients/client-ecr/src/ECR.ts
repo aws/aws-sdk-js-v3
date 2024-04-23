@@ -191,10 +191,20 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdatePullThroughCacheRuleCommand,
+  UpdatePullThroughCacheRuleCommandInput,
+  UpdatePullThroughCacheRuleCommandOutput,
+} from "./commands/UpdatePullThroughCacheRuleCommand";
+import {
   UploadLayerPartCommand,
   UploadLayerPartCommandInput,
   UploadLayerPartCommandOutput,
 } from "./commands/UploadLayerPartCommand";
+import {
+  ValidatePullThroughCacheRuleCommand,
+  ValidatePullThroughCacheRuleCommandInput,
+  ValidatePullThroughCacheRuleCommandOutput,
+} from "./commands/ValidatePullThroughCacheRuleCommand";
 import { ECRClient, ECRClientConfig } from "./ECRClient";
 
 const commands = {
@@ -238,7 +248,9 @@ const commands = {
   StartLifecyclePolicyPreviewCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdatePullThroughCacheRuleCommand,
   UploadLayerPartCommand,
+  ValidatePullThroughCacheRuleCommand,
 };
 
 export interface ECR {
@@ -887,6 +899,23 @@ export interface ECR {
   ): void;
 
   /**
+   * @see {@link UpdatePullThroughCacheRuleCommand}
+   */
+  updatePullThroughCacheRule(
+    args: UpdatePullThroughCacheRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePullThroughCacheRuleCommandOutput>;
+  updatePullThroughCacheRule(
+    args: UpdatePullThroughCacheRuleCommandInput,
+    cb: (err: any, data?: UpdatePullThroughCacheRuleCommandOutput) => void
+  ): void;
+  updatePullThroughCacheRule(
+    args: UpdatePullThroughCacheRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePullThroughCacheRuleCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UploadLayerPartCommand}
    */
   uploadLayerPart(
@@ -899,18 +928,35 @@ export interface ECR {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UploadLayerPartCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ValidatePullThroughCacheRuleCommand}
+   */
+  validatePullThroughCacheRule(
+    args: ValidatePullThroughCacheRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ValidatePullThroughCacheRuleCommandOutput>;
+  validatePullThroughCacheRule(
+    args: ValidatePullThroughCacheRuleCommandInput,
+    cb: (err: any, data?: ValidatePullThroughCacheRuleCommandOutput) => void
+  ): void;
+  validatePullThroughCacheRule(
+    args: ValidatePullThroughCacheRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ValidatePullThroughCacheRuleCommandOutput) => void
+  ): void;
 }
 
 /**
  * @public
  * <fullname>Amazon Elastic Container Registry</fullname>
- *         <p>Amazon Elastic Container Registry (Amazon ECR) is a managed container image registry service. Customers can use the
+ *          <p>Amazon Elastic Container Registry (Amazon ECR) is a managed container image registry service. Customers can use the
  *             familiar Docker CLI, or their preferred client, to push, pull, and manage images. Amazon ECR
  *             provides a secure, scalable, and reliable registry for your Docker or Open Container
  *             Initiative (OCI) images. Amazon ECR supports private repositories with resource-based
  *             permissions using IAM so that specific users or Amazon EC2 instances can access
  *             repositories and images.</p>
- *         <p>Amazon ECR has service endpoints in each supported Region. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/ecr.html">Amazon ECR endpoints</a> in the
+ *          <p>Amazon ECR has service endpoints in each supported Region. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/ecr.html">Amazon ECR endpoints</a> in the
  *                 <i>Amazon Web Services General Reference</i>.</p>
  */
 export class ECR extends ECRClient implements ECR {}

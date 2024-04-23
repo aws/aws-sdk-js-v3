@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   KinesisVideoArchivedMediaClientResolvedConfig,
   ServiceInputTypes,
@@ -278,7 +270,8 @@ export interface GetHLSStreamingSessionURLCommandOutput extends GetHLSStreamingS
  *  <p>No codec private data was found in at least one of tracks of the video stream.</p>
  *
  * @throws {@link NoDataRetentionException} (client fault)
- *  <p>A streaming session was requested for a stream that does not retain data (that is, has
+ *  <p>
+ *             <code>GetImages</code> was requested for a stream that does not retain data (that is, has
  *             a <code>DataRetentionInHours</code> of 0). </p>
  *
  * @throws {@link NotAuthorizedException} (client fault)
@@ -307,82 +300,26 @@ export interface GetHLSStreamingSessionURLCommandOutput extends GetHLSStreamingS
  * <p>Base exception class for all service exceptions from KinesisVideoArchivedMedia service.</p>
  *
  */
-export class GetHLSStreamingSessionURLCommand extends $Command<
-  GetHLSStreamingSessionURLCommandInput,
-  GetHLSStreamingSessionURLCommandOutput,
-  KinesisVideoArchivedMediaClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetHLSStreamingSessionURLCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: KinesisVideoArchivedMediaClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetHLSStreamingSessionURLCommandInput, GetHLSStreamingSessionURLCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetHLSStreamingSessionURLCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "KinesisVideoArchivedMediaClient";
-    const commandName = "GetHLSStreamingSessionURLCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetHLSStreamingSessionURLCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetHLSStreamingSessionURLCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetHLSStreamingSessionURLCommandOutput> {
-    return de_GetHLSStreamingSessionURLCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetHLSStreamingSessionURLCommand extends $Command
+  .classBuilder<
+    GetHLSStreamingSessionURLCommandInput,
+    GetHLSStreamingSessionURLCommandOutput,
+    KinesisVideoArchivedMediaClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: KinesisVideoArchivedMediaClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSAcuityReader", "GetHLSStreamingSessionURL", {})
+  .n("KinesisVideoArchivedMediaClient", "GetHLSStreamingSessionURLCommand")
+  .f(void 0, void 0)
+  .ser(se_GetHLSStreamingSessionURLCommand)
+  .de(de_GetHLSStreamingSessionURLCommand)
+  .build() {}

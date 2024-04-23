@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -214,6 +212,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 
@@ -276,17 +276,15 @@ export interface RbinClientResolvedConfig extends RbinClientResolvedConfigType {
  * @public
  * <p>This is the <i>Recycle Bin API Reference</i>. This documentation provides
  *       descriptions and syntax for each of the actions and data types in Recycle Bin.</p>
- *
  *          <p>Recycle Bin is a resource recovery feature that enables you to restore accidentally
  *       deleted snapshots and EBS-backed AMIs. When using Recycle Bin, if your resources are
  *       deleted, they are retained in the Recycle Bin for a time period that you specify.</p>
- *
  *          <p>You can restore a resource from the Recycle Bin at any time before its retention period
  *       expires. After you restore a resource from the Recycle Bin, the resource is removed from the
  *       Recycle Bin, and you can then use it in the same way you use any other resource of that type
  *       in your account. If the retention period expires and the resource is not restored, the resource
  *       is permanently deleted from the Recycle Bin and is no longer available for recovery. For more
- *       information about Recycle Bin, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-recycle-bin.html">
+ *       information about Recycle Bin, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">
  *         Recycle Bin</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 export class RbinClient extends __Client<

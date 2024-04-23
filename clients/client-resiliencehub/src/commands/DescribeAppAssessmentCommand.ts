@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeAppAssessmentRequest,
   DescribeAppAssessmentResponse,
@@ -66,6 +58,14 @@ export interface DescribeAppAssessmentCommandOutput extends DescribeAppAssessmen
  * //       score: Number("double"), // required
  * //       disruptionScore: { // DisruptionResiliencyScore // required
  * //         "<keys>": Number("double"),
+ * //       },
+ * //       componentScore: { // ScoringComponentResiliencyScores
+ * //         "<keys>": { // ScoringComponentResiliencyScore
+ * //           score: Number("double"),
+ * //           possibleScore: Number("double"),
+ * //           outstandingCount: Number("long"),
+ * //           excludedCount: Number("long"),
+ * //         },
  * //       },
  * //     },
  * //     compliance: { // AssessmentCompliance
@@ -155,79 +155,26 @@ export interface DescribeAppAssessmentCommandOutput extends DescribeAppAssessmen
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
  */
-export class DescribeAppAssessmentCommand extends $Command<
-  DescribeAppAssessmentCommandInput,
-  DescribeAppAssessmentCommandOutput,
-  ResiliencehubClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeAppAssessmentCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ResiliencehubClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeAppAssessmentCommandInput, DescribeAppAssessmentCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeAppAssessmentCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ResiliencehubClient";
-    const commandName = "DescribeAppAssessmentCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: DescribeAppAssessmentResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeAppAssessmentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeAppAssessmentCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeAppAssessmentCommandOutput> {
-    return de_DescribeAppAssessmentCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeAppAssessmentCommand extends $Command
+  .classBuilder<
+    DescribeAppAssessmentCommandInput,
+    DescribeAppAssessmentCommandOutput,
+    ResiliencehubClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AwsResilienceHub", "DescribeAppAssessment", {})
+  .n("ResiliencehubClient", "DescribeAppAssessmentCommand")
+  .f(void 0, DescribeAppAssessmentResponseFilterSensitiveLog)
+  .ser(se_DescribeAppAssessmentCommand)
+  .de(de_DescribeAppAssessmentCommand)
+  .build() {}

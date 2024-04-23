@@ -1,20 +1,16 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EMRServerlessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRServerlessClient";
-import { GetApplicationRequest, GetApplicationResponse } from "../models/models_0";
+import { commonParams } from "../endpoint/EndpointParameters";
+import {
+  GetApplicationRequest,
+  GetApplicationResponse,
+  GetApplicationResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_GetApplicationCommand, se_GetApplicationCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -105,6 +101,44 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * //         },
  * //       },
  * //     },
+ * //     runtimeConfiguration: [ // ConfigurationList
+ * //       { // Configuration
+ * //         classification: "STRING_VALUE", // required
+ * //         properties: { // SensitivePropertiesMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         configurations: [
+ * //           {
+ * //             classification: "STRING_VALUE", // required
+ * //             properties: {
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //             configurations: "<ConfigurationList>",
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //     monitoringConfiguration: { // MonitoringConfiguration
+ * //       s3MonitoringConfiguration: { // S3MonitoringConfiguration
+ * //         logUri: "STRING_VALUE",
+ * //         encryptionKeyArn: "STRING_VALUE",
+ * //       },
+ * //       managedPersistenceMonitoringConfiguration: { // ManagedPersistenceMonitoringConfiguration
+ * //         enabled: true || false,
+ * //         encryptionKeyArn: "STRING_VALUE",
+ * //       },
+ * //       cloudWatchLoggingConfiguration: { // CloudWatchLoggingConfiguration
+ * //         enabled: true || false, // required
+ * //         logGroupName: "STRING_VALUE",
+ * //         logStreamNamePrefix: "STRING_VALUE",
+ * //         encryptionKeyArn: "STRING_VALUE",
+ * //         logTypes: { // LogTypeMap
+ * //           "<keys>": [ // LogTypeList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
  * //   },
  * // };
  *
@@ -130,79 +164,26 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * <p>Base exception class for all service exceptions from EMRServerless service.</p>
  *
  */
-export class GetApplicationCommand extends $Command<
-  GetApplicationCommandInput,
-  GetApplicationCommandOutput,
-  EMRServerlessClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetApplicationCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: EMRServerlessClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetApplicationCommandInput, GetApplicationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetApplicationCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "EMRServerlessClient";
-    const commandName = "GetApplicationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetApplicationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetApplicationCommandOutput> {
-    return de_GetApplicationCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetApplicationCommand extends $Command
+  .classBuilder<
+    GetApplicationCommandInput,
+    GetApplicationCommandOutput,
+    EMRServerlessClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: EMRServerlessClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AwsToledoWebService", "GetApplication", {})
+  .n("EMRServerlessClient", "GetApplicationCommand")
+  .f(void 0, GetApplicationResponseFilterSensitiveLog)
+  .ser(se_GetApplicationCommand)
+  .de(de_GetApplicationCommand)
+  .build() {}

@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -51,6 +49,10 @@ import {
 } from "@smithy/types";
 
 import {
+  CreateIdMappingWorkflowCommandInput,
+  CreateIdMappingWorkflowCommandOutput,
+} from "./commands/CreateIdMappingWorkflowCommand";
+import {
   CreateMatchingWorkflowCommandInput,
   CreateMatchingWorkflowCommandOutput,
 } from "./commands/CreateMatchingWorkflowCommand";
@@ -59,6 +61,10 @@ import {
   CreateSchemaMappingCommandOutput,
 } from "./commands/CreateSchemaMappingCommand";
 import {
+  DeleteIdMappingWorkflowCommandInput,
+  DeleteIdMappingWorkflowCommandOutput,
+} from "./commands/DeleteIdMappingWorkflowCommand";
+import {
   DeleteMatchingWorkflowCommandInput,
   DeleteMatchingWorkflowCommandOutput,
 } from "./commands/DeleteMatchingWorkflowCommand";
@@ -66,30 +72,54 @@ import {
   DeleteSchemaMappingCommandInput,
   DeleteSchemaMappingCommandOutput,
 } from "./commands/DeleteSchemaMappingCommand";
+import { GetIdMappingJobCommandInput, GetIdMappingJobCommandOutput } from "./commands/GetIdMappingJobCommand";
+import {
+  GetIdMappingWorkflowCommandInput,
+  GetIdMappingWorkflowCommandOutput,
+} from "./commands/GetIdMappingWorkflowCommand";
 import { GetMatchIdCommandInput, GetMatchIdCommandOutput } from "./commands/GetMatchIdCommand";
 import { GetMatchingJobCommandInput, GetMatchingJobCommandOutput } from "./commands/GetMatchingJobCommand";
 import {
   GetMatchingWorkflowCommandInput,
   GetMatchingWorkflowCommandOutput,
 } from "./commands/GetMatchingWorkflowCommand";
+import { GetProviderServiceCommandInput, GetProviderServiceCommandOutput } from "./commands/GetProviderServiceCommand";
 import { GetSchemaMappingCommandInput, GetSchemaMappingCommandOutput } from "./commands/GetSchemaMappingCommand";
+import { ListIdMappingJobsCommandInput, ListIdMappingJobsCommandOutput } from "./commands/ListIdMappingJobsCommand";
+import {
+  ListIdMappingWorkflowsCommandInput,
+  ListIdMappingWorkflowsCommandOutput,
+} from "./commands/ListIdMappingWorkflowsCommand";
 import { ListMatchingJobsCommandInput, ListMatchingJobsCommandOutput } from "./commands/ListMatchingJobsCommand";
 import {
   ListMatchingWorkflowsCommandInput,
   ListMatchingWorkflowsCommandOutput,
 } from "./commands/ListMatchingWorkflowsCommand";
+import {
+  ListProviderServicesCommandInput,
+  ListProviderServicesCommandOutput,
+} from "./commands/ListProviderServicesCommand";
 import { ListSchemaMappingsCommandInput, ListSchemaMappingsCommandOutput } from "./commands/ListSchemaMappingsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { StartIdMappingJobCommandInput, StartIdMappingJobCommandOutput } from "./commands/StartIdMappingJobCommand";
 import { StartMatchingJobCommandInput, StartMatchingJobCommandOutput } from "./commands/StartMatchingJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
+  UpdateIdMappingWorkflowCommandInput,
+  UpdateIdMappingWorkflowCommandOutput,
+} from "./commands/UpdateIdMappingWorkflowCommand";
+import {
   UpdateMatchingWorkflowCommandInput,
   UpdateMatchingWorkflowCommandOutput,
 } from "./commands/UpdateMatchingWorkflowCommand";
+import {
+  UpdateSchemaMappingCommandInput,
+  UpdateSchemaMappingCommandOutput,
+} from "./commands/UpdateSchemaMappingCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -105,43 +135,65 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | CreateIdMappingWorkflowCommandInput
   | CreateMatchingWorkflowCommandInput
   | CreateSchemaMappingCommandInput
+  | DeleteIdMappingWorkflowCommandInput
   | DeleteMatchingWorkflowCommandInput
   | DeleteSchemaMappingCommandInput
+  | GetIdMappingJobCommandInput
+  | GetIdMappingWorkflowCommandInput
   | GetMatchIdCommandInput
   | GetMatchingJobCommandInput
   | GetMatchingWorkflowCommandInput
+  | GetProviderServiceCommandInput
   | GetSchemaMappingCommandInput
+  | ListIdMappingJobsCommandInput
+  | ListIdMappingWorkflowsCommandInput
   | ListMatchingJobsCommandInput
   | ListMatchingWorkflowsCommandInput
+  | ListProviderServicesCommandInput
   | ListSchemaMappingsCommandInput
   | ListTagsForResourceCommandInput
+  | StartIdMappingJobCommandInput
   | StartMatchingJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
-  | UpdateMatchingWorkflowCommandInput;
+  | UpdateIdMappingWorkflowCommandInput
+  | UpdateMatchingWorkflowCommandInput
+  | UpdateSchemaMappingCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
+  | CreateIdMappingWorkflowCommandOutput
   | CreateMatchingWorkflowCommandOutput
   | CreateSchemaMappingCommandOutput
+  | DeleteIdMappingWorkflowCommandOutput
   | DeleteMatchingWorkflowCommandOutput
   | DeleteSchemaMappingCommandOutput
+  | GetIdMappingJobCommandOutput
+  | GetIdMappingWorkflowCommandOutput
   | GetMatchIdCommandOutput
   | GetMatchingJobCommandOutput
   | GetMatchingWorkflowCommandOutput
+  | GetProviderServiceCommandOutput
   | GetSchemaMappingCommandOutput
+  | ListIdMappingJobsCommandOutput
+  | ListIdMappingWorkflowsCommandOutput
   | ListMatchingJobsCommandOutput
   | ListMatchingWorkflowsCommandOutput
+  | ListProviderServicesCommandOutput
   | ListSchemaMappingsCommandOutput
   | ListTagsForResourceCommandOutput
+  | StartIdMappingJobCommandOutput
   | StartMatchingJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
-  | UpdateMatchingWorkflowCommandOutput;
+  | UpdateIdMappingWorkflowCommandOutput
+  | UpdateMatchingWorkflowCommandOutput
+  | UpdateSchemaMappingCommandOutput;
 
 /**
  * @public
@@ -253,6 +305,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 
@@ -313,20 +367,17 @@ export interface EntityResolutionClientResolvedConfig extends EntityResolutionCl
 
 /**
  * @public
- * <p>Welcome to the <i>AWS Entity Resolution API Reference</i>.</p>
- *          <p>AWS Entity Resolution is an AWS service that provides pre-configured entity resolution capabilities
- *          that enable developers and analysts at advertising and marketing companies to build an accurate and
- *         complete view of their consumers.</p>
- *          <p>
- *          With AWS Entity Resolution, you have the ability to match source records containing consumer identifiers,
- *          such as name, email address, and phone number. This holds true even when these records have incomplete or
- *          conflicting identifiers. For example, AWS Entity Resolution can effectively match a source record from a
- *          customer relationship management (CRM) system, which includes account information like first name, last name,
- *          postal address, phone number, and email address, with a source record from a marketing system containing
- *          campaign information, such as username and email address.</p>
- *          <p>To learn more about AWS Entity Resolution concepts, procedures, and best practices, see the
- *          <a href="https://docs.aws.amazon.com/entityresolution/latest/userguide/what-is-service.html">AWS Entity Resolution
- *             User Guide</a>.</p>
+ * <p>Welcome to the <i>Entity Resolution API Reference</i>.</p>
+ *          <p>Entity Resolution is an Amazon Web Services service that provides pre-configured entity
+ *          resolution capabilities that enable developers and analysts at advertising and marketing
+ *          companies to build an accurate and complete view of their consumers.</p>
+ *          <p> With Entity Resolution, you can match source records containing consumer identifiers,
+ *          such as name, email address, and phone number. This is true even when these records have
+ *          incomplete or conflicting identifiers. For example, Entity Resolution can effectively match
+ *          a source record from a customer relationship management (CRM) system with a source record
+ *          from a marketing system containing campaign information.</p>
+ *          <p>To learn more about Entity Resolution concepts, procedures, and best practices, see the
+ *             <a href="https://docs.aws.amazon.com/entityresolution/latest/userguide/what-is-service.html">Entity Resolution User Guide</a>.</p>
  */
 export class EntityResolutionClient extends __Client<
   __HttpHandlerOptions,

@@ -64,6 +64,11 @@ import {
   CreateKeyGroupCommandOutput,
 } from "./commands/CreateKeyGroupCommand";
 import {
+  CreateKeyValueStoreCommand,
+  CreateKeyValueStoreCommandInput,
+  CreateKeyValueStoreCommandOutput,
+} from "./commands/CreateKeyValueStoreCommand";
+import {
   CreateMonitoringSubscriptionCommand,
   CreateMonitoringSubscriptionCommandInput,
   CreateMonitoringSubscriptionCommandOutput,
@@ -144,6 +149,11 @@ import {
   DeleteKeyGroupCommandOutput,
 } from "./commands/DeleteKeyGroupCommand";
 import {
+  DeleteKeyValueStoreCommand,
+  DeleteKeyValueStoreCommandInput,
+  DeleteKeyValueStoreCommandOutput,
+} from "./commands/DeleteKeyValueStoreCommand";
+import {
   DeleteMonitoringSubscriptionCommand,
   DeleteMonitoringSubscriptionCommandInput,
   DeleteMonitoringSubscriptionCommandOutput,
@@ -183,6 +193,11 @@ import {
   DescribeFunctionCommandInput,
   DescribeFunctionCommandOutput,
 } from "./commands/DescribeFunctionCommand";
+import {
+  DescribeKeyValueStoreCommand,
+  DescribeKeyValueStoreCommandInput,
+  DescribeKeyValueStoreCommandOutput,
+} from "./commands/DescribeKeyValueStoreCommand";
 import {
   GetCachePolicyCommand,
   GetCachePolicyCommandInput,
@@ -396,6 +411,11 @@ import {
   ListKeyGroupsCommandOutput,
 } from "./commands/ListKeyGroupsCommand";
 import {
+  ListKeyValueStoresCommand,
+  ListKeyValueStoresCommandInput,
+  ListKeyValueStoresCommandOutput,
+} from "./commands/ListKeyValueStoresCommand";
+import {
   ListOriginAccessControlsCommand,
   ListOriginAccessControlsCommandInput,
   ListOriginAccessControlsCommandOutput,
@@ -492,6 +512,11 @@ import {
   UpdateKeyGroupCommandOutput,
 } from "./commands/UpdateKeyGroupCommand";
 import {
+  UpdateKeyValueStoreCommand,
+  UpdateKeyValueStoreCommandInput,
+  UpdateKeyValueStoreCommandOutput,
+} from "./commands/UpdateKeyValueStoreCommand";
+import {
   UpdateOriginAccessControlCommand,
   UpdateOriginAccessControlCommandInput,
   UpdateOriginAccessControlCommandOutput,
@@ -535,6 +560,7 @@ const commands = {
   CreateFunctionCommand,
   CreateInvalidationCommand,
   CreateKeyGroupCommand,
+  CreateKeyValueStoreCommand,
   CreateMonitoringSubscriptionCommand,
   CreateOriginAccessControlCommand,
   CreateOriginRequestPolicyCommand,
@@ -551,6 +577,7 @@ const commands = {
   DeleteFieldLevelEncryptionProfileCommand,
   DeleteFunctionCommand,
   DeleteKeyGroupCommand,
+  DeleteKeyValueStoreCommand,
   DeleteMonitoringSubscriptionCommand,
   DeleteOriginAccessControlCommand,
   DeleteOriginRequestPolicyCommand,
@@ -559,6 +586,7 @@ const commands = {
   DeleteResponseHeadersPolicyCommand,
   DeleteStreamingDistributionCommand,
   DescribeFunctionCommand,
+  DescribeKeyValueStoreCommand,
   GetCachePolicyCommand,
   GetCachePolicyConfigCommand,
   GetCloudFrontOriginAccessIdentityCommand,
@@ -603,6 +631,7 @@ const commands = {
   ListFunctionsCommand,
   ListInvalidationsCommand,
   ListKeyGroupsCommand,
+  ListKeyValueStoresCommand,
   ListOriginAccessControlsCommand,
   ListOriginRequestPoliciesCommand,
   ListPublicKeysCommand,
@@ -623,6 +652,7 @@ const commands = {
   UpdateFieldLevelEncryptionProfileCommand,
   UpdateFunctionCommand,
   UpdateKeyGroupCommand,
+  UpdateKeyValueStoreCommand,
   UpdateOriginAccessControlCommand,
   UpdateOriginRequestPolicyCommand,
   UpdatePublicKeyCommand,
@@ -825,6 +855,23 @@ export interface CloudFront {
     args: CreateKeyGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateKeyGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateKeyValueStoreCommand}
+   */
+  createKeyValueStore(
+    args: CreateKeyValueStoreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateKeyValueStoreCommandOutput>;
+  createKeyValueStore(
+    args: CreateKeyValueStoreCommandInput,
+    cb: (err: any, data?: CreateKeyValueStoreCommandOutput) => void
+  ): void;
+  createKeyValueStore(
+    args: CreateKeyValueStoreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateKeyValueStoreCommandOutput) => void
   ): void;
 
   /**
@@ -1091,6 +1138,23 @@ export interface CloudFront {
   ): void;
 
   /**
+   * @see {@link DeleteKeyValueStoreCommand}
+   */
+  deleteKeyValueStore(
+    args: DeleteKeyValueStoreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteKeyValueStoreCommandOutput>;
+  deleteKeyValueStore(
+    args: DeleteKeyValueStoreCommandInput,
+    cb: (err: any, data?: DeleteKeyValueStoreCommandOutput) => void
+  ): void;
+  deleteKeyValueStore(
+    args: DeleteKeyValueStoreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteKeyValueStoreCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteMonitoringSubscriptionCommand}
    */
   deleteMonitoringSubscription(
@@ -1221,6 +1285,23 @@ export interface CloudFront {
     args: DescribeFunctionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeFunctionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeKeyValueStoreCommand}
+   */
+  describeKeyValueStore(
+    args: DescribeKeyValueStoreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeKeyValueStoreCommandOutput>;
+  describeKeyValueStore(
+    args: DescribeKeyValueStoreCommandInput,
+    cb: (err: any, data?: DescribeKeyValueStoreCommandOutput) => void
+  ): void;
+  describeKeyValueStore(
+    args: DescribeKeyValueStoreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeKeyValueStoreCommandOutput) => void
   ): void;
 
   /**
@@ -1933,6 +2014,23 @@ export interface CloudFront {
   ): void;
 
   /**
+   * @see {@link ListKeyValueStoresCommand}
+   */
+  listKeyValueStores(
+    args: ListKeyValueStoresCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListKeyValueStoresCommandOutput>;
+  listKeyValueStores(
+    args: ListKeyValueStoresCommandInput,
+    cb: (err: any, data?: ListKeyValueStoresCommandOutput) => void
+  ): void;
+  listKeyValueStores(
+    args: ListKeyValueStoresCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListKeyValueStoresCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListOriginAccessControlsCommand}
    */
   listOriginAccessControls(
@@ -2240,6 +2338,23 @@ export interface CloudFront {
     args: UpdateKeyGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateKeyGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateKeyValueStoreCommand}
+   */
+  updateKeyValueStore(
+    args: UpdateKeyValueStoreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateKeyValueStoreCommandOutput>;
+  updateKeyValueStore(
+    args: UpdateKeyValueStoreCommandInput,
+    cb: (err: any, data?: UpdateKeyValueStoreCommandOutput) => void
+  ): void;
+  updateKeyValueStore(
+    args: UpdateKeyValueStoreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateKeyValueStoreCommandOutput) => void
   ): void;
 
   /**

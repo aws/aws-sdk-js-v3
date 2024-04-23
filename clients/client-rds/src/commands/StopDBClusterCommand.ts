@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { StopDBClusterMessage, StopDBClusterResult } from "../models/models_1";
 import { de_StopDBClusterCommand, se_StopDBClusterCommand } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
@@ -43,7 +35,7 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  *            <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-cluster-stop-start.html">
  *                Stopping and Starting an Aurora Cluster</a> in the <i>Amazon Aurora User Guide</i>.</p>
  *          <note>
- *             <p>This action only applies to Aurora DB clusters.</p>
+ *             <p>This operation only applies to Aurora DB clusters.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -95,6 +87,14 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * //     ReadReplicaIdentifiers: [ // ReadReplicaIdentifierList
  * //       "STRING_VALUE",
  * //     ],
+ * //     StatusInfos: [ // DBClusterStatusInfoList
+ * //       { // DBClusterStatusInfo
+ * //         StatusType: "STRING_VALUE",
+ * //         Normal: true || false,
+ * //         Status: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     DBClusterMembers: [ // DBClusterMemberList
  * //       { // DBClusterMember
  * //         DBInstanceIdentifier: "STRING_VALUE",
@@ -140,6 +140,11 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * //       TimeoutAction: "STRING_VALUE",
  * //       SecondsBeforeTimeout: Number("int"),
  * //     },
+ * //     RdsCustomClusterConfiguration: { // RdsCustomClusterConfiguration
+ * //       InterconnectSubnetId: "STRING_VALUE",
+ * //       TransitGatewayMulticastDomainId: "STRING_VALUE",
+ * //       ReplicaMode: "open-read-only" || "mounted",
+ * //     },
  * //     DeletionProtection: true || false,
  * //     HttpEndpointEnabled: true || false,
  * //     ActivityStreamMode: "sync" || "async",
@@ -184,6 +189,11 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * //       EngineVersion: "STRING_VALUE",
  * //       BackupRetentionPeriod: Number("int"),
  * //       AllocatedStorage: Number("int"),
+ * //       RdsCustomClusterConfiguration: {
+ * //         InterconnectSubnetId: "STRING_VALUE",
+ * //         TransitGatewayMulticastDomainId: "STRING_VALUE",
+ * //         ReplicaMode: "open-read-only" || "mounted",
+ * //       },
  * //       Iops: Number("int"),
  * //       StorageType: "STRING_VALUE",
  * //     },
@@ -210,6 +220,11 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * //     },
  * //     IOOptimizedNextAllowedModificationTime: new Date("TIMESTAMP"),
  * //     LocalWriteForwardingStatus: "enabled" || "disabled" || "enabling" || "disabling" || "requested",
+ * //     AwsBackupRecoveryPointArn: "STRING_VALUE",
+ * //     LimitlessDatabase: { // LimitlessDatabase
+ * //       Status: "active" || "not-in-use" || "enabled" || "disabled" || "enabling" || "disabling" || "modifying-max-capacity" || "error",
+ * //       MinRequiredACU: Number("double"),
+ * //     },
  * //   },
  * // };
  *
@@ -261,77 +276,26 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * ```
  *
  */
-export class StopDBClusterCommand extends $Command<
-  StopDBClusterCommandInput,
-  StopDBClusterCommandOutput,
-  RDSClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: StopDBClusterCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RDSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<StopDBClusterCommandInput, StopDBClusterCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, StopDBClusterCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RDSClient";
-    const commandName = "StopDBClusterCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: StopDBClusterCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_StopDBClusterCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopDBClusterCommandOutput> {
-    return de_StopDBClusterCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class StopDBClusterCommand extends $Command
+  .classBuilder<
+    StopDBClusterCommandInput,
+    StopDBClusterCommandOutput,
+    RDSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonRDSv19", "StopDBCluster", {})
+  .n("RDSClient", "StopDBClusterCommand")
+  .f(void 0, void 0)
+  .ser(se_StopDBClusterCommand)
+  .de(de_StopDBClusterCommand)
+  .build() {}

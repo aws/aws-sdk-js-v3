@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateCaseRequest, UpdateCaseResponse } from "../models/models_0";
 import { de_UpdateCaseCommand, se_UpdateCaseCommand } from "../protocols/Aws_restJson1";
 
@@ -36,7 +28,11 @@ export interface UpdateCaseCommandOutput extends UpdateCaseResponse, __MetadataB
 
 /**
  * @public
- * <p>Updates the values of fields on a case. Fields to be updated are received as an array of
+ * <note>
+ *             <p>If you provide a value for <code>PerformedBy.UserArn</code> you must also have <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">connect:DescribeUser</a> permission on the User ARN resource that you provide</p>
+ *          </note>
+ *
+ *          <p>Updates the values of fields on a case. Fields to be updated are received as an array of
  *       id/value pairs identical to the <code>CreateCase</code> input .</p>
  *          <p>If the action is successful, the service sends back an HTTP 200 response with an empty
  *       HTTP body.</p>
@@ -57,9 +53,13 @@ export interface UpdateCaseCommandOutput extends UpdateCaseResponse, __MetadataB
  *         doubleValue: Number("double"),
  *         booleanValue: true || false,
  *         emptyValue: {},
+ *         userArnValue: "STRING_VALUE",
  *       },
  *     },
  *   ],
+ *   performedBy: { // UserUnion Union: only one key present
+ *     userArn: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateCaseCommand(input);
  * const response = await client.send(command);
@@ -94,77 +94,26 @@ export interface UpdateCaseCommandOutput extends UpdateCaseResponse, __MetadataB
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
  */
-export class UpdateCaseCommand extends $Command<
-  UpdateCaseCommandInput,
-  UpdateCaseCommandOutput,
-  ConnectCasesClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateCaseCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ConnectCasesClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateCaseCommandInput, UpdateCaseCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateCaseCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ConnectCasesClient";
-    const commandName = "UpdateCaseCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateCaseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateCaseCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateCaseCommandOutput> {
-    return de_UpdateCaseCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateCaseCommand extends $Command
+  .classBuilder<
+    UpdateCaseCommandInput,
+    UpdateCaseCommandOutput,
+    ConnectCasesClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonConnectCases", "UpdateCase", {})
+  .n("ConnectCasesClient", "UpdateCaseCommand")
+  .f(void 0, void 0)
+  .ser(se_UpdateCaseCommand)
+  .de(de_UpdateCaseCommand)
+  .build() {}

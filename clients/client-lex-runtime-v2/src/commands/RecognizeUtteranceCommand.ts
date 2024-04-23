@@ -1,21 +1,14 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
 import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
   MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SdkStreamSerdeContext as __SdkStreamSerdeContext,
-  SerdeContext as __SerdeContext,
   StreamingBlobPayloadInputTypes,
   StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { LexRuntimeV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexRuntimeV2Client";
 import {
   RecognizeUtteranceRequest,
@@ -182,82 +175,26 @@ export interface RecognizeUtteranceCommandOutput
  * <p>Base exception class for all service exceptions from LexRuntimeV2 service.</p>
  *
  */
-export class RecognizeUtteranceCommand extends $Command<
-  RecognizeUtteranceCommandInput,
-  RecognizeUtteranceCommandOutput,
-  LexRuntimeV2ClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: RecognizeUtteranceCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: LexRuntimeV2ClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<RecognizeUtteranceCommandInput, RecognizeUtteranceCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, RecognizeUtteranceCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "LexRuntimeV2Client";
-    const commandName = "RecognizeUtteranceCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: RecognizeUtteranceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RecognizeUtteranceResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: RecognizeUtteranceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_RecognizeUtteranceCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext & __SdkStreamSerdeContext
-  ): Promise<RecognizeUtteranceCommandOutput> {
-    return de_RecognizeUtteranceCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class RecognizeUtteranceCommand extends $Command
+  .classBuilder<
+    RecognizeUtteranceCommandInput,
+    RecognizeUtteranceCommandOutput,
+    LexRuntimeV2ClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: LexRuntimeV2ClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSDeepSenseRunTimeServiceApi2_0", "RecognizeUtterance", {})
+  .n("LexRuntimeV2Client", "RecognizeUtteranceCommand")
+  .f(RecognizeUtteranceRequestFilterSensitiveLog, RecognizeUtteranceResponseFilterSensitiveLog)
+  .ser(se_RecognizeUtteranceCommand)
+  .de(de_RecognizeUtteranceCommand)
+  .build() {}

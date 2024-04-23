@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListIntegrationAssociationsRequest, ListIntegrationAssociationsResponse } from "../models/models_1";
 import {
   de_ListIntegrationAssociationsCommand,
@@ -51,9 +43,10 @@ export interface ListIntegrationAssociationsCommandOutput
  * const client = new ConnectClient(config);
  * const input = { // ListIntegrationAssociationsRequest
  *   InstanceId: "STRING_VALUE", // required
- *   IntegrationType: "EVENT" || "VOICE_ID" || "PINPOINT_APP" || "WISDOM_ASSISTANT" || "WISDOM_KNOWLEDGE_BASE" || "CASES_DOMAIN",
+ *   IntegrationType: "EVENT" || "VOICE_ID" || "PINPOINT_APP" || "WISDOM_ASSISTANT" || "WISDOM_KNOWLEDGE_BASE" || "WISDOM_QUICK_RESPONSES" || "CASES_DOMAIN" || "APPLICATION" || "FILE_SCANNER",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   IntegrationArn: "STRING_VALUE",
  * };
  * const command = new ListIntegrationAssociationsCommand(input);
  * const response = await client.send(command);
@@ -63,11 +56,11 @@ export interface ListIntegrationAssociationsCommandOutput
  * //       IntegrationAssociationId: "STRING_VALUE",
  * //       IntegrationAssociationArn: "STRING_VALUE",
  * //       InstanceId: "STRING_VALUE",
- * //       IntegrationType: "EVENT" || "VOICE_ID" || "PINPOINT_APP" || "WISDOM_ASSISTANT" || "WISDOM_KNOWLEDGE_BASE" || "CASES_DOMAIN",
+ * //       IntegrationType: "EVENT" || "VOICE_ID" || "PINPOINT_APP" || "WISDOM_ASSISTANT" || "WISDOM_KNOWLEDGE_BASE" || "WISDOM_QUICK_RESPONSES" || "CASES_DOMAIN" || "APPLICATION" || "FILE_SCANNER",
  * //       IntegrationArn: "STRING_VALUE",
  * //       SourceApplicationUrl: "STRING_VALUE",
  * //       SourceApplicationName: "STRING_VALUE",
- * //       SourceType: "SALESFORCE" || "ZENDESK",
+ * //       SourceType: "SALESFORCE" || "ZENDESK" || "CASES",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -97,82 +90,26 @@ export interface ListIntegrationAssociationsCommandOutput
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
  */
-export class ListIntegrationAssociationsCommand extends $Command<
-  ListIntegrationAssociationsCommandInput,
-  ListIntegrationAssociationsCommandOutput,
-  ConnectClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListIntegrationAssociationsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ConnectClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListIntegrationAssociationsCommandInput, ListIntegrationAssociationsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListIntegrationAssociationsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ConnectClient";
-    const commandName = "ListIntegrationAssociationsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListIntegrationAssociationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListIntegrationAssociationsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<ListIntegrationAssociationsCommandOutput> {
-    return de_ListIntegrationAssociationsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListIntegrationAssociationsCommand extends $Command
+  .classBuilder<
+    ListIntegrationAssociationsCommandInput,
+    ListIntegrationAssociationsCommandOutput,
+    ConnectClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonConnectService", "ListIntegrationAssociations", {})
+  .n("ConnectClient", "ListIntegrationAssociationsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListIntegrationAssociationsCommand)
+  .de(de_ListIntegrationAssociationsCommand)
+  .build() {}

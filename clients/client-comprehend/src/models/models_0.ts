@@ -53,7 +53,7 @@ export interface AugmentedManifestsListItem {
    *       documents for testing.</p>
    *          <p> TEST - all of the documents in the manifest will be used for testing.</p>
    */
-  Split?: Split | string;
+  Split?: Split;
 
   /**
    * @public
@@ -100,7 +100,7 @@ export interface AugmentedManifestsListItem {
    *             </li>
    *          </ul>
    */
-  DocumentType?: AugmentedManifestsDocumentTypeFormat | string;
+  DocumentType?: AugmentedManifestsDocumentTypeFormat;
 }
 
 /**
@@ -270,28 +270,37 @@ export type InvalidRequestDetailReason = (typeof InvalidRequestDetailReason)[key
 
 /**
  * @public
- * <p>Provides additional detail about why the request failed:</p>
- *          <ul>
- *             <li>
- *                <p>Document size is too large - Check the size of your file and resubmit the request.</p>
- *             </li>
- *             <li>
- *                <p>Document type is not supported - Check the file type and resubmit the request.</p>
- *             </li>
- *             <li>
- *                <p>Too many pages in the document - Check the number of pages in your file and resubmit the request.</p>
- *             </li>
- *             <li>
- *                <p>Access denied to Amazon Textract - Verify that your account has permission to use Amazon Textract API operations and resubmit the request.</p>
- *             </li>
- *          </ul>
+ * <p>Provides additional detail about why the request failed.</p>
  */
 export interface InvalidRequestDetail {
   /**
    * @public
-   * <p>Reason code is <code>INVALID_DOCUMENT</code>.</p>
+   * <p>Reason codes include the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>DOCUMENT_SIZE_EXCEEDED - Document size is too large. Check the size of your file and resubmit the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>UNSUPPORTED_DOC_TYPE - Document type is not supported. Check the file type and resubmit the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>PAGE_LIMIT_EXCEEDED - Too many pages in the document. Check the number of pages in your file and resubmit the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>TEXTRACT_ACCESS_DENIED - Access denied to Amazon Textract. Verify that your account has permission to use Amazon Textract API operations and resubmit the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>NOT_TEXTRACT_JSON - Document is not Amazon Textract JSON format. Verify the format and resubmit the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>MISMATCHED_TOTAL_PAGE_COUNT - Check the number of pages in your file and resubmit the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>INVALID_DOCUMENT - Invalid document. Check the file and resubmit the request.</p>
+   *             </li>
+   *          </ul>
    */
-  Reason?: InvalidRequestDetailReason | string;
+  Reason?: InvalidRequestDetailReason;
 }
 
 /**
@@ -315,24 +324,10 @@ export class InvalidRequestException extends __BaseException {
   readonly name: "InvalidRequestException" = "InvalidRequestException";
   readonly $fault: "client" = "client";
   Message?: string;
-  Reason?: InvalidRequestReason | string;
+  Reason?: InvalidRequestReason;
   /**
    * @public
-   * <p>Provides additional detail about why the request failed:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Document size is too large - Check the size of your file and resubmit the request.</p>
-   *             </li>
-   *             <li>
-   *                <p>Document type is not supported - Check the file type and resubmit the request.</p>
-   *             </li>
-   *             <li>
-   *                <p>Too many pages in the document - Check the number of pages in your file and resubmit the request.</p>
-   *             </li>
-   *             <li>
-   *                <p>Access denied to Amazon Textract - Verify that your account has permission to use Amazon Textract API operations and resubmit the request.</p>
-   *             </li>
-   *          </ul>
+   * <p>Provides additional detail about why the request failed.</p>
    */
   Detail?: InvalidRequestDetail;
   /**
@@ -413,7 +408,7 @@ export interface BatchDetectEntitiesRequest {
    * <p>The language of the input documents. You can specify any of the primary languages
    *       supported by Amazon Comprehend. All documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 }
 
 /**
@@ -511,7 +506,7 @@ export interface Entity {
    *          <p>For custom entity detection, this field contains one of the
    *       entity types that you specified when you trained your custom model.</p>
    */
-  Type?: EntityType | string;
+  Type?: EntityType;
 
   /**
    * @public
@@ -588,9 +583,7 @@ export interface BatchDetectEntitiesResponse {
 
 /**
  * @public
- * <p>Amazon Comprehend can't process the language of the input text. For custom entity
- *       recognition APIs, only English, Spanish, French, Italian, German, or Portuguese are accepted.
- *       For a list of supported languages,
+ * <p>Amazon Comprehend can't process the language of the input text. For a list of supported languages,
  *       <a href="https://docs.aws.amazon.com/comprehend/latest/dg/supported-languages.html">Supported languages</a> in the Comprehend Developer Guide.
  *     </p>
  */
@@ -628,7 +621,7 @@ export interface BatchDetectKeyPhrasesRequest {
    * <p>The language of the input documents. You can specify any of the primary languages
    *       supported by Amazon Comprehend. All documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 }
 
 /**
@@ -724,7 +717,7 @@ export interface BatchDetectSentimentRequest {
    * <p>The language of the input documents. You can specify any of the primary languages
    *       supported by Amazon Comprehend. All documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 }
 
 /**
@@ -795,7 +788,7 @@ export interface BatchDetectSentimentItemResult {
    * @public
    * <p>The sentiment detected in the document.</p>
    */
-  Sentiment?: SentimentType | string;
+  Sentiment?: SentimentType;
 
   /**
    * @public
@@ -863,7 +856,7 @@ export interface BatchDetectSyntaxRequest {
    *       supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"),
    *       Italian ("it"), or Portuguese ("pt"). All documents must be in the same language.</p>
    */
-  LanguageCode: SyntaxLanguageCode | string | undefined;
+  LanguageCode: SyntaxLanguageCode | undefined;
 }
 
 /**
@@ -909,7 +902,7 @@ export interface PartOfSpeechTag {
    * @public
    * <p>Identifies the part of speech that the token represents.</p>
    */
-  Tag?: PartOfSpeechTagType | string;
+  Tag?: PartOfSpeechTagType;
 
   /**
    * @public
@@ -1018,20 +1011,20 @@ export interface BatchDetectTargetedSentimentRequest {
    * @public
    * <p>The language of the input documents. Currently, English is the only supported language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 }
 
 /**
  * @public
  * <p>Contains the sentiment and sentiment score for one mention of an entity.</p>
- *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+ *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
  */
 export interface MentionSentiment {
   /**
    * @public
    * <p>The sentiment of the mention. </p>
    */
-  Sentiment?: SentimentType | string;
+  Sentiment?: SentimentType;
 
   /**
    * @public
@@ -1075,7 +1068,7 @@ export type TargetedSentimentEntityType =
  * @public
  * <p>Information about one mention of an entity. The mention information includes the location of the mention
  *       in the text and the sentiment of the mention.</p>
- *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+ *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
  */
 export interface TargetedSentimentMention {
   /**
@@ -1100,7 +1093,7 @@ export interface TargetedSentimentMention {
    * @public
    * <p>The type of the entity. Amazon Comprehend supports a variety of <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html#how-targeted-sentiment-entities">entity types</a>.</p>
    */
-  Type?: TargetedSentimentEntityType | string;
+  Type?: TargetedSentimentEntityType;
 
   /**
    * @public
@@ -1124,7 +1117,7 @@ export interface TargetedSentimentMention {
 /**
  * @public
  * <p>Information about one of the entities found by targeted sentiment analysis.</p>
- *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a>.</p>
+ *          <p>For more information about targeted sentiment, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/how-targeted-sentiment.html">Targeted sentiment</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
  */
 export interface TargetedSentimentEntity {
   /**
@@ -1295,7 +1288,7 @@ export interface RelationshipsListItem {
    * @public
    * <p>Only supported relationship is a child relationship.</p>
    */
-  Type?: RelationshipType | string;
+  Type?: RelationshipType;
 }
 
 /**
@@ -1324,7 +1317,7 @@ export interface Block {
    *             </li>
    *          </ul>
    */
-  BlockType?: BlockType | string;
+  BlockType?: BlockType;
 
   /**
    * @public
@@ -1547,7 +1540,7 @@ export interface DocumentReaderConfig {
    *             </li>
    *          </ul>
    */
-  DocumentReadAction: DocumentReadAction | string | undefined;
+  DocumentReadAction: DocumentReadAction | undefined;
 
   /**
    * @public
@@ -1564,7 +1557,7 @@ export interface DocumentReaderConfig {
    *             </li>
    *          </ul>
    */
-  DocumentReadMode?: DocumentReadMode | string;
+  DocumentReadMode?: DocumentReadMode;
 
   /**
    * @public
@@ -1573,15 +1566,15 @@ export interface DocumentReaderConfig {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>TABLES</code> - Returns information about any tables that are detected in the input document. </p>
+   *                   <code>TABLES</code> - Returns additional information about any tables that are detected in the input document. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>FORMS</code> - Returns information and the data from any forms that are detected in the input document. </p>
+   *                   <code>FORMS</code> - Returns additional information about any forms that are detected in the input document. </p>
    *             </li>
    *          </ul>
    */
-  FeatureTypes?: (DocumentReadFeatureTypes | string)[];
+  FeatureTypes?: DocumentReadFeatureTypes[];
 }
 
 /**
@@ -1597,15 +1590,20 @@ export interface ClassifyDocumentRequest {
 
   /**
    * @public
-   * <p>The Amazon Resource Number (ARN) of the endpoint. For information about endpoints, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/manage-endpoints.html">Managing endpoints</a>.</p>
+   * <p>The Amazon Resource Number (ARN) of the endpoint. </p>
+   *          <p>For prompt safety classification, Amazon Comprehend provides the endpoint ARN. For more information about prompt safety classifiers, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/trust-safety.html#prompt-classification">Prompt safety classification</a> in the <i>Amazon Comprehend Developer Guide</i>
+   *          </p>
+   *          <p>For custom classification, you create an endpoint for your custom model. For more information,
+   *       see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/using-endpoints.html">Using Amazon Comprehend endpoints</a>.</p>
    */
   EndpointArn: string | undefined;
 
   /**
    * @public
-   * <p>Use the <code>Bytes</code> parameter to input a text, PDF, Word or image file.
-   *       You can also use the <code>Bytes</code> parameter to input an Amazon Textract <code>DetectDocumentText</code>
-   *       or <code>AnalyzeDocument</code> output file.</p>
+   * <p>Use the <code>Bytes</code> parameter to input a text, PDF, Word or image file.</p>
+   *          <p>When you classify a document using a custom model, you can also use the <code>Bytes</code> parameter to input an Amazon Textract <code>DetectDocumentText</code>
+   *         or <code>AnalyzeDocument</code> output file.</p>
+   *          <p>To classify a document using the prompt safety classifier, use the <code>Text</code> parameter for input.</p>
    *          <p>Provide the input document as a sequence of base64-encoded bytes.
    *       If your code uses an Amazon Web Services SDK to classify documents, the SDK may encode
    *       the document file bytes for you. </p>
@@ -1719,7 +1717,7 @@ export interface DocumentTypeListItem {
    * @public
    * <p>Document type.</p>
    */
-  Type?: DocumentType | string;
+  Type?: DocumentType;
 }
 
 /**
@@ -1776,7 +1774,7 @@ export interface ErrorsListItem {
    * @public
    * <p>Error code for the cause of the error.</p>
    */
-  ErrorCode?: PageBasedErrorCode | string;
+  ErrorCode?: PageBasedErrorCode;
 
   /**
    * @public
@@ -1829,7 +1827,7 @@ export type PageBasedWarningCode = (typeof PageBasedWarningCode)[keyof typeof Pa
  * <p>The system identified one of the following warnings while processing the input document:</p>
  *          <ul>
  *             <li>
- *                <p>The document to classify is plain text, but the classifier is a native model.</p>
+ *                <p>The document to classify is plain text, but the classifier is a native document model.</p>
  *             </li>
  *             <li>
  *                <p>The document to classify is semi-structured, but the classifier is a plain-text model.</p>
@@ -1847,7 +1845,7 @@ export interface WarningsListItem {
    * @public
    * <p>The type of warning.</p>
    */
-  WarnCode?: PageBasedWarningCode | string;
+  WarnCode?: PageBasedWarningCode;
 
   /**
    * @public
@@ -1862,16 +1860,18 @@ export interface WarningsListItem {
 export interface ClassifyDocumentResponse {
   /**
    * @public
-   * <p>The classes used by the document being analyzed. These are used for multi-class trained
-   *       models. Individual classes are mutually exclusive and each document is expected to have only a
+   * <p>The classes used by the document being analyzed. These are used for models trained in multi-class mode.
+   *       Individual classes are mutually exclusive and each document is expected to have only a
    *       single class assigned to it. For example, an animal can be a dog or a cat, but not both at the
    *       same time. </p>
+   *          <p>For prompt safety classification, the response includes only two classes (SAFE_PROMPT and UNSAFE_PROMPT),
+   *       along with a confidence score for each class. The value range of the score is zero to one, where one is the highest confidence.</p>
    */
   Classes?: DocumentClass[];
 
   /**
    * @public
-   * <p>The labels used the document being analyzed. These are used for multi-label trained
+   * <p>The labels used in the document being analyzed. These are used for multi-label trained
    *       models. Individual labels represent different categories that are related in some manner and
    *       are not mutually exclusive. For example, a movie can be just an action movie, or it can be an
    *       action movie, a science fiction movie, and a comedy, all at the same time. </p>
@@ -1947,7 +1947,7 @@ export interface ContainsPiiEntitiesRequest {
    * @public
    * <p>The language of the input documents. Currently, English is the only valid language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 }
 
 /**
@@ -2009,7 +2009,7 @@ export interface EntityLabel {
    * @public
    * <p>The name of the label.</p>
    */
-  Name?: PiiEntityType | string;
+  Name?: PiiEntityType;
 
   /**
    * @public
@@ -2091,7 +2091,7 @@ export interface DatasetAugmentedManifestsListItem {
    *             <code>PLAIN_TEXT_DOCUMENT</code> A document type that represents any unicode text that
    *       is encoded in UTF-8.</p>
    */
-  DocumentType?: AugmentedManifestsDocumentTypeFormat | string;
+  DocumentType?: AugmentedManifestsDocumentTypeFormat;
 }
 
 /**
@@ -2188,7 +2188,7 @@ export interface DatasetEntityRecognizerDocuments {
    *       scientific papers. ONE_DOC_PER_LINE - Each line in a file is considered a separate document.
    *       Use this option when you are processing many short documents, such as text messages.</p>
    */
-  InputFormat?: InputFormat | string;
+  InputFormat?: InputFormat;
 }
 
 /**
@@ -2252,7 +2252,7 @@ export interface DatasetInputDataConfig {
    *          <p>
    *             <code>AUGMENTED_MANIFEST</code>: The data format  </p>
    */
-  DataFormat?: DatasetDataFormat | string;
+  DataFormat?: DatasetDataFormat;
 
   /**
    * @public
@@ -2316,7 +2316,7 @@ export interface CreateDatasetRequest {
    * <p>The dataset type. You can specify that the data in a dataset is for training
    *       the model or for testing the model.</p>
    */
-  DatasetType?: DatasetType | string;
+  DatasetType?: DatasetType;
 
   /**
    * @public
@@ -2487,7 +2487,7 @@ export type DocumentClassifierDataFormat =
 
 /**
  * @public
- * <p>The location of the training documents. This parameter is required in a request to create a native classifier model.</p>
+ * <p>The location of the training documents. This parameter is required in a request to create a semi-structured document classification model.</p>
  */
 export interface DocumentClassifierDocuments {
   /**
@@ -2549,7 +2549,7 @@ export interface DocumentClassifierInputDataConfig {
    *          <p>If you don't specify a value, Amazon Comprehend uses <code>COMPREHEND_CSV</code> as the
    *       default.</p>
    */
-  DataFormat?: DocumentClassifierDataFormat | string;
+  DataFormat?: DocumentClassifierDataFormat;
 
   /**
    * @public
@@ -2566,9 +2566,8 @@ export interface DocumentClassifierInputDataConfig {
 
   /**
    * @public
-   * <p>This specifies the Amazon S3 location where the test annotations for an entity recognizer
-   *       are located. The URI must be in the same Amazon Web Services Region as the API endpoint that you are
-   *       calling. </p>
+   * <p>This specifies the Amazon S3 location that contains the test annotations for the document classifier.
+   *       The URI must be in the same Amazon Web Services Region as the API endpoint that you are calling. </p>
    */
   TestS3Uri?: string;
 
@@ -2596,14 +2595,14 @@ export interface DocumentClassifierInputDataConfig {
   /**
    * @public
    * <p>The type of input documents for training the model. Provide plain-text documents to create a plain-text model, and
-   *     provide semi-structured documents to create a native model.</p>
+   *     provide semi-structured documents to create a native document model.</p>
    */
-  DocumentType?: DocumentClassifierDocumentTypeFormat | string;
+  DocumentType?: DocumentClassifierDocumentTypeFormat;
 
   /**
    * @public
    * <p>The S3 location of the training documents.
-   *       This parameter is required in a request to create a native classifier model.</p>
+   *       This parameter is required in a request to create a native document model.</p>
    */
   Documents?: DocumentClassifierDocuments;
 
@@ -2654,7 +2653,7 @@ export type DocumentClassifierMode = (typeof DocumentClassifierMode)[keyof typeo
 /**
  * @public
  * <p>Provide the location for output data from a custom classifier job. This field is mandatory
- *     if you are training a native classifier model.</p>
+ *       if you are training a native document model.</p>
  */
 export interface DocumentClassifierOutputDataConfig {
   /**
@@ -2776,7 +2775,7 @@ export interface CreateDocumentClassifierRequest {
   /**
    * @public
    * <p>Specifies the location for the output files from a custom classifier job.
-   *     This parameter is required for a request that creates a native classifier model.</p>
+   *       This parameter is required for a request that creates a native document model.</p>
    */
   OutputDataConfig?: DocumentClassifierOutputDataConfig;
 
@@ -2792,7 +2791,7 @@ export interface CreateDocumentClassifierRequest {
    * <p>The language of the input documents. You can specify any of the languages
    *       supported by Amazon Comprehend. All documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 
   /**
    * @public
@@ -2824,12 +2823,13 @@ export interface CreateDocumentClassifierRequest {
   /**
    * @public
    * <p>Indicates the mode in which the classifier will be trained. The classifier can be trained
-   *       in multi-class mode, which identifies one and only one class for each document, or multi-label
-   *       mode, which identifies one or more labels for each document. In multi-label mode, multiple
+   *       in multi-class (single-label) mode or multi-label mode.
+   *       Multi-class mode identifies a single class label for each document and
+   *       multi-label mode identifies one or more class labels for each document. Multiple
    *       labels for an individual document are separated by a delimiter. The default delimiter between
    *       labels is a pipe (|).</p>
    */
-  Mode?: DocumentClassifierMode | string;
+  Mode?: DocumentClassifierMode;
 
   /**
    * @public
@@ -3042,7 +3042,7 @@ export interface EntityRecognizerDocuments {
    *       scientific papers. ONE_DOC_PER_LINE - Each line in a file is considered a separate document.
    *       Use this option when you are processing many short documents, such as text messages.</p>
    */
-  InputFormat?: InputFormat | string;
+  InputFormat?: InputFormat;
 }
 
 /**
@@ -3070,7 +3070,7 @@ export interface EntityTypesListItem {
    *       custom entity recognizer.</p>
    *          <p>Entity types must not contain the following invalid characters: \n (line break), \\n
    *       (escaped line break, \r (carriage return), \\r (escaped carriage return), \t (tab), \\t
-   *       (escaped tab), space, and , (comma).</p>
+   *       (escaped tab), and , (comma).</p>
    */
   Type: string | undefined;
 }
@@ -3107,7 +3107,7 @@ export interface EntityRecognizerInputDataConfig {
    *          <p>If you don't specify a value, Amazon Comprehend uses <code>COMPREHEND_CSV</code> as the
    *       default.</p>
    */
-  DataFormat?: EntityRecognizerDataFormat | string;
+  DataFormat?: EntityRecognizerDataFormat;
 
   /**
    * @public
@@ -3211,7 +3211,7 @@ export interface CreateEntityRecognizerRequest {
    *       specify English as the language.
    *       All training documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 
   /**
    * @public
@@ -3350,14 +3350,14 @@ export type ModelType = (typeof ModelType)[keyof typeof ModelType];
 
 /**
  * @public
- * <p>Configuration required for a custom classification model.</p>
+ * <p>Configuration required for a document classification model.</p>
  */
 export interface DocumentClassificationConfig {
   /**
    * @public
    * <p>Classification mode indicates whether the documents are <code>MULTI_CLASS</code> or <code>MULTI_LABEL</code>.</p>
    */
-  Mode: DocumentClassifierMode | string | undefined;
+  Mode: DocumentClassifierMode | undefined;
 
   /**
    * @public
@@ -3380,18 +3380,18 @@ export interface EntityRecognitionConfig {
 
 /**
  * @public
- * <p>Configuration about the custom classifier associated with the flywheel.</p>
+ * <p>Configuration about the model associated with a flywheel.</p>
  */
 export interface TaskConfig {
   /**
    * @public
    * <p>Language code for the language that the model supports.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 
   /**
    * @public
-   * <p>Configuration required for a classification model.</p>
+   * <p>Configuration required for a document classification model.</p>
    */
   DocumentClassificationConfig?: DocumentClassificationConfig;
 
@@ -3414,7 +3414,8 @@ export interface CreateFlywheelRequest {
 
   /**
    * @public
-   * <p>To associate an existing model with the flywheel, specify the Amazon Resource Number (ARN) of the model version.</p>
+   * <p>To associate an existing model with the flywheel, specify the Amazon Resource Number (ARN) of the model version.
+   *       Do not set <code>TaskConfig</code> or <code>ModelType</code> if you specify an <code>ActiveModelArn</code>.</p>
    */
   ActiveModelArn?: string;
 
@@ -3427,15 +3428,16 @@ export interface CreateFlywheelRequest {
 
   /**
    * @public
-   * <p>Configuration about the custom classifier associated with the flywheel.</p>
+   * <p>Configuration about the model associated with the flywheel.
+   *       You need to set <code>TaskConfig</code> if you are creating a flywheel for a new model.</p>
    */
   TaskConfig?: TaskConfig;
 
   /**
    * @public
-   * <p>The model type.</p>
+   * <p>The model type. You need to set <code>ModelType</code> if you are creating a flywheel for a new model.</p>
    */
-  ModelType?: ModelType | string;
+  ModelType?: ModelType;
 
   /**
    * @public
@@ -3614,7 +3616,7 @@ export interface DatasetProperties {
    * @public
    * <p>The dataset type (training data or test data).</p>
    */
-  DatasetType?: DatasetType | string;
+  DatasetType?: DatasetType;
 
   /**
    * @public
@@ -3633,7 +3635,7 @@ export interface DatasetProperties {
    * <p>The dataset status. While the system creates the dataset, the status is <code>CREATING</code>.
    *       When the dataset is ready to use, the status changes to <code>COMPLETED</code>. </p>
    */
-  Status?: DatasetStatus | string;
+  Status?: DatasetStatus;
 
   /**
    * @public
@@ -3718,7 +3720,7 @@ export interface InputDataConfig {
    *             </li>
    *          </ul>
    */
-  InputFormat?: InputFormat | string;
+  InputFormat?: InputFormat;
 
   /**
    * @public
@@ -3772,7 +3774,9 @@ export interface OutputDataConfig {
   /**
    * @public
    * <p>ID for the Amazon Web Services Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the
-   *       output results from an analysis job. The KmsKeyId can be one of the following formats:</p>
+   *       output results from an analysis job. Specify the Key Id of a symmetric key, because you cannot use an asymmetric
+   *        key for uploading data to S3.</p>
+   *          <p>The KmsKeyId can be one of the following formats:</p>
    *          <ul>
    *             <li>
    *                <p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
@@ -3834,7 +3838,7 @@ export interface DocumentClassificationJobProperties {
    * <p>The current status of the document classification job. If the status is
    *         <code>FAILED</code>, the <code>Message</code> field shows the reason for the failure.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -3903,7 +3907,7 @@ export interface DocumentClassificationJobProperties {
   /**
    * @public
    * <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the
-   *       resources you are using for your document classification job. For more information, see <a href="https://docs.aws.amazon.com/vppc/latest/userguide/what-is-amazon-vpc.html">Amazon
+   *       resources you are using for your document classification job. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
    *         VPC</a>. </p>
    */
   VpcConfig?: VpcConfig;
@@ -3997,7 +4001,7 @@ export interface DocumentClassifierProperties {
    * <p>The language code for the language of the documents that the classifier was trained
    *       on.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -4008,7 +4012,7 @@ export interface DocumentClassifierProperties {
    *          <p>  If the status is <code>FAILED</code> you can see additional
    *       information about why the classifier wasn't trained in the <code>Message</code> field.</p>
    */
-  Status?: ModelStatus | string;
+  Status?: ModelStatus;
 
   /**
    * @public
@@ -4093,7 +4097,7 @@ export interface DocumentClassifierProperties {
   /**
    * @public
    * <p> Configuration parameters for a private Virtual Private Cloud (VPC) containing the
-   *       resources you are using for your custom classifier. For more information, see <a href="https://docs.aws.amazon.com/vppc/latest/userguide/what-is-amazon-vpc.html">Amazon
+   *       resources you are using for your custom classifier. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon
    *         VPC</a>. </p>
    */
   VpcConfig?: VpcConfig;
@@ -4104,7 +4108,7 @@ export interface DocumentClassifierProperties {
    *       format of input documents and the format of the confusion matrix. Each classifier can only be
    *       trained in one mode and this cannot be changed once the classifier is trained.</p>
    */
-  Mode?: DocumentClassifierMode | string;
+  Mode?: DocumentClassifierMode;
 
   /**
    * @public
@@ -4204,7 +4208,7 @@ export interface DominantLanguageDetectionJobProperties {
    * <p>The current status of the dominant language detection job. If the status is
    *         <code>FAILED</code>, the <code>Message</code> field shows the reason for the failure.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -4332,7 +4336,7 @@ export interface EndpointProperties {
    *       asynchronous, so customers will need to wait for the endpoint to be <code>Ready</code> status
    *       before making inference requests.</p>
    */
-  Status?: EndpointStatus | string;
+  Status?: EndpointStatus;
 
   /**
    * @public
@@ -4461,7 +4465,7 @@ export interface EntitiesDetectionJobProperties {
    * <p>The current status of the entities detection job. If the status is <code>FAILED</code>,
    *       the <code>Message</code> field shows the reason for the failure.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -4505,7 +4509,7 @@ export interface EntitiesDetectionJobProperties {
    * @public
    * <p>The language code of the input documents.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -4720,13 +4724,13 @@ export interface EntityRecognizerProperties {
    * <p> The language of the input documents. All documents must be in the same language. Only
    *       English ("en") is currently supported.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
    * <p>Provides the status of the entity recognizer.</p>
    */
-  Status?: ModelStatus | string;
+  Status?: ModelStatus;
 
   /**
    * @public
@@ -4906,7 +4910,7 @@ export interface EventsDetectionJobProperties {
    * @public
    * <p>The current status of the events detection job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -4944,7 +4948,7 @@ export interface EventsDetectionJobProperties {
    * @public
    * <p>The language code of the input documents.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -5025,7 +5029,7 @@ export interface FlywheelProperties {
 
   /**
    * @public
-   * <p>Configuration about the custom classifier associated with the flywheel.</p>
+   * <p>Configuration about the model associated with a flywheel.</p>
    */
   TaskConfig?: TaskConfig;
 
@@ -5045,13 +5049,13 @@ export interface FlywheelProperties {
    * @public
    * <p>The status of the flywheel.</p>
    */
-  Status?: FlywheelStatus | string;
+  Status?: FlywheelStatus;
 
   /**
    * @public
    * <p>Model type of the flywheel's model.</p>
    */
-  ModelType?: ModelType | string;
+  ModelType?: ModelType;
 
   /**
    * @public
@@ -5187,7 +5191,7 @@ export interface FlywheelIterationProperties {
    * @public
    * <p>The status of the flywheel iteration.</p>
    */
-  Status?: FlywheelIterationStatus | string;
+  Status?: FlywheelIterationStatus;
 
   /**
    * @public
@@ -5287,7 +5291,7 @@ export interface KeyPhrasesDetectionJobProperties {
    * <p>The current status of the key phrases detection job. If the status is <code>FAILED</code>,
    *       the <code>Message</code> field shows the reason for the failure.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -5325,7 +5329,7 @@ export interface KeyPhrasesDetectionJobProperties {
    * @public
    * <p>The language code of the input documents.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -5449,14 +5453,14 @@ export interface RedactionConfig {
    * <p>An array of the types of PII entities that Amazon Comprehend detects in the input text for
    *       your request.</p>
    */
-  PiiEntityTypes?: (PiiEntityType | string)[];
+  PiiEntityTypes?: PiiEntityType[];
 
   /**
    * @public
    * <p>Specifies whether the PII entity is redacted with the mask character or the entity
    *       type.</p>
    */
-  MaskMode?: PiiEntitiesDetectionMaskMode | string;
+  MaskMode?: PiiEntitiesDetectionMaskMode;
 
   /**
    * @public
@@ -5502,7 +5506,7 @@ export interface PiiEntitiesDetectionJobProperties {
    * <p>The current status of the PII entities detection job. If the status is
    *       <code>FAILED</code>, the <code>Message</code> field shows the reason for the failure.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -5548,7 +5552,7 @@ export interface PiiEntitiesDetectionJobProperties {
    * @public
    * <p>The language code of the input documents</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -5562,7 +5566,7 @@ export interface PiiEntitiesDetectionJobProperties {
    * <p>Specifies whether the output provides the locations (offsets) of PII entities or a file in
    *       which PII entities are redacted.</p>
    */
-  Mode?: PiiEntitiesDetectionMode | string;
+  Mode?: PiiEntitiesDetectionMode;
 }
 
 /**
@@ -5666,7 +5670,7 @@ export interface SentimentDetectionJobProperties {
    * <p>The current status of the sentiment detection job. If the status is <code>FAILED</code>,
    *       the <code>Messages</code> field shows the reason for the failure.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -5704,7 +5708,7 @@ export interface SentimentDetectionJobProperties {
    * @public
    * <p>The language code of the input documents.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -5802,7 +5806,7 @@ export interface TargetedSentimentDetectionJobProperties {
    * <p>The current status of the targeted sentiment detection job. If the status is <code>FAILED</code>,
    *       the <code>Messages</code> field shows the reason for the failure.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -5840,7 +5844,7 @@ export interface TargetedSentimentDetectionJobProperties {
    * @public
    * <p>The language code of the input documents.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -5936,7 +5940,7 @@ export interface TopicsDetectionJobProperties {
    * <p>The current status of the topic detection job. If the status is <code>Failed</code>,
    *       the reason for the failure is shown in the <code>Message</code> field.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -6070,7 +6074,7 @@ export interface DetectEntitiesRequest {
    *       specify here.</p>
    *          <p>All input documents must be in the same language.</p>
    */
-  LanguageCode?: LanguageCode | string;
+  LanguageCode?: LanguageCode;
 
   /**
    * @public
@@ -6177,7 +6181,7 @@ export interface DetectKeyPhrasesRequest {
    * <p>The language of the input documents. You can specify any of the primary languages
    *       supported by Amazon Comprehend. All documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 }
 
 /**
@@ -6208,7 +6212,7 @@ export interface DetectPiiEntitiesRequest {
    * @public
    * <p>The language of the input documents. Currently, English is the only valid language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 }
 
 /**
@@ -6227,7 +6231,7 @@ export interface PiiEntity {
    * @public
    * <p>The entity's type.</p>
    */
-  Type?: PiiEntityType | string;
+  Type?: PiiEntityType;
 
   /**
    * @public
@@ -6272,7 +6276,7 @@ export interface DetectSentimentRequest {
    * <p>The language of the input documents. You can specify any of the primary languages
    *       supported by Amazon Comprehend. All documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 }
 
 /**
@@ -6284,7 +6288,7 @@ export interface DetectSentimentResponse {
    * <p>The inferred sentiment that Amazon Comprehend has the highest level of confidence
    *       in.</p>
    */
-  Sentiment?: SentimentType | string;
+  Sentiment?: SentimentType;
 
   /**
    * @public
@@ -6310,7 +6314,7 @@ export interface DetectSyntaxRequest {
    *       supported by Amazon Comprehend: German ("de"), English ("en"), Spanish ("es"), French ("fr"),
    *       Italian ("it"), or Portuguese ("pt").</p>
    */
-  LanguageCode: SyntaxLanguageCode | string | undefined;
+  LanguageCode: SyntaxLanguageCode | undefined;
 }
 
 /**
@@ -6342,7 +6346,7 @@ export interface DetectTargetedSentimentRequest {
    * @public
    * <p>The language of the input documents. Currently, English is the only supported language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 }
 
 /**
@@ -6354,6 +6358,108 @@ export interface DetectTargetedSentimentResponse {
    * <p>Targeted sentiment analysis for each of the entities identified in the input text.</p>
    */
   Entities?: TargetedSentimentEntity[];
+}
+
+/**
+ * @public
+ * <p>One of the of text strings. Each string has a size limit of 1KB.</p>
+ */
+export interface TextSegment {
+  /**
+   * @public
+   * <p>The text content.</p>
+   */
+  Text: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DetectToxicContentRequest {
+  /**
+   * @public
+   * <p>A list of up to 10 text strings. Each string has a maximum size of 1 KB, and
+   *       the maximum size of the list is 10 KB.</p>
+   */
+  TextSegments: TextSegment[] | undefined;
+
+  /**
+   * @public
+   * <p>The language of the input text. Currently, English is the only supported language.</p>
+   */
+  LanguageCode: LanguageCode | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ToxicContentType = {
+  GRAPHIC: "GRAPHIC",
+  HARASSMENT_OR_ABUSE: "HARASSMENT_OR_ABUSE",
+  HATE_SPEECH: "HATE_SPEECH",
+  INSULT: "INSULT",
+  PROFANITY: "PROFANITY",
+  SEXUAL: "SEXUAL",
+  VIOLENCE_OR_THREAT: "VIOLENCE_OR_THREAT",
+} as const;
+
+/**
+ * @public
+ */
+export type ToxicContentType = (typeof ToxicContentType)[keyof typeof ToxicContentType];
+
+/**
+ * @public
+ * <p>Toxic content analysis result for one string. For more information about toxicity detection, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/toxicity-detection.html">Toxicity detection</a> in the <i>Amazon Comprehend Developer Guide</i>
+ *          </p>
+ */
+export interface ToxicContent {
+  /**
+   * @public
+   * <p>The name of the toxic content type.</p>
+   */
+  Name?: ToxicContentType;
+
+  /**
+   * @public
+   * <p>
+   *       Model confidence in the detected content type. Value range is zero to one, where one is highest confidence.</p>
+   */
+  Score?: number;
+}
+
+/**
+ * @public
+ * <p>Toxicity analysis result for one string. For more information about toxicity detection, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/toxicity-detection.html">Toxicity detection</a> in the <i>Amazon Comprehend Developer Guide</i>.</p>
+ */
+export interface ToxicLabels {
+  /**
+   * @public
+   * <p>Array of toxic content types identified in the string.</p>
+   */
+  Labels?: ToxicContent[];
+
+  /**
+   * @public
+   * <p>Overall toxicity score for the string. Value range is zero to one, where one is the highest confidence.</p>
+   */
+  Toxicity?: number;
+}
+
+/**
+ * @public
+ */
+export interface DetectToxicContentResponse {
+  /**
+   * @public
+   * <p>Results of the content moderation analysis.
+   *       Each entry in the results list contains a list of toxic content types identified in
+   *       the text, along with a confidence score for each content type.
+   *       The results list also includes a toxicity score for each entry in the results list.
+   *     </p>
+   */
+  ResultList?: ToxicLabels[];
 }
 
 /**
@@ -6461,13 +6567,13 @@ export interface DatasetFilter {
    * @public
    * <p>Filter the datasets based on the dataset status.</p>
    */
-  Status?: DatasetStatus | string;
+  Status?: DatasetStatus;
 
   /**
    * @public
    * <p>Filter the datasets based on the dataset type.</p>
    */
-  DatasetType?: DatasetType | string;
+  DatasetType?: DatasetType;
 
   /**
    * @public
@@ -6545,7 +6651,7 @@ export interface DocumentClassificationJobFilter {
    * @public
    * <p>Filters the list based on job status. Returns only jobs with the specified status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -6616,7 +6722,7 @@ export interface DocumentClassifierFilter {
    * @public
    * <p>Filters the list of classifiers based on status.</p>
    */
-  Status?: ModelStatus | string;
+  Status?: ModelStatus;
 
   /**
    * @public
@@ -6732,7 +6838,7 @@ export interface DocumentClassifierSummary {
    * @public
    * <p>Provides the status of the latest document classifier version.</p>
    */
-  LatestVersionStatus?: ModelStatus | string;
+  LatestVersionStatus?: ModelStatus;
 }
 
 /**
@@ -6770,7 +6876,7 @@ export interface DominantLanguageDetectionJobFilter {
    * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
    *       status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -6848,7 +6954,7 @@ export interface EndpointFilter {
    * <p>Specifies the status of the endpoint being returned. Possible values are: Creating, Ready,
    *       Updating, Deleting, Failed.</p>
    */
-  Status?: EndpointStatus | string;
+  Status?: EndpointStatus;
 
   /**
    * @public
@@ -6923,7 +7029,7 @@ export interface EntitiesDetectionJobFilter {
    * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
    *       status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -6994,7 +7100,7 @@ export interface EntityRecognizerFilter {
    * @public
    * <p>The status of an entity recognizer.</p>
    */
-  Status?: ModelStatus | string;
+  Status?: ModelStatus;
 
   /**
    * @public
@@ -7111,7 +7217,7 @@ export interface EntityRecognizerSummary {
    * @public
    * <p> Provides the status of the latest entity recognizer version.</p>
    */
-  LatestVersionStatus?: ModelStatus | string;
+  LatestVersionStatus?: ModelStatus;
 }
 
 /**
@@ -7147,7 +7253,7 @@ export interface EventsDetectionJobFilter {
    * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
    *       status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -7280,7 +7386,7 @@ export interface FlywheelFilter {
    * @public
    * <p>Filter the flywheels based on the flywheel status.</p>
    */
-  Status?: FlywheelStatus | string;
+  Status?: FlywheelStatus;
 
   /**
    * @public
@@ -7347,13 +7453,13 @@ export interface FlywheelSummary {
    * @public
    * <p>The status of the flywheel.</p>
    */
-  Status?: FlywheelStatus | string;
+  Status?: FlywheelStatus;
 
   /**
    * @public
    * <p>Model type of the flywheel's model.</p>
    */
-  ModelType?: ModelType | string;
+  ModelType?: ModelType;
 
   /**
    * @public
@@ -7415,7 +7521,7 @@ export interface KeyPhrasesDetectionJobFilter {
    * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
    *       status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -7491,7 +7597,7 @@ export interface PiiEntitiesDetectionJobFilter {
    * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
    *       status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -7568,7 +7674,7 @@ export interface SentimentDetectionJobFilter {
    * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
    *       status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -7678,7 +7784,7 @@ export interface TargetedSentimentDetectionJobFilter {
    * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
    *       status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -7755,7 +7861,7 @@ export interface TopicsDetectionJobFilter {
    * <p>Filters the list of topic detection jobs based on job status. Returns only jobs with
    *       the specified status.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -8001,7 +8107,7 @@ export interface StartDocumentClassificationJobResponse {
    *             </li>
    *          </ul>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -8126,7 +8232,7 @@ export interface StartDominantLanguageDetectionJobResponse {
    *             </li>
    *          </ul>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 }
 
 /**
@@ -8173,7 +8279,7 @@ export interface StartEntitiesDetectionJobRequest {
    *       used, this parameter is ignored and the language used for training the model is used
    *       instead.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 
   /**
    * @public
@@ -8275,7 +8381,7 @@ export interface StartEntitiesDetectionJobResponse {
    *             </li>
    *          </ul>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 
   /**
    * @public
@@ -8317,7 +8423,7 @@ export interface StartEventsDetectionJobRequest {
    * @public
    * <p>The language code of the input documents.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 
   /**
    * @public
@@ -8371,7 +8477,7 @@ export interface StartEventsDetectionJobResponse {
    * @public
    * <p>The status of the events detection job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 }
 
 /**
@@ -8443,7 +8549,7 @@ export interface StartKeyPhrasesDetectionJobRequest {
    * <p>The language of the input documents. You can specify any of the primary languages
    *       supported by Amazon Comprehend. All documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 
   /**
    * @public
@@ -8533,7 +8639,7 @@ export interface StartKeyPhrasesDetectionJobResponse {
    *             </li>
    *          </ul>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 }
 
 /**
@@ -8557,7 +8663,7 @@ export interface StartPiiEntitiesDetectionJobRequest {
    * <p>Specifies whether the output provides the locations (offsets) of PII entities or a file in
    *       which PII entities are redacted.</p>
    */
-  Mode: PiiEntitiesDetectionMode | string | undefined;
+  Mode: PiiEntitiesDetectionMode | undefined;
 
   /**
    * @public
@@ -8585,7 +8691,7 @@ export interface StartPiiEntitiesDetectionJobRequest {
    * @public
    * <p>The language of the input documents. Currently, English is the only valid language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 
   /**
    * @public
@@ -8632,7 +8738,7 @@ export interface StartPiiEntitiesDetectionJobResponse {
    * @public
    * <p>The status of the job.</p>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 }
 
 /**
@@ -8669,7 +8775,7 @@ export interface StartSentimentDetectionJobRequest {
    * <p>The language of the input documents. You can specify any of the primary languages
    *       supported by Amazon Comprehend. All documents must be in the same language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 
   /**
    * @public
@@ -8758,7 +8864,7 @@ export interface StartSentimentDetectionJobResponse {
    *             </li>
    *          </ul>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 }
 
 /**
@@ -8781,7 +8887,7 @@ export interface StartTargetedSentimentDetectionJobRequest {
   /**
    * @public
    * <p>The Amazon Resource Name (ARN) of the IAM role that
-   *       grants Amazon Comprehend read access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions.html#auth-role-permissions">Role-based permissions</a>.</p>
+   *       grants Amazon Comprehend read access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/security_iam_id-based-policy-examples.html#auth-role-permissions">Role-based permissions</a>.</p>
    */
   DataAccessRoleArn: string | undefined;
 
@@ -8795,7 +8901,7 @@ export interface StartTargetedSentimentDetectionJobRequest {
    * @public
    * <p>The language of the input documents. Currently, English is the only supported language.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  LanguageCode: LanguageCode | undefined;
 
   /**
    * @public
@@ -8885,7 +8991,7 @@ export interface StartTargetedSentimentDetectionJobResponse {
    *             </li>
    *          </ul>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 }
 
 /**
@@ -9014,7 +9120,7 @@ export interface StartTopicsDetectionJobResponse {
    *             </li>
    *          </ul>
    */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 }
 
 /**
@@ -9044,95 +9150,7 @@ export interface StopDominantLanguageDetectionJobResponse {
    *         <code>STOPPED</code> if the job was previously stopped with the
    *         <code>StopDominantLanguageDetectionJob</code> operation.</p>
    */
-  JobStatus?: JobStatus | string;
-}
-
-/**
- * @public
- */
-export interface StopEntitiesDetectionJobRequest {
-  /**
-   * @public
-   * <p>The identifier of the entities detection job to stop.</p>
-   */
-  JobId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopEntitiesDetectionJobResponse {
-  /**
-   * @public
-   * <p>The identifier of the entities detection job to stop.</p>
-   */
-  JobId?: string;
-
-  /**
-   * @public
-   * <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or
-   *         <code>STOPPED</code> if the job was previously stopped with the
-   *         <code>StopEntitiesDetectionJob</code> operation.</p>
-   */
-  JobStatus?: JobStatus | string;
-}
-
-/**
- * @public
- */
-export interface StopEventsDetectionJobRequest {
-  /**
-   * @public
-   * <p>The identifier of the events detection job to stop.</p>
-   */
-  JobId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopEventsDetectionJobResponse {
-  /**
-   * @public
-   * <p>The identifier of the events detection job to stop.</p>
-   */
-  JobId?: string;
-
-  /**
-   * @public
-   * <p>The status of the events detection job.</p>
-   */
-  JobStatus?: JobStatus | string;
-}
-
-/**
- * @public
- */
-export interface StopKeyPhrasesDetectionJobRequest {
-  /**
-   * @public
-   * <p>The identifier of the key phrases detection job to stop.</p>
-   */
-  JobId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StopKeyPhrasesDetectionJobResponse {
-  /**
-   * @public
-   * <p>The identifier of the key phrases detection job to stop.</p>
-   */
-  JobId?: string;
-
-  /**
-   * @public
-   * <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or
-   *         <code>STOPPED</code> if the job was previously stopped with the
-   *         <code>StopKeyPhrasesDetectionJob</code> operation.</p>
-   */
-  JobStatus?: JobStatus | string;
+  JobStatus?: JobStatus;
 }
 
 /**
@@ -9384,6 +9402,22 @@ export const DetectTargetedSentimentRequestFilterSensitiveLog = (obj: DetectTarg
  */
 export const DetectTargetedSentimentResponseFilterSensitiveLog = (obj: DetectTargetedSentimentResponse): any => ({
   ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TextSegmentFilterSensitiveLog = (obj: TextSegment): any => ({
+  ...obj,
+  ...(obj.Text && { Text: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DetectToxicContentRequestFilterSensitiveLog = (obj: DetectToxicContentRequest): any => ({
+  ...obj,
+  ...(obj.TextSegments && { TextSegments: SENSITIVE_STRING }),
 });
 
 /**

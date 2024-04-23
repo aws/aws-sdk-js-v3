@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { RunTaskRequest, RunTaskResponse } from "../models/models_0";
 import { de_RunTaskCommand, se_RunTaskCommand } from "../protocols/Aws_json1_1";
 
@@ -45,6 +37,8 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  *          <note>
  *             <p>Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service. </p>
  *          </note>
+ *          <p>You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when creating or
+ * 			updating a service. For more infomation, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  *          <p>The Amazon ECS API follows an eventual consistency model. This is because of the
  * 			distributed nature of the system supporting the API. This means that the result of an
  * 			API command you run that affects your Amazon ECS resources might not be immediately visible
@@ -165,6 +159,38 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  *     },
  *   ],
  *   taskDefinition: "STRING_VALUE", // required
+ *   clientToken: "STRING_VALUE",
+ *   volumeConfigurations: [ // TaskVolumeConfigurations
+ *     { // TaskVolumeConfiguration
+ *       name: "STRING_VALUE", // required
+ *       managedEBSVolume: { // TaskManagedEBSVolumeConfiguration
+ *         encrypted: true || false,
+ *         kmsKeyId: "STRING_VALUE",
+ *         volumeType: "STRING_VALUE",
+ *         sizeInGiB: Number("int"),
+ *         snapshotId: "STRING_VALUE",
+ *         iops: Number("int"),
+ *         throughput: Number("int"),
+ *         tagSpecifications: [ // EBSTagSpecifications
+ *           { // EBSTagSpecification
+ *             resourceType: "volume", // required
+ *             tags: [
+ *               {
+ *                 key: "STRING_VALUE",
+ *                 value: "STRING_VALUE",
+ *               },
+ *             ],
+ *             propagateTags: "TASK_DEFINITION" || "SERVICE" || "NONE",
+ *           },
+ *         ],
+ *         roleArn: "STRING_VALUE", // required
+ *         terminationPolicy: { // TaskManagedEBSVolumeTerminationPolicy
+ *           deleteOnTermination: true || false, // required
+ *         },
+ *         filesystemType: "ext3" || "ext4" || "xfs",
+ *       },
+ *     },
+ *   ],
  * };
  * const command = new RunTaskCommand(input);
  * const response = await client.send(command);
@@ -354,10 +380,26 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  * @throws {@link ClientException} (client fault)
  *  <p>These errors are usually caused by a client action. This client action might be using
  * 			an action or resource on behalf of a user that doesn't have permissions to use the
- * 			action or resource,. Or, it might be specifying an identifier that isn't valid.</p>
+ * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
  *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The <code>RunTask</code> request could not be processed due to conflicts. The provided
+ * 				<code>clientToken</code> is already in use with a different <code>RunTask</code>
+ * 			request. The <code>resourceIds</code> are the existing task ARNs which are already
+ * 			associated with the <code>clientToken</code>. </p>
+ *          <p>To fix this issue:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Run <code>RunTask</code> with a unique <code>clientToken</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Run <code>RunTask</code> with the <code>clientToken</code> and the original
+ * 					set of parameters</p>
+ *             </li>
+ *          </ul>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
@@ -392,13 +434,13 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  * {
  *   "tasks": [
  *     {
- *       "containerInstanceArn": "arn:aws:ecs:us-east-1:<aws_account_id>:container-instance/ffe3d344-77e2-476c-a4d0-bf560ad50acb",
+ *       "containerInstanceArn": "arn:aws:ecs:us-east-1:<aws_account_id>:container-instance/default/ffe3d344-77e2-476c-a4d0-bf560ad50acb",
  *       "containers": [
  *         {
  *           "name": "sleep",
- *           "containerArn": "arn:aws:ecs:us-east-1:<aws_account_id>:container/58591c8e-be29-4ddf-95aa-ee459d4c59fd",
+ *           "containerArn": "arn:aws:ecs:us-east-1:<aws_account_id>:container/default/58591c8e-be29-4ddf-95aa-ee459d4c59fd",
  *           "lastStatus": "PENDING",
- *           "taskArn": "arn:aws:ecs:us-east-1:<aws_account_id>:task/a9f21ea7-c9f5-44b1-b8e6-b31f50ed33c0"
+ *           "taskArn": "arn:aws:ecs:us-east-1:<aws_account_id>:task/default/a9f21ea7-c9f5-44b1-b8e6-b31f50ed33c0"
  *         }
  *       ],
  *       "desiredStatus": "RUNNING",
@@ -410,7 +452,7 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  *           }
  *         ]
  *       },
- *       "taskArn": "arn:aws:ecs:us-east-1:<aws_account_id>:task/a9f21ea7-c9f5-44b1-b8e6-b31f50ed33c0",
+ *       "taskArn": "arn:aws:ecs:us-east-1:<aws_account_id>:task/default/a9f21ea7-c9f5-44b1-b8e6-b31f50ed33c0",
  *       "taskDefinitionArn": "arn:aws:ecs:us-east-1:<aws_account_id>:task-definition/sleep360:1"
  *     }
  *   ]
@@ -420,73 +462,26 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  * ```
  *
  */
-export class RunTaskCommand extends $Command<RunTaskCommandInput, RunTaskCommandOutput, ECSClientResolvedConfig> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: RunTaskCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: ECSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<RunTaskCommandInput, RunTaskCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, RunTaskCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "ECSClient";
-    const commandName = "RunTaskCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: RunTaskCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_RunTaskCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RunTaskCommandOutput> {
-    return de_RunTaskCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class RunTaskCommand extends $Command
+  .classBuilder<
+    RunTaskCommandInput,
+    RunTaskCommandOutput,
+    ECSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonEC2ContainerServiceV20141113", "RunTask", {})
+  .n("ECSClient", "RunTaskCommand")
+  .f(void 0, void 0)
+  .ser(se_RunTaskCommand)
+  .de(de_RunTaskCommand)
+  .build() {}

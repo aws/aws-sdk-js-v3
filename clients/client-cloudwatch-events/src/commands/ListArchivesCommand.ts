@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListArchivesRequest, ListArchivesResponse } from "../models/models_0";
 import { de_ListArchivesCommand, se_ListArchivesCommand } from "../protocols/Aws_json1_1";
 
@@ -47,7 +39,7 @@ export interface ListArchivesCommandOutput extends ListArchivesResponse, __Metad
  * const input = { // ListArchivesRequest
  *   NamePrefix: "STRING_VALUE",
  *   EventSourceArn: "STRING_VALUE",
- *   State: "STRING_VALUE",
+ *   State: "ENABLED" || "DISABLED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED",
  *   NextToken: "STRING_VALUE",
  *   Limit: Number("int"),
  * };
@@ -58,7 +50,7 @@ export interface ListArchivesCommandOutput extends ListArchivesResponse, __Metad
  * //     { // Archive
  * //       ArchiveName: "STRING_VALUE",
  * //       EventSourceArn: "STRING_VALUE",
- * //       State: "STRING_VALUE",
+ * //       State: "ENABLED" || "DISABLED" || "CREATING" || "UPDATING" || "CREATE_FAILED" || "UPDATE_FAILED",
  * //       StateReason: "STRING_VALUE",
  * //       RetentionDays: Number("int"),
  * //       SizeBytes: Number("long"),
@@ -87,77 +79,26 @@ export interface ListArchivesCommandOutput extends ListArchivesResponse, __Metad
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
  */
-export class ListArchivesCommand extends $Command<
-  ListArchivesCommandInput,
-  ListArchivesCommandOutput,
-  CloudWatchEventsClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListArchivesCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CloudWatchEventsClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListArchivesCommandInput, ListArchivesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListArchivesCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CloudWatchEventsClient";
-    const commandName = "ListArchivesCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListArchivesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListArchivesCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListArchivesCommandOutput> {
-    return de_ListArchivesCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListArchivesCommand extends $Command
+  .classBuilder<
+    ListArchivesCommandInput,
+    ListArchivesCommandOutput,
+    CloudWatchEventsClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CloudWatchEventsClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSEvents", "ListArchives", {})
+  .n("CloudWatchEventsClient", "ListArchivesCommand")
+  .f(void 0, void 0)
+  .ser(se_ListArchivesCommand)
+  .de(de_ListArchivesCommand)
+  .build() {}

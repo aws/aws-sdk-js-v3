@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
 import { CreateDecoderManifestRequest, CreateDecoderManifestResponse } from "../models/models_0";
 import { de_CreateDecoderManifestCommand, se_CreateDecoderManifestCommand } from "../protocols/Aws_json1_0";
@@ -38,18 +30,18 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  * @public
  * <p>Creates the decoder manifest associated with a model manifest. To create a decoder
  *             manifest, the following must be true:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>Every signal decoder has a unique name.</p>
+ *                <p>Every signal decoder has a unique name.</p>
  *             </li>
  *             <li>
- *                 <p>Each signal decoder is associated with a network interface.</p>
+ *                <p>Each signal decoder is associated with a network interface.</p>
  *             </li>
  *             <li>
- *                 <p>Each network interface has a unique ID.</p>
+ *                <p>Each network interface has a unique ID.</p>
  *             </li>
  *             <li>
- *                 <p>The signal decoders are specified in the model manifest.</p>
+ *                <p>The signal decoders are specified in the model manifest.</p>
  *             </li>
  *          </ul>
  * @example
@@ -65,7 +57,7 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  *   signalDecoders: [ // SignalDecoders
  *     { // SignalDecoder
  *       fullyQualifiedName: "STRING_VALUE", // required
- *       type: "STRING_VALUE", // required
+ *       type: "CAN_SIGNAL" || "OBD_SIGNAL" || "MESSAGE_SIGNAL", // required
  *       interfaceId: "STRING_VALUE", // required
  *       canSignal: { // CanSignal
  *         messageId: Number("int"), // required
@@ -88,12 +80,58 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  *         bitRightShift: Number("int"),
  *         bitMaskLength: Number("int"),
  *       },
+ *       messageSignal: { // MessageSignal
+ *         topicName: "STRING_VALUE", // required
+ *         structuredMessage: { // StructuredMessage Union: only one key present
+ *           primitiveMessageDefinition: { // PrimitiveMessageDefinition Union: only one key present
+ *             ros2PrimitiveMessageDefinition: { // ROS2PrimitiveMessageDefinition
+ *               primitiveType: "BOOL" || "BYTE" || "CHAR" || "FLOAT32" || "FLOAT64" || "INT8" || "UINT8" || "INT16" || "UINT16" || "INT32" || "UINT32" || "INT64" || "UINT64" || "STRING" || "WSTRING", // required
+ *               offset: Number("double"),
+ *               scaling: Number("double"),
+ *               upperBound: Number("long"),
+ *             },
+ *           },
+ *           structuredMessageListDefinition: { // StructuredMessageListDefinition
+ *             name: "STRING_VALUE", // required
+ *             memberType: {//  Union: only one key present
+ *               primitiveMessageDefinition: {//  Union: only one key present
+ *                 ros2PrimitiveMessageDefinition: {
+ *                   primitiveType: "BOOL" || "BYTE" || "CHAR" || "FLOAT32" || "FLOAT64" || "INT8" || "UINT8" || "INT16" || "UINT16" || "INT32" || "UINT32" || "INT64" || "UINT64" || "STRING" || "WSTRING", // required
+ *                   offset: Number("double"),
+ *                   scaling: Number("double"),
+ *                   upperBound: Number("long"),
+ *                 },
+ *               },
+ *               structuredMessageListDefinition: {
+ *                 name: "STRING_VALUE", // required
+ *                 memberType: "<StructuredMessage>", // required
+ *                 listType: "FIXED_CAPACITY" || "DYNAMIC_UNBOUNDED_CAPACITY" || "DYNAMIC_BOUNDED_CAPACITY", // required
+ *                 capacity: Number("int"),
+ *               },
+ *               structuredMessageDefinition: [ // StructuredMessageDefinition
+ *                 { // StructuredMessageFieldNameAndDataTypePair
+ *                   fieldName: "STRING_VALUE", // required
+ *                   dataType: "<StructuredMessage>", // required
+ *                 },
+ *               ],
+ *             },
+ *             listType: "FIXED_CAPACITY" || "DYNAMIC_UNBOUNDED_CAPACITY" || "DYNAMIC_BOUNDED_CAPACITY", // required
+ *             capacity: Number("int"),
+ *           },
+ *           structuredMessageDefinition: [
+ *             {
+ *               fieldName: "STRING_VALUE", // required
+ *               dataType: "<StructuredMessage>", // required
+ *             },
+ *           ],
+ *         },
+ *       },
  *     },
  *   ],
  *   networkInterfaces: [ // NetworkInterfaces
  *     { // NetworkInterface
  *       interfaceId: "STRING_VALUE", // required
- *       type: "STRING_VALUE", // required
+ *       type: "CAN_INTERFACE" || "OBD_INTERFACE" || "VEHICLE_MIDDLEWARE", // required
  *       canInterface: { // CanInterface
  *         name: "STRING_VALUE", // required
  *         protocolName: "STRING_VALUE",
@@ -107,6 +145,10 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  *         dtcRequestIntervalSeconds: Number("int"),
  *         useExtendedIds: true || false,
  *         hasTransmissionEcu: true || false,
+ *       },
+ *       vehicleMiddleware: { // VehicleMiddleware
+ *         name: "STRING_VALUE", // required
+ *         protocolName: "ROS_2", // required
  *       },
  *     },
  *   ],
@@ -161,79 +203,26 @@ export interface CreateDecoderManifestCommandOutput extends CreateDecoderManifes
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
  */
-export class CreateDecoderManifestCommand extends $Command<
-  CreateDecoderManifestCommandInput,
-  CreateDecoderManifestCommandOutput,
-  IoTFleetWiseClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateDecoderManifestCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: IoTFleetWiseClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateDecoderManifestCommandInput, CreateDecoderManifestCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateDecoderManifestCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "IoTFleetWiseClient";
-    const commandName = "CreateDecoderManifestCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateDecoderManifestCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateDecoderManifestCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDecoderManifestCommandOutput> {
-    return de_CreateDecoderManifestCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateDecoderManifestCommand extends $Command
+  .classBuilder<
+    CreateDecoderManifestCommandInput,
+    CreateDecoderManifestCommandOutput,
+    IoTFleetWiseClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("IoTAutobahnControlPlane", "CreateDecoderManifest", {})
+  .n("IoTFleetWiseClient", "CreateDecoderManifestCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateDecoderManifestCommand)
+  .de(de_CreateDecoderManifestCommand)
+  .build() {}

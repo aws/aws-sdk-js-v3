@@ -32,6 +32,18 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
+ * Agentless Dialer config
+ */
+export interface AgentlessDialerConfig {
+  /**
+   * @public
+   * Allocates dialing capacity for this campaign between multiple active campaigns
+   */
+  dialingCapacity?: number;
+}
+
+/**
+ * @public
  * The request could not be processed because of conflict in the current state of the resource.
  */
 export class ConflictException extends __BaseException {
@@ -67,6 +79,12 @@ export interface PredictiveDialerConfig {
    * The bandwidth allocation of a queue resource.
    */
   bandwidthAllocation: number | undefined;
+
+  /**
+   * @public
+   * Allocates dialing capacity for this campaign between multiple active campaigns
+   */
+  dialingCapacity?: number;
 }
 
 /**
@@ -79,6 +97,12 @@ export interface ProgressiveDialerConfig {
    * The bandwidth allocation of a queue resource.
    */
   bandwidthAllocation: number | undefined;
+
+  /**
+   * @public
+   * Allocates dialing capacity for this campaign between multiple active campaigns
+   */
+  dialingCapacity?: number;
 }
 
 /**
@@ -86,6 +110,7 @@ export interface ProgressiveDialerConfig {
  * The possible types of dialer config parameters
  */
 export type DialerConfig =
+  | DialerConfig.AgentlessDialerConfigMember
   | DialerConfig.PredictiveDialerConfigMember
   | DialerConfig.ProgressiveDialerConfigMember
   | DialerConfig.$UnknownMember;
@@ -101,6 +126,7 @@ export namespace DialerConfig {
   export interface ProgressiveDialerConfigMember {
     progressiveDialerConfig: ProgressiveDialerConfig;
     predictiveDialerConfig?: never;
+    agentlessDialerConfig?: never;
     $unknown?: never;
   }
 
@@ -111,6 +137,18 @@ export namespace DialerConfig {
   export interface PredictiveDialerConfigMember {
     progressiveDialerConfig?: never;
     predictiveDialerConfig: PredictiveDialerConfig;
+    agentlessDialerConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * Agentless Dialer config
+   */
+  export interface AgentlessDialerConfigMember {
+    progressiveDialerConfig?: never;
+    predictiveDialerConfig?: never;
+    agentlessDialerConfig: AgentlessDialerConfig;
     $unknown?: never;
   }
 
@@ -120,12 +158,14 @@ export namespace DialerConfig {
   export interface $UnknownMember {
     progressiveDialerConfig?: never;
     predictiveDialerConfig?: never;
+    agentlessDialerConfig?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     progressiveDialerConfig: (value: ProgressiveDialerConfig) => T;
     predictiveDialerConfig: (value: PredictiveDialerConfig) => T;
+    agentlessDialerConfig: (value: AgentlessDialerConfig) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -133,6 +173,7 @@ export namespace DialerConfig {
     if (value.progressiveDialerConfig !== undefined)
       return visitor.progressiveDialerConfig(value.progressiveDialerConfig);
     if (value.predictiveDialerConfig !== undefined) return visitor.predictiveDialerConfig(value.predictiveDialerConfig);
+    if (value.agentlessDialerConfig !== undefined) return visitor.agentlessDialerConfig(value.agentlessDialerConfig);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -170,7 +211,7 @@ export interface OutboundCallConfig {
    * @public
    * The queue for the call. If you specify a queue, the phone displayed for caller ID is the phone number specified in the queue. If you do not specify a queue, the queue defined in the contact flow is used. If you do not specify a queue, you must specify a source phone number.
    */
-  connectQueueId: string | undefined;
+  connectQueueId?: string;
 
   /**
    * @public
@@ -564,7 +605,7 @@ export interface GetCampaignStateResponse {
    * @public
    * State of a campaign
    */
-  state?: CampaignState | string;
+  state?: CampaignState;
 }
 
 /**
@@ -615,7 +656,7 @@ export interface FailedCampaignStateResponse {
    * @public
    * A predefined code indicating the error that caused the failure in getting state of campaigns
    */
-  failureCode?: GetCampaignStateBatchFailureCode | string;
+  failureCode?: GetCampaignStateBatchFailureCode;
 }
 
 /**
@@ -633,7 +674,7 @@ export interface SuccessfulCampaignStateResponse {
    * @public
    * State of a campaign
    */
-  state?: CampaignState | string;
+  state?: CampaignState;
 }
 
 /**
@@ -697,7 +738,7 @@ export interface EncryptionConfig {
    * @public
    * Server-side encryption type.
    */
-  encryptionType?: EncryptionType | string;
+  encryptionType?: EncryptionType;
 
   /**
    * @public
@@ -807,13 +848,13 @@ export interface InstanceOnboardingJobStatus {
    * @public
    * Enumeration of the possible states for instance onboarding job
    */
-  status: InstanceOnboardingJobStatusCode | string | undefined;
+  status: InstanceOnboardingJobStatusCode | undefined;
 
   /**
    * @public
    * Enumeration of the possible failure codes for instance onboarding job
    */
-  failureCode?: InstanceOnboardingJobFailureCode | string;
+  failureCode?: InstanceOnboardingJobFailureCode;
 }
 
 /**
@@ -859,7 +900,7 @@ export interface InstanceIdFilter {
    * @public
    * Operators for Connect instance identifier filter
    */
-  operator: InstanceIdFilterOperator | string | undefined;
+  operator: InstanceIdFilterOperator | undefined;
 }
 
 /**
@@ -981,7 +1022,7 @@ export class InvalidCampaignStateException extends __BaseException {
    * @public
    * State of a campaign
    */
-  state: CampaignState | string | undefined;
+  state: CampaignState | undefined;
 
   /**
    * @public
@@ -1109,7 +1150,7 @@ export interface FailedRequest {
    * @public
    * A predefined code indicating the error that caused the failure.
    */
-  failureCode?: FailureCode | string;
+  failureCode?: FailureCode;
 }
 
 /**

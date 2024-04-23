@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateRobotRequest, CreateRobotResponse } from "../models/models_0";
 import { de_CreateRobotCommand, se_CreateRobotCommand } from "../protocols/Aws_restJson1";
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient";
@@ -50,7 +42,7 @@ export interface CreateRobotCommandOutput extends CreateRobotResponse, __Metadat
  * const client = new RoboMakerClient(config);
  * const input = { // CreateRobotRequest
  *   name: "STRING_VALUE", // required
- *   architecture: "STRING_VALUE", // required
+ *   architecture: "X86_64" || "ARM64" || "ARMHF", // required
  *   greengrassGroupId: "STRING_VALUE", // required
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
@@ -63,7 +55,7 @@ export interface CreateRobotCommandOutput extends CreateRobotResponse, __Metadat
  * //   name: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"),
  * //   greengrassGroupId: "STRING_VALUE",
- * //   architecture: "STRING_VALUE",
+ * //   architecture: "X86_64" || "ARM64" || "ARMHF",
  * //   tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
@@ -98,77 +90,26 @@ export interface CreateRobotCommandOutput extends CreateRobotResponse, __Metadat
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
  */
-export class CreateRobotCommand extends $Command<
-  CreateRobotCommandInput,
-  CreateRobotCommandOutput,
-  RoboMakerClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateRobotCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RoboMakerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateRobotCommandInput, CreateRobotCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, CreateRobotCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RoboMakerClient";
-    const commandName = "CreateRobotCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateRobotCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateRobotCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRobotCommandOutput> {
-    return de_CreateRobotCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateRobotCommand extends $Command
+  .classBuilder<
+    CreateRobotCommandInput,
+    CreateRobotCommandOutput,
+    RoboMakerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: RoboMakerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("robomaker", "CreateRobot", {})
+  .n("RoboMakerClient", "CreateRobotCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateRobotCommand)
+  .de(de_CreateRobotCommand)
+  .build() {}

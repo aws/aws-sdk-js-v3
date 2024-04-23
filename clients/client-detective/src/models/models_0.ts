@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { DetectiveServiceException as __BaseException } from "./DetectiveServiceException";
 
@@ -44,7 +44,7 @@ export class AccessDeniedException extends __BaseException {
    * @public
    * <p>The SDK default error code associated with the access denied exception.</p>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: ErrorCode;
 
   /**
    * @public
@@ -56,7 +56,7 @@ export class AccessDeniedException extends __BaseException {
    * @public
    * <p>The error code associated with the access denied exception.</p>
    */
-  SubErrorCode?: ErrorCode | string;
+  SubErrorCode?: ErrorCode;
 
   /**
    * @public
@@ -159,7 +159,7 @@ export class ValidationException extends __BaseException {
    * @public
    * <p>The error code associated with the validation failure.</p>
    */
-  ErrorCode?: ErrorCode | string;
+  ErrorCode?: ErrorCode;
 
   /**
    * @public
@@ -313,7 +313,9 @@ export interface MembershipDatasources {
    * @public
    * <p>Details on when a data source package was added to a behavior graph.</p>
    */
-  DatasourcePackageIngestHistory?: Record<string, Record<string, TimestampForCollection>>;
+  DatasourcePackageIngestHistory?: Partial<
+    Record<DatasourcePackage, Partial<Record<DatasourcePackageIngestState, TimestampForCollection>>>
+  >;
 }
 
 /**
@@ -653,7 +655,7 @@ export interface MemberDetail {
    *          graph are not included. In the organization behavior graph, organization accounts that the
    *             Detective administrator account did not enable are not included.</p>
    */
-  Status?: MemberStatus | string;
+  Status?: MemberStatus;
 
   /**
    * @public
@@ -674,7 +676,7 @@ export interface MemberDetail {
    *             </li>
    *          </ul>
    */
-  DisabledReason?: MemberDisabledReason | string;
+  DisabledReason?: MemberDisabledReason;
 
   /**
    * @public
@@ -739,19 +741,19 @@ export interface MemberDetail {
    *          <p>For an account that was invited to a behavior graph, the type is
    *          <code>INVITATION</code>. </p>
    */
-  InvitationType?: InvitationType | string;
+  InvitationType?: InvitationType;
 
   /**
    * @public
    * <p>Details on the volume of usage for each data source package in a behavior graph.</p>
    */
-  VolumeUsageByDatasourcePackage?: Record<string, DatasourcePackageUsageInfo>;
+  VolumeUsageByDatasourcePackage?: Partial<Record<DatasourcePackage, DatasourcePackageUsageInfo>>;
 
   /**
    * @public
    * <p>The state of a data source package for the behavior graph.</p>
    */
-  DatasourcePackageIngestStates?: Record<string, DatasourcePackageIngestState | string>;
+  DatasourcePackageIngestStates?: Partial<Record<DatasourcePackage, DatasourcePackageIngestState>>;
 }
 
 /**
@@ -897,6 +899,148 @@ export interface EnableOrganizationAdminAccountRequest {
 /**
  * @public
  */
+export interface GetInvestigationRequest {
+  /**
+   * @public
+   * <p>The ARN of the behavior graph.</p>
+   */
+  GraphArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The investigation ID of the investigation report.</p>
+   */
+  InvestigationId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EntityType = {
+  IAM_ROLE: "IAM_ROLE",
+  IAM_USER: "IAM_USER",
+} as const;
+
+/**
+ * @public
+ */
+export type EntityType = (typeof EntityType)[keyof typeof EntityType];
+
+/**
+ * @public
+ * @enum
+ */
+export const Severity = {
+  CRITICAL: "CRITICAL",
+  HIGH: "HIGH",
+  INFORMATIONAL: "INFORMATIONAL",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+
+/**
+ * @public
+ */
+export type Severity = (typeof Severity)[keyof typeof Severity];
+
+/**
+ * @public
+ * @enum
+ */
+export const State = {
+  ACTIVE: "ACTIVE",
+  ARCHIVED: "ARCHIVED",
+} as const;
+
+/**
+ * @public
+ */
+export type State = (typeof State)[keyof typeof State];
+
+/**
+ * @public
+ * @enum
+ */
+export const Status = {
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  SUCCESSFUL: "SUCCESSFUL",
+} as const;
+
+/**
+ * @public
+ */
+export type Status = (typeof Status)[keyof typeof Status];
+
+/**
+ * @public
+ */
+export interface GetInvestigationResponse {
+  /**
+   * @public
+   * <p>The ARN of the behavior graph.</p>
+   */
+  GraphArn?: string;
+
+  /**
+   * @public
+   * <p>The investigation ID of the investigation report.</p>
+   */
+  InvestigationId?: string;
+
+  /**
+   * @public
+   * <p>The unique Amazon Resource Name (ARN) of the IAM user and IAM role.</p>
+   */
+  EntityArn?: string;
+
+  /**
+   * @public
+   * <p>Type of entity. For example, Amazon Web Services accounts, such as IAM user and role.</p>
+   */
+  EntityType?: EntityType;
+
+  /**
+   * @public
+   * <p>The UTC time stamp of the creation time of the investigation report.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * @public
+   * <p>The start date and time for the scope time set to generate the investigation report.</p>
+   */
+  ScopeStartTime?: Date;
+
+  /**
+   * @public
+   * <p>The data and time when the investigation began. The value is an UTC ISO8601 formatted string. For example, 2021-08-18T16:35:56.284Z.</p>
+   */
+  ScopeEndTime?: Date;
+
+  /**
+   * @public
+   * <p>Status based on the completion status of the investigation.</p>
+   */
+  Status?: Status;
+
+  /**
+   * @public
+   * <p>Severity based on the likelihood and impact of the indicators of compromise discovered in the investigation.</p>
+   */
+  Severity?: Severity;
+
+  /**
+   * @public
+   * <p>The current state of the investigation. An archived investigation indicates you have completed reviewing the investigation.</p>
+   */
+  State?: State;
+}
+
+/**
+ * @public
+ */
 export interface GetMembersRequest {
   /**
    * @public
@@ -969,13 +1113,13 @@ export interface DatasourcePackageIngestDetail {
    * @public
    * <p>Details on which data source packages are ingested for a member account.</p>
    */
-  DatasourcePackageIngestState?: DatasourcePackageIngestState | string;
+  DatasourcePackageIngestState?: DatasourcePackageIngestState;
 
   /**
    * @public
    * <p>The date a data source package was enabled for this account</p>
    */
-  LastIngestStateChange?: Record<string, TimestampForCollection>;
+  LastIngestStateChange?: Partial<Record<DatasourcePackageIngestState, TimestampForCollection>>;
 }
 
 /**
@@ -986,7 +1130,7 @@ export interface ListDatasourcePackagesResponse {
    * @public
    * <p>Details on the data source packages active in the behavior graph.</p>
    */
-  DatasourcePackages?: Record<string, DatasourcePackageIngestDetail>;
+  DatasourcePackages?: Partial<Record<DatasourcePackage, DatasourcePackageIngestDetail>>;
 
   /**
    * @public
@@ -1050,6 +1194,591 @@ export interface ListGraphsResponse {
    * @public
    * <p>If there are more behavior graphs remaining in the results, then this is the pagination
    *          token to use to request the next page of behavior graphs.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IndicatorType = {
+  FLAGGED_IP_ADDRESS: "FLAGGED_IP_ADDRESS",
+  IMPOSSIBLE_TRAVEL: "IMPOSSIBLE_TRAVEL",
+  NEW_ASO: "NEW_ASO",
+  NEW_GEOLOCATION: "NEW_GEOLOCATION",
+  NEW_USER_AGENT: "NEW_USER_AGENT",
+  RELATED_FINDING: "RELATED_FINDING",
+  RELATED_FINDING_GROUP: "RELATED_FINDING_GROUP",
+  TTP_OBSERVED: "TTP_OBSERVED",
+} as const;
+
+/**
+ * @public
+ */
+export type IndicatorType = (typeof IndicatorType)[keyof typeof IndicatorType];
+
+/**
+ * @public
+ */
+export interface ListIndicatorsRequest {
+  /**
+   * @public
+   * <p>The ARN of the behavior graph.</p>
+   */
+  GraphArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The investigation ID of the investigation report.</p>
+   */
+  InvestigationId: string | undefined;
+
+  /**
+   * @public
+   * <p>See <a href="https://docs.aws.amazon.com/detective/latest/userguide/detective-investigations.html">Detective investigations.</a>.</p>
+   */
+  IndicatorType?: IndicatorType;
+
+  /**
+   * @public
+   * <p>List if there are more results available. The value of nextToken is a unique pagination token for each page. Repeat the call using the returned token to retrieve the next page. Keep all other arguments unchanged.</p>
+   *          <p>Each pagination token expires after 24 hours. Using an expired pagination token will return a Validation Exception error.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>List the maximum number of indicators in a page.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Reason = {
+  AWS_THREAT_INTELLIGENCE: "AWS_THREAT_INTELLIGENCE",
+} as const;
+
+/**
+ * @public
+ */
+export type Reason = (typeof Reason)[keyof typeof Reason];
+
+/**
+ * @public
+ * <p>Contains information on suspicious IP addresses identified as indicators of compromise. This indicator is derived from Amazon Web Services threat intelligence.</p>
+ */
+export interface FlaggedIpAddressDetail {
+  /**
+   * @public
+   * <p>IP address of the suspicious entity.</p>
+   */
+  IpAddress?: string;
+
+  /**
+   * @public
+   * <p>Details the reason the IP address was flagged as suspicious.</p>
+   */
+  Reason?: Reason;
+}
+
+/**
+ * @public
+ * <p>Contains information on unusual and impossible travel in an account.</p>
+ */
+export interface ImpossibleTravelDetail {
+  /**
+   * @public
+   * <p>IP address where the resource was first used in the impossible travel</p>
+   */
+  StartingIpAddress?: string;
+
+  /**
+   * @public
+   * <p>IP address where the resource was last used in the impossible travel.</p>
+   */
+  EndingIpAddress?: string;
+
+  /**
+   * @public
+   * <p>Location where the resource was first used in the impossible travel</p>
+   */
+  StartingLocation?: string;
+
+  /**
+   * @public
+   * <p>Location where the resource was last used in the impossible travel.</p>
+   */
+  EndingLocation?: string;
+
+  /**
+   * @public
+   * <p>Returns the time difference between the first and last timestamp the resource was used.</p>
+   */
+  HourlyTimeDelta?: number;
+}
+
+/**
+ * @public
+ * <p>Details new Autonomous System Organizations (ASOs) used either at the resource or account level. </p>
+ */
+export interface NewAsoDetail {
+  /**
+   * @public
+   * <p>Details about the new Autonomous System Organization (ASO).</p>
+   */
+  Aso?: string;
+
+  /**
+   * @public
+   * <p>Checks if the ASO is for new for the entire account.</p>
+   */
+  IsNewForEntireAccount?: boolean;
+}
+
+/**
+ * @public
+ * <p>Details new geolocations used either at the resource or account level. For example, lists an observed geolocation that is an infrequent or unused location based on previous user activity.</p>
+ */
+export interface NewGeolocationDetail {
+  /**
+   * @public
+   * <p>Location where the resource was accessed.</p>
+   */
+  Location?: string;
+
+  /**
+   * @public
+   * <p>IP address using which the resource was accessed.</p>
+   */
+  IpAddress?: string;
+
+  /**
+   * @public
+   * <p>Checks if the gelocation is new for the entire account.</p>
+   */
+  IsNewForEntireAccount?: boolean;
+}
+
+/**
+ * @public
+ * <p>Details new user agents used either at the resource or account level.</p>
+ */
+export interface NewUserAgentDetail {
+  /**
+   * @public
+   * <p>New user agent which accessed the resource.</p>
+   */
+  UserAgent?: string;
+
+  /**
+   * @public
+   * <p>Checks if the user agent is new for the entire account.</p>
+   */
+  IsNewForEntireAccount?: boolean;
+}
+
+/**
+ * @public
+ * <p>Details related activities associated with a potential security event. Lists all distinct categories of evidence that are connected to the resource or the finding group.</p>
+ */
+export interface RelatedFindingDetail {
+  /**
+   * @public
+   * <p>The ARN of the related finding.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>The type of finding.</p>
+   */
+  Type?: string;
+
+  /**
+   * @public
+   * <p>The IP address of the finding.</p>
+   */
+  IpAddress?: string;
+}
+
+/**
+ * @public
+ * <p>Details multiple activities as they related to a potential security event. Detective uses graph analysis technique that infers relationships between findings and entities, and groups them together as a finding group.</p>
+ */
+export interface RelatedFindingGroupDetail {
+  /**
+   * @public
+   * <p>The unique identifier for the finding group.</p>
+   */
+  Id?: string;
+}
+
+/**
+ * @public
+ * <p>Details tactics, techniques, and procedures (TTPs) used in a potential security event. Tactics are based on <a href="https://attack.mitre.org/matrices/enterprise/">MITRE ATT&CK Matrix for
+ *          Enterprise</a>. </p>
+ */
+export interface TTPsObservedDetail {
+  /**
+   * @public
+   * <p>The tactic used, identified by the investigation.</p>
+   */
+  Tactic?: string;
+
+  /**
+   * @public
+   * <p>The technique used, identified by the investigation. </p>
+   */
+  Technique?: string;
+
+  /**
+   * @public
+   * <p>The procedure used, identified by the investigation.</p>
+   */
+  Procedure?: string;
+
+  /**
+   * @public
+   * <p>The IP address where the TTP was observed.</p>
+   */
+  IpAddress?: string;
+
+  /**
+   * @public
+   * <p>The name of the API where the TTP was observed.</p>
+   */
+  APIName?: string;
+
+  /**
+   * @public
+   * <p>The total number of successful API requests.</p>
+   */
+  APISuccessCount?: number;
+
+  /**
+   * @public
+   * <p>The total number of failed API requests.</p>
+   */
+  APIFailureCount?: number;
+}
+
+/**
+ * @public
+ * <p>Details about the indicators of compromise which are used to determine if a resource is involved in a security incident. </p>
+ */
+export interface IndicatorDetail {
+  /**
+   * @public
+   * <p>Details about the indicator of compromise.</p>
+   */
+  TTPsObservedDetail?: TTPsObservedDetail;
+
+  /**
+   * @public
+   * <p>Identifies unusual and impossible user activity for an account. </p>
+   */
+  ImpossibleTravelDetail?: ImpossibleTravelDetail;
+
+  /**
+   * @public
+   * <p>Suspicious IP addresses that are flagged, which indicates critical or severe threats based on threat intelligence by Detective. This indicator is derived from AWS threat intelligence.</p>
+   */
+  FlaggedIpAddressDetail?: FlaggedIpAddressDetail;
+
+  /**
+   * @public
+   * <p>Contains details about the new geographic location.</p>
+   */
+  NewGeolocationDetail?: NewGeolocationDetail;
+
+  /**
+   * @public
+   * <p>Contains details about the new Autonomous System Organization (ASO).</p>
+   */
+  NewAsoDetail?: NewAsoDetail;
+
+  /**
+   * @public
+   * <p>Contains details about the new user agent.</p>
+   */
+  NewUserAgentDetail?: NewUserAgentDetail;
+
+  /**
+   * @public
+   * <p>Contains details about related findings.</p>
+   */
+  RelatedFindingDetail?: RelatedFindingDetail;
+
+  /**
+   * @public
+   * <p>Contains details about related finding groups.</p>
+   */
+  RelatedFindingGroupDetail?: RelatedFindingGroupDetail;
+}
+
+/**
+ * @public
+ * <p>Investigations triages indicators of compromises such as a finding and surfaces only the most critical and suspicious issues, so you can focus on high-level investigations. </p>
+ */
+export interface Indicator {
+  /**
+   * @public
+   * <p>The type of indicator.</p>
+   */
+  IndicatorType?: IndicatorType;
+
+  /**
+   * @public
+   * <p>Details about the indicator of compromise.</p>
+   */
+  IndicatorDetail?: IndicatorDetail;
+}
+
+/**
+ * @public
+ */
+export interface ListIndicatorsResponse {
+  /**
+   * @public
+   * <p>The ARN of the behavior graph.</p>
+   */
+  GraphArn?: string;
+
+  /**
+   * @public
+   * <p>The investigation ID of the investigation report.</p>
+   */
+  InvestigationId?: string;
+
+  /**
+   * @public
+   * <p>List if there are more results available. The value of nextToken is a unique pagination token for each page. Repeat the call using the returned token to retrieve the next page. Keep all other arguments unchanged.</p>
+   *          <p>Each pagination token expires after 24 hours. Using an expired pagination token will return a Validation Exception error.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>Indicators of compromise listed based on severity.</p>
+   */
+  Indicators?: Indicator[];
+}
+
+/**
+ * @public
+ * <p>Contains details on the time range used to filter data.</p>
+ */
+export interface DateFilter {
+  /**
+   * @public
+   * <p>A timestamp representing the start of the time period from when data is filtered, including the start date.</p>
+   */
+  StartInclusive: Date | undefined;
+
+  /**
+   * @public
+   * <p>A timestamp representing the end date of the time period until when data is filtered , including the end date.</p>
+   */
+  EndInclusive: Date | undefined;
+}
+
+/**
+ * @public
+ * <p>A string for filtering Detective investigations.</p>
+ */
+export interface StringFilter {
+  /**
+   * @public
+   * <p>The string filter value.</p>
+   */
+  Value: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Details on the criteria used to define the filter for investigation results.</p>
+ */
+export interface FilterCriteria {
+  /**
+   * @public
+   * <p>Filter the investigation results based on the severity.</p>
+   */
+  Severity?: StringFilter;
+
+  /**
+   * @public
+   * <p>Filter the investigation results based on the status.</p>
+   */
+  Status?: StringFilter;
+
+  /**
+   * @public
+   * <p>Filter the investigation results based on the state.</p>
+   */
+  State?: StringFilter;
+
+  /**
+   * @public
+   * <p>Filter the investigation results based on the Amazon Resource Name (ARN) of the entity.</p>
+   */
+  EntityArn?: StringFilter;
+
+  /**
+   * @public
+   * <p>Filter the investigation results based on when the investigation was created.</p>
+   */
+  CreatedTime?: DateFilter;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Field = {
+  CREATED_TIME: "CREATED_TIME",
+  SEVERITY: "SEVERITY",
+  STATUS: "STATUS",
+} as const;
+
+/**
+ * @public
+ */
+export type Field = (typeof Field)[keyof typeof Field];
+
+/**
+ * @public
+ * @enum
+ */
+export const SortOrder = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
+
+/**
+ * @public
+ */
+export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+/**
+ * @public
+ * <p>Details about the criteria used for sorting investigations.</p>
+ */
+export interface SortCriteria {
+  /**
+   * @public
+   * <p>Represents the <code>Field</code> attribute to sort investigations.</p>
+   */
+  Field?: Field;
+
+  /**
+   * @public
+   * <p>The order by which the sorted findings are displayed.</p>
+   */
+  SortOrder?: SortOrder;
+}
+
+/**
+ * @public
+ */
+export interface ListInvestigationsRequest {
+  /**
+   * @public
+   * <p>The ARN of the behavior graph.</p>
+   */
+  GraphArn: string | undefined;
+
+  /**
+   * @public
+   * <p>List if there are more results available. The value of nextToken is a unique pagination token for each page. Repeat the call using the returned token to retrieve the next page. Keep all other arguments unchanged.</p>
+   *          <p>Each pagination token expires after 24 hours. Using an expired pagination token will return a Validation Exception error.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>List the maximum number of investigations in a page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>Filter the investigation results based on a criteria.</p>
+   */
+  FilterCriteria?: FilterCriteria;
+
+  /**
+   * @public
+   * <p>Sorts the investigation results based on a criteria.</p>
+   */
+  SortCriteria?: SortCriteria;
+}
+
+/**
+ * @public
+ * <p>Details about the investigation related to a potential security event identified by Detective</p>
+ */
+export interface InvestigationDetail {
+  /**
+   * @public
+   * <p>The investigation ID of the investigation report.</p>
+   */
+  InvestigationId?: string;
+
+  /**
+   * @public
+   * <p>Severity based on the likelihood and impact of the indicators of compromise discovered in the investigation.</p>
+   */
+  Severity?: Severity;
+
+  /**
+   * @public
+   * <p>Status based on the completion status of the investigation.</p>
+   */
+  Status?: Status;
+
+  /**
+   * @public
+   * <p>The current state of the investigation. An archived investigation indicates you have completed reviewing the investigation.</p>
+   */
+  State?: State;
+
+  /**
+   * @public
+   * <p>The UTC time stamp of the creation time of the investigation report.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * @public
+   * <p>The unique Amazon Resource Name (ARN) of the IAM user and IAM role.</p>
+   */
+  EntityArn?: string;
+
+  /**
+   * @public
+   * <p>Type of entity. For example, Amazon Web Services accounts, such as IAM user and role.</p>
+   */
+  EntityType?: EntityType;
+}
+
+/**
+ * @public
+ */
+export interface ListInvestigationsResponse {
+  /**
+   * @public
+   * <p>Investigations details lists the summary of uncommon behavior or malicious activity which indicates a compromise.</p>
+   */
+  InvestigationDetails?: InvestigationDetail[];
+
+  /**
+   * @public
+   * <p>List if there are more results available. The value of nextToken is a unique pagination token for each page. Repeat the call using the returned token to retrieve the next page. Keep all other arguments unchanged.</p>
+   *          <p>Each pagination token expires after 24 hours. Using an expired pagination token will return an HTTP 400 InvalidToken error.</p>
    */
   NextToken?: string;
 }
@@ -1220,6 +1949,47 @@ export interface RejectInvitationRequest {
 /**
  * @public
  */
+export interface StartInvestigationRequest {
+  /**
+   * @public
+   * <p>The ARN of the behavior graph.</p>
+   */
+  GraphArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique Amazon Resource Name (ARN) of the IAM user and IAM role.</p>
+   */
+  EntityArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The data and time when the investigation began. The value is an UTC ISO8601 formatted string. For example, <code>2021-08-18T16:35:56.284Z</code>.</p>
+   */
+  ScopeStartTime: Date | undefined;
+
+  /**
+   * @public
+   * <p>The data and time when the investigation began. The value is an UTC ISO8601 formatted
+   *          string. For example, <code>2021-08-18T16:35:56.284Z</code>.</p>
+   */
+  ScopeEndTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartInvestigationResponse {
+  /**
+   * @public
+   * <p>The investigation ID of the investigation report.</p>
+   */
+  InvestigationId?: string;
+}
+
+/**
+ * @public
+ */
 export interface StartMonitoringMemberRequest {
   /**
    * @public
@@ -1297,7 +2067,30 @@ export interface UpdateDatasourcePackagesRequest {
    * @public
    * <p>The data source package start for the behavior graph.</p>
    */
-  DatasourcePackages: (DatasourcePackage | string)[] | undefined;
+  DatasourcePackages: DatasourcePackage[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateInvestigationStateRequest {
+  /**
+   * @public
+   * <p>The ARN of the behavior graph.</p>
+   */
+  GraphArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The investigation ID of the investigation report.</p>
+   */
+  InvestigationId: string | undefined;
+
+  /**
+   * @public
+   * <p>The current state of the investigation. An archived investigation indicates you have completed reviewing the investigation.</p>
+   */
+  State: State | undefined;
 }
 
 /**
@@ -1317,3 +2110,60 @@ export interface UpdateOrganizationConfigurationRequest {
    */
   AutoEnable?: boolean;
 }
+
+/**
+ * @internal
+ */
+export const AccountFilterSensitiveLog = (obj: Account): any => ({
+  ...obj,
+  ...(obj.EmailAddress && { EmailAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateMembersRequestFilterSensitiveLog = (obj: CreateMembersRequest): any => ({
+  ...obj,
+  ...(obj.Message && { Message: SENSITIVE_STRING }),
+  ...(obj.Accounts && { Accounts: obj.Accounts.map((item) => AccountFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const MemberDetailFilterSensitiveLog = (obj: MemberDetail): any => ({
+  ...obj,
+  ...(obj.EmailAddress && { EmailAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateMembersResponseFilterSensitiveLog = (obj: CreateMembersResponse): any => ({
+  ...obj,
+  ...(obj.Members && { Members: obj.Members.map((item) => MemberDetailFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const GetMembersResponseFilterSensitiveLog = (obj: GetMembersResponse): any => ({
+  ...obj,
+  ...(obj.MemberDetails && { MemberDetails: obj.MemberDetails.map((item) => MemberDetailFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListInvitationsResponseFilterSensitiveLog = (obj: ListInvitationsResponse): any => ({
+  ...obj,
+  ...(obj.Invitations && { Invitations: obj.Invitations.map((item) => MemberDetailFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ListMembersResponseFilterSensitiveLog = (obj: ListMembersResponse): any => ({
+  ...obj,
+  ...(obj.MemberDetails && { MemberDetails: obj.MemberDetails.map((item) => MemberDetailFilterSensitiveLog(item)) }),
+});

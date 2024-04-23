@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -71,6 +72,7 @@ import {
   AiffSettings,
   AllowedRenditionSize,
   AncillarySourceSettings,
+  AudioChannelTag,
   AudioChannelTaggingSettings,
   AudioCodecSettings,
   AudioDescription,
@@ -93,7 +95,7 @@ import {
   CmafEncryptionSettings,
   CmafGroupSettings,
   CmafImageBasedTrickPlaySettings,
-  CmfcSettings,
+  ColorConversion3DLUTSetting,
   DashAdditionalManifest,
   DashIsoEncryptionSettings,
   DashIsoGroupSettings,
@@ -112,6 +114,7 @@ import {
   ExtendedDataServices,
   FileGroupSettings,
   FileSourceSettings,
+  FlacSettings,
   ForceIncludeRenditionSize,
   Hdr10Metadata,
   HlsAdditionalManifest,
@@ -167,6 +170,9 @@ import {
   TrackSourceSettings,
   TtmlDestinationSettings,
   VideoDetail,
+  VideoOverlay,
+  VideoOverlayInput,
+  VideoOverlayInputClipping,
   VideoSelector,
   VorbisSettings,
   WavSettings,
@@ -181,6 +187,7 @@ import {
   BadRequestException,
   BandwidthReductionFilter,
   ClipLimits,
+  CmfcSettings,
   ColorCorrector,
   ConflictException,
   ContainerSettings,
@@ -228,12 +235,12 @@ import {
   ProresSettings,
   Queue,
   ReservationPlan,
-  ReservationPlanSettings,
   TimecodeBurnin,
   TimecodeConfig,
   TimedMetadataInsertion,
   Timing,
   TooManyRequestsException,
+  UncompressedSettings,
   Vc3Settings,
   VideoCodecSettings,
   VideoDescription,
@@ -248,7 +255,7 @@ import {
   XavcHdProfileSettings,
   XavcSettings,
 } from "../models/models_1";
-import { Policy, ResourceTags } from "../models/models_2";
+import { Policy, ReservationPlanSettings, ResourceTags } from "../models/models_2";
 
 /**
  * serializeAws_restJson1AssociateCertificateCommand
@@ -257,27 +264,19 @@ export const se_AssociateCertificateCommand = async (
   input: AssociateCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/certificates";
+  b.bp("/2017-08-29/certificates");
   let body: any;
   body = JSON.stringify(
     take(input, {
       arn: [, , `Arn`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -287,20 +286,13 @@ export const se_CancelJobCommand = async (
   input: CancelJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/jobs/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2017-08-29/jobs/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -310,11 +302,11 @@ export const se_CreateJobCommand = async (
   input: CreateJobCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/jobs";
+  b.bp("/2017-08-29/jobs");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -333,15 +325,8 @@ export const se_CreateJobCommand = async (
       userMetadata: [, (_) => _json(_), `UserMetadata`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -351,12 +336,11 @@ export const se_CreateJobTemplateCommand = async (
   input: CreateJobTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/jobTemplates";
+  b.bp("/2017-08-29/jobTemplates");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -372,15 +356,8 @@ export const se_CreateJobTemplateCommand = async (
       tags: [, (_) => _json(_), `Tags`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -390,11 +367,11 @@ export const se_CreatePresetCommand = async (
   input: CreatePresetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/presets";
+  b.bp("/2017-08-29/presets");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -405,15 +382,8 @@ export const se_CreatePresetCommand = async (
       tags: [, (_) => _json(_), `Tags`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -423,11 +393,11 @@ export const se_CreateQueueCommand = async (
   input: CreateQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/queues";
+  b.bp("/2017-08-29/queues");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -439,15 +409,8 @@ export const se_CreateQueueCommand = async (
       tags: [, (_) => _json(_), `Tags`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -457,21 +420,13 @@ export const se_DeleteJobTemplateCommand = async (
   input: DeleteJobTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/jobTemplates/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2017-08-29/jobTemplates/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -481,22 +436,15 @@ export const se_DeletePolicyCommand = async (
   input: DeletePolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/policy";
+  b.bp("/2017-08-29/policy");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -506,21 +454,13 @@ export const se_DeletePresetCommand = async (
   input: DeletePresetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/presets/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2017-08-29/presets/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -530,21 +470,13 @@ export const se_DeleteQueueCommand = async (
   input: DeleteQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/queues/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2017-08-29/queues/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -554,11 +486,11 @@ export const se_DescribeEndpointsCommand = async (
   input: DescribeEndpointsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/endpoints";
+  b.bp("/2017-08-29/endpoints");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -567,15 +499,8 @@ export const se_DescribeEndpointsCommand = async (
       nextToken: [, , `NextToken`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -585,41 +510,26 @@ export const se_DisassociateCertificateCommand = async (
   input: DisassociateCertificateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/certificates/{Arn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
+  b.bp("/2017-08-29/certificates/{Arn}");
+  b.p("Arn", () => input.Arn!, "{Arn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
  * serializeAws_restJson1GetJobCommand
  */
 export const se_GetJobCommand = async (input: GetJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/jobs/{Id}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  b.bp("/2017-08-29/jobs/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -629,21 +539,13 @@ export const se_GetJobTemplateCommand = async (
   input: GetJobTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/jobTemplates/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2017-08-29/jobTemplates/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -653,22 +555,15 @@ export const se_GetPolicyCommand = async (
   input: GetPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/policy";
+  b.bp("/2017-08-29/policy");
   let body: any;
   body = "";
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -678,21 +573,13 @@ export const se_GetPresetCommand = async (
   input: GetPresetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/presets/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2017-08-29/presets/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -702,21 +589,13 @@ export const se_GetQueueCommand = async (
   input: GetQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/queues/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2017-08-29/queues/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -726,27 +605,19 @@ export const se_ListJobsCommand = async (
   input: ListJobsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/jobs";
+  b.bp("/2017-08-29/jobs");
   const query: any = map({
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
-    order: [, input.Order!],
-    queue: [, input.Queue!],
-    status: [, input.Status!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_o]: [, input[_O]!],
+    [_q]: [, input[_Q]!],
+    [_s]: [, input[_S]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -756,28 +627,19 @@ export const se_ListJobTemplatesCommand = async (
   input: ListJobTemplatesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/jobTemplates";
+  b.bp("/2017-08-29/jobTemplates");
   const query: any = map({
-    category: [, input.Category!],
-    listBy: [, input.ListBy!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
-    order: [, input.Order!],
+    [_c]: [, input[_C]!],
+    [_lB]: [, input[_LB]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_o]: [, input[_O]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -787,27 +649,19 @@ export const se_ListPresetsCommand = async (
   input: ListPresetsCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/presets";
+  b.bp("/2017-08-29/presets");
   const query: any = map({
-    category: [, input.Category!],
-    listBy: [, input.ListBy!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
-    order: [, input.Order!],
+    [_c]: [, input[_C]!],
+    [_lB]: [, input[_LB]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_o]: [, input[_O]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -817,26 +671,18 @@ export const se_ListQueuesCommand = async (
   input: ListQueuesCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/queues";
+  b.bp("/2017-08-29/queues");
   const query: any = map({
-    listBy: [, input.ListBy!],
-    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    nextToken: [, input.NextToken!],
-    order: [, input.Order!],
+    [_lB]: [, input[_LB]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_nT]: [, input[_NT]!],
+    [_o]: [, input[_O]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -846,20 +692,13 @@ export const se_ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/tags/{Arn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
+  b.bp("/2017-08-29/tags/{Arn}");
+  b.p("Arn", () => input.Arn!, "{Arn}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("GET").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -869,26 +708,19 @@ export const se_PutPolicyCommand = async (
   input: PutPolicyCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/policy";
+  b.bp("/2017-08-29/policy");
   let body: any;
   body = JSON.stringify(
     take(input, {
       policy: [, (_) => se_Policy(_, context), `Policy`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -898,11 +730,11 @@ export const se_TagResourceCommand = async (
   input: TagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/tags";
+  b.bp("/2017-08-29/tags");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -910,15 +742,8 @@ export const se_TagResourceCommand = async (
       tags: [, (_) => _json(_), `Tags`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -928,27 +753,20 @@ export const se_UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/tags/{Arn}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Arn", () => input.Arn!, "{Arn}", false);
+  b.bp("/2017-08-29/tags/{Arn}");
+  b.p("Arn", () => input.Arn!, "{Arn}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
       tagKeys: [, (_) => _json(_), `TagKeys`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -958,13 +776,12 @@ export const se_UpdateJobTemplateCommand = async (
   input: UpdateJobTemplateCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/jobTemplates/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2017-08-29/jobTemplates/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -978,15 +795,8 @@ export const se_UpdateJobTemplateCommand = async (
       statusUpdateInterval: [, , `StatusUpdateInterval`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -996,13 +806,12 @@ export const se_UpdatePresetCommand = async (
   input: UpdatePresetCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/presets/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2017-08-29/presets/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1011,15 +820,8 @@ export const se_UpdatePresetCommand = async (
       settings: [, (_) => se_PresetSettings(_, context), `Settings`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -1029,13 +831,12 @@ export const se_UpdateQueueCommand = async (
   input: UpdateQueueCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2017-08-29/queues/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+  b.bp("/2017-08-29/queues/{Name}");
+  b.p("Name", () => input.Name!, "{Name}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -1044,15 +845,8 @@ export const se_UpdateQueueCommand = async (
       status: [, , `Status`],
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "PUT",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("PUT").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -2904,6 +2698,8 @@ const se___listOfAllowedRenditionSize = (input: AllowedRenditionSize[], context:
     });
 };
 
+// se___listOfAudioChannelTag omitted.
+
 /**
  * serializeAws_restJson1__listOfAudioDescription
  */
@@ -3117,6 +2913,28 @@ const se___listOfOutputGroup = (input: OutputGroup[], context: __SerdeContext): 
 
 // se___listOfTeletextPageType omitted.
 
+/**
+ * serializeAws_restJson1__listOfVideoOverlay
+ */
+const se___listOfVideoOverlay = (input: VideoOverlay[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_VideoOverlay(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1__listOfVideoOverlayInputClipping
+ */
+const se___listOfVideoOverlayInputClipping = (input: VideoOverlayInputClipping[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_VideoOverlayInputClipping(entry, context);
+    });
+};
+
 // se___mapOf__string omitted.
 
 /**
@@ -3251,6 +3069,7 @@ const se_AncillarySourceSettings = (input: AncillarySourceSettings, context: __S
 const se_AudioChannelTaggingSettings = (input: AudioChannelTaggingSettings, context: __SerdeContext): any => {
   return take(input, {
     channelTag: [, , `ChannelTag`],
+    channelTags: [, _json, `ChannelTags`],
   });
 };
 
@@ -3265,6 +3084,7 @@ const se_AudioCodecSettings = (input: AudioCodecSettings, context: __SerdeContex
     codec: [, , `Codec`],
     eac3AtmosSettings: [, (_) => se_Eac3AtmosSettings(_, context), `Eac3AtmosSettings`],
     eac3Settings: [, (_) => se_Eac3Settings(_, context), `Eac3Settings`],
+    flacSettings: [, (_) => se_FlacSettings(_, context), `FlacSettings`],
     mp2Settings: [, (_) => se_Mp2Settings(_, context), `Mp2Settings`],
     mp3Settings: [, (_) => se_Mp3Settings(_, context), `Mp3Settings`],
     opusSettings: [, (_) => se_OpusSettings(_, context), `OpusSettings`],
@@ -3387,6 +3207,7 @@ const se_Av1Settings = (input: Av1Settings, context: __SerdeContext): any => {
   return take(input, {
     adaptiveQuantization: [, , `AdaptiveQuantization`],
     bitDepth: [, , `BitDepth`],
+    filmGrainSynthesis: [, , `FilmGrainSynthesis`],
     framerateControl: [, , `FramerateControl`],
     framerateConversionAlgorithm: [, , `FramerateConversionAlgorithm`],
     framerateDenominator: [, , `FramerateDenominator`],
@@ -3677,6 +3498,30 @@ const se_CmfcSettings = (input: CmfcSettings, context: __SerdeContext): any => {
 };
 
 /**
+ * serializeAws_restJson1ColorConversion3DLUTSetting
+ */
+const se_ColorConversion3DLUTSetting = (input: ColorConversion3DLUTSetting, context: __SerdeContext): any => {
+  return take(input, {
+    fileInput: [, , `FileInput`],
+    inputColorSpace: [, , `InputColorSpace`],
+    inputMasteringLuminance: [, , `InputMasteringLuminance`],
+    outputColorSpace: [, , `OutputColorSpace`],
+    outputMasteringLuminance: [, , `OutputMasteringLuminance`],
+  });
+};
+
+/**
+ * serializeAws_restJson1ColorConversion3DLUTSettings
+ */
+const se_ColorConversion3DLUTSettings = (input: ColorConversion3DLUTSetting[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ColorConversion3DLUTSetting(entry, context);
+    });
+};
+
+/**
  * serializeAws_restJson1ColorCorrector
  */
 const se_ColorCorrector = (input: ColorCorrector, context: __SerdeContext): any => {
@@ -3688,6 +3533,7 @@ const se_ColorCorrector = (input: ColorCorrector, context: __SerdeContext): any 
     hdr10Metadata: [, (_) => se_Hdr10Metadata(_, context), `Hdr10Metadata`],
     hdrToSdrToneMapper: [, , `HdrToSdrToneMapper`],
     hue: [, , `Hue`],
+    maxLuminance: [, , `MaxLuminance`],
     sampleRangeConversion: [, , `SampleRangeConversion`],
     saturation: [, , `Saturation`],
     sdrReferenceWhiteLevel: [, , `SdrReferenceWhiteLevel`],
@@ -4059,6 +3905,17 @@ const se_FileSourceSettings = (input: FileSourceSettings, context: __SerdeContex
 };
 
 /**
+ * serializeAws_restJson1FlacSettings
+ */
+const se_FlacSettings = (input: FlacSettings, context: __SerdeContext): any => {
+  return take(input, {
+    bitDepth: [, , `BitDepth`],
+    channels: [, , `Channels`],
+    sampleRate: [, , `SampleRate`],
+  });
+};
+
+/**
  * serializeAws_restJson1ForceIncludeRenditionSize
  */
 const se_ForceIncludeRenditionSize = (input: ForceIncludeRenditionSize, context: __SerdeContext): any => {
@@ -4102,6 +3959,7 @@ const se_H264Settings = (input: H264Settings, context: __SerdeContext): any => {
     codecLevel: [, , `CodecLevel`],
     codecProfile: [, , `CodecProfile`],
     dynamicSubGop: [, , `DynamicSubGop`],
+    endOfStreamMarkers: [, , `EndOfStreamMarkers`],
     entropyEncoding: [, , `EntropyEncoding`],
     fieldEncoding: [, , `FieldEncoding`],
     flickerAdaptiveQuantization: [, , `FlickerAdaptiveQuantization`],
@@ -4164,6 +4022,7 @@ const se_H265Settings = (input: H265Settings, context: __SerdeContext): any => {
     codecLevel: [, , `CodecLevel`],
     codecProfile: [, , `CodecProfile`],
     dynamicSubGop: [, , `DynamicSubGop`],
+    endOfStreamMarkers: [, , `EndOfStreamMarkers`],
     flickerAdaptiveQuantization: [, , `FlickerAdaptiveQuantization`],
     framerateControl: [, , `FramerateControl`],
     framerateConversionAlgorithm: [, , `FramerateConversionAlgorithm`],
@@ -4422,6 +4281,7 @@ const se_Input = (input: Input, context: __SerdeContext): any => {
     timecodeSource: [, , `TimecodeSource`],
     timecodeStart: [, , `TimecodeStart`],
     videoGenerator: [, (_) => se_InputVideoGenerator(_, context), `VideoGenerator`],
+    videoOverlays: [, (_) => se___listOfVideoOverlay(_, context), `VideoOverlays`],
     videoSelector: [, (_) => se_VideoSelector(_, context), `VideoSelector`],
   });
 };
@@ -4472,6 +4332,7 @@ const se_InputTemplate = (input: InputTemplate, context: __SerdeContext): any =>
     psiControl: [, , `PsiControl`],
     timecodeSource: [, , `TimecodeSource`],
     timecodeStart: [, , `TimecodeStart`],
+    videoOverlays: [, (_) => se___listOfVideoOverlay(_, context), `VideoOverlays`],
     videoSelector: [, (_) => se_VideoSelector(_, context), `VideoSelector`],
   });
 };
@@ -4511,8 +4372,14 @@ const se_JobSettings = (input: JobSettings, context: __SerdeContext): any => {
   return take(input, {
     adAvailOffset: [, , `AdAvailOffset`],
     availBlanking: [, (_) => se_AvailBlanking(_, context), `AvailBlanking`],
+    colorConversion3DLUTSettings: [
+      ,
+      (_) => se_ColorConversion3DLUTSettings(_, context),
+      `ColorConversion3DLUTSettings`,
+    ],
     esam: [, (_) => se_EsamSettings(_, context), `Esam`],
     extendedDataServices: [, (_) => se_ExtendedDataServices(_, context), `ExtendedDataServices`],
+    followSource: [, , `FollowSource`],
     inputs: [, (_) => se___listOfInput(_, context), `Inputs`],
     kantarWatermark: [, (_) => se_KantarWatermarkSettings(_, context), `KantarWatermark`],
     motionImageInserter: [, (_) => se_MotionImageInserter(_, context), `MotionImageInserter`],
@@ -4531,8 +4398,14 @@ const se_JobTemplateSettings = (input: JobTemplateSettings, context: __SerdeCont
   return take(input, {
     adAvailOffset: [, , `AdAvailOffset`],
     availBlanking: [, (_) => se_AvailBlanking(_, context), `AvailBlanking`],
+    colorConversion3DLUTSettings: [
+      ,
+      (_) => se_ColorConversion3DLUTSettings(_, context),
+      `ColorConversion3DLUTSettings`,
+    ],
     esam: [, (_) => se_EsamSettings(_, context), `Esam`],
     extendedDataServices: [, (_) => se_ExtendedDataServices(_, context), `ExtendedDataServices`],
+    followSource: [, , `FollowSource`],
     inputs: [, (_) => se___listOfInputTemplate(_, context), `Inputs`],
     kantarWatermark: [, (_) => se_KantarWatermarkSettings(_, context), `KantarWatermark`],
     motionImageInserter: [, (_) => se_MotionImageInserter(_, context), `MotionImageInserter`],
@@ -4608,6 +4481,8 @@ const se_M2tsSettings = (input: M2tsSettings, context: __SerdeContext): any => {
     pmtPid: [, , `PmtPid`],
     privateMetadataPid: [, , `PrivateMetadataPid`],
     programNumber: [, , `ProgramNumber`],
+    ptsOffset: [, , `PtsOffset`],
+    ptsOffsetMode: [, , `PtsOffsetMode`],
     rateMode: [, , `RateMode`],
     scte35Esam: [, (_) => se_M2tsScte35Esam(_, context), `Scte35Esam`],
     scte35Pid: [, , `Scte35Pid`],
@@ -4639,6 +4514,8 @@ const se_M3u8Settings = (input: M3u8Settings, context: __SerdeContext): any => {
     pmtPid: [, , `PmtPid`],
     privateMetadataPid: [, , `PrivateMetadataPid`],
     programNumber: [, , `ProgramNumber`],
+    ptsOffset: [, , `PtsOffset`],
+    ptsOffsetMode: [, , `PtsOffsetMode`],
     scte35Pid: [, , `Scte35Pid`],
     scte35Source: [, , `Scte35Source`],
     timedMetadata: [, , `TimedMetadata`],
@@ -5140,6 +5017,7 @@ const se_S3DestinationSettings = (input: S3DestinationSettings, context: __Serde
   return take(input, {
     accessControl: [, (_) => se_S3DestinationAccessControl(_, context), `AccessControl`],
     encryption: [, (_) => se_S3EncryptionSettings(_, context), `Encryption`],
+    storageClass: [, , `StorageClass`],
   });
 };
 
@@ -5279,6 +5157,23 @@ const se_TtmlDestinationSettings = (input: TtmlDestinationSettings, context: __S
 };
 
 /**
+ * serializeAws_restJson1UncompressedSettings
+ */
+const se_UncompressedSettings = (input: UncompressedSettings, context: __SerdeContext): any => {
+  return take(input, {
+    fourcc: [, , `Fourcc`],
+    framerateControl: [, , `FramerateControl`],
+    framerateConversionAlgorithm: [, , `FramerateConversionAlgorithm`],
+    framerateDenominator: [, , `FramerateDenominator`],
+    framerateNumerator: [, , `FramerateNumerator`],
+    interlaceMode: [, , `InterlaceMode`],
+    scanTypeConversionMode: [, , `ScanTypeConversionMode`],
+    slowPal: [, , `SlowPal`],
+    telecine: [, , `Telecine`],
+  });
+};
+
+/**
  * serializeAws_restJson1Vc3Settings
  */
 const se_Vc3Settings = (input: Vc3Settings, context: __SerdeContext): any => {
@@ -5308,6 +5203,7 @@ const se_VideoCodecSettings = (input: VideoCodecSettings, context: __SerdeContex
     h265Settings: [, (_) => se_H265Settings(_, context), `H265Settings`],
     mpeg2Settings: [, (_) => se_Mpeg2Settings(_, context), `Mpeg2Settings`],
     proresSettings: [, (_) => se_ProresSettings(_, context), `ProresSettings`],
+    uncompressedSettings: [, (_) => se_UncompressedSettings(_, context), `UncompressedSettings`],
     vc3Settings: [, (_) => se_Vc3Settings(_, context), `Vc3Settings`],
     vp8Settings: [, (_) => se_Vp8Settings(_, context), `Vp8Settings`],
     vp9Settings: [, (_) => se_Vp9Settings(_, context), `Vp9Settings`],
@@ -5339,6 +5235,39 @@ const se_VideoDescription = (input: VideoDescription, context: __SerdeContext): 
 };
 
 /**
+ * serializeAws_restJson1VideoOverlay
+ */
+const se_VideoOverlay = (input: VideoOverlay, context: __SerdeContext): any => {
+  return take(input, {
+    endTimecode: [, , `EndTimecode`],
+    input: [, (_) => se_VideoOverlayInput(_, context), `Input`],
+    startTimecode: [, , `StartTimecode`],
+  });
+};
+
+/**
+ * serializeAws_restJson1VideoOverlayInput
+ */
+const se_VideoOverlayInput = (input: VideoOverlayInput, context: __SerdeContext): any => {
+  return take(input, {
+    fileInput: [, , `FileInput`],
+    inputClippings: [, (_) => se___listOfVideoOverlayInputClipping(_, context), `InputClippings`],
+    timecodeSource: [, , `TimecodeSource`],
+    timecodeStart: [, , `TimecodeStart`],
+  });
+};
+
+/**
+ * serializeAws_restJson1VideoOverlayInputClipping
+ */
+const se_VideoOverlayInputClipping = (input: VideoOverlayInputClipping, context: __SerdeContext): any => {
+  return take(input, {
+    endTimecode: [, , `EndTimecode`],
+    startTimecode: [, , `StartTimecode`],
+  });
+};
+
+/**
  * serializeAws_restJson1VideoPreprocessor
  */
 const se_VideoPreprocessor = (input: VideoPreprocessor, context: __SerdeContext): any => {
@@ -5364,6 +5293,7 @@ const se_VideoSelector = (input: VideoSelector, context: __SerdeContext): any =>
     colorSpaceUsage: [, , `ColorSpaceUsage`],
     embeddedTimecodeOverride: [, , `EmbeddedTimecodeOverride`],
     hdr10Metadata: [, (_) => se_Hdr10Metadata(_, context), `Hdr10Metadata`],
+    maxLuminance: [, , `MaxLuminance`],
     padVideo: [, , `PadVideo`],
     pid: [, , `Pid`],
     programNumber: [, , `ProgramNumber`],
@@ -5593,6 +5523,8 @@ const de___listOfAllowedRenditionSize = (output: any, context: __SerdeContext): 
     });
   return retVal;
 };
+
+// de___listOfAudioChannelTag omitted.
 
 /**
  * deserializeAws_restJson1__listOfAudioDescription
@@ -5923,6 +5855,30 @@ const de___listOfQueueTransition = (output: any, context: __SerdeContext): Queue
 // de___listOfTeletextPageType omitted.
 
 /**
+ * deserializeAws_restJson1__listOfVideoOverlay
+ */
+const de___listOfVideoOverlay = (output: any, context: __SerdeContext): VideoOverlay[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_VideoOverlay(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfVideoOverlayInputClipping
+ */
+const de___listOfVideoOverlayInputClipping = (output: any, context: __SerdeContext): VideoOverlayInputClipping[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_VideoOverlayInputClipping(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1__listOfWarningGroup
  */
 const de___listOfWarningGroup = (output: any, context: __SerdeContext): WarningGroup[] => {
@@ -5944,9 +5900,9 @@ const de___mapOfAudioSelector = (output: any, context: __SerdeContext): Record<s
     if (value === null) {
       return acc;
     }
-    acc[key] = de_AudioSelector(value, context);
+    acc[key as string] = de_AudioSelector(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, AudioSelector>);
 };
 
 /**
@@ -5957,9 +5913,9 @@ const de___mapOfAudioSelectorGroup = (output: any, context: __SerdeContext): Rec
     if (value === null) {
       return acc;
     }
-    acc[key] = de_AudioSelectorGroup(value, context);
+    acc[key as string] = de_AudioSelectorGroup(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, AudioSelectorGroup>);
 };
 
 /**
@@ -5970,9 +5926,9 @@ const de___mapOfCaptionSelector = (output: any, context: __SerdeContext): Record
     if (value === null) {
       return acc;
     }
-    acc[key] = de_CaptionSelector(value, context);
+    acc[key as string] = de_CaptionSelector(value, context);
     return acc;
-  }, {});
+  }, {} as Record<string, CaptionSelector>);
 };
 
 /**
@@ -6068,6 +6024,7 @@ const de_AncillarySourceSettings = (output: any, context: __SerdeContext): Ancil
 const de_AudioChannelTaggingSettings = (output: any, context: __SerdeContext): AudioChannelTaggingSettings => {
   return take(output, {
     ChannelTag: [, __expectString, `channelTag`],
+    ChannelTags: [, _json, `channelTags`],
   }) as any;
 };
 
@@ -6082,6 +6039,7 @@ const de_AudioCodecSettings = (output: any, context: __SerdeContext): AudioCodec
     Codec: [, __expectString, `codec`],
     Eac3AtmosSettings: [, (_: any) => de_Eac3AtmosSettings(_, context), `eac3AtmosSettings`],
     Eac3Settings: [, (_: any) => de_Eac3Settings(_, context), `eac3Settings`],
+    FlacSettings: [, (_: any) => de_FlacSettings(_, context), `flacSettings`],
     Mp2Settings: [, (_: any) => de_Mp2Settings(_, context), `mp2Settings`],
     Mp3Settings: [, (_: any) => de_Mp3Settings(_, context), `mp3Settings`],
     OpusSettings: [, (_: any) => de_OpusSettings(_, context), `opusSettings`],
@@ -6208,6 +6166,7 @@ const de_Av1Settings = (output: any, context: __SerdeContext): Av1Settings => {
   return take(output, {
     AdaptiveQuantization: [, __expectString, `adaptiveQuantization`],
     BitDepth: [, __expectString, `bitDepth`],
+    FilmGrainSynthesis: [, __expectString, `filmGrainSynthesis`],
     FramerateControl: [, __expectString, `framerateControl`],
     FramerateConversionAlgorithm: [, __expectString, `framerateConversionAlgorithm`],
     FramerateDenominator: [, __expectInt32, `framerateDenominator`],
@@ -6506,6 +6465,31 @@ const de_CmfcSettings = (output: any, context: __SerdeContext): CmfcSettings => 
 };
 
 /**
+ * deserializeAws_restJson1ColorConversion3DLUTSetting
+ */
+const de_ColorConversion3DLUTSetting = (output: any, context: __SerdeContext): ColorConversion3DLUTSetting => {
+  return take(output, {
+    FileInput: [, __expectString, `fileInput`],
+    InputColorSpace: [, __expectString, `inputColorSpace`],
+    InputMasteringLuminance: [, __expectInt32, `inputMasteringLuminance`],
+    OutputColorSpace: [, __expectString, `outputColorSpace`],
+    OutputMasteringLuminance: [, __expectInt32, `outputMasteringLuminance`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ColorConversion3DLUTSettings
+ */
+const de_ColorConversion3DLUTSettings = (output: any, context: __SerdeContext): ColorConversion3DLUTSetting[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ColorConversion3DLUTSetting(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1ColorCorrector
  */
 const de_ColorCorrector = (output: any, context: __SerdeContext): ColorCorrector => {
@@ -6517,6 +6501,7 @@ const de_ColorCorrector = (output: any, context: __SerdeContext): ColorCorrector
     Hdr10Metadata: [, (_: any) => de_Hdr10Metadata(_, context), `hdr10Metadata`],
     HdrToSdrToneMapper: [, __expectString, `hdrToSdrToneMapper`],
     Hue: [, __expectInt32, `hue`],
+    MaxLuminance: [, __expectInt32, `maxLuminance`],
     SampleRangeConversion: [, __expectString, `sampleRangeConversion`],
     Saturation: [, __expectInt32, `saturation`],
     SdrReferenceWhiteLevel: [, __expectInt32, `sdrReferenceWhiteLevel`],
@@ -6900,6 +6885,17 @@ const de_FileSourceSettings = (output: any, context: __SerdeContext): FileSource
 };
 
 /**
+ * deserializeAws_restJson1FlacSettings
+ */
+const de_FlacSettings = (output: any, context: __SerdeContext): FlacSettings => {
+  return take(output, {
+    BitDepth: [, __expectInt32, `bitDepth`],
+    Channels: [, __expectInt32, `channels`],
+    SampleRate: [, __expectInt32, `sampleRate`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1ForceIncludeRenditionSize
  */
 const de_ForceIncludeRenditionSize = (output: any, context: __SerdeContext): ForceIncludeRenditionSize => {
@@ -6943,6 +6939,7 @@ const de_H264Settings = (output: any, context: __SerdeContext): H264Settings => 
     CodecLevel: [, __expectString, `codecLevel`],
     CodecProfile: [, __expectString, `codecProfile`],
     DynamicSubGop: [, __expectString, `dynamicSubGop`],
+    EndOfStreamMarkers: [, __expectString, `endOfStreamMarkers`],
     EntropyEncoding: [, __expectString, `entropyEncoding`],
     FieldEncoding: [, __expectString, `fieldEncoding`],
     FlickerAdaptiveQuantization: [, __expectString, `flickerAdaptiveQuantization`],
@@ -7005,6 +7002,7 @@ const de_H265Settings = (output: any, context: __SerdeContext): H265Settings => 
     CodecLevel: [, __expectString, `codecLevel`],
     CodecProfile: [, __expectString, `codecProfile`],
     DynamicSubGop: [, __expectString, `dynamicSubGop`],
+    EndOfStreamMarkers: [, __expectString, `endOfStreamMarkers`],
     FlickerAdaptiveQuantization: [, __expectString, `flickerAdaptiveQuantization`],
     FramerateControl: [, __expectString, `framerateControl`],
     FramerateConversionAlgorithm: [, __expectString, `framerateConversionAlgorithm`],
@@ -7271,6 +7269,7 @@ const de_Input = (output: any, context: __SerdeContext): Input => {
     TimecodeSource: [, __expectString, `timecodeSource`],
     TimecodeStart: [, __expectString, `timecodeStart`],
     VideoGenerator: [, (_: any) => de_InputVideoGenerator(_, context), `videoGenerator`],
+    VideoOverlays: [, (_: any) => de___listOfVideoOverlay(_, context), `videoOverlays`],
     VideoSelector: [, (_: any) => de_VideoSelector(_, context), `videoSelector`],
   }) as any;
 };
@@ -7325,6 +7324,7 @@ const de_InputTemplate = (output: any, context: __SerdeContext): InputTemplate =
     PsiControl: [, __expectString, `psiControl`],
     TimecodeSource: [, __expectString, `timecodeSource`],
     TimecodeStart: [, __expectString, `timecodeStart`],
+    VideoOverlays: [, (_: any) => de___listOfVideoOverlay(_, context), `videoOverlays`],
     VideoSelector: [, (_: any) => de_VideoSelector(_, context), `videoSelector`],
   }) as any;
 };
@@ -7409,8 +7409,14 @@ const de_JobSettings = (output: any, context: __SerdeContext): JobSettings => {
   return take(output, {
     AdAvailOffset: [, __expectInt32, `adAvailOffset`],
     AvailBlanking: [, (_: any) => de_AvailBlanking(_, context), `availBlanking`],
+    ColorConversion3DLUTSettings: [
+      ,
+      (_: any) => de_ColorConversion3DLUTSettings(_, context),
+      `colorConversion3DLUTSettings`,
+    ],
     Esam: [, (_: any) => de_EsamSettings(_, context), `esam`],
     ExtendedDataServices: [, (_: any) => de_ExtendedDataServices(_, context), `extendedDataServices`],
+    FollowSource: [, __expectInt32, `followSource`],
     Inputs: [, (_: any) => de___listOfInput(_, context), `inputs`],
     KantarWatermark: [, (_: any) => de_KantarWatermarkSettings(_, context), `kantarWatermark`],
     MotionImageInserter: [, (_: any) => de_MotionImageInserter(_, context), `motionImageInserter`],
@@ -7454,8 +7460,14 @@ const de_JobTemplateSettings = (output: any, context: __SerdeContext): JobTempla
   return take(output, {
     AdAvailOffset: [, __expectInt32, `adAvailOffset`],
     AvailBlanking: [, (_: any) => de_AvailBlanking(_, context), `availBlanking`],
+    ColorConversion3DLUTSettings: [
+      ,
+      (_: any) => de_ColorConversion3DLUTSettings(_, context),
+      `colorConversion3DLUTSettings`,
+    ],
     Esam: [, (_: any) => de_EsamSettings(_, context), `esam`],
     ExtendedDataServices: [, (_: any) => de_ExtendedDataServices(_, context), `extendedDataServices`],
+    FollowSource: [, __expectInt32, `followSource`],
     Inputs: [, (_: any) => de___listOfInputTemplate(_, context), `inputs`],
     KantarWatermark: [, (_: any) => de_KantarWatermarkSettings(_, context), `kantarWatermark`],
     MotionImageInserter: [, (_: any) => de_MotionImageInserter(_, context), `motionImageInserter`],
@@ -7535,6 +7547,8 @@ const de_M2tsSettings = (output: any, context: __SerdeContext): M2tsSettings => 
     PmtPid: [, __expectInt32, `pmtPid`],
     PrivateMetadataPid: [, __expectInt32, `privateMetadataPid`],
     ProgramNumber: [, __expectInt32, `programNumber`],
+    PtsOffset: [, __expectInt32, `ptsOffset`],
+    PtsOffsetMode: [, __expectString, `ptsOffsetMode`],
     RateMode: [, __expectString, `rateMode`],
     Scte35Esam: [, (_: any) => de_M2tsScte35Esam(_, context), `scte35Esam`],
     Scte35Pid: [, __expectInt32, `scte35Pid`],
@@ -7566,6 +7580,8 @@ const de_M3u8Settings = (output: any, context: __SerdeContext): M3u8Settings => 
     PmtPid: [, __expectInt32, `pmtPid`],
     PrivateMetadataPid: [, __expectInt32, `privateMetadataPid`],
     ProgramNumber: [, __expectInt32, `programNumber`],
+    PtsOffset: [, __expectInt32, `ptsOffset`],
+    PtsOffsetMode: [, __expectString, `ptsOffsetMode`],
     Scte35Pid: [, __expectInt32, `scte35Pid`],
     Scte35Source: [, __expectString, `scte35Source`],
     TimedMetadata: [, __expectString, `timedMetadata`],
@@ -8145,6 +8161,7 @@ const de_S3DestinationSettings = (output: any, context: __SerdeContext): S3Desti
   return take(output, {
     AccessControl: [, (_: any) => de_S3DestinationAccessControl(_, context), `accessControl`],
     Encryption: [, (_: any) => de_S3EncryptionSettings(_, context), `encryption`],
+    StorageClass: [, __expectString, `storageClass`],
   }) as any;
 };
 
@@ -8295,6 +8312,23 @@ const de_TtmlDestinationSettings = (output: any, context: __SerdeContext): TtmlD
 };
 
 /**
+ * deserializeAws_restJson1UncompressedSettings
+ */
+const de_UncompressedSettings = (output: any, context: __SerdeContext): UncompressedSettings => {
+  return take(output, {
+    Fourcc: [, __expectString, `fourcc`],
+    FramerateControl: [, __expectString, `framerateControl`],
+    FramerateConversionAlgorithm: [, __expectString, `framerateConversionAlgorithm`],
+    FramerateDenominator: [, __expectInt32, `framerateDenominator`],
+    FramerateNumerator: [, __expectInt32, `framerateNumerator`],
+    InterlaceMode: [, __expectString, `interlaceMode`],
+    ScanTypeConversionMode: [, __expectString, `scanTypeConversionMode`],
+    SlowPal: [, __expectString, `slowPal`],
+    Telecine: [, __expectString, `telecine`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1Vc3Settings
  */
 const de_Vc3Settings = (output: any, context: __SerdeContext): Vc3Settings => {
@@ -8324,6 +8358,7 @@ const de_VideoCodecSettings = (output: any, context: __SerdeContext): VideoCodec
     H265Settings: [, (_: any) => de_H265Settings(_, context), `h265Settings`],
     Mpeg2Settings: [, (_: any) => de_Mpeg2Settings(_, context), `mpeg2Settings`],
     ProresSettings: [, (_: any) => de_ProresSettings(_, context), `proresSettings`],
+    UncompressedSettings: [, (_: any) => de_UncompressedSettings(_, context), `uncompressedSettings`],
     Vc3Settings: [, (_: any) => de_Vc3Settings(_, context), `vc3Settings`],
     Vp8Settings: [, (_: any) => de_Vp8Settings(_, context), `vp8Settings`],
     Vp9Settings: [, (_: any) => de_Vp9Settings(_, context), `vp9Settings`],
@@ -8365,6 +8400,39 @@ const de_VideoDetail = (output: any, context: __SerdeContext): VideoDetail => {
 };
 
 /**
+ * deserializeAws_restJson1VideoOverlay
+ */
+const de_VideoOverlay = (output: any, context: __SerdeContext): VideoOverlay => {
+  return take(output, {
+    EndTimecode: [, __expectString, `endTimecode`],
+    Input: [, (_: any) => de_VideoOverlayInput(_, context), `input`],
+    StartTimecode: [, __expectString, `startTimecode`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1VideoOverlayInput
+ */
+const de_VideoOverlayInput = (output: any, context: __SerdeContext): VideoOverlayInput => {
+  return take(output, {
+    FileInput: [, __expectString, `fileInput`],
+    InputClippings: [, (_: any) => de___listOfVideoOverlayInputClipping(_, context), `inputClippings`],
+    TimecodeSource: [, __expectString, `timecodeSource`],
+    TimecodeStart: [, __expectString, `timecodeStart`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1VideoOverlayInputClipping
+ */
+const de_VideoOverlayInputClipping = (output: any, context: __SerdeContext): VideoOverlayInputClipping => {
+  return take(output, {
+    EndTimecode: [, __expectString, `endTimecode`],
+    StartTimecode: [, __expectString, `startTimecode`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1VideoPreprocessor
  */
 const de_VideoPreprocessor = (output: any, context: __SerdeContext): VideoPreprocessor => {
@@ -8390,6 +8458,7 @@ const de_VideoSelector = (output: any, context: __SerdeContext): VideoSelector =
     ColorSpaceUsage: [, __expectString, `colorSpaceUsage`],
     EmbeddedTimecodeOverride: [, __expectString, `embeddedTimecodeOverride`],
     Hdr10Metadata: [, (_: any) => de_Hdr10Metadata(_, context), `hdr10Metadata`],
+    MaxLuminance: [, __expectInt32, `maxLuminance`],
     PadVideo: [, __expectString, `padVideo`],
     Pid: [, __expectInt32, `pid`],
     ProgramNumber: [, __expectInt32, `programNumber`],
@@ -8608,6 +8677,21 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _C = "Category";
+const _LB = "ListBy";
+const _MR = "MaxResults";
+const _NT = "NextToken";
+const _O = "Order";
+const _Q = "Queue";
+const _S = "Status";
+const _c = "category";
+const _lB = "listBy";
+const _mR = "maxResults";
+const _nT = "nextToken";
+const _o = "order";
+const _q = "queue";
+const _s = "status";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

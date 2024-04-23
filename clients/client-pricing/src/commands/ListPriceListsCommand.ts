@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { ListPriceListsRequest, ListPriceListsResponse } from "../models/models_0";
 import { PricingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PricingClient";
 import { de_ListPriceListsCommand, se_ListPriceListsCommand } from "../protocols/Aws_json1_1";
@@ -41,14 +33,13 @@ export interface ListPriceListsCommandOutput extends ListPriceListsResponse, __M
  *                <b>This feature is in preview release and is subject to change. Your use of Amazon Web Services Price List API is subject to the Beta Service Participation terms of the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a> (Section 1.10).</b>
  *             </i>
  *          </p>
- *          <p>This returns a list of Price List references that the requester if authorized to view, given a <code>ServiceCode</code>, <code>CurrencyCode</code>, and an <code>EffectiveDate</code>.
- *          Use without a <code>RegionCode</code> filter to list Price List references from all
- *          available Amazon Web Services Regions. Use with a <code>RegionCode</code> filter to get the
- *          Price List reference that's specific to a specific Amazon Web Services Region. You can use
- *          the <code>PriceListArn</code> from the response to get your preferred Price List files
- *          through the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_GetPriceListFileUrl.html">
- *                <code>GetPriceListFileUrl</code>
- *             </a> API.</p>
+ *          <p>This returns a list of Price List references that the requester if authorized to view,
+ *          given a <code>ServiceCode</code>, <code>CurrencyCode</code>, and an
+ *             <code>EffectiveDate</code>. Use without a <code>RegionCode</code> filter to list Price
+ *          List references from all available Amazon Web Services Regions. Use with a
+ *             <code>RegionCode</code> filter to get the Price List reference that's specific to a
+ *          specific Amazon Web Services Region. You can use the <code>PriceListArn</code> from the
+ *          response to get your preferred Price List files through the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_GetPriceListFileUrl.html">GetPriceListFileUrl</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -109,79 +100,26 @@ export interface ListPriceListsCommandOutput extends ListPriceListsResponse, __M
  * <p>Base exception class for all service exceptions from Pricing service.</p>
  *
  */
-export class ListPriceListsCommand extends $Command<
-  ListPriceListsCommandInput,
-  ListPriceListsCommandOutput,
-  PricingClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListPriceListsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: PricingClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListPriceListsCommandInput, ListPriceListsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListPriceListsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "PricingClient";
-    const commandName = "ListPriceListsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListPriceListsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListPriceListsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListPriceListsCommandOutput> {
-    return de_ListPriceListsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListPriceListsCommand extends $Command
+  .classBuilder<
+    ListPriceListsCommandInput,
+    ListPriceListsCommandOutput,
+    PricingClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: PricingClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSPriceListService", "ListPriceLists", {})
+  .n("PricingClient", "ListPriceListsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListPriceListsCommand)
+  .de(de_ListPriceListsCommand)
+  .build() {}

@@ -41,8 +41,19 @@ export interface AgentVersion {
 
 /**
  * @public
+ * @enum
  */
-export type SourceType = "archive" | "git" | "s3" | "svn";
+export const SourceType = {
+  archive: "archive",
+  git: "git",
+  s3: "s3",
+  svn: "svn",
+} as const;
+
+/**
+ * @public
+ */
+export type SourceType = (typeof SourceType)[keyof typeof SourceType];
 
 /**
  * @public
@@ -55,7 +66,7 @@ export interface Source {
    * @public
    * <p>The repository type.</p>
    */
-  Type?: SourceType | string;
+  Type?: SourceType;
 
   /**
    * @public
@@ -113,8 +124,19 @@ export interface Source {
 
 /**
  * @public
+ * @enum
  */
-export type AppAttributesKeys = "AutoBundleOnDeploy" | "AwsFlowRubySettings" | "DocumentRoot" | "RailsEnv";
+export const AppAttributesKeys = {
+  AutoBundleOnDeploy: "AutoBundleOnDeploy",
+  AwsFlowRubySettings: "AwsFlowRubySettings",
+  DocumentRoot: "DocumentRoot",
+  RailsEnv: "RailsEnv",
+} as const;
+
+/**
+ * @public
+ */
+export type AppAttributesKeys = (typeof AppAttributesKeys)[keyof typeof AppAttributesKeys];
 
 /**
  * @public
@@ -194,8 +216,22 @@ export interface SslConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export type AppType = "aws-flow-ruby" | "java" | "nodejs" | "other" | "php" | "rails" | "static";
+export const AppType = {
+  aws_flow_ruby: "aws-flow-ruby",
+  java: "java",
+  nodejs: "nodejs",
+  other: "other",
+  php: "php",
+  rails: "rails",
+  static: "static",
+} as const;
+
+/**
+ * @public
+ */
+export type AppType = (typeof AppType)[keyof typeof AppType];
 
 /**
  * @public
@@ -242,7 +278,7 @@ export interface App {
    * @public
    * <p>The app type.</p>
    */
-  Type?: AppType | string;
+  Type?: AppType;
 
   /**
    * @public
@@ -274,7 +310,7 @@ export interface App {
    * @public
    * <p>The stack attributes.</p>
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<AppAttributesKeys, string>>;
 
   /**
    * @public
@@ -296,8 +332,17 @@ export interface App {
 
 /**
  * @public
+ * @enum
  */
-export type Architecture = "i386" | "x86_64";
+export const Architecture = {
+  i386: "i386",
+  x86_64: "x86_64",
+} as const;
+
+/**
+ * @public
+ */
+export type Architecture = (typeof Architecture)[keyof typeof Architecture];
 
 /**
  * @public
@@ -469,13 +514,32 @@ export interface AutoScalingThresholds {
 
 /**
  * @public
+ * @enum
  */
-export type AutoScalingType = "load" | "timer";
+export const AutoScalingType = {
+  load: "load",
+  timer: "timer",
+} as const;
 
 /**
  * @public
  */
-export type VolumeType = "gp2" | "io1" | "standard";
+export type AutoScalingType = (typeof AutoScalingType)[keyof typeof AutoScalingType];
+
+/**
+ * @public
+ * @enum
+ */
+export const VolumeType = {
+  gp2: "gp2",
+  io1: "io1",
+  standard: "standard",
+} as const;
+
+/**
+ * @public
+ */
+export type VolumeType = (typeof VolumeType)[keyof typeof VolumeType];
 
 /**
  * @public
@@ -510,7 +574,7 @@ export interface EbsBlockDevice {
    *           The maximum ratio of provisioned IOPS to requested volume size (in GiB) is 50:1. AWS uses the default volume size (in GiB)
    *           specified in the AMI attributes to set IOPS to 50 x (volume size).</p>
    */
-  VolumeType?: VolumeType | string;
+  VolumeType?: VolumeType;
 
   /**
    * @public
@@ -572,13 +636,30 @@ export interface ChefConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export type StackAttributesKeys = "Color";
+export const StackAttributesKeys = {
+  Color: "Color",
+} as const;
 
 /**
  * @public
  */
-export type RootDeviceType = "ebs" | "instance-store";
+export type StackAttributesKeys = (typeof StackAttributesKeys)[keyof typeof StackAttributesKeys];
+
+/**
+ * @public
+ * @enum
+ */
+export const RootDeviceType = {
+  ebs: "ebs",
+  instance_store: "instance-store",
+} as const;
+
+/**
+ * @public
+ */
+export type RootDeviceType = (typeof RootDeviceType)[keyof typeof RootDeviceType];
 
 /**
  * @public
@@ -639,7 +720,7 @@ export interface CloneStackRequest {
    * @public
    * <p>A list of stack attributes and values as key/value pairs to be added to the cloned stack.</p>
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<StackAttributesKeys, string>>;
 
   /**
    * @public
@@ -880,7 +961,7 @@ export interface CloneStackRequest {
    * <p>The default root device type. This value is used by default for all instances in the cloned
    *       stack, but you can override it when you create an instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage for the Root Device</a>.</p>
    */
-  DefaultRootDeviceType?: RootDeviceType | string;
+  DefaultRootDeviceType?: RootDeviceType;
 
   /**
    * @public
@@ -921,110 +1002,136 @@ export interface CloneStackResult {
 
 /**
  * @public
+ * @enum
  */
-export type CloudWatchLogsEncoding =
-  | "ascii"
-  | "big5"
-  | "big5hkscs"
-  | "cp037"
-  | "cp1006"
-  | "cp1026"
-  | "cp1140"
-  | "cp1250"
-  | "cp1251"
-  | "cp1252"
-  | "cp1253"
-  | "cp1254"
-  | "cp1255"
-  | "cp1256"
-  | "cp1257"
-  | "cp1258"
-  | "cp424"
-  | "cp437"
-  | "cp500"
-  | "cp720"
-  | "cp737"
-  | "cp775"
-  | "cp850"
-  | "cp852"
-  | "cp855"
-  | "cp856"
-  | "cp857"
-  | "cp858"
-  | "cp860"
-  | "cp861"
-  | "cp862"
-  | "cp863"
-  | "cp864"
-  | "cp865"
-  | "cp866"
-  | "cp869"
-  | "cp874"
-  | "cp875"
-  | "cp932"
-  | "cp949"
-  | "cp950"
-  | "euc_jis_2004"
-  | "euc_jisx0213"
-  | "euc_jp"
-  | "euc_kr"
-  | "gb18030"
-  | "gb2312"
-  | "gbk"
-  | "hz"
-  | "iso2022_jp"
-  | "iso2022_jp_1"
-  | "iso2022_jp_2"
-  | "iso2022_jp_2004"
-  | "iso2022_jp_3"
-  | "iso2022_jp_ext"
-  | "iso2022_kr"
-  | "iso8859_10"
-  | "iso8859_13"
-  | "iso8859_14"
-  | "iso8859_15"
-  | "iso8859_16"
-  | "iso8859_2"
-  | "iso8859_3"
-  | "iso8859_4"
-  | "iso8859_5"
-  | "iso8859_6"
-  | "iso8859_7"
-  | "iso8859_8"
-  | "iso8859_9"
-  | "johab"
-  | "koi8_r"
-  | "koi8_u"
-  | "latin_1"
-  | "mac_cyrillic"
-  | "mac_greek"
-  | "mac_iceland"
-  | "mac_latin2"
-  | "mac_roman"
-  | "mac_turkish"
-  | "ptcp154"
-  | "shift_jis"
-  | "shift_jis_2004"
-  | "shift_jisx0213"
-  | "utf_16"
-  | "utf_16_be"
-  | "utf_16_le"
-  | "utf_32"
-  | "utf_32_be"
-  | "utf_32_le"
-  | "utf_7"
-  | "utf_8"
-  | "utf_8_sig";
+export const CloudWatchLogsEncoding = {
+  ascii: "ascii",
+  big5: "big5",
+  big5hkscs: "big5hkscs",
+  cp037: "cp037",
+  cp1006: "cp1006",
+  cp1026: "cp1026",
+  cp1140: "cp1140",
+  cp1250: "cp1250",
+  cp1251: "cp1251",
+  cp1252: "cp1252",
+  cp1253: "cp1253",
+  cp1254: "cp1254",
+  cp1255: "cp1255",
+  cp1256: "cp1256",
+  cp1257: "cp1257",
+  cp1258: "cp1258",
+  cp424: "cp424",
+  cp437: "cp437",
+  cp500: "cp500",
+  cp720: "cp720",
+  cp737: "cp737",
+  cp775: "cp775",
+  cp850: "cp850",
+  cp852: "cp852",
+  cp855: "cp855",
+  cp856: "cp856",
+  cp857: "cp857",
+  cp858: "cp858",
+  cp860: "cp860",
+  cp861: "cp861",
+  cp862: "cp862",
+  cp863: "cp863",
+  cp864: "cp864",
+  cp865: "cp865",
+  cp866: "cp866",
+  cp869: "cp869",
+  cp874: "cp874",
+  cp875: "cp875",
+  cp932: "cp932",
+  cp949: "cp949",
+  cp950: "cp950",
+  euc_jis_2004: "euc_jis_2004",
+  euc_jisx0213: "euc_jisx0213",
+  euc_jp: "euc_jp",
+  euc_kr: "euc_kr",
+  gb18030: "gb18030",
+  gb2312: "gb2312",
+  gbk: "gbk",
+  hz: "hz",
+  iso2022_jp: "iso2022_jp",
+  iso2022_jp_1: "iso2022_jp_1",
+  iso2022_jp_2: "iso2022_jp_2",
+  iso2022_jp_2004: "iso2022_jp_2004",
+  iso2022_jp_3: "iso2022_jp_3",
+  iso2022_jp_ext: "iso2022_jp_ext",
+  iso2022_kr: "iso2022_kr",
+  iso8859_10: "iso8859_10",
+  iso8859_13: "iso8859_13",
+  iso8859_14: "iso8859_14",
+  iso8859_15: "iso8859_15",
+  iso8859_16: "iso8859_16",
+  iso8859_2: "iso8859_2",
+  iso8859_3: "iso8859_3",
+  iso8859_4: "iso8859_4",
+  iso8859_5: "iso8859_5",
+  iso8859_6: "iso8859_6",
+  iso8859_7: "iso8859_7",
+  iso8859_8: "iso8859_8",
+  iso8859_9: "iso8859_9",
+  johab: "johab",
+  koi8_r: "koi8_r",
+  koi8_u: "koi8_u",
+  latin_1: "latin_1",
+  mac_cyrillic: "mac_cyrillic",
+  mac_greek: "mac_greek",
+  mac_iceland: "mac_iceland",
+  mac_latin2: "mac_latin2",
+  mac_roman: "mac_roman",
+  mac_turkish: "mac_turkish",
+  ptcp154: "ptcp154",
+  shift_jis: "shift_jis",
+  shift_jis_2004: "shift_jis_2004",
+  shift_jisx0213: "shift_jisx0213",
+  utf_16: "utf_16",
+  utf_16_be: "utf_16_be",
+  utf_16_le: "utf_16_le",
+  utf_32: "utf_32",
+  utf_32_be: "utf_32_be",
+  utf_32_le: "utf_32_le",
+  utf_7: "utf_7",
+  utf_8: "utf_8",
+  utf_8_sig: "utf_8_sig",
+} as const;
 
 /**
  * @public
  */
-export type CloudWatchLogsInitialPosition = "end_of_file" | "start_of_file";
+export type CloudWatchLogsEncoding = (typeof CloudWatchLogsEncoding)[keyof typeof CloudWatchLogsEncoding];
+
+/**
+ * @public
+ * @enum
+ */
+export const CloudWatchLogsInitialPosition = {
+  end_of_file: "end_of_file",
+  start_of_file: "start_of_file",
+} as const;
 
 /**
  * @public
  */
-export type CloudWatchLogsTimeZone = "LOCAL" | "UTC";
+export type CloudWatchLogsInitialPosition =
+  (typeof CloudWatchLogsInitialPosition)[keyof typeof CloudWatchLogsInitialPosition];
+
+/**
+ * @public
+ * @enum
+ */
+export const CloudWatchLogsTimeZone = {
+  LOCAL: "LOCAL",
+  UTC: "UTC",
+} as const;
+
+/**
+ * @public
+ */
+export type CloudWatchLogsTimeZone = (typeof CloudWatchLogsTimeZone)[keyof typeof CloudWatchLogsTimeZone];
 
 /**
  * @public
@@ -1050,7 +1157,7 @@ export interface CloudWatchLogsLogStream {
    * @public
    * <p>Specifies the time zone of log event time stamps.</p>
    */
-  TimeZone?: CloudWatchLogsTimeZone | string;
+  TimeZone?: CloudWatchLogsTimeZone;
 
   /**
    * @public
@@ -1085,14 +1192,14 @@ export interface CloudWatchLogsLogStream {
    * <p>Specifies where to start to read data (start_of_file or end_of_file). The default is start_of_file.
    *             This setting is only used if there is no state persisted for that log stream.</p>
    */
-  InitialPosition?: CloudWatchLogsInitialPosition | string;
+  InitialPosition?: CloudWatchLogsInitialPosition;
 
   /**
    * @public
    * <p>Specifies the encoding of the log file so that the file can be read correctly.
    *             The default is <code>utf_8</code>. Encodings supported by Python <code>codecs.decode()</code> can be used here.</p>
    */
-  Encoding?: CloudWatchLogsEncoding | string;
+  Encoding?: CloudWatchLogsEncoding;
 
   /**
    * @public
@@ -1316,7 +1423,7 @@ export interface CreateAppRequest {
    *       that are members of the corresponding layer. If your app isn't one of the standard types, or
    *       you prefer to implement your own Deploy recipes, specify <code>other</code>.</p>
    */
-  Type: AppType | string | undefined;
+  Type: AppType | undefined;
 
   /**
    * @public
@@ -1348,7 +1455,7 @@ export interface CreateAppRequest {
    * @public
    * <p>One or more user-defined key/value pairs to be added to the stack attributes.</p>
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<AppAttributesKeys, string>>;
 
   /**
    * @public
@@ -1377,20 +1484,27 @@ export interface CreateAppResult {
 
 /**
  * @public
+ * @enum
  */
-export type DeploymentCommandName =
-  | "configure"
-  | "deploy"
-  | "execute_recipes"
-  | "install_dependencies"
-  | "restart"
-  | "rollback"
-  | "setup"
-  | "start"
-  | "stop"
-  | "undeploy"
-  | "update_custom_cookbooks"
-  | "update_dependencies";
+export const DeploymentCommandName = {
+  configure: "configure",
+  deploy: "deploy",
+  execute_recipes: "execute_recipes",
+  install_dependencies: "install_dependencies",
+  restart: "restart",
+  rollback: "rollback",
+  setup: "setup",
+  start: "start",
+  stop: "stop",
+  undeploy: "undeploy",
+  update_custom_cookbooks: "update_custom_cookbooks",
+  update_dependencies: "update_dependencies",
+} as const;
+
+/**
+ * @public
+ */
+export type DeploymentCommandName = (typeof DeploymentCommandName)[keyof typeof DeploymentCommandName];
 
 /**
  * @public
@@ -1457,7 +1571,7 @@ export interface DeploymentCommand {
    *             </li>
    *          </ul>
    */
-  Name: DeploymentCommandName | string | undefined;
+  Name: DeploymentCommandName | undefined;
 
   /**
    * @public
@@ -1586,7 +1700,7 @@ export interface CreateInstanceRequest {
    * @public
    * <p>For load-based or time-based instances, the type. Windows stacks can use only time-based instances.</p>
    */
-  AutoScalingType?: AutoScalingType | string;
+  AutoScalingType?: AutoScalingType;
 
   /**
    * @public
@@ -1676,13 +1790,13 @@ export interface CreateInstanceRequest {
    *       the different instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Families and
    *         Types</a>.</p>
    */
-  Architecture?: Architecture | string;
+  Architecture?: Architecture;
 
   /**
    * @public
    * <p>The instance root device type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage for the Root Device</a>.</p>
    */
-  RootDeviceType?: RootDeviceType | string;
+  RootDeviceType?: RootDeviceType;
 
   /**
    * @public
@@ -1757,33 +1871,40 @@ export interface CreateInstanceResult {
 
 /**
  * @public
+ * @enum
  */
-export type LayerAttributesKeys =
-  | "BundlerVersion"
-  | "EcsClusterArn"
-  | "EnableHaproxyStats"
-  | "GangliaPassword"
-  | "GangliaUrl"
-  | "GangliaUser"
-  | "HaproxyHealthCheckMethod"
-  | "HaproxyHealthCheckUrl"
-  | "HaproxyStatsPassword"
-  | "HaproxyStatsUrl"
-  | "HaproxyStatsUser"
-  | "JavaAppServer"
-  | "JavaAppServerVersion"
-  | "Jvm"
-  | "JvmOptions"
-  | "JvmVersion"
-  | "ManageBundler"
-  | "MemcachedMemory"
-  | "MysqlRootPassword"
-  | "MysqlRootPasswordUbiquitous"
-  | "NodejsVersion"
-  | "PassengerVersion"
-  | "RailsStack"
-  | "RubyVersion"
-  | "RubygemsVersion";
+export const LayerAttributesKeys = {
+  BundlerVersion: "BundlerVersion",
+  EcsClusterArn: "EcsClusterArn",
+  EnableHaproxyStats: "EnableHaproxyStats",
+  GangliaPassword: "GangliaPassword",
+  GangliaUrl: "GangliaUrl",
+  GangliaUser: "GangliaUser",
+  HaproxyHealthCheckMethod: "HaproxyHealthCheckMethod",
+  HaproxyHealthCheckUrl: "HaproxyHealthCheckUrl",
+  HaproxyStatsPassword: "HaproxyStatsPassword",
+  HaproxyStatsUrl: "HaproxyStatsUrl",
+  HaproxyStatsUser: "HaproxyStatsUser",
+  JavaAppServer: "JavaAppServer",
+  JavaAppServerVersion: "JavaAppServerVersion",
+  Jvm: "Jvm",
+  JvmOptions: "JvmOptions",
+  JvmVersion: "JvmVersion",
+  ManageBundler: "ManageBundler",
+  MemcachedMemory: "MemcachedMemory",
+  MysqlRootPassword: "MysqlRootPassword",
+  MysqlRootPasswordUbiquitous: "MysqlRootPasswordUbiquitous",
+  NodejsVersion: "NodejsVersion",
+  PassengerVersion: "PassengerVersion",
+  RailsStack: "RailsStack",
+  RubyVersion: "RubyVersion",
+  RubygemsVersion: "RubygemsVersion",
+} as const;
+
+/**
+ * @public
+ */
+export type LayerAttributesKeys = (typeof LayerAttributesKeys)[keyof typeof LayerAttributesKeys];
 
 /**
  * @public
@@ -1863,20 +1984,27 @@ export interface LifecycleEventConfiguration {
 
 /**
  * @public
+ * @enum
  */
-export type LayerType =
-  | "aws-flow-ruby"
-  | "custom"
-  | "db-master"
-  | "ecs-cluster"
-  | "java-app"
-  | "lb"
-  | "memcached"
-  | "monitoring-master"
-  | "nodejs-app"
-  | "php-app"
-  | "rails-app"
-  | "web";
+export const LayerType = {
+  aws_flow_ruby: "aws-flow-ruby",
+  custom: "custom",
+  db_master: "db-master",
+  ecs_cluster: "ecs-cluster",
+  java_app: "java-app",
+  lb: "lb",
+  memcached: "memcached",
+  monitoring_master: "monitoring-master",
+  nodejs_app: "nodejs-app",
+  php_app: "php-app",
+  rails_app: "rails-app",
+  web: "web",
+} as const;
+
+/**
+ * @public
+ */
+export type LayerType = (typeof LayerType)[keyof typeof LayerType];
 
 /**
  * @public
@@ -1964,7 +2092,7 @@ export interface CreateLayerRequest {
    * @public
    * <p>The layer type. A stack cannot have more than one built-in layer of the same type. It can have any number of custom layers. Built-in layers are not available in Chef 12 stacks.</p>
    */
-  Type: LayerType | string | undefined;
+  Type: LayerType | undefined;
 
   /**
    * @public
@@ -1984,7 +2112,7 @@ export interface CreateLayerRequest {
    * <p>One or more user-defined key-value pairs to be added to the stack attributes.</p>
    *          <p>To create a cluster layer, set the <code>EcsClusterArn</code> attribute to the cluster's ARN.</p>
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<LayerAttributesKeys, string>>;
 
   /**
    * @public
@@ -2169,7 +2297,7 @@ export interface CreateStackRequest {
    * @public
    * <p>One or more user-defined key-value pairs to be added to the stack attributes.</p>
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<StackAttributesKeys, string>>;
 
   /**
    * @public
@@ -2393,7 +2521,7 @@ export interface CreateStackRequest {
    *       but you can override it when you create an instance. The default option is
    *         <code>instance-store</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage for the Root Device</a>.</p>
    */
-  DefaultRootDeviceType?: RootDeviceType | string;
+  DefaultRootDeviceType?: RootDeviceType;
 
   /**
    * @public
@@ -3139,8 +3267,17 @@ export interface ReportedOs {
 
 /**
  * @public
+ * @enum
  */
-export type VirtualizationType = "hvm" | "paravirtual";
+export const VirtualizationType = {
+  hvm: "hvm",
+  paravirtual: "paravirtual",
+} as const;
+
+/**
+ * @public
+ */
+export type VirtualizationType = (typeof VirtualizationType)[keyof typeof VirtualizationType];
 
 /**
  * @public
@@ -3167,7 +3304,7 @@ export interface Instance {
    * @public
    * <p>The instance architecture: "i386" or "x86_64".</p>
    */
-  Architecture?: Architecture | string;
+  Architecture?: Architecture;
 
   /**
    * @public
@@ -3179,7 +3316,7 @@ export interface Instance {
    * @public
    * <p>For load-based or time-based instances, the type.</p>
    */
-  AutoScalingType?: AutoScalingType | string;
+  AutoScalingType?: AutoScalingType;
 
   /**
    * @public
@@ -3348,7 +3485,7 @@ export interface Instance {
    * @public
    * <p>The instance's root device type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage for the Root Device</a>.</p>
    */
-  RootDeviceType?: RootDeviceType | string;
+  RootDeviceType?: RootDeviceType;
 
   /**
    * @public
@@ -3485,7 +3622,7 @@ export interface Instance {
    * @public
    * <p>The instance's virtualization type: <code>paravirtual</code> or <code>hvm</code>.</p>
    */
-  VirtualizationType?: VirtualizationType | string;
+  VirtualizationType?: VirtualizationType;
 }
 
 /**
@@ -3545,7 +3682,7 @@ export interface Layer {
    * @public
    * <p>The layer type.</p>
    */
-  Type?: LayerType | string;
+  Type?: LayerType;
 
   /**
    * @public
@@ -3567,7 +3704,7 @@ export interface Layer {
    *       instead of the actual value</p>
    *          <p>For an ECS Cluster layer, AWS OpsWorks Stacks the <code>EcsClusterArn</code> attribute is set to the cluster's ARN.</p>
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<LayerAttributesKeys, string>>;
 
   /**
    * @public
@@ -4362,7 +4499,7 @@ export interface Stack {
    * @public
    * <p>The stack's attributes.</p>
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<StackAttributesKeys, string>>;
 
   /**
    * @public
@@ -4463,7 +4600,7 @@ export interface Stack {
    * <p>The default root device type. This value is used by default for all instances in the stack,
    *       but you can override it when you create an instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage for the Root Device</a>.</p>
    */
-  DefaultRootDeviceType?: RootDeviceType | string;
+  DefaultRootDeviceType?: RootDeviceType;
 
   /**
    * @public
@@ -5640,7 +5777,7 @@ export interface UpdateAppRequest {
    * @public
    * <p>The app type.</p>
    */
-  Type?: AppType | string;
+  Type?: AppType;
 
   /**
    * @public
@@ -5672,7 +5809,7 @@ export interface UpdateAppRequest {
    * @public
    * <p>One or more user-defined key/value pairs to be added to the stack attributes.</p>
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<AppAttributesKeys, string>>;
 
   /**
    * @public
@@ -5734,7 +5871,7 @@ export interface UpdateInstanceRequest {
    * @public
    * <p>For load-based or time-based instances, the type. Windows stacks can use only time-based instances.</p>
    */
-  AutoScalingType?: AutoScalingType | string;
+  AutoScalingType?: AutoScalingType;
 
   /**
    * @public
@@ -5801,7 +5938,7 @@ export interface UpdateInstanceRequest {
    *       a list of the architectures that are supported by the different instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance
    *         Families and Types</a>.</p>
    */
-  Architecture?: Architecture | string;
+  Architecture?: Architecture;
 
   /**
    * @public
@@ -5877,7 +6014,7 @@ export interface UpdateLayerRequest {
    * @public
    * <p>One or more user-defined key/value pairs to be added to the stack attributes.</p>
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<LayerAttributesKeys, string>>;
 
   /**
    * @public
@@ -6031,7 +6168,7 @@ export interface UpdateStackRequest {
    * @public
    * <p>One or more user-defined key-value pairs to be added to the stack attributes.</p>
    */
-  Attributes?: Record<string, string>;
+  Attributes?: Partial<Record<StackAttributesKeys, string>>;
 
   /**
    * @public
@@ -6228,7 +6365,7 @@ export interface UpdateStackRequest {
    * <p>The default root device type. This value is used by default for all instances in the stack,
    *       but you can override it when you create an instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device">Storage for the Root Device</a>.</p>
    */
-  DefaultRootDeviceType?: RootDeviceType | string;
+  DefaultRootDeviceType?: RootDeviceType;
 
   /**
    * @public

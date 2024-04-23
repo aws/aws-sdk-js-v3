@@ -29,7 +29,11 @@
 export * from "./RekognitionStreamingClient";
 export * from "./RekognitionStreaming";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { RekognitionStreamingExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { RekognitionStreamingServiceException } from "./models/RekognitionStreamingServiceException";

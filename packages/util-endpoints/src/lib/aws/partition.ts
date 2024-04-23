@@ -1,4 +1,4 @@
-import { EndpointPartition } from "@aws-sdk/types";
+import { EndpointPartition } from "@smithy/types";
 
 import partitionsInfo from "./partitions.json";
 

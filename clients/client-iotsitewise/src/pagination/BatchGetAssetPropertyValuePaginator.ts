@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { createPaginator } from "@smithy/core";
 import { Paginator } from "@smithy/types";
 
 import {
@@ -10,40 +11,14 @@ import { IoTSiteWiseClient } from "../IoTSiteWiseClient";
 import { IoTSiteWisePaginationConfiguration } from "./Interfaces";
 
 /**
- * @internal
- */
-const makePagedClientRequest = async (
-  client: IoTSiteWiseClient,
-  input: BatchGetAssetPropertyValueCommandInput,
-  ...args: any
-): Promise<BatchGetAssetPropertyValueCommandOutput> => {
-  // @ts-ignore
-  return await client.send(new BatchGetAssetPropertyValueCommand(input), ...args);
-};
-/**
  * @public
  */
-export async function* paginateBatchGetAssetPropertyValue(
+export const paginateBatchGetAssetPropertyValue: (
   config: IoTSiteWisePaginationConfiguration,
   input: BatchGetAssetPropertyValueCommandInput,
-  ...additionalArguments: any
-): Paginator<BatchGetAssetPropertyValueCommandOutput> {
-  // ToDo: replace with actual type instead of typeof input.nextToken
-  let token: typeof input.nextToken | undefined = config.startingToken || undefined;
-  let hasNext = true;
-  let page: BatchGetAssetPropertyValueCommandOutput;
-  while (hasNext) {
-    input.nextToken = token;
-    if (config.client instanceof IoTSiteWiseClient) {
-      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
-    } else {
-      throw new Error("Invalid client, expected IoTSiteWise | IoTSiteWiseClient");
-    }
-    yield page;
-    const prevToken = token;
-    token = page.nextToken;
-    hasNext = !!(token && (!config.stopOnSameToken || token !== prevToken));
-  }
-  // @ts-ignore
-  return undefined;
-}
+  ...rest: any[]
+) => Paginator<BatchGetAssetPropertyValueCommandOutput> = createPaginator<
+  IoTSiteWisePaginationConfiguration,
+  BatchGetAssetPropertyValueCommandInput,
+  BatchGetAssetPropertyValueCommandOutput
+>(IoTSiteWiseClient, BatchGetAssetPropertyValueCommand, "nextToken", "nextToken", "");

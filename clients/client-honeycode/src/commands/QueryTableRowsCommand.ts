@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { HoneycodeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HoneycodeClient";
 import {
   QueryTableRowsRequest,
@@ -72,7 +64,7 @@ export interface QueryTableRowsCommandOutput extends QueryTableRowsResult, __Met
  * //       cells: [ // Cells // required
  * //         { // Cell
  * //           formula: "STRING_VALUE",
- * //           format: "STRING_VALUE",
+ * //           format: "AUTO" || "NUMBER" || "CURRENCY" || "DATE" || "TIME" || "DATE_TIME" || "PERCENTAGE" || "TEXT" || "ACCOUNTING" || "CONTACT" || "ROWLINK" || "ROWSET",
  * //           rawValue: "STRING_VALUE",
  * //           formattedValue: "STRING_VALUE",
  * //           formattedValues: [ // FormattedValuesList
@@ -124,79 +116,26 @@ export interface QueryTableRowsCommandOutput extends QueryTableRowsResult, __Met
  * <p>Base exception class for all service exceptions from Honeycode service.</p>
  *
  */
-export class QueryTableRowsCommand extends $Command<
-  QueryTableRowsCommandInput,
-  QueryTableRowsCommandOutput,
-  HoneycodeClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: QueryTableRowsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: HoneycodeClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<QueryTableRowsCommandInput, QueryTableRowsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, QueryTableRowsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "HoneycodeClient";
-    const commandName = "QueryTableRowsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: QueryTableRowsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: QueryTableRowsResultFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: QueryTableRowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_QueryTableRowsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<QueryTableRowsCommandOutput> {
-    return de_QueryTableRowsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class QueryTableRowsCommand extends $Command
+  .classBuilder<
+    QueryTableRowsCommandInput,
+    QueryTableRowsCommandOutput,
+    HoneycodeClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: HoneycodeClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("SheetsPublicApiService", "QueryTableRows", {})
+  .n("HoneycodeClient", "QueryTableRowsCommand")
+  .f(QueryTableRowsRequestFilterSensitiveLog, QueryTableRowsResultFilterSensitiveLog)
+  .ser(se_QueryTableRowsCommand)
+  .de(de_QueryTableRowsCommand)
+  .build() {}

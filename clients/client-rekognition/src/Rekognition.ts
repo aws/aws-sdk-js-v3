@@ -173,6 +173,11 @@ import {
   GetLabelDetectionCommandOutput,
 } from "./commands/GetLabelDetectionCommand";
 import {
+  GetMediaAnalysisJobCommand,
+  GetMediaAnalysisJobCommandInput,
+  GetMediaAnalysisJobCommandOutput,
+} from "./commands/GetMediaAnalysisJobCommand";
+import {
   GetPersonTrackingCommand,
   GetPersonTrackingCommandInput,
   GetPersonTrackingCommandOutput,
@@ -204,6 +209,11 @@ import {
   ListDatasetLabelsCommandOutput,
 } from "./commands/ListDatasetLabelsCommand";
 import { ListFacesCommand, ListFacesCommandInput, ListFacesCommandOutput } from "./commands/ListFacesCommand";
+import {
+  ListMediaAnalysisJobsCommand,
+  ListMediaAnalysisJobsCommandInput,
+  ListMediaAnalysisJobsCommandOutput,
+} from "./commands/ListMediaAnalysisJobsCommand";
 import {
   ListProjectPoliciesCommand,
   ListProjectPoliciesCommandInput,
@@ -267,6 +277,11 @@ import {
   StartLabelDetectionCommandInput,
   StartLabelDetectionCommandOutput,
 } from "./commands/StartLabelDetectionCommand";
+import {
+  StartMediaAnalysisJobCommand,
+  StartMediaAnalysisJobCommandInput,
+  StartMediaAnalysisJobCommandOutput,
+} from "./commands/StartMediaAnalysisJobCommand";
 import {
   StartPersonTrackingCommand,
   StartPersonTrackingCommandInput,
@@ -359,6 +374,7 @@ const commands = {
   GetFaceLivenessSessionResultsCommand,
   GetFaceSearchCommand,
   GetLabelDetectionCommand,
+  GetMediaAnalysisJobCommand,
   GetPersonTrackingCommand,
   GetSegmentDetectionCommand,
   GetTextDetectionCommand,
@@ -367,6 +383,7 @@ const commands = {
   ListDatasetEntriesCommand,
   ListDatasetLabelsCommand,
   ListFacesCommand,
+  ListMediaAnalysisJobsCommand,
   ListProjectPoliciesCommand,
   ListStreamProcessorsCommand,
   ListTagsForResourceCommand,
@@ -382,6 +399,7 @@ const commands = {
   StartFaceDetectionCommand,
   StartFaceSearchCommand,
   StartLabelDetectionCommand,
+  StartMediaAnalysisJobCommand,
   StartPersonTrackingCommand,
   StartProjectVersionCommand,
   StartSegmentDetectionCommand,
@@ -965,6 +983,23 @@ export interface Rekognition {
   ): void;
 
   /**
+   * @see {@link GetMediaAnalysisJobCommand}
+   */
+  getMediaAnalysisJob(
+    args: GetMediaAnalysisJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMediaAnalysisJobCommandOutput>;
+  getMediaAnalysisJob(
+    args: GetMediaAnalysisJobCommandInput,
+    cb: (err: any, data?: GetMediaAnalysisJobCommandOutput) => void
+  ): void;
+  getMediaAnalysisJob(
+    args: GetMediaAnalysisJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMediaAnalysisJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetPersonTrackingCommand}
    */
   getPersonTracking(
@@ -1083,6 +1118,23 @@ export interface Rekognition {
     args: ListFacesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListFacesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListMediaAnalysisJobsCommand}
+   */
+  listMediaAnalysisJobs(
+    args: ListMediaAnalysisJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMediaAnalysisJobsCommandOutput>;
+  listMediaAnalysisJobs(
+    args: ListMediaAnalysisJobsCommandInput,
+    cb: (err: any, data?: ListMediaAnalysisJobsCommandOutput) => void
+  ): void;
+  listMediaAnalysisJobs(
+    args: ListMediaAnalysisJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMediaAnalysisJobsCommandOutput) => void
   ): void;
 
   /**
@@ -1317,6 +1369,23 @@ export interface Rekognition {
     args: StartLabelDetectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartLabelDetectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartMediaAnalysisJobCommand}
+   */
+  startMediaAnalysisJob(
+    args: StartMediaAnalysisJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartMediaAnalysisJobCommandOutput>;
+  startMediaAnalysisJob(
+    args: StartMediaAnalysisJobCommandInput,
+    cb: (err: any, data?: StartMediaAnalysisJobCommandOutput) => void
+  ): void;
+  startMediaAnalysisJob(
+    args: StartMediaAnalysisJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartMediaAnalysisJobCommandOutput) => void
   ): void;
 
   /**
@@ -1582,12 +1651,22 @@ export interface Rekognition {
  *             </li>
  *             <li>
  *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_GetMediaAnalysisJob.html">GetMediaAnalysisJob</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_IndexFaces.html">IndexFaces</a>
  *                </p>
  *             </li>
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListCollections.html">ListCollections</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_ListMediaAnalysisJob.html">ListMediaAnalysisJob</a>
  *                </p>
  *             </li>
  *             <li>
@@ -1623,6 +1702,11 @@ export interface Rekognition {
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_SearchUsersByImage.html">SearchUsersByImage</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/rekognition/latest/APIReference/API_StartMediaAnalysisJob.html">StartMediaAnalysisJob</a>
  *                </p>
  *             </li>
  *          </ul>

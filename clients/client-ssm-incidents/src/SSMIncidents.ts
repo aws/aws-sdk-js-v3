@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  BatchGetIncidentFindingsCommand,
+  BatchGetIncidentFindingsCommandInput,
+  BatchGetIncidentFindingsCommandOutput,
+} from "./commands/BatchGetIncidentFindingsCommand";
+import {
   CreateReplicationSetCommand,
   CreateReplicationSetCommandInput,
   CreateReplicationSetCommandOutput,
@@ -67,6 +72,11 @@ import {
   GetTimelineEventCommandInput,
   GetTimelineEventCommandOutput,
 } from "./commands/GetTimelineEventCommand";
+import {
+  ListIncidentFindingsCommand,
+  ListIncidentFindingsCommandInput,
+  ListIncidentFindingsCommandOutput,
+} from "./commands/ListIncidentFindingsCommand";
 import {
   ListIncidentRecordsCommand,
   ListIncidentRecordsCommandInput,
@@ -146,6 +156,7 @@ import {
 import { SSMIncidentsClient, SSMIncidentsClientConfig } from "./SSMIncidentsClient";
 
 const commands = {
+  BatchGetIncidentFindingsCommand,
   CreateReplicationSetCommand,
   CreateResponsePlanCommand,
   CreateTimelineEventCommand,
@@ -159,6 +170,7 @@ const commands = {
   GetResourcePoliciesCommand,
   GetResponsePlanCommand,
   GetTimelineEventCommand,
+  ListIncidentFindingsCommand,
   ListIncidentRecordsCommand,
   ListRelatedItemsCommand,
   ListReplicationSetsCommand,
@@ -178,6 +190,23 @@ const commands = {
 };
 
 export interface SSMIncidents {
+  /**
+   * @see {@link BatchGetIncidentFindingsCommand}
+   */
+  batchGetIncidentFindings(
+    args: BatchGetIncidentFindingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetIncidentFindingsCommandOutput>;
+  batchGetIncidentFindings(
+    args: BatchGetIncidentFindingsCommandInput,
+    cb: (err: any, data?: BatchGetIncidentFindingsCommandOutput) => void
+  ): void;
+  batchGetIncidentFindings(
+    args: BatchGetIncidentFindingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetIncidentFindingsCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateReplicationSetCommand}
    */
@@ -394,6 +423,23 @@ export interface SSMIncidents {
     args: GetTimelineEventCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetTimelineEventCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListIncidentFindingsCommand}
+   */
+  listIncidentFindings(
+    args: ListIncidentFindingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIncidentFindingsCommandOutput>;
+  listIncidentFindings(
+    args: ListIncidentFindingsCommandInput,
+    cb: (err: any, data?: ListIncidentFindingsCommandOutput) => void
+  ): void;
+  listIncidentFindings(
+    args: ListIncidentFindingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListIncidentFindingsCommandOutput) => void
   ): void;
 
   /**

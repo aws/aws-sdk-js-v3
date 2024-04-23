@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { RestoreDBInstanceToPointInTimeMessage, RestoreDBInstanceToPointInTimeResult } from "../models/models_1";
 import {
   de_RestoreDBInstanceToPointInTimeCommand,
@@ -41,7 +33,7 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
 
 /**
  * @public
- * <p>Restores a DB instance to an arbitrary point in time. You can restore to any point in time before the time identified by the LatestRestorableTime property. You can restore to a point up to the number of days specified by the BackupRetentionPeriod property.</p>
+ * <p>Restores a DB instance to an arbitrary point in time. You can restore to any point in time before the time identified by the <code>LatestRestorableTime</code> property. You can restore to a point up to the number of days specified by the <code>BackupRetentionPeriod</code> property.</p>
  *          <p>The target database is created with most of the original configuration, but in a
  *             system-selected Availability Zone, with the default security group, the default subnet
  *             group, and the default DB parameter group. By default, the new DB instance is created as
@@ -49,7 +41,7 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  *             option group that is associated with mirroring; in this case, the instance becomes a
  *             mirrored deployment and not a single-AZ deployment.</p>
  *          <note>
- *             <p>This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use <code>RestoreDBClusterToPointInTime</code>.</p>
+ *             <p>This operation doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use <code>RestoreDBClusterToPointInTime</code>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -117,6 +109,7 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  *   NetworkType: "STRING_VALUE",
  *   StorageThroughput: Number("int"),
  *   AllocatedStorage: Number("int"),
+ *   DedicatedLogVolume: true || false,
  * };
  * const command = new RestoreDBInstanceToPointInTimeCommand(input);
  * const response = await client.send(command);
@@ -213,6 +206,8 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  * //       ResumeFullAutomationModeTime: new Date("TIMESTAMP"),
  * //       StorageThroughput: Number("int"),
  * //       Engine: "STRING_VALUE",
+ * //       DedicatedLogVolume: true || false,
+ * //       MultiTenant: true || false,
  * //     },
  * //     LatestRestorableTime: new Date("TIMESTAMP"),
  * //     MultiAZ: true || false,
@@ -338,6 +333,9 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  * //     },
  * //     ReadReplicaSourceDBClusterIdentifier: "STRING_VALUE",
  * //     PercentProgress: "STRING_VALUE",
+ * //     DedicatedLogVolume: true || false,
+ * //     IsStorageConfigUpgradeAvailable: true || false,
+ * //     MultiTenant: true || false,
  * //   },
  * // };
  *
@@ -432,6 +430,10 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  *
  * @throws {@link StorageTypeNotSupportedFault} (client fault)
  *  <p>The specified <code>StorageType</code> can't be associated with the DB instance.</p>
+ *
+ * @throws {@link TenantDatabaseQuotaExceededFault} (client fault)
+ *  <p>You attempted to create more tenant databases than are permitted in your Amazon Web Services
+ *             account.</p>
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
@@ -531,85 +533,26 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  * ```
  *
  */
-export class RestoreDBInstanceToPointInTimeCommand extends $Command<
-  RestoreDBInstanceToPointInTimeCommandInput,
-  RestoreDBInstanceToPointInTimeCommandOutput,
-  RDSClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: RestoreDBInstanceToPointInTimeCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RDSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<RestoreDBInstanceToPointInTimeCommandInput, RestoreDBInstanceToPointInTimeCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, RestoreDBInstanceToPointInTimeCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RDSClient";
-    const commandName = "RestoreDBInstanceToPointInTimeCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: RestoreDBInstanceToPointInTimeCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_RestoreDBInstanceToPointInTimeCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<RestoreDBInstanceToPointInTimeCommandOutput> {
-    return de_RestoreDBInstanceToPointInTimeCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class RestoreDBInstanceToPointInTimeCommand extends $Command
+  .classBuilder<
+    RestoreDBInstanceToPointInTimeCommandInput,
+    RestoreDBInstanceToPointInTimeCommandOutput,
+    RDSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonRDSv19", "RestoreDBInstanceToPointInTime", {})
+  .n("RDSClient", "RestoreDBInstanceToPointInTimeCommand")
+  .f(void 0, void 0)
+  .ser(se_RestoreDBInstanceToPointInTimeCommand)
+  .de(de_RestoreDBInstanceToPointInTimeCommand)
+  .build() {}

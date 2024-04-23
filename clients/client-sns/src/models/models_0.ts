@@ -235,6 +235,26 @@ export class FilterPolicyLimitExceededException extends __BaseException {
 
 /**
  * @public
+ * <p>Indicates that the request parameter has exceeded the maximum number of concurrent message replays.</p>
+ */
+export class ReplayLimitExceededException extends __BaseException {
+  readonly name: "ReplayLimitExceededException" = "ReplayLimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReplayLimitExceededException, __BaseException>) {
+    super({
+      name: "ReplayLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReplayLimitExceededException.prototype);
+  }
+}
+
+/**
+ * @public
  * <p>Indicates that the customer already owns the maximum allowed number of
  *             subscriptions.</p>
  */
@@ -382,7 +402,7 @@ export interface CreateSMSSandboxPhoneNumberInput {
    * <p>The language to use for sending the OTP. The default value is
    *             <code>en-US</code>.</p>
    */
-  LanguageCode?: LanguageCodeString | string;
+  LanguageCode?: LanguageCodeString;
 }
 
 /**
@@ -544,8 +564,15 @@ export interface CreateTopicInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>FifoTopic</code> – When this is set to <code>true</code>, a FIFO
-   *                 topic is created.</p>
+   *                   <code>ArchivePolicy</code> – Adds or updates an inline policy document
+   *                     to archive messages stored in the specified Amazon SNS topic.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BeginningArchiveTime</code> – The earliest starting point at
+   *                     which a message in the topic’s archive can be replayed from. This point in time
+   *                     is based on the configured message retention period set by the topic’s message
+   *                     archiving policy.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -778,6 +805,26 @@ export interface DeleteTopicInput {
    * <p>The ARN of the topic you want to delete.</p>
    */
   TopicArn: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Indicates that the specified state is not a valid state for an event source.</p>
+ */
+export class InvalidStateException extends __BaseException {
+  readonly name: "InvalidStateException" = "InvalidStateException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidStateException, __BaseException>) {
+    super({
+      name: "InvalidStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidStateException.prototype);
+  }
 }
 
 /**
@@ -1349,13 +1396,13 @@ export interface PhoneNumberInformation {
    * @public
    * <p>The list of supported routes.</p>
    */
-  RouteType?: RouteType | string;
+  RouteType?: RouteType;
 
   /**
    * @public
    * <p>The capabilities of each phone number.</p>
    */
-  NumberCapabilities?: (NumberCapability | string)[];
+  NumberCapabilities?: NumberCapability[];
 }
 
 /**
@@ -1540,7 +1587,7 @@ export interface SMSSandboxPhoneNumber {
    * @public
    * <p>The destination phone number's verification status.</p>
    */
-  Status?: SMSSandboxPhoneNumberVerificationStatus | string;
+  Status?: SMSSandboxPhoneNumberVerificationStatus;
 }
 
 /**
@@ -1812,7 +1859,7 @@ export class KMSAccessDeniedException extends __BaseException {
 
 /**
  * @public
- * <p>The request was rejected because the specified customer master key (CMK) isn't
+ * <p>The request was rejected because the specified Amazon Web Services KMS key isn't
  *             enabled.</p>
  */
 export class KMSDisabledException extends __BaseException {
@@ -1834,8 +1881,7 @@ export class KMSDisabledException extends __BaseException {
 /**
  * @public
  * <p>The request was rejected because the state of the specified resource isn't valid for
- *             this request. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">How Key State Affects Use of a
- *                 Customer Master Key</a> in the <i>Key Management Service Developer
+ *             this request. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of Amazon Web Services KMS keys</a> in the <i>Key Management Service Developer
  *                 Guide</i>.</p>
  */
 export class KMSInvalidStateException extends __BaseException {
@@ -3297,6 +3343,44 @@ export interface SubscribeInput {
    *                <p>Specifying a valid ARN for this attribute is required for Kinesis Data Firehose delivery stream subscriptions.
    *                 For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html">Fanout
    *                     to Kinesis Data Firehose delivery streams</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The following attributes apply only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html">FIFO topics</a>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ReplayPolicy</code> – Adds or updates an inline policy document
+   *                     for a subscription to replay messages stored in the specified Amazon SNS
+   *                     topic.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ReplayStatus</code> – Retrieves the status of the subscription
+   *                     message replay, which can be one of the following:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>Completed</code> – The replay has successfully
+   *                             redelivered all messages, and is now delivering newly published
+   *                             messages. If an ending point was specified in the
+   *                                 <code>ReplayPolicy</code> then the subscription will no longer
+   *                             receive newly published messages.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>In progress</code> – The replay is currently replaying
+   *                             the selected messages.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Failed</code> – The replay was unable to complete.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>Pending</code> – The default state while the replay
+   *                             initiates.</p>
+   *                   </li>
+   *                </ul>
    *             </li>
    *          </ul>
    */

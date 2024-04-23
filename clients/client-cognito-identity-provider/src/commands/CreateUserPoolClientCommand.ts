@@ -1,24 +1,16 @@
 // smithy-typescript generated code
 import { getAwsAuthPlugin } from "@aws-sdk/middleware-signing";
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import {
   CognitoIdentityProviderClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreateUserPoolClientRequest,
   CreateUserPoolClientResponse,
@@ -224,81 +216,156 @@ export interface CreateUserPoolClientCommandOutput extends CreateUserPoolClientR
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ * @example Example user pool app client with email and username sign-in
+ * ```javascript
+ * // The following example creates an app client with all configurable properties set to an example value. The resulting user pool client connects to an analytics client, allows sign-in with username and password, and has two external identity providers associated with it.
+ * const input = {
+ *   "AccessTokenValidity": 6,
+ *   "AllowedOAuthFlows": [
+ *     "code"
+ *   ],
+ *   "AllowedOAuthFlowsUserPoolClient": true,
+ *   "AllowedOAuthScopes": [
+ *     "aws.cognito.signin.user.admin",
+ *     "openid"
+ *   ],
+ *   "AnalyticsConfiguration": {
+ *     "ApplicationId": "d70b2ba36a8c4dc5a04a0451a31a1e12",
+ *     "ExternalId": "my-external-id",
+ *     "RoleArn": "arn:aws:iam::123456789012:role/test-cognitouserpool-role",
+ *     "UserDataShared": true
+ *   },
+ *   "CallbackURLs": [
+ *     "https://example.com",
+ *     "http://localhost",
+ *     "myapp://example"
+ *   ],
+ *   "ClientName": "my-test-app-client",
+ *   "DefaultRedirectURI": "https://example.com",
+ *   "ExplicitAuthFlows": [
+ *     "ALLOW_ADMIN_USER_PASSWORD_AUTH",
+ *     "ALLOW_USER_PASSWORD_AUTH",
+ *     "ALLOW_REFRESH_TOKEN_AUTH"
+ *   ],
+ *   "GenerateSecret": true,
+ *   "IdTokenValidity": 6,
+ *   "LogoutURLs": [
+ *     "https://example.com/logout"
+ *   ],
+ *   "PreventUserExistenceErrors": "ENABLED",
+ *   "ReadAttributes": [
+ *     "email",
+ *     "address",
+ *     "preferred_username"
+ *   ],
+ *   "RefreshTokenValidity": 6,
+ *   "SupportedIdentityProviders": [
+ *     "SignInWithApple",
+ *     "MySSO"
+ *   ],
+ *   "TokenValidityUnits": {
+ *     "AccessToken": "hours",
+ *     "IdToken": "minutes",
+ *     "RefreshToken": "days"
+ *   },
+ *   "UserPoolId": "us-east-1_EXAMPLE",
+ *   "WriteAttributes": [
+ *     "family_name",
+ *     "email"
+ *   ]
+ * };
+ * const command = new CreateUserPoolClientCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "UserPoolClient": {
+ *     "AccessTokenValidity": 6,
+ *     "AllowedOAuthFlows": [
+ *       "code"
+ *     ],
+ *     "AllowedOAuthFlowsUserPoolClient": true,
+ *     "AllowedOAuthScopes": [
+ *       "aws.cognito.signin.user.admin",
+ *       "openid"
+ *     ],
+ *     "AnalyticsConfiguration": {
+ *       "ApplicationId": "d70b2ba36a8c4dc5a04a0451a31a1e12",
+ *       "ExternalId": "my-external-id",
+ *       "RoleArn": "arn:aws:iam::123456789012:role/test-cognitouserpool-role",
+ *       "UserDataShared": true
+ *     },
+ *     "AuthSessionValidity": 3,
+ *     "CallbackURLs": [
+ *       "https://example.com",
+ *       "http://localhost",
+ *       "myapp://example"
+ *     ],
+ *     "ClientId": "26cb2c60kq7nbmas7rbme9b6pp",
+ *     "ClientName": "my-test-app-client",
+ *     "ClientSecret": "13ka4h7u28d9oo44tqpq9djqsfvhvu8rk4d2ighvpu0k8fj1c2r9",
+ *     "CreationDate": 1689885426.107,
+ *     "DefaultRedirectURI": "https://example.com",
+ *     "EnablePropagateAdditionalUserContextData": false,
+ *     "EnableTokenRevocation": true,
+ *     "ExplicitAuthFlows": [
+ *       "ALLOW_USER_PASSWORD_AUTH",
+ *       "ALLOW_ADMIN_USER_PASSWORD_AUTH",
+ *       "ALLOW_REFRESH_TOKEN_AUTH"
+ *     ],
+ *     "IdTokenValidity": 6,
+ *     "LastModifiedDate": 1689885426.107,
+ *     "LogoutURLs": [
+ *       "https://example.com/logout"
+ *     ],
+ *     "PreventUserExistenceErrors": "ENABLED",
+ *     "ReadAttributes": [
+ *       "address",
+ *       "preferred_username",
+ *       "email"
+ *     ],
+ *     "RefreshTokenValidity": 6,
+ *     "SupportedIdentityProviders": [
+ *       "SignInWithApple",
+ *       "MySSO"
+ *     ],
+ *     "TokenValidityUnits": {
+ *       "AccessToken": "hours",
+ *       "IdToken": "minutes",
+ *       "RefreshToken": "days"
+ *     },
+ *     "UserPoolId": "us-east-1_EXAMPLE",
+ *     "WriteAttributes": [
+ *       "family_name",
+ *       "email"
+ *     ]
+ *   }
+ * }
+ * *\/
+ * // example id: example-user-pool-app-client-with-email-and-username-sign-in-1689885750745
+ * ```
+ *
  */
-export class CreateUserPoolClientCommand extends $Command<
-  CreateUserPoolClientCommandInput,
-  CreateUserPoolClientCommandOutput,
-  CognitoIdentityProviderClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateUserPoolClientCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CognitoIdentityProviderClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateUserPoolClientCommandInput, CreateUserPoolClientCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateUserPoolClientCommand.getEndpointParameterInstructions())
-    );
-    this.middlewareStack.use(getAwsAuthPlugin(configuration));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CognitoIdentityProviderClient";
-    const commandName = "CreateUserPoolClientCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: CreateUserPoolClientResponseFilterSensitiveLog,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateUserPoolClientCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateUserPoolClientCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateUserPoolClientCommandOutput> {
-    return de_CreateUserPoolClientCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateUserPoolClientCommand extends $Command
+  .classBuilder<
+    CreateUserPoolClientCommandInput,
+    CreateUserPoolClientCommandOutput,
+    CognitoIdentityProviderClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getAwsAuthPlugin(config),
+    ];
+  })
+  .s("AWSCognitoIdentityProviderService", "CreateUserPoolClient", {})
+  .n("CognitoIdentityProviderClient", "CreateUserPoolClientCommand")
+  .f(void 0, CreateUserPoolClientResponseFilterSensitiveLog)
+  .ser(se_CreateUserPoolClientCommand)
+  .de(de_CreateUserPoolClientCommand)
+  .build() {}

@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   LexModelBuildingServiceClientResolvedConfig,
   ServiceInputTypes,
@@ -63,13 +55,13 @@ export interface GetIntentCommandOutput extends GetIntentResponse, __MetadataBea
  * //     { // Slot
  * //       name: "STRING_VALUE", // required
  * //       description: "STRING_VALUE",
- * //       slotConstraint: "STRING_VALUE", // required
+ * //       slotConstraint: "Required" || "Optional", // required
  * //       slotType: "STRING_VALUE",
  * //       slotTypeVersion: "STRING_VALUE",
  * //       valueElicitationPrompt: { // Prompt
  * //         messages: [ // MessageList // required
  * //           { // Message
- * //             contentType: "STRING_VALUE", // required
+ * //             contentType: "PlainText" || "SSML" || "CustomPayload", // required
  * //             content: "STRING_VALUE", // required
  * //             groupNumber: Number("int"),
  * //           },
@@ -82,7 +74,7 @@ export interface GetIntentCommandOutput extends GetIntentResponse, __MetadataBea
  * //         "STRING_VALUE",
  * //       ],
  * //       responseCard: "STRING_VALUE",
- * //       obfuscationSetting: "STRING_VALUE",
+ * //       obfuscationSetting: "NONE" || "DEFAULT_OBFUSCATION",
  * //       defaultValueSpec: { // SlotDefaultValueSpec
  * //         defaultValueList: [ // SlotDefaultValueList // required
  * //           { // SlotDefaultValue
@@ -98,7 +90,7 @@ export interface GetIntentCommandOutput extends GetIntentResponse, __MetadataBea
  * //   confirmationPrompt: {
  * //     messages: [ // required
  * //       {
- * //         contentType: "STRING_VALUE", // required
+ * //         contentType: "PlainText" || "SSML" || "CustomPayload", // required
  * //         content: "STRING_VALUE", // required
  * //         groupNumber: Number("int"),
  * //       },
@@ -109,7 +101,7 @@ export interface GetIntentCommandOutput extends GetIntentResponse, __MetadataBea
  * //   rejectionStatement: { // Statement
  * //     messages: [ // required
  * //       {
- * //         contentType: "STRING_VALUE", // required
+ * //         contentType: "PlainText" || "SSML" || "CustomPayload", // required
  * //         content: "STRING_VALUE", // required
  * //         groupNumber: Number("int"),
  * //       },
@@ -132,7 +124,7 @@ export interface GetIntentCommandOutput extends GetIntentResponse, __MetadataBea
  * //     messageVersion: "STRING_VALUE", // required
  * //   },
  * //   fulfillmentActivity: { // FulfillmentActivity
- * //     type: "STRING_VALUE", // required
+ * //     type: "ReturnIntent" || "CodeHook", // required
  * //     codeHook: {
  * //       uri: "STRING_VALUE", // required
  * //       messageVersion: "STRING_VALUE", // required
@@ -336,77 +328,26 @@ export interface GetIntentCommandOutput extends GetIntentResponse, __MetadataBea
  * ```
  *
  */
-export class GetIntentCommand extends $Command<
-  GetIntentCommandInput,
-  GetIntentCommandOutput,
-  LexModelBuildingServiceClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetIntentCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: LexModelBuildingServiceClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetIntentCommandInput, GetIntentCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GetIntentCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "LexModelBuildingServiceClient";
-    const commandName = "GetIntentCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetIntentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetIntentCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetIntentCommandOutput> {
-    return de_GetIntentCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetIntentCommand extends $Command
+  .classBuilder<
+    GetIntentCommandInput,
+    GetIntentCommandOutput,
+    LexModelBuildingServiceClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSDeepSenseModelBuildingService", "GetIntent", {})
+  .n("LexModelBuildingServiceClient", "GetIntentCommand")
+  .f(void 0, void 0)
+  .ser(se_GetIntentCommand)
+  .de(de_GetIntentCommand)
+  .build() {}

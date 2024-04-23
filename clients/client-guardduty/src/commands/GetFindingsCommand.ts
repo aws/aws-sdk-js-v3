@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
 import { GetFindingsRequest, GetFindingsResponse } from "../models/models_0";
 import { de_GetFindingsCommand, se_GetFindingsCommand } from "../protocols/Aws_restJson1";
@@ -199,6 +191,12 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //             SessionName: [ // SessionNameList
  * //               "STRING_VALUE",
  * //             ],
+ * //             ImpersonatedUser: { // ImpersonatedUser
+ * //               Username: "STRING_VALUE",
+ * //               Groups: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
  * //           },
  * //           KubernetesWorkloadDetails: { // KubernetesWorkloadDetails
  * //             Name: "STRING_VALUE",
@@ -221,6 +219,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                 ],
  * //                 SecurityContext: { // SecurityContext
  * //                   Privileged: true || false,
+ * //                   AllowPrivilegeEscalation: true || false,
  * //                 },
  * //               },
  * //             ],
@@ -232,6 +231,9 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                 },
  * //               },
  * //             ],
+ * //             ServiceAccountName: "STRING_VALUE",
+ * //             HostIPC: true || false,
+ * //             HostPID: true || false,
  * //           },
  * //         },
  * //         ResourceType: "STRING_VALUE",
@@ -308,6 +310,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                 ],
  * //                 SecurityContext: {
  * //                   Privileged: true || false,
+ * //                   AllowPrivilegeEscalation: true || false,
  * //                 },
  * //               },
  * //             ],
@@ -328,6 +331,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //           ],
  * //           SecurityContext: {
  * //             Privileged: true || false,
+ * //             AllowPrivilegeEscalation: true || false,
  * //           },
  * //         },
  * //         RdsDbInstanceDetails: { // RdsDbInstanceDetails
@@ -413,6 +417,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //             Domain: "STRING_VALUE",
  * //             Protocol: "STRING_VALUE",
  * //             Blocked: true || false,
+ * //             DomainWithSuffix: "STRING_VALUE",
  * //           },
  * //           NetworkConnectionAction: { // NetworkConnectionAction
  * //             Blocked: true || false,
@@ -513,6 +518,10 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //             },
  * //             StatusCode: Number("int"),
  * //             Parameters: "STRING_VALUE",
+ * //             Resource: "STRING_VALUE",
+ * //             Subresource: "STRING_VALUE",
+ * //             Namespace: "STRING_VALUE",
+ * //             ResourceName: "STRING_VALUE",
  * //           },
  * //           RdsLoginAttemptAction: { // RdsLoginAttemptAction
  * //             RemoteIpDetails: {
@@ -543,6 +552,24 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //                 SuccessfulLoginAttempts: Number("int"),
  * //               },
  * //             ],
+ * //           },
+ * //           KubernetesPermissionCheckedDetails: { // KubernetesPermissionCheckedDetails
+ * //             Verb: "STRING_VALUE",
+ * //             Resource: "STRING_VALUE",
+ * //             Namespace: "STRING_VALUE",
+ * //             Allowed: true || false,
+ * //           },
+ * //           KubernetesRoleBindingDetails: { // KubernetesRoleBindingDetails
+ * //             Kind: "STRING_VALUE",
+ * //             Name: "STRING_VALUE",
+ * //             Uid: "STRING_VALUE",
+ * //             RoleRefName: "STRING_VALUE",
+ * //             RoleRefKind: "STRING_VALUE",
+ * //           },
+ * //           KubernetesRoleDetails: { // KubernetesRoleDetails
+ * //             Kind: "STRING_VALUE",
+ * //             Name: "STRING_VALUE",
+ * //             Uid: "STRING_VALUE",
  * //           },
  * //         },
  * //         Evidence: { // Evidence
@@ -720,6 +747,40 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //             ],
  * //           },
  * //         },
+ * //         Detection: { // Detection
+ * //           Anomaly: { // Anomaly
+ * //             Profiles: { // AnomalyProfiles
+ * //               "<keys>": { // AnomalyProfileFeatures
+ * //                 "<keys>": [ // AnomalyProfileFeatureObjects
+ * //                   { // AnomalyObject
+ * //                     ProfileType: "FREQUENCY",
+ * //                     ProfileSubtype: "FREQUENT" || "INFREQUENT" || "UNSEEN" || "RARE",
+ * //                     Observations: { // Observations
+ * //                       Text: [ // ObservationTexts
+ * //                         "STRING_VALUE",
+ * //                       ],
+ * //                     },
+ * //                   },
+ * //                 ],
+ * //               },
+ * //             },
+ * //             Unusual: { // AnomalyUnusual
+ * //               Behavior: { // Behavior
+ * //                 "<keys>": { // AnomalyUnusualBehaviorFeature
+ * //                   "<keys>": {
+ * //                     ProfileType: "FREQUENCY",
+ * //                     ProfileSubtype: "FREQUENT" || "INFREQUENT" || "UNSEEN" || "RARE",
+ * //                     Observations: {
+ * //                       Text: [
+ * //                         "STRING_VALUE",
+ * //                       ],
+ * //                     },
+ * //                   },
+ * //                 },
+ * //               },
+ * //             },
+ * //           },
+ * //         },
  * //       },
  * //       Severity: Number("double"), // required
  * //       Title: "STRING_VALUE",
@@ -747,77 +808,26 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  */
-export class GetFindingsCommand extends $Command<
-  GetFindingsCommandInput,
-  GetFindingsCommandOutput,
-  GuardDutyClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetFindingsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: GuardDutyClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetFindingsCommandInput, GetFindingsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GetFindingsCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "GuardDutyClient";
-    const commandName = "GetFindingsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetFindingsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetFindingsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetFindingsCommandOutput> {
-    return de_GetFindingsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetFindingsCommand extends $Command
+  .classBuilder<
+    GetFindingsCommandInput,
+    GetFindingsCommandOutput,
+    GuardDutyClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("GuardDutyAPIService", "GetFindings", {})
+  .n("GuardDutyClient", "GetFindingsCommand")
+  .f(void 0, void 0)
+  .ser(se_GetFindingsCommand)
+  .de(de_GetFindingsCommand)
+  .build() {}

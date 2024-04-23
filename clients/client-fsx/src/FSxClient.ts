@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -59,6 +57,10 @@ import {
   CancelDataRepositoryTaskCommandOutput,
 } from "./commands/CancelDataRepositoryTaskCommand";
 import { CopyBackupCommandInput, CopyBackupCommandOutput } from "./commands/CopyBackupCommand";
+import {
+  CopySnapshotAndUpdateVolumeCommandInput,
+  CopySnapshotAndUpdateVolumeCommandOutput,
+} from "./commands/CopySnapshotAndUpdateVolumeCommand";
 import { CreateBackupCommandInput, CreateBackupCommandOutput } from "./commands/CreateBackupCommand";
 import {
   CreateDataRepositoryAssociationCommandInput,
@@ -115,6 +117,10 @@ import {
   DescribeFileSystemsCommandInput,
   DescribeFileSystemsCommandOutput,
 } from "./commands/DescribeFileSystemsCommand";
+import {
+  DescribeSharedVpcConfigurationCommandInput,
+  DescribeSharedVpcConfigurationCommandOutput,
+} from "./commands/DescribeSharedVpcConfigurationCommand";
 import { DescribeSnapshotsCommandInput, DescribeSnapshotsCommandOutput } from "./commands/DescribeSnapshotsCommand";
 import {
   DescribeStorageVirtualMachinesCommandInput,
@@ -137,6 +143,10 @@ import {
   RestoreVolumeFromSnapshotCommandInput,
   RestoreVolumeFromSnapshotCommandOutput,
 } from "./commands/RestoreVolumeFromSnapshotCommand";
+import {
+  StartMisconfiguredStateRecoveryCommandInput,
+  StartMisconfiguredStateRecoveryCommandOutput,
+} from "./commands/StartMisconfiguredStateRecoveryCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -145,6 +155,10 @@ import {
 } from "./commands/UpdateDataRepositoryAssociationCommand";
 import { UpdateFileCacheCommandInput, UpdateFileCacheCommandOutput } from "./commands/UpdateFileCacheCommand";
 import { UpdateFileSystemCommandInput, UpdateFileSystemCommandOutput } from "./commands/UpdateFileSystemCommand";
+import {
+  UpdateSharedVpcConfigurationCommandInput,
+  UpdateSharedVpcConfigurationCommandOutput,
+} from "./commands/UpdateSharedVpcConfigurationCommand";
 import { UpdateSnapshotCommandInput, UpdateSnapshotCommandOutput } from "./commands/UpdateSnapshotCommand";
 import {
   UpdateStorageVirtualMachineCommandInput,
@@ -169,6 +183,7 @@ export type ServiceInputTypes =
   | AssociateFileSystemAliasesCommandInput
   | CancelDataRepositoryTaskCommandInput
   | CopyBackupCommandInput
+  | CopySnapshotAndUpdateVolumeCommandInput
   | CreateBackupCommandInput
   | CreateDataRepositoryAssociationCommandInput
   | CreateDataRepositoryTaskCommandInput
@@ -192,6 +207,7 @@ export type ServiceInputTypes =
   | DescribeFileCachesCommandInput
   | DescribeFileSystemAliasesCommandInput
   | DescribeFileSystemsCommandInput
+  | DescribeSharedVpcConfigurationCommandInput
   | DescribeSnapshotsCommandInput
   | DescribeStorageVirtualMachinesCommandInput
   | DescribeVolumesCommandInput
@@ -199,11 +215,13 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ReleaseFileSystemNfsV3LocksCommandInput
   | RestoreVolumeFromSnapshotCommandInput
+  | StartMisconfiguredStateRecoveryCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateDataRepositoryAssociationCommandInput
   | UpdateFileCacheCommandInput
   | UpdateFileSystemCommandInput
+  | UpdateSharedVpcConfigurationCommandInput
   | UpdateSnapshotCommandInput
   | UpdateStorageVirtualMachineCommandInput
   | UpdateVolumeCommandInput;
@@ -215,6 +233,7 @@ export type ServiceOutputTypes =
   | AssociateFileSystemAliasesCommandOutput
   | CancelDataRepositoryTaskCommandOutput
   | CopyBackupCommandOutput
+  | CopySnapshotAndUpdateVolumeCommandOutput
   | CreateBackupCommandOutput
   | CreateDataRepositoryAssociationCommandOutput
   | CreateDataRepositoryTaskCommandOutput
@@ -238,6 +257,7 @@ export type ServiceOutputTypes =
   | DescribeFileCachesCommandOutput
   | DescribeFileSystemAliasesCommandOutput
   | DescribeFileSystemsCommandOutput
+  | DescribeSharedVpcConfigurationCommandOutput
   | DescribeSnapshotsCommandOutput
   | DescribeStorageVirtualMachinesCommandOutput
   | DescribeVolumesCommandOutput
@@ -245,11 +265,13 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ReleaseFileSystemNfsV3LocksCommandOutput
   | RestoreVolumeFromSnapshotCommandOutput
+  | StartMisconfiguredStateRecoveryCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateDataRepositoryAssociationCommandOutput
   | UpdateFileCacheCommandOutput
   | UpdateFileSystemCommandOutput
+  | UpdateSharedVpcConfigurationCommandOutput
   | UpdateSnapshotCommandOutput
   | UpdateStorageVirtualMachineCommandOutput
   | UpdateVolumeCommandOutput;
@@ -364,6 +386,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

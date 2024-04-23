@@ -264,7 +264,7 @@ export interface RecipientDsnFields {
    * <p>The action performed by the reporting mail transfer agent (MTA) as a result of its
    *             attempt to deliver the message to the recipient address. This is required by <a href="https://tools.ietf.org/html/rfc3464">RFC 3464</a>.</p>
    */
-  Action: DsnAction | string | undefined;
+  Action: DsnAction | undefined;
 
   /**
    * @public
@@ -330,7 +330,7 @@ export interface BouncedRecipientInfo {
    * <p>The reason for the bounce. You must provide either this parameter or
    *                 <code>RecipientDsnFields</code>.</p>
    */
-  BounceType?: BounceType | string;
+  BounceType?: BounceType;
 
   /**
    * @public
@@ -569,7 +569,7 @@ export interface BulkEmailDestinationStatus {
    *             </li>
    *          </ul>
    */
-  Status?: BulkEmailStatus | string;
+  Status?: BulkEmailStatus;
 
   /**
    * @public
@@ -750,7 +750,7 @@ export interface CloudWatchDimensionConfiguration {
    *                 <code>emailHeader</code>. To put a custom tag on any link included in your email,
    *             specify <code>linkTag</code>.</p>
    */
-  DimensionValueSource: DimensionValueSource | string | undefined;
+  DimensionValueSource: DimensionValueSource | undefined;
 
   /**
    * @public
@@ -1099,7 +1099,7 @@ export interface EventDestination {
    *             </li>
    *          </ul>
    */
-  MatchingEventTypes: (EventType | string)[] | undefined;
+  MatchingEventTypes: EventType[] | undefined;
 
   /**
    * @public
@@ -1553,7 +1553,7 @@ export interface ReceiptIpFilter {
    * <p>Indicates whether to block or allow incoming mail from the specified IP
    *             addresses.</p>
    */
-  Policy: ReceiptFilterPolicy | string | undefined;
+  Policy: ReceiptFilterPolicy | undefined;
 
   /**
    * @public
@@ -1679,7 +1679,7 @@ export interface LambdaAction {
    *                 to stop the receipt rule or the receipt rule set.</p>
    *          </important>
    */
-  InvocationType?: InvocationType | string;
+  InvocationType?: InvocationType;
 }
 
 /**
@@ -1809,7 +1809,7 @@ export interface SNSAction {
    *             different encoding format. Base64 preserves all special characters. The default value is
    *             UTF-8.</p>
    */
-  Encoding?: SNSActionEncoding | string;
+  Encoding?: SNSActionEncoding;
 }
 
 /**
@@ -1837,7 +1837,7 @@ export interface StopAction {
    * @public
    * <p>The scope of the StopAction. The only acceptable value is <code>RuleSet</code>.</p>
    */
-  Scope: StopScope | string | undefined;
+  Scope: StopScope | undefined;
 
   /**
    * @public
@@ -1995,7 +1995,7 @@ export interface ReceiptRule {
    *                 <code>Require</code>, Amazon SES bounces emails that are not received over TLS. The
    *             default is <code>Optional</code>.</p>
    */
-  TlsPolicy?: TlsPolicy | string;
+  TlsPolicy?: TlsPolicy;
 
   /**
    * @public
@@ -2663,7 +2663,7 @@ export interface DeliveryOptions {
    *             delivered if a TLS connection can be established. If the value is <code>Optional</code>,
    *             messages can be delivered in plain text if a TLS connection can't be established.</p>
    */
-  TlsPolicy?: TlsPolicy | string;
+  TlsPolicy?: TlsPolicy;
 }
 
 /**
@@ -2747,7 +2747,7 @@ export interface DescribeConfigurationSetRequest {
    * @public
    * <p>A list of configuration set attributes to return.</p>
    */
-  ConfigurationSetAttributeNames?: (ConfigurationSetAttribute | string)[];
+  ConfigurationSetAttributeNames?: ConfigurationSetAttribute[];
 }
 
 /**
@@ -2930,7 +2930,7 @@ export interface IdentityDkimAttributes {
    *             published in the domain name's DNS. (This only applies to domain identities, not email
    *             address identities.)</p>
    */
-  DkimVerificationStatus: VerificationStatus | string | undefined;
+  DkimVerificationStatus: VerificationStatus | undefined;
 
   /**
    * @public
@@ -3081,7 +3081,7 @@ export interface IdentityMailFromDomainAttributes {
    *             states indicate that Amazon SES takes the action described by
    *                 <code>BehaviorOnMXFailure</code>.</p>
    */
-  MailFromDomainStatus: CustomMailFromStatus | string | undefined;
+  MailFromDomainStatus: CustomMailFromStatus | undefined;
 
   /**
    * @public
@@ -3094,7 +3094,7 @@ export interface IdentityMailFromDomainAttributes {
    *          <p>The custom MAIL FROM setup states that result in this behavior are
    *                 <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>.</p>
    */
-  BehaviorOnMXFailure: BehaviorOnMXFailure | string | undefined;
+  BehaviorOnMXFailure: BehaviorOnMXFailure | undefined;
 }
 
 /**
@@ -3266,7 +3266,7 @@ export interface IdentityVerificationAttributes {
    * <p>The verification status of the identity: "Pending", "Success", "Failed", or
    *             "TemporaryFailure".</p>
    */
-  VerificationStatus: VerificationStatus | string | undefined;
+  VerificationStatus: VerificationStatus | undefined;
 
   /**
    * @public
@@ -3598,7 +3598,7 @@ export interface ListIdentitiesRequest {
    * <p>The type of the identities to list. Possible values are "EmailAddress" and "Domain".
    *             If this parameter is omitted, then all identities are listed.</p>
    */
-  IdentityType?: IdentityType | string;
+  IdentityType?: IdentityType;
 
   /**
    * @public
@@ -4814,7 +4814,7 @@ export interface SetIdentityHeadersInNotificationsEnabledRequest {
    * @public
    * <p>The notification type for which to enable or disable headers in notifications. </p>
    */
-  NotificationType: NotificationType | string | undefined;
+  NotificationType: NotificationType | undefined;
 
   /**
    * @public
@@ -4869,7 +4869,7 @@ export interface SetIdentityMailFromDomainRequest {
    *             FROM domain setup is in the <code>Pending</code>, <code>Failed</code>, and
    *                 <code>TemporaryFailure</code> states.</p>
    */
-  BehaviorOnMXFailure?: BehaviorOnMXFailure | string;
+  BehaviorOnMXFailure?: BehaviorOnMXFailure;
 }
 
 /**
@@ -4903,7 +4903,7 @@ export interface SetIdentityNotificationTopicRequest {
    * @public
    * <p>The type of notifications that are published to the specified Amazon SNS topic.</p>
    */
-  NotificationType: NotificationType | string | undefined;
+  NotificationType: NotificationType | undefined;
 
   /**
    * @public

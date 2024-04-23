@@ -25,6 +25,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 import { CreateActivityCommandInput, CreateActivityCommandOutput } from "../commands/CreateActivityCommand";
 import {
@@ -82,6 +83,7 @@ import {
   PublishStateMachineVersionCommandInput,
   PublishStateMachineVersionCommandOutput,
 } from "../commands/PublishStateMachineVersionCommand";
+import { RedriveExecutionCommandInput, RedriveExecutionCommandOutput } from "../commands/RedriveExecutionCommand";
 import { SendTaskFailureCommandInput, SendTaskFailureCommandOutput } from "../commands/SendTaskFailureCommand";
 import { SendTaskHeartbeatCommandInput, SendTaskHeartbeatCommandOutput } from "../commands/SendTaskHeartbeatCommand";
 import { SendTaskSuccessCommandInput, SendTaskSuccessCommandOutput } from "../commands/SendTaskSuccessCommand";
@@ -89,6 +91,7 @@ import { StartExecutionCommandInput, StartExecutionCommandOutput } from "../comm
 import { StartSyncExecutionCommandInput, StartSyncExecutionCommandOutput } from "../commands/StartSyncExecutionCommand";
 import { StopExecutionCommandInput, StopExecutionCommandOutput } from "../commands/StopExecutionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { TestStateCommandInput, TestStateCommandOutput } from "../commands/TestStateCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateMapRunCommandInput, UpdateMapRunCommandOutput } from "../commands/UpdateMapRunCommand";
 import {
@@ -129,6 +132,7 @@ import {
   ExecutionDoesNotExist,
   ExecutionLimitExceeded,
   ExecutionListItem,
+  ExecutionNotRedrivable,
   GetActivityTaskInput,
   GetExecutionHistoryInput,
   GetExecutionHistoryOutput,
@@ -160,6 +164,8 @@ import {
   MissingRequiredParameter,
   PublishStateMachineVersionInput,
   PublishStateMachineVersionOutput,
+  RedriveExecutionInput,
+  RedriveExecutionOutput,
   ResourceNotFound,
   RoutingConfigurationListItem,
   SendTaskFailureInput,
@@ -184,6 +190,7 @@ import {
   TagResourceInput,
   TaskDoesNotExist,
   TaskTimedOut,
+  TestStateInput,
   TooManyTags,
   TracingConfiguration,
   UntagResourceInput,
@@ -496,6 +503,19 @@ export const se_PublishStateMachineVersionCommand = async (
 };
 
 /**
+ * serializeAws_json1_0RedriveExecutionCommand
+ */
+export const se_RedriveExecutionCommand = async (
+  input: RedriveExecutionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("RedriveExecution");
+  let body: any;
+  body = JSON.stringify(se_RedriveExecutionInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0SendTaskFailureCommand
  */
 export const se_SendTaskFailureCommand = async (
@@ -591,6 +611,26 @@ export const se_TagResourceCommand = async (
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0TestStateCommand
+ */
+export const se_TestStateCommand = async (
+  input: TestStateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("TestState");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "sync-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return buildHttpRpcRequest(context, headers, "/", resolvedHostname, body);
 };
 
 /**
@@ -1869,6 +1909,61 @@ const de_PublishStateMachineVersionCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_0RedriveExecutionCommand
+ */
+export const de_RedriveExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RedriveExecutionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_RedriveExecutionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RedriveExecutionOutput(data, context);
+  const response: RedriveExecutionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0RedriveExecutionCommandError
+ */
+const de_RedriveExecutionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RedriveExecutionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ExecutionDoesNotExist":
+    case "com.amazonaws.sfn#ExecutionDoesNotExist":
+      throw await de_ExecutionDoesNotExistRes(parsedOutput, context);
+    case "ExecutionLimitExceeded":
+    case "com.amazonaws.sfn#ExecutionLimitExceeded":
+      throw await de_ExecutionLimitExceededRes(parsedOutput, context);
+    case "ExecutionNotRedrivable":
+    case "com.amazonaws.sfn#ExecutionNotRedrivable":
+      throw await de_ExecutionNotRedrivableRes(parsedOutput, context);
+    case "InvalidArn":
+    case "com.amazonaws.sfn#InvalidArn":
+      throw await de_InvalidArnRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_0SendTaskFailureCommand
  */
 export const de_SendTaskFailureCommand = async (
@@ -2260,6 +2355,61 @@ const de_TagResourceCommandError = async (
 };
 
 /**
+ * deserializeAws_json1_0TestStateCommand
+ */
+export const de_TestStateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestStateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_TestStateCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TestStateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0TestStateCommandError
+ */
+const de_TestStateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TestStateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidArn":
+    case "com.amazonaws.sfn#InvalidArn":
+      throw await de_InvalidArnRes(parsedOutput, context);
+    case "InvalidDefinition":
+    case "com.amazonaws.sfn#InvalidDefinition":
+      throw await de_InvalidDefinitionRes(parsedOutput, context);
+    case "InvalidExecutionInput":
+    case "com.amazonaws.sfn#InvalidExecutionInput":
+      throw await de_InvalidExecutionInputRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.sfn#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      return throwDefaultError({
+        output,
+        parsedBody,
+        errorCode,
+      });
+  }
+};
+
+/**
  * deserializeAws_json1_0UntagResourceCommand
  */
 export const de_UntagResourceCommand = async (
@@ -2475,6 +2625,9 @@ const de_UpdateStateMachineAliasCommandError = async (
     case "ResourceNotFound":
     case "com.amazonaws.sfn#ResourceNotFound":
       throw await de_ResourceNotFoundRes(parsedOutput, context);
+    case "StateMachineDeleting":
+    case "com.amazonaws.sfn#StateMachineDeleting":
+      throw await de_StateMachineDeletingRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.sfn#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
@@ -2591,6 +2744,22 @@ const de_ExecutionLimitExceededRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new ExecutionLimitExceeded({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_0ExecutionNotRedrivableRes
+ */
+const de_ExecutionNotRedrivableRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ExecutionNotRedrivable> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ExecutionNotRedrivable({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -2941,6 +3110,16 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_PublishStateMachineVersionInput omitted.
 
+/**
+ * serializeAws_json1_0RedriveExecutionInput
+ */
+const se_RedriveExecutionInput = (input: RedriveExecutionInput, context: __SerdeContext): any => {
+  return take(input, {
+    clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    executionArn: [],
+  });
+};
+
 // se_RoutingConfigurationList omitted.
 
 // se_RoutingConfigurationListItem omitted.
@@ -2964,6 +3143,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_TagList omitted.
 
 // se_TagResourceInput omitted.
+
+// se_TestStateInput omitted.
 
 // se_TracingConfiguration omitted.
 
@@ -3098,6 +3279,10 @@ const de_DescribeExecutionOutput = (output: any, context: __SerdeContext): Descr
     name: __expectString,
     output: __expectString,
     outputDetails: _json,
+    redriveCount: __expectInt32,
+    redriveDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    redriveStatus: __expectString,
+    redriveStatusReason: __expectString,
     startDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     stateMachineAliasArn: __expectString,
     stateMachineArn: __expectString,
@@ -3118,6 +3303,8 @@ const de_DescribeMapRunOutput = (output: any, context: __SerdeContext): Describe
     itemCounts: _json,
     mapRunArn: __expectString,
     maxConcurrency: __expectInt32,
+    redriveCount: __expectInt32,
+    redriveDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     startDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     status: __expectString,
     stopDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -3212,6 +3399,8 @@ const de_ExecutionListItem = (output: any, context: __SerdeContext): ExecutionLi
     itemCount: __expectInt32,
     mapRunArn: __expectString,
     name: __expectString,
+    redriveCount: __expectInt32,
+    redriveDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     startDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     stateMachineAliasArn: __expectString,
     stateMachineArn: __expectString,
@@ -3220,6 +3409,10 @@ const de_ExecutionListItem = (output: any, context: __SerdeContext): ExecutionLi
     stopDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+// de_ExecutionNotRedrivable omitted.
+
+// de_ExecutionRedrivenEventDetails omitted.
 
 // de_ExecutionStartedEventDetails omitted.
 
@@ -3252,6 +3445,7 @@ const de_HistoryEvent = (output: any, context: __SerdeContext): HistoryEvent => 
     activityTimedOutEventDetails: _json,
     executionAbortedEventDetails: _json,
     executionFailedEventDetails: _json,
+    executionRedrivenEventDetails: _json,
     executionStartedEventDetails: _json,
     executionSucceededEventDetails: _json,
     executionTimedOutEventDetails: _json,
@@ -3267,6 +3461,7 @@ const de_HistoryEvent = (output: any, context: __SerdeContext): HistoryEvent => 
     mapIterationStartedEventDetails: _json,
     mapIterationSucceededEventDetails: _json,
     mapRunFailedEventDetails: _json,
+    mapRunRedrivenEventDetails: _json,
     mapRunStartedEventDetails: _json,
     mapStateStartedEventDetails: _json,
     previousEventId: __expectLong,
@@ -3298,6 +3493,12 @@ const de_HistoryEventList = (output: any, context: __SerdeContext): HistoryEvent
     });
   return retVal;
 };
+
+// de_InspectionData omitted.
+
+// de_InspectionDataRequest omitted.
+
+// de_InspectionDataResponse omitted.
 
 // de_InvalidArn omitted.
 
@@ -3428,6 +3629,8 @@ const de_MapRunListItem = (output: any, context: __SerdeContext): MapRunListItem
   }) as any;
 };
 
+// de_MapRunRedrivenEventDetails omitted.
+
 // de_MapRunStartedEventDetails omitted.
 
 // de_MapStateStartedEventDetails omitted.
@@ -3444,6 +3647,15 @@ const de_PublishStateMachineVersionOutput = (
   return take(output, {
     creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     stateMachineVersionArn: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0RedriveExecutionOutput
+ */
+const de_RedriveExecutionOutput = (output: any, context: __SerdeContext): RedriveExecutionOutput => {
+  return take(output, {
+    redriveDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
 
@@ -3611,6 +3823,8 @@ const de_StopExecutionOutput = (output: any, context: __SerdeContext): StopExecu
 // de_TaskTimedOut omitted.
 
 // de_TaskTimedOutEventDetails omitted.
+
+// de_TestStateOutput omitted.
 
 // de_TooManyTags omitted.
 

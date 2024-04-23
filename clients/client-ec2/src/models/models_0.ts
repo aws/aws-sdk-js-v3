@@ -52,6 +52,7 @@ export interface AcceleratorCountRequest {
 export const AcceleratorManufacturer = {
   AMAZON_WEB_SERVICES: "amazon-web-services",
   AMD: "amd",
+  HABANA: "habana",
   NVIDIA: "nvidia",
   XILINX: "xilinx",
 } as const;
@@ -67,12 +68,15 @@ export type AcceleratorManufacturer = (typeof AcceleratorManufacturer)[keyof typ
  */
 export const AcceleratorName = {
   A100: "a100",
+  A10G: "a10g",
+  H100: "h100",
   INFERENTIA: "inferentia",
   K520: "k520",
   K80: "k80",
   M60: "m60",
   RADEON_PRO_V520: "radeon-pro-v520",
   T4: "t4",
+  T4G: "t4g",
   V100: "v100",
   VU9P: "vu9p",
 } as const;
@@ -273,7 +277,7 @@ export interface TagSpecification {
    * @public
    * <p>The type of resource to tag on creation.</p>
    */
-  ResourceType?: ResourceType | string;
+  ResourceType?: ResourceType;
 
   /**
    * @public
@@ -365,7 +369,7 @@ export interface AddressTransfer {
    * @public
    * <p>The Elastic IP address transfer status.</p>
    */
-  AddressTransferStatus?: AddressTransferStatus | string;
+  AddressTransferStatus?: AddressTransferStatus;
 }
 
 /**
@@ -523,7 +527,7 @@ export interface SubnetAssociation {
    * @public
    * <p>The state of the subnet association.</p>
    */
-  State?: TransitGatewayMulitcastDomainAssociationState | string;
+  State?: TransitGatewayMulitcastDomainAssociationState;
 }
 
 /**
@@ -553,7 +557,7 @@ export interface TransitGatewayMulticastDomainAssociations {
    * @public
    * <p>The type of resource, for example a VPC attachment.</p>
    */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
+  ResourceType?: TransitGatewayAttachmentResourceType;
 
   /**
    * @public
@@ -651,7 +655,7 @@ export interface TransitGatewayPeeringAttachmentOptions {
    * @public
    * <p>Describes whether dynamic routing is enabled or disabled for the transit gateway peering attachment.</p>
    */
-  DynamicRouting?: DynamicRoutingValue | string;
+  DynamicRouting?: DynamicRoutingValue;
 }
 
 /**
@@ -743,7 +747,7 @@ export interface TransitGatewayPeeringAttachment {
    * @public
    * <p>The state of the transit gateway peering attachment. Note that the <code>initiating</code> state has been deprecated.</p>
    */
-  State?: TransitGatewayAttachmentState | string;
+  State?: TransitGatewayAttachmentState;
 
   /**
    * @public
@@ -832,6 +836,21 @@ export type Ipv6SupportValue = (typeof Ipv6SupportValue)[keyof typeof Ipv6Suppor
 
 /**
  * @public
+ * @enum
+ */
+export const SecurityGroupReferencingSupportValue = {
+  disable: "disable",
+  enable: "enable",
+} as const;
+
+/**
+ * @public
+ */
+export type SecurityGroupReferencingSupportValue =
+  (typeof SecurityGroupReferencingSupportValue)[keyof typeof SecurityGroupReferencingSupportValue];
+
+/**
+ * @public
  * <p>Describes the VPC attachment options.</p>
  */
 export interface TransitGatewayVpcAttachmentOptions {
@@ -839,19 +858,25 @@ export interface TransitGatewayVpcAttachmentOptions {
    * @public
    * <p>Indicates whether DNS support is enabled.</p>
    */
-  DnsSupport?: DnsSupportValue | string;
+  DnsSupport?: DnsSupportValue;
+
+  /**
+   * @public
+   * <p>For important information about this feature, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#create-vpc-attachment">Create a transit gateway attachment to a VPC</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p>
+   */
+  SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
 
   /**
    * @public
    * <p>Indicates whether IPv6 support is disabled.</p>
    */
-  Ipv6Support?: Ipv6SupportValue | string;
+  Ipv6Support?: Ipv6SupportValue;
 
   /**
    * @public
    * <p>Indicates whether appliance mode support is enabled.</p>
    */
-  ApplianceModeSupport?: ApplianceModeSupportValue | string;
+  ApplianceModeSupport?: ApplianceModeSupportValue;
 }
 
 /**
@@ -887,7 +912,7 @@ export interface TransitGatewayVpcAttachment {
    * @public
    * <p>The state of the VPC attachment. Note that the <code>initiating</code> state has been deprecated.</p>
    */
-  State?: TransitGatewayAttachmentState | string;
+  State?: TransitGatewayAttachmentState;
 
   /**
    * @public
@@ -1146,7 +1171,7 @@ export interface VpcPeeringConnectionStateReason {
    * @public
    * <p>The status of the VPC peering connection.</p>
    */
-  Code?: VpcPeeringConnectionStateReasonCode | string;
+  Code?: VpcPeeringConnectionStateReasonCode;
 
   /**
    * @public
@@ -2357,7 +2382,7 @@ export interface PacketHeaderStatement {
    * @public
    * <p>The protocols.</p>
    */
-  Protocols?: (Protocol | string)[];
+  Protocols?: Protocol[];
 }
 
 /**
@@ -2477,7 +2502,7 @@ export interface PacketHeaderStatementRequest {
    * @public
    * <p>The protocols.</p>
    */
-  Protocols?: (Protocol | string)[];
+  Protocols?: Protocol[];
 }
 
 /**
@@ -2639,7 +2664,7 @@ export interface ActiveInstance {
    *             or the system status check is <code>impaired</code>, the health status of the instance
    *             is <code>unhealthy</code>. Otherwise, the health status is <code>healthy</code>.</p>
    */
-  InstanceHealth?: InstanceHealthStatus | string;
+  InstanceHealth?: InstanceHealthStatus;
 }
 
 /**
@@ -2685,7 +2710,7 @@ export interface AddedPrincipal {
    * @public
    * <p>The type of principal.</p>
    */
-  PrincipalType?: PrincipalType | string;
+  PrincipalType?: PrincipalType;
 
   /**
    * @public
@@ -2786,7 +2811,7 @@ export interface Address {
    * @public
    * <p>The network (<code>vpc</code>).</p>
    */
-  Domain?: DomainType | string;
+  Domain?: DomainType;
 
   /**
    * @public
@@ -2939,11 +2964,86 @@ export interface AdvertiseByoipCidrRequest {
 
   /**
    * @public
+   * <p>The public 2-byte or 4-byte ASN that you want to advertise.</p>
+   */
+  Asn?: string;
+
+  /**
+   * @public
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>If you have <a href="https://docs.aws.amazon.com/local-zones/latest/ug/how-local-zones-work.html">Local Zones</a> enabled, you can choose a network border group for Local Zones when you provision and advertise a BYOIPv4 CIDR. Choose the network border group carefully as the EIP and the Amazon Web Services resource it is associated with must reside in the same network border group.</p>
+   *          <p>You can provision BYOIP address ranges to and advertise them in the following Local Zone network border groups:</p>
+   *          <ul>
+   *             <li>
+   *                <p>us-east-1-dfw-2</p>
+   *             </li>
+   *             <li>
+   *                <p>us-west-2-lax-1</p>
+   *             </li>
+   *             <li>
+   *                <p>us-west-2-phx-2</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>You cannot provision or advertise BYOIPv6 address ranges in Local Zones at this time.</p>
+   *          </note>
+   */
+  NetworkBorderGroup?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const AsnAssociationState = {
+  associated: "associated",
+  disassociated: "disassociated",
+  failed_association: "failed-association",
+  failed_disassociation: "failed-disassociation",
+  pending_association: "pending-association",
+  pending_disassociation: "pending-disassociation",
+} as const;
+
+/**
+ * @public
+ */
+export type AsnAssociationState = (typeof AsnAssociationState)[keyof typeof AsnAssociationState];
+
+/**
+ * @public
+ * <p>An Autonomous System Number (ASN) and BYOIP CIDR association.</p>
+ */
+export interface AsnAssociation {
+  /**
+   * @public
+   * <p>The association's ASN.</p>
+   */
+  Asn?: string;
+
+  /**
+   * @public
+   * <p>The association's CIDR.</p>
+   */
+  Cidr?: string;
+
+  /**
+   * @public
+   * <p>The association's status message.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * @public
+   * <p>The association's state.</p>
+   */
+  State?: AsnAssociationState;
 }
 
 /**
@@ -2986,6 +3086,12 @@ export interface ByoipCidr {
 
   /**
    * @public
+   * <p>The BYOIP CIDR associations with ASNs.</p>
+   */
+  AsnAssociations?: AsnAssociation[];
+
+  /**
+   * @public
    * <p>Upon success, contains the ID of the address pool. Otherwise, contains an error message.</p>
    */
   StatusMessage?: string;
@@ -2994,7 +3100,28 @@ export interface ByoipCidr {
    * @public
    * <p>The state of the address pool.</p>
    */
-  State?: ByoipCidrState | string;
+  State?: ByoipCidrState;
+
+  /**
+   * @public
+   * <p>If you have <a href="https://docs.aws.amazon.com/local-zones/latest/ug/how-local-zones-work.html">Local Zones</a> enabled, you can choose a network border group for Local Zones when you provision and advertise a BYOIPv4 CIDR. Choose the network border group carefully as the EIP and the Amazon Web Services resource it is associated with must reside in the same network border group.</p>
+   *          <p>You can provision BYOIP address ranges to and advertise them in the following Local Zone network border groups:</p>
+   *          <ul>
+   *             <li>
+   *                <p>us-east-1-dfw-2</p>
+   *             </li>
+   *             <li>
+   *                <p>us-west-2-lax-1</p>
+   *             </li>
+   *             <li>
+   *                <p>us-west-2-phx-2</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>You cannot provision or advertise BYOIPv6 address ranges in Local Zones at this time.</p>
+   *          </note>
+   */
+  NetworkBorderGroup?: string;
 }
 
 /**
@@ -3030,7 +3157,7 @@ export interface AllocateAddressRequest {
    * @public
    * <p>The network (<code>vpc</code>).</p>
    */
-  Domain?: DomainType | string;
+  Domain?: DomainType;
 
   /**
    * @public
@@ -3051,8 +3178,6 @@ export interface AllocateAddressRequest {
    *       advertises IP addresses. Use this parameter to limit the IP address to this location. IP
    *       addresses cannot move between network border groups.</p>
    *          <p>Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html">DescribeAvailabilityZones</a> to view the network border groups.</p>
-   *          <p>You cannot use a network border group with EC2 Classic. If you attempt this operation on EC2 Classic,
-   *       you receive an <code>InvalidParameterCombination</code> error.</p>
    */
   NetworkBorderGroup?: string;
 
@@ -3112,7 +3237,7 @@ export interface AllocateAddressResult {
    * @public
    * <p>The network (<code>vpc</code>).</p>
    */
-  Domain?: DomainType | string;
+  Domain?: DomainType;
 
   /**
    * @public
@@ -3189,7 +3314,7 @@ export interface AllocateHostsRequest {
    *          <p>Default: <code>on</code>
    *          </p>
    */
-  AutoPlacement?: AutoPlacement | string;
+  AutoPlacement?: AutoPlacement;
 
   /**
    * @public
@@ -3250,7 +3375,7 @@ export interface AllocateHostsRequest {
    *          <p>Default: <code>off</code>
    *          </p>
    */
-  HostRecovery?: HostRecovery | string;
+  HostRecovery?: HostRecovery;
 
   /**
    * @public
@@ -3267,7 +3392,7 @@ export interface AllocateHostsRequest {
    *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-maintenance.html">Host
    *                 maintenance</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
-  HostMaintenance?: HostMaintenance | string;
+  HostMaintenance?: HostMaintenance;
 
   /**
    * @public
@@ -3373,6 +3498,12 @@ export interface AllocateIpamPoolCidrRequest {
 
   /**
    * @public
+   * <p>Include a particular CIDR range that can be returned by the pool. Allowed CIDRs are only allowed if using netmask length for allocation.</p>
+   */
+  AllowedCidrs?: string[];
+
+  /**
+   * @public
    * <p>Exclude a particular CIDR range from being returned by the pool. Disallowed CIDRs are only allowed if using netmask length for allocation.</p>
    */
   DisallowedCidrs?: string[];
@@ -3386,6 +3517,7 @@ export const IpamPoolAllocationResourceType = {
   custom: "custom",
   ec2_public_ipv4_pool: "ec2-public-ipv4-pool",
   ipam_pool: "ipam-pool",
+  subnet: "subnet",
   vpc: "vpc",
 } as const;
 
@@ -3429,7 +3561,7 @@ export interface IpamPoolAllocation {
    * @public
    * <p>The type of the resource.</p>
    */
-  ResourceType?: IpamPoolAllocationResourceType | string;
+  ResourceType?: IpamPoolAllocationResourceType;
 
   /**
    * @public
@@ -3512,7 +3644,7 @@ export interface AllowedPrincipal {
    * @public
    * <p>The type of principal.</p>
    */
-  PrincipalType?: PrincipalType | string;
+  PrincipalType?: PrincipalType;
 
   /**
    * @public
@@ -3870,7 +4002,7 @@ export interface NatGatewayAddress {
    * @public
    * <p>The address status.</p>
    */
-  Status?: NatGatewayAddressStatus | string;
+  Status?: NatGatewayAddressStatus;
 }
 
 /**
@@ -4007,7 +4139,7 @@ export interface AssociationStatus {
    * @public
    * <p>The state of the target network association.</p>
    */
-  Code?: AssociationStatusCode | string;
+  Code?: AssociationStatusCode;
 
   /**
    * @public
@@ -4204,7 +4336,7 @@ export interface IamInstanceProfileAssociation {
    * @public
    * <p>The state of the association.</p>
    */
-  State?: IamInstanceProfileAssociationState | string;
+  State?: IamInstanceProfileAssociationState;
 
   /**
    * @public
@@ -4347,7 +4479,7 @@ export interface InstanceEventWindowTimeRange {
    * @public
    * <p>The day on which the time range begins.</p>
    */
-  StartWeekDay?: WeekDay | string;
+  StartWeekDay?: WeekDay;
 
   /**
    * @public
@@ -4359,7 +4491,7 @@ export interface InstanceEventWindowTimeRange {
    * @public
    * <p>The day on which the time range ends.</p>
    */
-  EndWeekDay?: WeekDay | string;
+  EndWeekDay?: WeekDay;
 
   /**
    * @public
@@ -4407,7 +4539,7 @@ export interface InstanceEventWindow {
    * @public
    * <p>The current state of the event window.</p>
    */
-  State?: InstanceEventWindowState | string;
+  State?: InstanceEventWindowState;
 
   /**
    * @public
@@ -4425,6 +4557,42 @@ export interface AssociateInstanceEventWindowResult {
    * <p>Information about the event window.</p>
    */
   InstanceEventWindow?: InstanceEventWindow;
+}
+
+/**
+ * @public
+ */
+export interface AssociateIpamByoasnRequest {
+  /**
+   * @public
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>A public 2-byte or 4-byte ASN.</p>
+   */
+  Asn: string | undefined;
+
+  /**
+   * @public
+   * <p>The BYOIP CIDR you want to associate with an ASN.</p>
+   */
+  Cidr: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateIpamByoasnResult {
+  /**
+   * @public
+   * <p>The ASN and BYOIP CIDR association.</p>
+   */
+  AsnAssociation?: AsnAssociation;
 }
 
 /**
@@ -4570,7 +4738,7 @@ export interface IpamResourceDiscoveryAssociation {
    *             </li>
    *          </ul>
    */
-  ResourceDiscoveryStatus?: IpamAssociatedResourceDiscoveryStatus | string;
+  ResourceDiscoveryStatus?: IpamAssociatedResourceDiscoveryStatus;
 
   /**
    * @public
@@ -4614,7 +4782,7 @@ export interface IpamResourceDiscoveryAssociation {
    *             </li>
    *          </ul>
    */
-  State?: IpamResourceDiscoveryAssociationState | string;
+  State?: IpamResourceDiscoveryAssociationState;
 
   /**
    * @public
@@ -4740,7 +4908,7 @@ export interface RouteTableAssociationState {
    * @public
    * <p>The state of the association.</p>
    */
-  State?: RouteTableAssociationStateCode | string;
+  State?: RouteTableAssociationStateCode;
 
   /**
    * @public
@@ -4773,16 +4941,27 @@ export interface AssociateRouteTableResult {
 export interface AssociateSubnetCidrBlockRequest {
   /**
    * @public
-   * <p>The IPv6 CIDR block for your subnet. The subnet must have a /64 prefix
-   *             length.</p>
+   * <p>The IPv6 CIDR block for your subnet.</p>
    */
-  Ipv6CidrBlock: string | undefined;
+  Ipv6CidrBlock?: string;
 
   /**
    * @public
    * <p>The ID of your subnet.</p>
    */
   SubnetId: string | undefined;
+
+  /**
+   * @public
+   * <p>An IPv6 IPAM pool ID.</p>
+   */
+  Ipv6IpamPoolId?: string;
+
+  /**
+   * @public
+   * <p>An IPv6 netmask length.</p>
+   */
+  Ipv6NetmaskLength?: number;
 }
 
 /**
@@ -4812,7 +4991,7 @@ export interface SubnetCidrBlockState {
    * @public
    * <p>The state of a CIDR block.</p>
    */
-  State?: SubnetCidrBlockStateCode | string;
+  State?: SubnetCidrBlockStateCode;
 
   /**
    * @public
@@ -4973,13 +5152,13 @@ export interface TransitGatewayPolicyTableAssociation {
    * @public
    * <p>The resource type for the transit gateway policy table association.</p>
    */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
+  ResourceType?: TransitGatewayAttachmentResourceType;
 
   /**
    * @public
    * <p>The state of the transit gateway policy table association.</p>
    */
-  State?: TransitGatewayAssociationState | string;
+  State?: TransitGatewayAssociationState;
 }
 
 /**
@@ -5045,13 +5224,13 @@ export interface TransitGatewayAssociation {
    * @public
    * <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
    */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
+  ResourceType?: TransitGatewayAttachmentResourceType;
 
   /**
    * @public
    * <p>The state of the association.</p>
    */
-  State?: TransitGatewayAssociationState | string;
+  State?: TransitGatewayAssociationState;
 }
 
 /**
@@ -5126,11 +5305,7 @@ export type InterfaceProtocolType = (typeof InterfaceProtocolType)[keyof typeof 
 
 /**
  * @public
- * <note>
- *             <p>Currently available in <b>limited preview only</b>.
- *                 If you are interested in using this feature, contact your account manager.</p>
- *          </note>
- *          <p>Information about an association between a branch network interface with a trunk network interface.</p>
+ * <p>Information about an association between a branch network interface with a trunk network interface.</p>
  */
 export interface TrunkInterfaceAssociation {
   /**
@@ -5155,7 +5330,7 @@ export interface TrunkInterfaceAssociation {
    * @public
    * <p>The interface protocol. Valid values are <code>VLAN</code> and <code>GRE</code>.</p>
    */
-  InterfaceProtocol?: InterfaceProtocolType | string;
+  InterfaceProtocol?: InterfaceProtocolType;
 
   /**
    * @public
@@ -5201,7 +5376,8 @@ export interface AssociateTrunkInterfaceResult {
 export interface AssociateVpcCidrBlockRequest {
   /**
    * @public
-   * <p>Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IPv6 addresses, or the size of the CIDR block.</p>
+   * <p>Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You
+   *             cannot specify the range of IPv6 addresses or the size of the CIDR block.</p>
    */
   AmazonProvidedIpv6CidrBlock?: boolean;
 
@@ -5292,7 +5468,7 @@ export interface VpcCidrBlockState {
    * @public
    * <p>The state of the CIDR block.</p>
    */
-  State?: VpcCidrBlockStateCode | string;
+  State?: VpcCidrBlockStateCode;
 
   /**
    * @public
@@ -5454,7 +5630,7 @@ export interface AttachInternetGatewayRequest {
 
 /**
  * @public
- * <p>ENA Express is compatible with both TCP and UDP transport protocols. When it’s enabled, TCP traffic
+ * <p>ENA Express is compatible with both TCP and UDP transport protocols. When it's enabled, TCP traffic
  * 			automatically uses it. However, some UDP-based applications are designed to handle network packets that are
  * 			out of order, without a need for retransmission, such as live video broadcasting or other near-real-time
  * 			applications. For UDP traffic, you can specify whether to use ENA Express, based on your application
@@ -5463,7 +5639,8 @@ export interface AttachInternetGatewayRequest {
 export interface EnaSrdUdpSpecification {
   /**
    * @public
-   * <p>Indicates whether UDP traffic uses ENA Express. To specify this setting, you must first enable ENA Express.</p>
+   * <p>Indicates whether UDP traffic to and from the instance uses ENA Express. To specify this setting,
+   * 			you must first enable ENA Express.</p>
    */
   EnaSrdUdpEnabled?: boolean;
 }
@@ -5596,6 +5773,7 @@ export interface AttachVerifiedAccessTrustProviderRequest {
 export const DeviceTrustProviderType = {
   crowdstrike: "crowdstrike",
   jamf: "jamf",
+  jumpcloud: "jumpcloud",
 } as const;
 
 /**
@@ -5652,19 +5830,19 @@ export interface VerifiedAccessTrustProviderCondensed {
    * @public
    * <p>The type of trust provider (user- or device-based).</p>
    */
-  TrustProviderType?: TrustProviderType | string;
+  TrustProviderType?: TrustProviderType;
 
   /**
    * @public
    * <p>The type of user-based trust provider.</p>
    */
-  UserTrustProviderType?: UserTrustProviderType | string;
+  UserTrustProviderType?: UserTrustProviderType;
 
   /**
    * @public
    * <p>The type of device-based trust provider.</p>
    */
-  DeviceTrustProviderType?: DeviceTrustProviderType | string;
+  DeviceTrustProviderType?: DeviceTrustProviderType;
 }
 
 /**
@@ -5707,6 +5885,12 @@ export interface VerifiedAccessInstance {
    * <p>The tags.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>Indicates whether support for Federal Information Processing Standards (FIPS) is enabled on the instance.</p>
+   */
+  FipsEnabled?: boolean;
 }
 
 /**
@@ -5719,6 +5903,14 @@ export interface DeviceOptions {
    * <p>The ID of the tenant application with the device-identity provider.</p>
    */
   TenantId?: string;
+
+  /**
+   * @public
+   * <p>
+   *          The URL Amazon Web Services Verified Access will use to verify the authenticity of the device tokens.
+   *       </p>
+   */
+  PublicSigningKeyUrl?: string;
 }
 
 /**
@@ -5772,6 +5964,26 @@ export interface OidcOptions {
 
 /**
  * @public
+ * <p>The options in use for server side encryption.</p>
+ */
+export interface VerifiedAccessSseSpecificationResponse {
+  /**
+   * @public
+   * <p>Indicates whether customer managed KMS keys are in use for server side encryption.</p>
+   *          <p>Valid values: <code>True</code> | <code>False</code>
+   *          </p>
+   */
+  CustomerManagedKeyEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>The ARN of the KMS key.</p>
+   */
+  KmsKeyArn?: string;
+}
+
+/**
+ * @public
  * <p>Describes a Verified Access trust provider.</p>
  */
 export interface VerifiedAccessTrustProvider {
@@ -5791,19 +6003,19 @@ export interface VerifiedAccessTrustProvider {
    * @public
    * <p>The type of Verified Access trust provider.</p>
    */
-  TrustProviderType?: TrustProviderType | string;
+  TrustProviderType?: TrustProviderType;
 
   /**
    * @public
    * <p>The type of user-based trust provider.</p>
    */
-  UserTrustProviderType?: UserTrustProviderType | string;
+  UserTrustProviderType?: UserTrustProviderType;
 
   /**
    * @public
    * <p>The type of device-based trust provider.</p>
    */
-  DeviceTrustProviderType?: DeviceTrustProviderType | string;
+  DeviceTrustProviderType?: DeviceTrustProviderType;
 
   /**
    * @public
@@ -5840,6 +6052,12 @@ export interface VerifiedAccessTrustProvider {
    * <p>The tags.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>The options in use for server side encryption.</p>
+   */
+  SseSpecification?: VerifiedAccessSseSpecificationResponse;
 }
 
 /**
@@ -5848,13 +6066,13 @@ export interface VerifiedAccessTrustProvider {
 export interface AttachVerifiedAccessTrustProviderResult {
   /**
    * @public
-   * <p>The ID of the Verified Access trust provider.</p>
+   * <p>Details about the Verified Access trust provider.</p>
    */
   VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
 
   /**
    * @public
-   * <p>The ID of the Verified Access instance.</p>
+   * <p>Details about the Verified Access instance.</p>
    */
   VerifiedAccessInstance?: VerifiedAccessInstance;
 }
@@ -5922,12 +6140,16 @@ export interface VolumeAttachment {
   /**
    * @public
    * <p>The device name.</p>
+   *          <p>If the volume is attached to a Fargate task, this parameter
+   *       returns <code>null</code>.</p>
    */
   Device?: string;
 
   /**
    * @public
    * <p>The ID of the instance.</p>
+   *          <p>If the volume is attached to a Fargate task, this parameter
+   *       returns <code>null</code>.</p>
    */
   InstanceId?: string;
 
@@ -5935,7 +6157,7 @@ export interface VolumeAttachment {
    * @public
    * <p>The attachment state of the volume.</p>
    */
-  State?: VolumeAttachmentState | string;
+  State?: VolumeAttachmentState;
 
   /**
    * @public
@@ -5948,6 +6170,22 @@ export interface VolumeAttachment {
    * <p>Indicates whether the EBS volume is deleted on instance termination.</p>
    */
   DeleteOnTermination?: boolean;
+
+  /**
+   * @public
+   * <p>The ARN of the Amazon ECS or Fargate task
+   *       to which the volume is attached.</p>
+   */
+  AssociatedResource?: string;
+
+  /**
+   * @public
+   * <p>The service principal of Amazon Web Services service that owns the underlying
+   *       instance to which the volume is attached.</p>
+   *          <p>This parameter is returned only for volumes that are attached to
+   *       Fargate tasks.</p>
+   */
+  InstanceOwningService?: string;
 }
 
 /**
@@ -6002,7 +6240,7 @@ export interface VpcAttachment {
    * @public
    * <p>The current state of the attachment.</p>
    */
-  State?: AttachmentStatus | string;
+  State?: AttachmentStatus;
 
   /**
    * @public
@@ -6098,7 +6336,7 @@ export interface ClientVpnAuthorizationRuleStatus {
    * @public
    * <p>The state of the authorization rule.</p>
    */
-  Code?: ClientVpnAuthorizationRuleStatusCode | string;
+  Code?: ClientVpnAuthorizationRuleStatusCode;
 
   /**
    * @public
@@ -6398,7 +6636,7 @@ export interface ReferencedSecurityGroup {
 
   /**
    * @public
-   * <p>The ID of the VPC peering connection.</p>
+   * <p>The ID of the VPC peering connection (if applicable).</p>
    */
   VpcPeeringConnectionId?: string;
 }
@@ -6781,7 +7019,7 @@ export interface BundleTask {
    * @public
    * <p>The state of the task.</p>
    */
-  State?: BundleTaskState | string;
+  State?: BundleTaskState;
 
   /**
    * @public
@@ -6952,13 +7190,13 @@ export interface CapacityReservationFleetCancellationState {
    * @public
    * <p>The current state of the Capacity Reservation Fleet.</p>
    */
-  CurrentFleetState?: CapacityReservationFleetState | string;
+  CurrentFleetState?: CapacityReservationFleetState;
 
   /**
    * @public
    * <p>The previous state of the Capacity Reservation Fleet.</p>
    */
-  PreviousFleetState?: CapacityReservationFleetState | string;
+  PreviousFleetState?: CapacityReservationFleetState;
 
   /**
    * @public
@@ -7015,7 +7253,8 @@ export interface CancelConversionRequest {
 export interface CancelExportTaskRequest {
   /**
    * @public
-   * <p>The ID of the export task. This is the ID returned by <code>CreateInstanceExportTask</code>.</p>
+   * <p>The ID of the export task. This is the ID returned by the
+   *     <code>CreateInstanceExportTask</code> and <code>ExportImage</code> operations.</p>
    */
   ExportTaskId: string | undefined;
 }
@@ -7141,7 +7380,7 @@ export interface InstanceCount {
    * @public
    * <p>The states of the listed Reserved Instances.</p>
    */
-  State?: ListingState | string;
+  State?: ListingState;
 }
 
 /**
@@ -7174,7 +7413,7 @@ export interface PriceSchedule {
    * <p>The currency for transacting the Reserved Instance resale.
    * 				At this time, the only supported currency is <code>USD</code>.</p>
    */
-  CurrencyCode?: CurrencyCodeValues | string;
+  CurrencyCode?: CurrencyCodeValues;
 
   /**
    * @public
@@ -7251,7 +7490,7 @@ export interface ReservedInstancesListing {
    * @public
    * <p>The status of the Reserved Instance listing.</p>
    */
-  Status?: ListingStatus | string;
+  Status?: ListingStatus;
 
   /**
    * @public
@@ -7341,13 +7580,13 @@ export interface CancelSpotFleetRequestsSuccessItem {
    * @public
    * <p>The current state of the Spot Fleet request.</p>
    */
-  CurrentSpotFleetRequestState?: BatchState | string;
+  CurrentSpotFleetRequestState?: BatchState;
 
   /**
    * @public
    * <p>The previous state of the Spot Fleet request.</p>
    */
-  PreviousSpotFleetRequestState?: BatchState | string;
+  PreviousSpotFleetRequestState?: BatchState;
 
   /**
    * @public
@@ -7381,7 +7620,7 @@ export interface CancelSpotFleetRequestsError {
    * @public
    * <p>The error code.</p>
    */
-  Code?: CancelBatchErrorCode | string;
+  Code?: CancelBatchErrorCode;
 
   /**
    * @public
@@ -7480,7 +7719,7 @@ export interface CancelledSpotInstanceRequest {
    * @public
    * <p>The state of the Spot Instance request.</p>
    */
-  State?: CancelSpotInstanceRequestState | string;
+  State?: CancelSpotInstanceRequestState;
 }
 
 /**
@@ -7895,6 +8134,7 @@ export const CapacityReservationInstancePlatform = {
   RHEL_WITH_SQL_SERVER_STANDARD: "RHEL with SQL Server Standard",
   RHEL_WITH_SQL_SERVER_WEB: "RHEL with SQL Server Web",
   SUSE_LINUX: "SUSE Linux",
+  UBUNTU_PRO_LINUX: "Ubuntu Pro",
   WINDOWS: "Windows",
   WINDOWS_WITH_SQL_SERVER: "Windows with SQL Server",
   WINDOWS_WITH_SQL_SERVER_ENTERPRISE: "Windows with SQL Server Enterprise",
@@ -7942,7 +8182,7 @@ export interface CreateCapacityReservationRequest {
    * @public
    * <p>The type of operating system for which to reserve capacity.</p>
    */
-  InstancePlatform: CapacityReservationInstancePlatform | string | undefined;
+  InstancePlatform: CapacityReservationInstancePlatform | undefined;
 
   /**
    * @public
@@ -7970,7 +8210,7 @@ export interface CreateCapacityReservationRequest {
    *             </li>
    *          </ul>
    */
-  Tenancy?: CapacityReservationTenancy | string;
+  Tenancy?: CapacityReservationTenancy;
 
   /**
    * @public
@@ -8028,7 +8268,7 @@ export interface CreateCapacityReservationRequest {
    *             </li>
    *          </ul>
    */
-  EndDateType?: EndDateType | string;
+  EndDateType?: EndDateType;
 
   /**
    * @public
@@ -8051,7 +8291,7 @@ export interface CreateCapacityReservationRequest {
    *          <p>Default: <code>open</code>
    *          </p>
    */
-  InstanceMatchCriteria?: InstanceMatchCriteria | string;
+  InstanceMatchCriteria?: InstanceMatchCriteria;
 
   /**
    * @public
@@ -8092,7 +8332,7 @@ export interface CapacityAllocation {
    * <p>The usage type. <code>used</code> indicates that the instance capacity is
    * 			in use by instances that are running in the Capacity Reservation.</p>
    */
-  AllocationType?: AllocationType | string;
+  AllocationType?: AllocationType;
 
   /**
    * @public
@@ -8106,12 +8346,29 @@ export interface CapacityAllocation {
  * @public
  * @enum
  */
+export const CapacityReservationType = {
+  CAPACITY_BLOCK: "capacity-block",
+  DEFAULT: "default",
+} as const;
+
+/**
+ * @public
+ */
+export type CapacityReservationType = (typeof CapacityReservationType)[keyof typeof CapacityReservationType];
+
+/**
+ * @public
+ * @enum
+ */
 export const CapacityReservationState = {
   active: "active",
   cancelled: "cancelled",
   expired: "expired",
   failed: "failed",
+  payment_failed: "payment-failed",
+  payment_pending: "payment-pending",
   pending: "pending",
+  scheduled: "scheduled",
 } as const;
 
 /**
@@ -8158,7 +8415,7 @@ export interface CapacityReservation {
    * @public
    * <p>The type of operating system for which the Capacity Reservation reserves capacity.</p>
    */
-  InstancePlatform?: CapacityReservationInstancePlatform | string;
+  InstancePlatform?: CapacityReservationInstancePlatform;
 
   /**
    * @public
@@ -8180,7 +8437,7 @@ export interface CapacityReservation {
    *             </li>
    *          </ul>
    */
-  Tenancy?: CapacityReservationTenancy | string;
+  Tenancy?: CapacityReservationTenancy;
 
   /**
    * @public
@@ -8242,7 +8499,7 @@ export interface CapacityReservation {
    *             </li>
    *          </ul>
    */
-  State?: CapacityReservationState | string;
+  State?: CapacityReservationState;
 
   /**
    * @public
@@ -8273,7 +8530,7 @@ export interface CapacityReservation {
    *             </li>
    *          </ul>
    */
-  EndDateType?: EndDateType | string;
+  EndDateType?: EndDateType;
 
   /**
    * @public
@@ -8294,7 +8551,7 @@ export interface CapacityReservation {
    *             </li>
    *          </ul>
    */
-  InstanceMatchCriteria?: InstanceMatchCriteria | string;
+  InstanceMatchCriteria?: InstanceMatchCriteria;
 
   /**
    * @public
@@ -8337,6 +8594,12 @@ export interface CapacityReservation {
    * <p>Information about instance capacity usage.</p>
    */
   CapacityAllocations?: CapacityAllocation[];
+
+  /**
+   * @public
+   * <p>The type of Capacity Reservation.</p>
+   */
+  ReservationType?: CapacityReservationType;
 }
 
 /**
@@ -8494,6 +8757,18 @@ export const _InstanceType = {
   c6in_large: "c6in.large",
   c6in_metal: "c6in.metal",
   c6in_xlarge: "c6in.xlarge",
+  c7a_12xlarge: "c7a.12xlarge",
+  c7a_16xlarge: "c7a.16xlarge",
+  c7a_24xlarge: "c7a.24xlarge",
+  c7a_2xlarge: "c7a.2xlarge",
+  c7a_32xlarge: "c7a.32xlarge",
+  c7a_48xlarge: "c7a.48xlarge",
+  c7a_4xlarge: "c7a.4xlarge",
+  c7a_8xlarge: "c7a.8xlarge",
+  c7a_large: "c7a.large",
+  c7a_medium: "c7a.medium",
+  c7a_metal_48xl: "c7a.metal-48xl",
+  c7a_xlarge: "c7a.xlarge",
   c7g_12xlarge: "c7g.12xlarge",
   c7g_16xlarge: "c7g.16xlarge",
   c7g_2xlarge: "c7g.2xlarge",
@@ -8503,6 +8778,14 @@ export const _InstanceType = {
   c7g_medium: "c7g.medium",
   c7g_metal: "c7g.metal",
   c7g_xlarge: "c7g.xlarge",
+  c7gd_12xlarge: "c7gd.12xlarge",
+  c7gd_16xlarge: "c7gd.16xlarge",
+  c7gd_2xlarge: "c7gd.2xlarge",
+  c7gd_4xlarge: "c7gd.4xlarge",
+  c7gd_8xlarge: "c7gd.8xlarge",
+  c7gd_large: "c7gd.large",
+  c7gd_medium: "c7gd.medium",
+  c7gd_xlarge: "c7gd.xlarge",
   c7gn_12xlarge: "c7gn.12xlarge",
   c7gn_16xlarge: "c7gn.16xlarge",
   c7gn_2xlarge: "c7gn.2xlarge",
@@ -8511,6 +8794,17 @@ export const _InstanceType = {
   c7gn_large: "c7gn.large",
   c7gn_medium: "c7gn.medium",
   c7gn_xlarge: "c7gn.xlarge",
+  c7i_12xlarge: "c7i.12xlarge",
+  c7i_16xlarge: "c7i.16xlarge",
+  c7i_24xlarge: "c7i.24xlarge",
+  c7i_2xlarge: "c7i.2xlarge",
+  c7i_48xlarge: "c7i.48xlarge",
+  c7i_4xlarge: "c7i.4xlarge",
+  c7i_8xlarge: "c7i.8xlarge",
+  c7i_large: "c7i.large",
+  c7i_metal_24xl: "c7i.metal-24xl",
+  c7i_metal_48xl: "c7i.metal-48xl",
+  c7i_xlarge: "c7i.xlarge",
   cc1_4xlarge: "cc1.4xlarge",
   cc2_8xlarge: "cc2.8xlarge",
   cg1_4xlarge: "cg1.4xlarge",
@@ -8530,6 +8824,7 @@ export const _InstanceType = {
   d3en_8xlarge: "d3en.8xlarge",
   d3en_xlarge: "d3en.xlarge",
   dl1_24xlarge: "dl1.24xlarge",
+  dl2q_24xlarge: "dl2q.24xlarge",
   f1_16xlarge: "f1.16xlarge",
   f1_2xlarge: "f1.2xlarge",
   f1_4xlarge: "f1.4xlarge",
@@ -8572,6 +8867,10 @@ export const _InstanceType = {
   hi1_4xlarge: "hi1.4xlarge",
   hpc6a_48xlarge: "hpc6a.48xlarge",
   hpc6id_32xlarge: "hpc6id.32xlarge",
+  hpc7a_12xlarge: "hpc7a.12xlarge",
+  hpc7a_24xlarge: "hpc7a.24xlarge",
+  hpc7a_48xlarge: "hpc7a.48xlarge",
+  hpc7a_96xlarge: "hpc7a.96xlarge",
   hpc7g_16xlarge: "hpc7g.16xlarge",
   hpc7g_4xlarge: "hpc7g.4xlarge",
   hpc7g_8xlarge: "hpc7g.8xlarge",
@@ -8601,7 +8900,9 @@ export const _InstanceType = {
   i4g_8xlarge: "i4g.8xlarge",
   i4g_large: "i4g.large",
   i4g_xlarge: "i4g.xlarge",
+  i4i_12xlarge: "i4i.12xlarge",
   i4i_16xlarge: "i4i.16xlarge",
+  i4i_24xlarge: "i4i.24xlarge",
   i4i_2xlarge: "i4i.2xlarge",
   i4i_32xlarge: "i4i.32xlarge",
   i4i_4xlarge: "i4i.4xlarge",
@@ -8774,6 +9075,18 @@ export const _InstanceType = {
   m6in_large: "m6in.large",
   m6in_metal: "m6in.metal",
   m6in_xlarge: "m6in.xlarge",
+  m7a_12xlarge: "m7a.12xlarge",
+  m7a_16xlarge: "m7a.16xlarge",
+  m7a_24xlarge: "m7a.24xlarge",
+  m7a_2xlarge: "m7a.2xlarge",
+  m7a_32xlarge: "m7a.32xlarge",
+  m7a_48xlarge: "m7a.48xlarge",
+  m7a_4xlarge: "m7a.4xlarge",
+  m7a_8xlarge: "m7a.8xlarge",
+  m7a_large: "m7a.large",
+  m7a_medium: "m7a.medium",
+  m7a_metal_48xl: "m7a.metal-48xl",
+  m7a_xlarge: "m7a.xlarge",
   m7g_12xlarge: "m7g.12xlarge",
   m7g_16xlarge: "m7g.16xlarge",
   m7g_2xlarge: "m7g.2xlarge",
@@ -8783,6 +9096,14 @@ export const _InstanceType = {
   m7g_medium: "m7g.medium",
   m7g_metal: "m7g.metal",
   m7g_xlarge: "m7g.xlarge",
+  m7gd_12xlarge: "m7gd.12xlarge",
+  m7gd_16xlarge: "m7gd.16xlarge",
+  m7gd_2xlarge: "m7gd.2xlarge",
+  m7gd_4xlarge: "m7gd.4xlarge",
+  m7gd_8xlarge: "m7gd.8xlarge",
+  m7gd_large: "m7gd.large",
+  m7gd_medium: "m7gd.medium",
+  m7gd_xlarge: "m7gd.xlarge",
   m7i_12xlarge: "m7i.12xlarge",
   m7i_16xlarge: "m7i.16xlarge",
   m7i_24xlarge: "m7i.24xlarge",
@@ -8796,8 +9117,12 @@ export const _InstanceType = {
   m7i_flex_large: "m7i-flex.large",
   m7i_flex_xlarge: "m7i-flex.xlarge",
   m7i_large: "m7i.large",
+  m7i_metal_24xl: "m7i.metal-24xl",
+  m7i_metal_48xl: "m7i.metal-48xl",
   m7i_xlarge: "m7i.xlarge",
   mac1_metal: "mac1.metal",
+  mac2_m2_metal: "mac2-m2.metal",
+  mac2_m2pro_metal: "mac2-m2pro.metal",
   mac2_metal: "mac2.metal",
   p2_16xlarge: "p2.16xlarge",
   p2_8xlarge: "p2.8xlarge",
@@ -8950,6 +9275,18 @@ export const _InstanceType = {
   r6in_large: "r6in.large",
   r6in_metal: "r6in.metal",
   r6in_xlarge: "r6in.xlarge",
+  r7a_12xlarge: "r7a.12xlarge",
+  r7a_16xlarge: "r7a.16xlarge",
+  r7a_24xlarge: "r7a.24xlarge",
+  r7a_2xlarge: "r7a.2xlarge",
+  r7a_32xlarge: "r7a.32xlarge",
+  r7a_48xlarge: "r7a.48xlarge",
+  r7a_4xlarge: "r7a.4xlarge",
+  r7a_8xlarge: "r7a.8xlarge",
+  r7a_large: "r7a.large",
+  r7a_medium: "r7a.medium",
+  r7a_metal_48xl: "r7a.metal-48xl",
+  r7a_xlarge: "r7a.xlarge",
   r7g_12xlarge: "r7g.12xlarge",
   r7g_16xlarge: "r7g.16xlarge",
   r7g_2xlarge: "r7g.2xlarge",
@@ -8959,6 +9296,35 @@ export const _InstanceType = {
   r7g_medium: "r7g.medium",
   r7g_metal: "r7g.metal",
   r7g_xlarge: "r7g.xlarge",
+  r7gd_12xlarge: "r7gd.12xlarge",
+  r7gd_16xlarge: "r7gd.16xlarge",
+  r7gd_2xlarge: "r7gd.2xlarge",
+  r7gd_4xlarge: "r7gd.4xlarge",
+  r7gd_8xlarge: "r7gd.8xlarge",
+  r7gd_large: "r7gd.large",
+  r7gd_medium: "r7gd.medium",
+  r7gd_xlarge: "r7gd.xlarge",
+  r7i_12xlarge: "r7i.12xlarge",
+  r7i_16xlarge: "r7i.16xlarge",
+  r7i_24xlarge: "r7i.24xlarge",
+  r7i_2xlarge: "r7i.2xlarge",
+  r7i_48xlarge: "r7i.48xlarge",
+  r7i_4xlarge: "r7i.4xlarge",
+  r7i_8xlarge: "r7i.8xlarge",
+  r7i_large: "r7i.large",
+  r7i_metal_24xl: "r7i.metal-24xl",
+  r7i_metal_48xl: "r7i.metal-48xl",
+  r7i_xlarge: "r7i.xlarge",
+  r7iz_12xlarge: "r7iz.12xlarge",
+  r7iz_16xlarge: "r7iz.16xlarge",
+  r7iz_2xlarge: "r7iz.2xlarge",
+  r7iz_32xlarge: "r7iz.32xlarge",
+  r7iz_4xlarge: "r7iz.4xlarge",
+  r7iz_8xlarge: "r7iz.8xlarge",
+  r7iz_large: "r7iz.large",
+  r7iz_metal_16xl: "r7iz.metal-16xl",
+  r7iz_metal_32xl: "r7iz.metal-32xl",
+  r7iz_xlarge: "r7iz.xlarge",
   t1_micro: "t1.micro",
   t2_2xlarge: "t2.2xlarge",
   t2_large: "t2.large",
@@ -9064,13 +9430,13 @@ export interface ReservationFleetInstanceSpecification {
    * @public
    * <p>The instance type for which the Capacity Reservation Fleet reserves capacity.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: _InstanceType;
 
   /**
    * @public
    * <p>The type of operating system for which the Capacity Reservation Fleet reserves capacity.</p>
    */
-  InstancePlatform?: CapacityReservationInstancePlatform | string;
+  InstancePlatform?: CapacityReservationInstancePlatform;
 
   /**
    * @public
@@ -9176,7 +9542,7 @@ export interface CreateCapacityReservationFleetRequest {
    *             </li>
    *          </ul>
    */
-  Tenancy?: FleetCapacityReservationTenancy | string;
+  Tenancy?: FleetCapacityReservationTenancy;
 
   /**
    * @public
@@ -9210,7 +9576,7 @@ export interface CreateCapacityReservationFleetRequest {
    * 			Availability Zone) run in the Capacity Reservations automatically. Instances do not need to
    * 			explicitly target a Capacity Reservation Fleet to use its reserved capacity.</p>
    */
-  InstanceMatchCriteria?: FleetInstanceMatchCriteria | string;
+  InstanceMatchCriteria?: FleetInstanceMatchCriteria;
 
   /**
    * @public
@@ -9247,13 +9613,13 @@ export interface FleetCapacityReservation {
    * @public
    * <p>The instance type for which the Capacity Reservation reserves capacity.</p>
    */
-  InstanceType?: _InstanceType | string;
+  InstanceType?: _InstanceType;
 
   /**
    * @public
    * <p>The type of operating system for which the Capacity Reservation reserves capacity.</p>
    */
-  InstancePlatform?: CapacityReservationInstancePlatform | string;
+  InstancePlatform?: CapacityReservationInstancePlatform;
 
   /**
    * @public
@@ -9318,7 +9684,7 @@ export interface CreateCapacityReservationFleetResult {
    * @public
    * <p>The status of the Capacity Reservation Fleet.</p>
    */
-  State?: CapacityReservationFleetState | string;
+  State?: CapacityReservationFleetState;
 
   /**
    * @public
@@ -9336,7 +9702,7 @@ export interface CreateCapacityReservationFleetResult {
    * @public
    * <p>The instance matching criteria for the Capacity Reservation Fleet.</p>
    */
-  InstanceMatchCriteria?: FleetInstanceMatchCriteria | string;
+  InstanceMatchCriteria?: FleetInstanceMatchCriteria;
 
   /**
    * @public
@@ -9360,7 +9726,7 @@ export interface CreateCapacityReservationFleetResult {
    * @public
    * <p>Indicates the tenancy of Capacity Reservation Fleet.</p>
    */
-  Tenancy?: FleetCapacityReservationTenancy | string;
+  Tenancy?: FleetCapacityReservationTenancy;
 
   /**
    * @public
@@ -9373,145 +9739,6 @@ export interface CreateCapacityReservationFleetResult {
    * <p>The tags assigned to the Capacity Reservation Fleet.</p>
    */
   Tags?: Tag[];
-}
-
-/**
- * @public
- */
-export interface CreateCarrierGatewayRequest {
-  /**
-   * @public
-   * <p>The ID of the VPC to associate with the carrier gateway.</p>
-   */
-  VpcId: string | undefined;
-
-  /**
-   * @public
-   * <p>The tags to associate with the carrier gateway.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * @public
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * @public
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to ensure
-   *                 idempotency</a>.</p>
-   */
-  ClientToken?: string;
-}
-
-/**
- * @public
- * @enum
- */
-export const CarrierGatewayState = {
-  available: "available",
-  deleted: "deleted",
-  deleting: "deleting",
-  pending: "pending",
-} as const;
-
-/**
- * @public
- */
-export type CarrierGatewayState = (typeof CarrierGatewayState)[keyof typeof CarrierGatewayState];
-
-/**
- * @public
- * <p>Describes a carrier gateway.</p>
- */
-export interface CarrierGateway {
-  /**
-   * @public
-   * <p>The ID of the carrier gateway.</p>
-   */
-  CarrierGatewayId?: string;
-
-  /**
-   * @public
-   * <p>The ID of the VPC associated with the carrier gateway.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * @public
-   * <p>The state of the carrier gateway.</p>
-   */
-  State?: CarrierGatewayState | string;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services account ID of the owner of the carrier gateway.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * @public
-   * <p>The tags assigned to the carrier gateway.</p>
-   */
-  Tags?: Tag[];
-}
-
-/**
- * @public
- */
-export interface CreateCarrierGatewayResult {
-  /**
-   * @public
-   * <p>Information about the carrier gateway.</p>
-   */
-  CarrierGateway?: CarrierGateway;
-}
-
-/**
- * @public
- * <p>Describes the Active Directory to be used for client authentication.</p>
- */
-export interface DirectoryServiceAuthenticationRequest {
-  /**
-   * @public
-   * <p>The ID of the Active Directory to be used for authentication.</p>
-   */
-  DirectoryId?: string;
-}
-
-/**
- * @public
- * <p>The IAM SAML identity provider used for federated authentication.</p>
- */
-export interface FederatedAuthenticationRequest {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the IAM SAML identity provider.</p>
-   */
-  SAMLProviderArn?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.</p>
-   */
-  SelfServiceSAMLProviderArn?: string;
-}
-
-/**
- * @public
- * <p>Information about the client certificate to be used for authentication.</p>
- */
-export interface CertificateAuthenticationRequest {
-  /**
-   * @public
-   * <p>The ARN of the client certificate. The certificate must be signed by a certificate
-   * 			authority (CA) and it must be provisioned in Certificate Manager (ACM).</p>
-   */
-  ClientRootCertificateChainArn?: string;
 }
 
 /**
@@ -9540,6 +9767,54 @@ export const AttachVerifiedAccessTrustProviderResultFilterSensitiveLog = (
   ...(obj.VerifiedAccessTrustProvider && {
     VerifiedAccessTrustProvider: VerifiedAccessTrustProviderFilterSensitiveLog(obj.VerifiedAccessTrustProvider),
   }),
+});
+
+/**
+ * @internal
+ */
+export const S3StorageFilterSensitiveLog = (obj: S3Storage): any => ({
+  ...obj,
+  ...(obj.UploadPolicySignature && { UploadPolicySignature: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const StorageFilterSensitiveLog = (obj: Storage): any => ({
+  ...obj,
+  ...(obj.S3 && { S3: S3StorageFilterSensitiveLog(obj.S3) }),
+});
+
+/**
+ * @internal
+ */
+export const BundleInstanceRequestFilterSensitiveLog = (obj: BundleInstanceRequest): any => ({
+  ...obj,
+  ...(obj.Storage && { Storage: StorageFilterSensitiveLog(obj.Storage) }),
+});
+
+/**
+ * @internal
+ */
+export const BundleTaskFilterSensitiveLog = (obj: BundleTask): any => ({
+  ...obj,
+  ...(obj.Storage && { Storage: StorageFilterSensitiveLog(obj.Storage) }),
+});
+
+/**
+ * @internal
+ */
+export const BundleInstanceResultFilterSensitiveLog = (obj: BundleInstanceResult): any => ({
+  ...obj,
+  ...(obj.BundleTask && { BundleTask: BundleTaskFilterSensitiveLog(obj.BundleTask) }),
+});
+
+/**
+ * @internal
+ */
+export const CancelBundleTaskResultFilterSensitiveLog = (obj: CancelBundleTaskResult): any => ({
+  ...obj,
+  ...(obj.BundleTask && { BundleTask: BundleTaskFilterSensitiveLog(obj.BundleTask) }),
 });
 
 /**

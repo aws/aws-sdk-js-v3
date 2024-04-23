@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { UpdateDeploymentGroupInput, UpdateDeploymentGroupOutput } from "../models/models_0";
 import { de_UpdateDeploymentGroupCommand, se_UpdateDeploymentGroupCommand } from "../protocols/Aws_json1_1";
 
@@ -167,6 +159,7 @@ export interface UpdateDeploymentGroupCommandOutput extends UpdateDeploymentGrou
  *       ],
  *     ],
  *   },
+ *   terminationHookEnabled: true || false,
  * };
  * const command = new UpdateDeploymentGroupCommand(input);
  * const response = await client.send(command);
@@ -175,6 +168,7 @@ export interface UpdateDeploymentGroupCommandOutput extends UpdateDeploymentGrou
  * //     { // AutoScalingGroup
  * //       name: "STRING_VALUE",
  * //       hook: "STRING_VALUE",
+ * //       terminationHook: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -191,20 +185,21 @@ export interface UpdateDeploymentGroupCommandOutput extends UpdateDeploymentGrou
  *  <p>The maximum number of alarms for a deployment group (10) was exceeded.</p>
  *
  * @throws {@link ApplicationDoesNotExistException} (client fault)
- *  <p>The application does not exist with the IAM user or Amazon Web Services account.</p>
+ *  <p>The application does not exist with the user or Amazon Web Services account.</p>
  *
  * @throws {@link ApplicationNameRequiredException} (client fault)
  *  <p>The minimum number of required application names was not specified.</p>
  *
  * @throws {@link DeploymentConfigDoesNotExistException} (client fault)
- *  <p>The deployment configuration does not exist with the IAM user or
- *                 Amazon Web Services account.</p>
+ *  <p>The deployment configuration does not exist with the user or Amazon Web Services account.</p>
  *
  * @throws {@link DeploymentGroupAlreadyExistsException} (client fault)
- *  <p>A deployment group with the specified name with the IAM user or Amazon Web Services account already exists.</p>
+ *  <p>A deployment group with the specified name with the user or Amazon Web Services account
+ *             already exists.</p>
  *
  * @throws {@link DeploymentGroupDoesNotExistException} (client fault)
- *  <p>The named deployment group with the IAM user or Amazon Web Services account does not exist.</p>
+ *  <p>The named deployment group with the user or Amazon Web Services account does not
+ *             exist.</p>
  *
  * @throws {@link DeploymentGroupNameRequiredException} (client fault)
  *  <p>The deployment group name was not specified.</p>
@@ -215,21 +210,21 @@ export interface UpdateDeploymentGroupCommandOutput extends UpdateDeploymentGrou
  *
  * @throws {@link InvalidAlarmConfigException} (client fault)
  *  <p>The format of the alarm configuration is invalid. Possible causes include:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>The alarm list is null.</p>
+ *                <p>The alarm list is null.</p>
  *             </li>
  *             <li>
- *                 <p>The alarm object is null.</p>
+ *                <p>The alarm object is null.</p>
  *             </li>
  *             <li>
- *                 <p>The alarm name is empty or null or exceeds the limit of 255 characters.</p>
+ *                <p>The alarm name is empty or null or exceeds the limit of 255 characters.</p>
  *             </li>
  *             <li>
- *                 <p>Two alarms with the same name have been specified.</p>
+ *                <p>Two alarms with the same name have been specified.</p>
  *             </li>
  *             <li>
- *                 <p>The alarm configuration is enabled, but the alarm list is empty.</p>
+ *                <p>The alarm configuration is enabled, but the alarm list is empty.</p>
  *             </li>
  *          </ul>
  *
@@ -315,79 +310,26 @@ export interface UpdateDeploymentGroupCommandOutput extends UpdateDeploymentGrou
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  */
-export class UpdateDeploymentGroupCommand extends $Command<
-  UpdateDeploymentGroupCommandInput,
-  UpdateDeploymentGroupCommandOutput,
-  CodeDeployClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: UpdateDeploymentGroupCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CodeDeployClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<UpdateDeploymentGroupCommandInput, UpdateDeploymentGroupCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateDeploymentGroupCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CodeDeployClient";
-    const commandName = "UpdateDeploymentGroupCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: UpdateDeploymentGroupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_UpdateDeploymentGroupCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDeploymentGroupCommandOutput> {
-    return de_UpdateDeploymentGroupCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class UpdateDeploymentGroupCommand extends $Command
+  .classBuilder<
+    UpdateDeploymentGroupCommandInput,
+    UpdateDeploymentGroupCommandOutput,
+    CodeDeployClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CodeDeployClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("CodeDeploy_20141006", "UpdateDeploymentGroup", {})
+  .n("CodeDeployClient", "UpdateDeploymentGroupCommand")
+  .f(void 0, void 0)
+  .ser(se_UpdateDeploymentGroupCommand)
+  .de(de_UpdateDeploymentGroupCommand)
+  .build() {}

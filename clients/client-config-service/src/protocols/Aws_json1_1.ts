@@ -515,7 +515,6 @@ import {
   ListResourceEvaluationsResponse,
   ListStoredQueriesRequest,
   ListTagsForResourceRequest,
-  MaxActiveResourcesExceededException,
   MemberAccountStatus,
   NoAvailableConfigurationRecorderException,
   NoRunningConfigurationRecorderException,
@@ -544,6 +543,8 @@ import {
   OrganizationResourceDetailedStatusFilters,
   OversizedConfigurationItemException,
   RecordingGroup,
+  RecordingMode,
+  RecordingModeOverride,
   RecordingStrategy,
   RemediationConfiguration,
   RemediationException,
@@ -571,12 +572,12 @@ import {
   StaticValue,
   StatusDetailFilters,
   StoredQuery,
-  Tag,
   TemplateSSMDocumentDetails,
   TimeWindow,
   ValidationException,
 } from "../models/models_0";
 import {
+  MaxActiveResourcesExceededException,
   MaxNumberOfConfigRulesExceededException,
   MaxNumberOfConfigurationRecordersExceededException,
   MaxNumberOfConformancePacksExceededException,
@@ -617,6 +618,7 @@ import {
   StartRemediationExecutionRequest,
   StartResourceEvaluationRequest,
   StopConfigurationRecorderRequest,
+  Tag,
   TagResourceRequest,
   TooManyTagsException,
   UntagResourceRequest,
@@ -5461,6 +5463,9 @@ const de_PutConfigurationRecorderCommandError = async (
     case "MaxNumberOfConfigurationRecordersExceededException":
     case "com.amazonaws.configservice#MaxNumberOfConfigurationRecordersExceededException":
       throw await de_MaxNumberOfConfigurationRecordersExceededExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.configservice#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -7735,6 +7740,14 @@ const se_PutRemediationExceptionsRequest = (input: PutRemediationExceptionsReque
 
 // se_RecordingGroup omitted.
 
+// se_RecordingMode omitted.
+
+// se_RecordingModeOverride omitted.
+
+// se_RecordingModeOverrides omitted.
+
+// se_RecordingModeResourceTypesList omitted.
+
 // se_RecordingStrategy omitted.
 
 // se_ReevaluateConfigRuleNames omitted.
@@ -7981,8 +7994,10 @@ const de_BaseConfigurationItem = (output: any, context: __SerdeContext): BaseCon
     awsRegion: __expectString,
     configuration: __expectString,
     configurationItemCaptureTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    configurationItemDeliveryTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     configurationItemStatus: __expectString,
     configurationStateId: __expectString,
+    recordingFrequency: __expectString,
     resourceCreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     resourceId: __expectString,
     resourceName: __expectString,
@@ -8182,9 +8197,11 @@ const de_ConfigurationItem = (output: any, context: __SerdeContext): Configurati
     awsRegion: __expectString,
     configuration: __expectString,
     configurationItemCaptureTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    configurationItemDeliveryTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     configurationItemMD5Hash: __expectString,
     configurationItemStatus: __expectString,
     configurationStateId: __expectString,
+    recordingFrequency: __expectString,
     relatedEvents: _json,
     relationships: _json,
     resourceCreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -9281,6 +9298,14 @@ const de_PutRemediationExceptionsResponse = (
 // de_QueryInfo omitted.
 
 // de_RecordingGroup omitted.
+
+// de_RecordingMode omitted.
+
+// de_RecordingModeOverride omitted.
+
+// de_RecordingModeOverrides omitted.
+
+// de_RecordingModeResourceTypesList omitted.
 
 // de_RecordingStrategy omitted.
 

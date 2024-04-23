@@ -8,6 +8,16 @@ import {
   BatchGetCollectionCommandOutput,
 } from "./commands/BatchGetCollectionCommand";
 import {
+  BatchGetEffectiveLifecyclePolicyCommand,
+  BatchGetEffectiveLifecyclePolicyCommandInput,
+  BatchGetEffectiveLifecyclePolicyCommandOutput,
+} from "./commands/BatchGetEffectiveLifecyclePolicyCommand";
+import {
+  BatchGetLifecyclePolicyCommand,
+  BatchGetLifecyclePolicyCommandInput,
+  BatchGetLifecyclePolicyCommandOutput,
+} from "./commands/BatchGetLifecyclePolicyCommand";
+import {
   BatchGetVpcEndpointCommand,
   BatchGetVpcEndpointCommandInput,
   BatchGetVpcEndpointCommandOutput,
@@ -22,6 +32,11 @@ import {
   CreateCollectionCommandInput,
   CreateCollectionCommandOutput,
 } from "./commands/CreateCollectionCommand";
+import {
+  CreateLifecyclePolicyCommand,
+  CreateLifecyclePolicyCommandInput,
+  CreateLifecyclePolicyCommandOutput,
+} from "./commands/CreateLifecyclePolicyCommand";
 import {
   CreateSecurityConfigCommand,
   CreateSecurityConfigCommandInput,
@@ -47,6 +62,11 @@ import {
   DeleteCollectionCommandInput,
   DeleteCollectionCommandOutput,
 } from "./commands/DeleteCollectionCommand";
+import {
+  DeleteLifecyclePolicyCommand,
+  DeleteLifecyclePolicyCommandInput,
+  DeleteLifecyclePolicyCommandOutput,
+} from "./commands/DeleteLifecyclePolicyCommand";
 import {
   DeleteSecurityConfigCommand,
   DeleteSecurityConfigCommandInput,
@@ -98,6 +118,11 @@ import {
   ListCollectionsCommandOutput,
 } from "./commands/ListCollectionsCommand";
 import {
+  ListLifecyclePoliciesCommand,
+  ListLifecyclePoliciesCommandInput,
+  ListLifecyclePoliciesCommandOutput,
+} from "./commands/ListLifecyclePoliciesCommand";
+import {
   ListSecurityConfigsCommand,
   ListSecurityConfigsCommandInput,
   ListSecurityConfigsCommandOutput,
@@ -139,6 +164,11 @@ import {
   UpdateCollectionCommandOutput,
 } from "./commands/UpdateCollectionCommand";
 import {
+  UpdateLifecyclePolicyCommand,
+  UpdateLifecyclePolicyCommandInput,
+  UpdateLifecyclePolicyCommandOutput,
+} from "./commands/UpdateLifecyclePolicyCommand";
+import {
   UpdateSecurityConfigCommand,
   UpdateSecurityConfigCommandInput,
   UpdateSecurityConfigCommandOutput,
@@ -157,14 +187,18 @@ import { OpenSearchServerlessClient, OpenSearchServerlessClientConfig } from "./
 
 const commands = {
   BatchGetCollectionCommand,
+  BatchGetEffectiveLifecyclePolicyCommand,
+  BatchGetLifecyclePolicyCommand,
   BatchGetVpcEndpointCommand,
   CreateAccessPolicyCommand,
   CreateCollectionCommand,
+  CreateLifecyclePolicyCommand,
   CreateSecurityConfigCommand,
   CreateSecurityPolicyCommand,
   CreateVpcEndpointCommand,
   DeleteAccessPolicyCommand,
   DeleteCollectionCommand,
+  DeleteLifecyclePolicyCommand,
   DeleteSecurityConfigCommand,
   DeleteSecurityPolicyCommand,
   DeleteVpcEndpointCommand,
@@ -175,6 +209,7 @@ const commands = {
   GetSecurityPolicyCommand,
   ListAccessPoliciesCommand,
   ListCollectionsCommand,
+  ListLifecyclePoliciesCommand,
   ListSecurityConfigsCommand,
   ListSecurityPoliciesCommand,
   ListTagsForResourceCommand,
@@ -184,6 +219,7 @@ const commands = {
   UpdateAccessPolicyCommand,
   UpdateAccountSettingsCommand,
   UpdateCollectionCommand,
+  UpdateLifecyclePolicyCommand,
   UpdateSecurityConfigCommand,
   UpdateSecurityPolicyCommand,
   UpdateVpcEndpointCommand,
@@ -205,6 +241,40 @@ export interface OpenSearchServerless {
     args: BatchGetCollectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetCollectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetEffectiveLifecyclePolicyCommand}
+   */
+  batchGetEffectiveLifecyclePolicy(
+    args: BatchGetEffectiveLifecyclePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetEffectiveLifecyclePolicyCommandOutput>;
+  batchGetEffectiveLifecyclePolicy(
+    args: BatchGetEffectiveLifecyclePolicyCommandInput,
+    cb: (err: any, data?: BatchGetEffectiveLifecyclePolicyCommandOutput) => void
+  ): void;
+  batchGetEffectiveLifecyclePolicy(
+    args: BatchGetEffectiveLifecyclePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetEffectiveLifecyclePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetLifecyclePolicyCommand}
+   */
+  batchGetLifecyclePolicy(
+    args: BatchGetLifecyclePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetLifecyclePolicyCommandOutput>;
+  batchGetLifecyclePolicy(
+    args: BatchGetLifecyclePolicyCommandInput,
+    cb: (err: any, data?: BatchGetLifecyclePolicyCommandOutput) => void
+  ): void;
+  batchGetLifecyclePolicy(
+    args: BatchGetLifecyclePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetLifecyclePolicyCommandOutput) => void
   ): void;
 
   /**
@@ -256,6 +326,23 @@ export interface OpenSearchServerless {
     args: CreateCollectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateCollectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateLifecyclePolicyCommand}
+   */
+  createLifecyclePolicy(
+    args: CreateLifecyclePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLifecyclePolicyCommandOutput>;
+  createLifecyclePolicy(
+    args: CreateLifecyclePolicyCommandInput,
+    cb: (err: any, data?: CreateLifecyclePolicyCommandOutput) => void
+  ): void;
+  createLifecyclePolicy(
+    args: CreateLifecyclePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLifecyclePolicyCommandOutput) => void
   ): void;
 
   /**
@@ -341,6 +428,23 @@ export interface OpenSearchServerless {
     args: DeleteCollectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteCollectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteLifecyclePolicyCommand}
+   */
+  deleteLifecyclePolicy(
+    args: DeleteLifecyclePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLifecyclePolicyCommandOutput>;
+  deleteLifecyclePolicy(
+    args: DeleteLifecyclePolicyCommandInput,
+    cb: (err: any, data?: DeleteLifecyclePolicyCommandOutput) => void
+  ): void;
+  deleteLifecyclePolicy(
+    args: DeleteLifecyclePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLifecyclePolicyCommandOutput) => void
   ): void;
 
   /**
@@ -508,6 +612,23 @@ export interface OpenSearchServerless {
   ): void;
 
   /**
+   * @see {@link ListLifecyclePoliciesCommand}
+   */
+  listLifecyclePolicies(
+    args: ListLifecyclePoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLifecyclePoliciesCommandOutput>;
+  listLifecyclePolicies(
+    args: ListLifecyclePoliciesCommandInput,
+    cb: (err: any, data?: ListLifecyclePoliciesCommandOutput) => void
+  ): void;
+  listLifecyclePolicies(
+    args: ListLifecyclePoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLifecyclePoliciesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListSecurityConfigsCommand}
    */
   listSecurityConfigs(
@@ -646,6 +767,23 @@ export interface OpenSearchServerless {
     args: UpdateCollectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateCollectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateLifecyclePolicyCommand}
+   */
+  updateLifecyclePolicy(
+    args: UpdateLifecyclePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLifecyclePolicyCommandOutput>;
+  updateLifecyclePolicy(
+    args: UpdateLifecyclePolicyCommandInput,
+    cb: (err: any, data?: UpdateLifecyclePolicyCommandOutput) => void
+  ): void;
+  updateLifecyclePolicy(
+    args: UpdateLifecyclePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLifecyclePolicyCommandOutput) => void
   ): void;
 
   /**

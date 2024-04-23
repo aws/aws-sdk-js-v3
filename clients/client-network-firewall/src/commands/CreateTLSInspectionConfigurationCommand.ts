@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateTLSInspectionConfigurationRequest, CreateTLSInspectionConfigurationResponse } from "../models/models_0";
 import { NetworkFirewallClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkFirewallClient";
 import {
@@ -41,13 +33,13 @@ export interface CreateTLSInspectionConfigurationCommandOutput
 
 /**
  * @public
- * <p>Creates an Network Firewall TLS inspection configuration. A TLS inspection configuration contains the Certificate Manager certificate references that Network Firewall uses to decrypt and re-encrypt inbound traffic.</p>
- *          <p>After you create a TLS inspection configuration, you associate it with a firewall policy.</p>
+ * <p>Creates an Network Firewall TLS inspection configuration. A TLS inspection configuration contains Certificate Manager certificate associations between and the scope configurations that Network Firewall uses to decrypt and re-encrypt traffic traveling through your firewall.</p>
+ *          <p>After you create a TLS inspection configuration, you can associate it with a new firewall policy.</p>
  *          <p>To update the settings for a TLS inspection configuration, use <a>UpdateTLSInspectionConfiguration</a>.</p>
  *          <p>To manage a TLS inspection configuration's tags, use the standard Amazon Web Services resource tagging operations, <a>ListTagsForResource</a>, <a>TagResource</a>, and <a>UntagResource</a>.</p>
  *          <p>To retrieve information about TLS inspection configurations, use <a>ListTLSInspectionConfigurations</a> and <a>DescribeTLSInspectionConfiguration</a>.</p>
  *          <p>
- *               For more information about TLS inspection configurations, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html">Decrypting SSL/TLS traffic with TLS
+ *               For more information about TLS inspection configurations, see <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection.html">Inspecting SSL/TLS traffic with TLS
  * inspection configurations</a> in the <i>Network Firewall Developer Guide</i>.
  *             </p>
  * @example
@@ -95,6 +87,11 @@ export interface CreateTLSInspectionConfigurationCommandOutput
  *             ],
  *           },
  *         ],
+ *         CertificateAuthorityArn: "STRING_VALUE",
+ *         CheckCertificateRevocationStatus: { // CheckCertificateRevocationStatusActions
+ *           RevokedStatusAction: "PASS" || "DROP" || "REJECT",
+ *           UnknownStatusAction: "PASS" || "DROP" || "REJECT",
+ *         },
  *       },
  *     ],
  *   },
@@ -118,7 +115,7 @@ export interface CreateTLSInspectionConfigurationCommandOutput
  * //     TLSInspectionConfigurationArn: "STRING_VALUE", // required
  * //     TLSInspectionConfigurationName: "STRING_VALUE", // required
  * //     TLSInspectionConfigurationId: "STRING_VALUE", // required
- * //     TLSInspectionConfigurationStatus: "ACTIVE" || "DELETING",
+ * //     TLSInspectionConfigurationStatus: "ACTIVE" || "DELETING" || "ERROR",
  * //     Description: "STRING_VALUE",
  * //     Tags: [ // TagList
  * //       { // Tag
@@ -140,6 +137,12 @@ export interface CreateTLSInspectionConfigurationCommandOutput
  * //         StatusMessage: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     CertificateAuthority: {
+ * //       CertificateArn: "STRING_VALUE",
+ * //       CertificateSerial: "STRING_VALUE",
+ * //       Status: "STRING_VALUE",
+ * //       StatusMessage: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -151,8 +154,12 @@ export interface CreateTLSInspectionConfigurationCommandOutput
  * @see {@link CreateTLSInspectionConfigurationCommandOutput} for command's `response` shape.
  * @see {@link NetworkFirewallClientResolvedConfig | config} for NetworkFirewallClient's `config` shape.
  *
+ * @throws {@link InsufficientCapacityException} (server fault)
+ *  <p>Amazon Web Services doesn't currently have enough available capacity to fulfill your request. Try your
+ *          request later. </p>
+ *
  * @throws {@link InternalServerError} (server fault)
- *  <p>Your request is valid, but Network Firewall couldn’t perform the operation because of a
+ *  <p>Your request is valid, but Network Firewall couldn't perform the operation because of a
  *          system problem. Retry your request. </p>
  *
  * @throws {@link InvalidRequestException} (client fault)
@@ -171,6 +178,9 @@ export interface CreateTLSInspectionConfigurationCommandOutput
  *             </li>
  *          </ul>
  *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>Unable to perform the operation because doing so would violate a limit setting. </p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Unable to process the request due to throttling limitations.</p>
  *
@@ -178,85 +188,26 @@ export interface CreateTLSInspectionConfigurationCommandOutput
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
  */
-export class CreateTLSInspectionConfigurationCommand extends $Command<
-  CreateTLSInspectionConfigurationCommandInput,
-  CreateTLSInspectionConfigurationCommandOutput,
-  NetworkFirewallClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateTLSInspectionConfigurationCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: NetworkFirewallClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateTLSInspectionConfigurationCommandInput, CreateTLSInspectionConfigurationCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateTLSInspectionConfigurationCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "NetworkFirewallClient";
-    const commandName = "CreateTLSInspectionConfigurationCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(
-    input: CreateTLSInspectionConfigurationCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return se_CreateTLSInspectionConfigurationCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<CreateTLSInspectionConfigurationCommandOutput> {
-    return de_CreateTLSInspectionConfigurationCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateTLSInspectionConfigurationCommand extends $Command
+  .classBuilder<
+    CreateTLSInspectionConfigurationCommandInput,
+    CreateTLSInspectionConfigurationCommandOutput,
+    NetworkFirewallClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("NetworkFirewall_20201112", "CreateTLSInspectionConfiguration", {})
+  .n("NetworkFirewallClient", "CreateTLSInspectionConfigurationCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateTLSInspectionConfigurationCommand)
+  .de(de_CreateTLSInspectionConfigurationCommand)
+  .build() {}

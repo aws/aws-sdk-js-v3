@@ -77,16 +77,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SupportAppClient` and
-the commands you need, for example `CreateSlackChannelConfigurationCommand`:
+the commands you need, for example `ListSlackChannelConfigurationsCommand`:
 
 ```js
 // ES5 example
-const { SupportAppClient, CreateSlackChannelConfigurationCommand } = require("@aws-sdk/client-support-app");
+const { SupportAppClient, ListSlackChannelConfigurationsCommand } = require("@aws-sdk/client-support-app");
 ```
 
 ```ts
 // ES6+ example
-import { SupportAppClient, CreateSlackChannelConfigurationCommand } from "@aws-sdk/client-support-app";
+import { SupportAppClient, ListSlackChannelConfigurationsCommand } from "@aws-sdk/client-support-app";
 ```
 
 ### Usage
@@ -105,7 +105,7 @@ const client = new SupportAppClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CreateSlackChannelConfigurationCommand(params);
+const command = new ListSlackChannelConfigurationsCommand(params);
 ```
 
 #### Async/await
@@ -184,7 +184,7 @@ const client = new AWS.SupportApp({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.createSlackChannelConfiguration(params);
+  const data = await client.listSlackChannelConfigurations(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -192,7 +192,7 @@ try {
 
 // Promises.
 client
-  .createSlackChannelConfiguration(params)
+  .listSlackChannelConfigurations(params)
   .then((data) => {
     // process data.
   })
@@ -201,7 +201,7 @@ client
   });
 
 // callbacks.
-client.createSlackChannelConfiguration(params, (err, data) => {
+client.listSlackChannelConfigurations(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -216,7 +216,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -262,7 +262,7 @@ see LICENSE for more information.
 CreateSlackChannelConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support-app/classes/createslackchannelconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support-app/interfaces/createslackchannelconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support-app/interfaces/createslackchannelconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support-app/command/CreateSlackChannelConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support-app/Interface/CreateSlackChannelConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support-app/Interface/CreateSlackChannelConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -270,7 +270,7 @@ CreateSlackChannelConfiguration
 DeleteAccountAlias
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support-app/classes/deleteaccountaliascommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support-app/interfaces/deleteaccountaliascommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support-app/interfaces/deleteaccountaliascommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support-app/command/DeleteAccountAliasCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support-app/Interface/DeleteAccountAliasCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support-app/Interface/DeleteAccountAliasCommandOutput/)
 
 </details>
 <details>
@@ -278,7 +278,7 @@ DeleteAccountAlias
 DeleteSlackChannelConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support-app/classes/deleteslackchannelconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support-app/interfaces/deleteslackchannelconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support-app/interfaces/deleteslackchannelconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support-app/command/DeleteSlackChannelConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support-app/Interface/DeleteSlackChannelConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support-app/Interface/DeleteSlackChannelConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -286,7 +286,7 @@ DeleteSlackChannelConfiguration
 DeleteSlackWorkspaceConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support-app/classes/deleteslackworkspaceconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support-app/interfaces/deleteslackworkspaceconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support-app/interfaces/deleteslackworkspaceconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support-app/command/DeleteSlackWorkspaceConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support-app/Interface/DeleteSlackWorkspaceConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support-app/Interface/DeleteSlackWorkspaceConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -294,7 +294,7 @@ DeleteSlackWorkspaceConfiguration
 GetAccountAlias
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support-app/classes/getaccountaliascommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support-app/interfaces/getaccountaliascommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support-app/interfaces/getaccountaliascommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support-app/command/GetAccountAliasCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support-app/Interface/GetAccountAliasCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support-app/Interface/GetAccountAliasCommandOutput/)
 
 </details>
 <details>
@@ -302,7 +302,7 @@ GetAccountAlias
 ListSlackChannelConfigurations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support-app/classes/listslackchannelconfigurationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support-app/interfaces/listslackchannelconfigurationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support-app/interfaces/listslackchannelconfigurationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support-app/command/ListSlackChannelConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support-app/Interface/ListSlackChannelConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support-app/Interface/ListSlackChannelConfigurationsCommandOutput/)
 
 </details>
 <details>
@@ -310,7 +310,7 @@ ListSlackChannelConfigurations
 ListSlackWorkspaceConfigurations
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support-app/classes/listslackworkspaceconfigurationscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support-app/interfaces/listslackworkspaceconfigurationscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support-app/interfaces/listslackworkspaceconfigurationscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support-app/command/ListSlackWorkspaceConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support-app/Interface/ListSlackWorkspaceConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support-app/Interface/ListSlackWorkspaceConfigurationsCommandOutput/)
 
 </details>
 <details>
@@ -318,7 +318,7 @@ ListSlackWorkspaceConfigurations
 PutAccountAlias
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support-app/classes/putaccountaliascommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support-app/interfaces/putaccountaliascommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support-app/interfaces/putaccountaliascommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support-app/command/PutAccountAliasCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support-app/Interface/PutAccountAliasCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support-app/Interface/PutAccountAliasCommandOutput/)
 
 </details>
 <details>
@@ -326,7 +326,7 @@ PutAccountAlias
 RegisterSlackWorkspaceForOrganization
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support-app/classes/registerslackworkspacefororganizationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support-app/interfaces/registerslackworkspacefororganizationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support-app/interfaces/registerslackworkspacefororganizationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support-app/command/RegisterSlackWorkspaceForOrganizationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support-app/Interface/RegisterSlackWorkspaceForOrganizationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support-app/Interface/RegisterSlackWorkspaceForOrganizationCommandOutput/)
 
 </details>
 <details>
@@ -334,6 +334,6 @@ RegisterSlackWorkspaceForOrganization
 UpdateSlackChannelConfiguration
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support-app/classes/updateslackchannelconfigurationcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support-app/interfaces/updateslackchannelconfigurationcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-support-app/interfaces/updateslackchannelconfigurationcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/support-app/command/UpdateSlackChannelConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support-app/Interface/UpdateSlackChannelConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-support-app/Interface/UpdateSlackChannelConfigurationCommandOutput/)
 
 </details>

@@ -87,16 +87,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MarketplaceMeteringClient` and
-the commands you need, for example `BatchMeterUsageCommand`:
+the commands you need, for example `ResolveCustomerCommand`:
 
 ```js
 // ES5 example
-const { MarketplaceMeteringClient, BatchMeterUsageCommand } = require("@aws-sdk/client-marketplace-metering");
+const { MarketplaceMeteringClient, ResolveCustomerCommand } = require("@aws-sdk/client-marketplace-metering");
 ```
 
 ```ts
 // ES6+ example
-import { MarketplaceMeteringClient, BatchMeterUsageCommand } from "@aws-sdk/client-marketplace-metering";
+import { MarketplaceMeteringClient, ResolveCustomerCommand } from "@aws-sdk/client-marketplace-metering";
 ```
 
 ### Usage
@@ -115,7 +115,7 @@ const client = new MarketplaceMeteringClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new BatchMeterUsageCommand(params);
+const command = new ResolveCustomerCommand(params);
 ```
 
 #### Async/await
@@ -194,7 +194,7 @@ const client = new AWS.MarketplaceMetering({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.batchMeterUsage(params);
+  const data = await client.resolveCustomer(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -202,7 +202,7 @@ try {
 
 // Promises.
 client
-  .batchMeterUsage(params)
+  .resolveCustomer(params)
   .then((data) => {
     // process data.
   })
@@ -211,7 +211,7 @@ client
   });
 
 // callbacks.
-client.batchMeterUsage(params, (err, data) => {
+client.resolveCustomer(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -226,7 +226,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -272,7 +272,7 @@ see LICENSE for more information.
 BatchMeterUsage
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-marketplace-metering/classes/batchmeterusagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-marketplace-metering/interfaces/batchmeterusagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-marketplace-metering/interfaces/batchmeterusagecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-metering/command/BatchMeterUsageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-metering/Interface/BatchMeterUsageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-metering/Interface/BatchMeterUsageCommandOutput/)
 
 </details>
 <details>
@@ -280,7 +280,7 @@ BatchMeterUsage
 MeterUsage
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-marketplace-metering/classes/meterusagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-marketplace-metering/interfaces/meterusagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-marketplace-metering/interfaces/meterusagecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-metering/command/MeterUsageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-metering/Interface/MeterUsageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-metering/Interface/MeterUsageCommandOutput/)
 
 </details>
 <details>
@@ -288,7 +288,7 @@ MeterUsage
 RegisterUsage
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-marketplace-metering/classes/registerusagecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-marketplace-metering/interfaces/registerusagecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-marketplace-metering/interfaces/registerusagecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-metering/command/RegisterUsageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-metering/Interface/RegisterUsageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-metering/Interface/RegisterUsageCommandOutput/)
 
 </details>
 <details>
@@ -296,6 +296,6 @@ RegisterUsage
 ResolveCustomer
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-marketplace-metering/classes/resolvecustomercommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-marketplace-metering/interfaces/resolvecustomercommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-marketplace-metering/interfaces/resolvecustomercommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-metering/command/ResolveCustomerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-metering/Interface/ResolveCustomerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-metering/Interface/ResolveCustomerCommandOutput/)
 
 </details>

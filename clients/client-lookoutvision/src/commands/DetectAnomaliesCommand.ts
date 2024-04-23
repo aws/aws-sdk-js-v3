@@ -1,19 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-  StreamingBlobPayloadInputTypes,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { LookoutVisionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LookoutVisionClient";
 import {
   DetectAnomaliesRequest,
@@ -54,9 +45,7 @@ export interface DetectAnomaliesCommandOutput extends DetectAnomaliesResponse, _
  *          You are charged for the amount of time, in minutes, that a model runs and for the number of anomaly detection units that your
  *          model uses. If you are not using a model, use the <a>StopModel</a> operation to stop your model. </p>
  *          </note>
- *
  *          <p>For more information, see <i>Detecting anomalies in an image</i> in the Amazon Lookout for Vision developer guide.</p>
- *
  *          <p>This operation requires permissions to perform the
  *          <code>lookoutvision:DetectAnomalies</code> operation.</p>
  * @example
@@ -124,79 +113,26 @@ export interface DetectAnomaliesCommandOutput extends DetectAnomaliesResponse, _
  * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
  */
-export class DetectAnomaliesCommand extends $Command<
-  DetectAnomaliesCommandInput,
-  DetectAnomaliesCommandOutput,
-  LookoutVisionClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DetectAnomaliesCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: LookoutVisionClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DetectAnomaliesCommandInput, DetectAnomaliesCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DetectAnomaliesCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "LookoutVisionClient";
-    const commandName = "DetectAnomaliesCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: DetectAnomaliesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DetectAnomaliesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DetectAnomaliesCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetectAnomaliesCommandOutput> {
-    return de_DetectAnomaliesCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DetectAnomaliesCommand extends $Command
+  .classBuilder<
+    DetectAnomaliesCommandInput,
+    DetectAnomaliesCommandOutput,
+    LookoutVisionClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: LookoutVisionClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("LookoutVisionService", "DetectAnomalies", {})
+  .n("LookoutVisionClient", "DetectAnomaliesCommand")
+  .f(DetectAnomaliesRequestFilterSensitiveLog, void 0)
+  .ser(se_DetectAnomaliesCommand)
+  .de(de_DetectAnomaliesCommand)
+  .build() {}

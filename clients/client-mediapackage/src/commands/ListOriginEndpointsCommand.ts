@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient";
 import { ListOriginEndpointsRequest, ListOriginEndpointsResponse } from "../models/models_0";
 import { de_ListOriginEndpointsCommand, se_ListOriginEndpointsCommand } from "../protocols/Aws_restJson1";
@@ -126,7 +118,7 @@ export interface ListOriginEndpointsCommandOutput extends ListOriginEndpointsRes
  * //           },
  * //         },
  * //         IncludeIframeOnlyStream: true || false,
- * //         ManifestLayout: "FULL" || "COMPACT",
+ * //         ManifestLayout: "FULL" || "COMPACT" || "DRM_TOP_LEVEL_COMPACT",
  * //         ManifestWindowSeconds: Number("int"),
  * //         MinBufferTimeSeconds: Number("int"),
  * //         MinUpdatePeriodSeconds: Number("int"),
@@ -254,79 +246,26 @@ export interface ListOriginEndpointsCommandOutput extends ListOriginEndpointsRes
  * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
  */
-export class ListOriginEndpointsCommand extends $Command<
-  ListOriginEndpointsCommandInput,
-  ListOriginEndpointsCommandOutput,
-  MediaPackageClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: ListOriginEndpointsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: MediaPackageClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<ListOriginEndpointsCommandInput, ListOriginEndpointsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListOriginEndpointsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "MediaPackageClient";
-    const commandName = "ListOriginEndpointsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: ListOriginEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_ListOriginEndpointsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListOriginEndpointsCommandOutput> {
-    return de_ListOriginEndpointsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class ListOriginEndpointsCommand extends $Command
+  .classBuilder<
+    ListOriginEndpointsCommandInput,
+    ListOriginEndpointsCommandOutput,
+    MediaPackageClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: MediaPackageClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("MediaPackage", "ListOriginEndpoints", {})
+  .n("MediaPackageClient", "ListOriginEndpointsCommand")
+  .f(void 0, void 0)
+  .ser(se_ListOriginEndpointsCommand)
+  .de(de_ListOriginEndpointsCommand)
+  .build() {}

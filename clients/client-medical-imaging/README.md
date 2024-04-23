@@ -6,47 +6,48 @@
 
 AWS SDK for JavaScript MedicalImaging Client for Node.js, Browser and React Native.
 
-<p>This is the <i>AWS HealthImaging API Reference</i>. AWS HealthImaging is an AWS service for storing, accessing,
-and analyzing medical images. For an introduction to the service, see the <a href="https://docs.aws.amazon.com/medical-imaging/latest/devguide">
+<p>This is the <i>AWS HealthImaging API Reference</i>. AWS HealthImaging is a HIPAA-eligible service that helps health
+care providers and their medical imaging ISV partners store, transform, and apply machine learning to medical images. For
+an introduction to the service, see the <a href="https://docs.aws.amazon.com/healthimaging/latest/devguide/what-is.html">
 <i>AWS HealthImaging Developer Guide</i>
 </a>.</p>
 <note>
 <p>We recommend using one of the AWS Software Development Kits (SDKs) for your programming language, as
 they take care of request authentication, serialization, and connection management. For more information,
 see <a href="http://aws.amazon.com/developer/tools">Tools to build on AWS</a>.</p>
-<p>For information about using AWS HealthImaging API actions in one of the language-specific AWS SDKs, refer to the
+<p>For information about using HealthImaging API actions in one of the language-specific AWS SDKs, refer to the
 <i>See Also</i> link at the end of each section that describes an API action or data type.</p>
 </note>
 <p>The following sections list AWS HealthImaging API actions categorized according to functionality. Links are
 provided to actions within this Reference, along with links back to corresponding sections in the
-<i>AWS HealthImaging Developer Guide</i> so you can view console procedures and CLI/SDK code examples.</p>
+<i>AWS HealthImaging Developer Guide</i> where you can view console procedures and CLI/SDK code examples.</p>
 <p class="title">
 <b>Data store actions</b>
 </p>
 <ul>
 <li>
 <p>
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/APIReference/API_CreateDatastore.html">CreateDatastore</a>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_CreateDatastore.html">CreateDatastore</a>
 – See
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/devguide/create-data-store.html">Creating a data store</a>.</p>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/devguide/create-data-store.html">Creating a data store</a>.</p>
 </li>
 <li>
 <p>
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/APIReference/API_GetDatastore.html">GetDatastore</a>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_GetDatastore.html">GetDatastore</a>
 – See
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/devguide/get-data-store.html">Getting data store properties</a>.</p>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/devguide/get-data-store.html">Getting data store properties</a>.</p>
 </li>
 <li>
 <p>
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/APIReference/API_ListDatastores.html">ListDatastores</a>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_ListDatastores.html">ListDatastores</a>
 – See
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/devguide/list-data-stores.html">Listing data stores</a>.</p>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/devguide/list-data-stores.html">Listing data stores</a>.</p>
 </li>
 <li>
 <p>
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/APIReference/API_DeleteDatastore.html">DeleteDatastore</a>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_DeleteDatastore.html">DeleteDatastore</a>
 – See
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/devguide/delete-data-store.html">Deleting a data store</a>.</p>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/devguide/delete-data-store.html">Deleting a data store</a>.</p>
 </li>
 </ul>
 <p class="title">
@@ -55,21 +56,21 @@ provided to actions within this Reference, along with links back to correspondin
 <ul>
 <li>
 <p>
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/APIReference/API_StartDICOMImportJob.html">StartDICOMImportJob</a>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_StartDICOMImportJob.html">StartDICOMImportJob</a>
 – See
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/devguide/start-dicom-import-job.html">Starting an import job</a>.</p>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/devguide/start-dicom-import-job.html">Starting an import job</a>.</p>
 </li>
 <li>
 <p>
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/APIReference/API_GetDICOMImportJob.html">GetDICOMImportJob</a>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_GetDICOMImportJob.html">GetDICOMImportJob</a>
 – See
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/devguide/get-dicom-import-job.html">Getting import job properties</a>.</p>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/devguide/get-dicom-import-job.html">Getting import job properties</a>.</p>
 </li>
 <li>
 <p>
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/APIReference/API_ListDICOMImportJobs.html">ListDICOMImportJobs</a>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_ListDICOMImportJobs.html">ListDICOMImportJobs</a>
 – See
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/devguide/list-dicom-import-jobs.html">Listing import jobs</a>.</p>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/devguide/list-dicom-import-jobs.html">Listing import jobs</a>.</p>
 </li>
 </ul>
 <p class="title">
@@ -78,27 +79,27 @@ provided to actions within this Reference, along with links back to correspondin
 <ul>
 <li>
 <p>
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/APIReference/API_SearchImageSets.html">SearchImageSets</a>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_SearchImageSets.html">SearchImageSets</a>
 – See
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/devguide/search-image-sets.html">Searching image sets</a>.</p>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/devguide/search-image-sets.html">Searching image sets</a>.</p>
 </li>
 <li>
 <p>
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/APIReference/API_GetImageSet.html">GetImageSet</a>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_GetImageSet.html">GetImageSet</a>
 – See
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/devguide/get-image-set-properties.html">Getting image set properties</a>.</p>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/devguide/get-image-set-properties.html">Getting image set properties</a>.</p>
 </li>
 <li>
 <p>
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/APIReference/API_GetImageSetMetadata.html">GetImageSetMetadata</a>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_GetImageSetMetadata.html">GetImageSetMetadata</a>
 – See
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/devguide/get-image-set-metadata.html">Getting image set metadata</a>.</p>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/devguide/get-image-set-metadata.html">Getting image set metadata</a>.</p>
 </li>
 <li>
 <p>
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/APIReference/API_GetImageFrame.html">GetImageFrame</a>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_GetImageFrame.html">GetImageFrame</a>
 – See
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/devguide/get-image-frame.html">Getting image set pixel data</a>.</p>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/devguide/get-image-frame.html">Getting image set pixel data</a>.</p>
 </li>
 </ul>
 <p class="title">
@@ -107,27 +108,27 @@ provided to actions within this Reference, along with links back to correspondin
 <ul>
 <li>
 <p>
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/APIReference/API_ListImageSetVersions.html">ListImageSetVersions</a>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_ListImageSetVersions.html">ListImageSetVersions</a>
 – See
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/devguide/list-image-set-versions.html">Listing image set versions</a>.</p>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/devguide/list-image-set-versions.html">Listing image set versions</a>.</p>
 </li>
 <li>
 <p>
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/APIReference/API_UpdateImageSetMetadata.html">UpdateImageSetMetadata</a>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_UpdateImageSetMetadata.html">UpdateImageSetMetadata</a>
 – See
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/devguide/update-image-set-metadata.html">Updating image set metadata</a>.</p>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/devguide/update-image-set-metadata.html">Updating image set metadata</a>.</p>
 </li>
 <li>
 <p>
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/APIReference/API_CopyImageSet.html">CopyImageSet</a>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_CopyImageSet.html">CopyImageSet</a>
 – See
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/devguide/copy-image-set.html">Copying an image set</a>.</p>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/devguide/copy-image-set.html">Copying an image set</a>.</p>
 </li>
 <li>
 <p>
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/APIReference/API_DeleteImageSet.html">DeleteImageSet</a>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_DeleteImageSet.html">DeleteImageSet</a>
 – See
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/devguide/delete-image-set.html">Deleting an image set</a>.</p>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/devguide/delete-image-set.html">Deleting an image set</a>.</p>
 </li>
 </ul>
 <p class="title">
@@ -136,24 +137,24 @@ provided to actions within this Reference, along with links back to correspondin
 <ul>
 <li>
 <p>
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/APIReference/API_TagResource.html">TagResource</a>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_TagResource.html">TagResource</a>
 – See
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/devguide/tag-list-untag-data-store.html">Tagging a data store</a> and
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/devguide/tag-list-untag-image-set.html">Tagging an image set</a>.</p>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/devguide/tag-list-untag-data-store.html">Tagging a data store</a> and
+<a href="https://docs.aws.amazon.com/healthimaging/latest/devguide/tag-list-untag-image-set.html">Tagging an image set</a>.</p>
 </li>
 <li>
 <p>
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a>
 – See
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/devguide/tag-list-untag-data-store.html">Tagging a data store</a> and
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/devguide/tag-list-untag-image-set.html">Tagging an image set</a>.</p>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/devguide/tag-list-untag-data-store.html">Tagging a data store</a> and
+<a href="https://docs.aws.amazon.com/healthimaging/latest/devguide/tag-list-untag-image-set.html">Tagging an image set</a>.</p>
 </li>
 <li>
 <p>
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/APIReference/API_UntagResource.html">UntagResource</a>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/APIReference/API_UntagResource.html">UntagResource</a>
 – See
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/devguide/tag-list-untag-data-store.html">Tagging a data store</a> and
-<a href="https://docs.aws.amazon.com/medical-imaging/latest/devguide/tag-list-untag-image-set.html">Tagging an image set</a>.</p>
+<a href="https://docs.aws.amazon.com/healthimaging/latest/devguide/tag-list-untag-data-store.html">Tagging a data store</a> and
+<a href="https://docs.aws.amazon.com/healthimaging/latest/devguide/tag-list-untag-image-set.html">Tagging an image set</a>.</p>
 </li>
 </ul>
 
@@ -172,16 +173,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MedicalImagingClient` and
-the commands you need, for example `CopyImageSetCommand`:
+the commands you need, for example `ListDatastoresCommand`:
 
 ```js
 // ES5 example
-const { MedicalImagingClient, CopyImageSetCommand } = require("@aws-sdk/client-medical-imaging");
+const { MedicalImagingClient, ListDatastoresCommand } = require("@aws-sdk/client-medical-imaging");
 ```
 
 ```ts
 // ES6+ example
-import { MedicalImagingClient, CopyImageSetCommand } from "@aws-sdk/client-medical-imaging";
+import { MedicalImagingClient, ListDatastoresCommand } from "@aws-sdk/client-medical-imaging";
 ```
 
 ### Usage
@@ -200,7 +201,7 @@ const client = new MedicalImagingClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new CopyImageSetCommand(params);
+const command = new ListDatastoresCommand(params);
 ```
 
 #### Async/await
@@ -279,7 +280,7 @@ const client = new AWS.MedicalImaging({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.copyImageSet(params);
+  const data = await client.listDatastores(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -287,7 +288,7 @@ try {
 
 // Promises.
 client
-  .copyImageSet(params)
+  .listDatastores(params)
   .then((data) => {
     // process data.
   })
@@ -296,7 +297,7 @@ client
   });
 
 // callbacks.
-client.copyImageSet(params, (err, data) => {
+client.listDatastores(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -311,7 +312,7 @@ try {
   const data = await client.send(command);
   // process data.
 } catch (error) {
-  const { requestId, cfId, extendedRequestId } = error.$$metadata;
+  const { requestId, cfId, extendedRequestId } = error.$metadata;
   console.log({ requestId, cfId, extendedRequestId });
   /**
    * The keys within exceptions are also parsed.
@@ -357,7 +358,7 @@ see LICENSE for more information.
 CopyImageSet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/classes/copyimagesetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/copyimagesetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/copyimagesetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/CopyImageSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/CopyImageSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/CopyImageSetCommandOutput/)
 
 </details>
 <details>
@@ -365,7 +366,7 @@ CopyImageSet
 CreateDatastore
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/classes/createdatastorecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/createdatastorecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/createdatastorecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/CreateDatastoreCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/CreateDatastoreCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/CreateDatastoreCommandOutput/)
 
 </details>
 <details>
@@ -373,7 +374,7 @@ CreateDatastore
 DeleteDatastore
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/classes/deletedatastorecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/deletedatastorecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/deletedatastorecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/DeleteDatastoreCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/DeleteDatastoreCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/DeleteDatastoreCommandOutput/)
 
 </details>
 <details>
@@ -381,7 +382,7 @@ DeleteDatastore
 DeleteImageSet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/classes/deleteimagesetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/deleteimagesetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/deleteimagesetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/DeleteImageSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/DeleteImageSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/DeleteImageSetCommandOutput/)
 
 </details>
 <details>
@@ -389,7 +390,7 @@ DeleteImageSet
 GetDatastore
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/classes/getdatastorecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/getdatastorecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/getdatastorecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetDatastoreCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/GetDatastoreCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/GetDatastoreCommandOutput/)
 
 </details>
 <details>
@@ -397,7 +398,7 @@ GetDatastore
 GetDICOMImportJob
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/classes/getdicomimportjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/getdicomimportjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/getdicomimportjobcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetDICOMImportJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/GetDICOMImportJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/GetDICOMImportJobCommandOutput/)
 
 </details>
 <details>
@@ -405,7 +406,7 @@ GetDICOMImportJob
 GetImageFrame
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/classes/getimageframecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/getimageframecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/getimageframecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetImageFrameCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/GetImageFrameCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/GetImageFrameCommandOutput/)
 
 </details>
 <details>
@@ -413,7 +414,7 @@ GetImageFrame
 GetImageSet
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/classes/getimagesetcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/getimagesetcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/getimagesetcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetImageSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/GetImageSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/GetImageSetCommandOutput/)
 
 </details>
 <details>
@@ -421,7 +422,7 @@ GetImageSet
 GetImageSetMetadata
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/classes/getimagesetmetadatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/getimagesetmetadatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/getimagesetmetadatacommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetImageSetMetadataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/GetImageSetMetadataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/GetImageSetMetadataCommandOutput/)
 
 </details>
 <details>
@@ -429,7 +430,7 @@ GetImageSetMetadata
 ListDatastores
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/classes/listdatastorescommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/listdatastorescommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/listdatastorescommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/ListDatastoresCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/ListDatastoresCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/ListDatastoresCommandOutput/)
 
 </details>
 <details>
@@ -437,7 +438,7 @@ ListDatastores
 ListDICOMImportJobs
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/classes/listdicomimportjobscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/listdicomimportjobscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/listdicomimportjobscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/ListDICOMImportJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/ListDICOMImportJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/ListDICOMImportJobsCommandOutput/)
 
 </details>
 <details>
@@ -445,7 +446,7 @@ ListDICOMImportJobs
 ListImageSetVersions
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/classes/listimagesetversionscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/listimagesetversionscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/listimagesetversionscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/ListImageSetVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/ListImageSetVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/ListImageSetVersionsCommandOutput/)
 
 </details>
 <details>
@@ -453,7 +454,7 @@ ListImageSetVersions
 ListTagsForResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/classes/listtagsforresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/listtagsforresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/listtagsforresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/ListTagsForResourceCommandOutput/)
 
 </details>
 <details>
@@ -461,7 +462,7 @@ ListTagsForResource
 SearchImageSets
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/classes/searchimagesetscommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/searchimagesetscommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/searchimagesetscommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/SearchImageSetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/SearchImageSetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/SearchImageSetsCommandOutput/)
 
 </details>
 <details>
@@ -469,7 +470,7 @@ SearchImageSets
 StartDICOMImportJob
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/classes/startdicomimportjobcommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/startdicomimportjobcommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/startdicomimportjobcommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/StartDICOMImportJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/StartDICOMImportJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/StartDICOMImportJobCommandOutput/)
 
 </details>
 <details>
@@ -477,7 +478,7 @@ StartDICOMImportJob
 TagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/classes/tagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/tagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/tagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/TagResourceCommandOutput/)
 
 </details>
 <details>
@@ -485,7 +486,7 @@ TagResource
 UntagResource
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/classes/untagresourcecommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/untagresourcecommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/untagresourcecommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/UntagResourceCommandOutput/)
 
 </details>
 <details>
@@ -493,6 +494,6 @@ UntagResource
 UpdateImageSetMetadata
 </summary>
 
-[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/classes/updateimagesetmetadatacommand.html) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/updateimagesetmetadatacommandinput.html) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-medical-imaging/interfaces/updateimagesetmetadatacommandoutput.html)
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/UpdateImageSetMetadataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/UpdateImageSetMetadataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medical-imaging/Interface/UpdateImageSetMetadataCommandOutput/)
 
 </details>

@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { PutProjectPolicyRequest, PutProjectPolicyResponse } from "../models/models_0";
+import { commonParams } from "../endpoint/EndpointParameters";
+import { PutProjectPolicyRequest, PutProjectPolicyResponse } from "../models/models_1";
 import { de_PutProjectPolicyCommand, se_PutProjectPolicyCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
@@ -36,10 +28,14 @@ export interface PutProjectPolicyCommandOutput extends PutProjectPolicyResponse,
 
 /**
  * @public
- * <p>Attaches a project policy to a Amazon Rekognition Custom Labels project in a trusting AWS account. A
+ * <note>
+ *             <p>This operation applies only to Amazon Rekognition Custom Labels.</p>
+ *          </note>
+ *          <p>Attaches a project policy to a Amazon Rekognition Custom Labels project in a trusting AWS account. A
  *          project policy specifies that a trusted AWS account can copy a model version from a
- *          trusting AWS account to a project in the trusted AWS account. To copy a model version you use
- *        the <a>CopyProjectVersion</a> operation.</p>
+ *          trusting AWS account to a project in the trusted AWS account. To copy a model version
+ *          you use the <a>CopyProjectVersion</a> operation. Only applies to Custom Labels
+ *          projects.</p>
  *          <p>For more information about the format of a project policy document, see Attaching a project policy (SDK)
  *          in the <i>Amazon Rekognition Custom Labels Developer Guide</i>.
  *       </p>
@@ -90,9 +86,11 @@ export interface PutProjectPolicyCommandOutput extends PutProjectPolicyResponse,
  *  <p>The supplied revision id for the project policy is invalid.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many Amazon Rekognition Video jobs concurrently, calls to start operations
- *             (<code>StartLabelDetection</code>, for example) will raise a <code>LimitExceededException</code> exception (HTTP status code: 400) until
- *             the number of concurrently running jobs is below the Amazon Rekognition service limit.  </p>
+ *  <p>An Amazon Rekognition service limit was exceeded. For example, if you start too many jobs
+ *             concurrently, subsequent calls to start operations (ex:
+ *             <code>StartLabelDetection</code>) will raise a <code>LimitExceededException</code>
+ *             exception (HTTP status code: 400) until the number of concurrently running jobs is below
+ *             the Amazon Rekognition service limit. </p>
  *
  * @throws {@link MalformedPolicyDocumentException} (client fault)
  *  <p>The format of the project policy document that you supplied to
@@ -139,79 +137,26 @@ export interface PutProjectPolicyCommandOutput extends PutProjectPolicyResponse,
  * ```
  *
  */
-export class PutProjectPolicyCommand extends $Command<
-  PutProjectPolicyCommandInput,
-  PutProjectPolicyCommandOutput,
-  RekognitionClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: PutProjectPolicyCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RekognitionClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<PutProjectPolicyCommandInput, PutProjectPolicyCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, PutProjectPolicyCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RekognitionClient";
-    const commandName = "PutProjectPolicyCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: PutProjectPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_PutProjectPolicyCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutProjectPolicyCommandOutput> {
-    return de_PutProjectPolicyCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class PutProjectPolicyCommand extends $Command
+  .classBuilder<
+    PutProjectPolicyCommandInput,
+    PutProjectPolicyCommandOutput,
+    RekognitionClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("RekognitionService", "PutProjectPolicy", {})
+  .n("RekognitionClient", "PutProjectPolicyCommand")
+  .f(void 0, void 0)
+  .ser(se_PutProjectPolicyCommand)
+  .de(de_PutProjectPolicyCommand)
+  .build() {}

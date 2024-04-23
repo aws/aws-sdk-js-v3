@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateFargateProfileRequest, CreateFargateProfileResponse } from "../models/models_0";
 import { de_CreateFargateProfileCommand, se_CreateFargateProfileCommand } from "../protocols/Aws_restJson1";
 
@@ -49,20 +41,19 @@ export interface CreateFargateProfileCommandOutput extends CreateFargateProfileR
  *             on Fargate.</p>
  *          <p>When you create a Fargate profile, you must specify a pod execution
  *             role to use with the pods that are scheduled with the profile. This role is added to the
- *             cluster's Kubernetes <a href="https://kubernetes.io/docs/admin/authorization/rbac/">Role Based Access Control</a> (RBAC) for authorization so that the
- *                 <code>kubelet</code> that is running on the Fargate infrastructure
- *             can register with your Amazon EKS cluster so that it can appear in your cluster
- *             as a node. The pod execution role also provides IAM permissions to the
- *                 Fargate infrastructure to allow read access to Amazon ECR
- *             image repositories. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html">Pod
- *                 Execution Role</a> in the <i>Amazon EKS User Guide</i>.</p>
+ *             cluster's Kubernetes <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">Role Based
+ *                 Access Control</a> (RBAC) for authorization so that the <code>kubelet</code>
+ *             that is running on the Fargate infrastructure can register with your
+ *                 Amazon EKS cluster so that it can appear in your cluster as a node. The pod
+ *             execution role also provides IAM permissions to the Fargate infrastructure to allow read access to Amazon ECR image repositories. For
+ *             more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html">Pod Execution Role</a> in the <i>Amazon EKS User Guide</i>.</p>
  *          <p>Fargate profiles are immutable. However, you can create a new updated
  *             profile to replace an existing profile and then delete the original after the updated
  *             profile has finished creating.</p>
  *          <p>If any Fargate profiles in a cluster are in the <code>DELETING</code>
  *             status, you must wait for that Fargate profile to finish deleting before
  *             you can create any other profiles in that cluster.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/fargate-profile.html">Fargate Profile</a> in the
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/fargate-profile.html">Fargate profile</a> in the
  *             <i>Amazon EKS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -127,8 +118,8 @@ export interface CreateFargateProfileCommandOutput extends CreateFargateProfileR
  *
  * @throws {@link ClientException} (client fault)
  *  <p>These errors are usually caused by a client action. Actions can include using an
- *             action or resource on behalf of a user that doesn't have permissions to use the action
- *             or resource or specifying an identifier that is not valid.</p>
+ *             action or resource on behalf of an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a> that doesn't have permissions to use
+ *             the action or resource or specifying an identifier that is not valid.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter is invalid. Review the available parameters for the API
@@ -154,79 +145,26 @@ export interface CreateFargateProfileCommandOutput extends CreateFargateProfileR
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  */
-export class CreateFargateProfileCommand extends $Command<
-  CreateFargateProfileCommandInput,
-  CreateFargateProfileCommandOutput,
-  EKSClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateFargateProfileCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: EKSClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateFargateProfileCommandInput, CreateFargateProfileCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateFargateProfileCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "EKSClient";
-    const commandName = "CreateFargateProfileCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateFargateProfileCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateFargateProfileCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateFargateProfileCommandOutput> {
-    return de_CreateFargateProfileCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateFargateProfileCommand extends $Command
+  .classBuilder<
+    CreateFargateProfileCommandInput,
+    CreateFargateProfileCommandOutput,
+    EKSClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSWesleyFrontend", "CreateFargateProfile", {})
+  .n("EKSClient", "CreateFargateProfileCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateFargateProfileCommand)
+  .de(de_CreateFargateProfileCommand)
+  .build() {}

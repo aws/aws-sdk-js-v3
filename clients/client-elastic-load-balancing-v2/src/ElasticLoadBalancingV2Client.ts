@@ -34,12 +34,10 @@ import {
 import {
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
-  Checksum as __Checksum,
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
   EndpointV2 as __EndpointV2,
-  Hash as __Hash,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
@@ -55,14 +53,20 @@ import {
   AddListenerCertificatesCommandOutput,
 } from "./commands/AddListenerCertificatesCommand";
 import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
+import {
+  AddTrustStoreRevocationsCommandInput,
+  AddTrustStoreRevocationsCommandOutput,
+} from "./commands/AddTrustStoreRevocationsCommand";
 import { CreateListenerCommandInput, CreateListenerCommandOutput } from "./commands/CreateListenerCommand";
 import { CreateLoadBalancerCommandInput, CreateLoadBalancerCommandOutput } from "./commands/CreateLoadBalancerCommand";
 import { CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand";
 import { CreateTargetGroupCommandInput, CreateTargetGroupCommandOutput } from "./commands/CreateTargetGroupCommand";
+import { CreateTrustStoreCommandInput, CreateTrustStoreCommandOutput } from "./commands/CreateTrustStoreCommand";
 import { DeleteListenerCommandInput, DeleteListenerCommandOutput } from "./commands/DeleteListenerCommand";
 import { DeleteLoadBalancerCommandInput, DeleteLoadBalancerCommandOutput } from "./commands/DeleteLoadBalancerCommand";
 import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
 import { DeleteTargetGroupCommandInput, DeleteTargetGroupCommandOutput } from "./commands/DeleteTargetGroupCommand";
+import { DeleteTrustStoreCommandInput, DeleteTrustStoreCommandOutput } from "./commands/DeleteTrustStoreCommand";
 import { DeregisterTargetsCommandInput, DeregisterTargetsCommandOutput } from "./commands/DeregisterTargetsCommand";
 import {
   DescribeAccountLimitsCommandInput,
@@ -99,6 +103,26 @@ import {
   DescribeTargetHealthCommandInput,
   DescribeTargetHealthCommandOutput,
 } from "./commands/DescribeTargetHealthCommand";
+import {
+  DescribeTrustStoreAssociationsCommandInput,
+  DescribeTrustStoreAssociationsCommandOutput,
+} from "./commands/DescribeTrustStoreAssociationsCommand";
+import {
+  DescribeTrustStoreRevocationsCommandInput,
+  DescribeTrustStoreRevocationsCommandOutput,
+} from "./commands/DescribeTrustStoreRevocationsCommand";
+import {
+  DescribeTrustStoresCommandInput,
+  DescribeTrustStoresCommandOutput,
+} from "./commands/DescribeTrustStoresCommand";
+import {
+  GetTrustStoreCaCertificatesBundleCommandInput,
+  GetTrustStoreCaCertificatesBundleCommandOutput,
+} from "./commands/GetTrustStoreCaCertificatesBundleCommand";
+import {
+  GetTrustStoreRevocationContentCommandInput,
+  GetTrustStoreRevocationContentCommandOutput,
+} from "./commands/GetTrustStoreRevocationContentCommand";
 import { ModifyListenerCommandInput, ModifyListenerCommandOutput } from "./commands/ModifyListenerCommand";
 import {
   ModifyLoadBalancerAttributesCommandInput,
@@ -110,12 +134,17 @@ import {
   ModifyTargetGroupAttributesCommandOutput,
 } from "./commands/ModifyTargetGroupAttributesCommand";
 import { ModifyTargetGroupCommandInput, ModifyTargetGroupCommandOutput } from "./commands/ModifyTargetGroupCommand";
+import { ModifyTrustStoreCommandInput, ModifyTrustStoreCommandOutput } from "./commands/ModifyTrustStoreCommand";
 import { RegisterTargetsCommandInput, RegisterTargetsCommandOutput } from "./commands/RegisterTargetsCommand";
 import {
   RemoveListenerCertificatesCommandInput,
   RemoveListenerCertificatesCommandOutput,
 } from "./commands/RemoveListenerCertificatesCommand";
 import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
+import {
+  RemoveTrustStoreRevocationsCommandInput,
+  RemoveTrustStoreRevocationsCommandOutput,
+} from "./commands/RemoveTrustStoreRevocationsCommand";
 import { SetIpAddressTypeCommandInput, SetIpAddressTypeCommandOutput } from "./commands/SetIpAddressTypeCommand";
 import { SetRulePrioritiesCommandInput, SetRulePrioritiesCommandOutput } from "./commands/SetRulePrioritiesCommand";
 import { SetSecurityGroupsCommandInput, SetSecurityGroupsCommandOutput } from "./commands/SetSecurityGroupsCommand";
@@ -137,14 +166,17 @@ export { __Client };
 export type ServiceInputTypes =
   | AddListenerCertificatesCommandInput
   | AddTagsCommandInput
+  | AddTrustStoreRevocationsCommandInput
   | CreateListenerCommandInput
   | CreateLoadBalancerCommandInput
   | CreateRuleCommandInput
   | CreateTargetGroupCommandInput
+  | CreateTrustStoreCommandInput
   | DeleteListenerCommandInput
   | DeleteLoadBalancerCommandInput
   | DeleteRuleCommandInput
   | DeleteTargetGroupCommandInput
+  | DeleteTrustStoreCommandInput
   | DeregisterTargetsCommandInput
   | DescribeAccountLimitsCommandInput
   | DescribeListenerCertificatesCommandInput
@@ -157,14 +189,21 @@ export type ServiceInputTypes =
   | DescribeTargetGroupAttributesCommandInput
   | DescribeTargetGroupsCommandInput
   | DescribeTargetHealthCommandInput
+  | DescribeTrustStoreAssociationsCommandInput
+  | DescribeTrustStoreRevocationsCommandInput
+  | DescribeTrustStoresCommandInput
+  | GetTrustStoreCaCertificatesBundleCommandInput
+  | GetTrustStoreRevocationContentCommandInput
   | ModifyListenerCommandInput
   | ModifyLoadBalancerAttributesCommandInput
   | ModifyRuleCommandInput
   | ModifyTargetGroupAttributesCommandInput
   | ModifyTargetGroupCommandInput
+  | ModifyTrustStoreCommandInput
   | RegisterTargetsCommandInput
   | RemoveListenerCertificatesCommandInput
   | RemoveTagsCommandInput
+  | RemoveTrustStoreRevocationsCommandInput
   | SetIpAddressTypeCommandInput
   | SetRulePrioritiesCommandInput
   | SetSecurityGroupsCommandInput
@@ -176,14 +215,17 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AddListenerCertificatesCommandOutput
   | AddTagsCommandOutput
+  | AddTrustStoreRevocationsCommandOutput
   | CreateListenerCommandOutput
   | CreateLoadBalancerCommandOutput
   | CreateRuleCommandOutput
   | CreateTargetGroupCommandOutput
+  | CreateTrustStoreCommandOutput
   | DeleteListenerCommandOutput
   | DeleteLoadBalancerCommandOutput
   | DeleteRuleCommandOutput
   | DeleteTargetGroupCommandOutput
+  | DeleteTrustStoreCommandOutput
   | DeregisterTargetsCommandOutput
   | DescribeAccountLimitsCommandOutput
   | DescribeListenerCertificatesCommandOutput
@@ -196,14 +238,21 @@ export type ServiceOutputTypes =
   | DescribeTargetGroupAttributesCommandOutput
   | DescribeTargetGroupsCommandOutput
   | DescribeTargetHealthCommandOutput
+  | DescribeTrustStoreAssociationsCommandOutput
+  | DescribeTrustStoreRevocationsCommandOutput
+  | DescribeTrustStoresCommandOutput
+  | GetTrustStoreCaCertificatesBundleCommandOutput
+  | GetTrustStoreRevocationContentCommandOutput
   | ModifyListenerCommandOutput
   | ModifyLoadBalancerAttributesCommandOutput
   | ModifyRuleCommandOutput
   | ModifyTargetGroupAttributesCommandOutput
   | ModifyTargetGroupCommandOutput
+  | ModifyTrustStoreCommandOutput
   | RegisterTargetsCommandOutput
   | RemoveListenerCertificatesCommandOutput
   | RemoveTagsCommandOutput
+  | RemoveTrustStoreRevocationsCommandOutput
   | SetIpAddressTypeCommandOutput
   | SetRulePrioritiesCommandOutput
   | SetSecurityGroupsCommandOutput
@@ -319,6 +368,8 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
 
   /**
    * Specifies which retry algorithm to use.
+   * @see https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-util-retry/Enum/RETRY_MODES/
+   *
    */
   retryMode?: string | __Provider<string>;
 

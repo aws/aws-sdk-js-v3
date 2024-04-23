@@ -236,7 +236,7 @@ export interface ResourceRecord {
    * @public
    * <p>The type of DNS record. Currently this can be <code>CNAME</code>.</p>
    */
-  Type: RecordType | string | undefined;
+  Type: RecordType | undefined;
 
   /**
    * @public
@@ -318,7 +318,7 @@ export interface DomainValidation {
    *             </li>
    *          </ul>
    */
-  ValidationStatus?: DomainStatus | string;
+  ValidationStatus?: DomainStatus;
 
   /**
    * @public
@@ -335,7 +335,7 @@ export interface DomainValidation {
    * @public
    * <p>Specifies the domain validation method.</p>
    */
-  ValidationMethod?: ValidationMethod | string;
+  ValidationMethod?: ValidationMethod;
 }
 
 /**
@@ -373,7 +373,7 @@ export interface ExtendedKeyUsage {
    * @public
    * <p>The name of an Extended Key Usage value.</p>
    */
-  Name?: ExtendedKeyUsageName | string;
+  Name?: ExtendedKeyUsageName;
 
   /**
    * @public
@@ -511,7 +511,7 @@ export interface KeyUsage {
    * @public
    * <p>A string value that contains a Key Usage extension name.</p>
    */
-  Name?: KeyUsageName | string;
+  Name?: KeyUsageName;
 }
 
 /**
@@ -545,7 +545,7 @@ export interface CertificateOptions {
    * <p>You can opt out of certificate transparency logging by specifying the
    *         <code>DISABLED</code> option. Opt in by specifying <code>ENABLED</code>. </p>
    */
-  CertificateTransparencyLoggingPreference?: CertificateTransparencyLoggingPreference | string;
+  CertificateTransparencyLoggingPreference?: CertificateTransparencyLoggingPreference;
 }
 
 /**
@@ -588,7 +588,7 @@ export interface RenewalSummary {
    * @public
    * <p>The status of ACM's <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed renewal</a> of the certificate.</p>
    */
-  RenewalStatus: RenewalStatus | string | undefined;
+  RenewalStatus: RenewalStatus | undefined;
 
   /**
    * @public
@@ -604,7 +604,7 @@ export interface RenewalSummary {
    * @public
    * <p>The reason that a renewal request was unsuccessful.</p>
    */
-  RenewalStatusReason?: FailureReason | string;
+  RenewalStatusReason?: FailureReason;
 
   /**
    * @public
@@ -756,7 +756,7 @@ export interface CertificateDetail {
    *       shows status FAILED or VALIDATION_TIMED_OUT, delete the request, correct the issue with <a href="https://docs.aws.amazon.com/acm/latest/userguide/dns-validation.html">DNS validation</a> or <a href="https://docs.aws.amazon.com/acm/latest/userguide/email-validation.html">Email validation</a>, and
    *       try again. If validation succeeds, the certificate enters status ISSUED. </p>
    */
-  Status?: CertificateStatus | string;
+  Status?: CertificateStatus;
 
   /**
    * @public
@@ -770,7 +770,7 @@ export interface CertificateDetail {
    * <p>The reason the certificate was revoked. This value exists only when the certificate status
    *       is <code>REVOKED</code>. </p>
    */
-  RevocationReason?: RevocationReason | string;
+  RevocationReason?: RevocationReason;
 
   /**
    * @public
@@ -788,7 +788,7 @@ export interface CertificateDetail {
    * @public
    * <p>The algorithm that was used to generate the public-private key pair.</p>
    */
-  KeyAlgorithm?: KeyAlgorithm | string;
+  KeyAlgorithm?: KeyAlgorithm;
 
   /**
    * @public
@@ -809,7 +809,7 @@ export interface CertificateDetail {
    *       status is <code>FAILED</code>. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/troubleshooting.html#troubleshooting-failed">Certificate Request
    *         Failed</a> in the <i>Certificate Manager User Guide</i>. </p>
    */
-  FailureReason?: FailureReason | string;
+  FailureReason?: FailureReason;
 
   /**
    * @public
@@ -820,7 +820,7 @@ export interface CertificateDetail {
    *       you import and those that ACM provides, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing Certificates</a> in the
    *         <i>Certificate Manager User Guide</i>. </p>
    */
-  Type?: CertificateType | string;
+  Type?: CertificateType;
 
   /**
    * @public
@@ -861,7 +861,7 @@ export interface CertificateDetail {
    *       private certificates can be renewed with the <a>RenewCertificate</a>
    *       command.</p>
    */
-  RenewalEligibility?: RenewalEligibility | string;
+  RenewalEligibility?: RenewalEligibility;
 
   /**
    * @public
@@ -1193,13 +1193,13 @@ export interface Filters {
    * @public
    * <p>Specify one or more <a>ExtendedKeyUsage</a> extension values.</p>
    */
-  extendedKeyUsage?: (ExtendedKeyUsageName | string)[];
+  extendedKeyUsage?: ExtendedKeyUsageName[];
 
   /**
    * @public
    * <p>Specify one or more <a>KeyUsage</a> extension values.</p>
    */
-  keyUsage?: (KeyUsageName | string)[];
+  keyUsage?: KeyUsageName[];
 
   /**
    * @public
@@ -1210,7 +1210,7 @@ export interface Filters {
    *         ["RSA_2048","RSA_4096"]</code> returns both <code>RSA_2048</code> and <code>RSA_4096</code>
    *       certificates.</p>
    */
-  keyTypes?: (KeyAlgorithm | string)[];
+  keyTypes?: KeyAlgorithm[];
 }
 
 /**
@@ -1248,7 +1248,7 @@ export interface ListCertificatesRequest {
    * @public
    * <p>Filter the certificate list by status value.</p>
    */
-  CertificateStatuses?: (CertificateStatus | string)[];
+  CertificateStatuses?: CertificateStatus[];
 
   /**
    * @public
@@ -1279,14 +1279,14 @@ export interface ListCertificatesRequest {
    * <p>Specifies the field to sort results by. If you specify <code>SortBy</code>, you must also
    *       specify <code>SortOrder</code>.</p>
    */
-  SortBy?: SortBy | string;
+  SortBy?: SortBy;
 
   /**
    * @public
    * <p>Specifies the order of sorted results. If you specify <code>SortOrder</code>, you must
    *       also specify <code>SortBy</code>.</p>
    */
-  SortOrder?: SortOrder | string;
+  SortOrder?: SortOrder;
 }
 
 /**
@@ -1344,7 +1344,7 @@ export interface CertificateSummary {
    *       shows status FAILED or VALIDATION_TIMED_OUT, delete the request, correct the issue with <a href="https://docs.aws.amazon.com/acm/latest/userguide/dns-validation.html">DNS validation</a> or <a href="https://docs.aws.amazon.com/acm/latest/userguide/email-validation.html">Email validation</a>, and
    *       try again. If validation succeeds, the certificate enters status ISSUED. </p>
    */
-  Status?: CertificateStatus | string;
+  Status?: CertificateStatus;
 
   /**
    * @public
@@ -1355,13 +1355,13 @@ export interface CertificateSummary {
    *       you import and those that ACM provides, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing Certificates</a> in the
    *         <i>Certificate Manager User Guide</i>. </p>
    */
-  Type?: CertificateType | string;
+  Type?: CertificateType;
 
   /**
    * @public
    * <p>The algorithm that was used to generate the public-private key pair.</p>
    */
-  KeyAlgorithm?: KeyAlgorithm | string;
+  KeyAlgorithm?: KeyAlgorithm;
 
   /**
    * @public
@@ -1369,7 +1369,7 @@ export interface CertificateSummary {
    *       identifies the purpose of the public key contained in the certificate. Possible extension
    *       values include DIGITAL_SIGNATURE, KEY_ENCHIPHERMENT, NON_REPUDIATION, and more.</p>
    */
-  KeyUsages?: (KeyUsageName | string)[];
+  KeyUsages?: KeyUsageName[];
 
   /**
    * @public
@@ -1377,7 +1377,7 @@ export interface CertificateSummary {
    *       purpose for which the certificate public key can be used and consists of a name and an object
    *       identifier (OID). </p>
    */
-  ExtendedKeyUsages?: (ExtendedKeyUsageName | string)[];
+  ExtendedKeyUsages?: ExtendedKeyUsageName[];
 
   /**
    * @public
@@ -1398,7 +1398,7 @@ export interface CertificateSummary {
    *       private certificates can be renewed with the <a>RenewCertificate</a>
    *       command.</p>
    */
-  RenewalEligibility?: RenewalEligibility | string;
+  RenewalEligibility?: RenewalEligibility;
 
   /**
    * @public
@@ -1649,7 +1649,7 @@ export interface RequestCertificateRequest {
    *       own or control domain. You can <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">validate with DNS</a> or <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html">validate with
    *         email</a>. We recommend that you use DNS validation. </p>
    */
-  ValidationMethod?: ValidationMethod | string;
+  ValidationMethod?: ValidationMethod;
 
   /**
    * @public
@@ -1739,7 +1739,7 @@ export interface RequestCertificateRequest {
    *       Check the requirements for the AWS service where you plan to deploy your certificate.</p>
    *          <p>Default: RSA_2048</p>
    */
-  KeyAlgorithm?: KeyAlgorithm | string;
+  KeyAlgorithm?: KeyAlgorithm;
 }
 
 /**

@@ -1,19 +1,15 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { DescribeAssetBundleExportJobRequest, DescribeAssetBundleExportJobResponse } from "../models/models_3";
+import { commonParams } from "../endpoint/EndpointParameters";
+import {
+  DescribeAssetBundleExportJobRequest,
+  DescribeAssetBundleExportJobResponse,
+  DescribeAssetBundleExportJobResponseFilterSensitiveLog,
+} from "../models/models_3";
 import {
   de_DescribeAssetBundleExportJobCommand,
   se_DescribeAssetBundleExportJobCommand,
@@ -81,7 +77,7 @@ export interface DescribeAssetBundleExportJobCommandOutput
  * //     },
  * //     VPCConnections: [ // AssetBundleExportJobVPCConnectionOverridePropertiesList
  * //       { // AssetBundleExportJobVPCConnectionOverrideProperties
- * //         Arn: "STRING_VALUE",
+ * //         Arn: "STRING_VALUE", // required
  * //         Properties: [ // AssetBundleExportJobVPCConnectionPropertyToOverrideList // required
  * //           "Name" || "DnsResolvers" || "RoleArn",
  * //         ],
@@ -89,7 +85,7 @@ export interface DescribeAssetBundleExportJobCommandOutput
  * //     ],
  * //     RefreshSchedules: [ // AssetBundleExportJobRefreshScheduleOverridePropertiesList
  * //       { // AssetBundleExportJobRefreshScheduleOverrideProperties
- * //         Arn: "STRING_VALUE",
+ * //         Arn: "STRING_VALUE", // required
  * //         Properties: [ // AssetBundleExportJobRefreshSchedulePropertyToOverrideList // required
  * //           "StartAfterDateTime",
  * //         ],
@@ -97,7 +93,7 @@ export interface DescribeAssetBundleExportJobCommandOutput
  * //     ],
  * //     DataSources: [ // AssetBundleExportJobDataSourceOverridePropertiesList
  * //       { // AssetBundleExportJobDataSourceOverrideProperties
- * //         Arn: "STRING_VALUE",
+ * //         Arn: "STRING_VALUE", // required
  * //         Properties: [ // AssetBundleExportJobDataSourcePropertyToOverrideList // required
  * //           "Name" || "DisableSsl" || "SecretArn" || "Username" || "Password" || "Domain" || "WorkGroup" || "Host" || "Port" || "Database" || "DataSetName" || "Catalog" || "InstanceId" || "ClusterId" || "ManifestFileLocation" || "Warehouse" || "RoleArn",
  * //         ],
@@ -105,7 +101,7 @@ export interface DescribeAssetBundleExportJobCommandOutput
  * //     ],
  * //     DataSets: [ // AssetBundleExportJobDataSetOverridePropertiesList
  * //       { // AssetBundleExportJobDataSetOverrideProperties
- * //         Arn: "STRING_VALUE",
+ * //         Arn: "STRING_VALUE", // required
  * //         Properties: [ // AssetBundleExportJobDataSetPropertyToOverrideList // required
  * //           "Name",
  * //         ],
@@ -113,7 +109,7 @@ export interface DescribeAssetBundleExportJobCommandOutput
  * //     ],
  * //     Themes: [ // AssetBundleExportJobThemeOverridePropertiesList
  * //       { // AssetBundleExportJobThemeOverrideProperties
- * //         Arn: "STRING_VALUE",
+ * //         Arn: "STRING_VALUE", // required
  * //         Properties: [ // AssetBundleExportJobThemePropertyToOverrideList // required
  * //           "Name",
  * //         ],
@@ -121,7 +117,7 @@ export interface DescribeAssetBundleExportJobCommandOutput
  * //     ],
  * //     Analyses: [ // AssetBundleExportJobAnalysisOverridePropertiesList
  * //       { // AssetBundleExportJobAnalysisOverrideProperties
- * //         Arn: "STRING_VALUE",
+ * //         Arn: "STRING_VALUE", // required
  * //         Properties: [ // AssetBundleExportJobAnalysisPropertyToOverrideList // required
  * //           "Name",
  * //         ],
@@ -129,7 +125,7 @@ export interface DescribeAssetBundleExportJobCommandOutput
  * //     ],
  * //     Dashboards: [ // AssetBundleExportJobDashboardOverridePropertiesList
  * //       { // AssetBundleExportJobDashboardOverrideProperties
- * //         Arn: "STRING_VALUE",
+ * //         Arn: "STRING_VALUE", // required
  * //         Properties: [ // AssetBundleExportJobDashboardPropertyToOverrideList // required
  * //           "Name",
  * //         ],
@@ -138,6 +134,17 @@ export interface DescribeAssetBundleExportJobCommandOutput
  * //   },
  * //   RequestId: "STRING_VALUE",
  * //   Status: Number("int"),
+ * //   IncludePermissions: true || false,
+ * //   IncludeTags: true || false,
+ * //   ValidationStrategy: { // AssetBundleExportJobValidationStrategy
+ * //     StrictModeForAllResources: true || false,
+ * //   },
+ * //   Warnings: [ // AssetBundleExportJobWarningList
+ * //     { // AssetBundleExportJobWarning
+ * //       Arn: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```
@@ -164,82 +171,26 @@ export interface DescribeAssetBundleExportJobCommandOutput
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  */
-export class DescribeAssetBundleExportJobCommand extends $Command<
-  DescribeAssetBundleExportJobCommandInput,
-  DescribeAssetBundleExportJobCommandOutput,
-  QuickSightClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeAssetBundleExportJobCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: QuickSightClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeAssetBundleExportJobCommandInput, DescribeAssetBundleExportJobCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeAssetBundleExportJobCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "QuickSightClient";
-    const commandName = "DescribeAssetBundleExportJobCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeAssetBundleExportJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeAssetBundleExportJobCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeAssetBundleExportJobCommandOutput> {
-    return de_DescribeAssetBundleExportJobCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeAssetBundleExportJobCommand extends $Command
+  .classBuilder<
+    DescribeAssetBundleExportJobCommandInput,
+    DescribeAssetBundleExportJobCommandOutput,
+    QuickSightClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("QuickSight_20180401", "DescribeAssetBundleExportJob", {})
+  .n("QuickSightClient", "DescribeAssetBundleExportJobCommand")
+  .f(void 0, DescribeAssetBundleExportJobResponseFilterSensitiveLog)
+  .ser(se_DescribeAssetBundleExportJobCommand)
+  .de(de_DescribeAssetBundleExportJobCommand)
+  .build() {}

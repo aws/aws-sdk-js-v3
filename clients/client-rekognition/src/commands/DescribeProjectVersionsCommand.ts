@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { DescribeProjectVersionsRequest, DescribeProjectVersionsResponse } from "../models/models_0";
 import { de_DescribeProjectVersionsCommand, se_DescribeProjectVersionsCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
@@ -36,9 +28,9 @@ export interface DescribeProjectVersionsCommandOutput extends DescribeProjectVer
 
 /**
  * @public
- * <p>Lists and describes the versions of a model in an Amazon Rekognition Custom Labels project. You
- *          can specify up to 10 model versions in <code>ProjectVersionArns</code>. If
- *          you don't specify a value, descriptions for all model versions in the project are returned.</p>
+ * <p>Lists and describes the versions of an Amazon Rekognition project. You can specify up to 10 model or
+ *          adapter versions in <code>ProjectVersionArns</code>. If you don't specify a value,
+ *          descriptions for all model/adapter versions in the project are returned.</p>
  *          <p>This operation requires permissions to perform the <code>rekognition:DescribeProjectVersions</code>
  *             action.</p>
  * @example
@@ -63,7 +55,7 @@ export interface DescribeProjectVersionsCommandOutput extends DescribeProjectVer
  * //       ProjectVersionArn: "STRING_VALUE",
  * //       CreationTimestamp: new Date("TIMESTAMP"),
  * //       MinInferenceUnits: Number("int"),
- * //       Status: "TRAINING_IN_PROGRESS" || "TRAINING_COMPLETED" || "TRAINING_FAILED" || "STARTING" || "RUNNING" || "FAILED" || "STOPPING" || "STOPPED" || "DELETING" || "COPYING_IN_PROGRESS" || "COPYING_COMPLETED" || "COPYING_FAILED",
+ * //       Status: "TRAINING_IN_PROGRESS" || "TRAINING_COMPLETED" || "TRAINING_FAILED" || "STARTING" || "RUNNING" || "FAILED" || "STOPPING" || "STOPPED" || "DELETING" || "COPYING_IN_PROGRESS" || "COPYING_COMPLETED" || "COPYING_FAILED" || "DEPRECATED" || "EXPIRED",
  * //       StatusMessage: "STRING_VALUE",
  * //       BillableTrainingTimeInSeconds: Number("long"),
  * //       TrainingEndTimestamp: new Date("TIMESTAMP"),
@@ -155,6 +147,14 @@ export interface DescribeProjectVersionsCommandOutput extends DescribeProjectVer
  * //       KmsKeyId: "STRING_VALUE",
  * //       MaxInferenceUnits: Number("int"),
  * //       SourceProjectVersionArn: "STRING_VALUE",
+ * //       VersionDescription: "STRING_VALUE",
+ * //       Feature: "CONTENT_MODERATION" || "CUSTOM_LABELS",
+ * //       BaseModelVersion: "STRING_VALUE",
+ * //       FeatureConfig: { // CustomizationFeatureConfig
+ * //         ContentModeration: { // CustomizationFeatureContentModerationConfig
+ * //           ConfidenceThreshold: Number("float"),
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -300,79 +300,26 @@ export interface DescribeProjectVersionsCommandOutput extends DescribeProjectVer
  * ```
  *
  */
-export class DescribeProjectVersionsCommand extends $Command<
-  DescribeProjectVersionsCommandInput,
-  DescribeProjectVersionsCommandOutput,
-  RekognitionClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: DescribeProjectVersionsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: RekognitionClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<DescribeProjectVersionsCommandInput, DescribeProjectVersionsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeProjectVersionsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "RekognitionClient";
-    const commandName = "DescribeProjectVersionsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: DescribeProjectVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_DescribeProjectVersionsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeProjectVersionsCommandOutput> {
-    return de_DescribeProjectVersionsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class DescribeProjectVersionsCommand extends $Command
+  .classBuilder<
+    DescribeProjectVersionsCommandInput,
+    DescribeProjectVersionsCommandOutput,
+    RekognitionClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("RekognitionService", "DescribeProjectVersions", {})
+  .n("RekognitionClient", "DescribeProjectVersionsCommand")
+  .f(void 0, void 0)
+  .ser(se_DescribeProjectVersionsCommand)
+  .de(de_DescribeProjectVersionsCommand)
+  .build() {}

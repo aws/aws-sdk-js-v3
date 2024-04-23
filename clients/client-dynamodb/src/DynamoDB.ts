@@ -196,6 +196,11 @@ import {
   UpdateGlobalTableSettingsCommandOutput,
 } from "./commands/UpdateGlobalTableSettingsCommand";
 import { UpdateItemCommand, UpdateItemCommandInput, UpdateItemCommandOutput } from "./commands/UpdateItemCommand";
+import {
+  UpdateKinesisStreamingDestinationCommand,
+  UpdateKinesisStreamingDestinationCommandInput,
+  UpdateKinesisStreamingDestinationCommandOutput,
+} from "./commands/UpdateKinesisStreamingDestinationCommand";
 import { UpdateTableCommand, UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand";
 import {
   UpdateTableReplicaAutoScalingCommand,
@@ -260,6 +265,7 @@ const commands = {
   UpdateGlobalTableCommand,
   UpdateGlobalTableSettingsCommand,
   UpdateItemCommand,
+  UpdateKinesisStreamingDestinationCommand,
   UpdateTableCommand,
   UpdateTableReplicaAutoScalingCommand,
   UpdateTimeToLiveCommand,
@@ -981,6 +987,23 @@ export interface DynamoDB {
     args: UpdateItemCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateItemCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateKinesisStreamingDestinationCommand}
+   */
+  updateKinesisStreamingDestination(
+    args: UpdateKinesisStreamingDestinationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateKinesisStreamingDestinationCommandOutput>;
+  updateKinesisStreamingDestination(
+    args: UpdateKinesisStreamingDestinationCommandInput,
+    cb: (err: any, data?: UpdateKinesisStreamingDestinationCommandOutput) => void
+  ): void;
+  updateKinesisStreamingDestination(
+    args: UpdateKinesisStreamingDestinationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateKinesisStreamingDestinationCommandOutput) => void
   ): void;
 
   /**

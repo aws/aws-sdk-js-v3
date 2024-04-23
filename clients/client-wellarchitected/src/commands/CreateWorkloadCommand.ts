@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateWorkloadInput, CreateWorkloadOutput } from "../models/models_0";
 import { de_CreateWorkloadCommand, se_CreateWorkloadCommand } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
@@ -49,6 +41,29 @@ export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __Met
  *                 parameter is listed as not being required in the following section.
  *             </p>
  *          </important>
+ *          <p>When creating a workload using a review template, you must have the following IAM permissions:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>wellarchitected:GetReviewTemplate</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>wellarchitected:GetReviewTemplateAnswer</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>wellarchitected:ListReviewTemplateAnswers</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>wellarchitected:GetReviewTemplateLensReview</code>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,6 +110,9 @@ export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __Met
  *   ProfileArns: [ // WorkloadProfileArns
  *     "STRING_VALUE",
  *   ],
+ *   ReviewTemplateArns: [ // ReviewTemplateArns
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new CreateWorkloadCommand(input);
  * const response = await client.send(command);
@@ -136,79 +154,26 @@ export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __Met
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
  */
-export class CreateWorkloadCommand extends $Command<
-  CreateWorkloadCommandInput,
-  CreateWorkloadCommandOutput,
-  WellArchitectedClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateWorkloadCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: WellArchitectedClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateWorkloadCommandInput, CreateWorkloadCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateWorkloadCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "WellArchitectedClient";
-    const commandName = "CreateWorkloadCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateWorkloadCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateWorkloadCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateWorkloadCommandOutput> {
-    return de_CreateWorkloadCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateWorkloadCommand extends $Command
+  .classBuilder<
+    CreateWorkloadCommandInput,
+    CreateWorkloadCommandOutput,
+    WellArchitectedClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("WellArchitectedApiServiceLambda", "CreateWorkload", {})
+  .n("WellArchitectedClient", "CreateWorkloadCommand")
+  .f(void 0, void 0)
+  .ser(se_CreateWorkloadCommand)
+  .de(de_CreateWorkloadCommand)
+  .build() {}

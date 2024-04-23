@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -55,24 +56,15 @@ export const se_DeleteSessionCommand = async (
   input: DeleteSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bot/{botName}/alias/{botAlias}/user/{userId}/session";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botName", () => input.botName!, "{botName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botAlias", () => input.botAlias!, "{botAlias}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);
+  b.bp("/bot/{botName}/alias/{botAlias}/user/{userId}/session");
+  b.p("botName", () => input.botName!, "{botName}", false);
+  b.p("botAlias", () => input.botAlias!, "{botAlias}", false);
+  b.p("userId", () => input.userId!, "{userId}", false);
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "DELETE",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -82,28 +74,18 @@ export const se_GetSessionCommand = async (
   input: GetSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {};
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bot/{botName}/alias/{botAlias}/user/{userId}/session";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botName", () => input.botName!, "{botName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botAlias", () => input.botAlias!, "{botAlias}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);
+  b.bp("/bot/{botName}/alias/{botAlias}/user/{userId}/session");
+  b.p("botName", () => input.botName!, "{botName}", false);
+  b.p("botAlias", () => input.botAlias!, "{botAlias}", false);
+  b.p("userId", () => input.userId!, "{userId}", false);
   const query: any = map({
-    checkpointLabelFilter: [, input.checkpointLabelFilter!],
+    [_cLF]: [, input[_cLF]!],
   });
   let body: any;
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "GET",
-    headers,
-    path: resolvedPath,
-    query,
-    body,
-  });
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
 };
 
 /**
@@ -113,43 +95,34 @@ export const se_PostContentCommand = async (
   input: PostContentCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
-    "content-type": input.contentType! || "application/octet-stream",
-    "x-amz-lex-session-attributes": [
-      () => isSerializableHeaderValue(input.sessionAttributes),
-      () => context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input.sessionAttributes!))),
+    [_ct]: input[_cT]! || "application/octet-stream",
+    [_xalsa]: [
+      () => isSerializableHeaderValue(input[_sA]),
+      () => context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input[_sA]!))),
     ],
-    "x-amz-lex-request-attributes": [
-      () => isSerializableHeaderValue(input.requestAttributes),
-      () => context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input.requestAttributes!))),
+    [_xalra]: [
+      () => isSerializableHeaderValue(input[_rA]),
+      () => context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input[_rA]!))),
     ],
-    accept: input.accept!,
-    "x-amz-lex-active-contexts": [
-      () => isSerializableHeaderValue(input.activeContexts),
-      () => context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input.activeContexts!))),
+    [_a]: input[_a]!,
+    [_xalac]: [
+      () => isSerializableHeaderValue(input[_aC]),
+      () => context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input[_aC]!))),
     ],
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bot/{botName}/alias/{botAlias}/user/{userId}/content";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botName", () => input.botName!, "{botName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botAlias", () => input.botAlias!, "{botAlias}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);
+  b.bp("/bot/{botName}/alias/{botAlias}/user/{userId}/content");
+  b.p("botName", () => input.botName!, "{botName}", false);
+  b.p("botAlias", () => input.botAlias!, "{botAlias}", false);
+  b.p("userId", () => input.userId!, "{userId}", false);
   let body: any;
   if (input.inputStream !== undefined) {
     body = input.inputStream;
   }
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -159,16 +132,14 @@ export const se_PostTextCommand = async (
   input: PostTextCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = {
     "content-type": "application/json",
   };
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bot/{botName}/alias/{botAlias}/user/{userId}/text";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botName", () => input.botName!, "{botName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botAlias", () => input.botAlias!, "{botAlias}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);
+  b.bp("/bot/{botName}/alias/{botAlias}/user/{userId}/text");
+  b.p("botName", () => input.botName!, "{botName}", false);
+  b.p("botAlias", () => input.botAlias!, "{botAlias}", false);
+  b.p("userId", () => input.userId!, "{userId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -178,15 +149,8 @@ export const se_PostTextCommand = async (
       sessionAttributes: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -196,17 +160,15 @@ export const se_PutSessionCommand = async (
   input: PutSessionCommandInput,
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
-  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    accept: input.accept!,
+    [_a]: input[_a]!,
   });
-  let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/bot/{botName}/alias/{botAlias}/user/{userId}/session";
-  resolvedPath = __resolvedPath(resolvedPath, input, "botName", () => input.botName!, "{botName}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "botAlias", () => input.botAlias!, "{botAlias}", false);
-  resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);
+  b.bp("/bot/{botName}/alias/{botAlias}/user/{userId}/session");
+  b.p("botName", () => input.botName!, "{botName}", false);
+  b.p("botAlias", () => input.botAlias!, "{botAlias}", false);
+  b.p("userId", () => input.userId!, "{userId}", false);
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -216,15 +178,8 @@ export const se_PutSessionCommand = async (
       sessionAttributes: (_) => _json(_),
     })
   );
-  return new __HttpRequest({
-    protocol,
-    hostname,
-    port,
-    method: "POST",
-    headers,
-    path: resolvedPath,
-    body,
-  });
+  b.m("POST").h(headers).b(body);
+  return b.build();
 };
 
 /**
@@ -361,50 +316,37 @@ export const de_PostContentCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    contentType: [, output.headers["content-type"]],
-    intentName: [, output.headers["x-amz-lex-intent-name"]],
-    nluIntentConfidence: [
-      () => void 0 !== output.headers["x-amz-lex-nlu-intent-confidence"],
-      () =>
-        new __LazyJsonString(
-          Buffer.from(context.base64Decoder(output.headers["x-amz-lex-nlu-intent-confidence"])).toString("utf8")
-        ),
+    [_cT]: [, output.headers[_ct]],
+    [_iN]: [, output.headers[_xalin]],
+    [_nIC]: [
+      () => void 0 !== output.headers[_xalnic],
+      () => new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers[_xalnic])).toString("utf8")),
     ],
-    alternativeIntents: [
-      () => void 0 !== output.headers["x-amz-lex-alternative-intents"],
-      () =>
-        new __LazyJsonString(
-          Buffer.from(context.base64Decoder(output.headers["x-amz-lex-alternative-intents"])).toString("utf8")
-        ),
+    [_aI]: [
+      () => void 0 !== output.headers[_xalai],
+      () => new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers[_xalai])).toString("utf8")),
     ],
-    slots: [
-      () => void 0 !== output.headers["x-amz-lex-slots"],
-      () =>
-        new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers["x-amz-lex-slots"])).toString("utf8")),
+    [_s]: [
+      () => void 0 !== output.headers[_xals],
+      () => new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers[_xals])).toString("utf8")),
     ],
-    sessionAttributes: [
-      () => void 0 !== output.headers["x-amz-lex-session-attributes"],
-      () =>
-        new __LazyJsonString(
-          Buffer.from(context.base64Decoder(output.headers["x-amz-lex-session-attributes"])).toString("utf8")
-        ),
+    [_sA]: [
+      () => void 0 !== output.headers[_xalsa],
+      () => new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers[_xalsa])).toString("utf8")),
     ],
-    sentimentResponse: [, output.headers["x-amz-lex-sentiment"]],
-    message: [, output.headers["x-amz-lex-message"]],
-    encodedMessage: [, output.headers["x-amz-lex-encoded-message"]],
-    messageFormat: [, output.headers["x-amz-lex-message-format"]],
-    dialogState: [, output.headers["x-amz-lex-dialog-state"]],
-    slotToElicit: [, output.headers["x-amz-lex-slot-to-elicit"]],
-    inputTranscript: [, output.headers["x-amz-lex-input-transcript"]],
-    encodedInputTranscript: [, output.headers["x-amz-lex-encoded-input-transcript"]],
-    botVersion: [, output.headers["x-amz-lex-bot-version"]],
-    sessionId: [, output.headers["x-amz-lex-session-id"]],
-    activeContexts: [
-      () => void 0 !== output.headers["x-amz-lex-active-contexts"],
-      () =>
-        new __LazyJsonString(
-          Buffer.from(context.base64Decoder(output.headers["x-amz-lex-active-contexts"])).toString("utf8")
-        ),
+    [_sR]: [, output.headers[_xals_]],
+    [_m]: [, output.headers[_xalm]],
+    [_eM]: [, output.headers[_xalem]],
+    [_mF]: [, output.headers[_xalmf]],
+    [_dS]: [, output.headers[_xalds]],
+    [_sTE]: [, output.headers[_xalste]],
+    [_iT]: [, output.headers[_xalit]],
+    [_eIT]: [, output.headers[_xaleit]],
+    [_bV]: [, output.headers[_xalbv]],
+    [_sI]: [, output.headers[_xalsi]],
+    [_aC]: [
+      () => void 0 !== output.headers[_xalac],
+      () => new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers[_xalac])).toString("utf8")),
     ],
   });
   const data: any = output.body;
@@ -562,32 +504,25 @@ export const de_PutSessionCommand = async (
   }
   const contents: any = map({
     $metadata: deserializeMetadata(output),
-    contentType: [, output.headers["content-type"]],
-    intentName: [, output.headers["x-amz-lex-intent-name"]],
-    slots: [
-      () => void 0 !== output.headers["x-amz-lex-slots"],
-      () =>
-        new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers["x-amz-lex-slots"])).toString("utf8")),
+    [_cT]: [, output.headers[_ct]],
+    [_iN]: [, output.headers[_xalin]],
+    [_s]: [
+      () => void 0 !== output.headers[_xals],
+      () => new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers[_xals])).toString("utf8")),
     ],
-    sessionAttributes: [
-      () => void 0 !== output.headers["x-amz-lex-session-attributes"],
-      () =>
-        new __LazyJsonString(
-          Buffer.from(context.base64Decoder(output.headers["x-amz-lex-session-attributes"])).toString("utf8")
-        ),
+    [_sA]: [
+      () => void 0 !== output.headers[_xalsa],
+      () => new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers[_xalsa])).toString("utf8")),
     ],
-    message: [, output.headers["x-amz-lex-message"]],
-    encodedMessage: [, output.headers["x-amz-lex-encoded-message"]],
-    messageFormat: [, output.headers["x-amz-lex-message-format"]],
-    dialogState: [, output.headers["x-amz-lex-dialog-state"]],
-    slotToElicit: [, output.headers["x-amz-lex-slot-to-elicit"]],
-    sessionId: [, output.headers["x-amz-lex-session-id"]],
-    activeContexts: [
-      () => void 0 !== output.headers["x-amz-lex-active-contexts"],
-      () =>
-        new __LazyJsonString(
-          Buffer.from(context.base64Decoder(output.headers["x-amz-lex-active-contexts"])).toString("utf8")
-        ),
+    [_m]: [, output.headers[_xalm]],
+    [_eM]: [, output.headers[_xalem]],
+    [_mF]: [, output.headers[_xalmf]],
+    [_dS]: [, output.headers[_xalds]],
+    [_sTE]: [, output.headers[_xalste]],
+    [_sI]: [, output.headers[_xalsi]],
+    [_aC]: [
+      () => void 0 !== output.headers[_xalac],
+      () => new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers[_xalac])).toString("utf8")),
     ],
   });
   const data: any = output.body;
@@ -743,7 +678,7 @@ const de_LimitExceededExceptionRes = async (
   context: __SerdeContext
 ): Promise<LimitExceededException> => {
   const contents: any = map({
-    retryAfterSeconds: [, parsedOutput.headers["retry-after"]],
+    [_rAS]: [, parsedOutput.headers[_ra]],
   });
   const data: any = parsedOutput.body;
   const doc = take(data, {
@@ -948,6 +883,47 @@ const isSerializableHeaderValue = (value: any): boolean =>
   value !== "" &&
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+
+const _a = "accept";
+const _aC = "activeContexts";
+const _aI = "alternativeIntents";
+const _bV = "botVersion";
+const _cLF = "checkpointLabelFilter";
+const _cT = "contentType";
+const _ct = "content-type";
+const _dS = "dialogState";
+const _eIT = "encodedInputTranscript";
+const _eM = "encodedMessage";
+const _iN = "intentName";
+const _iT = "inputTranscript";
+const _m = "message";
+const _mF = "messageFormat";
+const _nIC = "nluIntentConfidence";
+const _rA = "requestAttributes";
+const _rAS = "retryAfterSeconds";
+const _ra = "retry-after";
+const _s = "slots";
+const _sA = "sessionAttributes";
+const _sI = "sessionId";
+const _sR = "sentimentResponse";
+const _sTE = "slotToElicit";
+const _xalac = "x-amz-lex-active-contexts";
+const _xalai = "x-amz-lex-alternative-intents";
+const _xalbv = "x-amz-lex-bot-version";
+const _xalds = "x-amz-lex-dialog-state";
+const _xaleit = "x-amz-lex-encoded-input-transcript";
+const _xalem = "x-amz-lex-encoded-message";
+const _xalin = "x-amz-lex-intent-name";
+const _xalit = "x-amz-lex-input-transcript";
+const _xalm = "x-amz-lex-message";
+const _xalmf = "x-amz-lex-message-format";
+const _xalnic = "x-amz-lex-nlu-intent-confidence";
+const _xalra = "x-amz-lex-request-attributes";
+const _xals = "x-amz-lex-slots";
+const _xals_ = "x-amz-lex-sentiment";
+const _xalsa = "x-amz-lex-session-attributes";
+const _xalsi = "x-amz-lex-session-id";
+const _xalste = "x-amz-lex-slot-to-elicit";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

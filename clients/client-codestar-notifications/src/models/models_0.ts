@@ -162,7 +162,7 @@ export interface CreateNotificationRuleRequest {
    *         contents of the event as it would appear in Amazon CloudWatch. <code>FULL</code> will include any supplemental information
    *         provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.</p>
    */
-  DetailType: DetailType | string | undefined;
+  DetailType: DetailType | undefined;
 
   /**
    * @public
@@ -170,10 +170,10 @@ export interface CreateNotificationRuleRequest {
    *             the request cannot be repeated with a changed parameter. If a request with the same
    *             parameters is received and a token is included, the request returns information about
    *             the initial request that used that token.</p>
-   *         <note>
+   *          <note>
    *             <p>The Amazon Web Services SDKs prepopulate client request tokens. If you are using an Amazon Web Services SDK, an
    *                 idempotency token is created for you.</p>
-   *         </note>
+   *          </note>
    */
   ClientRequestToken?: string;
 
@@ -188,7 +188,7 @@ export interface CreateNotificationRuleRequest {
    * <p>The status of the notification rule. The default value is <code>ENABLED</code>. If the status is
    *             set to <code>DISABLED</code>, notifications aren't sent for the notification rule.</p>
    */
-  Status?: NotificationRuleStatus | string;
+  Status?: NotificationRuleStatus;
 }
 
 /**
@@ -406,7 +406,7 @@ export interface TargetSummary {
    * @public
    * <p>The status of the target.</p>
    */
-  TargetStatus?: TargetStatus | string;
+  TargetStatus?: TargetStatus;
 }
 
 /**
@@ -450,7 +450,7 @@ export interface DescribeNotificationRuleResult {
    *             contents of the event as it would appear in Amazon CloudWatch. FULL will include any supplemental information
    *             provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.</p>
    */
-  DetailType?: DetailType | string;
+  DetailType?: DetailType;
 
   /**
    * @public
@@ -463,7 +463,7 @@ export interface DescribeNotificationRuleResult {
    * <p>The status of the notification rule. Valid statuses are on (sending notifications) or off
    *       (not sending notifications).</p>
    */
-  Status?: NotificationRuleStatus | string;
+  Status?: NotificationRuleStatus;
 
   /**
    * @public
@@ -553,7 +553,7 @@ export interface ListEventTypesFilter {
    * @public
    * <p>The system-generated name of the filter type you want to filter by.</p>
    */
-  Name: ListEventTypesFilterName | string | undefined;
+  Name: ListEventTypesFilterName | undefined;
 
   /**
    * @public
@@ -633,7 +633,7 @@ export interface ListNotificationRulesFilter {
    * @public
    * <p>The name of the attribute you want to use to filter the returned notification rules.</p>
    */
-  Name: ListNotificationRulesFilterName | string | undefined;
+  Name: ListNotificationRulesFilterName | undefined;
 
   /**
    * @public
@@ -757,7 +757,7 @@ export interface ListTargetsFilter {
    * @public
    * <p>The name of the attribute you want to use to filter the returned targets.</p>
    */
-  Name: ListTargetsFilterName | string | undefined;
+  Name: ListTargetsFilterName | undefined;
 
   /**
    * @public
@@ -950,7 +950,7 @@ export interface UpdateNotificationRuleRequest {
    * <p>The status of the notification rule. Valid statuses include enabled (sending notifications) or
    *       disabled (not sending notifications).</p>
    */
-  Status?: NotificationRuleStatus | string;
+  Status?: NotificationRuleStatus;
 
   /**
    * @public
@@ -973,7 +973,7 @@ export interface UpdateNotificationRuleRequest {
    *             contents of the event as it would appear in Amazon CloudWatch. FULL will include any supplemental information
    *             provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.</p>
    */
-  DetailType?: DetailType | string;
+  DetailType?: DetailType;
 }
 
 /**

@@ -13,16 +13,20 @@
  *          <p>You can use Amazon ECS to schedule the placement of containers across your cluster based on
  * 			your resource needs, isolation policies, and availability requirements. With Amazon ECS, you
  * 			don't need to operate your own cluster management and configuration management systems.
- * 			You also don't need to worry about scaling your management infrastructure.</p>
+ * 			You also don't need to worry about scaling your management infrastructure. </p>
  *
  * @packageDocumentation
  */
 export * from "./ECSClient";
 export * from "./ECS";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
+export { RuntimeExtension } from "./runtimeExtensions";
+export { ECSExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./waiters";
 export * from "./models";
+
+import "@aws-sdk/util-endpoints";
 
 export { ECSServiceException } from "./models/ECSServiceException";

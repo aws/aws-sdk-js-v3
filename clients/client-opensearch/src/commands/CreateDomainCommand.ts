@@ -1,18 +1,10 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { CreateDomainRequest, CreateDomainRequestFilterSensitiveLog, CreateDomainResponse } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { de_CreateDomainCommand, se_CreateDomainCommand } from "../protocols/Aws_restJson1";
@@ -72,6 +64,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *     Throughput: Number("int"),
  *   },
  *   AccessPolicies: "STRING_VALUE",
+ *   IPAddressType: "ipv4" || "dualstack",
  *   SnapshotOptions: { // SnapshotOptions
  *     AutomatedSnapshotStartHour: Number("int"),
  *   },
@@ -107,7 +100,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *   },
  *   DomainEndpointOptions: { // DomainEndpointOptions
  *     EnforceHTTPS: true || false,
- *     TLSSecurityPolicy: "Policy-Min-TLS-1-0-2019-07" || "Policy-Min-TLS-1-2-2019-07",
+ *     TLSSecurityPolicy: "Policy-Min-TLS-1-0-2019-07" || "Policy-Min-TLS-1-2-2019-07" || "Policy-Min-TLS-1-2-PFS-2023-10",
  *     CustomEndpointEnabled: true || false,
  *     CustomEndpoint: "STRING_VALUE",
  *     CustomEndpointCertificateArn: "STRING_VALUE",
@@ -177,6 +170,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * //     Created: true || false,
  * //     Deleted: true || false,
  * //     Endpoint: "STRING_VALUE",
+ * //     EndpointV2: "STRING_VALUE",
  * //     Endpoints: { // EndpointsMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
@@ -209,6 +203,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * //       Throughput: Number("int"),
  * //     },
  * //     AccessPolicies: "STRING_VALUE",
+ * //     IPAddressType: "ipv4" || "dualstack",
  * //     SnapshotOptions: { // SnapshotOptions
  * //       AutomatedSnapshotStartHour: Number("int"),
  * //     },
@@ -258,7 +253,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * //     },
  * //     DomainEndpointOptions: { // DomainEndpointOptions
  * //       EnforceHTTPS: true || false,
- * //       TLSSecurityPolicy: "Policy-Min-TLS-1-0-2019-07" || "Policy-Min-TLS-1-2-2019-07",
+ * //       TLSSecurityPolicy: "Policy-Min-TLS-1-0-2019-07" || "Policy-Min-TLS-1-2-2019-07" || "Policy-Min-TLS-1-2-PFS-2023-10",
  * //       CustomEndpointEnabled: true || false,
  * //       CustomEndpoint: "STRING_VALUE",
  * //       CustomEndpointCertificateArn: "STRING_VALUE",
@@ -336,77 +331,26 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
  */
-export class CreateDomainCommand extends $Command<
-  CreateDomainCommandInput,
-  CreateDomainCommandOutput,
-  OpenSearchClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: CreateDomainCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: OpenSearchClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<CreateDomainCommandInput, CreateDomainCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, CreateDomainCommand.getEndpointParameterInstructions()));
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "OpenSearchClient";
-    const commandName = "CreateDomainCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: CreateDomainRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: CreateDomainCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_CreateDomainCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDomainCommandOutput> {
-    return de_CreateDomainCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class CreateDomainCommand extends $Command
+  .classBuilder<
+    CreateDomainCommandInput,
+    CreateDomainCommandOutput,
+    OpenSearchClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AmazonOpenSearchService", "CreateDomain", {})
+  .n("OpenSearchClient", "CreateDomainCommand")
+  .f(CreateDomainRequestFilterSensitiveLog, void 0)
+  .ser(se_CreateDomainCommand)
+  .de(de_CreateDomainCommand)
+  .build() {}

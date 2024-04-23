@@ -1,19 +1,11 @@
 // smithy-typescript generated code
-import { EndpointParameterInstructions, getEndpointPlugin } from "@smithy/middleware-endpoint";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
-import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import { Command as $Command } from "@smithy/smithy-client";
-import {
-  FinalizeHandlerArguments,
-  Handler,
-  HandlerExecutionContext,
-  HttpHandlerOptions as __HttpHandlerOptions,
-  MetadataBearer as __MetadataBearer,
-  MiddlewareStack,
-  SerdeContext as __SerdeContext,
-} from "@smithy/types";
+import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { GetAnomalyMonitorsRequest, GetAnomalyMonitorsResponse } from "../models/models_0";
 import { de_GetAnomalyMonitorsCommand, se_GetAnomalyMonitorsCommand } from "../protocols/Aws_json1_1";
 
@@ -157,79 +149,26 @@ export interface GetAnomalyMonitorsCommandOutput extends GetAnomalyMonitorsRespo
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
  */
-export class GetAnomalyMonitorsCommand extends $Command<
-  GetAnomalyMonitorsCommandInput,
-  GetAnomalyMonitorsCommandOutput,
-  CostExplorerClientResolvedConfig
-> {
-  // Start section: command_properties
-  // End section: command_properties
-
-  public static getEndpointParameterInstructions(): EndpointParameterInstructions {
-    return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
-      Endpoint: { type: "builtInParams", name: "endpoint" },
-      Region: { type: "builtInParams", name: "region" },
-      UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
-    };
-  }
-
-  /**
-   * @public
-   */
-  constructor(readonly input: GetAnomalyMonitorsCommandInput) {
-    // Start section: command_constructor
-    super();
-    // End section: command_constructor
-  }
-
-  /**
-   * @internal
-   */
-  resolveMiddleware(
-    clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
-    configuration: CostExplorerClientResolvedConfig,
-    options?: __HttpHandlerOptions
-  ): Handler<GetAnomalyMonitorsCommandInput, GetAnomalyMonitorsCommandOutput> {
-    this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetAnomalyMonitorsCommand.getEndpointParameterInstructions())
-    );
-
-    const stack = clientStack.concat(this.middlewareStack);
-
-    const { logger } = configuration;
-    const clientName = "CostExplorerClient";
-    const commandName = "GetAnomalyMonitorsCommand";
-    const handlerExecutionContext: HandlerExecutionContext = {
-      logger,
-      clientName,
-      commandName,
-      inputFilterSensitiveLog: (_: any) => _,
-      outputFilterSensitiveLog: (_: any) => _,
-    };
-    const { requestHandler } = configuration;
-    return stack.resolve(
-      (request: FinalizeHandlerArguments<any>) =>
-        requestHandler.handle(request.request as __HttpRequest, options || {}),
-      handlerExecutionContext
-    );
-  }
-
-  /**
-   * @internal
-   */
-  private serialize(input: GetAnomalyMonitorsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return se_GetAnomalyMonitorsCommand(input, context);
-  }
-
-  /**
-   * @internal
-   */
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetAnomalyMonitorsCommandOutput> {
-    return de_GetAnomalyMonitorsCommand(output, context);
-  }
-
-  // Start section: command_body_extra
-  // End section: command_body_extra
-}
+export class GetAnomalyMonitorsCommand extends $Command
+  .classBuilder<
+    GetAnomalyMonitorsCommandInput,
+    GetAnomalyMonitorsCommandOutput,
+    CostExplorerClientResolvedConfig,
+    ServiceInputTypes,
+    ServiceOutputTypes
+  >()
+  .ep({
+    ...commonParams,
+  })
+  .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
+  })
+  .s("AWSInsightsIndexService", "GetAnomalyMonitors", {})
+  .n("CostExplorerClient", "GetAnomalyMonitorsCommand")
+  .f(void 0, void 0)
+  .ser(se_GetAnomalyMonitorsCommand)
+  .de(de_GetAnomalyMonitorsCommand)
+  .build() {}

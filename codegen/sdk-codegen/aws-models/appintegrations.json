@@ -47,10 +47,16 @@
       "version": "2020-07-29",
       "operations": [
         {
+          "target": "com.amazonaws.appintegrations#CreateApplication"
+        },
+        {
           "target": "com.amazonaws.appintegrations#CreateDataIntegration"
         },
         {
           "target": "com.amazonaws.appintegrations#CreateEventIntegration"
+        },
+        {
+          "target": "com.amazonaws.appintegrations#DeleteApplication"
         },
         {
           "target": "com.amazonaws.appintegrations#DeleteDataIntegration"
@@ -59,10 +65,19 @@
           "target": "com.amazonaws.appintegrations#DeleteEventIntegration"
         },
         {
+          "target": "com.amazonaws.appintegrations#GetApplication"
+        },
+        {
           "target": "com.amazonaws.appintegrations#GetDataIntegration"
         },
         {
           "target": "com.amazonaws.appintegrations#GetEventIntegration"
+        },
+        {
+          "target": "com.amazonaws.appintegrations#ListApplicationAssociations"
+        },
+        {
+          "target": "com.amazonaws.appintegrations#ListApplications"
         },
         {
           "target": "com.amazonaws.appintegrations#ListDataIntegrationAssociations"
@@ -84,6 +99,9 @@
         },
         {
           "target": "com.amazonaws.appintegrations#UntagResource"
+        },
+        {
+          "target": "com.amazonaws.appintegrations#UpdateApplication"
         },
         {
           "target": "com.amazonaws.appintegrations#UpdateDataIntegration"
@@ -148,7 +166,6 @@
                   ]
                 }
               ],
-              "type": "tree",
               "rules": [
                 {
                   "conditions": [
@@ -166,9 +183,187 @@
                   "type": "error"
                 },
                 {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
                   "conditions": [],
-                  "type": "tree",
+                  "endpoint": {
+                    "url": {
+                      "ref": "Endpoint"
+                    },
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ],
+              "type": "tree"
+            },
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ]
+                }
+              ],
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "aws.partition",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ],
+                      "assign": "PartitionResult"
+                    }
+                  ],
                   "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://app-integrations-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://app-integrations-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
                     {
                       "conditions": [
                         {
@@ -181,278 +376,65 @@
                           ]
                         }
                       ],
-                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                      "type": "error"
-                    },
-                    {
-                      "conditions": [],
-                      "endpoint": {
-                        "url": {
-                          "ref": "Endpoint"
-                        },
-                        "properties": {},
-                        "headers": {}
-                      },
-                      "type": "endpoint"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "conditions": [],
-              "type": "tree",
-              "rules": [
-                {
-                  "conditions": [
-                    {
-                      "fn": "isSet",
-                      "argv": [
-                        {
-                          "ref": "Region"
-                        }
-                      ]
-                    }
-                  ],
-                  "type": "tree",
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "aws.partition",
-                          "argv": [
-                            {
-                              "ref": "Region"
-                            }
-                          ],
-                          "assign": "PartitionResult"
-                        }
-                      ],
-                      "type": "tree",
                       "rules": [
                         {
                           "conditions": [
                             {
                               "fn": "booleanEquals",
                               "argv": [
+                                true,
                                 {
-                                  "ref": "UseFIPS"
-                                },
-                                true
-                              ]
-                            },
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseDualStack"
-                                },
-                                true
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
                               ]
                             }
                           ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsFIPS"
-                                      ]
-                                    }
-                                  ]
-                                },
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsDualStack"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://app-integrations-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseFIPS"
-                                },
-                                true
-                              ]
-                            }
-                          ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsFIPS"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://app-integrations-fips.{Region}.{PartitionResult#dnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "FIPS is enabled but this partition does not support FIPS",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseDualStack"
-                                },
-                                true
-                              ]
-                            }
-                          ],
-                          "type": "tree",
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsDualStack"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "type": "tree",
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "type": "tree",
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://app-integrations.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "conditions": [],
-                              "error": "DualStack is enabled but this partition does not support DualStack",
-                              "type": "error"
-                            }
-                          ]
-                        },
-                        {
-                          "conditions": [],
-                          "type": "tree",
                           "rules": [
                             {
                               "conditions": [],
                               "endpoint": {
-                                "url": "https://app-integrations.{Region}.{PartitionResult#dnsSuffix}",
+                                "url": "https://app-integrations.{Region}.{PartitionResult#dualStackDnsSuffix}",
                                 "properties": {},
                                 "headers": {}
                               },
                               "type": "endpoint"
                             }
-                          ]
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
                         }
-                      ]
+                      ],
+                      "type": "tree"
+                    },
+                    {
+                      "conditions": [],
+                      "endpoint": {
+                        "url": "https://app-integrations.{Region}.{PartitionResult#dnsSuffix}",
+                        "properties": {},
+                        "headers": {}
+                      },
+                      "type": "endpoint"
                     }
-                  ]
-                },
-                {
-                  "conditions": [],
-                  "error": "Invalid Configuration: Missing Region",
-                  "type": "error"
+                  ],
+                  "type": "tree"
                 }
-              ]
+              ],
+              "type": "tree"
+            },
+            {
+              "conditions": [],
+              "error": "Invalid Configuration: Missing Region",
+              "type": "error"
             }
           ]
         },
@@ -732,6 +714,17 @@
               }
             },
             {
+              "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
               "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
@@ -742,6 +735,17 @@
                 "Region": "us-iso-east-1",
                 "UseFIPS": true,
                 "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-iso-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-iso-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -758,6 +762,17 @@
               }
             },
             {
+              "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
               "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
@@ -768,6 +783,17 @@
                 "Region": "us-isob-east-1",
                 "UseFIPS": true,
                 "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isob-east-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isob-east-1",
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -833,9 +859,165 @@
                 "UseDualStack": true,
                 "Endpoint": "https://example.com"
               }
+            },
+            {
+              "documentation": "Missing region",
+              "expect": {
+                "error": "Invalid Configuration: Missing Region"
+              }
             }
           ],
           "version": "1.0"
+        }
+      }
+    },
+    "com.amazonaws.appintegrations#ApplicationApprovedOrigins": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.appintegrations#ApplicationTrustedSource"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 50
+        }
+      }
+    },
+    "com.amazonaws.appintegrations#ApplicationAssociationSummary": {
+      "type": "structure",
+      "members": {
+        "ApplicationAssociationArn": {
+          "target": "com.amazonaws.appintegrations#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Application Association.</p>"
+          }
+        },
+        "ApplicationArn": {
+          "target": "com.amazonaws.appintegrations#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Application.</p>"
+          }
+        },
+        "ClientId": {
+          "target": "com.amazonaws.appintegrations#ClientId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the client that is associated with the Application Association.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Summary information about the Application Association.</p>"
+      }
+    },
+    "com.amazonaws.appintegrations#ApplicationAssociationsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.appintegrations#ApplicationAssociationSummary"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 50
+        }
+      }
+    },
+    "com.amazonaws.appintegrations#ApplicationName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 255
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9\\/\\._ \\-]+$"
+      }
+    },
+    "com.amazonaws.appintegrations#ApplicationNamespace": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 32
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9\\/\\._\\-]+$"
+      }
+    },
+    "com.amazonaws.appintegrations#ApplicationSourceConfig": {
+      "type": "structure",
+      "members": {
+        "ExternalUrlConfig": {
+          "target": "com.amazonaws.appintegrations#ExternalUrlConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The external URL source for the application.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The configuration for where the application should be loaded from.</p>"
+      }
+    },
+    "com.amazonaws.appintegrations#ApplicationSummary": {
+      "type": "structure",
+      "members": {
+        "Arn": {
+          "target": "com.amazonaws.appintegrations#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Application.</p>"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.appintegrations#UUID",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for the Application.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.appintegrations#ApplicationName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the application.</p>"
+          }
+        },
+        "Namespace": {
+          "target": "com.amazonaws.appintegrations#ApplicationNamespace",
+          "traits": {
+            "smithy.api#documentation": "<p>The namespace of the application.</p>"
+          }
+        },
+        "CreatedTime": {
+          "target": "com.amazonaws.appintegrations#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time when the application was created.</p>"
+          }
+        },
+        "LastModifiedTime": {
+          "target": "com.amazonaws.appintegrations#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time when the application was last modified.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Summary information about the Application.</p>"
+      }
+    },
+    "com.amazonaws.appintegrations#ApplicationTrustedSource": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        },
+        "smithy.api#pattern": "^\\w+\\:\\/\\/.*$"
+      }
+    },
+    "com.amazonaws.appintegrations#ApplicationsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.appintegrations#ApplicationSummary"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 50
         }
       }
     },
@@ -847,6 +1029,16 @@
           "max": 2048
         },
         "smithy.api#pattern": "^arn:aws:[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,1023}$"
+      }
+    },
+    "com.amazonaws.appintegrations#ArnOrUUID": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^(arn:aws:[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,1023}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})(:[\\w\\$]+)?$"
       }
     },
     "com.amazonaws.appintegrations#ClientAssociationMetadata": {
@@ -866,6 +1058,158 @@
           "max": 255
         },
         "smithy.api#pattern": ".*"
+      }
+    },
+    "com.amazonaws.appintegrations#CreateApplication": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.appintegrations#CreateApplicationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.appintegrations#CreateApplicationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.appintegrations#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.appintegrations#DuplicateResourceException"
+        },
+        {
+          "target": "com.amazonaws.appintegrations#InternalServiceError"
+        },
+        {
+          "target": "com.amazonaws.appintegrations#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.appintegrations#ResourceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.appintegrations#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.appintegrations#UnsupportedOperationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>This API is in preview release and subject to change.</p>\n         <p>Creates and persists an Application resource.</p>",
+        "smithy.api#examples": [
+          {
+            "title": "To create an application",
+            "documentation": "The following creates an application named My Application with access url https://example.com.",
+            "input": {
+              "Name": "My Application",
+              "Namespace": "myapplication",
+              "Description": "My first application.",
+              "ApplicationSourceConfig": {
+                "ExternalUrlConfig": {
+                  "AccessUrl": "https://example.com"
+                }
+              }
+            },
+            "output": {
+              "Id": "98542c53-e8ac-4570-9c85-c6552c8d9c5e",
+              "Arn": "arn:aws:app-integrations:us-west-2:0123456789012:application/98542c53-e8ac-4570-9c85-c6552c8d9c5e"
+            }
+          }
+        ],
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/applications",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.appintegrations#CreateApplicationRequest": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.appintegrations#ApplicationName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the application.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Namespace": {
+          "target": "com.amazonaws.appintegrations#ApplicationNamespace",
+          "traits": {
+            "smithy.api#documentation": "<p>The namespace of the application.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.appintegrations#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the application.</p>"
+          }
+        },
+        "ApplicationSourceConfig": {
+          "target": "com.amazonaws.appintegrations#ApplicationSourceConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for where the application should be loaded from.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Subscriptions": {
+          "target": "com.amazonaws.appintegrations#SubscriptionList",
+          "traits": {
+            "smithy.api#deprecated": {
+              "message": "Subscriptions has been replaced with Permissions"
+            },
+            "smithy.api#documentation": "<p>The events that the application subscribes.</p>"
+          }
+        },
+        "Publications": {
+          "target": "com.amazonaws.appintegrations#PublicationList",
+          "traits": {
+            "smithy.api#deprecated": {
+              "message": "Publications has been replaced with Permissions"
+            },
+            "smithy.api#documentation": "<p>The events that the application publishes.</p>"
+          }
+        },
+        "ClientToken": {
+          "target": "com.amazonaws.appintegrations#IdempotencyToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the\n            request. If not provided, the Amazon Web Services\n            SDK populates this field. For more information about idempotency, see\n            <a href=\"https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/\">Making retries safe with idempotent APIs</a>.</p>",
+            "smithy.api#idempotencyToken": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.appintegrations#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags used to organize, track, or control access for this resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"
+          }
+        },
+        "Permissions": {
+          "target": "com.amazonaws.appintegrations#PermissionList",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration of events or requests that the application has access to.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.appintegrations#CreateApplicationResponse": {
+      "type": "structure",
+      "members": {
+        "Arn": {
+          "target": "com.amazonaws.appintegrations#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Application.</p>"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.appintegrations#UUID",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for the Application.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.appintegrations#CreateDataIntegration": {
@@ -938,8 +1282,7 @@
         "ScheduleConfig": {
           "target": "com.amazonaws.appintegrations#ScheduleConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the data and how often it should be pulled from the source.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The name of the data and how often it should be pulled from the source.</p>"
           }
         },
         "Tags": {
@@ -1221,6 +1564,73 @@
         }
       }
     },
+    "com.amazonaws.appintegrations#DeleteApplication": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.appintegrations#DeleteApplicationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.appintegrations#DeleteApplicationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.appintegrations#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.appintegrations#InternalServiceError"
+        },
+        {
+          "target": "com.amazonaws.appintegrations#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.appintegrations#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.appintegrations#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes the Application. Only Applications that don't have any Application Associations can be deleted.</p>",
+        "smithy.api#examples": [
+          {
+            "title": "To delete an application",
+            "documentation": "The following deletes an application.",
+            "input": {
+              "Arn": "arn:aws:app-integrations:us-west-2:0123456789012:application/98542c53-e8ac-4570-9c85-c6552c8d9c5e"
+            },
+            "output": {}
+          }
+        ],
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/applications/{Arn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.appintegrations#DeleteApplicationRequest": {
+      "type": "structure",
+      "members": {
+        "Arn": {
+          "target": "com.amazonaws.appintegrations#ArnOrUUID",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Application.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.appintegrations#DeleteApplicationResponse": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.appintegrations#DeleteDataIntegration": {
       "type": "operation",
       "input": {
@@ -1339,7 +1749,7 @@
       "type": "string",
       "traits": {
         "smithy.api#length": {
-          "min": 1,
+          "min": 0,
           "max": 1000
         },
         "smithy.api#pattern": ".*"
@@ -1376,6 +1786,16 @@
           "max": 2048
         },
         "smithy.api#pattern": "^[a-zA-Z0-9\\/\\._\\-]+$"
+      }
+    },
+    "com.amazonaws.appintegrations#EventDefinitionSchema": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 10240
+        },
+        "smithy.api#pattern": "^.*$"
       }
     },
     "com.amazonaws.appintegrations#EventFilter": {
@@ -1505,6 +1925,37 @@
         }
       }
     },
+    "com.amazonaws.appintegrations#EventName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 255
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9\\/\\._\\-]+::[a-zA-Z0-9\\/\\._\\-]+(?:\\*)?$"
+      }
+    },
+    "com.amazonaws.appintegrations#ExternalUrlConfig": {
+      "type": "structure",
+      "members": {
+        "AccessUrl": {
+          "target": "com.amazonaws.appintegrations#URL",
+          "traits": {
+            "smithy.api#documentation": "<p>The URL to access the application.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ApprovedOrigins": {
+          "target": "com.amazonaws.appintegrations#ApplicationApprovedOrigins",
+          "traits": {
+            "smithy.api#documentation": "<p>Additional URLs to allow list if different than the access URL.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The external URL source for the application.</p>"
+      }
+    },
     "com.amazonaws.appintegrations#Fields": {
       "type": "string",
       "traits": {
@@ -1567,6 +2018,161 @@
           "min": 1,
           "max": 10
         }
+      }
+    },
+    "com.amazonaws.appintegrations#GetApplication": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.appintegrations#GetApplicationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.appintegrations#GetApplicationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.appintegrations#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.appintegrations#InternalServiceError"
+        },
+        {
+          "target": "com.amazonaws.appintegrations#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.appintegrations#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.appintegrations#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>This API is in preview release and subject to change.</p>\n         <p>Get an Application resource.</p>",
+        "smithy.api#examples": [
+          {
+            "title": "To get an application",
+            "documentation": "The following retrives an application.",
+            "input": {
+              "Arn": "arn:aws:app-integrations:us-west-2:0123456789012:application/98542c53-e8ac-4570-9c85-c6552c8d9c5e"
+            },
+            "output": {
+              "Name": "My Application",
+              "Namespace": "myapplication",
+              "Description": "My first application.",
+              "ApplicationSourceConfig": {
+                "ExternalUrlConfig": {
+                  "AccessUrl": "https://example.com"
+                }
+              }
+            }
+          }
+        ],
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/applications/{Arn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.appintegrations#GetApplicationRequest": {
+      "type": "structure",
+      "members": {
+        "Arn": {
+          "target": "com.amazonaws.appintegrations#ArnOrUUID",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Application.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.appintegrations#GetApplicationResponse": {
+      "type": "structure",
+      "members": {
+        "Arn": {
+          "target": "com.amazonaws.appintegrations#Arn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Application.</p>"
+          }
+        },
+        "Id": {
+          "target": "com.amazonaws.appintegrations#UUID",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for the Application.</p>"
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.appintegrations#ApplicationName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the application.</p>"
+          }
+        },
+        "Namespace": {
+          "target": "com.amazonaws.appintegrations#ApplicationNamespace",
+          "traits": {
+            "smithy.api#documentation": "<p>The namespace of the application.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.appintegrations#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the application.</p>"
+          }
+        },
+        "ApplicationSourceConfig": {
+          "target": "com.amazonaws.appintegrations#ApplicationSourceConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for where the application should be loaded from.</p>"
+          }
+        },
+        "Subscriptions": {
+          "target": "com.amazonaws.appintegrations#SubscriptionList",
+          "traits": {
+            "smithy.api#deprecated": {
+              "message": "Subscriptions has been replaced with Permissions"
+            },
+            "smithy.api#documentation": "<p>The events that the application subscribes.</p>"
+          }
+        },
+        "Publications": {
+          "target": "com.amazonaws.appintegrations#PublicationList",
+          "traits": {
+            "smithy.api#deprecated": {
+              "message": "Publications has been replaced with Permissions"
+            },
+            "smithy.api#documentation": "<p>The events that the application publishes.</p>"
+          }
+        },
+        "CreatedTime": {
+          "target": "com.amazonaws.appintegrations#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The created time of the Application.</p>"
+          }
+        },
+        "LastModifiedTime": {
+          "target": "com.amazonaws.appintegrations#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The last modified time of the Application.</p>"
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.appintegrations#TagMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags used to organize, track, or control access for this resource. For example, { \"tags\": {\"key1\":\"value1\", \"key2\":\"value2\"} }.</p>"
+          }
+        },
+        "Permissions": {
+          "target": "com.amazonaws.appintegrations#PermissionList",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration of events or requests that the application has access to.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.appintegrations#GetDataIntegration": {
@@ -1827,6 +2433,214 @@
         "smithy.api#httpError": 400
       }
     },
+    "com.amazonaws.appintegrations#ListApplicationAssociations": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.appintegrations#ListApplicationAssociationsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.appintegrations#ListApplicationAssociationsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.appintegrations#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.appintegrations#InternalServiceError"
+        },
+        {
+          "target": "com.amazonaws.appintegrations#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.appintegrations#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.appintegrations#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns a paginated list of application associations for an application.</p>",
+        "smithy.api#examples": [
+          {
+            "title": "To list application associations of an application",
+            "documentation": "The following retrives application associations of an application",
+            "input": {
+              "ApplicationId": "98542c53-e8ac-4570-9c85-c6552c8d9c5e"
+            },
+            "output": {
+              "ApplicationAssociations": [
+                {
+                  "ApplicationArn": "arn:aws:app-integrations:us-west-2:0123456789012:application/98542c53-e8ac-4570-9c85-c6552c8d9c5e",
+                  "ApplicationAssociationArn": "arn:aws:app-integrations:us-west-2:0123456789012:application-association/98542c53-e8ac-4570-9c85-c6552c8d9c5e/461dfb57-320a-454d-9bba-bb560845ff38",
+                  "ClientId": "connect.amazonaws.com"
+                }
+              ],
+              "NextToken": "abc"
+            }
+          }
+        ],
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/applications/{ApplicationId}/associations",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "ApplicationAssociations",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.appintegrations#ListApplicationAssociationsRequest": {
+      "type": "structure",
+      "members": {
+        "ApplicationId": {
+          "target": "com.amazonaws.appintegrations#ArnOrUUID",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique identifier for the Application.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.appintegrations#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next set of results. Use the value returned in the previous \nresponse in the next request to retrieve the next set of results.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.appintegrations#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return per page.</p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.appintegrations#ListApplicationAssociationsResponse": {
+      "type": "structure",
+      "members": {
+        "ApplicationAssociations": {
+          "target": "com.amazonaws.appintegrations#ApplicationAssociationsList",
+          "traits": {
+            "smithy.api#documentation": "<p>List of Application Associations for the Application.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.appintegrations#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If there are additional results, this is the token for the next set of results.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.appintegrations#ListApplications": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.appintegrations#ListApplicationsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.appintegrations#ListApplicationsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.appintegrations#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.appintegrations#InternalServiceError"
+        },
+        {
+          "target": "com.amazonaws.appintegrations#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.appintegrations#ThrottlingException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>This API is in preview release and subject to change.</p>\n         <p>Lists applications in the account.</p>",
+        "smithy.api#examples": [
+          {
+            "title": "To list applications in the account",
+            "documentation": "The following lists application summary in the account.",
+            "input": {
+              "MaxResults": 1
+            },
+            "output": {
+              "Applications": [
+                {
+                  "Id": "98542c53-e8ac-4570-9c85-c6552c8d9c5e",
+                  "Arn": "arn:aws:app-integrations:us-west-2:0123456789012:application/98542c53-e8ac-4570-9c85-c6552c8d9c5e",
+                  "Name": "My Application",
+                  "Namespace": "myapplication"
+                }
+              ],
+              "NextToken": "abc"
+            }
+          }
+        ],
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/applications",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "Applications",
+          "pageSize": "MaxResults"
+        }
+      }
+    },
+    "com.amazonaws.appintegrations#ListApplicationsRequest": {
+      "type": "structure",
+      "members": {
+        "NextToken": {
+          "target": "com.amazonaws.appintegrations#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The token for the next set of results. Use the value returned in the previous \nresponse in the next request to retrieve the next set of results.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "MaxResults": {
+          "target": "com.amazonaws.appintegrations#MaxResults",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of results to return per page.</p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.appintegrations#ListApplicationsResponse": {
+      "type": "structure",
+      "members": {
+        "Applications": {
+          "target": "com.amazonaws.appintegrations#ApplicationsList",
+          "traits": {
+            "smithy.api#documentation": "<p>The Applications associated with this account.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.appintegrations#NextToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If there are additional results, this is the token for the next set of results.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.appintegrations#ListDataIntegrationAssociations": {
       "type": "operation",
       "input": {
@@ -1858,6 +2672,12 @@
           "method": "GET",
           "uri": "/dataIntegrations/{DataIntegrationIdentifier}/associations",
           "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "DataIntegrationAssociations",
+          "pageSize": "MaxResults"
         }
       }
     },
@@ -1939,6 +2759,12 @@
           "method": "GET",
           "uri": "/dataIntegrations",
           "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "DataIntegrations",
+          "pageSize": "MaxResults"
         }
       }
     },
@@ -2015,6 +2841,12 @@
           "method": "GET",
           "uri": "/eventIntegrations/{EventIntegrationName}/associations",
           "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "EventIntegrationAssociations",
+          "pageSize": "MaxResults"
         }
       }
     },
@@ -2096,6 +2928,12 @@
           "method": "GET",
           "uri": "/eventIntegrations",
           "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "EventIntegrations",
+          "pageSize": "MaxResults"
         }
       }
     },
@@ -2276,6 +3114,69 @@
         "smithy.api#documentation": "<p>The configuration for what data should be pulled from the source.</p>"
       }
     },
+    "com.amazonaws.appintegrations#Permission": {
+      "type": "string",
+      "traits": {
+        "smithy.api#documentation": "<p>The permission of an event or request that the application has access to.</p>",
+        "smithy.api#length": {
+          "min": 1,
+          "max": 255
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9\\/\\._\\-\\*]+$"
+      }
+    },
+    "com.amazonaws.appintegrations#PermissionList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.appintegrations#Permission"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 150
+        }
+      }
+    },
+    "com.amazonaws.appintegrations#Publication": {
+      "type": "structure",
+      "members": {
+        "Event": {
+          "target": "com.amazonaws.appintegrations#EventName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the publication.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Schema": {
+          "target": "com.amazonaws.appintegrations#EventDefinitionSchema",
+          "traits": {
+            "smithy.api#documentation": "<p>The JSON schema of the publication event.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.appintegrations#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the publication.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The configuration of an event that the application publishes.</p>"
+      }
+    },
+    "com.amazonaws.appintegrations#PublicationList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.appintegrations#Publication"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 50
+        }
+      }
+    },
     "com.amazonaws.appintegrations#ResourceNotFoundException": {
       "type": "structure",
       "members": {
@@ -2347,6 +3248,39 @@
           "max": 1000
         },
         "smithy.api#pattern": "^(\\w+\\:\\/\\/[\\w.-]+[\\w/!@#+=.-]+$)|(\\w+\\:\\/\\/[\\w.-]+[\\w/!@#+=.-]+[\\w/!@#+=.-]+[\\w/!@#+=.,-]+$)$"
+      }
+    },
+    "com.amazonaws.appintegrations#Subscription": {
+      "type": "structure",
+      "members": {
+        "Event": {
+          "target": "com.amazonaws.appintegrations#EventName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the subscription.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.appintegrations#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the subscription.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The configuration of an event that the application subscribes.</p>"
+      }
+    },
+    "com.amazonaws.appintegrations#SubscriptionList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.appintegrations#Subscription"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 50
+        }
       }
     },
     "com.amazonaws.appintegrations#TagKey": {
@@ -2469,10 +3403,36 @@
         "smithy.api#httpError": 429
       }
     },
+    "com.amazonaws.appintegrations#Timestamp": {
+      "type": "timestamp"
+    },
+    "com.amazonaws.appintegrations#URL": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1000
+        },
+        "smithy.api#pattern": "^\\w+\\:\\/\\/.*$"
+      }
+    },
     "com.amazonaws.appintegrations#UUID": {
       "type": "string",
       "traits": {
         "smithy.api#pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$"
+      }
+    },
+    "com.amazonaws.appintegrations#UnsupportedOperationException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.appintegrations#Message"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The operation is not supported.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.appintegrations#UntagResource": {
@@ -2531,6 +3491,119 @@
       }
     },
     "com.amazonaws.appintegrations#UntagResourceResponse": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.appintegrations#UpdateApplication": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.appintegrations#UpdateApplicationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.appintegrations#UpdateApplicationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.appintegrations#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.appintegrations#InternalServiceError"
+        },
+        {
+          "target": "com.amazonaws.appintegrations#InvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.appintegrations#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.appintegrations#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.appintegrations#UnsupportedOperationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>This API is in preview release and subject to change.</p>\n         <p>Updates and persists an Application resource.</p>",
+        "smithy.api#examples": [
+          {
+            "title": "To update an application",
+            "documentation": "The following updates an existing application named with a new name.",
+            "input": {
+              "Arn": "arn:aws:app-integrations:us-west-2:0123456789012:application/98542c53-e8ac-4570-9c85-c6552c8d9c5e",
+              "Name": "My New Application Name"
+            },
+            "output": {}
+          }
+        ],
+        "smithy.api#http": {
+          "method": "PATCH",
+          "uri": "/applications/{Arn}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.appintegrations#UpdateApplicationRequest": {
+      "type": "structure",
+      "members": {
+        "Arn": {
+          "target": "com.amazonaws.appintegrations#ArnOrUUID",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Application.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "Name": {
+          "target": "com.amazonaws.appintegrations#ApplicationName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the application.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.appintegrations#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the application.</p>"
+          }
+        },
+        "ApplicationSourceConfig": {
+          "target": "com.amazonaws.appintegrations#ApplicationSourceConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration for where the application should be loaded from.</p>"
+          }
+        },
+        "Subscriptions": {
+          "target": "com.amazonaws.appintegrations#SubscriptionList",
+          "traits": {
+            "smithy.api#deprecated": {
+              "message": "Subscriptions has been replaced with Permissions"
+            },
+            "smithy.api#documentation": "<p>The events that the application subscribes.</p>"
+          }
+        },
+        "Publications": {
+          "target": "com.amazonaws.appintegrations#PublicationList",
+          "traits": {
+            "smithy.api#deprecated": {
+              "message": "Publications has been replaced with Permissions"
+            },
+            "smithy.api#documentation": "<p>The events that the application publishes.</p>"
+          }
+        },
+        "Permissions": {
+          "target": "com.amazonaws.appintegrations#PermissionList",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration of events or requests that the application has access to.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.appintegrations#UpdateApplicationResponse": {
       "type": "structure",
       "members": {},
       "traits": {
@@ -2654,7 +3727,7 @@
         "Description": {
           "target": "com.amazonaws.appintegrations#Description",
           "traits": {
-            "smithy.api#documentation": "<p>The description of the event inegration.</p>"
+            "smithy.api#documentation": "<p>The description of the event integration.</p>"
           }
         }
       },
